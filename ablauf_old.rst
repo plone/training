@@ -1,0 +1,2462 @@
+========
+TRAINING
+========
+
+**Day 1**
+
+1. Introduction (15 Min)
+2. Installation & Setup (60 Min) (Philip)
+3. The features of Plone (45min) (Philip)
+4. Simple Customisations (45min) (Philip)
+5. Extending Plone with Addons (80min) (Patrick & Philip)
+5.1 Theming
+6. buildout I (30min) (Patrick)
+7. Plone-IDE's (15min) (Patrick)
+8. Creating your own eggs to customize Plone (15min) (Patrick)
+9. Creating a new content-type "Talk" with Dexterity (45min) (Philip)
+10. Views I (60min) (Patrick und Patrick)
+
+**Day 2**
+
+11. Views II: A default view for "talk" (45min) (Patrick)
+12. Views III Talk list (45min) (Philip)
+13. Extending CTs with Behaviors (30min) (Patrick)
+14. Adding a Viewlet (30min) (Philip)
+15. Deploying your code (15min) (Patrick)
+16. Buildout II deploying your site (60min) (Patrick)
+
+
+
+1. Introduction (10 Minutes)
+============================
+
+Who are we?
+-----------
+
+We introduce each other
+
+* Patrick Gerken, do3cc, patrick@starzel.de
+* Philip Bauer, pbauer, bauer@starzel.de
+* Starzel (http://www.starzel.de)
+* Munich User Group
+
+Who are you?
+------------
+
+Please introduce yourselves:
+
+* name, company, country...
+* Your plone experience
+* Your web-development experience
+* What is your motivation to go to tutorial
+* What are your expectation for tutorial
+* Do you know the html of the output of this?::
+
+    <div class="hiddenStructure"
+         tal:repeat="num python:range(1, 10, 5)"
+         tal:content="structure num"
+         tal:omit-tag="">
+      This is some weird sh*t!
+    </div>
+* Do you know what the following would return?::
+
+    [(i.Title, i.getURL()) for i in context.getFolderContents()]
+
+* What is your favorite editor?
+
+
+What will we do?
+----------------
+
+Technologies and tools we use today
+
+* git
+* github
+* virtualbox
+* vagrant
+* ubuntu linux
+* TTW (a lot!)
+* buildout
+* TAL
+* METAL
+* zcml
+* grok
+* python
+* dexterity
+* viewlets
+* jquery
+
+What we will not do?
+--------------------
+
+We will not cover the following:
+
+* archetypes
+* portlets
+* genericsetup
+* z3c.form
+* caching
+* hosting
+* Diazo
+* Theming
+* tests
+* deco and tiles
+* image-scales
+* i18n and locales
+
+
+What to expect
+--------------
+
+You won't be a plone-programmer after these 2 days. You will know some of the more powerfull features of Plone and should be able to construct a website on your own using these tools. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core-technologies involved in plone-programming.
+
+If you want to become a plone-developer or plone-integrator you should definitvely read Martins book and re-read it again. Most importantly you should practice your skills and not stop here but go forward!
+
+If you want to stay on the ttw-side of things you could read "Practical Plone" (http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book).
+
+
+Other
+-----
+
+* Breaks
+* Food, Restrooms
+* Questions
+* WIFI: fairtraderocks
+
+2. Installation & Setup (60 Min) (Philip)
+=========================================
+
+Hosting your own site
+---------------------
+
+If you want to host a Plone-website yourself then running it on your Laptop may not be the smartest option. We will cover some options for hosting tomorrow. One option is http://ploud.com whre you can host one real Plone-Site for free.
+
+Options:
+
+* Ploud.net
+* Webfaction
+* gocept
+* Starzel
+* AWS
+* Rackspace
+
+
+Brief introduction of several installation-options
+--------------------------------------------------
+
+Plone 4.2 requires a working Python 2.7 and several other system-tools that not every OS provides. Therefore the installation of Plone is differen on every system (
+
+* MacPorts / homebrew
+* python-buildout
+* PyWin32
+* Linux-packages
+* pre-installed Pythons
+
+MacOS 10.8 and Ubuntu 12.4 come with a working default Python 2.7 built in. These are the lucky ones. But to run a older Plone-version you need Python 2.4 and that's not always easy to install.
+
+To find out how to install Plone on your machine read http://plone.org/documentation/manual/installing-plone
+
+Everyone usually uses his primary system to develop Plone. I use MacOS and therefore I use the python-buildout (https://github.com/collective/buildout.python) to compile all neccessary version of python and homebrew (http://mxcl.github.com/homebrew/) for some linux-tools. Patrick uses ubuntu. Our friend Stefan always uses the unified installer's python. Alan Runyan (one of Plone's founders) uses Windows and i have no idea how he can live with that.
+
+* unified installers for all 'nix (including MacOS)
+* one-click installers for Windows and Mac
+* very old package for debian (don't use)
+* use some your python and create your own buildout
+
+
+Vagrant and Virtualbox
+----------------------
+
+To not waste too much time with installing and debugging the differences between systems we use a virtual machine (ubuntu 12.4) to run Plone during the training. We install virtualbox and vagrant a wrapper that manages virtual machines.
+
+Vagrant is a wrapper for Oracle’s VirtualBox to create and manage virtual environments.
+
+
+Installation
+------------
+
+*All these steps are done by vagrant/puppet.*
+
+We'll first use the unified installer and the default Plone-configuration (called buildout) that comes with it. Later we'll create our own buildout and extend it as we wish.
+
+The first installation is in fact done by Puppet, a tool to automatically manage servers (real and virtual). We won't get into it Puppet since it's not that widely used. This is what we bascally do if we did it by hand:
+
+First we install some packages::
+
+    $ sudo aptitude update --quiet --assume-yes
+    $ sudo apt-get install python-dev python-virtualenv libjpeg62-dev libxslt1-dev git-core subversion zlib1g-dev libbz2-dev wget curl elinks gettext
+
+Then we create a virtual python environement using virtualenv. This is alway a good practice since that way we get a clean copy of our system-pythonm we can't break it by installing stuff that might collide with other stuff::
+
+    $ virtualenv --no-site-packages py27
+
+Then we download, unpack and install the unified installer of Plone::
+
+    $ mkdir training
+    $ mkdir tmp
+    $ cd tmp
+    $ wget https://launchpad.net/plone/4.2/4.2.1/+download/Plone-4.2.1-UnifiedInstaller.tgz
+    $ tar xzf Plone-4.2.1-UnifiedInstaller.tgz
+    $ cd Plone-4.2.1-UnifiedInstaller
+    $ ./install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/training
+
+The unified installer is an amazing tool that compiles it's own python, brings with it all the python-eggs we need and puts them in a buildout-cache. It then creates a buildout and makes Plone ready to run.
+
+We'll use this Plone, that is found in /home/vagrant/training/zinstance on the virtual machine.
+
+Later we'll leave the unified installer behind and build our own little buildout. Buildout will be explained later in depth.
+
+
+Customising the buildout (Patrick)
+----------------------------------
+
+TODO: (enter "admin" as password?)
+Now, lets run buildout and wait a bit...
+Buildout will create a start script for us. The start script accepts some parameters, the first is the command.
+
+
+
+
+Starting Plone (Patrick)
+------------------------
+
+We control Plone with a small script called "instance"
+
+``$ ./bin/instance fg``
+    this starts Plone and we can see what it's doing
+
+It offers the following options::
+
+    ./bin/instance fg
+    ./bin/instance start
+    ./bin/instance fstop
+    ./bin/instance debug -P Plone
+
+Depending on your computer, it will take up to a minute until zope will tell you that its ready to serve requests.
+
+A Zope Standard installation always listens on port 8080, so lets have a look at our Zope Site by visiting http://localhost:8080
+
+As you can see, there is no Plone yet!
+We have a running zope with a database but no content. But luckily there is that button to create a zope site.
+Click on that button. Use "Plone" as the site id.
+
+
+The anatomy of Plone introduction (Patrick)
+-------------------------------------------
+
+Systemarchitektur erklären (5 Minuten)
+
+* Zope
+  * Scripts in the database
+  * Acqusition to simulate class and stuff, persistency.
+* CMF
+* Plone
+* Erweiterungen
+
+
+
+Now, lets clear up a bit of mumbo jumbo.
+I talk about Zope, sometimes about Plone. Whats the difference about that?
+
+Zope is an application server. Before zope, there usually was an apache server that would call a python script, and send the request via stdout or something. The script would then just print some stuff and this was the html.
+Jim Fulton thought, that this is pretty stupid. So he wrote some code to handle requests. He believed that site content is object oriented and that the url should somehow point directy into the object hierarchy, so he wrote an object oriented database, called ZODB. Then there where transactions, so that it became a real database and after a while, python scripts that could be edited through the web, followed. One lost puzzle is important, Acquisition.
+Acquisition was kind of magic. Imagine a world, where there is no file system, and there are no imports. That is the vision of zope. Now if you have a folder food, and in there is a folder fruits, and in there is a page apple, and there are many many different pages on different levels in hierarchy, how would you implement some kind of functionality like displaying an e-mail adress that is defined centraly? The Answer is acquisition. In my View, I would maybe call context.getEmail(). Context stands for the object on which I currently am in the ZODB. Now there is no script getEmail() in here, but thanks to acquisition, python looks for the attribute a level higher, and another level and so on. This is the way to go for writing whole applications through the web and in a structured manner.
+Basically this is Zope.
+When I open http://localhost:8080/Plone/manage, I see the Zope Management Interface, a view into my object oriented database.
+
+After many successfully created websites based on zope, a number of recurring requirements emerged, and the CMF, the Content Management Framework was written.
+Most objects you see in the ZMI are part of the CMF somehow.
+The people behind CMF did not see CMF as a CMS. They created a CMS Site which was usable out of the box, but made it deliberately ugly, because you have to customize it anyway.
+
+This is one way to do it. Plone Founders Alexander Limi and Alan Runyan thought differently, and created a CMS that was usable and beautiful out of the box. Plone.
+
+Well, what do you think was a more successful way to go on?
+(Hint: Last german zope conference (2010): 80 ppl (There is no international zope conf), First german plone conf(2012): 150ppl)
+In practice, there is much much less in Zope world going on than in the Plone World. That means, that the question, what is part of CMF and what not, is a bit diluted. CMFEditions is not part of CMF, btw.
+
+So the important parts are this:
+We run Zope, the application server. Our Main application is Plone.
+
+
+
+3. The features of Plone (45min) (Philip)
+=========================================
+
+ * Users
+ * Walktrough of the UI
+ * Content-Types
+ * Pages and Folders
+ * Content-Management
+ * Collections
+ * Content Rules, History,
+ * Working Copys
+ * User-Management, Roles und Groups
+ * Workflows
+ * Placeful Workflows
+
+
+Users
+-----
+
+Now let us create our first user within Plone. So far we used the admin-user (admin:admin) configured in the buildout. He is often called "zope-root". This user is not managed in Plone but only in by Zope. Therefore he's missing some features like email and fullname and he won't be able to some of plone's features. But he has all possible permissions.
+
+You can add zope-users also via the terminal by entering::
+
+  $ ./bin/instance adduser rescueuser secretpassword
+
+This way you can access databases you get from customers wehere you have no Plone-user.
+
+Now click on the name "admin" in the top right corner and then on "Site setup". This is Plone's control panel. You can access it by browsing to http://localhost:8080/plone-control_panel
+
+Click on "Users and Groups" and add a user. We use pbauer or pgerken as usernames. If you'd have configured a mail-server, Plone can send you a mail with a link to a form where you can chose a password. We set a password here because we didn't configure a smtp-server.
+
+Make this user with your name an admin.
+
+Create another user called testuser. Make him a normal user.
+
+*Firefox --noremote ist ein Weg, um mit unterschiedlichen Nutzern gleichzeitig auf einer Webseite angemeldet zu sein*
+
+Now let's see the site in 3 different browser logged-in in three different roles:
+
+* as anonymous
+* as editor
+* as admin
+
+
+Walktrough of the UI
+--------------------
+
+Let's see what is there...
+
+* portal-top: logo, search, global-navigation (viewlets)
+* portal-columns: a container
+
+  * portal-column-one: portlets
+  * portal-column-content: the content and the editor
+  * portal-column-two: portlets
+
+* portal-footer: viewlets
+
+These are also the css-classes of the respective div's. Get used to them if you want to do theming you'll need them.
+
+
+Content-Types
+-------------
+
+Edit a page:
+
+* Edit frontpage
+* Title: "Plone Conference 2012, Arnhem"
+* Description "Tutorial"
+* Text "..."
+
+Create a site-structure:
+
+* Add folder "The Event" and in that ...
+
+  * Folder "Talks"
+  * Folder "Training"
+  * Folder "Sprint"
+
+* In /news: Add News Item "conf website online!" with image
+* In /news: Add News Item "submit your talks!"
+* In /events: Add Event "Deadline for talk-submission" Date: 10.10.2012
+
+* Add Folder "Register"
+* Delete "members"
+* Add Folder "Intranet"
+
+
+Explain default content-types:
+
+* Document
+* News Item
+* Event
+* File
+* Image
+* Link
+* Folder
+* Collection
+
+
+Folders
+-------
+
+* Go to 'the-event'
+* explain title/id/url
+* explain /folder_contents
+* change order
+* bulk-actions
+* dropdown "display"
+* default_pages
+* Add a page to 'the-event': "The Event" and make it the default-page
+
+
+Collections
+-----------
+
+* add a new collection: all content that has pending as wf_state.
+* explain http://localhost:8080/Plone/events/aggregator/edit
+* old vs. new collections (in 4.2. new collections are the default)
+* mention collection-portets
+
+
+Content Rules
+-------------
+
+* Create new rule "a new talk is in town"!
+* New content in folder "Talks" -> Send Mail to reviewers.
+
+
+History
+-------
+
+explain
+
+
+Manage members and groups
+-------------------------
+
+* add/edit/delete Users
+* roles
+* groups
+
+  * Add group: orga
+  * add group: speaker
+
+
+Workflows
+---------
+
+* screenshots?
+* Show plone.app.workflowmanager
+
+
+Working copy
+------------
+
+* enable addon
+* explain
+
+
+Placeful workflows
+------------------
+
+* enable addon
+* explain
+
+
+4. Simple Customisations (45min) (Philip)
+=========================================
+
+ * Configuring Plone with /plone_control_panel
+ * Portlets
+ * Viewlets
+ * ZMI (plus intro to ZMI)
+ * portal_actions
+
+
+Configuring Plone with /plone_control_panel
+-------------------------------------------
+
+Click name
+Click "Site Setup"
+
+1. Add-ons (later...)
+2. Calendar
+3. Configuration Registry
+4. Content Rules (we know this already)
+5. Discussion
+6. Editing
+7. Errors
+8. HTML Filtering
+9. Image Handling
+10. Language
+11. Mail
+12. Maintenance
+13. Markup
+14. Navigation
+15. Search
+16. Security
+17. Site
+18. Themes
+19. TinyMCE Visual Editor
+20. Types
+21. Users and Groups
+22. Workflow Manager
+23. Zope Management Interface (here be dragons)
+
+
+Portlets
+---------
+
+explain portlets:
+
+* @@manage-portlets
+* UI fit for smart content-editors
+* explain various types
+* inheritance
+* managing them
+* ordering/weighting
+* will be replaced by tiles?
+
+Example:
+
+* right: add static portlet "Sponsors".
+
+
+Viewlets
+--------
+
+* @@manage-viewlets
+* no UI - not for content-editors
+* not locally addable, no configurable inheritance
+* will be replaced by tiles?
+* the code is much simpler (we'll create one tomorrow)
+* viewlet-manager
+* ttw-reordering only within the same viewlet-manager
+* the programer descides when it's where and what it shows
+
+Portlets save Data, Viewlets usually don't. Viewlets are often used for UI-stuff.
+
+example: hide collophon
+
+
+ZMI
+---
+
+Köln ist eine Stadt die über 1000 Jahre alt ist. Es gibt heutzutage aber keine Infrastruktur mehr die von den Römern geschaffen und von uns noch genutzt werden. Zope ist der Unterbau von Plone und der Altersunterschied zwischen Zope und Plone ist wesentlich geringer als zwischen Köln und Colonia, aber als Kölner muss man Köln ja auch mal erwähnen. Aber in einem Aspekt hinkt der Vergleich nicht, wenn man im modernen Köln Mist baut, wird man nicht den Löwen zum Frass vorgeworfen, im alten Zope/Colonia kann das passieren. Es gibt Dinge die man dort nicht tun sollte, weil Plone dadurch kaputt geht. Wenn man doch etwas in Zope machen muss, ist das normalerweise gut auf Plone.org dokumentiert. Lustige Geschichten, wir sich andere (also wir noch nie!) In den Fuss geschossen haben erzählen wir gerne beim Social Event. Daher werden wir erst später was zu Zope und dem Zope Management Interface, ZMI erzählen.
+
+
+Actions
+-------
+
+Go into the ZMI (explain /manage)
+
+Mostly links but really flexible links :-)
+
+Manchmal soll ein Link aber mehr Eigenschaften haben, Links sollten eine Beschreibung haben können, und Bedingungen, zum Beispiel der Kontext oder ein benötigtes Recht. Ausserdem sollte das ganze Konfigurierbar sein, ohne das wir dazu HTML anpassen müssen. Dazu gibt es in Plone schon seit dem alten Rom das Konzept der Portal Actions. Dort werden kleine Objekte angelegt mit all diesen Eigenschaften, und im HTML werden diese Objekte, die Actions heissen abgefragt und entsprechend Texte geschrieben, Icons angezeigt und dergleichen.
+
+Ein Beispiel für diese Links sind die grauen Reiter oben. Wir nehmen nun den Link auf die Startseite raus, die Besucher können auch auf das Logo klicken.
+
+Kräftig durchatmen, wir sind nun in den Katakomben dem ZMI, bitte nichts berühren, sonst stürzt alles ein ;-)
+
+go to portal_actions -> portal_tabs
+
+Where is my navigation?
+
+The navigation shows content-objects, which are in Plone's root. Plus all actions in portal_tabs
+
+explain & edit index_html
+
+Derzeit gibt es nur diese eine, die wir uns vor dem Löschen ganz kurz anschauen, bitte drauf klicken
+
+Add a link to the imprint to the bottom:
+
+go to site_actions (we know that because we chacked in manage-viewlets) > add a CMF Actions 'imprint' and point it at string:${globals_view/navigationRootUrl}/imprint
+
+Explain permissions, condition,
+
+If time explain:
+
+* user > undo (cool!)
+* user > login/logout
+
+
+5. Extending Plone with Addons (80min) (Patrick)
+================================================
+
+ * Introduction (10min)
+ * Installing Addons (5min) (+ infos on uninstalling)
+ * PloneFormGen (15min)
+ * Internationalisation with LinguaPlone (20min) (Philip)
+ * Add bling with PloneTrueGallery (10min) (Patrick)
+ * Customizing the design with plone.app.themeeditor (20min) (Philip)
+ * export egg
+
+Zope is extensible, as is Plone.
+Nowadays everybody installs eggs. Eggs are a bunch of python files, together with other needed files like page templates and the like and a bit of Metadata.
+
+Eggs are a much much younger than Zope. Zope needed something like eggs before there were eggs, and the Zope Developers wrote their own system, which we still see at some parts. But more and more functionality is pushed into the eggs alone.
+
+Now, how can one extend Plone? A number of extensions create new things that can just be added to plone, like content types. Other things change functionality, like how the search page works or how the site looks like overall.
+
+There are three different ways to extend Plone:
+skin folders. Remember acquisition? Skin Folders are an extension of acquistion. I have a folder portal_skins. This contains a bunch of folders. I have a property on the portal_skins, that defines in which order attributes or objects should be looked for in the skin folder. If in some folder there is a python script called getEmail, and I want it to send obfuscated emails, my addon would add another folder to the portal_skins, and would add itself to the ordering so that the new folder would be looked for before the original folder. This way I can override behavior.
+
+The next thing is GenericSetup. As the name clearly implies, GenericSetup is part of CMF. It is badly documented.
+GenericSetup lets you define persistent configuration in xml files. Genericsetup parses the xml files and updates the persistent configuration accordingly. This is a step you have to run on your own!
+Typically you use GenericSetup to modify workflows or add new content type definitions.
+
+The last thing is ZCML. A bit of history again. When Zope started, Object oriented Design was the totally awesome technology. Zope objects have more than 10 Base Classes. After a while, XML and Components became a hype (J2EE anyone). So the Zope developers wanted a completely new Zope, component based. It is easier to swap out components than always subclass. The whole thing was named Zope 3, did not gain traction, was renamed to Bluebream and died off. But the component architecture itself was quite successfull and was extracted into the Zope Toolkit, which is integrated in Zope and heavily used in Plone. This is what you want to use.
+For customizing, you can create utilities, adapters and views(MultiAdapters).
+What is the absolute simplest way to extend functionality?
+Monkey Patching. In code, during load time I import some code and replace it with my own code.
+If one can have multiple implementations for something, I could make a global dictionary where everybody just adds its functionality during boot up. This does not scale. Multiple plugins might overwrite each other. Here comes the Zope Component Architecture and ZCML. With ZCML I declare my utilities, adapters and browser views in ZCML, which is a XML dialect. During start up, Zope reads all these ZCML statements, validates that there are not two things trying to register the same things and only then registers everything. This is a good thing. ZCML is btw. only ONE way to declare your configuration, another technology is Grok, where some python magic allows you to decorate your code directly with some magic to make it an adapter. And these two ways of configuring can be mixed.
+Many ppl hate ZCML and avoid Zope because of it. I just find it cumbersome but even for me as a developer, it offers a nice advantage. Because of zcml, whenever I need to find out, where something has been implemented, the zcml files are like a phone book for me.
+
+Installation
+------------
+Installation is a two step process. First, we must make our code available to Zope. This means, it must be importable. This is handled by Buildout.
+ssh to your vagrant, and modify the buildout.cfg files in training/zinstance.
+PloneFormGen, Products.LinguaPlone and Products.PloneTrueGallery, collective.plonetruegallery
+DO THIS NOW
+RESTART
+After that the code is available, the ZCML gets loaded, so browser views, adapters and so on are available, but Plone is not configured to use this.
+For this, you have to install the extension in your Plone Site.
+Go to the Products Panel.
+This is what happens now: The GenericSetup profile of the product gets loaded. This does things like configuring new actions, registering new
+content types or adding browser views.
+
+PTG
+---
+I LOVE PTG.
+What does it do?
+It is a rolemodel on how to write a Plone Extension.
+Instead of creating custom content types for Galleries, it integrates with the plone functionality to choose different views for folderish content types.
+Lets try it!...
+
+
+Introduction (Patrick)
+----------------------
+
+ * 1684 Erweiterungen auf http://plone.org/products
+ * http://pypi.python.org/
+ * Beispiele:
+
+   * collective.plonetruegallery
+   * Singing&Dancing
+
+
+Installing Addons (Patrick)
+---------------------------
+
+ * in buildout eintragen (zeigen)
+ * /manage -> portal_quickinstaller oder -> plone_control_panel -> "Erweiterungen"
+
+
+PloneFormGen (Philip)
+---------------------
+
+There a various methods to create forms in Plone:
+
+* pure html in a view
+* z3c.form, formlib or in Python deform prgrammatically
+* PloneFormGen
+
+Mit PFG kann man professionelle Formulare zusammenklicken. Wenn man bedenkt was die Alternatven sind wird klar wie cool PFG ist. Der angeblich komfortablen Formulargenerator in Typo3 ist ja schon schlimm. In Plone könnte man Formulare auch von Hand in html schreiben und in Python auslesen was oft auch eine einfache Methode ist. Wenn es komplexer sein soll dann eben z3c.forms. Aber dazu muss man ja immer programmieren. Wir machen das jetzt mal nicht sondern klicken uns ein Anmeldeformular für die Plone-Konferenz zusammen.
+
+http://konferenz.plone.de/anmeldung
+
+In fact the guys at fourdigts embedd the form in a iframe. Let's pretend otherwise.
+
+* easy form to subscribe a newsletter?
+* registration-form (Name, Food, Shirt-size etc.)
+* Mail-Adapter
+* DataSave Adapter
+
+
+Internationalisation with LinguaPlone (Philip)
+----------------------------------------------
+
+* /plone_control_panel
+* install installieren
+* add german as language einstellen
+
+   * /@@language-controlpanel -> Deutsch und Englisch auswählen
+   * ZMI -> portal_languages -> "Display flags for language selection" aktivieren
+
+* @@language-setup-folders -> Ordnerstruktur anlegen
+* Englische Startseite anlegen
+* Infos zum übersetzen (folder übersetzen, language_independent)
+
+   http://plone.org/products/linguaplone/issues/250
+   http://localhost:8080/Plone/@@language-setup-folders
+   Seit Plone4 ist der Standardweg von Übersetzungen, das jede Sprache
+   einen eigenen Folder bekommt. Wenn Inhalte übersetzt werden, wird
+
+* die Datei automatisch in den richtigen Ordner kopiert.
+
+
+Add 'bling' with PloneTrueGallery (10min) (Patrick)
+---------------------------------------------------
+
+
+Customizing the design with plone.app.themeeditor (20min) (Philip)
+------------------------------------------------------------------
+
+* Installation
+* explain UI
+* change Logo (dowmload http://www.ploneconf.org/++theme++ploneconf.theme/images/logo.png)
+* change Footer (colophon): add copyright (Phone: +31 26 44 22 700
+  mailto:info@ploneconf.org)
+* change some css::
+
+    #visual-portal-wrapper {
+        margin: 0 auto;
+        position: relative;
+        width: 980px;
+    }
+
+
+export customisations
+---------------------
+
+* export the customisations as an egg (ploneconf.customisations)
+
+
+inspect the egg
+---------------
+
+* what is where?
+* jbot, static etc.
+
+
+Wir können nun das Design unserer Webseite anpassen. Wir können Erweiterungen installieren und einfache Aktionen einrichten. Aber:
+
+* Können wir auf unserer neuen Webseite Talks einreichen?
+* Können wir in einer Liste die wichtigsten Eigenschaften jedes Talks anzeigen?
+* Können wir Besucher den Talk bewerten lassen?
+
+Wir müssen oft strukturierte Daten speichern oder anzeigen können, bis zu einem gewissen Grad auch noch TTW, aber irgendwann erreichen wir eine Grenze. Wir werden im zweiten Teil zeigen, wie man neue Contenttypen anlegt und wie man neue Funktionalitäten schreibt.
+
+
+5.1 Theming
+===========
+
+* Diazo
+* Downloading and activating a theme
+* Creating a new theme
+* Diazo Theme editor
+* Rules
+* Old-school Themeing
+* Deliverance
+
+
+
+6. Buildout I (30min) (Patrick)
+===============================
+
+Buildout erhält eine Liste mit Dingen die man haben möchte, und baut diese zusammen. Es übernimmt dafuer zwei Aufgaben. Eine Aufgabe ist das Holen aller eggs die man braucht, zum anderen erzeugt es bei Bedarf Konfigurationsdateien und Verzeichnisse. Plone benötigt zum Beispiel ein Verzeichnis fuer Log Dateien, eines für die Datenbank und mehrere Konfigurationsdateien für sich selbst. Diese werden alle durch Buildout gebaut. Wir haben durch den Unified Installer schon ein Set an Konfigurationsdateien bekommen. Diese gehen wir nun im Schnelldurchgang durch.
+
+Generell verwenden die Konfigurationsdateien eine Syntax die ähnlich ist wie bei ini files. Man schreibt einen Parameternamen, dann ein Gleichheitszeichen, und dann einen Wert. Wenn man in der nächsten Zeile einen weiteren Wert einträgt, und diesen einrückt, werden beide Werte als eine Liste gespeichert. Beispiel::
+
+    parts = alpha
+        beta
+
+Zusätzlich gibt es Buildout Erweiterungen die eigene Einstellungen brauchen. Damit es da keine Überschneidungen gibt, teilt man seine Konfiguration in Sektoren auf, eine Sektion beginnt mit dem Sektionsnamen in eckigen Klammern. Zu guter letzt verwenden einige Erweiterungen die gleichen Einstellungen, um diese dort wieder nutzen zu können, schreibt man keinen konkreten Wert sonderne eine Referenz auf das Ursprungsfeld.
+
+* buildout.cfg
+
+Wenn man buildout ausführt, sucht buildout zuerst nach dieser Datei.
+Die Buildout Sektion vermischt hier Buildout Konfigurationen und
+wichtige Parameter die von mehreren Erweiterungen verwendet werden.::
+
+    extends =
+
+Hier wird gesagt, welche weiteren Konfigurationsdateien noch geladen
+werden. Die Reihenfolge ist wichtig!::
+
+    http-address =
+
+Der Port auf dem Plone laufen wird.::
+
+    effective-user =
+    eggs =
+
+Die Softwarepakete die wir haben wollen. Hier kommen die
+Erweiterungen rein.::
+
+    develop =
+
+Hier müssen links rein auf die Verzeichnisse in denen der Quelltext
+eigener Pakete sind.
+
+parts =
+
+Ich habe bisher den Begriff Erweiterung verwendet für die
+Erweiterungen, in buildout heissen sie aber in wirklichkeit recipes.
+Wie ein Rezept kann man dann weitere Dinge installieren lassen.
+Wenn man tatsächlich ein Recipe einmal oder mehrfach verwendet,
+nennt man die Sektion einen Part.
+
+Hier trägt man ein, welche Parts tatsächlich verwendet werden
+sollen. Wenn man einen Part geschrieben hat, und nach einem buildout
+ist nicht das passiert, was man erwartet hat, liegt es
+wahrscheinlich daran, das man vergessen hat, diesen Part
+einzutragen.
+
+[versions]
+
+Wichtig und nervig zu gleich.
+
+Wenn man ein Softwarepaket braucht, schreibt man nur den Namen, und
+buildout versucht, das aktuellste Egg zu holen.
+
+Wenn man auf einem neuen Rechner das selbe buildout zum ersten mal
+laufen lässt, hat man deswegen im Zweifel anderne Code, und wundert
+sich, warum das Plone auf dem einen Rechner läuft und auf dem
+anderen nicht. Um das zu vermeiden, muss man immer alle Versionen
+runter schreiben. Der Unifiedinstaller hat eine Buildouterweiterung,
+welche alle Pakete auflistet, bei denen man kein Versionspinning
+gemacht hat. das kann man direkt kopieren.
+
+In diese Datei trägt man diese Pakete übrigens nicht ein.
+
+* base.cfg
+
+Hier ist die grundlegende Plone Struktur eingetragen, wobei alle
+Werte die man vielleicht ändern wollen würde aus der [buildout]
+Sektion geholt werden. Diese wurde in buildout.cfg zusammengestellt.
+
+* versions.cfg
+
+Hier werden alle Versionen gepinnt. In diesen Dateien trägt man
+normalerweise eigene Versionen ein.
+Diese ganzen Dateien werden normalerweise von Zope/Plone auf einem
+Webserver bereitgestellt. Die Dateien haben alle einen
+auskommentierten Link auf die Quelle. Man kann diese URLs auch
+direkt auskommentieren und auf die neuesten Plone Versionen zeigen
+lassen.
+
+* development.cfg
+
+Diese Datei hat die gleiche Aufgabe wie buildout.cfg. Buildout.cfg
+konfiguriert das Plone so, wie man es Produktiv verwenden sollte,
+develop.cfg konfiguriert es so, wie es einem Entwickler hilft.
+
+Everybody hates buildout, but there is nothing better.
+Zope 2.7 was 7 MB big, thats the size of django nowadays btw.
+When eggs came around, the zope community decided to hop on the bandwagon.
+Make zope smaller, better defined components and all that.
+Now development can go on faster, because you modify a smaller subset of the code.
+Ok, now, which version is safe to use for your plone?
+Plone uses about 300 Packages, all packages get new versions on their own.
+Package a requires package b, but at least version 3. Package c requires
+Package b, but at most version 4. Version 5 is current. This gets a mess,
+but there is a solution, buildout.
+Buildout will download all required eggs, check the dependencies and get the
+right version of everything.
+The tool is quite configurable, as such, people not only use it to download
+eggs, but also to set up infrastructure. Create config files, compile a custom
+version of xml, install and configure varnish, create a zope instance, and so on.
+Another type of extension allows whole new functionality, like mr.developer, an
+awesome way to manage your checked out sources.
+
+You use buildout by writing a configuration file. It has an ini like style.
+The configuration consists of sections, the meaning of a section is given by a recipe. There is a special buildout section, it does not declare its recipe, but other general things. Lets checkout the minimal buildout to get an example.
+
+You see here only one part, and it declares its recipe. This is the standard recipe to create a zope instance. Each recipe is an egg, and the recipe name is the egg name. As such, you can find recipes on pypi. There is something else you should know. Everybody has his preferred default settings that he wishes to use in every buildout. You can declare this in a special file. Every time, buildout parses the buildout configuration, it also looks for ~/.buildout/default.cfg
+
+This is the perfect place to declare cache locations. Running a buildout without such a cache directory, the first time buildout runs, it needs more than half an hour because it has to get all these eggs. By declaring all these caches, things are much much faster.
+
+Your virtualenv already has a very special location for the caches. The point it to the directories of the unified installer. This safes us half an hour now.
+
+We already created an, egg, lets use it. But we will not use it as an egg, we use it as a source checkout. A source checkout is like an opened egg, you can easily modify the egg. Not everything gets reloaded automatically, but some things.
+While buildout lets you use source checkouts directly, there is a buildout extension thats much more sophisticated and useful, mr.developer.
+With mr.developer, you can declare, which packages you want to check out from which version control system and which repository url. You can check out sources from git, svn, bzr, hg, whatever. Also, you can say that some source are in your local file system.
+mr.developer comes with a command, ./bin/develop. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them, when you write changes that require a new release. You can activate and deactivate eggs via the develop command or the buildout configuration. You should always use the buildout way. Your commit serves as documentation.
+
+Now, we want to install something very important, the omelette recipe. This thing creates a very very convenient way to access all used source code. It creates a lot of symlinks to point to the real file. We will see this in more detail later. There is something special we have to take care of. Ourbuildout directory is in the shared directory, and unfortunately this does not work will a number of things, one of them is our omelette.
+
+Lastly, later during the tutorial, we will create our own egg, for this we need a to install a program. We use another part for this. zc.recipe.egg
+
+SHOW WEBSITE
+So we do not use the defaults, but change our path.
+Here you see some important property, you can reference data from other sections. This is an important property, on a big site you might have multiple zope instance with only minor differences. You can define the minor differences and pull in the general settings from a template section. This way you only need to change variables in one place.
+Or, even better, if you define services that work together, you can reference each others listening interfaces. So an nginx gets the port information from the buildout.
+
+You see, buildout is very versatile, so lets get to the warnings. It is very easy to overdo with GenericSetup, what is too much and what isn't is hard to say, some people make deployments from their buildouts, some prefer, not to do that.
+Be careful how far you buy the buildout mindset. Supervisor is a program to manage running servers, its pretty good. There is a recipe for it.
+SHOW WEBSITE. The configuration is more complicated than the supervisor configuration itself! By using this recipe, you force others to understand the recipes specific configuration syntax AND the supervisor syntax. For such cases, collective.recipe.template might be a better match. It just iflls the variables ofa  given configuration template.
+
+Another problem is error handling. Buildout sucks balls at error handling. You get in a weird dependency? Buildout will not tell you, where it is coming from. There is a bad egg? Your newborn gives more helpful messages after consuming a bad egg.
+If there is a problem, you can always run buildout with -v, to get more verbose output, sometimes it help. If strange egg versions are requested, check the dependencies declaration of your eggs and your version pinnings. There is NO warning if uppercase and lowercase typing do not match, and for some parts of the code the casing is not an issue. Check out the ordering of your extends, use the annotate command of buildout, to see if it interprets your configuration differently. Restrict yourself to simple buildout files. You can reference variables from other sections, but you can also use a section as a whole template. We learned that this does not work well with complex hierarchies and abandoned that feature.
+
+
+7. Plone-IDE's (15min) (Patrick)
+================================
+
+* Show your editor
+* Sublime
+* Aptana
+* vim
+* emacs
+* Our development-setup today
+
+
+Zu einer Entwicklungsumgebung gehört ein Editor mit dem man gut umgehen kann
+und ein Tool mit dem man einfach eine Volltextsuche machen kann.
+Ausserdem ein Python.
+Jeder arbeitet anders mein Produktivitätsgeheimnis ist die
+Volltextsuche im gesamten Plone Code.
+
+
+
+
+8. Creating your own eggs to customize Plone (15min) (Patrick)
+==============================================================
+
+ * creating plonekonf.talk with zopeskel/templer
+ * what's in an egg?
+
+Eigener Code von uns muss in ein egg. Ein Egg ist eine Zip Datei oder ein
+Verzeichnis das einige Konventionen einhalten muss. Wir machen es uns hier
+einfach und verwenden templer. Mit templer kann man ein Anwendungsskelett
+erstellen, und muss nur noch die Lücken ausfüllen.
+Noch haben wir ZopeSkel aber nicht, wir müssen es noch über unser
+Buildout installieren.
+Dazu gehen wir nun in das src Verzeichnis, und rufen folgendes auf:
+zopeskel
+Dann:
+zopeskel dexterity
+Description: Plonekonferenz Talk
+Wir gehen die Fragen durch
+Wir gehen die Verzeichnisse durch
+Wir tragen das Egg in buildout ein.
+
+ZCML:
+    Konfigurationssprache um das Zopetoolkit Komponententsystem zu
+    konfigurieren
+
+Grok:
+    Alternative Konfigurationssprache zu ZCML.
+
+Genericsetup:
+    Konfiguration die in der Plone Datenbank gespeichert ist kann
+    hiermit importiert und exportiert werden.
+
+Nachdem wir alles eingetragen haben, starten wir Zope und aktivieren die Erweiterung in Plone.
+
+Nun noch schnell ein wenig Scaffolding für später!
+Wir legen im static Verzeichnis 2 Dateien an, plonekonf.css und
+plonekonf.js
+
+Dann gehen wir in das ZMI... und tragen die Ressourcen in
+portal_javascripts und portal_css ein.
+Plone hat eine Ressourcenverwaltung für CSS und Javascript Dateien,
+mit der man Plone noch ein wenig effizienter machen kann.
+Die Standardeinstellungen hier reichen in der Regel.
+
+Nun haben wir Anpassungen gemacht die in der ZODB gespeichert
+wurden. Diese wollen aber auch versionieren, dafür ist Genericsetup
+da.
+
+Wieder im ZMI, gehen wir nun nach portal_setup, und exportieren dort
+die JS und CSS Einstellungen. Wir bekommen eine ZIP Datei, welche
+die XML Dateien enthält, die wir haben wollen. Wir kopieren diese in
+das Profilverzeichnis und passen sie an.
+
+Wir müssen lediglich unsere eigenen Dateien hier rein schreiben,
+Genericsetup löscht nicht die anderen Einträge, und es fügt auch
+nicht die Dateien doppelt ein.
+
+If this is your first egg, this is a very special moment. We are going to create the egg with a script that pregenerates a lot of necessary files. They all are necessary, but sometimes in a sublte way. It takes a while do understand their full meaning. Only this year I learnt and understood why I should have a manifest.in file. You can get along without one, but trust me, you get along better with a proper manifste file.
+Lets have a look at it.
+bootstrap.py, buildout.cfg CHANGES.txt CONTRIBUTORS.txt docs/* README.txt setup.py
+configure.zcml metadata.xml
+
+
+
+9. Creating a new content-type "Talk" with Dexterity (45min) (Philip)
+=====================================================================
+
+ * Dexterity - An introduction
+ * Creating content-types TTW
+ * Exporting content-types into code
+
+
+What is a content-type?
+-----------------------
+
+A content-type is object that can store information and is editable by users.
+
+Schema
+    A definition of fields that comprise a content-type (in Django that would be the Model)
+    These input to these fields can be stored in properties of an object.
+
+    python, xml or ttw
+
+FTI
+    The "Factory Type Information" configures the content-type in Plone, assigns a name, an icon, additional features and possible views to it.
+
+    xml or ttw
+
+View
+    A visual representation of the objecta and the content of it's fields.
+
+    Written as python and zope page templates (a templating language)
+
+
+Dexterity and Archetypes - A Comparison
+---------------------------------------
+
+There are two content-frameworks in Plone
+
+* Dexterity is relatively new. Will be core in Plone 4.3 (4.3a2 is here to test)
+* Archetypes is old, tried and tested (Around since Plone 1.0.4)
+* Archetypes: Very widespread, almost all existing addons are based on Archetypes
+* Plone's default content-types are Archetypes (unless you use plone.app.contentypes)
+
+What do they have in common:
+
+* add and edit-forms are created automatically from the schema
+
+What are the differences?
+
+* Dexterity: New, faster, no dark magic for getters und setters, modular
+* Archetype had magic setter/getter - use talk.getAudience() for the field 'audience'
+* Dexterity: fields are attributes: talk.audience instead of talk.getAudience()
+
+TTW:
+* Dexterity has a good TTW-story.
+* Archetypes has no ttw-story
+* Archetypes has ArchGenXML for UML-modeling (agx will bring this to Dexterity too)
+
+Approaches:
+* Schema in Dexterity: ttw, xml, python. interface = schema, often no class needded
+* Schema in Archetypes: schema only in python
+
+* Dexterity: easy permissions per field, easy custom forms
+* Archetypes: permissions per field hard, custom forms even harder
+* If you have to programm for old sites you need to know Archetypes!
+* If you start new pages you could skip it.
+
+Extending:
+  * Dexterity has Behaviors: easily extendable. Just activate an behavior ttw and you ct is translateable (plone.app.multilingual). There might even be per-instance behaviors at one time...
+  * Archetypes has archetypes.schemaextender. Powerfull but not as flexible
+
+We use dexterity whenever possible beacause of these points.
+We teach Dexterity and not Archetypes since it's much more accessible to beginners and has a great TTW-story.
+
+Views:
+* Both Dexterity and Archetypes have a default-view for content-types.
+* Grok Views
+* Display Forms
+* Browser Views (zcml)
+* TTW (is coming)
+
+
+Installation
+------------
+
+Plone 4.2 already has version-pinnings for dexterity :-)
+
+So all you need is to add plone.app.dexterity to your list of eggs::
+
+    [eggs]
+        Plone
+        plone.app.dexterity
+        ...
+
+Run ./bin/buildout,
+
+In this step we will create a CT called 'Talk' and try it. When it's ready we will move the code from the web to the file system and into our egg. Later we will expand on that type and add behaviors and a viewlet for Talks.
+
+* restart the instance
+* go to portal_quickinstaller
+* install "Dexterity Content Types"
+
+
+Creating content-types TTW
+--------------------------
+
+* Add new CT "Talk"
+
+  * Multiple Choice "Audience" (beginner, advanced, pro)
+  * Image "Image" (portrait)
+  * Behaviors: Basic metadata, Name from title, Referenceable
+
+* Test the content-type
+* explain the base_view
+* extend it (add Richtext "Details")
+* Test again
+* Export ("Export Type Profiles" and save file)
+* delete type before installing the type from the file-system
+
+
+Exporting content-types into code
+---------------------------------
+
+Let's assume we did this: Add new egg to buildout (we can remove plone.app.dexterity from buildout if we add it as a dependency in setup.py and metadata.xml)::
+
+* extract code from exported tar-file and add to plonekonf/talk/profiles/default/
+* restart instance
+* install plonekonf.talk
+* test type and look at the default-view
+
+
+
+
+10. Views I (60min) (Patrick und Patrick)
+=========================================
+
+* A simple browser view
+* Zope Page Templates
+* TAL and TALES
+
+  * python-expressions
+  * tal:condition
+  * tal:repeat
+  * path-expressions
+  * pure TAL-blocks
+  * handling complex data in templates
+
+* METAL and macros
+* Accessing Plone from the template
+* customizing existing templates with z3c.jbot
+
+  * newsitem_view.pt
+  * folder_summary_view.pt
+
+* What we missed
+* skin-templates
+
+Now let's see if we can't improve the default view. To do this we need to learn about templates.
+
+
+A simple browser view
+---------------------
+
+First we need to add some boilerplate-code to be able to use a template. We use paster again::
+
+    $ cd src/plonekonf.talk/src
+    $ ../../../bin/paster add browserview
+
+Enter 'Demo' as answer to the only question asked.
+
+This creates a the boilerplate that allows us to use a template without having to care about registering it in plone and providing a view for now.
+
+We could also do it by hand. To do that we'd add the following to browser/configure.czml::
+
+    <browser:page
+       name="demoview"
+       for="*"
+       class=".views.DemoView"
+       template="templates/demoview.pt"
+       permission="zope2.View"
+       />
+
+add a file views.py. It should hold::
+
+    from Products.Five.browser import BrowserView
+
+    class DemoView(BrowserView):
+        """ This does nothing so far
+        """
+
+Add a folder 'templates' and and in it an empty file 'demoview.pt'
+
+Restart the site and open http://localhost:8080/Plone/@@demoview
+
+Now we have everything in place to lean about page templates.
+
+
+Zope Page Templates
+-------------------
+
+Page Templates are HTML-files with some additional Information, written in TAL, METAL and TALES. Page templates must be valid xml.
+
+The three languages are.
+
+* TAL: "Template Attribute Language"
+
+  * Templating XML/HTML using special Attributes
+
+  * Using TAL we include TALES-Expressions into html
+
+* TALES: "TAL Expression Syntax"
+
+  * defines how the expressions Ausdrücke, welche die TAL-Anweisungen auswerten, notiert werden müssen, damit der Zugriff auf Objekte, Eigenschaften und Methoden funktioniert
+
+* METAL: "Macro Expansion for TAL"
+
+  * this enables us to combine, re-use and nest templates together
+
+TAL and METAL are written like html-attribues (url, src, title). TALES are written like the values of these attributes. A typical TAL-Statement looks like this::
+
+    <title tal:content="context/title">
+        The Title of the content
+    </title>
+
+It's used to modify the output::
+
+    <p tal:content="string:I love red">I love blue</p>
+
+results in::
+
+    <p>I love red</p>
+
+Let's try it. Open the file ``demoview.pt`` and empty it since we don't need the stuff that was put in by default.
+
+Instead enter the following::
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+          lang="en"
+          i18n:domain="plonekonf.talk">
+    <body>
+
+        <p>red</p>
+
+    </body>
+    </html>
+
+
+Chameleon
+---------
+
+PLIPS: https://dev.plone.org/report/24
+
+Plip https://dev.plone.org/ticket/12198
+
+http://www.pagetemplates.org/
+
+
+TAL and TALES
+-------------
+
+Now let's add some magic and modify the <p>-tag::
+
+    <p tal:content="string:blue">red</p>
+
+This will result in:
+
+    <p>blue</p>
+
+Now (without restarting Plone) open http://localhost:8080/Plone/@@demo_view in your browser.
+
+The same happens with attributes. Replace the <p>-line with::
+
+    <a href="http://www.mssharepointconference.com"
+       tal:define="a_fine_url string:http://www.ploneconf.org"
+       tal:attributes="href a_fine_url"
+       tal:content="string:A even better conference">
+        A sharepoint conference
+    </a>
+
+results in::
+
+    <a href="http://www.ploneconf.org">
+        A even better conference
+    </a>
+
+We used three TAL-Attributes here. This is the complete list of TAL-attributes:
+
+``tal:define``
+    define variables. We definded the variable url to the string "http://www.ploneconf.org"
+
+``tal:content``
+    replace the content of an element. We replaced the default-content about some with "A even better conference"
+
+``tal:attributes``
+    dynamically change element attributes. We set the html-attribute ``href`` to the variable ``a_fine_url``
+
+``tal:condition``
+    tests, if the expression is true or false.
+
+``tal:repeat``
+    repeats an iterable element, in our case the list of talks.
+
+``tal:replace``
+    replace the content of an element like ``tal:content`` but removes the element only leaving the content.
+
+``tal:omit-tag``
+    remove an element, leaving the content of the element.
+
+``tal:on-error``
+    handle errors.
+
+
+python-expressions
+++++++++++++++++++
+
+So far we only used one TALES expression (the ``string:``-bit). Let's use a different TALES-expression now. With ``python:`` we can use python-code. A simple example::
+
+    <p tal:define="title context/title"
+       tal:content="python:title.upper()">
+       A big title
+    </p>
+
+And another::
+
+    <p tal:define="talks python:['Dexterity for the win!',
+                                 'Deco is the future',
+                                 'A keynote on some weird topic',
+                                 'The talk that I did not submit']"
+       tal:content="python:talks[0]">
+        A talk
+    </p>
+
+With python-expressions
+
+* you can only write single statements
+* you could import things but you should not (example: ``tal:define="something modules/Products.PythonScripts/something;``).
+
+
+tal:condition
++++++++++++++
+
+``tal:condition``
+    tests, if the expression is true or false.
+
+* If it's true, then the tag is rendered.
+* If it's false then the tag **and all its cheildren** are removed and no longer evaluated.
+* We can reverse the logic by prepending a ``not:`` to the expression.
+
+Let's add another TAL-Attribute to our above example::
+
+    ``tal:condition="talks"``
+
+We could also test for the number of talks::
+
+    tal:condition="python:len(talks) >= 1"
+
+or if a certain talk is in the list of talks::
+
+    tal:condition="python:'The talk that I did not submit' in talks"
+
+
+tal:repeat
+++++++++++
+
+Let's try another statement::
+
+    <p tal:define="talks python:['Dexterity for the win!',
+                                 'Deco is the future',
+                                 'A keynote on some weird topic',
+                                 'The talk that I did not submit']"
+       tal:repeat="talk talks"
+       tal:content="talk">
+       A talk
+    </p>
+
+tal:repeat
+    repeats an iterable element, in our case the list of talks.
+
+We change the markup a little to construct a self-populating list::
+
+    <ul tal:define="talks python:['Dexterity for the win!',
+                                  'topic,
+                                  'Deco is the future',
+                                  'A keynote on some weird topic',
+                                  'The talk that I did not submit']">
+        <li tal:repeat="talk talks"
+            tal:content="talk">
+              A talk
+        </li>
+        <li tal:condition="not:talks">
+              Sorry, no talks yet.
+        </li>
+    </ul>
+
+
+path-expressions
+++++++++++++++++
+
+Regarding TALES so far we used ``string:`` or ``python:`` or only variables. The next and most common expression are path-expressions. Optionally you can start a path-expression with ``path:``
+
+Every path expression starts with a variable name. It can either an object like context, view or template or a variable defined earlier.
+
+After the variable we add a slash (‘/’) and the name of a sub-object, attribute or callable. The '/' is used to end the name of an object and the start of the property name. Properties themselves may be objects that in turn have properties.
+
+    <p tal:content="context/title"></p>
+
+We can chain several of those to get to the information we want::
+
+    <p tal:content="context/REQUEST/form"></p>
+
+This would return the value of the form-dictionary of the HTTPRequest-object. Useful for form-handling.
+
+The '|' ("or") character is used to find an alternative value to a path if the first path evaluates to 'Nothing' or does not exist.::
+
+    <p tal:content="context/title | context/id"></p>
+
+There are several built in variables that can be used in paths:
+
+The most frequently used one is ``nothing`` which is the equivalent to None::
+
+    <p tal:replace="nothing">
+        this comment will not be rendered
+    </p>
+
+A dict of all the available variables is ``CONTEXTS``::
+
+    <dl tal:define="path_variables_dict CONTEXTS">
+      <tal:vars tal:repeat="variable path_variables_dict">
+        <dt tal:content="variable"></dt>
+        <dd tal:content="python:path_variables_dict[variable]"></dd>
+      </tal:vars>
+    </dl>
+
+Useful for debugging :-)
+
+
+pure TAL-blocks
++++++++++++++++
+
+We can use TAL-attributes auch without HTML-Tags. This is useful when we don't need to add any tags to the markup
+
+Syntax::
+
+    <tal:block attribute="expression">some content</tal:block>
+
+Examples::
+
+    <tal:block define="id template/id">
+    ...
+      <b tal:content="id">Id</b>
+    ...
+    </tal:block>
+
+    <tal:news condition="python:context.content_type == 'News Item'">
+        (...)
+    </tal:news>
+
+
+handling complex data in templates
+++++++++++++++++++++++++++++++++++
+
+Let's move on to a little more complex data. And to another TAL-atrribute:
+
+tal:replace
+    replace the content of an element and removes the element only leaving the content.
+
+Example::
+
+    <p>
+        <img tal:define="tag string:<img src='https://plone.org/logo.png'>"
+             tal:replace="tag">
+    </p>
+
+this results in::
+
+    <p>
+        &lt;img src='https://plone.org/logo.png'&gt;
+    </p>
+
+``tal:replace`` drops it's own base-tag in favor of the result of the TALES-expression. Thus the original ``<img... >`` is replaced. But the result is escaped by default.
+
+To prevent escaping we use ``structure``::
+
+    <p>
+        <img tal:define="tag string:<img src='https://plone.org/logo.png'>"
+             tal:replace="structure tag">
+    </p>
+
+Now let's emulate a typical Plone structure by creating a dictionary::
+
+    <table tal:define="talks python:[{'title':'Dexterity for the win!',
+                                      'subjects':('content-types', 'dexterity')},
+                                     {'title':'Deco is the future',
+                                      'subjects':('layout', 'deco')},
+                                     {'title':'The State of Plone',
+                                      'subjects':('keynote',) },
+                                     {'title':'Diazo designs dont suck!',
+                                      'subjects':('design', 'diazo', 'xslt')}
+                                    ]">
+        <tr>
+            <th>Title</th>
+            <th>Topics</th>
+        </tr>
+        <tr tal:repeat="talk talks">
+            <td tal:content="talk/title">A talk</td>
+            <td tal:define="subjects talk/subjects">
+                <span tal:repeat="subject subjects"
+                      tal:replace="subject">
+                </span>
+            </td>
+        </tr>
+    </table>
+
+We emulate a list of talks and display information obout them in a table. We'll get back to the list of talks later when we use the real talk-objects that we created with dexterity.
+
+To complete the list here are the TAL-Attributes we have not yet used:
+
+tal:omit-tag
+    Omit the element tags, leaving only the inner content.
+
+tal:on-error
+    handle errors.
+
+When an element has multiple statements, they are executed in this order:
+
+1. define
+2. condition
+3. repeat
+4. content or replace
+5. attributes
+6. omit-tag
+
+
+
+METAL and macros
+----------------
+
+Why is our output so ugly? How do we get our html to render in Plone the UI?
+
+We use METAL (Macro Extension to TAL) to define slots that we can fill and macros that we can reuse.
+
+We add to the ``<html>``-tag::
+
+    metal:use-macro="context/main_template/macros/master"
+
+And then wrap the code we want to put in the content-area of Plone in::
+
+    <metal:content-core fill-slot="content-core">
+        ...
+    </metal:content-core>
+
+This will put our code in a section defined in the main_template called "content-core".
+
+
+macros in browser-views
++++++++++++++++++++++++
+
+writing a macro::
+
+    <div metal:define-macro="my_macro">
+        some reused code
+    </div>
+
+in zcml::
+
+    <browser:page
+      for="*"
+      name="plonekonf.talk.macros"
+      template="templates/macros.pt"
+      permission="zope2.View"
+      />
+
+use it the template::
+
+        <div metal:use-macro="view/context/@@plonekonf.talk.macros/my_macro">
+            the macro
+        </div>
+
+
+Accessing Plone from the template
+---------------------------------
+
+In our template we have access to the context object on which the view is called on, the browser-view itself (i.e. all python-methods we'll put in the view later on), the request and response objects and with these we can get almost anything.
+
+In templates we can also access other browser-views. Some of those exist to provide easy access to stuff we often need (an basic api so to say)::
+
+    tal:define="context_state context/@@plone_context_state;
+                portal_state context/@@plone_portal_state;
+                plone_tools context/@@plone_tools;
+                plone_view context/@@plone;"
+
+These helper-views are very widely used.
+
+TODO: *Show these views and their uses*
+
+
+Customizing existing templates
+------------------------------
+
+To dive deeper into real plone-data we now look at some existing templates and customize them.
+
+newsitem_view.pt
+++++++++++++++++
+
+We want to show the date a News Item is published. This way people can see at a glance it the are looking at current or old news.
+
+Explain how to find files in sublime :-)
+
+Add the following at line 28::
+
+        <p tal:content="python:context.Date()">
+                The current Date
+        </p>
+
+This will show seimthing like: ``2010-02-17 19:21:15``. Not very user-friendly. So lets extend the code and use one of many helpers plone offers::
+
+        <p tal:content="python:context.toLocalizedTime(context.Date(),long_format=0)">
+                The current Date in its local short-format
+        </p>
+
+Hier wird eine der vielen praktischen Hilfen, die Plone zur Verfügung stellt, verwendet.
+Das script ``toLocalizedTime.py`` aus dem Ordner ``Products/CMFPlone/skins/plone_scripts/`` nimmt das Datums-Objekt entgegen und gibt die Zeit in dem lokal gültigen Format zurück und transformiert so ``2010-02-17 19:21:15`` in ``17.02.2010``.
+
+Im Verzeichnis ``plone_scripts/`` finden sich noch viele praktische Sachen, von den man oft glaubt die selber schreiben zu müssen.
+Beispielsweise ``unique.py``, das doppelte Elemente aus Listen entfernt.
+
+
+folder_summary_view.pt
+++++++++++++++++++++++
+
+We use folder_summary_view.pt to list news-releases. They should also have the date.
+
+Let's look for the template folder_summary_view.pt::
+
+    training/parts/omelette/Products/CMFPlone/skins/plone_content/folder_summary_view.pt
+
+copy it to::
+
+    training/src/plonekonf.talk/src/plonekonf/talk/browser/template_overrrides/Products.CMFPlone.skins.plone_content.folder_summary_view.pt
+
+Open the new file and explain...
+
+Wir ändern an der Datei ``folder_summary_view.pt`` und fügen in Zeile 80 folgenden Code ein::
+
+    <p tal:condition="python:item_type == 'News Item'"
+       tal:content="python:item.toLocalizedTime(item.Date,long_format=0)">
+            The current Date in it's local short-format
+    </p>
+
+Hier wird das Veröffentlichungsdatum des jeweiligen Objektes (daher ``item`` statt ``context`` denn ``context`` wäre in diesem Fall der Ordner in dem sich Items befinden) angezeigt.
+
+Zunächst wird aber die in Zeile 61 definierte Variable ``item_type`` abgefragt und die Anzeige davon abhängig gemacht ob es sich um ein ``News Item`` (d.h. eine ``Nachricht``) handelt.
+
+Der Inhalt des Ordners wird in Zeile 47 mit::
+
+    here.getFolderContents()
+
+ausgelesen. Tatsächlich etwas komplexer, da u.a. zunächst geprüft wird ob es sich um eine Collection handelt.
+
+``getFolderContents`` ist übrigens auch ein Python-Script ``Products/CMFPlone/skins/plone_scripts/`` und liefert über eine Katalogabfrage alle Objekte innerhalb des jeweiligen Ordners.
+
+
+What we missed
+--------------
+
+The are some things we did not cover so far:
+
+``tal:condition="exists:expression"``
+    checks if an object or an attribute exists (seldom used)
+
+``tal:condition="nocall:context"``
+    to explicitly not call a callable.
+
+If we refer to content objects, without using the nocall: modifier these objects are unnecessarily rendered in memory as the expression is evaluated.
+
+``i18n:translate`` and ``i18n:domain``
+    the strings we put in templates can be translated automatically.
+
+There is a lot more about TAL, TALES and METAL that we have not covered. You'll only learn it if you keep reading, writing and customizing templates.
+
+
+skin-templates
+--------------
+
+Why don't we always only use templates? Because we might want to do somehing more complicated than get an attribute form the context and render it's value in some html-tag.
+
+There is a deprecated technology called 'skin-templates' that allows you to simply add some page-template (e.g. 'old_style_template.pt') to a certain folder in the ZMI or your egg) and you can access it in the browser by opening a url like http://localhost:8080/Plone/old_style_template and it will be rendered. But we don't use it and you should not even though these skin-templates are still all over Plone.
+
+The templates of the default content-types are skin-templates for example. You could append '/document_view' to any part of a plone-site. You will often get errors since the template document_view.pt expects the context to have a field 'text' that it attempts to render.
+
+* use restricted python
+* have no nive way to attach python-code to them
+* allways exist for everything (they can't be easily bound to an interface)
+
+
+11. Views II: A default view for "talk" (45min) (Patrick)
+=========================================================
+
+ * zcml
+ * grok
+ * View-Classes
+ * Python-Klasse mit Grok dazu (Patrick)
+
+Der View ist eine Zope Toolkit Komponente. Er besteht aus einer Klasse, in die wir View Logik packen, und meistens einem Template, welches Daten anzeigt. Klassischer Weise hat man den View mit ZCML registriert, wir haben heutzutage aber auch Grok zur Verfügung, was uns die Arbeit erleichert. Traditionell legt man einen Ordner browser an, in den man die Views packt. View anlegen.
+
+
+View Classes
+------------
+
+Views are Multi Adapters! Thats all there is to know.
+Yesterday we created a view, lets have a look at it again!
+
+* ZCML
+* python
+* page template
+
+The template does a lot of things. We are going to ignore some of them.
+
+For a normal browser view, you don't really need allowed_interface, you don't need the implements statement in code and you don't need the translation features provided by the _ method.
+
+There is something else, much much more important. You can see the __init__ method, don't do anything fancy in there.
+
+The way zope looks for the right view, your __init__ code block gets executed, before any permission checks have been applied. Also, because of the history of zope, a number of exceptions that you can trigger in your browser view, will result in the error message 404, page not found, without any way of giving you a traceback to tell you, what might have gone wrong.
+
+This code has some property getters. Everybody knows what that means?
+
+Property getters have a small problem, I avoid them nowadays. They provide shitty tracebacks because a traceback in the getter is hidden.
+
+The init method gets two objects. That is always the case with a browser view. Did I mention that views are multiadapters? Adapters and multiadapters get always called with the objects, in case of a view, it always adapts a browser request and a content object, so this if why you get them here.
+
+The request can be used to change the content type, if you return files. We are not going to do this here or today.
+
+The context gives you access to the current object. If you modify objects, you always do this in the browser view. The context is also used to get tools, like the catalog.
+
+If you have a special view that modifies content, you can do that in the __call__ method. I suggest you try to get information from the request about the data that has been submitted, and based on that you dispatch different methods you create. These methods would then handle the data manipulation.
+
+Be aware that the __call__ method is special. Whatever the call method returns, gets displayed. The default implementation will render the associated page template. So to make sure that some html gets rendered, always call super(self, XXX).__call__(self) and return that value.
+
+I mentioned yesterday, what zcml is and that there is an alternative way to create browser views.
+
+Lets do this now, lets create a second and a third view as a grok view.
+blablabla
+So, when to use grok and when to use zcml?
+You add a dependency with grok, so it is uncommon to use grok in reusable components yet.
+
+
+
+12. Views III Talk list (45min) (Philip)
+========================================
+
+* using portal_catalog
+* brains and objects
+* adding some javascript (collective.js.datatables)
+
+If we don't want to provide information about the context, that is not on the the current object one specific item but on several items. What now? We can't look at several items at the same time as context.
+
+
+Using portal_catalog
+--------------------
+
+Let's say we want so show a list of all the talks that were submitted for our counference. We can just go to the folder and select a display-method that suits us. But none does because we want to show the target-audience in out listing.
+
+So we need to get all the talks. For this we use the python-class of the view to query the catalog for the talks.
+
+The catalog is like a search-engine for the content on our site. It holds information about all the objects as well as some of their attributes like title, decription, workflow_state, keywords that they were tagged with, author, content_type, it's path in the site etc. But it does not hold the content of "heavy" fields like images or files, richtext-fields and field that we just defined ourselves.
+
+It is the fast way to get content that exists in the site and do something with it. From the results ob the catalog we can get the objects themselves but often we don't need them, but only the properties that the results already have.
+
+::
+
+    # encoding=utf-8
+    from five import grok
+    from zope.interface import Interface
+    from Products.CMFCore.utils import getToolByName
+
+
+    class TalkDefaultView(grok.View):
+        grok.context(Interface)
+        grok.require('zope2.View')
+
+
+    class TalkListView(grok.View):
+        grok.context(Interface)
+        grok.require("zope2.View")
+
+        def talks(self):
+            results = []
+            portal_catalog = getToolByName(self.context, 'portal_catalog')
+            current_path = "/".join(self.context.getPhysicalPath())
+
+            talks = portal_catalog(portal_type="talk",
+                                   path=current_path)
+            for brain in talks:
+                # hold on to your hats, we're awaking the brains!
+                talk = brain.getObject()
+
+                results.append({
+                    'title': brain.Title,
+                    'url': brain.getURL(),
+                    'audience': talk.audience,
+                    'uuid': brain.UID,
+                    })
+            return results
+
+We query for two things:
+
+* portal_type = "talk"
+* path = "/".join(self.context.getPhysicalPath())
+
+We get the path of the current context to query only for objects in the current path. Otherwise we'd get all talk in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for univerities with it's own talk-list) we might not want so see them in our listing.
+
+We then iterate over the list of results that the catalog returns us.
+
+We create a dictionary that holds all the information we want to whow in the template. This way we don't have to put any complex logic into the template.
+
+
+brains and objects
+------------------
+
+Objects are normally not loaded into memory but lie dormant in the Database ZODB. Waking objects up can be slow, especially if you're waking up a lot of objects. Fortunately out talks are not especially heavy since they are
+
+* dexterity-objects which are lighter than their archetypes-brothers
+* relatively few
+
+Since we want to show the target-audience that is not part of the catalog we need to wake up the objects themselves.
+
+Wir could also add a new index to the catalog that will add 'audience' to the properties of the brains. We have to weight pros and cons:
+
+* talks are important and thus most likely always in memory
+* prevent bloating of catalog with indexes
+
+The code to add such an index wuld look like this::
+
+    from plone.indexer.decorator import indexer
+    from plonekonf.talk.talk import ITalk
+
+    @indexer(ITalk)
+    def talk_audience(object, **kw):
+         return object.audience
+
+We'd have to register this factory function as a named adapter using ZCML. Assuming you've put the code above into a file named indexers.py::
+
+    <adapter name="audience" factory=".indexers.talk_audience" />
+
+Why use the catalog at all? It checks for permissions, and only returns the talks that the current user may see. They might be private or hidden to you since they are part of a top-secret conference for core-develeopers (there is no such thing!).
+
+Most objects in plone act like dictionaries, so I could do context.values() to get all it's contents.
+
+For historical reasons only the same attributes of brains and objects are written differently::
+
+    brain.Title == obj.title
+
+But brain.title returns the name of the catalog :-(
+
+The documentation is extensive: http://collective-docs.readthedocs.org/en/latest/searching_and_indexing/index.html
+
+Look there to find out how to query for date, language. interface
+
+
+The template for the listing
+----------------------------
+
+Next the template in which we use the results of our method 'talks'.
+
+We try to keep logic mostly in python. This is for two reasons:
+
+Readability:
+    It's much simpler to read python that complex tal-structures
+
+Speed:
+    Python-code is faster than code executed in templates. It's also easy to add caching to methods.
+
+The MVC-Schema does not directly apply to Plone but look at it like this:
+
+Model:
+    the object
+
+View:
+    the template
+
+Controller:
+    the view
+
+The view and the controller are very much mixed in Plone.
+
+When you look at some of the older code of Plone you'll see that the policy of keeping login insice python and representation in templates was not always enforced. You should nevertheless do it. You'll end up with more than enough logic in the templates anyway. You'll see now.
+
+Let's add this simple table to out template 'talklistview.pt'::
+
+        <table class="listing">
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Speaker
+                    </th>
+                    <th>
+                        Audience
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                       The 7 sins of plone-development
+                    </td>
+                    <td>
+                        Philip Bauer
+                    </td>
+                    <td>
+                        Advanced
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+After we transform it we have out listing::
+
+        <table class="listing" id="talks">
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Speaker
+                    </th>
+                    <th>
+                        Audience
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr tal:repeat="talk view/talks">
+                    <td>
+                        <a href=""
+                           tal:attributes="href talk/url;
+                                           title talk/description"
+                           tal:content="talk/title">
+                           The 7 sins of plone-development
+                        </a>
+                    </td>
+                    <td tal:content="talk/speaker">
+                        Philip Bauer
+                    </td>
+                    <td tal:content="talk/audience">
+                        Advanced
+                    </td>
+                </tr>
+                <tr tal:condition="not:view/talks">
+                    <td colspan=3>
+                        No talks so far :-(
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+I'll explain some of the things in the TAL:
+
+``tal:repeat="talk view/talks"``
+    we iterate over the list of dictionaries returned by our view. ``view/talks`` calles the method ``talks``of our view and each ``talk`` is in turn a dictionary. Since TAL's path-expressions for the lookup of values in dictionaries is the same as the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page-template alone we have ofetn no way of knowing if something is an attribute, a method or the value of a dict.
+
+``tal:content="talk/speaker"``
+    'speaker' is a key in the dict 'talk'. We could also write ``tal:content="python:talk['speaker']"``
+
+``tal:condition="not:view/talks"``
+    this is a fallback for when no talks are returned by out method talks. It then return an empty list (remember ``results = []``?)
+
+``tal:content="talk/average_rating | nothing"``
+    you might remember there is no key 'average_rating' in the dict that we return. The '|' ("or") character is used to find an alternative value to a path if the first path evaluates to 'Nothing' or does not exist. The | ("or") is the logical 'or' and will be used if no value exists.
+
+    What will not work is ``tal:content="python:talk['average_rating'] or ''"``. How knows what it will yield? We'll get ``KeyError: 'average_rating'``. In fact it is bad practice to use | too often since it'll swallow errors the typo in ````tal:content="talk/averange_ratting | nothing"`` and you might wonder why there are no ratings later on...
+
+    Keep in mind that you can't and should not use it to prevent errors like a try/except-block. But in our case it's pretty useful since our code does not break event though we have not implemented ratings yet.
+
+
+Setting a custom view as default-view on an object
+--------------------------------------------------
+
+We don't want to always have to append /@@talklistview to out folder to get the view. There is a very easy way to set the view to the folder using the ZMI.
+
+If we append /manage_propertiesForm we can set the property "layout" to "talklistview".
+
+To make views configurable so that editors can choose them like folder_Summary_view etc. we'd have to register it for the content-type at hand (Folder) in it's FTI (folder.xml).
+
+We'd do::
+
+    <?xml version="1.0"?>
+    <object name="Folder">
+     <property name="view_methods" purge="False">
+      <element value="talklistview"/>
+     </property>
+      <alias from="@@talklistview" to="talklistview"/>
+    </object>
+
+After reapplying the profile the configuration of the content-type "Folder" would be extended with our additional view-method and it would appear in the display-dropdown.
+
+
+adding some javascript (collective.js.datatables)
+-------------------------------------------------
+
+Here we use one of many nice feature build into Plone. The class="listing" gives the table a nice style and makes the table sortable with some javascript.
+
+But we could improve that table further by using a nice javascript-library called "datatables". It might even become part of the Plone-core at some point.
+
+Like for many js-libraries there is already a package that doe the plone-integration for us: "collective.js.datatables". Like all python-packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables
+
+We already added the addon to our buildout and just have to activate it in our template::
+
+    <metal:head fill-slot="javascript_head_slot">
+        <link rel="stylesheet" type="text/css" media="screen" href="++resource++jquery.datatables/media/css/jquery.dataTables.css">
+
+        <script type="text/javascript" src="++resource++jquery.datatables.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var oTable = $('#talks').dataTable({
+                });
+            })
+        </script>
+    </metal:head>
+
+We don't need the css-class 'listing' anymore sine it might clash with datatables (it does not but still...).
+
+The documentation of datatables is beyond our training.
+
+We use METAL again but thins time to fill a different slot. The "javascript_head_slot" is part of the html's <head>-area in Plone and can easily be extended this way. We could also just put the code inline but have nicely ordered html is a good practice.
+
+Let's test it.
+
+
+
+
+13. Dexterity-Content-Typen mit Behaviors erweitern (30min) (Patrick)
+=====================================================================
+
+Explain Behaviours
+
+
+simple social behavior
+----------------------
+
+
+
+* Behavior "IVoteable"
+* The Plone API
+
+Was jetzt noch fehlt ist die Funktionalität, Stimmen abzugeben.
+Damit die Menschen abstimmen können, benötigen wir:
+
+* Einen Ort zum Abspeichern von Stimmabgaben,
+* Eine Logik um aus den Stimmen einen Durchschnitt zu berechnen
+* Eine Möglichkeit, den Durchschnitt anzugeben
+* Eine Möglichkeit, eine Stimme abzugeben
+
+Wir könnten einfach Stimmen als Feld hinzufügen, aber dann müsste
+man die Felder verstecken und die ganze Logik in den Views machen.
+
+Stattdessen schreiben wir ein Behavior. Ein Behavior ist so ähnlich
+wie ein Adapter. Ein Adapter adaptiert einen bestimmten Typ. Ein
+Behavior kann prinzipiell für alle Inhalte verwendet werden, und
+bei Dexterity Content Typen kann man zur Laufzeit ein Behavior einem
+Contenttyp zuweisen. Dank dem Annotations Adapter kann man beliebige
+Daten einem Objekt hinzufügen ohne zu riskieren, Daten von anderen
+zu überschreiben. Ausserdem kann man auch noch einstellen, das
+Objekte die dieses Behavior unterstützen ein Marker Interface
+bekommen. Durch das Marker Interface kann man diesen Objekten eigene
+Views, Viewlets oder auch Portlets zuweisen.
+
+
+Writing the Behavior
+--------------------
+
+Viel Code, zunächst kümmern wir uns darum, den Context weg zu
+speichern. Dann holen wir uns die Annotations. Der Annotationadapter
+ist ein Standardweg, zusätzliche Informationen auf einem Objekt zu
+speichern. Der Adapter implementiert eigentlich nur folgenes:
+Er speichert ein PeristentDict auf dem Attribute __annotations__ und
+liefert dieses zurück. Wer etwas speichern möchte, muss sich einen
+möglichst eindeutigen Schlüssel ausdenken, wir nehmen den Namen
+unserer Klasse.
+
+Dann schreiben wir ein wenig Code um sicherzustellen, das unsere
+Datenstruktur schon da ist.
+
+Warum initalisieren wir das Dict mit version 1 und nicht mit Version 2?
+
+Wir haben evtl. schon Objekte mit Daten, aber noch mit der alten
+Version an Daten. Dieses Objekt wird beim ersten neuen Laden auf den
+aktuellen Stand gebracht.
+
+Die nächste Methode, _hash ist ein wenig Magie um halbwegs
+sicherzustellen, das jemand nicht mehrfach abstimmt. Wer Langeweile
+hat kann seine DSL Verbindung trennen, wieder aufbauen und nochmal
+abstimmen.
+
+Nun kommt das Herzstück, die vote Methode. Das Userinterface erlaubt
+eigentlich nicht, zweimal abzustimmen, trotzdem fangen wir das ab
+und werfen eine Exception. Wenn diese Exception ausgelöst wird,
+kriegt der Nutzer eine hässliche Fehlermeldung, aber er ist sowieso
+nur ein kleiner Hacker. Wir speichern nicht nur die Bewertung,
+sondern auch einen Hash des Requestobjekts, um sicherzustellen, das
+der Nutzer nicht mehrfach abstimmt.
+
+Nun kommt die Methode zur Berechnung der Durchschnittsstimmen.
+
+Wir speichern die Daten wie folgt:
+self.annotations['votes'][-1] = "Anzahl der -1 Stimmen
+self.annotations['votes'][0] = "Anzahl der 0 Stimmen
+self.annotations['votes'][+1] = "Anzahl der +1 Stimmen
+
+Wir multiplizieren nun einfach die Anzahl der Stimmen mit dem
+Stimmenschlüssel, summerieren die einzelnen Ergebnisse und teilen
+diese Zahl durch die Gesamtzahl der Stimmen.
+
+has_votes benötigen wir für views, wir wollen kein
+Durchschnittsrating abgeben, wenn noch keiner abgestimmt hat.
+
+already_voted wird im Userinterface verwendet um Leute kein
+Stimmrecht zu geben, wenn sie schon abgestimmt haben.
+
+clear Wir haben beim Testen festgestellt, das es sehr hilfreich ist,
+mal eben schnell die Stimmen alle zu löschen.
+
+git checkout tutorial-7-behavior
+
+Ergänzen wir nun unsere Listenansicht um das Durchschnittsvoting.
+
+git checkout tutorial-8-listview-mit-behavior
+
+Ok, wie stimmen wir nun ab?
+
+
+14. Ressources (Patrick)
+========================
+
+TAG: 16_SOCIAL_BEHAVIOR
+
+
+15. Social behavior
+===================
+
+Now let's write our own small behavior. This thime we don't add a lot of logic but only a additional field:
+
+* link to lanyrd-site for the talk
+
+We register a folder called behavio in our configure.zcml::
+
+    <include package=".behavior" />
+
+We add an empty __init__.py and a configute.czml containing::
+
+    <configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:plone="http://namespaces.plone.org/plone"
+        i18n_domain="plonekonf.talk">
+
+      <include package="plone.behavior" file="meta.zcml" />
+
+      <include package="plone.directives.form" file="meta.zcml" />
+      <include package="plone.directives.form" />
+
+      <plone:behavior
+          title="Social Behavior"
+          description="Adds a link to lanyrd"
+          provides=".social.ISocial"
+          />
+
+    </configure>
+
+And a social.py containing::
+
+    # -*- coding: utf-8 -*-
+    from plone.directives import form
+    from zope import schema
+    from zope.interface import alsoProvides
+
+    class ISocial(form.Schema):
+
+        form.fieldset(
+                'social',
+                label=u'Social',
+                fields=('lanyrd',),
+            )
+
+        lanyrd = schema.URI(
+                title=u"Lanyrd-link",
+                description=u"Add URL",
+                required=False,
+            )
+
+    alsoProvides(ISocial, form.IFormFieldProvider)
+
+* explain
+
+TAG: 16_SOCIAL_BEHAVIOR
+
+
+15. Viewlet for ISocial schreiben (Philip)
+==========================================
+
+A viewlet is no view but a snippet of html and logic that can be put somewhere in the site.
+
+* show /@@manage-viewlets
+* we already customized a viewlet (the collophon.pt), now we a new one
+* viewlets don't save data (portlets do)
+
+We add an folder 'viewlets' again with an empty __init__.py. This time we donät need a and configure.czml and don't need to register the folder in our eggs configure.zcml.
+
+We just add a file viewlets.py containing the viewlet-class::
+
+    # encoding=utf-8
+    from five import grok
+    from plone.app.layout.viewlets import interfaces as viewletIFs
+    from zope.component import Interface
+
+
+    class Social(grok.Viewlet):
+        grok.context(Interface)
+        grok.viewletmanager(viewletIFs.IBelowContentTitle)
+
+This will add a viewlet to a slot below the title and expect a template 'social.pt' in a folder 'viewlets_templates'.
+
+Let's add it::
+
+    <div id="social-links">
+        <a href="#"
+           class="lanyrd-link"
+           tal:define="link viewlet/lanyrd_link | nothing"
+           tal:condition="link"
+           tal:attributes="href link">
+            See this talk on Lanyrd!
+        </a>
+    </div>
+
+So now let's add some logic to the viewlet-class so that ``viewlet/lanyrd_link`` does returns the link::
+
+    from five import grok
+    from plone.app.layout.viewlets import interfaces as viewletIFs
+    from plonekonf.talk.behavior.social import ISocial
+
+
+    class Social(grok.Viewlet):
+        grok.context(ISocial)
+        grok.viewletmanager(viewletIFs.IBelowContentTitle)
+
+        def lanyrd_link(self):
+            adapted = ISocial(self.context)
+            return adapted.lanyrd
+
+TAG: 17_SOCIAL_VIEWLET
+
+* We registered the viewlet to content that have the ISocial Interface.
+* we adapt the object to it's behavior to be able to access the fields of the behavior
+* we return the link
+
+
+
+Let's create this file without any logic::
+
+    <div class="voting">
+        Wanna vote? Write code!
+    </div>
+
+    <script type="text/javascript">
+      jq(document).ready(function(){
+        // please add some jQuery-magic
+      });
+    </script>
+
+* restart Plone
+* show the viewlet
+
+
+
+* Viewlet for IVoteable
+* the viewlet-template
+* add jquery stuff
+* saving the vote on the object using annotations (Patrick)
+
+
+We just added the logic that saves votes on the objects. Now let's add the user-interface to it.
+
+Since we want to use the UI on more than one page (not only the talk-view but also the talk-listing) we need to put it somewhere.
+
+A viewlet is no view but a snippet of html and logic that can be put somewhere in the site.
+
+* show /@@manage-viewlets
+* we already customized a viewlet (the collophon.pt), now we a new one
+* viewlets don't save data (portlets do)
+* To handle the user-input we don't use a form but links and ajax.
+* The voting itself is an fact handles by another view
+
+We add a folder viewlets with an empty __init__.py and include this folder in our eggs configure.zcml::
+
+    <include package=".viewlets" />
+
+We create a new file voting.py::
+
+    # encoding=utf-8
+    from five import grok
+    from plone.app.layout.viewlets import interfaces as viewletIFs
+    from zope.component import Interface
+
+
+    class Vote(grok.Viewlet):
+        grok.context(Interface)
+        grok.viewletmanager(viewletIFs.IBelowContentTitle)
+
+This will add a viewlet to a slot below the title and expect a template vote.pt in a folder 'voting_templates'.
+
+Let's create this file without any logic::
+
+    <div class="voting">
+        Wanna vote? Write code!
+    </div>
+
+    <script type="text/javascript">
+      jq(document).ready(function(){
+        // please add some jQuery-magic
+      });
+    </script>
+
+* restart Plone
+* show the viewlet
+
+writing the viewlet-class
+-------------------------
+
+Lets see the final code::
+
+    # encoding=utf-8
+    from Products.CMFCore.utils import getToolByName
+    from Products.CMFDefault.permissions import ViewManagementScreens
+    from five import grok
+    from plone.app.layout.viewlets import interfaces as viewletIFs
+    from plonekonf.talk.interfaces import IVotable, IVoting
+
+
+    class Vote(grok.Viewlet):
+        grok.context(IVotable)
+        grok.viewletmanager(viewletIFs.IBelowContentTitle)
+
+        @property
+        def _vote(self):
+            return IVoting(self.context)
+
+        @property
+        def voted(self):
+            return self._vote.already_voted(self.request)
+
+        @property
+        def average(self):
+            return self._vote.average_vote()
+
+        @property
+        def is_manager(self):
+            membership_tool = getToolByName(self.context, 'portal_membership')
+            return membership_tool.checkPermission(ViewManagementScreens,
+                                                   self.context)
+
+        @property
+        def has_votes(self):
+            return self._vote.has_votes()
+
+* we changed the code so that only content that has the interface 'IVotable' get's the viewlet.
+* _vote returns the context object adapted to the Behavior that adds the vote-functionality. This way we can access all methods that are in IVoting.
+* voted, average and has_votes do exactly this and return the result of the methods we wrote in IVoting.
+* is_manager checks if we are managers so only managers can reset the existing votes. To do this we check if the current user can 'ViewManagementScreens'.
+
+
+the template
+------------
+
+the final temoplate looks like this::
+
+    <div class="voting">
+      <div id="current_rating" tal:condition="viewlet/has_votes">
+        Average rating: <span tal:content="viewlet/average">200</span>
+      </div>
+      <div id="alreadyvoted" class="voting_option">
+        You already rated this voted for this talk!
+      </div>
+      <div id="notyetvoted" class="voting_option">
+        Vote for this talk: <div class="votes"><span id="voting_plus">+1</span> <span id="voting_neutral">0</span> <span id="voting_negative">-1</span></div>
+      </div>
+      <div id="no_ratings" tal:condition="not: viewlet/has_votes">
+        Be the first one to vote on this talk!
+      </div>
+
+      <tal:reset tal:condition="viewlet/is_manager">
+        <div id="delete_votings">
+          Delete all votings
+        </div>
+        <div id="delete_votings2" class="areyousure warning">
+          Are you sure?
+        </div>
+      </tal:reset>
+
+      <a href="#" class="hiddenStructure" id="context_url"
+         tal:attributes="href context/absolute_url"></a>
+      <span id="voted" tal:condition="viewlet/voted" />
+    </div>
+
+    <script type="text/javascript">
+      jq(document).ready(function(){
+        plonekonf.init_voting_viewlet(jq(".voting"));
+      });
+    </script>
+
+* many small parts, most of which will be hidden by javascript unless needed.
+* we use the methods the class provides
+* some standard-code to initialize our js-code
+
+
+The javascript code (Patrick)
+-----------------------------
+
+Zunächst fragen wir den Marker ab, der anzeigt, ob der aktuelle
+Benutzer schon abgestimmt hat. Abhängig davon zeigen bieten wir die
+Abstimmungsmöglichkeit ab.
+
+Danach schreiben wir die Funktion, welche die Stimme abgibt.
+Wir sind schreibfaul, deswegen schreiben wir eine Funktion, die eine
+Funktion zurückgibt.
+
+Danach setzen wir für die einzelnen Abstimmungsmöglichkeiten, einen
+Clickhandler
+
+Wie funktioniert das? Wir rufen vote auf, die liefert eine Methode
+zurück. Als Clickhandler speichert man normalerweise immer eine
+Methode. Wenn nun jemand auf einen der Texte klickt, wir die Methode
+inner_vote aufgerufen. Innerhalb der inner_vote Methode können wir
+noch immer die gültige rating Variable aufrufen, die wir mit vote
+übergeben haben. Die Methode die also als clickhandler für
+#voting_plus aufgerufen wurde, sieht eine 1 wenn sie rating abfragt,
+#voting_neutral sieht die 0 und so weiter.
+
+Dann rufen wir die Methode post aus jquery auf, als ersten Parameter
+suchen wir uns aus dem html die context_url die wir dort versteckt
+haben, als Post Parameter übergeben wir das Rating, und zum Schluss
+kommt die Methode, welche nach erfolgreichem Request aufgerufen
+wird, und die Seite neu lädt.
+
+Danach schreiben wir noch die Handler um per Two Step Verfahren die
+Stimmen löschen zu können.
+
+Jetzt müssen wir noch die Methoden schreiben, die per HTTP Post
+aufgerufen werden.
+
+
+2 Simpelviews schreiben (Patrick)
+---------------------------------
+
+Diese Views haben IVotable als Context, es gibt sie also nur auf
+Objekten welche Votable sind.
+
+ClearVotes ist nochmal mit der Management Permission geschützt. Ein
+Hacker der den Javascript code von eben analysiert, könnte das
+Löschen manuell antriggern, dadurch, das der View durch eine
+Managementpermission geschützt ist, kann er keinen Schaden
+anrichten. Ansonsten rufen diese Views nur Methoden des Behaviors
+auf.
+
+
+
+
+16. Deploying your code (15min) (Patrick)
+=========================================
+
+ * zest.releaser
+ * pypi-test egg deployment
+
+We finally have some working code! Depending on your policies, you need repeatable deployments and definitve versions of software. That means you don't just run your production site with your latest source code from your source repository. You want to work with eggs.
+Making eggs is easy, making them properly not so much. There are a bunch of good practices that you would like to ensure.
+Lets see. You want to have a sensible version number. By looking at the version number alone, one should get a good idea, how many changes there are (semantic version number scheme). You of course always document everything, but for upgrades it is even more important to have complete changelogs.
+Sometimes, you cannot upgrade to a newer version, but you need a hotfix or whatever. It is crucial that you are able to checkout the exact version you use for your egg.
+This is a lot of stuff to do, and there are a lot of things that can go wrong. luckily, there is a way to automate it. zest.releaser provides scripts to release an egg, to check what has changed since the release and to check if the documentation has errors.
+There once was a book on python. It also had a chapter on releasing an egg with sample code. The sample code was about a printer of nested lists. There are a lot of packages to print out nestesd lists on pypi.
+We will avoid this. Everybody, go to testpypi.python.org and create an account now.
+Next, copy the pypirc_sample file to ~/.pypirc, modify it to contain your real username and password.
+Now that we are prepared, lets install zest.releaser.
+lasttagdiff, longtest, prerelease, release, postrelease
+
+
+17. buildout II deploying your site (60min) (Patrick)
+======================================================
+
+
+Optional:
+=========
+
+ * Debugging
+ * Core-Committing
+ * Use of an external api (twitter or google.maps)
+ * Forms
+ * collective.pfg.dexterity
+ * ...
+
+= Allgemeines zum Tutorial =
+  * Wir machen git/svn parallel aber erklaeren nichts dazu
+  * Commitmessages vorbereiten und in Dateien auslagern! Gaanz viel taggen!
+
+Neues egg plonekonf.talk
