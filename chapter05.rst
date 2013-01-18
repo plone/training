@@ -2,47 +2,114 @@
 5. Extending Plone with Addons (80min) (Patrick)
 ================================================
 
- * Introduction (10min)
- * Installing Addons (5min) (+ infos on uninstalling)
- * PloneFormGen (15min)
- * Internationalisation with LinguaPlone (20min) (Philip)
- * Add bling with PloneTrueGallery (10min) (Patrick)
- * Customizing the design with plone.app.themeeditor (20min) (Philip)
- * export egg
-
 Zope is extensible, as is Plone.
-Nowadays everybody installs eggs. Eggs are a bunch of python files, together with other needed files like page templates and the like and a bit of Metadata.
+Nowadays everybody installs eggs. Eggs are a bunch of python files, together with other needed files like page templates and the like and a bit of Metadata, bundled to a single archive file.
 
-Eggs are a much much younger than Zope. Zope needed something like eggs before there were eggs, and the Zope Developers wrote their own system, which we still see at some parts. But more and more functionality is pushed into the eggs alone.
+Eggs are a much much younger than Zope. Zope needed something like eggs before there were eggs, and the Zope developers wrote their own system, which we still see at some parts. But more and more functionality is pushed into the eggs alone.
+
+
+Extension technologies
+----------------------
 
 Now, how can one extend Plone? A number of extensions create new things that can just be added to plone, like content types. Other things change functionality, like how the search page works or how the site looks like overall.
 
-There are three different ways to extend Plone:
-skin folders. Remember acquisition? Skin Folders are an extension of acquistion. I have a folder portal_skins. This contains a bunch of folders. I have a property on the portal_skins, that defines in which order attributes or objects should be looked for in the skin folder. If in some folder there is a python script called getEmail, and I want it to send obfuscated emails, my addon would add another folder to the portal_skins, and would add itself to the ordering so that the new folder would be looked for before the original folder. This way I can override behavior.
+skin_folders
+^^^^^^^^^^^^
+Remember acquisition? Skin Folders are an extension of acquistion. Your plone site has a folder named ``portal_skins``. This contains a bunch of folders. The ``portal_skins`` folder has a property that defines in which order attributes or objects should be looked for in the skin folder.
 
-The next thing is GenericSetup. As the name clearly implies, GenericSetup is part of CMF. It is badly documented.
-GenericSetup lets you define persistent configuration in xml files. Genericsetup parses the xml files and updates the persistent configuration accordingly. This is a step you have to run on your own!
-Typically you use GenericSetup to modify workflows or add new content type definitions.
+The plone logo is in a skin folder.
+By default, your site has a custom folder, and items are first searched for in that folder.
 
-The last thing is ZCML. A bit of history again. When Zope started, Object oriented Design was the totally awesome technology. Zope objects have more than 10 Base Classes. After a while, XML and Components became a hype (J2EE anyone). So the Zope developers wanted a completely new Zope, component based. It is easier to swap out components than always subclass. The whole thing was named Zope 3, did not gain traction, was renamed to Bluebream and died off. But the component architecture itself was quite successfull and was extracted into the Zope Toolkit, which is integrated in Zope and heavily used in Plone. This is what you want to use.
-For customizing, you can create utilities, adapters and views(MultiAdapters).
+To customize the logo, you copy it into the custom folder, and modify it there. This way you can modify templates, css styles, images and behavior, because a container may contain python scripts.
+
+GenericSetup
+^^^^^^^^^^^^^
+The next thing is *GenericSetup*. As the name clearly implies, *GenericSetup* is part of CMF.
+
+It is tough to master, I am afraid.
+
+*GenericSetup* lets you define persistent configuration in xml files. *Genericsetup* parses the xml files and updates the persistent configuration accordingly. This is a step you have to run on your own!
+
+You will see many objects in Zope or the ZMI that you can customize through the web. If they are well behaving, they can export their configuration via *GenericSetup* and import it again.
+
+Typically you use *GenericSetup* to modify workflows or add new content type definitions.
+
+ZCML
+^^^^
+The last way is via *ZCML*.
+
+A bit of history again.
+When Zope started, object oriented Design was **the** silver bullet.
+Zope objects have more than 10 base classes.
+After a while, XML and Components became the next silver bullet (J2EE anyone).
+The Zope developers decided that these new silver bullets look much, much cooler in their colts so they decided rewrite zope with this technology.
+It is easier to swap out components than to always subclass.
+The whole thing was named Zope 3, did not gain traction, was renamed to Bluebream and died off.
+
+The component architecture itself was quite successfull and was extracted into the Zope Toolkit, which is integrated in Zope and heavily used in Plone.
+    This is what you want to use.
+
+
+What is ZCML
+------------
 What is the absolute simplest way to extend functionality?
 Monkey Patching. In code, during load time I import some code and replace it with my own code.
-If one can have multiple implementations for something, I could make a global dictionary where everybody just adds its functionality during boot up. This does not scale. Multiple plugins might overwrite each other. Here comes the Zope Component Architecture and ZCML. With ZCML I declare my utilities, adapters and browser views in ZCML, which is a XML dialect. During start up, Zope reads all these ZCML statements, validates that there are not two things trying to register the same things and only then registers everything. This is a good thing. ZCML is btw. only ONE way to declare your configuration, another technology is Grok, where some python magic allows you to decorate your code directly with some magic to make it an adapter. And these two ways of configuring can be mixed.
-Many ppl hate ZCML and avoid Zope because of it. I just find it cumbersome but even for me as a developer, it offers a nice advantage. Because of zcml, whenever I need to find out, where something has been implemented, the zcml files are like a phone book for me.
+
+If I would want to have an extensible registry of icons for different content types, I could create a global dictionary, and whoever implements a new icon for a different content type, would add an entry to my dictionary during import time.
+
+This does not scale. Multiple plugins might overwrite each other, you would explain people that they have reorder the imports, and then, suddenly, you will to import feature A before B, B before C and C before A, else you application won't work.
+
+
+Here comes the Zope Component Architecture and ZCML to your rescue.
+With ZCML you declare your utilities, adapters and browser views in ZCML, which is a XML dialect.
+During startup, Zope reads all these ZCML statements, validates that there are not two things trying to register the same things and only then registers everything.
+
+This is a good thing. ZCML is by the way only *one* way to declare your configuration.
+Another way is provided by is Grok, where some python magic allows you to decorate your code directly with some magic to make it an adapter. Both implementations can be mixed.
+We will mostly use grok in later code examples. The you will see what *magic* actually means.
+
+Many people hate ZCML and avoid Zope because of it being XML.
+Personally, I just find it cumbersome but even for me as a developer it offers a nice advantage.
+Thanks to zcml, I hardly ever have a hard time to find out what and where extensions or customizations. For me, zcml files are like a phone book.
 
 Installation
 ------------
-Installation is a two step process. First, we must make our code available to Zope. This means, it must be importable. This is handled by Buildout.
-ssh to your vagrant, and modify the buildout.cfg files in training/zinstance.
-PloneFormGen, Products.LinguaPlone and Products.PloneTrueGallery, collective.plonetruegallery
-DO THIS NOW
-RESTART
-After that the code is available, the ZCML gets loaded, so browser views, adapters and so on are available, but Plone is not configured to use this.
+Installation is a two step process.
+First, we must make our code available to Zope.
+This means, it must be importable and that is handled by Buildout.
+
+*ssh* to your vagrant, and modify the buildout.cfg files in training/zinstance.
+
+There is a variable named eggs, which contains multiple *eggs* Add the following eggs:
+
+    * PloneFormGen
+    * Products.LinguaPlone
+    * Products.PloneTrueGallery
+    * collective.plonetruegallery
+
+Usually, one enters the eggs by adding one more line per egg into the configuration.
+The egg name must be indented, this way buildout understands that the current line is part of the last variable and not a new variable.
+
+.. sourcecode:: bash
+
+    $ bin/buildout
+    $ bin/instance fg
+
+
+Now the code is importable from within plone and everything got registered via zcml.
+But Plone is not configured to use this.
 For this, you have to install the extension in your Plone Site.
-Go to the Products Panel.
+
+In your browser, go the plone control panel, and open the Products Panel. You will see that all 4 Products can be installed there.
+
+Install them now.
+
 This is what happens now: The GenericSetup profile of the product gets loaded. This does things like configuring new actions, registering new
-content types or adding browser views.
+content types or creating some content/configuration objects in your plone site.
+
+
+WIP
+VVV
 
 PTG
 ---
