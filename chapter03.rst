@@ -2,45 +2,39 @@
 3. The features of Plone (45min) (Philip)
 =========================================
 
- * Users
- * Walktrough of the UI
- * Content-Types
- * Pages and Folders
- * Content-Management
- * Collections
- * Content Rules, History,
- * Working Copys
- * User-Management, Roles und Groups
- * Workflows
- * Placeful Workflows
+For trainings we do most of this part using only keywords. You can find a in-depth user-manual at http://plone.org/documentation/manual/plone-4-user-manual
 
 
 Users
 -----
 
-Now let us create our first user within Plone. So far we used the admin-user (admin:admin) configured in the buildout. He is often called "zope-root". This user is not managed in Plone but only in by Zope. Therefore he's missing some features like email and fullname and he won't be able to some of plone's features. But he has all possible permissions.
+Let's create our first user within Plone. So far we used the admin-user (admin:admin) configured in the buildout. He is often called "zope-root". This user is not managed in Plone but only in by Zope. Therefore he's missing some features like email and fullname and he won't be able to use some of plone's features. But he has all possible permissions.
 
 You can add zope-users also via the terminal by entering::
 
-  $ ./bin/instance adduser rescueuser secretpassword
+  $ ./bin/instance adduser <someusername> <supersecretpassword>
 
-This way you can access databases you get from customers wehere you have no Plone-user.
+That way you can access databases you get from customers where you have no Plone-user.
 
-Now click on the name "admin" in the top right corner and then on "Site setup". This is Plone's control panel. You can access it by browsing to http://localhost:8080/plone-control_panel
+To add a new user click on the name "admin" in the top right corner and then on "Site setup". This is Plone's control panel. You can also access it by browsing to http://localhost:8080/plone_control_panel
 
-Click on "Users and Groups" and add a user. We use pbauer or pgerken as usernames. If you'd have configured a mail-server, Plone can send you a mail with a link to a form where you can chose a password. We set a password here because we didn't configure a smtp-server.
+Click on "Users and Groups" and add a user. If you'd have configured a Mailserver, Plone could send you a mail with a link to a form where you can choose a password. We set a password here because we didn't configure a Mailserver.
 
-Make this user with your name an admin.
+Make this user with your name an administrator.
 
-Create another user called testuser. Make him a normal user.
+Then create another user called testuser. Make him a normal user. You can use this user to see how Plone loks and behaves to users that have no admin-permission.
 
-*Firefox --noremote ist ein Weg, um mit unterschiedlichen Nutzern gleichzeitig auf einer Webseite angemeldet zu sein*
-
-Now let's see the site in 3 different browser logged-in in three different roles:
+Now let's see the site in 3 different browsers with in three different roles:
 
 * as anonymous
 * as editor
 * as admin
+
+
+Configure a Mailserver
+----------------------
+
+We should configure a mailserver since later create some content-actions that send emails when new content is put on our site.
 
 
 Walktrough of the UI
@@ -48,16 +42,22 @@ Walktrough of the UI
 
 Let's see what is there...
 
-* portal-top: logo, search, global-navigation (viewlets)
-* portal-columns: a container
+* portal-top:
 
-  * portal-column-one: portlets
+  * personaltools: name, logout etc.
+  * logo: with a link to the frontpage
+  * search
+  * global-navigation
+
+* portal-columns: a container holding:
+
+  * portal-column-one: portlets (configurable boxes with tool like navigation, news etc.)
   * portal-column-content: the content and the editor
   * portal-column-two: portlets
 
 * portal-footer: viewlets
 
-These are also the css-classes of the respective div's. Get used to them if you want to do theming you'll need them.
+These are also the css-classes of the respective div's. If you want to do theming you'll need them.
 
 
 Content-Types
@@ -87,7 +87,7 @@ Create a site-structure:
 * Add Folder "Intranet"
 
 
-Explain default content-types:
+The default content-types:
 
 * Document
 * News Item
@@ -116,7 +116,7 @@ Collections
 -----------
 
 * add a new collection: all content that has pending as wf_state.
-* explain http://localhost:8080/Plone/events/aggregator/edit
+* explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit
 * old vs. new collections (in 4.2. new collections are the default)
 * mention collection-portets
 

@@ -69,42 +69,42 @@ Get the latest version from http://downloads.vagrantup.com for your operating sy
 
 Now your system has a command 'vagrant' that you can run in the terminal.
 
-First create a directory where you want to to the training in
+First create a directory where you want to to the training in::
 
     $ mkdir training
     $ cd training
 
-Download a clean virtual machine (Ubuntu 12.04 Precise Pangolin 32bit). It will be downloaded and made available to the vagrant-command as 'precise32'. It serves as a basis for your virtual machines and can be reused as often as you like.
+Download a clean virtual machine (Ubuntu 12.04 Precise Pangolin 32bit). It will be downloaded and made available to the vagrant-command as 'precise32'. It serves as a basis for your virtual machines and can be reused as often as you like.::
 
     $ vagrant box add precise32 http://files.vagrantup.com/precise32.box
 
-Setup Vagrant to automatically install the current guest-additions. You can choose to skip this step if you encounter any problems with it.
+Setup Vagrant to automatically install the current guest-additions. You can choose to skip this step if you encounter any problems with it.::
 
     $ vagrant gem install vagrant-vbguest
 
-Now copy the files from http://www.starzel.de/plone-tutorial/plone_training_config.zip into your training directory. It should now hold the file "Vagrantfile" and the directories "manifests/" and "puppet_modules/"
+Now copy the files from http://www.starzel.de/plone-tutorial/plone_training_config.zip into your training directory. It should now hold the file "Vagrantfile" and the directories "manifests/" and "puppet_modules/"::
 
-Start the VM that is configured in "Vagrantfile"
+Start the VM that is configured in "Vagrantfile"::
 
     $ vagrant up
 
 This takes a very loooong time since it not only sets up the MV but also updates your VM, installs various packages needed for plone-development and runs the installer for Plone 4.2.1.
 
-If you have the feeling that something has gone wrong and the installation has not finished correctly for some reason try the following command to repeat the process. This will only repeat steps that have not finished correctly:
+If you have the feeling that something has gone wrong and the installation has not finished correctly for some reason try the following command to repeat the process. This will only repeat steps that have not finished correctly::
 
     $ vagrant provision
 
 You can try this multiple times to fix problems, e.g. if your network-connection was down and thus steps could not finish.
 
-Once the provisioning-process is completed you can login to the now running virtual machine:
+Once the provisioning-process is completed you can login to the now running virtual machine::
 
     $ vagnant ssh
 
-If you use Windows you'll have to login via putty (Install putty and follow the instructions her: http://vagrantup.com/v1/docs/getting-started/ssh.html)
+If you use Windows you'll have to login via putty (Install putty and follow the instructions here: http://vagrantup.com/v1/docs/getting-started/ssh.html)
 
 You are now logged in as the user vagrant in /home/vagrant. We'll do all steps of the training as this user.
 
-We installed a Plone 4.2.1 for you in the folder /home/vagrant/training/zinstance. You can run it now and access it from the browser.
+We installed a Plone 4.2.1 for you in the folder /home/vagrant/training/zinstance. You can run it now and access it from the browser.::
 
     $ cd training/zinstance
     $ ./bin/instance fg
@@ -152,20 +152,17 @@ Later we'll leave the unified installer behind and build our own little buildout
 Starting Plone (Patrick)
 ------------------------
 
-We control Plone with a small script called "instance"
+We control Plone with a small script called "instance"::
 
-``$ ./bin/instance fg``
+    $ ./bin/instance fg
 
 This starts Plone and we can see what it's doing
 
-It offers the following options:
-
-
-.. sourcecode:: bash
+It offers the following options::
 
     $ ./bin/instance fg
     $ ./bin/instance start
-    $ ./bin/instance fstop
+    $ ./bin/instance stop
     $ ./bin/instance debug -P Plone
 
 Depending on your computer, it will take up to a minute until Zope will tell you that its ready to serve requests.
