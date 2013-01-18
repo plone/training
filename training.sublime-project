@@ -9,9 +9,9 @@
     [
         {
             "name": "HTML",
-            "cmd": ["source", "bin/activate"],
             "working_dir": "${project_path}",
-            "cmd": ["make", "html"]
+            "shell": "true",
+            "cmd": [". bin/activate; make html"]
         }
     ]
 }
