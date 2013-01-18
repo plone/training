@@ -41,7 +41,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Mastering Plone'
-copyright = u'2013, Philip BauePhilip Bauer, Patrick Gerken'
+copyright = u'2013, Philip Bauer, Patrick Gerken'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -184,7 +184,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'MasteringPlone.tex', u'Mastering Plone Documentation',
-   u'Philip BauePhilip Bauer, Patrick Gerken', 'manual'),
+   u'Philip Bauer, Patrick Gerken', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -214,7 +214,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'masteringplone', u'Mastering Plone Documentation',
-     [u'Philip BauePhilip Bauer, Patrick Gerken'], 1)
+     [u'Philip Bauer, Patrick Gerken'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -228,7 +228,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'MasteringPlone', u'Mastering Plone Documentation',
-   u'Philip BauePhilip Bauer, Patrick Gerken', 'MasteringPlone', 'One line description of project.',
+   u'Philip Bauer, Patrick Gerken', 'MasteringPlone', 'One line description of project.',
    'Miscellaneous'),
 ]
 
@@ -246,9 +246,9 @@ texinfo_documents = [
 
 # Bibliographic Dublin Core info.
 epub_title = u'Mastering Plone'
-epub_author = u'Philip BauePhilip Bauer, Patrick Gerken'
-epub_publisher = u'Philip BauePhilip Bauer, Patrick Gerken'
-epub_copyright = u'2013, Philip BauePhilip Bauer, Patrick Gerken'
+epub_author = u'Philip Bauer, Patrick Gerken'
+epub_publisher = u'Philip Bauer, Patrick Gerken'
+epub_copyright = u'2013, Philip Bauer, Patrick Gerken'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.

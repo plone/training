@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"path": "/home/do3cc/dev/projects/training_manual"
+		}
+	],
+    "build_systems":
+    [
+        {
+            "name": "HTML",
+            "cmd": ["source", "bin/activate"],
+            "working_dir": "${project_path}",
+            "cmd": ["make", "html"]
+        }
+    ]
+}

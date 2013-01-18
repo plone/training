@@ -82,23 +82,16 @@ We'll use this Plone, that is found in /home/vagrant/training/zinstance on the v
 Later we'll leave the unified installer behind and build our own little buildout. Buildout will be explained later in depth.
 
 
-Customising the buildout (Patrick)
-----------------------------------
-
-TODO: (enter "admin" as password?)
-Now, lets run buildout and wait a bit...
-Buildout will create a start script for us. The start script accepts some parameters, the first is the command.
-
-
-
-
 Starting Plone (Patrick)
 ------------------------
+
+asd
 
 We control Plone with a small script called "instance"
 
 ``$ ./bin/instance fg``
-    this starts Plone and we can see what it's doing
+
+This starts Plone and we can see what it's doing
 
 It offers the following options::
 
