@@ -92,55 +92,62 @@ We control Plone with a small script called "instance"
 
 This starts Plone and we can see what it's doing
 
-It offers the following options::
+It offers the following options:
+
+
+.. sourcecode:: bash
 
     ./bin/instance fg
     ./bin/instance start
     ./bin/instance fstop
     ./bin/instance debug -P Plone
 
-Depending on your computer, it will take up to a minute until zope will tell you that its ready to serve requests.
+Depending on your computer, it will take up to a minute until Zope will tell you that its ready to serve requests.
 
-A Zope Standard installation always listens on port 8080, so lets have a look at our Zope Site by visiting http://localhost:8080
+A Zope standard installation always listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
 
 As you can see, there is no Plone yet!
-We have a running zope with a database but no content. But luckily there is that button to create a zope site.
-Click on that button. Use "Plone" as the site id.
+We have a running Zope with a database but no content. But luckily there is that button to create a Zope site.
+Click on that button. This opens a form to create a Plone site. Use "Plone" as the site id.
 
 
 The anatomy of Plone introduction (Patrick)
 -------------------------------------------
 
-Systemarchitektur erklären (5 Minuten)
+Zope, Plone, Genericsetup, CMF, Acquisition, whats all that, actually?
 
-* Zope
-  * Scripts in the database
-  * Acqusition to simulate class and stuff, persistency.
-* CMF
-* Plone
-* Erweiterungen
+Zope is an application server.
+Before Zope, there usually was an Apache server that would call a python/perl/shell script and send the request via stdout or something. The script would then just print html to the standard output.
 
+Jim Fulton thought that this is pretty stupid. So he wrote some code to handle requests. He believed that site content is object oriented and that the url should somehow point directy into the object hierarchy, so he wrote an object oriented database, called ZODB.
+Then there were transactions, so that it became a real database and after a while there were python scripts that could be edited through the web.
+One lost puzzlepiece is important, ``Acquisition``.
 
+Acquisition is a kind of magic. Imagine a world, where there is no file system, and there are no imports. If you have a folder food, and in there is a folder fruits, and in there is a page apple, and there are many many different pages on different levels in hierarchy, how would you implement some kind of functionality like displaying an e-mail adress that is defined centrally?
+The Answer to this is Acquisition. In my page that shall show the e-mail, I would maybe call context.getEmail(). Context stands for the object on which I currently am in the ZODB. Now there is no script getEmail() in here, but thanks to acquisition, python looks for the attribute a level higher, and another level and so on. This is the way to go for writing whole applications through the web and in a structured manner.
 
-Now, lets clear up a bit of mumbo jumbo.
-I talk about Zope, sometimes about Plone. Whats the difference about that?
-
-Zope is an application server. Before zope, there usually was an apache server that would call a python script, and send the request via stdout or something. The script would then just print some stuff and this was the html.
-Jim Fulton thought, that this is pretty stupid. So he wrote some code to handle requests. He believed that site content is object oriented and that the url should somehow point directy into the object hierarchy, so he wrote an object oriented database, called ZODB. Then there where transactions, so that it became a real database and after a while, python scripts that could be edited through the web, followed. One lost puzzle is important, Acquisition.
-Acquisition was kind of magic. Imagine a world, where there is no file system, and there are no imports. That is the vision of zope. Now if you have a folder food, and in there is a folder fruits, and in there is a page apple, and there are many many different pages on different levels in hierarchy, how would you implement some kind of functionality like displaying an e-mail adress that is defined centraly? The Answer is acquisition. In my View, I would maybe call context.getEmail(). Context stands for the object on which I currently am in the ZODB. Now there is no script getEmail() in here, but thanks to acquisition, python looks for the attribute a level higher, and another level and so on. This is the way to go for writing whole applications through the web and in a structured manner.
 Basically this is Zope.
+
 When I open http://localhost:8080/Plone/manage, I see the Zope Management Interface, a view into my object oriented database.
 
-After many successfully created websites based on zope, a number of recurring requirements emerged, and the CMF, the Content Management Framework was written.
+After many successfully created websites based on Zope, a number of recurring requirements emerged, and the CMF, the Content Management Framework was written.
 Most objects you see in the ZMI are part of the CMF somehow.
-The people behind CMF did not see CMF as a CMS. They created a CMS Site which was usable out of the box, but made it deliberately ugly, because you have to customize it anyway.
+The people behind CMF do not see CMF as a CMS. They created a CMS Site which was usable out of the box, but made it deliberately ugly, because you have to customize it anyway.
 
 This is one way to do it. Plone Founders Alexander Limi and Alan Runyan thought differently, and created a CMS that was usable and beautiful out of the box. Plone.
 
 Well, what do you think was a more successful way to go on?
-(Hint: Last german zope conference (2010): 80 ppl (There is no international zope conf), First german plone conf(2012): 150ppl)
-In practice, there is much much less in Zope world going on than in the Plone World. That means, that the question, what is part of CMF and what not, is a bit diluted. CMFEditions is not part of CMF, btw.
 
-So the important parts are this:
-We run Zope, the application server. Our Main application is Plone.
+A little hint:
+
+Last german Zope conference (2010): 80 ppl (There is no international Zope conf)
+
+First german Plone conferene (2012): 150ppl
+
+Nowadays, all communities communicate via mailing lists primarely, and the plone mailing lists are the most active ones.
+Unfortunately, it is not so easy to identify the origins of a piece of code. CMFEditions? From Plone. GenericSetup? Thats from the CMF people. Nowadays it is safe to say that if you aren't sure, ask the Plonies. (As a long time "no Plone just Zope" dev, this makes me sad. But then again, Plonistas have been frowned upon by many Zope devs for a long time, now look who iss successful now ;-) )
+
+Summed all up in one sentence, this sentence would be:
+
+    We run Zope, the application server. Our main application is Plone.
 
