@@ -86,8 +86,6 @@ Later we'll leave the unified installer behind and build our own little buildout
 Starting Plone (Patrick)
 ------------------------
 
-asd
-
 We control Plone with a small script called "instance"
 
 ``$ ./bin/instance fg``
