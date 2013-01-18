@@ -1,23 +1,10 @@
 2. Installation & Setup (60 Min) (Philip)
 =========================================
 
-Hosting your own site
----------------------
 
-If you want to host a Plone-website yourself then running it on your Laptop may not be the smartest option. We will cover some options for hosting tomorrow. One option is http://ploud.com whre you can host one real Plone-Site for free.
+Installation
+------------
 
-Options:
-
-* Ploud.net
-* Webfaction
-* gocept
-* Starzel
-* AWS
-* Rackspace
-
-
-Brief introduction of several installation-options
---------------------------------------------------
 
 Plone 4.2 requires a working Python 2.7 and several other system-tools that not every OS provides. Therefore the installation of Plone is differen on every system (
 
@@ -38,6 +25,20 @@ Everyone usually uses his primary system to develop Plone. I use MacOS and there
 * very old package for debian (don't use)
 * use some your python and create your own buildout
 
+Read more: https://plone.org/documentation/manual/installing-plone and http://developer.plone.org/getstarted/installation.html
+
+
+Hosting your Website
+--------------------
+
+If you want to host a real-live Plone-Site yourself then running it on your Laptop may not be the smartest option. There are many options for hosting with increasing complexity and/or cost.
+
+* A good option to get to know Plone is http://ploud.com whre you can host real Plone-Site for free.
+* You can chose one of many hosting providers that offer managed Plone-Boxes
+* You can
+* You can run Plone on your own server
+
+Read more: http://plone.org/documentation/faq/where-can-i-host-my-plone-site
 
 Vagrant and Virtualbox
 ----------------------
