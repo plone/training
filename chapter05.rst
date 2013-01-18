@@ -109,7 +109,7 @@ content types or creating some content/configuration objects in your plone site.
 
 
 WIP
-VVV
+VVVxxx
 
 PTG
 ---
