@@ -78,7 +78,7 @@ Let's create this file without any logic::
 
 * Viewlet for IVoteable
 * the viewlet-template
-* add jquery stuff
+* add jquery include statements
 * saving the vote on the object using annotations (Patrick)
 
 

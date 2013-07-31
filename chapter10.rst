@@ -97,7 +97,7 @@ results in::
 
     <p>I love red</p>
 
-Let's try it. Open the file ``demoview.pt`` and empty it since we don't need the stuff that was put in by default.
+Let's try it. Open the file ``demoview.pt`` and empty it since we don't need the text that was put in by default.
 
 Instead enter the following::
 
@@ -449,7 +449,7 @@ Accessing Plone from the template
 
 In our template we have access to the context object on which the view is called on, the browser-view itself (i.e. all python-methods we'll put in the view later on), the request and response objects and with these we can get almost anything.
 
-In templates we can also access other browser-views. Some of those exist to provide easy access to stuff we often need (an basic api so to say)::
+In templates we can also access other browser-views. Some of those exist to provide easy access to helper code snippets we often need (an basic api so to say)::
 
     tal:define="context_state context/@@plone_context_state;
                 portal_state context/@@plone_portal_state;

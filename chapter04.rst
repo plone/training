@@ -70,7 +70,7 @@ Viewlets
 * ttw-reordering only within the same viewlet-manager
 * the programer descides when it's where and what it shows
 
-Portlets save Data, Viewlets usually don't. Viewlets are often used for UI-stuff.
+Portlets save Data, Viewlets usually don't. Viewlets are often used for UI-Elements.
 
 example: hide collophon
 

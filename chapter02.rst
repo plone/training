@@ -128,7 +128,7 @@ First we install some packages::
     $ sudo aptitude update --quiet --assume-yes
     $ sudo apt-get install python-dev python-virtualenv libjpeg62-dev libxslt1-dev git-core subversion zlib1g-dev libbz2-dev wget curl elinks gettext
 
-Then we create a virtual python environement using virtualenv. This is alway a good practice since that way we get a clean copy of our system-pythonm we can't break it by installing stuff that might collide with other stuff::
+Then we create a virtual python environement using virtualenv. This is alway a good practice since that way we get a clean copy of our system-python, we can't break it by installing eggs that might collide with other eggs::
 
     $ virtualenv --no-site-packages py27
 
