@@ -2,20 +2,21 @@
 5. Extending Plone with Addons (80min) (Patrick)
 ================================================
 
-Zope is extensible, as is Plone.
-Nowadays everybody installs eggs. Eggs are a bunch of python files, together with other needed files like page templates and the like and a bit of Metadata, bundled to a single archive file.
+Zope is extensible and so is Plone.
+If you want to to install an Addon, you are going to install an Egg. Eggs consist of python files together with other needed files like page templates and the like and a bit of Metadata, bundled to a single archive file.
 
-Eggs are a much much younger than Zope. Zope needed something like eggs before there were eggs, and the Zope developers wrote their own system, which we still see at some parts. But more and more functionality is pushed into the eggs alone.
+Eggs are a much much younger than Zope. Zope needed something like eggs before there were eggs, and the Zope developers wrote their own system. Old, outdated Plone systems contain a lot of code that is not bundled in an egg. Older code did not have metadata to register things, instead you needed a special setup method. We don't need this method but you might see it in other code. It is usually used to register Archetypes code. Archetypes is the old content type system. We use Dexterity.
 
 
 Extension technologies
 ----------------------
 
-Now, how can one extend Plone? A number of extensions create new things that can just be added to plone, like content types. Other things change functionality, like how the search page works or how the site looks like overall.
+Ok, how do you extend Plone? This depends on what type of extension you want to create.
+You can create extensions with new types of objects to add to your plone site. Usually these are content types. You can create an extention that changes or extends functuionality. For example to change the way search results are displayed, or to make pictures searchable by adding a converter from jpg to text.
 
 skin_folders
 ^^^^^^^^^^^^
-Remember acquisition? Skin Folders are an extension of acquistion. Your plone site has a folder named ``portal_skins``. This contains a bunch of folders. The ``portal_skins`` folder has a property that defines in which order attributes or objects should be looked for in the skin folder.
+Do you remember acquisition? Skin Folders are an extension of acquistion. Your plone site has a folder named ``portal_skins``. This contains a number of folders. The ``portal_skins`` folder has a property that defines in which order attributes or objects should be looked for in the skin folder.
 
 The plone logo is in a skin folder.
 By default, your site has a custom folder, and items are first searched for in that folder.
