@@ -2,13 +2,14 @@
 6. Buildout I (30min) (Patrick)
 ===============================
 
-Buildout erhält eine Liste mit Dingen die man haben möchte, und baut diese zusammen. Es übernimmt dafuer zwei Aufgaben. Eine Aufgabe ist das Holen aller eggs die man braucht, zum anderen erzeugt es bei Bedarf Konfigurationsdateien und Verzeichnisse. Plone benötigt zum Beispiel ein Verzeichnis fuer Log Dateien, eines für die Datenbank und mehrere Konfigurationsdateien für sich selbst. Diese werden alle durch Buildout gebaut. Wir haben durch den Unified Installer schon ein Set an Konfigurationsdateien bekommen. Diese gehen wir nun im Schnelldurchgang durch.
+You write a list of eggs you want to have. Buildout retrieves the eggs. In doing this, buildout retrieves the eggs, resolving dependencies, including dependencies where an egg states that it must have a specific minimum or maximum version of another egg. Buildout can also create configuration files and folder. Plone, for example, needs a folder to writes it logfiles into, a folder for the database and multiple configuration files. All of this is assembled by buildout. The Unified installer created configuration files already. Let's have a look at them now.
 
-Generell verwenden die Konfigurationsdateien eine Syntax die ähnlich ist wie bei ini files. Man schreibt einen Parameternamen, dann ein Gleichheitszeichen, und dann einen Wert. Wenn man in der nächsten Zeile einen weiteren Wert einträgt, und diesen einrückt, werden beide Werte als eine Liste gespeichert. Beispiel::
+The syntax of buildout configuration files is similar to classic ini files. You write a parameter name, an equals sign and the value. If you enter another value in the next line and indent it, buildout understands that both values belong to the parameter name, and the parameter receives a list of all values. Here is an example::
 
     parts = alpha
         beta
 
+Many developers created extensions for buildout.
 Zusätzlich gibt es Buildout Erweiterungen die eigene Einstellungen brauchen. Damit es da keine Überschneidungen gibt, teilt man seine Konfiguration in Sektoren auf, eine Sektion beginnt mit dem Sektionsnamen in eckigen Klammern. Zu guter letzt verwenden einige Erweiterungen die gleichen Einstellungen, um diese dort wieder nutzen zu können, schreibt man keinen konkreten Wert sonderne eine Referenz auf das Ursprungsfeld.
 
 * buildout.cfg
