@@ -22,7 +22,7 @@ The Plone logo is in a skin folder.
 
 By default, your site has a custom folder, and items are first searched for in that folder.
 
-To customize the logo, you copy it into the custom folder, and change it there. This way you can change templates, Css styles, images and behavior, because a container may contain python scripts.
+To customize the logo, you copy it into the custom folder, and change it there. This way you can change templates, CSS styles, images and behavior, because a container may contain python scripts.
 
 GenericSetup
 ^^^^^^^^^^^^^
@@ -36,26 +36,25 @@ You will see many objects in Zope or the ZMI that you can customize through the 
 
 Typically you use *GenericSetup* to change workflows or add new content type definitions.
 
-ZCML
-^^^^
-The last way is via *ZCML*.
+Components
+^^^^^^^^^^
+The last way is via *Components*.
 
-A bit of history again.
+A bit of history is in order.
 When Zope started, object-oriented Design was **the** silver bullet.
 Zope objects have more than 10 base classes.
 After a while, XML and Components became the next silver bullet (Does anybody remember J2EE?).
 The Zope developers decided that these new silver bullets look much, much cooler in their colts so they decided rewrite Zope with this technology.
-It is easier to swap out components than to always subclass.
-As the new concepts were radically different from the old Zope concepts, the Zope developers renamed the new project to Zope 3. But it did not gain traction, the community somehow renamed it  to Bluebream and this died off.
+As the new concepts were radically different from the old Zope concepts, the Zope developers renamed the new project to Zope 3. But it did not gain traction, the community somehow renamed it to Bluebream and this died off.
 
-The component architecture itself was quite succesful and the Zope developer extracted it into the Zope Toolkit. The Zope toolkit is part of Zope and Plone developers use it extensivly.
+The component architecture itself is quite successful and the Zope developer extracted it into the Zope Toolkit. The Zope toolkit is part of Zope, and Plone developers use it extensively.
 
 
 This is what you want to use.
 
 
-What is ZCML
-------------
+What are components, what is ZCML
+---------------------------------
 What is the absolute simplest way to extend functionality?
 Monkey Patching. In code, during load time I import some code and replace it with my code.
 
@@ -63,15 +62,14 @@ If I would want to have an extensible registry of icons for different content ty
 
 This does not scale. Multiple plugins might overwrite each other, you would explain people that they have to reorder the imports, and then, suddenly, you will to import feature A before B, B before C and C before A, or else you application won't work.
 
-
 Here comes the Zope Component Architecture and ZCML to your rescue.
-With ZCML you declare your utilities, adapters and browser views in ZCML, which is a XML dialect.
-During startup, Zope reads all these ZCML statements, validates that there are not two things trying to register the same things and only then registers everything.
+With ZCML you declare utilities, adapters and browser views in ZCML, which is a XML dialect.
+During startup, Zope reads all these ZCML statements, validates that there are not two declarations trying to register the same components and only then registers everything.
 
 This is a good thing. ZCML is by the way only *one* way to declare your configuration.
-Grok pvides another way, where some python magic allows you to decorate your code directly with some magic to make it an adapter. You can use both ZCML and grok together.
-We will mostly use grok in later code examples. There you will see what *magic* actually means.
-Please be aware that not everybody loves Grok. Some parts of the Plone community think, that there may only be one configuration language, others are against adding the relative big dependency of grok to Plone. One actual problem is the fact that you cannot customize components declared with grok with jbot. This is probably fixable, though. In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to achieve maximum acceptance.
+Grok pvides another way, where some python magic allows you to decorate your code directly with a decorater to make it an adapter. You can use both ZCML and grok together.
+We will mostly use Grok in later code examples.
+Please be aware that not everybody loves Grok. Some parts of the Plone community think that there may only be one configuration language, others are against adding the relative big dependency of Grok to Plone. One real problem is the fact that you cannot customize components declared with grok with jbot. This is probably fixable, though. In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to get maximum acceptance.
 
 Many people hate ZCML and avoid Zope because of it being XML.
 Personally, I just find it cumbersome but even for me as a developer it offers a nice advantage.
@@ -81,11 +79,11 @@ Installation
 ------------
 Installation is a two-step process.
 First, we must make our code available to Zope.
-This means, that zope can import the code, buildout is responsible this.
+This means, that Zope can import the code, Buildout is responsible this.
 
 *ssh* to your vagrant, and change the buildout.cfg files in training/zinstance.
 
-There is a variable named eggs, which contains multiple *eggs* Add the following eggs:
+There is a variable named eggs, which has multiple *eggs* as a value. Add the following eggs:
 
     * PloneFormGen
     * Products.LinguaPlone
@@ -93,7 +91,7 @@ There is a variable named eggs, which contains multiple *eggs* Add the following
     * collective.plonetruegallery
 
 Usually, one enters the eggs by adding one more line per egg into the configuration.
-You must write the egg name indented, this way buildout understands that the current line is part of the last variable and not a new variable.
+You must write the egg name indented, this way Buildout understands that the current line is part of the last variable and not a new variable.
 
 .. sourcecode:: bash
 
