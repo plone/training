@@ -26,7 +26,7 @@ Plone offers some options for being installed:
 
 During the tutorial we'll use Options 1 and 4 to install and run Plone. We'll first use the unified installer and the default Plone-configuration (called buildout) that comes with it. Later we'll create our own buildout and extend it as we wish.
 
-Read more about instaling Plone: https://plone.org/documentation/manual/installing-plone and http://developer.plone.org/getstarted/installation.html
+Read more about instaling Plone: https://plone.org/documentation/manual/installing-plone and http://developer.plone.org/getstarted/installation.HTML
 
 
 Hosting your Website
@@ -100,7 +100,7 @@ Once the provisioning-process is completed you can login to the now running virt
 
     $ vagnant ssh
 
-If you use Windows you'll have to login via putty (Install putty and follow the instructions here: http://vagrantup.com/v1/docs/getting-started/ssh.html)
+If you use Windows you'll have to login via putty (Install putty and follow the instructions here: http://vagrantup.com/v1/docs/getting-started/ssh.HTML)
 
 You are now logged in as the user vagrant in /home/vagrant. We'll do all steps of the training as this user.
 
@@ -126,7 +126,7 @@ The first installation is done by Puppet, a tool to automatically manage servers
 First we install some packages::
 
     $ sudo aptitude update --quiet --assume-yes
-    $ sudo apt-get install python-dev python-virtualenv libjpeg62-dev libxslt1-dev git-core subversion zlib1g-dev libbz2-dev wget curl elinks gettext
+    $ sudo apt-get install python-dev python-virtualenv libjpeg62-dev libxslt1-dev git-core subversion zlib1g-dev libbz2-dev wget cURL elinks gettext
 
 Then we create a virtual python environement using virtualenv. This is alway a good practice since that way we get a clean copy of our system-python, we can't break it by installing eggs that might collide with other eggs::
 
@@ -156,7 +156,7 @@ We control Plone with a small script called "instance"::
 
     $ ./bin/instance fg
 
-This starts Plone and we can see what it's doing
+This starts Plone and we can see what it is doing
 
 It offers the following options::
 
@@ -170,47 +170,54 @@ Depending on your computer, it will take up to a minute until Zope will tell you
 A Zope standard installation always listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
 
 As you can see, there is no Plone yet!
-We have a running Zope with a database but no content. But luckily there is that button to create a Zope site.
+We have a running Zope with a database but no content. But luckily there is a button to create a Zope site.
 Click on that button. This opens a form to create a Plone site. Use "Plone" as the site id.
 
 
 The anatomy of Plone introduction (Patrick)
 -------------------------------------------
 
-Zope, Plone, Genericsetup, CMF, Acquisition, whats all that, actually?
+Zope, Plone, GenericSetup, CMF, Acquisition, what is all that actually?
 
 Zope is an application server.
-Before Zope, there usually was an Apache server that would call a python/perl/shell script and send the request via stdout or something. The script would then just print html to the standard output.
+It serves applications that you write to users via http.
+Before Zope, there usually was an Apache server that would call a script and give the request as an input. The script would then just print HTML to the standard output. Apache returned that to the user. Opening database connections, checking permission constraints, generating valid HTML, configuring caching, interpreting form data and everything you have to do on your own. When the second request comes in, you have to do everything again.
 
-Jim Fulton thought that this is pretty stupid. So he wrote some code to handle requests. He believed that site content is object oriented and that the url should somehow point directy into the object hierarchy, so he wrote an object oriented database, called ZODB.
+Jim Fulton thought that this was slightly tedious. So he wrote code to handle requests. He believed that site content is object oriented and that the URL should somehow point directly into the object hierarchy, so he wrote an object oriented database, called ZODB.
 Then there were transactions, so that it became a real database and after a while there were python scripts that could be edited through the web.
-One lost puzzlepiece is important, ``Acquisition``.
+One missing piece is important and complicated: ``Acquisition``.
 
-Acquisition is a kind of magic. Imagine a world, where there is no file system, and there are no imports. If you have a folder food, and in there is a folder fruits, and in there is a page apple, and there are many many different pages on different levels in hierarchy, how would you implement some kind of functionality like displaying an e-mail adress that is defined centrally?
-The Answer to this is Acquisition. In my page that shall show the e-mail, I would maybe call context.getEmail(). Context stands for the object on which I currently am in the ZODB. Now there is no script getEmail() in here, but thanks to acquisition, python looks for the attribute a level higher, and another level and so on. This is the way to go for writing whole applications through the web and in a structured manner.
+Acquisition is a kind of magic. Imagine a programming system where you do not access the file system and where you do not need to import code. You work with objects. An object can be a folder that contains more objects, a HTML page, data, or another script. To access an object, you need to know where the object is. Objects are found by paths that look like URLs, but without the domain name. Now Acquisition allows you to write an incomplete path. An incomplete path is a relative path, it does not explicitly state that the path starts from the root, it starts relative to where the code object is. If Zope cannot resolve the path to an object relative to your code, I tries the same path in the containing folder. And then the folder containing the folder.
+This might sound weird, what do I gain with this? You can have different data or code depending on your ``context``. Imagine you want to have header images differing for each section of your page, sometimes even differing for a specific subsection of your site. So you define a path header_image and put a header image at the root of your site. If you want a folder to have a different header image, you put the header image into this folder.
+Please take a minute to let this settle and think, what this allows you to do.
+
+  - contact forms with different e-mail adresses per section
+  - different CSS styles for different parts of your site
+  - One site, multiple customers, everything looks different for each customer.
 
 Basically this is Zope.
 
-When I open http://localhost:8080/Plone/manage, I see the Zope Management Interface, a view into my object oriented database.
-
-After many successfully created websites based on Zope, a number of recurring requirements emerged, and the CMF, the Content Management Framework was written.
+After many successfully created websites based on Zope, a number of recurring requirements emerged, and some Zope developers started write CMF, the Content Management Framework.
+The CMF offers many services that help you to write a CMS based on Zope.
 Most objects you see in the ZMI are part of the CMF somehow.
-The people behind CMF do not see CMF as a CMS. They created a CMS Site which was usable out of the box, but made it deliberately ugly, because you have to customize it anyway.
+The developers behind CMF do not see CMF as a ready to use CMS. They created a CMS Site which was usable out of the box, but made it deliberately ugly, because you have to customize it anyway.
 
-This is one way to do it. Plone Founders Alexander Limi and Alan Runyan thought differently, and created a CMS that was usable and beautiful out of the box. Plone.
+This is one way to do it. The Plone founders Alexander Limi and Alan Runyan thought differently, and created a CMS that was usable and beautiful out of the box, based on CMF. They named in Plone.
 
-Well, what do you think was a more successful way to go on?
+Here are two numbers, without further comment:
 
-A little hint:
+Last German Zope conference (2010): 80 visitors (There is no international Zope conference)
 
-Last german Zope conference (2010): 80 ppl (There is no international Zope conf)
+First German Plone conference (2012): 150 visitors
 
-First german Plone conferene (2012): 150ppl
+The Plone and Zope community are very similar. Even though in the past, a lot of Zope developers who did not use Plone envied Plone for it success and tried to marginalize the Plone success with bad mouthing. If you meet a Zope developer making bad remarks about Plone, be kind to him. It is hard to accept that your superior, cleaner system is not used by anybody, because Plone is user friendly and beautiful.
 
-Nowadays, all communities communicate via mailing lists primarely, and the plone mailing lists are the most active ones.
-Unfortunately, it is not so easy to identify the origins of a piece of code. CMFEditions? From Plone. GenericSetup? Thats from the CMF people. Nowadays it is safe to say that if you aren't sure, ask the Plonies. (As a long time "no Plone just Zope" dev, this makes me sad. But then again, Plonistas have been frowned upon by many Zope devs for a long time, now look who iss successful now ;-) )
+Because there is such a big overlap of the communities, it can sometimes be confusing, where some functionality is coming from.
 
-Summed all up in one sentence, this sentence would be:
+- CMFEditions: Written by Plone developers
+- GenericSetup: Written by CMF developers
 
-    We run Zope, the application server. Our main application is Plone.
+Summarizing all this in a single sentence:
+
+    We run Zope the application server. Our main application is Plone.
 
