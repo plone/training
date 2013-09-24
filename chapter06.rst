@@ -28,31 +28,92 @@ Let us walk through a concrete Buildout file and look at some important variable
 
 * Buildout.cfg
 
-When you run Buildout without any arguments, Buildout will look for this file.
+.. code-block:: cfg
+
+    [buildout]
+    parts =
+        instance
+        omelette
+        zopeskel
+
+    extends =
+        http://dist.plone.org/release/4.3.2/versions.cfg
+        versions.cfg
+
+    find-links = http://dist.repoze.org/
+
+    # A test-pypi to publish eggs
+    # index = http://testpypi.python.org/simple/
+
+    extensions = mr.developer
+    sources = sources
+    auto-checkout =
+        plonekonf.talk
+        starzel.votable_behavior
+
+    versions = versions
+
+    [instance]
+    recipe = plone.recipe.zope2instance
+    eggs =
+        Plone
+        Pillow
+        Products.PloneFormGen
+        Products.LinguaPlone
+        collective.plonetruegallery
+        plone.app.themeeditor
+        z3c.jbot
+    #    plonekonf.talk
+    #    starzel.votable_behavior
+
+    user = admin:admin
+    # The following is only used when we use vagrant.
+    # The shared folder should not contain "big data" or symbolic links.
+    file-storage = /home/vagrant/var/filestorage/Data.fs
+    blob-storage = /home/vagrant/var/blobstorage
+
+    [omelette]
+    recipe = collective.recipe.omelette
+    eggs = ${instance:eggs}
+    # Same as above: We dont want links in the shared folder.
+    # The default omelette-dir is parts/omelette
+    location = /home/vagrant/omelette
+
+    [zopeskel]
+    # installs paster and Zopeskel
+    recipe = zc.recipe.egg
+    eggs =
+        PasteScript
+        ZopeSkel
+        ${instance:eggs}
+
+    [sources]
+    plonekonf.talk = git https://github.com/starzel/plonekonf.talk.git
+    starzel.votable_behavior = git git://github.com/starzel/starzel.votable_behavior.git
+    plone.app.themeeditor = git git@github.com:plone/plone.app.themeeditor.git
+
+
+When you run Buildout without any arguments, Buildout will look for this file.::
 
     extends =
 
-This line tells Buildout, to read more configuration files. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configuration that differ between different environments.
+This line tells Buildout, to read more configuration files. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configuration that differ between different environments.::
 
     http-address =
 
-That is the port on which Zope will listen for requests
+That is the port on which Zope will listen for requests::
 
     eggs =
 
-This is the list of Eggs that the Zope server must have available.
+This is the list of Eggs that the Zope server must have available.::
 
     develop =
 
-Here you list Eggs that you are developing. They are not available as eggs but as a folder with a specific structure. Zope has to load eggs slightly different to these so-called ``checkouts``
+Here you list Eggs that you are developing. They are not available as eggs but as a folder with a specific structure. Zope has to load eggs slightly different to these so-called ``checkouts``::
 
-[versions]
+    [versions]
 
 This is another special section. You might have noticed that most if not all functionality is only available via plugins. One of the things that Buildout excels at without any plugin, is the dependency resolution. You can help Plone in dependency resolution by declaring exactly which version of an egg you want. This is only one use case. Another one is much ,more important. If you want to have a repeatable Buildout, one that works two months from now also, you MUST declare all your egg versions. Else Buildout might install newer versions.
-
-* base.cfg
-
-XXX Must review
 
 * versions.cfg
 
@@ -62,7 +123,7 @@ Keeping versions in a separate files help to keep your Buildout configuration fi
 
 This is an example for a configuration file for a different environment. You want to develop on a Zope Site with different configuration than your Zope on production.
 
-There are many more important things to know, and we can't go through them in all the detail but I want to focus on one specific feature: Mr.developer
+There are many more important things to know, and we can't go through them in all the detail but I want to focus on one specific feature: **mr.developer**
 
 With mr.developer, you can declare, which packages you want to check out from which version control system and which repository URL. You can check out sources from git, svn, bzr, hg and maybe more. Also, you can say that some source are in your local file system.
 mr.developer comes with a command, ./bin/develop. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them, when you write changes that require a new release. You can activate and deactivate eggs via the develop command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.

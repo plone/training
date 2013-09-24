@@ -3,6 +3,7 @@
 ==================================================
 
 Zope is extensible and so is Plone.
+
 If you want to install an Add-on, you are going to install an Egg. Eggs consist of python files together with other needed files like page templates and the like and a bit of Metadata, bundled to a single archive file.
 
 Eggs are younger than Zope. Zope needed something like eggs before there were eggs, and the Zope developers wrote their own system. Old, outdated Plone systems contain a lot of code that is not bundled in an egg. Older code did not have metadata to register things, instead you needed a special setup method. We don't need this method but you might see it in other code. It is usually used to register Archetypes code. Archetypes is the old content type system. We use Dexterity.
@@ -16,6 +17,7 @@ You can create extensions with new types of objects to add to your Plone site. U
 
 skin_folders
 ^^^^^^^^^^^^
+
 Do you remember Acquisition? Skin Folders extend the concepts of Acquistion. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder.
 
 The Plone logo is in a skin folder.
@@ -25,7 +27,8 @@ By default, your site has a custom folder, and items are first searched for in t
 To customize the logo, you copy it into the custom folder, and change it there. This way you can change templates, CSS styles, images and behavior, because a container may contain python scripts.
 
 GenericSetup
-^^^^^^^^^^^^^
+^^^^^^^^^^^^
+
 The next thing is *GenericSetup*. As the name clearly implies, *GenericSetup* is part of CMF.
 
 GenericSetup is tough to master, I am afraid.
@@ -38,6 +41,7 @@ Typically you use *GenericSetup* to change workflows or add new content type def
 
 Components
 ^^^^^^^^^^
+
 The last way is via *Components*.
 
 A bit of history is in order.
@@ -55,7 +59,9 @@ This is what you want to use.
 
 What are components, what is ZCML
 ---------------------------------
+
 What is the absolute simplest way to extend functionality?
+
 Monkey Patching. In code, during load time I import some code and replace it with my code.
 
 If I would want to have an extensible registry of icons for different content types, I could create a global dictionary, and whoever implements a new icon for a different content type, would add an entry to my dictionary during import time.
@@ -75,11 +81,13 @@ Many people hate ZCML and avoid Zope because of it being XML.
 Personally, I just find it cumbersome but even for me as a developer it offers a nice advantage.
 Thanks to ZCML, I hardly ever have a hard time to find out what and where extensions or customizations. For me, ZCML files are like a phone book.
 
+
 Installation
 ------------
+
 Installation is a two-step process.
 First, we must make our code available to Zope.
-This means, that Zope can import the code, Buildout is responsible this.
+This means, that Zope can import the code, buildout is responsible this.
 
 *ssh* to your vagrant, and change the buildout.cfg files in training/zinstance.
 
@@ -121,18 +129,14 @@ There a various methods to create forms in Plone:
 
 Mit PFG kann man professionelle Formulare zusammenklicken. Wenn man bedenkt was die Alternatven sind wird klar wie cool PFG ist. Der angeblich komfortablen Formulargenerator in Typo3 ist ja schon schlimm. In Plone könnte man Formulare auch von Hand in html schreiben und in Python auslesen was oft auch eine einfache Methode ist. Wenn es komplexer sein soll dann eben z3c.forms. Aber dazu muss man ja immer programmieren. Wir machen das jetzt mal nicht sondern klicken uns ein Anmeldeformular für die Plone-Konferenz zusammen.
 
-http://konferenz.plone.de/anmeldung
-
-In fact the guys at fourdigts embedd the form in a iframe. Let's pretend otherwise.
-
 * easy form to subscribe a newsletter?
 * registration-form (Name, Food, Shirt-size etc.)
 * Mail-Adapter
 * DataSave Adapter
 
 
-Internationalisation with LinguaPlone (Philip)
-----------------------------------------------
+Internationalisation with LinguaPlone and plone.app.multilingual (Philip)
+-------------------------------------------------------------------------
 
 * ``/plone_control_panel``
 * install installieren
@@ -142,8 +146,8 @@ Internationalisation with LinguaPlone (Philip)
    * ZMI -> portal_languages -> "Display flags for language selection" aktivieren
 
 * ``/@@language-setup-folders`` -> Ordnerstruktur anlegen
-* Englische Startseite anlegen
-* Infos zum übersetzen (folder übersetzen, language_independent)
+* Create english frontpage
+* Best prachtive about translating zum übersetzen (folder übersetzen, language_independent)
 
    * http://plone.org/products/linguaplone/issues/250
 
