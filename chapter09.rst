@@ -35,18 +35,19 @@ Dexterity and Archetypes - A Comparison
 
 There are two content-frameworks in Plone
 
-* Dexterity is relatively new. Will is part of Plone-core since 4.3
+* Dexterity is relatively new. It is part of Plone-core since 4.3
 * Archetypes is old, tried and tested (Around since Plone 1.0.4)
-* Archetypes: Very widespread, almost all existing addons are based on Archetypes
-* Plone's default content-types are Archetypes (unless you use plone.app.contentypes)
+* Archetypes: Very widespread, most existing addons are based on Archetypes
+* Plone's default content-types are still Archetypes
+* In Plone 5 they will be replaced with Dexterity-versions of them (plone.app.contentypes)
 
-What do they have in common:
+What do AT and DX have in common?
 
-* add and edit-forms are created automatically from the schema
+* add and edit-forms are created automatically from a schema
 
 What are the differences?
 
-* Dexterity: New, faster, no dark magic for getters und setters, modular
+* Dexterity: New, faster, no dark magic for getters und setters. modular
 * Archetype had magic setter/getter - use talk.getAudience() for the field 'audience'
 * Dexterity: fields are attributes: talk.audience instead of talk.getAudience()
 
@@ -56,7 +57,7 @@ TTW:
 * Archetypes has ArchGenXML for UML-modeling (agx will bring this to Dexterity too)
 
 Approaches:
-* Schema in Dexterity: ttw, xml, python. interface = schema, often no class needded
+* Schema in Dexterity: ttw, xml, python. interface = schema, often no class needed
 * Schema in Archetypes: schema only in python
 
 * Dexterity: easy permissions per field, easy custom forms
@@ -68,8 +69,8 @@ Extending:
   * Dexterity has Behaviors: easily extendable. Just activate an behavior ttw and you ct is translateable (plone.app.multilingual). There might even be per-instance behaviors at one time...
   * Archetypes has archetypes.schemaextender. Powerfull but not as flexible
 
-We use dexterity whenever possible beacause of these points.
-We teach Dexterity and not Archetypes since it's much more accessible to beginners and has a great TTW-story.
+We use dexterity whenever possible because of these points.
+We teach Dexterity and not Archetypes since it's much more accessible to beginners, has a great TTW-story and is the future.
 
 Views:
 * Both Dexterity and Archetypes have a default-view for content-types.

@@ -9,8 +9,6 @@ Explain Behaviours
 simple social behavior
 ----------------------
 
-
-
 * Behavior "IVoteable"
 * The Plone API
 
@@ -44,7 +42,7 @@ Viel Code, zunächst kümmern wir uns darum, den Context weg zu
 speichern. Dann holen wir uns die Annotations. Der Annotationadapter
 ist ein Standardweg, zusätzliche Informationen auf einem Objekt zu
 speichern. Der Adapter implementiert eigentlich nur folgenes:
-Er speichert ein PeristentDict auf dem Attribute __annotations__ und
+Er speichert ein PeristentDict auf dem Attribute ``__annotations__`` und
 liefert dieses zurück. Wer etwas speichern möchte, muss sich einen
 möglichst eindeutigen Schlüssel ausdenken, wir nehmen den Namen
 unserer Klasse.
@@ -91,11 +89,15 @@ Stimmrecht zu geben, wenn sie schon abgestimmt haben.
 clear Wir haben beim Testen festgestellt, das es sehr hilfreich ist,
 mal eben schnell die Stimmen alle zu löschen.
 
-git checkout tutorial-7-behavior
+.. code-block:: bash
+
+    $ git checkout tutorial-7-behavior
 
 Ergänzen wir nun unsere Listenansicht um das Durchschnittsvoting.
 
-git checkout tutorial-8-listview-mit-behavior
+.. code-block:: bash
+
+    $ git checkout tutorial-8-listview-mit-behavior
 
 Ok, wie stimmen wir nun ab?
 

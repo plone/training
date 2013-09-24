@@ -37,7 +37,9 @@ Enter 'Demo' as answer to the only question asked.
 
 This creates a the boilerplate that allows us to use a template without having to care about registering it in plone and providing a view for now.
 
-We could also do it by hand. To do that we'd add the following to browser/configure.czml::
+We could also do it by hand. To do that we'd add the following to ``browser/configure.czml``:
+
+.. code-block:: xml
 
     <browser:page
        name="demoview"
@@ -83,23 +85,31 @@ The three languages are.
 
   * this enables us to combine, re-use and nest templates together
 
-TAL and METAL are written like html-attribues (url, src, title). TALES are written like the values of these attributes. A typical TAL-Statement looks like this::
+TAL and METAL are written like html-attribues (url, src, title). TALES are written like the values of these attributes. A typical TAL-Statement looks like this:
+
+.. code-block:: html
 
     <title tal:content="context/title">
         The Title of the content
     </title>
 
-It's used to modify the output::
+It's used to modify the output:
+
+.. code-block:: html
 
     <p tal:content="string:I love red">I love blue</p>
 
-results in::
+results in:
+
+.. code-block:: html
 
     <p>I love red</p>
 
 Let's try it. Open the file ``demoview.pt`` and empty it since we don't need the text that was put in by default.
 
-Instead enter the following::
+Instead enter the following:
+
+.. code-block:: html
 
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
           lang="en"
@@ -125,17 +135,23 @@ http://www.pagetemplates.org/
 TAL and TALES
 -------------
 
-Now let's add some magic and modify the <p>-tag::
+Now let's add some magic and modify the <p>-tag:
+
+.. code-block:: html
 
     <p tal:content="string:blue">red</p>
 
 This will result in:
 
+.. code-block:: html
+
     <p>blue</p>
 
-Now (without restarting Plone) open http://localhost:8080/Plone/@@demo_view in your browser.
+Now (without restarting Plone) open ``http://localhost:8080/Plone/@@demo_view`` in your browser.
 
-The same happens with attributes. Replace the <p>-line with::
+The same happens with attributes. Replace the <p>-line with:
+
+.. code-block:: html
 
     <a href="http://www.mssharepointconference.com"
        tal:define="a_fine_url string:http://www.ploneconf.org"
@@ -144,7 +160,9 @@ The same happens with attributes. Replace the <p>-line with::
         A sharepoint conference
     </a>
 
-results in::
+results in:
+
+.. code-block:: html
 
     <a href="http://www.ploneconf.org">
         A even better conference
@@ -180,14 +198,18 @@ We used three TAL-Attributes here. This is the complete list of TAL-attributes:
 python-expressions
 ++++++++++++++++++
 
-So far we only used one TALES expression (the ``string:``-bit). Let's use a different TALES-expression now. With ``python:`` we can use python-code. A simple example::
+So far we only used one TALES expression (the ``string:``-bit). Let's use a different TALES-expression now. With ``python:`` we can use python-code. A simple example:
+
+.. code-block:: html
 
     <p tal:define="title context/title"
        tal:content="python:title.upper()">
        A big title
     </p>
 
-And another::
+And another:
+
+.. code-block:: html
 
     <p tal:define="talks python:['Dexterity for the win!',
                                  'Deco is the future',
@@ -229,7 +251,9 @@ or if a certain talk is in the list of talks::
 tal:repeat
 ++++++++++
 
-Let's try another statement::
+Let's try another statement:
+
+.. code-block:: html
 
     <p tal:define="talks python:['Dexterity for the win!',
                                  'Deco is the future',
@@ -243,10 +267,11 @@ Let's try another statement::
 tal:repeat
     repeats an iterable element, in our case the list of talks.
 
-We change the markup a little to construct a self-populating list::
+We change the markup a little to construct a self-populating list:
+
+.. code-block:: html
 
     <ul tal:define="talks python:['Dexterity for the win!',
-                                  'topic,
                                   'Deco is the future',
                                   'A keynote on some weird topic',
                                   'The talk that I did not submit']">
@@ -269,27 +294,37 @@ Every path expression starts with a variable name. It can either an object like 
 
 After the variable we add a slash (‘/’) and the name of a sub-object, attribute or callable. The '/' is used to end the name of an object and the start of the property name. Properties themselves may be objects that in turn have properties.
 
+.. code-block:: html
+
     <p tal:content="context/title"></p>
 
-We can chain several of those to get to the information we want::
+We can chain several of those to get to the information we want.
+
+.. code-block:: html
 
     <p tal:content="context/REQUEST/form"></p>
 
 This would return the value of the form-dictionary of the HTTPRequest-object. Useful for form-handling.
 
-The '|' ("or") character is used to find an alternative value to a path if the first path evaluates to 'Nothing' or does not exist.::
+The '|' ("or") character is used to find an alternative value to a path if the first path evaluates to 'Nothing' or does not exist.
+
+.. code-block:: html
 
     <p tal:content="context/title | context/id"></p>
 
 There are several built in variables that can be used in paths:
 
-The most frequently used one is ``nothing`` which is the equivalent to None::
+The most frequently used one is ``nothing`` which is the equivalent to None
+
+.. code-block:: html
 
     <p tal:replace="nothing">
         this comment will not be rendered
     </p>
 
-A dict of all the available variables is ``CONTEXTS``::
+A dict of all the available variables is ``CONTEXTS``
+
+.. code-block:: html
 
     <dl tal:define="path_variables_dict CONTEXTS">
       <tal:vars tal:repeat="variable path_variables_dict">
@@ -306,20 +341,24 @@ pure TAL-blocks
 
 We can use TAL-attributes auch without HTML-Tags. This is useful when we don't need to add any tags to the markup
 
-Syntax::
+Syntax:
+
+.. code-block:: html
 
     <tal:block attribute="expression">some content</tal:block>
 
-Examples::
+Examples:
+
+.. code-block:: html
 
     <tal:block define="id template/id">
     ...
-      <b tal:content="id">Id</b>
+      <b tal:content="id">The id of the template</b>
     ...
     </tal:block>
 
     <tal:news condition="python:context.content_type == 'News Item'">
-        (...)
+        only visible for news
     </tal:news>
 
 
@@ -331,14 +370,18 @@ Let's move on to a little more complex data. And to another TAL-atrribute:
 tal:replace
     replace the content of an element and removes the element only leaving the content.
 
-Example::
+Example:
+
+.. code-block:: html
 
     <p>
         <img tal:define="tag string:<img src='https://plone.org/logo.png'>"
              tal:replace="tag">
     </p>
 
-this results in::
+this results in:
+
+.. code-block:: html
 
     <p>
         &lt;img src='https://plone.org/logo.png'&gt;
@@ -346,14 +389,18 @@ this results in::
 
 ``tal:replace`` drops it's own base-tag in favor of the result of the TALES-expression. Thus the original ``<img... >`` is replaced. But the result is escaped by default.
 
-To prevent escaping we use ``structure``::
+To prevent escaping we use ``structure``
+
+.. code-block:: html
 
     <p>
         <img tal:define="tag string:<img src='https://plone.org/logo.png'>"
              tal:replace="structure tag">
     </p>
 
-Now let's emulate a typical Plone structure by creating a dictionary::
+Now let's emulate a typical Plone structure by creating a dictionary.
+
+.. code-block:: html
 
     <table tal:define="talks python:[{'title':'Dexterity for the win!',
                                       'subjects':('content-types', 'dexterity')},
@@ -413,7 +460,7 @@ We add to the ``<html>``-tag::
 And then wrap the code we want to put in the content-area of Plone in::
 
     <metal:content-core fill-slot="content-core">
-        ...
+        <p>Some content</p>
     </metal:content-core>
 
 This will put our code in a section defined in the main_template called "content-core".
@@ -422,13 +469,17 @@ This will put our code in a section defined in the main_template called "content
 macros in browser-views
 +++++++++++++++++++++++
 
-writing a macro::
+writing a macro
+
+.. code-block:: html
 
     <div metal:define-macro="my_macro">
-        some reused code
+        <p>I can be reused</p>
     </div>
 
-in zcml::
+in zcml:
+
+.. code-block:: xml
 
     <browser:page
       for="*"
@@ -437,7 +488,9 @@ in zcml::
       permission="zope2.View"
       />
 
-use it the template::
+use it the template:
+
+.. code-block:: html
 
         <div metal:use-macro="view/context/@@plonekonf.talk.macros/my_macro">
             the macro
@@ -473,13 +526,17 @@ We want to show the date a News Item is published. This way people can see at a 
 
 Explain how to find files in sublime :-)
 
-Add the following at line 28::
+Add the following at line 28:
+
+.. code-block:: html
 
         <p tal:content="python:context.Date()">
                 The current Date
         </p>
 
-This will show seimthing like: ``2010-02-17 19:21:15``. Not very user-friendly. So lets extend the code and use one of many helpers plone offers::
+This will show seimthing like: ``2010-02-17 19:21:15``. Not very user-friendly. So lets extend the code and use one of many helpers plone offers.
+
+.. code-block:: html
 
         <p tal:content="python:context.toLocalizedTime(context.Date(),long_format=0)">
                 The current Date in its local short-format
@@ -507,7 +564,9 @@ copy it to::
 
 Open the new file and explain...
 
-Wir ändern an der Datei ``folder_summary_view.pt`` und fügen in Zeile 80 folgenden Code ein::
+Wir ändern an der Datei ``folder_summary_view.pt`` und fügen in Zeile 80 folgenden Code ein
+
+.. code-block:: html
 
     <p tal:condition="python:item_type == 'News Item'"
        tal:content="python:item.toLocalizedTime(item.Date,long_format=0)">
