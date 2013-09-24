@@ -45,7 +45,7 @@ Portlets
 
 explain portlets:
 
-* @@manage-portlets
+* ``@@manage-portlets``
 * UI fit for smart content-editors
 * explain various types
 * inheritance
@@ -61,7 +61,7 @@ Example:
 Viewlets
 --------
 
-* @@manage-viewlets
+* ``@@manage-viewlets``
 * no UI - not for content-editors
 * not locally addable, no configurable inheritance
 * will be replaced by tiles?
@@ -84,7 +84,7 @@ Köln ist eine Stadt die über 1000 Jahre alt ist. Es gibt heutzutage aber keine
 Actions
 -------
 
-Go into the ZMI (explain /manage)
+Go into the ZMI (explain ``/manage``)
 
 Mostly links but really flexible links :-)
 
@@ -94,7 +94,7 @@ Ein Beispiel für diese Links sind die grauen Reiter oben. Wir nehmen nun den Li
 
 Kräftig durchatmen, wir sind nun in den Katakomben dem ZMI, bitte nichts berühren, sonst stürzt alles ein ;-)
 
-go to portal_actions -> portal_tabs
+go to ``portal_actions`` > ``portal_tabs``
 
 Where is my navigation?
 
@@ -106,7 +106,7 @@ Derzeit gibt es nur diese eine, die wir uns vor dem Löschen ganz kurz anschauen
 
 Add a link to the imprint to the bottom:
 
-go to site_actions (we know that because we chacked in manage-viewlets) > add a CMF Actions 'imprint' and point it at string:${globals_view/navigationRootUrl}/imprint
+go to ``site_actions`` (we know that because we checked in manage-viewlets) > add a CMF Actions ``'imprint' and point it at string:${globals_view/navigationRootUrl}/imprint``
 
 Explain permissions, condition,
 

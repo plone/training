@@ -1,6 +1,6 @@
 ﻿
 5. Extending Plone with Add-ons (80 min) (Patrick)
-================================================
+==================================================
 
 Zope is extensible and so is Plone.
 If you want to install an Add-on, you are going to install an Egg. Eggs consist of python files together with other needed files like page templates and the like and a bit of Metadata, bundled to a single archive file.
@@ -134,21 +134,22 @@ In fact the guys at fourdigts embedd the form in a iframe. Let's pretend otherwi
 Internationalisation with LinguaPlone (Philip)
 ----------------------------------------------
 
-* /plone_control_panel
+* ``/plone_control_panel``
 * install installieren
 * add german as language einstellen
 
-   * /@@language-controlpanel -> Deutsch und Englisch auswählen
+   * ``/@@language-controlpanel`` -> Deutsch und Englisch auswählen
    * ZMI -> portal_languages -> "Display flags for language selection" aktivieren
 
-* @@language-setup-folders -> Ordnerstruktur anlegen
+* ``/@@language-setup-folders`` -> Ordnerstruktur anlegen
 * Englische Startseite anlegen
 * Infos zum übersetzen (folder übersetzen, language_independent)
 
-   http://plone.org/products/linguaplone/issues/250
-   http://localhost:8080/Plone/@@language-setup-folders
-   Seit Plone4 ist der Standardweg von Übersetzungen, das jede Sprache
-   einen eigenen Folder bekommt. Wenn Inhalte übersetzt werden, wird
+   * http://plone.org/products/linguaplone/issues/250
+
+   * http://localhost:8080/Plone/@@language-setup-folders
+
+   * Seit Plone4 ist der Standardweg von Übersetzungen, das jede Sprache einen eigenen Folder bekommt. Wenn Inhalte übersetzt werden, wird
 
 * die Datei automatisch in den richtigen Ordner kopiert.
 
@@ -168,10 +169,12 @@ Customizing the design with plone.app.themeeditor (20min) (Philip)
 
 * Installation
 * explain UI
-* change Logo (dowmload http://www.ploneconf.org/++theme++ploneconf.theme/images/logo.png)
+* change Logo (download http://www.ploneconf.org/++theme++ploneconf.theme/images/logo.png)
 * change Footer (colophon): add copyright (Phone: +31 26 44 22 700
   mailto:info@ploneconf.org)
-* change some css::
+* change some css:
+
+.. sourcecode:: css
 
     #visual-portal-wrapper {
         margin: 0 auto;
@@ -205,10 +208,12 @@ Wir müssen oft strukturierte Daten speichern oder anzeigen können, bis zu eine
 5.1 Theming
 ===========
 
+We don't do any real theming during the training. We just explain the options you have.
+
 * Diazo
 * Downloading and activating a theme
 * Creating a new theme
 * Diazo Theme editor
 * Rules
-* Old-school Themeing
+* Old-school Theming
 * Deliverance

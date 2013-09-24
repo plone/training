@@ -80,7 +80,7 @@ Create a site-structure:
 
 * In /news: Add News Item "conf website online!" with image
 * In /news: Add News Item "submit your talks!"
-* In /events: Add Event "Deadline for talk-submission" Date: 10.10.2012
+* In /events: Add Event "Deadline for talk-submission" Date: 10.10.2013
 
 * Add Folder "Register"
 * Delete "members"
@@ -117,7 +117,7 @@ Collections
 
 * add a new collection: all content that has pending as wf_state.
 * explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit
-* old vs. new collections (in 4.2. new collections are the default)
+* old vs. new collections (from Plone 4.2 on the new collections are the default)
 * mention collection-portets
 
 
