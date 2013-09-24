@@ -8,7 +8,7 @@ We introduce each other
 
 * Patrick Gerken, do3cc, patrick@starzel.de
 * Philip Bauer, pbauer, bauer@starzel.de
-* Starzel (http://www.starzel.de)
+* Starzel.de (http://www.starzel.de)
 * Munich User Group
 
 Who are you?
@@ -17,10 +17,10 @@ Who are you?
 Please introduce yourselves:
 
 * name, company, country...
-* Your plone experience
-* Your web-development experience
-* What is your motivation to go to tutorial
-* What are your expectation for tutorial
+* What is your Plone experience?
+* What is your web-development experience?
+* What is your motivation to go to this tutorial?
+* What are your expectations for this tutorial?
 * Do you know the html of the output of this?::
 
     <div class="hiddenStructure"
@@ -29,6 +29,11 @@ Please introduce yourselves:
          tal:omit-tag="">
       This is some weird sh*t!
     </div>
+
+  The answer is::
+
+    1 6
+
 * Do you know what the following would return?::
 
     [(i.Title, i.getURL()) for i in context.getFolderContents()]
@@ -39,7 +44,7 @@ Please introduce yourselves:
 What will we do?
 ----------------
 
-Technologies and tools we use today
+Technologies and tools we use during the training
 
 * git
 * github
@@ -60,9 +65,9 @@ Technologies and tools we use today
 What we will not do?
 --------------------
 
-We will not cover the following:
+We will not cover the following topics:
 
-* archetypes
+* archetypes (http://developer.plone.org/content/archetypes/index.html)
 * portlets
 * genericsetup
 * z3c.form
@@ -74,6 +79,7 @@ We will not cover the following:
 * deco and tiles
 * image-scales
 * i18n and locales
+
 
 
 What to expect
