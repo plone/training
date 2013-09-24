@@ -60,8 +60,8 @@ class buildout {
     }
 
     # Get the unified installer and unpack the buildout-cache
-    exec {'wget https://launchpad.net/plone/4.2/4.2.1/+download/Plone-4.2.1-UnifiedInstaller.tgz':
-        creates => '/home/vagrant/tmp/Plone-4.2.1-UnifiedInstaller.tgz',
+    exec {'wget https://launchpad.net/plone/4.3/4.3.2/+download/Plone-4.3.2-UnifiedInstaller.tgz':
+        creates => '/home/vagrant/tmp/Plone-4.3.2-UnifiedInstaller.tgz',
         cwd => '/home/vagrant/tmp',
         user => 'vagrant',
         group => 'vagrant',
@@ -69,9 +69,9 @@ class buildout {
         timeout => 600,
     }
 
-    exec {'tar xzf Plone-4.2.1-UnifiedInstaller.tgz':
+    exec {'tar xzf Plone-4.3.2-UnifiedInstaller.tgz':
         alias => "untar_installer",
-        creates => '/home/vagrant/tmp/Plone-4.2.1-UnifiedInstaller',
+        creates => '/home/vagrant/tmp/Plone-4.3.2-UnifiedInstaller',
         cwd => '/home/vagrant/tmp',
         user => 'vagrant',
         before => Exec["virtualenv"],
@@ -87,7 +87,7 @@ class buildout {
         timeout => 300,
     }
 
-    exec {'/home/vagrant/tmp/Plone-4.2.1-UnifiedInstaller/install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/training':
+    exec {'/home/vagrant/tmp/Plone-4.3.2-UnifiedInstaller/install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/training':
         alias => "install_plone",
         creates => '/home/vagrant/training/zinstance/bin/buildout',
         user => 'vagrant',

@@ -30,7 +30,7 @@ Download a clean virtual machine (Ubuntu 12.04 Precise Pangolin 32bit). It will 
 
 Setup Vagrant to automatically install the current guest-additions. You can choose to skip this step if you encounter any problems with it.
 
-    $ vagrant gem install vagrant-vbguest
+    $ vagrant plugin install vagrant-vbguest
 
 Now extract the files from the attached zip-files into your training directory. It should now hold the file "Vagrantfile" and the directories "manifests/" and "puppet_modules/"
 
