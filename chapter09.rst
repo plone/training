@@ -35,7 +35,7 @@ Dexterity and Archetypes - A Comparison
 
 There are two content-frameworks in Plone
 
-* Dexterity is relatively new. Will be core in Plone 4.3 (4.3a2 is here to test)
+* Dexterity is relatively new. Will is part of Plone-core since 4.3
 * Archetypes is old, tried and tested (Around since Plone 1.0.4)
 * Archetypes: Very widespread, almost all existing addons are based on Archetypes
 * Plone's default content-types are Archetypes (unless you use plone.app.contentypes)
@@ -82,22 +82,14 @@ Views:
 Installation
 ------------
 
-Plone 4.2 already has version-pinnings for dexterity :-)
+No installation is needed, you just have to enable Dexterity.
 
-So all you need is to add plone.app.dexterity to your list of eggs::
+Plone 4.2 already had version-pinnings for dexterity :-)
 
-    [eggs]
-        Plone
-        plone.app.dexterity
-        ...
-
-Run ./bin/buildout,
-
-In this step we will create a CT called 'Talk' and try it. When it's ready we will move the code from the web to the file system and into our egg. Later we will expand on that type and add behaviors and a viewlet for Talks.
-
-* restart the instance
 * go to portal_quickinstaller
 * install "Dexterity Content Types"
+
+In this step we will create a CT called 'Talk' and try it. When it's ready we will move the code from the web to the file system and into our egg. Later we will expand on that type and add behaviors and a viewlet for Talks.
 
 
 Creating content-types TTW
@@ -120,9 +112,9 @@ Creating content-types TTW
 Exporting content-types into code
 ---------------------------------
 
-Let's assume we did this: Add new egg to buildout (we can remove plone.app.dexterity from buildout if we add it as a dependency in setup.py and metadata.xml)::
+Let's assume we did this: Add new egg to buildout (we can remove plone.app.dexterity from buildout if we add it as a dependency in setup.py and metadata.xml):
 
-* extract code from exported tar-file and add to plonekonf/talk/profiles/default/
+* extract code from exported tar-file and add to ``plonekonf/talk/profiles/default/``
 * restart instance
 * install plonekonf.talk
 * test type and look at the default-view

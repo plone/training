@@ -5,7 +5,7 @@
 Installation
 ------------
 
-Plone 4.2 requires a working Python 2.7 and several other system-tools that not every OS provides. Therefore the installation of Plone is differen on every system. Here are some ways that python can can be used:
+Plone 4 requires a working Python 2.7 and several other system-tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that python can can be used:
 
 * use a Python that comes pre-installed in your operating-system (most Linuxes and Mac OS have one)
 * use the python-buildout (https://github.com/collective/buildout.python)
