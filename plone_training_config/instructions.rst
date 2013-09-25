@@ -38,7 +38,7 @@ Start the VM that is configured in "Vagrantfile"
 
     $ vagrant up
 
-This takes a very loooong time since it not only sets up the MV but also updates your VM, installs various packages needed for plone-development and runs the installer for Plone 4.2.1.
+This takes a very loooong time since it not only sets up the MV but also updates your VM, installs various packages needed for plone-development and runs the installer for Plone 4.3.2.
 
 If you have the feeling that something has gone wrong and the installation has not finished correctly for some reason try the following command to repeat the process. This will only repeat steps that have not finished correctly:
 
@@ -54,7 +54,7 @@ If you use Windows you'll have to login via putty (Install putty and follow the 
 
 You are now logged in as the user vagrant in /home/vagrant. We'll do all steps of the training as this user.
 
-We installed a Plone 4.2.1 for you in the folder /home/vagrant/training/zinstance. You can run it now and access it from the browser.
+We installed a Plone 4.3.2 for you in the folder /home/vagrant/training/zinstance. You can run it now and access it from the browser.
 
     $ cd training/zinstance
     $ ./bin/instance fg
