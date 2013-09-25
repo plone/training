@@ -8,14 +8,14 @@ Installation
 Plone 4 requires a working Python 2.7 and several other system-tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that python can can be used:
 
 * use a Python that comes pre-installed in your operating-system (most Linuxes and Mac OS have one)
-* use the python-buildout (https://github.com/collective/buildout.python)
+* use the `python-buildout <https://github.com/collective/buildout.python>`_
 * building Linux-packages
-* homebrew (Mac OS X)
+* `homebrew <http://mxcl.github.com/homebrew>`_ (Mac OS X)
 * PyWin32 (Windows)
 
 MacOS 10.8 and Ubuntu 12.4 come with a working default Python 2.7 built in. These are the lucky ones. But to run a older Plone-version you need Python 2.4 and that's not always easy to install.
 
-Most developers usually use their primary system to develop Plone. Philip has MacOS, therefore he uses the python-buildout (https://github.com/collective/buildout.python) to compile all neccessary versions of python and homebrew (http://mxcl.github.com/homebrew/) for some linux-tools. Patrick uses ubuntu. Some people use the python that comes with Plone's unified installer. Alan Runyan (one of Plone's founders) uses Windows. We have no idea how he can live with that but he seems to manage perfectly well.
+Most developers usually use their primary system to develop Plone. Philip has MacOS, therefore he uses the python-buildout to compile all neccessary versions of python and homebrew for some linux-tools. Patrick uses ubuntu. Some people use the python that comes with Plone's unified installer. Alan Runyan (one of Plone's founders) uses Windows. We have no idea how he can live with that but he seems to manage perfectly well.
 
 Plone offers some options for being installed:
 
@@ -36,7 +36,7 @@ If you want to host a real-live Plone-Site yourself then running it from your la
 
 You can host Plone...
 
-* with one of many hosting-providers (http://plone.org/support/hosting-providers)
+* with one of many `hosting-providers <http://plone.org/support/hosting-providers>`_
 * on a virtual private server
 * on dedicated servers
 * in the cloud (e.g. using Amazon EC2)
@@ -51,7 +51,7 @@ Installing Plone for the Training
 
 To not waste too much time with installing and debugging the differences between systems we use a virtual machine (ubuntu 12.4) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development-environment to everyone.
 
-Vagrant (http://www.vagrantup.com) is a command-line wrapper for Oracle’s VirtualBox (https://www.virtualbox.org) to create and manage virtual environments.
+`Vagrant <http://www.vagrantup.com>`_ is a command-line wrapper for Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to create and manage virtual environments.
 
 Keep in mind that you need a fast internet-connection during the while process since you'll have to download a complete virtual machine (ubuntu) and several packages and updates.
 
@@ -69,7 +69,7 @@ Get the latest version from http://downloads.vagrantup.com for your operating sy
 
 Now your system has a command 'vagrant' that you can run in the terminal.
 
-First create a directory where you want to to the training in::
+First create a directory where you want to to the training in.::
 
     $ mkdir training
     $ cd training
