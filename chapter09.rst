@@ -3,10 +3,6 @@
 9. Creating a new content-type "Talk" with Dexterity (45min) (Philip)
 =====================================================================
 
- * Dexterity - An introduction
- * Creating content-types TTW
- * Exporting content-types into code
-
 
 What is a content-type?
 -----------------------
@@ -85,7 +81,7 @@ Installation
 
 No installation is needed, you just have to enable Dexterity.
 
-Plone 4.2 already had version-pinnings for dexterity :-)
+Plone 4.2 already had version-pinnings for dexterity.
 
 * go to portal_quickinstaller
 * install "Dexterity Content Types"
@@ -96,15 +92,15 @@ In this step we will create a CT called 'Talk' and try it. When it's ready we wi
 Creating content-types TTW
 --------------------------
 
-* Add new CT "Talk"
+* Add new CT "Talk" and some fields for it:
 
   * Multiple Choice "Audience" (beginner, advanced, pro)
   * Image "Image" (portrait)
   * Behaviors: Basic metadata, Name from title, Referenceable
 
 * Test the content-type
-* explain the base_view
-* extend it (add Richtext "Details")
+* explain the view
+* extend the type (add Richtext-field "Details")
 * Test again
 * Export ("Export Type Profiles" and save file)
 * delete type before installing the type from the file-system
@@ -116,8 +112,8 @@ Exporting content-types into code
 Let's assume we did this: Add new egg to buildout (we can remove plone.app.dexterity from buildout if we add it as a dependency in setup.py and metadata.xml):
 
 * extract code from exported tar-file and add to ``plonekonf/talk/profiles/default/``
-* restart instance
+* restart Plone
 * install plonekonf.talk
 * test type and look at the default-view
 
-
+Now let's see if we can't improve the default view. To do this we need to learn about templates.

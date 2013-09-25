@@ -2,18 +2,27 @@
 ======================================================
 
 
-Optional:
-=========
+18. The Future of Plone
+=======================
 
- * Debugging
- * Core-Committing
- * Use of an external api (twitter or google.maps)
- * Forms
- * collective.pfg.dexterity
- * ...
+The Plone-process and the Plone-Community
 
-= Allgemeines zum Tutorial =
-  * Wir machen git/svn parallel aber erklaeren nichts dazu
-  * Commitmessages vorbereiten und in Dateien auslagern! Gaanz viel taggen!
+Plips: https://dev.plone.org/report/24
 
-Neues egg plonekonf.talk
+
+
+
+Optional
+========
+
+Walk through a package
+----------------------
+
+e.g. plone.app.layout
+
+
+Debugging
+---------
+
+
+

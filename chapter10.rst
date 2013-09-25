@@ -1,34 +1,10 @@
 10. Views I (60min) (Patrick und Patrick)
 =========================================
 
-* A simple browser view
-* Zope Page Templates
-* TAL and TALES
-
-  * python-expressions
-  * tal:condition
-  * tal:repeat
-  * path-expressions
-  * pure TAL-blocks
-  * handling complex data in templates
-
-* METAL and macros
-* Accessing Plone from the template
-* customizing existing templates with z3c.jbot
-
-  * newsitem_view.pt
-  * folder_summary_view.pt
-
-* What we missed
-* skin-templates
-
-Now let's see if we can't improve the default view. To do this we need to learn about templates.
-
-
 A simple browser view
 ---------------------
 
-First we need to add some boilerplate-code to be able to use a template. We use paster again::
+First we need to add some boilerplate-code to be able to use a template. We could use paster again::
 
     $ cd src/plonekonf.talk/src
     $ ../../../bin/paster add browserview
@@ -57,17 +33,19 @@ add a file views.py. It should hold::
         """ This does nothing so far
         """
 
-Add a folder 'templates' and and in it an empty file 'demoview.pt'
+Add a directory ``templates`` inside the directory ``browser`` and and in it an empty file ``demoview.pt``
 
-Restart the site and open http://localhost:8080/Plone/@@demoview
+Restart the site and open http://localhost:8080/Plone/@@demoview.
 
-Now we have everything in place to lean about page templates.
+You should see an empty page. We now have everything in place to learn about page templates.
 
 
 Zope Page Templates
 -------------------
 
-Page Templates are HTML-files with some additional Information, written in TAL, METAL and TALES. Page templates must be valid xml.
+Page Templates are HTML-files with some additional Information, written in TAL, METAL and TALES.
+
+Page templates must be valid xml.
 
 The three languages are.
 
@@ -125,17 +103,19 @@ Instead enter the following:
 Chameleon
 ---------
 
-PLIPS: https://dev.plone.org/report/24
+Chameleon is the successor of TAL and will be shipped in Plone 5.
 
-Plip https://dev.plone.org/ticket/12198
+- Plip for Chameleon: https://dev.plone.org/ticket/12198
+- Homepage: http://www.pagetemplates.org/
+- Integration-layer for Plone: `five.pt <https://pypi.python.org/pypi/five.pt>`_
 
-http://www.pagetemplates.org/
+In Plone 4 we still use the default ZPT.
 
 
 TAL and TALES
 -------------
 
-Now let's add some magic and modify the <p>-tag:
+Let's add some magic and modify the <p>-tag:
 
 .. code-block:: html
 
@@ -147,7 +127,7 @@ This will result in:
 
     <p>blue</p>
 
-Now (without restarting Plone) open ``http://localhost:8080/Plone/@@demo_view`` in your browser.
+Try this out and (without restarting Plone) open http://localhost:8080/Plone/@@demo_view.
 
 The same happens with attributes. Replace the <p>-line with:
 
@@ -457,7 +437,9 @@ We add to the ``<html>``-tag::
 
     metal:use-macro="context/main_template/macros/master"
 
-And then wrap the code we want to put in the content-area of Plone in::
+And then wrap the code we want to put in the content-area of Plone in:
+
+.. code-block:: html
 
     <metal:content-core fill-slot="content-core">
         <p>Some content</p>
@@ -534,7 +516,7 @@ Add the following at line 28:
                 The current Date
         </p>
 
-This will show seimthing like: ``2010-02-17 19:21:15``. Not very user-friendly. So lets extend the code and use one of many helpers plone offers.
+This will show something like: ``2013-10-02 19:21:15``. Not very user-friendly. So lets extend the code and use one of many helpers plone offers.
 
 .. code-block:: html
 
