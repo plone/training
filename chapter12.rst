@@ -2,9 +2,6 @@
 12. Views III Talk list (45min) (Philip)
 ========================================
 
-* using portal_catalog
-* brains and objects
-* adding some javascript (collective.js.datatables)
 
 If we don't want to provide information about the context, that is not on the the current object one specific item but on several items. What now? We can't look at several items at the same time as context.
 
@@ -12,13 +9,13 @@ If we don't want to provide information about the context, that is not on the th
 Using portal_catalog
 --------------------
 
-Let's say we want so show a list of all the talks that were submitted for our counference. We can just go to the folder and select a display-method that suits us. But none does because we want to show the target-audience in out listing.
+Let's say we want so show a list of all the talks that were submitted for our conference. We can just go to the folder and select a display-method that suits us. But none does because we want to show the target-audience in our listing.
 
 So we need to get all the talks. For this we use the python-class of the view to query the catalog for the talks.
 
 The catalog is like a search-engine for the content on our site. It holds information about all the objects as well as some of their attributes like title, decription, workflow_state, keywords that they were tagged with, author, content_type, it's path in the site etc. But it does not hold the content of "heavy" fields like images or files, richtext-fields and field that we just defined ourselves.
 
-It is the fast way to get content that exists in the site and do something with it. From the results ob the catalog we can get the objects themselves but often we don't need them, but only the properties that the results already have.
+It is the fast way to get content that exists in the site and do something with it. From the results of the catalog we can get the objects themselves but often we don't need them, but only the properties that the results already have.
 
 ::
 

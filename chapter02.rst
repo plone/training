@@ -80,9 +80,9 @@ Download a clean virtual machine (Ubuntu 12.04 Precise Pangolin 32bit). It will 
 
 Setup Vagrant to automatically install the current guest-additions. You can choose to skip this step if you encounter any problems with it.::
 
-    $ vagrant gem install vagrant-vbguest
+    $ vagrant plugin install vagrant-vbguest
 
-Now copy the files from http://www.starzel.de/plone-tutorial/plone_training_config.zip into your training directory. It should now hold the file "Vagrantfile" and the directories "manifests/" and "puppet_modules/"::
+Now copy the files from http://www.starzel.de/plone-tutorial/plone_training_config.zip into your training directory. It should now hold the file "Vagrantfile" and the directories "manifests/" and "puppet_modules/"
 
 Start the VM that is configured in "Vagrantfile"::
 
@@ -90,17 +90,21 @@ Start the VM that is configured in "Vagrantfile"::
 
 This takes a very loooong time since it not only sets up the MV but also updates your VM, installs various packages needed for plone-development and runs the installer for Plone 4.3.2.
 
-If you have the feeling that something has gone wrong and the installation has not finished correctly for some reason try the following command to repeat the process. This will only repeat steps that have not finished correctly::
+More often than not this stops with the message::
+
+    Skipping because of failed dependencies
+
+If this happens or you have the feeling that something has gone wrong and the installation has not finished correctly for some reason you need to run try the following command to repeat the process. This will only repeat steps that have not finished correctly::
 
     $ vagrant provision
 
-You can try this multiple times to fix problems, e.g. if your network-connection was down and thus steps could not finish.
+You can do this multiple times to fix problems, e.g. if your network-connection was down and steps could not finish because of this.
 
 Once the provisioning-process is completed you can login to the now running virtual machine::
 
     $ vagnant ssh
 
-If you use Windows you'll have to login via putty (Install putty and follow the instructions here: http://vagrantup.com/v1/docs/getting-started/ssh.HTML)
+If you use Windows you'll have to login via putty (Install putty and follow the instructions here: http://vagrantup.com/v1/docs/getting-started/ssh.html)
 
 You are now logged in as the user vagrant in /home/vagrant. We'll do all steps of the training as this user.
 
@@ -137,7 +141,7 @@ Then we download, unpack and install the unified installer of Plone::
     $ mkdir training
     $ mkdir tmp
     $ cd tmp
-    $ wget https://launchpad.net/plone/4.2/4.3.2/+download/Plone-4.3.2-UnifiedInstaller.tgz
+    $ wget https://launchpad.net/plone/4.3/4.3.2/+download/Plone-4.3.2-UnifiedInstaller.tgz
     $ tar xzf Plone-4.3.2-UnifiedInstaller.tgz
     $ cd Plone-4.3.2-UnifiedInstaller
     $ ./install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/training
@@ -174,8 +178,8 @@ We have a running Zope with a database but no content. But luckily there is a bu
 Click on that button. This opens a form to create a Plone site. Use "Plone" as the site id.
 
 
-The anatomy of Plone introduction (Patrick)
--------------------------------------------
+3. The anatomy of Plone introduction (Patrick)
+==============================================
 
 Zope, Plone, GenericSetup, CMF, Acquisition, what is all that actually?
 
