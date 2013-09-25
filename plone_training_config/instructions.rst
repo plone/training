@@ -40,17 +40,19 @@ Start the VM that is configured in "Vagrantfile"
 
 This takes a very loooong time since it not only sets up the MV but also updates your VM, installs various packages needed for plone-development and runs the installer for Plone 4.3.2.
 
-If you have the feeling that something has gone wrong and the installation has not finished correctly for some reason try the following command to repeat the process. This will only repeat steps that have not finished correctly:
+More often than not this stops with the message *Skipping because of failed dependencies*.
+
+If this happens or you have the feeling that something has gone wrong and the installation has not finished correctly for some reason you need to run try the following command to repeat the process. This will only repeat steps that have not finished correctly:
 
     $ vagrant provision
 
-You can try this multiple times to fix problems, e.g. if your network-connection was down and thus steps could not finish.
+You can do this multiple times to fix problems, e.g. if your network-connection was down and steps could not finish because of this.
 
 Once the provisioning-process is completed you can login to the now running virtual machine:
 
     $ vagnant ssh
 
-If you use Windows you'll have to login via putty (Install putty and follow the instructions her: http://vagrantup.com/v1/docs/getting-started/ssh.html)
+If you use Windows you'll have to login via putty (Install putty and follow the instructions here: http://vagrantup.com/v1/docs/getting-started/ssh.html)
 
 You are now logged in as the user vagrant in /home/vagrant. We'll do all steps of the training as this user.
 
