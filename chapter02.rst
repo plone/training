@@ -24,7 +24,7 @@ Plone offers some options for being installed:
 * very old package for debian (don't use them!)
 * install with your own buildout
 
-During the tutorial we'll use Options 1 and 4 to install and run Plone. We'll first use the unified installer and the default Plone-configuration (called buildout) that comes with it. Later we'll create our own buildout and extend it as we wish.
+During the tutorial we'll use Options 4 to install and run Plone. We'll create our own buildout and extend it as we wish.
 
 Read more about instaling Plone: https://plone.org/documentation/manual/installing-plone and http://developer.plone.org/getstarted/installation.HTML
 
@@ -41,7 +41,7 @@ You can host Plone...
 * on dedicated servers
 * in the cloud (e.g. using Amazon EC2)
 
-Note that you can't use a $5/month hosting provider because they are usually specialize on LAMP-setups (Linux, Apache, MySQL, php) and usually don't meet the minimum requirements for Plone.
+Note that you can't use a $5/month hosting provider because they are usually specialize on LAMP-setups (Linux, Apache, MySQL, php) and usually don't meet the minimum requirements for Plone. We need to reevalutate this
 
 Read more about where to host Plone: http://plone.org/documentation/faq/where-can-i-host-my-plone-site
 
@@ -88,7 +88,7 @@ Start the VM that is configured in "Vagrantfile"::
 
     $ vagrant up
 
-This takes a very loooong time since it not only sets up the MV but also updates your VM, installs various packages needed for plone-development and runs the installer for Plone 4.2.1.
+This takes a very loooong time since it not only sets up the MV but also updates your VM, installs various packages needed for plone-development and runs the installer for Plone 4.3.2.
 
 If you have the feeling that something has gone wrong and the installation has not finished correctly for some reason try the following command to repeat the process. This will only repeat steps that have not finished correctly::
 
@@ -104,7 +104,7 @@ If you use Windows you'll have to login via putty (Install putty and follow the 
 
 You are now logged in as the user vagrant in /home/vagrant. We'll do all steps of the training as this user.
 
-We installed a Plone 4.2.1 for you in the folder /home/vagrant/training/zinstance. You can run it now and access it from the browser.::
+We installed a Plone 4.3.2 for you in the folder /home/vagrant/training/zinstance. You can run it now and access it from the browser.::
 
     $ cd training/zinstance
     $ ./bin/instance fg
@@ -137,9 +137,9 @@ Then we download, unpack and install the unified installer of Plone::
     $ mkdir training
     $ mkdir tmp
     $ cd tmp
-    $ wget https://launchpad.net/plone/4.2/4.2.1/+download/Plone-4.2.1-UnifiedInstaller.tgz
-    $ tar xzf Plone-4.2.1-UnifiedInstaller.tgz
-    $ cd Plone-4.2.1-UnifiedInstaller
+    $ wget https://launchpad.net/plone/4.2/4.3.2/+download/Plone-4.3.2-UnifiedInstaller.tgz
+    $ tar xzf Plone-4.3.2-UnifiedInstaller.tgz
+    $ cd Plone-4.3.2-UnifiedInstaller
     $ ./install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/training
 
 The unified installer is an amazing tool that compiles it's own python, brings with it all the python-eggs we need and puts them in a buildout-cache. It then creates a buildout and makes Plone ready to run.
