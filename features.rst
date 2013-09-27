@@ -4,6 +4,33 @@ The Features of Plone
 You can find a in-depth user-manual at http://plone.org/documentation/manual/plone-4-user-manual
 
 
+Starting and Stopping Plone
+---------------------------
+
+We control Plone with a small script called "instance"::
+
+    $ ./bin/instance fg
+
+This starts Plone and we can see what it is doing.
+
+You can stop it by pressing ``ctrl`` + ``c``.
+
+The ``instance``-script offers the following options::
+
+    $ ./bin/instance fg
+    $ ./bin/instance start
+    $ ./bin/instance stop
+    $ ./bin/instance debug -P Plone
+
+Depending on your computer, it might take up to a minute until Zope will tell you that its ready to serve requests. On a decent laptop it shound be running in under 15 seconds.
+
+A standard installation listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
+
+As you can see, there is no Plone yet!
+We have a running Zope with a database but no content. But luckily there is a button to create a Zope site.
+Click on that button. This opens a form to create a Plone site. Use "Plone" as the site id.
+
+
 Users
 -----
 
@@ -33,7 +60,19 @@ Now let's see the site in 3 different browsers with in three different roles:
 Configure a Mailserver
 ----------------------
 
+A note about messages and warnings:
+
+.. note::
+
+  They contain important information. Read them and make sure you understand them!
+
 We should configure a mailserver since later we will create some content-actions that send emails when new content is put on our site.
+
+* Server: ``mail.gocept.net``
+* Username: ``training@neww.de``
+* Password: ``training2013``
+
+Please do not abuse this. We'll diable this account after the training.
 
 
 Walktrough of the UI

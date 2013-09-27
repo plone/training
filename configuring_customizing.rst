@@ -43,20 +43,21 @@ Below the links you find information on your Plone-, Zope and Python-Versions
 Portlets
 ---------
 
-explain portlets:
-
 * ``@@manage-portlets``
 * UI fit for smart content-editors
-* explain various types
-* inheritance
-* managing them
+* various types
+* portlet-configuration is inherited
+* managing
 * ordering/weighting
-* will be replaced by tiles?
+* will maybe be replaced by tiles
 
 Example:
 
+* go to http://localhost:8080/Plone/@@manage-portlets
 * Add a static portlet "Sponsors" on the right side.
 * Remove the news-portlet and add a new one on the left side.
+* Go to the training-folder: http://localhost:8080/Plone/training and click ``Manage portlets``
+* Add a static portlet. "Featured training: Become a Plone-Rockstar at Mastering Plone!"
 
 
 Viewlets
@@ -64,17 +65,19 @@ Viewlets
 
 * ``@@manage-viewlets``
 * no UI - not for content-editors
-* not locally addable, no configurable inheritance
+* not locally addable, no configurable inheritance.
+* usually global (depends on code)
 * will be replaced by tiles?
 * the code is much simpler (we'll create one tomorrow)
-* viewlet-manager
+* live in viewlet-managers, can be nested (by adding a viewlet that contains a viewlet-manager)
 * ttw-reordering only within the same viewlet-manager
-* the programer descides when it's where and what it shows
+* the code descides when it's where and what it shows
 
 Portlets save Data, Viewlets usually don't. Viewlets are often used for UI-Elements.
 
 Example:
 
+* go to http://localhost:8080/Plone/@@manage-viewlets
 * Hide collophon
 
 

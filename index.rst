@@ -6,7 +6,7 @@
 Welcome to Mastering Plone's documentation!
 ===========================================
 
-Please note, this document is not aimed at large public. It is the documentation that people get who attend a "Mastering Plone"-Training with `starzel.de <http://www.starzel.de`_. Even though we attempt to include the most important parts of what we teach in this documentation it can not be considered complete without the spoken word.
+Please note, this document is not aimed at large public. It is the documentation that people get who attend a "Mastering Plone"-Training with `starzel.de <http://www.starzel.de>`_. Even though we attempt to include the most important parts of what we teach in this documentation it can not be considered complete without the spoken word.
 
 A more formal documentation for develpers is found at http://developer.plone.org/index.html. This document is neither better nor more complete than the one above.
 
@@ -18,26 +18,28 @@ Contents:
     :maxdepth: 2
     :numbered: 1
 
-    chapter01
-    chapter02
+    intro
+    installation
+    plone_training_config/instructions.rst
     anatomy
-    chapter03
-    chapter04
-    chapter05
+    features
+    configuring_customizing
+    extending
+    addons
     theming
-    chapter06
-    chapter07
-    chapter08
-    chapter09
-    chapter10
-    chapter11
-    chapter12
-    chapter13
-    chapter14
-    chapter15
-    chapter16
-    chapter17
-    chapter18
+    buildout_1
+    ide
+    eggs
+    dexterity
+    views_1
+    views_2
+    views_3
+    behaviors
+    ressources
+    social_behavior
+    viewlets
+    deployment_code
+    deployment_sites
     future_of_plone
     optional
 
