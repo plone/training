@@ -1,16 +1,19 @@
-
-15. Social behavior
-===================
+Social behavior
+===============
 
 Now let's write our own small behavior. This thime we don't add a lot of logic but only a additional field:
 
 * link to lanyrd-site for the talk
 
-We register a folder called behavio in our configure.zcml::
+We register a folder called behavior in our configure.zcml
+
+.. code-block:: xml
 
     <include package=".behavior" />
 
-We add an empty __init__.py and a configute.czml containing::
+We add an empty __init__.py and a configute.czml containing
+
+.. code-block:: xml
 
     <configure
         xmlns="http://namespaces.zope.org/zope"

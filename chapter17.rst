@@ -1,6 +1,5 @@
-
-16. Deploying your code (15min) (Patrick)
-=========================================
+Deploying your code
+===================
 
  * zest.releaser
  * pypi-test egg deployment

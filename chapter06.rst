@@ -1,6 +1,5 @@
-
-6. Buildout I (30min) (Patrick)
-===============================
+Buildout I
+==========
 
 Buildout composes your application for you, according to your rules.
 To compose your application, you must write, which eggs you need.
@@ -14,9 +13,12 @@ Another type of extension allows whole new functionality, like mr.developer, the
 
 The Unified installer created configuration files already. Let's have a look at them now.
 
-The syntax of Buildout configuration files is similar to classic ini files. You write a parameter name, an equals sign and the value. If you enter another value in the next line and indent it, Buildout understands that both values belong to the parameter name, and the parameter receives a list of all values. Here is an example::
+The syntax of Buildout configuration files is similar to classic ini files. You write a parameter name, an equals sign and the value. If you enter another value in the next line and indent it, Buildout understands that both values belong to the parameter name, and the parameter receives a list of all values. Here is an example:
 
-    parts = alpha
+.. code-block:: cfg
+
+    parts =
+        alpha
         beta
 
 A Buildout consists of multiple sections. Sections start with the section name in square brackets. Each section declares a different part of your application. As a rough analogy, your Buildout file is a cookbook with multiple recipes.
@@ -24,9 +26,7 @@ There is a special section, called Buildout.
 This section can change the behavior of Buildout, but what is most important, is the variable ``parts`` here. This defines, which sections should actually be interpreted.
 Buildout itself has no idea, how to install Zope. Buildout is a plugin based system, it comes with a small set of plugins to create configuration files and download eggs with their dependencies and the proper version. To install a Zope site, you need a third-party plugin. The plugin provide new recipes that you have to declare and configure in a section.
 
-Let us walk through a concrete Buildout file and look at some important variables
-
-* Buildout.cfg
+Let us walk through our ``buildout.cfg`` and look at some important variables:
 
 .. code-block:: cfg
 
@@ -43,13 +43,13 @@ Let us walk through a concrete Buildout file and look at some important variable
     find-links = http://dist.repoze.org/
 
     # A test-pypi to publish eggs
-    # index = http://testpypi.python.org/simple/
+    #index = http://testpypi.python.org/simple/
 
-    extensions = mr.developer
-    sources = sources
-    auto-checkout =
-        plonekonf.talk
-        starzel.votable_behavior
+    #extensions = mr.developer
+    #sources = sources
+    #auto-checkout =
+    #    plonekonf.talk
+    #    starzel.votable_behavior
 
     versions = versions
 
@@ -58,11 +58,11 @@ Let us walk through a concrete Buildout file and look at some important variable
     eggs =
         Plone
         Pillow
-        Products.PloneFormGen
-        Products.LinguaPlone
-        collective.plonetruegallery
-        plone.app.themeeditor
-        z3c.jbot
+    #    Products.PloneFormGen
+    #    Products.LinguaPlone
+    #    collective.plonetruegallery
+    #    plone.app.themeeditor
+    #    z3c.jbot
     #    plonekonf.talk
     #    starzel.votable_behavior
 
@@ -88,28 +88,37 @@ Let us walk through a concrete Buildout file and look at some important variable
         ${instance:eggs}
 
     [sources]
-    plonekonf.talk = git https://github.com/starzel/plonekonf.talk.git
-    starzel.votable_behavior = git git://github.com/starzel/starzel.votable_behavior.git
-    plone.app.themeeditor = git git@github.com:plone/plone.app.themeeditor.git
+    #plonekonf.talk = git https://github.com/starzel/plonekonf.talk.git
+    #starzel.votable_behavior = git git://github.com/starzel/starzel.votable_behavior.git
 
 
-When you run Buildout without any arguments, Buildout will look for this file.::
+When you run Buildout without any arguments, Buildout will look for this file.
+
+.. code-block:: cfg
 
     extends =
 
-This line tells Buildout, to read more configuration files. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configuration that differ between different environments.::
+This line tells Buildout, to read more configuration files. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configuration that differ between different environments.
+
+.. code-block:: cfg
 
     http-address =
 
-That is the port on which Zope will listen for requests::
+That is the port on which Zope will listen for requests
+
+.. code-block:: cfg
 
     eggs =
 
-This is the list of Eggs that the Zope server must have available.::
+This is the list of Eggs that the Zope server must have available.
+
+.. code-block:: cfg
 
     develop =
 
-Here you list Eggs that you are developing. They are not available as eggs but as a folder with a specific structure. Zope has to load eggs slightly different to these so-called ``checkouts``::
+Here you list Eggs that you are developing. They are not available as eggs but as a folder with a specific structure. Zope has to load eggs slightly different to these so-called ``checkouts``.
+
+.. code-block:: cfg
 
     [versions]
 
@@ -126,20 +135,34 @@ This is an example for a configuration file for a different environment. You wan
 There are many more important things to know, and we can't go through them in all the detail but I want to focus on one specific feature: **mr.developer**
 
 With mr.developer, you can declare, which packages you want to check out from which version control system and which repository URL. You can check out sources from git, svn, bzr, hg and maybe more. Also, you can say that some source are in your local file system.
-mr.developer comes with a command, ./bin/develop. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them, when you write changes that require a new release. You can activate and deactivate eggs via the develop command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
 
+``mr.developer`` comes with a command, ``./bin/develop``. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them, when you write changes that require a new release. You can activate and deactivate eggs via the develop command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
 
 Ok, let us change things.
+
 We want to install something very important, the omelette recipe. This thing creates a very convenient way to access all used source code. It creates a lot of symlinks to point to the real file. We will see this in more detail later. There is something special we have to take care of. Our Buildout directory is in the shared directory, and unfortunately this does not work will a number of things, one of them is our omelette.
+
 So we do not use the defaults, we change our path.
+
 Here you see some important property, you can reference data from other sections. This is an important property, on a big site you might have multiple Zope instance with only minor differences. You can define the minor differences and pull in the general settings from a template section. This way you only need to change variables in one place.
+
 Or, even better, if you define services that work together, you can reference each others listening interfaces. So a nginx gets the port information from the Buildout.
 
 As you can see, you can build very complex systems with Buildout. It is time for some warnings. Be selective in your recipes. Supervisor is a program to manage running servers, its pretty good. There is a recipe for it.
+
 The configuration is more complicated than the supervisor configuration itself! By using this recipe, you force others to understand the recipes specific configuration syntax AND the supervisor syntax. For such cases, collective.recipe.template might be a better match.
 
 Another problem is error handling. Buildout tries to install a weird dependency you do not actually want? Buildout will not tell you, where it is coming from.
-If there is a problem, you can always run Buildout with -v, to get more verbose output, sometimes it help. If strange egg versions are requested, check the dependencies declaration of your eggs and your version pinnings.
+
+If there is a problem, you can always run Buildout with -v, to get more verbose output, sometimes it helps.
+
+.. code-block:: bash
+
+    $ ./bin/buildout -v
+
+If strange egg versions are requested, check the dependencies declaration of your eggs and your version pinnings.
+
 Some parts of Buildout interpret egg names case-sensitive, others won't. This can result in funny problems.
+
 Always check out the ordering of your extends, always use the annotate command of Buildout to see if it interprets your configuration differently than you. Restrict yourself to simple Buildout files. You can reference variables from other sections, you can even use a whole section as a template. We learned that this does not work well with complex hierarchies and had to abandon that feature.
 

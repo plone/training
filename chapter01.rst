@@ -1,5 +1,5 @@
-1. Introduction (10 Minutes)
-============================
+Introduction
+============
 
 Who are we?
 -----------

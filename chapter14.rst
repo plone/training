@@ -1,6 +1,5 @@
-
-14. Ressources (Patrick)
-========================
+Ressources
+==========
 
 TAG: 16_SOCIAL_BEHAVIOR
 

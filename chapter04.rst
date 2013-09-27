@@ -1,13 +1,16 @@
-
-4. Simple Customisations (45min) (Philip)
-=========================================
+Configuring and Customising Plone through the web
+=================================================
 
 
 The Control Panel
 -----------------
 
+The most important parts of Plone can be configured in the control-panel.
+
 * Click on your username
 * Click "Site Setup"
+
+We'll explain every page and mention some of the stuff you can do here.
 
 1. Add-ons (later...)
 2. Calendar
@@ -33,7 +36,8 @@ The Control Panel
 22. Users and Groups
 24. Zope Management Interface (here be dragons)
 
-Below: Info on versions
+Below the links you find information on your Plone-, Zope and Python-Versions
+
 
 
 Portlets
@@ -81,10 +85,13 @@ Go into the ZMI (explain ``/manage``)
 
 Since Zope is the foundation of Plone. Here you can access the inner working of Zope and PLone alike. Here you can easily break your site so you should know what you are doing.
 
-Here we only cover once aspect of customisation in the ZMI. At some point you'll have to learn what all that stuff is about. But not today.
+Here we only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
 
-Actions
--------
+At some point you'll have to learn what all that stuff is about. But not today.
+
+
+Actions (portal_actions)
+------------------------
 
 Actions are mostly links but really flexible links :-)
 
@@ -129,8 +136,9 @@ If time explain:
 * user > undo (cool!)
 * user > login/logout
 
-portal_skins
-------------
+
+Skins (portal_skins)
+--------------------
 
 * Go to ZMI
 * go to portal_skins
@@ -150,12 +158,16 @@ Enter the following css:
 
 Check results in the browser. How did that happen?
 
+
+CSS-Registry (portal_css)
+-------------------------
+
 * go to ZMI > ``portal_css``
 * at the bottom there is ``ploneCustom.css``
 
 The UI leaves a lot to be desired.
 
-In a profesioneal context this is no-go (no version-control). But everybody uses it to make quick fixes to sites that are already online.
+In a professional context this is no-go (since ther is no version-control). But everybody uses it to make quick fixes to sites that are already online.
 
 Later we'll revisit the same css-code.
 

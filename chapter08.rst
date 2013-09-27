@@ -1,7 +1,5 @@
-
-
-8. Creating your own eggs to customize Plone (15min) (Patrick)
-==============================================================
+Creating your own eggs to customize Plone
+=========================================
 
  * creating plonekonf.talk with zopeskel/templer
  * what's in an egg?
@@ -64,6 +62,7 @@ nicht die Dateien doppelt ein.
 
 If this is your first egg, this is a very special moment. We are going to create the egg with a script that pregenerates a lot of necessary files. They all are necessary, but sometimes in a sublte way. It takes a while do understand their full meaning. Only this year I learnt and understood why I should have a manifest.in file. You can get along without one, but trust me, you get along better with a proper manifste file.
 Lets have a look at it.
+
 bootstrap.py, buildout.cfg CHANGES.txt CONTRIBUTORS.txt docs/* README.txt setup.py
 configure.zcml metadata.xml
 

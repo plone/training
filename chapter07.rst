@@ -1,6 +1,5 @@
-
-7. Plone-IDE's (15min) (Patrick)
-================================
+Plone-IDE's
+===========
 
 * Show your editor
 * Sublime

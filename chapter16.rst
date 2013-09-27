@@ -1,6 +1,5 @@
-
-15. Viewlet for ISocial schreiben (Philip)
-==========================================
+Writing Viewlets
+=================
 
 A viewlet is no view but a snippet of html and logic that can be put somewhere in the site.
 
@@ -24,7 +23,9 @@ We just add a file viewlets.py containing the viewlet-class::
 
 This will add a viewlet to a slot below the title and expect a template 'social.pt' in a folder 'viewlets_templates'.
 
-Let's add it::
+Let's add it:
+
+.. code-block:: html
 
     <div id="social-links">
         <a href="#"
@@ -57,9 +58,9 @@ TAG: 17_SOCIAL_VIEWLET
 * we adapt the object to it's behavior to be able to access the fields of the behavior
 * we return the link
 
+Let's create this file without any logic
 
-
-Let's create this file without any logic::
+.. code-block:: html
 
     <div class="voting">
         Wanna vote? Write code!
@@ -112,7 +113,7 @@ We create a new file voting.py::
 
 This will add a viewlet to a slot below the title and expect a template vote.pt in a folder 'voting_templates'.
 
-Let's create this file without any logic::
+Let's create this file without any logic
 
     <div class="voting">
         Wanna vote? Write code!
@@ -175,7 +176,9 @@ Lets see the final code::
 the template
 ------------
 
-the final temoplate looks like this::
+the final temoplate looks like this:
+
+.. code-block:: html
 
     <div class="voting">
       <div id="current_rating" tal:condition="viewlet/has_votes">
@@ -252,7 +255,7 @@ Jetzt müssen wir noch die Methoden schreiben, die per HTTP Post
 aufgerufen werden.
 
 
-2 Simpelviews schreiben (Patrick)
+2 Simpleviews schreiben (Patrick)
 ---------------------------------
 
 Diese Views haben IVotable als Context, es gibt sie also nur auf

@@ -1,9 +1,7 @@
+Extending Dexterity-Types with Behaviors
+========================================
 
-
-13. Dexterity-Content-Typen mit Behaviors erweitern (30min) (Patrick)
-=====================================================================
-
-Explain Behaviours
+* What are Behaviours?
 
 
 simple social behavior

@@ -1,6 +1,5 @@
-
-12. Views III Talk list (45min) (Philip)
-========================================
+Views III: A Talk list
+=======================
 
 
 If we don't want to provide information about the context, that is not on the the current object one specific item but on several items. What now? We can't look at several items at the same time as context.
@@ -136,7 +135,9 @@ The view and the controller are very much mixed in Plone.
 
 When you look at some of the older code of Plone you'll see that the policy of keeping login insice python and representation in templates was not always enforced. You should nevertheless do it. You'll end up with more than enough logic in the templates anyway. You'll see now.
 
-Let's add this simple table to out template 'talklistview.pt'::
+Let's add this simple table to our template 'talklistview.pt':
+
+.. code-block:: html
 
         <table class="listing">
             <thead>
@@ -167,7 +168,9 @@ Let's add this simple table to out template 'talklistview.pt'::
             </tbody>
         </table>
 
-After we transform it we have out listing::
+After we transform it we have a listing:
+
+.. code-block:: html
 
         <table class="listing" id="talks">
             <thead>
@@ -234,9 +237,9 @@ We don't want to always have to append /@@talklistview to out folder to get the 
 
 If we append /manage_propertiesForm we can set the property "layout" to "talklistview".
 
-To make views configurable so that editors can choose them like folder_Summary_view etc. we'd have to register it for the content-type at hand (Folder) in it's FTI (folder.xml).
+To make views configurable so that editors can choose them like folder_Summary_view etc. We'd have to register it for the content-type at hand (Folder) in it's FTI (folder.xml).
 
-We'd do::
+.. code-block:: xml
 
     <?xml version="1.0"?>
     <object name="Folder">
@@ -258,7 +261,9 @@ But we could improve that table further by using a nice javascript-library calle
 
 Like for many js-libraries there is already a package that doe the plone-integration for us: "collective.js.datatables". Like all python-packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables
 
-We already added the addon to our buildout and just have to activate it in our template::
+We already added the addon to our buildout and just have to activate it in our template.
+
+.. code-block:: html
 
     <metal:head fill-slot="javascript_head_slot">
         <link rel="stylesheet" type="text/css" media="screen" href="++resource++jquery.datatables/media/css/jquery.dataTables.css">

@@ -1,6 +1,5 @@
-
-3. The features of Plone (45min) (Philip)
-=========================================
+The Features of Plone
+=====================
 
 You can find a in-depth user-manual at http://plone.org/documentation/manual/plone-4-user-manual
 

@@ -1,7 +1,5 @@
-
-
-9. Creating a new content-type "Talk" with Dexterity (45min) (Philip)
-=====================================================================
+Creating content-types with Dexterity
+=====================================
 
 
 What is a content-type?

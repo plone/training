@@ -1,5 +1,4 @@
-﻿
-Extending Plone
+﻿Extending Plone
 ===============
 
 Zope is extensible and so is Plone.
@@ -83,7 +82,7 @@ Thanks to ZCML, I hardly ever have a hard time to find out what and where extens
 
 
 Extending Plone with Add-ons
-=====================================
+============================
 
 Introduction
 -------------
@@ -224,16 +223,3 @@ Wir können nun das Design unserer Webseite anpassen. Wir können Erweiterungen 
 
 Wir müssen oft strukturierte Daten speichern oder anzeigen können, bis zu einem gewissen Grad auch noch TTW, aber irgendwann erreichen wir eine Grenze. Wir werden im zweiten Teil zeigen, wie man neue Contenttypen anlegt und wie man neue Funktionalitäten schreibt.
 
-
-5.1 Theming
-===========
-
-We don't do any real theming during the training. We'll just explain the options you have.
-
-* Diazo: The modern way to go!
-* Downloading and activating a theme
-* Creating a new theme
-* Demo the Diazo Theme editor
-* Show Diazo rules
-* Old-school Theming
-* Deliverance

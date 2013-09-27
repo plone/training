@@ -1,6 +1,5 @@
-
-11. Views II: A default view for "talk" (45min) (Patrick)
-=========================================================
+Views II: A default view for "talk"
+===================================
 
  * zcml
  * grok

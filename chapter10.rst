@@ -1,5 +1,5 @@
-10. Views I (60min) (Patrick und Patrick)
-=========================================
+Views I
+=======
 
 A simple browser view
 ---------------------
