@@ -1,9 +1,6 @@
 ﻿Extending Plone with Add-ons
 ============================
 
-Introduction
--------------
-
 There are more than a thousand addons for Plone. We will cover only a handfull today.
 
 * What types of addons are there
@@ -14,15 +11,18 @@ Installing Addons
 -----------------
 
 Installation is a two-step process.
+
 First, we must make the addons code available to Zope. This means, that Zope can import the code, buildout is responsible this.
 
 Use ``vagrant ssh``to ssh to your vagrant, and change the buildout.cfg file in XXX.
 
 In the section ``[instance]`` there is a variable called ``eggs``, which has multiple *eggs* as a value. Add the following eggs:
 
-    * PloneFormGen
-    * Products.LinguaPlone
-    * collective.plonetruegallery
+    * ``Products.PloneFormGen``
+    * ``Products.LinguaPlone``
+    * ``collective.plonetruegallery``
+    * ``plone.app.themeeditor``
+
 
 Usually, one enters the eggs by adding one more line per egg into the configuration.
 You must write the egg name indented, this way Buildout understands that the current line is part of the last variable and not a new variable.
@@ -35,11 +35,11 @@ You must write the egg name indented, this way Buildout understands that the cur
 Now the code is importable from within Plone and everything got registered via ZCML.
 But your Plone-site has not yet been told to use this. For this, you have to install the addons in your Plone Site.
 
-In your browser, go the control panel ``@@plone_control_panel``, and open the ``Addons`` Panel. You will see that you can install all 4 packages there.
+In your browser, go the control panel ``@@plone_control_panel``, and open the ``Addons`` Panel. You will see that you can install all three packages there.
 
 Install them now.
 
-This is what happens now: The GenericSetup profile of the product gets loaded. This does things like
+This is what happens: The GenericSetup profile of the product gets loaded. This does things like:
 
 * configuring new actions,
 * registering new content types or
@@ -48,8 +48,8 @@ This is what happens now: The GenericSetup profile of the product gets loaded. T
 Let' have a look at what we just installed.
 
 
-PloneFormGen (Philip)
----------------------
+PloneFormGen
+------------
 
 There a various methods to create forms in Plone:
 
@@ -57,12 +57,16 @@ There a various methods to create forms in Plone:
 * z3c.form, formlib or in Python deform prgrammatically
 * PloneFormGen
 
-PFG allow you to create great forms ttw. Imagine the following possibilites.
+PFG allow you to create great forms ttw.
+Let's write a registration-form for our conference
 
-* easy form to subscribe a newsletter?
-* registration-form (Name, Food, Shirt-size etc.)
-* Mail-Adapter
-* DataSave Adapter
+* Add a object of the new type 'Form Folder' in the site-root. Call it "Registration"
+* Save and view the result
+* Click in QuickEdit
+* Remove field "Subject"
+* Add fields for food-preference and shirt-size
+* Add a DataSave Adapter
+* Try it
 
 Written by Steve McMahon. You might want to buy him a beer.
 
@@ -70,7 +74,9 @@ Written by Steve McMahon. You might want to buy him a beer.
 Internationalisation with LinguaPlone and plone.app.multilingual (Philip)
 -------------------------------------------------------------------------
 
-* ``/plone_control_panel``
+We're not doing this with out site.
+
+* Go to the ``/plone_control_panel``
 * install installieren
 * add german as language einstellen
 

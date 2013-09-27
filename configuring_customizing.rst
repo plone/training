@@ -1,6 +1,7 @@
 Configuring and Customising Plone through the web
 =================================================
 
+ .. sectionauthor:: Philip Bauer <bauer@starzel.de>
 
 The Control Panel
 -----------------
@@ -34,7 +35,7 @@ We'll explain every page and mention some of the stuff you can do here.
 20. TinyMCE Visual Editor
 21. Types
 22. Users and Groups
-24. Zope Management Interface (here be dragons)
+23. Zope Management Interface (here be dragons)
 
 Below the links you find information on your Plone-, Zope and Python-Versions
 

@@ -34,6 +34,7 @@ Contents:
     views_1
     views_2
     views_3
+    custom_search
     behaviors
     ressources
     social_behavior
