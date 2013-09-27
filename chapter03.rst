@@ -2,7 +2,7 @@
 3. The features of Plone (45min) (Philip)
 =========================================
 
-For trainings we do most of this part using only keywords. You can find a in-depth user-manual at http://plone.org/documentation/manual/plone-4-user-manual
+You can find a in-depth user-manual at http://plone.org/documentation/manual/plone-4-user-manual
 
 
 Users
@@ -34,7 +34,7 @@ Now let's see the site in 3 different browsers with in three different roles:
 Configure a Mailserver
 ----------------------
 
-We should configure a mailserver since later create some content-actions that send emails when new content is put on our site.
+We should configure a mailserver since later we will create some content-actions that send emails when new content is put on our site.
 
 
 Walktrough of the UI
@@ -66,7 +66,7 @@ Content-Types
 Edit a page:
 
 * Edit frontpage
-* Title: "Plone Conference 2012, Arnhem"
+* Title: "Plone Conference 2013, Brazil"
 * Description "Tutorial"
 * Text "..."
 
@@ -131,7 +131,7 @@ Content Rules
 History
 -------
 
-explain
+show and explain
 
 
 Manage members and groups
@@ -141,15 +141,15 @@ Manage members and groups
 * roles
 * groups
 
-  * Add group: orga
-  * add group: speaker
+  * Add group: ``orga``
+  * add group: ``speaker`
 
 
 Workflows
 ---------
 
-* screenshots?
-* Show plone.app.workflowmanager
+* Screenshots?
+* Show plone.app.workflowmanager?
 
 
 Working copy

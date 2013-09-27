@@ -2,18 +2,12 @@
 4. Simple Customisations (45min) (Philip)
 =========================================
 
- * Configuring Plone with /plone_control_panel
- * Portlets
- * Viewlets
- * ZMI (plus intro to ZMI)
- * portal_actions
 
+The Control Panel
+-----------------
 
-Configuring Plone with /plone_control_panel
--------------------------------------------
-
-Click name
-Click "Site Setup"
+* Click on your username
+* Click "Site Setup"
 
 1. Add-ons (later...)
 2. Calendar
@@ -32,12 +26,14 @@ Click "Site Setup"
 15. Search
 16. Security
 17. Site
-18. Themes
-19. TinyMCE Visual Editor
-20. Types
-21. Users and Groups
-22. Workflow Manager
-23. Zope Management Interface (here be dragons)
+18. Syndication
+19. Themes
+20. TinyMCE Visual Editor
+21. Types
+22. Users and Groups
+24. Zope Management Interface (here be dragons)
+
+Below: Info on versions
 
 
 Portlets
@@ -55,7 +51,8 @@ explain portlets:
 
 Example:
 
-* right: add static portlet "Sponsors".
+* Add a static portlet "Sponsors" on the right side.
+* Remove the news-portlet and add a new one on the left side.
 
 
 Viewlets
@@ -72,46 +69,98 @@ Viewlets
 
 Portlets save Data, Viewlets usually don't. Viewlets are often used for UI-Elements.
 
-example: hide collophon
+Example:
+
+* Hide collophon
 
 
 ZMI
 ---
 
-Köln ist eine Stadt die über 1000 Jahre alt ist. Es gibt heutzutage aber keine Infrastruktur mehr die von den Römern geschaffen und von uns noch genutzt werden. Zope ist der Unterbau von Plone und der Altersunterschied zwischen Zope und Plone ist wesentlich geringer als zwischen Köln und Colonia, aber als Kölner muss man Köln ja auch mal erwähnen. Aber in einem Aspekt hinkt der Vergleich nicht, wenn man im modernen Köln Mist baut, wird man nicht den Löwen zum Frass vorgeworfen, im alten Zope/Colonia kann das passieren. Es gibt Dinge die man dort nicht tun sollte, weil Plone dadurch kaputt geht. Wenn man doch etwas in Zope machen muss, ist das normalerweise gut auf Plone.org dokumentiert. Lustige Geschichten, wir sich andere (also wir noch nie!) In den Fuss geschossen haben erzählen wir gerne beim Social Event. Daher werden wir erst später was zu Zope und dem Zope Management Interface, ZMI erzählen.
+Go into the ZMI (explain ``/manage``)
 
+Since Zope is the foundation of Plone. Here you can access the inner working of Zope and PLone alike. Here you can easily break your site so you should know what you are doing.
+
+Here we only cover once aspect of customisation in the ZMI. At some point you'll have to learn what all that stuff is about. But not today.
 
 Actions
 -------
 
-Go into the ZMI (explain ``/manage``)
+Actions are mostly links but really flexible links :-)
 
-Mostly links but really flexible links :-)
+Examples:
 
-Manchmal soll ein Link aber mehr Eigenschaften haben, Links sollten eine Beschreibung haben können, und Bedingungen, zum Beispiel der Kontext oder ein benötigtes Recht. Ausserdem sollte das ganze Konfigurierbar sein, ohne das wir dazu HTML anpassen müssen. Dazu gibt es in Plone schon seit dem alten Rom das Konzept der Portal Actions. Dort werden kleine Objekte angelegt mit all diesen Eigenschaften, und im HTML werden diese Objekte, die Actions heissen abgefragt und entsprechend Texte geschrieben, Icons angezeigt und dergleichen.
+* Links in the Footer (site_actions)
+* Actions-Dropdown (folder_buttons)
 
-Ein Beispiel für diese Links sind die grauen Reiter oben. Wir nehmen nun den Link auf die Startseite raus, die Besucher können auch auf das Logo klicken.
+Links with properties like:
 
-Kräftig durchatmen, wir sind nun in den Katakomben dem ZMI, bitte nichts berühren, sonst stürzt alles ein ;-)
+* description
+* url
+* i18n-domain
+* condition
+* permissions
 
-go to ``portal_actions`` > ``portal_tabs``
+Configurable ttw and through code.
+
+These actions are usually iterated over in viewlets and displayed.
+
+Example:
+
+* Global navigation (portal_tab)
+* go to ``portal_actions`` > ``portal_tabs``
 
 Where is my navigation?
 
 The navigation shows content-objects, which are in Plone's root. Plus all actions in portal_tabs
 
-explain & edit index_html
-
-Derzeit gibt es nur diese eine, die wir uns vor dem Löschen ganz kurz anschauen, bitte drauf klicken
+Explain & edit index_html
 
 Add a link to the imprint to the bottom:
 
-go to ``site_actions`` (we know that because we checked in manage-viewlets) > add a CMF Actions ``'imprint' and point it at string:${globals_view/navigationRootUrl}/imprint``
-
-Explain permissions, condition,
+* go to ``site_actions`` (we know that because we checked in ``@@manage-viewlets``)
+* add a CMF Actions ``imprint``
+* set its URL to ``string:${globals_view/navigationRootUrl}/imprint``
+* Leave condition empty
+* Set permission to ``View``
 
 If time explain:
 
 * user > undo (cool!)
 * user > login/logout
 
+portal_skins
+------------
+
+* Go to ZMI
+* go to portal_skins
+* go to plone_styles
+* go to ``ploneCustom.css``
+* click ``customize``
+
+Enter the following css:
+
+.. code-block:: css
+
+    #visual-portal-wrapper {
+        margin: 0 auto;
+        position: relative;
+        width: 980px;
+    }
+
+Check results in the browser. How did that happen?
+
+* go to ZMI > ``portal_css``
+* at the bottom there is ``ploneCustom.css``
+
+The UI leaves a lot to be desired.
+
+In a profesioneal context this is no-go (no version-control). But everybody uses it to make quick fixes to sites that are already online.
+
+Later we'll revisit the same css-code.
+
+
+Summary
+-------
+
+You can configure and customize a lot in Plone through the web. The amount of stuff is overwhelming but you'll get the hang of it through a lot of practice.

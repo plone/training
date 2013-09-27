@@ -12,10 +12,15 @@ einfach und verwenden templer. Mit templer kann man ein Anwendungsskelett
 erstellen, und muss nur noch die Lücken ausfüllen.
 Noch haben wir ZopeSkel aber nicht, wir müssen es noch über unser
 Buildout installieren.
+
 Dazu gehen wir nun in das src Verzeichnis, und rufen folgendes auf:
-zopeskel
+
+    $ zopeskel
+
 Dann:
-zopeskel dexterity
+
+    $ zopeskel plone_basic
+
 Description: Plonekonferenz Talk
 Wir gehen die Fragen durch
 Wir gehen die Verzeichnisse durch

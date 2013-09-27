@@ -1,6 +1,6 @@
 ﻿
-5. Extending Plone with Add-ons (80 min) (Patrick)
-==================================================
+Extending Plone
+===============
 
 Zope is extensible and so is Plone.
 
@@ -82,20 +82,30 @@ Personally, I just find it cumbersome but even for me as a developer it offers a
 Thanks to ZCML, I hardly ever have a hard time to find out what and where extensions or customizations. For me, ZCML files are like a phone book.
 
 
-Installation
-------------
+Extending Plone with Add-ons
+=====================================
+
+Introduction
+-------------
+
+There are more than a thousand addons for Plone. We will cover only a handfull today.
+
+* What types of addons are there
+* How to find addons
+
+
+Installing Addons
+-----------------
 
 Installation is a two-step process.
-First, we must make our code available to Zope.
-This means, that Zope can import the code, buildout is responsible this.
+First, we must make the addons code available to Zope. This means, that Zope can import the code, buildout is responsible this.
 
-*ssh* to your vagrant, and change the buildout.cfg files in training/zinstance.
+Use ``vagrant ssh``to ssh to your vagrant, and change the buildout.cfg file in XXX.
 
-There is a variable named eggs, which has multiple *eggs* as a value. Add the following eggs:
+In the section ``[instance]`` there is a variable called ``eggs``, which has multiple *eggs* as a value. Add the following eggs:
 
     * PloneFormGen
     * Products.LinguaPlone
-    * Products.PloneTrueGallery
     * collective.plonetruegallery
 
 Usually, one enters the eggs by adding one more line per egg into the configuration.
@@ -106,17 +116,21 @@ You must write the egg name indented, this way Buildout understands that the cur
     $ bin/buildout
     $ bin/instance fg
 
-
 Now the code is importable from within Plone and everything got registered via ZCML.
-But Plone is not configured to use this.
-For this, you have to install the Extension in your Plone Site.
+But your Plone-site has not yet been told to use this. For this, you have to install the addons in your Plone Site.
 
-In your browser, go the Plone control panel, and open the Products Panel. You will see that you can install all 4 packages there.
+In your browser, go the control panel ``@@plone_control_panel``, and open the ``Addons`` Panel. You will see that you can install all 4 packages there.
 
 Install them now.
 
-This is what happens now: The GenericSetup profile of the product gets loaded. This does things like configuring new actions, registering new
-content types or creating some content/configuration objects in your Plone site.
+This is what happens now: The GenericSetup profile of the product gets loaded. This does things like
+
+* configuring new actions,
+* registering new content types or
+* creating some content/configuration objects in your Plone site.
+
+Let' have a look at what we just installed.
+
 
 PloneFormGen (Philip)
 ---------------------
@@ -127,12 +141,14 @@ There a various methods to create forms in Plone:
 * z3c.form, formlib or in Python deform prgrammatically
 * PloneFormGen
 
-Mit PFG kann man professionelle Formulare zusammenklicken. Wenn man bedenkt was die Alternatven sind wird klar wie cool PFG ist. Der angeblich komfortablen Formulargenerator in Typo3 ist ja schon schlimm. In Plone könnte man Formulare auch von Hand in html schreiben und in Python auslesen was oft auch eine einfache Methode ist. Wenn es komplexer sein soll dann eben z3c.forms. Aber dazu muss man ja immer programmieren. Wir machen das jetzt mal nicht sondern klicken uns ein Anmeldeformular für die Plone-Konferenz zusammen.
+PFG allow you to create great forms ttw. Imagine the following possibilites.
 
 * easy form to subscribe a newsletter?
 * registration-form (Name, Food, Shirt-size etc.)
 * Mail-Adapter
 * DataSave Adapter
+
+Written by Steve McMahon. You might want to buy him a beer.
 
 
 Internationalisation with LinguaPlone and plone.app.multilingual (Philip)
@@ -212,12 +228,12 @@ Wir müssen oft strukturierte Daten speichern oder anzeigen können, bis zu eine
 5.1 Theming
 ===========
 
-We don't do any real theming during the training. We just explain the options you have.
+We don't do any real theming during the training. We'll just explain the options you have.
 
-* Diazo
+* Diazo: The modern way to go!
 * Downloading and activating a theme
 * Creating a new theme
-* Diazo Theme editor
-* Rules
+* Demo the Diazo Theme editor
+* Show Diazo rules
 * Old-school Theming
 * Deliverance
