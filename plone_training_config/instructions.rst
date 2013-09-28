@@ -26,7 +26,7 @@ First create a directory where you want to to the training in::
     $ mkdir training
     $ cd training
 
-Download a clean virtual machine (Ubuntu 12.04 Precise Pangolin 32bit). It will be downloaded and made available to the vagrant-command as 'precise32'. It serves as a basis for your virtual machines and can be reused as often as you like.
+Download a clean virtual machine (Ubuntu 12.04 Precise Pangolin 32bit). It will be downloaded and made available to the vagrant-command as 'precise32'. It serves as a basis for your virtual machines and can be reused as often as you like.::
 
     $ vagrant box add precise32 http://files.vagrantup.com/precise32.box
 
@@ -34,7 +34,7 @@ Setup Vagrant to automatically install the current guest-additions. You can choo
 
     $ vagrant plugin install vagrant-vbguest
 
-Now either extract the the files from the attachmeht (if you read this as a mail) or download and extract http://www.starzel.de/plone-tutorial/plone_training_config.zip into your training directory. It should now hold the file "Vagrantfile" and the directories "manifests/" and "puppet_modules/"
+Now either extract the the files from the attachmeht (if you read this as a mail) or download and extract http://www.starzel.de/plone-tutorial/plone_training_config.zip into your training directory. It should now hold the file "Vagrantfile" and the directories ``manifests/``  and ``puppet_modules/``
 
 Start the VM that is configured in "Vagrantfile"::
 
@@ -60,9 +60,9 @@ Once the provisioning-process is completed you can login to the now running virt
 
 If you use Windows you'll have to login via putty (Install putty and follow the instructions here: http://vagrantup.com/v1/docs/getting-started/ssh.html)
 
-You are now logged in as the user vagrant in /home/vagrant. We'll do all steps of the training as this user.
+You are now logged in as the user vagrant in ``/home/vagrant``. We'll do all steps of the training as this user.
 
-We installed a Plone 4.3.2 for you in the folder /home/vagrant/training/zinstance. You can run it now and access it from the browser.::
+We installed a Plone 4.3.2 for you in the folder ``/home/vagrant/training/zinstance`` You can run it now and access it from the browser.::
 
     $ cd training/zinstance
     $ ./bin/instance fg
@@ -106,7 +106,6 @@ Then we download, unpack and install the unified installer of Plone::
 
 The unified installer is an amazing tool that compiles it's own python, brings with it all the python-eggs we need and puts them in a buildout-cache. It then creates a buildout and makes Plone ready to run.
 
-We'll use this Plone, that is found in /home/vagrant/training/zinstance on the virtual machine.
+We'll actually not use this Plone during the training. If you want to use for your own experiments, you can find it in ``/home/vagrant/training/zinstance`` on the virtual machine.
 
-Later we'll leave the unified installer behind and build our own little buildout. Buildout will be explained later in depth.
-
+Instead we'll build our own little buildout and only use the python and the eggs that were created when installing the unified installer.
