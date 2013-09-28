@@ -118,25 +118,22 @@ This is the list of Eggs that the Zope server must have available.
 
 Here you list Eggs that you are developing. They are not available as eggs but as a folder with a specific structure. Zope has to load eggs slightly different to these so-called ``checkouts``.
 
+There are many more important things to know, and we can't go through them in all the detail but I want to focus on one specific feature: **mr.developer**
+
+With mr.developer, you can declare, which packages you want to check out from which version control system and which repository URL. You can check out sources from git, svn, bzr, hg and maybe more. Also, you can say that some source are in your local file system.
+
+``mr.developer`` comes with a command, ``./bin/develop``. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them, when you write changes that require a new release. You can activate and deactivate eggs via the develop command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
+
+**versions.cfg**
+
+Keeping versions in a separate files help to keep your Buildout configuration file small.
+
 .. code-block:: cfg
 
     [versions]
 
 This is another special section. You might have noticed that most if not all functionality is only available via plugins. One of the things that Buildout excels at without any plugin, is the dependency resolution. You can help Plone in dependency resolution by declaring exactly which version of an egg you want. This is only one use case. Another one is much ,more important. If you want to have a repeatable Buildout, one that works two months from now also, you MUST declare all your egg versions. Else Buildout might install newer versions.
 
-* versions.cfg
-
-Keeping versions in a separate files help to keep your Buildout configuration file small.
-
-* development.cfg
-
-This is an example for a configuration file for a different environment. You want to develop on a Zope Site with different configuration than your Zope on production.
-
-There are many more important things to know, and we can't go through them in all the detail but I want to focus on one specific feature: **mr.developer**
-
-With mr.developer, you can declare, which packages you want to check out from which version control system and which repository URL. You can check out sources from git, svn, bzr, hg and maybe more. Also, you can say that some source are in your local file system.
-
-``mr.developer`` comes with a command, ``./bin/develop``. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them, when you write changes that require a new release. You can activate and deactivate eggs via the develop command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
 
 Ok, let us change things.
 
