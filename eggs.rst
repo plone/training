@@ -1,10 +1,6 @@
 Creating your own eggs to customize Plone
 =========================================
 
- * creating plonekonf.talk with zopeskel
- * templer will succeed zopeskel
- * what's in an egg?
-
 Eigener Code von uns muss in ein egg. Ein Egg ist eine Zip Datei oder ein
 Verzeichnis das einige Konventionen einhalten muss. Wir machen es uns hier
 einfach und verwenden zopeskel. Mit zopeskel kann man ein Anwendungsskelett
@@ -13,22 +9,22 @@ erstellen, und muss nur noch die Lücken ausfüllen.
 Noch haben wir ZopeSkel aber nicht, wir müssen es noch über unser
 Buildout installieren.
 
-Dazu gehen wir nun in das src Verzeichnis, und rufen folgendes auf:
+We move to the ``src`` directory and call a script called ``zopeskel``.
 
-.. code-block::
+.. code-block:: bash
 
-    $ zopeskel
+    $ cd src
+    $ ../bin/zopeskel
 
-Dann:
+This returns a list of available templates we might use. We choose dexterity.
 
-.. code-block::
+.. code-block:: bash
 
-    $ zopeskel plone_basic
+    $ ../bin/zopeskel dexterity
 
-Description: Plonekonferenz Talk
-Wir gehen die Fragen durch
-Wir gehen die Verzeichnisse durch
-Wir tragen das Egg in buildout ein.
+* Enter project name: ``ploneconf.talk``
+* Use the default values for everything except "Use relations?". We enter ``True``
+
 
 ZCML:
     Konfigurationssprache um das Zopetoolkit Komponententsystem zu
