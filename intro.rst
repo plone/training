@@ -20,18 +20,18 @@ Please tell us about yourselves:
 * What are your expectations for this tutorial?
 * Do you know the html of the output of this?
 
-.. code-block:: html
+  .. code-block:: html
 
-    <div class="hiddenStructure"
-         tal:repeat="num python:range(1, 10, 5)"
-         tal:content="structure num"
-         tal:omit-tag="">
-      This is some weird sh*t!
-    </div>
+      <div class="hiddenStructure"
+           tal:repeat="num python:range(1, 10, 5)"
+           tal:content="structure num"
+           tal:omit-tag="">
+        This is some weird sh*t!
+      </div>
 
   The answer is::
 
-    1 6
+      1 6
 
 * Do you know what the following would return?::
 
@@ -76,15 +76,6 @@ We will not cover the following topics:
 * `Testing and Debugging <http://developer.plone.org/testing_and_debugging/index.html>`_
 * `Images and image-scales <http://developer.plone.org/images/index.html>`_
 * `i18n and locales <http://developer.plone.org/i18n/index.html>`_
-
-
-The curriculum for the training is this:
-
-.. toctree::
-    :maxdepth: 1
-    :numbered: 0
-
-
 
 
 What to expect

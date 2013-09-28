@@ -2,7 +2,7 @@ Custom search
 =============
 
 
-If you are discouraged by the complexity of the chapter where we added the talk-list this might be an alternative for you. There are several tools that allow you to add custom searches and content-listings through the web in Plone.
+If you are discouraged by the complexity of the last few chapters this might be an alternative until you feel comfortable writing views and templates. There are several tools that allow you to add amazing custom searches and content-listings through the web in Plone.
 
 eea.facetednavigation
 ---------------------
