@@ -1,21 +1,27 @@
 Creating your own eggs to customize Plone
 =========================================
 
- * creating plonekonf.talk with zopeskel/templer
+ * creating plonekonf.talk with zopeskel
+ * templer will succeed zopeskel
  * what's in an egg?
 
 Eigener Code von uns muss in ein egg. Ein Egg ist eine Zip Datei oder ein
 Verzeichnis das einige Konventionen einhalten muss. Wir machen es uns hier
-einfach und verwenden templer. Mit templer kann man ein Anwendungsskelett
+einfach und verwenden zopeskel. Mit zopeskel kann man ein Anwendungsskelett
 erstellen, und muss nur noch die Lücken ausfüllen.
+
 Noch haben wir ZopeSkel aber nicht, wir müssen es noch über unser
 Buildout installieren.
 
 Dazu gehen wir nun in das src Verzeichnis, und rufen folgendes auf:
 
+.. code-block::
+
     $ zopeskel
 
 Dann:
+
+.. code-block::
 
     $ zopeskel plone_basic
 
