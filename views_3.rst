@@ -18,7 +18,7 @@ It is the fast way to get content that exists in the site and do something with 
 
 ::
 
-    # encoding=utf-8
+    # -*- coding: UTF-8 -*-
     from five import grok
     from zope.interface import Interface
     from Products.CMFCore.utils import getToolByName
@@ -52,17 +52,16 @@ It is the fast way to get content that exists in the site and do something with 
                     })
             return results
 
-We query for two things:
+We query teh catalog for two things:
 
-* portal_type = "talk"
-* path = "/".join(self.context.getPhysicalPath())
+* ``portal_type = "talk"``
+* ``path = "/".join(self.context.getPhysicalPath())``
 
-We get the path of the current context to query only for objects in the current path. Otherwise we'd get all talk in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for univerities with it's own talk-list) we might not want so see them in our listing.
+We get the path of the current context to query only for objects in the current path. Otherwise we'd get all talks in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for univerities with a special talk-list) we might not want so see them in our listing.
 
-We then iterate over the list of results that the catalog returns us.
+We iterate over the list of results that the catalog returns us::
 
-We create a dictionary that holds all the information we want to whow in the template. This way we don't have to put any complex logic into the template.
-
+We create a dictionary that holds all the information we want to show in the template. This way we don't have to put any complex logic into the template.
 
 brains and objects
 ------------------
@@ -70,16 +69,16 @@ brains and objects
 Objects are normally not loaded into memory but lie dormant in the Database ZODB. Waking objects up can be slow, especially if you're waking up a lot of objects. Fortunately out talks are not especially heavy since they are
 
 * dexterity-objects which are lighter than their archetypes-brothers
-* relatively few
+* relatively few since we don't have thousands of talks at our conference
 
-Since we want to show the target-audience that is not part of the catalog we need to wake up the objects themselves.
+We want to show the target-audience but that attributes of the talks is not in the catalog. This is why we need to get to the objects themselves.
 
-Wir could also add a new index to the catalog that will add 'audience' to the properties of the brains. We have to weight pros and cons:
+We could also add a new index to the catalog that will add 'audience' to the properties of the brains. We have to weight pros and cons:
 
 * talks are important and thus most likely always in memory
 * prevent bloating of catalog with indexes
 
-The code to add such an index wuld look like this::
+The code to add such an index would look like this::
 
     from plone.indexer.decorator import indexer
     from plonekonf.talk.talk import ITalk
@@ -98,13 +97,12 @@ Most objects in plone act like dictionaries, so I could do context.values() to g
 
 For historical reasons only the same attributes of brains and objects are written differently::
 
-    brain.Title == obj.title
+    >>> brain.Title == obj.title
+    True
 
-But brain.title returns the name of the catalog :-(
+But ``brain.title`` returns the name of the catalog :-(
 
-The documentation is extensive: http://collective-docs.readthedocs.org/en/latest/searching_and_indexing/index.html
-
-Look there to find out how to query for date, language. interface
+Look there to find out how to query for date, language: http://collective-docs.readthedocs.org/en/latest/searching_and_indexing/index.html.
 
 
 The template for the listing
@@ -214,7 +212,7 @@ After we transform it we have a listing:
 I'll explain some of the things in the TAL:
 
 ``tal:repeat="talk view/talks"``
-    we iterate over the list of dictionaries returned by our view. ``view/talks`` calles the method ``talks``of our view and each ``talk`` is in turn a dictionary. Since TAL's path-expressions for the lookup of values in dictionaries is the same as the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page-template alone we have ofetn no way of knowing if something is an attribute, a method or the value of a dict.
+    we iterate over the list of dictionaries returned by our view. ``view/talks`` calles the method ``talks`` of our view and each ``talk`` is in turn a dictionary. Since TAL's path-expressions for the lookup of values in dictionaries is the same as the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page-template alone we have often no way of knowing if something is an attribute, a method or the value of a dict.
 
 ``tal:content="talk/speaker"``
     'speaker' is a key in the dict 'talk'. We could also write ``tal:content="python:talk['speaker']"``
@@ -223,11 +221,11 @@ I'll explain some of the things in the TAL:
     this is a fallback for when no talks are returned by out method talks. It then return an empty list (remember ``results = []``?)
 
 ``tal:content="talk/average_rating | nothing"``
-    you might remember there is no key 'average_rating' in the dict that we return. The '|' ("or") character is used to find an alternative value to a path if the first path evaluates to 'Nothing' or does not exist. The | ("or") is the logical 'or' and will be used if no value exists.
+    you might remember there is no key 'average_rating' in the dict that we return. The '|' ("or") character is used to find an alternative value to a path if the first path evaluates to ``nothing`` or does not exist. The | ("or") is the logical 'or' and will be used if no value exists.
 
-    What will not work is ``tal:content="python:talk['average_rating'] or ''"``. How knows what it will yield? We'll get ``KeyError: 'average_rating'``. In fact it is bad practice to use | too often since it'll swallow errors the typo in ````tal:content="talk/averange_ratting | nothing"`` and you might wonder why there are no ratings later on...
+    What will not work is ``tal:content="python:talk['average_rating'] or ''"``. Who knows what it will yield? We'll get ``KeyError: 'average_rating'``. In fact it is bad practice to use | too often since it'll swallow errors like a typo in ``tal:content="talk/averange_ratting | nothing"`` and you might wonder why there are no ratings later on...
 
-    Keep in mind that you can't and should not use it to prevent errors like a try/except-block. But in our case it's pretty useful since our code does not break event though we have not implemented ratings yet.
+    Keep in mind that you can't and should not use it to prevent errors like a try/except-block. But in this case it's pretty useful since our code does not break event though we have not implemented ratings yet.
 
 
 Setting a custom view as default-view on an object
@@ -252,14 +250,14 @@ To make views configurable so that editors can choose them like folder_Summary_v
 After reapplying the profile the configuration of the content-type "Folder" would be extended with our additional view-method and it would appear in the display-dropdown.
 
 
-adding some javascript (collective.js.datatables)
+Adding some javascript (collective.js.datatables)
 -------------------------------------------------
 
 Here we use one of many nice feature build into Plone. The class="listing" gives the table a nice style and makes the table sortable with some javascript.
 
 But we could improve that table further by using a nice javascript-library called "datatables". It might even become part of the Plone-core at some point.
 
-Like for many js-libraries there is already a package that doe the plone-integration for us: "collective.js.datatables". Like all python-packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables
+Like for many js-libraries there is already a package that doe the plone-integration for us: ``collective.js.datatables``. Like all python-packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables
 
 We already added the addon to our buildout and just have to activate it in our template.
 
@@ -277,12 +275,10 @@ We already added the addon to our buildout and just have to activate it in our t
         </script>
     </metal:head>
 
-We don't need the css-class 'listing' anymore sine it might clash with datatables (it does not but still...).
+We don't need the css-class ``listing`` anymore since it might clash with datatables (it does not but still...).
 
 The documentation of datatables is beyond our training.
 
-We use METAL again but thins time to fill a different slot. The "javascript_head_slot" is part of the html's <head>-area in Plone and can easily be extended this way. We could also just put the code inline but have nicely ordered html is a good practice.
+We use METAL again but this time to fill a different slot. The "javascript_head_slot" is part of the html's ``<head>``-area in Plone and can be extended this way. We could also just put the code inline but having nicely ordered html is a good practice.
 
 Let's test it.
-
-
