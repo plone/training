@@ -125,7 +125,7 @@ This will result in:
 
     <p>blue</p>
 
-Try this out and (without restarting Plone) open http://localhost:8080/Plone/@@demo_view.
+Without restarting Plone open http://localhost:8080/Plone/@@demo_view.
 
 The same happens with attributes. Replace the <p>-line with:
 
@@ -215,7 +215,7 @@ tal:condition
 
 Let's add another TAL-Attribute to our above example::
 
-    ``tal:condition="talks"``
+    tal:condition="talks"
 
 We could also test for the number of talks::
 
@@ -223,7 +223,7 @@ We could also test for the number of talks::
 
 or if a certain talk is in the list of talks::
 
-    tal:condition="python:'The talk that I did not submit' in talks"
+    tal:condition="python:'Deco is the future' in talks"
 
 
 tal:repeat
@@ -242,7 +242,7 @@ Let's try another statement:
        A talk
     </p>
 
-tal:repeat
+``tal:repeat``
     repeats an iterable element, in our case the list of talks.
 
 We change the markup a little to construct a list in which there is an ``<li>`` for every talk:
@@ -268,9 +268,9 @@ path-expressions
 
 Regarding TALES so far we used ``string:`` or ``python:`` or only variables. The next and most common expression are path-expressions. Optionally you can start a path-expression with ``path:``
 
-Every path expression starts with a variable name. It can either an object like context, view or template or a variable defined earlier.
+Every path expression starts with a variable name. It can either be an object like ``context``, ``view`` or ``template`` or a variable defined earlier like ``talk``.
 
-After the variable we add a slash (‘/’) and the name of a sub-object, attribute or callable. The '/' is used to end the name of an object and the start of the property name. Properties themselves may be objects that in turn have properties.
+After the variable we add a slash ``/`` and the name of a sub-object, attribute or callable. The '/' is used to end the name of an object and the start of the property name. Properties themselves may be objects that in turn have properties.
 
 .. code-block:: html
 
@@ -284,13 +284,13 @@ We can chain several of those to get to the information we want.
 
 This would return the value of the form-dictionary of the HTTPRequest-object. Useful for form-handling.
 
-The '|' ("or") character is used to find an alternative value to a path if the first path evaluates to 'Nothing' or does not exist.
+The ``|`` ("or") character is used to find an alternative value to a path if the first path evaluates to ``nothing`` or does not exist.
 
 .. code-block:: html
 
     <p tal:content="context/title | context/id"></p>
 
-There are several built in variables that can be used in paths:
+There are several **built in variables**  that can be used in paths:
 
 The most frequently used one is ``nothing`` which is the equivalent to None
 
@@ -407,10 +407,10 @@ We emulate a list of talks and display information obout them in a table. We'll 
 
 To complete the list here are the TAL-Attributes we have not yet used:
 
-tal:omit-tag
+``tal:omit-tag``
     Omit the element tags, leaving only the inner content.
 
-tal:on-error
+``tal:on-error``
     handle errors.
 
 When an element has multiple statements, they are executed in this order:
@@ -440,10 +440,52 @@ And then wrap the code we want to put in the content-area of Plone in:
 .. code-block:: html
 
     <metal:content-core fill-slot="content-core">
-        <p>Some content</p>
+        ...
     </metal:content-core>
 
 This will put our code in a section defined in the main_template called "content-core".
+
+The complete template shoud now look like this:
+
+.. code-block:: html
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+          lang="en"
+          metal:use-macro="context/main_template/macros/master"
+          i18n:domain="ploneconf.talk">
+    <body>
+
+    <metal:content-core fill-slot="content-core">
+
+    <table tal:define="talks python:[{'title':'Dexterity for the win!',
+                                      'subjects':('content-types', 'dexterity')},
+                                     {'title':'Deco is the future',
+                                      'subjects':('layout', 'deco')},
+                                     {'title':'The State of Plone',
+                                      'subjects':('keynote',) },
+                                     {'title':'Diazo designs are great',
+                                      'subjects':('design', 'diazo', 'xslt')}
+                                    ]">
+        <tr>
+            <th>Title</th>
+            <th>Topics</th>
+        </tr>
+        <tr tal:repeat="talk talks">
+            <td tal:content="talk/title">A talk</td>
+            <td tal:define="subjects talk/subjects">
+                <span tal:repeat="subject subjects"
+                      tal:replace="subject">
+                </span>
+            </td>
+        </tr>
+    </table>
+
+    </metal:content-core>
+
+    </body>
+    </html>
+
+
 
 
 macros in browser-views
@@ -482,16 +524,23 @@ Accessing Plone from the template
 
 In our template we have access to the context object on which the view is called on, the browser-view itself (i.e. all python-methods we'll put in the view later on), the request and response objects and with these we can get almost anything.
 
-In templates we can also access other browser-views. Some of those exist to provide easy access to helper code snippets we often need (an basic api so to say)::
+In templates we can also access other browser-views. Some of those exist to provide easy access to methods we often need::
 
     tal:define="context_state context/@@plone_context_state;
                 portal_state context/@@plone_portal_state;
                 plone_tools context/@@plone_tools;
                 plone_view context/@@plone;"
 
-These helper-views are very widely used.
+``@@plone_context_state``
+    The BrowserView ``plone.app.layout.globals.context.ContextState`` holds usefull methods having to do with the current context object such as ``is_default_page``
 
-TODO: *Show these views and their uses*
+``@@plone_portal_state``
+    The BrowserView ``plone.app.layout.globals.portal.PortalState`` holds methods for the portal like ``portal_url``
+
+``@@plone_tools``
+    The BrowserView ``plone.app.layout.globals.tools.Tools`` gives access to the most importan tools like ``plone_tools/catalog``
+
+These are very widely used and there are many more.
 
 
 Customizing existing templates
@@ -504,66 +553,96 @@ newsitem_view.pt
 
 We want to show the date a News Item is published. This way people can see at a glance it the are looking at current or old news.
 
-Explain how to find files in sublime :-)
+To do this we will customize the templates that is used to render News Items.
 
-Add the following at line 28:
+We'll basically do the same as when we used at ``plone.app.themeeditor``, but now we'll do it all by hand.
+
+* Create the directoy ``browser/template_overrides``
+* Add the following to ``browser/configure.zcml``:
+
+.. code-block:: xml
+
+    <include package="z3c.jbot" file="meta.zcml" />
+    <browser:jbot directory="template_overrides" />
+
+* Find the file ``Products/CMFPlone/skins/plone_content/newsitem_view.pt`` in the directory ``omelette``.
+* Copy it into the new folder.
+* Rename the new file from ``newsitem_view.pt`` to ``Products.CMFPlone.skins.plone_content.newsitem_view.pt``.
+* Restart Plone
+
+Now Plone should use the new file to override the original one.
+
+Edit the template ``Products.CMFPlone.skins.plone_content.newsitem_view.pt`` and insert the following after line 28:
 
 .. code-block:: html
 
         <p tal:content="python:context.Date()">
-                The current Date
+            The current Date
         </p>
 
-This will show something like: ``2013-10-02 19:21:15``. Not very user-friendly. So lets extend the code and use one of many helpers plone offers.
+* Open an existing news-item in the browser
+
+This will show something like: ``2013-10-02 19:21:15``. Not very user-friendly. Let's extend the code and use one of many helpers plone offers.
 
 .. code-block:: html
 
-        <p tal:content="python:context.toLocalizedTime(context.Date(),long_format=0)">
-                The current Date in its local short-format
-        </p>
+    <p tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                   date python:context.Date()"
+       tal:content="python:toLocalizedTime(date)">
+            The current Date in its local short-format
+    </p>
 
-Hier wird eine der vielen praktischen Hilfen, die Plone zur Verfügung stellt, verwendet.
-Das script ``toLocalizedTime.py`` aus dem Ordner ``Products/CMFPlone/skins/plone_scripts/`` nimmt das Datums-Objekt entgegen und gibt die Zeit in dem lokal gültigen Format zurück und transformiert so ``2010-02-17 19:21:15`` in ``17.02.2010``.
+Now we should see the date in a user-friendly format like ``17.02.2013``.
 
-Im Verzeichnis ``plone_scripts/`` finden sich noch viele praktische Sachen, von den man oft glaubt die selber schreiben zu müssen.
-Beispielsweise ``unique.py``, das doppelte Elemente aus Listen entfernt.
+* With ``nocall:`` we prevent the method ``toLocalizedTime`` from being called, since we only want to make it available for use.
+* The method ``toLocalizedTime`` is provided by the BrowserView ``Products.CMFPlone.browser.ploneview.Plone`` and runs the date-object through Plone's ``translation_service`` and returns the Date in the current locales format, thus transforming ``2013-02-17 19:21:15`` in ``17.02.2013``.
+
+On older Plone-versions we used ``python:context.toLocalizedTime(context.Date(), longFormat=False)``. That called the python-script ``toLocalizedTime.py`` in the Folder ``Products/CMFPlone/skins/plone_scripts/``.
+
+That folder still holds a multitude of useful scripts that are widely used. But they are all deprecated and will hopefully be gone in Plone 5 and replaced by proper python-methods.
 
 
 folder_summary_view.pt
 ++++++++++++++++++++++
 
-We use folder_summary_view.pt to list news-releases. They should also have the date.
+We use the view "Summary View" to list news-releases. They should also have the date. The template associated with that view is ``folder_summary_view.pt``.
 
 Let's look for the template folder_summary_view.pt::
 
-    training/parts/omelette/Products/CMFPlone/skins/plone_content/folder_summary_view.pt
+    ``Products/CMFPlone/skins/plone_content/folder_summary_view.pt``
 
-copy it to::
+Make a copy and rename it::
 
-    training/src/plonekonf.talk/src/plonekonf/talk/browser/template_overrrides/Products.CMFPlone.skins.plone_content.folder_summary_view.pt
+    ``browser/template_overrides/Products.CMFPlone.skins.plone_content.folder_summary_view.pt``
 
-Open the new file and explain...
-
-Wir ändern an der Datei ``folder_summary_view.pt`` und fügen in Zeile 80 folgenden Code ein
+Add the following after line 25:
 
 .. code-block:: html
 
     <p tal:condition="python:item_type == 'News Item'"
-       tal:content="python:item.toLocalizedTime(item.Date,long_format=0)">
-            The current Date in it's local short-format
+       tal:content="python:toLocalizedTime(item.Date)">
+            News date
     </p>
 
-Hier wird das Veröffentlichungsdatum des jeweiligen Objektes (daher ``item`` statt ``context`` denn ``context`` wäre in diesem Fall der Ordner in dem sich Items befinden) angezeigt.
+The method ``toLocalizedTime`` is already defined in the template whose macro this temples uses. Why is that?
 
-Zunächst wird aber die in Zeile 61 definierte Variable ``item_type`` abgefragt und die Anzeige davon abhängig gemacht ob es sich um ein ``News Item`` (d.h. eine ``Nachricht``) handelt.
+The secret is line 12 of ``folder_summary_view.pt``:
 
-Der Inhalt des Ordners wird in Zeile 47 mit::
+.. code-block:: html
 
-    here.getFolderContents()
+    <metal:block
+        define-macro="listing"
+        extend-macro="context/folder_listing/macros/content-core">
 
-ausgelesen. Tatsächlich etwas komplexer, da u.a. zunächst geprüft wird ob es sich um eine Collection handelt.
+``extend-macro`` tells Plone to extend the macro ``listing`` from the view ``folder_listing`` which is found in template ``Products/CMFPlone/skins/plone_content/folder_listing.pt``.
 
-``getFolderContents`` ist übrigens auch ein Python-Script ``Products/CMFPlone/skins/plone_scripts/`` und liefert über eine Katalogabfrage alle Objekte innerhalb des jeweiligen Ordners.
+The template ``folder_summary_view.pt`` is one of the most widely used and most widely customized templates, so you might as well get to know it a little.
+
+Our addition renders the date of the respective objects that the template iterates over (thus ``item`` instead of ``context`` since ``context`` would be the folder containing the nwws items).
+
+The date is only displayed if the variable ``item_type`` (defined in line 57 of ``folder_listing.pt``) is ``News Item``.
+
+There is a lot more going on in ``folder_listing.pt`` and ``folder_summary_view.pt`` but we'll leave it at that.
 
 
 What we missed
@@ -600,13 +679,14 @@ In Plone 4 we still use the default ZPT.
 skin-templates
 --------------
 
-Why don't we always only use templates? Because we might want to do somehing more complicated than get an attribute form the context and render it's value in some html-tag.
+Why don't we always only use templates? Because we might want to do something more complicated than get an attribute form the context and render it's value in some html-tag.
 
-There is a deprecated technology called 'skin-templates' that allows you to simply add some page-template (e.g. 'old_style_template.pt') to a certain folder in the ZMI or your egg) and you can access it in the browser by opening a url like http://localhost:8080/Plone/old_style_template and it will be rendered. But we don't use it and you should not even though these skin-templates are still all over Plone.
+There is a deprecated technology called 'skin-templates' that allows you to simply add some page-template (e.g. 'old_style_template.pt') to a certain folder in the ZMI or your egg) and you can access it in the browser by opening a url like http://localhost:8080/Plone/old_style_template and it will be rendered. But we don't use it and you too should not even though these skin-templates are still all over Plone.
 
-The templates of the default content-types are skin-templates for example. You could append '/document_view' to any part of a plone-site. You will often get errors since the template document_view.pt expects the context to have a field 'text' that it attempts to render.
+The templates of the default content-types are skin-templates for example. You could append ``/document_view`` to any part of a plone-site to render the default template for documents. You will often get errors since the template ``document_view.pt`` expects the context to have a field 'text' that it attempts to render.
 
-* use restricted python
-* have no nive way to attach python-code to them
-* allways exist for everything (they can't be easily bound to an interface)
+Skin templates and python-scripts in portal_skin are deprecated because:
 
+* they use restricted python
+* they have no nice way to attach python-code to them
+* they are always callable for everything (they can't be easily bound to an interface)
