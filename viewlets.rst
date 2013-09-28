@@ -3,11 +3,14 @@ Writing Viewlets
 
 A viewlet is no view but a snippet of html and logic that can be put somewhere in the site.
 
-* show /@@manage-viewlets
-* we already customized a viewlet (the collophon.pt), now we a new one
+* show ``/@@manage-viewlets``
+* we already customized a viewlet (``collophon.pt``), now we add a new one
 * viewlets don't save data (portlets do)
 
-We add an folder 'viewlets' again with an empty __init__.py. This time we donät need a and configure.czml and don't need to register the folder in our eggs configure.zcml.
+social-viewlet
+--------------
+
+We add a new folder ``viewlets`` with an empty ``__init__.py``. This time we don't need a ``configure.zcml`` and don't need to register the folder in our eggs configure.zcml since we use ``grok`` to do that for us.
 
 We just add a file viewlets.py containing the viewlet-class::
 
@@ -21,7 +24,7 @@ We just add a file viewlets.py containing the viewlet-class::
         grok.context(Interface)
         grok.viewletmanager(viewletIFs.IBelowContentTitle)
 
-This will add a viewlet to a slot below the title and expect a template 'social.pt' in a folder 'viewlets_templates'.
+This will add a viewlet to a slot below the title and expect a template ``social.pt`` in a folder ``viewlets_templates``.
 
 Let's add it:
 
@@ -58,46 +61,20 @@ TAG: 17_SOCIAL_VIEWLET
 * we adapt the object to it's behavior to be able to access the fields of the behavior
 * we return the link
 
-Let's create this file without any logic
-
-.. code-block:: html
-
-    <div class="voting">
-        Wanna vote? Write code!
-    </div>
-
-    <script type="text/javascript">
-      jq(document).ready(function(){
-        // please add some jQuery-magic
-      });
-    </script>
-
-* restart Plone
-* show the viewlet
-
-
+voting-viewlet
+----------------
 
 * Viewlet for IVoteable
 * the viewlet-template
 * add jquery include statements
 * saving the vote on the object using annotations (Patrick)
 
-
 We just added the logic that saves votes on the objects. Now let's add the user-interface to it.
 
 Since we want to use the UI on more than one page (not only the talk-view but also the talk-listing) we need to put it somewhere.
 
-A viewlet is no view but a snippet of html and logic that can be put somewhere in the site.
-
-* show /@@manage-viewlets
-* we already customized a viewlet (the collophon.pt), now we a new one
-* viewlets don't save data (portlets do)
 * To handle the user-input we don't use a form but links and ajax.
 * The voting itself is an fact handles by another view
-
-We add a folder viewlets with an empty __init__.py and include this folder in our eggs configure.zcml::
-
-    <include package=".viewlets" />
 
 We create a new file voting.py::
 
@@ -114,6 +91,8 @@ We create a new file voting.py::
 This will add a viewlet to a slot below the title and expect a template vote.pt in a folder 'voting_templates'.
 
 Let's create this file without any logic
+
+.. code-block:: html
 
     <div class="voting">
         Wanna vote? Write code!
@@ -218,9 +197,94 @@ the final temoplate looks like this:
 * we use the methods the class provides
 * some standard-code to initialize our js-code
 
+The css for the template:
+
+.. code-block:: css
+
+    .voting {
+        float: right;
+        border: 1px solid #ddd;
+        background-color: #DDDDDD;
+        padding: 0.5em 1em;
+    }
+
+    .voting .voting_option {
+        display: None;
+    }
+
+    .areyousure {
+        display: None;
+    }
+
+    .voting div.votes span {
+        border: 0 solid #DDDDDD;
+        cursor: pointer;
+        float: left;
+        margin: 0 0.2em;
+        padding: 0 0.5em;
+    }
+
+    .votes {
+        display: inline;
+        float: right;
+    }
+
+    .voting #voting_plus {
+        background-color: LimeGreen;
+    }
+
+    .voting #voting_neutral {
+        background-color: yellow;
+    }
+
+    .voting #voting_negative {
+        background-color: red;
+    }
+
 
 The javascript code (Patrick)
 -----------------------------
+
+.. code-block:: js
+
+    /*global location: false, window: false, jQuery: false */
+    (function ($, starzel_votablebehavior) {
+        "use strict";
+        starzel_votablebehavior.init_voting_viewlet = function (context) {
+            var notyetvoted = context.find("#notyetvoted"),
+                alreadyvoted = context.find("#alreadyvoted"),
+                delete_votings = context.find("#delete_votings"),
+                delete_votings2 = context.find("#delete_votings2");
+            if (context.find("#voted").length !== 0) {
+                alreadyvoted.show();
+            } else {
+                notyetvoted.show();
+            }
+
+            function vote(rating) {
+                return function inner_vote() {
+                    $.post(context.find("#context_url").attr('href') + '/vote', {
+                        rating: rating
+                    }, function () {
+                        location.reload();
+                    });
+                };
+            }
+
+            context.find("#voting_plus").click(vote(1));
+            context.find("#voting_neutral").click(vote(0));
+            context.find("#voting_negative").click(vote(-1));
+
+            delete_votings.click(function () {
+                delete_votings2.toggle();
+            });
+            delete_votings2.click(function () {
+                $.post(context.find("#context_url").attr("href") + "/clearvotes", function () {
+                    location.reload();
+                });
+            });
+        };
+    }(jQuery, window.starzel_votablebehavior = window.starzel_votablebehavior || {}));
 
 Zunächst fragen wir den Marker ab, der anzeigt, ob der aktuelle
 Benutzer schon abgestimmt hat. Abhängig davon zeigen bieten wir die
