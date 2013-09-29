@@ -437,7 +437,7 @@ We add to the ``<html>``-tag::
 
 And then wrap the code we want to put in the content-area of Plone in:
 
-.. code-block:: html
+.. code-block:: xml
 
     <metal:content-core fill-slot="content-core">
         ...
@@ -447,7 +447,7 @@ This will put our code in a section defined in the main_template called "content
 
 The complete template shoud now look like this:
 
-.. code-block:: html
+.. code-block:: xml
 
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
           lang="en"
@@ -609,11 +609,11 @@ We use the view "Summary View" to list news-releases. They should also have the 
 
 Let's look for the template folder_summary_view.pt::
 
-    ``Products/CMFPlone/skins/plone_content/folder_summary_view.pt``
+    Products/CMFPlone/skins/plone_content/folder_summary_view.pt
 
 Make a copy and rename it::
 
-    ``browser/template_overrides/Products.CMFPlone.skins.plone_content.folder_summary_view.pt``
+    browser/template_overrides/Products.CMFPlone.skins.plone_content.folder_summary_view.pt
 
 Add the following after line 25:
 
