@@ -1,13 +1,7 @@
 Creating your own eggs to customize Plone
 =========================================
 
-Eigener Code von uns muss in ein egg. Ein Egg ist eine Zip Datei oder ein
-Verzeichnis das einige Konventionen einhalten muss. Wir machen es uns hier
-einfach und verwenden zopeskel. Mit zopeskel kann man ein Anwendungsskelett
-erstellen, und muss nur noch die Lücken ausfüllen.
-
-Noch haben wir ZopeSkel aber nicht, wir müssen es noch über unser
-Buildout installieren.
+Our own code has te be organised as an egg. An Egg is a zip file or a directory that follows certain conventions. We are going to use zopeskel. Zopeskel creates a skeleton projekt. We only need to fill the holes.
 
 We move to the ``src`` directory and call a script called ``zopeskel``.
 
@@ -16,53 +10,15 @@ We move to the ``src`` directory and call a script called ``zopeskel``.
     $ cd src
     $ ../bin/zopeskel
 
-This returns a list of available templates we might use. We choose dexterity.
+This returns a list of available templates we might use. We choose plone_basic.
 
 .. code-block:: bash
 
-    $ ../bin/zopeskel dexterity
+    $ ../bin/zopeskel plone_basic
 
 * Enter project name: ``ploneconf.talk``
-* Use the default values for everything except "Use relations?". We enter ``True``
 
-
-ZCML:
-    Konfigurationssprache um das Zopetoolkit Komponententsystem zu
-    konfigurieren
-
-Grok:
-    Alternative Konfigurationssprache zu ZCML.
-
-Genericsetup:
-    Konfiguration die in der Plone Datenbank gespeichert ist kann
-    hiermit importiert und exportiert werden.
-
-Nachdem wir alles eingetragen haben, starten wir Zope und aktivieren die Erweiterung in Plone.
-
-Nun noch schnell ein wenig Scaffolding für später!
-Wir legen im static Verzeichnis 2 Dateien an, plonekonf.css und
-plonekonf.js
-
-Dann gehen wir in das ZMI... und tragen die Ressourcen in
-portal_javascripts und portal_css ein.
-Plone hat eine Ressourcenverwaltung für CSS und Javascript Dateien,
-mit der man Plone noch ein wenig effizienter machen kann.
-Die Standardeinstellungen hier reichen in der Regel.
-
-Nun haben wir Anpassungen gemacht die in der ZODB gespeichert
-wurden. Diese wollen aber auch versionieren, dafür ist Genericsetup
-da.
-
-Wieder im ZMI, gehen wir nun nach portal_setup, und exportieren dort
-die JS und CSS Einstellungen. Wir bekommen eine ZIP Datei, welche
-die XML Dateien enthält, die wir haben wollen. Wir kopieren diese in
-das Profilverzeichnis und passen sie an.
-
-Wir müssen lediglich unsere eigenen Dateien hier rein schreiben,
-Genericsetup löscht nicht die anderen Einträge, und es fügt auch
-nicht die Dateien doppelt ein.
-
-If this is your first egg, this is a very special moment. We are going to create the egg with a script that pregenerates a lot of necessary files. They all are necessary, but sometimes in a sublte way. It takes a while do understand their full meaning. Only this year I learnt and understood why I should have a manifest.in file. You can get along without one, but trust me, you get along better with a proper manifste file.
+If this is your first egg, this is a very special moment. We are going to create the egg with a script that pregenerates a lot of necessary files. They all are necessary, but sometimes in a subtle way. It takes a while do understand their full meaning. Only last year I learnt and understood why I should have a manifest.in file. You can get along without one, but trust me, you get along better with a proper manifest file.
 Lets have a look at it.
 
 bootstrap.py, buildout.cfg CHANGES.txt CONTRIBUTORS.txt docs/* README.txt setup.py

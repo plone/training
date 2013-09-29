@@ -1,5 +1,5 @@
 ﻿Extend Plone with Add-ons
-==========================
+=========================
 
 There are more than a thousand addons for Plone. We will cover only a handful today.
 
@@ -25,7 +25,7 @@ Installation is a two-step process.
 
 First, we must make the addons code available to Zope. This means, that Zope can import the code. buildout is responsible for this.
 
-Use ``vagrant ssh`` to ssh to your vagrant, and change the buildout.cfg file in XXX.
+Use ``vagrant ssh`` to ssh to your vagrant, and change the buildout.cfg file in /vagrant/training.
 
 In the section ``[instance]`` there is a variable called ``eggs``, which has multiple *eggs* as a value. Add the following eggs:
 
