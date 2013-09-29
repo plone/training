@@ -6,7 +6,9 @@
 Welcome to Mastering Plone's documentation!
 ===========================================
 
-This is the documentation for the "Mastering Plone"-Training by Philip Bauer and Patrick Gerken of `starzel.de <http://www.starzel.de>`_. It is intended as a three-day course for People new to Plone and can be abridged to two days.
+This is the documentation for the "Mastering Plone"-training by Philip Bauer and Patrick Gerken of `starzel.de <http://www.starzel.de>`_.
+
+The training is intended as a three-day course for people who are new to Plone. It can be abridged to two days.
 
 
 Contents:
@@ -42,7 +44,7 @@ Contents:
     optional
 
 
-Please note that this document is not aimed at large public. It is the documentation that people get who attend a training. Even though we attempt to include the most important parts of what we teach in this documentation it can not be considered complete without the spoken word.
+Please note that this document is not aimed at the larger public. It is the documentation that people get who attend a training. Even though we attempt to include the most important parts of what we teach in this documentation it can not be considered complete without the spoken word.
 
 The best documentation for develpers is found at http://developer.plone.org/index.html.
 
