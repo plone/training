@@ -1,7 +1,7 @@
 ﻿Extend Plone with Add-ons
 ==========================
 
-There are more than a thousand addons for Plone. We will cover only a handfull today.
+There are more than a thousand addons for Plone. We will cover only a handful today.
 
 * What types of addons are there
 
@@ -23,7 +23,7 @@ Installing Addons
 
 Installation is a two-step process.
 
-First, we must make the addons code available to Zope. This means, that Zope can import the code, buildout is responsible for this.
+First, we must make the addons code available to Zope. This means, that Zope can import the code. buildout is responsible for this.
 
 Use ``vagrant ssh`` to ssh to your vagrant, and change the buildout.cfg file in XXX.
 
@@ -85,7 +85,7 @@ Written by Steve McMahon. You might want to buy him a beer.
 Internationalisation with LinguaPlone and plone.app.multilingual (Philip)
 -------------------------------------------------------------------------
 
-We're not doing this with out site.
+We're not doing this with our site.
 
 * Go to the ``/plone_control_panel``
 * install installieren
@@ -175,11 +175,12 @@ inspect the package
 * jbot, static etc.
 
 
-Wir können nun das Design unserer Webseite anpassen. Wir können Erweiterungen installieren und einfache Aktionen einrichten. Aber:
+We are now able to change the design of our wesite. We can install extensions and create simple actions.
 
-* Können wir auf unserer neuen Webseite Talks einreichen?
-* Können wir in einer Liste die wichtigsten Eigenschaften jedes Talks anzeigen?
-* Können wir Besucher den Talk bewerten lassen?
+But:
 
-Wir müssen oft strukturierte Daten speichern oder anzeigen können, bis zu einem gewissen Grad auch noch TTW, aber irgendwann erreichen wir eine Grenze. Wir werden im zweiten Teil zeigen, wie man neue Contenttypen anlegt und wie man neue Funktionalitäten schreibt.
+* Can we submit talks now?
+* Can we create lists with the most important properties of each tasks?
+* Can we allow Visitors to vote on talks?
 
+We often have to work with structured data. Up to a degree we can do all this TTW, but at some point we reach barriers. In the second part of our Training, we will teach you, how to break these barriers.

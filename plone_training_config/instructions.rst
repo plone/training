@@ -110,3 +110,17 @@ The unified installer is an amazing tool that compiles it's own python, brings w
 We will not actually use this Plone during the training. If you want to use for your own experiments, you can find it in ``/home/vagrant/training/zinstance`` on the virtual machine.
 
 Instead we will build our own little buildout and only use the python and the eggs that were created when installing the unified installer.
+
+Checkout our tutorial code from http://github.com/starzel/training. In your training directory create another training directory. Copy the contents from chapter3 of the tutorial code into the new training directory. Then enter the machine via ssh and start building::
+
+    $ vagrant ssh
+    $ cd /vagrant/training
+    $ virtualenv .
+    $ source bin/activate
+    $ python bootstrap.py
+    $ bin/buildout
+    $ bin/instance fg
+
+Now we have fresh buildout based zope site, ready to get a Plone site. Go to http://localhost:8080 and create a plone Site, only activate the Dexterity plugin.
+
+You might wonder, why we use the unified installer. We use the unified installer to set up a cache of packages to download in a much shorter time. Without it, your first buildout on a fresh computer would take more than half an hour on a good internet connection.

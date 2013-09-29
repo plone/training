@@ -11,8 +11,6 @@ version of XML, install and configure varnish, create a Zope instance, and so on
 Another type of extension allows whole new functionality, like mr.developer, the only way to manage your checked out sources.
 
 
-The Unified installer created configuration files already. Let's have a look at them now.
-
 The syntax of Buildout configuration files is similar to classic ini files. You write a parameter name, an equals sign and the value. If you enter another value in the next line and indent it, Buildout understands that both values belong to the parameter name, and the parameter receives a list of all values. Here is an example:
 
 .. code-block:: cfg
