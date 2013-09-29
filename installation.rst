@@ -18,8 +18,8 @@ MacOS 10.8 and Ubuntu 12.4 come with a working default Python 2.7 built in. Thes
 Most developers usually use their primary system to develop Plone.
 
 * Philip has MacOS, therefore he uses the python-buildout to compile all neccessary versions of python and homebrew for some linux-tools.
-* Patrick uses ubuntu.
-* Alan Runyan (one of Plone's founders) uses Windows. We have no idea how he can live with that but he seems to me managing perfectly well.
+* Patrick uses Ubuntu.
+* Alan Runyan (one of Plone's founders) uses Windows. We have no idea how he can live with that but he seems to me managing perfectly well. Plone is much slower on Windows.
 
 Plone offers some options for being installed:
 
@@ -47,6 +47,6 @@ You can host Plone...
 * on dedicated servers
 * in the cloud (e.g. using Amazon EC2)
 
-Note that you can't use a $5/month hosting provider because they are usually specialize on LAMP-setups (Linux, Apache, MySQL, php) and usually don't meet the minimum requirements for Plone. We need to reevalutate this
+Note that until some time ago, you could not run Plone on a $5/month hosting provider. It should work no on the Digitalocean plan.
 
 Read more about where to host Plone: http://plone.org/documentation/faq/where-can-i-host-my-plone-site
