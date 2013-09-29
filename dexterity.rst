@@ -90,7 +90,6 @@ This time for no obvous reason other than getting more comfortable with the ZMI 
 
 In this step we will create a CT called 'Talk' and try it. When it's ready we will move the code from the web to the file system and into our egg. Later we will expand on that type and add behaviors and a viewlet for Talks.
 
-
 Creating content-types TTW
 --------------------------
 
@@ -241,6 +240,8 @@ Upon installing Plone reads the file ``types/talk.xml`` and registers a new type
 Got to the ZMI and look at the definition of the new type in ``portal_types``.
 
 * Test the type by adding an object or editing one of the old ones.
-* Look at how the talks are prsented in the browser.
+* Look at how the talks are presented in the browser.
 
 Now let's see if we can't improve the default view. To do this we first need to learn about templates.
+
+Read more about developing with Dexterity here: http://developer.plone.org/reference_manuals/external/plone.app.dexterity/
