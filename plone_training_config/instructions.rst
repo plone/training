@@ -1,11 +1,11 @@
 Installing Plone for the Training
 =================================
 
-To not waste too much time with installing and debugging the differences between systems we use a virtual machine (ubuntu 12.4) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development-environment to everyone.
+To not waste too much time with installing and debugging the differences between systems we use a virtual machine (Ubuntu 12.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development-environment to everyone.
 
 `Vagrant <http://www.vagrantup.com>`_ is a command-line wrapper for Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to create and manage virtual environments.
 
-Keep in mind that you need a fast internet-connection during the while process since you'll have to download a complete virtual machine (ubuntu) and several packages and updates.
+Keep in mind that you need a fast internet-connection during the process since you'll have to download a complete virtual machine (ubuntu) and several packages and updates.
 
 
 Install VirtualBox
@@ -21,7 +21,7 @@ Get the latest version from http://downloads.vagrantup.com for your operating sy
 
 Now your system has a command ``vagrant`` that you can run in the terminal.
 
-First create a directory where you want to to the training in::
+First create a directory where you want to do the training in::
 
     $ mkdir training
     $ cd training
@@ -40,7 +40,7 @@ Start the VM that is configured in "Vagrantfile"::
 
     $ vagrant up
 
-This takes a very loooong time since it not only sets up the MV but also updates your VM, installs various packages needed for plone-development and runs the installer for Plone 4.3.2.
+This takes a very loooong time since it not only sets up the VM but also updates your VM, installs various packages needed for Plone-development and runs the installer for Plone 4.3.2.
 
 More often than not this stops with the message *Skipping because of failed dependencies*.
 
@@ -67,23 +67,24 @@ We installed a Plone 4.3.2 for you in the folder ``/home/vagrant/training/zinsta
     $ cd training/zinstance
     $ ./bin/instance fg
 
-You can now point your browser at http://localhost:8080 and see Plone. This works since the port 8080 is forwarded from the guest-system (the vagrant-ubuntu) to the host-system (your normal operating-system). Now create a new Plone-Site by clicking "Create a new Plone-Site". The username and the password are both "admin" (Never do this on a real site!!!).
+You can now point your browser at http://localhost:8080 and see Plone. This works since the port 8080 is forwarded from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone-Site by clicking "Create a new Plone-Site". The username and the password are both "admin" (Never do this on a real site!!!).
+Do not get accustomized to this site, we will create a buildout based plone during the training. We only test now that the installation has finished.
 
 If you have any problems or questions please mail us at team@starzel.de
 
 .. warning::
 
-    You can also work on your own machine with your own python and Plone if you really want to but **please please please** make sure that you have a system that will work since we don't want to loose any time with installing.
+    You can also work on your own machine with your own Python and Plone if you really want to but **please please please** make sure that you have a system that will work since we don't want you to loose valuable time learning Plone.
 
 
-What vagrant does
-------------------
+What Vagrant does
+-----------------
 
 .. note::
 
     These steps are automatically done by vagrant and puppet. They are only explained here if you want to know what goes on below the hood.
 
-The first installation is done by Puppet, a tool to automatically manage servers (real and virtual). We won't get into it Puppet since it's not that widely used. This is what we basically do if we did it by hand:
+The first installation is done by Puppet, a tool to automatically manage servers (real and virtual). We won't get into Puppet since it is not that widely used. This is what we basically do if we did it by hand:
 
 First we install some packages::
 
@@ -106,6 +107,6 @@ Then we download, unpack and install the unified installer of Plone::
 
 The unified installer is an amazing tool that compiles it's own python, brings with it all the python-eggs we need and puts them in a buildout-cache. It then creates a buildout and makes Plone ready to run.
 
-We'll actually not use this Plone during the training. If you want to use for your own experiments, you can find it in ``/home/vagrant/training/zinstance`` on the virtual machine.
+We will not actually use this Plone during the training. If you want to use for your own experiments, you can find it in ``/home/vagrant/training/zinstance`` on the virtual machine.
 
-Instead we'll build our own little buildout and only use the python and the eggs that were created when installing the unified installer.
+Instead we will build our own little buildout and only use the python and the eggs that were created when installing the unified installer.
