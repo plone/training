@@ -31,6 +31,8 @@ Contents:
     eggs
     dexterity
     views_1
+    zpt
+    zpt_2
     views_2
     views_3
     custom_search
