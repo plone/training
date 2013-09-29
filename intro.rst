@@ -62,7 +62,7 @@ Some technologies and tools we use during the training:
 * jquery
 
 
-What we will not do?
+What will we not do?
 --------------------
 
 We will not cover the following topics:
@@ -81,9 +81,9 @@ We will not cover the following topics:
 What to expect
 --------------
 
-You won't be a professional plone-programmer after this training. But you will know some of the more powerfull features of Plone and should be able to construct a website on your own using these tools. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core-technologies involved in plone-programming.
+You won't be a professional Plone-programmer after this training. But you will know some of the more powerful features of Plone and should be able to construct a website on your own using these tools. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core-technologies involved in Plone-programming.
 
-If you want to become a plone-developer or plone-integrator you should definitvely read `Martins book <http://www.packtpub.com/professional-plone-4-development/book>`_ and re-read it again.
+If you want to become a professional Plone-developer or Plone-integrator you should definitvely read `Martins book <http://www.packtpub.com/professional-plone-4-development/book>`_ and re-read it again.
 
 Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_.
 
