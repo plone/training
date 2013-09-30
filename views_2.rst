@@ -139,3 +139,19 @@ And the template. Important, the template must be in a subdirectory called `view
     </html>
 
 *Go through the code line by line*
+
+After a restart, we can test our view by going to a talk and add /talkview to the url.
+
+If you are happy with it, you must tell Plone, that this view shall be the default view.
+This is a configuration that you can change during runtime and is stored in the database, as such it is also managed by genericsetup profiles.
+
+open profiles/default/types/talk.xml::
+
+    ...
+    <property name="allow_discussion">False</property>
+    <property name="default_view">talkdefaultview</property>
+    <property name="view_methods">
+        <element value="talkdefaultview"/>
+    </property>
+    <property name="default_view_fallback">False</property>
+    ...

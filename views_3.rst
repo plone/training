@@ -52,7 +52,7 @@ It is the fast way to get content that exists in the site and do something with 
                     })
             return results
 
-We query teh catalog for two things:
+We query the catalog for two things:
 
 * ``portal_type = "talk"``
 * ``path = "/".join(self.context.getPhysicalPath())``
