@@ -1,50 +1,141 @@
 Views II: A default view for "talk"
 ===================================
 
- * zcml
- * grok
- * View-Classes
- * Python-Klasse mit Grok dazu (Patrick)
+Earlier we wrote a demo view which we also used to experiment with page templates.
+Let us have a look at the zcml and the Page Template again.
+I have extended the code just slightly.
 
-Der View ist eine Zope Toolkit Komponente. Er besteht aus einer Klasse, in die wir View Logik packen, und meistens einem Template, welches Daten anzeigt. Klassischer Weise hat man den View mit ZCML registriert, wir haben heutzutage aber auch Grok zur Verfügung, was uns die Arbeit erleichert. Traditionell legt man einen Ordner browser an, in den man die Views packt. View anlegen.
+ZCML
+.. code-block:: xml
+
+    <configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        i18n_domain="ploneconf.talk">
+
+        <browser:page
+           name="demoview"
+           for="*"
+           layer="zope.interface.Interface"
+           class=".views.DemoView"
+           template="templates/demoview.pt"
+           permission="zope2.View"
+           />
+
+    </configure>
+
+Code ::
+
+    from Products.Five.browser import BrowserView
+
+    class DemoView(BrowserView):
+        """ This does nothing so far
+        """
+
+        def __init__(self, context, request):
+            self.context = context
+            self.request = request
+
+        def __call__(self):
+            # Do stuff
+            return super(DemoView, self).__call__()
+
+Do you remember the term MultiAdapter? The browser page is just a multiadapter.
+The zcml Statement browser:page registeres a multiadapter and adds additional things needed for a browser view.
+An adapter adapts things, a multi adapter adapts multiple things.
+When you enter an url, Zope tries to find an object for it. At the end, when zope does not find any more objects but there is still a path item left, or there are no more path items, Zope looks for an adapter that will reply to the request.
+The Adapter adapts the request and the object that zope found with the URL.
+The adapter class gets instanciated with the objects to be adapted, then it gets called.
+
+The code above does the same thing that the standard implementation would do. It makes context and request available as variables on the object.
+I have written down these methods because it important to understand some important concepts.
+The init method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved. Your code is not security checked. For historic reasons, many errors that happen in the init method can result in a page not found error instead of an exception.
+Don't do much at all in the init method.
+Instead you have the guarantee the the call method is called before anything else (except the init method). It has the security checks in place and so on.
+From a practical standpoint, consider the call method your init method, the biggest difference is that this method is suposed to return the html already.
+Let your base class handle the html generation.
 
 
-View Classes
-------------
+Grok
+----
+Now that we know how to read a zcml statement, we can continue with grok.
+Grok is an alternative declaration language for declaring your components. It is compatible with the Zope Component Architecture, it used just an alternative syntax.
+Instead of writing separate zcml files, you annotate your code and you create content conforming to specific file names so that they are automatically found.
+There has been discussions whether grok should be used in the plone core. The plone community decided against it, because it increases the technology stack without adding functionality.
+Some people are even against using it in Add Ons, because there would not be just one way to declare components, but two. Then there is onle last disadvantage, grok components cannot be overridden by z3c.jbot. I would not be surprised if this could be fixed though.
+After all these negative things let us tell you why we still like it: We like to write as few lines of code and configuration as possible.
 
-Views are Multi Adapters! Thats all there is to know.
-Yesterday we created a view, lets have a look at it again!
+So, we will write our browser view as a grok view. From the component architecture side, nothing changes. We still need to write a multi adapter. All the details like which template to use or for which browser layer the view shall be used is declared with a single line annotation or deduced from file names.
 
-* ZCML
-* python
-* page template
+Grok is not part of plone. We have to add it as a dependency to our egg.
 
-The template does a lot of things. We are going to ignore some of them.
+open setup.py, extended it like this::
 
-For a normal browser view, you don't really need allowed_interface, you don't need the implements statement in code and you don't need the translation features provided by the _ method.
+    ...
+        zip_safe=False,
+        install_requires=[
+            'setuptools',
+            'five.grok'
+            # -*- Extra requirements: -*-
+        ],
+        extras_require={'test': ['plone.app.testing']},
+        ...
 
-There is something else, much much more important. You can see the __init__ method, don't do anything fancy in there.
+You need to run buildout now.
 
-The way zope looks for the right view, your __init__ code block gets executed, before any permission checks have been applied. Also, because of the history of zope, a number of exceptions that you can trigger in your browser view, will result in the error message 404, page not found, without any way of giving you a traceback to tell you, what might have gone wrong.
+Grok nearly magicaly does find all its annotations. Since its not complete magic, you have to tell grok where to look for grok code. This requires a single line of zcml, that line ensures that your complete package is `grokked`.
 
-This code has some property getters. Everybody knows what that means?
+.. code-block:: xml
 
-Property getters have a small problem, I avoid them nowadays. They provide shitty tracebacks because a traceback in the getter is hidden.
+    <configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:five="http://namespaces.zope.org/five"
+        xmlns:i18n="http://namespaces.zope.org/i18n"
+        xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+        xmlns:grok="http://namespaces.zope.org/grok"
+        xmlns:plone="http://namespaces.plone.org/plone"
+        i18n_domain="ploneconf.talk">
 
-The init method gets two objects. That is always the case with a browser view. Did I mention that views are multiadapters? Adapters and multiadapters get always called with the objects, in case of a view, it always adapts a browser request and a content object, so this if why you get them here.
+        <includeDependencies package="." />
 
-The request can be used to change the content type, if you return files. We are not going to do this here or today.
+        <grok:grok package="." />
+        ....
 
-The context gives you access to the current object. If you modify objects, you always do this in the browser view. The context is also used to get tools, like the catalog.
+This new grok statement takes care of finding everything grok related.
 
-If you have a special view that modifies content, you can do that in the __call__ method. I suggest you try to get information from the request about the data that has been submitted, and based on that you dispatch different methods you create. These methods would then handle the data manipulation.
+Now finally on to the grok view in a new file views.py::
 
-Be aware that the __call__ method is special. Whatever the call method returns, gets displayed. The default implementation will render the associated page template. So to make sure that some html gets rendered, always call super(self, XXX).__call__(self) and return that value.
+    from five import grok
+    from plone.directives import dexterity
+    from zope.interface import Interface
 
-I mentioned yesterday, what zcml is and that there is an alternative way to create browser views.
 
-Lets do this now, lets create a second and a third view as a grok view.
-blablabla
-So, when to use grok and when to use zcml?
-You add a dependency with grok, so it is uncommon to use grok in reusable components yet.
+    class TalkView(dexterity.DisplayForm):  # grok.View + dexterity information
+        grok.require("zope2.View")
+        grok.context(Interface)
 
+And the template. Important, the template must be in a subdirectory called `views_templates` and it must be named `talkview.pt`::
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="plonekonf.talk">
+    <body>
+        <metal:content-core fill-slot="content-core">
+            <p>Suitable for <em tal:replace="context/audience"></em>
+            </p>
+
+            <div tal:content="structure view/w/details/render" />
+
+            <div>Presenter:
+                <p>
+                    <strong tal:content="context/Creator">
+                    User
+                    </strong>
+                </p>
+            </div>
+        </metal:content-core>
+    </body>
+    </html>
+
+*Go through the code line by line*
