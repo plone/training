@@ -6,6 +6,7 @@ Let us have a look at the zcml and the Page Template again.
 I have extended the code just slightly.
 
 ZCML
+
 .. code-block:: xml
 
     <configure
