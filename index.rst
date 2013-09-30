@@ -36,7 +36,6 @@ Contents:
     views_2
     views_3
     custom_search
-    behaviors
     ressources
     social_behavior
     viewlets
