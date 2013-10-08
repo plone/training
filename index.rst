@@ -45,8 +45,8 @@ Contents:
     optional
 
 
-Please note that this document is not aimed at the larger public. It is the documentation that people get who attend a training. Even though we attempt to include the most important parts of what we teach in this documentation it can not be considered complete without the spoken word.
+.. only:: manual
 
-The best documentation for develpers is found at http://developer.plone.org/index.html.
+    Please note that this document is not aimed at the larger public. It is the documentation that people get who attend a training. Even though we attempt to include the most important parts of what we teach in this documentation it can not be considered complete without the spoken word.
 
-While we want to teach you something, we also want to make it entertaining. In some parts of the training, we might be a slight exageration or bad mouthing. We hope that during our presentation, it came quite clear that we hate nothing of it, but if you only have your eyes to digest the information, this might get lost, and we do not want to explain ourselves to people who might get offended by the words chosen.
+A more complete documentation can be found at http://developer.plone.org/index.html.

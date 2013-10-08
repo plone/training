@@ -46,6 +46,12 @@ html:
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
+manual: *.rst
+	$(SPHINXBUILD) -b html -t manual . manual
+
+presentation: *.rst
+	$(SPHINXBUILD) -b html -t presentation . presentation
+  
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
 	@echo

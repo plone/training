@@ -1,17 +1,19 @@
 Buildout I
 ==========
 
-Buildout composes your application for you, according to your rules.
-To compose your application, you must write, which eggs you need.
-Buildout then downloads these eggs and resolves all dependencies. You might need five different eggs, but in the end, Buildout has to install 300 eggs, all with the correct version. Buildout can also create configuration files and folders.
-Plone needs folders for logfiles, databases and configuration files. Buildout assembles all of this for you.
-The tool is very configurable, as such, people not only use it to download
-eggs, but also to set up infrastructure, compile a custom
-version of XML, install and configure varnish, create a Zope instance, and so on.
-Another type of extension allows whole new functionality, like mr.developer, the only way to manage your checked out sources.
+.. only:: manual
+
+    Buildout composes your application for you, according to your rules.
+    To compose your application, you must write, which eggs you need.
+    Buildout then downloads these eggs and resolves all dependencies. You might need five different eggs, but in the end, Buildout has to install 300 eggs, all with the correct version. Buildout can also create configuration files and folders.
+    Plone needs folders for logfiles, databases and configuration files. Buildout assembles all of this for you.
+    The tool is very configurable, as such, people not only use it to download
+    eggs, but also to set up infrastructure, compile a custom
+    version of XML, install and configure varnish, create a Zope instance, and so on.
+    Another type of extension allows whole new functionality, like mr.developer, the only way to manage your checked out sources.
 
 
-The syntax of Buildout configuration files is similar to classic ini files. You write a parameter name, an equals sign and the value. If you enter another value in the next line and indent it, Buildout understands that both values belong to the parameter name, and the parameter receives a list of all values. Here is an example:
+    The syntax of Buildout configuration files is similar to classic ini files. You write a parameter name, an equals sign and the value. If you enter another value in the next line and indent it, Buildout understands that both values belong to the parameter name, and the parameter receives a list of all values. Here is an example:
 
 .. code-block:: cfg
 
