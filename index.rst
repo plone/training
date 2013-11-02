@@ -10,6 +10,8 @@ This is the documentation for the "Mastering Plone"-training by Philip Bauer and
 
 The training is intended as a three-day course for people who are new to Plone. It can be abridged to two days.
 
+If you have question, found errors or want to book us for a training please contact us at team@starzel.de.
+
 
 Contents:
 
@@ -45,8 +47,6 @@ Contents:
     optional
 
 
-.. only:: manual
-
-    Please note that this document is not aimed at the larger public. It is the documentation that people get who attend a training. Even though we attempt to include the most important parts of what we teach in this documentation it can not be considered complete without the spoken word.
+Please note that this document is not aimed at the larger public. It is the documentation that people get who attend a training. Even though we attempt to include the most important parts of what we teach in this documentation it can not be considered complete without the spoken word.
 
 A more complete documentation can be found at http://developer.plone.org/index.html.
