@@ -81,6 +81,7 @@ We will not cover the following topics:
 
 
 .. only:: manual
+
     What to expect
     --------------
 
@@ -93,21 +94,32 @@ We will not cover the following topics:
     If you want to stay on the ttw-side of things you could read <Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_.
 
 
-    Documentation
-    --------------
+Documentation
+--------------
 
-    Follow the training at http://starzel.github.io/training/
+Follow the training at http://starzel.github.io/training/
 
-    .. note::
+.. note::
 
-        You can use the presentation to copy & paste the code but you should try to type at least some of it.
+    You can use this presentation to copy & paste the code but you will memorize more, the more you type yourself.
 
-Other
----------
 
-* Ask questions when you have them
-* One of us is always there to help you if you are stuck
-* We'll make some breaks
-* Where is Food, Restrooms
-* Contact us after the training: team@starzel.de
-* Complete training material with prose: maybe soon ...
+Further Reading
+---------------
+
+* `Martin Aspeli: Professional Plone4 Development <http://www.packtpub.com/professional-plone-4-development/book>`_
+* `Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_
+
+
+.. only:: manual
+
+    Other
+   -----
+
+    * Please ask questions when you have them!
+    * Tell us if we speak to fast, to slow or to quiet.
+    * One of us is always there to help you if you are stuck. Please give us a sign if you are stuck.
+    * We'll make some breaks
+    * Where is Food, Restrooms
+    * Contact us after the training: team@starzel.de
+    * Don't post links to the training material. It's not secret but not intended for public consumption.
