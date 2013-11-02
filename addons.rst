@@ -29,10 +29,10 @@ Use ``vagrant ssh`` to ssh to your vagrant, and change the buildout.cfg file in 
 
 In the section ``[instance]`` there is a variable called ``eggs``, which has multiple *eggs* as a value. Add the following eggs:
 
-    * ``Products.PloneFormGen``
-    * ``Products.LinguaPlone``
-    * ``collective.plonetruegallery``
-    * ``plone.app.themeeditor``
+* ``Products.PloneFormGen``
+* ``Products.LinguaPlone``
+* ``collective.plonetruegallery``
+* ``plone.app.themeeditor``
 
 
 Usually, one enters the eggs by adding one more line per egg into the configuration.
@@ -91,31 +91,30 @@ We're not doing this with our site.
 * install installieren
 * add german as language einstellen
 
-   * ``/@@language-controlpanel`` -> Deutsch und Englisch auswählen
-   * ZMI -> portal_languages -> "Display flags for language selection" aktivieren
+  * ``/@@language-controlpanel`` -> Deutsch und Englisch auswählen
+  * ZMI -> portal_languages -> "Display flags for language selection" aktivieren
 
 * ``/@@language-setup-folders`` -> Ordnerstruktur anlegen
 * Create english frontpage
 * Best prachtive about translating zum übersetzen (folder übersetzen, language_independent)
 
-   * http://plone.org/products/linguaplone/issues/250
+  * http://plone.org/products/linguaplone/issues/250
 
-   * http://localhost:8080/Plone/@@language-setup-folders
+  * http://localhost:8080/Plone/@@language-setup-folders
 
-   * Seit Plone4 ist der Standardweg von Übersetzungen, das jede Sprache einen eigenen Folder bekommt. Wenn Inhalte übersetzt werden, wird
+  * Seit Plone4 ist der Standardweg von Übersetzungen, das jede Sprache einen eigenen Folder bekommt. Wenn Inhalte übersetzt werden, wird
 
 * die Datei automatisch in den richtigen Ordner kopiert.
 
 
 Add 'bling' with collective.plonetruegallery
 --------------------------------------------
-I LOVE THE PloneTrueGallery.
 
-It is a role model on how to write a Plone Extension.
-Instead of creating custom content types for Galleries, it integrates
-with the Plone functionality to choose different views for folderish content types.
+collective.plonetruegallery is a role model on how to write a Plone Extension.
 
-Lets try it!...
+Instead of creating custom content types for Galleries, it integrates with the Plone functionality to choose different views for folderish content types.
+
+https://pypi.python.org/pypi/collective.plonetruegallery
 
 
 Customizing the design with plone.app.themeeditor
@@ -138,34 +137,34 @@ Customizing the design with plone.app.themeeditor
 * Look at ``ploneCustom.css``. Recognize the changes we did before?:
 * Add some more css to make our site a little responsive
 
-.. code-block:: css
+  .. code-block:: css
 
-    @media only screen and (max-width: 980px) {
-        #visual-portal-wrapper {
-            position: relative;
-            width: auto;
-        }
-    }
+      @media only screen and (max-width: 980px) {
+          #visual-portal-wrapper {
+              position: relative;
+              width: auto;
+          }
+      }
 
-    @media only screen and (max-width: 768px) {
-        #portal-columns > div {
-            width: 97.75%;
-            margin-left: -98.875%;
-            clear: both;
-        }
+      @media only screen and (max-width: 768px) {
+          #portal-columns > div {
+              width: 97.75%;
+              margin-left: -98.875%;
+              clear: both;
+          }
 
-        .searchButton,
-        .searchSection {
-            display: none;
-        }
-    }
+          .searchButton,
+          .searchSection {
+              display: none;
+          }
+      }
 
 
 
 export customizations
 ---------------------
 
-* export the customizations as an egg (ploneconf.theme)
+* export the customizations as an egg (``ploneconf.theme``)
 
 
 inspect the package
