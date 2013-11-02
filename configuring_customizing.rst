@@ -87,9 +87,9 @@ ZMI
 
 Go into the ZMI (explain ``/manage``)
 
-Since Zope is the foundation of Plone. Here you can access the inner working of Zope and PLone alike. Here you can easily break your site so you should know what you are doing.
+Zope is the foundation of Plone. Here you can access the inner working of Zope and Plone alike. Here you can easily break your site so you should know what you are doing.
 
-Here we only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
+We only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
 
 At some point you'll have to learn what all that stuff is about. But not today.
 
@@ -171,9 +171,9 @@ CSS-Registry (portal_css)
 
 The UI leaves a lot to be desired.
 
-In a professional context this is no-go (since ther is no version-control). But everybody uses it to make quick fixes to sites that are already online.
+In a professional context this is no-go (since there is no version-control). But everybody uses it to make quick fixes to sites that are allready online.
 
-Later we'll revisit the same css-code.
+Later we'll revisit that same css-code.
 
 
 Summary
