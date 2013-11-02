@@ -212,9 +212,7 @@ Manage members and groups
 Workflows
 ---------
 
-* Screenshots?
-* Show plone.app.workflowmanager?
-
+Read more at: http://developer.plone.org/content/workflow.html
 
 Working copy
 ------------
