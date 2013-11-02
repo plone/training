@@ -1,9 +1,9 @@
 The Anatomy of Plone
 ====================
 
-.. only:: manual
+Zope, Plone, GenericSetup, CMF, Acquisition, what is all that actually?
 
-    Zope, Plone, GenericSetup, CMF, Acquisition, what is all that actually?
+.. only:: manual
 
     Zope is an application server. It serves applications that communicate with users via http.
 
