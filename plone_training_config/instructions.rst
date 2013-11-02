@@ -72,7 +72,7 @@ Once the provisioning-process is completed you can login to the now running virt
 
 .. code-block:: bash
 
-    $ vagnant ssh
+    $ vagrant ssh
 
 If you use Windows you'll have to login via putty (Install putty and follow the instructions here: http://vagrantup.com/v1/docs/getting-started/ssh.html)
 
@@ -126,14 +126,30 @@ Then we download, unpack and install the unified installer of Plone::
 
 The unified installer is an amazing tool that compiles it's own python, brings with it all the python-eggs we need and puts them in a buildout-cache. It then creates a buildout and makes Plone ready to run.
 
-We will not actually use this Plone during the training. If you want to use for your own experiments, you can find it in ``/home/vagrant/training/zinstance`` on the virtual machine.
+We will not actually use this Plone during the training. If you want to use it for your own experiments, you can find it in ``/home/vagrant/training/zinstance`` on the virtual machine.
 
-Instead we will build our own little buildout and only use the python and the eggs that were created when installing the unified installer.
+Instead we will now create our own little buildout and only use the python and the eggs that were created when installing the unified installer.
 
-Checkout our tutorial code from http://github.com/starzel/training. In your training directory create another training directory. Copy the contents from chapter3 of the tutorial code into the new training directory. Then enter the machine via ssh and start building::
+Checkout our tutorial code from http://github.com/starzel/training.
 
-    $ vagrant ssh
-    $ cd /vagrant/training
+.. code-block:: bash
+
+    $ cd /vagrant/buildouts
+    $ git clone https://github.com/starzel/training.git
+
+In your training directory create another directory called 'plone'. Copy the contents from chapter3 of the tutorial code into the new directory.
+
+.. code-block:: bash
+
+    $ mkdir /vagrant/plone
+    $ cd /vagrant/plone
+    $ cp -R /vagrant/buildouts/chapter3/* .
+
+Then enter the machine via ssh and start building.
+
+.. code-block:: bash
+
+    $ cd /vagrant/plone
     $ virtualenv .
     $ source bin/activate
     $ python bootstrap.py
@@ -143,17 +159,3 @@ Checkout our tutorial code from http://github.com/starzel/training. In your trai
 Now we have fresh buildout based zope site, ready to get a Plone site. Go to http://localhost:8080 and create a plone Site, only activate the Dexterity plugin.
 
 You might wonder, why we use the unified installer. We use the unified installer to set up a cache of packages to download in a much shorter time. Without it, your first buildout on a fresh computer would take more than half an hour on a good internet connection.
-
-Setting up buildout
--------------------
-
-.. code-block:: bash
-
-    $ vagrant ssh
-    $ cd /vagrant/training
-    $ virtualenv .
-    $ source bin/activate
-    $ python bootstrap.py
-    $ bin/buildout
-    $ bin/instance fg
-    $ ..

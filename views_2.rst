@@ -76,7 +76,7 @@ open setup.py, extended it like this::
         zip_safe=False,
         install_requires=[
             'setuptools',
-            'five.grok'
+            'plone.app.dexterity [grok]',
             # -*- Extra requirements: -*-
         ],
         extras_require={'test': ['plone.app.testing']},
@@ -123,7 +123,7 @@ And the template. Important, the template must be in a subdirectory called `view
         i18n:domain="plonekonf.talk">
     <body>
         <metal:content-core fill-slot="content-core">
-            <p>Suitable for <em tal:replace="context/audience"></em>
+            <p>Suitable for <em tal:replace="structure view/w/audience/render"></em>
             </p>
 
             <div tal:content="structure view/w/details/render" />

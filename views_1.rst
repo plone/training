@@ -8,15 +8,15 @@ We need to add some boilerplate-code to be create a view. Before we write the ta
 
 A basic view in Plone is usually a ``BrowserView``. It can hold a lot of python-code but it can also be only a empty ``BrowserView``-class that renders a template when called. Such an empty class is what we create at first so we can concentrate on the template.
 
-* Add a new direcory ``src/ploneconf.talk/ploneconf/talk/browser``. By convention the dir ``browser`` should hold all UI displayed in the browser.
+* Add a new direcory ``src/ploneconf.talk/src/ploneconf/talk/browser``. By convention the dir ``browser`` should hold all UI displayed in the browser.
 * Add an empty file ``browser/__init__.py``
-* We need to tell Plone to consider this directory. Modify the existing ``configure.czml`` and add
+* We need to tell Plone to consider this directory. Modify the existing ``configure.zcml`` and add
 
 .. code-block:: xml
 
     <include package=".browser" />
 
-Then add a file ``browser/configure.czml``:
+Then add a file ``browser/configure.zcml``:
 
 .. code-block:: xml
 
@@ -51,7 +51,8 @@ Add a directory ``browser/templates`` and add an file ``browser/templates/demovi
 
     <h1>Hello World</h1>
 
-Restart Plone and open http://localhost:8080/Plone/@@demoview. You should see "Hello World".
+* Restart Plone and open http://localhost:8080/Plone/@@demoview.
+* You should see "Hello World".
 
 We now have everything in place to learn about zope page templates.
 

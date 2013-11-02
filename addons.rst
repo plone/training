@@ -3,17 +3,15 @@
 
 There are more than a thousand addons for Plone. We will cover only a handful today.
 
-* What types of addons are there
-
 How to find addons
 ------------------
 
 * https://pypi.python.org/pypi - use the search form!
 * http://plone.org/products
-* https://github.com/collective >1000 repositories!
-* https://github.com/plone  240 repos - not all of them are part of the core yet!
-* http://news.gmane.org/gmane.comp.web.zope.plone.user search mailing list-archive
-* Addon shortlist (work in progress): https://docs.google.com/spreadsheet/ccc?key=0At7ok0VqX0egdExISThOa0JBYjVUYi1pWmRDU0QyeUE#gid=0
+* https://github.com/collective >1000 repos
+* https://github.com/plone >240 repos
+* http://news.gmane.org/gmane.comp.web.zope.plone.user
+* Addon shortlist (will come 2014)
 * google
 * ask
 
@@ -62,14 +60,13 @@ Let' have a look at what we just installed.
 PloneFormGen
 ------------
 
-There a various methods to create forms in Plone:
+Creating forms in Plone:
 
-* pure html in a view
-* z3c.form, formlib or in Python deform prgrammatically
-* PloneFormGen
+* pure: html and python in a view
+* framework: z3c.form, formlib, deform
+* ttw: Products.PloneFormGen
 
-PFG allow you to create great forms ttw.
-Let's write a registration-form for our conference
+Registration-form:
 
 * Add a object of the new type 'Form Folder' in the site-root. Call it "Registration"
 * Save and view the result
@@ -77,34 +74,20 @@ Let's write a registration-form for our conference
 * Remove field "Subject"
 * Add fields for food-preference and shirt-size
 * Add a DataSave Adapter
-* Try it
-
-Written by Steve McMahon. You might want to buy him a beer.
 
 
-Internationalisation with LinguaPlone and plone.app.multilingual (Philip)
--------------------------------------------------------------------------
+Internationalisation
+--------------------
 
-We're not doing this with our site.
+We're not doing this with the demo-site.
 
-* Go to the ``/plone_control_panel``
-* install installieren
-* add german as language einstellen
+We would use http://pypi.python.org/pypi/plone.app.multilingual since we use Dexterity for our Content Types.
 
-  * ``/@@language-controlpanel`` -> Deutsch und Englisch auswählen
-  * ZMI -> portal_languages -> "Display flags for language selection" aktivieren
+* Install
+* ``/@@language-controlpanel``
+* ``/@@language-setup-folders``
+* best practices
 
-* ``/@@language-setup-folders`` -> Ordnerstruktur anlegen
-* Create english frontpage
-* Best prachtive about translating zum übersetzen (folder übersetzen, language_independent)
-
-  * http://plone.org/products/linguaplone/issues/250
-
-  * http://localhost:8080/Plone/@@language-setup-folders
-
-  * Seit Plone4 ist der Standardweg von Übersetzungen, das jede Sprache einen eigenen Folder bekommt. Wenn Inhalte übersetzt werden, wird
-
-* die Datei automatisch in den richtigen Ordner kopiert.
 
 
 Add 'bling' with collective.plonetruegallery

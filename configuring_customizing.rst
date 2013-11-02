@@ -120,8 +120,9 @@ Example:
 
 * Global navigation (portal_tab)
 * go to ``portal_actions`` > ``portal_tabs``
+* Edit ``index_html``
 
-Where is my navigation?
+Where is the navigation?
 
 The navigation shows content-objects, which are in Plone's root. Plus all actions in portal_tabs
 

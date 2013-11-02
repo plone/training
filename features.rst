@@ -1,7 +1,7 @@
 The Features of Plone
 =====================
 
-You can find a in-depth user-manual at http://plone.org/documentation/manual/plone-4-user-manual
+In-depth user-manual: http://plone.org/documentation/manual/plone-4-user-manual
 
 
 Starting and Stopping Plone
@@ -20,7 +20,7 @@ The :program:`instance`-script offers the following options::
     $ ./bin/instance fg
     $ ./bin/instance start
     $ ./bin/instance stop
-    $ ./bin/instance debug -P Plone
+    $ ./bin/instance debug -O Plone
 
 .. only:: manual
 

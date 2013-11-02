@@ -2,7 +2,7 @@ Views III: A Talk list
 =======================
 
 
-If we don't want to provide information about the context, that is not on the the current object one specific item but on several items. What now? We can't look at several items at the same time as context.
+Now we don't want to provide information about one specific item but on several items. What now? We can't look at several items at the same time as context.
 
 
 Using portal_catalog

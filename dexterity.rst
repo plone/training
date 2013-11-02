@@ -8,35 +8,26 @@ What is a content-type?
 A content-type is object that can store information and is editable by users.
 
 Schema
-    A definition of fields that comprise a content-type (in Django that would be the Model)
-    These input to these fields can be stored in properties of an object.
-
-    python, xml or ttw
+    A definition of fields that comprise a content-type
+    properties of an object
 
 FTI
     The "Factory Type Information" configures the content-type in Plone, assigns a name, an icon, additional features and possible views to it.
 
-    xml or ttw
-
 View
-    A visual representation of the objecta and the content of it's fields.
-
-    Written as python and zope page templates (a templating language)
+    The visual representation of the object and the content of it's fields.
 
 
 Dexterity and Archetypes - A Comparison
 ---------------------------------------
 
-There are two content-frameworks in Plone
+Two content-frameworks in Plone
 
-* Dexterity is relatively new. It is part of Plone-core since 4.3
-* Archetypes is old, tried and tested (Around since Plone 1.0.4)
-* Archetypes: Very widespread, most existing addons are based on Archetypes
-* Plone's default content-types are still Archetypes
-* In Plone 5 they will be replaced with Dexterity-versions of them (plone.app.contentypes)
-
-What do AT and DX have in common?
-
+* Dexterity: new and the coming default
+* Archetypes: old, tried and tested
+* Archetypes: widespread though addons
+* Plone 4.x: Archetypes
+* Plone 5.x: Dexterity-versions
 * add and edit-forms are created automatically from a schema
 
 What are the differences?

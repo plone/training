@@ -31,7 +31,7 @@ We'll basically do the same as when we used at ``plone.app.themeeditor``, but no
 
 Now Plone should use the new file to override the original one.
 
-Edit the template ``Products.CMFPlone.skins.plone_content.newsitem_view.pt`` and insert the following after line 28:
+Edit the template ``Products.CMFPlone.skins.plone_content.newsitem_view.pt`` and insert the following after line 32:
 
 .. code-block:: html
 

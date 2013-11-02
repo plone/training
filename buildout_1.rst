@@ -4,12 +4,15 @@ Buildout I
 .. only:: manual
 
     Buildout composes your application for you, according to your rules.
+
     To compose your application, you must write, which eggs you need.
+
     Buildout then downloads these eggs and resolves all dependencies. You might need five different eggs, but in the end, Buildout has to install 300 eggs, all with the correct version. Buildout can also create configuration files and folders.
+
     Plone needs folders for logfiles, databases and configuration files. Buildout assembles all of this for you.
-    The tool is very configurable, as such, people not only use it to download
-    eggs, but also to set up infrastructure, compile a custom
-    version of XML, install and configure varnish, create a Zope instance, and so on.
+
+    The tool is very configurable, as such, people not only use it to download eggs, but also to set up infrastructure, compile a custom version of XML, install and configure varnish, create a Zope instance, and so on.
+
     Another type of extension allows whole new functionality, like mr.developer, the only way to manage your checked out sources.
 
 
@@ -22,8 +25,11 @@ Buildout I
         beta
 
 A Buildout consists of multiple sections. Sections start with the section name in square brackets. Each section declares a different part of your application. As a rough analogy, your Buildout file is a cookbook with multiple recipes.
+
 There is a special section, called Buildout.
+
 This section can change the behavior of Buildout, but what is most important, is the variable ``parts`` here. This defines, which sections should actually be interpreted.
+
 Buildout itself has no idea, how to install Zope. Buildout is a plugin based system, it comes with a small set of plugins to create configuration files and download eggs with their dependencies and the proper version. To install a Zope site, you need a third-party plugin. The plugin provide new recipes that you have to declare and configure in a section.
 
 Let us walk through our ``buildout.cfg`` and look at some important variables:

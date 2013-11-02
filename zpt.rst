@@ -12,17 +12,17 @@ The three languages are:
 
   * Templating XML/HTML using special Attributes
 
-  * Using TAL we include TALES-Expressions into html
+  * Using TAL we include expressions into html
 
 * TALES: "TAL Expression Syntax"
 
-  * defines how the expressions Ausdrücke, welche die TAL-Anweisungen auswerten, notiert werden müssen, damit der Zugriff auf Objekte, Eigenschaften und Methoden funktioniert
+  * defines the syntax and semantics of these expressions
 
 * METAL: "Macro Expansion for TAL"
 
   * this enables us to combine, re-use and nest templates together
 
-TAL and METAL are written like html-attribues (url, src, title). TALES are written like the values of these attributes. A typical TAL-Statement looks like this:
+TAL and METAL are written like html-attribues (url, src, title). TALES are written like the values of html-attributes. A typical TAL-Statement looks like this:
 
 .. code-block:: html
 
@@ -72,7 +72,7 @@ This will result in:
 
     <p>blue</p>
 
-Without restarting Plone open http://localhost:8080/Plone/@@demo_view.
+Without restarting Plone open http://localhost:8080/Plone/@@demoview.
 
 The same happens with attributes. Replace the <p>-line with:
 
