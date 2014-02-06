@@ -12,6 +12,7 @@ We don't do any real theming during the training. We'll just explain the options
 * Deliverance
 
 Links:
+
 * http://developer.plone.org/reference_manuals/external/plone.app.theming/userguide.html
 * http://developer.plone.org/reference_manuals/external/diazo/index.html
 * http://developer.plone.org/reference_manuals/old/plone_3_theming/index.html

@@ -42,7 +42,7 @@ The :program:`instance`-script offers the following options::
 
 .. note::
 
-    They contain important information. Read them and make sure you understand them!
+    Plone has many message-boxes. They contain important information. Read them and make sure you understand them!
 
 
 
