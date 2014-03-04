@@ -12,6 +12,7 @@
 # serve to show the default.
 
 import sys, os
+import sphinx_rtd_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -81,8 +82,8 @@ exclude_patterns = ['_build', 'lib', 'bin', 'include', 'local']
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-#pygments_style = 'sphinx'
-pygments_style = 'sphinx.pygments_styles.PyramidStyle'
+pygments_style = 'sphinx'
+#pygments_style = 'sphinx.pygments_styles.PyramidStyle'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -92,8 +93,11 @@ pygments_style = 'sphinx.pygments_styles.PyramidStyle'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
+#html_theme = 'default'
 #html_theme = "armstrong"
+html_theme = "sphinx_rtd_theme"
+
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 #html_theme_path = ["_themes", ]
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -147,7 +151,7 @@ html_sidebars = {
 #html_domain_indices = True
 
 # If false, no index is generated.
-html_use_index = False
+#html_use_index = False
 
 # If true, the index is split into individual pages for each letter.
 #html_split_index = False
@@ -189,8 +193,11 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'MasteringPlone.tex', u'Mastering Plone Documentation',
-   u'Philip Bauer, Patrick Gerken', 'manual'),
+    ('index',
+     'MasteringPlone.tex',
+     u'Mastering Plone Documentation',
+     u'Philip Bauer, Patrick Gerken',
+     'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

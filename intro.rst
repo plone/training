@@ -4,9 +4,9 @@ Introduction
 Who are we?
 -----------
 
-* Patrick Gerken, @do3cc, patrick@starzel.de
-* Philip Bauer, @pbauer, bauer@starzel.de
-* We work at `starzel.de <http://www.starzel.de>`_
+* Patrick Gerken, gerken@starzel.de, twitter: do3cc, irc: do3cc
+* Philip Bauer, bauer@starzel.de, twitter: StarzelDe, irc: pbauer
+* We work at `starzel.de <http://www.starzel.de>`_ in Munich, Germany
 
 
 Who are you?
