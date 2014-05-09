@@ -63,22 +63,26 @@ Some technologies and tools we use during the training:
 * viewlets
 * jquery
 
-
 What will we not do?
 --------------------
 
 We will not cover the following topics:
 
-* `Archetypes <http://developer.plone.org/content/archetypes/index.html>`_
-* `Portlets <http://developer.plone.org/reference_manuals/old/portlets/index.html>`_
-* `Generic Setup <http://developer.plone.org/components/genericsetup.html>`_
-* `z3c.forms <http://developer.plone.org/reference_manuals/active/schema-driven-forms/index.html>`_
-* `Hosting and Caching <http://developer.plone.org/reference_manuals/active/deployment/index.html>`_
-* Theming: `Diazo <http://developer.plone.org/reference_manuals/external/plone.app.theming/userguide.html>`_ or `old-school <http://developer.plone.org/reference_manuals/old/plone_3_theming/index.html>`_
-* `Testing and Debugging <http://developer.plone.org/testing_and_debugging/index.html>`_
-* `Images and image-scales <http://developer.plone.org/images/index.html>`_
-* `i18n and locales <http://developer.plone.org/i18n/index.html>`_
+* `Archetypes <http://docs.plone.org/old-reference-manuals/archetypes/index.html>`_
+* `Portlets <http://docs.plone.org/old-reference-manuals/portlets/index.html>`_
+* `Generic Setup <http://docs.plone.org/develop/addons/components/genericsetup.html>`_
+* `z3c.forms <http://docs.plone.org/develop/plone/forms/z3c.form.html>`_
+* `Theming <http://docs.plone.org/adapt-and-extend/theming/index.html>`_
+* `Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_
+* `i18n and locales <http://docs.plone.org/develop/plone/i18n/index.html>`_
+* `Deployment, Hosting and Caching <http://docs.plone.org/manage/deploying/index.html>`_
 
+Other topics are only covered very lightly:
+
+* `Zope Component Architecture <http://docs.plone.org/develop/addons/components/index.html>`_
+* `ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_
+* `Security <http://docs.plone.org/develop/plone/security/index.html>`_
+* `Permissions <http://docs.plone.org/develop/plone/security/permissions.html>`_
 
 .. only:: manual
 
@@ -117,9 +121,8 @@ Further Reading
    -----
 
     * Please ask questions when you have them!
-    * Tell us if we speak to fast, to slow or to quiet.
+    * Tell us if we speak to fast, to slow or not loud enough.
     * One of us is always there to help you if you are stuck. Please give us a sign if you are stuck.
-    * We'll make some breaks
+    * We'll make some breaks...
     * Where is Food, Restrooms
     * Contact us after the training: team@starzel.de
-    * Don't post links to the training material. It's not secret but not intended for public consumption.
