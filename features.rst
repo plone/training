@@ -3,6 +3,7 @@ The Features of Plone
 
 In-depth user-manual: http://plone.org/documentation/manual/plone-4-user-manual
 
+See also: http://docs.plone.org/working-with-content/index.html
 
 Starting and Stopping Plone
 ---------------------------
@@ -11,7 +12,7 @@ We control Plone with a small script called "instance"::
 
     $ ./bin/instance fg
 
-This starts Plone and we can see what it is doing.
+This starts Plone in foreground and we can see what it is doing.
 
 You can stop it by pressing :kbd:`ctrl + c`.
 
@@ -34,9 +35,9 @@ The :program:`instance`-script offers the following options::
 
 .. only:: presentation
 
-    Plone listens on port 8080. Look at http://localhost:8080
+    By default Plone listens on port 8080. Look at http://localhost:8080
 
-    No Plone yet! Create a Plone site.
+    No Plone yet! Create a new Plone site.
 
     Use :samp:`Plone` (the default) as the site id.
 
@@ -161,6 +162,10 @@ The default content-types:
 * Link
 * Folder
 * Collection
+
+.. note::
+
+    Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default-Plone 4.3.x-site.
 
 
 Folders
