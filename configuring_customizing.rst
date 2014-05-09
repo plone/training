@@ -1,4 +1,4 @@
-Configuring and Customising Plone through the web
+Configuring and Customizing Plone through the web
 =================================================
 
  .. sectionauthor:: Philip Bauer <bauer@starzel.de>
@@ -116,10 +116,34 @@ Configurable ttw and through code.
 
 These actions are usually iterated over in viewlets and displayed.
 
-Example:
 
-* Global navigation (portal_tab)
-* go to ``portal_actions`` > ``portal_tabs``
+site_actions
+************
+
+These are the links at the bottom of the page:
+
+* Site Map
+* Accessibility
+* Contact
+* Site Setup
+
+We want another link to legal information, called "Imprint".
+
+* go to ``site_actions`` (we know that because we checked in ``@@manage-viewlets``)
+* add a CMF Actions ``imprint``
+* set its URL to ``string:${portal_url}/imprint``
+* Leave condition empty
+* Set permission to ``View``
+* Save and explain
+* Check if the link is on the page
+* Create new Document `Imprint` and publish
+
+
+Global navigation
+*****************
+
+* The horizontal navigation is called ``portal_tabs``
+* go to ``portal_actions`` > ``portal_tabs`` `Link <http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main>`_
 * Edit ``index_html``
 
 Where is the navigation?
@@ -128,13 +152,7 @@ The navigation shows content-objects, which are in Plone's root. Plus all action
 
 Explain & edit index_html
 
-Add a link to the imprint to the bottom:
-
-* go to ``site_actions`` (we know that because we checked in ``@@manage-viewlets``)
-* add a CMF Actions ``imprint``
-* set its URL to ``string:${globals_view/navigationRootUrl}/imprint``
-* Leave condition empty
-* Set permission to ``View``
+Configuring the navigation itself is done elsewhere: http://localhost:8080/Plone/@@navigation-controlpanel
 
 If time explain:
 
