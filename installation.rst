@@ -7,11 +7,11 @@ Installing Plone
 
 .. only:: manual
 
-    Plone 4.x requires a working Python 2.6 or 2.7 and several other system-tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that python can can be used:
+    Plone 4.3.x requires a working Python 2.7 and several other system-tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that python can can be used:
 
 .. only:: presentation
 
-    Plone 4.x requires a working Python 2.6 or 2.7 and serveral other tools.
+    Plone 4.3.x requires a working Python 2.7 and serveral other tools.
 
     Installation is different on every system.
 
@@ -41,12 +41,12 @@ Installing Plone
 
 Plone offers some options for being installed:
 
-1. One-click installers for Mac and Windows (4.3.2 is not yet finished)
+1. One-click installers for Mac and Windows (4.3.3 is not yet finished)
 2. Unified installers (all 'nix, including MacOS)
 3. A vagrant/virtualbox install kit (all platforms)
 4. Use your own buildout
 
-You can download all of these at http://plone.org/products/plone/releases/4.3.2
+You can download all of these at http://plone.org/products/plone/releases/4.3.3
 
 
 .. only:: manual
@@ -57,7 +57,7 @@ You can download all of these at http://plone.org/products/plone/releases/4.3.2
 
     For the training we'll use option 3 and 4 to install and run Plone.
 
-Read more about installing Plone: https://plone.org/documentation/manual/installing-plone and http://developer.plone.org/getstarted/installation.HTML
+Read more about installing Plone: https://plone.org/documentation/manual/installing-plone and http://docs.plone.org/manage/installing/index.html
 
 
 Hosting Plone
@@ -76,7 +76,7 @@ You can host Plone...
 * with one of many `hosting-providers <http://plone.org/support/hosting-providers>`_
 * on a virtual private server
 * on dedicated servers
-* in the cloud (e.g. using Amazon EC2)
+* in the cloud (e.g. using Amazon EC2 or `Codio.com <http://blog.dbain.com/2014/04/install-plone-in-under-5-minutes-on.html>`_)
 
 Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-on-5-a-month
 
