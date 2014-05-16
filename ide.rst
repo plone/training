@@ -1,6 +1,10 @@
 IDE's and Editors
 ==================
 
+No development environment is complete without a good editor. Plone consists of more than 22.000+ files! You need a tool to manage that and
+
+People pick editors themselves. We won't walk through a single editor. These are the most used editors in the plone-community:
+
 * `Sublime <http://www.sublimetext.com/>`_
 * `PyCharm <http://www.jetbrains.com/pycharm/>`_
 * `Wing IDE <http://wingide.com/>`_
@@ -9,16 +13,24 @@ IDE's and Editors
 * vim
 * emacs
 * `Textmate <http://macromates.com/>`_
-* Our development-setup today
 
-No development environment is complete without a good editor.
-Everybody must decide on his own, what editor to use, Therefore, I won't walk through a single editor here.
+Some features that most editors have in one form or another are essential when developing with Plone.
 
-My biggest productivity tool is not the editor.
-It is the capability of performing a full text search through the complete Plone code. Either you use your editor for this, or the console and grep. And of course you need the right code to look for, we set this up earlier with the omelette.
+* Find in project (SublimeText 3: ``cmd + shift + f``)
+* Find files in Project (SublimeText 3: ``cmd + t``)
+* Find methods and classes in Project (SublimeText 3: ``cmd + shift + r``)
+* Goto Definition (SublimeText3 with codeintel: ``alt + click``)
+* Powerful search & replace
 
-Thanks to omelette, an SSD and plenty of RAM, you can search through the complete Plone-code in 3 seconds. That is 20500 files!
+The capability of performing a full text search through the complete Plone code is invaluable. Thanks to omelette, an SSD and plenty of RAM you can search through the complete Plone-code in 3 seconds.
 
-By looking into the code, I see how things are supposed to be used and many other things.
+Some Packages that are recommmended when using Sublime
 
-
+    * SublimeCodeIntel (Goto Definition)
+    * BracketHighlighter
+    * GitGutter
+    * FileDiffs
+    * INI (syntax for ini-Files)
+    * SideBarEnhancements
+    * MacTerminal
+    * SyncedSideBar
