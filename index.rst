@@ -41,6 +41,7 @@ Contents:
     custom_search
     ressources
     social_behavior
+    behaviors
     viewlets
     deployment_code
     deployment_sites
