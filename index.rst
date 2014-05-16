@@ -22,6 +22,7 @@ Contents:
     intro
     installation
     plone_training_config/instructions.rst
+    case
     anatomy
     features
     configuring_customizing
