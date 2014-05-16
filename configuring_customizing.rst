@@ -65,7 +65,8 @@ Viewlets
 --------
 
 * ``@@manage-viewlets``
-* no UI - not for content-editors
+* viewlet have no UI
+* not aimed at content-editors
 * not locally addable, no configurable inheritance.
 * usually global (depends on code)
 * will be replaced by tiles?
@@ -78,14 +79,14 @@ Portlets save Data, Viewlets usually don't. Viewlets are often used for UI-Eleme
 
 Example:
 
-* go to http://localhost:8080/Plone/@@manage-viewlets
+* Go to http://localhost:8080/Plone/@@manage-viewlets
 * Hide collophon
 
 
 ZMI
 ---
 
-Go into the ZMI (explain ``/manage``)
+Go to http://localhost:8080/Plone/manage
 
 Zope is the foundation of Plone. Here you can access the inner working of Zope and Plone alike. Here you can easily break your site so you should know what you are doing.
 
@@ -163,6 +164,16 @@ If time explain:
 Skins (portal_skins)
 --------------------
 
+In portal_skins we cane change certain images, css-files and templates.
+
+.. note::
+
+   portal_skins is deprecated technology, in fact Plone 5 will get rid of a lot of functionality that still lives in portal_skins.
+
+   We only do some minial changes here.
+
+   We used to do this part of the training with `plone.app.themeeditor <https://pypi.python.org/pypi/plone.app.themeeditor>`_ which has a much nicer UI than the ZMI but also has dependencies that are incompatible with ZopeSkel and is not widely used.
+
 * Go to ZMI
 * go to portal_skins
 * go to plone_styles
@@ -176,10 +187,69 @@ Enter the following css:
     #visual-portal-wrapper {
         margin: 0 auto;
         position: relative;
-        width: 980px;
+        width: 1024px;
     }
 
-Check results in the browser. How did that happen?
+
+Click 'save' and check results in the a different browser-tab. How did that happen?
+
+The UI leaves a lot to be desired. In a professional context this is no-go (no version-control, no syntac-highlighting etc. pp.). But everybody uses portal_skins it to make quick fixes to sites that are already online.
+
+Let's add some more css to make our site a little responsive:
+
+.. code-block:: css
+
+    @media only screen and (max-width: 980px) {
+       #visual-portal-wrapper {
+           position: relative;
+           width: auto;
+       }
+    }
+
+    @media only screen and (max-width: 768px) {
+       #portal-columns > div {
+           width: 97.75%;
+           margin-left: -98.875%;
+           clear: both;
+       }
+
+       .searchButton,
+       .searchSection {
+           display: none;
+       }
+    }
+
+Let's change the Logo.
+
+* Download a old ploneconf logo: http://www.sixfeetup.com/blog/2011PloneConfLogo.gif
+* Go to ``portal_skins`` / ``plone_images``
+* Click on ``logo.png``, click ``Customize`` and Upload the Logo.
+
+.. seealso::
+
+   http://docs.plone.org/adapt-and-extend/change-the-logo.html
+
+Change the footer.
+
+* Go to ``portal_view_customizations``
+* Search ``plone.footer``, click and customzie
+* replace the content with the following
+
+  .. code-block:: html
+
+     <div i18n:domain="plone"
+          id="portal-footer">
+        <p>&copy; 2014 by me! |
+          <a href="mailto:info@ploneconf.org">
+           Contact us
+          </a>
+        </p>
+     </div>
+
+
+.. seealso::
+
+   http://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html
 
 
 CSS-Registry (portal_css)
@@ -187,15 +257,21 @@ CSS-Registry (portal_css)
 
 * go to ZMI > ``portal_css``
 * at the bottom there is ``ploneCustom.css``
+* Disable ``Development mode``: The css-files are merged and have a cache-key.
 
-The UI leaves a lot to be desired.
 
-In a professional context this is no-go (since there is no version-control). But everybody uses it to make quick fixes to sites that are allready online.
 
-Later we'll revisit that same css-code.
+There are many more noteable items in the ZMI. We'll visit some of them later.
+
+* acl_users
+* error_log
+* portal_properties
+* portal_setup
+* portal_workflow
+* portal_catalog
 
 
 Summary
 -------
 
-You can configure and customize a lot in Plone through the web. The amount of stuff is overwhelming but you'll get the hang of it through a lot of practice.
+You can configure and customize a lot in Plone through the web. The most important options are accessible in the `plone control panel <http://localhost:8080/Plone/@@overview-controlpanel>`_ but even more are hidden away in the `ZMI <http://localhost:8080/Plone/manage>`_. The amount of stuff is overwhelming but you'll get the hang of it through a lot of practice.
