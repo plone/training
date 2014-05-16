@@ -15,8 +15,9 @@ eea.facetednavigation
 
 Examples:
 
-* http://www.dipf.de/de/forschung/projekte
-* http://www.dynajet.de/de/hochdruckreiniger
+* http://www.dipf.de/en/research/projects
+* https://mountaineers.org/learn/find-courses-clinics-seminars
+* http://www.dynajet.de/en/hochdruckreiniger
 
 
 http://pypi.python.org/pypi/eea.facetednavigation/

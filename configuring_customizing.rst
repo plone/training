@@ -232,7 +232,7 @@ Let's change the Logo.
 Change the footer.
 
 * Go to ``portal_view_customizations``
-* Search ``plone.footer``, click and customzie
+* Search ``plone.footer``, click and customize
 * replace the content with the following
 
   .. code-block:: html
