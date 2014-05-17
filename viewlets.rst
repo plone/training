@@ -1,32 +1,67 @@
 Writing Viewlets
 =================
 
-A viewlet is no view but a snippet of html and logic that can be put somewhere in the site.
+A viewlet is no view but a snippet of html and logic that can be put in various places in the site. These places are called ``viewletmanager``.
 
-* show ``/@@manage-viewlets``
-* we already customized a viewlet (``collophon.pt``), now we add a new one
-* viewlets don't save data (portlets do)
+* Inspect existing viewlets and their managers by going to http://localhost:8080/Plone/@@manage-viewlets.
+* We already customized a viewlet (``collophon.pt``). Now we add a new one.
+* Viewlets don't save data (portlets do)
+* Viewlets have no user-interface (portlets do)
 
 social-viewlet
 --------------
 
-We add a new folder ``viewlets`` with an empty ``__init__.py``. This time we don't need a ``configure.zcml`` and don't need to register the folder in our eggs configure.zcml since we use ``grok`` to do that for us.
+Let's add a link to the site that uses the information that we collected using the social-behavior.
 
-We just add a file viewlets.py containing the viewlet-class::
+We add a new folder ``viewlets`` with an empty ``__init__.py`` and register the viewlet in a ``configure.zcml``.
 
-    # encoding=utf-8
-    from five import grok
-    from plone.app.layout.viewlets import interfaces as viewletIFs
-    from zope.component import Interface
+.. code-block:: xml
 
+    <configure xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser">
 
-    class Social(grok.Viewlet):
-        grok.context(Interface)
-        grok.viewletmanager(viewletIFs.IBelowContentTitle)
+        <browser:viewlet
+            name="social"
+            for="ploneconf.talk.behavior.social.ISocial"
+            manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+            class=".viewlets.SocialViewlet"
+            layer="ploneconf.talk.interfaces.IPloneconfTalkLayer"
+            template="templates/social.pt"
+            permission="zope2.View"
+            />
 
-This will add a viewlet to a slot below the title and expect a template ``social.pt`` in a folder ``viewlets_templates``.
+    </configure>
 
-Let's add it:
+This registers a viewlet called ``social``.
+It is visible on all content that implments the interface ``ISocial`` from our behavior.
+It is also good practice to bind it to the BrowserLayer ``IPloneconfTalkLayer`` of our addon so it only shows up if our addon is actually installed.
+The viewlet-class ``SocialViewlet`` is expected in a file ``viewlets.py``.
+
+.. code-block:: python
+
+    from plone.app.layout.viewlets import ViewletBase
+
+    class Social(ViewletBase):
+        pass
+
+So far this does nothing except render the template.
+
+.. note::
+
+    If we used ``grok`` we would not need to register the viewlets in the ``configure.zcml`` but do that in python. We would add a file viewlets.py containing the viewlet-class.
+
+    .. code-block:: python
+
+        from five import grok
+        from plone.app.layout.viewlets import interfaces as viewletIFs
+        from zope.component import Interface
+
+        class Social(grok.Viewlet):
+            grok.viewletmanager(viewletIFs.IBelowContentTitle)
+
+    This would do the same as the coe above using grok's paradigm of convention over configuration.
+
+Let's add the missing template ``social.pt`` in ``viewlets_templates``.
 
 .. code-block:: html
 
@@ -36,30 +71,28 @@ Let's add it:
            tal:define="link viewlet/lanyrd_link | nothing"
            tal:condition="link"
            tal:attributes="href link">
-            See this talk on Lanyrd!
+             See this talk on Lanyrd!
         </a>
     </div>
 
-So now let's add some logic to the viewlet-class so that ``viewlet/lanyrd_link`` does returns the link::
+So now let's add some logic to the viewlet-class so that ``viewlet/lanyrd_link`` actually returns the link.
 
-    from five import grok
-    from plone.app.layout.viewlets import interfaces as viewletIFs
-    from plonekonf.talk.behavior.social import ISocial
+.. code-block:: python
 
+    from plone.app.layout.viewlets import ViewletBase
 
-    class Social(grok.Viewlet):
-        grok.context(ISocial)
-        grok.viewletmanager(viewletIFs.IBelowContentTitle)
+    class Social(ViewletBase):
 
         def lanyrd_link(self):
             adapted = ISocial(self.context)
             return adapted.lanyrd
 
+
 TAG: 17_SOCIAL_VIEWLET
 
-* We registered the viewlet to content that have the ISocial Interface.
-* we adapt the object to it's behavior to be able to access the fields of the behavior
-* we return the link
+* We registered the viewlet to content that has the ISocial Interface.
+* We adapt the object to it's behavior to be able to access the fields of the behavior
+* We return the link
 
 voting-viewlet
 ----------------
