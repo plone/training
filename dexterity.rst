@@ -72,6 +72,11 @@ Views:
 Installation
 ------------
 
+.. note ::
+
+    We can skip this step since we installed ``plone.app.contenttypes`` when creating out Plone-Site in the beginning.
+
+
 You don't have modify the buildout since Plone 4.3.x already ships with Dexterity. You just have to activate it in the control-panel for Add-ons.
 
 This time for no obvous reason other than getting more comfortable with the ZMI we'll use ``portal_quickinstaller`` to install Dexterity.
@@ -79,51 +84,103 @@ This time for no obvous reason other than getting more comfortable with the ZMI 
 * go to portal_quickinstaller
 * install "Dexterity Content Types"
 
-In this step we will create a CT called 'Talk' and try it. When it's ready we will move the code from the web to the file system and into our egg. Later we will expand on that type and add behaviors and a viewlet for Talks.
+
+Modifying existing types
+------------------------
+
+* Go to the control panel http://localhost:8080/Plone/@@dexterity-types
+* Inspect some of the existing default-types
+* Why are there no RichText-Fields for the Document and News-Item?
+* Select the type ``News Item`` and add a new field ``Hot News`` of type ``Yes/No``
+* In another tab add a News Item and you see the new field.
+* Go back to the schema-editor and klick on `Edit XML Field Model <http://localhost:8080/Plone/dexterity-types/News%20Item/@@modeleditor>`_.
+* Note that the only field in the xml-schema of the News Item is the one we just added. All others are provided by behaviors.
+* Edit the form-widget-type so that is says
+
+  .. code-block:: xml
+
+    <form:widget type="z3c.form.browser.checkbox.SingleCheckBoxFieldWidget"/>
+
+* Edit the News Item again. The widget changed to from a radiofield to a checkbox.
+* The new field ``Hot News`` is not displayed when rendering the News Item. We'll take care of this later.
+
+
+.. seealso::
+
+   https://github.com/plone/plone.app.contenttypes#extending-the-types
 
 Creating content-types TTW
 --------------------------
 
-* There now is a new entry in ``plone_control_panel`` called "Dexterity Content Types".
+In this step we will create a CT called 'Talk' and try it. When it's ready we will move the code from the web to the file system and into our own addon. Later we will extend that type and add behaviors and a viewlet for Talks.
+
 * Add new content type "Talk" and some fields for it:
 
+  * Add Field "Type of talk", type "Choice". Add options: talk, keynote, training
+  * Add Field "Details", type "Rich Text" with a maximal length of 2000
   * Add Field "Audience", type "Multiple Choice". Add options: beginner, advanced, pro
-  * Image "Image" (portrait)
   * Check the behaviors that are enabled: Basic metadata, Name from title, Referenceable
 
 * Test the content-type
 * Return to the control panel http://localhost:8080/Plone/@@dexterity-types
-* Extend the new type by adding a Richtext-field "Details"
+* Extend the new type
+
+  * "Speaker", Typ: "Text line"
+  * "Email", Typ: "Text line"
+  * "Image", Typ: "Image", not required
+  * "Speaker Biography", Typ: "Rich Text"
+
 * Test again
 
-Here is the xml-scheme created by our actions:
+Here is the complete xml-schema created by our actions.
 
 .. code-block:: xml
 
-  <model xmlns:security="http://namespaces.plone.org/supermodel/security"
-         xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
-         xmlns:form="http://namespaces.plone.org/supermodel/form"
-         xmlns="http://namespaces.plone.org/supermodel/schema">
+  <model xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns="http://namespaces.plone.org/supermodel/schema">
     <schema>
+      <field name="type_of_talk" type="zope.schema.Choice">
+        <description/>
+        <title>Type of talk</title>
+        <values>
+          <element>Talk</element>
+          <element>Training</element>
+          <element>Keynote</element>
+        </values>
+      </field>
+      <field name="details" type="plone.app.textfield.RichText">
+        <description>Add a short description of the talk (max. 2000 characters)</description>
+        <max_length>2000</max_length>
+        <title>Details</title>
+      </field>
       <field name="audience" type="zope.schema.Set">
         <description/>
         <title>Audience</title>
         <value_type type="zope.schema.Choice">
           <values>
-            <element>beginner</element>
-            <element>advanced</element>
-            <element>pro</element>
+            <element>Beginner</element>
+            <element>Advanced</element>
+            <element>Professionals</element>
           </values>
         </value_type>
       </field>
+      <field name="speaker" type="zope.schema.TextLine">
+        <description>Name (or names) of the speaker</description>
+        <title>Speaker</title>
+      </field>
+      <field name="email" type="zope.schema.TextLine">
+        <description>Adress of the speaker</description>
+        <title>Email</title>
+      </field>
       <field name="image" type="plone.namedfile.field.NamedBlobImage">
-        <description>Some image</description>
+        <description/>
         <required>False</required>
         <title>Image</title>
       </field>
-      <field name="details" type="plone.app.textfield.RichText">
+      <field name="speaker_biography" type="plone.app.textfield.RichText">
         <description/>
-        <title>Details</title>
+        <max_length>1000</max_length>
+        <required>False</required>
+        <title>Speaker Biography</title>
       </field>
     </schema>
   </model>
@@ -135,10 +192,10 @@ Moving content-types into code
 We want version-control and more extendability so we move our new content-types into code.
 
 * Export the Type Profile and save the file
-* Delete type from the site before installing the type from the file-system
-* Extract the files from the exported tar-file and add them to ``plonekonf/talk/profiles/default/``
+* Delete the type from the site before installing the type from the file-system
+* Extract the files from the exported tar-file and add them to our addon-package in ``ploneconf/talk/profiles/default/``
 
-Here is the result. The file ``types.xml`` tells plone that there is a new content type defined in file ``talk.xml``.
+The file ``ploneconf/talk/profiles/default/types.xml`` tells plone that there is a new content type defined in file ``talk.xml``.
 
 .. code-block:: xml
 
@@ -149,7 +206,7 @@ Here is the result. The file ``types.xml`` tells plone that there is a new conte
      <!-- -*- extra stuff goes here -*- -->
     </object>
 
-Upon installing Plone reads the file ``types/talk.xml`` and registers a new type in ``portal_types`` with the information derived from that file.
+Upon installing Plone reads the file ``ploneconf/talk/profiles/default/types/talk.xml`` and registers a new type in ``portal_types`` (you can find this tool in the ZMI) with the information taken from that file.
 
 .. code-block:: xml
 
@@ -175,35 +232,56 @@ Upon installing Plone reads the file ``types/talk.xml`` and registers a new type
      <property name="add_permission">cmf.AddPortalContent</property>
      <property name="klass">plone.dexterity.content.Container</property>
      <property name="behaviors">
-      <element value="plone.app.content.interfaces.INameFromTitle"/>
       <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+      <element value="plone.app.content.interfaces.INameFromTitle"/>
      </property>
      <property name="schema"></property>
-     <property name="model_source">&lt;model
-        xmlns:security="http://namespaces.plone.org/supermodel/security"
-        xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
-        xmlns:form="http://namespaces.plone.org/supermodel/form"
-        xmlns="http://namespaces.plone.org/supermodel/schema"&gt;
+     <property
+        name="model_source">&lt;model xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns="http://namespaces.plone.org/supermodel/schema"&gt;
         &lt;schema&gt;
+          &lt;field name="type_of_talk" type="zope.schema.Choice"&gt;
+            &lt;description/&gt;
+            &lt;title&gt;Type of talk&lt;/title&gt;
+            &lt;values&gt;
+              &lt;element&gt;Talk&lt;/element&gt;
+              &lt;element&gt;Training&lt;/element&gt;
+              &lt;element&gt;Keynote&lt;/element&gt;
+            &lt;/values&gt;
+          &lt;/field&gt;
+          &lt;field name="details" type="plone.app.textfield.RichText"&gt;
+            &lt;description&gt;Add a short description of the talk (max. 2000 characters)&lt;/description&gt;
+            &lt;max_length&gt;2000&lt;/max_length&gt;
+            &lt;title&gt;Details&lt;/title&gt;
+          &lt;/field&gt;
           &lt;field name="audience" type="zope.schema.Set"&gt;
             &lt;description/&gt;
             &lt;title&gt;Audience&lt;/title&gt;
             &lt;value_type type="zope.schema.Choice"&gt;
               &lt;values&gt;
-                &lt;element&gt;beginner&lt;/element&gt;
-                &lt;element&gt;advanced&lt;/element&gt;
-                &lt;element&gt;pro&lt;/element&gt;
+                &lt;element&gt;Beginner&lt;/element&gt;
+                &lt;element&gt;Advanced&lt;/element&gt;
+                &lt;element&gt;Professionals&lt;/element&gt;
               &lt;/values&gt;
             &lt;/value_type&gt;
           &lt;/field&gt;
+          &lt;field name="speaker" type="zope.schema.TextLine"&gt;
+            &lt;description&gt;Name (or names) of the speaker&lt;/description&gt;
+            &lt;title&gt;Speaker&lt;/title&gt;
+          &lt;/field&gt;
+          &lt;field name="email" type="zope.schema.TextLine"&gt;
+            &lt;description&gt;Adress of the speaker&lt;/description&gt;
+            &lt;title&gt;Email&lt;/title&gt;
+          &lt;/field&gt;
           &lt;field name="image" type="plone.namedfile.field.NamedBlobImage"&gt;
-            &lt;description&gt;Portrait of the speaker&lt;/description&gt;
+            &lt;description/&gt;
             &lt;required&gt;False&lt;/required&gt;
             &lt;title&gt;Image&lt;/title&gt;
           &lt;/field&gt;
-          &lt;field name="details" type="plone.app.textfield.RichText"&gt;
+          &lt;field name="speaker_biography" type="plone.app.textfield.RichText"&gt;
             &lt;description/&gt;
-            &lt;title&gt;Details&lt;/title&gt;
+            &lt;max_length&gt;1000&lt;/max_length&gt;
+            &lt;required&gt;False&lt;/required&gt;
+            &lt;title&gt;Speaker Biography&lt;/title&gt;
           &lt;/field&gt;
         &lt;/schema&gt;
       &lt;/model&gt;</property>
@@ -226,13 +304,13 @@ Upon installing Plone reads the file ``types/talk.xml`` and registers a new type
     </object>
 
 * restart Plone
-* install plonekonf.talk
-
-Got to the ZMI and look at the definition of the new type in ``portal_types``.
-
+* install ploneconf.talk
+* Go to the ZMI and look at the definition of the new type in ``portal_types``.
 * Test the type by adding an object or editing one of the old ones.
 * Look at how the talks are presented in the browser.
 
 Now let's see if we can't improve the default view. To do this we first need to learn about templates.
 
-Read more about developing with Dexterity here: http://developer.plone.org/reference_manuals/external/plone.app.dexterity/
+.. seealso::
+
+   `Dexterity Developer Manual <http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
