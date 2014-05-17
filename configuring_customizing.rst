@@ -96,9 +96,9 @@ At some point you'll have to learn what all that stuff is about. But not today.
 
 
 Actions (portal_actions)
-------------------------
+************************
 
-Actions are mostly links but really flexible links :-)
+Actions are mostly links but really flexible links.
 
 Examples:
 
@@ -119,7 +119,7 @@ These actions are usually iterated over in viewlets and displayed.
 
 
 site_actions
-************
+++++++++++++
 
 These are the links at the bottom of the page:
 
@@ -141,7 +141,7 @@ We want another link to legal information, called "Imprint".
 
 
 Global navigation
-*****************
++++++++++++++++++
 
 * The horizontal navigation is called ``portal_tabs``
 * go to ``portal_actions`` > ``portal_tabs`` `Link <http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main>`_
@@ -162,7 +162,7 @@ If time explain:
 
 
 Skins (portal_skins)
---------------------
+********************
 
 In portal_skins we cane change certain images, css-files and templates.
 
@@ -173,6 +173,10 @@ In portal_skins we cane change certain images, css-files and templates.
    We only do some minial changes here.
 
    We used to do this part of the training with `plone.app.themeeditor <https://pypi.python.org/pypi/plone.app.themeeditor>`_ which has a much nicer UI than the ZMI but also has dependencies that are incompatible with ZopeSkel and is not widely used.
+
+
+Change some css
++++++++++++++++
 
 * Go to ZMI
 * go to portal_skins
@@ -219,6 +223,9 @@ Let's add some more css to make our site a little responsive:
        }
     }
 
+Change the logo
++++++++++++++++
+
 Let's change the Logo.
 
 * Download a old ploneconf logo: http://www.sixfeetup.com/blog/2011PloneConfLogo.gif
@@ -229,7 +236,12 @@ Let's change the Logo.
 
    http://docs.plone.org/adapt-and-extend/change-the-logo.html
 
-Change the footer.
+
+portal_view_customizations
+**************************
+
+Change the footer
++++++++++++++++++
 
 * Go to ``portal_view_customizations``
 * Search ``plone.footer``, click and customize
@@ -253,13 +265,15 @@ Change the footer.
 
 
 CSS-Registry (portal_css)
--------------------------
+*************************
 
 * go to ZMI > ``portal_css``
 * at the bottom there is ``ploneCustom.css``
 * Disable ``Development mode``: The css-files are merged and have a cache-key.
 
 
+Further tools in the ZMI
+************************
 
 There are many more noteable items in the ZMI. We'll visit some of them later.
 
