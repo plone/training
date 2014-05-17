@@ -16,38 +16,48 @@ The catalog is like a search-engine for the content on our site. It holds inform
 
 It is the fast way to get content that exists in the site and do something with it. From the results of the catalog we can get the objects themselves but often we don't need them, but only the properties that the results already have.
 
-::
+ZCML
 
-    # -*- coding: UTF-8 -*-
-    from five import grok
-    from zope.interface import Interface
+.. code-block:: xml
+
+    <browser:page
+       name="talkview"
+       for="*"
+       class=".views.TalkView"
+       template="templates/talkview.pt"
+       permission="zope2.View"
+       />
+
+Python
+
+.. code-block:: python
+
+    from Products.Five.browser import BrowserView
     from Products.CMFCore.utils import getToolByName
 
 
-    class TalkDefaultView(grok.View):
-        grok.context(Interface)
-        grok.require('zope2.View')
+    class TalkDefaultView(BrowserView):
+        pass
 
 
-    class TalkListView(grok.View):
-        grok.context(Interface)
-        grok.require("zope2.View")
+    class TalkListView(BrowserView):
 
         def talks(self):
             results = []
             portal_catalog = getToolByName(self.context, 'portal_catalog')
             current_path = "/".join(self.context.getPhysicalPath())
 
-            talks = portal_catalog(portal_type="talk",
+            brains = portal_catalog(portal_type="talk",
                                    path=current_path)
-            for brain in talks:
-                # hold on to your hats, we're awaking the brains!
+            for brain in brains:
                 talk = brain.getObject()
 
                 results.append({
                     'title': brain.Title,
                     'url': brain.getURL(),
                     'audience': talk.audience,
+                    'type_of_talk': talk.type_of_talk,
+                    'speaker': talk.speaker,
                     'uuid': brain.UID,
                     })
             return results
@@ -81,13 +91,15 @@ We could also add a new index to the catalog that will add 'audience' to the pro
 The code to add such an index would look like this::
 
     from plone.indexer.decorator import indexer
-    from plonekonf.talk.talk import ITalk
+    from ploneconf.talk.talk import ITalk
 
     @indexer(ITalk)
     def talk_audience(object, **kw):
          return object.audience
 
-We'd have to register this factory function as a named adapter using ZCML. Assuming you've put the code above into a file named indexers.py::
+We'd have to register this factory function as a named adapter in the ``configure.zcml``. Assuming you've put the code above into a file named indexers.py
+
+.. code-block:: xml
 
     <adapter name="audience" factory=".indexers.talk_audience" />
 
@@ -95,14 +107,66 @@ Why use the catalog at all? It checks for permissions, and only returns the talk
 
 Most objects in plone act like dictionaries, so I could do context.values() to get all it's contents.
 
-For historical reasons only the same attributes of brains and objects are written differently::
+For historical reasons some attributes of brains and objects are written differently::
+
+    >>> obj = brain.getObject()
+
+    >>> obj.title
+    u'Talk-submission is open!'
 
     >>> brain.Title == obj.title
     True
 
-But ``brain.title`` returns the name of the catalog :-(
+    >>> brain.title == obj.title
+    False
 
-Look there to find out how to query for date, language: http://collective-docs.readthedocs.org/en/latest/searching_and_indexing/index.html.
+Who can guess what ``brain.title`` will return since the brain has no such attribute?
+
+.. only:: manual
+
+    .. note::
+
+    Answer: Acquisition will get the attribute from the nearest parent. ``brain.__parent__`` is ``<CatalogTool at /Plone/portal_catalog>``. The attribute ``title`` of the ``portal_catalog`` is 'Indexes all content in the site'.
+
+Acquisition can be harmfull. Brains have no attribute 'getLayout' ``brain.getLayout()``::
+
+    >>> brain.getLayout()
+    'folder_listing'
+
+    >>> obj.getLayout()
+    'newsitem_view'
+
+    >>> brain.getLayout
+    <bound method PloneSite.getLayout of <PloneSite at /Plone>>
+
+The same is true for methods::
+
+    >>> obj.absolute_url()
+    'http://localhost:8080/Plone/news/talk-submission-is-open'
+    >>> brain.getURL() == obj.absolute_url()
+    True
+    >>> brain.getPath() == '/'.join(obj.getPhysicalPath())
+    True
+
+Querying the catalog
+--------------------
+
+The are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::
+
+    >>> portal_catalog = getToolByName(self.context, 'portal_catalog')
+    >>> portal_catalog(Subject=('cats', 'dogs'))
+    []
+    >>> portal_catalog(review_state='pending')
+    []
+
+Calling the catalog without parameters return teh whole site::
+
+    >>> portal_catalog()
+    [<Products.ZCatalog.Catalog.mybrains object at 0x1085a11f0>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a12c0>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a1328>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a13 ...
+
+.. seealso::
+
+    http://docs.plone.org/develop/plone/searching_and_indexing/query.html
 
 
 The template for the listing
