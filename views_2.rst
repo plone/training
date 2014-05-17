@@ -68,6 +68,10 @@ After all these negative things let us tell you why we still like it: We like to
 
 So, we will write our browser view as a grok view. From the component architecture side, nothing changes. We still need to write a multi adapter. All the details like which template to use or for which browser layer the view shall be used is declared with a single line annotation or deduced from file names.
 
+.. seealso::
+
+    http://docs.plone.org/develop/addons/five-grok/index.html
+
 Grok is not part of plone. We have to add it as a dependency to our egg.
 
 open setup.py, extended it like this::
