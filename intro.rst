@@ -116,12 +116,11 @@ Further Reading
 
 .. only:: manual
 
-    Other
-    *****
+    .. note::
 
-    * Please ask questions when you have them!
-    * Tell us if we speak to fast, to slow or not loud enough.
-    * One of us is always there to help you if you are stuck. Please give us a sign if you are stuck.
-    * We'll make some breaks...
-    * Where is Food, Restrooms
-    * Contact us after the training: team@starzel.de
+       * Please ask questions when you have them!
+       * Tell us if we speak to fast, to slow or not loud enough.
+       * One of us is always there to help you if you are stuck. Please give us a sign if you  are stuck.
+       * We'll make some breaks...
+       * Where is Food, Restrooms
+       * Contact us after the training: team@starzel.de
