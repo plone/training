@@ -9,6 +9,25 @@ To not waste too much time with installing and debugging the differences between
 
 Keep in mind that you need a fast internet-connection during the process since you'll have to download a complete virtual machine (ubuntu) and several packages and updates.
 
+.. warning::
+
+    We recommend using a virtual machine for the training if you are not used to running Plone on your laptop.
+
+    You can also work on your own machine with your own Python if you want to but **please please please** make sure that you have a system that will work since we don't want you to loose valuable time.
+
+    If you want to use your own system use the buildout at https://github.com/starzel/training_without_vagrant.git (since the one we set up via puppet has several directories set to folders not shared with the host).
+
+    Set up Plone for the training like this if you don't want to use a VM:
+
+    .. code-block:: bash
+
+        $ mkdir training
+        $ cd training
+        $ git clone https://github.com/starzel/training_without_vagrant.git buildout
+        $ cd buildout
+        $ virtualenv --no-site-packages py27
+        $ ./py27/bin/python bootstrap.py
+        $ ./bin/buildout
 
 Install VirtualBox
 -------------------------
@@ -52,6 +71,9 @@ This takes a **veeeeery loooong time** since it:
 * installs various packages needed for Plone-development
 * downloads and unpacks the unified installer for Plone
 * runs the unified installer for Plone.
+* copy the eggs to a location we use in the training
+* clones the training-buildout into /vagrant/buildout
+* builds the plone there using the eggs from the buildout-cache
 
 .. note::
 
@@ -93,10 +115,6 @@ You can now point your browser at http://localhost:8080 and see Plone. This work
 During the training we will create our own Plone-instance.
 
 If you have any problems or questions please mail us at team@starzel.de
-
-.. warning::
-
-    You can also work on your own machine with your own Python and Plone if you really want to but **please please please** make sure that you have a system that will work since we don't want you to loose valuable time learning Plone.
 
 
 What Vagrant does
