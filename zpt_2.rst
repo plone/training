@@ -104,6 +104,36 @@ The date is only displayed if the variable ``item_type`` (defined in line 42 of 
 There is a lot more going on in ``standard_view.pt`` and ``summary_view.pt`` but we'll leave it at that.
 
 
+Finding the right template
+--------------------------
+
+We changed the display of the listing of news-items at http://localhost:8080/Plone/news. But how do we know which template to customize?
+
+If you don't know which template the page you're looking at uses you can deduce, start a debug-session or use ``plone.app.debugtoolbar``.
+
+For deducing we could check the output with firebug and look for a structure that looks unique. That often helps.
+
+We already have ``plone.app.debugtoolbar`` in our buildout and only need to install it. It adds a "Debug"-Dropdown on top of the page. The Section "Published" shows the complete path to the template that is used to render the page you are seeing.
+
+The debug-session to find the template is a little more complicated. Since we have ``Products.PDBDebugMode`` in our buildout we can call ``/pdb`` on our page.
+
+The object that the url points to is by default ``self.context``. But the first problem is, that the url we're seeing is not the url of the collection where we want to modify since the collection is the default-page of the folder ``news``.
+
+.. code-block:: python
+
+    >>> (Pdb) self.context
+    <Folder at /Plone/news>
+    >>> (Pdb) obj = self.context.aggregator
+    >>> (Pdb) obj
+    <Collection at /Plone/news/aggregator>
+    >>> (Pdb) obj.getLayout()
+    'summary_view'
+    >>> (Pdb) view = obj.restrictedTraverse('summary_view')
+    >>> (Pdb) view
+    <Products.Five.metaclass.SimpleViewClass from /Users/philip/.cache/buildout/eggs/plone.app.contenttypes-1.1b2-py2.7.egg/plone/app/contenttypes/browser/templates/summary_view.pt object at 0x10b00cd90>
+    >>> view.index.filename
+    u'/Users/philip/workspace/training_without_vagrant/src/ploneconf.talk/ploneconf/talk/browser/template_overrides/plone.app.contenttypes.browser.templates.summary_view.pt'
+
 
 skin-templates
 --------------
