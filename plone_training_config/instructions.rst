@@ -110,9 +110,20 @@ We pre-installed a fresh Plone for you in the folder ``/home/vagrant/Plone/zinst
     $ cd Plone/zinstance
     $ ./bin/instance fg
 
-You can now point your browser at http://localhost:8080 and see Plone. This works since the port 8080 is forwarded from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone-Site by clicking "Create a new Plone-Site". The username and the password are both "admin" (Never do this on a real site!!!).
+Instead we use our own Plone-instance during the training.
 
-During the training we will create our own Plone-instance.
+.. code-block:: bash
+
+    $ cd /vagrant/buildout
+    $ ./bin/instance fg
+
+You can now point your browser at http://localhost:8080 and see Plone. This works since the port 8080 is forwarded from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone-Site by clicking "Create a new Plone-Site". The username and the password are both "admin" (Never do this on a real site!).
+
+The buildout for this Plone is in a shared folder, this means we run it in the vagrant-box from ``/vagrant/buildout`` but we can also access it in out own operating-system and use our favourite editor to editor. You will find the directory ``buildout`` in the directory ``training`` that you created in the very beginning next to ``Vagrantfile`` and ``manifests``.
+
+.. note::
+
+    The Database and the python-packages are not accessible in you own system since large files and symlinks should not be used in shared folders. The database lies in ``/home/vagrant/var``, the python-packages are in ``/home/vagrant/omelette``.
 
 If you have any problems or questions please mail us at team@starzel.de
 
@@ -150,7 +161,7 @@ First we update the ubuntu and install some packages.
 
 Then we create a virtual python environement using virtualenv. This is alway a good practice since that way we get a clean copy of our system-python, we can't break it by installing eggs that might collide with other eggs::
 
-    $ virtualenv --no-site-packages py27
+    $ virtualenv --no-site-packages /home/vagrant/py27
 
 Then we download, unpack and install the unified installer of Plone.
 
@@ -169,37 +180,33 @@ The unified installer is an amazing tool that compiles it's own python, brings w
 
 We will not actually use this Plone during the training. If you want to use it for your own experiments, you can find it in ``/home/vagrant/Plone/zinstance`` on the virtual machine.
 
-Instead we will now create our own little buildout and only use the python and the eggs that were created when installing the unified installer. First we copy the buildout-cache that holds all teh python-packages that Plone consits of.
+
+Instead vagrant now creates our own little buildout and only uses the eggs that were created when installing the unified installer. First we copy the buildout-cache that holds all the python-packages that Plone consits of.
 
 .. code-block:: bash
 
     $ cp -Rf /home/vagrant/Plone/buildout-cache /home/vagrant
 
-Checkout our tutorial code from http://github.com/starzel/training.
+Then we checkout our tutorial code from http://github.com/starzel/training and build it.
 
 .. code-block:: bash
 
-    $ cd /vagrant/buildouts
-    $ git clone https://github.com/starzel/training.git
+    $ cd /vagrant
+    $ git clone https://github.com/starzel/training.git buildout
+    $ cd buildout
+    $ virtualenv --no-site-packages py27
+    $ ./py24/bin/python bootstrap.py
+    $ ./bin/buildout
 
-In your training directory create another directory called 'plone'. Copy the contents from chapter3 of the tutorial code into the new directory.
+At this point vagrant has finished it's job.
 
-.. code-block:: bash
-
-    $ mkdir /vagrant/plone
-    $ cd /vagrant/plone
-    $ cp -R /vagrant/buildouts/chapter3/* .
-
-Then enter the machine via ssh and start building.
+You can now connect to the machine and start plone.
 
 .. code-block:: bash
 
-    $ cd /vagrant/plone
-    $ virtualenv .
-    $ source bin/activate
-    $ python bootstrap.py
-    $ bin/buildout
-    $ bin/instance fg
+    $ vagrant ssh
+    $ cd /vagrant/buildout
+    $ ./bin/instance fg
 
 Now we have fresh buildout based zope site, ready to get a Plone site. Go to http://localhost:8080 and create a plone Site, only activate the Dexterity plugin.
 
