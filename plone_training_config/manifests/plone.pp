@@ -16,9 +16,9 @@ class plone {
     file { '/home/vagrant/.buildout/default.cfg':
         ensure => present,
         content => inline_template('[buildout]
-eggs-directory = /home/vagrant/training/buildout-cache/eggs
-download-cache = /home/vagrant/training/buildout-cache/downloads
-extends-cache = /home/vagrant/training/buildout-cache/extends'),
+eggs-directory = /home/vagrant/buildout-cache/eggs
+download-cache = /home/vagrant/buildout-cache/downloads
+extends-cache = /home/vagrant/buildout-cache/extends'),
         owner => 'vagrant',
         group => 'vagrant',
         mode => '0664',
@@ -78,8 +78,46 @@ extends-cache = /home/vagrant/training/buildout-cache/extends'),
         creates => '/home/vagrant/buildout-cache/eggs/Products.CMFPlone-4.3.3-py2.7.egg/',
         user => 'vagrant',
         cwd => '/home/vagrant',
+        before => Exec["checkout_training"],
         timeout => 0,
     }
+
+    exec {'git clone https://github.com/starzel/training.git buildout':
+        alias => "checkout_training",
+        creates => '/vagrant/buildout',
+        user => 'vagrant',
+        cwd => '/vagrant',
+        before => Exec["virtualenv_training"],
+        timeout => 0,
+    }
+
+    exec {'virtualenv --no-site-packages /vagrant/buildout/py27':
+        alias => "virtualenv_training",
+        creates => '/vagrant/buildout/py27/bin/python',
+        user => 'vagrant',
+        cwd => '/vagrant/buildout',
+        before => Exec["bootstrap_training"],
+        timeout => 0,
+    }
+
+    exec {'/vagrant/buildout/py27/bin/python bootstrap.py':
+        alias => "bootstrap_training",
+        creates => '/vagrant/buildout/bin/buildout',
+        user => 'vagrant',
+        cwd => '/vagrant/buildout',
+        before => Exec["buildout_training"],
+        timeout => 0,
+    }
+
+    exec {'/vagrant/buildout/bin/buildout':
+        alias => "buildout_training",
+        creates => '/vagrant/buildout/bin/instance',
+        user => 'vagrant',
+        cwd => '/vagrant/buildout',
+        # before => Exec["buildout_final"],
+        timeout => 0,
+    }
+
 
 }
 
