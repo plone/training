@@ -4,17 +4,15 @@ Customizing existing templates
 
 To dive deeper into real plone-data we now look at some existing templates and customize them.
 
-These are not templates based on BrowserViews but skin-templates. You should never write skin-templates but you will often have to customize them.
 
-
-newsitem_view.pt
+newsitem.pt
 ----------------
 
 We want to show the date a News Item is published. This way people can see at a glance it the are looking at current or old news.
 
 To do this we will customize the templates that is used to render News Items.
 
-We'll basically do the same as when we used at ``plone.app.themeeditor``, but now we'll do it all by hand.
+We'll basically do the same as when we used at ``portal_skins`` (we customized the footer), but now we'll do it all by hand in our package.
 
 * Create the directoy ``browser/template_overrides``
 * Add the following to ``browser/configure.zcml``:
@@ -24,18 +22,18 @@ We'll basically do the same as when we used at ``plone.app.themeeditor``, but no
     <include package="z3c.jbot" file="meta.zcml" />
     <browser:jbot directory="template_overrides" />
 
-* Find the file ``Products/CMFPlone/skins/plone_content/newsitem_view.pt`` in the directory ``omelette``.
-* Copy it into the new folder.
-* Rename the new file from ``newsitem_view.pt`` to ``Products.CMFPlone.skins.plone_content.newsitem_view.pt``.
+* Find the file ``plone/app/contenttypes/browser/templates/newsitem.pt`` in the directory ``omelette`` (in vagrant this is in ``/home/vagrant/omelette``).
+* Copy it into the new folder ``cp /home/vagrant/omelette/plone/app/contenttypes/browser/templates/newsitem.pt /vagrant/buildout/src/ploneconf.talk/ploneconf/talk/browser/template_overrides``
+* Rename the new file from ``newsitem.pt`` to ``plone.app.contenttypes.browser.templates.newsitem.pt``.
 * Restart Plone
 
 Now Plone should use the new file to override the original one.
 
-Edit the template ``Products.CMFPlone.skins.plone_content.newsitem_view.pt`` and insert the following after line 32:
+Edit the template ``plone.app.contenttypes.browser.templates.newsitem.pt`` and insert the following after line 39:
 
 .. code-block:: html
 
-        <p tal:content="python:context.Date()">
+        <p tal:content="python: context.Date()">
             The current Date
         </p>
 
@@ -58,50 +56,52 @@ Now we should see the date in a user-friendly format like ``17.02.2013``.
 
 On older Plone-versions we used ``python:context.toLocalizedTime(context.Date(), longFormat=False)``. That called the python-script ``toLocalizedTime.py`` in the Folder ``Products/CMFPlone/skins/plone_scripts/``.
 
-That folder still holds a multitude of useful scripts that are widely used. But they are all deprecated and will hopefully be gone in Plone 5 and replaced by proper python-methods.
+That folder ``plone_scripts`` still holds a multitude of useful scripts that are widely used. But they are all deprecated and will hopefully be gone in Plone 5 and replaced by proper python-methods in browserviews.
 
 
-folder_summary_view.pt
------------------------
+summary_view.pt
+---------------
 
-We use the view "Summary View" to list news-releases. They should also have the date. The template associated with that view is ``folder_summary_view.pt``.
+We use the view "Summary View" to list news-releases. They should also have the date. The template associated with that view is ``summary_view.pt``.
 
 Let's look for the template folder_summary_view.pt::
 
-    Products/CMFPlone/skins/plone_content/folder_summary_view.pt
+    plone/app/contenttypes/browser/templates/summary_view.pt
+
+.. note::
+
+    In default Plone this would be ``folder_summary_view.pt``, a skin-template for Archetypes that lies in ``Products/CMFPlone/skins/plone_content/folder_summary_view.pt``
 
 Make a copy and rename it::
 
-    browser/template_overrides/Products.CMFPlone.skins.plone_content.folder_summary_view.pt
+    browser/template_overrides/plone.app.contenttypes.browser.templates.summary_view.pt
 
-Add the following after line 25:
+Add the following after line 29:
 
 .. code-block:: html
 
     <p tal:condition="python:item_type == 'News Item'"
-       tal:content="python:toLocalizedTime(item.Date)">
+       tal:content="python:toLocalizedTime(item.Date())">
             News date
     </p>
 
 The method ``toLocalizedTime`` is already defined in the template whose macro this temples uses. Why is that?
 
-The secret is line 12 of ``folder_summary_view.pt``:
+The secret is line 15 of ``summary_view.pt``:
 
 .. code-block:: html
 
-    <metal:block
-        define-macro="listing"
-        extend-macro="context/folder_listing/macros/content-core">
+    <metal:block use-macro="context/standard_view/macros/entries">
 
-``extend-macro`` tells Plone to extend the macro ``listing`` from the view ``folder_listing`` which is found in template ``Products/CMFPlone/skins/plone_content/folder_listing.pt``.
+``use-macro`` tells Plone to reuse the macro ``entries`` from the view ``standard_view`` which is found in template ``plone/app/contenttypes/browser/templates/standard_view.pt``.
 
-The template ``folder_summary_view.pt`` is one of the most widely used and most widely customized templates, so you might as well get to know it a little.
+The templates ``summary_view.pt`` and ``folder_summary_view.pt`` (which is the same but for folders, not collections) are very widely used and also widely customized, so you might as well get to know it a little.
 
-Our addition renders the date of the respective objects that the template iterates over (thus ``item`` instead of ``context`` since ``context`` would be the folder containing the nwws items).
+Our addition renders the date of the respective objects that the template iterates over (thus ``item`` instead of ``context`` since ``context`` would be the collection aggregating the news items).
 
-The date is only displayed if the variable ``item_type`` (defined in line 57 of ``folder_listing.pt``) is ``News Item``.
+The date is only displayed if the variable ``item_type`` (defined in line 42 of ``standard_view.pt``) is ``News Item``.
 
-There is a lot more going on in ``folder_listing.pt`` and ``folder_summary_view.pt`` but we'll leave it at that.
+There is a lot more going on in ``standard_view.pt`` and ``summary_view.pt`` but we'll leave it at that.
 
 
 
@@ -112,7 +112,10 @@ Why don't we always only use templates? Because we might want to do something mo
 
 There is a deprecated technology called 'skin-templates' that allows you to simply add some page-template (e.g. 'old_style_template.pt') to a certain folder in the ZMI or your egg) and you can access it in the browser by opening a url like http://localhost:8080/Plone/old_style_template and it will be rendered. But we don't use it and you too should not even though these skin-templates are still all over Plone.
 
-The templates of the default content-types are skin-templates for example. You could append ``/document_view`` to any part of a plone-site to render the default template for documents. You will often get errors since the template ``document_view.pt`` expects the context to have a field 'text' that it attempts to render.
+Since we use plone.app.contenttypes we do not encounter many skin-templates when dealing with content any more. But mor often than not you'll have to customize an old site that still uses skin-templates.
+
+Until now the templates of the default content-types are skin-templates for example. Since we use plone.app.contenttypes we do not encounter many skin-templates when dealing with content any more. But mor often than not you'll have to customize an old site that still uses skin-templates.
+You could append ``/document_view`` to any part of a plone-site to render the default template for documents. You will often get errors since the template ``document_view.pt`` expects the context to have a field 'text' that it attempts to render.
 
 Skin templates and python-scripts in portal_skin are deprecated because:
 
