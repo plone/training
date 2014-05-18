@@ -35,7 +35,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         logoutput => true,
     }
 
-    # Get the unified installer and unpack the buildout-cache
+    # Get the unified installer
     exec {'wget https://launchpad.net/plone/4.3/4.3.3/+download/Plone-4.3.3-UnifiedInstaller.tgz':
         alias => "download_installer",
         creates => '/home/vagrant/tmp/Plone-4.3.3-UnifiedInstaller.tgz',
@@ -46,6 +46,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 600,
     }
 
+    # Unpack unified installer
     exec {'tar xzf Plone-4.3.3-UnifiedInstaller.tgz':
         alias => "untar_installer",
         creates => '/home/vagrant/tmp/Plone-4.3.3-UnifiedInstaller',
@@ -55,6 +56,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 300,
     }
 
+    # Create virtualenv
     exec {'virtualenv --no-site-packages py27':
         alias => "virtualenv",
         creates => '/home/vagrant/py27',
@@ -64,6 +66,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 300,
     }
 
+    # Run unified installer
     exec {'/home/vagrant/tmp/Plone-4.3.3-UnifiedInstaller/install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone':
         alias => "install_plone",
         creates => '/home/vagrant/Plone/zinstance/bin/buildout',
@@ -73,6 +76,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 0,
     }
 
+    # Copy buildout-cache
     exec {'cp -Rf /home/vagrant/Plone/buildout-cache/* /home/vagrant/buildout-cache/':
         alias => "copy_cache",
         creates => '/home/vagrant/buildout-cache/eggs/Products.CMFPlone-4.3.3-py2.7.egg/',
@@ -82,6 +86,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 0,
     }
 
+    # get starter-buildout
     exec {'git clone https://github.com/starzel/training.git buildout':
         alias => "checkout_training",
         creates => '/vagrant/buildout',
@@ -91,6 +96,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 0,
     }
 
+    # create virtualenv
     exec {'virtualenv --no-site-packages /vagrant/buildout/py27':
         alias => "virtualenv_training",
         creates => '/vagrant/buildout/py27/bin/python',
@@ -100,6 +106,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 0,
     }
 
+    # bootstrap
     exec {'/vagrant/buildout/py27/bin/python bootstrap.py':
         alias => "bootstrap_training",
         creates => '/vagrant/buildout/bin/buildout',
@@ -109,6 +116,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 0,
     }
 
+    # run buildout
     exec {'/vagrant/buildout/bin/buildout':
         alias => "buildout_training",
         creates => '/vagrant/buildout/bin/instance',
