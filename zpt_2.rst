@@ -111,9 +111,15 @@ We changed the display of the listing of news-items at http://localhost:8080/Plo
 
 If you don't know which template the page you're looking at uses you can deduce, start a debug-session or use ``plone.app.debugtoolbar``.
 
-For deducing we could check the output with firebug and look for a structure that looks unique. That often helps.
+We could check the html with firebug and look for a structure in the content-area that looks unique. We could also look for the css-class of he body
 
-We already have ``plone.app.debugtoolbar`` in our buildout and only need to install it. It adds a "Debug"-Dropdown on top of the page. The Section "Published" shows the complete path to the template that is used to render the page you are seeing.
+.. code-block:: html
+
+    <body class="template-summary_view portaltype-collection site-Plone section-news subsection-aggregator icons-on userrole-anonymous" dir="ltr">
+
+The class ``template-summary_view`` tells us that the name of the view (but not necessarily the name of the template) is ``summary_view``. So we could search all ``*.zcml``-Files for ``name="summary_view"`` or search all templates calles ``summary_view.pt`` and probably find the view and also the corresponding template. But only probably because it would not tell us if the template is already being overridden.
+
+The safest method is using ``plone.app.debugtoolbar``.  We already have it in our buildout and only need to install it. It adds a "Debug"-Dropdown on top of the page. The Section "Published" shows the complete path to the template that is used to render the page you are seeing.
 
 The debug-session to find the template is a little more complicated. Since we have ``Products.PDBDebugMode`` in our buildout we can call ``/pdb`` on our page.
 
@@ -126,7 +132,9 @@ The object that the url points to is by default ``self.context``. But the first 
     >>> (Pdb) obj = self.context.aggregator
     >>> (Pdb) obj
     <Collection at /Plone/news/aggregator>
-    >>> (Pdb) obj.getLayout()
+    >>> (Pdb) context_state = obj.restrictedTraverse('@@plone_context_state')
+    >>> (Pdb) template_id = context_state.view_template_id()
+    >>> (Pdb) template_id
     'summary_view'
     >>> (Pdb) view = obj.restrictedTraverse('summary_view')
     >>> (Pdb) view
@@ -134,6 +142,7 @@ The object that the url points to is by default ``self.context``. But the first 
     >>> view.index.filename
     u'/Users/philip/workspace/training_without_vagrant/src/ploneconf.talk/ploneconf/talk/browser/template_overrides/plone.app.contenttypes.browser.templates.summary_view.pt'
 
+Now we see that we already customized the template.
 
 skin-templates
 --------------
