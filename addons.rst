@@ -135,8 +135,11 @@ Instead of creating custom content types for galleries, it integrates with the P
 
 https://pypi.python.org/pypi/collective.plonetruegallery
 
-* Add a folder
-*
+* Install the addon: http://localhost:8080/Plone/prefs_install_products_form
+* Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors
+* Add a folder /the-event/location
+* Upload some fotos from http://lorempixel.com/600/400/city/
+* Enable the view ``galleryview``
 
 
 Internationalisation
