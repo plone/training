@@ -304,7 +304,7 @@ Upon installing Plone reads the file ``ploneconf/talk/profiles/default/types/tal
     </object>
 
 * restart Plone
-* install ploneconf.talk
+* install ploneconf.site
 * Go to the ZMI and look at the definition of the new type in ``portal_types``.
 * Test the type by adding an object or editing one of the old ones.
 * Look at how the talks are presented in the browser.

@@ -19,7 +19,7 @@ This returns a list of available templates we might use. We choose dexerity sinc
 
 We anwser some questions:
 
-* Enter project name: ``ploneconf.talk``
+* Enter project name: ``ploneconf.site``
 * Expert Mode? (What question mode would you like? (easy/expert/all)?) ['easy']: ``easy``
 * Version (Version number for project) ['1.0']: ``1.0``
 * Description (One-line description of the project) ['Example Dexterity Product']: ``PloneConf Talks``
@@ -48,7 +48,7 @@ ploneconf/talk/locales/
     This holds translation-files (see http://docs.plone.org/develop/plone/i18n/internationalisation.html)
 
 ploneconf/talk/resources/
-    A directory that holds static resources (images/css/js). They are accessible as ``++resource++ploneconf.talk/myawesome.css``
+    A directory that holds static resources (images/css/js). They are accessible as ``++resource++ploneconf.site/myawesome.css``
 
 ploneconf/talk/profiles/default/
     The folder contains the generic setup-profile

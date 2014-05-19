@@ -91,7 +91,7 @@ We could also add a new index to the catalog that will add 'audience' to the pro
 The code to add such an index would look like this::
 
     from plone.indexer.decorator import indexer
-    from ploneconf.talk.talk import ITalk
+    from ploneconf.site.talk import ITalk
 
     @indexer(ITalk)
     def talk_audience(object, **kw):

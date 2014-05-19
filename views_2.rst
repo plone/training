@@ -12,7 +12,7 @@ ZCML
     <configure
         xmlns="http://namespaces.zope.org/zope"
         xmlns:browser="http://namespaces.zope.org/browser"
-        i18n_domain="ploneconf.talk">
+        i18n_domain="ploneconf.site">
 
         <browser:page
            name="demoview"
@@ -99,7 +99,7 @@ Grok nearly magicaly does find all its annotations. Since its not complete magic
         xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
         xmlns:grok="http://namespaces.zope.org/grok"
         xmlns:plone="http://namespaces.plone.org/plone"
-        i18n_domain="ploneconf.talk">
+        i18n_domain="ploneconf.site">
 
         <includeDependencies package="." />
 
@@ -124,7 +124,7 @@ And the template. Important, the template must be in a subdirectory called `view
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
         lang="en"
         metal:use-macro="context/main_template/macros/master"
-        i18n:domain="ploneconf.talk">
+        i18n:domain="ploneconf.site">
     <body>
         <metal:content-core fill-slot="content-core">
             <p>Suitable for <em tal:replace="structure view/w/audience/render"></em>

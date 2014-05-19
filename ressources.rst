@@ -12,7 +12,7 @@ We are going to mimic this behavior with plone functionality by adding the follo
 
     <plone:static
         type="theme"
-        name="ploneconf.talk"
+        name="ploneconf.site"
         directory="static"
         />
 
@@ -20,7 +20,7 @@ For this to work we need to add another namespace-declaration into the header::
 
     xmlns:plone="http://namespaces.plone.org/plone"
 
-Now all files we put in the static folder can be found via /++theme++/ploneconf.talk/somefile
+Now all files we put in the static folder can be found via /++theme++/ploneconf.site/somefile
 
 How do our javascript and css files and up in the browser? Adding them directly into the html is not a good solution, having many css and js files slows page loading down.
 Plone has a resource manager that is able to concatenate and compress js and css files, resources can be added conditionally and Plone automatically stops concatenating files when you are debugging plone in the foreground. The resources are managed in the Zope database, as need to write a genericsetup step.
@@ -31,6 +31,6 @@ Plone has a resource manager that is able to concatenate and compress js and css
     <object name="portal_javascripts" meta_type="JavaScripts Registry">
     <javascript authenticated="False" cacheable="True" compression="safe"
         conditionalcomment="" cookable="True" enabled="on" expression=""
-        id="++theme++ploneconf.talk/ploneconf.js" inline="False"/>
+        id="++theme++ploneconf.site/ploneconf.js" inline="False"/>
     </object>
 

@@ -54,7 +54,7 @@ Let us walk through our ``buildout.cfg`` and look at some important variables:
     #extensions = mr.developer
     #sources = sources
     #auto-checkout =
-    #    ploneconf.talk
+    #    ploneconf.site
     #    starzel.votable_behavior
 
     versions = versions
@@ -69,7 +69,7 @@ Let us walk through our ``buildout.cfg`` and look at some important variables:
     #    collective.plonetruegallery
     #    plone.app.themeeditor
     #    z3c.jbot
-    #    ploneconf.talk
+    #    ploneconf.site
     #    starzel.votable_behavior
 
     user = admin:admin
@@ -94,7 +94,7 @@ Let us walk through our ``buildout.cfg`` and look at some important variables:
         ${instance:eggs}
 
     [sources]
-    #ploneconf.talk = git https://github.com/starzel/ploneconf.talk.git
+    #ploneconf.site = git https://github.com/starzel/ploneconf.site.git
     #starzel.votable_behavior = git git://github.com/starzel/starzel.votable_behavior.git
 
 

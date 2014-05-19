@@ -48,7 +48,7 @@ Let's try it. Open the file ``demoview.pt`` and add:
 
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
           lang="en"
-          i18n:domain="ploneconf.talk">
+          i18n:domain="ploneconf.site">
     <body>
 
         <p>red</p>
@@ -399,7 +399,7 @@ The complete template shoud now look like this:
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
           lang="en"
           metal:use-macro="context/main_template/macros/master"
-          i18n:domain="ploneconf.talk">
+          i18n:domain="ploneconf.site">
     <body>
 
     <metal:content-core fill-slot="content-core">
@@ -452,7 +452,7 @@ in zcml:
 
     <browser:page
       for="*"
-      name="ploneconf.talk.macros"
+      name="ploneconf.site.macros"
       template="templates/macros.pt"
       permission="zope2.View"
       />
@@ -461,7 +461,7 @@ use it the template:
 
 .. code-block:: html
 
-        <div metal:use-macro="view/context/@@ploneconf.talk.macros/my_macro">
+        <div metal:use-macro="view/context/@@ploneconf.site.macros/my_macro">
             the macro
         </div>
 

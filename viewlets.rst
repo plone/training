@@ -22,10 +22,10 @@ We add a new folder ``viewlets`` with an empty ``__init__.py`` and register the 
 
         <browser:viewlet
             name="social"
-            for="ploneconf.talk.behavior.social.ISocial"
+            for="ploneconf.site.behavior.social.ISocial"
             manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
             class=".viewlets.SocialViewlet"
-            layer="ploneconf.talk.interfaces.IPloneconfTalkLayer"
+            layer="ploneconf.site.interfaces.IPloneconfTalkLayer"
             template="templates/social.pt"
             permission="zope2.View"
             />
@@ -150,7 +150,7 @@ Lets see the final code::
     from Products.CMFDefault.permissions import ViewManagementScreens
     from five import grok
     from plone.app.layout.viewlets import interfaces as viewletIFs
-    from ploneconf.talk.interfaces import IVotable, IVoting
+    from ploneconf.site.interfaces import IVotable, IVoting
 
 
     class Vote(grok.Viewlet):
