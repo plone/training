@@ -11,7 +11,7 @@ eea.facetednavigation
 * Enable faceted navigation on a new folder within "talks"
 * Configure it using ``Faceted Criteria``
 * Use the Checkboxes-Widget using the catalog-index "Tags"
-* Other Noteable widgets: tagcloud, a-z, search, radio
+* Other noteable widgets: select, radio, tagcloud, a-z, search
 
 Examples:
 
