@@ -16,7 +16,12 @@ In this part we will:
 Add a class and interface to the talk-type
 ------------------------------------------
 
-There are some upsides to having a real python-class on a content-type.
+Marker Interfaces
++++++++++++++++++
+
+The content-type `Talk` is not yet a first-class plone-citizen because it does not implement his own interface. Interfaces are like name-tags, telling other elements who and what you are and what you can do. A marker interface is like such a nametag. The talks actually have a auto-generated marker-interface ``plone.dexterity.schema.generated.Plone_0_talk``.
+
+The problem is that the name of the Plone-instance ``Plone`` is part of that interface-name. If you now moved these types to a site with another name, code that uses these Interfaces would no longer find the objects in question.
 
 For this we add new files ``ìnterfaces.py`` and ``content.py``:
 
@@ -33,7 +38,7 @@ interfaces.py
         """Marker interface for Sponsor
         """
 
-These are marker-interfaces. We can bind Views and Viewlets to content that implements these interfaces.
+These are marker-interfaces. We can bind Views and Viewlets to content that implements these interfaces. Having a real python-class on a content-type has the additional upside: We can now add methods to this class that can be used like ``obj.my_method()``.
 
 content.py
 
@@ -41,6 +46,7 @@ content.py
 
     from plone.dexterity.content import Container
     from ploneconf.site.interfaces import ITalk
+    from zope.interface import implements
 
     class Talk(Container):
         implements(ITalk)
@@ -60,11 +66,28 @@ To have our talk-instances to use this we'll have to modify its base-class from 
       <element value="plone.app.content.interfaces.INameFromTitle"/>
     </property>
 
+Now we can bind the talkview to the new interface
+
+.. code-block:: xml
+    :emphasize-lines: 3
+
+    <browser:page
+       name="talklistview"
+       for="ploneconf.talk.interfaces.ITalk"
+       layer="*"
+       class=".views.TalkListView"
+       template="templates/talklistview.pt"
+       permission="zope2.View"
+       />
+
+Now the ``/talkview`` can only be used on objects that implent said interface.
 
 Add a browserlayer
 ------------------
 
-Since we want the features we write only to be availabe when ploneconf.site actually is installed we can bind them to a browserlayer. Layers allow us to easily enable and disable views and other site functionality based on installed add-ons and themes.
+A browserlayer is another such marker-interface. Bowserlayers allow us to easily enable and disable views and other site functionality based on installed add-ons and themes.
+
+Since we want the features we write only to be availabe when ploneconf.site actually is installed we can bind them to a browserlayer.
 
 In ``interfaces.py`` we add:
 
@@ -74,14 +97,24 @@ In ``interfaces.py`` we add:
         """Marker interface for the Browserlayer
         """
 
-Now we can bind the demoview, the talkview and the talklistview to our layer. Here is an example using the talklistview.
+We register teh browserlayer in generic setup in ``profiles/default/browserlayer.xml``
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <layers>
+      <layer name="ploneconf.site"
+        interface="ploneconf.site.interfaces.IPloneconfSiteLayer" />
+    </layers>
+
+After reinstalling the addon we can bind the demoview, the talkview and the talklistview to our layer. Here is an example using the talkview.
 
 .. code-block:: xml
     :emphasize-lines: 4
 
     <browser:page
        name="talklistview"
-       for="*"
+       for="ploneconf.talk.interfaces.ITalk"
        layer="..interfaces.IPloneconfSiteLayer"
        class=".views.TalkListView"
        template="templates/talklistview.pt"
