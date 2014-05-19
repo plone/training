@@ -11,7 +11,7 @@ We register a folder called behavior in our configure.zcml
 
     <include package=".behavior" />
 
-We add an empty __init__.py and a configute.czml containing
+We add an empty ``__init__.py`` and a ``configure.zcml`` containing
 
 .. code-block:: xml
 
@@ -33,9 +33,8 @@ We add an empty __init__.py and a configute.czml containing
 
     </configure>
 
-And a social.py containing::
+And a ``social.py`` containing::
 
-    # -*- coding: utf-8 -*-
     from plone.directives import form
     from zope import schema
     from zope.interface import alsoProvides
