@@ -95,9 +95,9 @@ Configure a Mailserver
 
 * Server: :samp:`mail.gocept.net`
 * Username: :samp:`training@neww.de`
-* Password: :samp:`training2013`
+* Password: :samp:`training2014`
 
-Please do not abuse this. We'll diable this account after the training.
+Please do not abuse this. We'll disable this account after the training.
 
 
 Walktrough of the UI
@@ -131,7 +131,7 @@ Content-Types
 Edit a page:
 
 * :guilabel:`Edit frontpage`
-* :guilabel:`Title` :samp:`Plone Conference 2013, Brazil`
+* :guilabel:`Title` :samp:`Plone Conference 2014, Bristol`
 * :guilabel:`Description` :samp:`Tutorial`
 * :guilabel:`Text` :samp:`...`
 
@@ -143,12 +143,12 @@ Create a site-structure:
   * Folder "Training"
   * Folder "Sprint"
 
-* In /news: Add News Item "conf website online!" with image
-* In /news: Add News Item "submit your talks!"
-* In /events: Add Event "Deadline for talk-submission" Date: 10.10.2013
+* In /news: Add News Item "Conference Website online!" with some image
+* In /news: Add News Item "Submit your talks!"
+* In /events: Add Event "Deadline for talk-submission" Date: 10.10.2014
 
 * Add Folder "Register"
-* Delete "members"
+* Delete Folder "members"
 * Add Folder "Intranet"
 
 
@@ -179,6 +179,7 @@ Folders
 * dropdown "display"
 * default_pages
 * Add a page to 'the-event': "The Event" and make it the default-page
+* The future: ``wildcard.foldercontents``
 
 
 Collections
@@ -186,8 +187,10 @@ Collections
 
 * add a new collection: all content that has pending as wf_state.
 * explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit
-* old vs. new collections (from Plone 4.2 on the new collections are the default)
+* explain Topics
 * mention collection-portets
+* multi-path-querys
+* constrains, e.g. ``/Plone/folder::1``
 
 
 Content Rules

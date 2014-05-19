@@ -18,7 +18,7 @@ We add an empty ``__init__.py`` and a ``configure.zcml`` containing
     <configure
         xmlns="http://namespaces.zope.org/zope"
         xmlns:plone="http://namespaces.plone.org/plone"
-        i18n_domain="plonekonf.talk">
+        i18n_domain="ploneconf.talk">
 
       <include package="plone.behavior" file="meta.zcml" />
 

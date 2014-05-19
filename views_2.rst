@@ -124,7 +124,7 @@ And the template. Important, the template must be in a subdirectory called `view
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
         lang="en"
         metal:use-macro="context/main_template/macros/master"
-        i18n:domain="plonekonf.talk">
+        i18n:domain="ploneconf.talk">
     <body>
         <metal:content-core fill-slot="content-core">
             <p>Suitable for <em tal:replace="structure view/w/audience/render"></em>

@@ -150,7 +150,7 @@ Lets see the final code::
     from Products.CMFDefault.permissions import ViewManagementScreens
     from five import grok
     from plone.app.layout.viewlets import interfaces as viewletIFs
-    from plonekonf.talk.interfaces import IVotable, IVoting
+    from ploneconf.talk.interfaces import IVotable, IVoting
 
 
     class Vote(grok.Viewlet):
@@ -222,7 +222,7 @@ the final temoplate looks like this:
 
     <script type="text/javascript">
       jq(document).ready(function(){
-        plonekonf.init_voting_viewlet(jq(".voting"));
+        ploneconf.init_voting_viewlet(jq(".voting"));
       });
     </script>
 

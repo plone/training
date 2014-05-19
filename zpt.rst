@@ -452,7 +452,7 @@ in zcml:
 
     <browser:page
       for="*"
-      name="plonekonf.talk.macros"
+      name="ploneconf.talk.macros"
       template="templates/macros.pt"
       permission="zope2.View"
       />
@@ -461,7 +461,7 @@ use it the template:
 
 .. code-block:: html
 
-        <div metal:use-macro="view/context/@@plonekonf.talk.macros/my_macro">
+        <div metal:use-macro="view/context/@@ploneconf.talk.macros/my_macro">
             the macro
         </div>
 
