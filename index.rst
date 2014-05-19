@@ -38,8 +38,9 @@ Contents:
     zpt_2
     views_2
     views_3
-    grok
+    dexterity_2
     custom_search
+    grok
     ressources
     social_behavior
     thirdparty_behaviors

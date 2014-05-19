@@ -88,20 +88,24 @@ We could also add a new index to the catalog that will add 'audience' to the pro
 * talks are important and thus most likely always in memory
 * prevent bloating of catalog with indexes
 
-The code to add such an index would look like this::
+.. note::
 
-    from plone.indexer.decorator import indexer
-    from ploneconf.site.talk import ITalk
+    The code to add such an index would look like this::
 
-    @indexer(ITalk)
-    def talk_audience(object, **kw):
-         return object.audience
+        from plone.indexer.decorator import indexer
+        from ploneconf.site.talk import ITalk
 
-We'd have to register this factory function as a named adapter in the ``configure.zcml``. Assuming you've put the code above into a file named indexers.py
+        @indexer(ITalk)
+        def talk_audience(object, **kw):
+             return object.audience
 
-.. code-block:: xml
+    We'd have to register this factory function as a named adapter in the ``configure.zcml``. Assuming you've put the code above into a file named indexers.py
 
-    <adapter name="audience" factory=".indexers.talk_audience" />
+    .. code-block:: xml
+
+        <adapter name="audience" factory=".indexers.talk_audience" />
+
+    We will add some indexers later on.
 
 Why use the catalog at all? It checks for permissions, and only returns the talks that the current user may see. They might be private or hidden to you since they are part of a top-secret conference for core-develeopers (there is no such thing!).
 
