@@ -1,63 +1,79 @@
 Social behavior
 ===============
 
-You can extend the functionality of your dexterity object by writing an adapter that adapts your dexterity object to add another feature or aspect.
+.. only:: manual
 
-But if you want to use this adapter, you must somehow know that an object implements that. Also, you could not easily add more fields to an object with such an approach.
+    You can extend the functionality of your dexterity object by writing an adapter that adapts your dexterity object to add another feature or aspect.
+
+    But if you want to use this adapter, you must somehow know that an object implements that. Also, you could not easily add more fields to an object with such an approach.
 
 Dexterity Approach
 ------------------
 
-Dexterity has a solution for it, with special adapters that are called and registered by the name behavior.
+.. only:: manual
 
-A behavior can be added to any content type through the web and during runtime.
+    Dexterity has a solution for it, with special adapters that are called and registered by the name behavior.
 
-All default views know about the concept of behaviors and when rendering forms, the views also check whether there are behaviors referenced with the current context and if these behavior have a schema of their own, these fields get shown in addition.
+    A behavior can be added to any content type through the web and during runtime.
 
-This this functionality in place, you can extend your content types during runtime, through the web.
+    All default views know about the concept of behaviors and when rendering forms, the views also check whether there are behaviors referenced with the current context and if these behavior have a schema of their own, these fields get shown in addition.
+
+    This this functionality in place, you can extend your content types during runtime, through the web.
 
 Names and Theory
 ----------------
 
-The name behavior is not a standard term in the software development. But it is a good idea to think of a behavior as an aspect. You are adding an aspect to your content type, you want to write your aspect in such a way, that it works independent of the content type on which the aspect is applied. You should not have dependencies to specific fields of your object or to other behaviors.
+.. only:: manual
 
-Such an object allows you to apply the `Open/closed principle`_ to your dexterity objects.
+    The name behavior is not a standard term in the software development. But it is a good idea to think of a behavior as an aspect. You are adding an aspect to your content type, you want to write your aspect in such a way, that it works independent of the content type on which the aspect is applied. You should not have dependencies to specific fields of your object or to other behaviors.
+
+    Such an object allows you to apply the `Open/closed principle`_ to your dexterity objects.
+
+.. only:: presentation
+
+    `Open/closed principle`_
 
 .. _Open/closed principle: https://en.wikipedia.org/wiki/Open/closed_principle
 
 Practical example
 -----------------
 
-So, let us write our own small behavior.
+.. only:: manual
 
-In the future, we want our presentation be represented in Lanyrd too. For now we will just provide a link so that visitors can collaborate easily with the lanyrd site.
+    So, let us write our own small behavior.
 
-So for now, our behavior just adds a new field for storing the url to Lanyrd.
+    In the future, we want our presentation be represented in Lanyrd too. For now we will just provide a link so that visitors can collaborate easily with the lanyrd site.
 
-We want to keep a clean structure, so we create a behavior directory first, and include it into the zcml declarations.
+    So for now, our behavior just adds a new field for storing the url to Lanyrd.
+
+We want to keep a clean structure, so we create a behavior directory first, and include it into the zcml declarations of our :file:`configure.zcml`.
 
 .. code-block:: xml
 
     <include package=".behavior" />
 
-Then, we add an empty ``__init__.py`` and a ``configure.zcml`` containing
+Then, we add an empty :file:`behavior/__init__.py` and a :file:`behavior/configure.zcml` containing
 
-.. sidebar:: Advanced reference
+.. only:: manual
 
-    The original documentation is doctest code, so no documentation and no debuggable test.
+    .. sidebar:: Advanced reference
 
-    It can be a bit confusing of when to use factory, or marker interfaces and when not.
+        The original documentation is doctest code, so no documentation and no debuggable test.
 
-    If you do not define a factory, your attributes will be stored directly on the object. This can result in clashes with other behaviors.
+        It can be a bit confusing of when to use factory, or marker interfaces and when not.
 
-    You can avoid this by using the plone.behavior.AnnotationStorage factory. This one stores your attributes in an :ref:`Annotation <plone:annotations>`.
-    But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
+        If you do not define a factory, your attributes will be stored directly on the object. This can result in clashes with other behaviors.
 
-    Without it, you would have no interface against which you could register your views.
+        You can avoid this by using the plone.behavior.AnnotationStorage factory. This one stores your attributes in an :ref:`Annotation <plone:annotations>`.
+        But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
 
+        Without it, you would have no interface against which you could register your views.
 
+.. _social-behavior-zcml-label:
 
 .. code-block:: xml
+    :linenos:
+    :emphasize-lines: 6-10
 
     <configure
         xmlns="http://namespaces.zope.org/zope"
@@ -72,15 +88,20 @@ Then, we add an empty ``__init__.py`` and a ``configure.zcml`` containing
 
     </configure>
 
-And a ``social.py`` containing::
+And a :file:`behavior/social.py` containing:
 
-    from plone.directives import form
+.. _social-behavior-python-label:
+
+.. code-block:: python
+    :linenos:
+
+    from plone.supermodel import model, directives
     from zope import schema
     from zope.interface import alsoProvides
 
-    class ISocial(form.Schema):
+    class ISocial(model.Schema):
 
-        form.fieldset(
+        directives.fieldset(
                 'social',
                 label=u'Social',
                 fields=('lanyrd',),
@@ -94,8 +115,18 @@ And a ``social.py`` containing::
 
     alsoProvides(ISocial, form.IFormFieldProvider)
 
-Lets get through this step by step.
+.. only:: manual
 
-First, we register a behavior. We do not say for which content type this behavior is valid. You do this, through the web or in the GenericSetup profile.
+    Lets get through this step by step.
 
+    #. We register a behavior in :ref:`behavior/configure.zcml <social-behavior-zcml-label>`. We do not say for which content type this behavior is valid. You do this, through the web or in the GenericSetup profile.
+    #. We create a marker interface in :ref:`behavior/social.py <social-behavior-python-label>` for our behavior and make it also a schema containing the fields we want to declare.
+       We could just use define schema fields on a zope.intereface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features.
+    #. We add a `fieldset`_ So that our fields are not mixed with the normal fields of the object.
+    #. We add a normal `URI`_ schema field to store the URI to lanyrd.
+    #. We mark our schema es a class that also implements the `IFormFieldProvider`_ interface. This is a marker interface, we do not need to implement anything to provide the interface.
 
+.. _plone.supermodel: http://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
+.. _fieldset: http://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
+.. _IFormFieldProvider: http://docs.plone.org/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms
+.. _URI: http://docs.zope.org/zope.schema/fields.html#uri
