@@ -38,6 +38,7 @@ Contents:
     zpt_2
     views_2
     views_3
+    grok
     custom_search
     ressources
     social_behavior
