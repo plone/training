@@ -27,7 +27,7 @@ Two content-frameworks in Plone
 * Archetypes: old, tried and tested
 * Archetypes: widespread though addons
 * Plone 4.x: Archetypes
-* Plone 5.x: Dexterity-versions
+* Plone 5.x: Dexterity
 * add and edit-forms are created automatically from a schema
 
 What are the differences?
@@ -40,7 +40,7 @@ TTW:
 
 * Dexterity has a good TTW-story.
 * Archetypes has no ttw-story
-* Archetypes has ArchGenXML for UML-modeling (agx will bring this to Dexterity too)
+* UML-modeling: `ArchGenXML <http://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ for Archetypes, `agx <http://agx.me>`_ for Dexterity
 
 Approaches for Developers:
 
@@ -57,16 +57,16 @@ Extending:
 * Dexterity has Behaviors: easily extendable. Just activate an behavior ttw and you ct is translateable (plone.app.multilingual). There might even be per-instance behaviors at one time...
 * Archetypes has archetypes.schemaextender. Powerfull but not as flexible
 
-We use dexterity whenever possible because of these points.
+We only use dexterity for the last years.
 We teach Dexterity and not Archetypes since it's much more accessible to beginners, has a great TTW-story and is the future.
 
 Views:
 
 * Both Dexterity and Archetypes have a default-view for content-types.
-* Grok Views
-* Display Forms
 * Browser Views (zcml)
 * TTW (future)
+* Grok Views
+* Display Forms
 
 
 Installation
@@ -193,9 +193,9 @@ We want version-control and more extendability so we move our new content-types 
 
 * Export the Type Profile and save the file
 * Delete the type from the site before installing the type from the file-system
-* Extract the files from the exported tar-file and add them to our addon-package in ``ploneconf/talk/profiles/default/``
+* Extract the files from the exported tar-file and add them to our addon-package in ``ploneconf/site/profiles/default/``
 
-The file ``ploneconf/talk/profiles/default/types.xml`` tells plone that there is a new content type defined in file ``talk.xml``.
+The file ``ploneconf/site/profiles/default/types.xml`` tells plone that there is a new content type defined in file ``talk.xml``.
 
 .. code-block:: xml
 
@@ -206,7 +206,7 @@ The file ``ploneconf/talk/profiles/default/types.xml`` tells plone that there is
      <!-- -*- extra stuff goes here -*- -->
     </object>
 
-Upon installing Plone reads the file ``ploneconf/talk/profiles/default/types/talk.xml`` and registers a new type in ``portal_types`` (you can find this tool in the ZMI) with the information taken from that file.
+Upon installing Plone reads the file ``ploneconf/site/profiles/default/types/talk.xml`` and registers a new type in ``portal_types`` (you can find this tool in the ZMI) with the information taken from that file.
 
 .. code-block:: xml
 
