@@ -12,7 +12,7 @@ Requirements
 ------------
 
 * As a visitor I want to find current information on the conference
-* As a visitor I want to register and pay for the conference
+* As a visitor I want to register for the conference
 * As a visitor I want to see the talks and sort them by my preferences
 * As a visitor I want to make seen that I'm going to the conference
 * As a speaker I want to be able to sumbit talks
