@@ -46,7 +46,7 @@ Typically you use *GenericSetup* to change workflows or add new content type def
 Components
 ^^^^^^^^^^
 
-The last way is via *Components*.
+The last way to extend Plone is via *Components*.
 
 A bit of history is in order.
 
@@ -56,11 +56,11 @@ Zope objects have more than 10 base classes.
 
 After a while, XML and Components became the next silver bullet (Does anybody remember J2EE?).
 
-The Zope developers decided that these new silver bullets look much, much cooler in their colts so they decided rewrite Zope with this technology.
+Based on their experiences with Zope in the past, they thought that a component system configured via xml might be the way to go to keep the code more maintainable
 
 As the new concepts were radically different from the old Zope concepts, the Zope developers renamed the new project to Zope 3. But it did not gain traction, the community somehow renamed it to Bluebream and this died off.
 
-The component architecture itself is quite successful and the Zope developer extracted it into the Zope Toolkit. The Zope toolkit is part of Zope, and Plone developers use it extensively.
+But the component architecture itself is quite successful and the Zope developer extracted it into the Zope Toolkit. The Zope toolkit is part of Zope, and Plone developers use it extensively.
 
 
 This is what you want to use.
@@ -73,13 +73,13 @@ What is the absolute simplest way to extend functionality?
 
 Monkey Patching.
 
-In code, during load time I import some code and replace it with my code.
+It means that I change code in other files while my file gets loaded.
 
 If I would want to have an extensible registry of icons for different content types, I could create a global dictionary, and whoever implements a new icon for a different content type, would add an entry to my dictionary during import time.
 
 This does not scale. Multiple plugins might overwrite each other, you would explain people that they have to reorder the imports, and then, suddenly, you will to import feature A before B, B before C and C before A, or else you application won't work.
 
-Here comes the Zope Component Architecture and ZCML to your rescue.
+The Zope Component Architecture with its ZCML configuration is the answer for your problems.
 
 With ZCML you declare utilities, adapters and browser views in ZCML, which is a XML dialect.
 
@@ -87,13 +87,11 @@ During startup, Zope reads all these ZCML statements, validates that there are n
 
 This is a good thing. ZCML is by the way only *one* way to declare your configuration.
 
-Grok pvides another way, where some python magic allows you to decorate your code directly with a decorater to make it an adapter. You can use both ZCML and grok together.
+Grok pvides another way, where some python magic allows you to decorate your code directly with a decorator to make it an adapter. You can use both ZCML and grok together.
 
-We will mostly use Grok in later code examples.
+Please be aware that not everybody loves Grok. Some parts of the Plone community think that there may only be one configuration language, others are against adding the relative big dependency of Grok to Plone. One real problem is the fact that you cannot customize components declared with grok with jbot. In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to get maximum acceptance.
 
-Please be aware that not everybody loves Grok. Some parts of the Plone community think that there may only be one configuration language, others are against adding the relative big dependency of Grok to Plone. One real problem is the fact that you cannot customize components declared with grok with jbot. This is probably fixable, though. In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to get maximum acceptance.
-
-Many people hate ZCML and avoid Zope because of it being XML.
+Many people hate ZCML and avoid Zope because of it using XML.
 
 Personally, I just find it cumbersome but even for me as a developer it offers a nice advantage.
 

@@ -35,7 +35,7 @@ This returns a list of available templates we might use. We choose plone_basic.
 
 * Enter project name: ``ploneconf.talk``
 
-.. manual-only::
+.. only:: manual
 
     If this is your first egg, this is a very special moment. We are going to create the egg with a script that generates a lot of necessary files. They all are necessary, but sometimes in a subtle way. It takes a while do understand their full meaning. Only last year I learnt and understood why I should have a manifest.in file. You can get along without one, but trust me, you get along better with a proper manifest file.
 
