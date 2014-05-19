@@ -40,39 +40,47 @@ Let us walk through our ``buildout.cfg`` and look at some important variables:
     parts =
         instance
         omelette
+        codeintel
         zopeskel
 
     extends =
-        http://dist.plone.org/release/4.3.2/versions.cfg
+        http://dist.plone.org/release/4.3.3/versions.cfg
         versions.cfg
 
     find-links = http://dist.repoze.org/
 
-    # A test-pypi to publish eggs
-    #index = http://testpypi.python.org/simple/
-
-    #extensions = mr.developer
-    #sources = sources
-    #auto-checkout =
-    #    ploneconf.site
-    #    starzel.votable_behavior
+    extensions = mr.developer
+    sources = sources
+    auto-checkout = *
 
     versions = versions
 
-    [instance]
-    recipe = plone.recipe.zope2instance
     eggs =
         Plone
         Pillow
-    #    Products.PloneFormGen
-    #    Products.LinguaPlone
-    #    collective.plonetruegallery
-    #    plone.app.themeeditor
-    #    z3c.jbot
+    # development tools
+        z3c.jbot
+        plone.api
+        plone.reload
+        Products.PDBDebugMode
+        plone.app.debugtoolbar
+        Paste
+    # 3rd party addons
+        Products.PloneFormGen
+        collective.plonetruegallery
+        collective.js.datatables
+        eea.facetednavigation
+        collective.behavior.banner
+    # dexterity default types
+        plone.app.contenttypes
+    # our addons
     #    ploneconf.site
     #    starzel.votable_behavior
 
+    [instance]
+    recipe = plone.recipe.zope2instance
     user = admin:admin
+    eggs = ${buildout:eggs}
     # The following is only used when we use vagrant.
     # The shared folder should not contain "big data" or symbolic links.
     file-storage = /home/vagrant/var/filestorage/Data.fs
@@ -85,17 +93,27 @@ Let us walk through our ``buildout.cfg`` and look at some important variables:
     # The default omelette-dir is parts/omelette
     location = /home/vagrant/omelette
 
+    [codeintel]
+    recipe = corneti.recipes.codeintel
+    eggs = ${instance:eggs}
+    extra-paths = ${omelette:location}
+
     [zopeskel]
-    # installs paster and Zopeskel
     recipe = zc.recipe.egg
     eggs =
-        PasteScript
         ZopeSkel
-        ${instance:eggs}
+        Paste
+        PasteDeploy
+        PasteScript
+        zopeskel.diazotheme
+        zopeskel.dexterity
+        zest.releaser
+        ${buildout:eggs}
 
     [sources]
-    #ploneconf.site = git https://github.com/starzel/ploneconf.site.git
-    #starzel.votable_behavior = git git://github.com/starzel/starzel.votable_behavior.git
+    collective.behavior.banner = git https://github.com/starzel/collective.behavior.banner.git pushurl=git@github.com:starzel/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
+    # ploneconf.site = fs ploneconf.site full-path=${buildout:directory}/src/ploneconf.site
+    # starzel.votable_behavior = git git://github.com/starzel/starzel.votable_behavior.git
 
 
 When you run Buildout without any arguments, Buildout will look for this file.
