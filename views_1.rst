@@ -19,6 +19,7 @@ A basic view in Plone is usually a ``BrowserView``. It can hold a lot of python-
 Then add a file ``browser/configure.zcml``:
 
 .. code-block:: xml
+  :linenos:
 
     <configure
         xmlns="http://namespaces.zope.org/zope"

@@ -33,6 +33,8 @@ You need to run buildout now.
 Grok nearly magicaly does find all its annotations. Since its not complete magic, you have to tell grok where to look for grok code. This requires a single line of zcml, that line ensures that your complete package is `grokked`.
 
 .. code-block:: xml
+    :linenos:
+    :emphasize-lines: 6,12
 
     <configure
         xmlns="http://namespaces.zope.org/zope"
@@ -53,6 +55,7 @@ This new grok statement takes care of finding everything grok related.
 Now we can add a grok view in a new file ``views.py``:
 
 .. code-block:: python
+    :linenos:
 
     from five import grok
     from plone.directives import dexterity
@@ -63,26 +66,4 @@ Now we can add a grok view in a new file ``views.py``:
         grok.require("zope2.View")
         grok.context(Interface)
 
-By convention the template must be in a subdirectory called ``views_templates``and it must be named `talkview.pt`::
-
-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-        lang="en"
-        metal:use-macro="context/main_template/macros/master"
-        i18n:domain="ploneconf.site">
-    <body>
-        <metal:content-core fill-slot="content-core">
-            <p>Suitable for <em tal:replace="structure view/w/audience/render"></em>
-            </p>
-
-            <div tal:content="structure view/w/details/render" />
-
-            <div>Presenter:
-                <p>
-                    <strong tal:content="context/Creator">
-                    User
-                    </strong>
-                </p>
-            </div>
-        </metal:content-core>
-    </body>
-    </html>
+By convention the template must be in a subdirectory called ``views_templates``and it must be named `talkview.pt`

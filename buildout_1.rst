@@ -35,6 +35,7 @@ Buildout itself has no idea, how to install Zope. Buildout is a plugin based sys
 Let us walk through our ``buildout.cfg`` and look at some important variables:
 
 .. code-block:: cfg
+    :linenos:
 
     [buildout]
     parts =

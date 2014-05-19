@@ -1,5 +1,5 @@
-Creating content-types with Dexterity
-=====================================
+Dexterity I: Through the web
+============================
 
 
 What is a content-type?
@@ -135,6 +135,7 @@ In this step we will create a CT called 'Talk' and try it. When it's ready we wi
 Here is the complete xml-schema created by our actions.
 
 .. code-block:: xml
+  :linenos:
 
   <model xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns="http://namespaces.plone.org/supermodel/schema">
     <schema>
@@ -209,6 +210,7 @@ The file ``ploneconf/site/profiles/default/types.xml`` tells plone that there is
 Upon installing Plone reads the file ``ploneconf/site/profiles/default/types/talk.xml`` and registers a new type in ``portal_types`` (you can find this tool in the ZMI) with the information taken from that file.
 
 .. code-block:: xml
+  :linenos:
 
     <?xml version="1.0"?>
     <object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"

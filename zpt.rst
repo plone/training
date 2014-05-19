@@ -326,6 +326,7 @@ To prevent escaping we use ``structure``
 Now let's emulate a typical Plone structure by creating a dictionary.
 
 .. code-block:: html
+  :linenos:
 
     <table tal:define="talks python:[{'title':'Dexterity for the win!',
                                       'subjects':('content-types', 'dexterity')},
@@ -395,6 +396,7 @@ This will put our code in a section defined in the main_template called "content
 The template should now look like this:
 
 .. code-block:: xml
+  :linenos:
 
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
           lang="en"

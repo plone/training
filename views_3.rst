@@ -19,28 +19,39 @@ It is the fast way to get content that exists in the site and do something with 
 ZCML
 
 .. code-block:: xml
+    :linenos:
 
     <browser:page
-       name="talkview"
+       name="talklistview"
        for="*"
-       class=".views.TalkView"
-       template="templates/talkview.pt"
+       layer="zope.interface.Interface"
+       class=".views.TalkListView"
+       template="templates/talklistview.pt"
        permission="zope2.View"
        />
 
 Python
 
 .. code-block:: python
+    :linenos:
 
-    from Products.Five.browser import BrowserView
     from Products.CMFCore.utils import getToolByName
+    from Products.Five.browser import BrowserView
+    from plone.dexterity.browser.view import DefaultView
+
+    class DemoView(BrowserView):
+        """ This does nothing so far
+        """
 
 
-    class TalkDefaultView(BrowserView):
-        pass
+    class TalkView(DefaultView):
+        """ The default view for talks
+        """
 
 
     class TalkListView(BrowserView):
+        """ A list of talks
+        """
 
         def talks(self):
             results = []
@@ -201,9 +212,10 @@ The view and the controller are very much mixed in Plone.
 
 When you look at some of the older code of Plone you'll see that the policy of keeping login insice python and representation in templates was not always enforced. You should nevertheless do it. You'll end up with more than enough logic in the templates anyway. You'll see now.
 
-Let's add this simple table to our template 'talklistview.pt':
+Let's add this simple table to our template ``templates/talklistview.pt``:
 
 .. code-block:: html
+    :linenos:
 
         <table class="listing">
             <thead>
@@ -237,6 +249,7 @@ Let's add this simple table to our template 'talklistview.pt':
 After we transform it we have a listing:
 
 .. code-block:: html
+    :linenos:
 
         <table class="listing" id="talks">
             <thead>
@@ -306,6 +319,7 @@ If we append /manage_propertiesForm we can set the property "layout" to "talklis
 To make views configurable so that editors can choose them like folder_Summary_view etc. We'd have to register it for the content-type at hand (Folder) in it's FTI (folder.xml).
 
 .. code-block:: xml
+    :linenos:
 
     <?xml version="1.0"?>
     <object name="Folder">
@@ -330,6 +344,7 @@ Like for many js-libraries there is already a package that doe the plone-integra
 We already added the addon to our buildout and just have to activate it in our template.
 
 .. code-block:: html
+    :linenos:
 
     <metal:head fill-slot="javascript_head_slot">
         <link rel="stylesheet" type="text/css" media="screen" href="++resource++jquery.datatables/media/css/jquery.dataTables.css">

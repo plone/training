@@ -11,6 +11,7 @@ I have extended the code just slightly.
 ZCML
 
 .. code-block:: xml
+    :linenos:
 
     <configure xmlns="http://namespaces.zope.org/zope"
         xmlns:browser="http://namespaces.zope.org/browser"
@@ -27,7 +28,10 @@ ZCML
 
     </configure>
 
-Code ::
+Code
+
+.. code-block:: python
+    :linenos:
 
     from Products.Five.browser import BrowserView
 
@@ -108,6 +112,7 @@ The DefaultView base class in plone.dexterity only exists for Dextertity-Objects
 The template ``templates/talkview.pt`` uses the pattern ``view/w/<fieldname>/render`` to render some widgets.
 
 .. code-block:: xml
+    :linenos:
 
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
         lang="en"
@@ -150,6 +155,7 @@ We could also tell plone about this in the ZMI: http://localhost:8080/Plone/port
 Let's improve the talkview to show all the info we want.
 
 .. code-block:: xml
+    :linenos:
 
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
           metal:use-macro="context/main_template/macros/master"
@@ -191,4 +197,7 @@ Let's improve the talkview to show all the info we want.
     </body>
     </html>
 
+.. seealso::
+
+    http://docs.plone.org/develop/plone/views/browserviews.html
 
