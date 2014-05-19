@@ -392,7 +392,7 @@ And then wrap the code we want to put in the content-area of Plone in:
 
 This will put our code in a section defined in the main_template called "content-core".
 
-The complete template shoud now look like this:
+The template should now look like this:
 
 .. code-block:: xml
 
@@ -432,7 +432,16 @@ The complete template shoud now look like this:
     </body>
     </html>
 
+.. note::
 
+    Since the demoview only used content from the template, not from the cointext that it is called on it makes litte sense to have the edit-bar. We hide it by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
+
+    The easiest way to do this is to define a dummy-variable. Dummy because it is never used except to allow us to execute some code.
+
+    .. code-block:: xml
+
+        <metal:block fill-slot="top_slot"
+            tal:define="dummy python:request.set('disable_border', 1)" />
 
 
 macros in browser-views
@@ -508,11 +517,11 @@ If we refer to content objects, without using the nocall: modifier these objects
 
 There is a lot more about TAL, TALES and METAL that we have not covered. You'll only learn it if you keep reading, writing and customizing templates.
 
-Documentation about TAL and METAL:
+.. seealso::
 
-* Using Zope Page Templates: http://docs.zope.org/zope2/zope2book/ZPT.html
-* Zope Page Templates Reference: http://docs.zope.org/zope2/zope2book/AppendixC.html
-
+  * http://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html
+  * Using Zope Page Templates: http://docs.zope.org/zope2/zope2book/ZPT.html
+  * Zope Page Templates Reference: http://docs.zope.org/zope2/zope2book/AppendixC.html
 
 Chameleon
 ---------
