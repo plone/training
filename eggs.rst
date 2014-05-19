@@ -22,7 +22,7 @@ We anwser some questions:
 * Enter project name: ``ploneconf.site``
 * Expert Mode? (What question mode would you like? (easy/expert/all)?) ['easy']: ``easy``
 * Version (Version number for project) ['1.0']: ``1.0``
-* Description (One-line description of the project) ['Example Dexterity Product']: ``PloneConf Talks``
+* Description (One-line description of the project) ['Example Dexterity Product']: ``PloneConf Talk``
 * Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: ``False``
 * Use relations? (True/False: include support for relations?) [False]: ``True``
 
@@ -41,20 +41,20 @@ docs, README.txt
 setup.py
     This file configures the package, lists dependencies, it's name and some metadata the authors name.
 
-ploneconf/talk/configure.zcml
+ploneconf/site/configure.zcml
     The phone-book ob the package. By reading it you canfind out what is in there.
 
-ploneconf/talk/locales/
+ploneconf/site/locales/
     This holds translation-files (see http://docs.plone.org/develop/plone/i18n/internationalisation.html)
 
-ploneconf/talk/resources/
+ploneconf/site/resources/
     A directory that holds static resources (images/css/js). They are accessible as ``++resource++ploneconf.site/myawesome.css``
 
-ploneconf/talk/profiles/default/
+ploneconf/site/profiles/default/
     The folder contains the generic setup-profile
 
-ploneconf/talk/profiles/default/metadata.xml
+ploneconf/site/profiles/default/metadata.xml
     Version-number and dependencies that are auto-installed
 
-ploneconf/talk/profiles/default/types.xml
+ploneconf/site/profiles/default/types.xml
     Registration of types

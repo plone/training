@@ -8,7 +8,7 @@ We need to add some boilerplate-code to be create a view. Before we write the ta
 
 A basic view in Plone is usually a ``BrowserView``. It can hold a lot of python-code but it can also be only a empty ``BrowserView``-class that renders a template when called. Such an empty class is what we create at first so we can concentrate on the template.
 
-* Add a new direcory ``src/ploneconf.site/ploneconf/talk/browser``. By convention the dir ``browser`` should hold all UI displayed in the browser.
+* Add a new direcory ``src/ploneconf.site/ploneconf/site/browser``. By convention the dir ``browser`` should hold all UI displayed in the browser.
 * Add an empty file ``browser/__init__.py``
 * We need to tell Plone to consider this directory. Modify the existing ``configure.zcml`` and add
 

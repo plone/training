@@ -23,7 +23,7 @@ We'll basically do the same as when we used at ``portal_skins`` (we customized t
     <browser:jbot directory="template_overrides" />
 
 * Find the file ``plone/app/contenttypes/browser/templates/newsitem.pt`` in the directory ``omelette`` (in vagrant this is in ``/home/vagrant/omelette``).
-* Copy it into the new folder ``cp /home/vagrant/omelette/plone/app/contenttypes/browser/templates/newsitem.pt /vagrant/buildout/src/ploneconf.site/ploneconf/talk/browser/template_overrides``
+* Copy it into the new folder ``cp /home/vagrant/omelette/plone/app/contenttypes/browser/templates/newsitem.pt /vagrant/buildout/src/ploneconf.site/ploneconf/site/browser/template_overrides``
 * Rename the new file from ``newsitem.pt`` to ``plone.app.contenttypes.browser.templates.newsitem.pt``.
 * Restart Plone
 
@@ -140,7 +140,7 @@ The object that the url points to is by default ``self.context``. But the first 
     >>> (Pdb) view
     <Products.Five.metaclass.SimpleViewClass from /Users/philip/.cache/buildout/eggs/plone.app.contenttypes-1.1b2-py2.7.egg/plone/app/contenttypes/browser/templates/summary_view.pt object at 0x10b00cd90>
     >>> view.index.filename
-    u'/Users/philip/workspace/training_without_vagrant/src/ploneconf.site/ploneconf/talk/browser/template_overrides/plone.app.contenttypes.browser.templates.summary_view.pt'
+    u'/Users/philip/workspace/training_without_vagrant/src/ploneconf.site/ploneconf/site/browser/template_overrides/plone.app.contenttypes.browser.templates.summary_view.pt'
 
 Now we see that we already customized the template.
 
