@@ -13,9 +13,6 @@ In this part we will:
 * enable some more default-features for our types
 
 
-
-
-
 Add a class and interface to the talk-type
 ------------------------------------------
 
@@ -37,6 +34,31 @@ interfaces.py
         """
 
 These are marker-interfaces. We can bind Views and Viewlets to content that implements these interfaces.
+
+content.py
+
+.. code-block:: python
+
+    from plone.dexterity.content import Container
+    from ploneconf.site.interfaces import ITalk
+
+    class Talk(Container):
+        implements(ITalk)
+
+
+To have our talk-instances to use this we'll have to modify its base-class from ``plone.dexterity.content.Container`` to the new class. Edit the talk-profile at ``profiles/default/types/talk.xml``
+
+.. code-block:: xml
+    :linenos:
+    :emphasize-lines: 3
+
+    <property name="default_view_fallback">False</property>
+    <property name="add_permission">cmf.AddPortalContent</property>
+    <property name="klass">ploneconf.site.content.Talk</property>
+    <property name="behaviors">
+      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+      <element value="plone.app.content.interfaces.INameFromTitle"/>
+    </property>
 
 
 Add a browserlayer
