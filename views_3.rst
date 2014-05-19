@@ -159,7 +159,7 @@ The are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and
     >>> portal_catalog(review_state='pending')
     []
 
-Calling the catalog without parameters return teh whole site::
+Calling the catalog without parameters return the whole site::
 
     >>> portal_catalog()
     [<Products.ZCatalog.Catalog.mybrains object at 0x1085a11f0>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a12c0>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a1328>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a13 ...

@@ -230,7 +230,7 @@ It offers the following options::
     ./bin/instance fg
     ./bin/instance start
     ./bin/instance fstop
-    ./bin/instance debug -P Plone
+    ./bin/instance debug -O Plone
 
 Depending on your computer, it will take up to a minute until zope will tell you that its ready to serve requests.
 
