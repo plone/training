@@ -72,13 +72,13 @@ Now we can bind the talkview to the new interface.
     :emphasize-lines: 3
 
     <browser:page
-        name="talklistview"
-        for="ploneconf.talk.interfaces.ITalk"
-        layer="*"
-        class=".views.TalkListView"
-        template="templates/talklistview.pt"
-        permission="zope2.View"
-        />
+      name="talklistview"
+      for="ploneconf.talk.interfaces.ITalk"
+      layer="*"
+      class=".views.TalkListView"
+      template="templates/talklistview.pt"
+      permission="zope2.View"
+      />
 
 Now the ``/talkview`` can only be used on objects that implent said interface.
 
@@ -114,13 +114,13 @@ After reinstalling the addon we can bind the talkview, the demoview and the talk
     :emphasize-lines: 4
 
     <browser:page
-        name="talklistview"
-        for="ploneconf.talk.interfaces.ITalk"
-        layer="..interfaces.IPloneconfSiteLayer"
-        class=".views.TalkListView"
-        template="templates/talklistview.pt"
-        permission="zope2.View"
-        />
+      name="talklistview"
+      for="ploneconf.talk.interfaces.ITalk"
+      layer="..interfaces.IPloneconfSiteLayer"
+      class=".views.TalkListView"
+      template="templates/talklistview.pt"
+      permission="zope2.View"
+      />
 
 Note the relative python-path ``..interfaces.IPloneconfSiteLayer``. It is equivalent to the absolute path ``ploneconf.site.interfaces.IPloneconfSiteLayer``.
 
@@ -142,19 +142,19 @@ Add a new file ``catalog.xml``
 
     <?xml version="1.0"?>
     <object name="portal_catalog">
-        <index name="type_of_talk" meta_type="FieldIndex">
-            <indexed_attr value="type_of_talk"/>
-        </index>
-        <index name="speaker" meta_type="FieldIndex">
-            <indexed_attr value="speaker"/>
-        </index>
-        <index name="audience" meta_type="KeywordIndex">
-            <indexed_attr value="audience"/>
-        </index>
+      <index name="type_of_talk" meta_type="FieldIndex">
+        <indexed_attr value="type_of_talk"/>
+      </index>
+      <index name="speaker" meta_type="FieldIndex">
+        <indexed_attr value="speaker"/>
+      </index>
+      <index name="audience" meta_type="KeywordIndex">
+        <indexed_attr value="audience"/>
+      </index>
 
-        <column value="audience" />
-        <column value="type_of_talk" />
-        <column value="speaker" />
+      <column value="audience" />
+      <column value="type_of_talk" />
+      <column value="speaker" />
     </object>
 
 This adds new indexes for the three fields we want to show in the listing. Not that *audience* is a ``KeywordIndex`` because the field is multi-valued, but we want a seperate index-entry for every value in on a object.
@@ -187,7 +187,7 @@ Add a new file ``profiles/default/registry.xml``
         <value key="enabled">True</value>
         <value key="sortable">False</value>
         <value key="operations">
-            <element>plone.app.querystring.operation.string.is</element>
+          <element>plone.app.querystring.operation.string.is</element>
         </value>
         <value key="group">Metadata</value>
       </records>
@@ -198,7 +198,7 @@ Add a new file ``profiles/default/registry.xml``
         <value key="enabled">True</value>
         <value key="sortable">False</value>
         <value key="operations">
-            <element>plone.app.querystring.operation.string.is</element>
+          <element>plone.app.querystring.operation.string.is</element>
         </value>
         <value key="group">Metadata</value>
       </records>
@@ -212,8 +212,32 @@ Add a new file ``profiles/default/registry.xml``
 Add more features through generic-setup
 ---------------------------------------
 
-* repositorytool.xml
-* diff_tool.xml
-* browserlayer.xml
+Enable versioning and a diff-view for talks through Generic Setup.
+
+Add new file ``profiles/default/repositorytool.xml``
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <repositorytool>
+      <policymap>
+        <type name="talk">
+          <policy name="at_edit_autoversion"/>
+          <policy name="version_on_revert"/>
+        </type>
+      </policymap>
+    </repositorytool>
 
 
+Add new file ``profiles/default/diff_tool.xml``
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <object>
+      <difftypes>
+        <type portal_type="talk">
+          <field name="any" difftype="Compound Diff for Dexterity types"/>
+        </type>
+      </difftypes>
+    </object>

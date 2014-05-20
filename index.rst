@@ -39,6 +39,7 @@ Contents:
     views_2
     views_3
     dexterity_2
+    dexterity_3
     custom_search
     grok
     ressources
