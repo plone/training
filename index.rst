@@ -31,7 +31,7 @@ Contents:
     theming
     buildout_1
     ide
-    eggs
+    eggs1
     dexterity
     views_1
     zpt
@@ -43,10 +43,11 @@ Contents:
     dexterity_3
     grok
     ressources
-    social_behavior
+    behaviors1
     viewlets_1
     thirdparty_behaviors
-    behaviors
+    eggs2
+    behaviors2
     viewlets_2
     deployment_code
     deployment_sites
