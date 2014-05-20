@@ -1,24 +1,31 @@
 Writing Viewlets
 =================
 
-A viewlet is no view but a snippet of html and logic that can be put in various places in the site. These places are called ``viewletmanager``.
+.. only:: manual
+
+    A viewlet is no view but a snippet of html and logic that can be put in various places in the site. These places are called ``viewletmanager``.
 
 * Inspect existing viewlets and their managers by going to http://localhost:8080/Plone/@@manage-viewlets.
-* We already customized a viewlet (``collophon.pt``). Now we add a new one.
+* We already customized a viewlet (:file:`collophon.pt`). Now we add a new one.
 * Viewlets don't save data (portlets do)
 * Viewlets have no user-interface (portlets do)
 
 social-viewlet
 --------------
 
-Let's add a link to the site that uses the information that we collected using the social-behavior.
+.. only:: manual
+    Let's add a link to the site that uses the information that we collected using the social-behavior.
 
-We add a new folder ``viewlets`` with an empty ``__init__.py`` and register the viewlet in a ``configure.zcml``.
+We register the viewlet in :file:`browser/configure.zcml`.
 
 .. code-block:: xml
+   :linenos:
+   :emphasize-lines: 6-14
 
     <configure xmlns="http://namespaces.zope.org/zope"
         xmlns:browser="http://namespaces.zope.org/browser">
+
+        ...
 
         <browser:viewlet
             name="social"
@@ -26,44 +33,57 @@ We add a new folder ``viewlets`` with an empty ``__init__.py`` and register the 
             manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
             class=".viewlets.SocialViewlet"
             layer="ploneconf.site.interfaces.IPloneconfTalkLayer"
-            template="templates/social.pt"
+            template="templates/social_viewlet.pt"
             permission="zope2.View"
             />
 
+        ....
+
     </configure>
 
-This registers a viewlet called ``social``.
-It is visible on all content that implments the interface ``ISocial`` from our behavior.
-It is also good practice to bind it to the BrowserLayer ``IPloneconfTalkLayer`` of our addon so it only shows up if our addon is actually installed.
-The viewlet-class ``SocialViewlet`` is expected in a file ``viewlets.py``.
+.. only:: manual
+    This registers a viewlet called ``social``.
+    It is visible on all content that implments the interface ``ISocial`` from our behavior.
+    It is also good practice to bind it to the `BrowserLayer`_ ``IPloneconfTalkLayer`` of our addon so it only shows up if our addon is actually installed.
+
+The viewlet-class ``SocialViewlet`` is expected in a file ``browser/viewlets.py``.
+
+.. _BrowserLayer: http://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
 
 .. code-block:: python
+   :linenos:
 
     from plone.app.layout.viewlets import ViewletBase
+
+    ...
 
     class Social(ViewletBase):
         pass
 
-So far this does nothing except render the template.
 
-.. note::
+.. only:: manual
 
-    If we used ``grok`` we would not need to register the viewlets in the ``configure.zcml`` but do that in python. We would add a file viewlets.py containing the viewlet-class.
+    This class does nothing except rendering the associated template (That we have to write yet)
 
-    .. code-block:: python
+    .. note::
 
-        from five import grok
-        from plone.app.layout.viewlets import interfaces as viewletIFs
-        from zope.component import Interface
+        If we used ``grok`` we would not need to register the viewlets in the ``configure.zcml`` but do that in python. We would add a file viewlets.py containing the viewlet-class.
 
-        class Social(grok.Viewlet):
-            grok.viewletmanager(viewletIFs.IBelowContentTitle)
+        .. code-block:: python
 
-    This would do the same as the coe above using grok's paradigm of convention over configuration.
+            from five import grok
+            from plone.app.layout.viewlets import interfaces as viewletIFs
+            from zope.component import Interface
 
-Let's add the missing template ``social.pt`` in ``viewlets_templates``.
+            class Social(grok.Viewlet):
+                grok.viewletmanager(viewletIFs.IBelowContentTitle)
+
+        This would do the same as the coe above using grok's paradigm of convention over configuration.
+
+Let's add the missing template :file:`templates/social_viewlet.pt`.
 
 .. code-block:: html
+    :linenos:
 
     <div id="social-links">
         <a href="#"
@@ -75,11 +95,32 @@ Let's add the missing template ``social.pt`` in ``viewlets_templates``.
         </a>
     </div>
 
-So now let's add some logic to the viewlet-class so that ``viewlet/lanyrd_link`` actually returns the link.
+
+.. only:: manual
+
+    As you can see this is not a valid html document. That is not needed, because we don't want a complete view here, just a html snippet.
+
+    There is a tal define statement, querying for viewlet/lanyrd_link. Like in page templates the template has access to its class. In browser views the reference is called view, in viewlets it is called viewlets.
+
+We have to extend the Social Viewlet now to add the missing attribute:
+
+
+.. only:: manual
+
+    .. sidebar:: Why not to access context directly
+
+        In this example, :samp:`ISocial(self.context)` does return the context directly. It is still good to use this idiom for two reasons:
+
+          #. It makes it clear, that we only want to use the ISocial aspect of the object
+          #. If we decide to use a factory, for example to store our attributes in an annotation, we would `not` get back our context, but the adapter
 
 .. code-block:: python
+    :linenos:
+    :emphasize-lines: 7-9
 
-    from plone.app.layout.viewlets import ViewletBase
+    from ploneconf.talk.interfaces import ISocial
+
+    ...
 
     class Social(ViewletBase):
 
@@ -87,12 +128,14 @@ So now let's add some logic to the viewlet-class so that ``viewlet/lanyrd_link``
             adapted = ISocial(self.context)
             return adapted.lanyrd
 
+    ...
 
-TAG: 17_SOCIAL_VIEWLET
 
-* We registered the viewlet to content that has the ISocial Interface.
-* We adapt the object to it's behavior to be able to access the fields of the behavior
-* We return the link
+So far, we
+
+  * register the viewlet to content that has the ISocial Interface.
+  * adapt the object to it's behavior to be able to access the fields of the behavior
+  * return the link
 
 voting-viewlet
 ----------------
@@ -100,32 +143,62 @@ voting-viewlet
 * Viewlet for IVoteable
 * the viewlet-template
 * add jquery include statements
-* saving the vote on the object using annotations (Patrick)
-
-We just added the logic that saves votes on the objects. Now let's add the user-interface to it.
-
-Since we want to use the UI on more than one page (not only the talk-view but also the talk-listing) we need to put it somewhere.
-
-* To handle the user-input we don't use a form but links and ajax.
-* The voting itself is an fact handled by another view
-
-We create a new file voting.py::
-
-    # encoding=utf-8
-    from five import grok
-    from plone.app.layout.viewlets import interfaces as viewletIFs
-    from zope.component import Interface
+* saving the vote on the object using annotations
 
 
-    class Vote(grok.Viewlet):
-        grok.context(Interface)
-        grok.viewletmanager(viewletIFs.IBelowContentTitle)
+.. only:: manual
 
-This will add a viewlet to a slot below the title and expect a template vote.pt in a folder 'voting_templates'.
+    Earlier we added the logic that saves votes on the objects. We now create the user interface for it.
 
-Let's create this file without any logic
+    Since we want to use the UI on more than one page (not only the talk-view but also the talk-listing) we need to put it somewhere.
+
+    * To handle the user-input we don't use a form but links and ajax.
+    * The voting itself is an fact handled by another view
+
+We register the viewlet in :file:`browser/configure.zcml`.
+
+.. code-block:: xml
+   :linenos:
+   :emphasize-lines: 6-14
+
+    <configure xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser">
+
+        ...
+
+      <browser:viewlet
+        name="voting"
+        for="starzel.votable_behavior.interfaces.IVoting"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        layer="..interfaces.IVotableLayer"
+        class=".viewlets.Voting"
+        template="templates/voting_viewlet.pt"
+        permission="zope2.View"
+        />
+
+        ....
+
+    </configure>
+
+We extend the file :file:`browser/viewlets.py`
+
+.. code-block:: python
+    :linenos:
+
+    from plone.app.layout.viewlets import common as base
+
+
+    class Vote(base.ViewletBase):
+        pass
+
+.. only:: manual
+
+    This will add a viewlet to a slot below the title and expect a template :file:`voting_viewlet.pt` in a folder :file:`browser/templates`.
+
+Let's create the file :file:`browser/templates/voting_viewlet.pt` without any logic
 
 .. code-block:: html
+   :linenos:
 
     <div class="voting">
         Wanna vote? Write code!
@@ -140,100 +213,103 @@ Let's create this file without any logic
 * restart Plone
 * show the viewlet
 
-writing the viewlet-class
+Writing the viewlet-class
 -------------------------
 
-Lets see the final code::
+.. only:: mannual
+
+    Now that we have the everything in place, we can add the Logic
+
+Update the viewlet to contain the necessary logic in :file:`browser/viewlets`
+
+.. code-block:: python
+    :linenos:
 
     # encoding=utf-8
+    from plone.app.layout.viewlets import common as base
+    from Products.CMFCore.permissions import ViewManagementScreens
     from Products.CMFCore.utils import getToolByName
-    from Products.CMFDefault.permissions import ViewManagementScreens
-    from five import grok
-    from plone.app.layout.viewlets import interfaces as viewletIFs
-    from ploneconf.site.interfaces import IVotable, IVoting
+
+    from starzel.votable_behavior.interfaces IVoting
 
 
-    class Vote(grok.Viewlet):
-        grok.context(IVotable)
-        grok.viewletmanager(viewletIFs.IBelowContentTitle)
+    class Vote(base.ViewletBase):
 
-        @property
-        def _vote(self):
-            return IVoting(self.context)
+        vote = None
+        is_manager = None
 
-        @property
+        def update(self):
+            super(Vote, self).update()
+
+            if self.vote is None:
+                self.vote = IVoting(self.context)
+            if self.is_manager is None:
+                membership_tool = getToolByName(self.context, 'portal_membership')
+                self.is_manager = membership_tool.checkPermission(
+                    ViewManagementScreens, self.context)
+
         def voted(self):
-            return self._vote.already_voted(self.request)
+            return self.vote.already_voted(self.request)
 
-        @property
         def average(self):
-            return self._vote.average_vote()
+            return self.vote.average_vote()
 
-        @property
-        def is_manager(self):
-            membership_tool = getToolByName(self.context, 'portal_membership')
-            return membership_tool.checkPermission(ViewManagementScreens,
-                                                   self.context)
-
-        @property
         def has_votes(self):
-            return self._vote.has_votes()
-
-* we changed the code so that only content that has the interface 'IVotable' get's the viewlet.
-* _vote returns the context object adapted to the Behavior that adds the vote-functionality. This way we can access all methods that are in IVoting.
-* voted, average and has_votes do exactly this and return the result of the methods we wrote in IVoting.
-* is_manager checks if we are managers so only managers can reset the existing votes. To do this we check if the current user can 'ViewManagementScreens'.
+            return self.vote.has_votes()
 
 
 the template
 ------------
 
-the final temoplate looks like this:
+And extend the template in :file:`browser/templates/voting_viewlet.pt`
 
 .. code-block:: html
+    :linenos:
 
-    <div class="voting">
-      <div id="current_rating" tal:condition="viewlet/has_votes">
-        Average rating: <span tal:content="viewlet/average">200</span>
-      </div>
-      <div id="alreadyvoted" class="voting_option">
-        You already rated this voted for this talk!
-      </div>
-      <div id="notyetvoted" class="voting_option">
-        Vote for this talk: <div class="votes"><span id="voting_plus">+1</span> <span id="voting_neutral">0</span> <span id="voting_negative">-1</span></div>
-      </div>
-      <div id="no_ratings" tal:condition="not: viewlet/has_votes">
-        Be the first one to vote on this talk!
-      </div>
-
-      <tal:reset tal:condition="viewlet/is_manager">
-        <div id="delete_votings">
+    <tal:snippet omit-tag="">
+      <div class="voting">
+        <div id="current_rating" tal:condition="viewlet/has_votes">
+          The average vote for this talk is <span tal:content="viewlet/average">200</span>
+        </div>
+        <div id="alreadyvoted" class="voting_option">
+          You already voted this talk. Thank you!
+        </div>
+        <div id="notyetvoted" class="voting_option">
+          What do you think of this talk?
+          <div class="votes"><span id="voting_plus">+1</span> <span id="voting_neutral">0</span> <span id="voting_negative">-1</span>
+          </div>
+        </div>
+        <div id="no_ratings" tal:condition="not: viewlet/has_votes">
+          This talk has not been voted yet. Be the first!
+        </div>
+        <div id="delete_votings" tal:condition="viewlet/is_manager">
           Delete all votings
         </div>
-        <div id="delete_votings2" class="areyousure warning">
+        <div id="delete_votings2" class="areyousure warning"
+             tal:condition="viewlet/is_manager"
+             >
           Are you sure?
         </div>
-      </tal:reset>
+        <a href="#" class="hiddenStructure" id="context_url"
+           tal:attributes="href context/absolute_url"></a>
+        <span id="voted" tal:condition="viewlet/voted"></span>
+      </div>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          starzel_votablebehavior.init_voting_viewlet($(".voting"));
+        });
+      </script>
+    </tal:snippet>
 
-      <a href="#" class="hiddenStructure" id="context_url"
-         tal:attributes="href context/absolute_url"></a>
-      <span id="voted" tal:condition="viewlet/voted" />
-    </div>
+.. only:: manual
 
-    <script type="text/javascript">
-      $(document).ready(function(){
-        ploneconf.init_voting_viewlet($(".voting"));
-      });
-    </script>
+    We have many small parts, most of which will be hidden by javascript unless needed.
+    By providing all these status information in HTML, we can use standard translation tools to translate. Translating strings in javascript requires extra work.
 
-* We have many small parts, most of which will be hidden by javascript unless needed.
-* By providing all these status information in HTML, we can use standard translation tools to translate. Translating strings in javascript requires extra work.
-* we use the methods the class provides
-* some standard-code to bootstrap our js-code
-
-The css for the template:
+We need some css that we store in :file:`static/starzel_votablebehavior.css`
 
 .. code-block:: css
+    :linenos:
 
     .voting {
         float: right;
@@ -276,8 +352,10 @@ The css for the template:
     }
 
 
-The javascript code (Patrick)
------------------------------
+The javascript code
+-------------------
+
+To make it work in the browser, some javascript :file:`static/starzel_votablebehavior.js`
 
 .. code-block:: js
     :linenos:
@@ -322,54 +400,87 @@ The javascript code (Patrick)
         };
     }(jQuery, window.starzel_votablebehavior = window.starzel_votablebehavior || {}));
 
-This js-code adheres to crockfort jshint rules, so all variables are declared at the beginning of the method.
-We show and hide quite a few small html elements here 
+.. only:: manual
 
-Zunächst fragen wir den Marker ab, der anzeigt, ob der aktuelle
-Benutzer schon abgestimmt hat. Abhängig davon zeigen bieten wir die
-Abstimmungsmöglichkeit ab.
-
-Danach schreiben wir die Funktion, welche die Stimme abgibt.
-Wir sind schreibfaul, deswegen schreiben wir eine Funktion, die eine
-Funktion zurückgibt.
-
-Danach setzen wir für die einzelnen Abstimmungsmöglichkeiten, einen
-Clickhandler
-
-Wie funktioniert das? Wir rufen vote auf, die liefert eine Methode
-zurück. Als Clickhandler speichert man normalerweise immer eine
-Methode. Wenn nun jemand auf einen der Texte klickt, wir die Methode
-inner_vote aufgerufen. Innerhalb der inner_vote Methode können wir
-noch immer die gültige rating Variable aufrufen, die wir mit vote
-übergeben haben. Die Methode die also als clickhandler für
-#voting_plus aufgerufen wurde, sieht eine 1 wenn sie rating abfragt,
-#voting_neutral sieht die 0 und so weiter.
-
-Dann rufen wir die Methode post aus jquery auf, als ersten Parameter
-suchen wir uns aus dem html die context_url die wir dort versteckt
-haben, als Post Parameter übergeben wir das Rating, und zum Schluss
-kommt die Methode, welche nach erfolgreichem Request aufgerufen
-wird, und die Seite neu lädt.
-
-Danach schreiben wir noch die Handler um per Two Step Verfahren die
-Stimmen löschen zu können.
-
-Jetzt müssen wir noch die Methoden schreiben, die per HTTP Post
-aufgerufen werden.
+    This js-code adheres to crockfort jshint rules, so all variables are declared at the beginning of the method.
+    We show and hide quite a few small html elements here
 
 
-2 Simpleviews schreiben (Patrick)
----------------------------------
+2 Writing simple view helpers
+-----------------------------
 
-Diese Views haben IVotable als Context, es gibt sie also nur auf
-Objekten welche Votable sind.
+.. only:: manual
 
-ClearVotes ist nochmal mit der Management Permission geschützt. Ein
-Hacker der den Javascript code von eben analysiert, könnte das
-Löschen manuell antriggern, dadurch, das der View durch eine
-Managementpermission geschützt ist, kann er keinen Schaden
-anrichten. Ansonsten rufen diese Views nur Methoden des Behaviors
-auf.
+    Our javascript code communicates with our site by calling views that don't exist yet.
+    These Views do not need to render html, but should return a valid status.
+    Exceptions set the right status and aren't being shown by javascript, so this will suit us fine.
+
+As so often, we must extend :file:`browser/configure.zcml`:
+
+.. code-block:: xml
+    :linenos:
+
+    ...
+
+    <browser:page
+      name="vote"
+      for="starzel.votable_behavior.interfaces.IVotable"
+      layer="..interfaces.IVotableLayer"
+      class=".vote.Vote"
+      permission="zope2.View"
+      />
+
+    <browser:page
+      name="clearvotes"
+      for="starzel.votable_behavior.interfaces.IVotable"
+      layer="..interfaces.IVotableLayer"
+      class=".vote.ClearVotes"
+      permission="zope2.ViewManagementScreens"
+      />
+
+    ...
+
+Then we add our simple views into the file :file:`browser/vote.py`
+
+.. code-block:: python
+    :linenos:
+
+    from zope.publisher.browser import BrowserPage
+
+    from starzel.votable_behavior.interfaces import IVoting
 
 
+    class Vote(BrowserPage):
+
+        def __call__(self, rating):
+            voting = IVoting(self.context)
+            voting.vote(rating, self.request)
+            return "success"
+
+
+    class ClearVotes(BrowserPage):
+
+        def __call__(self):
+            voting = IVoting(self.context)
+            voting.clear()
+            return "success"
+
+A lot of moving parts have been created. Here is a small overview:
+
+.. digraph:: composition
+
+    rankdir=LR;
+    layout=fdp;
+    context[label="IVotable object" shape="box" pos="0,0!"];
+    viewlet[label="Voting Viewlet" pos="3,-1!"];
+    helperview1[label="Helper View for Voting" pos="3,0!"];
+    helperview2[label="Helper View for deleting all votes" pos="3,1!"];
+    js[label="JS Code" shape="box" pos="6,0!"];
+    viewlet -> context [headlabel="reads" labeldistance="3"]
+    helperview1 -> context [label="modifies"]
+    helperview2 -> context [label="modifies"]
+    js -> helperview1 [label="calls"]
+    js -> helperview2 [taillabel="calls" labelangle="-10" labeldistance="6"]
+    viewlet -> js [label="loads"]
+    js -> viewlet [headlabel="manipulates" labeldistance="8" labelangle="-10"]
 

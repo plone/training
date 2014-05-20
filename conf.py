@@ -26,7 +26,7 @@ import sphinx_rtd_theme
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.intersphinx']
+extensions = ['sphinx.ext.intersphinx', 'sphinx.ext.graphviz']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -298,5 +298,4 @@ epub_copyright = u'2013, Philip Bauer, Patrick Gerken'
 
 intersphinx_mapping = {
     'plone': ('http://docs.plone.org/', None),
-    'zope.schema': ('http://http://docs.zope.org/zope.schema/', None),
 }
