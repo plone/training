@@ -316,9 +316,9 @@ Setting a custom view as default-view on an object
 
 We don't want to always have to append /@@talklistview to out folder to get the view. There is a very easy way to set the view to the folder using the ZMI.
 
-If we append /manage_propertiesForm we can set the property "layout" to "talklistview".
+If we append ``/manage_propertiesForm`` we can set the property "layout" to ``talklistview``.
 
-To make views configurable so that editors can choose them like folder_Summary_view etc. We'd have to register it for the content-type at hand (Folder) in it's FTI (folder.xml).
+To make views configurable so that editors can choose them we have to register the view for the content-type at hand in it's FTI. To enableif for all folders we add  anew file ``profiles/default/types/Folder.xml``
 
 .. code-block:: xml
     :linenos:
@@ -331,7 +331,9 @@ To make views configurable so that editors can choose them like folder_Summary_v
       <alias from="@@talklistview" to="talklistview"/>
     </object>
 
-After reapplying the profile the configuration of the content-type "Folder" would be extended with our additional view-method and it would appear in the display-dropdown.
+After reapplying the typeinfo-profile of out addon (or simply reinstalling it) the content-type "Folder" is extended with our additional view-method and appears in the display-dropdown.
+
+The ``purge="False"`` append out view to the already existing ones instead of replacing them.
 
 
 Adding some javascript (collective.js.datatables)
@@ -416,4 +418,10 @@ The documentation of datatables is beyond our training.
 
 We use METAL again but this time to fill a different slot. The "javascript_head_slot" is part of the html's ``<head>``-area in Plone and can be extended this way. We could also just put the code inline but having nicely ordered html is a good practice.
 
-Let's test it.
+Let's test it: http://localhost:8080/Plone/talklistview
+
+
+Summary
+-------
+
+We created a nive listing, that can be called at any place in the website.
