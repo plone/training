@@ -21,7 +21,7 @@ The training-buildout hold a section ``[sources]`` that tells buildout to downlo
 Pinning the revision saves us from being surprised by changes in the code we might not want.
 
 * Install the addon
-* Create a new dexterity-ct ``Banner`` with **only** the behavior ``Banner``enabled.
+* Create a new dexterity-ct ``Banner`` with **only** the behavior ``Banner`` enabled.
 * Create a folder called ``banners``
 * Add two banners into that folder using images taken from http://lorempixel.com/800/150/
 * Add the Behavior ``Slider`` to the default-contenttype ``Page (Document)``

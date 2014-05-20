@@ -143,7 +143,7 @@ Who can guess what ``brain.title`` will return since the brain has no such attri
 
     .. note::
 
-    Answer: Acquisition will get the attribute from the nearest parent. ``brain.__parent__`` is ``<CatalogTool at /Plone/portal_catalog>``. The attribute ``title`` of the ``portal_catalog`` is 'Indexes all content in the site'.
+        Answer: Acquisition will get the attribute from the nearest parent. ``brain.__parent__`` is ``<CatalogTool at /Plone/portal_catalog>``. The attribute ``title`` of the ``portal_catalog`` is 'Indexes all content in the site'.
 
 Acquisition can be harmfull. Brains have no attribute 'getLayout' ``brain.getLayout()``::
 
@@ -412,6 +412,7 @@ We already added the addon to our buildout and just have to activate it in our t
     </metal:content-core>
     </body>
     </html>
+
 We don't need the css-class ``listing`` anymore since it might clash with datatables (it does not but still...).
 
 The documentation of datatables is beyond our training.

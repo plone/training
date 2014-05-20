@@ -3,7 +3,7 @@ Creating your own eggs to customize Plone
 
 Our own code has te be organised as an egg. An Egg is a zip file or a directory that follows certain conventions. We are going to use zopeskel. Zopeskel creates a skeleton projekt. We only need to fill the holes.
 
-We move to the ``src`` directory and call a script called ``zopeskel``from our projects bin-directory.
+We move to the ``src`` directory and call a script called ``zopeskel`` from our projects bin-directory.
 
 .. code-block:: bash
 

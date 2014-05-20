@@ -66,4 +66,4 @@ Now we can add a grok view in a new file ``views.py``:
         grok.require("zope2.View")
         grok.context(Interface)
 
-By convention the template must be in a subdirectory called ``views_templates``and it must be named `talkview.pt`
+By convention the template must be in a subdirectory called ``views_templates`` and it must be named `talkview.pt`
