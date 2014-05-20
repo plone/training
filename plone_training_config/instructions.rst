@@ -105,8 +105,6 @@ You are now logged in as the user vagrant in ``/home/vagrant``. We'll do all ste
 
 We pre-installed a fresh Plone for you in the folder ``/home/vagrant/Plone/zinstance`` You can run it now and access it from the browser. We will **not** use this Plone-instance in the training, so you can play around with it as much as you want.
 
-.. code-block:: bash
-
 Instead we use our own Plone-instance during the training. It is in ``/vagrant/buildout/``. Start it in foreground with ``./bin/instance fg``.
 
 .. code-block:: bash
