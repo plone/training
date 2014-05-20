@@ -44,9 +44,10 @@ Contents:
     grok
     ressources
     social_behavior
+    viewlets_1
     thirdparty_behaviors
     behaviors
-    viewlets
+    viewlets_2
     deployment_code
     deployment_sites
     future_of_plone

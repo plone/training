@@ -9,8 +9,7 @@ In this part we will:
 * create a viewlet that shows the sponsors sorted by level
 * discuss image-scales
 
-
-Create a new file ``content/sponsor.py``.
+First we create the schema for the new type. Instead of xml we use python now. Create a new file ``content/sponsor.py``.
 
 .. code-block:: python
     :linenos:
@@ -20,7 +19,7 @@ Create a new file ``content/sponsor.py``.
     from plone.autoform import directives
     from plone.namedfile import field as namedfile
     from plone.supermodel.directives import fieldset
-    from plone.supermodel.model import Schema
+    from plone.supermodel import model
     from z3c.form.browser.radio import RadioFieldWidget
     from zope import schema
     from zope.schema.vocabulary import SimpleVocabulary
@@ -37,7 +36,7 @@ Create a new file ``content/sponsor.py``.
         )
 
 
-    class ISponsor(Schema):
+    class ISponsor(model.Schema):
         """Dexterity-Schema for Sponsors
         """
 
@@ -77,7 +76,7 @@ Create a new file ``content/sponsor.py``.
         )
 
 
-Register the new type in ``profiles/default/types/sponsor.xml``
+Second we create the FTI for new type in ``profiles/default/types/sponsor.xml``
 
 .. code-block:: xml
     :linenos:
@@ -128,3 +127,22 @@ Register the new type in ``profiles/default/types/sponsor.xml``
       <permission value="Modify portal content"/>
      </action>
     </object>
+
+Then we register the FTI in ``profiles/default/types.xml``
+
+.. code-block:: xml
+    :linenos:
+    :emphasize-lines: 5
+
+    <?xml version="1.0"?>
+    <object name="portal_types" meta_type="Plone Types Tool">
+     <property name="title">Controls the available content types in your portal</property>
+     <object name="talk" meta_type="Dexterity FTI"/>
+     <object name="sponsor" meta_type="Dexterity FTI"/>
+     <!-- -*- extra stuff goes here -*- -->
+    </object>
+
+After reinstalling our package we can test the new type.
+
+
+
