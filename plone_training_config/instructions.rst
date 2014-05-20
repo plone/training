@@ -107,23 +107,28 @@ We pre-installed a fresh Plone for you in the folder ``/home/vagrant/Plone/zinst
 
 .. code-block:: bash
 
-    $ cd Plone/zinstance
-    $ ./bin/instance fg
-
-Instead we use our own Plone-instance during the training.
+Instead we use our own Plone-instance during the training. It is in ``/vagrant/buildout/``. Start it in foreground with ``./bin/instance fg``.
 
 .. code-block:: bash
 
-    $ cd /vagrant/buildout
-    $ ./bin/instance fg
+    vagrant@vagrant-ubuntu-trusty-32:~$ cd /vagrant/buildout
+    vagrant@vagrant-ubuntu-trusty-32:/vagrant/buildout$ ./bin/instance fg
+    2014-05-20 16:56:54 INFO ZServer HTTP server started at Tue May 20 16:56:54 2014
+            Hostname: 0.0.0.0
+            Port: 8080
+    2014-05-20 16:56:56 INFO Products.PloneFormGen gpg_subprocess initialized, using /usr/local/bin/gpg
+    2014-05-20 16:57:02 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
+    2014-05-20 16:57:02 INFO Zope Ready to handle requests
 
-You can now point your browser at http://localhost:8080 and see Plone. This works since the port 8080 is forwarded from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone-Site by clicking "Create a new Plone-Site". The username and the password are both "admin" (Never do this on a real site!).
+Now the zope-instance we're using is running. You can stop the running instance anytime using ``ctrl + c``.
 
-The buildout for this Plone is in a shared folder, this means we run it in the vagrant-box from ``/vagrant/buildout`` but we can also access it in out own operating-system and use our favourite editor to editor. You will find the directory ``buildout`` in the directory ``training`` that you created in the very beginning next to ``Vagrantfile`` and ``manifests``.
+You can now point your local browser at http://localhost:8080 and see the Plone that is running in vagrant. This works since the port 8080 is forwarded from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone-Site by clicking "Create a new Plone-Site". The username and the password are both "admin" (Never do this on a real site!).
+
+The buildout for this Plone is in a shared folder, this means we run it in the vagrant-box from ``/vagrant/buildout`` but we can also access it in out own operating-system and use our favorite editor. You will find the directory ``buildout`` in the directory ``training`` that you created in the very beginning next to ``Vagrantfile`` and ``manifests``.
 
 .. note::
 
-    The Database and the python-packages are not accessible in you own system since large files and symlinks should not be used in shared folders. The database lies in ``/home/vagrant/var``, the python-packages are in ``/home/vagrant/omelette``.
+    The database and the python-packages are **not accessible** in you own system since large files and symlinks should not be used in shared folders. The database lies in ``/home/vagrant/var``, the python-packages are in ``/home/vagrant/omelette``.
 
 If you have any problems or questions please mail us at team@starzel.de
 
@@ -175,11 +180,9 @@ Then we download, unpack and install the unified installer of Plone.
     $ cd Plone-4.3.3-UnifiedInstaller
     $ ./install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone
 
-
 The unified installer is an amazing tool that compiles it's own python, brings with it all the python-eggs we need and puts them in a buildout-cache. It then creates a buildout and makes Plone ready to run.
 
 We will not actually use this Plone during the training. If you want to use it for your own experiments, you can find it in ``/home/vagrant/Plone/zinstance`` on the virtual machine.
-
 
 Instead vagrant now creates our own little buildout and only uses the eggs that were created when installing the unified installer. First we copy the buildout-cache that holds all the python-packages that Plone consits of.
 
