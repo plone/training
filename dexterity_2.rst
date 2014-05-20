@@ -1,11 +1,11 @@
 Dexterity Types II: Growing up
 ==============================
 
-The talks are still lacking some functionality we want to use.
+The existing talks are still lacking some functionality we want to use.
 
 In this part we will:
 
-* *pythonify* our talk-type a little more.
+* *pythonify* our talk-type a little more
 * create custom catalog-indexes
 * query the catalog for them
 * enable some more default-features for our type
@@ -172,6 +172,52 @@ Actually this is considered harmful because reinstalling the addon purges the in
 .. seealso::
 
     http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html
+
+
+Query for custom indexes
+------------------------
+
+The new indexes behave like the ones that plone has built in:
+
+.. code-block:: python
+
+    >>> (Pdb) from Products.CMFCore.utils import getToolByName
+    >>> (Pdb) catalog = getToolByName(self.context, 'portal_catalog')
+    >>> (Pdb) catalog(type_of_talk='Keynote')
+    [<Products.ZCatalog.Catalog.mybrains object at 0x10737b9a8>, <Products.ZCatalog.Catalog.mybrains object at 0x10737b9a8>]
+    >>> (Pdb) catalog(audience=('Advanced', 'Professionals'))
+    [<Products.ZCatalog.Catalog.mybrains object at 0x10737b870>, <Products.ZCatalog.Catalog.mybrains object at 0x10737b940>, <Products.ZCatalog.Catalog.mybrains object at 0x10737b9a8>]
+    >>> (Pdb) brain = catalog(type_of_talk='Keynote')[0]
+    >>> (Pdb) brain.speaker
+    u'David Glick'
+
+We now can use the new indexes to improve the talklistview so we don't have to wake up the objects any more.
+
+.. code-block:: python
+    :linenos:
+
+    class TalkListView(BrowserView):
+        """ A list of talks
+        """
+
+        def talks(self):
+            results = []
+            portal_catalog = getToolByName(self.context, 'portal_catalog')
+            current_path = "/".join(self.context.getPhysicalPath())
+
+            brains = portal_catalog(portal_type="talk",
+                                    path=current_path)
+            for brain in brains:
+                results.append({
+                    'title': brain.Title,
+                    'description': brain.Description,
+                    'url': brain.getURL(),
+                    'audience': ', '.join(brain.audience),
+                    'type_of_talk': brain.type_of_talk,
+                    'speaker': brain.speaker,
+                    'uuid': brain.UID,
+                    })
+            return results
 
 
 Add collection criteria
