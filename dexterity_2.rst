@@ -77,7 +77,7 @@ Now we can bind the talkview to the new interface.
 
     <browser:page
       name="talklistview"
-      for="ploneconf.talk.interfaces.ITalk"
+      for="ploneconf.site.interfaces.ITalk"
       layer="*"
       class=".views.TalkListView"
       template="templates/talklistview.pt"
@@ -119,7 +119,7 @@ After reinstalling the addon we can bind the talkview, the demoview and the talk
 
     <browser:page
       name="talklistview"
-      for="ploneconf.talk.interfaces.ITalk"
+      for="ploneconf.site.interfaces.ITalk"
       layer="..interfaces.IPloneconfSiteLayer"
       class=".views.TalkListView"
       template="templates/talklistview.pt"
