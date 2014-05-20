@@ -68,13 +68,8 @@ Let's look for the template folder_summary_view.pt::
 
     plone/app/contenttypes/browser/templates/summary_view.pt
 
-.. note::
 
-    In default Plone this would be ``folder_summary_view.pt``, a skin-template for Archetypes that lies in ``Products/CMFPlone/skins/plone_content/folder_summary_view.pt``
-
-Make a copy and rename it::
-
-    browser/template_overrides/plone.app.contenttypes.browser.templates.summary_view.pt
+Copy it to``browser/template_overrides/`` and rename it to ``plone.app.contenttypes.browser.templates.summary_view.pt``.
 
 Add the following after line 29:
 
@@ -102,6 +97,14 @@ Our addition renders the date of the respective objects that the template iterat
 The date is only displayed if the variable ``item_type`` (defined in line 42 of ``standard_view.pt``) is ``News Item``.
 
 There is a lot more going on in ``standard_view.pt`` and ``summary_view.pt`` but we'll leave it at that.
+
+.. note::
+
+    In default Plone without ``plone.app.contenttypes`` this would be ``folder_summary_view.pt``, a skin-template for Archetypes that can be found in the folder ``Products/CMFPlone/skins/plone_content/``. The customzed template would be ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
+
+    The Archetypes-template for News Items is ``newsitems_view.pt`` from the same folder. The customized template would then have to be named ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
+
+    Keep in mind that not only the names have changed but also the content!
 
 
 Finding the right template
