@@ -107,7 +107,7 @@ We just added the logic that saves votes on the objects. Now let's add the user-
 Since we want to use the UI on more than one page (not only the talk-view but also the talk-listing) we need to put it somewhere.
 
 * To handle the user-input we don't use a form but links and ajax.
-* The voting itself is an fact handles by another view
+* The voting itself is an fact handled by another view
 
 We create a new file voting.py::
 
@@ -221,14 +221,15 @@ the final temoplate looks like this:
     </div>
 
     <script type="text/javascript">
-      jq(document).ready(function(){
-        ploneconf.init_voting_viewlet(jq(".voting"));
+      $(document).ready(function(){
+        ploneconf.init_voting_viewlet($(".voting"));
       });
     </script>
 
-* many small parts, most of which will be hidden by javascript unless needed.
+* We have many small parts, most of which will be hidden by javascript unless needed.
+* By providing all these status information in HTML, we can use standard translation tools to translate. Translating strings in javascript requires extra work.
 * we use the methods the class provides
-* some standard-code to initialize our js-code
+* some standard-code to bootstrap our js-code
 
 The css for the template:
 
@@ -279,6 +280,7 @@ The javascript code (Patrick)
 -----------------------------
 
 .. code-block:: js
+    :linenos:
 
     /*global location: false, window: false, jQuery: false */
     (function ($, starzel_votablebehavior) {
@@ -288,6 +290,7 @@ The javascript code (Patrick)
                 alreadyvoted = context.find("#alreadyvoted"),
                 delete_votings = context.find("#delete_votings"),
                 delete_votings2 = context.find("#delete_votings2");
+
             if (context.find("#voted").length !== 0) {
                 alreadyvoted.show();
             } else {
@@ -318,6 +321,9 @@ The javascript code (Patrick)
             });
         };
     }(jQuery, window.starzel_votablebehavior = window.starzel_votablebehavior || {}));
+
+This js-code adheres to crockfort jshint rules, so all variables are declared at the beginning of the method.
+We show and hide quite a few small html elements here 
 
 Zunächst fragen wir den Marker ab, der anzeigt, ob der aktuelle
 Benutzer schon abgestimmt hat. Abhängig davon zeigen bieten wir die
