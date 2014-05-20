@@ -96,10 +96,10 @@ Second we create the FTI for new type in ``profiles/default/types/sponsor.xml``
      <property name="filter_content_types">True</property>
      <property name="allowed_content_types"/>
      <property name="allow_discussion">False</property>
-     <property name="default_view">sponsorview</property>
+     <property name="default_view">view</property>
      <property name="view_methods">
       <element value="view"/>
-      <element value="sponsor"/>
+      <element value="sponsorview"/>
      </property>
      <property name="default_view_fallback">False</property>
      <property name="add_permission">cmf.AddPortalContent</property>
@@ -142,7 +142,68 @@ Then we register the FTI in ``profiles/default/types.xml``
      <!-- -*- extra stuff goes here -*- -->
     </object>
 
-After reinstalling our package we can test the new type.
+After reinstalling our package we can create the new type. But since we did not create the view yet we will get an errormessage after saving. Let's register the view and add the template.
 
+Edit ``browser/configure.zcml``
+
+.. code-block:: xml
+    :linenos:
+
+    <browser:page
+      name="sponsorview"
+      for="ploneconf.site.content.sponsor.ISponsor"
+      layer="..interfaces.IPloneconfSiteLayer"
+      class=".views.SponsorView"
+      template="templates/sponsorview.pt"
+      permission="zope2.View"
+      />
+
+Note how the schema ``ploneconf.site.content.sponsor.ISponsor`` acts as a marker-interface.
+
+The template ``browser/templates/sponsorview.pt``
+
+.. code-block:: xml
+    :linenos:
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+          metal:use-macro="context/main_template/macros/master"
+          i18n:domain="ploneconf.site">
+    <body>
+      <metal:content-core fill-slot="content-core">
+        <h3 tal:content="structure view/w/level/render">
+          Level
+        </h3>
+
+        <div tal:content="structure view/w/text/render">
+          Text
+        </div>
+
+        <div class="newsImageContainer">
+          <a tal:attributes="href context/url">
+            <img tal:condition="python:getattr(context, 'logo', None)"
+                 tal:attributes="src string:${context/absolute_url}/@@images/logo/preview" />
+          </a>
+        </div>
+
+        <div>
+          <a tal:attributes="href context/url">
+            Website
+          </a>
+
+          <img tal:condition="python:getattr(context, 'advertisment', None)"
+               tal:attributes="src string:${context/absolute_url}/@@images/advertisment/preview" />
+
+          <div tal:condition="python: 'notes' in view.w"
+               tal:content="structure view/w/notes/render">
+            Notes
+          </div>
+
+        </div>
+      </metal:content-core>
+    </body>
+    </html>
+
+Analyzing the schema
+--------------------
 
 
