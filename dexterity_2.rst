@@ -21,9 +21,7 @@ The content-type `Talk` is not yet a first-class plone-citizen because it does n
 
 The problem is that the name of the Plone-instance ``Plone`` is part of that interface-name. If you now moved these types to a site with another name, code that uses these Interfaces would no longer find the objects in question.
 
-For this we add new files ``ìnterfaces.py`` and ``content.py``:
-
-interfaces.py
+For this we add a new file ``ìnterfaces.py``:
 
 .. code-block:: python
     :linenos:
@@ -40,7 +38,7 @@ interfaces.py
 
 For this we create a new class that inherits ``plone.dexterity.content.Container``.
 
-Add a new folder ``content`` with a empty ``__init__.py`` and a new file ``content/talk.py``:
+Add a new folder ``content/`` with a empty ``content/__init__.py`` and a new file ``content/talk.py``:
 
 .. code-block:: python
 
@@ -55,7 +53,7 @@ Add a new folder ``content`` with a empty ``__init__.py`` and a new file ``conte
 
 .. note::
 
-  For now we don't need a ``configure.zcml`` in the new folder, so we don't have to register it in the packages ``configure.zcml``.
+    For now we don't need a ``configure.zcml`` in the new folder, so we don't have to register it in the packages ``configure.zcml``.
 
 
 To have our talk-instances to use this we'll have to modify its base-class from ``plone.dexterity.content.Container`` to the new class. Edit the profile's ``klass``-property in ``profiles/default/types/talk.xml``
