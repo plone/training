@@ -3,34 +3,92 @@ Ressources
 
 We have not yet talked about CSS and Javascript. At the moment these are considered static resources.
 
-You can declare and access static resources with special urls. In the past, you could just create a static folder, add grok, and your static files have been registered
-Unfortunately this functionality has been removed. Grok is a framework of its own and they implemented an alternative system for embedding resources, `fanstatic` Plone does not use fanstatic so Plone basically lost a functionality.
-
-We are going to mimic this behavior with plone functionality by adding the following to our configure.zcml:
+You can declare and access static resources with special urls. The configure.zcml of our package alsready has a declaration for resources:
 
 .. code-block:: xml
 
-    <plone:static
-        type="theme"
-        name="ploneconf.site"
-        directory="static"
-        />
+    <browser:resourceDirectory
+      name="ploneconf.site"
+      directory="resources" />
 
-For this to work we need to add another namespace-declaration into the header::
+Now all files we put in the resources-folder can be found via the url http://localhost:8080/Plone/++resource++ploneconf.site/something.js
 
-    xmlns:plone="http://namespaces.plone.org/plone"
+Let's create a ``ploneconf.css`` and a ``plonconf.js`` in that folder and move the customisations we did in ``ploneCusom.css`` using the ZMI in the css-file.
 
-Now all files we put in the static folder can be found via /++theme++/ploneconf.site/somefile
+.. code-block:: css
 
-How do our javascript and css files and up in the browser? Adding them directly into the html is not a good solution, having many css and js files slows page loading down.
-Plone has a resource manager that is able to concatenate and compress js and css files, resources can be added conditionally and Plone automatically stops concatenating files when you are debugging plone in the foreground. The resources are managed in the Zope database, as need to write a genericsetup step.
+    #visual-portal-wrapper {
+        margin: 0 auto;
+        position: relative;
+        width: 1024px;
+    }
+
+    @media only screen and (max-width: 980px) {
+       #visual-portal-wrapper {
+           position: relative;
+           width: auto;
+       }
+    }
+
+    @media only screen and (max-width: 768px) {
+       #portal-columns > div {
+           width: 97.75%;
+           margin-left: -98.875%;
+           clear: both;
+       }
+
+       .searchButton,
+       .searchSection {
+           display: none;
+       }
+    }
+
+If we access http://localhost:8080/Plone/++resource++ploneconf.site/ploneconf.css we see our css-file.
+
+How do our javascript and css files get used when visiting the page? Adding them directly into the html is not a good solution, having many css- and js-files slows page loading down.
+
+With ``portal_css`` and ``portal_javascript`` Plone has resource managers that are able to merge and compress js and css files. Resources can be added conditionally and Plone automatically stops merging files when you are debugging plone in the foreground.
+
+We need to register our resources with Generic Setup.
+
+Add a new file ``profiles/default/cssregistry.xml``
 
 .. code-block:: xml
 
     <?xml version="1.0"?>
-    <object name="portal_javascripts" meta_type="JavaScripts Registry">
-    <javascript authenticated="False" cacheable="True" compression="safe"
-        conditionalcomment="" cookable="True" enabled="on" expression=""
-        id="++theme++ploneconf.site/ploneconf.js" inline="False"/>
+    <object name="portal_css">
+      <stylesheet
+          title=""
+          applyPrefix="False"
+          authenticated="False"
+          bundle=""
+          cacheable="True"
+          compression="safe"
+          conditionalcomment=""
+          cookable="True"
+          enabled="True"
+          expression=""
+          id="++resource++ploneconf.site/ploneconf.css"
+          media=""
+          rel="stylesheet"
+          rendering="import"/>
     </object>
 
+Add a new file ``profiles/default/jsregistry.xml``
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <object name="portal_javascripts">
+      <javascript
+        authenticated="False"
+        bundle=""
+        cacheable="True"
+        compression="safe"
+        conditionalcomment=""
+        cookable="True"
+        enabled="on"
+        expression=""
+        id="++resource++ploneconf.site/ploneconf.js"
+        inline="False"/>
+    </object>
