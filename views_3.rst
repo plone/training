@@ -35,9 +35,11 @@ Python
 .. code-block:: python
     :linenos:
 
+    # -*- coding: UTF-8 -*-
     from Products.CMFCore.utils import getToolByName
     from Products.Five.browser import BrowserView
     from plone.dexterity.browser.view import DefaultView
+
 
     class DemoView(BrowserView):
         """ This does nothing so far
@@ -59,14 +61,14 @@ Python
             current_path = "/".join(self.context.getPhysicalPath())
 
             brains = portal_catalog(portal_type="talk",
-                                   path=current_path)
+                                    path=current_path)
             for brain in brains:
                 talk = brain.getObject()
-
                 results.append({
                     'title': brain.Title,
+                    'description': brain.Description,
                     'url': brain.getURL(),
-                    'audience': talk.audience,
+                    'audience': ', '.join(talk.audience),
                     'type_of_talk': talk.type_of_talk,
                     'speaker': talk.speaker,
                     'uuid': brain.UID,
@@ -78,9 +80,9 @@ We query the catalog for two things:
 * ``portal_type = "talk"``
 * ``path = "/".join(self.context.getPhysicalPath())``
 
-We get the path of the current context to query only for objects in the current path. Otherwise we'd get all talks in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for univerities with a special talk-list) we might not want so see them in our listing.
+We get the path of the current context to query only for objects in the current path. Otherwise we'd get all talks in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for universities with a special talk-list) we might not want so see them in our listing.
 
-We iterate over the list of results that the catalog returns us::
+We iterate over the list of results that the catalog returns us.
 
 We create a dictionary that holds all the information we want to show in the template. This way we don't have to put any complex logic into the template.
 
@@ -217,78 +219,78 @@ Let's add this simple table to our template ``templates/talklistview.pt``:
 .. code-block:: html
     :linenos:
 
-        <table class="listing">
-            <thead>
-                <tr>
-                    <th>
-                        Title
-                    </th>
-                    <th>
-                        Speaker
-                    </th>
-                    <th>
-                        Audience
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                       The 7 sins of plone-development
-                    </td>
-                    <td>
-                        Philip Bauer
-                    </td>
-                    <td>
-                        Advanced
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <table class="listing">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Speaker
+                </th>
+                <th>
+                    Audience
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                   The 7 sins of plone-development
+                </td>
+                <td>
+                    Philip Bauer
+                </td>
+                <td>
+                    Advanced
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 After we transform it we have a listing:
 
 .. code-block:: html
     :linenos:
 
-        <table class="listing" id="talks">
-            <thead>
-                <tr>
-                    <th>
-                        Title
-                    </th>
-                    <th>
-                        Speaker
-                    </th>
-                    <th>
-                        Audience
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr tal:repeat="talk view/talks">
-                    <td>
-                        <a href=""
-                           tal:attributes="href talk/url;
-                                           title talk/description"
-                           tal:content="talk/title">
-                           The 7 sins of plone-development
-                        </a>
-                    </td>
-                    <td tal:content="talk/speaker">
-                        Philip Bauer
-                    </td>
-                    <td tal:content="talk/audience">
-                        Advanced
-                    </td>
-                </tr>
-                <tr tal:condition="not:view/talks">
-                    <td colspan=3>
-                        No talks so far :-(
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <table class="listing" id="talks">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Speaker
+                </th>
+                <th>
+                    Audience
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr tal:repeat="talk view/talks">
+                <td>
+                    <a href=""
+                       tal:attributes="href talk/url;
+                                       title talk/description"
+                       tal:content="talk/title">
+                       The 7 sins of plone-development
+                    </a>
+                </td>
+                <td tal:content="talk/speaker">
+                    Philip Bauer
+                </td>
+                <td tal:content="talk/audience">
+                    Advanced
+                </td>
+            </tr>
+            <tr tal:condition="not:view/talks">
+                <td colspan=3>
+                    No talks so far :-(
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 I'll explain some of the things in the TAL:
 
@@ -343,8 +345,14 @@ Like for many js-libraries there is already a package that doe the plone-integra
 
 We already added the addon to our buildout and just have to activate it in our template.
 
-.. code-block:: html
+.. code-block:: xml
     :linenos:
+    :emphasize-lines: 6-16
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+          metal:use-macro="context/main_template/macros/master"
+          i18n:domain="ploneconf.site">
+    <body>
 
     <metal:head fill-slot="javascript_head_slot">
         <link rel="stylesheet" type="text/css" media="screen" href="++resource++jquery.datatables/media/css/jquery.dataTables.css">
@@ -358,6 +366,50 @@ We already added the addon to our buildout and just have to activate it in our t
         </script>
     </metal:head>
 
+    <metal:content-core fill-slot="content-core">
+
+        <table class="listing" id="talks">
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Speaker
+                    </th>
+                    <th>
+                        Audience
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr tal:repeat="talk view/talks">
+                    <td>
+                        <a href=""
+                           tal:attributes="href talk/url;
+                                           title talk/description"
+                           tal:content="talk/title">
+                           The 7 sins of plone-development
+                        </a>
+                    </td>
+                    <td tal:content="talk/speaker">
+                        Philip Bauer
+                    </td>
+                    <td tal:content="talk/audience">
+                        Advanced
+                    </td>
+                </tr>
+                <tr tal:condition="not:view/talks">
+                    <td colspan=3>
+                        No talks so far :-(
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </metal:content-core>
+    </body>
+    </html>
 We don't need the css-class ``listing`` anymore since it might clash with datatables (it does not but still...).
 
 The documentation of datatables is beyond our training.
