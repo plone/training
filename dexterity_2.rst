@@ -1,7 +1,7 @@
-Dexterity Types II: Python
-==========================
+Dexterity Types II: Growing up
+==============================
 
-Without sponsors a conference would be hard to finance plus it is a good opportunity for plone-companies to advertise their services.
+The talks are still lacking some functionality we want to use.
 
 In this part we will:
 
@@ -36,7 +36,7 @@ interfaces.py
 
 For this we create a new class that inherits ``plone.dexterity.content.Container``.
 
-Add a file ``content.py``:
+Add a new folder ``content`` with a empty ``__init__.py`` and a new file ``content/talk.py``:
 
 .. code-block:: python
 
@@ -47,6 +47,10 @@ Add a file ``content.py``:
     class Talk(Container):
         implements(ITalk)
 
+.. note::
+
+  For now we don't need a ``configure.zcml`` in the new folder, so we don't have to register it in the packages ``configure.zcml``.
+
 
 To have our talk-instances to use this we'll have to modify its base-class from ``plone.dexterity.content.Container`` to the new class. Edit the profile's ``klass``-property in ``profiles/default/types/talk.xml``
 
@@ -56,7 +60,7 @@ To have our talk-instances to use this we'll have to modify its base-class from 
 
     <property name="default_view_fallback">False</property>
     <property name="add_permission">cmf.AddPortalContent</property>
-    <property name="klass">ploneconf.site.content.Talk</property>
+    <property name="klass">ploneconf.site.content.talk.Talk</property>
     <property name="behaviors">
       <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
       <element value="plone.app.content.interfaces.INameFromTitle"/>
