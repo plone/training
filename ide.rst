@@ -24,13 +24,14 @@ Some features that most editors have in one form or another are essential when d
 
 The capability of performing a full text search through the complete Plone code is invaluable. Thanks to omelette, an SSD and plenty of RAM you can search through the complete Plone-code in 3 seconds.
 
-Some Packages that are recommmended when using Sublime
+Some Packages that are recommended when using Sublime Text 3
 
-    * SublimeCodeIntel (Goto Definition)
-    * BracketHighlighter
-    * GitGutter
-    * FileDiffs
-    * INI (syntax for ini-Files)
-    * SideBarEnhancements
-    * MacTerminal
-    * SyncedSideBar
+* SublimeCodeIntel (Goto Definition)
+* BracketHighlighter
+* GitGutter
+* FileDiffs
+* SublimeLinter with SublimeLinter-flake8 ...
+* INI (syntax for ini-Files)
+* SideBarEnhancements
+* MacTerminal
+* SyncedSideBar

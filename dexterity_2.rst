@@ -173,9 +173,8 @@ The ``column ..`` entry allows us to display these values of these indexes in th
 
     To run additional custom code on (re-)installing an addon you should use a `setuphandler.py <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_.
 
-* Reinstall the^ addon
-* Go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes to inspect the new indexes
-* Clear & Rebuild catalog to populate indexes.
+* Reinstall the addon
+* Go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes to inspect populate and inspect the new indexes
 
 .. seealso::
 
@@ -227,6 +226,7 @@ We now can use the new indexes to improve the talklistview so we don't have to w
                     })
             return results
 
+The template does not need to be changed and the result did not change as well.
 
 Add collection criteria
 -----------------------
