@@ -40,6 +40,7 @@ Contents:
     views_3
     dexterity_2
     custom_search
+    user_generated_content
     grok
     ressources
     behaviors1
@@ -49,6 +50,7 @@ Contents:
     eggs2
     viewlets_2
     behaviors2
+    viewlets_2
     viewlets_3
     deployment_code
     deployment_sites
