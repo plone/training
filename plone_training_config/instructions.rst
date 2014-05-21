@@ -55,7 +55,7 @@ Setup Vagrant to automatically install the current guest-additions. You can choo
 
     $ vagrant plugin install vagrant-vbguest
 
-Now either extract the the files from the attachment (if you read this as a mail) or download and extract http://www.starzel.de/plone-tutorial/plone_training_config.zip into your training directory. It should now hold the file "Vagrantfile" and the directory ``manifests``.
+Now either unzip the attachment (if you read this as a mail) or download the zipfile http://www.starzel.de/plone-tutorial/plone_training_config.zip and copy its contents into your training directory. It should now hold the file "Vagrantfile" and the directory ``manifests``.
 
 Start the VM that is configured in "Vagrantfile"
 
