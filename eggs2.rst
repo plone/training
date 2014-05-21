@@ -5,7 +5,7 @@ We already created an egg much earlier.
 
 Now we are going to create a a feature that is completely independent of our ploneconf site and can be reused in other packages.
 
-To make the distinction clear, this is not a package from the namespace :samp:`ploneconf` but from :samp:`starzel.
+To make the distinction clear, this is not a package from the namespace :samp:`ploneconf` but from :samp:`starzel`.
 
 We are going to add a voting behavior.
 
@@ -43,10 +43,10 @@ We anwser some questions:
 
 We have to modify the generated files slightly.
 
-In :file:`setup.py`, we completely remove the variables setup_requires and paster_plugins. These are required for seldomly features and add a lot of code into the source directory that we don't want.
+In :file:`setup.py`, we completely remove the variables setup_requires and paster_plugins. These are required for seldomly features and add a lot of code into the source directory that we don't want. To the :samp:`install_requires` list, we add an entry for :samp:`plone.api`.
 
-The :file:`tests.py` we just delete. This is an outdated test system and we don't want you to start from there.
+The file :file:`tests.py` we just delete. This is an outdated test system and we don't want you to start from there.
 
-The :file:`profiles/default/types.xml` we just delete also. We won't define new types.
+The file :file:`profiles/default/types.xml` we just delete also. We won't define new types.
 
 

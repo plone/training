@@ -2,8 +2,8 @@ A viewlet for the voteable behavior
 ===================================
 
 
-voting-viewlet
-----------------
+Voting Viewlet
+--------------
 
 * Viewlet for IVoteable
 * the viewlet-template
@@ -78,8 +78,8 @@ Let's create the file :file:`browser/templates/voting_viewlet.pt` without any lo
 * restart Plone
 * show the viewlet
 
-Writing the viewlet-class
--------------------------
+Writing the Viewlet code
+------------------------
 
 .. only:: mannual
 
@@ -123,7 +123,7 @@ Update the viewlet to contain the necessary logic in :file:`browser/viewlets`
             return self.vote.has_votes()
 
 
-the template
+The template
 ------------
 
 And extend the template in :file:`browser/templates/voting_viewlet.pt`
@@ -271,7 +271,7 @@ To make it work in the browser, some javascript :file:`static/starzel_votablebeh
     We show and hide quite a few small html elements here
 
 
-2 Writing simple view helpers
+Writing 2 simple view helpers
 -----------------------------
 
 .. only:: manual
@@ -279,6 +279,28 @@ To make it work in the browser, some javascript :file:`static/starzel_votablebeh
     Our javascript code communicates with our site by calling views that don't exist yet.
     These Views do not need to render html, but should return a valid status.
     Exceptions set the right status and aren't being shown by javascript, so this will suit us fine.
+
+    As you might remember, the :samp:`vote` method might return an exception, if somebody votes twice.
+    We do not catch this exception. The user will never see this exception.
+
+    .. seealso::
+
+        Catching exceptions contain a gotcha for new developers.
+
+        .. code-block:: python
+            :linenos:
+
+            try:
+                something()
+            except:
+                fix_something()
+
+        Zope claims some exceptions for themselves. It needs them to work correctly.
+
+        For example, if two requests try to modify something at the same time, one request will throw an exception, a :samp:`ConflictError`.
+
+        Zope catches the exception, waits for a random amount of time, and tries to process the request again, up to three times.
+        If you catch that exception, you are in trouble, so don't do that. Ever.
 
 As so often, we must extend :file:`browser/configure.zcml`:
 
