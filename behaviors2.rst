@@ -10,6 +10,53 @@ simple social behavior
 * Behavior "IVoteable"
 * The Plone API
 
+The behavior needs a bunch of features:
+
+* It needs to store the votes somewhere
+* It needs some logic to process the votes
+
+We could use schema fields, but these would be visible in the edit view.
+But what we store does not really adapt very well to standard form elements.
+
+We are going to store the information in an annotation. Not because it is needed but because you will find code that uses annotations.
+Annotations in Zope/Plone mean that data won't be stored directly on an object but in an indirect way and with namespaces so that multiple packages can store information under the same attribute, without coliding.
+
+The current implementation, which is not the official API is just a dictionary under the attribute name __annotations__ When I want to get my annotations, I ask for a specific value of that dictionary.
+
+So using annotations avoids namespace conflicts. The cost is an indirection. The dictionary is persistent so must be stored separately. Also, one could give attributes a name containing a namespace prefix to avoid naming collisisons.
+
+Additionally, we are no
+We are going to store the information in an annotation. Not because it is needed but because you will find code that uses annotations.
+Annotations in Zope/Plone mean that data won't be stored directly on an object but in an indirect way and with namespaces so that multiple packages can store information under the same attribute, without coliding.
+
+The current implementation, which is not the official API is just a dictionary under the attribute name __annotations__ When I want to get my annotations, I ask for a specific value of that dictionary.
+
+So using annotations avoids namespace conflicts. The cost is an indirection. The dictionary is persistent so must be stored separately. Also, one could give attributes a name containing a namespace prefix to avoid naming collisisons.
+
+Additionally, we are not
+We are going to store the information in an annotation. Not because it is needed but because you will find code that uses annotations.
+Annotations in Zope/Plone mean that data won't be stored directly on an object but in an indirect way and with namespaces so that multiple packages can store information under the same attribute, without coliding.
+
+The current implementation, which is not the official API is just a dictionary under the attribute name __annotations__ When I want to get my annotations, I ask for a specific value of that dictionary.
+
+So using annotations avoids namespace conflicts. The cost is an indirection. The dictionary is persistent so must be stored separately. Also, one could give attributes a name containing a namespace prefix to avoid naming collisisons.
+
+Additionally, we are not
+We are going to store the information in an annotation. Not because it is needed but because you will find code that uses annotations.
+Annotations in Zope/Plone mean that data won't be stored directly on an object but in an indirect way and with namespaces so that multiple packages can store information under the same attribute, without coliding.
+
+The current implementation, which is not the official API is just a dictionary under the attribute name __annotations__ When I want to get my annotations, I ask for a specific value of that dictionary.
+
+So using annotations avoids namespace conflicts. The cost is an indirection. The dictionary is persistent so must be stored separately. Also, one could give attributes a name containing a namespace prefix to avoid naming collisisons.
+
+The attribute where we store our data will be declared as a schema field. We set permissions so that it will never be displayed, because we are not going to create z3c.form widgets for displaying them. We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
+For example, when files have been migrated to blobs, new objects had to be created and every schema field was copied. The code can't know about our field, except if we provide schema information.
+
+
+
+
+
+
 Was jetzt noch fehlt ist die Funktionalität, Stimmen abzugeben.
 Damit die Menschen abstimmen können, benötigen wir:
 
