@@ -103,9 +103,8 @@ Second we create the FTI for new type in ``profiles/default/types/sponsor.xml``
      <property name="filter_content_types">True</property>
      <property name="allowed_content_types"/>
      <property name="allow_discussion">False</property>
-     <property name="default_view">sponsorview</property>
+     <property name="default_view">view</property>
      <property name="view_methods">
-      <element value="sponsorview"/>
       <element value="view"/>
      </property>
      <property name="default_view_fallback">False</property>
@@ -149,25 +148,22 @@ Then we register the FTI in ``profiles/default/types.xml``
      <!-- -*- extra stuff goes here -*- -->
     </object>
 
-After reinstalling our package we can create the new type. Since we have not yet created the view we will get an error after saving. Let's register the view and add the template.
+After reinstalling our package we can create the new type. We use the default-view provide by dexterity since we display the sponsors in a viewlet.
 
-Edit ``browser/configure.zcml``
+Instead we tweak the default-view with some css. Add the following to ``resources/ploneconf.css``
 
-.. code-block:: xml
-    :linenos:
+.. code-block:: css
 
-    <browser:page
-      name="sponsorview"
-      for="ploneconf.site.content.sponsor.ISponsor"
-      layer="..interfaces.IPloneconfSiteLayer"
-      class=".views.SponsorView"
-      template="templates/sponsorview.pt"
-      permission="zope2.View"
-      />
+    .template-view.portaltype-sponsor .named-image-widget img {
+        width: 100%;
+        height: auto;
+    }
 
-Note how the schema ``ploneconf.site.content.sponsor.ISponsor`` acts as a marker-interface.
+    .template-view.portaltype-sponsor fieldset#folder-listing {
+        display: none;
+    }
 
-Here ist the new template ``browser/templates/sponsorview.pt``
+If we would want a custom view for sponsors it could look like this.
 
 .. code-block:: xml
     :linenos:
@@ -210,7 +206,120 @@ Here ist the new template ``browser/templates/sponsorview.pt``
     </body>
     </html>
 
-* ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base-class ``DefaultView`` holds the widget for the field ``note``. If the current user dies not have the permission ``cmf.AddPortalMember`` it will be ommited from the dictionary and get an error. By first checking if it is missing we work around that.
-*
+.. note::
+
+    Note that we have to handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base-class ``DefaultView`` holds the widget for the field ``note``. If the current user does not have the permission ``cmf.AddPortalMember`` it will be ommited from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it is missing we work around that.
+
+
+We display the sponsors at the bottom of the website in a viewlet.
+
+Register the viewlet in ``browser/configure.zcml``
+
+.. code-block:: xml
+    :linenos:
+
+    <browser:viewlet
+      name="sponsorsviewlet"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      for="*"
+      layer="..interfaces.IPloneconfSiteLayer"
+      class=".viewlets.SponsorsViewlet"
+      template="viewlet_templates/sponsors_viewlet.pt"
+      permission="zope2.View"
+      />
+
+Add the viewlet-class in ``browser/viewlets.py``
+
+.. code-block:: python
+    :linenos:
+
+    # -*- coding: UTF-8 -*-
+    from Products.CMFCore.utils import getToolByName
+    from collections import OrderedDict
+    from plone.app.layout.viewlets.common import ViewletBase
+    from plone.memoize import ram
+    from time import time
+    from ploneconf.site.content.sponsor import LevelVocabulary
+    from random import shuffle
+    from zope.component import getMultiAdapter
+
+
+    class SponsorsViewlet(ViewletBase):
+
+        @ram.cache(lambda *args: time() // (60 * 60))
+        def _sponsors(self):
+            catalog = getToolByName(self.context, 'portal_catalog')
+            brains = catalog(portal_type='sponsor')
+            results = []
+            for brain in brains:
+                obj = brain.getObject()
+                scales = getMultiAdapter((obj, self.request), name='images')
+                scale = scales.scale('logo', width=200, height=80, direction='down')
+                tag = scale.tag() if scale else ''
+                if not tag:
+                    # only display sponsors with a logo
+                    continue
+                results.append(dict(
+                    title=brain.Title,
+                    description=brain.Description,
+                    tag=tag,
+                    url=obj.url or obj.absolute_url(),
+                    level=obj.level
+                ))
+            return results
+
+        def sponsors(self):
+            results = OrderedDict()
+            levels = [i.value for i in LevelVocabulary]
+            for level in levels:
+                level_sponsors = []
+                for sponsor in self._sponsors():
+                    if level == sponsor['level']:
+                        level_sponsors.append(sponsor)
+                if not level_sponsors:
+                    continue
+                shuffle(level_sponsors)
+                results[level] = level_sponsors
+            return results
+
+* ``_sponsors`` returns a list of dictionaries containing all necessary info about sponsors.
+* ``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time.
+* We create the complete img-tag using a custom scale (200x80) using the view ``images`` from plone.namedfile. This actually scales the logos and saves them as new blobs.
+* In ``sponsors`` we return a ordered dicttionary of randomized lists of dicts (containing the information on sponsors).
+
+.. seealso::
+
+    http://docs.plone.org/develop/plone/images/content.html#image-scales-plone-4
+
+Add the template ``browser/viewlet_templates/sponsors_viewlet.pt``
+
+.. code-block:: xml
+    :linenos:
+
+    <div metal:define-macro="portal_sponsorbox"
+         i18n:domain="ploneconf.site">
+        <div id="portal-sponsorbox"
+             tal:define="sponsors view/sponsors">
+            <div tal:repeat="level sponsors"
+                 tal:attributes="id python:'level-' + level">
+                <h3 tal:content="python: level.capitalize()">Level</h3>
+                <tal:images tal:define="items python:sponsors[level];"
+                            tal:repeat="item items">
+                    <div class="sponsor">
+                        <a href=""
+                           tal:attributes="href python:item['url'];
+                                           title python:item['title'];">
+                            <img tal:replace="structure python:item['tag']" />
+                        </a>
+                    </div>
+                </tal:images>
+                <div class="visualClear"><!-- --></div>
+            </div>
+        </div>
+    </div>
+
+
+* We forgot something: the talks have no dates yet. Enable event-behavior
+* add custom eea-view
 
 
