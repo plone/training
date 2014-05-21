@@ -22,45 +22,33 @@ social-viewlet
 We register the viewlet in :file:`browser/configure.zcml`.
 
 .. code-block:: xml
-   :linenos:
-   :emphasize-lines: 6-14
+    :linenos:
 
-    <configure xmlns="http://namespaces.zope.org/zope"
-      xmlns:browser="http://namespaces.zope.org/browser">
-
-      ...
-
-      <browser:viewlet
-        name="social"
-        for="ploneconf.site.behavior.social.ISocial"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-        class=".viewlets.SocialViewlet"
-        layer="ploneconf.site.interfaces.IPloneconfTalkLayer"
-        template="templates/social_viewlet.pt"
-        permission="zope2.View"
-        />
-
-    ....
-
-    </configure>
+    <browser:viewlet
+      name="social"
+      for="ploneconf.site.behavior.social.ISocial"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+      class=".viewlets.SocialViewlet"
+      layer="ploneconf.site.interfaces.IPloneconfSiteLayer"
+      template="viewlet_templates/social_viewlet.pt"
+      permission="zope2.View"
+      />
 
 .. only:: manual
     This registers a viewlet called ``social``.
     It is visible on all content that implments the interface ``ISocial`` from our behavior.
-    It is also good practice to bind it to the `BrowserLayer`_ ``IPloneconfTalkLayer`` of our addon so it only shows up if our addon is actually installed.
+    It is also good practice to bind it to the `BrowserLayer`_ ``IPloneconfSiteLayer`` of our addon so it only shows up if our addon is actually installed.
 
 The viewlet-class ``SocialViewlet`` is expected in a file ``browser/viewlets.py``.
 
 .. _BrowserLayer: http://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
 
 .. code-block:: python
-   :linenos:
+    :linenos:
 
     from plone.app.layout.viewlets import ViewletBase
 
-    ...
-
-    class Social(ViewletBase):
+    class SocialViewlet(ViewletBase):
         pass
 
 
@@ -119,20 +107,15 @@ We have to extend the Social Viewlet now to add the missing attribute:
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 7-9
+    :emphasize-lines: 5-7
 
-    from ploneconf.talk.interfaces import ISocial
-
-    ...
+    from ploneconf.site.interfaces import ISocial
 
     class Social(ViewletBase):
 
         def lanyrd_link(self):
             adapted = ISocial(self.context)
             return adapted.lanyrd
-
-    ...
-
 
 So far, we
 
