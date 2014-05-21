@@ -40,15 +40,16 @@ Contents:
     views_3
     dexterity_2
     custom_search
-    dexterity_3
     grok
     ressources
     behaviors1
     viewlets_1
     thirdparty_behaviors
+    dexterity_3
+    viewlets_2
     eggs2
     behaviors2
-    viewlets_2
+    viewlets_3
     deployment_code
     deployment_sites
     future_of_plone
