@@ -1,5 +1,5 @@
-Social behavior
-===============
+Behaviors
+=========
 
 .. only:: manual
 

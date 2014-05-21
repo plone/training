@@ -21,7 +21,7 @@ We anwser some questions:
 
 * Enter project name: ``ploneconf.site``
 * Expert Mode? (What question mode would you like? (easy/expert/all)?) ['easy']: ``easy``
-* Version (Version number for project) ['1.0']: ``1.0``
+* Version (Version number for project) ['1.0']: ``1.0.0``
 * Description (One-line description of the project) ['Example Dexterity Product']: ``PloneConf Talk``
 * Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: ``False``
 * Use relations? (True/False: include support for relations?) [False]: ``True``
