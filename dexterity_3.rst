@@ -238,10 +238,18 @@ Add the viewlet-class in ``browser/viewlets.py``
     from collections import OrderedDict
     from plone.app.layout.viewlets.common import ViewletBase
     from plone.memoize import ram
-    from time import time
     from ploneconf.site.content.sponsor import LevelVocabulary
+    from ploneconf.site.behavior.social import ISocial
     from random import shuffle
+    from time import time
     from zope.component import getMultiAdapter
+
+
+    class SocialViewlet(ViewletBase):
+
+        def lanyrd_link(self):
+            adapted = ISocial(self.context)
+            return adapted.lanyrd
 
 
     class SponsorsViewlet(ViewletBase):
@@ -269,6 +277,9 @@ Add the viewlet-class in ``browser/viewlets.py``
             return results
 
         def sponsors(self):
+            sponsors = self._sponsors()
+            if not sponsors:
+                return
             results = OrderedDict()
             levels = [i.value for i in LevelVocabulary]
             for level in levels:
@@ -299,10 +310,13 @@ Add the template ``browser/viewlet_templates/sponsors_viewlet.pt``
     <div metal:define-macro="portal_sponsorbox"
          i18n:domain="ploneconf.site">
         <div id="portal-sponsorbox"
-             tal:define="sponsors view/sponsors">
+             tal:define="sponsors view/sponsors;">
             <div tal:repeat="level sponsors"
-                 tal:attributes="id python:'level-' + level">
-                <h3 tal:content="python: level.capitalize()">Level</h3>
+                 tal:attributes="id python:'level-' + level"
+                 tal:condition="sponsors">
+                <h3 tal:content="python: level.capitalize()">
+                    Level
+                </h3>
                 <tal:images tal:define="items python:sponsors[level];"
                             tal:repeat="item items">
                     <div class="sponsor">
@@ -317,9 +331,3 @@ Add the template ``browser/viewlet_templates/sponsors_viewlet.pt``
             </div>
         </div>
     </div>
-
-
-* We forgot something: the talks have no dates yet. Enable event-behavior
-* add custom eea-view
-
-

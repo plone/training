@@ -22,6 +22,8 @@ Examples:
 
 http://pypi.python.org/pypi/eea.facetednavigation/
 
+* TODO: add custom eea-view using the dates?
+
 
 collective.formcriteria
 -----------------------
