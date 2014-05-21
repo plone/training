@@ -95,25 +95,28 @@ And a :file:`behavior/social.py` containing:
 .. code-block:: python
     :linenos:
 
+    # -*- coding: UTF-8 -*-
     from plone.supermodel import model, directives
+    from plone.autoform.interfaces import IFormFieldProvider
     from zope import schema
     from zope.interface import alsoProvides
+
 
     class ISocial(model.Schema):
 
         directives.fieldset(
-                'social',
-                label=u'Social',
-                fields=('lanyrd',),
-            )
+            'social',
+            label=u'Social',
+            fields=('lanyrd',),
+        )
 
         lanyrd = schema.URI(
-                title=u"Lanyrd-link",
-                description=u"Add URL",
-                required=False,
-            )
+            title=u"Lanyrd-link",
+            description=u"Add URL",
+            required=False,
+        )
 
-    alsoProvides(ISocial, form.IFormFieldProvider)
+    alsoProvides(ISocial, IFormFieldProvider)
 
 .. only:: manual
 

@@ -61,6 +61,7 @@ The viewlet-class ``SocialViewlet`` is expected in a file ``browser/viewlets.py`
         If we used ``grok`` we would not need to register the viewlets in the ``configure.zcml`` but do that in python. We would add a file viewlets.py containing the viewlet-class.
 
         .. code-block:: python
+            :linenos:
 
             from five import grok
             from plone.app.layout.viewlets import interfaces as viewletIFs
@@ -79,7 +80,7 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
     <div id="social-links">
         <a href="#"
            class="lanyrd-link"
-           tal:define="link viewlet/lanyrd_link | nothing"
+           tal:define="link view/lanyrd_link"
            tal:condition="link"
            tal:attributes="href link">
              See this talk on Lanyrd!
