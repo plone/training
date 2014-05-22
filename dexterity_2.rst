@@ -64,126 +64,9 @@ And enable it on the type in ``profiles/default/types/talk.xml``
      <element value="ploneconf.site.interfaces.ITalk"/>
     </property>
 
-Either reinstall the addon or apply the behavior by hand and the interface will be there.
+Either reinstall the addon, apply the behavior by hand or run a upgrade-step (see below) and the interface will be there.
 
-.. note::
-
-    Just for completeness, this is what would have to happen for the first option:
-
-    For this we create a new class that inherits ``plone.dexterity.content.Container``.
-
-    Add a new folder ``content/`` with a empty ``content/__init__.py`` and a new file ``content/talk.py``:
-
-    .. code-block:: python
-
-        # -*- coding: UTF-8 -*-
-        from plone.dexterity.content import Container
-        from ploneconf.site.interfaces import ITalk
-        from zope.interface import implements
-
-
-        class Talk(Container):
-            implements(ITalk)
-
-    To have existing talk-instances to use this we'll have to modify its base-class from ``plone.dexterity.content.Container`` to the new class. Edit the profile's ``klass``-property in ``profiles/default/types/talk.xml``
-
-    .. code-block:: xml
-        :linenos:
-        :emphasize-lines: 3
-
-        ...
-        <property name="add_permission">cmf.AddPortalContent</property>
-        <property name="klass">ploneconf.site.content.talk.Talk</property>
-        <property name="behaviors">
-        ...
-
-    .. note::
-
-      Having a real python-class on a content-type has an additional upside: We can now add methods to the class ``Talk`` that can be used like ``obj.my_method()``.
-
-    .. warning::
-
-      Now we have a problem: New talks will be instances of the class ``Talk`` while old onjects will still be instances of tha class ``Container``. So far the only difference is that the old object will not provide the interface ``ITalk``. This is bad since we want to bind our views to this interface. We will have to write an upgrade-step for this.
-
-    Upgrade-steps
-    -------------
-
-    When projects evolve you'll sometimes have to modify various things while the site is already up and brimming with content and users.
-
-    Upgrade steps are usually registered in their own zcml-file. Create ``upgrades.zcml``
-
-    .. code-block:: xml
-        :linenos:
-
-        <configure
-          xmlns="http://namespaces.zope.org/zope"
-          xmlns:i18n="http://namespaces.zope.org/i18n"
-          xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-          i18n_domain="ploneconf.site">
-
-          <genericsetup:upgradeStep
-            title="Modifiy class of talks"
-            description="Change the class of talks from 'plone.dexterity.content.Container' to 'ploneconf.site.content.talk.Talk'"
-            source="1"
-            destination="1001"
-            handler="ploneconf.site.upgrades.migrate_talk_class"
-            sortkey="1"
-            profile="ploneconf.site:default"
-            />
-
-        </configure>
-
-    Include it in ``configure.zcml`` by adding:
-
-    .. code-block:: xml
-
-        <include file="upgrades.zcml" />
-
-    Generic setup now expects the code to be a method ``migrate_talk_class`` in the file ``upgrades.py``. Let's create it.
-
-    .. code-block:: python
-        :linenos:
-
-        # -*- coding: UTF-8 -*-
-        from plone import api
-        from ploneconf.site.content.talk import Talk
-        import logging
-
-        logger = logging.getLogger('ploneconf.site')
-
-
-        def migrate_talk_class(self):
-            catalog = api.portal.get_tool('portal_catalog')
-            brains = catalog(portal_type="talk")
-            for brain in brains:
-                obj = brain.getObject()
-                if obj.__class__ is not Talk:
-                    obj.__class__ = Talk
-                    logger.info('Migrated __class__ of %s' % obj.absolute_url())
-
-
-    After restarting the site we can run the step:
-
-    * In the ZMI got to *portal_setup*
-    * Go to the tab *Upgrades*
-    * Select *ploneconf.site* from the dropdown and click *Choose profile*
-    * Run the upgrade step. On the console you should see logging-messages like::
-
-        INFO ploneconf.site.upgrades Migrated __class__ of http://localhost:8080/Plone/talks/old-talk1
-
-    .. seealso::
-
-      http://docs.plone.org/develop/addons/components/genericsetup.html#id1
-
-
-.. note::
-
-    Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package ``plone.app.upgrade``. You should be able to upgrade a clean site from 2.5 to 5.0a2 with a click.
-
-    For an example see the upgrade-step to Plone 5.0a1 https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L23
-
-
-Now finally we can safely bind the talkview to the new marker interface.
+Then we can safely bind the talkview to the new marker interface.
 
 .. code-block:: xml
     :emphasize-lines: 3
@@ -197,7 +80,141 @@ Now finally we can safely bind the talkview to the new marker interface.
       permission="zope2.View"
       />
 
-Now the ``/talkview`` can only be used on objects that implent said interface.
+Now the ``/talkview`` can only be used on objects that implent said interface. We can now also query the catalog for objects providing this interface ``catalog(object_provides="ploneconf.site.interfaces.ITalk")``.
+
+.. note::
+
+    Just for completeness sake, this is what would have to happen for the first option:
+
+    * Create a new class that inherits from ``plone.dexterity.content.Container`` and implements the marker interface.
+
+      .. code-block:: python
+
+          from plone.dexterity.content import Container
+          from ploneconf.site.interfaces import ITalk
+          from zope.interface import implements
+
+          class Talk(Container):
+              implements(ITalk)
+
+    * Modify the class for new talks in ``profiles/default/types/talk.xml``
+
+      .. code-block:: xml
+          :linenos:
+          :emphasize-lines: 3
+
+          ...
+          <property name="add_permission">cmf.AddPortalContent</property>
+          <property name="klass">ploneconf.site.content.talk.Talk</property>
+          <property name="behaviors">
+          ...
+
+    * Create a upgrade step to modify the class of existing types. A code-example on how to do this is in `ftw.upgrade <https://github.com/4teamwork/ftw.upgrade/blob/master/ftw/upgrade/step.py#L270>`_.
+
+Upgrade-steps
+-------------
+
+When projects evolve you'll sometimes have to modify various things while the site is already up and brimming with content and users. Upgrade steps are pieces of code that run when upgrading from one version of a addon to a newer one. They can do just about anything.
+
+We will create a upgrade step that
+
+* runs the typeinfo-step (i.e. loads the generic setup configuration stores in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the addon to have our changes from above take effect) and
+* cleans up some content that might be scattered around the site in the early stages of creating it. We will move all talks to a folder ``talks`` (unless they already are there) and also move all
+
+Upgrade steps are usually registered in their own zcml-file. Create ``upgrades.zcml``
+
+.. code-block:: xml
+    :linenos:
+
+    <configure
+      xmlns="http://namespaces.zope.org/zope"
+      xmlns:i18n="http://namespaces.zope.org/i18n"
+      xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+      i18n_domain="ploneconf.site">
+
+      <genericsetup:upgradeStep
+        title="Modifiy class of talks"
+        description="Change the class of talks from 'plone.dexterity.content.Container' to 'ploneconf.site.content.talk.Talk'"
+        source="1"
+        destination="1001"
+        handler="ploneconf.site.upgrades.upgrade_site"
+        sortkey="1"
+        profile="ploneconf.site:default"
+        />
+
+    </configure>
+
+Include it in ``configure.zcml`` by adding:
+
+..  code-block:: xml
+
+    <include file="upgrades.zcml" />
+
+Generic setup now expects the code to be a method ``upgrade_talks`` in the file ``upgrades.py``. Let's create it.
+
+..  code-block:: python
+    :linenos:
+
+    # -*- coding: UTF-8 -*-
+    from plone import api
+    import logging
+
+    default_profile = 'profile-ploneconf.site:default'
+
+    logger = logging.getLogger('ploneconf.site')
+
+
+    def upgrade_site(self):
+        self.runImportStepFromProfile(default_profile, 'typeinfo')
+        catalog = api.portal.get_tool('portal_catalog')
+        portal = api.portal.get()
+        if 'talks' not in portal:
+            talks = api.content.create(
+                container=portal,
+                type='Folder',
+                id='talks',
+                title='Talks')
+        else:
+            talks = portal['talks']
+        talks_url = talks.absolute_url()
+        brains = catalog(portal_type='talk')
+        for brain in brains:
+            if talks_url in brain.getURL():
+                continue
+            obj = brain.getObject()
+            logger.info('Moving %s' % obj.absolute_url())
+            api.content.move(
+                source=obj,
+                target=talks,
+                safe_id=True)
+
+After restarting the site we can run the step:
+
+* Go to the addon-controlpanel http://localhost:8080/Plone/prefs_install_products_form. Ther should now be a warning **This add-on has been upgraded. Old profile version was 1. New profile version is 1001** and a button next to it.
+* Run the upgrade-step by clicking on it.
+
+On the console you should see logging-messages like::
+
+    INFO ploneconf.site Moving http://localhost:8080/Plone/old-talk1
+
+Alternatively you can select which upgrade-steps to run like this:
+
+* In the ZMI got to *portal_setup*
+* Go to the tab *Upgrades*
+* Select *ploneconf.site* from the dropdown and click *Choose profile*
+* Run the upgrade step.
+
+.. seealso::
+
+    http://docs.plone.org/develop/addons/components/genericsetup.html#id1
+
+
+.. note::
+
+    Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package ``plone.app.upgrade``. You should be able to upgrade a clean site from 2.5 to 5.0a2 with a click.
+
+    For an example see the upgrade-step to Plone 5.0a1 https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L23
+
 
 
 Add a browserlayer
