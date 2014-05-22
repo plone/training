@@ -74,7 +74,7 @@ Users
         * as editor
         * as admin
 
-.. only:: presentation::
+.. only:: presentation
 
     Create some Plone users:
 
@@ -214,7 +214,7 @@ Manage members and groups
 * groups
 
   * Add group: ``orga``
-  * add group: ``speaker`
+  * add group: ``speaker``
 
 
 Workflows

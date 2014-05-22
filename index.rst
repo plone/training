@@ -39,7 +39,9 @@ Contents:
     views_2
     views_3
     dexterity_2
+    api
     custom_search
+    events
     user_generated_content
     grok
     ressources
@@ -51,7 +53,6 @@ Contents:
     viewlets_2
     behaviors2
     viewlets_2
-    viewlets_3
     deployment_code
     deployment_sites
     future_of_plone
@@ -61,3 +62,5 @@ Contents:
 Please note that this document is not aimed at the larger public. It is the documentation that people get who attend a training. Even though we attempt to include the most important parts of what we teach in this documentation it can not be considered complete without the spoken word.
 
 A more complete documentation can be found at http://developer.plone.org/index.html.
+
+:doc:`changelog`

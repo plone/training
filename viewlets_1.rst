@@ -17,6 +17,7 @@ social-viewlet
 --------------
 
 .. only:: manual
+
     Let's add a link to the site that uses the information that we collected using the social-behavior.
 
 We register the viewlet in :file:`browser/configure.zcml`.
@@ -35,6 +36,7 @@ We register the viewlet in :file:`browser/configure.zcml`.
       />
 
 .. only:: manual
+
     This registers a viewlet called ``social``.
     It is visible on all content that implments the interface ``ISocial`` from our behavior.
     It is also good practice to bind it to the `BrowserLayer`_ ``IPloneconfSiteLayer`` of our addon so it only shows up if our addon is actually installed.

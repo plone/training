@@ -66,6 +66,7 @@ Register a import-step in``configure.zcml``. It will be automatically run when (
 
 .. code-block:: xml
     :linenos:
+
     <genericsetup:importStep
       name="ploneconf.site"
       title="ploneconf.site special import handlers"
