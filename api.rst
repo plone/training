@@ -74,14 +74,6 @@ plone.app.debugtoolbar
 plone.reload
     An addon that allows to reload code that you changed without restarting the site. It is also used by plone.app.debugtoolbar.
 
-zopepy
-    Buildout can create a python-shell for you that has all the packages from your plone-site in it's python-path. Add the part like this::
-
-        [zopepy]
-        recipe = zc.recipe.egg
-        eggs = ${instance:eggs}
-        interpreter = zopepy
-
 Products.PrintingMailHost
     A addon that prevents Plone from sending mails. They are instead logged.
 
@@ -96,3 +88,11 @@ Products.Ienablesettrace
 
 Sentry
     `Sentry <https://github.com/getsentry/sentry>`_ is a error logging application you can host yourself. It aggregarates tracebacks from many sources and (here comes the killer-feature) even the values of variables in the stacktrace. We use in on all our production-sites.
+
+zopepy
+    Buildout can create a python-shell for you that has all the packages from your plone-site in it's python-path. Add the part like this::
+
+        [zopepy]
+        recipe = zc.recipe.egg
+        eggs = ${instance:eggs}
+        interpreter = zopepy
