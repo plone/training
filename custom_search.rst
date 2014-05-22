@@ -1,17 +1,22 @@
 Custom search
 =============
 
+We can use the indexes we created in the last chapter to further improve the talk-list.
 
-If you are discouraged by the complexity of the last few chapters this might be an alternative until you feel comfortable writing views and templates. There are several tools that allow you to add amazing custom searches and content-listings through the web in Plone.
+If the chapters about views seem complex this might also be an great alternative until you feel comfortable writing views and templates. There are several tools that allow you to add amazing custom searches and content-listings through the web in Plone.
 
 eea.facetednavigation
 ---------------------
 
-* Install eea.facetednavigation
-* Enable faceted navigation on a new folder within "talks"
-* Configure it using ``Faceted Criteria``
-* Use the Checkboxes-Widget using the catalog-index "Tags"
-* Other noteable widgets: select, radio, tagcloud, a-z, search
+* Install `eea.facetednavigation <http://pypi.python.org/pypi/eea.facetednavigation/>`_
+* Enable faceted navigation on a new folder "Discover talks" by clicking on *actions* > *Enable faceted navigation*
+* Click on the tab *Faceted criteria* to configure it
+
+    * Select 'Talk' for *Portal type*, hide *Results per page*
+    * Add a checkboxes-widget to left and use the catalog index *Audience* for it.
+    * Add a select-widget for speaker
+    * Add a radio-widget for type_of_talk
+    * Other noteable widgets are: tagcloud, a-z, search
 
 Examples:
 
@@ -19,21 +24,11 @@ Examples:
 * https://mountaineers.org/learn/find-courses-clinics-seminars
 * http://www.dynajet.de/en/hochdruckreiniger
 
+.. TODO: add custom eea-view using dates
 
-http://pypi.python.org/pypi/eea.facetednavigation/
+.. seealso::
 
-* TODO: add custom eea-view using the dates?
+    We use our new catalog indexes to provide the date for the widgets and search the results. For other use-cases we could also use either the built-in vocabularies (https://pypi.python.org/pypi/plone.app.vocabularies) or custom vocabularies for this.
 
-
-collective.formcriteria
------------------------
-
-https://pypi.python.org/pypi/collective.formcriteria/
-
-
-Advanced Topics
----------------
-
-* `Adding indexes <http://developer.plone.org/searching_and_indexing/indexing.html>`_
-* Adding vocabularies using `Products.ATVocabularyManager <https://pypi.python.org/pypi/Products.ATVocabularyManager>`_
-
+    * Custom vocabularies ttw using `Products.ATVocabularyManager <https://pypi.python.org/pypi/Products.ATVocabularyManager>`_
+    * Programming using Vocabularies: http://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html
