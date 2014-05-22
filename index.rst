@@ -52,6 +52,7 @@ Contents:
     eggs2
     behaviors2
     viewlets_2
+    reusable
     deployment_code
     deployment_sites
     future_of_plone
