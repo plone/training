@@ -1,7 +1,47 @@
 The Anatomy of Plone
 ====================
 
-Zope, Plone, GenericSetup, CMF, Acquisition, what is all that actually?
+Python, Zope, CMF, Plone, how does that all fit together?
+
+
+Zope2
+-----
+Plone runs on the top of the Zope 2 application server, meaning that one Zope 2 server process can contain and host several Plone sites.
+
+
+
+CMF
+---
+
+Content Management Framework ...
+
+
+Zope Toolkit / Zope3
+--------------------
+Plone also uses Zope 3 components. Zope 3 is not an upgrade for Zope 2, but a separate project.
+
+
+Zope Component Archtitecture
+----------------------------
+
+.. seealso::
+
+    `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_
+
+Plone
+-----
+
+GenericSetup
+------------
+
+
+
+Acquisition
+------------
+
+
+
+
 
 .. only:: manual
 
