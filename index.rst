@@ -50,7 +50,6 @@ Contents:
     thirdparty_behaviors
     dexterity_3
     eggs2
-    viewlets_2
     behaviors2
     viewlets_2
     deployment_code
