@@ -72,7 +72,89 @@ To have our talk-instances to use this we'll have to modify its base-class from 
 
   Having a real python-class on a content-type has an additional upside: We can now add methods to the class ``Talk`` that can be used like ``obj.my_method()``.
 
-Now we can bind the talkview to the new interface.
+.. warning::
+
+  Now we have a problem: New talks will be instances of the class ``Talk`` while old onjects will still be instances of tha class ``Container``. So far the only difference is that the old object will not provide the interface ``ITalk``. This is bad since we want to bind our views to this interface. We will ahabe to write an upgrade-step for this.
+
+Upgrade-steps
+-------------
+
+When projects evolve you'll sometimes have to modify various things while the site is already up and brimming with content and users.
+
+Upgrade steps are usually registered in their own zcml-file. Create ``upgrades.zcml``
+
+.. code-block:: xml
+    :linenos:
+
+    <configure
+      xmlns="http://namespaces.zope.org/zope"
+      xmlns:i18n="http://namespaces.zope.org/i18n"
+      xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+      i18n_domain="ploneconf.site">
+
+      <genericsetup:upgradeStep
+        title="Modifiy class of talks"
+        description="Change the class of talks from 'plone.dexterity.content.Container' to 'ploneconf.site.content.talk.Talk'"
+        source="1"
+        destination="1001"
+        handler="ploneconf.site.upgrades.migrate_talk_class"
+        sortkey="1"
+        profile="ploneconf.site:default"
+        />
+
+    </configure>
+
+Include it in ``configure.zcml`` by adding:
+
+.. code-block:: xml
+
+    <include file="upgrades.zcml" />
+
+Generic setup now expects the code to be a method ``migrate_talk_class`` in the file ``upgrades.py``. Let's create it.
+
+.. code-block:: python
+    :linenos:
+
+    # -*- coding: UTF-8 -*-
+    from plone import api
+    from ploneconf.site.content.talk import Talk
+    import logging
+
+    logger = logging.getLogger('ploneconf.site')
+
+
+    def migrate_talk_class(self):
+        catalog = api.portal.get_tool('portal_catalog')
+        brains = catalog(portal_type="talk")
+        for brain in brains:
+            obj = brain.getObject()
+            if obj.__class__ is not Talk:
+                obj.__class__ = Talk
+                logger.info('Migrated __class__ of %s' % obj.absolute_url())
+
+
+After restarting the site we can run the step:
+
+* In the ZMI got to *portal_setup*
+* Go to the tab *Upgrades*
+* Select *ploneconf.site* from the dropdown and click *Choose profile*
+* Run the upgrade step. On the console you should see logging-messages like::
+
+    INFO ploneconf.site.upgrades Migrated __class__ of http://localhost:8080/Plone/talks/old-talk1
+
+.. seealso::
+
+  http://docs.plone.org/develop/addons/components/genericsetup.html#id1
+
+
+.. note::
+
+    Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package ``plone.app.upgrade``. You should be able to upgrade a clean site from 2.5 to 5.0a2 with a click.
+
+    For an example see the upgrade-step to Plone 5.0a1 https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L23
+
+
+Now finally we can safely bind the talkview to the new marker interface.
 
 .. code-block:: xml
     :emphasize-lines: 3
