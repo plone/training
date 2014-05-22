@@ -248,7 +248,7 @@ Now the only thing that is missing is the behavior, which we must put into :file
 Lets continue with this file:
 
 .. code-block:: python
-  :linenos:
+    :linenos:
 
         def _hash(self, request):
             """
