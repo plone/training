@@ -30,7 +30,6 @@ Contents:
     addons
     theming
     buildout_1
-    ide
     eggs1
     dexterity
     views_1
@@ -40,8 +39,9 @@ Contents:
     views_3
     behaviors1
     viewlets_1
-    dexterity_2
     api
+    ide
+    dexterity_2
     custom_search
     events
     user_generated_content
