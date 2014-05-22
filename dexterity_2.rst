@@ -11,8 +11,8 @@ In this part we will:
 * enable some more default-features for our type
 
 
-Add a class and interface to the talk-type
-------------------------------------------
+Add a marker-interface to the talk-type
+---------------------------------------
 
 Marker Interfaces
 +++++++++++++++++
@@ -34,117 +34,146 @@ For this we add a new file ``ìnterfaces.py``:
         """Marker interface for Talks
         """
 
-``ITalk`` is a marker-interface. We can bind Views and Viewlets to content that provide these interfaces. To have talks provide this Interface we need them to be instances of a class that implements this Interface.
+``ITalk`` is a marker-interface. We can bind Views and Viewlets to content that provide these interfaces. Now we talks to provide this Interface. There are two solution for this.
 
-For this we create a new class that inherits ``plone.dexterity.content.Container``.
+1. Let them be be instances of a class that implements this Interface.
+2. Register this interface as a behavior and enable it on talks.
 
-Add a new folder ``content/`` with a empty ``content/__init__.py`` and a new file ``content/talk.py``:
+The first option has a important drawback: Only new talks would be instances of the new class. We would either have to migrate the existing talks or delete them.
 
-.. code-block:: python
+We register the interface as a behavior in ``behavior/configure.zcml``
 
-    # -*- coding: UTF-8 -*-
-    from plone.dexterity.content import Container
-    from ploneconf.site.interfaces import ITalk
-    from zope.interface import implements
+.. code-block:: xml
 
+  <plone:behavior
+    title="Talk"
+    description="Marker interface for talks to be able to bind views to."
+    provides="..interfaces.ITalk"
+    />
 
-    class Talk(Container):
-        implements(ITalk)
-
-.. note::
-
-    For now we don't need a ``configure.zcml`` in the new folder, so we don't have to register it in the packages ``configure.zcml``.
-
-
-To have our talk-instances to use this we'll have to modify its base-class from ``plone.dexterity.content.Container`` to the new class. Edit the profile's ``klass``-property in ``profiles/default/types/talk.xml``
+And enable it on the type in ``profiles/default/types/talk.xml``
 
 .. code-block:: xml
     :linenos:
-    :emphasize-lines: 3
+    :emphasize-lines: 5
 
-    ...
-    <property name="add_permission">cmf.AddPortalContent</property>
-    <property name="klass">ploneconf.site.content.talk.Talk</property>
     <property name="behaviors">
-    ...
+     <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+     <element value="plone.app.content.interfaces.INameFromTitle"/>
+     <element value="ploneconf.site.behavior.social.ISocial"/>
+     <element value="ploneconf.site.interfaces.ITalk"/>
+    </property>
+
+Either reinstall the addon or apply the behavior by hand and the interface will be there.
 
 .. note::
 
-  Having a real python-class on a content-type has an additional upside: We can now add methods to the class ``Talk`` that can be used like ``obj.my_method()``.
+    Just for completeness, this is what would have to happen for the first option:
 
-.. warning::
+    For this we create a new class that inherits ``plone.dexterity.content.Container``.
 
-  Now we have a problem: New talks will be instances of the class ``Talk`` while old onjects will still be instances of tha class ``Container``. So far the only difference is that the old object will not provide the interface ``ITalk``. This is bad since we want to bind our views to this interface. We will ahabe to write an upgrade-step for this.
+    Add a new folder ``content/`` with a empty ``content/__init__.py`` and a new file ``content/talk.py``:
 
-Upgrade-steps
--------------
+    .. code-block:: python
 
-When projects evolve you'll sometimes have to modify various things while the site is already up and brimming with content and users.
-
-Upgrade steps are usually registered in their own zcml-file. Create ``upgrades.zcml``
-
-.. code-block:: xml
-    :linenos:
-
-    <configure
-      xmlns="http://namespaces.zope.org/zope"
-      xmlns:i18n="http://namespaces.zope.org/i18n"
-      xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-      i18n_domain="ploneconf.site">
-
-      <genericsetup:upgradeStep
-        title="Modifiy class of talks"
-        description="Change the class of talks from 'plone.dexterity.content.Container' to 'ploneconf.site.content.talk.Talk'"
-        source="1"
-        destination="1001"
-        handler="ploneconf.site.upgrades.migrate_talk_class"
-        sortkey="1"
-        profile="ploneconf.site:default"
-        />
-
-    </configure>
-
-Include it in ``configure.zcml`` by adding:
-
-.. code-block:: xml
-
-    <include file="upgrades.zcml" />
-
-Generic setup now expects the code to be a method ``migrate_talk_class`` in the file ``upgrades.py``. Let's create it.
-
-.. code-block:: python
-    :linenos:
-
-    # -*- coding: UTF-8 -*-
-    from plone import api
-    from ploneconf.site.content.talk import Talk
-    import logging
-
-    logger = logging.getLogger('ploneconf.site')
+        # -*- coding: UTF-8 -*-
+        from plone.dexterity.content import Container
+        from ploneconf.site.interfaces import ITalk
+        from zope.interface import implements
 
 
-    def migrate_talk_class(self):
-        catalog = api.portal.get_tool('portal_catalog')
-        brains = catalog(portal_type="talk")
-        for brain in brains:
-            obj = brain.getObject()
-            if obj.__class__ is not Talk:
-                obj.__class__ = Talk
-                logger.info('Migrated __class__ of %s' % obj.absolute_url())
+        class Talk(Container):
+            implements(ITalk)
+
+    To have existing talk-instances to use this we'll have to modify its base-class from ``plone.dexterity.content.Container`` to the new class. Edit the profile's ``klass``-property in ``profiles/default/types/talk.xml``
+
+    .. code-block:: xml
+        :linenos:
+        :emphasize-lines: 3
+
+        ...
+        <property name="add_permission">cmf.AddPortalContent</property>
+        <property name="klass">ploneconf.site.content.talk.Talk</property>
+        <property name="behaviors">
+        ...
+
+    .. note::
+
+      Having a real python-class on a content-type has an additional upside: We can now add methods to the class ``Talk`` that can be used like ``obj.my_method()``.
+
+    .. warning::
+
+      Now we have a problem: New talks will be instances of the class ``Talk`` while old onjects will still be instances of tha class ``Container``. So far the only difference is that the old object will not provide the interface ``ITalk``. This is bad since we want to bind our views to this interface. We will have to write an upgrade-step for this.
+
+    Upgrade-steps
+    -------------
+
+    When projects evolve you'll sometimes have to modify various things while the site is already up and brimming with content and users.
+
+    Upgrade steps are usually registered in their own zcml-file. Create ``upgrades.zcml``
+
+    .. code-block:: xml
+        :linenos:
+
+        <configure
+          xmlns="http://namespaces.zope.org/zope"
+          xmlns:i18n="http://namespaces.zope.org/i18n"
+          xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+          i18n_domain="ploneconf.site">
+
+          <genericsetup:upgradeStep
+            title="Modifiy class of talks"
+            description="Change the class of talks from 'plone.dexterity.content.Container' to 'ploneconf.site.content.talk.Talk'"
+            source="1"
+            destination="1001"
+            handler="ploneconf.site.upgrades.migrate_talk_class"
+            sortkey="1"
+            profile="ploneconf.site:default"
+            />
+
+        </configure>
+
+    Include it in ``configure.zcml`` by adding:
+
+    .. code-block:: xml
+
+        <include file="upgrades.zcml" />
+
+    Generic setup now expects the code to be a method ``migrate_talk_class`` in the file ``upgrades.py``. Let's create it.
+
+    .. code-block:: python
+        :linenos:
+
+        # -*- coding: UTF-8 -*-
+        from plone import api
+        from ploneconf.site.content.talk import Talk
+        import logging
+
+        logger = logging.getLogger('ploneconf.site')
 
 
-After restarting the site we can run the step:
+        def migrate_talk_class(self):
+            catalog = api.portal.get_tool('portal_catalog')
+            brains = catalog(portal_type="talk")
+            for brain in brains:
+                obj = brain.getObject()
+                if obj.__class__ is not Talk:
+                    obj.__class__ = Talk
+                    logger.info('Migrated __class__ of %s' % obj.absolute_url())
 
-* In the ZMI got to *portal_setup*
-* Go to the tab *Upgrades*
-* Select *ploneconf.site* from the dropdown and click *Choose profile*
-* Run the upgrade step. On the console you should see logging-messages like::
 
-    INFO ploneconf.site.upgrades Migrated __class__ of http://localhost:8080/Plone/talks/old-talk1
+    After restarting the site we can run the step:
 
-.. seealso::
+    * In the ZMI got to *portal_setup*
+    * Go to the tab *Upgrades*
+    * Select *ploneconf.site* from the dropdown and click *Choose profile*
+    * Run the upgrade step. On the console you should see logging-messages like::
 
-  http://docs.plone.org/develop/addons/components/genericsetup.html#id1
+        INFO ploneconf.site.upgrades Migrated __class__ of http://localhost:8080/Plone/talks/old-talk1
+
+    .. seealso::
+
+      http://docs.plone.org/develop/addons/components/genericsetup.html#id1
 
 
 .. note::

@@ -38,6 +38,8 @@ Contents:
     zpt_2
     views_2
     views_3
+    behaviors1
+    viewlets_1
     dexterity_2
     api
     custom_search
@@ -45,8 +47,6 @@ Contents:
     user_generated_content
     grok
     ressources
-    behaviors1
-    viewlets_1
     thirdparty_behaviors
     dexterity_3
     eggs2
