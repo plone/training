@@ -234,15 +234,14 @@ Add the viewlet-class in ``browser/viewlets.py``
     :linenos:
 
     # -*- coding: UTF-8 -*-
-    from Products.CMFCore.utils import getToolByName
     from collections import OrderedDict
+    from plone import api
     from plone.app.layout.viewlets.common import ViewletBase
     from plone.memoize import ram
-    from ploneconf.site.content.sponsor import LevelVocabulary
     from ploneconf.site.behavior.social import ISocial
+    from ploneconf.site.content.sponsor import LevelVocabulary
     from random import shuffle
     from time import time
-    from zope.component import getMultiAdapter
 
 
     class SocialViewlet(ViewletBase):
@@ -256,13 +255,20 @@ Add the viewlet-class in ``browser/viewlets.py``
 
         @ram.cache(lambda *args: time() // (60 * 60))
         def _sponsors(self):
-            catalog = getToolByName(self.context, 'portal_catalog')
+            catalog = api.portal.get_tool('portal_catalog')
             brains = catalog(portal_type='sponsor')
             results = []
             for brain in brains:
                 obj = brain.getObject()
-                scales = getMultiAdapter((obj, self.request), name='images')
-                scale = scales.scale('logo', width=200, height=80, direction='down')
+                scales = api.content.get_view(
+                    name='images',
+                    context=obj,
+                    request=self.request)
+                scale = scales.scale(
+                    'logo',
+                    width=200,
+                    height=80,
+                    direction='down')
                 tag = scale.tag() if scale else ''
                 if not tag:
                     # only display sponsors with a logo
@@ -284,7 +290,7 @@ Add the viewlet-class in ``browser/viewlets.py``
             levels = [i.value for i in LevelVocabulary]
             for level in levels:
                 level_sponsors = []
-                for sponsor in self._sponsors():
+                for sponsor in sponsors:
                     if level == sponsor['level']:
                         level_sponsors.append(sponsor)
                 if not level_sponsors:
@@ -293,8 +299,25 @@ Add the viewlet-class in ``browser/viewlets.py``
                 results[level] = level_sponsors
             return results
 
+
 * ``_sponsors`` returns a list of dictionaries containing all necessary info about sponsors.
-* ``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time.
+* ``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. We could also cache until one of the sponsors is modified:
+
+  .. code-block:: python
+
+    ...
+    def _sponsors_cachekey(method, self):
+        catalog = api.portal.get_tool('portal_catalog')
+        brains = catalog(portal_type='sponsor')
+        cachekey = sum([int(i.modified) for i in brains])
+        return cachekey
+
+    @ram.cache(_sponsors_cachekey)
+    def _sponsors(self):
+        catalog = api.portal.get_tool('portal_catalog')
+    ...
+
+
 * We create the complete img-tag using a custom scale (200x80) using the view ``images`` from plone.namedfile. This actually scales the logos and saves them as new blobs.
 * In ``sponsors`` we return a ordered dicttionary of randomized lists of dicts (containing the information on sponsors).
 

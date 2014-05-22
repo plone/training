@@ -19,8 +19,7 @@ Changelog
  * Events
  * Using third-party behaviors
  * Dexterity Types III: Python
-
-
+ * ...
 
 
 1.1 (Oktober 2013)
