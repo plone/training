@@ -7,9 +7,9 @@ Using Annotations
 
     We are going to store the information in an annotation. Not because it is needed but because you will find code that uses annotations and need to understand the implications.
 
-    `Annotations`_ in Zope/Plone mean that data won't be stored directly on an object but in an indirect way and with namespaces so that multiple packages can store information under the same attribute, without coliding.
+    `Annotations`_ in Zope/Plone mean that data won't be stored directly on an object but in an indirect way and with namespaces so that multiple packages can store information under the same attribute, without colliding.
 
-    So using annotations avoids namespace conflicts. The cost is an indirection. The dictionary is persistent so must be stored separately. Also, one could give attributes a name containing a namespace prefix to avoid naming collisisons.
+    So using annotations avoids namespace conflicts. The cost is an indirection. The dictionary is persistent so it has to be stored separately. Also, one could give attributes a name containing a namespace prefix to avoid naming collisions.
 
 .. only:: presentation
 
@@ -23,7 +23,7 @@ Using Schema
 
 .. only:: manual
 
-    The attribute where we store our data will be declared as a schema field. We mark the field as an ommitted field, because we are not going to create z3c.form widgets for displaying them. We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
+    The attribute where we store our data will be declared as a schema field. We mark the field as a ommitted field, because we are not going to create z3c.form widgets for displaying them. We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
 
     For example, when files have been migrated to blobs, new objects had to be created and every schema field was copied. The code can't know about our field, except if we provide schema information.
 
@@ -170,13 +170,12 @@ The interfaces need to be written, in our cases into a file :file:`interfaces.py
 
     We make this omit conditional. If we run Plone in debug mode, we will be able to see the internal data in the edit form.
 
-    We create minimal schema fields for our internal data structures. For a small test, I removed the form omitted directives and opened the edit view of a talk that uses the behavior. After seeing the uglyness, I decided that I should provide at least  minimum of information. Titles and required are purely optional, but very helpful if the fields won't be omitted, something that can be helpful when debugging the behavior.
-    Later when we implement the behavior, the :samp:`votes` and :samp:`voted` attributes are implemented in such a way that you can't just modify these fields, they are read only.
+    We create minimal schema fields for our internal data structures. For a small test, I removed the form omitted directives and opened the edit view of a talk that uses the behavior. After seeing the ugliness, I decided that I should provide at least  minimum of information. Titles and required are purely optional, but very helpful if the fields won't be omitted, something that can be helpful when debugging the behavior.
+    Later, when we implement the behavior, the :samp:`votes` and :samp:`voted` attributes are implemented in such a way that you can't just modify these fields, they are read only.
 
     Then we define the API that we are going to use in browser views and viewlets.
 
-    The last line, alsoProvides, ensures that the schema fields are known to other packages.
-    Whenever some code wants all schemas from an object, he receives the Schema defined directly on the object and the additionalSchemata. AdditionalSchemata are compiled by looking for behaviors and wether they provide the :samp:`IFormFieldProvider` functionality. Only then we fields are known as Schema Fields.
+    The last line ensures that the schema fields are known to other packages. Whenever some code wants all schemas from an object, he receives the schema defined directly on the object and the additional schemata. Additional schemata are compiled by looking for behaviors and whether they provide the :samp:`IFormFieldProvider` functionality. Only then we fields are known as schema fields.
 
 Now the only thing that is missing is the behavior, which we must put into :file:`behavior/voting.py`
 
@@ -295,12 +294,10 @@ Lets continue with this file:
 
 .. only:: manual
 
-    We start with a little helper method which is not exposed via the interface. We don't want people to vote twice. There are mayn ways to ensure this and all ways to ensure this have flaws.
+    We start with a little helper method which is not exposed via the interface. We don't want people to vote twice. There are many ways to ensure this and each one has flaws.
 
     We chose this way to show you how to access information from the request the browser of the user sent to us. First, we get the ip of the user, then we access a small bunch of headers from the users browser and generate an md5 checksum of this.
 
     The vote method, wants a vote and a request. We check the preconditions, then we convert the vote to an integer, store the request has to :samp:`voted` and the votes into the :samp:`votes` dictionary. We just count there, how often any vote has been given.
 
     Everything else is just boring python.
-
-

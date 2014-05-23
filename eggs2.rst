@@ -31,7 +31,7 @@ This returns a list of available templates we might use. We choose dexerity sinc
 
     $ ../bin/zopeskel dexterity
 
-We anwser some questions:
+We answer some questions:
 
 * Enter project name: ``starzel.votable_behavior``
 * Expert Mode? (What question mode would you like? (easy/expert/all)?) ['easy']: ``easy``
@@ -43,7 +43,7 @@ We anwser some questions:
 
 We have to modify the generated files slightly.
 
-In :file:`setup.py`, we completely remove the variables setup_requires and paster_plugins. These are required for seldomly features and add a lot of code into the source directory that we don't want. To the :samp:`install_requires` list, we add an entry for :samp:`plone.api`.
+In :file:`setup.py`, we completely remove the variables setup_requires and paster_plugins. These are required for features that are rarely used and add a lot of code into the source directory that we don't want. To the :samp:`install_requires` list, we add an entry for :samp:`plone.api`.
 
 The file :file:`tests.py` we just delete. This is an outdated test system and we don't want you to start from there.
 
