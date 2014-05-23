@@ -236,7 +236,7 @@ Add the viewlet-class in ``browser/viewlets.py``
     from plone import api
     from plone.app.layout.viewlets.common import ViewletBase
     from plone.memoize import ram
-    from ploneconf.site.behavior.social import ISocial
+    from ploneconf.site.behaviors.social import ISocial
     from ploneconf.site.content.sponsor import LevelVocabulary
     from random import shuffle
     from time import time

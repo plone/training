@@ -41,7 +41,7 @@ Next up we modify :file:`profiles/default/metadata.xml`
     :emphasize-lines: 6
 
     <metadata>
-      <version>1</version>
+      <version>1002</version>
         <dependencies>
           <dependency>profile-plone.app.dexterity:default</dependency>
           <dependency>profile-plone.app.relationfield:default</dependency>
