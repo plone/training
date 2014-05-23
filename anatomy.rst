@@ -1,4 +1,4 @@
-The Anatomy of Plone
+﻿The Anatomy of Plone
 ====================
 
 Python, Zope, CMF, Plone, how does that all fit together?
@@ -13,7 +13,7 @@ Zope2
 
     Before Zope, there usually was an Apache server that would call a script and give the request as an input. The script would then just print HTML to the standard output. Apache returned that to the user. Opening database connections, checking permission constraints, generating valid HTML, configuring caching, interpreting form data and everything you have to do on your own. When the second request comes in, you have to do everything again.
 
-    Jim Fulton thought that this was slightly tedious. So he wrote code to handle requests. He believed that site content is object oriented and that the URL should somehow point directly into the object hierarchy, so he wrote an object oriented database, called ZODB.
+    Jim Fulton thought that this was slightly tedious. So he wrote code to handle requests. He believed that site content is object-oriented and that the URL should somehow point directly into the object hierarchy, so he wrote an object-oriented database, called ZODB.
 
     Then there were transactions, so that it became a real database and after a while there were python scripts that could be edited through the web.
     One missing piece is important and complicated: ``Acquisition``.
