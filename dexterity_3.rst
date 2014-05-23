@@ -223,7 +223,7 @@ Register the viewlet in ``browser/configure.zcml``
       for="*"
       layer="..interfaces.IPloneconfSiteLayer"
       class=".viewlets.SponsorsViewlet"
-      template="viewlet_templates/sponsors_viewlet.pt"
+      template="templates/sponsors_viewlet.pt"
       permission="zope2.View"
       />
 
@@ -323,7 +323,7 @@ Add the viewlet-class in ``browser/viewlets.py``
 
     http://docs.plone.org/develop/plone/images/content.html#image-scales-plone-4
 
-Add the template ``browser/viewlet_templates/sponsors_viewlet.pt``
+Add the template ``browser/templates/sponsors_viewlet.pt``
 
 .. code-block:: xml
     :linenos:
