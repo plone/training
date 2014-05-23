@@ -13,7 +13,7 @@ You can declare and access static resources with special urls. The configure.zcm
 
 Now all files we put in the resources-folder can be found via the url http://localhost:8080/Plone/++resource++ploneconf.site/something.js
 
-Let's create a ``ploneconf.css`` and a ``plonconf.js`` in that folder and move the customisations we did in ``ploneCusom.css`` using the ZMI in the css-file.
+Let's create a ``ploneconf.css`` and a ``plonconf.js`` in that folder.
 
 .. code-block:: css
 
