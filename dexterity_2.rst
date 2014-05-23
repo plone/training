@@ -80,7 +80,7 @@ Then we can safely bind the talkview to the new marker interface.
       permission="zope2.View"
       />
 
-Now the ``/talkview`` can only be used on objects that implent said interface. We can now also query the catalog for objects providing this interface ``catalog(object_provides="ploneconf.site.interfaces.ITalk")``.
+Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface ``catalog(object_provides="ploneconf.site.interfaces.ITalk")``.
 
 .. note::
 
