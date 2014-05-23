@@ -44,14 +44,14 @@ Plone offers some options for being installed:
 1. One-click installers for Mac and Windows (4.3.3 is not yet finished)
 2. Unified installers (all 'nix, including MacOS)
 3. A vagrant/virtualbox install kit (all platforms)
-4. Use your own buildout
+4. Use your own Buildout
 
 You can download all of these at http://plone.org/products/plone/releases/4.3.3
 
 
 .. only:: manual
 
-    For the training we'll use option 3 and 4 to install and run Plone. We'll create our own buildout and extend it as we wish. But we will do so in a vagrant machine. For your own first experiments we recommend option 2 or 3 (if you have a windows-laptop or encounter problems). Later on you should be able to use your own buildout (we'll cover that later on).
+    For the training we'll use option 3 and 4 to install and run Plone. We'll create our own Buildout and extend it as we wish. But we will do so in a vagrant machine. For your own first experiments we recommend option 2 or 3 (if you have a windows-laptop or encounter problems). Later on you should be able to use your own Buildout (we'll cover that later on).
 
 .. only:: presentation
 

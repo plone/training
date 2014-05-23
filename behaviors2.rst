@@ -252,7 +252,7 @@ Lets continue with this file:
 
         def _hash(self, request):
             """
-            This hash can be tricked out by changing IP adresses and might allow
+            This hash can be tricked out by changing IP addresses and might allow
             only a single person of a big company to vote
             """
             hash_ = md5()

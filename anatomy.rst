@@ -18,14 +18,14 @@ Zope2
     Then there were transactions, so that it became a real database and after a while there were python scripts that could be edited through the web.
     One missing piece is important and complicated: ``Acquisition``.
 
-    Acquisition is a kind of magic. Imagine a programming system where you do not access the file system and where you do not need to import code. You work with objects. An object can be a folder that contains more objects, a HTML page, data, or another script. To access an object, you need to know where the object is. Objects are found by paths that look like URLs, but without the domain name. Now Acquisition allows you to write an incomplete path. An incomplete path is a relative path, it does not explicitly state that the path starts from the root, it starts relative to where the code object is. If Zope cannot resolve the path to an object relative to your code, I tries the same path in the containing folder. And then the folder containing the folder.
+    Acquisition is a kind of magic. Imagine a programming system where you do not access the file system and where you do not need to import code. You work with objects. An object can be a folder that contains more objects, an HTML page, data, or another script. To access an object, you need to know where the object is. Objects are found by paths that look like URLs, but without the domain name. Now Acquisition allows you to write an incomplete path. An incomplete path is a relative path, it does not explicitly state that the path starts from the root, it starts relative to where the code object is. If Zope cannot resolve the path to an object relative to your code, I tries the same path in the containing folder. And then the folder containing the folder.
 
     This might sound weird, what do I gain with this?
 
-    You can have different data or code depending on your ``context``. Imagine you want to have header images differing for each section of your page, sometimes even differing for a specific subsection of your site. So you define a path header_image and put a header image at the root of your site. If you want a folder to have a different header image, you put the header image into this folder.
+    You can have different data or code depending on your ``context``. Imagine you want to have header images differing for each section of your page, sometimes even differing for a specific subsection of your site. So you define a path header_image and put a header image at the root of your site. If you want a folder to with a different header image, you put the header image into this folder.
     Please take a minute to let this settle and think, what this allows you to do.
 
-    - contact forms with different e-mail adresses per section
+    - contact forms with different e-mail addresses per section
     - different CSS styles for different parts of your site
     - One site, multiple customers, everything looks different for each customer.
 
@@ -55,14 +55,14 @@ Zope Toolkit / Zope3
 
 .. only:: manual
 
-    The Zope Toolkit, or ZTK as everybody calls it, can be thought of as a new framework written by the same people that wrote Zope.
+    The Zope Toolkit, or ZTK as everybody calls it,is a new framework written by the same people who wrote Zope.
 
     It started with a complete rewrite of Zope 2 to Zope 3. Unfortunately, nobody started to use Zope 3, nobody migrated to Zope 3 because nobody knew how.
 
-    But there were many useful things in Zope 3 that people wanted to use in Zope 2, thus bits and pieces have been adapted to be usable in Zope 2.
+    But there were many useful things in Zope 3 that people wanted to use in Zope 2, thus the Zope community adapted some parts so that they could use them in Zope 2.
     Sometimes, a wrapper of some sorts was necessary, these usually are being provided by packages from the five namespace.
 
-    To make the history complete, since people stayed on Zope 2, Zope 3 was renamed to Bluebream, so that people would not think that Zope 3 was the future. It wasn't any more.
+    To make the history complete, since people stayed on Zope 2, the Zope community renamed Zope 3 to Bluebream, so that people would not think that Zope 3 was the future. It wasn't any more.
 
 Pyramid
 -------
@@ -71,6 +71,6 @@ Pyramid
 
     Pyramid is a complete rewrite of Zope. It does less than Zope and is very pluggable. You can use it with a relational Database instead of ZODB if you want, or you use both databases or none of them.
 
-     Apart from the fact that Pyramid was not forced to support all legacy functionality that can make things more complicated, the original developer had a very different stance on how software has to be developed. While both Zope and Pyramid have a good test coverage, Pyramid also has good documentation, something that was very neglected in Zope and at times in Plone too.
+    Apart from the fact that Pyramid was not forced to support all legacy functionality that can make things more complicated, the original developer had a very different stance on how software must be developed. While both Zope and Pyramid have a good test coverage, Pyramid also has good documentation, something that was very neglected in Zope and at times in Plone too.
 
-     Wether the component architecture is much better in Pyramid or not we don't dare to say, but we like it more. But maybe its just because it is documented.
+    Wether the component architecture is better in Pyramid or not we don't dare to say, but we like it more. But maybe its just because it has documented.

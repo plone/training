@@ -1,12 +1,12 @@
 The Case-Study
 ==============
 
-For this training we will build a website for a fictional plone-conference.
+For this training we will build a website for a fictional Plone conference.
 
 Background
 ----------
 
-The plone-conference takes place every year and all plone-developers at leasty try to go there.
+The Plone conference takes place every year and all Plone developers at least try to go there.
 
 Requirements
 ------------
@@ -18,7 +18,7 @@ Requirements
 * As a speaker I want to see and edit my submitted talks
 * As a jury-member I want to vote on talks
 * As a jury-member I want to decide, which talks to accept, and which not
-* As a organizer I want to see a list of all proposed talks
-* As a organizer I want to have an overview about how many people registerd
+* As an organizer I want to see a list of all proposed talks
+* As an organizer I want to have an overview about how many people registered
 
 

@@ -13,9 +13,9 @@ Keep in mind that you need a fast internet-connection during the process since y
 
     We recommend using a virtual machine for the training if you are not used to running Plone on your laptop.
 
-    You can also work on your own machine with your own Python if you want to but **please please please** make sure that you have a system that will work since we don't want you to loose valuable time.
+    You can also work on your own machine with your own Python if you want to but **please please please** make sure that you have a system that will work since we don't want you to lose valuable time.
 
-    If you want to use your own system use the buildout at https://github.com/starzel/training_without_vagrant.git (since the one we set up via puppet has several directories set to folders not shared with the host).
+    If you want to use your own system use the Buildout at https://github.com/starzel/training_without_vagrant.git (since the one we set up via puppet has several directories set to folders not shared with the host).
 
     Set up Plone for the training like this if you don't want to use a VM:
 
@@ -55,9 +55,9 @@ Setup Vagrant to automatically install the current guest-additions. You can choo
 
     $ vagrant plugin install vagrant-vbguest
 
-Now either unzip the attachment (if you read this as a mail) or download the zipfile http://www.starzel.de/plone-tutorial/plone_training_config.zip and copy its contents into your training directory. It should now hold the file "Vagrantfile" and the directory ``manifests``.
+Now either unzip the attachment (if you read this as a mail) or download the zip file http://www.starzel.de/plone-tutorial/plone_training_config.zip and copy its contents into your training directory. It should now hold the file "Vagrantfile" and the directory ``manifests``.
 
-Start the VM that is configured in "Vagrantfile"
+Start the VM that we configured in "Vagrantfile"
 
 .. code-block:: bash
 
@@ -68,12 +68,12 @@ This takes a **veeeeery loooong time** since it:
 * downloads a virtual machine (Official Ubuntu Server 14.04 LTS, also called "Trusty Tahr")
 * sets up the VM
 * updates the VM
-* installs various packages needed for Plone-development
-* downloads and unpacks the unified installer for Plone
+* installs various packages needed for Plone development
+* downloads and unpack the unified installer for Plone
 * runs the unified installer for Plone.
 * copy the eggs to a location we use in the training
 * clones the training-buildout into /vagrant/buildout
-* builds the plone there using the eggs from the buildout-cache
+* builds Plone using the eggs from the buildout-cache
 
 .. note::
 
@@ -91,7 +91,7 @@ This takes a **veeeeery loooong time** since it:
 
     You can do this multiple times to fix problems, e.g. if your network-connection was down and steps could not finish because of this.
 
-Once the provisioning-process is completed you can login to the now running virtual machine.
+Once Vagrant finishes the provisioning-process, you can login to the now running virtual machine.
 
 .. code-block:: bash
 
@@ -118,15 +118,15 @@ Instead we use our own Plone-instance during the training. It is in ``/vagrant/b
     2014-05-20 16:57:02 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
     2014-05-20 16:57:02 INFO Zope Ready to handle requests
 
-Now the zope-instance we're using is running. You can stop the running instance anytime using ``ctrl + c``.
+Now the Zope-instance we're using is running. You can stop the running instance anytime using ``ctrl + c``.
 
-You can now point your local browser at http://localhost:8080 and see the Plone that is running in vagrant. This works since the port 8080 is forwarded from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone-Site by clicking "Create a new Plone-Site". The username and the password are both "admin" (Never do this on a real site!).
+You can now point your local browser at http://localhost:8080 and see the Plone that is running in vagrant. This works because Virtualbox forwards the port 8080 from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone-Site by clicking "Create a new Plone-Site". The username and the password are both "admin" (Never do this on a real site!).
 
-The buildout for this Plone is in a shared folder, this means we run it in the vagrant-box from ``/vagrant/buildout`` but we can also access it in out own operating-system and use our favorite editor. You will find the directory ``buildout`` in the directory ``training`` that you created in the very beginning next to ``Vagrantfile`` and ``manifests``.
+The Buildout for this Plone is in a shared folder, this means we run it in the vagrant-box from ``/vagrant/buildout`` but we can also access it in out own operating-system and use our favorite editor. You will find the directory ``buildout`` in the directory ``training`` that you created in the very beginning next to ``Vagrantfile`` and ``manifests``.
 
 .. note::
 
-    The database and the python-packages are **not accessible** in you own system since large files and symlinks should not be used in shared folders. The database lies in ``/home/vagrant/var``, the python-packages are in ``/home/vagrant/omelette``.
+    The database and the python-packages are **not accessible** in you own system since large files and you canot use symlinks in shared folders. The database lies in ``/home/vagrant/var``, the python-packages are in ``/home/vagrant/omelette``.
 
 If you have any problems or questions please mail us at team@starzel.de
 
@@ -138,7 +138,7 @@ What Vagrant does
 
     These steps are automatically done by vagrant and puppet. They are only explained here if you want to know what goes on below the hood.
 
-The first installation is done by Puppet, a tool to automatically manage servers (real and virtual). We won't get into Puppet since it is not that widely used. This is what we basically do if we did it by hand:
+Puppet does the first installation, Puppet is a tool to automatically manage servers (real and virtual). We won't get into Puppet since it is not that widely used. This is what we basically do if we did it by hand:
 
 First we update the ubuntu and install some packages.
 
@@ -178,11 +178,11 @@ Then we download, unpack and install the unified installer of Plone.
     $ cd Plone-4.3.3-UnifiedInstaller
     $ ./install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone
 
-The unified installer is an amazing tool that compiles it's own python, brings with it all the python-eggs we need and puts them in a buildout-cache. It then creates a buildout and makes Plone ready to run.
+The unified installer is an amazing tool that compiles it's own python, brings with it all the python-eggs we need and puts them in a buildout-cache. It then creates a Buildout and makes Plone ready to run.
 
 We will not actually use this Plone during the training. If you want to use it for your own experiments, you can find it in ``/home/vagrant/Plone/zinstance`` on the virtual machine.
 
-Instead vagrant now creates our own little buildout and only uses the eggs that were created when installing the unified installer. First we copy the buildout-cache that holds all the python-packages that Plone consits of.
+Instead vagrant now creates our own little Buildout and only uses the eggs that the unified installer created. First we copy the buildout-cache that holds all the python-packages that Plone consists of.
 
 .. code-block:: bash
 
@@ -209,6 +209,6 @@ You can now connect to the machine and start plone.
     $ cd /vagrant/buildout
     $ ./bin/instance fg
 
-Now we have fresh buildout based zope site, ready to get a Plone site. Go to http://localhost:8080 and create a plone Site, only activate the Dexterity plugin.
+Now we have fresh Buildout based Zope site, ready to get a Plone site. Go to http://localhost:8080 and create a Plone site, only activate the Dexterity plugin.
 
-You might wonder, why we use the unified installer. We use the unified installer to set up a cache of packages to download in a much shorter time. Without it, your first buildout on a fresh computer would take more than half an hour on a good internet connection.
+You might wonder, why we use the unified installer. We use the unified installer to set up a cache of packages to download in a much shorter time. Without it, your first Buildout on a fresh computer would take more than half an hour on a good internet connection.
