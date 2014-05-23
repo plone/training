@@ -143,7 +143,13 @@ Upgrade steps are usually registered in their own zcml-file. Create ``upgrades.z
 
     </configure>
 
-Include it in ``configure.zcml`` by adding:
+The upgrade step bumps the verion-number of the GenericSetup profile of ploneconf.site from 1 to 1001. The version is stored in ``profiles/default/metadata.xml``. Change it to
+
+..  code-block:: xml
+
+    <version>1001</version>
+
+Include the new ``upgrades.zcml`` in our ``configure.zcml`` by adding:
 
 ..  code-block:: xml
 
