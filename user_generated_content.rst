@@ -75,17 +75,21 @@ Register a import-step in``configure.zcml``. It will be automatically run when (
         <depends name="typeinfo"/>
     </genericsetup:importStep>
 
-Note that the setuphandler
+Note that the setuphandler has a dependency on `typeinfo` because it will only allow the creation of talks. For this the type already has to exist.
 
 Create a new file ``setuphandlers.py``
 
 .. code-block:: python
     :linenos:
 
-    import logging
-    from Products.CMFCore.utils import getToolByName
+    # -*- coding: UTF-8 -*-
     from plone.app.controlpanel.security import ISecuritySchema
+    from plone import api
+
+    import logging
+
     PROFILE_ID = 'profile-ploneconf.site:default'
+    logger = logging.getLogger('ploneconf.site')
 
 
     def setupVarious(context):
@@ -98,9 +102,7 @@ Create a new file ``setuphandlers.py``
         if context.readDataFile('ploneconf.site_various.txt') is None:
             return
 
-        # Add additional setup code here
-        logger = context.getLogger('ploneconf.site')
-        site = context.getSite()
+        site = api.portal.get()
         set_up_security(site)
 
 
@@ -125,11 +127,16 @@ Here is an example:
 .. code-block:: python
     :linenos:
 
+    # -*- coding: UTF-8 -*-
     from plone.app.controlpanel.security import ISecuritySchema
     from plone import api
     from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
     from plone.app.dexterity.behaviors import constrains
+
+    import logging
+
     PROFILE_ID = 'profile-ploneconf.site:default'
+    logger = logging.getLogger('ploneconf.site')
 
 
     def setupVarious(context):
@@ -142,8 +149,7 @@ Here is an example:
         if context.readDataFile('ploneconf.site_various.txt') is None:
             return
 
-        # Add additional setup code here
-        site = context.getSite()
+        site = api.portal.get()
         set_up_security(site)
         set_up_content(site)
 
@@ -157,14 +163,19 @@ Here is an example:
         """Create and configure some initial content"""
         if 'talks' in site:
             return
-        talks = api.content.create(site, 'Folder', 'talks', 'Talks')
+        talks = api.content.create(
+            container=site,
+            type='Folder',
+            id='talks',
+            title='Talks')
         api.content.transition(talks, 'publish')
+        api.group.grant_roles(
+            groupname='AuthenticatedUsers',
+            roles=['Contributor'],
+            obj=talks)
         # Enable constraining
         behavior = ISelectableConstrainTypes(talks)
         behavior.setConstrainTypesMode(constrains.ENABLED)
         behavior.setLocallyAllowedTypes(['talk'])
         behavior.setImmediatelyAddableTypes(['talk'])
-        api.group.grant_roles(
-            groupname='AuthenticatedUsers',
-            roles=['Contributor'],
-            obj=talks)
+        logger.info("Created and configured %s" % talks.absolute_url())
