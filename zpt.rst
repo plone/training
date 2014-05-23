@@ -398,45 +398,45 @@ The template should now look like this:
 .. code-block:: xml
   :linenos:
 
-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-          lang="en"
-          metal:use-macro="context/main_template/macros/master"
-          i18n:domain="ploneconf.site">
-    <body>
+  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="ploneconf.site">
+  <body>
 
-    <metal:content-core fill-slot="content-core">
+  <metal:content-core fill-slot="content-core">
 
-    <table tal:define="talks python:[{'title':'Dexterity for the win!',
-                                      'subjects':('content-types', 'dexterity')},
-                                     {'title':'Deco is the future',
-                                      'subjects':('layout', 'deco')},
-                                     {'title':'The State of Plone',
-                                      'subjects':('keynote',) },
-                                     {'title':'Diazo designs are great',
-                                      'subjects':('design', 'diazo', 'xslt')}
-                                    ]">
-        <tr>
-            <th>Title</th>
-            <th>Topics</th>
-        </tr>
-        <tr tal:repeat="talk talks">
-            <td tal:content="talk/title">A talk</td>
-            <td tal:define="subjects talk/subjects">
-                <span tal:repeat="subject subjects"
-                      tal:replace="subject">
-                </span>
-            </td>
-        </tr>
-    </table>
+  <table tal:define="talks python:[{'title':'Dexterity for the win!',
+                                    'subjects':('content-types', 'dexterity')},
+                                   {'title':'Deco is the future',
+                                    'subjects':('layout', 'deco')},
+                                   {'title':'The State of Plone',
+                                    'subjects':('keynote',) },
+                                   {'title':'Diazo designs are great',
+                                    'subjects':('design', 'diazo', 'xslt')}
+                                  ]">
+      <tr>
+          <th>Title</th>
+          <th>Topics</th>
+      </tr>
+      <tr tal:repeat="talk talks">
+          <td tal:content="talk/title">A talk</td>
+          <td tal:define="subjects talk/subjects">
+              <span tal:repeat="subject subjects"
+                    tal:replace="subject">
+              </span>
+          </td>
+      </tr>
+  </table>
 
-    </metal:content-core>
+  </metal:content-core>
 
-    </body>
-    </html>
+  </body>
+  </html>
 
 .. note::
 
-    Since the demoview only used content from the template, not from the cointext that it is called on it makes litte sense to have the edit-bar. We hide it by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
+    Since the demoview only used content from the template, not from the context that it is called on it makes litte sense to have the edit-bar. We hide it by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
 
     The easiest way to do this is to define a dummy-variable. Dummy because it is never used except to allow us to execute some code.
 
@@ -509,7 +509,7 @@ The are some things we did not cover so far:
 ``tal:condition="exists:expression"``
     checks if an object or an attribute exists (seldom used)
 
-``tal:condition="nocall:context"``
+``tal:attributes="nocall:context/@@plone_context_state/is_default_page"``
     to explicitly not call a callable.
 
 If we refer to content objects, without using the nocall: modifier these objects are unnecessarily rendered in memory as the expression is evaluated.
