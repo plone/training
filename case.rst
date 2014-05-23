@@ -17,6 +17,7 @@ Requirements
 * As a speaker I want to be able to sumbit talks
 * As a speaker I want to see and edit my submitted talks
 * As a jury-member I want to vote on talks
+* As a jury-member I want to decide, which talks to accept, and which not
 * As a organizer I want to see a list of all proposed talks
 * As a organizer I want to have an overview about how many people registerd
 
