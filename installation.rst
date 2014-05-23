@@ -23,7 +23,7 @@ Installing Plone
 
 .. only:: manual
 
-    MacOS 10.8 and Ubuntu 12.4 come with a working default Python 2.7 built in. These are the lucky ones. To run a older Plone-version you need Python 2.4 and that's not always easy to install.
+    MacOS 10.8 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones. To run a older Plone-version you need Python 2.4 and that's not always easy to install.
 
     Most developers usually use their primary system to develop Plone.
 
@@ -31,7 +31,7 @@ Installing Plone
 
     * Philip has MacOS, therefore he uses the python-buildout to compile all neccessary versions of python and homebrew for some linux-tools.
     * Patrick uses Ubuntu.
-    * Alan Runyan (one of Plone's founders) uses Windows. We have no idea how he can live with that but he seems to me managing perfectly well. Plone is much slower on Windows.
+    * Alan Runyan (one of Plone's founders) uses Windows. We have no idea how he can live with that but to me he seems managing perfectly well. Plone is much slower on Windows.
 
 .. only:: presentation
 
