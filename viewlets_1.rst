@@ -27,7 +27,7 @@ We register the viewlet in :file:`browser/configure.zcml`.
 
     <browser:viewlet
       name="social"
-      for="ploneconf.site.behavior.social.ISocial"
+      for="ploneconf.site.behaviors.social.ISocial"
       manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
       class=".viewlets.SocialViewlet"
       layer="zope.interface.Interface"
@@ -111,8 +111,9 @@ We have to extend the Social Viewlet now to add the missing attribute:
 .. code-block:: python
     :linenos:
     :emphasize-lines: 5-7
-
-    from ploneconf.site.interfaces import ISocial
+    
+    ...
+    from ploneconf.site.behaviors.social import ISocial
 
     class Social(ViewletBase):
 

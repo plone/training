@@ -46,13 +46,13 @@ Practical example
 
     So for now, our behavior just adds a new field for storing the url to Lanyrd.
 
-We want to keep a clean structure, so we create a behavior directory first, and include it into the zcml declarations of our :file:`configure.zcml`.
+We want to keep a clean structure, so we create a :file:`behaviors` directory first, and include it into the zcml declarations of our :file:`configure.zcml`.
 
 .. code-block:: xml
 
-    <include package=".behavior" />
+    <include package=".behaviors" />
 
-Then, we add an empty :file:`behavior/__init__.py` and a :file:`behavior/configure.zcml` containing
+Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/configure.zcml` containing
 
 .. only:: manual
 
@@ -88,7 +88,7 @@ Then, we add an empty :file:`behavior/__init__.py` and a :file:`behavior/configu
 
     </configure>
 
-And a :file:`behavior/social.py` containing:
+And a :file:`behaviors/social.py` containing:
 
 .. _social-behavior-python-label:
 
@@ -122,8 +122,8 @@ And a :file:`behavior/social.py` containing:
 
     Lets get through this step by step.
 
-    #. We register a behavior in :ref:`behavior/configure.zcml <social-behavior-zcml-label>`. We do not say for which content type this behavior is valid. You do this, through the web or in the GenericSetup profile.
-    #. We create a marker interface in :ref:`behavior/social.py <social-behavior-python-label>` for our behavior and make it also a schema containing the fields we want to declare.
+    #. We register a behavior in :ref:`behaviors/configure.zcml <social-behavior-zcml-label>`. We do not say for which content type this behavior is valid. You do this, through the web or in the GenericSetup profile.
+    #. We create a marker interface in :ref:`behaviors/social.py <social-behavior-python-label>` for our behavior and make it also a schema containing the fields we want to declare.
        We could just use define schema fields on a zope.intereface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features.
     #. We add a `fieldset`_ So that our fields are not mixed with the normal fields of the object.
     #. We add a normal `URI`_ schema field to store the URI to lanyrd.
@@ -148,7 +148,7 @@ We must add the behavior to :file:`profiles/default/types/talk.xml`:
      <property name="behaviors">
       <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
       <element value="plone.app.content.interfaces.INameFromTitle"/>
-      <element value="ploneconf.site.behavior.social.ISocial"/>
+      <element value="ploneconf.site.behaviors.social.ISocial"/>
      </property>
      ...
     </object>
