@@ -11,7 +11,7 @@ There are a lot of addons in Plone for sliders/banners/teasers. We thought there
 
 Like many addons it has not yet been released on pypi but only exists as code on github.
 
-The training-buildout hold a section ``[sources]`` that tells buildout to download a specific addon not from pypi but from some repositiory:
+The training-buildout hold a section ``[sources]`` that tells buildout to download a specific addon not from pypi but from some code repositiory (usually github):
 
 .. code-block:: cfg
 

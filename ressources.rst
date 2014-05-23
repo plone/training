@@ -3,7 +3,7 @@ Ressources
 
 We have not yet talked about CSS and Javascript. At the moment these are considered static resources.
 
-You can declare and access static resources with special urls. The configure.zcml of our package alsready has a declaration for resources:
+You can declare and access static resources with special urls. The configure.zcml of our package already has a declaration for resources:
 
 .. code-block:: xml
 

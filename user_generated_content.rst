@@ -27,7 +27,7 @@ Let's be secretive and let submitters only see their own talks.
 * See how talks have the same workflow as most content ``(Default)``
 * Go to the tab *Contents*, check the box next to ``simple_publication_workflow``, click ``copy`` and ``paste``.
 * Rename the new workflow from *copy_of_simple_publication_workflow* to *talk_workflow*.
-* Edit the workflow by klicking on it: Change the Title to *Talks Workflow*.
+* Edit the workflow by clicking on it: Change the Title to *Talks Workflow*.
 * Click on the tab *States* and click on *private* to edit this state. In the next view select the tab *Permissions*.
 * Find the talbe-column for the role *Contributor* and remove the permissions for ``Access contents information`` and ``View``. Note that the *Owner* (i.e. the Creator) still has some permissions.
 * Do the same for the state *pending*

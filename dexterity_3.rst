@@ -78,7 +78,7 @@ Some things are notable here:
 
 * In ``directives.widget(level=RadioFieldWidget)`` we change the widget from a dropdown to radioboxes.
 * ``LevelVocabulary`` is used to create the options used in the field ``level``. This way we could easily translate the displayed value.
-* ``fieldset('Images', fields=['logo', 'advertisment'])`` moves the two image-fiels to another tab.
+* ``fieldset('Images', fields=['logo', 'advertisment'])`` moves the two image-fields to another tab.
 * ``directives.read_permission(...)`` sets the read- and write-permission for the field ``note`` to users who can add new members. Usually this permission is only granted to Site-Administrators and Managers. We use it to store information that should not be publicly visible. Please note that ``obj.note`` is still accessible in templates and python. Only using the widget (like we do in the view later) checks for the permission.
 * We use no grok here
 
@@ -147,7 +147,7 @@ Then we register the FTI in ``profiles/default/types.xml``
      <!-- -*- extra stuff goes here -*- -->
     </object>
 
-After reinstalling our package we can create the new type. We use the default-view provide by dexterity since we display the sponsors in a viewlet.
+After reinstalling our package we can create the new type. We use the default-view provided by dexterity since we display the sponsors in a viewlet.
 
 Instead we tweak the default-view with some css. Add the following to ``resources/ploneconf.css``
 
@@ -207,7 +207,7 @@ If we would want a custom view for sponsors it could look like this.
 
 .. note::
 
-    Note that we have to handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base-class ``DefaultView`` holds the widget for the field ``note``. If the current user does not have the permission ``cmf.AddPortalMember`` it will be ommited from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it is missing we work around that.
+    Note that we have to handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base-class ``DefaultView`` holds the widget for the field ``note``. If the current user does not have the permission ``cmf.AddPortalMember`` it will be omited from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it is missing we work around that.
 
 
 We display the sponsors at the bottom of the website in a viewlet.
