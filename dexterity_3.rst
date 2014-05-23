@@ -352,3 +352,18 @@ Add the template ``browser/templates/sponsors_viewlet.pt``
             </div>
         </div>
     </div>
+
+Now add some css to make it look ok. Edit ``resources/ploneconf.css``
+
+..  code-block:: css
+
+    .sponsor {
+        float: left;
+        margin: 0 1em 1em 0;
+    }
+
+    .sponsor:hover {
+        box-shadow: 0 0 8px #000000;
+        -moz-box-shadow: 0 0 8px #000000;
+        -webkit-box-shadow: 0 0 8px #000000;
+    }
