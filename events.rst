@@ -29,7 +29,7 @@ First we enable the behavior ``IEventBasic`` for talks in ``profiles/default/typ
 
 If we set the behavior by hand or reinstall the addon we could now add new talks with new field for ``start`` and ``end``.
 
-But plone.app.event does not expect existing objects to get the behavior. We would get a traceback on inline-validation when we edit these objects. To work around this we create an upgrade-step that sets some a initial date.
+But plone.app.event does not expect existing objects to get the behavior. Since existing types have no values in teh fields ``start`` and ``end`` we would get a traceback on inline-validation when we edit these. To work around this we create an upgrade-step that sets some a initial date.
 
 Register the new upgrade step in ``upgrades.zcml``
 
