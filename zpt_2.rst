@@ -19,8 +19,9 @@ We'll basically do the same as when we used at ``portal_skins`` (we customized t
 
 .. code-block:: xml
 
-    <include package="z3c.jbot" file="meta.zcml" />
     <browser:jbot directory="template_overrides" />
+
+* For completeness, add :samp:`z3c.jbot` to the dependencies in :file:`setup.py` to the :samp:`install_requires` list.
 
 * Find the file ``plone/app/contenttypes/browser/templates/newsitem.pt`` in the directory ``omelette`` (in vagrant this is in ``/home/vagrant/omelette``).
 * Copy it into the new folder ``cp /home/vagrant/omelette/plone/app/contenttypes/browser/templates/newsitem.pt /vagrant/buildout/src/ploneconf.site/ploneconf/site/browser/template_overrides``

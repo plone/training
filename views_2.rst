@@ -138,7 +138,11 @@ We should tell Plone, that the talkview should be used as the default view for t
 
 This is a configuration that you can change during runtime and is stored in the database, as such it is also managed by genericsetup profiles.
 
-open ``profiles/default/types/talk.xml``::
+open ``profiles/default/types/talk.xml``:
+
+.. code-block:: xml
+    :linenos:
+    :emphasize-lines: 2,4
 
     ...
     <property name="default_view">talkview</property>
