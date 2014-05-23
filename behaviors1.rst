@@ -95,7 +95,6 @@ And a :file:`behavior/social.py` containing:
 .. code-block:: python
     :linenos:
 
-    # -*- coding: UTF-8 -*-
     from plone.supermodel import model, directives
     from plone.autoform.interfaces import IFormFieldProvider
     from zope import schema
