@@ -18,30 +18,32 @@ We start with by editing :file:`setup.py`
 
 .. code-block:: python
     :linenos:
+    :emphasize-lines: 8
 
-          ...
-          zip_safe=False,
-          install_requires=[
-              'setuptools',
-              'plone.app.dexterity [relations]',
-              'plone.app.relationfield',
-              'plone.namedfile [blobs]',
-              'starzel.votable_behavior',
-              # -*- Extra requirements: -*-
-          ],
-          ...
+    ...
+    zip_safe=False,
+    install_requires=[
+        'setuptools',
+        'plone.app.dexterity [relations]',
+        'plone.app.relationfield',
+        'plone.namedfile [blobs]',
+        'starzel.votable_behavior',
+        # -*- Extra requirements: -*-
+    ],
+    ...
 
 Next up we modify :file:`profiles/default/metadata.xml
 
 .. code-block:: xml
     :linenos:
+    :emphasize-lines: 6
 
     <metadata>
       <version>1</version>
         <dependencies>
-            <dependency>profile-plone.app.dexterity:default</dependency>
-            <dependency>profile-plone.app.relationfield:default</dependency>
-            <dependency>profile-starzel.votable_behavior:default</dependency>
+          <dependency>profile-plone.app.dexterity:default</dependency>
+          <dependency>profile-plone.app.relationfield:default</dependency>
+          <dependency>profile-starzel.votable_behavior:default</dependency>
         </dependencies>
     </metadata>
 
@@ -51,22 +53,17 @@ Now the package is there, but nothing is votable. That is because no content typ
 
 .. code-block:: xml
     :linenos:
+    :emphasize-lines: 4
 
-    <?xml version="1.0"?>
-    <object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"
-       xmlns:i18n="http://xml.zope.org/namespaces/i18n">
-     ...
-     <property name="behaviors">
+    <property name="behaviors">
       <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
       <element value="plone.app.content.interfaces.INameFromTitle"/>
       <element value="starzel.votable_behavior.interfaces.IVoting"/>
-     </property>
-     ...
-    </object>
+    </property>
 
 Now we can reinstall our Plone site.
 
-Everybody can vote now, but only on talks. That is not what we wnated. Actually, we want reviewers only to vote on pending Talks. This means, depending on the workflow state, the permission has to change. Luckily, workflows can be configured to do just like that.
+Everybody can vote now, but only on talks. That is not what we wanted. Actually, we want reviewers only to vote on pending Talks. This means, depending on the workflow state, the permission has to change. Luckily, workflows can be configured to do just like that.
 Talks already have their own workflow. So we won't interfere with other packages.
 First, we have to tell the workflow that he will be managing more permissions. Next up, we have to configure for each state, which role has the two new permissions now.
 
@@ -74,6 +71,7 @@ That is a very verbose configuration, maybe you want to do it in the web interfa
 
 .. code-block:: xml
     :linenos:
+
     <?xml version="1.0"?>
     <dc-workflow workflow_id="talks_workflow" title="Talks Workflow" description=" - Simple workflow that is useful for basic web sites. - Things start out as private, and can either be submitted for review, or published directly. - The creator of a content item can edit the item even after it is published." state_variable="review_state" initial_state="private" manager_bypass="False">
      <permission>Access contents information</permission>
@@ -134,7 +132,7 @@ After clicking on this, only managers and Reviewers can see the Voting functiona
 
 Lastly, we add our silly function to autoapprove talks.
 
-You quickly end up writing many event handlers, so we put everythingi into a directory for eventhandlers.
+You quickly end up writing many event handlers, so we put everything into a directory for eventhandlers.
 
 Therefor we need a :file:`events` directory.
 
@@ -145,12 +143,7 @@ Next, register the events directory in :file:`configure.zcml`
 .. code-block:: xml
     :linenos:
 
-    <configure
-      ...>
-      ...
-      <include package=".events" />
-      ...
-    </configure>
+    <include package=".events" />
 
 Next, we write the ZCML configuration for the events into :file:`events/configure.zcml`
 
@@ -159,11 +152,13 @@ Next, we write the ZCML configuration for the events into :file:`events/configur
 
     <configure
         xmlns="http://namespaces.zope.org/zope">
+
       <subscriber
         for="starzel.votable_behavior.interfaces.IVotable
              zope.lifecycleevent.IObjectModifiedEvent"
         handler=".votable.votable_update"
         />
+
     </configure>
 
 
