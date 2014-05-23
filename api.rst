@@ -4,21 +4,19 @@ Programming Plone
 plone.api
 ---------
 
-The most important tool nowadays for plone-developers is the addon `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ hat covers 20% of the tasks any Plone developer does 80% of the time.
-
-If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
+The most important tool nowadays for plone-developers is the addon `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ hat covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
 
 The api is devided in five sections. Here is one example from each:
 
-* Content: `Create content <http://docs.plone.org/external/plone.api/docs/content.html#create-content>`_
-* Portal: `Send E-Mail <http://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_
-* Groups: `Grant roles to group <http://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-group>`_
-* Users: `Get user roles <http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_
-* Environment: `Switch roles inside a block <http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_
+* `Content`: `Create content <http://docs.plone.org/external/plone.api/docs/content.html#create-content>`_
+* `Portal`: `Send E-Mail <http://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_
+* `Groups`: `Grant roles to group <http://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-group>`_
+* `Users`: `Get user roles <http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_
+* `Environment`: `Switch roles inside a block <http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_
 
 plone.api is not yet part of the Plone core. Therefore you will not see any use of plone.api in in Plone itself. But we are sure it will be part of Plone 5 if someone gets around to submitting the PLIP.
 
-In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to findout about what they do.
+In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out about what they do.
 
 Some of these methods will be replaced by plone.api in the future:
 
@@ -50,7 +48,7 @@ Usually the best way to learn about the api of a tool is to look in the ``interf
 Debugging
 ---------
 
-Here are some tools and techniques we frequently use when developing and debugging. We use some of them in various situations during the training.
+Here are some tools and techniques we often use when developing and debugging. We use some of them in various situations during the training.
 
 tracebacks and the log
     The log (and the console when running in foreground) collect all log-messages Plone prints. When a exception occurs Plone thows a traceback. Most of th time the traceback is everything you need to find out what is going wrong. Also adding your own information to the log is very simple.
