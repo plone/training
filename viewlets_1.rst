@@ -30,8 +30,8 @@ We register the viewlet in :file:`browser/configure.zcml`.
       for="ploneconf.site.behavior.social.ISocial"
       manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
       class=".viewlets.SocialViewlet"
-      layer="ploneconf.site.interfaces.IPloneconfSiteLayer"
-      template="viewlet_templates/social_viewlet.pt"
+      layer="zope.interface.Interface"
+      template="templates/social_viewlet.pt"
       permission="zope2.View"
       />
 
