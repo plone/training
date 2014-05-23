@@ -1,10 +1,10 @@
 Changelog
 =========
 
-1.2 (22.05.2014)
+1.2 (23.05.2014)
 ----------------
 
-- Heavily expanded and rewritten for Training in Mai 2014
+- Heavily expanded and rewritten for a training in Mai 2014
 - remove grok
 - use plone.app.contenttypes from the beginning
 - use plone.api

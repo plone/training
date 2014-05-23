@@ -72,7 +72,7 @@ Register a import-step in``configure.zcml``. It will be automatically run when (
       title="ploneconf.site special import handlers"
       description=""
       handler="ploneconf.site.setuphandlers.setupVarious">
-        <depends name="types"/>
+        <depends name="typeinfo"/>
     </genericsetup:importStep>
 
 Note that the setuphandler
