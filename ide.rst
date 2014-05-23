@@ -1,9 +1,9 @@
 IDE's and Editors
 ==================
 
-No development environment is complete without a good editor. Plone consists of more than 22.000+ files! You need a tool to manage that and
+Plone consists of more than 20.000 files! You need a tool to manage that. No development environment is complete without a good editor.
 
-People pick editors themselves. We won't walk through a single editor. These are the most used editors in the plone-community:
+People pick editors themselves. use whatever you are comfortable and productive with. These are the most used editors in the Plone community:
 
 * `Sublime <http://www.sublimetext.com/>`_
 * `PyCharm <http://www.jetbrains.com/pycharm/>`_
@@ -16,22 +16,24 @@ People pick editors themselves. We won't walk through a single editor. These are
 
 Some features that most editors have in one form or another are essential when developing with Plone.
 
-* Find in project (SublimeText 3: ``cmd + shift + f``)
-* Find files in Project (SublimeText 3: ``cmd + t``)
-* Find methods and classes in Project (SublimeText 3: ``cmd + shift + r``)
-* Goto Definition (SublimeText3 with codeintel: ``alt + click``)
-* Powerful search & replace
+* **Find in project** (SublimeText 3: ``cmd + shift + f``)
+* **Find files in Project** (SublimeText 3: ``cmd + t``)
+* **Find methods and classes in Project** (SublimeText 3: ``cmd + shift + r``)
+* **Goto Definition** (SublimeText3 with codeintel: ``alt + click``)
+* **Powerful search & replace**
 
-The capability of performing a full text search through the complete Plone code is invaluable. Thanks to omelette, an SSD and plenty of RAM you can search through the complete Plone-code in 3 seconds.
+The capability of performing a *full text search* through the complete Plone code is invaluable. Thanks to omelette, an SSD and plenty of RAM you can search through the complete Plone-code in 3 seconds.
 
-Some Packages that are recommended when using Sublime Text 3
+.. note::
 
-* SublimeCodeIntel (Goto Definition)
-* BracketHighlighter
-* GitGutter
-* FileDiffs
-* SublimeLinter with SublimeLinter-flake8 ...
-* INI (syntax for ini-Files)
-* SideBarEnhancements
-* MacTerminal
-* SyncedSideBar
+    Some Editors/IDEs have to be extend to be fully featured. Here are some packages we recommend when using Sublime Text 3:
+
+    * SublimeCodeIntel (Goto Definition)
+    * BracketHighlighter
+    * GitGutter
+    * FileDiffs
+    * SublimeLinter with SublimeLinter-flake8 ...
+    * INI (syntax for ini-Files)
+    * SideBarEnhancements
+    * MacTerminal
+    * SyncedSideBar
