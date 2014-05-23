@@ -82,7 +82,6 @@ Create a new file ``setuphandlers.py``
 .. code-block:: python
     :linenos:
 
-    # -*- coding: UTF-8 -*-
     import logging
     from Products.CMFCore.utils import getToolByName
     from plone.app.controlpanel.security import ISecuritySchema
@@ -126,7 +125,6 @@ Here is an example:
 .. code-block:: python
     :linenos:
 
-    # -*- coding: UTF-8 -*-
     from plone.app.controlpanel.security import ISecuritySchema
     from plone import api
     from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes

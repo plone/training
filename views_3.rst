@@ -35,7 +35,6 @@ Python
 .. code-block:: python
     :linenos:
 
-    # -*- coding: UTF-8 -*-
     from Products.CMFCore.utils import getToolByName
     from Products.Five.browser import BrowserView
     from plone.dexterity.browser.view import DefaultView

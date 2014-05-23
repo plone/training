@@ -14,7 +14,6 @@ First we create the schema for the new type. Instead of xml we use python now. C
 .. code-block:: python
     :linenos:
 
-    # -*- coding: UTF-8 -*-
     from plone.app.textfield import RichText
     from plone.autoform import directives
     from plone.namedfile import field as namedfile
@@ -233,7 +232,6 @@ Add the viewlet-class in ``browser/viewlets.py``
 .. code-block:: python
     :linenos:
 
-    # -*- coding: UTF-8 -*-
     from collections import OrderedDict
     from plone import api
     from plone.app.layout.viewlets.common import ViewletBase

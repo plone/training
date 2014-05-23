@@ -90,7 +90,6 @@ Update the viewlet to contain the necessary logic in :file:`browser/viewlets`
 .. code-block:: python
     :linenos:
 
-    # encoding=utf-8
     from plone.app.layout.viewlets import common as base
     from Products.CMFCore.permissions import ViewManagementScreens
     from Products.CMFCore.utils import getToolByName

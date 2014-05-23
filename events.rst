@@ -54,7 +54,6 @@ Write the upgrade-step in ``upgrades.py``
     :linenos:
     :emphasize-lines: 4, 6, 38-54
 
-    # -*- coding: UTF-8 -*-
     from plone import api
 
     import datetime

@@ -26,7 +26,6 @@ For this we add a new file ``ìnterfaces.py``:
 .. code-block:: python
     :linenos:
 
-    # -*- coding: UTF-8 -*-
     from zope.interface import Interface
 
 
@@ -155,7 +154,6 @@ Generic setup now expects the code to be a method ``upgrade_talks`` in the file 
 ..  code-block:: python
     :linenos:
 
-    # -*- coding: UTF-8 -*-
     from plone import api
     import logging
 
