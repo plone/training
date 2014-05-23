@@ -40,7 +40,7 @@ For this we add a new file ``ìnterfaces.py``:
 
 The first option has a important drawback: Only new talks would be instances of the new class. We would either have to migrate the existing talks or delete them.
 
-We register the interface as a behavior in ``behavior/configure.zcml``
+We register the interface as a behavior in ``behaviors/configure.zcml``
 
 .. code-block:: xml
 
@@ -59,7 +59,7 @@ And enable it on the type in ``profiles/default/types/talk.xml``
     <property name="behaviors">
      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
      <element value="plone.app.content.interfaces.INameFromTitle"/>
-     <element value="ploneconf.site.behavior.social.ISocial"/>
+     <element value="ploneconf.site.behaviors.social.ISocial"/>
      <element value="ploneconf.site.interfaces.ITalk"/>
     </property>
 
