@@ -9,7 +9,7 @@ In this part we will:
 * create a viewlet that shows the sponsors sorted by level
 * discuss image-scales
 
-First we create the schema for the new type. Instead of xml we use python now. Create a new file ``content/sponsor.py``.
+First we create the schema for the new type. Instead of xml we use python now. Create a new folder ``content`` with a empty ``__init__.py`` in it. Now add a new file ``content/sponsor.py``.
 
 .. code-block:: python
     :linenos:
