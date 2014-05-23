@@ -3,7 +3,7 @@ Custom search
 
 We can use the indexes we created in the last chapter to further improve the talk-list.
 
-If the chapters about views seem complex this might also be an great alternative until you feel comfortable writing views and templates. There are several tools that allow you to add amazing custom searches and content-listings through the web in Plone.
+If the chapters about views seem complex this might also be a great alternative until you feel comfortable writing views and templates. There are several tools that allow you to add amazing custom searches and content-listings through the web in Plone.
 
 eea.facetednavigation
 ---------------------
@@ -28,7 +28,7 @@ Examples:
 
 .. seealso::
 
-    We use our new catalog indexes to provide the date for the widgets and search the results. For other use-cases we could also use either the built-in vocabularies (https://pypi.python.org/pypi/plone.app.vocabularies) or custom vocabularies for this.
+    We use the new catalog indexes to provide the data for the widgets and search the results. For other use-cases we could also use either the built-in vocabularies (https://pypi.python.org/pypi/plone.app.vocabularies) or create custom vocabularies for this.
 
     * Custom vocabularies ttw using `Products.ATVocabularyManager <https://pypi.python.org/pypi/Products.ATVocabularyManager>`_
     * Programming using Vocabularies: http://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html

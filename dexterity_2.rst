@@ -17,7 +17,7 @@ Add a marker-interface to the talk-type
 Marker Interfaces
 +++++++++++++++++
 
-The content-type `Talk` is not yet a first-class plone-citizen because it does not implement his own interface. Interfaces are like name-tags, telling other elements who and what you are and what you can do. A marker interface is like such a nametag. The talks actually have a auto-generated marker-interface ``plone.dexterity.schema.generated.Plone_0_talk``.
+The content-type `Talk` is not yet a first-class citizen because it does not implement his own interface. Interfaces are like name-tags, telling other elements who and what you are and what you can do. A marker interface is like such a nametag. The talks actually have a auto-generated marker-interface ``plone.dexterity.schema.generated.Plone_0_talk``.
 
 The problem is that the name of the Plone-instance ``Plone`` is part of that interface-name. If you now moved these types to a site with another name, code that uses these Interfaces would no longer find the objects in question.
 
@@ -35,7 +35,7 @@ For this we add a new file ``ìnterfaces.py``:
 
 ``ITalk`` is a marker-interface. We can bind Views and Viewlets to content that provide these interfaces. Now we talks to provide this Interface. There are two solution for this.
 
-1. Let them be be instances of a class that implements this Interface.
+1. Let them be instances of a class that implements this Interface.
 2. Register this interface as a behavior and enable it on talks.
 
 The first option has a important drawback: Only new talks would be instances of the new class. We would either have to migrate the existing talks or delete them.
@@ -158,7 +158,6 @@ GenericSetup now expects the code to be a method ``upgrade_talks`` in the file `
     import logging
 
     default_profile = 'profile-ploneconf.site:default'
-
     logger = logging.getLogger('ploneconf.site')
 
 
@@ -289,7 +288,7 @@ Add a new file ``catalog.xml``
       <column value="speaker" />
     </object>
 
-This adds new indexes for the three fields we want to show in the listing. Not that *audience* is a ``KeywordIndex`` because the field is multi-valued, but we want a seperate index-entry for every value in on a object.
+This adds new indexes for the three fields we want to show in the listing. Not that *audience* is a ``KeywordIndex`` because the field is multi-valued, but we want a separate index-entry for every value in on an object.
 
 The ``column ..`` entry allows us to display these values of these indexes in the tableview of collections.
 
