@@ -52,8 +52,9 @@ Write the upgrade-step in ``upgrades.py``
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 4, 6, 38-54
+    :emphasize-lines: 4, 6, 39-59
 
+    # -*- coding: UTF-8 -*-
     from plone import api
 
     import datetime
@@ -62,6 +63,7 @@ Write the upgrade-step in ``upgrades.py``
 
 
     default_profile = 'profile-ploneconf.site:default'
+
     logger = logging.getLogger('ploneconf.site')
 
 
@@ -94,7 +96,11 @@ Write the upgrade-step in ``upgrades.py``
         """Set a start- and end-date for old events to work around a
         bug in plone.app.event 1.1.1
         """
+        api.portal.set_registry_record(
+            'plone.app.event.portal_timezone',
+            'Europe/London')
         self.runImportStepFromProfile(default_profile, 'typeinfo')
+
         tz = pytz.timezone("Europe/London")
         now = tz.localize(datetime.datetime.now())
         date = now + datetime.timedelta(days=30)
