@@ -15,19 +15,20 @@ It has some noteable features:
 
       [buildout]
       extends =
-          https://raw.github.com/starzel/buildout/4.3.2/linkto/base.cfg
+          https://raw.github.com/starzel/buildout/4.3.3/linkto/base.cfg
 
 * Minimal work to setup a new project
+* Presets for development, testing, staging and production
 
-Other tools
------------
+
+Other tools we use
+------------------
 
 * Fabric (manage sites)
-* Chef (manage and setup servers and tools)
+* Ansible (manage and setup servers and tools)
 * Sentry (error-monitoring)
 * Nagios (server-monitoring)
 * jenkins (tests)
 * piwik (statictics)
 * gitlab (code-repo and code-review)
 * redmine (ticket-system and wiki)
-
