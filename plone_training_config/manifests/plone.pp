@@ -96,18 +96,19 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 0,
     }
 
-    # create virtualenv
-    exec {'virtualenv --no-site-packages /vagrant/buildout/py27':
-        alias => "virtualenv_training",
-        creates => '/vagrant/buildout/py27/bin/python',
-        user => 'vagrant',
-        cwd => '/vagrant/buildout',
-        before => Exec["bootstrap_training"],
-        timeout => 0,
-    }
+    # don't create virtualenv in the shared folder since it contains symlinks
+    # # create virtualenv
+    # exec {'virtualenv --no-site-packages /vagrant/buildout/py27':
+    #     alias => "virtualenv_training",
+    #     creates => '/vagrant/buildout/py27/bin/python',
+    #     user => 'vagrant',
+    #     cwd => '/vagrant/buildout',
+    #     before => Exec["bootstrap_training"],
+    #     timeout => 0,
+    # }
 
     # bootstrap
-    exec {'/vagrant/buildout/py27/bin/python bootstrap.py':
+    exec {'/home/vagrant/py27/bin/python bootstrap.py':
         alias => "bootstrap_training",
         creates => '/vagrant/buildout/bin/buildout',
         user => 'vagrant',

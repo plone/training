@@ -40,6 +40,10 @@ Install and configure Vagrant
 
 Get the latest version from http://www.vagrantup.com/downloads for your operating system and install it.
 
+.. note::
+
+    In Windows there is a bug in the recent version of Vagrant. Here are the instruction how to work around the warning ``Vagrant could not detect VirtualBox! Make sure VirtualBox is properly installed``.
+
 Now your system has a command ``vagrant`` that you can run in the terminal.
 
 First create a directory where you want to do the training in.
@@ -99,7 +103,7 @@ Once Vagrant finishes the provisioning-process, you can login to the now running
 
 .. note::
 
-    If you have to use Windows you'll have to login via putty (Install putty and follow the instructions here: http://vagrantup.com/v1/docs/getting-started/ssh.html)
+    If you have to use Windows you'll have to login to with ``putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User _and_ password are `vagrant`.
 
 You are now logged in as the user vagrant in ``/home/vagrant``. We'll do all steps of the training as this user.
 
@@ -195,8 +199,7 @@ Then we checkout our tutorial code from http://github.com/starzel/training and b
     $ cd /vagrant
     $ git clone https://github.com/starzel/training.git buildout
     $ cd buildout
-    $ virtualenv --no-site-packages py27
-    $ ./py24/bin/python bootstrap.py
+    $ /home/vagrant/py27/bin/python bootstrap.py
     $ ./bin/buildout
 
 At this point vagrant has finished it's job.
