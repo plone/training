@@ -21,20 +21,20 @@ Then add a file ``browser/configure.zcml``:
 .. code-block:: xml
   :linenos:
 
-    <configure
-        xmlns="http://namespaces.zope.org/zope"
-        xmlns:browser="http://namespaces.zope.org/browser"
-        i18n_domain="ploneconf.site">
+  <configure
+      xmlns="http://namespaces.zope.org/zope"
+      xmlns:browser="http://namespaces.zope.org/browser"
+      i18n_domain="ploneconf.site">
 
-        <browser:page
-           name="demoview"
-           for="*"
-           class=".views.DemoView"
-           template="templates/demoview.pt"
-           permission="zope2.View"
-           />
+      <browser:page
+         name="demoview"
+         for="*"
+         class=".views.DemoView"
+         template="templates/demoview.pt"
+         permission="zope2.View"
+         />
 
-    </configure>
+  </configure>
 
 Add a file ``browser/views.py``::
 
