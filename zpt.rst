@@ -509,7 +509,7 @@ The are some things we did not cover so far:
 ``tal:condition="exists:expression"``
     checks if an object or an attribute exists (seldom used)
 
-``tal:attributes="nocall:context/@@plone_context_state/is_default_page"``
+``tal:condition="nocall:context"``
     to explicitly not call a callable.
 
 If we refer to content objects, without using the nocall: modifier these objects are unnecessarily rendered in memory as the expression is evaluated.
