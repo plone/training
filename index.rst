@@ -45,7 +45,6 @@ Contents:
     custom_search
     events
     user_generated_content
-    grok
     ressources
     thirdparty_behaviors
     dexterity_3
@@ -58,6 +57,7 @@ Contents:
     deployment_sites
     future_of_plone
     optional
+    grok
 
 
 Please note that this document is not aimed at the larger public. It is the documentation that people get who attend a training. Even though we attempt to include the most important parts of what we teach in this documentation it can not be considered complete without the spoken word.
