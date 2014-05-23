@@ -47,21 +47,21 @@ What will we do?
 
 Some technologies and tools we use during the training:
 
-* git
-* github
-* virtualbox
-* vagrant
-* ubuntu linux
+* Git
+* Github
+* Virtualbox
+* Vagrant
+* Ubuntu linux
 * TTW
-* buildout
+* Buildout
 * TAL
 * METAL
-* zcml
-* grok
-* python
-* dexterity
-* viewlets
-* jquery
+* Zcml
+* Grok
+* Python
+* Dexterity
+* Viewlets
+* JQuery
 
 What will we not do?
 --------------------
@@ -70,16 +70,16 @@ We will not cover the following topics:
 
 * `Archetypes <http://docs.plone.org/old-reference-manuals/archetypes/index.html>`_
 * `Portlets <http://docs.plone.org/old-reference-manuals/portlets/index.html>`_
-* `Generic Setup <http://docs.plone.org/develop/addons/components/genericsetup.html>`_
 * `z3c.forms <http://docs.plone.org/develop/plone/forms/z3c.form.html>`_
 * `Theming <http://docs.plone.org/adapt-and-extend/theming/index.html>`_
 * `Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_
 * `i18n and locales <http://docs.plone.org/develop/plone/i18n/index.html>`_
 * `Deployment, Hosting and Caching <http://docs.plone.org/manage/deploying/index.html>`_
 
-Other topics are only covered very lightly:
+Other topics are only covered lightly:
 
 * `Zope Component Architecture <http://docs.plone.org/develop/addons/components/index.html>`_
+* `GenericSetup <http://docs.plone.org/develop/addons/components/genericsetup.html>`_
 * `ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_
 * `Security <http://docs.plone.org/develop/plone/security/index.html>`_
 * `Permissions <http://docs.plone.org/develop/plone/security/permissions.html>`_
@@ -88,13 +88,13 @@ Other topics are only covered very lightly:
 What to expect
 --------------
 
-You won't be a professional Plone-programmer after this training. But you will know some of the more powerful features of Plone and should be able to construct a website on your own using these tools. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core-technologies involved in Plone-programming.
+You won't be a complete professional Plone-programmer after this training. But you will know some of the more powerful features of Plone and should be able to construct a website on your own using these tools. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core-technologies involved in Plone-programming.
 
 If you want to become a professional Plone-developer or Plone-integrator you should definitvely read `Martins book <http://www.packtpub.com/professional-plone-4-development/book>`_ and re-read it again.
 
 Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_.
 
-If you want to stay on the ttw-side of things you could read <Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_.
+If you want to stay on the ttw-side of things you could read `Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_.
 
 
 Documentation

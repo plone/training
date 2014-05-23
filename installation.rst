@@ -7,7 +7,7 @@ Installing Plone
 
 .. only:: manual
 
-    Plone 4.3.x requires a working Python 2.7 and several other system-tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that python can can be used:
+    Plone 4.3.x requires a working Python 2.7 and several other system-tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that Python can can be used:
 
 .. only:: presentation
 
