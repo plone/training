@@ -1,18 +1,20 @@
 Using starzel.votable_behavior in ploneconf.site
 ================================================
 
-We want to use the votable behavior, so that our reviewers can vote.
+.. only:: manual
 
-To show how to use events, we are going to auto publish talks that have reached a certain rating.
-
-We are not going to let everybody vote everything.
+    * We want to use the votable behavior, so that our reviewers can vote.
+    * To show how to use events, we are going to auto publish talks that have reached a certain rating.
+    * We are not going to let everybody vote everything.
 
 First, we must add our package as a dependency to ploneconf.site.
 
-We do this in two locations. The egg description :file:`setup.py` needs :samp:`starzel.votable_behavior` as a dependency.
-Else no source code will be available.
+.. only:: manual
 
-The persistent configuration needs to be installed when we install our site. This is configured in GenericSetup.
+    We do this in two locations. The egg description :file:`setup.py` needs :samp:`starzel.votable_behavior` as a dependency.
+    Else no source code will be available.
+
+    The persistent configuration needs to be installed when we install our site. This is configured in GenericSetup.
 
 We start with by editing :file:`setup.py`
 
@@ -32,7 +34,7 @@ We start with by editing :file:`setup.py`
     ],
     ...
 
-Next up we modify :file:`profiles/default/metadata.xml
+Next up we modify :file:`profiles/default/metadata.xml`
 
 .. code-block:: xml
     :linenos:
@@ -47,9 +49,12 @@ Next up we modify :file:`profiles/default/metadata.xml
         </dependencies>
     </metadata>
 
-What a weird name. profile- is a prefix you will always need nowadays. Then comes the egg name, and the part after the colon is the name of the profile. The name of the profile is defined in zcml. So far I've stumbled only over one package where the profile directory name was different to the GenericSetup Profile name.
+.. only:: manual
+    What a weird name. profile- is a prefix you will always need nowadays. Then comes the egg name, and the part after the colon is the name of the profile. The name of the profile is defined in zcml. So far I've stumbled only over one package where the profile directory name was different to the GenericSetup Profile name.
 
-Now the package is there, but nothing is votable. That is because no content type declares to use this behavior. We can add this behavior via the control panel, export the settings and store it in our egg. Let's just add it by hand now.
+    Now the package is there, but nothing is votable. That is because no content type declares to use this behavior. We can add this behavior via the control panel, export the settings and store it in our egg. Let's just add it by hand now.
+
+We have to add the behavior to talks, we do this in :file:`profiles/default/types/talk.xml`
 
 .. code-block:: xml
     :linenos:
@@ -61,16 +66,21 @@ Now the package is there, but nothing is votable. That is because no content typ
       <element value="starzel.votable_behavior.interfaces.IVoting"/>
     </property>
 
-Now we can reinstall our Plone site.
+.. only:: manual
+    Now we can reinstall our Plone site.
 
-Everybody can vote now, but only on talks. That is not what we wanted. Actually, we want reviewers only to vote on pending Talks. This means, depending on the workflow state, the permission has to change. Luckily, workflows can be configured to do just like that.
-Talks already have their own workflow. So we won't interfere with other packages.
-First, we have to tell the workflow that he will be managing more permissions. Next up, we have to configure for each state, which role has the two new permissions now.
+    Everybody can vote now on talks. That is not what we wanted. Actually, we want reviewers only to vote on pending Talks. This means, depending on the workflow state, the permission has to change. Luckily, workflows can be configured to do just that.
+    Talks already have their own workflow. So we won't interfere with other packages.
 
-That is a very verbose configuration, maybe you want to do it in the web interface and export the settings. On the other hand, it is easy to make a simple mistake in both ways. I will just present xml way here:
+  First, we have to tell the workflow that he will be managing more permissions. Next up, we have to configure for each state, which role has the two new permissions now.
+
+    That is a very verbose configuration, maybe you want to do it in the web interface and export the settings. On the other hand, it is easy to make a simple mistake in both ways. I will just present xml way here.
+
+The config for the Workflow is in :file:`profiles/default/workfows/talks_workflow.xml`
 
 .. code-block:: xml
     :linenos:
+    :emphasize-lines: 7-8, 12-21, 27-34, 40-45
 
     <?xml version="1.0"?>
     <dc-workflow workflow_id="talks_workflow" title="Talks Workflow" description=" - Simple workflow that is useful for basic web sites. - Things start out as private, and can either be submitted for review, or published directly. - The creator of a content item can edit the item even after it is published." state_variable="review_state" initial_state="private" manager_bypass="False">
@@ -122,19 +132,21 @@ That is a very verbose configuration, maybe you want to do it in the web interfa
       ...
     </dc-workflow>
 
-We have to reinstall our product again.
+.. only:: manual
 
-But this time, this is not enough. Permissions get updated on workflow changes. As long as a workflow change didn't happen, the talks have the same permissions as ever.
+    We have to reinstall our product again.
 
-Luckily, there is a button for that in the ZMI Workflow view :guilabel:`Update security settings`
+    But this time, this is not enough. Permissions get updated on workflow changes. As long as a workflow change didn't happen, the talks have the same permissions as ever.
 
-After clicking on this, only managers and Reviewers can see the Voting functionality.
+    Luckily, there is a button for that in the ZMI Workflow view :guilabel:`Update security settings`.
 
-Lastly, we add our silly function to autoapprove talks.
+    After clicking on this, only managers and Reviewers can see the Voting functionality.
 
-You quickly end up writing many event handlers, so we put everything into a directory for eventhandlers.
+    Lastly, we add our silly function to autoapprove talks.
 
-Therefor we need a :file:`events` directory.
+    You quickly end up writing many event handlers, so we put everythingi into a directory for eventhandlers.
+
+For the events we need a :file:`events` directory.
 
 Create the :file:`events` directory and add an empty :file:`events/__init__.py` file.
 
@@ -145,7 +157,7 @@ Next, register the events directory in :file:`configure.zcml`
 
     <include package=".events" />
 
-Next, we write the ZCML configuration for the events into :file:`events/configure.zcml`
+then, we write the ZCML configuration for the events into :file:`events/configure.zcml`
 
 .. code-block:: xml
     :linenos:
@@ -162,7 +174,9 @@ Next, we write the ZCML configuration for the events into :file:`events/configur
     </configure>
 
 
-This looks like a MultiAdapter. We want to get notified, when an IVotable object gets modified. Our method will receive the votable object, and the event itself.
+.. only:: manual
+
+    This looks like a MultiAdapter. We want to get notified, when an IVotable object gets modified. Our method will receive the votable object, and the event itself.
 
 And finally, our event handler in :file:`events/votable.py`
 
@@ -181,11 +195,10 @@ And finally, our event handler in :file:`events/votable.py`
             if votable.average_vote() > 0.5:
                 transition(votable_object, transition='publish')
 
-We are using a lot of plone api here. Plone API makes the code a breeze. Also, there is nothing really interesting.
-We will only do something, if the workflow state is pending and the average vote is above 0.5.
-As you can see, the :samp:`transition` Method does not want the target state, but the transition to move the state to the target state.
+.. only:: manual
 
-There is nothing special going on.
+    We are using a lot of plone api here. Plone API makes the code a breeze. Also, there is nothing really interesting.
+    We will only do something, if the workflow state is pending and the average vote is above 0.5.
+    As you can see, the :samp:`transition` Method does not want the target state, but the transition to move the state to the target state.
 
-
-.. code-block::
+    There is nothing special going on.

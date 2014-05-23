@@ -6,42 +6,6 @@ Python, Zope, CMF, Plone, how does that all fit together?
 
 Zope2
 -----
-Plone runs on the top of the Zope 2 application server, meaning that one Zope 2 server process can contain and host several Plone sites.
-
-
-
-CMF
----
-
-Content Management Framework ...
-
-
-Zope Toolkit / Zope3
---------------------
-Plone also uses Zope 3 components. Zope 3 is not an upgrade for Zope 2, but a separate project.
-
-
-Zope Component Archtitecture
-----------------------------
-
-.. seealso::
-
-    `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_
-
-Plone
------
-
-GenericSetup
-------------
-
-
-
-Acquisition
-------------
-
-
-
-
 
 .. only:: manual
 
@@ -67,27 +31,46 @@ Acquisition
 
     Basically this is Zope.
 
+
+
+Content Management Framework
+----------------------------
+
+.. only:: manual
+
     After many successfully created websites based on Zope, a number of recurring requirements emerged, and some Zope developers started to write CMF, the Content Management Framework.
+
     The CMF offers many services that help you to write a CMS based on Zope.
     Most objects you see in the ZMI are part of the CMF somehow.
+
     The developers behind CMF do not see CMF as a ready to use CMS. They created a CMS Site which was usable out of the box, but made it deliberately ugly, because you have to customize it anyway.
 
-    This is one way to do it. The Plone founders Alexander Limi and Alan Runyan thought differently, and created a CMS that was usable and beautiful out of the box, based on CMF. They named it Plone.
+    We are still in prehistoric times here. There were no eggs, Zope did not consist of 100 independent software components but was one big blob.
+    Later we will see a lot of GenericSetup. This is also part of CMF. When we will talk about GenericSetup, we might not speak too fondly of it.
+    GenericSetup is like it is, because it is from the stone age and didn't adapt very well. This helps in understanding why GenericSetup is what it is.
 
-    Here are two numbers, without further comment:
 
-    Last German Zope conference (2010): 80 visitors (There is no international Zope conference)
+Zope Toolkit / Zope3
+--------------------
 
-    First German Plone conference (2012): 150 visitors
+.. only:: manual
 
-    The Plone and Zope community are very similar. Even though in the past, a lot of Zope developers who did not use Plone envied Plone for its success and tried to marginalize the Plone success with bad mouthing. If you meet a Zope developer making bad remarks about Plone, be kind to him. It is hard to accept that your superior, cleaner system is not used by anybody, because Plone is user friendly and beautiful.
+    The Zope Toolkit, or ZTK as everybody calls it, can be thought of as a new framework written by the same people that wrote Zope.
 
-    Because there is such a big overlap of the communities, it can sometimes be confusing, where some functionality is coming from.
+    It started with a complete rewrite of Zope 2 to Zope 3. Unfortunately, nobody started to use Zope 3, nobody migrated to Zope 3 because nobody knew how.
 
-    - CMFEditions: Written by Plone developers
-    - GenericSetup: Written by CMF developers
+    But there were many useful things in Zope 3 that people wanted to use in Zope 2, thus bits and pieces have been adapted to be usable in Zope 2.
+    Sometimes, a wrapper of some sorts was necessary, these usually are being provided by packages from the five namespace.
 
-    Summarizing all this in a single sentence:
+    To make the history complete, since people stayed on Zope 2, Zope 3 was renamed to Bluebream, so that people would not think that Zope 3 was the future. It wasn't any more.
 
-        We run Zope the application server. Our main application is Plone.
+Pyramid
+-------
 
+.. only:: manual
+
+    Pyramid is a complete rewrite of Zope. It does less than Zope and is very pluggable. You can use it with a relational Database instead of ZODB if you want, or you use both databases or none of them.
+
+     Apart from the fact that Pyramid was not forced to support all legacy functionality that can make things more complicated, the original developer had a very different stance on how software has to be developed. While both Zope and Pyramid have a good test coverage, Pyramid also has good documentation, something that was very neglected in Zope and at times in Plone too.
+
+     Wether the component architecture is much better in Pyramid or not we don't dare to say, but we like it more. But maybe its just because it is documented.
