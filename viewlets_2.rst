@@ -18,7 +18,7 @@ Voting Viewlet
     Since we want to use the UI on more than one page (not only the talk-view but also the talk-listing) we need to put it somewhere.
 
     * To handle the user-input we don't use a form but links and ajax.
-    * The voting itself is an fact handled by another view
+    * The voting itself is a fact handled by another view
 
 We register the viewlet in :file:`browser/configure.zcml`.
 

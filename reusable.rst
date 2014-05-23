@@ -128,7 +128,7 @@ We can add this restriction to :file:`browser/configure.zcml`
 
         So, what happens, if we do not protect the browser view to vote?
 
-        The person could still vote, by handcrafting the URL. Browser Views run code without any restriction, it is your job to take care of seccurity.
+        The person could still vote, by handcrafting the URL. Browser Views run code without any restriction, it is your job to take care of security.
 
         But... if a person has no access to the object at all, maybe because the site is configured that Anonymous users cannot access private objects, the unauthorized users will not be able to submit a vote.
 
