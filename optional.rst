@@ -5,6 +5,7 @@ Optional
 * zc3.form
 * portlets
 * zca in depth
+* :doc:`grok`
 * ZODB
 * more and more more complex fields
 * relations
@@ -24,6 +25,7 @@ Optional
 * Mockup
 * cutomizing barcelonetta
 * plone.app.widgets
+* :doc:`deployment_code`
 * Deployment
 
   - storage options
