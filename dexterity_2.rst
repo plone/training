@@ -73,7 +73,7 @@ Then we can safely bind the talkview to the new marker interface.
     <browser:page
       name="talklistview"
       for="ploneconf.site.interfaces.ITalk"
-      layer="*"
+      layer="zope.interface.Interface"
       class=".views.TalkListView"
       template="templates/talklistview.pt"
       permission="zope2.View"
