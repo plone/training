@@ -187,7 +187,7 @@ GenericSetup now expects the code to be a method ``upgrade_talks`` in the file `
 
 After restarting the site we can run the step:
 
-* Go to the addon-controlpanel http://localhost:8080/Plone/prefs_install_products_form. Ther should now be a warning **This add-on has been upgraded. Old profile version was 1. New profile version is 1001** and a button next to it.
+* Go to the addon-controlpanel http://localhost:8080/Plone/prefs_install_products_form. There should now be a warning **This add-on has been upgraded. Old profile version was 1. New profile version is 1001** and a button next to it.
 * Run the upgrade-step by clicking on it.
 
 On the console you should see logging-messages like::
@@ -217,9 +217,9 @@ Alternatively you can select which upgrade-steps to run like this:
 Add a browserlayer
 ------------------
 
-A browserlayer is another such marker-interface. Bowserlayers allow us to easily enable and disable views and other site functionality based on installed add-ons and themes.
+A browserlayer is another such marker-interface. Browserlayers allow us to easily enable and disable views and other site functionality based on installed add-ons and themes.
 
-Since we want the features we write only to be availabe when ploneconf.site actually is installed we can bind them to a browserlayer.
+Since we want the features we write only to be available when ploneconf.site actually is installed we can bind them to a browserlayer.
 
 In ``interfaces.py`` we add:
 

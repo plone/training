@@ -5,7 +5,7 @@ We forgot something: A list of talks is great especially if you can sort it by y
 
 We need a schedule and for this we need to store the information when a talk will happen.
 
-Luckily the type *Event* is based on on reuseable behaviors from the package plone.app.event.
+Luckily the type *Event* is based on reuseable behaviors from the package plone.app.event.
 
 In this chapter we will
 
@@ -29,7 +29,7 @@ First we enable the behavior ``IEventBasic`` for talks in ``profiles/default/typ
 
 If we set the behavior by hand or reinstall the addon we could now add new talks with new field for ``start`` and ``end``.
 
-But because of a `bug in plone.app.event <https://github.com/plone/plone.app.event/issues/160>`_  does not expect existing objects to get the behavior. Since existing types have no values in the fields ``start`` and ``end`` we would get a traceback on inline-validation when we edit these. To work around this we create an upgrade-step that sets some a initial date.
+But because of a `bug in plone.app.event <https://github.com/plone/plone.app.event/issues/160>`_  does not expect existing objects to get the behavior. Since existing types have no values in the fields ``start`` and ``end`` we would get a traceback on inline-validation when we edit these. To work around this we create an upgrade-step that sets some an initial date.
 
 Register the new upgrade step in ``upgrades.zcml``
 
