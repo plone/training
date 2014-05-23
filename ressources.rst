@@ -49,7 +49,7 @@ How do our javascript and css files get used when visiting the page? Adding them
 
 With ``portal_css`` and ``portal_javascript`` Plone has resource managers that are able to merge and compress js and css files. Resources can be added conditionally and Plone automatically stops merging files when you are debugging plone in the foreground.
 
-We need to register our resources with Generic Setup.
+We need to register our resources with GenericSetup.
 
 Add a new file ``profiles/default/cssregistry.xml``
 

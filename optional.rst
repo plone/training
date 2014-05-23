@@ -16,7 +16,7 @@ Optional
 * custom workflow
 * users, authentication, member profiles, ldap
 * caching (plone.app.caching)
-* Generic Setup
+* GenericSetup
 * Upgrade-Steps
 * Migrations
 * Asynchronous stuff

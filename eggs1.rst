@@ -51,7 +51,7 @@ ploneconf/site/resources/
     A directory that holds static resources (images/css/js). They are accessible as ``++resource++ploneconf.site/myawesome.css``
 
 ploneconf/site/profiles/default/
-    The folder contains the generic setup-profile
+    The folder contains the GenericSetup-profile
 
 ploneconf/site/profiles/default/metadata.xml
     Version-number and dependencies that are auto-installed

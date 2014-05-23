@@ -47,13 +47,13 @@ Code
             # Do stuff
             return super(DemoView, self).__call__()
 
-Do you remember the term MultiAdapter? The browser page is just a multiadapter.
-The zcml Statement browser:page registeres a multiadapter and adds additional things needed for a browser view.
+Do you remember the term MultiAdapter? The browser page is just a MultiAdapter. The ZCML statement ``browser:page`` registers a MultiAdapter and adds additional things needed for a browser view.
 
-An adapter adapts things, a multi adapter adapts multiple things.
-When you enter an url, Zope tries to find an object for it. At the end, when zope does not find any more objects but there is still a path item left, or there are no more path items, Zope looks for an adapter that will reply to the request.
+An adapter adapts things, a MultiAdapter adapts multiple things.
 
-The Adapter adapts the request and the object that zope found with the URL. The adapter class gets instanciated with the objects to be adapted, then it gets called.
+When you enter an url, Zope tries to find an object for it. At the end, when Zope does not find any more objects but there is still a path item left, or there are no more path items, Zope looks for an adapter that will reply to the request.
+
+The adapter adapts the request and the object that Zope found with the URL. The adapter class gets instantiated with the objects to be adapted, then it gets called.
 
 The code above does the same thing that the standard implementation would do. It makes context and request available as variables on the object.
 
@@ -61,9 +61,9 @@ I have written down these methods because it important to understand some import
 
 The init method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved. Your code is not security checked. For historic reasons, many errors that happen in the init method can result in a page not found error instead of an exception.
 
-Don't do much at all in the init method. Instead you have the guarantee the the call method is called before anything else (except the init method). It has the security checks in place and so on.
+Don't do much at all in the init method. Instead you have the guarantee that the call method is called before anything else (except the init method). It has the security checks in place and so on.
 
-From a practical standpoint, consider the call method your init method, the biggest difference is that this method is suposed to return the html already.
+From a practical standpoint, consider the call method your init method, the biggest difference is that this method is supposed to return the html already.
 Let your base class handle the html generation.
 
 
@@ -136,7 +136,7 @@ After a restart, we can test our view by going to a talk and add /talkview to th
 
 We should tell Plone, that the talkview should be used as the default view for talks instead of the built-in view.
 
-This is a configuration that you can change during runtime and is stored in the database, as such it is also managed by genericsetup profiles.
+This is a configuration that you can change during runtime and is stored in the database, as such it is also managed by GenericSetup profiles.
 
 open ``profiles/default/types/talk.xml``:
 

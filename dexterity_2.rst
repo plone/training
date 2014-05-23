@@ -117,7 +117,7 @@ When projects evolve you'll sometimes have to modify various things while the si
 
 We will create a upgrade step that
 
-* runs the typeinfo-step (i.e. loads the generic setup configuration stores in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the addon to have our changes from above take effect) and
+* runs the typeinfo-step (i.e. loads the GenericSetup configuration stores in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the addon to have our changes from above take effect) and
 * cleans up some content that might be scattered around the site in the early stages of creating it. We will move all talks to a folder ``talks`` (unless they already are there) and also move all
 
 Upgrade steps are usually registered in their own zcml-file. Create ``upgrades.zcml``
@@ -149,7 +149,7 @@ Include it in ``configure.zcml`` by adding:
 
     <include file="upgrades.zcml" />
 
-Generic setup now expects the code to be a method ``upgrade_talks`` in the file ``upgrades.py``. Let's create it.
+GenericSetup now expects the code to be a method ``upgrade_talks`` in the file ``upgrades.py``. Let's create it.
 
 ..  code-block:: python
     :linenos:
@@ -230,7 +230,7 @@ In ``interfaces.py`` we add:
         """Marker interface for the Browserlayer
         """
 
-We register the browserlayer in generic setup in ``profiles/default/browserlayer.xml``
+We register the browserlayer in GenericSetup in ``profiles/default/browserlayer.xml``
 
 .. code-block:: xml
 
@@ -396,7 +396,7 @@ Add a new file ``profiles/default/registry.xml``
 Add more features through generic-setup
 ---------------------------------------
 
-Enable versioning and a diff-view for talks through Generic Setup.
+Enable versioning and a diff-view for talks through GenericSetup.
 
 Add new file ``profiles/default/repositorytool.xml``
 
