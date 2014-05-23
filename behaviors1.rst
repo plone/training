@@ -129,6 +129,31 @@ And a :file:`behavior/social.py` containing:
     #. We add a normal `URI`_ schema field to store the URI to lanyrd.
     #. We mark our schema es a class that also implements the `IFormFieldProvider`_ interface. This is a marker interface, we do not need to implement anything to provide the interface.
 
+Adding it to our talk
+---------------------
+
+.. only:: manual
+
+    We could add this behavior now via the plone control panel. But instead, we will do it directly properly in our GenericSetup profile
+
+We must add the behavior to :file:`profiles/default/types/talk.xml`:
+
+.. code-block:: xml
+    :linenos:
+
+    <?xml version="1.0"?>
+    <object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"
+       xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+       ...
+     <property name="behaviors">
+      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+      <element value="plone.app.content.interfaces.INameFromTitle"/>
+      <element value="ploneconf.site.behavior.social.ISocial"/>
+     </property>
+     ...
+    </object>
+    
+
 .. _plone.supermodel: http://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
 .. _fieldset: http://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
 .. _IFormFieldProvider: http://docs.plone.org/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms
