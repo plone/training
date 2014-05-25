@@ -88,24 +88,32 @@ ZMI
 
 Go to http://localhost:8080/Plone/manage
 
-Zope is the foundation of Plone. Here you can access the inner working of Zope and Plone alike. Here you can easily break your site so you should know what you are doing.
+Zope is the foundation of Plone. Here you can access the inner working of Zope and Plone alike.
 
-We only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
+.. note::
 
-At some point you'll have to learn what all that stuff is about. But not today.
+  Here you can easily break your site so you should know what you are doing.
+
+.. only:: manual
+
+    We only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
+
+    At some point you'll have to learn what all that stuff is about. But not today.
 
 
 Actions (portal_actions)
 ************************
 
-Actions are mostly links but really flexible links.
+* Actions are mostly links. But **really flexible** links.
+* Actions are configurable ttw and through code.
+* These actions are usually iterated over in viewlets and displayed.
 
 Examples:
 
 * Links in the Footer (site_actions)
 * Actions-Dropdown (folder_buttons)
 
-Links with properties like:
+Actions have properties like:
 
 * description
 * url
@@ -113,9 +121,6 @@ Links with properties like:
 * condition
 * permissions
 
-Configurable ttw and through code.
-
-These actions are usually iterated over in viewlets and displayed.
 
 
 site_actions
@@ -128,16 +133,25 @@ These are the links at the bottom of the page:
 * Contact
 * Site Setup
 
-We want another link to legal information, called "Imprint".
+We want a new link to legal information, called "Imprint".
 
-* go to ``site_actions`` (we know that because we checked in ``@@manage-viewlets``)
-* add a CMF Actions ``imprint``
-* set its URL to ``string:${portal_url}/imprint``
-* Leave condition empty
+* Go to ``site_actions`` (we know that because we checked in ``@@manage-viewlets``)
+* Add a CMF Actions ``imprint``
+* Set URL to ``string:${portal_url}/imprint``
+* Leave *condition* empty
 * Set permission to ``View``
-* Save and explain
+* Save
+
+.. only:: manual
+
+  explain
+
 * Check if the link is on the page
 * Create new Document `Imprint` and publish
+
+.. seealso::
+
+    http://docs.plone.org/develop/plone/functionality/actions.html
 
 
 Global navigation
@@ -164,15 +178,16 @@ If time explain:
 Skins (portal_skins)
 ********************
 
-In portal_skins we cane change certain images, css-files and templates.
+In portal_skins we can change certain images, css-files and templates.
 
-.. note::
+* portal_skins is deprecated technology
+* We only do some minial changes here.
 
-   portal_skins is deprecated technology, in fact Plone 5 will get rid of a lot of functionality that still lives in portal_skins.
+.. only:: manual
 
-   We only do some minial changes here.
+    Plone 5 will get rid of a lot of functionality that still lives in portal_skins.
 
-   We used to do this part of the training with `plone.app.themeeditor <https://pypi.python.org/pypi/plone.app.themeeditor>`_ which has a much nicer UI than the ZMI but also has dependencies that are incompatible with ZopeSkel and is not widely used.
+    We used to do this part of the training with `plone.app.themeeditor <https://pypi.python.org/pypi/plone.app.themeeditor>`_ which has a much nicer UI than the ZMI but also has dependencies that are incompatible with ZopeSkel and is not widely used.
 
 
 Change some css
@@ -194,12 +209,21 @@ Enter the following css:
         width: 1024px;
     }
 
+.. only:: presentation
 
-Click 'save' and check results in the a different browser-tab. How did that happen?
+    * Save and check the results
 
-The UI leaves a lot to be desired. In a professional context this is no-go (no version-control, no syntac-highlighting etc. pp.). But everybody uses portal_skins it to make quick fixes to sites that are already online.
+.. only:: manual
 
-Let's add some more css to make our site a little responsive:
+    Click 'save' and check results in the a different browser-tab. How did that happen?
+
+    The UI leaves a lot to be desired. In a professional context this is no-go (no version-control, no syntac-highlighting etc. pp.). But everybody uses portal_skins it to make quick fixes to sites that are already online.
+
+    Let's add some more css to make our site a little responsive:
+
+.. only:: presentation
+
+    * Add some more css
 
 .. code-block:: css
 
