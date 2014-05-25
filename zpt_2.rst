@@ -113,52 +113,54 @@ Finding the right template
 
 We changed the display of the listing of news-items at http://localhost:8080/Plone/news. But how do we know which template to customize?
 
-If you don't know which template the page you're looking at uses you can deduce, start a debug-session or use ``plone.app.debugtoolbar``.
+If you don't know which template the page you're looking at uses you can do an educated guess, start a debug-session or use ``plone.app.debugtoolbar``.
 
-We could check the html with firebug and look for a structure in the content-area that looks unique. We could also look for the css-class of he body
+1.  We could check the html with firebug and look for a structure in the content-area that looks unique. We could also look for the css-class of he body
 
-.. code-block:: html
+    .. code-block:: html
 
-    <body class="template-summary_view portaltype-collection site-Plone section-news subsection-aggregator icons-on userrole-anonymous" dir="ltr">
+        <body class="template-summary_view portaltype-collection site-Plone section-news subsection-aggregator icons-on userrole-anonymous" dir="ltr">
 
-The class ``template-summary_view`` tells us that the name of the view (but not necessarily the name of the template) is ``summary_view``. So we could search all ``*.zcml``-Files for ``name="summary_view"`` or search all templates calles ``summary_view.pt`` and probably find the view and also the corresponding template. But only probably because it would not tell us if the template is already being overridden.
+    The class ``template-summary_view`` tells us that the name of the view (but not necessarily the name of the template) is ``summary_view``. So we could search all ``*.zcml``-Files for ``name="summary_view"`` or search all templates calles ``summary_view.pt`` and probably find the view and also the corresponding template. But only probably because it would not tell us if the template is already being overridden.
 
-The safest method is using ``plone.app.debugtoolbar``.  We already have it in our buildout and only need to install it. It adds a "Debug"-Dropdown on top of the page. The Section "Published" shows the complete path to the template that is used to render the page you are seeing.
+2.  The safest method is using ``plone.app.debugtoolbar``.  We already have it in our buildout and only need to install it. It adds a "Debug"-Dropdown on top of the page. The Section "Published" shows the complete path to the template that is used to render the page you are seeing.
 
-The debug-session to find the template is a little more complicated. Since we have ``Products.PDBDebugMode`` in our buildout we can call ``/pdb`` on our page.
+3.  The debug-session to find the template is a little more complicated. Since we have ``Products.PDBDebugMode`` in our buildout we can call ``/pdb`` on our page.
 
-The object that the url points to is by default ``self.context``. But the first problem is, that the url we're seeing is not the url of the collection where we want to modify since the collection is the default-page of the folder ``news``.
+    The object that the url points to is by default ``self.context``. But the first problem is, that the url we're seeing is not the url of the collection where we want to modify since the collection is the default-page of the folder ``news``.
 
-.. code-block:: python
+    .. code-block:: python
 
-    >>> (Pdb) self.context
-    <Folder at /Plone/news>
-    >>> (Pdb) obj = self.context.aggregator
-    >>> (Pdb) obj
-    <Collection at /Plone/news/aggregator>
-    >>> (Pdb) context_state = obj.restrictedTraverse('@@plone_context_state')
-    >>> (Pdb) template_id = context_state.view_template_id()
-    >>> (Pdb) template_id
-    'summary_view'
-    >>> (Pdb) view = obj.restrictedTraverse('summary_view')
-    >>> (Pdb) view
-    <Products.Five.metaclass.SimpleViewClass from /Users/philip/.cache/buildout/eggs/plone.app.contenttypes-1.1b2-py2.7.egg/plone/app/contenttypes/browser/templates/summary_view.pt object at 0x10b00cd90>
-    >>> view.index.filename
-    u'/Users/philip/workspace/training_without_vagrant/src/ploneconf.site/ploneconf/site/browser/template_overrides/plone.app.contenttypes.browser.templates.summary_view.pt'
+        >>> (Pdb) self.context
+        <Folder at /Plone/news>
+        >>> (Pdb) obj = self.context.aggregator
+        >>> (Pdb) obj
+        <Collection at /Plone/news/aggregator>
+        >>> (Pdb) context_state = obj.restrictedTraverse('@@plone_context_state')
+        >>> (Pdb) template_id = context_state.view_template_id()
+        >>> (Pdb) template_id
+        'summary_view'
+        >>> (Pdb) view = obj.restrictedTraverse('summary_view')
+        >>> (Pdb) view
+        <Products.Five.metaclass.SimpleViewClass from /Users/philip/.cache/buildout/eggs/plone.app.contenttypes-1.1b2-py2.7.egg/plone/app/contenttypes/browser/templates/summary_view.pt object at 0x10b00cd90>
+        >>> view.index.filename
+        u'/Users/philip/workspace/training_without_vagrant/src/ploneconf.site/ploneconf/site/browser/template_overrides/plone.app.contenttypes.browser.templates.summary_view.pt'
 
-Now we see that we already customized the template.
+    Now we see that we already customized the template.
 
 skin-templates
 --------------
 
-Why don't we always only use templates? Because we might want to do something more complicated than get an attribute form the context and render it's value in some html-tag.
+.. only:: manual
 
-There is a deprecated technology called 'skin-templates' that allows you to simply add some page-template (e.g. 'old_style_template.pt') to a certain folder in the ZMI or your egg) and you can access it in the browser by opening a url like http://localhost:8080/Plone/old_style_template and it will be rendered. But we don't use it and you too should not even though these skin-templates are still all over Plone.
+    Why don't we always only use templates? Because we might want to do something more complicated than get an attribute form the context and render it's value in some html-tag.
 
-Since we use plone.app.contenttypes we do not encounter many skin-templates when dealing with content any more. But mor often than not you'll have to customize an old site that still uses skin-templates.
+    There is a deprecated technology called 'skin-templates' that allows you to simply add some page-template (e.g. 'old_style_template.pt') to a certain folder in the ZMI or your egg) and you can access it in the browser by opening a url like http://localhost:8080/Plone/old_style_template and it will be rendered. But we don't use it and you too should not even though these skin-templates are still all over Plone.
 
-Until now the templates of the default content-types are skin-templates for example. Since we use plone.app.contenttypes we do not encounter many skin-templates when dealing with content any more. But mor often than not you'll have to customize an old site that still uses skin-templates.
-You could append ``/document_view`` to any part of a plone-site to render the default template for documents. You will often get errors since the template ``document_view.pt`` expects the context to have a field 'text' that it attempts to render.
+    Since we use plone.app.contenttypes we do not encounter many skin-templates when dealing with content any more. But mor often than not you'll have to customize an old site that still uses skin-templates.
+
+    Until now the templates of the default content-types are skin-templates for example. Since we use plone.app.contenttypes we do not encounter many skin-templates when dealing with content any more. But mor often than not you'll have to customize an old site that still uses skin-templates.
+    You could append ``/document_view`` to any part of a plone-site to render the default template for documents. You will often get errors since the template ``document_view.pt`` expects the context to have a field 'text' that it attempts to render.
 
 Skin templates and python-scripts in portal_skin are deprecated because:
 

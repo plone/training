@@ -54,7 +54,9 @@ ploneconf/site/profiles/default/
     The folder contains the GenericSetup-profile
 
 ploneconf/site/profiles/default/metadata.xml
-    Version-number and dependencies that are auto-installed
+    Version-number and dependencies that are auto-installed.
+
+    We could replace ``<dependency>profile-plone.app.dexterity:default</dependency>`` with ``<dependency>profile-plone.app.contenttypes:plone-content</dependency>`` to depend the addon we picked when creating our site with this egg.
 
 ploneconf/site/profiles/default/types.xml
     Registration of types
