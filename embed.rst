@@ -57,6 +57,12 @@ Next up we modify :file:`profiles/default/metadata.xml`
 
 We have to add the behavior to talks, we do this in :file:`profiles/default/types/talk.xml`
 
+.. note::
+
+    Managing dependencies in metadata.xml is good practice. We can't rely on remembering what we'd have to do by hand. For example, do you remember that we had to add to select ``Dexterity-based Plone Default Types`` when creating a new Plone-site?
+
+    We should instead also add ``<dependency>profile-plone.app.contenttypes:plone-content</dependency>`` like the `documentation for plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html#installation-as-a-dependency-from-another-product>`_ recommends.
+
 .. code-block:: xml
     :linenos:
     :emphasize-lines: 4
