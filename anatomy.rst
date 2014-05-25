@@ -7,7 +7,8 @@ Python, Zope, CMF, Plone, how does that all fit together?
 Zope2
 -----
 
-Zope is a web application framework that Plone runs on top of. It serves applications that communicate with users via http.
+* Zope is a web application framework that Plone runs on top of.
+* It serves applications that communicate with users via http.
 
 .. only:: manual
 
@@ -40,7 +41,7 @@ Zope is a web application framework that Plone runs on top of. It serves applica
 Content Management Framework
 ----------------------------
 
-`CMF (Content Management Framework) <http://old.zope.org/Products/CMF/index.html/>`_ is an add-on product for Zope to build Content Management Systems (like Plone).
+* `CMF (Content Management Framework) <http://old.zope.org/Products/CMF/index.html/>`_ is add-on for Zope to build Content Management Systems (like Plone).
 
 
 .. only:: manual
@@ -62,7 +63,8 @@ Content Management Framework
 Zope Toolkit / Zope3
 --------------------
 
-Zope 3 was originally intended as a ground-up rewrite of Zope. Plone uses parts of it provided by the `Zope Toolkit (ZTK) <http://docs.zope.org/zopetoolkit/>`_.
+* Zope 3 was originally intended as a ground-up rewrite of Zope.
+* Plone uses parts of it provided by the `Zope Toolkit (ZTK) <http://docs.zope.org/zopetoolkit/>`_.
 
 .. only:: manual
 
@@ -81,7 +83,8 @@ Zope 3 was originally intended as a ground-up rewrite of Zope. Plone uses parts 
 Pyramid
 -------
 
-`Pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ is a indepenent framwork that is often seen as the successor to Zope. It does less than Zope and is very pluggable.
+* `Pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ is a indepenent framwork that is often seen as the successor to Zope.
+* It does less than Zope and is very pluggable.
 
 .. only:: manual
 
