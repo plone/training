@@ -30,16 +30,19 @@ The :program:`instance`-script offers the following options::
     A standard installation listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
 
     As you can see, there is no Plone yet!
-    We have a running Zope with a database but no content. But luckily there is a button to create a Zope site.
-    Click on that button. This opens a form to create a Plone site. Use :samp:`Plone` as the site id.
+
+    We have a running Zope with a database but no content. But luckily there is a button to create a Plone site. Click on that button. This opens a form to create a Plone site. Use :samp:`Plone` as the site id.
+
+    You now have the option to select some addons before you create the site. Since we will use Dexterity from the beginning we select ``Dexterity-based Plone Default Types``. This way even the initial content on our page will be built with dexterity by the addon ``plone.app.contenttypes`` which will be the default in Plone 5.
+
+    You will be automatically redirected to the new site.
 
 .. only:: presentation
 
-    By default Plone listens on port 8080. Look at http://localhost:8080
-
-    No Plone yet! Create a new Plone site.
-
-    Use :samp:`Plone` (the default) as the site id.
+    * By default Plone listens on port 8080. Look at http://localhost:8080
+    * No Plone yet! Create a new Plone site.
+    * Use :samp:`Plone` (the default) as the site id.
+    * Select ``Dexterity-based Plone Default Types`` from the addons **before** you click *Create Plone-Site* to install ``plone.app.contenttypes``.
 
 .. note::
 

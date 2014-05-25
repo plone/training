@@ -123,4 +123,6 @@ Further Reading
        * One of us is always there to help you if you are stuck. Please give us a sign if you  are stuck.
        * We'll make some breaks...
        * Where is Food, Restrooms
+       * Someone please take the time we take for each chapter (incl. title)
+       * Someone please write down errors
        * Contact us after the training: team@starzel.de

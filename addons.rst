@@ -69,19 +69,23 @@ Installing Addons
 
 Installation is a two-step process.
 
-First, we must make the addons code available to Zope. This means, that Zope can import the code. buildout is responsible for this.
+Making the addons code available to Zope
+++++++++++++++++++++++++++++++++++++++++
 
-Use ``vagrant ssh`` to ssh to your vagrant, and edit the buildout.cfg file in /vagrant/training.
+First, we must make the addons code available to Zope. This means, that Zope can import the code. Buildout is responsible for this.
+
+Look at ``buildout.cfg`` file in ``/vagrant/buildout``.
 
 In the section ``[instance]`` there is a variable called ``eggs``, which has multiple *eggs* as a value. Add the following eggs:
+
+We already have added the addons that we will use now:
 
 * ``Products.PloneFormGen``
 * ``collective.plonetruegallery``
 
-Usually, one enters the eggs by adding one more line per egg into the configuration.
-You must write the egg name indented, this way buildout understands that the current line is part of the last variable and not a new variable.
+Usually, one enters the eggs by adding one more line per egg into the configuration. You must write the egg name indented, this way buildout understands that the current line is part of the last variable and not a new variable.
 
-Run buildout and restart your site.
+If you add new addons here you will have to run buildout and restart the site:
 
 .. sourcecode:: bash
 
@@ -89,11 +93,15 @@ Run buildout and restart your site.
     $ bin/instance fg
 
 Now the code is importable from within Plone and everything got registered via ZCML.
-But your Plone-site has not yet been told to use the addon. For this, you have to install the addons in your Plone Site.
+
+Installing addons in your Plone Site
+++++++++++++++++++++++++++++++++++++
+
+Your Plone-site has not yet been told to use the addon. For this, you have to install the addons in your Plone Site.
 
 In your browser, go the control panel ``@@plone_control_panel``, and open the ``Addons`` Panel. You will see that you can install the addons there.
 
-Install them now.
+Install PloneFormGen and collective.plonetruegallery them now.
 
 This is what happens: The GenericSetup profile of the product gets loaded. This does things like:
 
