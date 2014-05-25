@@ -75,16 +75,22 @@ Zope Toolkit / Zope3
 
     To make the history complete, since people stayed on Zope 2, the Zope community renamed Zope 3 to Bluebream, so that people would not think that Zope 3 was the future. It wasn't any more.
 
-.. seealso::
+    .. seealso::
 
-    http://plone.org/documentation/faq/zope-3-and-plone
+        http://plone.org/documentation/faq/zope-3-and-plone
+
+
+Zope Component Architecture (ZCA)
+---------------------------------
+
+The `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_ is a system which allows for application pluggability and complex dispatching based on objects which implement an interface. Pyramid uses the ZCA “under the hood” to perform view dispatching and other application configuration tasks.
 
 
 Pyramid
 -------
 
-* `Pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ is a indepenent framwork that is often seen as the successor to Zope.
-* It does less than Zope and is very pluggable.
+* `Pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ is a Python web application development framework that is often seen as the successor to Zope.
+* It does less than Zope, is very pluggable and `uses the Zope Component Architecture <http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_.
 
 .. only:: manual
 
