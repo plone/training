@@ -7,13 +7,13 @@ Python, Zope, CMF, Plone, how does that all fit together?
 Zope2
 -----
 
-.. only:: manual
+Zope is a web application framework that Plone runs on top of. It serves applications that communicate with users via http.
 
-    Zope is an application server. It serves applications that communicate with users via http.
+.. only:: manual
 
     Before Zope, there usually was an Apache server that would call a script and give the request as an input. The script would then just print HTML to the standard output. Apache returned that to the user. Opening database connections, checking permission constraints, generating valid HTML, configuring caching, interpreting form data and everything you have to do on your own. When the second request comes in, you have to do everything again.
 
-    Jim Fulton thought that this was slightly tedious. So he wrote code to handle requests. He believed that site content is object-oriented and that the URL should somehow point directly into the object hierarchy, so he wrote an object-oriented database, called ZODB.
+    Jim Fulton thought that this was slightly tedious. So he wrote code to handle requests. He believed that site content is object-oriented and that the URL should somehow point directly into the object hierarchy, so he wrote an object-oriented database, called `ZODB <http://www.zodb.org/en/latest/>`_.
 
     Then there were transactions, so that it became a real database and after a while there were python scripts that could be edited through the web.
     One missing piece is important and complicated: ``Acquisition``.
@@ -31,10 +31,17 @@ Zope2
 
     Basically this is Zope.
 
+    .. seealso::
+
+        http://www.zope.org/the-world-of-zope
+        http://docs.zope.org/zope2/zope2book/
 
 
 Content Management Framework
 ----------------------------
+
+`CMF (Content Management Framework) <http://old.zope.org/Products/CMF/index.html/>`_ is an add-on product for Zope to build Content Management Systems (like Plone).
+
 
 .. only:: manual
 
@@ -46,30 +53,39 @@ Content Management Framework
     The developers behind CMF do not see CMF as a ready to use CMS. They created a CMS Site which was usable out of the box, but made it deliberately ugly, because you have to customize it anyway.
 
     We are still in prehistoric times here. There were no eggs, Zope did not consist of 100 independent software components but was one big blob.
+
     Later we will see a lot of GenericSetup. This is also part of CMF. When we will talk about GenericSetup, we might not speak too fondly of it.
+
     GenericSetup is like it is, because it is from the stone age and didn't adapt very well. This helps in understanding why GenericSetup is what it is.
 
 
 Zope Toolkit / Zope3
 --------------------
 
+Zope 3 was originally intended as a ground-up rewrite of Zope. Plone uses parts of it provided by the `Zope Toolkit (ZTK) <http://docs.zope.org/zopetoolkit/>`_.
+
 .. only:: manual
 
-    The Zope Toolkit, or ZTK as everybody calls it,is a new framework written by the same people who wrote Zope.
-
-    It started with a complete rewrite of Zope 2 to Zope 3. Unfortunately, nobody started to use Zope 3, nobody migrated to Zope 3 because nobody knew how.
+    Unfortunately, nobody started to use Zope 3, nobody migrated to Zope 3 because nobody knew how.
 
     But there were many useful things in Zope 3 that people wanted to use in Zope 2, thus the Zope community adapted some parts so that they could use them in Zope 2.
     Sometimes, a wrapper of some sorts was necessary, these usually are being provided by packages from the five namespace.
 
     To make the history complete, since people stayed on Zope 2, the Zope community renamed Zope 3 to Bluebream, so that people would not think that Zope 3 was the future. It wasn't any more.
 
+.. seealso::
+
+    http://plone.org/documentation/faq/zope-3-and-plone
+
+
 Pyramid
 -------
 
+`Pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ is a indepenent framwork that is often seen as the successor to Zope. It does less than Zope and is very pluggable.
+
 .. only:: manual
 
-    Pyramid is a complete rewrite of Zope. It does less than Zope and is very pluggable. You can use it with a relational Database instead of ZODB if you want, or you use both databases or none of them.
+    You can use it with a relational Database instead of ZODB if you want, or you use both databases or none of them.
 
     Apart from the fact that Pyramid was not forced to support all legacy functionality that can make things more complicated, the original developer had a very different stance on how software must be developed. While both Zope and Pyramid have a good test coverage, Pyramid also has good documentation, something that was very neglected in Zope and at times in Plone too.
 
