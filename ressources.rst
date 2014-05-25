@@ -16,6 +16,7 @@ Now all files we put in the resources-folder can be found via the url http://loc
 Let's create a ``ploneconf.css`` and a ``plonconf.js`` in that folder.
 
 .. code-block:: css
+    :linenos:
 
     #visual-portal-wrapper {
         margin: 0 auto;
@@ -54,6 +55,7 @@ We need to register our resources with GenericSetup.
 Add a new file ``profiles/default/cssregistry.xml``
 
 .. code-block:: xml
+    :linenos:
 
     <?xml version="1.0"?>
     <object name="portal_css">
@@ -77,6 +79,7 @@ Add a new file ``profiles/default/cssregistry.xml``
 Add a new file ``profiles/default/jsregistry.xml``
 
 .. code-block:: xml
+    :linenos:
 
     <?xml version="1.0"?>
     <object name="portal_javascripts">

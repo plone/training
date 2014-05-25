@@ -276,6 +276,7 @@ Instead of loading them all into memory we will use catalog-indexes to get the d
 Add a new file ``catalog.xml``
 
 .. code-block:: xml
+    :linenos:
 
     <?xml version="1.0"?>
     <object name="portal_catalog">
@@ -367,6 +368,7 @@ To be able to search content in collection using the new indexes we would have t
 Add a new file ``profiles/default/registry.xml``
 
 .. code-block:: xml
+    :linenos:
 
     <registry>
       <records interface="plone.app.querystring.interfaces.IQueryField"
@@ -406,6 +408,7 @@ Enable versioning and a diff-view for talks through GenericSetup.
 Add new file ``profiles/default/repositorytool.xml``
 
 .. code-block:: xml
+    :linenos:
 
     <?xml version="1.0"?>
     <repositorytool>
@@ -421,6 +424,7 @@ Add new file ``profiles/default/repositorytool.xml``
 Add new file ``profiles/default/diff_tool.xml``
 
 .. code-block:: xml
+    :linenos:
 
     <?xml version="1.0"?>
     <object>
