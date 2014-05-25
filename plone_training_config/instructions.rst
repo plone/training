@@ -103,7 +103,7 @@ Once Vagrant finishes the provisioning-process, you can login to the now running
 
 .. note::
 
-    If you have to use Windows you'll have to login to with ``putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User _and_ password are `vagrant`.
+    If you have to use Windows you'll have to login to with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User _and_ password are `vagrant`.
 
 You are now logged in as the user vagrant in ``/home/vagrant``. We'll do all steps of the training as this user.
 

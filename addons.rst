@@ -101,7 +101,7 @@ Your Plone-site has not yet been told to use the addon. For this, you have to in
 
 In your browser, go the control panel ``@@plone_control_panel``, and open the ``Addons`` Panel. You will see that you can install the addons there.
 
-Install PloneFormGen and collective.plonetruegallery them now.
+Install **PloneFormGen** and  **Plone True Gallery** them now.
 
 This is what happens: The GenericSetup profile of the product gets loaded. This does things like:
 
