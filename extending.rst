@@ -5,7 +5,7 @@ Zope is extensible and so is Plone.
 
 .. only:: manual
 
-    If you want to install an Add-on, you are going to install an Egg. Eggs consist of python files together with other needed files like page templates and the like and a bit of Metadata, bundled to a single archive file.
+    If you want to install an Add-on, you are going to install an Egg. Eggs consist of Python files together with other needed files like page templates and the like and a bit of Metadata, bundled to a single archive file.
 
     Eggs are younger than Zope. Zope needed something like eggs before there were eggs, and the Zope developers wrote their own system. Old, outdated Plone systems contain a lot of code that is not bundled in an egg. Older code did not have metadata to register things, instead you needed a special setup method. We don't need this method but you might see it in other code. It is usually used to register Archetypes code. Archetypes is the old content type system. We use Dexterity.
 
@@ -13,7 +13,9 @@ Zope is extensible and so is Plone.
 Extension technologies
 ----------------------
 
-How do you extend Plone? This depends on what type of extension you want to create.
+How do you extend Plone?
+
+This depends on what type of extension you want to create.
 
 .. only:: manual
 
@@ -25,9 +27,15 @@ How do you extend Plone? This depends on what type of extension you want to crea
 skin_folders
 ^^^^^^^^^^^^
 
+.. only:: presentation
+
+    * Very old style
+    * Very quick
+    * Very unmaintainable
+
 .. only:: manual
 
-    Do you remember Acquisition? The Skin Folders we used to put in our css-code extend the concepts of Acquistion. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder.
+    Do you remember Acquisition? The Skin Folders extends the concepts of Acquistion. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder.
 
     The Plone logo is in a skin folder.
 
@@ -38,6 +46,12 @@ skin_folders
 
 GenericSetup
 ^^^^^^^^^^^^
+
+.. only:: presentation
+
+    * Old style
+    * Limited use cases
+    * Full of surprises
 
 .. only:: manual
 
@@ -54,6 +68,13 @@ GenericSetup
 
 Component Architecture
 ^^^^^^^^^^^^^^^^^^^^^^
+
+.. only:: presentation
+
+    * State of the art
+    * verbose
+    * cryptic
+    * Powerful and flexible
 
 .. only:: manual
 
