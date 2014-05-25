@@ -1,11 +1,11 @@
-Buildout II: Deploying your site
-================================
+Buildout II: Getting ready for deployment
+=========================================
 
 
 The starzel-buildout
 --------------------
 
-If you want you can have a look at the buildout we use for our projects: https://github.com/starzel/buildout
+Have a look at the buildout we use for our projects: https://github.com/starzel/buildout
 
 It has some noteable features:
 
@@ -20,13 +20,27 @@ It has some noteable features:
 * Minimal work to setup a new project
 * Presets for development, testing, staging and production
 
+A deployment-setup
+------------------
+
+* zeoserver and zeoclients
+* haproxy
+* nagios
+* marnish
+* monitoring
+* supervisor
+* backup
+* logrotate
+* precompiler
+* cronjobs
+
 
 Other tools we use
 ------------------
 
 * Fabric (manage sites)
-* Ansible (manage and setup servers and tools)
 * Sentry (error-monitoring)
+* Ansible (manage and setup servers and tools)
 * Nagios (server-monitoring)
 * jenkins (tests)
 * piwik (statictics)
