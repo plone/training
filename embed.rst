@@ -74,6 +74,7 @@ We have to add the behavior to talks, we do this in :file:`profiles/default/type
     </property>
 
 ..  only:: manual
+
     Now we can reinstall our Plone site.
 
     Everybody can vote now on talks. That is not what we wanted. Actually, we want reviewers only to vote on pending Talks. This means, depending on the workflow state, the permission has to change. Luckily, workflows can be configured to do just that.
