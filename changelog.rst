@@ -1,7 +1,16 @@
 Changelog
 =========
 
-1.2 (23.05.2014)
+1.2.1 (2014-05-30)
+------------------
+
+- Publish verbose version on http://starzel.github.io/training/index.html
+- Add bash-command to get the core for each chapter
+- include vagrant-setup as zip-file
+- several small bugfixes
+
+
+1.2 (2014-05-23)
 ----------------
 
 - Heavily expanded and rewritten for a training in Mai 2014
@@ -22,7 +31,7 @@ Changelog
  * ...
 
 
-1.1 (Oktober 2013)
+1.1 (October 2013)
 ------------------
 
 - Revised for Ploneconf 2013, Brasilia
@@ -34,7 +43,7 @@ Changelog
 - First version for Ploneconf 2012, Arnhem
 
 
-0.1 (Oktober 2009)
+0.1 (October 2009)
 ------------------
 
 - Initial parts created for the Plone-Einsteigerkurs (http://www.plone.de/trainings/einsteiger-kurs/kursuebersicht)
