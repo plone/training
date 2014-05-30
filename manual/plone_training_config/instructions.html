@@ -305,7 +305,7 @@
 <p class="first admonition-title">Warning</p>
 <p>We recommend using a virtual machine for the training if you are not used to running Plone on your laptop.</p>
 <p>You can also work on your own machine with your own Python if you want to but <strong>please please please</strong> make sure that you have a system that will work since we don&#8217;t want you to lose valuable time.</p>
-<p>If you want to use your own system use the Buildout at <a class="reference external" href="https://github.com/starzel/training_without_vagrant.git">https://github.com/starzel/training_without_vagrant.git</a> (since the one we set up via puppet has several directories set to folders not shared with the host).</p>
+<p>If you want to use your own system use the Buildout at <a class="reference external" href="https://github.com/starzel/training_without_vagrant.git">https://github.com/starzel/training_without_vagrant.git</a> (since the one we set up with puppet has several directories set to folders not shared with the host).</p>
 <p>Set up Plone for the training like this if you don&#8217;t want to use a VM:</p>
 <div class="last highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkdir training
 <span class="nv">$ </span><span class="nb">cd </span>training
@@ -447,9 +447,9 @@ vagrant@vagrant-ubuntu-trusty-32:/vagrant/buildout<span class="nv">$ </span>./bi
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cp -Rf /home/vagrant/Plone/buildout-cache /home/vagrant
 </pre></div>
 </div>
-<p>Then we checkout our tutorial code from <a class="reference external" href="http://github.com/starzel/training">http://github.com/starzel/training</a> and build it.</p>
+<p>Then we checkout our tutorial buildout from <a class="reference external" href="http://github.com/starzel/training_buildout">http://github.com/starzel/training_buildout</a> and build it.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> /vagrant
-<span class="nv">$ </span>git clone https://github.com/starzel/training.git buildout
+<span class="nv">$ </span>git clone https://github.com/starzel/training_buildout.git buildout
 <span class="nv">$ </span><span class="nb">cd </span>buildout
 <span class="nv">$ </span>/home/vagrant/py27/bin/python bootstrap.py
 <span class="nv">$ </span>./bin/buildout
