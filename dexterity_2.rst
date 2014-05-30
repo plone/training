@@ -282,7 +282,7 @@ In the `talklistview` we had to wake up all objects to access some of their attr
 
 Instead of loading them all into memory we will use catalog-indexes to get the data we want to display.
 
-Add a new file ``catalog.xml``
+Add a new file ``profiles/default/catalog.xml``
 
 .. code-block:: xml
     :linenos:
@@ -360,7 +360,7 @@ We now can use the new indexes to improve the talklistview so we don't have to w
                     'title': brain.Title,
                     'description': brain.Description,
                     'url': brain.getURL(),
-                    'audience': ', '.join(brain.audience),
+                    'audience': ', '.join(brain.audience or []),
                     'type_of_talk': brain.type_of_talk,
                     'speaker': brain.speaker,
                     'uuid': brain.UID,
