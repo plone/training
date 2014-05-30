@@ -1,6 +1,11 @@
 Using the code for the training
 ===============================
 
+We provide the code for this training divided in into chapters. To
+
+Telling Plone about ploneconf.site
+----------------------------------
+
 Modify ``buildout.cfg`` to have Plone expect the egg ``ploneconf.site`` to be in ``src``.
 
 .. code-block:: cfg
@@ -21,6 +26,9 @@ Modify ``buildout.cfg`` to have Plone expect the egg ``ploneconf.site`` to be in
     ploneconf.site = fs ploneconf.site full-path=${buildout:directory}/src/ploneconf.site
 
 
+Gettin the code-package
+-----------------------
+
 Download the code into a directory called ``src/ploneconf.site_sneak``.
 
 .. code-block:: bash
@@ -28,21 +36,21 @@ Download the code into a directory called ``src/ploneconf.site_sneak``.
     $ cd src
     $ git clone https://github.com/starzel/ploneconf.site_sneak.git
 
+
+Copy the relevant chapter so that Plone can use into
+----------------------------------------------------
+
 To use the code for a certain chapter stop Plone and do this:
 
 .. code-block:: bash
 
-    $ cd src
-    $ rm -rf ploneconf.site
-    $ cp -R ploneconf.site_sneak/chapters/<number_and_name_of_chapter>/ ploneconf.site
-    $ cd ../..
+    $ cp -Rf src/ploneconf.site_sneak/chapters/<number_and_name_of_chapter>/ src/ploneconf.site
     $ ./bin/buildout
     $ ./bin/instance fg
 
-This will
+This will:
 
-* remove the old code
-* copy the code from a chapter
+* replace any existing previous chapter with the one you want to copy
 * run buildout and restart Plone
 
 These are the chapters for which there is code::
