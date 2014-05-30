@@ -15,7 +15,7 @@ Keep in mind that you need a fast internet-connection during the process since y
 
     You can also work on your own machine with your own Python if you want to but **please please please** make sure that you have a system that will work since we don't want you to lose valuable time.
 
-    If you want to use your own system use the Buildout at https://github.com/starzel/training_without_vagrant.git (since the one we set up via puppet has several directories set to folders not shared with the host).
+    If you want to use your own system use the Buildout at https://github.com/starzel/training_without_vagrant.git (since the one we set up with puppet has several directories set to folders not shared with the host).
 
     Set up Plone for the training like this if you don't want to use a VM:
 
@@ -193,12 +193,12 @@ Instead vagrant now creates our own little Buildout and only uses the eggs that 
 
     $ cp -Rf /home/vagrant/Plone/buildout-cache /home/vagrant
 
-Then we checkout our tutorial code from http://github.com/starzel/training and build it.
+Then we checkout our tutorial buildout from http://github.com/starzel/training_buildout and build it.
 
 .. code-block:: bash
 
     $ cd /vagrant
-    $ git clone https://github.com/starzel/training.git buildout
+    $ git clone https://github.com/starzel/training_buildout.git buildout
     $ cd buildout
     $ /home/vagrant/py27/bin/python bootstrap.py
     $ ./bin/buildout
