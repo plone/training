@@ -1,5 +1,5 @@
-Ressources
-==========
+Resources
+=========
 
 .. sidebar:: Get the code!
 
@@ -7,7 +7,7 @@ Ressources
 
     .. code-block:: bash
 
-        cp -Rf src/ploneconf.site_sneak/chapters/27_ressources1/ src/ploneconf.site
+        cp -Rf src/ploneconf.site_sneak/chapters/27_resources1/ src/ploneconf.site
 
 
 We have not yet talked about CSS and Javascript. At the moment these are considered static resources.

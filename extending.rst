@@ -120,7 +120,7 @@ What are components, what is ZCML
 
     This is a good thing. ZCML is by the way only *one* way to declare your configuration.
 
-    Grok pvides another way, where some python magic allows you to decorate your code directly with a decorator to make it an adapter. You can use both ZCML and grok together.
+    Grok provides another way, where some python magic allows you to decorate your code directly with a decorator to make it an adapter. You can use both ZCML and grok together.
 
     Please be aware that not everybody loves Grok. Some parts of the Plone community think that there may only be one configuration language, others are against adding the relative big dependency of Grok to Plone. One real problem is the fact that you cannot customize components declared with grok with jbot. In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to get maximum acceptance.
 

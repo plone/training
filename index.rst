@@ -45,7 +45,7 @@ Contents:
     custom_search
     events
     user_generated_content
-    ressources
+    resources
     thirdparty_behaviors
     dexterity_3
     eggs2
