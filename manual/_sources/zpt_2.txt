@@ -78,7 +78,7 @@ Let's look for the template folder_summary_view.pt::
     plone/app/contenttypes/browser/templates/summary_view.pt
 
 
-Copy it to``browser/template_overrides/`` and rename it to ``plone.app.contenttypes.browser.templates.summary_view.pt``.
+Copy it to ``browser/template_overrides/`` and rename it to ``plone.app.contenttypes.browser.templates.summary_view.pt``.
 
 Add the following after line 29:
 

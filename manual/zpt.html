@@ -223,8 +223,9 @@
 <li class="toctree-l1"><a class="reference internal" href="events.html">25. Turn talks into events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_generated_content.html">26. User generated content</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#self-registration">Self-registration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#constrain-types">Constrain types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#grant-local-roles">Grant local roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#move-the-changes-to-the-file-system">Move the changes to the file-system</a></li>
 </ul>
 </li>
@@ -512,8 +513,8 @@
 <p>Useful for debugging :-)</p>
 </div>
 <div class="section" id="pure-tal-blocks">
-<h3>pure TAL-blocks<a class="headerlink" href="#pure-tal-blocks" title="Permalink to this headline">¶</a></h3>
-<p>We can use TAL-attributes auch without HTML-Tags. This is useful when we don&#8217;t need to add any tags to the markup</p>
+<h3>Pure TAL-blocks<a class="headerlink" href="#pure-tal-blocks" title="Permalink to this headline">¶</a></h3>
+<p>We can use TAL-attributes without HTML-Tags. This is useful when we don&#8217;t need to add any tags to the markup</p>
 <p>Syntax:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;tal:block</span> <span class="na">attribute=</span><span class="s">&quot;expression&quot;</span><span class="nt">&gt;</span>some content<span class="nt">&lt;/tal:block&gt;</span>
 </pre></div>
@@ -605,7 +606,7 @@
   <span class="nt">&lt;/table&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p>We emulate a list of talks and display information obout them in a table. We&#8217;ll get back to the list of talks later when we use the real talk-objects that we created with dexterity.</p>
+<p>We emulate a list of talks and display information about them in a table. We&#8217;ll get back to the list of talks later when we use the real talk-objects that we created with dexterity.</p>
 <p>To complete the list here are the TAL-Attributes we have not yet used:</p>
 <dl class="docutils">
 <dt><tt class="docutils literal"><span class="pre">tal:omit-tag</span></tt></dt>
@@ -722,13 +723,13 @@
 </div>
 <div class="section" id="macros-in-browser-views">
 <h3>macros in browser-views<a class="headerlink" href="#macros-in-browser-views" title="Permalink to this headline">¶</a></h3>
-<p>writing a macro</p>
+<p>Define a macro in a new file <tt class="docutils literal"><span class="pre">macros.pt</span></tt></p>
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">metal:define-macro=</span><span class="s">&quot;my_macro&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;p&gt;</span>I can be reused<span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div>
 </div>
-<p>in zcml:</p>
+<p>Register it as a BrowserView (this time without a python-class) in zcml:</p>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;browser:page</span>
   <span class="na">for=</span><span class="s">&quot;*&quot;</span>
   <span class="na">name=</span><span class="s">&quot;ploneconf.site.macros&quot;</span>
@@ -737,9 +738,9 @@
   <span class="nt">/&gt;</span>
 </pre></div>
 </div>
-<p>use it the template:</p>
+<p>Reuse the macro it in the template <tt class="docutils literal"><span class="pre">demoview.pt</span></tt>:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">metal:use-macro=</span><span class="s">&quot;view/context/@@ploneconf.site.macros/my_macro&quot;</span><span class="nt">&gt;</span>
-    the macro
+    Instead of this the content of the macro will appear...
 <span class="nt">&lt;/div&gt;</span>
 </pre></div>
 </div>

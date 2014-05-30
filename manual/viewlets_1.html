@@ -223,8 +223,9 @@
 <li class="toctree-l1"><a class="reference internal" href="events.html">25. Turn talks into events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_generated_content.html">26. User generated content</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#self-registration">Self-registration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#constrain-types">Constrain types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#grant-local-roles">Grant local roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#move-the-changes-to-the-file-system">Move the changes to the file-system</a></li>
 </ul>
 </li>
@@ -364,7 +365,7 @@ It is also good practice to bind it to the <a class="reference external" href="h
 <span class="kn">from</span> <span class="nn">plone.app.layout.viewlets</span> <span class="kn">import</span> <span class="n">interfaces</span> <span class="k">as</span> <span class="n">viewletIFs</span>
 <span class="kn">from</span> <span class="nn">zope.component</span> <span class="kn">import</span> <span class="n">Interface</span>
 
-<span class="k">class</span> <span class="nc">Social</span><span class="p">(</span><span class="n">grok</span><span class="o">.</span><span class="n">Viewlet</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">SocialViewlet</span><span class="p">(</span><span class="n">grok</span><span class="o">.</span><span class="n">Viewlet</span><span class="p">):</span>
     <span class="n">grok</span><span class="o">.</span><span class="n">viewletmanager</span><span class="p">(</span><span class="n">viewletIFs</span><span class="o">.</span><span class="n">IBelowContentTitle</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -413,7 +414,7 @@ It is also good practice to bind it to the <a class="reference external" href="h
 8</pre></div></td><td class="code"><div class="highlight"><pre><span class="o">...</span>
 <span class="kn">from</span> <span class="nn">ploneconf.site.behaviors.social</span> <span class="kn">import</span> <span class="n">ISocial</span>
 
-<span class="k">class</span> <span class="nc">Social</span><span class="p">(</span><span class="n">ViewletBase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">SocialViewlet</span><span class="p">(</span><span class="n">ViewletBase</span><span class="p">):</span>
 <span class="hll">
 </span><span class="hll">    <span class="k">def</span> <span class="nf">lanyrd_link</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span class="hll">        <span class="n">adapted</span> <span class="o">=</span> <span class="n">ISocial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>

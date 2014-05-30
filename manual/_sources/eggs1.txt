@@ -10,7 +10,11 @@ Creating your own eggs to customize Plone
         cp -Rf src/ploneconf.site_sneak/chapters/12_eggs1/ src/ploneconf.site
 
 
-Our own code has te be organised as an egg. An Egg is a zip file or a directory that follows certain conventions. We are going to use zopeskel. Zopeskel creates a skeleton projekt. We only need to fill the holes.
+Our own code has to be organised as an egg. An Egg is a zip file or a directory that follows certain conventions. We are going to use `ZopeSkel <https://pypi.python.org/pypi/ZopeSkel>`_ to create a skeleton projekt. We only need to fill the holes.
+
+.. note::
+
+    In the training we use ZopeSkel 2.21.2, a relatively old version. We do this because this version is shipped with Plone's Unified Installer. In our own projects we mostly use `mr.bob <http://mrbob.readthedocs.org/en/latest/>`_ to create eggs.
 
 We move to the ``src`` directory and call a script called ``zopeskel`` from our projects bin-directory.
 
@@ -42,25 +46,25 @@ We anwser some questions:
 Lets have a look at some of it's files.
 
 bootstrap.py, buildout.cfg, plone.cfg
-    You can ignore these files for now
+    You can ignore these files for now. They are here to create a buildout only for this egg to make testing easier.
 
 docs, README.txt
     The documentation and changelog of your egg goes in there
 
 setup.py
-    This file configures the package, lists dependencies, it's name and some metadata the authors name.
+    This file configures the package, it's name, dependencies and some metadata like the authors name. The dependencies listed here are automatically added by buildout.
 
 ploneconf/site/configure.zcml
-    The phone-book ob the package. By reading it you canfind out what is in there.
+    The phone-book of the packages. By reading it you can find out which functionality is registered thoughthe component architecture.
 
 ploneconf/site/locales/
-    This holds translation-files (see http://docs.plone.org/develop/plone/i18n/internationalisation.html)
+    This holds translation-files (see http://docs.plone.org/develop/plone/i18n/internationalisation.html). We won't use it during the training.
 
 ploneconf/site/resources/
-    A directory that holds static resources (images/css/js). They are accessible as ``++resource++ploneconf.site/myawesome.css``
+    A directory that holds static resources (images/css/js). They are accessible through URLs like ``++resource++ploneconf.site/myawesome.css``
 
 ploneconf/site/profiles/default/
-    The folder contains the GenericSetup-profile
+    The folder contains the GenericSetup-profile. During the training will put some xml-files there that hold configuration for the site.
 
 ploneconf/site/profiles/default/metadata.xml
     Version-number and dependencies that are auto-installed.
@@ -69,3 +73,5 @@ ploneconf/site/profiles/default/metadata.xml
 
 ploneconf/site/profiles/default/types.xml
     Registration of types
+
+There are also some files that can be deleted because they use outdated approaches to testing: ``ploneconf/site/tests.py`` and ``ploneconf/site/INTEGRATION.txt``.

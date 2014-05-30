@@ -223,8 +223,9 @@
 <li class="toctree-l1"><a class="reference internal" href="events.html">25. Turn talks into events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_generated_content.html">26. User generated content</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#self-registration">Self-registration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#constrain-types">Constrain types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#grant-local-roles">Grant local roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#move-the-changes-to-the-file-system">Move the changes to the file-system</a></li>
 </ul>
 </li>
@@ -308,7 +309,7 @@
 <p>The existing talks are still lacking some functionality we want to use.</p>
 <p>In this part we will:</p>
 <ul class="simple">
-<li><em>pythonify</em> our talk-type a little more</li>
+<li>add a marker-interface to our talk-type</li>
 <li>create custom catalog-indexes</li>
 <li>query the catalog for them</li>
 <li>enable some more default-features for our type</li>
@@ -319,7 +320,7 @@
 <h3>Marker Interfaces<a class="headerlink" href="#marker-interfaces" title="Permalink to this headline">¶</a></h3>
 <p>The content-type <cite>Talk</cite> is not yet a first-class citizen because it does not implement his own interface. Interfaces are like name-tags, telling other elements who and what you are and what you can do. A marker interface is like such a nametag. The talks actually have a auto-generated marker-interface <tt class="docutils literal"><span class="pre">plone.dexterity.schema.generated.Plone_0_talk</span></tt>.</p>
 <p>The problem is that the name of the Plone-instance <tt class="docutils literal"><span class="pre">Plone</span></tt> is part of that interface-name. If you now moved these types to a site with another name, code that uses these Interfaces would no longer find the objects in question.</p>
-<p>For this we add a new file <tt class="docutils literal"><span class="pre">ìnterfaces.py</span></tt>:</p>
+<p>For this we add a new file <tt class="docutils literal"><span class="pre">interfaces.py</span></tt>:</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -364,16 +365,16 @@
 <p>Either reinstall the addon, apply the behavior by hand or run a upgrade-step (see below) and the interface will be there.</p>
 <p>Then we can safely bind the talkview to the new marker interface.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;browser:page</span>
-  <span class="na">name=</span><span class="s">&quot;talklistview&quot;</span>
+  <span class="na">name=</span><span class="s">&quot;talkview&quot;</span>
 <span class="hll">  <span class="na">for=</span><span class="s">&quot;ploneconf.site.interfaces.ITalk&quot;</span>
 </span>  <span class="na">layer=</span><span class="s">&quot;zope.interface.Interface&quot;</span>
-  <span class="na">class=</span><span class="s">&quot;.views.TalkListView&quot;</span>
-  <span class="na">template=</span><span class="s">&quot;templates/talklistview.pt&quot;</span>
+  <span class="na">class=</span><span class="s">&quot;.views.TalkView&quot;</span>
+  <span class="na">template=</span><span class="s">&quot;templates/talkview.pt&quot;</span>
   <span class="na">permission=</span><span class="s">&quot;zope2.View&quot;</span>
   <span class="nt">/&gt;</span>
 </pre></div>
 </div>
-<p>Now the <tt class="docutils literal"><span class="pre">/talkview</span></tt> can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface <tt class="docutils literal"><span class="pre">catalog(object_provides=&quot;ploneconf.site.interfaces.ITalk&quot;)</span></tt>.</p>
+<p>Now the <tt class="docutils literal"><span class="pre">/talkview</span></tt> can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface <tt class="docutils literal"><span class="pre">catalog(object_provides=&quot;ploneconf.site.interfaces.ITalk&quot;)</span></tt>. The <cite>talklistview</cite> and the <cite>demoview</cite> do not get this constraint since they are not only used on talks but .</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>Just for completeness sake, this is what would have to happen for the first option:</p>
@@ -413,7 +414,7 @@
 <p>We will create a upgrade step that</p>
 <ul class="simple">
 <li>runs the typeinfo-step (i.e. loads the GenericSetup configuration stores in <tt class="docutils literal"><span class="pre">profiles/default/types.xml</span></tt> and <tt class="docutils literal"><span class="pre">profiles/default/types/...</span></tt> so we don&#8217;t have to reinstall the addon to have our changes from above take effect) and</li>
-<li>cleans up some content that might be scattered around the site in the early stages of creating it. We will move all talks to a folder <tt class="docutils literal"><span class="pre">talks</span></tt> (unless they already are there) and also move all</li>
+<li>cleans up some content that might be scattered around the site in the early stages of creating it. We will move all talks to a folder <tt class="docutils literal"><span class="pre">talks</span></tt> (unless they already are there).</li>
 </ul>
 <p>Upgrade steps are usually registered in their own zcml-file. Create <tt class="docutils literal"><span class="pre">upgrades.zcml</span></tt></p>
 <div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -439,8 +440,8 @@
   <span class="na">i18n_domain=</span><span class="s">&quot;ploneconf.site&quot;</span><span class="nt">&gt;</span>
 
   <span class="nt">&lt;genericsetup:upgradeStep</span>
-    <span class="na">title=</span><span class="s">&quot;Modifiy class of talks&quot;</span>
-    <span class="na">description=</span><span class="s">&quot;Change the class of talks from &#39;plone.dexterity.content.Container&#39; to &#39;ploneconf.site.content.talk.Talk&#39;&quot;</span>
+    <span class="na">title=</span><span class="s">&quot;Update and cleanup talks&quot;</span>
+    <span class="na">description=</span><span class="s">&quot;Updates typeinfo and moves talks to a folder &#39;talks&#39;&quot;</span>
     <span class="na">source=</span><span class="s">&quot;1&quot;</span>
     <span class="na">destination=</span><span class="s">&quot;1001&quot;</span>
     <span class="na">handler=</span><span class="s">&quot;ploneconf.site.upgrades.upgrade_site&quot;</span>
@@ -459,7 +460,7 @@
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;upgrades.zcml&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
 </div>
-<p>GenericSetup now expects the code to be a method <tt class="docutils literal"><span class="pre">upgrade_talks</span></tt> in the file <tt class="docutils literal"><span class="pre">upgrades.py</span></tt>. Let&#8217;s create it.</p>
+<p>GenericSetup now expects the code to be a method <tt class="docutils literal"><span class="pre">upgrade_site</span></tt> in the file <tt class="docutils literal"><span class="pre">upgrades.py</span></tt>. Let&#8217;s create it.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -496,8 +497,8 @@
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;ploneconf.site&#39;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">upgrade_site</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">runImportStepFromProfile</span><span class="p">(</span><span class="n">default_profile</span><span class="p">,</span> <span class="s">&#39;typeinfo&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">upgrade_site</span><span class="p">(</span><span class="n">setup</span><span class="p">):</span>
+    <span class="n">setup</span><span class="o">.</span><span class="n">runImportStepFromProfile</span><span class="p">(</span><span class="n">default_profile</span><span class="p">,</span> <span class="s">&#39;typeinfo&#39;</span><span class="p">)</span>
     <span class="n">catalog</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">portal</span><span class="o">.</span><span class="n">get_tool</span><span class="p">(</span><span class="s">&#39;portal_catalog&#39;</span><span class="p">)</span>
     <span class="n">portal</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">portal</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
     <span class="k">if</span> <span class="s">&#39;talks&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">portal</span><span class="p">:</span>
@@ -586,7 +587,7 @@
 <h2>Add catalog-indexes<a class="headerlink" href="#add-catalog-indexes" title="Permalink to this headline">¶</a></h2>
 <p>In the <cite>talklistview</cite> we had to wake up all objects to access some of their attributes. That is ok if we don&#8217;t have many objects and they are light dexterity-objects. If we had thousands of objects this might not be a good idea.</p>
 <p>Instead of loading them all into memory we will use catalog-indexes to get the data we want to display.</p>
-<p>Add a new file <tt class="docutils literal"><span class="pre">catalog.xml</span></tt></p>
+<p>Add a new file <tt class="docutils literal"><span class="pre">profiles/default/catalog.xml</span></tt></p>
 <div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -688,7 +689,7 @@
                 <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="n">brain</span><span class="o">.</span><span class="n">Title</span><span class="p">,</span>
                 <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="n">brain</span><span class="o">.</span><span class="n">Description</span><span class="p">,</span>
                 <span class="s">&#39;url&#39;</span><span class="p">:</span> <span class="n">brain</span><span class="o">.</span><span class="n">getURL</span><span class="p">(),</span>
-                <span class="s">&#39;audience&#39;</span><span class="p">:</span> <span class="s">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">brain</span><span class="o">.</span><span class="n">audience</span><span class="p">),</span>
+                <span class="s">&#39;audience&#39;</span><span class="p">:</span> <span class="s">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">brain</span><span class="o">.</span><span class="n">audience</span> <span class="ow">or</span> <span class="p">[]),</span>
                 <span class="s">&#39;type_of_talk&#39;</span><span class="p">:</span> <span class="n">brain</span><span class="o">.</span><span class="n">type_of_talk</span><span class="p">,</span>
                 <span class="s">&#39;speaker&#39;</span><span class="p">:</span> <span class="n">brain</span><span class="o">.</span><span class="n">speaker</span><span class="p">,</span>
                 <span class="s">&#39;uuid&#39;</span><span class="p">:</span> <span class="n">brain</span><span class="o">.</span><span class="n">UID</span><span class="p">,</span>

@@ -223,8 +223,9 @@
 <li class="toctree-l1"><a class="reference internal" href="events.html">25. Turn talks into events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_generated_content.html">26. User generated content</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#self-registration">Self-registration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#constrain-types">Constrain types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#grant-local-roles">Grant local roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#move-the-changes-to-the-file-system">Move the changes to the file-system</a></li>
 </ul>
 </li>
@@ -358,7 +359,7 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="n">plone</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">contenttypes</span><span class="o">/</span><span class="n">browser</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">summary_view</span><span class="o">.</span><span class="n">pt</span>
 </pre></div>
 </div>
-<p>Copy it to``browser/template_overrides/`` and rename it to <tt class="docutils literal"><span class="pre">plone.app.contenttypes.browser.templates.summary_view.pt</span></tt>.</p>
+<p>Copy it to <tt class="docutils literal"><span class="pre">browser/template_overrides/</span></tt> and rename it to <tt class="docutils literal"><span class="pre">plone.app.contenttypes.browser.templates.summary_view.pt</span></tt>.</p>
 <p>Add the following after line 29:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;p</span> <span class="na">tal:condition=</span><span class="s">&quot;python:item_type == &#39;News Item&#39;&quot;</span>
    <span class="na">tal:content=</span><span class="s">&quot;python:toLocalizedTime(item.Date())&quot;</span><span class="nt">&gt;</span>

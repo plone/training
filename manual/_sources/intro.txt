@@ -52,7 +52,7 @@ Some technologies and tools we use during the training:
 * Virtualbox
 * Vagrant
 * Ubuntu linux
-* TTW
+* Through-the-web (TTW)
 * Buildout
 * TAL
 * METAL

@@ -223,8 +223,9 @@
 <li class="toctree-l1"><a class="reference internal" href="events.html">25. Turn talks into events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_generated_content.html">26. User generated content</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#self-registration">Self-registration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#constrain-types">Constrain types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#grant-local-roles">Grant local roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#move-the-changes-to-the-file-system">Move the changes to the file-system</a></li>
 </ul>
 </li>
@@ -338,16 +339,16 @@
 <p>Here are some tools and techniques we often use when developing and debugging. We use some of them in various situations during the training.</p>
 <dl class="docutils">
 <dt>tracebacks and the log</dt>
-<dd>The log (and the console when running in foreground) collect all log-messages Plone prints. When a exception occurs Plone thows a traceback. Most of th time the traceback is everything you need to find out what is going wrong. Also adding your own information to the log is very simple.</dd>
+<dd>The log (and the console when running in foreground) collect all log-messages Plone prints. When a exception occurs Plone thows a traceback. Most of the time the traceback is everything you need to find out what is going wrong. Also adding your own information to the log is very simple.</dd>
 <dt>pdb</dt>
 <dd>The python debugger pdb is the single most important tool for us when programming. Just add <tt class="docutils literal"><span class="pre">import</span> <span class="pre">pdb;</span> <span class="pre">pdb.set_trace()</span></tt> in your code and debug away!</dd>
 <dt>Products.PDBDebugMode</dt>
 <dd><p class="first">A addon that has two killer-features.</p>
-<p><strong>Post-mortem debugging</strong>: throws you in a pdb whenever a exception occurs. This way you can find ou what is going wrong.</p>
+<p><strong>Post-mortem debugging</strong>: throws you in a pdb whenever a exception occurs. This way you can find out what is going wrong.</p>
 <p class="last"><strong>pdb-view</strong>: simply adding <tt class="docutils literal"><span class="pre">/pdb</span></tt> to a url drops you in a pdb-session with the current context as <tt class="docutils literal"><span class="pre">self.context</span></tt>. From there you can do just about anything.</p>
 </dd>
 <dt>Debug-mode</dt>
-<dd>When starting Plone using <tt class="docutils literal"><span class="pre">./bin/instance</span> <span class="pre">debug</span> <span class="pre">-O</span> <span class="pre">Plone</span></tt> you&#8217;# end up in interactive debugger.</dd>
+<dd>When starting Plone using <tt class="docutils literal"><span class="pre">./bin/instance</span> <span class="pre">debug</span> <span class="pre">-O</span> <span class="pre">Plone</span></tt> you&#8217;ll end up in a interactive debugger.</dd>
 <dt>plone.app.debugtoolbar</dt>
 <dd>A addon that allows you to inspect nearly everything. It even has a interactive console and a tester for TALES-expressions.</dd>
 <dt>plone.reload</dt>
@@ -361,7 +362,7 @@
 <dt><tt class="docutils literal"><span class="pre">./bin/buildout</span> <span class="pre">annotate</span></tt></dt>
 <dd>A option when running buildout that logs all the pulled packages and versions.</dd>
 <dt>Sentry</dt>
-<dd><a class="reference external" href="https://github.com/getsentry/sentry">Sentry</a> is a error logging application you can host yourself. It aggregarates tracebacks from many sources and (here comes the killer-feature) even the values of variables in the stacktrace. We use in on all our production-sites.</dd>
+<dd><a class="reference external" href="https://github.com/getsentry/sentry">Sentry</a> is a error logging application you can host yourself. It aggregarates tracebacks from many sources and (here comes the killer-feature) even the values of variables in the stacktrace. We use it in all our production-sites.</dd>
 <dt>zopepy</dt>
 <dd><p class="first">Buildout can create a python-shell for you that has all the packages from your plone-site in it&#8217;s python-path. Add the part like this:</p>
 <div class="last highlight-python"><div class="highlight"><pre>[zopepy]

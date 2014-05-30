@@ -16,8 +16,8 @@ In this chapter we:
 
 * allow self-registration
 * constrain types on the talk-folder
-* create a custom workflow for talks
 * grant local roles
+* create a custom workflow for talks
 
 
 Self-registration
@@ -27,10 +27,26 @@ Self-registration
 * Leave "Enable User Folders" off unless you want a community-site.
 
 
+Constrain types
+---------------
+
+* On the talk-folder select `Restrictions… <http://localhost:8081/Plone/talks/folder_constraintypes_form>`_ from the *Add new* menu. Only allow to add talks.
+
+
+Grant local roles
+-----------------
+
+* Go to *Sharing* and grant the role *Can add* to the group logged-in users. Now every user can add content in this folder (and only this folder).
+
+Now all logged-in users can create and submit talks in this folder.
+
+ with the permissiondefault-workflow
+
+
 A custom workflow for talks
 ---------------------------
 
-Let's be secretive and let submitters only see their own talks.
+We still need to fix a problem: Authenticated users can see all talks, even the ones of other users in the private state. Since we don't want this we will create a modified workflow for talks. The new workflow will only them the talks they created themselves and not the ones of other users.
 
 * Go to the ZMI > portal_workflow
 * See how talks have the same workflow as most content ``(Default)``
@@ -46,18 +62,13 @@ Let's be secretive and let submitters only see their own talks.
 
     The addon `plone.app.workflowmanager <https://pypi.python.org/pypi/plone.app.workflowmanager>`_ provides a much nicer user-interface for this. The problem is you need a big screen for it and it can be pretty confusing as well.
 
-
-Grant local roles
------------------
-
-* Go to *Sharing* and grant the role *Can add* to the group logged-in users. Now every user can add content in this folder (and only this folder).
-* In the talk-folder select `Restrictions… <http://localhost:8081/Plone/talks/folder_constraintypes_form>`_ from the *Add new* menu. Only allow to add talks.
-
 Done.
 
 
 Move the changes to the file-system
 -----------------------------------
+
+We don't want to do these steps for every new conference by hand so we move the changes into our package.
 
 Workflow
 ********
@@ -71,7 +82,7 @@ Self-registration
 
 This has to happen in python in a custom `setuphandler.py <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_ since there is not yet a exportable setting for this.
 
-Register a import-step in``configure.zcml``. It will be automatically run when (re-)installing the addon.
+Register a import-step in ``configure.zcml``. It will be automatically run when (re-)installing the addon.
 
 .. code-block:: xml
     :linenos:

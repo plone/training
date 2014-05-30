@@ -223,8 +223,9 @@
 <li class="toctree-l1"><a class="reference internal" href="events.html">25. Turn talks into events</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">26. User generated content</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#self-registration">Self-registration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constrain-types">Constrain types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#grant-local-roles">Grant local roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#move-the-changes-to-the-file-system">Move the changes to the file-system</a></li>
 </ul>
 </li>
@@ -310,8 +311,8 @@
 <ul class="simple">
 <li>allow self-registration</li>
 <li>constrain types on the talk-folder</li>
-<li>create a custom workflow for talks</li>
 <li>grant local roles</li>
+<li>create a custom workflow for talks</li>
 </ul>
 <div class="section" id="self-registration">
 <h2>Self-registration<a class="headerlink" href="#self-registration" title="Permalink to this headline">¶</a></h2>
@@ -320,9 +321,24 @@
 <li>Leave &#8220;Enable User Folders&#8221; off unless you want a community-site.</li>
 </ul>
 </div>
+<div class="section" id="constrain-types">
+<h2>Constrain types<a class="headerlink" href="#constrain-types" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>On the talk-folder select <a class="reference external" href="http://localhost:8081/Plone/talks/folder_constraintypes_form">Restrictions…</a> from the <em>Add new</em> menu. Only allow to add talks.</li>
+</ul>
+</div>
+<div class="section" id="grant-local-roles">
+<h2>Grant local roles<a class="headerlink" href="#grant-local-roles" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Go to <em>Sharing</em> and grant the role <em>Can add</em> to the group logged-in users. Now every user can add content in this folder (and only this folder).</li>
+</ul>
+<p>Now all logged-in users can create and submit talks in this folder.</p>
+<blockquote>
+<div>with the permissiondefault-workflow</div></blockquote>
+</div>
 <div class="section" id="a-custom-workflow-for-talks">
 <h2>A custom workflow for talks<a class="headerlink" href="#a-custom-workflow-for-talks" title="Permalink to this headline">¶</a></h2>
-<p>Let&#8217;s be secretive and let submitters only see their own talks.</p>
+<p>We still need to fix a problem: Authenticated users can see all talks, even the ones of other users in the private state. Since we don&#8217;t want this we will create a modified workflow for talks. The new workflow will only them the talks they created themselves and not the ones of other users.</p>
 <ul class="simple">
 <li>Go to the ZMI &gt; portal_workflow</li>
 <li>See how talks have the same workflow as most content <tt class="docutils literal"><span class="pre">(Default)</span></tt></li>
@@ -338,17 +354,11 @@
 <p class="first admonition-title">Note</p>
 <p class="last">The addon <a class="reference external" href="https://pypi.python.org/pypi/plone.app.workflowmanager">plone.app.workflowmanager</a> provides a much nicer user-interface for this. The problem is you need a big screen for it and it can be pretty confusing as well.</p>
 </div>
-</div>
-<div class="section" id="grant-local-roles">
-<h2>Grant local roles<a class="headerlink" href="#grant-local-roles" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Go to <em>Sharing</em> and grant the role <em>Can add</em> to the group logged-in users. Now every user can add content in this folder (and only this folder).</li>
-<li>In the talk-folder select <a class="reference external" href="http://localhost:8081/Plone/talks/folder_constraintypes_form">Restrictions…</a> from the <em>Add new</em> menu. Only allow to add talks.</li>
-</ul>
 <p>Done.</p>
 </div>
 <div class="section" id="move-the-changes-to-the-file-system">
 <h2>Move the changes to the file-system<a class="headerlink" href="#move-the-changes-to-the-file-system" title="Permalink to this headline">¶</a></h2>
+<p>We don&#8217;t want to do these steps for every new conference by hand so we move the changes into our package.</p>
 <div class="section" id="workflow">
 <h3>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -360,7 +370,7 @@
 <div class="section" id="id1">
 <h3>Self-registration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>This has to happen in python in a custom <a class="reference external" href="http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py">setuphandler.py</a> since there is not yet a exportable setting for this.</p>
-<p>Register a import-step in``configure.zcml``. It will be automatically run when (re-)installing the addon.</p>
+<p>Register a import-step in <tt class="docutils literal"><span class="pre">configure.zcml</span></tt>. It will be automatically run when (re-)installing the addon.</p>
 <div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3

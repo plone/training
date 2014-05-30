@@ -223,8 +223,9 @@
 <li class="toctree-l1"><a class="reference internal" href="events.html">25. Turn talks into events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_generated_content.html">26. User generated content</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#self-registration">Self-registration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#constrain-types">Constrain types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#grant-local-roles">Grant local roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#move-the-changes-to-the-file-system">Move the changes to the file-system</a></li>
 </ul>
 </li>
@@ -305,7 +306,11 @@
 </pre></div>
 </div>
 </div>
-<p>Our own code has te be organised as an egg. An Egg is a zip file or a directory that follows certain conventions. We are going to use zopeskel. Zopeskel creates a skeleton projekt. We only need to fill the holes.</p>
+<p>Our own code has to be organised as an egg. An Egg is a zip file or a directory that follows certain conventions. We are going to use <a class="reference external" href="https://pypi.python.org/pypi/ZopeSkel">ZopeSkel</a> to create a skeleton projekt. We only need to fill the holes.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the training we use ZopeSkel 2.21.2, a relatively old version. We do this because this version is shipped with Plone&#8217;s Unified Installer. In our own projects we mostly use <a class="reference external" href="http://mrbob.readthedocs.org/en/latest/">mr.bob</a> to create eggs.</p>
+</div>
 <p>We move to the <tt class="docutils literal"><span class="pre">src</span></tt> directory and call a script called <tt class="docutils literal"><span class="pre">zopeskel</span></tt> from our projects bin-directory.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkdir src
 <span class="nv">$ </span><span class="nb">cd </span>src
@@ -329,19 +334,19 @@
 <p>Lets have a look at some of it&#8217;s files.</p>
 <dl class="docutils">
 <dt>bootstrap.py, buildout.cfg, plone.cfg</dt>
-<dd>You can ignore these files for now</dd>
+<dd>You can ignore these files for now. They are here to create a buildout only for this egg to make testing easier.</dd>
 <dt>docs, README.txt</dt>
 <dd>The documentation and changelog of your egg goes in there</dd>
 <dt>setup.py</dt>
-<dd>This file configures the package, lists dependencies, it&#8217;s name and some metadata the authors name.</dd>
+<dd>This file configures the package, it&#8217;s name, dependencies and some metadata like the authors name. The dependencies listed here are automatically added by buildout.</dd>
 <dt>ploneconf/site/configure.zcml</dt>
-<dd>The phone-book ob the package. By reading it you canfind out what is in there.</dd>
+<dd>The phone-book of the packages. By reading it you can find out which functionality is registered thoughthe component architecture.</dd>
 <dt>ploneconf/site/locales/</dt>
-<dd>This holds translation-files (see <a class="reference external" href="http://docs.plone.org/develop/plone/i18n/internationalisation.html">http://docs.plone.org/develop/plone/i18n/internationalisation.html</a>)</dd>
+<dd>This holds translation-files (see <a class="reference external" href="http://docs.plone.org/develop/plone/i18n/internationalisation.html">http://docs.plone.org/develop/plone/i18n/internationalisation.html</a>). We won&#8217;t use it during the training.</dd>
 <dt>ploneconf/site/resources/</dt>
-<dd>A directory that holds static resources (images/css/js). They are accessible as <tt class="docutils literal"><span class="pre">++resource++ploneconf.site/myawesome.css</span></tt></dd>
+<dd>A directory that holds static resources (images/css/js). They are accessible through URLs like <tt class="docutils literal"><span class="pre">++resource++ploneconf.site/myawesome.css</span></tt></dd>
 <dt>ploneconf/site/profiles/default/</dt>
-<dd>The folder contains the GenericSetup-profile</dd>
+<dd>The folder contains the GenericSetup-profile. During the training will put some xml-files there that hold configuration for the site.</dd>
 <dt>ploneconf/site/profiles/default/metadata.xml</dt>
 <dd><p class="first">Version-number and dependencies that are auto-installed.</p>
 <p class="last">We could replace <tt class="docutils literal"><span class="pre">&lt;dependency&gt;profile-plone.app.dexterity:default&lt;/dependency&gt;</span></tt> with <tt class="docutils literal"><span class="pre">&lt;dependency&gt;profile-plone.app.contenttypes:plone-content&lt;/dependency&gt;</span></tt> to depend the addon we picked when creating our site with this egg.</p>
@@ -349,6 +354,7 @@
 <dt>ploneconf/site/profiles/default/types.xml</dt>
 <dd>Registration of types</dd>
 </dl>
+<p>There are also some files that can be deleted because they use outdated approaches to testing: <tt class="docutils literal"><span class="pre">ploneconf/site/tests.py</span></tt> and <tt class="docutils literal"><span class="pre">ploneconf/site/INTEGRATION.txt</span></tt>.</p>
 </div>
 
 

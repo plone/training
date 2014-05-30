@@ -78,7 +78,7 @@ The viewlet-class ``SocialViewlet`` is expected in a file ``browser/viewlets.py`
             from plone.app.layout.viewlets import interfaces as viewletIFs
             from zope.component import Interface
 
-            class Social(grok.Viewlet):
+            class SocialViewlet(grok.Viewlet):
                 grok.viewletmanager(viewletIFs.IBelowContentTitle)
 
         This would do the same as the coe above using grok's paradigm of convention over configuration.
@@ -124,7 +124,7 @@ We have to extend the Social Viewlet now to add the missing attribute:
     ...
     from ploneconf.site.behaviors.social import ISocial
 
-    class Social(ViewletBase):
+    class SocialViewlet(ViewletBase):
 
         def lanyrd_link(self):
             adapted = ISocial(self.context)

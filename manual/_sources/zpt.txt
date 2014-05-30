@@ -269,10 +269,10 @@ A dict of all the available variables is ``CONTEXTS``
 Useful for debugging :-)
 
 
-pure TAL-blocks
+Pure TAL-blocks
 +++++++++++++++
 
-We can use TAL-attributes auch without HTML-Tags. This is useful when we don't need to add any tags to the markup
+We can use TAL-attributes without HTML-Tags. This is useful when we don't need to add any tags to the markup
 
 Syntax:
 
@@ -359,7 +359,7 @@ Now let's emulate a typical Plone structure by creating a dictionary.
         </tr>
     </table>
 
-We emulate a list of talks and display information obout them in a table. We'll get back to the list of talks later when we use the real talk-objects that we created with dexterity.
+We emulate a list of talks and display information about them in a table. We'll get back to the list of talks later when we use the real talk-objects that we created with dexterity.
 
 To complete the list here are the TAL-Attributes we have not yet used:
 
@@ -457,7 +457,7 @@ The template should now look like this:
 macros in browser-views
 +++++++++++++++++++++++
 
-writing a macro
+Define a macro in a new file ``macros.pt``
 
 .. code-block:: html
 
@@ -465,7 +465,7 @@ writing a macro
         <p>I can be reused</p>
     </div>
 
-in zcml:
+Register it as a BrowserView (this time without a python-class) in zcml:
 
 .. code-block:: xml
 
@@ -476,12 +476,12 @@ in zcml:
       permission="zope2.View"
       />
 
-use it the template:
+Reuse the macro it in the template ``demoview.pt``:
 
 .. code-block:: html
 
         <div metal:use-macro="view/context/@@ploneconf.site.macros/my_macro">
-            the macro
+            Instead of this the content of the macro will appear...
         </div>
 
 

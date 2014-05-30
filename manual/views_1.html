@@ -223,8 +223,9 @@
 <li class="toctree-l1"><a class="reference internal" href="events.html">25. Turn talks into events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_generated_content.html">26. User generated content</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#self-registration">Self-registration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#constrain-types">Constrain types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#grant-local-roles">Grant local roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#move-the-changes-to-the-file-system">Move the changes to the file-system</a></li>
 </ul>
 </li>
@@ -307,7 +308,7 @@
 </div>
 <div class="section" id="a-simple-browser-view">
 <h2>A simple browser view<a class="headerlink" href="#a-simple-browser-view" title="Permalink to this headline">¶</a></h2>
-<p>We need to add some boilerplate-code to be create a view. Before we write the talk-view itself we need to step back and talk <em>a little</em> about views and templates.</p>
+<p>We need to add some boilerplate-code to be able to create a view. Before we write the talk-view itself we need to step back and talk <em>a little</em> about views and templates.</p>
 <p>A basic view in Plone is usually a <tt class="docutils literal"><span class="pre">BrowserView</span></tt>. It can hold a lot of python-code but it can also be only a empty <tt class="docutils literal"><span class="pre">BrowserView</span></tt>-class that renders a template when called. Such an empty class is what we create at first so we can concentrate on the template.</p>
 <ul class="simple">
 <li>Add a new direcory <tt class="docutils literal"><span class="pre">src/ploneconf.site/ploneconf/site/browser</span></tt>. By convention the dir <tt class="docutils literal"><span class="pre">browser</span></tt> should hold all UI displayed in the browser.</li>

@@ -76,8 +76,8 @@ Write the upgrade-step in ``upgrades.py``
     logger = logging.getLogger('ploneconf.site')
 
 
-    def upgrade_site(self):
-        self.runImportStepFromProfile(default_profile, 'typeinfo')
+    def upgrade_site(setup):
+        setup.runImportStepFromProfile(default_profile, 'typeinfo')
         catalog = api.portal.get_tool('portal_catalog')
         portal = api.portal.get()
         if 'talks' not in portal:
@@ -101,14 +101,14 @@ Write the upgrade-step in ``upgrades.py``
                 safe_id=True)
 
 
-    def turn_talks_to_events(self):
+    def turn_talks_to_events(setup):
         """Set a start- and end-date for old events to work around a
         bug in plone.app.event 1.1.1
         """
         api.portal.set_registry_record(
             'plone.app.event.portal_timezone',
             'Europe/London')
-        self.runImportStepFromProfile(default_profile, 'typeinfo')
+        setup.runImportStepFromProfile(default_profile, 'typeinfo')
 
         tz = pytz.timezone("Europe/London")
         now = tz.localize(datetime.datetime.now())
