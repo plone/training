@@ -1,6 +1,15 @@
 Dexterity Types II: Growing up
 ==============================
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildouts-directory:
+
+    .. code-block:: bash
+
+        cp -Rf src/ploneconf.site_sneak/chapters/23_dexterity_2/ src/ploneconf.site
+
+
 The existing talks are still lacking some functionality we want to use.
 
 In this part we will:

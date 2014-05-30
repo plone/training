@@ -1,6 +1,15 @@
 Creating your own eggs to customize Plone
 =========================================
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildouts-directory:
+
+    .. code-block:: bash
+
+        cp -Rf src/ploneconf.site_sneak/chapters/12_eggs1/ src/ploneconf.site
+
+
 Our own code has te be organised as an egg. An Egg is a zip file or a directory that follows certain conventions. We are going to use zopeskel. Zopeskel creates a skeleton projekt. We only need to fill the holes.
 
 We move to the ``src`` directory and call a script called ``zopeskel`` from our projects bin-directory.

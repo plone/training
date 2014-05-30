@@ -1,6 +1,15 @@
 Views II: A default view for "talk"
 ===================================
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildouts-directory:
+
+    .. code-block:: bash
+
+        cp -Rf src/ploneconf.site_sneak/chapters/17_views_2/ src/ploneconf.site
+
+
 View-Classes
 ------------
 

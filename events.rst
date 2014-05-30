@@ -1,6 +1,15 @@
 Turn talks into events
 ======================
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildouts-directory:
+
+    .. code-block:: bash
+
+        cp -Rf src/ploneconf.site_sneak/chapters/23_dexterity_2/ src/ploneconf.site
+
+
 We forgot something: A list of talks is great especially if you can sort it by your preferences. But if a visitor decides he wants to see a talk he needs to know when it will take place.
 
 We need a schedule and for this we need to store the information when a talk will happen.

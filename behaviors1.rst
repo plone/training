@@ -1,6 +1,16 @@
 Behaviors
 =========
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildouts-directory:
+
+    .. code-block:: bash
+
+        cp -Rf src/ploneconf.site_sneak/chapters/19_behaviors_1/ src/ploneconf.site
+
+
+
 .. only:: manual
 
     You can extend the functionality of your dexterity object by writing an adapter that adapts your dexterity object to add another feature or aspect.
@@ -152,7 +162,7 @@ We must add the behavior to :file:`profiles/default/types/talk.xml`:
      </property>
      ...
     </object>
-    
+
 
 .. _plone.supermodel: http://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
 .. _fieldset: http://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset

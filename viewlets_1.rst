@@ -1,6 +1,15 @@
 Writing Viewlets
 ================
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildouts-directory:
+
+    .. code-block:: bash
+
+        cp -Rf src/ploneconf.site_sneak/chapters/20_viewlets_1/ src/ploneconf.site
+
+
 A viewlet for the social behavior
 ---------------------------------
 
@@ -111,7 +120,7 @@ We have to extend the Social Viewlet now to add the missing attribute:
 .. code-block:: python
     :linenos:
     :emphasize-lines: 5-7
-    
+
     ...
     from ploneconf.site.behaviors.social import ISocial
 

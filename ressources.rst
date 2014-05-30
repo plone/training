@@ -1,6 +1,15 @@
 Ressources
 ==========
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildouts-directory:
+
+    .. code-block:: bash
+
+        cp -Rf src/ploneconf.site_sneak/chapters/27_ressources1/ src/ploneconf.site
+
+
 We have not yet talked about CSS and Javascript. At the moment these are considered static resources.
 
 You can declare and access static resources with special urls. The configure.zcml of our package already has a declaration for resources:

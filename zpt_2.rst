@@ -1,6 +1,14 @@
-
 Customizing existing templates
 ==============================
+
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildouts-directory:
+
+    .. code-block:: bash
+
+        cp -Rf src/ploneconf.site_sneak/chapters/16_zpt_2/ src/ploneconf.site
+
 
 To dive deeper into real plone-data we now look at some existing templates and customize them.
 

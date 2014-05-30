@@ -1,6 +1,15 @@
 Views I
 =======
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildouts-directory:
+
+    .. code-block:: bash
+
+        cp -Rf src/ploneconf.site_sneak/chapters/14_views1/ src/ploneconf.site
+
+
 A simple browser view
 ---------------------
 

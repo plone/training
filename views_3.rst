@@ -1,6 +1,14 @@
 Views III: A Talk list
 =======================
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildouts-directory:
+
+    .. code-block:: bash
+
+        cp -Rf src/ploneconf.site_sneak/chapters/18_views_3/ src/ploneconf.site
+
 
 Now we don't want to provide information about one specific item but on several items. What now? We can't look at several items at the same time as context.
 

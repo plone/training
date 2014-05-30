@@ -1,6 +1,15 @@
 User generated content
 ======================
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildouts-directory:
+
+    .. code-block:: bash
+
+        cp -Rf src/ploneconf.site_sneak/chapters/26_user_generated_content/ src/ploneconf.site
+
+
 How do prospective speakers submit talks? We let registered users create talks. For this we go back to changing the site through-the-web.
 
 In this chapter we:
