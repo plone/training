@@ -3,7 +3,7 @@ Turn talks into events
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildouts-directory:
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
 
     .. code-block:: bash
 
