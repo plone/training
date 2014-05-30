@@ -14,7 +14,7 @@ The existing talks are still lacking some functionality we want to use.
 
 In this part we will:
 
-* *pythonify* our talk-type a little more
+* add a marker-interface to our talk-type
 * create custom catalog-indexes
 * query the catalog for them
 * enable some more default-features for our type
@@ -30,7 +30,7 @@ The content-type `Talk` is not yet a first-class citizen because it does not imp
 
 The problem is that the name of the Plone-instance ``Plone`` is part of that interface-name. If you now moved these types to a site with another name, code that uses these Interfaces would no longer find the objects in question.
 
-For this we add a new file ``ìnterfaces.py``:
+For this we add a new file ``interfaces.py``:
 
 .. code-block:: python
     :linenos:
@@ -80,15 +80,15 @@ Then we can safely bind the talkview to the new marker interface.
     :emphasize-lines: 3
 
     <browser:page
-      name="talklistview"
+      name="talkview"
       for="ploneconf.site.interfaces.ITalk"
       layer="zope.interface.Interface"
-      class=".views.TalkListView"
-      template="templates/talklistview.pt"
+      class=".views.TalkView"
+      template="templates/talkview.pt"
       permission="zope2.View"
       />
 
-Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface ``catalog(object_provides="ploneconf.site.interfaces.ITalk")``.
+Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface ``catalog(object_provides="ploneconf.site.interfaces.ITalk")``. The `talklistview` and the `demoview` do not get this constraint since they are not only used on talks but .
 
 .. note::
 
@@ -127,7 +127,7 @@ When projects evolve you'll sometimes have to modify various things while the si
 We will create a upgrade step that
 
 * runs the typeinfo-step (i.e. loads the GenericSetup configuration stores in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the addon to have our changes from above take effect) and
-* cleans up some content that might be scattered around the site in the early stages of creating it. We will move all talks to a folder ``talks`` (unless they already are there) and also move all
+* cleans up some content that might be scattered around the site in the early stages of creating it. We will move all talks to a folder ``talks`` (unless they already are there).
 
 Upgrade steps are usually registered in their own zcml-file. Create ``upgrades.zcml``
 
@@ -141,8 +141,8 @@ Upgrade steps are usually registered in their own zcml-file. Create ``upgrades.z
       i18n_domain="ploneconf.site">
 
       <genericsetup:upgradeStep
-        title="Modifiy class of talks"
-        description="Change the class of talks from 'plone.dexterity.content.Container' to 'ploneconf.site.content.talk.Talk'"
+        title="Update and cleanup talks"
+        description="Updates typeinfo and moves talks to a folder 'talks'"
         source="1"
         destination="1001"
         handler="ploneconf.site.upgrades.upgrade_site"
@@ -164,7 +164,7 @@ Include the new ``upgrades.zcml`` in our ``configure.zcml`` by adding:
 
     <include file="upgrades.zcml" />
 
-GenericSetup now expects the code to be a method ``upgrade_talks`` in the file ``upgrades.py``. Let's create it.
+GenericSetup now expects the code to be a method ``upgrade_site`` in the file ``upgrades.py``. Let's create it.
 
 ..  code-block:: python
     :linenos:
@@ -176,8 +176,8 @@ GenericSetup now expects the code to be a method ``upgrade_talks`` in the file `
     logger = logging.getLogger('ploneconf.site')
 
 
-    def upgrade_site(self):
-        self.runImportStepFromProfile(default_profile, 'typeinfo')
+    def upgrade_site(setup):
+        setup.runImportStepFromProfile(default_profile, 'typeinfo')
         catalog = api.portal.get_tool('portal_catalog')
         portal = api.portal.get()
         if 'talks' not in portal:

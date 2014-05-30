@@ -11,8 +11,8 @@ How to find addons
 ------------------
 
 * https://pypi.python.org/pypi - use the search form!
-* https://github.com/collective >1000 repos
-* https://github.com/plone >240 repos
+* https://github.com/collective >1200 repos
+* https://github.com/plone >260 repos
 * http://news.gmane.org/gmane.comp.web.zope.plone.user
 * google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)
 * Check shortlist (Plone Paragon) that will come in 2014 on plone.org
@@ -157,7 +157,7 @@ Plone can run the same site in many different languages.
 
 We're not doing this with the conference-site since the lingua franca of the plone-community is english.
 
-We would use http://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Producs.LinguaPlone (which only works with Archetypes).
+We would use http://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes).
 
 
 Summary

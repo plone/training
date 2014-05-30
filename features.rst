@@ -83,9 +83,14 @@ Users
 
     #. :guilabel:`admin` > :guilabel:`Site setup` > :guilabel:`Users and Groups`
     #. Add user <yourname> (groups: Administrators)
-    #. Add another user "testuser" (groups: Nothing)
+    #. Add another user "tester" (groups: None)
+    #. Add another user "editor" (groups: None)
+    #. Add another user "reviewer" (groups: Reviewers)
+    #. Add another user "jurymember" (groups: None)
 
-    Access the site with each user now.
+    Logout as admin by klicking 'Logout' and following the instructions.
+
+    Login to the site with your user now.
 
 
 Configure a Mailserver
@@ -216,8 +221,9 @@ Manage members and groups
 * roles
 * groups
 
+  * Add group "Editors" and add the user 'editor' to it
   * Add group: ``orga``
-  * add group: ``speaker``
+  * add group: ``jury`` and add user 'jurymember' to it.
 
 
 Workflows
