@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Installing Plone for the Training &mdash; Mastering Plone 1.2 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+    <link rel="top" title="Mastering Plone 1.2 documentation" href="../index.html"/>
+        <link rel="next" title="4. The Case-Study" href="../case.html"/>
+        <link rel="prev" title="2. Installation &amp; Setup" href="../installation.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Mastering Plone</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#who-are-we">Who are we?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#who-are-you">Who are you?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#what-will-we-do">What will we do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#what-will-we-not-do">What will we not do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#what-to-expect">What to expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">2. Installation &amp; Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installing-plone">Installing Plone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#hosting-plone">Hosting Plone</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">3. Installing Plone for the Training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-virtualbox">Install VirtualBox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-and-configure-vagrant">Install and configure Vagrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-vagrant-does">What Vagrant does</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../case.html">4. The Case-Study</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../case.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../case.html#requirements">Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../anatomy.html">5. The Anatomy of Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy.html#zope2">Zope2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy.html#content-management-framework">Content Management Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy.html#zope-toolkit-zope3">Zope Toolkit / Zope3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy.html#zope-component-architecture-zca">Zope Component Architecture (ZCA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy.html#pyramid">Pyramid</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">6. The Features of Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#starting-and-stopping-plone">Starting and Stopping Plone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#users">Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#configure-a-mailserver">Configure a Mailserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#walktrough-of-the-ui">Walktrough of the UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#content-types">Content-Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#folders">Folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#collections">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#content-rules">Content Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#history">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#manage-members-and-groups">Manage members and groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#workflows">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#working-copy">Working copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html#placeful-workflows">Placeful workflows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuring_customizing.html">7. Configuring and Customizing Plone through the web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../configuring_customizing.html#the-control-panel">The Control Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuring_customizing.html#portlets">Portlets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuring_customizing.html#viewlets">Viewlets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuring_customizing.html#zmi">ZMI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuring_customizing.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extending.html">8. Extending Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#extension-technologies">Extension technologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#what-are-components-what-is-zcml">What are components, what is ZCML</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../addons.html">9. Extend Plone with Add-ons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../addons.html#how-to-find-addons">How to find addons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addons.html#some-noteable-addons">Some noteable addons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addons.html#installing-addons">Installing Addons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addons.html#ploneformgen">PloneFormGen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addons.html#add-photogallery-with-collective-plonetruegallery">Add Photogallery with collective.plonetruegallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addons.html#internationalisation">Internationalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addons.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../theming.html">10. Theming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../buildout_1.html">11. Buildout I</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../buildout_1.html#syntax">Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildout_1.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildout_1.html#a-real-life-example">A real life example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildout_1.html#hello-mr-developer">Hello mr.developer!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildout_1.html#extensible">Extensible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildout_1.html#be-mcguyver">Be McGuyver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../eggs1.html">12. Creating your own eggs to customize Plone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dexterity.html">13. Dexterity I: Through the web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity.html#what-is-a-content-type">What is a content-type?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity.html#dexterity-and-archetypes-a-comparison">Dexterity and Archetypes - A Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity.html#modifying-existing-types">Modifying existing types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity.html#creating-content-types-ttw">Creating content-types TTW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity.html#moving-content-types-into-code">Moving content-types into code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../views_1.html">14. Views I</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../views_1.html#a-simple-browser-view">A simple browser view</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../zpt.html">15. Zope Page Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../zpt.html#tal-and-tales">TAL and TALES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zpt.html#metal-and-macros">METAL and macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zpt.html#accessing-plone-from-the-template">Accessing Plone from the template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zpt.html#what-we-missed">What we missed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zpt.html#chameleon">Chameleon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../zpt_2.html">16. Customizing existing templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../zpt_2.html#newsitem-pt">newsitem.pt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zpt_2.html#summary-view-pt">summary_view.pt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zpt_2.html#finding-the-right-template">Finding the right template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zpt_2.html#skin-templates">skin-templates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../views_2.html">17. Views II: A default view for &#8220;talk&#8221;</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../views_2.html#view-classes">View-Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../views_2.html#the-default-view">The default-view</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../views_3.html">18. Views III: A Talk list</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../views_3.html#using-portal-catalog">Using portal_catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../views_3.html#brains-and-objects">brains and objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../views_3.html#querying-the-catalog">Querying the catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../views_3.html#the-template-for-the-listing">The template for the listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../views_3.html#setting-a-custom-view-as-default-view-on-an-object">Setting a custom view as default-view on an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../views_3.html#adding-some-javascript-collective-js-datatables">Adding some javascript (collective.js.datatables)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../views_3.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../behaviors1.html">19. Behaviors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../behaviors1.html#dexterity-approach">Dexterity Approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../behaviors1.html#names-and-theory">Names and Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../behaviors1.html#practical-example">Practical example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../behaviors1.html#adding-it-to-our-talk">Adding it to our talk</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../viewlets_1.html">20. Writing Viewlets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../viewlets_1.html#a-viewlet-for-the-social-behavior">A viewlet for the social behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../viewlets_1.html#social-viewlet">social-viewlet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">21. Programming Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#plone-api">plone.api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#portal-tools">portal-tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#debugging">Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ide.html">22. IDE&#8217;s and Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dexterity_2.html">23. Dexterity Types II: Growing up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity_2.html#add-a-marker-interface-to-the-talk-type">Add a marker-interface to the talk-type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity_2.html#upgrade-steps">Upgrade-steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity_2.html#add-a-browserlayer">Add a browserlayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity_2.html#add-catalog-indexes">Add catalog-indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity_2.html#query-for-custom-indexes">Query for custom indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity_2.html#add-collection-criteria">Add collection criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dexterity_2.html#add-more-features-through-generic-setup">Add more features through generic-setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_search.html">24. Custom search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../custom_search.html#eea-facetednavigation">eea.facetednavigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../events.html">25. Turn talks into events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_generated_content.html">26. User generated content</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user_generated_content.html#self-registration">Self-registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_generated_content.html#grant-local-roles">Grant local roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_generated_content.html#move-the-changes-to-the-file-system">Move the changes to the file-system</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">27. Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thirdparty_behaviors.html">28. Using third-party behaviors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../thirdparty_behaviors.html#add-teaser-with-collective-behavior-banner">Add teaser with collective.behavior.banner</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dexterity_3.html">29. Dexterity Types III: Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eggs2.html">30. Creating reusable packages with eggs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behaviors2.html">31. More complex behaviors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../behaviors2.html#using-annotations">Using Annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../behaviors2.html#using-schema">Using Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../behaviors2.html#writing-code">Writing Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../viewlets_2.html">32. A viewlet for the voteable behavior</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../viewlets_2.html#voting-viewlet">Voting Viewlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../viewlets_2.html#writing-the-viewlet-code">Writing the Viewlet code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../viewlets_2.html#the-template">The template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../viewlets_2.html#the-javascript-code">The javascript code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../viewlets_2.html#writing-2-simple-view-helpers">Writing 2 simple view helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reusable.html">33. Making our package reusable</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reusable.html#adding-permissions">Adding permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reusable.html#using-our-permissions">Using our permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reusable.html#provide-defaults">Provide defaults</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../embed.html">34. Using starzel.votable_behavior in ploneconf.site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment_sites.html">35. Buildout II: Getting ready for deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../deployment_sites.html#the-starzel-buildout">The starzel-buildout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deployment_sites.html#a-deployment-setup">A deployment-setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deployment_sites.html#other-tools-we-use">Other tools we use</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../future_of_plone.html">36. The Future of Plone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">37. Optional</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mastering Plone</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>3. Installing Plone for the Training</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="installing-plone-for-the-training">
+<h1>3. Installing Plone for the Training<a class="headerlink" href="#installing-plone-for-the-training" title="Permalink to this headline">¶</a></h1>
+<p>To not waste too much time with installing and debugging the differences between systems we use a virtual machine (Ubuntu 14.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development-environment to everyone.</p>
+<p><a class="reference external" href="http://www.vagrantup.com">Vagrant</a> is a tool for building complete development environments. We use it together with Oracle’s <a class="reference external" href="https://www.virtualbox.org">VirtualBox</a> to create and manage a virtual environment.</p>
+<p>Keep in mind that you need a fast internet-connection during the process since you&#8217;ll have to download a complete virtual machine (ubuntu) and several packages and updates.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>We recommend using a virtual machine for the training if you are not used to running Plone on your laptop.</p>
+<p>You can also work on your own machine with your own Python if you want to but <strong>please please please</strong> make sure that you have a system that will work since we don&#8217;t want you to lose valuable time.</p>
+<p>If you want to use your own system use the Buildout at <a class="reference external" href="https://github.com/starzel/training_without_vagrant.git">https://github.com/starzel/training_without_vagrant.git</a> (since the one we set up via puppet has several directories set to folders not shared with the host).</p>
+<p>Set up Plone for the training like this if you don&#8217;t want to use a VM:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkdir training
+<span class="nv">$ </span><span class="nb">cd </span>training
+<span class="nv">$ </span>git clone https://github.com/starzel/training_without_vagrant.git buildout
+<span class="nv">$ </span><span class="nb">cd </span>buildout
+<span class="nv">$ </span>virtualenv py27
+<span class="nv">$ </span>./py27/bin/python bootstrap.py
+<span class="nv">$ </span>./bin/buildout
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-virtualbox">
+<h2>Install VirtualBox<a class="headerlink" href="#install-virtualbox" title="Permalink to this headline">¶</a></h2>
+<p>Vagrant uses Oracle’s VirtualBox to create virtual environments. Here is a link directly to the download page: <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a>. We use VirtualBox  4.3.x.</p>
+</div>
+<div class="section" id="install-and-configure-vagrant">
+<h2>Install and configure Vagrant<a class="headerlink" href="#install-and-configure-vagrant" title="Permalink to this headline">¶</a></h2>
+<p>Get the latest version from <a class="reference external" href="http://www.vagrantup.com/downloads">http://www.vagrantup.com/downloads</a> for your operating system and install it.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In Windows there is a bug in the recent version of Vagrant. Here are the instruction how to work around the warning <tt class="docutils literal"><span class="pre">Vagrant</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">detect</span> <span class="pre">VirtualBox!</span> <span class="pre">Make</span> <span class="pre">sure</span> <span class="pre">VirtualBox</span> <span class="pre">is</span> <span class="pre">properly</span> <span class="pre">installed</span></tt>.</p>
+</div>
+<p>Now your system has a command <tt class="docutils literal"><span class="pre">vagrant</span></tt> that you can run in the terminal.</p>
+<p>First create a directory where you want to do the training in.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkdir training
+<span class="nv">$ </span><span class="nb">cd </span>training
+</pre></div>
+</div>
+<p>Setup Vagrant to automatically install the current guest-additions. You can choose to skip this step if you encounter any problems with it.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>vagrant plugin install vagrant-vbguest
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Now either get the attachmed zip-file (if you read this as a mail) or download it from  <tt class="xref download docutils literal"><span class="pre">http://starzel.github.io/training/plone_training_config.zip</span></tt>.</dt>
+<dd>and copy its contents into your training directory. It should now hold the file &#8220;Vagrantfile&#8221; and the directory <tt class="docutils literal"><span class="pre">manifests</span></tt>.</dd>
+</dl>
+<p>Now start setting up the VM that is configured in &#8220;Vagrantfile&#8221;</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>vagrant up
+</pre></div>
+</div>
+<p>This takes a <strong>veeeeery loooong time</strong> since it:</p>
+<ul class="simple">
+<li>downloads a virtual machine (Official Ubuntu Server 14.04 LTS, also called &#8220;Trusty Tahr&#8221;)</li>
+<li>sets up the VM</li>
+<li>updates the VM</li>
+<li>installs various packages needed for Plone development</li>
+<li>downloads and unpack the unified installer for Plone</li>
+<li>runs the unified installer for Plone.</li>
+<li>copy the eggs to a location we use in the training</li>
+<li>clones the training-buildout into /vagrant/buildout</li>
+<li>builds Plone using the eggs from the buildout-cache</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Sometimes this stops with the message <em>Skipping because of failed dependencies</em>.</p>
+<div class="highlight-bash"><div class="highlight"><pre>Skipping because of failed dependencies
+</pre></div>
+</div>
+<p>If this happens or you have the feeling that something has gone wrong and the installation has not finished correctly for some reason you need to run try   the following command to repeat the process. This will only repeat steps that have not finished correctly.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>vagrant provision
+</pre></div>
+</div>
+<p class="last">You can do this multiple times to fix problems, e.g. if your network-connection was down and steps could not finish because of this.</p>
+</div>
+<p>Once Vagrant finishes the provisioning-process, you can login to the now running virtual machine.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>vagrant ssh
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you have to use Windows you&#8217;ll have to login to with <a class="reference external" href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">putty</a>. Connect to <a class="reference external" href="mailto:vagrant&#37;&#52;&#48;127&#46;0&#46;01">vagrant<span>&#64;</span>127<span>&#46;</span>0<span>&#46;</span>01</a> at port 2222. User _and_ password are <cite>vagrant</cite>.</p>
+</div>
+<p>You are now logged in as the user vagrant in <tt class="docutils literal"><span class="pre">/home/vagrant</span></tt>. We&#8217;ll do all steps of the training as this user.</p>
+<p>We pre-installed a fresh Plone for you in the folder <tt class="docutils literal"><span class="pre">/home/vagrant/Plone/zinstance</span></tt> You can run it now and access it from the browser. We will <strong>not</strong> use this Plone-instance in the training, so you can play around with it as much as you want.</p>
+<p>Instead we use our own Plone-instance during the training. It is in <tt class="docutils literal"><span class="pre">/vagrant/buildout/</span></tt>. Start it in foreground with <tt class="docutils literal"><span class="pre">./bin/instance</span> <span class="pre">fg</span></tt>.</p>
+<div class="highlight-bash"><div class="highlight"><pre>vagrant@vagrant-ubuntu-trusty-32:~<span class="nv">$ </span><span class="nb">cd</span> /vagrant/buildout
+vagrant@vagrant-ubuntu-trusty-32:/vagrant/buildout<span class="nv">$ </span>./bin/instance <span class="nb">fg</span>
+2014-05-20 16:56:54 INFO ZServer HTTP server started at Tue May 20 16:56:54 2014
+        Hostname: 0.0.0.0
+        Port: 8080
+2014-05-20 16:56:56 INFO Products.PloneFormGen gpg_subprocess initialized, using /usr/local/bin/gpg
+2014-05-20 16:57:02 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
+2014-05-20 16:57:02 INFO Zope Ready to handle requests
+</pre></div>
+</div>
+<p>Now the Zope-instance we&#8217;re using is running. You can stop the running instance anytime using <tt class="docutils literal"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">c</span></tt>.</p>
+<p>You can now point your local browser at <a class="reference external" href="http://localhost:8080">http://localhost:8080</a> and see the Plone that is running in vagrant. This works because Virtualbox forwards the port 8080 from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone-Site by clicking &#8220;Create a new Plone-Site&#8221;. The username and the password are both &#8220;admin&#8221; (Never do this on a real site!).</p>
+<p>The Buildout for this Plone is in a shared folder, this means we run it in the vagrant-box from <tt class="docutils literal"><span class="pre">/vagrant/buildout</span></tt> but we can also access it in out own operating-system and use our favorite editor. You will find the directory <tt class="docutils literal"><span class="pre">buildout</span></tt> in the directory <tt class="docutils literal"><span class="pre">training</span></tt> that you created in the very beginning next to <tt class="docutils literal"><span class="pre">Vagrantfile</span></tt> and <tt class="docutils literal"><span class="pre">manifests</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The database and the python-packages are <strong>not accessible</strong> in you own system since large files and you canot use symlinks in shared folders. The database lies in <tt class="docutils literal"><span class="pre">/home/vagrant/var</span></tt>, the python-packages are in <tt class="docutils literal"><span class="pre">/home/vagrant/omelette</span></tt>.</p>
+</div>
+<p>If you have any problems or questions please mail us at <a class="reference external" href="mailto:team&#37;&#52;&#48;starzel&#46;de">team<span>&#64;</span>starzel<span>&#46;</span>de</a></p>
+</div>
+<div class="section" id="what-vagrant-does">
+<h2>What Vagrant does<a class="headerlink" href="#what-vagrant-does" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These steps are automatically done by vagrant and puppet. They are only explained here if you want to know what goes on below the hood.</p>
+</div>
+<p>Puppet does the first installation, Puppet is a tool to automatically manage servers (real and virtual). We won&#8217;t get into Puppet since it is not that widely used. This is what we basically do if we did it by hand:</p>
+<p>First we update the ubuntu and install some packages.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo aptitude update --quiet --assume-yes
+<span class="nv">$ </span>sudo apt-get install build-essential
+<span class="nv">$ </span>sudo apt-get install python-dev
+<span class="nv">$ </span>sudo apt-get install libjpeg-dev
+<span class="nv">$ </span>sudo apt-get install libxml2-dev
+<span class="nv">$ </span>sudo apt-get install libxslt-dev
+<span class="nv">$ </span>sudo apt-get install git
+<span class="nv">$ </span>sudo apt-get install libz-dev
+<span class="nv">$ </span>sudo apt-get install libssl-dev
+<span class="nv">$ </span>sudo apt-get install subversion
+<span class="nv">$ </span>sudo apt-get install wget
+<span class="nv">$ </span>sudo apt-get install curl
+<span class="nv">$ </span>sudo apt-get install elinks
+<span class="nv">$ </span>sudo apt-get install vim
+<span class="nv">$ </span>sudo apt-get install gettext
+<span class="nv">$ </span>sudo apt-get install python-virtualenv
+<span class="nv">$ </span>sudo apt-get install putty-tools
+</pre></div>
+</div>
+<p>Then we create a virtual python environement using virtualenv. This is alway a good practice since that way we get a clean copy of our system-python, we can&#8217;t break it by installing eggs that might collide with other eggs:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ virtualenv --no-site-packages /home/vagrant/py27
+</pre></div>
+</div>
+<p>Then we download, unpack and install the unified installer of Plone.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkdir Plone
+<span class="nv">$ </span>mkdir tmp
+<span class="nv">$ </span><span class="nb">cd </span>tmp
+<span class="nv">$ </span>wget https://launchpad.net/plone/4.3/4.3.3/+download/Plone-4.3.3-UnifiedInstaller.tgz
+<span class="nv">$ </span>tar xzf Plone-4.3.3-UnifiedInstaller.tgz
+<span class="nv">$ </span><span class="nb">cd </span>Plone-4.3.3-UnifiedInstaller
+<span class="nv">$ </span>./install.sh standalone --with-python<span class="o">=</span>/home/vagrant/py27/bin/python --password<span class="o">=</span>admin --instance<span class="o">=</span>zinstance --target<span class="o">=</span>/home/vagrant/Plone
+</pre></div>
+</div>
+<p>The unified installer is an amazing tool that compiles it&#8217;s own python, brings with it all the python-eggs we need and puts them in a buildout-cache. It then creates a Buildout and makes Plone ready to run.</p>
+<p>We will not actually use this Plone during the training. If you want to use it for your own experiments, you can find it in <tt class="docutils literal"><span class="pre">/home/vagrant/Plone/zinstance</span></tt> on the virtual machine.</p>
+<p>Instead vagrant now creates our own little Buildout and only uses the eggs that the unified installer created. First we copy the buildout-cache that holds all the python-packages that Plone consists of.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cp -Rf /home/vagrant/Plone/buildout-cache /home/vagrant
+</pre></div>
+</div>
+<p>Then we checkout our tutorial code from <a class="reference external" href="http://github.com/starzel/training">http://github.com/starzel/training</a> and build it.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> /vagrant
+<span class="nv">$ </span>git clone https://github.com/starzel/training.git buildout
+<span class="nv">$ </span><span class="nb">cd </span>buildout
+<span class="nv">$ </span>/home/vagrant/py27/bin/python bootstrap.py
+<span class="nv">$ </span>./bin/buildout
+</pre></div>
+</div>
+<p>At this point vagrant has finished it&#8217;s job.</p>
+<p>You can now connect to the machine and start plone.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>vagrant ssh
+<span class="nv">$ </span><span class="nb">cd</span> /vagrant/buildout
+<span class="nv">$ </span>./bin/instance <span class="nb">fg</span>
+</pre></div>
+</div>
+<p>Now we have fresh Buildout based Zope site, ready to get a Plone site. Go to <a class="reference external" href="http://localhost:8080">http://localhost:8080</a> and create a Plone site, only activate the  <em class="guilabel">Dexterity-based Plone Default Types</em> plugin.</p>
+<p>You might wonder, why we use the unified installer. We use the unified installer to set up a cache of packages to download in a much shorter time. Without it, your first Buildout on a fresh computer would take more than half an hour on a good internet connection.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../case.html" class="btn btn-neutral float-right" title="4. The Case-Study"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../installation.html" class="btn btn-neutral" title="2. Installation &amp; Setup"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Philip Bauer, Patrick Gerken. Version 1.2.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

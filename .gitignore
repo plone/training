@@ -6,6 +6,4 @@ local/
 .vagrant
 build/
 plone_training_config/training/
-manual/
-presentation/
-.idea
+.doctrees
