@@ -57,7 +57,6 @@ Some technologies and tools we use during the training:
 * TAL
 * METAL
 * Zcml
-* Grok
 * Python
 * Dexterity
 * Viewlets
@@ -75,6 +74,8 @@ We will not cover the following topics:
 * `Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_
 * `i18n and locales <http://docs.plone.org/develop/plone/i18n/index.html>`_
 * `Deployment, Hosting and Caching <http://docs.plone.org/manage/deploying/index.html>`_
+* :doc:`grok`
+* `References/Relations <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_
 
 Other topics are only covered lightly:
 
@@ -83,7 +84,7 @@ Other topics are only covered lightly:
 * `ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_
 * `Security <http://docs.plone.org/develop/plone/security/index.html>`_
 * `Permissions <http://docs.plone.org/develop/plone/security/permissions.html>`_
-
+* `Performance and Caching <http://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_
 
 What to expect
 --------------
