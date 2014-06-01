@@ -257,3 +257,6 @@ Be McGuyver
         * https://github.com/plone/Installers-UnifiedInstaller/blob/master/buildout_templates/buildout.cfg
         * https://github.com/plone/Installers-UnifiedInstaller/blob/master/base_skeleton/base.cfg
         * https://github.com/plone/Installers-UnifiedInstaller/blob/master/base_skeleton/develop.cfg
+
+    mr.developer
+        https://pypi.python.org/pypi/mr.developer/

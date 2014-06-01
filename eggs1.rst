@@ -1,5 +1,5 @@
-Creating your own eggs to customize Plone
-=========================================
+Creating addons to customize Plone
+==================================
 
 .. sidebar:: Get the code!
 
@@ -9,8 +9,10 @@ Creating your own eggs to customize Plone
 
         cp -Rf src/ploneconf.site_sneak/chapters/12_eggs1/ src/ploneconf.site
 
+Using zopeskel to create an egg
+-------------------------------
 
-Our own code has to be organised as an egg. An Egg is a zip file or a directory that follows certain conventions. We are going to use `ZopeSkel <https://pypi.python.org/pypi/ZopeSkel>`_ to create a skeleton projekt. We only need to fill the holes.
+Our own code has to be organised as an egg. An egg is a zip file or a directory that follows certain conventions. We are going to use `ZopeSkel <https://pypi.python.org/pypi/ZopeSkel>`_ to create a skeleton projekt. We only need to fill the holes.
 
 .. note::
 
@@ -42,6 +44,9 @@ We anwser some questions:
 .. only:: manual
 
     If this is your first egg, this is a very special moment. We are going to create the egg with a script that generates a lot of necessary files. They all are necessary, but sometimes in a subtle way. It takes a while do understand their full meaning. Only last year I learnt and understood why I should have a manifest.in file. You can get along without one, but trust me, you get along better with a proper manifest file.
+
+Inspecting the package
+----------------------
 
 Lets have a look at some of it's files.
 
@@ -75,3 +80,38 @@ ploneconf/site/profiles/default/types.xml
     Registration of types
 
 There are also some files that can be deleted because they use outdated approaches to testing: ``ploneconf/site/tests.py`` and ``ploneconf/site/INTEGRATION.txt``.
+
+
+Including the egg in Plone
+--------------------------
+
+Before we can use our new addon we have to tell Plone about it. Edit ``buildout.cfg`` and uncomment ``ploneconf.site`` in the `eggs`- and `sources-`sections:
+
+.. code-block:: cfg
+    :emphasize-lines: 4, 11
+
+    eggs =
+        Plone
+        ...
+        ploneconf.site
+    #    starzel.votable_behavior
+
+    ...
+
+    [sources]
+    collective.behavior.banner = git https://github.com/starzel/collective.behavior.banner.git pushurl=git@github.com:starzel/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
+    ploneconf.site = fs ploneconf.site full-path=${buildout:directory}/src/ploneconf.site
+    # starzel.votable_behavior = git https://github.com/starzel/starzel.votable_behavior.git pushurl=git://github.com/starzel/starzel.votable_behavior.git
+
+This tells Buildout to add the egg ``ploneconf.site``. Since it is also in the `sources`-section Buildout will not try to download it from pypi but will expect it in ``src/ploneconf.site``. *fs* allows you to add packages on the filesystem without a version control system, or with an unsupported one.
+
+Now run buildout to reconfigure Plone with the updated configuration:
+
+.. code-block:: bash
+
+    $ ./bin/buildout
+
+After restarting Plone with ``./bin/instance fg`` the new addon `ploneconf.site` is available for install like PloneFormGen or Plone True Gallery.
+
+We will not install it now since we did not add any of our own code or configuration yet. Instead we will first create a new content-type through the web. We will then export it and add it as code to the egg. This way the content-type will be available for everyone who installs our addon.
+
