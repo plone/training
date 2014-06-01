@@ -245,6 +245,20 @@ The ``|`` ("or") character is used to find an alternative value to a path if the
 
     <p tal:content="context/title | context/id"></p>
 
+This returns the id of the context if it has no title.
+
+.. code-block:: html
+
+      <p tal:replace="talk/average_rating | nothing"></p>
+
+This returns nothing if there is no 'average_rating' for a talk. What will not work is ``tal:content="python:talk['average_rating'] or ''"``. Who knows what this would yield?
+
+.. only:: manual
+
+    We'll get ``KeyError: 'average_rating'``. It is very bad practice to use | too often since it will swallow errors like a typo in ``tal:content="talk/averange_ratting | nothing"`` and you might wonder why there are no ratings later on...
+
+    You can't and should not use it to prevent errors like a try/except-block.
+
 There are several **built in variables**  that can be used in paths:
 
 The most frequently used one is ``nothing`` which is the equivalent to None

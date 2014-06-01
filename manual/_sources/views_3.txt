@@ -310,13 +310,6 @@ I'll explain some of the things in the TAL:
 ``tal:condition="not:view/talks"``
     this is a fallback for when no talks are returned by out method talks. It then return an empty list (remember ``results = []``?)
 
-``tal:content="talk/average_rating | nothing"``
-    you might remember there is no key 'average_rating' in the dict that we return. The '|' ("or") character is used to find an alternative value to a path if the first path evaluates to ``nothing`` or does not exist. The | ("or") is the logical 'or' and will be used if no value exists.
-
-    What will not work is ``tal:content="python:talk['average_rating'] or ''"``. Who knows what it will yield? We'll get ``KeyError: 'average_rating'``. In fact it is bad practice to use | too often since it'll swallow errors like a typo in ``tal:content="talk/averange_ratting | nothing"`` and you might wonder why there are no ratings later on...
-
-    Keep in mind that you can't and should not use it to prevent errors like a try/except-block. But in this case it's pretty useful since our code does not break event though we have not implemented ratings yet.
-
 
 Setting a custom view as default-view on an object
 --------------------------------------------------

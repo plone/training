@@ -136,6 +136,7 @@
 <li class="toctree-l1"><a class="reference internal" href="theming.html">10. Theming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="buildout_1.html">11. Buildout I</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#syntax">Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#recipes">Recipes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#references">References</a></li>
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#a-real-life-example">A real life example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#hello-mr-developer">Hello mr.developer!</a></li>
@@ -143,7 +144,12 @@
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#be-mcguyver">Be McGuyver</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="eggs1.html">12. Creating your own eggs to customize Plone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eggs1.html">12. Creating addons to customize Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eggs1.html#using-zopeskel-to-create-an-egg">Using zopeskel to create an egg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eggs1.html#inspecting-the-package">Inspecting the package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eggs1.html#including-the-egg-in-plone">Including the egg in Plone</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="dexterity.html">13. Dexterity I: Through the web</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="dexterity.html#what-is-a-content-type">What is a content-type?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dexterity.html#dexterity-and-archetypes-a-comparison">Dexterity and Archetypes - A Comparison</a></li>
@@ -674,11 +680,6 @@
 <dd>&#8216;speaker&#8217; is a key in the dict &#8216;talk&#8217;. We could also write <tt class="docutils literal"><span class="pre">tal:content=&quot;python:talk['speaker']&quot;</span></tt></dd>
 <dt><tt class="docutils literal"><span class="pre">tal:condition=&quot;not:view/talks&quot;</span></tt></dt>
 <dd>this is a fallback for when no talks are returned by out method talks. It then return an empty list (remember <tt class="docutils literal"><span class="pre">results</span> <span class="pre">=</span> <span class="pre">[]</span></tt>?)</dd>
-<dt><tt class="docutils literal"><span class="pre">tal:content=&quot;talk/average_rating</span> <span class="pre">|&nbsp;nothing&quot;</span></tt></dt>
-<dd><p class="first">you might remember there is no key &#8216;average_rating&#8217; in the dict that we return. The &#8216;|&#8217; (&#8220;or&#8221;) character is used to find an alternative value to a path if the first path evaluates to <tt class="docutils literal"><span class="pre">nothing</span></tt> or does not exist. The | (&#8220;or&#8221;) is the logical &#8216;or&#8217; and will be used if no value exists.</p>
-<p>What will not work is <tt class="docutils literal"><span class="pre">tal:content=&quot;python:talk['average_rating']</span> <span class="pre">or</span> <span class="pre">''&quot;</span></tt>. Who knows what it will yield? We&#8217;ll get <tt class="docutils literal"><span class="pre">KeyError:</span> <span class="pre">'average_rating'</span></tt>. In fact it is bad practice to use | too often since it&#8217;ll swallow errors like a typo in <tt class="docutils literal"><span class="pre">tal:content=&quot;talk/averange_ratting</span> <span class="pre">|&nbsp;nothing&quot;</span></tt> and you might wonder why there are no ratings later on...</p>
-<p class="last">Keep in mind that you can&#8217;t and should not use it to prevent errors like a try/except-block. But in this case it&#8217;s pretty useful since our code does not break event though we have not implemented ratings yet.</p>
-</dd>
 </dl>
 </div>
 <div class="section" id="setting-a-custom-view-as-default-view-on-an-object">

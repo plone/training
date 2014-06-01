@@ -136,6 +136,7 @@
 <li class="toctree-l1"><a class="reference internal" href="theming.html">10. Theming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="buildout_1.html">11. Buildout I</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#syntax">Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#recipes">Recipes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#references">References</a></li>
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#a-real-life-example">A real life example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#hello-mr-developer">Hello mr.developer!</a></li>
@@ -143,7 +144,12 @@
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#be-mcguyver">Be McGuyver</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="eggs1.html">12. Creating your own eggs to customize Plone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eggs1.html">12. Creating addons to customize Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eggs1.html#using-zopeskel-to-create-an-egg">Using zopeskel to create an egg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eggs1.html#inspecting-the-package">Inspecting the package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eggs1.html#including-the-egg-in-plone">Including the egg in Plone</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="dexterity.html">13. Dexterity I: Through the web</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="dexterity.html#what-is-a-content-type">What is a content-type?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dexterity.html#dexterity-and-archetypes-a-comparison">Dexterity and Archetypes - A Comparison</a></li>
@@ -494,6 +500,13 @@
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;p</span> <span class="na">tal:content=</span><span class="s">&quot;context/title | context/id&quot;</span><span class="nt">&gt;&lt;/p&gt;</span>
 </pre></div>
 </div>
+<p>This returns the id of the context if it has no title.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;p</span> <span class="na">tal:replace=</span><span class="s">&quot;talk/average_rating | nothing&quot;</span><span class="nt">&gt;&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p>This returns nothing if there is no &#8216;average_rating&#8217; for a talk. What will not work is <tt class="docutils literal"><span class="pre">tal:content=&quot;python:talk['average_rating']</span> <span class="pre">or</span> <span class="pre">''&quot;</span></tt>. Who knows what this would yield?</p>
+<p>We&#8217;ll get <tt class="docutils literal"><span class="pre">KeyError:</span> <span class="pre">'average_rating'</span></tt>. It is very bad practice to use | too often since it will swallow errors like a typo in <tt class="docutils literal"><span class="pre">tal:content=&quot;talk/averange_ratting</span> <span class="pre">|&nbsp;nothing&quot;</span></tt> and you might wonder why there are no ratings later on...</p>
+<p>You can&#8217;t and should not use it to prevent errors like a try/except-block.</p>
 <p>There are several <strong>built in variables</strong>  that can be used in paths:</p>
 <p>The most frequently used one is <tt class="docutils literal"><span class="pre">nothing</span></tt> which is the equivalent to None</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;p</span> <span class="na">tal:replace=</span><span class="s">&quot;nothing&quot;</span><span class="nt">&gt;</span>

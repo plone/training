@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>12. Creating your own eggs to customize Plone &mdash; Mastering Plone 1.2.1 documentation</title>
+  <title>12. Creating addons to customize Plone &mdash; Mastering Plone 1.2.1 documentation</title>
   
 
   
@@ -136,6 +136,7 @@
 <li class="toctree-l1"><a class="reference internal" href="theming.html">10. Theming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="buildout_1.html">11. Buildout I</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#syntax">Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#recipes">Recipes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#references">References</a></li>
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#a-real-life-example">A real life example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#hello-mr-developer">Hello mr.developer!</a></li>
@@ -143,7 +144,12 @@
 <li class="toctree-l2"><a class="reference internal" href="buildout_1.html#be-mcguyver">Be McGuyver</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">12. Creating your own eggs to customize Plone</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">12. Creating addons to customize Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-zopeskel-to-create-an-egg">Using zopeskel to create an egg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inspecting-the-package">Inspecting the package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#including-the-egg-in-plone">Including the egg in Plone</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="dexterity.html">13. Dexterity I: Through the web</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="dexterity.html#what-is-a-content-type">What is a content-type?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dexterity.html#dexterity-and-archetypes-a-comparison">Dexterity and Archetypes - A Comparison</a></li>
@@ -288,7 +294,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>12. Creating your own eggs to customize Plone</li>
+    <li>12. Creating addons to customize Plone</li>
       <li class="wy-breadcrumbs-aside">
         
       </li>
@@ -297,8 +303,8 @@
 </div>
           <div role="main">
             
-  <div class="section" id="creating-your-own-eggs-to-customize-plone">
-<h1>12. Creating your own eggs to customize Plone<a class="headerlink" href="#creating-your-own-eggs-to-customize-plone" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="creating-addons-to-customize-plone">
+<h1>12. Creating addons to customize Plone<a class="headerlink" href="#creating-addons-to-customize-plone" title="Permalink to this headline">¶</a></h1>
 <div class="sidebar">
 <p class="first sidebar-title">Get the code!</p>
 <p>Get the code for this chapter (<a class="reference internal" href="sneak.html"><em>More info</em></a>) using this command in the buildout-directory:</p>
@@ -306,7 +312,9 @@
 </pre></div>
 </div>
 </div>
-<p>Our own code has to be organised as an egg. An Egg is a zip file or a directory that follows certain conventions. We are going to use <a class="reference external" href="https://pypi.python.org/pypi/ZopeSkel">ZopeSkel</a> to create a skeleton projekt. We only need to fill the holes.</p>
+<div class="section" id="using-zopeskel-to-create-an-egg">
+<h2>Using zopeskel to create an egg<a class="headerlink" href="#using-zopeskel-to-create-an-egg" title="Permalink to this headline">¶</a></h2>
+<p>Our own code has to be organised as an egg. An egg is a zip file or a directory that follows certain conventions. We are going to use <a class="reference external" href="https://pypi.python.org/pypi/ZopeSkel">ZopeSkel</a> to create a skeleton projekt. We only need to fill the holes.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">In the training we use ZopeSkel 2.21.2, a relatively old version. We do this because this version is shipped with Plone&#8217;s Unified Installer. In our own projects we mostly use <a class="reference external" href="http://mrbob.readthedocs.org/en/latest/">mr.bob</a> to create eggs.</p>
@@ -331,6 +339,9 @@
 <li>Use relations? (True/False: include support for relations?) [False]: <tt class="docutils literal"><span class="pre">True</span></tt></li>
 </ul>
 <p>If this is your first egg, this is a very special moment. We are going to create the egg with a script that generates a lot of necessary files. They all are necessary, but sometimes in a subtle way. It takes a while do understand their full meaning. Only last year I learnt and understood why I should have a manifest.in file. You can get along without one, but trust me, you get along better with a proper manifest file.</p>
+</div>
+<div class="section" id="inspecting-the-package">
+<h2>Inspecting the package<a class="headerlink" href="#inspecting-the-package" title="Permalink to this headline">¶</a></h2>
 <p>Lets have a look at some of it&#8217;s files.</p>
 <dl class="docutils">
 <dt>bootstrap.py, buildout.cfg, plone.cfg</dt>
@@ -355,6 +366,32 @@
 <dd>Registration of types</dd>
 </dl>
 <p>There are also some files that can be deleted because they use outdated approaches to testing: <tt class="docutils literal"><span class="pre">ploneconf/site/tests.py</span></tt> and <tt class="docutils literal"><span class="pre">ploneconf/site/INTEGRATION.txt</span></tt>.</p>
+</div>
+<div class="section" id="including-the-egg-in-plone">
+<h2>Including the egg in Plone<a class="headerlink" href="#including-the-egg-in-plone" title="Permalink to this headline">¶</a></h2>
+<p>Before we can use our new addon we have to tell Plone about it. Edit <tt class="docutils literal"><span class="pre">buildout.cfg</span></tt> and uncomment <tt class="docutils literal"><span class="pre">ploneconf.site</span></tt> in the <cite>eggs</cite>- and <a href="#id1"><span class="problematic" id="id2">`</span></a>sources-<a href="#id3"><span class="problematic" id="id4">`</span></a>sections:</p>
+<div class="highlight-cfg"><div class="highlight"><pre>eggs =
+    Plone
+    ...
+<span class="hll">    ploneconf.site
+</span>#    starzel.votable_behavior
+
+...
+
+[sources]
+collective.behavior.banner = git https://github.com/starzel/collective.behavior.banner.git pushurl=git@github.com:starzel/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
+<span class="hll">ploneconf.site = fs ploneconf.site full-path=${buildout:directory}/src/ploneconf.site
+</span># starzel.votable_behavior = git https://github.com/starzel/starzel.votable_behavior.git pushurl=git://github.com/starzel/starzel.votable_behavior.git
+</pre></div>
+</div>
+<p>This tells Buildout to add the egg <tt class="docutils literal"><span class="pre">ploneconf.site</span></tt>. Since it is also in the <cite>sources</cite>-section Buildout will not try to download it from pypi but will expect it in <tt class="docutils literal"><span class="pre">src/ploneconf.site</span></tt>. <em>fs</em> allows you to add packages on the filesystem without a version control system, or with an unsupported one.</p>
+<p>Now run buildout to reconfigure Plone with the updated configuration:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>./bin/buildout
+</pre></div>
+</div>
+<p>After restarting Plone with <tt class="docutils literal"><span class="pre">./bin/instance</span> <span class="pre">fg</span></tt> the new addon <cite>ploneconf.site</cite> is available for install like PloneFormGen or Plone True Gallery.</p>
+<p>We will not install it now since we did not add any of our own code or configuration yet. Instead we will first create a new content-type through the web. We will then export it and add it as code to the egg. This way the content-type will be available for everyone who installs our addon.</p>
+</div>
 </div>
 
 
