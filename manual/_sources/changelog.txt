@@ -1,11 +1,18 @@
 Changelog
 =========
 
+1.2.2 (2014-06-01)
+------------------
+
+- Fix all mistakes found during the training in May 2014
+- Move rest-files to https://github.com/starzel/training
+
+
 1.2.1 (2014-05-30)
 ------------------
 
 - Publish verbose version on http://starzel.github.io/training/index.html
-- Add bash-command to get the core for each chapter
+- Add bash-command to copy the code from ploneconf.site_sneak to ploneconf.site for each chapter
 - include vagrant-setup as zip-file
 - several small bugfixes
 

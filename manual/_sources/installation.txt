@@ -65,11 +65,7 @@ Hosting Plone
 
 .. only:: manual
 
-    If you want to host a real-live Plone-Site yourself then running it from your laptop is not an viable option. A good way to get to know Plone is http://ploud.com where you can host one real Plone-Site for free.
-
-.. only:: presentation
-
-    Try http://ploud.com to host a Plone-Site for free.
+    If you want to host a real-live Plone-Site yourself then running it from your laptop is not an viable option.
 
 You can host Plone...
 
