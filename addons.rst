@@ -42,7 +42,7 @@ Some noteable addons
   Allows visitors to subcribe to mailchimp newsletters
 
 `eea.facetednavigation <https://pypi.python.org/pypi/eea.facetednavigation/>`_
-  Create faceted navigation and searches throught the web.
+  Create faceted navigation and searches through the web.
 
 `webcouturier.dropdownmenu <https://pypi.python.org/pypi/webcouturier.dropdownmenu>`_
   Turns global navigation into dropdowns
@@ -163,7 +163,7 @@ We would use http://pypi.python.org/pypi/plone.app.multilingual for this. It is 
 Summary
 -------
 
-We are now able to customize and extend many parts of our wesite. We can even install extensions that add new functionality.
+We are now able to customize and extend many parts of our website. We can even install extensions that add new functionality.
 
 But:
 

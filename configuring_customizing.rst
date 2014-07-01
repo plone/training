@@ -73,7 +73,7 @@ Viewlets
 * the code is much simpler (we'll create one tomorrow)
 * live in viewlet-managers, can be nested (by adding a viewlet that contains a viewlet-manager)
 * ttw-reordering only within the same viewlet-manager
-* the code descides when it's where and what it shows
+* the code decides when it's where and what it shows
 
 Portlets save Data, Viewlets usually don't. Viewlets are often used for UI-Elements.
 
@@ -217,7 +217,7 @@ Enter the following css:
 
     Click 'save' and check results in the a different browser-tab. How did that happen?
 
-    The UI leaves a lot to be desired. In a professional context this is no-go (no version-control, no syntac-highlighting etc. pp.). But everybody uses portal_skins it to make quick fixes to sites that are already online.
+    The UI leaves a lot to be desired. In a professional context this is no-go (no version-control, no syntax-highlighting etc. pp.). But everybody uses portal_skins it to make quick fixes to sites that are already online.
 
     Let's add some more css to make our site a little responsive:
 
