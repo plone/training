@@ -69,7 +69,7 @@ Users
 
     Make this user with your name an administrator.
 
-    Then create another user called testuser. Make him a normal user. You can use this user to see how Plone loks and behaves to users that have no admin-permission.
+    Then create another user called testuser. Make him a normal user. You can use this user to see how Plone looks and behaves to users that have no admin-permission.
 
     Now let's see the site in 3 different browsers with in three different roles:
 
