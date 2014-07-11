@@ -6,11 +6,12 @@
 Welcome to Mastering Plone's documentation!
 ===========================================
 
-This is the documentation for the "Mastering Plone"-training by Philip Bauer and Patrick Gerken of `starzel.de <http://www.starzel.de>`_.
+This is the documentation for the "Mastering Plone"-training.
 
-The training is intended as a three-day course for people who are new to Plone. It can be abridged to two days.
+Mastering Plone is intended as a week-long training for people who are new to Plone or want to learn about the current best-practices of Plone-development. It can be split in two tranings:
 
-If you have question, found errors or want to book us for a training please contact us at team@starzel.de.
+- A beginner training (2 to 3 days) that covers chapters 1-18.
+- A advanced training (3 to 5 days) that covers the rest.
 
 
 Contents:
@@ -58,8 +59,12 @@ Contents:
     optional
 
 
-Please note that this document is not aimed at the larger public. It is the documentation that people get who attend a training. Even though we attempt to include the most important parts of what we teach in this documentation it can not be considered complete without the spoken word.
+Please note that this document is not complete without the spoken word of a trainer even though we attempt to include the most important parts of what we teach in the narative it can not be considered complete without the spoken word.
 
-A more complete documentation can be found at http://developer.plone.org/index.html.
 
-:doc:`changelog`
+.. toctree::
+    :maxdepth: 2
+
+    about
+    changelog
+    roadmap
