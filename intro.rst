@@ -101,7 +101,7 @@ If you want to stay on the ttw-side of things you could read `Practical Plone <h
 Documentation
 --------------
 
-Follow the training at http://starzel.github.io/training/
+Follow the training at http://plone-training.readthedocs.org/
 
 .. note::
 
