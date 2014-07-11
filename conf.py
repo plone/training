@@ -12,7 +12,7 @@
 # serve to show the default.
 
 import sys, os
-import sphinx_rtd_theme
+# import sphinx_rtd_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -93,10 +93,10 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#html_theme = 'default'
-html_theme = "sphinx_rtd_theme"
+html_theme = 'default'
+#html_theme = "sphinx_rtd_theme"
 
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+#html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 #html_theme_path = ["_themes", ]
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -138,9 +138,7 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
-html_sidebars = {
-    '**': ['globaltoc.html', 'searchbox.html']
-}
+html_sidebars = {}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
