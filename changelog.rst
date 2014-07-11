@@ -1,31 +1,71 @@
 Changelog
 =========
 
+1.2.3 (2014-07-11)
+------------------
+
+- Move sources to https://github.com/plone/training and render
+  at http://plone-training.readthedocs.org/
+  [pbauer]
+
+- Integrate with docs.plone.org and papyrus
+  [do3cc]
+
+- Change license to http://creativecommons.org/licenses/by/4.0/
+  [pbauer]
+
+- Document how to contribute
+  [pbauer]
+
+- Update introduction
+  [pbauer]
+
 1.2.2 (2014-06-01)
 ------------------
 
 - Fix all mistakes found during the training in May 2014
-- Move rest-files to https://github.com/starzel/training
+  [pbauer]
 
+- Move rest-files to https://github.com/starzel/training
+  [pbauer]
 
 1.2.1 (2014-05-30)
 ------------------
 
 - Publish verbose version on http://starzel.github.io/training/index.html
+  [pbauer]
+
 - Add bash-command to copy the code from ploneconf.site_sneak to ploneconf.site for each chapter
+  [pbauer]
+
 - include vagrant-setup as zip-file
+  [pbauer]
+
 - several small bugfixes
+  [pbauer]
 
 
 1.2 (2014-05-23)
 ----------------
 
 - Heavily expanded and rewritten for a training in Mai 2014
+  [pbauer, do3cc]
+
 - remove grok
+  [pbauer]
+
 - use plone.app.contenttypes from the beginning
+  [pbauer]
+
 - use plone.api
+  [pbauer]
+
 - rewrite vagrant-setup
+  [pbauer]
+
 - drop use of plone.app.themeeditor
+  [pbauer]
+
 - add more chapters:
 
  * Dexterity Types II: Growing up
@@ -36,21 +76,25 @@ Changelog
  * Using third-party behaviors
  * Dexterity Types III: Python
  * ...
+ [pbauer, do3cc]
 
 
 1.1 (October 2013)
 ------------------
 
 - Revised for Ploneconf 2013, Brasilia
+  [pbauer, do3cc]
 
 
 1.0 (October, 2012)
 -------------------
 
 - First version for Ploneconf 2012, Arnhem
+  [pbauer, do3cc]
 
 
 0.1 (October 2009)
 ------------------
 
 - Initial parts created for the Plone-Einsteigerkurs (http://www.plone.de/trainings/einsteiger-kurs/kursuebersicht)
+  [pbauer]
