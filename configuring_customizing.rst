@@ -94,7 +94,7 @@ Zope is the foundation of Plone. Here you can access the inner working of Zope a
 
   Here you can easily break your site so you should know what you are doing.
 
-.. only:: manual
+.. only:: not presentation
 
     We only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
 
@@ -142,7 +142,7 @@ We want a new link to legal information, called "Imprint".
 * Set permission to ``View``
 * Save
 
-.. only:: manual
+.. only:: not presentation
 
   explain
 
@@ -183,7 +183,7 @@ In portal_skins we can change certain images, css-files and templates.
 * portal_skins is deprecated technology
 * We only do some minial changes here.
 
-.. only:: manual
+.. only:: not presentation
 
     Plone 5 will get rid of a lot of functionality that still lives in portal_skins.
 
@@ -213,7 +213,7 @@ Enter the following css:
 
     * Save and check the results
 
-.. only:: manual
+.. only:: not presentation
 
     Click 'save' and check results in the a different browser-tab. How did that happen?
 

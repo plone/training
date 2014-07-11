@@ -10,7 +10,7 @@ Zope2
 * Zope is a web application framework that Plone runs on top of.
 * It serves applications that communicate with users via http.
 
-.. only:: manual
+.. only:: not presentation
 
     Before Zope, there usually was an Apache server that would call a script and give the request as an input. The script would then just print HTML to the standard output. Apache returned that to the user. Opening database connections, checking permission constraints, generating valid HTML, configuring caching, interpreting form data and everything you have to do on your own. When the second request comes in, you have to do everything again.
 
@@ -44,7 +44,7 @@ Content Management Framework
 * `CMF (Content Management Framework) <http://old.zope.org/Products/CMF/index.html/>`_ is add-on for Zope to build Content Management Systems (like Plone).
 
 
-.. only:: manual
+.. only:: not presentation
 
     After many successfully created websites based on Zope, a number of recurring requirements emerged, and some Zope developers started to write CMF, the Content Management Framework.
 
@@ -66,7 +66,7 @@ Zope Toolkit / Zope3
 * Zope 3 was originally intended as a ground-up rewrite of Zope.
 * Plone uses parts of it provided by the `Zope Toolkit (ZTK) <http://docs.zope.org/zopetoolkit/>`_.
 
-.. only:: manual
+.. only:: not presentation
 
     Unfortunately, nobody started to use Zope 3, nobody migrated to Zope 3 because nobody knew how.
 
@@ -92,7 +92,7 @@ Pyramid
 * `Pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ is a Python web application development framework that is often seen as the successor to Zope.
 * It does less than Zope, is very pluggable and `uses the Zope Component Architecture <http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_.
 
-.. only:: manual
+.. only:: not presentation
 
     You can use it with a relational Database instead of ZODB if you want, or you use both databases or none of them.
 

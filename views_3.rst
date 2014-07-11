@@ -146,7 +146,7 @@ For historical reasons some attributes of brains and objects are written differe
 
 Who can guess what ``brain.title`` will return since the brain has no such attribute?
 
-.. only:: manual
+.. only:: not presentation
 
     .. note::
 

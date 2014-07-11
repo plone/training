@@ -11,7 +11,7 @@ Behaviors
 
 
 
-.. only:: manual
+.. only:: not presentation
 
     You can extend the functionality of your dexterity object by writing an adapter that adapts your dexterity object to add another feature or aspect.
 
@@ -20,7 +20,7 @@ Behaviors
 Dexterity Approach
 ------------------
 
-.. only:: manual
+.. only:: not presentation
 
     Dexterity has a solution for it, with special adapters that are called and registered by the name behavior.
 
@@ -33,7 +33,7 @@ Dexterity Approach
 Names and Theory
 ----------------
 
-.. only:: manual
+.. only:: not presentation
 
     The name behavior is not a standard term in the software development. But it is a good idea to think of a behavior as an aspect. You are adding an aspect to your content type, you want to write your aspect in such a way, that it works independent of the content type on which the aspect is applied. You should not have dependencies to specific fields of your object or to other behaviors.
 
@@ -48,7 +48,7 @@ Names and Theory
 Practical example
 -----------------
 
-.. only:: manual
+.. only:: not presentation
 
     So, let us write our own small behavior.
 
@@ -64,7 +64,7 @@ We want to keep a clean structure, so we create a :file:`behaviors` directory fi
 
 Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/configure.zcml` containing
 
-.. only:: manual
+.. only:: not presentation
 
     .. sidebar:: Advanced reference
 
@@ -128,7 +128,7 @@ And a :file:`behaviors/social.py` containing:
 
     alsoProvides(ISocial, IFormFieldProvider)
 
-.. only:: manual
+.. only:: not presentation
 
     Lets get through this step by step.
 
@@ -142,7 +142,7 @@ And a :file:`behaviors/social.py` containing:
 Adding it to our talk
 ---------------------
 
-.. only:: manual
+.. only:: not presentation
 
     We could add this behavior now via the plone control panel. But instead, we will do it directly properly in our GenericSetup profile
 

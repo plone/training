@@ -1,7 +1,7 @@
 Using starzel.votable_behavior in ploneconf.site
 ================================================
 
-.. only:: manual
+.. only:: not presentation
 
     * We want to use the votable behavior, so that our reviewers can vote.
     * To show how to use events, we are going to auto publish talks that have reached a certain rating.
@@ -9,7 +9,7 @@ Using starzel.votable_behavior in ploneconf.site
 
 First, we must add our package as a dependency to ploneconf.site.
 
-.. only:: manual
+.. only:: not presentation
 
     We do this in two locations. The egg description :file:`setup.py` needs :samp:`starzel.votable_behavior` as a dependency.
     Else no source code will be available.
@@ -49,7 +49,7 @@ Next up we modify :file:`profiles/default/metadata.xml`
         </dependencies>
     </metadata>
 
-..  only:: manual
+... only:: not presentation
 
     What a weird name. profile- is a prefix you will always need nowadays. Then comes the egg name, and the part after the colon is the name of the profile. The name of the profile is defined in zcml. So far I've stumbled only over one package where the profile directory name was different to the GenericSetup Profile name.
 
@@ -73,7 +73,7 @@ We have to add the behavior to talks, we do this in :file:`profiles/default/type
       <element value="starzel.votable_behavior.interfaces.IVoting"/>
     </property>
 
-..  only:: manual
+... only:: not presentation
 
     Now we can reinstall our Plone site.
 
@@ -140,7 +140,7 @@ The config for the Workflow is in :file:`profiles/default/workfows/talks_workflo
       ...
     </dc-workflow>
 
-.. only:: manual
+.. only:: not presentation
 
     We have to reinstall our product again.
 
@@ -182,7 +182,7 @@ then, we write the ZCML configuration for the events into :file:`events/configur
     </configure>
 
 
-.. only:: manual
+.. only:: not presentation
 
     This looks like a MultiAdapter. We want to get notified, when an IVotable object gets modified. Our method will receive the votable object, and the event itself.
 
@@ -202,7 +202,7 @@ And finally, our event handler in :file:`events/votable.py`
             if votable.average_vote() > 0.5:
                 transition(votable_object, transition='publish')
 
-.. only:: manual
+.. only:: not presentation
 
     We are using a lot of plone api here. Plone API makes the code a breeze. Also, there is nothing really interesting.
     We will only do something, if the workflow state is pending and the average vote is above 0.5.

@@ -3,7 +3,7 @@ Extending Plone
 
 Zope is extensible and so is Plone.
 
-.. only:: manual
+.. only:: not presentation
 
     If you want to install an Add-on, you are going to install an Egg. Eggs consist of Python files together with other needed files like page templates and the like and a bit of Metadata, bundled to a single archive file.
 
@@ -17,7 +17,7 @@ How do you extend Plone?
 
 This depends on what type of extension you want to create.
 
-.. only:: manual
+.. only:: not presentation
 
 
     * You can create extensions with new types of objects to add to your Plone site. Usually these are content types.
@@ -33,7 +33,7 @@ skin_folders
     * Very quick
     * Very unmaintainable
 
-.. only:: manual
+.. only:: not presentation
 
     Do you remember Acquisition? The Skin Folders extends the concepts of Acquistion. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder.
 
@@ -53,7 +53,7 @@ GenericSetup
     * Limited use cases
     * Full of surprises
 
-.. only:: manual
+.. only:: not presentation
 
     The next thing is *GenericSetup*. As the name clearly implies, *GenericSetup* is part of CMF.
 
@@ -76,7 +76,7 @@ Component Architecture
     * cryptic
     * Powerful and flexible
 
-.. only:: manual
+.. only:: not presentation
 
     The last way to extend Plone is via *Components*.
 
@@ -100,7 +100,7 @@ Component Architecture
 What are components, what is ZCML
 ---------------------------------
 
-.. only:: manual
+.. only:: not presentation
 
     What is the absolute simplest way to extend functionality?
 

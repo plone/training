@@ -253,7 +253,7 @@ This returns the id of the context if it has no title.
 
 This returns nothing if there is no 'average_rating' for a talk. What will not work is ``tal:content="python:talk['average_rating'] or ''"``. Who knows what this would yield?
 
-.. only:: manual
+.. only:: not presentation
 
     We'll get ``KeyError: 'average_rating'``. It is very bad practice to use | too often since it will swallow errors like a typo in ``tal:content="talk/averange_ratting | nothing"`` and you might wonder why there are no ratings later on...
 

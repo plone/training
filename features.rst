@@ -23,7 +23,7 @@ The :program:`instance`-script offers the following options::
     $ ./bin/instance stop
     $ ./bin/instance debug -O Plone
 
-.. only:: manual
+.. only:: not presentation
 
     Depending on your computer, it might take up to a minute until Zope will tell you that its ready to serve requests. On a decent laptop it shound be running in under 15 seconds.
 
@@ -53,7 +53,7 @@ The :program:`instance`-script offers the following options::
 Users
 -----
 
-.. only:: manual
+.. only:: not presentation
 
     Let's create our first users within Plone. So far we used the admin-user (admin:admin) configured in the buildout. He is often called "zope-root". This user is not managed in Plone but only in by Zope. Therefore he's missing some features like email and fullname and he won't be able to use some of plone's features. But he has all possible permissions. It is also unsecure to use this user. Basically, his password can be seen easily within each request.
 
@@ -97,7 +97,7 @@ Configure a Mailserver
 ----------------------
 
 
-.. only:: manual
+.. only:: not presentation
 
     We have to configure a mailserver since later we will create some content-actions that send emails when new content is put on our site.
 
@@ -128,7 +128,7 @@ Let's see what is there...
 
 * :guilabel:`portal-footer`: viewlets
 
-.. only:: manual
+.. only:: not presentation
 
     These are also the css-classes of the respective div's. If you want to do theming you'll need them.
 

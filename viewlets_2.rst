@@ -11,7 +11,7 @@ Voting Viewlet
 * saving the vote on the object using annotations
 
 
-.. only:: manual
+.. only:: not presentation
 
     Earlier we added the logic that saves votes on the objects. We now create the user interface for it.
 
@@ -56,7 +56,7 @@ We extend the file :file:`browser/viewlets.py`
     class Vote(base.ViewletBase):
         pass
 
-.. only:: manual
+.. only:: not presentation
 
     This will add a viewlet to a slot below the title and expect a template :file:`voting_viewlet.pt` in a folder :file:`browser/templates`.
 
@@ -165,7 +165,7 @@ And extend the template in :file:`browser/templates/voting_viewlet.pt`
       </script>
     </tal:snippet>
 
-.. only:: manual
+.. only:: not presentation
 
     We have many small parts, most of which will be hidden by javascript unless needed.
     By providing all these status information in HTML, we can use standard translation tools to translate. Translating strings in javascript requires extra work.
@@ -264,7 +264,7 @@ To make it work in the browser, some javascript :file:`static/starzel_votablebeh
         };
     }(jQuery, window.starzel_votablebehavior = window.starzel_votablebehavior || {}));
 
-.. only:: manual
+.. only:: not presentation
 
     This js-code adheres to crockfort jshint rules, so all variables are declared at the beginning of the method.
     We show and hide quite a few small html elements here
@@ -273,7 +273,7 @@ To make it work in the browser, some javascript :file:`static/starzel_votablebeh
 Writing 2 simple view helpers
 -----------------------------
 
-.. only:: manual
+.. only:: not presentation
 
     Our javascript code communicates with our site by calling views that don't exist yet.
     These Views do not need to render html, but should return a valid status.

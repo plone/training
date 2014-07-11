@@ -14,7 +14,7 @@ Adding permissions
    * Zope 2 Permissions
    * Zope 3 Permissions
 
-.. only:: manual
+.. only:: not presentation
 
     Permissions have a long history, there are two types of permissions.
 
@@ -77,7 +77,7 @@ We provide this in :file:`__init__.py`
 Using our permissions
 ---------------------
 
-.. only:: manual
+.. only:: not presentation
 
     As you can see, we created two permissions, one for voting, one for viewing the votes.
 
@@ -120,7 +120,7 @@ We can add this restriction to :file:`browser/configure.zcml`
     </configure>
 
 
-.. only:: manual
+.. only:: not presentation
 
     We are configuring components, so we use the component name of the permission, which is the :samp:`id` part of the declaration we added earlier.
 
@@ -196,14 +196,14 @@ And the template in :file:`browser/templates/voting_viewlet.pt`
 
     </tal:snippet>
 
-.. only:: manual
+.. only:: not presentation
 
     Sometimes subtle bugs come up because of changes, in this case, I noticed that I should only animate people to vote, if they are allowed to vote!
 
 Provide defaults
 ----------------
 
-.. only:: manual
+.. only:: not presentation
 
     Are we done yet? Who may vote now?
 

@@ -29,7 +29,7 @@ Please tell us about yourselves:
         This is some weird sh*t!
       </div>
 
-  ..  only:: manual
+  ... only:: not presentation
 
       The answer is::
 
@@ -115,7 +115,7 @@ Further Reading
 * `Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_
 
 
-.. only:: manual
+.. only:: not presentation
 
     .. note::
 

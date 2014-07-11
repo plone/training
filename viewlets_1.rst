@@ -13,7 +13,7 @@ Writing Viewlets
 A viewlet for the social behavior
 ---------------------------------
 
-.. only:: manual
+.. only:: not presentation
 
     A viewlet is no view but a snippet of html and logic that can be put in various places in the site. These places are called ``viewletmanager``.
 
@@ -25,7 +25,7 @@ A viewlet for the social behavior
 social-viewlet
 --------------
 
-.. only:: manual
+.. only:: not presentation
 
     Let's add a link to the site that uses the information that we collected using the social-behavior.
 
@@ -44,7 +44,7 @@ We register the viewlet in :file:`browser/configure.zcml`.
       permission="zope2.View"
       />
 
-.. only:: manual
+.. only:: not presentation
 
     This registers a viewlet called ``social``.
     It is visible on all content that implements the interface ``ISocial`` from our behavior.
@@ -63,7 +63,7 @@ The viewlet-class ``SocialViewlet`` is expected in a file ``browser/viewlets.py`
         pass
 
 
-.. only:: manual
+.. only:: not presentation
 
     This class does nothing except rendering the associated template (That we have to write yet)
 
@@ -99,7 +99,7 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
     </div>
 
 
-.. only:: manual
+.. only:: not presentation
 
     As you can see this is not a valid html document. That is not needed, because we don't want a complete view here, just a html snippet.
 
@@ -108,7 +108,7 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
 We have to extend the Social Viewlet now to add the missing attribute:
 
 
-.. only:: manual
+.. only:: not presentation
 
     .. sidebar:: Why not to access context directly
 

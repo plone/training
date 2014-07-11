@@ -5,7 +5,7 @@ Installation & Setup
 Installing Plone
 ----------------
 
-.. only:: manual
+.. only:: not presentation
 
     Plone 4.3.x requires a working Python 2.7 and several other system-tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that Python can can be used:
 
@@ -21,13 +21,13 @@ Installing Plone
 * `homebrew <http://mxcl.github.com/homebrew>`_ (Mac OS X)
 * PyWin32 (Windows)
 
-.. only:: manual
+.. only:: not presentation
 
     MacOS 10.8 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones. To run a older Plone-version you need Python 2.4 and that's not always easy to install.
 
     Most developers usually use their primary system to develop Plone.
 
-.. only:: manual
+.. only:: not presentation
 
     * Philip has MacOS, therefore he uses the python-buildout to compile all neccessary versions of python and homebrew for some linux-tools.
     * Patrick uses Ubuntu.
@@ -49,7 +49,7 @@ Plone offers some options for being installed:
 You can download all of these at http://plone.org/products/plone/releases/4.3.3
 
 
-.. only:: manual
+.. only:: not presentation
 
     For the training we'll use option 3 and 4 to install and run Plone. We'll create our own Buildout and extend it as we wish. But we will do so in a vagrant machine. For your own first experiments we recommend option 2 or 3 (if you have a windows-laptop or encounter problems). Later on you should be able to use your own Buildout (we'll cover that later on).
 
@@ -63,7 +63,7 @@ Read more about installing Plone: https://plone.org/documentation/manual/install
 Hosting Plone
 -------------
 
-.. only:: manual
+.. only:: not presentation
 
     If you want to host a real-live Plone-Site yourself then running it from your laptop is not an viable option.
 

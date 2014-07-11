@@ -3,7 +3,7 @@ More complex behaviors
 
 Using Annotations
 -----------------
-.. only:: manual
+.. only:: not presentation
 
     We are going to store the information in an annotation. Not because it is needed but because you will find code that uses annotations and need to understand the implications.
 
@@ -21,7 +21,7 @@ Using Annotations
 Using Schema
 ------------
 
-.. only:: manual
+.. only:: not presentation
 
     The attribute where we store our data will be declared as a schema field. We mark the field as a ommitted field, because we are not going to create z3c.form widgets for displaying them. We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
 
@@ -77,7 +77,7 @@ There are some important differences to our first behavior:
   * There is a marker interface
   * There is a factory
 
-.. only:: manual
+.. only:: not presentation
 
     The factory is a class that provides the behavior logic and gives access to the attributes we provide.
     Factories in Plone/Zope land are retrieved by adapting an object with an interface.
@@ -160,7 +160,7 @@ The interfaces need to be written, in our cases into a file :file:`interfaces.py
     alsoProvides(IVoting, IFormFieldProvider)
 
 
-.. only:: manual
+.. only:: not presentation
 
     This is a lot of code. The IVotableLayer we will need later for viewlets and browser views. Lets add it right here.
     The IVotable interface is the simple marker interface. It will only be used to bind browser views and viewlets to content types that provide our behavior, so no code needed.
@@ -210,7 +210,7 @@ Now the only thing that is missing is the behavior, which we must put into :file
         def voted(self):
             return self.annotations['voted']
 
-.. only:: manual
+.. only:: not presentation
 
     In our :samp:`__init__` method we get *annotations* from the object.
     We look for data with a specific key.
@@ -292,7 +292,7 @@ Lets continue with this file:
                                                'votes': PersistentDict()})
             self.annotations = annotations[KEY]
 
-.. only:: manual
+.. only:: not presentation
 
     We start with a little helper method which is not exposed via the interface. We don't want people to vote twice. There are many ways to ensure this and each one has flaws.
 

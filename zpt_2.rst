@@ -159,7 +159,7 @@ If you don't know which template the page you're looking at uses you can do an e
 skin-templates
 --------------
 
-.. only:: manual
+.. only:: not presentation
 
     Why don't we always only use templates? Because we might want to do something more complicated than get an attribute form the context and render it's value in some html-tag.
 

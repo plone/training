@@ -1,7 +1,7 @@
 Buildout I
 ==========
 
-.. only:: manual
+.. only:: not presentation
 
     `Buildout <https://pypi.python.org/pypi/zc.buildout>`_ composes your application for you, according to your rules.
 
@@ -17,7 +17,7 @@ Buildout I
 Syntax
 ------
 
-.. only:: manual
+.. only:: not presentation
 
     The syntax of Buildout configuration files is similar to classic ini files. You write a parameter name, an equals sign and the value. If you enter another value in the next line and indent it, Buildout understands that both values belong to the parameter name, and the parameter stores all values as a list.
 
@@ -47,7 +47,7 @@ Recipes
 References
 ----------
 
-.. only:: manual
+.. only:: not presentation
 
     Buildout allows you to use references in the configuration. A variable declaration may not only hold the variable value, but also a reference to where to look for the variable value.
 
@@ -148,11 +148,11 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
 
 When you run ``./bin/buildout`` without any arguments, Buildout will look for this file.
 
-.. only:: manual
+.. only:: not presentation
 
     Let us look closer at some variables.
 
-.. only:: manual
+.. only:: not presentation
 
     .. code-block:: cfg
 
@@ -204,7 +204,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
 Hello mr.developer!
 -------------------
 
-.. only:: manual
+.. only:: not presentation
 
     There are many more important things to know, and we can't go through them in all the detail but I want to focus on one specific feature: **mr.developer**
 
@@ -215,14 +215,14 @@ Hello mr.developer!
 Extensible
 ----------
 
-.. only:: manual
+.. only:: not presentation
 
     You might have noticed that most if not all functionality is only available via plugins. One of the things that Buildout excels at without any plugin, is the dependency resolution. You can help Plone in dependency resolution by declaring exactly which version of an egg you want. This is only one use case. Another one is much more important: If you want to have a repeatable Buildout, one that works two months from now also, you *must* declare all your egg versions. Else Buildout might install newer versions.
 
 Be McGuyver
 -----------
 
-.. only:: manual
+.. only:: not presentation
 
     As you can see, you can build very complex systems with Buildout. It is time for some warnings. Be selective in your recipes. Supervisor is a program to manage running servers, its pretty good. There is a recipe for it.
 
