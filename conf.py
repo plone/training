@@ -26,7 +26,17 @@ import sys, os
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.intersphinx', 'sphinx.ext.graphviz']
+extensions = [
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.graphviz',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.todo',
+]
+
+# See http://sphinx-doc.org/ext/todo.html#confval-todo_include_todos
+todo_include_todos = True
+
+locale_dirs = ["_locales"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -42,8 +52,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Mastering Plone'
-copyright = u'2014, Philip Bauer, Patrick Gerken. Version 1.2.2'
-
+copyright = u'''The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.'''
+trademark_name = "Plone"
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.

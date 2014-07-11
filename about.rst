@@ -16,9 +16,32 @@ If you want to contact the original autors about a training you can reach them a
 
 The training is rendered using sphinx and builds in two flavors:
 
-- presentation: the narrative documentation that is visible online
+default
+    The verbose version used for the online-documentation and for the trainer. Build it in sphinx with ``make html`` or use the online-version.
 
-- manual ("make manual"): A abbreviated (often bullet-points) version used for the projector during the training.
+presentation
+    A abbreviated version used for the projector during a training. It should uses more bullet-points than verbose text. Build it in sphinx with ``make presentation``.
+
+.. note::
+
+    By prefixing an indented block of text or code with ``.. only:: presentation`` you can control that his block is used for the presentation-version only.
+
+    To hide a block from the presentation-version use ``.. only:: not presentation``
+
+    Content without a prefix will be included in both versions.
+
+We slightly tweaked readthedocs-theme in ``_static/custom.css`` so that it works better with projectors:
+
+- We start hiding the navbar much earlier so that it does not interfere with the text.
+- We enlarge the default width of the content-area.
+
+.. note::
+
+    To enable the readthedocs-theme for building the docs locally you will have to modify the ``conf.py`` before ``make presentation`` by removing the comments at the beginning of some lines::
+
+        import sphinx_rtd_theme  # (line 15)
+        html_theme = "sphinx_rtd_theme"  # (line 107)
+        html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]  # (line 109)
 
 
 Contributing
@@ -26,15 +49,7 @@ Contributing
 
 Everyone is welcome to contribute. Minor bugfixes can be pushed direcly in the `repository <https://github.com/plone/training>`_, bigger changes should made as `pull-requests <https://github.com/plone/training/pull/>`_.
 
-When contributing to the training you should keep in mind that it builds in two different versions:
-
-manual
-    The verbose version used for the online-documentation and for the trainer. Build it in sphinx with ``make manual``.
-
-presentation
-    The abbreviated version used for the projector during a training. It should not (but still does) include a lot of verbose text but mostly bullet-points. Build it in sphinx with ``make presentation``.
-
-By prefixing a indented block of text or code with ``.. only:: presentation`` or ``.. only:: manual`` you can control which of the versions the indented block will show up. Content without a prefix will be included in both versions.
+By prefixing a indented block of text or code with ``.. only:: presentation`` or ``.. only:: not presentation`` you can control which of the versions the indented block will show up. Content without a prefix will be included in both versions.
 
 
 License
