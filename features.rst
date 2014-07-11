@@ -229,7 +229,7 @@ Manage members and groups
 Workflows
 ---------
 
-Read more at: http://developer.plone.org/content/workflow.html
+Read more at: http://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
 
 Working copy
 ------------
