@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Mastering Plone's documentation!
-===========================================
+Mastering Plone!
+================
 
 This is the documentation for the "Mastering Plone"-training.
 
