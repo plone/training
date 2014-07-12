@@ -1,3 +1,5 @@
+*~
+*.mo
 _build/
 bin/
 include/
