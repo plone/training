@@ -165,7 +165,7 @@ tal:condition
     tests, if the expression is true or false.
 
 * If it's true, then the tag is rendered.
-* If it's false then the tag **and all its cheildren** are removed and no longer evaluated.
+* If it's false then the tag **and all its children** are removed and no longer evaluated.
 * We can reverse the logic by prepending a ``not:`` to the expression.
 
 Let's add another TAL-Attribute to our above example::
@@ -458,7 +458,7 @@ The template should now look like this:
 
 .. note::
 
-    Since the demoview only used content from the template, not from the context that it is called on it makes litte sense to have the edit-bar. We hide it by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
+    Since the demoview only used content from the template, not from the context that it is called on it makes little sense to have the edit-bar. We hide it by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
 
     The easiest way to do this is to define a dummy-variable. Dummy because it is never used except to allow us to execute some code.
 
@@ -512,7 +512,7 @@ In templates we can also access other browser-views. Some of those exist to prov
                 plone_view context/@@plone;"
 
 ``@@plone_context_state``
-    The BrowserView ``plone.app.layout.globals.context.ContextState`` holds usefull methods having to do with the current context object such as ``is_default_page``
+    The BrowserView ``plone.app.layout.globals.context.ContextState`` holds useful methods having to do with the current context object such as ``is_default_page``
 
 ``@@plone_portal_state``
     The BrowserView ``plone.app.layout.globals.portal.PortalState`` holds methods for the portal like ``portal_url``
@@ -526,7 +526,7 @@ These are very widely used and there are many more.
 What we missed
 --------------
 
-The are some things we did not cover so far:
+There are some things we did not cover so far:
 
 ``tal:condition="exists:expression"``
     checks if an object or an attribute exists (seldom used)

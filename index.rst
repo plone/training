@@ -59,7 +59,7 @@ Contents:
     optional
 
 
-Please note that this document is not complete without the spoken word of a trainer even though we attempt to include the most important parts of what we teach in the narative it can not be considered complete without the spoken word.
+Please note that this document is not complete without the spoken word of a trainer even though we attempt to include the most important parts of what we teach in the narrative it can not be considered complete without the spoken word.
 
 
 .. toctree::

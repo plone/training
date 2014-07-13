@@ -89,7 +89,7 @@ Add the following after line 29:
             News date
     </p>
 
-The method ``toLocalizedTime`` is already defined in the template whose macro this temples uses. Why is that?
+The method ``toLocalizedTime`` is already defined in the template whose macro this templates uses. Why is that?
 
 The secret is line 15 of ``summary_view.pt``:
 
@@ -129,7 +129,7 @@ If you don't know which template the page you're looking at uses you can do an e
 
         <body class="template-summary_view portaltype-collection site-Plone section-news subsection-aggregator icons-on userrole-anonymous" dir="ltr">
 
-    The class ``template-summary_view`` tells us that the name of the view (but not necessarily the name of the template) is ``summary_view``. So we could search all ``*.zcml``-Files for ``name="summary_view"`` or search all templates calles ``summary_view.pt`` and probably find the view and also the corresponding template. But only probably because it would not tell us if the template is already being overridden.
+    The class ``template-summary_view`` tells us that the name of the view (but not necessarily the name of the template) is ``summary_view``. So we could search all ``*.zcml``-Files for ``name="summary_view"`` or search all templates calls ``summary_view.pt`` and probably find the view and also the corresponding template. But only probably because it would not tell us if the template is already being overridden.
 
 2.  The safest method is using ``plone.app.debugtoolbar``.  We already have it in our buildout and only need to install it. It adds a "Debug"-Dropdown on top of the page. The Section "Published" shows the complete path to the template that is used to render the page you are seeing.
 

@@ -108,8 +108,8 @@ Configure a Mailserver
 Please do not abuse this. We'll disable this account after the training.
 
 
-Walktrough of the UI
---------------------
+Walkthrough of the UI
+---------------------
 
 Let's see what is there...
 
@@ -196,7 +196,7 @@ Collections
 * add a new collection: all content that has pending as wf_state.
 * explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit
 * explain Topics
-* mention collection-portets
+* mention collection-portlets
 * multi-path-querys
 * constrains, e.g. ``/Plone/folder::1``
 

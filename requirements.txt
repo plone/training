@@ -1,0 +1,12 @@
+Jinja2==2.7.3
+MarkupSafe==0.23
+Pygments==1.6
+Sphinx==1.2.2
+argparse==1.2.1
+docutils==0.11
+polib==1.0.4
+six==1.7.3
+sphinx-intl==0.9.5
+sphinx-rtd-theme==0.1.6
+transifex-client==0.11.1.beta
+wsgiref==0.1.2
