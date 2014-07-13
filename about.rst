@@ -12,7 +12,7 @@ Using the documentation for a training
 
 Feel free to organize a training yourself. Please be so kind to contribute any bugfixes or enhancements you made to the documentation for your training.
 
-If you want to contact the original autors about a training you can reach them at team@starzel.de.
+If you want to contact the original authors about a training you can reach them at team@starzel.de.
 
 The training is rendered using sphinx and builds in two flavors:
 

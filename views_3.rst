@@ -96,7 +96,7 @@ We create a dictionary that holds all the information we want to show in the tem
 brains and objects
 ------------------
 
-Objects are normally not loaded into memory but lie dormant in the Database ZODB. Waking objects up can be slow, especially if you're waking up a lot of objects. Fortunately out talks are not especially heavy since they are
+Objects are normally not loaded into memory but lie dormant in the Database ZODB. Waking objects up can be slow, especially if you're waking up a lot of objects. Fortunately our talks are not especially heavy since they are
 
 * dexterity-objects which are lighter than their archetypes-brothers
 * relatively few since we don't have thousands of talks at our conference
@@ -219,7 +219,7 @@ Controller:
 
 The view and the controller are very much mixed in Plone.
 
-When you look at some of the older code of Plone you'll see that the policy of keeping login insice python and representation in templates was not always enforced. You should nevertheless do it. You'll end up with more than enough logic in the templates anyway. You'll see now.
+When you look at some of the older code of Plone you'll see that the policy of keeping login inside python and representation in templates was not always enforced. You should nevertheless do it. You'll end up with more than enough logic in the templates anyway. You'll see now.
 
 Let's add this simple table to our template ``templates/talklistview.pt``:
 
@@ -318,7 +318,7 @@ We don't want to always have to append /@@talklistview to out folder to get the 
 
 If we append ``/manage_propertiesForm`` we can set the property "layout" to ``talklistview``.
 
-To make views configurable so that editors can choose them we have to register the view for the content-type at hand in it's FTI. To enableif for all folders we add  anew file ``profiles/default/types/Folder.xml``
+To make views configurable so that editors can choose them we have to register the view for the content-type at hand in it's FTI. To enable if for all folders we add a new file ``profiles/default/types/Folder.xml``
 
 .. code-block:: xml
     :linenos:
@@ -425,4 +425,4 @@ Let's test it: http://localhost:8080/Plone/talklistview
 Summary
 -------
 
-We created a nive listing, that can be called at any place in the website.
+We created a nice listing, that can be called at any place in the website.
