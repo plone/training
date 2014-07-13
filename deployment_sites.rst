@@ -26,7 +26,7 @@ A deployment-setup
 * zeoserver and zeoclients
 * haproxy
 * nagios
-* marnish
+* varnish
 * monitoring
 * supervisor
 * backup

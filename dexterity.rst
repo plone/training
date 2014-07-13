@@ -62,7 +62,7 @@ Approaches for Developers:
 
 Extending:
 
-* Dexterity has Behaviors: easily extendable. Just activate an behavior ttw and you ct is translateable (plone.app.multilingual). There might even be per-instance behaviors at one time...
+* Dexterity has Behaviors: easily extendable. Just activate an behavior ttw and you content-type is translateable (plone.app.multilingual). There might even be per-instance behaviors at one time...
 * Archetypes has archetypes.schemaextender. Powerfull but not as flexible
 
 We only use dexterity for the last years.

@@ -31,7 +31,7 @@ Optional
   - storage options
   - backup
   - deployment buildouts
-  - caching (vanish)
+  - caching (varnish)
 
 
 

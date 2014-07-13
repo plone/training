@@ -12,7 +12,7 @@ Creating addons to customize Plone
 Using zopeskel to create an egg
 -------------------------------
 
-Our own code has to be organised as an egg. An egg is a zip file or a directory that follows certain conventions. We are going to use `ZopeSkel <https://pypi.python.org/pypi/ZopeSkel>`_ to create a skeleton projekt. We only need to fill the holes.
+Our own code has to be organised as an egg. An egg is a zip file or a directory that follows certain conventions. We are going to use `ZopeSkel <https://pypi.python.org/pypi/ZopeSkel>`_ to create a skeleton project. We only need to fill the holes.
 
 .. note::
 
@@ -32,7 +32,7 @@ This returns a list of available templates we might use. We choose dexerity sinc
 
     $ ../bin/zopeskel dexterity
 
-We anwser some questions:
+We answer some questions:
 
 * Enter project name: ``ploneconf.site``
 * Expert Mode? (What question mode would you like? (easy/expert/all)?) ['easy']: ``easy``
@@ -48,7 +48,7 @@ We anwser some questions:
 Inspecting the package
 ----------------------
 
-Lets have a look at some of it's files.
+Let's have a look at some of it's files.
 
 bootstrap.py, buildout.cfg, plone.cfg
     You can ignore these files for now. They are here to create a buildout only for this egg to make testing easier.
@@ -60,7 +60,7 @@ setup.py
     This file configures the package, it's name, dependencies and some metadata like the authors name. The dependencies listed here are automatically added by buildout.
 
 ploneconf/site/configure.zcml
-    The phone-book of the packages. By reading it you can find out which functionality is registered thoughthe component architecture.
+    The phone-book of the packages. By reading it you can find out which functionality is registered though the component architecture.
 
 ploneconf/site/locales/
     This holds translation-files (see http://docs.plone.org/develop/plone/i18n/internationalisation.html). We won't use it during the training.
@@ -85,7 +85,7 @@ There are also some files that can be deleted because they use outdated approach
 Including the egg in Plone
 --------------------------
 
-Before we can use our new addon we have to tell Plone about it. Edit ``buildout.cfg`` and uncomment ``ploneconf.site`` in the `eggs`- and `sources-`sections:
+Before we can use our new addon we have to tell Plone about it. Edit ``buildout.cfg`` and uncomment ``ploneconf.site`` in the `eggs` and `sources` sections:
 
 .. code-block:: cfg
     :emphasize-lines: 4, 11

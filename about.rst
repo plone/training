@@ -12,7 +12,7 @@ Using the documentation for a training
 
 Feel free to organize a training yourself. Please be so kind to contribute any bugfixes or enhancements you made to the documentation for your training.
 
-If you want to contact the original autors about a training you can reach them at team@starzel.de.
+If you want to contact the original authors about a training you can reach them at team@starzel.de.
 
 The training is rendered using sphinx and builds in two flavors:
 
@@ -24,7 +24,7 @@ The training is rendered using sphinx and builds in two flavors:
 Contributing
 ------------
 
-Everyone is welcome to contribute. Minor bugfixes can be pushed direcly in the `repository <https://github.com/plone/training>`_, bigger changes should made as `pull-requests <https://github.com/plone/training/pull/>`_.
+Everyone is welcome to contribute. Minor bugfixes can be pushed directly in the `repository <https://github.com/plone/training>`_, bigger changes should made as `pull-requests <https://github.com/plone/training/pull/>`_.
 
 When contributing to the training you should keep in mind that it builds in two different versions:
 

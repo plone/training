@@ -15,7 +15,7 @@ Add new chapters:
 Todo
 ----
 
-Todos are managed as issues in the `github-reposiory <https://github.com/plone/training/issues>`_
+Todos are managed as issues in the `github-repository <https://github.com/plone/training/issues>`_
 
 - [ ] Change license to http://creativecommons.org/licenses/by/4.0/
 - [ ] Move documentation to https://github.com/plone/training
