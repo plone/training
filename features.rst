@@ -63,7 +63,7 @@ Users
 
     That way you can access databases you get from customers where you have no Plone-user.
 
-    To add a new user click on the name :guilabel:`admin` in the top right corner and then on :guilabel:`Site setup`. This is Plone's control panel. You can also access it by browsing to http://localhost:8080/plone_control_panel
+    To add a new user click on the name :guilabel:`admin` in the top right corner and then on :guilabel:`Site setup`. This is Plone's control panel. You can also access it by browsing to http://localhost:8080/Plone/plone_control_panel
 
     Click on :guilabel:`Users and Groups` and add a user. If you'd have configured a Mailserver, Plone could send you a mail with a link to a form where you can choose a password. We set a password here because we didn't configure a Mailserver.
 
@@ -138,7 +138,7 @@ Content-Types
 
 Edit a page:
 
-* :guilabel:`Edit frontpage`
+* :guilabel:`Edit front-page`
 * :guilabel:`Title` :samp:`Plone Conference 2014, Bristol`
 * :guilabel:`Description` :samp:`Tutorial`
 * :guilabel:`Text` :samp:`...`
@@ -156,7 +156,7 @@ Create a site-structure:
 * In /events: Add Event "Deadline for talk-submission" Date: 10.10.2014
 
 * Add Folder "Register"
-* Delete Folder "members"
+* Delete Folder "Members"
 * Add Folder "Intranet"
 
 

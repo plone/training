@@ -59,7 +59,7 @@ Setup Vagrant to automatically install the current guest-additions. You can choo
 
     $ vagrant plugin install vagrant-vbguest
 
-Now either get the attachmed zip-file (if you read this as a mail) or download it from  :download:`http://plone-training.readthedocs.org/en/latest/_downloads/plone_training_config.zip <../plone_training_config.zip>`.
+Now either get the attached zip-file (if you read this as a mail) or download it from  :download:`http://plone-training.readthedocs.org/en/latest/_downloads/plone_training_config.zip <../plone_training_config.zip>`.
  and copy its contents into your training directory. It should now hold the file "Vagrantfile" and the directory ``manifests``.
 
 Now start setting up the VM that is configured in "Vagrantfile"
@@ -131,7 +131,7 @@ The Buildout for this Plone is in a shared folder, this means we run it in the v
 
 .. note::
 
-    The database and the python-packages are **not accessible** in you own system since large files and you canot use symlinks in shared folders. The database lies in ``/home/vagrant/var``, the python-packages are in ``/home/vagrant/omelette``.
+    The database and the python-packages are **not accessible** in you own system since large files and you cannot use symlinks in shared folders. The database lies in ``/home/vagrant/var``, the python-packages are in ``/home/vagrant/omelette``.
 
 If you have any problems or questions please mail us at team@starzel.de
 
@@ -167,7 +167,7 @@ First we update the ubuntu and install some packages.
     $ sudo apt-get install python-virtualenv
     $ sudo apt-get install putty-tools
 
-Then we create a virtual python environement using virtualenv. This is alway a good practice since that way we get a clean copy of our system-python, we can't break it by installing eggs that might collide with other eggs::
+Then we create a virtual python environment using virtualenv. This is alway a good practice since that way we get a clean copy of our system-python, we can't break it by installing eggs that might collide with other eggs::
 
     $ virtualenv --no-site-packages /home/vagrant/py27
 
