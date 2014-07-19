@@ -29,7 +29,7 @@ Please tell us about yourselves:
         This is some weird sh*t!
       </div>
 
-  ... only:: not presentation
+  .. only:: not presentation
 
       The answer is::
 

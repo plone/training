@@ -29,7 +29,7 @@ Installing Plone
 
 .. only:: not presentation
 
-    * Philip has MacOS, therefore he uses the python-buildout to compile all neccessary versions of python and homebrew for some linux-tools.
+    * Philip has MacOS, therefore he uses the python-buildout to compile all necessary versions of python and homebrew for some linux-tools.
     * Patrick uses Ubuntu.
     * Alan Runyan (one of Plone's founders) uses Windows. We have no idea how he can live with that but to me he seems managing perfectly well. Plone is much slower on Windows.
 
@@ -65,7 +65,7 @@ Hosting Plone
 
 .. only:: not presentation
 
-    If you want to host a real-live Plone-Site yourself then running it from your laptop is not an viable option.
+    If you want to host a real-live Plone-Site yourself then running it from your laptop is not a viable option.
 
 You can host Plone...
 
