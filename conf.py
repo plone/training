@@ -12,7 +12,7 @@
 # serve to show the default.
 
 import sys, os
-import sphinx_rtd_theme
+# import sphinx_rtd_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -92,8 +92,8 @@ exclude_patterns = ['_build', 'lib', 'bin', 'include', 'local']
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-#pygments_style = 'sphinx'
-pygments_style = 'sphinx.pygments_styles.PyramidStyle'
+pygments_style = 'sphinx'
+#pygments_style = 'sphinx.pygments_styles.PyramidStyle'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -103,10 +103,10 @@ pygments_style = 'sphinx.pygments_styles.PyramidStyle'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#html_theme = 'default'
-html_theme = "sphinx_rtd_theme"
+html_theme = 'default'
+#html_theme = "sphinx_rtd_theme"
 
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+#html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 #html_theme_path = ["_themes", ]
 
 # Theme options are theme-specific and customize the look and feel of a theme
