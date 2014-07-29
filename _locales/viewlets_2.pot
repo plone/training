@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
+# This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../viewlets_2.rst:2
+# 984d89c8a7fe4cf58ee89d1eec118bb9
+msgid "A viewlet for the voteable behavior"
+msgstr ""
+
+#: ../viewlets_2.rst:6
+# 9ef137f8356d4951a7ba99d5634b9c7a
+msgid "Voting Viewlet"
+msgstr ""
+
+#: ../viewlets_2.rst:8
+# 702855ee217145548649a6c5ac5935f2
+msgid "Viewlet for IVoteable"
+msgstr ""
+
+#: ../viewlets_2.rst:9
+# ac092704ccbf4552bea8640530135689
+msgid "the viewlet-template"
+msgstr ""
+
+#: ../viewlets_2.rst:10
+# 05f1c1273ce548ab9f6f30b67e97275e
+msgid "add jquery include statements"
+msgstr ""
+
+#: ../viewlets_2.rst:11
+# 5f3d05bea5804f6c9a83b695235e768a
+msgid "saving the vote on the object using annotations"
+msgstr ""
+
+#: ../viewlets_2.rst:16
+# 58cb6af3720d426aaa7eac82cd5aeacb
+msgid "Earlier we added the logic that saves votes on the objects. We now create the user interface for it."
+msgstr ""
+
+#: ../viewlets_2.rst:18
+# 733f15f483784af8b6b8b72930e7421b
+msgid "Since we want to use the UI on more than one page (not only the talk-view but also the talk-listing) we need to put it somewhere."
+msgstr ""
+
+#: ../viewlets_2.rst:20
+# 9d2eed32143d417f91dde6e2675cb4a4
+msgid "To handle the user-input we don't use a form but links and ajax."
+msgstr ""
+
+#: ../viewlets_2.rst:21
+# e9e8b7917003407a94d64cc0ecded60b
+msgid "The voting itself is a fact handled by another view"
+msgstr ""
+
+#: ../viewlets_2.rst:23
+# 6887121723694baaba67dc6066381ab5
+msgid "We register the viewlet in :file:`browser/configure.zcml`."
+msgstr ""
+
+#: ../viewlets_2.rst:48
+# 42d8e2674af6449aa5f033e0b741ae3d
+msgid "We extend the file :file:`browser/viewlets.py`"
+msgstr ""
+
+#: ../viewlets_2.rst:61
+# de6ae9c7966a4e41aac7dd5aadc618f3
+msgid "This will add a viewlet to a slot below the title and expect a template :file:`voting_viewlet.pt` in a folder :file:`browser/templates`."
+msgstr ""
+
+#: ../viewlets_2.rst:63
+# ef8eb784623142c6b59c0c107b94c7bc
+msgid "Let's create the file :file:`browser/templates/voting_viewlet.pt` without any logic"
+msgstr ""
+
+#: ../viewlets_2.rst:78
+# fc048ffa22ec4c42be6636c6ba593d72
+msgid "restart Plone"
+msgstr ""
+
+#: ../viewlets_2.rst:79
+# a7af9b39ea4c4e6eaed1d2a7556eccf8
+msgid "show the viewlet"
+msgstr ""
+
+#: ../viewlets_2.rst:82
+# 23de10e21e5c44a0ab1d2c2024dcc203
+msgid "Writing the Viewlet code"
+msgstr ""
+
+#: ../viewlets_2.rst:88
+# ac3c98d114634fbb930eb87afb9433b0
+msgid "Update the viewlet to contain the necessary logic in :file:`browser/viewlets`"
+msgstr ""
+
+#: ../viewlets_2.rst:126
+# e2df4424d1df4864a0a5d71390b9297b
+msgid "The template"
+msgstr ""
+
+#: ../viewlets_2.rst:128
+# 7676b1ca075545249bd957f6b354c1c0
+msgid "And extend the template in :file:`browser/templates/voting_viewlet.pt`"
+msgstr ""
+
+#: ../viewlets_2.rst:170
+# 9b22f93623ff42008bc9849e2f30d470
+msgid "We have many small parts, most of which will be hidden by javascript unless needed. By providing all these status information in HTML, we can use standard translation tools to translate. Translating strings in javascript requires extra work."
+msgstr ""
+
+#: ../viewlets_2.rst:173
+# 7a32f1cfe3d0464f87f3376390f9c0ed
+msgid "We need some css that we store in :file:`static/starzel_votablebehavior.css`"
+msgstr ""
+
+#: ../viewlets_2.rst:220
+# d197f6c43d014802b50dbc39d215a173
+msgid "The javascript code"
+msgstr ""
+
+#: ../viewlets_2.rst:222
+# 427efdd328874c6eaf5bb5d6904fc697
+msgid "To make it work in the browser, some javascript :file:`static/starzel_votablebehavior.js`"
+msgstr ""
+
+#: ../viewlets_2.rst:269
+# a0003a7f5acb443b8947974dc7054179
+msgid "This js-code adheres to crockfort jshint rules, so all variables are declared at the beginning of the method. We show and hide quite a few small html elements here"
+msgstr ""
+
+#: ../viewlets_2.rst:274
+# c87fc56fb43a494dab4b9694c214d919
+msgid "Writing 2 simple view helpers"
+msgstr ""
+
+#: ../viewlets_2.rst:278
+# 3fe772a65ba6402e8252759059ce825a
+msgid "Our javascript code communicates with our site by calling views that don't exist yet. These Views do not need to render html, but should return a valid status. Exceptions set the right status and aren't being shown by javascript, so this will suit us fine."
+msgstr ""
+
+#: ../viewlets_2.rst:282
+# 9f22fe8fc62c4ae2827abdb0092282b9
+msgid "As you might remember, the :samp:`vote` method might return an exception, if somebody votes twice. We do not catch this exception. The user will never see this exception."
+msgstr ""
+
+#: ../viewlets_2.rst:287
+# 068c0993fee341348fd93251fb07633d
+msgid "Catching exceptions contain a gotcha for new developers."
+msgstr ""
+
+#: ../viewlets_2.rst:297
+# d0e20808dd6240a2b26dc7c91d115f97
+msgid "Zope claims some exceptions for themselves. It needs them to work correctly."
+msgstr ""
+
+#: ../viewlets_2.rst:299
+# de0a52150899472fadbcc39e2cd4ef9a
+msgid "For example, if two requests try to modify something at the same time, one request will throw an exception, a :samp:`ConflictError`."
+msgstr ""
+
+#: ../viewlets_2.rst:301
+# b8a1e9cb06004002887ec9aa187ae976
+msgid "Zope catches the exception, waits for a random amount of time, and tries to process the request again, up to three times. If you catch that exception, you are in trouble, so don't do that. Ever."
+msgstr ""
+
+#: ../viewlets_2.rst:304
+# 37bbc560b73d48618d72079d5c72ed60
+msgid "As so often, we must extend :file:`browser/configure.zcml`:"
+msgstr ""
+
+#: ../viewlets_2.rst:329
+# 4805424622bf4264aca42ecaf4328649
+msgid "Then we add our simple views into the file :file:`browser/vote.py`"
+msgstr ""
+
+#: ../viewlets_2.rst:354
+# e003d5f0dd84452990863dd11dfa7859
+msgid "A lot of moving parts have been created. Here is a small overview:"
+msgstr ""
+

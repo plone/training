@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
+# This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../events.rst:2
+# 8d69030b78674003ae5c3ee38826433b
+msgid "Turn talks into events"
+msgstr ""
+
+#: ../events.rst:0
+# 4e1109835a7e4f8799e562ffcef6549d
+msgid "Get the code!"
+msgstr ""
+
+#: ../events.rst:6
+# b20c5e6a51da4899bca566f1b38dc05c
+msgid "Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:"
+msgstr ""
+
+#: ../events.rst:13
+# a72a49dd8dda4e7da040b85b811fa693
+msgid "We forgot something: A list of talks is great especially if you can sort it by your preferences. But if a visitor decides he wants to see a talk he needs to know when it will take place."
+msgstr ""
+
+#: ../events.rst:15
+# a6c07a22e8d74a37893564425a9f4d09
+msgid "We need a schedule and for this we need to store the information when a talk will happen."
+msgstr ""
+
+#: ../events.rst:17
+# 432346e0bc5a4bf680435aca529f5e16
+msgid "Luckily the type *Event* is based on reuseable behaviors from the package plone.app.event."
+msgstr ""
+
+#: ../events.rst:19
+# 729d46fc5af741a39fd75d031e00ead4
+msgid "In this chapter we will"
+msgstr ""
+
+#: ../events.rst:21
+# 48caa491ea4b4fbea07e7714436a961b
+msgid "enable this behavior for talks"
+msgstr ""
+
+#: ../events.rst:22
+# bcb435efa899404bbd87309f4f3cab8f
+msgid "write an upgrade step to work around a bug in plone.app.event"
+msgstr ""
+
+#: ../events.rst:23
+# 02bfa333f5f84109bcad0172fbd9b53c
+msgid "display the date in the talkview"
+msgstr ""
+
+#: ../events.rst:25
+# 9e4072a416d4411eb7e4ce52e7da2d3b
+msgid "First we enable the behavior ``IEventBasic`` for talks in ``profiles/default/types/talk.xml``"
+msgstr ""
+
+#: ../events.rst:39
+# ffcbb99ada184290886863e52af21890
+msgid "If we set the behavior by hand or reinstall the addon we could now add new talks with new field for ``start`` and ``end``."
+msgstr ""
+
+#: ../events.rst:41
+# 992dddab95ff40d99fe43a445d62f9c6
+msgid "But because of a `bug in plone.app.event <https://github.com/plone/plone.app.event/issues/160>`_  does not expect existing objects to get the behavior. Since existing types have no values in the fields ``start`` and ``end`` we would get a traceback on inline-validation when we edit these. To work around this we create an upgrade-step that sets some an initial date."
+msgstr ""
+
+#: ../events.rst:43
+# 75cc6099bd5e401486c5cf194fd2f7ad
+msgid "Register the new upgrade step in ``upgrades.zcml``"
+msgstr ""
+
+#: ../events.rst:58
+# 1ad21e5b2f0f4bfc8f70f933d6511d19
+msgid "Bump the profile-version to 1002 in ``profiles/default/metadata.xml``"
+msgstr ""
+
+#: ../events.rst:60
+# d749f13093f14f03ac97ec6d675ea263
+msgid "Write the upgrade-step in ``upgrades.py``"
+msgstr ""
+
+#: ../events.rst:126
+# 802d23e7f197416fb48d398bd1bf6731
+msgid "After we ran the upgrade-step we can now add a time to existing events. To display this we reuse a default event-summary view as documented in http://ploneappevent.readthedocs.org/en/latest/development.html#reusing-the-event-summary-view-to-list-basic-event-information"
+msgstr ""
+
+#: ../events.rst:128
+# 52a90b73fae34554a3f434a57f7e3f2c
+msgid "Edit ``browser/templates/talkview.pt``"
+msgstr ""
+
