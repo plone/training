@@ -39,9 +39,9 @@ skin_folders
 
     The Plone logo is in a skin folder.
 
-    By default, your site has a custom folder, and items are first searched for in that folder.
+    By default, your site has a ``custom`` folder, and items are first searched for in that folder.
 
-    To customize the logo, you copy it into the custom folder, and change it there. This way you can change templates, CSS styles, images and behavior, because a container may contain python scripts.
+    To customize the logo, you copy it into the ``custom`` folder, and change it there. This way you can change templates, CSS styles, images and behavior, because a container may contain python scripts.
 
 
 GenericSetup
