@@ -188,7 +188,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
 
     The rest are addons we already used or will use later. The last eggs are commented out so they will not be installed by Buildout.
 
-    The file ``versions.cfg`` that is included by the ``extende = ...`` statement hold the version-pinnings:
+    The file ``versions.cfg`` that is included by the ``extends = ...`` statement hold the version-pinnings:
 
     .. code-block:: cfg
 
@@ -199,7 +199,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
         plone.app.debugtoolbar = 1.0a3
         ...
 
-    This is another special section. It has become a special section by declaration. In our :samp:`[buildout]` section we set a variable :samp:`version = version`. This told buildout, that there is a section named versions, containing version information. When Buildout installs eggs it will use the version defined in this section.
+    This is another special section. It has become a special section by declaration. In our :samp:`[buildout]` section we set a variable :samp:`versions = versions`. This told buildout, that there is a section named versions, containing version information. When Buildout installs eggs it will use the version defined in this section.
 
 Hello mr.developer!
 -------------------
@@ -210,7 +210,7 @@ Hello mr.developer!
 
     With mr.developer you can declare which packages you want to check out from which version control system and which repository URL. You can check out sources from git, svn, bzr, hg and maybe more. Also, you can say that some source are in your local file system.
 
-    ``mr.developer`` comes with a command, ``./bin/develop``. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them, when you write changes that require a new release. You can activate and deactivate eggs via the develop command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
+    ``mr.developer`` comes with a command, ``./bin/develop``. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them, when you write changes that require a new release. You can activate and deactivate eggs via the ``develop`` command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
 
 Extensible
 ----------
@@ -230,7 +230,7 @@ Be McGuyver
 
     Another problem is error handling. Buildout tries to install a weird dependency you do not actually want? Buildout will not tell you, where it is coming from.
 
-    If there is a problem, you can always run Buildout with -v, to get more verbose output, sometimes it helps.
+    If there is a problem, you can always run Buildout with ``-v``, to get more verbose output, sometimes it helps.
 
     .. code-block:: bash
 

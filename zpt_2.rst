@@ -165,9 +165,9 @@ skin-templates
 
     There is a deprecated technology called 'skin-templates' that allows you to simply add some page-template (e.g. 'old_style_template.pt') to a certain folder in the ZMI or your egg) and you can access it in the browser by opening a url like http://localhost:8080/Plone/old_style_template and it will be rendered. But we don't use it and you too should not even though these skin-templates are still all over Plone.
 
-    Since we use plone.app.contenttypes we do not encounter many skin-templates when dealing with content any more. But mor often than not you'll have to customize an old site that still uses skin-templates.
+    Since we use ``plone.app.contenttypes`` we do not encounter many skin-templates when dealing with content any more. But more often than not you'll have to customize an old site that still uses skin-templates.
 
-    Until now the templates of the default content-types are skin-templates for example. Since we use plone.app.contenttypes we do not encounter many skin-templates when dealing with content any more. But mor often than not you'll have to customize an old site that still uses skin-templates.
+    Until now the templates of the default content-types are skin-templates for example. Since we use ``plone.app.contenttypes`` we do not encounter many skin-templates when dealing with content any more. But more often than not you'll have to customize an old site that still uses skin-templates.
     You could append ``/document_view`` to any part of a plone-site to render the default template for documents. You will often get errors since the template ``document_view.pt`` expects the context to have a field 'text' that it attempts to render.
 
 Skin templates and python-scripts in portal_skin are deprecated because:

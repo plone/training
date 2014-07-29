@@ -25,7 +25,7 @@ The :program:`instance`-script offers the following options::
 
 .. only:: not presentation
 
-    Depending on your computer, it might take up to a minute until Zope will tell you that its ready to serve requests. On a decent laptop it shound be running in under 15 seconds.
+    Depending on your computer, it might take up to a minute until Zope will tell you that its ready to serve requests. On a decent laptop it should be running in under 15 seconds.
 
     A standard installation listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
 
@@ -69,7 +69,7 @@ Users
 
     Make this user with your name an administrator.
 
-    Then create another user called testuser. Make him a normal user. You can use this user to see how Plone looks and behaves to users that have no admin-permission.
+    Then create another user called ``testuser``. Make him a normal user. You can use this user to see how Plone looks and behaves to users that have no admin-permission.
 
     Now let's see the site in 3 different browsers with in three different roles:
 

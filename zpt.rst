@@ -255,7 +255,7 @@ This returns nothing if there is no 'average_rating' for a talk. What will not w
 
 .. only:: not presentation
 
-    We'll get ``KeyError: 'average_rating'``. It is very bad practice to use | too often since it will swallow errors like a typo in ``tal:content="talk/averange_ratting | nothing"`` and you might wonder why there are no ratings later on...
+    We'll get ``KeyError: 'average_rating'``. It is very bad practice to use ``|`` too often since it will swallow errors like a typo in ``tal:content="talk/averange_ratting | nothing"`` and you might wonder why there are no ratings later on...
 
     You can't and should not use it to prevent errors like a try/except-block.
 
