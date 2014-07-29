@@ -1,0 +1,198 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
+# This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../views_2.rst:2
+# 3cc074639e8c4f60a14652ac003c8b80
+msgid "Views II: A default view for \"talk\""
+msgstr ""
+
+#: ../views_2.rst:0
+# 1de0b35f4e5e4db5a627f7e320a84fab
+msgid "Get the code!"
+msgstr ""
+
+#: ../views_2.rst:6
+# bcdde14680084df2bd4f8dbe958192e4
+msgid "Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:"
+msgstr ""
+
+#: ../views_2.rst:14
+# dccfc316a9ce449fbec6a745b9b153ff
+msgid "View-Classes"
+msgstr ""
+
+#: ../views_2.rst:16
+# d90d5b48da99495d86575a6b2369b259
+msgid "Earlier we wrote a demo view which we also used to experiment with page templates. Let us have a look at the zcml and the Page Template again. I have extended the code just slightly."
+msgstr ""
+
+#: ../views_2.rst:20
+# 5479d5919820415ca694cdf92d60b589
+msgid "ZCML"
+msgstr ""
+
+#: ../views_2.rst:40
+# 08bb1c68818f4d019921e0d440365a3c
+msgid "Code"
+msgstr ""
+
+#: ../views_2.rst:59
+# 1681108f981f4c7c8f3a8194061384b0
+msgid "Do you remember the term MultiAdapter? The browser page is just a MultiAdapter. The ZCML statement ``browser:page`` registers a MultiAdapter and adds additional things needed for a browser view."
+msgstr ""
+
+#: ../views_2.rst:61
+# 924006fb8d774113863e205241f3a399
+msgid "An adapter adapts things, a MultiAdapter adapts multiple things."
+msgstr ""
+
+#: ../views_2.rst:63
+# 3f60f34e495145649ed7dab21db70362
+msgid "When you enter an url, Zope tries to find an object for it. At the end, when Zope does not find any more objects but there is still a path item left, or there are no more path items, Zope looks for an adapter that will reply to the request."
+msgstr ""
+
+#: ../views_2.rst:65
+# 52b7f51fd2294fc6bd9c50b5e108b646
+msgid "The adapter adapts the request and the object that Zope found with the URL. The adapter class gets instantiated with the objects to be adapted, then it gets called."
+msgstr ""
+
+#: ../views_2.rst:67
+# bd9f3c40c02d412fa6d30adebe2542fc
+msgid "The code above does the same thing that the standard implementation would do. It makes context and request available as variables on the object."
+msgstr ""
+
+#: ../views_2.rst:69
+# 415d30272d154e45a0fd72d4b271fd04
+msgid "I have written down these methods because it important to understand some important concepts."
+msgstr ""
+
+#: ../views_2.rst:71
+# d9fe53cf141c4b15a4c6a84e61ffc8cb
+msgid "The init method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved. Your code is not security checked. For historic reasons, many errors that happen in the init method can result in a page not found error instead of an exception."
+msgstr ""
+
+#: ../views_2.rst:73
+# 75db67cf41324007b16aa7f84276cb87
+msgid "Don't do much at all in the init method. Instead you have the guarantee that the call method is called before anything else (except the init method). It has the security checks in place and so on."
+msgstr ""
+
+#: ../views_2.rst:75
+# f8928ce9d18a406cae822d9de3fa1147
+msgid "From a practical standpoint, consider the call method your init method, the biggest difference is that this method is supposed to return the html already. Let your base class handle the html generation."
+msgstr ""
+
+#: ../views_2.rst:80
+# ffc02c8005aa43d2a0b439f9376ecc65
+msgid "The default-view"
+msgstr ""
+
+#: ../views_2.rst:82
+# 51914d0471954e0baeabd8adbc9e0dd5
+msgid "Now we finally add the default-view for talks in views.py"
+msgstr ""
+
+#: ../views_2.rst:84
+# 28e31fb8e2c54ed58ba685d31a0413fc
+msgid "``configure.zcml``"
+msgstr ""
+
+#: ../views_2.rst:97
+# c98f5a20d0a44406bb20e5adbbdf1124
+msgid "``views.py``"
+msgstr ""
+
+#: ../views_2.rst:109
+# 9591e2f1a2ad450d9ff173f0ed9e8cee
+msgid "The DefaultView base class in plone.dexterity only exists for Dextertity-Objects and has some very useful available to the template:"
+msgstr ""
+
+#: ../views_2.rst:111
+# f8aacfb4759f4a9f8faf5e1f6db9e6d5
+msgid "view.w is a dictionary of all the display widgets, keyed by field names. This includes widgets from alternative fieldsets."
+msgstr ""
+
+#: ../views_2.rst:112
+# 97bc28e58099493b99d6c71646b9bc4b
+msgid "view.widgets contains a list of widgets in schema order for the default fieldset."
+msgstr ""
+
+#: ../views_2.rst:113
+# 072a324e77434cf880a8493da482f382
+msgid "view.groups contains a list of fieldsets in fieldset order."
+msgstr ""
+
+#: ../views_2.rst:114
+# 4d710127148f432da0f45e0777aacaa4
+msgid "view.fieldsets contains a dict mapping fieldset name to fieldset"
+msgstr ""
+
+#: ../views_2.rst:115
+# 2b8d923047ac43b6890011d022f52639
+msgid "On a fieldset (group), you can access a widgets list to get widgets in that fieldset"
+msgstr ""
+
+#: ../views_2.rst:119
+# d4044ef59d614161a7851108a6088d3d
+msgid "``plone.dexterity.browser.view.DefaultView`` has the same features as the grok-equivalent ``plone.directives.dexterity.DisplayForm``."
+msgstr ""
+
+#: ../views_2.rst:121
+# d26ae0cdd0fe4a139a19ad87247d3b1e
+msgid "The template ``templates/talkview.pt`` uses the pattern ``view/w/<fieldname>/render`` to render some widgets."
+msgstr ""
+
+#: ../views_2.rst:144
+# 0ad63ffd36774dffa23606f143fcc49b
+msgid "After a restart, we can test our view by going to a talk and add /talkview to the url."
+msgstr ""
+
+#: ../views_2.rst:146
+# 33d1838d08bd4e3cb89cca4666e84ebd
+msgid "We should tell Plone, that the talkview should be used as the default view for talks instead of the built-in view."
+msgstr ""
+
+#: ../views_2.rst:148
+# dfe6edd94ef845c88b5b352491ccd066
+msgid "This is a configuration that you can change during runtime and is stored in the database, as such it is also managed by GenericSetup profiles."
+msgstr ""
+
+#: ../views_2.rst:150
+# fe1e3f8313b64db5a4dd9adebd81ad35
+msgid "open ``profiles/default/types/talk.xml``:"
+msgstr ""
+
+#: ../views_2.rst:164
+# 0b6e80291cac43b59d9e9947f14a1c1f
+msgid "We will have to either reinstall our addon or run the generic-setup step ``typeinfo`` so Plone learns about the change."
+msgstr ""
+
+#: ../views_2.rst:166
+# 74ec88c9ae4040239b588dcd48e7baa3
+msgid "We could also tell plone about this in the ZMI: http://localhost:8080/Plone/portal_types/talk/manage_propertiesForm"
+msgstr ""
+
+#: ../views_2.rst:168
+# 2bf8fe842c6942d6b376a7945b809aa2
+msgid "Let's improve the talkview to show all the info we want."
+msgstr ""
+
+#: ../views_2.rst:215
+# 8e8b711ec384438e80e0d79849fdad8c
+msgid "http://docs.plone.org/develop/plone/views/browserviews.html"
+msgstr ""
+

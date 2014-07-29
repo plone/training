@@ -1,0 +1,190 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
+# This file is distributed under the same license as the Mastering Plone package.
+# 
+# Translators:
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastering Plone Training\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-13 00:40-0430\n"
+"PO-Revision-Date: 2014-07-13 14:17+0000\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# f0a067dec6054a02bdaa88fa868036cf
+#: ../about.rst:2
+msgid "About Mastering Plone"
+msgstr "Sobre Mastering Plone"
+
+# cbe06f3646cc4578a73dd3633c5e86a7
+#: ../about.rst:5
+msgid "History"
+msgstr "Histórico"
+
+# d2aa06f40a7b40e29b5410ae49847075
+#: ../about.rst:7
+msgid ""
+"This training was created for the \"Mastering Plone\"-trainings by Philip "
+"Bauer and Patrick Gerken of `starzel.de <http://www.starzel.de>`_. It was "
+"published in order to create a canonical Plone Training so that anyone with "
+"the appropriate knowledge can give a training based on it."
+msgstr "Esta formación se creó para los entrenamientos \"Mastering Plone\" de Philip Bauer y Patrick Gerken de la empresa `starzel.de <http://www.starzel.de>`_. Fue publicado con el fin de crear una Formación Plone canónica para que cualquier persona con los conocimientos adecuados puede dar una formación basada en ella."
+
+# 4c0daeaa0a024b7e993ef580e88e4d6d
+#: ../about.rst:11
+msgid "Using the documentation for a training"
+msgstr "Usando la documentación para un entrenamiento"
+
+# 76cc101b2729439d9e8a03c413fb8b0a
+#: ../about.rst:13
+msgid ""
+"Feel free to organize a training yourself. Please be so kind to contribute "
+"any bugfixes or enhancements you made to the documentation for your "
+"training."
+msgstr "Siéntase libre para organizar un entrenamiento por ti mismo. Por favor, sea tan amable de aportar cualquier corrección de errores o mejoras que haya realizado en la documentación de su entrenamiento."
+
+# df2765882ba34c7096561d885919aff8
+#: ../about.rst:15
+msgid ""
+"If you want to contact the original authors about a training you can reach "
+"them at team@starzel.de."
+msgstr "Si desea ponerse en contacto con los autores originales para un entrenamiento puede llegar a ellos en por medio del correo team@starzel.de."
+
+# 2d013ca1bbf043c6a54b3c14cbf13895
+#: ../about.rst:17
+msgid "The training is rendered using sphinx and builds in two flavors:"
+msgstr "El entrenamiento se representa mediante la sphinx y se basa en dos sabores:"
+
+# f7af6301ad0744869eed7546a44bed3f
+#: ../about.rst:20
+msgid "default"
+msgstr "por defecto"
+
+# 8e3f4d13d23b4d2b9a7720d57e1ad713
+#: ../about.rst:20
+msgid ""
+"The verbose version used for the online-documentation and for the trainer. "
+"Build it in sphinx with ``make html`` or use the online-version."
+msgstr "La versión detallada utilizada para la documentación en línea y para el instructor. Para construirlo con Sphinx, ejecute el el comando ``make html`` o use la versión en línea."
+
+# ac45a9c461d54d5c9e29a000dd87daef
+#: ../about.rst:23
+msgid "presentation"
+msgstr "presentation"
+
+# b6fd5c15662c449284fe636766fc1573
+#: ../about.rst:23
+msgid ""
+"A abbreviated version used for the projector during a training. It should "
+"uses more bullet-points than verbose text. Build it in sphinx with ``make "
+"presentation``."
+msgstr "Una versión abreviada utilizada para el proyector durante un entrenamiento. Ese debe usar más lista de viñetas que texto detallado. Para construirlo con Sphinx, ejecute el el comando ``make presentation``."
+
+# d3c2a98f61464d66b4f2617a16c93ec7
+#: ../about.rst:27
+msgid ""
+"By prefixing an indented block of text or code with ``.. only:: "
+"presentation`` you can control that his block is used for the presentation-"
+"version only."
+msgstr "Anteponiendo un bloque con sangría de texto o código con ``.. only:: presentation`` usted puede controlar cuál de sus bloque es usado solamente en la versión presentation."
+
+# e613ed878de84978bbf859ac7d511150
+#: ../about.rst:29
+msgid ""
+"To hide a block from the presentation-version use ``.. only:: not "
+"presentation``"
+msgstr "Para ocultar un bloque desde la versión presentation use ``.. only:: not presentation``"
+
+# 33ae14d0527842be9dbbfe69ab8f1ee3
+#: ../about.rst:31
+msgid "Content without a prefix will be included in both versions."
+msgstr "Contenido sin un prefijo sera incluido en ambas versiones."
+
+# 94fd8e73f5ca4f4dae16338a5e806ffc
+#: ../about.rst:33
+msgid ""
+"We slightly tweaked readthedocs-theme in ``_static/custom.css`` so that it "
+"works better with projectors:"
+msgstr "Nos ajustamos ligeramente al tema readthedocs en el archivo ``_static/custom.css`` para que funcione mejor con proyectores:"
+
+# a46dcd30698d4606b26f1fbbae062fa3
+#: ../about.rst:35
+msgid ""
+"We start hiding the navbar much earlier so that it does not interfere with "
+"the text."
+msgstr "Comenzamos ocultar la barra de navegación mucho antes de manera que no interfiera con el texto."
+
+# ae2eae021cf24f6faf3a9d67eedfa519
+#: ../about.rst:36
+msgid "We enlarge the default width of the content-area."
+msgstr "Ampliamos el ancho predeterminado del área de contenido."
+
+# 31e8ce633bb84ce8ad741829c7e2f856
+#: ../about.rst:40
+msgid ""
+"To enable the readthedocs-theme for building the docs locally you will have "
+"to modify the ``conf.py`` before ``make presentation`` by removing the "
+"comments at the beginning of some lines::"
+msgstr "Para activar el tema readthedocs para la construcción de los documentación de forma local, tendrá que modificar el archivo ``conf.py`` antes de ejecutar el comando ``make presentation`` quitando los comentarios al comienzo de algunas líneas::"
+
+# d13e2d0a15bd41908675cee838f5a250
+#: ../about.rst:48
+msgid "Contributing"
+msgstr "Contribuyendo"
+
+# b68215cec8a84d58b6a9497af60eea4d
+#: ../about.rst:50
+msgid ""
+"Everyone is welcome to contribute. Minor bugfixes can be pushed direcly in "
+"the `repository <https://github.com/plone/training>`_, bigger changes should"
+" made as `pull-requests <https://github.com/plone/training/pull/>`_."
+msgstr "Todos están invitados a contribuir. Correcciones de errores menores pueden ser empujados directamente en el `repositorio <https://github.com/plone/training>`_, los cambios más grandes deben haber como `pull requests <https://github.com/plone/training/pull/>`_."
+
+# 197d9686aae3461ea0a56ec00928039e
+#: ../about.rst:52
+msgid ""
+"By prefixing a indented block of text or code with ``.. only:: "
+"presentation`` or ``.. only:: not presentation`` you can control which of "
+"the versions the indented block will show up. Content without a prefix will "
+"be included in both versions."
+msgstr "Anteponiendo un bloque con sangría de texto o código con ``.. only:: presentation`` o `.. only:: not presentation`` usted puede controlar cuál de las versiones del bloque con sangría se mostrará. El contenido sin prefijo se incluirá en ambas versiones."
+
+# a95c7b9d435d4a4d91cbd0a2861ea298
+#: ../about.rst:56
+msgid "License"
+msgstr "Licencia"
+
+# 65b75ca907e247509414da1346f5b75b
+#: ../about.rst:58
+msgid ""
+"The Mastering Plone Training is licensed under a `Creative Commons "
+"Attribution 4.0 International License "
+"<http://creativecommons.org/licenses/by/4.0/>`_."
+msgstr "El entrenamiento Mastering Plone es licenciado bajo la `Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_."
+
+# 038d2dc625634e8abccdf82a9c4d8463
+#: ../about.rst:60
+msgid ""
+"Make sure you have filled out a `Contributor Agreement "
+"<http://plone.org/foundation/contributors-agreement>`_."
+msgstr "Asegúrese de que ha completado el `Acuerdo de contribuidor <http://plone.org/foundation/contributors-agreement>`_."
+
+# c9fef3f8bb5c49bbad724d1d2061cbb1
+#: ../about.rst:62
+msgid ""
+"If you haven't filled in a Contributor Agreement, you can still contribute. "
+"Contact the Documentation team, for instance via the `mailinglist "
+"<http://sourceforge.net/p/plone/mailman/plone-docs/>`_ or directly send a "
+"mail to plone-docs@lists.sourceforge.net Basically, all we need is your "
+"written confirmation that you are agreeing your contribution can be under "
+"Creative Commons. You can also add in a comment with your pull request \"I, "
+"<full name>, agree to have this published under Creative Commons 4.0 "
+"International BY\"."
+msgstr "Si usted no ha completado un Acuerdo de colaborador, todavía puede aportar. Póngase en contacto con el equipo de documentación, por ejemplo a través de la `lista de correo <http://sourceforge.net/p/plone/mailman/plone-docs/>`_ o directamente enviar un correo a plone-docs@lists.sourceforge.net. Básicamente, todo lo que necesitamos es la confirmación por escrito de que usted está de acuerdo que su contribución puede ser bajo licencia Creative Commons. También puede agregar en un comentario con tu solicitud de extracción \"Yo, <nombre completo>, estoy acuerdo en que esta publicado bajo licencia Creative Commons 4.0 International BY\"."

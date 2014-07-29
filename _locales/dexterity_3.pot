@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
+# This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../dexterity_3.rst:2
+# 422197b610da4a95ad5185325e311eab
+msgid "Dexterity Types III: Python"
+msgstr ""
+
+#: ../dexterity_3.rst:0
+# 18f10c66bdcd4c52a6e8b955a785c747
+msgid "Get the code!"
+msgstr ""
+
+#: ../dexterity_3.rst:6
+# ef9aee185d6744828839baca2c4589ef
+msgid "Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:"
+msgstr ""
+
+#: ../dexterity_3.rst:13
+# cbb3063671014017a64d60ddf7ca1e3f
+msgid "Without sponsors a conference would be hard to finance plus it is a good opportunity for plone-companies to advertise their services."
+msgstr ""
+
+#: ../dexterity_3.rst:15
+# 051971d93b004d97b061794249264c02
+msgid "In this part we will:"
+msgstr ""
+
+#: ../dexterity_3.rst:17
+# 290b070323b84635b897d43caa384105
+msgid "create the content-type *sponsor* that has a python-schema"
+msgstr ""
+
+#: ../dexterity_3.rst:18
+# 593edb237b3a4b29abeaadb8098c04ee
+msgid "create a viewlet that shows the sponsors sorted by level"
+msgstr ""
+
+#: ../dexterity_3.rst:19
+# a59a7ccc3269440ca3e85bad050cf63d
+msgid "discuss image-scales"
+msgstr ""
+
+#: ../dexterity_3.rst:21
+# 5b19477903df41d4ac0c44821f548c2b
+msgid "First we create the schema for the new type. Instead of xml we use python now. Create a new folder ``content`` with a empty ``__init__.py`` in it. Now add a new file ``content/sponsor.py``."
+msgstr ""
+
+#: ../dexterity_3.rst:86
+# f9439140637d48d0acbb2834e784b45f
+msgid "Some things are notable here:"
+msgstr ""
+
+#: ../dexterity_3.rst:88
+# 320d525a27a843a895b3d855e149462c
+msgid "In ``directives.widget(level=RadioFieldWidget)`` we change the widget from a dropdown to radioboxes."
+msgstr ""
+
+#: ../dexterity_3.rst:89
+# 75dc262857014af0a9f13e6e8c9c66d0
+msgid "``LevelVocabulary`` is used to create the options used in the field ``level``. This way we could easily translate the displayed value."
+msgstr ""
+
+#: ../dexterity_3.rst:90
+# fab8ee6ad7ee4b009cb579036683235f
+msgid "``fieldset('Images', fields=['logo', 'advertisment'])`` moves the two image-fields to another tab."
+msgstr ""
+
+#: ../dexterity_3.rst:91
+# 9ead7d4a67aa4674a5b51a813b9bad95
+msgid "``directives.read_permission(...)`` sets the read- and write-permission for the field ``note`` to users who can add new members. Usually this permission is only granted to Site-Administrators and Managers. We use it to store information that should not be publicly visible. Please note that ``obj.note`` is still accessible in templates and python. Only using the widget (like we do in the view later) checks for the permission."
+msgstr ""
+
+#: ../dexterity_3.rst:92
+# 41375a45bb074d4d9594ad2947568e4c
+msgid "We use no grok here"
+msgstr ""
+
+#: ../dexterity_3.rst:94
+# eb721ceea7dc449891d11487197e5534
+msgid "Second we create the FTI for new type in ``profiles/default/types/sponsor.xml``"
+msgstr ""
+
+#: ../dexterity_3.rst:145
+# 5dda7b865bc64a90988c96665c9c691f
+msgid "Then we register the FTI in ``profiles/default/types.xml``"
+msgstr ""
+
+#: ../dexterity_3.rst:159
+# 500270be09bb4c9ab58656f54453459b
+msgid "After reinstalling our package we can create the new type. We use the default-view provided by dexterity since we display the sponsors in a viewlet."
+msgstr ""
+
+#: ../dexterity_3.rst:161
+# cd059b95abc8474faeb579ea21b3042a
+msgid "Instead we tweak the default-view with some css. Add the following to ``resources/ploneconf.css``"
+msgstr ""
+
+#: ../dexterity_3.rst:174
+# 670b74207b0a43c5bfb34695b6ee99fd
+msgid "If we would want a custom view for sponsors it could look like this."
+msgstr ""
+
+#: ../dexterity_3.rst:219
+# 8c4252c0f4ef48e3bcf9f3f6fbcb4845
+msgid "Note that we have to handle the field with special permissions: ``tal:condition=\"python: 'notes' in view.w\"`` checks if the convenience-dictionary ``w`` provided by the base-class ``DefaultView`` holds the widget for the field ``note``. If the current user does not have the permission ``cmf.AddPortalMember`` it will be omited from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it is missing we work around that."
+msgstr ""
+
+#: ../dexterity_3.rst:222
+# 655e0503183d4f83a1631dcfedb0100c
+msgid "We display the sponsors at the bottom of the website in a viewlet."
+msgstr ""
+
+#: ../dexterity_3.rst:224
+# 0dc5f64852f1455e802ec31fbd9fd1c0
+msgid "Register the viewlet in ``browser/configure.zcml``"
+msgstr ""
+
+#: ../dexterity_3.rst:239
+# 356db331339f4797a340b2c48768be3c
+msgid "Add the viewlet-class in ``browser/viewlets.py``"
+msgstr ""
+
+#: ../dexterity_3.rst:310
+# b1bb84eb04564bdeb558151139594dc8
+msgid "``_sponsors`` returns a list of dictionaries containing all necessary info about sponsors."
+msgstr ""
+
+#: ../dexterity_3.rst:311
+# bc800b8e33574f97aee0f36b0f5826e9
+msgid "``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. We could also cache until one of the sponsors is modified:"
+msgstr ""
+
+#: ../dexterity_3.rst:328
+# 63567ee176d84a268e6b0f03312e167e
+msgid "We create the complete img-tag using a custom scale (200x80) using the view ``images`` from plone.namedfile. This actually scales the logos and saves them as new blobs."
+msgstr ""
+
+#: ../dexterity_3.rst:329
+# 642f139781ee4d33924ec8c36a1f6665
+msgid "In ``sponsors`` we return a ordered dicttionary of randomized lists of dicts (containing the information on sponsors)."
+msgstr ""
+
+#: ../dexterity_3.rst:333
+# 892f3a69fe814325adc081ad2b35875a
+msgid "http://docs.plone.org/develop/plone/images/content.html#image-scales-plone-4"
+msgstr ""
+
+#: ../dexterity_3.rst:335
+# 5a99217a3f3f49f7abedb2c7c99d5174
+msgid "Add the template ``browser/templates/sponsors_viewlet.pt``"
+msgstr ""
+
+#: ../dexterity_3.rst:365
+# f34aa8301bbf4914a3c10f53385956bd
+msgid "Now add some css to make it look ok. Edit ``resources/ploneconf.css``"
+msgstr ""
+

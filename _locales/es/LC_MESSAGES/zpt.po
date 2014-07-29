@@ -1,0 +1,799 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
+# This file is distributed under the same license as the Mastering Plone package.
+# 
+# Translators:
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastering Plone Training\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"PO-Revision-Date: 2014-07-29 01:49+0000\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# 599321916541488e9436137f42819858
+#: ../zpt.rst:2
+msgid "Zope Page Templates"
+msgstr "Zope Page Templates"
+
+# c4189573909d4f02a02126cd7dede980
+#: ../zpt.rst:0
+msgid "Get the code!"
+msgstr "¡Obtén el código!"
+
+# 5535ea399e2641b3aca3d022522d1ed5
+#: ../zpt.rst:6
+msgid ""
+"Get the code for this chapter (:doc:`More info <sneak>`) using this command "
+"in the buildout-directory:"
+msgstr "Obtén el código para este capitulo (:doc:`Mas información <sneak>`) usando este comando en el directorio buildout:"
+
+# 7cda97f2cc3b40ee95b7ae3b0e096961
+#: ../zpt.rst:13
+msgid ""
+"Page Templates are HTML-files with some additional Information, written in "
+"TAL, METAL and TALES."
+msgstr "Plantillas de páginas son archivos HTML con alguna información adicional, escritas en TAL, METAL y TALES."
+
+# 824b60002a724329a502a53a80d89fc8
+#: ../zpt.rst:15
+msgid "Page templates must be valid xml."
+msgstr "Las plantillas de página debe ser XML válido."
+
+# 96b752c7151e49c19d60bd869957ae4a
+#: ../zpt.rst:17
+msgid "The three languages are:"
+msgstr "Las tres lenguas son:"
+
+# 56cb70def9424b45bcbdf445a3862e05
+#: ../zpt.rst:19
+msgid "TAL: \"Template Attribute Language\""
+msgstr "TAL: \"Template Attribute Language\""
+
+# 206cd9fa05184cfb9156f2e6c889a66e
+#: ../zpt.rst:21
+msgid "Templating XML/HTML using special Attributes"
+msgstr "Plantillas XML / HTML usando con atributos especiales"
+
+# 933c3807914d44c4ad6dd7d58f064693
+#: ../zpt.rst:23
+msgid "Using TAL we include expressions into html"
+msgstr "Usando TAL nosotros podemos incluir expresiones en HTML"
+
+# a39770cc096f44a5ad8303c5367cdecf
+#: ../zpt.rst:25
+msgid "TALES: \"TAL Expression Syntax\""
+msgstr "TALES: \"TAL Expression Syntax\""
+
+# 220756569f544930a870d960f7d0160b
+#: ../zpt.rst:27
+msgid "defines the syntax and semantics of these expressions"
+msgstr "define la sintaxis y la semántica de estas expresiones"
+
+# e1edb63004ad461cb49ad2168ce9a1cd
+#: ../zpt.rst:29
+msgid "METAL: \"Macro Expansion for TAL\""
+msgstr "METAL: \"Macro Expansion for TAL\""
+
+# e663a82c75d644b0a4acd54e7c598593
+#: ../zpt.rst:31
+msgid "this enables us to combine, re-use and nest templates together"
+msgstr "esto nos permite combinar, la reutilización y las plantillas anidadas juntos"
+
+# 64072e8a4c6449f79289efd9ff168273
+#: ../zpt.rst:33
+msgid ""
+"TAL and METAL are written like html-attribues (url, src, title). TALES are "
+"written like the values of html-attributes. A typical TAL-Statement looks "
+"like this:"
+msgstr "TAL y METAL se escriben como atributos html (url, src, title). TALES están escritos como los valores de los atributos de html. Una declaración TAL típica tiene este aspecto:"
+
+# 98d733feef004aab8be6f8541876b172
+#: ../zpt.rst:41
+msgid "It's used to modify the output:"
+msgstr "Se utiliza para modificar la salida:"
+
+# 4335b1e672c54ad6892aa42f3de04984
+# 0de9c44624c84fcab74550e80ef5179e
+#: ../zpt.rst:47 ../zpt.rst:96
+msgid "results in:"
+msgstr "resultado en:"
+
+# c6139d73162c4158b562db1cab1d9d65
+#: ../zpt.rst:53
+msgid "Let's try it. Open the file ``demoview.pt`` and add:"
+msgstr "Vamos a intentarlo. Abra el archivo ``demoview.pt`` y añade:"
+
+# 481d748653c446e89207f359b14092c2
+#: ../zpt.rst:69
+msgid "TAL and TALES"
+msgstr "TAL y TALES"
+
+# 6d16aa1a3de24f2b9f1e562ec59c79b3
+#: ../zpt.rst:71
+msgid "Let's add some magic and modify the <p>-tag:"
+msgstr "Vamos a añadir un poco de magia y modificar la etiqueta <p>:"
+
+# 6e3580e53df3426db17522d8ea95140e
+#: ../zpt.rst:77
+msgid "This will result in:"
+msgstr "Esto resultará en:"
+
+# fd34c5d2db0c4190a7050cfad8da6e7e
+#: ../zpt.rst:83
+msgid "Without restarting Plone open http://localhost:8080/Plone/@@demoview."
+msgstr "Sin reiniciar Plone abra en el navegador http://localhost:8080/Plone/@@demoview."
+
+# 28578aadd2b643258919008d877b707c
+#: ../zpt.rst:85
+msgid "The same happens with attributes. Replace the <p>-line with:"
+msgstr "Lo mismo ocurre con los atributos. Vuelva a colocar la línea <p> con:"
+
+# 55f5d9f476e04508b4e5b4c23b9b016d
+#: ../zpt.rst:104
+msgid ""
+"We used three TAL-Attributes here. This is the complete list of TAL-"
+"attributes:"
+msgstr "Nosotros hemos utilizado los tres atributos TAL aquí. Esta es la lista completa de los atributos TAL:"
+
+# 9b8866e830ad4579862e237d914da6d9
+#: ../zpt.rst:107
+msgid "``tal:define``"
+msgstr "``tal:define``"
+
+# e3939d187565489498d587652eb30c52
+#: ../zpt.rst:107
+msgid ""
+"define variables. We definded the variable url to the string "
+"\"http://www.ploneconf.org\""
+msgstr "definir las variables. Nosotros definimos la variable url para la cadena \"http://www.ploneconf.org\""
+
+# 8cdd71b484ec4dcfa5f22bc469140942
+#: ../zpt.rst:110
+msgid "``tal:content``"
+msgstr "``tal:content``"
+
+# 7c4267ec7bde4f4abab1766f2b2fde9a
+#: ../zpt.rst:110
+msgid ""
+"replace the content of an element. We replaced the default-content about "
+"some with \"A even better conference\""
+msgstr "reemplazar el contenido de un elemento. Hemos sustituido el valor por defecto de contenido con algunas como \"A even better conference\""
+
+# 8bb4500725784dc3b5719c967d5eeef1
+#: ../zpt.rst:113
+msgid "``tal:attributes``"
+msgstr "``tal:attributes``"
+
+# 467e024341b145c6bae711c95e7df300
+#: ../zpt.rst:113
+msgid ""
+"dynamically change element attributes. We set the html-attribute ``href`` to"
+" the variable ``a_fine_url``"
+msgstr "cambiar dinámicamente atributos de los elementos. Nosotros hemos establecido el atributo href html a la variable ``a_fine_url``"
+
+# 151cee2192d844ff95778f80139deae3
+# 9a6468d215ca430da949f0fa1b4173cb
+#: ../zpt.rst:116 ../zpt.rst:165
+msgid "``tal:condition``"
+msgstr "``tal:condition``"
+
+# a3cceea41cf445b0822468ce7b4b40b4
+# a3cceea41cf445b0822468ce7b4b40b4
+#: ../zpt.rst:116 ../zpt.rst:165
+msgid "tests, if the expression is true or false."
+msgstr "pruebas, si la expresión es verdadera o falsa."
+
+# 412c6c76461648fdacd4236f810d395a
+# c836cfcbc5cb4050bf4485ccfe3a3fa4
+#: ../zpt.rst:119 ../zpt.rst:201
+msgid "``tal:repeat``"
+msgstr "``tal:repeat``"
+
+# 107121de1ff34405abcd2d4cfa8cc2b0
+# 107121de1ff34405abcd2d4cfa8cc2b0
+#: ../zpt.rst:119 ../zpt.rst:201
+msgid "repeats an iterable element, in our case the list of talks."
+msgstr "repite un elemento iterable, en nuestro caso, la lista de Charlas."
+
+# 543918be79cc411286c64b55b293bc20
+#: ../zpt.rst:122
+msgid "``tal:replace``"
+msgstr "``tal:replace``"
+
+# ada38cf992dc434f860b0bf7854aca63
+#: ../zpt.rst:122
+msgid ""
+"replace the content of an element like ``tal:content`` but removes the "
+"element only leaving the content."
+msgstr "reemplazar el contenido de un elemento como ``tal:content`` , pero se elimina el elemento sólo dejando el contenido."
+
+# 7798597085914b6193309d517eea15aa
+# 54376f0b20c1474e8f48cf5c52b70c63
+#: ../zpt.rst:125 ../zpt.rst:381
+msgid "``tal:omit-tag``"
+msgstr "``tal:omit-tag``"
+
+# 7685bc87128d4efeab0feeeca4503c12
+#: ../zpt.rst:125
+msgid "remove an element, leaving the content of the element."
+msgstr "eliminar un elemento, dejando el contenido del elemento."
+
+# 9fb959c791e54a0bb23904a85b6a3a3e
+# 8661cf86ef1d4296a3d16f5eadb36c9b
+#: ../zpt.rst:129 ../zpt.rst:384
+msgid "``tal:on-error``"
+msgstr "``tal:on-error``"
+
+# dbe6c93a42d24824b48757fb994e3bf8
+# dbe6c93a42d24824b48757fb994e3bf8
+#: ../zpt.rst:128 ../zpt.rst:384
+msgid "handle errors."
+msgstr "controlar los errores."
+
+# 56a861eab1ce4098a7cd6138905703e4
+#: ../zpt.rst:132
+msgid "python-expressions"
+msgstr "expresiones python"
+
+# 5c69d51573ee45bc8e34b558d243417e
+#: ../zpt.rst:134
+msgid ""
+"So far we only used one TALES expression (the ``string:``-bit). Let's use a "
+"different TALES-expression now. With ``python:`` we can use python-code. A "
+"simple example:"
+msgstr "Hasta ahora sólo utilizamos una expresión TALES (el bit ``string:``). Usemos una expresión TALES diferente ahora. Con ``python:`` podemos usar código python. Un ejemplo sencillo:"
+
+# ff6ed17966924de0888102851c528af8
+#: ../zpt.rst:143
+msgid "And another:"
+msgstr "Y otro:"
+
+# bb77670a382c4f3b981a21f7aac0909f
+#: ../zpt.rst:155
+msgid "With python-expressions"
+msgstr "Con expresiones python"
+
+# 2b2b04ae22974225af7848b5943f9e38
+#: ../zpt.rst:157
+msgid "you can only write single statements"
+msgstr "sólo se puede escribir declaraciones individuales"
+
+# 4e9f98fc4f3449fa873875a2f1b1e89b
+#: ../zpt.rst:158
+msgid ""
+"you could import things but you should not (example: "
+"``tal:define=\"something modules/Products.PythonScripts/something;``)."
+msgstr "usted podría importar cosas pero no debe (ejemplo: ``tal:define=\"something modules/Products.PythonScripts/something;``)."
+
+# 485b660c276442aaa92a4af7ccf86efe
+#: ../zpt.rst:162
+msgid "tal:condition"
+msgstr "tal:condition"
+
+# 7b33be61ccb84fb187ed30c9bea51dfe
+#: ../zpt.rst:167
+msgid "If it's true, then the tag is rendered."
+msgstr "Si es cierto, entonces la etiqueta se representa."
+
+# 69ade265ebda4af6a0b640e5c567cf12
+#: ../zpt.rst:168
+msgid ""
+"If it's false then the tag **and all its children** are removed and no "
+"longer evaluated."
+msgstr "Si es false, entonces la etiqueta **y todos sus hijos** se retiran y ya no se evalúa."
+
+# 494367a50a2c4c77842f5902ce3b3fb3
+#: ../zpt.rst:169
+msgid "We can reverse the logic by prepending a ``not:`` to the expression."
+msgstr "Podemos invertir la lógica anteponiendo un ``not:`` a la expresión."
+
+# 2f54bb3d608044f58c53b86823c04e6f
+#: ../zpt.rst:171
+msgid "Let's add another TAL-Attribute to our above example::"
+msgstr "Vamos a añadir otro atributo TAL para nuestro ejemplo anterior:"
+
+# ffda6d2a68fd4fc3914c7e0516bdb221
+#: ../zpt.rst:175
+msgid "We could also test for the number of talks::"
+msgstr "También pudimos probar que el número de charlas:"
+
+# 0b7ea68a5f6c481e8c9fe91fa418f6a9
+#: ../zpt.rst:179
+msgid "or if a certain talk is in the list of talks::"
+msgstr "o si una cierta charla está en la lista de charlas:"
+
+# 3b0161f0e73f4056b2bc86350159251c
+#: ../zpt.rst:185
+msgid "tal:repeat"
+msgstr "tal:repeat"
+
+# 2526a98da5964e369257d9b6ef7b9f2c
+#: ../zpt.rst:187
+msgid "Let's try another statement:"
+msgstr "Probemos otra declaración:"
+
+# 3a5b8463b4d748659a56b9382a8d39a9
+#: ../zpt.rst:203
+msgid ""
+"We change the markup a little to construct a list in which there is an "
+"``<li>`` for every talk:"
+msgstr "Cambiamos el formato un poco para construir una lista en la que hay una lista ``<li>`` para cada charla:"
+
+# 94ad249b0b9d4727af82f6bd388ad7d4
+#: ../zpt.rst:222
+msgid "path-expressions"
+msgstr "expresiones de rutas"
+
+# 045288d52f0b491fa3965388b0779378
+#: ../zpt.rst:224
+msgid ""
+"Regarding TALES so far we used ``string:`` or ``python:`` or only variables."
+" The next and most common expression are path-expressions. Optionally you "
+"can start a path-expression with ``path:``"
+msgstr "En cuanto TALES hasta ahora hemos utilizado la ``string:`` o ``python:`` o sólo las variables. La expresión siguiente y más comunes son de path-expressions. Opcionalmente se puede iniciar path-expression con el ``path:``"
+
+# fe9d4ff3f547476fb8d09227ac8590d5
+#: ../zpt.rst:226
+msgid ""
+"Every path expression starts with a variable name. It can either be an "
+"object like ``context``, ``view`` or ``template`` or a variable defined "
+"earlier like ``talk``."
+msgstr "Cada expresión de ruta comienza con un nombre de variable. Puede ser tanto un objeto como  ``context``, ``view``, ``template`` o una variable definida anteriormente como ``charla``."
+
+# 7717d98cbc4245048d4fd70d1621f817
+#: ../zpt.rst:228
+msgid ""
+"After the variable we add a slash ``/`` and the name of a sub-object, "
+"attribute or callable. The '/' is used to end the name of an object and the "
+"start of the property name. Properties themselves may be objects that in "
+"turn have properties."
+msgstr "Después de la variable se añade una barra ``/`` y el nombre de un sub-objeto, atributo o método llamable. El '/' se utiliza para terminar el nombre de un objeto y el inicio del nombre de la propiedad. Mismas propiedades pueden ser objetos que a su vez tienen propiedades."
+
+# a4dc818659734712bbabade16966936e
+#: ../zpt.rst:234
+msgid "We can chain several of those to get to the information we want."
+msgstr "Nos puede encadenar varios de los elementos para obtener la información que queremos."
+
+# 617902a4b2744d6683a53b8ce27da8e5
+#: ../zpt.rst:240
+msgid ""
+"This would return the value of the form-dictionary of the HTTPRequest-"
+"object. Useful for form-handling."
+msgstr "Esto devolverá el valor de la forma de diccionario del objeto HTTPRequest. Útil para la forma de manipulación."
+
+# 85bdf4dabfb1477981df862f8c3c8600
+#: ../zpt.rst:242
+msgid ""
+"The ``|`` (\"or\") character is used to find an alternative value to a path "
+"if the first path evaluates to ``nothing`` or does not exist."
+msgstr "El ``|`` (\"o\") se utiliza para encontrar un valor alternativo a un camino si la primera ruta se evalúe como ``nothing`` o no existe."
+
+# cb779e36ef77490684df668981571036
+#: ../zpt.rst:248
+msgid "This returns the id of the context if it has no title."
+msgstr "Esto devuelve el id del contexto si no tiene título."
+
+# a423934386ca4ab8892c7334ac4c14da
+#: ../zpt.rst:254
+msgid ""
+"This returns nothing if there is no 'average_rating' for a talk. What will "
+"not work is ``tal:content=\"python:talk['average_rating'] or ''\"``. Who "
+"knows what this would yield?"
+msgstr "Esto devuelve nada si no hay 'average_rating' para una charla. Lo que no funciona es ``tal:content=\"python:talk['average_rating'] or ''\"``. ¿Quién sabe lo que esto produciría?"
+
+# 2bcb85a34e8c4501aec2a72102171aed
+#: ../zpt.rst:258
+msgid ""
+"We'll get ``KeyError: 'average_rating'``. It is very bad practice to use "
+"``|`` too often since it will swallow errors like a typo in "
+"``tal:content=\"talk/averange_ratting | nothing\"`` and you might wonder why"
+" there are no ratings later on..."
+msgstr "Conseguiremos ``KeyError: 'average_rating'``. Es muy mala práctica, use ``|`` con demasiada frecuencia, ya que se tragará errores como un error tipográfico en ``tal:content=\"talk/averange_ratting | nothing\"`` y es posible que se preguntan por qué no existen calificaciones más tarde..."
+
+# 26c8ce4895ad490daa64712cec72d0cf
+#: ../zpt.rst:260
+msgid ""
+"You can't and should not use it to prevent errors like a try/except-block."
+msgstr "No puede y no debe utilizarlo para evitar errores como un bloque try / except."
+
+# 507697120bfa45ef91b11c036d8c2a61
+#: ../zpt.rst:262
+msgid "There are several **built in variables**  that can be used in paths:"
+msgstr "Hay varias **variables incorporado** que se pueden utilizar en caminos:"
+
+# 106d7f6d4d1a425bb044e4b05443dac5
+#: ../zpt.rst:264
+msgid ""
+"The most frequently used one is ``nothing`` which is the equivalent to None"
+msgstr "El más utilizado uno es ``nothing`` que es el equivalente a None"
+
+# 9907905554194097b1105454f951d61e
+#: ../zpt.rst:272
+msgid "A dict of all the available variables is ``CONTEXTS``"
+msgstr "Un diccionario de todas las variables disponibles es ``CONTEXTS``"
+
+# bb9db6b40d9e4d4f9ca0fc0a2d001fe7
+#: ../zpt.rst:283
+msgid "Useful for debugging :-)"
+msgstr "Muy útil para depuración :-)"
+
+# 818ef7219fc8469788e1f4d7233464f8
+#: ../zpt.rst:287
+msgid "Pure TAL-blocks"
+msgstr "Puro bloques TAL"
+
+# b0cdbfa3336342adb9c39e6696296f14
+#: ../zpt.rst:289
+msgid ""
+"We can use TAL-attributes without HTML-Tags. This is useful when we don't "
+"need to add any tags to the markup"
+msgstr "Podemos utilizar atributos TAL sin marcas HTML. Esto es útil cuando no es necesario añadir las etiquetas para el marcado"
+
+# 35bae16fd0a248fa816b4308acd56ee1
+#: ../zpt.rst:291
+msgid "Syntax:"
+msgstr "Sintaxis:"
+
+# ceff8f3aa57f4f048433b15767053de5
+#: ../zpt.rst:297
+msgid "Examples:"
+msgstr "Ejemplos:"
+
+# 332169664c6041c8a2c3a1d6c65a237e
+#: ../zpt.rst:313
+msgid "handling complex data in templates"
+msgstr "manejo de datos complejos en plantillas"
+
+# 6a481c6f821841b7a01598dbce203ff5
+#: ../zpt.rst:315
+msgid ""
+"Let's move on to a little more complex data. And to another TAL-atrribute:"
+msgstr "Vamos a pasar a un poco más complejo de datos. Y a otro atributo TAL:"
+
+# be55145abc614f86aebd0c8147061e1b
+#: ../zpt.rst:318
+msgid "tal:replace"
+msgstr "tal:replace"
+
+# ba30a728ebc84370863cad1aac476886
+#: ../zpt.rst:318
+msgid ""
+"replace the content of an element and removes the element only leaving the "
+"content."
+msgstr "reemplazar el contenido de un elemento y elimina el elemento dejando sólo el contenido."
+
+# 361830bb3ac04c638bfe47b2afbd4a33
+#: ../zpt.rst:320
+msgid "Example:"
+msgstr "Ejemplo:"
+
+# 3960cd6e04be46d8b3945b96edcc4738
+#: ../zpt.rst:329
+msgid "this results in:"
+msgstr "este resulta en:"
+
+# af24c385284342a39515d1e832730b63
+#: ../zpt.rst:337
+msgid ""
+"``tal:replace`` drops it's own base-tag in favor of the result of the TALES-"
+"expression. Thus the original ``<img... >`` is replaced. But the result is "
+"escaped by default."
+msgstr "``tal:replace`` cae su propia base de etiquetas a favor del resultado de la expresión TALES. Por lo tanto el original ``<img... >`` se sustituye. Pero el resultado se escapó por defecto."
+
+# d1b4e9fcd0f54488a54b891a23b9acc2
+#: ../zpt.rst:339
+msgid "To prevent escaping we use ``structure``"
+msgstr "Para prevenir que se escapen utilizamos ``structure``"
+
+# 8b7c5e2d982c43bca899d843f885a382
+#: ../zpt.rst:348
+msgid "Now let's emulate a typical Plone structure by creating a dictionary."
+msgstr "Ahora vamos a emular una estructura típica Plone mediante la creación de un diccionario."
+
+# 1096ebb1953b46d09e90bde0fe0b7fc1
+#: ../zpt.rst:376
+msgid ""
+"We emulate a list of talks and display information about them in a table. "
+"We'll get back to the list of talks later when we use the real talk-objects "
+"that we created with dexterity."
+msgstr "Nosotros emulamos una lista de charlas y mostrar información en una tabla. Nos pondremos en contacto a la lista de las charlas más tarde, cuando se utilizan los verdaderos objetos charlas que hemos creado con dexterity."
+
+# 5c29471266ce4670a43c39a9ee9065e7
+#: ../zpt.rst:378
+msgid "To complete the list here are the TAL-Attributes we have not yet used:"
+msgstr "Para completar la lista que aquí están los atributos TAL que no hemos utilizado todavía:"
+
+# ae8ab8b4a1784f9aa1daa1ce59033c47
+#: ../zpt.rst:381
+msgid "Omit the element tags, leaving only the inner content."
+msgstr "Omita las etiquetas de los elementos, dejando sólo el contenido interno."
+
+# a5679262ea504186a3d50493458feb40
+#: ../zpt.rst:386
+msgid ""
+"When an element has multiple statements, they are executed in this order:"
+msgstr "Cuando un elemento tiene múltiples sentencias, se ejecutan en este orden:"
+
+# bde68ffb24874027985c5f02e259a8b8
+#: ../zpt.rst:388
+msgid "define"
+msgstr "define"
+
+# 8c8bb1daa90c4d0cba2929b9d415b675
+#: ../zpt.rst:389
+msgid "condition"
+msgstr "condition"
+
+# 1ca23fcfc2be4fc6bd6f46c1d4934179
+#: ../zpt.rst:390
+msgid "repeat"
+msgstr "repeat"
+
+# 6fb8ac75645a4169bb70fde228600ca0
+#: ../zpt.rst:391
+msgid "content or replace"
+msgstr "content o replace"
+
+# 862fe42314b843d382f060914c382c26
+#: ../zpt.rst:392
+msgid "attributes"
+msgstr "attributes"
+
+# 5e9f479aa2d24ee0a51381d39efc488c
+#: ../zpt.rst:393
+msgid "omit-tag"
+msgstr "omit-tag"
+
+# 124e775418704a72a69276d38e91ac4d
+#: ../zpt.rst:398
+msgid "METAL and macros"
+msgstr "METAL y macros"
+
+# fe7a8b3d2d414fff98ff5d77e7d89dd8
+#: ../zpt.rst:400
+msgid ""
+"Why is our output so ugly? How do we get our html to render in Plone the UI?"
+msgstr "¿Por qué nuestra vista es tan feo?, ¿Cómo conseguimos nuestro HTML para representar en la interfaz de usuario de Plone?"
+
+# a7cb10d5690c4be39f47f3e33d9571af
+#: ../zpt.rst:402
+msgid ""
+"We use METAL (Macro Extension to TAL) to define slots that we can fill and "
+"macros that we can reuse."
+msgstr "Utilizamos METAL (extensión macro para TAL) para definir ranuras que podemos llenar y macros que podemos reutilizar."
+
+# 2b705f7532ba41a995b558ea4336f9a0
+#: ../zpt.rst:404
+msgid "We add to the ``<html>``-tag::"
+msgstr "Agregamos a la etiqueta ``<html>``::"
+
+# 6bea516ecaff42d4a8daf195696666e1
+#: ../zpt.rst:408
+msgid "And then wrap the code we want to put in the content-area of Plone in:"
+msgstr "Y a continuación, ajustar el código que queremos poner en el área de contenido de Plone en:"
+
+# d26175d377164242b5549cfd53a88a27
+#: ../zpt.rst:416
+msgid ""
+"This will put our code in a section defined in the main_template called "
+"\"content-core\"."
+msgstr "Esto pondrá a nuestro código de una sección definida en el main_template llamado \"content-core\"."
+
+# 25faf3eba3b94127b75f524036e81d0e
+#: ../zpt.rst:418
+msgid "The template should now look like this:"
+msgstr "La plantilla de ahora debería tener este aspecto:"
+
+# 1bf78165fb7449a6a04285c35f5958ec
+#: ../zpt.rst:461
+msgid ""
+"Since the demoview only used content from the template, not from the context"
+" that it is called on it makes little sense to have the edit-bar. We hide it"
+" by setting the respective variable on the current request with python to 1:"
+" ``request.set('disable_border', 1)``."
+msgstr "Desde la vista demoview solamente es utilizada el contenido de la plantilla, no por el contexto que le toca no tiene mucho sentido tener la barra de edición. Nos lo ocultamos estableciendo la variable correspondiente en el request actual con el python a 1: ``request.set('disable_border', 1)``."
+
+# 70d0efbf611d4df380b375676e99417a
+#: ../zpt.rst:463
+msgid ""
+"The easiest way to do this is to define a dummy-variable. Dummy because it "
+"is never used except to allow us to execute some code."
+msgstr "La manera más fácil de hacer esto es definir una variable dummy. Dummy porque nunca se usa, salvo que nos permita ejecutar algún código."
+
+# 79f2dfb6f2144d4999fd542ae13575b5
+#: ../zpt.rst:472
+msgid "macros in browser-views"
+msgstr "macros en browser-views"
+
+# 84988272b3e64d0bb96a8163e9b203e8
+#: ../zpt.rst:474
+msgid "Define a macro in a new file ``macros.pt``"
+msgstr "Define un macro en un nuevo archivo ``macros.pt``"
+
+# 9806b19ed4664c8589da56eac875c636
+#: ../zpt.rst:482
+msgid ""
+"Register it as a BrowserView (this time without a python-class) in zcml:"
+msgstr "Registrarse como BrowserView (esta vez sin una clase python) en zcml:"
+
+# 37d0a9cb635f4b35a894929a2d14dcb6
+#: ../zpt.rst:493
+msgid "Reuse the macro it in the template ``demoview.pt``:"
+msgstr "Reutilización de la macro en la plantilla ``demoview.pt``:"
+
+# 4232ae2af2124bfbaec813027a7b5bf4
+#: ../zpt.rst:503
+msgid "Accessing Plone from the template"
+msgstr "Accediendo a Plonde desde la plantilla"
+
+# 73e3db7b104c41779821dbfffe0b7bc3
+#: ../zpt.rst:505
+msgid ""
+"In our template we have access to the context object on which the view is "
+"called on, the browser-view itself (i.e. all python-methods we'll put in the"
+" view later on), the request and response objects and with these we can get "
+"almost anything."
+msgstr "En nuestra plantilla tenemos acceso al objeto de contexto en el que la vista se llama en adelante, la propia browser-views (es decir, todos los métodos de python vamos a poner en el punto de vista más adelante), los objetos request y response y con ellas podemos conseguir casi cualquier cosa."
+
+# 3dad86ace5b2456e827f94209c815c20
+#: ../zpt.rst:507
+msgid ""
+"In templates we can also access other browser-views. Some of those exist to "
+"provide easy access to methods we often need::"
+msgstr "En las plantillas también podemos acceder a otras browser-views. Algunos de los que existen para facilitar el acceso a los métodos que a menudo necesitamos::"
+
+# 0271167a8397447dbd111aff815a4123
+#: ../zpt.rst:515
+msgid "``@@plone_context_state``"
+msgstr "``@@plone_context_state``"
+
+# a670c62c3b40442d9261879ba51462e1
+#: ../zpt.rst:515
+msgid ""
+"The BrowserView ``plone.app.layout.globals.context.ContextState`` holds "
+"useful methods having to do with the current context object such as "
+"``is_default_page``"
+msgstr "El BrowserView ``plone.app.layout.globals.context.ContextState`` tiene métodos útiles que tienen que ver con el objeto de contexto actual como ``is_default_page``"
+
+# c3b2b2c38d7241c18836912d333952e3
+#: ../zpt.rst:518
+msgid "``@@plone_portal_state``"
+msgstr "``@@plone_portal_state``"
+
+# 0890a54c87324e69a3413daf2bbf6574
+#: ../zpt.rst:518
+msgid ""
+"The BrowserView ``plone.app.layout.globals.portal.PortalState`` holds "
+"methods for the portal like ``portal_url``"
+msgstr "El BrowserView ``plone.app.layout.globals.portal.PortalState`` tiene métodos para el portal como ``portal_url``"
+
+# 55258f67c69848f782e995c59e05f530
+#: ../zpt.rst:521
+msgid "``@@plone_tools``"
+msgstr "``@@plone_tools``"
+
+# b895924997cd4f71b256e739dc5c8618
+#: ../zpt.rst:521
+msgid ""
+"The BrowserView ``plone.app.layout.globals.tools.Tools`` gives access to the"
+" most importan tools like ``plone_tools/catalog``"
+msgstr "El BrowserView ``plone.app.layout.globals.tools.Tools`` da acceso a las herramientas mas importante como ``plone_tools/catalog``"
+
+# 8f00acd15b784edab9fd5e889f17bda4
+#: ../zpt.rst:523
+msgid "These are very widely used and there are many more."
+msgstr "Estos son muy utilizados y hay muchos más."
+
+# 7b858d678fab4c4ca826bc02c5d35283
+#: ../zpt.rst:527
+msgid "What we missed"
+msgstr "Lo que echamos de menos"
+
+# 9c3e544df6dc454782019ac4c6b2accb
+#: ../zpt.rst:529
+msgid "There are some things we did not cover so far:"
+msgstr "Hay algunas cosas que no nos cubrimos hasta el momento:"
+
+# 8c233ca8207749b2bff69e9f7955870f
+#: ../zpt.rst:532
+msgid "``tal:condition=\"exists:expression\"``"
+msgstr "``tal:condition=\"exists:expression\"``"
+
+# ef14f8bd485d43159bd452d734a09f95
+#: ../zpt.rst:532
+msgid "checks if an object or an attribute exists (seldom used)"
+msgstr "comprueba si existe un objeto o un atributo (rara vez utilizada)"
+
+# 2e4a60e22179407a84165feef981f2a0
+#: ../zpt.rst:535
+msgid "``tal:condition=\"nocall:context\"``"
+msgstr "``tal:condition=\"nocall:context\"``"
+
+# 5f4b190972b644f3a568fc7faf519522
+#: ../zpt.rst:535
+msgid "to explicitly not call a callable."
+msgstr "que explícitamente no llamar a un metodo llamable."
+
+# ccdcce9ca17a494eab1dc7cf117890a7
+#: ../zpt.rst:537
+msgid ""
+"If we refer to content objects, without using the nocall: modifier these "
+"objects are unnecessarily rendered in memory as the expression is evaluated."
+msgstr "Si nos referimos a objetos de contenido sin usar el modificador nocall: estos objetos son innecesariamente representados en la memoria como la expresión se evaluada."
+
+# aa51dbdbeb554013bbce577aac39b015
+#: ../zpt.rst:540
+msgid "``i18n:translate`` and ``i18n:domain``"
+msgstr "``i18n:translate`` y ``i18n:domain``"
+
+# 4798c835eea94cbfaac8d2f3af154c89
+#: ../zpt.rst:540
+msgid "the strings we put in templates can be translated automatically."
+msgstr "las cadenas que ponemos en las plantillas se pueden traducir de forma automática."
+
+# 441955014656462cb0b8a144d4e01bd8
+#: ../zpt.rst:542
+msgid ""
+"There is a lot more about TAL, TALES and METAL that we have not covered. "
+"You'll only learn it if you keep reading, writing and customizing templates."
+msgstr "Hay mucho más acerca de TAL, TALES y METAL que no hemos cubierto. Usted solamente aprenderá si sigues leyendo, escribiendo y personalización de plantillas."
+
+# acd01bfb6fce46a3b902b4d0e98a52f0
+#: ../zpt.rst:546
+msgid ""
+"http://docs.plone.org/adapt-and-"
+"extend/theming/templates_css/template_basics.html"
+msgstr "http://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html"
+
+# d31995c5fbc648d9af26a2da12defeba
+#: ../zpt.rst:547
+msgid ""
+"Using Zope Page Templates: http://docs.zope.org/zope2/zope2book/ZPT.html"
+msgstr "Usando Zope Page Templates: http://docs.zope.org/zope2/zope2book/ZPT.html"
+
+# 21efb4850364442b975669d38510d80a
+#: ../zpt.rst:548
+msgid ""
+"Zope Page Templates Reference: "
+"http://docs.zope.org/zope2/zope2book/AppendixC.html"
+msgstr "Referencia de Zope Page Templates: http://docs.zope.org/zope2/zope2book/AppendixC.html"
+
+# 6eca6c29898540b5bde6f8669d59e505
+#: ../zpt.rst:551
+msgid "Chameleon"
+msgstr "Chameleon"
+
+# 2fd2a02b17fa41a8a71054846a68601d
+#: ../zpt.rst:553
+msgid "Chameleon is the successor of TAL and will be shipped in Plone 5."
+msgstr "Chameleon es el sucesor de TAL y serán incorporado en Plone 5."
+
+# f6d46f88ad454e0399f4567c96239d50
+#: ../zpt.rst:555
+msgid "Plip for Chameleon: https://dev.plone.org/ticket/12198"
+msgstr "Plip para Chameleon: https://dev.plone.org/ticket/12198"
+
+# 54b86ec838a6458cb838fa3ee0bab333
+#: ../zpt.rst:556
+msgid "Homepage: http://www.pagetemplates.org/"
+msgstr "Página principal: http://www.pagetemplates.org/"
+
+# f53972bb51ca4a9fbabe6f60c0636d9e
+#: ../zpt.rst:557
+msgid ""
+"Integration-layer for Plone: `five.pt "
+"<https://pypi.python.org/pypi/five.pt>`_"
+msgstr "Capa de Integración para Plone: `five.pt <https://pypi.python.org/pypi/five.pt>`_"
+
+# ea2151a686ac41e093abd11ae1aee794
+#: ../zpt.rst:559
+msgid "In Plone 4 we still use the default ZPT."
+msgstr "En Plone 4 nosotros usaremos ZPT por defecto."

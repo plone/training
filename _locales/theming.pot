@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
+# This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../theming.rst:2
+# 899b51b3ad6540d7a0a1055b6b071e93
+msgid "Theming"
+msgstr ""
+
+#: ../theming.rst:4
+# e517c799778b4c529ad1ecc3118f38c6
+msgid "We don't do any real theming during the training. We'll just explain the options you have."
+msgstr ""
+
+#: ../theming.rst:6
+# 8f17b5b556194794b0f743df79be4855
+msgid "Diazo (plone.app.theming): This is the modern way to go and `default theme in Plone 5 <https://github.com/plone/plonetheme.barceloneta/>`_ will be a diazo-theme!"
+msgstr ""
+
+#: ../theming.rst:7
+# 7d3a986314314bcaaacd1cbf80716804
+msgid "You can use (and adapt) one of many publicly available Diazo-themes: https://pypi.python.org/pypi?%3Aaction=search&term=plonetheme&submit=search (try `plonetheme.onegov <https://pypi.python.org/pypi/plonetheme.onegov>`_ for example)"
+msgstr ""
+
+#: ../theming.rst:8
+# 678f83d2c5134022a0c4c47035dec870
+msgid "Creating a custom theme"
+msgstr ""
+
+#: ../theming.rst:9
+# 45a712754d8e419ba103c1b285863918
+msgid "A starting-point can be the built-in Diazo Theme editor"
+msgstr ""
+
+#: ../theming.rst:10
+# 71f3a120ad7c4cd78a5b5e09b9b62bbd
+msgid "Old-school Theming (extending the built-in default-theme)"
+msgstr ""
+
+#: ../theming.rst:11
+# 3a4b965ab749456c8e9fa7004be63a5e
+msgid "Deliverance"
+msgstr ""
+
+#: ../theming.rst:13
+# b81177e6a82b43d49f99c3d3891c3a13
+msgid "If you seek a training about Diazo we recommend a training by `Chrissy Wainwright <https://twitter.com/cdw9>`_ or `Maik DerStappen <http://www.derstappen-it.de/>`_"
+msgstr ""
+
+#: ../theming.rst:17
+# 2866771da7f7402eb67a0a133d68718f
+msgid "http://docs.plone.org/adapt-and-extend/theming/index.html"
+msgstr ""
+
