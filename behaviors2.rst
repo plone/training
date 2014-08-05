@@ -122,11 +122,11 @@ The interfaces need to be written, in our cases into a file :file:`interfaces.py
             fields=('votes', 'voted'),
         )
 
-        votes = schema.Dict(tite="Vote info",
-                            key_type=schema.TextLine(title="Voted number"),
-                            value_type=schema.Int(title="Voted so often"),
+        votes = schema.Dict(title=u"Vote info",
+                            key_type=schema.TextLine(title=u"Voted number"),
+                            value_type=schema.Int(title=u"Voted so often"),
                             required=False)
-        voted = schema.List(title="Vote hashes",
+        voted = schema.List(title=u"Vote hashes",
                             value_type=schema.TextLine(),
                             required=False)
 
