@@ -36,7 +36,7 @@ We register the viewlet in :file:`browser/configure.zcml`.
         for="starzel.votable_behavior.interfaces.IVoting"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         layer="..interfaces.IVotableLayer"
-        class=".viewlets.Voting"
+        class=".viewlets.Vote"
         template="templates/voting_viewlet.pt"
         permission="zope2.View"
         />
@@ -94,7 +94,7 @@ Update the viewlet to contain the necessary logic in :file:`browser/viewlets`
     from Products.CMFCore.permissions import ViewManagementScreens
     from Products.CMFCore.utils import getToolByName
 
-    from starzel.votable_behavior.interfaces IVoting
+    from starzel.votable_behavior.interfaces import IVoting
 
 
     class Vote(base.ViewletBase):

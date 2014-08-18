@@ -38,7 +38,7 @@ We'll basically do the same as when we used at ``portal_skins`` (we customized t
 
 Now Plone should use the new file to override the original one.
 
-Edit the template ``plone.app.contenttypes.browser.templates.newsitem.pt`` and insert the following after line 39:
+Edit the template ``plone.app.contenttypes.browser.templates.newsitem.pt`` and insert the following before the ``<div id="parent-fieldname-text"``...:
 
 .. code-block:: html
 
