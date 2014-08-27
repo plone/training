@@ -4,6 +4,24 @@
     padding-right: 2em;
 }
 
+.toggle {
+    background: none repeat scroll 0 0 #e7f2fa;
+}
+
+.toggle .admonition-title {
+    display: block;
+    clear: both;
+}
+
+.toggle .admonition-title:after {
+    content: " ▼";
+}
+
+.toggle .admonition-title.open:after {
+    content: " ▲";
+}
+
+
 @media screen and (max-width: 1200px){
 .wy-nav-content {
     max-width: 1100px !important;

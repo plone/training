@@ -324,3 +324,23 @@ Now let's see if we can't improve the default view. To do this we first need to 
 .. seealso::
 
    `Dexterity Developer Manual <http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
+
+
+Exercises
+---------
+
+Exercise 1
+++++++++++
+
+Modify Documents to allow uploading an image as decoration (like News Items do).
+
+
+..  admonition:: Solution
+    :class: toggle
+
+    * Go to the dexterity-controlpanel (http://localhost:8080/Plone/@@dexterity-types)
+    * Click on *Page* (http://127.0.0.1:8080/Plone/dexterity-types/Document)
+    * Select the tab *Behaviors* (http://127.0.0.1:8080/Plone/dexterity-types/Document/@@behaviors)
+    * Check the box next to *Lead Image* and save.
+
+    The images are displayed above the title.
