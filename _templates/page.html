@@ -2,11 +2,9 @@
 
 {% set css_files = css_files + ["_static/custom.css"] %}
 
-{%- block extrahead %}
+{% block footer %}
  <script type="text/javascript">
     $(document).ready(function() {
-        //
-        //
         $(".toggle > *").hide();
         $(".toggle .admonition-title").show();
         $(".toggle .admonition-title").click(function() {
