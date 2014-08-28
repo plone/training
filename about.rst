@@ -30,18 +30,67 @@ presentation
 
     Content without a prefix will be included in both versions.
 
+The readthedocs-theme
+---------------------
+
 We slightly tweaked readthedocs-theme in ``_static/custom.css`` so that it works better with projectors:
 
 - We start hiding the navbar much earlier so that it does not interfere with the text.
 - We enlarge the default width of the content-area.
 
-.. note::
+Some additional javascript shows hidden solutions for exercises by clicking.
 
-    To enable the readthedocs-theme for building the docs locally you will have to modify the ``conf.py`` before ``make presentation`` by removing the comments at the beginning of some lines::
+Just prepend the solution with this markup::
 
-        import sphinx_rtd_theme  # (line 15)
-        html_theme = "sphinx_rtd_theme"  # (line 107)
-        html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]  # (line 109)
+    ..  admonition:: Solution
+        :class: toggle
+
+Here is a full example::
+
+    Exercise 1
+    ++++++++++
+
+    Your mission, should you choose to accept it...
+
+    ..  admonition:: Solution
+        :class: toggle
+
+        I have no clue how they always save the world with only seconds to spare. It would probably contain coding:
+
+        .. code-block:: python
+
+            from plone import api
+
+It will be rendered like this:
+
+Exercise 1
+++++++++++
+
+Your mission, should you choose to accept it...
+
+..  admonition:: Solution
+    :class: toggle
+
+    I have no clue how they always save the world with only seconds to spare. It would probably contain coding:
+
+    .. code-block:: python
+
+        from plone import api
+
+Building the documentation locally
+----------------------------------
+
+To build the documentation follow these steps:
+
+.. code-block:: bash
+
+    $ git clone https://github.com/plone/training.git
+    $ cd training
+    $ virtualenv-2.7 .
+    $ ./bin/pip install -r requirements.txt
+    $ make html
+
+You can now open the output from ``_build/html/index.html``. To build the presentation-version use ``make presentation`` instead of ``make html``. You can open that output at ``presentation/index.html``.
 
 
 Contributing

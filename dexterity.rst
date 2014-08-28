@@ -334,7 +334,6 @@ Exercise 1
 
 Modify Documents to allow uploading an image as decoration (like News Items do).
 
-
 ..  admonition:: Solution
     :class: toggle
 
