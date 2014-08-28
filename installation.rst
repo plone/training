@@ -23,25 +23,17 @@ Installing Plone
 
 .. only:: not presentation
 
-    MacOS 10.8 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones. To run a older Plone-version you need Python 2.4 and that's not always easy to install.
+    MacOS 10.8 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones. To run a Plone-version older than 4.0 you need Python 2.4. That's not always easy to install.
 
-    Most developers usually use their primary system to develop Plone.
+Most developers use their primary system to develop Plone. For complex setups they often use virtual linux-machines.
 
-.. only:: not presentation
+* OS X: Use the python-buildout to compile python and homebrew for some missing linux-tools.
+* Linux: Depending on your linux-flavor you might have to build python yourself and install some tools.
+* Windows: Alan Runyan (one of Plone's founders) uses it. We have no idea how he can live with that but he seems managing perfectly well. A downside: Plone seems to be running much slower on Windows.
 
-    * Philip has MacOS, therefore he uses the python-buildout to compile all necessary versions of python and homebrew for some linux-tools.
-    * Patrick uses Ubuntu.
-    * Alan Runyan (one of Plone's founders) uses Windows. We have no idea how he can live with that but to me he seems managing perfectly well. Plone is much slower on Windows.
+Plone offers multiple options for being installed:
 
-.. only:: presentation
-
-    * Philip has MacOS with the python-buildout and homebrew.
-    * Patrick uses Ubuntu.
-    * Alan Runyan uses Windows.
-
-Plone offers some options for being installed:
-
-1. One-click installers for Mac and Windows (4.3.3 is not yet finished)
+1. One-click installers for Mac and Windows
 2. Unified installers (all 'nix, including MacOS)
 3. A vagrant/virtualbox install kit (all platforms)
 4. Use your own Buildout
@@ -57,7 +49,10 @@ You can download all of these at http://plone.org/products/plone/releases/4.3.3
 
     For the training we'll use option 3 and 4 to install and run Plone.
 
-Read more about installing Plone: https://plone.org/documentation/manual/installing-plone and http://docs.plone.org/manage/installing/index.html
+.. seealso::
+
+    * https://plone.org/documentation/manual/installing-plone
+    * http://docs.plone.org/manage/installing/installation.html
 
 
 Hosting Plone
@@ -69,11 +64,14 @@ Hosting Plone
 
 You can host Plone...
 
-* with one of many `hosting-providers <http://plone.org/support/hosting-providers>`_
+* with one of many professional `hosting-providers <http://plone.org/support/hosting-providers>`_
 * on a virtual private server
 * on dedicated servers
+* on `heroku <http://heroku.com>`_ you can run Plone for *free* using the `Heroku buildpack for Plone <https://github.com/niteoweb/heroku-buildpack-plone>`_
 * in the cloud (e.g. using Amazon EC2 or `Codio.com <http://blog.dbain.com/2014/04/install-plone-in-under-5-minutes-on.html>`_)
 
-Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-on-5-a-month
+.. seealso::
 
-Where to host Plone: http://plone.org/documentation/faq/where-can-i-host-my-plone-site
+    * Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-on-5-a-month
+    * Where to host Plone: http://plone.org/documentation/faq/where-can-i-host-my-plone-site
+    * Guide to deploying and installing Plone in production: http://docs.plone.org/manage/deploying/index.html
