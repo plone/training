@@ -87,7 +87,8 @@ To build the documentation follow these steps:
     $ git clone https://github.com/plone/training.git
     $ cd training
     $ virtualenv-2.7 .
-    $ ./bin/pip install -r requirements.txt
+    $ source bin/activate
+    $ pip install -r requirements.txt
     $ make html
 
 You can now open the output from ``_build/html/index.html``. To build the presentation-version use ``make presentation`` instead of ``make html``. You can open that output at ``presentation/index.html``.
