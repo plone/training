@@ -1,18 +1,11 @@
 Introduction
 ============
 
-Who are we?
------------
-
-* Patrick Gerken, gerken@starzel.de, twitter: do3cc, irc: do3cc
-* Philip Bauer, bauer@starzel.de, twitter: StarzelDe, irc: pbauer
-* We work at `starzel.de <http://www.starzel.de>`_ in Munich, Germany
-
 
 Who are you?
 ------------
 
-Please tell us about yourselves:
+Tell us about yourselves:
 
 * name, company, country...
 * What is your Plone experience?

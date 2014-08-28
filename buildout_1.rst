@@ -253,6 +253,9 @@ Be McGuyver
     Troubleshooting
         http://docs.plone.org/manage/troubleshooting/buildout.html
 
+    A minimal buildout for Plone 4
+        https://github.com/collective/minimalplone4
+
     The buildout of the unified installer has some valuable documentation as inline-comment
         * https://github.com/plone/Installers-UnifiedInstaller/blob/master/buildout_templates/buildout.cfg
         * https://github.com/plone/Installers-UnifiedInstaller/blob/master/base_skeleton/base.cfg

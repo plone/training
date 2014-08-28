@@ -25,7 +25,7 @@ Keep in mind that you need a fast internet-connection during the process since y
         $ cd training
         $ git clone https://github.com/starzel/training_without_vagrant.git buildout
         $ cd buildout
-        $ virtualenv py27
+        $ virtualenv-2.7 py27
         $ ./py27/bin/python bootstrap.py
         $ ./bin/buildout
 
