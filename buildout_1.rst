@@ -28,21 +28,21 @@ Syntax
 Recipes
 -------
 
-    Buildout itself has no idea how to install Zope. Buildout is a plugin based system, it comes with a small set of plugins to create configuration files and download eggs with their dependencies and the proper version. To install a Zope site, you need a third-party plugin. The plugin provide new recipes that you have to declare and configure in a section.
+Buildout itself has no idea how to install Zope. Buildout is a plugin based system, it comes with a small set of plugins to create configuration files and download eggs with their dependencies and the proper version. To install a Zope site, you need a third-party plugin. The plugin provide new recipes that you have to declare and configure in a section.
 
-    One example is the section
+One example is the section
 
-    .. code-block:: ini
+.. code-block:: ini
 
-        [instance]
-        recipe = plone.recipe.zope2instance
-        user = admin:admin
+    [instance]
+    recipe = plone.recipe.zope2instance
+    user = admin:admin
 
-    This uses the python-package `plone.recipe.zope2instance <http://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the used recipe.
+This uses the python-package `plone.recipe.zope2instance <http://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the used recipe.
 
-    .. seealso::
+.. seealso::
 
-        http://www.buildout.org/en/latest/docs/recipelist.html
+    http://www.buildout.org/en/latest/docs/recipelist.html
 
 References
 ----------
