@@ -343,3 +343,69 @@ Modify Documents to allow uploading an image as decoration (like News Items do).
     * Check the box next to *Lead Image* and save.
 
     The images are displayed above the title.
+
+Exercise 2
+++++++++++
+
+Create a new type called *Speaker* and export the schema to a xml-File.
+It should contain the following data:
+
+* First Name
+* Last Name
+* Email
+* Homepage (optional)
+* Biography (optional)
+* Company (optional)
+* Twitter-Name (optional)
+* IRC-Name (optional)
+* Image (optional)
+
+We could use this content-type later on to create allow speakers as real Plone-Users so we link the talks they submitted to them.
+
+..  admonition:: Solution
+    :class: toggle
+
+    The schema should look like this:
+
+    ..  code-block:: xml
+
+        <model xmlns:security="http://namespaces.plone.org/supermodel/security"
+               xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
+               xmlns:form="http://namespaces.plone.org/supermodel/form"
+               xmlns="http://namespaces.plone.org/supermodel/schema">
+          <schema>
+            <field name="first_name" type="zope.schema.TextLine">
+              <title>First Name</title>
+            </field>
+            <field name="last_name" type="zope.schema.TextLine">
+              <title>Last Name</title>
+            </field>
+            <field name="email" type="zope.schema.TextLine">
+              <title>Email</title>
+            </field>
+            <field name="homepage" type="zope.schema.TextLine">
+              <required>False</required>
+              <title>Homepage</title>
+            </field>
+            <field name="biography" type="plone.app.textfield.RichText">
+              <required>False</required>
+              <title>Biography</title>
+            </field>
+            <field name="company" type="zope.schema.TextLine">
+              <required>False</required>
+              <title>Company</title>
+            </field>
+            <field name="twitter_name" type="zope.schema.TextLine">
+              <required>False</required>
+              <title>Twitter-Name</title>
+            </field>
+            <field name="irc_name" type="zope.schema.TextLine">
+              <required>False</required>
+              <title>IRC-Name</title>
+            </field>
+            <field name="image" type="plone.namedfile.field.NamedBlobImage">
+              <required>False</required>
+              <title>Image</title>
+            </field>
+          </schema>
+        </model>
