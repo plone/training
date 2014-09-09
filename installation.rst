@@ -11,7 +11,7 @@ Installing Plone
 
 .. only:: presentation
 
-    Plone 4.3.x requires a working Python 2.7 and serveral other tools.
+    Plone 4.3.x requires a working Python 2.7 and several other tools.
 
     Installation is different on every system.
 
@@ -29,7 +29,7 @@ Most developers use their primary system to develop Plone. For complex setups th
 
 * OS X: Use the python-buildout to compile python and homebrew for some missing linux-tools.
 * Linux: Depending on your linux-flavor you might have to build python yourself and install some tools.
-* Windows: Alan Runyan (one of Plone's founders) uses it. We have no idea how he can live with that but he seems managing perfectly well. A downside: Plone seems to be running much slower on Windows.
+* Windows: Alan Runyan (one of Plone's founders) uses it. A downside: Plone seems to be running much slower on Windows.
 
 Plone offers multiple options for being installed:
 
