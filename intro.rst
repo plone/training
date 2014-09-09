@@ -98,7 +98,7 @@ Follow the training at http://plone-training.readthedocs.org/
 
 .. note::
 
-    You can use this presentation to copy & paste the code but you will memorize more if type yourself.
+    You can use this presentation to copy & paste the code but you will memorize more if you type yourself.
 
 
 Further Reading
