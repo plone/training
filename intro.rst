@@ -7,7 +7,7 @@ Who are you?
 
 Tell us about yourselves:
 
-* name, company, country...
+* Name, company, country...
 * What is your Plone experience?
 * What is your web-development experience?
 * What are your expectations for this tutorial?
@@ -40,20 +40,20 @@ What will we do?
 
 Some technologies and tools we use during the training:
 
-* Git
-* Github
-* Virtualbox
-* Vagrant
-* Ubuntu linux
+* `Git <http://git-scm.com/>`_
+* `Github <http://github.com>`_
+* `Virtualbox <https://www.virtualbox.org/>`_
+* `Vagrant <http://www.vagrantup.com/>`_
+* `Ubuntu linux <http://www.ubuntu.com/>`_
 * Through-the-web (TTW)
-* Buildout
+* `Buildout <http://www.buildout.org/en/latest/>`_
 * TAL
 * METAL
 * Zcml
-* Python
+* `Python <http://python.org>`_
 * Dexterity
 * Viewlets
-* JQuery
+* `JQuery <http://jquery.com/>`_
 
 What will we not do?
 --------------------
@@ -84,7 +84,7 @@ What to expect
 
 You won't be a complete professional Plone-programmer after this training. But you will know some of the more powerful features of Plone and should be able to construct a website on your own using these tools. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core-technologies involved in Plone-programming.
 
-If you want to become a professional Plone-developer or Plone-integrator you should definitvely read `Martins book <http://www.packtpub.com/professional-plone-4-development/book>`_ and re-read it again and again.
+If you want to become a professional Plone-developer or Plone-integrator you should definitvely read `Martins book <http://www.packtpub.com/professional-plone-4-development/book>`_ and re-read it again.
 
 Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_.
 
@@ -98,25 +98,24 @@ Follow the training at http://plone-training.readthedocs.org/
 
 .. note::
 
-    You can use this presentation to copy & paste the code but you will memorize more, the more you type yourself.
+    You can use this presentation to copy & paste the code but you will memorize more if you type yourself.
 
 
 Further Reading
 ---------------
-
 * `Martin Aspeli: Professional Plone4 Development <http://www.packtpub.com/professional-plone-4-development/book>`_
 * `Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_
-
+* `Zope Page Templates Reference <http://docs.zope.org/zope2/zope2book/AppendixC.html>`_
 
 .. only:: not presentation
 
     .. note::
 
-       * Please ask questions when you have them!
+       * Stop us and ask questions when you have them!
        * Tell us if we speak to fast, to slow or not loud enough.
-       * One of us is always there to help you if you are stuck. Please give us a sign if you  are stuck.
-       * We'll make some breaks...
-       * Where is Food, Restrooms
+       * One of us is always there to help you if you are stuck. Please give us a sign if you are stuck.
+       * We'll make some breaks, the first one will be at XX.
+       * Where is food, restrooms
        * Someone please take the time we take for each chapter (incl. title)
        * Someone please write down errors
        * Contact us after the training: team@starzel.de
