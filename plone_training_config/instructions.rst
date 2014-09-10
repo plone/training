@@ -13,9 +13,9 @@ Keep in mind that you need a fast internet-connection during the process since y
 
     We recommend using a virtual machine for the training if you are not used to running Plone on your laptop.
 
-    You can also work on your own machine with your own Python if you want to but **please please please** make sure that you have a system that will work since we don't want you to lose valuable time.
+    You can also work on your own machine with your own Python if you want to but ** please ** make sure that you have a system that will work since we don't want you to lose valuable time.
 
-    If you want to use your own system use the Buildout at https://github.com/starzel/training_without_vagrant.git (since the one we set up with puppet has several directories set to folders not shared with the host).
+    If you want to use your own system use the Buildout at https://github.com/starzel/training_without_vagrant.git
 
     Set up Plone for the training like this if you don't want to use a VM:
 
