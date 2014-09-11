@@ -62,6 +62,10 @@ Setup Vagrant to automatically install the current guest-additions. You can choo
 Now either get the attached zip-file (if you read this as a mail) or download it from  :download:`http://plone-training.readthedocs.org/en/latest/_downloads/plone_training_config.zip <../plone_training_config.zip>`.
  and copy its contents into your training directory. It should now hold the file "Vagrantfile" and the directory ``manifests``.
 
+.. code-block:: bash
+    $ wget http://plone-training.readthedocs.org/en/latest/_downloads/plone_training_config.zip
+    $ unzip plone_training_config.zip
+
 Now start setting up the VM that is configured in "Vagrantfile"
 
 .. code-block:: bash
@@ -88,7 +92,7 @@ This takes a **veeeeery loooong time** since it:
 
         Skipping because of failed dependencies
 
-    If this happens or you have the feeling that something has gone wrong and the installation has not finished correctly for some reason you need to run try   the following command to repeat the process. This will only repeat steps that have not finished correctly.
+    If this happens or you have the feeling that something has gone wrong and the installation has not finished correctly for some reason you need to run try the following command to repeat the process. This will only repeat steps that have not finished correctly.
 
     .. code-block:: bash
 
@@ -104,7 +108,7 @@ Once Vagrant finishes the provisioning-process, you can login to the now running
 
 .. note::
 
-    If you have to use Windows you'll have to login to with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User _and_ password are `vagrant`.
+    If you use Windows you'll have to login with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User _and_ password are `vagrant`.
 
 You are now logged in as the user vagrant in ``/home/vagrant``. We'll do all steps of the training as this user.
 
