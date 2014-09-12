@@ -13,7 +13,7 @@ Dexterity I: Through the web
 What is a content-type?
 -----------------------
 
-A content-type is object that can store information and is editable by users.
+A content-type is an object that can store information and is editable by users.
 
 Schema
     A definition of fields that comprise a content-type
@@ -23,7 +23,7 @@ FTI
     The "Factory Type Information" configures the content-type in Plone, assigns a name, an icon, additional features and possible views to it.
 
 View
-    The visual representation of the object and the content of it's fields.
+    The visual representation of the object and the content of its fields.
 
 
 Dexterity and Archetypes - A Comparison
@@ -40,33 +40,33 @@ Two content-frameworks in Plone
 
 What are the differences?
 
-* Dexterity: New, faster, no dark magic for getters und setters. modular
+* Dexterity: New, faster, no dark magic for getters and setters. modular
 * Archetype had magic setter/getter - use talk.getAudience() for the field 'audience'
 * Dexterity: fields are attributes: talk.audience instead of talk.getAudience()
 
 TTW:
 
 * Dexterity has a good TTW-story.
-* Archetypes has no ttw-story
+* Archetypes has no TTW-story.
 * UML-modeling: `ArchGenXML <http://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ for Archetypes, `agx <http://agx.me>`_ for Dexterity
 
 Approaches for Developers:
 
-* Schema in Dexterity: ttw, xml, python. interface = schema, often no class needed
+* Schema in Dexterity: TTW, xml, python. interface = schema, often no class needed
 * Schema in Archetypes: schema only in python
 
 * Dexterity: easy permissions per field, easy custom forms
 * Archetypes: permissions per field hard, custom forms even harder
-* If you have to programm for old sites you need to know Archetypes!
+* If you have to program for old sites you need to know Archetypes!
 * If you start new pages you could skip it.
 
 Extending:
 
-* Dexterity has Behaviors: easily extendable. Just activate an behavior ttw and you content-type is translateable (plone.app.multilingual). There might even be per-instance behaviors at one time...
-* Archetypes has archetypes.schemaextender. Powerfull but not as flexible
+* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content-type is translateable (plone.app.multilingual). There might even be per-instance behaviors at one time...
+* Archetypes has archetypes.schemaextender. Powerful but not as flexible.
 
-We only use dexterity for the last years.
-We teach Dexterity and not Archetypes since it's much more accessible to beginners, has a great TTW-story and is the future.
+We have only used Dexterity for the last few years.
+We teach Dexterity and not Archetypes because it's more accessible to beginners, has a great TTW-story and is the future.
 
 Views:
 
@@ -85,9 +85,9 @@ Installation
     We can skip this step since we installed ``plone.app.contenttypes`` when creating out Plone-Site in the beginning.
 
 
-You don't have modify the buildout since Plone 4.3.x already ships with Dexterity. You just have to activate it in the control-panel for Add-ons.
+You don't have to modify the buildout since Plone 4.3.x ships with Dexterity. You just have to activate it in the control-panel for Add-ons.
 
-This time for no obvous reason other than getting more comfortable with the ZMI we'll use ``portal_quickinstaller`` to install Dexterity.
+This time, for no obvious reason other than getting more comfortable with the ZMI, we'll use ``portal_quickinstaller`` to install Dexterity.
 
 * go to portal_quickinstaller
 * install "Dexterity Content Types"
@@ -101,15 +101,15 @@ Modifying existing types
 * Why are there no RichText-Fields for the Document and News-Item?
 * Select the type ``News Item`` and add a new field ``Hot News`` of type ``Yes/No``
 * In another tab add a News Item and you see the new field.
-* Go back to the schema-editor and klick on `Edit XML Field Model <http://localhost:8080/Plone/dexterity-types/News%20Item/@@modeleditor>`_.
+* Go back to the schema-editor and click on `Edit XML Field Model <http://localhost:8080/Plone/dexterity-types/News%20Item/@@modeleditor>`_.
 * Note that the only field in the xml-schema of the News Item is the one we just added. All others are provided by behaviors.
-* Edit the form-widget-type so that is says
+* Edit the form-widget-type so it says:
 
   .. code-block:: xml
 
     <form:widget type="z3c.form.browser.checkbox.SingleCheckBoxFieldWidget"/>
 
-* Edit the News Item again. The widget changed to from a radiofield to a checkbox.
+* Edit the News Item again. The widget changed from a radiofield to a checkbox.
 * The new field ``Hot News`` is not displayed when rendering the News Item. We'll take care of this later.
 
 
@@ -120,9 +120,9 @@ Modifying existing types
 Creating content-types TTW
 --------------------------
 
-In this step we will create a CT called 'Talk' and try it. When it's ready we will move the code from the web to the file system and into our own addon. Later we will extend that type and add behaviors and a viewlet for Talks.
+In this step we will create a content-type called 'Talk' and try it. When it's ready we will move the code from the web to the file system and into our own addon. Later we will extend that type, add behaviors and a viewlet for Talks.
 
-* Add new content type "Talk" and some fields for it:
+* Add new content-type "Talk" and some fields for it:
 
   * Add Field "Type of talk", type "Choice". Add options: talk, keynote, training
   * Add Field "Details", type "Rich Text" with a maximal length of 2000
@@ -133,10 +133,10 @@ In this step we will create a CT called 'Talk' and try it. When it's ready we wi
 * Return to the control panel http://localhost:8080/Plone/@@dexterity-types
 * Extend the new type
 
-  * "Speaker", Typ: "Text line"
-  * "Email", Typ: "Text line"
-  * "Image", Typ: "Image", not required
-  * "Speaker Biography", Typ: "Rich Text"
+  * "Speaker", type: "Text line"
+  * "Email", type: "Text line"
+  * "Image", type: "Image", not required
+  * "Speaker Biography", type: "Rich Text"
 
 * Test again
 
@@ -201,10 +201,10 @@ Moving content-types into code
 We want version-control and more extendability so we move our new content-types into code.
 
 * Export the Type Profile and save the file
-* Delete the type from the site before installing the type from the file-system
+* Delete the Type from the site before installing it from the file system
 * Extract the files from the exported tar-file and add them to our addon-package in ``ploneconf/site/profiles/default/``
 
-The file ``ploneconf/site/profiles/default/types.xml`` tells plone that there is a new content type defined in file ``talk.xml``.
+The file ``ploneconf/site/profiles/default/types.xml`` tells plone that there is a new content-type defined in file ``talk.xml``.
 
 .. code-block:: xml
 
@@ -215,7 +215,7 @@ The file ``ploneconf/site/profiles/default/types.xml`` tells plone that there is
      <!-- -*- extra stuff goes here -*- -->
     </object>
 
-Upon installing Plone reads the file ``ploneconf/site/profiles/default/types/talk.xml`` and registers a new type in ``portal_types`` (you can find this tool in the ZMI) with the information taken from that file.
+Upon installing, Plone reads the file ``ploneconf/site/profiles/default/types/talk.xml`` and registers a new type in ``portal_types`` (you can find this tool in the ZMI) with the information taken from that file.
 
 .. code-block:: xml
   :linenos:
@@ -313,13 +313,13 @@ Upon installing Plone reads the file ``ploneconf/site/profiles/default/types/tal
      </action>
     </object>
 
-* restart Plone
-* install ploneconf.site
+* Restart Plone.
+* Install ploneconf.site.
 * Go to the ZMI and look at the definition of the new type in ``portal_types``.
 * Test the type by adding an object or editing one of the old ones.
 * Look at how the talks are presented in the browser.
 
-Now let's see if we can't improve the default view. To do this we first need to learn about templates.
+Now let's see if we can improve the default view. To do this we first need to learn about templates.
 
 .. seealso::
 
@@ -347,7 +347,7 @@ Modify Documents to allow uploading an image as decoration (like News Items do).
 Exercise 2
 ++++++++++
 
-Create a new type called *Speaker* and export the schema to a xml-File.
+Create a new content-type called *Speaker* and export the schema to a xml-File.
 It should contain the following data:
 
 * First Name
@@ -360,7 +360,7 @@ It should contain the following data:
 * IRC-Name (optional)
 * Image (optional)
 
-We could use this content-type later on to create allow speakers as real Plone-Users so we link the talks they submitted to them.
+We could use this content-type later to convert speakers into Plone-Users. We could then link them to their talks.
 
 ..  admonition:: Solution
     :class: toggle
