@@ -19,12 +19,12 @@ Zope2
     Then there were transactions, so that it became a real database and after a while there were python scripts that could be edited through the web.
     One missing piece is important and complicated: ``Acquisition``.
 
-    Acquisition is a kind of magic. Imagine a programming system where you do not access the file system and where you do not need to import code. You work with objects. An object can be a folder that contains more objects, an HTML page, data, or another script. To access an object, you need to know where the object is. Objects are found by paths that look like URLs, but without the domain name. Now Acquisition allows you to write an incomplete path. An incomplete path is a relative path, it does not explicitly state that the path starts from the root, it starts relative to where the code object is. If Zope cannot resolve the path to an object relative to your code, I tries the same path in the containing folder. And then the folder containing the folder.
+    Acquisition is a kind of magic. Imagine a programming system where you do not access the file system and where you do not need to import code. You work with objects. An object can be a folder that contains more objects, an HTML page, data, or another script. To access an object, you need to know where the object is. Objects are found by paths that look like URLs, but without the domain name. Now Acquisition allows you to write an incomplete path. An incomplete path is a relative path, it does not explicitly state that the path starts from the root, it starts relative to where the code object is. If Zope cannot resolve the path to an object relative to your code, it tries the same path in the containing folder. And then the folder containing the folder.
 
     This might sound weird, what do I gain with this?
 
     You can have different data or code depending on your ``context``. Imagine you want to have header images differing for each section of your page, sometimes even differing for a specific subsection of your site. So you define a path header_image and put a header image at the root of your site. If you want a folder to with a different header image, you put the header image into this folder.
-    Please take a minute to let this settle and think, what this allows you to do.
+    Please take a minute to let this settle and think about what this allows you to do.
 
     - contact forms with different e-mail addresses per section
     - different CSS styles for different parts of your site
@@ -96,6 +96,6 @@ Pyramid
 
     You can use it with a relational Database instead of ZODB if you want, or you use both databases or none of them.
 
-    Apart from the fact that Pyramid was not forced to support all legacy functionality that can make things more complicated, the original developer had a very different stance on how software must be developed. While both Zope and Pyramid have a good test coverage, Pyramid also has good documentation, something that was very neglected in Zope and at times in Plone too.
+    Apart from the fact that Pyramid was not forced to support all legacy functionality, which can make things more complicated, the original developer had a very different stance on how software must be developed. While both Zope and Pyramid have good test coverage, Pyramid has good documentation; something that was very neglected in Zope, and at times in Plone too.
 
-    Wether the component architecture is better in Pyramid or not we don't dare to say, but we like it more. But maybe its just because it has documented.
+    Whether the component architecture is better in Pyramid or not we don't dare to say, but we like it more. But maybe it's just because it was documented.
