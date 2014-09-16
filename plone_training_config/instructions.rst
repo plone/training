@@ -30,7 +30,7 @@ Keep in mind that you need a fast internet-connection during the process since y
         $ ./bin/buildout
 
 Install VirtualBox
--------------------------
+------------------
 
 Vagrant uses Oracle’s VirtualBox to create virtual environments. Here is a link directly to the download page: https://www.virtualbox.org/wiki/Downloads. We use VirtualBox  4.3.x.
 
@@ -129,13 +129,13 @@ Instead we use our own Plone-instance during the training. It is in ``/vagrant/b
 
 Now the Zope-instance we're using is running. You can stop the running instance anytime using ``ctrl + c``.
 
-You can now point your local browser at http://localhost:8080 and see the Plone that is running in vagrant. This works because Virtualbox forwards the port 8080 from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone-Site by clicking "Create a new Plone-Site". The username and the password are both "admin" (Never do this on a real site!).
+If you point your local browser at http://localhost:8080 you see that Plone is running in vagrant. This works because Virtualbox forwards the port 8080 from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone-Site by clicking "Create a new Plone-Site". The username and the password are both "admin" (Never do this on a real site!).
 
 The Buildout for this Plone is in a shared folder, this means we run it in the vagrant-box from ``/vagrant/buildout`` but we can also access it in out own operating-system and use our favorite editor. You will find the directory ``buildout`` in the directory ``training`` that you created in the very beginning next to ``Vagrantfile`` and ``manifests``.
 
 .. note::
 
-    The database and the python-packages are **not accessible** in you own system since large files and you cannot use symlinks in shared folders. The database lies in ``/home/vagrant/var``, the python-packages are in ``/home/vagrant/omelette``.
+    The database and the python-packages are not accessible in you own system since large files cannot make use of symlinks in shared folders. The database lies in ``/home/vagrant/var``, the python-packages are in ``/home/vagrant/omelette``.
 
 If you have any problems or questions please mail us at team@starzel.de
 
