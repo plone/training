@@ -181,7 +181,7 @@ Skins (portal_skins)
 In portal_skins we can change certain images, css-files and templates.
 
 * portal_skins is deprecated technology
-* We only do some minial changes here.
+* We only do some minimal changes here.
 
 .. only:: not presentation
 
