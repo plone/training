@@ -106,9 +106,9 @@ What are components, what is ZCML
 
     Monkey Patching.
 
-    It means that I change code in other files while my file gets loaded.
+    It means that you change code in other files while my file gets loaded.
 
-    If I would want to have an extensible registry of icons for different content types, I could create a global dictionary, and whoever implements a new icon for a different content type, would add an entry to my dictionary during import time.
+    If you would want to have an extensible registry of icons for different content types, you could create a global dictionary, and whoever implements a new icon for a different content type, would add an entry to my dictionary during import time.
 
     This does not scale. Multiple plugins might overwrite each other, you would explain people that they have to reorder the imports, and then, suddenly, you will to import feature A before B, B before C and C before A, or else you application won't work.
 
