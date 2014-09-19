@@ -12,6 +12,11 @@ We don't do any real theming during the training. We'll just explain the options
 
 If you seek a training about Diazo we recommend a training by `Chrissy Wainwright <https://twitter.com/cdw9>`_ or `Maik DerStappen <http://www.derstappen-it.de/>`_
 
+
+.. seealso::
+    
+    Diazo: How it Works by Steve McMahon from Plone Conference 2013 https://www.youtube.com/watch?v=Vvr26Q5IriE
+
 .. seealso::
 
     http://docs.plone.org/adapt-and-extend/theming/index.html
