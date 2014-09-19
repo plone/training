@@ -115,7 +115,7 @@ Modifying existing types
 
 .. seealso::
 
-   https://github.com/plone/plone.app.contenttypes#extending-the-types
+   http://docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types
 
 Creating content-types TTW
 --------------------------
