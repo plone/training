@@ -15,7 +15,7 @@ How to find addons
 * https://github.com/plone >260 repos
 * http://news.gmane.org/gmane.comp.web.zope.plone.user
 * google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)
-* Check shortlist (Plone Paragon) that will come in 2014 on plone.org
+* Check shortlist `Plone Paragon <http://paragon.plone.org/>`_ (Launched August 2014) 
 * ask in irc and on the mailing list
 
 .. seealso::
@@ -135,7 +135,7 @@ Registration-form:
 Add Photogallery with collective.plonetruegallery
 -------------------------------------------------
 
-To advertice the conference we want to show some photos showing past conferences and the city where conference is taking place in.
+To advertise the conference we want to show some photos showing past conferences and the city where conference is taking place in.
 
 collective.plonetruegallery is a role model on how to write a Plone Extension.
 
