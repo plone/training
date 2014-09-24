@@ -31,7 +31,7 @@ The :program:`instance`-script offers the following options::
 
     As you can see, there is no Plone yet!
 
-    We have a running Zope with a database but no content. But luckily there is a button to create a Plone site. Click on that button. This opens a form to create a Plone site. Use :samp:`Plone` as the site id.
+    We have a running Zope with a database but no content. But luckily there is a button to create a Plone site. Click on that button (login: admin:admin). This opens a form to create a Plone site. Use :samp:`Plone` as the site id.
 
     You now have the option to select some addons before you create the site. Since we will use Dexterity from the beginning we select ``Dexterity-based Plone Default Types``. This way even the initial content on our page will be built with dexterity by the addon ``plone.app.contenttypes`` which will be the default in Plone 5.
 
