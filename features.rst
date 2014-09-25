@@ -193,7 +193,7 @@ Folders
 Collections
 -----------
 
-* add a new collection: all content that has pending as wf_state.
+* add a new collection: "all content that has pending as wf_state".
 * explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit
 * explain Topics
 * mention collection-portlets

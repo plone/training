@@ -50,14 +50,14 @@ Portlets
 * portlet-configuration is inherited
 * managing
 * ordering/weighting
-* will maybe be replaced by tiles
+* The future: will maybe be replaced by tiles
 
 Example:
 
 * go to http://localhost:8080/Plone/@@manage-portlets
 * Add a static portlet "Sponsors" on the right side.
 * Remove the news-portlet and add a new one on the left side.
-* Go to the training-folder: http://localhost:8080/Plone/training and click ``Manage portlets``
+* Go to the training-folder: http://localhost:8080/Plone/the-event/training and click ``Manage portlets``
 * Add a static portlet. "Featured training: Become a Plone-Rockstar at Mastering Plone!"
 
 
