@@ -252,7 +252,7 @@ Change the logo
 
 Let's change the Logo.
 
-* Download a old ploneconf logo: http://www.sixfeetup.com/blog/2011PloneConfLogo.gif
+* Download a ploneconf logo: http://www.starzel.de/plone-tutorial/ploneconf-logo-2014/image
 * Go to ``portal_skins`` / ``plone_images``
 * Click on ``logo.png``, click ``Customize`` and Upload the Logo.
 
