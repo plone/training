@@ -1,7 +1,7 @@
 Using the code for the training
 ===============================
 
-We provide the code for this training divided in into chapters. To
+We provide the code for this training divided in into chapters.
 
 Telling Plone about ploneconf.site
 ----------------------------------
