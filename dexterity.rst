@@ -29,13 +29,13 @@ View
 Dexterity and Archetypes - A Comparison
 ---------------------------------------
 
-Two content-frameworks in Plone
+There are two content-frameworks in Plone
 
 * Dexterity: new and the coming default
 * Archetypes: old, tried and tested
 * Archetypes: widespread though addons
 * Plone 4.x: Archetypes
-* Plone 5.x: Dexterity
+* Plone 5.x: Dexterity (Archetypes will still be shipped and is available)
 * add and edit-forms are created automatically from a schema
 
 What are the differences?
