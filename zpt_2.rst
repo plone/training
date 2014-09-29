@@ -167,9 +167,6 @@ skin-templates
 
     Since we use ``plone.app.contenttypes`` we do not encounter many skin-templates when dealing with content any more. But more often than not you'll have to customize an old site that still uses skin-templates.
 
-    Until now the templates of the default content-types are skin-templates for example. Since we use ``plone.app.contenttypes`` we do not encounter many skin-templates when dealing with content any more. But more often than not you'll have to customize an old site that still uses skin-templates.
-    You could append ``/document_view`` to any part of a plone-site to render the default template for documents. You will often get errors since the template ``document_view.pt`` expects the context to have a field 'text' that it attempts to render.
-
 Skin templates and python-scripts in portal_skin are deprecated because:
 
 * they use restricted python
