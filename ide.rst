@@ -3,7 +3,7 @@ IDE's and Editors
 
 Plone consists of more than 20.000 files! You need a tool to manage that. No development environment is complete without a good editor.
 
-People pick editors themselves. use whatever you are comfortable and productive with. These are the most used editors in the Plone community:
+People pick editors themselves. Use whatever you are comfortable and productive with. These are the most used editors in the Plone community:
 
 * `Sublime <http://www.sublimetext.com/>`_
 * `PyCharm <http://www.jetbrains.com/pycharm/>`_

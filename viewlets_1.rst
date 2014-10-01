@@ -15,7 +15,7 @@ A viewlet for the social behavior
 
 .. only:: not presentation
 
-    A viewlet is no view but a snippet of html and logic that can be put in various places in the site. These places are called ``viewletmanager``.
+    A viewlet is not a view but a snippet of html and logic that can be put in various places in the site. These places are called ``viewletmanager``.
 
 * Inspect existing viewlets and their managers by going to http://localhost:8080/Plone/@@manage-viewlets.
 * We already customized a viewlet (:file:`collophon.pt`). Now we add a new one.
@@ -91,7 +91,7 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
     <div id="social-links">
         <a href="#"
            class="lanyrd-link"
-           tal:define="link view/lanyrd_link"
+           tal:define="link viewlets/lanyrd_link"
            tal:condition="link"
            tal:attributes="href link">
              See this talk on Lanyrd!

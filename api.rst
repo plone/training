@@ -14,7 +14,7 @@ The api is devided in five sections. Here is one example from each:
 * `Users`: `Get user roles <http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_
 * `Environment`: `Switch roles inside a block <http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_
 
-plone.api is not yet part of the Plone core. Therefore you will not see any use of plone.api in in Plone itself. But we are sure it will be part of Plone 5 if someone gets around to submitting the PLIP.
+plone.api is not yet part of the Plone core. Therefore you will not see any use of plone.api in in Plone itself. It will be part of Plone 5.
 
 In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out about what they do.
 
