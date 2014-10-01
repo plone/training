@@ -333,7 +333,7 @@ To make views configurable so that editors can choose them we have to register t
 
 After reapplying the typeinfo-profile of out addon (or simply reinstalling it) the content-type "Folder" is extended with our additional view-method and appears in the display-dropdown.
 
-The ``purge="False"`` append out view to the already existing ones instead of replacing them.
+The ``purge="False"`` appends the view to the already existing ones instead of replacing them.
 
 
 Adding some javascript (collective.js.datatables)

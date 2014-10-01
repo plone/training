@@ -28,14 +28,14 @@ Dexterity Approach
 
     All default views know about the concept of behaviors and when rendering forms, the views also check whether there are behaviors referenced with the current context and if these behavior have a schema of their own, these fields get shown in addition.
 
-    This this functionality in place, you can extend your content types during runtime, through the web.
+    With this functionality in place, you can extend your content types during runtime, through the web.
 
 Names and Theory
 ----------------
 
 .. only:: not presentation
 
-    The name behavior is not a standard term in the software development. But it is a good idea to think of a behavior as an aspect. You are adding an aspect to your content type, you want to write your aspect in such a way, that it works independent of the content type on which the aspect is applied. You should not have dependencies to specific fields of your object or to other behaviors.
+    The name behavior is not a standard term in the software development. But it is a good idea to think of a behavior as an aspect. You are adding an aspect to your content typeand you want to write your aspect in such a way, that it works independent of the content type on which the aspect is applied. You should not have dependencies to specific fields of your object or to other behaviors.
 
     Such an object allows you to apply the `Open/closed principle`_ to your dexterity objects.
 
@@ -52,7 +52,7 @@ Practical example
 
     So, let us write our own small behavior.
 
-    In the future, we want our presentation be represented in Lanyrd too. For now we will just provide a link so that visitors can collaborate easily with the lanyrd site.
+    In the future, we want our presentation be represented in Lanyrd (a Social Conference Directory - Lanyrd.com) too. For now we will just provide a link so that visitors can collaborate easily with the Lanyrd site.
 
     So for now, our behavior just adds a new field for storing the url to Lanyrd.
 
@@ -135,9 +135,9 @@ And a :file:`behaviors/social.py` containing:
     #. We register a behavior in :ref:`behaviors/configure.zcml <social-behavior-zcml-label>`. We do not say for which content type this behavior is valid. You do this, through the web or in the GenericSetup profile.
     #. We create a marker interface in :ref:`behaviors/social.py <social-behavior-python-label>` for our behavior and make it also a schema containing the fields we want to declare.
        We could just use define schema fields on a zope.intereface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features.
-    #. We add a `fieldset`_ So that our fields are not mixed with the normal fields of the object.
+    #. We also add a `fieldset`_ so that our fields are not mixed with the normal fields of the object.
     #. We add a normal `URI`_ schema field to store the URI to lanyrd.
-    #. We mark our schema es a class that also implements the `IFormFieldProvider`_ interface. This is a marker interface, we do not need to implement anything to provide the interface.
+    #. We mark our schema as a class that also implements the `IFormFieldProvider`_ interface. This is a marker interface, we do not need to implement anything to provide the interface.
 
 Adding it to our talk
 ---------------------
