@@ -30,7 +30,7 @@ The content-type `Talk` is not yet a first-class citizen because it does not imp
 
 The problem is that the name of the Plone-instance ``Plone`` is part of that interface-name. If you now moved these types to a site with another name, code that uses these Interfaces would no longer find the objects in question.
 
-For this we add a new file ``interfaces.py``:
+To solve this we add a new file ``interfaces.py``:
 
 .. code-block:: python
     :linenos:
@@ -42,14 +42,14 @@ For this we add a new file ``interfaces.py``:
         """Marker interface for Talks
         """
 
-``ITalk`` is a marker-interface. We can bind Views and Viewlets to content that provide these interfaces. Now we talks to provide this Interface. There are two solution for this.
+``ITalk`` is a marker-interface. We can bind Views and Viewlets to content that provide these interfaces. Lets see how we can provide this Interface. There are two solution for this.
 
 1. Let them be instances of a class that implements this Interface.
 2. Register this interface as a behavior and enable it on talks.
 
 The first option has a important drawback: Only new talks would be instances of the new class. We would either have to migrate the existing talks or delete them.
 
-We register the interface as a behavior in ``behaviors/configure.zcml``
+So lets register the interface as a behavior in ``behaviors/configure.zcml``
 
 .. code-block:: xml
 
@@ -88,7 +88,7 @@ Then we can safely bind the talkview to the new marker interface.
       permission="zope2.View"
       />
 
-Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface ``catalog(object_provides="ploneconf.site.interfaces.ITalk")``. The `talklistview` and the `demoview` do not get this constraint since they are not only used on talks but .
+Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface ``catalog(object_provides="ploneconf.site.interfaces.ITalk")``. The `talklistview` and the `demoview` do not get this constraint since they are not only used on talks.
 
 .. note::
 
@@ -164,7 +164,7 @@ Include the new ``upgrades.zcml`` in our ``configure.zcml`` by adding:
 
     <include file="upgrades.zcml" />
 
-GenericSetup now expects the code to be a method ``upgrade_site`` in the file ``upgrades.py``. Let's create it.
+GenericSetup now expects the code as a method ``upgrade_site`` in the file ``upgrades.py``. Let's create it.
 
 ..  code-block:: python
     :linenos:
