@@ -36,7 +36,7 @@ First we enable the behavior ``IEventBasic`` for talks in ``profiles/default/typ
       <element value="plone.app.event.dx.behaviors.IEventBasic"/>
     </property>
 
-If we set the behavior by hand or reinstall the addon we could now add new talks with new field for ``start`` and ``end``.
+After we activate the behavior by hand or reinstalled the addon we could add new talks with new field for ``start`` and ``end``.
 
 But because of a `bug in plone.app.event <https://github.com/plone/plone.app.event/issues/160>`_  does not expect existing objects to get the behavior. Since existing types have no values in the fields ``start`` and ``end`` we would get a traceback on inline-validation when we edit these. To work around this we create an upgrade-step that sets some an initial date.
 
