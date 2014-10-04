@@ -3,7 +3,7 @@ Creating reusable packages with eggs
 
 We already created an egg much earlier.
 
-Now we are going to create a a feature that is completely independent of our ploneconf site and can be reused in other packages.
+Now we are going to create a feature that is completely independent of our ploneconf site and can be reused in other packages.
 
 To make the distinction clear, this is not a package from the namespace :samp:`ploneconf` but from :samp:`starzel`.
 
@@ -45,7 +45,7 @@ We have to modify the generated files slightly.
 
 In :file:`setup.py`, we completely remove the variables setup_requires and paster_plugins. These are required for features that are rarely used and add a lot of code into the source directory that we don't want. To the :samp:`install_requires` list, we add an entry for :samp:`plone.api`.
 
-The file :file:`tests.py` we just delete. This is an outdated test system and we don't want you to start from there.
+We just delete the file :file:`tests.py`. This is an outdated test system, we don't want you to start from there.
 
 The file :file:`profiles/default/types.xml` we just delete also. We won't define new types.
 
