@@ -23,8 +23,8 @@ Contents:
     intro
     installation
     plone_training_config/instructions.rst
-    case
     anatomy
+    case
     features
     configuring_customizing
     extending
