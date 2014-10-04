@@ -81,9 +81,9 @@ There are some important differences to our first behavior:
 
     The factory is a class that provides the behavior logic and gives access to the attributes we provide.
     Factories in Plone/Zope land are retrieved by adapting an object with an interface.
-    If I want my behavior, I'd write :samp:`IVoting(object)`
+    If you want your behavior, you would write :samp:`IVoting(object)`
 
-    But in order for this to work, my object may *not* be implementing the IVoting interface, because if it would, :samp:`IVoting(object)` would return the object itself!
+    But in order for this to work, your object may *not* be implementing the IVoting interface, because if it would, :samp:`IVoting(object)` would return the object itself!
     If I need a marker interface for objects providing my behavior, I must provide one, for this we use the marker attribute. My object implements :samp:`IVotable` and because of this, we can write views and viewlets just for this content type.
 
 The interfaces need to be written, in our cases into a file :file:`interfaces.py`:
@@ -105,7 +105,7 @@ The interfaces need to be written, in our cases into a file :file:`interfaces.py
         """Marker interface for the Browserlayer
         """
 
-    # Ivotable is the marker interface for contenttypes how support this behavior
+    # Ivotable is the marker interface for contenttypes who support this behavior
     class IVotable(Interface):
         pass
 
