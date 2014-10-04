@@ -1,8 +1,3 @@
-.. Mastering Plone documentation master file, created by
-   sphinx-quickstart on Fri Jan 18 15:10:23 2013.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Mastering Plone!
 ================
 
@@ -12,6 +7,12 @@ Mastering Plone is intended as a week-long training for people who are new to Pl
 
 - A beginner training (2 to 3 days) that covers chapters 1-18.
 - A advanced training (3 to 5 days) that covers the rest.
+
+
+.. toctree::
+    :maxdepth: 2
+
+    about
 
 
 Contents:
@@ -65,6 +66,5 @@ Please note that this document is not complete without the spoken word of a trai
 .. toctree::
     :maxdepth: 2
 
-    about
     changelog
     roadmap

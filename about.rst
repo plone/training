@@ -1,18 +1,57 @@
 About Mastering Plone
 =====================
 
-History
--------
+This training was created by Philip Bauer and Patrick Gerken of `starzel.de <http://www.starzel.de>`_ to create a canonical training for future Plone developers. The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it. It is published as Open Source on `github <https://github.com/plone/training>`_ and `readthedocs <http://plone-training.readthedocs.org/>`_.
 
-This training was created for the "Mastering Plone"-trainings by Philip Bauer and Patrick Gerken of `starzel.de <http://www.starzel.de>`_. It was published in order to create a canonical Plone Training so that anyone with the appropriate knowledge can give a training based on it.
+If you want to inquire the original authors about organizing a training please contact them at team@starzel.de.
+
+
+Upcoming Trainings
+------------------
+
+`Plone Conference 2014, Bristol <http://2014.ploneconf.org/training>`_
+    by Philip Bauer and Steffen Lindner (Advanced) and Steve McMahon (Beginner)
+
+November 24-28 2014, Munich
+    by Philip Bauer and Patrick Gerken
+
+
+Previous Trainings
+------------------
+
+The Mastering Plone Training was so far held publicly at the following occasions:
+
+* `May 2014, Munich <http://www.starzel.de/blog/mastering-plone>`_
+* `PythonBrasil/Plone Conference 2013, Brasilia <http://2013.pythonbrasil.org.br/program/training/mastering-plone>`_
+* `PyCon DE 2012, Leipzig <https://2012.de.pycon.org/>`_
+* `Plone Conference 2012, Arnheim <http://2012.ploneconf.org/the-event/training/conference-trainings/mastering-plone>`_
+* `PyCon De 2011, Leipzig <http://2011.de.pycon.org/2011/home/>`_
+
+
+Trainers
+--------
+
+The following trainers have given trainings based on Mastering Plone:
+
+Philip Bauer
+    Philip Bauer is a Webdeveloper from Munich who fell in love with Plone in 2005 and since then works almost exclusively with Plone. A historian by education he drifted towards creating websites in the 90's and founded the company Starzel.de in 2000. He is a member of the Plone foundation, loves teaching and is dedicated to Open Source. Among other Plone-related projects he started creating the Mastering Plone Training so that everyone can become a Plone-Developer.
+
+Patrick Gercken
+    Patrick Gerken works with Python since 2002. He started working with pure Zope-Applications and now to develops mainly with with Plone, Pyramid and Javascript as well as doing what is called DevOps. He works at Starzel.de.
+
+.. publish after Ploneconf 2014
+
+    Steve McMahon
+        Steve McMahon is a long-time Plone community member, contributor and trainer. He is the creator of PloneFormGen and maintainer of the Unified installer. Steve also wrote several chapters of Practical Plone and is an experienced speaker and instructor.
+
+    Steffen Lindner
+        Steffen Lindner started developing Plone in 2006. He worked on small Plone sites and also with huge intranet sites. As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at Starzel.de.
 
 
 Using the documentation for a training
 ---------------------------------------
 
 Feel free to organize a training yourself. Please be so kind to contribute any bugfixes or enhancements you made to the documentation for your training.
-
-If you want to contact the original authors about a training you can reach them at team@starzel.de.
 
 The training is rendered using sphinx and builds in two flavors:
 
@@ -30,13 +69,17 @@ presentation
 
     Content without a prefix will be included in both versions.
 
+
 The readthedocs-theme
----------------------
++++++++++++++++++++++
 
 We slightly tweaked readthedocs-theme in ``_static/custom.css`` so that it works better with projectors:
 
 - We start hiding the navbar much earlier so that it does not interfere with the text.
 - We enlarge the default width of the content-area.
+
+Excercises
+++++++++++
 
 Some additional javascript shows hidden solutions for exercises by clicking.
 
@@ -48,14 +91,14 @@ Just prepend the solution with this markup::
 Here is a full example::
 
     Exercise 1
-    ++++++++++
+    ^^^^^^^^^^
 
     Your mission, should you choose to accept it...
 
     ..  admonition:: Solution
         :class: toggle
 
-        I have no clue how they always save the world with only seconds to spare. It would probably contain coding:
+        To save the world with only seconds to spare do the following:
 
         .. code-block:: python
 
@@ -64,21 +107,22 @@ Here is a full example::
 It will be rendered like this:
 
 Exercise 1
-++++++++++
+^^^^^^^^^^
 
 Your mission, should you choose to accept it...
 
 ..  admonition:: Solution
     :class: toggle
 
-    I have no clue how they always save the world with only seconds to spare. It would probably contain coding:
+    To save the world with only seconds to spare do the following:
 
     .. code-block:: python
 
         from plone import api
 
+
 Building the documentation locally
-----------------------------------
+++++++++++++++++++++++++++++++++++
 
 To build the documentation follow these steps:
 
@@ -91,13 +135,13 @@ To build the documentation follow these steps:
     $ pip install -r requirements.txt
     $ make html
 
-You can now open the output from ``_build/html/index.html``. To build the presentation-version use ``make presentation`` instead of ``make html``. You can open that output at ``presentation/index.html``.
+You can now open the output from ``_build/html/index.html``. To build the presentation-version use ``make presentation`` instead of ``make html``. You can open the presentation at ``presentation/index.html``.
 
 
 Contributing
 ------------
 
-Everyone is welcome to contribute. Minor bugfixes can be pushed direcly in the `repository <https://github.com/plone/training>`_, bigger changes should made as `pull-requests <https://github.com/plone/training/pull/>`_.
+Everyone is **very welcome** to contribute. Minor bugfixes can be pushed direcly in the `repository <https://github.com/plone/training>`_, bigger changes should made as `pull-requests <https://github.com/plone/training/pull/>`_ and discussed previously in tickets.
 
 By prefixing a indented block of text or code with ``.. only:: presentation`` or ``.. only:: not presentation`` you can control which of the versions the indented block will show up. Content without a prefix will be included in both versions.
 

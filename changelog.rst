@@ -7,6 +7,18 @@ Changelog
 - Revised for Ploneconf 2014, Bristol
   [pbauer, gomez]
 
+- Add first exercises and create css+js for expanding/collapsing the solutions
+  [pbauer]
+
+- Fix local build with the rtd-Theme
+  [pbauer]
+
+- Add spanish translation.
+  [macagua]
+
+- Add support for translations on https://www.transifex.com/projects/p/mastering-plone-training/
+  [macagua]
+
 
 1.2.3 (2014-07-11)
 ------------------
@@ -33,7 +45,7 @@ Changelog
 - Fix all mistakes found during the training in May 2014
   [pbauer]
 
-- Move rest-files to https://github.com/starzel/training
+- Move rst-files to https://github.com/starzel/training
   [pbauer]
 
 1.2.1 (2014-05-30)
@@ -89,16 +101,22 @@ Changelog
 1.1 (October 2013)
 ------------------
 
-- Revised for Ploneconf 2013, Brasilia
+- Revised and expanded for Ploneconf 2013, Brasilia
   [pbauer, do3cc]
 
 
 1.0 (October, 2012)
 -------------------
 
-- First version for Ploneconf 2012, Arnhem
+- First version under the title 'Mastering Plone' for Ploneconf 2012, Arnhem
   [pbauer, do3cc]
 
+
+0.2 October 2011
+----------------
+
+- Expanded as Plone-Tutorial for PyCon De 2011, Leipzig
+  [pbauer]
 
 0.1 (October 2009)
 ------------------
