@@ -327,7 +327,7 @@ Add the viewlet-class in ``browser/viewlets.py``
 
 
 * We create the complete img-tag using a custom scale (200x80) using the view ``images`` from plone.namedfile. This actually scales the logos and saves them as new blobs.
-* In ``sponsors`` we return a ordered dicttionary of randomized lists of dicts (containing the information on sponsors).
+* In ``sponsors`` we return a ordered dictionary of randomized lists of dicts (containing the information on sponsors).
 
 .. seealso::
 
