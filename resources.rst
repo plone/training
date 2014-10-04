@@ -55,7 +55,7 @@ Let's create a ``ploneconf.css`` and a ``plonconf.js`` in that folder.
 
 If we access http://localhost:8080/Plone/++resource++ploneconf.site/ploneconf.css we see our css-file.
 
-How do our javascript and css files get used when visiting the page? Adding them directly into the html is not a good solution, having many css- and js-files slows page loading down.
+How do our javascript and css files get used when visiting the page? Adding them directly into the html is not a good solution, having many css- and js-files slows down the page loading.
 
 With ``portal_css`` and ``portal_javascript`` Plone has resource managers that are able to merge and compress js and css files. Resources can be added conditionally and Plone automatically stops merging files when you are debugging plone in the foreground.
 
