@@ -66,5 +66,5 @@ Please note that this document is not complete without the spoken word of a trai
 .. toctree::
     :maxdepth: 2
 
-    changelog
+    CHANGES
     roadmap
