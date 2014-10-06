@@ -8,33 +8,72 @@ To not waste too much time with installing and debugging the differences between
 
 Keep in mind that you need a fast internet-connection during the process since you'll have to download a complete virtual machine (ubuntu) and several packages and updates.
 
+
+Installing Plone without vagrant
+--------------------------------
+
 .. warning::
 
-    We recommend using a virtual machine for the training if you **are not**  used to running Plone on your laptop.
+    If you are **not** used to running Plone on your laptop skip this part and continue with :ref:`install-virtualbox`.
 
-    If you **are** experienced with running Plone on your own laptop we encourage you to try if because you will have certain benefits:
+If you **are** experienced with running Plone on your own laptop we encourage you to do so because you will have certain benefits:
 
-    * You can use the editor you are used to.
-    * You can use omelette to have all the code of Plone at your fingertips.
-    * You do not have to switch between different operating-system during the training.
+* You can use the editor you are used to.
+* You can use omelette to have all the code of Plone at your fingertips.
+* You do not have to switch between different operating-system during the training.
 
-    If you feel comfortable please work on your own machine with your own Python but ** please ** make sure that you have a system that will work since we don't want you to lose valuable time.
+If you feel comfortable please work on your own machine with your own Python but ** please ** make sure that you have a system that will work since we don't want you to lose valuable time.
 
-    If you want to use your own system you need to make some small changes to the buildout we use during the training:
+You will need to make a small change to the buildout we use during the training.
+
+Set up Plone for the training like this if you use your own OS (Linux or Mac):
+
+.. code-block:: bash
+
+    $ mkdir training
+    $ cd training
+    $ git clone https://github.com/starzel/training_buildout.git buildout
+    $ cd buildout
+    $ virtualenv-2.7 py27
+
+Now you need to make a small change to the buildout. Open the file ``buildout.cfg`` in an editor and add a ``#`` at the beginning of line 25 where it says ``buildout_dir = /home/vagrant``. Then remove the ``#`` at the next line. It should now read:
+
+.. code-block:: ini
+
+    buildout_dir = ${buildout:directory}
+
+Now you can run the buildout for the first time:
+
+.. code-block:: bash
+
+    $ ./py27/bin/python bootstrap.py
+    $ ./bin/buildout
+
+This will take some time and produce a lot of output because it downloads and configures Plone. Once it is done you can start you instance with
+
+.. code-block:: bash
+
+    $ ./bin/instance fg
+
+If the output should be simliar to::
+
+    2014-10-06 15:11:26 INFO ZServer HTTP server started at Mon Oct  6 15:11:26 2014
+        Hostname: 0.0.0.0
+        Port: 8080
+    2014-10-06 15:11:29 INFO Products.PloneFormGen gpg_subprocess initialized, using /usr/local/bin/gpg
+    2014-10-06 15:11:29 INFO ZODB.blob (14015) Blob directory `/Users/philip/workspace/training/buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
+    2014-10-06 15:11:29 INFO ZODB.blob (14015) Blob temporary directory '/Users/philip/workspace/training/buildout/var/blobstorage/tmp' does not exist. Created new directory.
+    2014-10-06 15:11:37 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
+    2014-10-06 15:11:37 INFO Zope Ready to handle requests
+
+It the output says ``INFO Zope Ready to handle requests`` then you are up and running and can continue with the next chapter.
+
+.. warning::
+
+    If there is an error-message you should either try to fix it or use vagrant and continue in this chapter.
 
 
-
-    Set up Plone for the training like this if you don't want to use a VM:
-
-    .. code-block:: bash
-
-        $ mkdir training
-        $ cd training
-        $ git clone https://github.com/starzel/training_buildout.git buildout
-        $ cd buildout
-        $ virtualenv-2.7 py27
-        $ ./py27/bin/python bootstrap.py
-        $ ./bin/buildout
+.. _install-virtualbox:
 
 Install VirtualBox
 ------------------
@@ -70,14 +109,16 @@ Now either get the attached zip-file (if you read this as a mail) or download it
 
 :download:`http://plone-training.readthedocs.org/en/latest/_downloads/plone_training_config.zip <../plone_training_config.zip>`.
 
-and copy its contents into your training directory. It should now hold the file "Vagrantfile" and the directory ``manifests``.
+and copy its contents into your training directory.
 
 .. code-block:: bash
 
     $ wget http://plone-training.readthedocs.org/en/latest/_downloads/plone_training_config.zip
     $ unzip plone_training_config.zip
 
-Now start setting up the VM that is configured in "Vagrantfile"
+The training-directory should now hold the file ``Vagrantfile`` and the directory ``manifests`` which again contains several files.
+
+Now start setting up the VM that is configured in ``Vagrantfile``:
 
 .. code-block:: bash
 
@@ -129,8 +170,8 @@ Instead we use our own Plone-instance during the training. It is in ``/vagrant/b
 
 .. code-block:: bash
 
-    vagrant@vagrant-ubuntu-trusty-32:~$ cd /vagrant/buildout
-    vagrant@vagrant-ubuntu-trusty-32:/vagrant/buildout$ ./bin/instance fg
+    vagrant@training:~$ cd /vagrant/buildout
+    vagrant@training:/vagrant/buildout$ ./bin/instance fg
     2014-05-20 16:56:54 INFO ZServer HTTP server started at Tue May 20 16:56:54 2014
             Hostname: 0.0.0.0
             Port: 8080
@@ -146,7 +187,7 @@ The Buildout for this Plone is in a shared folder, this means we run it in the v
 
 .. note::
 
-    The database and the python-packages are not accessible in you own system since large files cannot make use of symlinks in shared folders. The database lies in ``/home/vagrant/var``, the python-packages are in ``/home/vagrant/omelette``.
+    The database and the python-packages are not accessible in you own system since large files cannot make use of symlinks in shared folders. The database lies in ``/home/vagrant/var``, the python-packages are in ``/home/vagrant/packages``.
 
 If you have any problems or questions please mail us at team@starzel.de or create a ticket at https://github.com/plone/training/issues.
 
