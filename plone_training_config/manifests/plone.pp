@@ -92,7 +92,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         creates => '/vagrant/buildout',
         user => 'vagrant',
         cwd => '/vagrant',
-        before => Exec["virtualenv_training"],
+        before => Exec["bootstrap_training"],
         timeout => 0,
     }
 
