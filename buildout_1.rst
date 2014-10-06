@@ -71,7 +71,7 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     [buildout]
     parts =
         instance
-        omelette
+        packages
         codeintel
         zopeskel
 
@@ -79,11 +79,21 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
         http://dist.plone.org/release/4.3.3/versions.cfg
         versions.cfg
 
+    find-links = http://dist.plone.org
     extensions = mr.developer
     sources = sources
     auto-checkout = *
 
     versions = versions
+
+    # If you do _not_ use vagrant please add a '#' at the beginning of the
+    # following line and uncomment the line after.
+    # This will set the location of three directories:
+    # file-storage: set in [instance] defines where the ZODB is stored
+    # blob-storage: set in [instance] defines where Binary Files are stored
+    # packages-dir: set in [packages] defines a location for symlinks to all eggs
+    buildout_dir = /home/vagrant
+    #buildout_dir = ${buildout:directory}
 
     eggs =
         Plone
@@ -111,22 +121,18 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     recipe = plone.recipe.zope2instance
     user = admin:admin
     eggs = ${buildout:eggs}
-    # The following is only used when we use vagrant.
-    # The shared folder should not contain "big data" or symbolic links.
-    file-storage = /home/vagrant/var/filestorage/Data.fs
-    blob-storage = /home/vagrant/var/blobstorage
+    http-address = 8080
+    file-storage = ${buildout:buildout_dir}/var/filestorage/Data.fs
+    blob-storage = ${buildout:buildout_dir}/var/blobstorage
 
-    [omelette]
+    [packages]
     recipe = collective.recipe.omelette
-    eggs = ${instance:eggs}
-    # Same as above: We don't want links in the shared folder.
-    # The default omelette-dir is parts/omelette
-    location = /home/vagrant/omelette
+    eggs = ${buildout:eggs}
+    location = ${buildout:buildout_dir}/packages
 
     [codeintel]
     recipe = corneti.recipes.codeintel
-    eggs = ${instance:eggs}
-    extra-paths = ${omelette:location}
+    eggs = ${buildout:eggs}
 
     [zopeskel]
     recipe = zc.recipe.egg
@@ -141,9 +147,9 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
         ${buildout:eggs}
 
     [sources]
-    collective.behavior.banner = git https://github.com/starzel/collective.behavior.banner.git pushurl=git@github.com:starzel/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
     # ploneconf.site = fs ploneconf.site full-path=${buildout:directory}/src/ploneconf.site
-    # starzel.votable_behavior = git git://github.com/starzel/starzel.votable_behavior.git
+    collective.behavior.banner = git https://github.com/starzel/collective.behavior.banner.git pushurl=git@github.com:starzel/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
+    starzel.votable_behavior = git git://github.com/starzel/starzel.votable_behavior.git
 
 
 When you run ``./bin/buildout`` without any arguments, Buildout will look for this file.
