@@ -2,7 +2,6 @@ Installing Plone for the Training
 =================================
 
 
-
 To not waste too much time with installing and debugging the differences between systems we use a virtual machine (Ubuntu 14.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development-environment to everyone.
 
 `Vagrant <http://www.vagrantup.com>`_ is a tool for building complete development environments. We use it together with Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to create and manage a virtual environment.
@@ -11,11 +10,19 @@ Keep in mind that you need a fast internet-connection during the process since y
 
 .. warning::
 
-    We recommend using a virtual machine for the training if you are not used to running Plone on your laptop.
+    We recommend using a virtual machine for the training if you **are not**  used to running Plone on your laptop.
 
-    You can also work on your own machine with your own Python if you want to but ** please ** make sure that you have a system that will work since we don't want you to lose valuable time.
+    If you **are** experienced with running Plone on your own laptop we encourage you to try if because you will have certain benefits:
 
-    If you want to use your own system use the Buildout at https://github.com/starzel/training_without_vagrant.git
+    * You can use the editor you are used to.
+    * You can use omelette to have all the code of Plone at your fingertips.
+    * You do not have to switch between different operating-system during the training.
+
+    If you feel comfortable please work on your own machine with your own Python but ** please ** make sure that you have a system that will work since we don't want you to lose valuable time.
+
+    If you want to use your own system you need to make some small changes to the buildout we use during the training:
+
+
 
     Set up Plone for the training like this if you don't want to use a VM:
 
@@ -23,7 +30,7 @@ Keep in mind that you need a fast internet-connection during the process since y
 
         $ mkdir training
         $ cd training
-        $ git clone https://github.com/starzel/training_without_vagrant.git buildout
+        $ git clone https://github.com/starzel/training_buildout.git buildout
         $ cd buildout
         $ virtualenv-2.7 py27
         $ ./py27/bin/python bootstrap.py
@@ -66,6 +73,7 @@ Now either get the attached zip-file (if you read this as a mail) or download it
 and copy its contents into your training directory. It should now hold the file "Vagrantfile" and the directory ``manifests``.
 
 .. code-block:: bash
+
     $ wget http://plone-training.readthedocs.org/en/latest/_downloads/plone_training_config.zip
     $ unzip plone_training_config.zip
 
