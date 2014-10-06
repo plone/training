@@ -127,7 +127,7 @@ In this step we will create a content-type called 'Talk' and try it. When it's r
   * Add Field "Type of talk", type "Choice". Add options: talk, keynote, training
   * Add Field "Details", type "Rich Text" with a maximal length of 2000
   * Add Field "Audience", type "Multiple Choice". Add options: beginner, advanced, pro
-  * Check the behaviors that are enabled: Basic metadata, Name from title, Referenceable
+  * Check the behaviors that are enabled:  Dublin Core metadata, Name from title
 
 * Test the content-type
 * Return to the control panel http://localhost:8080/Plone/@@dexterity-types
