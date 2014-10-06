@@ -20,7 +20,7 @@
   end
 
   # A workaround for missing symbolic links on windows:
-  #config.vm.share_folder "eggs", "/home/vagrant/.buildout/buildout-cache/eggs", "eggs"
+  # config.vm.synced_folder "eggs/", "/home/vagrant/buildout-cache/eggs/"
 
 
   # Run apt-get update as a separate step in order to avoid

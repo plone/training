@@ -86,7 +86,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 0,
     }
 
-    # get starter-buildout
+    # get training buildout
     exec {'git clone https://github.com/starzel/training_buildout.git buildout':
         alias => "checkout_training",
         creates => '/vagrant/buildout',
@@ -96,8 +96,9 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 0,
     }
 
-    # don't create virtualenv in the shared folder since it contains symlinks
-    # # create virtualenv
+
+    # we skip this step since the virtualenv would add symlinks to the shared folder
+    # # create virtualenv for training
     # exec {'virtualenv --no-site-packages /vagrant/buildout/py27':
     #     alias => "virtualenv_training",
     #     creates => '/vagrant/buildout/py27/bin/python',
@@ -107,7 +108,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     #     timeout => 0,
     # }
 
-    # bootstrap
+    # bootstrap training buildout
     exec {'/home/vagrant/py27/bin/python bootstrap.py':
         alias => "bootstrap_training",
         creates => '/vagrant/buildout/bin/buildout',
@@ -117,7 +118,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 0,
     }
 
-    # run buildout
+    # run training buildout
     exec {'/vagrant/buildout/bin/buildout':
         alias => "buildout_training",
         creates => '/vagrant/buildout/bin/instance',
