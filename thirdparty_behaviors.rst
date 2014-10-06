@@ -20,11 +20,21 @@ The training-buildout hold a section ``[sources]`` that tells buildout to downlo
 
 Pinning the revision saves us from being surprised by changes in the code we might not want.
 
+After adding the source, we need to add the egg to buildout:
+
+.. code-block:: cfg
+
+    eggs =
+        Plone
+        ...
+        collective.behavior.banner
+        ...
+ 
+And rerun ``./bin/buildout``
+ 
 * Install the addon
 * Create a new dexterity-ct ``Banner`` with **only** the behavior ``Banner`` enabled.
 * Create a folder called ``banners``
 * Add two banners into that folder using images taken from http://lorempixel.com/800/150/
 * Add the Behavior ``Slider`` to the default-contenttype ``Page (Document)``
 * Edit the frontpage and link to the new banners.
-
-
