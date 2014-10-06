@@ -138,6 +138,13 @@ To build the documentation follow these steps:
 You can now open the output from ``_build/html/index.html``. To build the presentation-version use ``make presentation`` instead of ``make html``. You can open the presentation at ``presentation/index.html``.
 
 
+Things to do before a training (as a trainer)
+---------------------------------------------
+
+- Prepare a mailserver for the user registration mail (http://plone-training.readthedocs.org/en/latest/features.html#configure-a-mailserver)
+- If you do a part of the training (Advanced) prepare a database with the steps of the previous sections.
+
+
 Contributing
 ------------
 
