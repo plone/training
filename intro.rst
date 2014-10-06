@@ -42,6 +42,7 @@ Some technologies and tools we use during the training:
 
 * `Git <http://git-scm.com/>`_
 * `Github <http://github.com>`_
+* `Try Git (Nice introduction to git and github)<https://try.github.io/>`_
 * `Virtualbox <https://www.virtualbox.org/>`_
 * `Vagrant <http://www.vagrantup.com/>`_
 * `Ubuntu linux <http://www.ubuntu.com/>`_
