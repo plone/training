@@ -59,8 +59,11 @@ Setup Vagrant to automatically install the current guest-additions. You can choo
 
     $ vagrant plugin install vagrant-vbguest
 
-Now either get the attached zip-file (if you read this as a mail) or download it from  :download:`http://plone-training.readthedocs.org/en/latest/_downloads/plone_training_config.zip <../plone_training_config.zip>`.
- and copy its contents into your training directory. It should now hold the file "Vagrantfile" and the directory ``manifests``.
+Now either get the attached zip-file (if you read this as a mail) or download it from
+
+:download:`http://plone-training.readthedocs.org/en/latest/_downloads/plone_training_config.zip <../plone_training_config.zip>`.
+
+and copy its contents into your training directory. It should now hold the file "Vagrantfile" and the directory ``manifests``.
 
 .. code-block:: bash
     $ wget http://plone-training.readthedocs.org/en/latest/_downloads/plone_training_config.zip
