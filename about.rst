@@ -39,13 +39,11 @@ Philip Bauer
 Patrick Gercken
     Patrick Gerken works with Python since 2002. He started working with pure Zope-Applications and now to develops mainly with with Plone, Pyramid and Javascript as well as doing what is called DevOps. He works at Starzel.de.
 
-.. publish after Ploneconf 2014
+Steve McMahon
+    Steve McMahon is a long-time Plone community member, contributor and trainer. He is the creator of PloneFormGen and maintainer of the Unified installer. Steve also wrote several chapters of Practical Plone and is an experienced speaker and instructor.
 
-    Steve McMahon
-        Steve McMahon is a long-time Plone community member, contributor and trainer. He is the creator of PloneFormGen and maintainer of the Unified installer. Steve also wrote several chapters of Practical Plone and is an experienced speaker and instructor.
-
-    Steffen Lindner
-        Steffen Lindner started developing Plone in 2006. He worked on small Plone sites and also with huge intranet sites. As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at Starzel.de.
+Steffen Lindner
+    Steffen Lindner started developing Plone in 2006. He worked on small Plone sites and also with huge intranet sites. As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at Starzel.de.
 
 
 Using the documentation for a training
