@@ -139,7 +139,7 @@ You can now open the output from ``_build/html/index.html``. To build the presen
 
 
 Things to do before a training (as a trainer)
----------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++
 
 - Prepare a mailserver for the user registration mail (http://plone-training.readthedocs.org/en/latest/features.html#configure-a-mailserver)
 - If you do a part of the training (Advanced) prepare a database with the steps of the previous sections.
