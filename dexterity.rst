@@ -40,7 +40,7 @@ There are two content-frameworks in Plone
 
 What are the differences?
 
-* Dexterity: New, faster, no dark magic for getters and setters. modular
+* Dexterity: New, faster, modular, no dark magic for getters and setters
 * Archetype had magic setter/getter - use talk.getAudience() for the field 'audience'
 * Dexterity: fields are attributes: talk.audience instead of talk.getAudience()
 
@@ -52,17 +52,17 @@ TTW:
 
 Approaches for Developers:
 
-* Schema in Dexterity: TTW, xml, python. interface = schema, often no class needed
-* Schema in Archetypes: schema only in python
+* Schema in Dexterity: TTW, XML, Python. Interface = schema, often no class needed
+* Schema in Archetypes: Schema only in Python
 
-* Dexterity: easy permissions per field, easy custom forms
-* Archetypes: permissions per field hard, custom forms even harder
+* Dexterity: Easy permissions per field, easy custom forms
+* Archetypes: Permissions per field hard, custom forms even harder
 * If you have to program for old sites you need to know Archetypes!
 * If you start new pages you could skip it.
 
 Extending:
 
-* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content-type is translateable (plone.app.multilingual). There might even be per-instance behaviors at one time...
+* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content-type is e.g. translateable (plone.app.multilingual). There might even be per-instance behaviors at one time...
 * Archetypes has archetypes.schemaextender. Powerful but not as flexible.
 
 We have only used Dexterity for the last few years.
@@ -196,7 +196,7 @@ Here is the complete xml-schema created by our actions.
 
 
 Moving content-types into code
----------------------------------
+------------------------------
 
 We want version-control and more extendability so we move our new content-types into code.
 
