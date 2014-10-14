@@ -34,7 +34,7 @@ Download the code into a directory called ``src/ploneconf.site_sneak``.
 .. code-block:: bash
 
     $ cd src
-    $ git clone https://github.com/starzel/ploneconf.site_sneak.git
+    $ git clone https://github.com/collective/ploneconf.site_sneak.git
 
 
 Copy the relevant chapter so that Plone can use into

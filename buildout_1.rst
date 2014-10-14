@@ -149,7 +149,7 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     [sources]
     # ploneconf.site = fs ploneconf.site full-path=${buildout:directory}/src/ploneconf.site
     collective.behavior.banner = git https://github.com/starzel/collective.behavior.banner.git pushurl=git@github.com:starzel/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
-    starzel.votable_behavior = git git://github.com/starzel/starzel.votable_behavior.git
+    starzel.votable_behavior = git git://github.com/collective/starzel.votable_behavior.git
 
 
 When you run ``./bin/buildout`` without any arguments, Buildout will look for this file.

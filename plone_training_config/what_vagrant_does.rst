@@ -55,12 +55,12 @@ Instead vagrant now creates our own little Buildout and only uses the eggs that 
 
     $ cp -Rf /home/vagrant/Plone/buildout-cache /home/vagrant
 
-Then we checkout our tutorial buildout from http://github.com/starzel/training_buildout and build it.
+Then we checkout our tutorial buildout from http://github.com/collective/training_buildout and build it.
 
 .. code-block:: bash
 
     $ cd /vagrant
-    $ git clone https://github.com/starzel/training_buildout.git buildout
+    $ git clone https://github.com/collective/training_buildout.git buildout
     $ cd buildout
     $ /home/vagrant/py27/bin/python bootstrap.py
     $ ./bin/buildout

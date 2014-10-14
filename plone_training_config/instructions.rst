@@ -32,7 +32,7 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
     $ mkdir training
     $ cd training
-    $ git clone https://github.com/starzel/training_buildout.git buildout
+    $ git clone https://github.com/collective/training_buildout.git buildout
     $ cd buildout
     $ virtualenv-2.7 py27
 
