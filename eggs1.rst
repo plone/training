@@ -51,7 +51,7 @@ Inspecting the package
 Let's have a look at some of it's files.
 
 bootstrap.py, buildout.cfg, plone.cfg
-    You can ignore these files for now. They are here to create a buildout only for this egg to make testing easier.
+    You can ignore these files for now. They are here to create a buildout only for this egg to make testing easier. Once we start writing tests for this package we will have to update these files to the current best-practices and versions.
 
 docs, README.txt
     The documentation and changelog of your egg goes in there
