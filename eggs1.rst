@@ -99,7 +99,7 @@ Before we can use our new addon we have to tell Plone about it. Edit ``buildout.
     ...
 
     [sources]
-    collective.behavior.banner = git https://github.com/starzel/collective.behavior.banner.git pushurl=git@github.com:starzel/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
+    collective.behavior.banner = git https://github.com/collective/collective.behavior.banner.git pushurl=git@github.com:collective/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
     ploneconf.site = fs ploneconf.site full-path=${buildout:directory}/src/ploneconf.site
     # starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
 

@@ -15,7 +15,7 @@ How to find addons
 * https://github.com/plone >260 repos
 * http://news.gmane.org/gmane.comp.web.zope.plone.user
 * google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)
-* Check shortlist `Plone Paragon <http://paragon.plone.org/>`_ (Launched August 2014) 
+* Check shortlist `Plone Paragon <http://paragon.plone.org/>`_ (Launched August 2014)
 * ask in irc and on the mailing list
 
 .. seealso::
@@ -53,7 +53,7 @@ Some noteable addons
 `Products.Doormat <https://pypi.python.org/pypi/Products.Doormat>`_
   A flexible doormat
 
-`collective.behavior.banner <https://github.com/starzel/collective.behavior.banner>`_
+`collective.behavior.banner <https://github.com/collective/collective.behavior.banner>`_
   Add decorative banners and sliders
 
 `plone.app.multilingual <http://pypi.python.org/pypi/plone.app.multilingual>`_

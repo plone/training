@@ -16,7 +16,7 @@ The training-buildout hold a section ``[sources]`` that tells buildout to downlo
 .. code-block:: cfg
 
     [sources]
-    collective.behavior.banner = git https://github.com/starzel/collective.behavior.banner.git pushurl=git@github.com:starzel/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
+    collective.behavior.banner = git https://github.com/collective/collective.behavior.banner.git pushurl=git@github.com:collective/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
 
 Pinning the revision saves us from being surprised by changes in the code we might not want.
 
@@ -29,9 +29,9 @@ After adding the source, we need to add the egg to buildout:
         ...
         collective.behavior.banner
         ...
- 
+
 And rerun ``./bin/buildout``
- 
+
 * Install the addon
 * Create a new dexterity-ct ``Banner`` with **only** the behavior ``Banner`` enabled.
 * Create a folder called ``banners``
