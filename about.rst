@@ -61,7 +61,7 @@ presentation
 
 .. note::
 
-    By prefixing an indented block of text or code with ``.. only:: presentation`` you can control that his block is used for the presentation-version only.
+    By prefixing an indented block of text or code with ``.. only:: presentation`` you can control that this block is used for the presentation-version only.
 
     To hide a block from the presentation-version use ``.. only:: not presentation``
 
