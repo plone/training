@@ -140,7 +140,7 @@ Things to do before a training (as a trainer)
 +++++++++++++++++++++++++++++++++++++++++++++
 
 - Prepare a mailserver for the user registration mail (http://plone-training.readthedocs.org/en/latest/features.html#configure-a-mailserver)
-- If you do a part of the training (Advanced) prepare a database with the steps of the previous sections.
+- If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not with the buildout path /vagrant/buildout/)
 
 
 Contributing
