@@ -45,6 +45,9 @@ class packages {
   package { "python-virtualenv":
       ensure => present,
   }
+  package { "unzip":
+      ensure => present,
+  }
 
   # Optional packages to enable indexing of office/pdf docs
   # package { "wv":
