@@ -21,6 +21,7 @@ Previous Trainings
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
+* `June 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068480>`_
 * `May 2014, Munich <http://www.starzel.de/blog/mastering-plone>`_
 * `PythonBrasil/Plone Conference 2013, Brasilia <http://2013.pythonbrasil.org.br/program/training/mastering-plone>`_
 * `PyCon DE 2012, Leipzig <https://2012.de.pycon.org/>`_
@@ -32,6 +33,9 @@ Trainers
 --------
 
 The following trainers have given trainings based on Mastering Plone:
+
+Leonardo Caballero
+    Leonardo J. Caballero G. of Maracaibo, Venezuela, is a Technical Director at Covantec R.L. and Conectivo C.A. Leonardo maintains the Spanish translations of more than 49 Plone Add-ons as well as Spanish-language documentation for Plone itself. He has contributed several Plone Add-ons that are part of PloneGov. Currently serving the Plone Board as a Plone Ambassador, Leonardo has also served as an Advisory Board member and has spoken at or helped organize Plone and open-source events throughout South America.
 
 Philip Bauer
     Philip Bauer is a Webdeveloper from Munich who fell in love with Plone in 2005 and since then works almost exclusively with Plone. A historian by education he drifted towards creating websites in the 90's and founded the company Starzel.de in 2000. He is a member of the Plone foundation, loves teaching and is dedicated to Open Source. Among other Plone-related projects he started creating the Mastering Plone Training so that everyone can become a Plone-Developer.
