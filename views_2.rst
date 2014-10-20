@@ -17,7 +17,7 @@ Earlier we wrote a demo view which we also used to experiment with page template
 Let us have a look at the zcml and the Page Template again.
 I have extended the code just slightly.
 
-ZCML
+``browser/configure.zcml``
 
 .. code-block:: xml
     :linenos:
@@ -37,7 +37,7 @@ ZCML
 
     </configure>
 
-Code
+``browser/views.py``
 
 .. code-block:: python
     :linenos:
@@ -81,7 +81,7 @@ The default-view
 
 Now we finally add the default-view for talks in views.py
 
-``configure.zcml``
+``browser/configure.zcml``
 
 .. code-block:: xml
 
@@ -94,7 +94,7 @@ Now we finally add the default-view for talks in views.py
        permission="zope2.View"
        />
 
-``views.py``
+``browser/views.py``
 
 .. code-block:: python
 
@@ -167,6 +167,8 @@ We could also tell plone about this in the ZMI: http://localhost:8080/Plone/port
 
 Let's improve the talkview to show all the info we want.
 
+``templates/talkview.pt``:
+ 
 .. code-block:: xml
     :linenos:
 
@@ -209,6 +211,30 @@ Let's improve the talkview to show all the info we want.
         </metal:content-core>
     </body>
     </html>
+
+
+Exercise
+--------
+
+Add the new field "room" to the Talk type (TTW) and display it below Audience in the browser view, it should contain the following data:
+
+* Title: Room
+* Possible values: Room 101, Room 102, Auditorium
+
+..  admonition:: Solution
+        :class: toggle
+
+        * Go to http://localhost:8080/Plone/dexterity-types/talk/@@fields and add the new fields
+        * Add the new HTML below the audience part:
+
+        .. code-block:: xml
+
+            <p>
+                <span tal:replace="structure view/w/room/render">
+                    Room
+                </span>
+            </p>
+
 
 .. seealso::
 
