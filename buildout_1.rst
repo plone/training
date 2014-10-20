@@ -6,12 +6,14 @@ Buildout I
     `Buildout <https://pypi.python.org/pypi/zc.buildout>`_ composes your application for you, according to your rules.
 
     To compose your application you must define the eggs you need, which version, what configuration files Buildout has to generate for you, what to download and compile, and so on.
-    Buildout downloads the eggs you requested and resolves all dependencies. You might need five different eggs, but in the end, Buildout has to install 300 eggs, all with the correct version.
+    Buildout downloads the eggs you requested and resolves all dependencies. You might need five different eggs, but in the end, Buildout has to install 300 eggs, all with the correct version in order to resolve all the dependencies.
+
+    Buildout does this without touching your system Python or affecting any other package. The commands created by buildout bring all the required packages into into the Python environment. Each command it creates my use different libraries or even different versions of the same library.
 
     Plone needs folders for logfiles, databases and configuration files. Buildout assembles all of this for you.
 
     You will need a lot of functionality that Buildout does not provide out of the box, so you'll need several extensions.
-    Some extensions provide whole new functionality, like mr.developer, the only way to manage your checked out sources.
+    Some extensions provide new functionality, like mr.developer, the best way to manage your checked out sources.
 
 
 Syntax
