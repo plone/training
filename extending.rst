@@ -110,21 +110,21 @@ What are components, what is ZCML
 
     It means that you change code in other files while my file gets loaded.
 
-    If you would want to have an extensible registry of icons for different content types, you could create a global dictionary, and whoever implements a new icon for a different content type, would add an entry to my dictionary during import time.
+    If you want to have an extensible registry of icons for different content types, you could create a global dictionary, and whoever implements a new icon for a different content type, would add an entry to my dictionary during import time.
 
     This does not scale. Multiple plugins might overwrite each other, you would explain people that they have to reorder the imports, and then, suddenly, you will to import feature A before B, B before C and C before A, or else you application won't work.
 
-    The Zope Component Architecture with its ZCML configuration is the answer for your problems.
+    The Zope Component Architecture with its ZCML configuration is an answer to this problems.
 
-    With ZCML you declare utilities, adapters and browser views in ZCML, which is a XML dialect.
+    With ZCML you declare utilities, adapters and browser views in ZCML, which is a XML dialect. ZCML stands for Zope Component Markup Language.
 
     During startup, Zope reads all these ZCML statements, validates that there are not two declarations trying to register the same components and only then registers everything.
 
-    This is a good thing. ZCML is by the way only *one* way to declare your configuration.
+    This is a good thing. ZCML is, by the way, only *one* way to declare your configuration.
 
-    Grok provides another way, where some python magic allows you to decorate your code directly with a decorator to make it an adapter. You can use both ZCML and grok together.
+    Grok provides another way, where some Python magic allows you to use decorators to register Python classes and functions as components. You can use ZCML and Grok together if you wish.
 
-    Please be aware that not everybody loves Grok. Some parts of the Plone community think that there may only be one configuration language, others are against adding the relative big dependency of Grok to Plone. One real problem is the fact that you cannot customize components declared with grok with jbot. In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to get maximum acceptance.
+    Please be aware that not everybody loves Grok. Some parts of the Plone community think that there may only be one configuration language, others are against adding the relative big dependency of Grok to Plone. One real problem is the fact that you cannot customize components declared with grok with jbot (which we'll discuss later). In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to get maximum acceptance.
 
     Some people don't like ZCML and avoid Zope because of it using XML.
 
