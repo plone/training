@@ -43,8 +43,8 @@ Python
 .. code-block:: python
     :linenos:
 
-    from Products.CMFCore.utils import getToolByName
     from Products.Five.browser import BrowserView
+    from plone import api
     from plone.dexterity.browser.view import DefaultView
 
 
@@ -201,7 +201,7 @@ Since you now know how to query the catalog it is time for some exercise.
 Exercise 1
 **********
 
-Add a method ``get_news`` to ``TalkListView`` that returns the brains of all News Items that are published and sort them in the order.
+Add a method ``get_news`` to ``TalkListView`` that returns a list of brains of all News Items that are published and sort them in the order of their publishing-date.
 
 ..  admonition:: Solution
     :class: toggle
@@ -209,13 +209,13 @@ Add a method ``get_news`` to ``TalkListView`` that returns the brains of all New
     .. code-block:: python
         :linenos:
 
-        def get_speakers_for_topic(self):
+        def get_news(self):
 
             portal_catalog = api.portal.get_tool('portal_catalog')
             return portal_catalog(
-                portal_type='Talk',
+                portal_type='News Item',
                 review_state='published',
-                sort_on='Effective',
+                sort_on='effective',
             )
 
 
@@ -239,6 +239,8 @@ Add a method that return all published keynotes as objects.
                 review_state='published')
             results = []
             for brain in brains:
+                # There is no catalog-index for type_of_talk so we must check
+                # the objects themselves.
                 talk = brain.getObject()
                 if talk.type_of_talk == 'Keynote':
                     results.append(talk)
