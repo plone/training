@@ -21,7 +21,8 @@ The :program:`instance`-script offers the following options::
     $ ./bin/instance fg
     $ ./bin/instance start
     $ ./bin/instance stop
-    $ ./bin/instance debug -O Plone
+    $ ./bin/instance -O Plone debug
+    $ ./bin/instance -O Plone run myscript.py
 
 .. only:: not presentation
 
