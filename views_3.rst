@@ -64,7 +64,7 @@ Python
 
         def talks(self):
             results = []
-            portal_catalog = getToolByName(self.context, 'portal_catalog')
+            portal_catalog = api.portal.get_tool('portal_catalog')
             current_path = "/".join(self.context.getPhysicalPath())
 
             brains = portal_catalog(portal_type="talk",
@@ -129,7 +129,7 @@ We could also add a new index to the catalog that will add 'audience' to the pro
 
 Why use the catalog at all? It checks for permissions, and only returns the talks that the current user may see. They might be private or hidden to you since they are part of a top-secret conference for core-develeopers (there is no such thing!).
 
-Most objects in plone act like dictionaries, so I could do context.values() to get all it's contents.
+Most objects in plone act like dictionaries, so you can do ``context.values()`` to get all it's contents.
 
 For historical reasons some attributes of brains and objects are written differently::
 
@@ -193,18 +193,74 @@ Calling the catalog without parameters return the whole site::
     http://docs.plone.org/develop/plone/searching_and_indexing/query.html
 
 
+Exercises
+---------
+
+Since you now know how to query the catalog it is time for some exercise.
+
+Exercise 1
+**********
+
+Add a method ``get_news`` to ``TalkListView`` that returns the brains of all News Items that are published and sort them in the order.
+
+..  admonition:: Solution
+    :class: toggle
+
+    .. code-block:: python
+        :linenos:
+
+        def get_speakers_for_topic(self):
+
+            portal_catalog = api.portal.get_tool('portal_catalog')
+            return portal_catalog(
+                portal_type='Talk',
+                review_state='published',
+                sort_on='Effective',
+            )
+
+
+
+Exercise 2
+**********
+
+Add a method that return all published keynotes as objects.
+
+..  admonition:: Solution
+    :class: toggle
+
+    .. code-block:: python
+        :linenos:
+
+        def keynotes(self):
+
+            portal_catalog = api.portal.get_tool('portal_catalog')
+            brains = portal_catalog(
+                portal_type='Talk',
+                review_state='published')
+            results = []
+            for brain in brains:
+                talk = brain.getObject()
+                if talk.type_of_talk == 'Keynote':
+                    results.append(talk)
+            return results
+
+
 The template for the listing
 ----------------------------
 
-Next the template in which we use the results of our method 'talks'.
+Next you create a template in which you use the results of the method 'talks'.
 
-We try to keep logic mostly in python. This is for two reasons:
+Try to keep logic mostly in python. This is for two reasons:
 
 Readability:
-    It's much simpler to read python that complex tal-structures
+    It's much easier to read python than complex tal-structures
 
 Speed:
     Python-code is faster than code executed in templates. It's also easy to add caching to methods.
+
+DRY:
+    In Python you can reuse methods and easily refactor code. Refactoring TAL usually means having to do big changes in the html-structure which results in uncomprehensible diffs.
+
 
 The MVC-Schema does not directly apply to Plone but look at it like this:
 
@@ -217,11 +273,11 @@ View:
 Controller:
     the view
 
-The view and the controller are very much mixed in Plone.
+The view and the controller are very much mixed in Plone. Expecially when you look at some of the older code of Plone you'll see that the policy of keeping logic in python and representation in templates was not always enforced.
 
-When you look at some of the older code of Plone you'll see that the policy of keeping login inside python and representation in templates was not always enforced. You should nevertheless do it. You'll end up with more than enough logic in the templates anyway. You'll see now.
+But you should nevertheless do it! You'll end up with more than enough logic in the templates anyway.
 
-Let's add this simple table to our template ``templates/talklistview.pt``:
+Add this simple table to ``templates/talklistview.pt``:
 
 .. code-block:: html
     :linenos:
@@ -255,7 +311,7 @@ Let's add this simple table to our template ``templates/talklistview.pt``:
         </tbody>
     </table>
 
-After we transform it we have a listing:
+Afterwards you transform it into a listing:
 
 .. code-block:: html
     :linenos:
@@ -299,16 +355,69 @@ After we transform it we have a listing:
         </tbody>
     </table>
 
-I'll explain some of the things in the TAL:
+There are some some things that need explanation:
 
 ``tal:repeat="talk view/talks"``
-    we iterate over the list of dictionaries returned by our view. ``view/talks`` calles the method ``talks`` of our view and each ``talk`` is in turn a dictionary. Since TAL's path-expressions for the lookup of values in dictionaries is the same as the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page-template alone we have often no way of knowing if something is an attribute, a method or the value of a dict.
+    This iterates over the list of dictionaries returned by the view. ``view/talks`` calls the method ``talks`` of our view and each ``talk`` is in turn one of the dictionaries that are returned by this method. Since TAL's path-expressions for the lookup of values in dictionaries is the same as the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page-template alone we have often no way of knowing if something is an attribute, a method or the value of a dict. If would be a good practice to write ``tal:repeat="talk python:view.talks()"``.
 
 ``tal:content="talk/speaker"``
     'speaker' is a key in the dict 'talk'. We could also write ``tal:content="python:talk['speaker']"``
 
 ``tal:condition="not:view/talks"``
-    this is a fallback for when no talks are returned by out method talks. It then return an empty list (remember ``results = []``?)
+    This is a fallback for when no talks are returned. It then return an empty list (remember ``results = []``?)
+
+
+Exercise
+********
+
+Modify the view to only python-expressions.
+
+..  admonition:: Solution
+    :class: toggle
+
+    .. code-block:: html
+        :linenos:
+
+        <table class="listing" id="talks">
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Speaker
+                    </th>
+                    <th>
+                        Audience
+                    </th>
+                </tr>
+            </thead>
+            <tbody tal:define="talks python:view.talks()">
+                <tr tal:repeat="talk talks">
+                    <td>
+                        <a href=""
+                           tal:attributes="href python:talk['url'];
+                                           title python:talk['description']"
+                           tal:content="python:talk['title']">
+                           The 7 sins of plone-development
+                        </a>
+                    </td>
+                    <td tal:content="python:talk['speaker']">
+                        Philip Bauer
+                    </td>
+                    <td tal:content="python:talk['audience']">
+                        Advanced
+                    </td>
+                </tr>
+                <tr tal:condition="python:not talks">
+                    <td colspan=3>
+                        No talks so far :-(
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    To follow the mantra "don't repeat yourself" we define ``talks`` instead of calling the method twice.
 
 
 Setting a custom view as default-view on an object
