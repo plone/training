@@ -84,11 +84,13 @@ Component Architecture
 
     When Zope started, object-oriented Design was **the** silver bullet.
 
-    Zope objects have more than 10 base classes.
+    Object-oriented design is good at modeling inheritance, but breaks down when an object has multiple aspects that are part of multiple taxonomies.
+
+    Some object-oriented programming languages like Python handle this through multiple inheritance. But it's not a good way to do it. Zope objects have more than 10 base classes. Too many namespaces makes code that's hard to maintain. Where did that method/attribute come from?
 
     After a while, XML and Components became the next silver bullet (Does anybody remember J2EE?).
 
-    Based on their experiences with Zope in the past, they thought that a component system configured via xml might be the way to go to keep the code more maintainable
+    Based on their experiences with Zope in the past, they thought that a component system configured via XML might be the way to go to keep the code more maintainable.
 
     As the new concepts were radically different from the old Zope concepts, the Zope developers renamed the new project to Zope 3. But it did not gain traction, the community somehow renamed it to Bluebream and this died off.
 
