@@ -95,7 +95,7 @@ Changelog
  * Using third-party behaviors
  * Dexterity Types III: Python
  * ...
- [pbauer, do3cc]
+  [pbauer, do3cc]
 
 
 1.1 (October 2013)
