@@ -16,7 +16,7 @@ Our own code has to be organised as an egg. An egg is a zip file or a directory 
 
 .. note::
 
-    In the training we use ZopeSkel 2.21.2, a relatively old version. We do this because this version is shipped with Plone's Unified Installer. In our own projects we mostly use `mr.bob <http://mrbob.readthedocs.org/en/latest/>`_ to create eggs.
+    In the training we use ZopeSkel 2.21.2, a relatively old version. We do this because this version is shipped with Plone's Unified Installer. In our own projects we mostly use `mr.bob <http://mrbob.readthedocs.org/en/latest/>`_ to create eggs. mr.bob will be standard with Plone 5.
 
 We move to the ``src`` directory and call a script called ``zopeskel`` from our projects bin-directory.
 
