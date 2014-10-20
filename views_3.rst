@@ -223,7 +223,7 @@ Add a method ``get_news`` to ``TalkListView`` that returns a list of brains of a
 Exercise 2
 **********
 
-Add a method that return all published keynotes as objects.
+Add a method that returns all published keynotes as objects.
 
 ..  admonition:: Solution
     :class: toggle

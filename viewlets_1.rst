@@ -115,13 +115,15 @@ We have to extend the Social Viewlet now to add the missing attribute:
         In this example, :samp:`ISocial(self.context)` does return the context directly. It is still good to use this idiom for two reasons:
 
           #. It makes it clear, that we only want to use the ISocial aspect of the object
-          #. If we decide to use a factory, for example to store our attributes in an annotation, we would `not` get back our context, but the adapter
+          #. If we decide to use a factory, for example to store our attributes in an annotation, we would `not` get back our context, but the adapter.
+
+        Therefore in this example you could simply write ``return self.context.lanyrd``.
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 5-7
+    :emphasize-lines: 2, 6-8
 
-    ...
+    from plone.app.layout.viewlets import ViewletBase
     from ploneconf.site.behaviors.social import ISocial
 
     class SocialViewlet(ViewletBase):
@@ -135,3 +137,15 @@ So far, we
   * register the viewlet to content that has the ISocial Interface.
   * adapt the object to it's behavior to be able to access the fields of the behavior
   * return the link
+
+
+Exercise 1
+----------
+
+Register a viewlet 'number_of_talks' in the footer that is only visible to admins (the permission you are looking for is ``cmf.ManagePortal``). Use only a template (no class) to display the number of talks already submitted. Hint: Use Aquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
+
+
+Exercise 2
+----------
+
+Register a viewlet 'days_to_conference' in the header. Use a class and a template to display the number of days until the conference. You get many bonus-points if you display it in a nice format (think "In 2 days" and "Last Month") by using an existing javascript- or python-library.

@@ -275,6 +275,16 @@ Note the relative python-path ``..interfaces.IPloneconfSiteLayer``. It is equiva
     http://docs.plone.org/develop/plone/views/layers.html
 
 
+Exercise
+++++++++
+
+Do you need to bind the social-viewlet from chapter 20 to this new browser-layer?
+
+..  admonition:: Solution
+    :class: toggle
+
+    No, it would make no difference since the viewlet is already bound to the marker interface ``ploneconf.site.behaviors.social.ISocial``.
+
 Add catalog-indexes
 -------------------
 
