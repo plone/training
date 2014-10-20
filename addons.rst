@@ -110,7 +110,7 @@ This is what happens: The GenericSetup profile of the product gets loaded. This 
 * registering css- and js-files
 * creating some content/configuration objects in your Plone site.
 
-Let' have a look at what we just installed.
+Let's have a look at what we just installed.
 
 
 PloneFormGen
@@ -131,13 +131,15 @@ Registration-form:
 * Add fields for food-preference and shirt-size
 * Add a DataSave Adapter
 
+PloneFormGen is good at what it does, but is not a good model for designing your own extensions. It's was created before the Zope Component Architecture became widely used. The authors would write it much differently if they were starting from scratch.
+
 
 Add Photogallery with collective.plonetruegallery
 -------------------------------------------------
 
 To advertise the conference we want to show some photos showing past conferences and the city where conference is taking place in.
 
-collective.plonetruegallery is a role model on how to write a Plone Extension.
+collective.plonetruegallery is a much better model for how to write a Plone Extension.
 
 Instead of creating custom content types for galleries, it integrates with the Plone functionality to choose different views for folderish content types.
 
@@ -155,7 +157,7 @@ Internationalisation
 
 Plone can run the same site in many different languages.
 
-We're not doing this with the conference-site since the lingua franca of the plone-community is english.
+We're not doing this with the conference-site since the lingua franca of the Plone-community is English.
 
 We would use http://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes).
 
