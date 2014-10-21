@@ -534,7 +534,7 @@ Let's test it: http://localhost:8080/Plone/talklistview
 
 .. note::
     
-    We add the jquery.datatables.js directly to the HEAD slot of the HTML without using Plones JavaScript registry (portal_javascript). By using the registry you enable merging of js files and advanced caching. A GenericSetup profile is included in the collective.js.datatables package. 
+    We add the ``jquery.datatables.js`` file directly to the HEAD slot of the HTML without using Plone JavaScript registry (portal_javascript). By using the registry you could enable merging of js files and advanced caching. A GenericSetup profile is included in the collective.js.datatables package. 
 
 Summary
 -------
