@@ -81,7 +81,7 @@ The viewlet-class ``SocialViewlet`` is expected in a file ``browser/viewlets.py`
             class SocialViewlet(grok.Viewlet):
                 grok.viewletmanager(viewletIFs.IBelowContentTitle)
 
-        This would do the same as the coe above using grok's paradigm of convention over configuration.
+        This would do the same as the coe above using grok's paradigm of convention over configuration. In browser views the reference is called view, note that in grok viewlets it is called viewlets (in that case ``viewlet/lanyrd_link``).
 
 Let's add the missing template :file:`templates/social_viewlet.pt`.
 
@@ -91,7 +91,7 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
     <div id="social-links">
         <a href="#"
            class="lanyrd-link"
-           tal:define="link viewlets/lanyrd_link"
+           tal:define="link view/lanyrd_link"
            tal:condition="link"
            tal:attributes="href link">
              See this talk on Lanyrd!
@@ -103,7 +103,7 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
 
     As you can see this is not a valid html document. That is not needed, because we don't want a complete view here, just a html snippet.
 
-    There is a tal define statement, querying for viewlet/lanyrd_link. Like in page templates the template has access to its class. In browser views the reference is called view, in viewlets it is called viewlets.
+    There is a tal define statement, querying for view/lanyrd_link. Like in page templates the template has access to its class. 
 
 We have to extend the Social Viewlet now to add the missing attribute:
 
