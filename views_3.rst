@@ -16,7 +16,7 @@ Now we don't want to provide information about one specific item but on several 
 Using portal_catalog
 --------------------
 
-Let's say we want so show a list of all the talks that were submitted for our conference. We can just go to the folder and select a display-method that suits us. But none does because we want to show the target-audience in our listing.
+Let's say we want to show a list of all the talks that were submitted for our conference. We can just go to the folder and select a display-method that suits us. But none does because we want to show the target-audience in our listing.
 
 So we need to get all the talks. For this we use the python-class of the view to query the catalog for the talks.
 
@@ -24,7 +24,7 @@ The catalog is like a search-engine for the content on our site. It holds inform
 
 It is the fast way to get content that exists in the site and do something with it. From the results of the catalog we can get the objects themselves but often we don't need them, but only the properties that the results already have.
 
-ZCML
+``browser/configure.zcml``
 
 .. code-block:: xml
     :linenos:
@@ -38,7 +38,7 @@ ZCML
        permission="zope2.View"
        />
 
-Python
+``browser/views.py``
 
 .. code-block:: python
     :linenos:
@@ -96,14 +96,14 @@ We create a dictionary that holds all the information we want to show in the tem
 brains and objects
 ------------------
 
-Objects are normally not loaded into memory but lie dormant in the Database ZODB. Waking objects up can be slow, especially if you're waking up a lot of objects. Fortunately our talks are not especially heavy since they are
+Objects are normally not loaded into memory but lie dormant in the Database ZODB. Waking objects up can be slow, especially if you're waking up a lot of objects. Fortunately our talks are not especially heavy since they are:
 
 * dexterity-objects which are lighter than their archetypes-brothers
 * relatively few since we don't have thousands of talks at our conference
 
 We want to show the target-audience but that attributes of the talks is not in the catalog. This is why we need to get to the objects themselves.
 
-We could also add a new index to the catalog that will add 'audience' to the properties of the brains. We have to weight pros and cons:
+We could also add a new index to the catalog that will add 'audience' to the properties of the brains, we have to weight pros and cons:
 
 * talks are important and thus most likely always in memory
 * prevent bloating of catalog with indexes
@@ -360,13 +360,13 @@ Afterwards you transform it into a listing:
 There are some some things that need explanation:
 
 ``tal:repeat="talk view/talks"``
-    This iterates over the list of dictionaries returned by the view. ``view/talks`` calls the method ``talks`` of our view and each ``talk`` is in turn one of the dictionaries that are returned by this method. Since TAL's path-expressions for the lookup of values in dictionaries is the same as the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page-template alone we have often no way of knowing if something is an attribute, a method or the value of a dict. If would be a good practice to write ``tal:repeat="talk python:view.talks()"``.
+    This iterates over the list of dictionaries returned by the view. ``view/talks`` calls the method ``talks`` of our view and each ``talk`` is in turn one of the dictionaries that are returned by this method. Since TAL's path-expressions for the lookup of values in dictionaries is the same as the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page-template alone we have often no way of knowing if something is an attribute, a method or the value of a dict. It would be a good practice to write ``tal:repeat="talk python:view.talks()"``.
 
 ``tal:content="talk/speaker"``
     'speaker' is a key in the dict 'talk'. We could also write ``tal:content="python:talk['speaker']"``
 
 ``tal:condition="not:view/talks"``
-    This is a fallback for when no talks are returned. It then return an empty list (remember ``results = []``?)
+    This is a fallback if no talks are returned. It then return an empty list (remember ``results = []``?)
 
 
 Exercise
@@ -456,7 +456,7 @@ But we could improve that table further by using a nice javascript-library calle
 
 Like for many js-libraries there is already a package that doe the plone-integration for us: ``collective.js.datatables``. Like all python-packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables
 
-We already added the addon to our buildout and just have to activate it in our template.
+We already added the addon to our buildout, you just have to activate it in our template.
 
 .. code-block:: xml
     :linenos:
@@ -532,6 +532,9 @@ We use METAL again but this time to fill a different slot. The "javascript_head_
 
 Let's test it: http://localhost:8080/Plone/talklistview
 
+.. note::
+    
+    We add the ``jquery.datatables.js`` file directly to the HEAD slot of the HTML without using Plone JavaScript registry (portal_javascript). By using the registry you could enable merging of js files and advanced caching. A GenericSetup profile is included in the collective.js.datatables package. 
 
 Summary
 -------
