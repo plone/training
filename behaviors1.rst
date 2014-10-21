@@ -28,14 +28,12 @@ Dexterity Approach
 
     All default views know about the concept of behaviors and when rendering forms, the views also check whether there are behaviors referenced with the current context and if these behavior have a schema of their own, these fields get shown in addition.
 
-    With this functionality in place, you can extend your content types during runtime, through the web.
-
 Names and Theory
 ----------------
 
 .. only:: not presentation
 
-    The name behavior is not a standard term in the software development. But it is a good idea to think of a behavior as an aspect. You are adding an aspect to your content typeand you want to write your aspect in such a way, that it works independent of the content type on which the aspect is applied. You should not have dependencies to specific fields of your object or to other behaviors.
+    The name behavior is not a standard term in the software development. But it is a good idea to think of a behavior as an aspect. You are adding an aspect to your content type and you want to write your aspect in such a way, that it works independent of the content type on which the aspect is applied. You should not have dependencies to specific fields of your object or to other behaviors.
 
     Such an object allows you to apply the `Open/closed principle`_ to your dexterity objects.
 
