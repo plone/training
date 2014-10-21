@@ -7,7 +7,7 @@ Writing Viewlets
 
     .. code-block:: bash
 
-        cp -Rf src/ploneconf.site_sneak/chapters/20_viewlets_1/ src/ploneconf.site
+        cp -r src/ploneconf.site_sneak/chapters/20_viewlets_1/ src/ploneconf.site
 
 
 A viewlet for the social behavior

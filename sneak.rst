@@ -44,7 +44,7 @@ To use the code for a certain chapter stop Plone and do this:
 
 .. code-block:: bash
 
-    $ cp -Rf src/ploneconf.site_sneak/chapters/<number_and_name_of_chapter>/ src/ploneconf.site
+    $ cp -r src/ploneconf.site_sneak/chapters/<number_and_name_of_chapter>/ src/ploneconf.site
     $ ./bin/buildout
     $ ./bin/instance fg
 
