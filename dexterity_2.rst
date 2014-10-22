@@ -390,7 +390,7 @@ The template does not need to be changed and the result did not change as well.
 Add collection criteria
 -----------------------
 
-To be able to search content in collection using the new indexes we would have to register them as criteria for the querystring-widget that collection use.
+To be able to search content in collections using the new indexes we would have to register them as criteria for the querystring-widget that collections use.
 
 Add a new file ``profiles/default/registry.xml``
 
