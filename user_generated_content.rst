@@ -30,7 +30,7 @@ Self-registration
 Constrain types
 ---------------
 
-* On the talk-folder select `Restrictions… <http://localhost:8080/Plone/talks/folder_constraintypes_form>`_ from the *Add new* menu. Only allow to add talks.
+* On the talk-folder select `Restrictions… <http://localhost:8080/Plone/the-event/talks/folder_constraintypes_form>`_ from the *Add new* menu. Only allow to add talks.
 
 
 Grant local roles
@@ -38,9 +38,7 @@ Grant local roles
 
 * Go to *Sharing* and grant the role *Can add* to the group logged-in users. Now every user can add content in this folder (and only this folder).
 
-Now all logged-in users can create and submit talks in this folder.
-
- with the permission of the default-workflow
+Now all logged-in users can create and submit talks in this folder with the permission of the default-workflow.
 
 
 A custom workflow for talks
@@ -131,7 +129,7 @@ Create a new file ``setuphandlers.py``
         secSchema.set_enable_self_reg(True)
 
 
-Add the marker-file ``profile/default/ploneconf.site_various.txt`` used in line 15::
+Add the marker-file ``profile/default/ploneconf.site_various.txt`` used in line 18::
 
     The ploneconf.site_various step is run if this file is present in the profile
 
