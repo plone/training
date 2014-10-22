@@ -10,7 +10,7 @@ Dexterity Types III: Python
         cp -Rf src/ploneconf.site_sneak/chapters/29_dexterity_3/ src/ploneconf.site
 
 
-Without sponsors a conference would be hard to finance plus it is a good opportunity for plone-companies to advertise their services.
+Without sponsors a conference would be hard to finance plus it is a good opportunity for Plone-companies to advertise their services.
 
 In this part we will:
 
