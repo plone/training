@@ -76,8 +76,8 @@ First we create the schema for the new type. Instead of xml we use python now. C
             required=False,
         )
 
-        directives.read_permission(notes="cmf.AddPortalMember")
-        directives.write_permission(notes="cmf.AddPortalMember")
+        directives.read_permission(notes="cmf.ManagePortal")
+        directives.write_permission(notes="cmf.ManagePortal")
         notes = RichText(
             title=_(u"Secret Notes (only for site-admins)"),
             required=False
@@ -217,7 +217,7 @@ If we would want a custom view for sponsors it could look like this.
 
 .. note::
 
-    Note that we have to handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base-class ``DefaultView`` holds the widget for the field ``note``. If the current user does not have the permission ``cmf.AddPortalMember`` it will be omited from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it is missing we work around that.
+    Note that we have to handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base-class ``DefaultView`` holds the widget for the field ``note``. If the current user does not have the permission ``cmf.ManagePortal`` it will be omited from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it is missing we work around that.
 
 
 We display the sponsors at the bottom of the website in a viewlet.
