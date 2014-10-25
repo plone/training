@@ -266,8 +266,15 @@ Read more at: http://docs.plone.org/working-with-content/collaboration-and-workf
 Working copy
 ------------
 
-* Explain add-on and its use case
-* Note that it is not yet available for Dexterity Content Types.
+Published content, even in an intranet setting, can pose a special problem for editing. It may need to be reviewed before changes are made available. In fact, the original author may not even have permission to change the document without review. Or, you may need to make a partial edit. In either case, it may be undesirable for changes to be immediately visible.
+
+Plone's working copy support solves this problem by adding a check-out/check-in function for content — available on the actions menu. A content item may be checked out, worked on, then checked back in. Or abandoned if the changes weren't acceptable. Not until check in is the content visible.
+
+While it's shipped with Plone, working copy support is not a common need. So, if you need it, you need to activate it via the add-on packages configuration page. Unless activated, check-in/check-out options are not visible.
+
+.. Note::
+
+    Working-copy support is not yet available for content types created via Dexterity. This is on the way.
 
 
 Placeful workflows
