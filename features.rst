@@ -23,6 +23,7 @@ The :program:`instance`-script offers the following options::
     $ ./bin/instance stop
     $ ./bin/instance -O Plone debug
     $ ./bin/instance -O Plone run myscript.py
+    4 ./bin/instance adduser
 
 .. only:: not presentation
 
@@ -56,7 +57,7 @@ Users
 
 .. only:: not presentation
 
-    Let's create our first users within Plone. So far we used the admin-user (admin:admin) configured in the buildout. He is often called "zope-root". This user is not managed in Plone but only in by Zope. Therefore he's missing some features like email and fullname and he won't be able to use some of plone's features. But he has all possible permissions. It is also unsecure to use this user. Basically, his password can be seen easily within each request.
+    Let's create our first users within Plone. So far we used the admin-user (admin:admin) configured in the buildout. This user is often called "zope-root" and is not managed in Plone but only in by Zope. Therefore the user's missing some features like email and fullname and  won't be able to use some of plone's features. But the user has all possible permissions. As with the root user of a server, it's a bad practice to make unnecessary use of zope-root. Use it to create Plone sites and their initial users, but not much else.
 
     You can also add zope-users also via the terminal by entering::
 
