@@ -140,12 +140,13 @@ On the edit bar, we find options affecting the current context...
 * :guilabel:`folder contents`
 * :guilabel:`view`
 * :guilabel:`edit`
+* :guilabel:`rules`
 * :guilabel:`sharing`
 * :guilabel:`display`
 * :guilabel:`add`
 * :guilabel:`status`
 
-Some edit bar options only show when appropriate; for example, "folder contents" and "add" are only shown for Folders.
+Some edit bar options only show when appropriate; for example,``folder content`` and ``add`` are only shown for Folders. ``rules`` is currently invisible because we have no content rules available.
 
 Content-Types
 -------------
@@ -242,6 +243,23 @@ Manage members and groups
 
 Workflows
 ---------
+
+Take a look at the ``state`` drop-down on the edit bar on the homepage. Now, navigate to one of the folders just added. The homepage has the status ``published`` and the new content is ``private``.
+
+Let's look at the state transitions available for each type. We can make a published item private and a private item published. We can also submit an item for review.
+
+Each of these states connects roles to permissions.
+
+* In ``published`` state, the content is available to anonymous visitors;
+* In ``private`` state, the content is only viewable by the author (owner) and users who have the ``can view`` role for the content.
+
+A workflow state is an association between a role and one or more permissions. Moving from one state to another is a ``transition``. Transitions (like ``submit for review``) may have actions — like the execution of a content role or script — associated with them.
+
+A complete set of workflow states and transitions make up a ``workflow``. Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites. Individual content types may their own workflow. Or, and this is particularly interesting, no workflow. In that case, which initially applies to file and image uploads, the content object inherits the workflow of its container.
+
+.. note::
+
+    An oddity in the all of the standard Plone workflows: a content item may be viewable even if its container is not. Making a container private does **not** automatically make its contents private.
 
 Read more at: http://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
 
