@@ -58,12 +58,9 @@ Content Management Framework
 
     The developers behind CMF do not see CMF as a ready to use CMS. They created a CMS Site which was usable out of the box, but made it deliberately ugly, because you have to customize it anyway.
 
-    We are still in prehistoric times here. There were no eggs, Zope did not consist of 100 independent software components but was one big blob.
+    We are still in prehistoric times here. There were no eggs (Python packages), Zope did not consist of 100 independent software components but was one big file set.
 
-    Later we will see a lot of GenericSetup. This is also part of CMF. When we will talk about GenericSetup, we might not speak too fondly of it.
-
-    GenericSetup is like it is, because it is from the stone age and didn't adapt very well. This helps in understanding why GenericSetup is what it is.
-
+    Many parts of Plone are derived from the CMF, but it's a mixed heritage. The CMF is an independent software project, and has often moved more slowly than Plone. Plone is gradually eliminating dependence on most parts of the CMF.
 
 Zope Toolkit / Zope3
 --------------------
