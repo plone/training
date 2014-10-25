@@ -73,7 +73,7 @@ Users
 
     Then create another user called ``testuser``. Make this one a normal user. You can use this user to see how Plone looks and behaves to users that have no admin-permission.
 
-    Now let's see the site in 3 different browsers with in three different roles:
+    Now let's see the site in 3 different browsers with three different roles:
 
         * as anonymous
         * as editor
@@ -212,8 +212,8 @@ Collections
 * explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit
 * explain Topics
 * mention collection-portlets
-* multi-path-querys
-* constrains, e.g. ``/Plone/folder::1``
+* multi-path-queries
+* constraints, e.g. ``/Plone/folder::1``
 
 
 Content Rules
@@ -255,7 +255,7 @@ Each of these states connects roles to permissions.
 
 A workflow state is an association between a role and one or more permissions. Moving from one state to another is a ``transition``. Transitions (like ``submit for review``) may have actions — like the execution of a content role or script — associated with them.
 
-A complete set of workflow states and transitions make up a ``workflow``. Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites. Individual content types may their own workflow. Or, and this is particularly interesting, no workflow. In that case, which initially applies to file and image uploads, the content object inherits the workflow of its container.
+A complete set of workflow states and transitions make up a ``workflow``. Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites. Individual content types may have their own workflow. Or, and this is particularly interesting, no workflow. In that case, which initially applies to file and image uploads, the content object inherits the workflow of its container.
 
 .. note::
 
