@@ -12,7 +12,7 @@ We control Plone with a small script called "instance"::
 
     $ ./bin/instance fg
 
-This starts Plone in foreground and we can see what it is doing.
+This starts Plone in foreground mode so that we can see what it is doing by monitoring console messages. This is an important development method. Note that when Plone is started in foreground mode, it is also automatically in development mode. Development mode gives better feedback, but is much slower, particularly on Windows.
 
 You can stop it by pressing :kbd:`ctrl + c`.
 
