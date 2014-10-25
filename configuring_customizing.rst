@@ -37,7 +37,7 @@ We'll explain every page and mention some of the stuff you can do here.
 22. Users and Groups
 23. Zope Management Interface (here be dragons)
 
-Below the links you find information on your Plone-, Zope and Python-Versions
+Below the links you may find information on your Plone-, Zope- and Python-Versions and an indicator as to whether you're running in production or development mode.
 
 
 
