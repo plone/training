@@ -266,13 +266,13 @@ Read more at: http://docs.plone.org/working-with-content/collaboration-and-workf
 Working copy
 ------------
 
-* enable addon
+* Explain add-on and its use case
 * Note that it is not yet available for Dexterity Content Types.
 
 
 Placeful workflows
 ------------------
 
-* enable addon
+* Explain add-on and its use case
 * Note that it is not yet available for Dexterity Content Types.
 
