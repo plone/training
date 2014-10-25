@@ -267,12 +267,12 @@ Working copy
 ------------
 
 * enable addon
-* explain
+* Note that it is not yet available for Dexterity Content Types.
 
 
 Placeful workflows
 ------------------
 
 * enable addon
-* explain
+* Note that it is not yet available for Dexterity Content Types.
 
