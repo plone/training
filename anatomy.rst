@@ -22,7 +22,7 @@ Zope2
 
     One missing piece is important and complicated: ``Acquisition``.
 
-    Acquisition is a kind of magic. Imagine a programming system where you do not access the file system and where you do not need to import code. You work with objects. An object can be a folder that contains more objects, an HTML page, data, or another script. To access an object, you need to know where the object is. Objects are found by paths that look like URLs, but without the domain name. Now Acquisition allows you to write an incomplete path. An incomplete path is a relative path, it does not explicitly state that the path starts from the root, it starts relative to where the code object is. If Zope cannot resolve the path to an object relative to your code, it tries the same path in the containing folder. And then the folder containing the folder.
+    Acquisition is a kind of magic. Imagine a programming system where you do not access the file system and where you do not need to import code. You work with objects. An object can be a folder that contains more objects, an HTML page, data, or another script. To access an object, you need to know where the object is. Objects are found by paths that look like URLs, but without the domain name. Now Acquisition allows you to write an incomplete path. An incomplete path is a relative path, it does not explicitly state that the path starts from the root, it starts relative to where the content object is -- it's context. If Zope cannot resolve the path to an object relative to your code, it tries the same path in the containing folder. And then the folder containing the folder.
 
     This might sound weird, what do I gain with this?
 
@@ -32,6 +32,8 @@ Zope2
     - contact forms with different e-mail addresses per section
     - different CSS styles for different parts of your site
     - One site, multiple customers, everything looks different for each customer.
+
+    As with all programming magic, acquisition exacts a price. Zope code must be written carefully if it's necessary to avoid inheriting side effects via acquisition. The Zope community expresses this with the Python (Monty) maxim: Beware the Spammish Acquisition.
 
     Basically this is Zope.
 
