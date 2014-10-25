@@ -21,4 +21,4 @@ Requirements
 * As an organizer I want to see a list of all proposed talks
 * As an organizer I want to have an overview about how many people registered
 
-
+Note that all of our requirements connect roles with capabilities. This is important because we'll want to limit the capabilities to those to whom we assign particular roles.
