@@ -51,7 +51,6 @@ You can download all of these at http://plone.org/products/plone/releases/4.3.3
 
 .. seealso::
 
-    * https://plone.org/documentation/manual/installing-plone
     * http://docs.plone.org/manage/installing/installation.html
 
 
