@@ -159,7 +159,7 @@ Create a site-structure:
 * In /events: Add Event "Deadline for talk-submission" Date: 10.10.2014
 
 * Add Folder "Register"
-* Delete Folder "Members"
+* Delete Folder "Members" (Users)
 * Add Folder "Intranet"
 
 
