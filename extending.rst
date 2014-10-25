@@ -67,7 +67,9 @@ GenericSetup
 
     You will see many objects in Zope or the ZMI that you can customize through the web. If they are well behaving, they can export their configuration via *GenericSetup* and import it again.
 
-    Typically you use *GenericSetup* to change workflows or add new content type definitions.
+    Typically you use *GenericSetup* directly to change workflows or add new content type definitions.
+
+    GenericSetup profiles may also be built into Python packages. Every package that is listed on the add-on package list inside a Plone installation has a GS profile that details how it fits into Plone. Packages that are part of Plone itself may have GS profiles, but are excluded from the active/inactive listing.
 
 
 Component Architecture
