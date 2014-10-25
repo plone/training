@@ -295,6 +295,17 @@ CSS-Registry (portal_css)
 * at the bottom there is ``ploneCustom.css``
 * Disable ``Development mode``: The css-files are merged and have a cache-key.
 
+.. Note::
+
+    The JavaScripts Registry (portal_javascripts) is very similar.
+
+The merging function solves a big problem: we'd like to develop our CSS and JS resources in a granular way, but we'd also like to minimize HTTP requests.
+
+.. Note::
+
+    At the end of a development process, a little rearranging to minimize requests can have a very nice effect. It's often possible to reduce requests to a very small number for anonymous visitors.
+
+
 
 Further tools in the ZMI
 ************************
