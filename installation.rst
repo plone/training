@@ -72,6 +72,7 @@ You can host Plone...
 
 .. seealso::
 
+    * Plone Installation Requirements: http://docs.plone.org/manage/installing/requirements.html
     * Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-on-5-a-month
     * Where to host Plone: http://plone.org/documentation/faq/where-can-i-host-my-plone-site
     * Guide to deploying and installing Plone in production: http://docs.plone.org/manage/deploying/index.html
