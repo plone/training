@@ -16,7 +16,10 @@ Zope2
 
     Jim Fulton thought that this was slightly tedious. So he wrote code to handle requests. He believed that site content is object-oriented and that the URL should somehow point directly into the object hierarchy, so he wrote an object-oriented database, called `ZODB <http://www.zodb.org/en/latest/>`_.
 
-    Then there were transactions, so that it became a real database and after a while there were python scripts that could be edited through the web.
+    The ZODB is a fully `ACID <http://en.wikipedia.org/wiki/ACID>`_ compliant database with automatic transactional integrity. It automatically maps traversal in the object hierarchy to URL paths, so there is no need to "wire" objects or database nodes to URLs. This gives Plone its easy SEO-friendly URLs.
+
+    Traversal through the object database is security checked at every point via very fine grained access-control lists.
+
     One missing piece is important and complicated: ``Acquisition``.
 
     Acquisition is a kind of magic. Imagine a programming system where you do not access the file system and where you do not need to import code. You work with objects. An object can be a folder that contains more objects, an HTML page, data, or another script. To access an object, you need to know where the object is. Objects are found by paths that look like URLs, but without the domain name. Now Acquisition allows you to write an incomplete path. An incomplete path is a relative path, it does not explicitly state that the path starts from the root, it starts relative to where the code object is. If Zope cannot resolve the path to an object relative to your code, it tries the same path in the containing folder. And then the folder containing the folder.
