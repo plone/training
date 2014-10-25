@@ -135,6 +135,17 @@ Let's see what is there...
 
     These are also the css-classes of the respective div's. If you want to do theming you'll need them.
 
+On the edit bar, we find options affecting the current context...
+
+* :guilabel:`folder contents`
+* :guilabel:`view`
+* :guilabel:`edit`
+* :guilabel:`sharing`
+* :guilabel:`display`
+* :guilabel:`add`
+* :guilabel:`status`
+
+Some edit bar options only show when appropriate; for example, "folder contents" and "add" are only shown for Folders.
 
 Content-Types
 -------------
@@ -214,7 +225,7 @@ Content Rules
 History
 -------
 
-show and explain
+Show and explain; mention versioning and its relation to types.
 
 
 Manage members and groups
