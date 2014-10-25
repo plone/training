@@ -280,6 +280,12 @@ While it's shipped with Plone, working copy support is not a common need. So, if
 Placeful workflows
 ------------------
 
-* Explain add-on and its use case
-* Note that it is not yet available for Dexterity Content Types.
+You may need to have different workflows in different parts of a site. For example, we created an intranet folder. Since this is intended for use by our conference organizers — but not the public — the simple workflow we wish to use for the rest of the site will not be desirable.
 
+Plone's ``Workflow Policy Support`` package gives you the ability to set different workflows in different sections of a site. Typically, you use it to set a special workflow in a folder that will govern everything under that folder. Since it has effect in a "place" in a site, this mechanism is often called "Placeful Workflow".
+
+As with working-copy support, Placeful Workflow ships with Plone but needs to be activated via the add-on configuration page. Once it's added, a ``Policy`` option will appear on the state menu to allow setting a placeful workflow policy.
+
+.. Note::
+
+    Workflow Policy support is not yet available for folderish content types created via Dexterity. This is on the way.
