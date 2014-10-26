@@ -59,7 +59,7 @@ Hosting Plone
 
 .. only:: not presentation
 
-    If you want to host a real-live Plone-Site yourself then running it from your laptop is not a viable option.
+    If you want to host a real-live Plone site yourself then running it from your laptop is not a viable option.
 
 You can host Plone...
 
@@ -74,4 +74,20 @@ You can host Plone...
     * Plone Installation Requirements: http://docs.plone.org/manage/installing/requirements.html
     * Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-on-5-a-month
     * Where to host Plone: http://plone.org/documentation/faq/where-can-i-host-my-plone-site
-    * Guide to deploying and installing Plone in production: http://docs.plone.org/manage/deploying/index.html
+
+Production Deployment
+---------------------
+
+The way we're setting up a Plone site during this class may be adequate for a small site — or even a very large one that's not very busy — but you're likely to want to do much more if you're using Plone for anything demanding.
+
+* Using a production web server like Apache or Nginx for URL rewriting, SSL and combining multiple, best-of-breed solutions into a single web site.
+
+* Reverse proxy caching with a tool like Varnish to improve site performance.
+
+* Load balancing to make best use of multiple core CPUs and even multiple servers.
+
+* Optimizing cache headers and Plone's internal caching schemes with plone.app.caching.
+
+And, you'll need to learn strategies for efficient backup and log file rotation.
+
+All these topics are introduced in `Guide to deploying and installing Plone in production <http://docs.plone.org/manage/deploying/index.html>`_
