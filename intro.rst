@@ -40,21 +40,28 @@ What will we do?
 
 Some technologies and tools we use during the training:
 
-* `Git <http://git-scm.com/>`_
-* `Github <http://github.com>`_
-* `Try Git (Nice introduction to git and github) <https://try.github.io/>`_
-* `Virtualbox <https://www.virtualbox.org/>`_
-* `Vagrant <http://www.vagrantup.com/>`_
-* `Ubuntu linux <http://www.ubuntu.com/>`_
-* Through-the-web (TTW)
-* `Buildout <http://www.buildout.org/en/latest/>`_
-* TAL
-* METAL
-* Zcml
-* `Python <http://python.org>`_
-* Dexterity
-* Viewlets
-* `JQuery <http://jquery.com/>`_
+* For the beginning training:
+
+    * `Virtualbox <https://www.virtualbox.org/>`_
+    * `Vagrant <http://www.vagrantup.com/>`_
+    * `Ubuntu linux <http://www.ubuntu.com/>`_
+    * Through-the-web (TTW)
+    * `Buildout <http://www.buildout.org/en/latest/>`_
+    * A little XML
+    * A little Python
+
+* For the advanced chapters:
+
+    * `Git <http://git-scm.com/>`_
+    * `Github <http://github.com>`_
+    * `Try Git (Nice introduction to git and github) <https://try.github.io/>`_
+    * TAL
+    * METAL
+    * ZCML
+    * `Python <http://python.org>`_
+    * Dexterity
+    * Viewlets
+    * `JQuery <http://jquery.com/>`_
 
 What will we not do?
 --------------------
@@ -83,14 +90,13 @@ Other topics are only covered lightly:
 What to expect
 --------------
 
-You won't be a complete professional Plone-programmer after this training. But you will know some of the more powerful features of Plone and should be able to construct a website on your own using these tools. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core-technologies involved in Plone-programming.
+At the end of the first two days of training, you'll know many of the tools required for Plone installation, integration and configuration. You'll be able to install add-on packages and will know something about the technologies underlying Plone and their histories. You'll be ready to extend your skills via books like Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_ and the `Plone documentation <http://docs.plone.org>`_.
+
+At the end of the second two days, you won't be a complete professional Plone-programmer, but you will know some of the more powerful features of Plone and should be able to construct a more complex website with custom themes and packages. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core-technologies involved in Plone-programming.
 
 If you want to become a professional Plone-developer or Plone-integrator you should definitvely read `Martins book <http://www.packtpub.com/professional-plone-4-development/book>`_ and re-read it again.
 
 Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_.
-
-If you want to stay on the ttw-side of things you could read `Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_.
-
 
 Documentation
 --------------
