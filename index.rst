@@ -31,9 +31,9 @@ Contents:
     extending
     addons
     theming
+    dexterity
     buildout_1
     eggs1
-    dexterity
     views_1
     zpt
     zpt_2
