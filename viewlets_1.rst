@@ -160,6 +160,9 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
           permission="cmf.ManagePortal"
           />
 
+
+    For the ``for`` and ``layer``-parameters ``*`` is shorthand for ``zope.interface.Interface`` and the same effect as ommitting them: The viewlet will be shown for all types of pages and for all plone-sites within your zope-instance.
+
     Add the template :file:`browser/templates/number_of_talks.pt`:
 
     ..  code-block:: html
