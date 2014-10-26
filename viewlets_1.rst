@@ -103,7 +103,7 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
 
     As you can see this is not a valid html document. That is not needed, because we don't want a complete view here, just a html snippet.
 
-    There is a tal define statement, querying for view/lanyrd_link. Like in page templates the template has access to its class. 
+    There is a tal define statement, querying for `view/lanyrd_link. Like in page templates the template has access to its class.
 
 We have to extend the Social Viewlet now to add the missing attribute:
 
@@ -144,6 +144,56 @@ Exercise 1
 
 Register a viewlet 'number_of_talks' in the footer that is only visible to admins (the permission you are looking for is ``cmf.ManagePortal``). Use only a template (no class) to display the number of talks already submitted. Hint: Use Aquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
 
+..  admonition:: Solution
+    :class: toggle
+
+    Register the viewlet in :file:`browser/configure.zcml`
+
+    ..  code-block:: python
+
+        <browser:viewlet
+          name="number_of_talks"
+          for="*"
+          manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+          layer="zope.interface.Interface"
+          template="templates/number_of_talks.pt"
+          permission="cmf.ManagePortal"
+          />
+
+    Add the template :file:`browser/templates/number_of_talks.pt`:
+
+    ..  code-block:: html
+
+        <div class="number_of_talks"
+             tal:define="catalog python:context.portal_catalog;
+                         talks python:len(catalog(portal_type='talk'));">
+            There are <span tal:replace="talks" /> talks.
+        </div>
+
+    ``python:context.portal_catalog`` will return the catalog through Acquisition. Be carefull if you want to use path-expressions: ``content/portal_catalog`` calls the catalog (and returns all brains). You need to prevent this by using ``nocall:content/portal_catalog``.
+
+    Relying on Aqcisition is a bad idea. It would be much better to use the helper-view ``plone_tools`` from ``plone/app/layout/globals/tools.py`` to get the catalog.
+
+    ..  code-block:: html
+
+        <div class="number_of_talks"
+             tal:define="catalog context/@@plone_tools/catalog;
+                         talks python:len(catalog(portal_type='talk'));">
+            There are <span tal:replace="talks" /> talks.
+        </div>
+
+    ``context/@@plone_tools/catalog`` traverses to the view ``plone_tools`` and calls it's method ``catalog``. In python it would look like this:
+
+    ..  code-block:: html
+
+        <div class="number_of_talks"
+             tal:define="catalog python:context.restrictedTraverse('plone_tools').catalog();
+                         talks python:len(catalog(portal_type='talk'));">
+            There are <span tal:replace="talks" /> talks.
+        </div>
+
+
+    It is not a good practice to query the catalog within a template since even simple logic like this should live in Python. But it is very powerful if you are debugging or need a quick and dirty solution.
 
 Exercise 2
 ----------
