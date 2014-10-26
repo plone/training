@@ -236,8 +236,10 @@ Upon installing, Plone reads the file ``ploneconf/site/profiles/default/types/ta
      </action>
     </object>
 
+Now our package has some real contents. So, we'll need to reinstall it (if installed before).
+
 * Restart Plone.
-* Install ploneconf.site.
+* Re-install ploneconf.site (deactivate and activate).
 * Go to the ZMI and look at the definition of the new type in ``portal_types``.
 * Test the type by adding an object or editing one of the old ones.
 * Look at how the talks are presented in the browser.
