@@ -11,28 +11,28 @@ Tell us about yourselves:
 * What is your Plone experience?
 * What is your web-development experience?
 * What are your expectations for this tutorial?
-* Do you know the html of the output of this?
+* What is your favorite text editor?
+* If this training will include the development chapters:
+    * Do you know the html of the output of this?
 
-  .. code-block:: html
+      .. code-block:: html
 
-      <div class="hiddenStructure"
-           tal:repeat="num python:range(1, 10, 5)"
-           tal:content="structure num"
-           tal:omit-tag="">
-        This is some weird sh*t!
-      </div>
+          <div class="hiddenStructure"
+               tal:repeat="num python:range(1, 10, 5)"
+               tal:content="structure num"
+               tal:omit-tag="">
+            This is some weird sh*t!
+          </div>
 
-  .. only:: not presentation
+      .. only:: not presentation
 
-      The answer is::
+          The answer is::
 
-          1 6
+              1 6
 
-* Do you know what the following would return?::
+    * Do you know what the following would return?::
 
-    [(i.Title, i.getURL()) for i in context.getFolderContents()]
-
-* What is your favorite editor?
+        [(i.Title, i.getURL()) for i in context.getFolderContents()]
 
 
 What will we do?
