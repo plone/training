@@ -102,7 +102,7 @@ Now the code is available from within Plone.
 Installing add-ons in your Plone Site
 +++++++++++++++++++++++++++++++++++++
 
-Your Plone-site has not yet been told to use the add-on. For this, you have to activate the add-ons in your Plone Site.
+Your Plone site has not yet been told to use the add-on. For this, you have to activate the add-ons in your Plone Site.
 
 .. note::
 

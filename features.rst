@@ -44,7 +44,7 @@ The :program:`instance`-script offers the following options::
     * By default Plone listens on port 8080. Look at http://localhost:8080
     * No Plone yet! Create a new Plone site.
     * Use :samp:`Plone` (the default) as the site id.
-    * Select ``Dexterity-based Plone Default Types`` from the addons **before** you click *Create Plone-Site* to install ``plone.app.contenttypes``.
+    * Select ``Dexterity-based Plone Default Types`` from the addons **before** you click *Create Plone site* to install ``plone.app.contenttypes``.
 
 .. note::
 

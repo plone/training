@@ -90,7 +90,7 @@ Installation
 
 .. note ::
 
-    We can skip this step since we installed ``plone.app.contenttypes`` when creating out Plone-Site in the beginning.
+    We can skip this step since we installed ``plone.app.contenttypes`` when creating our Plone site in the beginning.
 
 
 You don't have to modify the buildout since Plone 4.2+ ships with Dexterity. You just have to activate it in the control-panel for Add-ons.

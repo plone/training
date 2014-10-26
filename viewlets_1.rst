@@ -161,7 +161,7 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
           />
 
 
-    For the ``for`` and ``layer``-parameters ``*`` is shorthand for ``zope.interface.Interface`` and the same effect as ommitting them: The viewlet will be shown for all types of pages and for all plone-sites within your zope-instance.
+    For the ``for`` and ``layer``-parameters ``*`` is shorthand for ``zope.interface.Interface`` and the same effect as omitting them: The viewlet will be shown for all types of pages and for all Plone sites within your Zope instance.
 
     Add the template :file:`browser/templates/number_of_talks.pt`:
 
@@ -175,7 +175,7 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
 
     ``python:context.portal_catalog`` will return the catalog through Acquisition. Be carefull if you want to use path-expressions: ``content/portal_catalog`` calls the catalog (and returns all brains). You need to prevent this by using ``nocall:content/portal_catalog``.
 
-    Relying on Aqcisition is a bad idea. It would be much better to use the helper-view ``plone_tools`` from ``plone/app/layout/globals/tools.py`` to get the catalog.
+    Relying on Aqcisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from ``plone/app/layout/globals/tools.py`` to get the catalog.
 
     ..  code-block:: html
 
@@ -201,4 +201,4 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
 Exercise 2
 ----------
 
-Register a viewlet 'days_to_conference' in the header. Use a class and a template to display the number of days until the conference. You get many bonus-points if you display it in a nice format (think "In 2 days" and "Last Month") by using an existing javascript- or python-library.
+Register a viewlet 'days_to_conference' in the header. Use a class and a template to display the number of days until the conference. You get many bonus-points if you display it in a nice format (think "In 2 days" and "Last Month") by using an existing javascript or python library.
