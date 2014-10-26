@@ -1,14 +1,14 @@
-﻿Extend Plone with Add-ons
-=========================
+﻿Extend Plone with Add-On Packages
+=================================
 
-* There are more than 2000 addons for Plone. We will cover only a handfull today.
+* There are more than 2,000 addons for Plone. We will cover only a handfull today.
 * Using them can saves a lot of time
 * The success of a project often depends on finding the right addon
 * Their use, usefulness, quality and complexity varies a lot
 
 
-How to find addons
-------------------
+How to find add-ons
+-------------------
 
 * https://pypi.python.org/pypi - use the search form!
 * https://github.com/collective >1200 repos
@@ -23,8 +23,8 @@ How to find addons
    * A talk on finding and managing addons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
 
 
-Some noteable addons
---------------------
+Some noteable add-ons
+---------------------
 
 `Products.PloneFormGen <http://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
   A form generator
@@ -64,19 +64,23 @@ Some noteable addons
 
 
 
-Installing Addons
------------------
+Installing Add-ons
+------------------
 
 Installation is a two-step process.
 
-Making the addons code available to Zope
-++++++++++++++++++++++++++++++++++++++++
+Making the add-on packages available to Zope
+++++++++++++++++++++++++++++++++++++++++++++
 
-First, we must make the addons code available to Zope. This means, that Zope can import the code. Buildout is responsible for this.
+First, we must make the add-on packages available to Zope. This means, that Zope can import the code. Buildout is responsible for this.
 
 Look at ``buildout.cfg`` file in ``/vagrant/buildout``.
 
-In the section ``[instance]`` there is a variable called ``eggs``, which has multiple *eggs* as a value. Add the following eggs:
+.. note::
+
+    If you're using our Vagrant kit, the Plone configuration is available in a folder that is shared between the host and guest operating systems. Look in your Vagrant install directory for the ``buildout`` folder. You may edit configuration files using your favorite text editor in the host operating system, then switch into your virtual machine to run buildout on the guest operating system.
+
+In the section ``[instance]`` there is a variable called ``eggs``, which has a list of *eggs* as a value. Add the following eggs:
 
 We already have added the addons that we will use now:
 
@@ -85,21 +89,26 @@ We already have added the addons that we will use now:
 
 Usually, one enters the eggs by adding one more line per egg into the configuration. You must write the egg name indented, this way buildout understands that the current line is part of the last variable and not a new variable.
 
-If you add new addons here you will have to run buildout and restart the site:
+If you add new add-ons here you will have to run buildout and restart the site:
 
 .. sourcecode:: bash
 
+    $ cd /vagrant/buildout
     $ bin/buildout
     $ bin/instance fg
 
-Now the code is importable from within Plone and everything got registered via ZCML.
+Now the code is available from within Plone.
 
-Installing addons in your Plone Site
-++++++++++++++++++++++++++++++++++++
+Installing add-ons in your Plone Site
++++++++++++++++++++++++++++++++++++++
 
-Your Plone-site has not yet been told to use the addon. For this, you have to install the addons in your Plone Site.
+Your Plone-site has not yet been told to use the add-on. For this, you have to activate the add-ons in your Plone Site.
 
-In your browser, go the control panel ``@@plone_control_panel``, and open the ``Addons`` Panel. You will see that you can install the addons there.
+.. note::
+
+    Why the extra step of activating the add-on package? You my have multiple Plone sites in a single Zope installation. It's common to want to activate some add-ons in one site, others in another.
+
+In your browser, go to Site Setup (shortcut: add ``/@@overview-controlpanel`` to the Plone site URL), and open the ``Add-ons`` Panel. You will see that you can install the add-ons there.
 
 Install **PloneFormGen** and  **Plone True Gallery** them now.
 
@@ -116,22 +125,34 @@ Let's have a look at what we just installed.
 PloneFormGen
 ------------
 
-Creating forms in Plone:
+There are many ways to create forms in Plone:
 
 * pure: html and python in a view
 * framework: z3c.form, formlib, deform
-* ttw: Products.PloneFormGen
+* TTW: Products.PloneFormGen
 
-Registration-form:
+The basic concept of PloneFormGen is that you build a form by adding a Form Folder, to which you add form fields as content items. Fields are added, deleted, edited and moved just as with any other type of content. Form submissions may be automatically emailed and/or saved for download. There are many PFG add-ons that provide additional field types and actions.
 
-* Add a object of the new type 'Form Folder' in the site-root. Call it "Registration"
-* Save and view the result
+Let's build a registration form:
+
+* Activate PloneFormGen for this site via the add-on configuration panel in site setup
+* Add an object of the new type 'Form Folder' in the site root. Call it "Registration"
+* Save and view the result, a simple contact form that we may customize
 * Click in QuickEdit
 * Remove field "Subject"
-* Add fields for food-preference and shirt-size
+* Add fields for food preference and shirt size
 * Add a DataSave Adapter
+* Customize the mailer
 
-PloneFormGen is good at what it does, but is not a good model for designing your own extensions. It's was created before the Zope Component Architecture became widely used. The authors would write it much differently if they were starting from scratch.
+.. note::
+
+    Need CAPTCHAs? Add the ``collective.recaptcha`` package to your buildout and PFG will have a CAPTCHA field.
+
+    Need encryption? Add GPG encryption to your system, add a GPG configuration for the Plone daemon user that includes a public keys for the mail targets, and you'll be able to encrypt email before sending.
+
+    Think PFG is too complicated for your site editors? Administrators (and we're logged in as an administrator) see lots of more complex options that are invisible to site editors.
+
+By the way, while PloneFormGen is good at what it does, is not a good model for designing your own extensions. It's was created before the Zope Component Architecture became widely used. The authors would write it much differently if they were starting from scratch.
 
 
 Add Photogallery with collective.plonetruegallery
@@ -139,27 +160,30 @@ Add Photogallery with collective.plonetruegallery
 
 To advertise the conference we want to show some photos showing past conferences and the city where conference is taking place in.
 
-collective.plonetruegallery is a much better model for how to write a Plone Extension.
-
 Instead of creating custom content types for galleries, it integrates with the Plone functionality to choose different views for folderish content types.
 
 https://pypi.python.org/pypi/collective.plonetruegallery
 
-* Install the addon: http://localhost:8080/Plone/prefs_install_products_form
-* Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors
+* Activate the addon
+* Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step is only required because plonetruegallery does not yet know about the newer plone.app.contenttypes, which we activated to replace Plone's old content types with newer, Dexterity-style, ones.)
 * Add a folder /the-event/location
 * Upload some fotos from http://lorempixel.com/600/400/city/
 * Enable the view ``galleryview``
 
+collective.plonetruegallery is a better model for how to write a Plone Extension.
 
 Internationalisation
 --------------------
 
 Plone can run the same site in many different languages.
 
-We're not doing this with the conference-site since the lingua franca of the Plone-community is English.
+We're not doing this with the conference-site since the *lingua franca* of the Plone-community is English.
 
 We would use http://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes).
+
+.. note::
+
+    Building a multi-lingual site requires activating ``plone.app.multilingual``, but no add-on is necessary to build a site in a single language other than English. Just select a different site language when creating a Plone site, and all the basic messages will be translated and and LTR or RTL needs handled.
 
 
 Summary
