@@ -96,37 +96,33 @@ Other topics are only covered lightly:
 The schedule
 ------------
 
-.. toctree::
-    :maxdepth: 2
-    :numbered: 1
-
-    intro
-    plone_training_config/instructions.rst
-    dexterity
-    views_1
-    zpt
-    zpt_2
-    views_2
-    views_3
-    behaviors1
-    viewlets_1
-    api
-    ide
-    dexterity_2
-    custom_search
-    events
-    user_generated_content
-    resources
-    thirdparty_behaviors
-    dexterity_3
-    eggs2
-    behaviors2
-    viewlets_2
-    reusable
-    embed
-    deployment_sites
-    future_of_plone
-    optional
+* :doc:`intro`
+* :doc:`plone_training_config/instructions`
+* :doc:`dexterity`
+* :doc:`views_1`
+* :doc:`zpt`
+* :doc:`zpt_2`
+* :doc:`views_2`
+* :doc:`views_3`
+* :doc:`behaviors1`
+* :doc:`viewlets_1`
+* :doc:`api`
+* :doc:`ide`
+* :doc:`dexterity_2`
+* :doc:`custom_search`
+* :doc:`events`
+* :doc:`user_generated_content`
+* :doc:`resources`
+* :doc:`thirdparty_behaviors`
+* :doc:`dexterity_3`
+* :doc:`eggs2`
+* :doc:`behaviors2`
+* :doc:`viewlets_2`
+* :doc:`reusable`
+* :doc:`embed`
+* :doc:`deployment_sites`
+* :doc:`future_of_plone`
+* :doc:`optional`
 
 
 What to expect
