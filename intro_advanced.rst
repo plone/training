@@ -22,17 +22,16 @@ Tell us about yourselves:
     .. code-block:: html
 
         <div class="hiddenStructure"
-             tal:repeat="num python:range(1, 10, 5)"
-             tal:content="structure num"
+             tal:repeat="something python:[2, 4, 8][:-1]"
              tal:omit-tag="">
-          This is <strong>magic</strong>!
+          <p tal:replace="something" />
         </div>
 
     .. only:: not presentation
 
         The answer is::
 
-            1 6
+            2 4
 
 * Do you know what the following would return?::
 
@@ -40,7 +39,7 @@ Tell us about yourselves:
 
     .. only:: not presentation
 
-        If the current contenxt is a folder this will return a list of tuples
+        If the current context is a folder this will return a list of tuples
         containing the title and url for each item within the folder.
 
 
