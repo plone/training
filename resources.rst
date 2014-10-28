@@ -7,7 +7,7 @@ Resources
 
     .. code-block:: bash
 
-        cp -r src/ploneconf.site_sneak/chapters/27_resources1/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/27_resources1/ src/ploneconf.site
 
 
 We have not yet talked about CSS and Javascript. At the moment these are considered static resources.

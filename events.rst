@@ -7,7 +7,7 @@ Turn talks into events
 
     .. code-block:: bash
 
-        cp -r src/ploneconf.site_sneak/chapters/23_dexterity_2/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/23_dexterity_2/ src/ploneconf.site
 
 
 We forgot something: A list of talks is great especially if you can sort it by your preferences. But if a visitor decides he wants to see a talk he needs to know when it will take place.

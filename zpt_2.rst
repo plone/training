@@ -7,7 +7,7 @@ Customizing existing templates
 
     .. code-block:: bash
 
-        cp -r src/ploneconf.site_sneak/chapters/16_zpt_2/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/16_zpt_2/ src/ploneconf.site
 
 
 To dive deeper into real plone-data we now look at some existing templates and customize them.

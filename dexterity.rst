@@ -7,7 +7,7 @@ Dexterity I: Through the web
 
     .. code-block:: bash
 
-        cp -r src/ploneconf.site_sneak/chapters/13_dexterity/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/13_dexterity/ src/ploneconf.site
 
 
 What is a content-type?

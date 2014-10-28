@@ -7,7 +7,7 @@ Dexterity Types III: Python
 
     .. code-block:: bash
 
-        cp -r src/ploneconf.site_sneak/chapters/29_dexterity_3/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/29_dexterity_3/ src/ploneconf.site
 
 
 Without sponsors a conference would be hard to finance plus it is a good opportunity for plone-companies to advertise their services.

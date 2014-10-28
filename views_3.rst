@@ -7,7 +7,7 @@ Views III: A Talk list
 
     .. code-block:: bash
 
-        cp -r src/ploneconf.site_sneak/chapters/18_views_3/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/18_views_3/ src/ploneconf.site
 
 
 Now we don't want to provide information about one specific item but on several items. What now? We can't look at several items at the same time as context.

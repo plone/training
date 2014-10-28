@@ -7,7 +7,7 @@ Zope Page Templates
 
     .. code-block:: bash
 
-        cp -r src/ploneconf.site_sneak/chapters/16_zpt_2/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/16_zpt_2/ src/ploneconf.site
 
 
 Page Templates are HTML-files with some additional Information, written in TAL, METAL and TALES.

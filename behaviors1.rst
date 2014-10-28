@@ -7,7 +7,7 @@ Behaviors
 
     .. code-block:: bash
 
-        cp -r src/ploneconf.site_sneak/chapters/19_behaviors_1/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/19_behaviors_1/ src/ploneconf.site
 
 
 

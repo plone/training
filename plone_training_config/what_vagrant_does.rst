@@ -53,7 +53,7 @@ Instead vagrant now creates our own little Buildout and only uses the eggs that 
 
 .. code-block:: bash
 
-    $ cp -r /home/vagrant/Plone/buildout-cache /home/vagrant
+    $ cp -R /home/vagrant/Plone/buildout-cache /home/vagrant
 
 Then we checkout our tutorial buildout from http://github.com/collective/training_buildout and build it.
 

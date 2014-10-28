@@ -7,7 +7,7 @@ Creating addons to customize Plone
 
     .. code-block:: bash
 
-        cp -r src/ploneconf.site_sneak/chapters/12_eggs1/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/12_eggs1/ src/ploneconf.site
 
 Using zopeskel to create an egg
 -------------------------------
