@@ -61,7 +61,7 @@ Write the upgrade-step in ``upgrades.py``
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 4, 6, 39-59
+    :emphasize-lines: 4, 6, 45-65
 
     # -*- coding: UTF-8 -*-
     from plone import api
