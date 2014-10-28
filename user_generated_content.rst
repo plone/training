@@ -49,7 +49,7 @@ We still need to fix a problem: Authenticated users can see all talks, even the 
 * Go to the ZMI > portal_workflow
 * See how talks have the same workflow as most content ``(Default)``
 * Go to the tab *Contents*, check the box next to ``simple_publication_workflow``, click ``copy`` and ``paste``.
-* Rename the new workflow from *copy_of_simple_publication_workflow* to *talk_workflow*.
+* Rename the new workflow from *copy_of_simple_publication_workflow* to *talks_workflow*.
 * Edit the workflow by clicking on it: Change the Title to *Talks Workflow*.
 * Click on the tab *States* and click on *private* to edit this state. In the next view select the tab *Permissions*.
 * Find the talbe-column for the role *Contributor* and remove the permissions for ``Access contents information`` and ``View``. Note that the *Owner* (i.e. the Creator) still has some permissions.
