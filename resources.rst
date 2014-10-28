@@ -7,7 +7,7 @@ Resources
 
     .. code-block:: bash
 
-        cp -Rf src/ploneconf.site_sneak/chapters/27_resources1/ src/ploneconf.site
+        cp -Rf src/ploneconf.site_sneak/chapters/27_resources/ src/ploneconf.site
 
 
 We have not yet talked about CSS and Javascript. At the moment these are considered static resources.
@@ -22,7 +22,7 @@ You can declare and access static resources with special urls. The configure.zcm
 
 Now all files we put in the resources-folder can be found via the url http://localhost:8080/Plone/++resource++ploneconf.site/something.js
 
-Let's create a ``ploneconf.css`` and a ``plonconf.js`` in that folder.
+Let's create a ``ploneconf.css`` and a ``ploneconf.js`` in that folder.
 
 .. code-block:: css
     :linenos:
