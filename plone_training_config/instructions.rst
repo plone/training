@@ -179,7 +179,29 @@ Instead we use our own Plone-instance during the training. It is in ``/vagrant/b
     2014-05-20 16:57:02 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
     2014-05-20 16:57:02 INFO Zope Ready to handle requests
 
+
+
+Beware if you are using a OSX with an UTF-8 character set:
+The instance starting  might fail with following error:
+
+ValueError: unknown locale: UTF-8
+
+(thrown from a python2.7/locale.py.)
+
+In that case you have to put the localized keyboard and language settings 
+in the .bash_profile of the vagrant user
+
+Like e.g. :
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+(Solution found at https://coderwall.com/p/-k_93g)
+
 Now the Zope-instance we're using is running. You can stop the running instance anytime using ``ctrl + c``.
+
+In 99.9999% of the case using  ``ctrl + c`` the prompt shows up again. If it doesn't, do not be afraid your shell is blocked.
+if you type in (blindly) reset and press RETURN it should become visible again.
 
 If you point your local browser at http://localhost:8080 you see that Plone is running in vagrant. This works because Virtualbox forwards the port 8080 from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone site by clicking "Create a new Plone site". The username and the password are both "admin" (Never do this on a real site!).
 
