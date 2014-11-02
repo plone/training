@@ -7,7 +7,7 @@ Views III: A Talk list
 
     .. code-block:: bash
 
-        cp -Rf src/ploneconf.site_sneak/chapters/18_views_3/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/18_views_3/ src/ploneconf.site
 
 
 Now we don't want to provide information about one specific item but on several items. What now? We can't look at several items at the same time as context.
@@ -533,8 +533,8 @@ We use METAL again but this time to fill a different slot. The "javascript_head_
 Let's test it: http://localhost:8080/Plone/talklistview
 
 .. note::
-    
-    We add the ``jquery.datatables.js`` file directly to the HEAD slot of the HTML without using Plone JavaScript registry (portal_javascript). By using the registry you could enable merging of js files and advanced caching. A GenericSetup profile is included in the collective.js.datatables package. 
+
+    We add the ``jquery.datatables.js`` file directly to the HEAD slot of the HTML without using Plone JavaScript registry (portal_javascript). By using the registry you could enable merging of js files and advanced caching. A GenericSetup profile is included in the collective.js.datatables package.
 
 Summary
 -------

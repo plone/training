@@ -7,7 +7,7 @@ Views I
 
     .. code-block:: bash
 
-        cp -Rf src/ploneconf.site_sneak/chapters/14_views_1/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/14_views_1/ src/ploneconf.site
 
 
 A simple browser view

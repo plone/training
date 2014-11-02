@@ -7,7 +7,7 @@ Views II: A default view for "talk"
 
     .. code-block:: bash
 
-        cp -Rf src/ploneconf.site_sneak/chapters/17_views_2/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/17_views_2/ src/ploneconf.site
 
 
 View-Classes
