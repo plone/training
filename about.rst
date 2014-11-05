@@ -9,10 +9,7 @@ If you want to inquire the original authors about organizing a training please c
 Upcoming Trainings
 ------------------
 
-`Plone Conference 2014, Bristol <http://2014.ploneconf.org/training>`_
-    by Philip Bauer and Steffen Lindner (Advanced) and Steve McMahon (Beginner)
-
-`Spring 2014, Munich <http://www.starzel.de/leistungen/training/>`_
+`Spring 2015, Munich <http://www.starzel.de/leistungen/training/>`_ (the exact date will be announced soon)
     by Philip Bauer and Patrick Gerken
 
 
@@ -21,6 +18,7 @@ Previous Trainings
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
+* `Plone Conference 2014, Bristol <http://2014.ploneconf.org/training>`_
 * `June 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068480>`_
 * `May 2014, Munich <http://www.starzel.de/blog/mastering-plone>`_
 * `PythonBrasil/Plone Conference 2013, Brasilia <http://2013.pythonbrasil.org.br/program/training/mastering-plone>`_
