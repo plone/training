@@ -12,7 +12,7 @@ Upcoming Trainings
 `Plone Conference 2014, Bristol <http://2014.ploneconf.org/training>`_
     by Philip Bauer and Steffen Lindner (Advanced) and Steve McMahon (Beginner)
 
-`November 24th-28th 2014, Munich <http://www.starzel.de/leistungen/training/>`_
+`Spring 2014, Munich <http://www.starzel.de/leistungen/training/>`_
     by Philip Bauer and Patrick Gerken
 
 
