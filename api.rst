@@ -4,9 +4,9 @@ Programming Plone
 plone.api
 ---------
 
-The most important tool nowadays for plone-developers is the addon `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ hat covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
+The most important tool nowadays for plone-developers is the addon `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
 
-The api is devided in five sections. Here is one example from each:
+The api is divided in five sections. Here is one example from each:
 
 * `Content`: `Create content <http://docs.plone.org/external/plone.api/docs/content.html#create-content>`_
 * `Portal`: `Send E-Mail <http://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_
