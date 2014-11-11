@@ -56,6 +56,9 @@ tracebacks and the log
 pdb
     The python debugger pdb is the single most important tool for us when programming. Just add ``import pdb; pdb.set_trace()`` in your code and debug away!
 
+ipdb
+    Enhance pdb with the power of IPython, e.g. tab completion, syntax highlighting, better tracebacks and introspection. It also works nicely with Products.PDBDebugMode.
+
 Products.PDBDebugMode
     A addon that has two killer-features.
 
