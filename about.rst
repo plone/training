@@ -78,7 +78,7 @@ We slightly tweaked readthedocs-theme in ``_static/custom.css`` so that it works
 - We start hiding the navbar much earlier so that it does not interfere with the text.
 - We enlarge the default width of the content-area.
 
-Excercises
+Exercises
 ++++++++++
 
 Some additional javascript shows hidden solutions for exercises by clicking.
