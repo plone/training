@@ -48,7 +48,12 @@ class packages {
   package { "unzip":
       ensure => present,
   }
-
+  package { "libpcre3-dev":
+      ensure => present,
+  }
+  package { "libedit-dev":
+      ensure => present,
+  }
   # Optional packages to enable indexing of office/pdf docs
   # package { "wv":
   #   ensure => present,
