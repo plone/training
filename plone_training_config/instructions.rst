@@ -160,7 +160,7 @@ Once Vagrant finishes the provisioning-process, you can login to the now running
 
 .. note::
 
-    If you use Windows you'll have to login with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User _and_ password are `vagrant`.
+    If you use Windows you'll have to login with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User **and** password are ``vagrant``.
 
 You are now logged in as the user vagrant in ``/home/vagrant``. We'll do all steps of the training as this user.
 
@@ -179,29 +179,24 @@ Instead we use our own Plone-instance during the training. It is in ``/vagrant/b
     2014-05-20 16:57:02 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
     2014-05-20 16:57:02 INFO Zope Ready to handle requests
 
+.. note::
 
+    In rare cases when you are using OSX with an UTF-8 character set starting Plone might fail with following error:
 
-Beware if you are using a OSX with an UTF-8 character set:
-The instance starting  might fail with following error:
+    .. code-block::
 
-ValueError: unknown locale: UTF-8
+        ValueError: unknown locale: UTF-8
 
-(thrown from a python2.7/locale.py.)
+    In that case you have to put the localized keyboard and language settings in the .bash_profile of the vagrant user.
 
-In that case you have to put the localized keyboard and language settings 
-in the .bash_profile of the vagrant user
+    .. code-block:: bash
 
-Like e.g. :
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-.. (Solution found at https://coderwall.com/p/-k_93g)
+        export LC_ALL=en_US.UTF-8
+        export LANG=en_US.UTF-8
 
 Now the Zope-instance we're using is running. You can stop the running instance anytime using ``ctrl + c``.
 
-If it doesn't, don't worry, your shell isn't blocked.
-Type reset (even if you can't see the prompt) and press RETURN, and it should become visible again.
+If it doesn't, don't worry, your shell isn't blocked. Type reset (even if you can't see the prompt) and press RETURN, and it should become visible again.
 
 If you point your local browser at http://localhost:8080 you see that Plone is running in vagrant. This works because Virtualbox forwards the port 8080 from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone site by clicking "Create a new Plone site". The username and the password are both "admin" (Never do this on a real site!).
 
