@@ -38,7 +38,7 @@ Leonardo Caballero
 Philip Bauer
     Philip Bauer is a Webdeveloper from Munich who fell in love with Plone in 2005 and since then works almost exclusively with Plone. A historian by education he drifted towards creating websites in the 90's and founded the company Starzel.de in 2000. He is a member of the Plone foundation, loves teaching and is dedicated to Open Source. Among other Plone-related projects he started creating the Mastering Plone Training so that everyone can become a Plone-Developer.
 
-Patrick Gercken
+Patrick Gerken
     Patrick Gerken works with Python since 2002. He started working with pure Zope-Applications and now to develops mainly with with Plone, Pyramid and Javascript as well as doing what is called DevOps. He works at Starzel.de.
 
 Steve McMahon
