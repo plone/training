@@ -11,7 +11,7 @@ The most important parts of Plone can be configured in the control-panel.
 * Click on your username
 * Click "Site Setup"
 
-We'll explain every page and mention some of the stuff you can do here.
+We'll explain every page and mention some of the actions you can perform here.
 
 1. Add-ons (later...)
 2. Calendar
@@ -98,7 +98,7 @@ Zope is the foundation of Plone. Here you can access the inner working of Zope a
 
     We only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
 
-    At some point you'll have to learn what all that stuff is about. But not today.
+    At some point you'll have to learn what all that objects are about. But not today.
 
 
 Actions (portal_actions)
@@ -323,4 +323,4 @@ There are many more noteable items in the ZMI. We'll visit some of them later.
 Summary
 -------
 
-You can configure and customize a lot in Plone through the web. The most important options are accessible in the `plone control panel <http://localhost:8080/Plone/@@overview-controlpanel>`_ but even more are hidden away in the `ZMI <http://localhost:8080/Plone/manage>`_. The amount of stuff is overwhelming but you'll get the hang of it through a lot of practice.
+You can configure and customize a lot in Plone through the web. The most important options are accessible in the `plone control panel <http://localhost:8080/Plone/@@overview-controlpanel>`_ but even more are hidden away in the `ZMI <http://localhost:8080/Plone/manage>`_. The amount and presentation of information is overwhelming but you'll get the hang of it through a lot of practice.

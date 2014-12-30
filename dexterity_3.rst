@@ -154,7 +154,7 @@ Then we register the FTI in ``profiles/default/types.xml``
      <property name="title">Controls the available content types in your portal</property>
      <object name="talk" meta_type="Dexterity FTI"/>
      <object name="sponsor" meta_type="Dexterity FTI"/>
-     <!-- -*- extra stuff goes here -*- -->
+     <!-- -*- more types can be added here -*- -->
     </object>
 
 After reinstalling our package we can create the new type. We use the default-view provided by dexterity since we display the sponsors in a viewlet.

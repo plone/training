@@ -209,7 +209,7 @@ Provide defaults
 
     We have to tell that someone.
 
-    Who has which permissions is managed in Zope, it is persistent, persistent stuff goes to GenericSetup.
+    Who has which permissions is managed in Zope, it is persistent, persistent configuration goes to GenericSetup.
 
 The persistent configuration is managed in another file: :file:`profiles/default/rolemap.xml`
 

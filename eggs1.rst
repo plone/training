@@ -135,7 +135,7 @@ The file ``ploneconf/site/profiles/default/types.xml`` tells plone that there is
     <object name="portal_types" meta_type="Plone Types Tool">
      <property name="title">Controls the available content types in your portal</property>
      <object name="talk" meta_type="Dexterity FTI"/>
-     <!-- -*- extra stuff goes here -*- -->
+     <!-- -*- more types can be added here -*- -->
     </object>
 
 Upon installing, Plone reads the file ``ploneconf/site/profiles/default/types/talk.xml`` and registers a new type in ``portal_types`` (you can find this tool in the ZMI) with the information taken from that file.

@@ -20,7 +20,7 @@ Optional
 * GenericSetup
 * Upgrade-Steps
 * Migrations
-* Asynchronous stuff
+* Asynchronous processing
 * Talking with external api’s
 * Mockup
 * cutomizing barcelonetta

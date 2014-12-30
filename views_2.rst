@@ -53,7 +53,7 @@ I have extended the code just slightly.
             self.request = request
 
     def __call__(self):
-        # Do your own stuff
+        # Implement your own actions
 
         # This renders the template that was registered in zcml like this:
         #   template="templates/demoview.pt"

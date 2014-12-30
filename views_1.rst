@@ -53,7 +53,7 @@ Add a file ``browser/views.py``::
         """ This does nothing so far
         """
 
-This might seem a lot of boilerplate if we only want to render a template but every bit of it can be changed to achieve different effects. It's not useless code but actually very powerful stuff. We only ignore it for now and concentrate on the template.
+This might seem a lot of boilerplate if we only want to render a template but every bit of it can be changed to achieve different effects. It's not useless code but actually very powerful. We only ignore it for now and concentrate on the template.
 
 Add a directory ``browser/templates`` and add an file ``browser/templates/demoview.pt``
 
