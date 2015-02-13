@@ -85,20 +85,20 @@ Views:
 * Display Forms
 
 
-Installation
-------------
+.. Installation
+   ------------
 
-.. note ::
+   .. note ::
 
-    We can skip this step since we installed ``plone.app.contenttypes`` when creating our Plone site in the beginning.
+    ..    We can skip this step since we installed ``plone.app.contenttypes`` when creating our Plone site in the beginning.
 
 
-You don't have to modify the buildout since Plone 4.2+ ships with Dexterity. You just have to activate it in the control-panel for Add-ons.
+..    You don't have to modify the buildout since Plone 4.2+ ships with Dexterity. You just have to activate it in the control-panel for Add-ons.
 
-This time, for no obvious reason other than getting more comfortable with the ZMI, we'll use ``portal_quickinstaller`` to install Dexterity.
+..    This time, for no obvious reason other than getting more comfortable with the ZMI, we'll use ``portal_quickinstaller`` to install Dexterity.
 
-* go to portal_quickinstaller
-* install "Dexterity Content Types"
+..    * go to portal_quickinstaller
+..    * install "Dexterity Content Types"
 
 
 Modifying existing types

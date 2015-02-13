@@ -8,49 +8,53 @@ The Control Panel
 
 The most important parts of Plone can be configured in the control-panel.
 
-* Click on your username
+* Click on the portrait/username in the toolsbar
 * Click "Site Setup"
 
 We'll explain every page and mention some of the actions you can perform here.
 
-1. Add-ons (later...)
-2. Calendar
-3. Configuration Registry
-4. Content Rules (we know this already)
-5. Discussion
-6. Editing
-7. Errors
-8. HTML Filtering
-9. Image Handling
-10. Language
-11. Mail
-12. Maintenance
-13. Markup
-14. Navigation
-15. Search
-16. Security
-17. Site
-18. Syndication
-19. Themes
-20. TinyMCE Visual Editor
-21. Types
-22. Users and Groups
-23. Zope Management Interface (here be dragons)
+#. Add-ons (later...)
+#. Configuration Registry
+#. Content Rules
+#. Date and Time
+#. Dexterity Content Types
+#. Discussion
+#. Editing
+#. Errors
+#. HTML Filtering
+#. Image Handling
+#. Language
+#. Mail
+#. Maintenance
+#. Markup
+#. Navigation
+#. Resource Registries
+#. Search
+#. Security
+#. Site
+#. Syndication
+#. Theming
+#. TinyMCE
+#. Types
+#. Users and Groups
+#. Zope Management Interface (here be dragons)
 
-Below the links you may find information on your Plone-, Zope- and Python-Versions and an indicator as to whether you're running in production or development mode.
+Below the links you will find information on your Plone-, Zope- and Python-Versions and an indicator as to whether you're running in production or development mode.
 
 
 
 Portlets
 ---------
 
-* ``@@manage-portlets``
+In the toolbar under *More options* you can open the configration for the diffrerent places where you can have portlets.
+
 * UI fit for smart content-editors
 * various types
 * portlet-configuration is inherited
 * managing
 * ordering/weighting
 * The future: will maybe be replaced by tiles
+* ``@@manage-portlets``
 
 Example:
 
@@ -59,28 +63,29 @@ Example:
 * Remove the news-portlet and add a new one on the left side.
 * Go to the training-folder: http://localhost:8080/Plone/the-event/training and click ``Manage portlets``
 * Add a static portlet. "Featured training: Become a Plone-Rockstar at Mastering Plone!"
+* Use the toolbar to configure the portlets of the footer:
+
+  * Hide the portlets "Footer" and "Collophon".
+  * Add a "Static text portlet" enter "Copyright 2015 by Plone Community".
+  * Use "Insert > Special Character" to add a real © sign.
+  * You could turn that into a link to a copyright-page later.
 
 
 Viewlets
 --------
 
-* ``@@manage-viewlets``
-* viewlet have no UI
-* not aimed at content-editors
-* not locally addable, no configurable inheritance.
-* usually global (depends on code)
-* will be replaced by tiles?
-* the code is much simpler (we'll create one tomorrow)
-* live in viewlet-managers, can be nested (by adding a viewlet that contains a viewlet-manager)
+Portlets save data, Viewlets usually don't. Viewlets are often used for UI-Elements and have not nice UI to customize them.
+
+* ``@@manage-viewlets`` (pretty broken in Plone 5)
+* Viewlets have no nice UI
+* Not aimed at content-editors
+* Not locally addable, no configurable inheritance.
+* Usually global (depends on code)
+* Will be replaced by tiles?
+* The code is much simpler (we'll create one tomorrow)
+* Live in viewlet-managers, can be nested (by adding a viewlet that contains a viewlet-manager)
 * ttw-reordering only within the same viewlet-manager
-* the code decides when it's where and what it shows
-
-Portlets save Data, Viewlets usually don't. Viewlets are often used for UI-Elements.
-
-Example:
-
-* Go to http://localhost:8080/Plone/@@manage-viewlets
-* Hide collophon
+* the code decides when it is shown and what it shows
 
 
 ZMI
@@ -92,7 +97,7 @@ Zope is the foundation of Plone. Here you can access the inner working of Zope a
 
 .. note::
 
-  Here you can easily break your site so you should know what you are doing.
+  Here you can easily break your site so you should know what you are doing!
 
 .. only:: not presentation
 

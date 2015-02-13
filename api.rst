@@ -56,6 +56,8 @@ tracebacks and the log
 pdb
     The python debugger pdb is the single most important tool for us when programming. Just add ``import pdb; pdb.set_trace()`` in your code and debug away!
 
+    Since Plone 5 you can even add it to templates: add ``<?python import pdb; pdb.set_trace() ?>`` to a template and you end up in a pdb-shell on calling the template. Look at the variable ``econtext`` to see what might have gone wrong.
+
 ipdb
     Enhance pdb with the power of IPython, e.g. tab completion, syntax highlighting, better tracebacks and introspection. It also works nicely with Products.PDBDebugMode.
 
@@ -78,8 +80,8 @@ plone.reload
 Products.PrintingMailHost
     A addon that prevents Plone from sending mails. They are instead logged.
 
-Products.Ienablesettrace
-    Addon that allows to use pdb and ipdb in python skin-scripts. Very useful.
+Products.enablesettrace or Products.Ienablesettrace
+    Addon that allows to use pdb and ipdb in python skin-scripts. Very useful for old .
 
 ``verbose-security = on``
     A option for the recipe *plone.recipe.zope2instance* that logs the detailed reasons why a user might not be authorized to see something.

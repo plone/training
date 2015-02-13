@@ -35,7 +35,7 @@ The :program:`instance`-script offers the following options::
 
     We have a running Zope with a database but no content. But luckily there is a button to create a Plone site. Click on that button (login: admin:admin). This opens a form to create a Plone site. Use :samp:`Plone` as the site id.
 
-    You now have the option to select some addons before you create the site. Since we will use Dexterity from the beginning we select ``Dexterity-based Plone Default Types``. This way even the initial content on our page will be built with dexterity by the addon ``plone.app.contenttypes`` which will be the default in Plone 5.
+    ..  You now have the option to select some addons before you create the site. Since we will use Dexterity from the beginning we select ``Dexterity-based Plone Default Types``. This way even the initial content on our page will be built with dexterity by the addon ``plone.app.contenttypes`` which will be the default in Plone 5.
 
     You will be automatically redirected to the new site.
 
@@ -44,11 +44,52 @@ The :program:`instance`-script offers the following options::
     * By default Plone listens on port 8080. Look at http://localhost:8080
     * No Plone yet! Create a new Plone site.
     * Use :samp:`Plone` (the default) as the site id.
-    * Select ``Dexterity-based Plone Default Types`` from the addons **before** you click *Create Plone site* to install ``plone.app.contenttypes``.
+    .. * Select ``Dexterity-based Plone Default Types`` from the addons **before** you click *Create Plone site* to install ``plone.app.contenttypes``.
 
 .. note::
 
     Plone has many message-boxes. They contain important information. Read them and make sure you understand them!
+
+
+
+Walkthrough of the UI
+---------------------
+
+Let's see what is there...
+
+* :guilabel:`header`:
+
+  * :guilabel:`logo`: with a link to the frontpage
+  * :guilabel:`searchbox`: search (with live-search)
+
+* :guilabel:`navigation`: The global navigation
+* :guilabel:`banner`: A banner. Only visible on the frontpage.
+
+* :guilabel:`portal-columns`: a container holding:
+
+  * :guilabel:`portal-column-one`: portlets (configurable boxes with tool like navigation, news etc.)
+  * :guilabel:`portal-column-content`: the content and the editor
+  * :guilabel: `edit bar`: editing options for the content
+  * :guilabel:`portal-column-two`: portlets
+
+* :guilabel:`portal-footer`: viewlets
+
+.. only:: not presentation
+
+    These are also the css-classes of the respective div's. If you want to do theming you'll need them.
+
+On the edit bar, we find options affecting the current context...
+
+* :guilabel:`folder contents`
+* :guilabel:`view`
+* :guilabel:`edit`
+* :guilabel:`rules`
+* :guilabel:`sharing`
+* :guilabel:`display`
+* :guilabel:`add`
+* :guilabel:`status`
+
+Some edit bar options only show when appropriate; for example,``folder content`` and ``add`` are only shown for Folders. ``rules`` is currently invisible because we have no content rules available.
 
 
 
@@ -105,48 +146,10 @@ Configure a Mailserver
 
 * Server: :samp:`mail.gocept.net`
 * Username: :samp:`training@neww.de`
-* Password: :samp:`training2014`
+* Password: :samp:`training2015`
 
 Please do not abuse this. We'll disable this account after the training.
 
-
-Walkthrough of the UI
----------------------
-
-Let's see what is there...
-
-* :guilabel:`portal-top`:
-
-  * :guilabel:`personaltools`: name, logout etc.
-  * :guilabel:`logo`: with a link to the frontpage
-  * :guilabel:`search`
-  * :guilabel:`global`-navigation
-
-* :guilabel:`portal-columns`: a container holding:
-
-  * :guilabel:`portal-column-one`: portlets (configurable boxes with tool like navigation, news etc.)
-  * :guilabel:`portal-column-content`: the content and the editor
-  * :guilabel: `edit bar`: editing options for the content
-  * :guilabel:`portal-column-two`: portlets
-
-* :guilabel:`portal-footer`: viewlets
-
-.. only:: not presentation
-
-    These are also the css-classes of the respective div's. If you want to do theming you'll need them.
-
-On the edit bar, we find options affecting the current context...
-
-* :guilabel:`folder contents`
-* :guilabel:`view`
-* :guilabel:`edit`
-* :guilabel:`rules`
-* :guilabel:`sharing`
-* :guilabel:`display`
-* :guilabel:`add`
-* :guilabel:`status`
-
-Some edit bar options only show when appropriate; for example,``folder content`` and ``add`` are only shown for Folders. ``rules`` is currently invisible because we have no content rules available.
 
 Content-Types
 -------------

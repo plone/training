@@ -12,74 +12,90 @@ Creating addons to customize Plone
 Using zopeskel to create an egg
 -------------------------------
 
-Our own code has to be organised as an egg. An egg is a zip file or a directory that follows certain conventions. We are going to use `ZopeSkel <https://pypi.python.org/pypi/ZopeSkel>`_ to create a skeleton project. We only need to fill the holes.
+Our own code has to be organised as an egg. An egg is a zip file or a directory that follows certain conventions. We are going to use `bobtemplates.plone <https://pypi.python.org/pypi/bobtemplates.plone>`_ to create a skeleton project. We only need to fill the holes.
 
-.. note::
-
-    In the current version of the training we use ZopeSkel 2.21.2 to create eggs. We do this because it is shipped with Plone's Unified Installer. In the future and in our own projects we use `bobtemplates.plone <https://pypi.python.org/pypi/bobtemplates.plone>`_ to create eggs.  This will also be the standard with Plone 5.
-
-We enter the ``src`` directory and call a script called ``zopeskel`` from our projects bin-directory.
+We enter the ``src`` directory and call a script called ``mrbob`` from our projects bin-directory.
 
 .. code-block:: bash
 
     $ mkdir src
     $ cd src
-    $ ../bin/zopeskel
+    $ ../mrbob -O ploneconf.site bobtemplates:plone_addon
 
-This returns a list of available templates we might use. We choose dexerity since it is pretty small but already has some of the right dependencies we need.
+We have to answer some questions about the addon. We will press Enter (i.e. choosing the default value) for all questions except 1-4, 8 (Plone Version), where we enter ``5.0`` and 15 (Prepare Travis Integration) where we say ``True``.
 
-.. code-block:: bash
-
-    $ ../bin/zopeskel dexterity
-
-We answer some questions:
-
-* Enter project name: ``ploneconf.site``
-* Expert Mode? (What question mode would you like? (easy/expert/all)?) ['easy']: ``easy``
-* Version (Version number for project) ['1.0']: ``1.0.0``
-* Description (One-line description of the project) ['Example Dexterity Product']: ``PloneConf Site``
-* Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: ``False``
-* Use relations? (True/False: include support for relations?) [False]: ``True``
+#. Author's name
+#. Author's email
+#. Author's github username
+#. Package description [An add-on for Plone]
+#. Package keywords [Plone Python]
+#. Version of the package [0.1]
+#. License of the package [GPL]
+#. Plone version [4.3.4] ``5.0``
+#. Add locales? [False]
+#. Add example view? [True]
+#. Use generic setup profile? [True]
+#. Add setuphandlers? [True]
+#. Add a diazo-theme? [False]
+#. Add tests? [True]
+#. Prepare Travis Integration? [False]: ``True``
+#. Type of Travis CI notifications [email]
+#. Destination for Travis CI notifications: ``your email-adress``
 
 .. only:: not presentation
 
     If this is your first egg, this is a very special moment. We are going to create the egg with a script that generates a lot of necessary files. They all are necessary, but sometimes in a subtle way. It takes a while do understand their full meaning. Only last year I learnt and understood why I should have a ``manifest.in`` file. You can get along without one, but trust me, you get along better with a proper manifest file.
+
 
 Inspecting the package
 ----------------------
 
 Let's have a look at some of it's files.
 
-bootstrap.py, buildout.cfg, plone.cfg
-    You can ignore these files for now. They are here to create a buildout only for this egg to make testing easier. Once we start writing tests for this package we will have to update these files to the current best-practices and versions.
+bootstrap-buildout.py, buildout.cfg, travis.cfg.,.travis.yml, .coveragerc
+    You can ignore these files for now. They are here to create a buildout only for this egg to make testing easier. Once we start writing tests for this package we will have another look at them.
 
-docs, README.txt
-    The documentation and changelog of your egg goes in there
+README.txt, CHANGES, CONTRIBUTORS, docs/
+    The documentation, changelog, the list of contributors and the license of your egg goes in there
 
 setup.py
-    This file configures the package, it's name, dependencies and some metadata like the authors name. The dependencies listed here are automatically added by buildout.
+    This file configures the package, it's name, dependencies and some metadata like the authors name. The dependencies listed here are automatically downloaded by buildout.
 
-ploneconf/site/configure.zcml
+src/ploneconf/site/configure.zcml
     The phone-book of the packages. By reading it you can find out which functionality is registered though the component architecture.
 
-ploneconf/site/locales/
-    This holds translation-files (see http://docs.plone.org/develop/plone/i18n/internationalisation.html). We won't use it during the training.
+src/ploneconf/site/setuphandlers.py
+    This holds code that is automatically run when installing and uninstallung out addon.
 
-ploneconf/site/resources/
-    A directory that holds static resources (images/css/js). They are accessible through URLs like ``++resource++ploneconf.site/myawesome.css``
+src/ploneconf/site/interfaces.py
+    xxx
 
-ploneconf/site/profiles/default/
+src/ploneconf/site/testing.py and src/ploneconf/site/tests/...
+    xxx
+
+src/ploneconf/site/browser/
+    This directory is a python-module (because it has a ``__init__.py``) and will by convention hold most things that are visible in the browser.
+
+src/ploneconf/site/browser/configure.zcml
+    The phonebook if the browser-directory. Here views, resources and overrides are registered.
+
+src/ploneconf/site/browser/views.py
+    xxx
+
+src/ploneconf/site/browser/templates/demoview.pt
+    xxx
+
+src/ploneconf/site/static/
+    A directory that holds static resources (images/css/js). The files in there will be accessible through URLs like ``++resource++ploneconf.site/myawesome.css``
+
+src/ploneconf/site/profiles/default/
     The folder contains the GenericSetup-profile. During the training will put some xml-files there that hold configuration for the site.
 
-ploneconf/site/profiles/default/metadata.xml
-    Version-number and dependencies that are auto-installed.
+src/ploneconf/site/profiles/default/metadata.xml
+    Version-number and dependencies that are auto-installed when installing out addon.
 
-    We could replace ``<dependency>profile-plone.app.dexterity:default</dependency>`` with ``<dependency>profile-plone.app.contenttypes:plone-content</dependency>`` to depend the addon we picked when creating our site with this egg.
-
-ploneconf/site/profiles/default/types.xml
-    Registration of types
-
-There are also some files that can be deleted because they use outdated approaches to testing: ``ploneconf/site/tests.py`` and ``ploneconf/site/INTEGRATION.txt``.
+src/ploneconf/site/profiles/uninstall/
+    This folder holds another GenericSetup-profile. The steps in there are executed on uninstalling.
 
 
 Including the egg in Plone

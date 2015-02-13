@@ -78,7 +78,7 @@ It the output says ``INFO Zope Ready to handle requests`` then you are up and ru
 Install VirtualBox
 ------------------
 
-Vagrant uses Oracle’s VirtualBox to create virtual environments. Here is a link directly to the download page: https://www.virtualbox.org/wiki/Downloads. We use VirtualBox  4.3.x.
+Vagrant uses Oracle’s VirtualBox to create virtual environments. Here is a link directly to the download page: https://www.virtualbox.org/wiki/Downloads. We use VirtualBox 4.3.x
 
 
 Install and configure Vagrant

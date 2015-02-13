@@ -62,6 +62,8 @@ Some technologies and tools we use during the training:
     * Dexterity
     * Viewlets
     * `JQuery <http://jquery.com/>`_
+    * `Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_
+    * `References/Relations <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_
 
 What will we not do?
 --------------------
@@ -72,11 +74,9 @@ We will not cover the following topics:
 * `Portlets <http://docs.plone.org/old-reference-manuals/portlets/index.html>`_
 * `z3c.forms <http://docs.plone.org/develop/plone/forms/z3c.form.html>`_
 * `Theming <http://docs.plone.org/adapt-and-extend/theming/index.html>`_
-* `Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_
 * `i18n and locales <http://docs.plone.org/develop/plone/i18n/index.html>`_
 * `Deployment, Hosting and Caching <http://docs.plone.org/manage/deploying/index.html>`_
 * :doc:`grok`
-* `References/Relations <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_
 
 Other topics are only covered lightly:
 
