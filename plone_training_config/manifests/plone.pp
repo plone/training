@@ -36,9 +36,9 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # Get the unified installer
-    exec {'wget https://launchpad.net/plone/4.3/4.3.4/+download/Plone-4.3.4-UnifiedInstaller.tgz':
+    exec {'wget https://launchpad.net/plone/5.0/5.0a2/+download/Plone-5.0a2-UnifiedInstaller.tgz':
         alias => "download_installer",
-        creates => '/home/vagrant/tmp/Plone-4.3.4-UnifiedInstaller.tgz',
+        creates => '/home/vagrant/tmp/Plone-5.0a2-UnifiedInstaller.tgz',
         cwd => '/home/vagrant/tmp',
         user => 'vagrant',
         group => 'vagrant',
@@ -47,9 +47,9 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # Unpack unified installer
-    exec {'tar xzf Plone-4.3.4-UnifiedInstaller.tgz':
+    exec {'tar xzf Plone-5.0a2-UnifiedInstaller.tgz':
         alias => "untar_installer",
-        creates => '/home/vagrant/tmp/Plone-4.3.4-UnifiedInstaller',
+        creates => '/home/vagrant/tmp/Plone-5.0a2-UnifiedInstaller',
         cwd => '/home/vagrant/tmp',
         user => 'vagrant',
         before => Exec["virtualenv"],
@@ -67,7 +67,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # Run unified installer
-    exec {'/home/vagrant/tmp/Plone-4.3.4-UnifiedInstaller/install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone':
+    exec {'/home/vagrant/tmp/Plone-5.0a2-UnifiedInstaller/install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone':
         alias => "install_plone",
         creates => '/home/vagrant/Plone/zinstance/bin/buildout',
         user => 'vagrant',
@@ -79,7 +79,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     # Copy buildout-cache
     exec {'cp -Rf /home/vagrant/Plone/buildout-cache/* /home/vagrant/buildout-cache/':
         alias => "copy_cache",
-        creates => '/home/vagrant/buildout-cache/eggs/Products.CMFPlone-4.3.4-py2.7.egg/',
+        creates => '/home/vagrant/buildout-cache/eggs/Products.CMFPlone-5.0a2-py2.7.egg/',
         user => 'vagrant',
         cwd => '/home/vagrant',
         before => Exec["checkout_training"],
@@ -87,7 +87,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # get training buildout
-    exec {'git clone https://github.com/starzel/plone-dojo.git buildout':
+    exec {'git clone https://github.com/collective/training_buildout.git buildout && cd buildout && git checkout plone5 && cd ..':
         alias => "checkout_training",
         creates => '/vagrant/buildout',
         user => 'vagrant',
@@ -109,7 +109,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     # }
 
     # bootstrap training buildout
-    exec {'/home/vagrant/py27/bin/pip install -U setuptools==6.1':
+    exec {'/home/vagrant/py27/bin/pip install -U setuptools==12.2':
         alias => "install_setuptools",
         user => 'vagrant',
         cwd => '/vagrant/buildout',
@@ -121,6 +121,16 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     exec {'/home/vagrant/py27/bin/python bootstrap.py':
         alias => "bootstrap_training",
         creates => '/vagrant/buildout/bin/buildout',
+        user => 'vagrant',
+        cwd => '/vagrant/buildout',
+        before => Exec["modify_buildout"],
+        timeout => 0,
+    }
+
+    # modify buildout.cfg to work with vagrant
+    exec {"cp /vagrant/buildout/buildout.cfg /vagrant/buildout/buildout_local.cfg && sed -i '38s;.*;buildout_dir = /home/vagrant;' buildout.cfg":
+        alias => "modify_buildout",
+        creates => '/vagrant/buildout/buildout_local.cfg',
         user => 'vagrant',
         cwd => '/vagrant/buildout',
         before => Exec["buildout_training"],
