@@ -93,6 +93,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         user => 'vagrant',
         cwd => '/vagrant',
         before => Exec["install_setuptools"],
+        # before => Exec["bootstrap_training"],
         timeout => 0,
     }
 
@@ -111,6 +112,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     # bootstrap training buildout
     exec {'/home/vagrant/py27/bin/pip install -U setuptools==12.2':
         alias => "install_setuptools",
+        creates => "/home/vagrant/py27/lib/python2.7/site-packages/setuptools-12.2.dist-info",
         user => 'vagrant',
         cwd => '/vagrant/buildout',
         before => Exec["bootstrap_training"],
@@ -123,22 +125,22 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         creates => '/vagrant/buildout/bin/buildout',
         user => 'vagrant',
         cwd => '/vagrant/buildout',
-        before => Exec["modify_buildout"],
-        timeout => 0,
-    }
-
-    # modify buildout.cfg to work with vagrant
-    exec {"cp /vagrant/buildout/buildout.cfg /vagrant/buildout/buildout_local.cfg && sed -i '38s;.*;buildout_dir = /home/vagrant;' buildout.cfg":
-        alias => "modify_buildout",
-        creates => '/vagrant/buildout/buildout_local.cfg',
-        user => 'vagrant',
-        cwd => '/vagrant/buildout',
         before => Exec["buildout_training"],
         timeout => 0,
     }
 
+    # modify buildout.cfg to work with vagrant
+    # exec {"cp /vagrant/buildout/buildout.cfg /vagrant/buildout/buildout_local.cfg && sed -i '38s;.*;buildout_dir = /home/vagrant;' buildout.cfg":
+    #     alias => "modify_buildout",
+    #     creates => '/vagrant/buildout/buildout_local.cfg',
+    #     user => 'vagrant',
+    #     cwd => '/vagrant/buildout',
+    #     before => Exec["buildout_training"],
+    #     timeout => 0,
+    # }
+
     # run training buildout
-    exec {'/vagrant/buildout/bin/buildout':
+    exec {'/vagrant/buildout/bin/buildout -c vagrant_provisioning.cfg':
         alias => "buildout_training",
         creates => '/vagrant/buildout/bin/instance',
         user => 'vagrant',
@@ -146,7 +148,6 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         # before => Exec["buildout_final"],
         timeout => 0,
     }
-
 
 }
 

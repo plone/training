@@ -54,6 +54,9 @@ class packages {
   package { "libedit-dev":
       ensure => present,
   }
+  package { "python-tk":
+      ensure => present,
+  }
   # Optional packages to enable indexing of office/pdf docs
   # package { "wv":
   #   ensure => present,
