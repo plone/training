@@ -57,6 +57,9 @@ class packages {
   package { "python-tk":
       ensure => present,
   }
+  package { "libyaml-dev":
+      ensure => present,
+  }
   # Optional packages to enable indexing of office/pdf docs
   # package { "wv":
   #   ensure => present,

@@ -14,6 +14,7 @@ First we update the ubuntu and install some packages.
     $ sudo aptitude update --quiet --assume-yes
     $ sudo apt-get install build-essential
     $ sudo apt-get install python-dev
+    $ sudo apt-get install python-tk
     $ sudo apt-get install libjpeg-dev
     $ sudo apt-get install libxml2-dev
     $ sudo apt-get install libxslt-dev
@@ -40,10 +41,11 @@ Then we download, unpack and install the unified installer of Plone.
     $ mkdir Plone
     $ mkdir tmp
     $ cd tmp
-    $ wget https://launchpad.net/plone/4.3/4.3.3/+download/Plone-4.3.3-UnifiedInstaller.tgz
-    $ tar xzf Plone-4.3.3-UnifiedInstaller.tgz
-    $ cd Plone-4.3.3-UnifiedInstaller
+    $ wget wget https://launchpad.net/plone/5.0/5.0a2/+download/Plone-5.0a2-UnifiedInstaller.tgz
+    $ tar xzf Plone-5.0a2-UnifiedInstaller.tgz
+    $ cd Plone-5.0a2-UnifiedInstaller
     $ ./install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone
+    $ cp -Rf /home/vagrant/Plone/buildout-cache/* /home/vagrant/buildout-cache/
 
 The unified installer is an amazing tool that compiles it's own python, brings with it all the python-eggs we need and puts them in a buildout-cache. It then creates a Buildout and makes Plone ready to run.
 
@@ -55,15 +57,17 @@ Instead vagrant now creates our own little Buildout and only uses the eggs that 
 
     $ cp -Rf /home/vagrant/Plone/buildout-cache /home/vagrant
 
-Then we checkout our tutorial buildout from http://github.com/collective/training_buildout and build it.
+Then we checkout our tutorial buildout from http://github.com/collective/training_buildout switch to the branch 'plone5' and build it.
 
 .. code-block:: bash
 
     $ cd /vagrant
     $ git clone https://github.com/collective/training_buildout.git buildout
     $ cd buildout
+    $ git checkout plone5
+    $ /home/vagrant/py27/bin/pip install -U setuptools==12.2
     $ /home/vagrant/py27/bin/python bootstrap.py
-    $ ./bin/buildout
+    $ ./bin/buildout -c vagrant_provisioning.cfg
 
 At this point vagrant has finished it's job.
 

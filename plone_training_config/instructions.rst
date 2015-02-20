@@ -1,6 +1,12 @@
 Installing Plone for the Training
 =================================
 
+.. warning::
+
+    Since Plone 5 is not yet in beta we are using the current state of Plone 5 as it is being developed. To do so our buildout will extend from some files form the `Plone 5 Coredev <https://github.com/plone/buildout.coredev/tree/5.0>`_ and automatically checkout all packages that are currently under development (currently about 80).
+
+    Because of this running buildout will take much more time than with a released version of Plone 5.
+
 
 To not waste too much time with installing and debugging the differences between systems we use a virtual machine (Ubuntu 14.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development-environment to everyone.
 
@@ -24,8 +30,6 @@ If you **are** experienced with running Plone on your own laptop we encourage yo
 
 If you feel comfortable please work on your own machine with your own Python but ** please ** make sure that you have a system that will work since we don't want you to lose valuable time.
 
-You will need to make a small change to the buildout we use during the training.
-
 Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
 .. code-block:: bash
@@ -34,13 +38,9 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
     $ cd training
     $ git clone https://github.com/collective/training_buildout.git buildout
     $ cd buildout
+    $ git checkout plone5
     $ virtualenv-2.7 py27
-
-Now you need to make a small change to the buildout. Open the file ``buildout.cfg`` in an editor and add a ``#`` at the beginning of line 25 where it says ``buildout_dir = /home/vagrant``. Then remove the ``#`` at the next line. It should now read:
-
-.. code-block:: ini
-
-    buildout_dir = ${buildout:directory}
+    $ ./py27/bin/pip install -U setuptools==12.2
 
 Now you can run the buildout for the first time:
 
@@ -124,7 +124,7 @@ Now start setting up the VM that is configured in ``Vagrantfile``:
 
     $ vagrant up
 
-This takes a **veeeeery loooong time** since it does all the following steps:
+This takes a **veeeeery loooong time** (up to 1h depending on your internet-connection and system-speed) since it does all the following steps:
 
 * downloads a virtual machine (Official Ubuntu Server 14.04 LTS, also called "Trusty Tahr")
 * sets up the VM
