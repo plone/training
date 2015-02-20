@@ -1,5 +1,5 @@
-Creating addons to customize Plone
-==================================
+Write your own addons to customize Plone
+========================================
 
 .. sidebar:: Get the code!
 
@@ -9,12 +9,12 @@ Creating addons to customize Plone
 
         cp -R src/ploneconf.site_sneak/chapters/12_eggs1/ src/ploneconf.site
 
-Using zopeskel to create an egg
--------------------------------
+Creating the package
+--------------------
 
-Our own code has to be organised as an egg. An egg is a zip file or a directory that follows certain conventions. We are going to use `bobtemplates.plone <https://pypi.python.org/pypi/bobtemplates.plone>`_ to create a skeleton project. We only need to fill the holes.
+Our own code has to be organised as a python-package, also called *egg*. An egg is a zip file or a directory that follows certain conventions. We are going to use `bobtemplates.plone <https://pypi.python.org/pypi/bobtemplates.plone>`_ to create a skeleton project. We only need to fill the holes.
 
-We enter the ``src`` directory and call a script called ``mrbob`` from our projects bin-directory.
+We create and enter the ``src`` directory (*src* is short for *sources*) and call a script called ``mrbob`` from our buildouts bin-directory:
 
 .. code-block:: bash
 
@@ -50,76 +50,131 @@ We have to answer some questions about the addon. We will press Enter (i.e. choo
 Inspecting the package
 ----------------------
 
-Let's have a look at some of it's files.
+In ``src`` there is not a new folder ``ploneconf.site`` and in there is the new package. Let's have a look at some of the files:
 
 bootstrap-buildout.py, buildout.cfg, travis.cfg.,.travis.yml, .coveragerc
-    You can ignore these files for now. They are here to create a buildout only for this egg to make testing easier. Once we start writing tests for this package we will have another look at them.
+    You can ignore these files for now. They are here to create a buildout only for this egg to make testing it easier. Once we start writing tests for this package we will have another look at them.
 
 README.txt, CHANGES, CONTRIBUTORS, docs/
-    The documentation, changelog, the list of contributors and the license of your egg goes in there
+    The documentation, changelog, the list of contributors and the license of your egg goes in there.
 
 setup.py
-    This file configures the package, it's name, dependencies and some metadata like the authors name. The dependencies listed here are automatically downloaded by buildout.
+    This file configures the package, it's name, dependencies and some metadata like the authors name and email-adress. The dependencies listed here are automatically downloaded when running buildout.
 
-src/ploneconf/site/configure.zcml
+src/ploneconf/site/
+    The package itself lives inside a special folder-stucture. That seems confusing but is necessary for good testability. Our package is a `namespace package <https://www.python.org/dev/peps/pep-0420/>`_ called *ploneconf.site* and because of this there is a folder ``ploneconf`` with a ``__init__.py`` and in there another folder ``site`` and in there finally is our code.
+    From the buildouts perspective our code is in ``<your buildout directory>/src/ploneconf.site/src/ploneconf/site/<real code>``
+
+
+.. note::
+
+    Unless discussing the buildout we will from now on silently ommit these folders when describing files and assume that ``<your buildout directory>/src/ploneconf.site/src/ploneconf/site/`` is the root of our package!
+
+
+configure.zcml (src/ploneconf/site/configure.zcml)
     The phone-book of the packages. By reading it you can find out which functionality is registered though the component architecture.
 
-src/ploneconf/site/setuphandlers.py
+setuphandlers.py (src/ploneconf/site/setuphandlers.py)
     This holds code that is automatically run when installing and uninstallung out addon.
 
-src/ploneconf/site/interfaces.py
-    xxx
+interfaces.py (src/ploneconf/site/interfaces.py)
+    Here a browserlayer is defined in a straightforward python-class. We will need it later.
 
-src/ploneconf/site/testing.py and src/ploneconf/site/tests/...
-    xxx
+testing.py
+    This holds the setup for running tests.
 
-src/ploneconf/site/browser/
+tests/
+    This holds the tests.
+
+browser/
     This directory is a python-module (because it has a ``__init__.py``) and will by convention hold most things that are visible in the browser.
 
-src/ploneconf/site/browser/configure.zcml
+browser/configure.zcml
     The phonebook if the browser-directory. Here views, resources and overrides are registered.
 
-src/ploneconf/site/browser/views.py
+browser/views.py
     xxx
 
-src/ploneconf/site/browser/templates/demoview.pt
+browser/templates/demoview.pt
     xxx
 
-src/ploneconf/site/static/
+static/
     A directory that holds static resources (images/css/js). The files in there will be accessible through URLs like ``++resource++ploneconf.site/myawesome.css``
 
-src/ploneconf/site/profiles/default/
+profiles/default/
     The folder contains the GenericSetup-profile. During the training will put some xml-files there that hold configuration for the site.
 
-src/ploneconf/site/profiles/default/metadata.xml
+profiles/default/metadata.xml
     Version-number and dependencies that are auto-installed when installing out addon.
 
-src/ploneconf/site/profiles/uninstall/
-    This folder holds another GenericSetup-profile. The steps in there are executed on uninstalling.
+..    profiles/uninstall/
+      This folder holds another GenericSetup-profile. The steps in there are executed on uninstalling.
 
 
-Including the egg in Plone
---------------------------
+Including the package in Plone
+------------------------------
 
-Before we can use our new addon we have to tell Plone about it. Edit ``buildout.cfg`` and uncomment ``ploneconf.site`` in the `eggs` and `sources` sections:
+Before we can use our new package we have to tell Plone about it. Edit ``buildout.cfg`` and uncomment ``ploneconf.site`` in the sections `auto-checkout`, `eggs` and `test`:
 
 .. code-block:: cfg
-    :emphasize-lines: 4, 11
+    :emphasize-lines: 4, 46, 54
 
-    eggs =
-        Plone
-        ...
+    auto-checkout +=
+        Products.PloneFormGen
+        collective.behavior.banner
         ploneconf.site
     #    starzel.votable_behavior
 
-    ...
 
-    [sources]
-    collective.behavior.banner = git https://github.com/collective/collective.behavior.banner.git pushurl=git@github.com:collective/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
-    ploneconf.site = fs ploneconf.site full-path=${buildout:directory}/src/ploneconf.site
-    # starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
+    parts =
+        checkversions
+        codeintel
+        instance
+        mrbob
+        packages
+        robot
+        test
+        zopepy
 
-This tells Buildout to add the egg ``ploneconf.site``. Since it is also in the `sources`-section Buildout will not try to download it from pypi but will expect it in ``src/ploneconf.site``. *fs* allows you to add packages on the filesystem without a version control system, or with an unsupported one.
+    eggs =
+        Plone
+        Pillow
+
+    # development tools
+        z3c.jbot
+        plone.api
+        plone.reload
+        Products.PDBDebugMode
+        plone.app.debugtoolbar
+
+    # TTW Forms (based on Archetypes)
+        Products.PloneFormGen
+
+    # Image Gallery
+        collective.plonetruegallery
+        collective.ptg.nivogallery
+
+    # Add features to normal tables using a js-library
+        collective.js.datatables
+
+    # Generate facetted search & navigation
+        eea.facetednavigation
+
+    # Inheritable Banners and Sliders
+        collective.behavior.banner
+
+    # The addon we develop in the training
+        ploneconf.site
+
+    # Voting on content
+    #    starzel.votable_behavior
+
+    zcml =
+
+    test-eggs +=
+        ploneconf.site [test]
+
+This tells Buildout to add the egg ``ploneconf.site``. Since it is also in the `sources`-section buildout will not try to download it from pypi but will expect it in ``src/ploneconf.site``. *fs* allows you to add packages on the filesystem without a version control system, or with an unsupported one.
 
 Now run buildout to reconfigure Plone with the updated configuration:
 
@@ -141,9 +196,13 @@ Steps:
 * Return to the Dexterity control panel
 * Export the Type Profile and save the file
 * Delete the Type from the site before installing it from the file system
-* Extract the files from the exported tar-file and add them to our addon-package in ``ploneconf/site/profiles/default/``
+* Extract the files from the exported tar-file and add them to our addon-package in ``profiles/default/``
 
-The file ``ploneconf/site/profiles/default/types.xml`` tells plone that there is a new content type defined in file ``talk.xml``.
+.. note::
+
+    From the buildout-directory perspective that is ``src/ploneconf.site/src/ploneconf/site/profiles/default/``
+
+The file ``profiles/default/types.xml`` tells Plone that there is a new content type defined in file ``talk.xml``.
 
 .. code-block:: xml
 
@@ -154,7 +213,7 @@ The file ``ploneconf/site/profiles/default/types.xml`` tells plone that there is
      <!-- -*- more types can be added here -*- -->
     </object>
 
-Upon installing, Plone reads the file ``ploneconf/site/profiles/default/types/talk.xml`` and registers a new type in ``portal_types`` (you can find this tool in the ZMI) with the information taken from that file.
+Upon installing, Plone reads the file ``profiles/default/types/talk.xml`` and registers a new type in ``portal_types`` (you can find and inspect this tool in the ZMI!) with the information taken from that file.
 
 .. code-block:: xml
   :linenos:
@@ -256,7 +315,42 @@ Now our package has some real contents. So, we'll need to reinstall it (if insta
 
 * Restart Plone.
 * Re-install ploneconf.site (deactivate and activate).
-* Go to the ZMI and look at the definition of the new type in ``portal_types``.
 * Test the type by adding an object or editing one of the old ones.
 * Look at how the talks are presented in the browser.
 
+
+Exercise 1
+++++++++++
+
+Create a new package called ``collective.behavior.myfeature``. Inspect the directory structure of this package. Delete it after you are done.
+
+..  admonition:: Solution
+    :class: toggle
+
+    .. code-block:: bash
+
+        $ cd src
+        $ ../bin/mrbob -O collective.behavior.myfeature bobtemplates:plone_addon
+
+    Many packages that are part of Plone and some addons use a nested namespace such as ``plone.app.contenttypes``.
+
+
+Exercise 2
+++++++++++
+
+Go to the ZMI and look at the definition of the new type in ``portal_types``. Now deactivate *Implicitly addable?* and save. What happens? And why is that useful?
+
+..  admonition:: Solution
+    :class: toggle
+
+    Go to http://localhost:8080/Plone/portal_types/Talk/manage_propertiesForm
+
+    When disabling *Implicitly addable* you can no longer add Talks any more unless you change some container like the type *Folder*: Enable *Filter content types?* for it and add *Talk* to the items that are allowed.
+
+    With this method you can prevent content that only makes sense inside some defined structure to show up in places where they do not belong.
+
+    The equivalent setting for disabling *Implicitly addable* in ``Talk.xml`` is:
+
+    .. code-block:: xml
+
+        <property name="global_allow">False</property>
