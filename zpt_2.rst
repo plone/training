@@ -14,43 +14,59 @@ To dive deeper into real plone-data we now look at some existing templates and c
 
 
 newsitem.pt
-----------------
+-----------
 
 We want to show the date a News Item is published. This way people can see at a glance it the are looking at current or old news.
 
-To do this we will customize the templates that is used to render News Items.
+To do this we will customize the template that is used to render News Items.
 
-We'll basically do the same as when we used at ``portal_skins`` (we customized the footer), but now we'll do it all by hand in our package.
+We use ``z3c.jbot`` for overriding templates. The package already has the necessary configuration in ``browser/configure.zcml``.
 
-* Create the directoy ``browser/template_overrides``
-* Add the following to ``browser/configure.zcml``:
+* Find the file ``newsitem.pt`` in ``packages/plone/app/contenttypes/browser/templates/`` (in vagrant this directory is in ``/home/vagrant/packages``, otherwise it is in your buildout-directory).
+* Copy that file into the folder ``browser/overrides/`` of our package. If you use vagrant you'd have to use::
 
-.. code-block:: xml
+    cp /home/vagrant/packages/plone/app/contenttypes/browser/templates/newsitem.pt /vagrant/buildout/src/ploneconf.site/src/ploneconf/site/browser/overrides/
 
-    <browser:jbot directory="template_overrides" />
-
-* For completeness, add :samp:`z3c.jbot` to the dependencies in :file:`setup.py` to the :samp:`install_requires` list.
-
-* Find the file ``plone/app/contenttypes/browser/templates/newsitem.pt`` in the directory ``omelette`` (in vagrant this is in ``/home/vagrant/omelette``).
-* Copy it into the new folder ``cp /home/vagrant/omelette/plone/app/contenttypes/browser/templates/newsitem.pt /vagrant/buildout/src/ploneconf.site/ploneconf/site/browser/template_overrides``
 * Rename the new file from ``newsitem.pt`` to ``plone.app.contenttypes.browser.templates.newsitem.pt``.
 * Restart Plone
 
-Now Plone should use the new file to override the original one.
+Now Plone will use the new file to override the original one.
 
-Edit the template ``plone.app.contenttypes.browser.templates.newsitem.pt`` and insert the following before the ``<div id="parent-fieldname-text"``...:
+Edit the new file ``plone.app.contenttypes.browser.templates.newsitem.pt`` and insert the following before the ``<div id="parent-fieldname-text"``...:
 
-.. code-block:: html
+..  code-block:: html
 
-        <p tal:content="python: context.Date()">
-            The current Date
-        </p>
+    <p tal:content="python: context.Date()">
+        The current Date
+    </p>
+
+Since we use Plone 5 and Chameleon we could also write:
+
+..  code-block:: html
+
+    <p>
+        ${python: context.Date()}
+    </p>
 
 * Open an existing news-item in the browser
 
-This will show something like: ``2013-10-02 19:21:15``. Not very user-friendly. Let's extend the code and use one of many helpers plone offers.
+This will show something like: ``2015-02-21T12:01:31+01:00``. Not very user-friendly. Let's extend the code and use one of many helpers plone offers.
 
-.. code-block:: html
+..  code-block:: html
+
+    <p>
+        ${python: plone_view.toLocalizedTime(context.Date())}
+    </p>
+
+This will render ``Feb 21, 2015 ``. Much better.
+
+* ``plone_view`` is the BrowserView ``Products.CMFPlone.browser.ploneview.Plone`` and it is defined in the ``main_template`` (Products/CMFPlone/browser/templates/main_template.pt) of Plone 5 like this ``plone_view context/@@plone;`` an thus always avaiable.
+* The method ``toLocalizedTime`` runs a date-object through Plone's ``translation_service`` and returns the Date in the current locales format, thus transforming ``2015-02-21T12:01:31+01:00`` in ``Feb 21, 2015``.
+* With ``nocall:`` we prevent the method ``toLocalizedTime`` from being called, since we only want to make it available for use.
+
+The same in a slightly different style:
+
+..  code-block:: html
 
     <p tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                    date python:context.Date()"
@@ -58,14 +74,29 @@ This will show something like: ``2013-10-02 19:21:15``. Not very user-friendly. 
             The current Date in its local short-format
     </p>
 
-Now we should see the date in a user-friendly format like ``17.02.2013``.
+Here we first get the plone-view and then the method ``toLocalizedTime`` and we use ``nocall:`` to prevent the method toLocalizedTime from being called, since we only want to make it available for later use.
 
-* With ``nocall:`` we prevent the method ``toLocalizedTime`` from being called, since we only want to make it available for use.
-* The method ``toLocalizedTime`` is provided by the BrowserView ``Products.CMFPlone.browser.ploneview.Plone`` and runs the date-object through Plone's ``translation_service`` and returns the Date in the current locales format, thus transforming ``2013-02-17 19:21:15`` in ``17.02.2013``.
+.. note::
 
-On older Plone-versions we used ``python:context.toLocalizedTime(context.Date(), longFormat=False)``. That called the python-script ``toLocalizedTime.py`` in the Folder ``Products/CMFPlone/skins/plone_scripts/``.
+    On older Plone-versions (using Archetypes) we used ``python:context.toLocalizedTime(context.Date(), longFormat=False)``. That called the python-script ``toLocalizedTime.py`` in the Folder ``Products/CMFPlone/skins/plone_scripts/``.
 
-That folder ``plone_scripts`` still holds a multitude of useful scripts that are widely used. But they are all deprecated and will hopefully be gone in Plone 5 and replaced by proper python-methods in browserviews.
+    That folder ``plone_scripts`` holds a multitude of useful scripts that are still widely used. But they are all deprecated and most of thme are gont in Plone 5 and replaced by proper python-methods in browserviews.
+
+
+We could also move leave the formatting to the frontend. Plone 5 comes with the `moment-pattern <http://plone.github.io/mockup/dev/#pattern/moment>`_ that uses the library `moment.js <http://plone.github.io/mockup/dev/#pattern/moment>`_ to format dates. Try the relative calendar format:
+
+..  code-block:: html
+
+    <p class="pat-moment"
+       data-pat-moment="format:calendar">
+        ${python: context.Date()}
+    </p>
+
+Now we should see the date in a user-friendly format like ``Today at 12:01 PM``.
+
+..  note::
+
+    The moment-pattern of does not yet respect locales at the moment of writing, so you'd always get the US-Format. That will probably be fixed soon. See https://github.com/plone/mockup/issues/464#issuecomment-74671684
 
 
 summary_view.pt

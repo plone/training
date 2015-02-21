@@ -1,5 +1,5 @@
-Zope Page Templates
-===================
+Page Templates
+==============
 
 .. sidebar:: Get the code!
 
@@ -50,7 +50,7 @@ results in:
 
     <p>I love red</p>
 
-Let's try it. Open the file ``demoview.pt`` and add:
+Let's try it. Open the file ``training.pt`` and add:
 
 .. code-block:: html
 
@@ -80,7 +80,7 @@ This will result in:
 
     <p>blue</p>
 
-Without restarting Plone open http://localhost:8080/Plone/@@demoview.
+Without restarting Plone open http://localhost:8080/Plone/@@training.
 
 The same happens with attributes. Replace the <p>-line with:
 
@@ -269,16 +269,27 @@ The most frequently used one is ``nothing`` which is the equivalent to None
         this comment will not be rendered
     </p>
 
-A dict of all the available variables is ``CONTEXTS``
+A dict of all the available variables is ``econtext``
 
-.. code-block:: html
+<dl tal:define="path_variables_dict econtext">
+  <tal:vars tal:repeat="variable path_variables_dict">
+    <dt>${variable}</dt>
+    <dd>${python:path_variables_dict[variable]}</dd>
+  </tal:vars>
+</dl>
 
-    <dl tal:define="path_variables_dict CONTEXTS">
-      <tal:vars tal:repeat="variable path_variables_dict">
-        <dt tal:content="variable"></dt>
-        <dd tal:content="python:path_variables_dict[variable]"></dd>
-      </tal:vars>
-    </dl>
+..  note::
+
+    In Plone 4 that used to be ``CONTEXTS``
+
+    .. code-block:: html
+
+        <dl tal:define="path_variables_dict CONTEXTS">
+          <tal:vars tal:repeat="variable path_variables_dict">
+            <dt tal:content="variable"></dt>
+            <dd tal:content="python:path_variables_dict[variable]"></dd>
+          </tal:vars>
+        </dl>
 
 Useful for debugging :-)
 
@@ -458,7 +469,7 @@ The template should now look like this:
 
 .. note::
 
-    Since the demoview only used content from the template, not from the context that it is called on it makes little sense to have the edit-bar. We hide it by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
+    Since the training only used content from the template, not from the context that it is called on it makes little sense to have the edit-bar. We hide it by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
 
     The easiest way to do this is to define a dummy-variable. Dummy because it is never used except to allow us to execute some code.
 
@@ -490,7 +501,7 @@ Register it as a BrowserView (this time without a python-class) in zcml:
       permission="zope2.View"
       />
 
-Reuse the macro it in the template ``demoview.pt``:
+Reuse the macro it in the template ``training.pt``:
 
 .. code-block:: html
 
@@ -550,12 +561,12 @@ There is a lot more about TAL, TALES and METAL that we have not covered. You'll 
 Chameleon
 ---------
 
-Chameleon is the successor of TAL and will be shipped in Plone 5.
+Chameleon is the successor of Zope Page Templates, is used in Plone 5 and can be used in Plone 4 as an addon.
 
 - Plip for Chameleon: https://dev.plone.org/ticket/12198
 - Homepage: http://www.pagetemplates.org/
-- Integration-layer for Plone: `five.pt <https://pypi.python.org/pypi/five.pt>`_
+- Addon for Plone 4: `five.pt <https://pypi.python.org/pypi/five.pt>`_
 
-In Plone 4 we still use the default ZPT.
+In Plone 4 uses the default ZPT where some features are missing.
 
 
