@@ -13,8 +13,8 @@ Customizing existing templates
 To dive deeper into real plone-data we now look at some existing templates and customize them.
 
 
-newsitem.pt
------------
+The view for News Items
+-----------------------
 
 We want to show the date a News Item is published. This way people can see at a glance it the are looking at current or old news.
 
@@ -96,55 +96,98 @@ Now we should see the date in a user-friendly format like ``Today at 12:01 PM``.
 
 ..  note::
 
-    The moment-pattern of does not yet respect locales at the moment of writing, so you'd always get the US-Format. That will probably be fixed soon. See https://github.com/plone/mockup/issues/464#issuecomment-74671684
+    The moment-pattern of does not yet respect locales at the moment of writing, so you'd always get the US-Format. That will hopefully change soon. See https://github.com/plone/mockup/issues/464#issuecomment-74671684
 
 
-summary_view.pt
----------------
+The Summary View
+----------------
 
-We use the view "Summary View" to list news-releases. They should also have the date. The template associated with that view is ``summary_view.pt``.
+We use the view "Summary View" to list news-releases. They should also have the date. The template associated with that view is ``listing_summary.pt``.
 
 Let's look for the template folder_summary_view.pt::
 
-    plone/app/contenttypes/browser/templates/summary_view.pt
+    plone/app/contenttypes/browser/templates/listing_summary.pt
 
 
-Copy it to ``browser/template_overrides/`` and rename it to ``plone.app.contenttypes.browser.templates.summary_view.pt``.
+Copy it to ``browser/overrides/`` and rename it to ``plone.app.contenttypes.browser.templates.listing_summary.pt``.
 
 Add the following after line 29:
 
-.. code-block:: html
+..  code-block:: html
 
-    <p tal:condition="python:item_type == 'News Item'"
-       tal:content="python:toLocalizedTime(item.Date())">
-            News date
+    <p tal:condition="python:item_type == 'News Item'">
+      ${python:plone_view.toLocalizedTime(item.Date())}
     </p>
 
-The method ``toLocalizedTime`` is already defined in the template whose macro this templates uses. Why is that?
+After you restart the instance and look at the new-folder again you'll see the dates.
 
-The secret is line 15 of ``summary_view.pt``:
+Our addition renders the date of the respective objects that the template iterates over (thus ``item`` instead of ``context`` since ``context`` would be either a collection aggregating the news items or a folder containing a news item).
+
+The date is only displayed if the variable ``item_type`` is ``News Item``.
+
+Let's take a closer look at that template. How does it know that ``item_type`` is the name of the content-type?
+
+The first step to uncovering that secret is line 12 of ``listing_summary.pt``:
 
 .. code-block:: html
 
-    <metal:block use-macro="context/standard_view/macros/entries">
+    <metal:block use-macro="context/@@folder_listing/macros/entries|context/@@standard_view/macros/entries">
 
-``use-macro`` tells Plone to reuse the macro ``entries`` from the view ``standard_view`` which is found in template ``plone/app/contenttypes/browser/templates/standard_view.pt``.
+``use-macro`` tells Plone to reuse the macro ``entries`` from the view ``folder_listing``, if that is not found use the same macro from the view ``standard_view``. Both views are defined in ``plone.app.contenttypes/plone/app/contenttypes/browser/configure.zcml``
 
-The templates ``summary_view.pt`` and ``folder_summary_view.pt`` (which is the same but for folders, not collections) are very widely used and also widely customized, so you might as well get to know it a little.
+Both use different view-classes and are allowed for different content-types. The first is for folders the second for collections. But both use the same template ``plone/app/contenttypes/browser/templates/listing.pt``. That makes overriding that much easier :-)
 
-Our addition renders the date of the respective objects that the template iterates over (thus ``item`` instead of ``context`` since ``context`` would be the collection aggregating the news items).
+That template ``listing.pt`` defines the slot ``entries`` like this::
 
-The date is only displayed if the variable ``item_type`` (defined in line 42 of ``standard_view.pt``) is ``News Item``.
+..  code-block:: html
 
-There is a lot more going on in ``standard_view.pt`` and ``summary_view.pt`` but we'll leave it at that.
+    <metal:listingmacro define-macro="listing">
+    <tal:results define="batch view/batch">
+    <tal:listing condition="batch">
+
+        <div metal:define-slot="entries">
+            <article tal:repeat="item batch" metal:define-macro="entries">
+            <tal:block tal:define="obj item/getObject;
+                                   item_url item/getURL;
+                                   item_id item/getId;
+                                   item_title item/Title;
+                                   item_description item/Description;
+                                   item_type item/PortalType;
+                                   item_modified item/ModificationDate;
+                                   item_created item/CreationDate;
+                                   item_icon item/getIcon;
+                                   item_type_class python:'contenttype-' + view.normalizeString(item_type);
+                                   item_wf_state item/review_state;
+                                   item_wf_state_class python:'state-' + view.normalizeString(item_wf_state);
+                                   item_creator item/Creator;
+                                   item_link python:item_type in view.use_view_action and item_url+'/view' or item_url">
+
+    ...
+
+Here the ``item_type`` is defined as ``item_type item/PortalType``. Let's dig a little deeper and find out what ``ìtem`` and  ``PortalType`` are.
+
+``tal:repeat="item batch"`` tells the template to iterate over a iterable ``batch`` which is defined as ``batch view/batch``.
+
+``view`` is always the BrowserView for which the template is registered. In our case this is either ``plone.app.contenttypes.browser.collection.CollectionView`` if you called that view on a collection or ``plone.app.contenttypes.browser.folder.FolderView`` for folders. You might remember that both are defined in ``configure.zcml``
+
+Luckily the first is a class that inherits from the second:
+
+..  code-block:: python
+
+    class CollectionView(FolderView):
+
+``batch`` is a method in ``FolderView`` that turns ``results`` into batches. ``results`` exists in both classes. This means, in case the item we are looking at is a collection the method ``results`` of ``CollectionView`` will be used and in case it's a folder the one in ``FolderView``.
+
+To be continued...
+
 
 .. note::
 
-    In default Plone without ``plone.app.contenttypes`` this would be ``folder_summary_view.pt``, a skin-template for Archetypes that can be found in the folder ``Products/CMFPlone/skins/plone_content/``. The customzed template would be ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
+    In Plone 4 without ``plone.app.contenttypes`` the template to customize would be ``folder_summary_view.pt``, a skin-template for Archetypes that can be found in the folder ``Products/CMFPlone/skins/plone_content/``. The customzed template would be ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
 
     The Archetypes-template for News Items is ``newsitems_view.pt`` from the same folder. The customized template would then have to be named ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
 
-    Keep in mind that not only the names have changed but also the content!
+    Keep in mind that not only the names and locations have changed but also the content!
 
 
 Finding the right template
