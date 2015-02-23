@@ -1,8 +1,12 @@
-﻿The Anatomy of Plone
+﻿.. _anatomy-label:
+
+The Anatomy of Plone
 ====================
 
 Python, Zope, CMF, Plone, how does that all fit together?
 
+
+.. _anatomy-zope2-label:
 
 Zope2
 -----
@@ -43,6 +47,8 @@ Zope2
         http://docs.zope.org/zope2/zope2book/
 
 
+.. _anatomy-CMF-label:
+
 Content Management Framework
 ----------------------------
 
@@ -61,6 +67,8 @@ Content Management Framework
     We are still in prehistoric times here. There were no eggs (Python packages), Zope did not consist of 100 independent software components but was one big file set.
 
     Many parts of Plone are derived from the CMF, but it's a mixed heritage. The CMF is an independent software project, and has often moved more slowly than Plone. Plone is gradually eliminating dependence on most parts of the CMF.
+
+.. _anatomy-ztk-label:
 
 Zope Toolkit / Zope3
 --------------------
@@ -82,11 +90,15 @@ Zope Toolkit / Zope3
         http://plone.org/documentation/faq/zope-3-and-plone
 
 
+.. _anatomy-zca-label:
+
 Zope Component Architecture (ZCA)
 ---------------------------------
 
 The `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_, which was developed as part of Zope 3, is a system which allows for component pluggability and complex dispatching based on objects which implement an interface (a description of a functionality). Pyramid, and independent Python web application server, uses the ZCA “under the hood” to perform view dispatching and other application configuration tasks.
 
+
+.. _anatomy-pyramid-label:
 
 Pyramid
 -------

@@ -1,3 +1,5 @@
+.. _extending-label:
+
 Extending Plone
 ===============
 
@@ -11,6 +13,8 @@ Zope is extensible and so is Plone.
 
     Eggs are younger than Zope. Zope needed something like eggs before there were eggs, and the Zope developers wrote their own system. Old, outdated Plone systems contain a lot of code that is not bundled in an egg. Older code did not have metadata to register things, instead you needed a special setup method. We don't need this method but you might see it in other code. It is usually used to register Archetypes code. Archetypes is the old content type system. We use Dexterity.
 
+
+.. _extending-technologies-label:
 
 Extension technologies
 ----------------------
@@ -104,6 +108,8 @@ Component Architecture
 
     This is what you want to use.
 
+
+.. _extending-components-label:
 
 What are components, what is ZCML
 ---------------------------------

@@ -1,3 +1,5 @@
+.. dexterity1-label:
+
 Dexterity I: Through the web
 ============================
 
@@ -10,6 +12,8 @@ Dexterity I: Through the web
         cp -R src/ploneconf.site_sneak/chapters/13_dexterity/ src/ploneconf.site
 
 
+.. _dexterity1-what-label:
+
 What is a content type?
 -----------------------
 
@@ -18,6 +22,8 @@ A content type is a variety of object that can store information and is editable
 It is common in developing a web site that you'll need customized versions of common content types, or perhaps even entirely new types.
 
 Remember the requirements for our project? We wanted to be able to solicit and edit conference talks. We could use the ``page`` content type for that purpose. But, there are bits of information we need to make sure we collect about a talk and we wouldn't be sure to get that information if we just asked potential presenters to create a page. Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks. A custom content type will be ideal.
+
+.. _dexterity1-contains-label:
 
 The makings of a Plone content type
 -----------------------------------
@@ -34,6 +40,8 @@ FTI
 Views
     A view is a representation of the object and the content of its fields that may be rendered in response to a request. You may have one or more views for an object. Some may be visual — intended for display as web pages — others may be intended to satisfy AJAX requests and be in formats like JSON or XML.
 
+
+.. _dexterity1-comparison-label:
 
 Dexterity and Archetypes - A Comparison
 ---------------------------------------
@@ -101,6 +109,8 @@ Views:
 ..    * install "Dexterity Content Types"
 
 
+.. _dexterity1-modify-label:
+
 Modifying existing types
 ------------------------
 
@@ -123,6 +133,8 @@ Modifying existing types
 .. seealso::
 
    http://docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types
+
+.. _dexterity1-create-ttw-label:
 
 Creating content types TTW
 --------------------------
@@ -202,6 +214,8 @@ Here is the complete xml-schema created by our actions.
   </model>
 
 
+.. _dexterity1-ttw-to-code-label:
+
 Moving content types into code
 ------------------------------
 
@@ -215,6 +229,8 @@ So, we'll ultimately want to move our new content type into a Python package. We
 
    `Dexterity Developer Manual <http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
 
+
+.. _dexterity1-excercises-label:
 
 Exercises
 ---------

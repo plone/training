@@ -1,4 +1,6 @@
-﻿Extend Plone with Add-On Packages
+﻿.. _addons-label:
+
+Extend Plone with Add-On Packages
 =================================
 
 * There are more than 2,000 addons for Plone. We will cover only a handfull today.
@@ -6,6 +8,8 @@
 * The success of a project often depends on finding the right addon
 * Their use, usefulness, quality and complexity varies a lot
 
+
+.. _addons-find-label:
 
 How to find add-ons
 -------------------
@@ -22,6 +26,8 @@ How to find add-ons
 
    * A talk on finding and managing addons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
 
+
+.. _addons-notable-label:
 
 Some noteable add-ons
 ---------------------
@@ -70,6 +76,8 @@ Some noteable add-ons
   Powerful and flexible web-based application builder for Plone
 
 
+
+.. _addons-installing-label:
 
 Installing Add-ons
 ------------------
@@ -129,6 +137,8 @@ This is what happens: The GenericSetup profile of the product gets loaded. This 
 Let's have a look at what we just installed.
 
 
+.. _addons-PFG-label:
+
 PloneFormGen
 ------------
 
@@ -162,6 +172,8 @@ Let's build a registration form:
 By the way, while PloneFormGen is good at what it does, is not a good model for designing your own extensions. It's was created before the Zope Component Architecture became widely used. The authors would write it much differently if they were starting from scratch.
 
 
+.. _addons-ptg-label:
+
 Add Photogallery with collective.plonetruegallery
 -------------------------------------------------
 
@@ -179,6 +191,8 @@ https://pypi.python.org/pypi/collective.plonetruegallery
 
 collective.plonetruegallery is a better model for how to write a Plone Extension.
 
+.. _addons-i18n-label:
+
 Internationalisation
 --------------------
 
@@ -192,6 +206,8 @@ We would use http://pypi.python.org/pypi/plone.app.multilingual for this. It is 
 
     Building a multi-lingual site requires activating ``plone.app.multilingual``, but no add-on is necessary to build a site in a single language other than English. Just select a different site language when creating a Plone site, and all the basic messages will be translated and and LTR or RTL needs handled.
 
+
+.. _addons-summary-label:
 
 Summary
 -------

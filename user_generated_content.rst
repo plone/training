@@ -1,3 +1,5 @@
+.. _user-content-label:
+
 User generated content
 ======================
 
@@ -20,6 +22,8 @@ In this chapter we:
 * create a custom workflow for talks
 
 
+.. _user-content-self-reg-label:
+
 Self-registration
 -----------------
 
@@ -27,11 +31,15 @@ Self-registration
 * Leave "Enable User Folders" off unless you want a community-site.
 
 
+.. _user-content-constrain-types-label:
+
 Constrain types
 ---------------
 
 * On the talk-folder select `Restrictions… <http://localhost:8080/Plone/the-event/talks/folder_constraintypes_form>`_ from the *Add new* menu. Only allow to add talks.
 
+
+.. _user-content-local-roles-label:
 
 Grant local roles
 -----------------
@@ -40,6 +48,8 @@ Grant local roles
 
 Now all logged-in users can create and submit talks in this folder with the permission of the default-workflow.
 
+
+.. _user-content-custom-workflow-label:
 
 A custom workflow for talks
 ---------------------------
@@ -62,6 +72,8 @@ We still need to fix a problem: Authenticated users can see all talks, even the 
 
 Done.
 
+
+.. _user-content-fs-label:
 
 Move the changes to the file-system
 -----------------------------------

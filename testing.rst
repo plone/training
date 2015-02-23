@@ -1,5 +1,9 @@
+.. _testing-label:
+
 Testing in Plone
 ================
+
+.. _testing-types-label:
 
 Types of test
 -------------
@@ -49,6 +53,8 @@ Doctests are hard to debug, because there is no easy way to use a debugger in do
 In Plone, this form of testing is not very common.
 We would like to transform our documentation to be testable with doctests.
 
+.. _testing-writing-label:
+
 Writing tests
 -------------
 
@@ -79,9 +85,8 @@ Usually, you create a three layers on your own, an integration layer, a function
 
 By convention, layers are defined in a module ``testing`` in your module root, ie ``my.code.testing``. Your test classes should be in a folder named ``tests``
 
-
 Getting started
----------------
+~~~~~~~~~~~~~~~
 
 Mr.bob already created the testing layers.
 We will go through them now.
@@ -90,6 +95,8 @@ Next, it adds a method for testing that it gets properly installed. This might l
 This assumption is explained in the syntax of the current Plone. By testing that the result is met, the Javascript file really is available, we spell out that assumption more clearly.
 The person that wants to make your package work 5 years from now, knows now that the result in his browser might be related to a missing file. Even if he does not understand the semantics from the old Plone on how to register js files, he has a good starting point on what to do to make this package compatibles.
 
-This is why it makes sense to write these, tedious tests.
+This is why it makes sense to write these tedious tests. :ref:`intro-further-reading-label`
+
+``test_setup.py`` is in general also the right location for anything GenericSetup related. In Chapter
 
 

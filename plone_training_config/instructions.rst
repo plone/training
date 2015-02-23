@@ -1,3 +1,5 @@
+.. _instructions-label:
+
 Installing Plone for the Training
 =================================
 
@@ -14,6 +16,8 @@ To not waste too much time with installing and debugging the differences between
 
 Keep in mind that you need a fast internet-connection during the process since you'll have to download a complete virtual machine (ubuntu) and several packages and updates.
 
+
+.. _instructions-no-vagrant-label:
 
 Installing Plone without vagrant
 --------------------------------
@@ -80,6 +84,8 @@ Install VirtualBox
 
 Vagrant uses Oracle’s VirtualBox to create virtual environments. Here is a link directly to the download page: https://www.virtualbox.org/wiki/Downloads. We use VirtualBox 4.3.x
 
+
+.. _instructions-configure-vagrant-label:
 
 Install and configure Vagrant
 -----------------------------
@@ -208,6 +214,8 @@ The Buildout for this Plone is in a shared folder, this means we run it in the v
 
 If you have any problems or questions please mail us at team@starzel.de or create a ticket at https://github.com/plone/training/issues.
 
+
+.. _instructions-vagrant-does-label:
 
 What Vagrant does
 -----------------

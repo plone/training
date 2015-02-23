@@ -1,6 +1,10 @@
+.. _thirdparty-label:
+
 Using third-party behaviors
 ===========================
 
+
+.. _thirdparty-banner-label:
 
 Add teaser with collective.behavior.banner
 ------------------------------------------

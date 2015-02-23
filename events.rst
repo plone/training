@@ -1,3 +1,5 @@
+.. _events-label:
+
 Turn talks into events
 ======================
 

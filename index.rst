@@ -40,6 +40,7 @@ Contents:
     zpt_2
     views_2
     views_3
+    testing
     behaviors1
     viewlets_1
     api

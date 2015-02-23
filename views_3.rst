@@ -1,3 +1,5 @@
+.. _views3-label:
+
 Views III: A Talk list
 =======================
 
@@ -12,6 +14,8 @@ Views III: A Talk list
 
 Now we don't want to provide information about one specific item but on several items. What now? We can't look at several items at the same time as context.
 
+
+.. _views3-catalog-label:
 
 Using portal_catalog
 --------------------
@@ -93,6 +97,8 @@ We iterate over the list of results that the catalog returns us.
 
 We create a dictionary that holds all the information we want to show in the template. This way we don't have to put any complex logic into the template.
 
+.. _views3-brains-label:
+
 brains and objects
 ------------------
 
@@ -172,6 +178,8 @@ The same is true for methods::
     >>> brain.getPath() == '/'.join(obj.getPhysicalPath())
     True
 
+.. _views3-querying-label:
+
 Querying the catalog
 --------------------
 
@@ -192,6 +200,8 @@ Calling the catalog without parameters return the whole site::
 
     http://docs.plone.org/develop/plone/searching_and_indexing/query.html
 
+
+.. _views3-excercises-label:
 
 Exercises
 ---------
@@ -246,6 +256,8 @@ Add a method that returns all published keynotes as objects.
                     results.append(talk)
             return results
 
+
+.. _views3-template-listing-label:
 
 The template for the listing
 ----------------------------
@@ -422,6 +434,8 @@ Modify the view to only python-expressions.
     To follow the mantra "don't repeat yourself" we define ``talks`` instead of calling the method twice.
 
 
+.. _views3-custom-label:
+
 Setting a custom view as default-view on an object
 --------------------------------------------------
 
@@ -446,6 +460,8 @@ After reapplying the typeinfo-profile of out addon (or simply reinstalling it) t
 
 The ``purge="False"`` appends the view to the already existing ones instead of replacing them.
 
+
+.. _views3-js-label:
 
 Adding some javascript (collective.js.datatables)
 -------------------------------------------------
@@ -535,6 +551,8 @@ Let's test it: http://localhost:8080/Plone/talklistview
 .. note::
 
     We add the ``jquery.datatables.js`` file directly to the HEAD slot of the HTML without using Plone JavaScript registry (portal_javascript). By using the registry you could enable merging of js files and advanced caching. A GenericSetup profile is included in the collective.js.datatables package.
+
+.. _views3-summary-label:
 
 Summary
 -------

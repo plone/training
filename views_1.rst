@@ -1,3 +1,5 @@
+.. _views1-label:
+
 Views I
 =======
 
@@ -9,6 +11,8 @@ Views I
 
         cp -R src/ploneconf.site_sneak/chapters/14_views_1/ src/ploneconf.site
 
+
+.. _views1-simple-label:
 
 A simple browser view
 ---------------------

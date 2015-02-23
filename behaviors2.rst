@@ -1,5 +1,9 @@
+.. _behaviors2-label:
+
 More complex behaviors
 ======================
+
+.. _behaviors2-annotations-label:
 
 Using Annotations
 -----------------
@@ -18,6 +22,8 @@ Using Annotations
 
 .. _Annotations: https://pypi.python.org/pypi/zope.annotation/4.2.0
 
+.. _behaviors2-schema-label:
+
 Using Schema
 ------------
 
@@ -30,6 +36,8 @@ Using Schema
 .. only:: presentation
 
  * Why to use schemas always
+
+.. _behaviors2-code-label:
 
 Writing Code
 ------------

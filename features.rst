@@ -1,9 +1,13 @@
+.. _features-label:
+
 The Features of Plone
 =====================
 
 In-depth user-manual: http://plone.org/documentation/manual/plone-4-user-manual
 
 See also: http://docs.plone.org/working-with-content/index.html
+
+.. _features-start-stop-label:
 
 Starting and Stopping Plone
 ---------------------------
@@ -51,6 +55,7 @@ The :program:`instance`-script offers the following options::
     Plone has many message-boxes. They contain important information. Read them and make sure you understand them!
 
 
+.. _features-walkthrough-label:
 
 Walkthrough of the UI
 ---------------------
@@ -92,6 +97,8 @@ On the edit bar, we find options affecting the current context...
 Some edit bar options only show when appropriate; for example,``folder content`` and ``add`` are only shown for Folders. ``rules`` is currently invisible because we have no content rules available.
 
 
+
+.. _features-users-label:
 
 Users
 -----
@@ -136,6 +143,8 @@ Users
     Login to the site with your user now.
 
 
+.. _features-mailserver-label:
+
 Configure a Mailserver
 ----------------------
 
@@ -150,6 +159,8 @@ Configure a Mailserver
 
 Please do not abuse this. We'll disable this account after the training.
 
+
+.. _features-content-types-label:
 
 Content-Types
 -------------
@@ -194,6 +205,8 @@ The default content-types:
     Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default-Plone 4.3.x-site.
 
 
+.. _features-folders-label:
+
 Folders
 -------
 
@@ -208,6 +221,8 @@ Folders
 * The future: ``wildcard.foldercontents``
 
 
+.. _features-collections-label:
+
 Collections
 -----------
 
@@ -219,6 +234,8 @@ Collections
 * constraints, e.g. ``/Plone/folder::1``
 
 
+.. _features-content-rules-label:
+
 Content Rules
 -------------
 
@@ -226,11 +243,15 @@ Content Rules
 * New content in folder "Talks" -> Send Mail to reviewers.
 
 
+.. _features-history-label:
+
 History
 -------
 
 Show and explain; mention versioning and its relation to types.
 
+
+.. _features-manage-members-label:
 
 Manage members and groups
 -------------------------
@@ -243,6 +264,8 @@ Manage members and groups
   * Add group: ``orga``
   * add group: ``jury`` and add user 'jurymember' to it.
 
+
+.. _features-workflows-label:
 
 Workflows
 ---------
@@ -266,6 +289,8 @@ A complete set of workflow states and transitions make up a ``workflow``. Plone 
 
 Read more at: http://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
 
+.. _features-wc-label:
+
 Working copy
 ------------
 
@@ -279,6 +304,8 @@ While it's shipped with Plone, working copy support is not a common need. So, if
 
     Working-copy support is not yet available for content types created via Dexterity. This is on the way.
 
+
+.. _features-placeful-wf-label:
 
 Placeful workflows
 ------------------

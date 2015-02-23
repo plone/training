@@ -1,3 +1,5 @@
+.. _viewlets1-label:
+
 Writing Viewlets
 ================
 
@@ -10,6 +12,8 @@ Writing Viewlets
         cp -R src/ploneconf.site_sneak/chapters/20_viewlets_1/ src/ploneconf.site
 
 
+.. _viewlets1-social-label:
+
 A viewlet for the social behavior
 ---------------------------------
 
@@ -21,6 +25,8 @@ A viewlet for the social behavior
 * We already customized a viewlet (:file:`collophon.pt`). Now we add a new one.
 * Viewlets don't save data (portlets do)
 * Viewlets have no user-interface (portlets do)
+
+.. _viewlets1-social2-label:
 
 social-viewlet
 --------------
@@ -138,6 +144,8 @@ So far, we
   * adapt the object to it's behavior to be able to access the fields of the behavior
   * return the link
 
+
+.. _viewlets1-excercises-label:
 
 Exercise 1
 ----------

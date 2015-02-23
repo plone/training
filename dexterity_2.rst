@@ -1,3 +1,5 @@
+.. _dexterity2-label:
+
 Dexterity Types II: Growing up
 ==============================
 
@@ -19,6 +21,8 @@ In this part we will:
 * query the catalog for them
 * enable some more default-features for our type
 
+
+.. _dexterity2-marker-label:
 
 Add a marker-interface to the talk-type
 ---------------------------------------
@@ -118,6 +122,8 @@ Now the ``/talkview`` can only be used on objects that implement said interface.
           ...
 
     * Create a upgrade step to modify the class of existing types. A code-example on how to do this is in `ftw.upgrade <https://github.com/4teamwork/ftw.upgrade/blob/master/ftw/upgrade/step.py#L270>`_.
+
+.. _dexterity2-upgrades-label:
 
 Upgrade-steps
 -------------
@@ -237,6 +243,8 @@ Alternatively you can select which upgrade-steps to run like this:
 
 
 
+.. _dexterity2-browserlayer-label:
+
 Add a browserlayer
 ------------------
 
@@ -293,6 +301,8 @@ Do you need to bind the social-viewlet from chapter 20 to this new browser-layer
 
     No, it would make no difference since the viewlet is already bound to the marker interface ``ploneconf.site.behaviors.social.ISocial``.
 
+.. _dexterity2-catalogindex-label:
+
 Add catalog-indexes
 -------------------
 
@@ -339,6 +349,8 @@ The ``column ..`` entry allows us to display these values of these indexes in th
 
     http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html
 
+
+.. _dexterity2-customindex-label:
 
 Query for custom indexes
 ------------------------
@@ -387,6 +399,8 @@ We now can use the new indexes to improve the talklistview so we don't have to w
 
 The template does not need to be changed and the result did not change as well.
 
+.. _dexterity2-collection-criteria-label:
+
 Add collection criteria
 -----------------------
 
@@ -426,6 +440,8 @@ Add a new file ``profiles/default/registry.xml``
 
   http://docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed
 
+
+.. _dexterity2-GS-label:
 
 Add more features through generic-setup
 ---------------------------------------

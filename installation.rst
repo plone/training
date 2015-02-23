@@ -1,6 +1,10 @@
+.. _installation-label:
+
 Installation & Setup
 =====================
 
+
+.. _installation-plone-label:
 
 Installing Plone
 ----------------
@@ -54,6 +58,8 @@ You can download all of these at http://plone.org/products/plone/releases/4.3.4 
     * http://docs.plone.org/manage/installing/installation.html
 
 
+.. _installation-hosting-label:
+
 Hosting Plone
 -------------
 
@@ -75,6 +81,8 @@ You can host Plone...
     * Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-on-5-a-month
     * Where to host Plone: http://plone.org/documentation/faq/where-can-i-host-my-plone-site
 
+
+.. _installation-prod-deploy-label:
 
 Production Deployment
 ---------------------

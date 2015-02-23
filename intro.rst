@@ -1,6 +1,10 @@
+.. _intro-label:
+
 Introduction
 ============
 
+
+.. _intro-who-are-you-label:
 
 Who are you?
 ------------
@@ -35,6 +39,8 @@ Tell us about yourselves:
         [(i.Title, i.getURL()) for i in context.getFolderContents()]
 
 
+.. _intro-what-happens-label:
+
 What will we do?
 ----------------
 
@@ -65,6 +71,8 @@ Some technologies and tools we use during the training:
     * `Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_
     * `References/Relations <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_
 
+.. _intro-what-wont-happen-label:
+
 What will we not do?
 --------------------
 
@@ -87,6 +95,8 @@ Other topics are only covered lightly:
 * `Permissions <http://docs.plone.org/develop/plone/security/permissions.html>`_
 * `Performance and Caching <http://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_
 
+.. _intro-expect-label:
+
 What to expect
 --------------
 
@@ -98,6 +108,8 @@ If you want to become a professional Plone-developer or a highly sophisticated P
 
 Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_.
 
+.. _intro-docs-label:
+
 Documentation
 --------------
 
@@ -107,6 +119,8 @@ Follow the training at http://plone-training.readthedocs.org/
 
     You can use this presentation to copy & paste the code but you will memorize more if you type yourself.
 
+
+.. _intro-further-reading-label:
 
 Further Reading
 ---------------

@@ -1,12 +1,18 @@
+.. _case-label:
+
 The Case-Study
 ==============
 
 For this training we will build a website for a fictional Plone conference.
 
+.. _case-background-label:
+
 Background
 ----------
 
 The Plone conference takes place every year and all Plone developers at least try to go there.
+
+.. _case-requirements-label:
 
 Requirements
 ------------

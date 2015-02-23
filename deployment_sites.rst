@@ -1,6 +1,10 @@
+.. _deployment-label:
+
 Buildout II: Getting ready for deployment
 =========================================
 
+
+.. _deployment-starzel-label:
 
 The starzel-buildout
 --------------------
@@ -20,6 +24,8 @@ It has some noteable features:
 * Minimal work to setup a new project
 * Presets for development, testing, staging and production
 
+.. _deployment-setup-label:
+
 A deployment-setup
 ------------------
 
@@ -34,6 +40,8 @@ A deployment-setup
 * precompiler
 * cronjobs
 
+
+.. _deployment-tools-label:
 
 Other tools we use
 ------------------

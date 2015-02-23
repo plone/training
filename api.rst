@@ -1,5 +1,9 @@
+.. _api-label:
+
 Programming Plone
 =================
+
+.. _api-api-label:
 
 plone.api
 ---------
@@ -24,6 +28,8 @@ Some of these methods will be replaced by plone.api in the future:
 - ``zope.component.getMultiAdapter`` -> ``api.content.get_view``
 
 
+.. _api-portal-tools-label:
+
 portal-tools
 ------------
 
@@ -44,6 +50,8 @@ portal_quickinstaller
 
 Usually the best way to learn about the api of a tool is to look in the ``interfaces.py`` in the respective package and read the docstrings.
 
+
+.. _api-debugging-label:
 
 Debugging
 ---------

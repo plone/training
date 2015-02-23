@@ -1,3 +1,5 @@
+.. _views2-label:
+
 Views II: A default view for "talk"
 ===================================
 
@@ -9,6 +11,8 @@ Views II: A default view for "talk"
 
         cp -R src/ploneconf.site_sneak/chapters/17_views_2/ src/ploneconf.site
 
+
+.. _views2-classes-label:
 
 View-Classes
 ------------
@@ -88,6 +92,8 @@ Let your base class handle the html generation.
 
 
 
+
+.. _views2-default-label:
 
 The default-view
 ----------------
@@ -225,6 +231,7 @@ Let's improve the talkview to show all the info we want.
     </body>
     </html>
 
+.. _views2-exercise-label:
 
 Exercise
 --------

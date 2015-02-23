@@ -1,3 +1,5 @@
+.. _behaviors1-label:
+
 Behaviors
 =========
 
@@ -17,6 +19,8 @@ Behaviors
 
     But if you want to use this adapter, you must somehow know that an object implements that. Also, you could not easily add more fields to an object with such an approach.
 
+.. _behaviors1-dexterity-label:
+
 Dexterity Approach
 ------------------
 
@@ -27,6 +31,8 @@ Dexterity Approach
     A behavior can be added to any content type through the web and during runtime.
 
     All default views know about the concept of behaviors and when rendering forms, the views also check whether there are behaviors referenced with the current context and if these behavior have a schema of their own, these fields get shown in addition.
+
+.. _behaviors1-names-label:
 
 Names and Theory
 ----------------
@@ -42,6 +48,8 @@ Names and Theory
     `Open/closed principle`_
 
 .. _Open/closed principle: https://en.wikipedia.org/wiki/Open/closed_principle
+
+.. _behaviors1-example-label:
 
 Practical example
 -----------------
@@ -136,6 +144,8 @@ And a :file:`behaviors/social.py` containing:
     #. We also add a `fieldset`_ so that our fields are not mixed with the normal fields of the object.
     #. We add a normal `URI`_ schema field to store the URI to lanyrd.
     #. We mark our schema as a class that also implements the `IFormFieldProvider`_ interface. This is a marker interface, we do not need to implement anything to provide the interface.
+
+.. _behaviors1-adding-label:
 
 Adding it to our talk
 ---------------------

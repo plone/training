@@ -1,3 +1,5 @@
+.. _reusable-label:
+
 Making our package reusable
 ===========================
 
@@ -5,6 +7,8 @@ The package contains some problems.
 
 * No permission settings, Users can't customize who and when users can vote
 * We do things, but don't trigger events. Events allow others to react.
+
+.. _reusable-permissions-label:
 
 Adding permissions
 ------------------
@@ -73,6 +77,8 @@ We provide this in :file:`__init__.py`
     DoVote = 'starzel.votable_behavior: Do Vote'
     ViewVote = 'starzel.votable_behavior: View Vote'
 
+
+.. _reusable-permissions2-label:
 
 Using our permissions
 ---------------------
@@ -199,6 +205,8 @@ And the template in :file:`browser/templates/voting_viewlet.pt`
 .. only:: not presentation
 
     Sometimes subtle bugs come up because of changes, in this case, I noticed that I should only animate people to vote, if they are allowed to vote!
+
+.. _reusable-defaults-label:
 
 Provide defaults
 ----------------

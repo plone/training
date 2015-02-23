@@ -1,3 +1,5 @@
+.. _zpt2-label:
+
 Customizing existing templates
 ==============================
 
@@ -12,6 +14,8 @@ Customizing existing templates
 
 To dive deeper into real plone-data we now look at some existing templates and customize them.
 
+
+.. _zpt2-news-label:
 
 The view for News Items
 -----------------------
@@ -98,6 +102,8 @@ Now we should see the date in a user-friendly format like ``Today at 12:01 PM``.
 
     The moment-pattern of does not yet respect locales at the moment of writing, so you'd always get the US-Format. That will hopefully change soon. See https://github.com/plone/mockup/issues/464#issuecomment-74671684
 
+
+.. _zpt2-summary-label:
 
 The Summary View
 ----------------
@@ -190,6 +196,8 @@ To be continued...
     Keep in mind that not only the names and locations have changed but also the content!
 
 
+.. _zpt2-finding-label:
+
 Finding the right template
 --------------------------
 
@@ -229,6 +237,8 @@ If you don't know which template the page you're looking at uses you can do an e
         u'/Users/philip/workspace/training_without_vagrant/src/ploneconf.site/ploneconf/site/browser/template_overrides/plone.app.contenttypes.browser.templates.summary_view.pt'
 
     Now we see that we already customized the template.
+
+.. _zpt2-skins-label:
 
 skin-templates
 --------------

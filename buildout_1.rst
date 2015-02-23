@@ -1,3 +1,5 @@
+.. _buildout1-label:
+
 Buildout I
 ==========
 
@@ -16,6 +18,8 @@ Buildout I
     Some extensions provide new functionality, like mr.developer, the best way to manage your checked out sources.
 
 
+.. _buildout1-syntax-label:
+
 Syntax
 ------
 
@@ -26,6 +30,8 @@ Syntax
     A Buildout consists of multiple sections. Sections start with the section name in square brackets. Each section declares a different part of your application. As a rough analogy, your Buildout file is a cookbook with multiple recipes.
 
     There is a special section, called `[buildout]`. This section can change the behavior of Buildout itself. The variable :samp:`parts` defines, which of the existing sections should actually be used.
+
+.. _buildout1-recipes-label:
 
 Recipes
 -------
@@ -46,6 +52,8 @@ This uses the python-package `plone.recipe.zope2instance <http://pypi.python.org
 
     http://www.buildout.org/en/latest/docs/recipelist.html
 
+.. _buildout1-references-label:
+
 References
 ----------
 
@@ -62,6 +70,8 @@ References
     Another example: Say you create configuration files for a webserver like nginx, you can define the target port for the reverse proxy by looking it up from the zope2instance recipe.
 
     Configuring complex systems always involves a lot of duplication of information. Using references in the buildout configuration allows you to minimize these duplications.
+
+.. _buildout1-examples-label:
 
 A real life example
 -------------------
@@ -312,6 +322,8 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
 
     This is another special section. It has become a special section by declaration. In our :samp:`[buildout]` section we set a variable :samp:`versions = versions`. This told buildout, that there is a section named versions, containing version information. When Buildout installs eggs it will use the version defined in this section.
 
+.. _buildout1-mrdeveloper-label:
+
 Hello mr.developer!
 -------------------
 
@@ -323,12 +335,16 @@ Hello mr.developer!
 
     ``mr.developer`` comes with a command, ``./bin/develop``. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them, when you write changes that require a new release. You can activate and deactivate eggs via the ``develop`` command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
 
+.. _buildout1-extensible-label:
+
 Extensible
 ----------
 
 .. only:: not presentation
 
     You might have noticed that most if not all functionality is only available via plugins. One of the things that Buildout excels at without any plugin, is the dependency resolution. You can help Plone in dependency resolution by declaring exactly which version of an egg you want. This is only one use case. Another one is much more important: If you want to have a repeatable Buildout, one that works two months from now also, you *must* declare all your egg versions. Else Buildout might install newer versions.
+
+.. _buildout1-mcguyver-label:
 
 Be McGuyver
 -----------

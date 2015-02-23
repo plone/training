@@ -1,3 +1,5 @@
+.. _eggs2-label:
+
 Creating reusable packages with eggs
 ====================================
 

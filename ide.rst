@@ -1,3 +1,5 @@
+.. ide-label:
+
 IDE's and Editors
 ==================
 

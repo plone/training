@@ -1,3 +1,5 @@
+.. _about-label:
+
 About Mastering Plone
 =====================
 
@@ -6,12 +8,16 @@ This training was created by Philip Bauer and Patrick Gerken of `starzel.de <htt
 If you want to inquire the original authors about organizing a training please contact them at team@starzel.de.
 
 
+.. _about-upcoming-label:
+
 Upcoming Trainings
 ------------------
 
 `2. - 6. March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
     by Philip Bauer and Patrick Gerken
 
+
+.. _about-previous-label:
 
 Previous Trainings
 ------------------
@@ -26,6 +32,8 @@ The Mastering Plone Training was so far held publicly at the following occasions
 * `Plone Conference 2012, Arnheim <http://2012.ploneconf.org/the-event/training/conference-trainings/mastering-plone>`_
 * `PyCon De 2011, Leipzig <http://2011.de.pycon.org/2011/home/>`_
 
+
+.. _about-trainers-label:
 
 Trainers
 --------
@@ -47,6 +55,7 @@ Steve McMahon
 Steffen Lindner
     Steffen Lindner started developing Plone in 2006. He worked on small Plone sites and also with huge intranet sites. As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at Starzel.de.
 
+.. _about-use-label:
 
 Using the documentation for a training
 ---------------------------------------
@@ -145,6 +154,8 @@ Things to do before a training (as a trainer)
 - If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not with the buildout path /vagrant/buildout/)
 
 
+.. _about-contribute-label:
+
 Contributing
 ------------
 
@@ -152,6 +163,8 @@ Everyone is **very welcome** to contribute. Minor bugfixes can be pushed direcly
 
 By prefixing a indented block of text or code with ``.. only:: presentation`` or ``.. only:: not presentation`` you can control which of the versions the indented block will show up. Content without a prefix will be included in both versions.
 
+
+.. _about-licence-label:
 
 License
 -------

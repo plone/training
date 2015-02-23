@@ -1,3 +1,5 @@
+.. _zpt-label:
+
 Page Templates
 ==============
 
@@ -64,6 +66,8 @@ Let's try it. Open the file ``training.pt`` and add:
     </body>
     </html>
 
+
+.. _zpt-tal-label:
 
 TAL and TALES
 -------------
@@ -405,6 +409,8 @@ When an element has multiple statements, they are executed in this order:
 
 
 
+.. _zpt-metal-label:
+
 METAL and macros
 ----------------
 
@@ -510,6 +516,8 @@ Reuse the macro it in the template ``training.pt``:
         </div>
 
 
+.. _tal-access-plone-label:
+
 Accessing Plone from the template
 ---------------------------------
 
@@ -534,6 +542,8 @@ In templates we can also access other browser-views. Some of those exist to prov
 These are very widely used and there are many more.
 
 
+.. _tal-missing-label:
+
 What we missed
 --------------
 
@@ -557,6 +567,8 @@ There is a lot more about TAL, TALES and METAL that we have not covered. You'll 
   * http://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html
   * Using Zope Page Templates: http://docs.zope.org/zope2/zope2book/ZPT.html
   * Zope Page Templates Reference: http://docs.zope.org/zope2/zope2book/AppendixC.html
+
+.. _tal-chameleon-label:
 
 Chameleon
 ---------

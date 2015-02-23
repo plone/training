@@ -1,3 +1,5 @@
+.. _embed-label:
+
 Using starzel.votable_behavior in ploneconf.site
 ================================================
 

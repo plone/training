@@ -1,3 +1,5 @@
+.. _eggs1-label:
+
 Write your own addons to customize Plone
 ========================================
 
@@ -8,6 +10,8 @@ Write your own addons to customize Plone
     .. code-block:: bash
 
         cp -R src/ploneconf.site_sneak/chapters/12_eggs1/ src/ploneconf.site
+
+.. _eggs1-create-label:
 
 Creating the package
 --------------------
@@ -46,6 +50,8 @@ We have to answer some questions about the addon. We will press Enter (i.e. choo
 
     If this is your first egg, this is a very special moment. We are going to create the egg with a script that generates a lot of necessary files. They all are necessary, but sometimes in a subtle way. It takes a while do understand their full meaning. Only last year I learnt and understood why I should have a ``manifest.in`` file. You can get along without one, but trust me, you get along better with a proper manifest file.
 
+
+.. _eggs1-inspect-label:
 
 Inspecting the package
 ----------------------
@@ -110,6 +116,8 @@ profiles/default/metadata.xml
 ..    profiles/uninstall/
       This folder holds another GenericSetup-profile. The steps in there are executed on uninstalling.
 
+
+.. _eggs1-include-label:
 
 Including the package in Plone
 ------------------------------
@@ -185,6 +193,8 @@ Now run buildout to reconfigure Plone with the updated configuration:
 After restarting Plone with ``./bin/instance fg`` the new addon `ploneconf.site` is available for install like PloneFormGen or Plone True Gallery.
 
 We will not install it now since we did not add any of our own code or configuration yet. Let's do that.
+
+.. _eggs1-dexterity-label:
 
 Return to Dexterity: moving content types into code
 ---------------------------------------------------

@@ -1,7 +1,11 @@
+.. _customizing-label:
+
 Configuring and Customizing Plone through the web
 =================================================
 
  .. sectionauthor:: Philip Bauer <bauer@starzel.de>
+
+.. _customizing-controlpanel-label:
 
 The Control Panel
 -----------------
@@ -42,9 +46,10 @@ We'll explain every page and mention some of the actions you can perform here.
 Below the links you will find information on your Plone-, Zope- and Python-Versions and an indicator as to whether you're running in production or development mode.
 
 
+.. _customizing-portlets-label:
 
 Portlets
----------
+--------
 
 In the toolbar under *More options* you can open the configration for the diffrerent places where you can have portlets.
 
@@ -71,6 +76,8 @@ Example:
   * You could turn that into a link to a copyright-page later.
 
 
+.. _customizing-viewlets-label:
+
 Viewlets
 --------
 
@@ -87,6 +94,8 @@ Portlets save data, Viewlets usually don't. Viewlets are often used for UI-Eleme
 * ttw-reordering only within the same viewlet-manager
 * the code decides when it is shown and what it shows
 
+
+.. _customizing-ZMI-label:
 
 ZMI
 ---
@@ -324,6 +333,8 @@ There are many more noteable items in the ZMI. We'll visit some of them later.
 * portal_workflow
 * portal_catalog
 
+
+.. _customizing-summary-label:
 
 Summary
 -------

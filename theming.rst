@@ -1,3 +1,5 @@
+.. _theming-label:
+
 Theming
 =======
 
@@ -17,6 +19,8 @@ Theming a Plone site has two major parts:
 
 *Templating* is accomplished by editing page template files which allow us to mix object content from the ZODB with HTML. Plone uses its own (actualy Zope's) Template Attribute Language (TAL) for this purpose.
 
+.. _theming-diazo-label:
+
 Diazo example
 -------------
 
@@ -29,12 +33,16 @@ Diazo example
 * Deactivate the theme
 * Copy the Bootstrap Theme, use the ``Modify Theme`` button to see the Diazo rules.
 
+.. _theming-templating-label:
+
 Templating example
 ------------------
 
 * Use the ZMI to view portal_view_customizations
 * Take a look at ``plone.belowcontenttitle.documentbyline`` — get an idea how TAL logic is used to pull in context content.
 * Change "History" to "Herstory" :)
+
+.. _theming-right-tool-label:
 
 Choosing the right tool
 -----------------------
@@ -57,6 +65,8 @@ So, what's your strategy?
 
 But, **do not** bother to learn how to work with Plone's viewlet managers. Yes, it was once necessary, but Diazo is a much better solution to this problem.
 
+
+.. _theming-serious-label:
 
 Want to really learn theming?
 -----------------------------

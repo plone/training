@@ -1,3 +1,5 @@
+.. _dexterity3-label:
+
 Dexterity Types III: Python
 ===========================
 

@@ -1,8 +1,12 @@
+.. _plone5-label:
+
 What's new in Plone 5
 =====================
 
 If you are already used to Plone 5 could skip this section.
 
+
+.. _plone5-theme-label:
 
 Default Theme
 -------------
@@ -26,6 +30,8 @@ The following example from the ``rules.xml`` makes sure that the banner saying *
          css:theme="div.principal" />
 
 
+.. _plone5-ui-widgets-label:
+
 New UI and widgets
 ------------------
 
@@ -38,6 +44,8 @@ The widgets where you input data are also completely rewritten.
 * The related-items-widget is a complete rewrite
 
 
+.. _plone5-foldercontents-label:
+
 Folder-Contents
 ---------------
 
@@ -49,17 +57,23 @@ The view to display the content of a folder is new and offers many new features:
 * persistent selection of items
 
 
+.. _plone5-content-types-label:
+
 Content-Types
 -------------
 
 All default types are based on Dexterity. This means you can use behaviors to change their features and edit them through the web. Existing old content can be migrated to these types.
 
 
+.. _plone5-resource-registry-label:
+
 Resource-Registry
 -----------------
 
 The resource-registry allows you to configure and edit the static resources (js, css) of Plone. It replaces the old javascript and css-registries. And can be used to customize the theme by changing the less-variables or overriding less-files.
 
+
+.. _plone5-chameleon-label:
 
 Chameleon template engine
 -------------------------
@@ -116,6 +130,8 @@ You can also add real python-blocks inside templates.
 Don't overdo it!
 
 
+.. _plone5-control-panel-label:
+
 Control panel
 -------------
 
@@ -123,6 +139,8 @@ Control panel
 * All control-panels were moved to z3c.form
 * Many small improvements
 
+
+.. _plone5-dateformatting-label:
 
 Date formatting on the client side
 ----------------------------------
@@ -143,11 +161,15 @@ returns
     * 10/22/2015
 
 
+.. _plone5-multilingual-label:
+
 plone.app.multilingual
 ----------------------
 
 `plone.app.multilingual <https://github.com/plone/plone.app.multilingual>`_ is the new default-addon for sites in more than one language.
 
+
+.. _plone5-portletmanager-label:
 
 new portlet-manager
 -------------------
@@ -156,6 +178,8 @@ new portlet-manager
 
 There is also a useful new portlet-type ``Actions`` used for displaying the site_actions.
 
+
+.. _plone5-skins-label:
 
 Remove portal_skins
 -------------------
