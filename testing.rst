@@ -95,8 +95,9 @@ Next, it adds a method for testing that it gets properly installed. This might l
 This assumption is explained in the syntax of the current Plone. By testing that the result is met, the Javascript file really is available, we spell out that assumption more clearly.
 The person that wants to make your package work 5 years from now, knows now that the result in his browser might be related to a missing file. Even if he does not understand the semantics from the old Plone on how to register js files, he has a good starting point on what to do to make this package compatibles.
 
-This is why it makes sense to write these tedious tests. :ref:`intro-further-reading-label`
+This is why it makes sense to write these tedious tests.
 
-``test_setup.py`` is in general also the right location for anything GenericSetup related. In Chapter
+If nothing else matches, ``test_setup.py`` is the right location for anything GenericSetup related.
+In :ref:`dexterity-label` we created a content types. It is time to test this.
 
 
