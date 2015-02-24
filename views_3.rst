@@ -425,7 +425,7 @@ Modify the view to only python-expressions.
 Setting a custom view as default-view on an object
 --------------------------------------------------
 
-We don't want to always have to append /@@talklistview to out folder to get the view. There is a very easy way to set the view to the folder using the ZMI.
+We don't want to always have to append /@@talklistview to our folder to get the view. There is a very easy way to set the view to the folder using the ZMI.
 
 If we append ``/manage_propertiesForm`` we can set the property "layout" to ``talklistview``.
 
