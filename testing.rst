@@ -100,4 +100,7 @@ This is why it makes sense to write these tedious tests.
 If nothing else matches, ``test_setup.py`` is the right location for anything GenericSetup related.
 In :ref:`dexterity-label` we created a content types. It is time to test this.
 
+We are going to create a test module named ``test_talk``:
 
+.. literalinclude::  ploneconf.site_sneak/chapters/15_dexterity_p5+tests/src/ploneconf/site/tests/test_talk.py
+    :linenos:
