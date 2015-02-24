@@ -73,22 +73,6 @@ The viewlet-class ``SocialViewlet`` is expected in a file ``browser/viewlets.py`
 
     This class does nothing except rendering the associated template (That we have to write yet)
 
-    .. note::
-
-        If we used ``grok`` we would not need to register the viewlets in the ``configure.zcml`` but do that in python. We would add a file viewlets.py containing the viewlet-class.
-
-        .. code-block:: python
-            :linenos:
-
-            from five import grok
-            from plone.app.layout.viewlets import interfaces as viewletIFs
-            from zope.component import Interface
-
-            class SocialViewlet(grok.Viewlet):
-                grok.viewletmanager(viewletIFs.IBelowContentTitle)
-
-        This would do the same as the coe above using grok's paradigm of convention over configuration. In browser views the reference is called view, note that in grok viewlets it is called viewlets (in that case ``viewlet/lanyrd_link``).
-
 Let's add the missing template :file:`templates/social_viewlet.pt`.
 
 .. code-block:: html
@@ -109,7 +93,7 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
 
     As you can see this is not a valid html document. That is not needed, because we don't want a complete view here, just a html snippet.
 
-    There is a tal define statement, querying for `view/lanyrd_link. Like in page templates the template has access to its class.
+    There is a tal define statement, querying for ``view/lanyrd_link``. Same as for views also viewlets have access to their class in page templates.
 
 We have to extend the Social Viewlet now to add the missing attribute:
 
@@ -157,7 +141,7 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
 
     Register the viewlet in :file:`browser/configure.zcml`
 
-    ..  code-block:: python
+    ..  code-block:: xml
 
         <browser:viewlet
           name="number_of_talks"
@@ -203,10 +187,80 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
             There are <span tal:replace="talks" /> talks.
         </div>
 
-
     It is not a good practice to query the catalog within a template since even simple logic like this should live in Python. But it is very powerful if you are debugging or need a quick and dirty solution.
+
+    In Plone 5 you could even write it like this:
+
+    ..  code-block:: html
+
+        <?python
+
+        from plone import api
+        catalog = api.portal.get_tool('portal_catalog')
+        talks_amount = len(catalog(portal_type='talk'))
+
+        ?>
+
+        <div class="number_of_talks">
+            There are ${talks_amount} talks.
+        </div>
+
 
 Exercise 2
 ----------
 
-Register a viewlet 'days_to_conference' in the header. Use a class and a template to display the number of days until the conference. You get many bonus-points if you display it in a nice format (think "In 2 days" and "Last Month") by using an existing javascript or python library.
+Register a viewlet 'days_to_conference' in the header. Use a class and a template to display the number of days until the conference. You get bonus-points if you display it in a nice format (think "In 2 days" and "Last Month") by using either javascript or a python library.
+
+..  admonition:: Solution
+    :class: toggle
+
+    In ``configure.zcml``:
+
+    ..  code-block:: xml
+
+        <browser:viewlet
+          name="days_to_conference"
+          for="*"
+          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          layer="*"
+          class=".viewlets.DaysToConferenceViewlet"
+          template="templates/days_to_conference.pt"
+          permission="zope2.View"
+          />
+
+    In ``viewlets.py``:
+
+    ..  code-block:: python
+
+        from plone.app.layout.viewlets import ViewletBase
+        from datetime import datetime
+        import arrow
+
+        CONFERENCE_START_DATE = datetime(2015, 10, 12)
+
+
+        class DaysToConferenceViewlet(ViewletBase):
+
+            def date(self):
+                return CONFERENCE_START_DATE
+
+            def human(self):
+                return arrow.get(CONFERENCE_START_DATE).humanize()
+
+
+    And in ``templates/days_to_conference.pt``:
+
+    ..  code-block:: html
+
+        <div class="days_to_conf">
+            ${python: view.human()}
+        </div>
+
+    Or using the moment-pattern in Plone 5:
+
+    ..  code-block:: html
+
+        <div class="pat-moment"
+             data-pat-moment="format: relative">
+            ${python: view.conference_date()}
+        </div>
