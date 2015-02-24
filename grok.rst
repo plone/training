@@ -67,3 +67,17 @@ Now we can add a grok view in a new file ``views.py``:
         grok.context(Interface)
 
 By convention the template must be in a subdirectory called ``views_templates`` and it must be named `talkview.pt`
+
+If we used ``grok`` for viewlets we would not need to register them in the ``configure.zcml`` but do that in python. We would add a file viewlets.py containing the viewlet-class.
+
+.. code-block:: python
+    :linenos:
+
+    from five import grok
+    from plone.app.layout.viewlets import interfaces as viewletIFs
+    from zope.component import Interface
+
+    class SocialViewlet(grok.Viewlet):
+        grok.viewletmanager(viewletIFs.IBelowContentTitle)
+
+This would do the same as the coe above using grok's paradigm of convention over configuration. In browser views the reference is called view, note that in grok viewlets it is called viewlets (in that case ``viewlet/lanyrd_link``).
