@@ -267,7 +267,7 @@ There are several **built in variables**  that can be used in paths:
 
 The most frequently used one is ``nothing`` which is the equivalent to None
 
-.. code-block:: html
+..  code-block:: html
 
     <p tal:replace="nothing">
         this comment will not be rendered
@@ -275,18 +275,20 @@ The most frequently used one is ``nothing`` which is the equivalent to None
 
 A dict of all the available variables is ``econtext``
 
-<dl tal:define="path_variables_dict econtext">
-  <tal:vars tal:repeat="variable path_variables_dict">
-    <dt>${variable}</dt>
-    <dd>${python:path_variables_dict[variable]}</dd>
-  </tal:vars>
-</dl>
+..  code-block:: html
+
+    <dl tal:define="path_variables_dict econtext">
+      <tal:vars tal:repeat="variable path_variables_dict">
+        <dt>${variable}</dt>
+        <dd>${python:path_variables_dict[variable]}</dd>
+      </tal:vars>
+    </dl>
 
 ..  note::
 
     In Plone 4 that used to be ``CONTEXTS``
 
-    .. code-block:: html
+    ..  code-block:: html
 
         <dl tal:define="path_variables_dict CONTEXTS">
           <tal:vars tal:repeat="variable path_variables_dict">

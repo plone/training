@@ -7,8 +7,8 @@
 - [ ] Reusable Eggs chapter use mr.bob
 
 
-New capters
-===========
+New chapters
+============
 
 * Testing introduction (After Chapter 18)
   * unit tests
@@ -22,7 +22,7 @@ New capters
 
 * Relationfields (After Chapter 26)
   Speaker -> Talk ObjSourcePathBinder
-   Talk has Backreferences
+  Talk has Backreferences
   http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html?highlight=objpathsourcebinder
   * Story
   * Probleme

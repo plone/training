@@ -62,7 +62,7 @@ This will show something like: ``2015-02-21T12:01:31+01:00``. Not very user-frie
         ${python: plone_view.toLocalizedTime(context.Date())}
     </p>
 
-This will render ``Feb 21, 2015 ``. Much better.
+This will render ``Feb 21, 2015``.
 
 * ``plone_view`` is the BrowserView ``Products.CMFPlone.browser.ploneview.Plone`` and it is defined in the ``main_template`` (Products/CMFPlone/browser/templates/main_template.pt) of Plone 5 like this ``plone_view context/@@plone;`` an thus always avaiable.
 * The method ``toLocalizedTime`` runs a date-object through Plone's ``translation_service`` and returns the Date in the current locales format, thus transforming ``2015-02-21T12:01:31+01:00`` in ``Feb 21, 2015``.
@@ -143,7 +143,7 @@ The first step to uncovering that secret is line 12 of ``listing_summary.pt``:
 
 Both use different view-classes and are allowed for different content-types. The first is for folders the second for collections. But both use the same template ``plone/app/contenttypes/browser/templates/listing.pt``. That makes overriding that much easier :-)
 
-That template ``listing.pt`` defines the slot ``entries`` like this::
+That template ``listing.pt`` defines the slot ``entries`` like this:
 
 ..  code-block:: html
 

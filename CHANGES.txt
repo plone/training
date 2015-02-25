@@ -91,16 +91,7 @@ Changelog
 - drop use of plone.app.themeeditor
   [pbauer]
 
-- add more chapters:
-
- * Dexterity Types II: Growing up
- * User generated content
- * Programming Plone
- * Custom Search
- * Events
- * Using third-party behaviors
- * Dexterity Types III: Python
- * ...
+- add more chapters: Dexterity Types II: Growing up, User generated content, Programming Plone, Custom Search, Events, Using third-party behaviors, Dexterity Types III: Python, ...
   [pbauer, do3cc]
 
 
