@@ -121,7 +121,7 @@ Now the ``/talkview`` can only be used on objects that implement said interface.
           <property name="behaviors">
           ...
 
-    * Create a upgrade step to modify the class of existing types. A code-example on how to do this is in `ftw.upgrade <https://github.com/4teamwork/ftw.upgrade/blob/master/ftw/upgrade/step.py#L270>`_.
+    * Create a upgrade step that changes the class of the existing talks. A reuseable method to do such a thing is in is `plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class <https://github.com/plone/plone.app.contenttypes/blob/master/plone/app/contenttypes/migration/dxmigration.py#L130>`_.
 
 .. _dexterity2-upgrades-label:
 
@@ -252,27 +252,31 @@ A browserlayer is another such marker-interface. Browserlayers allow us to easil
 
 Since we want the features we write only to be available when ploneconf.site actually is installed we can bind them to a browserlayer.
 
-In ``interfaces.py`` we add:
+Our package already has a browserlayer (``bobtemplates.plone`` added it). See ``interfaces.py``:
 
-.. code-block:: python
+..  code-block:: python
 
-    class IPloneconfSiteLayer(Interface):
-        """Marker interface for the Browserlayer
-        """
+    from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
-We register the browserlayer in GenericSetup in ``profiles/default/browserlayer.xml``
+    class IPloneconfSiteLayer(IDefaultBrowserLayer):
+        """Marker interface that defines a browser layer."""
 
-.. code-block:: xml
+
+Is is enabled by GenericSetup when installing the package since it is registered in ``profiles/default/browserlayer.xml``
+
+..  code-block:: xml
 
     <?xml version="1.0"?>
     <layers>
-      <layer name="ploneconf.site"
-        interface="ploneconf.site.interfaces.IPloneconfSiteLayer" />
+      <layer
+        name="ploneconf.site"
+        interface="ploneconf.site.interfaces.IPloneconfSiteLayer"
+      />
     </layers>
 
-After reinstalling the addon we can bind the talkview, the demoview and the talklistview to our layer. Here is an example using the talkview.
+We should bind all views to it. Here is an example using the talkview.
 
-.. code-block:: xml
+..  code-block:: xml
     :emphasize-lines: 4
 
     <browser:page
@@ -294,7 +298,7 @@ Note the relative python-path ``..interfaces.IPloneconfSiteLayer``. It is equiva
 Exercise
 ++++++++
 
-Do you need to bind the social-viewlet from chapter 20 to this new browser-layer?
+Do you need to bind the :ref:`viewlets1-social2-label` from chapter 22 to this new browser-layer?
 
 ..  admonition:: Solution
     :class: toggle
@@ -340,10 +344,8 @@ The ``column ..`` entry allows us to display these values of these indexes in th
 
     Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the addon purged the indexes! See http://www.starzel.de/blog/a-reminder-about-catalog-indexes.
 
-    To run additional custom code on (re-)installing an addon you should use a `setuphandler.py <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_.
-
 * Reinstall the addon
-* Go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes to inspect populate and inspect the new indexes
+* Go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes to inspect and manage the new indexes
 
 .. seealso::
 
@@ -355,7 +357,7 @@ The ``column ..`` entry allows us to display these values of these indexes in th
 Query for custom indexes
 ------------------------
 
-The new indexes behave like the ones that plone has built in:
+The new indexes behave like the ones that Plone has already built in:
 
 .. code-block:: python
 
@@ -369,10 +371,11 @@ The new indexes behave like the ones that plone has built in:
     >>> (Pdb) brain.speaker
     u'David Glick'
 
-We now can use the new indexes to improve the talklistview so we don't have to wake up the objects any more.
+We now can use the new indexes to improve the talklistview so we don't have to *wake up* the objects any more. Instead we use the brains new attributes.
 
 .. code-block:: python
     :linenos:
+    :emphasize-lines: 17-19
 
     class TalkListView(BrowserView):
         """ A list of talks
@@ -397,14 +400,15 @@ We now can use the new indexes to improve the talklistview so we don't have to w
                     })
             return results
 
-The template does not need to be changed and the result did not change as well.
+The template does not need to be changed and the result in the browser did not change as well.
 
 .. _dexterity2-collection-criteria-label:
 
 Add collection criteria
 -----------------------
 
-To be able to search content in collections using the new indexes we would have to register them as criteria for the querystring-widget that collections use.
+To be able to search content in collections using these new indexes we would have to register them as criteria for the querystring-widget that collections use. As with all features make sure you only do this if you really need it!
+
 
 Add a new file ``profiles/default/registry.xml``
 
@@ -426,6 +430,17 @@ Add a new file ``profiles/default/registry.xml``
       <records interface="plone.app.querystring.interfaces.IQueryField"
                prefix="plone.app.querystring.field.type_of_talk">
         <value key="title">Type of Talk</value>
+        <value key="description">A custom index</value>
+        <value key="enabled">True</value>
+        <value key="sortable">False</value>
+        <value key="operations">
+          <element>plone.app.querystring.operation.string.is</element>
+        </value>
+        <value key="group">Metadata</value>
+      </records>
+      <records interface="plone.app.querystring.interfaces.IQueryField"
+               prefix="plone.app.querystring.field.speaker">
+        <value key="title">Speaker</value>
         <value key="description">A custom index</value>
         <value key="enabled">True</value>
         <value key="sortable">False</value>

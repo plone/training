@@ -79,7 +79,7 @@ Products.PDBDebugMode
 Debug-mode
     When starting Plone using ``./bin/instance debug -O Plone`` you'll end up in a interactive debugger.
 
-plone.app.debugtoolbar
+plone.app.debugtoolbar (not yet working Plone 5!)
     A addon that allows you to inspect nearly everything. It even has a interactive console and a tester for TALES-expressions.
 
 plone.reload
@@ -89,7 +89,7 @@ Products.PrintingMailHost
     A addon that prevents Plone from sending mails. They are instead logged.
 
 Products.enablesettrace or Products.Ienablesettrace
-    Addon that allows to use pdb and ipdb in python skin-scripts. Very useful for old .
+    Addon that allows to use pdb and ipdb in python skin-scripts. Very useful when debugging legacy-code.
 
 ``verbose-security = on``
     A option for the recipe *plone.recipe.zope2instance* that logs the detailed reasons why a user might not be authorized to see something.
