@@ -186,6 +186,7 @@ GenericSetup now expects the code as a method ``upgrade_site`` in the file ``upg
         setup.runImportStepFromProfile(default_profile, 'typeinfo')
         catalog = api.portal.get_tool('portal_catalog')
         portal = api.portal.get()
+        # Create a folder 'The event' if needed
         if 'the-event' not in portal:
             theevent = api.content.create(
                 container=portal,
@@ -194,6 +195,8 @@ GenericSetup now expects the code as a method ``upgrade_site`` in the file ``upg
                 title='The event')
         else:
             theevent = portal['the-event']
+
+        # Create folder 'Talks' inside 'The event' if needed
         if 'talks' not in theevent:
             talks = api.content.create(
                 container=theevent,
@@ -203,16 +206,21 @@ GenericSetup now expects the code as a method ``upgrade_site`` in the file ``upg
         else:
             talks = theevent['talks']
         talks_url = talks.absolute_url()
+
+        # Get all talks
         brains = catalog(portal_type='talk')
         for brain in brains:
             if talks_url in brain.getURL():
+                # Skip if the talk is already in target-folder
                 continue
             obj = brain.getObject()
             logger.info('Moving %s to %s' % (obj.absolute_url(), talks.absolute_url()))
+            # Move each talk to the folder '/the-event/talks'
             api.content.move(
                 source=obj,
                 target=talks,
                 safe_id=True)
+
 
 After restarting the site we can run the step:
 

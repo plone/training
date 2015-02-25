@@ -167,7 +167,7 @@ Content-Types
 Edit a page:
 
 * :guilabel:`Edit front-page`
-* :guilabel:`Title` :samp:`Plone Conference 2014, Bristol`
+* :guilabel:`Title` :samp:`Plone Conference 2015, Bucarest`
 * :guilabel:`Description` :samp:`Tutorial`
 * :guilabel:`Text` :samp:`...`
 
@@ -181,7 +181,7 @@ Create a site-structure:
 
 * In /news: Add News Item "Conference Website online!" with some image
 * In /news: Add News Item "Submit your talks!"
-* In /events: Add Event "Deadline for talk-submission" Date: 10.10.2014
+* In /events: Add Event "Deadline for talk-submission" Date: 2015/08/10
 
 * Add Folder "Register"
 * Delete Folder "Members" (Users)

@@ -61,9 +61,11 @@ We have to add the behavior to talks, we do this in :file:`profiles/default/type
 
 .. note::
 
-    Managing dependencies in metadata.xml is good practice. We can't rely on remembering what we'd have to do by hand. For example, do you remember that we had to add to select ``Dexterity-based Plone Default Types`` when creating a new Plone site?
+    After changing the ``metadata.xml`` you have to restart your site since unlike other GenericSetup XML files that file is cached.
 
-    We should instead also add ``<dependency>profile-plone.app.contenttypes:plone-content</dependency>`` like the `documentation for plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html#installation-as-a-dependency-from-another-product>`_ recommends.
+    Managing dependencies in metadata.xml is good practice. We can't rely on remembering what we'd have to do by hand. In Plone 4 we should also have added ``<dependency>profile-plone.app.contenttypes:plone-content</dependency>`` like the `documentation for plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html#installation-as-a-dependency-from-another-product>`_ recommends.
+
+    Read more: http://docs.plone.org/develop/addons/components/genericsetup.html#dependencies
 
 .. code-block:: xml
     :linenos:
@@ -77,10 +79,9 @@ We have to add the behavior to talks, we do this in :file:`profiles/default/type
 
 ... only:: not presentation
 
-    Now we can reinstall our Plone site.
+    Now you can reinstall your Plone site.
 
-    Everybody can vote now on talks. That is not what we wanted. Actually, we want reviewers only to vote on pending Talks. This means, depending on the workflow state, the permission has to change. Luckily, workflows can be configured to do just that.
-    Talks already have their own workflow. So we won't interfere with other packages.
+    Everybody can now vote on talks. That's not what we wanted. We only want reviewers to vote on pending Talks. This means, depending on the workflow state, the permission has to change. Luckily, workflows can be configured to do just that. Since Talks already have their own workflow we also won't interfere with other content.
 
     First, we have to tell the workflow that he will be managing more permissions. Next up, we have to configure for each state, which role has the two new permissions now.
 
@@ -167,7 +168,7 @@ Next, register the events directory in :file:`configure.zcml`
 
     <include package=".events" />
 
-then, we write the ZCML configuration for the events into :file:`events/configure.zcml`
+Now write the ZCML configuration for the events into :file:`events/configure.zcml`
 
 .. code-block:: xml
     :linenos:

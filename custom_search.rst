@@ -3,6 +3,11 @@
 Custom search
 =============
 
+..  warning::
+
+    Skip this since eea.facettednavigation is not yet compatible with Plone 5.
+
+
 We can use the indexes we created in the last chapter to further improve the talk-list.
 
 If the chapters about views seem complex, the now shown custom search addon might be a great alternative until you feel comfortable writing views and templates. There are several tools that allow you to add amazing custom searches and content-listings through the web in Plone.
