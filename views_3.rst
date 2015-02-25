@@ -325,12 +325,12 @@ Add this simple table to ``templates/talklistview.pt``:
         </tbody>
     </table>
 
-Afterwards you transform it into a listing:
+Afterwards you transform it into a listing. Here we use one of many nice feature build into Plone. The ``class="pat-tablesorter"`` (before Plone 5 that was ``class="listing"``) gives the table a nice style and makes the table sortable with some javascript.
 
 .. code-block:: html
     :linenos:
 
-    <table class="listing" id="talks">
+    <table class="listing pat-tablesorter" id="talks">
         <thead>
             <tr>
                 <th>
@@ -392,7 +392,7 @@ Modify the view to only python-expressions.
     .. code-block:: html
         :linenos:
 
-        <table class="listing" id="talks">
+        <table class="listing pat-tablesorter" id="talks">
             <thead>
                 <tr>
                     <th>
@@ -466,9 +466,11 @@ The ``purge="False"`` appends the view to the already existing ones instead of r
 Adding some javascript (collective.js.datatables)
 -------------------------------------------------
 
-Here we use one of many nice feature build into Plone. The class="listing" gives the table a nice style and makes the table sortable with some javascript.
+..  warning::
 
-But we could improve that table further by using a nice javascript-library called "datatables". It might even become part of the Plone-core at some point.
+    We'll skip this section since the integration of js in Plone 5 is still not finished while it is still an alpha!
+
+We could improve that table further by using a nice javascript-library called "datatables". It might even become part of the Plone-core at some point.
 
 Like for many js-libraries there is already a package that doe the plone-integration for us: ``collective.js.datatables``. Like all python-packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables
 
@@ -497,7 +499,7 @@ We already added the addon to our buildout, you just have to activate it in our 
 
     <metal:content-core fill-slot="content-core">
 
-        <table class="listing" id="talks">
+        <table class="" id="talks">
             <thead>
                 <tr>
                     <th>
