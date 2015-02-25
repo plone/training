@@ -9,7 +9,7 @@ If you want to inquire the original authors about organizing a training please c
 Upcoming Trainings
 ------------------
 
-`2. - 6. March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
+`Mastering Plone 5 Development: 2. - 6. March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
     by Philip Bauer and Patrick Gerken
 
 
