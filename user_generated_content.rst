@@ -80,132 +80,268 @@ Move the changes to the file-system
 
 We don't want to do these steps for every new conference by hand so we move the changes into our package.
 
-Workflow
-********
+Import/Export the Workflow
+**************************
 
 * export the GenericSetup step *Workflow Tool* in http://localhost:8080/Plone/portal_setup/manage_exportSteps.
 * drop the file ``workflows.xml`` into ``profiles/default``.
 * drop ``workflows/talks_workflow/definition.xml`` in ``profiles/default/workflows/talks_workflow/definition.xml``. The others are just definitions of the default-workflows and we only want things in our package that changes Plone.
 
-Self-registration
-*****************
 
-This has to happen in python in a custom `setuphandler.py <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_ since there is not yet a exportable setting for this.
+Enable self-registration
+************************
 
-Register a import-step in ``configure.zcml``. It will be automatically run when (re-)installing the addon.
+To enable self-registration add the following to ``profiles/default/registry.xml``:
 
-.. code-block:: xml
-    :linenos:
+..  code-block:: xml
 
-    <genericsetup:importStep
-      name="ploneconf.site"
-      title="ploneconf.site special import handlers"
-      description=""
-      handler="ploneconf.site.setuphandlers.setupVarious">
-        <depends name="typeinfo"/>
-    </genericsetup:importStep>
+    <record name="plone.enable_self_reg" interface="Products.CMFPlone.interfaces.controlpanel.ISecuritySchema" field="enable_self_reg">
+      <value>True</value>
+    </record>
 
-Note that the setuphandler has a dependency on `typeinfo` because it will only allow the creation of talks. For this the type already has to exist.
+.. note::
 
-Create a new file ``setuphandlers.py``
+   Before Plone 5 this had to be done in python in a setuphandler (see below) since there was not yet a exportable setting for this.
 
-.. code-block:: python
-    :linenos:
-
-    # -*- coding: UTF-8 -*-
-    from plone.app.controlpanel.security import ISecuritySchema
-    from plone import api
-
-    import logging
-
-    PROFILE_ID = 'profile-ploneconf.site:default'
-    logger = logging.getLogger('ploneconf.site')
-
-
-    def setupVarious(context):
-
-        # Ordinarily, GenericSetup handlers check for the existence of XML files.
-        # Here, we are not parsing an XML file, but we use this text file as a
-        # flag to check that we actually meant for this import step to be run.
-        # The file is found in profiles/default.
-
-        if context.readDataFile('ploneconf.site_various.txt') is None:
-            return
-
-        site = api.portal.get()
-        set_up_security(site)
-
-
-    def set_up_security(site):
-        secSchema = ISecuritySchema(site)
-        secSchema.set_enable_self_reg(True)
-
-
-Add the marker-file ``profile/default/ploneconf.site_various.txt`` used in line 18::
-
-    The ploneconf.site_various step is run if this file is present in the profile
 
 Grant local roles
 *****************
 
-Since this applies only to a certain folder in the site we would normally not write code for it.
+Since the granting of local roles applies only to a certain folder in the site we'd would not always write code for it but do it by hand. But for testability and repeatability (there is conference every year!) we should create the initial content-structure automatically.
 
-But we can easily add a method to the setuphandler that creates the folder and sets up some setting for it.
+So let's make sure some initial content is created and configured on installing the package.
 
-Here is an example:
+To run arbitrary code during installing a package we use a special import-step, a `setuphandler <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_
 
-.. code-block:: python
+Our package already has such a import-step registered in ``configure.zcml``. It will be automatically run when (re-)installing the addon.
+
+..  code-block:: xml
     :linenos:
 
-    # -*- coding: UTF-8 -*-
-    from plone.app.controlpanel.security import ISecuritySchema
+    <genericsetup:importStep
+        name="ploneconf.site-postInstall"
+        title="ploneconf.site post_install import step"
+        description="Post install import step from ploneconf.site"
+        handler=".setuphandlers.post_install">
+    </genericsetup:importStep>
+
+.. note::
+
+    All GenericSetup import steps, including this one, are run for **every add-on product** when they are installed. To make sure that it is only run during installation of your package the code checks for a marker text file ``ploneconfsite_marker.txt``.
+
+This step makes sure the method ``post_install`` in ``setuphandlers.py`` is executed on in installing.
+
+..  code-block:: python
+    :linenos:
+
+    # -*- coding: utf-8 -*-
     from plone import api
-    from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
-    from plone.app.dexterity.behaviors import constrains
 
     import logging
 
     PROFILE_ID = 'profile-ploneconf.site:default'
-    logger = logging.getLogger('ploneconf.site')
+    logger = logging.getLogger(__name__)
 
 
-    def setupVarious(context):
+    def isNotCurrentProfile(context):
+        return context.readDataFile('ploneconfsite_marker.txt') is None
 
-        # Ordinarily, GenericSetup handlers check for the existence of XML files.
-        # Here, we are not parsing an XML file, but we use this text file as a
-        # flag to check that we actually meant for this import step to be run.
-        # The file is found in profiles/default.
 
-        if context.readDataFile('ploneconf.site_various.txt') is None:
+    def post_install(context):
+        """Post install script"""
+        if isNotCurrentProfile(context):
             return
-
-        site = api.portal.get()
-        set_up_security(site)
-        set_up_content(site)
-
-
-    def set_up_security(site):
-        secSchema = ISecuritySchema(site)
-        secSchema.set_enable_self_reg(True)
+        # Do something during the installation of this package
+        portal = api.portal.get()
+        set_up_content(portal)
 
 
-    def set_up_content(site):
+    def set_up_content(portal):
         """Create and configure some initial content"""
-        if 'talks' in site:
+        # Abort if there is already a folder 'talks'
+        if 'talks' in portal:
+            logger.info('There already exists a item calles "talks"')
             return
         talks = api.content.create(
-            container=site,
+            container=portal,
             type='Folder',
             id='talks',
             title='Talks')
         api.content.transition(talks, 'publish')
+
+        # Allow logged-in users to create content
         api.group.grant_roles(
             groupname='AuthenticatedUsers',
             roles=['Contributor'],
             obj=talks)
-        # Enable constraining
-        behavior = ISelectableConstrainTypes(talks)
+
+        # Constrain addable types to talk
+        behavior = (talks)
         behavior.setConstrainTypesMode(constrains.ENABLED)
         behavior.setLocallyAllowedTypes(['talk'])
         behavior.setImmediatelyAddableTypes(['talk'])
-        logger.info("Created and configured %s" % talks.absolute_url())
+        logger.info('Created and configured %s' % talks.absolute_url())
+
+Once we reinstall our package a folder 'talks' is created with the appropriate local roles and constraints.
+
+Remember that we wrote similar code to create the folder *The Event* in :ref:`dexterity2-upgrades-label`. We should probably add it also to setuphandlers to make sure a sane structure get's created when we create a new site by hand or in tests.
+
+You'd usualy create a list of dictionaries containing the type, parent and title plus optionally layout, workflow-state etc. to create a initial structure. In some projects it could also make sense to have a seperate profile besides ``default`` which might be called ``content`` that creates a initial structure and maybe another ``testing`` that creates dummy content (talks, speakers etc) for tests.
+
+..  note::
+
+    You can also export and later import content using the GenericSetup-step *Content* (``Products.CMFCore.exportimport.content.exportSiteStructure``) although you cannot set all types of properties (workflow-state, layout) and the syntax is a little special.
+
+
+Excercise 1
++++++++++++
+
+Create a profile ``content`` that runs it's own method in ``setuphandlers.py``. Note that you need a different marker text file to make sure your code is only run when installing the profile ``content``.
+
+..  admonition:: Solution
+    :class: toggle
+
+    Register the profile and the upgrrade-step in ``configure.zcml``
+
+    .. code-block:: xml
+
+        <genericsetup:registerProfile
+            name="content"
+            title="PloneConf Site initial content"
+            directory="profiles/content"
+            description="Extension profile for PloneConf Talk to add initial content"
+            provides="Products.GenericSetup.interfaces.EXTENSION"
+            />
+
+        <genericsetup:importStep
+            name="ploneconf.site-content"
+            title="ploneconf.site dummy content"
+            description="Post install import step from ploneconf.site"
+            handler=".setuphandlers.content">
+            <depends name='typeinfo' />
+        </genericsetup:importStep>
+
+    Create the profile-folder ``profiles/content`` and drop a marker-file ``ploneconfsite_content_marker.txt`` in it.
+
+    Add the stucture you wish to create as a list of dictionaries in ``setuphandlers.py``:
+
+    ..  code-block:: python
+        :linenos:
+
+        STRUCTURE = [
+            {
+                'type': 'Document',
+                'title': u'Plone Conference 2022',
+                'id': 'plone-conference-2022',
+                'description': u'',
+            },
+            {
+                'type': 'Folder',
+                'title': u'The Event',
+                'id': 'the-event',
+                'description': u'Plone Conference 2022',
+                'layout': 'frontpage-for-the-event',
+                'children': [{
+                    'type': 'Document',
+                    'title': u'Frontpage for the-event',
+                    'id': 'frontpage-for-the-event',
+                    'description': u'',
+                    },
+                    {
+                    'type': 'Folder',
+                    'title': u'Talks',
+                    'id': 'talks',
+                    'description': u'',
+                    'layout': 'talklistview',
+                    },
+                    {
+                    'type': 'Folder',
+                    'title': u'Training',
+                    'id': 'training',
+                    'description': u'',
+                    },
+                    {
+                    'type': 'Folder',
+                    'title': u'Sprint',
+                    'id': 'sprint',
+                    'description': u'',
+                    },
+                ]
+            },
+            {
+                'type': 'Folder',
+                'title': u'Talks',
+                'id': 'talks',
+                'description': u'Submit your talks here!',
+                'layout': '@@talklistview',
+                'allowed_types': ['talk'],
+                'local_roles': [{
+                    'group': 'AuthenticatedUsers',
+                    'roles': ['Contributor']
+                }],
+            },
+            {
+                'type': 'Folder',
+                'title': u'News',
+                'id': 'news',
+                'description': u'News about the Plone Conference',
+                'children': [{
+                    'type': 'News Item',
+                    'title': u'Submit your talks!',
+                    'id': 'submit-your-talks',
+                    'description': u'',}
+                ],
+            },
+            {
+                'type': 'Folder',
+                'title': u'Events',
+                'id': 'events',
+                'description': u'Dates to keep in mind',
+            },
+        ]
+
+    Add the method ``content`` and all the logic to create the content from ``STRUCTURE`` to ``setuphandlers.py``
+
+    ..  code-block:: python
+        :linenos:
+
+        def content(context):
+            if context.readDataFile('ploneconfsite_content_marker.txt') is None:
+                return
+
+            portal = api.portal.get()
+            for item in STRUCTURE:
+                _create_content(item, portal)
+
+
+        def _create_content(item, container):
+            new = container.get(item['id'], None)
+            if not new:
+                new = api.content.create(
+                    type=item['type'],
+                    container=container,
+                    title=item['title'],
+                    id=item['id'],
+                    safe_id=False)
+            if item.get('layout', False):
+                new.setLayout(item['layout'])
+            if item.get('allowed_types', False):
+                _constrain(new, item['allowed_types'])
+            if item.get('local_roles', False):
+                for local_role in item['local_roles']:
+                    api.group.grant_roles(
+                        groupname=local_role['group'],
+                        roles=local_role['roles'],
+                        obj=new)
+            api.content.transition(new, to_state=item.get('state', 'published'))
+            new.reindexObject()
+            logger.info('Created item {}'.format(new.absolute_url()))
+            # call recursively for children
+            for subitem in item.get('children', []):
+                _create_content(subitem, new)
+
+        def _constrain(context, allowed_types):
+            behavior = ISelectableConstrainTypes(context)
+            behavior.setConstrainTypesMode(constrains.ENABLED)
+            behavior.setLocallyAllowedTypes(allowed_types)
+            behavior.setImmediatelyAddableTypes(allowed_types)
