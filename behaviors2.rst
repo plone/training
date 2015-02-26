@@ -29,7 +29,7 @@ Using Schema
 
 .. only:: not presentation
 
-    The attribute where we store our data will be declared as a schema field. We mark the field as a ommitted field, because we are not going to create z3c.form widgets for displaying them. We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
+    The attribute where we store our data will be declared as a schema field. We mark the field as a ommitted field (using schema-directive similar to ``read_permission`` or ``widget``), because we are not going to create z3c.form widgets for entering or displaying them. We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
 
     For example, when files have been migrated to blobs, new objects had to be created and every schema field was copied. The code can't know about our field, except if we provide schema information.
 
@@ -101,10 +101,10 @@ The interfaces need to be written, in our cases into a file :file:`interfaces.py
 
     # encoding=utf-8
     from plone import api
-    from plone.autoform import directives as form
+    from plone.autoform import directives
     from plone.autoform.interfaces import IFormFieldProvider
     from plone.supermodel import model
-    from plone.supermodel import directives
+    from plone.supermodel.directives import fieldset
     from zope import schema
     from zope.interface import alsoProvides
     from zope.interface import Interface
@@ -117,14 +117,14 @@ The interfaces need to be written, in our cases into a file :file:`interfaces.py
     class IVotable(Interface):
         pass
 
-    # This is the behaviors interface. When doing IVoting(object),you receive an
+    # This is the behaviors interface. When doing IVoting(object), you receive an
     # adapter
     class IVoting(model.Schema):
         if not api.env.debug_mode():
-            form.omitted("votes")
-            form.omitted("voted")
+            directives.omitted("votes")
+            directives.omitted("voted")
 
-        directives.fieldset(
+        fieldset(
             'debug',
             label=u'debug',
             fields=('votes', 'voted'),
