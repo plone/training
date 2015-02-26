@@ -3,6 +3,10 @@
 Using third-party behaviors
 ===========================
 
+..  warning::
+
+    Skip this since collective.behavior.banner is not yet compatible with Plone 5.
+
 
 .. _thirdparty-banner-label:
 

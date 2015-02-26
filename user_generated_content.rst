@@ -215,13 +215,25 @@ Create a profile ``content`` that runs it's own method in ``setuphandlers.py``. 
 
         <genericsetup:importStep
             name="ploneconf.site-content"
-            title="ploneconf.site dummy content"
-            description="Post install import step from ploneconf.site"
+            title="ploneconf.site with initial content"
+            description="Post install import step from ploneconf.site with initial content"
             handler=".setuphandlers.content">
             <depends name='typeinfo' />
         </genericsetup:importStep>
 
     Create the profile-folder ``profiles/content`` and drop a marker-file ``ploneconfsite_content_marker.txt`` in it.
+
+    Also add a ``profiles/content/metadata.xml`` so the default-profile get's automatically installed when installing the content-profile.
+
+    ..  code-block:: xml
+
+        <metadata>
+          <version>1000</version>
+          <dependencies>
+            <dependency>profile-ploneconf.site:default</dependency>
+          </dependencies>
+        </metadata>
+
 
     Add the stucture you wish to create as a list of dictionaries in ``setuphandlers.py``:
 
@@ -300,7 +312,7 @@ Create a profile ``content`` that runs it's own method in ``setuphandlers.py``. 
             },
         ]
 
-    Add the method ``content`` and all the logic to create the content from ``STRUCTURE`` to ``setuphandlers.py``
+    Add a the method ``content`` to ``setuphandlers.py``. We pointed to that when registering the import step. And add some fancy logic to create the content from ``STRUCTURE``.
 
     ..  code-block:: python
         :linenos:

@@ -1,4 +1,4 @@
-- [ ] Buildout for Plone 5 coredev :-(
+- [X] Buildout for Plone 5 coredev
 - [ ] Anatomy extend by mockup
 - [ ] Dexterity Choice/Multichoice Named Vocabularies
 - [ ] Schema hints (Chapter 29)
