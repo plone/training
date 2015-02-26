@@ -1,4 +1,4 @@
-.. dexterity1-label:
+.. _dexterity1-label:
 
 Dexterity I: Through the web
 ============================
