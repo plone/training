@@ -22,13 +22,19 @@ In this part we will:
 
 The topics we cover are:
 
-* python-schemata for dexterity
-* schema directives
+* python-schema for dexterity
+* schema hint and directives
 * field-permissions
 * image-scales
 * caching
 
-First we create the schema for the new type. Instead of xml we use python now. Create a new folder ``content`` with a empty ``__init__.py`` in it. Now add a new file ``content/sponsor.py``.
+
+The python schema
+-----------------
+
+First we create the schema for the new type. Instead of xml we use python now. Create a new folder ``content`` with a empty ``__init__.py`` in it. We don't need to register that folder in ``configure.zcml`` since we don't need a ``content/configure.zcml`` (at least not yet).
+
+Now add a new file ``content/sponsor.py``.
 
 .. code-block:: python
     :linenos:
@@ -102,6 +108,15 @@ Some things are notable here:
 * ``directives.read_permission(...)`` sets the read- and write-permission for the field ``note`` to users who can add new members. Usually this permission is only granted to Site-Administrators and Managers. We use it to store information that should not be publicly visible. Please note that ``obj.note`` is still accessible in templates and python. Only using the widget (like we do in the view later) checks for the permission.
 * We use no grok here
 
+..  seealso::
+
+    * `All available Fields <http://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html#field-types>`_
+    * `Schema-driven types with Dexterity <http://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types>`_
+    * `Form schema hints and directives <http://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html>`_
+
+The FTI
+-------
+
 Second we create the FTI for new type in ``profiles/default/types/sponsor.xml``
 
 .. code-block:: xml
@@ -112,7 +127,7 @@ Second we create the FTI for new type in ``profiles/default/types/sponsor.xml``
     <object name="sponsor" meta_type="Dexterity FTI" i18n:domain="plone"
        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
      <property name="title" i18n:translate="">Sponsor</property>
-     <property name="description" i18n:translate="">None</property>
+     <property name="description" i18n:translate=""></property>
      <property name="icon_expr">string:${portal_url}/document_icon.png</property>
      <property name="factory">sponsor</property>
      <property name="add_view_expr">string:${folder_url}/++add++sponsor</property>
@@ -167,7 +182,29 @@ Then we register the FTI in ``profiles/default/types.xml``
      <!-- -*- more types can be added here -*- -->
     </object>
 
-After reinstalling our package we can create the new type. We use the default-view provided by dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
+After reinstalling our package we can create the new type.
+
+
+Exercise 1
+++++++++++
+
+Sponsors are containers but they don't have to be. Turn them into items by changing their class to ``plone.dexterity.content.Item``.
+
+..  admonition:: Solution
+    :class: toggle
+
+    Simply modify the property ``klass`` in the FTI and reinstall.
+
+    .. code-block:: xml
+        :linenos:
+
+        <property name="klass">plone.dexterity.content.Item</property>
+
+
+The view
+--------
+
+We use the default-view provided by dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
 
 But we could tweak the default-view with some css to make it less ugly. Add the following to ``resources/ploneconf.css``
 
@@ -228,6 +265,10 @@ But we could tweak the default-view with some css to make it less ugly. Add the 
         </html>
 
     Note how we handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base-class ``DefaultView`` holds the widget for the field ``note``. If the current user does not have the permission ``cmf.ManagePortal`` it will be omited from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it's missing we work around that.
+
+
+The viewlet
+-----------
 
 Instead of writing a view you will have to display the sponsors at the bottom of the website in a viewlet.
 
@@ -330,29 +371,33 @@ Add the viewlet-class in ``browser/viewlets.py``
 
 
 * ``_sponsors`` returns a list of dictionaries containing all necessary info about sponsors.
-* ``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. We could also cache until one of the sponsors is modified:
-
-  .. code-block:: python
-
-    ...
-    def _sponsors_cachekey(method, self):
-        catalog = api.portal.get_tool('portal_catalog')
-        brains = catalog(portal_type='sponsor')
-        cachekey = sum([int(i.modified) for i in brains])
-        return cachekey
-
-    @ram.cache(_sponsors_cachekey)
-    def _sponsors(self):
-        catalog = api.portal.get_tool('portal_catalog')
-    ...
-
-
 * We create the complete img-tag using a custom scale (200x80) using the view ``images`` from plone.namedfile. This actually scales the logos and saves them as new blobs.
 * In ``sponsors`` we return a ordered dictionary of randomized lists of dicts (containing the information on sponsors).
+* ``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. We could also cache until one of the sponsors is modified:
+
+  ..  code-block:: python
+
+      ...
+      def _sponsors_cachekey(method, self):
+          catalog = api.portal.get_tool('portal_catalog')
+          brains = catalog(portal_type='sponsor')
+          cachekey = sum([int(i.modified) for i in brains])
+          return cachekey
+
+      @ram.cache(_sponsors_cachekey)
+      def _sponsors(self):
+          catalog = api.portal.get_tool('portal_catalog')
+      ...
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/images/content.html#image-scales-plone-4
+    * `Guide to Caching <http://docs.plone.org/manage/deploying/caching/index.html>`_
+    * `Cache decorators <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html>`_
+    * `Image Scaling <http://docs.plone.org/develop/plone/images/content.html#image-scales-plone-4>`_
+
+
+The template for the viewlet
+----------------------------
 
 Add the template ``browser/templates/sponsors_viewlet.pt``
 
@@ -398,3 +443,153 @@ Now add some css to make it look ok. Edit ``resources/ploneconf.css``
         -moz-box-shadow: 0 0 8px #000000;
         -webkit-box-shadow: 0 0 8px #000000;
     }
+
+
+Exercise 2
+++++++++++
+
+Turn the a content-type speaker from :ref:`Exercise 2 of the first chapter on dexterity <dexterity1-excercises-label>` into a python-base type.
+
+Also add a relationfield where you can add relations to talks.
+
+..  admonition:: Solution
+    :class: toggle
+
+    ..  code-block:: python
+        :linenos:
+
+        # -*- coding: utf-8 -*-
+        from plone.app.textfield import RichText
+        from plone.app.vocabularies.catalog import CatalogSource
+        from plone.autoform import directives
+        from plone.namedfile import field as namedfile
+        from plone.supermodel import model
+        from z3c.relationfield.schema import RelationList
+        from z3c.relationfield.schema import RelationChoice
+        from zope import schema
+
+        from ploneconf.site import MessageFactory as _
+
+
+        class ISpeaker(model.Schema):
+            """Dexterity-Schema for Speaker
+            """
+
+            first_name = schema.TextLine(
+                title=u'First Name',
+            )
+
+            last_name = schema.TextLine(
+                title=u'Last Name',
+            )
+
+            email = schema.TextLine(
+                title=u'E-Mail',
+                required=False,
+            )
+
+            homepage = schema.URI(
+                title=u'Homepage',
+                required=False,
+            )
+
+            biography = RichText(
+                title=u'Biography',
+                required=False,
+            )
+
+            company = schema.TextLine(
+                title=u'Company',
+                required=False,
+            )
+
+            twitter_name = schema.TextLine(
+                title=u'Twitter-Name',
+                required=False,
+            )
+
+            irc_name = schema.TextLine(
+                title=u'IRC-Name',
+                required=False,
+            )
+
+            image = namedfile.NamedBlobImage(
+                title=u'Image',
+                required=False,
+            )
+
+            talks = RelationList(
+                title=u'Talks by this speaker',
+                value_type=RelationChoice(
+                    title=u'Talks',
+                    source=CatalogSource(portal_type='talk')),
+                required=False,
+            )
+
+    Register the type in ``profiles/default/types.xml``
+
+    .. code-block:: xml
+        :linenos:
+        :emphasize-lines: 6
+
+        <?xml version="1.0"?>
+        <object name="portal_types" meta_type="Plone Types Tool">
+         <property name="title">Controls the available content types in your portal</property>
+         <object name="talk" meta_type="Dexterity FTI"/>
+         <object name="sponsor" meta_type="Dexterity FTI"/>
+         <object name="speaker" meta_type="Dexterity FTI"/>
+         <!-- -*- more types can be added here -*- -->
+        </object>
+
+    The FTI goes in ``profiles/default/types/speaker.xml``:
+
+    .. code-block:: xml
+        :linenos:
+        :emphasize-lines: 27
+
+        <?xml version="1.0"?>
+        <object name="speaker" meta_type="Dexterity FTI" i18n:domain="plone"
+           xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+         <property name="title" i18n:translate="">Speaker</property>
+         <property name="description" i18n:translate=""></property>
+         <property name="icon_expr">string:${portal_url}/document_icon.png</property>
+         <property name="factory">speaker</property>
+         <property name="add_view_expr">string:${folder_url}/++add++speaker</property>
+         <property name="link_target"></property>
+         <property name="immediate_view">view</property>
+         <property name="global_allow">True</property>
+         <property name="filter_content_types">True</property>
+         <property name="allowed_content_types"/>
+         <property name="allow_discussion">False</property>
+         <property name="default_view">view</property>
+         <property name="view_methods">
+          <element value="view"/>
+         </property>
+         <property name="default_view_fallback">False</property>
+         <property name="add_permission">cmf.AddPortalContent</property>
+         <property name="klass">plone.dexterity.content.Container</property>
+         <property name="behaviors">
+          <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+          <element value="plone.app.content.interfaces.INameFromTitle"/>
+         </property>
+         <property name="schema">ploneconf.site.content.speaker.ISpeaker</property>
+         <property name="model_source"></property>
+         <property name="model_file"></property>
+         <property name="schema_policy">dexterity</property>
+         <alias from="(Default)" to="(dynamic view)"/>
+         <alias from="edit" to="@@edit"/>
+         <alias from="sharing" to="@@sharing"/>
+         <alias from="view" to="(selected layout)"/>
+         <action title="View" action_id="view" category="object" condition_expr=""
+            description="" icon_expr="" link_target="" url_expr="string:${object_url}"
+            visible="True">
+          <permission value="View"/>
+         </action>
+         <action title="Edit" action_id="edit" category="object" condition_expr=""
+            description="" icon_expr="" link_target=""
+            url_expr="string:${object_url}/edit" visible="True">
+          <permission value="Modify portal content"/>
+         </action>
+        </object>
+
+    After reinstalling the package the new type is useable.

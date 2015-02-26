@@ -227,7 +227,8 @@ So, we'll ultimately want to move our new content type into a Python package. We
 
 .. seealso::
 
-   `Dexterity Developer Manual <http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
+   * `Dexterity Developer Manual <http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
+   * `The standard behaviors <http://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html>`_
 
 
 .. _dexterity1-excercises-label:
@@ -315,3 +316,8 @@ We could use this content type later to convert speakers into Plone users. We co
             </field>
           </schema>
         </model>
+
+..  seealso::
+
+    * `Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_
+    * `Model-driven types <http://docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types>`_
