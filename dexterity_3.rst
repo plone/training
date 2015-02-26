@@ -17,8 +17,16 @@ Without sponsors a conference would be hard to finance plus it is a good opportu
 In this part we will:
 
 * create the content-type *sponsor* that has a python-schema
-* create a viewlet that shows the sponsors sorted by level
-* discuss image-scales
+* create a viewlet that shows the sponsors logo sorted by sponsoring-level
+
+
+The topics we cover are:
+
+* python-schemata for dexterity
+* schema directives
+* field-permissions
+* image-scales
+* caching
 
 First we create the schema for the new type. Instead of xml we use python now. Create a new folder ``content`` with a empty ``__init__.py`` in it. Now add a new file ``content/sponsor.py``.
 
@@ -159,9 +167,9 @@ Then we register the FTI in ``profiles/default/types.xml``
      <!-- -*- more types can be added here -*- -->
     </object>
 
-After reinstalling our package we can create the new type. We use the default-view provided by dexterity since we display the sponsors in a viewlet.
+After reinstalling our package we can create the new type. We use the default-view provided by dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
 
-Instead we tweak the default-view with some css. Add the following to ``resources/ploneconf.css``
+But we could tweak the default-view with some css to make it less ugly. Add the following to ``resources/ploneconf.css``
 
 .. code-block:: css
 
@@ -174,55 +182,54 @@ Instead we tweak the default-view with some css. Add the following to ``resource
         display: none;
     }
 
-If we would want a custom view for sponsors it could look like this.
-
-.. code-block:: xml
-    :linenos:
-
-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
-          metal:use-macro="context/main_template/macros/master"
-          i18n:domain="ploneconf.site">
-    <body>
-      <metal:content-core fill-slot="content-core">
-        <h3 tal:content="structure view/w/level/render">
-          Level
-        </h3>
-
-        <div tal:content="structure view/w/text/render">
-          Text
-        </div>
-
-        <div class="newsImageContainer">
-          <a tal:attributes="href context/url">
-            <img tal:condition="python:getattr(context, 'logo', None)"
-                 tal:attributes="src string:${context/absolute_url}/@@images/logo/preview" />
-          </a>
-        </div>
-
-        <div>
-          <a tal:attributes="href context/url">
-            Website
-          </a>
-
-          <img tal:condition="python:getattr(context, 'advertisment', None)"
-               tal:attributes="src string:${context/absolute_url}/@@images/advertisment/preview" />
-
-          <div tal:condition="python: 'notes' in view.w"
-               tal:content="structure view/w/notes/render">
-            Notes
-          </div>
-
-        </div>
-      </metal:content-core>
-    </body>
-    </html>
-
 .. note::
 
-    Note that we have to handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base-class ``DefaultView`` holds the widget for the field ``note``. If the current user does not have the permission ``cmf.ManagePortal`` it will be omited from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it is missing we work around that.
+    If we really want a custom view for sponsors it could look like this.
 
+    .. code-block:: xml
+        :linenos:
 
-We display the sponsors at the bottom of the website in a viewlet.
+        <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+              metal:use-macro="context/main_template/macros/master"
+              i18n:domain="ploneconf.site">
+        <body>
+          <metal:content-core fill-slot="content-core">
+            <h3 tal:content="structure view/w/level/render">
+              Level
+            </h3>
+
+            <div tal:content="structure view/w/text/render">
+              Text
+            </div>
+
+            <div class="newsImageContainer">
+              <a tal:attributes="href context/url">
+                <img tal:condition="python:getattr(context, 'logo', None)"
+                     tal:attributes="src string:${context/absolute_url}/@@images/logo/preview" />
+              </a>
+            </div>
+
+            <div>
+              <a tal:attributes="href context/url">
+                Website
+              </a>
+
+              <img tal:condition="python:getattr(context, 'advertisment', None)"
+                   tal:attributes="src string:${context/absolute_url}/@@images/advertisment/preview" />
+
+              <div tal:condition="python: 'notes' in view.w"
+                   tal:content="structure view/w/notes/render">
+                Notes
+              </div>
+
+            </div>
+          </metal:content-core>
+        </body>
+        </html>
+
+    Note how we handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base-class ``DefaultView`` holds the widget for the field ``note``. If the current user does not have the permission ``cmf.ManagePortal`` it will be omited from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it's missing we work around that.
+
+Instead of writing a view you will have to display the sponsors at the bottom of the website in a viewlet.
 
 Register the viewlet in ``browser/configure.zcml``
 
@@ -263,26 +270,32 @@ Add the viewlet-class in ``browser/viewlets.py``
 
     class SponsorsViewlet(ViewletBase):
 
-        @ram.cache(lambda *args: time() // (60 * 60))
+        @ram.cache(lambda *args: time() // (60 * 60))  # cache for 1 hour
         def _sponsors(self):
+            """Return a list of dicts with info from sponsors.
+            """
             catalog = api.portal.get_tool('portal_catalog')
             brains = catalog(portal_type='sponsor')
             results = []
             for brain in brains:
                 obj = brain.getObject()
+                # Get the view '@@images'
                 scales = api.content.get_view(
                     name='images',
                     context=obj,
                     request=self.request)
+                # Scale the logo to a fixed size
                 scale = scales.scale(
                     'logo',
                     width=200,
                     height=80,
                     direction='down')
+                # Create the complete img-tag from the the scale-object
                 tag = scale.tag() if scale else ''
                 if not tag:
                     # only display sponsors with a logo
                     continue
+                # Create a dict with the necessary info
                 results.append(dict(
                     title=brain.Title,
                     description=brain.Description,
@@ -293,19 +306,25 @@ Add the viewlet-class in ``browser/viewlets.py``
             return results
 
         def sponsors(self):
+            # Get the list of dicts from the method above
             sponsors = self._sponsors()
             if not sponsors:
                 return
+            # Make sure the results are ordered
             results = OrderedDict()
+            # Get all sponsoring-levels in the right order
             levels = [i.value for i in LevelVocabulary]
             for level in levels:
                 level_sponsors = []
+                # Add sponsors to a list level_sponsors if the level is right
                 for sponsor in sponsors:
                     if level == sponsor['level']:
                         level_sponsors.append(sponsor)
                 if not level_sponsors:
                     continue
+                # Randomly order the sponsors in level_sponsors
                 shuffle(level_sponsors)
+                # {'gold': [sponsor, ...], ...} where sponsor is a dict
                 results[level] = level_sponsors
             return results
 
