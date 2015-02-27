@@ -123,6 +123,7 @@ When you run your tests, you might notice, that the robot tests didn't run. This
 your robot tests will run. Now you will realize, that you cannot work any more because a browser window pops up all the time.
 
 There are 3 possible workarounds:
+
 - install the headless browser, Phantomjs.
   Then run the tests with an environment variable `ROBOT_BROWSER=phantomjs bin/test --all` This did not work for me btw.
 - Install xvfb, a framebuffer. You wont see the browser then. After installing, start xvfb like this: `Xvfb :99.0 -screen 0 1024x768x24`. Then run your tests, declaring to connect to the non default X Server: `DISPLAY=:99.0 bin/test --all`

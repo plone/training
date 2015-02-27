@@ -9,7 +9,7 @@ Page Templates
 
     .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/16_zpt_2/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/03_zpt_p5+tests/ src/ploneconf.site
 
 
 Page Templates are HTML-files with some additional Information, written in TAL, METAL and TALES.

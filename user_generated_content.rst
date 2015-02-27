@@ -9,7 +9,7 @@ User generated content
 
     .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/26_user_generated_content/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/11_user_generated_content_p5/ src/ploneconf.site
 
 
 How do prospective speakers submit talks? We let them register on the site and grant right to create talks. For this we go back to changing the site through-the-web.

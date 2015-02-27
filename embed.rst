@@ -3,6 +3,15 @@
 Using starzel.votable_behavior in ploneconf.site
 ================================================
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+
+    .. code-block:: bash
+
+        cp -R src/ploneconf.site_sneak/chapters/14_embed_p5/ src/ploneconf.site
+
+
 .. only:: not presentation
 
     * We want to use the votable behavior, so that our reviewers can vote.

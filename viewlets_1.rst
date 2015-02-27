@@ -9,7 +9,7 @@ Writing Viewlets
 
     .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/20_viewlets_1/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/08_viewlets_1_p5/ src/ploneconf.site
 
 
 .. _viewlets1-social-label:

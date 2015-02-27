@@ -9,7 +9,7 @@ Write your own addons to customize Plone
 
     .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/12_eggs1/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/01_eggs1_p5/ src/ploneconf.site
 
 .. _eggs1-create-label:
 

@@ -9,7 +9,7 @@ Views II: A default view for "talk"
 
     .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/17_views_2/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/04_views_2_p5/ src/ploneconf.site
 
 
 .. _views2-classes-label:

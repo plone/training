@@ -9,7 +9,7 @@ Dexterity Types II: Growing up
 
     .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/23_dexterity_2/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/09_dexterity_2_p5/ src/ploneconf.site
 
 
 The existing talks are still lacking some functionality we want to use.
