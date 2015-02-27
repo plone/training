@@ -35,6 +35,7 @@ Contents:
     dexterity
     buildout_1
     eggs1
+    export_code
     views_1
     zpt
     zpt_2

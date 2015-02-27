@@ -17,7 +17,7 @@ Edit the file ``browser/configure.zcml`` and register another view similar to th
 
 ..  code-block:: xml
     :linenos:
-    :emphasize-lines: 29-35
+    :emphasize-lines: 29-34
 
     <configure
       xmlns="http://namespaces.zope.org/zope"
