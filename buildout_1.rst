@@ -210,8 +210,8 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
         bobtemplates.plone
 
     [sources]
-    # ploneconf.site = fs ploneconf.site path=src
-    # starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git path=src
+    ploneconf.site = fs ploneconf.site path=src
+    starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git path=src
 
     # Checkouts to make addons we use work with Plone 5
     Products.PloneFormGen = git https://github.com/starzel/Products.PloneFormGen.git pushurl=git@github.com:starzel/Products.PloneFormGen.git rev=fa2b4df60c8ab1ab88bf1497904b958d5ed214d4
