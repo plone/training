@@ -53,6 +53,7 @@ Contents:
     resources
     thirdparty_behaviors
     dexterity_3
+    relations
     eggs2
     behaviors2
     viewlets_2

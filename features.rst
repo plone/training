@@ -31,7 +31,7 @@ The :program:`instance`-script offers the following options::
     $ ./bin/instance stop
     $ ./bin/instance -O Plone debug
     $ ./bin/instance -O Plone run myscript.py
-    4 ./bin/instance adduser
+    $ ./bin/instance adduser
 
 .. only:: not presentation
 

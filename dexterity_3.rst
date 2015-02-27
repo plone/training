@@ -39,17 +39,17 @@ Now add a new file ``content/sponsor.py``.
 .. code-block:: python
     :linenos:
 
+    # -*- coding: utf-8 -*-
     from plone.app.textfield import RichText
     from plone.autoform import directives
     from plone.namedfile import field as namedfile
-    from plone.supermodel.directives import fieldset
     from plone.supermodel import model
+    from plone.supermodel.directives import fieldset
+    from ploneconf.site import _
     from z3c.form.browser.radio import RadioFieldWidget
     from zope import schema
-    from zope.schema.vocabulary import SimpleVocabulary
     from zope.schema.vocabulary import SimpleTerm
-
-    from ploneconf.site import MessageFactory as _
+    from zope.schema.vocabulary import SimpleVocabulary
 
 
     LevelVocabulary = SimpleVocabulary(
@@ -66,36 +66,36 @@ Now add a new file ``content/sponsor.py``.
 
         directives.widget(level=RadioFieldWidget)
         level = schema.Choice(
-            title=_(u"Sponsoring Level"),
+            title=_(u'Sponsoring Level'),
             vocabulary=LevelVocabulary,
             required=True
         )
 
         text = RichText(
-            title=_(u"Text"),
+            title=_(u'Text'),
             required=False
         )
 
         url = schema.URI(
-            title=_(u"Link"),
+            title=_(u'Link'),
             required=False
         )
 
         fieldset('Images', fields=['logo', 'advertisment'])
         logo = namedfile.NamedBlobImage(
-            title=_(u"Logo"),
+            title=_(u'Logo'),
             required=False,
         )
 
         advertisment = namedfile.NamedBlobImage(
-            title=_(u"Advertisment (Gold-sponsors and above)"),
+            title=_(u'Advertisment (Gold-sponsors and above)'),
             required=False,
         )
 
-        directives.read_permission(notes="cmf.ManagePortal")
-        directives.write_permission(notes="cmf.ManagePortal")
+        directives.read_permission(notes='cmf.ManagePortal')
+        directives.write_permission(notes='cmf.ManagePortal')
         notes = RichText(
-            title=_(u"Secret Notes (only for site-admins)"),
+            title=_(u'Secret Notes (only for site-admins)'),
             required=False
         )
 
@@ -292,88 +292,74 @@ Add the viewlet-class in ``browser/viewlets.py``
 .. code-block:: python
     :linenos:
 
-    from collections import OrderedDict
-    from plone import api
-    from plone.app.layout.viewlets.common import ViewletBase
-    from plone.memoize import ram
-    from ploneconf.site.behaviors.social import ISocial
-    from ploneconf.site.content.sponsor import LevelVocabulary
-    from random import shuffle
-    from time import time
+    # -*- coding: utf-8 -*-
+    from plone.app.textfield import RichText
+    from plone.autoform import directives
+    from plone.namedfile import field as namedfile
+    from plone.supermodel import model
+    from plone.supermodel.directives import fieldset
+    from ploneconf.site import _
+    from z3c.form.browser.radio import RadioFieldWidget
+    from zope import schema
+    from zope.schema.vocabulary import SimpleTerm
+    from zope.schema.vocabulary import SimpleVocabulary
 
 
-    class SocialViewlet(ViewletBase):
+    LevelVocabulary = SimpleVocabulary(
+        [SimpleTerm(value=u'platinum', title=_(u'Platinum Sponsor')),
+         SimpleTerm(value=u'gold', title=_(u'Gold Sponsor')),
+         SimpleTerm(value=u'silver', title=_(u'Silver Sponsor')),
+         SimpleTerm(value=u'bronze', title=_(u'Bronze Sponsor'))]
+        )
 
-        def lanyrd_link(self):
-            adapted = ISocial(self.context)
-            return adapted.lanyrd
 
+    class ISponsor(model.Schema):
+        """Dexterity-Schema for Sponsors
+        """
 
-    class SponsorsViewlet(ViewletBase):
+        directives.widget(level=RadioFieldWidget)
+        level = schema.Choice(
+            title=_(u'Sponsoring Level'),
+            vocabulary=LevelVocabulary,
+            required=True
+        )
 
-        @ram.cache(lambda *args: time() // (60 * 60))  # cache for 1 hour
-        def _sponsors(self):
-            """Return a list of dicts with info from sponsors.
-            """
-            catalog = api.portal.get_tool('portal_catalog')
-            brains = catalog(portal_type='sponsor')
-            results = []
-            for brain in brains:
-                obj = brain.getObject()
-                # Get the view '@@images'
-                scales = api.content.get_view(
-                    name='images',
-                    context=obj,
-                    request=self.request)
-                # Scale the logo to a fixed size
-                scale = scales.scale(
-                    'logo',
-                    width=200,
-                    height=80,
-                    direction='down')
-                # Create the complete img-tag from the the scale-object
-                tag = scale.tag() if scale else ''
-                if not tag:
-                    # only display sponsors with a logo
-                    continue
-                # Create a dict with the necessary info
-                results.append(dict(
-                    title=brain.Title,
-                    description=brain.Description,
-                    tag=tag,
-                    url=obj.url or obj.absolute_url(),
-                    level=obj.level
-                ))
-            return results
+        text = RichText(
+            title=_(u'Text'),
+            required=False
+        )
 
-        def sponsors(self):
-            # Get the list of dicts from the method above
-            sponsors = self._sponsors()
-            if not sponsors:
-                return
-            # Make sure the results are ordered
-            results = OrderedDict()
-            # Get all sponsoring-levels in the right order
-            levels = [i.value for i in LevelVocabulary]
-            for level in levels:
-                level_sponsors = []
-                # Add sponsors to a list level_sponsors if the level is right
-                for sponsor in sponsors:
-                    if level == sponsor['level']:
-                        level_sponsors.append(sponsor)
-                if not level_sponsors:
-                    continue
-                # Randomly order the sponsors in level_sponsors
-                shuffle(level_sponsors)
-                # {'gold': [sponsor, ...], ...} where sponsor is a dict
-                results[level] = level_sponsors
-            return results
+        url = schema.URI(
+            title=_(u'Link'),
+            required=False
+        )
+
+        fieldset('Images', fields=['logo', 'advertisment'])
+        logo = namedfile.NamedBlobImage(
+            title=_(u'Logo'),
+            required=False,
+        )
+
+        advertisment = namedfile.NamedBlobImage(
+            title=_(u'Advertisment (Gold-sponsors and above)'),
+            required=False,
+        )
+
+        directives.read_permission(notes='cmf.ManagePortal')
+        directives.write_permission(notes='cmf.ManagePortal')
+        notes = RichText(
+            title=_(u'Secret Notes (only for site-admins)'),
+            required=False
+        )
 
 
 * ``_sponsors`` returns a list of dictionaries containing all necessary info about sponsors.
 * We create the complete img-tag using a custom scale (200x80) using the view ``images`` from plone.namedfile. This actually scales the logos and saves them as new blobs.
 * In ``sponsors`` we return a ordered dictionary of randomized lists of dicts (containing the information on sponsors).
-* ``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. We could also cache until one of the sponsors is modified:
+
+``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. But we'd have to wait for up to an hour until changes will be visible.
+
+Instead we'll cache until one of the sponsors is modified by using a callable ``_sponsors_cachekey`` that return a number that changes when a sponsor is modified.
 
   ..  code-block:: python
 
@@ -406,11 +392,15 @@ Add the template ``browser/templates/sponsors_viewlet.pt``
 
     <div metal:define-macro="portal_sponsorbox"
          i18n:domain="ploneconf.site">
-        <div id="portal-sponsorbox"
+        <div id="portal-sponsorbox" class="container"
              tal:define="sponsors view/sponsors;">
+            <div class="row">
+                <h2>We ❤ our sponsors</h2>
+            </div>
             <div tal:repeat="level sponsors"
                  tal:attributes="id python:'level-' + level"
-                 tal:condition="sponsors">
+                 tal:condition="sponsors"
+                 class="row">
                 <h3 tal:content="python: level.capitalize()">
                     Level
                 </h3>
@@ -424,7 +414,6 @@ Add the template ``browser/templates/sponsors_viewlet.pt``
                         </a>
                     </div>
                 </tal:images>
-                <div class="visualClear"><!-- --></div>
             </div>
         </div>
     </div>
@@ -458,73 +447,72 @@ Also add a relationfield where you can add relations to talks.
     ..  code-block:: python
         :linenos:
 
-        # -*- coding: utf-8 -*-
-        from plone.app.textfield import RichText
-        from plone.app.vocabularies.catalog import CatalogSource
-        from plone.autoform import directives
-        from plone.namedfile import field as namedfile
-        from plone.supermodel import model
-        from z3c.relationfield.schema import RelationList
-        from z3c.relationfield.schema import RelationChoice
-        from zope import schema
+    # -*- coding: utf-8 -*-
+    from plone.app.textfield import RichText
+    from plone.app.vocabularies.catalog import CatalogSource
+    from plone.autoform import directives
+    from plone.namedfile import field as namedfile
+    from plone.supermodel import model
+    from ploneconf.site import _
+    from z3c.relationfield.schema import RelationChoice
+    from z3c.relationfield.schema import RelationList
+    from zope import schema
 
-        from ploneconf.site import MessageFactory as _
 
+    class ISpeaker(model.Schema):
+        """Dexterity-Schema for Speaker
+        """
 
-        class ISpeaker(model.Schema):
-            """Dexterity-Schema for Speaker
-            """
+        first_name = schema.TextLine(
+            title=_(u'First Name'),
+        )
 
-            first_name = schema.TextLine(
-                title=u'First Name',
-            )
+        last_name = schema.TextLine(
+            title=_(u'Last Name'),
+        )
 
-            last_name = schema.TextLine(
-                title=u'Last Name',
-            )
+        email = schema.TextLine(
+            title=_(u'E-Mail'),
+            required=False,
+        )
 
-            email = schema.TextLine(
-                title=u'E-Mail',
-                required=False,
-            )
+        homepage = schema.URI(
+            title=_(u'Homepage'),
+            required=False,
+        )
 
-            homepage = schema.URI(
-                title=u'Homepage',
-                required=False,
-            )
+        biography = RichText(
+            title=_(u'Biography'),
+            required=False,
+        )
 
-            biography = RichText(
-                title=u'Biography',
-                required=False,
-            )
+        company = schema.TextLine(
+            title=_(u'Company'),
+            required=False,
+        )
 
-            company = schema.TextLine(
-                title=u'Company',
-                required=False,
-            )
+        twitter_name = schema.TextLine(
+            title=_(u'Twitter-Name'),
+            required=False,
+        )
 
-            twitter_name = schema.TextLine(
-                title=u'Twitter-Name',
-                required=False,
-            )
+        irc_name = schema.TextLine(
+            title=_(u'IRC-Name'),
+            required=False,
+        )
 
-            irc_name = schema.TextLine(
-                title=u'IRC-Name',
-                required=False,
-            )
+        image = namedfile.NamedBlobImage(
+            title=_(u'Image'),
+            required=False,
+        )
 
-            image = namedfile.NamedBlobImage(
-                title=u'Image',
-                required=False,
-            )
-
-            talks = RelationList(
-                title=u'Talks by this speaker',
-                value_type=RelationChoice(
-                    title=u'Talks',
-                    source=CatalogSource(portal_type='talk')),
-                required=False,
-            )
+        talks = RelationList(
+            title=_(u'Talks by this speaker'),
+            value_type=RelationChoice(
+                title=_(u'Talks'),
+                source=CatalogSource(portal_type='talk')),
+            required=False,
+        )
 
     Register the type in ``profiles/default/types.xml``
 
@@ -541,7 +529,7 @@ Also add a relationfield where you can add relations to talks.
          <!-- -*- more types can be added here -*- -->
         </object>
 
-    The FTI goes in ``profiles/default/types/speaker.xml``:
+    The FTI goes in ``profiles/default/types/speaker.xml``. Again we use ``Item`` as the base-class:
 
     .. code-block:: xml
         :linenos:
@@ -567,7 +555,7 @@ Also add a relationfield where you can add relations to talks.
          </property>
          <property name="default_view_fallback">False</property>
          <property name="add_permission">cmf.AddPortalContent</property>
-         <property name="klass">plone.dexterity.content.Container</property>
+         <property name="klass">plone.dexterity.content.Item</property>
          <property name="behaviors">
           <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
           <element value="plone.app.content.interfaces.INameFromTitle"/>
