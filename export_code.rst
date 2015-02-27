@@ -39,8 +39,8 @@ The file ``profiles/default/types.xml`` tells Plone that there is a new content 
 
 Upon installing, Plone reads the file ``profiles/default/types/talk.xml`` and registers a new type in ``portal_types`` (you can find and inspect this tool in the ZMI!) with the information taken from that file.
 
-.. code-block:: xml
-  :linenos:
+..  code-block:: xml
+    :linenos:
 
     <?xml version="1.0"?>
     <object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"
@@ -141,6 +141,135 @@ Now our package has some real contents. So, we'll need to reinstall it (if insta
 * Re-install ploneconf.site (deactivate and activate).
 * Test the type by adding an object or editing one of the old ones.
 * Look at how the talks are presented in the browser.
+
+The escaped inline-xml is simply too ugly to look at. You should move it to a seperate file!
+
+Create a folder ``content`` with a empty ``__init__py``. In that create a file ``talk.xml`` that contains the real xml (copied from http://localhost:8080/Plone/dexterity-types/talk/@@modeleditor and beautified with some online-xml-formater (http://lmgtfy.com/?q=xml+formatter))
+
+..  code-block:: xml
+    :linenos:
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <model xmlns="http://namespaces.plone.org/supermodel/schema" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security">
+      <schema>
+        <field name="type_of_talk" type="zope.schema.Choice">
+          <description />
+          <title>Type of talk</title>
+          <values>
+            <element>Talk</element>
+            <element>Training</element>
+            <element>Keynote</element>
+          </values>
+        </field>
+        <field name="details" type="plone.app.textfield.RichText">
+          <description>Add a short description of the talk (max. 2000 characters)</description>
+          <max_length>2000</max_length>
+          <title>Details</title>
+        </field>
+        <field name="audience" type="zope.schema.Set">
+          <description />
+          <title>Audience</title>
+          <value_type type="zope.schema.Choice">
+            <values>
+              <element>Beginner</element>
+              <element>Advanced</element>
+              <element>Professionals</element>
+            </values>
+          </value_type>
+        </field>
+        <field name="speaker" type="zope.schema.TextLine">
+          <description>Name (or names) of the speaker</description>
+          <title>Speaker</title>
+        </field>
+        <field name="email" type="zope.schema.TextLine">
+          <description>Adress of the speaker</description>
+          <title>Email</title>
+        </field>
+        <field name="image" type="plone.namedfile.field.NamedBlobImage">
+          <description />
+          <required>False</required>
+          <title>Image</title>
+        </field>
+        <field name="speaker_biography" type="plone.app.textfield.RichText">
+          <description />
+          <max_length>1000</max_length>
+          <required>False</required>
+          <title>Speaker Biography</title>
+        </field>
+      </schema>
+    </model>
+
+Now we have remove the model.source and instead reference the xml-file in the FTI by using the peperty ``model_file``:
+
+..  code-block:: xml
+
+    <property name="model_source"></property>
+    <property name="model_file">ploneconf.site.content:talk.xml</property>
+
+..  note::
+
+    The default typed of Plone 5 also have a xml-schema like this since that allows the fields of the types to be editable trough the web! Fields for types with a python-schema are not editable ttw.
+
+`Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_ is very powerful by editong it (not all features have a UI) you should be able to do everything you can do with a python-schema.
+
+Our talks use dropdown for ``type_of_talk`` and multiselect for ``audience``. Radiobuttons and checkboxes woule be the better choice here. Modify the xml to make that change happen:
+
+..  code-block:: xml
+    :linenos:
+    :emphasize-lines: 5, 20
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <model xmlns="http://namespaces.plone.org/supermodel/schema" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security">
+      <schema>
+        <field name="type_of_talk" type="zope.schema.Choice"
+          form:widget="z3c.form.browser.radio.RadioFieldWidget">
+          <description />
+          <title>Type of talk</title>
+          <values>
+            <element>Talk</element>
+            <element>Training</element>
+            <element>Keynote</element>
+          </values>
+        </field>
+        <field name="details" type="plone.app.textfield.RichText">
+          <description>Add a short description of the talk (max. 2000 characters)</description>
+          <max_length>2000</max_length>
+          <title>Details</title>
+        </field>
+        <field name="audience" type="zope.schema.Set"
+          form:widget="z3c.form.browser.checkbox.CheckBoxFieldWidget">
+          <description />
+          <title>Audience</title>
+          <value_type type="zope.schema.Choice">
+            <values>
+              <element>Beginner</element>
+              <element>Advanced</element>
+              <element>Professionals</element>
+            </values>
+          </value_type>
+        </field>
+        <field name="speaker" type="zope.schema.TextLine">
+          <description>Name (or names) of the speaker</description>
+          <title>Speaker</title>
+        </field>
+        <field name="email" type="zope.schema.TextLine">
+          <description>Adress of the speaker</description>
+          <title>Email</title>
+        </field>
+        <field name="image" type="plone.namedfile.field.NamedBlobImage">
+          <description />
+          <required>False</required>
+          <title>Image</title>
+        </field>
+        <field name="speaker_biography" type="plone.app.textfield.RichText">
+          <description />
+          <max_length>1000</max_length>
+          <required>False</required>
+          <title>Speaker Biography</title>
+        </field>
+      </schema>
+    </model>
+
 
 
 Exercise 1
