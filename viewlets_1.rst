@@ -262,5 +262,5 @@ Register a viewlet 'days_to_conference' in the header. Use a class and a templat
 
         <div class="pat-moment"
              data-pat-moment="format: relative">
-            ${python: view.conference_date()}
+            ${python: view.date()}
         </div>

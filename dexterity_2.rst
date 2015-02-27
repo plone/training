@@ -34,12 +34,21 @@ The content-type `Talk` is not yet a first-class citizen because it does not imp
 
 The problem is that the name of the Plone-instance ``Plone`` is part of that interface-name. If you now moved these types to a site with another name, code that uses these Interfaces would no longer find the objects in question.
 
-To solve this we add a new file ``interfaces.py``:
+To solve this we add a new Interface to ``interfaces.py``:
 
 .. code-block:: python
     :linenos:
+    :emphasize-lines: 12-14
 
+    # -*- coding: utf-8 -*-
+    """Module where all interfaces, events and exceptions live."""
+
+    from zope.publisher.interfaces.browser import IDefaultBrowserLayer
     from zope.interface import Interface
+
+
+    class IPloneconfSiteLayer(IDefaultBrowserLayer):
+        """Marker interface that defines a browser layer."""
 
 
     class ITalk(Interface):
@@ -149,7 +158,7 @@ Upgrade steps are usually registered in their own zcml-file. Create ``upgrades.z
       <genericsetup:upgradeStep
         title="Update and cleanup talks"
         description="Updates typeinfo and moves talks to a folder 'talks'"
-        source="1"
+        source="1000"
         destination="1001"
         handler="ploneconf.site.upgrades.upgrade_site"
         sortkey="1"

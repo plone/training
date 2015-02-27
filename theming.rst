@@ -3,6 +3,10 @@
 Theming
 =======
 
+..  warning::
+
+    This chapter has not yet been updated for Plone 5!
+
 We don't do any real theming during the training. We'll just explain the options you have.
 
 Theming a Plone site has two major parts:

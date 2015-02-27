@@ -3,6 +3,10 @@
 Configuring and Customizing Plone through the web
 =================================================
 
+..  warning::
+
+    This chapter has not yet been updated for Plone 5!
+
  .. sectionauthor:: Philip Bauer <bauer@starzel.de>
 
 .. _customizing-controlpanel-label:

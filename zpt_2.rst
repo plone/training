@@ -117,7 +117,7 @@ Let's look for the template folder_summary_view.pt::
 
 Copy it to ``browser/overrides/`` and rename it to ``plone.app.contenttypes.browser.templates.listing_summary.pt``.
 
-Add the following after line 29:
+Add the following after line 28:
 
 ..  code-block:: html
 
