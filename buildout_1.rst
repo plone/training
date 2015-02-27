@@ -104,21 +104,17 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     # Put checkouts in src-mrd. We keep our own package in src
     sources-dir = src-mrd
 
+    # The directory this buildout is in. Modified when using vagrant.
+    buildout_dir = ${buildout:directory}
+
     # Extend the coredevs-checkouts with our own
     auto-checkout +=
         Products.PloneFormGen
-        collective.behavior.banner
-    #    ploneconf.site
+        bobtemplates.plone
+        ploneconf.site_sneak
     #    starzel.votable_behavior
+    #    ploneconf.site
 
-    # If you use vagrant please add a '#' at the beginning of the
-    # following line and uncomment the line after by removing the '#'.
-    # This will set the location of three directories:
-    # file-storage: set in [instance] defines where the ZODB is stored
-    # blob-storage: set in [instance] defines where Binary Files are stored
-    # packages-dir: set in [packages] defines a location for symlinks to all eggs
-    buildout_dir = ${buildout:directory}
-    #buildout_dir = /home/vagrant
 
     parts =
         checkversions
@@ -143,19 +139,6 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
 
     # TTW Forms (based on Archetypes)
         Products.PloneFormGen
-
-    # Image Gallery
-        collective.plonetruegallery
-        collective.ptg.nivogallery
-
-    # Add features to normal tables using a js-library
-        collective.js.datatables
-
-    # Generate facetted search & navigation
-        eea.facetednavigation
-
-    # Inheritable Banners and Sliders
-        collective.behavior.banner
 
     # The addon we develop in the training
     #    ploneconf.site
@@ -227,12 +210,17 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
         bobtemplates.plone
 
     [sources]
-    ploneconf.site = fs ploneconf.site full-path=${buildout:directory}/src/ploneconf.site
-    collective.behavior.banner = git https://github.com/collective/collective.behavior.banner.git pushurl=git@github.com:collective/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
-    starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
+    # ploneconf.site = fs ploneconf.site path=src
+    # starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git path=src
 
     # Checkouts to make addons we use work with Plone 5
     Products.PloneFormGen = git https://github.com/starzel/Products.PloneFormGen.git pushurl=git@github.com:starzel/Products.PloneFormGen.git rev=fa2b4df60c8ab1ab88bf1497904b958d5ed214d4
+
+    # We use the unreleased version of bobtemplates.plone since it asks less questions
+    bobtemplates.plone = git https://github.com/plone/bobtemplates.plone.git rev=b09362f314b4fd6cce22691898e1d79e9cf2f27f
+
+    # This is no egg but folders each containing the egg of ploneconf.site for one chapter
+    ploneconf.site_sneak = git https://github.com/collective/ploneconf.site_sneak.git path=src egg=false
 
 
 When you run ``./bin/buildout`` without any arguments, Buildout will look for this file.
@@ -257,7 +245,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
 
     This line tells Buildout to read more configuration files. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configuration that differ between different environments.
 
-    .. code-block:: cfg
+    ..  code-block:: cfg
 
         eggs =
             Plone
@@ -272,19 +260,6 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
 
         # TTW Forms (based on Archetypes)
             Products.PloneFormGen
-
-        # Image Gallery
-            collective.plonetruegallery
-            collective.ptg.nivogallery
-
-        # Add features to normal tables using a js-library
-            collective.js.datatables
-
-        # Generate facetted search & navigation
-            eea.facetednavigation
-
-        # Inheritable Banners and Sliders
-            collective.behavior.banner
 
         # The addon we develop in the training
         #    ploneconf.site
