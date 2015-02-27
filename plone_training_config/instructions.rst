@@ -9,12 +9,7 @@ Installing Plone for the Training
 
     Because of this running buildout will take much more time than with a released version of Plone 5.
 
-
-To not waste too much time with installing and debugging the differences between systems we use a virtual machine (Ubuntu 14.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development-environment to everyone.
-
-`Vagrant <http://www.vagrantup.com>`_ is a tool for building complete development environments. We use it together with Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to create and manage a virtual environment.
-
-Keep in mind that you need a fast internet-connection during the process since you'll have to download a complete virtual machine (ubuntu) and several packages and updates.
+Keep in mind that you need a fast internet-connection during installation since you'll have to download a lot of data!
 
 
 .. _instructions-no-vagrant-label:
@@ -61,14 +56,13 @@ This will take some time and produce a lot of output because it downloads and co
 
 If the output should be simliar to::
 
-    2014-10-06 15:11:26 INFO ZServer HTTP server started at Mon Oct  6 15:11:26 2014
-        Hostname: 0.0.0.0
-        Port: 8080
-    2014-10-06 15:11:29 INFO Products.PloneFormGen gpg_subprocess initialized, using /usr/local/bin/gpg
-    2014-10-06 15:11:29 INFO ZODB.blob (14015) Blob directory `/Users/philip/workspace/training/buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
-    2014-10-06 15:11:29 INFO ZODB.blob (14015) Blob temporary directory '/Users/philip/workspace/training/buildout/var/blobstorage/tmp' does not exist. Created new directory.
-    2014-10-06 15:11:37 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
-    2014-10-06 15:11:37 INFO Zope Ready to handle requests
+    2015-02-27 17:20:42 INFO ZServer HTTP server started at Fri Feb 27 17:20:42 2015
+            Hostname: 0.0.0.0
+            Port: 8080
+    2015-02-27 17:20:45 INFO Products.PloneFormGen gpg_subprocess initialized, using /usr/local/bin/gpg
+    2015-02-27 17:20:54 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
+    2015-02-27 17:20:54 INFO Zope Ready to handle requests
+
 
 It the output says ``INFO Zope Ready to handle requests`` then you are up and running and can continue with the next chapter.
 
@@ -77,10 +71,19 @@ It the output says ``INFO Zope Ready to handle requests`` then you are up and ru
     If there is an error-message you should either try to fix it or use vagrant and continue in this chapter.
 
 
+.. _instructions-vagrant-label:
+
+Installing Plone with vagrant
+--------------------------------
+
+To not waste too much time with installing and debugging the differences between systems we use a virtual machine (Ubuntu 14.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development-environment to everyone.
+
+`Vagrant <http://www.vagrantup.com>`_ is a tool for building complete development environments. We use it together with Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to create and manage a virtual environment.
+
 .. _install-virtualbox:
 
 Install VirtualBox
-------------------
+++++++++++++++++++
 
 Vagrant uses Oracle’s VirtualBox to create virtual environments. Here is a link directly to the download page: https://www.virtualbox.org/wiki/Downloads. We use VirtualBox 4.3.x
 
@@ -88,7 +91,7 @@ Vagrant uses Oracle’s VirtualBox to create virtual environments. Here is a lin
 .. _instructions-configure-vagrant-label:
 
 Install and configure Vagrant
------------------------------
++++++++++++++++++++++++++++++
 
 Get the latest version from http://www.vagrantup.com/downloads for your operating system and install it.
 
@@ -111,15 +114,11 @@ Setup Vagrant to automatically install the current guest-additions. You can choo
 
     $ vagrant plugin install vagrant-vbguest
 
-Now either get the attached zip-file (if you read this as a mail) or download it from
-
-:download:`http://plone-training.readthedocs.org/en/latest/_downloads/plone_training_config.zip <../plone_training_config.zip>`.
-
-and copy its contents into your training directory.
+Now download https://github.com/plone/training/raw/plone5/plone_training_config.zip and copy its contents into your training directory.
 
 .. code-block:: bash
 
-    $ wget http://plone-training.readthedocs.org/en/latest/_downloads/plone_training_config.zip
+    $ wget https://github.com/plone/training/raw/plone5/plone_training_config.zip
     $ unzip plone_training_config.zip
 
 The training-directory should now hold the file ``Vagrantfile`` and the directory ``manifests`` which again contains several files.
@@ -218,6 +217,6 @@ If you have any problems or questions please mail us at team@starzel.de or creat
 .. _instructions-vagrant-does-label:
 
 What Vagrant does
------------------
++++++++++++++++++
 
 Installation is done automatically by vagrant and puppet. If you want to know which steps are actually done please see the chapter :doc:`what_vagrant_does`.
