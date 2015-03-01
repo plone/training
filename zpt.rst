@@ -410,6 +410,48 @@ When an element has multiple statements, they are executed in this order:
 6. omit-tag
 
 
+Plone 5
+-------
+
+Plone 5 uses a new rendering-engine called `Chameleon <http://www.pagetemplates.org/>`_. Using the integration layer `five.pt <https://pypi.python.org/pypi/five.pt>`_ it is fully compatible with the normal tal-syntax but offers some additional features:
+
+You can use ``${...}`` as short-hand for text insertion in pure html effectively making ``tal:content`` and ``tal:attributes`` obsolete. Here are some examples:
+
+Plone 4 and Plone 5:
+
+..  code-block:: html
+    :linenos:
+
+    <a tal:attributes="hef string:${context/absolute_url}?ajax_load=1;
+                       class python:context.portal_type().lower().replace(' ', '')"
+       tal:content="context/title">
+       The Title of the current object
+    </a>
+
+Plone 5 (and Plone 4 with five.pt) :
+
+..  code-block:: html
+    :linenos:
+
+    <a hef="${context/absolute_url}?ajax_load=1"
+       class="${python:context.portal_type().lower().replace(' ', '')}">
+       ${python:context.title}
+    </a>
+
+You can also add pure-python into the templates:
+
+..  code-block:: html
+    :linenos:
+
+    <div>
+      <?python
+      someoptions = dict(
+          id=context.id,
+          title=context.title)
+      ?>
+      This object has the id "${python:someoptions['id']}"" and the title "${python:someoptions['title']}".
+    </div>
+
 
 .. _zpt-metal-label:
 
@@ -498,13 +540,13 @@ Define a macro in a new file ``macros.pt``
         <p>I can be reused</p>
     </div>
 
-Register it as a BrowserView (this time without a python-class) in zcml:
+Register it as a simple BrowserView in zcml:
 
 .. code-block:: xml
 
     <browser:page
       for="*"
-      name="ploneconf.site.macros"
+      name="abunchofmacros"
       template="templates/macros.pt"
       permission="zope2.View"
       />
@@ -513,7 +555,15 @@ Reuse the macro it in the template ``training.pt``:
 
 .. code-block:: html
 
-        <div metal:use-macro="view/context/@@ploneconf.site.macros/my_macro">
+        <div metal:use-macro="context/@@abunchofmacros/my_macro">
+            Instead of this the content of the macro will appear...
+        </div>
+
+Which is the same as:
+
+.. code-block:: html
+
+        <div metal:use-macro="python:context.restrictedTraverse('abunchofmacros')['my_macro']">
             Instead of this the content of the macro will appear...
         </div>
 
