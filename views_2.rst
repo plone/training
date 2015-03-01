@@ -160,6 +160,10 @@ We should tell Plone, that the talkview should be used as the default view for t
 
 This is a configuration that you can change during runtime and is stored in the database, as such it is also managed by GenericSetup profiles.
 
+..  note::
+
+    To change it ttw got to the ZMI (http://localhost:8080/Plone/manage), go to ``portal_types`` and select the type for which the new should be selectable (*talk*). Now add ``talkview`` to the list *Available view methods*. Now the new view is available in the menu *Display*. To make it the default view enter it in ``Default view method``.
+
 open ``profiles/default/types/talk.xml``:
 
 .. code-block:: xml
