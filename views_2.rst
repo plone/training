@@ -180,6 +180,10 @@ open ``profiles/default/types/talk.xml``:
     </property>
     ...
 
+..  note::
+
+    To change it ttw got to the ZMI (http://localhost:8080/Plone/manage), go to ``portal_types`` and select the type for which the new should be selectable (*talk*). Now add ``talkview`` to the list *Available view methods*. Now the new view is available in the menu *Display*. To make it the default view enter it in ``Default view method``.
+
 We will have to either reinstall our addon or run the generic-setup step ``typeinfo`` so Plone learns about the change.
 
 We could also tell plone about this in the ZMI: http://localhost:8080/Plone/portal_types/talk/manage_propertiesForm
