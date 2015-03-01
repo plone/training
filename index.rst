@@ -60,6 +60,7 @@ Contents:
     reusable
     embed
     deployment_sites
+    frontpage
     future_of_plone
     optional
 
