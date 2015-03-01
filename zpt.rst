@@ -9,7 +9,7 @@ Page Templates
 
     .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/03_zpt_p5+tests/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/03_zpt_p5/ src/ploneconf.site
 
 
 In this part you will:
