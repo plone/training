@@ -23,7 +23,7 @@ Topics covered:
 
 * FTI
 * type-definitions with generic setup
-+ XML-schema
+* XML-schema
 * more widgets
 
 Remember the *Talks* content type that we created through-the-web with Dexterity? Let's move that new content type into our add-on package so that it may be installed in other sites without TTW manipulation.

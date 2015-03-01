@@ -59,6 +59,7 @@ Contents:
     viewlets_2
     reusable
     embed
+    deployment_code
     deployment_sites
     frontpage
     future_of_plone
