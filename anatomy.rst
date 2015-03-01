@@ -3,6 +3,18 @@
 The Anatomy of Plone
 ====================
 
+In this part you will:
+
+* Learn a bit of history about Plone.
+
+Topics covered:
+
+* CMF
+* Zope
+* Pyramid
+* Bluebream
+
+
 Python, Zope, CMF, Plone, how does that all fit together?
 
 

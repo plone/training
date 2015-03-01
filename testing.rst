@@ -3,7 +3,19 @@
 Testing in Plone
 ================
 
+In this part you will:
+
+* Write tests
+* Refresh your knowledge about tests
+
+Topics covered:
+
+* Tests
+* RobotFramework
+
 .. _testing-types-label:
+
+
 
 Types of test
 -------------
@@ -102,7 +114,7 @@ In :ref:`eggs1-label` we created a content types. It is time to test this.
 
 We are going to create a test module named ``test_talk``:
 
-.. literalinclude::  ploneconf.site_sneak/chapters/14_eggs_p5+tests/src/ploneconf/site/tests/test_talk.py
+.. literalinclude::  ploneconf.site_sneak/chapters/02_export_code_p5/src/ploneconf/site/tests/test_talk.py
     :linenos:
 
 In :ref:`views1-label` we created a new view. We have to test this!
@@ -110,13 +122,13 @@ This time though, we are going to test it with a browser too.
 
 First, we add a simple test for the custom template in our Functional Test layer
 
-.. literalinclude:: ploneconf.site_sneak/chapters/16_eggs1_p5+tests/src/ploneconf/site/tests/test_talk.py
+.. literalinclude:: ploneconf.site_sneak/chapters/03_zpt_p5/src/ploneconf/site/tests/test_talk.py
     :lines: 109-125
     :linenos:
 
 Next we add a robot test
 
-.. literalinclude:: ploneconf.site_sneak/chapters/15_views1_p5+tests/src/ploneconf/site/tests/robot/test_talk.robot
+.. literalinclude:: ploneconf.site_sneak/chapters/03_zpt_p5/src/ploneconf/site/tests/robot/test_talk.robot
     :linenos:
 
 When you run your tests, you might notice, that the robot tests didn't run. This is a feature activated by the robot layer. Because robot tests can be quite slow. If you run your tests with `./bin/test --all`
@@ -129,5 +141,5 @@ There are 3 possible workarounds:
 - Install xvfb, a framebuffer. You wont see the browser then. After installing, start xvfb like this: `Xvfb :99.0 -screen 0 1024x768x24`. Then run your tests, declaring to connect to the non default X Server: `DISPLAY=:99.0 bin/test --all`
 - Install Xephyr, it is also a framebuffer, but visible in a window. Start it the same way as you start Xvfb.
 
-The first method, with Phantomjs will throw failures with our tests, btw.
+The first method, with Phantomjs will throw failures with our tests, unfortunately.
 

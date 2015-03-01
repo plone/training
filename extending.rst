@@ -3,6 +3,18 @@
 Extending Plone
 ===============
 
+In this part you will:
+
+* Get an overview other the technologies used to extend Plone
+
+Topics covered:
+
+* Skin folders
+* GenericSetup
+* Component Architecture
+* ZCML
+
+
 Zope is extensible and so is Plone.
 
 .. only:: not presentation
@@ -50,6 +62,12 @@ skin_folders
     To customize the logo, you copy it into the ``custom`` folder, and change it there. This way you can change templates, CSS styles, images and behavior, because a container may contain python scripts.
 
     Skin-folder style customization may be accomplished TTW via the ZMI, or with add-on packages. Manu older-style packages create their own skin folder and add it to the skin layer for Plone when installed.
+
+.. only:: not presentation
+
+    .. warning::
+
+        This is soon going away!
 
 
 GenericSetup

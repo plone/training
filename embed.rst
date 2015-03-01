@@ -3,6 +3,16 @@
 Using starzel.votable_behavior in ploneconf.site
 ================================================
 
+In this part you will:
+
+* Integrate your own third party package into your site.
+
+Topics covered:
+
+* Permissions
+* Workflows
+
+
 .. sidebar:: Get the code!
 
     Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:

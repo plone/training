@@ -5,6 +5,15 @@ Creating reusable packages
 
 We already created the package ``ploneconf.site``  much earlier.
 
+In this part you will:
+
+* Build your own standalone egg.
+
+Topics covered:
+
+* mr.bob
+
+
 Now you are going to create a feature that is completely independent of the ploneconf site and can be reused in other packages.
 
 To make the distinction clear, this is not a package from the namespace :samp:`ploneconf` but from :samp:`starzel`.

@@ -223,7 +223,7 @@ Now we have remove the model.source and instead reference the xml-file in the FT
 
     The default typed of Plone 5 also have a xml-schema like this since that allows the fields of the types to be editable trough the web! Fields for types with a python-schema are not editable ttw.
 
-`Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_ is very powerful by editong it (not all features have a UI) you should be able to do everything you can do with a python-schema.
+`Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_ is very powerful by editing it (not all features have a UI) you should be able to do everything you can do with a python-schema.
 
 Our talks use dropdown for ``type_of_talk`` and multiselect for ``audience``. Radiobuttons and checkboxes woule be the better choice here. Modify the xml to make that change happen:
 

@@ -3,6 +3,15 @@
 Making our package reusable
 ===========================
 
+In this part you will:
+
+* Add Permissions
+
+Topics covered:
+
+* Permissions
+
+
 The package contains some problems.
 
 * No permission settings, Users can't customize who and when users can vote

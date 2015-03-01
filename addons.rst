@@ -4,7 +4,7 @@ Extend Plone with Add-On Packages
 =================================
 
 * There are more than 2,000 addons for Plone. We will cover only a handfull today.
-* Using them can saves a lot of time
+* Using them saves a lot of time
 * The success of a project often depends on finding the right addon
 * Their use, usefulness, quality and complexity varies a lot
 

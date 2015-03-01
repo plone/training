@@ -3,6 +3,14 @@
 More complex behaviors
 ======================
 
+In this part you will:
+
+* Write an annotation
+
+Topics covered:
+
+* Annotation Marker Interfaces
+
 .. _behaviors2-annotations-label:
 
 Using Annotations
@@ -308,4 +316,4 @@ Lets continue with this file:
 
     The vote method, wants a vote and a request. We check the preconditions, then we convert the vote to an integer, store the request has to :samp:`voted` and the votes into the :samp:`votes` dictionary. We just count there, how often any vote has been given.
 
-    Everything else is just boring python.
+    Everything else is just python.

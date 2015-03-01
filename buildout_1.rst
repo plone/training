@@ -3,6 +3,17 @@
 Buildout I
 ==========
 
+In this part you will:
+
+* Learn about Buildout
+
+Topics covered:
+
+* Buildout
+* Recipes
+* Buildout Configuration
+* mr.developer
+
 .. only:: not presentation
 
     `Buildout <https://pypi.python.org/pypi/zc.buildout>`_ composes your application for you, according to your rules.

@@ -3,6 +3,18 @@
 Programming Plone
 =================
 
+In this part you will:
+
+* Learn about the right ways to do something in code in Plone.
+* Learn to debug
+
+Topics covered:
+
+* Debugging
+* Plone API
+* Portal tools
+
+
 .. _api-api-label:
 
 plone.api

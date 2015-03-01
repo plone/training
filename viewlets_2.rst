@@ -9,10 +9,17 @@ A viewlet for the voteable behavior
 Voting Viewlet
 --------------
 
-* Viewlet for IVoteable
-* the viewlet-template
+In this part you will:
+
+* write the viewlet-template
 * add jquery include statements
 * saving the vote on the object using annotations
+
+Topics covered:
+
+* Viewlets
+* Javascript inclusion
+
 
 
 .. only:: not presentation
