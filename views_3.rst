@@ -11,6 +11,20 @@ Views III: A Talk list
 
         cp -R src/ploneconf.site_sneak/chapters/06_views_3_p5/ src/ploneconf.site
 
+In this part you will:
+
+* Write a python-class to get all talks from the catalog
+* Write a template to display the talks
+* Improve the table
+
+Topics covered:
+
+* BrowserView
+* plone.api
+* portal_catalog
+* brains and objects
+* tables
+
 
 Now we don't want to provide information about one specific item but on several items. What now? We can't look at several items at the same time as context.
 

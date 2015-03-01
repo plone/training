@@ -11,6 +11,13 @@ Behaviors
 
         cp -R src/ploneconf.site_sneak/chapters/07_behaviors_1_p5/ src/ploneconf.site
 
+In this part you will:
+
+* Add another field to talky by using a behavior
+
+Topics covered:
+
+* Behaviors
 
 
 .. only:: not presentation

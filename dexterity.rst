@@ -3,13 +3,17 @@
 Dexterity I: Through the web
 ============================
 
-.. sidebar:: Get the code!
+In this part you will:
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+* Create the new content-type *talk*
 
-    .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/13_dexterity/ src/ploneconf.site
+Topics covered:
+
+* content-types
+* archetypes and dexterity
+* fields
+* widgets
 
 
 .. _dexterity1-what-label:

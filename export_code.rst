@@ -10,8 +10,21 @@ Return to Dexterity: moving content types into code
 
     .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/02_export_code_p5+tests/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/02_export_code_p5/ src/ploneconf.site
 
+
+In this part you will:
+
+* Move the type *talk* into ``ploneconf.site``
+* Improve the schema and the FTI
+
+
+Topics covered:
+
+* FTI
+* type-definitions with generic setup
++ XML-schema
+* more widgets
 
 Remember the *Talks* content type that we created through-the-web with Dexterity? Let's move that new content type into our add-on package so that it may be installed in other sites without TTW manipulation.
 

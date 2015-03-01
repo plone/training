@@ -3,6 +3,15 @@
 Views I
 =======
 
+In this part you will:
+
+* Register a view
+* Create and use a template for the view
+
+
+Topics covered:
+
+* zcml
 
 .. _views1-simple-label:
 

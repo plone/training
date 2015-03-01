@@ -13,6 +13,19 @@ Write your own addons to customize Plone
 
 .. _eggs1-create-label:
 
+
+In this part you will:
+
+* Create a custom python-package ``ploneconf.site`` to hold all the code
+* Modify buildout to install that package
+
+
+Topics covered:
+
+* mr.bob and bobtemplates.plone
+* the structure of eggs
+
+
 Creating the package
 --------------------
 

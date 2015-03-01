@@ -11,6 +11,17 @@ Customizing existing templates
 
         cp -R src/ploneconf.site_sneak/chapters/04_zpt_2_p5/ src/ploneconf.site
 
+In this part you will:
+
+* Customize existing templates
+
+Topics covered:
+
+* omelette/packages
+* z3c.jbot
+* moment-pattern
+* listings
+* skins
 
 To dive deeper into real plone-data we now look at some existing templates and customize them.
 
@@ -215,6 +226,10 @@ If you don't know which template the page you're looking at uses you can do an e
 
 2.  The safest method is using ``plone.app.debugtoolbar``.  We already have it in our buildout and only need to install it. It adds a "Debug"-Dropdown on top of the page. The Section "Published" shows the complete path to the template that is used to render the page you are seeing.
 
+    .. warning::
+
+       plone.app.debugtoolbar is not yet compatible with Plone 5. It kind of works but looks really ugly...
+
 3.  The debug-session to find the template is a little more complicated. Since we have ``Products.PDBDebugMode`` in our buildout we can call ``/pdb`` on our page.
 
     The object that the url points to is by default ``self.context``. But the first problem is, that the url we're seeing is not the url of the collection where we want to modify since the collection is the default-page of the folder ``news``.
@@ -237,6 +252,20 @@ If you don't know which template the page you're looking at uses you can do an e
         u'/Users/philip/workspace/training_without_vagrant/src/ploneconf.site/ploneconf/site/browser/template_overrides/plone.app.contenttypes.browser.templates.summary_view.pt'
 
     Now we see that we already customized the template.
+
+    Here is a method that could be used in a view or viewlet to display that path :
+
+    ..  code-block:: python
+
+        def get_template_path(self):
+            context_state = api.content.get_view(
+                'plone_context_state',
+                self.context,
+                self.request)
+            view_template_id = context_state.view_template_id()
+            view = self.context.restrictedTraverse(view_template_id)
+            return view.index.filename
+
 
 .. _zpt2-skins-label:
 

@@ -12,6 +12,14 @@ Writing Viewlets
         cp -R src/ploneconf.site_sneak/chapters/08_viewlets_1_p5/ src/ploneconf.site
 
 
+In this part you will:
+
+* Display data from a behavior in a viewlet
+
+Topics covered:
+
+* Viewlets
+
 .. _viewlets1-social-label:
 
 A viewlet for the social behavior

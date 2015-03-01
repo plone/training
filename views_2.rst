@@ -11,6 +11,18 @@ Views II: A default view for "talk"
 
         cp -R src/ploneconf.site_sneak/chapters/04_views_2_p5/ src/ploneconf.site
 
+In this part you will:
+
+* Register a view with a python-class
+* Write a template used in the default view for talks
+
+
+Topics covered:
+
+* View-classes
+* BrowserView and DefaultView
+* displaying data from fields
+
 
 .. _views2-classes-label:
 
@@ -160,7 +172,7 @@ The template ``templates/talkview.pt`` uses the pattern ``view/w/<fieldname>/ren
     </body>
     </html>
 
-After a restart, we can test our view by going to a talk and add /talkview to the url.
+After a restart, we can test our view by going to a talk and add */talkview* to the url.
 
 We should tell Plone, that the talkview should be used as the default view for talks instead of the built-in view.
 
@@ -180,13 +192,11 @@ open ``profiles/default/types/talk.xml``:
     </property>
     ...
 
+We will have to either reinstall our addon or run the generic-setup step ``typeinfo`` so Plone learns about the change.
+
 ..  note::
 
     To change it ttw got to the ZMI (http://localhost:8080/Plone/manage), go to ``portal_types`` and select the type for which the new should be selectable (*talk*). Now add ``talkview`` to the list *Available view methods*. Now the new view is available in the menu *Display*. To make it the default view enter it in ``Default view method``.
-
-We will have to either reinstall our addon or run the generic-setup step ``typeinfo`` so Plone learns about the change.
-
-We could also tell plone about this in the ZMI: http://localhost:8080/Plone/portal_types/talk/manage_propertiesForm
 
 Let's improve the talkview to show all the info we want.
 
@@ -240,7 +250,7 @@ Let's improve the talkview to show all the info we want.
 Exercise
 --------
 
-Add the new field "room" to the Talk type (TTW) and display it below Audience in the browser view, it should contain the following data:
+Add the new choice-field "room" to the Talk type (TTW) and display it below Audience in the browser view, it should contain the following data:
 
 * Title: Room
 * Possible values: Room 101, Room 102, Auditorium

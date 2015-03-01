@@ -12,6 +12,18 @@ Page Templates
         cp -R src/ploneconf.site_sneak/chapters/03_zpt_p5+tests/ src/ploneconf.site
 
 
+In this part you will:
+
+* Learn to write page-templates
+
+
+Topics covered:
+
+* TAL and TALES
+* METAL
+* Chameleon
+
+
 Page Templates are HTML-files with some additional Information, written in TAL, METAL and TALES.
 
 Page templates must be valid xml.
