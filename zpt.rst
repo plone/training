@@ -467,6 +467,92 @@ You can also add pure-python into the templates:
 
 .. _zpt-metal-label:
 
+
+Exercise 1
+----------
+
+Modify the following template:
+
+..  code-block:: html
+
+    <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
+                                      'subjects': ('content-types', 'dexterity')},
+                                     {'title': 'Mosaic will be th enext big thing.',
+                                      'subjects': ('layout', 'deco', 'views'),
+                                      'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
+                                     {'title': 'The State of Plone',
+                                      'subjects': ('keynote',) },
+                                     {'title': 'Diazo is a powerful tool for theming!',
+                                      'subjects': ('design', 'diazo', 'xslt')},
+                                     {'title': 'Magic templates in Plone 5',
+                                      'subjects': ('templates', 'TAL'),
+                                      'url': 'http://www.starzel.de/blog/magic-templates-in-plone-5'}
+                                    ]">
+        <tr>
+            <th>Title</th>
+            <th>Topics</th>
+        </tr>
+        <tr tal:repeat="talk talks">
+            <td tal:content="talk/title">A talk</td>
+            <td tal:define="subjects talk/subjects">
+                <span tal:repeat="subject subjects"
+                      tal:replace="subject">
+                </span>
+            </td>
+        </tr>
+    </table>
+
+One by one solve the following problems:
+
+#. Only use python-expressions.
+#. Display the subjects as comma-separated.
+#. Turn the title in a link to the url of the talk if there is one.
+#. If there is not url turn it into a link to a google-search for that talk's title
+#. Add a css-class 'odd' to every second item (repeat.<name of item in loop>.odd is True if is a odd number of items)
+#. Sort the talks alphabetically by title
+#. Use the new syntax of Plone 5
+
+
+..  admonition:: Solution
+    :class: toggle
+
+    ..  code-block:: html
+
+        <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
+                                          'subjects': ('content-types', 'dexterity')},
+                                         {'title': 'Mosaic will be th enext big thing.',
+                                          'subjects': ('layout', 'deco', 'views'),
+                                          'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
+                                         {'title': 'The State of Plone',
+                                          'subjects': ('keynote',) },
+                                         {'title': 'Diazo is a powerful tool for theming!',
+                                          'subjects': ('design', 'diazo', 'xslt')},
+                                         {'title': 'Magic templates in Plone 5',
+                                          'subjects': ('templates', 'TAL'),
+                                          'url': 'http://www.starzel.de/blog/magic-templates-in-plone-5'}
+                                        ]">
+            <tr>
+                <th>Title</th>
+                <th>Topics</th>
+            </tr>
+
+        <?python from operator import itemgetter ?>
+
+            <tr tal:repeat="talk python:sorted(talks, key=itemgetter('title'))"
+                class="${python: 'odd' if repeat.talk.odd else 'even'}">
+                <td tal:define="talk_title python:talk['title'];
+                                link python:talk.get('url', 'https://www.google.com/search?q=%s' % talk_title)">
+                    <a href="${link}">
+                        ${talk_title}
+                    </a>
+                </td>
+                <td tal:define="subjects python:talk['subjects']">
+                    ${python:', '.join(subjects)}
+                </td>
+            </tr>
+        </table>
+
+
 METAL and macros
 ----------------
 
