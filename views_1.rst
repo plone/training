@@ -65,7 +65,7 @@ Edit the file ``browser/configure.zcml`` and register another view similar to th
 
     </configure>
 
-Add a file ``browser/templates/demoview.pt``
+Add a file ``browser/templates/training.pt``
 
 .. code-block:: html
 
