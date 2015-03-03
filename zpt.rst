@@ -478,7 +478,7 @@ Modify the following template and one by one solve the following problems:
 
     <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                       'subjects': ('content-types', 'dexterity')},
-                                     {'title': 'Mosaic will be th enext big thing.',
+                                     {'title': 'Mosaic will be the next big thing.',
                                       'subjects': ('layout', 'deco', 'views'),
                                       'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
                                      {'title': 'The State of Plone',
@@ -514,7 +514,7 @@ Modify the following template and one by one solve the following problems:
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
-                                         {'title': 'Mosaic will be th enext big thing.',
+                                         {'title': 'Mosaic will be the next big thing.',
                                           'subjects': ('layout', 'deco', 'views'),
                                           'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
                                          {'title': 'The State of Plone',
@@ -550,7 +550,7 @@ Modify the following template and one by one solve the following problems:
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
-                                         {'title': 'Mosaic will be th enext big thing.',
+                                         {'title': 'Mosaic will be the next big thing.',
                                           'subjects': ('layout', 'deco', 'views'),
                                           'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
                                          {'title': 'The State of Plone',
@@ -590,7 +590,7 @@ Modify the following template and one by one solve the following problems:
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
-                                         {'title': 'Mosaic will be th enext big thing.',
+                                         {'title': 'Mosaic will be the next big thing.',
                                           'subjects': ('layout', 'deco', 'views'),
                                           'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
                                          {'title': 'The State of Plone',
@@ -631,7 +631,7 @@ Modify the following template and one by one solve the following problems:
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
-                                         {'title': 'Mosaic will be th enext big thing.',
+                                         {'title': 'Mosaic will be the next big thing.',
                                           'subjects': ('layout', 'deco', 'views'),
                                           'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
                                          {'title': 'The State of Plone',
@@ -674,7 +674,7 @@ Modify the following template and one by one solve the following problems:
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
-                                         {'title': 'Mosaic will be th enext big thing.',
+                                         {'title': 'Mosaic will be the next big thing.',
                                           'subjects': ('layout', 'deco', 'views'),
                                           'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
                                          {'title': 'The State of Plone',
@@ -717,7 +717,7 @@ Modify the following template and one by one solve the following problems:
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
-                                         {'title': 'Mosaic will be th enext big thing.',
+                                         {'title': 'Mosaic will be the next big thing.',
                                           'subjects': ('layout', 'deco', 'views'),
                                           'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
                                          {'title': 'The State of Plone',
@@ -758,7 +758,7 @@ Modify the following template and one by one solve the following problems:
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
-                                         {'title': 'Mosaic will be th enext big thing.',
+                                         {'title': 'Mosaic will be the next big thing.',
                                           'subjects': ('layout', 'deco', 'views'),
                                           'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
                                          {'title': 'The State of Plone',
