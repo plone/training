@@ -42,7 +42,7 @@ Contents:
     views_2
     views_3
     testing
-    behaviors_1
+    behaviors1
     viewlets_1
     api
     ide
@@ -55,7 +55,7 @@ Contents:
     dexterity_3
     relations
     eggs2
-    behaviors_2
+    behaviors2
     viewlets_2
     reusable
     embed

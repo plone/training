@@ -58,8 +58,6 @@ We register the viewlet in :file:`browser/configure.zcml`.
       permission="zope2.View"
       />
 
-``for``, ``manager``, ``layer`` and ``permission`` are constraints that
-
 .. only:: not presentation
 
     This registers a viewlet called ``social``.

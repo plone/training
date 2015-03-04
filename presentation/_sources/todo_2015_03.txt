@@ -1,0 +1,31 @@
+- [X] Buildout for Plone 5 coredev
+- [ ] Anatomy extend by mockup
+- [ ] Dexterity Choice/Multichoice Named Vocabularies
+- [ ] Schema hints (Chapter 29)
+- [ ] Excercises
+- [ ] Make uninstall work
+- [ ] Reusable Eggs chapter use mr.bob
+
+
+New chapters
+============
+
+* Testing introduction (After Chapter 18)
+  * unit tests
+  * functional testsa
+  * integration tests
+  * acceptance tests
+
+* Component Architecture
+  * One subscriber
+  * One adapter (twitter news)
+
+* Relationfields (After Chapter 26)
+  Speaker -> Talk ObjSourcePathBinder
+  Talk has Backreferences
+  http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html?highlight=objpathsourcebinder
+  * Story
+  * Probleme
+
+
+

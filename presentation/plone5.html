@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. What’s new in Plone 5 &mdash; Mastering Plone 1.2.5a documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+        <link rel="author" title="About these documents"
+              href="about.html"/>
+    <link rel="top" title="Mastering Plone 1.2.5a documentation" href="index.html"/>
+        <link rel="next" title="8. Configuring and Customizing Plone through the web" href="configuring_customizing.html"/>
+        <link rel="prev" title="6. The Features of Plone" href="features.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Mastering Plone</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Mastering Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#upcoming-trainings">Upcoming Trainings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#previous-trainings">Previous Trainings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#trainers">Trainers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#using-the-documentation-for-a-training">Using the documentation for a training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#contributing">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#license">License</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#who-are-you">Who are you?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-will-we-do">What will we do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-will-we-not-do">What will we not do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-to-expect">What to expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation &amp; Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-plone">Installing Plone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#hosting-plone">Hosting Plone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#production-deployment">Production Deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plone_training_config/instructions.html">3. Installing Plone for the Training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plone_training_config/instructions.html#installing-plone-without-vagrant">Installing Plone without vagrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plone_training_config/instructions.html#installing-plone-with-vagrant">Installing Plone with vagrant</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="anatomy.html">4. The Anatomy of Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anatomy.html#zope2">Zope2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy.html#content-management-framework">Content Management Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy.html#zope-toolkit-zope3">Zope Toolkit / Zope3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy.html#zope-component-architecture-zca">Zope Component Architecture (ZCA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy.html#pyramid">Pyramid</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="case.html">5. The Case-Study</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="case.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="case.html#requirements">Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">6. The Features of Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="features.html#starting-and-stopping-plone">Starting and Stopping Plone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#walkthrough-of-the-ui">Walkthrough of the UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#users">Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#configure-a-mailserver">Configure a Mailserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#content-types">Content-Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#folders">Folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#collections">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#content-rules">Content Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#history">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#manage-members-and-groups">Manage members and groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#workflows">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#working-copy">Working copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#placeful-workflows">Placeful workflows</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">7. What&#8217;s new in Plone 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#default-theme">Default Theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-ui-and-widgets">New UI and widgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#folder-contents">Folder-Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#content-types">Content-Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resource-registry">Resource-Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chameleon-template-engine">Chameleon template engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-panel">Control panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#date-formatting-on-the-client-side">Date formatting on the client side</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plone-app-multilingual">plone.app.multilingual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-portlet-manager">new portlet-manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remove-portal-skins">Remove portal_skins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_customizing.html">8. Configuring and Customizing Plone through the web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuring_customizing.html#the-control-panel">The Control Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_customizing.html#portlets">Portlets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_customizing.html#viewlets">Viewlets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_customizing.html#zmi">ZMI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_customizing.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">9. Extending Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#extension-technologies">Extension technologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#what-are-components-what-is-zcml">What are components, what is ZCML</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="addons.html">10. Extend Plone with Add-On Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#how-to-find-add-ons">How to find add-ons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#some-noteable-add-ons">Some noteable add-ons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#installing-add-ons">Installing Add-ons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#ploneformgen">PloneFormGen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#add-photogallery-with-collective-plonetruegallery">Add Photogallery with collective.plonetruegallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#internationalisation">Internationalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="theming.html">11. Theming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="theming.html#diazo-example">Diazo example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theming.html#templating-example">Templating example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theming.html#choosing-the-right-tool">Choosing the right tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theming.html#want-to-really-learn-theming">Want to really learn theming?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dexterity.html">12. Dexterity I: Through the web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#what-is-a-content-type">What is a content type?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#the-makings-of-a-plone-content-type">The makings of a Plone content type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#dexterity-and-archetypes-a-comparison">Dexterity and Archetypes - A Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#modifying-existing-types">Modifying existing types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#creating-content-types-ttw">Creating content types TTW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#moving-content-types-into-code">Moving content types into code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="buildout_1.html">13. Buildout I</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#syntax">Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#recipes">Recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#a-real-life-example">A real life example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#hello-mr-developer">Hello mr.developer!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#extensible">Extensible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#be-mcguyver">Be McGuyver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eggs1.html">14. Write your own addons to customize Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eggs1.html#creating-the-package">Creating the package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eggs1.html#inspecting-the-package">Inspecting the package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eggs1.html#including-the-package-in-plone">Including the package in Plone</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="export_code.html">15. Return to Dexterity: moving content types into code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="export_code.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="export_code.html#exercise-2">Exercise 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="views_1.html">16. Views I</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="views_1.html#a-simple-browser-view">A simple browser view</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zpt.html">17. Page Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#tal-and-tales">TAL and TALES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#plone-5">Plone 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#metal-and-macros">METAL and macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#accessing-plone-from-the-template">Accessing Plone from the template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#what-we-missed">What we missed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#tal-chameleon-label">Chameleon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zpt_2.html">18. Customizing existing templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zpt_2.html#the-view-for-news-items">The view for News Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt_2.html#the-summary-view">The Summary View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt_2.html#finding-the-right-template">Finding the right template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt_2.html#skin-templates">skin-templates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="views_2.html">19. Views II: A default view for &#8220;talk&#8221;</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="views_2.html#view-classes">View-Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_2.html#the-default-view">The default-view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_2.html#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="views_3.html">20. Views III: A Talk list</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#using-portal-catalog">Using portal_catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#brains-and-objects">brains and objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#querying-the-catalog">Querying the catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#exercises">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#the-template-for-the-listing">The template for the listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#setting-a-custom-view-as-default-view-on-an-object">Setting a custom view as default-view on an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#adding-some-javascript-collective-js-datatables">Adding some javascript (collective.js.datatables)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">21. Testing in Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#types-of-test">Types of test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#writing-tests">Writing tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#plone-tests">Plone tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="behaviors1.html">22. Behaviors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="behaviors1.html#dexterity-approach">Dexterity Approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors1.html#names-and-theory">Names and Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors1.html#practical-example">Practical example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors1.html#adding-it-to-our-talk">Adding it to our talk</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="viewlets_1.html">23. Writing Viewlets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_1.html#a-viewlet-for-the-social-behavior">A viewlet for the social behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_1.html#social-viewlet">social-viewlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_1.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_1.html#exercise-2">Exercise 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">24. Programming Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#plone-api">plone.api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#portal-tools">portal-tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#debugging">Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ide.html">25. IDE&#8217;s and Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dexterity_2.html">26. Dexterity Types II: Growing up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#add-a-marker-interface-to-the-talk-type">Add a marker-interface to the talk-type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#upgrade-steps">Upgrade-steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#add-a-browserlayer">Add a browserlayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#add-catalog-indexes">Add catalog-indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#query-for-custom-indexes">Query for custom indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#add-collection-criteria">Add collection criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#add-more-features-through-generic-setup">Add more features through generic-setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom_search.html">27. Custom search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="custom_search.html#eea-facetednavigation">eea.facetednavigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">28. Turn talks into events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#exercise-2">Exercise 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_generated_content.html">29. User generated content</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#self-registration">Self-registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#constrain-types">Constrain types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#grant-local-roles">Grant local roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_generated_content.html#move-the-changes-to-the-file-system">Move the changes to the file-system</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">30. Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thirdparty_behaviors.html">31. Using third-party behaviors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thirdparty_behaviors.html#add-teaser-with-collective-behavior-banner">Add teaser with collective.behavior.banner</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dexterity_3.html">32. Dexterity Types III: Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_3.html#the-python-schema">The python schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_3.html#the-fti">The FTI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_3.html#the-view">The view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_3.html#the-viewlet">The viewlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_3.html#the-template-for-the-viewlet">The template for the viewlet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="relations.html">33. Relations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eggs2.html">34. Creating reusable packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behaviors2.html">35. More complex behaviors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="behaviors2.html#using-annotations">Using Annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors2.html#using-schema">Using Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors2.html#writing-code">Writing Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="viewlets_2.html">36. A viewlet for the voteable behavior</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_2.html#voting-viewlet">Voting Viewlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_2.html#writing-the-viewlet-code">Writing the Viewlet code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_2.html#the-template">The template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_2.html#the-javascript-code">The javascript code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_2.html#writing-2-simple-view-helpers">Writing 2 simple view helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reusable.html">37. Making our package reusable</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reusable.html#adding-permissions">Adding permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reusable.html#using-our-permissions">Using our permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reusable.html#provide-defaults">Provide defaults</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embed.html">38. Using starzel.votable_behavior in ploneconf.site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment_code.html">39. Deploying your code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment_sites.html">40. Buildout II: Getting ready for deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deployment_sites.html#the-starzel-buildout">The starzel-buildout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment_sites.html#a-deployment-setup">A deployment-setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment_sites.html#other-tools-we-use">Other tools we use</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="frontpage.html">41. Creating a dynamic frontpage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="frontpage.html#the-frontpage">The Frontpage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontpage.html#the-template">The template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontpage.html#twitter">Twitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontpage.html#activating-the-view">Activating the view</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="future_of_plone.html">42. The Future of Plone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optional.html">43. Optional</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CHANGES.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#unreleased">1.2.5 (unreleased)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id1">1.2.4 (2014-10-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id2">1.2.3 (2014-07-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id3">1.2.2 (2014-06-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id4">1.2.1 (2014-05-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id5">1.2 (2014-05-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#october-2013">1.1 (October 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#october-2012">1.0 (October, 2012)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#october-2011">0.2 October 2011</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#october-2009">0.1 (October 2009)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html#id1">1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html#todo">Todo</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Mastering Plone</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>7. What&#8217;s new in Plone 5</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="what-s-new-in-plone-5">
+<span id="plone5-label"></span><h1>7. What&#8217;s new in Plone 5<a class="headerlink" href="#what-s-new-in-plone-5" title="Permalink to this headline">¶</a></h1>
+<p>If you are already used to Plone 5 could skip this section.</p>
+<div class="section" id="default-theme">
+<span id="plone5-theme-label"></span><h2>Default Theme<a class="headerlink" href="#default-theme" title="Permalink to this headline">¶</a></h2>
+<p>The new default theme is called <a class="reference external" href="https://github.com/plone/plonetheme.barceloneta/">Barceloneta</a></p>
+<p>It is a Diazo-Theme, meaning it uses plone.app.theming to insert the output of Plone into static html/css.</p>
+<p>I uses html5, so it uses <tt class="docutils literal"><span class="pre">&lt;header&gt;</span></tt>, <tt class="docutils literal"><span class="pre">&lt;nav&gt;</span></tt>, <tt class="docutils literal"><span class="pre">&lt;aside&gt;</span></tt>, <tt class="docutils literal"><span class="pre">&lt;section&gt;</span></tt>, <tt class="docutils literal"><span class="pre">&lt;article&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;footer&gt;</span></tt> for semantic html.</p>
+<p>The theme is mostly built with <a class="reference external" href="http://lesscss.org/">less</a> (lot&#8217;s of it!) and uses the same grid-system as <a class="reference external" href="http://getbootstrap.com/css/#grid">bootstrap</a>. This means you can use css-classes like <tt class="docutils literal"><span class="pre">col-xs-12</span> <span class="pre">col-sm-9</span></tt> to control the width of elements for different sreeen-sizes. If you prefer something a different grid-system (like <a class="reference external" href="http://foundation.zurb.com/docs/components/grid.html">foundation</a>)</p>
+<p>The <a class="reference external" href="https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/index.html">index.html</a> and <a class="reference external" href="https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/rules.xml">rules.xml</a> are actually not that complicated. Have a look at them.</p>
+<p>The following example from the <tt class="docutils literal"><span class="pre">rules.xml</span></tt> makes sure that the banner saying <em>&#8220;Welcome! Plone 5 rocks!&#8221;</em> is only visible on the frontpage:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="c">&lt;!-- hero unit on homepage only --&gt;</span>
+<span class="nt">&lt;drop</span> <span class="na">css:if-not-content=</span><span class="s">&quot;body.template-document_view.section-front-page&quot;</span>
+      <span class="na">css:theme=</span><span class="s">&quot;div.principal&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="new-ui-and-widgets">
+<span id="plone5-ui-widgets-label"></span><h2>New UI and widgets<a class="headerlink" href="#new-ui-and-widgets" title="Permalink to this headline">¶</a></h2>
+<p>The green edit-bar is replaced by a toolbar that is located on the left or top and can be expanded. The design of the toolbar is pretty isolated from the theme and it should not break if you use a different theme.</p>
+<p>The widgets where you input data are also completely rewritten.</p>
+<ul class="simple">
+<li>We now use the newest TinyMCE</li>
+<li>The tags (keywords)-widget and the widgets where you input usenames now use <a class="reference external" href="http://select2.github.io">select2</a> autocomplete to give a better user-experience</li>
+<li>The related-items-widget is a complete rewrite</li>
+</ul>
+</div>
+<div class="section" id="folder-contents">
+<span id="plone5-foldercontents-label"></span><h2>Folder-Contents<a class="headerlink" href="#folder-contents" title="Permalink to this headline">¶</a></h2>
+<p>The view to display the content of a folder is new and offers many new features:</p>
+<ul class="simple">
+<li>configurable table-columns</li>
+<li>changing properties of multiple items at once</li>
+<li>querying (useful for folders with a lot of content)</li>
+<li>persistent selection of items</li>
+</ul>
+</div>
+<div class="section" id="content-types">
+<span id="plone5-content-types-label"></span><h2>Content-Types<a class="headerlink" href="#content-types" title="Permalink to this headline">¶</a></h2>
+<p>All default types are based on Dexterity. This means you can use behaviors to change their features and edit them through the web. Existing old content can be migrated to these types.</p>
+</div>
+<div class="section" id="resource-registry">
+<span id="plone5-resource-registry-label"></span><h2>Resource-Registry<a class="headerlink" href="#resource-registry" title="Permalink to this headline">¶</a></h2>
+<p>The resource-registry allows you to configure and edit the static resources (js, css) of Plone. It replaces the old javascript and css-registries. And can be used to customize the theme by changing the less-variables or overriding less-files.</p>
+</div>
+<div class="section" id="chameleon-template-engine">
+<span id="plone5-chameleon-label"></span><h2>Chameleon template engine<a class="headerlink" href="#chameleon-template-engine" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://chameleon.readthedocs.org">Chameleon</a> is the new rendering engine of Plone 5. It offers may improvements:</p>
+<p>Old syntax:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1</span> <span class="na">tal:attributes=</span><span class="s">&quot;title view/title&quot;</span>
+    <span class="na">tal:content=</span><span class="s">&quot;view/page_name&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/h1&gt;</span>
+</pre></div>
+</div>
+<p>New (additional) syntax:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1</span> <span class="na">title=</span><span class="s">&quot;${view/title}&quot;</span><span class="nt">&gt;</span>
+    ${view/page_name}
+<span class="nt">&lt;/h1&gt;</span>
+</pre></div>
+</div>
+<p>Template-debugging:</p>
+<p>You can not put a full-grown <tt class="docutils literal"><span class="pre">pdb</span></tt> in a template.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;?python import pdb; pdb.set_trace() ?&gt;</span>
+</pre></div>
+</div>
+<p>For debugging check out the variable <tt class="docutils literal"><span class="pre">econtext</span></tt>, it holds all the current elements.</p>
+<p>You can also add real python-blocks inside templates.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;?python</span>
+
+<span class="cp">from plone import api</span>
+
+<span class="cp">catalog = api.portal.get_tool(&#39;portal_catalog&#39;)</span>
+<span class="cp">results = []</span>
+<span class="cp">for brain in catalog(portal_type=&#39;Folder&#39;):</span>
+<span class="cp">    results.append(brain.getURL())</span>
+
+<span class="cp">?&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">tal:repeat=</span><span class="s">&quot;result results&quot;</span><span class="nt">&gt;</span>
+      ${result}
+    <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+</div>
+<p>Don&#8217;t overdo it!</p>
+</div>
+<div class="section" id="control-panel">
+<span id="plone5-control-panel-label"></span><h2>Control panel<a class="headerlink" href="#control-panel" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>You can finally upload a logo in <tt class="docutils literal"><span class="pre">&#64;&#64;site-controlpanel</span></tt>.</li>
+<li>All control-panels were moved to z3c.form</li>
+<li>Many small improvements</li>
+</ul>
+</div>
+<div class="section" id="date-formatting-on-the-client-side">
+<span id="plone5-dateformatting-label"></span><h2>Date formatting on the client side<a class="headerlink" href="#date-formatting-on-the-client-side" title="Permalink to this headline">¶</a></h2>
+<p>Using the js-library moments.js the formatting of dates was moved to the client.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;pat-moment&quot;</span>
+    <span class="na">data-pat-moment=</span><span class="s">&quot;selector:li;format:calendar;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li&gt;</span>${python:context.created().ISO()}<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>2015-10-22T12:10:00-05:00<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+</div>
+<p>returns</p>
+<blockquote>
+<div><ul class="simple">
+<li>Today at 3:24 PM</li>
+<li>10/22/2015</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="plone-app-multilingual">
+<span id="plone5-multilingual-label"></span><h2>plone.app.multilingual<a class="headerlink" href="#plone-app-multilingual" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/plone/plone.app.multilingual">plone.app.multilingual</a> is the new default-addon for sites in more than one language.</p>
+</div>
+<div class="section" id="new-portlet-manager">
+<span id="plone5-portletmanager-label"></span><h2>new portlet-manager<a class="headerlink" href="#new-portlet-manager" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">plone.footerportlets</span></tt> is a new place to put portlets. The footer (holding the footer, site_actions, colophon) is now built from portlets. This means you can edit the footer ttw.</p>
+<p>There is also a useful new portlet-type <tt class="docutils literal"><span class="pre">Actions</span></tt> used for displaying the site_actions.</p>
+</div>
+<div class="section" id="remove-portal-skins">
+<span id="plone5-skins-label"></span><h2>Remove portal_skins<a class="headerlink" href="#remove-portal-skins" title="Permalink to this headline">¶</a></h2>
+<p>Many of the old skin-templates were replaced by real browser-views.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configuring_customizing.html" class="btn btn-neutral float-right" title="8. Configuring and Customizing Plone through the web"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="features.html" class="btn btn-neutral" title="6. The Features of Plone"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license..
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.2.5a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .admonition-title").show();
+        $(".toggle .admonition-title").click(function() {
+            $(this).parent().children().not(".admonition-title").toggle(400);
+            $(this).parent().children(".admonition-title").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

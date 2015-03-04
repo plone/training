@@ -1,0 +1,944 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>29. User generated content &mdash; Mastering Plone 1.2.5a documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+        <link rel="author" title="About these documents"
+              href="about.html"/>
+    <link rel="top" title="Mastering Plone 1.2.5a documentation" href="index.html"/>
+        <link rel="next" title="30. Resources" href="resources.html"/>
+        <link rel="prev" title="28. Turn talks into events" href="events.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Mastering Plone</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Mastering Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#upcoming-trainings">Upcoming Trainings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#previous-trainings">Previous Trainings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#trainers">Trainers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#using-the-documentation-for-a-training">Using the documentation for a training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#contributing">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#license">License</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#who-are-you">Who are you?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-will-we-do">What will we do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-will-we-not-do">What will we not do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-to-expect">What to expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation &amp; Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-plone">Installing Plone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#hosting-plone">Hosting Plone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#production-deployment">Production Deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plone_training_config/instructions.html">3. Installing Plone for the Training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plone_training_config/instructions.html#installing-plone-without-vagrant">Installing Plone without vagrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plone_training_config/instructions.html#installing-plone-with-vagrant">Installing Plone with vagrant</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="anatomy.html">4. The Anatomy of Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anatomy.html#zope2">Zope2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy.html#content-management-framework">Content Management Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy.html#zope-toolkit-zope3">Zope Toolkit / Zope3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy.html#zope-component-architecture-zca">Zope Component Architecture (ZCA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy.html#pyramid">Pyramid</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="case.html">5. The Case-Study</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="case.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="case.html#requirements">Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">6. The Features of Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="features.html#starting-and-stopping-plone">Starting and Stopping Plone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#walkthrough-of-the-ui">Walkthrough of the UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#users">Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#configure-a-mailserver">Configure a Mailserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#content-types">Content-Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#folders">Folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#collections">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#content-rules">Content Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#history">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#manage-members-and-groups">Manage members and groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#workflows">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#working-copy">Working copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#placeful-workflows">Placeful workflows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plone5.html">7. What&#8217;s new in Plone 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plone5.html#default-theme">Default Theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plone5.html#new-ui-and-widgets">New UI and widgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plone5.html#folder-contents">Folder-Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plone5.html#content-types">Content-Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plone5.html#resource-registry">Resource-Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plone5.html#chameleon-template-engine">Chameleon template engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plone5.html#control-panel">Control panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plone5.html#date-formatting-on-the-client-side">Date formatting on the client side</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plone5.html#plone-app-multilingual">plone.app.multilingual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plone5.html#new-portlet-manager">new portlet-manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plone5.html#remove-portal-skins">Remove portal_skins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuring_customizing.html">8. Configuring and Customizing Plone through the web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuring_customizing.html#the-control-panel">The Control Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_customizing.html#portlets">Portlets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_customizing.html#viewlets">Viewlets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_customizing.html#zmi">ZMI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring_customizing.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">9. Extending Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#extension-technologies">Extension technologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#what-are-components-what-is-zcml">What are components, what is ZCML</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="addons.html">10. Extend Plone with Add-On Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#how-to-find-add-ons">How to find add-ons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#some-noteable-add-ons">Some noteable add-ons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#installing-add-ons">Installing Add-ons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#ploneformgen">PloneFormGen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#add-photogallery-with-collective-plonetruegallery">Add Photogallery with collective.plonetruegallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#internationalisation">Internationalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addons.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="theming.html">11. Theming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="theming.html#diazo-example">Diazo example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theming.html#templating-example">Templating example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theming.html#choosing-the-right-tool">Choosing the right tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theming.html#want-to-really-learn-theming">Want to really learn theming?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dexterity.html">12. Dexterity I: Through the web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#what-is-a-content-type">What is a content type?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#the-makings-of-a-plone-content-type">The makings of a Plone content type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#dexterity-and-archetypes-a-comparison">Dexterity and Archetypes - A Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#modifying-existing-types">Modifying existing types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#creating-content-types-ttw">Creating content types TTW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#moving-content-types-into-code">Moving content types into code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="buildout_1.html">13. Buildout I</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#syntax">Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#recipes">Recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#a-real-life-example">A real life example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#hello-mr-developer">Hello mr.developer!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#extensible">Extensible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout_1.html#be-mcguyver">Be McGuyver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eggs1.html">14. Write your own addons to customize Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eggs1.html#creating-the-package">Creating the package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eggs1.html#inspecting-the-package">Inspecting the package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eggs1.html#including-the-package-in-plone">Including the package in Plone</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="export_code.html">15. Return to Dexterity: moving content types into code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="export_code.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="export_code.html#exercise-2">Exercise 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="views_1.html">16. Views I</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="views_1.html#a-simple-browser-view">A simple browser view</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zpt.html">17. Page Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#tal-and-tales">TAL and TALES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#plone-5">Plone 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#metal-and-macros">METAL and macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#accessing-plone-from-the-template">Accessing Plone from the template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#what-we-missed">What we missed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt.html#tal-chameleon-label">Chameleon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zpt_2.html">18. Customizing existing templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zpt_2.html#the-view-for-news-items">The view for News Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt_2.html#the-summary-view">The Summary View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt_2.html#finding-the-right-template">Finding the right template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zpt_2.html#skin-templates">skin-templates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="views_2.html">19. Views II: A default view for &#8220;talk&#8221;</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="views_2.html#view-classes">View-Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_2.html#the-default-view">The default-view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_2.html#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="views_3.html">20. Views III: A Talk list</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#using-portal-catalog">Using portal_catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#brains-and-objects">brains and objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#querying-the-catalog">Querying the catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#exercises">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#the-template-for-the-listing">The template for the listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#setting-a-custom-view-as-default-view-on-an-object">Setting a custom view as default-view on an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#adding-some-javascript-collective-js-datatables">Adding some javascript (collective.js.datatables)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_3.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">21. Testing in Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#types-of-test">Types of test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#writing-tests">Writing tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#plone-tests">Plone tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="behaviors1.html">22. Behaviors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="behaviors1.html#dexterity-approach">Dexterity Approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors1.html#names-and-theory">Names and Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors1.html#practical-example">Practical example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors1.html#adding-it-to-our-talk">Adding it to our talk</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="viewlets_1.html">23. Writing Viewlets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_1.html#a-viewlet-for-the-social-behavior">A viewlet for the social behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_1.html#social-viewlet">social-viewlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_1.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_1.html#exercise-2">Exercise 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">24. Programming Plone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#plone-api">plone.api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#portal-tools">portal-tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#debugging">Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ide.html">25. IDE&#8217;s and Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dexterity_2.html">26. Dexterity Types II: Growing up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#add-a-marker-interface-to-the-talk-type">Add a marker-interface to the talk-type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#upgrade-steps">Upgrade-steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#add-a-browserlayer">Add a browserlayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#add-catalog-indexes">Add catalog-indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#query-for-custom-indexes">Query for custom indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#add-collection-criteria">Add collection criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_2.html#add-more-features-through-generic-setup">Add more features through generic-setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom_search.html">27. Custom search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="custom_search.html#eea-facetednavigation">eea.facetednavigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">28. Turn talks into events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#exercise-2">Exercise 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">29. User generated content</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#self-registration">Self-registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constrain-types">Constrain types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grant-local-roles">Grant local roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-custom-workflow-for-talks">A custom workflow for talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#move-the-changes-to-the-file-system">Move the changes to the file-system</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">30. Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thirdparty_behaviors.html">31. Using third-party behaviors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thirdparty_behaviors.html#add-teaser-with-collective-behavior-banner">Add teaser with collective.behavior.banner</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dexterity_3.html">32. Dexterity Types III: Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_3.html#the-python-schema">The python schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_3.html#the-fti">The FTI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_3.html#the-view">The view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_3.html#the-viewlet">The viewlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dexterity_3.html#the-template-for-the-viewlet">The template for the viewlet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="relations.html">33. Relations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eggs2.html">34. Creating reusable packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behaviors2.html">35. More complex behaviors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="behaviors2.html#using-annotations">Using Annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors2.html#using-schema">Using Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors2.html#writing-code">Writing Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="viewlets_2.html">36. A viewlet for the voteable behavior</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_2.html#voting-viewlet">Voting Viewlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_2.html#writing-the-viewlet-code">Writing the Viewlet code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_2.html#the-template">The template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_2.html#the-javascript-code">The javascript code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewlets_2.html#writing-2-simple-view-helpers">Writing 2 simple view helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reusable.html">37. Making our package reusable</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reusable.html#adding-permissions">Adding permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reusable.html#using-our-permissions">Using our permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reusable.html#provide-defaults">Provide defaults</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embed.html">38. Using starzel.votable_behavior in ploneconf.site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment_code.html">39. Deploying your code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment_sites.html">40. Buildout II: Getting ready for deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deployment_sites.html#the-starzel-buildout">The starzel-buildout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment_sites.html#a-deployment-setup">A deployment-setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment_sites.html#other-tools-we-use">Other tools we use</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="frontpage.html">41. Creating a dynamic frontpage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="frontpage.html#the-frontpage">The Frontpage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontpage.html#the-template">The template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontpage.html#twitter">Twitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontpage.html#activating-the-view">Activating the view</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="future_of_plone.html">42. The Future of Plone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optional.html">43. Optional</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CHANGES.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#unreleased">1.2.5 (unreleased)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id1">1.2.4 (2014-10-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id2">1.2.3 (2014-07-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id3">1.2.2 (2014-06-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id4">1.2.1 (2014-05-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#id5">1.2 (2014-05-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#october-2013">1.1 (October 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#october-2012">1.0 (October, 2012)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#october-2011">0.2 October 2011</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGES.html#october-2009">0.1 (October 2009)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html#id1">1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html#todo">Todo</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Mastering Plone</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>29. User generated content</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="user-generated-content">
+<span id="user-content-label"></span><h1>29. User generated content<a class="headerlink" href="#user-generated-content" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Get the code!</p>
+<p>Get the code for this chapter (<a class="reference internal" href="sneak.html"><em>More info</em></a>) using this command in the buildout-directory:</p>
+<div class="last highlight-bash"><div class="highlight"><pre>cp -R src/ploneconf.site_sneak/chapters/11_user_generated_content_p5/ src/ploneconf.site
+</pre></div>
+</div>
+</div>
+<p>How do prospective speakers submit talks? We let them register on the site and grant right to create talks. For this we go back to changing the site through-the-web.</p>
+<p>In this chapter we:</p>
+<ul class="simple">
+<li>allow self-registration</li>
+<li>constrain types on the talk-folder</li>
+<li>grant local roles</li>
+<li>create a custom workflow for talks</li>
+</ul>
+<div class="section" id="self-registration">
+<span id="user-content-self-reg-label"></span><h2>Self-registration<a class="headerlink" href="#self-registration" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Go to the Security-controlpanel at <a class="reference external" href="http://localhost:8080/Plone/&#64;&#64;security-controlpanel">http://localhost:8080/Plone/&#64;&#64;security-controlpanel</a> and Enable self-registration</li>
+<li>Leave &#8220;Enable User Folders&#8221; off unless you want a community-site.</li>
+</ul>
+</div>
+<div class="section" id="constrain-types">
+<span id="user-content-constrain-types-label"></span><h2>Constrain types<a class="headerlink" href="#constrain-types" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>On the talk-folder select <a class="reference external" href="http://localhost:8080/Plone/the-event/talks/folder_constraintypes_form">Restrictions…</a> from the <em>Add new</em> menu. Only allow to add talks.</li>
+</ul>
+</div>
+<div class="section" id="grant-local-roles">
+<span id="user-content-local-roles-label"></span><h2>Grant local roles<a class="headerlink" href="#grant-local-roles" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Go to <em>Sharing</em> and grant the role <em>Can add</em> to the group logged-in users. Now every user can add content in this folder (and only this folder).</li>
+</ul>
+<p>Now all logged-in users can create and submit talks in this folder with the permission of the default-workflow.</p>
+</div>
+<div class="section" id="a-custom-workflow-for-talks">
+<span id="user-content-custom-workflow-label"></span><h2>A custom workflow for talks<a class="headerlink" href="#a-custom-workflow-for-talks" title="Permalink to this headline">¶</a></h2>
+<p>We still need to fix a problem: Authenticated users can see all talks, even the ones of other users in the private state. Since we don&#8217;t want this we will create a modified workflow for talks. The new workflow will only let them see and edit talks they created themselves and not the ones of other users.</p>
+<ul class="simple">
+<li>Go to the ZMI &gt; portal_workflow</li>
+<li>See how talks have the same workflow as most content <tt class="docutils literal"><span class="pre">(Default)</span></tt></li>
+<li>Go to the tab <em>Contents</em>, check the box next to <tt class="docutils literal"><span class="pre">simple_publication_workflow</span></tt>, click <tt class="docutils literal"><span class="pre">copy</span></tt> and <tt class="docutils literal"><span class="pre">paste</span></tt>.</li>
+<li>Rename the new workflow from <em>copy_of_simple_publication_workflow</em> to <em>talks_workflow</em>.</li>
+<li>Edit the workflow by clicking on it: Change the Title to <em>Talks Workflow</em>.</li>
+<li>Click on the tab <em>States</em> and click on <em>private</em> to edit this state. In the next view select the tab <em>Permissions</em>.</li>
+<li>Find the talbe-column for the role <em>Contributor</em> and remove the permissions for <tt class="docutils literal"><span class="pre">Access</span> <span class="pre">contents</span> <span class="pre">information</span></tt> and <tt class="docutils literal"><span class="pre">View</span></tt>. Note that the <em>Owner</em> (i.e. the Creator) still has some permissions.</li>
+<li>Do the same for the state <em>pending</em></li>
+<li>Go back to <em>portal_workflow</em> and set the new workflow <tt class="docutils literal"><span class="pre">talks_workflow</span></tt> for talks. Click <em>Change</em> and then <em>Update security settings</em>.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The addon <a class="reference external" href="https://pypi.python.org/pypi/plone.app.workflowmanager">plone.app.workflowmanager</a> provides a much nicer user-interface for this. The problem is you need a big screen for it and it can be pretty confusing as well.</p>
+</div>
+<p>Done.</p>
+</div>
+<div class="section" id="move-the-changes-to-the-file-system">
+<span id="user-content-fs-label"></span><h2>Move the changes to the file-system<a class="headerlink" href="#move-the-changes-to-the-file-system" title="Permalink to this headline">¶</a></h2>
+<p>We don&#8217;t want to do these steps for every new conference by hand so we move the changes into our package.</p>
+<div class="section" id="import-export-the-workflow">
+<h3>Import/Export the Workflow<a class="headerlink" href="#import-export-the-workflow" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>export the GenericSetup step <em>Workflow Tool</em> in <a class="reference external" href="http://localhost:8080/Plone/portal_setup/manage_exportSteps">http://localhost:8080/Plone/portal_setup/manage_exportSteps</a>.</li>
+<li>drop the file <tt class="docutils literal"><span class="pre">workflows.xml</span></tt> into <tt class="docutils literal"><span class="pre">profiles/default</span></tt>.</li>
+<li>drop <tt class="docutils literal"><span class="pre">workflows/talks_workflow/definition.xml</span></tt> in <tt class="docutils literal"><span class="pre">profiles/default/workflows/talks_workflow/definition.xml</span></tt>. The others are just definitions of the default-workflows and we only want things in our package that changes Plone.</li>
+</ul>
+</div>
+<div class="section" id="enable-self-registration">
+<h3>Enable self-registration<a class="headerlink" href="#enable-self-registration" title="Permalink to this headline">¶</a></h3>
+<p>To enable self-registration add the following to <tt class="docutils literal"><span class="pre">profiles/default/registry.xml</span></tt>:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;record</span> <span class="na">name=</span><span class="s">&quot;plone.enable_self_reg&quot;</span> <span class="na">interface=</span><span class="s">&quot;Products.CMFPlone.interfaces.controlpanel.ISecuritySchema&quot;</span> <span class="na">field=</span><span class="s">&quot;enable_self_reg&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;value&gt;</span>True<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Before Plone 5 this had to be done in python in a setuphandler (see below) since there was not yet a exportable setting for this.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Grant local roles<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Since the granting of local roles applies only to a certain folder in the site we&#8217;d would not always write code for it but do it by hand. But for testability and repeatability (there is conference every year!) we should create the initial content-structure automatically.</p>
+<p>So let&#8217;s make sure some initial content is created and configured on installing the package.</p>
+<p>To run arbitrary code during installing a package we use a special import-step, a <a class="reference external" href="http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py">setuphandler</a></p>
+<p>Our package already has such a import-step registered in <tt class="docutils literal"><span class="pre">configure.zcml</span></tt>. It will be automatically run when (re-)installing the addon.</p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">&lt;genericsetup:importStep</span>
+    <span class="na">name=</span><span class="s">&quot;ploneconf.site-postInstall&quot;</span>
+    <span class="na">title=</span><span class="s">&quot;ploneconf.site post_install import step&quot;</span>
+    <span class="na">description=</span><span class="s">&quot;Post install import step from ploneconf.site&quot;</span>
+    <span class="na">handler=</span><span class="s">&quot;.setuphandlers.post_install&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/genericsetup:importStep&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All GenericSetup import steps, including this one, are run for <strong>every add-on product</strong> when they are installed. To make sure that it is only run during installation of your package the code checks for a marker text file <tt class="docutils literal"><span class="pre">ploneconfsite_marker.txt</span></tt>.</p>
+</div>
+<p>This step makes sure the method <tt class="docutils literal"><span class="pre">post_install</span></tt> in <tt class="docutils literal"><span class="pre">setuphandlers.py</span></tt> is executed on in installing.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">plone</span> <span class="kn">import</span> <span class="n">api</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">PROFILE_ID</span> <span class="o">=</span> <span class="s">&#39;profile-ploneconf.site:default&#39;</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">isNotCurrentProfile</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">readDataFile</span><span class="p">(</span><span class="s">&#39;ploneconfsite_marker.txt&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span>
+
+
+<span class="k">def</span> <span class="nf">post_install</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Post install script&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">isNotCurrentProfile</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+        <span class="k">return</span>
+    <span class="c"># Do something during the installation of this package</span>
+    <span class="n">portal</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">portal</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">set_up_content</span><span class="p">(</span><span class="n">portal</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">set_up_content</span><span class="p">(</span><span class="n">portal</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create and configure some initial content&quot;&quot;&quot;</span>
+    <span class="c"># Abort if there is already a folder &#39;talks&#39;</span>
+    <span class="k">if</span> <span class="s">&#39;talks&#39;</span> <span class="ow">in</span> <span class="n">portal</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;There already exists a item calles &quot;talks&quot;&#39;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">talks</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">container</span><span class="o">=</span><span class="n">portal</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s">&#39;Folder&#39;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s">&#39;talks&#39;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s">&#39;Talks&#39;</span><span class="p">)</span>
+    <span class="n">api</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">transition</span><span class="p">(</span><span class="n">talks</span><span class="p">,</span> <span class="s">&#39;publish&#39;</span><span class="p">)</span>
+
+    <span class="c"># Allow logged-in users to create content</span>
+    <span class="n">api</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">grant_roles</span><span class="p">(</span>
+        <span class="n">groupname</span><span class="o">=</span><span class="s">&#39;AuthenticatedUsers&#39;</span><span class="p">,</span>
+        <span class="n">roles</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;Contributor&#39;</span><span class="p">],</span>
+        <span class="n">obj</span><span class="o">=</span><span class="n">talks</span><span class="p">)</span>
+
+    <span class="c"># Constrain addable types to talk</span>
+    <span class="n">behavior</span> <span class="o">=</span> <span class="p">(</span><span class="n">talks</span><span class="p">)</span>
+    <span class="n">behavior</span><span class="o">.</span><span class="n">setConstrainTypesMode</span><span class="p">(</span><span class="n">constrains</span><span class="o">.</span><span class="n">ENABLED</span><span class="p">)</span>
+    <span class="n">behavior</span><span class="o">.</span><span class="n">setLocallyAllowedTypes</span><span class="p">([</span><span class="s">&#39;talk&#39;</span><span class="p">])</span>
+    <span class="n">behavior</span><span class="o">.</span><span class="n">setImmediatelyAddableTypes</span><span class="p">([</span><span class="s">&#39;talk&#39;</span><span class="p">])</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Created and configured </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">talks</span><span class="o">.</span><span class="n">absolute_url</span><span class="p">())</span>
+</pre></div>
+</td></tr></table></div>
+<p>Once we reinstall our package a folder &#8216;talks&#8217; is created with the appropriate local roles and constraints.</p>
+<p>Remember that we wrote similar code to create the folder <em>The Event</em> in <a class="reference internal" href="dexterity_2.html#dexterity2-upgrades-label"><em>Upgrade-steps</em></a>. We should probably add it also to setuphandlers to make sure a sane structure get&#8217;s created when we create a new site by hand or in tests.</p>
+<p>You&#8217;d usualy create a list of dictionaries containing the type, parent and title plus optionally layout, workflow-state etc. to create a initial structure. In some projects it could also make sense to have a seperate profile besides <tt class="docutils literal"><span class="pre">default</span></tt> which might be called <tt class="docutils literal"><span class="pre">content</span></tt> that creates a initial structure and maybe another <tt class="docutils literal"><span class="pre">testing</span></tt> that creates dummy content (talks, speakers etc) for tests.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can also export and later import content using the GenericSetup-step <em>Content</em> (<tt class="docutils literal"><span class="pre">Products.CMFCore.exportimport.content.exportSiteStructure</span></tt>) although you cannot set all types of properties (workflow-state, layout) and the syntax is a little special.</p>
+</div>
+<div class="section" id="excercise-1">
+<h4>Excercise 1<a class="headerlink" href="#excercise-1" title="Permalink to this headline">¶</a></h4>
+<p>Create a profile <tt class="docutils literal"><span class="pre">content</span></tt> that runs it&#8217;s own method in <tt class="docutils literal"><span class="pre">setuphandlers.py</span></tt>. Note that you need a different marker text file to make sure your code is only run when installing the profile <tt class="docutils literal"><span class="pre">content</span></tt>.</p>
+<div class="toggle admonition">
+<p class="first admonition-title">Solution</p>
+<p>Register the profile and the upgrrade-step in <tt class="docutils literal"><span class="pre">configure.zcml</span></tt></p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;genericsetup:registerProfile</span>
+    <span class="na">name=</span><span class="s">&quot;content&quot;</span>
+    <span class="na">title=</span><span class="s">&quot;PloneConf Site initial content&quot;</span>
+    <span class="na">directory=</span><span class="s">&quot;profiles/content&quot;</span>
+    <span class="na">description=</span><span class="s">&quot;Extension profile for PloneConf Talk to add initial content&quot;</span>
+    <span class="na">provides=</span><span class="s">&quot;Products.GenericSetup.interfaces.EXTENSION&quot;</span>
+    <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;genericsetup:importStep</span>
+    <span class="na">name=</span><span class="s">&quot;ploneconf.site-content&quot;</span>
+    <span class="na">title=</span><span class="s">&quot;ploneconf.site with initial content&quot;</span>
+    <span class="na">description=</span><span class="s">&quot;Post install import step from ploneconf.site with initial content&quot;</span>
+    <span class="na">handler=</span><span class="s">&quot;.setuphandlers.content&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;depends</span> <span class="na">name=</span><span class="s">&#39;typeinfo&#39;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/genericsetup:importStep&gt;</span>
+</pre></div>
+</div>
+<p>Create the profile-folder <tt class="docutils literal"><span class="pre">profiles/content</span></tt> and drop a marker-file <tt class="docutils literal"><span class="pre">ploneconfsite_content_marker.txt</span></tt> in it.</p>
+<p>Also add a <tt class="docutils literal"><span class="pre">profiles/content/metadata.xml</span></tt> so the default-profile get&#8217;s automatically installed when installing the content-profile.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;metadata&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1000<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>profile-ploneconf.site:default<span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/metadata&gt;</span>
+</pre></div>
+</div>
+<p>Add the stucture you wish to create as a list of dictionaries in <tt class="docutils literal"><span class="pre">setuphandlers.py</span></tt>:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">STRUCTURE</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;Document&#39;</span><span class="p">,</span>
+        <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">u&#39;Plone Conference 2022&#39;</span><span class="p">,</span>
+        <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;plone-conference-2022&#39;</span><span class="p">,</span>
+        <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">u&#39;&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;Folder&#39;</span><span class="p">,</span>
+        <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">u&#39;The Event&#39;</span><span class="p">,</span>
+        <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;the-event&#39;</span><span class="p">,</span>
+        <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">u&#39;Plone Conference 2022&#39;</span><span class="p">,</span>
+        <span class="s">&#39;layout&#39;</span><span class="p">:</span> <span class="s">&#39;frontpage-for-the-event&#39;</span><span class="p">,</span>
+        <span class="s">&#39;children&#39;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;Document&#39;</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">u&#39;Frontpage for the-event&#39;</span><span class="p">,</span>
+            <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;frontpage-for-the-event&#39;</span><span class="p">,</span>
+            <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">u&#39;&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+            <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;Folder&#39;</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">u&#39;Talks&#39;</span><span class="p">,</span>
+            <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;talks&#39;</span><span class="p">,</span>
+            <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">u&#39;&#39;</span><span class="p">,</span>
+            <span class="s">&#39;layout&#39;</span><span class="p">:</span> <span class="s">&#39;talklistview&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+            <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;Folder&#39;</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">u&#39;Training&#39;</span><span class="p">,</span>
+            <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;training&#39;</span><span class="p">,</span>
+            <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">u&#39;&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+            <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;Folder&#39;</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">u&#39;Sprint&#39;</span><span class="p">,</span>
+            <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;sprint&#39;</span><span class="p">,</span>
+            <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">u&#39;&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;Folder&#39;</span><span class="p">,</span>
+        <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">u&#39;Talks&#39;</span><span class="p">,</span>
+        <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;talks&#39;</span><span class="p">,</span>
+        <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">u&#39;Submit your talks here!&#39;</span><span class="p">,</span>
+        <span class="s">&#39;layout&#39;</span><span class="p">:</span> <span class="s">&#39;@@talklistview&#39;</span><span class="p">,</span>
+        <span class="s">&#39;allowed_types&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;talk&#39;</span><span class="p">],</span>
+        <span class="s">&#39;local_roles&#39;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s">&#39;group&#39;</span><span class="p">:</span> <span class="s">&#39;AuthenticatedUsers&#39;</span><span class="p">,</span>
+            <span class="s">&#39;roles&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;Contributor&#39;</span><span class="p">]</span>
+        <span class="p">}],</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;Folder&#39;</span><span class="p">,</span>
+        <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">u&#39;News&#39;</span><span class="p">,</span>
+        <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;news&#39;</span><span class="p">,</span>
+        <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">u&#39;News about the Plone Conference&#39;</span><span class="p">,</span>
+        <span class="s">&#39;children&#39;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;News Item&#39;</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">u&#39;Submit your talks!&#39;</span><span class="p">,</span>
+            <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;submit-your-talks&#39;</span><span class="p">,</span>
+            <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">u&#39;&#39;</span><span class="p">,}</span>
+        <span class="p">],</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;Folder&#39;</span><span class="p">,</span>
+        <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">u&#39;Events&#39;</span><span class="p">,</span>
+        <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;events&#39;</span><span class="p">,</span>
+        <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">u&#39;Dates to keep in mind&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+</td></tr></table></div>
+<p>Add a the method <tt class="docutils literal"><span class="pre">content</span></tt> to <tt class="docutils literal"><span class="pre">setuphandlers.py</span></tt>. We pointed to that when registering the import step. And add some fancy logic to create the content from <tt class="docutils literal"><span class="pre">STRUCTURE</span></tt>.</p>
+<div class="last highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">content</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">readDataFile</span><span class="p">(</span><span class="s">&#39;ploneconfsite_content_marker.txt&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">portal</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">portal</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">STRUCTURE</span><span class="p">:</span>
+        <span class="n">_create_content</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">portal</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_create_content</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">container</span><span class="p">):</span>
+    <span class="n">new</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">],</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">new</span><span class="p">:</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="nb">type</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">],</span>
+            <span class="n">container</span><span class="o">=</span><span class="n">container</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s">&#39;title&#39;</span><span class="p">],</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">],</span>
+            <span class="n">safe_id</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;layout&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">):</span>
+        <span class="n">new</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s">&#39;layout&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;allowed_types&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">):</span>
+        <span class="n">_constrain</span><span class="p">(</span><span class="n">new</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s">&#39;allowed_types&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;local_roles&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">local_role</span> <span class="ow">in</span> <span class="n">item</span><span class="p">[</span><span class="s">&#39;local_roles&#39;</span><span class="p">]:</span>
+            <span class="n">api</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">grant_roles</span><span class="p">(</span>
+                <span class="n">groupname</span><span class="o">=</span><span class="n">local_role</span><span class="p">[</span><span class="s">&#39;group&#39;</span><span class="p">],</span>
+                <span class="n">roles</span><span class="o">=</span><span class="n">local_role</span><span class="p">[</span><span class="s">&#39;roles&#39;</span><span class="p">],</span>
+                <span class="n">obj</span><span class="o">=</span><span class="n">new</span><span class="p">)</span>
+    <span class="n">api</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">transition</span><span class="p">(</span><span class="n">new</span><span class="p">,</span> <span class="n">to_state</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;state&#39;</span><span class="p">,</span> <span class="s">&#39;published&#39;</span><span class="p">))</span>
+    <span class="n">new</span><span class="o">.</span><span class="n">reindexObject</span><span class="p">()</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Created item {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">new</span><span class="o">.</span><span class="n">absolute_url</span><span class="p">()))</span>
+    <span class="c"># call recursively for children</span>
+    <span class="k">for</span> <span class="n">subitem</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;children&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="n">_create_content</span><span class="p">(</span><span class="n">subitem</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_constrain</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">allowed_types</span><span class="p">):</span>
+    <span class="n">behavior</span> <span class="o">=</span> <span class="n">ISelectableConstrainTypes</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="n">behavior</span><span class="o">.</span><span class="n">setConstrainTypesMode</span><span class="p">(</span><span class="n">constrains</span><span class="o">.</span><span class="n">ENABLED</span><span class="p">)</span>
+    <span class="n">behavior</span><span class="o">.</span><span class="n">setLocallyAllowedTypes</span><span class="p">(</span><span class="n">allowed_types</span><span class="p">)</span>
+    <span class="n">behavior</span><span class="o">.</span><span class="n">setImmediatelyAddableTypes</span><span class="p">(</span><span class="n">allowed_types</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="resources.html" class="btn btn-neutral float-right" title="30. Resources"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="events.html" class="btn btn-neutral" title="28. Turn talks into events"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license..
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.2.5a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .admonition-title").show();
+        $(".toggle .admonition-title").click(function() {
+            $(this).parent().children().not(".admonition-title").toggle(400);
+            $(this).parent().children(".admonition-title").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

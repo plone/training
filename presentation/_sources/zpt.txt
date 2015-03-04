@@ -781,13 +781,14 @@ Modify the following template and one by one solve the following problems:
 
             <tr tal:repeat="talk python:sorted(talks, key=itemgetter('title'))"
                 class="${python: 'odd' if repeat.talk.odd else 'even'}">
-                <td>
-                    <a href="${python:talk.get('url', 'https://www.google.com/search?q=%s' % talk['title'])}">
+                <td tal:define="talk_title python:talk['title'];
+                                link python:talk.get('url', 'https://www.google.com/search?q=%s' % talk_title)">
+                    <a href="${link}">
                         ${talk_title}
                     </a>
                 </td>
-                <td>
-                    ${python:', '.join(talk['subjects'])}
+                <td tal:define="subjects python:talk['subjects']">
+                    ${python:', '.join(subjects)}
                 </td>
             </tr>
         </table>
