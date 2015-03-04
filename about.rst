@@ -131,7 +131,7 @@ Your mission, should you choose to accept it...
 
 
 Building the documentation locally
-++++++++++++++++++++++++++++++++++
+----------------------------------
 
 To build the documentation follow these steps:
 
@@ -141,10 +141,39 @@ To build the documentation follow these steps:
     $ cd training
     $ virtualenv-2.7 .
     $ source bin/activate
+
+If you want to build the version for Plone 5 now switch to that branch:
+
+.. code-block:: bash
+
+    $ git checkout plone5
+
+Not install dependencies and build.
+
+.. code-block:: bash
+
     $ pip install -r requirements.txt
     $ make html
 
 You can now open the output from ``_build/html/index.html``. To build the presentation-version use ``make presentation`` instead of ``make html``. You can open the presentation at ``presentation/index.html``.
+
+Build new
++++++++++
+$ git clone https://github.com/plone/training.git
+$ cd training
+$ git checkout plone5
+$ virtualenv-2.7 .
+$ source bin/activate
+$ pip install -r requirements.txt
+$ make html
+$ open _build/html/index.html
+
+Update existing
++++++++++++++++
+$ git pull
+$ source bin/activate
+$ make html
+$ open _build/html/index.html
 
 
 Things to do before a training (as a trainer)

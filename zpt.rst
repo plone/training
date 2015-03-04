@@ -622,6 +622,14 @@ Modify the following template and one by one solve the following problems:
 
 4. Add alternating the css-classes 'odd' and 'even' to the <tr>. (repeat.<name of item in loop>.odd is True if is a odd number of items)
 
+   Use some css to prove your solution:
+
+   .. code-block:: css
+
+      <style type="text/css">
+        tr.odd {background-color: #ddd;}
+      </style>
+
 ..  admonition:: Solution
     :class: toggle
 
@@ -691,20 +699,16 @@ Modify the following template and one by one solve the following problems:
             </tr>
             <tr tal:repeat="talk python:talks"
                 tal:attributes="class python: 'odd' if repeat.talk.odd else 'even'">
-                <td tal:define="talk_title python:talk['title'];
-                                link python:talk.get('url', 'https://www.google.com/search?q=%s' % talk_title)">
-                    <a tal:attributes="href python:link"
+                <td>
+                    <a tal:attributes="href python:talk.get('url', 'https://www.google.com/search?q=%s' % talk['title'])"
                        tal:content="python:talk['title']">
                        A talk
                     </a>
                 </td>
-                <td tal:define="subjects python:talk['subjects']">
-                    <span tal:replace="python:', '.join(subjects)">
-                    </span>
+                <td tal:content="python:', '.join(talk['subjects'])">
                 </td>
             </tr>
         </table>
-
 
 6. Use the new syntax of Plone 5
 
@@ -735,14 +739,13 @@ Modify the following template and one by one solve the following problems:
 
             <tr tal:repeat="talk python:talks"
                 class="${python: 'odd' if repeat.talk.odd else 'even'}">
-                <td tal:define="talk_title python:talk['title'];
-                                link python:talk.get('url', 'https://www.google.com/search?q=%s' % talk_title)">
-                    <a href="${link}">
+                <td>
+                    <a href="${python:talk.get('url', 'https://www.google.com/search?q=%s' % talk['title'])}">
                         ${talk_title}
                     </a>
                 </td>
-                <td tal:define="subjects python:talk['subjects']">
-                    ${python:', '.join(subjects)}
+                <td>
+                    ${python:', '.join(talk['subjects'])}
                 </td>
             </tr>
         </table>
