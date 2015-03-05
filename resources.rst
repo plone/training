@@ -24,40 +24,98 @@ You can declare and access static resources with special urls. The configure.zcm
 
 Now all files we put in the resources-folder can be found via the url http://localhost:8080/Plone/++resource++ploneconf.site/something.js
 
-Let's create a ``ploneconf.css`` and a ``ploneconf.js`` in that folder.
+Let's create a ``ploneconf.css`` in that folder.
 
 .. code-block:: css
     :linenos:
 
-    #visual-portal-wrapper {
-        margin: 0 auto;
-        position: relative;
-        width: 1024px;
+    .sponsor {
+        float: left;
+        margin: 0 1em 1em 0;
     }
 
-    @media only screen and (max-width: 980px) {
-       #visual-portal-wrapper {
-           position: relative;
-           width: auto;
-       }
+    .sponsor:hover {
+        box-shadow: 0 0 8px #000000;
+        -moz-box-shadow: 0 0 8px #000000;
+        -webkit-box-shadow: 0 0 8px #000000;
     }
 
-    @media only screen and (max-width: 768px) {
-       #portal-columns > div {
-           width: 97.75%;
-           margin-left: -98.875%;
-           clear: both;
-       }
-
-       .searchButton,
-       .searchSection {
-           display: none;
-       }
+    /* Styles for ploneconf */
+    header #portal-header #portal-searchbox .searchSection {
+        display: none;
     }
+
+    #content .event.summary {
+        box-shadow: none;
+        float: none;
+        max-width: 100%;
+    }
+
+    .talkinfo #portal-column-content {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.17);
+        padding: 1em;
+        background-color: #fff;
+    }
+
+    .talkinfo h1 {
+        font-size: 20px;
+    }
+
+    .talkinfo .event.summary {
+        background-color: #fff;
+    }
+
+    /* Some css fixs to the default Plone 5-Theme */
+    .formHelp {
+        display: block;
+    }
+
+    .field span.option {
+        display: block;
+    }
+
+    .field span.option input[type="checkbox"].required,
+    .field span.option input[type="radio"].required {
+        margin-right: 0.4em;
+    }
+
+    .field span.option input[type="checkbox"].required:after,
+    .field span.option input[type="radio"].required:after {
+        color: transparent;
+        content: '';
+    }
+
+    textarea {
+        height: 100px !important;
+    }
+
+    .select2-container-multi .select2-choices .select2-search-field input {
+        min-width: 200px !important;
+    }
+
+    .pat-textareamimetypeselector {
+        display: none;
+    }
+
+    /* Small fixes for toolbar */
+    #edit-zone a {
+        outline: 0
+    }
+
+    #edit-zone.plone-toolbar-top.expanded  nav > ul > li {
+        border-right: 1px dotted #888;
+    }
+
+    #edit-zone.plone-toolbar-top.expanded  nav > ul a > span + span {
+        padding: 0 8px 0 0;
+    }
+
 
 If we access http://localhost:8080/Plone/++resource++ploneconf.site/ploneconf.css we see our css-file.
 
-How do our javascript and css files get used when visiting the page? Adding them directly into the html is not a good solution, having many css- and js-files slows down the page loading.
+Also add a ``ploneconf.js`` in the same folder but leave it empty.
+
+How does our javascript and css files get used when visiting the page? Adding them directly into the html is not a good solution, having many css- and js-files slows down the page loading.
 
 With ``portal_css`` and ``portal_javascript`` Plone has resource managers that are able to merge and compress js and css files. Resources can be added conditionally and Plone automatically stops merging files when you are debugging Plone in the foreground.
 
