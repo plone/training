@@ -37,7 +37,7 @@ Because of this, the following happens when saving a relation via a form:
 5. The same datamanager creates a RelationValue from this id, and stores this relation value on the source object
 6. Some Event handlers update the catalogs.
 
-   It is surprisingly easy to to use RelationFields.
+It is surprisingly easy to to use RelationFields.
 
 I show you how to do it TTW...
 
@@ -45,7 +45,7 @@ If you want to modify Relations, you have to create or delete RelationValue obje
 If you want to find out what objects are related to each other, you use the relation catalog.
 Here is an example:
 
-.. literalinclude: blabla
+.. literalinclude:: ploneconf.site_sneak/chapters/final/src/ploneconf/site/browser/speaker.py
 
 RelationValue objects have a fairly
 complete API.
