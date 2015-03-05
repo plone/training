@@ -9,3 +9,4 @@ local/
 build/
 plone_training_config/training/
 .doctrees
+presentation/
