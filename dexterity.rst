@@ -259,10 +259,9 @@ Exercise 2
 ++++++++++
 
 Create a new content type called *Speaker* and export the schema to a xml-File.
-It should contain the following data:
+It should contain the following fields:
 
-* First Name
-* Last Name
+* Title
 * Email
 * Homepage (optional)
 * Biography (optional)
@@ -270,6 +269,8 @@ It should contain the following data:
 * Twitter-Name (optional)
 * IRC-Name (optional)
 * Image (optional)
+
+Do not use the IDublinCore or the IBasic behavior since a speaker should not have a description.
 
 We could use this content type later to convert speakers into Plone users. We could then link them to their talks.
 
@@ -285,11 +286,8 @@ We could use this content type later to convert speakers into Plone users. We co
                xmlns:form="http://namespaces.plone.org/supermodel/form"
                xmlns="http://namespaces.plone.org/supermodel/schema">
           <schema>
-            <field name="first_name" type="zope.schema.TextLine">
-              <title>First Name</title>
-            </field>
-            <field name="last_name" type="zope.schema.TextLine">
-              <title>Last Name</title>
+            <field name="title" type="zope.schema.TextLine">
+              <title>Name</title>
             </field>
             <field name="email" type="zope.schema.TextLine">
               <title>Email</title>
