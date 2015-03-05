@@ -292,66 +292,70 @@ Add the viewlet-class in ``browser/viewlets.py``
 .. code-block:: python
     :linenos:
 
-    # -*- coding: utf-8 -*-
-    from plone.app.textfield import RichText
-    from plone.autoform import directives
-    from plone.namedfile import field as namedfile
-    from plone.supermodel import model
-    from plone.supermodel.directives import fieldset
-    from ploneconf.site import _
-    from z3c.form.browser.radio import RadioFieldWidget
-    from zope import schema
-    from zope.schema.vocabulary import SimpleTerm
-    from zope.schema.vocabulary import SimpleVocabulary
+    from collections import OrderedDict
+    from plone import api
+    from plone.app.layout.viewlets.common import ViewletBase
+    from plone.memoize import ram
+    from ploneconf.site.behaviors.social import ISocial
+    from ploneconf.site.content.sponsor import LevelVocabulary
+    from random import shuffle
+    from time import time
 
 
-    LevelVocabulary = SimpleVocabulary(
-        [SimpleTerm(value=u'platinum', title=_(u'Platinum Sponsor')),
-         SimpleTerm(value=u'gold', title=_(u'Gold Sponsor')),
-         SimpleTerm(value=u'silver', title=_(u'Silver Sponsor')),
-         SimpleTerm(value=u'bronze', title=_(u'Bronze Sponsor'))]
-        )
+    class SocialViewlet(ViewletBase):
+
+        def lanyrd_link(self):
+            adapted = ISocial(self.context)
+            return adapted.lanyrd
 
 
-    class ISponsor(model.Schema):
-        """Dexterity-Schema for Sponsors
-        """
+    class SponsorsViewlet(ViewletBase):
 
-        directives.widget(level=RadioFieldWidget)
-        level = schema.Choice(
-            title=_(u'Sponsoring Level'),
-            vocabulary=LevelVocabulary,
-            required=True
-        )
+        @ram.cache(lambda *args: time() // (60 * 60))
+        def _sponsors(self):
+            catalog = api.portal.get_tool('portal_catalog')
+            brains = catalog(portal_type='sponsor')
+            results = []
+            for brain in brains:
+                obj = brain.getObject()
+                scales = api.content.get_view(
+                    name='images',
+                    context=obj,
+                    request=self.request)
+                scale = scales.scale(
+                    'logo',
+                    width=200,
+                    height=80,
+                    direction='down')
+                tag = scale.tag() if scale else ''
+                if not tag:
+                    # only display sponsors with a logo
+                    continue
+                results.append(dict(
+                    title=brain.Title,
+                    description=brain.Description,
+                    tag=tag,
+                    url=obj.url or obj.absolute_url(),
+                    level=obj.level
+                ))
+            return results
 
-        text = RichText(
-            title=_(u'Text'),
-            required=False
-        )
-
-        url = schema.URI(
-            title=_(u'Link'),
-            required=False
-        )
-
-        fieldset('Images', fields=['logo', 'advertisment'])
-        logo = namedfile.NamedBlobImage(
-            title=_(u'Logo'),
-            required=False,
-        )
-
-        advertisment = namedfile.NamedBlobImage(
-            title=_(u'Advertisment (Gold-sponsors and above)'),
-            required=False,
-        )
-
-        directives.read_permission(notes='cmf.ManagePortal')
-        directives.write_permission(notes='cmf.ManagePortal')
-        notes = RichText(
-            title=_(u'Secret Notes (only for site-admins)'),
-            required=False
-        )
-
+        def sponsors(self):
+            sponsors = self._sponsors()
+            if not sponsors:
+                return
+            results = OrderedDict()
+            levels = [i.value for i in LevelVocabulary]
+            for level in levels:
+                level_sponsors = []
+                for sponsor in sponsors:
+                    if level == sponsor['level']:
+                        level_sponsors.append(sponsor)
+                if not level_sponsors:
+                    continue
+                shuffle(level_sponsors)
+                results[level] = level_sponsors
+            return results
 
 * ``_sponsors`` returns a list of dictionaries containing all necessary info about sponsors.
 * We create the complete img-tag using a custom scale (200x80) using the view ``images`` from plone.namedfile. This actually scales the logos and saves them as new blobs.
@@ -393,16 +397,16 @@ Add the template ``browser/templates/sponsors_viewlet.pt``
     <div metal:define-macro="portal_sponsorbox"
          i18n:domain="ploneconf.site">
         <div id="portal-sponsorbox" class="container"
-             tal:define="sponsors view/sponsors;">
+             tal:define="sponsors view/sponsors;"
+             tal:condition="sponsors">
             <div class="row">
                 <h2>We ❤ our sponsors</h2>
             </div>
             <div tal:repeat="level sponsors"
                  tal:attributes="id python:'level-' + level"
-                 tal:condition="sponsors"
                  class="row">
                 <h3 tal:content="python: level.capitalize()">
-                    Level
+                    Gold
                 </h3>
                 <tal:images tal:define="items python:sponsors[level];"
                             tal:repeat="item items">
@@ -418,7 +422,7 @@ Add the template ``browser/templates/sponsors_viewlet.pt``
         </div>
     </div>
 
-Now add some css to make it look ok. Edit ``resources/ploneconf.css``
+Ther already is some css in ``browser/static/ploneconf.css`` to make it look ok.
 
 ..  code-block:: css
 
