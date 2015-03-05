@@ -443,7 +443,18 @@ Exercise 2
 
 Turn the a content-type speaker from :ref:`Exercise 2 of the first chapter on dexterity <dexterity1-excercises-label>` into a python-base type.
 
-Also add a relationfield where you can add relations to talks.
+Is should hold the following fields:
+
+* title
+* email
+* homepage
+* biography
+* company
+* twitter_name
+* irc_name
+* image
+
+Do *not* use the IBasic or IDublinCore behavior to add title and description. Instead add your own field ``title`` and give it the title *Name*.
 
 ..  admonition:: Solution
     :class: toggle
@@ -507,14 +518,6 @@ Also add a relationfield where you can add relations to talks.
 
             image = namedfile.NamedBlobImage(
                 title=_(u'Image'),
-                required=False,
-            )
-
-            talks = RelationList(
-                title=_(u'Talks by this speaker'),
-                value_type=RelationChoice(
-                    title=_(u'Talks'),
-                    source=CatalogSource(portal_type='talk')),
                 required=False,
             )
 
