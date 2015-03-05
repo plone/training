@@ -153,7 +153,35 @@ First, we add a simple test for the custom template in our Functional Test layer
     :lines: 109-125
     :linenos:
 
-Next we add a robot test
+Exercise 1
+^^^^^^^^^^
+
+We already wrote a talklistview and it is untested!
+We like to write unittests first. But if you look at the Talklistview, you notice that you'd have to mock the portal_catalog, the context, and complex results from the catalog. I wrote earlier, that it is ok to rewrite code to make it better testable. But in this example, look at what you would test if you mocked everything mentioned above. You would test that your code iterates over a mocked list of mocked items, restructuring mocked attributes.
+There is not much sense in that. Would you do some calculation, like ratings, things look different, but not this time.
+
+We can write an integration test. We should test the good case, and edge cases.
+The simplest test we can write is a test where no talks exist.
+
+Then we can create content. Looking through the code, we do not want the talks list to render results for documents. So add a a document. Also, the code does not want to render results for document out of the current context. So create a folder and use this as a context. Then add a talk outside of this folder. The method iterates over audiences, make sure that you have at least one talk that has multiple audiences and check for that.
+Some advanced thing. Should you ever use an improved search system like collective.solr, results might get batched automatically. Check that if you have 101 talks, that you also get back 101 talks.
+Think about what you want to check in your results. Do you want to make a one to one comparison? How would you handle UUIDs?
+
+A test creating 101 talks can be slow. It tests an edge case. TThere is a trick, create a new TestCase Class, and set an attribute `level` with the value of 2. This test will then only be run when you run the tests with the argument `-a 2` or `--all`
+
+.. admonition:: Solution
+   :class: toggle
+
+
+       .. literalinclude:: ploneconf.site_sneak/chapters/final/src/ploneconf/site/tests/test_talk.py
+           :lines: 56-138
+           :linenos:
+
+
+Robot tests
+-----------
+
+Finally, we write a robot test:
 
 .. literalinclude:: ploneconf.site_sneak/chapters/03_zpt_p5/src/ploneconf/site/tests/robot/test_talk.robot
     :linenos:
@@ -170,3 +198,4 @@ There are 3 possible workarounds:
 
 The first method, with Phantomjs will throw failures with our tests, unfortunately.
 
+For debugging, you can run the test like this `ROBOT_SELENIUM_RUN_ON_FAILURE=Debug bin/test --all`. This will stop the test at the first failure and you end up in an interactive shell where you can try various Robotframework commands.
