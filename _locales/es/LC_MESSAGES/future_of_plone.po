@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2014, Philip Bauer, Patrick Gerken. Version 1.2.2
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
 # 
 # Translators:
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-12 09:07-0430\n"
-"PO-Revision-Date: 2014-07-13 02:05+0000\n"
+"POT-Creation-Date: 2015-03-06 09:50-0430\n"
+"PO-Revision-Date: 2014-11-05 12:04+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -18,27 +18,22 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 2840ad3cef054451af98d40eab69073c
 #: ../future_of_plone.rst:2
 msgid "The Future of Plone"
 msgstr "El futuro de Plone"
 
-# 0148748bffee45b299c9af0797ecbb19
 #: ../future_of_plone.rst:4
 msgid "Plone 5"
 msgstr "Plone 5"
 
-# 839f78997bd04e0eb459094e7737ff45
 #: ../future_of_plone.rst:5
 msgid "Plone Roadmap 2020"
 msgstr "Mapa de ruta de Plone 2020"
 
-# 628cf38e25df4b338dd56396bceec6ce
 #: ../future_of_plone.rst:7
 msgid "The Plone-process and the Plone-Community"
 msgstr "El proceso Plone y la Comunidad Plone"
 
-# 21613e78a6324488b338dcd8af6644af
 #: ../future_of_plone.rst:9
 msgid "Plips: https://dev.plone.org/report/24"
 msgstr "Plips: https://dev.plone.org/report/24"

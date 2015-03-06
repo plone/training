@@ -1,14 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2014, Philip Bauer, Patrick Gerken. Version 1.2.2
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
 # 
 # Translators:
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-22 11:27-0430\n"
-"PO-Revision-Date: 2014-07-05 02:11+0000\n"
+"POT-Creation-Date: 2015-03-06 09:50-0430\n"
+"PO-Revision-Date: 2015-03-06 14:37+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -17,182 +18,150 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 2835b138d0154099bfdc541db7091a24
 #: ../user_generated_content.rst:2
 msgid "User generated content"
 msgstr "Usar contenido generado"
 
-# e51373fe1c874ec9b805ee9f28e5d097
 #: ../user_generated_content.rst:0
 msgid "Get the code!"
-msgstr "Obten el Codigo!"
+msgstr "¡Obtén el código!"
 
-# 86dc6b25c93148d99a508cc82ef32c26
 #: ../user_generated_content.rst:6
 msgid ""
 "Get the code for this chapter (:doc:`More info <sneak>`) using this command "
 "in the buildout-directory:"
-msgstr "Obten el codigo para este capitulo(:doc:`More info <sneak>`) usando este comando en el directorio buildout"
+msgstr "Obtén el código para este capitulo (:doc:`More info <sneak>`) usando este comando en el directorio buildout:"
 
-# 4e8525b9d6a440a3af84fd1d19c05316
 #: ../user_generated_content.rst:13
 msgid ""
-"How do prospective speakers submit talks? We let registered users create "
-"talks. For this we go back to changing the site through-the-web."
+"How do prospective speakers submit talks? We let them register on the site "
+"and grant right to create talks. For this we go back to changing the site "
+"through-the-web."
 msgstr ""
 
-# 680b7875fe984f279697d9cd1aaca9e1
 #: ../user_generated_content.rst:15
 msgid "In this chapter we:"
 msgstr ""
 
-# b01b1a2ba2014e46b342ec2cfa310fe9
 #: ../user_generated_content.rst:17
 msgid "allow self-registration"
 msgstr ""
 
-# 0c872f712de640dd9d0d9d4cb7756ab8
 #: ../user_generated_content.rst:18
 msgid "constrain types on the talk-folder"
 msgstr ""
 
-# cabb494977c84a81955c50ac109db5b5
 #: ../user_generated_content.rst:19
 msgid "grant local roles"
 msgstr ""
 
-# 54e2aadc69c04bd9b220bcc1fc388959
 #: ../user_generated_content.rst:20
 msgid "create a custom workflow for talks"
 msgstr ""
 
-# 024c20fff7c449ddb3168229859ea506
-# 8c49ff59c8474a5491408a3b92c348f1
-#: ../user_generated_content.rst:24 ../user_generated_content.rst:81
+#: ../user_generated_content.rst:24 ../user_generated_content.rst:79
 msgid "Self-registration"
 msgstr ""
 
-# 9fdd3f09535f46c993c79ad4ebefe544
 #: ../user_generated_content.rst:26
 msgid ""
 "Go to the Security-controlpanel at http://localhost:8080/Plone/@@security-"
 "controlpanel and Enable self-registration"
 msgstr ""
 
-# 735bcc7eb16b492e84b954088a5ccd2f
 #: ../user_generated_content.rst:27
 msgid "Leave \"Enable User Folders\" off unless you want a community-site."
 msgstr ""
 
-# eece2d6ad1a540f183e8595850564271
 #: ../user_generated_content.rst:31
 msgid "Constrain types"
 msgstr ""
 
-# a7172d423011481e9f8901fcb545f36e
 #: ../user_generated_content.rst:33
 msgid ""
-"On the talk-folder select `Restrictions… "
-"<http://localhost:8081/Plone/talks/folder_constraintypes_form>`_ from the "
-"*Add new* menu. Only allow to add talks."
+"On the talk-folder select `Restrictions… <http://localhost:8080/Plone/the-"
+"event/talks/folder_constraintypes_form>`_ from the *Add new* menu. Only "
+"allow to add talks."
 msgstr ""
 
-# 34f0a33f28ed449f8004b6e701fb07d4
-# 27575c9d787d44fdaeb5d4681999541e
-#: ../user_generated_content.rst:37 ../user_generated_content.rst:139
+#: ../user_generated_content.rst:37 ../user_generated_content.rst:137
 msgid "Grant local roles"
 msgstr ""
 
-# 77c49ee597d140e787de22c5942cd1f9
 #: ../user_generated_content.rst:39
 msgid ""
 "Go to *Sharing* and grant the role *Can add* to the group logged-in users. "
 "Now every user can add content in this folder (and only this folder)."
 msgstr ""
 
-# f3f4a566da1c43918e34e1db8cc5da55
 #: ../user_generated_content.rst:41
-msgid "Now all logged-in users can create and submit talks in this folder."
+msgid ""
+"Now all logged-in users can create and submit talks in this folder with the "
+"permission of the default-workflow."
 msgstr ""
 
-# 76e735c7b0b44e30a232f0e91f0312e3
-#: ../user_generated_content.rst:43
-msgid "with the permissiondefault-workflow"
-msgstr ""
-
-# b72421e4a485474f8ddde84073d42c97
-#: ../user_generated_content.rst:47
+#: ../user_generated_content.rst:45
 msgid "A custom workflow for talks"
 msgstr ""
 
-# 1c04dabb43ec45b499f117dc16ea8559
-#: ../user_generated_content.rst:49
+#: ../user_generated_content.rst:47
 msgid ""
 "We still need to fix a problem: Authenticated users can see all talks, even "
 "the ones of other users in the private state. Since we don't want this we "
-"will create a modified workflow for talks. The new workflow will only them "
-"the talks they created themselves and not the ones of other users."
+"will create a modified workflow for talks. The new workflow will only let "
+"them see and edit talks they created themselves and not the ones of other "
+"users."
 msgstr ""
 
-# 2e1bf0984fd8484d92dc42e547c673d2
-#: ../user_generated_content.rst:51
+#: ../user_generated_content.rst:49
 msgid "Go to the ZMI > portal_workflow"
 msgstr ""
 
-# 867ee161fd12481ebbcf0c573fb9effe
-#: ../user_generated_content.rst:52
+#: ../user_generated_content.rst:50
 msgid "See how talks have the same workflow as most content ``(Default)``"
 msgstr ""
 
-# eb7ecd18a72f4b369dd6d78a7e8b4b12
-#: ../user_generated_content.rst:53
+#: ../user_generated_content.rst:51
 msgid ""
 "Go to the tab *Contents*, check the box next to "
 "``simple_publication_workflow``, click ``copy`` and ``paste``."
 msgstr ""
 
-# ec1953dd01eb4770ad405ac71de6d01b
-#: ../user_generated_content.rst:54
+#: ../user_generated_content.rst:52
 msgid ""
 "Rename the new workflow from *copy_of_simple_publication_workflow* to "
-"*talk_workflow*."
+"*talks_workflow*."
 msgstr ""
 
-# ed2ab03a26164304bd3e04f73fa89579
-#: ../user_generated_content.rst:55
+#: ../user_generated_content.rst:53
 msgid ""
 "Edit the workflow by clicking on it: Change the Title to *Talks Workflow*."
 msgstr ""
 
-# 7df9b90f361c457c993f7e741f9b50d1
-#: ../user_generated_content.rst:56
+#: ../user_generated_content.rst:54
 msgid ""
 "Click on the tab *States* and click on *private* to edit this state. In the "
 "next view select the tab *Permissions*."
 msgstr ""
 
-# d8710ef44f4440a8b6eb1858627a8995
-#: ../user_generated_content.rst:57
+#: ../user_generated_content.rst:55
 msgid ""
 "Find the talbe-column for the role *Contributor* and remove the permissions "
 "for ``Access contents information`` and ``View``. Note that the *Owner* "
 "(i.e. the Creator) still has some permissions."
 msgstr ""
 
-# bd687618bcfe4e43a59192a65914640a
-#: ../user_generated_content.rst:58
+#: ../user_generated_content.rst:56
 msgid "Do the same for the state *pending*"
 msgstr ""
 
-# 1dafb12218974b84846f1a7971256c9a
-#: ../user_generated_content.rst:59
+#: ../user_generated_content.rst:57
 msgid ""
 "Go back to *portal_workflow* and set the new workflow ``talks_workflow`` for"
 " talks. Click *Change* and then *Update security settings*."
 msgstr ""
 
-# 4ceb281d1cc5452cb9710b9f437d7b22
-#: ../user_generated_content.rst:63
+#: ../user_generated_content.rst:61
 msgid ""
 "The addon `plone.app.workflowmanager "
 "<https://pypi.python.org/pypi/plone.app.workflowmanager>`_ provides a much "
@@ -200,42 +169,35 @@ msgid ""
 "and it can be pretty confusing as well."
 msgstr ""
 
-# 7c1f813d7895490eb1e10e527bcf7f5c
-#: ../user_generated_content.rst:65
+#: ../user_generated_content.rst:63
 msgid "Done."
 msgstr ""
 
-# 91124d83805b49a093a58580f3a04406
-#: ../user_generated_content.rst:69
+#: ../user_generated_content.rst:67
 msgid "Move the changes to the file-system"
 msgstr ""
 
-# e8f4d46c52f4476b8d3a4c3a747dc06c
-#: ../user_generated_content.rst:71
+#: ../user_generated_content.rst:69
 msgid ""
 "We don't want to do these steps for every new conference by hand so we move "
 "the changes into our package."
 msgstr ""
 
-# 6f1b78cabbbe4a6f8249f379649f3865
-#: ../user_generated_content.rst:74
+#: ../user_generated_content.rst:72
 msgid "Workflow"
 msgstr "Flujo de trabajo"
 
-# fe8d21873d7b45bbb47a3e55f846eabe
-#: ../user_generated_content.rst:76
+#: ../user_generated_content.rst:74
 msgid ""
 "export the GenericSetup step *Workflow Tool* in "
 "http://localhost:8080/Plone/portal_setup/manage_exportSteps."
 msgstr ""
 
-# 0fa7ea237e7a4686a4cb6486f5c2aa4a
-#: ../user_generated_content.rst:77
+#: ../user_generated_content.rst:75
 msgid "drop the file ``workflows.xml`` into ``profiles/default``."
 msgstr ""
 
-# e61a34e93a5b4493a00b8ced0d17fb32
-#: ../user_generated_content.rst:78
+#: ../user_generated_content.rst:76
 msgid ""
 "drop ``workflows/talks_workflow/definition.xml`` in "
 "``profiles/default/workflows/talks_workflow/definition.xml``. The others are"
@@ -243,8 +205,7 @@ msgid ""
 "package that changes Plone."
 msgstr ""
 
-# 4133cb57a5c04ebba0d2b2f8c87feedb
-#: ../user_generated_content.rst:83
+#: ../user_generated_content.rst:81
 msgid ""
 "This has to happen in python in a custom `setuphandler.py "
 "<http://docs.plone.org/develop/addons/components/genericsetup.html#custom-"
@@ -252,47 +213,40 @@ msgid ""
 "setting for this."
 msgstr ""
 
-# 126f299fd0d847bf8a50d1e3fe8c1654
-#: ../user_generated_content.rst:85
+#: ../user_generated_content.rst:83
 msgid ""
 "Register a import-step in ``configure.zcml``. It will be automatically run "
 "when (re-)installing the addon."
 msgstr ""
 
-# bc579d270d7f4e3e96ad80fa4560fd70
-#: ../user_generated_content.rst:98
+#: ../user_generated_content.rst:96
 msgid ""
 "Note that the setuphandler has a dependency on `typeinfo` because it will "
 "only allow the creation of talks. For this the type already has to exist."
 msgstr ""
 
-# 5daeed9db97e449cb37830e7195a2071
-#: ../user_generated_content.rst:100
+#: ../user_generated_content.rst:98
 msgid "Create a new file ``setuphandlers.py``"
 msgstr ""
 
-# da63ec74afb149c89056cf4e480524eb
-#: ../user_generated_content.rst:134
+#: ../user_generated_content.rst:132
 msgid ""
 "Add the marker-file ``profile/default/ploneconf.site_various.txt`` used in "
-"line 15::"
+"line 18::"
 msgstr ""
 
-# 1271ea94b8034e5aa20f3539b84985f6
-#: ../user_generated_content.rst:141
+#: ../user_generated_content.rst:139
 msgid ""
 "Since this applies only to a certain folder in the site we would normally "
 "not write code for it."
 msgstr ""
 
-# a496939dc2ff40cfb9602f0fb4b6abd1
-#: ../user_generated_content.rst:143
+#: ../user_generated_content.rst:141
 msgid ""
 "But we can easily add a method to the setuphandler that creates the folder "
 "and sets up some setting for it."
 msgstr ""
 
-# 1bda8fc430dd49ba98c2a0c1f073aed8
-#: ../user_generated_content.rst:145
+#: ../user_generated_content.rst:143
 msgid "Here is an example:"
 msgstr ""

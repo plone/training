@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the Mastering Plone package.
 # 
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-16 08:09-0430\n"
-"PO-Revision-Date: 2014-07-24 15:33+0000\n"
+"POT-Creation-Date: 2015-03-06 09:50-0430\n"
+"PO-Revision-Date: 2015-03-06 15:32+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -18,29 +18,24 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# b09211f7380c41bfae312158cc529507
 #: ../views_1.rst:2
 msgid "Views I"
 msgstr "Views - Parte I"
 
-# 4aa342ac975745dbbb3ea263703a21a0
 #: ../views_1.rst:0
 msgid "Get the code!"
 msgstr "Obten el Codigo!"
 
-# e1a0c5932609425da2d53a6d40cd3834
 #: ../views_1.rst:6
 msgid ""
 "Get the code for this chapter (:doc:`More info <sneak>`) using this command "
 "in the buildout-directory:"
 msgstr "Obten el codigo para este capitulo(:doc:`More info <sneak>`) usando este comando en el directorio buildout"
 
-# 73e42089b84d47f39e9a6666d7e7d68a
 #: ../views_1.rst:14
 msgid "A simple browser view"
 msgstr "Una simple vista browser"
 
-# 1fffba79e5ad443bb05cb3bc128e49dc
 #: ../views_1.rst:16
 msgid ""
 "We need to add some boilerplate-code to be able to create a view. Before we "
@@ -48,7 +43,6 @@ msgid ""
 "views and templates."
 msgstr "Tenemos que añadir un poco de código repetitivo para poder crear una vista. Antes de que escribimos la vista de Charla en sí necesitamos dar un paso atrás y hablar *un poco* acerca de las vistas y plantillas."
 
-# 66548c1911744be0afb045b70b23f6cb
 #: ../views_1.rst:18
 msgid ""
 "A basic view in Plone is usually a ``BrowserView``. It can hold a lot of "
@@ -57,62 +51,52 @@ msgid ""
 "first so we can concentrate on the template."
 msgstr "Una vista básica en Plone suele ser una ``BrowserView``. Se puede mantener una gran cantidad de código python, pero también puede ser sólo una clase ``BrowserView`` vacía que hace una plantilla cuando se le llama. Tal clase vacía es lo que creamos en un primer momento para que podamos concentrarnos en la plantilla."
 
-# a634a887c156461ca3c0995c58501784
 #: ../views_1.rst:20
 msgid ""
 "Add a new directory ``src/ploneconf.site/ploneconf/site/browser``. By "
 "convention the dir ``browser`` should hold all UI displayed in the browser."
 msgstr "Añadir un nuevo directorio ``src/ploneconf.site/ploneconf/site/browser``. Por convención el directorio ``browser`` debe contener todas las interfaz de usuario que se muestran en el navegador."
 
-# 925d36d92549457bad9d13bf1c19d463
 #: ../views_1.rst:21
 msgid "Add an empty file ``browser/__init__.py``"
 msgstr "Agregar un archivo vacío ``browser/__init__.py``"
 
-# 4caf2109ad7a47f185cf549b76cfe5e3
 #: ../views_1.rst:22
 msgid ""
 "We need to tell Plone to consider this directory. Modify the existing "
 "``configure.zcml`` and add"
 msgstr "Necesitamos decirle a Plone que considerar este directorio. Modifique el archivo ``configure.zcml`` existente y agregue"
 
-# 900d37d186db4cf9b7382ba5d7bd70b3
 #: ../views_1.rst:28
 msgid "Then add a file ``browser/configure.zcml``:"
 msgstr "Entonces agregue un archivo ``browser/configure.zcml``:"
 
-# 938808d74d434aa082d8c09c72b6f1a3
 #: ../views_1.rst:48
 msgid "Add a file ``browser/views.py``::"
 msgstr "Agregue un archivo ``browser/views.py``::"
 
-# 2f528da9e6c4428d816a22fc69991167
 #: ../views_1.rst:56
 msgid ""
 "This might seem a lot of boilerplate if we only want to render a template "
 "but every bit of it can be changed to achieve different effects. It's not "
-"useless code but actually very powerful stuff. We only ignore it for now and"
-" concentrate on the template."
-msgstr "Esto puede parecer una gran cantidad de texto modelo si sólo queremos hacer una plantilla, pero cada poco de que se puede cambiar para lograr diferentes efectos. No es de código inútil, pero las cosas realmente muy poderoso. Nosotros sólo ignoramos por ahora y nos concentramos en la plantilla."
+"useless code but actually very powerful. We only ignore it for now and "
+"concentrate on the template."
+msgstr "Esto puede parecer un montón de cosas repetitiva si sólo queremos renderizar una plantilla, pero cada poco de que se puede cambiar para conseguir diferentes efectos. No es de código inútil, pero en realidad es muy potente. Sólo nos ignoramos por ahora y nos concentramos en la plantilla."
 
-# 4a0770acdb294977af28d7b94962f1ee
 #: ../views_1.rst:58
 msgid ""
 "Add a directory ``browser/templates`` and add an file "
 "``browser/templates/demoview.pt``"
 msgstr "Agregar un directorio ``browser/templates`` y agregue un archivo ``browser/templates/demoview.pt``"
 
-# 056a427324be434e9ae94b817e2d990f
 #: ../views_1.rst:64
 msgid "Restart Plone and open http://localhost:8080/Plone/@@demoview."
 msgstr "Reiniciar Plone y abra en la direccion http://localhost:8080/Plone/@@demoview."
 
-# d35e0a908fb7421b87c776b5b11522d6
 #: ../views_1.rst:65
 msgid "You should see \"Hello World\"."
 msgstr "Usted podrá ver \"Hello World\"."
 
-# 498cfd379e724d7d988b57c72b866151
 #: ../views_1.rst:67
 msgid "We now have everything in place to learn about zope page templates."
 msgstr "Ahora tenemos todo en su lugar para aprender sobre las plantillas de página zope."

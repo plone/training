@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-16 08:09-0430\n"
-"PO-Revision-Date: 2014-06-22 16:45+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-03-06 09:50-0430\n"
+"PO-Revision-Date: 2014-11-05 12:04+0000\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,74 +17,61 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 20b64a7a456340bea3660f846a9e5305
 #: ../eggs2.rst:2
 msgid "Creating reusable packages with eggs"
 msgstr ""
 
-# 2367677ddcf34e9fa59dc4ad72f1d465
 #: ../eggs2.rst:4
 msgid "We already created an egg much earlier."
 msgstr ""
 
-# ebe796ca34bd489496036cec015e45ad
 #: ../eggs2.rst:6
 msgid ""
-"Now we are going to create a a feature that is completely independent of our"
-" ploneconf site and can be reused in other packages."
+"Now we are going to create a feature that is completely independent of our "
+"ploneconf site and can be reused in other packages."
 msgstr ""
 
-# 5259a651cab74167a1789018863ce940
 #: ../eggs2.rst:8
 msgid ""
 "To make the distinction clear, this is not a package from the namespace "
 ":samp:`ploneconf` but from :samp:`starzel`."
 msgstr ""
 
-# 2bf83424b53f45819ad75cc595ef1111
 #: ../eggs2.rst:10
 msgid "We are going to add a voting behavior."
 msgstr ""
 
-# 733ee0855fdb40f3a2e422667b06222a
 #: ../eggs2.rst:12
 msgid "For this we need:"
 msgstr ""
 
-# 5907dd015c3c4b3db1dfce197d7dfed8
 #: ../eggs2.rst:14
 msgid "A behavior that stores it's data in annotations"
 msgstr ""
 
-# a734963c0a654b8e9499ff1e28f1dfd8
 #: ../eggs2.rst:15
 msgid "A viewlet to present the votes"
 msgstr ""
 
-# 03604cadb904451081e1113a14deb501
 #: ../eggs2.rst:16
 msgid "A bit of javascript"
 msgstr ""
 
-# 29d9036aac2b4d9b8bde74b420e8024b
 #: ../eggs2.rst:17
 msgid "A bit of css"
 msgstr ""
 
-# fa2d354d719b408780537193dd040b8c
 #: ../eggs2.rst:18
 msgid ""
 "Some helper views so that the Javascript code can communicate with Plone"
 msgstr ""
 
-# e39d3003ddbf488cbb7711718c0ef8c9
 #: ../eggs2.rst:20
 msgid ""
 "We move to the :file:`src` directory and call a script called "
 ":file:`zopeskel` from our projects bin-directory."
 msgstr ""
 
-# e087037bb2fb4154892c9d663c4d3fc2
 #: ../eggs2.rst:28
 msgid ""
 "This returns a list of available templates we might use. We choose dexerity "
@@ -92,55 +79,46 @@ msgid ""
 "need."
 msgstr "Esto devuelve una lista de plantillas disponibles que podríamos utilizar. Elegimos dexerity ya que es bastante pequeña, pero ya cuenta con algunas de las dependencias adecuadas que necesitamos."
 
-# 294b41e142e6419ab81dcce127d5546b
 #: ../eggs2.rst:34
 msgid "We answer some questions:"
 msgstr "Nosotros respondemos algunas preguntas:"
 
-# 1b376d31adf1488db42676a052e69b82
 #: ../eggs2.rst:36
 msgid "Enter project name: ``starzel.votable_behavior``"
 msgstr ""
 
-# e187afe61955463fa0cc3d14aeaaf34c
 #: ../eggs2.rst:37
 msgid ""
 "Expert Mode? (What question mode would you like? (easy/expert/all)?) "
 "['easy']: ``easy``"
 msgstr "Expert Mode? (What question mode would you like? (easy/expert/all)?) ['easy']: ``easy``"
 
-# f282c25fb0414842aef23effeb036288
 #: ../eggs2.rst:38
 msgid "Version (Version number for project) ['1.0']: ``1.0.0``"
 msgstr "Version (Version number for project) ['1.0']: ``1.0.0``"
 
-# f87534bfff0f404f86b580e604e5cffa
 #: ../eggs2.rst:39
 msgid ""
 "Description (One-line description of the project) ['Example Dexterity "
 "Product']: ``Voting Behavior``"
 msgstr ""
 
-# 867f0ab888fa4da7a84f396391f6de27
 #: ../eggs2.rst:40
 msgid ""
 "Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: "
 "``False``"
 msgstr "Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: ``False``"
 
-# 5ae4655a448341ff9e05564078503f98
 #: ../eggs2.rst:41
 msgid ""
 "Use relations? (True/False: include support for relations?) [False]: "
 "``False``"
 msgstr ""
 
-# 41e9068bba9f4c3fb6683f533a83a40a
 #: ../eggs2.rst:44
 msgid "We have to modify the generated files slightly."
 msgstr ""
 
-# 76c498caf1494714abc86f52f8ad1272
 #: ../eggs2.rst:46
 msgid ""
 "In :file:`setup.py`, we completely remove the variables setup_requires and "
@@ -149,14 +127,12 @@ msgid ""
 ":samp:`install_requires` list, we add an entry for :samp:`plone.api`."
 msgstr ""
 
-# ea61909a3073417babedb6dd5983cea9
 #: ../eggs2.rst:48
 msgid ""
-"The file :file:`tests.py` we just delete. This is an outdated test system "
-"and we don't want you to start from there."
+"We just delete the file :file:`tests.py`. This is an outdated test system, "
+"we don't want you to start from there."
 msgstr ""
 
-# f55881fb065b4691aa69d9a60c5e0ea2
 #: ../eggs2.rst:50
 msgid ""
 "The file :file:`profiles/default/types.xml` we just delete also. We won't "

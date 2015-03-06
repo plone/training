@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2014, Philip Bauer, Patrick Gerken. Version 1.2.2
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
 # 
 # Translators:
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-22 11:27-0430\n"
-"PO-Revision-Date: 2014-06-22 18:34+0000\n"
+"POT-Creation-Date: 2015-03-06 09:50-0430\n"
+"PO-Revision-Date: 2014-11-05 12:04+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -18,12 +18,10 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# e133023cf51b47a983d5b7ab5011c377
 #: ../grok.rst:3
 msgid "Grok"
 msgstr "Grok"
 
-# 2c18e6c0abb140c2beea0218d4477f71
 #: ../grok.rst:5
 msgid ""
 "Grok is an alternative declaration language for declaring your components. "
@@ -31,7 +29,6 @@ msgid ""
 "alternative syntax."
 msgstr ""
 
-# 2d96c08e89e848e1bf1408b57dd240df
 #: ../grok.rst:7
 msgid ""
 "Instead of writing separate zcml files, you annotate your code and you "
@@ -41,7 +38,6 @@ msgid ""
 "increases the technology stack without adding functionality."
 msgstr ""
 
-# 5b1243bf49734cfcbaadefe9ed274d67
 #: ../grok.rst:10
 msgid ""
 "Some people are even against using it in Add Ons, because there would not be"
@@ -50,14 +46,12 @@ msgid ""
 "be surprised if this could be fixed though."
 msgstr ""
 
-# 06276c091c974ac18333dcbf4dbe53ff
 #: ../grok.rst:12
 msgid ""
 "After all these negative things let us tell you why we still like it: We "
 "like to write as few lines of code and configuration as possible."
 msgstr ""
 
-# a91424632b8342d7915e5c4871e6b73f
 #: ../grok.rst:14
 msgid ""
 "So, we will write our browser view as a grok view. From the component "
@@ -67,30 +61,25 @@ msgid ""
 " file names."
 msgstr ""
 
-# 864030f9412b4e2380a39960a5e4debb
 #: ../grok.rst:18
 msgid "http://docs.plone.org/develop/addons/five-grok/index.html"
 msgstr "http://docs.plone.org/develop/addons/five-grok/index.html"
 
-# b6db22f5a067401ba03d14c727d776a9
 #: ../grok.rst:20
 msgid ""
 "Grok is not part of plone. We have to add it as a dependency to our egg."
 msgstr ""
 
-# d9c84a4aba484073a773e8fb292d53ba
 #: ../grok.rst:22
 msgid ""
 "Open setup.py, and add ``five.grok`` to the list off addons in "
 "``install_requires``::"
 msgstr ""
 
-# 7ee79caf273647b5a11d0e81d0987c4e
 #: ../grok.rst:31
 msgid "You need to run buildout now."
 msgstr ""
 
-# d427bdd9b44a424f9e47820b84f551bd
 #: ../grok.rst:33
 msgid ""
 "Grok nearly magicaly does find all its annotations. Since its not complete "
@@ -99,17 +88,14 @@ msgid ""
 "`grokked`."
 msgstr ""
 
-# 9e6eda6ff8b347b2ace16efa4c9f3558
 #: ../grok.rst:53
 msgid "This new grok statement takes care of finding everything grok related."
 msgstr ""
 
-# a88b6aeb55ee498fbf2e08e8352a0f42
 #: ../grok.rst:55
 msgid "Now we can add a grok view in a new file ``views.py``:"
 msgstr ""
 
-# 237145d8775b4f47b2cf667d5bb0134c
 #: ../grok.rst:69
 msgid ""
 "By convention the template must be in a subdirectory called "

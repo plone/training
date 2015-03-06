@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-13 00:40-0430\n"
-"PO-Revision-Date: 2014-07-13 05:24+0000\n"
+"POT-Creation-Date: 2015-03-06 09:50-0430\n"
+"PO-Revision-Date: 2014-11-05 12:04+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -18,12 +18,10 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# a37b3edf4315470d825b8e4f862318a5
 #: ../README.rst:2
 msgid "Mastering Plone"
 msgstr "Maestría en Plone"
 
-# f5a5c1d14380478ebbc838dc428af81b
 #: ../README.rst:4
 msgid ""
 "Mastering Plone is intended as a week-long training for people who are new "
@@ -31,7 +29,6 @@ msgid ""
 "development."
 msgstr ""
 
-# b5046db005fa43b09f1424f37a23d016
 #: ../README.rst:6
 msgid "Read it at http://plone-training.readthedocs.org/en/latest/index.html"
 msgstr ""
