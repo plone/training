@@ -183,7 +183,7 @@ Instead we use our own Plone-instance during the training. It is in ``/vagrant/b
 
     In rare cases when you are using OSX with an UTF-8 character set starting Plone might fail with following error:
 
-    .. code-block::
+    .. code-block:: bash
 
         ValueError: unknown locale: UTF-8
 
