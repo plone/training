@@ -126,7 +126,7 @@ Let's see what is there...
 
   * :guilabel:`portal-column-one`: portlets (configurable boxes with tool like navigation, news etc.)
   * :guilabel:`portal-column-content`: the content and the editor
-  * :guilabel: `edit bar`: editing options for the content
+  * :guilabel:`edit bar`: editing options for the content
   * :guilabel:`portal-column-two`: portlets
 
 * :guilabel:`portal-footer`: viewlets
