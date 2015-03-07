@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 09:50-0430\n"
-"PO-Revision-Date: 2015-03-06 14:37+0000\n"
+"PO-Revision-Date: 2015-03-07 03:33+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -53,7 +53,7 @@ msgstr "Ahora todos los archivos que ponemos en la carpeta de recursos se pueden
 #: ../resources.rst:25
 msgid ""
 "Let's create a ``ploneconf.css`` and a ``ploneconf.js`` in that folder."
-msgstr ""
+msgstr "Vamos a crear un archivo ``ploneconf.css`` y un archivo ``ploneconf.js`` en esa carpeta."
 
 #: ../resources.rst:56
 msgid ""
@@ -75,7 +75,7 @@ msgid ""
 "that are able to merge and compress js and css files. Resources can be added"
 " conditionally and Plone automatically stops merging files when you are "
 "debugging Plone in the foreground."
-msgstr ""
+msgstr "Con ``portal_css`` y ``portal_javascript`` Plone tiene administradores de recursos que son capaces de combinar y comprimir archivos js y css. Los recursos pueden ser añadidos de forma condicional y Plone detiene automáticamente la combinación de archivos cuando se está depurando Plone en primer plano."
 
 #: ../resources.rst:62
 msgid "We need to register our resources with GenericSetup."

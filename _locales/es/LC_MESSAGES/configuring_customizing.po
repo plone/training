@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 09:50-0430\n"
-"PO-Revision-Date: 2015-03-06 22:56+0000\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"PO-Revision-Date: 2015-03-07 03:03+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -287,7 +287,7 @@ msgstr "Aquí fácilmente se puede romper su sitio así que usted debe saber lo 
 
 #: ../configuring_customizing.rst:99
 msgid ""
-"We only cover three parts of customisation in the ZMI now. Later on when we "
+"We only cover three parts of customization in the ZMI now. Later on when we "
 "added our own code we'll come back to the ZMI and will look for it."
 msgstr "Nosotros sólo cubrimos las tres partes de la personalización en el ZMI ahora. Más tarde, cuando agreguemos nuestro propio código fuente vamos a volver a la ZMI y lo buscaremos."
 
@@ -637,7 +637,7 @@ msgstr "Mas herramientas en el ZMI"
 
 #: ../configuring_customizing.rst:313
 msgid ""
-"There are many more noteable items in the ZMI. We'll visit some of them "
+"There are many more notable items in the ZMI. We'll visit some of them "
 "later."
 msgstr "Hay muchos mas elementos notables en el ZMI, los visitaremos mas tarde."
 

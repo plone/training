@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 09:50-0430\n"
-"PO-Revision-Date: 2015-03-06 23:19+0000\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"PO-Revision-Date: 2015-03-07 03:03+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr "Buildout hace esto sin tocar el sistema Python o afectar a ningún otro 
 
 #: ../buildout_1.rst:13
 msgid ""
-"Plone needs folders for logfiles, databases and configuration files. "
+"Plone needs folders for log files, databases and configuration files. "
 "Buildout assembles all of this for you."
 msgstr "Plone necesita carpetas para los archivos de registro, bases de datos y archivos de configuración. Buildout ensambla todo esto para usted."
 
@@ -156,7 +156,7 @@ msgstr "La receta omelette tiene que saber cuales son los paquetes eggs para hac
 
 #: ../buildout_1.rst:62
 msgid ""
-"Another example: Say you create configuration files for a webserver like "
+"Another example: Say you create configuration files for a web server like "
 "nginx, you can define the target port for the reverse proxy by looking it up"
 " from the zope2instance recipe."
 msgstr "Otro ejemplo: Digamos que usted crea archivos de configuración para un servidor web como Nginx, puede definir el puerto de destino para el proxy inverso al mirar hacia arriba a partir de la receta zope2instance."

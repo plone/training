@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 09:50-0430\n"
-"PO-Revision-Date: 2015-03-06 18:40+0000\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"PO-Revision-Date: 2015-03-07 03:02+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -83,7 +83,7 @@ msgid ""
 msgstr "Una conversación sobre encontrar y administrar complementos: http://www.youtube.com/watch?v=Sc6NkqaSjqw"
 
 #: ../addons.rst:27
-msgid "Some noteable add-ons"
+msgid "Some notable add-ons"
 msgstr "Algunos complementos notables"
 
 #: ../addons.rst:30
@@ -131,7 +131,7 @@ msgid ""
 msgstr "`collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_"
 
 #: ../addons.rst:42
-msgid "Allows visitors to subcribe to mailchimp newsletters"
+msgid "Allows visitors to subscribe to mailchimp newsletters"
 msgstr "Permite a los visitantes suscribirse a noticias Mailchimp"
 
 #: ../addons.rst:45
@@ -458,7 +458,7 @@ msgid "Add a folder /the-event/location"
 msgstr "Agregue una carpeta /the-event/location"
 
 #: ../addons.rst:170
-msgid "Upload some fotos from http://lorempixel.com/600/400/city/"
+msgid "Upload some photos from http://lorempixel.com/600/400/city/"
 msgstr "Suba algunas fotos desde http://lorempixel.com/600/400/city/"
 
 #: ../addons.rst:171
@@ -472,7 +472,7 @@ msgid ""
 msgstr "collective.plonetruegallery es un mejor modelo para escribir una extensión de Plone."
 
 #: ../addons.rst:176
-msgid "Internationalisation"
+msgid "Internationalization"
 msgstr "Internacionalización"
 
 #: ../addons.rst:178
