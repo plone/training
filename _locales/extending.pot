@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 09:50-0430\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgid "skin_folders"
 msgstr ""
 
 #: ../extending.rst:40
-msgid "Do you remember Acquisition? The Skin Folders extends the concepts of Acquistion. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder."
+msgid "Do you remember Acquisition? The Skin Folders extends the concepts of Acquisition. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder."
 msgstr ""
 
 #: ../extending.rst:42
@@ -77,7 +77,7 @@ msgid "To customize the logo, you copy it into the ``custom`` folder, and change
 msgstr ""
 
 #: ../extending.rst:48
-msgid "Skin-folder style customization may be accomplished TTW via the ZMI, or with add-on packages. Manu older-style packages create their own skin folder and add it to the skin layer for Plone when installed."
+msgid "Skin-folder style customization may be accomplished TTW via the ZMI, or with add-on packages. Many older-style packages create their own skin folder and add it to the skin layer for Plone when installed."
 msgstr ""
 
 #: ../extending.rst:52

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 09:50-0430\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgid "this enables us to combine, re-use and nest templates together"
 msgstr ""
 
 #: ../zpt.rst:33
-msgid "TAL and METAL are written like html-attribues (url, src, title). TALES are written like the values of html-attributes. A typical TAL-Statement looks like this:"
+msgid "TAL and METAL are written like html-attributes (url, src, title). TALES are written like the values of html-attributes. A typical TAL-Statement looks like this:"
 msgstr ""
 
 #: ../zpt.rst:41
@@ -325,7 +325,7 @@ msgid "handling complex data in templates"
 msgstr ""
 
 #: ../zpt.rst:315
-msgid "Let's move on to a little more complex data. And to another TAL-atrribute:"
+msgid "Let's move on to a little more complex data. And to another TAL-attribute:"
 msgstr ""
 
 #: ../zpt.rst:318
@@ -481,7 +481,7 @@ msgid "``@@plone_tools``"
 msgstr ""
 
 #: ../zpt.rst:521
-msgid "The BrowserView ``plone.app.layout.globals.tools.Tools`` gives access to the most importan tools like ``plone_tools/catalog``"
+msgid "The BrowserView ``plone.app.layout.globals.tools.Tools`` gives access to the most important tools like ``plone_tools/catalog``"
 msgstr ""
 
 #: ../zpt.rst:523

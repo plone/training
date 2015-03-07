@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 09:50-0430\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -266,7 +266,7 @@ msgid "Here you can easily break your site so you should know what you are doing
 msgstr ""
 
 #: ../configuring_customizing.rst:99
-msgid "We only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it."
+msgid "We only cover three parts of customization in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it."
 msgstr ""
 
 #: ../configuring_customizing.rst:101
@@ -582,7 +582,7 @@ msgid "Further tools in the ZMI"
 msgstr ""
 
 #: ../configuring_customizing.rst:313
-msgid "There are many more noteable items in the ZMI. We'll visit some of them later."
+msgid "There are many more notable items in the ZMI. We'll visit some of them later."
 msgstr ""
 
 #: ../configuring_customizing.rst:315

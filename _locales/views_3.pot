@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 09:50-0430\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgid "So we need to get all the talks. For this we use the python-class of the 
 msgstr ""
 
 #: ../views_3.rst:23
-msgid "The catalog is like a search-engine for the content on our site. It holds information about all the objects as well as some of their attributes like title, decription, workflow_state, keywords that they were tagged with, author, content_type, it's path in the site etc. But it does not hold the content of \"heavy\" fields like images or files, richtext-fields and field that we just defined ourselves."
+msgid "The catalog is like a search-engine for the content on our site. It holds information about all the objects as well as some of their attributes like title, description, workflow_state, keywords that they were tagged with, author, content_type, it's path in the site etc. But it does not hold the content of \"heavy\" fields like images or files, richtext-fields and field that we just defined ourselves."
 msgstr ""
 
 #: ../views_3.rst:25
@@ -129,7 +129,7 @@ msgid "We will add some indexers later on."
 msgstr ""
 
 #: ../views_3.rst:130
-msgid "Why use the catalog at all? It checks for permissions, and only returns the talks that the current user may see. They might be private or hidden to you since they are part of a top-secret conference for core-develeopers (there is no such thing!)."
+msgid "Why use the catalog at all? It checks for permissions, and only returns the talks that the current user may see. They might be private or hidden to you since they are part of a top-secret conference for core-developers (there is no such thing!)."
 msgstr ""
 
 #: ../views_3.rst:132
@@ -267,7 +267,7 @@ msgid "the view"
 msgstr ""
 
 #: ../views_3.rst:278
-msgid "The view and the controller are very much mixed in Plone. Expecially when you look at some of the older code of Plone you'll see that the policy of keeping logic in python and representation in templates was not always enforced."
+msgid "The view and the controller are very much mixed in Plone. Especially when you look at some of the older code of Plone you'll see that the policy of keeping logic in python and representation in templates was not always enforced."
 msgstr ""
 
 #: ../views_3.rst:280

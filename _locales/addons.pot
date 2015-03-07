@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 09:50-0430\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,7 @@ msgid "A talk on finding and managing addons: http://www.youtube.com/watch?v=Sc6
 msgstr ""
 
 #: ../addons.rst:27
-msgid "Some noteable add-ons"
+msgid "Some notable add-ons"
 msgstr ""
 
 #: ../addons.rst:30
@@ -113,7 +113,7 @@ msgid "`collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>
 msgstr ""
 
 #: ../addons.rst:42
-msgid "Allows visitors to subcribe to mailchimp newsletters"
+msgid "Allows visitors to subscribe to mailchimp newsletters"
 msgstr ""
 
 #: ../addons.rst:45
@@ -373,7 +373,7 @@ msgid "Add a folder /the-event/location"
 msgstr ""
 
 #: ../addons.rst:170
-msgid "Upload some fotos from http://lorempixel.com/600/400/city/"
+msgid "Upload some photos from http://lorempixel.com/600/400/city/"
 msgstr ""
 
 #: ../addons.rst:171
@@ -385,7 +385,7 @@ msgid "collective.plonetruegallery is a better model for how to write a Plone Ex
 msgstr ""
 
 #: ../addons.rst:176
-msgid "Internationalisation"
+msgid "Internationalization"
 msgstr ""
 
 #: ../addons.rst:178
