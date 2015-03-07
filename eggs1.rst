@@ -12,7 +12,7 @@ Creating addons to customize Plone
 Using zopeskel to create an egg
 -------------------------------
 
-Our own code has to be organised as an egg. An egg is a zip file or a directory that follows certain conventions. We are going to use `ZopeSkel <https://pypi.python.org/pypi/ZopeSkel>`_ to create a skeleton project. We only need to fill the holes.
+Our own code has to be organized as an egg. An egg is a zip file or a directory that follows certain conventions. We are going to use `ZopeSkel <https://pypi.python.org/pypi/ZopeSkel>`_ to create a skeleton project. We only need to fill the holes.
 
 .. note::
 
@@ -26,7 +26,7 @@ We enter the ``src`` directory and call a script called ``zopeskel`` from our pr
     $ cd src
     $ ../bin/zopeskel
 
-This returns a list of available templates we might use. We choose dexerity since it is pretty small but already has some of the right dependencies we need.
+This returns a list of available templates we might use. We choose dexterity since it is pretty small but already has some of the right dependencies we need.
 
 .. code-block:: bash
 
@@ -103,7 +103,7 @@ Before we can use our new addon we have to tell Plone about it. Edit ``buildout.
     ploneconf.site = fs ploneconf.site full-path=${buildout:directory}/src/ploneconf.site
     # starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
 
-This tells Buildout to add the egg ``ploneconf.site``. Since it is also in the `sources`-section Buildout will not try to download it from pypi but will expect it in ``src/ploneconf.site``. *fs* allows you to add packages on the filesystem without a version control system, or with an unsupported one.
+This tells Buildout to add the egg ``ploneconf.site``. Since it is also in the `sources`-section Buildout will not try to download it from pypi but will expect it in ``src/ploneconf.site``. *fs* allows you to add packages on the file system without a version control system, or with an unsupported one.
 
 Now run buildout to reconfigure Plone with the updated configuration:
 

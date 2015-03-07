@@ -55,7 +55,7 @@ This will take some time and produce a lot of output because it downloads and co
 
     $ ./bin/instance fg
 
-If the output should be simliar to::
+If the output should be similar to::
 
     2014-10-06 15:11:26 INFO ZServer HTTP server started at Mon Oct  6 15:11:26 2014
         Hostname: 0.0.0.0

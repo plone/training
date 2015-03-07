@@ -30,7 +30,7 @@ The three languages are:
 
   * this enables us to combine, re-use and nest templates together
 
-TAL and METAL are written like html-attribues (url, src, title). TALES are written like the values of html-attributes. A typical TAL-Statement looks like this:
+TAL and METAL are written like html-attributes (url, src, title). TALES are written like the values of html-attributes. A typical TAL-Statement looks like this:
 
 .. code-block:: html
 
@@ -312,7 +312,7 @@ Examples:
 handling complex data in templates
 ++++++++++++++++++++++++++++++++++
 
-Let's move on to a little more complex data. And to another TAL-atrribute:
+Let's move on to a little more complex data. And to another TAL-attribute:
 
 tal:replace
     replace the content of an element and removes the element only leaving the content.
@@ -518,7 +518,7 @@ In templates we can also access other browser-views. Some of those exist to prov
     The BrowserView ``plone.app.layout.globals.portal.PortalState`` holds methods for the portal like ``portal_url``
 
 ``@@plone_tools``
-    The BrowserView ``plone.app.layout.globals.tools.Tools`` gives access to the most importan tools like ``plone_tools/catalog``
+    The BrowserView ``plone.app.layout.globals.tools.Tools`` gives access to the most important tools like ``plone_tools/catalog``
 
 These are very widely used and there are many more.
 

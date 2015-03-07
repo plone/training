@@ -23,7 +23,7 @@ How to find add-ons
    * A talk on finding and managing addons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
 
 
-Some noteable add-ons
+Some notable add-ons
 ---------------------
 
 `Products.PloneFormGen <http://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
@@ -39,7 +39,7 @@ Some noteable add-ons
   Flexible bundle of addons to georeference content and display in maps
 
 `collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_
-  Allows visitors to subcribe to mailchimp newsletters
+  Allows visitors to subscribe to mailchimp newsletters
 
 `eea.facetednavigation <https://pypi.python.org/pypi/eea.facetednavigation/>`_
   Create faceted navigation and searches through the web.
@@ -167,12 +167,12 @@ https://pypi.python.org/pypi/collective.plonetruegallery
 * Activate the addon
 * Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step is only required because plonetruegallery does not yet know about the newer plone.app.contenttypes, which we activated to replace Plone's old content types with newer, Dexterity-style, ones.)
 * Add a folder /the-event/location
-* Upload some fotos from http://lorempixel.com/600/400/city/
+* Upload some photos from http://lorempixel.com/600/400/city/
 * Enable the view ``galleryview``
 
 collective.plonetruegallery is a better model for how to write a Plone Extension.
 
-Internationalisation
+Internationalization
 --------------------
 
 Plone can run the same site in many different languages.

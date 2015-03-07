@@ -90,7 +90,7 @@ Users
     #. Add another user "reviewer" (groups: Reviewers)
     #. Add another user "jurymember" (groups: None)
 
-    Logout as admin by klicking 'Logout' and following the instructions.
+    Logout as admin by clicking 'Logout' and following the instructions.
 
     Login to the site with your user now.
 
