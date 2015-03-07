@@ -189,7 +189,7 @@ msgid ":guilabel:`portal-column-content`: the content and the editor"
 msgstr ""
 
 #: ../features.rst:129
-msgid "`edit bar`: editing options for the content"
+msgid ":guilabel:`edit bar`: editing options for the content"
 msgstr ""
 
 #: ../features.rst:130
