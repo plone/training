@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2015-03-06 09:50-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,546 +17,534 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../features.rst:2
-# b2872b4352cc4b518d71077e88a436e8
 msgid "The Features of Plone"
 msgstr ""
 
 #: ../features.rst:4
-# 43dac9b8a40b466a9aaee2328b1a6924
 msgid "In-depth user-manual: http://plone.org/documentation/manual/plone-4-user-manual"
 msgstr ""
 
 #: ../features.rst:6
-# 6cae27c9b47f45f985063c2542e85c49
 msgid "See also: http://docs.plone.org/working-with-content/index.html"
 msgstr ""
 
 #: ../features.rst:9
-# 718af20cd67847c89ccde76e9c30af7f
 msgid "Starting and Stopping Plone"
 msgstr ""
 
 #: ../features.rst:11
-# a340e948e67c4dc9906af7a78b4a7c41
 msgid "We control Plone with a small script called \"instance\"::"
 msgstr ""
 
 #: ../features.rst:15
-# 20a6d3c79f5a4eacaf5116a9b5383cbc
-msgid "This starts Plone in foreground and we can see what it is doing."
+msgid "This starts Plone in foreground mode so that we can see what it is doing by monitoring console messages. This is an important development method. Note that when Plone is started in foreground mode, it is also automatically in development mode. Development mode gives better feedback, but is much slower, particularly on Windows."
 msgstr ""
 
 #: ../features.rst:17
-# 28bd8f33a610416da663258a9f31b923
 msgid "You can stop it by pressing :kbd:`ctrl + c`."
 msgstr ""
 
 #: ../features.rst:19
-# c4941c6e4f7d409bb3408433200cc314
 msgid "The :program:`instance`-script offers the following options::"
 msgstr ""
 
-#: ../features.rst:28
-# abc6852b46f94c1fb64e1e405df65f29
+#: ../features.rst:30
 msgid "Depending on your computer, it might take up to a minute until Zope will tell you that its ready to serve requests. On a decent laptop it should be running in under 15 seconds."
 msgstr ""
 
-#: ../features.rst:30
-# f76f0b1aa6404fa797082e6069f4e9ae
+#: ../features.rst:32
 msgid "A standard installation listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080"
 msgstr ""
 
-#: ../features.rst:32
-# 2586ee0fa34a48379f2dbc588137188e
+#: ../features.rst:34
 msgid "As you can see, there is no Plone yet!"
 msgstr ""
 
-#: ../features.rst:34
-# e851dcb6478d4b4489ea3a2dbb01494b
-msgid "We have a running Zope with a database but no content. But luckily there is a button to create a Plone site. Click on that button. This opens a form to create a Plone site. Use :samp:`Plone` as the site id."
-msgstr ""
-
 #: ../features.rst:36
-# 6e579be3b26348f6afde703ee735c5f4
-msgid "You now have the option to select some addons before you create the site. Since we will use Dexterity from the beginning we select ``Dexterity-based Plone Default Types``. This way even the initial content on our page will be built with dexterity by the addon ``plone.app.contenttypes`` which will be the default in Plone 5."
+msgid "We have a running Zope with a database but no content. But luckily there is a button to create a Plone site. Click on that button (login: admin:admin). This opens a form to create a Plone site. Use :samp:`Plone` as the site id."
 msgstr ""
 
 #: ../features.rst:38
-# 1e649a6967a7454c859834a40517a804
+msgid "You now have the option to select some addons before you create the site. Since we will use Dexterity from the beginning we select ``Dexterity-based Plone Default Types``. This way even the initial content on our page will be built with dexterity by the addon ``plone.app.contenttypes`` which will be the default in Plone 5."
+msgstr ""
+
+#: ../features.rst:40
 msgid "You will be automatically redirected to the new site."
 msgstr ""
 
-#: ../features.rst:49
-# 4a3bda8f10e34ca58b40be35c6c25d93
+#: ../features.rst:51
 msgid "Plone has many message-boxes. They contain important information. Read them and make sure you understand them!"
 msgstr ""
 
-#: ../features.rst:54
-# d57b9731c4934a0f888b964f1306d40a
+#: ../features.rst:56
 msgid "Users"
 msgstr ""
 
-#: ../features.rst:58
-# bcdccd62a2c545f289c6e13b6223f6d3
-msgid "Let's create our first users within Plone. So far we used the admin-user (admin:admin) configured in the buildout. He is often called \"zope-root\". This user is not managed in Plone but only in by Zope. Therefore he's missing some features like email and fullname and he won't be able to use some of plone's features. But he has all possible permissions. It is also unsecure to use this user. Basically, his password can be seen easily within each request."
+#: ../features.rst:60
+msgid "Let's create our first users within Plone. So far we used the admin-user (admin:admin) configured in the buildout. This user is often called \"zope-root\" and is not managed in Plone but only in by Zope. Therefore the user's missing some features like email and fullname and  won't be able to use some of plone's features. But the user has all possible permissions. As with the root user of a server, it's a bad practice to make unnecessary use of zope-root. Use it to create Plone sites and their initial users, but not much else."
 msgstr ""
 
-#: ../features.rst:60
-# ce0352c15fea4242b08c63598cb248ca
+#: ../features.rst:62
 msgid "You can also add zope-users also via the terminal by entering::"
 msgstr ""
 
-#: ../features.rst:64
-# 47e0d45d72524ac893b936d589e4350f
+#: ../features.rst:66
 msgid "That way you can access databases you get from customers where you have no Plone-user."
 msgstr ""
 
-#: ../features.rst:66
-# 03231f170f8d49b58eb37e270234352f
-msgid "To add a new user click on the name :guilabel:`admin` in the top right corner and then on :guilabel:`Site setup`. This is Plone's control panel. You can also access it by browsing to http://localhost:8080/Plone/plone_control_panel"
-msgstr ""
-
 #: ../features.rst:68
-# 8017687253414b1c8ae3180cb6433e1c
-msgid "Click on :guilabel:`Users and Groups` and add a user. If you'd have configured a Mailserver, Plone could send you a mail with a link to a form where you can choose a password. We set a password here because we didn't configure a Mailserver."
+msgid "To add a new user in Plone, click on the name :guilabel:`admin` in the top right corner and then on :guilabel:`Site setup`. This is Plone's control panel. You can also access it by browsing to http://localhost:8080/Plone/@@overview-controlpanel"
 msgstr ""
 
 #: ../features.rst:70
-# 747880cc170f4ef4b5a8f73520426b04
-msgid "Make this user with your name an administrator."
+msgid "Click on :guilabel:`Users and Groups` and add a user. If you'd have configured a mail server, Plone could send you a mail with a link to a form where you can choose a password. We set a password here because we haven't yet configure a mail server."
 msgstr ""
 
 #: ../features.rst:72
-# da750501cb48401f9fd6f88e40ed8baa
-msgid "Then create another user called ``testuser``. Make him a normal user. You can use this user to see how Plone looks and behaves to users that have no admin-permission."
+msgid "Make this user with your name an administrator."
 msgstr ""
 
 #: ../features.rst:74
-# 9875fc14c87f4fb487698f05cd3cf4d8
-msgid "Now let's see the site in 3 different browsers with in three different roles:"
+msgid "Then create another user called ``testuser``. Make this one a normal user. You can use this user to see how Plone looks and behaves to users that have no admin-permission."
 msgstr ""
 
 #: ../features.rst:76
-# 4b7c03f10b644bdf99bf1bc6fb628f54
-msgid "as anonymous"
-msgstr ""
-
-#: ../features.rst:77
-# 4aae058aff994255bcd0619a2dbe4f53
-msgid "as editor"
+msgid "Now let's see the site in 3 different browsers with three different roles:"
 msgstr ""
 
 #: ../features.rst:78
-# 489529bb74a74b329f9106864ebc09e5
+msgid "as anonymous"
+msgstr ""
+
+#: ../features.rst:79
+msgid "as editor"
+msgstr ""
+
+#: ../features.rst:80
 msgid "as admin"
 msgstr ""
 
-#: ../features.rst:97
-# ead6d9940e90480e83869071d2875e14
+#: ../features.rst:99
 msgid "Configure a Mailserver"
 msgstr ""
 
-#: ../features.rst:102
-# 40a514f1306341429a9131cf4c3b5029
+#: ../features.rst:104
 msgid "We have to configure a mailserver since later we will create some content-actions that send emails when new content is put on our site."
 msgstr ""
 
-#: ../features.rst:104
-# ec2ff30614e44dd5a00c562c674d17c8
+#: ../features.rst:106
 msgid "Server: :samp:`mail.gocept.net`"
 msgstr ""
 
-#: ../features.rst:105
-# 83546f99ce3b4f97ab8192dc96cef884
+#: ../features.rst:107
 msgid "Username: :samp:`training@neww.de`"
 msgstr ""
 
-#: ../features.rst:106
-# 2a6c25d406b5414d8fdae13f4711ad2c
+#: ../features.rst:108
 msgid "Password: :samp:`training2014`"
 msgstr ""
 
-#: ../features.rst:108
-# 7d9305c4eeb54e0db7dda8009b37b7ff
+#: ../features.rst:110
 msgid "Please do not abuse this. We'll disable this account after the training."
 msgstr ""
 
-#: ../features.rst:112
-# c53bdbdc570946948d19271f40217ab8
+#: ../features.rst:114
 msgid "Walkthrough of the UI"
 msgstr ""
 
-#: ../features.rst:114
-# 846303ad65c94080bad32ebde190c97c
+#: ../features.rst:116
 msgid "Let's see what is there..."
 msgstr ""
 
-#: ../features.rst:116
-# 69dc858a053749fdbf23808fa0c4d042
+#: ../features.rst:118
 msgid ":guilabel:`portal-top`:"
 msgstr ""
 
-#: ../features.rst:118
-# 659940ff242e425ea349d601a3a40b1a
+#: ../features.rst:120
 msgid ":guilabel:`personaltools`: name, logout etc."
 msgstr ""
 
-#: ../features.rst:119
-# 60d24e1ca5e44d3bb1916d691ba01e59
+#: ../features.rst:121
 msgid ":guilabel:`logo`: with a link to the frontpage"
 msgstr ""
 
-#: ../features.rst:120
-# 194e772b32094ba18ab08c49aadad248
+#: ../features.rst:122
 msgid ":guilabel:`search`"
 msgstr ""
 
-#: ../features.rst:121
-# 26f8dce6396244128c182c7c434823a1
+#: ../features.rst:123
 msgid ":guilabel:`global`-navigation"
 msgstr ""
 
-#: ../features.rst:123
-# ec16c5fd2e8f4e1ba4bb4960d3cee2d0
+#: ../features.rst:125
 msgid ":guilabel:`portal-columns`: a container holding:"
 msgstr ""
 
-#: ../features.rst:125
-# 26ccb544fe104d0d97a029d611479bc5
+#: ../features.rst:127
 msgid ":guilabel:`portal-column-one`: portlets (configurable boxes with tool like navigation, news etc.)"
 msgstr ""
 
-#: ../features.rst:126
-# 0a00dd18937a48329ddae115597ee9ce
+#: ../features.rst:128
 msgid ":guilabel:`portal-column-content`: the content and the editor"
 msgstr ""
 
-#: ../features.rst:127
-# de3a47a47ac144289e223bca1e90a3da
+#: ../features.rst:129
+msgid "`edit bar`: editing options for the content"
+msgstr ""
+
+#: ../features.rst:130
 msgid ":guilabel:`portal-column-two`: portlets"
 msgstr ""
 
-#: ../features.rst:129
-# 55267da43f5540e8ae22dd4c09c57a67
+#: ../features.rst:132
 msgid ":guilabel:`portal-footer`: viewlets"
 msgstr ""
 
-#: ../features.rst:133
-# e6e97a685fc74a07added10ca7a42d84
+#: ../features.rst:136
 msgid "These are also the css-classes of the respective div's. If you want to do theming you'll need them."
 msgstr ""
 
-#: ../features.rst:137
-# 27c63dea7c6d43c8bc8f87c9bdcf9be5
-msgid "Content-Types"
+#: ../features.rst:138
+msgid "On the edit bar, we find options affecting the current context..."
 msgstr ""
 
-#: ../features.rst:139
-# 8a61ad5518a04cfe8494b89d88f8556f
-msgid "Edit a page:"
+#: ../features.rst:140
+msgid ":guilabel:`folder contents`"
 msgstr ""
 
 #: ../features.rst:141
-# 2f1c2fc059c94064919b4149e48e689f
-msgid ":guilabel:`Edit front-page`"
+msgid ":guilabel:`view`"
 msgstr ""
 
 #: ../features.rst:142
-# 6bf3ae25739643859839adc7bc001e2b
-msgid ":guilabel:`Title` :samp:`Plone Conference 2014, Bristol`"
+msgid ":guilabel:`edit`"
 msgstr ""
 
 #: ../features.rst:143
-# 7b2b5128726041e89c50fd1f948b5d7e
-msgid ":guilabel:`Description` :samp:`Tutorial`"
+msgid ":guilabel:`rules`"
 msgstr ""
 
 #: ../features.rst:144
-# 50178e4a06ec4f7f90802fe1cd64c97a
-msgid ":guilabel:`Text` :samp:`...`"
+msgid ":guilabel:`sharing`"
+msgstr ""
+
+#: ../features.rst:145
+msgid ":guilabel:`display`"
 msgstr ""
 
 #: ../features.rst:146
-# 21584b4b554241afb54cb8723f765a42
-msgid "Create a site-structure:"
+msgid ":guilabel:`add`"
 msgstr ""
 
-#: ../features.rst:148
-# b6b68ece893246998aa9f83036c82626
-msgid "Add folder \"The Event\" and in that ..."
+#: ../features.rst:147
+msgid ":guilabel:`status`"
 msgstr ""
 
-#: ../features.rst:150
-# 6884e34673c6476f9e426947c7d844a8
-msgid "Folder \"Talks\""
-msgstr ""
-
-#: ../features.rst:151
-# ee0d536d5b784d48923d4a4112d957dd
-msgid "Folder \"Training\""
+#: ../features.rst:149
+msgid "Some edit bar options only show when appropriate; for example,``folder content`` and ``add`` are only shown for Folders. ``rules`` is currently invisible because we have no content rules available."
 msgstr ""
 
 #: ../features.rst:152
-# 505e14bfb281428d8d9ccc85a5dcd327
-msgid "Folder \"Sprint\""
+msgid "Content-Types"
 msgstr ""
 
 #: ../features.rst:154
-# 6228e8cca9414b1f95ea269defe332bf
-msgid "In /news: Add News Item \"Conference Website online!\" with some image"
-msgstr ""
-
-#: ../features.rst:155
-# bb83f034fd1e43b3bc08956a3589455e
-msgid "In /news: Add News Item \"Submit your talks!\""
+msgid "Edit a page:"
 msgstr ""
 
 #: ../features.rst:156
-# 12124981f3b94bd8ad41781328199c26
-msgid "In /events: Add Event \"Deadline for talk-submission\" Date: 10.10.2014"
+msgid ":guilabel:`Edit front-page`"
+msgstr ""
+
+#: ../features.rst:157
+msgid ":guilabel:`Title` :samp:`Plone Conference 2014, Bristol`"
 msgstr ""
 
 #: ../features.rst:158
-# fc446b613a184f54804ea8ef37af328b
-msgid "Add Folder \"Register\""
+msgid ":guilabel:`Description` :samp:`Tutorial`"
 msgstr ""
 
 #: ../features.rst:159
-# 54c9cdcea7ce4efc8a70742f135b8c92
-msgid "Delete Folder \"Members\""
+msgid ":guilabel:`Text` :samp:`...`"
 msgstr ""
 
-#: ../features.rst:160
-# 906425abca7943f0a33af8f58b1bf065
-msgid "Add Folder \"Intranet\""
+#: ../features.rst:161
+msgid "Create a site-structure:"
 msgstr ""
 
 #: ../features.rst:163
-# cba1bc13fe5d450c83f768cca3c5087a
-msgid "The default content-types:"
+msgid "Add folder \"The Event\" and in that ..."
 msgstr ""
 
 #: ../features.rst:165
-# 971e9ecde53e4593bc259ca7676e3d74
-msgid "Document"
+msgid "Folder \"Talks\""
 msgstr ""
 
 #: ../features.rst:166
-# 5908490cd4634ba2856a9eb6a99997c0
-msgid "News Item"
+msgid "Folder \"Training\""
 msgstr ""
 
 #: ../features.rst:167
-# 14182429ce234040bbd948d8123aa716
-msgid "Event"
-msgstr ""
-
-#: ../features.rst:168
-# 6e1c9598020443e2b8a0c66fea616cac
-msgid "File"
+msgid "Folder \"Sprint\""
 msgstr ""
 
 #: ../features.rst:169
-# d4a6570ac0cf4920b939962015ac200a
-msgid "Image"
+msgid "In /news: Add News Item \"Conference Website online!\" with some image"
 msgstr ""
 
 #: ../features.rst:170
-# 2bfb8598a2e0485c820c06afa65ce8b2
-msgid "Link"
+msgid "In /news: Add News Item \"Submit your talks!\""
 msgstr ""
 
 #: ../features.rst:171
-# 723bfb9480044407a6ed2aa53f4df642
-msgid "Folder"
+msgid "In /events: Add Event \"Deadline for talk-submission\" Date: 10.10.2014"
 msgstr ""
 
-#: ../features.rst:172
-# d88628733ce14eb9b94f4c39446a54aa
-msgid "Collection"
+#: ../features.rst:173
+msgid "Add Folder \"Register\""
 msgstr ""
 
-#: ../features.rst:176
-# 8d72a460e6ee43948ac5279af19d38c9
-msgid "Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default-Plone 4.3.x-site."
+#: ../features.rst:174
+msgid "Delete Folder \"Members\" (Users)"
+msgstr ""
+
+#: ../features.rst:175
+msgid "Add Folder \"Intranet\""
+msgstr ""
+
+#: ../features.rst:178
+msgid "The default content-types:"
 msgstr ""
 
 #: ../features.rst:180
-# 215e130da62446b6b5c5e9d11cad85d1
-msgid "Folders"
+msgid "Document"
+msgstr ""
+
+#: ../features.rst:181
+msgid "News Item"
 msgstr ""
 
 #: ../features.rst:182
-# 3e9a534be0174fa1aacd24d02cfc3991
-msgid "Go to 'the-event'"
+msgid "Event"
 msgstr ""
 
 #: ../features.rst:183
-# 745c9341092349f7b0f84f862daed7be
-msgid "explain title/id/url"
+msgid "File"
 msgstr ""
 
 #: ../features.rst:184
-# fdd2fbd1aa2141688ac457e44677011b
-msgid "explain /folder_contents"
+msgid "Image"
 msgstr ""
 
 #: ../features.rst:185
-# 88fe193b0de646dab14b977c61550c3b
-msgid "change order"
+msgid "Link"
 msgstr ""
 
 #: ../features.rst:186
-# 219d464226834d41819461e07976deb6
-msgid "bulk-actions"
+msgid "Folder"
 msgstr ""
 
 #: ../features.rst:187
-# c87ac6af07914bf1a2ed5385e2176758
-msgid "dropdown \"display\""
+msgid "Collection"
 msgstr ""
 
-#: ../features.rst:188
-# 2d4a089abe824f4a8b557d02b83e2b29
-msgid "default_pages"
+#: ../features.rst:191
+msgid "Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default-Plone 4.3.x-site."
 msgstr ""
 
-#: ../features.rst:189
-# 2ea41eeee1d94e8f9f1c56f762c7434f
-msgid "Add a page to 'the-event': \"The Event\" and make it the default-page"
-msgstr ""
-
-#: ../features.rst:190
-# 53a0acba683b4e65bc6411f08958e813
-msgid "The future: ``wildcard.foldercontents``"
-msgstr ""
-
-#: ../features.rst:194
-# b9c603693b30447cb6b0e2c171c86c04
-msgid "Collections"
-msgstr ""
-
-#: ../features.rst:196
-# 4aab927d04bf4893ae725e6bbed7b5b6
-msgid "add a new collection: all content that has pending as wf_state."
+#: ../features.rst:195
+msgid "Folders"
 msgstr ""
 
 #: ../features.rst:197
-# 34b02b604ad74880bbd72814c9377edf
-msgid "explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit"
+msgid "Go to 'the-event'"
 msgstr ""
 
 #: ../features.rst:198
-# 71660584788244babb6f636bf83a4686
-msgid "explain Topics"
+msgid "explain title/id/url"
 msgstr ""
 
 #: ../features.rst:199
-# 29fc05e224964986983964869da42aff
-msgid "mention collection-portlets"
+msgid "explain /folder_contents"
 msgstr ""
 
 #: ../features.rst:200
-# c2ed7ca34f7044519a7ce4d2164cee40
-msgid "multi-path-querys"
+msgid "change order"
 msgstr ""
 
 #: ../features.rst:201
-# 342b34c571b248a0918a460d97696465
-msgid "constrains, e.g. ``/Plone/folder::1``"
+msgid "bulk-actions"
+msgstr ""
+
+#: ../features.rst:202
+msgid "dropdown \"display\""
+msgstr ""
+
+#: ../features.rst:203
+msgid "default_pages"
+msgstr ""
+
+#: ../features.rst:204
+msgid "Add a page to 'the-event': \"The Event\" and make it the default-page"
 msgstr ""
 
 #: ../features.rst:205
-# d1e26c85f2154007b4379d03fbe4c9ae
-msgid "Content Rules"
+msgid "The future: ``wildcard.foldercontents``"
 msgstr ""
 
-#: ../features.rst:207
-# 972212bd20f643cf915c2fc630bea8cf
-msgid "Create new rule \"a new talk is in town\"!"
+#: ../features.rst:209
+msgid "Collections"
 msgstr ""
 
-#: ../features.rst:208
-# 41b77be61d4a4904896b8840ca8d5548
-msgid "New content in folder \"Talks\" -> Send Mail to reviewers."
+#: ../features.rst:211
+msgid "add a new collection: \"all content that has pending as wf_state\"."
 msgstr ""
 
 #: ../features.rst:212
-# 82e1bee00e6e4fec9b3fef283bbff77a
-msgid "History"
+msgid "explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit"
+msgstr ""
+
+#: ../features.rst:213
+msgid "explain Topics"
 msgstr ""
 
 #: ../features.rst:214
-# 673e35ee310d49db95b15d360eb2cccf
-msgid "show and explain"
+msgid "mention collection-portlets"
 msgstr ""
 
-#: ../features.rst:218
-# b96e1adb533c4c08ba6f2f612c7486a7
-msgid "Manage members and groups"
+#: ../features.rst:215
+msgid "multi-path-queries"
+msgstr ""
+
+#: ../features.rst:216
+msgid "constraints, e.g. ``/Plone/folder::1``"
 msgstr ""
 
 #: ../features.rst:220
-# a30d2df68f9d42ce8fdbe7d34ae4a385
-msgid "add/edit/delete Users"
-msgstr ""
-
-#: ../features.rst:221
-# f0d723eea0554d8bb856ab5583cdcccf
-msgid "roles"
+msgid "Content Rules"
 msgstr ""
 
 #: ../features.rst:222
-# 2836c001ba0f47e084b24a23b936bd18
-msgid "groups"
+msgid "Create new rule \"a new talk is in town\"!"
 msgstr ""
 
-#: ../features.rst:224
-# 89a3471bba1f451d8e9f1f33967cffee
-msgid "Add group \"Editors\" and add the user 'editor' to it"
+#: ../features.rst:223
+msgid "New content in folder \"Talks\" -> Send Mail to reviewers."
 msgstr ""
 
-#: ../features.rst:225
-# b44726ed6c1b4c088455992d7ad7965e
-msgid "Add group: ``orga``"
+#: ../features.rst:227
+msgid "History"
 msgstr ""
 
-#: ../features.rst:226
-# 2341f1176bde408398e519b750321648
-msgid "add group: ``jury`` and add user 'jurymember' to it."
+#: ../features.rst:229
+msgid "Show and explain; mention versioning and its relation to types."
 msgstr ""
 
-#: ../features.rst:230
-# d9f9d6437acc4698be03a4e74ea2fced
-msgid "Workflows"
-msgstr ""
-
-#: ../features.rst:232
-# 045b5f9ea6f9450889d32196d1ee25ea
-msgid "Read more at: http://docs.plone.org/working-with-content/collaboration-and-workflow/index.html"
+#: ../features.rst:233
+msgid "Manage members and groups"
 msgstr ""
 
 #: ../features.rst:235
-# 981c224ae73c45ffaf7d72b6471a7cdb
-msgid "Working copy"
+msgid "add/edit/delete Users"
+msgstr ""
+
+#: ../features.rst:236
+msgid "roles"
 msgstr ""
 
 #: ../features.rst:237
-#: ../features.rst:244
-# 42c90012ba034d87ad6111ae5dd5cdf2
-# 42c90012ba034d87ad6111ae5dd5cdf2
-msgid "enable addon"
+msgid "groups"
 msgstr ""
 
-#: ../features.rst:238
+#: ../features.rst:239
+msgid "Add group \"Editors\" and add the user 'editor' to it"
+msgstr ""
+
+#: ../features.rst:240
+msgid "Add group: ``orga``"
+msgstr ""
+
+#: ../features.rst:241
+msgid "add group: ``jury`` and add user 'jurymember' to it."
+msgstr ""
+
 #: ../features.rst:245
-# 3557ecc461354f7e8454c43271d41fef
-# 3557ecc461354f7e8454c43271d41fef
-msgid "explain"
+msgid "Workflows"
 msgstr ""
 
-#: ../features.rst:242
-# cb597ef8f45545b790ea8370ce6c01b4
+#: ../features.rst:247
+msgid "Take a look at the ``state`` drop-down on the edit bar on the homepage. Now, navigate to one of the folders just added. The homepage has the status ``published`` and the new content is ``private``."
+msgstr ""
+
+#: ../features.rst:249
+msgid "Let's look at the state transitions available for each type. We can make a published item private and a private item published. We can also submit an item for review."
+msgstr ""
+
+#: ../features.rst:251
+msgid "Each of these states connects roles to permissions."
+msgstr ""
+
+#: ../features.rst:253
+msgid "In ``published`` state, the content is available to anonymous visitors;"
+msgstr ""
+
+#: ../features.rst:254
+msgid "In ``private`` state, the content is only viewable by the author (owner) and users who have the ``can view`` role for the content."
+msgstr ""
+
+#: ../features.rst:256
+msgid "A workflow state is an association between a role and one or more permissions. Moving from one state to another is a ``transition``. Transitions (like ``submit for review``) may have actions — like the execution of a content role or script — associated with them."
+msgstr ""
+
+#: ../features.rst:258
+msgid "A complete set of workflow states and transitions make up a ``workflow``. Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites. Individual content types may have their own workflow. Or, and this is particularly interesting, no workflow. In that case, which initially applies to file and image uploads, the content object inherits the workflow of its container."
+msgstr ""
+
+#: ../features.rst:262
+msgid "An oddity in the all of the standard Plone workflows: a content item may be viewable even if its container is not. Making a container private does **not** automatically make its contents private."
+msgstr ""
+
+#: ../features.rst:264
+msgid "Read more at: http://docs.plone.org/working-with-content/collaboration-and-workflow/index.html"
+msgstr ""
+
+#: ../features.rst:267
+msgid "Working copy"
+msgstr ""
+
+#: ../features.rst:269
+msgid "Published content, even in an intranet setting, can pose a special problem for editing. It may need to be reviewed before changes are made available. In fact, the original author may not even have permission to change the document without review. Or, you may need to make a partial edit. In either case, it may be undesirable for changes to be immediately visible."
+msgstr ""
+
+#: ../features.rst:271
+msgid "Plone's working copy support solves this problem by adding a check-out/check-in function for content — available on the actions menu. A content item may be checked out, worked on, then checked back in. Or abandoned if the changes weren't acceptable. Not until check in is the content visible."
+msgstr ""
+
+#: ../features.rst:273
+msgid "While it's shipped with Plone, working copy support is not a common need. So, if you need it, you need to activate it via the add-on packages configuration page. Unless activated, check-in/check-out options are not visible."
+msgstr ""
+
+#: ../features.rst:277
+msgid "Working-copy support is not yet available for content types created via Dexterity. This is on the way."
+msgstr ""
+
+#: ../features.rst:281
 msgid "Placeful workflows"
+msgstr ""
+
+#: ../features.rst:283
+msgid "You may need to have different workflows in different parts of a site. For example, we created an intranet folder. Since this is intended for use by our conference organizers — but not the public — the simple workflow we wish to use for the rest of the site will not be desirable."
+msgstr ""
+
+#: ../features.rst:285
+msgid "Plone's ``Workflow Policy Support`` package gives you the ability to set different workflows in different sections of a site. Typically, you use it to set a special workflow in a folder that will govern everything under that folder. Since it has effect in a \"place\" in a site, this mechanism is often called \"Placeful Workflow\"."
+msgstr ""
+
+#: ../features.rst:287
+msgid "As with working-copy support, Placeful Workflow ships with Plone but needs to be activated via the add-on configuration page. Once it's added, a ``Policy`` option will appear on the state menu to allow setting a placeful workflow policy."
+msgstr ""
+
+#: ../features.rst:291
+msgid "Workflow Policy support is not yet available for folderish content types created via Dexterity. This is on the way."
 msgstr ""
 

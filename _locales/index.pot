@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2015-03-06 09:50-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,38 +16,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../index.rst:7
-# ff626ac8557d4880ab199ec25dc40396
+#: ../index.rst:2
 msgid "Mastering Plone!"
 msgstr ""
 
-#: ../index.rst:9
-# 451992f464034889991fb70bb7f61756
+#: ../index.rst:4
 msgid "This is the documentation for the \"Mastering Plone\"-training."
 msgstr ""
 
-#: ../index.rst:11
-# 52404672359b4795a82a35ffd9d6729e
+#: ../index.rst:6
 msgid "Mastering Plone is intended as a week-long training for people who are new to Plone or want to learn about the current best-practices of Plone-development. It can be split in two tranings:"
 msgstr ""
 
-#: ../index.rst:13
-# c9d3e1564fc14e259d58558ea96cca16
+#: ../index.rst:8
 msgid "A beginner training (2 to 3 days) that covers chapters 1-18."
 msgstr ""
 
-#: ../index.rst:14
-# aed82da5f25548548ca05ef8fba82c6b
+#: ../index.rst:9
 msgid "A advanced training (3 to 5 days) that covers the rest."
 msgstr ""
 
-#: ../index.rst:17
-# a3030fcc4ea74ab381ea8c8486f0e3e7
+#: ../index.rst:18
 msgid "Contents:"
 msgstr ""
 
-#: ../index.rst:62
-# 2af2e0acfa6b4370adca7c167b6c4b7d
+#: ../index.rst:63
 msgid "Please note that this document is not complete without the spoken word of a trainer even though we attempt to include the most important parts of what we teach in the narrative it can not be considered complete without the spoken word."
 msgstr ""
 

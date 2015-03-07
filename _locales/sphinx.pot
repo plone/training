@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2015-03-06 09:50-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,12 +22,6 @@ msgstr ""
 #: ../sphinx/local/lib/python2.7/site-packages/sphinx/ext/autosummary/templates/autosummary/base.rst:1
 #: ../sphinx/local/lib/python2.7/site-packages/sphinx/ext/autosummary/templates/autosummary/class.rst:1
 #: ../sphinx/local/lib/python2.7/site-packages/sphinx/ext/autosummary/templates/autosummary/module.rst:1
-# 79d4dabe76024d758a5a4258a6ea9aa1
-# 0af8ddf24ffb4feda6eadb5fb3b4baad
-# 99ffb1a562424d15bf53583453e0d904
-# aca386bcc09643e5a707e3b1b8df6a03
-# 744032c8e366435fae1c55454950c5e5
-# e26f4800b80644dbb1d0161ba1f94150
 msgid "{{ fullname }} {{ underline }}"
 msgstr ""
 

@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2015-03-06 09:50-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,72 +17,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../grok.rst:3
-# fd3f1153eab042dc9cba99fdc96934cb
 msgid "Grok"
 msgstr ""
 
 #: ../grok.rst:5
-# 3cbaa4691e1249e9bd3058277bc3ae0e
 msgid "Grok is an alternative declaration language for declaring your components. It is compatible with the Zope Component Architecture, it used just an alternative syntax."
 msgstr ""
 
 #: ../grok.rst:7
-# 9536a28ae9cc484492266d1e38293e46
 msgid "Instead of writing separate zcml files, you annotate your code and you create content conforming to specific file names so that they are automatically found. There has been discussions whether grok should be used in the plone core. The plone community decided against it, because it increases the technology stack without adding functionality."
 msgstr ""
 
 #: ../grok.rst:10
-# e317673d6bb24a678721d2f6affaac87
 msgid "Some people are even against using it in Add Ons, because there would not be just one way to declare components, but two. Then there is onle last disadvantage, grok components cannot be overridden by z3c.jbot. I would not be surprised if this could be fixed though."
 msgstr ""
 
 #: ../grok.rst:12
-# 58bde470ebc74e24a9968fbd2906ae8d
 msgid "After all these negative things let us tell you why we still like it: We like to write as few lines of code and configuration as possible."
 msgstr ""
 
 #: ../grok.rst:14
-# 796f75c8243447bebfaaee11ba13ad84
 msgid "So, we will write our browser view as a grok view. From the component architecture side, nothing changes. We still need to write a multi adapter. All the details like which template to use or for which browser layer the view shall be used is declared with a single line annotation or deduced from file names."
 msgstr ""
 
 #: ../grok.rst:18
-# ea839b0c115843b987ce268fab93df3a
 msgid "http://docs.plone.org/develop/addons/five-grok/index.html"
 msgstr ""
 
 #: ../grok.rst:20
-# 73c615a03ba3462fb399cea022fe8c51
 msgid "Grok is not part of plone. We have to add it as a dependency to our egg."
 msgstr ""
 
 #: ../grok.rst:22
-# bb8684fbfe5946f1a18692ca495b5900
 msgid "Open setup.py, and add ``five.grok`` to the list off addons in ``install_requires``::"
 msgstr ""
 
 #: ../grok.rst:31
-# 8f9387a87cbf491385c19b5bf011d72b
 msgid "You need to run buildout now."
 msgstr ""
 
 #: ../grok.rst:33
-# 31fc5bce427249048c585a614ae34a48
 msgid "Grok nearly magicaly does find all its annotations. Since its not complete magic, you have to tell grok where to look for grok code. This requires a single line of zcml, that line ensures that your complete package is `grokked`."
 msgstr ""
 
 #: ../grok.rst:53
-# 7d318cf9f6ec46949ca0cbfef42b4d9f
 msgid "This new grok statement takes care of finding everything grok related."
 msgstr ""
 
 #: ../grok.rst:55
-# ac7b97f7744a4ef880e50395ca498455
 msgid "Now we can add a grok view in a new file ``views.py``:"
 msgstr ""
 
 #: ../grok.rst:69
-# d7a5285687b0476c97fe81c77b6eaca1
 msgid "By convention the template must be in a subdirectory called ``views_templates`` and it must be named `talkview.pt`"
 msgstr ""
 

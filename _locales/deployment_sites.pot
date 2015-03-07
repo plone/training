@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2015-03-06 09:50-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,137 +17,110 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../deployment_sites.rst:2
-# 4b84dca50f7c454ea396f0657434a815
 msgid "Buildout II: Getting ready for deployment"
 msgstr ""
 
 #: ../deployment_sites.rst:6
-# d969e46b18554564bdb526b41e4d883d
 msgid "The starzel-buildout"
 msgstr ""
 
 #: ../deployment_sites.rst:8
-# ff3dfac78ba54d87b4204b50472c0ea5
 msgid "Have a look at the buildout we use for our projects: https://github.com/starzel/buildout"
 msgstr ""
 
 #: ../deployment_sites.rst:10
-# bda4b45e684b461cbea97de7a4408da7
 msgid "It has some noteable features:"
 msgstr ""
 
 #: ../deployment_sites.rst:12
-# da59b89854ea4ef182f44c7072de0c2d
 msgid "It extends to files on github shared by all projects of the same version"
 msgstr ""
 
 #: ../deployment_sites.rst:20
-# d0f18edc60b545c58c4f47d8701690ff
 msgid "Minimal work to setup a new project"
 msgstr ""
 
 #: ../deployment_sites.rst:21
-# 637e520bbddc45e9a7a77d13118168f0
 msgid "Presets for development, testing, staging and production"
 msgstr ""
 
 #: ../deployment_sites.rst:24
-# 352bc5899cf64b8c8909a2a023bbf74b
 msgid "A deployment-setup"
 msgstr ""
 
 #: ../deployment_sites.rst:26
-# b02debc2a43542598ece5619802a530c
 msgid "zeoserver and zeoclients"
 msgstr ""
 
 #: ../deployment_sites.rst:27
-# 860e440829a448cdafa8b5682d7c1a96
 msgid "haproxy"
 msgstr ""
 
 #: ../deployment_sites.rst:28
-# 1db076c8982a41e9b6938103fec5b838
 msgid "nagios"
 msgstr ""
 
 #: ../deployment_sites.rst:29
-# c854ce24e6c24161b8b7fbe40732b4d0
 msgid "varnish"
 msgstr ""
 
 #: ../deployment_sites.rst:30
-# 226e0b7918b44edfad9027e09653dd61
 msgid "monitoring"
 msgstr ""
 
 #: ../deployment_sites.rst:31
-# 4018b361f4c842e6a75c53df5a5cb6df
 msgid "supervisor"
 msgstr ""
 
 #: ../deployment_sites.rst:32
-# 9721b08e00324c7f99648b30cf010499
 msgid "backup"
 msgstr ""
 
 #: ../deployment_sites.rst:33
-# d6d4bef8283f403690ffcebd3aa463b6
 msgid "logrotate"
 msgstr ""
 
 #: ../deployment_sites.rst:34
-# 9b8dabecafe44662b45dc7826c289732
 msgid "precompiler"
 msgstr ""
 
 #: ../deployment_sites.rst:35
-# e47f93dfa59c43b68273dacd636f1ebb
 msgid "cronjobs"
 msgstr ""
 
 #: ../deployment_sites.rst:39
-# 62ee5053d62449c48f57aa4a779acb82
 msgid "Other tools we use"
 msgstr ""
 
 #: ../deployment_sites.rst:41
-# 480f7566b9c6464a9cf988bb9779b812
 msgid "Fabric (manage sites)"
 msgstr ""
 
 #: ../deployment_sites.rst:42
-# 9d7f4b3642034a389ecdfc20907d99f2
 msgid "Sentry (error-monitoring)"
 msgstr ""
 
 #: ../deployment_sites.rst:43
-# d9729cc0c8a640958918638eb0f793c3
 msgid "Ansible (manage and setup servers and tools)"
 msgstr ""
 
 #: ../deployment_sites.rst:44
-# bf0f5ca6692d4e57a29860fb262a53c9
 msgid "Nagios (server-monitoring)"
 msgstr ""
 
 #: ../deployment_sites.rst:45
-# 34d8129854da457bb5f8519c01353bf1
 msgid "jenkins (tests)"
 msgstr ""
 
 #: ../deployment_sites.rst:46
-# 5f92c662910d483080e3f46765c0d51f
 msgid "piwik (statictics)"
 msgstr ""
 
 #: ../deployment_sites.rst:47
-# 72ae13dc246f46a0ad81a610702a8927
 msgid "gitlab (code-repo and code-review)"
 msgstr ""
 
 #: ../deployment_sites.rst:48
-# 3f8188f06ff54dedb7968b03bd088ab9
 msgid "redmine (ticket-system and wiki)"
 msgstr ""
 
