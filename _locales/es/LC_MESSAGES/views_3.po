@@ -24,7 +24,7 @@ msgstr "Views - Parte III: Una lista de Task"
 
 #: ../views_3.rst:0
 msgid "Get the code!"
-msgstr "¡Obten el código!"
+msgstr "¡Obtén el código!"
 
 #: ../views_3.rst:6
 msgid ""
