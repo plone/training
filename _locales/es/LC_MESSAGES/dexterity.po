@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-06 23:16+0000\n"
+"PO-Revision-Date: 2015-03-08 15:04+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../dexterity.rst:2
 msgid "Dexterity I: Through the web"
-msgstr "Dexterity - Parte I: A través de la web"
+msgstr "Dexterity - Parte I: A través de la Web"
 
 #: ../dexterity.rst:0
 msgid "Get the code!"
@@ -32,7 +32,7 @@ msgstr "¡Obtén el código!"
 msgid ""
 "Get the code for this chapter (:doc:`More info <sneak>`) using this command "
 "in the buildout-directory:"
-msgstr "Obtén el código para este capitulo (:doc:`Mas información <sneak>`) usando este comando en el directorio buildout:"
+msgstr "Obtén el código para este capítulo (:doc:`Mas información <sneak>`) usando este comando en el directorio buildout:"
 
 #: ../dexterity.rst:14
 msgid "What is a content type?"
@@ -51,7 +51,7 @@ msgstr "Un tipo de contenido es una variedad de objetos que pueden almacenar inf
 msgid ""
 "It is common in developing a web site that you'll need customized versions "
 "of common content types, or perhaps even entirely new types."
-msgstr "Es común en el desarrollo de un sitio web que usted necesitará versiones personalizadas de los tipos de contenido comunes, o tal vez incluso totalmente nuevos tipos."
+msgstr "Es común en el desarrollo de un sitio Web usted necesitará versiones personalizadas de los tipos de contenido comunes, o tal vez incluso totalmente nuevos tipos."
 
 #: ../dexterity.rst:20
 msgid ""
@@ -62,7 +62,7 @@ msgid ""
 "asked potential presenters to create a page. Also, we'll want to be able to "
 "display talks featuring that special information, and we'll want to be able "
 "to show collections of talks. A custom content type will be ideal."
-msgstr "¿Recuerda los requisitos para nuestro proyecto? Queríamos ser capaces de solicitar y editar Talks de la conferencia. Podríamos utilizar el tipo de contenido ``Página`` para ese propósito. Sin embargo, hay bits de información que necesitamos para asegurarnos de que obtenemos sobre una talk y no sería seguro de obtener esa información si sólo pedimos presentadores potenciales para crear una página. Además, vamos a querer ser capaz de mostrar las Talks que ofrecen esa información especial, y nosotros queremos ser capaces de mostrar las colecciones de Talks. Un tipo de contenido personalizado será ideal."
+msgstr "¿Recuerda los requisitos para nuestro proyecto? Queríamos ser capaces de solicitar y editar charlas de la conferencia. Podríamos utilizar el tipo de contenido ``Página`` para ese propósito. Sin embargo, hay bits de información que necesitamos para asegurarnos de que obtenemos sobre una charla y no sería seguro de obtener esa información si sólo pedimos ponentes potenciales para crear una página. Además, vamos a querer ser capaz de mostrar las charlas que ofrecen esa información especial, y nosotros queremos ser capaces de mostrar las colecciones de charlas. Un tipo de contenido personalizado será ideal."
 
 #: ../dexterity.rst:23
 msgid "The makings of a Plone content type"
@@ -102,7 +102,7 @@ msgid ""
 "may be rendered in response to a request. You may have one or more views for"
 " an object. Some may be visual — intended for display as web pages — others "
 "may be intended to satisfy AJAX requests and be in formats like JSON or XML."
-msgstr "Una vista es una representación del objeto y el contenido de sus campos que pueden prestarse en respuesta a una solicitud. Usted puede tener una o más vistas de un objeto. Algunos pueden ser visuales - destinados a la pantalla en forma de páginas web - otros pueden estar destinados a satisfacer las peticiones AJAX y estar en formatos como JSON o XML."
+msgstr "Una vista es una representación del objeto y el contenido de sus campos que pueden prestarse en respuesta a una solicitud. Usted puede tener una o más vistas de un objeto. Algunos pueden ser visuales - destinados a la pantalla en forma de páginas Web - otros pueden estar destinados a satisfacer las peticiones AJAX y estar en formatos como JSON o XML."
 
 #: ../dexterity.rst:39
 msgid "Dexterity and Archetypes - A Comparison"
@@ -118,7 +118,7 @@ msgstr "Dexterity: nuevo y el que vendra por defecto"
 
 #: ../dexterity.rst:44
 msgid "Archetypes: old, tried and tested"
-msgstr "Arquetipos: los tipos de contenidos viejos, intentados y probados"
+msgstr "Archetypes: los tipos de contenidos viejos, intentados y probados"
 
 #: ../dexterity.rst:45
 msgid "Archetypes: widespread though addons"
@@ -148,7 +148,7 @@ msgstr "Dexterity: Nuevo, más rápido, modular, hay magia oscura para los méto
 msgid ""
 "Archetype had magic setter/getter - use talk.getAudience() for the field "
 "'audience'"
-msgstr "Arquetipo tiene métodos setter / getter mágico - usa talk.getAudience() para el campo 'audience'"
+msgstr "Archetypes tiene métodos setter / getter mágico - usa talk.getAudience() para el campo 'audience'"
 
 #: ../dexterity.rst:54
 msgid ""
@@ -173,11 +173,11 @@ msgid ""
 "UML-modeling: `ArchGenXML <http://docs.plone.org/old-reference-"
 "manuals/archgenxml/index.html>`_ for Archetypes, `agx <http://agx.me>`_ for "
 "Dexterity"
-msgstr "Modelado UML  `ArchGenXML <http://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ para arquetipos, `agx <http://agx.me>`_ para Dexterity"
+msgstr "Modelado UML  `ArchGenXML <http://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ para Archetypes, `agx <http://agx.me>`_ para Dexterity"
 
 #: ../dexterity.rst:62
 msgid "Approaches for Developers:"
-msgstr "Acercamiento para desarrolladores:"
+msgstr "Enfoques para Desarrolladores:"
 
 #: ../dexterity.rst:64
 msgid ""
@@ -199,7 +199,7 @@ msgstr "Archetypes: Permisos por campo duros, los formularios personalizados aú
 
 #: ../dexterity.rst:69
 msgid "If you have to program for old sites you need to know Archetypes!"
-msgstr "Si tiene que programar para los sitios antiguos ¡usted necesita saber Arquetipos!"
+msgstr "Si tiene que programar para los sitios antiguos ¡usted necesita saber Archetypes!"
 
 #: ../dexterity.rst:70
 msgid "If starting fresh, go with Dexterity."
@@ -237,7 +237,7 @@ msgstr "Tanto Dexterity y Archetypes tienen una vista predeterminada de tipos de
 
 #: ../dexterity.rst:83
 msgid "Browser Views provide custom views."
-msgstr "Browser Views proveen vistas personalizados."
+msgstr "Browser Views proveen vistas personalizadas."
 
 #: ../dexterity.rst:84
 msgid "TTW (future)"
@@ -261,7 +261,7 @@ msgstr "Podemos omitir este paso desde que instalamos el producto ``plone.app.co
 msgid ""
 "You don't have to modify the buildout since Plone 4.2+ ships with Dexterity."
 " You just have to activate it in the control-panel for Add-ons."
-msgstr "Usted no tiene que modificar el archivo buildout puesto que este esta incorporado desde Plone 4.2 y versiones posteriores con Dexterity. Sólo tienes que activarlo en el panel de control para Complementos."
+msgstr "Usted no tiene que modificar el archivo buildout puesto este esta incorporado desde Plone 4.2 y versiones posteriores con Dexterity. Sólo tienes que activarlo en el panel de control para Complementos."
 
 #: ../dexterity.rst:98
 msgid ""
@@ -293,7 +293,7 @@ msgstr "Inspecciona algunos de los tipos de contenido existentes por defecto"
 msgid ""
 "Select the type ``News Item`` and add a new field ``Hot News`` of type "
 "``Yes/No``"
-msgstr "Seleccione el tipo de ``elemento Noticias`` y agregar un nuevo campo ``Noticias caliente`` de tipo ``Sí ​​/ No``"
+msgstr "Seleccione el tipo de contenidos ``Noticias`` y agregar un nuevo campo ``Hot News`` de tipo ``Sí/No``"
 
 #: ../dexterity.rst:110
 msgid "In another tab add a News Item and you see the new field."
@@ -325,7 +325,7 @@ msgstr "Edite de nuevo el elemento de Noticia. El widget de cambiado de un campo
 msgid ""
 "The new field ``Hot News`` is not displayed when rendering the News Item. "
 "We'll take care of this later."
-msgstr "El nuevo campo ``Noticias caliente`` no se visualiza cuando se representa la Noticia. Nosotros nos ocuparemos de esto más adelante."
+msgstr "El nuevo campo ``Hot News`` no se visualiza cuando se representa la Noticia. Nosotros nos ocuparemos de esto más adelante."
 
 #: ../dexterity.rst:125
 msgid ""
@@ -343,27 +343,27 @@ msgid ""
 "When it's ready we will move the code from the web to the file system and "
 "into our own add-on. Later we will extend that type, add behaviors and a "
 "viewlet for Talks."
-msgstr "En este paso vamos a crear un tipo de contenido llamado *Talkr* y probarlo. Cuando esté listo vamos a mover el código de la web para el sistema de archivos y en nuestro propio complemento. Más tarde vamos a ampliar ese tipo, los comportamientos y añadir un viewlet de las Talks."
+msgstr "En este paso vamos a crear un tipo de contenido llamado *Talk* (para las charlas) y probarlo. Cuando esté listo vamos a mover el código fuente de la Web para el sistema de archivos y en nuestro propio complemento. Más tarde vamos a ampliar ese tipo, los comportamientos y añadir un viewlet de las Charlas."
 
 #: ../dexterity.rst:132
 msgid "Add new content type \"Talk\" and some fields for it:"
-msgstr "Agregar un nuevo tipo \"Talk\" y algunos campos para el:"
+msgstr "Agregar un nuevo tipo de contenido llamado \"Talk\" y algunos campos para el:"
 
 #: ../dexterity.rst:134
 msgid ""
 "Add Field \"Type of talk\", type \"Choice\". Add options: talk, keynote, "
 "training"
-msgstr "Agregue el campo \"Type of talk\", de tipo \"Choice\". Agregar opciones talk, keynote, training"
+msgstr "Agregue el campo \"Type of talk\", de tipo \"Selección\". Agregar opciones talk, keynote, training"
 
 #: ../dexterity.rst:135
 msgid "Add Field \"Details\", type \"Rich Text\" with a maximal length of 2000"
-msgstr "Agregar Campo \"Details\", de tipo \"Rich Text\" con un tamaño máximo de 2000"
+msgstr "Agregue el campo \"Details\", de tipo \"Rich Text\" con un tamaño máximo de 2000"
 
 #: ../dexterity.rst:136
 msgid ""
 "Add Field \"Audience\", type \"Multiple Choice\". Add options: beginner, "
 "advanced, pro"
-msgstr "Agregar Campo \"Audience\", de tipo \"Multiple Choice\". Agregar opciones: beginner, advanced, pro"
+msgstr "Agregue  el campo\"Audience\", de tipo \"Selección múltiple\". Agregar opciones: beginner, advanced, pro"
 
 #: ../dexterity.rst:137
 msgid ""
@@ -416,7 +416,7 @@ msgstr "Moviendo el tipo de contenido dentro del código fuente"
 msgid ""
 "It's awesome that we can do so much through the web. But it's also a dead "
 "end if we want to reuse this content type in other sites."
-msgstr "Es impresionante que podemos hacer tanto a través de la web. Pero también es un callejón sin salida si queremos volver a utilizar este tipo de contenido en otros sitios."
+msgstr "Es impresionante que podemos hacer tanto a través de la Web. Pero también es un callejón sin salida si queremos volver a utilizar este tipo de contenido en otros sitios."
 
 #: ../dexterity.rst:210
 msgid ""
@@ -450,7 +450,7 @@ msgstr "Ejercicio 1"
 msgid ""
 "Modify Documents to allow uploading an image as decoration (like News Items "
 "do)."
-msgstr "Modificar Documentos para permitir subir una imagen como la decoración (como los elementos Noticias)."
+msgstr "Modificar Documentos para permitir subir una imagen como la decoración (como las Noticias)."
 
 #: ../dexterity.rst:227 ../dexterity.rst:255
 msgid "Solution"
@@ -530,7 +530,7 @@ msgstr "Image (opcional)"
 msgid ""
 "We could use this content type later to convert speakers into Plone users. "
 "We could then link them to their talks."
-msgstr "Podríamos utilizar este tipo de contenido después de convertir los speakers en los usuarios de Plone. Podríamos luego enlazar a sus talks."
+msgstr "Podríamos utilizar este tipo de contenido después de convertir los ponentes en los usuarios de Plone. Podríamos luego enlazar a sus charlas."
 
 #: ../dexterity.rst:258
 msgid "The schema should look like this:"

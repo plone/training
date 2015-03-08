@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-06 15:17+0000\n"
+"PO-Revision-Date: 2015-03-07 14:39+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr "¿Como ha sido tu experiencia en Plone?"
 
 #: ../intro.rst:12
 msgid "What is your web-development experience?"
-msgstr "¿Cual ha sido tu experiencia en Desarrollo Web?"
+msgstr "¿Cual ha sido tu experiencia en desarrollo Web?"
 
 #: ../intro.rst:13
 msgid "What are your expectations for this tutorial?"
@@ -54,7 +54,7 @@ msgstr "¿Cual es tu editor favorito?"
 
 #: ../intro.rst:36
 msgid "If this training will include the development chapters:"
-msgstr "Si esta formación incluirá los capítulos de desarrollo:"
+msgstr "Si este entrenamiento incluirá los capítulos de desarrollo:"
 
 #: ../intro.rst:16
 msgid "Do you know the html of the output of this?"
@@ -257,7 +257,7 @@ msgid ""
 " your skills via reading books like Practical Plone <http://www.packtpub.com"
 "/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_ and"
 " the `Plone documentation <http://docs.plone.org>`_."
-msgstr "Al final de los dos primeros días de entrenamiento, usted sabrá muchas de las herramientas necesarias para la instalación, integración y configuración de Plone. Usted será capaz de instalar los paquetes de add-on y va a saber algo sobre las tecnologías subyacentes Plone y sus historias. Usted estará listo para extender sus habilidades a través de la lectura de libros como `Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_ y la `documentación de Plone <http://docs.plone.org>`_."
+msgstr "Al final de los dos primeros días de entrenamiento, usted sabrá muchas de las herramientas necesarias para la instalación, integración y configuración de Plone. Usted será capaz de instalar los paquetes add-on y va a saber algo sobre las tecnologías subyacentes Plone y sus historias. Usted estará listo para extender sus habilidades a través de la lectura de libros como `Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_ y la `documentación de Plone <http://docs.plone.org>`_."
 
 #: ../intro.rst:95
 msgid ""
@@ -267,7 +267,7 @@ msgid ""
 "themes and packages. You should also be able to find out where to look for "
 "instructions to do tasks we did not cover. You will know most of the core-"
 "technologies involved in Plone-programming."
-msgstr "Al final de los segundo dos días, usted no será un programador de Plone Profesional completo, pero usted sabe que algunos de los rasgos más poderosos de Plone y debe ser capaz de construir un sitio web más complejo, con temas y paquetes personalizados. También debe ser capaz de averiguar donde encontrar instrucciones para realizar tareas no cubrimos. Usted sabrá la mayoría de las principales tecnologías de núcleo involucradas en la programación de Plone. "
+msgstr "Al final de los segundo dos días, usted no será un programador de Plone Profesional completo, pero usted sabrá algunos de los rasgos más poderosos de Plone y debe ser capaz de construir un sitio web más complejo, con temas y paquetes personalizados. Usted debe también ser capaz de averiguar donde encontrar instrucciones para realizar tareas no cubiertas en este entrenamiento. Usted sabrá la mayoría de las principales tecnologías de núcleo involucradas en la programación de Plone."
 
 #: ../intro.rst:97
 msgid ""
@@ -282,7 +282,7 @@ msgid ""
 "Most importantly you should practice your skills and not stop here but go "
 "forward! One recommended way would be to follow the `todo-app "
 "<http://tutorialtodoapp.readthedocs.org/en/latest/>`_."
-msgstr "Mas importante es que debe practicar sus habilidades y no detenerte aquí y seguir delante! una vía recomendada que debes seguir es el `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_."
+msgstr "Más importante es ¡usted debe practicar sus habilidades y no detenerte aquí y seguir delante! una vía recomendada para esto es debe realizar los pasos del tutorial `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_."
 
 #: ../intro.rst:102
 msgid "Documentation"

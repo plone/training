@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the Mastering Plone package.
 # 
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 09:50-0430\n"
-"PO-Revision-Date: 2015-03-06 22:13+0000\n"
+"PO-Revision-Date: 2015-03-07 05:37+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr "Un viewlet para el comportamiento social"
 msgid ""
 "A viewlet is not a view but a snippet of html and logic that can be put in "
 "various places in the site. These places are called ``viewletmanager``."
-msgstr ""
+msgstr "Un viewlet no es una vista, pero un fragmento de HTML y la lógica que se puede poner en varios lugares en el sitio. Estos lugares se llaman ``viewletmanager``."
 
 #: ../viewlets_1.rst:20
 msgid ""
@@ -70,7 +70,7 @@ msgstr "social-viewlet"
 msgid ""
 "Let's add a link to the site that uses the information that we collected "
 "using the social-behavior."
-msgstr ""
+msgstr "Vamos a añadir un enlace al sitio que utiliza la información que hemos recopilado utilizando el comportamiento social."
 
 #: ../viewlets_1.rst:32
 msgid "We register the viewlet in :file:`browser/configure.zcml`."
@@ -82,7 +82,7 @@ msgid ""
 "that implements the interface ``ISocial`` from our behavior. It is also good"
 " practice to bind it to the `BrowserLayer`_ ``IPloneconfSiteLayer`` of our "
 "addon so it only shows up if our addon is actually installed."
-msgstr ""
+msgstr "Esto registra un viewlet llamado ``social``. Es visible en todos los contenidos que implementa la interfaz ``ISocial`` de nuestro comportamiento. También es una buena práctica de obligar a la `BrowserLayer`_ ``IPloneconfSiteLayer`` de nuestra complemento por lo que sólo se muestra si nuestro complemento se instala en realidad."
 
 #: ../viewlets_1.rst:53
 msgid ""
@@ -94,14 +94,14 @@ msgstr "The clase viewlet ``SocialViewlet`` es esperada en un archivo ``browser/
 msgid ""
 "This class does nothing except rendering the associated template (That we "
 "have to write yet)"
-msgstr ""
+msgstr "Esta clase no hace nada excepto hacer que la plantilla asociada (Eso tenemos que escribir aún)"
 
 #: ../viewlets_1.rst:72
 msgid ""
 "If we used ``grok`` we would not need to register the viewlets in the "
 "``configure.zcml`` but do that in python. We would add a file viewlets.py "
 "containing the viewlet-class."
-msgstr ""
+msgstr "Si utilizamos ``grok`` no necesitaríamos para registrar los viewlets en el ``configure.zcml`` pero si hay que hacerlo en Python. Nos gustaría añadir un archivo viewlets.py que contiene la clase viewlet."
 
 #: ../viewlets_1.rst:84
 msgid ""
@@ -109,7 +109,7 @@ msgid ""
 "over configuration. In browser views the reference is called view, note that"
 " in grok viewlets it is called viewlets (in that case "
 "``viewlet/lanyrd_link``)."
-msgstr ""
+msgstr "Esto haría lo mismo que el código anterior utilizando el paradigma de grok de la convención sobre configuración. En la browser views la referencia se denomina vista, tenga en cuenta que en viewlets grok se llama viewlets (en ese caso ``viewlet/lanyrd_link``)."
 
 #: ../viewlets_1.rst:86
 msgid "Let's add the missing template :file:`templates/social_viewlet.pt`."
@@ -119,13 +119,13 @@ msgstr "Vamos a añadir la plantilla faltante :file:`templates/social_viewlet.pt
 msgid ""
 "As you can see this is not a valid html document. That is not needed, "
 "because we don't want a complete view here, just a html snippet."
-msgstr ""
+msgstr "Como se puede ver que esto no es un documento HTML válido. Eso no es necesario, porque no queremos una visión completa aquí, sólo un fragmento html."
 
 #: ../viewlets_1.rst:106
 msgid ""
 "There is a tal define statement, querying for `view/lanyrd_link. Like in "
 "page templates the template has access to its class."
-msgstr ""
+msgstr "Hay una sentencia TAL define, las consultas para ``view/lanyrd_link``. Al igual que en la página de plantillas de la plantilla tiene acceso a su clase."
 
 #: ../viewlets_1.rst:108
 msgid "We have to extend the Social Viewlet now to add the missing attribute:"
@@ -133,30 +133,30 @@ msgstr "Tenemos que ampliar el Viewlet Social ahora para añadir el atributo que
 
 #: ../viewlets_1.rst:0
 msgid "Why not to access context directly"
-msgstr ""
+msgstr "¿Por qué no acceder directamente contexto?"
 
 #: ../viewlets_1.rst:115
 msgid ""
 "In this example, :samp:`ISocial(self.context)` does return the context "
 "directly. It is still good to use this idiom for two reasons:"
-msgstr ""
+msgstr "En este ejemplo, :samp:`ISocial(self.context)` devuelve el contexto directamente. Todavía es bueno utilizar este idioma por dos razones:"
 
 #: ../viewlets_1.rst:117
 msgid ""
 "It makes it clear, that we only want to use the ISocial aspect of the object"
-msgstr ""
+msgstr "Se deja en claro, que sólo queremos usar el aspecto iSocial del objeto"
 
 #: ../viewlets_1.rst:118
 msgid ""
 "If we decide to use a factory, for example to store our attributes in an "
 "annotation, we would `not` get back our context, but the adapter."
-msgstr ""
+msgstr "Si decidimos utilizar una fábrica, por ejemplo, para almacenar nuestros atributos en una anotación, nosotros deberíamos `not` conseguir nuestro contexto, pero el adaptador."
 
 #: ../viewlets_1.rst:120
 msgid ""
 "Therefore in this example you could simply write ``return "
 "self.context.lanyrd``."
-msgstr ""
+msgstr "Por lo tanto, en este ejemplo, usted puede simplemente escribir ``return self.context.lanyrd``."
 
 #: ../viewlets_1.rst:135
 msgid "So far, we"
@@ -187,7 +187,7 @@ msgid ""
 "only a template (no class) to display the number of talks already submitted."
 " Hint: Use Aquisition to get the catalog (You know, you should not do this "
 "but there is plenty of code out there that does it...)"
-msgstr ""
+msgstr "Registrar una viewlet 'number_of_talks \" en el pie de página que es visible sólo para los administradores (el permiso que busca es ``cmf.ManagePortal``). Utilice sólo una plantilla (sin clase) para mostrar el número de talks ya enviadas. Sugerencia: Utilice Adquisición para conseguir el catálogo (Usted sabe, no debe hacer esto, pero hay un montón de código por ahí que lo hace...)"
 
 #: ../viewlets_1.rst:147
 msgid "Solution"
@@ -195,7 +195,7 @@ msgstr "Solución"
 
 #: ../viewlets_1.rst:150
 msgid "Register the viewlet in :file:`browser/configure.zcml`"
-msgstr ""
+msgstr "Registrar el viewlet en el archivo :file:`browser/configure.zcml`"
 
 #: ../viewlets_1.rst:164
 msgid ""
@@ -203,11 +203,11 @@ msgid ""
 "``zope.interface.Interface`` and the same effect as omitting them: The "
 "viewlet will be shown for all types of pages and for all Plone sites within "
 "your Zope instance."
-msgstr ""
+msgstr "Para el ``for`` y ``layer`` -parámetros ``*`` es la abreviatura de ``zope.interface.Interface`` y el mismo efecto que la omisión de ellos: El viewlet se mostrará para todos los tipos de páginas y para todos los sitios de Plone en su instancia Zope."
 
 #: ../viewlets_1.rst:166
 msgid "Add the template :file:`browser/templates/number_of_talks.pt`:"
-msgstr ""
+msgstr "Agregar la plantilla :file:`browser/templates/number_of_talks.pt`:"
 
 #: ../viewlets_1.rst:176
 msgid ""
@@ -215,27 +215,27 @@ msgid ""
 "Acquisition. Be carefull if you want to use path-expressions: "
 "``content/portal_catalog`` calls the catalog (and returns all brains). You "
 "need to prevent this by using ``nocall:content/portal_catalog``."
-msgstr ""
+msgstr "``python:context.portal_catalog`` devolverá el catálogo a través de la adquisición. Tenga cuidado si usted desea utilizar de expresiones de rutas: ``content/portal_catalog`` llama el catálogo (y devuelve todos los cerebros). Es necesario para evitar esto usando ``nocall:content/portal_catalog``."
 
 #: ../viewlets_1.rst:178
 msgid ""
 "Relying on Aqcisition is a bad idea. It would be much better to use the "
 "helper view ``plone_tools`` from ``plone/app/layout/globals/tools.py`` to "
 "get the catalog."
-msgstr ""
+msgstr "Basándose en Adquisición es una mala idea. Sería mucho mejor utilizar la helper view ``plone_tools`` desde ``plone/app/layout/globals/tools.py`` para obtener el catálogo."
 
 #: ../viewlets_1.rst:188
 msgid ""
 "``context/@@plone_tools/catalog`` traverses to the view ``plone_tools`` and "
 "calls it's method ``catalog``. In python it would look like this:"
-msgstr ""
+msgstr "``context/@@plone_tools/catalog`` atraviesa a la vista ``plone_tools`` y llama a su método ``catalog``. En python que se vería así:"
 
 #: ../viewlets_1.rst:199
 msgid ""
 "It is not a good practice to query the catalog within a template since even "
 "simple logic like this should live in Python. But it is very powerful if you"
 " are debugging or need a quick and dirty solution."
-msgstr ""
+msgstr "No es una buena práctica consultar el catálogo dentro de una plantilla, ya que incluso sea una lógica simple como esto, debería vivar en Python. Pero es muy poderoso si está depurando o necesita una solución rápida y sucia."
 
 #: ../viewlets_1.rst:202
 msgid "Exercise 2"
@@ -247,4 +247,4 @@ msgid ""
 "template to display the number of days until the conference. You get many "
 "bonus-points if you display it in a nice format (think \"In 2 days\" and "
 "\"Last Month\") by using an existing javascript or python library."
-msgstr ""
+msgstr "Registrar la viewlet 'days_to_conference' en la cabecera. Utilice una clase y una plantilla para mostrar el número de días hasta la conferencia. Usted consigue muchos puntos de bonificación si se muestra en un formato agradable (pensar \"En 2 días\" y \"Último mes\") utilizando un javascript existentes o biblioteca python."

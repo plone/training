@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-07 03:03+0000\n"
+"PO-Revision-Date: 2015-03-08 14:21+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgid ""
 "and resolves all dependencies. You might need five different eggs, but in "
 "the end, Buildout has to install 300 eggs, all with the correct version in "
 "order to resolve all the dependencies."
-msgstr "Para componer su aplicación es necesario definir los paquetes eggs que usted necesita, ¿qué versión?, ¿qué archivos de configuración Buildout tiene que generar para usted?, para descargar y compilar, y así sucesivamente. Buildout descarga los paquetes eggs requeridos y resuelve todas las dependencias. Es posible que necesite cinco paquetes eggs diferentes, pero al final, Buildout tiene que instalar 300 paquetes eggs, todos con la versión correcta."
+msgstr "Para componer su aplicación es necesario definir los paquetes eggs que usted necesita, ¿qué versión?, ¿qué archivos de configuración Buildout tiene que generar para usted?, para descargar y compilar, así sucesivamente. Buildout descarga los paquetes eggs requeridos y resuelve todas las dependencias. Es posible que necesite cinco paquetes eggs diferentes, pero al final, Buildout tiene que instalar 300 paquetes eggs, todos con la versión correcta."
 
 #: ../buildout_1.rst:11
 msgid ""
@@ -46,7 +46,7 @@ msgid ""
 "other package. The commands created by buildout bring all the required "
 "packages into into the Python environment. Each command it creates my use "
 "different libraries or even different versions of the same library."
-msgstr "Buildout hace esto sin tocar el sistema Python o afectar a ningún otro paquete. Los comandos creados por buildout traer todos los paquetes requeridos en en el entorno Python. Cada comando que crea mis diferentes bibliotecas o incluso diferentes versiones de la misma biblioteca."
+msgstr "Buildout hace esto sin tocar el sistema Python o afectar a ningún otro paquete. Los comando creados por buildout traer todos los paquetes requeridos en el entorno Python. Cada comando que crea mis diferentes bibliotecas o incluso diferentes versiones de la misma biblioteca."
 
 #: ../buildout_1.rst:13
 msgid ""
@@ -60,7 +60,7 @@ msgid ""
 "the box, so you'll need several extensions. Some extensions provide new "
 "functionality, like mr.developer, the best way to manage your checked out "
 "sources."
-msgstr "Usted necesitará una gran cantidad de funcionalidades que Buildout no proporciona fuera de la caja, así que usted necesitará varias extensiones. Algunas extensiones proporcionan una funcionalidad totalmente nueva, como mr.developer, la mejor manera de manejar sus repositorios de código fuente."
+msgstr "Usted necesitará una gran cantidad de funcionalidades que Buildout no proporciona fuera de la caja, así usted necesitará varias extensiones. Algunas extensiones proporcionan una funcionalidad totalmente nueva, como mr.developer, la mejor manera de manejar sus repositorios de código fuente."
 
 #: ../buildout_1.rst:20
 msgid "Syntax"
@@ -73,7 +73,7 @@ msgid ""
 "another value in the next line and indent it, Buildout understands that both"
 " values belong to the parameter name, and the parameter stores all values as"
 " a list."
-msgstr "La sintaxis de los archivos de configuración de despliegue es similar a los archivos clásicos ini. Usted escribe un nombre de parámetro, un signo igual y el valor. Si introduce otro valor en la siguiente línea y sangría a ella, Buildout entiende que ambos valores pertenecen al nombre del parámetro y el parámetro almacena todos los valores en forma de lista."
+msgstr "La sintaxis de los archivos de configuración de despliegue es similar a los archivos clásicos ini. Usted escribe un nombre de parámetro, un signo igual y el valor. Si introduce otro valor en la siguiente línea y indentada, Buildout entiende que ambos valores pertenecen al nombre del parámetro y el parámetro almacena todos los valores en forma de lista."
 
 #: ../buildout_1.rst:26
 msgid ""
@@ -81,7 +81,7 @@ msgid ""
 "name in square brackets. Each section declares a different part of your "
 "application. As a rough analogy, your Buildout file is a cookbook with "
 "multiple recipes."
-msgstr "A Buildout consta de múltiples secciones. Secciones comienzan con el nombre de la sección entre corchetes. Cada sección declara una parte diferente de su aplicación. Como analogía aproximada, su archivo Buildout es un libro de cocina con múltiples recetas."
+msgstr "Un Buildout consta de múltiples secciones. Las secciones comienzan con el nombre de la sección entre corchetes. Cada sección declara una parte diferente de su aplicación. Como analogía aproximada, su archivo Buildout es un libro de cocina con múltiples recetas."
 
 #: ../buildout_1.rst:28
 msgid ""
@@ -145,7 +145,7 @@ msgid ""
 "<https://pypi.python.org/pypi/collective.recipe.omelette>`_. A very "
 "practical recipe that creates a virtual directory that eases the navigation "
 "to the source code of each egg."
-msgstr "Incluso en los buildouts más pequeños esta es una característica útil. Estamos utilizando `collective.recipe.omelette <https://pypi.python.org/pypi/collective.recipe.omelette>`_. Una receta muy práctica que crea un directorio virtual que facilita la navegación al código fuente de cada paquete egg."
+msgstr "Incluso en los buildouts más pequeños esta es una característica útil. Estamos utilizando `collective.recipe.omelette <https://pypi.python.org/pypi/collective.recipe.omelette>`_. Una receta muy práctica el cual crea un directorio virtual para facilitar la navegación al código fuente de cada paquete egg."
 
 #: ../buildout_1.rst:60
 msgid ""
@@ -159,14 +159,14 @@ msgid ""
 "Another example: Say you create configuration files for a web server like "
 "nginx, you can define the target port for the reverse proxy by looking it up"
 " from the zope2instance recipe."
-msgstr "Otro ejemplo: Digamos que usted crea archivos de configuración para un servidor web como Nginx, puede definir el puerto de destino para el proxy inverso al mirar hacia arriba a partir de la receta zope2instance."
+msgstr "Otro ejemplo: Digamos usted crea archivos de configuración para un servidor Web como Nginx, puede definir el puerto de destino para el Proxy inverso al mirar hacia arriba a partir de la receta zope2instance."
 
 #: ../buildout_1.rst:64
 msgid ""
 "Configuring complex systems always involves a lot of duplication of "
 "information. Using references in the buildout configuration allows you to "
 "minimize these duplications."
-msgstr "Configuración de sistemas complejos siempre implica una gran cantidad de duplicación de la información. El uso de referencias en la configuración buildout le permite minimizar estas duplicaciones."
+msgstr "La configuración de sistemas complejos siempre implica una gran cantidad de duplicación de la información. El uso de referencias en la configuración buildout le permite minimizar estas duplicaciones."
 
 #: ../buildout_1.rst:67
 msgid "A real life example"
@@ -176,13 +176,13 @@ msgstr "Un ejemplo de la vida real"
 msgid ""
 "Let us walk through the ``buildout.cfg`` for the training and look at some "
 "important variables:"
-msgstr "Examinemos el archivo ``buildout.cfg`` para el entrenamiento y miremos algunas de las variables mas importantes:"
+msgstr "Examinemos el archivo ``buildout.cfg`` para el entrenamiento y miremos algunas de las variables más importantes:"
 
 #: ../buildout_1.rst:157
 msgid ""
 "When you run ``./bin/buildout`` without any arguments, Buildout will look "
 "for this file."
-msgstr "Cuando usted ejecuta ``./bin/buildout`` sin argumentos, Buildout buscara por este archivo:"
+msgstr "Cuando usted ejecuta el comando ``./bin/buildout`` sin argumentos, Buildout buscara por este archivo:"
 
 #: ../buildout_1.rst:161
 msgid "Let us look closer at some variables."
@@ -197,20 +197,20 @@ msgid ""
 "aspects of your configuration into different files. Typical examples are "
 "version specifications, or configuration that differ between different "
 "environments."
-msgstr "Esta línea le dice al Buildout lea más archivos de configuración. Puede hacer referencia a los archivos de configuración en el equipo o los archivos de configuración en Internet, accesible a través de protocolo http. Puede utilizar varios archivos de configuración para compartir entre múltiples configuraciones Buildouts, o para separar los diferentes aspectos de su configuración en archivos diferentes. Ejemplos típicos son especificaciones de la versión o la configuración que difieren entre los diferentes entornos de instalación, por ejemplo, desarrollo, calidad, producción."
+msgstr "Esta línea le dice al Buildout lea más archivos de configuración. Puede hacer referencia a los archivos de configuración locales en el equipo o los archivos de configuración en Internet, accesible a través de protocolo HTTP. Puede utilizar varios archivos de configuración para compartir entre múltiples configuraciones Buildouts, o para separar los diferentes aspectos de su configuración en archivos diferentes. Ejemplos típicos son especificaciones de la versión o la configuración que difieren entre los diferentes entornos de instalación como desarrollo, calidad, producción."
 
 #: ../buildout_1.rst:193
 msgid ""
 "This is the list of eggs that we configure to be available for Zope. These "
 "eggs are put in the python-path of the script ``bin/instance`` with which we"
 " start and stop Plone."
-msgstr "Esta es la lista de los paquetes eggs que nosotros configuramos a estar disponible para Zope. Estos paquetes eggs se ponen en la ruta de python del script ``bin/instance`` con el cual se iniciara y detendrá con Plone."
+msgstr "Esta es la lista de los paquetes eggs que nosotros configuramos a estar disponible para Zope. Estos paquetes eggs se ponen en el PYTHONPATH del script ``bin/instance`` con el cual se iniciara y detendrá con Plone."
 
 #: ../buildout_1.rst:195
 msgid ""
 "The egg ``Plone`` is a wrapper without code. Among its dependencies is "
 "``Products.CMFPlone``  which is the egg that is at the center of Plone."
-msgstr "El paquete egg ``Plone`` es una envoltura sin código. Entre sus dependencias es ``Products.CMFPlone`` que es el paquete egg que está en el centro de Plone."
+msgstr "El paquete egg ``Plone`` es una envoltura sin código fuente. Entre sus dependencias esta ``Products.CMFPlone`` que es el paquete egg en el cual esta propiamente de Plone."
 
 #: ../buildout_1.rst:197
 msgid ""
@@ -222,7 +222,7 @@ msgstr "El resto son complementos que ya hemos usado o usará más tarde. Los ú
 msgid ""
 "The file ``versions.cfg`` that is included by the ``extends = ...`` "
 "statement hold the version-pinnings:"
-msgstr "El archivo ``versions.cfg`` que se incluye por la declaración  ``extends = ...`` contiene las versiones que definimos:"
+msgstr "El archivo ``versions.cfg`` se incluye por la declaración ``extends = ...`` contiene las versiones que definimos:"
 
 #: ../buildout_1.rst:210
 msgid ""
@@ -231,7 +231,7 @@ msgid ""
 ":samp:`versions = versions`. This told buildout, that there is a section "
 "named versions, containing version information. When Buildout installs eggs "
 "it will use the version defined in this section."
-msgstr "Esta es otra sección especial. Se ha convertido en una sección especial de declaración. En nuestro :samp:`[buildout]` sección establecemos una variable :samp:`versions = versions`. Esto le dijo a buildout, que existe una sección denominada versiones, que contiene información de las versiones a usar. Cuando Buildout instala paquetes eggs se utilizará la versión definida en esta sección."
+msgstr "Esta es otra sección especial. Se ha convertido en una sección especial de declaración. En nuestra sección :samp:`[buildout]` establecemos una variable :samp:`versions = versions`. Esto le dice a buildout, existe una sección denominada versions, conteniendo información de las versiones a usar. Cuando Buildout instala paquetes eggs se utilizará la versión definida en esta sección."
 
 #: ../buildout_1.rst:213
 msgid "Hello mr.developer!"
@@ -250,7 +250,7 @@ msgid ""
 "which version control system and which repository URL. You can check out "
 "sources from git, svn, bzr, hg and maybe more. Also, you can say that some "
 "source are in your local file system."
-msgstr "Con mr.developer puede declarar los paquetes que desee comprobar desde o hacia un sistema de control de versiones y de cual dirección URL del repositorio. Usted puede comprobar código fuente desde diversos cvs como git, subversion, bzr, hg y quizá más. También, se puede decir que algún código fuente se encuentran en el sistema de archivos local."
+msgstr "Con mr.developer puede declarar los paquetes que desee comprobar desde o hacia un sistema de control de versiones y de cual dirección URL del repositorio. Usted puede comprobar código fuente desde diversos CVS como git, subversion, bzr, hg y quizá más. También, se puede indicar a Buildout algún código fuente se encuentran en el sistema de archivos local sin aplicar control de versiones."
 
 #: ../buildout_1.rst:221
 msgid ""
@@ -262,7 +262,7 @@ msgid ""
 "write changes that require a new release. You can activate and deactivate "
 "eggs via the ``develop`` command or the Buildout configuration. You should "
 "always use the Buildout way. Your commit serves as documentation."
-msgstr "``mr.developer`` viene con un comando, ``./bin/develop``. Se puede utilizar para actualizar su código fuente, para comprobar los nuevos cambios y así sucesivamente. Usted puede activar y desactivar sus checkouts desde el origen. Si usted desarrolla sus extensiones en los paquetes eggs con checkouts separadas, lo cual es una buena práctica, usted puede planear publicaciones por tener todas los checkouts desactivados, y sólo activarlos, al escribir los cambios que requieren una nueva versión. Usted puede activar y desactivar los paquetes eggs a través del comando ``develop`` o la configuración Buildout. Siempre debe usar la forma Buildout. Su commit  sirve como documentación."
+msgstr "``mr.developer`` viene con un comando, ``./bin/develop``. Se puede utilizar para actualizar su código fuente, para comprobar los nuevos cambios y así sucesivamente. Usted puede activar y desactivar sus checkouts desde el origen. Si usted desarrolla sus extensiones en los paquetes eggs con checkouts separadas, lo cual es una buena práctica, usted puede planear publicaciones por tener todas los checkouts desactivados, y sólo activarlos, al escribir los cambios que requieren una nueva versión. Usted puede activar y desactivar los paquetes eggs a través del comando ``develop`` o la configuración Buildout. Siempre debe usar la forma Buildout. Su commit sirve como documentación."
 
 #: ../buildout_1.rst:224
 msgid "Extensible"
@@ -277,7 +277,7 @@ msgid ""
 "case. Another one is much more important: If you want to have a repeatable "
 "Buildout, one that works two months from now also, you *must* declare all "
 "your egg versions. Else Buildout might install newer versions."
-msgstr "Usted puede haber notado que la mayoría, si no toda la funcionalidad sólo está disponible a través de plugins. Una de las cosas que sobresale en Buildout sin ningún plugin, es la resolución de dependencias. Usted puede ayudar a Plone en la resolución de dependencias, al declarar que es exactamente la versión de un paquete egg que desea. Esto es sólo un caso de uso. Otra es mucho más importante: Si usted quiere tener un Buildout repetible, que trabaja de dos meses a partir de ahora también, se *debe* declarar todas sus versiones de paquete egg. De otro modo Buildout podría instalar las nuevas versiones."
+msgstr "Usted puede haber notado que la mayoría, si no toda la funcionalidad sólo está disponible a través de plugins. Una de las cosas que sobresale en Buildout sin ningún plugin, es la resolución de dependencias. Usted puede ayudar a Plone en la resolución de dependencias, al declarar exactamente cual versión de un paquete egg usted desea. Esto es sólo un caso de uso. Otra es mucho más importante: Si usted quiere tener un Buildout repetible, el cual funcione de dos meses a partir de ahora también, se *debe* declarar todas sus versiones de paquete egg. De otro modo Buildout podría instalar las nuevas versiones."
 
 #: ../buildout_1.rst:231
 msgid "Be McGuyver"
@@ -288,7 +288,7 @@ msgid ""
 "As you can see, you can build very complex systems with Buildout. It is time"
 " for some warnings. Be selective in your recipes. Supervisor is a program to"
 " manage running servers, its pretty good. There is a recipe for it."
-msgstr "Como puede ver, usted puede construir sistemas muy complejos con Buildout. Es hora de que algunas advertencias. Sea selectivo en sus recetas. Supervisor es un programa para gestionar servidores en ejecución, es bastante bueno. No hay una receta para ello."
+msgstr "Como puede ver, usted puede construir sistemas muy complejos con Buildout. Es hora de algunas advertencias. Sea selectivo en sus recetas. Supervisor es un programa para gestionar servidores en ejecución, es bastante bueno. No hay una receta para ello."
 
 #: ../buildout_1.rst:237
 msgid ""
@@ -298,7 +298,7 @@ msgid ""
 "such cases, `collective.recipe.template "
 "<https://pypi.python.org/pypi/collective.recipe.template>`_ is a better "
 "match."
-msgstr "¡La configuración para esta receta es más complicada que la propia configuración del supervisor en si! Mediante el uso de esta receta, se fuerza a los demás a comprender la sintaxis de configuración específica recetas y la sintaxis supervisor. Para tales casos, `collective.recipe.template <https://pypi.python.org/pypi/collective.recipe.template>`_ presenta una mejor coincidencia."
+msgstr "¡La configuración para esta receta es más complicada que la propia configuración del Supervisor en si! Mediante el uso de esta receta, se fuerza a los demás a comprender la sintaxis de configuración específica recetas y la sintaxis Supervisor. Para tales casos, `collective.recipe.template <https://pypi.python.org/pypi/collective.recipe.template>`_ presenta una mejor coincidencia."
 
 #: ../buildout_1.rst:239
 msgid ""

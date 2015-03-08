@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-07 03:03+0000\n"
+"PO-Revision-Date: 2015-03-07 23:41+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../configuring_customizing.rst:2
 msgid "Configuring and Customizing Plone through the web"
-msgstr "Configurando y personalizando Plone a través de la web"
+msgstr "Configurando y personalizando Plone a través de la Web"
 
 #: ../configuring_customizing.rst:7
 msgid "The Control Panel"
@@ -35,7 +35,7 @@ msgstr "Las partes más importantes de Plone pueden ser configuradas en el panel
 
 #: ../configuring_customizing.rst:11
 msgid "Click on your username"
-msgstr "Haga clic en el nombre de usuario"
+msgstr "Haga clic en el nombre de usuario, en la esquina superior derecha de su pantalla"
 
 #: ../configuring_customizing.rst:12
 msgid "Click \"Site Setup\""
@@ -45,7 +45,7 @@ msgstr "Haga clic en \"Configuración del Sitio\""
 msgid ""
 "We'll explain every page and mention some of the actions you can perform "
 "here."
-msgstr "Nosotros explicaremos cada pagina y mencionaremos algunas cosas que puedes hacer aquí."
+msgstr "Nosotros explicaremos cada página y mencionaremos algunas cosas que puedes hacer aquí."
 
 #: ../configuring_customizing.rst:16
 msgid "Add-ons (later...)"
@@ -144,7 +144,7 @@ msgid ""
 "Below the links you may find information on your Plone-, Zope- and Python-"
 "Versions and an indicator as to whether you're running in production or "
 "development mode."
-msgstr "Por debajo en los enlaces encontraras información de las versiones en tu Plone, Zope y Python y un indicador de si usted está funcionando en el modo de producción o desarrollo."
+msgstr "Por debajo en los enlaces encontraras información de las versiones en tu Plone, Zope y Python y un indicador de cualquier cosa que usted está funcionando en el modo de producción o desarrollo."
 
 #: ../configuring_customizing.rst:45
 msgid "Portlets"
@@ -164,19 +164,19 @@ msgstr "Varios tipos"
 
 #: ../configuring_customizing.rst:50
 msgid "portlet-configuration is inherited"
-msgstr "La configuración de Portles es heredada"
+msgstr "La configuración de Portlets es heredada"
 
 #: ../configuring_customizing.rst:51
 msgid "managing"
-msgstr "Administrado"
+msgstr "son administrados"
 
 #: ../configuring_customizing.rst:52
 msgid "ordering/weighting"
-msgstr "ordenando / ampliando"
+msgstr "Ordenando / ponderación"
 
 #: ../configuring_customizing.rst:53
 msgid "The future: will maybe be replaced by tiles"
-msgstr "En el futuro: sera reemplazado por tiles"
+msgstr "En el futuro: será reemplazado por tiles"
 
 #: ../configuring_customizing.rst:55 ../configuring_customizing.rst:80
 msgid "Example:"
@@ -184,7 +184,7 @@ msgstr "Ejemplo:"
 
 #: ../configuring_customizing.rst:57
 msgid "go to http://localhost:8080/Plone/@@manage-portlets"
-msgstr "Valla a http://localhost:8080/Plone/@@manage-portlets"
+msgstr "Valla a la dirección URL http://localhost:8080/Plone/@@manage-portlets"
 
 #: ../configuring_customizing.rst:58
 msgid "Add a static portlet \"Sponsors\" on the right side."
@@ -198,13 +198,13 @@ msgstr "Remueve los nuevos portlets y agrega uno nuevo en el lado izquierdo."
 msgid ""
 "Go to the training-folder: http://localhost:8080/Plone/the-event/training "
 "and click ``Manage portlets``"
-msgstr "Ve a la carpeta de training: http://localhost:8080/Plone/training y has clic ``Manage portlets``"
+msgstr "Ve a la carpeta de training: http://localhost:8080/Plone/training y has clic ``Administrar portlets``"
 
 #: ../configuring_customizing.rst:61
 msgid ""
 "Add a static portlet. \"Featured training: Become a Plone-Rockstar at "
 "Mastering Plone!\""
-msgstr "Agregue un portlet estático. \"Formación destacada: Conviértete en un Rockstar de Plone en la ¡Maestría en Plone!\""
+msgstr "Agregue un portlet estático. \"Entrenamiento destacada: Conviértete en un Rockstar de Plone en la ¡Maestría en Plone!\""
 
 #: ../configuring_customizing.rst:65
 msgid "Viewlets"
@@ -242,7 +242,7 @@ msgstr "El código es mucho mas simple (crearemos uno mañana)"
 msgid ""
 "live in viewlet-managers, can be nested (by adding a viewlet that contains a"
 " viewlet-manager)"
-msgstr "En vivo en administradores de viewlet, pueden ser anidadas (agregando un viewlet que contenga un administrador de viewlet)"
+msgstr "En tiempo real en la herramienta administradores de viewlet, pueden ser anidadas (agregando un viewlet que contenga un administrador de viewlet)"
 
 #: ../configuring_customizing.rst:75
 msgid "ttw-reordering only within the same viewlet-manager"
@@ -260,7 +260,7 @@ msgstr "Portlets guarda datos, los Viewlets usualmente no lo hacen, los Viewlets
 
 #: ../configuring_customizing.rst:82
 msgid "Go to http://localhost:8080/Plone/@@manage-viewlets"
-msgstr "Valla a http://localhost:8080/Plone/@@manage-viewlets"
+msgstr "Valla a la dirección URL http://localhost:8080/Plone/@@manage-viewlets"
 
 #: ../configuring_customizing.rst:83
 msgid "Hide collophon"
@@ -272,7 +272,7 @@ msgstr "ZMI"
 
 #: ../configuring_customizing.rst:89
 msgid "Go to http://localhost:8080/Plone/manage"
-msgstr "Valla a http://localhost:8080/Plone/manage"
+msgstr "Valla a dirección URL http://localhost:8080/Plone/manage"
 
 #: ../configuring_customizing.rst:91
 msgid ""
@@ -307,11 +307,11 @@ msgstr "Las acciones son principalmente enlaces. Pero enlaces **realmente flexib
 
 #: ../configuring_customizing.rst:108
 msgid "Actions are configurable ttw and through code."
-msgstr "Las acciones son configurable a través de la Web y a través de código."
+msgstr "Las acciones son configurable a través de la Web y a través de código fuente."
 
 #: ../configuring_customizing.rst:109
 msgid "These actions are usually iterated over in viewlets and displayed."
-msgstr "Estas acciones son usualmente Iteradas sobre viewlets y visualizadas."
+msgstr "Estas acciones son usualmente iteradas sobre viewlets y mostradas."
 
 #: ../configuring_customizing.rst:111
 msgid "Examples:"
@@ -385,7 +385,7 @@ msgstr "Ir a ``site_actions`` (lo sabemos porque lo chequeamos en ``@@manage-vie
 
 #: ../configuring_customizing.rst:139
 msgid "Add a CMF Actions ``imprint``"
-msgstr "Agrega acciones CMF a \"Aviso legal\""
+msgstr "Agregar un CMF Action, haciendo clic en el menú desplegable ubicado en la esquina superior derecha, seleccione ``CMF Action`` y luego hace clic en el botón ``Add`` y defina el ID como ``Aviso legal``"
 
 #: ../configuring_customizing.rst:140
 msgid "Set URL to ``string:${portal_url}/imprint``"
@@ -405,15 +405,15 @@ msgstr "Guardar"
 
 #: ../configuring_customizing.rst:147
 msgid "explain"
-msgstr "explicar"
+msgstr "Explicar"
 
 #: ../configuring_customizing.rst:149
 msgid "Check if the link is on the page"
-msgstr "Verifique si el enlace esta en la pagina"
+msgstr "Verifique si el enlace de esta en la página funciona"
 
 #: ../configuring_customizing.rst:150
 msgid "Create new Document `Imprint` and publish"
-msgstr "Cree un nuevo Documento \"Aviso legal\" y publíquelo"
+msgstr "Cree un nuevo Documento llamado `Aviso legal` y publíquelo"
 
 #: ../configuring_customizing.rst:154
 msgid "http://docs.plone.org/develop/plone/functionality/actions.html"
@@ -431,7 +431,7 @@ msgstr "La navegación horizontal es llamada ``portal_tabs``"
 msgid ""
 "go to ``portal_actions`` > ``portal_tabs`` `Link "
 "<http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main>`_"
-msgstr "Ir a ``portal_actions`` > ``portal_tabs`` `Link <http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main>`_"
+msgstr "Ir a ``portal_actions`` > ``portal_tabs`` aquí esta el `enlace <http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main>`_"
 
 #: ../configuring_customizing.rst:162
 msgid "Edit ``index_html``"
@@ -445,11 +445,11 @@ msgstr "¿Donde esta la navegación?"
 msgid ""
 "The navigation shows content-objects, which are in Plone's root. Plus all "
 "actions in portal_tabs"
-msgstr "La navegación muestra objetos de contenido, los cuales están en el raíz del directorio de Plone, además de las acciones en portal_tabs"
+msgstr "La navegación muestra objetos de contenido, los cuales están en el raíz del directorio de Plone, además de las acciones en ``portal_tabs``"
 
 #: ../configuring_customizing.rst:168
 msgid "Explain & edit index_html"
-msgstr "Edite y explique index_html"
+msgstr "Edite y explique ``index_html``"
 
 #: ../configuring_customizing.rst:170
 msgid ""
@@ -531,7 +531,7 @@ msgstr "Ingrese el siguiente css:"
 msgid ""
 "Click 'save' and check results in the a different browser-tab. How did that "
 "happen?"
-msgstr "Haga clic en \"Save\" y verifique los resultados en otra pestaña del navegador. ¿Cómo sucedió eso?"
+msgstr "Haga clic en ``Save`` y verifique los resultados en otra pestaña del navegador. ¿Cómo sucedió eso?"
 
 #: ../configuring_customizing.rst:220
 msgid ""
@@ -588,7 +588,7 @@ msgstr "Busque ``plone.footer``, haga clic y personalice"
 
 #: ../configuring_customizing.rst:272
 msgid "replace the content with the following"
-msgstr "reemplace el contenido con lo siguiente"
+msgstr "Reemplace el contenido con lo siguiente"
 
 #: ../configuring_customizing.rst:288
 msgid ""
@@ -606,12 +606,12 @@ msgstr "Ir a ZMI > ``portal_css``"
 
 #: ../configuring_customizing.rst:295
 msgid "at the bottom there is ``ploneCustom.css``"
-msgstr "en el fondo esta el archivo ``ploneCustom.css``"
+msgstr "En el fondo esta el archivo ``ploneCustom.css``"
 
 #: ../configuring_customizing.rst:296
 msgid ""
 "Disable ``Development mode``: The css-files are merged and have a cache-key."
-msgstr "Deshabilite ``Development mode``: Los archivos css serán mezclados y teniendo un cache-key."
+msgstr "Deshabilite ``Development mode``: Los archivos CSS serán mezclados y teniendo un cache-key."
 
 #: ../configuring_customizing.rst:300
 msgid "The JavaScripts Registry (portal_javascripts) is very similar."
@@ -633,13 +633,13 @@ msgstr "Al final de un proceso de desarrollo, un poco de reordenamiento para min
 
 #: ../configuring_customizing.rst:311
 msgid "Further tools in the ZMI"
-msgstr "Mas herramientas en el ZMI"
+msgstr "Más herramientas en el ZMI"
 
 #: ../configuring_customizing.rst:313
 msgid ""
 "There are many more notable items in the ZMI. We'll visit some of them "
 "later."
-msgstr "Hay muchos mas elementos notables en el ZMI, los visitaremos mas tarde."
+msgstr "Hay muchos más elementos notables en el ZMI, los visitaremos más tarde."
 
 #: ../configuring_customizing.rst:315
 msgid "acl_users"
@@ -677,4 +677,4 @@ msgid ""
 "hidden away in the `ZMI <http://localhost:8080/Plone/manage>`_. The amount "
 "and presentation of information is overwhelming but you'll get the hang of "
 "it through a lot of practice."
-msgstr "Puedes configurar y personalizar muchas cosas en Plone a través de la web. Las opciones más importantes son accesibles en el `panel de control plone <http://localhost:8080/Plone/@@overview-controlpanel>`_ pero aun más están escondidas en la `ZMI <http://localhost:8080/Plone/manage>`_. La cantidad y presentación de la información es abrumadora, pero usted conseguirá la caída de ella a través de mucha práctica."
+msgstr "Puedes configurar y personalizar muchas cosas en Plone a través de la Web. Las opciones más importantes son accesibles en el `panel de control de Plone <http://localhost:8080/Plone/@@overview-controlpanel>`_ pero aun más están escondidas en la `ZMI <http://localhost:8080/Plone/manage>`_. La cantidad y presentación de la información es abrumadora, pero usted conseguirá la caída de ella a través de mucha práctica."

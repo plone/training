@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-07 03:10+0000\n"
+"PO-Revision-Date: 2015-03-07 14:28+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../about.rst:2
 msgid "About Mastering Plone"
-msgstr "Sobre Mastering Plone"
+msgstr "Sobre \"Maestría en Plone\""
 
 #: ../about.rst:4
 msgid ""
@@ -30,7 +30,7 @@ msgid ""
 " training based on it and contribute to it. It is published as Open Source "
 "on `github <https://github.com/plone/training>`_ and `readthedocs <http"
 "://plone-training.readthedocs.org/>`_."
-msgstr "Esta formación fue creada por Philip Bauer y Patrick Gerken de la empresa `starzel.de <http://www.starzel.de>`_ para crear una formación canónica para futuros desarrolladores de Plone. El objetivo es que cualquier persona con los conocimientos adecuados puede dar una formación basada en ella y contribuir a ella. Se publica como código abierto en  `github <https://github.com/plone/training>`_ y `readthedocs <http://plone-training.readthedocs.org/>`_."
+msgstr "Esta entrenamiento fue creada por Philip Bauer y Patrick Gerken de la empresa `starzel.de <http://www.starzel.de>`_ para crear una formación canónica para futuros desarrolladores de Plone. El objetivo es que cualquier persona con los conocimientos adecuados puede dar un entrenamiento basado en este y si lo desea pueda contribuir a mejorar este material. Se publica como código abierto en `github <https://github.com/plone/training>`_ y `readthedocs <http://plone-training.readthedocs.org/>`_."
 
 #: ../about.rst:6
 msgid ""
@@ -46,7 +46,7 @@ msgstr "Próximos entrenamientos"
 msgid ""
 "`Mastering Plone 5 Development: 2. - 6. March 2015, Munich "
 "<http://www.starzel.de/leistungen/training/>`_"
-msgstr "`Mastering Plone 5 Development: 2. - 6 de Marzp de 2015, en Múnich <http://www.starzel.de/leistungen/training/>`_"
+msgstr "`Mastering Plone 5 Development: 2. - 6 de Marzo de 2015, en Múnich <http://www.starzel.de/leistungen/training/>`_"
 
 #: ../about.rst:13
 msgid "by Philip Bauer and Patrick Gerken"
@@ -60,7 +60,7 @@ msgstr "Entrenamientos previos"
 msgid ""
 "The Mastering Plone Training was so far held publicly at the following "
 "occasions:"
-msgstr "Hasta ahora, la Formación en Mastering de Plone se celebró públicamente en las siguientes ocasiones:"
+msgstr "El entrenamiento \"Maestría en Plone\" se celebró públicamente en las siguientes ocasiones:"
 
 #: ../about.rst:21
 msgid "`Plone Conference 2014, Bristol <http://2014.ploneconf.org/training>`_"
@@ -102,7 +102,7 @@ msgstr "Entrenadores"
 
 #: ../about.rst:33
 msgid "The following trainers have given trainings based on Mastering Plone:"
-msgstr "Los siguientes entrenadores han dado entrenamiento basado en el material \"Mastering Plone\":"
+msgstr "Los siguientes entrenadores han dado entrenamiento basado en el material \"Maestría en Plone\":"
 
 #: ../about.rst:36
 msgid "Leonardo Caballero"
@@ -183,7 +183,7 @@ msgstr "Siéntase libre para organizar un entrenamiento por ti mismo. Por favor,
 
 #: ../about.rst:56
 msgid "The training is rendered using sphinx and builds in two flavors:"
-msgstr "El entrenamiento se representa mediante la sphinx y se basa en dos sabores:"
+msgstr "El entrenamiento se genera mediante la herramienta Sphinx y se basa en dos sabores:"
 
 #: ../about.rst:59
 msgid "default"
@@ -311,7 +311,7 @@ msgid ""
 " steps of the previous sections. Be aware that the file- and blobstorage in "
 "the Vagrant box is here: /home/vagrant/var/ (not with the buildout path "
 "/vagrant/buildout/)"
-msgstr "Si usted sólo hace una parte de la formación (Avanzado) prepare una base de datos con los pasos de los apartados anteriores. Tenga en cuenta que el archivo y el blobstorage en el Vagrant box está aquí: /home/vagrant/var/ (no con la ruta del directorio de buildout /vagrant/buildout/)"
+msgstr "Si usted sólo hace una parte del entrenamiento (Avanzado) prepare una base de datos con los pasos de los apartados anteriores. Tenga en cuenta que el archivo y el blobstorage en el Vagrant box está aquí: /home/vagrant/var/ (no con la ruta del directorio de buildout /vagrant/buildout/)"
 
 #: ../about.rst:149
 msgid "Contributing"
@@ -332,7 +332,7 @@ msgid ""
 "presentation`` or ``.. only:: not presentation`` you can control which of "
 "the versions the indented block will show up. Content without a prefix will "
 "be included in both versions."
-msgstr "Anteponiendo un bloque con sangría de texto o código con ``.. only:: presentation`` o `.. only:: not presentation`` usted puede controlar cuál de las versiones del bloque con sangría se mostrará. El contenido sin prefijo se incluirá en ambas versiones."
+msgstr "Anteponiendo un bloque indentado de texto o código con ``.. only:: presentation`` o ``.. only:: not presentation`` usted puede controlar cuál de las versiones del bloque con sangría se mostrará. El contenido sin prefijo se incluirá en ambas versiones."
 
 #: ../about.rst:157
 msgid "License"
@@ -343,7 +343,7 @@ msgid ""
 "The Mastering Plone Training is licensed under a `Creative Commons "
 "Attribution 4.0 International License "
 "<http://creativecommons.org/licenses/by/4.0/>`_."
-msgstr "El entrenamiento Mastering Plone es licenciado bajo la `Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_."
+msgstr "El entrenamiento \"Maestría en Plone\" es licenciado bajo la `Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_."
 
 #: ../about.rst:161
 msgid ""

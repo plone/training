@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-07 01:39+0000\n"
+"PO-Revision-Date: 2015-03-08 00:13+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgid ""
 "of Python package. Eggs consist of Python files together with other needed "
 "files like page templates and the like and a bit of Metadata, bundled to a "
 "single archive file."
-msgstr "Si desea instalar un complemento, que se va a instalar un paquete Egg - una forma de paquete Python. Los paquetes Eggs consisten en archivos Python junto con otros ficheros necesarios como plantillas de páginas y similares, y un poco de metadatos, que se incluye en un solo archivo."
+msgstr "Si desea instalar un complemento, se va a instalar un paquete Egg - una forma de paquete Python. Los paquetes Eggs consisten en archivos Python junto con otros ficheros necesarios como plantillas de páginas y similares, y un poco de metadatos, que se incluye en un solo archivo."
 
 #: ../extending.rst:10
 msgid ""
@@ -53,7 +53,7 @@ msgid ""
 "setup method. We don't need this method but you might see it in other code. "
 "It is usually used to register Archetypes code. Archetypes is the old "
 "content type system. We use Dexterity."
-msgstr "Los paquetes Eggs son menores \"en edad\" que Zope. Zope necesitaba algo como los paquetes eggs antes había eggs, y los desarrolladores Zope escribieron su propio sistema. En la antigüedad los sistemas obsoletos Plone contenían una gran cantidad de código que no está incluido en un paquete egg. El código fuente antiguo no tenía metadatos para registrar las cosas, en vez que necesitaba un método de configuración especial. No necesitamos este método, pero nosotros podríamos verlo en otro código. Normalmente se utiliza para registrar el código Arquetipos. Los Arquetipos es el viejo sistema de tipo de contenido. Ahora utilizamos el nuevo sistema de tipo de contenido Dexterity."
+msgstr "Los paquetes Eggs son menores \"en edad\" que Zope. Zope necesitaba algo como los paquetes eggs antes no había eggs, y los desarrolladores Zope escribieron su propio sistema. En la antigüedad los sistemas obsoletos Plone contenían una gran cantidad de código fuente no incluidos en un paquete egg. El código fuente antiguo no tenía metadatos para registrar las cosas, en vez que necesitaba un método de configuración especial. No necesitamos este método, pero podríamos verlo en otro código fuente. Normalmente se utiliza para registrar el código Archetypes. Los Archetypes es el viejo sistema de tipo de contenido. Ahora utilizamos el nuevo sistema de tipo de contenido Dexterity."
 
 #: ../extending.rst:16
 msgid "Extension technologies"
@@ -91,7 +91,7 @@ msgid ""
 "folder has a number of sub folders. The ``portal_skins`` folder has a "
 "property that defines in which order Plone searches for attributes or "
 "objects in each sub folder."
-msgstr ""
+msgstr "¿Te acuerdas del concepto Adquisición? Las Skin Folders se extiende los conceptos de Adquisición. Su sitio Plone tiene una carpeta denominada ``portal_skins``. Esta carpeta tiene una serie de sub-carpetas. La carpeta ``portal_skins`` tiene una propiedad que define el orden en que las búsquedas de Plone para atributos u objetos en cada sub-carpeta."
 
 #: ../extending.rst:42
 msgid "The Plone logo is in a skin folder."
@@ -115,7 +115,7 @@ msgid ""
 "Skin-folder style customization may be accomplished TTW via the ZMI, or with"
 " add-on packages. Many older-style packages create their own skin folder and"
 " add it to the skin layer for Plone when installed."
-msgstr ""
+msgstr "La personalización del estilo de la carpeta Skins se puede lograr a través de la Web usando la ZMI, o con paquetes de complementos. Muchos paquetes de estilo antiguo crean su propia carpeta de skin y la agregan a la capa de skin para Plone cuando se instala."
 
 #: ../extending.rst:52
 msgid "GenericSetup"
@@ -166,7 +166,7 @@ msgstr "Arquitectura Componente"
 
 #: ../extending.rst:87
 msgid "The last way to extend Plone is via *Components*."
-msgstr "La última manera de extender Plone es a través de los *Components*."
+msgstr "La última manera de extender Plone es a través de los *Componentes*."
 
 #: ../extending.rst:89
 msgid "A bit of history is in order."
@@ -188,7 +188,7 @@ msgid ""
 "multiple inheritance. But it's not a good way to do it. Zope objects have "
 "more than 10 base classes. Too many namespaces makes code that's hard to "
 "maintain. Where did that method/attribute come from?"
-msgstr "Algunos lenguajes de programación orientados a objetos como Python manejar esto a través de la herencia múltiple. Pero no es una buena manera de hacerlo. Los objetos Zope tienen más de 10 clases de base. Demasiados espacios de nombres hace que el código que es difícil de mantener. ¿De dónde vino ese método / atributo?"
+msgstr "Algunos lenguajes de programación orientados a objetos como Python manejan esto a través de la herencia múltiple. Pero no es una buena manera de hacerlo. Los objetos Zope tienen más de 10 clases de base. Demasiados espacios de nombres hace al código difícil de mantener. ¿De dónde vino ese método / atributo?"
 
 #: ../extending.rst:97
 msgid ""
@@ -201,7 +201,7 @@ msgid ""
 "Based on their experiences with Zope in the past, they thought that a "
 "component system configured via XML might be the way to go to keep the code "
 "more maintainable."
-msgstr "Basado de sus experiencias con Zope en el pasado, ellos pensaron que un sistema de componente es configurado a través de XML podría ser la forma a seguir para que el código sea más fácil de mantener."
+msgstr "Basado de sus experiencias con Zope en el pasado, ellos pensaron que un sistema de componente es configurado a través de XML podría ser la forma cuidar que el código sea más fácil de mantener."
 
 #: ../extending.rst:101
 msgid ""
@@ -253,7 +253,7 @@ msgid ""
 "they have to reorder the imports, and then, suddenly, you will to import "
 "feature A before B, B before C and C before A, or else you application won't"
 " work."
-msgstr "Este enfoque, como subclases mediante herencia múltiple, no escalar. Múltiples extensiones pueden sobrescribir los demás, que le explique a la gente que tiene que reordenar las importaciones, y luego, de repente, se le importar característica A antes que B, B antes de C y C antes de A, o de lo contrario la aplicación no funcionará."
+msgstr "Este enfoque, como subclases mediante herencia múltiple, no escala. Múltiples extensiones pueden sobrescribir los demás, usted debería explicar a la gente que tiene que reordenar las importaciones, y luego, de repente, se le importar característica A antes que B, B antes de C y C antes de A, o de lo contrario la aplicación no funcionará."
 
 #: ../extending.rst:123
 msgid ""
@@ -309,14 +309,14 @@ msgid ""
 "relative big dependency of Grok to Plone. One real problem is the fact that "
 "you cannot customize components declared with grok with jbot (which we'll "
 "discuss later). Grok is not allowed in the Plone core for these reasons."
-msgstr "Tenga en cuenta que no todo el mundo le encanta Grok. Algunas partes de la comunidad Plone piensan que sólo puede haber un lenguaje de configuración, otros están en contra de añadir la gran dependencia relativa de Grok para Plone. Un problema real es el hecho de que no se puede personalizar componentes declarados con grok con técnicas jbot (del que hablaremos más adelante). Grok no está permitido en el núcleo de Plone por estas razones."
+msgstr "Tenga en cuenta que no todo el mundo le encanta Grok. Algunas partes de la comunidad Plone piensan que sólo puede haber un lenguaje de configuración, otros están en contra de añadir la gran dependencia relativa de Grok para Plone. Un problema real es el hecho de que no se puede personalizar componentes declarados con Grok con técnicas jbot (del que hablaremos más adelante). Grok no está permitido en el núcleo de Plone por estas razones."
 
 #: ../extending.rst:139
 msgid ""
 "The choice to Grok or not to Grok is yours to make. In any case, if you "
 "start to write an extension that is reusable, convert your grok declarations"
 " to ZCML to get maximum acceptance."
-msgstr "La elección de Grok o no Grok es suya. En cualquier caso, si usted comienza a escribir una extensión que es reutilizable, convertir sus declaraciones grok a ZCML para conseguir la máxima aceptación."
+msgstr "La elección de Grok o no Grok es suya. En cualquier caso, si usted comienza a escribir una extensión que es reutilizable, convertir sus declaraciones Grok a ZCML para conseguir la máxima aceptación."
 
 #: ../extending.rst:141
 msgid ""

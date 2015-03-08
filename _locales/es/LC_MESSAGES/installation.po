@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-06 22:45+0000\n"
+"PO-Revision-Date: 2015-03-07 15:01+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr "use el `python-buildout <https://github.com/collective/buildout.python>`
 
 #: ../installation.rst:20
 msgid "building Linux-packages"
-msgstr "construcciones de paquetes Linux"
+msgstr "instale los paquetes construido en su sabor de Linux"
 
 #: ../installation.rst:21
 msgid "`homebrew <http://mxcl.github.com/homebrew>`_ (Mac OS X)"
@@ -61,7 +61,7 @@ msgid ""
 "MacOS 10.8 and Ubuntu 14.04 come with a working default Python 2.7 built in."
 " These are the lucky ones. To run a Plone-version older than 4.0 you need "
 "Python 2.4. That's not always easy to install."
-msgstr "MacOS 10.8 y Ubuntu 14.04 tendrán instalado por defecto un Python 2.7. Estos son los afortunados. Para ejecutar una versión de Plone anterior a la 4.0 usted necesita Python 2.4. No siempre es fácil de instalar."
+msgstr "MacOS 10.8 y Ubuntu 14.04 tendrán instalado por defecto un Python 2.7. Los usuarios de estos sistemas son los afortunados. Para ejecutar una versión de Plone anterior a la 4.0 usted necesita Python 2.4. No siempre es fácil de instalar."
 
 #: ../installation.rst:28
 msgid ""
@@ -120,7 +120,7 @@ msgid ""
 "vagrant machine. For your own first experiments we recommend option 2 or 3 "
 "(if you have a windows-laptop or encounter problems). Later on you should be"
 " able to use your own Buildout (we'll cover that later on)."
-msgstr "Para el entrenamiento vamos a utilizar la opción 3 y 4 para instalar y ejecutar Plone. Vamos a crear nuestro propio Buildout y la extendemos a nuestro antojo. Pero lo haremos en una máquina vagrant. Para sus propios primeros experimentos se recomienda la opción 2 o 3 (si usted tiene una portátil con Windows o al encontrar problemas). Más tarde usted debería ser capaz de utilizar su propia Buildout (vamos a cubrir que más tarde)."
+msgstr "Para el entrenamiento vamos a utilizar la opción 3 y 4 para instalar y ejecutar Plone. Vamos a crear nuestro propio Buildout y la extendemos a nuestro antojo. Pero lo haremos en una máquina vagrant. Para sus primeros experimentos propios se recomienda la opción 2 o 3 (si usted tiene una portátil con Windows o al encontrar problemas). Más tarde usted debería ser capaz de utilizar su propio Buildout (vamos a cubrir que más tarde)."
 
 #: ../installation.rst:54
 msgid "http://docs.plone.org/manage/installing/installation.html"
@@ -134,7 +134,7 @@ msgstr "Alojando Plone"
 msgid ""
 "If you want to host a real-live Plone site yourself then running it from "
 "your laptop is not a viable option."
-msgstr "Si usted desea hospedar un sitio real de Plone por si mismo entonces ejecutarlo desde su computadora portátil no es una opción viable."
+msgstr "Si usted desea alojando un sitio real de Plone por si mismo entonces ejecutarlo desde su computadora portátil no es una opción viable."
 
 #: ../installation.rst:64
 msgid "You can host Plone..."
@@ -194,13 +194,13 @@ msgid ""
 "The way we're setting up a Plone site during this class may be adequate for "
 "a small site — or even a very large one that's not very busy — but you're "
 "likely to want to do much more if you're using Plone for anything demanding."
-msgstr "La forma en que estamos montando un sitio Plone durante esta clase puede ser adecuado para un sitio pequeño - o incluso uno muy grande que no está muy ocupado - pero es muy probable que desee hacer mucho más si estás usando Plone para ninguna demanda."
+msgstr "La manera en que estamos montando un sitio Plone durante esta clase puede ser adecuado para un sitio pequeño - o incluso uno muy grande que no está muy ocupado - pero es muy probable que desee hacer mucho más si estás usando Plone para ninguna demanda."
 
 #: ../installation.rst:83
 msgid ""
 "Using a production web server like Apache or Nginx for URL rewriting, SSL "
 "and combining multiple, best-of-breed solutions into a single web site."
-msgstr "El uso de un servidor web de producción como Apache o Nginx para la reescritura de URL, SSL y la combinación de varias, las mejores soluciones de su clase en un solo sitio web."
+msgstr "El uso de un servidor web de producción como Apache o Nginx para la reescritura de URL, SSL y combinación de múltiples, las mejores soluciones de su clase todo en un solo sitio web."
 
 #: ../installation.rst:85
 msgid ""

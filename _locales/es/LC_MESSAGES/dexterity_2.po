@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-06 22:21+0000\n"
+"PO-Revision-Date: 2015-03-07 13:03+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr "Obtén el código para este capitulo (:doc:`Mas información <sneak>`) u
 #: ../dexterity_2.rst:13
 msgid ""
 "The existing talks are still lacking some functionality we want to use."
-msgstr "Las Charlas existentes todavía faltan algunas funciones que queremos utilizar."
+msgstr "Las talks existentes todavía faltan algunas funciones que queremos utilizar."
 
 #: ../dexterity_2.rst:15
 msgid "In this part we will:"
@@ -73,7 +73,7 @@ msgid ""
 "elements who and what you are and what you can do. A marker interface is "
 "like such a nametag. The talks actually have a auto-generated marker-"
 "interface ``plone.dexterity.schema.generated.Plone_0_talk``."
-msgstr "El tipo de contenido \"Talk\" no es aun ciudadano de primera clase porque no implementa su propia interfaz. interfaces son como etiquetas de nombre, diciendo a otros elementos quien y que eres y que puedes hacer. un marcador de interfaz es como una etiqueta. Las Talks actualmente tienen un marcador de interfaz auto generado ``plone.dexterity.schema.generated.Plone_0_talk``."
+msgstr "El tipo de contenido `Talk` no es aun ciudadano de primera clase porque no implementa su propia interfaz. interfaces son como etiquetas de nombre, diciendo a otros elementos quien y que eres y que puedes hacer. un marcador de interfaz es como una etiqueta. Las Talks actualmente tienen un marcador de interfaz auto generado ``plone.dexterity.schema.generated.Plone_0_talk``."
 
 #: ../dexterity_2.rst:31
 msgid ""
@@ -81,18 +81,18 @@ msgid ""
 " interface-name. If you now moved these types to a site with another name, "
 "code that uses these Interfaces would no longer find the objects in "
 "question."
-msgstr "El problema es que el nombre de la instancia \"Plone\" es parte del nombre de la interfaz. si tu ahora mueves estos tipos a un sitio con otro nombre, el código que usa en estas interfaces no podrán ser capaces de encontrar estos objetos."
+msgstr "El problema es que el nombre de la instancia ``Plone`` es parte del nombre de la interfaz. si tu ahora mueves estos tipos a un sitio con otro nombre, el código que usa en estas interfaces no podrán ser capaces de encontrar estos objetos."
 
 #: ../dexterity_2.rst:33
 msgid "To solve this we add a new file ``interfaces.py``:"
-msgstr ""
+msgstr "Para solventar esto agregamos un nuevo archivo ``interfaces.py``:"
 
 #: ../dexterity_2.rst:45
 msgid ""
 "``ITalk`` is a marker-interface. We can bind Views and Viewlets to content "
 "that provide these interfaces. Lets see how we can provide this Interface. "
 "There are two solution for this."
-msgstr ""
+msgstr "``ITalk`` es una interfaz marcador. Podemos anexar Vistas y Viewlets a contenido que provee estas interfaces. Ahora veremos como proveer esta interfaz. Hay dos soluciones para esto."
 
 #: ../dexterity_2.rst:47
 msgid "Let them be instances of a class that implements this Interface."
@@ -100,23 +100,23 @@ msgstr "Dejemos que sean instancias de una clase que implementa esta interfaz."
 
 #: ../dexterity_2.rst:48
 msgid "Register this interface as a behavior and enable it on talks."
-msgstr "Registra esta interfaz como un comportamiento y habilitalo en el tipo de contenido Charlas."
+msgstr "Registra esta interfaz como un comportamiento y habilitalo en el tipo de contenido talks."
 
 #: ../dexterity_2.rst:50
 msgid ""
 "The first option has a important drawback: Only new talks would be instances"
 " of the new class. We would either have to migrate the existing talks or "
 "delete them."
-msgstr "La primera opción tiene un inconveniente importante: Sólo nuevas Charlas pueden ser instancias de una nueva clase. Nos gustaría o podríamos tal vez tener que migrar a las Charlas existentes o eliminarlas."
+msgstr "La primera opción tiene un inconveniente importante: Sólo nuevas talks pueden ser instancias de una nueva clase. Nos gustaría o podríamos tal vez tener que migrar a las talks existentes o eliminarlas."
 
 #: ../dexterity_2.rst:52
 msgid ""
 "So lets register the interface as a behavior in ``behaviors/configure.zcml``"
-msgstr ""
+msgstr "Así que vamos a registrar la interfaz como un comportamiento en el archivo ``behaviors/configure.zcml``"
 
 #: ../dexterity_2.rst:62
 msgid "And enable it on the type in ``profiles/default/types/talk.xml``"
-msgstr ""
+msgstr "Y habilitelo en la definición de tipo en el archivo ``profiles/default/types/talk.xml``"
 
 #: ../dexterity_2.rst:75
 msgid ""
@@ -151,18 +151,18 @@ msgstr ""
 
 #: ../dexterity_2.rst:108
 msgid "Modify the class for new talks in ``profiles/default/types/talk.xml``"
-msgstr ""
+msgstr "Modificar la clase para la nueva talks en el archivo ``profiles/default/types/talk.xml``"
 
 #: ../dexterity_2.rst:120
 msgid ""
 "Create a upgrade step to modify the class of existing types. A code-example "
 "on how to do this is in `ftw.upgrade "
 "<https://github.com/4teamwork/ftw.upgrade/blob/master/ftw/upgrade/step.py#L270>`_."
-msgstr ""
+msgstr "Crear un paso de actualización para modificar la clase de tipo de contenido existente. Un código ejemplo de como hacer esto lo encuentra en el paquete `ftw.upgrade <https://github.com/4teamwork/ftw.upgrade/blob/master/ftw/upgrade/step.py#L270>`_."
 
 #: ../dexterity_2.rst:123
 msgid "Upgrade-steps"
-msgstr ""
+msgstr "Pasos de actualización"
 
 #: ../dexterity_2.rst:125
 msgid ""
@@ -174,7 +174,7 @@ msgstr ""
 
 #: ../dexterity_2.rst:127
 msgid "We will create a upgrade step that"
-msgstr ""
+msgstr "Nosotros crearemos un paso de actualización que"
 
 #: ../dexterity_2.rst:129
 msgid ""
@@ -195,7 +195,7 @@ msgstr ""
 msgid ""
 "Upgrade steps are usually registered in their own zcml-file. Create "
 "``upgrades.zcml``"
-msgstr ""
+msgstr "Los pasos de actualización son usualmente registrados en en su propio archivo zcml. Cree el archivo``upgrades.zcml``"
 
 #: ../dexterity_2.rst:155
 msgid ""
@@ -206,7 +206,7 @@ msgstr ""
 
 #: ../dexterity_2.rst:161
 msgid "Include the new ``upgrades.zcml`` in our ``configure.zcml`` by adding:"
-msgstr ""
+msgstr "Incluir el nuevo archivo ``upgrades.zcml`` en nuestro archivo ``configure.zcml`` agregando:"
 
 #: ../dexterity_2.rst:167
 msgid ""
@@ -228,11 +228,11 @@ msgstr ""
 
 #: ../dexterity_2.rst:214
 msgid "Run the upgrade-step by clicking on it."
-msgstr ""
+msgstr "Ejecutar el paso de actualización haciendo clic en el."
 
 #: ../dexterity_2.rst:216
 msgid "On the console you should see logging-messages like::"
-msgstr ""
+msgstr "En la consola debería ver mensajes de registro como este:"
 
 #: ../dexterity_2.rst:220
 msgid "Alternatively you can select which upgrade-steps to run like this:"
@@ -240,23 +240,23 @@ msgstr ""
 
 #: ../dexterity_2.rst:222
 msgid "In the ZMI got to *portal_setup*"
-msgstr ""
+msgstr "En la ZMI valla a la herramienta *portal_setup*"
 
 #: ../dexterity_2.rst:223
 msgid "Go to the tab *Upgrades*"
-msgstr ""
+msgstr "Valla a la pestaña *Upgrades*"
 
 #: ../dexterity_2.rst:224
 msgid "Select *ploneconf.site* from the dropdown and click *Choose profile*"
-msgstr ""
+msgstr "Seleccione *ploneconf.site* desde la lista desplegable y haga clic *Choose profile*"
 
 #: ../dexterity_2.rst:225
 msgid "Run the upgrade step."
-msgstr ""
+msgstr "Ejecutar el paso de actualización."
 
 #: ../dexterity_2.rst:229
 msgid "http://docs.plone.org/develop/addons/components/genericsetup.html#id1"
-msgstr ""
+msgstr "http://docs.plone.org/develop/addons/components/genericsetup.html#id1"
 
 #: ../dexterity_2.rst:234
 msgid ""
@@ -269,11 +269,11 @@ msgstr ""
 msgid ""
 "For an example see the upgrade-step to Plone 5.0a1 "
 "https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L23"
-msgstr ""
+msgstr "Para un ejemplo ver el paso de actualización para Plone 5.0a1 https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L23"
 
 #: ../dexterity_2.rst:241
 msgid "Add a browserlayer"
-msgstr ""
+msgstr "Agregar una browserlayer"
 
 #: ../dexterity_2.rst:243
 msgid ""
@@ -290,13 +290,13 @@ msgstr ""
 
 #: ../dexterity_2.rst:247
 msgid "In ``interfaces.py`` we add:"
-msgstr ""
+msgstr "En el archivo ``interfaces.py`` nosotros agregamos:"
 
 #: ../dexterity_2.rst:255
 msgid ""
 "We register the browserlayer in GenericSetup in "
 "``profiles/default/browserlayer.xml``"
-msgstr ""
+msgstr "Nosotros registramos la browserlayer en GenericSetup en el archivo ``profiles/default/browserlayer.xml``"
 
 #: ../dexterity_2.rst:265
 msgid ""
@@ -313,7 +313,7 @@ msgstr ""
 
 #: ../dexterity_2.rst:283
 msgid "http://docs.plone.org/develop/plone/views/layers.html"
-msgstr ""
+msgstr "http://docs.plone.org/develop/plone/views/layers.html"
 
 #: ../dexterity_2.rst:287
 msgid "Exercise"
@@ -355,7 +355,7 @@ msgstr ""
 
 #: ../dexterity_2.rst:303
 msgid "Add a new file ``profiles/default/catalog.xml``"
-msgstr ""
+msgstr "Agregar un nuevo archivo ``profiles/default/catalog.xml``"
 
 #: ../dexterity_2.rst:325
 msgid ""
@@ -387,18 +387,18 @@ msgstr ""
 
 #: ../dexterity_2.rst:335
 msgid "Reinstall the addon"
-msgstr ""
+msgstr "Instalar de nuevo el complemento"
 
 #: ../dexterity_2.rst:336
 msgid ""
 "Go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes to "
 "inspect populate and inspect the new indexes"
-msgstr ""
+msgstr "Valla a la URL http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes para inspeccionar el ingreso de datos e inspeccionar los nuevos índices"
 
 #: ../dexterity_2.rst:340
 msgid ""
 "http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html"
-msgstr ""
+msgstr "http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html"
 
 #: ../dexterity_2.rst:344
 msgid "Query for custom indexes"
@@ -433,13 +433,13 @@ msgstr ""
 
 #: ../dexterity_2.rst:395
 msgid "Add a new file ``profiles/default/registry.xml``"
-msgstr ""
+msgstr "Agregar un nuevo archivo ``profiles/default/registry.xml``"
 
 #: ../dexterity_2.rst:427
 msgid ""
 "http://docs.plone.org/develop/plone/functionality/collections.html#add-new-"
 "collection-criteria-new-style-plone-app-collection-installed"
-msgstr ""
+msgstr "http://docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed"
 
 #: ../dexterity_2.rst:431
 msgid "Add more features through generic-setup"
@@ -451,8 +451,8 @@ msgstr ""
 
 #: ../dexterity_2.rst:435
 msgid "Add new file ``profiles/default/repositorytool.xml``"
-msgstr ""
+msgstr "Agregar nuevo archivo ``profiles/default/repositorytool.xml``"
 
 #: ../dexterity_2.rst:451
 msgid "Add new file ``profiles/default/diff_tool.xml``"
-msgstr ""
+msgstr "Agregar nuevo archivo ``profiles/default/diff_tool.xml``"

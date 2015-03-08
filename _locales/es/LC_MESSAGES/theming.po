@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 09:50-0430\n"
-"PO-Revision-Date: 2015-03-06 23:02+0000\n"
+"PO-Revision-Date: 2015-03-08 01:50+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgid ""
 "getting the right content elements into the right spots. Also, the provision"
 " of the CSS and Javascript elements to finish the presentation and provide "
 "dynamic behaviors."
-msgstr "**Tematización estructural** : la construcción del esqueleto HTML de una página y obtener los elementos de contenido a la derecha en los lugares correctos. Además, la disposición de la CSS y los elementos de Javascript para finalizar la presentación y proporcionar comportamientos dinámicos."
+msgstr "**Tematización estructural** : la construcción del esqueleto HTML de una página y obtener los elementos correctos de contenido dentro de los lugares correctos. Además, la disposición de la CSS y los elementos de Javascript para finalizar la presentación y proporcionar comportamientos dinámicos."
 
 #: ../theming.rst:10
 msgid "**Templating**, which itself has two aspects:"
@@ -50,20 +50,20 @@ msgid ""
 "page. Remember when we looked at the viewlet map of a page? (Look again via "
 "``@@manage-viewlets``.) All those viewlets are provided via individual, "
 "editable templates."
-msgstr "Plantillas Viewlet, que podríamos pensar como el micro formato de la página. ¿Recuerda cuando miramos el mapa viewlet de una página? (Mira de nuevo a través de ``@@manage-viewlets``.) Todas esas viewlets se proporcionan a través de plantillas individuales y editables."
+msgstr "Plantillas Viewlet, que podríamos pensar como el micro formato de la página. ¿Recuerda cuando miramos el mapa viewlet de una página? (Mira de nuevo a través de la dirección URL ``@@manage-viewlets``.) Todas esas viewlets se proporcionan a través de plantillas individuales y editables."
 
 #: ../theming.rst:14
 msgid ""
 "Content type view templates. Whenever we create a new content type or modify"
 " an existing one, we'll typically want to create or modify a view template."
-msgstr "Plantillas de vista de tipo de contenido. Cuando creamos un nuevo tipo de contenido o modificar una existente, vamos normalmente queremos crear o modificar una plantilla de vista."
+msgstr "Plantillas de vista de tipo de contenido. Cuando creamos un nuevo tipo de contenido o modificar una existente, normalmente queremos crear o modificar una vista de plantilla."
 
 #: ../theming.rst:16
 msgid ""
 "*Structural theming* is best accomplished via the Diazo theme engine. Diazo "
 "provides a rule based mechanism for mapping content provided by Plone into "
 "one or more master page designs."
-msgstr "*Tematización estructural* se logra mejor a través del motor de temas Diazo. la herramienta Diazo proporciona un mecanismo basado en mapeo del contenido proporcionada por Plone en una o más diseños de páginas maestra."
+msgstr "*Tematización estructural* se logra mejor a través del motor de temas Diazo. la herramienta Diazo proporciona un mecanismo basado en mapeo del contenido proporcionada por Plone en una o más diseños de páginas maestras."
 
 #: ../theming.rst:18
 msgid ""
@@ -86,7 +86,7 @@ msgstr "Valla al panel de control ``Temas``"
 
 #: ../theming.rst:25
 msgid "Activate the Bootstrap theme"
-msgstr "Activar el tema Bootstrap"
+msgstr "Activar el tema Twitter Bootstrap Example"
 
 #: ../theming.rst:26
 msgid "Look at the site changes"
@@ -98,7 +98,7 @@ msgstr "Remplace \"localhost\" en su dirección URL con \"127.0.0.1\""
 
 #: ../theming.rst:28
 msgid "Return to the theming control panel, take a look at the advanced pane"
-msgstr "Vuelva al panel de control Temas, eche una mirada al panel avanzado"
+msgstr "Vuelva al panel de control Temas, eche una mirada al panel Configuración Avanzada"
 
 #: ../theming.rst:29
 msgid "Deactivate the theme"
@@ -108,7 +108,7 @@ msgstr "Desactivar el tema"
 msgid ""
 "Copy the Bootstrap Theme, use the ``Modify Theme`` button to see the Diazo "
 "rules."
-msgstr "Copie el tema Bootstrap, use el botón ``Modificar Tema`` para ver las reglas Diazo."
+msgstr "Copie el tema Twitter Bootstrap Example, use el botón ``Copiar`` y cree un tema en base a esta copia y poder modificar el tema para ver las reglas Diazo."
 
 #: ../theming.rst:33
 msgid "Templating example"
@@ -116,7 +116,7 @@ msgstr "ejemplo de Plantila"
 
 #: ../theming.rst:35
 msgid "Use the ZMI to view portal_view_customizations"
-msgstr "Use la ZMI para ver la utilidad portal_view_customizations"
+msgstr "Use la ZMI para ver la herramienta portal_view_customizations"
 
 #: ../theming.rst:36
 msgid ""
@@ -166,14 +166,14 @@ msgstr "Así que, ¿cuál es su estrategia?"
 msgid ""
 "For simple site themes that are structurally similar to out-of-the-box "
 "Plone, just add CSS. Nothing more needed."
-msgstr "Para los temas del sitio sencillas que son estructuralmente similares a los de fuera de la caja de Plone, sólo tiene que añadir CSS. Nada más se necesita."
+msgstr "Para los sencillos temas del sitio son estructuralmente similares a los de fuera de la caja es Plone, sólo tiene que añadir CSS. Nada más se necesita."
 
 #: ../theming.rst:54
 msgid ""
 "For more complex themes or ones where you are provided with a theme HTML, "
 "CSS and JS, use Diazo to move things around, to put the puzzle pieces where "
 "they belong."
-msgstr "Para más temas complejos o uno en el que se proporcionan con un tema de HTML, CSS y JS, use Diazo de mover las cosas, para poner las piezas del rompecabezas donde pertenecen."
+msgstr "Para más temas complejos o uno en el se proporcionan con un tema de HTML, CSS y JS, use Diazo para mover las cosas, para poner las piezas del rompecabezas donde pertenecen."
 
 #: ../theming.rst:56
 msgid ""
@@ -186,7 +186,7 @@ msgid ""
 "But, **do not** bother to learn how to work with Plone's viewlet managers. "
 "Yes, it was once necessary, but Diazo is a much better solution to this "
 "problem."
-msgstr "Pero, **no** molestarse en aprender cómo trabajar con los administradores viewlet de Plone. Sí, que una vez fue necesario, pero Diazo es una mejor solución a este problema."
+msgstr "Pero, **no es necesario** molestarse en aprender a cómo trabajar con los administradores viewlet de Plone. Sí, una vez fue necesario, pero Diazo es una mejor solución a este problema."
 
 #: ../theming.rst:62
 msgid "Want to really learn theming?"

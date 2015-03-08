@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-07 03:05+0000\n"
+"PO-Revision-Date: 2015-03-07 17:29+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgid ""
 "between systems we use a virtual machine (Ubuntu 14.04) to run Plone during "
 "the training. We rely on Vagrant and VirtualBox to give the same "
 "development-environment to everyone."
-msgstr "Para no perder demasiado tiempo con la instalación y la depuración de las diferencias entre los sistemas que utilizamos una máquina virtual (Ubuntu 14.04) para ejecutar Plone durante el entrenamiento. Contamos con Vagrant y VirtualBox para dar el mismo medio de ambiente de  desarrollo para todos."
+msgstr "Para no perder demasiado tiempo con la instalación y la depuración de las diferencias entre los sistemas que utilizamos una máquina virtual (Ubuntu 14.04) para ejecutar Plone durante el entrenamiento. Contamos con Vagrant y VirtualBox para dar el mismo medio de ambiente de desarrollo para todos."
 
 #: ../plone_training_config/instructions.rst:7
 msgid ""
@@ -46,19 +46,19 @@ msgstr "Tenga en cuenta que usted necesitará una conexión de Internet rápida 
 
 #: ../plone_training_config/instructions.rst:13
 msgid "Installing Plone without vagrant"
-msgstr "Instalando Plone sin vagrant"
+msgstr "Instalando Plone sin Vagrant"
 
 #: ../plone_training_config/instructions.rst:17
 msgid ""
 "If you are **not** used to running Plone on your laptop skip this part and "
 "continue with :ref:`install-virtualbox`."
-msgstr "Si usted es **no** está acostumbrado a ejecutar Plone en su computadora portátil omitir esta parte y continuar con :ref:`install-virtualbox`."
+msgstr "Si usted **no** está acostumbrado a ejecutar Plone en su computadora portátil omitir esta parte y continuar con :ref:`install-virtualbox`."
 
 #: ../plone_training_config/instructions.rst:19
 msgid ""
 "If you **are** experienced with running Plone on your own laptop we "
 "encourage you to do so because you will have certain benefits:"
-msgstr "Si usted **esta** experimentado con el funcionamiento de Plone en su propio ordenador portátil te animamos a hacerlo, ya que tendrá ciertos beneficios:"
+msgstr "Si usted **esta** experimentado con ejecutar Plone en su propio ordenador portátil te animamos a hacerlo, ya que tendrá ciertos beneficios:"
 
 #: ../plone_training_config/instructions.rst:21
 msgid "You can use the editor you are used to."
@@ -79,7 +79,7 @@ msgid ""
 "If you feel comfortable please work on your own machine with your own Python"
 " but ** please ** make sure that you have a system that will work since we "
 "don't want you to lose valuable time."
-msgstr "Si se siente cómodo, por favor, trabajar en su propia máquina con su propio Python si quieres, pero **por favor, por favor, por favor**, asegúrese de que usted tiene un sistema que funcione, ya que no queremos que se pierda un tiempo valioso."
+msgstr "Si se siente cómodo, por favor, trabaje en su propia máquina con su propio Python si quieres, pero **por favor, por favor, por favor**, asegúrese de que usted tiene un sistema que funcione, ya que no queremos que se pierda un tiempo valioso."
 
 #: ../plone_training_config/instructions.rst:27
 msgid ""
@@ -91,7 +91,7 @@ msgstr "Usted tendrá que hacer un pequeño cambio en el buildout que utilizamos
 msgid ""
 "Set up Plone for the training like this if you use your own OS (Linux or "
 "Mac):"
-msgstr "La instalación de Plone para el entrenamiento de esta forma si usted utiliza su propio sistema operativo (Linux o Mac):"
+msgstr "Si usted utiliza su propio sistema operativo (Linux o Mac) la instalación de Plone para el entrenamiento debe ser de esta forma:"
 
 #: ../plone_training_config/instructions.rst:39
 msgid ""
@@ -99,7 +99,7 @@ msgid ""
 "``buildout.cfg`` in an editor and add a ``#`` at the beginning of line 25 "
 "where it says ``buildout_dir = /home/vagrant``. Then remove the ``#`` at the"
 " next line. It should now read:"
-msgstr "Ahora tiene que hacer un pequeño cambio en el buildout. Abra el archivo ``buildout.cfg`` en un editor y agregar un ``#`` al principio de la línea 25, donde dice ``buildout_dir = /home/vagrant``. A continuación, retire el ``#` en la siguiente línea. Ahora debe decir:"
+msgstr "Ahora tiene que hacer un pequeño cambio en el buildout. Abra el archivo ``buildout.cfg`` en un editor y agregar un ``#`` al principio de la línea 25, donde dice ``buildout_dir = /home/vagrant``. A continuación, retire el ``#`` en la siguiente línea. Ahora debe decir:"
 
 #: ../plone_training_config/instructions.rst:45
 msgid "Now you can run the buildout for the first time:"
@@ -109,23 +109,23 @@ msgstr "Ahora puede ejecutar el buildout por primera vez:"
 msgid ""
 "This will take some time and produce a lot of output because it downloads "
 "and configures Plone. Once it is done you can start you instance with"
-msgstr "Esto tomará algún tiempo y producir una gran cantidad de cosas debido a que descarga y configura Plone. Una vez hecho esto usted puede comenzar a instancia con"
+msgstr "Esto tomará algún tiempo y producir una gran cantidad de mensaje en consola de comando debido a que descarga y configura Plone. Una vez hecho esto usted puede comenzar a instancia con el siguiente comando:"
 
 #: ../plone_training_config/instructions.rst:58
 msgid "If the output should be similar to::"
-msgstr "Si la salida debe ser similar a::"
+msgstr "Si la salida por la consola de comando es similar a::"
 
 #: ../plone_training_config/instructions.rst:69
 msgid ""
 "It the output says ``INFO Zope Ready to handle requests`` then you are up "
 "and running and can continue with the next chapter."
-msgstr "La salida por consola debe decir ``INFO Zope Ready to handle requests`` entonces usted esta al aire y ejecutando, entonces puede continuar con el proximo capitulo."
+msgstr "La salida por consola debe decir ``INFO Zope Ready to handle requests`` entonces usted esta al aire y ejecutando, entonces puede continuar con el próximo capítulo."
 
 #: ../plone_training_config/instructions.rst:73
 msgid ""
 "If there is an error-message you should either try to fix it or use vagrant "
 "and continue in this chapter."
-msgstr "Si hay un mensaje de error que debe o bien intenta arreglarlo o utiliza la instalación vagrant y continuar en este capítulo."
+msgstr "Si hay un mensaje de error usted debe bien intenta arreglarlo o utiliza la instalación Vagrant y continuar en este capítulo."
 
 #: ../plone_training_config/instructions.rst:79
 msgid "Install VirtualBox"
@@ -146,7 +146,7 @@ msgstr "Instalar y configurar Vagrant"
 msgid ""
 "Get the latest version from http://www.vagrantup.com/downloads for your "
 "operating system and install it."
-msgstr "Obtenga la última versión de http://www.vagrantup.com/downloads para su sistema operativo e instalarlo."
+msgstr "Obtenga la última versión de http://www.vagrantup.com/downloads para su sistema operativo y proceda a instalarlo."
 
 #: ../plone_training_config/instructions.rst:91
 msgid ""
@@ -168,13 +168,13 @@ msgstr "En primer lugar crear un directorio en el que desea hacer el entrenamien
 msgid ""
 "Setup Vagrant to automatically install the current guest-additions. You can "
 "choose to skip this step if you encounter any problems with it."
-msgstr "Configuración Vagrant para instalar automáticamente los actuales adiciones guests. Usted puede optar por omitir este paso si tiene algún problema con ella."
+msgstr "Al instalar Vagrant instala automáticamente los actuales adicionales guests. Usted puede optar por omitir este paso si tiene algún problema con ella."
 
 #: ../plone_training_config/instructions.rst:108
 msgid ""
 "Now either get the attached zip-file (if you read this as a mail) or "
 "download it from"
-msgstr "Ahora bien obtener el archivo zip adjunto (si usted lee esto como un correo electrónico) o descargarlo desde "
+msgstr "Ahora bien obtener el archivo zip adjunto (si usted lee esto como un correo electrónico) o descargarlo desde la siguiente dirección URL:"
 
 #: ../plone_training_config/instructions.rst:110
 msgid ""
@@ -185,7 +185,7 @@ msgstr ":download:`http://plone-training.readthedocs.org/en/latest/_downloads/pl
 
 #: ../plone_training_config/instructions.rst:112
 msgid "and copy its contents into your training directory."
-msgstr "y copiar su contenido en el directorio de la formación."
+msgstr "y copie el contenido del archivo zip en el directorio del entrenamiento creado previamente."
 
 #: ../plone_training_config/instructions.rst:119
 msgid ""
@@ -195,13 +195,13 @@ msgstr "El directorio del entrenamiento ahora debería contener el archivo \"Vag
 
 #: ../plone_training_config/instructions.rst:121
 msgid "Now start setting up the VM that is configured in ``Vagrantfile``:"
-msgstr "Ahora empieza la configuración de la máquina virtual que se configura en el archivo \"Vagrantfile\":"
+msgstr "Ahora empieza la configuración de la máquina virtual que se configura en el archivo ``Vagrantfile``:"
 
 #: ../plone_training_config/instructions.rst:127
 msgid ""
 "This takes a **veeeeery loooong time** since it does all the following "
 "steps:"
-msgstr "Esto toma un **tiempo muuuuuy largo** como lo hace todos los pasos siguientes:"
+msgstr "Esto toma un **muuuuuy largo tiempo** debido a que hace todos los pasos siguientes:"
 
 #: ../plone_training_config/instructions.rst:129
 msgid ""
@@ -235,7 +235,7 @@ msgstr "copiar los paquetes eggs a un lugar que utilizamos para el entrenamiento
 
 #: ../plone_training_config/instructions.rst:136
 msgid "clones the training-buildout into /vagrant/buildout"
-msgstr "clones de la configuración formación-buildout en /vagrant/buildout"
+msgstr "clones de el directorio buildout ``training`` en el directorio ``/vagrant/buildout``"
 
 #: ../plone_training_config/instructions.rst:137
 msgid "builds Plone using the eggs from the buildout-cache"
@@ -259,7 +259,7 @@ msgstr "Si esto sucede o usted tiene la sensación de que algo ha ido mal y la i
 msgid ""
 "You can do this multiple times to fix problems, e.g. if your network-"
 "connection was down and steps could not finish because of this."
-msgstr "Usted puede hacer esto varias veces para arreglar los problemas, por ejemplo, si su conexión a red se redujo y los pasos no pudo terminar debido a esto."
+msgstr "Usted puede hacer esto varias veces para arreglar los problemas, por ejemplo, si su conexión a red es limitada y los pasos no se pudieron terminar debido a esto."
 
 #: ../plone_training_config/instructions.rst:155
 msgid ""
@@ -278,7 +278,7 @@ msgstr "Si usted tiene que usar Windows tendrás que iniciar sesión para con `p
 msgid ""
 "You are now logged in as the user vagrant in ``/home/vagrant``. We'll do all"
 " steps of the training as this user."
-msgstr "Ahora está iniciado con e usuario vagrant en ``/home/vagrant``. Vamos a hacer todos los pasos del entrenamiento como este usuario."
+msgstr "Ahora está iniciado con el usuario vagrant en ``/home/vagrant``. Vamos a hacer todos los pasos del entrenamiento como este usuario."
 
 #: ../plone_training_config/instructions.rst:167
 msgid ""
@@ -286,13 +286,13 @@ msgid ""
 "``/home/vagrant/Plone/zinstance`` You can run it now and access it from the "
 "browser. We will **not** use this Plone-instance in the training, so you can"
 " play around with it as much as you want."
-msgstr "Nos pre-instalado un Plone para usted en la carpeta ``/home/vagrant/Plone/zinstance`` Puede ejecutar ahora y acceder a ella desde el navegador. **No** vamos a utilizar este instancia Plone en el entrenamiento, por lo que podemos jugar un rato con él tanto como usted desea."
+msgstr "Nosotros pre-instalamos un Plone para usted en la directorio ``/home/vagrant/Plone/zinstance``. Puede ejecutarlo ahora y acceder a esta instalación desde el navegador. Nosotros **no** vamos a utilizar este instancia Plone en el entrenamiento, por lo que podemos jugar un rato con esta tanto como usted desea."
 
 #: ../plone_training_config/instructions.rst:169
 msgid ""
 "Instead we use our own Plone-instance during the training. It is in "
 "``/vagrant/buildout/``. Start it in foreground with ``./bin/instance fg``."
-msgstr "En su lugar usamos nuestra propia instancia Plone durante el entrenamiento. Es en ``/vagrant/buildout/``. Inicie en modo foreground con el comando``./bin/instance fg``."
+msgstr "En su lugar usamos nuestra propia instancia Plone durante el entrenamiento. Es en ``/vagrant/buildout/``. Inicie en modo foreground con el comando ``./bin/instance fg``."
 
 #: ../plone_training_config/instructions.rst:184
 msgid ""
@@ -317,7 +317,7 @@ msgid ""
 "If it doesn't, don't worry, your shell isn't blocked. Type reset (even if "
 "you can't see the prompt) and press RETURN, and it should become visible "
 "again."
-msgstr "Si no lo hace, no se preocupe, su shell no está bloqueado. Escriba reset (incluso si usted no puede ver el símbolo de sistema) y pulse RETURN, y debe ser visible otra vez."
+msgstr "Si no lo hace, no se preocupe, su shell no está bloqueado. Escriba el comando ``reset`` (incluso si usted no puede ver el símbolo de sistema) y pulse RETURN, y debe ser visible otra vez."
 
 #: ../plone_training_config/instructions.rst:201
 msgid ""
@@ -327,7 +327,7 @@ msgid ""
 "operating-system). Now create a new Plone site by clicking \"Create a new "
 "Plone site\". The username and the password are both \"admin\" (Never do "
 "this on a real site!)."
-msgstr "Si abre su navegador local en http://localhost:8080 se ve que Plone está ejecutando en vagrant. Esto funciona porque Virtualbox reenvía al puerto 8080 del sistema invitado (el vagrant-Ubuntu) para el sistema host (el sistema operativo normal). Ahora cree un nuevo sitio Plone haciendo clic en \"Crear un nuevo sitio Plone\". El nombre de usuario y la contraseña son \"admin\" (Nunca haga esto en un sitio real!)."
+msgstr "Si abre su navegador local en http://localhost:8080 se ve que Plone está ejecutando en vagrant. Esto funciona porque Virtualbox reenvía al puerto 8080 del sistema invitado (el vagrant-Ubuntu) para el sistema host (el sistema operativo normal). Ahora cree un nuevo sitio Plone haciendo clic en \"Crear un nuevo sitio Plone\". El nombre de usuario y la contraseña son \"admin\" (Nota: Nunca haga esto en un sitio real!)."
 
 #: ../plone_training_config/instructions.rst:203
 msgid ""
@@ -336,7 +336,7 @@ msgid ""
 "own operating-system and use our favorite editor. You will find the "
 "directory ``buildout`` in the directory ``training`` that you created in the"
 " very beginning next to ``Vagrantfile`` and ``manifests``."
-msgstr "El Buildout para este Plone está en una carpeta compartida, esto significa lo ejecutamos en l caja vagrant desde ``/vagrant/buildout`` pero también podemos acceder a ella desde fuera del propio sistema operativo y el uso de nuestro editor favorito. Usted encontrará el directorio de ``buildout`` en el directorio del ``training`` que creó en el principio junto al archivo ``Vagrantfile`` y ``manifests``."
+msgstr "El Buildout para este Plone está en una carpeta compartida, esto significa lo ejecutamos en la vagrant-box desde el directorio ``/vagrant/buildout`` pero también podemos acceder a este desde fuera del propio sistema operativo y el uso de nuestro editor favorito. Usted encontrará el directorio de ``buildout`` en el directorio del ``training`` que creó en el principio junto al archivo ``Vagrantfile`` y ``manifests``."
 
 #: ../plone_training_config/instructions.rst:207
 msgid ""
@@ -432,7 +432,7 @@ msgid ""
 "Now we have fresh Buildout based Zope site, ready to get a Plone site. Go to"
 " http://localhost:8080 and create a Plone site, only activate the  :guilabel"
 ":`Dexterity-based Plone Default Types` plugin."
-msgstr "Ahora tenemos un sitio Zope basado Buildout, dispuesto a tener un sitio Plone. Ir a http://localhost:8080 y crear un sitio Plone, sólo activar el plugin :guilabel:`Dexterity-based Plone Default Types`."
+msgstr "Ahora tenemos un sitio Zope basado Buildout, dispuesto a tener un sitio Plone. Ir a http://localhost:8080 y cree un sitio Plone, sólo activar el complemento :guilabel:`Dexterity-based Plone Default Types`."
 
 #: ../plone_training_config/what_vagrant_does.rst:80
 msgid ""
@@ -440,4 +440,4 @@ msgid ""
 "installer to set up a cache of packages to download in a much shorter time. "
 "Without it, your first Buildout on a fresh computer would take more than "
 "half an hour on a good internet connection."
-msgstr "Usted podría preguntarse, ¿por qué se utiliza el instalador unificado. Utilizamos el instalador unificado para establecer una caché de paquetes para descargar en un tiempo mucho más corto. Sin ella, su primera Buildout en un ordenador recién tomaría más de media hora en una buena conexión a Internet."
+msgstr "Usted podría preguntarse, ¿por qué se utiliza el instalador unificado?. Utilizamos el instalador unificado para establecer una caché de paquetes para descargar en un tiempo mucho más corto. Sin ella, su primera Buildout en un ordenador recién tomaría más de media hora en una buena conexión a Internet."

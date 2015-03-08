@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the Mastering Plone package.
 # 
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 09:50-0430\n"
-"PO-Revision-Date: 2015-03-06 23:28+0000\n"
+"PO-Revision-Date: 2015-03-08 16:33+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -30,17 +30,17 @@ msgstr "¡Obtén el código!"
 msgid ""
 "Get the code for this chapter (:doc:`More info <sneak>`) using this command "
 "in the buildout-directory:"
-msgstr "Obtén el código para este capitulo (:doc:`Mas información <sneak>`) usando este comando en el directorio buildout:"
+msgstr "Obtén el código para este capítulo (:doc:`Más información <sneak>`) usando este comando en el directorio buildout:"
 
 #: ../zpt.rst:13
 msgid ""
 "Page Templates are HTML-files with some additional Information, written in "
 "TAL, METAL and TALES."
-msgstr "Plantillas de páginas son archivos HTML con alguna información adicional, escritas en TAL, METAL y TALES."
+msgstr "Page Templates son archivos HTML con alguna información adicional, escritas en TAL, METAL y TALES."
 
 #: ../zpt.rst:15
 msgid "Page templates must be valid xml."
-msgstr "Las plantillas de página debe ser XML válido."
+msgstr "Las page templates debe ser XML válido."
 
 #: ../zpt.rst:17
 msgid "The three languages are:"
@@ -52,7 +52,7 @@ msgstr "TAL: \"Template Attribute Language\""
 
 #: ../zpt.rst:21
 msgid "Templating XML/HTML using special Attributes"
-msgstr "Plantillas XML / HTML usando con atributos especiales"
+msgstr "Plantillas XML/HTML usando especiales Atributos"
 
 #: ../zpt.rst:23
 msgid "Using TAL we include expressions into html"
@@ -64,7 +64,7 @@ msgstr "TALES: \"TAL Expression Syntax\""
 
 #: ../zpt.rst:27
 msgid "defines the syntax and semantics of these expressions"
-msgstr "define la sintaxis y la semántica de estas expresiones"
+msgstr "Define la sintaxis y la semántica de estas expresiones"
 
 #: ../zpt.rst:29
 msgid "METAL: \"Macro Expansion for TAL\""
@@ -72,14 +72,14 @@ msgstr "METAL: \"Macro Expansion for TAL\""
 
 #: ../zpt.rst:31
 msgid "this enables us to combine, re-use and nest templates together"
-msgstr "esto nos permite combinar, la reutilización y las plantillas anidadas juntos"
+msgstr "Esto nos permite combinar, la reutilización y las plantillas anidadas juntos"
 
 #: ../zpt.rst:33
 msgid ""
 "TAL and METAL are written like html-attribues (url, src, title). TALES are "
 "written like the values of html-attributes. A typical TAL-Statement looks "
 "like this:"
-msgstr "TAL y METAL se escriben como atributos html (url, src, title). TALES están escritos como los valores de los atributos de html. Una declaración TAL típica tiene este aspecto:"
+msgstr "TAL y METAL se escriben como atributos HTML (url, src, title). TALES están escritos como los valores de los atributos de HTML. Una declaración TAL típica tiene este aspecto:"
 
 #: ../zpt.rst:41
 msgid "It's used to modify the output:"
@@ -91,7 +91,7 @@ msgstr "resultado en:"
 
 #: ../zpt.rst:53
 msgid "Let's try it. Open the file ``demoview.pt`` and add:"
-msgstr "Vamos a intentarlo. Abra el archivo ``demoview.pt`` y añade:"
+msgstr "Vamos a intentarlo. Abra el archivo ``demoview.pt`` y agregue:"
 
 #: ../zpt.rst:69
 msgid "TAL and TALES"
@@ -103,21 +103,21 @@ msgstr "Vamos a añadir un poco de magia y modificar la etiqueta <p>:"
 
 #: ../zpt.rst:77
 msgid "This will result in:"
-msgstr "Esto resultará en:"
+msgstr "Esto resultará en el siguiente código HTML:"
 
 #: ../zpt.rst:83
 msgid "Without restarting Plone open http://localhost:8080/Plone/@@demoview."
-msgstr "Sin reiniciar Plone abra en el navegador http://localhost:8080/Plone/@@demoview."
+msgstr "Sin reiniciar Plone abra en el navegador la siguiente dirección URL http://localhost:8080/Plone/@@demoview."
 
 #: ../zpt.rst:85
 msgid "The same happens with attributes. Replace the <p>-line with:"
-msgstr "Lo mismo ocurre con los atributos. Vuelva a colocar la línea <p> con:"
+msgstr "Lo mismo ocurre con los atributos. Remplace en la línea <p> con el siguiente código:"
 
 #: ../zpt.rst:104
 msgid ""
 "We used three TAL-Attributes here. This is the complete list of TAL-"
 "attributes:"
-msgstr "Nosotros hemos utilizado los tres atributos TAL aquí. Esta es la lista completa de los atributos TAL:"
+msgstr "Nosotros hemos utilizado los tres atributos TAL aquí. A continuación una la lista completa de los atributos TAL:"
 
 #: ../zpt.rst:107
 msgid "``tal:define``"
@@ -127,7 +127,7 @@ msgstr "``tal:define``"
 msgid ""
 "define variables. We definded the variable url to the string "
 "\"http://www.ploneconf.org\""
-msgstr "definir las variables. Nosotros definimos la variable url para la cadena \"http://www.ploneconf.org\""
+msgstr "definir las variables. Nosotros definimos la variable URL para la cadena \"http://www.ploneconf.org\""
 
 #: ../zpt.rst:110
 msgid "``tal:content``"
@@ -147,7 +147,7 @@ msgstr "``tal:attributes``"
 msgid ""
 "dynamically change element attributes. We set the html-attribute ``href`` to"
 " the variable ``a_fine_url``"
-msgstr "cambiar dinámicamente atributos de los elementos. Nosotros hemos establecido el atributo html href a la variable ``a_fine_url``"
+msgstr "cambiar dinámicamente atributos de los elementos. Nosotros hemos establecido el atributo HTML href a la variable ``a_fine_url``"
 
 #: ../zpt.rst:116 ../zpt.rst:165
 msgid "``tal:condition``"
@@ -163,7 +163,7 @@ msgstr "``tal:repeat``"
 
 #: ../zpt.rst:119 ../zpt.rst:201
 msgid "repeats an iterable element, in our case the list of talks."
-msgstr "repite un elemento iterable, en nuestro caso, la lista de Charlas."
+msgstr "repite un elemento iterable, en nuestro caso, la lista de charlas."
 
 #: ../zpt.rst:122
 msgid "``tal:replace``"
@@ -173,7 +173,7 @@ msgstr "``tal:replace``"
 msgid ""
 "replace the content of an element like ``tal:content`` but removes the "
 "element only leaving the content."
-msgstr "reemplazar el contenido de un elemento como ``tal:content`` , pero se elimina el elemento sólo dejando el contenido."
+msgstr "reemplazar el contenido de un elemento como ``tal:content``, pero se elimina el elemento sólo dejando el contenido."
 
 #: ../zpt.rst:125 ../zpt.rst:381
 msgid "``tal:omit-tag``"
@@ -193,18 +193,18 @@ msgstr "controlar los errores."
 
 #: ../zpt.rst:132
 msgid "python-expressions"
-msgstr "expresiones python"
+msgstr "Expresiones Python"
 
 #: ../zpt.rst:134
 msgid ""
 "So far we only used one TALES expression (the ``string:``-bit). Let's use a "
 "different TALES-expression now. With ``python:`` we can use python-code. A "
 "simple example:"
-msgstr "Hasta ahora sólo utilizamos una expresión TALES (el bit ``string:``). Usemos una expresión TALES diferente ahora. Con ``python:`` podemos usar código python. Un ejemplo sencillo:"
+msgstr "Hasta ahora sólo utilizamos una expresión TALES (el bit ``string:``). Usemos una expresión TALES diferente ahora. Con ``python:`` podemos usar código Python. A continuación un ejemplo sencillo:"
 
 #: ../zpt.rst:143
 msgid "And another:"
-msgstr "Y otro:"
+msgstr "Y otro ejemplo:"
 
 #: ../zpt.rst:155
 msgid "With python-expressions"
@@ -226,7 +226,7 @@ msgstr "tal:condition"
 
 #: ../zpt.rst:167
 msgid "If it's true, then the tag is rendered."
-msgstr "Si es cierto, entonces la etiqueta se representa."
+msgstr "Si es true, entonces la etiqueta se representa."
 
 #: ../zpt.rst:168
 msgid ""
@@ -256,31 +256,31 @@ msgstr "tal:repeat"
 
 #: ../zpt.rst:187
 msgid "Let's try another statement:"
-msgstr "Probemos otra declaración:"
+msgstr "Probemos otra sentencia:"
 
 #: ../zpt.rst:203
 msgid ""
 "We change the markup a little to construct a list in which there is an "
 "``<li>`` for every talk:"
-msgstr "Cambiamos el formato un poco para construir una lista en la que hay una lista ``<li>`` para cada charla:"
+msgstr "Cambiamos el formato un poco para construir una lista en la que hay una lista de elementos HTML ``<li>`` para cada charla:"
 
 #: ../zpt.rst:222
 msgid "path-expressions"
-msgstr "expresiones de rutas"
+msgstr "Expresiones de rutas"
 
 #: ../zpt.rst:224
 msgid ""
 "Regarding TALES so far we used ``string:`` or ``python:`` or only variables."
 " The next and most common expression are path-expressions. Optionally you "
 "can start a path-expression with ``path:``"
-msgstr "En cuanto TALES hasta ahora hemos utilizado la ``string:`` o ``python:`` o sólo las variables. La expresión siguiente y más comunes son de path-expressions. Opcionalmente se puede iniciar path-expression con el ``path:``"
+msgstr "En cuanto TALES hasta ahora hemos utilizado la ``string:`` o ``python:`` o sólo las variables. La expresión siguiente y más comunes son las expresiones de rutas (path-expressions). Opcionalmente se puede iniciar expresión de ruta con el atributo ``path:``"
 
 #: ../zpt.rst:226
 msgid ""
 "Every path expression starts with a variable name. It can either be an "
 "object like ``context``, ``view`` or ``template`` or a variable defined "
 "earlier like ``talk``."
-msgstr "Cada expresión de ruta comienza con un nombre de variable. Puede ser tanto un objeto como  ``context``, ``view``, ``template`` o una variable definida anteriormente como ``charla``."
+msgstr "Cada expresión de ruta comienza con un nombre de variable. Puede ser tanto un objeto como ``context``, ``view``, ``template`` o una variable definida anteriormente como ``talk``."
 
 #: ../zpt.rst:228
 msgid ""
@@ -288,23 +288,23 @@ msgid ""
 "attribute or callable. The '/' is used to end the name of an object and the "
 "start of the property name. Properties themselves may be objects that in "
 "turn have properties."
-msgstr "Después de la variable se añade una barra ``/`` y el nombre de un sub-objeto, atributo o método llamable. El '/' se utiliza para terminar el nombre de un objeto y el inicio del nombre de la propiedad. Mismas propiedades pueden ser objetos que a su vez tienen propiedades."
+msgstr "Después de la variable se añade una barra ``/`` y el nombre de un sub-objeto, atributo o método llamable. El '/' se utiliza para terminar el nombre de un objeto y el inicio del nombre de la propiedad. Las mismas propiedades pueden ser objetos que a su vez tienen propiedades."
 
 #: ../zpt.rst:234
 msgid "We can chain several of those to get to the information we want."
-msgstr "Nos puede encadenar varios de los elementos para obtener la información que queremos."
+msgstr "Podemos encadenar varios de los elementos para obtener la información que queremos."
 
 #: ../zpt.rst:240
 msgid ""
 "This would return the value of the form-dictionary of the HTTPRequest-"
 "object. Useful for form-handling."
-msgstr "Esto devolverá el valor de la forma de diccionario del objeto HTTPRequest. Útil para la forma de manipulación."
+msgstr "Esto devolverá un diccionario de los valores del formulario del objeto HTTPRequest. Útil para la manipulación del formulario."
 
 #: ../zpt.rst:242
 msgid ""
 "The ``|`` (\"or\") character is used to find an alternative value to a path "
 "if the first path evaluates to ``nothing`` or does not exist."
-msgstr "El ``|`` (\"o\") se utiliza para encontrar un valor alternativo a un camino si la primera ruta se evalúe como ``nothing`` o no existe."
+msgstr "El ``|`` (operador lógico \"o\") se utiliza para encontrar un valor alternativo a una ruta si la primera ruta se evalúe como ``nothing`` o no existe."
 
 #: ../zpt.rst:248
 msgid "This returns the id of the context if it has no title."
@@ -315,7 +315,7 @@ msgid ""
 "This returns nothing if there is no 'average_rating' for a talk. What will "
 "not work is ``tal:content=\"python:talk['average_rating'] or ''\"``. Who "
 "knows what this would yield?"
-msgstr "Esto devuelve nada si no hay 'average_rating' para una charla. Lo que no funciona es ``tal:content=\"python:talk['average_rating'] or ''\"``. ¿Quién sabe lo que esto produciría?"
+msgstr "Esto devuelve nothing si no hay 'average_rating' para una charla. Lo que no funciona es ``tal:content=\"python:talk['average_rating'] or ''\"``. ¿Quién sabe lo que esto produciría?"
 
 #: ../zpt.rst:258
 msgid ""
@@ -323,21 +323,21 @@ msgid ""
 "``|`` too often since it will swallow errors like a typo in "
 "``tal:content=\"talk/averange_ratting | nothing\"`` and you might wonder why"
 " there are no ratings later on..."
-msgstr "Conseguiremos ``KeyError: 'average_rating'``. Es muy mala práctica, use ``|`` con demasiada frecuencia, ya que se tragará errores como un error tipográfico en ``tal:content=\"talk/averange_ratting | nothing\"`` y es posible que se preguntan por qué no existen calificaciones más tarde..."
+msgstr "Conseguiremos ``KeyError: 'average_rating'``. Es muy mala práctica, usar el operador ``|`` con demasiada frecuencia, ya que se tragará errores como un error tipográfico en ``tal:content=\"talk/averange_ratting | nothing\"`` y es posible que se preguntan por qué no existen calificaciones más tarde..."
 
 #: ../zpt.rst:260
 msgid ""
 "You can't and should not use it to prevent errors like a try/except-block."
-msgstr "No puede y no debe utilizarlo para evitar errores como un bloque try / except."
+msgstr "No puede y no debe utilizarlo para evitar errores como un bloque try/except."
 
 #: ../zpt.rst:262
 msgid "There are several **built in variables**  that can be used in paths:"
-msgstr "Hay varias **variables incorporado** que se pueden utilizar en caminos:"
+msgstr "Hay varias **variables incorporadas** que se pueden utilizar en rutas:"
 
 #: ../zpt.rst:264
 msgid ""
 "The most frequently used one is ``nothing`` which is the equivalent to None"
-msgstr "El más utilizado uno es ``nothing`` que es el equivalente a None"
+msgstr "El más utilizado es ``nothing`` que es el equivalente a ``None``"
 
 #: ../zpt.rst:272
 msgid "A dict of all the available variables is ``CONTEXTS``"
@@ -367,7 +367,7 @@ msgstr "Ejemplos:"
 
 #: ../zpt.rst:313
 msgid "handling complex data in templates"
-msgstr "manejo de datos complejos en plantillas"
+msgstr "Manejo de datos complejos en plantillas"
 
 #: ../zpt.rst:315
 msgid ""
@@ -390,14 +390,14 @@ msgstr "Ejemplo:"
 
 #: ../zpt.rst:329
 msgid "this results in:"
-msgstr "este resulta en:"
+msgstr "esto resulta en:"
 
 #: ../zpt.rst:337
 msgid ""
 "``tal:replace`` drops it's own base-tag in favor of the result of the TALES-"
 "expression. Thus the original ``<img... >`` is replaced. But the result is "
 "escaped by default."
-msgstr "``tal:replace`` cae su propia base de etiquetas a favor del resultado de la expresión TALES. Por lo tanto el original ``<img... >`` se sustituye. Pero el resultado se escapó por defecto."
+msgstr "``tal:replace`` suelta su propia base de etiquetas a favor del resultado de la expresión TALES. Por lo tanto el original ``<img... >`` se sustituye. Pero el resultado se escapó por defecto."
 
 #: ../zpt.rst:339
 msgid "To prevent escaping we use ``structure``"
@@ -412,11 +412,11 @@ msgid ""
 "We emulate a list of talks and display information about them in a table. "
 "We'll get back to the list of talks later when we use the real talk-objects "
 "that we created with dexterity."
-msgstr "Nosotros emulamos una lista de charlas y mostrar información en una tabla. Nos pondremos en contacto a la lista de las charlas más tarde, cuando se utilizan los verdaderos objetos charlas que hemos creado con dexterity."
+msgstr "Nosotros emulamos una lista de charlas y mostramos información en una tabla. Pondremos en contacto a la lista de las charlas más tarde, cuando se utilizan los verdaderos objetos charlas que hemos creado con un tipo de contenido dexterity."
 
 #: ../zpt.rst:378
 msgid "To complete the list here are the TAL-Attributes we have not yet used:"
-msgstr "Para completar la lista que aquí están los atributos TAL que no hemos utilizado todavía:"
+msgstr "Para completar la lista aquí están los atributos TAL que no hemos utilizado todavía:"
 
 #: ../zpt.rst:381
 msgid "Omit the element tags, leaving only the inner content."
@@ -464,7 +464,7 @@ msgstr "¿Por qué nuestra vista es tan feo?, ¿Cómo conseguimos nuestro HTML p
 msgid ""
 "We use METAL (Macro Extension to TAL) to define slots that we can fill and "
 "macros that we can reuse."
-msgstr "Utilizamos METAL (extensión macro para TAL) para definir ranuras que podemos llenar y macros que podemos reutilizar."
+msgstr "Utilizamos METAL (Macro Extension to TAL) para definir ranuras que podemos llenar y macros que podemos reutilizar."
 
 #: ../zpt.rst:404
 msgid "We add to the ``<html>``-tag::"
@@ -482,7 +482,7 @@ msgstr "Esto pondrá a nuestro código de una sección definida en el main_templ
 
 #: ../zpt.rst:418
 msgid "The template should now look like this:"
-msgstr "La plantilla de ahora debería tener este aspecto:"
+msgstr "Ahora la plantilla debería tener el siguiente aspecto:"
 
 #: ../zpt.rst:461
 msgid ""
@@ -490,7 +490,7 @@ msgid ""
 " that it is called on it makes little sense to have the edit-bar. We hide it"
 " by setting the respective variable on the current request with python to 1:"
 " ``request.set('disable_border', 1)``."
-msgstr "Desde la vista demoview solamente es utilizada el contenido de la plantilla, no por el contexto que le toca no tiene mucho sentido tener la barra de edición. Nos lo ocultamos estableciendo la variable correspondiente en el request actual con el python a 1: ``request.set('disable_border', 1)``."
+msgstr "Desde la vista demoview solamente es utilizada el contenido de la plantilla, no por el contexto que le toca no tiene mucho sentido tener la barra de edición. Entonces lo ocultamos estableciendo la variable correspondiente en el actual request con el python a 1: ``request.set('disable_border', 1)``."
 
 #: ../zpt.rst:463
 msgid ""
@@ -500,7 +500,7 @@ msgstr "La manera más fácil de hacer esto es definir una variable dummy. Dummy
 
 #: ../zpt.rst:472
 msgid "macros in browser-views"
-msgstr "macros en browser-views"
+msgstr "Macros en browser-views"
 
 #: ../zpt.rst:474
 msgid "Define a macro in a new file ``macros.pt``"
@@ -509,15 +509,15 @@ msgstr "Define un macro en un nuevo archivo ``macros.pt``"
 #: ../zpt.rst:482
 msgid ""
 "Register it as a BrowserView (this time without a python-class) in zcml:"
-msgstr "Registrarse como BrowserView (esta vez sin una clase python) en zcml:"
+msgstr "Registrarlo como un BrowserView (esta vez sin una clase Python) en sentencias ZCML:"
 
 #: ../zpt.rst:493
 msgid "Reuse the macro it in the template ``demoview.pt``:"
-msgstr "Reutilización de la macro en la plantilla ``demoview.pt``:"
+msgstr "Reuse el macro en la plantilla ``demoview.pt``:"
 
 #: ../zpt.rst:503
 msgid "Accessing Plone from the template"
-msgstr "Accediendo a Plonde desde la plantilla"
+msgstr "Accediendo a Plone desde la plantilla"
 
 #: ../zpt.rst:505
 msgid ""
@@ -525,7 +525,7 @@ msgid ""
 "called on, the browser-view itself (i.e. all python-methods we'll put in the"
 " view later on), the request and response objects and with these we can get "
 "almost anything."
-msgstr "En nuestra plantilla tenemos acceso al objeto de contexto en el que la vista se llama en adelante, la propia browser-views (es decir, todos los métodos de python vamos a poner en el punto de vista más adelante), los objetos request y response y con ellas podemos conseguir casi cualquier cosa."
+msgstr "En nuestra plantilla tenemos acceso al contexto del objeto en el que la vista se llamada, la propia browser-views (es decir, todos los métodos de Python vamos a colocarlos en la vista más adelante), los objetos request y response y con esos podemos conseguir casi cualquier cosa."
 
 #: ../zpt.rst:507
 msgid ""
@@ -562,7 +562,7 @@ msgstr "``@@plone_tools``"
 msgid ""
 "The BrowserView ``plone.app.layout.globals.tools.Tools`` gives access to the"
 " most importan tools like ``plone_tools/catalog``"
-msgstr "El BrowserView ``plone.app.layout.globals.tools.Tools`` da acceso a las herramientas mas importante como ``plone_tools/catalog``"
+msgstr "El BrowserView ``plone.app.layout.globals.tools.Tools`` da acceso a las herramientas más importante como ``plone_tools/catalog``"
 
 #: ../zpt.rst:523
 msgid "These are very widely used and there are many more."

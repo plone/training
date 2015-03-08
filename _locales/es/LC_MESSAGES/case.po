@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-06 16:17+0000\n"
+"PO-Revision-Date: 2015-03-07 18:46+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -65,7 +65,7 @@ msgstr "Como un ponente, yo quiero ver y editar mis charlas enviadas."
 
 #: ../case.rst:19
 msgid "As a jury-member I want to vote on talks"
-msgstr "Como miembro de jurado, yo quiero votar en las charlas."
+msgstr "Como miembro del jurado, yo quiero votar en las charlas."
 
 #: ../case.rst:20
 msgid ""
@@ -86,4 +86,4 @@ msgid ""
 "Note that all of our requirements connect roles with capabilities. This is "
 "important because we'll want to limit the capabilities to those to whom we "
 "assign particular roles."
-msgstr "Tenga en cuenta que todos nuestros requisitos conectar roles con capacidades. Esto es importante porque vamos a querer limitar las capacidades de aquellos a los que asignamos roles particulares."
+msgstr "Tenga en cuenta que todos nuestros requisitos conectar roles con sus capacidades. Esto es importante porque vamos a querer limitar las capacidades de aquellos a los que asignamos roles particulares."

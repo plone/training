@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-07 03:04+0000\n"
+"PO-Revision-Date: 2015-03-08 15:25+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -20,17 +20,17 @@ msgstr ""
 
 #: ../features.rst:2
 msgid "The Features of Plone"
-msgstr "Las caracteristicas de Plone"
+msgstr "Las características de Plone"
 
 #: ../features.rst:4
 msgid ""
 "In-depth user-manual: http://plone.org/documentation/manual/plone-4-user-"
 "manual"
-msgstr "En profundidad el Manual de usuario: http://plone.org/documentation/manual/plone-4-user-manual"
+msgstr "En profundidad el Manual de usuario (en idioma Español): https://plone.org/countries/ve/publicaciones/plone-para-usuarios-principiantes"
 
 #: ../features.rst:6
 msgid "See also: http://docs.plone.org/working-with-content/index.html"
-msgstr "Ver también: http://docs.plone.org/working-with-content/index.html"
+msgstr "Ver también la versión original del manual (en idioma Ingles) en las siguientes direcciones URL: http://plone.org/documentation/manual/plone-4-user-manual y http://docs.plone.org/working-with-content/index.html"
 
 #: ../features.rst:9
 msgid "Starting and Stopping Plone"
@@ -79,7 +79,7 @@ msgid ""
 "We have a running Zope with a database but no content. But luckily there is "
 "a button to create a Plone site. Click on that button (login: admin:admin). "
 "This opens a form to create a Plone site. Use :samp:`Plone` as the site id."
-msgstr "Tenemos un Zope corriendo con una base de datos pero no el contenido. Pero, afortunadamente, hay un botón para crear un sitio Plone. Haga clic en ese botón (inicio de sesión: admin:admin). Esto abre un formulario para crear un sitio Plone. Utilice :samp:`Plone` como el identificador del sitio."
+msgstr "Tenemos un Zope corriendo con una base de datos pero no el sitio Plone. Pero, afortunadamente, hay un botón para crear un sitio Plone. Haga clic en el botón ``Crear un nuevo sitio Plone`` (inicio de sesión: admin:admin). Esto abre un formulario para crear un sitio Plone. Utilice :samp:`Plone` como el identificador del sitio."
 
 #: ../features.rst:38
 msgid ""
@@ -88,7 +88,7 @@ msgid ""
 "Plone Default Types``. This way even the initial content on our page will be"
 " built with dexterity by the addon ``plone.app.contenttypes`` which will be "
 "the default in Plone 5."
-msgstr "Ahora tiene la opción de seleccionar algunos complementos antes de crear el sitio. Dado que vamos a utilizar Dexterity desde el principio seleccionamos ``Dexterity-based Plone Default Types``. De esta manera, incluso el contenido inicial en nuestra página será construido con dexterity por lo complemento plone.app.contenttypes que será el predeterminado en Plone 5."
+msgstr "Ahora tiene la opción de seleccionar algunos complementos antes de crear el sitio. Dado que vamos a utilizar Dexterity desde el principio seleccionamos el complemento ``Dexterity-based Plone Default Types``. De esta manera, incluso el contenido inicial en nuestra página será construido con dexterity por lo complemento plone.app.contenttypes que será el predeterminado en Plone 5."
 
 #: ../features.rst:40
 msgid "You will be automatically redirected to the new site."
@@ -140,7 +140,7 @@ msgid ""
 "configured a mail server, Plone could send you a mail with a link to a form "
 "where you can choose a password. We set a password here because we haven't "
 "yet configure a mail server."
-msgstr "Haga clic en :guilabel:`Usuarios y grupos` y añada un usuario. Si ha configurado un servidor de Correo, Plone puede enviarle un correo electrónico con un enlace a un formulario donde puede elegir una contraseña. Establezca una una contraseña aquí porque no ha configurado aun un servidor de Correo."
+msgstr "Haga clic en :guilabel:`Usuarios y Grupos` y añada un usuario. Si ha configurado un servidor de correo, Plone puede enviarle un correo electrónico con un enlace a un formulario donde puede elegir una contraseña. Establezca una una contraseña aquí porque no ha configurado aun un servidor de correo."
 
 #: ../features.rst:72
 msgid "Make this user with your name an administrator."
@@ -156,7 +156,7 @@ msgstr "A continuación, cree otro usuario llamado ``testuser``. Hágalo un usua
 #: ../features.rst:76
 msgid ""
 "Now let's see the site in 3 different browsers with three different roles:"
-msgstr "Ahora vamos a ver el sitio en 3 navegadores diferentes, con tres roles diferentes:"
+msgstr "Ahora vamos a ver el sitio en tres (03) navegadores diferentes, con tres roles diferentes:"
 
 #: ../features.rst:78
 msgid "as anonymous"
@@ -172,7 +172,7 @@ msgstr "como administrador."
 
 #: ../features.rst:99
 msgid "Configure a Mailserver"
-msgstr "Configurar un servidor de Correo"
+msgstr "Configurar un servidor de correo"
 
 #: ../features.rst:104
 msgid ""
@@ -240,8 +240,8 @@ msgid ":guilabel:`portal-column-content`: the content and the editor"
 msgstr ":guilabel:`portal-column-content`: el contenido y el editor"
 
 #: ../features.rst:129
-msgid "`edit bar`: editing options for the content"
-msgstr "`barra de edición`: opciones de edición del contenido"
+msgid ":guilabel:`edit bar`: editing options for the content"
+msgstr ":guilabel:`barra de edición`: opciones de edición del contenido"
 
 #: ../features.rst:130
 msgid ":guilabel:`portal-column-two`: portlets"
@@ -255,7 +255,7 @@ msgstr ":guilabel:`portal-footer`: viewlets"
 msgid ""
 "These are also the css-classes of the respective div's. If you want to do "
 "theming you'll need them."
-msgstr "Estos son también los class CSS de los respectivos de div del HTML . Si usted quiere hacer la temas visuales usted los necesita."
+msgstr "Estos son también los clases CSS de los respectivos de DIV del HTML. Si usted quiere hacer la temas visuales usted los necesita."
 
 #: ../features.rst:138
 msgid "On the edit bar, we find options affecting the current context..."
@@ -298,7 +298,7 @@ msgid ""
 "Some edit bar options only show when appropriate; for example,``folder "
 "content`` and ``add`` are only shown for Folders. ``rules`` is currently "
 "invisible because we have no content rules available."
-msgstr "Algunas opciones de la barra de edición sólo muestran cuando proceda; por ejemplo, la carpeta `` Contenidos`` y `` Agregar nuevo...`` sólo se muestran para carpetas. Las opción ``Reglas`` esta actualmente invisible porque no tenemos reglas de contenido disponible."
+msgstr "Algunas opciones de la barra de edición sólo muestran cuando proceda; por ejemplo, la carpeta ``Contenidos`` y ``Agregar nuevo...`` sólo se muestran para carpetas. Las opción ``Reglas`` esta actualmente invisible porque no tenemos reglas de contenido disponible."
 
 #: ../features.rst:152
 msgid "Content-Types"
@@ -306,7 +306,7 @@ msgstr "Tipos de Contenidos"
 
 #: ../features.rst:154
 msgid "Edit a page:"
-msgstr "Editar una pagina:"
+msgstr "Editar una página:"
 
 #: ../features.rst:156
 msgid ":guilabel:`Edit front-page`"
@@ -350,23 +350,23 @@ msgstr "En la ruta /news: Agregar una Noticia \"¡Sitio Web de la Conferencia es
 
 #: ../features.rst:170
 msgid "In /news: Add News Item \"Submit your talks!\""
-msgstr "En la ruta /news: Agregar una Noticia \"¡Enviar sus Charlas!\""
+msgstr "En la ruta /news: Agregar una Noticia \"¡Enviar sus charlas!\""
 
 #: ../features.rst:171
 msgid "In /events: Add Event \"Deadline for talk-submission\" Date: 10.10.2014"
-msgstr "En la ruta /news: Agregar un Evento \"Fecha limite para enviar Charlas\" Fecha 10.10.2014"
+msgstr "En la ruta /news: Agregar un Evento \"Fecha limite para enviar charlas\" Fecha 10.10.2014"
 
 #: ../features.rst:173
 msgid "Add Folder \"Register\""
-msgstr "Agregar Carpeta \"Registro\""
+msgstr "Agregar carpeta llamada \"Registro\""
 
 #: ../features.rst:174
 msgid "Delete Folder \"Members\" (Users)"
-msgstr "Eliminar la Carpeta \"Members\" (Usuarios)"
+msgstr "Eliminar la carpeta llamada \"Members\" (Usuarios)"
 
 #: ../features.rst:175
 msgid "Add Folder \"Intranet\""
-msgstr "Agregar Carpeta \"Intranet\""
+msgstr "Agregar carpeta llamada \"Intranet\""
 
 #: ../features.rst:178
 msgid "The default content-types:"
@@ -434,11 +434,11 @@ msgstr "cambiar orden"
 
 #: ../features.rst:201
 msgid "bulk-actions"
-msgstr "acciones en masa"
+msgstr "acciones masivas"
 
 #: ../features.rst:202
 msgid "dropdown \"display\""
-msgstr "desplegable \"Mostrar\""
+msgstr "menú desplegable \"Mostrar\""
 
 #: ../features.rst:203
 msgid "default_pages"
@@ -446,7 +446,7 @@ msgstr "default_pages"
 
 #: ../features.rst:204
 msgid "Add a page to 'the-event': \"The Event\" and make it the default-page"
-msgstr "Agregar una pagina a 'el-evento': \"El Evento\" y hacerlo su pagina por defecto"
+msgstr "Agregar una página a 'el-evento': \"El Evento\" y hacerlo su página por defecto"
 
 #: ../features.rst:205
 msgid "The future: ``wildcard.foldercontents``"
@@ -520,7 +520,7 @@ msgstr "grupos"
 
 #: ../features.rst:239
 msgid "Add group \"Editors\" and add the user 'editor' to it"
-msgstr "Agregar grupo \"Editores\" y agregar el usuario 'editor' a este"
+msgstr "Agregar grupo \"Editores\" y agregar el usuario 'editor' a ese."
 
 #: ../features.rst:240
 msgid "Add group: ``orga``"
@@ -528,7 +528,7 @@ msgstr "Agregar grupo: ``orga``"
 
 #: ../features.rst:241
 msgid "add group: ``jury`` and add user 'jurymember' to it."
-msgstr "agregar grupo: ``jury`` y agregue usuario 'jurymember' a este."
+msgstr "agregar grupo: ``jury`` y agregue usuario 'jurymember' a ese."
 
 #: ../features.rst:245
 msgid "Workflows"
@@ -605,7 +605,7 @@ msgid ""
 "In fact, the original author may not even have permission to change the "
 "document without review. Or, you may need to make a partial edit. In either "
 "case, it may be undesirable for changes to be immediately visible."
-msgstr "El contenido publicado, incluso en un entorno de intranet, puede plantear un problema especial para la edición. Puede ser necesario revisar antes de que se ponen a disposición los cambios. De hecho, el autor original puede incluso podría no tener permiso para cambiar el documento sin revisión. O bien, puede que tenga que hacer una edición parcial. En cualquiera de los casos, puede ser deseable para que los cambios sean visibles inmediatamente."
+msgstr "El contenido publicado, incluso en un entorno de Intranet, puede plantear un problema especial para la edición. Puede ser necesario revisar antes de que los cambios se hacen disponible. De hecho, el autor original puede incluso podría no tener permiso para cambiar el documento sin revisión. O bien, puede que tenga que hacer una edición parcial. En cualquiera de los casos, puede ser deseable para que los cambios sean visibles inmediatamente."
 
 #: ../features.rst:271
 msgid ""
@@ -621,13 +621,13 @@ msgid ""
 "So, if you need it, you need to activate it via the add-on packages "
 "configuration page. Unless activated, check-in/check-out options are not "
 "visible."
-msgstr "Mientras se envía con Plone, el  soporte de copia de trabajo no es una necesidad común. Así que, si usted lo necesita, usted necesita para activarla a través de la página de configuración de Complementos. A menos que se activa, las opciones de *Retirar revisión* / *Guardar nueva revisión* no son visibles."
+msgstr "Mientras este complemento viene incorporado en Plone, el soporte de copia de trabajo no es una necesidad común. Así que, si usted lo necesita, usted necesita para activarlo a través de la página de configuración de Complementos. A menos que se active este complemento, las opciones de *Retirar revisión* / *Guardar nueva revisión* no son visibles."
 
 #: ../features.rst:277
 msgid ""
 "Working-copy support is not yet available for content types created via "
 "Dexterity. This is on the way."
-msgstr "Soporte de Copia de Trabajo no está disponible para los tipos de contenido creados a través de Dexterity. Esto está en el camino."
+msgstr "Soporte de Copia de Trabajo no está disponible para los tipos de contenido creados a través de Dexterity. Esto está en el camino (es un trabajo en proceso)."
 
 #: ../features.rst:281
 msgid "Placeful workflows"
@@ -656,10 +656,10 @@ msgid ""
 "to be activated via the add-on configuration page. Once it's added, a "
 "``Policy`` option will appear on the state menu to allow setting a placeful "
 "workflow policy."
-msgstr "Al igual que con el Soporte de Copia de Trabajo, Soporte de Política de Flujo de trabajo Placeful con Plone, pero tiene que ser activadas a través de la página de configuración de Complementos. Una vez que se ha añadido, una opción ``Política...`` aparecerá en el menú de Estado para permitir el establecimiento de una política de flujo de trabajo Placeful."
+msgstr "Tanto como el Soporte de Copia de Trabajo, como el Soporte de Política de Flujo de trabajo Placeful viene incorporados en Plone, pero tiene que ser activadas a través de la página de configuración de Complementos. Una vez se ha añadido, una opción ``Política...`` aparecerá en el menú de Estado para permitir el establecimiento de una política de flujo de trabajo Placeful."
 
 #: ../features.rst:291
 msgid ""
 "Workflow Policy support is not yet available for folderish content types "
 "created via Dexterity. This is on the way."
-msgstr "Soporte de Copia de Trabajo aún no está disponible para los tipos de contenido Carpeta creados a través de Dexterity. Esto está en el camino."
+msgstr "Soporte de Copia de Trabajo aún no está disponible para los tipos de contenido Carpeta creados a través de Dexterity. Esto está en el camino (es un trabajo en proceso)."

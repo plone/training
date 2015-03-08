@@ -206,7 +206,7 @@ msgstr "Marcamos nuestro esquema como una clase que también implementa la inter
 
 #: ../behaviors1.rst:141
 msgid "Adding it to our talk"
-msgstr "Agregandolo a nuestra Charla"
+msgstr "Agregandolo a nuestra Talk"
 
 #: ../behaviors1.rst:145
 msgid ""

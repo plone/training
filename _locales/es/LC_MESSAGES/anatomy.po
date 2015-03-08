@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-06 16:14+0000\n"
+"PO-Revision-Date: 2015-03-07 18:42+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -34,11 +34,11 @@ msgstr "Zope2"
 
 #: ../anatomy.rst:10
 msgid "Zope is a web application framework that Plone runs on top of."
-msgstr "Zope es un Framework de aplicación web que Plone corre encima."
+msgstr "Zope es un Framework de aplicación Web el cual Plone corre encima de él."
 
 #: ../anatomy.rst:11
 msgid "It serves applications that communicate with users via http."
-msgstr "Ese sirve aplicaciones que comunica con usuarios vía http."
+msgstr "Ese sirve aplicaciones que comunica con usuarios vía HTTP."
 
 #: ../anatomy.rst:15
 msgid ""
@@ -49,7 +49,7 @@ msgid ""
 "configuring caching, interpreting form data and everything you have to do on"
 " your own. When the second request comes in, you have to do everything "
 "again."
-msgstr "Antes de Zope, generalmente era un servidor Apache que llamar a un script y dar la petición como una entrada. La secuencia de comandos sería entonces simplemente imprimir HTML en la salida estándar. Apache retornó al usuario. La apertura de las conexiones de base de datos, verificando las restricciones de permisos, la generación de HTML válido, la configuración de almacenamiento en caché, la interpretación de los datos del formulario y todo lo que tiene que hacer por su cuenta. Cuando la segunda petición llega, usted tiene que hacer todo de nuevo."
+msgstr "Antes de Zope, generalmente era un servidor Apache el que debía llamar a un script y dar la petición como una entrada. La secuencia de comando sería entonces simplemente imprimir HTML en la salida estándar. Apache retornó al usuario. La apertura de las conexiones de base de datos, verificando las restricciones de permisos, la generación de HTML válido, la configuración de almacenamiento en caché, la interpretación de los datos del formulario y todo lo que tiene que hacer por su cuenta. Cuando la segunda petición llega, usted tiene que hacer todo de nuevo."
 
 #: ../anatomy.rst:17
 msgid ""
@@ -67,17 +67,17 @@ msgid ""
 "traversal in the object hierarchy to URL paths, so there is no need to "
 "\"wire\" objects or database nodes to URLs. This gives Plone its easy SEO-"
 "friendly URLs."
-msgstr "El ZODB es una base de datos `ACID <http://en.wikipedia.org/wiki/ACID>`_ totalmente compatible con integridad transaccional automático. Se asigna automáticamente el recorrido en la jerarquía de objetos a rutas URL, así que no hay necesidad de objetos \"wire\" o nodos de bases de datos a las direcciones URL. Esto da Plone sus fáciles de generar direcciones URL amigables a las técnicas SEO."
+msgstr "El ZODB es una base de datos `ACID <http://en.wikipedia.org/wiki/ACID>`_ totalmente compatible con integridad transaccional automático. Se asigna automáticamente el recorrido en la jerarquía de objetos a rutas URL, así que no hay necesidad de objetos \"cableados\" o nodos de bases de datos a las direcciones URL. Esto da Plone sus fáciles de generar direcciones URL amigables a las técnicas SEO."
 
 #: ../anatomy.rst:21
 msgid ""
 "Traversal through the object database is security checked at every point via"
 " very fine grained access-control lists."
-msgstr "Transversal a través de la base de datos de objeto se comprueba la seguridad en todos los puntos a través de listas de control de acceso de grano muy fino."
+msgstr "Transversal a través de la base de datos de objeto tiene la seguridad comprobada en todos los puntos a través de listas de control de acceso muy detallado."
 
 #: ../anatomy.rst:23
 msgid "One missing piece is important and complicated: ``Acquisition``."
-msgstr "Una pieza que falta es importante y complicado: ``Acquisition``."
+msgstr "Una pieza que falta el cual es importante y a la ves complicada: ``Acquisition``."
 
 #: ../anatomy.rst:25
 msgid ""
@@ -92,7 +92,7 @@ msgid ""
 "object is -- it's context. If Zope cannot resolve the path to an object "
 "relative to your code, it tries the same path in the containing folder. And "
 "then the folder containing the folder."
-msgstr "La adquisición, es una especie de magia. Imagine un sistema de programación en el que no accede al sistema de archivos y donde usted no necesita importar código. Usted trabaja con objetos. Un objeto puede ser una carpeta que contiene más objetos, una página HTML, datos, u otro script. Para acceder a un objeto, lo que necesita saber dónde está el objeto. Los objetos se encuentran por las rutas que parecen direcciones URL, pero sin el nombre de dominio. Ahora la Adquisición permite escribir una ruta incompleta. Una ruta incompleta es una ruta relativa, que no establece explícitamente cual es la ruta que inicia desde la raíz, que se inicia en relación con donde esta el contenido del objeto. Si Zope no puede resolver la ruta de un objeto relativo a su código, que trata la misma ruta en la carpeta que contiene. Y a continuación, la carpeta que contiene la carpeta."
+msgstr "La adquisición, es una especie de magia. Imagine un sistema de programación en el que no accede al sistema de archivos y donde usted no necesita importar código. Usted trabaja con objetos. Un objeto puede ser una carpeta que contiene más objetos, una página HTML, datos, u otro script. Para acceder a un objeto, lo que necesita saber dónde está el objeto. Los objetos se encuentran por las rutas que parecen direcciones URL, pero sin el nombre de dominio. Ahora la Adquisición permite escribir una ruta incompleta. Una ruta incompleta es una ruta relativa, ese no establece explícitamente cual es la ruta que inicia desde la raíz, ese se inicia en relación con donde esta el contenido del objeto -- eso es el contexto. Si Zope no puede resolver la ruta de un objeto relativo a su código, ese trata la misma ruta en la carpeta que lo contiene. Y a continuación, la carpeta que contiene la carpeta."
 
 #: ../anatomy.rst:27
 msgid "This might sound weird, what do I gain with this?"
@@ -107,7 +107,7 @@ msgid ""
 "If you want a folder to with a different header image, you put the header "
 "image into this folder. Please take a minute to let this settle and think "
 "about what this allows you to do."
-msgstr "Usted puede tener diferentes datos o códigos en función de su contexto. Imagínese que usted desea tener imágenes de cabecera diferente para cada sección de la página, a veces incluso diferentes para una sub-sección específica de su sitio. Así se define una ruta header_image y poner una imagen de cabecera en la raíz de su sitio. Si quieres una carpeta a una imagen de cabecera diferente, se pone la imagen de cabecera en esta carpeta. Por favor, tómese un minuto para dejar que esto se asiente y pensar, lo que esto le permite hacer."
+msgstr "Usted puede tener diferentes datos o códigos en función de su contexto. Imagínese que usted desea tener imágenes de cabecera diferentes para cada sección de la página, a veces, incluso diferentes para una sub-sección específica de su sitio. Así se define una ruta a la header_image y pone una imagen de cabecera en la raíz de su sitio. Si quieres una carpeta a una imagen de cabecera diferente, se pone la imagen de cabecera en esta carpeta. Por favor, tómese un minuto para dejar que esto se asimile mejor y piense, lo que esto le permite hacer."
 
 #: ../anatomy.rst:32
 msgid "contact forms with different e-mail addresses per section"
@@ -128,7 +128,7 @@ msgid ""
 " written carefully if it's necessary to avoid inheriting side effects via "
 "acquisition. The Zope community expresses this with the Python (Monty) "
 "maxim: Beware the Spammish Acquisition."
-msgstr "Al igual que con toda la magia de programación, adquisición exige un precio. Código de Zope debe ser escrito cuidadosamente si es necesario para evitar heredar efectos secundarios a través de la adquisición. La comunidad Zope expresa esto con la máxima Python (Monty): Cuidado con el Spammish de la Adquisición."
+msgstr "Al igual que con toda la magia de programación, adquisición exige un precio. El código de Zope debe ser escrito cuidadosamente si es necesario para evitar heredar efectos secundarios a través de la adquisición. La comunidad Zope expresa esto con la máxima Python (Monty): Cuidado con el Spammish de la Adquisición."
 
 #: ../anatomy.rst:38
 msgid "Basically this is Zope."
@@ -155,7 +155,7 @@ msgid ""
 "After many successfully created websites based on Zope, a number of "
 "recurring requirements emerged, and some Zope developers started to write "
 "CMF, the Content Management Framework."
-msgstr "Después de muchos sitios web creados con éxito basado en Zope, una serie de requisitos que se repiten surgió, y algunos desarrolladores Zope comenzaron a escribir CMF, el Marco de Gestión de Contenidos."
+msgstr "Después de muchos sitios web creados con éxito basado en Zope, una serie de requisitos que se repiten surgieron, y algunos desarrolladores Zope comenzaron a escribir CMF, el Content Management Framework."
 
 #: ../anatomy.rst:56
 msgid ""
@@ -168,14 +168,14 @@ msgid ""
 "The developers behind CMF do not see CMF as a ready to use CMS. They created"
 " a CMS Site which was usable out of the box, but made it deliberately ugly, "
 "because you have to customize it anyway."
-msgstr "Los desarrolladores detrás CMF no ven CMF como un producto listo para usar CMS. Crearon un sitio CMS que era utilizable fuera de la caja, pero dejó deliberadamente feo, porque usted tiene que personalizar todas formas."
+msgstr "Los desarrolladores detrás CMF no ven CMF como un producto listo para usar CMS. Ellos crearon un sitio CMS que era utilizable fuera de la caja, pero dejó deliberadamente feo, porque usted tiene que personalizar todas formas."
 
 #: ../anatomy.rst:61
 msgid ""
 "We are still in prehistoric times here. There were no eggs (Python "
 "packages), Zope did not consist of 100 independent software components but "
 "was one big file set."
-msgstr "Todavía estamos en la prehistoria aquí. No existían los paquetes eggs (paquetes Python), Zope no consistía en mas de 100 componentes de software independientes, pero era una gran conjunto."
+msgstr "Todavía estamos en los tiempo de la prehistoria aquí. En ese entonces no existían los paquetes eggs (paquetes Python), Zope no consistía en mas de 100 componentes de software independientes, pero era una gran conjunto."
 
 #: ../anatomy.rst:63
 msgid ""
@@ -191,19 +191,19 @@ msgstr "Zope Toolkit / Zope3"
 
 #: ../anatomy.rst:68
 msgid "Zope 3 was originally intended as a ground-up rewrite of Zope."
-msgstr "Zope 3 fue originalmente creada como una re-escritura de fondo de Zope."
+msgstr "Zope 3 fue originalmente creada como una profunda re-escritura de Zope."
 
 #: ../anatomy.rst:69
 msgid ""
 "Plone uses parts of it provided by the `Zope Toolkit (ZTK) "
 "<http://docs.zope.org/zopetoolkit/>`_."
-msgstr "Plone usa partes provistas por el  `Zope Toolkit (ZTK) <http://docs.zope.org/zopetoolkit/>`_."
+msgstr "Plone usa partes provistas por el `Zope Toolkit (ZTK) <http://docs.zope.org/zopetoolkit/>`_."
 
 #: ../anatomy.rst:73
 msgid ""
 "Unfortunately, nobody started to use Zope 3, nobody migrated to Zope 3 "
 "because nobody knew how."
-msgstr "Por desgracia, nadie empezó a usar Zope 3, nadie migró a Zope 3, porque nadie sabía cómo."
+msgstr "Por desgracia, nadie empezó a usar Zope 3, nadie migró a Zope 3, porque nadie sabía cómo hacerlo."
 
 #: ../anatomy.rst:75
 msgid ""
@@ -236,7 +236,7 @@ msgid ""
 "implement an interface (a description of a functionality). Pyramid, and "
 "independent Python web application server, uses the ZCA “under the hood” to "
 "perform view dispatching and other application configuration tasks."
-msgstr "La `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_, que fue desarrollado como parte de Zope 3, es un sistema que permite componente pluggability y despacho complejo basado en objetos que implementan una interfaz (una descripción de una funcionalidad). Pyramid, y el servidor independiente de aplicaciones Python web, utiliza la ZCA \"bajo la capucha\" para ejecutar despacho de vistas y otras tareas de configuración de aplicación."
+msgstr "La `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_, que fue desarrollado como parte de Zope 3, es un sistema que permite componente pluggability y despacho complejo basado en objetos que implementan una interfaz (una descripción de una funcionalidad). Pyramid, y el servidor de aplicaciones Web Python independiente, utiliza la ZCA \"bajo la capucha\" para ejecutar despacho de vistas y otras tareas de configuración de aplicación."
 
 #: ../anatomy.rst:92
 msgid "Pyramid"
@@ -254,7 +254,7 @@ msgid ""
 "It does less than Zope, is very pluggable and `uses the Zope Component "
 "Architecture "
 "<http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
-msgstr "Eso hace menos que Zope, es muy configurable y `usa la Arquitectura de Componentes Zope <http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
+msgstr "Eso hace menos que Zope, es muy configurable y `usa la Zope Component Architecture <http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
 
 #: ../anatomy.rst:99
 msgid ""
@@ -276,4 +276,4 @@ msgstr "Aparte del hecho de que Pyramid no se vio obligado a soportar todas las 
 msgid ""
 "Whether the component architecture is better in Pyramid or not we don't dare"
 " to say, but we like it more. But maybe it's just because it was documented."
-msgstr "Ya sea que si la arquitectura de componentes es mejor en Pyramid o no?, no nos atrevemos a decir, pero nos gusta más. Pero tal vez es sólo porque fue documentada."
+msgstr "Ya sea que si ¿la arquitectura de componentes es mejor en Pyramid o no?, no nos atrevemos a decir, pero nos gusta más. Pero tal vez es sólo porque fue documentada."
