@@ -161,7 +161,7 @@ msgid "Querying the catalog"
 msgstr ""
 
 #: ../views_3.rst:178
-msgid "The are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::"
+msgid "There are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::"
 msgstr ""
 
 #: ../views_3.rst:186
