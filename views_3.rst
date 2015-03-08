@@ -175,7 +175,7 @@ The same is true for methods::
 Querying the catalog
 --------------------
 
-The are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::
+There are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::
 
     >>> portal_catalog = getToolByName(self.context, 'portal_catalog')
     >>> portal_catalog(Subject=('cats', 'dogs'))
