@@ -96,7 +96,7 @@ Zope is the foundation of Plone. Here you can access the inner working of Zope a
 
 .. only:: not presentation
 
-    We only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
+    We only cover three parts of customization in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
 
     At some point you'll have to learn what all that objects are about. But not today.
 
@@ -310,7 +310,7 @@ The merging function solves a big problem: we'd like to develop our CSS and JS r
 Further tools in the ZMI
 ************************
 
-There are many more noteable items in the ZMI. We'll visit some of them later.
+There are many more notable items in the ZMI. We'll visit some of them later.
 
 * acl_users
 * error_log

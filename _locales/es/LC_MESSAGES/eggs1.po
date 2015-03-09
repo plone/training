@@ -5,13 +5,13 @@
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-24 10:42-0430\n"
-"PO-Revision-Date: 2014-07-24 15:27+0000\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"PO-Revision-Date: 2015-03-08 15:31+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -20,105 +20,90 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 5db78e7484ed4e5c917b9e2075d819b5
 #: ../eggs1.rst:2
 msgid "Creating addons to customize Plone"
 msgstr "Creando complementos para personalizar Plone"
 
-# ab189651da634e1ab3286d19aabce66c
 #: ../eggs1.rst:0
 msgid "Get the code!"
 msgstr "¡Obtén el código!"
 
-# 3f5c64ea000745c7af47e33ce37312ef
 #: ../eggs1.rst:6
 msgid ""
 "Get the code for this chapter (:doc:`More info <sneak>`) using this command "
 "in the buildout-directory:"
-msgstr "Obtén el código para este capitulo (:doc:`Mas información <sneak>`) usando este comando en el directorio buildout:"
+msgstr "Obtén el código para este capítulo (:doc:`Más información <sneak>`) usando este comando en el directorio buildout:"
 
-# e6c2018024f249e4b7a4baad3c7e6742
 #: ../eggs1.rst:13
 msgid "Using zopeskel to create an egg"
 msgstr "Usando zopeskel para crear un paquete egg"
 
-# a1b10332f6af48b6b280f3fc116b9742
 #: ../eggs1.rst:15
 msgid ""
-"Our own code has to be organised as an egg. An egg is a zip file or a "
+"Our own code has to be organized as an egg. An egg is a zip file or a "
 "directory that follows certain conventions. We are going to use `ZopeSkel "
 "<https://pypi.python.org/pypi/ZopeSkel>`_ to create a skeleton project. We "
 "only need to fill the holes."
-msgstr "Nuestro propio código tiene que ser organizada como un paquete egg. Un paquete egg es un archivo zip o un directorio que sigue ciertas convenciones. Vamos a utilizar `ZopeSkel <https://pypi.python.org/pypi/ZopeSkel>`_ para crear un proyecto de esqueleto. Tan sólo hay que responder a las preguntas del generador, las cuales crearan archivos necesarios para trabajar."
+msgstr "Nuestro propio código tiene que ser organizado como un paquete egg. Un paquete egg es un archivo zip o un directorio que sigue ciertas convenciones. Vamos a utilizar `ZopeSkel <https://pypi.python.org/pypi/ZopeSkel>`_ para crear un proyecto de esqueleto. Tan sólo hay que responder a las preguntas del generador, las cuales crearán archivos necesarios para trabajar."
 
-# 234673c94077483cad6d1ff949a802a4
 #: ../eggs1.rst:19
 msgid ""
-"In the training we use ZopeSkel 2.21.2, a relatively old version. We do this"
-" because this version is shipped with Plone's Unified Installer. In our own "
-"projects we mostly use `mr.bob <http://mrbob.readthedocs.org/en/latest/>`_ "
-"to create eggs."
-msgstr "En el entrenamiento que utilizamos ZopeSkel 2.21.2, una versión relativamente antigua. Hacemos esto porque esta versión se envía con instalador unificado de Plone. En nuestros proyectos utilizamos principalmente `mr.bob <http://mrbob.readthedocs.org/en/latest/>`_  para crear paquetes egg."
+"In the current version of the training we use ZopeSkel 2.21.2 to create "
+"eggs. We do this because it is shipped with Plone's Unified Installer. In "
+"the future and in our own projects we use `bobtemplates.plone "
+"<https://pypi.python.org/pypi/bobtemplates.plone>`_ to create eggs.  This "
+"will also be the standard with Plone 5."
+msgstr "En el entrenamiento utilizamos ZopeSkel 2.21.2 para crear paquetes eggs. Nosotros lo hacemos por que viene incluido en el instalador unificado de Plone. En el futuro y en nuestro proyectos utilizamos `bobtemplates.plone <https://pypi.python.org/pypi/bobtemplates.plone>`_ para crear paquetes egg. Esto sera también el estándar usado en Plone 5."
 
-# f93ff3a29345472997f41787cd891fe5
 #: ../eggs1.rst:21
 msgid ""
-"We move to the ``src`` directory and call a script called ``zopeskel`` from "
+"We enter the ``src`` directory and call a script called ``zopeskel`` from "
 "our projects bin-directory."
-msgstr "Nos movemos al directorio ``src`` y ejecutamos un script llamado ``zopeskel`` de nuestros directorio bin de los proyectos."
+msgstr "Nosotros accedemos al directorio ``src`` y ejecutamos un script llamado ``zopeskel`` ubicado en nuestros directorio ``bin`` de los proyectos."
 
-# 2290700c34874e7e94ccf68d1db4558e
 #: ../eggs1.rst:29
 msgid ""
-"This returns a list of available templates we might use. We choose dexerity "
-"since it is pretty small but already has some of the right dependencies we "
+"This returns a list of available templates we might use. We choose dexterity"
+" since it is pretty small but already has some of the right dependencies we "
 "need."
-msgstr "Esto devuelve una lista de plantillas disponibles que podríamos utilizar. Elegimos dexerity ya que es bastante pequeña, pero ya cuenta con algunas de las dependencias adecuadas que necesitamos."
+msgstr "Esto devuelve una lista de plantillas disponibles que podríamos utilizar. Elegimos dexerity ya que es bastante pequeño, pero ya cuenta con algunas de las dependencias adecuadas que necesitamos."
 
-# b8d5fb51e9f34eb78658e90501227f17
 #: ../eggs1.rst:35
 msgid "We answer some questions:"
 msgstr "Nosotros respondemos algunas preguntas:"
 
-# 7ce9c82fda2a46c0becb1fd7d30bb498
 #: ../eggs1.rst:37
 msgid "Enter project name: ``ploneconf.site``"
 msgstr "Enter project name: ``ploneconf.site``"
 
-# 0ef7c47821e74fada1508c3835ee56d6
 #: ../eggs1.rst:38
 msgid ""
 "Expert Mode? (What question mode would you like? (easy/expert/all)?) "
 "['easy']: ``easy``"
 msgstr "Expert Mode? (What question mode would you like? (easy/expert/all)?) ['easy']: ``easy``"
 
-# 55649e46347a4c2e9b4e1ec2a79586e4
 #: ../eggs1.rst:39
 msgid "Version (Version number for project) ['1.0']: ``1.0.0``"
 msgstr "Version (Version number for project) ['1.0']: ``1.0.0``"
 
-# 9ba735d47de84fc6b993b3feb328974a
 #: ../eggs1.rst:40
 msgid ""
 "Description (One-line description of the project) ['Example Dexterity "
 "Product']: ``PloneConf Site``"
 msgstr "Description (One-line description of the project) ['Example Dexterity Product']: ``PloneConf Site``"
 
-# 6692443ba5854d7fb2d96654578207a0
 #: ../eggs1.rst:41
 msgid ""
 "Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: "
 "``False``"
 msgstr "Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: ``False``"
 
-# 0bcdb10b44e349a9947eaa1bf1265a43
 #: ../eggs1.rst:42
 msgid ""
 "Use relations? (True/False: include support for relations?) [False]: "
 "``True``"
 msgstr "Use relations? (True/False: include support for relations?) [False]: ``True``"
 
-# ebc9a85ca4ea439c94276a8ca0c5f33b
 #: ../eggs1.rst:46
 msgid ""
 "If this is your first egg, this is a very special moment. We are going to "
@@ -127,46 +112,40 @@ msgid ""
 "understand their full meaning. Only last year I learnt and understood why I "
 "should have a ``manifest.in`` file. You can get along without one, but trust"
 " me, you get along better with a proper manifest file."
-msgstr "Si esta es su primer paquete egg, éste es un momento muy especial. Vamos a crear el paquete egg con un script que genera una gran cantidad de archivos necesarios. Todos ellos son necesarios, pero a veces de una manera sutil. Se toma un tiempo entiendo su significado pleno. Sólo el año pasado he aprendido y entendido por qué debería tener un archivo ``manifest.in``. Usted puede vivir sin uno, pero confía en mí, te llevas mejor con un archivo de manifiesto adecuada."
+msgstr "Si este es su primer paquete egg, éste es un momento muy especial. Vamos a crear el paquete egg con un script que genera una gran cantidad de archivos necesarios. Todos ellos son necesarios, pero a veces de una manera sutil. Se toma un tiempo entiendo su significado pleno. Sólo el año pasado he aprendido y entendido por qué debería tener un archivo ``manifest.in``. Usted puede vivir sin uno, pero confía en mí, te llevas mejor con un archivo de manifiesto adecuada."
 
-# 2d36b24a150246d192483c412ea2a0c9
 #: ../eggs1.rst:49
 msgid "Inspecting the package"
 msgstr "Inspeccione el paquete"
 
-# be364382d1cd476998d37a920af34624
 #: ../eggs1.rst:51
 msgid "Let's have a look at some of it's files."
 msgstr "Vamos a echar un vistazo a algunos de sus archivos."
 
-# 1c54eaeaf73148dc9b53368c91ca89e5
 #: ../eggs1.rst:54
 msgid "bootstrap.py, buildout.cfg, plone.cfg"
 msgstr "bootstrap.py, buildout.cfg, plone.cfg"
 
-# 30e67394998a48c1922d5e75e46b8470
 #: ../eggs1.rst:54
 msgid ""
 "You can ignore these files for now. They are here to create a buildout only "
-"for this egg to make testing easier."
-msgstr "Puede pasar por alto estos archivos por ahora. Ellos están aquí para crear un buildout sólo para este paquete egg para hacer las pruebas más fáciles."
+"for this egg to make testing easier. Once we start writing tests for this "
+"package we will have to update these files to the current best-practices and"
+" versions."
+msgstr "Puede pasar por alto estos archivos por ahora. Ellos están aquí para crear un buildout sólo para este paquete egg para hacer las pruebas más fáciles. Una vez que empezamos a escribir las pruebas para este paquete tendremos que actualizar estos archivos a las actuales mejores prácticas y versiones."
 
-# 8f31b8df1aa24f55bf1012e2f95874b0
 #: ../eggs1.rst:57
 msgid "docs, README.txt"
 msgstr "docs, README.txt"
 
-# 54c2d1605fe947f5b70f0d5b6592b724
 #: ../eggs1.rst:57
 msgid "The documentation and changelog of your egg goes in there"
-msgstr "La documentación y el registro de cambios de su huevo va allí"
+msgstr "La documentación y el registro de cambios de su egg va allí"
 
-# 734056d6954842aca2a2338429b09feb
 #: ../eggs1.rst:60
 msgid "setup.py"
 msgstr "setup.py"
 
-# b8a33c89fed34f8a99866ad57047953d
 #: ../eggs1.rst:60
 msgid ""
 "This file configures the package, it's name, dependencies and some metadata "
@@ -174,24 +153,20 @@ msgid ""
 "by buildout."
 msgstr "Este archivo configura el paquete, su nombre, las dependencias y algunos metadatos como el nombre del autor. Las dependencias figuran en esta lista son añadidas automáticamente por buildout."
 
-# e038d5d9d8d848f6b826da8685172efa
 #: ../eggs1.rst:63
 msgid "ploneconf/site/configure.zcml"
 msgstr "ploneconf/site/configure.zcml"
 
-# f232f9825d92487cac7a33fda2ca4621
 #: ../eggs1.rst:63
 msgid ""
 "The phone-book of the packages. By reading it you can find out which "
 "functionality is registered though the component architecture."
-msgstr "La guía de los paquetes. De su lectura se puede averiguar qué funcionalidad está registrado, aunque la arquitectura de componentes."
+msgstr "La guía de los paquetes. De su lectura se puede averiguar qué funcionalidad está registrado, con la arquitectura de componentes."
 
-# 8a83c04f2e024e41b27bb666c5c82e39
 #: ../eggs1.rst:66
 msgid "ploneconf/site/locales/"
 msgstr "ploneconf/site/locales/"
 
-# e6942e7eff38456b989067fc81db0d67
 #: ../eggs1.rst:66
 msgid ""
 "This holds translation-files (see "
@@ -199,41 +174,34 @@ msgid ""
 "won't use it during the training."
 msgstr "Esto contiene los archivos de traducción (ver http://docs.plone.org/develop/plone/i18n/internationalisation.html). No vamos a utilizar durante el entrenamiento."
 
-# d5e4b17272bb4bd19a52cc086eb5f71f
 #: ../eggs1.rst:69
 msgid "ploneconf/site/resources/"
 msgstr "ploneconf/site/resources/"
 
-# 8156086709a94a3288f9ac075e3a440e
 #: ../eggs1.rst:69
 msgid ""
 "A directory that holds static resources (images/css/js). They are accessible"
 " through URLs like ``++resource++ploneconf.site/myawesome.css``"
-msgstr "Un directorio que contiene los recursos estáticos (imágenes / css / js). Son accesibles a través de URLs como ``++resource++ploneconf.site/myawesome.css``"
+msgstr "Un directorio que contiene los recursos estáticos (imágenes/CSS/JS). Son accesibles a través de URLs como ``++resource++ploneconf.site/myawesome.css``"
 
-# e61f4af425744eb79e149b1c73ddb3c8
 #: ../eggs1.rst:72
 msgid "ploneconf/site/profiles/default/"
 msgstr "ploneconf/site/profiles/default/"
 
-# 5cdebf37c01d47ada015c8c98afe08b3
 #: ../eggs1.rst:72
 msgid ""
 "The folder contains the GenericSetup-profile. During the training will put "
 "some xml-files there that hold configuration for the site."
 msgstr "La carpeta contiene el perfil GenericSetup. Durante el entrenamiento pondrán algunos archivos XML ahí que tienen la configuración para el sitio."
 
-# 628a00607e1d40bcaefb43c4c28a9639
 #: ../eggs1.rst:77
 msgid "ploneconf/site/profiles/default/metadata.xml"
 msgstr "ploneconf/site/profiles/default/metadata.xml"
 
-# 8c73a4c7a5ef4e0b85cffd26ee243ee8
 #: ../eggs1.rst:75
 msgid "Version-number and dependencies that are auto-installed."
 msgstr "Número de versión y dependencias que son auto-instalado."
 
-# 32ce8c0fea3a423e927d195337f0fc66
 #: ../eggs1.rst:77
 msgid ""
 "We could replace ``<dependency>profile-"
@@ -242,17 +210,14 @@ msgid ""
 "picked when creating our site with this egg."
 msgstr "Podríamos sustituir ``<dependency>profile-plone.app.dexterity:default</dependency>`` con ``<dependency>profile-plone.app.contenttypes:plone-content</dependency>`` depender del complemento que elegimos al crear nuestro sitio con este paquete egg."
 
-# d31f80bab55343189f479139d3006e19
 #: ../eggs1.rst:80
 msgid "ploneconf/site/profiles/default/types.xml"
 msgstr "ploneconf/site/profiles/default/types.xml"
 
-# 151632a0d3224083b6e607d695faca7c
 #: ../eggs1.rst:80
 msgid "Registration of types"
-msgstr "Registro de tipos"
+msgstr "Registro de tipos de contenidos"
 
-# 0beb7ce2833c415e97b37d5d6355a9ab
 #: ../eggs1.rst:82
 msgid ""
 "There are also some files that can be deleted because they use outdated "
@@ -260,47 +225,115 @@ msgid ""
 "``ploneconf/site/INTEGRATION.txt``."
 msgstr "También hay algunos archivos que se pueden eliminar, ya que utilizan métodos obsoletos para las pruebas: ``ploneconf/site/tests.py`` y ``ploneconf/site/INTEGRATION.txt``."
 
-# a8906f1573254d41bb95e49acf2abb35
 #: ../eggs1.rst:86
 msgid "Including the egg in Plone"
 msgstr "Incluyendo el paquete egg en Plone"
 
-# 50926762014b47a8b86cfa2dea88c5d1
 #: ../eggs1.rst:88
 msgid ""
 "Before we can use our new addon we have to tell Plone about it. Edit "
 "``buildout.cfg`` and uncomment ``ploneconf.site`` in the `eggs` and "
 "`sources` sections:"
-msgstr "Antes de que podamos utilizar nuestro nuevo complemento tenemos que decirle Plone respecto. Editar el archivo ``buildout.cfg`` y descomente ``ploneconf.site`` en las secciones `eggs` y `sources`:"
+msgstr "Antes de poder utilizar nuestro nuevo complemento tenemos que indicarle de la existencia de este a Plone. Entonces edite el archivo ``buildout.cfg`` y descomente ``ploneconf.site`` en las secciones `eggs` y `sources`:"
 
-# fd0554b171ff4be1bdf7c55c93b7c300
 #: ../eggs1.rst:106
 msgid ""
 "This tells Buildout to add the egg ``ploneconf.site``. Since it is also in "
 "the `sources`-section Buildout will not try to download it from pypi but "
 "will expect it in ``src/ploneconf.site``. *fs* allows you to add packages on"
-" the filesystem without a version control system, or with an unsupported "
+" the file system without a version control system, or with an unsupported "
 "one."
-msgstr "Esto le dice a Buildout añadir el paquete egg ``ploneconf.site``. Dado que también se encuentra en la sección `sources` en Buildout no intentará descargarlo de pypi pero esperará en ``src/ploneconf.site``. La opción *fs* le permite añadir paquetes en el sistema de ficheros sin un sistema de control de versiones, o con uno compatible."
+msgstr "Esto le dice a Buildout agregue el paquete egg ``ploneconf.site``. Dado que también se encuentra en la sección `sources` en Buildout no intentará descargarlo de PYPI pero esperará en ``src/ploneconf.site``. La opción *fs* le permite añadir paquetes en el sistema de ficheros sin un sistema de control de versiones, o con uno compatible."
 
-# e5642068c47a44a398b89db4ac61b46e
 #: ../eggs1.rst:108
 msgid "Now run buildout to reconfigure Plone with the updated configuration:"
 msgstr "Ahora ejecute buildout para reconfigurar Plone con la configuración actualizada:"
 
-# 7d6e8f4c3f7548ac86dd77582e59adae
 #: ../eggs1.rst:114
 msgid ""
 "After restarting Plone with ``./bin/instance fg`` the new addon "
 "`ploneconf.site` is available for install like PloneFormGen or Plone True "
 "Gallery."
-msgstr "Después de reiniciar Plone con ``./bin/instance fg`` el nuevo complemento `ploneconf.site` está disponible para instalar como PloneFormGen o Plone True Gallery."
+msgstr "Después reinicie Plone con el comando ``./bin/instance fg`` el nuevo complemento `ploneconf.site` está disponible para instalar como `PloneFormGen` o `Plone True Gallery`."
 
-# 47172aeaf6e34685ac728df0f24ba623
 #: ../eggs1.rst:116
 msgid ""
 "We will not install it now since we did not add any of our own code or "
-"configuration yet. Instead we will first create a new content-type through "
-"the web. We will then export it and add it as code to the egg. This way the "
-"content-type will be available for everyone who installs our addon."
-msgstr "No vamos a instalarlo ahora, ya que no añadimos todavía nada de nuestro propio código o configuración. En su lugar vamos a crear primero un nuevo tipo de contenido a través de la web. A continuación, se exportara y agregara como código para el paquete egg. De esta manera el tipo de contenido estará disponible para todo el que se instala el complemento."
+"configuration yet. Let's do that."
+msgstr "No vamos a instalarlo ahora, ya que no añadimos aun nada de nuestro propio código fuente o configuración todavía. Vamos a hacer eso."
+
+#: ../eggs1.rst:119
+msgid "Return to Dexterity: moving content types into code"
+msgstr "Volver Dexterity: para mover tipos de contenidos a código fuente"
+
+#: ../eggs1.rst:121
+msgid ""
+"Remember the *Talks* content type that we created through-the-web with "
+"Dexterity? Let's move that new content type into our add-on package so that "
+"it may be installed in other sites without TTW manipulation."
+msgstr "¿Recuerda el tipo de contenido *Talk* que hemos creado a través de la Web con Dexterity? Vamos a pasar ese nuevo tipo de contenido a dentro de nuestro paquete egg para que pueda ser instalado en otros sitios sin manipulación a través de la Web."
+
+#: ../eggs1.rst:123
+msgid "Steps:"
+msgstr "Pasos:"
+
+#: ../eggs1.rst:125
+msgid "Return to the Dexterity control panel"
+msgstr "Volver al panel del control Tipos de contenido Dexterity"
+
+#: ../eggs1.rst:126
+msgid "Export the Type Profile and save the file"
+msgstr "Haga clic en la casilla junto al Tipo de contenido *Talk* y hace clic en el botón *Exportar los perfiles del tipo* y guardarlo en el archivo "
+
+#: ../eggs1.rst:127
+msgid ""
+"Delete the Type from the site before installing it from the file system"
+msgstr "Elimine el Tipo de contenido *Talk* desde el panel del control Tipos de contenido Dexterity en su sitio Plone ante de instalarlo desde el sistema de archivo"
+
+#: ../eggs1.rst:128
+msgid ""
+"Extract the files from the exported tar-file and add them to our addon-"
+"package in ``ploneconf/site/profiles/default/``"
+msgstr "Extrae los archivos desde el archivo tar exportado y agréguelo entonces en nuestro paquete en la ruta ``ploneconf/site/profiles/default/``"
+
+#: ../eggs1.rst:130
+msgid ""
+"The file ``ploneconf/site/profiles/default/types.xml`` tells plone that "
+"there is a new content type defined in file ``talk.xml``."
+msgstr "El archivo ``ploneconf/site/profiles/default/types.xml`` le dice a que allí tiene un nuevo tipo de contenido definido en el archivo ``talk.xml``."
+
+#: ../eggs1.rst:141
+msgid ""
+"Upon installing, Plone reads the file "
+"``ploneconf/site/profiles/default/types/talk.xml`` and registers a new type "
+"in ``portal_types`` (you can find this tool in the ZMI) with the information"
+" taken from that file."
+msgstr "Tras la instalación, Plone lee el archivo ``ploneconf/site/profiles/default/types/talk.xml`` y registra un nuevo tipo de contenido en la herramienta ``portal_types`` (puede encontrar esta en el ZMI) con la información tomada de ese archivo."
+
+#: ../eggs1.rst:239
+msgid ""
+"Now our package has some real contents. So, we'll need to reinstall it (if "
+"installed before)."
+msgstr "Ahora nuestro paquete tiene algunos contenidos reales. Por lo tanto, tendremos que volver a instalarlo (si está instalado antes)."
+
+#: ../eggs1.rst:241
+msgid "Restart Plone."
+msgstr "Reinicie Plone."
+
+#: ../eggs1.rst:242
+msgid "Re-install ploneconf.site (deactivate and activate)."
+msgstr "Reinstale el paquete ploneconf.site (desactive y active)."
+
+#: ../eggs1.rst:243
+msgid ""
+"Go to the ZMI and look at the definition of the new type in "
+"``portal_types``."
+msgstr "Valla a la ZMI y vea la definición del nuevo tipo de contenido en la herramienta ``portal_types``."
+
+#: ../eggs1.rst:244
+msgid "Test the type by adding an object or editing one of the old ones."
+msgstr "Pruebe el tipo de contenido agregando un objeto o la edición de una de las entradas antiguas."
+
+#: ../eggs1.rst:245
+msgid "Look at how the talks are presented in the browser."
+msgstr "Mire cómo se presentan las charlas en el navegador."

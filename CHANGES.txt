@@ -101,6 +101,7 @@ Changelog
  * Using third-party behaviors
  * Dexterity Types III: Python
  * ...
+ 
   [pbauer, do3cc]
 
 

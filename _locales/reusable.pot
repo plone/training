@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,182 +17,146 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../reusable.rst:2
-# 76231bdddd604bcabf4ad5db001ee2d5
 msgid "Making our package reusable"
 msgstr ""
 
 #: ../reusable.rst:4
-# 40416ebbe155423880232690f7a5614e
 msgid "The package contains some problems."
 msgstr ""
 
 #: ../reusable.rst:6
-# 47036401732a4982b368c67e3db6efd7
 msgid "No permission settings, Users can't customize who and when users can vote"
 msgstr ""
 
 #: ../reusable.rst:7
-# 4899cbf9125f490c87de8537ef4329d8
 msgid "We do things, but don't trigger events. Events allow others to react."
 msgstr ""
 
 #: ../reusable.rst:10
-# 00ad7fbd978c4dad8699d57408e980e1
 msgid "Adding permissions"
 msgstr ""
 
 #: ../reusable.rst:19
-# 9e9d2fcaaec04242aa45428bedc353ad
 msgid "Permissions have a long history, there are two types of permissions."
 msgstr ""
 
 #: ../reusable.rst:21
-# 09353075879446799be46795e51e7663
 msgid "In Zope2, a permission was just a string."
 msgstr ""
 
 #: ../reusable.rst:23
-# 2465965c617648fda7cbd2765cbaaba4
 msgid "In ZTK, a permission is an object that gets registered as an Utility."
 msgstr ""
 
 #: ../reusable.rst:25
-# aee6236f8b4444b8a3f417b683dacd0f
 msgid "We must support both, in some cases we have to reference the permission by their Zope2 version, in some by their ZTK Version."
 msgstr ""
 
 #: ../reusable.rst:27
-# f277226fe812484686855718acfa46bc
 msgid "Luckily, there is a zcml statement to register a permission both ways in one step."
 msgstr ""
 
 #: ../reusable.rst:31
-# 1753ba26ff7c472b9492eb2df69b9736
 msgid "The configuration registry wanted to solve a problem, but we will now stumble over a problem that did not get resolved properly."
 msgstr ""
 
 #: ../reusable.rst:33
-# b6d26a2eaffd4f64a38dfe79197b6ea6
 msgid "Our permission is an utility. Our browser views declare this permission as a requirement for viewing them."
 msgstr ""
 
 #: ../reusable.rst:35
-# 04551002fab947c99866cc938e298d01
 msgid "When our browser views get registered, the permissions must exist already. If you try to register the permissions after the views, Zope won't start because it doesn't know about the permissions."
 msgstr ""
 
 #: ../reusable.rst:37
-# 0d0e8dd6b557481cab57f7a91711c8b3
 msgid "Lets modify the file :file:`configure.zcml`"
 msgstr ""
 
 #: ../reusable.rst:65
-# e9f54bd974e14e23b81d5e1e4387428e
 msgid "In some places we have to reference the Zope 2 permission strings. It is best practice to provide a static variable for this."
 msgstr ""
 
 #: ../reusable.rst:67
-# 3cd89b62a47c44c892d9374c531bbecb
 msgid "We provide this in :file:`__init__.py`"
 msgstr ""
 
 #: ../reusable.rst:78
-# a43fde08dfdc487b9ad277fc80cfd6fe
 msgid "Using our permissions"
 msgstr ""
 
 #: ../reusable.rst:82
-# 7657f486e2b140648b018eb94077f118
 msgid "As you can see, we created two permissions, one for voting, one for viewing the votes."
 msgstr ""
 
 #: ../reusable.rst:84
-# 7b722da5d7e54dd29ce0ab042ea8179f
 msgid "If one may not see the votings, he does not need access to the vote viewlet."
 msgstr ""
 
 #: ../reusable.rst:86
-# 4e766459c43c45b1bad6a3b06df6f193
 msgid "While we are at it, if one can't vote, he needs no access to the helper view to actually submit a vote."
 msgstr ""
 
 #: ../reusable.rst:88
-# be72ca227768461c9ed4f08e4a150385
 msgid "We can add this restriction to :file:`browser/configure.zcml`"
 msgstr ""
 
 #: ../reusable.rst:125
-# 1c76256ee12d4c0d8a81ef5606994592
 msgid "We are configuring components, so we use the component name of the permission, which is the :samp:`id` part of the declaration we added earlier."
 msgstr ""
 
 #: ../reusable.rst:129
-# 3dd11c4e39c64607aac17e3e6a86871e
 msgid "So, what happens, if we do not protect the browser view to vote?"
 msgstr ""
 
 #: ../reusable.rst:131
-# 26cd5d24dc334ea7b64156c275d86e28
 msgid "The person could still vote, by handcrafting the URL. Browser Views run code without any restriction, it is your job to take care of security."
 msgstr ""
 
 #: ../reusable.rst:133
-# 8f3a2fcb78b943d997788ecd957af558
 msgid "But... if a person has no access to the object at all, maybe because the site is configured that Anonymous users cannot access private objects, the unauthorized users will not be able to submit a vote."
 msgstr ""
 
 #: ../reusable.rst:135
-# 770148969a1d46199794edb048d22c1c
 msgid "That is, because Zope checks security permissions when trying to find the right object. If it can't find the object due to security constraints not met, no view ill ever be called, because that would have been the next step."
 msgstr ""
 
 #: ../reusable.rst:137
-# c92f5bb48a8d4e2790e466433a59129c
 msgid "We now protect our views and viewlets. We still show the option to vote though."
 msgstr ""
 
 #: ../reusable.rst:139
-# e41f0b288d424557918c01ce797f1b27
 msgid "We must add a condition in our page template, and we must provide the condition information in our viewlet class."
 msgstr ""
 
 #: ../reusable.rst:141
-# 4db5503c3a994a268df3e33b088edb7e
 msgid "Lets move on to :file:`browser/viewlets.py`"
 msgstr ""
 
 #: ../reusable.rst:170
-# 67d3350508d249a4895fac4e45ebadaa
 msgid "And the template in :file:`browser/templates/voting_viewlet.pt`"
 msgstr ""
 
 #: ../reusable.rst:201
-# 157edfbdf4c44f589bbcee23d9515a4c
 msgid "Sometimes subtle bugs come up because of changes, in this case, I noticed that I should only animate people to vote, if they are allowed to vote!"
 msgstr ""
 
 #: ../reusable.rst:204
-# 45a9cb97292a4d109029254a79a40fb6
 msgid "Provide defaults"
 msgstr ""
 
 #: ../reusable.rst:208
-# 9e23ba42208848af84e3f4fdbc2066e3
 msgid "Are we done yet? Who may vote now?"
 msgstr ""
 
 #: ../reusable.rst:210
-# dc40ed4fb65d426c881c7b727c5202dd
 msgid "We have to tell that someone."
 msgstr ""
 
 #: ../reusable.rst:212
-# 9c8d150ef36d46539b4576d411d8bb21
-msgid "Who has which permissions is managed in Zope, it is persistent, persistent stuff goes to GenericSetup."
+msgid "Who has which permissions is managed in Zope, it is persistent, persistent configuration goes to GenericSetup."
 msgstr ""
 
 #: ../reusable.rst:214
-# 763d78cc8e9c481684c4b424015d3052
 msgid "The persistent configuration is managed in another file: :file:`profiles/default/rolemap.xml`"
 msgstr ""
 

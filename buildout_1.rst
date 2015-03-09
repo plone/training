@@ -10,7 +10,7 @@ Buildout I
 
     Buildout does this without touching your system Python or affecting any other package. The commands created by buildout bring all the required packages into into the Python environment. Each command it creates my use different libraries or even different versions of the same library.
 
-    Plone needs folders for logfiles, databases and configuration files. Buildout assembles all of this for you.
+    Plone needs folders for log files, databases and configuration files. Buildout assembles all of this for you.
 
     You will need a lot of functionality that Buildout does not provide out of the box, so you'll need several extensions.
     Some extensions provide new functionality, like mr.developer, the best way to manage your checked out sources.
@@ -59,7 +59,7 @@ References
 
     The omelette-recipe needs to know which eggs to reference. We want the same eggs as our instance uses, so we reference the eggs of the instance instead of repeating the whole list.
 
-    Another example: Say you create configuration files for a webserver like nginx, you can define the target port for the reverse proxy by looking it up from the zope2instance recipe.
+    Another example: Say you create configuration files for a web server like nginx, you can define the target port for the reverse proxy by looking it up from the zope2instance recipe.
 
     Configuring complex systems always involves a lot of duplication of information. Using references in the buildout configuration allows you to minimize these duplications.
 

@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the Mastering Plone package.
 # 
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# hellfish2 <hellfish2@gmail.com>, 2014
+# hellfish2 <hellfish2@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-13 00:40-0430\n"
-"PO-Revision-Date: 2014-07-13 05:23+0000\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"PO-Revision-Date: 2015-03-07 13:34+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -18,44 +20,37 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# ff626ac8557d4880ab199ec25dc40396
-#: ../index.rst:7
+#: ../index.rst:2
 msgid "Mastering Plone!"
-msgstr ""
+msgstr "¡Maestría en Plone!"
 
-# 451992f464034889991fb70bb7f61756
-#: ../index.rst:9
+#: ../index.rst:4
 msgid "This is the documentation for the \"Mastering Plone\"-training."
-msgstr "Esta es la documentación del entrenamiento \"Mastering Plone\"."
+msgstr "Esta es la documentación del entrenamiento \"Maestría en Plone\"."
 
-# 52404672359b4795a82a35ffd9d6729e
-#: ../index.rst:11
+#: ../index.rst:6
 msgid ""
 "Mastering Plone is intended as a week-long training for people who are new "
 "to Plone or want to learn about the current best-practices of Plone-"
 "development. It can be split in two tranings:"
-msgstr "El entrenamiento \"Mastering Plone\" está pensado como un entrenamiento de una semana para las personas que son nuevos en Plone o quieren aprender acerca de las actuales mejores prácticas en el desarrollo de Plone. Se puede dividir en dos entrenamientos:"
+msgstr "El entrenamiento \"Maestría en Plone\" está pensado para una semana para las personas que son nuevas en Plone o a las personas que quieren aprender acerca de las actuales mejores prácticas en el desarrollo de Plone. Se puede dividir en dos (02) entrenamientos:"
 
-# c9d3e1564fc14e259d58558ea96cca16
-#: ../index.rst:13
+#: ../index.rst:8
 msgid "A beginner training (2 to 3 days) that covers chapters 1-18."
 msgstr "Un entrenamiento para principiante (2 a 3 días), que cubre los capítulos 1 al 18."
 
-# aed82da5f25548548ca05ef8fba82c6b
-#: ../index.rst:14
+#: ../index.rst:9
 msgid "A advanced training (3 to 5 days) that covers the rest."
 msgstr "Un entrenamiento avanzado (3 a 5 días), que cubre el resto de capítulos."
 
-# a3030fcc4ea74ab381ea8c8486f0e3e7
-#: ../index.rst:17
+#: ../index.rst:18
 msgid "Contents:"
 msgstr "Contenidos:"
 
-# 2af2e0acfa6b4370adca7c167b6c4b7d
-#: ../index.rst:62
+#: ../index.rst:63
 msgid ""
 "Please note that this document is not complete without the spoken word of a "
 "trainer even though we attempt to include the most important parts of what "
 "we teach in the narrative it can not be considered complete without the "
 "spoken word."
-msgstr ""
+msgstr "Por favor, note que este documento no esta completo aun, sin la explicación verbal del un instructor que lo guié a través de el, nosotros intentamos incluir las partes mas importantes que es lo que queremos enseñarles en la narrativa y que no puede ser considerada completa sin la explicación verbal."

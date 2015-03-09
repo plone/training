@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2014, Philip Bauer, Patrick Gerken. Version 1.2.2
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
 # 
 # Translators:
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-22 11:27-0430\n"
-"PO-Revision-Date: 2014-06-22 18:58+0000\n"
+"POT-Creation-Date: 2015-03-06 09:50-0430\n"
+"PO-Revision-Date: 2014-11-05 12:04+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -18,81 +18,28 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 6411898d499b486c8035f350300b027e
 #: ../timing.rst:2
 msgid "Timtable"
 msgstr ""
 
-# 3d0599b6249e4a9c9983689152304888
 #: ../timing.rst:5
 msgid "Version 1.2"
 msgstr "Version 1.2"
 
-# d02e7220664242c4aa6ea58d1e6c4bce
-# 7fbb733c3c774e3cbc48744ab4e15571
-# 7910069266604ca7b4273c48a90b1d7d
-# d08c7f61eeb84a8f85a99c13105ebd3c
-# 98ab5976420e47b98538e06bd4498e12
-# 1246d5a529d741a291acb926417be20f
-# c5fc0b8ceab54d48a6898376c69e64dc
-# 1645740bb5be40f9b6308ba10aa6c00a
 #: ../timing.rst:8 ../timing.rst:16 ../timing.rst:44 ../timing.rst:52
 #: ../timing.rst:59 ../timing.rst:82 ../timing.rst:84 ../timing.rst:86
 msgid "**++**"
 msgstr ""
 
-# 47397ca151794df3b2df4550aaffe257
-# 703c67c88b98476e919cb20cf5889434
-# 7603f3ef88184142803d165025ec4d5e
-# 6fb1952f5870457e95ac56348d4ee572
-# f0440eedbaff43a19f4090f86b671418
 #: ../timing.rst:8 ../timing.rst:9 ../timing.rst:11 ../timing.rst:35
 #: ../timing.rst:52
 msgid "10 min"
-msgstr ""
+msgstr "10 minutos"
 
-# f7cc22fc915843af858bfaa8c72c9837
-# 112b17f06b1b485394bedf405b650068
 #: ../timing.rst:8 ../timing.rst:52
 msgid "#1 Introduction"
 msgstr ""
 
-# c99521919b3b48768ac10e2d57a4b5d2
-# 8bf1a5e59e7d41458a7fdfbd6264c4fb
-# 6c68806f6a244ed98903bdd82c13dcff
-# 313c5a08c3a043a3b406213bdcf7901b
-# c3ea4323a8c24505bd8bd5354479dde5
-# f9d4668b3e2447338a3a77ddacdb8a0b
-# 2d52f57ab33a453097668a34664face7
-# 247e8c644f6b455dacaa5c458da8d544
-# 21fdebea993348329a3628138157573d
-# 8e132e89e9994be8bf65a649f39b9418
-# 8302cb95c61a4d9794f8f783d93cc5cf
-# f6741a28340446c8ba985b25229b8e72
-# 18c5e17c2fd1456ca1579518c5495d47
-# 4bcf4dad98914f56b32d6da7c86781f7
-# 5c2da6a4124f40669f41aa1887c5ddec
-# 790a048ad4da456d8c676eaa5d9852a4
-# ca5975a8428949859f35e5b6d7ac411d
-# 50a6417f949b4aa190fe208f2c9d6ac4
-# 7235873819a3411482c506c823d88d75
-# 5680475d8f4a4718b625cad8753dae84
-# 0e10548ef7e44097a533ae915daf5593
-# 234bc4cab5a3476b9da69ca9a966283e
-# f19fa1a17c314fa8a0f85f8506b9dd90
-# 5aea6e86676a4a0fa0d08c297fb989f7
-# 00b2570d71e24b9983cd0520e1abe068
-# 9019302cea724b678d665fd86df9a522
-# 8f76b2ac9f6e42539748218eaff7690e
-# a5a0c3c8d4064269988bd88ca68ae1ea
-# 94c6cf32217145baba225a18248f28af
-# 18a587de89cb49a3b06dff3ca774d8cf
-# 6d3b3070a89448139444d97173c5f737
-# 955f6a0d279448b1bba5ccbbd612eb14
-# 504e599b815046e48a2687f7a0d799e7
-# 1e86e36b49934cf0990d866b9dea4d23
-# bb01ea287d844a6996b11c63a39a0a3b
-# b3d149836b924ef193c810e6eb9e940d
 #: ../timing.rst:9 ../timing.rst:10 ../timing.rst:11 ../timing.rst:13
 #: ../timing.rst:14 ../timing.rst:17 ../timing.rst:20 ../timing.rst:21
 #: ../timing.rst:22 ../timing.rst:23 ../timing.rst:25 ../timing.rst:28
@@ -105,66 +52,24 @@ msgstr ""
 msgid "**pb**"
 msgstr ""
 
-# 262496e8a6b545dca57dcc64d801644e
-# b6c66791c4c44af88533c5b1d8b1c8b2
 #: ../timing.rst:9 ../timing.rst:53
 msgid "#2 Installation & Setup"
 msgstr ""
 
-# 20bf127069c64112b72052f9af5b0f9e
-# ded1b1b87998475ba6f153059427c6fa
-# a036f359755b43f5aa3204f7b64f00c6
-# d2046abb5253453dbfd8bb5cc5157375
-# ac2d3cb9289d48e79f94e88383ea5db3
-# b418279b1c8544488180d631a0d841d5
-# 4a788b3e98e24a44bc8c9c9c236973b7
-# 6c939f5a7cc64cd9be7c08ee27551a65
-# 5ba07a42b80e47c5abdb238aca58ab68
 #: ../timing.rst:10 ../timing.rst:21 ../timing.rst:29 ../timing.rst:42
 #: ../timing.rst:53 ../timing.rst:55 ../timing.rst:71 ../timing.rst:73
 #: ../timing.rst:78
 msgid "15 min"
-msgstr ""
+msgstr "15 minutos"
 
-# ac8e7c9c37e3470eb13269c57677e130
-# 107d8087882b4a879191d41a89a1ae02
 #: ../timing.rst:10 ../timing.rst:54
 msgid "#3 Installing Plone for the Training"
 msgstr ""
 
-# e52836d0bede46eaac339b3c8a13522b
 #: ../timing.rst:11
 msgid "#4 The Case-Study"
 msgstr ""
 
-# 9f5230f864e24bad955908bce61cc8a0
-# be56d239fbde45a7aa099d54042de98d
-# 27a82e26af9840578a5e00c9df6df92d
-# dab1f7852281400ea6fb8ff01de06f9a
-# 29fbde112ae94244a2db7f8233ebe375
-# 2c98246ac82f4196ac18ef1127288e86
-# 9bf3d0d4c87340b6b64a184329fbdd5c
-# 979b70fa649c4060ab828f8fb746cad7
-# a472af261b6a4b7094385906ce27c7cb
-# d42adcac457944449f38273961688852
-# d3551162143a4db89eaa754df3563e88
-# c9e53636e3d24de4be8a1ae77c9fc277
-# b1f50e0cac2e49538a122a5a1881e82a
-# ae3cb969a9be4f2294befb9e0369237b
-# 9cd6bdb3834f4a94828d44a36b19cbd0
-# 20ccc4340c7c4a67aede390b4438b23a
-# b18207f2612b44548aba430e8cce92a8
-# aa7962ef6893482d986bca79c467a570
-# e06db088cb4246a6a59fdc03614cd85f
-# ea67b3bd330c4bbf90b5a03aee8fd107
-# ab72bea88820464dad6fe2b7824efd8f
-# 7d12797c20394abaa6e7795e2f093c72
-# 0fea75ac7c7c47a4be2572e481890d8f
-# 23f9ca91171840c8989de980f02be77f
-# 81415cc41a9543848ea9a2b57a614371
-# e89d0704bd884b598a6da75bf00b8296
-# 1defd2eb01be4778bebaa5b10c3e4d25
-# 20eacc64a069421daec92107eb1d3329
 #: ../timing.rst:12 ../timing.rst:15 ../timing.rst:18 ../timing.rst:19
 #: ../timing.rst:24 ../timing.rst:26 ../timing.rst:27 ../timing.rst:34
 #: ../timing.rst:37 ../timing.rst:38 ../timing.rst:39 ../timing.rst:40
@@ -175,397 +80,282 @@ msgstr ""
 msgid "**pg**"
 msgstr ""
 
-# a3cc3009c69b4272b21d199027ba3bd1
-# dcceaeed729d41f98c7839eb499cee88
-# bb2ad49646014625881943f1545aa397
-# 8a5aeb31e6844241825a896496f07453
-# cda72881dc6542328a94cca61be591f9
-# c76808a93f604aac9d24db2fda8c5847
-# d12f3b3627304a419697d9eec448ce77
 #: ../timing.rst:12 ../timing.rst:37 ../timing.rst:38 ../timing.rst:39
 #: ../timing.rst:40 ../timing.rst:41 ../timing.rst:44
 msgid "?? min"
-msgstr ""
+msgstr "?? minutos"
 
-# 7cf26728016140b296a3d7fad4c21bae
 #: ../timing.rst:12
 msgid "#5 The Anatomy of Plone"
 msgstr ""
 
-# 263547a1b86f4c01943ab6a3f18f0d22
-# e9789a1f510d4ce0a8ee67a2e2ab7af3
-# a0f1194afd3d43299156a1aa52a41e07
-# 5cc31aa8997444cbb1d3beecb723918f
-# cf93d52b207a4dac847496d730cf340f
-# 9c54c11438934fbebe7a75c3c09b6ffa
 #: ../timing.rst:13 ../timing.rst:22 ../timing.rst:25 ../timing.rst:30
 #: ../timing.rst:36 ../timing.rst:56
 msgid "90 min"
-msgstr ""
+msgstr "90 minutos"
 
-# 352af8a910174ec2b655db8e0cfd3ee2
 #: ../timing.rst:13
 msgid "#6 The Features of Plone"
 msgstr ""
 
-# a454e116acd1481699fdfc0a8ea99240
-# 366f2f8f9a8d485e87a73d738d7e651b
-# 5c9fab8183ac40439468bb2d4ba30e15
-# b60fe315004b457d8b7e21023a1d8a6a
-# f036568f94254c98b64dad7e7a96903c
-# 460e0f70f0674fb5923232f4a92dd209
-# 5d29a01b19724e37a2fa12de00b5ee3d
-# 93ba05e9b19142fe997f51b78804011e
 #: ../timing.rst:14 ../timing.rst:16 ../timing.rst:23 ../timing.rst:24
 #: ../timing.rst:59 ../timing.rst:74 ../timing.rst:75 ../timing.rst:77
 msgid "60 min"
-msgstr ""
+msgstr "60 minutos"
 
-# 0b0f9ee9a547404c94dcc0b393e5502e
 #: ../timing.rst:14
 msgid "#7 Configuring and Customizing Plone through the web"
 msgstr ""
 
-# 193d1a6ab457430b9730c0b7a5982428
-# 43b8fbc007884ed9934081d5a58f8305
-# 95a03d190fc5458f93d061ee35a0a5be
-# 3d07bf9b0f49449d8ed2e6e8643d28a2
-# 817afe296d404934afab9d1c31b0b11e
-# 6968260c8bd34d7592e68771094bf187
-# 9b5e7e5aae9c4d5196a6167a0ad25188
-# 762ecc2146cd4442a9dbc6f4074d29e3
-# 48d79c8cbc134c00b091afd0523d60e6
-# fc392d1f5d674e0292ac3cb03d059aa8
-# 31de9eb5b5aa472bb9ca8d3dc022d69c
-# 30b82f91be0649aaa0a340ceff59f36b
-# 1075a310edc9420f9adee85c1220e616
-# e1f7029ea7d44d3f9ef713e39efb33e2
-# 8ba79742b22743cd8104b890de91fdc9
-# d3870e6b9c694cfc9933028730e1fab3
-# e663da11b1ee411bb36d518a7ecace7a
 #: ../timing.rst:15 ../timing.rst:17 ../timing.rst:18 ../timing.rst:19
 #: ../timing.rst:26 ../timing.rst:27 ../timing.rst:28 ../timing.rst:31
 #: ../timing.rst:34 ../timing.rst:43 ../timing.rst:58 ../timing.rst:68
 #: ../timing.rst:69 ../timing.rst:79 ../timing.rst:80 ../timing.rst:81
 #: ../timing.rst:83
 msgid "20 min"
-msgstr ""
+msgstr "20 minutos"
 
-# de44b36cebbe4a37bf4dc8dc84025a6b
 #: ../timing.rst:15
 msgid "#8 Extending Plone"
 msgstr ""
 
-# 3d4f56180d2b43f482df62a3c6fba30b
 #: ../timing.rst:16
 msgid "#9 Extend Plone with Add-ons"
 msgstr ""
 
-# e6c96c4ef8c54e0ea9a0634f69f1c6fb
 #: ../timing.rst:17
 msgid "#10 Theming"
 msgstr ""
 
-# ed3129362b394247bb00dcdc9891700a
 #: ../timing.rst:18
 msgid "#11 Buildout I"
 msgstr ""
 
-# 062e259052354cb69aebec1d74331043
-# deda32ae3fa64e989d58b5810cd8a370
 #: ../timing.rst:19 ../timing.rst:71
 msgid "#12 Creating your own eggs to customize Plone"
 msgstr ""
 
-# 8bf2a678600c41528be41763c2ed8be3
-# 52a6ebbef89b4946af4179a6f5c190f1
-# d2114fbb2ba349c99f23eaed72998228
-# fcb2c00bac5b4ed39886aa59856b5cb9
-# 03188540c0594f62af1258990d70f69b
-# 4b9ea749de684bb7880fa401c81074be
-# 0036151781674a22ac7bc4539759961d
 #: ../timing.rst:20 ../timing.rst:54 ../timing.rst:72 ../timing.rst:76
 #: ../timing.rst:82 ../timing.rst:84 ../timing.rst:85
 msgid "30 min"
-msgstr ""
+msgstr "30 minutos"
 
-# 76eefb738143438fa428c888e185fd2a
 #: ../timing.rst:20
 msgid "#13 Dexterity I: Through the web"
 msgstr ""
 
-# 92f7d85f5322439f9a6c2af50bd97dd8
-# d9ba5fbb2bc143fcb7a9774be4e678d3
 #: ../timing.rst:21 ../timing.rst:73
 msgid "#14 Views I"
 msgstr ""
 
-# 3f71d8f3d2134916a410258fe68e9d26
-# 53972749618f415badf58286262a80c1
 #: ../timing.rst:22 ../timing.rst:74
 msgid "#15 Zope Page Templates"
 msgstr ""
 
-# bee062c77ea048a8b87978fa58905dcb
-# a23c3b706a91456aa99af208211ae499
 #: ../timing.rst:23 ../timing.rst:75
 msgid "#16 Customizing existing templates"
 msgstr ""
 
-# eea45b6568e84e6f941389f12f6a4faf
-# fdd51cccaf6a4c7497035672e57d00f2
 #: ../timing.rst:24 ../timing.rst:76
 msgid "#17 Views II: A default view for “talk”"
 msgstr ""
 
-# 89877307a0b74f34a4da371155a5f20f
-# 40cb8db3f301442aa43609e0a6b55ffb
 #: ../timing.rst:25 ../timing.rst:77
 msgid "#18 Views III: A Talk list"
 msgstr ""
 
-# 8f4045b972254ac8a102deeae9c9a7e8
 #: ../timing.rst:26
 msgid "#19 Behaviors"
 msgstr ""
 
-# 88cda267123a438a95bb7e623e805503
 #: ../timing.rst:27
 msgid "#20 Writing Viewlets"
 msgstr ""
 
-# 010e360f251441128545cfc12c8481ac
 #: ../timing.rst:28
 msgid "#21 Programming Plone"
 msgstr ""
 
-# be0625c227644333b31458f78a858d42
 #: ../timing.rst:29
 msgid "#22 IDE’s and Editors"
 msgstr ""
 
-# 35848585a69d49fea963fb5711e1a61d
 #: ../timing.rst:30
 msgid "#23 Dexterity Types II: Growing up"
 msgstr ""
 
-# 983b9831221e405da73d863583dab738
 #: ../timing.rst:31
 msgid "#24 Custom search"
 msgstr ""
 
-# 4c8fdf0955454e348c60ecdd7fa16960
-# b8e20c18defd481cac71650e3bc12ec0
 #: ../timing.rst:32 ../timing.rst:33
 msgid "45 min"
-msgstr ""
+msgstr "45 minutos"
 
-# bfe7087239ce44eeac776558088c4c5e
 #: ../timing.rst:32
 msgid "#25 Turn talks into events"
 msgstr ""
 
-# 5eeb4440c50a463d88902b3ee2f57708
 #: ../timing.rst:33
 msgid "#26 User generated content"
 msgstr ""
 
-# 02d609c6bf9c4ca991d8f308ce070489
 #: ../timing.rst:34
 msgid "#27 Ressources"
 msgstr ""
 
-# bfa8a8f84c694b1db2c27812da08696a
 #: ../timing.rst:35
 msgid "#28 Using third-party behaviors"
 msgstr ""
 
-# 5a6a82f785aa4eb0adf5639ac8a96777
 #: ../timing.rst:36
 msgid "#29 Dexterity Types III: Python"
 msgstr ""
 
-# 7b459f2f3fb445018b101dbd7c308c35
 #: ../timing.rst:37
 msgid "#30 Creating reusable packages with eggs"
 msgstr ""
 
-# b4a6a5fce90c482dbd13512d918991f3
 #: ../timing.rst:38
 msgid "#31 More complex behaviors"
 msgstr ""
 
-# 8608dc4f20904465951704e33a8adc34
 #: ../timing.rst:39
 msgid "#32 A viewlet for the voteable behavior"
 msgstr ""
 
-# 8aa566c706be4cd4a338d0c0decaa66c
 #: ../timing.rst:40
 msgid "#33 Making our package reusable"
 msgstr ""
 
-# b3428a527fc947f5ac1e56d2f40b406c
 #: ../timing.rst:41
 msgid "#34 Using starzel.votable_behavior in ploneconf.site"
 msgstr ""
 
-# b395641497494cbaa26bd447b52d9f36
 #: ../timing.rst:42
 msgid "#35 Buildout II: Deploying your site"
 msgstr ""
 
-# 0d5c86b2346d4af3914ad9106bb6cd79
 #: ../timing.rst:43
 msgid "#36 The Future of Plone"
 msgstr ""
 
-# 13fa8a5a26534330a77baba4df5173d4
 #: ../timing.rst:44
 msgid "#37 Optional"
 msgstr ""
 
-# d24923d4442c4ba3b6cb81601a05a9ff
 #: ../timing.rst:49
 msgid "Version 1.1"
-msgstr ""
+msgstr "Version 1.1"
 
-# 5fb148aab971420ebfc1e12cbb3189bf
 #: ../timing.rst:55
 msgid "#4 The Anatomy of Plone"
 msgstr ""
 
-# 519fb549886a494cbe2030d72999c2cd
 #: ../timing.rst:56
 msgid "#5 The Features of Plone"
 msgstr ""
 
-# b4251df93d504388b481f19a1814fda7
 #: ../timing.rst:57
 msgid "50 min"
-msgstr ""
+msgstr "50 minutos"
 
-# cfd1b6ae3ad94e61a95aa4e519f1fccb
 #: ../timing.rst:57
 msgid "#6 Configuring and Customising Plone through the web"
 msgstr ""
 
-# b31363d0493c45a09ef42b7195fb9776
 #: ../timing.rst:58
 msgid "#7 Extending Plone"
 msgstr ""
 
-# e732f44e692f46b2a2cd9d3360c016c9
 #: ../timing.rst:59
 msgid "#8 Extend Plone with Add-ons"
 msgstr ""
 
-# 370be5518fd24300a36762acb9803e61
 #: ../timing.rst:60
 msgid "#8 - How to find addons"
 msgstr ""
 
-# 142d637cd2454e2c939035388dc8e678
 #: ../timing.rst:61
 msgid "#8 - Installing Addons"
 msgstr ""
 
-# f7357544019042a2861ec26d8cf249f7
 #: ../timing.rst:62
 msgid "#8 - PloneFormGen"
 msgstr ""
 
-# 7e33dc5d230e4cc3b7024f333737c13b
 #: ../timing.rst:63
 msgid "#8 - Internationalisation"
 msgstr ""
 
-# d1b19cc49972423ab03ac089694a36f8
 #: ../timing.rst:64
 msgid "#8 - collective.plonetruegallery"
 msgstr ""
 
-# 61af810509284be6b1a0e500a118666c
 #: ../timing.rst:65
 msgid "#8 - plone.app.themeeditor"
 msgstr ""
 
-# 210b0517558e4776a6c5f6115c58c827
 #: ../timing.rst:66
 msgid "#8 - export customizations"
 msgstr ""
 
-# a434b4d0ca634f3ba5627f2c3d93b900
 #: ../timing.rst:67
 msgid "#8 - inspect the package"
 msgstr ""
 
-# 2829ee9ee1404fa29037348ee19f5d53
 #: ../timing.rst:68
 msgid "#9  Theming"
 msgstr ""
 
-# 93d5d08ac186401584fae6dfcbe23afd
 #: ../timing.rst:69
 msgid "#10 Buildout I"
 msgstr ""
 
-# b9a304265f3d4e858dc482e88a5eaca4
 #: ../timing.rst:70
 msgid "05 min"
-msgstr ""
+msgstr "05 minutos"
 
-# 7675113dad254598b77aed2b06120eb9
 #: ../timing.rst:70
 msgid "#11 IDE’s and Editors"
 msgstr ""
 
-# 376824fa150044699c2cf32e2dd33b01
 #: ../timing.rst:72
 msgid "#13 Creating content-types with Dexterity"
 msgstr ""
 
-# ef69e837c62d4ae2874a0bbb410279e5
 #: ../timing.rst:78
 msgid "#19 Custom search"
 msgstr ""
 
-# f0b5fcf689a341e99f80dde4bf9434ba
 #: ../timing.rst:79
 msgid "#20 Extending Dexterity-Types with Behaviors"
 msgstr ""
 
-# ee470353c6a34869b36a5796d69f1a0f
 #: ../timing.rst:80
 msgid "#21 Ressources"
 msgstr ""
 
-# 3c0cac3f5bd74c5e88e26b01787575dc
 #: ../timing.rst:81
 msgid "#22 Social behavior"
 msgstr ""
 
-# 3064d74c65114888907b2603983baca1
 #: ../timing.rst:82
 msgid "#23 Writing Viewlets"
 msgstr ""
 
-# 4ac73844a00d4424914db4dce00c3331
 #: ../timing.rst:83
 msgid "#24 Deploying your code"
 msgstr ""
 
-# f9bd9bfbc7c14c91b5a99c559418ebdf
 #: ../timing.rst:84
 msgid "#25 Buildout II: Deploying your site"
 msgstr ""
 
-# 0328b2ac1e434bc5997b0584f2185357
 #: ../timing.rst:85
 msgid "#26 The Future of Plone"
 msgstr ""
 
-# 5a57d1c28d804acfad071cce61685f91
 #: ../timing.rst:86
 msgid "#27 Optional"
 msgstr ""

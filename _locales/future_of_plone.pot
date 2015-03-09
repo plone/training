@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../future_of_plone.rst:2
-# 949d89821f4e4d10a688421571bc680a
 msgid "The Future of Plone"
 msgstr ""
 
 #: ../future_of_plone.rst:4
-# c3f27b5af41941a1b298344c7ac44bc4
 msgid "Plone 5"
 msgstr ""
 
 #: ../future_of_plone.rst:5
-# 2274657a7cfd48deaf6d1b0819cec29f
 msgid "Plone Roadmap 2020"
 msgstr ""
 
 #: ../future_of_plone.rst:7
-# 6bf43db2abab441bb8770798b5ab4abd
 msgid "The Plone-process and the Plone-Community"
 msgstr ""
 
 #: ../future_of_plone.rst:9
-# d61503c693bf48bba81b2e8f82232b98
 msgid "Plips: https://dev.plone.org/report/24"
 msgstr ""
 

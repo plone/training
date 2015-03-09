@@ -22,7 +22,7 @@ To do this we will customize the templates that is used to render News Items.
 
 We'll basically do the same as when we used at ``portal_skins`` (we customized the footer), but now we'll do it all by hand in our package.
 
-* Create the directoy ``browser/template_overrides``
+* Create the directory ``browser/template_overrides``
 * Add the following to ``browser/configure.zcml``:
 
 .. code-block:: xml
@@ -109,7 +109,7 @@ There is a lot more going on in ``standard_view.pt`` and ``summary_view.pt`` but
 
 .. note::
 
-    In default Plone without ``plone.app.contenttypes`` this would be ``folder_summary_view.pt``, a skin-template for Archetypes that can be found in the folder ``Products/CMFPlone/skins/plone_content/``. The customzed template would be ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
+    In default Plone without ``plone.app.contenttypes`` this would be ``folder_summary_view.pt``, a skin-template for Archetypes that can be found in the folder ``Products/CMFPlone/skins/plone_content/``. The customized template would be ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
 
     The Archetypes-template for News Items is ``newsitems_view.pt`` from the same folder. The customized template would then have to be named ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
 

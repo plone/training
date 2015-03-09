@@ -15,7 +15,7 @@ Theming a Plone site has two major parts:
 
 *Structural theming* is best accomplished via the Diazo theme engine. Diazo provides a rule based mechanism for mapping content provided by Plone into one or more master page designs.
 
-*Templating* is accomplished by editing page template files which allow us to mix object content from the ZODB with HTML. Plone uses its own (actualy Zope's) Template Attribute Language (TAL) for this purpose.
+*Templating* is accomplished by editing page template files which allow us to mix object content from the ZODB with HTML. Plone uses its own (actually Zope's) Template Attribute Language (TAL) for this purpose.
 
 Diazo example
 -------------

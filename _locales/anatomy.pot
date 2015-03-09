@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,197 +17,166 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../anatomy.rst:2
-# b4039bafa11d4d0db0bd466cc2faac73
 msgid "The Anatomy of Plone"
 msgstr ""
 
 #: ../anatomy.rst:4
-# 28e29cc96450472382b0246925ff21fd
 msgid "Python, Zope, CMF, Plone, how does that all fit together?"
 msgstr ""
 
 #: ../anatomy.rst:8
-# 7725f797f3214814a67afda689645983
 msgid "Zope2"
 msgstr ""
 
 #: ../anatomy.rst:10
-# bba306722db24090b10c1db7961f64c3
 msgid "Zope is a web application framework that Plone runs on top of."
 msgstr ""
 
 #: ../anatomy.rst:11
-# 3b13df5fe50b4281b01f8b2c69911e65
 msgid "It serves applications that communicate with users via http."
 msgstr ""
 
 #: ../anatomy.rst:15
-# 4ae7654141b7464e963fee23f3fee87a
 msgid "Before Zope, there usually was an Apache server that would call a script and give the request as an input. The script would then just print HTML to the standard output. Apache returned that to the user. Opening database connections, checking permission constraints, generating valid HTML, configuring caching, interpreting form data and everything you have to do on your own. When the second request comes in, you have to do everything again."
 msgstr ""
 
 #: ../anatomy.rst:17
-# 1a84f05a622f43d5a31c5e19330db589
 msgid "Jim Fulton thought that this was slightly tedious. So he wrote code to handle requests. He believed that site content is object-oriented and that the URL should somehow point directly into the object hierarchy, so he wrote an object-oriented database, called `ZODB <http://www.zodb.org/en/latest/>`_."
 msgstr ""
 
 #: ../anatomy.rst:19
-# cc7d2f21dbe04bf4a27fac940b57f5ac
-msgid "Then there were transactions, so that it became a real database and after a while there were python scripts that could be edited through the web. One missing piece is important and complicated: ``Acquisition``."
+msgid "The ZODB is a fully `ACID <http://en.wikipedia.org/wiki/ACID>`_ compliant database with automatic transactional integrity. It automatically maps traversal in the object hierarchy to URL paths, so there is no need to \"wire\" objects or database nodes to URLs. This gives Plone its easy SEO-friendly URLs."
 msgstr ""
 
-#: ../anatomy.rst:22
-# 51bd951795d94d689f30003864b9e671
-msgid "Acquisition is a kind of magic. Imagine a programming system where you do not access the file system and where you do not need to import code. You work with objects. An object can be a folder that contains more objects, an HTML page, data, or another script. To access an object, you need to know where the object is. Objects are found by paths that look like URLs, but without the domain name. Now Acquisition allows you to write an incomplete path. An incomplete path is a relative path, it does not explicitly state that the path starts from the root, it starts relative to where the code object is. If Zope cannot resolve the path to an object relative to your code, I tries the same path in the containing folder. And then the folder containing the folder."
+#: ../anatomy.rst:21
+msgid "Traversal through the object database is security checked at every point via very fine grained access-control lists."
 msgstr ""
 
-#: ../anatomy.rst:24
-# 33eb71db6b494276a0ae5c6e5dc24945
+#: ../anatomy.rst:23
+msgid "One missing piece is important and complicated: ``Acquisition``."
+msgstr ""
+
+#: ../anatomy.rst:25
+msgid "Acquisition is a kind of magic. Imagine a programming system where you do not access the file system and where you do not need to import code. You work with objects. An object can be a folder that contains more objects, an HTML page, data, or another script. To access an object, you need to know where the object is. Objects are found by paths that look like URLs, but without the domain name. Now Acquisition allows you to write an incomplete path. An incomplete path is a relative path, it does not explicitly state that the path starts from the root, it starts relative to where the content object is -- it's context. If Zope cannot resolve the path to an object relative to your code, it tries the same path in the containing folder. And then the folder containing the folder."
+msgstr ""
+
+#: ../anatomy.rst:27
 msgid "This might sound weird, what do I gain with this?"
 msgstr ""
 
-#: ../anatomy.rst:26
-# 056ff937ec7148ff8185198848c7fc0c
-msgid "You can have different data or code depending on your ``context``. Imagine you want to have header images differing for each section of your page, sometimes even differing for a specific subsection of your site. So you define a path header_image and put a header image at the root of your site. If you want a folder to with a different header image, you put the header image into this folder. Please take a minute to let this settle and think, what this allows you to do."
+#: ../anatomy.rst:29
+msgid "You can have different data or code depending on your ``context``. Imagine you want to have header images differing for each section of your page, sometimes even differing for a specific subsection of your site. So you define a path header_image and put a header image at the root of your site. If you want a folder to with a different header image, you put the header image into this folder. Please take a minute to let this settle and think about what this allows you to do."
 msgstr ""
 
-#: ../anatomy.rst:29
-# 8d4475b7bb264238a033b89e977c537a
+#: ../anatomy.rst:32
 msgid "contact forms with different e-mail addresses per section"
 msgstr ""
 
-#: ../anatomy.rst:30
-# 04b5c0d94d674642a9c9d1affccce9e5
+#: ../anatomy.rst:33
 msgid "different CSS styles for different parts of your site"
 msgstr ""
 
-#: ../anatomy.rst:31
-# 05bfc4190fa34257976952d9647f151d
+#: ../anatomy.rst:34
 msgid "One site, multiple customers, everything looks different for each customer."
 msgstr ""
 
-#: ../anatomy.rst:33
-# b1bdabc37f9649ea999dbc4d37fa2135
+#: ../anatomy.rst:36
+msgid "As with all programming magic, acquisition exacts a price. Zope code must be written carefully if it's necessary to avoid inheriting side effects via acquisition. The Zope community expresses this with the Python (Monty) maxim: Beware the Spammish Acquisition."
+msgstr ""
+
+#: ../anatomy.rst:38
 msgid "Basically this is Zope."
 msgstr ""
 
-#: ../anatomy.rst:37
-# 721fe38cb4394e4c840a324487917ab9
+#: ../anatomy.rst:42
 msgid "http://www.zope.org/the-world-of-zope http://docs.zope.org/zope2/zope2book/"
 msgstr ""
 
-#: ../anatomy.rst:42
-# c0427686b409417195c3a6f3638e0a1a
+#: ../anatomy.rst:47
 msgid "Content Management Framework"
 msgstr ""
 
-#: ../anatomy.rst:44
-# 37899471812e445cb204d2f60f9cf483
+#: ../anatomy.rst:49
 msgid "`CMF (Content Management Framework) <http://old.zope.org/Products/CMF/index.html/>`_ is add-on for Zope to build Content Management Systems (like Plone)."
 msgstr ""
 
-#: ../anatomy.rst:49
-# 1fd6f77c033a4a87be7f90f1d50bc0d0
+#: ../anatomy.rst:54
 msgid "After many successfully created websites based on Zope, a number of recurring requirements emerged, and some Zope developers started to write CMF, the Content Management Framework."
 msgstr ""
 
-#: ../anatomy.rst:51
-# 698fd3276d91483b84c1e92511ac25a6
+#: ../anatomy.rst:56
 msgid "The CMF offers many services that help you to write a CMS based on Zope. Most objects you see in the ZMI are part of the CMF somehow."
 msgstr ""
 
-#: ../anatomy.rst:54
-# ba17856a0c1848e9a4d76f8571da38a4
+#: ../anatomy.rst:59
 msgid "The developers behind CMF do not see CMF as a ready to use CMS. They created a CMS Site which was usable out of the box, but made it deliberately ugly, because you have to customize it anyway."
 msgstr ""
 
-#: ../anatomy.rst:56
-# 18fac66e10564d65806e59c60344ecdf
-msgid "We are still in prehistoric times here. There were no eggs, Zope did not consist of 100 independent software components but was one big blob."
+#: ../anatomy.rst:61
+msgid "We are still in prehistoric times here. There were no eggs (Python packages), Zope did not consist of 100 independent software components but was one big file set."
 msgstr ""
 
-#: ../anatomy.rst:58
-# 462f0dad1f284e5581cdf9eb97d3cb31
-msgid "Later we will see a lot of GenericSetup. This is also part of CMF. When we will talk about GenericSetup, we might not speak too fondly of it."
-msgstr ""
-
-#: ../anatomy.rst:60
-# 38132201a38f4413a61f8b88647f6687
-msgid "GenericSetup is like it is, because it is from the stone age and didn't adapt very well. This helps in understanding why GenericSetup is what it is."
-msgstr ""
-
-#: ../anatomy.rst:64
-# 06aa7ee5d4694775a205c1531863aed3
-msgid "Zope Toolkit / Zope3"
+#: ../anatomy.rst:63
+msgid "Many parts of Plone are derived from the CMF, but it's a mixed heritage. The CMF is an independent software project, and has often moved more slowly than Plone. Plone is gradually eliminating dependence on most parts of the CMF."
 msgstr ""
 
 #: ../anatomy.rst:66
-# 1b92353d21aa45fd87a8cbe38a99ae4e
+msgid "Zope Toolkit / Zope3"
+msgstr ""
+
+#: ../anatomy.rst:68
 msgid "Zope 3 was originally intended as a ground-up rewrite of Zope."
 msgstr ""
 
-#: ../anatomy.rst:67
-# bde22edd3ed541269cb1784c6f39ede8
+#: ../anatomy.rst:69
 msgid "Plone uses parts of it provided by the `Zope Toolkit (ZTK) <http://docs.zope.org/zopetoolkit/>`_."
 msgstr ""
 
-#: ../anatomy.rst:71
-# 62c9cf0312754ac2af0612a35b6bcca5
+#: ../anatomy.rst:73
 msgid "Unfortunately, nobody started to use Zope 3, nobody migrated to Zope 3 because nobody knew how."
 msgstr ""
 
-#: ../anatomy.rst:73
-# 1192bf89fb3041bcb89c23543c742760
+#: ../anatomy.rst:75
 msgid "But there were many useful things in Zope 3 that people wanted to use in Zope 2, thus the Zope community adapted some parts so that they could use them in Zope 2. Sometimes, a wrapper of some sorts was necessary, these usually are being provided by packages from the five namespace."
 msgstr ""
 
-#: ../anatomy.rst:76
-# 8ef421293ec248cf8a4fb5ceaf0ca45c
+#: ../anatomy.rst:78
 msgid "To make the history complete, since people stayed on Zope 2, the Zope community renamed Zope 3 to Bluebream, so that people would not think that Zope 3 was the future. It wasn't any more."
 msgstr ""
 
-#: ../anatomy.rst:80
-# bc3e877353564465a24fe8d4e7a56fe1
+#: ../anatomy.rst:82
 msgid "http://plone.org/documentation/faq/zope-3-and-plone"
 msgstr ""
 
-#: ../anatomy.rst:84
-# aea6fa36b3d24432b1f8a8e8a4766de8
+#: ../anatomy.rst:86
 msgid "Zope Component Architecture (ZCA)"
 msgstr ""
 
-#: ../anatomy.rst:86
-# d3b14c1374024d0b9cb3b299dad0914e
-msgid "The `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_ is a system which allows for application pluggability and complex dispatching based on objects which implement an interface. Pyramid uses the ZCA “under the hood” to perform view dispatching and other application configuration tasks."
-msgstr ""
-
-#: ../anatomy.rst:90
-# 6d8583e2c5384094822ef9b2847d74dc
-msgid "Pyramid"
+#: ../anatomy.rst:88
+msgid "The `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_, which was developed as part of Zope 3, is a system which allows for component pluggability and complex dispatching based on objects which implement an interface (a description of a functionality). Pyramid, and independent Python web application server, uses the ZCA “under the hood” to perform view dispatching and other application configuration tasks."
 msgstr ""
 
 #: ../anatomy.rst:92
-# 02091034744649798c63715649bc667f
+msgid "Pyramid"
+msgstr ""
+
+#: ../anatomy.rst:94
 msgid "`Pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ is a Python web application development framework that is often seen as the successor to Zope."
 msgstr ""
 
-#: ../anatomy.rst:93
-# e582e67056f14b83b5b193ff2bc9c942
+#: ../anatomy.rst:95
 msgid "It does less than Zope, is very pluggable and `uses the Zope Component Architecture <http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
 msgstr ""
 
-#: ../anatomy.rst:97
-# e13307aabc0e4534a17a8666d74ff28e
+#: ../anatomy.rst:99
 msgid "You can use it with a relational Database instead of ZODB if you want, or you use both databases or none of them."
 msgstr ""
 
-#: ../anatomy.rst:99
-# 3dc8a67179034fa68e178ce410455248
-msgid "Apart from the fact that Pyramid was not forced to support all legacy functionality that can make things more complicated, the original developer had a very different stance on how software must be developed. While both Zope and Pyramid have a good test coverage, Pyramid also has good documentation, something that was very neglected in Zope and at times in Plone too."
+#: ../anatomy.rst:101
+msgid "Apart from the fact that Pyramid was not forced to support all legacy functionality, which can make things more complicated, the original developer had a very different stance on how software must be developed. While both Zope and Pyramid have good test coverage, Pyramid has good documentation; something that was very neglected in Zope, and at times in Plone too."
 msgstr ""
 
-#: ../anatomy.rst:101
-# db0036e5811d4299aac1c6bfecf8dd7e
-msgid "Wether the component architecture is better in Pyramid or not we don't dare to say, but we like it more. But maybe its just because it has documented."
+#: ../anatomy.rst:103
+msgid "Whether the component architecture is better in Pyramid or not we don't dare to say, but we like it more. But maybe it's just because it was documented."
 msgstr ""
 

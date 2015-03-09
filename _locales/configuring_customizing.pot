@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,739 +17,603 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../configuring_customizing.rst:2
-# 413a8cff934046f9a73007fca61b864e
 msgid "Configuring and Customizing Plone through the web"
 msgstr ""
 
 #: ../configuring_customizing.rst:7
-# fc0302288f3c49408382b9e7fc32ed8c
 msgid "The Control Panel"
 msgstr ""
 
 #: ../configuring_customizing.rst:9
-# dbe57c27a5d949c4a46d9079ac7bccdf
 msgid "The most important parts of Plone can be configured in the control-panel."
 msgstr ""
 
 #: ../configuring_customizing.rst:11
-# 6d70a1479c45480e844714cfaab3caab
 msgid "Click on your username"
 msgstr ""
 
 #: ../configuring_customizing.rst:12
-# 923aecd4ba63499789e7601c4afbb9ce
 msgid "Click \"Site Setup\""
 msgstr ""
 
 #: ../configuring_customizing.rst:14
-# 991f4a413940468992d8dc36e5bc1671
-msgid "We'll explain every page and mention some of the stuff you can do here."
+msgid "We'll explain every page and mention some of the actions you can perform here."
 msgstr ""
 
 #: ../configuring_customizing.rst:16
-# 1fe4e43f1da949bb940e67c2219e0e04
 msgid "Add-ons (later...)"
 msgstr ""
 
 #: ../configuring_customizing.rst:17
-# a555818928bd42ddbc9ab87c87dcbbd1
 msgid "Calendar"
 msgstr ""
 
 #: ../configuring_customizing.rst:18
-# 9e931ba4c91642b782c2b3efb133889e
 msgid "Configuration Registry"
 msgstr ""
 
 #: ../configuring_customizing.rst:19
-# d872c7b2a3c745caaec75437eb105780
 msgid "Content Rules (we know this already)"
 msgstr ""
 
 #: ../configuring_customizing.rst:20
-# 01f61e4209ec4a11a179800653fca283
 msgid "Discussion"
 msgstr ""
 
 #: ../configuring_customizing.rst:21
-# e88cfeaf22c5428f9ccb4f34902203c6
 msgid "Editing"
 msgstr ""
 
 #: ../configuring_customizing.rst:22
-# 9d4f32ec63ad468fa264cd7e176e7f64
 msgid "Errors"
 msgstr ""
 
 #: ../configuring_customizing.rst:23
-# fdd9c123d703475a9d442eb6b42834fa
 msgid "HTML Filtering"
 msgstr ""
 
 #: ../configuring_customizing.rst:24
-# 29873eb4780044fc9d8b51b1d75001ac
 msgid "Image Handling"
 msgstr ""
 
 #: ../configuring_customizing.rst:25
-# 71aba47af3da49aa9a490c3d468aaff4
 msgid "Language"
 msgstr ""
 
 #: ../configuring_customizing.rst:26
-# 5224705497334c13afd12f8be2fc2955
 msgid "Mail"
 msgstr ""
 
 #: ../configuring_customizing.rst:27
-# ffc1b5bff7e046e0872a47673461fbb6
 msgid "Maintenance"
 msgstr ""
 
 #: ../configuring_customizing.rst:28
-# b8beb7e1ae5a44f8af3d8a5b99b0af41
 msgid "Markup"
 msgstr ""
 
 #: ../configuring_customizing.rst:29
-# 740c3b03783741839206077c4786a9a2
 msgid "Navigation"
 msgstr ""
 
 #: ../configuring_customizing.rst:30
-# 2a6f6ced85904f029ae809ce6f47a352
 msgid "Search"
 msgstr ""
 
 #: ../configuring_customizing.rst:31
-# 4861183e8c7a49d6a070003aa40fe6de
 msgid "Security"
 msgstr ""
 
 #: ../configuring_customizing.rst:32
-# bbac4ad128564afb86fb5ec4d65b43e0
 msgid "Site"
 msgstr ""
 
 #: ../configuring_customizing.rst:33
-# 3edd48b38ba846dda3c6f60c27dcc553
 msgid "Syndication"
 msgstr ""
 
 #: ../configuring_customizing.rst:34
-# 5ddcde6f23e746f5b5d795692627b3ba
 msgid "Themes"
 msgstr ""
 
 #: ../configuring_customizing.rst:35
-# 22e0c16c2a2a44bfbcdf3f75c5ac34fd
 msgid "TinyMCE Visual Editor"
 msgstr ""
 
 #: ../configuring_customizing.rst:36
-# 93a627de29a84c218897947842a33a01
 msgid "Types"
 msgstr ""
 
 #: ../configuring_customizing.rst:37
-# 2fb25efcfc9e4344af1695eabe1b7556
 msgid "Users and Groups"
 msgstr ""
 
 #: ../configuring_customizing.rst:38
-# 106e776d2fb64de98973dd40aaeb228d
 msgid "Zope Management Interface (here be dragons)"
 msgstr ""
 
 #: ../configuring_customizing.rst:40
-# 9a77391b68434cbd9095059f3407be26
-msgid "Below the links you find information on your Plone-, Zope and Python-Versions"
+msgid "Below the links you may find information on your Plone-, Zope- and Python-Versions and an indicator as to whether you're running in production or development mode."
 msgstr ""
 
 #: ../configuring_customizing.rst:45
-# e68efb45e02f4af59260e07046667f64
 msgid "Portlets"
 msgstr ""
 
 #: ../configuring_customizing.rst:47
-# 220d85536ced433bbb2789be45863bda
 msgid "``@@manage-portlets``"
 msgstr ""
 
 #: ../configuring_customizing.rst:48
-# a28084063ce443dfacf127f9aadc945e
 msgid "UI fit for smart content-editors"
 msgstr ""
 
 #: ../configuring_customizing.rst:49
-# 44b555d5ef6a449a806707dbbcb163ba
 msgid "various types"
 msgstr ""
 
 #: ../configuring_customizing.rst:50
-# 4ce87d5ce92446ef9d435c0248d3e551
 msgid "portlet-configuration is inherited"
 msgstr ""
 
 #: ../configuring_customizing.rst:51
-# cc60fbfb41bb4b9e92b83277ef39e901
 msgid "managing"
 msgstr ""
 
 #: ../configuring_customizing.rst:52
-# 3c817a909dc34b899a1d967e59525316
 msgid "ordering/weighting"
 msgstr ""
 
 #: ../configuring_customizing.rst:53
-# 50cbc21336454e6f93238156110db59d
-msgid "will maybe be replaced by tiles"
+msgid "The future: will maybe be replaced by tiles"
 msgstr ""
 
 #: ../configuring_customizing.rst:55
 #: ../configuring_customizing.rst:80
-# ddcae952f9a14f60b5a9fad53bfc4b27
-# 5c5152fb6efe48e38a1011fe2604d4dd
 msgid "Example:"
 msgstr ""
 
 #: ../configuring_customizing.rst:57
-# f37f3e4987ba4f63a61b6b723f407139
 msgid "go to http://localhost:8080/Plone/@@manage-portlets"
 msgstr ""
 
 #: ../configuring_customizing.rst:58
-# 2848b192fdaf4f52b923a07e7d27e566
 msgid "Add a static portlet \"Sponsors\" on the right side."
 msgstr ""
 
 #: ../configuring_customizing.rst:59
-# 88347c730b1c4697bc8e8c199da90bd1
 msgid "Remove the news-portlet and add a new one on the left side."
 msgstr ""
 
 #: ../configuring_customizing.rst:60
-# 6a4a1268bb9944bd9fe7df755d3a0cda
-msgid "Go to the training-folder: http://localhost:8080/Plone/training and click ``Manage portlets``"
+msgid "Go to the training-folder: http://localhost:8080/Plone/the-event/training and click ``Manage portlets``"
 msgstr ""
 
 #: ../configuring_customizing.rst:61
-# 5db3e53251ec420e9751c1c15b769546
 msgid "Add a static portlet. \"Featured training: Become a Plone-Rockstar at Mastering Plone!\""
 msgstr ""
 
 #: ../configuring_customizing.rst:65
-# fd263fddefc349fdb7b7e5d467b64e00
 msgid "Viewlets"
 msgstr ""
 
 #: ../configuring_customizing.rst:67
-# 34c286e18d294660b0693daa02b85de5
 msgid "``@@manage-viewlets``"
 msgstr ""
 
 #: ../configuring_customizing.rst:68
-# 9d4481a7d6404002aab3067e5cb80907
 msgid "viewlet have no UI"
 msgstr ""
 
 #: ../configuring_customizing.rst:69
-# 9da3d43042f94abc8c7759f02905e895
 msgid "not aimed at content-editors"
 msgstr ""
 
 #: ../configuring_customizing.rst:70
-# cc6d7656fee54552b7d45ba82510b201
 msgid "not locally addable, no configurable inheritance."
 msgstr ""
 
 #: ../configuring_customizing.rst:71
-# d3e5878e95a04fa0973548faaf964cc2
 msgid "usually global (depends on code)"
 msgstr ""
 
 #: ../configuring_customizing.rst:72
-# 550c3621d61741168ce3ad23dfbb9a28
 msgid "will be replaced by tiles?"
 msgstr ""
 
 #: ../configuring_customizing.rst:73
-# 83497f6ba1304e85b577074163724c24
 msgid "the code is much simpler (we'll create one tomorrow)"
 msgstr ""
 
 #: ../configuring_customizing.rst:74
-# de69447f4f0b4bb4a1626d25157fc0e0
 msgid "live in viewlet-managers, can be nested (by adding a viewlet that contains a viewlet-manager)"
 msgstr ""
 
 #: ../configuring_customizing.rst:75
-# d4a075bec0ca40c687ee108f6a66f840
 msgid "ttw-reordering only within the same viewlet-manager"
 msgstr ""
 
 #: ../configuring_customizing.rst:76
-# 869c4fdf5c214f868752b976ee6223ed
 msgid "the code decides when it's where and what it shows"
 msgstr ""
 
 #: ../configuring_customizing.rst:78
-# 3a214a0bdacf41dda54829486e68082e
 msgid "Portlets save Data, Viewlets usually don't. Viewlets are often used for UI-Elements."
 msgstr ""
 
 #: ../configuring_customizing.rst:82
-# e7758076f8164321a344c6db10e1775a
 msgid "Go to http://localhost:8080/Plone/@@manage-viewlets"
 msgstr ""
 
 #: ../configuring_customizing.rst:83
-# 18bf1c796a454c72aef620a84e12e74f
 msgid "Hide collophon"
 msgstr ""
 
 #: ../configuring_customizing.rst:87
-# aa0ed6fd5226497aabb2cffb45065812
 msgid "ZMI"
 msgstr ""
 
 #: ../configuring_customizing.rst:89
-# 629bc3a49f984daea0c2c878b2be0d6d
 msgid "Go to http://localhost:8080/Plone/manage"
 msgstr ""
 
 #: ../configuring_customizing.rst:91
-# 40b6d09897d94b5f87cef22f00190566
 msgid "Zope is the foundation of Plone. Here you can access the inner working of Zope and Plone alike."
 msgstr ""
 
 #: ../configuring_customizing.rst:95
-# 5d5d6b6dc1b84dedad63f3731d6cfa56
 msgid "Here you can easily break your site so you should know what you are doing."
 msgstr ""
 
 #: ../configuring_customizing.rst:99
-# fd413663f5c2430cace5f8581426c47d
-msgid "We only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it."
+msgid "We only cover three parts of customization in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it."
 msgstr ""
 
 #: ../configuring_customizing.rst:101
-# 15be8ef84559417798e9ff0d295f7e74
-msgid "At some point you'll have to learn what all that stuff is about. But not today."
+msgid "At some point you'll have to learn what all that objects are about. But not today."
 msgstr ""
 
 #: ../configuring_customizing.rst:105
-# 2be70e7797cc406a93f2e39a472b1f54
 msgid "Actions (portal_actions)"
 msgstr ""
 
 #: ../configuring_customizing.rst:107
-# 4da8e1d05d534828b4ca358d8ba81c30
 msgid "Actions are mostly links. But **really flexible** links."
 msgstr ""
 
 #: ../configuring_customizing.rst:108
-# 79458fd7c69c4b17b31f06789a197287
 msgid "Actions are configurable ttw and through code."
 msgstr ""
 
 #: ../configuring_customizing.rst:109
-# 9248d39b043c4487bb8af27f138c4e14
 msgid "These actions are usually iterated over in viewlets and displayed."
 msgstr ""
 
 #: ../configuring_customizing.rst:111
-# 195fca3b7a684574be0b61bc36aa9768
 msgid "Examples:"
 msgstr ""
 
 #: ../configuring_customizing.rst:113
-# 16123659943a443091e174f0231ea221
 msgid "Links in the Footer (site_actions)"
 msgstr ""
 
 #: ../configuring_customizing.rst:114
-# bd17a785fb80492d8b6b11c6e479598f
 msgid "Actions-Dropdown (folder_buttons)"
 msgstr ""
 
 #: ../configuring_customizing.rst:116
-# 70f66c4387c8483085bc88fb29c6b434
 msgid "Actions have properties like:"
 msgstr ""
 
 #: ../configuring_customizing.rst:118
-# 29e66bf24ab24545a4dc78ac3f4ee342
 msgid "description"
 msgstr ""
 
 #: ../configuring_customizing.rst:119
-# be4c0d1e2eba49feaba7be1d27d4a889
 msgid "url"
 msgstr ""
 
 #: ../configuring_customizing.rst:120
-# 4aab3b6d64df47e0b72c209ccaee224a
 msgid "i18n-domain"
 msgstr ""
 
 #: ../configuring_customizing.rst:121
-# ff8cb714117548a99d0a4b6b3d806a34
 msgid "condition"
 msgstr ""
 
 #: ../configuring_customizing.rst:122
-# ead629e80b1e4eb8a6cd4b2a2ad5c513
 msgid "permissions"
 msgstr ""
 
 #: ../configuring_customizing.rst:127
-# a351f36decfc4f8e837e21d8ffb6358a
 msgid "site_actions"
 msgstr ""
 
 #: ../configuring_customizing.rst:129
-# fb99fd3eb5dd4a3e88f0e74b187aa6d6
 msgid "These are the links at the bottom of the page:"
 msgstr ""
 
 #: ../configuring_customizing.rst:131
-# b2a437d3e8334bd4a3c9e7a10e035108
 msgid "Site Map"
 msgstr ""
 
 #: ../configuring_customizing.rst:132
-# da4c69a6174943c9987f615d1db65030
 msgid "Accessibility"
 msgstr ""
 
 #: ../configuring_customizing.rst:133
-# 605186bfaf3e4db99309eb6f39ddc264
 msgid "Contact"
 msgstr ""
 
 #: ../configuring_customizing.rst:134
-# 2608c24d3ae54be68e3a2057f72bde91
 msgid "Site Setup"
 msgstr ""
 
 #: ../configuring_customizing.rst:136
-# dd44ff3f668a43528cee1f064c02dc64
 msgid "We want a new link to legal information, called \"Imprint\"."
 msgstr ""
 
 #: ../configuring_customizing.rst:138
-# 5a946295cdcf4b7d8bb3d93f16269890
 msgid "Go to ``site_actions`` (we know that because we checked in ``@@manage-viewlets``)"
 msgstr ""
 
 #: ../configuring_customizing.rst:139
-# 0331924b30264b10831146985881be95
 msgid "Add a CMF Actions ``imprint``"
 msgstr ""
 
 #: ../configuring_customizing.rst:140
-# 6594d360186144779913825376859a11
 msgid "Set URL to ``string:${portal_url}/imprint``"
 msgstr ""
 
 #: ../configuring_customizing.rst:141
-# 609d36bcd7f54eb9b970decfde2f3d01
 msgid "Leave *condition* empty"
 msgstr ""
 
 #: ../configuring_customizing.rst:142
-# 21e6d7ef9e8b46708a059a835b9ba3a2
 msgid "Set permission to ``View``"
 msgstr ""
 
 #: ../configuring_customizing.rst:143
-# fd93b24e1f084f6daf7a93de78bcfa38
 msgid "Save"
 msgstr ""
 
 #: ../configuring_customizing.rst:147
-# ce39f1bde0464f45b3efa5e3b58888ce
 msgid "explain"
 msgstr ""
 
 #: ../configuring_customizing.rst:149
-# 898ffe467c234fd6b82abe2080376d11
 msgid "Check if the link is on the page"
 msgstr ""
 
 #: ../configuring_customizing.rst:150
-# 53dd8ceed4104dea80a913b8068172da
 msgid "Create new Document `Imprint` and publish"
 msgstr ""
 
 #: ../configuring_customizing.rst:154
-# 82fb078e244b4c9bafec768572a2db58
 msgid "http://docs.plone.org/develop/plone/functionality/actions.html"
 msgstr ""
 
 #: ../configuring_customizing.rst:158
-# 597616bfb4c44db4b07cf9c45fbac9c8
 msgid "Global navigation"
 msgstr ""
 
 #: ../configuring_customizing.rst:160
-# 5484357d057246f4824a2b5d2b266354
 msgid "The horizontal navigation is called ``portal_tabs``"
 msgstr ""
 
 #: ../configuring_customizing.rst:161
-# 261b05759648404b99da3d1fe8ff46e0
 msgid "go to ``portal_actions`` > ``portal_tabs`` `Link <http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main>`_"
 msgstr ""
 
 #: ../configuring_customizing.rst:162
-# 7f209fd2cd594829a9d12922dc04acdc
 msgid "Edit ``index_html``"
 msgstr ""
 
 #: ../configuring_customizing.rst:164
-# 5b560dba41394715b1d6dd97e612c641
 msgid "Where is the navigation?"
 msgstr ""
 
 #: ../configuring_customizing.rst:166
-# ca6f6f3fbd374d4995342e479168777a
 msgid "The navigation shows content-objects, which are in Plone's root. Plus all actions in portal_tabs"
 msgstr ""
 
 #: ../configuring_customizing.rst:168
-# 5b41a8265be94a1d8b719d45a9aa32fb
 msgid "Explain & edit index_html"
 msgstr ""
 
 #: ../configuring_customizing.rst:170
-# e24a3e3d9ee34ac78e5c40de67ace773
 msgid "Configuring the navigation itself is done elsewhere: http://localhost:8080/Plone/@@navigation-controlpanel"
 msgstr ""
 
 #: ../configuring_customizing.rst:172
-# 8b6efbe5591b4867a9fef5ee9b805f2a
 msgid "If time explain:"
 msgstr ""
 
 #: ../configuring_customizing.rst:174
-# fe8727d5c4564c048a4f1b420eea6880
 msgid "user > undo (cool!)"
 msgstr ""
 
 #: ../configuring_customizing.rst:175
-# 479b12cf70544a28ad824439574887d5
 msgid "user > login/logout"
 msgstr ""
 
 #: ../configuring_customizing.rst:179
-# 089cf435e35f4f1bbc6ea9ef61976408
 msgid "Skins (portal_skins)"
 msgstr ""
 
 #: ../configuring_customizing.rst:181
-# 3fe7167e941244df831cb7407a11acec
 msgid "In portal_skins we can change certain images, css-files and templates."
 msgstr ""
 
 #: ../configuring_customizing.rst:183
-# f324d858b7e64fe5b6fe1f320d374910
 msgid "portal_skins is deprecated technology"
 msgstr ""
 
 #: ../configuring_customizing.rst:184
-# f9a25ff8ca344412a36f3024d3d443f3
-msgid "We only do some minial changes here."
+msgid "We only do some minimal changes here."
 msgstr ""
 
 #: ../configuring_customizing.rst:188
-# 00ded5b307ed4848a7e70c029bff75c6
 msgid "Plone 5 will get rid of a lot of functionality that still lives in portal_skins."
 msgstr ""
 
 #: ../configuring_customizing.rst:190
-# 2c22443ffd91490fa8df96c3f24631e0
 msgid "We used to do this part of the training with `plone.app.themeeditor <https://pypi.python.org/pypi/plone.app.themeeditor>`_ which has a much nicer UI than the ZMI but also has dependencies that are incompatible with ZopeSkel and is not widely used."
 msgstr ""
 
 #: ../configuring_customizing.rst:194
-# 68af8452495f482889e83c4a0df7e94c
 msgid "Change some css"
 msgstr ""
 
 #: ../configuring_customizing.rst:196
-# 331adfebb294471dab369ebd230fa34e
 msgid "Go to ZMI"
 msgstr ""
 
 #: ../configuring_customizing.rst:197
-# 6c9db700c32b4f3eaa6f2cd491a4aa2f
 msgid "go to portal_skins"
 msgstr ""
 
 #: ../configuring_customizing.rst:198
-# 0a4524c36b0d447bbe7827f2465b001b
 msgid "go to plone_styles"
 msgstr ""
 
 #: ../configuring_customizing.rst:199
-# e9a80ca344644befae922ec2c35e4097
 msgid "go to ``ploneCustom.css``"
 msgstr ""
 
 #: ../configuring_customizing.rst:200
-# 24b484e18a434466a8cf08003bb364c4
 msgid "click ``customize``"
 msgstr ""
 
 #: ../configuring_customizing.rst:202
-# 9e6c9345a447426cbb19696419be08a1
 msgid "Enter the following css:"
 msgstr ""
 
 #: ../configuring_customizing.rst:218
-# c731eb44cecc4e559ac044c7e480b6c9
 msgid "Click 'save' and check results in the a different browser-tab. How did that happen?"
 msgstr ""
 
 #: ../configuring_customizing.rst:220
-# 2a05d7093de84175a69e5cc797a16c65
 msgid "The UI leaves a lot to be desired. In a professional context this is no-go (no version-control, no syntax-highlighting etc. pp.). But everybody uses portal_skins it to make quick fixes to sites that are already online."
 msgstr ""
 
 #: ../configuring_customizing.rst:222
-# 8a84e549ee78418ea04ddd9b6bcb7758
 msgid "Let's add some more css to make our site a little responsive:"
 msgstr ""
 
 #: ../configuring_customizing.rst:251
-# 92c181348f714862b22ce3170a4d9133
 msgid "Change the logo"
 msgstr ""
 
 #: ../configuring_customizing.rst:253
-# 23e7ca66dba348b1b4b4b48531d749c2
 msgid "Let's change the Logo."
 msgstr ""
 
 #: ../configuring_customizing.rst:255
-# c76e93a8ab4944bd86d6486907023a16
-msgid "Download a old ploneconf logo: http://www.sixfeetup.com/blog/2011PloneConfLogo.gif"
+msgid "Download a ploneconf logo: http://www.starzel.de/plone-tutorial/ploneconf-logo-2014/image"
 msgstr ""
 
 #: ../configuring_customizing.rst:256
-# ab66a426c358453cb2a37ef16dd5d288
 msgid "Go to ``portal_skins`` / ``plone_images``"
 msgstr ""
 
 #: ../configuring_customizing.rst:257
-# 780980a4b1c9489280ea4dcf371b1399
 msgid "Click on ``logo.png``, click ``Customize`` and Upload the Logo."
 msgstr ""
 
 #: ../configuring_customizing.rst:261
-# a0facaff74684040b50c0ae5a2e0618c
 msgid "http://docs.plone.org/adapt-and-extend/change-the-logo.html"
 msgstr ""
 
 #: ../configuring_customizing.rst:265
-# 6c865e32fdb142d19a9d5952a987154d
 msgid "portal_view_customizations"
 msgstr ""
 
 #: ../configuring_customizing.rst:268
-# a0ab526fce604019bfb1654fe522be7c
 msgid "Change the footer"
 msgstr ""
 
 #: ../configuring_customizing.rst:270
-# a849480304a8489bb7941524655bc848
 msgid "Go to ``portal_view_customizations``"
 msgstr ""
 
 #: ../configuring_customizing.rst:271
-# f545b9b2da784d6db934ea31a1b86679
 msgid "Search ``plone.footer``, click and customize"
 msgstr ""
 
 #: ../configuring_customizing.rst:272
-# a4815c6cb89749438296c4b0650af365
 msgid "replace the content with the following"
 msgstr ""
 
 #: ../configuring_customizing.rst:288
-# d186a41602554352a62e77a25c4f0e32
 msgid "http://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html"
 msgstr ""
 
 #: ../configuring_customizing.rst:292
-# 4405d5f1dc3c46d4bd3c6d19e892c354
 msgid "CSS-Registry (portal_css)"
 msgstr ""
 
 #: ../configuring_customizing.rst:294
-# fa2336c1160344e68ea4d61bf2b23170
 msgid "go to ZMI > ``portal_css``"
 msgstr ""
 
 #: ../configuring_customizing.rst:295
-# d757f9a6fa9f4429b1cd37889c581306
 msgid "at the bottom there is ``ploneCustom.css``"
 msgstr ""
 
 #: ../configuring_customizing.rst:296
-# 4fc61ffcc9b8402799d3f37fab3b2a4a
 msgid "Disable ``Development mode``: The css-files are merged and have a cache-key."
 msgstr ""
 
 #: ../configuring_customizing.rst:300
-# 20e13221d2be41bb85733fa5c2e3dccf
-msgid "Further tools in the ZMI"
+msgid "The JavaScripts Registry (portal_javascripts) is very similar."
 msgstr ""
 
 #: ../configuring_customizing.rst:302
-# 69942cee2b8d4f71afe24f87fd3dfb8e
-msgid "There are many more noteable items in the ZMI. We'll visit some of them later."
-msgstr ""
-
-#: ../configuring_customizing.rst:304
-# 59f44b3e8b364e988a13cb3d5b537001
-msgid "acl_users"
-msgstr ""
-
-#: ../configuring_customizing.rst:305
-# 4ea1770fab384d4682fc039b80df5c7e
-msgid "error_log"
+msgid "The merging function solves a big problem: we'd like to develop our CSS and JS resources in a granular way, but we'd also like to minimize HTTP requests."
 msgstr ""
 
 #: ../configuring_customizing.rst:306
-# a35c5648f28c4a8f86a580348c469649
-msgid "portal_properties"
+msgid "At the end of a development process, a little rearranging to minimize requests can have a very nice effect. It's often possible to reduce requests to a very small number for anonymous visitors."
 msgstr ""
 
-#: ../configuring_customizing.rst:307
-# 87b93ada76944c06b2d9fbb7d19aa786
-msgid "portal_setup"
-msgstr ""
-
-#: ../configuring_customizing.rst:308
-# d0fa06236829422086db9e64f97cd5d6
-msgid "portal_workflow"
-msgstr ""
-
-#: ../configuring_customizing.rst:309
-# a73c4ef5fe624d3290e842a19f2f2e6c
-msgid "portal_catalog"
+#: ../configuring_customizing.rst:311
+msgid "Further tools in the ZMI"
 msgstr ""
 
 #: ../configuring_customizing.rst:313
-# 811a4b08ad1d437aa9945d171f994c7c
-msgid "Summary"
+msgid "There are many more notable items in the ZMI. We'll visit some of them later."
 msgstr ""
 
 #: ../configuring_customizing.rst:315
-# 30495404590d41188b8dd0b0f5ecbf18
-msgid "You can configure and customize a lot in Plone through the web. The most important options are accessible in the `plone control panel <http://localhost:8080/Plone/@@overview-controlpanel>`_ but even more are hidden away in the `ZMI <http://localhost:8080/Plone/manage>`_. The amount of stuff is overwhelming but you'll get the hang of it through a lot of practice."
+msgid "acl_users"
+msgstr ""
+
+#: ../configuring_customizing.rst:316
+msgid "error_log"
+msgstr ""
+
+#: ../configuring_customizing.rst:317
+msgid "portal_properties"
+msgstr ""
+
+#: ../configuring_customizing.rst:318
+msgid "portal_setup"
+msgstr ""
+
+#: ../configuring_customizing.rst:319
+msgid "portal_workflow"
+msgstr ""
+
+#: ../configuring_customizing.rst:320
+msgid "portal_catalog"
+msgstr ""
+
+#: ../configuring_customizing.rst:324
+msgid "Summary"
+msgstr ""
+
+#: ../configuring_customizing.rst:326
+msgid "You can configure and customize a lot in Plone through the web. The most important options are accessible in the `plone control panel <http://localhost:8080/Plone/@@overview-controlpanel>`_ but even more are hidden away in the `ZMI <http://localhost:8080/Plone/manage>`_. The amount and presentation of information is overwhelming but you'll get the hang of it through a lot of practice."
 msgstr ""
 

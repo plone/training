@@ -4,12 +4,14 @@
 # 
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
+# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-13 00:40-0430\n"
-"PO-Revision-Date: 2014-07-13 05:23+0000\n"
+"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"PO-Revision-Date: 2015-02-06 23:30+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -138,12 +140,12 @@ msgstr ""
 # a6f257bc435f4ddeb56e853396684265
 #: ../changelog.rst:69
 msgid "add more chapters:"
-msgstr "Agregue mas capitulos:"
+msgstr "Agregue mas capítulos:"
 
 # 84ca0065bcac4201bfa17f42c984e70d
 #: ../changelog.rst:71
 msgid "Dexterity Types II: Growing up"
-msgstr "Tipos Dexterity II: Creciendo"
+msgstr "Tipos Dexterity - II: Creciendo"
 
 # f91f2c99c8b044eb946c00fffd30b50b
 #: ../changelog.rst:72
@@ -173,7 +175,7 @@ msgstr "Usando comportamientos de terceros"
 # 38a7ca22c9324426a432cf100a7154ab
 #: ../changelog.rst:77
 msgid "Dexterity Types III: Python"
-msgstr "Tipos dexterity III: python"
+msgstr "Tipos Dexterity - III: Python"
 
 # 77de04895124407e80b0b1a48751d845
 #: ../changelog.rst:78
@@ -183,7 +185,7 @@ msgstr "..."
 # 7cb38db999d64b1fa62a2e9bfe60fe82
 #: ../changelog.rst:79
 msgid "[pbauer, do3cc]"
-msgstr ""
+msgstr "[pbauer, do3cc]"
 
 # 249609335804477789a0335ae10cf9cf
 #: ../changelog.rst:83

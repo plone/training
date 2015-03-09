@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,227 +17,202 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../extending.rst:2
-# 80ef7b0e70c74077b6b181baf4898c5c
 msgid "Extending Plone"
 msgstr ""
 
 #: ../extending.rst:4
-# bca7605b1af84e25808d51667b72b387
 msgid "Zope is extensible and so is Plone."
 msgstr ""
 
 #: ../extending.rst:8
-# aac95a5df1774007a71c926e9c611359
-msgid "If you want to install an Add-on, you are going to install an Egg. Eggs consist of Python files together with other needed files like page templates and the like and a bit of Metadata, bundled to a single archive file."
+msgid "If you want to install an add-on, you are going to install an Egg — a form of Python package. Eggs consist of Python files together with other needed files like page templates and the like and a bit of Metadata, bundled to a single archive file."
 msgstr ""
 
 #: ../extending.rst:10
-# dbc9ff0819b44b23bec66393647acd6b
+msgid "There is a huge variety of Plone-compatible packages available. Most are listed in the `Python Package Index <https://pypi.python.org/pypi>`_. A more browseable listing is available at the `Plone.org add-on listing <https://plone.org/products/>`_. The source repository for many public Plone add-ons is `the GitHub Collective <https://github.com/collective>`_. You may also create your own packages or maintain custom repositories."
+msgstr ""
+
+#: ../extending.rst:12
 msgid "Eggs are younger than Zope. Zope needed something like eggs before there were eggs, and the Zope developers wrote their own system. Old, outdated Plone systems contain a lot of code that is not bundled in an egg. Older code did not have metadata to register things, instead you needed a special setup method. We don't need this method but you might see it in other code. It is usually used to register Archetypes code. Archetypes is the old content type system. We use Dexterity."
 msgstr ""
 
-#: ../extending.rst:14
-# e543736cecfc46c8b9605b6201fbf113
+#: ../extending.rst:16
 msgid "Extension technologies"
 msgstr ""
 
-#: ../extending.rst:16
-# b0ea524f4ca84435a592956215dc500a
+#: ../extending.rst:18
 msgid "How do you extend Plone?"
 msgstr ""
 
-#: ../extending.rst:18
-# afdf11f323254fe89f10bce4a009519d
+#: ../extending.rst:20
 msgid "This depends on what type of extension you want to create."
 msgstr ""
 
-#: ../extending.rst:23
-# 4504fa92856e4623adb097a7dc418a91
+#: ../extending.rst:25
 msgid "You can create extensions with new types of objects to add to your Plone site. Usually these are content types."
 msgstr ""
 
-#: ../extending.rst:24
-# 6cab12506c8b454c8d33a92a67841269
+#: ../extending.rst:26
 msgid "You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures searchable by adding a converter from jpg to text."
 msgstr ""
 
-#: ../extending.rst:28
-# e93ed3cda29d491aa0bf168ab09db66d
+#: ../extending.rst:30
 msgid "skin_folders"
 msgstr ""
 
-#: ../extending.rst:38
-# b06a4018614f4540905613584bd0bb48
-msgid "Do you remember Acquisition? The Skin Folders extends the concepts of Acquistion. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder."
-msgstr ""
-
 #: ../extending.rst:40
-# a1994ba1d11e40fc8415a97d5d4e08ce
-msgid "The Plone logo is in a skin folder."
+msgid "Do you remember Acquisition? The Skin Folders extends the concepts of Acquisition. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder."
 msgstr ""
 
 #: ../extending.rst:42
-# 089ad3dc37954d6f972f4a9e594ae2bb
-msgid "By default, your site has a ``custom`` folder, and items are first searched for in that folder."
+msgid "The Plone logo is in a skin folder."
 msgstr ""
 
 #: ../extending.rst:44
-# 2b3b28429c41406b9794e025087d1bed
+msgid "By default, your site has a ``custom`` folder, and items are first searched for in that folder."
+msgstr ""
+
+#: ../extending.rst:46
 msgid "To customize the logo, you copy it into the ``custom`` folder, and change it there. This way you can change templates, CSS styles, images and behavior, because a container may contain python scripts."
 msgstr ""
 
 #: ../extending.rst:48
-# 00163193cd2d4c85affc07a127dd5791
+msgid "Skin-folder style customization may be accomplished TTW via the ZMI, or with add-on packages. Many older-style packages create their own skin folder and add it to the skin layer for Plone when installed."
+msgstr ""
+
+#: ../extending.rst:52
 msgid "GenericSetup"
 msgstr ""
 
-#: ../extending.rst:58
-# e2d5ddea20c24f8696587216897dd34b
+#: ../extending.rst:62
 msgid "The next thing is *GenericSetup*. As the name clearly implies, *GenericSetup* is part of CMF."
 msgstr ""
 
-#: ../extending.rst:60
-# bb95d3bba99d49ed9a4f893f4ec8cde1
+#: ../extending.rst:64
 msgid "GenericSetup is tough to master, I am afraid."
 msgstr ""
 
-#: ../extending.rst:62
-# 4c93c460656c459eb98fbf2cb1a85ebe
+#: ../extending.rst:66
 msgid "*GenericSetup* lets you define persistent configuration in XML files. *GenericSetup* parses the XML files and updates the persistent configuration according to the configuration. This is a step you have to run on your own!"
 msgstr ""
 
-#: ../extending.rst:64
-# 5621d5878f254adeaca37ffaf10dbce1
+#: ../extending.rst:68
 msgid "You will see many objects in Zope or the ZMI that you can customize through the web. If they are well behaving, they can export their configuration via *GenericSetup* and import it again."
 msgstr ""
 
-#: ../extending.rst:66
-# 7ca445bcc4c44ef39455bb6ebb9d631f
-msgid "Typically you use *GenericSetup* to change workflows or add new content type definitions."
+#: ../extending.rst:70
+msgid "Typically you use *GenericSetup* directly to change workflows or add new content type definitions."
 msgstr ""
 
-#: ../extending.rst:70
-# daa425c915314d2186b5c6ce695edb1b
+#: ../extending.rst:72
+msgid "GenericSetup profiles may also be built into Python packages. Every package that is listed on the add-on package list inside a Plone installation has a GS profile that details how it fits into Plone. Packages that are part of Plone itself may have GS profiles, but are excluded from the active/inactive listing."
+msgstr ""
+
+#: ../extending.rst:76
 msgid "Component Architecture"
 msgstr ""
 
-#: ../extending.rst:81
-# fb6a4f87d715409c94ad9f6e15ad2f66
+#: ../extending.rst:87
 msgid "The last way to extend Plone is via *Components*."
 msgstr ""
 
-#: ../extending.rst:83
-# 0d874645d3db46c38497f22400642624
+#: ../extending.rst:89
 msgid "A bit of history is in order."
 msgstr ""
 
-#: ../extending.rst:85
-# 50ea21fb5dc84ce1b0b4ea1e6ac45961
+#: ../extending.rst:91
 msgid "When Zope started, object-oriented Design was **the** silver bullet."
 msgstr ""
 
-#: ../extending.rst:87
-# 60b056328c56433d9a42c9d6a27fdb71
-msgid "Zope objects have more than 10 base classes."
-msgstr ""
-
-#: ../extending.rst:89
-# 86537119736f45ed86c5acaeee4911ae
-msgid "After a while, XML and Components became the next silver bullet (Does anybody remember J2EE?)."
-msgstr ""
-
-#: ../extending.rst:91
-# 3398131c4cdd48eb92b06a4589d30e00
-msgid "Based on their experiences with Zope in the past, they thought that a component system configured via xml might be the way to go to keep the code more maintainable"
-msgstr ""
-
 #: ../extending.rst:93
-# d25ef5323262448991ce422875b24208
-msgid "As the new concepts were radically different from the old Zope concepts, the Zope developers renamed the new project to Zope 3. But it did not gain traction, the community somehow renamed it to Bluebream and this died off."
+msgid "Object-oriented design is good at modeling inheritance, but breaks down when an object has multiple aspects that are part of multiple taxonomies."
 msgstr ""
 
 #: ../extending.rst:95
-# ac43fb31209d4fb9a452d2fad9e23018
-msgid "But the component architecture itself is quite successful and the Zope developer extracted it into the Zope Toolkit. The Zope toolkit is part of Zope, and Plone developers use it extensively."
+msgid "Some object-oriented programming languages like Python handle this through multiple inheritance. But it's not a good way to do it. Zope objects have more than 10 base classes. Too many namespaces makes code that's hard to maintain. Where did that method/attribute come from?"
 msgstr ""
 
 #: ../extending.rst:97
-# ea3662d6bbc4437cbd9f9057a3f31427
-msgid "This is what you want to use."
+msgid "After a while, XML and Components became the next silver bullet (Does anybody remember J2EE?)."
+msgstr ""
+
+#: ../extending.rst:99
+msgid "Based on their experiences with Zope in the past, they thought that a component system configured via XML might be the way to go to keep the code more maintainable."
 msgstr ""
 
 #: ../extending.rst:101
-# 227889a697054851ac69cb46f9e1442d
-msgid "What are components, what is ZCML"
+msgid "As the new concepts were radically different from the old Zope concepts, the Zope developers renamed the new project to Zope 3. But it did not gain traction, the community somehow renamed it to Bluebream and this died off."
+msgstr ""
+
+#: ../extending.rst:103
+msgid "But the component architecture itself is quite successful and the Zope developer extracted it into the Zope Toolkit. The Zope toolkit is part of Zope, and Plone developers use it extensively."
 msgstr ""
 
 #: ../extending.rst:105
-# 49b58c2049884db6801a406e4f92d034
-msgid "What is the absolute simplest way to extend functionality?"
-msgstr ""
-
-#: ../extending.rst:107
-# d68127df83d54c22929822dccc90c95e
-msgid "Monkey Patching."
+msgid "This is what you want to use."
 msgstr ""
 
 #: ../extending.rst:109
-# a25f058137fe40ebbe7d3e131203484e
-msgid "It means that I change code in other files while my file gets loaded."
-msgstr ""
-
-#: ../extending.rst:111
-# ab3f8411d023465291e86b0d569b22ee
-msgid "If I would want to have an extensible registry of icons for different content types, I could create a global dictionary, and whoever implements a new icon for a different content type, would add an entry to my dictionary during import time."
+msgid "What are components, what is ZCML"
 msgstr ""
 
 #: ../extending.rst:113
-# a695812c83604836a2f9a40f821467c8
-msgid "This does not scale. Multiple plugins might overwrite each other, you would explain people that they have to reorder the imports, and then, suddenly, you will to import feature A before B, B before C and C before A, or else you application won't work."
+msgid "What is the absolute simplest way to extend functionality?"
 msgstr ""
 
 #: ../extending.rst:115
-# de85b807b3b344beba13efafb942cf9a
-msgid "The Zope Component Architecture with its ZCML configuration is the answer for your problems."
+msgid "Monkey Patching."
 msgstr ""
 
 #: ../extending.rst:117
-# de1fd5ca27eb4e47832622e4b2d1b5b0
-msgid "With ZCML you declare utilities, adapters and browser views in ZCML, which is a XML dialect."
+msgid "It means that you change code in other files while my file gets loaded."
 msgstr ""
 
 #: ../extending.rst:119
-# 620f74d5ea8e4092be6f5c01430d3489
-msgid "During startup, Zope reads all these ZCML statements, validates that there are not two declarations trying to register the same components and only then registers everything."
+msgid "If you want to have an extensible registry of icons for different content types, you could create a global dictionary, and whoever implements a new icon for a different content type, would add an entry to my dictionary during import time."
 msgstr ""
 
 #: ../extending.rst:121
-# d55c5dbdbb2342e59a379a3dafbf9465
-msgid "This is a good thing. ZCML is by the way only *one* way to declare your configuration."
+msgid "This approach, like subclassing via multiple inheritance, does not scale. Multiple plugins might overwrite each other, you would explain people that they have to reorder the imports, and then, suddenly, you will to import feature A before B, B before C and C before A, or else you application won't work."
 msgstr ""
 
 #: ../extending.rst:123
-# 9d1f2d91c76f45c0aafebc0ee5e74877
-msgid "Grok provides another way, where some python magic allows you to decorate your code directly with a decorator to make it an adapter. You can use both ZCML and grok together."
+msgid "The Zope Component Architecture with its ZCML configuration is an answer to this problems."
 msgstr ""
 
 #: ../extending.rst:125
-# 15788459b5dc41feac32b24242802061
-msgid "Please be aware that not everybody loves Grok. Some parts of the Plone community think that there may only be one configuration language, others are against adding the relative big dependency of Grok to Plone. One real problem is the fact that you cannot customize components declared with grok with jbot. In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to get maximum acceptance."
+msgid "With ZCML you declare utilities, adapters and browser views in ZCML, which is a XML dialect. ZCML stands for Zope Component Markup Language."
 msgstr ""
 
 #: ../extending.rst:127
-# 5d1c3d6af85a47918386274cafd65912
-msgid "Some people don't like ZCML and avoid Zope because of it using XML."
+msgid "Components are differentiated from one another by the interfaces (formal definitions of functionality) that they require or provide."
 msgstr ""
 
 #: ../extending.rst:129
-# 0052b81568a044e2bf0e307c7041aaef
-msgid "Personally, I just find it cumbersome but even for me as a developer it offers a nice advantage."
+msgid "During startup, Zope reads all these ZCML statements, validates that there are not two declarations trying to register the same components and only then registers everything. All components are registered by interfaces required and provided. Components with the same interfaces may optionally also be named."
 msgstr ""
 
 #: ../extending.rst:131
-# ab0c41460c5d4511b1fcb15b67e122d5
-msgid "Thanks to ZCML, I hardly ever have a hard time to find out what and where extensions or customizations. For me, ZCML files are like a phone book."
+msgid "This is a good thing. ZCML is, by the way, only *one* way to declare your configuration."
+msgstr ""
+
+#: ../extending.rst:133
+msgid "Grok provides another way, where some Python magic allows you to use decorators to register Python classes and functions as components. You can use ZCML and Grok together if you wish."
+msgstr ""
+
+#: ../extending.rst:135
+msgid "Some like Grok because it allows you to do nearly everything in your Python source files. No additional XML wiring required. If you're XML-allergic, Grok is your ticket to Python nirvana."
+msgstr ""
+
+#: ../extending.rst:137
+msgid "Not everybody loves Grok. Some parts of the Plone community think that there should only be one configuration language, others are against adding the relative big dependency of Grok to Plone. One real problem is the fact that you cannot customize components declared with grok with jbot (which we'll discuss later). Grok is not allowed in the Plone core for these reasons."
+msgstr ""
+
+#: ../extending.rst:139
+msgid "The choice to Grok or not to Grok is yours to make. In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to get maximum acceptance."
+msgstr ""
+
+#: ../extending.rst:141
+msgid "Personally, I just find it cumbersome but even for me as a developer it offers a nice advantage: thanks to ZCML, I hardly ever have a hard time to find out what and where extensions or customizations. For me, ZCML files are like a phone book."
 msgstr ""
 

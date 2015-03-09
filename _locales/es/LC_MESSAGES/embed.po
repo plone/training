@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-13 00:40-0430\n"
-"PO-Revision-Date: 2014-07-13 05:23+0000\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"PO-Revision-Date: 2015-03-06 14:36+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -17,34 +17,28 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# c1c32ae6b20e47a186e9fc7f01ee3ece
 #: ../embed.rst:2
 msgid "Using starzel.votable_behavior in ploneconf.site"
 msgstr ""
 
-# 499cd3396cbd429b8ea8b34937cbef84
 #: ../embed.rst:6
 msgid "We want to use the votable behavior, so that our reviewers can vote."
 msgstr ""
 
-# 7ded8a6ea7c14a13b70de2e3c9c1cb0f
 #: ../embed.rst:7
 msgid ""
 "To show how to use events, we are going to auto publish talks that have "
 "reached a certain rating."
 msgstr ""
 
-# 8b0cc33248cd4ba18dad8564fa774c41
 #: ../embed.rst:8
 msgid "We are not going to let everybody vote everything."
 msgstr ""
 
-# aeea7de1ea6449e7b608f7209f87cf4a
 #: ../embed.rst:10
 msgid "First, we must add our package as a dependency to ploneconf.site."
 msgstr ""
 
-# d84ab78f5bb746f286b70bf543315f31
 #: ../embed.rst:14
 msgid ""
 "We do this in two locations. The egg description :file:`setup.py` needs "
@@ -52,30 +46,24 @@ msgid ""
 "be available."
 msgstr ""
 
-# 0a94fb3e8b1d46eeb6c7cd5b5f958349
 #: ../embed.rst:17
 msgid ""
 "The persistent configuration needs to be installed when we install our site."
 " This is configured in GenericSetup."
 msgstr ""
 
-# 338be21346c941e485edec5f4db47beb
 #: ../embed.rst:19
 msgid "We start with by editing :file:`setup.py`"
 msgstr ""
 
-# a447a353f83c4e1eaa14d3cba78f9dfd
 #: ../embed.rst:37
 msgid "Next up we modify :file:`profiles/default/metadata.xml`"
 msgstr ""
 
-# 4839c1688ffd4472a717ba9a4ecb3b87
-# bf1dcb180cc144feb6fa26963bed924f
 #: ../embed.rst:52 ../embed.rst:76
 msgid "... only:: not presentation"
 msgstr ""
 
-# fa5233a8d3094871af3e82416fafd02b
 #: ../embed.rst:54
 msgid ""
 "What a weird name. profile- is a prefix you will always need nowadays. Then "
@@ -85,7 +73,6 @@ msgid ""
 "GenericSetup Profile name."
 msgstr ""
 
-# c71efb70d50643dda1aba60186571bde
 #: ../embed.rst:56
 msgid ""
 "Now the package is there, but nothing is votable. That is because no content"
@@ -94,23 +81,20 @@ msgid ""
 "it by hand now."
 msgstr ""
 
-# 7b3edb0317c94870abf0a8f1efc887b9
 #: ../embed.rst:58
 msgid ""
 "We have to add the behavior to talks, we do this in "
 ":file:`profiles/default/types/talk.xml`"
 msgstr ""
 
-# 0b3a3894de47459f9f82c0b8f19b5b6e
 #: ../embed.rst:62
 msgid ""
 "Managing dependencies in metadata.xml is good practice. We can't rely on "
 "remembering what we'd have to do by hand. For example, do you remember that "
 "we had to add to select ``Dexterity-based Plone Default Types`` when "
-"creating a new Plone-site?"
+"creating a new Plone site?"
 msgstr ""
 
-# 53ed465f6f704f6d83907f96fcea125f
 #: ../embed.rst:64
 msgid ""
 "We should instead also add ``<dependency>profile-plone.app.contenttypes"
@@ -120,12 +104,10 @@ msgid ""
 "#installation-as-a-dependency-from-another-product>`_ recommends."
 msgstr ""
 
-# d8ab12ecf53b4e77af225bd76697e4de
 #: ../embed.rst:78
 msgid "Now we can reinstall our Plone site."
 msgstr ""
 
-# 61b147d6f5904568883f8845f7c7edb3
 #: ../embed.rst:80
 msgid ""
 "Everybody can vote now on talks. That is not what we wanted. Actually, we "
@@ -135,7 +117,6 @@ msgid ""
 "won't interfere with other packages."
 msgstr ""
 
-# 2092fc72c21b45da8f2d022ae74a7caf
 #: ../embed.rst:83
 msgid ""
 "First, we have to tell the workflow that he will be managing more "
@@ -143,7 +124,6 @@ msgid ""
 "the two new permissions now."
 msgstr ""
 
-# 515c1edd22574249a2e907741d1ffded
 #: ../embed.rst:85
 msgid ""
 "That is a very verbose configuration, maybe you want to do it in the web "
@@ -151,19 +131,16 @@ msgid ""
 "simple mistake in both ways. I will just present xml way here."
 msgstr ""
 
-# 8add345a6fa14b46b2738f324d5541e2
 #: ../embed.rst:87
 msgid ""
 "The config for the Workflow is in "
 ":file:`profiles/default/workfows/talks_workflow.xml`"
 msgstr ""
 
-# 4c63fee01c274e52b1dafb9db01516e6
 #: ../embed.rst:145
 msgid "We have to reinstall our product again."
 msgstr ""
 
-# 1812d3381cdf43ae9d14dfbdb5e58c24
 #: ../embed.rst:147
 msgid ""
 "But this time, this is not enough. Permissions get updated on workflow "
@@ -171,57 +148,48 @@ msgid ""
 " permissions as ever."
 msgstr ""
 
-# 91b6b58ab6654d6890c080fdc8fe5ccb
 #: ../embed.rst:149
 msgid ""
 "Luckily, there is a button for that in the ZMI Workflow view "
 ":guilabel:`Update security settings`."
 msgstr ""
 
-# 061535749b1848c2850f08cd34b7a81f
 #: ../embed.rst:151
 msgid ""
 "After clicking on this, only managers and Reviewers can see the Voting "
 "functionality."
 msgstr ""
 
-# 184c56c29680468cb928c02334ae6e18
 #: ../embed.rst:153
 msgid "Lastly, we add our silly function to autoapprove talks."
 msgstr ""
 
-# 27a43ff4252a400686a3bf7dc8b078a9
 #: ../embed.rst:155
 msgid ""
 "You quickly end up writing many event handlers, so we put everything into a "
 "directory for eventhandlers."
 msgstr ""
 
-# a5d17b99ff3944bda4b71fe347dd176c
 #: ../embed.rst:157
 msgid "For the events we need a :file:`events` directory."
 msgstr ""
 
-# de21d58bccbc43a383f23f51eceb4384
 #: ../embed.rst:159
 msgid ""
 "Create the :file:`events` directory and add an empty "
 ":file:`events/__init__.py` file."
 msgstr ""
 
-# 68964965bbae4f34ae54469f133244ee
 #: ../embed.rst:161
 msgid "Next, register the events directory in :file:`configure.zcml`"
 msgstr ""
 
-# 4766861381f244199d5fc6d22f8e703e
 #: ../embed.rst:168
 msgid ""
 "then, we write the ZCML configuration for the events into "
 ":file:`events/configure.zcml`"
 msgstr ""
 
-# 3e0e983798f145258d182d4364bf147d
 #: ../embed.rst:187
 msgid ""
 "This looks like a MultiAdapter. We want to get notified, when an IVotable "
@@ -229,12 +197,10 @@ msgid ""
 "event itself."
 msgstr ""
 
-# 82d4546711ff4a429a3954e20f65f9ed
 #: ../embed.rst:189
 msgid "And finally, our event handler in :file:`events/votable.py`"
 msgstr ""
 
-# f0b76f36ddb2484ea4eb27f8d2ce8283
 #: ../embed.rst:207
 msgid ""
 "We are using a lot of plone api here. Plone API makes the code a breeze. "
@@ -244,7 +210,6 @@ msgid ""
 "transition to move the state to the target state."
 msgstr ""
 
-# 2e9bd72ac08b42f5992d7e552c02c756
 #: ../embed.rst:211
 msgid "There is nothing special going on."
 msgstr ""

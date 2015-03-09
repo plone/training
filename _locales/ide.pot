@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,142 +17,114 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../ide.rst:2
-# 9663c792f76d49a49943f6952ebbd313
 msgid "IDE's and Editors"
 msgstr ""
 
 #: ../ide.rst:4
-# e668f9c972df423bac4ad5d1e1d04368
 msgid "Plone consists of more than 20.000 files! You need a tool to manage that. No development environment is complete without a good editor."
 msgstr ""
 
 #: ../ide.rst:6
-# 92a6fa7b86e4496eb1422417eadc9491
-msgid "People pick editors themselves. use whatever you are comfortable and productive with. These are the most used editors in the Plone community:"
+msgid "People pick editors themselves. Use whatever you are comfortable and productive with. These are the most used editors in the Plone community:"
 msgstr ""
 
 #: ../ide.rst:8
-# 32bcec27a5c94378810185d4598eab58
 msgid "`Sublime <http://www.sublimetext.com/>`_"
 msgstr ""
 
 #: ../ide.rst:9
-# bff8e093ed514b9ba27c576daeeabc6a
 msgid "`PyCharm <http://www.jetbrains.com/pycharm/>`_"
 msgstr ""
 
 #: ../ide.rst:10
-# 833cab6305fe4aeebdfb4ff30cac1425
 msgid "`Wing IDE <http://wingide.com/>`_"
 msgstr ""
 
 #: ../ide.rst:11
-# 20796fc611e74c11ae9b046d02c40913
 msgid "`PyDev <http://pydev.org/>`_ for `Eclipse <http://eclipse.org/>`_"
 msgstr ""
 
 #: ../ide.rst:12
-# 112647a2ef6b4943ab0c5c0ce440223c
 msgid "`Aptana Studio <http://aptana.com/products/studio3/>`_"
 msgstr ""
 
 #: ../ide.rst:13
-# cd111fd784dc4af2973161ceb724a3aa
 msgid "vim"
 msgstr ""
 
 #: ../ide.rst:14
-# e69f8707bbb94c4687f26249ae5ae9a2
 msgid "emacs"
 msgstr ""
 
 #: ../ide.rst:15
-# 45a84aaf7dda4743b639f250804e9cfa
 msgid "`Textmate <http://macromates.com/>`_"
 msgstr ""
 
 #: ../ide.rst:17
-# c1ab8555de5a4f9b94ad19dd9978c95a
 msgid "Some features that most editors have in one form or another are essential when developing with Plone."
 msgstr ""
 
 #: ../ide.rst:19
-# 373dbbc81321448397cfa108ca74f550
 msgid "**Find in project** (SublimeText 3: ``cmd + shift + f``)"
 msgstr ""
 
 #: ../ide.rst:20
-# 3616f8393f694590b9fa5ca74fe2b407
 msgid "**Find files in Project** (SublimeText 3: ``cmd + t``)"
 msgstr ""
 
 #: ../ide.rst:21
-# 121a3b79cbe34d709f555fa3893483dc
 msgid "**Find methods and classes in Project** (SublimeText 3: ``cmd + shift + r``)"
 msgstr ""
 
 #: ../ide.rst:22
-# fcfdbbbb1d454ccf84ed22c402a4a7d9
 msgid "**Goto Definition** (SublimeText3 with codeintel: ``alt + click``)"
 msgstr ""
 
 #: ../ide.rst:23
-# 14d5bc16197049f3bf0dc659cdd57a45
 msgid "**Powerful search & replace**"
 msgstr ""
 
 #: ../ide.rst:25
-# 97e93b745f754ddc8282f93f17925513
 msgid "The capability of performing a *full text search* through the complete Plone code is invaluable. Thanks to omelette, an SSD and plenty of RAM you can search through the complete Plone-code in 3 seconds."
 msgstr ""
 
 #: ../ide.rst:29
-# a10b9c7e890a435d9be477a835cac39c
 msgid "Some Editors/IDEs have to be extend to be fully featured. Here are some packages we recommend when using Sublime Text 3:"
 msgstr ""
 
 #: ../ide.rst:31
-# b047a8df244c4fc986ee929a840b61b7
 msgid "SublimeCodeIntel (Goto Definition)"
 msgstr ""
 
 #: ../ide.rst:32
-# 1b1ee880e2424ab49be56ef60ded0104
 msgid "BracketHighlighter"
 msgstr ""
 
 #: ../ide.rst:33
-# ed1fbe7122894c7ca3437b67f3032c84
 msgid "GitGutter"
 msgstr ""
 
 #: ../ide.rst:34
-# f0adbf7038e04d87a14860fcb7d73b3c
 msgid "FileDiffs"
 msgstr ""
 
 #: ../ide.rst:35
-# 919c81f6c7034b49afd34a2387dd4dee
 msgid "SublimeLinter with SublimeLinter-flake8 ..."
 msgstr ""
 
 #: ../ide.rst:36
-# d6934d17053d4bab89b9f18ba56e06e4
 msgid "INI (syntax for ini-Files)"
 msgstr ""
 
 #: ../ide.rst:37
-# 5b506b6f36004e19893472123115ffe6
 msgid "SideBarEnhancements"
 msgstr ""
 
 #: ../ide.rst:38
-# 54f06f905a724b26bdea0427a486dfc5
 msgid "MacTerminal"
 msgstr ""
 
 #: ../ide.rst:39
-# e9a9e311acb24acfb207a343c087430a
 msgid "SyncedSideBar"
 msgstr ""
 
