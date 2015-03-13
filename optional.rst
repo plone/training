@@ -21,9 +21,9 @@ Optional
 * Upgrade-Steps
 * Migrations
 * Asynchronous processing
-* Talking with external api’s
+* Talking with external API’s
 * Mockup
-* cutomizing barcelonetta
+* customizing barceloneta theme
 * plone.app.widgets
 * :doc:`deployment_code`
 * Deployment
