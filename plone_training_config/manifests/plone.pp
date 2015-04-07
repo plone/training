@@ -57,7 +57,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # Create virtualenv
-    exec {'virtualenv --no-site-packages py27':
+    exec {'virtualenv --no-setuptools --no-site-packages py27':
         alias => "virtualenv",
         creates => '/home/vagrant/py27',
         user => 'vagrant',
