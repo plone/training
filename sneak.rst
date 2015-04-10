@@ -39,7 +39,7 @@ This will:
 Telling Plone about ploneconf.site
 ----------------------------------
 
-If you did not yet do this (it is covered in chapter :ref:`<eggs1-label>`) you will have to
+If you did not yet do this (it is covered in chapter :ref:`eggs1-label`) you will have to
 modify ``buildout.cfg`` to have Plone expect the egg ``ploneconf.site`` to be in ``src``.
 
 .. code-block:: cfg

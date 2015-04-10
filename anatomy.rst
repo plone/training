@@ -55,8 +55,8 @@ Zope2
 
     .. seealso::
 
-        http://www.zope.org/the-world-of-zope
-        http://docs.zope.org/zope2/zope2book/
+       * http://www.zope.org/the-world-of-zope
+       * http://docs.zope.org/zope2/zope2book/
 
 
 .. _anatomy-CMF-label:
@@ -99,7 +99,7 @@ Zope Toolkit / Zope3
 
     .. seealso::
 
-        http://plone.org/documentation/faq/zope-3-and-plone
+       * http://plone.org/documentation/faq/zope-3-and-plone
 
 
 .. _anatomy-zca-label:
@@ -125,3 +125,7 @@ Pyramid
     Apart from the fact that Pyramid was not forced to support all legacy functionality, which can make things more complicated, the original developer had a very different stance on how software must be developed. While both Zope and Pyramid have good test coverage, Pyramid has good documentation; something that was very neglected in Zope, and at times in Plone too.
 
     Whether the component architecture is better in Pyramid or not we don't dare to say, but we like it more. But maybe it's just because it was documented.
+
+    .. seealso::
+
+       * http://docs.pylonsproject.org/projects/pyramid/en/latest/index.html
