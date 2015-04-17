@@ -57,7 +57,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # Create virtualenv
-    exec {'virtualenv --no-setuptools --no-site-packages py27':
+    exec {'virtualenv py27':
         alias => "virtualenv",
         creates => '/home/vagrant/py27',
         user => 'vagrant',
@@ -109,7 +109,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     # }
 
     # bootstrap training buildout
-    exec {'/home/vagrant/py27/bin/pip install -U setuptools==6.1':
+    exec {'/home/vagrant/py27/bin/pip install -U setuptools==12.2':
         alias => "install_setuptools",
         user => 'vagrant',
         cwd => '/vagrant/buildout',
