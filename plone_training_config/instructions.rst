@@ -5,11 +5,11 @@ Installing Plone for the Training
 
 .. warning::
 
-    Since Plone 5 is not yet in beta we are using the current state of Plone 5 as it is being developed. To do so our buildout will extend from some files form the `Plone 5 Coredev <https://github.com/plone/buildout.coredev/tree/5.0>`_ and automatically checkout all packages that are currently under development (currently about 80).
+    Since Plone 5 is not yet released we are using the current state of Plone 5 as it is being developed. To do so our buildout will extend from the `Plone 5 Coredev Buildout <https://github.com/plone/buildout.coredev/tree/5.0>`_ and automatically checkout all packages that are currently under development (currently about 80).
 
     Because of this running buildout will take much more time than with a released version of Plone 5.
 
-Keep in mind that you need a fast internet-connection during installation since you'll have to download a lot of data!
+Keep in mind that you need a fast internet connection during installation since you'll have to download a lot of data!
 
 
 .. _instructions-no-vagrant-label:
@@ -24,8 +24,8 @@ Installing Plone without vagrant
 If you **are** experienced with running Plone on your own laptop we encourage you to do so because you will have certain benefits:
 
 * You can use the editor you are used to.
-* You can use omelette to have all the code of Plone at your fingertips.
-* You do not have to switch between different operating-system during the training.
+* You can use *omelette* to have all the code of Plone at your fingertips.
+* You do not have to switch between different operating systems during the training.
 
 If you feel comfortable please work on your own machine with your own Python but ** please ** make sure that you have a system that will work since we don't want you to lose valuable time.
 
@@ -48,13 +48,13 @@ Now you can run the buildout for the first time:
     $ ./py27/bin/python bootstrap.py
     $ ./bin/buildout
 
-This will take some time and produce a lot of output because it downloads and configures Plone. Once it is done you can start you instance with
+This will take some time and produce a lot of output because it downloads and configures Plone. Once it is done you can start your instance with
 
 .. code-block:: bash
 
     $ ./bin/instance fg
 
-If the output should be simliar to::
+The output should be simliar to::
 
     2015-02-27 17:20:42 INFO ZServer HTTP server started at Fri Feb 27 17:20:42 2015
             Hostname: 0.0.0.0
@@ -68,7 +68,7 @@ It the output says ``INFO Zope Ready to handle requests`` then you are up and ru
 
 .. warning::
 
-    If there is an error-message you should either try to fix it or use vagrant and continue in this chapter.
+    If there is an error message you should either try to fix it or use vagrant and continue in this chapter.
 
 
 .. _instructions-vagrant-label:
@@ -76,7 +76,7 @@ It the output says ``INFO Zope Ready to handle requests`` then you are up and ru
 Installing Plone with vagrant
 --------------------------------
 
-To not waste too much time with installing and debugging the differences between systems we use a virtual machine (Ubuntu 14.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development-environment to everyone.
+In order not to waste too much time with installing and debugging the differences between systems we use a virtual machine (Ubuntu 14.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development environment to everyone.
 
 `Vagrant <http://www.vagrantup.com>`_ is a tool for building complete development environments. We use it together with Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to create and manage a virtual environment.
 
@@ -97,18 +97,18 @@ Get the latest version from http://www.vagrantup.com/downloads for your operatin
 
 .. note::
 
-    In Windows there is a bug in the recent version of Vagrant. Here are the instruction how to work around the warning ``Vagrant could not detect VirtualBox! Make sure VirtualBox is properly installed``.
+    In Windows there is a bug in the recent version of Vagrant. Here are the instructions for how to work around the warning ``Vagrant could not detect VirtualBox! Make sure VirtualBox is properly installed``.
 
 Now your system has a command ``vagrant`` that you can run in the terminal.
 
-First create a directory where you want to do the training in.
+First create a directory in which you want to do the training.
 
 .. code-block:: bash
 
     $ mkdir training
     $ cd training
 
-Setup Vagrant to automatically install the current guest-additions. You can choose to skip this step if you encounter any problems with it.
+Setup Vagrant to automatically install the current guest additions. You can choose to skip this step if you encounter any problems with it.
 
 .. code-block:: bash
 
@@ -121,7 +121,7 @@ Now download https://github.com/plone/training/raw/plone5/plone_training_config.
     $ wget https://github.com/plone/training/raw/plone5/plone_training_config.zip
     $ unzip plone_training_config.zip
 
-The training-directory should now hold the file ``Vagrantfile`` and the directory ``manifests`` which again contains several files.
+The training directory should now hold the file ``Vagrantfile`` and the directory ``manifests`` which again contains several files.
 
 Now start setting up the VM that is configured in ``Vagrantfile``:
 
@@ -135,10 +135,10 @@ This takes a **veeeeery loooong time** (up to 1h depending on your internet-conn
 * sets up the VM
 * updates the VM
 * installs various packages needed for Plone development
-* downloads and unpack the unified installer for Plone
+* downloads and unpacks the unified installer for Plone
 * runs the unified installer for Plone.
-* copy the eggs to a location we use in the training
-* clones the training-buildout into /vagrant/buildout
+* copies the eggs to a location we use in the training
+* clones the training buildout into /vagrant/buildout
 * builds Plone using the eggs from the buildout-cache
 
 .. note::
@@ -149,15 +149,15 @@ This takes a **veeeeery loooong time** (up to 1h depending on your internet-conn
 
         Skipping because of failed dependencies
 
-    If this happens or you have the feeling that something has gone wrong and the installation has not finished correctly for some reason you need to run try the following command to repeat the process. This will only repeat steps that have not finished correctly.
+    If this happens or you have the feeling that something has gone wrong and the installation has not finished correctly for some reason you need to run the following command to repeat the process. This will only repeat steps that have not finished correctly.
 
     .. code-block:: bash
 
         $ vagrant provision
 
-    You can do this multiple times to fix problems, e.g. if your network-connection was down and steps could not finish because of this.
+    You can do this multiple times to fix problems, e.g. if your network connection was down and steps could not finish because of this.
 
-Once Vagrant finishes the provisioning-process, you can login to the now running virtual machine.
+Once Vagrant finishes the provisioning process, you can login to the now running virtual machine.
 
 .. code-block:: bash
 
@@ -169,9 +169,9 @@ Once Vagrant finishes the provisioning-process, you can login to the now running
 
 You are now logged in as the user vagrant in ``/home/vagrant``. We'll do all steps of the training as this user.
 
-We pre-installed a fresh Plone for you in the folder ``/home/vagrant/Plone/zinstance`` You can run it now and access it from the browser. We will **not** use this Plone-instance in the training, so you can play around with it as much as you want.
+We pre-installed a fresh Plone for you in the folder ``/home/vagrant/Plone/zinstance`` You can run it now and access it from the browser. We will **not** use this Plone instance in the training, so you can play around with it as much as you want.
 
-Instead we use our own Plone-instance during the training. It is in ``/vagrant/buildout/``. Start it in foreground with ``./bin/instance fg``.
+Instead we use our own Plone instance during the training. It is in ``/vagrant/buildout/``. Start it in foreground with ``./bin/instance fg``.
 
 .. code-block:: bash
 
@@ -186,7 +186,7 @@ Instead we use our own Plone-instance during the training. It is in ``/vagrant/b
 
 .. note::
 
-    In rare cases when you are using OSX with an UTF-8 character set starting Plone might fail with following error:
+    In rare cases when you are using OSX with an UTF-8 character set starting Plone might fail with the following error:
 
     .. code-block:: text
 
@@ -199,17 +199,17 @@ Instead we use our own Plone-instance during the training. It is in ``/vagrant/b
         export LC_ALL=en_US.UTF-8
         export LANG=en_US.UTF-8
 
-Now the Zope-instance we're using is running. You can stop the running instance anytime using ``ctrl + c``.
+Now the Zope instance we're using is running. You can stop the running instance anytime using ``ctrl + c``.
 
 If it doesn't, don't worry, your shell isn't blocked. Type reset (even if you can't see the prompt) and press RETURN, and it should become visible again.
 
-If you point your local browser at http://localhost:8080 you see that Plone is running in vagrant. This works because Virtualbox forwards the port 8080 from the guest-system (the vagrant-Ubuntu) to the host-system (your normal operating-system). Now create a new Plone site by clicking "Create a new Plone site". The username and the password are both "admin" (Never do this on a real site!).
+If you point your local browser at http://localhost:8080 you see that Plone is running in vagrant. This works because Virtualbox forwards the port 8080 from the guest system (the vagrant Ubuntu) to the host system (your normal operating system). Now create a new Plone site by clicking "Create a new Plone site". The username and the password are both "admin" (Never do this on a real site!).
 
-The Buildout for this Plone is in a shared folder, this means we run it in the vagrant-box from ``/vagrant/buildout`` but we can also access it in out own operating-system and use our favorite editor. You will find the directory ``buildout`` in the directory ``training`` that you created in the very beginning next to ``Vagrantfile`` and ``manifests``.
+The Buildout for this Plone is in a shared folder, this means we run it in the vagrant box from ``/vagrant/buildout`` but we can also access it in out own operating system and use our favorite editor. You will find the directory ``buildout`` in the directory ``training`` that you created in the very beginning next to ``Vagrantfile`` and ``manifests``.
 
 .. note::
 
-    The database and the python-packages are not accessible in you own system since large files cannot make use of symlinks in shared folders. The database lies in ``/home/vagrant/var``, the python-packages are in ``/home/vagrant/packages``.
+    The database and the python packages are not accessible in your own system since large files cannot make use of symlinks in shared folders. The database lies in ``/home/vagrant/var``, the python packages are in ``/home/vagrant/packages``.
 
 If you have any problems or questions please mail us at team@starzel.de or create a ticket at https://github.com/plone/training/issues.
 
