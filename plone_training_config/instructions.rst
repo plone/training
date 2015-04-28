@@ -129,7 +129,7 @@ Now start setting up the VM that is configured in ``Vagrantfile``:
 
     $ vagrant up
 
-This takes a **veeeeery loooong time** (up to 1h depending on your internet-connection and system-speed) since it does all the following steps:
+This takes a **veeeeery loooong time** (up to 1h depending on your internet connection and system speed) since it does all the following steps:
 
 * downloads a virtual machine (Official Ubuntu Server 14.04 LTS, also called "Trusty Tahr")
 * sets up the VM
