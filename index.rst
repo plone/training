@@ -3,10 +3,10 @@ Mastering Plone!
 
 This is the documentation for the "Mastering Plone"-training.
 
-Mastering Plone is intended as a week-long training for people who are new to Plone or want to learn about the current best-practices of Plone-development. It can be split in two tranings:
+Mastering Plone is intended as a week-long training for people who are new to Plone or want to learn about the current best-practices of Plone development. It can be split in two tranings:
 
 - A beginner training (2 to 3 days) that covers chapters 1-18.
-- A advanced training (3 to 5 days) that covers the rest.
+- An advanced training (3 to 5 days) that covers the rest.
 
 
 .. toctree::
@@ -60,7 +60,7 @@ Contents:
     optional
 
 
-Please note that this document is not complete without the spoken word of a trainer even though we attempt to include the most important parts of what we teach in the narrative it can not be considered complete without the spoken word.
+Please note that this document is not complete without the spoken word of a trainer. Even though we attempt to include the most important parts of what we teach in the narrative it can not be considered complete without the spoken word.
 
 
 .. toctree::
