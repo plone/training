@@ -63,7 +63,7 @@ Hosting Plone
 
 You can host Plone...
 
-* with one of many professional `hosting providers <http://plone.org/support/hosting-providers>`_
+* with one of many professional `hosting providers <http://plone.com/providers>`_
 * on a virtual private server
 * on dedicated servers
 * on `heroku <http://heroku.com>`_ you can run Plone for *free* using the `Heroku buildpack for Plone <https://github.com/niteoweb/heroku-buildpack-plone>`_
