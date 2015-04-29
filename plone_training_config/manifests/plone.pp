@@ -109,7 +109,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     # }
 
     # install setuptools
-    exec {'/home/vagrant/py27/bin/pip install -U setuptools==12.2':
+    exec {'/home/vagrant/py27/bin/pip install -U setuptools==6.1':
         alias => "install_setuptools",
         user => 'vagrant',
         cwd => '/vagrant/buildout',
