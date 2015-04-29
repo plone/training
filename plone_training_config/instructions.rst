@@ -114,11 +114,11 @@ Setup Vagrant to automatically install the current guest additions. You can choo
 
     $ vagrant plugin install vagrant-vbguest
 
-Now download https://github.com/plone/training/raw/plone5/plone_training_config.zip and copy its contents into your training directory.
+Now download https://raw.githubusercontent.com/plone/training/plone5/plone_training_config.zip and copy its contents into your training directory.
 
 .. code-block:: bash
 
-    $ wget https://github.com/plone/training/raw/plone5/plone_training_config.zip
+    $ wget https://raw.githubusercontent.com/plone/training/plone5/plone_training_config.zip
     $ unzip plone_training_config.zip
 
 The training directory should now hold the file ``Vagrantfile`` and the directory ``manifests`` which again contains several files.
@@ -129,7 +129,7 @@ Now start setting up the VM that is configured in ``Vagrantfile``:
 
     $ vagrant up
 
-This takes a **veeeeery loooong time** (up to 1h depending on your internet-connection and system-speed) since it does all the following steps:
+This takes a **veeeeery loooong time** (up to 1h depending on your internet connection and system speed) since it does all the following steps:
 
 * downloads a virtual machine (Official Ubuntu Server 14.04 LTS, also called "Trusty Tahr")
 * sets up the VM
