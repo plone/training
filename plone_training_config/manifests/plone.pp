@@ -87,7 +87,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # get training buildout
-    exec {'git clone https://github.com/starzel/plone-dojo.git buildout':
+    exec {'git clone https://github.com/collective/training_buildout.git buildout':
         alias => "checkout_training",
         creates => '/vagrant/buildout',
         user => 'vagrant',
@@ -108,7 +108,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     #     timeout => 0,
     # }
 
-    # bootstrap training buildout
+    # install setuptools
     exec {'/home/vagrant/py27/bin/pip install -U setuptools==12.2':
         alias => "install_setuptools",
         user => 'vagrant',
