@@ -144,7 +144,7 @@ So far, we
 Exercise 1
 ----------
 
-Register a viewlet 'number_of_talks' in the footer that is only visible to admins (the permission you are looking for is ``cmf.ManagePortal``). Use only a template (no class) to display the number of talks already submitted. Hint: Use Aquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
+Register a viewlet 'number_of_talks' in the footer that is only visible to admins (the permission you are looking for is ``cmf.ManagePortal``). Use only a template (no class) to display the number of talks already submitted. Hint: Use Acquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
 
 ..  admonition:: Solution
     :class: toggle
@@ -175,7 +175,7 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
             There are <span tal:replace="talks" /> talks.
         </div>
 
-    ``python:context.portal_catalog`` will return the catalog through Acquisition. Be carefull if you want to use path-expressions: ``content/portal_catalog`` calls the catalog (and returns all brains). You need to prevent this by using ``nocall:content/portal_catalog``.
+    ``python:context.portal_catalog`` will return the catalog through Acquisition. Be careful if you want to use path-expressions: ``content/portal_catalog`` calls the catalog (and returns all brains). You need to prevent this by using ``nocall:content/portal_catalog``.
 
     Relying on Aqcisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from ``plone/app/layout/globals/tools.py`` to get the catalog.
 

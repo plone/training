@@ -12,11 +12,11 @@ Turn talks into events
         cp -R src/ploneconf.site_sneak/chapters/10_events_p5/ src/ploneconf.site
 
 
-We forgot something: A list of talks is great especially if you can sort it by your preferences. But if a visitor decides he wants to actualiy go to see a talk he needs to know when it will take place.
+We forgot something: A list of talks is great especially if you can sort it by your preferences. But if a visitor decides he wants to actually go to see a talk he needs to know when it will take place.
 
 We need a schedule and for this we need to store the information when a talk will happen.
 
-Luckily the default-type *Event* is based on reuseable behaviors from the package plone.app.event.
+Luckily the default-type *Event* is based on reusable behaviors from the package plone.app.event.
 
 In this chapter we will
 
@@ -127,7 +127,7 @@ Exercise 2
 
 Find out where the event-behavior is defined and which fields it offers.
 
-..  admonition:: Solutiopn
+..  admonition:: Solution
     :class: toggle
 
     The id with which the behavior is registered in ``Talk.xml`` is a python-path. So ``plone.app.event.dx.behaviors.IEventBasic`` can be found in ``packages/plone.app.event/plone/app/event/dx/behaviors.py``

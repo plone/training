@@ -39,7 +39,7 @@ This depends on what type of extension you want to create.
 
 
     * You can create extensions with new types of objects to add to your Plone site. Usually these are content types.
-    * You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures searchable by adding a converter from jpg to text.
+    * You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures search-able by adding a converter from jpg to text.
 
 
 skin_folders
@@ -53,7 +53,7 @@ skin_folders
 
 .. only:: not presentation
 
-    Do you remember Acquisition? The Skin Folders extends the concepts of Acquistion. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder.
+    Do you remember Acquisition? The Skin Folders extends the concepts of Acquisition. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder.
 
     The Plone logo is in a skin folder.
 
@@ -61,7 +61,7 @@ skin_folders
 
     To customize the logo, you copy it into the ``custom`` folder, and change it there. This way you can change templates, CSS styles, images and behavior, because a container may contain python scripts.
 
-    Skin-folder style customization may be accomplished TTW via the ZMI, or with add-on packages. Manu older-style packages create their own skin folder and add it to the skin layer for Plone when installed.
+    Skin-folder style customization may be accomplished TTW via the ZMI, or with add-on packages. Many older-style packages create their own skin folder and add it to the skin layer for Plone when installed.
 
 .. only:: not presentation
 
