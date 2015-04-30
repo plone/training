@@ -3,9 +3,9 @@
 Extend Plone with Add-On Packages
 =================================
 
-* There are more than 2,000 addons for Plone. We will cover only a handfull today.
+* There are more than 2,000 add-dons for Plone. We will cover only a handful today.
 * Using them saves a lot of time
-* The success of a project often depends on finding the right addon
+* The success of a project often depends on finding the right ad-don
 * Their use, usefulness, quality and complexity varies a lot
 
 
@@ -22,21 +22,21 @@ How to find add-ons
 * Check shortlist `Plone Paragon <http://paragon.plone.org/>`_ (Launched August 2014)
 * ask in irc and on the mailing list
 
-.. seealso::
+.. see also::
 
-   * A talk on finding and managing addons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
+   * A talk on finding and managing ad-dons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
 
 
-.. _addons-notable-label:
+.. _add-ons-notable-label:
 
-Some noteable add-ons
+Some note-able add-ons
 ---------------------
 
 .. warning::
 
-    Many addons will not yet run under Plone 5 and will have to be updated to be compatible. One Example is Products.PloneFormGen: We use our own source-checkout of it from https://github.com/starzel/Products.PloneFormGen that contains small changes that make it compatible with Plone 5.
+    Many add-ons will not yet run under Plone 5 and will have to be updated to be compatible. One Example is Products.PloneFormGen: We use our own source-checkout of it from https://github.com/starzel/Products.PloneFormGen that contains small changes that make it compatible with Plone 5.
 
-    Other addons will be rendered obsolete by Plone 5. There is no more need for collective.quickupload since Plone 5 already has the functionality to upload multiple files at once.
+    Other add-ons will be rendered obsolete by Plone 5. There is no more need for collective.quickupload since Plone 5 already has the functionality to upload multiple files at once.
 
 
 `Products.PloneFormGen <http://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
@@ -77,7 +77,7 @@ Some noteable add-ons
 
 
 
-.. _addons-installing-label:
+.. _add-ons-installing-label:
 
 Installing Add-ons
 ------------------
@@ -97,7 +97,7 @@ Look at ``buildout.cfg`` file in ``/vagrant/buildout``.
 
 In the section ``[instance]`` there is a variable called ``eggs``, which has a list of *eggs* as a value. Add the following eggs:
 
-We already have added the addons that we will use now:
+We already have added the add-ons that we will use now:
 
 * ``Products.PloneFormGen``
 * ``collective.plonetruegallery``
@@ -137,7 +137,7 @@ This is what happens: The GenericSetup profile of the product gets loaded. This 
 Let's have a look at what we just installed.
 
 
-.. _addons-PFG-label:
+.. _add-ons-PFG-label:
 
 PloneFormGen
 ------------
@@ -172,7 +172,7 @@ Let's build a registration form:
 By the way, while PloneFormGen is good at what it does, is not a good model for designing your own extensions. It's was created before the Zope Component Architecture became widely used. The authors would write it much differently if they were starting from scratch.
 
 
-.. _addons-ptg-label:
+.. _add-ons-ptg-label:
 
 Add Photogallery with collective.plonetruegallery
 -------------------------------------------------
@@ -183,7 +183,7 @@ Instead of creating custom content types for galleries, it integrates with the P
 
 https://pypi.python.org/pypi/collective.plonetruegallery
 
-* Activate the addon
+* Activate the add-on
 * Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step is only required because plonetruegallery does not yet know about the newer plone.app.contenttypes, which we activated to replace Plone's old content types with newer, Dexterity-style, ones.)
 * Add a folder /the-event/location
 * Upload some fotos from http://lorempixel.com/600/400/city/
@@ -193,7 +193,7 @@ collective.plonetruegallery is a better model for how to write a Plone Extension
 
 .. _addons-i18n-label:
 
-Internationalisation
+Internationalization
 --------------------
 
 Plone can run the same site in many different languages.
@@ -207,7 +207,7 @@ We would use http://pypi.python.org/pypi/plone.app.multilingual for this. It is 
     Building a multi-lingual site requires activating ``plone.app.multilingual``, but no add-on is necessary to build a site in a single language other than English. Just select a different site language when creating a Plone site, and all the basic messages will be translated and and LTR or RTL needs handled.
 
 
-.. _addons-summary-label:
+.. _add-ons-summary-label:
 
 Summary
 -------

@@ -13,13 +13,13 @@ Using third-party behaviors
 Add teaser with collective.behavior.banner
 ------------------------------------------
 
-There are a lot of addons in Plone for sliders/banners/teasers. We thought there should be a better one and created ``collective.behavior.banner``.
+There are a lot of add-ons in Plone for sliders/banners/teasers. We thought there should be a better one and created ``collective.behavior.banner``.
 
 .. image:: http://imgs.xkcd.com/comics/standards.png
 
-Like many addons it has not yet been released on pypi but only exists as code on github.
+Like many add-ons it has not yet been released on pypi but only exists as code on github.
 
-The training-buildout hold a section ``[sources]`` that tells buildout to download a specific addon not from pypi but from some code repositiory (usually github):
+The training-buildout hold a section ``[sources]`` that tells buildout to download a specific add-on not from pypi but from some code repository (usually github):
 
 .. code-block:: cfg
 
@@ -45,4 +45,4 @@ And rerun ``./bin/buildout``
 * Create a folder called ``banners``
 * Add two banners into that folder using images taken from http://lorempixel.com/800/150/
 * Add the Behavior ``Slider`` to the default-contenttype ``Page (Document)``
-* Edit the frontpage and link to the new banners.
+* Edit the front-page and link to the new banners.

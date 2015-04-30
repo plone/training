@@ -963,7 +963,7 @@ There is a lot more about TAL, TALES and METAL that we have not covered. You'll 
 Chameleon
 ---------
 
-Chameleon is the successor of Zope Page Templates, is used in Plone 5 and can be used in Plone 4 as an addon.
+Chameleon is the successor of Zope Page Templates, is used in Plone 5 and can be used in Plone 4 as an add-on.
 
 - Plip for Chameleon: https://dev.plone.org/ticket/12198
 - Homepage: http://www.pagetemplates.org/

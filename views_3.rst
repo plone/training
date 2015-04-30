@@ -38,7 +38,7 @@ Let's say we want to show a list of all the talks that were submitted for our co
 
 So we need to get all the talks. For this we use the python-class of the view to query the catalog for the talks.
 
-The catalog is like a search-engine for the content on our site. It holds information about all the objects as well as some of their attributes like title, decription, workflow_state, keywords that they were tagged with, author, content_type, it's path in the site etc. But it does not hold the content of "heavy" fields like images or files, richtext-fields and field that we just defined ourselves.
+The catalog is like a search-engine for the content on our site. It holds information about all the objects as well as some of their attributes like title, description, workflow_state, keywords that they were tagged with, author, content_type, it's path in the site etc. But it does not hold the content of "heavy" fields like images or files, richtext-fields and field that we just defined ourselves.
 
 It is the fast way to get content that exists in the site and do something with it. From the results of the catalog we can get the objects themselves but often we don't need them, but only the properties that the results already have.
 
@@ -147,7 +147,7 @@ We could also add a new index to the catalog that will add 'audience' to the pro
 
     We will add some indexers later on.
 
-Why use the catalog at all? It checks for permissions, and only returns the talks that the current user may see. They might be private or hidden to you since they are part of a top-secret conference for core-develeopers (there is no such thing!).
+Why use the catalog at all? It checks for permissions, and only returns the talks that the current user may see. They might be private or hidden to you since they are part of a top-secret conference for core-developers (there is no such thing!).
 
 Most objects in plone act like dictionaries, so you can do ``context.values()`` to get all it's contents.
 
@@ -172,7 +172,7 @@ Who can guess what ``brain.title`` will return since the brain has no such attri
 
         Answer: Acquisition will get the attribute from the nearest parent. ``brain.__parent__`` is ``<CatalogTool at /Plone/portal_catalog>``. The attribute ``title`` of the ``portal_catalog`` is 'Indexes all content in the site'.
 
-Acquisition can be harmfull. Brains have no attribute 'getLayout' ``brain.getLayout()``::
+Acquisition can be harmful. Brains have no attribute 'getLayout' ``brain.getLayout()``::
 
     >>> brain.getLayout()
     'folder_listing'
@@ -287,7 +287,7 @@ Speed:
     Python-code is faster than code executed in templates. It's also easy to add caching to methods.
 
 DRY:
-    In Python you can reuse methods and easily refactor code. Refactoring TAL usually means having to do big changes in the html-structure which results in uncomprehensible diffs.
+    In Python you can reuse methods and easily refactor code. Refactoring TAL usually means having to do big changes in the html-structure which results in incomprehensible diffs.
 
 
 The MVC-Schema does not directly apply to Plone but look at it like this:
@@ -301,7 +301,7 @@ View:
 Controller:
     the view
 
-The view and the controller are very much mixed in Plone. Expecially when you look at some of the older code of Plone you'll see that the policy of keeping logic in python and representation in templates was not always enforced.
+The view and the controller are very much mixed in Plone. Especially when you look at some of the older code of Plone you'll see that the policy of keeping logic in python and representation in templates was not always enforced.
 
 But you should nevertheless do it! You'll end up with more than enough logic in the templates anyway.
 
@@ -470,7 +470,7 @@ To make views configurable so that editors can choose them we have to register t
       <alias from="@@talklistview" to="talklistview"/>
     </object>
 
-After reapplying the typeinfo-profile of out addon (or simply reinstalling it) the content-type "Folder" is extended with our additional view-method and appears in the display-dropdown.
+After reapplying the typeinfo-profile of out add-on (or simply reinstalling it) the content-type "Folder" is extended with our additional view-method and appears in the display-dropdown.
 
 The ``purge="False"`` appends the view to the already existing ones instead of replacing them.
 
@@ -488,7 +488,7 @@ We could improve that table further by using a nice javascript-library called "d
 
 Like for many js-libraries there is already a package that doe the plone-integration for us: ``collective.js.datatables``. Like all python-packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables
 
-We already added the addon to our buildout, you just have to activate it in our template.
+We already added the add-on to our buildout, you just have to activate it in our template.
 
 .. code-block:: xml
     :linenos:
