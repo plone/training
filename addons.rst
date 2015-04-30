@@ -24,7 +24,7 @@ How to find add-ons
 
 .. see also::
 
-   * A talk on finding and managing ad-dons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
+   * A talk on finding and managing add-ons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
 
 
 .. _add-ons-notable-label:
