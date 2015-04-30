@@ -152,7 +152,7 @@ Who can guess what ``brain.title`` will return since the brain has no such attri
 
         Answer: Acquisition will get the attribute from the nearest parent. ``brain.__parent__`` is ``<CatalogTool at /Plone/portal_catalog>``. The attribute ``title`` of the ``portal_catalog`` is 'Indexes all content in the site'.
 
-Acquisition can be harmfull. Brains have no attribute 'getLayout' ``brain.getLayout()``::
+Acquisition can be harmful. Brains have no attribute 'getLayout' ``brain.getLayout()``::
 
     >>> brain.getLayout()
     'folder_listing'
@@ -188,7 +188,7 @@ Calling the catalog without parameters return the whole site::
     >>> portal_catalog()
     [<Products.ZCatalog.Catalog.mybrains object at 0x1085a11f0>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a12c0>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a1328>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a13 ...
 
-.. seealso::
+.. see also::
 
     http://docs.plone.org/develop/plone/searching_and_indexing/query.html
 
@@ -261,7 +261,7 @@ Speed:
     Python-code is faster than code executed in templates. It's also easy to add caching to methods.
 
 DRY:
-    In Python you can reuse methods and easily refactor code. Refactoring TAL usually means having to do big changes in the html-structure which results in uncomprehensible diffs.
+    In Python you can reuse methods and easily re-factor code. Refactoring TAL usually means having to do big changes in the html-structure which results in incomprehensible diffs.
 
 
 The MVC-Schema does not directly apply to Plone but look at it like this:

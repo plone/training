@@ -175,7 +175,7 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
 
     ``python:context.portal_catalog`` will return the catalog through Acquisition. Be carefull if you want to use path-expressions: ``content/portal_catalog`` calls the catalog (and returns all brains). You need to prevent this by using ``nocall:content/portal_catalog``.
 
-    Relying on Aqcisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from ``plone/app/layout/globals/tools.py`` to get the catalog.
+    Relying on Acquisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from ``plone/app/layout/globals/tools.py`` to get the catalog.
 
     ..  code-block:: html
 

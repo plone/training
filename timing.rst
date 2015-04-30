@@ -1,4 +1,4 @@
-Timtable
+Timetable
 ========
 
 Version 1.2
@@ -57,10 +57,10 @@ Version 1.1
 **pb**  50 min  #6 Configuring and Customising Plone through the web
 **pg**  20 min  #7 Extending Plone
 **++**  60 min  #8 Extend Plone with Add-ons
-**pg**          #8 - How to find addons
-**pg**          #8 - Installing Addons
+**pg**          #8 - How to find ad-dons
+**pg**          #8 - Installing Ad-dons
 **pb**          #8 - PloneFormGen
-**pb**          #8 - Internationalisation
+**pb**          #8 - Internationalization
 **pg**          #8 - collective.plonetruegallery
 **pb**          #8 - plone.app.themeeditor
 **pg**          #8 - export customizations
@@ -77,7 +77,7 @@ Version 1.1
 **pb**  60 min  #18 Views III: A Talk list
 **pb**  15 min  #19 Custom search
 **pg**  20 min  #20 Extending Dexterity-Types with Behaviors
-**pg**  20 min  #21 Ressources
+**pg**  20 min  #21 Resources
 **pg**  20 min  #22 Social behavior
 **++**  30 min  #23 Writing Viewlets
 **pg**  20 min  #24 Deploying your code

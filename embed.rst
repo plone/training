@@ -150,7 +150,7 @@ The config for the Workflow is in :file:`profiles/default/workfows/talks_workflo
 
     After clicking on this, only managers and Reviewers can see the Voting functionality.
 
-    Lastly, we add our silly function to autoapprove talks.
+    Lastly, we add our silly function to auto-approve talks.
 
     You quickly end up writing many event handlers, so we put everything into a directory for eventhandlers.
 
