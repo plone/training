@@ -1,9 +1,9 @@
 ﻿Extend Plone with Add-On Packages
 =================================
 
-* There are more than 2,000 addons for Plone. We will cover only a handfull today.
+* There are more than 2,000 ad-dons for Plone. We will cover only a handful today.
 * Using them can saves a lot of time
-* The success of a project often depends on finding the right addon
+* The success of a project often depends on finding the right ad-don
 * Their use, usefulness, quality and complexity varies a lot
 
 
@@ -20,7 +20,7 @@ How to find add-ons
 
 .. seealso::
 
-   * A talk on finding and managing addons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
+   * A talk on finding and managing ad-dons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
 
 
 Some notable add-ons
@@ -36,7 +36,7 @@ Some notable add-ons
   UI to create complex landing-pages
 
 `collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_
-  Flexible bundle of addons to georeference content and display in maps
+  Flexible bundle of ad-dons to georeference content and display in maps
 
 `collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_
   Allows visitors to subscribe to mailchimp newsletters
@@ -82,7 +82,7 @@ Look at ``buildout.cfg`` file in ``/vagrant/buildout``.
 
 In the section ``[instance]`` there is a variable called ``eggs``, which has a list of *eggs* as a value. Add the following eggs:
 
-We already have added the addons that we will use now:
+We already have added the ad-dons that we will use now:
 
 * ``Products.PloneFormGen``
 * ``collective.plonetruegallery``

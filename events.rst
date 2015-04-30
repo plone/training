@@ -14,7 +14,7 @@ We forgot something: A list of talks is great especially if you can sort it by y
 
 We need a schedule and for this we need to store the information when a talk will happen.
 
-Luckily the type *Event* is based on reuseable behaviors from the package plone.app.event.
+Luckily the type *Event* is based on reusable behaviors from the package plone.app.event.
 
 In this chapter we will
 
