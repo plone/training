@@ -57,8 +57,8 @@ Version 1.1
 **pb**  50 min  #6 Configuring and Customising Plone through the web
 **pg**  20 min  #7 Extending Plone
 **++**  60 min  #8 Extend Plone with Add-ons
-**pg**          #8 - How to find ad-dons
-**pg**          #8 - Installing Ad-dons
+**pg**          #8 - How to find add-ons
+**pg**          #8 - Installing Add-ons
 **pb**          #8 - PloneFormGen
 **pb**          #8 - Internationalization
 **pg**          #8 - collective.plonetruegallery

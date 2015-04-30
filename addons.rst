@@ -1,9 +1,9 @@
 ﻿Extend Plone with Add-On Packages
 =================================
 
-* There are more than 2,000 ad-dons for Plone. We will cover only a handful today.
+* There are more than 2,000 add-ons for Plone. We will cover only a handful today.
 * Using them can saves a lot of time
-* The success of a project often depends on finding the right ad-don
+* The success of a project often depends on finding the right add-on
 * Their use, usefulness, quality and complexity varies a lot
 
 
@@ -18,7 +18,7 @@ How to find add-ons
 * Check shortlist `Plone Paragon <http://paragon.plone.org/>`_ (Launched August 2014)
 * ask in irc and on the mailing list
 
-.. seealso::
+.. see also::
 
    * A talk on finding and managing ad-dons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
 
@@ -36,7 +36,7 @@ Some notable add-ons
   UI to create complex landing-pages
 
 `collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_
-  Flexible bundle of ad-dons to georeference content and display in maps
+  Flexible bundle of add-ons to georeference content and display in maps
 
 `collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_
   Allows visitors to subscribe to mailchimp newsletters
@@ -91,7 +91,7 @@ Usually, one enters the eggs by adding one more line per egg into the configurat
 
 If you add new add-ons here you will have to run buildout and restart the site:
 
-.. sourcecode:: bash
+.. source-code:: bash
 
     $ cd /vagrant/buildout
     $ bin/buildout
@@ -164,7 +164,7 @@ Instead of creating custom content types for galleries, it integrates with the P
 
 https://pypi.python.org/pypi/collective.plonetruegallery
 
-* Activate the addon
+* Activate the add-on
 * Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step is only required because plonetruegallery does not yet know about the newer plone.app.contenttypes, which we activated to replace Plone's old content types with newer, Dexterity-style, ones.)
 * Add a folder /the-event/location
 * Upload some photos from http://lorempixel.com/600/400/city/
