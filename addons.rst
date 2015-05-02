@@ -18,7 +18,7 @@ How to find add-ons
 * Check shortlist `Plone Paragon <http://paragon.plone.org/>`_ (Launched August 2014)
 * ask in irc and on the mailing list
 
-.. see also::
+.. seealso::
 
    * A talk on finding and managing ad-dons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
 
