@@ -107,7 +107,7 @@ Zope Toolkit / Zope3
 Zope Component Architecture (ZCA)
 ---------------------------------
 
-The `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_, which was developed as part of Zope 3, is a system which allows for component pluggability and complex dispatching based on objects which implement an interface (a description of a functionality). Pyramid, an independent Python web application server, uses the ZCA “under the hood” to perform view dispatching and other application configuration tasks.
+The `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_, which was developed as part of Zope 3, is a system which allows for component pluggability and complex dispatching based on objects which implement an interface (a description of a functionality). Plone makes extensive use of the ZCA in its codebase.
 
 
 .. _anatomy-pyramid-label:
@@ -116,7 +116,7 @@ Pyramid
 -------
 
 * `Pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ is a Python web application development framework that is often seen as the successor to Zope.
-* It does less than Zope, is very pluggable and `uses the Zope Component Architecture <http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_.
+* It does less than Zope, is very pluggable and `uses the Zope Component Architecture <http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_ “under the hood” to perform view dispatching and other application configuration tasks.
 
 .. only:: not presentation
 
