@@ -26,7 +26,7 @@ Here are some requirements that we want to meet when the site is done:
 * As a speaker I want to see and edit my submitted talks
 * As an organizer I want to see a list of all proposed talks
 * As an organizer I want to have an overview about how many people registered
-* As a jury-member I want to vote on talks
-* As a jury-member I want to decide, which talks to accept, and which not
+* As a jury member I want to vote on talks
+* As a jury member I want to decide which talks to accept, and which not
 
 Note that all of our requirements connect roles with capabilities. This is important because we'll want to limit the capabilities to those to whom we assign particular roles.
