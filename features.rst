@@ -71,6 +71,8 @@ Let's see what is there...
   * :guilabel:`searchbox`: search (with live-search)
 
 * :guilabel:`navigation`: The global navigation
+* :guilabel:`banner`: A banner. Only visible on the frontpage.
+
 * :guilabel:`portal-columns`: a container holding:
 
   * :guilabel:`portal-column-one`: portlets (configurable boxes with tool like navigation, news etc.)
