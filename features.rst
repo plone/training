@@ -24,7 +24,7 @@ This starts Plone in foreground mode so that we can see what it is doing by moni
 
 You can stop it by pressing :kbd:`ctrl + c`.
 
-The :program:`instance`-script offers the following options::
+The :program:`instance` script offers the following options, which you can call up at any time with `./bin/instance help`::
 
     $ ./bin/instance fg
     $ ./bin/instance start
@@ -35,13 +35,13 @@ The :program:`instance`-script offers the following options::
 
 .. only:: not presentation
 
-    Depending on your computer, it might take up to a minute until Zope will tell you that its ready to serve requests. On a decent laptop it should be running in under 15 seconds.
+    Depending on your computer, it might take up to a minute until Zope will tell you that it's ready to serve requests. On a decent laptop it should be running in under 15 seconds.
 
     A standard installation listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
 
     As you can see, there is no Plone yet!
 
-    We have a running Zope with a database but no content. But luckily there is a button to create a Plone site. Click on that button (login: admin:admin). This opens a form to create a Plone site. Use :samp:`Plone` as the site id.
+    We have a running Zope with a database but no content. But luckily there is a button to create a Plone site. Click on that button (login: admin, password:admin). This opens a form to create a Plone site. Use :samp:`Plone` as the site id.
 
     ..  You now have the option to select some addons before you create the site. Since we will use Dexterity from the beginning we select ``Dexterity-based Plone Default Types``. This way even the initial content on our page will be built with dexterity by the addon ``plone.app.contenttypes`` which will be the default in Plone 5.
 
@@ -77,14 +77,14 @@ Let's see what is there...
 
   * :guilabel:`portal-column-one`: portlets (configurable boxes with tool like navigation, news etc.)
   * :guilabel:`portal-column-content`: the content and the editor
-  * :guilabel: `edit bar`: editing options for the content
+  * :guilabel:`edit bar`: editing options for the content
   * :guilabel:`portal-column-two`: portlets
 
 * :guilabel:`portal-footer`: viewlets
 
 .. only:: not presentation
 
-    These are also the css-classes of the respective div's. If you want to do theming you'll need them.
+    These are also the css classes of the respective div's. If you want to do theming you'll need them.
 
 On the edit bar, we find options affecting the current context...
 
@@ -97,7 +97,7 @@ On the edit bar, we find options affecting the current context...
 * :guilabel:`add`
 * :guilabel:`status`
 
-Some edit bar options only show when appropriate; for example,``folder content`` and ``add`` are only shown for Folders. ``rules`` is currently invisible because we have no content rules available.
+Some edit bar options only show when appropriate; for example, ``folder contents`` and ``add`` are only shown for Folders. ``rules`` is currently invisible because we have no content rules available.
 
 
 
@@ -108,21 +108,21 @@ Users
 
 .. only:: not presentation
 
-    Let's create our first users within Plone. So far we used the admin-user (admin:admin) configured in the buildout. This user is often called "zope-root" and is not managed in Plone but only in by Zope. Therefore the user's missing some features like email and fullname and  won't be able to use some of plone's features. But the user has all possible permissions. As with the root user of a server, it's a bad practice to make unnecessary use of zope-root. Use it to create Plone sites and their initial users, but not much else.
+    Let's create our first users within Plone. So far we used the admin user (admin:admin) configured in the buildout. This user is often called "zope root" and is not managed in Plone but only by Zope. Therefore the user's missing some features like email and fullname and  won't be able to use some of plone's features. But the user has all possible permissions. As with the root user of a server, it's a bad practice to make unnecessary use of zope root. Use it to create Plone sites and their initial users, but not much else.
 
-    You can also add zope-users also via the terminal by entering::
+    You can also add zope users via the terminal by entering::
 
         $ ./bin/instance adduser <someusername> <supersecretpassword>
 
-    That way you can access databases you get from customers where you have no Plone-user.
+    That way you can access databases you get from customers where you have no Plone user.
 
     To add a new user in Plone, click on the name :guilabel:`admin` in the top right corner and then on :guilabel:`Site setup`. This is Plone's control panel. You can also access it by browsing to http://localhost:8080/Plone/@@overview-controlpanel
 
-    Click on :guilabel:`Users and Groups` and add a user. If you'd have configured a mail server, Plone could send you a mail with a link to a form where you can choose a password. We set a password here because we haven't yet configure a mail server.
+    Click on :guilabel:`Users and Groups` and add a user. If you'd have configured a mail server, Plone could send you a mail with a link to a form where you can choose a password. We set a password here because we haven't yet configured a mail server.
 
     Make this user with your name an administrator.
 
-    Then create another user called ``testuser``. Make this one a normal user. You can use this user to see how Plone looks and behaves to users that have no admin-permission.
+    Then create another user called ``testuser``. Make this one a normal user. You can use this user to see how Plone looks and behaves to users that have no admin permissions.
 
     Now let's see the site in 3 different browsers with three different roles:
 
@@ -154,7 +154,7 @@ Configure a Mailserver
 
 .. only:: not presentation
 
-    We have to configure a mailserver since later we will create some content-actions that send emails when new content is put on our site.
+    We have to configure a mailserver since later we will create some content rules that send emails when new content is put on our site.
 
 * Server: :samp:`mail.gocept.net`
 * Username: :samp:`training@neww.de`
@@ -171,7 +171,7 @@ Content-Types
 Edit a page:
 
 * :guilabel:`Edit front-page`
-* :guilabel:`Title` :samp:`Plone Conference 2015, Bucarest`
+* :guilabel:`Title` :samp:`Plone Conference 2015, Bucharest`
 * :guilabel:`Description` :samp:`Tutorial`
 * :guilabel:`Text` :samp:`...`
 
@@ -205,7 +205,7 @@ The default content-types:
 
 .. note::
 
-    Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default-Plone 4.3.x-site.
+    Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default Plone 4.3.x site.
 
 
 .. _features-folders-label:
@@ -220,7 +220,7 @@ Folders
 * bulk-actions
 * dropdown "display"
 * default_pages
-* Add a page to 'the-event': "The Event" and make it the default-page
+* Add a page to 'the-event': "The Event" and make it the default page
 * The future: ``wildcard.foldercontents``
 
 
@@ -229,11 +229,11 @@ Folders
 Collections
 -----------
 
-* add a new collection: "all content that has pending as wf_state".
+* add a new collection: "all content that has `pending` as wf_state".
 * explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit
 * explain Topics
-* mention collection-portlets
-* multi-path-queries
+* mention collection portlets
+* multi-path queries
 * constraints, e.g. ``/Plone/folder::1``
 
 
@@ -282,7 +282,7 @@ Each of these states connects roles to permissions.
 * In ``published`` state, the content is available to anonymous visitors;
 * In ``private`` state, the content is only viewable by the author (owner) and users who have the ``can view`` role for the content.
 
-A workflow state is an association between a role and one or more permissions. Moving from one state to another is a ``transition``. Transitions (like ``submit for review``) may have actions — like the execution of a content role or script — associated with them.
+A workflow state is an association between a role and one or more permissions. Moving from one state to another is a ``transition``. Transitions (like ``submit for review``) may have actions — like the execution of a content rule or script — associated with them.
 
 A complete set of workflow states and transitions make up a ``workflow``. Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites. Individual content types may have their own workflow. Or, and this is particularly interesting, no workflow. In that case, which initially applies to file and image uploads, the content object inherits the workflow of its container.
 
