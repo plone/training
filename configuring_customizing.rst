@@ -14,9 +14,9 @@ Configuring and Customizing Plone through the web
 The Control Panel
 -----------------
 
-The most important parts of Plone can be configured in the control-panel.
+The most important parts of Plone can be configured in the control panel.
 
-* Click on the portrait/username in the toolsbar
+* Click on the portrait/username in the toolbar
 * Click "Site Setup"
 
 We'll explain every page and mention some of the actions you can perform here.
@@ -47,7 +47,7 @@ We'll explain every page and mention some of the actions you can perform here.
 #. Users and Groups
 #. Zope Management Interface (here be dragons)
 
-Below the links you will find information on your Plone-, Zope- and Python-Versions and an indicator as to whether you're running in production or development mode.
+Below the links you will find information on your Plone, Zope and Python Versions and an indicator as to whether you're running in production or development mode.
 
 
 .. _customizing-portlets-label:
@@ -55,29 +55,29 @@ Below the links you will find information on your Plone-, Zope- and Python-Versi
 Portlets
 --------
 
-In the toolbar under *More options* you can open the configration for the diffrerent places where you can have portlets.
+In the toolbar under *More options* you can open the configuration for the diffrerent places where you can have portlets.
 
-* UI fit for smart content-editors
+* UI fit for smart content editors
 * various types
-* portlet-configuration is inherited
+* portlet configuration is inherited
 * managing
 * ordering/weighting
-* The future: will maybe be replaced by tiles
+* The future: may be replaced by tiles
 * ``@@manage-portlets``
 
 Example:
 
 * go to http://localhost:8080/Plone/@@manage-portlets
 * Add a static portlet "Sponsors" on the right side.
-* Remove the news-portlet and add a new one on the left side.
-* Go to the training-folder: http://localhost:8080/Plone/the-event/training and click ``Manage portlets``
+* Remove the news portlet and add a new one on the left side.
+* Go to the training folder: http://localhost:8080/Plone/the-event/training and click ``Manage portlets``
 * Add a static portlet. "Featured training: Become a Plone-Rockstar at Mastering Plone!"
 * Use the toolbar to configure the portlets of the footer:
 
-  * Hide the portlets "Footer" and "Collophon".
+  * Hide the portlets "Footer" and "Colophon".
   * Add a "Static text portlet" enter "Copyright 2015 by Plone Community".
   * Use "Insert > Special Character" to add a real © sign.
-  * You could turn that into a link to a copyright-page later.
+  * You could turn that into a link to a copyright page later.
 
 
 .. _customizing-viewlets-label:
@@ -85,17 +85,17 @@ Example:
 Viewlets
 --------
 
-Portlets save data, Viewlets usually don't. Viewlets are often used for UI-Elements and have not nice UI to customize them.
+Portlets save data, Viewlets usually don't. Viewlets are often used for UI-Elements and have no nice UI to customize them.
 
 * ``@@manage-viewlets`` (pretty broken in Plone 5)
 * Viewlets have no nice UI
-* Not aimed at content-editors
+* Not aimed at content editors
 * Not locally addable, no configurable inheritance.
 * Usually global (depends on code)
 * Will be replaced by tiles?
 * The code is much simpler (we'll create one tomorrow)
-* Live in viewlet-managers, can be nested (by adding a viewlet that contains a viewlet-manager)
-* ttw-reordering only within the same viewlet-manager
+* Live in viewlet managers, can be nested (by adding a viewlet that contains a viewlet manager)
+* TTW reordering only within the same viewlet manager
 * the code decides when it is shown and what it shows
 
 
@@ -106,7 +106,7 @@ ZMI
 
 Go to http://localhost:8080/Plone/manage
 
-Zope is the foundation of Plone. Here you can access the inner working of Zope and Plone alike.
+Zope is the foundation of Plone. Here you can access the inner workings of Zope and Plone alike.
 
 .. note::
 
@@ -116,7 +116,7 @@ Zope is the foundation of Plone. Here you can access the inner working of Zope a
 
     We only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
 
-    At some point you'll have to learn what all that objects are about. But not today.
+    At some point you'll have to learn what all those objects are about. But not today.
 
 
 Actions (portal_actions)
@@ -129,7 +129,7 @@ Actions (portal_actions)
 Examples:
 
 * Links in the Footer (site_actions)
-* Actions-Dropdown (folder_buttons)
+* Actions Dropdown (folder_buttons)
 
 Actions have properties like:
 
@@ -154,7 +154,7 @@ These are the links at the bottom of the page:
 We want a new link to legal information, called "Imprint".
 
 * Go to ``site_actions`` (we know that because we checked in ``@@manage-viewlets``)
-* Add a CMF Actions ``imprint``
+* Add a CMF Action ``imprint``
 * Set URL to ``string:${portal_url}/imprint``
 * Leave *condition* empty
 * Set permission to ``View``
@@ -233,9 +233,9 @@ Enter the following css:
 
 .. only:: not presentation
 
-    Click 'save' and check results in the a different browser-tab. How did that happen?
+    Click 'save' and check results in the a different browser tab. How did that happen?
 
-    The UI leaves a lot to be desired. In a professional context this is no-go (no version-control, no syntax-highlighting etc. pp.). But everybody uses portal_skins it to make quick fixes to sites that are already online.
+    The UI leaves a lot to be desired. In a professional context this is no-go (no version control, no syntax highlighting etc.). But everybody uses portal_skins to make quick fixes to sites that are already online.
 
     Let's add some more css to make our site a little responsive:
 
@@ -306,7 +306,7 @@ Change the footer
    http://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html
 
 
-CSS-Registry (portal_css)
+CSS Registry (portal_css)
 *************************
 
 * go to ZMI > ``portal_css``
