@@ -11,7 +11,7 @@ We don't do any real theming during the training. We'll just explain the options
 
 Theming a Plone site has two major parts:
 
-* **Structural theming**: the construction of the HTML skeleton of a page and getting the right content elements into the right spots. Also, the provision of the CSS and Javascript elements to finish the presentation and provide dynamic behaviors.
+* **Structural theming**: the construction of the HTML skeleton of a page and getting the right content elements into the right spots. Also, providing the CSS and Javascript elements to finish the presentation and provide dynamic behaviors.
 
 * **Templating**, which itself has two aspects:
 
@@ -21,7 +21,7 @@ Theming a Plone site has two major parts:
 
 *Structural theming* is best accomplished via the Diazo theme engine. Diazo provides a rule based mechanism for mapping content provided by Plone into one or more master page designs.
 
-*Templating* is accomplished by editing page template files which allow us to mix object content from the ZODB with HTML. Plone uses its own (actualy Zope's) Template Attribute Language (TAL) for this purpose.
+*Templating* is accomplished by editing page template files which allow us to mix object content from the ZODB with HTML. Plone uses its own (actually Zope's) Template Attribute Language (TAL) for this purpose.
 
 .. _theming-diazo-label:
 
@@ -77,11 +77,11 @@ Want to really learn theming?
 
 Good starting places:
 
-* Diazo (plone.app.theming): This is the modern way to go and `default theme in Plone 5 <https://github.com/plone/plonetheme.barceloneta/>`_ will be a Diazo-theme! Diazo is available from Plone 4.2+.
-* You can use (and adapt) one of many publicly available Diazo-themes: https://pypi.python.org/pypi?%3Aaction=search&term=plonetheme&submit=search (try `plonetheme.onegov <https://pypi.python.org/pypi/plonetheme.onegov>`_ for example)
+* Diazo (plone.app.theming): This is the modern way to go and the `default theme in Plone 5 <https://github.com/plone/plonetheme.barceloneta/>`_ will be a Diazo theme! Diazo is available from Plone 4.2+.
+* You can use (and adapt) one of many publicly available Diazo themes: https://pypi.python.org/pypi?%3Aaction=search&term=plonetheme&submit=search (try `plonetheme.onegov <https://pypi.python.org/pypi/plonetheme.onegov>`_ for example)
 * Creating a custom theme
-* A starting-point can be the built-in Diazo Theme editor
-* Old-school Theming (extending the built-in default-theme)
+* A starting point can be the built-in Diazo Theme editor
+* Old-school Theming (extending the built-in default theme)
 * Deliverance/XDV
 
 If you seek a training about Diazo we recommend a training by `Chrissy Wainwright <https://twitter.com/cdw9>`_ or `Maik DerStappen <http://www.derstappen-it.de/>`_
