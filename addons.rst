@@ -1,4 +1,4 @@
-﻿.. _addons-label:
+.. _addons-label:
 
 Extend Plone with Add-On Packages
 =================================
@@ -29,7 +29,7 @@ How to find add-ons
 
 .. _add-ons-notable-label:
 
-Some note-able add-ons
+Some noteable add-ons
 ---------------------
 
 .. warning::
@@ -87,17 +87,15 @@ Installation is a two-step process.
 Making the add-on packages available to Zope
 ++++++++++++++++++++++++++++++++++++++++++++
 
-First, we must make the add-on packages available to Zope. This means, that Zope can import the code. Buildout is responsible for this.
+First, we must make the add-on packages available to Zope. This means that Zope can import the code. Buildout is responsible for this.
 
-Look at ``buildout.cfg`` file in ``/vagrant/buildout``.
+Look at the ``buildout.cfg`` file in ``/vagrant/buildout``.
 
 .. note::
 
     If you're using our Vagrant kit, the Plone configuration is available in a folder that is shared between the host and guest operating systems. Look in your Vagrant install directory for the ``buildout`` folder. You may edit configuration files using your favorite text editor in the host operating system, then switch into your virtual machine to run buildout on the guest operating system.
 
-In the section ``[instance]`` there is a variable called ``eggs``, which has a list of *eggs* as a value. Add the following eggs:
-
-We already have added the add-ons that we will use now:
+In the section ``[instance]`` there is a variable called ``eggs``, which has a list of *eggs* as a value.
 
 * ``Products.PloneFormGen``
 * ``collective.plonetruegallery``
@@ -125,13 +123,13 @@ Your Plone site has not yet been told to use the add-on. For this, you have to a
 
 In your browser, go to Site Setup (shortcut: add ``/@@overview-controlpanel`` to the Plone site URL), and open the ``Add-ons`` Panel. You will see that you can install the add-ons there.
 
-Install **PloneFormGen** and  **Plone True Gallery** them now.
+Install **PloneFormGen** and **Plone True Gallery** now.
 
 This is what happens: The GenericSetup profile of the product gets loaded. This does things like:
 
-* configuring new actions,
+* configuring new actions
 * registering new content types
-* registering css- and js-files
+* registering css and js files
 * creating some content/configuration objects in your Plone site.
 
 Let's have a look at what we just installed.
@@ -165,11 +163,11 @@ Let's build a registration form:
 
     Need CAPTCHAs? Add the ``collective.recaptcha`` package to your buildout and PFG will have a CAPTCHA field.
 
-    Need encryption? Add GPG encryption to your system, add a GPG configuration for the Plone daemon user that includes a public keys for the mail targets, and you'll be able to encrypt email before sending.
+    Need encryption? Add GPG encryption to your system, add a GPG configuration for the Plone daemon user that includes a public key for the mail targets, and you'll be able to encrypt email before sending.
 
     Think PFG is too complicated for your site editors? Administrators (and we're logged in as an administrator) see lots of more complex options that are invisible to site editors.
 
-By the way, while PloneFormGen is good at what it does, is not a good model for designing your own extensions. It's was created before the Zope Component Architecture became widely used. The authors would write it much differently if they were starting from scratch.
+By the way, while PloneFormGen is good at what it does, is not a good model for designing your own extensions. It was created before the Zope Component Architecture became widely used. The authors would write it much differently if they were starting from scratch.
 
 
 .. _add-ons-ptg-label:
@@ -177,7 +175,7 @@ By the way, while PloneFormGen is good at what it does, is not a good model for 
 Add Photogallery with collective.plonetruegallery
 -------------------------------------------------
 
-To advertise the conference we want to show some photos showing past conferences and the city where conference is taking place in.
+To advertise the conference we want to show some photos showing past conferences and the city where the conference is taking place.
 
 Instead of creating custom content types for galleries, it integrates with the Plone functionality to choose different views for folderish content types.
 
@@ -198,13 +196,13 @@ Internationalization
 
 Plone can run the same site in many different languages.
 
-We're not doing this with the conference-site since the *lingua franca* of the Plone-community is English.
+We're not doing this with the conference site since the *lingua franca* of the Plone community is English.
 
 We would use http://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes).
 
 .. note::
 
-    Building a multi-lingual site requires activating ``plone.app.multilingual``, but no add-on is necessary to build a site in a single language other than English. Just select a different site language when creating a Plone site, and all the basic messages will be translated and and LTR or RTL needs handled.
+    Building a multi-lingual site requires activating ``plone.app.multilingual``, but no add-on is necessary to build a site in a single language other than English. Just select a different site language when creating a Plone site, and all the basic messages will be translated and LTR or RTL needs will be handled.
 
 
 .. _add-ons-summary-label:
@@ -217,10 +215,10 @@ We are now able to customize and extend many parts of our website. We can even i
 But:
 
 * Can we submit talks now?
-* Can we create lists with the most important properties of each tasks?
+* Can we create lists with the most important properties of each talk?
 * Can we allow a jury to vote on talks?
 
-We often have to work with structured data. Up to a degree we can do all this TTW, but at some point we reach barriers. In the next part of the training, we'll teach you, how to break through these barriers.
+We often have to work with structured data. Up to a degree we can do all this TTW, but at some point we run into barriers. In the next part of the training, we'll teach you how to break through these barriers.
 
 
 
