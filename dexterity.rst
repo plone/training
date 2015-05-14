@@ -5,12 +5,12 @@ Dexterity I: Through the web
 
 In this part you will:
 
-* Create the new content-type *talk*
+* Create the new content type *talk*
 
 
 Topics covered:
 
-* content-types
+* content types
 * archetypes and dexterity
 * fields
 * widgets
@@ -25,7 +25,7 @@ A content type is a variety of object that can store information and is editable
 
 It is common in developing a web site that you'll need customized versions of common content types, or perhaps even entirely new types.
 
-Remember the requirements for our project? We wanted to be able to solicit and edit conference talks. We could use the ``page`` content type for that purpose. But, there are bits of information we need to make sure we collect about a talk and we wouldn't be sure to get that information if we just asked potential presenters to create a page. Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks. A custom content type will be ideal.
+Remember the requirements for our project? We wanted to be able to solicit and edit conference talks. We could use the ``page`` content type for that purpose. But there are bits of information we need to make sure we collect about a talk and we wouldn't be sure to get that information if we just asked potential presenters to create a page. Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks. A custom content type will be ideal.
 
 .. _dexterity1-contains-label:
 
@@ -50,7 +50,7 @@ Views
 Dexterity and Archetypes - A Comparison
 ---------------------------------------
 
-There are two content-frameworks in Plone
+There are two content frameworks in Plone
 
 * Dexterity: new and the coming default
 * Archetypes: old, tried and tested
@@ -62,8 +62,8 @@ There are two content-frameworks in Plone
 What are the differences?
 
 * Dexterity: New, faster, modular, no dark magic for getters and setters
-* Archetype had magic setter/getter - use talk.getAudience() for the field 'audience'
-* Dexterity: fields are attributes: talk.audience instead of talk.getAudience()
+* Archetype had magic setter/getter - use ``talk.getAudience()`` for the field ``audience``
+* Dexterity: fields are attributes: ``talk.audience`` instead of ``talk.getAudience()``
 
 TTW:
 
@@ -87,11 +87,11 @@ Extending:
 * Archetypes has archetypes.schemaextender. Powerful but not as flexible.
 
 We have only used Dexterity for the last few years.
-We teach Dexterity and not Archetypes because it's more accessible to beginners, has a great TTW-story and is the future.
+We teach Dexterity and not Archetypes because it's more accessible to beginners, has a great TTW story and is the future.
 
 Views:
 
-* Both Dexterity and Archetypes have a default-view for content types.
+* Both Dexterity and Archetypes have a default view for content types.
 * Browser Views provide custom views.
 * TTW (future)
 * Display Forms
@@ -258,7 +258,7 @@ Modify Documents to allow uploading an image as decoration (like News Items do).
 Exercise 2
 ++++++++++
 
-Create a new content type called *Speaker* and export the schema to a xml-File.
+Create a new content type called *Speaker* and export the schema to a XML File.
 It should contain the following fields:
 
 * Title
@@ -266,8 +266,8 @@ It should contain the following fields:
 * Homepage (optional)
 * Biography (optional)
 * Company (optional)
-* Twitter-Name (optional)
-* IRC-Name (optional)
+* Twitter Name (optional)
+* IRC Name (optional)
 * Image (optional)
 
 Do not use the IDublinCore or the IBasic behavior since a speaker should not have a description.
