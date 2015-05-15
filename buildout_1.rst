@@ -21,7 +21,7 @@ Topics covered:
     To compose your application you must define the eggs you need, which version, what configuration files Buildout has to generate for you, what to download and compile, and so on.
     Buildout downloads the eggs you requested and resolves all dependencies. You might need five different eggs, but in the end, Buildout has to install 300 eggs, all with the correct version in order to resolve all the dependencies.
 
-    Buildout does this without touching your system Python or affecting any other package. The commands created by buildout bring all the required packages into into the Python environment. Each command it creates my use different libraries or even different versions of the same library.
+    Buildout does this without touching your system Python or affecting any other package. The commands created by buildout bring all the required packages into the Python environment. Each command it creates may use different libraries or even different versions of the same library.
 
     Plone needs folders for logfiles, databases and configuration files. Buildout assembles all of this for you.
 
@@ -47,7 +47,7 @@ Syntax
 Recipes
 -------
 
-Buildout itself has no idea how to install Zope. Buildout is a plugin based system, it comes with a small set of plugins to create configuration files and download eggs with their dependencies and the proper version. To install a Zope site, you need a third-party plugin. The plugin provide new recipes that you have to declare and configure in a section.
+Buildout itself has no idea how to install Zope. Buildout is a plugin based system, it comes with a small set of plugins to create configuration files and download eggs with their dependencies and the proper version. To install a Zope site, you need a third-party plugin. The plugins provide new recipes that you have to declare and configure in their own respective sections.
 
 One example is the section
 
@@ -57,7 +57,7 @@ One example is the section
     recipe = plone.recipe.zope2instance
     user = admin:admin
 
-This uses the python-package `plone.recipe.zope2instance <http://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the used recipe.
+This uses the python-package `plone.recipe.zope2instance <http://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the specified recipe.
 
 .. seealso::
 
@@ -254,7 +254,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
         # We add our own versions
             versions.cfg
 
-    This line tells Buildout to read more configuration files. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configuration that differ between different environments.
+    This line tells Buildout to read more configuration files. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configurations that differ between different environments.
 
     ..  code-block:: cfg
 
@@ -289,7 +289,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
 
     The rest are addons we already used or will use later. The last eggs are commented out so they will not be installed by Buildout.
 
-    The file ``versions.cfg`` that is included by the ``extends = ...`` statement hold the version-pinnings:
+    The file ``versions.cfg`` that is included by the ``extends = ...`` statement hold the version pins:
 
     .. code-block:: cfg
 
@@ -306,7 +306,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
         Products.PythonField = 1.1.3
         ...
 
-    This is another special section. It has become a special section by declaration. In our :samp:`[buildout]` section we set a variable :samp:`versions = versions`. This told buildout, that there is a section named versions, containing version information. When Buildout installs eggs it will use the version defined in this section.
+    This is another special section. It has become a special section by declaration. In our :samp:`[buildout]` section we set a variable :samp:`versions = versions`. This told buildout that there is a section named versions, containing version information. When Buildout installs eggs it will use the versions defined in this section.
 
 .. _buildout1-mrdeveloper-label:
 
@@ -315,11 +315,11 @@ Hello mr.developer!
 
 .. only:: not presentation
 
-    There are many more important things to know, and we can't go through them in all the detail but I want to focus on one specific feature: **mr.developer**
+    There are many more important things to know, and we can't go through them all in detail but I want to focus on one specific feature: **mr.developer**
 
-    With mr.developer you can declare which packages you want to check out from which version control system and which repository URL. You can check out sources from git, svn, bzr, hg and maybe more. Also, you can say that some source are in your local file system.
+    With mr.developer you can declare which packages you want to check out from which version control system and which repository URL. You can check out sources from git, svn, bzr, hg and maybe more. Also, you can say that some sources are in your local file system.
 
-    ``mr.developer`` comes with a command, ``./bin/develop``. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them, when you write changes that require a new release. You can activate and deactivate eggs via the ``develop`` command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
+    ``mr.developer`` comes with a command, ``./bin/develop``. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them when you write changes that require a new release. You can activate and deactivate eggs via the ``develop`` command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
 
 .. _buildout1-extensible-label:
 
@@ -328,7 +328,7 @@ Extensible
 
 .. only:: not presentation
 
-    You might have noticed that most if not all functionality is only available via plugins. One of the things that Buildout excels at without any plugin, is the dependency resolution. You can help Plone in dependency resolution by declaring exactly which version of an egg you want. This is only one use case. Another one is much more important: If you want to have a repeatable Buildout, one that works two months from now also, you *must* declare all your egg versions. Else Buildout might install newer versions.
+    You might have noticed that most if not all functionality is only available via plugins. One of the things that Buildout excels at without any plugin is the dependency resolution. You can help Plone in dependency resolution by declaring exactly which version of an egg you want. This is only one use case. Another one is much more important: If you want to have a repeatable Buildout, one that works two months from now also, you *must* declare all your egg versions. Else Buildout might install newer versions.
 
 .. _buildout1-mcguyver-label:
 
@@ -337,13 +337,13 @@ Be McGuyver
 
 .. only:: not presentation
 
-    As you can see, you can build very complex systems with Buildout. It is time for some warnings. Be selective in your recipes. Supervisor is a program to manage running servers, its pretty good. There is a recipe for it.
+    As you can see, you can build very complex systems with Buildout. It is time for some warnings. Be selective in your recipes. Supervisor is a program to manage running servers, and it's pretty good. There is a recipe for it.
 
-    The configuration for this recipe is more complicated than the supervisor configuration itself! By using this recipe, you force others to understand the recipes specific configuration syntax *and* the supervisor syntax. For such cases, `collective.recipe.template <https://pypi.python.org/pypi/collective.recipe.template>`_ is a better match.
+    The configuration for this recipe is more complicated than the supervisor configuration itself! By using this recipe, you force others to understand the recipe's specific configuration syntax *and* the supervisor syntax. For such cases, `collective.recipe.template <https://pypi.python.org/pypi/collective.recipe.template>`_ is a better match.
 
-    Another problem is error handling. Buildout tries to install a weird dependency you do not actually want? Buildout will not tell you, where it is coming from.
+    Another problem is error handling. Buildout tries to install a weird dependency you do not actually want? Buildout will not tell you where it is coming from.
 
-    If there is a problem, you can always run Buildout with ``-v``, to get more verbose output, sometimes it helps.
+    If there is a problem, you can always run Buildout with ``-v`` to get more verbose output, sometimes it helps.
 
     .. code-block:: bash
 
@@ -351,11 +351,11 @@ Be McGuyver
 
     If strange egg versions are requested, check the dependencies declaration of your eggs and your version pinnings.
 
-    Some parts of Buildout interpret egg names case-sensitive, others won't. This can result in funny problems.
+    Some parts of Buildout interpret egg names case sensitive, others won't. This can result in funny problems.
 
     Always check out the ordering of your extends, always use the :samp:`annotate` command of Buildout to see if it interprets your configuration differently than you. Restrict yourself to simple Buildout files. You can reference variables from other sections, you can even use a whole section as a template. We learned that this does not work well with complex hierarchies and had to abandon that feature.
 
-    In the chapter :doc:`deployment_sites` we will have a look at a production-ready for Plone that has many useful features.
+    In the chapter :doc:`deployment_sites` we will have a look at a production-ready buildout for Plone that has many useful features.
 
 .. seealso::
 
