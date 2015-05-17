@@ -22,8 +22,8 @@ In this part you will:
 Topics covered:
 
 * FTI
-* type-definitions with generic setup
-* XML-schema
+* type definitions with generic setup
+* XML schema
 * more widgets
 
 Remember the *Talks* content type that we created through-the-web with Dexterity? Let's move that new content type into our add-on package so that it may be installed in other sites without TTW manipulation.
@@ -33,11 +33,11 @@ Steps:
 * Return to the Dexterity control panel
 * Export the Type Profile and save the file
 * Delete the Type from the site before installing it from the file system
-* Extract the files from the exported tar-file and add them to our addon-package in ``profiles/default/``
+* Extract the files from the exported tar file and add them to our addon package in ``profiles/default/``
 
 .. note::
 
-    From the buildout-directory perspective that is ``src/ploneconf.site/src/ploneconf/site/profiles/default/``
+    From the buildout directory perspective that is ``src/ploneconf.site/src/ploneconf/site/profiles/default/``
 
 The file ``profiles/default/types.xml`` tells Plone that there is a new content type defined in file ``talk.xml``.
 
@@ -155,9 +155,9 @@ Now our package has some real contents. So, we'll need to reinstall it (if insta
 * Test the type by adding an object or editing one of the old ones.
 * Look at how the talks are presented in the browser.
 
-The escaped inline-xml is simply too ugly to look at. You should move it to a seperate file!
+The escaped inline xml is simply too ugly to look at. You should move it to a separate file!
 
-Create a folder ``content`` with a empty ``__init__py``. In that create a file ``talk.xml`` that contains the real xml (copied from http://localhost:8080/Plone/dexterity-types/talk/@@modeleditor and beautified with some online-xml-formater (http://lmgtfy.com/?q=xml+formatter))
+Create a folder ``content`` with an empty ``__init__py``. In that create a file ``talk.xml`` that contains the real xml (copied from http://localhost:8080/Plone/dexterity-types/talk/@@modeleditor and beautified with some online xml formatter (http://lmgtfy.com/?q=xml+formatter))
 
 ..  code-block:: xml
     :linenos:
@@ -212,7 +212,7 @@ Create a folder ``content`` with a empty ``__init__py``. In that create a file `
       </schema>
     </model>
 
-Now we have remove the model.source and instead reference the xml-file in the FTI by using the peperty ``model_file``:
+Now we have to remove the model_source and instead reference the xml file in the FTI by using the property ``model_file``:
 
 ..  code-block:: xml
 
@@ -221,11 +221,11 @@ Now we have remove the model.source and instead reference the xml-file in the FT
 
 ..  note::
 
-    The default typed of Plone 5 also have a xml-schema like this since that allows the fields of the types to be editable trough the web! Fields for types with a python-schema are not editable ttw.
+    The default types of Plone 5 also have an xml schema like this since that allows the fields of the types to be editable trough the web! Fields for types with a python schema are not editable ttw.
 
-`Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_ is very powerful by editing it (not all features have a UI) you should be able to do everything you can do with a python-schema.
+`Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_ is very powerful. By editing it (not all features have a UI) you should be able to do everything you can do with a python schema.
 
-Our talks use dropdown for ``type_of_talk`` and multiselect for ``audience``. Radiobuttons and checkboxes woule be the better choice here. Modify the xml to make that change happen:
+Our talks use a dropdown for ``type_of_talk`` and a multiselect for ``audience``. Radiobuttons and checkboxes woule be the better choice here. Modify the xml to make that change happen:
 
 ..  code-block:: xml
     :linenos:
