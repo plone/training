@@ -18,9 +18,9 @@ Topics covered:
 A simple browser view
 ---------------------
 
-Before writing the talk-view itself we step back and talk *a little* about views and templates.
+Before writing the talk view itself we step back and talk *a little* about views and templates.
 
-A view in Plone is usually a ``BrowserView``. It can hold a lot of cool python-code but we will first focus on the template.
+A view in Plone is usually a ``BrowserView``. It can hold a lot of cool python code but we will first focus on the template.
 
 Edit the file ``browser/configure.zcml`` and register another view similar to the demoview already there:
 
@@ -78,4 +78,4 @@ We now have everything in place to learn about page templates.
 
 ..  note::
 
-    The view ``training`` has no python-class registered for it but only a template. I acts as if it had an empty python-class inheriting from ``Products.Five.browser.BrowserView`` but the way that happens is actually quite a bit of magic...
+    The view ``training`` has no python class registered for it but only a template. It acts as if it had an empty python class inheriting from ``Products.Five.browser.BrowserView`` but the way that happens is actually quite a bit of magic...

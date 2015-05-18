@@ -5,7 +5,7 @@ Page Templates
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
@@ -14,7 +14,7 @@ Page Templates
 
 In this part you will:
 
-* Learn to write page-templates
+* Learn to write page templates
 
 
 Topics covered:
@@ -24,7 +24,7 @@ Topics covered:
 * Chameleon
 
 
-Page Templates are HTML-files with some additional Information, written in TAL, METAL and TALES.
+Page Templates are HTML files with some additional information, written in TAL, METAL and TALES.
 
 Page templates must be valid xml.
 
@@ -32,9 +32,9 @@ The three languages are:
 
 * TAL: "Template Attribute Language"
 
-  * Templating XML/HTML using special Attributes
+  * Templating XML/HTML using special attributes
 
-  * Using TAL we include expressions into html
+  * Using TAL we include expressions within html
 
 * TALES: "TAL Expression Syntax"
 
@@ -44,7 +44,7 @@ The three languages are:
 
   * this enables us to combine, re-use and nest templates together
 
-TAL and METAL are written like html-attribues (url, src, title). TALES are written like the values of html-attributes. A typical TAL-Statement looks like this:
+TAL and METAL are written like html attribues (href, src, title). TALES are written like the values of html attributes. A typical TAL attribute looks like this:
 
 .. code-block:: html
 
@@ -105,7 +105,7 @@ The same happens with attributes. Replace the <p>-line with:
     <a href="http://www.mssharepointconference.com"
        tal:define="a_fine_url string:http://www.ploneconf.org"
        tal:attributes="href a_fine_url"
-       tal:content="string:A even better conference">
+       tal:content="string:An even better conference">
         A sharepoint conference
     </a>
 
@@ -114,28 +114,28 @@ results in:
 .. code-block:: html
 
     <a href="http://www.ploneconf.org">
-        A even better conference
+        An even better conference
     </a>
 
 We used three TAL-Attributes here. This is the complete list of TAL-attributes:
 
 ``tal:define``
-    define variables. We definded the variable url to the string "http://www.ploneconf.org"
+    define variables. We definded the variable ``a_fine_url`` to the string "http://www.ploneconf.org"
 
 ``tal:content``
-    replace the content of an element. We replaced the default-content about some with "A even better conference"
+    replace the content of an element. We replaced the default content above with "An even better conference"
 
 ``tal:attributes``
-    dynamically change element attributes. We set the html-attribute ``href`` to the variable ``a_fine_url``
+    dynamically change element attributes. We set the html attribute ``href`` to the value of the variable ``a_fine_url``
 
 ``tal:condition``
-    tests, if the expression is true or false.
+    tests whether the expression is true or false.
 
 ``tal:repeat``
     repeats an iterable element, in our case the list of talks.
 
 ``tal:replace``
-    replace the content of an element like ``tal:content`` but removes the element only leaving the content.
+    replace the content of an element, like ``tal:content`` does, but removes the element only leaving the content.
 
 ``tal:omit-tag``
     remove an element, leaving the content of the element.
@@ -144,10 +144,10 @@ We used three TAL-Attributes here. This is the complete list of TAL-attributes:
     handle errors.
 
 
-python-expressions
+python expressions
 ++++++++++++++++++
 
-So far we only used one TALES expression (the ``string:``-bit). Let's use a different TALES-expression now. With ``python:`` we can use python-code. A simple example:
+So far we only used one TALES expression (the ``string:`` bit). Let's use a different TALES expression now. With ``python:`` we can use python code. A simple example:
 
 .. code-block:: html
 
@@ -168,7 +168,7 @@ And another:
         A talk
     </p>
 
-With python-expressions
+With python expressions
 
 * you can only write single statements
 * you could import things but you should not (example: ``tal:define="something modules/Products.PythonScripts/something;``).
@@ -178,13 +178,13 @@ tal:condition
 +++++++++++++
 
 ``tal:condition``
-    tests, if the expression is true or false.
+    tests whether the expression is true or false.
 
 * If it's true, then the tag is rendered.
 * If it's false then the tag **and all its children** are removed and no longer evaluated.
 * We can reverse the logic by prepending a ``not:`` to the expression.
 
-Let's add another TAL-Attribute to our above example::
+Let's add another TAL Attribute to our above example::
 
     tal:condition="talks"
 
@@ -200,7 +200,7 @@ or if a certain talk is in the list of talks::
 tal:repeat
 ++++++++++
 
-Let's try another statement:
+Let's try another attribute:
 
 .. code-block:: html
 
@@ -234,10 +234,10 @@ We change the markup a little to construct a list in which there is an ``<li>`` 
     </ul>
 
 
-path-expressions
+path expressions
 ++++++++++++++++
 
-Regarding TALES so far we used ``string:`` or ``python:`` or only variables. The next and most common expression are path-expressions. Optionally you can start a path-expression with ``path:``
+Regarding TALES so far we used ``string:`` or ``python:`` or only variables. The next and most common expression are path expressions. Optionally you can start a path expression with ``path:``
 
 Every path expression starts with a variable name. It can either be an object like ``context``, ``view`` or ``template`` or a variable defined earlier like ``talk``.
 
@@ -253,7 +253,7 @@ We can chain several of those to get to the information we want.
 
     <p tal:content="context/REQUEST/form"></p>
 
-This would return the value of the form-dictionary of the HTTPRequest-object. Useful for form-handling.
+This would return the value of the form dictionary of the HTTPRequest object. Useful for form handling.
 
 The ``|`` ("or") character is used to find an alternative value to a path if the first path evaluates to ``nothing`` or does not exist.
 
@@ -273,7 +273,7 @@ This returns nothing if there is no 'average_rating' for a talk. What will not w
 
     We'll get ``KeyError: 'average_rating'``. It is very bad practice to use ``|`` too often since it will swallow errors like a typo in ``tal:content="talk/averange_ratting | nothing"`` and you might wonder why there are no ratings later on...
 
-    You can't and should not use it to prevent errors like a try/except-block.
+    You can't and should not use it to prevent errors like a try/except block.
 
 There are several **built in variables**  that can be used in paths:
 
@@ -312,10 +312,10 @@ A dict of all the available variables is ``econtext``
 Useful for debugging :-)
 
 
-Pure TAL-blocks
+Pure TAL blocks
 +++++++++++++++
 
-We can use TAL-attributes without HTML-Tags. This is useful when we don't need to add any tags to the markup
+We can use TAL attributes without HTML Tags. This is useful when we don't need to add any tags to the markup
 
 Syntax:
 
@@ -341,7 +341,7 @@ Examples:
 handling complex data in templates
 ++++++++++++++++++++++++++++++++++
 
-Let's move on to a little more complex data. And to another TAL-atrribute:
+Let's move on to a little more complex data. And to another TAL attribute:
 
 tal:replace
     replace the content of an element and removes the element only leaving the content.
@@ -363,7 +363,7 @@ this results in:
         &lt;img src='https://plone.org/logo.png'&gt;
     </p>
 
-``tal:replace`` drops it's own base-tag in favor of the result of the TALES-expression. Thus the original ``<img... >`` is replaced. But the result is escaped by default.
+``tal:replace`` drops its own base tag in favor of the result of the TALES expression. Thus the original ``<img... >`` is replaced. But the result is escaped by default.
 
 To prevent escaping we use ``structure``
 
@@ -402,17 +402,17 @@ Now let's emulate a typical Plone structure by creating a dictionary.
         </tr>
     </table>
 
-We emulate a list of talks and display information about them in a table. We'll get back to the list of talks later when we use the real talk-objects that we created with dexterity.
+We emulate a list of talks and display information about them in a table. We'll get back to the list of talks later when we use the real talk objects that we created with dexterity.
 
-To complete the list here are the TAL-Attributes we have not yet used:
+To complete the list here are the TAL attributes we have not yet used:
 
 ``tal:omit-tag``
-    Omit the element tags, leaving only the inner content.
+    Omit the element tag, leaving only the inner content.
 
 ``tal:on-error``
     handle errors.
 
-When an element has multiple statements, they are executed in this order:
+When an element has multiple TAL attributes, they are executed in this order:
 
 1. define
 2. condition
@@ -425,7 +425,7 @@ When an element has multiple statements, they are executed in this order:
 Plone 5
 -------
 
-Plone 5 uses a new rendering-engine called `Chameleon <http://www.pagetemplates.org/>`_. Using the integration layer `five.pt <https://pypi.python.org/pypi/five.pt>`_ it is fully compatible with the normal tal-syntax but offers some additional features:
+Plone 5 uses a new rendering engine called `Chameleon <http://www.pagetemplates.org/>`_. Using the integration layer `five.pt <https://pypi.python.org/pypi/five.pt>`_ it is fully compatible with the normal TAL syntax but offers some additional features:
 
 You can use ``${...}`` as short-hand for text insertion in pure html effectively making ``tal:content`` and ``tal:attributes`` obsolete. Here are some examples:
 
@@ -434,7 +434,7 @@ Plone 4 and Plone 5:
 ..  code-block:: html
     :linenos:
 
-    <a tal:attributes="hef string:${context/absolute_url}?ajax_load=1;
+    <a tal:attributes="href string:${context/absolute_url}?ajax_load=1;
                        class python:context.portal_type().lower().replace(' ', '')"
        tal:content="context/title">
        The Title of the current object
@@ -445,12 +445,12 @@ Plone 5 (and Plone 4 with five.pt) :
 ..  code-block:: html
     :linenos:
 
-    <a hef="${context/absolute_url}?ajax_load=1"
+    <a href="${context/absolute_url}?ajax_load=1"
        class="${python:context.portal_type().lower().replace(' ', '')}">
        ${python:context.title}
     </a>
 
-You can also add pure-python into the templates:
+You can also add pure python into the templates:
 
 ..  code-block:: html
     :linenos:
@@ -579,7 +579,7 @@ Modify the following template and one by one solve the following problems:
             </tr>
         </table>
 
-3. If there is no url turn it into a link to a google-search for that talk's title
+3. If there is no url turn it into a link to a google search for that talk's title
 
 ..  admonition:: Solution
     :class: toggle
@@ -620,7 +620,7 @@ Modify the following template and one by one solve the following problems:
             </tr>
         </table>
 
-4. Add alternating the css-classes 'odd' and 'even' to the <tr>. (repeat.<name of item in loop>.odd is True if is a odd number of items)
+4. Add alternating the css classes 'odd' and 'even' to the <tr>. (``repeat.<name of item in loop>.odd`` is True if the ordinal index of the current iteration is an odd number)
 
    Use some css to prove your solution:
 
@@ -672,7 +672,7 @@ Modify the following template and one by one solve the following problems:
             </tr>
         </table>
 
-5. Only use python-expressions.
+5. Only use python expressions.
 
 ..  admonition:: Solution
     :class: toggle
@@ -800,11 +800,11 @@ Why is our output so ugly? How do we get our html to render in Plone the UI?
 
 We use METAL (Macro Extension to TAL) to define slots that we can fill and macros that we can reuse.
 
-We add to the ``<html>``-tag::
+We add to the ``<html>`` tag::
 
     metal:use-macro="context/main_template/macros/master"
 
-And then wrap the code we want to put in the content-area of Plone in:
+And then wrap the code we want to put in the content area of Plone in:
 
 .. code-block:: xml
 
@@ -857,9 +857,9 @@ The template should now look like this:
 
 .. note::
 
-    Since the training only used content from the template, not from the context that it is called on it makes little sense to have the edit-bar. We hide it by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
+    Since the training only used content from the template, not from the context that it is called on it makes little sense to have the edit bar. We hide it by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
 
-    The easiest way to do this is to define a dummy-variable. Dummy because it is never used except to allow us to execute some code.
+    The easiest way to do this is to define a dummy variable. Dummy because it is never used except to allow us to execute some code.
 
     .. code-block:: xml
 
@@ -867,7 +867,7 @@ The template should now look like this:
             tal:define="dummy python:request.set('disable_border', 1)" />
 
 
-macros in browser-views
+macros in browser views
 +++++++++++++++++++++++
 
 Define a macro in a new file ``macros.pt``
@@ -889,7 +889,7 @@ Register it as a simple BrowserView in zcml:
       permission="zope2.View"
       />
 
-Reuse the macro it in the template ``training.pt``:
+Reuse the macro in the template ``training.pt``:
 
 .. code-block:: html
 
@@ -911,9 +911,9 @@ Which is the same as:
 Accessing Plone from the template
 ---------------------------------
 
-In our template we have access to the context object on which the view is called on, the browser-view itself (i.e. all python-methods we'll put in the view later on), the request and response objects and with these we can get almost anything.
+In our template we have access to the context object on which the view is called on, the browser view itself (i.e. all python methods we'll put in the view later on), the request and response objects and with these we can get almost anything.
 
-In templates we can also access other browser-views. Some of those exist to provide easy access to methods we often need::
+In templates we can also access other browser views. Some of those exist to provide easy access to methods we often need::
 
     tal:define="context_state context/@@plone_context_state;
                 portal_state context/@@plone_portal_state;
