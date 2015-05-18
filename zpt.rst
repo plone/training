@@ -44,7 +44,7 @@ The three languages are:
 
   * this enables us to combine, re-use and nest templates together
 
-TAL and METAL are written like html attribues (href, src, title). TALES are written like the values of html attributes. A typical TAL Statement looks like this:
+TAL and METAL are written like html attribues (href, src, title). TALES are written like the values of html attributes. A typical TAL attribute looks like this:
 
 .. code-block:: html
 
@@ -200,7 +200,7 @@ or if a certain talk is in the list of talks::
 tal:repeat
 ++++++++++
 
-Let's try another statement:
+Let's try another attribute:
 
 .. code-block:: html
 
