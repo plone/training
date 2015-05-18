@@ -120,7 +120,7 @@ results in:
 We used three TAL-Attributes here. This is the complete list of TAL-attributes:
 
 ``tal:define``
-    define variables. We definded the variable `a_fine_url` to the string "http://www.ploneconf.org"
+    define variables. We definded the variable ``a_fine_url`` to the string "http://www.ploneconf.org"
 
 ``tal:content``
     replace the content of an element. We replaced the default content above with "An even better conference"
@@ -911,9 +911,9 @@ Which is the same as:
 Accessing Plone from the template
 ---------------------------------
 
-In our template we have access to the context object on which the view is called on, the browser-view itself (i.e. all python-methods we'll put in the view later on), the request and response objects and with these we can get almost anything.
+In our template we have access to the context object on which the view is called on, the browser view itself (i.e. all python methods we'll put in the view later on), the request and response objects and with these we can get almost anything.
 
-In templates we can also access other browser-views. Some of those exist to provide easy access to methods we often need::
+In templates we can also access other browser views. Some of those exist to provide easy access to methods we often need::
 
     tal:define="context_state context/@@plone_context_state;
                 portal_state context/@@plone_portal_state;
