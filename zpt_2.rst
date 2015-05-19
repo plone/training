@@ -5,7 +5,7 @@ Customizing existing templates
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
@@ -19,11 +19,11 @@ Topics covered:
 
 * omelette/packages
 * z3c.jbot
-* moment-pattern
+* moment pattern
 * listings
 * skins
 
-To dive deeper into real plone-data we now look at some existing templates and customize them.
+To dive deeper into real plone data we now look at some existing templates and customize them.
 
 
 .. _zpt2-news-label:
@@ -31,13 +31,13 @@ To dive deeper into real plone-data we now look at some existing templates and c
 The view for News Items
 -----------------------
 
-We want to show the date a News Item is published. This way people can see at a glance it the are looking at current or old news.
+We want to show the date a News Item is published. This way people can see at a glance it they are looking at current or old news.
 
 To do this we will customize the template that is used to render News Items.
 
 We use ``z3c.jbot`` for overriding templates. The package already has the necessary configuration in ``browser/configure.zcml``.
 
-* Find the file ``newsitem.pt`` in ``packages/plone/app/contenttypes/browser/templates/`` (in vagrant this directory is in ``/home/vagrant/packages``, otherwise it is in your buildout-directory).
+* Find the file ``newsitem.pt`` in ``packages/plone/app/contenttypes/browser/templates/`` (in vagrant this directory is in ``/home/vagrant/packages``, otherwise it is in your buildout directory).
 * Copy that file into the folder ``browser/overrides/`` of our package. If you use vagrant you'd have to use::
 
     cp /home/vagrant/packages/plone/app/contenttypes/browser/templates/newsitem.pt /vagrant/buildout/src/ploneconf.site/src/ploneconf/site/browser/overrides/
@@ -63,7 +63,7 @@ Since we use Plone 5 and Chameleon we could also write:
         ${python: context.Date()}
     </p>
 
-* Open an existing news-item in the browser
+* Open an existing news item in the browser
 
 This will show something like: ``2015-02-21T12:01:31+01:00``. Not very user-friendly. Let's extend the code and use one of many helpers plone offers.
 
@@ -75,8 +75,8 @@ This will show something like: ``2015-02-21T12:01:31+01:00``. Not very user-frie
 
 This will render ``Feb 21, 2015``.
 
-* ``plone_view`` is the BrowserView ``Products.CMFPlone.browser.ploneview.Plone`` and it is defined in the ``main_template`` (Products/CMFPlone/browser/templates/main_template.pt) of Plone 5 like this ``plone_view context/@@plone;`` an thus always avaiable.
-* The method ``toLocalizedTime`` runs a date-object through Plone's ``translation_service`` and returns the Date in the current locales format, thus transforming ``2015-02-21T12:01:31+01:00`` in ``Feb 21, 2015``.
+* ``plone_view`` is the BrowserView ``Products.CMFPlone.browser.ploneview.Plone`` and it is defined in the ``main_template`` (Products/CMFPlone/browser/templates/main_template.pt) of Plone 5 like this ``plone_view context/@@plone;`` and thus always avaiable.
+* The method ``toLocalizedTime`` runs a date object through Plone's ``translation_service`` and returns the Date in the current locales format, thus transforming ``2015-02-21T12:01:31+01:00`` to ``Feb 21, 2015``.
 * With ``nocall:`` we prevent the method ``toLocalizedTime`` from being called, since we only want to make it available for use.
 
 The same in a slightly different style:
@@ -86,19 +86,19 @@ The same in a slightly different style:
     <p tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                    date python:context.Date()"
        tal:content="python:toLocalizedTime(date)">
-            The current Date in its local short-format
+            The current Date in its local short format
     </p>
 
-Here we first get the plone-view and then the method ``toLocalizedTime`` and we use ``nocall:`` to prevent the method toLocalizedTime from being called, since we only want to make it available for later use.
+Here we first get the plone view and then the method ``toLocalizedTime`` and we use ``nocall:`` to prevent the method toLocalizedTime from being called, since we only want to make it available for later use.
 
 .. note::
 
-    On older Plone-versions (using Archetypes) we used ``python:context.toLocalizedTime(context.Date(), longFormat=False)``. That called the python-script ``toLocalizedTime.py`` in the Folder ``Products/CMFPlone/skins/plone_scripts/``.
+    On older Plone versions (using Archetypes) we used ``python:context.toLocalizedTime(context.Date(), longFormat=False)``. That called the python script ``toLocalizedTime.py`` in the Folder ``Products/CMFPlone/skins/plone_scripts/``.
 
-    That folder ``plone_scripts`` holds a multitude of useful scripts that are still widely used. But they are all deprecated and most of thme are gont in Plone 5 and replaced by proper python-methods in browserviews.
+    That folder ``plone_scripts`` holds a multitude of useful scripts that are still widely used. But they are all deprecated and most of thme are gone in Plone 5 and replaced by proper python methods in browserviews.
 
 
-We could also move leave the formatting to the frontend. Plone 5 comes with the `moment-pattern <http://plone.github.io/mockup/dev/#pattern/moment>`_ that uses the library `moment.js <http://plone.github.io/mockup/dev/#pattern/moment>`_ to format dates. Try the relative calendar format:
+We could also leave the formatting to the frontend. Plone 5 comes with the `moment pattern <http://plone.github.io/mockup/dev/#pattern/moment>`_ that uses the library `moment.js <http://plone.github.io/mockup/dev/#pattern/moment>`_ to format dates. Try the relative calendar format:
 
 ..  code-block:: html
 
@@ -111,7 +111,7 @@ Now we should see the date in a user-friendly format like ``Today at 12:01 PM``.
 
 ..  note::
 
-    The moment-pattern of does not yet respect locales at the moment of writing, so you'd always get the US-Format. That will hopefully change soon. See https://github.com/plone/mockup/issues/464#issuecomment-74671684
+    The moment pattern does not yet respect locales at the time of this writing, so you'd always get the US Format. That will hopefully change soon. See https://github.com/plone/mockup/issues/464#issuecomment-74671684
 
 
 .. _zpt2-summary-label:
@@ -119,7 +119,7 @@ Now we should see the date in a user-friendly format like ``Today at 12:01 PM``.
 The Summary View
 ----------------
 
-We use the view "Summary View" to list news-releases. They should also have the date. The template associated with that view is ``listing_summary.pt``.
+We use the view "Summary View" to list news releases. They should also have the date. The template associated with that view is ``listing_summary.pt``.
 
 Let's look for the template folder_summary_view.pt::
 
@@ -136,13 +136,13 @@ Add the following after line 28:
       ${python:plone_view.toLocalizedTime(item.Date())}
     </p>
 
-After you restart the instance and look at the new-folder again you'll see the dates.
+After you restart the instance and look at the new folder again you'll see the dates.
 
 Our addition renders the date of the respective objects that the template iterates over (thus ``item`` instead of ``context`` since ``context`` would be either a collection aggregating the news items or a folder containing a news item).
 
 The date is only displayed if the variable ``item_type`` is ``News Item``.
 
-Let's take a closer look at that template. How does it know that ``item_type`` is the name of the content-type?
+Let's take a closer look at that template. How does it know that ``item_type`` is the name of the content type?
 
 The first step to uncovering that secret is line 12 of ``listing_summary.pt``:
 
@@ -150,9 +150,9 @@ The first step to uncovering that secret is line 12 of ``listing_summary.pt``:
 
     <metal:block use-macro="context/@@folder_listing/macros/entries|context/@@standard_view/macros/entries">
 
-``use-macro`` tells Plone to reuse the macro ``entries`` from the view ``folder_listing``, if that is not found use the same macro from the view ``standard_view``. Both views are defined in ``plone.app.contenttypes/plone/app/contenttypes/browser/configure.zcml``
+``use-macro`` tells Plone to reuse the macro ``entries`` from the view ``folder_listing``, and if that is not found use the same macro from the view ``standard_view``. Both views are defined in ``plone.app.contenttypes/plone/app/contenttypes/browser/configure.zcml``
 
-Both use different view-classes and are allowed for different content-types. The first is for folders the second for collections. But both use the same template ``plone/app/contenttypes/browser/templates/listing.pt``. That makes overriding that much easier :-)
+Both use different view classes and are allowed for different content types. The first is for folders the second for collections. But both use the same template ``plone/app/contenttypes/browser/templates/listing.pt``. That makes overriding that much easier :-)
 
 That template ``listing.pt`` defines the slot ``entries`` like this:
 
@@ -183,9 +183,9 @@ That template ``listing.pt`` defines the slot ``entries`` like this:
 
 Here the ``item_type`` is defined as ``item_type item/PortalType``. Let's dig a little deeper and find out what ``ìtem`` and  ``PortalType`` are.
 
-``tal:repeat="item batch"`` tells the template to iterate over a iterable ``batch`` which is defined as ``batch view/batch``.
+``tal:repeat="item batch"`` tells the template to iterate over an iterable ``batch`` which is defined as ``batch view/batch``.
 
-``view`` is always the BrowserView for which the template is registered. In our case this is either ``plone.app.contenttypes.browser.collection.CollectionView`` if you called that view on a collection or ``plone.app.contenttypes.browser.folder.FolderView`` for folders. You might remember that both are defined in ``configure.zcml``
+``view`` is always the BrowserView for which the template is registered. In our case this is either ``plone.app.contenttypes.browser.collection.CollectionView`` if you called that view on a collection, or ``plone.app.contenttypes.browser.folder.FolderView`` for folders. You might remember that both are defined in ``configure.zcml``
 
 Luckily the first is a class that inherits from the second:
 
@@ -193,16 +193,16 @@ Luckily the first is a class that inherits from the second:
 
     class CollectionView(FolderView):
 
-``batch`` is a method in ``FolderView`` that turns ``results`` into batches. ``results`` exists in both classes. This means, in case the item we are looking at is a collection the method ``results`` of ``CollectionView`` will be used and in case it's a folder the one in ``FolderView``.
+``batch`` is a method in ``FolderView`` that turns ``results`` into batches. ``results`` exists in both classes. This means, in case the item we are looking at is a collection the method ``results`` of ``CollectionView``, will be used and in case it's a folder the one in ``FolderView``.
 
 To be continued...
 
 
 .. note::
 
-    In Plone 4 without ``plone.app.contenttypes`` the template to customize would be ``folder_summary_view.pt``, a skin-template for Archetypes that can be found in the folder ``Products/CMFPlone/skins/plone_content/``. The customzed template would be ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
+    In Plone 4 without ``plone.app.contenttypes`` the template to customize would be ``folder_summary_view.pt``, a skin template for Archetypes that can be found in the folder ``Products/CMFPlone/skins/plone_content/``. The customzed template would be ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
 
-    The Archetypes-template for News Items is ``newsitems_view.pt`` from the same folder. The customized template would then have to be named ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
+    The Archetypes template for News Items is ``newsitems_view.pt`` from the same folder. The customized template would then have to be named ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
 
     Keep in mind that not only the names and locations have changed but also the content!
 
@@ -212,11 +212,11 @@ To be continued...
 Finding the right template
 --------------------------
 
-We changed the display of the listing of news-items at http://localhost:8080/Plone/news. But how do we know which template to customize?
+We changed the display of the listing of news items at http://localhost:8080/Plone/news. But how do we know which template to customize?
 
-If you don't know which template the page you're looking at uses you can do an educated guess, start a debug-session or use ``plone.app.debugtoolbar``.
+If you don't know which template is used by the page you're looking at you can make an educated guess, start a debug session or use ``plone.app.debugtoolbar``.
 
-1.  We could check the html with firebug and look for a structure in the content-area that looks unique. We could also look for the css-class of he body
+1.  We could check the html with firebug and look for a structure in the content area that looks unique. We could also look for the css class of the body
 
     .. code-block:: html
 
@@ -230,9 +230,9 @@ If you don't know which template the page you're looking at uses you can do an e
 
        plone.app.debugtoolbar is not yet compatible with Plone 5. It kind of works but looks really ugly...
 
-3.  The debug-session to find the template is a little more complicated. Since we have ``Products.PDBDebugMode`` in our buildout we can call ``/pdb`` on our page.
+3.  The debug session to find the template is a little more complicated. Since we have ``Products.PDBDebugMode`` in our buildout we can call ``/pdb`` on our page.
 
-    The object that the url points to is by default ``self.context``. But the first problem is, that the url we're seeing is not the url of the collection where we want to modify since the collection is the default-page of the folder ``news``.
+    The object that the url points to is by default ``self.context``. But the first problem is that the url we're seeing is not the url of the collection where we want to modify since the collection is the default page of the folder ``news``.
 
     .. code-block:: python
 
@@ -269,19 +269,19 @@ If you don't know which template the page you're looking at uses you can do an e
 
 .. _zpt2-skins-label:
 
-skin-templates
+skin templates
 --------------
 
 .. only:: not presentation
 
-    Why don't we always only use templates? Because we might want to do something more complicated than get an attribute form the context and render it's value in some html-tag.
+    Why don't we always only use templates? Because we might want to do something more complicated than get an attribute from the context and render its value in some html tag.
 
-    There is a deprecated technology called 'skin-templates' that allows you to simply add some page-template (e.g. 'old_style_template.pt') to a certain folder in the ZMI or your egg) and you can access it in the browser by opening a url like http://localhost:8080/Plone/old_style_template and it will be rendered. But we don't use it and you too should not even though these skin-templates are still all over Plone.
+    There is a deprecated technology called 'skin templates' that allows you to simply add some page template (e.g. 'old_style_template.pt') to a certain folder in the ZMI or your egg and you can access it in the browser by opening a url like http://localhost:8080/Plone/old_style_template and it will be rendered. But we don't use it and you too should not, even though these skin templates are still all over Plone.
 
-    Since we use ``plone.app.contenttypes`` we do not encounter many skin-templates when dealing with content any more. But more often than not you'll have to customize an old site that still uses skin-templates.
+    Since we use ``plone.app.contenttypes`` we do not encounter many skin templates when dealing with content any more. But more often than not you'll have to customize an old site that still uses skin templates.
 
-Skin templates and python-scripts in portal_skin are deprecated because:
+Skin templates and python scripts in portal_skins are deprecated because:
 
 * they use restricted python
-* they have no nice way to attach python-code to them
-* they are always callable for everything (they can't be easily bound to an interface)
+* they have no nice way to attach python code to them
+* they are always callable for everything (they can't easily be bound to an interface)
