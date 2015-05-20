@@ -5,7 +5,7 @@ Views II: A default view for "talk"
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
@@ -13,20 +13,20 @@ Views II: A default view for "talk"
 
 In this part you will:
 
-* Register a view with a python-class
+* Register a view with a python class
 * Write a template used in the default view for talks
 
 
 Topics covered:
 
-* View-classes
+* View classes
 * BrowserView and DefaultView
 * displaying data from fields
 
 
 .. _views2-classes-label:
 
-View-Classes
+View Classes
 ------------
 
 Earlier we wrote a demo view which we also used to experiment with page templates.
@@ -87,15 +87,15 @@ Do you remember the term MultiAdapter? The browser page is just a MultiAdapter. 
 
 An adapter adapts things, a MultiAdapter adapts multiple things.
 
-When you enter an url, Zope tries to find an object for it. At the end, when Zope does not find any more objects but there is still a path item left, or there are no more path items, Zope looks for an adapter that will reply to the request.
+When you enter a url, Zope tries to find an object for it. At the end, when Zope does not find any more objects but there is still a path item left, or there are no more path items, Zope looks for an adapter that will reply to the request.
 
 The adapter adapts the request and the object that Zope found with the URL. The adapter class gets instantiated with the objects to be adapted, then it gets called.
 
 The code above does the same thing that the standard implementation would do. It makes context and request available as variables on the object.
 
-I have written down these methods because it important to understand some important concepts.
+I have written down these methods because it is important to understand some important concepts.
 
-The init method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved. Your code is not security checked. For historic reasons, many errors that happen in the init method can result in a page not found error instead of an exception.
+The init method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved. Your code is not security checked. For historical reasons, many errors that happen in the init method can result in a page not found error instead of an exception.
 
 Don't do much at all in the init method. Instead you have the guarantee that the call method is called before anything else (except the init method). It has the security checks in place and so on.
 
@@ -107,10 +107,10 @@ Let your base class handle the html generation.
 
 .. _views2-default-label:
 
-The default-view
+The default view
 ----------------
 
-Now we finally add the default-view for talks in views.py
+Now we finally add the default view for talks in views.py
 
 ``browser/configure.zcml``
 
@@ -137,7 +137,7 @@ Now we finally add the default-view for talks in views.py
         """ The default view for talks
         """
 
-The DefaultView base class in plone.dexterity only exists for Dextertity-Objects and has some very useful available to the template:
+The DefaultView base class in plone.dexterity only exists for Dextertity Objects and has some very useful properties available to the template:
 
 * view.w is a dictionary of all the display widgets, keyed by field names. This includes widgets from alternative fieldsets.
 * view.widgets contains a list of widgets in schema order for the default fieldset.
@@ -147,7 +147,7 @@ The DefaultView base class in plone.dexterity only exists for Dextertity-Objects
 
 .. note::
 
-    ``plone.dexterity.browser.view.DefaultView`` has the same features as the grok-equivalent ``plone.directives.dexterity.DisplayForm``.
+    ``plone.dexterity.browser.view.DefaultView`` has the same features as the grok equivalent ``plone.directives.dexterity.DisplayForm``.
 
 The template ``templates/talkview.pt`` uses the pattern ``view/w/<fieldname>/render`` to render some widgets.
 
@@ -172,9 +172,9 @@ The template ``templates/talkview.pt`` uses the pattern ``view/w/<fieldname>/ren
     </body>
     </html>
 
-After a restart, we can test our view by going to a talk and add */talkview* to the url.
+After a restart, we can test our view by going to a talk and adding */talkview* to the url.
 
-We should tell Plone, that the talkview should be used as the default view for talks instead of the built-in view.
+We should tell Plone that the talkview should be used as the default view for talks instead of the built-in view.
 
 This is a configuration that you can change during runtime and is stored in the database, as such it is also managed by GenericSetup profiles.
 
@@ -192,11 +192,11 @@ open ``profiles/default/types/talk.xml``:
     </property>
     ...
 
-We will have to either reinstall our addon or run the generic-setup step ``typeinfo`` so Plone learns about the change.
+We will have to either reinstall our addon or run the GenericSetup import step ``typeinfo`` so Plone learns about the change.
 
 ..  note::
 
-    To change it ttw got to the ZMI (http://localhost:8080/Plone/manage), go to ``portal_types`` and select the type for which the new should be selectable (*talk*). Now add ``talkview`` to the list *Available view methods*. Now the new view is available in the menu *Display*. To make it the default view enter it in ``Default view method``.
+    To change it ttw got to the ZMI (http://localhost:8080/Plone/manage), go to ``portal_types`` and select the type for which the new view should be selectable (*talk*). Now add ``talkview`` to the list *Available view methods*. Now the new view is available in the menu *Display*. To make it the default view enter it in ``Default view method``.
 
 Let's improve the talkview to show all the info we want.
 
@@ -250,7 +250,7 @@ Let's improve the talkview to show all the info we want.
 Exercise
 --------
 
-Add the new choice-field "room" to the Talk type (TTW) and display it below Audience in the browser view, it should contain the following data:
+Add the new choice field "room" to the Talk type (TTW) and display it below Audience in the browser view, it should contain the following data:
 
 * Title: Room
 * Possible values: Room 101, Room 102, Auditorium
