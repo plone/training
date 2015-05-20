@@ -467,7 +467,6 @@ To make views configurable so that editors can choose them we have to register t
      <property name="view_methods" purge="False">
       <element value="talklistview"/>
      </property>
-      <alias from="@@talklistview" to="talklistview"/>
     </object>
 
 After reapplying the typeinfo-profile of out add-on (or simply reinstalling it) the content-type "Folder" is extended with our additional view-method and appears in the display-dropdown.

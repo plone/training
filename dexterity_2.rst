@@ -188,7 +188,7 @@ GenericSetup now expects the code as a method ``upgrade_site`` in the file ``upg
     import logging
 
     default_profile = 'profile-ploneconf.site:default'
-    logger = logging.getLogger('ploneconf.site')
+    logger = logging.getLogger(__name__)
 
 
     def upgrade_site(setup):
@@ -298,7 +298,7 @@ We should bind all views to it. Here is an example using the talkview.
 
     <browser:page
       name="talklistview"
-      for="ploneconf.site.interfaces.ITalk"
+      for="*"
       layer="..interfaces.IPloneconfSiteLayer"
       class=".views.TalkListView"
       template="templates/talklistview.pt"
@@ -400,7 +400,7 @@ We now can use the new indexes to improve the talklistview so we don't have to *
 
         def talks(self):
             results = []
-            portal_catalog = getToolByName(self.context, 'portal_catalog')
+            portal_catalog = api.portal.get_tool('portal_catalog')
             current_path = "/".join(self.context.getPhysicalPath())
 
             brains = portal_catalog(portal_type="talk",
@@ -475,10 +475,10 @@ Add a new file ``profiles/default/registry.xml``
 
 .. _dexterity2-GS-label:
 
-Add more features through generic-setup
----------------------------------------
+Add versioning through generic-setup
+------------------------------------
 
-Enable versioning and a diff-view for talks through GenericSetup.
+Configure the versioning-policy and a diff-view for talks through GenericSetup.
 
 Add new file ``profiles/default/repositorytool.xml``
 
@@ -509,3 +509,17 @@ Add new file ``profiles/default/diff_tool.xml``
         </type>
       </difftypes>
     </object>
+
+Finally you need to activate the versioning behavior on the content-type. Edit ``profiles/default/types/talk.xml``:
+
+.. code-block:: xml
+    :linenos:
+    :emphasize-lines: 6
+
+    <property name="behaviors">
+     <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+     <element value="plone.app.content.interfaces.INameFromTitle"/>
+     <element value="ploneconf.site.behaviors.social.ISocial"/>
+     <element value="ploneconf.site.interfaces.ITalk"/>
+     <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+    </property>
