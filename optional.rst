@@ -4,10 +4,9 @@ Optional
 * Testing
 * zc3.form
 * portlets
-* zca in depth
-* :doc:`grok`
+* ZCA in depth
 * ZODB
-* more and more more complex fields
+* more and more complex fields
 * relations
 * custom edit-forms
 * control panels
