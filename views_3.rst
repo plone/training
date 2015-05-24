@@ -5,7 +5,7 @@ Views III: A Talk list
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
@@ -13,7 +13,7 @@ Views III: A Talk list
 
 In this part you will:
 
-* Write a python-class to get all talks from the catalog
+* Write a python class to get all talks from the catalog
 * Write a template to display the talks
 * Improve the table
 
@@ -34,11 +34,11 @@ Now we don't want to provide information about one specific item but on several 
 Using portal_catalog
 --------------------
 
-Let's say we want to show a list of all the talks that were submitted for our conference. We can just go to the folder and select a display-method that suits us. But none does because we want to show the target-audience in our listing.
+Let's say we want to show a list of all the talks that were submitted for our conference. We can just go to the folder and select a display method that suits us. But none does because we want to show the target audience in our listing.
 
-So we need to get all the talks. For this we use the python-class of the view to query the catalog for the talks.
+So we need to get all the talks. For this we use the python class of the view to query the catalog for the talks.
 
-The catalog is like a search-engine for the content on our site. It holds information about all the objects as well as some of their attributes like title, description, workflow_state, keywords that they were tagged with, author, content_type, it's path in the site etc. But it does not hold the content of "heavy" fields like images or files, richtext-fields and field that we just defined ourselves.
+The catalog is like a search engine for the content on our site. It holds information about all the objects as well as some of their attributes like title, description, workflow_state, keywords that they were tagged with, author, content_type, its path in the site etc. But it does not hold the content of "heavy" fields like images or files, richtext fields and fields that we just defined ourselves.
 
 It is the fast way to get content that exists in the site and do something with it. From the results of the catalog we can get the objects themselves but often we don't need them, but only the properties that the results already have.
 
@@ -116,14 +116,14 @@ We create a dictionary that holds all the information we want to show in the tem
 brains and objects
 ------------------
 
-Objects are normally not loaded into memory but lie dormant in the Database ZODB. Waking objects up can be slow, especially if you're waking up a lot of objects. Fortunately our talks are not especially heavy since they are:
+Objects are normally not loaded into memory but lie dormant in the ZODB Database. Waking objects up can be slow, especially if you're waking up a lot of objects. Fortunately our talks are not especially heavy since they are:
 
-* dexterity-objects which are lighter than their archetypes-brothers
+* dexterity-objects which are lighter than their archetypes brothers
 * relatively few since we don't have thousands of talks at our conference
 
-We want to show the target-audience but that attributes of the talks is not in the catalog. This is why we need to get to the objects themselves.
+We want to show the target audience but that attribute of the talk content type is not in the catalog. This is why we need to get to the objects themselves.
 
-We could also add a new index to the catalog that will add 'audience' to the properties of the brains, we have to weight pros and cons:
+We could also add a new index to the catalog that will add 'audience' to the properties of brains, but we should to weigh the pros and cons:
 
 * talks are important and thus most likely always in memory
 * prevent bloating of catalog with indexes
@@ -147,9 +147,9 @@ We could also add a new index to the catalog that will add 'audience' to the pro
 
     We will add some indexers later on.
 
-Why use the catalog at all? It checks for permissions, and only returns the talks that the current user may see. They might be private or hidden to you since they are part of a top-secret conference for core-developers (there is no such thing!).
+Why use the catalog at all? It checks for permissions, and only returns the talks that the current user may see. They might be private or hidden to you since they are part of a top secret conference for core developers (there is no such thing!).
 
-Most objects in plone act like dictionaries, so you can do ``context.values()`` to get all it's contents.
+Most objects in plone act like dictionaries, so you can do ``context.values()`` to get all its contents.
 
 For historical reasons some attributes of brains and objects are written differently::
 
@@ -205,7 +205,7 @@ The are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and
     >>> portal_catalog(review_state='pending')
     []
 
-Calling the catalog without parameters return the whole site::
+Calling the catalog without parameters returns the whole site::
 
     >>> portal_catalog()
     [<Products.ZCatalog.Catalog.mybrains object at 0x1085a11f0>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a12c0>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a1328>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a13 ...
@@ -327,7 +327,7 @@ Add this simple table to ``templates/talklistview.pt``:
         <tbody>
             <tr>
                 <td>
-                   The 7 sins of plone-development
+                   The 7 sins of plone development
                 </td>
                 <td>
                     Philip Bauer
@@ -339,7 +339,7 @@ Add this simple table to ``templates/talklistview.pt``:
         </tbody>
     </table>
 
-Afterwards you transform it into a listing. Here we use one of many nice feature build into Plone. The ``class="pat-tablesorter"`` (before Plone 5 that was ``class="listing"``) gives the table a nice style and makes the table sortable with some javascript.
+Afterwards you transform it into a listing. Here we use one of many nice features built into Plone. The ``class="pat-tablesorter"`` (before Plone 5 that was ``class="listing"``) gives the table a nice style and makes the table sortable with some javascript.
 
 .. code-block:: html
     :linenos:
@@ -386,19 +386,19 @@ Afterwards you transform it into a listing. Here we use one of many nice feature
 There are some some things that need explanation:
 
 ``tal:repeat="talk view/talks"``
-    This iterates over the list of dictionaries returned by the view. ``view/talks`` calls the method ``talks`` of our view and each ``talk`` is in turn one of the dictionaries that are returned by this method. Since TAL's path-expressions for the lookup of values in dictionaries is the same as the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page-template alone we have often no way of knowing if something is an attribute, a method or the value of a dict. It would be a good practice to write ``tal:repeat="talk python:view.talks()"``.
+    This iterates over the list of dictionaries returned by the view. ``view/talks`` calls the method ``talks`` of our view and each ``talk`` is in turn one of the dictionaries that are returned by this method. Since TAL's path expressions for the lookup of values in dictionaries is the same as the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict. It would be a good practice to write ``tal:repeat="talk python:view.talks()"``.
 
 ``tal:content="talk/speaker"``
     'speaker' is a key in the dict 'talk'. We could also write ``tal:content="python:talk['speaker']"``
 
 ``tal:condition="not:view/talks"``
-    This is a fallback if no talks are returned. It then return an empty list (remember ``results = []``?)
+    This is a fallback if no talks are returned. It then returns an empty list (remember ``results = []``?)
 
 
 Exercise
 ********
 
-Modify the view to only python-expressions.
+Modify the view to only python expressions.
 
 ..  admonition:: Solution
     :class: toggle
@@ -450,14 +450,14 @@ Modify the view to only python-expressions.
 
 .. _views3-custom-label:
 
-Setting a custom view as default-view on an object
+Setting a custom view as default view on an object
 --------------------------------------------------
 
-We don't want to always have to append /@@talklistview to out folder to get the view. There is a very easy way to set the view to the folder using the ZMI.
+We don't want to always have to append /@@talklistview to our folder to get the view. There is a very easy way to set the view to the folder using the ZMI.
 
 If we append ``/manage_propertiesForm`` we can set the property "layout" to ``talklistview``.
 
-To make views configurable so that editors can choose them we have to register the view for the content-type at hand in it's FTI. To enable if for all folders we add a new file ``profiles/default/types/Folder.xml``
+To make views configurable so that editors can choose them we have to register the view for the content type at hand in its FTI. To enable if for all folders we add a new file ``profiles/default/types/Folder.xml``
 
 .. code-block:: xml
     :linenos:
@@ -470,7 +470,7 @@ To make views configurable so that editors can choose them we have to register t
       <alias from="@@talklistview" to="talklistview"/>
     </object>
 
-After reapplying the typeinfo-profile of out add-on (or simply reinstalling it) the content-type "Folder" is extended with our additional view-method and appears in the display-dropdown.
+After re-applying the typeinfo profile of our add-on (or simply reinstalling it) the content type "Folder" is extended with our additional view method and appears in the display dropdown.
 
 The ``purge="False"`` appends the view to the already existing ones instead of replacing them.
 
@@ -484,9 +484,9 @@ Adding some javascript (collective.js.datatables)
 
     We'll skip this section since the integration of js in Plone 5 is still not finished while it is still an alpha!
 
-We could improve that table further by using a nice javascript-library called "datatables". It might even become part of the Plone-core at some point.
+We could improve that table further by using a nice javascript library called "datatables". It might even become part of the Plone core at some point.
 
-Like for many js-libraries there is already a package that doe the plone-integration for us: ``collective.js.datatables``. Like all python-packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables
+Like for many js libraries there is already a python package that does the plone integration for us: ``collective.js.datatables``. Like all python packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables
 
 We already added the add-on to our buildout, you just have to activate it in our template.
 
@@ -556,11 +556,11 @@ We already added the add-on to our buildout, you just have to activate it in our
     </body>
     </html>
 
-We don't need the css-class ``listing`` anymore since it might clash with datatables (it does not but still...).
+We don't need the css class ``listing`` anymore since it might clash with datatables (it does not but still...).
 
 The documentation of datatables is beyond our training.
 
-We use METAL again but this time to fill a different slot. The "javascript_head_slot" is part of the html's ``<head>``-area in Plone and can be extended this way. We could also just put the code inline but having nicely ordered html is a good practice.
+We use METAL again but this time to fill a different slot. The "javascript_head_slot" is part of the html's ``<head>`` area in Plone and can be extended this way. We could also just put the code inline but having nicely ordered html is a good practice.
 
 Let's test it: http://localhost:8080/Plone/talklistview
 
