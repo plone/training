@@ -5,7 +5,7 @@ Writing Viewlets
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
@@ -30,18 +30,18 @@ A viewlet for the social behavior
     A viewlet is not a view but a snippet of html and logic that can be put in various places in the site. These places are called ``viewletmanager``.
 
 * Inspect existing viewlets and their managers by going to http://localhost:8080/Plone/@@manage-viewlets.
-* We already customized a viewlet (:file:`collophon.pt`). Now we add a new one.
+* We already customized a viewlet (:file:`colophon.pt`). Now we add a new one.
 * Viewlets don't save data (portlets do)
-* Viewlets have no user-interface (portlets do)
+* Viewlets have no user interface (portlets do)
 
 .. _viewlets1-social2-label:
 
-social-viewlet
+Social viewlet
 --------------
 
 .. only:: not presentation
 
-    Let's add a link to the site that uses the information that we collected using the social-behavior.
+    Let's add a link to the site that uses the information that we collected using the social behavior.
 
 We register the viewlet in :file:`browser/configure.zcml`.
 
@@ -58,15 +58,15 @@ We register the viewlet in :file:`browser/configure.zcml`.
       permission="zope2.View"
       />
 
-``for``, ``manager``, ``layer`` and ``permission`` are constraints that
+``for``, ``manager``, ``layer`` and ``permission`` are constraints that limit the contexts in which the viewlet is loaded and rendered, by filtering out all the contexts that do not match those constraints.
 
 .. only:: not presentation
 
     This registers a viewlet called ``social``.
     It is visible on all content that implements the interface ``ISocial`` from our behavior.
-    It is also good practice to bind it to the `BrowserLayer`_ ``IPloneconfSiteLayer`` of our addon so it only shows up if our addon is actually installed.
+    It is also good practice to bind it to a specific ``layer``, so it only shows up if our addon is actually installed.  We will return to this in a later chapter.
 
-The viewlet-class ``SocialViewlet`` is expected in a file ``browser/viewlets.py``.
+The viewlet class ``SocialViewlet`` is expected in a file ``browser/viewlets.py``.
 
 .. _BrowserLayer: http://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
 
@@ -81,7 +81,7 @@ The viewlet-class ``SocialViewlet`` is expected in a file ``browser/viewlets.py`
 
 .. only:: not presentation
 
-    This class does nothing except rendering the associated template (That we have to write yet)
+    This class does nothing except rendering the associated template (That we have yet to write)
 
 Let's add the missing template :file:`templates/social_viewlet.pt`.
 
@@ -103,7 +103,7 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
 
     As you can see this is not a valid html document. That is not needed, because we don't want a complete view here, just a html snippet.
 
-    There is a tal define statement, querying for ``view/lanyrd_link``. Same as for views also viewlets have access to their class in page templates.
+    There is a tal define statement, querying for ``view/lanyrd_link``. Same as for views, viewlets have access to their class in page templates, as well.
 
 We have to extend the Social Viewlet now to add the missing attribute:
 
@@ -114,7 +114,7 @@ We have to extend the Social Viewlet now to add the missing attribute:
 
         In this example, :samp:`ISocial(self.context)` does return the context directly. It is still good to use this idiom for two reasons:
 
-          #. It makes it clear, that we only want to use the ISocial aspect of the object
+          #. It makes it clear that we only want to use the ISocial aspect of the object
           #. If we decide to use a factory, for example to store our attributes in an annotation, we would `not` get back our context, but the adapter.
 
         Therefore in this example you could simply write ``return self.context.lanyrd``.
@@ -135,7 +135,7 @@ We have to extend the Social Viewlet now to add the missing attribute:
 So far, we
 
   * register the viewlet to content that has the ISocial Interface.
-  * adapt the object to it's behavior to be able to access the fields of the behavior
+  * adapt the object to its behavior to be able to access the fields of the behavior
   * return the link
 
 
@@ -175,9 +175,9 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
             There are <span tal:replace="talks" /> talks.
         </div>
 
-    ``python:context.portal_catalog`` will return the catalog through Acquisition. Be careful if you want to use path-expressions: ``content/portal_catalog`` calls the catalog (and returns all brains). You need to prevent this by using ``nocall:content/portal_catalog``.
+    ``python:context.portal_catalog`` will return the catalog through Acquisition. Be careful if you want to use path expressions: ``content/portal_catalog`` calls the catalog (and returns all brains). You need to prevent this by using ``nocall:content/portal_catalog``.
 
-    Relying on Aqcisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from ``plone/app/layout/globals/tools.py`` to get the catalog.
+    Relying on Acquisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from ``plone/app/layout/globals/tools.py`` to get the catalog.
 
     ..  code-block:: html
 
@@ -187,7 +187,7 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
             There are <span tal:replace="talks" /> talks.
         </div>
 
-    ``context/@@plone_tools/catalog`` traverses to the view ``plone_tools`` and calls it's method ``catalog``. In python it would look like this:
+    ``context/@@plone_tools/catalog`` traverses to the view ``plone_tools`` and calls its method ``catalog``. In python it would look like this:
 
     ..  code-block:: html
 
@@ -219,7 +219,7 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
 Exercise 2
 ----------
 
-Register a viewlet 'days_to_conference' in the header. Use a class and a template to display the number of days until the conference. You get bonus-points if you display it in a nice format (think "In 2 days" and "Last Month") by using either javascript or a python library.
+Register a viewlet 'days_to_conference' in the header. Use a class and a template to display the number of days until the conference. You get bonus points if you display it in a nice format (think "In 2 days" and "Last Month") by using either javascript or a python library.
 
 ..  admonition:: Solution
     :class: toggle
@@ -266,7 +266,7 @@ Register a viewlet 'days_to_conference' in the header. Use a class and a templat
             ${python: view.human()}
         </div>
 
-    Or using the moment-pattern in Plone 5:
+    Or using the moment pattern in Plone 5:
 
     ..  code-block:: html
 
