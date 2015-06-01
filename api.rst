@@ -20,7 +20,7 @@ Topics covered:
 plone.api
 ---------
 
-The most important tool nowadays for plone-developers is the add-on `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
+The most important tool nowadays for plone developers is the add-on `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
 
 The api is divided in five sections. Here is one example from each:
 
@@ -30,9 +30,9 @@ The api is divided in five sections. Here is one example from each:
 * `Users`: `Get user roles <http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_
 * `Environment`: `Switch roles inside a block <http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_
 
-plone.api is not yet part of the Plone core. Therefore you will not see any use of plone.api in in Plone itself. It will be part of Plone 5.
+plone.api is not yet part of the Plone core. Therefore you will not see any use of plone.api in Plone itself. It will be part of Plone 5.
 
-In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out about what they do.
+In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out  what they do.
 
 Some of these methods will be replaced by plone.api in the future:
 
@@ -45,12 +45,12 @@ Some of these methods will be replaced by plone.api in the future:
 portal-tools
 ------------
 
-Some parts of Plone are very complex modules in themselves (e.g. the while versioning-machinery of ``Products.CMFEditions``). Some of them have an api that you will have to learn sooner or later.
+Some parts of Plone are very complex modules in themselves (e.g. the versioning machinery of ``Products.CMFEditions``). Some of them have an api that you will have to learn sooner or later.
 
 Here are a few examples:
 
 portal_catalog
-    ``unrestrictedSearchResults()`` returns search-results without checking if the current user has the permission to access the objects.
+    ``unrestrictedSearchResults()`` returns search results without checking if the current user has the permission to access the objects.
 
     ``uniqueValuesFor()`` returns all entries in a index
 
@@ -71,49 +71,49 @@ Debugging
 Here are some tools and techniques we often use when developing and debugging. We use some of them in various situations during the training.
 
 tracebacks and the log
-    The log (and the console when running in foreground) collect all log-messages Plone prints. When a exception occurs Plone throws a traceback. Most of the time the traceback is everything you need to find out what is going wrong. Also adding your own information to the log is very simple.
+    The log (and the console when running in foreground) collect all log messages Plone prints. When an exception occurs Plone throws a traceback. Most of the time the traceback is everything you need to find out what is going wrong. Also adding your own information to the log is very simple.
 
 pdb
     The python debugger pdb is the single most important tool for us when programming. Just add ``import pdb; pdb.set_trace()`` in your code and debug away!
 
-    Since Plone 5 you can even add it to templates: add ``<?python import pdb; pdb.set_trace() ?>`` to a template and you end up in a pdb-shell on calling the template. Look at the variable ``econtext`` to see what might have gone wrong.
+    Since Plone 5 you can even add it to templates: add ``<?python import pdb; pdb.set_trace() ?>`` to a template and you end up in a pdb shell on calling the template. Look at the variable ``econtext`` to see what might have gone wrong.
 
 ipdb
-    Enhance pdb with the power of IPython, e.g. tab completion, syntax highlighting, better tracebacks and introspection. It also works nicely with Products.PDBDebugMode.
+    Enhanced pdb with the power of IPython, e.g. tab completion, syntax highlighting, better tracebacks and introspection. It also works nicely with Products.PDBDebugMode.
 
 Products.PDBDebugMode
-    A add-on that has two killer-features.
+    An add-on that has two killer features.
 
-    **Post-mortem debugging**: throws you in a pdb whenever a exception occurs. This way you can find out what is going wrong.
+    **Post-mortem debugging**: throws you in a pdb whenever an exception occurs. This way you can find out what is going wrong.
 
-    **pdb-view**: simply adding ``/pdb`` to a url drops you in a pdb-session with the current context as ``self.context``. From there you can do just about anything.
+    **pdb-view**: simply adding ``/pdb`` to a url drops you in a pdb session with the current context as ``self.context``. From there you can do just about anything.
 
-Debug-mode
-    When starting Plone using ``./bin/instance debug -O Plone`` you'll end up in a interactive debugger.
+Debug mode
+    When starting Plone using ``./bin/instance debug -O Plone`` you'll end up in an interactive debugger.
 
-plone.app.debugtoolbar (not yet working Plone 5!)
-    A add-on that allows you to inspect nearly everything. It even has a interactive console and a tester for TALES-expressions.
+plone.app.debugtoolbar (not working yet in Plone 5!)
+    An add-on that allows you to inspect nearly everything. It even has an interactive console and a tester for TALES-expressions.
 
 plone.reload
     An add-on that allows to reload code that you changed without restarting the site. It is also used by plone.app.debugtoolbar.
 
 Products.PrintingMailHost
-    A add-on that prevents Plone from sending mails. They are instead logged.
+    An add-on that prevents Plone from sending mails. Instead, they are logged.
 
 Products.enablesettrace or Products.Ienablesettrace
-    Add-on that allows to use pdb and ipdb in python skin-scripts. Very useful when debugging legacy-code.
+    Add-on that allows to use pdb and ipdb in python skin scripts. Very useful when debugging legacy code.
 
 ``verbose-security = on``
-    A option for the recipe *plone.recipe.zope2instance* that logs the detailed reasons why a user might not be authorized to see something.
+    An option for the recipe *plone.recipe.zope2instance* that logs the detailed reasons why a user might not be authorized to see something.
 
 ``./bin/buildout annotate``
-    A option when running buildout that logs all the pulled packages and versions.
+    An option when running buildout that logs all the pulled packages and versions.
 
 Sentry
-    `Sentry <https://github.com/getsentry/sentry>`_ is a error logging application you can host yourself. It aggregates tracebacks from many sources and (here comes the killer-feature) even the values of variables in the stacktrace. We use it in all our production-sites.
+    `Sentry <https://github.com/getsentry/sentry>`_ is an error logging application you can host yourself. It aggregates tracebacks from many sources and (here comes the killer feature) even the values of variables in the traceback. We use it in all our production sites.
 
 zopepy
-    Buildout can create a python-shell for you that has all the packages from your Plone site in it's python-path. Add the part like this::
+    Buildout can create a python shell for you that has all the packages from your Plone site in its python path. Add the part like this::
 
         [zopepy]
         recipe = zc.recipe.egg

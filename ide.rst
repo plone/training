@@ -32,7 +32,7 @@ Some features that most editors have in one form or another are essential when d
 * **Goto Definition** (SublimeText3 with codeintel: ``alt + click``)
 * **Powerful search & replace**
 
-The capability of performing a *full text search* through the complete Plone code is invaluable. Thanks to omelette, an SSD and plenty of RAM you can search through the complete Plone-code in 3 seconds.
+The capability of performing a *full text search* through the complete Plone code is invaluable. Thanks to omelette, an SSD and plenty of RAM you can search through the complete Plone code base in 3 seconds.
 
 .. note::
 
