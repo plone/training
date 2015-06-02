@@ -5,7 +5,7 @@ Dexterity Types II: Growing up
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
@@ -16,23 +16,23 @@ The existing talks are still lacking some functionality we want to use.
 
 In this part we will:
 
-* add a marker-interface to our talk-type
-* create custom catalog-indexes
+* add a marker interface to our talk type
+* create custom catalog indexes
 * query the catalog for them
-* enable some more default-features for our type
+* enable some more default features for our type
 
 
 .. _dexterity2-marker-label:
 
-Add a marker-interface to the talk-type
+Add a marker interface to the talk type
 ---------------------------------------
 
 Marker Interfaces
 +++++++++++++++++
 
-The content-type `Talk` is not yet a first-class citizen because it does not implement his own interface. Interfaces are like name-tags, telling other elements who and what you are and what you can do. A marker interface is like such a nametag. The talks actually have a auto-generated marker-interface ``plone.dexterity.schema.generated.Plone_0_talk``.
+The content type `Talk` is not yet a first class citizen because it does not implement its own interface. Interfaces are like nametags, telling other elements who and what you are and what you can do. A marker interface is like such a nametag. The talks actually have an auto-generated marker interface ``plone.dexterity.schema.generated.Plone_0_talk``.
 
-The problem is that the name of the Plone-instance ``Plone`` is part of that interface-name. If you now moved these types to a site with another name, code that uses these Interfaces would no longer find the objects in question.
+The problem is that the name of the Plone instance ``Plone`` is part of that interface name. If you now moved these types to a site with another name, code that uses these Interfaces would no longer find the objects in question.
 
 To solve this we add a new Interface to ``interfaces.py``:
 
@@ -55,14 +55,14 @@ To solve this we add a new Interface to ``interfaces.py``:
         """Marker interface for Talks
         """
 
-``ITalk`` is a marker-interface. We can bind Views and Viewlets to content that provide these interfaces. Lets see how we can provide this Interface. There are two solution for this.
+``ITalk`` is a marker interface. We can bind Views and Viewlets to content that provide these interfaces. Lets see how we can provide this Interface. There are two solution for this.
 
 1. Let them be instances of a class that implements this Interface.
 2. Register this interface as a behavior and enable it on talks.
 
-The first option has a important drawback: Only new talks would be instances of the new class. We would either have to migrate the existing talks or delete them.
+The first option has an important drawback: Only new talks would be instances of the new class. We would either have to migrate the existing talks or delete them.
 
-So lets register the interface as a behavior in ``behaviors/configure.zcml``
+So let's register the interface as a behavior in ``behaviors/configure.zcml``
 
 .. code-block:: xml
 
@@ -85,7 +85,7 @@ And enable it on the type in ``profiles/default/types/talk.xml``
      <element value="ploneconf.site.interfaces.ITalk"/>
     </property>
 
-Either reinstall the addon, apply the behavior by hand or run a upgrade-step (see below) and the interface will be there.
+Either reinstall the addon, apply the behavior by hand or run an upgrade step (see below) and the interface will be there.
 
 Then we can safely bind the talkview to the new marker interface.
 
@@ -130,21 +130,21 @@ Now the ``/talkview`` can only be used on objects that implement said interface.
           <property name="behaviors">
           ...
 
-    * Create a upgrade step that changes the class of the existing talks. A reuseable method to do such a thing is in is `plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class <https://github.com/plone/plone.app.contenttypes/blob/master/plone/app/contenttypes/migration/dxmigration.py#L130>`_.
+    * Create an upgrade step that changes the class of the existing talks. A reuseable method to do such a thing is in is `plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class <https://github.com/plone/plone.app.contenttypes/blob/master/plone/app/contenttypes/migration/dxmigration.py#L130>`_.
 
 .. _dexterity2-upgrades-label:
 
-Upgrade-steps
+Upgrade steps
 -------------
 
-When projects evolve you'll sometimes have to modify various things while the site is already up and brimming with content and users. Upgrade steps are pieces of code that run when upgrading from one version of a addon to a newer one. They can do just about anything.
+When projects evolve you'll sometimes have to modify various things while the site is already up and brimming with content and users. Upgrade steps are pieces of code that run when upgrading from one version of an addon to a newer one. They can do just about anything.
 
-We will create a upgrade step that
+We will create an upgrade step that
 
-* runs the typeinfo-step (i.e. loads the GenericSetup configuration stores in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the addon to have our changes from above take effect) and
+* runs the typeinfo step (i.e. loads the GenericSetup configuration stores in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the addon to have our changes from above take effect) and
 * cleans up some content that might be scattered around the site in the early stages of creating it. We will move all talks to a folder ``talks`` (unless they already are there).
 
-Upgrade steps are usually registered in their own zcml-file. Create ``upgrades.zcml``
+Upgrade steps are usually registered in their own zcml file. Create ``upgrades.zcml``
 
 .. code-block:: xml
     :linenos:
@@ -167,7 +167,7 @@ Upgrade steps are usually registered in their own zcml-file. Create ``upgrades.z
 
     </configure>
 
-The upgrade step bumps the verion-number of the GenericSetup profile of ploneconf.site from 1 to 1001. The version is stored in ``profiles/default/metadata.xml``. Change it to
+The upgrade step bumps the version number of the GenericSetup profile of ploneconf.site from 1 to 1001. The version is stored in ``profiles/default/metadata.xml``. Change it to
 
 ..  code-block:: xml
 
@@ -233,14 +233,14 @@ GenericSetup now expects the code as a method ``upgrade_site`` in the file ``upg
 
 After restarting the site we can run the step:
 
-* Go to the addon-controlpanel http://localhost:8080/Plone/prefs_install_products_form. There should now be a warning **This add-on has been upgraded. Old profile version was 1. New profile version is 1001** and a button next to it.
-* Run the upgrade-step by clicking on it.
+* Go to the Add-ons controlpanel http://localhost:8080/Plone/prefs_install_products_form. There should now be a warning **This add-on has been upgraded. Old profile version was 1. New profile version is 1001** and a button next to it.
+* Run the upgrade step by clicking on it.
 
-On the console you should see logging-messages like::
+On the console you should see logging messages like::
 
     INFO ploneconf.site Moving http://localhost:8080/Plone/old-talk1 to http://localhost:8080/Plone/the-event/talks
 
-Alternatively you can select which upgrade-steps to run like this:
+Alternatively you can select which upgrade steps to run like this:
 
 * In the ZMI got to *portal_setup*
 * Go to the tab *Upgrades*
@@ -265,7 +265,7 @@ Alternatively you can select which upgrade-steps to run like this:
 Add a browserlayer
 ------------------
 
-A browserlayer is another such marker-interface. Browserlayers allow us to easily enable and disable views and other site functionality based on installed add-ons and themes.
+A browserlayer is another such marker interface. Browserlayers allow us to easily enable and disable views and other site functionality based on installed add-ons and themes.
 
 Since we want the features we write only to be available when ploneconf.site actually is installed we can bind them to a browserlayer.
 
@@ -305,7 +305,7 @@ We should bind all views to it. Here is an example using the talkview.
       permission="zope2.View"
       />
 
-Note the relative python-path ``..interfaces.IPloneconfSiteLayer``. It is equivalent to the absolute path ``ploneconf.site.interfaces.IPloneconfSiteLayer``.
+Note the relative python path ``..interfaces.IPloneconfSiteLayer``. It is equivalent to the absolute path ``ploneconf.site.interfaces.IPloneconfSiteLayer``.
 
 .. seealso::
 
@@ -315,7 +315,7 @@ Note the relative python-path ``..interfaces.IPloneconfSiteLayer``. It is equiva
 Exercise
 ++++++++
 
-Do you need to bind the :ref:`viewlets1-social2-label` from chapter 22 to this new browser-layer?
+Do you need to bind the :ref:`viewlets1-social2-label` from chapter 22 to this new browser layer?
 
 ..  admonition:: Solution
     :class: toggle
@@ -324,12 +324,12 @@ Do you need to bind the :ref:`viewlets1-social2-label` from chapter 22 to this n
 
 .. _dexterity2-catalogindex-label:
 
-Add catalog-indexes
+Add catalog indexes
 -------------------
 
-In the `talklistview` we had to wake up all objects to access some of their attributes. That is ok if we don't have many objects and they are light dexterity-objects. If we had thousands of objects this might not be a good idea.
+In the `talklistview` we had to wake up all objects to access some of their attributes. That is ok if we don't have many objects and they are light dexterity objects. If we had thousands of objects this might not be a good idea.
 
-Instead of loading them all into memory we will use catalog-indexes to get the data we want to display.
+Instead of loading them all into memory we will use catalog indexes to get the data we want to display.
 
 Add a new file ``profiles/default/catalog.xml``
 
@@ -353,9 +353,9 @@ Add a new file ``profiles/default/catalog.xml``
       <column value="speaker" />
     </object>
 
-This adds new indexes for the three fields we want to show in the listing. Not that *audience* is a ``KeywordIndex`` because the field is multi-valued, but we want a separate index-entry for every value in on an object.
+This adds new indexes for the three fields we want to show in the listing. Not that *audience* is a ``KeywordIndex`` because the field is multi-valued, but we want a separate index entry for every value in an object.
 
-The ``column ..`` entry allows us to display these values of these indexes in the tableview of collections.
+The ``column ..`` entry allows us to display the values of these indexes in the tableview of collections.
 
 .. note::
 
@@ -417,14 +417,14 @@ We now can use the new indexes to improve the talklistview so we don't have to *
                     })
             return results
 
-The template does not need to be changed and the result in the browser did not change as well.
+The template does not need to be changed and the result in the browser did not change, either.
 
 .. _dexterity2-collection-criteria-label:
 
 Add collection criteria
 -----------------------
 
-To be able to search content in collections using these new indexes we would have to register them as criteria for the querystring-widget that collections use. As with all features make sure you only do this if you really need it!
+To be able to search content in collections using these new indexes we would have to register them as criteria for the querystring widget that collections use. As with all features make sure you only do this if you really need it!
 
 
 Add a new file ``profiles/default/registry.xml``
@@ -475,10 +475,10 @@ Add a new file ``profiles/default/registry.xml``
 
 .. _dexterity2-GS-label:
 
-Add versioning through generic-setup
+Add versioning through GenericSetup
 ------------------------------------
 
-Configure the versioning-policy and a diff-view for talks through GenericSetup.
+Configure the versioning policy and a diff-view for talks through GenericSetup.
 
 Add new file ``profiles/default/repositorytool.xml``
 
@@ -510,7 +510,7 @@ Add new file ``profiles/default/diff_tool.xml``
       </difftypes>
     </object>
 
-Finally you need to activate the versioning behavior on the content-type. Edit ``profiles/default/types/talk.xml``:
+Finally you need to activate the versioning behavior on the content type. Edit ``profiles/default/types/talk.xml``:
 
 .. code-block:: xml
     :linenos:
