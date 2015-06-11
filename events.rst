@@ -5,7 +5,7 @@ Turn talks into events
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
@@ -39,7 +39,7 @@ First we enable the behavior ``IEventBasic`` for talks in ``profiles/default/typ
 
 After we activate the behavior by hand or reinstalled the addon we will now have some additional fields for ``start`` and ``end``.
 
-To display the new field we reuse a default event-summary view as documented in http://ploneappevent.readthedocs.org/en/latest/development.html#reusing-the-event-summary-view-to-list-basic-event-information
+To display the new field we reuse a default event summary view as documented in http://ploneappevent.readthedocs.org/en/latest/development.html#reusing-the-event-summary-view-to-list-basic-event-information
 
 Edit ``browser/templates/talkview.pt``
 
@@ -93,7 +93,7 @@ Edit ``browser/templates/talkview.pt``
 Exercise 1
 ++++++++++
 
-Find out where ``event_summary`` comes from and describe how you could to override it.
+Find out where ``event_summary`` comes from and describe how you could override it.
 
 ..  admonition:: Solution
     :class: toggle
@@ -119,18 +119,18 @@ Find out where ``event_summary`` comes from and describe how you could to overri
           layer="..interfaces.IBrowserLayer"
           />
 
-    So there is a class ``plone.app.event.browser.event_summary.EventSummaryView`` and a template ``event_summary.pt`` hat could be overridden with ``z3c.jbot`` by copying it as ``plone.app.event.browser.event_summary.pt`` in ``browser/overrides``.
+    So there is a class ``plone.app.event.browser.event_summary.EventSummaryView`` and a template ``event_summary.pt`` that could be overridden with ``z3c.jbot`` by copying it as ``plone.app.event.browser.event_summary.pt`` in ``browser/overrides``.
 
 
 Exercise 2
 ++++++++++
 
-Find out where the event-behavior is defined and which fields it offers.
+Find out where the event behavior is defined and which fields it offers.
 
 ..  admonition:: Solution
     :class: toggle
 
-    The id with which the behavior is registered in ``Talk.xml`` is a python-path. So ``plone.app.event.dx.behaviors.IEventBasic`` can be found in ``packages/plone.app.event/plone/app/event/dx/behaviors.py``
+    The id with which the behavior is registered in ``Talk.xml`` is a python path. So ``plone.app.event.dx.behaviors.IEventBasic`` can be found in ``packages/plone.app.event/plone/app/event/dx/behaviors.py``
 
     ..  code-block:: python
 
@@ -189,12 +189,12 @@ Find out where the event-behavior is defined and which fields it offers.
                 default=False
             )
 
-    Note how it uses ``defaultFactory`` to set a initial value.
+    Note how it uses ``defaultFactory`` to set an initial value.
 
 
 ..  note::
 
-    Because of a `bug in plone.app.event <https://github.com/plone/plone.app.event/issues/160>`_ there was a problem turning existing objects into events. Since existing types have no values in the fields ``start`` and ``end`` we would get a traceback on inline-validation when we edit these. To work around this we had to write upgrade-step that sets some an initial date.
+    Because of a `bug in plone.app.event <https://github.com/plone/plone.app.event/issues/160>`_ there was a problem turning existing objects into events. Since existing types have no values in the fields ``start`` and ``end`` we would get a traceback on inline-validation when we edit these. To work around this we had to write an upgrade step that sets an initial date.
 
     Register the new upgrade step in ``upgrades.zcml``
 
@@ -202,7 +202,7 @@ Find out where the event-behavior is defined and which fields it offers.
         :linenos:
 
         <genericsetup:upgradeStep
-          title="Add event-behavior to talks"
+          title="Add event behavior to talks"
           description=""
           source="1001"
           destination="1002"
@@ -285,4 +285,4 @@ Find out where the event-behavior is defined and which fields it offers.
                     obj.start = obj.end = date
                     obj.timezone = "Europe/London"
 
-    After we ran the upgrade-step we were now add a time to existing events.
+    After we run the upgrade step we can now add a time to existing events.

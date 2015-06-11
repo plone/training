@@ -5,7 +5,7 @@ Resources
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
@@ -115,7 +115,7 @@ If we access http://localhost:8080/Plone/++resource++ploneconf.site/ploneconf.cs
 
 Also add a ``ploneconf.js`` in the same folder but leave it empty.
 
-How does our javascript and css files get used when visiting the page? Adding them directly into the html is not a good solution, having many css- and js-files slows down the page loading.
+How do our javascript and css files get used when visiting the page? Adding them directly into the html is not a good solution, having many css and js files slows down the page loading.
 
 With ``portal_css`` and ``portal_javascript`` Plone has resource managers that are able to merge and compress js and css files. Resources can be added conditionally and Plone automatically stops merging files when you are debugging Plone in the foreground.
 
