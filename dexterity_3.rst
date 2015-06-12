@@ -5,34 +5,34 @@ Dexterity Types III: Python
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
         cp -R src/ploneconf.site_sneak/chapters/13_dexterity_3_p5/ src/ploneconf.site
 
 
-Without sponsors a conference would be hard to finance plus it is a good opportunity for Plone-companies to advertise their services.
+Without sponsors a conference would be hard to finance plus it is a good opportunity for Plone companies to advertise their services.
 
 In this part we will:
 
-* create the content-type *sponsor* that has a python-schema
-* create a viewlet that shows the sponsors logo sorted by sponsoring-level
+* create the content type *sponsor* that has a python schema
+* create a viewlet that shows the sponsor logos sorted by sponsoring level
 
 
 The topics we cover are:
 
-* python-schema for dexterity
+* python schema for dexterity
 * schema hint and directives
-* field-permissions
-* image-scales
+* field permissions
+* image scales
 * caching
 
 
 The python schema
 -----------------
 
-First we create the schema for the new type. Instead of xml we use python now. Create a new folder ``content`` with a empty ``__init__.py`` in it. We don't need to register that folder in ``configure.zcml`` since we don't need a ``content/configure.zcml`` (at least not yet).
+First we create the schema for the new type. Instead of xml we use python now. Create a new folder ``content`` with an empty ``__init__.py`` in it. We don't need to register that folder in ``configure.zcml`` since we don't need a ``content/configure.zcml`` (at least not yet).
 
 Now add a new file ``content/sponsor.py``.
 
@@ -61,7 +61,7 @@ Now add a new file ``content/sponsor.py``.
 
 
     class ISponsor(model.Schema):
-        """Dexterity-Schema for Sponsors
+        """Dexterity Schema for Sponsors
         """
 
         directives.widget(level=RadioFieldWidget)
@@ -102,10 +102,10 @@ Now add a new file ``content/sponsor.py``.
 Some things are notable here:
 
 * The fields in the schema are mostly from ``zope.schema``. A reference of available fields is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html
-* In ``directives.widget(level=RadioFieldWidget)`` we change the default widget for a Choice-field from a dropdown to radioboxes. A incomplete reference of available widgets is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html
+* In ``directives.widget(level=RadioFieldWidget)`` we change the default widget for a Choice field from a dropdown to radioboxes. An incomplete reference of available widgets is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html
 * ``LevelVocabulary`` is used to create the options used in the field ``level``. This way we could easily translate the displayed value.
-* ``fieldset('Images', fields=['logo', 'advertisment'])`` moves the two image-fields to another tab.
-* ``directives.read_permission(...)`` sets the read- and write-permission for the field ``note`` to users who can add new members. Usually this permission is only granted to Site-Administrators and Managers. We use it to store information that should not be publicly visible. Please note that ``obj.note`` is still accessible in templates and python. Only using the widget (like we do in the view later) checks for the permission.
+* ``fieldset('Images', fields=['logo', 'advertisment'])`` moves the two image fields to another tab.
+* ``directives.read_permission(...)`` sets the read and write permission for the field ``notes`` to users who can add new members. Usually this permission is only granted to Site Administrators and Managers. We use it to store information that should not be publicly visible. Please note that ``obj.notes`` is still accessible in templates and python. Only using the widget (like we do in the view later) checks for the permission.
 * We use no grok here
 
 ..  seealso::
@@ -117,7 +117,7 @@ Some things are notable here:
 The FTI
 -------
 
-Second we create the FTI for new type in ``profiles/default/types/sponsor.xml``
+Second we create the FTI for the new type in ``profiles/default/types/sponsor.xml``
 
 .. code-block:: xml
     :linenos:
@@ -204,9 +204,9 @@ Sponsors are containers but they don't have to be. Turn them into items by chang
 The view
 --------
 
-We use the default-view provided by dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
+We use the default view provided by dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
 
-But we could tweak the default-view with some css to make it less ugly. Add the following to ``resources/ploneconf.css``
+But we could tweak the default view with some css to make it less ugly. Add the following to ``resources/ploneconf.css``
 
 .. code-block:: css
 
@@ -264,7 +264,7 @@ But we could tweak the default-view with some css to make it less ugly. Add the 
         </body>
         </html>
 
-    Note how we handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base-class ``DefaultView`` holds the widget for the field ``note``. If the current user does not have the permission ``cmf.ManagePortal`` it will be omited from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it's missing we work around that.
+    Note how we handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base class ``DefaultView`` holds the widget for the field ``notes``. If the current user does not have the permission ``cmf.ManagePortal`` it will be omited from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it's missing we work around that.
 
 
 The viewlet
@@ -287,7 +287,7 @@ Register the viewlet in ``browser/configure.zcml``
       permission="zope2.View"
       />
 
-Add the viewlet-class in ``browser/viewlets.py``
+Add the viewlet class in ``browser/viewlets.py``
 
 .. code-block:: python
     :linenos:
@@ -358,12 +358,12 @@ Add the viewlet-class in ``browser/viewlets.py``
             return results
 
 * ``_sponsors`` returns a list of dictionaries containing all necessary info about sponsors.
-* We create the complete img-tag using a custom scale (200x80) using the view ``images`` from plone.namedfile. This actually scales the logos and saves them as new blobs.
+* We create the complete img tag using a custom scale (200x80) using the view ``images`` from plone.namedfile. This actually scales the logos and saves them as new blobs.
 * In ``sponsors`` we return a ordered dictionary of randomized lists of dicts (containing the information on sponsors).
 
-``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. But we'd have to wait for up to an hour until changes will be visible.
+``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor objects in memory all the time. But we'd have to wait for up to an hour until changes will be visible.
 
-Instead we'll cache until one of the sponsors is modified by using a callable ``_sponsors_cachekey`` that return a number that changes when a sponsor is modified.
+Instead we'll cache until one of the sponsors is modified by using a callable ``_sponsors_cachekey`` that returns a number that changes when a sponsor is modified.
 
   ..  code-block:: python
 
@@ -441,7 +441,7 @@ Ther already is some css in ``browser/static/ploneconf.css`` to make it look ok.
 Exercise 2
 ++++++++++
 
-Turn the a content-type speaker from :ref:`Exercise 2 of the first chapter on dexterity <dexterity1-excercises-label>` into a python-base type.
+Turn the a content type speaker from :ref:`Exercise 2 of the first chapter on dexterity <dexterity1-excercises-label>` into a python-based type.
 
 Is should hold the following fields:
 
