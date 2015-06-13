@@ -41,7 +41,7 @@ Then we download, unpack and install the unified installer of Plone.
     $ mkdir Plone
     $ mkdir tmp
     $ cd tmp
-    $ wget wget https://launchpad.net/plone/5.0/5.0a2/+download/Plone-5.0a2-UnifiedInstaller.tgz
+    $ wget https://launchpad.net/plone/5.0/5.0a2/+download/Plone-5.0a2-UnifiedInstaller.tgz
     $ tar xzf Plone-5.0a2-UnifiedInstaller.tgz
     $ cd Plone-5.0a2-UnifiedInstaller
     $ ./install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone
