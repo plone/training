@@ -22,13 +22,13 @@ We are going to add a voting behavior.
 
 For this we need:
 
-  * A behavior that stores it's data in annotations
+  * A behavior that stores its data in annotations
   * A viewlet to present the votes
   * A bit of javascript
   * A bit of css
   * Some helper views so that the Javascript code can communicate with Plone
 
-We move to the :file:`src` directory and again use a script called :file:`mrbob` from our projects bin-directory and the template from ``bobtemplates.plone`` to create the package.
+We move to the :file:`src` directory and again use a script called :file:`mrbob` from our project's :file:`bin` directory and the template from ``bobtemplates.plone`` to create the package.
 
 .. code-block:: bash
 
@@ -36,4 +36,4 @@ We move to the :file:`src` directory and again use a script called :file:`mrbob`
     $ cd src
     $ ../bin/mrbob -O starzel.votable_behavior bobtemplates:plone_addon
 
-We press :kbd:`Enter` to all questions *except* our personal data and the Plone-version. Here we enter :kbd:`5.0a3`.
+We press :kbd:`Enter` to all questions *except* our personal data and the Plone version. Here we enter :kbd:`5.0a3`.
