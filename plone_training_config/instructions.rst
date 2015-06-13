@@ -74,7 +74,7 @@ It the output says ``INFO Zope Ready to handle requests`` then you are up and ru
 .. _instructions-vagrant-label:
 
 Installing Plone with vagrant
---------------------------------
+-----------------------------
 
 In order not to waste too much time with installing and debugging the differences between systems we use a virtual machine (Ubuntu 14.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development environment to everyone.
 
