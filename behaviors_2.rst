@@ -37,9 +37,9 @@ Using Schema
 
 .. only:: not presentation
 
-    The attribute where we store our data will be declared as a schema field. We mark the field as a ommitted field (using schema-directive similar to ``read_permission`` or ``widget``), because we are not going to create z3c.form widgets for entering or displaying them. We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
+    The attribute where we store our data will be declared as a schema field. We mark the field as an omitted field (using schema directive similar to ``read_permission`` or ``widget``), because we are not going to create z3c.form widgets for entering or displaying them. We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
 
-    For example, when files have been migrated to blobs, new objects had to be created and every schema field was copied. The code can't know about our field, except if we provide schema information.
+    For example, when files were migrated to blobs, new objects had to be created and every schema field was copied. The code can't know about our field, except if we provide schema information.
 
 .. only:: presentation
 
@@ -96,13 +96,13 @@ There are some important differences to our first behavior:
 .. only:: not presentation
 
     The factory is a class that provides the behavior logic and gives access to the attributes we provide.
-    Factories in Plone/Zope land are retrieved by adapting an object with an interface.
+    Factories in Plone/Zope land are retrieved by adapting an object to an interface.
     If you want your behavior, you would write :samp:`IVoting(object)`
 
-    But in order for this to work, your object may *not* be implementing the IVoting interface, because if it would, :samp:`IVoting(object)` would return the object itself!
+    But in order for this to work, your object may *not* be implementing the IVoting interface, because if it did, :samp:`IVoting(object)` would return the object itself!
     If I need a marker interface for objects providing my behavior, I must provide one, for this we use the marker attribute. My object implements :samp:`IVotable` and because of this, we can write views and viewlets just for this content type.
 
-The interfaces need to be written, in our cases into a file :file:`interfaces.py`:
+The interfaces need to be written, in our case into a file :file:`interfaces.py`:
 
 .. code-block:: python
     :linenos:
@@ -178,7 +178,7 @@ The interfaces need to be written, in our cases into a file :file:`interfaces.py
 
 .. only:: not presentation
 
-    This is a lot of code. The IVotableLayer we will need later for viewlets and browser views. Lets add it right here.
+    This is a lot of code. The IVotableLayer we will need later for viewlets and browser views. Let's add it right here.
     The IVotable interface is the simple marker interface. It will only be used to bind browser views and viewlets to content types that provide our behavior, so no code needed.
 
     The IVoting class is more complex, as you can see. While IVoting is just an interface, we use :samp:`plone.supermodel.model.Schema` for advanced dexterity features.
@@ -191,7 +191,7 @@ The interfaces need to be written, in our cases into a file :file:`interfaces.py
 
     Then we define the API that we are going to use in browser views and viewlets.
 
-    The last line ensures that the schema fields are known to other packages. Whenever some code wants all schemas from an object, he receives the schema defined directly on the object and the additional schemata. Additional schemata are compiled by looking for behaviors and whether they provide the :samp:`IFormFieldProvider` functionality. Only then we fields are known as schema fields.
+    The last line ensures that the schema fields are known to other packages. Whenever some code wants all schemas from an object, it receives the schema defined directly on the object and the additional schemata. Additional schemata are compiled by looking for behaviors and whether they provide the :samp:`IFormFieldProvider` functionality. Only then the fields are known as schema fields.
 
 Now the only thing that is missing is the behavior, which we must put into :file:`behavior/voting.py`
 
@@ -235,22 +235,22 @@ Now the only thing that is missing is the behavior, which we must put into :file
 
     By declaring a static name, we won't run into problems if we restructure the code.
 
-    You can see, that we initialize the data if it doesn't exist. We work with PersistentDict and PersistentList. To understand why we do this, it is important to understand how the ZODB works.
+    You can see that we initialize the data if it doesn't exist. We work with PersistentDict and PersistentList. To understand why we do this, it is important to understand how the ZODB works.
 
     .. seealso::
 
-        The ZODB can store objects. It has a special root object that you will never touch. Whatever you store where, will be part of the root object, except if it is an object sublclassing :samp:`persistent.Persistent` Then it will be stored independently.
+        The ZODB can store objects. It has a special root object that you will never touch. Whatever you store there, will be part of the root object, except if it is an object subclassing :samp:`persistent.Persistent` Then it will be stored independently.
 
-        Zope/ZODB Persistent objects note when you change an attribute on it and mark itself as changed. Changed objects will be saved to the database. This happens automatically. Each request begins a transaction and after our code ran and the Zope Server is preparing to send back the response we generated, the transaction will be committed and everything we changed will be saved.
+        Zope/ZODB Persistent objects note when you change an attribute on it and mark itself as changed. Changed objects will be saved to the database. This happens automatically. Each request begins a transaction and after our code runs and the Zope Server is preparing to send back the response we generated, the transaction will be committed and everything we changed will be saved.
 
-        Now, if have a normal dictionary on a persistent object, and you will only change the dictionary, the persistent object has no way to know, if the dictionary has been changed. This `happens`_ from time to time.
+        Now, if have a normal dictionary on a persistent object, and you will only change the dictionary, the persistent object has no way to know if the dictionary has been changed. This `happens`_ from time to time.
 
         So one solution is to change the special attribute :samp:`_p_changed` to :samp:`True` on the persistent object, or to use a PersistentDict. That is what we are doing here.
 
         You can find more information in the documentation of the ZODB, in particular `Rules for Persistent Classes <http://www.zodb.org/en/latest/documentation/guide/prog-zodb.html#rules-for-writing-persistent-classes>`_
 
 
-    Next we provide the internal fields via properties. Using this form of property, makes them read only property, as we did not define write handlers. We don't need them so we won't add them.
+    Next we provide the internal fields via properties. Using this form of property makes them read only properties, as we did not define write handlers. We don't need them so we won't add them.
 
     As you have seen in the Schema declaration, if you run your site in debug mode, you will see an edit field for these fields. But trying to change these fields will throw an exception.
 
@@ -260,7 +260,7 @@ Now the only thing that is missing is the behavior, which we must put into :file
 
  * Explain ZODB and Persistent Classes
 
-Lets continue with this file:
+Let's continue with this file:
 
 .. code-block:: python
     :linenos:
@@ -312,8 +312,8 @@ Lets continue with this file:
 
     We start with a little helper method which is not exposed via the interface. We don't want people to vote twice. There are many ways to ensure this and each one has flaws.
 
-    We chose this way to show you how to access information from the request the browser of the user sent to us. First, we get the ip of the user, then we access a small set of headers from the users browser and generate an md5 checksum of this.
+    We chose this way to show you how to access information from the request the browser of the user sent to us. First, we get the ip of the user, then we access a small set of headers from the user's browser and generate an md5 checksum of this.
 
-    The vote method, wants a vote and a request. We check the preconditions, then we convert the vote to an integer, store the request has to :samp:`voted` and the votes into the :samp:`votes` dictionary. We just count there, how often any vote has been given.
+    The vote method wants a vote and a request. We check the preconditions, then we convert the vote to an integer, store the request to :samp:`voted` and the votes into the :samp:`votes` dictionary. We just count there how often any vote has been given.
 
     Everything else is just python.
