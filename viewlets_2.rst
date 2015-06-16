@@ -11,7 +11,7 @@ Voting Viewlet
 
 In this part you will:
 
-* write the viewlet-template
+* write the viewlet template
 * add jquery include statements
 * saving the vote on the object using annotations
 
@@ -26,9 +26,9 @@ Topics covered:
 
     Earlier we added the logic that saves votes on the objects. We now create the user interface for it.
 
-    Since we want to use the UI on more than one page (not only the talk-view but also the talk-listing) we need to put it somewhere.
+    Since we want to use the UI on more than one page (not only the talk view but also the talk listing) we need to put it somewhere.
 
-    * To handle the user-input we don't use a form but links and ajax.
+    * To handle the user input we don't use a form but links and ajax.
     * The voting itself is a fact handled by another view
 
 We register the viewlet in :file:`browser/configure.zcml`.
@@ -94,7 +94,7 @@ Let's create the file :file:`browser/templates/voting_viewlet.pt` without any lo
 Writing the Viewlet code
 ------------------------
 
-.. only:: mannual
+.. only:: manual
 
     Now that we have the everything in place, we can add the Logic
 
@@ -162,7 +162,7 @@ And extend the template in :file:`browser/templates/voting_viewlet.pt`
           This talk has not been voted yet. Be the first!
         </div>
         <div id="delete_votings" tal:condition="viewlet/is_manager">
-          Delete all votings
+          Delete all votes
         </div>
         <div id="delete_votings2" class="areyousure warning"
              tal:condition="viewlet/is_manager"
@@ -183,7 +183,7 @@ And extend the template in :file:`browser/templates/voting_viewlet.pt`
 .. only:: not presentation
 
     We have many small parts, most of which will be hidden by javascript unless needed.
-    By providing all these status information in HTML, we can use standard translation tools to translate. Translating strings in javascript requires extra work.
+    By providing all this status information in HTML, we can use standard translation tools to translate. Translating strings in javascript requires extra work.
 
 We need some css that we store in :file:`static/starzel_votablebehavior.css`
 
@@ -198,11 +198,11 @@ We need some css that we store in :file:`static/starzel_votablebehavior.css`
     }
 
     .voting .voting_option {
-        display: None;
+        display: none;
     }
 
     .areyousure {
-        display: None;
+        display: none;
     }
 
     .voting div.votes span {
@@ -283,8 +283,8 @@ To make it work in the browser, some javascript :file:`static/starzel_votablebeh
 
 .. only:: not presentation
 
-    This js-code adheres to crockfort jshint rules, so all variables are declared at the beginning of the method.
-    We show and hide quite a few small html elements here
+    This js code adheres to crockfort jshint rules, so all variables are declared at the beginning of the method.
+    We show and hide quite a few small html elements here.
 
 .. _viewlets2-helpers-label:
 
@@ -312,7 +312,7 @@ Writing 2 simple view helpers
             except:
                 fix_something()
 
-        Zope claims some exceptions for themselves. It needs them to work correctly.
+        Zope claims some exceptions for itself. It needs them to work correctly.
 
         For example, if two requests try to modify something at the same time, one request will throw an exception, a :samp:`ConflictError`.
 
