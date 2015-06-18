@@ -33,7 +33,7 @@ Adding permissions
 
     In Zope2, a permission was just a string.
 
-    In ZTK, a permission is an object that gets registered as an Utility.
+    In ZTK, a permission is an object that gets registered as a Utility.
 
     We must support both, in some cases we have to reference the permission by their Zope2 version, in some by their ZTK Version.
 
@@ -41,13 +41,13 @@ Adding permissions
 
     .. seealso::
 
-        The configuration registry wanted to solve a problem, but we will now stumble over a problem that did not get resolved properly.
+        The configuration registry was meant to solve a problem, but we will now stumble over a problem that did not get resolved properly.
 
-        Our permission is an utility. Our browser views declare this permission as a requirement for viewing them.
+        Our permission is a utility. Our browser views declare this permission as a requirement for viewing them.
 
         When our browser views get registered, the permissions must exist already. If you try to register the permissions after the views, Zope won't start because it doesn't know about the permissions.
 
-Lets modify the file :file:`configure.zcml`
+Let's modify the file :file:`configure.zcml`
 
 .. code-block:: xml
     :linenos:
@@ -96,9 +96,9 @@ Using our permissions
 
     As you can see, we created two permissions, one for voting, one for viewing the votes.
 
-    If one may not see the votings, he does not need access to the vote viewlet.
+    If a user is not allowed to see the votes, she does not need access to the vote viewlet.
 
-    While we are at it, if one can't vote, he needs no access to the helper view to actually submit a vote.
+    While we are at it, if a user can't vote, she needs no access to the helper view to actually submit a vote.
 
 We can add this restriction to :file:`browser/configure.zcml`
 
@@ -141,13 +141,13 @@ We can add this restriction to :file:`browser/configure.zcml`
 
     .. seealso::
 
-        So, what happens, if we do not protect the browser view to vote?
+        So, what happens if we do not protect the browser view to vote?
 
         The person could still vote, by handcrafting the URL. Browser Views run code without any restriction, it is your job to take care of security.
 
         But... if a person has no access to the object at all, maybe because the site is configured that Anonymous users cannot access private objects, the unauthorized users will not be able to submit a vote.
 
-        That is, because Zope checks security permissions when trying to find the right object. If it can't find the object due to security constraints not met, no view ill ever be called, because that would have been the next step.
+        That is because Zope checks security permissions when trying to find the right object. If it can't find the object due to security constraints not met, no view ill ever be called, because that would have been the next step.
 
     We now protect our views and viewlets. We still show the option to vote though.
 
@@ -213,7 +213,7 @@ And the template in :file:`browser/templates/voting_viewlet.pt`
 
 .. only:: not presentation
 
-    Sometimes subtle bugs come up because of changes, in this case, I noticed that I should only animate people to vote, if they are allowed to vote!
+    Sometimes subtle bugs come up because of changes. In this case I noticed that I should only prompt people to vote if they are allowed to vote!
 
 .. _reusable-defaults-label:
 
@@ -226,7 +226,7 @@ Provide defaults
 
     We have to tell that someone.
 
-    Who has which permissions is managed in Zope, it is persistent, persistent configuration goes to GenericSetup.
+    Who has which permissions is managed in Zope. This is persistent, and persistent configuration is handled by GenericSetup.
 
 The persistent configuration is managed in another file: :file:`profiles/default/rolemap.xml`
 
