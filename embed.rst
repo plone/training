@@ -15,7 +15,7 @@ Topics covered:
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
@@ -25,7 +25,7 @@ Topics covered:
 .. only:: not presentation
 
     * We want to use the votable behavior, so that our reviewers can vote.
-    * To show how to use events, we are going to auto publish talks that have reached a certain rating.
+    * To show how to use events, we are going to auto-publish talks that have reached a certain rating.
     * We are not going to let everybody vote everything.
 
 First, we must add our package as a dependency to ploneconf.site.
@@ -37,7 +37,7 @@ First, we must add our package as a dependency to ploneconf.site.
 
     The persistent configuration needs to be installed when we install our site. This is configured in GenericSetup.
 
-We start with by editing :file:`setup.py`
+We start by editing :file:`setup.py`
 
 .. code-block:: python
     :linenos:
@@ -72,11 +72,11 @@ Next up we modify :file:`profiles/default/metadata.xml`
 
 ... only:: not presentation
 
-    What a weird name. profile- is a prefix you will always need nowadays. Then comes the egg name, and the part after the colon is the name of the profile. The name of the profile is defined in zcml. So far I've stumbled only over one package where the profile directory name was different to the GenericSetup Profile name.
+    What a weird name. profile- is a prefix you will always need nowadays. Then comes the egg name, and the part after the colon is the name of the profile. The name of the profile is defined in zcml. So far I've stumbled over only one package where the profile directory name was different than the GenericSetup Profile name.
 
     Now the package is there, but nothing is votable. That is because no content type declares to use this behavior. We can add this behavior via the control panel, export the settings and store it in our egg. Let's just add it by hand now.
 
-We have to add the behavior to talks, we do this in :file:`profiles/default/types/talk.xml`
+To add the behavior to talks, we do this in :file:`profiles/default/types/talk.xml`
 
 .. note::
 
@@ -100,11 +100,11 @@ We have to add the behavior to talks, we do this in :file:`profiles/default/type
 
     Now you can reinstall your Plone site.
 
-    Everybody can now vote on talks. That's not what we wanted. We only want reviewers to vote on pending Talks. This means, depending on the workflow state, the permission has to change. Luckily, workflows can be configured to do just that. Since Talks already have their own workflow we also won't interfere with other content.
+    Everybody can now vote on talks. That's not what we wanted. We only want reviewers to vote on pending Talks. This means the permission has to change depending on the workflow state. Luckily, workflows can be configured to do just that. Since Talks already have their own workflow we also won't interfere with other content.
 
-    First, we have to tell the workflow that he will be managing more permissions. Next up, we have to configure for each state, which role has the two new permissions now.
+    First, we have to tell the workflow that it will be managing more permissions. Next, for each state we have to configure which role has the two new permissions.
 
-    That is a very verbose configuration, maybe you want to do it in the web interface and export the settings. On the other hand, it is easy to make a simple mistake in both ways. I will just present xml way here.
+    That is a very verbose configuration, maybe you want to do it in the web interface and export the settings. On the other hand, it is easy to make a simple mistake in both ways. I will just present the xml way here.
 
 The config for the Workflow is in :file:`profiles/default/workfows/talks_workflow.xml`
 
@@ -176,7 +176,7 @@ The config for the Workflow is in :file:`profiles/default/workfows/talks_workflo
 
     You quickly end up writing many event handlers, so we put everything into a directory for eventhandlers.
 
-For the events we need a :file:`events` directory.
+For the events we need an :file:`events` directory.
 
 Create the :file:`events` directory and add an empty :file:`events/__init__.py` file.
 
@@ -206,7 +206,7 @@ Now write the ZCML configuration for the events into :file:`events/configure.zcm
 
 .. only:: not presentation
 
-    This looks like a MultiAdapter. We want to get notified, when an IVotable object gets modified. Our method will receive the votable object, and the event itself.
+    This looks like a MultiAdapter. We want to get notified when an IVotable object gets modified. Our method will receive the votable object and the event itself.
 
 And finally, our event handler in :file:`events/votable.py`
 
@@ -227,7 +227,7 @@ And finally, our event handler in :file:`events/votable.py`
 .. only:: not presentation
 
     We are using a lot of plone api here. Plone API makes the code a breeze. Also, there is nothing really interesting.
-    We will only do something, if the workflow state is pending and the average vote is above 0.5.
+    We will only do something if the workflow state is pending and the average vote is above 0.5.
     As you can see, the :samp:`transition` Method does not want the target state, but the transition to move the state to the target state.
 
     There is nothing special going on.
