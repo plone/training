@@ -19,7 +19,7 @@ It has some noteable features:
 
       [buildout]
       extends =
-          https://raw.github.com/starzel/buildout/4.3.3/linkto/base.cfg
+          https://raw.githubusercontent.com/starzel/buildout/5.0b2/linkto/base.cfg
 
 * Minimal work to setup a new project
 * Presets for development, testing, staging and production
