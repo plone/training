@@ -6,7 +6,7 @@ Buildout II: Getting ready for deployment
 
 .. _deployment-starzel-label:
 
-The starzel-buildout
+The starzel buildout
 --------------------
 
 Have a look at the buildout we use for our projects: https://github.com/starzel/buildout
@@ -26,7 +26,7 @@ It has some noteable features:
 
 .. _deployment-setup-label:
 
-A deployment-setup
+A deployment setup
 ------------------
 
 * zeoserver and zeoclients
@@ -47,10 +47,10 @@ Other tools we use
 ------------------
 
 * Fabric (manage sites)
-* Sentry (error-monitoring)
+* Sentry (error monitoring)
 * Ansible (manage and setup servers and tools)
-* Nagios (server-monitoring)
+* Nagios (server monitoring)
 * jenkins (tests)
 * piwik (statictics)
-* gitlab (code-repo and code-review)
-* redmine (ticket-system and wiki)
+* gitlab (code repo and code review)
+* redmine (ticket system and wiki)
