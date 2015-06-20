@@ -5,35 +5,35 @@ Optional
 
 * Testing
 * zc3.form
-* portlets
-* zca in depth
+* Portlets
+* ZCA in depth
 * :doc:`grok`
 * ZODB
-* more and more more complex fields
-* relations
-* custom edit-forms
-* control panels
+* More and more more complex fields
+* Relations
+* Custom edit forms
+* Control panels
 * plone.app.registry
-* security (permission/roles/workflow)
-* custom permissions
-* custom workflow
-* users, authentication, member profiles, ldap
-* caching (plone.app.caching)
+* Security (permission/roles/workflow)
+* Custom permissions
+* Custom workflow
+* Users, authentication, member profiles, LDAP
+* Caching (plone.app.caching)
 * GenericSetup
-* Upgrade-Steps
+* Upgrade Steps
 * Migrations
 * Asynchronous processing
-* Talking with external api’s
+* Talking with external APIs
 * Mockup
-* cutomizing barcelonetta
+* Customizing barceloneta
 * plone.app.widgets
 * :doc:`deployment_code`
 * Deployment
 
-  - storage options
-  - backup
-  - deployment buildouts
-  - caching (varnish)
+  - Storage options
+  - Backup
+  - Deployment buildouts
+  - Caching (varnish)
 
 
 
