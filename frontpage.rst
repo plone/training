@@ -5,7 +5,7 @@ Creating a dynamic frontpage
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:
+    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
@@ -16,13 +16,13 @@ In this chapter we will:
 
 * Create a standalone view used for the frontpage
 * Show some dynamic content on said view
-* Embedd tweets about ploneconf
+* Embed tweets about ploneconf
 
 The topics we cover are:
 
-* standalone-views
+* standalone views
 * querying the catalog by date
-* working with datetime-objects
+* working with datetime objects
 * DRY
 * macros
 
@@ -57,11 +57,11 @@ Add the view to a file ``browser/frontpage.py``. We want a list of all talks tha
 
 
     class FrontPageView(BrowserView):
-        """The view the conference frontpage
+        """The view of the conference frontpage
         """
 
         def talks(self):
-            """Get todays talks"""
+            """Get today's talks"""
             results = []
             catalog = api.portal.get_tool('portal_catalog')
             today = datetime.date.today()
@@ -103,14 +103,14 @@ Add the view to a file ``browser/frontpage.py``. We want a list of all talks tha
       )
 
 * The ``sort_on='start'`` sorts the results returned by the catalog by start-date.
-* By removing the ``portal_type='talk'`` from the query you could include other events in the schedule (like the party or sightseeing-tours). But you'd have to take care to not create AttributeErrors by accessing fields that are specific to talk. To work around that use ``speaker = getattr(obj, 'speaker', None)`` and testing with ``if speaker is not None:``
+* By removing the ``portal_type='talk'`` from the query you could include other events in the schedule (like the party or sightseeing-tours). But you'd have to take care to not create AttributeErrors by accessing fields that are specific to talk. To work around that use ``speaker = getattr(brain, 'speaker', None)`` and testing with ``if speaker is not None:``
 * The rest is identical to what the talklistview does.
 
 
 The template
 ------------
 
-Create the template ``browser/templates/frontpageview.pt`` (for now without talks). Display the richtext-field talk to allow the frontpage to be edited.
+Create the template ``browser/templates/frontpageview.pt`` (for now without talks). Display the richtext field talk to allow the frontpage to be edited.
 
 ..  code-block:: html
     :linenos:
@@ -134,7 +134,7 @@ Create the template ``browser/templates/frontpageview.pt`` (for now without talk
 
 Now you could add the whole code again that we used for the talklistview. But instead we go D.R.Y. and reuse the lalklistview by turning it into a macro.
 
-Edit ``browser/templates/talkslistview.pt`` and wrap the list in a macro-definition:
+Edit ``browser/templates/talkslistview.pt`` and wrap the list in a macro definition:
 
 ..  code-block:: html
     :linenos:
@@ -178,7 +178,7 @@ Edit ``browser/templates/talkslistview.pt`` and wrap the list in a macro-definit
                        tal:attributes="href string:${talk/url};
                                        title talk/description"
                        tal:content="talk/title">
-                       The 7 sins of plone-development
+                       The 7 sins of plone development
                     </a>
                 </td>
                 <td tal:content="talk/speaker">
@@ -209,13 +209,13 @@ Edit ``browser/templates/talkslistview.pt`` and wrap the list in a macro-definit
         <span />
     </div>
 
-    </metal:talklist    >
+    </metal:talklist>
 
     </metal:content-core>
     </body>
     </html>
 
-No use that macro in ``browser/templates/frontpageview.pt``
+Now use that macro in ``browser/templates/frontpageview.pt``
 
 ..  code-block:: html
     :linenos:
@@ -228,19 +228,19 @@ No use that macro in ``browser/templates/frontpageview.pt``
         </div>
     </div>
 
-Calling the macro on python looks like this  ``metal:use-macro="python:context.restrictedTraverse('talklistview')['talklist']"``
+Calling the macro in python looks like this  ``metal:use-macro="python:context.restrictedTraverse('talklistview')['talklist']"``
 
 .. note::
 
-    In ``talklistview.pt`` the call ``view/talks"`` calls the method ``talks`` from the browser-view ``TalkListView`` to get the talks. Reused as a macro on the frontpage it now uses the method ``talks`` by the ``FrontPageView`` to get a different list!
+    In ``talklistview.pt`` the call ``view/talks"`` calls the method ``talks`` from the browser view ``TalkListView`` to get the talks. Reused as a macro on the frontpage it now uses the method ``talks`` by the ``FrontPageView`` to get a different list!
 
-    Also: It is not always smart to do that since mybe you want to display other data.
+    Also: It is not always smart to do that since maybe you want to display other data.
 
 
 Twitter
 -------
 
-You might also want to embedd a twitter-feed into the page. Luckily twitter makes it easy to do that. Create the appropriate snippet of code at https://twitter.com/settings/widgets/new/search?query=%23ploneconf and paste it in the template wrapped in a ``<div class="col-lg-6">...</div>`` to have the talklist next to the feeds:
+You might also want to embedd a twitter feed into the page. Luckily twitter makes it easy to do that. Create the appropriate snippet of code at https://twitter.com/settings/widgets/new/search?query=%23ploneconf and paste it in the template wrapped in a ``<div class="col-lg-6">...</div>`` to have the talklist next to the feeds:
 
 ..  code-block:: html
 
@@ -253,9 +253,9 @@ You might also want to embedd a twitter-feed into the page. Luckily twitter make
 Activating the view
 -------------------
 
-The view is meant to be used with documents (or any other type that has a richtextfield 'text'). The easiest way to use is is setting it as the default-view for the Document that is currenty the default-page for the portal. By default that document has the id ``front-page``.
+The view is meant to be used with documents (or any other type that has a richtextfield 'text'). The easiest way to use it is setting it as the default view for the Document that is currenty the default page for the portal. By default that document has the id ``front-page``.
 
-You can either access it directly at http://localhost:8080/Plone/front-page or by disabling the default-page for the portal and it should show up in the navigation. Try out the new view like this: http://localhost:8080/Plone/front-page/frontpageview.
+You can either access it directly at http://localhost:8080/Plone/front-page or by disabling the default page for the portal and it should show up in the navigation. Try out the new view like this: http://localhost:8080/Plone/front-page/frontpageview.
 
 To set that view by hand as the default view for ``front-page`` in the ZMI: http://localhost:8080/Plone/front-page/manage_propertiesForm. Add a new property ``layout`` and set it to ``frontpageview``.
 
