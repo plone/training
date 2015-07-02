@@ -11,7 +11,7 @@ Installing Plone
 
 .. only:: not presentation
 
-    Plone 4.3.x requires a working Python 2.7 and several other system tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that Python can be used:
+    Plone 5.x requires a working Python 2.7 and several other system tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that Python can be used:
 
 .. only:: presentation
 
@@ -27,7 +27,7 @@ Installing Plone
 
 .. only:: not presentation
 
-    Mac OS X 10.8 - 10.10 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones. To run a Plone version older than 4.0 you need Python 2.4. That's not always easy to install.
+    Mac OS X 10.8 - 10.10 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones. To run a Plone version older than 4.0 you need Python 2.4. That's not always easy to install.  And Plone 4.0.x and 4.1.x require Python 2.6.  Plone 4.2 can be run with Python 2.6 or 2.7, while Plone 4.3 requires Python 2.7.
 
 Most developers use their primary system to develop Plone. For complex setups they often use Linux virtual machines.
 

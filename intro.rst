@@ -108,25 +108,10 @@ If you want to become a professional Plone developer or a highly sophisticated P
 
 Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_.
 
-.. _intro-docs-label:
+.. _intro-classroom-protocol:
 
-Documentation
---------------
-
-Follow the training at http://plone-training.readthedocs.org/
-
-.. note::
-
-    You can use this presentation to copy & paste the code but you will memorize more if you type yourself.
-
-
-.. _intro-further-reading-label:
-
-Further Reading
----------------
-* `Martin Aspeli: Professional Plone4 Development <http://www.packtpub.com/professional-plone-4-development/book>`_
-* `Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_
-* `Zope Page Templates Reference <http://docs.zope.org/zope2/zope2book/AppendixC.html>`_
+Classroom Protocol
+------------------
 
 .. only:: not presentation
 
@@ -140,3 +125,41 @@ Further Reading
        * Someone please record the time we take for each chapter (incl. title)
        * Someone please write down errors
        * Contact us after the training: team@starzel.de
+
+**Questions to ask:**
+
+    * What did you just say?
+    * Please explain what we just did again?
+    * How did that work?
+    * Why didn't that work for me?
+    * Is that a typo?
+
+**Questions __not__ to ask:**
+
+    * **Hypotheticals**: What happens if I do X?
+    * **Research**: Can Plone do Y?
+    * **Syllabus**: Are we going to cover Z in class?
+    * **Marketing questions**: please just don't.
+    * **Performance questions**: Is Plone fast enough?
+    * **Unpythonic**: Why doesn't Plone do it some other way?
+    * **Show off**: Look what I just did!
+
+.. _intro-docs-label:
+
+Documentation
+--------------
+
+Follow the training at http://training.plone.org/5
+
+.. note::
+
+    You can use this presentation to copy & paste the code but you will memorize more if you type yourself.
+
+
+.. _intro-further-reading-label:
+
+Further Reading
+---------------
+* `Martin Aspeli: Professional Plone4 Development <http://www.packtpub.com/professional-plone-4-development/book>`_
+* `Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_
+* `Zope Page Templates Reference <http://docs.zope.org/zope2/zope2book/AppendixC.html>`_
