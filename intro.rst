@@ -113,7 +113,7 @@ Most importantly you should practice your skills and not stop here but go forwar
 Documentation
 --------------
 
-Follow the training at http://plone-training.readthedocs.org/
+Follow the training at http://training.plone.org/5
 
 .. note::
 
