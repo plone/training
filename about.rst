@@ -3,7 +3,7 @@
 About Mastering Plone
 =====================
 
-This training was created by Philip Bauer and Patrick Gerken of `starzel.de <http://www.starzel.de>`_ to create a canonical training for future Plone developers. The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it. It is published as Open Source on `github <https://github.com/plone/training>`_ and `readthedocs <http://plone-training.readthedocs.org/>`_.
+This training was created by Philip Bauer and Patrick Gerken of `starzel.de <http://www.starzel.de>`_ to create a canonical training for future Plone developers. The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it. It is published as Open Source on `github <https://github.com/plone/training>`_ and `training.plone.org <http://training.plone.org/>`_.
 
 If you want to inquire the original authors about organizing a training please contact them at team@starzel.de.
 
