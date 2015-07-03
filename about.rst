@@ -13,8 +13,8 @@ If you want to inquire the original authors about organizing a training please c
 Upcoming Trainings
 ------------------
 
-`2. - 6. March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
-    by Philip Bauer and Patrick Gerken
+`12. - 13. October 2015, Bucharest <https://2015.ploneconf.org/trainings>`_
+    by Philip Bauer, Fulvio Casali, Fred van Dijk, Franco Pellegrini and Giacomo Spettoli.
 
 
 .. _about-previous-label:
@@ -24,6 +24,7 @@ Previous Trainings
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
+* `March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
 * `Plone Conference 2014, Bristol <http://2014.ploneconf.org/training>`_
 * `June 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068480>`_
 * `May 2014, Munich <http://www.starzel.de/blog/mastering-plone>`_
