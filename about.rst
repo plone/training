@@ -3,7 +3,7 @@
 About Mastering Plone
 =====================
 
-This training was created by Philip Bauer and Patrick Gerken of `starzel.de <http://www.starzel.de>`_ to create a canonical training for future Plone developers. The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it. It is published as Open Source on `github <https://github.com/plone/training>`_ and `readthedocs <http://plone-training.readthedocs.org/>`_.
+This training was created by Philip Bauer and Patrick Gerken of `starzel.de <http://www.starzel.de>`_ to create a canonical training for future Plone developers. The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it. It is published as Open Source on `github <https://github.com/plone/training>`_ and `training.plone.org <http://training.plone.org/>`_.
 
 If you want to inquire the original authors about organizing a training please contact them at team@starzel.de.
 
@@ -13,8 +13,8 @@ If you want to inquire the original authors about organizing a training please c
 Upcoming Trainings
 ------------------
 
-`2. - 6. March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
-    by Philip Bauer and Patrick Gerken
+`12. - 13. October 2015, Bucharest <https://2015.ploneconf.org/trainings>`_
+    by Philip Bauer, Fulvio Casali, Fred van Dijk, Franco Pellegrini and Giacomo Spettoli.
 
 
 .. _about-previous-label:
@@ -24,6 +24,7 @@ Previous Trainings
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
+* `March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
 * `Plone Conference 2014, Bristol <http://2014.ploneconf.org/training>`_
 * `June 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068480>`_
 * `May 2014, Munich <http://www.starzel.de/blog/mastering-plone>`_
@@ -159,21 +160,27 @@ You can now open the output from ``_build/html/index.html``. To build the presen
 
 Build new
 +++++++++
-$ git clone https://github.com/plone/training.git
-$ cd training
-$ git checkout plone5
-$ virtualenv-2.7 .
-$ source bin/activate
-$ pip install -r requirements.txt
-$ make html
-$ open _build/html/index.html
+
+.. code-block:: bash
+
+    $ git clone https://github.com/plone/training.git
+    $ cd training
+    $ git checkout plone5
+    $ virtualenv-2.7 .
+    $ source bin/activate
+    $ pip install -r requirements.txt
+    $ make html
+    $ open _build/html/index.html
 
 Update existing
 +++++++++++++++
-$ git pull
-$ source bin/activate
-$ make html
-$ open _build/html/index.html
+
+.. code-block:: bash
+
+    $ git pull
+    $ source bin/activate
+    $ make html
+    $ open _build/html/index.html
 
 
 Things to do before a training (as a trainer)
