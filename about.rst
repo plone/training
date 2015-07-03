@@ -159,21 +159,27 @@ You can now open the output from ``_build/html/index.html``. To build the presen
 
 Build new
 +++++++++
-$ git clone https://github.com/plone/training.git
-$ cd training
-$ git checkout plone5
-$ virtualenv-2.7 .
-$ source bin/activate
-$ pip install -r requirements.txt
-$ make html
-$ open _build/html/index.html
+
+.. code-block:: bash
+
+    $ git clone https://github.com/plone/training.git
+    $ cd training
+    $ git checkout plone5
+    $ virtualenv-2.7 .
+    $ source bin/activate
+    $ pip install -r requirements.txt
+    $ make html
+    $ open _build/html/index.html
 
 Update existing
 +++++++++++++++
-$ git pull
-$ source bin/activate
-$ make html
-$ open _build/html/index.html
+
+.. code-block:: bash
+
+    $ git pull
+    $ source bin/activate
+    $ make html
+    $ open _build/html/index.html
 
 
 Things to do before a training (as a trainer)
