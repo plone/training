@@ -5,9 +5,9 @@ What Vagrant does
 
     These steps are automatically done by vagrant and puppet. They are only explained here if you want to know what goes on below the hood.
 
-Puppet does the first installation, Puppet is a tool to automatically manage servers (real and virtual). We won't get into Puppet since it is not that widely used. This is what we basically do if we did it by hand:
+Puppet does the first installation, Puppet is a tool to automatically manage servers (real and virtual). We won't get into Puppet since it is not that widely used. This is basically what Puppet does if we did it by hand:
 
-First we update the ubuntu and install some packages.
+First we update Ubuntu and install some packages.
 
 .. code-block:: bash
 
@@ -30,7 +30,7 @@ First we update the ubuntu and install some packages.
     $ sudo apt-get install python-virtualenv
     $ sudo apt-get install putty-tools
 
-Then we create a virtual python environment using virtualenv. This is alway a good practice since that way we get a clean copy of our system python, we can't break it by installing eggs that might collide with other eggs::
+Then we create a virtual python environment using virtualenv. This is always a good practice since that way we get a clean copy of our system python, so that we can't break it by installing eggs that might collide with other eggs::
 
     $ virtualenv --no-site-packages /home/vagrant/py27
 
@@ -41,9 +41,9 @@ Then we download, unpack and install the unified installer of Plone.
     $ mkdir Plone
     $ mkdir tmp
     $ cd tmp
-    $ wget https://launchpad.net/plone/5.0/5.0a2/+download/Plone-5.0a2-UnifiedInstaller.tgz
-    $ tar xzf Plone-5.0a2-UnifiedInstaller.tgz
-    $ cd Plone-5.0a2-UnifiedInstaller
+    $ wget https://launchpad.net/plone/5.0/5.0b2/+download/Plone-5.0b2-UnifiedInstaller-r1.tgz
+    $ tar xzf Plone-5.0b2-UnifiedInstaller-r1.tgz
+    $ cd Plone-5.0b2-UnifiedInstaller-r1
     $ ./install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone
     $ cp -Rf /home/vagrant/Plone/buildout-cache/* /home/vagrant/buildout-cache/
 
@@ -51,7 +51,7 @@ The unified installer is an amazing tool that compiles its own python, brings wi
 
 We will not actually use this Plone during the training. If you want to use it for your own experiments, you can find it in ``/home/vagrant/Plone/zinstance`` on the virtual machine.
 
-Instead vagrant now creates our own little Buildout and only uses the eggs that the unified installer created. First we copy the buildout cache that holds all the python packages that Plone consists of.
+Instead, vagrant now creates our own little Buildout and only uses the eggs that the unified installer created. First we copy the buildout cache that holds all the python packages that Plone consists of.
 
 .. code-block:: bash
 
@@ -79,6 +79,6 @@ You can now connect to the machine and start plone.
     $ cd /vagrant/buildout
     $ ./bin/instance fg
 
-Now we have a fresh Buildout-based Zope site, ready to get a Plone site. Go to http://localhost:8080 and create a Plone site, only activate the  :guilabel:`Dexterity-based Plone Default Types` plugin.
+Now we have a fresh Buildout-based Zope site, ready to add a Plone site. Go to http://localhost:8080 and create a Plone site, only activate the  :guilabel:`Dexterity-based Plone Default Types` plugin.
 
-You might wonder, why we use the unified installer. We use the unified installer to set up a cache of packages to download in a much shorter time. Without it, your first Buildout on a fresh computer would take more than half an hour on a good internet connection.
+You might wonder why we use the unified installer. We use the unified installer to set up a cache of packages to download in a much shorter time. Without it, your first Buildout on a fresh computer would take more than half an hour on a good internet connection.
