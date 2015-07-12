@@ -69,10 +69,6 @@ The output should be simliar to:
         Port: 8080
     2015-07-11 13:07:26 INFO ZODB.blob (12807) Blob directory '....../training/buildout/var/blobstorage' is unused and has no layout marker set. Selected `bushy` layout.
     2015-07-11 13:07:26 INFO ZODB.blob (12807) Blob temporary directory '....../training/buildout/var/blobstorage/tmp' does not exist. Created new directory.
-    2015-07-11 13:07:29 WARNING plone.behavior Specifing 'for' in behavior 'Name from title' if no 'factory' is given has no effect and is superfluous.
-    ....
-    ....(lots of similar warnings)
-    ....
     2015-07-11 13:07:32 INFO Plone OpenID system packages not installed, OpenID support not available
     2015-07-11 13:07:36 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
     2015-07-11 13:07:36 INFO Zope Ready to handle requests
@@ -204,10 +200,6 @@ Instead we use our own Plone instance during the training. It is in ``/vagrant/b
     2015-07-11 21:00:31 INFO Products.PloneFormGen gpg_subprocess initialized, using /usr/bin/gpg
     2015-07-11 21:00:33 INFO ZODB.blob (28079) Blob directory `/home/vagrant/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
     2015-07-11 21:00:33 INFO ZODB.blob (28079) Blob temporary directory '/home/vagrant/var/blobstorage/tmp' does not exist. Created new directory.
-    2015-07-11 21:00:43 WARNING plone.behavior Specifing 'for' in behavior 'Name from title' if no 'factory' is given has no effect and is superfluous.
-    ....
-    ....(lots of similar warnings)
-    ....
     2015-07-11 21:00:51 INFO Plone OpenID system packages not installed, OpenID support not available
     2015-07-11 21:00:59 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
     2015-07-11 21:00:59 INFO Zope Ready to handle requests
