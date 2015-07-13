@@ -7,12 +7,17 @@ Installing Plone for the Training
 
     Since Plone 5 is not yet released we are using the current state of Plone 5 as it is being developed. To do so our buildout will extend from the `Plone 5 Coredev Buildout <https://github.com/plone/buildout.coredev/tree/5.0>`_ and automatically checkout all packages that are currently under development (currently about 80).
 
-    Because of this running buildout will take much more time than with a released version of Plone 5.
+    Because of this, running buildout will take much more time than with a released version of Plone 5.
 
 Keep in mind that you need a fast internet connection during installation since you'll have to download a lot of data!
 
 
 .. _instructions-no-vagrant-label:
+
+.. warning::
+
+    If you feel the desire to try out both methods below (with Vagrant and without), make sure you use different ``training`` directories!  The two installations do not coexist well.
+
 
 Installing Plone without vagrant
 --------------------------------
@@ -21,13 +26,13 @@ Installing Plone without vagrant
 
     If you are **not** used to running Plone on your laptop skip this part and continue with :ref:`install-virtualbox`.
 
-If you **are** experienced with running Plone on your own laptop we encourage you to do so because you will have certain benefits:
+If you **are** experienced with running Plone on your own laptop, we encourage you to do so because you will have certain benefits:
 
 * You can use the editor you are used to.
 * You can use *omelette* to have all the code of Plone at your fingertips.
 * You do not have to switch between different operating systems during the training.
 
-If you feel comfortable please work on your own machine with your own Python but ** please ** make sure that you have a system that will work since we don't want you to lose valuable time.
+If you feel comfortable, please work on your own machine with your own Python. But ** please ** make sure that you have a system that will work, since we don't want you to lose valuable time!
 
 Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
@@ -54,17 +59,25 @@ This will take some time and produce a lot of output because it downloads and co
 
     $ ./bin/instance fg
 
-The output should be simliar to::
+The output should be simliar to:
 
-    2015-02-27 17:20:42 INFO ZServer HTTP server started at Fri Feb 27 17:20:42 2015
-            Hostname: 0.0.0.0
-            Port: 8080
-    2015-02-27 17:20:45 INFO Products.PloneFormGen gpg_subprocess initialized, using /usr/local/bin/gpg
-    2015-02-27 17:20:54 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
-    2015-02-27 17:20:54 INFO Zope Ready to handle requests
+.. code-block:: pypy
+    :emphasize-lines: 10
 
+    2015-07-11 13:07:22 INFO ZServer HTTP server started at Sat Jul 11 13:07:22 2015
+        Hostname: 0.0.0.0
+        Port: 8080
+    2015-07-11 13:07:26 INFO ZODB.blob (12807) Blob directory '....../training/buildout/var/blobstorage' is unused and has no layout marker set. Selected `bushy` layout.
+    2015-07-11 13:07:26 INFO ZODB.blob (12807) Blob temporary directory '....../training/buildout/var/blobstorage/tmp' does not exist. Created new directory.
+    2015-07-11 13:07:32 INFO Plone OpenID system packages not installed, OpenID support not available
+    2015-07-11 13:07:36 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
+    2015-07-11 13:07:36 INFO Zope Ready to handle requests
 
-It the output says ``INFO Zope Ready to handle requests`` then you are up and running and can continue with the next chapter.
+It the output says ``INFO Zope Ready to handle requests`` then you are in business.
+
+If you point your local browser at http://localhost:8080 you see that Plone is running. Now create a new Plone site by clicking "Create a new Plone site". The username and the password are both "admin" (Never do this on a real site!).
+
+Now you have a working Plone site up and running and can continue with the next chapter.
 
 .. warning::
 
@@ -76,7 +89,7 @@ It the output says ``INFO Zope Ready to handle requests`` then you are up and ru
 Installing Plone with vagrant
 -----------------------------
 
-In order not to waste too much time with installing and debugging the differences between systems we use a virtual machine (Ubuntu 14.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development environment to everyone.
+In order not to waste too much time with installing and debugging the differences between systems, we use a virtual machine (Ubuntu 14.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development environment to everyone.
 
 `Vagrant <http://www.vagrantup.com>`_ is a tool for building complete development environments. We use it together with Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to create and manage a virtual environment.
 
@@ -101,7 +114,11 @@ Get the latest version from http://www.vagrantup.com/downloads for your operatin
 
 Now your system has a command ``vagrant`` that you can run in the terminal.
 
-First create a directory in which you want to do the training.
+First, create a directory in which you want to do the training.
+
+.. warning::
+
+    If you already have a ``training`` directory because you followed the **Installing Plone without vagrant** instructions above, you should either delete it or rename it.
 
 .. code-block:: bash
 
@@ -173,16 +190,19 @@ We pre-installed a fresh Plone for you in the folder ``/home/vagrant/Plone/zinst
 
 Instead we use our own Plone instance during the training. It is in ``/vagrant/buildout/``. Start it in foreground with ``./bin/instance fg``.
 
-.. code-block:: bash
+.. code-block:: pypy
 
     vagrant@training:~$ cd /vagrant/buildout
     vagrant@training:/vagrant/buildout$ ./bin/instance fg
-    2014-05-20 16:56:54 INFO ZServer HTTP server started at Tue May 20 16:56:54 2014
-            Hostname: 0.0.0.0
-            Port: 8080
-    2014-05-20 16:56:56 INFO Products.PloneFormGen gpg_subprocess initialized, using /usr/local/bin/gpg
-    2014-05-20 16:57:02 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
-    2014-05-20 16:57:02 INFO Zope Ready to handle requests
+    2015-07-11 21:00:18 INFO ZServer HTTP server started at Sat Jul 11 21:00:18 2015
+        Hostname: 0.0.0.0
+        Port: 8080
+    2015-07-11 21:00:31 INFO Products.PloneFormGen gpg_subprocess initialized, using /usr/bin/gpg
+    2015-07-11 21:00:33 INFO ZODB.blob (28079) Blob directory `/home/vagrant/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
+    2015-07-11 21:00:33 INFO ZODB.blob (28079) Blob temporary directory '/home/vagrant/var/blobstorage/tmp' does not exist. Created new directory.
+    2015-07-11 21:00:51 INFO Plone OpenID system packages not installed, OpenID support not available
+    2015-07-11 21:00:59 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
+    2015-07-11 21:00:59 INFO Zope Ready to handle requests
 
 .. note::
 
@@ -201,11 +221,11 @@ Instead we use our own Plone instance during the training. It is in ``/vagrant/b
 
 Now the Zope instance we're using is running. You can stop the running instance anytime using ``ctrl + c``.
 
-If it doesn't, don't worry, your shell isn't blocked. Type reset (even if you can't see the prompt) and press RETURN, and it should become visible again.
+If it doesn't, don't worry, your shell isn't blocked. Type ``reset`` (even if you can't see the prompt) and press RETURN, and it should become visible again.
 
 If you point your local browser at http://localhost:8080 you see that Plone is running in vagrant. This works because Virtualbox forwards the port 8080 from the guest system (the vagrant Ubuntu) to the host system (your normal operating system). Now create a new Plone site by clicking "Create a new Plone site". The username and the password are both "admin" (Never do this on a real site!).
 
-The Buildout for this Plone is in a shared folder, this means we run it in the vagrant box from ``/vagrant/buildout`` but we can also access it in out own operating system and use our favorite editor. You will find the directory ``buildout`` in the directory ``training`` that you created in the very beginning next to ``Vagrantfile`` and ``manifests``.
+The Buildout for this Plone is in a shared folder.  This means we run it in the vagrant box from ``/vagrant/buildout`` but we can also access it in our own operating system and use our favorite editor. You will find the directory ``buildout`` in the directory ``training`` that you created in the very beginning next to ``Vagrantfile`` and ``manifests``.
 
 .. note::
 

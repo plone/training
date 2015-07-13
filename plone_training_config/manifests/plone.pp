@@ -36,9 +36,9 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # Get the unified installer
-    exec {'wget https://launchpad.net/plone/5.0/5.0a2/+download/Plone-5.0a2-UnifiedInstaller.tgz':
+    exec {'wget https://launchpad.net/plone/5.0/5.0b2/+download/Plone-5.0b2-UnifiedInstaller-r1.tgz':
         alias => "download_installer",
-        creates => '/home/vagrant/tmp/Plone-5.0a2-UnifiedInstaller.tgz',
+        creates => '/home/vagrant/tmp/Plone-5.0b2-UnifiedInstaller-r1.tgz',
         cwd => '/home/vagrant/tmp',
         user => 'vagrant',
         group => 'vagrant',
@@ -47,9 +47,9 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # Unpack unified installer
-    exec {'tar xzf Plone-5.0a2-UnifiedInstaller.tgz':
+    exec {'tar xzf Plone-5.0b2-UnifiedInstaller-r1.tgz':
         alias => "untar_installer",
-        creates => '/home/vagrant/tmp/Plone-5.0a2-UnifiedInstaller',
+        creates => '/home/vagrant/tmp/Plone-5.0b2-UnifiedInstaller-r1',
         cwd => '/home/vagrant/tmp',
         user => 'vagrant',
         before => Exec["virtualenv"],
@@ -67,7 +67,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # Run unified installer
-    exec {'/home/vagrant/tmp/Plone-5.0a2-UnifiedInstaller/install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone':
+    exec {'/home/vagrant/tmp/Plone-5.0b2-UnifiedInstaller-r1/install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone':
         alias => "install_plone",
         creates => '/home/vagrant/Plone/zinstance/bin/buildout',
         user => 'vagrant',
@@ -79,7 +79,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     # Copy buildout-cache
     exec {'cp -Rf /home/vagrant/Plone/buildout-cache/* /home/vagrant/buildout-cache/':
         alias => "copy_cache",
-        creates => '/home/vagrant/buildout-cache/eggs/Products.CMFPlone-5.0a2-py2.7.egg/',
+        creates => '/home/vagrant/buildout-cache/eggs/Products.CMFPlone-5.0b2-py2.7.egg/',
         user => 'vagrant',
         cwd => '/home/vagrant',
         before => Exec["checkout_training"],
