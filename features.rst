@@ -75,16 +75,17 @@ Let's see what is there...
 
 * :guilabel:`portal-columns`: a container holding:
 
-  * :guilabel:`portal-column-one`: portlets (configurable boxes with tool like navigation, news etc.)
+  * :guilabel:`portal-column-one`: portlets (configurable boxes with tools like navigation, news etc.)
   * :guilabel:`portal-column-content`: the content and the editor
-  * :guilabel:`edit bar`: editing options for the content
   * :guilabel:`portal-column-two`: portlets
 
-* :guilabel:`portal-footer`: viewlets
+* :guilabel:`portal-footer`: portlets for the footer, site actions, and colophon
+
+* :guilabel:`edit-zone`: a vertical bar on the left side of the browser window with editing options for the content
 
 .. only:: not presentation
 
-    These are also the css classes of the respective div's. If you want to do theming you'll need them.
+    These are also the css classes of the respective divs. If you want to do theming you'll need them.
 
 On the edit bar, we find options affecting the current context...
 
@@ -93,9 +94,9 @@ On the edit bar, we find options affecting the current context...
 * :guilabel:`edit`
 * :guilabel:`rules`
 * :guilabel:`sharing`
-* :guilabel:`display`
-* :guilabel:`add`
 * :guilabel:`status`
+* :guilabel:`add`
+* :guilabel:`more options`
 
 Some edit bar options only show when appropriate; for example, ``folder contents`` and ``add`` are only shown for Folders. ``rules`` is currently invisible because we have no content rules available.
 
