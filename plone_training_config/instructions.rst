@@ -44,7 +44,7 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
     $ cd buildout
     $ git checkout plone5
     $ virtualenv-2.7 py27
-    $ ./py27/bin/pip install -U setuptools==12.2
+    $ ./py27/bin/pip install -U setuptools==18.0.1
 
 Now you can run the buildout for the first time:
 
