@@ -7,9 +7,9 @@ The Features of Plone
 
     This chapter has not yet been updated for Plone 5!
 
-In-depth user-manual: http://plone.org/documentation/manual/plone-4-user-manual
+In-depth user-manual: http://docs.plone.org/5/en
 
-See also: http://docs.plone.org/working-with-content/index.html
+See also: http://docs.plone.org/5/en/working-with-content/index.html
 
 .. _features-start-stop-label:
 
@@ -97,6 +97,8 @@ On the edit bar, we find options affecting the current context...
 * :guilabel:`status`
 * :guilabel:`add`
 * :guilabel:`more options`
+* :guilabel:`content info`
+* :guilabel:`user actions`
 
 Some edit bar options only show when appropriate; for example, ``folder contents`` and ``add`` are only shown for Folders. ``rules`` is currently invisible because we have no content rules available.
 
@@ -117,9 +119,9 @@ Users
 
     That way you can access databases you get from customers where you have no Plone user.
 
-    To add a new user in Plone, click on the name :guilabel:`admin` in the top right corner and then on :guilabel:`Site setup`. This is Plone's control panel. You can also access it by browsing to http://localhost:8080/Plone/@@overview-controlpanel
+    To add a new user in Plone, click on the user icon at the bottom of the left vertical bar and then on :guilabel:`Site setup`. This is Plone's control panel. You can also access it by browsing to http://localhost:8080/Plone/@@overview-controlpanel
 
-    Click on :guilabel:`Users and Groups` and add a user. If you'd have configured a mail server, Plone could send you a mail with a link to a form where you can choose a password. We set a password here because we haven't yet configured a mail server.
+    Click on :guilabel:`Users and Groups` and add a user. If had configured a mail server, Plone could send you a mail with a link to a form where you can choose a password. We set a password here because we haven't yet configured a mail server.
 
     Make this user with your name an administrator.
 
