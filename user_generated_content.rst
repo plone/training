@@ -337,6 +337,10 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
                     safe_id=False)
             if item.get('layout', False):
                 new.setLayout(item['layout'])
+            if item.get('default-page', False):
+                new.setDefaultPage(item['default-page'])
+            if item.get('description', False):
+                new.setDescription(item['description'])
             if item.get('allowed_types', False):
                 _constrain(new, item['allowed_types'])
             if item.get('local_roles', False):
