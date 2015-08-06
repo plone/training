@@ -335,6 +335,7 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
                     title=item['title'],
                     id=item['id'],
                     safe_id=False)
+                logger.info('Created item {}'.format(new.absolute_url()))
             if item.get('layout', False):
                 new.setLayout(item['layout'])
             if item.get('default-page', False):
@@ -351,7 +352,6 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
                         obj=new)
             api.content.transition(new, to_state=item.get('state', 'published'))
             new.reindexObject()
-            logger.info('Created item {}'.format(new.absolute_url()))
             # call recursively for children
             for subitem in item.get('children', []):
                 _create_content(subitem, new)
