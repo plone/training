@@ -1,6 +1,6 @@
 .. _case-label:
 
-The Case-Study
+The Case Study
 ==============
 
 For this training we will build a website for a fictional Plone conference.
