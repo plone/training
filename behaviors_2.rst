@@ -1,6 +1,6 @@
 .. _behaviors2-label:
 
-More complex behaviors
+More Complex Behaviors
 ======================
 
 In this part you will:

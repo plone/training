@@ -1,6 +1,6 @@
 .. _views2-label:
 
-Views II: A default view for "talk"
+Views II: A Default View for "Talk"
 ===================================
 
 .. sidebar:: Get the code!

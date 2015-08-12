@@ -1,6 +1,6 @@
 .. _events-label:
 
-Turn talks into events
+Turning Talks into Events
 ======================
 
 .. sidebar:: Get the code!

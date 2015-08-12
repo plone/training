@@ -1,6 +1,6 @@
 .. _viewlets2-label:
 
-A viewlet for the voteable behavior
+A Viewlet for the Votable Behavior
 ===================================
 
 

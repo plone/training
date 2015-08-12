@@ -1,6 +1,6 @@
 .. _customsearch-label:
 
-Custom search
+Custom Search
 =============
 
 ..  warning::

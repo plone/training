@@ -1,6 +1,6 @@
 .. _views3-label:
 
-Views III: A Talk list
+Views III: A Talk List
 =======================
 
 .. sidebar:: Get the code!

@@ -1,6 +1,6 @@
 .. _deployment-label:
 
-Buildout II: Getting ready for deployment
+Buildout II: Getting Ready for Deployment
 =========================================
 
 

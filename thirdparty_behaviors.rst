@@ -1,6 +1,6 @@
 .. _thirdparty-label:
 
-Using third-party behaviors
+Using Third-Party Behaviors
 ===========================
 
 ..  warning::

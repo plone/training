@@ -1,6 +1,6 @@
 .. _plone5-label:
 
-What's new in Plone 5
+What's New in Plone 5
 =====================
 
 If you are already used to Plone 5 you could skip this section.

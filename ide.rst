@@ -1,6 +1,6 @@
 .. ide-label:
 
-IDE's and Editors
+IDEs and Editors
 ==================
 
 In this part you will:

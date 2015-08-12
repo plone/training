@@ -1,6 +1,6 @@
 .. _dexterity2-label:
 
-Dexterity Types II: Growing up
+Dexterity Types II: Growing Up
 ==============================
 
 .. sidebar:: Get the code!

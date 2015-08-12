@@ -1,6 +1,6 @@
 .. _zpt2-label:
 
-Customizing existing templates
+Customizing Existing Templates
 ==============================
 
 .. sidebar:: Get the code!

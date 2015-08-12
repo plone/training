@@ -1,6 +1,6 @@
 .. _eggs2-label:
 
-Creating reusable packages
+Creating Reusable Packages
 ==========================
 
 We already created the package ``ploneconf.site``  much earlier.

@@ -1,6 +1,6 @@
 .. _reusable-label:
 
-Making our package reusable
+Making Our Package Reusable
 ===========================
 
 In this part you will:

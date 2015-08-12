@@ -1,6 +1,6 @@
 .. _user-content-label:
 
-User generated content
+User Generated Content
 ======================
 
 .. sidebar:: Get the code!

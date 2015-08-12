@@ -1,6 +1,6 @@
 .. _addons-label:
 
-Extend Plone with Add-On Packages
+Extend Plone With Add-On Packages
 =================================
 
 * There are more than 2,000 add-ons for Plone. We will cover only a handful today.

@@ -1,6 +1,6 @@
 .. _customizing-label:
 
-Configuring and Customizing Plone through the web
+Configuring and Customizing Plone "Through The Web"
 =================================================
 
 ..  warning::

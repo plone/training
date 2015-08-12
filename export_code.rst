@@ -1,6 +1,6 @@
 .. _export_code-label:
 
-Return to Dexterity: moving content types into code
+Return to Dexterity: Moving Content Types into Code
 ===================================================
 
 

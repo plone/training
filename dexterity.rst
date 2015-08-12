@@ -1,6 +1,6 @@
 .. _dexterity1-label:
 
-Dexterity I: Through the web
+Dexterity I: "Through The Web"
 ============================
 
 In this part you will:

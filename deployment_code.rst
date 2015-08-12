@@ -1,4 +1,4 @@
-Deploying your code
+Releasing Your Code
 ===================
 
  * zest.releaser
