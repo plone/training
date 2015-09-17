@@ -11,6 +11,21 @@ Installing Plone
 
 .. only:: not presentation
 
+    The following table shows the Python versions required by Plone from version 3.x to 5.0.x:
+
+    ==========  ==============
+      Plone        Python
+    ==========  ==============
+     3.x         2.4
+     4.0.x       2.6
+     4.1.x       2.6
+     4.2.x       2.6 or 2.7
+     4.3.x       2.7
+     5.0.x       2.7
+    ==========  ==============
+
+    (Hopefully you won't have to deal with any Plone sites older than version 3.x.)
+
     Plone 5.x requires a working Python 2.7 and several other system tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that Python can be used:
 
 .. only:: presentation
@@ -27,7 +42,7 @@ Installing Plone
 
 .. only:: not presentation
 
-    Mac OS X 10.8 - 10.10 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones. To run a Plone version older than 4.0 you need Python 2.4. That's not always easy to install.  And Plone 4.0.x and 4.1.x require Python 2.6.  Plone 4.2 can be run with Python 2.6 or 2.7, while Plone 4.3 requires Python 2.7.
+    Mac OS X 10.8 - 10.10 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones.
 
 Most developers use their primary system to develop Plone. For complex setups they often use Linux virtual machines.
 
@@ -37,21 +52,21 @@ Most developers use their primary system to develop Plone. For complex setups th
 
 Plone offers multiple options for being installed:
 
-1. One-click installers for Mac and Windows
-2. Unified installers (all 'nix, including MacOS)
-3. A vagrant/virtualbox install kit (all platforms)
+1. Unified installers (all 'nix, including OS X)
+2. A Vagrant/VirtualBox install kit (all platforms)
+3. A VirtualBox Appliance
 4. Use your own Buildout
 
-You can download all of these at http://plone.org/products/plone/releases/4.3.4 and https://plone.org/products/plone/releases/5.0
+You can download all of these at https://plone.org/products/plone/releases/5.0
 
 
 .. only:: not presentation
 
-    For the training we'll use option 3 and 4 to install and run Plone. We'll create our own Buildout and extend it as we wish. But we will do so in a vagrant machine. For your own first experiments we recommend option 2 or 3 (if you have a Windows laptop or encounter problems). Later on you should be able to use your own Buildout (we'll cover that later on).
+    For the training we'll use option 2 and 4 to install and run Plone. We'll create our own Buildout and extend it as we wish. But we will do so in a vagrant machine. For your own first experiments we recommend option 1 or 2 (if you have a Windows laptop or encounter problems). Later on you should be able to use your own Buildout (we'll cover that later on).
 
 .. only:: presentation
 
-    For the training we'll use option 3 and 4 to install and run Plone.
+    For the training we'll use option 2 and 4 to install and run Plone.
 
 .. seealso::
 
