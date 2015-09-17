@@ -5,7 +5,7 @@ Installing Plone for the Training
 
 .. warning::
 
-    Since Plone 5 is not yet released we are using the current state of Plone 5 as it is being developed. To do so our buildout will extend from the `Plone 5 Coredev Buildout <https://github.com/plone/buildout.coredev/tree/5.0>`_ and automatically checkout all packages that are currently under development (currently about 80).
+    Since Plone 5 is not yet released we are using the current state of Plone 5 as it is being developed. To do so our buildout will extend from the `Plone 5 Coredev Buildout <https://github.com/plone/buildout.coredev/tree/5.0>`_ and automatically check out all packages that are currently under development (currently about 80).
 
     Because of this, running buildout will take much more time than with a released version of Plone 5.
 
@@ -32,7 +32,7 @@ If you **are** experienced with running Plone on your own laptop, we encourage y
 * You can use *omelette* to have all the code of Plone at your fingertips.
 * You do not have to switch between different operating systems during the training.
 
-If you feel comfortable, please work on your own machine with your own Python. But ** please ** make sure that you have a system that will work, since we don't want you to lose valuable time!
+If you feel comfortable, please work on your own machine with your own Python. But **please** make sure that you have a system that will work, since we don't want you to lose valuable time!
 
 Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
