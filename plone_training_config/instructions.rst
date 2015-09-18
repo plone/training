@@ -74,9 +74,9 @@ The output should be simliar to:
 
 It the output says ``INFO Zope Ready to handle requests`` then you are in business.
 
-If you point your local browser at http://localhost:8080 you see that Plone is running. Now create a new Plone site by clicking "Create a new Plone site". The username and the password are both "admin" (Never do this on a real site!).
+If you point your browser at http://localhost:8080 you see that Plone is running. Now create a new Plone site by clicking "Create a new Plone site". The username and the password are both "admin" (Never do this on a real site!).
 
-Now you have a working Plone site up and running and can continue with the next chapter.
+Now you have a working Plone site up and running and can continue with the next chapter.  You can stop the running instance anytime using ``ctrl + c``.
 
 .. warning::
 
@@ -117,7 +117,7 @@ First, create a directory in which you want to do the training.
 
 .. warning::
 
-    If you already have a ``training`` directory because you followed the **Installing Plone without vagrant** instructions above, you should either delete it or rename it.
+    If you already have a ``training`` directory because you followed the **Installing Plone without vagrant** instructions above, you should either delete it, rename it, or use a different name below.
 
 .. code-block:: bash
 
@@ -159,7 +159,7 @@ This takes a **veeeeery loooong time** (up to 1h depending on your internet conn
 
 .. note::
 
-    Sometimes this stops with the message *Skipping because of failed dependencies*.
+    Sometimes this stops with the message:
 
     .. code-block:: bash
 
