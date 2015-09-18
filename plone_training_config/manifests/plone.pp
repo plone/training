@@ -92,8 +92,8 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         creates => '/vagrant/buildout',
         user => 'vagrant',
         cwd => '/vagrant',
-        before => Exec["install_setuptools"],
-        # before => Exec["bootstrap_training"],
+        # before => Exec["install_setuptools"],
+        before => Exec["bootstrap_training"],
         timeout => 0,
     }
 
