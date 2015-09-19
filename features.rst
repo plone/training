@@ -31,7 +31,7 @@ The :program:`instance` script offers the following options, which you can call 
     $ ./bin/instance stop
     $ ./bin/instance -O Plone debug
     $ ./bin/instance -O Plone run myscript.py
-    $ ./bin/instance adduser
+    $ ./bin/instance adduser name password
 
 .. only:: not presentation
 
@@ -90,14 +90,16 @@ Let's see what is there...
 On the edit bar, we find options affecting the current context...
 
 * :guilabel:`folder contents`
-* :guilabel:`view`
 * :guilabel:`edit`
-* :guilabel:`rules`
-* :guilabel:`sharing`
-* :guilabel:`status`
+* :guilabel:`view`
 * :guilabel:`add`
-* :guilabel:`more options`
-* :guilabel:`content info`
+* :guilabel:`state`
+* :guilabel:`actions`
+* :guilabel:`display`
+* :guilabel:`manage portlets`
+* :guilabel:`history`
+* :guilabel:`sharing`
+* :guilabel:`rules`
 * :guilabel:`user actions`
 
 Some edit bar options only show when appropriate; for example, ``folder contents`` and ``add`` are only shown for Folders. ``rules`` is currently invisible because we have no content rules available.
@@ -121,7 +123,7 @@ Users
 
     To add a new user in Plone, click on the user icon at the bottom of the left vertical bar and then on :guilabel:`Site setup`. This is Plone's control panel. You can also access it by browsing to http://localhost:8080/Plone/@@overview-controlpanel
 
-    Click on :guilabel:`Users and Groups` and add a user. If had configured a mail server, Plone could send you a mail with a link to a form where you can choose a password. We set a password here because we haven't yet configured a mail server.
+    Click on :guilabel:`Users and Groups` and add a user. If we had configured a mail server, Plone could send you a mail with a link to a form where you can choose a password. (Or, if you have Products.PrintingMailHost in your buildout, you can see the email scrolling by in the console, just the way it would be sent out.)  We set a password here because we haven't yet configured a mail server.
 
     Make this user with your name an administrator.
 
@@ -159,11 +161,11 @@ Configure a Mailserver
 
     We have to configure a mailserver since later we will create some content rules that send emails when new content is put on our site.
 
-* Server: :samp:`mail.gocept.net`
-* Username: :samp:`training@neww.de`
-* Password: :samp:`training2015`
-
-Please do not abuse this. We'll disable this account after the training.
+* Server: :samp:`localhost`
+* Username: leave blank
+* Password: leave blank
+* Site 'From' name: Your name
+* Site 'From' address: Your email address
 
 
 .. _features-content-types-label:
@@ -188,27 +190,27 @@ Create a site-structure:
 
 * In /news: Add News Item "Conference Website online!" with some image
 * In /news: Add News Item "Submit your talks!"
-* In /events: Add Event "Deadline for talk-submission" Date: 2015/08/10
+* In /events: Add Event "Deadline for talk submission" Date: 2015/08/10
 
 * Add Folder "Register"
 * Delete Folder "Members" (Users)
 * Add Folder "Intranet"
 
 
-The default content-types:
+The default content types:
 
-* Document
-* News Item
+* Collection
 * Event
 * File
+* Folder
 * Image
 * Link
-* Folder
-* Collection
+* News Item
+* Page
 
 .. note::
 
-    Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default Plone 4.3.x site.
+    Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training, which are the default in Plone 5. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default Plone 4.3.x site.
 
 
 .. _features-folders-label:
@@ -224,7 +226,6 @@ Folders
 * dropdown "display"
 * default_pages
 * Add a page to 'the-event': "The Event" and make it the default page
-* The future: ``wildcard.foldercontents``
 
 
 .. _features-collections-label:

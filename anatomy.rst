@@ -5,7 +5,7 @@ The Anatomy of Plone
 
 In this part you will:
 
-* Learn a bit of history about Plone.
+* Learn a bit about the history of Plone.
 
 Topics covered:
 
@@ -24,6 +24,7 @@ Zope2
 -----
 
 * Zope is a web application framework that Plone runs on top of.
+* The majority of Zope's code is written in Python, like everything else written on top of it.
 * It serves applications that communicate with users via http.
 
 .. only:: not presentation
