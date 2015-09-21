@@ -25,9 +25,13 @@ The following example from the ``rules.xml`` makes sure that the banner saying *
 
 .. code-block:: xml
 
-   <!-- hero unit on homepage only -->
-   <drop css:if-not-content="body.template-document_view.section-front-page"
-         css:theme="div.principal" />
+   <!-- include view @@hero on homepage only -->
+   <after css:theme="#mainnavigation-wrapper"
+          css:content=".principal"
+          href="/@@hero"
+          css:if-content="body.template-document_view.section-front-page" />
+
+The browser-view ``@@hero`` (you can find it by searching all zcml-files for ``name="hero"``) is only included when the body-tag of the current page has the css-classes ``template-document_view`` and ``section-front-page``.
 
 
 .. _plone5-ui-widgets-label:
