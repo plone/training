@@ -2,7 +2,7 @@
 Grok
 ====
 
-Grok is an alternative declaration language for declaring your components. It is compatible with the Zope Component Architecture, it used just an alternative syntax.
+Grok is an alternative declaration language for declaring your components. It is compatible with the Zope Component Architecture, it used just an alternative syntax. It is recommended to not use it! We still document it here in case you have to deal with a legacy-codebase that uses it.
 
 Instead of writing separate zcml files, you annotate your code and you create content conforming to specific file names so that they are automatically found.
 There has been discussions whether grok should be used in the plone core. The plone community decided against it, because it increases the technology stack without adding functionality.
@@ -80,4 +80,4 @@ If we used ``grok`` for viewlets we would not need to register them in the ``con
     class SocialViewlet(grok.Viewlet):
         grok.viewletmanager(viewletIFs.IBelowContentTitle)
 
-This would do the same as the coe above using grok's paradigm of convention over configuration. In browser views the reference is called view, note that in grok viewlets it is called viewlets (in that case ``viewlet/lanyrd_link``).
+This would do the same as the code above using grok's paradigm of convention over configuration. In browser views the reference is called view, note that in grok viewlets it is called viewlets (in that case ``viewlet/lanyrd_link``).

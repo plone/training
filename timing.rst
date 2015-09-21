@@ -1,6 +1,9 @@
 Timtable
 ========
 
+This is just meant as info for trainers about how long it might take to teach certain chapters.
+Please update when you have different experiences.
+
 Version 1.2
 -----------
 

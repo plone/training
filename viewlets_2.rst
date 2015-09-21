@@ -371,20 +371,5 @@ Then we add our simple views into the file :file:`browser/vote.py`
 
 A lot of moving parts have been created. Here is a small overview:
 
-.. digraph:: composition
-
-    rankdir=LR;
-    layout=fdp;
-    context[label="IVotable object" shape="box" pos="0,0!"];
-    viewlet[label="Voting Viewlet" pos="3,-1!"];
-    helperview1[label="Helper View for Voting" pos="3,0!"];
-    helperview2[label="Helper View for deleting all votes" pos="3,1!"];
-    js[label="JS Code" shape="box" pos="6,0!"];
-    viewlet -> context [headlabel="reads" labeldistance="3"]
-    helperview1 -> context [label="modifies"]
-    helperview2 -> context [label="modifies"]
-    js -> helperview1 [label="calls"]
-    js -> helperview2 [taillabel="calls" labelangle="-10" labeldistance="6"]
-    viewlet -> js [label="loads"]
-    js -> viewlet [headlabel="manipulates" labeldistance="8" labelangle="-10"]
-
+.. figure:: _static/voting_flowchart.png
+   :align: center

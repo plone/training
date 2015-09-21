@@ -1,7 +1,7 @@
 .. _frontpage-label:
 
 Creating a Dynamic Front Page
-============================
+=============================
 
 .. sidebar:: Get the code!
 

@@ -15,7 +15,8 @@ Add teaser with collective.behavior.banner
 
 There are a lot of add-ons in Plone for sliders/banners/teasers. We thought there should be a better one and created ``collective.behavior.banner``.
 
-.. image:: http://imgs.xkcd.com/comics/standards.png
+.. figure:: _static/standards.png
+   :align: center
 
 Like many add-ons it has not yet been released on pypi but only exists as code on github.
 
