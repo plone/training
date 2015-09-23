@@ -176,7 +176,7 @@ This step makes sure the method ``post_install`` in ``setuphandlers.py`` is exec
             obj=talks)
 
         # Constrain addable types to talk
-        behavior = (talks)
+        behavior = ISelectableConstrainTypes(talks)
         behavior.setConstrainTypesMode(constrains.ENABLED)
         behavior.setLocallyAllowedTypes(['talk'])
         behavior.setImmediatelyAddableTypes(['talk'])
