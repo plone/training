@@ -9,6 +9,6 @@ polib==1.0.6
 pytz==2015.4
 six==1.9.0
 snowballstemmer==1.2.0
-sphinx-rtd-theme==0.1.8
+sphinx-rtd-theme==0.1.9
 transifex-client==0.11b3
 wsgiref==0.1.2
