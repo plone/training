@@ -40,6 +40,12 @@ extensions = [
     'sphinx.ext.todo',
 ]
 
+
+# Options for the linkcheck builder
+# Ignore localhost
+linkcheck_ignore = [r'http://localhost:\d+/', r'http://localhost:8080\d+/', r'http://localhost:8080', r'http://127.0.0.1:8080']
+linkcheck_anchors = False
+
 # See http://sphinx-doc.org/ext/todo.html#confval-todo_include_todos
 todo_include_todos = True
 

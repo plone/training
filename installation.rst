@@ -37,7 +37,7 @@ Installing Plone
 * use a Python that comes pre-installed in your operating system (most Linuxes and Mac OS X have one)
 * use the `python buildout <https://github.com/collective/buildout.python>`_
 * building Linux packages
-* `homebrew <http://mxcl.github.com/homebrew>`_ (Mac OS X)
+* `homebrew <http://mxcl.github.io/homebrew/>`_ (Mac OS X)
 * PyWin32 (Windows)
 
 .. only:: not presentation
@@ -87,14 +87,14 @@ You can host Plone...
 * with one of many professional `hosting providers <http://plone.com/providers>`_
 * on a virtual private server
 * on dedicated servers
-* on `heroku <http://heroku.com>`_ you can run Plone for *free* using the `Heroku buildpack for Plone <https://github.com/niteoweb/heroku-buildpack-plone>`_
+* on `heroku <https://www.heroku.com>`_ you can run Plone for *free* using the `Heroku buildpack for Plone <https://github.com/plone/heroku-buildpack-plone>`_
 * in the cloud (e.g. using Amazon EC2 or `Codio.com <http://blog.dbain.com/2014/04/install-plone-in-under-5-minutes-on.html>`_)
 
 .. seealso::
 
     * Plone Installation Requirements: http://docs.plone.org/manage/installing/requirements.html
     * Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-on-5-a-month
-    * Where to host Plone: http://plone.org/documentation/faq/where-can-i-host-my-plone-site
+    * Where to host Plone: httpsq://plone.org/documentation/faq/where-can-i-host-my-plone-site
 
 
 .. _installation-prod-deploy-label:

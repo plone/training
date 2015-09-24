@@ -425,7 +425,7 @@ When an element has multiple TAL attributes, they are executed in this order:
 Plone 5
 -------
 
-Plone 5 uses a new rendering engine called `Chameleon <http://www.pagetemplates.org/>`_. Using the integration layer `five.pt <https://pypi.python.org/pypi/five.pt>`_ it is fully compatible with the normal TAL syntax but offers some additional features:
+Plone 5 uses a new rendering engine called `Chameleon <https://chameleon.readthedocs.org/en/latest/>`_. Using the integration layer `five.pt <https://pypi.python.org/pypi/five.pt>`_ it is fully compatible with the normal TAL syntax but offers some additional features:
 
 You can use ``${...}`` as short-hand for text insertion in pure html effectively making ``tal:content`` and ``tal:attributes`` obsolete. Here are some examples:
 
@@ -963,12 +963,10 @@ There is a lot more about TAL, TALES and METAL that we have not covered. You'll 
 Chameleon
 ---------
 
-Chameleon is the successor of Zope Page Templates, is used in Plone 5 and can be used in Plone 4 as an add-on.
+Chameleon is the successor of Zope Page Templates, it is used in Plone 5.
 
 - Plip for Chameleon: https://dev.plone.org/ticket/12198
-- Homepage: http://www.pagetemplates.org/
-- Addon for Plone 4: `five.pt <https://pypi.python.org/pypi/five.pt>`_
+- Homepage: https://chameleon.readthedocs.org/en/latest/
 
-In Plone 4 uses the default ZPT where some features are missing.
 
 

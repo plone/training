@@ -485,7 +485,7 @@ Adding some javascript (collective.js.datatables)
 
 We could improve that table further by using a nice javascript library called "datatables". It might even become part of the Plone core at some point.
 
-Like for many js libraries there is already a python package that does the plone integration for us: ``collective.js.datatables``. Like all python packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables
+Like for many js libraries there is already a python package that does the plone integration for us: ``collective.js.datatables``. Like all python packages you can find it on pypi: https://pypi.python.org/pypi/collective.js.datatables
 
 We already added the add-on to our buildout, you just have to activate it in our template.
 

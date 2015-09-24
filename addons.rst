@@ -24,7 +24,7 @@ How to find add-ons
 
 .. seealso::
 
-   * A talk on finding and managing add-ons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
+   * A talk on finding and managing add-ons: https://www.youtube.com/watch?v=Sc6NkqaSjqw
 
 
 .. _add-ons-notable-label:
@@ -69,7 +69,7 @@ Some noteable add-ons
 `collective.behavior.banner <https://github.com/collective/collective.behavior.banner>`_
   Add decorative banners and sliders
 
-`plone.app.multilingual <http://pypi.python.org/pypi/plone.app.multilingual>`_
+`plone.app.multilingual <https://pypi.python.org/pypi/plone.app.multilingual>`_
   Allows multilingual sites by translating content
 
 `Plomino <http://www.plomino.net/>`_
@@ -198,7 +198,7 @@ Plone can run the same site in many different languages.
 
 We're not doing this with the conference site since the *lingua franca* of the Plone community is English.
 
-We would use http://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes).
+We would use https://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes).
 
 .. note::
 
