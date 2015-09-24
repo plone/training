@@ -5,9 +5,7 @@ Installing Plone for the Training
 
 .. warning::
 
-    Since Plone 5 is not yet released we are using the current state of Plone 5 as it is being developed. To do so our buildout will extend from the `Plone 5 Coredev Buildout <https://github.com/plone/buildout.coredev/tree/5.0>`_ and automatically check out all packages that are currently under development (currently about 80).
-
-    Because of this, running buildout will take much more time than with a released version of Plone 5.
+    Since Plone 5 is not yet released we are using the most recent release candidate of Plone 5, which currently is RC3. Have no fear, as we do not expect any big differences between this RC and the final release. So even if you come to the training with RC3 installed, you will be ok.  Also, if you have installed Plone successfully once, doing it a second time will be much easier and quicker.  In other words, do not let this stop you from performing the installation as soon as possible.
 
 Keep in mind that you need a fast internet connection during installation since you'll have to download a lot of data!
 
@@ -63,14 +61,37 @@ The output should be simliar to:
 .. code-block:: pypy
     :emphasize-lines: 10
 
-    2015-07-11 13:07:22 INFO ZServer HTTP server started at Sat Jul 11 13:07:22 2015
-        Hostname: 0.0.0.0
-        Port: 8080
-    2015-07-11 13:07:26 INFO ZODB.blob (12807) Blob directory '....../training/buildout/var/blobstorage' is unused and has no layout marker set. Selected `bushy` layout.
-    2015-07-11 13:07:26 INFO ZODB.blob (12807) Blob temporary directory '....../training/buildout/var/blobstorage/tmp' does not exist. Created new directory.
-    2015-07-11 13:07:32 INFO Plone OpenID system packages not installed, OpenID support not available
-    2015-07-11 13:07:36 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
-    2015-07-11 13:07:36 INFO Zope Ready to handle requests
+    2015-09-24 15:51:02 INFO ZServer HTTP server started at Thu Sep 24 15:51:02 2015
+            Hostname: 0.0.0.0
+            Port: 8080
+    2015-09-24 15:51:05 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
+    2015-09-24 15:51:05 WARNING PrintingMailHost
+
+    ******************************************************************************
+
+    Monkey patching MailHosts to print e-mails to the terminal.
+
+    This is instead of sending them.
+
+    NO MAIL WILL BE SENT FROM ZOPE AT ALL!
+
+    Turn off debug mode or remove Products.PrintingMailHost from the eggs
+    or remove ENABLE_PRINTING_MAILHOST from the environment variables to
+    return to normal e-mail sending.
+
+    See https://pypi.python.org/pypi/Products.PrintingMailHost
+
+    ******************************************************************************
+
+    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob directory `/Users/fulvio/python/plone/clients/plone.training/training.own.20150924/buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
+    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob temporary directory '/Users/fulvio/python/plone/clients/plone.training/training.own.20150924/buildout/var/blobstorage/tmp' does not exist. Created new directory.
+    /Users/fulvio/.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/menu.py:5: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
+      from plone.app.layout.navigation.defaultpage import isDefaultPage
+    /Users/fulvio/.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
+      from plone.app.multilingual.content.lrf import LanguageRootFolder
+    2015-09-24 15:51:09 INFO Plone OpenID system packages not installed, OpenID support not available
+    2015-09-24 15:51:11 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
+    2015-09-24 15:51:11 INFO Zope Ready to handle requests
 
 It the output says ``INFO Zope Ready to handle requests`` then you are in business.
 
@@ -193,15 +214,37 @@ Instead we use our own Plone instance during the training. It is in ``/vagrant/b
 
     vagrant@training:~$ cd /vagrant/buildout
     vagrant@training:/vagrant/buildout$ ./bin/instance fg
-    2015-07-11 21:00:18 INFO ZServer HTTP server started at Sat Jul 11 21:00:18 2015
-        Hostname: 0.0.0.0
-        Port: 8080
-    2015-07-11 21:00:31 INFO Products.PloneFormGen gpg_subprocess initialized, using /usr/bin/gpg
-    2015-07-11 21:00:33 INFO ZODB.blob (28079) Blob directory `/home/vagrant/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
-    2015-07-11 21:00:33 INFO ZODB.blob (28079) Blob temporary directory '/home/vagrant/var/blobstorage/tmp' does not exist. Created new directory.
-    2015-07-11 21:00:51 INFO Plone OpenID system packages not installed, OpenID support not available
-    2015-07-11 21:00:59 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
-    2015-07-11 21:00:59 INFO Zope Ready to handle requests
+    2015-09-24 15:51:02 INFO ZServer HTTP server started at Thu Sep 24 15:51:02 2015
+            Hostname: 0.0.0.0
+            Port: 8080
+    2015-09-24 15:51:05 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
+    2015-09-24 15:51:05 WARNING PrintingMailHost
+
+    ******************************************************************************
+
+    Monkey patching MailHosts to print e-mails to the terminal.
+
+    This is instead of sending them.
+
+    NO MAIL WILL BE SENT FROM ZOPE AT ALL!
+
+    Turn off debug mode or remove Products.PrintingMailHost from the eggs
+    or remove ENABLE_PRINTING_MAILHOST from the environment variables to
+    return to normal e-mail sending.
+
+    See https://pypi.python.org/pypi/Products.PrintingMailHost
+
+    ******************************************************************************
+
+    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob directory `/Users/fulvio/python/plone/clients/plone.training/training.own.20150924/buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
+    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob temporary directory '/Users/fulvio/python/plone/clients/plone.training/training.own.20150924/buildout/var/blobstorage/tmp' does not exist. Created new directory.
+    /Users/fulvio/.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/menu.py:5: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
+      from plone.app.layout.navigation.defaultpage import isDefaultPage
+    /Users/fulvio/.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
+      from plone.app.multilingual.content.lrf import LanguageRootFolder
+    2015-09-24 15:51:09 INFO Plone OpenID system packages not installed, OpenID support not available
+    2015-09-24 15:51:11 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
+    2015-09-24 15:51:11 INFO Zope Ready to handle requests
 
 .. note::
 
