@@ -17,7 +17,7 @@ If the chapters about views seem complex, the custom search addon shown below mi
 eea.facetednavigation
 ---------------------
 
-* Install `eea.facetednavigation <http://pypi.python.org/pypi/eea.facetednavigation/>`_
+* Install `eea.facetednavigation <https://pypi.python.org/pypi/eea.facetednavigation/>`_
 * Enable faceted navigation on a new folder "Discover talks" by clicking on *actions* > *Enable faceted navigation*
 * Click on the tab *Faceted criteria* to configure it
 
@@ -30,8 +30,8 @@ eea.facetednavigation
 Examples:
 
 * http://www.dipf.de/en/research/projects
-* https://mountaineers.org/learn/find-courses-clinics-seminars
-* http://www.dynajet.de/en/hochdruckreiniger
+* https://mountaineers.org/learn/courses-clinics-seminars
+* https://www.dyna-jet.com/hochdruckreiniger
 
 .. TODO: add custom eea-view using dates
 

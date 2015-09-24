@@ -25,10 +25,10 @@ Previous Trainings
 The Mastering Plone Training was so far held publicly at the following occasions:
 
 * `March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
-* `Plone Conference 2014, Bristol <http://2014.ploneconf.org/training>`_
+* Plone Conference 2014, Bristol 
 * `June 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068480>`_
 * `May 2014, Munich <http://www.starzel.de/blog/mastering-plone>`_
-* `PythonBrasil/Plone Conference 2013, Brasilia <http://2013.pythonbrasil.org.br/program/training/mastering-plone>`_
+* `PythonBrasil/Plone Conference 2013, Brasilia <http://2013.pythonbrasil.org.br/>`_
 * `PyCon DE 2012, Leipzig <https://2012.de.pycon.org/>`_
 * `Plone Conference 2012, Arnheim <http://2012.ploneconf.org/the-event/training/conference-trainings/mastering-plone>`_
 * `PyCon De 2011, Leipzig <http://2011.de.pycon.org/2011/home/>`_
@@ -195,7 +195,7 @@ Things to do before a training (as a trainer)
 Contributing
 ------------
 
-Everyone is **very welcome** to contribute. Minor bugfixes can be pushed direcly in the `repository <https://github.com/plone/training>`_, bigger changes should made as `pull-requests <https://github.com/plone/training/pull/>`_ and discussed previously in tickets.
+Everyone is **very welcome** to contribute. Minor bugfixes can be pushed direcly in the `repository <https://github.com/plone/training>`_, bigger changes should made as `pull-requests <https://github.com/plone/training/pulls/>`_ and discussed previously in tickets.
 
 
 .. _about-licence-label:
@@ -205,7 +205,7 @@ License
 
 The Mastering Plone Training is licensed under a `Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_.
 
-Make sure you have filled out a `Contributor Agreement <http://plone.org/foundation/contributors-agreement>`_.
+Make sure you have filled out a `Contributor Agreement <https://plone.org/foundation/contributors-agreement>`_.
 
 If you haven't filled out a Contributor Agreement, you can still contribute. Contact the Documentation team, for instance via the `mailinglist <http://sourceforge.net/p/plone/mailman/plone-docs/>`_ or directly send a mail to plone-docs@lists.sourceforge.net
 Basically, all we need is your written confirmation that you are agreeing your contribution can be under Creative Commons. You can also add in a comment with your pull request "I, <full name>, agree to have this published under Creative Commons 4.0 International BY".

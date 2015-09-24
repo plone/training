@@ -240,7 +240,7 @@ Calling the macro in python looks like this  ``metal:use-macro="python:context.r
 Twitter
 -------
 
-You might also want to embedd a twitter feed into the page. Luckily twitter makes it easy to do that. Create the appropriate snippet of code at https://twitter.com/settings/widgets/new/search?query=%23ploneconf and paste it in the template wrapped in a ``<div class="col-lg-6">...</div>`` to have the talklist next to the feeds:
+You might also want to embedd a twitter feed into the page. Luckily twitter makes it easy to do that. Please browse to the `twitter docs <https://dev.twitter.com/web/embedded-timelines>`_ and learn how to create the appropriate snippet of code and paste it in the template wrapped in a ``<div class="col-lg-6">...</div>`` to have the talklist next to the feeds:
 
 ..  code-block:: html
 

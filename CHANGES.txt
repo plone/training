@@ -22,7 +22,7 @@ Changelog
 - Add spanish translation.
   [macagua]
 
-- Add support for translations on https://www.transifex.com/projects/p/mastering-plone-training/
+- Add support for translations on https://www.transifex.com/plone/mastering-plone-training/
   [macagua]
 
 
@@ -30,7 +30,7 @@ Changelog
 ------------------
 
 - Move sources to https://github.com/plone/training and render
-  at http://plone-training.readthedocs.org/
+  at https://plone-training.readthedocs.org/en/legacy/
   [pbauer]
 
 - Integrate with docs.plone.org and papyrus

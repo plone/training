@@ -57,7 +57,7 @@ Instead, vagrant now creates our own little Buildout and merely uses the eggs th
 
     $ cp -Rf /home/vagrant/Plone/buildout-cache /home/vagrant
 
-Then we check out our tutorial buildout from http://github.com/collective/training_buildout, switch to the branch 'plone5' and build it.
+Then we check out our tutorial buildout from https://github.com/collective/training_buildout, switch to the branch 'plone5' and build it.
 
 .. code-block:: bash
 
