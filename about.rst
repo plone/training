@@ -25,7 +25,7 @@ Previous Trainings
 The Mastering Plone Training was so far held publicly at the following occasions:
 
 * `March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
-* Plone Conference 2014, Bristol 
+* Plone Conference 2014, Bristol
 * `June 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068480>`_
 * `May 2014, Munich <http://www.starzel.de/blog/mastering-plone>`_
 * `PythonBrasil/Plone Conference 2013, Brasilia <http://2013.pythonbrasil.org.br/>`_
@@ -138,16 +138,10 @@ To build the documentation follow these steps:
 
 .. code-block:: bash
 
-    $ git clone https://github.com/plone/training.git
+    $ git clone https://github.com/plone/training.git --recursive
     $ cd training
     $ virtualenv-2.7 .
     $ source bin/activate
-
-If you want to build the version for Plone 5 now switch to that branch:
-
-.. code-block:: bash
-
-    $ git checkout plone5
 
 Not install dependencies and build.
 
@@ -163,14 +157,38 @@ Build new
 
 .. code-block:: bash
 
-    $ git clone https://github.com/plone/training.git
+    $ git clone https://github.com/plone/training.git --recursive
     $ cd training
     $ git checkout plone5
     $ virtualenv-2.7 .
     $ source bin/activate
     $ pip install -r requirements.txt
     $ make html
+
+Now you can open documentation with your web-bowser.
+
+If you use OS X you can just do:
+
+.. code-block:: bash
+
     $ open _build/html/index.html
+
+In the case of Linux, Ubuntu for example you can do:
+
+.. code-block:: bash
+
+    $ firefox _build/html/index.html
+
+.. note::
+
+    If you do not use Firefox but Chrome, please replace firefox with google-chrome e.g
+
+.. code-block :: bash
+
+    $ google-chrome _build/html/index.html
+
+
+
 
 Update existing
 +++++++++++++++
