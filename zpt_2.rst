@@ -75,7 +75,7 @@ This will show something like: ``2015-02-21T12:01:31+01:00``. Not very user-frie
 
 This will render ``Feb 21, 2015``.
 
-* ``plone_view`` is the BrowserView ``Products.CMFPlone.browser.ploneview.Plone`` and it is defined in the ``main_template`` (Products/CMFPlone/browser/templates/main_template.pt) of Plone 5 like this ``plone_view context/@@plone;`` and thus always avaiable.
+* ``plone_view`` is the BrowserView ``Products.CMFPlone.browser.ploneview.Plone`` and it is defined in the ``main_template`` (Products/CMFPlone/browser/templates/main_template.pt) of Plone 5 like this ``plone_view context/@@plone;`` and thus always available.
 * The method ``toLocalizedTime`` runs a date object through Plone's ``translation_service`` and returns the Date in the current locales format, thus transforming ``2015-02-21T12:01:31+01:00`` to ``Feb 21, 2015``.
 * With ``nocall:`` we prevent the method ``toLocalizedTime`` from being called, since we only want to make it available for use.
 
@@ -95,7 +95,7 @@ Here we first get the plone view and then the method ``toLocalizedTime`` and we 
 
     On older Plone versions (using Archetypes) we used ``python:context.toLocalizedTime(context.Date(), longFormat=False)``. That called the python script ``toLocalizedTime.py`` in the Folder ``Products/CMFPlone/skins/plone_scripts/``.
 
-    That folder ``plone_scripts`` holds a multitude of useful scripts that are still widely used. But they are all deprecated and most of thme are gone in Plone 5 and replaced by proper python methods in browserviews.
+    That folder ``plone_scripts`` holds a multitude of useful scripts that are still widely used. But they are all deprecated and most of them are gone in Plone 5 and replaced by proper python methods in browserviews.
 
 
 We could also leave the formatting to the frontend. Plone 5 comes with the `moment pattern <http://plone.github.io/mockup/dev/#pattern/moment>`_ that uses the library `moment.js <http://plone.github.io/mockup/dev/#pattern/moment>`_ to format dates. Try the relative calendar format:
@@ -181,7 +181,7 @@ That template ``listing.pt`` defines the slot ``entries`` like this:
 
     ...
 
-Here the ``item_type`` is defined as ``item_type item/PortalType``. Let's dig a little deeper and find out what ``ìtem`` and  ``PortalType`` are.
+Here the ``item_type`` is defined as ``item_type item/PortalType``. Let's dig a little deeper and find out what ``item`` and  ``PortalType`` are.
 
 ``tal:repeat="item batch"`` tells the template to iterate over an iterable ``batch`` which is defined as ``batch view/batch``.
 
@@ -200,7 +200,7 @@ To be continued...
 
 .. note::
 
-    In Plone 4 without ``plone.app.contenttypes`` the template to customize would be ``folder_summary_view.pt``, a skin template for Archetypes that can be found in the folder ``Products/CMFPlone/skins/plone_content/``. The customzed template would be ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
+    In Plone 4 without ``plone.app.contenttypes`` the template to customize would be ``folder_summary_view.pt``, a skin template for Archetypes that can be found in the folder ``Products/CMFPlone/skins/plone_content/``. The customized template would be ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
 
     The Archetypes template for News Items is ``newsitems_view.pt`` from the same folder. The customized template would then have to be named ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
 

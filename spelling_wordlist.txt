@@ -1,3 +1,14 @@
+Tahr
+Templating
+zpt2
+issuecomment
+github
+io
+mockup
+dev
+pattern
+ploneview
+nocall
 admin
 Ansible
 api
@@ -42,6 +53,7 @@ Nginx
 pbauer
 Pellegrini
 Phantomjs
+Plip
 Plips
 plone
 Plone

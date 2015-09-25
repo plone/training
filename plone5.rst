@@ -17,7 +17,7 @@ It is a Diazo theme, meaning it uses plone.app.theming to insert the output of P
 
 It uses html5, so it uses ``<header>``, ``<nav>``, ``<aside>``, ``<section>``, ``<article>`` and ``<footer>`` for semantic html.
 
-The theme is mostly built with `less <http://lesscss.org/>`_ (lots of it!) and uses the same grid system as `bootstrap <http://getbootstrap.com/css/#grid>`_. This means you can use css classes like ``col-xs-12 col-sm-9`` to control the width of elements for different sreeen-sizes. If you prefer something a different grid-system (like `foundation <http://foundation.zurb.com/docs/components/grid.html>`_)
+The theme is mostly built with `less <http://lesscss.org/>`_ (lots of it!) and uses the same grid system as `bootstrap <http://getbootstrap.com/css/#grid>`_. This means you can use css classes like ``col-xs-12 col-sm-9`` to control the width of elements for different screen-sizes. If you prefer something a different grid-system (like `foundation <http://foundation.zurb.com/docs/components/grid.html>`_)
 
 The `index.html <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/index.html>`_ and `rules.xml <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/rules.xml>`_ are actually not that complicated. Have a look at them.
 
@@ -102,7 +102,7 @@ New (additional) syntax:
 
 Template debugging:
 
-You can noW put a full-grown ``pdb`` in a template.
+You can now put a full-grown ``pdb`` in a template.
 
 .. code-block:: html
 
