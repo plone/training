@@ -36,7 +36,7 @@ The capability of performing a *full text search* through the complete Plone cod
 
 .. note::
 
-    Some Editors/IDEs have to be extend to be fully featured. Here are some packages we recommend when using Sublime Text 3:
+    Some Editors/IDE's have to be extend to be fully featured. Here are some packages we recommend when using Sublime Text 3:
 
     * SublimeCodeIntel (Goto Definition)
     * BracketHighlighter

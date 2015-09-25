@@ -50,7 +50,7 @@ Zope2
     - different CSS styles for different parts of your site
     - One site, multiple customers, everything looks different for each customer.
 
-    As with all programming magic, acquisition exacts a price. Zope code must be written carefully in order to avoid inheriting side effects via acquisition. The Zope community expresses this with the Python (Monty) maxim: Beware the Spammish Acquisition.
+    As with all programming magic, acquisition exacts a price. Zope code must be written carefully in order to avoid inheriting side effects via acquisition. The Zope community expresses this with the Python (Monty) maxim: Beware the `Spammish Acquisition`.
 
     Basically this is Zope.
 

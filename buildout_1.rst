@@ -147,7 +147,7 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     # TTW Forms (based on Archetypes)
         Products.PloneFormGen
 
-    # The addon we develop in the training
+    # The add-on we develop in the training
     #    ploneconf.site
 
     # Voting on content
@@ -220,7 +220,7 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     ploneconf.site = fs ploneconf.site path=src
     starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git path=src
 
-    # Checkouts to make addons we use work with Plone 5
+    # Checkouts to make add-ons we use work with Plone 5
     Products.PloneFormGen = git https://github.com/starzel/Products.PloneFormGen.git pushurl=git@github.com:starzel/Products.PloneFormGen.git rev=fa2b4df60c8ab1ab88bf1497904b958d5ed214d4
 
     # This is no egg but folders each containing the egg of ploneconf.site for one chapter
@@ -265,7 +265,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
         # TTW Forms (based on Archetypes)
             Products.PloneFormGen
 
-        # The addon we develop in the training
+        # The add-on we develop in the training
         #    ploneconf.site
 
         # Voting on content
@@ -280,7 +280,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
 
     The egg ``Plone`` is a wrapper without code. Among its dependencies is ``Products.CMFPlone``  which is the egg that is at the center of Plone.
 
-    The rest are addons we already used or will use later. The last eggs are commented out so they will not be installed by Buildout.
+    The rest are add-ons we already used or will use later. The last eggs are commented out so they will not be installed by Buildout.
 
     The file ``versions.cfg`` that is included by the ``extends = ...`` statement hold the version pins:
 

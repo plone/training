@@ -43,7 +43,7 @@ The :program:`instance` script offers the following options, which you can call 
 
     We have a running Zope with a database but no content. But luckily there is a button to create a Plone site. Click on that button (login: admin, password:admin). This opens a form to create a Plone site. Use :samp:`Plone` as the site id.
 
-    ..  You now have the option to select some addons before you create the site. Since we will use Dexterity from the beginning we select ``Dexterity-based Plone Default Types``. This way even the initial content on our page will be built with dexterity by the addon ``plone.app.contenttypes`` which will be the default in Plone 5.
+    ..  You now have the option to select some add-ons before you create the site. Since we will use Dexterity from the beginning we select ``Dexterity-based Plone Default Types``. This way even the initial content on our page will be built with dexterity by the add-on ``plone.app.contenttypes`` which will be the default in Plone 5.
 
     You will be automatically redirected to the new site.
 
@@ -60,18 +60,18 @@ The :program:`instance` script offers the following options, which you can call 
 
 .. _features-walkthrough-label:
 
-Walkthrough of the UI
----------------------
+Walk-through of the UI
+----------------------
 
 Let's see what is there...
 
 * :guilabel:`header`:
 
-  * :guilabel:`logo`: with a link to the frontpage
+  * :guilabel:`logo`: with a link to the front page
   * :guilabel:`searchbox`: search (with live-search)
 
 * :guilabel:`navigation`: The global navigation
-* :guilabel:`banner`: A banner. Only visible on the frontpage.
+* :guilabel:`banner`: A banner. Only visible on the front page.
 
 * :guilabel:`portal-columns`: a container holding:
 
@@ -113,7 +113,7 @@ Users
 
 .. only:: not presentation
 
-    Let's create our first users within Plone. So far we used the admin user (admin:admin) configured in the buildout. This user is often called "zope root" and is not managed in Plone but only by Zope. Therefore the user's missing some features like email and fullname and  won't be able to use some of plone's features. But the user has all possible permissions. As with the root user of a server, it's a bad practice to make unnecessary use of zope root. Use it to create Plone sites and their initial users, but not much else.
+    Let's create our first users within Plone. So far we used the admin user (admin:admin) configured in the buildout. This user is often called "zope root" and is not managed in Plone but only by Zope. Therefore the user's missing some features like email and full name and  won't be able to use some of plone's features. But the user has all possible permissions. As with the root user of a server, it's a bad practice to make unnecessary use of zope root. Use it to create Plone sites and their initial users, but not much else.
 
     You can also add zope users via the terminal by entering::
 

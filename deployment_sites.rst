@@ -11,7 +11,7 @@ The starzel buildout
 
 Have a look at the buildout we use for our projects: https://github.com/starzel/buildout
 
-It has some noteable features:
+It has some notable features:
 
 * It extends to files on github shared by all projects of the same version
 
@@ -51,6 +51,6 @@ Other tools we use
 * Ansible (manage and setup servers and tools)
 * Nagios (server monitoring)
 * jenkins (tests)
-* piwik (statictics)
+* piwik (statistics)
 * gitlab (code repo and code review)
 * redmine (ticket system and wiki)

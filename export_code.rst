@@ -33,7 +33,7 @@ Steps:
 * Return to the Dexterity control panel
 * Export the Type Profile and save the file
 * Delete the Type from the site before installing it from the file system
-* Extract the files from the exported tar file and add them to our addon package in ``profiles/default/``
+* Extract the files from the exported tar file and add them to our add-on package in ``profiles/default/``
 
 .. note::
 
@@ -225,7 +225,7 @@ Now we have to remove the model_source and instead reference the xml file in the
 
 `Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_ is very powerful. By editing it (not all features have a UI) you should be able to do everything you can do with a python schema.
 
-Our talks use a dropdown for ``type_of_talk`` and a multiselect for ``audience``. Radiobuttons and checkboxes woule be the better choice here. Modify the xml to make that change happen:
+Our talks use a dropdown for ``type_of_talk`` and a multiselect for ``audience``. Radio-buttons and checkboxes would be the better choice here. Modify the xml to make that change happen:
 
 ..  code-block:: xml
     :linenos:
@@ -296,9 +296,9 @@ Create a new package called ``collective.behavior.myfeature``. Inspect the direc
     .. code-block:: bash
 
         $ cd src
-        $ ../bin/mrbob -O collective.behavior.myfeature bobtemplates:plone_addon
+        $ ../bin/mrbob -O collective.behavior.myfeature bobtemplates:plone_add-on
 
-    Many packages that are part of Plone and some addons use a nested namespace such as ``plone.app.contenttypes``.
+    Many packages that are part of Plone and some add-ons use a nested namespace such as ``plone.app.contenttypes``.
 
 
 Exercise 2

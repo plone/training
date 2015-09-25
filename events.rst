@@ -37,7 +37,7 @@ First we enable the behavior ``IEventBasic`` for talks in ``profiles/default/typ
       <element value="plone.app.event.dx.behaviors.IEventBasic"/>
     </property>
 
-After we activate the behavior by hand or reinstalled the addon we will now have some additional fields for ``start`` and ``end``.
+After we activate the behavior by hand or reinstalled the add-on we will now have some additional fields for ``start`` and ``end``.
 
 To display the new field we reuse a default event summary view as documented in http://ploneappevent.readthedocs.org/en/latest/development.html#reusing-the-event-summary-view-to-list-basic-event-information
 

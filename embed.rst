@@ -84,7 +84,7 @@ To add the behavior to talks, we do this in :file:`profiles/default/types/talk.x
 
     Managing dependencies in metadata.xml is good practice. We can't rely on remembering what we'd have to do by hand. In Plone 4 we should also have added ``<dependency>profile-plone.app.contenttypes:plone-content</dependency>`` like the `documentation for plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html#installation-as-a-dependency-from-another-product>`_ recommends.
 
-    Read more: http://docs.plone.org/develop/addons/components/genericsetup.html#dependencies
+    Read more: http://docs.plone.org/develop/add-ons/components/genericsetup.html#dependencies
 
 .. code-block:: xml
     :linenos:

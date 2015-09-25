@@ -54,7 +54,7 @@ There are two content frameworks in Plone
 
 * Dexterity: new and the coming default
 * Archetypes: old, tried and tested
-* Archetypes: widespread though addons
+* Archetypes: widespread though add-ons
 * Plone 4.x: Archetypes is the default, with Dexterity available
 * Plone 5.x: Dexterity is the default with Archetypes available
 * For both, add and edit forms are created automatically from a schema
@@ -83,7 +83,7 @@ Approaches for Developers:
 
 Extending:
 
-* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content type is e.g. translatable (plone.app.multilingual).
+* Dexterity has Behaviors: easily extend-able. Just activate a behavior TTW and your content type is e.g. translatable (plone.app.multilingual).
 * Archetypes has archetypes.schemaextender. Powerful but not as flexible.
 
 We have only used Dexterity for the last few years.
@@ -130,7 +130,7 @@ Modifying existing types
 
     <form:widget type="z3c.form.browser.checkbox.SingleCheckBoxFieldWidget"/>
 
-* Edit the News Item again. The widget changed from a radio field to a checkbox.
+* Edit the News Item again. The widget changed from a radio field to a check box.
 * The new field ``Hot News`` is not displayed when rendering the News Item. We'll take care of this later.
 
 
@@ -248,7 +248,7 @@ Modify Documents to allow uploading an image as decoration (like News Items do).
 ..  admonition:: Solution
     :class: toggle
 
-    * Go to the dexterity-controlpanel (http://localhost:8080/Plone/@@dexterity-types)
+    * Go to the dexterity control panel (http://localhost:8080/Plone/@@dexterity-types)
     * Click on *Page* (http://127.0.0.1:8080/Plone/dexterity-types/Document)
     * Select the tab *Behaviors* (http://127.0.0.1:8080/Plone/dexterity-types/Document/@@behaviors)
     * Check the box next to *Lead Image* and save.

@@ -10,7 +10,7 @@ Custom Search
 
 We can use the indexes we created in the last chapter to further improve the talk list.
 
-If the chapters about views seem complex, the custom search addon shown below might be a great alternative until you feel comfortable writing views and templates. There are several tools that allow you to add amazing custom searches and content listings through the web in Plone.
+If the chapters about views seem complex, the custom search add-on shown below might be a great alternative until you feel comfortable writing views and templates. There are several tools that allow you to add amazing custom searches and content listings through the web in Plone.
 
 .. _customsearch-eea-label:
 
@@ -25,7 +25,7 @@ eea.facetednavigation
     * Add a checkboxes widget to the left and use the catalog index *Audience* for it.
     * Add a select widget for speaker
     * Add a radio widget for type_of_talk
-    * Other noteable widgets are: tagcloud, a-z, search
+    * Other notable widgets are: tag cloud, a-z, search
 
 Examples:
 

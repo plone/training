@@ -27,7 +27,7 @@ In this chapter we:
 Self-registration
 -----------------
 
-* Go to the Security controlpanel at http://localhost:8080/Plone/@@security-controlpanel and Enable self-registration
+* Go to the Security control panel at http://localhost:8080/Plone/@@security-controlpanel and Enable self-registration
 * Leave "Enable User Folders" off unless you want a community site.
 
 
@@ -68,7 +68,7 @@ We still need to fix a problem: Authenticated users can see all talks, even the 
 
 .. note::
 
-    The addon `plone.app.workflowmanager <https://pypi.python.org/pypi/plone.app.workflowmanager>`_ provides a much nicer user-interface for this. The problem is you need a big screen for it and it can be pretty confusing as well.
+    The add-on `plone.app.workflowmanager <https://pypi.python.org/pypi/plone.app.workflowmanager>`_ provides a much nicer user-interface for this. The problem is you need a big screen for it and it can be pretty confusing as well.
 
 Done.
 
@@ -111,9 +111,9 @@ Since the granting of local roles applies only to a certain folder in the site w
 
 So let's make sure some initial content is created and configured on installing the package.
 
-To run arbitrary code during the installation of a package we use a special import step, a `setuphandler <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_
+To run arbitrary code during the installation of a package we use a special import step, a `setuphandler <http://docs.plone.org/develop/add-ons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_
 
-Our package already has such an import step registered in ``configure.zcml``. It will be automatically run when (re-)installing the addon.
+Our package already has such an import step registered in ``configure.zcml``. It will be automatically run when (re-)installing the add-on.
 
 ..  code-block:: xml
     :linenos:
@@ -186,15 +186,15 @@ Once we reinstall our package a folder 'talks' is created with the appropriate l
 
 Remember that we wrote similar code to create the folder *The Event* in :ref:`dexterity2-upgrades-label`. We should probably add it also to setuphandlers to make sure a sane structure gets created when we create a new site by hand or in tests.
 
-You'd usualy create a list of dictionaries containing the type, parent and title plus optionally layout, workflow state etc. to create an initial structure. In some projects it could also make sense to have a separate profile besides ``default`` which might be called ``content`` that creates an initial structure and maybe another ``testing`` that creates dummy content (talks, speakers etc) for tests.
+You'd usually create a list of dictionaries containing the type, parent and title plus optionally layout, workflow state etc. to create an initial structure. In some projects it could also make sense to have a separate profile besides ``default`` which might be called ``content`` that creates an initial structure and maybe another ``testing`` that creates dummy content (talks, speakers etc) for tests.
 
 ..  note::
 
     You can also export and later import content using the GenericSetup step *Content* (``Products.CMFCore.exportimport.content.exportSiteStructure``) although you cannot set all types of properties (workflow state, layout) and the syntax is a little special.
 
 
-Excercise 1
-+++++++++++
+Exercise 1
+++++++++++
 
 Create a profile ``content`` that runs its own method in ``setuphandlers.py``. Note that you need a different marker text file to make sure your code is only run when installing the profile ``content``.
 
@@ -235,7 +235,7 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
         </metadata>
 
 
-    Add the stucture you wish to create as a list of dictionaries in ``setuphandlers.py``:
+    Add the structure you wish to create as a list of dictionaries in ``setuphandlers.py``:
 
     ..  code-block:: python
         :linenos:

@@ -10,7 +10,7 @@ and searches along them. Because of this functionality, the package is a bit
 complicated.
 
 The package `zc.relation` provides its own catalog, a relation catalog. This is
-a storage optimized for the queries needed. `zc.relation` is sort of an outlier
+a storage optimized for the queries needed. `zc.relation` is sort of an out-lier
 with regards to zope documentation. It has extensive documentation, with a good
 level of doctests for explaining things.
 
@@ -24,7 +24,7 @@ schema, and all the code that is necessary to automatically update the catalog.
 
 A RelationValue Object does not reference all objects directly. For the target,
 it uses an id it gets from the `IntId` Utility. This id allows direct recovery
-of the obect. The source object stores it directly.
+of the object. The source object stores it directly.
 
 Widgets are provided by `plone.app.z3cform`. Some converters are provided by `plone.app.relationfield`.
 The widget that Plone uses can also store objects directly.

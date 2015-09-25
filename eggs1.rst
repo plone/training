@@ -29,7 +29,7 @@ Topics covered:
 Creating the package
 --------------------
 
-Our own code has to be organised as a python package, also called *egg*. An egg is a zip file or a directory that follows certain conventions. We are going to use `bobtemplates.plone <https://pypi.python.org/pypi/bobtemplates.plone>`_ to create a skeleton project. We only need to fill in the blanks.
+Our own code has to be organized as a python package, also called *egg*. An egg is a zip file or a directory that follows certain conventions. We are going to use `bobtemplates.plone <https://pypi.python.org/pypi/bobtemplates.plone>`_ to create a skeleton project. We only need to fill in the blanks.
 
 .. warning::
 
@@ -41,9 +41,9 @@ We create and enter the ``src`` directory (*src* is short for *sources*) and cal
 
     $ mkdir src
     $ cd src
-    $ ../bin/mrbob -O ploneconf.site bobtemplates:plone_addon
+    $ ../bin/mrbob -O ploneconf.site bobtemplates:plone_add-on
 
-We have to answer some questions about the addon. We will press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your github username if you have one) and 5 (Plone version), where we enter :kbd:`5.0`.
+We have to answer some questions about the add-on. We will press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your github username if you have one) and 5 (Plone version), where we enter :kbd:`5.0`.
 
 ..  code-block:: bash
 
@@ -63,7 +63,7 @@ We have to answer some questions about the addon. We will press :kbd:`Enter` (i.
 
 .. only:: not presentation
 
-    If this is your first egg, this is a very special moment. We are going to create the egg with a script that generates a lot of necessary files. They all are necessary, but sometimes in a subtle way. It takes a while to understand their full meaning. Only last year I learnt and understood why I should have a ``manifest.in`` file. You can get along without one, but trust me, you get along better with a proper manifest file.
+    If this is your first egg, this is a very special moment. We are going to create the egg with a script that generates a lot of necessary files. They all are necessary, but sometimes in a subtle way. It takes a while to understand their full meaning. Only last year I learned and understood why I should have a ``manifest.in`` file. You can get along without one, but trust me, you get along better with a proper manifest file.
 
 
 .. _eggs1-inspect-label:
@@ -80,10 +80,10 @@ README.txt, CHANGES, CONTRIBUTORS, docs/
     The documentation, changelog, the list of contributors and the license of your egg goes in there.
 
 setup.py
-    This file configures the package, its name, dependencies and some metadata like the author's name and email adress. The dependencies listed here are automatically downloaded when running buildout.
+    This file configures the package, its name, dependencies and some metadata like the author's name and email address. The dependencies listed here are automatically downloaded when running buildout.
 
 src/ploneconf/site/
-    The package itself lives inside a special folder stucture. That seems confusing but is necessary for good testability. Our package is a `namespace package <https://www.python.org/dev/peps/pep-0420/>`_ called *ploneconf.site* and because of this there is a folder ``ploneconf`` with a ``__init__.py`` and in there another folder ``site`` and in there finally is our code.
+    The package itself lives inside a special folder structure. That seems confusing but is necessary for good testability. Our package is a `namespace package <https://www.python.org/dev/peps/pep-0420/>`_ called *ploneconf.site* and because of this there is a folder ``ploneconf`` with a ``__init__.py`` and in there another folder ``site`` and in there finally is our code.
     From the buildout's perspective our code is in ``<your buildout directory>/src/ploneconf.site/src/ploneconf/site/<real code>``
 
 
@@ -96,7 +96,7 @@ configure.zcml (src/ploneconf/site/configure.zcml)
     The phone book of the packages. By reading it you can find out which functionality is registered though the component architecture.
 
 setuphandlers.py (src/ploneconf/site/setuphandlers.py)
-    This holds code that is automatically run when installing and uninstalling our addon.
+    This holds code that is automatically run when installing and uninstalling our add-on.
 
 interfaces.py (src/ploneconf/site/interfaces.py)
     Here a browserlayer is defined in a straightforward python class. We will need it later.
@@ -126,7 +126,7 @@ profiles/default/
     The folder contains the GenericSetup profile. During the training will put some xml files there that hold configuration for the site.
 
 profiles/default/metadata.xml
-    Version number and dependencies that are auto-installed when installing our addon.
+    Version number and dependencies that are auto-installed when installing our add-on.
 
 ..    profiles/uninstall/
       This folder holds another GenericSetup profile. The steps in there are executed on uninstalling.
@@ -173,7 +173,7 @@ Before we can use our new package we have to tell Plone about it. Edit ``buildou
     # TTW Forms (based on Archetypes)
         Products.PloneFormGen
 
-    # The addon we develop in the training
+    # The add-on we develop in the training
         ploneconf.site
 
     # Voting on content
@@ -192,6 +192,6 @@ Now run buildout to reconfigure Plone with the updated configuration:
 
     $ ./bin/buildout
 
-After restarting Plone with ``./bin/instance fg`` the new addon `ploneconf.site` is available for install like PloneFormGen or Plone True Gallery.
+After restarting Plone with ``./bin/instance fg`` the new add-on `ploneconf.site` is available for install like PloneFormGen or Plone True Gallery.
 
 We will not install it now since we did not add any of our own code or configuration yet. Let's do that.

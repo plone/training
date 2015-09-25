@@ -1,3 +1,4 @@
+1
 .. _about-label:
 
 About Mastering Plone
@@ -64,7 +65,7 @@ Fulvio Casali
 Using the documentation for a training
 ---------------------------------------
 
-Feel free to organize a training yourself. Please be so kind to contribute any bugfixes or enhancements you made to the documentation for your training.
+Feel free to organize a training yourself. Please be so kind to contribute any bug fixes or enhancements you made to the documentation for your training.
 
 The training is rendered using sphinx and builds in two flavors:
 
@@ -88,7 +89,7 @@ The readthedocs theme
 
 We slightly tweaked readthedocs theme in ``_static/custom.css`` so that it works better with projectors:
 
-- We start hiding the navbar much earlier so that it does not interfere with the text.
+- We start hiding the navigation bar much earlier so that it does not interfere with the text.
 - We enlarge the default width of the content-area.
 
 Exercises
@@ -233,7 +234,7 @@ Things to do before a training (as a trainer)
 Contributing
 ------------
 
-Everyone is **very welcome** to contribute. Minor bugfixes can be pushed direcly in the `repository <https://github.com/plone/training>`_, bigger changes should made as `pull-requests <https://github.com/plone/training/pulls/>`_ and discussed previously in tickets.
+Everyone is **very welcome** to contribute. Minor bug fixes can be pushed directly in the `repository <https://github.com/plone/training>`_, bigger changes should made as `pull-requests <https://github.com/plone/training/pulls/>`_ and discussed previously in tickets.
 
 
 .. _about-licence-label:

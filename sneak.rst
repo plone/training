@@ -50,7 +50,7 @@ modify ``buildout.cfg`` to have Plone expect the egg ``ploneconf.site`` to be in
 
     ...
 
-    # our addons
+    # our add-ons
         ploneconf.site
     #    starzel.votable_behavior
 

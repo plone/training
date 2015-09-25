@@ -34,7 +34,7 @@ Installing Plone
 
     Installation is different on every system.
 
-* use a Python that comes pre-installed in your operating system (most Linuxes and Mac OS X have one)
+* use a Python that comes pre-installed in your operating system (most Linux Distributions and Mac OS X have one)
 * use the `python buildout <https://github.com/collective/buildout.python>`_
 * building Linux packages
 * `homebrew <http://mxcl.github.io/homebrew/>`_ (Mac OS X)
@@ -94,7 +94,7 @@ You can host Plone...
 
     * Plone Installation Requirements: http://docs.plone.org/manage/installing/requirements.html
     * Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-on-5-a-month
-    * Where to host Plone: httpsq://plone.org/documentation/faq/where-can-i-host-my-plone-site
+    * Where to host Plone: https://plone.org/documentation/faq/where-can-i-host-my-plone-site
 
 
 .. _installation-prod-deploy-label:

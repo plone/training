@@ -21,7 +21,7 @@ The theme is mostly built with `less <http://lesscss.org/>`_ (lots of it!) and u
 
 The `index.html <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/index.html>`_ and `rules.xml <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/rules.xml>`_ are actually not that complicated. Have a look at them.
 
-The following example from the ``rules.xml`` makes sure that the banner saying *"Welcome! Plone 5 rocks!"* is only visible on the frontpage:
+The following example from the ``rules.xml`` makes sure that the banner saying *"Welcome! Plone 5 rocks!"* is only visible on the front page:
 
 .. code-block:: xml
 
@@ -170,7 +170,7 @@ returns
 plone.app.multilingual
 ----------------------
 
-`plone.app.multilingual <https://github.com/plone/plone.app.multilingual>`_ is the new default addon for sites in more than one language.
+`plone.app.multilingual <https://github.com/plone/plone.app.multilingual>`_ is the new default add-on for sites in more than one language.
 
 
 .. _plone5-portletmanager-label:
