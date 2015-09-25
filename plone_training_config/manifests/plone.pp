@@ -87,7 +87,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # get training buildout
-    exec {'git clone https://github.com/collective/training_buildout.git buildout && cd buildout && git checkout plone5 && cd ..':
+    exec {'git clone https://github.com/collective/training_buildout.git buildout && cd buildout && git checkout master && cd ..':
         alias => "checkout_training",
         creates => '/vagrant/buildout',
         user => 'vagrant',

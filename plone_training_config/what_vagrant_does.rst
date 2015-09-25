@@ -64,7 +64,6 @@ Then we check out our tutorial buildout from https://github.com/collective/train
     $ cd /vagrant
     $ git clone https://github.com/collective/training_buildout.git buildout
     $ cd buildout
-    $ git checkout plone5
     $ /home/vagrant/py27/bin/python bootstrap.py
     $ ./bin/buildout -c vagrant_provisioning.cfg
 
