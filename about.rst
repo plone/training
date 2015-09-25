@@ -96,7 +96,7 @@ Exercises
 
 Some additional javascript shows hidden solutions for exercises by clicking.
 
-Just prepend the solution with this markup::
+Just perpend the solution with this markup::
 
     ..  admonition:: Solution
         :class: toggle
@@ -137,6 +137,24 @@ Your mission, should you choose to accept it...
 Building the documentation locally
 ----------------------------------
 
+Dependencies
+~~~~~~~~~~~~
+
+Please make sure that you have `Enchant <http://www.abisource.com/projects/enchant/>`_ installed, this is needed for spell-checking.
+
+Install Enchant on OS X:
+
+.. code-block:: bash
+
+    brew install enchant
+
+Install Enchant on Ubuntu:
+
+.. code-block:: bash
+
+    sudo apt-get install enchant
+
+
 To build the documentation follow these steps:
 
 .. code-block:: bash
@@ -156,13 +174,12 @@ Not install dependencies and build.
 You can now open the output from ``_build/html/index.html``. To build the presentation version use ``make presentation`` instead of ``make html``. You can open the presentation at ``presentation/index.html``.
 
 Build new
-+++++++++
+---------
 
 .. code-block:: bash
 
     $ git clone https://github.com/plone/training.git --recursive
     $ cd training
-    $ git checkout plone5
     $ virtualenv-2.7 .
     $ source bin/activate
     $ pip install -r requirements.txt
