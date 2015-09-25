@@ -93,11 +93,7 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
 
     [buildout]
     extends =
-    # The coredev for Plone 5: https://github.com/plone/buildout.coredev/tree/5.0
-    # We only use the versions and checkouts
-        https://raw.githubusercontent.com/plone/buildout.coredev/5.0/sources.cfg
-        https://raw.githubusercontent.com/plone/buildout.coredev/5.0/checkouts.cfg
-        https://raw.githubusercontent.com/plone/buildout.coredev/5.0/versions.cfg
+        http://dist.plone.org/release/5.0rc3/versions.cfg
 
     # We add our own versions
         versions.cfg
@@ -226,9 +222,6 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
 
     # Checkouts to make addons we use work with Plone 5
     Products.PloneFormGen = git https://github.com/starzel/Products.PloneFormGen.git pushurl=git@github.com:starzel/Products.PloneFormGen.git rev=fa2b4df60c8ab1ab88bf1497904b958d5ed214d4
-
-    # We use the unreleased version of bobtemplates.plone since it asks less questions
-    bobtemplates.plone = git https://github.com/plone/bobtemplates.plone.git rev=b09362f314b4fd6cce22691898e1d79e9cf2f27f
 
     # This is no egg but folders each containing the egg of ploneconf.site for one chapter
     ploneconf.site_sneak = git https://github.com/collective/ploneconf.site_sneak.git path=src egg=false
