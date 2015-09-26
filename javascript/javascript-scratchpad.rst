@@ -53,12 +53,13 @@ No-Pattern Javascript in Plone
 
 
 Using other Frameworks in Plone
+
     Angular JS
     React JS
 
 
-XXX
 Comparison to other frameworks
+
     Patternslib and Web Components
     Patternslib and React Components
     Patternslib and Angular JS directives

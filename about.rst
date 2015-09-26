@@ -139,7 +139,7 @@ Building the documentation locally
 ----------------------------------
 
 Dependencies
-~~~~~~~~~~~~
+++++++++++++
 
 Please make sure that you have `Enchant <http://www.abisource.com/projects/enchant/>`_ installed, this is needed for spell-checking.
 
