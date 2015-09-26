@@ -56,6 +56,9 @@ Steve McMahon
 Steffen Lindner
     Steffen Lindner started developing Plone in 2006. He worked on small Plone sites and also with huge intranet sites. As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at Starzel.de.
 
+Fulvio Casali
+    Fulvio Casali has been working almost exclusively with Plone since 2008.  He struggled for years to find his way around the source code of Plone when there was no documentation and no trainings, and feels passionate about helping users and developers become proficient.  He loves participating in Plone community events, and organized two strategic Plone sprints on the northwest coast of the USA and helped galvanized the developer community there.
+
 .. _about-use-label:
 
 Using the documentation for a training
