@@ -1,4 +1,4 @@
-.. _front page-label:
+.. _frontpage-label:
 
 Creating a Dynamic Front Page
 =============================
@@ -36,15 +36,15 @@ Register the view in ``browser/configure.zcml``:
 ..  code-block:: xml
 
     <browser:page
-        name="front pageview"
+        name="frontpageview"
         for="*"
         layer="..interfaces.IPloneconfSiteLayer"
-        class=".front page.front pageView"
-        template="templates/front pageview.pt"
+        class=".frontpage.frontpageView"
+        template="templates/frontpageview.pt"
         permission="zope2.View"
         />
 
-Add the view to a file ``browser/front page.py``. We want a list of all talks that happen today.
+Add the view to a file ``browser/frontpage.py``. We want a list of all talks that happen today.
 
 ..  code-block:: python
     :linenos:
@@ -56,8 +56,8 @@ Add the view to a file ``browser/front page.py``. We want a list of all talks th
     import datetime
 
 
-    class front pageView(BrowserView):
-        """The view of the conference front page
+    class frontpageView(BrowserView):
+        """The view of the conference frontpage
         """
 
         def talks(self):
@@ -110,7 +110,7 @@ Add the view to a file ``browser/front page.py``. We want a list of all talks th
 The template
 ------------
 
-Create the template ``browser/templates/front pageview.pt`` (for now without talks). Display the rich text field talk to allow the front page to be edited.
+Create the template ``browser/templates/frontpageview.pt`` (for now without talks). Display the rich text field talk to allow the frontpage to be edited.
 
 ..  code-block:: html
     :linenos:
@@ -215,7 +215,7 @@ Edit ``browser/templates/talkslistview.pt`` and wrap the list in a macro definit
     </body>
     </html>
 
-Now use that macro in ``browser/templates/front pageview.pt``
+Now use that macro in ``browser/templates/frontpageview.pt``
 
 ..  code-block:: html
     :linenos:
@@ -232,7 +232,7 @@ Calling the macro in python looks like this  ``metal:use-macro="python:context.r
 
 .. note::
 
-    In ``talklistview.pt`` the call ``view/talks"`` calls the method ``talks`` from the browser view ``TalkListView`` to get the talks. Reused as a macro on the front page it now uses the method ``talks`` by the ``front pageView`` to get a different list!
+    In ``talklistview.pt`` the call ``view/talks"`` calls the method ``talks`` from the browser view ``TalkListView`` to get the talks. Reused as a macro on the frontpage it now uses the method ``talks`` by the ``frontpageView`` to get a different list!
 
     Also: It is not always smart to do that since maybe you want to display other data.
 
@@ -255,11 +255,11 @@ Activating the view
 
 The view is meant to be used with documents (or any other type that has a rich text field 'text'). The easiest way to use it is setting it as the default view for the Document that is currently the default page for the portal. By default that document has the id ``front-page``.
 
-You can either access it directly at http://localhost:8080/Plone/front-page or by disabling the default page for the portal and it should show up in the navigation. Try out the new view like this: http://localhost:8080/Plone/front-page/front pageview.
+You can either access it directly at http://localhost:8080/Plone/front-page or by disabling the default page for the portal and it should show up in the navigation. Try out the new view like this: http://localhost:8080/Plone/front-page/frontpageview.
 
-To set that view by hand as the default view for ``front-page`` in the ZMI: http://localhost:8080/Plone/front-page/manage_propertiesForm. Add a new property ``layout`` and set it to ``front pageview``.
+To set that view by hand as the default view for ``front-page`` in the ZMI: http://localhost:8080/Plone/front-page/manage_propertiesForm. Add a new property ``layout`` and set it to ``frontpageview``.
 
-Done. This way you can still use the button *Edit* to edit the front page.
+Done. This way you can still use the button *Edit* to edit the frontpage.
 
 
 .. seealso::

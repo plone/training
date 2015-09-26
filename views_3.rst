@@ -38,7 +38,7 @@ Let's say we want to show a list of all the talks that were submitted for our co
 
 So we need to get all the talks. For this we use the python class of the view to query the catalog for the talks.
 
-The catalog is like a search engine for the content on our site. It holds information about all the objects as well as some of their attributes like title, description, workflow_state, keywords that they were tagged with, author, content_type, its path in the site etc. But it does not hold the content of "heavy" fields like images or files, rich-text fields and fields that we just defined ourselves.
+The catalog is like a search engine for the content on our site. It holds information about all the objects as well as some of their attributes like title, description, workflow_state, keywords that they were tagged with, author, content_type, its path in the site etc. But it does not hold the content of "heavy" fields like images or files, richtext fields and fields that we just defined ourselves.
 
 It is the fast way to get content that exists in the site and do something with it. From the results of the catalog we can get the objects themselves but often we don't need them, but only the properties that the results already have.
 
@@ -392,7 +392,7 @@ There are some some things that need explanation:
     'speaker' is a key in the dict 'talk'. We could also write ``tal:content="python:talk['speaker']"``
 
 ``tal:condition="not:view/talks"``
-    This is a fall-back if no talks are returned. It then returns an empty list (remember ``results = []``?)
+    This is a fallback if no talks are returned. It then returns an empty list (remember ``results = []``?)
 
 
 Exercise

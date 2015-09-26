@@ -32,7 +32,7 @@ The three languages are:
 
 * TAL: "Template Attribute Language"
 
-  *  Templating XML/HTML using special attributes
+  * Templating XML/HTML using special attributes
 
   * Using TAL we include expressions within html
 
@@ -182,7 +182,7 @@ tal:condition
 
 * If it's true, then the tag is rendered.
 * If it's false then the tag **and all its children** are removed and no longer evaluated.
-* We can reverse the logic by perpending a ``not:`` to the expression.
+* We can reverse the logic by prepending a ``not:`` to the expression.
 
 Let's add another TAL Attribute to our above example::
 

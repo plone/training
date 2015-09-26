@@ -10,7 +10,7 @@ and searches along them. Because of this functionality, the package is a bit
 complicated.
 
 The package `zc.relation` provides its own catalog, a relation catalog. This is
-a storage optimized for the queries needed. `zc.relation` is sort of an out-lier
+a storage optimized for the queries needed. `zc.relation` is sort of an outlier
 with regards to zope documentation. It has extensive documentation, with a good
 level of doctests for explaining things.
 

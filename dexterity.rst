@@ -10,7 +10,7 @@ In this part you will:
 
 Topics covered:
 
-* content types
+* contenttypes
 * archetypes and dexterity
 * fields
 * widgets
@@ -21,9 +21,9 @@ Topics covered:
 What is a content type?
 -----------------------
 
-A content type is a variety of object that can store information and is editable by users. We have different content types to reflect the different kinds of information about which we need to collect and display information. Pages, folders, events, news items, files (binary) and images are all content types.
+A content type is a variety of object that can store information and is editable by users. We have different contenttypes to reflect the different kinds of information about which we need to collect and display information. Pages, folders, events, news items, files (binary) and images are all contenttypes.
 
-It is common in developing a web site that you'll need customized versions of common content types, or perhaps even entirely new types.
+It is common in developing a web site that you'll need customized versions of common contenttypes, or perhaps even entirely new types.
 
 Remember the requirements for our project? We wanted to be able to solicit and edit conference talks. We could use the ``page`` content type for that purpose. But there are bits of information we need to make sure we collect about a talk and we wouldn't be sure to get that information if we just asked potential presenters to create a page. Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks. A custom content type will be ideal.
 
@@ -83,7 +83,7 @@ Approaches for Developers:
 
 Extending:
 
-* Dexterity has Behaviors: easily extend-able. Just activate a behavior TTW and your content type is e.g. translatable (plone.app.multilingual).
+* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content type is e.g. translatable (plone.app.multilingual).
 * Archetypes has archetypes.schemaextender. Powerful but not as flexible.
 
 We have only used Dexterity for the last few years.
@@ -91,7 +91,7 @@ We teach Dexterity and not Archetypes because it's more accessible to beginners,
 
 Views:
 
-* Both Dexterity and Archetypes have a default view for content types.
+* Both Dexterity and Archetypes have a default view for contenttypes.
 * Browser Views provide custom views.
 * TTW (future)
 * Display Forms
@@ -110,7 +110,7 @@ Views:
 ..    This time, for no obvious reason other than getting more comfortable with the ZMI, we'll use ``portal_quickinstaller`` to install Dexterity.
 
 ..    * go to portal_quickinstaller
-..    * install "Dexterity Content Types"
+..    * install "Dexterity contenttypes"
 
 
 .. _dexterity1-modify-label:
@@ -140,7 +140,7 @@ Modifying existing types
 
 .. _dexterity1-create-ttw-label:
 
-Creating content types TTW
+Creating contenttypes TTW
 --------------------------
 
 In this step we will create a content type called *Talk* and try it out. When it's ready we will move the code from the web to the file system and into our own add-on. Later we will extend that type, add behaviors and a viewlet for Talks.
@@ -220,7 +220,7 @@ Here is the complete xml-schema created by our actions.
 
 .. _dexterity1-ttw-to-code-label:
 
-Moving content types into code
+Moving contenttypes into code
 ------------------------------
 
 It's awesome that we can do so much through the web. But it's also a dead end if we want to reuse this content type in other sites.

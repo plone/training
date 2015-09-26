@@ -179,7 +179,7 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
 .. only:: not presentation
 
     This is a lot of code. The IVotableLayer we will need later for viewlets and browser views. Let's add it right here.
-    The IVotable interface is the simple marker interface. It will only be used to bind browser views and viewlets to content types that provide our behavior, so no code needed.
+    The IVotable interface is the simple marker interface. It will only be used to bind browser views and viewlets to contenttypes that provide our behavior, so no code needed.
 
     The IVoting class is more complex, as you can see. While IVoting is just an interface, we use :samp:`plone.supermodel.model.Schema` for advanced dexterity features.
     Zope.schema provides no means for hiding fields. The directives :samp:`form.omitted` from :samp:`plone.autoform` allow us to annotate this additional information so that the autoform renderers for forms can use the additional information.

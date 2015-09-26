@@ -25,7 +25,7 @@ We'll explain every page and mention some of the actions you can perform here.
 #. Configuration Registry
 #. Content Rules
 #. Date and Time
-#. Dexterity Content Types
+#. Dexterity contenttypes
 #. Discussion
 #. Editing
 #. Errors

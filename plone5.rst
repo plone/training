@@ -21,7 +21,7 @@ The theme is mostly built with `less <http://lesscss.org/>`_ (lots of it!) and u
 
 The `index.html <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/index.html>`_ and `rules.xml <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/rules.xml>`_ are actually not that complicated. Have a look at them.
 
-The following example from the ``rules.xml`` makes sure that the banner saying *"Welcome! Plone 5 rocks!"* is only visible on the front page:
+The following example from the ``rules.xml`` makes sure that the banner saying *"Welcome! Plone 5 rocks!"* is only visible on the frontpage:
 
 .. code-block:: xml
 
@@ -63,7 +63,7 @@ The view to display the content of a folder is new and offers many new features:
 
 .. _plone5-content-types-label:
 
-Content Types
+contenttypes
 -------------
 
 All default types are based on Dexterity. This means you can use behaviors to change their features and edit them through the web. Existing old content can be migrated to these types.

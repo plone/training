@@ -60,8 +60,8 @@ The :program:`instance` script offers the following options, which you can call 
 
 .. _features-walkthrough-label:
 
-Walk-through of the UI
-----------------------
+Walkthrough of the UI
+---------------------
 
 Let's see what is there...
 
@@ -197,7 +197,7 @@ Create a site-structure:
 * Add Folder "Intranet"
 
 
-The default content types:
+The default contenttypes:
 
 * Collection
 * Event
@@ -288,7 +288,7 @@ Each of these states connects roles to permissions.
 
 A workflow state is an association between a role and one or more permissions. Moving from one state to another is a ``transition``. Transitions (like ``submit for review``) may have actions — like the execution of a content rule or script — associated with them.
 
-A complete set of workflow states and transitions make up a ``workflow``. Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites. Individual content types may have their own workflow. Or, and this is particularly interesting, no workflow. In that case, which initially applies to file and image uploads, the content object inherits the workflow of its container.
+A complete set of workflow states and transitions make up a ``workflow``. Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites. Individual contenttypes may have their own workflow. Or, and this is particularly interesting, no workflow. In that case, which initially applies to file and image uploads, the content object inherits the workflow of its container.
 
 .. note::
 
@@ -309,7 +309,7 @@ While it's shipped with Plone, working copy support is not a common need. So, if
 
 .. Note::
 
-    Working-copy support is not yet available for content types created via Dexterity. This is on the way.
+    Working-copy support is not yet available for contenttypes created via Dexterity. This is on the way.
 
 
 .. _features-placeful-wf-label:
@@ -325,4 +325,4 @@ As with working-copy support, Placeful Workflow ships with Plone but needs to be
 
 .. Note::
 
-    Workflow Policy support is not yet available for folderish content types created via Dexterity. This is on the way.
+    Workflow Policy support is not yet available for folderish contenttypes created via Dexterity. This is on the way.

@@ -128,7 +128,7 @@ Install **PloneFormGen** and **Plone True Gallery** now.
 This is what happens: The GenericSetup profile of the product gets loaded. This does things like:
 
 * configuring new actions
-* registering new content types
+* registering new contenttypes
 * registering css and js files
 * creating some content/configuration objects in your Plone site.
 
@@ -177,12 +177,12 @@ Add Photo Gallery with collective.plonetruegallery
 
 To advertise the conference we want to show some photos showing past conferences and the city where the conference is taking place.
 
-Instead of creating custom content types for galleries, it integrates with the Plone functionality to choose different views for folderish content types.
+Instead of creating custom contenttypes for galleries, it integrates with the Plone functionality to choose different views for folderish contenttypes.
 
 https://pypi.python.org/pypi/collective.plonetruegallery
 
 * Activate the add-on
-* Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step is only required because plonetruegallery does not yet know about the newer plone.app.contenttypes, which we activated to replace Plone's old content types with newer, Dexterity-style, ones.)
+* Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step is only required because plonetruegallery does not yet know about the newer plone.app.contenttypes, which we activated to replace Plone's old contenttypes with newer, Dexterity-style, ones.)
 * Add a folder /the-event/location
 * Upload some photos from http://lorempixel.com/600/400/city/
 * Enable the view ``galleryview``

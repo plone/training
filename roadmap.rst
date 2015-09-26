@@ -12,7 +12,7 @@ Add new chapters:
 - security (incl. custom permissions and roles)
 
 
-To-do
+Todo
 ----
 
-To-dos are managed as issues in the `github-reposiory <https://github.com/plone/training/issues>`_
+Todos are managed as issues in the `github-reposiory <https://github.com/plone/training/issues>`_

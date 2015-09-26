@@ -130,7 +130,7 @@ Now the ``/talkview`` can only be used on objects that implement said interface.
           <property name="behaviors">
           ...
 
-    * Create an upgrade step that changes the class of the existing talks. A reuse-able method to do such a thing is in is `plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class <https://github.com/plone/plone.app.contenttypes/blob/master/plone/app/contenttypes/migration/dxmigration.py#L130>`_.
+    * Create an upgrade step that changes the class of the existing talks. A reuseable method to do such a thing is in is `plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class <https://github.com/plone/plone.app.contenttypes/blob/master/plone/app/contenttypes/migration/dxmigration.py#L130>`_.
 
 .. _dexterity2-upgrades-label:
 
@@ -249,7 +249,7 @@ Alternatively you can select which upgrade steps to run like this:
 
 .. seealso::
 
-    http://docs.plone.org/develop/add-ons/components/genericsetup.html#id1
+    http://docs.plone.org/develop/addons/components/genericsetup.html#id1
 
 
 .. note::

@@ -176,7 +176,7 @@ Then we register the FTI in ``profiles/default/types.xml``
 
     <?xml version="1.0"?>
     <object name="portal_types" meta_type="Plone Types Tool">
-     <property name="title">Controls the available content types in your portal</property>
+     <property name="title">Controls the available contenttypes in your portal</property>
      <object name="talk" meta_type="Dexterity FTI"/>
      <object name="sponsor" meta_type="Dexterity FTI"/>
      <!-- -*- more types can be added here -*- -->
@@ -529,7 +529,7 @@ Do *not* use the IBasic or IDublinCore behavior to add title and description. In
 
         <?xml version="1.0"?>
         <object name="portal_types" meta_type="Plone Types Tool">
-         <property name="title">Controls the available content types in your portal</property>
+         <property name="title">Controls the available contenttypes in your portal</property>
          <object name="talk" meta_type="Dexterity FTI"/>
          <object name="sponsor" meta_type="Dexterity FTI"/>
          <object name="speaker" meta_type="Dexterity FTI"/>

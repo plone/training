@@ -21,7 +21,7 @@ Zope is extensible and so is Plone.
 
     If you want to install an add-on, you are going to install an Egg — a form of Python package. Eggs consist of Python files together with other needed files like page templates and the like and a bit of Metadata, bundled to a single archive file.
 
-    There is a huge variety of Plone-compatible packages available. Most are listed in the `Python Package Index <https://pypi.python.org/pypi>`_. A more browse-able listing is available at the `Plone.org add-on listing <https://plone.org/products/>`_. The source repository for many public Plone add-ons is `the GitHub Collective <https://github.com/collective>`_. You may also create your own packages or maintain custom repositories.
+    There is a huge variety of Plone-compatible packages available. Most are listed in the `Python Package Index <https://pypi.python.org/pypi>`_. A more browseable listing is available at the `Plone.org add-on listing <https://plone.org/products/>`_. The source repository for many public Plone add-ons is `the GitHub Collective <https://github.com/collective>`_. You may also create your own packages or maintain custom repositories.
 
     Eggs are younger than Zope. Zope needed something like eggs before there were eggs, and the Zope developers wrote their own system. Old, outdated Plone systems contain a lot of code that is not bundled in an egg. Older code did not have metadata to register things, instead you needed a special setup method. We don't need this method but you might see it in other code. It is usually used to register Archetypes code. Archetypes is the old content type system. We use Dexterity.
 
@@ -38,8 +38,8 @@ This depends on what type of extension you want to create.
 .. only:: not presentation
 
 
-    * You can create extensions with new types of objects to add to your Plone site. Usually these are content types.
-    * You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures search-able by adding a converter from jpg to text.
+    * You can create extensions with new types of objects to add to your Plone site. Usually these are contenttypes.
+    * You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures searchable by adding a converter from jpg to text.
 
 
 skin_folders
@@ -140,7 +140,7 @@ What are components, what is ZCML
 
     It means that you change code in other files while my file gets loaded.
 
-    If you want to have an extensible registry of icons for different content types, you could create a global dictionary, and whoever implements a new icon for a different content type, would add an entry to my dictionary during import time.
+    If you want to have an extensible registry of icons for different contenttypes, you could create a global dictionary, and whoever implements a new icon for a different content type, would add an entry to my dictionary during import time.
 
     This approach, like subclassing via multiple inheritance, does not scale. Multiple plugins might overwrite each other, you would explain people that they have to reorder the imports, and then, suddenly, you will to import feature A before B, B before C and C before A, or else you application won't work.
 

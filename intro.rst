@@ -88,8 +88,8 @@ We will not cover the following topics:
 
 Other topics are only covered lightly:
 
-* `Zope Component Architecture <http://docs.plone.org/develop/add-ons/components/index.html>`_
-* `GenericSetup <http://docs.plone.org/develop/add-ons/components/genericsetup.html>`_
+* `Zope Component Architecture <http://docs.plone.org/develop/addons/components/index.html>`_
+* `GenericSetup <http://docs.plone.org/develop/addons/components/genericsetup.html>`_
 * `ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_
 * `Security <http://docs.plone.org/develop/plone/security/index.html>`_
 * `Permissions <http://docs.plone.org/develop/plone/security/permissions.html>`_

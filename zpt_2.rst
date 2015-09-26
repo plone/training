@@ -95,10 +95,10 @@ Here we first get the plone view and then the method ``toLocalizedTime`` and we 
 
     On older Plone versions (using Archetypes) we used ``python:context.toLocalizedTime(context.Date(), longFormat=False)``. That called the python script ``toLocalizedTime.py`` in the Folder ``Products/CMFPlone/skins/plone_scripts/``.
 
-    That folder ``plone_scripts`` holds a multitude of useful scripts that are still widely used. But they are all deprecated and most of them are gone in Plone 5 and replaced by proper python methods in BrowserViews.
+    That folder ``plone_scripts`` holds a multitude of useful scripts that are still widely used. But they are all deprecated and most of theme are gone in Plone 5 and replaced by proper python methods in BrowserViews.
 
 
-We could also leave the formatting to the front-end. Plone 5 comes with the `moment pattern <http://plone.github.io/mockup/dev/#pattern/moment>`_ that uses the library `moment.js <http://plone.github.io/mockup/dev/#pattern/moment>`_ to format dates. Try the relative calendar format:
+We could also leave the formatting to the frontend. Plone 5 comes with the `moment pattern <http://plone.github.io/mockup/dev/#pattern/moment>`_ that uses the library `moment.js <http://plone.github.io/mockup/dev/#pattern/moment>`_ to format dates. Try the relative calendar format:
 
 ..  code-block:: html
 
@@ -152,7 +152,7 @@ The first step to uncovering that secret is line 12 of ``listing_summary.pt``:
 
 ``use-macro`` tells Plone to reuse the macro ``entries`` from the view ``folder_listing``, and if that is not found use the same macro from the view ``standard_view``. Both views are defined in ``plone.app.contenttypes/plone/app/contenttypes/browser/configure.zcml``
 
-Both use different view classes and are allowed for different content types. The first is for folders the second for collections. But both use the same template ``plone/app/contenttypes/browser/templates/listing.pt``. That makes overriding that much easier :-)
+Both use different view classes and are allowed for different contenttypes. The first is for folders the second for collections. But both use the same template ``plone/app/contenttypes/browser/templates/listing.pt``. That makes overriding that much easier :-)
 
 That template ``listing.pt`` defines the slot ``entries`` like this:
 

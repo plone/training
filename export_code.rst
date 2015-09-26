@@ -1,6 +1,6 @@
 .. _export_code-label:
 
-Return to Dexterity: Moving Content Types into Code
+Return to Dexterity: Moving contenttypes into Code
 ===================================================
 
 
@@ -45,7 +45,7 @@ The file ``profiles/default/types.xml`` tells Plone that there is a new content 
 
     <?xml version="1.0"?>
     <object name="portal_types" meta_type="Plone Types Tool">
-     <property name="title">Controls the available content types in your portal</property>
+     <property name="title">Controls the available contenttypes in your portal</property>
      <object name="talk" meta_type="Dexterity FTI"/>
      <!-- -*- more types can be added here -*- -->
     </object>
@@ -311,7 +311,7 @@ Go to the ZMI and look at the definition of the new type in ``portal_types``. No
 
     Go to http://localhost:8080/Plone/portal_types/Talk/manage_propertiesForm
 
-    When disabling *Implicitly addable* you can no longer add Talks any more unless you change some container like the type *Folder*: Enable *Filter content types?* for it and add *Talk* to the items that are allowed.
+    When disabling *Implicitly addable* you can no longer add Talks any more unless you change some container like the type *Folder*: Enable *Filter contenttypes?* for it and add *Talk* to the items that are allowed.
 
     With this method you can prevent content that only makes sense inside some defined structure to show up in places where they do not belong.
 

@@ -111,7 +111,7 @@ Since the granting of local roles applies only to a certain folder in the site w
 
 So let's make sure some initial content is created and configured on installing the package.
 
-To run arbitrary code during the installation of a package we use a special import step, a `setuphandler <http://docs.plone.org/develop/add-ons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_
+To run arbitrary code during the installation of a package we use a special import step, a `setuphandler <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_
 
 Our package already has such an import step registered in ``configure.zcml``. It will be automatically run when (re-)installing the add-on.
 
