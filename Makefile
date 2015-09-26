@@ -169,6 +169,6 @@ doctest:
 	@echo "Testing of doctests in the sources finished, look at the " \
 	      "results in $(BUILDDIR)/doctest/output.txt."
 
-test: clean linkcheck spellcheck
+test: clean linkcheck
 
 deploy: clean html
