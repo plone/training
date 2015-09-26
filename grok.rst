@@ -7,7 +7,7 @@ Grok is an alternative declaration language for declaring your components. It is
 Instead of writing separate zcml files, you annotate your code and you create content conforming to specific file names so that they are automatically found.
 There has been discussions whether grok should be used in the plone core. The plone community decided against it, because it increases the technology stack without adding functionality.
 
-Some people are even against using it in Add Ons, because there would not be just one way to declare components, but two. Then there is onle last disadvantage, grok components cannot be overridden by z3c.jbot. I would not be surprised if this could be fixed though.
+Some people are even against using it in Add Ons, because there would not be just one way to declare components, but two. Then there is only last disadvantage, grok components cannot be overridden by z3c.jbot. I would not be surprised if this could be fixed though.
 
 After all these negative things let us tell you why we still like it: We like to write as few lines of code and configuration as possible.
 
@@ -19,7 +19,7 @@ So, we will write our browser view as a grok view. From the component architectu
 
 Grok is not part of plone. We have to add it as a dependency to our egg.
 
-Open setup.py, and add ``five.grok`` to the list off addons in ``install_requires``::
+Open setup.py, and add ``five.grok`` to the list off add-ons in ``install_requires``::
 
     ...
         zip_safe=False,
@@ -30,7 +30,7 @@ Open setup.py, and add ``five.grok`` to the list off addons in ``install_require
 
 You need to run buildout now.
 
-Grok nearly magicaly does find all its annotations. Since its not complete magic, you have to tell grok where to look for grok code. This requires a single line of zcml, that line ensures that your complete package is `grokked`.
+Grok nearly magically does find all its annotations. Since its not complete magic, you have to tell grok where to look for grok code. This requires a single line of zcml, that line ensures that your complete package is `grokked`.
 
 .. code-block:: xml
     :linenos:

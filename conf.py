@@ -38,6 +38,7 @@ extensions = [
     'sphinx.ext.graphviz',
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
+    'sphinxcontrib.spelling',
 ]
 
 
@@ -45,6 +46,11 @@ extensions = [
 # Ignore localhost
 linkcheck_ignore = [r'http://localhost:\d+/', r'http://localhost:8080\d+/', r'http://localhost:8080', r'http://127.0.0.1:8080']
 linkcheck_anchors = False
+
+
+# This is our wordlist with know words, like Github or Plone ...
+spelling_word_list_filename = 'spelling_wordlist.txt'
+spelling_ignore_pypi_package_names=True
 
 # See http://sphinx-doc.org/ext/todo.html#confval-todo_include_todos
 todo_include_todos = True

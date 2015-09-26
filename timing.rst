@@ -1,5 +1,5 @@
-Timtable
-========
+Timetable
+=========
 
 This is just meant as info for trainers about how long it might take to teach certain chapters.
 Please update when you have different experiences.
@@ -57,7 +57,7 @@ Version 1.1
 **pb**  30 min  #3 Installing Plone for the Training
 **pg**  15 min  #4 The Anatomy of Plone
 **pb**  90 min  #5 The Features of Plone
-**pb**  50 min  #6 Configuring and Customising Plone through the web
+**pb**  50 min  #6 Configuring and Customizing Plone through the web
 **pg**  20 min  #7 Extending Plone
 **++**  60 min  #8 Extend Plone with Add-ons
 **pg**          #8 - How to find add-ons

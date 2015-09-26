@@ -148,7 +148,7 @@ And a :file:`behaviors/social.py` containing:
 
     #. We register a behavior in :ref:`behaviors/configure.zcml <social-behavior-zcml-label>`. We do not say for which content type this behavior is valid. You do this through the web or in the GenericSetup profile.
     #. We create a marker interface in :ref:`behaviors/social.py <social-behavior-python-label>` for our behavior and make it also a schema containing the fields we want to declare.
-       We could just define schema fields on a zope.intereface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features.
+       We could just define schema fields on a zope.interface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features.
     #. We also add a `fieldset`_ so that our fields are not mixed with the normal fields of the object.
     #. We add a normal `URI`_ schema field to store the URI to lanyrd.
     #. We mark our schema as a class that also implements the `IFormFieldProvider`_ interface. This is a marker interface, we do not need to implement anything to provide the interface.

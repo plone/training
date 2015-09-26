@@ -64,7 +64,7 @@ We register the viewlet in :file:`browser/configure.zcml`.
 
     This registers a viewlet called ``social``.
     It is visible on all content that implements the interface ``ISocial`` from our behavior.
-    It is also good practice to bind it to a specific ``layer``, so it only shows up if our addon is actually installed.  We will return to this in a later chapter.
+    It is also good practice to bind it to a specific ``layer``, so it only shows up if our add-on is actually installed.  We will return to this in a later chapter.
 
 The viewlet class ``SocialViewlet`` is expected in a file ``browser/viewlets.py``.
 

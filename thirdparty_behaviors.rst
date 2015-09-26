@@ -45,5 +45,5 @@ And rerun ``./bin/buildout``
 * Create a new dexterity content type ``Banner`` with **only** the behavior ``Banner`` enabled.
 * Create a folder called ``banners``
 * Add two banners into that folder using images taken from http://lorempixel.com/800/150/
-* Add the Behavior ``Slider`` to the default contenttype ``Page (Document)``
+* Add the Behavior ``Slider`` to the default content type ``Page (Document)``
 * Edit the front-page and link to the new banners.

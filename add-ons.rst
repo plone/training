@@ -1,4 +1,4 @@
-.. _addons-label:
+.. _add-ons-label:
 
 Extend Plone With Add-On Packages
 =================================
@@ -9,7 +9,7 @@ Extend Plone With Add-On Packages
 * Their use, usefulness, quality and complexity varies a lot
 
 
-.. _addons-find-label:
+.. _add-ons-find-label:
 
 How to find add-ons
 -------------------
@@ -29,7 +29,7 @@ How to find add-ons
 
 .. _add-ons-notable-label:
 
-Some noteable add-ons
+Some notable add-ons
 ---------------------
 
 .. warning::
@@ -49,10 +49,10 @@ Some noteable add-ons
   UI to create complex landing-pages
 
 `collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_
-  Flexible bundle of addons to georeference content and display in maps
+  Flexible bundle of add-ons to georeference content and display in maps
 
 `collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_
-  Allows visitors to subcribe to mailchimp newsletters
+  Allows visitors to subscribe to mailchimp newsletters
 
 `eea.facetednavigation <https://pypi.python.org/pypi/eea.facetednavigation/>`_
   Create faceted navigation and searches through the web.
@@ -128,7 +128,7 @@ Install **PloneFormGen** and **Plone True Gallery** now.
 This is what happens: The GenericSetup profile of the product gets loaded. This does things like:
 
 * configuring new actions
-* registering new content types
+* registering new contenttypes
 * registering css and js files
 * creating some content/configuration objects in your Plone site.
 
@@ -172,24 +172,24 @@ By the way, while PloneFormGen is good at what it does, is not a good model for 
 
 .. _add-ons-ptg-label:
 
-Add Photogallery with collective.plonetruegallery
--------------------------------------------------
+Add Photo Gallery with collective.plonetruegallery
+--------------------------------------------------
 
 To advertise the conference we want to show some photos showing past conferences and the city where the conference is taking place.
 
-Instead of creating custom content types for galleries, it integrates with the Plone functionality to choose different views for folderish content types.
+Instead of creating custom contenttypes for galleries, it integrates with the Plone functionality to choose different views for folderish contenttypes.
 
 https://pypi.python.org/pypi/collective.plonetruegallery
 
 * Activate the add-on
-* Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step is only required because plonetruegallery does not yet know about the newer plone.app.contenttypes, which we activated to replace Plone's old content types with newer, Dexterity-style, ones.)
+* Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step is only required because plonetruegallery does not yet know about the newer plone.app.contenttypes, which we activated to replace Plone's old contenttypes with newer, Dexterity-style, ones.)
 * Add a folder /the-event/location
-* Upload some fotos from http://lorempixel.com/600/400/city/
+* Upload some photos from http://lorempixel.com/600/400/city/
 * Enable the view ``galleryview``
 
 collective.plonetruegallery is a better model for how to write a Plone Extension.
 
-.. _addons-i18n-label:
+.. _add-ons-i18n-label:
 
 Internationalization
 --------------------

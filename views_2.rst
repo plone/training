@@ -137,7 +137,7 @@ Now we finally add the default view for talks in views.py
         """ The default view for talks
         """
 
-The DefaultView base class in plone.dexterity only exists for Dextertity Objects and has some very useful properties available to the template:
+The DefaultView base class in plone.dexterity only exists for Dexterity Objects and has some very useful properties available to the template:
 
 * view.w is a dictionary of all the display widgets, keyed by field names. This includes widgets from alternative fieldsets.
 * view.widgets contains a list of widgets in schema order for the default fieldset.
@@ -192,7 +192,7 @@ open ``profiles/default/types/talk.xml``:
     </property>
     ...
 
-We will have to either reinstall our addon or run the GenericSetup import step ``typeinfo`` so Plone learns about the change.
+We will have to either reinstall our add-on or run the GenericSetup import step ``typeinfo`` so Plone learns about the change.
 
 ..  note::
 

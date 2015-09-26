@@ -102,7 +102,7 @@ Now add a new file ``content/sponsor.py``.
 Some things are notable here:
 
 * The fields in the schema are mostly from ``zope.schema``. A reference of available fields is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html
-* In ``directives.widget(level=RadioFieldWidget)`` we change the default widget for a Choice field from a dropdown to radioboxes. An incomplete reference of available widgets is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html
+* In ``directives.widget(level=RadioFieldWidget)`` we change the default widget for a Choice field from a dropdown to radio-boxes. An incomplete reference of available widgets is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html
 * ``LevelVocabulary`` is used to create the options used in the field ``level``. This way we could easily translate the displayed value.
 * ``fieldset('Images', fields=['logo', 'advertisment'])`` moves the two image fields to another tab.
 * ``directives.read_permission(...)`` sets the read and write permission for the field ``notes`` to users who can add new members. Usually this permission is only granted to Site Administrators and Managers. We use it to store information that should not be publicly visible. Please note that ``obj.notes`` is still accessible in templates and python. Only using the widget (like we do in the view later) checks for the permission.
@@ -176,7 +176,7 @@ Then we register the FTI in ``profiles/default/types.xml``
 
     <?xml version="1.0"?>
     <object name="portal_types" meta_type="Plone Types Tool">
-     <property name="title">Controls the available content types in your portal</property>
+     <property name="title">Controls the available contenttypes in your portal</property>
      <object name="talk" meta_type="Dexterity FTI"/>
      <object name="sponsor" meta_type="Dexterity FTI"/>
      <!-- -*- more types can be added here -*- -->
@@ -264,7 +264,7 @@ But we could tweak the default view with some css to make it less ugly. Add the 
         </body>
         </html>
 
-    Note how we handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base class ``DefaultView`` holds the widget for the field ``notes``. If the current user does not have the permission ``cmf.ManagePortal`` it will be omited from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it's missing we work around that.
+    Note how we handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base class ``DefaultView`` holds the widget for the field ``notes``. If the current user does not have the permission ``cmf.ManagePortal`` it will be omitted from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it's missing we work around that.
 
 
 The viewlet
@@ -422,7 +422,7 @@ Add the template ``browser/templates/sponsors_viewlet.pt``
         </div>
     </div>
 
-Ther already is some css in ``browser/static/ploneconf.css`` to make it look ok.
+There already is some css in ``browser/static/ploneconf.css`` to make it look ok.
 
 ..  code-block:: css
 
@@ -529,7 +529,7 @@ Do *not* use the IBasic or IDublinCore behavior to add title and description. In
 
         <?xml version="1.0"?>
         <object name="portal_types" meta_type="Plone Types Tool">
-         <property name="title">Controls the available content types in your portal</property>
+         <property name="title">Controls the available contenttypes in your portal</property>
          <object name="talk" meta_type="Dexterity FTI"/>
          <object name="sponsor" meta_type="Dexterity FTI"/>
          <object name="speaker" meta_type="Dexterity FTI"/>
@@ -586,4 +586,4 @@ Do *not* use the IBasic or IDublinCore behavior to add title and description. In
          </action>
         </object>
 
-    After reinstalling the package the new type is useable.
+    After reinstalling the package the new type is usable.

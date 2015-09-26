@@ -6,10 +6,10 @@ Roadmap
 
 Add new chapters:
 
-- z3c.forms (incl. controlpanels and plone.app.registry)
-- testing (incl. robottests)
+- z3c.forms (incl. control panels and plone.app.registry)
+- testing (incl. Robot Framework test)
 - relations (incl. widgets, custom indexers)
-- security (incl. custom perissions and roles)
+- security (incl. custom permissions and roles)
 
 
 Todo

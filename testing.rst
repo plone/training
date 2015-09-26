@@ -30,7 +30,7 @@ Types of tests
 .. only:: not presentation
 
 
-    Plone is using some common terminology for types of tests you might have heard elsewhere. But in Plone, these terms are usually used to differenciate the technical difference between the types of test.
+    Plone is using some common terminology for types of tests you might have heard elsewhere. But in Plone, these terms are usually used to differentiate the technical difference between the types of test.
 
     Unit tests
     ~~~~~~~~~~
@@ -46,7 +46,7 @@ Types of tests
 
     Integration tests in Plone mean you have a real database and your component architecture. You can identify an integration test by the layer it is using which is based on a layer with integration in its name. We will explain shortly what a layer is.
 
-    Integration tests also means your test is still quite fast, because the transaction mechanisms are used for test isolation. What does that mean? After each test, the transaction gets cancelled and you have the database in the same state as before. It still takes a while to set up the test layer, but running each test is quite fast. But this also means you cannot commit a transaction. Most code does not commit transactions and this is not an issue.
+    Integration tests also means your test is still quite fast, because the transaction mechanisms are used for test isolation. What does that mean? After each test, the transaction gets canceled and you have the database in the same state as before. It still takes a while to set up the test layer, but running each test is quite fast. But this also means you cannot commit a transaction. Most code does not commit transactions and this is not an issue.
 
     Functional tests
     ~~~~~~~~~~~~~~~~
@@ -118,7 +118,7 @@ Plone tests
 
 .. only:: not presentation
 
-    Plone is a complex system to run tests in. Because of this, we use a functionality from zope.testrunner: layers. We use the well known unittest framework which exhibits the same ideas as nearly every unittest framework out there. In addition for test setups we have the notion of layers. A layer is a test setup that can be shared. This way, you can run tests from 20 different test suites but not each test suite sets up their own complete Plone site. Instead, you use a Layer, and the testrunner takes care that every test suite sharing a layer are run together.
+    Plone is a complex system to run tests in. Because of this, we use a functionality from zope.testrunner: layers. We use the well known unittest framework which exhibits the same ideas as nearly every unittest framework out there. In addition for test setups we have the notion of layers. A layer is a test setup that can be shared. This way, you can run tests from 20 different testsuites but not each testsuite sets up their own complete Plone site. Instead, you use a Layer, and the testrunner takes care that every testsuite sharing a layer are run together.
 
     Usually, you create three layers on your own, an integration layer, a functional layer and an acceptance test layer. If you were to test code that uses the Solr search engine, you'd use another layer that starts and stops solr between tests. But most of the time you just use the default layers you copied from somewhere or that mr.bob gave you.
 
@@ -157,7 +157,7 @@ Exercise 1
 ^^^^^^^^^^
 
 We already wrote a talklistview and it is untested!
-We like to write unittests first. But if you look at the Talklistview, you notice that you'd have to mock the portal_catalog, the context, and complex results from the catalog. I wrote earlier that it is ok to rewrite code to make it better testable. But in this example look at what you would test if you mocked everything mentioned above. You would test that your code iterates over a mocked list of mocked items, restructuring mocked attributes.
+We like to write unit tests first. But if you look at the Talklistview, you notice that you'd have to mock the portal_catalog, the context, and complex results from the catalog. I wrote earlier that it is ok to rewrite code to make it better testable. But in this example look at what you would test if you mocked everything mentioned above. You would test that your code iterates over a mocked list of mocked items, restructuring mocked attributes.
 There is not much sense in that. If you did some calculation, like ratings, things might look different, but not in this case.
 
 We can write an integration test. We should test the good case, and edge cases.
@@ -198,4 +198,4 @@ There are 3 possible workarounds:
 
 The first method, with Phantomjs, will throw failures with our tests, unfortunately.
 
-For debugging, you can run the test like this ``ROBOT_SELENIUM_RUN_ON_FAILURE=Debug bin/test --all``. This will stop the test at the first failure and you end up in an interactive shell where you can try various Robotframework commands.
+For debugging, you can run the test like this ``ROBOT_SELENIUM_RUN_ON_FAILURE=Debug bin/test --all``. This will stop the test at the first failure and you end up in an interactive shell where you can try various Robot Framework commands.

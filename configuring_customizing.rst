@@ -25,7 +25,7 @@ We'll explain every page and mention some of the actions you can perform here.
 #. Configuration Registry
 #. Content Rules
 #. Date and Time
-#. Dexterity Content Types
+#. Dexterity contenttypes
 #. Discussion
 #. Editing
 #. Errors
@@ -55,7 +55,7 @@ Below the links you will find information on your Plone, Zope and Python Version
 Portlets
 --------
 
-In the toolbar under *More options* you can open the configuration for the diffrerent places where you can have portlets.
+In the toolbar under *More options* you can open the configuration for the different places where you can have portlets.
 
 * UI fit for smart content editors
 * various types
@@ -114,7 +114,7 @@ Zope is the foundation of Plone. Here you can access the inner workings of Zope 
 
 .. only:: not presentation
 
-    We only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
+    We only cover three parts of customization in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
 
     At some point you'll have to learn what all those objects are about. But not today.
 
@@ -328,7 +328,7 @@ The merging function solves a big problem: we'd like to develop our CSS and JS r
 Further tools in the ZMI
 ************************
 
-There are many more noteable items in the ZMI. We'll visit some of them later.
+There are many more notable items in the ZMI. We'll visit some of them later.
 
 * acl_users
 * error_log

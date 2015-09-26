@@ -14,7 +14,7 @@ Creating a Dynamic Front Page
 
 In this chapter we will:
 
-* Create a standalone view used for the frontpage
+* Create a standalone view used for the front page
 * Show some dynamic content on said view
 * Embed tweets about ploneconf
 
@@ -27,8 +27,8 @@ The topics we cover are:
 * macros
 
 
-The Frontpage
--------------
+The Front Page
+--------------
 
 Register the view in ``browser/configure.zcml``:
 
@@ -39,7 +39,7 @@ Register the view in ``browser/configure.zcml``:
         name="frontpageview"
         for="*"
         layer="..interfaces.IPloneconfSiteLayer"
-        class=".frontpage.FrontPageView"
+        class=".frontpage.frontpageView"
         template="templates/frontpageview.pt"
         permission="zope2.View"
         />
@@ -56,7 +56,7 @@ Add the view to a file ``browser/frontpage.py``. We want a list of all talks tha
     import datetime
 
 
-    class FrontPageView(BrowserView):
+    class frontpageView(BrowserView):
         """The view of the conference frontpage
         """
 
@@ -110,7 +110,7 @@ Add the view to a file ``browser/frontpage.py``. We want a list of all talks tha
 The template
 ------------
 
-Create the template ``browser/templates/frontpageview.pt`` (for now without talks). Display the richtext field talk to allow the frontpage to be edited.
+Create the template ``browser/templates/frontpageview.pt`` (for now without talks). Display the rich text field talk to allow the frontpage to be edited.
 
 ..  code-block:: html
     :linenos:
@@ -132,7 +132,7 @@ Create the template ``browser/templates/frontpageview.pt`` (for now without talk
     </body>
     </html>
 
-Now you could add the whole code again that we used for the talklistview. But instead we go D.R.Y. and reuse the lalklistview by turning it into a macro.
+Now you could add the whole code again that we used for the talklistview. But instead we go D.R.Y. and reuse the talklistview by turning it into a macro.
 
 Edit ``browser/templates/talkslistview.pt`` and wrap the list in a macro definition:
 
@@ -232,7 +232,7 @@ Calling the macro in python looks like this  ``metal:use-macro="python:context.r
 
 .. note::
 
-    In ``talklistview.pt`` the call ``view/talks"`` calls the method ``talks`` from the browser view ``TalkListView`` to get the talks. Reused as a macro on the frontpage it now uses the method ``talks`` by the ``FrontPageView`` to get a different list!
+    In ``talklistview.pt`` the call ``view/talks"`` calls the method ``talks`` from the browser view ``TalkListView`` to get the talks. Reused as a macro on the frontpage it now uses the method ``talks`` by the ``frontpageView`` to get a different list!
 
     Also: It is not always smart to do that since maybe you want to display other data.
 
@@ -240,7 +240,7 @@ Calling the macro in python looks like this  ``metal:use-macro="python:context.r
 Twitter
 -------
 
-You might also want to embedd a twitter feed into the page. Luckily twitter makes it easy to do that. Please browse to the `twitter docs <https://dev.twitter.com/web/embedded-timelines>`_ and learn how to create the appropriate snippet of code and paste it in the template wrapped in a ``<div class="col-lg-6">...</div>`` to have the talklist next to the feeds:
+You might also want to embed a twitter feed into the page. Luckily twitter makes it easy to do that. Please browse to the `twitter docs <https://dev.twitter.com/web/embedded-timelines>`_ and learn how to create the appropriate snippet of code and paste it in the template wrapped in a ``<div class="col-lg-6">...</div>`` to have the talklist next to the feeds:
 
 ..  code-block:: html
 
@@ -253,7 +253,7 @@ You might also want to embedd a twitter feed into the page. Luckily twitter make
 Activating the view
 -------------------
 
-The view is meant to be used with documents (or any other type that has a richtextfield 'text'). The easiest way to use it is setting it as the default view for the Document that is currenty the default page for the portal. By default that document has the id ``front-page``.
+The view is meant to be used with documents (or any other type that has a rich text field 'text'). The easiest way to use it is setting it as the default view for the Document that is currently the default page for the portal. By default that document has the id ``front-page``.
 
 You can either access it directly at http://localhost:8080/Plone/front-page or by disabling the default page for the portal and it should show up in the navigation. Try out the new view like this: http://localhost:8080/Plone/front-page/frontpageview.
 

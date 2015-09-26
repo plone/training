@@ -1,6 +1,6 @@
 .. _export_code-label:
 
-Return to Dexterity: Moving Content Types into Code
+Return to Dexterity: Moving contenttypes into Code
 ===================================================
 
 
@@ -33,7 +33,7 @@ Steps:
 * Return to the Dexterity control panel
 * Export the Type Profile and save the file
 * Delete the Type from the site before installing it from the file system
-* Extract the files from the exported tar file and add them to our addon package in ``profiles/default/``
+* Extract the files from the exported tar file and add them to our add-on package in ``profiles/default/``
 
 .. note::
 
@@ -45,7 +45,7 @@ The file ``profiles/default/types.xml`` tells Plone that there is a new content 
 
     <?xml version="1.0"?>
     <object name="portal_types" meta_type="Plone Types Tool">
-     <property name="title">Controls the available content types in your portal</property>
+     <property name="title">Controls the available contenttypes in your portal</property>
      <object name="talk" meta_type="Dexterity FTI"/>
      <!-- -*- more types can be added here -*- -->
     </object>
@@ -225,7 +225,7 @@ Now we have to remove the model_source and instead reference the xml file in the
 
 `Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_ is very powerful. By editing it (not all features have a UI) you should be able to do everything you can do with a python schema.
 
-Our talks use a dropdown for ``type_of_talk`` and a multiselect for ``audience``. Radiobuttons and checkboxes woule be the better choice here. Modify the xml to make that change happen:
+Our talks use a dropdown for ``type_of_talk`` and a multiselect for ``audience``. Radio-buttons and checkboxes would be the better choice here. Modify the xml to make that change happen:
 
 ..  code-block:: xml
     :linenos:
@@ -296,9 +296,9 @@ Create a new package called ``collective.behavior.myfeature``. Inspect the direc
     .. code-block:: bash
 
         $ cd src
-        $ ../bin/mrbob -O collective.behavior.myfeature bobtemplates:plone_addon
+        $ ../bin/mrbob -O collective.behavior.myfeature bobtemplates:plone_add-on
 
-    Many packages that are part of Plone and some addons use a nested namespace such as ``plone.app.contenttypes``.
+    Many packages that are part of Plone and some add-ons use a nested namespace such as ``plone.app.contenttypes``.
 
 
 Exercise 2
@@ -311,7 +311,7 @@ Go to the ZMI and look at the definition of the new type in ``portal_types``. No
 
     Go to http://localhost:8080/Plone/portal_types/Talk/manage_propertiesForm
 
-    When disabling *Implicitly addable* you can no longer add Talks any more unless you change some container like the type *Folder*: Enable *Filter content types?* for it and add *Talk* to the items that are allowed.
+    When disabling *Implicitly addable* you can no longer add Talks any more unless you change some container like the type *Folder*: Enable *Filter contenttypes?* for it and add *Talk* to the items that are allowed.
 
     With this method you can prevent content that only makes sense inside some defined structure to show up in places where they do not belong.
 

@@ -85,9 +85,9 @@ And enable it on the type in ``profiles/default/types/talk.xml``
      <element value="ploneconf.site.interfaces.ITalk"/>
     </property>
 
-Either reinstall the addon, apply the behavior by hand or run an upgrade step (see below) and the interface will be there.
+Either reinstall the add-on, apply the behavior by hand or run an upgrade step (see below) and the interface will be there.
 
-Then we can safely bind the talkview to the new marker interface.
+Then we can safely bind the `talkview` to the new marker interface.
 
 .. code-block:: xml
     :emphasize-lines: 3
@@ -137,11 +137,11 @@ Now the ``/talkview`` can only be used on objects that implement said interface.
 Upgrade steps
 -------------
 
-When projects evolve you'll sometimes have to modify various things while the site is already up and brimming with content and users. Upgrade steps are pieces of code that run when upgrading from one version of an addon to a newer one. They can do just about anything.
+When projects evolve you'll sometimes have to modify various things while the site is already up and brimming with content and users. Upgrade steps are pieces of code that run when upgrading from one version of an add-on to a newer one. They can do just about anything.
 
 We will create an upgrade step that
 
-* runs the typeinfo step (i.e. loads the GenericSetup configuration stores in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the addon to have our changes from above take effect) and
+* runs the typeinfo step (i.e. loads the GenericSetup configuration stores in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the add-on to have our changes from above take effect) and
 * cleans up some content that might be scattered around the site in the early stages of creating it. We will move all talks to a folder ``talks`` (unless they already are there).
 
 Upgrade steps are usually registered in their own zcml file. Create ``upgrades.zcml``
@@ -233,7 +233,7 @@ GenericSetup now expects the code as a method ``upgrade_site`` in the file ``upg
 
 After restarting the site we can run the step:
 
-* Go to the Add-ons controlpanel http://localhost:8080/Plone/prefs_install_products_form. There should now be a warning **This add-on has been upgraded. Old profile version was 1. New profile version is 1001** and a button next to it.
+* Go to the Add-ons control panel http://localhost:8080/Plone/prefs_install_products_form. There should now be a warning **This add-on has been upgraded. Old profile version was 1. New profile version is 1001** and a button next to it.
 * Run the upgrade step by clicking on it.
 
 On the console you should see logging messages like::
@@ -359,9 +359,9 @@ The ``column ..`` entry allows us to display the values of these indexes in the 
 
 .. note::
 
-    Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the addon purged the indexes! See http://www.starzel.de/blog/a-reminder-about-catalog-indexes.
+    Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the add-on purged the indexes! See http://www.starzel.de/blog/a-reminder-about-catalog-indexes.
 
-* Reinstall the addon
+* Reinstall the add-on
 * Go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes to inspect and manage the new indexes
 
 .. seealso::

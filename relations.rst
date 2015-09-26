@@ -24,7 +24,7 @@ schema, and all the code that is necessary to automatically update the catalog.
 
 A RelationValue Object does not reference all objects directly. For the target,
 it uses an id it gets from the `IntId` Utility. This id allows direct recovery
-of the obect. The source object stores it directly.
+of the object. The source object stores it directly.
 
 Widgets are provided by `plone.app.z3cform`. Some converters are provided by `plone.app.relationfield`.
 The widget that Plone uses can also store objects directly.

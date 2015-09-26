@@ -43,7 +43,7 @@ The :program:`instance` script offers the following options, which you can call 
 
     We have a running Zope with a database but no content. But luckily there is a button to create a Plone site. Click on that button (login: admin, password:admin). This opens a form to create a Plone site. Use :samp:`Plone` as the site id.
 
-    ..  You now have the option to select some addons before you create the site. Since we will use Dexterity from the beginning we select ``Dexterity-based Plone Default Types``. This way even the initial content on our page will be built with dexterity by the addon ``plone.app.contenttypes`` which will be the default in Plone 5.
+    ..  You now have the option to select some add-ons before you create the site. Since we will use Dexterity from the beginning we select ``Dexterity-based Plone Default Types``. This way even the initial content on our page will be built with dexterity by the add-on ``plone.app.contenttypes`` which will be the default in Plone 5.
 
     You will be automatically redirected to the new site.
 
@@ -67,11 +67,11 @@ Let's see what is there...
 
 * :guilabel:`header`:
 
-  * :guilabel:`logo`: with a link to the frontpage
+  * :guilabel:`logo`: with a link to the front page
   * :guilabel:`searchbox`: search (with live-search)
 
 * :guilabel:`navigation`: The global navigation
-* :guilabel:`banner`: A banner. Only visible on the frontpage.
+* :guilabel:`banner`: A banner. Only visible on the front page.
 
 * :guilabel:`portal-columns`: a container holding:
 
@@ -113,7 +113,7 @@ Users
 
 .. only:: not presentation
 
-    Let's create our first users within Plone. So far we used the admin user (admin:admin) configured in the buildout. This user is often called "zope root" and is not managed in Plone but only by Zope. Therefore the user's missing some features like email and fullname and  won't be able to use some of plone's features. But the user has all possible permissions. As with the root user of a server, it's a bad practice to make unnecessary use of zope root. Use it to create Plone sites and their initial users, but not much else.
+    Let's create our first users within Plone. So far we used the admin user (admin:admin) configured in the buildout. This user is often called "zope root" and is not managed in Plone but only by Zope. Therefore the user's missing some features like email and full name and  won't be able to use some of plone's features. But the user has all possible permissions. As with the root user of a server, it's a bad practice to make unnecessary use of zope root. Use it to create Plone sites and their initial users, but not much else.
 
     You can also add zope users via the terminal by entering::
 
@@ -197,7 +197,7 @@ Create a site-structure:
 * Add Folder "Intranet"
 
 
-The default content types:
+The default contenttypes:
 
 * Collection
 * Event
@@ -288,7 +288,7 @@ Each of these states connects roles to permissions.
 
 A workflow state is an association between a role and one or more permissions. Moving from one state to another is a ``transition``. Transitions (like ``submit for review``) may have actions — like the execution of a content rule or script — associated with them.
 
-A complete set of workflow states and transitions make up a ``workflow``. Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites. Individual content types may have their own workflow. Or, and this is particularly interesting, no workflow. In that case, which initially applies to file and image uploads, the content object inherits the workflow of its container.
+A complete set of workflow states and transitions make up a ``workflow``. Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites. Individual contenttypes may have their own workflow. Or, and this is particularly interesting, no workflow. In that case, which initially applies to file and image uploads, the content object inherits the workflow of its container.
 
 .. note::
 
@@ -309,7 +309,7 @@ While it's shipped with Plone, working copy support is not a common need. So, if
 
 .. Note::
 
-    Working-copy support is not yet available for content types created via Dexterity. This is on the way.
+    Working-copy support is not yet available for contenttypes created via Dexterity. This is on the way.
 
 
 .. _features-placeful-wf-label:
@@ -325,4 +325,4 @@ As with working-copy support, Placeful Workflow ships with Plone but needs to be
 
 .. Note::
 
-    Workflow Policy support is not yet available for folderish content types created via Dexterity. This is on the way.
+    Workflow Policy support is not yet available for folderish contenttypes created via Dexterity. This is on the way.
