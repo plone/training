@@ -1,6 +1,8 @@
 acl
 admin
 admins
+addon
+addons
 AnnotationStorage
 Ansible
 api
@@ -27,6 +29,8 @@ CMFPlone
 codebase
 codeintel
 Conectivo
+contenttype
+contenttypes
 Covantec
 coveragerc
 crockfort
@@ -194,6 +198,7 @@ tarball
 Templating
 templating
 testrunner
+testsuite
 toLocalizedTime
 toolbar
 travis

@@ -90,7 +90,7 @@ Writing tests
 
 .. only:: not presentation
 
-    Writing tests is an art. If your test suite needs half an hour to run, it loses a lot of value. If you limit yourself to unit tests and fake everything, you miss many bugs, either because Plone works differently than what you thought, or the next Plone versions run differently from today's.
+    Writing tests is an art. If your testsuite needs half an hour to run, it loses a lot of value. If you limit yourself to unit tests and fake everything, you miss many bugs, either because Plone works differently than what you thought, or the next Plone versions run differently from today's.
     On the other hand, integration tests are not only slower, but often create test failures far away from the actual error in the code. Not only do the tests run more slowly, it also takes longer to debug why they fail.
     Here are some good rules to take into account.
 
@@ -118,7 +118,7 @@ Plone tests
 
 .. only:: not presentation
 
-    Plone is a complex system to run tests in. Because of this, we use a functionality from zope.testrunner: layers. We use the well known unittest framework which exhibits the same ideas as nearly every unittest framework out there. In addition for test setups we have the notion of layers. A layer is a test setup that can be shared. This way, you can run tests from 20 different test suites but not each test suite sets up their own complete Plone site. Instead, you use a Layer, and the testrunner takes care that every test suite sharing a layer are run together.
+    Plone is a complex system to run tests in. Because of this, we use a functionality from zope.testrunner: layers. We use the well known unittest framework which exhibits the same ideas as nearly every unittest framework out there. In addition for test setups we have the notion of layers. A layer is a test setup that can be shared. This way, you can run tests from 20 different testsuites but not each testsuite sets up their own complete Plone site. Instead, you use a Layer, and the testrunner takes care that every testsuite sharing a layer are run together.
 
     Usually, you create three layers on your own, an integration layer, a functional layer and an acceptance test layer. If you were to test code that uses the Solr search engine, you'd use another layer that starts and stops solr between tests. But most of the time you just use the default layers you copied from somewhere or that mr.bob gave you.
 
