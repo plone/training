@@ -8,7 +8,7 @@ class plone {
             '/home/vagrant/buildout-cache/eggs',
             '/home/vagrant/buildout-cache/downloads',
             '/home/vagrant/buildout-cache/extends',
-            '/home/vagrant/buildout-cache/Plone',]:
+            ]:
         ensure => directory,
         owner => 'vagrant',
         group => 'vagrant',
@@ -37,39 +37,19 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         logoutput => true,
     }
 
-    # Get the unified installer
-    exec {"wget https://launchpad.net/plone/5.0/${plone_version}/+download/Plone-${plone_version}-UnifiedInstaller.tgz":
-        alias => "download_installer",
-        creates => "/home/vagrant/tmp/Plone-${plone_version}-UnifiedInstaller.tgz",
-        cwd => '/home/vagrant/tmp',
+    # Download the buildout-cache from dist.plone.org
+    exec {"wget http://dist.plone.org/release/${plone_version}/buildout-cache.tar.bz2":
+        alias => "download_buildout_cache",
+        creates => "/home/vagrant/buildout-cache.tar.bz2",
+        cwd => '/home/vagrant',
         user => 'vagrant',
         group => 'vagrant',
-        before => Exec["untar_installer"],
+        before => Exec["unpack_buildout_cache"],
         timeout => 600,
     }
 
-    # Unpack unified installer
-    exec {"tar xzf Plone-${plone_version}-UnifiedInstaller.tgz":
-        alias => "untar_installer",
-        creates => "/home/vagrant/tmp/Plone-${plone_version}-UnifiedInstaller",
-        cwd => '/home/vagrant/tmp',
-        user => 'vagrant',
-        before => Exec["virtualenv"],
-        timeout => 300,
-    }
-
-    # Create virtualenv
-    exec {'virtualenv --no-site-packages py27':
-        alias => "virtualenv",
-        creates => '/home/vagrant/py27',
-        user => 'vagrant',
-        cwd => '/home/vagrant',
-        before => Exec["unpack_buildout_cache"],
-        timeout => 300,
-    }
-
     # Unpack the buildout-cache to /home/vagrant/buildout-cache/
-    exec {"tar xjf /home/vagrant/tmp/Plone-${plone_version}-UnifiedInstaller/packages/buildout-cache.tar.bz2 -C /home/vagrant":
+    exec {"tar xjf /home/vagrant/buildout-cache.tar.bz2":
         alias => "unpack_buildout_cache",
         creates => "/home/vagrant/buildout-cache/eggs/Products.CMFPlone-${plone_version}-py2.7.egg/",
         user => 'vagrant',
@@ -78,58 +58,25 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         timeout => 0,
     }
 
-    # We no longer run the unified installer
-    # exec {"/home/vagrant/tmp/Plone-${plone_version}-UnifiedInstaller/install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone":
-    #     alias => "install_plone",
-    #     creates => '/home/vagrant/Plone/zinstance/bin/buildout',
-    #     user => 'vagrant',
-    #     cwd => '/home/vagrant',
-    #     before => Exec["copy_cache"],
-    #     timeout => 0,
-    # }
-
-    # We no longer copy the buildout-cache
-    # exec {'cp -Rf /home/vagrant/Plone/buildout-cache/* /home/vagrant/buildout-cache/':
-    #     alias => "copy_cache",
-    #     creates => "/home/vagrant/buildout-cache/eggs/Products.CMFPlone-${plone_version}-py2.7.egg/",
-    #     user => 'vagrant',
-    #     cwd => '/home/vagrant',
-    #     before => Exec["checkout_training"],
-    #     timeout => 0,
-    # }
-
     # get training buildout
-    exec {'git clone https://github.com/collective/training_buildout.git buildout && cd buildout && git checkout master && cd ..':
+    exec {'git clone https://github.com/collective/training_buildout.git buildout && cd buildout && cd ..':
         alias => "checkout_training",
         creates => '/vagrant/buildout',
         user => 'vagrant',
         cwd => '/vagrant',
-        # before => Exec["install_setuptools"],
-        before => Exec["bootstrap_training"],
+        before => Exec["virtualenv"],
         timeout => 0,
     }
 
-
-    # we skip this step since the virtualenv would add symlinks to the shared folder
-    # # create virtualenv for training
-    # exec {'virtualenv --no-site-packages /vagrant/buildout/py27':
-    #     alias => "virtualenv_training",
-    #     creates => '/vagrant/buildout/py27/bin/python',
-    #     user => 'vagrant',
-    #     cwd => '/vagrant/buildout',
-    #     before => Exec["bootstrap_training"],
-    #     timeout => 0,
-    # }
-
-    # bootstrap training buildout
-    # exec {'/home/vagrant/py27/bin/pip install -U setuptools==18.0.1':
-    #     alias => "install_setuptools",
-    #     creates => "/home/vagrant/py27/lib/python2.7/site-packages/setuptools-18.0.1.dist-info",
-    #     user => 'vagrant',
-    #     cwd => '/vagrant/buildout',
-    #     before => Exec["bootstrap_training"],
-    #     timeout => 0,
-    # }
+    # Create virtualenv
+    exec {'virtualenv --no-site-packages py27':
+        alias => "virtualenv",
+        creates => '/home/vagrant/py27',
+        user => 'vagrant',
+        cwd => '/home/vagrant',
+        before => Exec["bootstrap_training"],
+        timeout => 300,
+    }
 
     # bootstrap training buildout
     exec {'/home/vagrant/py27/bin/python bootstrap.py':
@@ -140,16 +87,6 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         before => Exec["buildout_training"],
         timeout => 0,
     }
-
-    # modify buildout.cfg to work with vagrant
-    # exec {"cp /vagrant/buildout/buildout.cfg /vagrant/buildout/buildout_local.cfg && sed -i '38s;.*;buildout_dir = /home/vagrant;' buildout.cfg":
-    #     alias => "modify_buildout",
-    #     creates => '/vagrant/buildout/buildout_local.cfg',
-    #     user => 'vagrant',
-    #     cwd => '/vagrant/buildout',
-    #     before => Exec["buildout_training"],
-    #     timeout => 0,
-    # }
 
     # run training buildout
     exec {'/vagrant/buildout/bin/buildout -c vagrant_provisioning.cfg':
