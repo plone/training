@@ -1,4 +1,3 @@
-1
 .. _about-label:
 
 About Mastering Plone
@@ -165,7 +164,7 @@ To build the documentation follow these steps:
     $ virtualenv-2.7 .
     $ source bin/activate
 
-Not install dependencies and build.
+Now install dependencies and build.
 
 .. code-block:: bash
 
