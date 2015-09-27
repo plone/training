@@ -30,34 +30,20 @@ First we update Ubuntu and install some packages.
     $ sudo apt-get install python-virtualenv
     $ sudo apt-get install putty-tools
 
-Then we create a virtual python environment using virtualenv. This is always a good practice since that way we get a clean copy of our system python, so that we can't break it by installing eggs that might collide with other eggs::
+Then we create a virtual python environment using virtualenv. This is always a good practice since that way we get a clean copy of our system python, so that we can't break it by installing eggs that might collide with other eggs.
+
+.. code-block:: bash
 
     $ virtualenv --no-site-packages /home/vagrant/py27
 
-Then we download, unpack and install the unified installer of Plone.
+Now we download and unpack a buildout-cache that holds all the python packages that the a version of Plone consists of. We could skip this step and have buildout download all packages individually but that takes much longer.
 
 .. code-block:: bash
 
-    $ mkdir Plone
-    $ mkdir tmp
-    $ cd tmp
-    $ wget https://launchpad.net/plone/5.0/5.0rc3/+download/Plone-5.0rc3-UnifiedInstaller.tgz
-    $ tar xzf Plone-5.0rc3-UnifiedInstaller.tgz
-    $ cd Plone-5.0rc3-UnifiedInstaller
-    $ ./install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone
-    $ cp -Rf /home/vagrant/Plone/buildout-cache/* /home/vagrant/buildout-cache/
+    $ wget http://dist.plone.org/release/5.0rc3/buildout-cache.tar.bz2
+    $ tar xjf buildout-cache.tar.bz2
 
-The unified installer is an amazing tool that compiles its own python, brings with it all the python eggs we need and puts them in a buildout cache. It then creates a Buildout and makes Plone ready to run.
-
-We will not actually use this Plone during the training. If you want to use it for your own experiments, you can find it in ``/home/vagrant/Plone/zinstance`` on the virtual machine.
-
-Instead, vagrant now creates our own little Buildout and merely uses the eggs that the unified installer created. First we copy the buildout cache that holds all the python packages that Plone consists of.
-
-.. code-block:: bash
-
-    $ cp -Rf /home/vagrant/Plone/buildout-cache /home/vagrant
-
-Then we check out our tutorial buildout from https://github.com/collective/training_buildout, switch to the branch 'plone5' and build it.
+Then we check out our tutorial buildout from https://github.com/collective/training_buildout and build it.
 
 .. code-block:: bash
 
@@ -67,9 +53,11 @@ Then we check out our tutorial buildout from https://github.com/collective/train
     $ /home/vagrant/py27/bin/python bootstrap.py
     $ ./bin/buildout -c vagrant_provisioning.cfg
 
+This will download additional eggs that are not yet part of the buildout-cache and configure Plone to be ready to run.
+
 At this point vagrant has finished its job.
 
-You can now connect to the machine and start plone.
+You can now connect to the machine and start Plone.
 
 .. code-block:: bash
 
@@ -78,5 +66,3 @@ You can now connect to the machine and start plone.
     $ ./bin/instance fg
 
 Now we have a fresh Buildout-based Zope site, ready to add a Plone site. Go to http://localhost:8080 and create a Plone site.
-
-You might wonder why we use the unified installer. We use the unified installer to set up a cache of packages to download in a much shorter time. Without it, your first Buildout on a fresh computer would take more than half an hour on a good internet connection.

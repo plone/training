@@ -37,6 +37,16 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         logoutput => true,
     }
 
+    # Create virtualenv
+    exec {'virtualenv --no-site-packages py27':
+        alias => "virtualenv",
+        creates => '/home/vagrant/py27',
+        user => 'vagrant',
+        cwd => '/home/vagrant',
+        before => Exec["download_buildout_cache"],
+        timeout => 300,
+    }
+
     # Download the buildout-cache from dist.plone.org
     exec {"wget http://dist.plone.org/release/${plone_version}/buildout-cache.tar.bz2":
         alias => "download_buildout_cache",
@@ -64,18 +74,8 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         creates => '/vagrant/buildout',
         user => 'vagrant',
         cwd => '/vagrant',
-        before => Exec["virtualenv"],
-        timeout => 0,
-    }
-
-    # Create virtualenv
-    exec {'virtualenv --no-site-packages py27':
-        alias => "virtualenv",
-        creates => '/home/vagrant/py27',
-        user => 'vagrant',
-        cwd => '/home/vagrant',
         before => Exec["bootstrap_training"],
-        timeout => 300,
+        timeout => 0,
     }
 
     # bootstrap training buildout

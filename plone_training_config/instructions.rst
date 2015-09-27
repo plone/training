@@ -166,15 +166,13 @@ Now start setting up the VM that is configured in ``Vagrantfile``:
 
     $ vagrant up
 
-This takes a **veeeeery loooong time** (up to 1h depending on your internet connection and system speed) since it does all the following steps:
+This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on your internet connection and system speed) since it does all the following steps:
 
 * downloads a virtual machine (Official Ubuntu Server 14.04 LTS, also called "Trusty Tahr")
 * sets up the VM
 * updates the VM
-* installs various packages needed for Plone development
-* downloads and unpacks the unified installer for Plone
-* runs the unified installer for Plone.
-* copies the eggs to a location we use in the training
+* installs various system-packages needed for Plone development
+* downloads and unpacks the buildout-cache to get all the eggs for Plone
 * clones the training buildout into /vagrant/buildout
 * builds Plone using the eggs from the buildout-cache
 
@@ -205,8 +203,6 @@ Once Vagrant finishes the provisioning process, you can login to the now running
     If you use Windows you'll have to login with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User **and** password are ``vagrant``.
 
 You are now logged in as the user vagrant in ``/home/vagrant``. We'll do all steps of the training as this user.
-
-We pre-installed a fresh Plone for you in the folder ``/home/vagrant/Plone/zinstance`` You can run it now and access it from the browser. We will **not** use this Plone instance in the training, so you can play around with it as much as you want.
 
 Instead we use our own Plone instance during the training. It is in ``/vagrant/buildout/``. Start it in foreground with ``./bin/instance fg``.
 
