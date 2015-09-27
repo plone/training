@@ -14,7 +14,7 @@ Upcoming Trainings
 ------------------
 
 `12. - 13. October 2015, Bucharest <https://2015.ploneconf.org/trainings>`_
-    by Philip Bauer, Fulvio Casali, Fred van Dijk, Franco Pellegrini and Giacomo Spettoli.
+    by Philip Bauer, Fulvio Casali, Fred van Dijk, Franco Pellegrini, Johannes Raggam and Giacomo Spettoli.
 
 
 .. _about-previous-label:
