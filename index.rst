@@ -31,7 +31,7 @@ Contents:
     configuring_customizing
     extending
     add-ons
-    theming
+    theming/index
     dexterity
     buildout_1
     eggs1
