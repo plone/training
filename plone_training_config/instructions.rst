@@ -3,10 +3,6 @@
 Installing Plone for the Training
 =================================
 
-.. warning::
-
-    Since Plone 5 is not yet released we are using the most recent release candidate of Plone 5, which currently is RC3. Have no fear, as we do not expect any big differences between this RC and the final release. So even if you come to the training with RC3 installed, you will be ok.  Also, if you have installed Plone successfully once, doing it a second time will be much easier and quicker.  In other words, do not let this stop you from performing the installation as soon as possible.
-
 Keep in mind that you need a fast internet connection during installation since you'll have to download a lot of data!
 
 
