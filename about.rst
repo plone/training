@@ -1,4 +1,3 @@
-1
 .. _about-label:
 
 About Mastering Plone
@@ -15,7 +14,7 @@ Upcoming Trainings
 ------------------
 
 `12. - 13. October 2015, Bucharest <https://2015.ploneconf.org/trainings>`_
-    by Philip Bauer, Fulvio Casali, Fred van Dijk, Franco Pellegrini and Giacomo Spettoli.
+    by Philip Bauer, Fulvio Casali, Fred van Dijk, Franco Pellegrini, Johannes Raggam and Giacomo Spettoli.
 
 
 .. _about-previous-label:
@@ -165,7 +164,7 @@ To build the documentation follow these steps:
     $ virtualenv-2.7 .
     $ source bin/activate
 
-Not install dependencies and build.
+Now install dependencies and build.
 
 .. code-block:: bash
 
