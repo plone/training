@@ -21,15 +21,21 @@ To create a Plone 5 theme skeleton, you will use mrbob's templates for Plone.
 Install mr.bob and bobtemplates.plone
 -------------------------------------
 
-To install mr.bob you can do::
+To install mr.bob you can do:
+
+.. code-block:: bash
 
    $ pip install mr.bob
 
-and to install the needed bobtemplates for Plone, do::
+and to install the needed bobtemplates for Plone, do:
+
+.. code-block:: bash
 
    $ pip install bobtemplates.plone
 
-Create a Plone 5 theme product skeleton with mrbob::
+Create a Plone 5 theme product skeleton with mrbob:
+
+.. code-block:: bash
 
    $ mrbob -O plonetheme.tango bobtemplates:plone_addon
 
@@ -51,14 +57,18 @@ here choose Theme and fill out the rest of the questions as you like::
 
    Generated file structure at /home/maik/develop/plone/plonetheme.tango
 
-Now you have a new python package in your current folder::
+Now you have a new python package in your current folder:
+
+.. code-block:: bash
 
    (mrbob)maik@planetmobile:~/develop/plone/plonetheme.tango
    $ ls
    bootstrap-buildout.py   buildout.cfg  CONTRIBUTORS.rst  MANIFEST.in  setup.py  travis.cfg
    bootstrap-buildout.pyc  CHANGES.rst   docs              README.rst   src
 
-Deactivate mrbob virtualenv::
+Deactivate mrbob virtualenv:
+
+.. code-block:: bash
 
    (mrbob)maik@planetmobile:~/develop/plone/plonetheme.tango$ deactivate
 
@@ -66,7 +76,9 @@ Deactivate mrbob virtualenv::
 Bootstrap & buildout your development environment
 -------------------------------------------------
 
-You can run::
+You can run:
+
+.. code-block:: bash
 
    $ python bootstrap-buildout.py
    Creating directory '/home/maik/develop/plone/plonetheme.tango/bin'.
@@ -74,11 +86,15 @@ You can run::
    Creating directory '/home/maik/develop/plone/plonetheme.tango/develop-eggs'.
    Generated script '/home/maik/develop/plone/plonetheme.tango/bin/buildout'.
 
-Then you can run::
+Then you can run:
+
+.. code-block:: bash
 
    $ ./bin/buildout
 
-This will create the whole develoment environment for your package::
+This will create the whole develoment environment for your package:
+
+.. code-block:: bash
 
    $ ls bin/
    buildout                          code-analysis-hasattr               develop        pildriver.py
@@ -94,7 +110,9 @@ This will create the whole develoment environment for your package::
 Start your Plone instance and play with your theme product
 ----------------------------------------------------------
 
-To start the plone instanc, run::
+To start the plone instanc, run:
+
+.. code-block:: bash
 
    $ ./bin/instance fg
 
@@ -107,7 +125,9 @@ The theme will be automatically enabled. If some think is wrong with the theme, 
 Inspect your package source
 ---------------------------
 
-Your package source code is in the src folder::
+Your package source code is in the src folder:
+
+.. code-block:: bash
 
    $ tree src/plonetheme/tango/
    src/plonetheme/tango/
@@ -150,7 +170,9 @@ Your package source code is in the src folder::
 
    11 directories, 25 files
 
-As you see, the package contains already a Diazo theme::
+As you see, the package contains already a Diazo theme:
+
+.. code-block:: bash
 
    $ tree src/plonetheme/tango/theme/
    src/plonetheme/tango/theme/
@@ -176,7 +198,9 @@ If you got a static mockup from your designer or from a website like http://star
 Download and prepare a static theme
 +++++++++++++++++++++++++++++++++++
 
-Lets start with an untouched static theme like this bootstrap theme http://startbootstrap.com/template-overviews/business-casual/. Just download it and extract it into the theme folder::
+Lets start with an untouched static theme like this bootstrap theme http://startbootstrap.com/template-overviews/business-casual/. Just download it and extract it into the theme folder:
+
+.. code-block:: bash
 
    $ tree .
    .
@@ -218,7 +242,9 @@ Preparing the template
 **********************
 
 To make the given template more useful, we customize it a little bit.
-Right before the second box which contains::
+Right before the second box which contains:
+
+.. code-block:: html
 
    <div class="row">
        <div class="box">
@@ -228,7 +254,9 @@ Right before the second box which contains::
                    <strong>worth visiting</strong>
                </h2>
 
-Add this::
+Add this:
+
+.. code-block:: html
 
    <div id="column1-container"></div>
    <div id="content-container">
@@ -238,7 +266,9 @@ Add this::
 
 And then move the main content (the box 2 and box 3 including the parent row div) into the content-container.
 
-It should look like::
+It should look like:
+
+.. code-block:: html
 
    <div id="column1-container"></div>
 
@@ -287,7 +317,9 @@ First let me explane what we mean, when we talk about content and theme.
 Content is normaly the dynamic generated content on the Plone site and theme
 is the static template site.
 
-For exaple::
+For exaple:
+
+.. code-block:: xml
 
    <replace css:theme="#headline" css:content="#firstHeading" />
 
@@ -296,7 +328,9 @@ This means replace the element "#headline" in the theme with the element "#first
 For more details how to use Diazo rules, look at http://diazo.org and http://docs.plone.org/external/plone.app.theming/docs/index.html.
 
 
-As a starting point we use this rules set::
+As a starting point we use this rules set:
+
+.. code-block:: xml
 
    <?xml version="1.0" encoding="utf-8"?>
    <rules xmlns="http://namespaces.plone.org/diazo"
@@ -425,7 +459,9 @@ Slider only on Front-page
 *************************
 
 We want the slider in the template only on front-page and also not when we are editing the front-page.
-So we drop it in these cases::
+So we drop it in these cases:
+
+.. code-block:: xml
 
    <!-- front-page slider -->
    <drop
@@ -440,7 +476,9 @@ By now the slide is still static, but we will change that later.
 Login link & co
 ***************
 
-Add the login link::
+Add the login link:
+
+.. code-block:: xml
 
    <!-- login link -->
    <after
@@ -456,7 +494,9 @@ You can change that to place it where you want.
 Top-navigation
 **************
 
-Replace the place holder with the real Plone top-navigation links::
+Replace the place holder with the real Plone top-navigation links:
+
+.. code-block:: xml
 
    <!-- replace theme navbar-nav with Plone plone-navbar-nav -->
    <replace
@@ -469,13 +509,17 @@ Breadcrumb & co
 ***************
 
 Plone provides some viewlets like the breadcrumb above the content area.
-To get this, we add a place holder with the CSS id "#above-content" into the theme, where we want to have this above -content stuff, for example right before the first row/box in the container::
+To get this, we add a place holder with the CSS id "#above-content" into the theme, where we want to have this above -content stuff, for example right before the first row/box in the container:
+
+.. code-block:: html
 
    <div class="row">
        <div id="above-content" class="box"></div>
    </div>
 
-This rule then takes the Plone breadcrumb & co over::
+This rule then takes the Plone breadcrumb & co over:
+
+.. code-block:: xml
 
    <!-- full-width breadcrumb -->
    <replace
@@ -484,18 +528,24 @@ This rule then takes the Plone breadcrumb & co over::
      />
 
 This will take over everthing in viewlet-above from Plone.
-Our current theme does not provide a breadcrumb bar, so we can just drop them from Plone content, like this::
+Our current theme does not provide a breadcrumb bar, so we can just drop them from Plone content, like this:
+
+.. code-block:: xml
 
    <drop css:content="#portal-breadcrumbs" />
 
-If you only want to drop this for non administrators, you can do it like this::
+If you only want to drop this for non administrators, you can do it like this:
+
+.. code-block:: xml
 
    <drop
     css:content="#portal-breadcrumbs"
     css:if-not-content=".userrole-manager"
     />
 
-or only for not logged-in users::
+or only for not logged-in users:
+
+.. code-block:: xml
 
    <drop
     css:content="#portal-breadcrumbs"
@@ -510,14 +560,18 @@ Status messages
 ***************
 
 Plone will give status messages in the #global_statusmessage element. We want to take over these messages.
-For this, we add another placeholder into our theme template::
+For this, we add another placeholder into our theme template:
+
+.. code-block:: html
 
    <div class="row">
        <div id="global_statusmessage"></div>
        <div id="above-content"></div>
    </div>
 
-and use this rule to take over the messages::
+and use this rule to take over the messages:
+
+.. code-block:: xml
 
   <!-- Alert message -->
   <replace
@@ -531,7 +585,9 @@ You should see a message from Plone.
 Main content area
 *****************
 
-To get the Plone content area in a flexible way which also provides the right bootstrap grid classes, we use a inline XSL snippet like this::
+To get the Plone content area in a flexible way which also provides the right bootstrap grid classes, we use a inline XSL snippet like this:
+
+.. code-block:: xml
 
    <!-- Central column -->
    <replace css:theme="#content-container" method="raw">
@@ -569,7 +625,9 @@ Left and right columns
 **********************
 
 We already add the column1-container and column2-container in our template.
-The following rules will take over the left and the right columns and also change the markup of it to be a aside instead of a normal div. That is the reason to use inline XSL here::
+The following rules will take over the left and the right columns and also change the markup of it to be a aside instead of a normal div. That is the reason to use inline XSL here:
+
+.. code-block:: xml
 
    <!-- Left column -->
    <rules if-content="//*[@id='portal-column-one']">
@@ -596,7 +654,9 @@ The following rules will take over the left and the right columns and also chang
 Footer
 ******
 
-Take over the footer from Plone::
+Take over the footer from Plone:
+
+.. code-block:: xml
 
    <!-- footer -->
    <replace
@@ -621,7 +681,10 @@ Now create folders for your css and javascript resources and add the first files
    ├── rules.xml
    └── template-overrides
 
-The bundle.less file can look like this::
+The bundle.less file can look like this:
+
+.. code-block:: sass
+
 
    /* bundle less file that will be compiled */
 
@@ -708,7 +771,9 @@ Here we import the specific parts of the default Plone 5 Barceloneta theme.
 Feel free to comment out staff that you don't needed.
 
 At the bottom you can see, that we import the main.less file.
-The main.less will contain your custom styles and can look like this::
+The main.less will contain your custom styles and can look like this:
+
+.. code-block:: css
 
    h1 {
      color: green;
@@ -762,7 +827,8 @@ TODO: show views folder and custom slider-images view
 
 Take over the dynamic slider content from Plone
 -----------------------------------------------
-::
+
+.. code-block:: xml
 
    <replace
      css:theme="#carousel-example-generic"
