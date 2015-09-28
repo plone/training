@@ -1,4 +1,4 @@
-.. _theming-label:
+.. _theming-label-old:
 
 Theming
 =======

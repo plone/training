@@ -569,7 +569,7 @@ Left and right columns
 **********************
 
 We already add the column1-container and column2-container in our template.
-The following rules will take over the left and the right columns and also change the markup of it to be a aside instead of a normal div. That is the reason to use inline XSL here.
+The following rules will take over the left and the right columns and also change the markup of it to be a aside instead of a normal div. That is the reason to use inline XSL here::
 
    <!-- Left column -->
    <rules if-content="//*[@id='portal-column-one']">
