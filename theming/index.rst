@@ -15,6 +15,7 @@ Theming
    ttw-advanced
    static-theme
    theme-package
+   creating-customizing-templates
 
 .. seealso::
 
