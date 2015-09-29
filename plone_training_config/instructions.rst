@@ -3,10 +3,6 @@
 Installing Plone for the Training
 =================================
 
-.. warning::
-
-    Since Plone 5 is not yet released we are using the most recent release candidate of Plone 5, which currently is RC3. Have no fear, as we do not expect any big differences between this RC and the final release. So even if you come to the training with RC3 installed, you will be ok.  Also, if you have installed Plone successfully once, doing it a second time will be much easier and quicker.  In other words, do not let this stop you from performing the installation as soon as possible.
-
 Keep in mind that you need a fast internet connection during installation since you'll have to download a lot of data!
 
 
@@ -151,11 +147,11 @@ Setup Vagrant to automatically install the current guest additions. You can choo
 
     $ vagrant plugin install vagrant-vbguest
 
-Now download https://raw.githubusercontent.com/plone/training/master/plone_training_config.zip and copy its contents into your training directory.
+Now download :download:`plone_training_config.zip <../_static/plone_training_config.zip>` and copy its contents into your training directory.
 
 .. code-block:: bash
 
-    $ wget https://raw.githubusercontent.com/plone/training/plone5/plone_training_config.zip
+    $ wget https://raw.githubusercontent.com/plone/training/master/_static/plone_training_config.zip
     $ unzip plone_training_config.zip
 
 The training directory should now hold the file ``Vagrantfile`` and the directory ``manifests`` which again contains several files.

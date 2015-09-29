@@ -40,7 +40,7 @@ Now we download and unpack a buildout-cache that holds all the python packages t
 
 .. code-block:: bash
 
-    $ wget http://dist.plone.org/release/5.0rc3/buildout-cache.tar.bz2
+    $ wget http://dist.plone.org/release/5.0/buildout-cache.tar.bz2
     $ tar xjf buildout-cache.tar.bz2
 
 Then we check out our tutorial buildout from https://github.com/collective/training_buildout and build it.
