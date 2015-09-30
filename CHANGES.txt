@@ -1,14 +1,37 @@
 Changelog
 =========
 
+This changelog is only very rough. For the full changelog please refer to https://github.com/plone/training/commits/master
+
+
 1.2.5 (unreleased)
+------------------
+
+- Add spell-checker, auto-build and travis-tests
+  [svx]
+
+- Use Plone 5 final and simplify vagrant-setup.
+  [pbauer, fulv]
+
+- Rewrite chapter on relations.
+  [pbauer]
+
+- Add a training on javasript.
+  [frappel, thet]
+
+- Add a training theming Plone 5.
+  [MrTango, simahawk]
+
+- A ton of fixes in the development-training in preparation to Ploneconf 2015 in
+  Bucarest.
+  [fulv]
+
+
+1.2.4 (2014-10-03)
 ------------------
 
 - Revision of part one for Ploneconf 2014, Bristol
   [smcmahon]
-
-1.2.4 (2014-10-03)
-------------------
 
 - Revised for Ploneconf 2014, Bristol
   [pbauer, gomez]
