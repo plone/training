@@ -16,6 +16,7 @@ Theming
    static-theme
    theme-package
    creating-customizing-templates
+   tinymce-templates
 
 .. seealso::
 

@@ -106,11 +106,96 @@ This will create the whole develoment environment for your package:
    code-analysis-find-untranslated   code-analysis-utf8-header           longtest       release
    code-analysis-flake8              code-analysis-zptlint               pilconvert.py  test
 
+Extend your buildout configuration
+----------------------------------
+
+Add the following builout parts, if they are not already exist:
+
+.. code-block:: ini
+
+   [zopepy]
+   recipe = zc.recipe.egg
+   eggs =
+       ${instance:eggs}
+       ${test:eggs}
+   interpreter = zopepy
+   scripts =
+       zopepy
+       plone-generate-gruntfile
+       plone-compile-resources
+
+   [omelette]
+   recipe = collective.recipe.omelette
+   eggs = ${instance:eggs}
+
+
+And add this parts to the list of parts:
+
+.. code-block:: ini
+
+   parts=
+       ...
+       zopepy
+       omelette
+
+Also add *Products.CMFPlone* to the eggs list in the instance part:
+
+.. code-block:: ini
+
+   [instance]
+   recipe = plone.recipe.zope2instance
+   user = admin:admin
+   http-address = 8080
+   eggs =
+       Plone
+       Pillow
+       Products.CMFPlone
+       plonetheme.tango [test]
+
+Now rerun buildout:
+
+.. code-block:: bash
+
+   $ ./bin/buildout
+
+This will give you new scripts like *plone-compile-resources* and *plone-generate-gruntfile* in bin folder:
+
+.. code-block:: bash
+
+   $ ls bin/
+   buildout                            flake8
+   check-manifest                      fullrelease
+   code-analysis                       instance
+   code-analysis-check-manifest        lasttagdiff
+   code-analysis-clean-lines           lasttaglog
+   code-analysis-csslint               longtest
+   code-analysis-debug-statements      pilconvert.py
+   code-analysis-deprecated-aliases    pildriver.py
+   code-analysis-find-untranslated     pilfile.py
+   code-analysis-flake8                pilfont.py
+   code-analysis-hasattr               pilprint.py
+   code-analysis-imports               plone-compile-resources
+   code-analysis-jscs                  plone-generate-gruntfile
+   code-analysis-jshint                postrelease
+   code-analysis-pep3101               prerelease
+   code-analysis-prefer-single-quotes  release
+   code-analysis-utf8-header           test
+   code-analysis-zptlint               zopepy
+   develop
+
+You can use *plone-compile-resources* to build your resource bundle as follow, but first you have to start the instance and add a Plone site named ``Plone``, see below:
+
+.. code-block:: bash
+
+   $ ./bin/plone-compile-resources --bundle=tango-bundle
+
+This will start the Plone instance, read variables from the registry and compile your bundle.
+If your Plone site has an id other than *Plone*, you can provide the ``--site-id``.
 
 Start your Plone instance and play with your theme product
 ----------------------------------------------------------
 
-To start the plone instanc, run:
+To start the plone instance, run:
 
 .. code-block:: bash
 
@@ -459,7 +544,53 @@ Slider only on Front-page
 *************************
 
 We want the slider in the template only on front-page and also not when we are editing the front-page.
-So we drop it in these cases:
+To make this easier, we wrap then slider area with a "#front-page-slider" div-tag like this:
+
+.. code-block:: html
+
+   <div id="front-page-slider">
+       <div id="carousel-example-generic" class="carousel slide">
+           <!-- Indicators -->
+           <ol class="carousel-indicators hidden-xs">
+               <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+               <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+               <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+           </ol>
+
+           <!-- Wrapper for slides -->
+           <div class="carousel-inner">
+               <div class="item active">
+                   <img class="img-responsive img-full" src="img/slide-1.jpg" alt="">
+               </div>
+               <div class="item">
+                   <img class="img-responsive img-full" src="img/slide-2.jpg" alt="">
+               </div>
+               <div class="item">
+                   <img class="img-responsive img-full" src="img/slide-3.jpg" alt="">
+               </div>
+           </div>
+
+           <!-- Controls -->
+           <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+               <span class="icon-prev"></span>
+           </a>
+           <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+               <span class="icon-next"></span>
+           </a>
+       </div>
+       <h2 class="brand-before">
+           <small>Welcome to</small>
+       </h2>
+       <h1 class="brand-name">Business Casual</h1>
+       <hr class="tagline-divider">
+       <h2>
+           <small>By
+               <strong>Start Bootstrap</strong>
+           </small>
+       </h2>
+   </div>
+
+Now we can drop it if we are not on the front-page:
 
 .. code-block:: xml
 
@@ -471,7 +602,7 @@ So we drop it in these cases:
      css:theme="#front-page-slider"
      css:if-content=".template-edit" />
 
-By now the slide is still static, but we will change that later.
+By now the slider is still static, but we will change that later.
 
 Login link & co
 ***************
@@ -664,119 +795,279 @@ Take over the footer from Plone:
      css:content-children="#portal-footer-wrapper" />
 
 
-Initial css and js resources
-++++++++++++++++++++++++++++
+CSS and JS resources
+++++++++++++++++++++
 
-Now create folders for your css and javascript resources and add the first files::
+First let's get sure we have loaded the registerless profile of barceloneta.
+To do that, we change our metadata.xml like this:
 
-   $ tree .
-   .
-   ├── css
-   │   ├── bundle.less
-   │   └── main.less
-   ├── index.html
-   ├── js
-   │   └── bundle.js
-   ├── manifest.cfg
-   ├── rules.xml
-   └── template-overrides
+.. code:: xml
 
-The bundle.less file can look like this:
+   <?xml version="1.0"?>
+   <metadata>
+     <version>1000</version>
+     <dependencies>
+       <dependency>profile-plone.app.theming:default</dependency>
+       <dependency>profile-plonetheme.barceloneta:registerless</dependency>
+     </dependencies>
+   </metadata>
+
+This we will register all less files of barceloneta theme in the resource registry, so that we can use theme in our custom less files.
+
+Now let's add some less files in our css folder::
+
+.. code-block:: bash
+
+   $ tree ./css/
+   ./css/
+   ├── bootstrap.css
+   ├── bootstrap.min.css
+   ├── business-casual.css
+   ├── custom.less
+   └── main.less
+
+The main.less file can look like this:
 
 .. code-block:: sass
 
-
-   /* bundle less file that will be compiled */
+   /* bundle less file that will be compiled into tango-compiled.css */
 
    // ### PLONE IMPORTS ###
 
-   // //*// Font families
-   @import "@{barcelonetaLessPath}fonts.plone.less";
+   //*// Font families
+   //@import "@{barceloneta-fonts}";
 
-   // //*// Core variables and mixins
-   @import "@{barcelonetaLessPath}variables.plone.less";
-   @import "@{barcelonetaLessPath}mixin.prefixes.plone.less";
-   @import "@{barcelonetaLessPath}mixin.tabfocus.plone.less";
-   @import "@{barcelonetaLessPath}mixin.images.plone.less";
-   @import "@{barcelonetaLessPath}mixin.forms.plone.less";
-   @import "@{barcelonetaLessPath}mixin.borderradius.plone.less";
-   @import "@{barcelonetaLessPath}mixin.buttons.plone.less";
-   @import "@{barcelonetaLessPath}mixin.clearfix.plone.less";
-   @import "@{barcelonetaLessPath}mixin.gridframework.plone.less"; //grid Bootstrap
-   @import "@{barcelonetaLessPath}mixin.grid.plone.less"; //grid Bootstrap
+   //*// Core variables and mixins
+   @import "@{barceloneta-variables}";
+       @import "@{barceloneta-mixin-prefixes}";
+       @import "@{barceloneta-mixin-tabfocus}";
+       @import "@{barceloneta-mixin-images}";
+       @import "@{barceloneta-mixin-forms}";
+       @import "@{barceloneta-mixin-borderradius}";
+       @import "@{barceloneta-mixin-buttons}";
+       @import "@{barceloneta-mixin-clearfix}";
+   //  @import "@{barceloneta-mixin-gridframework}";
+   //  @import "@{barceloneta-mixin-grid}";
 
 
-   // //*// Reset and dependencies
-   @import "@{barcelonetaLessPath}normalize.plone.less";
-   @import "@{barcelonetaLessPath}print.plone.less";
+   //*// Reset and dependencies
+   @import "@{barceloneta-normalize}";
+   @import "@{barceloneta-print}";
 
-   // //*// Core CSS
-   @import "@{barcelonetaLessPath}scaffolding.plone.less";
-   @import "@{barcelonetaLessPath}type.plone.less";
-   @import "@{barcelonetaLessPath}code.plone.less";
-   //@import "deco.plone.less"; //uncomment for deco variant
-   @import "@{barcelonetaLessPath}grid.plone.less"; //grid Bootstrap
-   @import "@{barcelonetaLessPath}tables.plone.less";
-   @import "@{barcelonetaLessPath}forms.plone.less";
-   @import "@{barcelonetaLessPath}buttons.plone.less";
-   @import "@{barcelonetaLessPath}states.plone.less";
+   //*// Core CSS
+   @import "@{barceloneta-scaffolding}";
+   @import "@{barceloneta-type}";
+   @import "@{barceloneta-code}";
+   //@import "@{barceloneta-deco}"; //uncomment for deco variant
+   //@import "@{barceloneta-grid}";
+   @import "@{barceloneta-tables}";
+   @import "@{barceloneta-forms}";
+   @import "@{barceloneta-buttons}";
+   @import "@{barceloneta-states}";
 
    //*// Components
-   @import "@{barcelonetaLessPath}breadcrumbs.plone.less";
-   @import "@{barcelonetaLessPath}pagination.plone.less";
-   @import "@{barcelonetaLessPath}formtabbing.plone.less"; //pattern
-   @import "@{barcelonetaLessPath}views.plone.less";
-   @import "@{barcelonetaLessPath}thumbs.plone.less";
-   @import "@{barcelonetaLessPath}alerts.plone.less";
-   @import "@{barcelonetaLessPath}portlets.plone.less";
-   @import "@{barcelonetaLessPath}controlpanels.plone.less";
-   @import "@{barcelonetaLessPath}tags.plone.less";
-   @import "@{barcelonetaLessPath}contents.plone.less";
+   @import "@{barceloneta-breadcrumbs}";
+   @import "@{barceloneta-pagination}";
+   @import "@{barceloneta-formtabbing}";
+   @import "@{barceloneta-views}";
+   @import "@{barceloneta-thumbs}";
+   @import "@{barceloneta-alerts}";
+   @import "@{barceloneta-portlets}";
+   @import "@{barceloneta-controlpanels}";
+   @import "@{barceloneta-tags}";
+   @import "@{barceloneta-contents}";
 
    //*// Patterns
-   @import "@{barcelonetaLessPath}accessibility.plone.less";
-   @import "@{barcelonetaLessPath}toc.plone.less";
-   //@import "@{barcelonetaLessPath}backdrop.plone.less"; Still no implemented on Plone
-   @import "@{barcelonetaLessPath}dropzone.plone.less";
-   //@import "@{barcelonetaLessPath}formautofocus.plone.less"; Still no implemented on Plone
-   @import "@{barcelonetaLessPath}modal.plone.less";
-   @import "@{barcelonetaLessPath}pickadate.plone.less";
-   @import "@{barcelonetaLessPath}sortable.plone.less";
-   @import "@{barcelonetaLessPath}tablesorter.plone.less";
-   @import "@{barcelonetaLessPath}tooltip.plone.less";
-   @import "@{barcelonetaLessPath}tree.plone.less";
+   @import "@{barceloneta-accessibility}";
+   @import "@{barceloneta-toc}";
+   @import "@{barceloneta-dropzone}";
+   @import "@{barceloneta-modal}";
+   @import "@{barceloneta-pickadate}";
+   @import "@{barceloneta-sortable}";
+   @import "@{barceloneta-tablesorter}";
+   @import "@{barceloneta-tooltip}";
+   @import "@{barceloneta-tree}";
 
    //*// Structure
-   @import "@{barcelonetaLessPath}header.plone.less";
-   @import "@{barcelonetaLessPath}sitenav.plone.less";
-   @import "@{barcelonetaLessPath}main.plone.less";
-   @import "@{barcelonetaLessPath}footer.plone.less";
-   @import "@{barcelonetaLessPath}loginform.plone.less";
-   @import "@{barcelonetaLessPath}sitemap.plone.less";
+   @import "@{barceloneta-header}";
+   @import "@{barceloneta-sitenav}";
+   @import "@{barceloneta-main}";
+   //@import "@{barceloneta-footer}";
+   @import "@{barceloneta-loginform}";
+   @import "@{barceloneta-sitemap}";
 
    //*// Products
-   @import "@{barcelonetaLessPath}event.plone.less";
-   @import "@{barcelonetaLessPath}image.plone.less";
-   @import "@{barcelonetaLessPath}news.plone.less";
-   @import "@{barcelonetaLessPath}discussion.plone.less";
-   @import "@{barcelonetaLessPath}search.plone.less";
+   @import "@{barceloneta-event}";
+   @import "@{barceloneta-image}";
+   @import "@{barceloneta-behaviors}";
+   @import "@{barceloneta-discussion}";
+   @import "@{barceloneta-search}";
 
-   //@import "@{barcelonetaLessPath}barceloneta.plone.less";
+   //*// Products
+   @import "@{barceloneta-event}";
+   @import "@{barceloneta-image}";
+   @import "@{barceloneta-behaviors}";
+   @import "@{barceloneta-discussion}";
+   @import "@{barceloneta-search}";
 
    // ### END OF PLONE IMPORTS ###
 
-   @import "main.less";
+   // include theme css as less
+   @import (less) "business-casual.css";
+
+   // include our custom less
+   @import "custom.less";
 
 Here we import the specific parts of the default Plone 5 Barceloneta theme.
 Feel free to comment out staff that you don't needed.
 
-At the bottom you can see, that we import the main.less file.
-The main.less will contain your custom styles and can look like this:
+At the bottom you can see, that we import the custom.less file.
+The custom.less will contain our custom styles and can look like this:
 
 .. code-block:: css
 
    h1 {
      color: green;
+   }
+
+We now have to register our resources in the resource registry.
+For that we create or customize the file registry.xml in our default profile folder:
+
+.. code-block:: bash
+
+   $ tree profiles/default/
+   profiles/default/
+   ├── browserlayer.xml
+   ├── metadata.xml
+   ├── plonethememytango_default.txt
+   ├── registry.xml
+   └── theme.xml
+
+We register our resource like this:
+
+.. code-block:: xml
+
+   <?xml version="1.0"?>
+   <registry>
+       <records prefix="plone.resources/tango-main"
+                 interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+          <value key="css">
+             <element>++plone++plonetheme.tango/css/main.less</element>
+          </value>
+       </records>
+
+       <!-- bundle definition -->
+       <records prefix="plone.bundles/tango-bundle"
+                 interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+         <value key="resources">
+           <element>tango-main</element>
+         </value>
+         <value key="enabled">True</value>
+         <value key="compile">True</value>
+         <value key="csscompilation">++plone++plonetheme.tango/css/tango-compiled.css</value>
+         <value key="last_compilation"></value>
+       </records>
+
+   </registry>
+
+To use these resources in our Diazo theme we customize our manifest.cfg in our theme like this:
+
+.. code-block:: xml
+
+   [theme]
+   title = plonetheme.tango
+   description = An example diazo theme
+   rules = /++theme++plonetheme.tango/rules.xml
+   prefix = /++theme++plonetheme.tango
+   doctype = <!DOCTYPE html>
+   enabled-bundles =
+   disabled-bundles =
+
+   development-css = /++theme++plonetheme.tango/css/tango-main.less
+   production-css = /++theme++plonetheme.tango/css/tango-compiled.css
+   tinymce-content-css = /++theme++plonetheme.tango/css/business-casual.css
+
+   [theme:overrides]
+   directory = template-overrides
+
+   [theme:parameters]
+   ajax_load = python: request.form.get('ajax_load')
+   portal_url = python: portal.absolute_url()
+
+The important parts here are the definitions for *development-css*, *production-css*, *tinymce-content-css*.
+
+
+To make our theme look nicer we add some css like this:
+
+.. code:: css
+
+   /* Custom less file that is included from the main.less file */
+
+   .brand-name{
+       margin-top: 0.5em;
+   }
+
+   .documentDescription{
+       margin-top: 1em;
+   }
+
+   .clearFix{
+       clear: both;
+   }
+
+   #left-sidebar {
+       padding-left: 0;
+   }
+
+   #right-sidebar {
+       padding-right: 0;
+   }
+
+   .portal-column-one .portlet,
+   .portal-column-two .portlet {
+       .box;
+   }
+
+   footer .portletActions{
+   }
+
+   footer {
+       .portlet {
+           padding: 1em 0;
+           margin-bottom: 0;
+           border: 0;
+           background: transparent;
+           .portletContent{
+               border: 0;
+               background: transparent;
+               ul {
+                   padding-left: 0;
+                   list-style-type: none;
+                   .portletItem {
+                       display: inline-block;
+                       &:not(:last-child){
+                           padding-right: 0.5em;
+                           margin-right: 0.5em;
+                           border-right: 1px solid;
+                       }
+                       &:hover{
+                           background-color: transparent;
+                       }
+                       a{
+                           color: #000;
+                           padding: 0;
+                           text-decoration: none;
+                           &:hover{
+                               background-color: transparent;
+                           }
+                           &::before{
+                               content: none;
+                           }
+                       }
+                   }
+               }
+           }
+       }
    }
 
 
