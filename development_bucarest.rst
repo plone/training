@@ -18,6 +18,7 @@ Contents:
     installation
     plone_training_config/instructions.rst
     plone5
+    case
     dexterity
     buildout_1
     eggs1
