@@ -79,11 +79,11 @@ The output should be similar to:
 
     ******************************************************************************
 
-    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob directory `/Users/fulvio/python/plone/clients/plone.training/training.own.20150924/buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
-    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob temporary directory '/Users/fulvio/python/plone/clients/plone.training/training.own.20150924/buildout/var/blobstorage/tmp' does not exist. Created new directory.
-    /Users/fulvio/.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/menu.py:5: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
+    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob directory `.../buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
+    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob temporary directory '.../buildout/var/blobstorage/tmp' does not exist. Created new directory.
+    .../.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/menu.py:5: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
       from plone.app.layout.navigation.defaultpage import isDefaultPage
-    /Users/fulvio/.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
+    .../.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
       from plone.app.multilingual.content.lrf import LanguageRootFolder
     2015-09-24 15:51:09 INFO Plone OpenID system packages not installed, OpenID support not available
     2015-09-24 15:51:11 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
@@ -228,11 +228,11 @@ Instead we use our own Plone instance during the training. It is in ``/vagrant/b
 
     ******************************************************************************
 
-    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob directory `/Users/fulvio/python/plone/clients/plone.training/training.own.20150924/buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
-    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob temporary directory '/Users/fulvio/python/plone/clients/plone.training/training.own.20150924/buildout/var/blobstorage/tmp' does not exist. Created new directory.
-    /Users/fulvio/.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/menu.py:5: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
+    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob directory `.../buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
+    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob temporary directory '.../buildout/var/blobstorage/tmp' does not exist. Created new directory.
+    .../.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/menu.py:5: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
       from plone.app.layout.navigation.defaultpage import isDefaultPage
-    /Users/fulvio/.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
+    .../.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
       from plone.app.multilingual.content.lrf import LanguageRootFolder
     2015-09-24 15:51:09 INFO Plone OpenID system packages not installed, OpenID support not available
     2015-09-24 15:51:11 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
