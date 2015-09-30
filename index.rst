@@ -9,6 +9,10 @@ Mastering Plone is intended as a week-long training for people who are new to Pl
 - An advanced training (3 to 5 days) that covers the rest.
 
 
+:doc:`bucarest`
+
+
+
 .. toctree::
     :maxdepth: 2
 
@@ -66,11 +70,10 @@ Contents:
     optional
 
 
-Please note that this document is not complete without the spoken word of a trainer. Even though we attempt to include the most important parts of what we teach in the narrative it can not be considered complete without the spoken word.
+Please note that this document is not complete without the spoken word of a trainer. Even though we attempt to include the most important parts of what we teach in the narrative but reading it here can in no way be considered equal to attending a training.
 
 
 .. toctree::
     :maxdepth: 2
 
     CHANGES
-    roadmap

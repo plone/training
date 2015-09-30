@@ -1,3 +1,5 @@
+Scratchpad
+==========
 
 About this training
     Training Agenda
