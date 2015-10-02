@@ -19,8 +19,8 @@ Relate to one item only.
     from z3c.relationfield.schema import RelationChoice
     from z3c.relationfield.schema import RelationList
 
-    the_boss = RelationChoice(
-        title=_(u'The Boss'),
+    evil_mastermind = RelationChoice(
+        title=_(u'The Evil Masterimind'),
         vocabulary='plone.app.vocabularies.Catalog',
         required=False,
     )
@@ -32,11 +32,12 @@ Relate to multiple items.
     from z3c.relationfield.schema import RelationChoice
     from z3c.relationfield.schema import RelationList
 
-    underlings = RelationList(
-        title=_(u'Underlings'),
+    minions = RelationList(
+        title=_(u'Minions'),
         default=[],
         value_type=RelationChoice(
             vocabulary='plone.app.vocabularies.Catalog',
+        )
         required=False,
     )
 
@@ -50,28 +51,63 @@ Instead of using a named vocabulary we can also use ``source``:
     from z3c.relationfield.schema import RelationChoice
     from z3c.relationfield.schema import RelationList
 
-    talks = RelationList(
+    minions = RelationList(
         title=_(u'Talks by this speaker'),
         value_type=RelationChoice(
             title=_(u'Talks'),
-            source=CatalogSource(portal_type=['talk', 'training'])),
+            source=CatalogSource(portal_type=['one_eyed_minion', 'minion'])),
         required=False,
     )
 
 To ``CatalogSource`` you can pass the same argument that you use for catalog-queries.
 This makes it very flexible to limit relateable items by type, path, date etc.
+
 For even more flexibility you can create your own `dynamic vocabularies <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html#dynamic-sources>`_.
 
 
 Accessing and displaying related items
 --------------------------------------
 
+One would think that it would be the easiest approach to simply use the render-method of the default-widget like we did in the chapter "Views II: A Default View for “Talk”". Sadly that is wrong. Adding the approriate code to te template:
 
-TODO!
+..  code-block::html
 
-To display relations in a template the simplest way is to use the render-version of the default-widget.
+    <div tal:content="structure view/w/evil_mastermind/render" />
 
-For reference look at how the default viewlet displays the information for related items stored by the behavior ``IRelatedItems``.
+would only render the UIDs of the related items:
+
+..  code-block::html
+
+    <span class="text-widget relationchoice-field" id="form-widgets-evil_mastermind">
+        1ccb5787517947da90a8ca32d6251c57
+    </span>
+
+This is not too bad since is very likely that you want to control closely how to render tese items anyway.
+
+So we add a method to the view to return the related items so that we're able to render anyway we like.
+
+..  code-block:: python
+
+    def minions(self):
+        """Returns a list of brains of related items."""
+        results = []
+        catalog = api.portal.get_tool('portal_catalog')
+        for rel in self.context.underlings:
+            if not i.isBroken():
+                # skip broken relations
+                continue
+            # query by so we don't have to wake up any objects
+            brains = catalog(path={'query': rel.to_path, 'depth': 0})
+            results.append(brains[0])
+        return results
+
+We use ``rel.to_path`` and use the items path to query the catalog for its catalog-entry. This is much more efficient than using ``rel.to_object`` since we don't have to wake up any objects. Setting ``depth`` to ``0`` will only return items with exactly this path, so it will always return a list with one item.
+
+..  note::
+
+    Using the path sounds a little complicated and it would indeed be more convenient if a ``RelationItem`` would contain the ``UID`` (so we can query the catalog for that) or if the ``portal_catalog`` would index the ``IntId``. But that's the way it is for now.
+
+For reference look at how the default viewlet displays the information for related items stored by the behavior ``IRelatedItems``. See how it does exatly the same in ``related2brains``.
 This is the python-path for the viewlet: ``plone.app.layout.viewlets.content.ContentRelatedItems``
 This is the file-path for the template: ``plone/app/layout/viewlets/document_relateditems.pt``
 
