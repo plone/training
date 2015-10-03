@@ -288,7 +288,7 @@ Each of these states connects roles to permissions.
 
 A workflow state is an association between a role and one or more permissions. Moving from one state to another is a ``transition``. Transitions (like ``submit for review``) may have actions — like the execution of a content rule or script — associated with them.
 
-A complete set of workflow states and transitions make up a ``workflow``. Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites. Individual contenttypes may have their own workflow. Or, and this is particularly interesting, no workflow. In that case, which initially applies to file and image uploads, the content object inherits the workflow of its container.
+A complete set of workflow states and transitions make up a ``workflow``. Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites. Individual contenttypes may have their own workflow. Or, and this is particularly interesting, no workflow. In that case, which initially applies to file and image uploads, the content object inherits the workflow state of its container.
 
 .. note::
 

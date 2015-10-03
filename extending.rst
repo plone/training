@@ -118,11 +118,11 @@ Component Architecture
 
     After a while, XML and Components became the next silver bullet (Does anybody remember J2EE?).
 
-    Based on their experiences with Zope in the past, they thought that a component system configured via XML might be the way to go to keep the code more maintainable.
+    Based on their experiences with Zope in the past, Zope developers thought that a component system configured via XML might be the way to go to keep the code more maintainable.
 
     As the new concepts were radically different from the old Zope concepts, the Zope developers renamed the new project to Zope 3. But it did not gain traction, the community somehow renamed it to Bluebream and this died off.
 
-    But the component architecture itself is quite successful and the Zope developer extracted it into the Zope Toolkit. The Zope toolkit is part of Zope, and Plone developers use it extensively.
+    But the component architecture itself is quite successful and the Zope developers extracted it into the Zope Toolkit. The Zope toolkit is part of Zope, and Plone developers use it extensively.
 
     This is what you want to use.
 
@@ -140,13 +140,13 @@ What are components, what is ZCML
 
     It means that you change code in other files while my file gets loaded.
 
-    If you want to have an extensible registry of icons for different contenttypes, you could create a global dictionary, and whoever implements a new icon for a different content type, would add an entry to my dictionary during import time.
+    If you want to have an extensible registry of icons for different contenttypes, you could create a global dictionary, and whoever implements a new icon for a different content type would add an entry to my dictionary during import time.
 
-    This approach, like subclassing via multiple inheritance, does not scale. Multiple plugins might overwrite each other, you would explain people that they have to reorder the imports, and then, suddenly, you will to import feature A before B, B before C and C before A, or else you application won't work.
+    This approach, like subclassing via multiple inheritance, does not scale. Multiple plugins might overwrite each other, you would explain to people that they have to reorder the imports, and then, suddenly, you will be forced to import feature A before B, B before C and C before A, or else your application won't work.
 
-    The Zope Component Architecture with its ZCML configuration is an answer to this problems.
+    The Zope Component Architecture with its ZCML configuration is an answer to these problems.
 
-    With ZCML you declare utilities, adapters and browser views in ZCML, which is a XML dialect. ZCML stands for Zope Component Markup Language.
+    With ZCML you declare utilities, adapters and browser views in ZCML, which is an XML dialect. ZCML stands for Zope Component Markup Language.
 
     Components are differentiated from one another by the interfaces (formal definitions of functionality) that they require or provide.
 
@@ -162,5 +162,5 @@ What are components, what is ZCML
 
     The choice to Grok or not to Grok is yours to make. In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to get maximum acceptance.
 
-    Personally, I just find it cumbersome but even for me as a developer it offers a nice advantage: thanks to ZCML, I hardly ever have a hard time to find out what and where extensions or customizations. For me, ZCML files are like a phone book.
+    Personally, I just find it cumbersome but even for me as a developer it offers a nice advantage: thanks to ZCML, I hardly ever have a hard time to find what and where extensions or customizations are defined. For me, ZCML files are like a phone book.
 
