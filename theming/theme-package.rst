@@ -6,7 +6,7 @@ Creating a theme product with the Diazo inline editor is an easy way to start
 and to test, but it is not a solid long term solution.
 
 Even if ``plone.app.theming`` allows to import and export a Diazo theme as a ZIP
-archive, it might be prefereable to manage your theme into an actual Plone
+archive, it might be preferable to manage your theme into an actual Plone
 product.
 
 One of the most obvious reason is it will allow you to override Plone elements
@@ -92,7 +92,7 @@ Then you can run:
 
    $ ./bin/buildout
 
-This will create the whole develoment environment for your package:
+This will create the whole development environment for your package:
 
 .. code-block:: bash
 
@@ -109,7 +109,7 @@ This will create the whole develoment environment for your package:
 Extend your buildout configuration
 ----------------------------------
 
-Add the following builout parts, if they are not already exist:
+Add the following buildout parts, if they are not already exist:
 
 .. code-block:: ini
 
@@ -192,6 +192,10 @@ You can use *plone-compile-resources* to build your resource bundle as follow, b
 This will start the Plone instance, read variables from the registry and compile your bundle.
 If your Plone site has an id other than *Plone*, you can provide the ``--site-id``.
 
+You can also build your bundle TTW in the ``resource registry`` of Plone.
+Just go to ``@@resourceregistry-controlpanel`` and press *Build* for the tango-bundle.
+TODO: show some screenshots here.
+
 Start your Plone instance and play with your theme product
 ----------------------------------------------------------
 
@@ -272,7 +276,7 @@ Here you can build your Diazo theme.
 Build your Diazo based theme
 ============================
 
-You can start with the example files in the theme folder, your own static html mockup or you use the Plone 5 default theme ``Barceloneta`` as a starting point.
+You can start with the example files in the theme folder, your own static HTML mockup or you use the Plone 5 default theme ``Barceloneta`` as a starting point.
 
 Use your own static mockup
 --------------------------
@@ -343,11 +347,13 @@ Add this:
 
 .. code-block:: html
 
-   <div id="column1-container"></div>
-   <div id="content-container">
-     <!-- main content (box2 and box3) comes here -->
+   <div class="row">
+     <div id="column1-container"></div>
+     <div id="content-container">
+       <!-- main content (box2 and box3) comes here -->
+     </div>
+     <div id="column2-container"></div>
    </div>
-   <div id="column2-container"></div>
 
 And then move the main content (the box 2 and box 3 including the parent row div) into the content-container.
 
@@ -355,39 +361,41 @@ It should look like:
 
 .. code-block:: html
 
-   <div id="column1-container"></div>
+   <div class="row">
+     <div id="column1-container"></div>
 
-   <div id="content-container">
-       <div class="row">
-           <div class="box">
-               <div class="col-lg-12">
-                   <hr>
-                   <h2 class="intro-text text-center">Build a website
-                       <strong>worth visiting</strong>
-                   </h2>
-                   <hr>
-                   <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="">
-                   <hr class="visible-xs">
-                   <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
-                   <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
-                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-               </div>
-           </div>
-       </div>
+     <div id="content-container">
+         <div class="row">
+             <div class="box">
+                 <div class="col-lg-12">
+                     <hr>
+                     <h2 class="intro-text text-center">Build a website
+                         <strong>worth visiting</strong>
+                     </h2>
+                     <hr>
+                     <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="">
+                     <hr class="visible-xs">
+                     <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
+                     <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                 </div>
+             </div>
+         </div>
 
-       <div class="row">
-           <div class="box">
-               <div class="col-lg-12">
-                   <hr>
-                   <h2 class="intro-text text-center">Beautiful boxes
-                       <strong>to showcase your content</strong>
-                   </h2>
-                   <hr>
-                   <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
-                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-               </div>
-           </div>
-       </div>
+         <div class="row">
+             <div class="box">
+                 <div class="col-lg-12">
+                     <hr>
+                     <h2 class="intro-text text-center">Beautiful boxes
+                         <strong>to showcase your content</strong>
+                     </h2>
+                     <hr>
+                     <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                 </div>
+             </div>
+         </div>
+     </div>
    </div>
 
    <div id="column2-container"></div>
@@ -398,11 +406,11 @@ Using Diazo rules to map the theme with Plone content
 
 Now that we have the static theme inside, we need to apply the Diazo rules in rules.xml to map the theme with the Plone content elements.
 
-First let me explane what we mean, when we talk about content and theme.
-Content is normaly the dynamic generated content on the Plone site and theme
+First let me explain what we mean, when we talk about content and theme.
+Content is usually the dynamic generated content on the Plone site and theme
 is the static template site.
 
-For exaple:
+For example:
 
 .. code-block:: xml
 
@@ -590,7 +598,7 @@ To make this easier, we wrap then slider area with a "#front-page-slider" div-ta
        </h2>
    </div>
 
-Now we can drop it if we are not on the front-page:
+Now we can drop it, if we are not on the front-page and also in some other situations:
 
 .. code-block:: xml
 
@@ -601,6 +609,9 @@ Now we can drop it if we are not on the front-page:
    <drop
      css:theme="#front-page-slider"
      css:if-content=".template-edit" />
+   <drop
+     css:theme="#front-page-slider"
+     css:if-content=".template-topbar-manage-portlets" />
 
 By now the slider is still static, but we will change that later.
 
@@ -658,7 +669,7 @@ This rule then takes the Plone breadcrumb & co over:
      css:content-children="#viewlet-above-content"
      />
 
-This will take over everthing in viewlet-above from Plone.
+This will take over everything in viewlet-above from Plone.
 Our current theme does not provide a breadcrumb bar, so we can just drop them from Plone content, like this:
 
 .. code-block:: xml
@@ -763,7 +774,7 @@ The following rules will take over the left and the right columns and also chang
    <!-- Left column -->
    <rules if-content="//*[@id='portal-column-one']">
      <replace css:theme="#column1-container">
-         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="left-sidebar">
            <aside id="portal-column-one">
               <xsl:copy-of select="//*[@id='portal-column-one']/*"/>
            </aside>
@@ -774,7 +785,7 @@ The following rules will take over the left and the right columns and also chang
    <!-- Right column -->
    <rules if-content="//*[@id='portal-column-two']">
      <replace css:theme="#column2-container">
-         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="complementary">
+         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="right-sidebar" role="complementary">
            <aside id="portal-column-two">
               <xsl:copy-of select="//*[@id='portal-column-two']/*"/>
            </aside>
@@ -798,7 +809,7 @@ Take over the footer from Plone:
 CSS and JS resources
 ++++++++++++++++++++
 
-First let's get sure we have loaded the registerless profile of barceloneta.
+First let's get sure we have loaded the registerless profile of Barceloneta.
 To do that, we change our metadata.xml like this:
 
 .. code:: xml
@@ -814,7 +825,7 @@ To do that, we change our metadata.xml like this:
 
 This we will register all less files of barceloneta theme in the resource registry, so that we can use theme in our custom less files.
 
-Now let's add some less files in our css folder::
+Now let's add some less files ``main.less`` and ``custom.less`` to our css folder:
 
 .. code-block:: bash
 
@@ -826,7 +837,7 @@ Now let's add some less files in our css folder::
    ├── custom.less
    └── main.less
 
-The main.less file can look like this:
+The ``main.less`` file can look like this:
 
 .. code-block:: sass
 
@@ -921,8 +932,10 @@ The main.less file can look like this:
 Here we import the specific parts of the default Plone 5 Barceloneta theme.
 Feel free to comment out staff that you don't needed.
 
-At the bottom you can see, that we import the custom.less file.
-The custom.less will contain our custom styles and can look like this:
+At the bottom you can see, that we import the ``business-casual.css`` as a less file and the ``custom.less`` file.
+The business-casual.css comes from the downloaded static theme and is included to reduce the amount of css files.
+
+The ``custom.less`` will contain our custom styles and can look like this:
 
 .. code-block:: css
 
@@ -931,7 +944,7 @@ The custom.less will contain our custom styles and can look like this:
    }
 
 We now have to register our resources in the resource registry.
-For that we create or customize the file registry.xml in our default profile folder:
+For that we create or customize the file ``registry.xml`` in our default profile folder:
 
 .. code-block:: bash
 
@@ -967,10 +980,9 @@ We register our resource like this:
          <value key="csscompilation">++plone++plonetheme.tango/css/tango-compiled.css</value>
          <value key="last_compilation"></value>
        </records>
-
    </registry>
 
-To use these resources in our Diazo theme we customize our manifest.cfg in our theme like this:
+To use these resources in our Diazo theme we customize our ``manifest.cfg`` in our theme like this:
 
 .. code-block:: xml
 
@@ -996,8 +1008,258 @@ To use these resources in our Diazo theme we customize our manifest.cfg in our t
 
 The important parts here are the definitions for *development-css*, *production-css*, *tinymce-content-css*.
 
+.. note:: When ever you made changes to your less/css files, you have to rebuild the bundle.
 
-To make our theme look nicer we add some css like this:
+To test your changes, you can build your bundle TTW in the ``resource registry`` of Plone.
+Just go to ``@@resourceregistry-controlpanel`` and press *Build* for the tango-bundle.
+
+Or you can use the plone-compile-resources script, to rebuild the bundle.
+
+.. code-block:: bash
+
+   $ ./bin/plone-compile-resources --bundle=tango-bundle
+
+After you compiled your bundle with the ``plone-compile-resources`` once, you can use the generated Gruntfile and recompile your bundle as follow:
+
+.. code-block:: bash
+
+   $ grunt compile-tango-bundle
+
+The name of our bundle is ``tango-bundle``, you can find the right name of the *Grunt task* to compile your bundle at the bottom of the ``Gruntfile.js``.
+This pure Grunt method is much faster then using the ``plone-compile-resources`` script.
+
+.. note::
+
+   You can use this direct Grunt method until you change something in the resources and bundle registration.
+   Then you have to use the ``plone-compile-resources`` once again, before you can use the pure Grunt method.
+
+
+.. Using parts of Boostrap
+.. +++++++++++++++++++++++
+
+.. Since Plone already uses Bootstrap internaly, we only need to load some parts of Bootstrap which does not come with Plone.
+.. To find out what parts of Bootstrap Plone uses already, you can look into ``Products/CMFPlone/profiles/dependencies/registry.xml`` or in the Resource Registry TTW.
+.. But i would recomment the ``registry.xml`` file because, it is easier to search in.
+.. So if you search for bootstrap in the ``registry.xml`` you will find out that Plone uses at least the follwing parts of Boostrap already:
+
+.. LESS files
+.. **********
+
+.. * less/variables.less
+.. * less/mixins.less
+.. * less/utilities.less
+.. * less/forms.less
+.. * less/navs.less
+.. * less/navbar.less
+.. * less/progress-bars.less
+.. * less/modals.less
+.. * less/button-groups.less
+.. * less/buttons.less
+.. * less/close.less
+.. * less/dropdowns.less
+.. * less/glyphicons.less
+.. * less/badges.less
+
+.. Javascript files
+.. ****************
+
+.. * js/alert.js
+.. * js/dropdown.js
+.. * js/collapse.js
+.. * js/tooltip.js
+.. * js/transition.js
+
+
+Load LESS parts of Bootstrap
+****************************
+
+To load the carousel for example we first install bootstrap less version into our theme.
+To do that we use ``bower``, which should globally installed on your system.
+First we initialize our theme package. To do that, we run the following command inside our theme folder:
+
+.. code-block:: bash
+
+   $ bower init
+
+After filling some questions, we have a bower config file ``bower.json``.
+Here we put all packages in we need for our theme.
+
+Now we install bootstrap with bower:
+
+.. code-block:: bash
+
+   $ bower install bootstrap --save
+
+The ``--save`` option will store the package in the bower.json for us.
+So that on other systems the use can install all dependencies with the following command from inside of our theme folder:
+
+.. code-block:: bash
+
+   $ bower install
+
+Now that we have installed bootstrap with bower, we have all bootstrap components available in the subfolder called ``bower_components``:
+
+.. code-block:: bash
+
+   $ tree bower_components/bootstrap/
+   bower_components/bootstrap/
+   ├── bower.json
+   ├── dist
+   │   ├── css
+   │   │   ├── bootstrap.css
+   │   │   ├── bootstrap.css.map
+   │   │   ├── bootstrap.min.css
+   │   │   ├── bootstrap-theme.css
+   │   │   ├── bootstrap-theme.css.map
+   │   │   └── bootstrap-theme.min.css
+   │   ├── fonts
+   │   │   ├── glyphicons-halflings-regular.eot
+   │   │   ├── glyphicons-halflings-regular.svg
+   │   │   ├── glyphicons-halflings-regular.ttf
+   │   │   ├── glyphicons-halflings-regular.woff
+   │   │   └── glyphicons-halflings-regular.woff2
+   │   └── js
+   │       ├── bootstrap.js
+   │       ├── bootstrap.min.js
+   │       └── npm.js
+   ├── fonts
+   │   ├── glyphicons-halflings-regular.eot
+   │   ├── glyphicons-halflings-regular.svg
+   │   ├── glyphicons-halflings-regular.ttf
+   │   ├── glyphicons-halflings-regular.woff
+   │   └── glyphicons-halflings-regular.woff2
+   ├── grunt
+   │   ├── bs-commonjs-generator.js
+   │   ├── bs-glyphicons-data-generator.js
+   │   ├── bs-lessdoc-parser.js
+   │   ├── bs-raw-files-generator.js
+   │   ├── configBridge.json
+   │   └── sauce_browsers.yml
+   ├── Gruntfile.js
+   ├── js
+   │   ├── affix.js
+   │   ├── alert.js
+   │   ├── button.js
+   │   ├── carousel.js
+   │   ├── collapse.js
+   │   ├── dropdown.js
+   │   ├── modal.js
+   │   ├── popover.js
+   │   ├── scrollspy.js
+   │   ├── tab.js
+   │   ├── tooltip.js
+   │   └── transition.js
+   ├── less
+   │   ├── alerts.less
+   │   ├── badges.less
+   │   ├── bootstrap.less
+   │   ├── breadcrumbs.less
+   │   ├── button-groups.less
+   │   ├── buttons.less
+   │   ├── carousel.less
+   │   ├── close.less
+   │   ├── code.less
+   │   ├── component-animations.less
+   │   ├── dropdowns.less
+   │   ├── forms.less
+   │   ├── glyphicons.less
+   │   ├── grid.less
+   │   ├── input-groups.less
+   │   ├── jumbotron.less
+   │   ├── labels.less
+   │   ├── list-group.less
+   │   ├── media.less
+   │   ├── mixins
+   │   │   ├── alerts.less
+   │   │   ├── background-variant.less
+   │   │   ├── border-radius.less
+   │   │   ├── buttons.less
+   │   │   ├── center-block.less
+   │   │   ├── clearfix.less
+   │   │   ├── forms.less
+   │   │   ├── gradients.less
+   │   │   ├── grid-framework.less
+   │   │   ├── grid.less
+   │   │   ├── hide-text.less
+   │   │   ├── image.less
+   │   │   ├── labels.less
+   │   │   ├── list-group.less
+   │   │   ├── nav-divider.less
+   │   │   ├── nav-vertical-align.less
+   │   │   ├── opacity.less
+   │   │   ├── pagination.less
+   │   │   ├── panels.less
+   │   │   ├── progress-bar.less
+   │   │   ├── reset-filter.less
+   │   │   ├── reset-text.less
+   │   │   ├── resize.less
+   │   │   ├── responsive-visibility.less
+   │   │   ├── size.less
+   │   │   ├── tab-focus.less
+   │   │   ├── table-row.less
+   │   │   ├── text-emphasis.less
+   │   │   ├── text-overflow.less
+   │   │   └── vendor-prefixes.less
+   │   ├── mixins.less
+   │   ├── modals.less
+   │   ├── navbar.less
+   │   ├── navs.less
+   │   ├── normalize.less
+   │   ├── pager.less
+   │   ├── pagination.less
+   │   ├── panels.less
+   │   ├── popovers.less
+   │   ├── print.less
+   │   ├── progress-bars.less
+   │   ├── responsive-embed.less
+   │   ├── responsive-utilities.less
+   │   ├── scaffolding.less
+   │   ├── tables.less
+   │   ├── theme.less
+   │   ├── thumbnails.less
+   │   ├── tooltip.less
+   │   ├── type.less
+   │   ├── utilities.less
+   │   ├── variables.less
+   │   └── wells.less
+   ├── LICENSE
+   ├── package.js
+   ├── package.json
+   └── README.md
+
+To include the needed carousel part and some other bootstrap components which our downloaded theme uses, we changed the end of our ``main.less`` like this:
+
+.. code-block:: css
+
+   // ### UTILS ###
+
+   // import bootstrap variables from Plone -->
+   @import "@{bootstrap-variables}";
+
+   // import needed bootstrap less files from bower_components
+   @import "../bower_components/bootstrap/less/mixins.less";
+   @import "../bower_components/bootstrap/less/utilities.less";
+
+   @import "../bower_components/bootstrap/less/forms.less";
+   @import "../bower_components/bootstrap/less/navs.less";
+   @import "../bower_components/bootstrap/less/navbar.less";
+   @import "../bower_components/bootstrap/less/carousel.less";
+
+   // ### END OF UTILS ###
+
+
+   // include theme css as less
+   @import (less) "business-casual.css";
+
+   // include our custom less
+   @import "custom.less";
+
+
+
+Final CSS customization
++++++++++++++++++++++++
+
+To make our theme look nicer we add some css like this to our ``custom.less`` file:
 
 .. code:: css
 
