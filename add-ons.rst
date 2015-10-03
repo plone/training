@@ -34,7 +34,7 @@ Some notable add-ons
 
 .. warning::
 
-    Many add-ons will not yet run under Plone 5 and will have to be updated to be compatible. One Example is Products.PloneFormGen: We use our own source-checkout of it from https://github.com/starzel/Products.PloneFormGen that contains small changes that make it compatible with Plone 5.
+    Many add-ons will not yet run under Plone 5 and will have to be updated to be compatible.
 
     Other add-ons will be rendered obsolete by Plone 5. There is no more need for collective.quickupload since Plone 5 already has the functionality to upload multiple files at once.
 
