@@ -81,8 +81,6 @@ The output should be similar to:
 
     2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob directory `.../buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
     2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob temporary directory '.../buildout/var/blobstorage/tmp' does not exist. Created new directory.
-    .../.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/menu.py:5: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
-      from plone.app.layout.navigation.defaultpage import isDefaultPage
     .../.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
       from plone.app.multilingual.content.lrf import LanguageRootFolder
     2015-09-24 15:51:09 INFO Plone OpenID system packages not installed, OpenID support not available
@@ -230,8 +228,6 @@ Instead we use our own Plone instance during the training. It is in ``/vagrant/b
 
     2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob directory `.../buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
     2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob temporary directory '.../buildout/var/blobstorage/tmp' does not exist. Created new directory.
-    .../.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/menu.py:5: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
-      from plone.app.layout.navigation.defaultpage import isDefaultPage
     .../.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
       from plone.app.multilingual.content.lrf import LanguageRootFolder
     2015-09-24 15:51:09 INFO Plone OpenID system packages not installed, OpenID support not available
@@ -274,3 +270,15 @@ What Vagrant does
 +++++++++++++++++
 
 Installation is done automatically by vagrant and puppet. If you want to know which steps are actually done please see the chapter :doc:`what_vagrant_does`.
+
+.. _instructions-vagrant-care-handling-label:
+
+.. note::
+
+    **Vagrant Care and Handling**
+
+    Keep in mind the following recommendations for using your Vagrant virtualboxes:
+
+    * Use the ``vagrant suspend`` or ``vagrant halt`` commands to put the virtualbox to "sleep" or to "power it off" before attempting to start another Plone instance anywhere else on your machine, if it uses the same port.  That's because vagrant "reserves" port 8080, and even if you stopped Plone in vagrant, that port is still in use by the guest OS.
+    * If you are done with a vagrant box, and want to delete it, always remember to run ``vagrant destroy`` on it before actually deleting the directory containing it.  Otherwise you'll leave its "ghost" in the list of boxes managed by vagrant and possibly taking up disk space on your machine.
+    * See ``vagrant help`` for all available commands, including ``suspend``, ``halt``, ``destroy``, ``up``, ``ssh`` and ``resume``.
