@@ -25,7 +25,7 @@ A content type is a variety of object that can store information and is editable
 
 It is common in developing a web site that you'll need customized versions of common contenttypes, or perhaps even entirely new types.
 
-Remember the requirements for our project? We wanted to be able to solicit and edit conference talks. We could use the ``page`` content type for that purpose. But there are bits of information we need to make sure we collect about a talk and we wouldn't be sure to get that information if we just asked potential presenters to create a page. Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks. A custom content type will be ideal.
+Remember the requirements for our project? We wanted to be able to solicit and edit conference talks. We could use the ``page`` content type for that purpose. But we need to make sure we collect certain bits of information about a talk and we couldn't be sure to get that information if we just asked potential presenters to create a page. Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks. A custom content type will be ideal.
 
 .. _dexterity1-contains-label:
 
@@ -157,7 +157,7 @@ In this step we will create a content type called *Talk* and try it out. When it
 * Extend the new type
 
   * "Speaker", type: "Text line"
-  * "Email", type: "Text line"
+  * "Email", type: "Email"
   * "Image", type: "Image", not required
   * "Speaker Biography", type: "Rich Text"
 
@@ -261,14 +261,14 @@ Exercise 2
 Create a new content type called *Speaker* and export the schema to a XML File.
 It should contain the following fields:
 
-* Title
-* Email
-* Homepage (optional)
-* Biography (optional)
-* Company (optional)
-* Twitter Name (optional)
-* IRC Name (optional)
-* Image (optional)
+* Title, type: "Text Line"
+* Email, type: "Email"
+* Homepage, type: "URL" (optional)
+* Biography, type: "Rich Text" (optional)
+* Company, type: "Text Line" (optional)
+* Twitter Handle, type: "Text Line" (optional)
+* IRC Handle, type: "Text Line" (optional)
+* Image, type: "Image" (optional)
 
 Do not use the IDublinCore or the IBasic behavior since a speaker should not have a description.
 
@@ -281,7 +281,9 @@ We could use this content type later to convert speakers into Plone users. We co
 
     ..  code-block:: xml
 
-        <model xmlns:security="http://namespaces.plone.org/supermodel/security"
+        <model xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
+               xmlns:users="http://namespaces.plone.org/supermodel/users"
+               xmlns:security="http://namespaces.plone.org/supermodel/security"
                xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
                xmlns:form="http://namespaces.plone.org/supermodel/form"
                xmlns="http://namespaces.plone.org/supermodel/schema">
@@ -289,10 +291,10 @@ We could use this content type later to convert speakers into Plone users. We co
             <field name="title" type="zope.schema.TextLine">
               <title>Name</title>
             </field>
-            <field name="email" type="zope.schema.TextLine">
+            <field name="email" type="zope.schema.email.Email">
               <title>Email</title>
             </field>
-            <field name="homepage" type="zope.schema.TextLine">
+            <field name="homepage" type="zope.schema.URI">
               <required>False</required>
               <title>Homepage</title>
             </field>
@@ -304,13 +306,13 @@ We could use this content type later to convert speakers into Plone users. We co
               <required>False</required>
               <title>Company</title>
             </field>
-            <field name="twitter_name" type="zope.schema.TextLine">
+            <field name="twitter_handle" type="zope.schema.TextLine">
               <required>False</required>
-              <title>Twitter-Name</title>
+              <title>Twitter Handle</title>
             </field>
             <field name="irc_name" type="zope.schema.TextLine">
               <required>False</required>
-              <title>IRC-Name</title>
+              <title>IRC Handle</title>
             </field>
             <field name="image" type="plone.namedfile.field.NamedBlobImage">
               <required>False</required>
