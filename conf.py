@@ -38,7 +38,7 @@ extensions = [
     'sphinx.ext.graphviz',
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
-    'sphinxcontrib.spelling',
+#    'sphinxcontrib.spelling',
 ]
 
 
