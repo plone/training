@@ -127,13 +127,13 @@ profiles/default/metadata.xml
 
 .. _eggs1-include-label:
 
-Including the package in Plone
+Including the distribution in Plone
 ------------------------------
 
-Before we can use our new package we have to tell Plone about it. Edit ``buildout.cfg`` and uncomment ``ploneconf.site`` in the sections `auto-checkout`, `eggs` and `test`:
+Before we can use our new distribution we have to tell Plone about it. Edit ``buildout.cfg`` and uncomment ``ploneconf.site`` in the sections `auto-checkout`, `eggs` and `test`:
 
 .. code-block:: cfg
-    :emphasize-lines: 4, 31, 39
+    :emphasize-lines: 4, 34, 42
 
     auto-checkout +=
         ploneconf.site_sneak
@@ -162,7 +162,6 @@ Before we can use our new package we have to tell Plone about it. Edit ``buildou
         plone.app.debugtoolbar
         Products.PrintingMailHost
 
-
     # TTW Forms (based on Archetypes)
         Products.PloneFormGen
 
@@ -177,7 +176,7 @@ Before we can use our new package we have to tell Plone about it. Edit ``buildou
     test-eggs +=
         ploneconf.site [test]
 
-This tells Buildout to add the egg ``ploneconf.site``. Since it is also in the `sources` section buildout will not try to download it from pypi but will expect it in ``src/ploneconf.site``. *fs* allows you to add packages on the filesystem without a version control system, or with an unsupported one.
+This tells Buildout to add the egg ``ploneconf.site``. Since it is also in the `sources` section buildout will not try to download it from pypi but will expect it in ``src/ploneconf.site``. *fs* allows you to add eggs on the filesystem without a version control system, or with an unsupported one.
 
 Now run buildout to reconfigure Plone with the updated configuration:
 
