@@ -133,7 +133,7 @@ Including the distribution in Plone
 Before we can use our new distribution we have to tell Plone about it. Edit ``buildout.cfg`` and uncomment ``ploneconf.site`` in the sections `auto-checkout`, `eggs` and `test`:
 
 .. code-block:: cfg
-    :emphasize-lines: 4, 34, 42
+    :emphasize-lines: 4, 32, 40
 
     auto-checkout +=
         ploneconf.site_sneak
