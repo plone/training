@@ -16,9 +16,9 @@ Topics covered:
 
 .. only:: not presentation
 
-    `Buildout <https://pypi.python.org/pypi/zc.buildout>`_ configures your application for you, according to your rules.
+    `Buildout <https://pypi.python.org/pypi/zc.buildout>`_ composes your application for you, according to your rules.
 
-    To configure your application you must define the eggs you need, which version, what configuration files Buildout has to generate for you, what to download and compile, and so on.
+    To compose your application you must define the eggs you need, which version, what configuration files Buildout has to generate for you, what to download and compile, and so on.
     Buildout downloads the eggs you requested and resolves all dependencies. You might need five different eggs, but in the end, Buildout has to install 300 eggs, all with the correct version in order to resolve all the dependencies.
 
     Buildout does this without touching your system Python or affecting any other package. The commands created by buildout bring all the required packages into the Python environment. Each command it creates may use different libraries or even different versions of the same library.
