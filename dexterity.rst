@@ -168,7 +168,12 @@ Here is the complete xml-schema created by our actions.
 .. code-block:: xml
   :linenos:
 
-  <model xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns="http://namespaces.plone.org/supermodel/schema">
+  <model xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
+       xmlns:users="http://namespaces.plone.org/supermodel/users"
+       xmlns:security="http://namespaces.plone.org/supermodel/security"
+       xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
+       xmlns:form="http://namespaces.plone.org/supermodel/form"
+       xmlns="http://namespaces.plone.org/supermodel/schema">
     <schema>
       <field name="type_of_talk" type="zope.schema.Choice">
         <description/>
@@ -199,7 +204,7 @@ Here is the complete xml-schema created by our actions.
         <description>Name (or names) of the speaker</description>
         <title>Speaker</title>
       </field>
-      <field name="email" type="zope.schema.TextLine">
+      <field name="email" type="zope.schema.email.Email">
         <description>Adress of the speaker</description>
         <title>Email</title>
       </field>
