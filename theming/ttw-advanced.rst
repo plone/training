@@ -4,7 +4,7 @@ TTW advanced: intro to Diazo Theming, build custom rules through the web
 
 A Plone theme takes uses ``Diazo`` techonology to make theming easier.
 
-You can find extended information about Diazo and its integration package ``plone.app.theming`` in the official docs: `Diazo docs <http://docs.diazo.org>`_
+You can find extended information about Diazo and its integration package ``plone.app.theming`` in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_
 and `plone.app.theming docs <http://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
 
 For this part of the training you just need to know the basic principles of a Diazo theme:
