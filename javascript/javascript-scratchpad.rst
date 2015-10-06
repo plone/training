@@ -23,6 +23,14 @@ General advises
     To avoid this, add your resources to existing bundles, like the "plone"
     bundle.
 
+.. note::
+
+    The mockup grunt infrastructure is build with a convention over
+    configuration approach in mind. It's actually very picky about a lot of
+    things: locations of your bundle files, location of your bundle less files,
+    location of your pattern js and less files and the require js ids of those.
+    Bundles have to be named "mockup-bundles-BUNDLENAME", patterns have to be
+    named "mockup-patterns-PATTERNNAME".
 
 
 
