@@ -1,6 +1,35 @@
 Scratchpad
 ==========
 
+Scratchpat for text snippets to be included somewhere else in the training.
+
+
+General advises
+---------------
+
+.. note::
+
+    When providing static resources (JS/LESS/CSS) for Plone 5's resource
+    registry, use ``plone.resource`` based resources instead of Zope's browser
+    resources. The latter are cached heavily and you won't get your changes
+    build with zope resources.
+
+.. note::
+
+    A bundle can depend on another. This is mainly used for the order of
+    inclusion in the rendered content. Currently, it doesn't hook in the
+    require js dependency mechanism. This means, each bundle gets all their
+    dependencies compiled in, which raise the response paiload unnecessarily.
+    To avoid this, add your resources to existing bundles, like the "plone"
+    bundle.
+
+
+
+
+Structure
+---------
+
+
 About this training
     Training Agenda
         DAY1
