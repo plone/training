@@ -32,6 +32,15 @@ General advises
     Bundles have to be named "mockup-bundles-BUNDLENAME", patterns have to be
     named "mockup-patterns-PATTERNNAME".
 
+.. note::
+
+    There is currently no API to build JavaScript and Less resources
+    programmatically after importing them. Both build steps need the Client
+    side RequireJS respectively Less compilers. The resources are downloaded to
+    your browser, compiled there and re-upload to the Plone server, where they
+    are stored in ZODB as plone.resource resources.  We can pre-build
+    everything using standard JavaScript and Less development frameworks, e.g.
+    via ``mockup``'s Grunt infrastructure.
 
 
 Structure
