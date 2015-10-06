@@ -82,7 +82,8 @@ Upon installing, Plone reads the file ``profiles/default/types/talk.xml`` and re
      </property>
      <property name="schema"></property>
      <property
-        name="model_source">&lt;model xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns="http://namespaces.plone.org/supermodel/schema"&gt;
+        name="model_source">&lt;?xml version='1.0' encoding='utf8'?&gt;
+  &lt;model xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns="http://namespaces.plone.org/supermodel/schema"&gt;
         &lt;schema&gt;
           &lt;field name="type_of_talk" type="zope.schema.Choice"&gt;
             &lt;description/&gt;
@@ -113,7 +114,7 @@ Upon installing, Plone reads the file ``profiles/default/types/talk.xml`` and re
             &lt;description&gt;Name (or names) of the speaker&lt;/description&gt;
             &lt;title&gt;Speaker&lt;/title&gt;
           &lt;/field&gt;
-          &lt;field name="email" type="zope.schema.TextLine"&gt;
+          &lt;field name="email" type="zope.schema.email.Email"&gt;
             &lt;description&gt;Adress of the speaker&lt;/description&gt;
             &lt;title&gt;Email&lt;/title&gt;
           &lt;/field&gt;
