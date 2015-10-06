@@ -40,7 +40,7 @@ Syntax
 
     A Buildout consists of multiple sections. Sections start with the section name in square brackets. Each section declares a different part of your application. As a rough analogy, your Buildout file is a cookbook with multiple recipes.
 
-    There is a special section, called `[buildout]`. This section can change the behavior of Buildout itself. The variable :samp:`parts` defines, which of the existing sections should actually be used.
+    There is a special section, called `[buildout]`. This section can change the behavior of Buildout itself. The variable :samp:`parts` defines which of the existing sections should actually be used.
 
 .. _buildout1-recipes-label:
 
@@ -57,7 +57,7 @@ One example is the section
     recipe = plone.recipe.zope2instance
     user = admin:admin
 
-This uses the python-package `plone.recipe.zope2instance <https://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the specified recipe.
+This uses the python package `plone.recipe.zope2instance <https://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the specified recipe.
 
 .. seealso::
 
@@ -76,7 +76,7 @@ References
 
     Even in smaller buildouts this is a useful feature. We are using `collective.recipe.omelette <https://pypi.python.org/pypi/collective.recipe.omelette>`_. A very practical recipe that creates a virtual directory that eases the navigation to the source code of each egg.
 
-    The omelette-recipe needs to know which eggs to reference. We want the same eggs as our instance uses, so we reference the eggs of the instance instead of repeating the whole list.
+    The omelette recipe needs to know which eggs to reference. We want the same eggs that our instance uses, so we reference the eggs of the instance instead of repeating the whole list.
 
     Another example: Say you create configuration files for a webserver like nginx, you can define the target port for the reverse proxy by looking it up from the zope2instance recipe.
 
@@ -93,19 +93,17 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
 
     [buildout]
     extends =
-        http://dist.plone.org/release/5.0rc3/versions.cfg
+        http://dist.plone.org/release/5.0/versions.cfg
 
     # We add our own versions
         versions.cfg
 
     versions = versions
 
-    # Tell mr.developer to ask before updating a chckout.
-    # The default in coredev is 'force' which always updates.
+    extensions = mr.developer
+    # Tell mr.developer to ask before updating a checkout.
     always-checkout = true
     show-picked-versions = true
-    find-links = http://dist.plone.org
-    extensions = mr.developer
     sources = sources
 
     # Put checkouts in src-mrd. We keep our own package in src
@@ -114,14 +112,11 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     # The directory this buildout is in. Modified when using vagrant.
     buildout_dir = ${buildout:directory}
 
-    # Extend the coredevs-checkouts with our own
-    auto-checkout +=
-        Products.PloneFormGen
-        bobtemplates.plone
+    # We want to checkout these eggs directly from github
+    auto-checkout =
         ploneconf.site_sneak
     #    starzel.votable_behavior
     #    ploneconf.site
-
 
     parts =
         checkversions
@@ -143,6 +138,7 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
         plone.reload
         Products.PDBDebugMode
         plone.app.debugtoolbar
+        Products.PrintingMailHost
 
     # TTW Forms (based on Archetypes)
         Products.PloneFormGen
@@ -218,13 +214,11 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
 
     [sources]
     ploneconf.site = fs ploneconf.site path=src
+    # ploneconf.site = fs final full-path=src/ploneconf.site_sneak/chapters/final
     starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git path=src
 
-    # Checkouts to make add-ons we use work with Plone 5
-    Products.PloneFormGen = git https://github.com/starzel/Products.PloneFormGen.git pushurl=git@github.com:starzel/Products.PloneFormGen.git rev=fa2b4df60c8ab1ab88bf1497904b958d5ed214d4
-
     # This is no egg but folders each containing the egg of ploneconf.site for one chapter
-    ploneconf.site_sneak = git https://github.com/collective/ploneconf.site_sneak.git path=src egg=false
+    ploneconf.site_sneak = git https://github.com/collective/ploneconf.site_sneak.git path=src egg=false branch=plone5
 
 
 When you run ``./bin/buildout`` without any arguments, Buildout will look for this file.
@@ -237,17 +231,10 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
 
     .. code-block:: cfg
 
-        extends =
-        # The coredev for Plone 5: https://github.com/plone/buildout.coredev/tree/5.0
-        # We only use the versions and checkouts
-            https://raw.githubusercontent.com/plone/buildout.coredev/5.0/sources.cfg
-            https://raw.githubusercontent.com/plone/buildout.coredev/5.0/checkouts.cfg
-            https://raw.githubusercontent.com/plone/buildout.coredev/5.0/versions.cfg
+    extends =
+        http://dist.plone.org/release/5.0/versions.cfg
 
-        # We add our own versions
-            versions.cfg
-
-    This line tells Buildout to read more configuration files. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configurations that differ between different environments.
+    This line tells Buildout to read another configuration file. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configurations that differ between different environments.
 
     ..  code-block:: cfg
 
@@ -261,6 +248,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
             plone.reload
             Products.PDBDebugMode
             plone.app.debugtoolbar
+            Products.PrintingMailHost
 
         # TTW Forms (based on Archetypes)
             Products.PloneFormGen
@@ -276,13 +264,13 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
         test-eggs +=
         #    ploneconf.site [test]
 
-    This is the list of eggs that we configure to be available for Zope. These eggs are put in the python-path of the script ``bin/instance`` with which we start and stop Plone.
+    This is the list of eggs that we configure to be available for Zope. These eggs are put in the python path of the script ``bin/instance`` with which we start and stop Plone.
 
     The egg ``Plone`` is a wrapper without code. Among its dependencies is ``Products.CMFPlone``  which is the egg that is at the center of Plone.
 
     The rest are add-ons we already used or will use later. The last eggs are commented out so they will not be installed by Buildout.
 
-    The file ``versions.cfg`` that is included by the ``extends = ...`` statement hold the version pins:
+    The file ``versions.cfg`` that is included by the ``extends = ...`` statement holds the version pins:
 
     .. code-block:: cfg
 
@@ -290,12 +278,12 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
         # dev tools
         Products.PDBDebugMode = 1.3.1
         corneti.recipes.codeintel = 0.3
-        plone.api = 1.3.2
         plone.app.debugtoolbar = 1.0
         z3c.jbot = 0.7.2
+        Products.PrintingMailHost = 0.8
 
-        # pinns for some Addons
-        Products.PloneFormGen = 1.7.16
+        # pins for some Addons
+        Products.PloneFormGen = 1.8.0
         Products.PythonField = 1.1.3
         ...
 
@@ -342,7 +330,13 @@ Be McGuyver
 
         $ ./bin/buildout -v
 
-    If strange egg versions are requested, check the dependencies declaration of your eggs and your version pinnings.
+    If strange egg versions are requested, check the dependencies declaration of your eggs and your version pinnings.  Here is an invaluable shell command that allows you to find all packages that depend on a particular egg and version:
+
+    .. code-block:: bash
+
+        $ grep your.egg.name.here /home/vagrant/buildout-cache/eggs/*.egg/EGG-INFO/requires.txt
+
+    Put the name of the egg with a version conflict as the first argument.  Also, change the path to the buildout cache folder according to your installation (the vagrant buildout is assumed in the example).
 
     Some parts of Buildout interpret egg names case sensitive, others won't. This can result in funny problems.
 
