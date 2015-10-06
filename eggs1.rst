@@ -128,7 +128,7 @@ profiles/default/metadata.xml
 .. _eggs1-include-label:
 
 Including the distribution in Plone
-------------------------------
+-----------------------------------
 
 Before we can use our new distribution we have to tell Plone about it. Edit ``buildout.cfg`` and uncomment ``ploneconf.site`` in the sections `auto-checkout`, `eggs` and `test`:
 
