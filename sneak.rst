@@ -1,7 +1,7 @@
 Using the code for the training
 ===============================
 
-We provide the code for this training divided in into chapters.
+We provide the code for this training divided into chapters.
 
 The code-package
 ----------------
@@ -19,8 +19,8 @@ The package containing the eggs for each chapter is already automatically downlo
         $ git checkout plone5
 
 
-Copy the relevant chapter so that Plone can use into
-----------------------------------------------------
+Copy the relevant chapter so that Plone can use it
+--------------------------------------------------
 
 To use the code for a certain chapter stop Plone and do this:
 
