@@ -45,9 +45,9 @@ We have to answer some questions about the add-on. We will press :kbd:`Enter` (i
 
     --> What kind of package would you like to create? Choose between 'Basic', 'Dexterity', and 'Theme'. [Basic]:
 
-    --> Author's name [Fulvio Casali]:
+    --> Author's name [Philip Bauer]:
 
-    --> Author's email [fulviocasali@gmail.com]:
+    --> Author's email [bauer@starzel.de]:
 
     --> Author's github username: fulv
 
