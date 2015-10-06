@@ -40,14 +40,14 @@ Anatomy of a Diazo theme
 
 The most important files:
 
-* ``manifest.cfg``: contains metadata about the theme;
-* ``rules.xml``: contains the theme rules;
+* ``manifest.cfg``: contains metadata about the theme (`manifest reference <http://docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file>`_);
+* ``rules.xml``: contains the theme rules (`rules reference <http://docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax>`_);
 * ``index.html``: the static HTML of the theme.
 
 
 Custom rules
 ------------
-Let's open ``rules.xml``. You will see all the rules that are used in Barceloneta theme right now. We'll cover later the meaning of each rule, for the time being let's concentrate on how to hack these rules.
+Let's open ``rules.xml``. You will see all the rules that are used in Barceloneta theme right now. For the time being let's concentrate on how to hack these rules.
 
 Suppose that we want to make the "above content" block (the one that contains breadcrumbs) conditional, and show it only for authenticated users and PUT HERE ANOTHER EXAMPLE (?).
 
@@ -80,9 +80,23 @@ MORE EXAMPLES HERE?
 Customize CSS
 -------------
 
-TODO
+1. from theme editor open the file `less/barceloneta.plone.less`, that is the main LESS file as specified in the manifest;
+2. add your own customization at the bottom, like:
 
-Hack styles
------------
+.. code-block:: css
 
-TODO
+    body{ background-color: red; font-size: 18px ;};
+
+*Note: normally you would place this in a separate file to keep the main one clean but for this example is enough.*
+
+3. push the button "Build CSS"
+
+.. image:: _static/theming-editor_compile_css.png
+   :align: center
+
+4. go back to the plone site and reload the page: voilá!
+
+
+..  Warning::
+
+    At the moment you need to "Build CSS" from the main file, the one declared in the manifest (in this case `less/barceloneta.plone.less`). So, whatever LESS file you edit, go back to the main one to compile. This behavior will be improved but for now, just remember this simple rule ;)
