@@ -26,7 +26,7 @@ Topics covered:
 * XML schema
 * more widgets
 
-Remember the *Talks* content type that we created through-the-web with Dexterity? Let's move that new content type into our add-on package so that it may be installed in other sites without TTW manipulation.
+Remember the *Talk* content type that we created through-the-web with Dexterity? Let's move that new content type into our add-on package so that it may be installed in other sites without TTW manipulation.
 
 Steps:
 
@@ -82,7 +82,8 @@ Upon installing, Plone reads the file ``profiles/default/types/talk.xml`` and re
      </property>
      <property name="schema"></property>
      <property
-        name="model_source">&lt;model xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns="http://namespaces.plone.org/supermodel/schema"&gt;
+        name="model_source">&lt;?xml version='1.0' encoding='utf8'?&gt;
+  &lt;model xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns="http://namespaces.plone.org/supermodel/schema"&gt;
         &lt;schema&gt;
           &lt;field name="type_of_talk" type="zope.schema.Choice"&gt;
             &lt;description/&gt;
@@ -113,7 +114,7 @@ Upon installing, Plone reads the file ``profiles/default/types/talk.xml`` and re
             &lt;description&gt;Name (or names) of the speaker&lt;/description&gt;
             &lt;title&gt;Speaker&lt;/title&gt;
           &lt;/field&gt;
-          &lt;field name="email" type="zope.schema.TextLine"&gt;
+          &lt;field name="email" type="plone.schema.email.Email"&gt;
             &lt;description&gt;Adress of the speaker&lt;/description&gt;
             &lt;title&gt;Email&lt;/title&gt;
           &lt;/field&gt;
@@ -162,55 +163,55 @@ Create a folder ``content`` with an empty ``__init__py``. In that create a file 
 ..  code-block:: xml
     :linenos:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <model xmlns="http://namespaces.plone.org/supermodel/schema" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security">
-      <schema>
-        <field name="type_of_talk" type="zope.schema.Choice">
-          <description />
-          <title>Type of talk</title>
+<?xml version='1.0' encoding='utf8'?>
+  <model xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns="http://namespaces.plone.org/supermodel/schema">
+    <schema>
+      <field name="type_of_talk" type="zope.schema.Choice">
+        <description/>
+        <title>Type of Talk</title>
+        <values>
+          <element>Talk</element>
+          <element>Training</element>
+          <element>Keynote</element>
+        </values>
+      </field>
+      <field name="details" type="plone.app.textfield.RichText">
+        <description>Add a short description of the talk (max. 2000 characters)</description>/&gt;
+        <max_length>2000</max_length>
+        <title>Details</title>
+      </field>
+      <field name="audience" type="zope.schema.Set">
+        <description/>
+        <title>Audience</title>
+        <value_type type="zope.schema.Choice">
           <values>
-            <element>Talk</element>
-            <element>Training</element>
-            <element>Keynote</element>
+            <element>Beginner</element>
+            <element>Advanced</element>
+            <element>Professional</element>
           </values>
-        </field>
-        <field name="details" type="plone.app.textfield.RichText">
-          <description>Add a short description of the talk (max. 2000 characters)</description>
-          <max_length>2000</max_length>
-          <title>Details</title>
-        </field>
-        <field name="audience" type="zope.schema.Set">
-          <description />
-          <title>Audience</title>
-          <value_type type="zope.schema.Choice">
-            <values>
-              <element>Beginner</element>
-              <element>Advanced</element>
-              <element>Professionals</element>
-            </values>
-          </value_type>
-        </field>
-        <field name="speaker" type="zope.schema.TextLine">
-          <description>Name (or names) of the speaker</description>
-          <title>Speaker</title>
-        </field>
-        <field name="email" type="zope.schema.TextLine">
-          <description>Adress of the speaker</description>
-          <title>Email</title>
-        </field>
-        <field name="image" type="plone.namedfile.field.NamedBlobImage">
-          <description />
-          <required>False</required>
-          <title>Image</title>
-        </field>
-        <field name="speaker_biography" type="plone.app.textfield.RichText">
-          <description />
-          <max_length>1000</max_length>
-          <required>False</required>
-          <title>Speaker Biography</title>
-        </field>
-      </schema>
-    </model>
+        </value_type>
+      </field>
+      <field name="speaker" type="zope.schema.TextLine">
+        <description>Name (or names) of the speaker</description>/&gt;
+        <title>Speaker</title>
+      </field>
+      <field name="email" type="plone.schema.email.Email">
+        <description>Adress of the speaker</description>/&gt;
+        <title>Email</title>
+      </field>
+      <field name="image" type="plone.namedfile.field.NamedBlobImage">
+        <description/>
+        <required>False</required>
+        <title>Image</title>
+      </field>
+      <field name="speaker_biography" type="plone.app.textfield.RichText">
+        <description/>
+        <max_length>1000</max_length>
+        <required>False</required>
+        <title>Speaker Biography</title>
+      </field>
+    </schema>
+  </model>
 
 Now we have to remove the model_source and instead reference the xml file in the FTI by using the property ``model_file``:
 
@@ -265,7 +266,7 @@ Our talks use a dropdown for ``type_of_talk`` and a multiselect for ``audience``
           <description>Name (or names) of the speaker</description>
           <title>Speaker</title>
         </field>
-        <field name="email" type="zope.schema.TextLine">
+        <field name="email" type="plone.schema.email.Email">
           <description>Adress of the speaker</description>
           <title>Email</title>
         </field>
@@ -282,7 +283,6 @@ Our talks use a dropdown for ``type_of_talk`` and a multiselect for ``audience``
         </field>
       </schema>
     </model>
-
 
 
 Exercise 1
