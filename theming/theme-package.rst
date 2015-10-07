@@ -435,7 +435,7 @@ For example:
 
 This means replace the element "#headline" in the theme with the element "#firstHeading" from the gerated Plone content.
 
-For more details how to use Diazo rules, look at http://diazo.org and http://docs.plone.org/external/plone.app.theming/docs/index.html.
+For more details how to use Diazo rules, look at http://docs.diazo.org/en/latest/ and http://docs.plone.org/external/plone.app.theming/docs/index.html.
 
 
 As a starting point we use this rules set:
@@ -1353,7 +1353,7 @@ To make our theme look nicer we add some css like this to our ``custom.less`` fi
 More Diazo and plone.app.theming details
 ****************************************
 
-For more details how to build a Diazo based theme, look at http://diazo.org and http://docs.plone.org/external/plone.app.theming/docs/index.html.
+For more details how to build a Diazo based theme, look at http://docs.diazo.org/en/latest/ and http://docs.plone.org/external/plone.app.theming/docs/index.html.
 
 
 Override Plone BrowserViews with jbot

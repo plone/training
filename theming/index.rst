@@ -17,6 +17,10 @@ Theming
    theme-package
    creating-customizing-templates
    tinymce-templates
+   adv-resource-registry
+   adv-diazo
+   collective-jbot
+   custom-components
 
 .. seealso::
 
