@@ -13,6 +13,9 @@ class packages {
   package { "libxslt-dev":       ensure => present, }
   package { "libyaml-dev":       ensure => present, }
   package { "libz-dev":          ensure => present, }
+  package { "nodejs":            ensure => present, }
+  package { "nodejs-legacy":     ensure => present, }
+  package { "npm":               ensure => present, }
   package { "python-dev":        ensure => present, }
   package { "python-tk":         ensure => present, }
   package { "python-virtualenv": ensure => present, }
