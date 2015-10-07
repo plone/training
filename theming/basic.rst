@@ -13,8 +13,7 @@ Customize logo
 
 4. You can now add / remove your custom logo
 
-See `official docs <http://docs.plone.org/adapt-and-extend/change-the-logo.html>`_
-.
+See `official docs <http://docs.plone.org/adapt-and-extend/change-the-logo.html>`_.
 
 
 Customize CSS/LESS variables
