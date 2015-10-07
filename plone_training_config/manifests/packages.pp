@@ -60,6 +60,12 @@ class packages {
   package { "libyaml-dev":
       ensure => present,
   }
+  package { "nodejs":
+      ensure => present,
+  }
+  package { "npm":
+      ensure => present,
+  }
   # Optional packages to enable indexing of office/pdf docs
   # package { "wv":
   #   ensure => present,
