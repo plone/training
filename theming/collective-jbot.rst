@@ -2,6 +2,11 @@
 Customize template on the fly: collective.jbot
 ==============================================
 
+..  warning::
+
+    Not yet compatible with Plone 5!
+
+
 Back in the old days we used to customize views' templates from the tool `portal_view_customizations` from the ZMI.
 
 This tool has no UI and could beat you whenever you don't expect it.
