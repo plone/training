@@ -20,14 +20,14 @@ First we want create a Python virtualenv:
 
 .. code-block:: bash
 
-   $ virtualenv venv
+   $ virtualenv mrbobvenv
 
 Then we enable the virtualenv:
 
 .. code-block:: bash
 
-   vagrant@precise32:~$ source venv/bin/activate
-   (venv)vagrant@precise32:~$
+   vagrant@precise32:~$ source mrbobvenv/bin/activate
+   (mrbobvenv)vagrant@precise32:~$
 
 
 Create a product to handle your Diazo theme
@@ -78,7 +78,7 @@ Now you have a new python package in your current folder:
 
 .. code-block:: bash
 
-   (mrbob)maik@planetmobile:~/develop/plone/plonetheme.tango
+   (mrbobvenv)maik@planetmobile:~/develop/plone/plonetheme.tango
    $ ls
    bootstrap-buildout.py   buildout.cfg  CONTRIBUTORS.rst  MANIFEST.in  setup.py  travis.cfg
    bootstrap-buildout.pyc  CHANGES.rst   docs              README.rst   src
@@ -87,7 +87,7 @@ Deactivate mrbob virtualenv:
 
 .. code-block:: bash
 
-   (mrbob)maik@planetmobile:~/develop/plone/plonetheme.tango$ deactivate
+   (mrbobvenv)maik@planetmobile:~/develop/plone/plonetheme.tango$ deactivate
 
 
 Bootstrap & buildout your development environment
@@ -123,95 +123,6 @@ This will create the whole development environment for your package:
    code-analysis-find-untranslated   code-analysis-utf8-header           longtest       release
    code-analysis-flake8              code-analysis-zptlint               pilconvert.py  test
 
-Extend your buildout configuration
-----------------------------------
-
-Add the following buildout parts, if they are not already exist:
-
-.. code-block:: ini
-
-   [zopepy]
-   recipe = zc.recipe.egg
-   eggs =
-       ${instance:eggs}
-       ${test:eggs}
-   interpreter = zopepy
-   scripts =
-       zopepy
-       plone-generate-gruntfile
-       plone-compile-resources
-
-   [omelette]
-   recipe = collective.recipe.omelette
-   eggs = ${instance:eggs}
-
-
-And add this parts to the list of parts:
-
-.. code-block:: ini
-
-   parts=
-       ...
-       zopepy
-       omelette
-
-Also add *Products.CMFPlone* to the eggs list in the instance part:
-
-.. code-block:: ini
-
-   [instance]
-   recipe = plone.recipe.zope2instance
-   user = admin:admin
-   http-address = 8080
-   eggs =
-       Plone
-       Pillow
-       Products.CMFPlone
-       plonetheme.tango [test]
-
-Now rerun buildout:
-
-.. code-block:: bash
-
-   $ ./bin/buildout
-
-This will give you new scripts like *plone-compile-resources* and *plone-generate-gruntfile* in bin folder:
-
-.. code-block:: bash
-
-   $ ls bin/
-   buildout                            flake8
-   check-manifest                      fullrelease
-   code-analysis                       instance
-   code-analysis-check-manifest        lasttagdiff
-   code-analysis-clean-lines           lasttaglog
-   code-analysis-csslint               longtest
-   code-analysis-debug-statements      pilconvert.py
-   code-analysis-deprecated-aliases    pildriver.py
-   code-analysis-find-untranslated     pilfile.py
-   code-analysis-flake8                pilfont.py
-   code-analysis-hasattr               pilprint.py
-   code-analysis-imports               plone-compile-resources
-   code-analysis-jscs                  plone-generate-gruntfile
-   code-analysis-jshint                postrelease
-   code-analysis-pep3101               prerelease
-   code-analysis-prefer-single-quotes  release
-   code-analysis-utf8-header           test
-   code-analysis-zptlint               zopepy
-   develop
-
-You can use *plone-compile-resources* to build your resource bundle as follow, but first you have to start the instance and add a Plone site named ``Plone``, see below:
-
-.. code-block:: bash
-
-   $ ./bin/plone-compile-resources --bundle=tango-bundle
-
-This will start the Plone instance, read variables from the registry and compile your bundle.
-If your Plone site has an id other than *Plone*, you can provide the ``--site-id``.
-
-You can also build your bundle TTW in the ``resource registry`` of Plone.
-Just go to ``@@resourceregistry-controlpanel`` and press *Build* for the tango-bundle.
-TODO: show some screenshots here.
 
 Start your Plone instance and play with your theme product
 ----------------------------------------------------------
@@ -226,7 +137,6 @@ The Plone instance will then run on http://localhost:8080.
 Add a Plone site ``Plone``.
 Then activate/install your theme product on http://localhost:8080/Plone/prefs_install_products_form.
 The theme will be automatically enabled. If some think is wrong with the theme, you can always go to http://localhost:8080/Plone/@@theming-controlpanel and disable it. This control panel will never be themed, so it works regardless the theme might be broken.
-
 
 Inspect your package source
 ---------------------------
@@ -435,7 +345,7 @@ For example:
 
 This means replace the element "#headline" in the theme with the element "#firstHeading" from the gerated Plone content.
 
-For more details how to use Diazo rules, look at http://docs.diazo.org/en/latest/ and http://docs.plone.org/external/plone.app.theming/docs/index.html.
+For more details how to use Diazo rules, look at http://diazo.org and http://docs.plone.org/external/plone.app.theming/docs/index.html.
 
 
 As a starting point we use this rules set:
@@ -565,73 +475,6 @@ As a starting point we use this rules set:
      <replace css:theme-children="#portal-footer" css:content-children="#portal-footer-wrapper" />
    </rules>
 
-Slider only on Front-page
-*************************
-
-We want the slider in the template only on front-page and also not when we are editing the front-page.
-To make this easier, we wrap then slider area with a "#front-page-slider" div-tag like this:
-
-.. code-block:: html
-
-   <div id="front-page-slider">
-       <div id="carousel-example-generic" class="carousel slide">
-           <!-- Indicators -->
-           <ol class="carousel-indicators hidden-xs">
-               <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-               <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-               <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-           </ol>
-
-           <!-- Wrapper for slides -->
-           <div class="carousel-inner">
-               <div class="item active">
-                   <img class="img-responsive img-full" src="img/slide-1.jpg" alt="">
-               </div>
-               <div class="item">
-                   <img class="img-responsive img-full" src="img/slide-2.jpg" alt="">
-               </div>
-               <div class="item">
-                   <img class="img-responsive img-full" src="img/slide-3.jpg" alt="">
-               </div>
-           </div>
-
-           <!-- Controls -->
-           <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-               <span class="icon-prev"></span>
-           </a>
-           <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-               <span class="icon-next"></span>
-           </a>
-       </div>
-       <h2 class="brand-before">
-           <small>Welcome to</small>
-       </h2>
-       <h1 class="brand-name">Business Casual</h1>
-       <hr class="tagline-divider">
-       <h2>
-           <small>By
-               <strong>Start Bootstrap</strong>
-           </small>
-       </h2>
-   </div>
-
-Now we can drop it, if we are not on the front-page and also in some other situations:
-
-.. code-block:: xml
-
-   <!-- front-page slider -->
-   <drop
-     css:theme="#front-page-slider"
-     css:if-not-content=".section-front-page" />
-   <drop
-     css:theme="#front-page-slider"
-     css:if-content=".template-edit" />
-   <drop
-     css:theme="#front-page-slider"
-     css:if-content=".template-topbar-manage-portlets" />
-
-By now the slider is still static, but we will change that later.
-
 Login link & co
 ***************
 
@@ -714,6 +557,73 @@ or only for not logged-in users:
 .. note::
 
    The classes like *userrole-anonymous*, are provided by Plone in the BODY-Tag.
+
+Slider only on Front-page
+*************************
+
+We want the slider in the template only on front-page and also not when we are editing the front-page.
+To make this easier, we wrap then slider area with a "#front-page-slider" div-tag like this:
+
+.. code-block:: html
+
+   <div id="front-page-slider">
+       <div id="carousel-example-generic" class="carousel slide">
+           <!-- Indicators -->
+           <ol class="carousel-indicators hidden-xs">
+               <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+               <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+               <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+           </ol>
+
+           <!-- Wrapper for slides -->
+           <div class="carousel-inner">
+               <div class="item active">
+                   <img class="img-responsive img-full" src="img/slide-1.jpg" alt="">
+               </div>
+               <div class="item">
+                   <img class="img-responsive img-full" src="img/slide-2.jpg" alt="">
+               </div>
+               <div class="item">
+                   <img class="img-responsive img-full" src="img/slide-3.jpg" alt="">
+               </div>
+           </div>
+
+           <!-- Controls -->
+           <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+               <span class="icon-prev"></span>
+           </a>
+           <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+               <span class="icon-next"></span>
+           </a>
+       </div>
+       <h2 class="brand-before">
+           <small>Welcome to</small>
+       </h2>
+       <h1 class="brand-name">Business Casual</h1>
+       <hr class="tagline-divider">
+       <h2>
+           <small>By
+               <strong>Start Bootstrap</strong>
+           </small>
+       </h2>
+   </div>
+
+Now we can drop it, if we are not on the front-page and also in some other situations:
+
+.. code-block:: xml
+
+   <!-- front-page slider -->
+   <drop
+     css:theme="#front-page-slider"
+     css:if-not-content=".section-front-page" />
+   <drop
+     css:theme="#front-page-slider"
+     css:if-content=".template-edit" />
+   <drop
+     css:theme="#front-page-slider"
+     css:if-content=".template-topbar-manage-portlets" />
+
+By now the slider is still static, but we will change that later.
 
 Status messages
 ***************
@@ -1025,16 +935,120 @@ To use these resources in our Diazo theme we customize our ``manifest.cfg`` in o
 
 The important parts here are the definitions for *development-css*, *production-css*, *tinymce-content-css*.
 
+After adding the registry entries and manifest changes, we need to reload the setup profile of the package. For now just go to the ``/prefs_install_products_form`` and uninstall/install the theme package. For the changes in the manifest.cfg you actually need to deactivate/activate the theme in ``@@theming-controlpanel``, but this also happen on install of the package, so we already have that in this case.
+
+Extend your buildout configuration
+----------------------------------
+
+Add the following buildout parts, if they are not already exist:
+
+.. code-block:: ini
+
+   [zopepy]
+   recipe = zc.recipe.egg
+   eggs =
+       ${instance:eggs}
+       ${test:eggs}
+   interpreter = zopepy
+   scripts =
+       zopepy
+       plone-generate-gruntfile
+       plone-compile-resources
+
+   [omelette]
+   recipe = collective.recipe.omelette
+   eggs = ${instance:eggs}
+
+
+And add this parts to the list of parts:
+
+.. code-block:: ini
+
+   parts=
+       ...
+       zopepy
+       omelette
+
+Also add *Products.CMFPlone* to the eggs list in the instance part:
+
+.. code-block:: ini
+
+   [instance]
+   recipe = plone.recipe.zope2instance
+   user = admin:admin
+   http-address = 8080
+   eggs =
+       Plone
+       Pillow
+       Products.CMFPlone
+       plonetheme.tango [test]
+
+Now rerun buildout:
+
+.. code-block:: bash
+
+   $ ./bin/buildout
+
+This will give you new scripts like *plone-compile-resources* and *plone-generate-gruntfile* in bin folder:
+
+.. code-block:: bash
+
+   $ ls bin/
+   buildout                            flake8
+   check-manifest                      fullrelease
+   code-analysis                       instance
+   code-analysis-check-manifest        lasttagdiff
+   code-analysis-clean-lines           lasttaglog
+   code-analysis-csslint               longtest
+   code-analysis-debug-statements      pilconvert.py
+   code-analysis-deprecated-aliases    pildriver.py
+   code-analysis-find-untranslated     pilfile.py
+   code-analysis-flake8                pilfont.py
+   code-analysis-hasattr               pilprint.py
+   code-analysis-imports               plone-compile-resources
+   code-analysis-jscs                  plone-generate-gruntfile
+   code-analysis-jshint                postrelease
+   code-analysis-pep3101               prerelease
+   code-analysis-prefer-single-quotes  release
+   code-analysis-utf8-header           test
+   code-analysis-zptlint               zopepy
+   develop
+
+You can use *plone-compile-resources* to build your resource bundle as follow, but first you have to start the instance and add a Plone site named ``Plone``, see below.
+
+We also need grunt installed on our system.
+
+.. code-block:: bash
+
+   sudo npm install grunt -g
+
+If you get errors like this:
+
+.. code-block:: bash
+
+   ERR! Error: failed to fetch from registry: grunt
+
+Then use this as a workaround and try again:
+
+.. code-block:: bash
+
+   npm config set registry http://registry.npmjs.org/
+
 .. note:: When ever you made changes to your less/css files, you have to rebuild the bundle.
 
-To test your changes, you can build your bundle TTW in the ``resource registry`` of Plone.
+To test changes in less files, you can build/rebuild your bundle TTW in the ``resource registry`` of Plone.
 Just go to ``@@resourceregistry-controlpanel`` and press *Build* for the tango-bundle.
 
-Or you can use the plone-compile-resources script, to rebuild the bundle.
+TODO: show some screenshots here.
+
+Or you can use the plone-compile-resources script, to rebuild the bundle. But except you have setup a zeoserver setup with multiple client, you have to stop your instance first, before you can use this script.
 
 .. code-block:: bash
 
    $ ./bin/plone-compile-resources --bundle=tango-bundle
+
+This will start the Plone instance, read variables from the registry and compile your bundle.
+If your Plone site has an id other than *Plone*, you can provide the ``--site-id``.
 
 After you compiled your bundle with the ``plone-compile-resources`` once, you can use the generated Gruntfile and recompile your bundle as follow:
 
@@ -1353,7 +1367,7 @@ To make our theme look nicer we add some css like this to our ``custom.less`` fi
 More Diazo and plone.app.theming details
 ****************************************
 
-For more details how to build a Diazo based theme, look at http://docs.diazo.org/en/latest/ and http://docs.plone.org/external/plone.app.theming/docs/index.html.
+For more details how to build a Diazo based theme, look at http://diazo.org and http://docs.plone.org/external/plone.app.theming/docs/index.html.
 
 
 Override Plone BrowserViews with jbot
