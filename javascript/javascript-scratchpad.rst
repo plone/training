@@ -19,7 +19,7 @@ General advises
     A bundle can depend on another. This is mainly used for the order of
     inclusion in the rendered content. Currently, it doesn't hook in the
     require js dependency mechanism. This means, each bundle gets all their
-    dependencies compiled in, which raise the response paiload unnecessarily.
+    dependencies compiled in, which raise the response payload unnecessarily.
     To avoid this, add your resources to existing bundles, like the "plone"
     bundle.
 
