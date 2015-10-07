@@ -13,6 +13,23 @@ One of the most obvious reason is it will allow you to override Plone elements
 that are not accessible from the pure Diazo features (like overloading content
 views templates, viewlets, configuration settings, etc.).
 
+Preparing your setup
+====================
+
+First we want create a Python virtualenv:
+
+.. code-block:: bash
+
+   $ virtualenv venv
+
+Then we enable the virtualenv:
+
+.. code-block:: bash
+
+   vagrant@precise32:~$ source venv/bin/activate
+   (venv)vagrant@precise32:~$
+
+
 Create a product to handle your Diazo theme
 ===========================================
 
@@ -53,7 +70,7 @@ here choose Theme and fill out the rest of the questions as you like::
 
    --> Package description [An add-on for Plone]: Plone theme tango
 
-   --> Plone version [4.3.6]: 5.0b3
+   --> Plone version [4.3.6]: 5.0
 
    Generated file structure at /home/maik/develop/plone/plonetheme.tango
 
@@ -696,7 +713,7 @@ or only for not logged-in users:
 
 .. note::
 
-   The classes like userrole-anonymous, are provided by Plone in the BODY-Tag.
+   The classes like *userrole-anonymous*, are provided by Plone in the BODY-Tag.
 
 Status messages
 ***************
