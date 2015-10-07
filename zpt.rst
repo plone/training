@@ -68,9 +68,7 @@ Let's try it. Open the file ``training.pt`` and add:
 
 .. code-block:: html
 
-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-          lang="en"
-          i18n:domain="ploneconf.site">
+    <html>
     <body>
 
         <p>red</p>
@@ -129,7 +127,7 @@ We used three TAL-Attributes here. This is the complete list of TAL-attributes:
     dynamically change element attributes. We set the html attribute ``href`` to the value of the variable ``a_fine_url``
 
 ``tal:condition``
-    tests whether the expression is true or false.
+    tests whether the expression is true or false, and outputs or omits the element accordingly.
 
 ``tal:repeat``
     repeats an iterable element, in our case the list of talks.
@@ -275,7 +273,7 @@ This returns nothing if there is no 'average_rating' for a talk. What will not w
 
     You can't and should not use it to prevent errors like a try/except block.
 
-There are several **built in variables**  that can be used in paths:
+There are several **built-in variables**  that can be used in paths:
 
 The most frequently used one is ``nothing`` which is the equivalent to None
 
@@ -333,7 +331,7 @@ Examples:
     ...
     </tal:block>
 
-    <tal:news condition="python:context.content_type == 'News Item'">
+    <tal:news condition="python:context.portal_type == 'News Item'">
         This text is only visible if the context is a News Item
     </tal:news>
 
@@ -435,7 +433,7 @@ Plone 4 and Plone 5:
     :linenos:
 
     <a tal:attributes="href string:${context/absolute_url}?ajax_load=1;
-                       class python:context.portal_type().lower().replace(' ', '')"
+                       class python:context.portal_type.lower().replace(' ', '')"
        tal:content="context/title">
        The Title of the current object
     </a>
@@ -446,7 +444,7 @@ Plone 5 (and Plone 4 with five.pt) :
     :linenos:
 
     <a href="${context/absolute_url}?ajax_load=1"
-       class="${python:context.portal_type().lower().replace(' ', '')}">
+       class="${python:context.portal_type.lower().replace(' ', '')}">
        ${python:context.title}
     </a>
 
@@ -905,6 +903,7 @@ Which is the same as:
             Instead of this the content of the macro will appear...
         </div>
 
+Restart your Plone instance from the command line, and then open http://localhost:8080/Plone/@@training to see this macro being used in our @@training browser view template.
 
 .. _tal-access-plone-label:
 
