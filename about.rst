@@ -59,6 +59,12 @@ Steffen Lindner
 Fulvio Casali
     Fulvio Casali has been working almost exclusively with Plone since 2008.  He struggled for years to find his way around the source code of Plone when there was no documentation and no trainings, and feels passionate about helping users and developers become proficient.  He loves participating in Plone community events, and organized two strategic Plone sprints on the northwest coast of the USA and helped galvanized the developer community there.
 
+Johannes Raggam
+    Johannes Raggam from Graz/Austria works most of the time with a technology stack based around Python, Plone, Pyramid and Javascript. As an active Open Source / Free Software developer he believes in the power of collaborative work. He is a BlueDynamics Alliance Partner and Plone Core Contributor since 2009, a member of the Plone Framework Team since 2012 and Plone Foundation member.
+
+Franco Pellegrini
+    Franco Pellegrini is a software developer from Cordoba, Argentina. He started developing Plone in 2005 in a small software company, and as an independent contractor since 2011. He believes in free software philosophy, and so, he has been a Plone core developer since 2010 and Framework Team member since 2012.
+
 .. _about-use-label:
 
 Using the documentation for a training
