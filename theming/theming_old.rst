@@ -84,8 +84,6 @@ Good starting places:
 * Old-school Theming (extending the built-in default theme)
 * Deliverance/XDV
 
-If you seek a training about Diazo we recommend a training by `Chrissy Wainwright <https://twitter.com/cdw9>`_ or `Maik DerStappen <http://www.derstappen-it.de/>`_
-
 
 .. seealso::
 
