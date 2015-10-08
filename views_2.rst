@@ -9,7 +9,7 @@ Views II: A Default View for "Talk"
 
     .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/04_views_2_p5/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/05_views_2_p5/ src/ploneconf.site
 
 In this part you will:
 
@@ -30,13 +30,14 @@ View Classes
 ------------
 
 Earlier we wrote a demo view which we also used to experiment with page templates.
-Let us have a look at the zcml and the Page Template again.
-I have extended the code just slightly.
+Now we are going to enhance that view so that it will have some python code, in addition to a template.
+Let us have a look at the zcml and the code.
 
 ``browser/configure.zcml``
 
 .. code-block:: xml
     :linenos:
+    :emphasize-lines:  8-9
 
     <configure xmlns="http://namespaces.zope.org/zope"
         xmlns:browser="http://namespaces.zope.org/browser"
@@ -47,11 +48,13 @@ I have extended the code just slightly.
            for="*"
            layer="zope.interface.Interface"
            class=".views.DemoView"
-           template="templates/demoview.pt"
+           template="templates/training.pt"
            permission="zope2.View"
            />
 
     </configure>
+
+We are adding a file called ``views.py`` in the ``browser`` folder.
 
 ``browser/views.py``
 
@@ -72,14 +75,14 @@ I have extended the code just slightly.
             # Implement your own actions
 
             # This renders the template that was registered in zcml like this:
-            #   template="templates/demoview.pt"
+            #   template="templates/training.pt"
             return super(DemoView, self).__call__()
             # If you don't register a template in zcml the Superclass of
             # DemoView will have no __call__-method!
             # In that case you have to call the template like this:
             # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
             # class DemoView(BrowserView):
-            # template = ViewPageTemplateFile('templates/demoview.pt')
+            # template = ViewPageTemplateFile('templates/training.pt')
             # def __call__(self):
             #    return self.template()
 
@@ -91,15 +94,15 @@ When you enter a url, Zope tries to find an object for it. At the end, when Zope
 
 The adapter adapts the request and the object that Zope found with the URL. The adapter class gets instantiated with the objects to be adapted, then it gets called.
 
-The code above does the same thing that the standard implementation would do. It makes context and request available as variables on the object.
+The code above does the same thing that the standard implementation would do. It makes ``context`` and ``request`` available as variables on the object.
 
 I have written down these methods because it is important to understand some important concepts.
 
-The init method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved. Your code is not security checked. For historical reasons, many errors that happen in the init method can result in a page not found error instead of an exception.
+The ``__init__`` method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved. Your code is not security checked. For historical reasons, many errors that happen in the ``__init__`` method can result in a page not found error instead of an exception.
 
-Don't do much at all in the init method. Instead you have the guarantee that the call method is called before anything else (except the init method). It has the security checks in place and so on.
+Use the ``__init__`` method to do as little as possible, if at all. Instead, you have the guarantee that the ``__call__`` method is called before anything else (but after the ``__init__`` method). It has the security checks in place and so on.
 
-From a practical standpoint, consider the call method your init method, the biggest difference is that this method is supposed to return the html already.
+From a practical standpoint, consider the ``__call__`` method your ``__init__`` method, the biggest difference is that this method is supposed to return the html already.
 Let your base class handle the html generation.
 
 
@@ -139,11 +142,11 @@ Now we finally add the default view for talks in views.py
 
 The DefaultView base class in plone.dexterity only exists for Dexterity Objects and has some very useful properties available to the template:
 
-* view.w is a dictionary of all the display widgets, keyed by field names. This includes widgets from alternative fieldsets.
-* view.widgets contains a list of widgets in schema order for the default fieldset.
-* view.groups contains a list of fieldsets in fieldset order.
-* view.fieldsets contains a dict mapping fieldset name to fieldset
-* On a fieldset (group), you can access a widgets list to get widgets in that fieldset
+* ``view.w`` is a dictionary of all the display widgets, keyed by field names. This includes widgets from alternative fieldsets.
+* ``view.widgets`` contains a list of widgets in schema order for the default fieldset.
+* ``view.groups`` contains a list of fieldsets in fieldset order.
+* ``view.fieldsets`` contains a dict mapping fieldset name to fieldset
+* On a fieldset (group), you can access a widget list to get widgets in that fieldset
 
 .. note::
 
@@ -258,7 +261,7 @@ Add the new choice field "room" to the Talk type (TTW) and display it below Audi
 ..  admonition:: Solution
         :class: toggle
 
-        * Go to http://localhost:8080/Plone/dexterity-types/talk/@@fields and add the new fields
+        * Go to http://localhost:8080/Plone/dexterity-types/talk/@@fields and add the new field
         * Add the new HTML below the audience part:
 
         .. code-block:: xml

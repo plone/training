@@ -105,7 +105,7 @@ We query the catalog for two things:
 * ``portal_type = "talk"``
 * ``path = "/".join(self.context.getPhysicalPath())``
 
-We get the path of the current context to query only for objects in the current path. Otherwise we'd get all talks in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for universities with a special talk-list) we might not want so see them in our listing.
+We get the path of the current context to query only for objects in the current path. Otherwise we'd get all talks in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for universities with a special talk list) we might not want so see them in our listing.
 
 We iterate over the list of results that the catalog returns us.
 
@@ -123,7 +123,7 @@ Objects are normally not loaded into memory but lie dormant in the ZODB Database
 
 We want to show the target audience but that attribute of the talk content type is not in the catalog. This is why we need to get to the objects themselves.
 
-We could also add a new index to the catalog that will add 'audience' to the properties of brains, but we should to weigh the pros and cons:
+We could also add a new index to the catalog that will add 'audience' to the properties of brains, but we should weigh the pros and cons:
 
 * talks are important and thus most likely always in memory
 * prevent bloating of catalog with indexes
@@ -386,7 +386,7 @@ Afterwards you transform it into a listing. Here we use one of many nice feature
 There are some some things that need explanation:
 
 ``tal:repeat="talk view/talks"``
-    This iterates over the list of dictionaries returned by the view. ``view/talks`` calls the method ``talks`` of our view and each ``talk`` is in turn one of the dictionaries that are returned by this method. Since TAL's path expressions for the lookup of values in dictionaries is the same as the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict. It would be a good practice to write ``tal:repeat="talk python:view.talks()"``.
+    This iterates over the list of dictionaries returned by the view. ``view/talks`` calls the method ``talks`` of our view and each ``talk`` is in turn one of the dictionaries that are returned by this method. Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict. It would be a good practice to write ``tal:repeat="talk python:view.talks()"``.
 
 ``tal:content="talk/speaker"``
     'speaker' is a key in the dict 'talk'. We could also write ``tal:content="python:talk['speaker']"``
@@ -398,7 +398,7 @@ There are some some things that need explanation:
 Exercise
 ********
 
-Modify the view to only python expressions.
+Modify the view to only use python expressions.
 
 ..  admonition:: Solution
     :class: toggle
@@ -457,7 +457,7 @@ We don't want to always have to append /@@talklistview to our folder to get the 
 
 If we append ``/manage_propertiesForm`` we can set the property "layout" to ``talklistview``.
 
-To make views configurable so that editors can choose them we have to register the view for the content type at hand in its FTI. To enable if for all folders we add a new file ``profiles/default/types/Folder.xml``
+To make views configurable so that editors can choose them we have to register the view for the content type at hand in its FTI. To enable it for all folders we add a new file ``profiles/default/types/Folder.xml``
 
 .. code-block:: xml
     :linenos:
@@ -473,99 +473,6 @@ After re-applying the typeinfo profile of our add-on (or simply reinstalling it)
 
 The ``purge="False"`` appends the view to the already existing ones instead of replacing them.
 
-
-.. _views3-js-label:
-
-Adding some javascript (collective.js.datatables)
--------------------------------------------------
-
-..  warning::
-
-    We'll skip this section since the integration of js in Plone 5 is still not finished while it is still an alpha!
-
-We could improve that table further by using a nice javascript library called "datatables". It might even become part of the Plone core at some point.
-
-Like for many js libraries there is already a python package that does the plone integration for us: ``collective.js.datatables``. Like all python packages you can find it on pypi: https://pypi.python.org/pypi/collective.js.datatables
-
-We already added the add-on to our buildout, you just have to activate it in our template.
-
-.. code-block:: xml
-    :linenos:
-    :emphasize-lines: 6-16
-
-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
-          metal:use-macro="context/main_template/macros/master"
-          i18n:domain="ploneconf.site">
-    <body>
-
-    <metal:head fill-slot="javascript_head_slot">
-        <link rel="stylesheet" type="text/css" media="screen" href="++resource++jquery.datatables/media/css/jquery.dataTables.css">
-
-        <script type="text/javascript" src="++resource++jquery.datatables.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                var oTable = $('#talks').dataTable({
-                });
-            })
-        </script>
-    </metal:head>
-
-    <metal:content-core fill-slot="content-core">
-
-        <table class="" id="talks">
-            <thead>
-                <tr>
-                    <th>
-                        Title
-                    </th>
-                    <th>
-                        Speaker
-                    </th>
-                    <th>
-                        Audience
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr tal:repeat="talk view/talks">
-                    <td>
-                        <a href=""
-                           tal:attributes="href talk/url;
-                                           title talk/description"
-                           tal:content="talk/title">
-                           The 7 sins of plone-development
-                        </a>
-                    </td>
-                    <td tal:content="talk/speaker">
-                        Philip Bauer
-                    </td>
-                    <td tal:content="talk/audience">
-                        Advanced
-                    </td>
-                </tr>
-                <tr tal:condition="not:view/talks">
-                    <td colspan=3>
-                        No talks so far :-(
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-    </metal:content-core>
-    </body>
-    </html>
-
-We don't need the css class ``listing`` anymore since it might clash with datatables (it does not but still...).
-
-The documentation of datatables is beyond our training.
-
-We use METAL again but this time to fill a different slot. The "javascript_head_slot" is part of the html's ``<head>`` area in Plone and can be extended this way. We could also just put the code inline but having nicely ordered html is a good practice.
-
-Let's test it: http://localhost:8080/Plone/talklistview
-
-.. note::
-
-    We add the ``jquery.datatables.js`` file directly to the HEAD slot of the HTML without using Plone JavaScript registry (portal_javascript). By using the registry you could enable merging of js files and advanced caching. A GenericSetup profile is included in the collective.js.datatables package.
 
 .. _views3-summary-label:
 
