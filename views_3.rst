@@ -105,7 +105,7 @@ We query the catalog for two things:
 * ``portal_type = "talk"``
 * ``path = "/".join(self.context.getPhysicalPath())``
 
-We get the path of the current context to query only for objects in the current path. Otherwise we'd get all talks in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for universities with a special talk-list) we might not want so see them in our listing.
+We get the path of the current context to query only for objects in the current path. Otherwise we'd get all talks in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for universities with a special talk list) we might not want so see them in our listing.
 
 We iterate over the list of results that the catalog returns us.
 
@@ -123,7 +123,7 @@ Objects are normally not loaded into memory but lie dormant in the ZODB Database
 
 We want to show the target audience but that attribute of the talk content type is not in the catalog. This is why we need to get to the objects themselves.
 
-We could also add a new index to the catalog that will add 'audience' to the properties of brains, but we should to weigh the pros and cons:
+We could also add a new index to the catalog that will add 'audience' to the properties of brains, but we should weigh the pros and cons:
 
 * talks are important and thus most likely always in memory
 * prevent bloating of catalog with indexes
@@ -386,7 +386,7 @@ Afterwards you transform it into a listing. Here we use one of many nice feature
 There are some some things that need explanation:
 
 ``tal:repeat="talk view/talks"``
-    This iterates over the list of dictionaries returned by the view. ``view/talks`` calls the method ``talks`` of our view and each ``talk`` is in turn one of the dictionaries that are returned by this method. Since TAL's path expressions for the lookup of values in dictionaries is the same as the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict. It would be a good practice to write ``tal:repeat="talk python:view.talks()"``.
+    This iterates over the list of dictionaries returned by the view. ``view/talks`` calls the method ``talks`` of our view and each ``talk`` is in turn one of the dictionaries that are returned by this method. Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict. It would be a good practice to write ``tal:repeat="talk python:view.talks()"``.
 
 ``tal:content="talk/speaker"``
     'speaker' is a key in the dict 'talk'. We could also write ``tal:content="python:talk['speaker']"``
@@ -398,7 +398,7 @@ There are some some things that need explanation:
 Exercise
 ********
 
-Modify the view to only python expressions.
+Modify the view to only use python expressions.
 
 ..  admonition:: Solution
     :class: toggle
@@ -457,7 +457,7 @@ We don't want to always have to append /@@talklistview to our folder to get the 
 
 If we append ``/manage_propertiesForm`` we can set the property "layout" to ``talklistview``.
 
-To make views configurable so that editors can choose them we have to register the view for the content type at hand in its FTI. To enable if for all folders we add a new file ``profiles/default/types/Folder.xml``
+To make views configurable so that editors can choose them we have to register the view for the content type at hand in its FTI. To enable it for all folders we add a new file ``profiles/default/types/Folder.xml``
 
 .. code-block:: xml
     :linenos:
