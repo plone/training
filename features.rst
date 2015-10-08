@@ -7,9 +7,9 @@ The Features of Plone
 
     This chapter has not yet been updated for Plone 5!
 
-In-depth user-manual: http://docs.plone.org/5/en
+In-depth user-manual: http://docs.plone.org
 
-See also: http://docs.plone.org/5/en/working-with-content/index.html
+See also: http://docs.plone.org/working-with-content/index.html
 
 .. _features-start-stop-label:
 

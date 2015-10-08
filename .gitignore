@@ -1,5 +1,6 @@
 *.mo
 *~
+.Python
 .doctrees
 .vagrant
 _build/

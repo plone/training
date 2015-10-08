@@ -23,6 +23,7 @@ class packages {
   package { "unzip":             ensure => present, }
   package { "vim":               ensure => present, }
   package { "wget":              ensure => present, }
+
   # Optional packages to enable indexing of office/pdf docs
   # package { "wv":                ensure => present, }
   # package { "poppler-utils":     ensure => present, }
