@@ -9,7 +9,7 @@ Customizing Existing Templates
 
     .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/05_zpt_2_p5/ src/ploneconf.site
+        cp -R src/ploneconf.site_sneak/chapters/04_zpt_2_p5/ src/ploneconf.site
 
 In this part you will:
 
