@@ -31,7 +31,7 @@ To dive deeper into real plone data we now look at some existing templates and c
 The view for News Items
 -----------------------
 
-We want to show the date a News Item is published. This way people can see at a glance it they are looking at current or old news.
+We want to show the date a News Item is published. This way people can see at a glance if they are looking at current or old news.
 
 To do this we will customize the template that is used to render News Items.
 
@@ -77,7 +77,6 @@ This will render ``Feb 21, 2015``.
 
 * ``plone_view`` is the BrowserView ``Products.CMFPlone.browser.ploneview.Plone`` and it is defined in the ``main_template`` (Products/CMFPlone/browser/templates/main_template.pt) of Plone 5 like this ``plone_view context/@@plone;`` and thus always available.
 * The method ``toLocalizedTime`` runs a date object through Plone's ``translation_service`` and returns the Date in the current locales format, thus transforming ``2015-02-21T12:01:31+01:00`` to ``Feb 21, 2015``.
-* With ``nocall:`` we prevent the method ``toLocalizedTime`` from being called, since we only want to make it available for use.
 
 The same in a slightly different style:
 
@@ -144,40 +143,39 @@ The date is only displayed if the variable ``item_type`` is ``News Item``.
 
 Let's take a closer look at that template. How does it know that ``item_type`` is the name of the content type?
 
-The first step to uncovering that secret is line 12 of ``listing_summary.pt``:
+The first step to uncovering that secret is line 14 of ``listing_summary.pt``:
 
 .. code-block:: html
 
-    <metal:block use-macro="context/@@folder_listing/macros/entries|context/@@standard_view/macros/entries">
+    <metal:block use-macro="context/@@listing_view/macros/entries">
 
-``use-macro`` tells Plone to reuse the macro ``entries`` from the view ``folder_listing``, and if that is not found use the same macro from the view ``standard_view``. Both views are defined in ``plone.app.contenttypes/plone/app/contenttypes/browser/configure.zcml``
-
-Both use different view classes and are allowed for different contenttypes. The first is for folders the second for collections. But both use the same template ``plone/app/contenttypes/browser/templates/listing.pt``. That makes overriding that much easier :-)
+``use-macro`` tells Plone to reuse the macro ``entries`` from the view ``listing_view``. That view is defined in ``packages/plone/app/contenttypes/browser/configure.zcml``.  It uses the template ``plone/app/contenttypes/browser/templates/listing.pt``. That makes overriding that much easier :-)
 
 That template ``listing.pt`` defines the slot ``entries`` like this:
 
 ..  code-block:: html
 
     <metal:listingmacro define-macro="listing">
-    <tal:results define="batch view/batch">
-    <tal:listing condition="batch">
-
-        <div metal:define-slot="entries">
-            <article tal:repeat="item batch" metal:define-macro="entries">
-            <tal:block tal:define="obj item/getObject;
-                                   item_url item/getURL;
-                                   item_id item/getId;
-                                   item_title item/Title;
-                                   item_description item/Description;
-                                   item_type item/PortalType;
-                                   item_modified item/ModificationDate;
-                                   item_created item/CreationDate;
-                                   item_icon item/getIcon;
-                                   item_type_class python:'contenttype-' + view.normalizeString(item_type);
-                                   item_wf_state item/review_state;
-                                   item_wf_state_class python:'state-' + view.normalizeString(item_wf_state);
-                                   item_creator item/Creator;
-                                   item_link python:item_type in view.use_view_action and item_url+'/view' or item_url">
+      <tal:results define="batch view/batch">
+        <tal:listing condition="batch">
+          <div class="entries" metal:define-slot="entries">
+            <tal:repeat="item batch" metal:define-macro="entries">
+              <tal:block tal:define="obj item/getObject;
+                                     item_url item/getURL;
+                                     item_id item/getId;
+                                     item_title item/Title;
+                                     item_description item/Description;
+                                     item_type item/PortalType;
+                                     item_modified item/ModificationDate;
+                                     item_created item/CreationDate;
+                                     item_icon item/getIcon;
+                                     item_type_class python:'contenttype-' + view.normalizeString(item_type);
+                                     item_wf_state item/review_state;
+                                     item_wf_state_class python:'state-' + view.normalizeString(item_wf_state);
+                                     item_creator item/Creator;
+                                     item_link python:item_type in view.use_view_action and item_url+'/view' or item_url;
+                                     item_has_image python:view.has_image(obj);
+                                     item_is_event python:view.is_event(obj)">
 
     ...
 
@@ -202,7 +200,7 @@ To be continued...
 
     In Plone 4 without ``plone.app.contenttypes`` the template to customize would be ``folder_summary_view.pt``, a skin template for Archetypes that can be found in the folder ``Products/CMFPlone/skins/plone_content/``. The customized template would be ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
 
-    The Archetypes template for News Items is ``newsitems_view.pt`` from the same folder. The customized template would then have to be named ``Products.CMFPlone.skins.plone_content.folder_summary_view.pt``.
+    The Archetypes template for News Items is ``newsitems_view.pt`` from the same folder. The customized template would then have to be named ``Products.CMFPlone.skins.plone_content.newsitems_view.pt``.
 
     Keep in mind that not only the names and locations have changed but also the content!
 
@@ -222,7 +220,7 @@ If you don't know which template is used by the page you're looking at you can m
 
         <body class="template-summary_view portaltype-collection site-Plone section-news subsection-aggregator icons-on userrole-anonymous" dir="ltr">
 
-    The class ``template-summary_view`` tells us that the name of the view (but not necessarily the name of the template) is ``summary_view``. So we could search all ``*.zcml``-Files for ``name="summary_view"`` or search all templates calls ``summary_view.pt`` and probably find the view and also the corresponding template. But only probably because it would not tell us if the template is already being overridden.
+    The class ``template-summary_view`` tells us that the name of the view (but not necessarily the name of the template) is ``summary_view``. So we could search all ``*.zcml``-Files for ``name="summary_view"`` or search all templates called ``summary_view.pt`` and probably find the view and also the corresponding template. But only probably because it would not tell us if the template is already being overridden.
 
 2.  The safest method is using ``plone.app.debugtoolbar``.  We already have it in our buildout and only need to install it. It adds a "Debug"-Dropdown on top of the page. The Section "Published" shows the complete path to the template that is used to render the page you are seeing.
 

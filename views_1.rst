@@ -48,15 +48,6 @@ Edit the file ``browser/configure.zcml`` and register another view similar to th
         />
 
       <browser:page
-        name="demoview"
-        for="*"
-        class=".views.DemoView"
-        template="templates/demoview.pt"
-        layer="ploneconf.site.interfaces.IPloneconfSiteLayer"
-        permission="zope2.View"
-        />
-
-      <browser:page
         name="training"
         for="*"
         template="templates/training.pt"
