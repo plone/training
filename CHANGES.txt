@@ -7,9 +7,6 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
-- Default to using bin/sphinx-build in the Makefile, we need the sphinx dependencies anyway. 
-  [fredvd]
-
 - Add spell-checker, auto-build and travis-tests
   [svx]
 
