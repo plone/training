@@ -1,9 +1,11 @@
 # Makefile for Sphinx documentation
 #
 
+# See about.rst for using virtualenv and the requirements.txt to set up Sphinx
+#
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
+SPHINXBUILD   = bin/sphinx-build
 PAPER         =
 BUILDDIR      = _build
 LOCALESDIR    = _locales
