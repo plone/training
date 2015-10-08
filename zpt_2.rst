@@ -31,7 +31,7 @@ To dive deeper into real plone data we now look at some existing templates and c
 The view for News Items
 -----------------------
 
-We want to show the date a News Item is published. This way people can see at a glance it they are looking at current or old news.
+We want to show the date a News Item is published. This way people can see at a glance if they are looking at current or old news.
 
 To do this we will customize the template that is used to render News Items.
 
@@ -77,7 +77,6 @@ This will render ``Feb 21, 2015``.
 
 * ``plone_view`` is the BrowserView ``Products.CMFPlone.browser.ploneview.Plone`` and it is defined in the ``main_template`` (Products/CMFPlone/browser/templates/main_template.pt) of Plone 5 like this ``plone_view context/@@plone;`` and thus always available.
 * The method ``toLocalizedTime`` runs a date object through Plone's ``translation_service`` and returns the Date in the current locales format, thus transforming ``2015-02-21T12:01:31+01:00`` to ``Feb 21, 2015``.
-* With ``nocall:`` we prevent the method ``toLocalizedTime`` from being called, since we only want to make it available for use.
 
 The same in a slightly different style:
 
