@@ -20,15 +20,15 @@ Topics covered:
 plone.api
 ---------
 
-The most important tool nowadays for plone developers is the add-on `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
+The most important tool nowadays for plone developers is the add-on `plone.api <http://docs.plone.org/develop/plone.api/docs/index.html>`_ that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
 
 The api is divided in five sections. Here is one example from each:
 
-* `Content`: `Create content <http://docs.plone.org/external/plone.api/docs/content.html#create-content>`_
-* `Portal`: `Send E-Mail <http://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_
-* `Groups`: `Grant roles to group <http://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-group>`_
-* `Users`: `Get user roles <http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_
-* `Environment`: `Switch roles inside a block <http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_
+* `Content`: `Create content <http://docs.plone.org/develop/plone.api/docs/content.html#create-content>`_
+* `Portal`: `Send E-Mail <http://docs.plone.org/develop/plone.api/docs/portal.html#send-e-mail>`_
+* `Groups`: `Grant roles to group <http://docs.plone.org/develop/plone.api/docs/group.html#grant-roles-to-group>`_
+* `Users`: `Get user roles <http://docs.plone.org/develop/plone.api/docs/user.html#get-user-roles>`_
+* `Environment`: `Switch roles inside a block <http://docs.plone.org/develop/plone.api/docs/env.html#switch-roles-inside-a-block>`_
 
 plone.api is not yet part of the Plone core. Therefore you will not see any use of plone.api in Plone itself. It will be part of Plone 5.
 
