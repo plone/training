@@ -54,6 +54,8 @@ Let us have a look at the zcml and the code.
 
     </configure>
 
+We are adding a file called ``views.py`` in the ``browser`` folder.
+
 ``browser/views.py``
 
 .. code-block:: python
@@ -259,7 +261,7 @@ Add the new choice field "room" to the Talk type (TTW) and display it below Audi
 ..  admonition:: Solution
         :class: toggle
 
-        * Go to http://localhost:8080/Plone/dexterity-types/talk/@@fields and add the new fields
+        * Go to http://localhost:8080/Plone/dexterity-types/talk/@@fields and add the new field
         * Add the new HTML below the audience part:
 
         .. code-block:: xml
