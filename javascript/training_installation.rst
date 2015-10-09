@@ -7,7 +7,9 @@ After that, issue the following command to get the development environment for t
 
     make mockup-minimalpattern
 
-You need `NodeJS <https://nodejs.org/en/download/>`_ installed for that.
+.. note::
+
+    To be able to install the JavaScript development toos, you need `NodeJS <https://nodejs.org/en/download/>`_ installed on your development computer.
 
 
 Installing Mockup

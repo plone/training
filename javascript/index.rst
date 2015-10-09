@@ -11,12 +11,12 @@ Javascript for Plone Developers
 ..  toctree::
     :maxdepth: 3
 
+    training_installation
     development-process
     resourceregistry
     mockup-writing-documentation
 
     javascript-1-about
-    javascript-2-development-environment
     javascript-3-ttw
     javascript-4-developing-pattern
     javascript-5-integrating-pattern

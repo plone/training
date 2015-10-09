@@ -28,6 +28,10 @@ If you **are** experienced with running Plone on your own laptop, we encourage y
 
 If you feel comfortable, please work on your own machine with your own Python. But **please** make sure that you have a system that will work, since we don't want you to lose valuable time!
 
+.. note::
+
+    If you also want to follow the JavaScript training and install the JavaScript development tools, you need `NodeJS <https://nodejs.org/en/download/>`_ installed on your development computer.
+
 Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
 .. code-block:: bash
@@ -127,6 +131,11 @@ Get the latest version from http://www.vagrantup.com/downloads for your operatin
     In Windows there is a bug in the recent version of Vagrant. Here are the instructions for how to work around the warning ``Vagrant could not detect VirtualBox! Make sure VirtualBox is properly installed``.
 
 Now your system has a command ``vagrant`` that you can run in the terminal.
+
+.. note::
+
+    You don't need to install ``NodeJS`` as mentioned in the previous section. Our Vagrant configuration already does that for you.
+
 
 First, create a directory in which you want to do the training.
 
