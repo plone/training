@@ -87,7 +87,7 @@ And enable it on the type in ``profiles/default/types/talk.xml``
 
 Either reinstall the add-on, apply the behavior by hand or run an upgrade step (see below) and the interface will be there.
 
-Then we can safely bind the `talkview` to the new marker interface.
+Then we can safely bind the ``talkview`` to the new marker interface.
 
 .. code-block:: xml
     :emphasize-lines: 3
@@ -101,7 +101,7 @@ Then we can safely bind the `talkview` to the new marker interface.
       permission="zope2.View"
       />
 
-Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface ``catalog(object_provides="ploneconf.site.interfaces.ITalk")``. The `talklistview` and the `demoview` do not get this constraint since they are not only used on talks.
+Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface ``catalog(object_provides="ploneconf.site.interfaces.ITalk")``. The ``talklistview`` and the ``demoview`` do not get this constraint since they are not only used on talks.
 
 .. note::
 
@@ -167,7 +167,7 @@ Upgrade steps are usually registered in their own zcml file. Create ``upgrades.z
 
     </configure>
 
-The upgrade step bumps the version number of the GenericSetup profile of ploneconf.site from 1 to 1001. The version is stored in ``profiles/default/metadata.xml``. Change it to
+The upgrade step bumps the version number of the GenericSetup profile of ploneconf.site from 1000 to 1001. The version is stored in ``profiles/default/metadata.xml``. Change it to
 
 ..  code-block:: xml
 
@@ -233,7 +233,7 @@ GenericSetup now expects the code as a method ``upgrade_site`` in the file ``upg
 
 After restarting the site we can run the step:
 
-* Go to the Add-ons control panel http://localhost:8080/Plone/prefs_install_products_form. There should now be a warning **This add-on has been upgraded. Old profile version was 1. New profile version is 1001** and a button next to it.
+* Go to the Add-ons control panel http://localhost:8080/Plone/prefs_install_products_form. There should now be a warning **This add-on has been upgraded. Old profile version was 1000. New profile version is 1001** and a button next to it.
 * Run the upgrade step by clicking on it.
 
 On the console you should see logging messages like::
@@ -254,7 +254,7 @@ Alternatively you can select which upgrade steps to run like this:
 
 .. note::
 
-    Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package ``plone.app.upgrade``. You should be able to upgrade a clean site from 2.5 to 5.0a2 with a click.
+    Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package ``plone.app.upgrade``. You should be able to upgrade a clean site from 2.5 to 5.0 with a click.
 
     For an example see the upgrade-step to Plone 5.0a1 https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L23
 
@@ -279,7 +279,7 @@ Our package already has a browserlayer (``bobtemplates.plone`` added it). See ``
         """Marker interface that defines a browser layer."""
 
 
-Is is enabled by GenericSetup when installing the package since it is registered in ``profiles/default/browserlayer.xml``
+It is enabled by GenericSetup when installing the package since it is registered in ``profiles/default/browserlayer.xml``
 
 ..  code-block:: xml
 
@@ -315,7 +315,7 @@ Note the relative python path ``..interfaces.IPloneconfSiteLayer``. It is equiva
 Exercise
 ++++++++
 
-Do you need to bind the :ref:`viewlets1-social2-label` from chapter 22 to this new browser layer?
+Do you need to bind the :ref:`viewlets1-social2-label` from the chapter 'Writing Viewlets' to this new browser layer?
 
 ..  admonition:: Solution
     :class: toggle
@@ -327,7 +327,7 @@ Do you need to bind the :ref:`viewlets1-social2-label` from chapter 22 to this n
 Add catalog indexes
 -------------------
 
-In the `talklistview` we had to wake up all objects to access some of their attributes. That is ok if we don't have many objects and they are light dexterity objects. If we had thousands of objects this might not be a good idea.
+In the ``talklistview`` we had to wake up all objects to access some of their attributes. That is ok if we don't have many objects and they are light dexterity objects. If we had thousands of objects this might not be a good idea.
 
 Instead of loading them all into memory we will use catalog indexes to get the data we want to display.
 
@@ -355,13 +355,14 @@ Add a new file ``profiles/default/catalog.xml``
 
 This adds new indexes for the three fields we want to show in the listing. Not that *audience* is a ``KeywordIndex`` because the field is multi-valued, but we want a separate index entry for every value in an object.
 
-The ``column ..`` entry allows us to display the values of these indexes in the tableview of collections.
+The ``column ..`` entries allow us to display the values of these indexes in the tableview of collections.
 
 .. note::
 
     Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the add-on purged the indexes! See http://www.starzel.de/blog/a-reminder-about-catalog-indexes.
 
 * Reinstall the add-on
+* Go to http://localhost:8080/Plone/portal_catalog/manage_catalogAdvanced to update the catalog
 * Go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes to inspect and manage the new indexes
 
 .. seealso::
