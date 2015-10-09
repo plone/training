@@ -52,7 +52,7 @@ Here are a few examples:
 portal_catalog
     ``unrestrictedSearchResults()`` returns search results without checking if the current user has the permission to access the objects.
 
-    ``uniqueValuesFor()`` returns all entries in a index
+    ``uniqueValuesFor()`` returns all entries in an index
 
 portal_setup
     ``runAllExportSteps()`` generates a tarball containing artifacts from all export steps.
@@ -71,7 +71,7 @@ Debugging
 Here are some tools and techniques we often use when developing and debugging. We use some of them in various situations during the training.
 
 tracebacks and the log
-    The log (and the console when running in foreground) collect all log messages Plone prints. When an exception occurs Plone throws a traceback. Most of the time the traceback is everything you need to find out what is going wrong. Also adding your own information to the log is very simple.
+    The log (and the console when running in foreground) collects all log messages Plone prints. When an exception occurs Plone throws a traceback. Most of the time the traceback is everything you need to find out what is going wrong. Also adding your own information to the log is very simple.
 
 pdb
     The python debugger pdb is the single most important tool for us when programming. Just add ``import pdb; pdb.set_trace()`` in your code and debug away!
@@ -86,7 +86,7 @@ Products.PDBDebugMode
 
     **Post-mortem debugging**: throws you in a pdb whenever an exception occurs. This way you can find out what is going wrong.
 
-    **pdb-view**: simply adding ``/pdb`` to a url drops you in a pdb session with the current context as ``self.context``. From there you can do just about anything.
+    **pdb view**: simply adding ``/pdb`` to a url drops you in a pdb session with the current context as ``self.context``. From there you can do just about anything.
 
 Debug mode
     When starting Plone using ``./bin/instance debug -O Plone`` you'll end up in an interactive debugger.
