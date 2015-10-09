@@ -1,37 +1,21 @@
-Development Environment
-=======================
+Installing Plone and example packages for the Training
+======================================================
 
-This document assumes you already have Plone up and running. If you don't, please refer to :doc:`/plone_training_config/instructions`.
+To get Plone and example packages for this training installed, please follow the installation instructions at :doc:`/plone_training_config/instructions`.
 
-We are also going to be using an already created package with some boiler plate (:doc:`More info </sneak>`)
+After that, issue the following command to get the development environment for the ``mockup-minimalpattern`` example package installed::
 
-Copy over the ``20_javascript_p5`` folder
+    make mockup-minimalpattern
 
-.. code-block:: bash
+You need `NodeJS <https://nodejs.org/en/download/>`_ installed for that.
 
-    $ cp -R src/ploneconf.site_sneak/chapters/20_javascript_p5/ src/ploneconf.site
 
-Modify your buildout.cfg so Plone can find it
+Installing Mockup
+-----------------
 
-.. code-block:: cfg
-    :linenos:
-    :emphasize-lines: 5, 9, 13
+Optionally you can install Mockup. Mockup is already included in the `training_buildout <https://github.com/collective/training_buildout/blob/plone5/buildout.cfg>`_. Uncomment the "mockup" line in ``auto-checkout`` and buildout ``eggs`` section.
 
-    [buildout]
-    ...
-    auto-checkout =
-    ...
-        ploneconf.site
-    ...
-    eggs =
-    ...
-        ploneconf.site
-    ...
-
-    [sources]
-    ploneconf.site = fs ploneconf.site full-path=${buildout:directory}/src/ploneconf.site
-
-Run buildout
+After that, run buildout:
 
 .. code-block:: bash
 
