@@ -13,7 +13,7 @@ Behaviors
 
 In this part you will:
 
-* Add another field to talky by using a behavior
+* Add another field to talks by using a behavior
 
 Topics covered:
 
@@ -37,7 +37,7 @@ Dexterity Approach
 
     A behavior can be added to any content type through the web and at runtime.
 
-    All default views know about the concept of behaviors and when rendering forms, the views also check whether there are behaviors referenced with the current context and if these behavior have a schema of their own, these fields get shown in addition.
+    All default views know about the concept of behaviors and when rendering forms, the views also check whether there are behaviors referenced with the current context and if these behaviors have a schema of their own, these fields get shown in addition.
 
 .. _behaviors1-names-label:
 
@@ -135,7 +135,7 @@ And a :file:`behaviors/social.py` containing:
         )
 
         lanyrd = schema.URI(
-            title=u"Lanyrd-link",
+            title=u"Lanyrd link",
             description=u"Add URL",
             required=False,
         )
