@@ -8,6 +8,15 @@ Javascript for Plone Developers
 
     This chapter is still work in progress!
 
+
+TODO:
+ - chapter about mockup/patternslib
+ - chapter about testing
+ - Go through example.plone5resources
+ - Go through mockup-minimalpattern
+
+New structure:
+
 ..  toctree::
     :maxdepth: 3
 
@@ -16,11 +25,11 @@ Javascript for Plone Developers
     resourceregistry
     mockup-writing-documentation
 
-    javascript-1-about
+
+Old structure:
+
+..  toctree::
+    :maxdepth: 3
+
     javascript-3-ttw
-    javascript-4-developing-pattern
-    javascript-5-integrating-pattern
-    javascript-6-developing-no-pattern
-    javascript-7-other-frameworks
-    javascript-8-outlook
     javascript-scratchpad
