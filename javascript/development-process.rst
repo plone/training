@@ -8,6 +8,7 @@ Code style
 Together with ``plone.api`` we developed `code style guidelines <https://github.com/plone/plone.api/blob/master/docs/contribute/conventions.rst>`_, which we are enforcing now for core Plone development. Finally! This makes code so much more readable. It currently doesn't cover JavaScript code guidelines, but those were thought of, when Mockup was developed. And luckily, similar to PEP 8 and the associated tooling (``pep8``, ``pyflakes``, ``flake8``), JavaScript also has some guidelines - not official, but well respected. `Douglas Crockford <http://javascript.crockford.com/>`_ - besides of specifying the JSON standard - wrote the well known book "JavaScript the good parts". Out of that he developed the code linter `JSLint <http://www.jslint.com/>`_. Because this one was too strict, some other people wrote `JSHint <http://jshint.com/>`_.
 
 Mockup uses JSHint with the following `.jshintrc configuration file <https://github.com/plone/mockup/blob/master/mockup/.jshintrc>`_::
+Mockup uses JSHint with the following `.jshintrc configuration file <https://github.com/plone/mockup/blob/master/mockup/.jshintrc>`::
 
     {
        "bitwise": true,
