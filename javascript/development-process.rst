@@ -49,7 +49,15 @@ Mockup uses JSHint with the following `.jshintrc configuration file <https://git
 We strongly recommend to configure your editor of choice to do JavaScript code linting on save. The Mockup project is enforcing Lint-error-free code. Besides of that, this will also make you a better coder. The JSHint site lists some editors with Plugins to support JSHint linting: http://jshint.com/install/
 
 
-Regarding spaces/tabs and indentation: We use spaces instead of tabs and an indentation of 2 to save some screen estate.
+Regarding spaces/tabs and indentation:
+
+- Spaces instead of tabs.
+
+- Tab indentation: 2 characters (to save screen estate).
+
+You have to configure your editor to respect these settings.
+
+Confirming on a common code style makes contributing much more easier, friendly and fun!
 
 
 Mockup contributions
