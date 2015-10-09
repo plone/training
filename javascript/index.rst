@@ -11,6 +11,7 @@ Javascript for Plone Developers
 ..  toctree::
     :maxdepth: 3
 
+    resourceregistry
     javascript-1-about
     javascript-2-development-environment
     javascript-3-ttw
