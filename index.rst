@@ -11,7 +11,7 @@ Mastering Plone is intended as a week-long training for people who are new to Pl
 
 ..  warning::
 
-    For the duration of the `Plone Conference 2015 in Bucarest <https://2015.ploneconf.org>`_ the navigation has been modified to only reflect the `trainings given at the conference <https://2015.ploneconf.org/trainings>`_. You can find the original order :doc:`here <original_index>`. Please note that the next-previous-buttons and the global navigation on the left side will not work for the original order!
+    For the duration of the `Plone Conference 2015 in Bucharest <https://2015.ploneconf.org>`_ the navigation has been modified to only reflect the `trainings given at the conference <https://2015.ploneconf.org/trainings>`_. You can find the original order :doc:`here <original_index>`. Please note that the next-previous-buttons and the global navigation on the left side will not work for the original order!
 
 
 .. toctree::
