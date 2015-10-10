@@ -1,15 +1,15 @@
 .. _theming-label:
 
-=======
-Theming
-=======
+Mastering Plone 5: Theming
+==========================
 
-..  warning::
+.. warning::
 
-    This chapter is still work in progress!
+   This chapter is still work in progress!
 
 .. toctree::
    :maxdepth: 3
+   :numbered: 1
 
    basic
    ttw-advanced
