@@ -248,7 +248,7 @@ Exercises
 Exercise 1
 ++++++++++
 
-Modify Documents to allow uploading an image as decoration (like News Items do).
+Modify Pages to allow uploading an image as decoration (like News Items do).
 
 ..  admonition:: Solution
     :class: toggle
@@ -296,7 +296,7 @@ We could use this content type later to convert speakers into Plone users. We co
             <field name="title" type="zope.schema.TextLine">
               <title>Name</title>
             </field>
-            <field name="email" type="zope.schema.email.Email">
+            <field name="email" type="plone.schema.email.Email">
               <title>Email</title>
             </field>
             <field name="homepage" type="zope.schema.URI">
