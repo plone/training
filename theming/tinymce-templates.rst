@@ -2,6 +2,10 @@
 Using TinyMCE templates
 =======================
 
+TinyMCE provides with it's templates plugin an easy way to create complex content in TinyMCE.
+You can use that to help users to add complex content structures like predefined tables or content.
+The users then only need to customize this content to there needs.
+
 Activate TinyMCE templates plugin
 =================================
 
@@ -23,6 +27,52 @@ Activate TinyMCE templates plugin
 Create your own TinyMCE templates
 =================================
 
+We create a folder named ``tinymce_templates`` in our theme folder and put a file in named ``content-box.html`` in it:
+
+.. code-block:: bash
+
+   maik@planetmobile:~/develop/plone/plonetheme.tango/src/plonetheme/tango/theme
+   $ tree tinymce_templates/
+   tinymce_templates/
+   └── content-box.html
+
+In the file ``content-box.html`` we put this HTML template content:
+
+.. code-block:: html
+
+   <div class="mceTmpl">
+       <div class="row">
+           <div class="box">
+               <div class="col-lg-12">
+                   <hr>
+                   <h2 class="intro-text text-center">Build a website
+                       <strong>worth visiting</strong>
+                   </h2>
+                   <hr>
+                   <hr class="visible-xs">
+                   <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
+                   <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+               </div>
+           </div>
+       </div>
+   </div>
+
+This is the template content we will get in TinyMCE when we use this template.
+
+Now let's register this template for TinyMCE. For this you can put the needed lines TTW in TinyMCE control panel:
+
+.. code-block:: json
+
+   [
+     {
+      "title": "Content box",
+      "url": "++theme++plonetheme.tango/tinymce_templates/content-box.html"
+     }
+   ]
+
+Or you add this to your registry.xml, to make it reproducible.
+
 .. code-block:: xml
 
    <record name="plone.templates" interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema" field="templates">
@@ -39,4 +89,19 @@ Create your own TinyMCE templates
    ]</value>
    </record>
 
+Use TinyMCE templates for content creation
+==========================================
 
+We can add template based content from the insert menu > Insert template:
+
+.. image:: _static/theming-tinymce-insert-template.jpg
+
+Now we can choose one of the existing TinyMCE templates:
+
+.. image:: _static/theming-tinymce-choose-template.jpg
+
+After we have chosen our template and then clicked on ok, we got our templates based content in the editor.
+
+.. image:: _static/theming-tinymce-insert-template-result.jpg
+
+We can now customize it or use more templates to create more content.
