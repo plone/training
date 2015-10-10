@@ -204,7 +204,7 @@ Here is the complete xml-schema created by our actions.
         <description>Name (or names) of the speaker</description>
         <title>Speaker</title>
       </field>
-      <field name="email" type="zope.schema.email.Email">
+      <field name="email" type="plone.schema.email.Email">
         <description>Adress of the speaker</description>
         <title>Email</title>
       </field>
