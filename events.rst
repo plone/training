@@ -16,7 +16,7 @@ We forgot something: A list of talks is great especially if you can sort it by y
 
 We need a schedule and for this we need to store the information when a talk will happen.
 
-Luckily the default-type *Event* is based on reusable behaviors from the package plone.app.event.
+Luckily the default type *Event* is based on reusable behaviors from the package plone.app.event.
 
 In this chapter we will
 
@@ -191,98 +191,3 @@ Find out where the event behavior is defined and which fields it offers.
 
     Note how it uses ``defaultFactory`` to set an initial value.
 
-
-..  note::
-
-    Because of a `bug in plone.app.event <https://github.com/plone/plone.app.event/issues/160>`_ there was a problem turning existing objects into events. Since existing types have no values in the fields ``start`` and ``end`` we would get a traceback on inline-validation when we edit these. To work around this we had to write an upgrade step that sets an initial date.
-
-    Register the new upgrade step in ``upgrades.zcml``
-
-    ..  code-block:: xml
-        :linenos:
-
-        <genericsetup:upgradeStep
-          title="Add event behavior to talks"
-          description=""
-          source="1001"
-          destination="1002"
-          handler="ploneconf.site.upgrades.turn_talks_to_events"
-          sortkey="1"
-          profile="ploneconf.site:default"
-          />
-
-    Bump the profile-version to 1002 in ``profiles/default/metadata.xml``
-
-    Write the upgrade-step in ``upgrades.py``
-
-    .. code-block:: python
-        :linenos:
-        :emphasize-lines: 4, 6, 45-65
-
-        # -*- coding: UTF-8 -*-
-        from plone import api
-
-        import datetime
-        import logging
-        import pytz
-
-
-        default_profile = 'profile-ploneconf.site:default'
-
-        logger = logging.getLogger('ploneconf.site')
-
-        def upgrade_site(setup):
-            setup.runImportStepFromProfile(default_profile, 'typeinfo')
-            catalog = api.portal.get_tool('portal_catalog')
-            portal = api.portal.get()
-            if 'the-event' not in portal:
-                theevent = api.content.create(
-                    container=portal,
-                    type='Folder',
-                    id='the-event',
-                    title='The event')
-            else:
-                theevent = portal['the-event']
-            if 'talks' not in theevent:
-                talks = api.content.create(
-                    container=theevent,
-                    type='Folder',
-                    id='talks',
-                    title='Talks')
-            else:
-                talks = theevent['talks']
-            talks_url = talks.absolute_url()
-            brains = catalog(portal_type='talk')
-            for brain in brains:
-                if talks_url in brain.getURL():
-                    continue
-                obj = brain.getObject()
-                logger.info('Moving %s to %s' % (obj.absolute_url(), talks.absolute_url()))
-                api.content.move(
-                    source=obj,
-                    target=talks,
-                    safe_id=True)
-
-        def turn_talks_to_events(setup):
-            """Set a start- and end-date for old events to work around a
-            bug in plone.app.event 1.1.1
-            """
-            api.portal.set_registry_record(
-                'plone.app.event.portal_timezone',
-                'Europe/London')
-            setup.runImportStepFromProfile(default_profile, 'typeinfo')
-
-            tz = pytz.timezone("Europe/London")
-            now = tz.localize(datetime.datetime.now())
-            date = now + datetime.timedelta(days=30)
-            date = date.replace(minute=0, second=0, microsecond=0)
-
-            catalog = api.portal.get_tool('portal_catalog')
-            brains = catalog(portal_type='talk')
-            for brain in brains:
-                obj = brain.getObject()
-                if not getattr(obj, 'start', False):
-                    obj.start = obj.end = date
-                    obj.timezone = "Europe/London"
-
-    After we run the upgrade step we can now add a time to existing events.
