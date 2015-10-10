@@ -1,17 +1,11 @@
 Mastering Plone 5: Development
 ==============================
 
-..  warning::
-
-    This chapter is still work in progress!
-
-Intro text (TODO) ...
-
 
 Contents:
 
-.. toctree::
-    :maxdepth: 2
+..  toctree::
+    :maxdepth: 1
     :numbered: 1
 
     intro

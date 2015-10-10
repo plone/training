@@ -21,33 +21,71 @@ The most important parts of Plone can be configured in the control panel.
 
 We'll explain every page and mention some of the actions you can perform here.
 
-#. Add-ons (later...)
-#. Configuration Registry
-#. Content Rules
+
+General
+*******
+
 #. Date and Time
-#. Dexterity contenttypes
-#. Discussion
-#. Editing
-#. Errors
-#. HTML Filtering
-#. Image Handling
 #. Language
 #. Mail
-#. Maintenance
-#. Markup
 #. Navigation
-#. Resource Registries
-#. Search
-#. Security
 #. Site
-#. Syndication
+#. Add-ons
+#. Search
+#. Discussion
 #. Theming
+#. Social Media
+#. Syndication
 #. TinyMCE
-#. Types
+
+
+Content
+*******
+
+#. Content Rules
+#. Editing
+#. Image Handling
+#. Markup
+#. Content Settings
+#. Dexterity Content Types
+
+Users
+*****
+
 #. Users and Groups
-#. Zope Management Interface (here be dragons)
+
+Security
+********
+
+#. HTML Filtering
+#. Security
+#. Errors
+
+Advanced
+********
+
+#. Maintenance
+#. Management Interface
+#. Caching
+#. Configuration Registry
+#. Resource Registries
+
 
 Below the links you will find information on your Plone, Zope and Python Versions and an indicator as to whether you're running in production or development mode.
+
+Change the logo
++++++++++++++++
+
+Let's change the Logo.
+
+* Download a ploneconf logo: http://www.starzel.de/plone-tutorial/ploneconf-logo-2014/image
+* Go to http://localhost:8080/Plone/@@site-controlpanel
+* Upload the Logo.
+
+.. seealso::
+
+   http://docs.plone.org/adapt-and-extend/change-the-logo.html
+
 
 
 .. _customizing-portlets-label:
@@ -87,7 +125,7 @@ Viewlets
 
 Portlets save data, Viewlets usually don't. Viewlets are often used for UI-Elements and have no nice UI to customize them.
 
-* ``@@manage-viewlets`` (pretty broken in Plone 5)
+* ``@@manage-viewlets``
 * Viewlets have no nice UI
 * Not aimed at content editors
 * Not locally addable, no configurable inheritance.
@@ -205,8 +243,6 @@ In portal_skins we can change certain images, css-files and templates.
 
     Plone 5 will get rid of a lot of functionality that still lives in portal_skins.
 
-    We used to do this part of the training with `plone.app.themeeditor <https://pypi.python.org/pypi/plone.app.themeeditor>`_ which has a much nicer UI than the ZMI but also has dependencies that are incompatible with ZopeSkel and is not widely used.
-
 
 Change some css
 +++++++++++++++
@@ -265,19 +301,6 @@ Enter the following css:
        }
     }
 
-Change the logo
-+++++++++++++++
-
-Let's change the Logo.
-
-* Download a ploneconf logo: http://www.starzel.de/plone-tutorial/ploneconf-logo-2014/image
-* Go to ``portal_skins`` / ``plone_images``
-* Click on ``logo.png``, click ``Customize`` and Upload the Logo.
-
-.. seealso::
-
-   http://docs.plone.org/adapt-and-extend/change-the-logo.html
-
 
 portal_view_customizations
 **************************
@@ -332,7 +355,7 @@ There are many more notable items in the ZMI. We'll visit some of them later.
 
 * acl_users
 * error_log
-* portal_properties
+* portal_properties (deprecated)
 * portal_setup
 * portal_workflow
 * portal_catalog

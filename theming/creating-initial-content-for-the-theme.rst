@@ -1,6 +1,6 @@
-=====================================
+======================================
 Creating initial content for the theme
-=====================================
+======================================
 
 Our theme relies on some initial content structure, like the slider-images folder with some images inside.
 So we will improve our theme package to create this content on install.
