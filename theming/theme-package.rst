@@ -938,7 +938,7 @@ The important parts here are the definitions for *development-css*, *production-
 After adding the registry entries and manifest changes, we need to reload the setup profile of the package. For now just go to the ``/prefs_install_products_form`` and uninstall/install the theme package. For the changes in the manifest.cfg you actually need to deactivate/activate the theme in ``@@theming-controlpanel``, but this also happen on install of the package, so we already have that in this case.
 
 Extend your buildout configuration
-----------------------------------
+++++++++++++++++++++++++++++++++++
 
 Add the following buildout parts, if they are not already exist:
 
@@ -1368,54 +1368,3 @@ More Diazo and plone.app.theming details
 ****************************************
 
 For more details how to build a Diazo based theme, look at http://docs.diazo.org/en/latest/ and http://docs.plone.org/external/plone.app.theming/docs/index.html.
-
-
-Override Plone BrowserViews with jbot
-=====================================
-
-A large part of the Plone UI are provided by BrowserView or Viewlet templates.
-
-That is the case for viewlets (all the blocks you can see when you call the url
-``./@@manage-viewlets``).
-
-.. note:: to override them from the ZMI, you can go to ``./portal_view_customizations``.
-
-To overrides them from your theme product, the easiest way is to use
-``z3c.jbot`` (Just a Bunch of Templates).
-
-Since jbot is already included in the skeleton, you can just start using it, by putting in ``src/plonetheme/tango/browser/overrides/`` all the templates you want to override.
-But you will need to name them by prefixing the template
-name by its complete path to its original version.
-
-For instance, to override ``colophon.pt`` from plone.app.layout, knowing this
-template in a subfolder named ``viewlets``, you need to name it
-``plone.app.layout.viewlets.colophon.pt``.
-
-.. note:: ZMI > portal_view_customizations is an handy way to find the template path.
-
-You can now restart Zope and re-install your product from the Plone control
-panel (Site Setup > Add-ons).
-
-
-Dynamic slider
-==============
-
-Create dynamic slider content in Plone
---------------------------------------
-
-We need a custom view to render ower dynamic content for the slider in Plone.
-There different ways to create views, for now we use a very simple template-only-view thru jbot and theming-plugins.
-
-TODO: show views folder and custom slider-images view
-
-
-Take over the dynamic slider content from Plone
------------------------------------------------
-
-.. code-block:: xml
-
-   <replace
-     css:theme="#carousel-example-generic"
-     css:content="#carousel-example-generic"
-     href="/slider-images/@@slider-images" />
-

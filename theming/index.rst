@@ -16,6 +16,7 @@ Theming
    static-theme
    theme-package
    creating-customizing-templates
+   creating-initial-content-for-the-theme
    tinymce-templates
    adv-resource-registry
    adv-diazo
