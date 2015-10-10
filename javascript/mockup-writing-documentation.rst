@@ -1,4 +1,4 @@
-.. _writing-documentation:
+.. _mockup-writing-documentation:
 
 Writing documentation for Mockup
 ================================

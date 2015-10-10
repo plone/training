@@ -80,9 +80,6 @@ You can now restart Plone to see the effect.
 Creating a new Plone template
 =============================
 
-Dynamic slider
---------------
-
 Create dynamic slider content in Plone
 **************************************
 

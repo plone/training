@@ -100,7 +100,7 @@ Other topics are only covered lightly:
 What to expect
 --------------
 
-At the end of the first two days of training, you'll know many of the tools required for Plone installation, integration and configuration. You'll be able to install add-on packages and will know something about the technologies underlying Plone and their histories. You'll be ready to extend your skills via reading books like `Practical Plone <https://www.packtpub.com/web-development/practical-plone-3-beginners-guide-building-powerful-websites>`_ and the `Plone documentation <http://docs.plone.org>`_.
+At the end of the first two days of training, you'll know many of the tools required for Plone installation, integration and configuration. You'll be able to install add-on packages and will know something about the technologies underlying Plone and their histories.
 
 At the end of the second two days, you won't be a complete professional Plone-programmer, but you will know some of the more powerful features of Plone and should be able to construct a more complex website with custom themes and packages. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core technologies involved in Plone programming.
 
