@@ -32,6 +32,19 @@ If you feel comfortable, please work on your own machine with your own Python. B
 
     If you also want to follow the JavaScript training and install the JavaScript development tools, you need `NodeJS <https://nodejs.org/en/download/>`_ installed on your development computer.
 
+
+.. note::
+
+    Please make sure you have your system properly prepared and installed all necessary prerequisites. For example, on Ubuntu/Debian, you need to install the following::
+
+        sudo apt-get install python-setuptools python-virtualenv python-dev build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
+        sudo apt-get install libreadline-dev wv poppler-utils
+        sudo apt-get install git
+
+    For more information or in case of problems see the `official installation instructions <http://docs.plone.org/manage/installing/installation.html>`_.
+
+
+
 Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
 .. code-block:: bash
