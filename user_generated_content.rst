@@ -135,6 +135,7 @@ This step makes sure the method ``post_install`` in ``setuphandlers.py`` is exec
     :linenos:
 
     # -*- coding: utf-8 -*-
+    from Products.CMFPlone.interfaces import constrains
     from plone import api
 
     import logging
@@ -176,7 +177,7 @@ This step makes sure the method ``post_install`` in ``setuphandlers.py`` is exec
             obj=talks)
 
         # Constrain addable types to talk
-        behavior = ISelectableConstrainTypes(talks)
+        behavior = constrains.ISelectableConstrainTypes(talks)
         behavior.setConstrainTypesMode(constrains.ENABLED)
         behavior.setLocallyAllowedTypes(['talk'])
         behavior.setImmediatelyAddableTypes(['talk'])
