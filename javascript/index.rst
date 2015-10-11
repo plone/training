@@ -1,6 +1,6 @@
 .. _javascript-label:
 
-Javascript for Plone Developers
+JavaScript for Plone Developers
 ===============================
 
 ..  warning::
@@ -14,6 +14,7 @@ Javascript for Plone Developers
 
     training_installation
     development-process
+    requirejs-modules
     resourceregistry
     mockup-writing-documentation
     javascript-3-ttw
