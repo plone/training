@@ -1,0 +1,95 @@
+=====================================================
+Mockup - A Patternslib based collection of components
+=====================================================
+
+
+Plone 5 ships with a revamped UI. An important part of the new UI are a collection of new input widgets, as we are used to use in the so called Web 2.0 era.
+
+For Plone, it was high time to update and moderize it's input widgets. Not because the new ones look much better, but because they offer a much comfortable way of entering data. To update Plone's widgets was the goal of ``plone.app.widgets``, started by Nathan van Gheem and pushed wide forward by Rok Garbas. Rok forked Patternslib and created the Mockup project. Patternslib used a complex configuration syntax parser instead of a simple JSON based approach and the test coverage was not high enough. Besides it was fun to create something new, so Mockup was born. There were concerns about having two project with the same goal, so JC Brand took the initiative and brought the two projects back together. Where Mockup had a dependency on ``mockup-core`` with a base pattern to extend from, a configuration parser, pattern registry and Grunt infrastructure, this dependency was removed and replaced by a dependency on ``patternslib``.
+
+However the story behind this was, those projects led the foundation to the new way of developing JavaScript in Plone.
+
+
+The Mockup project structure
+============================
+
+This is how Mockup is structured on the filesystem::
+
+    mockup
+    ├── bower.json               - Bower managed dependencies
+    ├── Makefile                 - Makefile targets to bootstrap, build bundles
+    ├── mockup                   - All the source in here (to be able to add to Python egg)
+    │   ├── bower_components     - External dependencies managed by Bower
+    │   ├── configure.zcml       - Registers Mockup resource directory
+    │   ├── Gruntfile.js         - Grunt build configuration. Extends js/grunt.js
+    │   ├── index.html           - Entry file for generated documentation
+    │   ├── js
+    │   │   ├── bundles          - Mockup bundle files
+    │   │   │   ├── docs.js
+    │   │   │   ├── plone.js
+    │   │   │   └── widgets.js
+    │   │   │   └── ...
+    │   │   ├── config.js        - RequireJS configuration
+    │   │   ├── docs             - ReactJS based documentation framework
+    │   │   │   ├── app.js
+    │   │   │   ├── ...
+    │   │   ├── grunt.js         - Grunt base configuration
+    │   │   ├── i18n.js
+    │   │   ├── i18n-wrapper.js
+    │   │   ├── router.js
+    │   │   ├── ui
+    │   │   │   ├── templates
+    │   │   │   │   └── popover.xml
+    │   │   │   └── views
+    │   │   │       ├── base.js
+    │   │   │       ├── buttongroup.js
+    │   │   │       ├── ...
+    │   │   └── utils.js         - Utils to be reused
+    │   ├── less                 - Less files for bundles. Mostly import less files from
+    │   │   ├── base.less          a bundle's pattern dependencies.
+    │   │   ├── docs.less
+    │   │   ├── plone.less
+    │   │   └── widgets.less
+    │   │   └── ...
+    │   ├── lib                                 - Non-Bower libraries
+    │   │   ├── jquery.event.drag.js
+    │   │   └── jquery.event.drop.js
+    │   ├── node_modules -> ../node_modules     - Grunt needs this link here...
+    │   ├── patterns                            - Patterns in here
+    │   │   ├── autotoc                         - The autodoc pattern
+    │   │   │   ├── pattern.autotoc.less        - Pattern specific Less file
+    │   │   │   └── pattern.js                  - Pattern itself
+    │   │   ├── livesearch
+    │   │   │   ├── pattern.js
+    │   │   │   └── pattern.livesearch.less
+    │   │   ├── select2
+    │   │   │   ├── pattern.js
+    │   │   │   └── pattern.select2.less
+    │   └── tests                               - All tests in here
+    │       ├── config.js                       - RequireJS configuration for tests
+    │       ├── fakeserver.js                   - Fake test server
+    │       ├── files
+    │       │   ├── lessconfig.js
+    │       │   ├── mapper.html
+    │       │   └── r.js
+    │       ├── i18n-test.js
+    │       ├── images                          - Test resources
+    │       │   ├── extralarge.jpg
+    │       │   ├── large.jpg
+    │       │   ├── ...
+    │       ├── json                            - Test data
+    │       │   ├── contextInfo.json
+    │       │   ├── fileTree.json
+    │       │   ├── ...
+    │       ├── pattern-autotoc-test.js         - Tests for the autodoc pattern
+    │       ├── pattern-livesearch-test.js
+    │       ├── pattern-select2-test.js
+    │       ├── ...
+    ├── node_modules             - Node modules directory
+    ├── package.json             - Node package metadata
+    ├── provision.sh             - Vagrant provision file
+    ├── setup.py                 - Mockup egg setup
+    └── Vagrantfile              - Vagrant configuration
+
+
+
