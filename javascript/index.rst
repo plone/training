@@ -16,6 +16,7 @@ JavaScript for Plone Developers
     development-process
     requirejs-modules
     resourceregistry
+    mockup
     mockup-writing-documentation
     javascript-3-ttw
     javascript-scratchpad
