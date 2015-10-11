@@ -18,13 +18,13 @@ This is how Mockup is structured on the filesystem::
     mockup
     ├── bower.json               - Bower managed dependencies
     ├── Makefile                 - Makefile targets to bootstrap, build bundles
-    ├── mockup
-    │   ├── bower_components
-    │   ├── configure.zcml
-    │   ├── Gruntfile.js
-    │   ├── index.html
+    ├── mockup                   - All the source in here (to be able to add to Python egg)
+    │   ├── bower_components     - External dependencies managed by Bower
+    │   ├── configure.zcml       - Registers Mockup resource directory
+    │   ├── Gruntfile.js         - Grunt build configuration. Extends js/grunt.js
+    │   ├── index.html           - Entry file for generated documentation
     │   ├── js
-    │   │   ├── bundles
+    │   │   ├── bundles          - Mockup bundle files
     │   │   │   ├── docs.js
     │   │   │   ├── plone.js
     │   │   │   └── widgets.js
@@ -33,7 +33,7 @@ This is how Mockup is structured on the filesystem::
     │   │   ├── docs             - ReactJS based documentation framework
     │   │   │   ├── app.js
     │   │   │   ├── ...
-    │   │   ├── grunt.js
+    │   │   ├── grunt.js         - Grunt base configuration
     │   │   ├── i18n.js
     │   │   ├── i18n-wrapper.js
     │   │   ├── router.js
@@ -44,52 +44,52 @@ This is how Mockup is structured on the filesystem::
     │   │   │       ├── base.js
     │   │   │       ├── buttongroup.js
     │   │   │       ├── ...
-    │   │   └── utils.js
-    │   ├── less
-    │   │   ├── base.less
+    │   │   └── utils.js         - Utils to be reused
+    │   ├── less                 - Less files for bundles. Mostly import less files from
+    │   │   ├── base.less          a bundle's pattern dependencies.
     │   │   ├── docs.less
     │   │   ├── plone.less
     │   │   └── widgets.less
     │   │   └── ...
-    │   ├── lib
+    │   ├── lib                                 - Non-Bower libraries
     │   │   ├── jquery.event.drag.js
     │   │   └── jquery.event.drop.js
-    │   ├── node_modules -> ../node_modules
-    │   ├── patterns
-    │   │   ├── autotoc
-    │   │   │   ├── pattern.autotoc.less
-    │   │   │   └── pattern.js
+    │   ├── node_modules -> ../node_modules     - Grunt needs this link here...
+    │   ├── patterns                            - Patterns in here
+    │   │   ├── autotoc                         - The autodoc pattern
+    │   │   │   ├── pattern.autotoc.less        - Pattern specific Less file
+    │   │   │   └── pattern.js                  - Pattern itself
     │   │   ├── livesearch
     │   │   │   ├── pattern.js
     │   │   │   └── pattern.livesearch.less
     │   │   ├── select2
     │   │   │   ├── pattern.js
     │   │   │   └── pattern.select2.less
-    │   └── tests
-    │       ├── config.js
-    │       ├── fakeserver.js
+    │   └── tests                               - All tests in here
+    │       ├── config.js                       - RequireJS configuration for tests
+    │       ├── fakeserver.js                   - Fake test server
     │       ├── files
     │       │   ├── lessconfig.js
     │       │   ├── mapper.html
     │       │   └── r.js
     │       ├── i18n-test.js
-    │       ├── images
+    │       ├── images                          - Test resources
     │       │   ├── extralarge.jpg
     │       │   ├── large.jpg
     │       │   ├── ...
-    │       ├── json
+    │       ├── json                            - Test data
     │       │   ├── contextInfo.json
     │       │   ├── fileTree.json
     │       │   ├── ...
-    │       ├── pattern-autotoc-test.js
+    │       ├── pattern-autotoc-test.js         - Tests for the autodoc pattern
     │       ├── pattern-livesearch-test.js
     │       ├── pattern-select2-test.js
     │       ├── ...
-    ├── node_modules
-    ├── package.json
-    ├── provision.sh
-    ├── setup.py
-    └── Vagrantfile
+    ├── node_modules             - Node modules directory
+    ├── package.json             - Node package metadata
+    ├── provision.sh             - Vagrant provision file
+    ├── setup.py                 - Mockup egg setup
+    └── Vagrantfile              - Vagrant configuration
 
 
 
