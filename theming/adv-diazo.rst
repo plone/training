@@ -64,7 +64,7 @@ This adds a CSS class for every existing portal-column to the body tag. If porta
 
 Now one can use these markers to define the grid in a semantic way like this:
 
-.. code.block:: css
+.. code-block:: css
 
    body.col-one.col-content.col-two #content-wrapper {
      .make-row();
