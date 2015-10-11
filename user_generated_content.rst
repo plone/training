@@ -12,7 +12,7 @@ User Generated Content
         cp -R src/ploneconf.site_sneak/chapters/11_user_generated_content_p5/ src/ploneconf.site
 
 
-How do prospective speakers submit talks? We let them register on the site and grant right to create talks. For this we go back to changing the site through-the-web.
+How do prospective speakers submit talks? We let them register on the site and grant them the permission to create talks. For this we go back to changing the site through-the-web.
 
 In this chapter we:
 
@@ -36,7 +36,7 @@ Self-registration
 Constrain types
 ---------------
 
-* On the talk folder select `Restrictions… <http://localhost:8080/Plone/the-event/talks/folder_constraintypes_form>`_ from the *Add new* menu. Only allow to add talks.
+* On the talks folder select `Restrictions… <http://localhost:8080/Plone/the-event/talks/folder_constraintypes_form>`_ from the *Add new* menu. Only allow to add talks.
 
 
 .. _user-content-local-roles-label:
@@ -46,7 +46,7 @@ Grant local roles
 
 * Go to *Sharing* and grant the role *Can add* to the group logged-in users. Now every user can add content in this folder (and only this folder).
 
-Now all logged-in users can create and submit talks in this folder with the permission of the default workflow.
+Now all logged-in users can create and submit talks in this folder with the permissions of the default workflow.
 
 
 .. _user-content-custom-workflow-label:
@@ -135,7 +135,11 @@ This step makes sure the method ``post_install`` in ``setuphandlers.py`` is exec
     :linenos:
 
     # -*- coding: utf-8 -*-
+    from Products.CMFPlone.interfaces import INonInstallable
+    from zope.interface import implementer
+    from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
     from plone import api
+    from plone.app.dexterity.behaviors import constrains
 
     import logging
 
@@ -143,8 +147,14 @@ This step makes sure the method ``post_install`` in ``setuphandlers.py`` is exec
     logger = logging.getLogger(__name__)
 
 
-    def isNotCurrentProfile(context):
-        return context.readDataFile('ploneconfsite_marker.txt') is None
+    @implementer(INonInstallable)
+    class HiddenProfiles(object):
+
+        def getNonInstallableProfiles(self):
+            """Hide uninstall profile from site-creation and quickinstaller"""
+            return [
+                'ploneconf.site:uninstall',
+            ]
 
 
     def post_install(context):
@@ -154,6 +164,17 @@ This step makes sure the method ``post_install`` in ``setuphandlers.py`` is exec
         # Do something during the installation of this package
         portal = api.portal.get()
         set_up_content(portal)
+
+
+    def uninstall(context):
+        """Uninstall script"""
+        if context.readDataFile('ploneconfsite_uninstall.txt') is None:
+            return
+        # Do something during the uninstallation of this package
+
+
+    def isNotCurrentProfile(context):
+        return context.readDataFile('ploneconfsite_default.txt') is None
 
 
     def set_up_content(portal):
@@ -176,10 +197,10 @@ This step makes sure the method ``post_install`` in ``setuphandlers.py`` is exec
             obj=talks)
 
         # Constrain addable types to talk
-        behavior = ISelectableConstrainTypes(talks)
-        behavior.setConstrainTypesMode(constrains.ENABLED)
-        behavior.setLocallyAllowedTypes(['talk'])
-        behavior.setImmediatelyAddableTypes(['talk'])
+    #    behavior = ISelectableConstrainTypes(talks)
+    #    behavior.setConstrainTypesMode(constrains.ENABLED)
+    #    behavior.setLocallyAllowedTypes(['Talk'])
+    #    behavior.setImmediatelyAddableTypes(['Talk'])
         logger.info('Created and configured %s' % talks.absolute_url())
 
 Once we reinstall our package a folder 'talks' is created with the appropriate local roles and constraints.
@@ -246,6 +267,7 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
                 'title': u'Plone Conference 2022',
                 'id': 'plone-conference-2022',
                 'description': u'',
+                'text': u'<h1>Hello World</h1>'
             },
             {
                 'type': 'Folder',
@@ -342,8 +364,14 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
                 new.setDefaultPage(item['default-page'])
             if item.get('description', False):
                 new.setDescription(item['description'])
-            if item.get('allowed_types', False):
-                _constrain(new, item['allowed_types'])
+            if item.get('text', False):
+                new.text = RichTextValue(
+                    item['text'],
+                    'text/html',
+                    'text/plain'
+                )
+            # if item.get('allowed_types', False):
+            #     _constrain(new, item['allowed_types'])
             if item.get('local_roles', False):
                 for local_role in item['local_roles']:
                     api.group.grant_roles(
