@@ -92,4 +92,32 @@ This is how Mockup is structured on the filesystem::
     └── Vagrantfile              - Vagrant configuration
 
 
+A minimal pattern
+=================
 
+The following is a minimal pattern example, except that it uses jQuery and changes some HTML elements' text.
+
+.. code-block:: javascript
+
+    define([
+      'pat-base',
+      'jquery'
+    ], function (Base, $) {
+      'use strict';
+
+      var Minimalpattern = Base.extend({
+        name: 'minimalpattern',
+        trigger: '.pat-minimalpattern',  // has to be exact like this: 'pat-' + patternname.
+        defaults: {                      // default options
+          text: 'Super Duper!'
+        },
+        init: function () {              // pattern initialization. called for each matching pattern.
+          var self = this;
+          self.$el.html(self.options.text);  // self.$el is the matching pattern element.
+        }
+      });
+      return Minimalpattern;
+    });
+
+
+For a complete example including tests, bundle config und Plone integration see: https://github.com/collective/mockup-minimalpattern
