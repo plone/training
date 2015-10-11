@@ -108,10 +108,6 @@ We could also leave the formatting to the frontend. Plone 5 comes with the `mome
 
 Now we should see the date in a user-friendly format like ``Today at 12:01 PM``.
 
-..  note::
-
-    The moment pattern does not yet respect locales at the time of this writing, so you'd always get the US Format. That will hopefully change soon. See https://github.com/plone/mockup/issues/464#issuecomment-74671684
-
 
 .. _zpt2-summary-label:
 
