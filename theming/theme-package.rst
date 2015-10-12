@@ -870,6 +870,39 @@ The ``custom.less`` will contain our custom styles and can look like this:
      color: green;
    }
 
+Before we register our bundle, let's add also a JavaScript file with the following content as ``js/bundle.js``:
+
+.. code-block:: js
+
+   /* This is a bundle that uses RequireJS to pull in dependencies.
+      These dependencies are defined in the registry.xml file */
+
+
+   /* do not include jquery multiple times */
+   if(window.jQuery){
+     define('jquery', [], function(){
+       return window.jQuery;
+     });
+   }
+
+   require([
+     'jquery',
+   //  'tango-main',
+     'pat-logger'
+   ], function($, dep1, logger){
+     'use strict';
+
+     // initialize only if we are in top frame
+     if (window.parent === window) {
+       $(document).ready(function() {
+         $('body').addClass('tango-main');
+       });
+     }
+
+   });
+
+
+
 We now have to register our resources in the resource registry.
 For that we create or customize the file ``registry.xml`` in our default profile folder:
 
@@ -894,6 +927,7 @@ We register our resource like this:
           <value key="css">
              <element>++plone++plonetheme.tango/css/main.less</element>
           </value>
+          <value key="js">++plone++plonetheme.tango/js/bundle.js</value>
        </records>
 
        <!-- bundle definition -->
@@ -905,6 +939,7 @@ We register our resource like this:
          <value key="enabled">True</value>
          <value key="compile">True</value>
          <value key="csscompilation">++plone++plonetheme.tango/css/tango-compiled.css</value>
+         <value key="jscompilation">++plone++plonetheme.tango/js/bundle-compiled.js</value>
          <value key="last_compilation"></value>
        </records>
    </registry>
