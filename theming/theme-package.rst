@@ -925,9 +925,9 @@ We register our resource like this:
        <records prefix="plone.resources/tango-main"
                  interface='Products.CMFPlone.interfaces.IResourceRegistry'>
           <value key="css">
-             <element>++plone++plonetheme.tango/css/main.less</element>
+             <element>++theme++plonetheme.tango/css/main.less</element>
           </value>
-          <value key="js">++plone++plonetheme.tango/js/bundle.js</value>
+          <value key="js">++theme++plonetheme.tango/js/bundle.js</value>
        </records>
 
        <!-- bundle definition -->
@@ -938,8 +938,8 @@ We register our resource like this:
          </value>
          <value key="enabled">True</value>
          <value key="compile">True</value>
-         <value key="csscompilation">++plone++plonetheme.tango/css/tango-compiled.css</value>
-         <value key="jscompilation">++plone++plonetheme.tango/js/bundle-compiled.js</value>
+         <value key="jscompilation">++theme++plonetheme.tango/js/bundle-compiled.js</value>
+         <value key="csscompilation">++theme++plonetheme.tango/css/tango-compiled.css</value>
          <value key="last_compilation"></value>
        </records>
    </registry>
@@ -957,7 +957,7 @@ To use these resources in our Diazo theme we customize our ``manifest.cfg`` in o
    enabled-bundles =
    disabled-bundles =
 
-   development-css = /++theme++plonetheme.tango/css/tango-main.less
+   development-css = /++theme++plonetheme.tango/css/main.less
    production-css = /++theme++plonetheme.tango/css/tango-compiled.css
    tinymce-content-css = /++theme++plonetheme.tango/css/business-casual.css
 
@@ -1055,7 +1055,8 @@ We also need grunt installed on our system.
 
 .. code-block:: bash
 
-   sudo npm install grunt -g
+   sudo npm install -g grunt-cli
+   sudo npm install -g grunt
 
 If you get errors like this:
 

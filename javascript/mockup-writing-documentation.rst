@@ -3,7 +3,8 @@
 Writing documentation for Mockup
 ================================
 
-The documentation for Mockup is automatically generated from comments in pattern code. The structure is as follows::
+The documentation for Mockup is automatically generated from comments in pattern code.
+The structure is as follows::
 
     /* PATTERN TITLE
      *

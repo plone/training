@@ -69,7 +69,7 @@ But we can also create our own bundle which contains our resource:
          </value>
          <value key="enabled">True</value>
          <value key="compile">True</value>
-         <value key="csscompilation">++plone++plonetheme.tango/css/tango-compiled.css</value>
+         <value key="csscompilation">++theme++plonetheme.tango/css/tango-compiled.css</value>
          <value key="last_compilation"></value>
        </records>
    </registry>
