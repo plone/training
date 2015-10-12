@@ -1020,7 +1020,8 @@ We also need grunt installed on our system.
 
 .. code-block:: bash
 
-   sudo npm install grunt -g
+   sudo npm install -g grunt-cli
+   sudo npm install -g grunt
 
 If you get errors like this:
 
