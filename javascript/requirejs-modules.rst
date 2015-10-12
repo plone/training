@@ -7,7 +7,7 @@ One of the great new features, Plone 5 gives us, is the ability to define and us
 
 Most serious programming languages know the concept of namespaces and module dependencies, like Python's ``import`` mechanism. Python code would be unmanageable, if we'd rely on the existence of global variables and objects in our own scripts.
 
-But JavaScript doesn't know a concept of such declaring dependencies. Only the new and finalized ECMAScript 6 (ES6) standard finally comes with a module definition system (actually directly inspired by RequireJS and CommonJS), along other great features like proper variable scoping.
+But JavaScript doesn't have any concept for declaring dependencies. Only the new and finalized ECMAScript 6 (ES6) standard finally comes with a module definition system (actually directly inspired by RequireJS and CommonJS), along other great features like proper variable scoping.
 
 In Plone, we use `RequireJS <http://requirejs.org>`_ as a framework to define and load modules. RequireJS is an implementation of the `Asynchronous Module Definition API <https://github.com/amdjs/amdjs-api/blob/master/AMD.md>`_. The module definition and loading standard of CommonJS is used by NodeJS. RequireJS adds the ability to load modules asynchronously, which can be better for performance. The CommonJS module loading syntax can also be used in RequireJS. But the main point why Plone uses RequireJS is, that there is a JavaScript based compiler, which allows us to build bundles (a combined, optimized and minified form with all dependencies) Through-The-Web. RequireJS and CommonJS are also forward compatible with ES6's module definition standard.
 
