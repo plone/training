@@ -892,7 +892,7 @@ We register our resource like this:
        <records prefix="plone.resources/tango-main"
                  interface='Products.CMFPlone.interfaces.IResourceRegistry'>
           <value key="css">
-             <element>++plone++plonetheme.tango/css/main.less</element>
+             <element>++theme++plonetheme.tango/css/main.less</element>
           </value>
        </records>
 
@@ -904,7 +904,7 @@ We register our resource like this:
          </value>
          <value key="enabled">True</value>
          <value key="compile">True</value>
-         <value key="csscompilation">++plone++plonetheme.tango/css/tango-compiled.css</value>
+         <value key="csscompilation">++theme++plonetheme.tango/css/tango-compiled.css</value>
          <value key="last_compilation"></value>
        </records>
    </registry>
@@ -922,7 +922,7 @@ To use these resources in our Diazo theme we customize our ``manifest.cfg`` in o
    enabled-bundles =
    disabled-bundles =
 
-   development-css = /++theme++plonetheme.tango/css/tango-main.less
+   development-css = /++theme++plonetheme.tango/css/main.less
    production-css = /++theme++plonetheme.tango/css/tango-compiled.css
    tinymce-content-css = /++theme++plonetheme.tango/css/business-casual.css
 
