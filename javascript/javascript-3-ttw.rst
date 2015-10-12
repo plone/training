@@ -1,24 +1,28 @@
 Through-The-Web development
 ===========================
 
-It is possible to include Javascript functionality without the need to know about any of the tools involved. This is not reccommended for when you need to do a complex and modular implementation.
+It is possible to include Javascript functionality without the need to know about any of the tools involved.
+This is not reccommended for when you need to do a complex and modular implementation.
 
 
 portal_javascript & portal_css
 ++++++++++++++++++++++++++++++
 
-These two portal tools are no longer used in Plone 5. They are still present, but nothing should be included in them.
+These two portal tools are no longer used in Plone 5.
+They are still present, but nothing should be included in them.
 
 
 Resource Registries
 +++++++++++++++++++
 
-This is the new tool included in Plone 5. From here we will manage everything related to Javascript and CSS resources. It can be found right at the bottom of Plone's Control Panel, in the ``Advanced`` section.
+This is the new tool included in Plone 5.
+From here we will manage everything related to Javascript and CSS resources.
+It can be found right at the bottom of Plone's Control Panel, in the ``Advanced`` section.
 
 .. figure:: _static/resource_registry.png
    :align: center
 
-   
+
 Add files
 ---------
 
@@ -93,4 +97,5 @@ It should look somthing like this:
 Build the bundle
 ----------------
 
-In order for changes to be included, you need to build your bundle. For doing this, you just need to click the ``Build`` under the bundle you want to build.
+In order for changes to be included, you need to build your bundle.
+For doing this, you just need to click the ``Build`` under the bundle you want to build.
