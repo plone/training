@@ -2,10 +2,12 @@
 Creating initial content for the theme
 ======================================
 
-Our theme relies on some initial content structure, like the slider-images folder with some images inside.
-So we will improve our theme package to create this content on install.
+Our theme relies on some initial content structure,
+specifically the ``slider-images`` folder with some images inside.
+Let's improve our theme package to create this content on install.
 
-To do that we setup the ``slider-images`` folder in our ``setuphandlers.py`` and load also some example images into that folder.
+To do that we create the ``slider-images`` folder in our ``setuphandlers.py``
+and load also some example images into that folder.
 
 .. code-block:: python
 
