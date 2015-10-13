@@ -89,6 +89,9 @@ Or you add this to your registry.xml, to make it reproducible.
    ]</value>
    </record>
 
+Now you need to reinstall (or import the registry profile from portal_setup) your package to update the registry configuration.
+
+
 Use TinyMCE templates for content creation
 ==========================================
 
