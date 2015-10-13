@@ -13,6 +13,7 @@ One of the most obvious reasons is that it will allow you to override Plone
 elements that are not accessible via pure Diazo features (such as overloading
 content view templates, viewlets, configuration settings, etc.).
 
+
 Preparing your setup
 ====================
 
@@ -34,6 +35,7 @@ Create a product to handle your Diazo theme
 ===========================================
 
 To create a Plone 5 theme skeleton, you will use mrbob's templates for Plone.
+
 
 Install mr.bob and bobtemplates.plone
 -------------------------------------
