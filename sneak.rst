@@ -61,7 +61,8 @@ modify ``buildout.cfg`` to have Plone expect the egg ``ploneconf.site`` to be in
 
 
 
-These are the names of the folders for which there is code. The same folder with the code for Plone 5 are appended with '_p5'::
+These are the names of the folders for which there is code.
+The corresponding folders with the code for Plone 5 have ``_p5`` appended::
 
     01_eggs1
     02_export_code

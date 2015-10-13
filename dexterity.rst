@@ -10,10 +10,10 @@ In this part you will:
 
 Topics covered:
 
-* contenttypes
-* archetypes and dexterity
-* fields
-* widgets
+* Content types
+* Archetypes and Dexterity
+* Fields
+* Widgets
 
 
 .. _dexterity1-what-label:
@@ -54,9 +54,9 @@ There are two content frameworks in Plone
 
 * Dexterity: new and the coming default
 * Archetypes: old, tried and tested
-* Archetypes: widespread though add-ons
+* Archetypes: widespread, used in many add-ons
 * Plone 4.x: Archetypes is the default, with Dexterity available
-* Plone 5.x: Dexterity is the default with Archetypes available
+* Plone 5.x: Dexterity is the default, with Archetypes available
 * For both, add and edit forms are created automatically from a schema
 
 What are the differences?
