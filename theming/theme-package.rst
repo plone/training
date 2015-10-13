@@ -887,8 +887,6 @@ Before we register our bundle, let's add also a JavaScript file with the followi
 
    require([
      'jquery',
-   //  'tango-main',
-     'pat-logger'
    ], function($, dep1, logger){
      'use strict';
 
