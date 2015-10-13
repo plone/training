@@ -40,6 +40,11 @@ and load also some example images into that folder.
                    id=slider_name
                )
                slider_image.image = load_image(slider_number)
+           # NOTE: if your plone site is not a vanilla plone
+           # you can have different workflows on folders and images
+           # or different transitions names so this could fail
+           # and you'll need to publish the images as well
+           # or do that manually TTW.
            api.content.transition(obj=slider, transition='publish')
 
 
