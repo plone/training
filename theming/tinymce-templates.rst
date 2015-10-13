@@ -6,24 +6,6 @@ TinyMCE provides with it's templates plugin an easy way to create complex conten
 You can use that to help users to add complex content structures like predefined tables or content.
 The users then only need to customize this content to there needs.
 
-Activate TinyMCE templates plugin
-=================================
-
-.. code-block:: xml
-
-   <record name="plone.custom_plugins" interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema" field="custom_plugins">
-       <field type="plone.registry.field.List">
-         <default/>
-         <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="">Enter a list of custom plugins which will be loaded in the editor. Format is pluginname|location, one per line.</description>
-         <required>False</required>
-         <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="">Custom plugins</title>
-         <value_type type="plone.registry.field.TextLine"/>
-       </field>
-       <value>
-         <element>template|+plone+static/components/tinymce-builded/js/tinymce/plugins/template</element>
-       </value>
-   </record>
-
 Create your own TinyMCE templates
 =================================
 
@@ -60,36 +42,57 @@ In the file ``content-box.html`` we put this HTML template content:
 
 This is the template content we will get in TinyMCE when we use this template.
 
-Now let's register this template for TinyMCE. For this you can put the needed lines TTW in TinyMCE control panel:
 
-.. code-block:: json
+Activate TinyMCE templates plugin
+=================================
 
-   [
-     {
-      "title": "Content box",
-      "url": "++theme++plonetheme.tango/tinymce_templates/content-box.html"
-     }
-   ]
-
-Or you add this to your registry.xml, to make it reproducible.
+Now let's activate the template plugin and register this template for TinyMCE.
 
 .. code-block:: xml
 
-   <record name="plone.templates" interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema" field="templates">
-     <field type="plone.registry.field.Text">
-       <default></default>
-       <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="help_tinymce_templates">Enter the list of templates in json format                 http://www.tinymce.com/wiki.php/Plugin:template</description>
-       <required>False</required>
-       <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="label_tinymce_templates">Templates</title>
-     </field>
-     <value>[ &#13;
-     {&#13;
-         "title": "Content box", &#13;
-         "url": "++theme++plonetheme.tango/tinymce_templates/content-box.html"}&#13;
-   ]</value>
-   </record>
+  <!-- activate the plugin -->
+  <record name="plone.custom_plugins" interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema" field="custom_plugins">
+      <field type="plone.registry.field.List">
+          <default/>
+          <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="">Enter a list of custom plugins which will be loaded in the editor. Format is pluginname|location, one per line.</description>
+          <required>False</required>
+          <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="">Custom plugins</title>
+          <value_type type="plone.registry.field.TextLine" />
+      </field>
+      <value>
+          <element>template|+plone+static/components/tinymce-builded/js/tinymce/plugins/template</element>
+      </value>
+  </record>
 
-Now you need to reinstall (or import the registry profile from portal_setup) your package to update the registry configuration.
+  <!-- register our template -->
+  <record name="plone.templates" interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema" field="templates">
+      <field type="plone.registry.field.Text">
+          <default></default>
+          <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="help_tinymce_templates">Enter the list of templates in json format http://www.tinymce.com/wiki.php/Plugin:template</description>
+          <required>False</required>
+          <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="label_tinymce_templates">Templates</title>
+      </field>
+      <value>[{"title": "Content box","url": "++theme++plonetheme.tango/tinymce_templates/content-box.html"}]
+      </value>
+  </record>
+
+.. note::
+  Now you need to reinstall (or import the registry profile from portal_setup) your package to update the registry configuration.
+
+
+.. note::
+  You can also add the template TTW in TinyMCE control panel by copy/pasting the following snippet:
+
+  .. code-block:: json
+
+     [
+       {
+        "title": "Content box",
+        "url": "++theme++plonetheme.tango/tinymce_templates/content-box.html"
+       }
+     ]
+
+  Just remember to activate the plugin from the toolbar/plugins tab.
 
 
 Use TinyMCE templates for content creation
