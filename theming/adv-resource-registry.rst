@@ -2,14 +2,26 @@
 Advanced resources registry usage
 =================================
 
-In the Plone ``resource registry`` we can register our static resources, like CSS and LESS files and also JavaScript resources. We will cover here only the CSS and LESS part but you can do also nice things with your JavaScript resources, for example using requireJS to do the import the right way without hassle with the right order of all the JavaScript files which are registered like before. But for details look into the documentation of the ``resource registry`` and in the JavaScript part of the training.
+In the Plone *resource registry* we can register our static resources, like
+CSS and LESS files and also JavaScript resources.
+We will cover here only CSS and LESS, but you can also do nice things
+with your JavaScript resources (for example using *requirejs* to do the import
+correctly without worrying about import order).
+For details about this, look into the documentation of the *resource registry*
+and in the JavaScript part of the training.
+
 
 Registering CSS/LESS resources in the registry
 ==============================================
 
-Because of the flexibility of LESS over CSS we will only use LESS files here, but you can also register static CSS files the same way. LESS files have the advantage that we can use imports inside the less files and with the reference-imports we can even only import parts of the files which we are really using.
+Because of the flexibility of LESS over CSS we will use only LESS files here,
+but static CSS files can be registered in the same way. LESS files have the
+advantage that we can use imports, and with ``reference-imports`` we can even
+import only the parts of the files which we are really using.
 
-Let's see how we can register a resource in the ``resource registry``. For that we add a IResourceRegistry entry into the registry.xml in our profiles/default folder:
+Let's see how we can register a resource in the resource registry. 
+To do that, we add an ``IResourceRegistry`` entry into the ``registry.xml`` in
+our ``profiles/default`` folder:
 
 .. code-block:: xml
 
@@ -23,8 +35,9 @@ Let's see how we can register a resource in the ``resource registry``. For that 
        </records>
    </registry>
 
-This registers a file named main.less from our theme package as a ``resource`` named tango-main.
-We can now add this resource to a ``resource bundle`` like the existing ``plone`` bundle.
+This registers a file named ``main.less`` from our theme package as a
+*resource* named ``tango-main``.
+We can now add this resource to a *resource bundle* like the existing ``plone`` bundle:
 
 .. code-block:: xml
 
@@ -45,10 +58,14 @@ We can now add this resource to a ``resource bundle`` like the existing ``plone`
        </records>
    </registry>
 
-This has the advantage of reducing the amount of bundles, which also means reducing the amount of files which are loaded for the site. Because every bundle will result in one compiled CSS files and one compiled JavavScript file.
-So if we have multiple LESS resources in the same bundle, it will be merged into on compiled CSS file.
+This has the advantage of reducing the number of bundles,
+which also means reducing the amount of files which are loaded for the site,
+because every bundle will result in *one* compiled CSS file and *one* compiled Javascript file.
+So if we have multiple LESS resources in the same bundle,
+it will be merged into one compiled CSS file.
 
-But we can also create our own bundle which contains our resource:
+We can also create our own bundle which contains our resource (this is the way we
+did it in the `theme-package`_ chapter):
 
 .. code-block:: xml
 
@@ -74,18 +91,24 @@ But we can also create our own bundle which contains our resource:
        </records>
    </registry>
 
-This can make sense if we only want to load that bundle under certain conditions, like in a specific context.
-This could lead to a smaller size of loaded static resources, when the are not all needed.
+This can make sense if we only want to load that bundle under certain conditions,
+like in a specific context.
+This could lead to a smaller size of loaded static resources, when they are not all needed.
 
-After making changes to the registry, like adding resources to a bundle, you have to reload the registry configuration thru an upgrade step or thru a reinstall of the package.
+After making changes to the registry, like adding resources to a bundle,
+you have to reload the registry configuration via an upgrade step, or via a reinstall of the package.
 
-The concerning bundle has to build/rebuild then. You can do this in the ``@@resourceregistry-controlpanel`` by clicking on build for the concerning bundle or by running the ``plone-compile-resources`` script like follow:
+If you do change the bundle, it has to be built or rebuilt.
+You can do this in the ``@@resourceregistry-controlpanel`` by clicking on
+*build* for the bundle involved, or by running the ``plone-compile-resources``
+script as follows:
 
 .. code-block:: bash
 
    $ ./bin/plone-compile-resources --bundle=plone
 
-.. note:: Unfortunately the ``plone-compile-resources`` does not work currently with multiple resources in a bundle. But i hope that this will fixed soon.
+.. .. note:: Unfortunately the ``plone-compile-resources`` does not work currently with multiple resources in a bundle. But I hope that this will fixed soon.
+   This was fixed in https://github.com/plone/Products.CMFPlone/pull/1161
 
 If you have created your own bundle, do the same for this bundle:
 
@@ -93,14 +116,15 @@ If you have created your own bundle, do the same for this bundle:
 
    $ ./bin/plone-compile-resources --bundle=tango-bundle
 
+
 Using resources in LESS-files
 =============================
 
 Let's have a look at our ``main.less`` file:
 
-.. code-block:: sass
+.. code-block:: less
 
-   /* bundle less file that will be compiled into tango-compiled.css */
+   /* bundle LESS file that will be compiled into tango-compiled.css */
 
    // ### PLONE IMPORTS ###
 
@@ -188,24 +212,31 @@ Let's have a look at our ``main.less`` file:
    // include our custom less
    @import "custom.less";
 
-Here we use different functionality of LESS and the ``resource registry``.
+Here we use different functionality of LESS and the resource registry.
 
-At he bottom for example, we use LESS-imports to import a second less file which contains our custom LESS statements.
-And we also import a CSS-file of the downloaded theme as a LESS-file. So we could change parts of it using LESS-syntax.
+At the bottom for example, we use LESS-imports to import a second LESS file
+which contains our custom LESS statements.
+And we also import a CSS-file of the downloaded theme as a LESS-file.
+So we could change parts of it using LESS-syntax.
 
-Above these two imports, we import stuff from Barceloneta. Here we can see, that we use the names of the registered ``resource registry`` resources of the Barceloneta theme to import them. So if for example one wants to import our registered resource ``tango-main`` she could import it like below in her LESS-file:
+Above these two imports, we import stuff from Barceloneta.
+Here we can see that we use the names of the registered resource registry
+resources of the Barceloneta theme to import them.
+So if for example we want to import our registered resource ``tango-main``,
+we could import it as follows in our LESS-file:
 
 .. code-block:: css
 
    @import "@{tango-main}";
 
-or even with the reference option:
+or even with the ``reference`` option:
 
 .. code-block:: css
 
    @import (reference) "@{tango-main}";
 
-If you use the ``reference`` option on LESS-import only parts of this file which are used are included in the compiled version (CSS).
+If you use the ``reference`` option on LESS-import, only the parts of this file
+which are used are included in the compiled version (CSS).
 
 So for example you have to trigger it like:
 
@@ -216,7 +247,7 @@ So for example you have to trigger it like:
        background: green;
    }
 
-or with the all option, see http://lesscss.org/features/#extend-feature:
+or with the ``all`` option, see http://lesscss.org/features/#extend-feature:
 
 .. code-block:: css
 
@@ -225,7 +256,7 @@ or with the all option, see http://lesscss.org/features/#extend-feature:
        background: green;
    }
 
-or just use it as a mixin like this:
+Or just use it as a mixin like this:
 
 .. code-block:: css
 
