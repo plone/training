@@ -5,13 +5,13 @@ Create a Plone theme python package
 Creating a theme product with the Diazo inline editor is an easy way to start
 and to test, but it is not a solid long term solution.
 
-Even if ``plone.app.theming`` allows to import and export a Diazo theme as a ZIP
-archive, it might be preferable to manage your theme into an actual Plone
-product.
+Even if ``plone.app.theming`` allows importing and exporting of a Diazo theme
+as a ZIP archive, it might be preferable to manage your theme as an actual
+Plone product.
 
-One of the most obvious reason is it will allow you to override Plone elements
-that are not accessible from the pure Diazo features (like overloading content
-views templates, viewlets, configuration settings, etc.).
+One of the most obvious reasons is that it will allow you to override Plone
+elements that are not accessible via pure Diazo features (such as overloading
+content view templates, viewlets, configuration settings, etc.).
 
 Preparing your setup
 ====================
@@ -38,13 +38,13 @@ To create a Plone 5 theme skeleton, you will use mrbob's templates for Plone.
 Install mr.bob and bobtemplates.plone
 -------------------------------------
 
-To install mr.bob you can do:
+To install ``mr.bob``, you can use ``pip``:
 
 .. code-block:: bash
 
    $ pip install mr.bob
 
-and to install the needed bobtemplates for Plone, do:
+and to install the required bobtemplates for Plone, do:
 
 .. code-block:: bash
 
@@ -60,7 +60,7 @@ It will ask you some question::
 
    --> What kind of package would you like to create? Choose between 'Basic', 'Dexterity', and 'Theme'. [Basic]: Theme
 
-here choose Theme and fill out the rest of the questions as you like::
+Here, choose "Theme" and fill out the rest of the questions however you like::
 
    --> Author's name [MrTango]:
 
@@ -74,7 +74,7 @@ here choose Theme and fill out the rest of the questions as you like::
 
    Generated file structure at /home/maik/develop/plone/plonetheme.tango
 
-Now you have a new python package in your current folder:
+Now you have a new Python package in your current folder:
 
 .. code-block:: bash
 
@@ -114,20 +114,28 @@ This will create the whole development environment for your package:
 .. code-block:: bash
 
    $ ls bin/
-   buildout                          code-analysis-hasattr               develop        pildriver.py
-   code-analysis                     code-analysis-imports               flake8         pilfile.py
-   code-analysis-clean-lines         code-analysis-jscs                  fullrelease    pilfont.py
-   code-analysis-csslint             code-analysis-jshint                instance       pilprint.py
-   code-analysis-debug-statements    code-analysis-pep3101               lasttagdiff    postrelease
-   code-analysis-deprecated-aliases  code-analysis-prefer-single-quotes  lasttaglog     prerelease
-   code-analysis-find-untranslated   code-analysis-utf8-header           longtest       release
-   code-analysis-flake8              code-analysis-zptlint               pilconvert.py  test
+   buildout                          code-analysis-hasattr
+   code-analysis                     code-analysis-imports
+   code-analysis-clean-lines         code-analysis-jscs
+   code-analysis-csslint             code-analysis-jshint
+   code-analysis-debug-statements    code-analysis-pep3101
+   code-analysis-deprecated-aliases  code-analysis-prefer-single-quotes
+   code-analysis-find-untranslated   code-analysis-utf8-header
+   code-analysis-flake8              code-analysis-zptlint
+   develop                           pildriver.py
+   flake8                            pilfile.py
+   fullrelease                       pilfont.py
+   instance                          pilprint.py
+   lasttagdiff                       postrelease
+   lasttaglog                        prerelease
+   longtest                          release
+   pilconvert.py                     test
 
 
 Start your Plone instance and play with your theme product
 ----------------------------------------------------------
 
-To start the plone instance, run:
+To start the Plone instance, run:
 
 .. code-block:: bash
 
@@ -136,12 +144,15 @@ To start the plone instance, run:
 The Plone instance will then run on http://localhost:8080.
 Add a Plone site ``Plone``.
 Then activate/install your theme product on http://localhost:8080/Plone/prefs_install_products_form.
-The theme will be automatically enabled. If some think is wrong with the theme, you can always go to http://localhost:8080/Plone/@@theming-controlpanel and disable it. This control panel will never be themed, so it works regardless the theme might be broken.
+The theme will be automatically enabled.
+If something is wrong with the theme,
+you can always go to http://localhost:8080/Plone/@@theming-controlpanel and disable it.
+This control panel will never be themed, so it works even if the theme might be broken.
 
 Inspect your package source
 ---------------------------
 
-Your package source code is in the src folder:
+Your package source code is in the ``src`` folder:
 
 .. code-block:: bash
 
@@ -186,7 +197,7 @@ Your package source code is in the src folder:
 
    11 directories, 25 files
 
-As you see, the package contains already a Diazo theme:
+As you see, the package already contains a Diazo theme:
 
 .. code-block:: bash
 
@@ -203,18 +214,27 @@ Here you can build your Diazo theme.
 Build your Diazo based theme
 ============================
 
-You can start with the example files in the theme folder, your own static HTML mockup or you use the Plone 5 default theme ``Barceloneta`` as a starting point.
+You can start with the example files in the theme folder,
+or with your own static HTML mockup,
+or you can use the Plone 5 default ``Barceloneta`` theme as a starting point.
 
 Use your own static mockup
 --------------------------
 
-If you got a static mockup from your designer or from a website like http://startbootstrap.com where the example theme came from, you can use this without customization and just apply the Diazo rules on it. Another way is, to change the static mockup a little bit to use mostly the same css id's and classes. This way it is easier to reuse css/less from Barceloneta theme if you want.
+If you got a static mockup from your designer or from a website like
+http://startbootstrap.com (where the example theme came from), you can use this
+without customization and just apply the Diazo rules to it.
+Another way is to change the static mockup a little bit to use mostly the same
+CSS ids and classes. This way it is easier to reuse CSS/LESS from Barceloneta
+theme if you want.
 
 
 Download and prepare a static theme
 +++++++++++++++++++++++++++++++++++
 
-Lets start with an untouched static theme like this bootstrap theme http://startbootstrap.com/template-overviews/business-casual/. Just download it and extract it into the theme folder:
+Let's start with an untouched static theme, such as this bootstrap theme:
+http://startbootstrap.com/template-overviews/business-casual/.
+Just download it and extract it into the theme folder:
 
 .. code-block:: bash
 
@@ -282,9 +302,10 @@ Add this:
      <div id="column2-container"></div>
    </div>
 
-And then move the main content (the box 2 and box 3 including the parent row div) into the content-container.
+And then move the main content (the box 2 and box 3 including the parent row
+``div``) into the ``content-container``.
 
-It should look like:
+It should look like this:
 
 .. code-block:: html
 
@@ -331,11 +352,13 @@ It should look like:
 Using Diazo rules to map the theme with Plone content
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Now that we have the static theme inside, we need to apply the Diazo rules in rules.xml to map the theme with the Plone content elements.
+Now that we have the static theme,
+we need to apply the Diazo rules in ``rules.xml`` to map the Plone content
+elements to the theme.
 
-First let me explain what we mean, when we talk about content and theme.
-Content is usually the dynamic generated content on the Plone site and theme
-is the static template site.
+First let me explain what we mean when we talk about *content* and *theme*.
+*Content* is usually the dynamic generated content on the Plone site, and the
+*theme* is the static template site.
 
 For example:
 
@@ -343,9 +366,12 @@ For example:
 
    <replace css:theme="#headline" css:content="#firstHeading" />
 
-This means replace the element "#headline" in the theme with the element "#firstHeading" from the gerated Plone content.
+This means that the element ``#headline`` in the theme should be replaced by
+the ``#firstHeading`` element from the generated Plone content.
 
-For more details how to use Diazo rules, look at http://docs.diazo.org/en/latest/ and http://docs.plone.org/external/plone.app.theming/docs/index.html.
+For more details how to use Diazo rules, look at
+http://docs.diazo.org/en/latest/ and
+http://docs.plone.org/external/plone.app.theming/docs/index.html.
 
 
 As a starting point we use this rules set:
@@ -475,6 +501,7 @@ As a starting point we use this rules set:
      <replace css:theme-children="#portal-footer" css:content-children="#portal-footer-wrapper" />
    </rules>
 
+
 Login link & co
 ***************
 
@@ -490,13 +517,15 @@ Add the login link:
      css:if-content=".userrole-anonymous"
      />
 
-This will place the portal-anontools for example the login link on bottom of the page.
+This will place the ``portal-anontools`` (for example the login link) on the
+bottom of the page.
 You can change that to place it where you want.
+
 
 Top-navigation
 **************
 
-Replace the place holder with the real Plone top-navigation links:
+Replace the placeholder with the real Plone top-navigation links:
 
 .. code-block:: xml
 
@@ -507,11 +536,14 @@ Replace the place holder with the real Plone top-navigation links:
 
 Here we take the list of links from Plone and replace the placeholder links in the theme with it.
 
+
 Breadcrumb & co
 ***************
 
 Plone provides some viewlets like the breadcrumb above the content area.
-To get this, we add a place holder with the CSS id "#above-content" into the theme, where we want to have this above -content stuff, for example right before the first row/box in the container:
+To get this into the theme layout, we add a placeholder with the CSS id
+``#above-content`` to the theme in the place where we want to insert this above
+-content stuff, for example right before the first row/box in the container:
 
 .. code-block:: html
 
@@ -519,7 +551,7 @@ To get this, we add a place holder with the CSS id "#above-content" into the the
        <div id="above-content" class="box"></div>
    </div>
 
-This rule then takes the Plone breadcrumb & co over:
+This rule then inserts the Plone breadcrumbs etc.:
 
 .. code-block:: xml
 
@@ -529,14 +561,16 @@ This rule then takes the Plone breadcrumb & co over:
      css:content-children="#viewlet-above-content"
      />
 
-This will take over everything in viewlet-above from Plone.
-Our current theme does not provide a breadcrumb bar, so we can just drop them from Plone content, like this:
+This will bring over everything from the ``viewlet-above-content`` block from
+Plone.
+Our current theme does not provide a breadcrumb bar, so we can just drop them
+from Plone content, like this:
 
 .. code-block:: xml
 
    <drop css:content="#portal-breadcrumbs" />
 
-If you only want to drop this for non administrators, you can do it like this:
+If you only want to drop this for non-administrators, you can do it like this:
 
 .. code-block:: xml
 
@@ -545,7 +579,7 @@ If you only want to drop this for non administrators, you can do it like this:
     css:if-not-content=".userrole-manager"
     />
 
-or only for not logged-in users:
+Or for only anonymous users:
 
 .. code-block:: xml
 
@@ -556,13 +590,14 @@ or only for not logged-in users:
 
 .. note::
 
-   The classes like *userrole-anonymous*, are provided by Plone in the BODY-Tag.
+   The classes like *userrole-anonymous* are provided by Plone in the ``body`` tag.
 
 Slider only on Front-page
 *************************
 
-We want the slider in the template only on front-page and also not when we are editing the front-page.
-To make this easier, we wrap then slider area with a "#front-page-slider" div-tag like this:
+We want the slider in the template only on the front page, and we don't want it
+when we are editing the front page.
+To make this easier, we wrap the slider area with a ``#front-page-slider`` ``div``-tag like this:
 
 .. code-block:: html
 
@@ -608,7 +643,7 @@ To make this easier, we wrap then slider area with a "#front-page-slider" div-ta
        </h2>
    </div>
 
-Now we can drop it, if we are not on the front-page and also in some other situations:
+Now we can drop it if we are not on the front page and also in some other situations:
 
 .. code-block:: xml
 
@@ -623,12 +658,14 @@ Now we can drop it, if we are not on the front-page and also in some other situa
      css:theme="#front-page-slider"
      css:if-content=".template-topbar-manage-portlets" />
 
-By now the slider is still static, but we will change that later.
+At the moment the slider is still static, but we will change that later.
+
 
 Status messages
 ***************
 
-Plone will give status messages in the #global_statusmessage element. We want to take over these messages.
+Plone will render status messages in the ``#global_statusmessage`` element.
+We want to bring these messages across to the theme.
 For this, we add another placeholder into our theme template:
 
 .. code-block:: html
@@ -638,7 +675,7 @@ For this, we add another placeholder into our theme template:
        <div id="above-content"></div>
    </div>
 
-and use this rule to take over the messages:
+and use this rule to bring the messages across:
 
 .. code-block:: xml
 
@@ -648,13 +685,14 @@ and use this rule to take over the messages:
     css:content-children="#global_statusmessage"
     />
 
-To test that, just edit the front-page.
+To test that, just edit the front page.
 You should see a message from Plone.
 
 Main content area
 *****************
 
-To get the Plone content area in a flexible way which also provides the right bootstrap grid classes, we use a inline XSL snippet like this:
+To get the Plone content area in a flexible way which also provides the right
+bootstrap grid classes, we use an inline XSL snippet like this:
 
 .. code-block:: xml
 
@@ -688,13 +726,16 @@ To get the Plone content area in a flexible way which also provides the right bo
        </div><!--/row-->
    </replace>
 
-This will give the the right grid-classes for the content-column depending on one-column-, two-column- or tree-column-layout.
+This will add the right grid-classes to the content columns depending on one-column-, two-column- or tree-column-layout.
+
 
 Left and right columns
 **********************
 
-We already add the column1-container and column2-container in our template.
-The following rules will take over the left and the right columns and also change the markup of it to be a aside instead of a normal div. That is the reason to use inline XSL here:
+We have already added the ``column1-container`` and ``column2-container`` ids  to our template.
+The following rules will incorporate the left and the right columns from Plone
+into the theme, and also change their markup to be an ``aside`` instead of a
+normal ``div``. That is the reason to use inline XSL here:
 
 .. code-block:: xml
 
@@ -720,10 +761,11 @@ The following rules will take over the left and the right columns and also chang
      </replace>
    </rules>
 
+
 Footer
 ******
 
-Take over the footer from Plone:
+Bring across the footer from Plone:
 
 .. code-block:: xml
 
@@ -736,8 +778,9 @@ Take over the footer from Plone:
 CSS and JS resources
 ++++++++++++++++++++
 
-First let's get sure we have loaded the registerless profile of Barceloneta.
-To do that, we change our metadata.xml like this:
+First let's make sure that we have loaded the ``registerless`` profile of
+Barceloneta.
+To do that, we change our ``metadata.xml`` as follows:
 
 .. code:: xml
 
@@ -750,9 +793,11 @@ To do that, we change our metadata.xml like this:
      </dependencies>
    </metadata>
 
-This we will register all less files of barceloneta theme in the resource registry, so that we can use theme in our custom less files.
+This will register all LESS files of the Barceloneta theme in Plone's resource
+registry, so that we can use theme in our custom LESS files.
 
-Now let's add some less files ``main.less`` and ``custom.less`` to our css folder:
+Now let's add the two LESS files ``main.less`` and ``custom.less`` to our CSS
+folder:
 
 .. code-block:: bash
 
@@ -856,11 +901,13 @@ The ``main.less`` file can look like this:
    // include our custom less
    @import "custom.less";
 
-Here we import the specific parts of the default Plone 5 Barceloneta theme.
-Feel free to comment out staff that you don't needed.
+Here we import a number of specific parts from the default Plone 5 Barceloneta theme.
+Feel free to comment out stuff that you don't need.
 
-At the bottom you can see, that we import the ``business-casual.css`` as a less file and the ``custom.less`` file.
-The business-casual.css comes from the downloaded static theme and is included to reduce the amount of css files.
+At the bottom you can see that we import the ``business-casual.css`` as a LESS
+file, as well as our new ``custom.less`` file.
+The ``business-casual.css`` comes from the downloaded static theme and is
+included to reduce the amount of CSS files.
 
 The ``custom.less`` will contain our custom styles and can look like this:
 
@@ -870,7 +917,8 @@ The ``custom.less`` will contain our custom styles and can look like this:
      color: green;
    }
 
-Before we register our bundle, let's add also a JavaScript file with the following content as ``js/bundle.js``:
+Before we register our bundle, let's also add a JavaScript file with the
+following content as ``js/bundle.js``:
 
 .. code-block:: js
 
@@ -888,7 +936,6 @@ Before we register our bundle, let's add also a JavaScript file with the followi
    require([
      'jquery',
    //  'tango-main',
-     'pat-logger'
    ], function($, dep1, logger){
      'use strict';
 
@@ -904,7 +951,8 @@ Before we register our bundle, let's add also a JavaScript file with the followi
 
 
 We now have to register our resources in the resource registry.
-For that we create or customize the file ``registry.xml`` in our default profile folder:
+For that we create or customize the file ``registry.xml`` in our default
+profile folder:
 
 .. code-block:: bash
 
@@ -944,7 +992,8 @@ We register our resource like this:
        </records>
    </registry>
 
-To use these resources in our Diazo theme we customize our ``manifest.cfg`` in our theme like this:
+To use these resources in our Diazo theme we customize our ``manifest.cfg`` in
+our theme like this:
 
 .. code-block:: xml
 
@@ -968,14 +1017,21 @@ To use these resources in our Diazo theme we customize our ``manifest.cfg`` in o
    ajax_load = python: request.form.get('ajax_load')
    portal_url = python: portal.absolute_url()
 
-The important parts here are the definitions for *development-css*, *production-css*, *tinymce-content-css*.
+The important parts here are the definitions for ``development-css``,
+``production-css``, and ``tinymce-content-css``.
 
-After adding the registry entries and manifest changes, we need to reload the setup profile of the package. For now just go to the ``/prefs_install_products_form`` and uninstall/install the theme package. For the changes in the manifest.cfg you actually need to deactivate/activate the theme in ``@@theming-controlpanel``, but this also happen on install of the package, so we already have that in this case.
+After adding the registry entries and manifest changes, we need to reload the
+setup profile of the package. For now just go to the
+``/prefs_install_products_form`` and uninstall/install the theme package.
+For the changes in the ``manifest.cfg`` file to take effect you actually need
+to deactivate/activate the theme in ``@@theming-controlpanel``, but this also
+happens on install of the package, so it's already been done for us.
+
 
 Extend your buildout configuration
 ++++++++++++++++++++++++++++++++++
 
-Add the following buildout parts, if they are not already exist:
+Add the following buildout parts, if they don't already exist:
 
 .. code-block:: ini
 
@@ -995,7 +1051,7 @@ Add the following buildout parts, if they are not already exist:
    eggs = ${instance:eggs}
 
 
-And add this parts to the list of parts:
+And add these parts to the list of parts:
 
 .. code-block:: ini
 
@@ -1004,7 +1060,7 @@ And add this parts to the list of parts:
        zopepy
        omelette
 
-Also add *Products.CMFPlone* to the eggs list in the instance part:
+Also add ``Products.CMFPlone`` to the eggs list in the ``instance`` part:
 
 .. code-block:: ini
 
@@ -1024,7 +1080,8 @@ Now rerun buildout:
 
    $ ./bin/buildout
 
-This will give you new scripts like *plone-compile-resources* and *plone-generate-gruntfile* in bin folder:
+This will generate some new scripts including ``plone-compile-resources`` and
+``plone-generate-gruntfile`` in the ``bin`` folder:
 
 .. code-block:: bash
 
@@ -1049,9 +1106,12 @@ This will give you new scripts like *plone-compile-resources* and *plone-generat
    code-analysis-zptlint               zopepy
    develop
 
-You can use *plone-compile-resources* to build your resource bundle as follow, but first you have to start the instance and add a Plone site named ``Plone``, see below.
+You can use ``./bin/plone-compile-resources`` to build your resource bundle as
+detailed below, but you first have to start the instance and add a Plone site
+named ``Plone``, because the compilation process depends on the resource
+registries of the live site.
 
-We also need grunt installed on our system.
+We also need ``grunt`` installed on our system.
 
 .. code-block:: bash
 
@@ -1064,50 +1124,63 @@ If you get errors like this:
 
    ERR! Error: failed to fetch from registry: grunt
 
-Then use this as a workaround and try again:
+then use this as a workaround and try again:
 
 .. code-block:: bash
 
    npm config set registry http://registry.npmjs.org/
 
-.. note:: When ever you made changes to your less/css files, you have to rebuild the bundle.
+.. note:: You have to rebuild the bundle whenever you make changes to your LESS/CSS files.
 
-To test changes in less files, you can build/rebuild your bundle TTW in the ``resource registry`` of Plone.
+To test changes in LESS files you can build/rebuild your bundle TTW in Plone's
+``resource registry`` control panel.
 Just go to ``@@resourceregistry-controlpanel`` and press *Build* for the tango-bundle.
 
-TODO: show some screenshots here.
+.. TODO:: show some screenshots here.
 
-Or you can use the plone-compile-resources script, to rebuild the bundle. But except you have setup a zeoserver setup with multiple client, you have to stop your instance first, before you can use this script.
+Alternatively, you can use the ``plone-compile-resources`` script to rebuild the bundle.
+If you are running a ZEO cluster with multiple clients, you can run this script at any time.
+If not, you have to stop your instance first, because the script needs to write to the ZODB.
 
 .. code-block:: bash
 
    $ ./bin/plone-compile-resources --bundle=tango-bundle
 
-This will start the Plone instance, read variables from the registry and compile your bundle.
-If your Plone site has an id other than *Plone*, you can provide the ``--site-id``.
+This will start the Plone instance, read variables from the registry, and
+compile your bundle.
+If your Plone site is not named ``Plone``, you can provide the id using the
+``--site-id`` parameter.
 
-After you compiled your bundle with the ``plone-compile-resources`` once, you can use the generated Gruntfile and recompile your bundle as follow:
+After you compiled your bundle with the ``plone-compile-resources`` once,
+you can use the generated ``Gruntfile.js`` and recompile your bundle as follows:
 
 .. code-block:: bash
 
    $ grunt compile-tango-bundle
 
-The name of our bundle is ``tango-bundle``, you can find the right name of the *Grunt task* to compile your bundle at the bottom of the ``Gruntfile.js``.
-This pure Grunt method is much faster then using the ``plone-compile-resources`` script.
+The name of our bundle is ``tango-bundle``. You can find the name of the
+generated *Grunt task* to compile your bundle at the bottom of the
+``Gruntfile.js``.
 
 .. note::
 
-   You can use this direct Grunt method until you change something in the resources and bundle registration.
-   Then you have to use the ``plone-compile-resources`` once again, before you can use the pure Grunt method.
+    This Grunt-only method is much faster than using the
+    ``plone-compile-resources`` script, but it cannot be used in all
+    circumstances.
+
+   Specifically, you can use this direct method until you change something in
+   the resources and bundle registration.  Then you have to use the
+   ``plone-compile-resources`` once again, before you can use the pure Grunt
+   method.
 
 
-.. Using parts of Boostrap
+.. Using parts of Bootstrap
 .. +++++++++++++++++++++++
 
-.. Since Plone already uses Bootstrap internaly, we only need to load some parts of Bootstrap which does not come with Plone.
+.. Since Plone already uses Bootstrap internally, we only need to load some parts of Bootstrap which does not come with Plone.
 .. To find out what parts of Bootstrap Plone uses already, you can look into ``Products/CMFPlone/profiles/dependencies/registry.xml`` or in the Resource Registry TTW.
-.. But i would recomment the ``registry.xml`` file because, it is easier to search in.
-.. So if you search for bootstrap in the ``registry.xml`` you will find out that Plone uses at least the follwing parts of Boostrap already:
+.. But I would recommend the ``registry.xml`` file because, it is easier to search in.
+.. So if you search for bootstrap in the ``registry.xml`` you will find out that Plone uses at least the follwing parts of Bootstrap already:
 
 .. LESS files
 .. **********
@@ -1140,31 +1213,38 @@ This pure Grunt method is much faster then using the ``plone-compile-resources``
 Load LESS parts of Bootstrap
 ****************************
 
-To load the carousel for example we first install bootstrap less version into our theme.
-To do that we use ``bower``, which should globally installed on your system.
-First we initialize our theme package. To do that, we run the following command inside our theme folder:
+To load for example the carousel we first install the LESS version of Bootstrap
+into our theme.
+To do that, we use ``bower``, which you should have globally installed on your
+system.
+First we initialize our theme package. To do that, we run the following command
+inside our theme folder:
 
 .. code-block:: bash
 
    $ bower init
 
-After filling some questions, we have a bower config file ``bower.json``.
-Here we put all packages in we need for our theme.
+After filling some questions, we have a bower config file called
+``bower.json``.
+All the packages that we need for our theme should be mentioned in this
+``bower.json`` file.
 
-Now we install bootstrap with bower:
+Now we install bootstrap, using bower:
 
 .. code-block:: bash
 
    $ bower install bootstrap --save
 
-The ``--save`` option will store the package in the bower.json for us.
-So that on other systems the use can install all dependencies with the following command from inside of our theme folder:
+The ``--save`` option will add the package to ``bower.json`` for us.
+Now, we can install all dependencies on any other system by running the
+following command from inside of our theme folder:
 
 .. code-block:: bash
 
    $ bower install
 
-Now that we have installed bootstrap with bower, we have all bootstrap components available in the subfolder called ``bower_components``:
+Now that we have installed bootstrap using bower, we have all bootstrap
+components available in the subfolder called ``bower_components``:
 
 .. code-block:: bash
 
@@ -1294,7 +1374,8 @@ Now that we have installed bootstrap with bower, we have all bootstrap component
    ├── package.json
    └── README.md
 
-To include the needed carousel part and some other bootstrap components which our downloaded theme uses, we changed the end of our ``main.less`` like this:
+To include the needed "carousel" part and some other bootstrap components which
+our downloaded theme uses, we change the end of our ``main.less`` like this:
 
 .. code-block:: css
 
@@ -1322,15 +1403,15 @@ To include the needed carousel part and some other bootstrap components which ou
    @import "custom.less";
 
 
-
 Final CSS customization
 +++++++++++++++++++++++
 
-To make our theme look nicer we add some css like this to our ``custom.less`` file:
+To make our theme look nicer, we add some CSS as follows to our ``custom.less``
+file:
 
 .. code:: css
 
-   /* Custom less file that is included from the main.less file */
+   /* Custom LESS file that is included from the main.less file */
 
    .brand-name{
        margin-top: 0.5em;
