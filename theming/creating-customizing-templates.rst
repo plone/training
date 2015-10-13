@@ -5,35 +5,46 @@ Creating and customizing Plone templates
 Overriding a Plone template
 ===========================
 
-A large part of the Plone UI are provided by BrowserView or Viewlet templates.
+A large part of the Plone UI is provided by BrowserView and Viewlet templates.
 
-All viewlets and there managers (sortable containers) you can see when you call the url
-``./@@manage-viewlets``).
+You can see all viewlets and their managers (sortable containers) when you view
+the url ``./@@manage-viewlets``).
 
-.. note:: to override them from the ZMI, you can go to ``./portal_view_customizations``.
+.. note:: To override them from the ZMI, you can go to ``./portal_view_customizations``.
 
-To overrides them from your theme product, the easiest way is to use
+To override them from your theme product, the easiest way is to use
 ``z3c.jbot`` (Just a Bunch of Templates).
 
-Since jbot is already included in the bobtemplates.plone theme skeleton, you can just start using it, by putting in ``src/plonetheme/tango/browser/overrides`` all the templates you want to override.
-But you will need to name them by prefixing the template
-name by its complete path to its original version.
+Since jbot is already included in the ``bobtemplates.plone`` theme skeleton,
+you can start using it immediately by adding all the templates you want to
+override in the ``src/plonetheme/tango/browser/overrides`` directory.
 
-For instance, to override ``colophon.pt`` from plone.app.layout, knowing this
-template in a subfolder named ``viewlets``, you need to name it
-``plone.app.layout.viewlets.colophon.pt``.
+In order for jbot to match the override to the template which is being
+overridden, the name of the *new* template needs to include the 
+complete path to the original template as a prefix (with every ``/`` replaced
+by ``.``).
 
-.. note:: ZMI > portal_view_customizations is an handy way to find the template path.
+For instance, to override ``colophon.pt`` from ``plone.app.layout``, knowing
+that this template is found in a subfolder named ``viewlets``, you need to name
+the overriding template ``plone.app.layout.viewlets.colophon.pt``.
+
+.. note:: ZMI > portal_view_customizations is a handy way to find the template path.
 
 You can now restart Plone to see the effect.
+
 
 Overriding Event Item template
 ******************************
 
-The path to the template is ``plone/app/event/browser/event_view.pt``, so the full dotted name for our template should be: ``plone.app.event.browser.event_view.pt``. Create a new file with this dotted name into the overrides folder.
+The path to the original template is ``plone/app/event/browser/event_view.pt``,
+so the full dotted name for our replacement template should be:
+``plone.app.event.browser.event_view.pt``.
+Create a new file with this dotted name into the ``overrides`` folder.
 
-Let's say we want move the full text of the event item before the event details block.
-So we copy over the original template code and change the order of the two blocks:
+Let's say we want to move the full text of the event item to appear before the
+event details block.
+To do this, we copy over the original template code and change the order of the
+two blocks:
 
 .. code-block:: xml
 
@@ -83,10 +94,14 @@ Creating a new Plone template
 Create dynamic slider content in Plone
 **************************************
 
-We need a custom View in Plone to render our dynamic content for the slider.
-They are different ways to create Views, for now we use a very simple template-only-view thru jbot and theming-plugins. The bobtemplates.plone skeleton has everything you need already on board.
+To render our dynamic content for the slider we need a custom view in Plone.
+There are various ways to create Views.
+For now, we will use a very simple template-only-view via jbot and
+``theming-plugins``.
+The ``bobtemplates.plone`` skeleton includes everything you need.
 
-The only think we need is adding a folder named ``views`` in our theme folder.
+The only thing we need to do, is to add a folder named ``views`` in our theme
+folder.
 Here we now create a template file named ``slider-images.pt``.
 
 .. code-block:: bash
@@ -127,14 +142,23 @@ The template code looks like this:
     </a>
    </div>
 
-This is all to create a very simple template only View. You can test the view now.
-The View needs some images to show, so we create a folder in Plone named ``slider-images`` and put some images inside. Then we call the View like this ``/slider-images/@@slider-images`` on this folder.
-This will render our markup we need to fill the slider.
+This is all that's required to create a very simple template-only View.
+You can test the view now.
+For the View to show up, it needs some images to display.
+To supply the images, we can create a folder in Plone named ``slider-images``
+and add some images there.
+Now we can browse to the View on this folder by visiting:
+``/slider-images/@@slider-images`` 
+This will render the markup required to render the slider.
+
 
 Take over the dynamic slider content from Plone
 ***********************************************
 
-Now that we have our slider-images View which renders our HTML markup for the slider, we need to include that on the front-page. For that we use the possibility of Diazo to load the content from other URL's with the href-attribute.
+Now that we have our ``slider-images`` View which renders our HTML markup for
+the slider, we need to include that on the front page.
+For that, we use Diazo's ability to load the content from other URLs, using the
+``href`` attribute:
 
 .. code-block:: xml
 
