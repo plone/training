@@ -295,7 +295,7 @@ Create a new package called ``collective.behavior.myfeature``. Inspect the direc
     .. code-block:: bash
 
         $ cd src
-        $ ../bin/mrbob -O collective.behavior.myfeature bobtemplates:plone_add-on
+        $ ../bin/mrbob -O collective.behavior.myfeature bobtemplates:plone_addon
 
     Many packages that are part of Plone and some add-ons use a nested namespace such as ``plone.app.contenttypes``.
 
