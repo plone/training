@@ -112,7 +112,6 @@ This is the python-path for the viewlet: ``plone.app.layout.viewlets.content.Con
 This is the file-path for the template: ``plone/app/layout/viewlets/document_relateditems.pt``
 
 
-
 Creating Relationfields through the web
 ---------------------------------------
 
@@ -184,22 +183,7 @@ Because of this, the following happens when saving a relation via a form:
 5. The same datamanager creates a RelationValue from this id, and stores this relation value on the source object.
 6. Some Event handlers update the catalogs.
 
-If you want to modify Relations in code, you have to create or delete RelationValue objects.
-If you want to find out what objects are related to each other, you use the relation catalog.
-Here is an example:
-
-.. literalinclude:: ploneconf.site_sneak/chapters/final/src/ploneconf/site/browser/speaker.py
-
-RelationValue objects have a fairly complete API.
-For both target and source, you can receive the IntId, the object and the path.
-On a RelationValue, the terms `source` and `target` aren't used. Instead, they are `from` and `to`.
-So the API for getting the target is:
-
-- `to_id`
-- `to_path`
-- `to_object`
-
-In addition, the relation value knows under which attribute it has been stored. You could delete a Relation like this `delattr(rel.from_object, rel.from_attribute)`
+You could delete a Relation like this `delattr(rel.from_object, rel.from_attribute)`
 
 This is a terrible idea by the way, because when you define in your schema that one can store multiple RelationValues, your Relation is stored in a list on this attribute.
 
@@ -213,3 +197,28 @@ But using real relations and the catalog allows for very powerful things.
 The simplest concrete advantage is the possibility to see what links to your object.
 
 The builtin linkintegrity-feature of Plone 5 is also built using relations.
+
+
+RelationValues
+--------------
+
+RelationValue objects have a fairly complete API.
+For both target and source, you can receive the IntId, the object and the path.
+On a RelationValue, the terms `source` and `target` aren't used. Instead, they are `from` and `to`.
+So the API for getting the target is:
+
+- `to_id`
+- `to_path`
+- `to_object`
+
+In addition, the relation value knows under which attribute it has been stored.
+
+Backrelations
+-------------
+
+If you want to find out what objects are related to each other, you use the relation catalog.
+Here is an example:
+
+.. literalinclude:: ploneconf.site_sneak/chapters/final/src/ploneconf/site/browser/speaker.py
+
+

@@ -22,19 +22,17 @@ Contents:
     zpt_2
     views_2
     views_3
-    testing
     behaviors_1
     viewlets_1
     api
     ide
     dexterity_2
-    custom_search
     events
     user_generated_content
-    resources
     thirdparty_behaviors
     dexterity_3
     relations
+    registry
     eggs2
     behaviors_2
     viewlets_2
