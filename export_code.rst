@@ -303,7 +303,7 @@ Create a new package called ``collective.behavior.myfeature``. Inspect the direc
 Exercise 2
 ++++++++++
 
-Go to the ZMI and look at the definition of the new type in ``portal_types``. Now deactivate *Implicitly addable?* and save. What happens? And why is that useful?
+Go to the ZMI and and in ``portal_types`` look for the definition of the new ``Talk`` content type. Now deactivate *Implicitly addable?* and save. Go back to the site can you identify what this change has caused? And why is that useful?
 
 ..  admonition:: Solution
     :class: toggle
