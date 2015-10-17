@@ -19,7 +19,7 @@ but static CSS files can be registered in the same way. LESS files have the
 advantage that we can use imports, and with ``reference-imports`` we can even
 import only the parts of the files which we are really using.
 
-Let's see how we can register a resource in the resource registry. 
+Let's see how we can register a resource in the resource registry.
 To do that, we add an ``IResourceRegistry`` entry into the ``registry.xml`` in
 our ``profiles/default`` folder:
 
@@ -65,7 +65,7 @@ So if we have multiple LESS resources in the same bundle,
 it will be merged into one compiled CSS file.
 
 We can also create our own bundle which contains our resource (this is the way we
-did it in the `theme-package`_ chapter):
+did it in the :doc:`theme-package` chapter):
 
 .. code-block:: xml
 
@@ -122,7 +122,7 @@ Using resources in LESS-files
 
 Let's have a look at our ``main.less`` file:
 
-.. code-block:: less
+.. code-block:: sass
 
    /* bundle LESS file that will be compiled into tango-compiled.css */
 
