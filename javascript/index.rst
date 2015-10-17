@@ -8,6 +8,8 @@ JavaScript for Plone Developers
     This chapter is still work in progress!
 
 
+Chapter about resource registry: https://github.com/plone/documentation/blob/5.0/adapt-and-extend/theming/resourceregistry.rst 
+
 ..  toctree::
     :maxdepth: 3
     :numbered: 1
@@ -15,7 +17,6 @@ JavaScript for Plone Developers
     training_installation
     development-process
     requirejs-modules
-    resourceregistry
     mockup
     mockup-writing-documentation
     javascript-3-ttw
