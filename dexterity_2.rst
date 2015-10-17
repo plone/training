@@ -105,7 +105,7 @@ Now the ``/talkview`` can only be used on objects that implement said interface.
 
 .. note::
 
-    Just for completeness sake, this is what would have to happen for the first option:
+    Just for completeness sake, this is what would have to happen for the first option (associating the ITalk interface with a Talk class):
 
     * Create a new class that inherits from ``plone.dexterity.content.Container`` and implements the marker interface.
 
@@ -353,7 +353,7 @@ Add a new file ``profiles/default/catalog.xml``
       <column value="speaker" />
     </object>
 
-This adds new indexes for the three fields we want to show in the listing. Not that *audience* is a ``KeywordIndex`` because the field is multi-valued, but we want a separate index entry for every value in an object.
+This adds new indexes for the three fields we want to show in the listing. Note that *audience* is a ``KeywordIndex`` because the field is multi-valued, but we want a separate index entry for every value in an object.
 
 The ``column ..`` entries allow us to display the values of these indexes in the tableview of collections.
 
