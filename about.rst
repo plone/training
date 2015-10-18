@@ -70,6 +70,7 @@ Fred van Dijk
 
 .. _about-use-label:
 
+
 Using the documentation for a training
 ---------------------------------------
 
@@ -230,12 +231,18 @@ Update existing
     $ open _build/html/index.html
 
 
-Things to do before a training (as a trainer)
-+++++++++++++++++++++++++++++++++++++++++++++
+Technical set up to do before a training (as a trainer)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 - Prepare a mailserver for the user registration mail (http://plone-training.readthedocs.org/en/latest/features.html#configure-a-mailserver)
 - If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not at the buildout path /vagrant/buildout/)
 
+Train the trainer 
+-----------------
+
+If you are a trainer there is a special mini training about giving technical trainings. We really want this material to be used, re-used, expanded and improved by Plone trainers world wide. These chapters don't contain any Plone specific advice, there's background, theory,  check lists and tips for anyone trying to teach technical subjects.
+
+:doc:`trainthetrainer/index`
 
 .. _about-contribute-label:
 
