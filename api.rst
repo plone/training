@@ -89,7 +89,7 @@ Products.PDBDebugMode
     **pdb view**: simply adding ``/pdb`` to a url drops you in a pdb session with the current context as ``self.context``. From there you can do just about anything.
 
 Debug mode
-    When starting Plone using ``./bin/instance debug -O Plone`` you'll end up in an interactive debugger.
+    When starting Plone using ``./bin/instance -O Plone debug`` you'll end up in an interactive debugger.
 
 plone.app.debugtoolbar (not working yet in Plone 5!)
     An add-on that allows you to inspect nearly everything. It even has an interactive console and a tester for TALES-expressions.
