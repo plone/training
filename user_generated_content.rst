@@ -127,7 +127,7 @@ Our package already has such an import step registered in ``configure.zcml``. It
 
 .. note::
 
-    All GenericSetup import steps, including this one, are run for **every add-on product** when they are installed. To make sure that it is only run during installation of your package the code checks for a marker text file ``ploneconfsite_marker.txt``.
+    All GenericSetup import steps, including this one, are run for **every add-on product** when they are installed. To make sure that it is only run during installation of your package the code checks for a marker text file ``ploneconfsite_default.txt``.
 
 This step makes sure the method ``post_install`` in ``setuphandlers.py`` is executed on installation.
 
@@ -145,7 +145,7 @@ This step makes sure the method ``post_install`` in ``setuphandlers.py`` is exec
 
 
     def isNotCurrentProfile(context):
-        return context.readDataFile('ploneconfsite_marker.txt') is None
+        return context.readDataFile('ploneconfsite_default.txt') is None
 
 
     def post_install(context):
