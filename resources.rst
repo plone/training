@@ -20,11 +20,11 @@ You can declare and access static resources with special urls. The configure.zcm
 
     <browser:resourceDirectory
       name="ploneconf.site"
-      directory="resources" />
+      directory="static" />
 
-Now all files we put in the resources-folder can be found via the url http://localhost:8080/Plone/++resource++ploneconf.site/something.js
+Now all files we put in the `static` folder can be found via the url http://localhost:8080/Plone/++resource++ploneconf.site/something.js
 
-Let's create a ``ploneconf.css`` in that folder.
+Let's create a ``ploneconf.css`` in the `static` folder.
 
 .. code-block:: css
     :linenos:
