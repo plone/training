@@ -126,6 +126,7 @@ Add a file ``controlpanel.py``:
 ..  code-block:: python
 
     # -*- coding: utf-8 -*-
+    from datetime import date
     from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
     from plone.app.registry.browser.controlpanel import RegistryEditForm
     from plone.z3cform import layout
@@ -138,7 +139,7 @@ Add a file ``controlpanel.py``:
         date_of_conference = schema.Date(
             title=u'First day of the conference',
             required=False,
-            default="2015-10-14",
+            default=date(2015,10,14),
         )
 
         talk_submission_open = schema.Bool(
