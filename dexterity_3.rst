@@ -88,7 +88,7 @@ Now add a new file ``content/sponsor.py``.
         )
 
         advertisment = namedfile.NamedBlobImage(
-            title=_(U Advertisement (Gold-sponsors and above)'),
+            title=_(u'Advertisement (Gold-sponsors and above)'),
             required=False,
         )
 
