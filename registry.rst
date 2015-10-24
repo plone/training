@@ -76,7 +76,7 @@ When creating a new site a lot of settings are created in the same way. See http
   <record name="ploneconf.date_of_conference">
     <field type="plone.registry.field.Date">
         <title>First day of the conference</title>
-        <required>False<required>
+        <required>False</required>
     </field>
     <value>2015-10-14</value>
   </record>
