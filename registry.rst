@@ -101,8 +101,8 @@ In python you can access the registry like this:
 ..  code-block:: python
 
     from plone import api
-    api.portal.get_registry_value('ploneconf.date_of_conference')
-    api.portal.set_registry_value('ploneconf.talk_submission_open', True)
+    api.portal.get_registry_record('ploneconf.date_of_conference')
+    api.portal.set_registry_record('ploneconf.talk_submission_open', True)
 
 
 Add a custom controlpanel
