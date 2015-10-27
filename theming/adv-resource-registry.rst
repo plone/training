@@ -35,8 +35,8 @@ our ``profiles/default`` folder:
        </records>
    </registry>
 
-This registers a file named ``main.less`` from our theme package as a
-*resource* named ``tango-main``.
+This registers a file named ``main.less`` (from our theme package named
+``plonetheme.tango``) as a *resource* named ``tango-main``.
 We can now add this resource to a *resource bundle* like the existing ``plone`` bundle:
 
 .. code-block:: xml
@@ -60,11 +60,11 @@ We can now add this resource to a *resource bundle* like the existing ``plone`` 
 
 This has the advantage of reducing the number of bundles,
 which also means reducing the amount of files which are loaded for the site,
-because every bundle will result in *one* compiled CSS file and *one* compiled Javascript file.
-So if we have multiple LESS resources in the same bundle,
-it will be merged into one compiled CSS file.
+because every bundle will result in *one* compiled CSS file and *one* compiled JavaScript file.
+So if we have multiple LESS resources in the same bundle, they will be merged into one compiled
+CSS file.
 
-We can also create our own bundle which contains our resource (this is the way we
+We can also create our own custom bundle which contains our resource (this is the way we
 did it in the :doc:`theme-package` chapter):
 
 .. code-block:: xml
@@ -100,21 +100,20 @@ you have to reload the registry configuration via an upgrade step, or via a rein
 
 If you do change the bundle, it has to be built or rebuilt.
 You can do this in the ``@@resourceregistry-controlpanel`` by clicking on
-*build* for the bundle involved, or by running the ``plone-compile-resources``
+*Build* for the bundle involved, or by running the ``plone-compile-resources``
 script as follows:
 
 .. code-block:: bash
 
-   $ ./bin/plone-compile-resources --bundle=plone
-
-.. .. note:: Unfortunately the ``plone-compile-resources`` does not work currently with multiple resources in a bundle. But I hope that this will fixed soon.
-   This was fixed in https://github.com/plone/Products.CMFPlone/pull/1161
+   $ ./bin/plone-compile-resources --bundle=plone --site-id=Plone
 
 If you have created your own bundle, do the same for this bundle:
 
 .. code-block:: bash
 
-   $ ./bin/plone-compile-resources --bundle=tango-bundle
+   $ ./bin/plone-compile-resources --bundle=tango-bundle --site-id=Plone
+
+Default value for ``site-id`` is ``Plone`` so you only need to specify that if you're working with a different id for your site object.
 
 
 Using resources in LESS-files
@@ -214,16 +213,15 @@ Let's have a look at our ``main.less`` file:
 
 Here we use different functionality of LESS and the resource registry.
 
-At the bottom for example, we use LESS-imports to import a second LESS file
+At the bottom line for example, we use LESS-imports to import a second LESS file
 which contains our custom LESS statements.
-And we also import a CSS-file of the downloaded theme as a LESS-file.
-So we could change parts of it using LESS-syntax.
+And we also import a CSS-file of the downloaded theme as a LESS-file, so we can
+change parts of it using LESS-syntax.
 
-Above these two imports, we import stuff from Barceloneta.
-Here we can see that we use the names of the registered resource registry
-resources of the Barceloneta theme to import them.
-So if for example we want to import our registered resource ``tango-main``,
-we could import it as follows in our LESS-file:
+Besides these two, we import stuff from Barceloneta. Here we can see that we use
+the names of the registered resource registry resources of the Barceloneta theme
+to import them. So if for example we want to import our registered resource
+``tango-main``, we could import it as follows in our LESS-file:
 
 .. code-block:: css
 
