@@ -82,7 +82,7 @@ The resource registry allows you to configure and edit the static resources (js,
 Chameleon template engine
 -------------------------
 
-`Chameleon <https://chameleon.readthedocs.org/en/latest/>`_ is the new rendering engine of Plone 5. It offers may improvements:
+`Chameleon <https://chameleon.readthedocs.org/en/latest/>`_ is the new rendering engine of Plone 5. It offers many improvements:
 
 Old syntax:
 
