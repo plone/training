@@ -93,10 +93,10 @@ So we add a method to the view to return the related items so that we're able to
         results = []
         catalog = api.portal.get_tool('portal_catalog')
         for rel in self.context.underlings:
-            if not i.isBroken():
+            if i.isBroken():
                 # skip broken relations
                 continue
-            # query by so we don't have to wake up any objects
+            # query by path so we don't have to wake up any objects
             brains = catalog(path={'query': rel.to_path, 'depth': 0})
             results.append(brains[0])
         return results
