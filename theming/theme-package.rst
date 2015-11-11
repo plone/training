@@ -1225,7 +1225,7 @@ inside our theme folder:
 
    $ bower init
 
-After filling some questions, we have a bower config file called
+This command will ask you some questions, which are all irrelevant for our purposes.  So we can accept all the default answers, except perhaps marking the package as private, as a precaution.  After this we have a bower config file called
 ``bower.json``.
 All the packages that we need for our theme should be mentioned in this
 ``bower.json`` file.
