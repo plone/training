@@ -199,3 +199,14 @@ There are 3 possible workarounds:
 The first method, with Phantomjs, will throw failures with our tests, unfortunately.
 
 For debugging, you can run the test like this ``ROBOT_SELENIUM_RUN_ON_FAILURE=Debug bin/test --all``. This will stop the test at the first failure and you end up in an interactive shell where you can try various Robot Framework commands.
+
+More information
+----------------
+
+For more in-depth information and reference see 
+
+* `plone.app.testing documentation <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_.
+
+* `plone.testing package <https://pypi.python.org/pypi/plone.testing>`_ 
+
+
