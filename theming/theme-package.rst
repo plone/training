@@ -34,7 +34,7 @@ Then we enable the virtualenv:
 Create a product to handle your Diazo theme
 ===========================================
 
-To create a Plone 5 theme skeleton, you will use mrbob's templates for Plone.
+To create a Plone 5 theme skeleton, you will use mr.bob's templates for Plone.
 
 
 Install mr.bob and bobtemplates.plone
@@ -390,22 +390,21 @@ As a starting point we use this rules set:
      <theme href="index.html"/>
      <notheme css:if-not-content="#visual-portal-wrapper" />
 
-     <rules if-content="//*[@id='portal-top']">
+     <rules css:if-content="#portal-top">
        <!-- Attributes -->
-       <copy attributes="*" theme="/html" content="/html"/>
+       <copy attributes="*" css:theme="html" css:content="html" />
        <!-- Base tag -->
-       <before theme="/html/head/title" content="/html/head/base"/>
+       <before css:theme="head title" css:content="head base" />
        <!-- Title -->
-       <replace theme="/html/head/title" content="/html/head/title" />
+       <replace css:theme="head title" css:content="head title" />
        <!-- Pull in Plone Meta -->
-       <after theme-children="/html/head" content="/html/head/meta" />
-       <!-- dont use Plone icons, use the theme -->
-       <drop css:content="head link[rel='apple-touch-icon']" />
-       <drop css:content="head link[rel='shortcut icon']" />
+       <after css:theme-children="head" css:content="head meta" />
+       <!-- dont use Plone icons, use the theme's -->
+       <drop css:content="head link[rel='apple-touch-icon'], head link[rel='shortcut icon']" />
        <!-- CSS -->
-       <after theme-children="/html/head" content="/html/head/link" />
+       <after css:theme-children="head" css:content="head link" />
        <!-- Script -->
-       <after theme-children="/html/head" content="/html/head/script" />
+       <after css:theme-children="head" css:content="head script" />
      </rules>
 
      <!-- Copy over the id/class attributes on the body tag.
@@ -438,9 +437,7 @@ As a starting point we use this rules set:
        css:theme-children="#above-content"
        css:content-children="#viewlet-above-content"
        />
-      <drop
-       css:content="#portal-breadcrumbs"
-       />
+      <drop css:content="#portal-breadcrumbs" />
 
      <!-- Alert message -->
      <replace
@@ -462,15 +459,15 @@ As a starting point we use this rules set:
            <div class="row">
              <div class="box">
                <div class="col-xs-12 col-sm-12">
-                 <xsl:apply-templates css:select="#content"/>
+                 <xsl:apply-templates css:select="#content" />
                </div>
                <div class="clearFix"></div>
              </div>
            </div>
-           <section class="row" id="viewlet-below-content-body">
+           <section id="viewlet-below-content-body" class="row">
              <div class="box">
                <div class="col-xs-12 col-sm-12">
-                <xsl:copy-of select="//div[@id='viewlet-below-content']"/>
+                <xsl:copy-of css:select="#viewlet-below-content" />
                </div>
                <div class="clearFix"></div>
              </div>
@@ -479,22 +476,22 @@ As a starting point we use this rules set:
      </replace>
 
      <!-- Left column -->
-     <rules if-content="//*[@id='portal-column-one']">
+     <rules css:if-content="#portal-column-one">
        <replace css:theme="#column1-container">
-           <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+           <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
              <aside id="portal-column-one">
-                <xsl:copy-of select="//*[@id='portal-column-one']/*"/>
+                <xsl:copy-of css:select="#portal-column-one > *" />
              </aside>
            </div>
        </replace>
      </rules>
 
      <!-- Right column -->
-     <rules if-content="//*[@id='portal-column-two']">
+     <rules css:if-content="#portal-column-two">
        <replace css:theme="#column2-container">
-           <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="complementary">
+           <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="complementary">
              <aside id="portal-column-two">
-                <xsl:copy-of select="//*[@id='portal-column-two']/*"/>
+                <xsl:copy-of css:select="#portal-column-two > *"/>
              </aside>
            </div>
        </replace>
@@ -520,8 +517,7 @@ Add the login link:
      />
 
 This will place the ``portal-anontools`` (for example the login link) on the
-bottom of the page.
-You can change that to place it where you want.
+bottom of the page. You can change that to place it where you want.
 
 
 Top-navigation
@@ -536,14 +532,15 @@ Replace the placeholder with the real Plone top-navigation links:
      css:theme-children=".navbar-nav"
      css:content-children=".plone-navbar-nav" />
 
-Here we take the list of links from Plone and replace the placeholder links in the theme with it.
+Here we take the list of links from Plone and replace the placeholder links in
+the theme with it.
 
 
 Breadcrumb & co
 ***************
 
 Plone provides some viewlets like the breadcrumb above the content area.
-To get this into the theme layout, we add a placeholder with the CSS id ``#above-content`` to the theme. 
+To get this into the theme layout, we add a placeholder with the CSS id ``#above-content`` to the theme.
 This is the place where we want to insert Plones "above-content" stuff.
 For example at the top of the ``div.container`` after:
 
@@ -566,7 +563,6 @@ goes this before the row/box.
            <div id="above-content" class="box"></div>
        </div>
 
-
 This rule then inserts the Plone breadcrumbs etc.:
 
 .. code-block:: xml
@@ -578,9 +574,8 @@ This rule then inserts the Plone breadcrumbs etc.:
      />
 
 This will bring over everything from the ``viewlet-above-content`` block from
-Plone.
-Our current theme does not provide a breadcrumb bar, so we can just drop them
-from Plone content, like this:
+Plone. Our current theme does not provide a breadcrumb bar, so we can just
+drop them from Plone content, like this:
 
 .. code-block:: xml
 
@@ -595,7 +590,7 @@ If you only want to drop this for non-administrators, you can do it like this:
     css:if-not-content=".userrole-manager"
     />
 
-Or for only anonymous users:
+Or for anonymous users only:
 
 .. code-block:: xml
 
@@ -612,8 +607,8 @@ Slider only on Front-page
 *************************
 
 We want the slider in the template only on the front page, and we don't want it
-when we are editing the front page.
-To make this easier, we wrap the slider area with a ``#front-page-slider`` ``div``-tag like this:
+when we are editing the front page. To make this easier, we wrap the slider
+area with a ``#front-page-slider`` ``div``-tag like this:
 
 .. code-block:: html
 
@@ -701,8 +696,7 @@ and use this rule to bring the messages across:
     css:content-children="#global_statusmessage"
     />
 
-To test that, just edit the front page.
-You should see a message from Plone.
+To test that, just edit the front page. You should see a message from Plone.
 
 Main content area
 *****************
@@ -726,15 +720,15 @@ bootstrap grid classes, we use an inline XSL snippet like this:
          <div class="row">
            <div class="box">
              <div class="col-xs-12 col-sm-12">
-               <xsl:apply-templates css:select="#content"/>
+               <xsl:apply-templates css:select="#content" />
              </div>
              <div class="clearFix"></div>
            </div>
          </div>
-         <section class="row" id="viewlet-below-content-body">
+         <section id="viewlet-below-content-body" class="row">
            <div class="box">
              <div class="col-xs-12 col-sm-12">
-              <xsl:copy-of select="//div[@id='viewlet-below-content']"/>
+              <xsl:copy-of css:select="#viewlet-below-content" />
              </div>
              <div class="clearFix"></div>
            </div>
@@ -756,22 +750,22 @@ normal ``div``. That is the reason to use inline XSL here:
 .. code-block:: xml
 
    <!-- Left column -->
-   <rules if-content="//*[@id='portal-column-one']">
+   <rules css:if-content="#portal-column-one">
      <replace css:theme="#column1-container">
-         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="left-sidebar">
+         <div id="left-sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
            <aside id="portal-column-one">
-              <xsl:copy-of select="//*[@id='portal-column-one']/*"/>
+              <xsl:copy-of css:select="#portal-column-one > *" />
            </aside>
          </div>
      </replace>
    </rules>
 
    <!-- Right column -->
-   <rules if-content="//*[@id='portal-column-two']">
+   <rules css:if-content="#portal-column-two">
      <replace css:theme="#column2-container">
-         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="right-sidebar" role="complementary">
+         <div id="right-sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas" role="complementary">
            <aside id="portal-column-two">
-              <xsl:copy-of select="//*[@id='portal-column-two']/*"/>
+              <xsl:copy-of css:select="#portal-column-two > *" />
            </aside>
          </div>
      </replace>
@@ -943,8 +937,8 @@ following content as ``js/bundle.js``:
 
 
    /* do not include jquery multiple times */
-   if(window.jQuery){
-     define('jquery', [], function(){
+   if (window.jQuery) {
+     define('jquery', [], function() {
        return window.jQuery;
      });
    }
@@ -964,51 +958,16 @@ following content as ``js/bundle.js``:
    });
 
 
+We now have to register our resources in a bundle. We could use the new
+resource registry directly, but to make this training much simpler and
+easier to understand, we'll prefer to use the new options in ``manifest.cfg``.
+Those allow us to register our CSS and JS in a pre-built implicit ``diazo``
+bundle that is only delivered when Diazo transformations are enabled (which
+is default) in ``@@theming-controlpanel``.
 
-We now have to register our resources in the resource registry.
-For that we create or customize the file ``registry.xml`` in our default
-profile folder:
+So we extend our theme's ``manifest.cfg`` to declare ``development-css``,
+``production-css`` and optionally ``tinymce-content-css``, like this:
 
-.. code-block:: bash
-
-   $ tree profiles/default/
-   profiles/default/
-   ├── browserlayer.xml
-   ├── metadata.xml
-   ├── plonethememytango_default.txt
-   ├── registry.xml
-   └── theme.xml
-
-We register our resource like this:
-
-.. code-block:: xml
-
-   <?xml version="1.0"?>
-   <registry>
-       <records prefix="plone.resources/tango-main"
-                 interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-          <value key="css">
-             <element>++theme++plonetheme.tango/css/main.less</element>
-          </value>
-          <value key="js">++theme++plonetheme.tango/js/bundle.js</value>
-       </records>
-
-       <!-- bundle definition -->
-       <records prefix="plone.bundles/tango-bundle"
-                 interface='Products.CMFPlone.interfaces.IBundleRegistry'>
-         <value key="resources">
-           <element>tango-main</element>
-         </value>
-         <value key="enabled">True</value>
-         <value key="compile">True</value>
-         <value key="jscompilation">++theme++plonetheme.tango/js/bundle-compiled.js</value>
-         <value key="csscompilation">++theme++plonetheme.tango/css/tango-compiled.css</value>
-         <value key="last_compilation"></value>
-       </records>
-   </registry>
-
-To use these resources in our Diazo theme we customize our ``manifest.cfg`` in
-our theme like this:
 
 .. code-block:: xml
 
@@ -1032,15 +991,12 @@ our theme like this:
    ajax_load = python: request.form.get('ajax_load')
    portal_url = python: portal.absolute_url()
 
-The important parts here are the definitions for ``development-css``,
-``production-css``, and ``tinymce-content-css``.
 
-After adding the registry entries and manifest changes, we need to reload the
-setup profile of the package. For now just go to the
-``/prefs_install_products_form`` and uninstall/install the theme package.
-For the changes in the ``manifest.cfg`` file to take effect you actually need
-to deactivate/activate the theme in ``@@theming-controlpanel``, but this also
-happens on install of the package, so it's already been done for us.
+The last of these tells Plone to load that particular CSS file wherever a
+TinyMCE rich text field is displayed. Good for specific overrides and stylings.
+
+After adding the manifest changes, we need to deactivate/activate the theme
+for them to take effect. Just go to ``/@@theming-controlpanel`` and do it.
 
 
 Extend your buildout configuration
@@ -1163,6 +1119,7 @@ If not, you have to stop your instance first, because the script needs to write 
 
 This will start the Plone instance, read variables from the registry, and
 compile your bundle.
+
 If your Plone site is not named ``Plone``, you can provide the id using the
 ``--site-id`` parameter.
 
