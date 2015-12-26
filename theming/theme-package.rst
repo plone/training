@@ -804,7 +804,7 @@ To do that, we change our ``metadata.xml`` as follows:
    </metadata>
 
 This will register all LESS files of the Barceloneta theme in Plone's resource
-registry, so that we can use theme in our custom LESS files.
+registry, so that we can use them in our custom LESS files.
 
 Now let's add the two LESS files ``main.less`` and ``custom.less`` to our CSS
 folder:
