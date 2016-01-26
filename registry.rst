@@ -91,9 +91,9 @@ In python you can access the registry like this:
 ..  code-block:: python
 
     from plone.registry.interfaces import IRegistry
-    from zope.component import getUtilty
+    from zope.component import getUtility
 
-    registry = getUtilty(IRegistry)
+    registry = getUtility(IRegistry)
     start = registry.get('ploneconf.date_of_conference')
 
 ``plone.api`` holds methods to make this even easier:
