@@ -95,10 +95,12 @@ Look at the ``buildout.cfg`` file in ``/vagrant/buildout``.
 
     If you're using our Vagrant kit, the Plone configuration is available in a folder that is shared between the host and guest operating systems. Look in your Vagrant install directory for the ``buildout`` folder. You may edit configuration files using your favorite text editor in the host operating system, then switch into your virtual machine to run buildout on the guest operating system.
 
-In the section ``[instance]`` there is a variable called ``eggs``, which has a list of *eggs* as a value.
+In the section ``[instance]`` there is a variable called ``eggs``, which has a list of *eggs* as a value. For example::
 
-* ``Products.PloneFormGen``
-* ``collective.plonetruegallery``
+    eggs =
+        Plone
+        Products.PloneFormGen
+        plone.app.debugtoolbar
 
 Usually, one enters the eggs by adding one more line per egg into the configuration. You must write the egg name indented, this way buildout understands that the current line is part of the last variable and not a new variable.
 
@@ -146,7 +148,7 @@ There are many ways to create forms in Plone:
 * framework: z3c.form, formlib, deform
 * TTW: Products.PloneFormGen
 
-The basic concept of PloneFormGen is that you build a form by adding a Form Folder, to which you add form fields as content items. Fields are added, deleted, edited and moved just as with any other type of content. Form submissions may be automatically emailed and/or saved for download. There are many PFG add-ons that provide additional field types and actions.
+The basic concept of PloneFormGen is that you build a form by adding a Form Folder, to which you add form fields as content items. Fields are added, deleted, edited and moved just as with any other type of content. Form submissions may be automatically emailed and/or saved for download. There are many add-ons to PloneFormGen that provide additional field types and actions.
 
 Let's build a registration form:
 
@@ -168,6 +170,10 @@ Let's build a registration form:
     Think PFG is too complicated for your site editors? Administrators (and we're logged in as an administrator) see lots of more complex options that are invisible to site editors.
 
 By the way, while PloneFormGen is good at what it does, is not a good model for designing your own extensions. It was created before the Zope Component Architecture became widely used. The authors would write it much differently if they were starting from scratch.
+
+.. note::
+
+   `collective.easyform <https://pypi.python.org/pypi/collective.easyform>`_ is a alternative form-generator that uses dexterity.
 
 
 .. _add-ons-ptg-label:
