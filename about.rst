@@ -13,9 +13,7 @@ If you want to inquire the original authors about organizing a training please c
 Upcoming Trainings
 ------------------
 
-`12. - 13. October 2015, Bucharest <https://2015.ploneconf.org/trainings>`_
-    by Philip Bauer, Fulvio Casali, Fred van Dijk, Franco Pellegrini, Johannes Raggam , Maik Derstappen and Simone Orsi.
-
+Ask for trainings on https://community.plone.org
 
 .. _about-previous-label:
 
@@ -24,6 +22,7 @@ Previous Trainings
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
+* `October 2015, Bucharest <https://2015.ploneconf.org/trainings>`_
 * `March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
 * Plone Conference 2014, Bristol
 * `June 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068480>`_
@@ -41,14 +40,11 @@ Trainers
 
 The following trainers have given trainings based on Mastering Plone:
 
-Leonardo Caballero
-    Leonardo J. Caballero G. of Maracaibo, Venezuela, is a Technical Director at Covantec R.L. and Conectivo C.A. Leonardo maintains the Spanish translations of more than 49 Plone Add-ons as well as Spanish-language documentation for Plone itself. He has contributed several Plone Add-ons that are part of PloneGov. Currently serving the Plone Board as a Plone Ambassador, Leonardo has also served as an Advisory Board member and has spoken at or helped organize Plone and open-source events throughout South America.
-
 Philip Bauer
     Philip Bauer is a web developer from Munich who fell in love with Plone in 2005 and since then works almost exclusively with Plone. A historian by education he drifted towards creating websites in the 90's and founded the company Starzel.de in 2000. He is a member of the Plone foundation, loves teaching and is dedicated to Open Source. Among other Plone-related projects he started creating the Mastering Plone Training so that everyone can become a Plone-Developer.
 
 Patrick Gerken
-    Patrick Gerken works with Python since 2002. He started working with pure Zope applications and now develops mainly with Plone, Pyramid and Javascript as well as doing what is called DevOps. He works at Starzel.de.
+    Patrick Gerken works with Python since 2002. He started working with pure Zope applications and now develops mainly with Plone, Pyramid and Javascript as well as doing what is called DevOps. He works at Zumtobel Group.
 
 Steve McMahon
     Steve McMahon is a long-time Plone community member, contributor and trainer. He is the creator of PloneFormGen and maintainer of the Unified installer. Steve also wrote several chapters of Practical Plone and is an experienced speaker and instructor.
@@ -67,6 +63,9 @@ Franco Pellegrini
 
 Fred van Dijk
     Fred, from Rotterdam the Netherlands, has been exposed to Plone early on as a user. In 2007 he joined Zest Software to work on and with Plone and Python web apps full time. He can focus on the business side, helping users decide on which features are most valuable to develop or when to stick with standard functionality. He also gives training on using and administering the CMS. On the IT side he has plenty technical knowledge to work on code, system administration and do project management in a team of developers.
+
+Leonardo Caballero
+    Leonardo J. Caballero G. of Maracaibo, Venezuela, is a Technical Director at Covantec R.L. and Conectivo C.A. Leonardo maintains the Spanish translations of more than 49 Plone Add-ons as well as Spanish-language documentation for Plone itself. He has contributed several Plone Add-ons that are part of PloneGov. Currently serving the Plone Board as a Plone Ambassador, Leonardo has also served as an Advisory Board member and has spoken at or helped organize Plone and open-source events throughout South America.
 
 .. _about-use-label:
 
@@ -237,7 +236,7 @@ Technical set up to do before a training (as a trainer)
 - Prepare a mailserver for the user registration mail (http://plone-training.readthedocs.org/en/latest/features.html#configure-a-mailserver)
 - If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not at the buildout path /vagrant/buildout/)
 
-Train the trainer 
+Train the trainer
 -----------------
 
 If you are a trainer there is a special mini training about giving technical trainings. We really want this material to be used, re-used, expanded and improved by Plone trainers world wide. These chapters don't contain any Plone specific advice, there's background, theory,  check lists and tips for anyone trying to teach technical subjects.
