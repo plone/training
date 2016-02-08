@@ -139,8 +139,8 @@ Portlets save data, Viewlets usually don't. Viewlets are often used for UI-Eleme
 
 .. _customizing-ZMI-label:
 
-ZMI
----
+ZMI (Zope Management Interface)
+-------------------------------
 
 Go to http://localhost:8080/Plone/manage
 
@@ -237,11 +237,7 @@ Skins (portal_skins)
 In portal_skins we can change certain images, css-files and templates.
 
 * portal_skins is deprecated technology
-* We only do some minimal changes here.
-
-.. only:: not presentation
-
-    Plone 5 will get rid of a lot of functionality that still lives in portal_skins.
+* Plone 5 got rid of a most files that lived in portal_skins.
 
 
 Change some css
@@ -253,53 +249,7 @@ Change some css
 * go to ``ploneCustom.css``
 * click ``customize``
 
-Enter the following css:
-
-.. code-block:: css
-
-    #visual-portal-wrapper {
-        margin: 0 auto;
-        position: relative;
-        width: 1024px;
-    }
-
-.. only:: presentation
-
-    * Save and check the results
-
-.. only:: not presentation
-
-    Click 'save' and check results in the a different browser tab. How did that happen?
-
-    The UI leaves a lot to be desired. In a professional context this is no-go (no version control, no syntax highlighting etc.). But everybody uses portal_skins to make quick fixes to sites that are already online.
-
-    Let's add some more css to make our site a little responsive:
-
-.. only:: presentation
-
-    * Add some more css
-
-.. code-block:: css
-
-    @media only screen and (max-width: 980px) {
-       #visual-portal-wrapper {
-           position: relative;
-           width: auto;
-       }
-    }
-
-    @media only screen and (max-width: 768px) {
-       #portal-columns > div {
-           width: 97.75%;
-           margin-left: -98.875%;
-           clear: both;
-       }
-
-       .searchButton,
-       .searchSection {
-           display: none;
-       }
-    }
+The css you add to this file is instantly active on the site.
 
 
 portal_view_customizations
@@ -316,7 +266,7 @@ Change the footer
 
      <div i18n:domain="plone"
           id="portal-footer">
-        <p>&copy; 2014 by me! |
+        <p>&copy; 2016 by me! |
           <a href="mailto:info@ploneconf.org">
            Contact us
           </a>
@@ -332,20 +282,7 @@ Change the footer
 CSS Registry (portal_css)
 *************************
 
-* go to ZMI > ``portal_css``
-* at the bottom there is ``ploneCustom.css``
-* Disable ``Development mode``: The css-files are merged and have a cache-key.
-
-.. Note::
-
-    The JavaScripts Registry (portal_javascripts) is very similar.
-
-The merging function solves a big problem: we'd like to develop our CSS and JS resources in a granular way, but we'd also like to minimize HTTP requests.
-
-.. Note::
-
-    At the end of a development process, a little rearranging to minimize requests can have a very nice effect. It's often possible to reduce requests to a very small number for anonymous visitors.
-
+*deprecated* (See the chapter on theming)
 
 
 Further tools in the ZMI
@@ -366,4 +303,4 @@ There are many more notable items in the ZMI. We'll visit some of them later.
 Summary
 -------
 
-You can configure and customize a lot in Plone through the web. The most important options are accessible in the `plone control panel <http://localhost:8080/Plone/@@overview-controlpanel>`_ but even more are hidden away in the `ZMI <http://localhost:8080/Plone/manage>`_. The amount and presentation of information is overwhelming but you'll get the hang of it through a lot of practice.
+You can configure and customize a lot in Plone through the web. The most important options are accessible in the `plone control panel <http://localhost:8080/Plone/@@overview-controlpanel>`_ but some are hidden away in the `ZMI <http://localhost:8080/Plone/manage>`_. The amount and presentation of information is overwhelming but you'll get the hang of it through a lot of practice.
