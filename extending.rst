@@ -23,7 +23,7 @@ Zope is extensible and so is Plone.
 
     There is a huge variety of Plone-compatible packages available. Most are listed in the `Python Package Index <https://pypi.python.org/pypi>`_. A more browseable listing is available at the `Plone.org add-on listing <https://plone.org/products/>`_. The source repository for many public Plone add-ons is `the GitHub Collective <https://github.com/collective>`_. You may also create your own packages or maintain custom repositories.
 
-    Eggs are younger than Zope. Zope needed something like eggs before there were eggs, and the Zope developers wrote their own system. Old, outdated Plone systems contain a lot of code that is not bundled in an egg. Older code did not have metadata to register things, instead you needed a special setup method. We don't need this method but you might see it in other code. It is usually used to register Archetypes code. Archetypes is the old content type system. We use Dexterity.
+    Eggs are younger than Zope. Zope needed something like eggs before there were eggs, and the Zope developers wrote their own system. Old, outdated Plone systems contain a lot of code that is not bundled in an egg. Older code did not have metadata to register things, instead you needed a special setup method. We don't need this method but you might see it in other code. It is usually used to register Archetypes code. Archetypes is the old content type system. Instead, we use the new content type system Dexterity.
 
 
 .. _extending-technologies-label:
@@ -67,7 +67,7 @@ skin_folders
 
     .. warning::
 
-        This is soon going away!
+        This is deprecated technology.
 
 
 GenericSetup
@@ -89,7 +89,7 @@ GenericSetup
 
     You will see many objects in Zope or the ZMI that you can customize through the web. If they are well behaving, they can export their configuration via *GenericSetup* and import it again.
 
-    Typically you use *GenericSetup* directly to change workflows or add new content type definitions.
+    Typically you use *GenericSetup* to change workflows or add new content type definitions.
 
     GenericSetup profiles may also be built into Python packages. Every package that is listed on the add-on package list inside a Plone installation has a GS profile that details how it fits into Plone. Packages that are part of Plone itself may have GS profiles, but are excluded from the active/inactive listing.
 

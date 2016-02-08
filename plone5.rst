@@ -17,7 +17,7 @@ It is a Diazo theme, meaning it uses plone.app.theming to insert the output of P
 
 It uses html5, so it uses ``<header>``, ``<nav>``, ``<aside>``, ``<section>``, ``<article>`` and ``<footer>`` for semantic html.
 
-The theme is mostly built with `less <http://lesscss.org/>`_ (lots of it!) and uses the same grid system as `bootstrap <http://getbootstrap.com/css/#grid>`_. This means you can use css classes like ``col-xs-12 col-sm-9`` to control the width of elements for different screen-sizes. If you prefer something a different grid-system (like `foundation <http://foundation.zurb.com/docs/components/grid.html>`_)
+The theme is mostly built with `LESS <http://lesscss.org/>`_ (lots of it!) and uses the same grid system as `bootstrap <http://getbootstrap.com/css/#grid>`_. This means you can use css classes like ``col-xs-12 col-sm-9`` to control the width of elements for different screen-sizes. It is you prefer a different grid-system (like `foundation <http://foundation.zurb.com/docs/components/grid.html>`_) over bootstrap you can adapt the theme to use that.
 
 The `index.html <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/index.html>`_ and `rules.xml <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/rules.xml>`_ are actually not that complicated. Have a look at them.
 
@@ -63,7 +63,7 @@ The view to display the content of a folder is new and offers many new features:
 
 .. _plone5-content-types-label:
 
-contenttypes
+Content Types
 -------------
 
 All default types are based on Dexterity. This means you can use behaviors to change their features and edit them through the web. Existing old content can be migrated to these types.
@@ -74,7 +74,7 @@ All default types are based on Dexterity. This means you can use behaviors to ch
 Resource Registry
 -----------------
 
-The resource registry allows you to configure and edit the static resources (js, css) of Plone. It replaces the old javascript and css registries. And it can be used to customize the theme by changing the LESS variables or overriding LESS files.
+The resource registry allows you to configure and edit the static resources (js, css) of Plone. It replaces the old javascript and css registries. And it can be used to customize the theme by changing the variables used by LESS or overriding LESS files.
 
 
 .. _plone5-chameleon-label:

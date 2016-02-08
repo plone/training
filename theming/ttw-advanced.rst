@@ -61,7 +61,7 @@ This rule states that the element that come from the content (Plone) with the id
 
 We want to hide it for anynoymous users so we can take advantage of the base CSS classes the Plone exposes on the body (SHOW THE CLASSES).
 
-The class we are looking for is `userrole-authenticated`. Add another property to the rule so that we get to this line of code:
+The class we are looking for is `userrole-authenticated`. Add another property to the rule so that we produce this code:
 
 .. code-block:: xml
 
@@ -70,9 +70,7 @@ The class we are looking for is `userrole-authenticated`. Add another property t
         css:content="#viewlet-above-content"
         css:theme="#above-content" />
 
-The attribute `css:if-content` allow us to put condition on the rules based on a CSS selector that acts on the content, thus the markup rendered by Plone.
-
-In this way the rule will be applied only if the body element has the class `.userrole-authenticated`.
+The attribute `css:if-content` allows us to put a condition on the rules based on a CSS selector that acts on the content. In this way the rule will be applied only if the body element has the class `.userrole-authenticated`.
 
 MORE EXAMPLES HERE?
 

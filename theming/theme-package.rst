@@ -213,7 +213,7 @@ As you see, the package already contains a Diazo theme:
 Here you can build your Diazo theme.
 
 
-Build your Diazo based theme
+Build your Diazo-based theme
 ============================
 
 You can start with the example files in the theme folder,
@@ -539,7 +539,7 @@ the theme with it.
 Breadcrumb & co
 ***************
 
-Plone provides some viewlets like the breadcrumb above the content area.
+Plone provides some viewlets like the breadcrumbs (the current path) above the content area.
 To get this into the theme layout, we add a placeholder with the CSS id ``#above-content`` to the theme.
 This is the place where we want to insert Plones "above-content" stuff.
 For example at the top of the ``div.container`` after:
@@ -696,7 +696,7 @@ and use this rule to bring the messages across:
     css:content-children="#global_statusmessage"
     />
 
-To test that, just edit the front page. You should see a message from Plone.
+To test that, just edit the front page. You should see a confirmation-message from Plone.
 
 Main content area
 *****************
