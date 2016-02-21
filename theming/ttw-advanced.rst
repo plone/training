@@ -87,7 +87,7 @@ Customize CSS
 
 *Note: normally you would place this in a separate file to keep the main one clean but for this example is enough.*
 
-3. push the button "Build CSS"
+3. push the buttons "Save" and "Build CSS"
 
 .. image:: _static/theming-editor_compile_css.png
    :align: center
