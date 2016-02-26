@@ -216,7 +216,7 @@ This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on y
 
         ssh_exchange_identification: read: Connection reset by peer
 
-    The configuration may have stalled out because your computer's BIOS requires virtualization to be enabled. Check with your computer's manufacturer on how to properly enable virtualization. 
+    The configuration may have stalled out because your computer's BIOS requires virtualization to be enabled. Check with your computer's manufacturer on how to properly enable virtualization.  See: https://teamtreehouse.com/community/vagrant-ssh-sshexchangeidentification-read-connection-reset-by-peer
 
 Once Vagrant finishes the provisioning process, you can login to the now running virtual machine.
 
