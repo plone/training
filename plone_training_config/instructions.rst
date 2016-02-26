@@ -208,6 +208,16 @@ This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on y
 
     You can do this multiple times to fix problems, e.g. if your network connection was down and steps could not finish because of this.
 
+.. note::
+
+    If while bringing vagrant up you get an error similar to:
+
+    .. code-block:: bash
+
+        ssh_exchange_identification: read: Connection reset by peer
+
+    The configuration may have stalled out because your computer's BIOS requires virtualization to be enabled. Check with your computer's manufacturer on how to properly enable virtualization.  See: https://teamtreehouse.com/community/vagrant-ssh-sshexchangeidentification-read-connection-reset-by-peer
+
 Once Vagrant finishes the provisioning process, you can login to the now running virtual machine.
 
 .. code-block:: bash
