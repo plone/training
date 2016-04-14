@@ -12,6 +12,13 @@ Resources
         cp -R src/ploneconf.site_sneak/chapters/12_resources_p5/ src/ploneconf.site
 
 
+..  warning::
+
+    This chapter has not yet been updated for Plone 5! Static resources are handles differently in Plone 5.
+
+    Please see http://docs.plone.org/adapt-and-extend/theming/resourceregistry.html or http://training.plone.org/5/theming/adv-resource-registry.html until this chapter has been updated.
+
+
 We have not yet talked about CSS and Javascript. At the moment these are considered static resources.
 
 You can declare and access static resources with special urls. The configure.zcml of our package already has a declaration for resources:
