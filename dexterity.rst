@@ -65,7 +65,7 @@ What are the differences?
 * Archetype had magic setter/getter - use ``talk.getAudience()`` for the field ``audience``
 * Dexterity: fields are attributes: ``talk.audience`` instead of ``talk.getAudience()``
 
-TTW:
+"Through The Web" or TTW, i.e. in the browser, without programming:
 
 * Dexterity has a good TTW story.
 * Archetypes has no TTW story.
@@ -93,24 +93,8 @@ Views:
 
 * Both Dexterity and Archetypes have a default view for contenttypes.
 * Browser Views provide custom views.
-* TTW (future)
+* You can generate views for content-types in the browser without programming (using the Add-on plone.app.mosaic)
 * Display Forms
-
-
-.. Installation
-   ------------
-
-   .. note ::
-
-    ..    We can skip this step since we installed ``plone.app.contenttypes`` when creating our Plone site in the beginning.
-
-
-..    You don't have to modify the buildout since Plone 4.2+ ships with Dexterity. You just have to activate it in the control-panel for Add-ons.
-
-..    This time, for no obvious reason other than getting more comfortable with the ZMI, we'll use ``portal_quickinstaller`` to install Dexterity.
-
-..    * go to portal_quickinstaller
-..    * install "Dexterity contenttypes"
 
 
 .. _dexterity1-modify-label:
