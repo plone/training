@@ -137,7 +137,7 @@ Vagrant uses Oracle’s VirtualBox to create virtual environments. Here is a lin
 Install and configure Vagrant
 +++++++++++++++++++++++++++++
 
-Get the latest version from http://www.vagrantup.com/downloads for your operating system and install it.
+Get the latest version from https://www.vagrantup.com/downloads.html for your operating system and install it.
 
 .. note::
 

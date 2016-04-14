@@ -13,7 +13,9 @@ If you want to inquire the original authors about organizing a training please c
 Upcoming Trainings
 ------------------
 
-Ask for trainings on https://community.plone.org
+There will be several trainings during `Ploneconf 2016 in Boston <https://2016.ploneconf.org/>`_.
+
+If you want to have a training near you please ask for trainings on https://community.plone.org
 
 .. _about-previous-label:
 
@@ -28,9 +30,9 @@ The Mastering Plone Training was so far held publicly at the following occasions
 * `June 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068480>`_
 * `May 2014, Munich <http://www.starzel.de/blog/mastering-plone>`_
 * `PythonBrasil/Plone Conference 2013, Brasilia <http://2013.pythonbrasil.org.br/>`_
-* `PyCon DE 2012, Leipzig <https://2012.de.pycon.org/>`_
+* PyCon DE 2012, Leipzig
 * `Plone Conference 2012, Arnheim <http://2012.ploneconf.org/the-event/training/conference-trainings/mastering-plone>`_
-* `PyCon De 2011, Leipzig <http://2011.de.pycon.org/2011/home/>`_
+* PyCon De 2011, Leipzig
 
 
 .. _about-trainers-label:
@@ -260,6 +262,6 @@ The Mastering Plone Training is licensed under a `Creative Commons Attribution 4
 
 Make sure you have filled out a `Contributor Agreement <https://plone.org/foundation/contributors-agreement>`_.
 
-If you haven't filled out a Contributor Agreement, you can still contribute. Contact the Documentation team, for instance via the `mailinglist <http://sourceforge.net/p/plone/mailman/plone-docs/>`_ or directly send a mail to plone-docs@lists.sourceforge.net
+If you haven't filled out a Contributor Agreement, you can still contribute. Contact the Documentation team, for instance via the `mailinglist <https://sourceforge.net/p/plone/mailman/plone-docs/>`_ or directly send a mail to plone-docs@lists.sourceforge.net
 Basically, all we need is your written confirmation that you are agreeing your contribution can be under Creative Commons. You can also add in a comment with your pull request "I, <full name>, agree to have this published under Creative Commons 4.0 International BY".
 

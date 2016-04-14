@@ -58,7 +58,7 @@ Some technologies and tools we use during the training:
 
 * For the advanced chapters:
 
-    * `Git <http://git-scm.com/>`_
+    * `Git <https://git-scm.com/>`_
     * `Github <https://github.com>`_
     * `Try Git (Nice introduction to git and github) <https://try.github.io/levels/1/challenges/1>`_
     * TAL
