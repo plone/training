@@ -243,41 +243,36 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
 
         STRUCTURE = [
             {
-                'type': 'Document',
-                'title': u'Plone Conference 2022',
-                'id': 'plone-conference-2022',
-                'description': u'',
-            },
-            {
                 'type': 'Folder',
                 'title': u'The Event',
                 'id': 'the-event',
-                'description': u'Plone Conference 2022',
-                'layout': 'frontpage-for-the-event',
+                'description': u'Plone Conference 2020',
+                'default-page': 'frontpage-for-the-event',
+                'state': 'published',
                 'children': [{
                     'type': 'Document',
                     'title': u'Frontpage for the-event',
                     'id': 'frontpage-for-the-event',
-                    'description': u'',
+                    'state': 'published',
                     },
                     {
                     'type': 'Folder',
                     'title': u'Talks',
                     'id': 'talks',
-                    'description': u'',
                     'layout': 'talklistview',
+                    'state': 'published',
                     },
                     {
                     'type': 'Folder',
                     'title': u'Training',
                     'id': 'training',
-                    'description': u'',
+                    'state': 'published',
                     },
                     {
                     'type': 'Folder',
                     'title': u'Sprint',
                     'id': 'sprint',
-                    'description': u'',
+                    'state': 'published',
                     },
                 ]
             },
@@ -286,6 +281,7 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
                 'title': u'Talks',
                 'id': 'talks',
                 'description': u'Submit your talks here!',
+                'state': 'published',
                 'layout': '@@talklistview',
                 'allowed_types': ['talk'],
                 'local_roles': [{
@@ -298,11 +294,13 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
                 'title': u'News',
                 'id': 'news',
                 'description': u'News about the Plone Conference',
+                'state': 'published',
                 'children': [{
                     'type': 'News Item',
                     'title': u'Submit your talks!',
                     'id': 'submit-your-talks',
-                    'description': u'',}
+                    'description': u'Task submission is open',
+                    'state': 'published', }
                 ],
             },
             {
@@ -310,13 +308,18 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
                 'title': u'Events',
                 'id': 'events',
                 'description': u'Dates to keep in mind',
+                'state': 'published',
             },
         ]
+
 
     Add the method ``content`` to ``setuphandlers.py``. We pointed to that when registering the import step. And add some fancy logic to create the content from ``STRUCTURE``.
 
     ..  code-block:: python
         :linenos:
+
+        from zope.lifecycleevent import modified
+
 
         def content(context):
             if context.readDataFile('ploneconfsite_content_marker.txt') is None:
@@ -327,38 +330,48 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
                 _create_content(item, portal)
 
 
-        def _create_content(item, container):
-            new = container.get(item['id'], None)
-            if not new:
-                new = api.content.create(
-                    type=item['type'],
-                    container=container,
-                    title=item['title'],
-                    id=item['id'],
-                    safe_id=False)
-                logger.info('Created item {}'.format(new.absolute_url()))
-            if item.get('layout', False):
-                new.setLayout(item['layout'])
-            if item.get('default-page', False):
-                new.setDefaultPage(item['default-page'])
-            if item.get('description', False):
-                new.setDescription(item['description'])
-            if item.get('allowed_types', False):
-                _constrain(new, item['allowed_types'])
-            if item.get('local_roles', False):
-                for local_role in item['local_roles']:
-                    api.group.grant_roles(
-                        groupname=local_role['group'],
-                        roles=local_role['roles'],
-                        obj=new)
-            api.content.transition(new, to_state=item.get('state', 'published'))
-            new.reindexObject()
+        def _create_content(item_dict, container, force=False):
+            if not force and container.get(item_dict['id'], None) is not None:
+                return
+
+            # Extract info that can't be passed to api.content.create
+            layout = item_dict.pop('layout', None)
+            default_page = item_dict.pop('default_page', None)
+            allowed_types = item_dict.pop('allowed_types', None)
+            local_roles = item_dict.pop('local_roles', [])
+            children = item_dict.pop('children', [])
+            state = item_dict.pop('state', None)
+
+            new = api.content.create(
+                container=container,
+                safe_id=True,
+                **item_dict,
+            )
+            logger.info('Created {0} at {1}'.format(new.portal_type, new.absolute_url()))
+
+            if layout is not None:
+                new.setLayout(layout)
+            if default_page is not None:
+                new.setDefaultPage(default_page)
+            if allowed_types is not None:
+                _constrain(new, allowed_types)
+            for local_role in local_roles:
+                api.group.grant_roles(
+                    groupname=local_role['group'],
+                    roles=local_role['roles'],
+                    obj=new)
+            if state is not None:
+                api.content.transition(new, to_state=state)
+
+            modified(new)
             # call recursively for children
-            for subitem in item.get('children', []):
+            for subitem in children:
                 _create_content(subitem, new)
 
         def _constrain(context, allowed_types):
-            behavior = ISelectableConstrainTypes(context)
+            behavior = constrains.ISelectableConstrainTypes(context)
             behavior.setConstrainTypesMode(constrains.ENABLED)
             behavior.setLocallyAllowedTypes(allowed_types)
             behavior.setImmediatelyAddableTypes(allowed_types)
+
+    A huge benefit of this implementation is that you can add any object-attribute as a new item to ``item_dict``. ``plone.api.content.create`` will then set these on the new objects. This way you can also populate fields like ``text`` (using ``plone.app.textfield.RichTextValue``) or ``image`` (using ``plone.namedfile.file.NamedBlobImage``).
