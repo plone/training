@@ -247,7 +247,7 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
                 'title': u'The Event',
                 'id': 'the-event',
                 'description': u'Plone Conference 2020',
-                'default-page': 'frontpage-for-the-event',
+                'default_page': 'frontpage-for-the-event',
                 'state': 'published',
                 'children': [{
                     'type': 'Document',
@@ -345,7 +345,7 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
             new = api.content.create(
                 container=container,
                 safe_id=True,
-                **item_dict,
+                **item_dict
             )
             logger.info('Created {0} at {1}'.format(new.portal_type, new.absolute_url()))
 
