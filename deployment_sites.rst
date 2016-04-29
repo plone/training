@@ -9,48 +9,48 @@ Buildout II: Getting Ready for Deployment
 The starzel buildout
 --------------------
 
-Have a look at the buildout we use for our projects: https://github.com/starzel/buildout
+Have a look at the buildout some of the trainers use for their projects: https://github.com/starzel/buildout
 
 It has some notable features:
 
-* It extends to files on github shared by all projects of the same version
+* It extends to config- and version-files on github shared by all projects that use the same version of Plone:
 
   .. code-block:: cfg
 
       [buildout]
       extends =
-          https://raw.githubusercontent.com/starzel/buildout/5.0b2/linkto/base.cfg
+          https://raw.githubusercontent.com/starzel/buildout/5.0.4/linkto/base.cfg
 
-* Minimal work to setup a new project
-* Presets for development, testing, staging and production
+* It allows to update a project simply by changing the version it extends.
+* It allows to update all projects of one version by changing remote files (very useful for HotFixes).
+* It is minimal work to setup a new project.
+* It has presets for development, testing, staging and production.
+* It has all the nice development-helpers we use.
+
+Another noteable buildout to look for inspiration:
+
+* https://github.com/4teamwork/ftw-buildouts
 
 .. _deployment-setup-label:
 
 A deployment setup
 ------------------
 
-* zeoserver and zeoclients
-* haproxy
-* nagios
-* varnish
-* monitoring
-* supervisor
-* backup
-* logrotate
-* precompiler
-* cronjobs
-
+Deploying Plone and production-setups are outside the scope for this training. Please see http://docs.plone.org/manage/deploying/index.html
 
 .. _deployment-tools-label:
 
 Other tools we use
 ------------------
 
-* Fabric (manage sites)
+There are plenty of tools that make developing and managing sites much easier. Here are only some of the ones you might want to check out:
+
+* Fabric (managing sites)
 * Sentry (error monitoring)
-* Ansible (manage and setup servers and tools)
-* Nagios (server monitoring)
-* jenkins (tests)
+* Ansible (managing and provisioning machines)
+* Greylog, ELK (logging)
+* Nagios, Zabbix (server monitoring)
+* jenkins, gitlab-ci, travis, drone.io (Continuous Integration)
 * piwik (statistics)
 * gitlab (code repo and code review)
-* redmine (ticket system and wiki)
+* redmine, taiga, assembla (project-management and ticket-system)
