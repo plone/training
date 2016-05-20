@@ -8,7 +8,7 @@ JavaScript for Plone Developers
     This chapter is still work in progress!
 
 
-Chapter about resource registry: https://github.com/plone/documentation/blob/5.0/adapt-and-extend/theming/resourceregistry.rst 
+See also the docs about the resource registry: http://docs.plone.org/adapt-and-extend/theming/resourceregistry.html
 
 ..  toctree::
     :maxdepth: 3

@@ -1,10 +1,10 @@
-.. _during_training_day-label:
+.. _trainthetrainers_during_training_day-label:
 
-During training day(s): what to expect, do's and don'ts 
+During training day(s): what to expect, do's and don'ts
 =======================================================
 
 ..  warning::
-    
+
     This chapter is a work in progress
 
 This chapter will touch on subjects like:

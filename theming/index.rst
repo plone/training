@@ -1,7 +1,7 @@
 .. _theming-label:
 
-Mastering Plone 5: Theming
-==========================
+Mastering Plone Theming
+=======================
 
 .. warning::
 
