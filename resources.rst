@@ -3,35 +3,33 @@
 Resources
 =========
 
-.. sidebar:: Get the code!
-
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
-
-    .. code-block:: bash
-
-        cp -R src/ploneconf.site_sneak/chapters/12_resources_p5/ src/ploneconf.site
-
-
 ..  warning::
 
-    This chapter has not yet been updated for Plone 5! Static resources are handles differently in Plone 5.
-
-    Please see http://docs.plone.org/adapt-and-extend/theming/resourceregistry.html or http://training.plone.org/5/theming/adv-resource-registry.html until this chapter has been updated.
-
+    This chapter is still work-in-progress.
 
 We have not yet talked about CSS and Javascript. At the moment these are considered static resources.
 
-You can declare and access static resources with special urls. The configure.zcml of our package already has a declaration for resources:
+You can declare and access static resources with special urls. The `configure.zcml` of our package already has a declaration for resources:
 
 .. code-block:: xml
 
     <browser:resourceDirectory
-      name="ploneconf.site"
-      directory="static" />
+        name="ploneconf.site"
+        directory="static" />
 
-Now all files we put in the `static` folder can be found via the url http://localhost:8080/Plone/++resource++ploneconf.site/something.js
+We want to change that a little to allow the resources to be editable and overrideable in the browser using the overrides-tab of the resource registry. Change it to the following:
 
-Let's create a ``ploneconf.css`` in the `static` folder.
+.. code-block:: xml
+
+    <plone:static
+        name="ploneconf.site"
+        type="plone"
+        directory="static"
+        />
+
+Now all files we put in the `static` folder can be found via the url http://localhost:8080/Plone/++plone++ploneconf.site/the_real_filename.css
+
+Let's create a file ``ploneconf.css`` in the `static` folder with some css:
 
 .. code-block:: css
     :linenos:
@@ -47,7 +45,6 @@ Let's create a ``ploneconf.css`` in the `static` folder.
         -webkit-box-shadow: 0 0 8px #000000;
     }
 
-    /* Styles for ploneconf */
     header #portal-header #portal-searchbox .searchSection {
         display: none;
     }
@@ -72,102 +69,42 @@ Let's create a ``ploneconf.css`` in the `static` folder.
         background-color: #fff;
     }
 
-    /* Some css fixs to the default Plone 5-Theme */
-    .formHelp {
-        display: block;
-    }
+If we now access http://localhost:8080/Plone/++plone++ploneconf.site/ploneconf.css we see our css-file.
 
-    .field span.option {
-        display: block;
-    }
+Also add a ``ploneconf.js`` in the same folder but leave it empty for now. You could add some javascript to that file later.
 
-    .field span.option input[type="checkbox"].required,
-    .field span.option input[type="radio"].required {
-        margin-right: 0.4em;
-    }
+How do our javascript and css files get used when visiting the page? So far the new files are accessible in the browser but we want Plone to use them everytime we access the page. Adding them directly into the html is not a good solution, having many css and js files slows down the page loading.
 
-    .field span.option input[type="checkbox"].required:after,
-    .field span.option input[type="radio"].required:after {
-        color: transparent;
-        content: '';
-    }
-
-    textarea {
-        height: 100px !important;
-    }
-
-    .select2-container-multi .select2-choices .select2-search-field input {
-        min-width: 200px !important;
-    }
-
-    .pat-textareamimetypeselector {
-        display: none;
-    }
-
-    /* Small fixes for toolbar */
-    #edit-zone a {
-        outline: 0
-    }
-
-    #edit-zone.plone-toolbar-top.expanded  nav > ul > li {
-        border-right: 1px dotted #888;
-    }
-
-    #edit-zone.plone-toolbar-top.expanded  nav > ul a > span + span {
-        padding: 0 8px 0 0;
-    }
-
-
-If we access http://localhost:8080/Plone/++resource++ploneconf.site/ploneconf.css we see our css-file.
-
-Also add a ``ploneconf.js`` in the same folder but leave it empty.
-
-How do our javascript and css files get used when visiting the page? Adding them directly into the html is not a good solution, having many css and js files slows down the page loading.
-
-With ``portal_css`` and ``portal_javascript`` Plone has resource managers that are able to merge and compress js and css files. Resources can be added conditionally and Plone automatically stops merging files when you are debugging Plone in the foreground.
-
+For this we need to register a *bundle* that contains these files. Plone will then make sure that all files that are part of this bundle are also deployed.
 We need to register our resources with GenericSetup.
 
-Add a new file ``profiles/default/cssregistry.xml``
+Open the file ``profiles/default/registry.xml`` and add the following:
 
 .. code-block:: xml
     :linenos:
 
-    <?xml version="1.0"?>
-    <object name="portal_css">
-      <stylesheet
-          title=""
-          applyPrefix="False"
-          authenticated="False"
-          bundle=""
-          cacheable="True"
-          compression="safe"
-          conditionalcomment=""
-          cookable="True"
-          enabled="True"
-          expression=""
-          id="++resource++ploneconf.site/ploneconf.css"
-          media=""
-          rel="stylesheet"
-          rendering="import"/>
-    </object>
+    <!-- the plonconf resources -->
+    <records prefix="plone.resources/ploneconf-main"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="css">
+        <element>++plone++ploneconf.site/ploneconf.css</element>
+      </value>
+      <value key="js">++plone++ploneconf.site/ploneconf.js</value>
+    </records>
 
-Add a new file ``profiles/default/jsregistry.xml``
+    <!-- the plonconf bundle -->
+    <records prefix="plone.bundles/ursapharm-bundle"
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+      <value key="resources">
+        <element>ploneconf-main</element>
+      </value>
+      <value key="enabled">True</value>
+      <value key="compile">True</value>
+      <value key="csscompilation">++plone++ploneconf.site/ploneconf.css</value>
+      <value key="jscompilation">++plone++ploneconf.site/ploneconf.js</value>
+      <value key="last_compilation"></value>
+    </records>
 
-.. code-block:: xml
-    :linenos:
+The resources that are part of the registered bundle will now be deployed with every request.
 
-    <?xml version="1.0"?>
-    <object name="portal_javascripts">
-      <javascript
-        authenticated="False"
-        bundle=""
-        cacheable="True"
-        compression="safe"
-        conditionalcomment=""
-        cookable="True"
-        enabled="on"
-        expression=""
-        id="++resource++ploneconf.site/ploneconf.js"
-        inline="False"/>
-    </object>
+For more infos please see http://docs.plone.org/adapt-and-extend/theming/resourceregistry.html or http://training.plone.org/5/theming/adv-resource-registry.html.
