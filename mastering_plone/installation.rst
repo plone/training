@@ -57,7 +57,7 @@ Plone offers multiple options for being installed:
 3. A VirtualBox Appliance
 4. Use your own Buildout
 
-You can download all of these at https://plone.org/products/plone/releases/5.0
+You can download all of these at https://plone.org/download
 
 
 .. only:: not presentation
