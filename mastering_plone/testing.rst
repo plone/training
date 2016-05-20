@@ -141,7 +141,7 @@ In :ref:`eggs1-label` we created a content type. It is time to test this.
 
 We are going to create a test module named ``test_talk``:
 
-.. literalinclude::  ploneconf.site_sneak/chapters/02_export_code_p5/src/ploneconf/site/tests/test_talk.py
+.. literalinclude::  ../ploneconf.site_sneak/chapters/02_export_code_p5/src/ploneconf/site/tests/test_talk.py
     :linenos:
 
 In :ref:`views1-label` we created a new view. We have to test this!
@@ -149,7 +149,7 @@ This time, though, we are going to test it with a browser, too.
 
 First, we add a simple test for the custom template in our Functional Test layer
 
-.. literalinclude:: ploneconf.site_sneak/chapters/03_zpt_p5/src/ploneconf/site/tests/test_talk.py
+.. literalinclude:: ../ploneconf.site_sneak/chapters/03_zpt_p5/src/ploneconf/site/tests/test_talk.py
     :lines: 109-125
     :linenos:
 
@@ -173,7 +173,7 @@ A test creating 101 talks can be slow. It tests an edge case. There is a trick: 
    :class: toggle
 
 
-       .. literalinclude:: ploneconf.site_sneak/chapters/final/src/ploneconf/site/tests/test_talk.py
+       .. literalinclude:: ../ploneconf.site_sneak/chapters/final/src/ploneconf/site/tests/test_talk.py
            :lines: 56-138
            :linenos:
 
@@ -183,7 +183,7 @@ Robot tests
 
 Finally, we write a robot test:
 
-.. literalinclude:: ploneconf.site_sneak/chapters/03_zpt_p5/src/ploneconf/site/tests/robot/test_talk.robot
+.. literalinclude:: ../ploneconf.site_sneak/chapters/03_zpt_p5/src/ploneconf/site/tests/robot/test_talk.robot
     :linenos:
 
 When you run your tests, you might notice that the robot tests didn't run. This is a feature activated by the robot layer, because robot tests can be quite slow. If you run your tests with ``./bin/test --all``
@@ -203,10 +203,10 @@ For debugging, you can run the test like this ``ROBOT_SELENIUM_RUN_ON_FAILURE=De
 More information
 ----------------
 
-For more in-depth information and reference see 
+For more in-depth information and reference see
 
 * `plone.app.testing documentation <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_.
 
-* `plone.testing package <https://pypi.python.org/pypi/plone.testing>`_ 
+* `plone.testing package <https://pypi.python.org/pypi/plone.testing>`_
 
 

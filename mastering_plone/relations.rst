@@ -218,7 +218,7 @@ But it can also be the name of a relation that is created by code, e.g. linkinte
 Getting of relations and backrelations in code
 ----------------------------------------------
 
-If you want to find out what objects are related to each other, you use the relation catalog. Here is a convenience-method that allows you to find all kind of relations:
+If you want to find out what objects are related to each other, you use the relation catalog. Here is a convenience-method that allows you to find all kinds of relations:
 
 .. code-block:: python
 
