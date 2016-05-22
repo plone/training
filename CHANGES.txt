@@ -3,9 +3,11 @@ Changelog
 
 This changelog is only very rough. For the full changelog please refer to https://github.com/plone/training/commits/master
 
-
 1.2.5 (unreleased)
 ------------------
+
+- Rearrange structure so Mastering Plone now lives in it's own folder.
+  [pbauer]
 
 - Fix directions which led to duplicate resourcess being delivered
   Closes https://github.com/plone/training/issues/174
