@@ -211,14 +211,69 @@ So the API for getting the target is:
 - `to_path`
 - `to_object`
 
-In addition, the relation value knows under which attribute it has been stored.
-
-Backrelations
--------------
-
-If you want to find out what objects are related to each other, you use the relation catalog.
-Here is an example:
-
-.. literalinclude:: ploneconf.site_sneak/chapters/final/src/ploneconf/site/browser/speaker.py
+In addition, the relation value knows under which attribute it has been stored as `from_attribute`. It is usually the name of the field with which the relation is created.
+But it can also be the name of a relation that is created by code, e.g. linkintegrity-relations (`isReferencing`) or the relation between a working copy and the original (`iterate-working-copy`).
 
 
+Getting of relations and backrelations in code
+----------------------------------------------
+
+If you want to find out what objects are related to each other, you use the relation catalog. Here is a convenience-method that allows you to find all kind of relations:
+
+.. code-block:: python
+
+    from zc.relation.interfaces import ICatalog
+    from zope.component import getUtility
+    from zope.intid.interfaces import IIntIds
+
+
+    def get_references(obj, attribute=None, backrefs=False):
+        """Get any kind of references and backreferences"""
+        retval = []
+        int_id = get_intid(obj)
+        if not int_id:
+            return retval
+
+        relation_catalog = getUtility(ICatalog)
+        if not relation_catalog:
+            return retval
+
+        query = {}
+        if attribute:
+            # Constrain the search for certain relation-types.
+            query['from_attribute'] = attribute
+
+        if backrefs:
+            query['to_id'] = int_id
+        else:
+            query['from_id'] = int_id
+
+        relations = relation_catalog.findRelations(query)
+        for relation in relations:
+            if relation.isBroken():
+                retval.append(dict(href='',
+                                   title='broken reference',
+                                   relation=relation.from_attribute))
+            else:
+                obj = relation.from_object
+                retval.append(dict(href=obj.absolute_url(),
+                                   title=obj.title,
+                                   relation=relation.from_attribute))
+        return retval
+
+
+    def get_backreferences(obj, attribute=None):
+        return get_references(obj, attribute=attribute, backrefs=True)
+
+
+    def get_intid(obj):
+        """Return the intid of an object from the intid-catalog"""
+        intids = component.queryUtility(IIntIds)
+        if intids is None:
+            return
+        # check that the object has an intid, otherwise there's nothing to be done
+        try:
+            return intids.getId(obj)
+        except KeyError:
+            # The object has not been added to the ZODB yet
+            return
