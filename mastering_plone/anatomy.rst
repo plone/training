@@ -91,16 +91,12 @@ Zope Toolkit / Zope3
 
 .. only:: not presentation
 
-    Unfortunately, nobody started to use Zope 3, nobody migrated to Zope 3 because nobody knew how.
+    Unfortunately, only few people started to use Zope 3, nobody migrated to Zope 3 because nobody knew how.
 
     But there were many useful things in Zope 3 that people wanted to use in Zope 2, thus the Zope community adapted some parts so that they could use them in Zope 2.
     Sometimes, a wrapper of some sort was necessary, these usually are being provided by packages from the ``five`` namespace.  (Zope 2 + Zope 3 = `five`)
 
     To make the history complete, since people stayed on Zope 2, the Zope community renamed Zope 3 to Bluebream, so that people would not think that Zope 3 was the future. It wasn't anymore.
-
-    .. seealso::
-
-       * https://plone.org/documentation/faq/zope-3-and-plone
 
 
 .. _anatomy-zca-label:
