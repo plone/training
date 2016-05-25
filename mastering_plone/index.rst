@@ -13,17 +13,18 @@ Mastering Plone is intended as a week-long training for people who are new to Pl
 At conferences a shortended 2-day version of the advanced training with a slightly modified order is held.
 
 ..  toctree::
-    :maxdepth: 3
+    :maxdepth: 2
 
-    ../about
+..    ../about
 
 
 Contents:
 
 ..  toctree::
-    :maxdepth: 3
+    :maxdepth: 2
     :numbered: 1
 
+    about_mastering
     intro
     installation
     ../plone_training_config/instructions.rst

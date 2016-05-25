@@ -18,6 +18,7 @@ if not on_rtd:
     import sphinx_rtd_theme
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
     html_theme = 'sphinx_rtd_theme'
+    
 else:
     html_theme = 'default'
 
@@ -71,7 +72,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Mastering Plone'
+project = u'Plone Training'
 copyright = u'''The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.'''
 trademark_name = "Plone"
 # The version info for the project you're documenting, acts as replacement for
@@ -132,7 +133,9 @@ pygments_style = 'sphinx'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+html_theme_options = {
+    "collapse_navigation" : False
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []

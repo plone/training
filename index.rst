@@ -1,5 +1,5 @@
-Mastering Plone!
-================
+Plone Training!
+===============
 
 ..  toctree::
     :maxdepth: 3
