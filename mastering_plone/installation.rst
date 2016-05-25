@@ -57,7 +57,7 @@ Plone offers multiple options for being installed:
 3. A VirtualBox Appliance
 4. Use your own Buildout
 
-You can download all of these at https://plone.org/products/plone/releases/5.0
+You can download all of these at https://plone.org/download
 
 
 .. only:: not presentation
@@ -94,7 +94,7 @@ You can host Plone...
 
     * Plone Installation Requirements: http://docs.plone.org/manage/installing/requirements.html
     * Run Plone on a 5$ plan: https://www.stevemcmahon.com/steves-blog/plone-on-5-a-month
-    * Where to host Plone: https://plone.org/documentation/faq/where-can-i-host-my-plone-site
+    * Where to host Plone: https://old.plone.org/documentation/faq/where-can-i-host-my-plone-site
 
 
 .. _installation-prod-deploy-label:

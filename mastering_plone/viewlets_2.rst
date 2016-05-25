@@ -371,5 +371,5 @@ Then we add our simple views into the file :file:`browser/vote.py`
 
 A lot of moving parts have been created. Here is a small overview:
 
-.. figure:: _static/voting_flowchart.png
+.. figure:: ../_static/voting_flowchart.png
    :align: center

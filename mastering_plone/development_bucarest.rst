@@ -10,7 +10,7 @@ Contents:
 
     intro
     installation
-    plone_training_config/instructions.rst
+    ../plone_training_config/instructions.rst
     plone5
     case
     dexterity

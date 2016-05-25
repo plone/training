@@ -151,7 +151,9 @@ Why use the catalog at all? It checks for permissions, and only returns the talk
 
 Most objects in plone act like dictionaries, so you can do ``context.values()`` to get all its contents.
 
-For historical reasons some attributes of brains and objects are written differently::
+For historical reasons some attributes of brains and objects are written differently.
+
+.. code-block:: pycon
 
     >>> obj = brain.getObject()
 
@@ -172,7 +174,9 @@ Who can guess what ``brain.title`` will return since the brain has no such attri
 
         Answer: Acquisition will get the attribute from the nearest parent. ``brain.__parent__`` is ``<CatalogTool at /Plone/portal_catalog>``. The attribute ``title`` of the ``portal_catalog`` is 'Indexes all content in the site'.
 
-Acquisition can be harmful. Brains have no attribute 'getLayout' ``brain.getLayout()``::
+Acquisition can be harmful. Brains have no attribute 'getLayout' ``brain.getLayout()``:
+
+.. code-block:: pycon
 
     >>> brain.getLayout()
     'folder_listing'
@@ -183,7 +187,9 @@ Acquisition can be harmful. Brains have no attribute 'getLayout' ``brain.getLayo
     >>> brain.getLayout
     <bound method PloneSite.getLayout of <PloneSite at /Plone>>
 
-The same is true for methods::
+The same is true for methods:
+
+.. code-block:: pycon
 
     >>> obj.absolute_url()
     'http://localhost:8080/Plone/news/talk-submission-is-open'
@@ -197,7 +203,9 @@ The same is true for methods::
 Querying the catalog
 --------------------
 
-The are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::
+The are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples:
+
+.. code-block:: pycon
 
     >>> portal_catalog = getToolByName(self.context, 'portal_catalog')
     >>> portal_catalog(Subject=('cats', 'dogs'))
@@ -205,7 +213,9 @@ The are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and
     >>> portal_catalog(review_state='pending')
     []
 
-Calling the catalog without parameters returns the whole site::
+Calling the catalog without parameters returns the whole site:
+
+.. code-block:: pycon
 
     >>> portal_catalog()
     [<Products.ZCatalog.Catalog.mybrains object at 0x1085a11f0>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a12c0>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a1328>, <Products.ZCatalog.Catalog.mybrains object at 0x1085a13 ...
