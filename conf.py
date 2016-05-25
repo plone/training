@@ -134,7 +134,8 @@ pygments_style = 'sphinx'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    "collapse_navigation" : False
+    'collapse_navigation' : False,
+    'sticky_navigation': False,
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -204,7 +205,7 @@ html_show_sourcelink = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'MasteringPlonedoc'
+htmlhelp_basename = 'PloneTrainingdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -224,9 +225,9 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
     ('index',
-     'MasteringPlone.tex',
-     u'Mastering Plone Documentation',
-     u'Philip Bauer, Patrick Gerken',
+     'PloneTraining.tex',
+     u'Plone Training Documentation',
+     u'Plone Community',
      'manual'),
 ]
 
@@ -256,8 +257,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'masteringplone', u'Mastering Plone Documentation',
-     [u'Philip Bauer, Patrick Gerken'], 1)
+    ('index', 'plonetraining', u'Plone Training Documentation',
+     [u'Plone Community'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -270,8 +271,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'MasteringPlone', u'Mastering Plone Documentation',
-   u'Philip Bauer, Patrick Gerken', 'MasteringPlone', 'One line description of project.',
+  ('index', 'PloneTraining', u'Plone Training Documentation',
+   u'Plone Community', 'PloneTraining', 'One line description of project.',
    'Miscellaneous'),
 ]
 
@@ -288,10 +289,10 @@ texinfo_documents = [
 # -- Options for Epub output ---------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'Mastering Plone'
-epub_author = u'Philip Bauer, Patrick Gerken'
-epub_publisher = u'Philip Bauer, Patrick Gerken'
-epub_copyright = u'2014, Philip Bauer, Patrick Gerken'
+epub_title = u'Plone Training'
+epub_author = u'Plone Community'
+epub_publisher = u'Plone Community'
+epub_copyright = u'2016, Plone Community'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
