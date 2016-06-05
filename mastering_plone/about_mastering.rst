@@ -24,7 +24,7 @@ Previous Trainings
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
-* October 2015, Bucharest
+* `October 2015, Bucharest <http://2015.ploneconf.org/trainings>`_
 * `March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
 * Plone Conference 2014, Bristol
 * `June 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068480>`_

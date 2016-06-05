@@ -82,7 +82,7 @@ would only render the UIDs of the related items:
         1ccb5787517947da90a8ca32d6251c57
     </span>
 
-This is not too bad since is very likely that you want to control closely how to render tese items anyway.
+This is not very useful but anyway it is very likely that you want to control closely how to render these items.
 
 So we add a method to the view to return the related items so that we're able to render anyway we like.
 
@@ -93,7 +93,7 @@ So we add a method to the view to return the related items so that we're able to
         results = []
         catalog = api.portal.get_tool('portal_catalog')
         for rel in self.context.underlings:
-            if i.isBroken():
+            if rel.isBroken():
                 # skip broken relations
                 continue
             # query by path so we don't have to wake up any objects
@@ -218,18 +218,32 @@ But it can also be the name of a relation that is created by code, e.g. linkinte
 Getting of relations and backrelations in code
 ----------------------------------------------
 
-If you want to find out what objects are related to each other, you use the relation catalog. Here is a convenience-method that allows you to find all kinds of relations:
+If you want to find out what objects are related to each other, you use the relation catalog. Here is a convenience-method that allows you to find all kinds of relations.
 
 .. code-block:: python
 
     from zc.relation.interfaces import ICatalog
     from zope.component import getUtility
     from zope.intid.interfaces import IIntIds
+    from plone.app.linkintegrity.handlers import referencedRelationship
 
 
-    def get_references(obj, attribute=None, backrefs=False):
+    def example_get_backlinks(obj):
+        backlinks = []
+        for rel in get_backrelations(attribute=referencedRelationship):
+            if rel.isBroken():
+                backlinks.append(dict(href='',
+                                      title='broken reference',
+                                      relation=rel.from_attribute))
+            else:
+                obj = rel.from_object
+                backlinks.append(dict(href=obj.absolute_url(),
+                                      title=obj.title,
+                                      relation=rel.from_attribute))
+        return backlinks
+
+    def get_relations(obj, attribute=None, backrefs=False):
         """Get any kind of references and backreferences"""
-        retval = []
         int_id = get_intid(obj)
         if not int_id:
             return retval
@@ -248,22 +262,11 @@ If you want to find out what objects are related to each other, you use the rela
         else:
             query['from_id'] = int_id
 
-        relations = relation_catalog.findRelations(query)
-        for relation in relations:
-            if relation.isBroken():
-                retval.append(dict(href='',
-                                   title='broken reference',
-                                   relation=relation.from_attribute))
-            else:
-                obj = relation.from_object
-                retval.append(dict(href=obj.absolute_url(),
-                                   title=obj.title,
-                                   relation=relation.from_attribute))
-        return retval
+        return relation_catalog.findRelations(query)
 
 
-    def get_backreferences(obj, attribute=None):
-        return get_references(obj, attribute=attribute, backrefs=True)
+    def get_backrelations(obj, attribute=None):
+        return get_relations(obj, attribute=attribute, backrefs=True)
 
 
     def get_intid(obj):
