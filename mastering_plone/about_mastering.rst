@@ -235,7 +235,7 @@ Update existing
 Technical set up to do before a training (as a trainer)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-- Prepare a mailserver for the user registration mail (http://plone-training.readthedocs.org/en/latest/features.html#configure-a-mailserver)
+- Prepare a mailserver for the user registration mail (See :ref:`features-mailserver-label`)
 - If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not at the buildout path /vagrant/buildout/)
 
 Train the trainer
