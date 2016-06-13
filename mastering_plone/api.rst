@@ -91,8 +91,8 @@ Products.PDBDebugMode
 Debug mode
     When starting Plone using ``./bin/instance -O Plone debug`` you'll end up in an interactive debugger.
 
-plone.app.debugtoolbar (not working yet in Plone 5!)
-    An add-on that allows you to inspect nearly everything. It even has an interactive console and a tester for TALES-expressions.
+plone.app.debugtoolbar
+    An add-on that allows you to inspect nearly everything. It even has an interactive console, a tester for TALES-expressions and includs a reload-feature like plone.reload.
 
 plone.reload
     An add-on that allows to reload code that you changed without restarting the site. It is also used by plone.app.debugtoolbar.
