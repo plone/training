@@ -596,7 +596,7 @@ Create custom views
 
 For now, we have just added small chuncks of HTML in existing pages. But Rapido also allows to create a new page (a Plone developer would name it a new **view**).
 
-Let's imagine we want to display one of our Rapido block in the main content area instead of the regular content. We could do it with a simple ``replace `` Diazo rule:
+Let's imagine we want to display one of our Rapido block in the main content area instead of the regular content. We could do it with a simple ``replace`` Diazo rule:
 
 .. code-block:: xml
 
@@ -650,11 +650,11 @@ Let's create a block to display the Talks Top 5:
 
     .. code-block:: xml
 
-    <rules if-path="@@rapido/view/talks-top-5">
-        <replace css:content-children="#content">
-            <include css:content="form" href="/@@rapido/rating/block/top5" />
-        </replace>      
-    </rules>
+        <rules if-path="@@rapido/view/talks-top-5">
+            <replace css:content-children="#content">
+                <include css:content="form" href="/@@rapido/rating/block/top5" />
+            </replace>      
+        </rules>
 
     And then we declare a new action in our footer:
 
@@ -813,7 +813,7 @@ We will need to:
 
     - we create ``contentrule.py``:
 
-        .. code-block:: python
+      .. code-block:: python
 
         def reset(context):
             talk_path = context.content.absolute_url_path()
