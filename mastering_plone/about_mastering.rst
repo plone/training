@@ -238,12 +238,32 @@ Technical set up to do before a training (as a trainer)
 - Prepare a mailserver for the user registration mail (See :ref:`features-mailserver-label`)
 - If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not at the buildout path /vagrant/buildout/)
 
+
+Upgrade the vagrant and buildout to a new Plone-version
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- In https://github.com/collective/training_buildout change `buildout.cfg <https://github.com/collective/training_buildout/blob/master/buildout.cfg>`_ to extend from the new `versions.cfg` on http://dist.plone.org/release
+- Check if we should to update any versions in https://github.com/collective/training_buildout/blob/master/versions.cfg
+- Commit and push the changes to the training_buildout
+- Modify the vagrant-setup by modifying :file:`plone_training_config/manifests/plone.pp`. Set the new Plone-version as `$plone_version` in line 3.
+- Test the vagrant-setup it by creating a new vagrant-box using the new config.
+- Create a new zip-file of all files in `plone_training_config` and move it to `_static`:
+
+    .. code-block:: bash
+
+        $ cd plone_training_config
+        $ zip -r plone_training_config.zip *
+        $ mv plone_training_config.zip ../_static/
+
+- Commit and push the changes to https://github.com/plone/training
+
+
 Train the trainer
 -----------------
 
 If you are a trainer there is a special mini training about giving technical trainings. We really want this material to be used, re-used, expanded and improved by Plone trainers world wide. These chapters don't contain any Plone specific advice, there's background, theory,  check lists and tips for anyone trying to teach technical subjects.
 
-:doc:`trainthetrainer/index`
+:doc:`../trainthetrainer/index`
 
 .. _about-contribute-label:
 
