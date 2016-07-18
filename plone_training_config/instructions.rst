@@ -104,7 +104,7 @@ The output should be similar to:
     2015-09-24 15:51:11 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
     2015-09-24 15:51:11 INFO Zope Ready to handle requests
 
-It the output says ``INFO Zope Ready to handle requests`` then you are in business.
+If the output says ``INFO Zope Ready to handle requests`` then you are in business.
 
 If you point your browser at http://localhost:8080 you see that Plone is running. Now create a new Plone site by clicking "Create a new Plone site". The username and the password are both "admin" (Never do this on a real site!).
 

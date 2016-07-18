@@ -96,16 +96,16 @@ Portlets
 In the toolbar under *More options* you can open the configuration for the different places where you can have portlets.
 
 * UI fit for smart content editors
-* various types
-* portlet configuration is inherited
-* managing
-* ordering/weighting
+* Various types
+* Portlet configuration is inherited
+* Managing
+* Ordering/weighting
 * The future: may be replaced by tiles
 * ``@@manage-portlets``
 
 Example:
 
-* go to http://localhost:8080/Plone/@@manage-portlets
+* Go to http://localhost:8080/Plone/@@manage-portlets
 * Add a static portlet "Sponsors" on the right side.
 * Remove the news portlet and add a new one on the left side.
 * Go to the training folder: http://localhost:8080/Plone/the-event/training and click ``Manage portlets``
@@ -134,7 +134,7 @@ Portlets save data, Viewlets usually don't. Viewlets are often used for UI-Eleme
 * The code is much simpler (we'll create one tomorrow)
 * Live in viewlet managers, can be nested (by adding a viewlet that contains a viewlet manager)
 * TTW reordering only within the same viewlet manager
-* the code decides when it is shown and what it shows
+* The code decides when it is shown and what it shows
 
 
 .. _customizing-ZMI-label:
@@ -214,7 +214,7 @@ Global navigation
 +++++++++++++++++
 
 * The horizontal navigation is called ``portal_tabs``
-* go to ``portal_actions`` > ``portal_tabs`` `Link <http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main>`_
+* Go to ``portal_actions`` > ``portal_tabs`` `Link <http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main>`_
 * Edit ``index_html``
 
 Where is the navigation?
@@ -237,17 +237,17 @@ Skins (portal_skins)
 In portal_skins we can change certain images, css-files and templates.
 
 * portal_skins is deprecated technology
-* Plone 5 got rid of a most files that lived in portal_skins.
+* Plone 5 got rid of most files that lived in portal_skins.
 
 
 Change some css
 +++++++++++++++
 
 * Go to ZMI
-* go to portal_skins
-* go to plone_styles
-* go to ``ploneCustom.css``
-* click ``customize``
+* Go to portal_skins
+* Go to plone_styles
+* Go to ``ploneCustom.css``
+* Click ``customize``
 
 The css you add to this file is instantly active on the site.
 
@@ -260,7 +260,7 @@ Change the footer
 
 * Go to ``portal_view_customizations``
 * Search ``plone.footer``, click and customize
-* replace the content with the following
+* Replace the content with the following
 
   .. code-block:: html
 

@@ -5,7 +5,7 @@ Extending Plone
 
 In this part you will:
 
-* Get an overview other the technologies used to extend Plone
+* Get an overview over the technologies used to extend Plone
 
 Topics covered:
 
@@ -19,7 +19,7 @@ Zope is extensible and so is Plone.
 
 .. only:: not presentation
 
-    If you want to install an add-on, you are going to install an Egg — a form of Python package. Eggs consist of Python files together with other needed files like page templates and the like and a bit of Metadata, bundled to a single archive file.
+    If you want to install an add-on, you are going to install an Egg — a form of Python package. Eggs consist of Python files together with other needed files like page templates and the like and a bit of metadata, bundled to a single archive file.
 
     There is a huge variety of Plone-compatible packages available. See `Plone.org add-on listing <https://plone.org/download/add-ons/>`_. The source repository for many public Plone add-ons is `the GitHub Collective <https://github.com/collective>`_. You may also create your own packages or maintain custom repositories.
 
@@ -42,7 +42,7 @@ This depends on what type of extension you want to create.
     * You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures searchable by adding a converter from jpg to text.
 
 
-skin_folders
+Skin Folders
 ^^^^^^^^^^^^
 
 .. only:: presentation
@@ -110,7 +110,7 @@ Component Architecture
 
     A bit of history is in order.
 
-    When Zope started, object-oriented Design was **the** silver bullet.
+    When Zope started, object-oriented design was **the** silver bullet.
 
     Object-oriented design is good at modeling inheritance, but breaks down when an object has multiple aspects that are part of multiple taxonomies.
 
