@@ -1,5 +1,6 @@
 *.mo
 *~
+._*
 .Python
 .doctrees
 .vagrant

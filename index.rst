@@ -16,4 +16,5 @@ Contents:
     mastering_plone/index
     theming/index
     javascript/index
+    deployment/index
     solr-training/index
