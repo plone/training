@@ -102,7 +102,7 @@ In the section ``[instance]`` there is a variable called ``eggs``, which has a l
         Products.PloneFormGen
         plone.app.debugtoolbar
 
-Usually, one enters the eggs by adding one more line per egg into the configuration. You must write the egg name indented, this way buildout understands that the current line is part of the last variable and not a new variable.
+You add an egg by adding a new line containing the package name to the configuration. You must write the egg name indented, this way buildout understands that the current line is part of the last variable and not a new variable.
 
 If you add new add-ons here you will have to run buildout and restart the site:
 
@@ -117,11 +117,11 @@ Now the code is available from within Plone.
 Installing add-ons in your Plone Site
 +++++++++++++++++++++++++++++++++++++
 
-Your Plone site has not yet been told to use the add-on. For this, you have to activate the add-ons in your Plone Site.
+Your Plone site has not yet been told to use the add-on. For this, you have to activate the add-on in your Plone Site.
 
 .. note::
 
-    Why the extra step of activating the add-on package? You my have multiple Plone sites in a single Zope installation. It's common to want to activate some add-ons in one site, others in another.
+    Why the extra step of activating the add-on package? You may have multiple Plone sites in a single Zope installation. It's common to want to activate some add-ons in one site, others in another.
 
 In your browser, go to Site Setup (shortcut: add ``/@@overview-controlpanel`` to the Plone site URL), and open the ``Add-ons`` Panel. You will see that you can install the add-ons there.
 
@@ -129,10 +129,10 @@ Install **PloneFormGen** and **Plone True Gallery** now.
 
 This is what happens: The GenericSetup profile of the product gets loaded. This does things like:
 
-* configuring new actions
-* registering new contenttypes
-* registering css and js files
-* creating some content/configuration objects in your Plone site.
+* Configuring new actions
+* Registering new contenttypes
+* Registering css and js files
+* Creating some content/configuration objects in your Plone site.
 
 Let's have a look at what we just installed.
 
@@ -144,8 +144,8 @@ PloneFormGen
 
 There are many ways to create forms in Plone:
 
-* pure: html and python in a view
-* framework: z3c.form, formlib, deform
+* Pure: html and python in a view
+* Framework: z3c.form, formlib, deform
 * TTW: Products.PloneFormGen
 
 The basic concept of PloneFormGen is that you build a form by adding a Form Folder, to which you add form fields as content items. Fields are added, deleted, edited and moved just as with any other type of content. Form submissions may be automatically emailed and/or saved for download. There are many add-ons to PloneFormGen that provide additional field types and actions.
@@ -169,7 +169,7 @@ Let's build a registration form:
 
     Think PFG is too complicated for your site editors? Administrators (and we're logged in as an administrator) see lots of more complex options that are invisible to site editors.
 
-By the way, while PloneFormGen is good at what it does, is not a good model for designing your own extensions. It was created before the Zope Component Architecture became widely used. The authors would write it much differently if they were starting from scratch.
+By the way, while PloneFormGen is good at what it does, it is not a good model for designing your own extensions. It was created before the Zope Component Architecture became widely used. The authors would write it much differently if they were starting from scratch.
 
 .. note::
 

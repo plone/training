@@ -17,7 +17,7 @@ It is a Diazo theme, meaning it uses plone.app.theming to insert the output of P
 
 It uses html5, so it uses ``<header>``, ``<nav>``, ``<aside>``, ``<section>``, ``<article>`` and ``<footer>`` for semantic html.
 
-The theme is mostly built with `LESS <http://lesscss.org/>`_ (lots of it!) and uses the same grid system as `bootstrap <http://getbootstrap.com/css/#grid>`_. This means you can use css classes like ``col-xs-12 col-sm-9`` to control the width of elements for different screen-sizes. It is you prefer a different grid-system (like `foundation <http://foundation.zurb.com/sites/docs/grid.html>`_) over bootstrap you can adapt the theme to use that.
+The theme is mostly built with `LESS <http://lesscss.org/>`_ (lots of it!) and uses the same grid system as `bootstrap <http://getbootstrap.com/css/#grid>`_. This means you can use css classes like ``col-xs-12 col-sm-9`` to control the width of elements for different screen-sizes. If you prefer a different grid-system (like `foundation <http://foundation.zurb.com/sites/docs/grid.html>`_) over bootstrap you can adapt the theme to use that.
 
 The `index.html <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/index.html>`_ and `rules.xml <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/rules.xml>`_ are actually not that complicated. Have a look at them.
 
@@ -44,7 +44,7 @@ The green edit bar is replaced by a toolbar that is located on the left or top a
 The widgets where you input data are also completely rewritten.
 
 * We now use the newest TinyMCE
-* The tags (keywords) widget and the widgets where you input usenames now use `select2 <http://select2.github.io>`_ autocomplete to give a better user experience
+* The tags (keywords) widget and the widgets where you input usernames now use `select2 <http://select2.github.io>`_ autocomplete to give a better user experience
 * The related-items widget is a complete rewrite
 
 

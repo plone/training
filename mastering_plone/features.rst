@@ -292,7 +292,7 @@ A complete set of workflow states and transitions make up a ``workflow``. Plone 
 
 .. note::
 
-    An oddity in the all of the standard Plone workflows: a content item may be viewable even if its container is not. Making a container private does **not** automatically make its contents private.
+    An oddity in all of the standard Plone workflows: a content item may be viewable even if its container is not. Making a container private does **not** automatically make its contents private.
 
 Read more at: http://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
 
