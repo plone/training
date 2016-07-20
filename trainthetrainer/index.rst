@@ -1,12 +1,12 @@
 .. _train_the_trainer-label:
 
-Train the Trainer: How to give technical training
-=================================================
+Train the Trainer: How to give technical training(s)
+====================================================
 
 ..  warning::
 
-    This chapter will likely only interest you if you want to give a Plone
-    training, it does not contain any material on Plone.
+    This chapter will likely only interest you if you want to **give a (Plone)
+    technical training**, it does not contain any material on Plone itself.
 
 ..  warning::
     
