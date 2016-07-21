@@ -5,7 +5,7 @@ Custom Search
 
 ..  warning::
 
-    Skip this since eea.facettednavigation is not yet compatible with Plone 5.
+    The code of eea.facettednavigation is already compatible with Plone 5 but has not been released yet. See https://github.com/eea/eea.facetednavigation
 
 
 We can use the indexes we created in the last chapter to further improve the talk list.
