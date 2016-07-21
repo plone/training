@@ -13,56 +13,55 @@ Views I
 A simple browser view
 ---------------------
 
-We need to add some boilerplate-code to be able to create a view. Before we write the talk-view itself we need to step back and talk *a little* about views and templates.
+Before writing the talk view itself we step back and talk *a little* about views and templates.
 
-A basic view in Plone is usually a ``BrowserView``. It can hold a lot of python-code but it can also be only a empty ``BrowserView``-class that renders a template when called. Such an empty class is what we create at first so we can concentrate on the template.
+A view in Plone is usually a ``BrowserView``. It can hold a lot of cool python code but we will first focus on the template.
 
-* Add a new directory ``src/ploneconf.site/ploneconf/site/browser``. By convention the dir ``browser`` should hold all UI displayed in the browser.
-* Add an empty file ``browser/__init__.py``
-* We need to tell Plone to consider this directory. Modify the existing ``configure.zcml`` and add
+Edit the file ``browser/configure.zcml`` and register a new view called *training*:
 
-.. code-block:: xml
+..  code-block:: xml
+    :linenos:
+    :emphasize-lines: 20-25
 
-    <include package=".browser" />
-
-Then add a file ``browser/configure.zcml``:
-
-.. code-block:: xml
-  :linenos:
-
-  <configure
+    <configure
       xmlns="http://namespaces.zope.org/zope"
       xmlns:browser="http://namespaces.zope.org/browser"
+      xmlns:plone="http://namespaces.plone.org/plone"
       i18n_domain="ploneconf.site">
 
+      <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+      <include package="z3c.jbot" file="meta.zcml" />
+      <browser:jbot
+        directory="overrides"
+        layer="ploneconf.site.interfaces.IPloneconfSiteLayer"
+        />
+
+      <!-- Publish static files -->
+      <browser:resourceDirectory
+        name="ploneconf.site"
+        directory="static"
+        />
+
       <browser:page
-         name="demoview"
-         for="*"
-         class=".views.DemoView"
-         template="templates/demoview.pt"
-         permission="zope2.View"
-         />
+        name="training"
+        for="*"
+        template="templates/training.pt"
+        permission="zope2.View"
+        />
 
-  </configure>
+    </configure>
 
-Add a file ``browser/views.py``::
-
-    from Products.Five.browser import BrowserView
-
-    class DemoView(BrowserView):
-        """ This does nothing so far
-        """
-
-This might seem a lot of boilerplate if we only want to render a template but every bit of it can be changed to achieve different effects. It's not useless code but actually very powerful. We only ignore it for now and concentrate on the template.
-
-Add a directory ``browser/templates`` and add an file ``browser/templates/demoview.pt``
+Add a file ``browser/templates/training.pt``
 
 .. code-block:: html
 
     <h1>Hello World</h1>
 
-* Restart Plone and open http://localhost:8080/Plone/@@demoview.
-* You should see "Hello World".
+* Restart Plone and open http://localhost:8080/Plone/@@training.
+* You should now see "Hello World".
 
-We now have everything in place to learn about zope page templates.
+We now have everything in place to learn about page templates.
 
+..  note::
+
+    The view ``training`` has no python class registered for it but only a template. It acts as if it had an empty python class inheriting from ``Products.Five.browser.BrowserView`` but the way that happens is actually quite a bit of magic...

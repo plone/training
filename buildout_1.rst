@@ -71,61 +71,92 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
 .. code-block:: ini
 
     [buildout]
-    parts =
-        instance
-        packages
-        codeintel
-        zopeskel
-
     extends =
-        http://dist.plone.org/release/4.3.3/versions.cfg
-        versions.cfg
+        http://dist.plone.org/release/4.3.10/versions.cfg
 
-    find-links = http://dist.plone.org
-    extensions = mr.developer
-    sources = sources
-    auto-checkout = *
+    # We add our own versions
+        versions.cfg
 
     versions = versions
 
-    # If you do _not_ use vagrant please add a '#' at the beginning of the
-    # following line and uncomment the line after.
-    # This will set the location of three directories:
-    # file-storage: set in [instance] defines where the ZODB is stored
-    # blob-storage: set in [instance] defines where Binary Files are stored
-    # packages-dir: set in [packages] defines a location for symlinks to all eggs
-    buildout_dir = /home/vagrant
-    #buildout_dir = ${buildout:directory}
+    extensions = mr.developer
+    # Tell mr.developer to ask before updating a checkout.
+    always-checkout = true
+    show-picked-versions = true
+    sources = sources
+
+    # Put checkouts in src-mrd. We keep our own package in src
+    sources-dir = src-mrd
+
+    # The directory this buildout is in. Modified when using vagrant.
+    buildout_dir = ${buildout:directory}
+
+    # We want to checkouts these eggs directly from github
+    auto-checkout =
+    #    ploneconf.site_sneak
+    #    starzel.votable_behavior
+    #    ploneconf.site
+
+    parts =
+        checkversions
+        codeintel
+        instance
+        mrbob
+        packages
+    #    robot
+        test
+        zopepy
+    #    zopeskel
 
     eggs =
         Plone
         Pillow
+
     # development tools
         z3c.jbot
         plone.api
         plone.reload
         Products.PDBDebugMode
         plone.app.debugtoolbar
-        Paste
+        Products.PrintingMailHost
+
     # 3rd party addons
         Products.PloneFormGen
         collective.plonetruegallery
         collective.js.datatables
         eea.facetednavigation
         collective.behavior.banner
+
     # dexterity default types
         plone.app.contenttypes
-    # our addons
+
+    # The addon we develop in the training
     #    ploneconf.site
+
+    # Voting on content
     #    starzel.votable_behavior
+
+    zcml =
+
+    test-eggs +=
+    #    ploneconf.site [test]
 
     [instance]
     recipe = plone.recipe.zope2instance
     user = admin:admin
-    eggs = ${buildout:eggs}
     http-address = 8080
+    debug-mode = on
+    verbose-security = on
+    deprecation-warnings = on
+    eggs = ${buildout:eggs}
+    zcml = ${buildout:zcml}
     file-storage = ${buildout:buildout_dir}/var/filestorage/Data.fs
     blob-storage = ${buildout:buildout_dir}/var/blobstorage
+
+    [test]
+    recipe = zc.recipe.testrunner
+    eggs = ${buildout:test-eggs}
+    defaults = ['--exit-with-status', '--auto-color', '--auto-progress']
 
     [packages]
     recipe = collective.recipe.omelette
@@ -135,6 +166,16 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     [codeintel]
     recipe = corneti.recipes.codeintel
     eggs = ${buildout:eggs}
+
+    [checkversions]
+    recipe = zc.recipe.egg
+    eggs = z3c.checkversions [buildout]
+
+    [zopepy]
+    recipe = zc.recipe.egg
+    eggs = ${buildout:eggs}
+    interpreter = zopepy
+    scripts = zopepy
 
     [zopeskel]
     recipe = zc.recipe.egg
@@ -148,10 +189,15 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
         zest.releaser
         ${buildout:eggs}
 
+    [mrbob]
+    recipe = zc.recipe.egg
+    eggs =
+        mr.bob
+        bobtemplates.plone
+
     [sources]
     # ploneconf.site = fs ploneconf.site full-path=${buildout:directory}/src/ploneconf.site
-    collective.behavior.banner = git https://github.com/collective/collective.behavior.banner.git pushurl=git@github.com:collective/collective.behavior.banner.git rev=af2dc1f21b23270e4b8583cf04eb8e962ade4c4d
-    starzel.votable_behavior = git git://github.com/collective/starzel.votable_behavior.git
+    starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git@github.com:collective/starzel.votable_behavior.git
 
 
 When you run ``./bin/buildout`` without any arguments, Buildout will look for this file.
@@ -165,7 +211,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
     .. code-block:: cfg
 
         extends =
-            http://dist.plone.org/release/4.3.3/versions.cfg
+            http://dist.plone.org/release/4.3.10/versions.cfg
             versions.cfg
 
     This line tells Buildout to read more configuration files. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configuration that differ between different environments.
