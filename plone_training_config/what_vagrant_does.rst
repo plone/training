@@ -1,19 +1,28 @@
-What Vagrant does
------------------
+What Vagrant is and does
+------------------------
 
 .. note::
 
-    These steps are automatically done by vagrant and puppet. They are only explained here if you want to know what goes on below the hood.
+    These steps are automatically done by Vagrant and Puppet for you. They are only interesting if you want to know what goes on under the hood for preparing your virtual training environment.
 
-Puppet does the first installation, Puppet is a tool to automatically manage servers (real and virtual). We won't get into Puppet since it is not that widely used. This is what we basically do if we did it by hand:
+Vagrant is an automation tool for developers to script the configuration and starting/stopping of virtual machines using applications like VirtualBox or Vmware Fusion/Workstation. The beauty of Vagrant is that it is largely platform independent for Linux, Windows and Apple, so with one 'Vagrantfile' per project you describe a base installation virtual image and all kinds of virtual machine settings you would otherwise have to click and type together in Virtual machine application.
 
-First we update the ubuntu and install some packages.
+What Vagrant for example does is install a port forward so that ``http://localhost:8080`` on your physical computer is automatically forwarded to the port Plone will be listening on in the guest virtual machine. After Vagrant has done its thing to set up your virtual machine we are not finished though. Although Vagrant has the option to prebuild specific images it would be a lot of work and waste of bandwidth to redownload a machine images (300-600Mb) each time we would like to change small things in our virtual training environment.
+
+Puppet is a configuration management tool (others you might have heard of are Chef, Ansible and SaltStack) and helps system admnistrators to automatically manage servers (real and virtual). We won't get into Puppet in detail, but it builds on top of our base Vagrant image to further set up our environment.
+
+Vagrant detects when you set up a new machine and runs Puppet or other Provisioners by default only once, although it also can be used to keep machines up to date, which is a bit harder. See the ``Vagrantfile and`` `Vagrant Documentation <https://www.vagrantup.com/docs>`_, especially the ``Provisioning`` chapter.
+
+This is basically what Puppet does if we were to configure our system by hand:
+
+First we update Ubuntu and install some packages.
 
 .. code-block:: bash
 
     $ sudo aptitude update --quiet --assume-yes
     $ sudo apt-get install build-essential
     $ sudo apt-get install python-dev
+    $ sudo apt-get install python-tk
     $ sudo apt-get install libjpeg-dev
     $ sudo apt-get install libxml2-dev
     $ sudo apt-get install libxslt-dev
@@ -29,45 +38,35 @@ First we update the ubuntu and install some packages.
     $ sudo apt-get install python-virtualenv
     $ sudo apt-get install putty-tools
 
-Then we create a virtual python environment using virtualenv. This is alway a good practice since that way we get a clean copy of our system-python, we can't break it by installing eggs that might collide with other eggs::
+Then we create a virtual python environment using virtualenv. This is always a good practice since that way we get a clean isolated copy of our system python, so that we do not break the system python by installing eggs that might collide with other eggs. Python is nowadays used a lot by your operating system as well for all kinds of system tools and scripting.
+
+.. code-block:: bash
 
     $ virtualenv --no-site-packages /home/vagrant/py27
 
-Then we download, unpack and install the unified installer of Plone.
+Now we download and unpack a buildout-cache that holds all the python packages that make up Plone. This is an optimisation: We could skip this step and have buildout download all packages individually from the `python packaging index PyPi <https://pypi.python.org/pypi>`_ but that takes much longer on a first install.
 
 .. code-block:: bash
 
-    $ mkdir Plone
-    $ mkdir tmp
-    $ cd tmp
-    $ wget https://launchpad.net/plone/4.3/4.3.3/+download/Plone-4.3.3-UnifiedInstaller.tgz
-    $ tar xzf Plone-4.3.3-UnifiedInstaller.tgz
-    $ cd Plone-4.3.3-UnifiedInstaller
-    $ ./install.sh standalone --with-python=/home/vagrant/py27/bin/python --password=admin --instance=zinstance --target=/home/vagrant/Plone
+    $ wget http://dist.plone.org/release/4.3.10/buildout-cache.tar.bz2
+    $ tar xjf buildout-cache.tar.bz2
 
-The unified installer is an amazing tool that compiles it's own python, brings with it all the python-eggs we need and puts them in a buildout-cache. It then creates a Buildout and makes Plone ready to run.
-
-We will not actually use this Plone during the training. If you want to use it for your own experiments, you can find it in ``/home/vagrant/Plone/zinstance`` on the virtual machine.
-
-Instead vagrant now creates our own little Buildout and only uses the eggs that the unified installer created. First we copy the buildout-cache that holds all the python-packages that Plone consists of.
-
-.. code-block:: bash
-
-    $ cp -Rf /home/vagrant/Plone/buildout-cache /home/vagrant
-
-Then we checkout our tutorial buildout from http://github.com/collective/training_buildout and build it.
+Then we check out our tutorial buildout from https://github.com/collective/training_buildout, checkout the branch *plone4* and build it.
 
 .. code-block:: bash
 
     $ cd /vagrant
     $ git clone https://github.com/collective/training_buildout.git buildout
     $ cd buildout
+    $ git checkout plone4
     $ /home/vagrant/py27/bin/python bootstrap.py
-    $ ./bin/buildout
+    $ ./bin/buildout -c vagrant_provisioning.cfg
 
-At this point vagrant has finished it's job.
+This will download additional eggs that are not yet part of the buildout-cache and configure Plone to be ready to run.
 
-You can now connect to the machine and start plone.
+At this point Vagrant and Puppet have finished their job to set up your virtual training environment on your local machine.
+
+You can now connect to the machine and start Plone.
 
 .. code-block:: bash
 
@@ -75,6 +74,4 @@ You can now connect to the machine and start plone.
     $ cd /vagrant/buildout
     $ ./bin/instance fg
 
-Now we have fresh Buildout based Zope site, ready to get a Plone site. Go to http://localhost:8080 and create a Plone site, only activate the  :guilabel:`Dexterity-based Plone Default Types` plugin.
-
-You might wonder, why we use the unified installer. We use the unified installer to set up a cache of packages to download in a much shorter time. Without it, your first Buildout on a fresh computer would take more than half an hour on a good internet connection.
+Now we have a fresh Buildout-based Zope application server, ready to add a Plone site. Go to http://localhost:8080 and create a Plone site.
