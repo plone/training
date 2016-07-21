@@ -15,7 +15,7 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
-.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
+.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext spellcheck test deploy
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -38,6 +38,9 @@ help:
 	@echo "  changes    to make an overview of all changed/added/deprecated items"
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
+	@echo "  spellcheck    to run spellcheck against the documentation (if enabled)"
+	@echo "  test	   run spell and link check in order to test"
+	@echo "  deploy    run clean and html, to get a clean build"
 
 clean:
 	-rm -rf $(BUILDDIR)/*
@@ -52,7 +55,7 @@ manual: *.rst
 
 presentation: *.rst
 	$(SPHINXBUILD) -b html -t presentation . presentation
-  
+
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
 	@echo
@@ -149,12 +152,23 @@ changes:
 	@echo "The overview file is in $(BUILDDIR)/changes."
 
 linkcheck:
-	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
+	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) log/linkcheck
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
-	      "or in $(BUILDDIR)/linkcheck/output.txt."
+		"or in log/linkcheck/output.txt."
+
+spellcheck:
+	LANGUAGE=$* $(SPHINXBUILD) -b spelling -j 4 $(ALLSPHINXOPTS) log/spellcheck/$*
+	@echo
+	@echo "Spellcheck is finished; look for any errors in the above output " \
+		" or in log/spellcheck/output.txt."
+
 
 doctest:
 	$(SPHINXBUILD) -b doctest $(ALLSPHINXOPTS) $(BUILDDIR)/doctest
 	@echo "Testing of doctests in the sources finished, look at the " \
 	      "results in $(BUILDDIR)/doctest/output.txt."
+
+test: clean
+
+deploy: clean html
