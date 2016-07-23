@@ -1,7 +1,6 @@
 branches:
   only:
     - master
-    - plone4
 sudo: false
 language: python
 addons:
