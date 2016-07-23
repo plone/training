@@ -67,7 +67,10 @@ Installation
 
 .. only:: presentation
 
-    Our pre-set Plone instances already provide Rapido.
+    We will use a `Plone pre-configured Heroku instance <https://github.com/collective/training-sandbox>`_.
+
+    Once deployed, create a Plone site, and go to Plone control panel / Add-ons http://localhost:8080/Plone/prefs_install_products_form, and install Rapido.
+
 
 .. only:: not presentation
 

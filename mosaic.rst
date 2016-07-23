@@ -43,9 +43,9 @@ Few comparisons
 Installation
 ------------
 
-We will use a Plone pre-configured Heroku instance.
+We will use a `Plone pre-configured Heroku instance <https://github.com/collective/training-sandbox>`_.
 
-.. todo:: put link here
+Once deployed, create a Plone site, and go to Plone control panel / Add-ons http://localhost:8080/Plone/prefs_install_products_form, and install Mosaic.
 
 .. only:: not presentation
 
