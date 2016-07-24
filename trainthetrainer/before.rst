@@ -62,7 +62,7 @@ Depending on how you organise your training material subjects and agenda you can
   stuck with only one trainer.
 
 * Having two trainers is great for educating a second trainer, to monitor the
-  room during a trainer, silently help students that have questions while the
+  room during a training, silently help students that have questions while the
   main trainer can continue discussing a subject. Unfortunately it's not always
   economically viable for smaller groups to have more than one trainer on a
   group.

@@ -33,8 +33,8 @@ If you don't like diagrams and figures yourself because they're always an abstra
 
 There's not a magic wand or solutation becuause you will always be limited in time and space, but as guideline, try to balance visual/written information, balance theory and examples. Also, you can observe your students during the training day and try to figure out on which kind of information the light up of loose interest. Or even better: just ask them during a break. If you have enough training material you can add a few more examples or excercise, discuss some visual schemes that you have in an appendix, etc. etc. 
 
-Try to tech one thing at a time
--------------------------------
+Try to teach one thing at a time
+--------------------------------
 
 Especially with Zope/Plone, there are a lot of concepts that students will have to grasp some time. We have CSS, HTML, Python, JavaScript, ZPT, METAL, TALES, ZCML, Generic Setup, Acquisition, component architecture, the Object Database, the ZMI, the Plone UI, etc. etc.
 
