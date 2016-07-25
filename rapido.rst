@@ -609,9 +609,11 @@ See the `TAL commands documentation <http://www.owlfish.com/software/simpleTAL/t
 Create custom views
 -------------------
 
-For now, we have just added small chuncks of HTML in existing pages. But Rapido also allows to create a new page (a Plone developer would name it a new **view**).
+For now, we have just added small chunks of HTML in existing pages. But Rapido also allows to create a new page (a Plone developer would name it a new **view**).
 
-Let's imagine we want to display one of our Rapido block in the main content area instead of the regular content. We could do it with a simple ``replace`` Diazo rule:
+Let's imagine we want to display one of our Rapido blocks in the main content
+area instead of the regular content.
+We could do it with a simple ``replace`` Diazo rule:
 
 .. code-block:: xml
 
@@ -619,7 +621,9 @@ Let's imagine we want to display one of our Rapido block in the main content are
         <include href="@@rapido/stats/block/stats" css:content="form"/>
     </replace>
 
-But if we do that, the regular content will not be accessible anymore. What if we want to be able to access both the regular content with its regular URL, and have an extra URL to display our block as main content?
+But if we do that, the regular content will not be accessible anymore.
+What if we want to be able to access both the regular content with its regular URL,
+and have an extra URL to display our block as main content?
 
 Rapido allows to declare **neutral views**.
 

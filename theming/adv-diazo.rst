@@ -5,11 +5,9 @@ Advanced Diazo
     **"Diazo allows you to apply a theme contained in a static HTML web page to
     a dynamic website created using any server-side technology."**
 
-To do this, Diazo does some real complicated stuff on your behalf: it writes
-XSLT!
+To do this, Diazo does some real complicated stuff on your behalf: it writes XSLT!
 
-But sometimes basic rules are not enough and you need to write a bit of XLST
-yourself.
+But sometimes basic rules are not enough and you need to write a bit of XLST yourself.
 
 
 Modify the theme and the content on the fly
@@ -26,8 +24,7 @@ You can `re-use or extend rules <http://docs.diazo.org/en/latest/advanced.html#x
 from another theme or from another file in your theme.
 
 A good example of a use case is the one described by 
-`Asko Soukka <https://twitter.com/datakurre>`_  (thanks!!!) in this blog post
-about 
+`Asko Soukka <https://twitter.com/datakurre>`_  (thanks!!!) in this blog post about 
 `how to  Customize Plone 5 default theme on the fly <http://datakurre.pandala.org/2015/05/customize-plone-5-default-theme-on-fly.html>`_.
 
 
@@ -67,8 +64,7 @@ At diazo.org is another way described in the recipes: http://docs.diazo.org/en/l
 Add CSS marker classes depending on existing ``portal-columns``
 ***************************************************************
 
-This adds a CSS class for every existing ``portal-column`` to the ``body``
-tag.
+This adds a CSS class for every existing ``portal-column`` to the ``body`` tag.
 If ``portal-column-one`` exists, we add ``col-one``;
 if ``portal-column-content`` exists, we add ``col-content``;
 and if ``portal-column-two`` exists, we add ``col-two``.
@@ -117,8 +113,8 @@ Now, one can use these markers to define the grid in a semantic way like this:
 Move Plone elements around
 **************************
 
-Sometimes one needs to move Plone elements from one place to another or merge
-some elements together.
+Sometimes one needs to move Plone elements from one place to another 
+or merge some elements together.
 In the following example we merge the language flags together with the
 document actions.
 
