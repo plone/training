@@ -13,8 +13,7 @@ But sometimes basic rules are not enough and you need to write a bit of XLST you
 Modify the theme and the content on the fly
 ===========================================
 
-Let's look at some examples from the 
-`official diazo docs <http://docs.diazo.org/en/latest/advanced.html#modifying-the-theme-on-the-fly>`_.
+Let's look at some examples from the `official diazo docs <http://docs.diazo.org/en/latest/advanced.html#modifying-the-theme-on-the-fly>`_.
 
 
 Extend rules
@@ -113,10 +112,8 @@ Now, one can use these markers to define the grid in a semantic way like this:
 Move Plone elements around
 **************************
 
-Sometimes one needs to move Plone elements from one place to another 
-or merge some elements together.
-In the following example we merge the language flags together with the
-document actions.
+Sometimes one needs to move Plone elements from one place to another or merge some elements together.
+In the following example we merge the language flags together with the document actions.
 
 .. code-block:: xml
 
