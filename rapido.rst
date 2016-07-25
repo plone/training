@@ -67,7 +67,10 @@ Installation
 
 .. only:: presentation
 
-    Our pre-set Plone instances already provide Rapido.
+    We will use a `Plone pre-configured Heroku instance <https://github.com/collective/training-sandbox>`_.
+
+    Once deployed, create a Plone site, and go to Plone control panel / Add-ons http://localhost:8080/Plone/prefs_install_products_form, and install Rapido.
+
 
 .. only:: not presentation
 
@@ -135,6 +138,8 @@ Here is a typical layout for a rapido app::
                 tags.py
                 tags.yaml
 
+.. TODO:: ADD SCREENSHOT HERE
+
 Blocks and elements
 -------------------
 
@@ -196,6 +201,8 @@ And now, we need to create a ``rate`` block.
 Once the block is ready, and you can display it by calling its URL:
 
 http://localhost:8080/Plone/@@rapido/rating/block/rate
+
+.. TODO:: ADD SCREENSHOT HERE
 
 But we would prefer to display it inside our existing Plone pages.
 
@@ -261,6 +268,8 @@ Insert the ``rate`` block content under the Plone page main heading.
         * the ``include`` rule retrieves the Rapido block content.
 
 Now, if you visit a talk page, you see the counter below the heading.
+
+.. TODO:: ADD SCREENSHOT HERE
 
 Make our blocks dynamic
 -----------------------
@@ -347,6 +356,8 @@ For now the Python function will just return 10.
 
 Now, if you refresh your talk page, the counter will display the value returned by your Python function.
 
+.. TODO:: ADD SCREENSHOT HERE
+
 Create actions
 --------------
 
@@ -418,6 +429,8 @@ Add a Like button to the block. For now, the action itself will do nothing, let'
         .. code-block:: html
 
             <span>{like} {display_votes} votes</span>
+
+.. TODO:: ADD SCREENSHOT HERE
 
 Store data
 ----------
@@ -496,6 +509,8 @@ Now let's make sure to display the proper total in the ``display_votes`` element
             if not record:
                 return 0
             return record['total']
+
+.. TODO:: ADD SCREENSHOT HERE
 
 HTML templating vs TAL templating
 ---------------------------------
@@ -663,6 +678,8 @@ Let's create a block to display the Talks Top 5:
 
         string:${globals_view/navigationRootUrl}/talks-top-5
 
+.. TODO:: ADD SCREENSHOT HERE
+
 Index and query records
 -----------------------
 
@@ -772,6 +789,8 @@ We want to be able to sort the records according their votes:
                     </li>
                 </ul>
             </section>
+
+.. TODO:: ADD SCREENSHOT HERE
 
 Create custom content-rules
 ---------------------------
