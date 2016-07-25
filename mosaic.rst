@@ -74,16 +74,16 @@ Principle
 
 Mosaic allows to create layouts by aggregating tiles.
 
-A tile is a dynamic portion of a web page, it can be a text, an image, a field, etc.
+A tile is a dynamic portion of a web page, it can be a text element, an image, a field, etc.
 
-Mosaic provides an editor able to position easily those tiles across our theme's grid.
+Mosaic provides an editor able to easily position tiles across our theme's grid.
 
 The Mosaic editor
 -----------------
 
-To enable the Mosaic editor on a content, we need to change its default display: go to "Display" menu and select "Mosaic layout".
+To enable the Mosaic editor on a content item change its default display as follows: go to "Display" menu and select "Mosaic layout".
 
-Now, when we click on "Edit", the default Plone edition form is replaced with the Mosaic editor.
+Now, when we click on "Edit", the default Plone edit form is replaced with the Mosaic editor.
 
 This editor allows to change our content fields content (just like the regular Plone form), but the fields are rendered into the view layout and they are edited in-place.
 
