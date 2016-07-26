@@ -281,7 +281,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
         Products.PythonField = 1.1.3
         ...
 
-    This is another special section. It has become a special section by declaration. In our :samp:`[buildout]` section we set a variable :samp:`versions = versions`. This told buildout that there is a section named versions, containing version information. When Buildout installs eggs it will use the versions defined in this section.
+    This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file ``versions.cfg``.
 
 .. _buildout1-mrdeveloper-label:
 
