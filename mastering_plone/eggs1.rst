@@ -53,7 +53,7 @@ We have to answer some questions about the add-on. We will press :kbd:`Enter` (i
 
     --> Package description [An add-on for Plone]:
 
-    --> Plone version [4.3.6]: 5.0
+    --> Plone version [4.3.6]: 5.0.5
 
     Generated file structure at /vagrant/buildout/src/ploneconf.site
 

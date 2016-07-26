@@ -259,7 +259,7 @@ It should contain the following fields:
 * IRC Handle, type: "Text Line" (optional)
 * Image, type: "Image" (optional)
 
-Do not use the IDublinCore or the IBasic behavior since a speaker should not have a description.
+Do not use the DublinCore or the Basic behavior since a speaker should not have a description (unselect it in the Behaviors tab).
 
 We could use this content type later to convert speakers into Plone users. We could then link them to their talks.
 
