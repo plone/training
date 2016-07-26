@@ -23,7 +23,7 @@ This chapter will touch on subjects like:
 Structure of your training day
 ------------------------------
 
-How the agend of a training day should like has already been discussed in the theory and 'before' the training chapters. This section will discuss more 'hands on' tips for during the day and summarize the theory.
+How the agenda of a training day should be structured has already been discussed in the theory and 'before' the training chapters. This section will discuss more 'hands on' tips for during the day and summarize the theory.
 
 * Be early. It takes at least half an hour to an hour to install yourself. If you're a bit late and students are already arriving it will be even more difficult to finish the set up in time. Also: if you're early and you don't like the chairs/desk set up you can still shift/change some stuff.
 
@@ -32,7 +32,7 @@ Introduction/Agenda
 
 Sometimes a trainer shows a short agenda of the day and then continues to the training. The start of a training day is *THE* moment to manage expectations for both your students and you. Things you can do during the introduction:
 
-* Introduce yourself shortly. What have you done before, why do you give training, what do you like about giving a training. But don't overdo it :-)
+* Introduce yourself shortly. What have you done before, why are you giving the training, what do you like about giving a training. But don't overdo it :-)
 
 * If the group is small enough (and they're not all colleagues) ask them for a short introduction. You might have talked to them before the training, but if they don't know each other it is good to create a good vibe.
 
