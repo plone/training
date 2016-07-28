@@ -308,7 +308,7 @@ Go to the ZMI and and in ``portal_types`` look for the definition of the new ``T
 ..  admonition:: Solution
     :class: toggle
 
-    Go to http://localhost:8080/Plone/portal_types/Talk/manage_propertiesForm
+    Go to http://localhost:8080/Plone/portal_types/talk/manage_propertiesForm
 
     When disabling *Implicitly addable* you can no longer add Talks any more unless you change some container like the type *Folder*: Enable *Filter contenttypes?* for it and add *Talk* to the items that are allowed.
 
