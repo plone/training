@@ -190,7 +190,7 @@ https://pypi.python.org/pypi/collective.plonetruegallery
 * Activate the add-on
 * Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step is only required because plonetruegallery does not yet know about the newer plone.app.contenttypes, which we activated to replace Plone's old contenttypes with newer, Dexterity-style, ones.)
 * Add a folder /the-event/location
-* Upload some photos from http://lorempixel.com/600/400/city/
+* Upload some photos from lorempixel.com
 * Enable the view ``galleryview``
 
 collective.plonetruegallery is a better model for how to write a Plone Extension.
