@@ -1,6 +1,6 @@
-========================================================================
-TTW advanced: intro to Diazo Theming, build custom rules through the web
-========================================================================
+=============================================
+TTW advanced I: introduction to Diazo Theming
+=============================================
 
 A Plone theme takes uses ``Diazo`` techonology to make theming easier.
 
