@@ -91,6 +91,13 @@ Deactivate mrbob virtualenv:
 
    (mrbobvenv)maik@planetmobile:~/develop/plone/plonetheme.tango$ deactivate
 
+.. note::
+
+  Currently you need make a change to need to make some changes to
+  src/plonetheme/tango/configure.zcml. Please copy over the contents
+  of configure.zcml from the collective/plonethem.tango - repo:
+  https://git.io/v6ndD
+
 
 Bootstrap & buildout your development environment
 -------------------------------------------------
