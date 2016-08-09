@@ -436,7 +436,7 @@ As a starting point we use this rules set:
 
      <!-- replace theme navbar-nav with Plone plone-navbar-nav -->
      <replace
-       css:theme-children=".plone-navbar-nav"
+       css:theme-children=".navbar-nav"
        css:content-children=".plone-navbar-nav" />
 
      <!-- full-width breadcrumb -->
