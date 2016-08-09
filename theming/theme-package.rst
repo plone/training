@@ -72,7 +72,7 @@ Here, choose "Theme" and fill out the rest of the questions however you like::
 
    --> Package description [An add-on for Plone]: Plone theme tango
 
-   --> Plone version [4.3.6]: 5.0
+   --> Plone version [5.0.5]:
 
    Generated file structure at /home/maik/develop/plone/plonetheme.tango
 
