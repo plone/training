@@ -6,6 +6,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Updates and fixes on the section 'Create a Plone theme python package'
+  [staeff]
+
 - Rearrange structure so Mastering Plone now lives in it's own folder.
   [pbauer]
 
