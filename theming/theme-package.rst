@@ -1194,42 +1194,45 @@ Load LESS parts of Bootstrap
 
 To load for example the carousel we first install the LESS version of Bootstrap
 into our theme.
-To do that, we use ``bower``, which you should have globally installed on your
+To do that, we use ``npm``, which you should have globally installed on your
 system.
 First we initialize our theme package. To do that, we run the following command
 inside our theme folder:
 
 .. code-block:: bash
 
-   $ bower init
+   $ npm init
 
-This command will ask you some questions, which are all irrelevant for our purposes.  So we can accept all the default answers, except perhaps marking the package as private, as a precaution.  After this we have a bower config file called
-``bower.json``.
+This command will ask you some questions, which are all irrelevant for our purposes.
+So we can accept all the default answers.  After this we have a npm config file called
+``package.json``. Add the entry `"private": true,` to this JSON file as a
+precaution and to avoid the warning 'No repository field' when running the script.
+
 All the packages that we need for our theme should be mentioned in this
-``bower.json`` file.
+``package.json`` file.
 
-Now we install bootstrap, using bower:
+Now we install bootstrap, using npm:
 
 .. code-block:: bash
 
-   $ bower install bootstrap --save
+   $ npm install bootstrap --save
 
-The ``--save`` option will add the package to ``bower.json`` for us.
+The ``--save`` option will add the package to ``package.json`` for us.
 Now, we can install all dependencies on any other system by running the
 following command from inside of our theme folder:
 
 .. code-block:: bash
 
-   $ bower install
+   $ npm install
 
 Now that we have installed bootstrap using bower, we have all bootstrap
-components available in the subfolder called ``bower_components``:
+components available in the subfolder called ``node_modules``:
 
 .. code-block:: bash
 
-   $ tree bower_components/bootstrap/
-   bower_components/bootstrap/
-   ├── bower.json
+   $ tree node_modules/bootstrap/
+   node_modules/bootstrap/
+   ├── CHANGELOG.md
    ├── dist
    │   ├── css
    │   │   ├── bootstrap.css
@@ -1364,13 +1367,13 @@ our downloaded theme uses, we change the end of our ``bundle.less`` like this:
    @import "@{bootstrap-variables}";
 
    // import needed bootstrap less files from bower_components
-   @import "../bower_components/bootstrap/less/mixins.less";
-   @import "../bower_components/bootstrap/less/utilities.less";
+   @import "../node_modules/bootstrap/less/mixins.less";
+   @import "../node_modules/bootstrap/less/utilities.less";
 
-   @import "../bower_components/bootstrap/less/forms.less";
-   @import "../bower_components/bootstrap/less/navs.less";
-   @import "../bower_components/bootstrap/less/navbar.less";
-   @import "../bower_components/bootstrap/less/carousel.less";
+   @import "../node_modules/bootstrap/less/forms.less";
+   @import "../node_modules/bootstrap/less/navs.less";
+   @import "../node_modules/bootstrap/less/navbar.less";
+   @import "../node_modules/bootstrap/less/carousel.less";
 
    // ### END OF UTILS ###
 
