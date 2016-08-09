@@ -823,10 +823,10 @@ folder:
    ├── bootstrap.css
    ├── bootstrap.min.css
    ├── business-casual.css
-   ├── custom.less
+   ├── bundle.less
    └── main.less
 
-The ``main.less`` file can look like this:
+The ``bundle.less`` file can look like this:
 
 .. code-block:: sass
 
@@ -915,18 +915,18 @@ The ``main.less`` file can look like this:
    // include theme css as less
    @import (less) "business-casual.css";
 
-   // include our custom less
-   @import "custom.less";
+   // include our custom css/less
+   @import "main.less";
 
 Here we import a number of specific parts from the default Plone 5 Barceloneta theme.
 Feel free to comment out stuff that you don't need.
 
 At the bottom you can see that we import the ``business-casual.css`` as a LESS
-file, as well as our new ``custom.less`` file.
+file, as well as our new ``main.less`` file.
 The ``business-casual.css`` comes from the downloaded static theme and is
 included to reduce the amount of CSS files.
 
-The ``custom.less`` will contain our custom styles and can look like this:
+The ``main.less`` will contain our custom styles and can look like this:
 
 .. code-block:: css
 
@@ -987,7 +987,7 @@ So we extend our theme's ``manifest.cfg`` to declare ``development-css``,
    enabled-bundles =
    disabled-bundles =
 
-   development-css = /++theme++plonetheme.tango/css/main.less
+   development-css = /++theme++plonetheme.tango/css/bundle.less
    production-css = /++theme++plonetheme.tango/css/tango-compiled.css
    tinymce-content-css = /++theme++plonetheme.tango/css/business-casual.css
 
@@ -1354,7 +1354,7 @@ components available in the subfolder called ``bower_components``:
    └── README.md
 
 To include the needed "carousel" part and some other bootstrap components which
-our downloaded theme uses, we change the end of our ``main.less`` like this:
+our downloaded theme uses, we change the end of our ``bundle.less`` like this:
 
 .. code-block:: css
 
@@ -1378,19 +1378,19 @@ our downloaded theme uses, we change the end of our ``main.less`` like this:
    // include theme css as less
    @import (less) "business-casual.css";
 
-   // include our custom less
-   @import "custom.less";
+   // include our custom css/less
+   @import "main.less";
 
 
 Final CSS customization
 +++++++++++++++++++++++
 
-To make our theme look nicer, we add some CSS as follows to our ``custom.less``
+To make our theme look nicer, we add some CSS as follows to our ``main.less``
 file:
 
 .. code:: css
 
-   /* Custom LESS file that is included from the main.less file */
+   /* Custom LESS file that is included from the bundle.less file */
 
    .brand-name{
        margin-top: 0.5em;
