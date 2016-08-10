@@ -956,16 +956,4 @@ There is a lot more about TAL, TALES and METAL that we have not covered. You'll 
   * http://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html
   * Using Zope Page Templates: http://docs.zope.org/zope2/zope2book/ZPT.html
   * Zope Page Templates Reference: http://docs.zope.org/zope2/zope2book/AppendixC.html
-
-.. _tal-chameleon-label:
-
-Chameleon
----------
-
-Chameleon is the successor of Zope Page Templates, it is used in Plone 5.
-
-- Plip for Chameleon: https://dev.plone.org/ticket/12198
-- Homepage: https://chameleon.readthedocs.org/en/latest/
-
-
-
+  * https://chameleon.readthedocs.org/en/latest/
