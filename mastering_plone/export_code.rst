@@ -157,7 +157,7 @@ Now our package has some real contents. So, we'll need to reinstall it (if insta
 
 The escaped inline xml is simply too ugly to look at. You should move it to a separate file!
 
-Create a folder ``content`` with an empty ``__init__py``. In that create a file ``talk.xml`` that contains the real xml (copied from http://localhost:8080/Plone/dexterity-types/talk/@@modeleditor and beautified with some online xml formatter (http://lmgtfy.com/?q=xml+formatter))
+Create a new folder ``content`` in the main directory (from the buildout directory perspective that is ``src/ploneconf.site/src/ploneconf/site/content/``). Inside add an empty file ``__init__py`` and a file ``talk.xml`` that contains the real xml (copied from http://localhost:8080/Plone/dexterity-types/talk/@@modeleditor and beautified with some online xml formatter (http://lmgtfy.com/?q=xml+formatter))
 
 ..  code-block:: xml
     :linenos:
@@ -212,12 +212,14 @@ Create a folder ``content`` with an empty ``__init__py``. In that create a file 
         </schema>
       </model>
 
-Now we have to remove the model_source and instead reference the xml file in the FTI by using the property ``model_file``:
+Now remove the ugly model_source and instead point to the new xml file in the FTI by using the property ``model_file``:
 
 ..  code-block:: xml
 
     <property name="model_source"></property>
     <property name="model_file">ploneconf.site.content:talk.xml</property>
+
+``ploneconf.site.content:talk.xml`` points to a file ``talk.xml`` to be found in the python path ``ploneconf.site.content``. The ``__ìnit__.py`` is needed to turn the folder ``content`` into a python-module. It is best-practice to add schemas in this folder and in later chapters you will add new types with pythons-schemata in the same folder.
 
 ..  note::
 
