@@ -22,11 +22,11 @@ Before writing the talk view itself we step back and talk *a little* about views
 
 A view in Plone is usually a ``BrowserView``. It can hold a lot of cool python code but we will first focus on the template.
 
-Edit the file ``browser/configure.zcml`` and register another view similar to the demoview already there:
+Edit the file ``browser/configure.zcml`` and register a new view called *training*:
 
 ..  code-block:: xml
     :linenos:
-    :emphasize-lines: 29-34
+    :emphasize-lines: 20-25
 
     <configure
       xmlns="http://namespaces.zope.org/zope"

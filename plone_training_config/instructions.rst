@@ -53,7 +53,6 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
     $ cd training
     $ git clone https://github.com/collective/training_buildout.git buildout
     $ cd buildout
-    $ git checkout plone5
     $ virtualenv-2.7 py27
 
 Now you can run the buildout for the first time:

@@ -9,47 +9,25 @@ Extend Plone With Add-On Packages
 * Their use, usefulness, quality and complexity varies a lot
 
 
-.. _add-ons-find-label:
-
-How to find add-ons
--------------------
-
-* https://pypi.python.org/pypi - use the search form!
-* https://github.com/collective >1200 repos
-* https://github.com/plone >260 repos
-* http://news.gmane.org/gmane.comp.web.zope.plone.user
-* google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)
-* Check shortlist `Plone Paragon <http://paragon.plone.org/>`_ (Launched August 2014)
-* ask in irc and on the mailing list
-
-.. seealso::
-
-   * A talk on finding and managing add-ons: https://www.youtube.com/watch?v=Sc6NkqaSjqw
-
-
 .. _add-ons-notable-label:
 
 Some notable add-ons
 ---------------------
 
-.. warning::
-
-    Many add-ons will not yet run under Plone 5 and will have to be updated to be compatible.
-
-    Other add-ons will be rendered obsolete by Plone 5. There is no more need for collective.quickupload since Plone 5 already has the functionality to upload multiple files at once.
-
-
 `Products.PloneFormGen <http://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
   A form generator.
 
-`collective.plonetruegallery <https://pypi.python.org/pypi/collective.plonetruegallery>`_
-  Photo galleries with a huge selection of various js-libraries
+`collective.disqus <https://pypi.python.org/pypi/collective.disqus/>`_
+  Integrates the Disqus commenting platform API into Plone
 
-`collective.cover <https://github.com/collective/collective.cover/blob/master/docs/end-user.rst>`_
-  UI to create complex landing-pages
+`collective.plonetruegallery <https://pypi.python.org/pypi/collective.plonetruegallery>`_
+  Photo galleries with a huge selection of various js-libraries.
+
+`plone.app.mosaic <https://github.com/plone/plone.app.mosaic>`_
+  Layout solution to easily create complex layouts through the web.
 
 `collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_
-  Flexible bundle of add-ons to georeference content and display in maps
+  Flexible bundle of add-ons to geo-reference content and display in maps
 
 `collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_
   Allows visitors to subscribe to mailchimp newsletters
@@ -57,11 +35,8 @@ Some notable add-ons
 `eea.facetednavigation <https://pypi.python.org/pypi/eea.facetednavigation/>`_
   Create faceted navigation and searches through the web.
 
-`webcouturier.dropdownmenu <https://pypi.python.org/pypi/webcouturier.dropdownmenu>`_
-  Turns global navigation into dropdowns
-
-`collective.quickupload <https://pypi.python.org/pypi/collective.quickupload>`_
-  Multi-file upload using drag&drop
+`collective.lineage <https://pypi.python.org/pypi/collective.lineage>`_
+  Microsites for Plone - makes subfolders appear to be autonomous Plone sites
 
 `Products.Doormat <https://pypi.python.org/pypi/Products.Doormat>`_
   A flexible doormat
@@ -70,11 +45,35 @@ Some notable add-ons
   Add decorative banners and sliders
 
 `plone.app.multilingual <https://pypi.python.org/pypi/plone.app.multilingual>`_
-  Allows multilingual sites by translating content
+  Allows multilingual sites by translating content.
+
+`Rapido <https://rapidoplone.readthedocs.io/en/latest/>`_
+  Allows developers with a little knowledge of HTML and a little knowledge of Python to implement custom elements and insert them anywhere they want.
 
 `Plomino <http://www.plomino.net/>`_
   Powerful and flexible web-based application builder for Plone
 
+.. warning::
+
+    Some add-ons may not yet run under Plone 5 and will have to be updated to be compatible.
+
+
+.. _add-ons-find-label:
+
+How to find add-ons
+-------------------
+
+* https://plone.org/download/add-ons
+* https://pypi.python.org/pypi - use the search form!
+* https://github.com/collective >1200 repos
+* https://github.com/plone >260 repos
+* https://community.plone.org - ask the community
+* google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)
+* ask in irc and on the mailing list
+
+.. seealso::
+
+   * A talk on finding and managing add-ons: https://www.youtube.com/watch?v=Sc6NkqaSjqw
 
 
 .. _add-ons-installing-label:
@@ -108,7 +107,6 @@ If you add new add-ons here you will have to run buildout and restart the site:
 
 .. sourcecode:: bash
 
-    $ cd /vagrant/buildout
     $ bin/buildout
     $ bin/instance fg
 
@@ -125,7 +123,7 @@ Your Plone site has not yet been told to use the add-on. For this, you have to a
 
 In your browser, go to Site Setup (shortcut: add ``/@@overview-controlpanel`` to the Plone site URL), and open the ``Add-ons`` Panel. You will see that you can install the add-ons there.
 
-Install **PloneFormGen** and **Plone True Gallery** now.
+Install **PloneFormGen** now.
 
 This is what happens: The GenericSetup profile of the product gets loaded. This does things like:
 
@@ -173,7 +171,7 @@ By the way, while PloneFormGen is good at what it does, it is not a good model f
 
 .. note::
 
-   `collective.easyform <https://pypi.python.org/pypi/collective.easyform>`_ is a alternative form-generator that uses dexterity.
+   `collective.easyform <https://pypi.python.org/pypi/collective.easyform>`_ is a alternative form-generator that uses dexterity. It is still under development.
 
 
 .. _add-ons-ptg-label:
@@ -183,17 +181,16 @@ Add Photo Gallery with collective.plonetruegallery
 
 To advertise the conference we want to show some photos showing past conferences and the city where the conference is taking place.
 
-Instead of creating custom contenttypes for galleries, it integrates with the Plone functionality to choose different views for folderish contenttypes.
+Instead of creating new contenttypes for galleries, it integrates with the Plone functionality to choose different views for folderish contenttypes.
 
 https://pypi.python.org/pypi/collective.plonetruegallery
 
 * Activate the add-on
-* Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step is only required because plonetruegallery does not yet know about the newer plone.app.contenttypes, which we activated to replace Plone's old contenttypes with newer, Dexterity-style, ones.)
+* Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors
 * Add a folder /the-event/location
-* Upload some photos from http://lorempixel.com/600/400/city/
+* Upload some photos from lorempixel.com
 * Enable the view ``galleryview``
 
-collective.plonetruegallery is a better model for how to write a Plone Extension.
 
 .. _add-ons-i18n-label:
 
@@ -204,11 +201,9 @@ Plone can run the same site in many different languages.
 
 We're not doing this with the conference site since the *lingua franca* of the Plone community is English.
 
-We would use https://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes).
+We would use the built-in addon https://pypi.python.org/pypi/plone.app.multilingual for this.
 
-.. note::
-
-    Building a multi-lingual site requires activating ``plone.app.multilingual``, but no add-on is necessary to build a site in a single language other than English. Just select a different site language when creating a Plone site, and all the basic messages will be translated and LTR or RTL needs will be handled.
+Building a multi-lingual site requires activating ``plone.app.multilingual``, but no add-on is necessary to build a site in only one language. Just select a different site language when creating a Plone site, and all text in the user-interface will be switched to that language.
 
 
 .. _add-ons-summary-label:

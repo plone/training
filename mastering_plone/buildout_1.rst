@@ -93,7 +93,7 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
 
     [buildout]
     extends =
-        http://dist.plone.org/release/5.0/versions.cfg
+        http://dist.plone.org/release/5.0.5/versions.cfg
 
     # We add our own versions
         versions.cfg
@@ -112,7 +112,7 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     # The directory this buildout is in. Modified when using vagrant.
     buildout_dir = ${buildout:directory}
 
-    # We want to checkout these eggs directly from github
+    # We want to checkouts these eggs directly from github
     auto-checkout =
         ploneconf.site_sneak
     #    starzel.votable_behavior
@@ -143,7 +143,7 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     # TTW Forms (based on Archetypes)
         Products.PloneFormGen
 
-    # The add-on we develop in the training
+    # The addon we develop in the training
     #    ploneconf.site
 
     # Voting on content
@@ -187,16 +187,6 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     recipe = corneti.recipes.codeintel
     eggs = ${buildout:eggs}
 
-    [code-analysis]
-    recipe = plone.recipe.codeanalysis
-    directory = ${buildout:directory}/src/ploneconf.site/src/
-    pep3101 = False
-    imports = True
-    debug-statements = True
-    prefer-single-quotes = True
-    utf8-header = True
-    deprecated-aliases = True
-
     [checkversions]
     recipe = zc.recipe.egg
     eggs = z3c.checkversions [buildout]
@@ -205,6 +195,10 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     recipe = zc.recipe.egg
     eggs = ${buildout:eggs}
     interpreter = zopepy
+    scripts =
+        zopepy
+        plone-generate-gruntfile
+        plone-compile-resources
 
     [mrbob]
     recipe = zc.recipe.egg
@@ -287,7 +281,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
         Products.PythonField = 1.1.3
         ...
 
-    This is another special section. It has become a special section by declaration. In our :samp:`[buildout]` section we set a variable :samp:`versions = versions`. This told buildout that there is a section named versions, containing version information. When Buildout installs eggs it will use the versions defined in this section.
+    This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file ``versions.cfg``.
 
 .. _buildout1-mrdeveloper-label:
 
