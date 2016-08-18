@@ -1,11 +1,11 @@
-  # -*- mode: ruby -*-
-  # vi: set ft=ruby :
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
 
-  VAGRANTFILE_API_VERSION = "2"
+VAGRANTFILE_API_VERSION = "2"
 
-  Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "trusty32"
-  config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-i386-vagrant-disk1.box"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "bento/ubuntu-16.04"
+  config.vm.box_url = "https://atlas.hashicorp.com/bento/boxes/ubuntu-16.04"
 
   config.vm.hostname = "training.plone.org"
   config.vm.network :forwarded_port, guest: 8080, host: 8080
@@ -22,6 +22,10 @@
   # A workaround for missing symbolic links on windows:
   # config.vm.synced_folder "eggs/", "/home/vagrant/buildout-cache/eggs/"
 
+  # We need to install puppet on the guest before we can use it
+  config.vm.provision :shell, inline: <<-SHELL
+      apt-get install -y puppet
+  SHELL
 
   # Run apt-get update as a separate step in order to avoid
   # package install errors
