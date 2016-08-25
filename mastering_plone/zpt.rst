@@ -855,7 +855,7 @@ The template should now look like this:
 
 .. note::
 
-    Since the training only used content from the template, not from the context that it is called on it makes little sense to have the edit bar. We hide it by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
+    Since the training only used content from the template, not from the context that it is called on it makes little sense to have editable elements in the side-bar. We hide all the elements by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
 
     The easiest way to do this is to define a dummy variable. Dummy because it is never used except to allow us to execute some code.
 
