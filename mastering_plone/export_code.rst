@@ -31,8 +31,8 @@ Remember the *Talk* content type that we created through-the-web with Dexterity?
 Steps:
 
 * Return to the Dexterity control panel
-* Export the Type Profile and save the file
-* Delete the Type from the site before installing it from the file system
+* Export the *Talk* Type Profile and save the file
+* Delete the *Talk* from the site before installing it from the file system
 * Extract the files from the exported tar file and add them to our add-on package in ``profiles/default/``
 
 .. note::
