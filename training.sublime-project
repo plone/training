@@ -1,17 +1,26 @@
 {
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				". bin/activate; make html"
+			],
+			"name": "HTML",
+			"shell": "true",
+			"working_dir": "${project_path}"
+		}
+	],
 	"folders":
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/home/maik/develop/plone/plonetheme.tango/src/plonetheme/tango/theme"
+		},
+		{
+			"path": "/home/maik/develop/plone/plonetheme.tango"
 		}
-	],
-    "build_systems":
-    [
-        {
-            "name": "HTML",
-            "working_dir": "${project_path}",
-            "shell": "true",
-            "cmd": [". bin/activate; make html"]
-        }
-    ]
+	]
 }
