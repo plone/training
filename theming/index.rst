@@ -3,10 +3,6 @@
 Mastering Plone Theming
 =======================
 
-.. warning::
-
-   This chapter is still work in progress!
-
 .. toctree::
    :maxdepth: 3
    :numbered: 1
@@ -26,4 +22,5 @@ Mastering Plone Theming
 
 .. seealso::
 
-   http://docs.plone.org/adapt-and-extend/theming/index.html
+   - :ref:`ttw-label`
+   - http://docs.plone.org/adapt-and-extend/theming/index.html

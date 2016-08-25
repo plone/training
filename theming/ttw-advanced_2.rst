@@ -72,20 +72,20 @@ Follow the example above and create a new theme that inherits from Barceloneta.
 Introduction to the Diazo rule directives
 -----------------------------------------
 
-The Diazo rules file is an XML document containing rules to specify where the content elements (title, footer, main text, etc.) will be located in the targeted theme page. 
+The Diazo rules file is an XML document containing rules to specify where the content elements (title, footer, main text, etc.) will be located in the targeted theme page.
 The rules are created with ``rule directives``. The basic Diazo directives are:
 
 `<theme>`
     Specifies which file to use for the theme
 `<notheme>`
     Specifies a condition when to theme should be disabled
-`<after>` 
+`<after>`
     inserts the content element after the theme element,
-`<before>` 
+`<before>`
     inserts the content element before the specified theme element,
-`<replace>` 
+`<replace>`
     replaces the theme element with the content element,
-`<drop>` 
+`<drop>`
     removes the content or the theme element.
 
 .. note: For a more comprehensive overview of all the Diazo rule directives see: http://docs.diazo.org/en/latest/basic.html#rule-directives
@@ -99,6 +99,7 @@ Exercise 2 - viewing the unthemed site
 
 1. Use diazo.off=1 to your website to view an unthemed version of your site
 2. Using your browser's inspector find out the location/name of some of the unthemed elements
+
 - ``<after>`` inserts the content element after the theme element,
 - ``<before>`` inserts the content element before the specified theme element,
 - ``<replace>`` replaces the theme element with the content element,
@@ -135,7 +136,7 @@ CSS selector based attributes
 It is generally recommneded that you use CSS3 selectors to target elements in your content or theme.
 The CSS3 selectors used by Diazo directives are listed below:
 
-`css:theme` 
+`css:theme`
     Used to select target elements from the theme using CSS3 selectors
 `css:content`
     Used to specify the element that should be taken from the content
@@ -143,7 +144,7 @@ The CSS3 selectors used by Diazo directives are listed below:
     Used to select the the children of matching elements.
 `css:content-children`
     Used to identify the children of an element that will be used.
-         
+
 
 Xpath selector based attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -151,7 +152,7 @@ Sometimes the content or the theme does not have enough CSS markup to work relia
 In such cases you may be able to use XPath selectors these use the unprefixed
 attributes ``theme`` and ``content``.
 
-`theme` 
+`theme`
     Used to select target elements from the theme using Xpath selectors
 `content`
     Used to specify the element that should be taken from the content using Xpath selectors
@@ -182,9 +183,9 @@ The following attributes can be used to conditionally activate a directive.
     Conditionally activate the current directive based on the current path.
 
 .. note:: In a previous chapter we discussed the Plone `<body>` element and how to take advantage of the custom CSS classes associated with it.
-    We were introduced to the attribute ``css:if-content`` 
+    We were introduced to the attribute ``css:if-content``
     Remember that we are able to determine a lot of context related information from the classes
-    such as:: 
+    such as::
 
         - the current user role, and his permissions,
         - the current content-type and its template,
