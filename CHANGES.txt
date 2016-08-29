@@ -55,6 +55,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Fix some typos, apply inline directives: file, Python domain, GUI, literals [jean]
 
+- Add Plone 5 Workflow Training
+  [calvinhp]
+
 1.2.4 (2014-10-03)
 ------------------
 
