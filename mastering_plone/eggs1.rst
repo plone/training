@@ -176,16 +176,15 @@ Before we can use our new distribution we have to tell Plone about it. Edit ``bu
     test-eggs +=
         ploneconf.site [test]
 
-This tells Buildout to add the egg ``ploneconf.site``. The sources for this eggs are defined in the section `[sources]` at the bottom of `buildout.cfg`::
-
+This tells Buildout to add the egg ``ploneconf.site``. The sources for this eggs are defined in the section `[sources]` at the bottom of `buildout.cfg`.
 
 .. code-block:: cfg
    :emphasize-lines: 2
 
    [sources]
-    ploneconf.site = fs ploneconf.site path=src
-    # ploneconf.site = fs final full-path=src/ploneconf.site_sneak/chapters/final
-    starzel.votable_behavior = git https://github.com/collective
+   ploneconf.site = fs ploneconf.site path=src
+   # ploneconf.site = fs final full-path=src/ploneconf.site_sneak/chapters/final
+   starzel.votable_behavior = git https://github.com/collective
 
 
 The definition tells buildout not to download it from pypi, and expect it in ``src/ploneconf.site``. This is done with the directive *fs*, which allows you to add eggs on the filesystem without a version control system.
