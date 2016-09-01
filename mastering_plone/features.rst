@@ -57,6 +57,41 @@ The :program:`instance` script offers the following options, which you can call 
 
     Plone has many message-boxes. They contain important information. Read them and make sure you understand them!
 
+Exercises
+*********
+
+Exercise 1
+++++++++++
+
+Knowing that `bin/instance debug` basically offers you a Python prompt, how would you start to explore Plone?
+
+..  admonition:: Solution
+    :class: toggle
+
+    * use `locals()` or `locals().keys()` to see Python objects available in Plone
+
+Exercise 2
+++++++++++
+
+The `app` object you encountered in the previous exercise can be seen as the root of Plone. Once again using Python, can you find your newly created Plone site?
+
+..  admonition:: Solution
+    :class: toggle
+
+    * `app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
+
+    .. note::
+
+        Plone and its objects are stored in an object database, the ZODB. You can think of `bin/instance debug` as a database client (in the same way e.g. `psql` is a client for PostgreSQL). Instead
+        of a special query language (like SQL) you simply use Python to access and manipulate ZODB objects. Don't worry if you accidentally change objects in `bin/instance debug` - you would have to commit
+        your changes explicitly to make them permanent. The Python code to do so is:
+
+        .. code-block:: pycon
+
+            >>> import transaction
+            >>> transaction.commit()
+
+        You have been warned.
 
 .. _features-walkthrough-label:
 
@@ -115,12 +150,6 @@ Users
 
     Let's create our first users within Plone. So far we used the admin user (admin:admin) configured in the buildout. This user is often called "zope root" and is not managed in Plone but only by Zope. Therefore the user's missing some features like email and full name and  won't be able to use some of plone's features. But the user has all possible permissions. As with the root user of a server, it's a bad practice to make unnecessary use of zope root. Use it to create Plone sites and their initial users, but not much else.
 
-    You can also add zope users via the terminal by entering::
-
-        $ ./bin/instance adduser <someusername> <supersecretpassword>
-
-    That way you can access databases you get from customers where you have no Plone user.
-
     To add a new user in Plone, click on the user icon at the bottom of the left vertical bar and then on :guilabel:`Site setup`. This is Plone's control panel. You can also access it by browsing to http://localhost:8080/Plone/@@overview-controlpanel
 
     Click on :guilabel:`Users and Groups` and add a user. If we had configured a mail server, Plone could send you a mail with a link to a form where you can choose a password. (Or, if you have Products.PrintingMailHost in your buildout, you can see the email scrolling by in the console, just the way it would be sent out.)  We set a password here because we haven't yet configured a mail server.
@@ -134,6 +163,12 @@ Users
         * as anonymous
         * as editor
         * as admin
+
+    You can also add zope users via the terminal by entering::
+
+        $ ./bin/instance adduser <someusername> <supersecretpassword>
+
+    That way you can access databases you get from customers where you have no Plone user.
 
 .. only:: presentation
 
@@ -167,6 +202,11 @@ Configure a Mailserver
 * Site 'From' name: Your name
 * Site 'From' address: Your email address
 
+.. only:: not presentation
+
+    Click on `Save and send test e-mail`. Since we have configured PrintingMailHost, you will see the mail content in the console output of your instance. Plone will not
+    actually send the email to the receivers address.
+
 
 .. _features-content-types-label:
 
@@ -177,7 +217,7 @@ Edit a page:
 
 * :guilabel:`Edit front-page`
 * :guilabel:`Title` :samp:`Plone Conference 2015, Bucharest`
-* :guilabel:`Description` :samp:`Tutorial`
+* :guilabel:`Summary` :samp:`Tutorial`
 * :guilabel:`Text` :samp:`...`
 
 Create a site-structure:
@@ -193,7 +233,7 @@ Create a site-structure:
 * In /events: Add Event "Deadline for talk submission" Date: 2015/08/10
 
 * Add Folder "Register"
-* Delete Folder "Members" (Users)
+* Delete Folder "Users"
 * Add Folder "Intranet"
 
 
