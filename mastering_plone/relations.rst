@@ -215,8 +215,8 @@ In addition, the relation value knows under which attribute it has been stored a
 But it can also be the name of a relation that is created by code, e.g. linkintegrity-relations (`isReferencing`) or the relation between a working copy and the original (`iterate-working-copy`).
 
 
-Getting of relations and backrelations in code
-----------------------------------------------
+Accessing relations and backrelations from code
+-----------------------------------------------
 
 If you want to find out what objects are related to each other, you use the relation catalog. Here is a convenience-method that allows you to find all kinds of relations.
 
