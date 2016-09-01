@@ -28,9 +28,9 @@ Contents:
     intro
     installation
     ../plone_training_config/instructions.rst
-    anatomy
     case
     features
+    anatomy
     plone5
     configuring_customizing
     theming
