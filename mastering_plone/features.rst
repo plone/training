@@ -24,13 +24,13 @@ This starts Plone in foreground mode so that we can see what it is doing by moni
 
 You can stop it by pressing :kbd:`ctrl + c`.
 
-The :program:`instance` script offers the following options, which you can call up at any time with `./bin/instance help`::
+Apart from the `fg` command the :program:`instance` script offers several more commands. `./bin/instance help` shows the list of available commands, `bin/instance help <command>` will give a short help for each command. Some commands you will use rather often are::
 
     $ ./bin/instance fg
     $ ./bin/instance start
     $ ./bin/instance stop
-    $ ./bin/instance -O Plone debug
-    $ ./bin/instance -O Plone run myscript.py
+    $ ./bin/instance debug
+    $ ./bin/instance run myscript.py
     $ ./bin/instance adduser name password
 
 .. only:: not presentation
@@ -63,14 +63,42 @@ Exercises
 Exercise 1
 ++++++++++
 
+Open the `bin/instance` script in your favorite editor. Now let's say you want Plone to listen on port 9080 instead of the default 8080. Looking at the script, how could you do this?
+
+..  admonition:: Solution
+    :class: toggle
+
+    At the end of the `bin/instance` script, you'll see the following code::
+
+    .. code-block:: python
+
+        if __name__ == '__main__':
+            sys.exit(plone.recipe.zope2instance.ctl.main(
+                ['-C', '/home/vagrant/training/buildout/parts/instance/etc/zope.conf']
+                + sys.argv[1:]))
+
+    The second to last line points to the configuration file your Plone instance is using. An absolute path is used so it might differ depending on the installation method. Open the `zope.conf` file in your
+    editor and look for the section::
+
+    .. code-block::
+
+        <http-server>
+         address 8080
+        </http-server>
+
+    Change the address to 9080 and restart your instance.
+
+Exercise 2
+++++++++++
+
 Knowing that `bin/instance debug` basically offers you a Python prompt, how would you start to explore Plone?
 
 ..  admonition:: Solution
     :class: toggle
 
-    * use `locals()` or `locals().keys()` to see Python objects available in Plone
+    Use `locals()` or `locals().keys()` to see Python objects available in Plone
 
-Exercise 2
+Exercise 3
 ++++++++++
 
 The `app` object you encountered in the previous exercise can be seen as the root of Plone. Once again using Python, can you find your newly created Plone site?
@@ -78,13 +106,13 @@ The `app` object you encountered in the previous exercise can be seen as the roo
 ..  admonition:: Solution
     :class: toggle
 
-    * `app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
+    `app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
 
     .. note::
 
-        Plone and its objects are stored in an object database, the ZODB. You can think of `bin/instance debug` as a database client (in the same way e.g. `psql` is a client for PostgreSQL). Instead
+        Plone and its objects are stored in an object database, the ZODB. You can use `bin/instance debug` as a database client (in the same way e.g. `psql` is a client for PostgreSQL). Instead
         of a special query language (like SQL) you simply use Python to access and manipulate ZODB objects. Don't worry if you accidentally change objects in `bin/instance debug` - you would have to commit
-        your changes explicitly to make them permanent. The Python code to do so is:
+        your changes explicitly to make them permanent. The Python code to do so is::
 
         .. code-block:: pycon
 
