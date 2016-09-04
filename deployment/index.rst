@@ -70,21 +70,61 @@ And ...
 Intro to Plone Stack
 --------------------
 
+If you haven't read the first couple of chapters of "Guide to deploying and installing Plone in production" http://docs.plone.org/manage/deploying/index.html, take a moment to do so. You'll want to be familiar with the main components of a typical Plone install for deployment and know when each is vital and when unnecessary.
+
 .. figure:: full_stack.png
     :align: center
 
-    Caption for full stack
+    The generic components of a full-stack Plone installation. Not all are always used.
+
+The Plone Ansible Playbook makes choices for each generic component.
+
 
 .. figure:: stack-components.png
     :align: center
 
-    Caption for stack components
+    The specific components used in Plone's Ansible Playbook.
+
+You are not stuck with our choices. If, for example, you wish to use Apache rather than Nginx for the web server component, that won't be a particular problem. You'll just need to do more work to customize.
 
 Intro to Ansible
 ----------------
 
+Ansible is an open-source configuration management, provisioning and application deployment platform written in Python and using YAML (YAML Ain't Markup Language) as a configuration language.
+Ansible makes it connections from your computer to the target machine using SSH.
+
+There is no server-side component other than an SSH server.
+General familiarity with SSH is very desirable if you're using Ansible -- as well as being a baseline skill for server administration.
+
 Installation
 ^^^^^^^^^^^^
+
+Ansible is typically installed on the orchestrating computer -- typically your desktop or laptop.
+It is a large Python application (though a fraction the size of Plone!) that needs many specific Python packages from the Python Package Index (PyPI).
+
+That makes Ansible a strong candidate for a Python *virtualenv* installation
+If you don't have virtualenv installed on your computer, do it now.
+
+virtualenv may be installed via an OS package manager, or on a Linux or BSD machine with the command:
+
+$ sudo easy_install-2.7 virtualenv
+
+Once you've got virtualenv, use it to create a working directory containing a virtual Python:
+
+$ virtualenv ansible_work
+
+Then, install Ansible there:
+
+$ cd ansible_work
+$ bin/pip install ansible
+
+Now, to use Ansible, activate that Python environment.
+
+$ source bin/activate
+$ ansible
+
+Trainer: check to make sure everyone understands the basic "source activate" mechanism.
+
 
 Quick commands
 ^^^^^^^^^^^^^^
@@ -94,6 +134,20 @@ Playbooks
 
 Quick intro to YAML
 ```````````````````
+
+python
+
+    #! /usr/bin/python
+
+    import yaml
+    import pprint
+    import sys
+
+    pprint.pprint(yaml.load(sys.stdin.read()), indent=2)
+
+
+Quick intro to Jinja2
+`````````````````````
 
 Inventories
 ```````````
