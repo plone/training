@@ -91,7 +91,7 @@ Intro to Ansible
 ----------------
 
 Ansible is an open-source configuration management, provisioning and application deployment platform written in Python and using YAML (YAML Ain't Markup Language) as a configuration language.
-Ansible makes it connections from your computer to the target machine using SSH.
+Ansible makes its connections from your computer to the target machine using SSH.
 
 There is no server-side component other than an SSH server.
 General familiarity with SSH is very desirable if you're using Ansible -- as well as being a baseline skill for server administration.
@@ -107,7 +107,7 @@ If you don't have virtualenv installed on your computer, do it now.
 
 virtualenv may be installed via an OS package manager, or on a Linux or BSD machine with the command:
 
-$ sudo easy_install-2.7 virtualenv
+    $ sudo easy_install-2.7 virtualenv
 
 Once you've got virtualenv, use it to create a working directory containing a virtual Python:
 
@@ -115,19 +115,96 @@ $ virtualenv ansible_work
 
 Then, install Ansible there:
 
-$ cd ansible_work
-$ bin/pip install ansible
+    $ cd ansible_work
+    $ bin/pip install ansible
 
 Now, to use Ansible, activate that Python environment.
 
-$ source bin/activate
-$ ansible
+    $ source bin/activate
+    $ ansible
 
 Trainer: check to make sure everyone understands the basic "source activate" mechanism.
 
+Now, let's get a copy of the Plone Ansible Playbook.
+Make sure you're logged to your ansible_work directory.
 
-Quick commands
+Unless you're participating in the development of the playbook, or need a particular fix, you'll want to clone the "STABLE" branch.
+The STABLE branch is a pointer to the last release of the playbook.
+
+    $ git clone -b STABLE --single-branch https://github.com/plone/ansible-playbook.git
+
+That gives you the Plone Ansible Playbook.
+You'll also need to install a few Ansible roles.
+Roles are Ansible playbooks packaged for distribution.
+Fortunately, you may pick up everything with a single command.
+
+    $ cd ansible-playbook
+    $ ansible-galaxy install -p roles -r requirements.yml
+
+If you forget that command, it's in the short README.rst file in the playbook.
+
+Ansible basics
 ^^^^^^^^^^^^^^
+
+Connecting to remote machines
+`````````````````````````````
+
+To use Ansible to provision a remote server, we have two requirements:
+
+1. We must be able to connect to the remote machine using ssh; and,
+
+2. We must be able to issue commands as the on the remote server as root (superuser), usually via `sudo`.
+
+You'll need to familiarize yourself with how to fulfill these requirements on the cloud/virtual environment of your choice.
+Examples:
+
+* Using Vagrant/virtualbox, you will initially be able to log in as the "vagrant" user using a private key that's in a file created by Vagrant.
+The user "vagrant" may issue `sudo` commands with no additional password.
+
+* Using Linode, you'll set a root password when you create your new machine. If you're willing to use the root user directly, you will not need a `sudo` password.
+
+* When setting up a Digital Ocean machine, you'll usually ...
+
+* AWS ...
+
+The most important thing is that you know your setup. Test that knowledge by trying an ssh login and issuing a superuser command.
+
+
+    $ ssh myuser@myhost.com   # (what user/hostname did you use? are you asked a password?)
+
+    myhost.com $ sudo ls  # (are you asked for your password?)
+
+Inventories
+```````````
+
+Ansible is usually run on a local computer, and it usually acts on one or more remote machines.
+We tell Ansible how to connect to remote machines by maintaining a text inventory file.
+
+There is a sample inventory configuration file in your distribution.
+It's meant for use with a Vagrant-style virtualbox.
+
+    $ cat vbox.cfg
+
+    myhost ansible_ssh_port=2222 ansible_ssh_host=127.0.0.1 ansible_ssh_user=vagrant ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
+
+This inventory file is complicated by the fact that a virtualbox typically has no DNS host name and uses a non-standard port and a special SSH key file.
+So, we have to specify all those things.
+
+If we were using a DNS-known hostname, it could be much simpler:
+
+    direct.stevemcmahon.com
+
+Ansible inventory files may list multiple hosts and may have aliases for groups of hosts. See docs.ansible.com for details.
+
+You may run Ansible against one, two, all of the hosts in the inventory file, or against alias groups like "plone-servers".
+
+
+
+Smoke test
+``````````
+
+Let's see if we can use Ansible to connect to a remote machine that we've specified in our inventory.
+
 
 Playbooks
 ^^^^^^^^^
@@ -148,9 +225,6 @@ python
 
 Quick intro to Jinja2
 `````````````````````
-
-Inventories
-```````````
 
 Playbook structure
 ``````````````````
