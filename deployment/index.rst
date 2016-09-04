@@ -198,12 +198,12 @@ Ansible inventory files may list multiple hosts and may have aliases for groups 
 
 You may run Ansible against one, two, all of the hosts in the inventory file, or against alias groups like "plone-servers".
 
-
-
 Smoke test
 ``````````
 
 Let's see if we can use Ansible to connect to a remote machine that we've specified in our inventory.
+
+    $ ansible -i vbox_host.cfg myhost -u steve -a "whoami" -k --become -K
 
 
 Playbooks
