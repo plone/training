@@ -225,8 +225,8 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
 
     .. code-block:: cfg
 
-    extends =
-        http://dist.plone.org/release/5.0/versions.cfg
+        extends =
+            http://dist.plone.org/release/5.0/versions.cfg
 
     This line tells Buildout to read another configuration file. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configurations that differ between different environments.
 
