@@ -69,7 +69,7 @@ Introduction to the Diazo rules
 
 Explain `<after>`, `<before>`, `<replace>`, `css:if-theme`, `css:if-content`, `if-path`.
 
-Conditionnally enable Barceloneta
+Conditionally enable Barceloneta
 ---------------------------------
 
 Use the Plone `<body>` classes to disable Barceloneta and create a completely different theme in given cases.
