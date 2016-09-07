@@ -279,7 +279,7 @@ Just download it and extract it into the theme folder:
 Preparing the template
 **********************
 
-To make the given template more useful, we customize it a little bit.
+To make the given template `index.html` more useful, we customize it a little bit.
 Right before the second box which contains:
 
 .. code-block:: html
