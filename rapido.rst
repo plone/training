@@ -814,7 +814,7 @@ We want to be able to sort the records according to their votes:
 
           def talks(context):
               search = context.app.search(
-                  "total>0", sort_index="total", reverse=True)[:5] 
+                  "total>0", sort_index="total", reverse=True)[:5]
               results = []
               for record in search:
                   content = context.api.content.get(path=record["id"])
