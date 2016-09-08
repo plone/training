@@ -67,7 +67,22 @@ Your theme is ready.
 Introduction to the Diazo rules
 -------------------------------
 
-Explain `<after>`, `<before>`, `<replace>`, `css:if-theme`, `css:if-content`, `if-path`.
+Diazo uses rules to specify where the content elements (title, footer, main text, etc.) must be located in the targeted theme page.
+
+- `<after>` inserts the content element after the theme element,
+- `<before>` inserts the content element before the specified theme element,
+- `<replace>` replaces the theme element with the content element,
+- `<drop>` removes the content or the theme element.
+
+You use `css:theme` to specify CSS selector corresponding to the targeted element in the theme, and `css:content` to specifiy the CSS selector corresponding to the content element to display.
+
+Similarly, you can use `css:theme-children` and `css:content-children` to target the element's children.
+
+.. note:: sometimes CSS selectors are not powerful enough, and you can use XPath selector (using `theme` and `content`).
+
+To apply a rule conditionnally, you use `css:if-theme` and `css:if-content` (or `if-theme` and `if-content` with XPath).
+
+You can also create conditions about the current path using `if-path`.
 
 Conditionnally enable Barceloneta
 ---------------------------------

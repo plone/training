@@ -49,7 +49,7 @@ Custom rules
 ------------
 Let's open ``rules.xml``. You will see all the rules that are used in Barceloneta theme right now. For the time being let's concentrate on how to hack these rules.
 
-Suppose that we want to make the "above content" block (the one that contains breadcrumbs) conditional, and show it only for authenticated users and PUT HERE ANOTHER EXAMPLE (?).
+Suppose that we want to make the "above content" block (the one that contains breadcrumbs) conditional, and show it only for authenticated users.
 
 Find this line:
 
@@ -72,7 +72,7 @@ The class we are looking for is `userrole-authenticated`. Add another property t
 
 The attribute `css:if-content` allows us to put a condition on the rules based on a CSS selector that acts on the content. In this way the rule will be applied only if the body element has the class `.userrole-authenticated`.
 
-MORE EXAMPLES HERE?
+We will learn more about Diazo rules in :doc:`./ttw-advanced_2`.
 
 
 Customize CSS
