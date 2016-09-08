@@ -84,7 +84,7 @@ To apply a rule conditionnally, you use `css:if-theme` and `css:if-content` (or 
 
 You can also create conditions about the current path using `if-path`.
 
-Conditionnally enable Barceloneta
+Conditionally enable Barceloneta
 ---------------------------------
 
 Use the Plone `<body>` classes to disable Barceloneta and create a completely different theme in given cases.
