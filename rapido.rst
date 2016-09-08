@@ -588,7 +588,7 @@ And if the element is a dictionary, we can access its items:
 
     <p>Average: {stats[avg]}</p>
 
-Ît is easy to use but it cannot perform loops or conditional insertion.
+It is easy to use but it cannot perform loops or conditional insertion.
 
 TAL templating
 ^^^^^^^^^^^^^^
@@ -722,7 +722,7 @@ Let's create a block to display the Talks Top 5:
     - go to Site Setup / Actions
     - add a new action in Site actions category with name "Top 5" and as URL::
 
-        string:${globals_view/navigationRootUrl}/talks-top-5
+        string:${globals_view/navigationRootUrl}/@@rapido/view/talks-top-5
 
 .. TODO:: ADD SCREENSHOT HERE
 
@@ -775,7 +775,7 @@ We can also reindex all the records using the ``refresh`` URL command::
 Exercise 6: Compute the top 5
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We want to be able to sort the records according their votes:
+We want to be able to sort the records according to their votes:
 
 - we need to declare ``total`` as an indexed element,
 - we need to refresh all our stored records,
@@ -834,8 +834,8 @@ We want to be able to sort the records according their votes:
               <ul>
                   <li tal:repeat="talk elements/talks">
                       <a tal:attributes="href talk/url"
-                          tal:content="element/title">the talk</a>
-                      (<span tal:content="element/total">10</span>)
+                          tal:content="talk/title">the talk</a>
+                      (<span tal:content="talk/total">10</span>)
                   </li>
               </ul>
           </section>
