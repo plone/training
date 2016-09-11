@@ -860,7 +860,7 @@ We want to be able to sort the records according to their votes:
 Create custom content-rules
 ---------------------------
 
-Plone content rules allows triggering a given action depending on an *event* 
+Plone content rules allow triggering a given action depending on an *event* 
 (content modified, content created, etc.)
 and on a *list of criteria* (only for such content types, only in this folder, etc.).
 

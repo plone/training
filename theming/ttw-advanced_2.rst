@@ -85,7 +85,7 @@ Similarly, you can use `css:theme-children` and `css:content-children` to target
 
 .. note:: sometimes CSS selectors are not powerful enough, and you can use XPath selector (using `theme` and `content`).
 
-To apply a rule conditionnally, you use `css:if-theme` and `css:if-content` (or `if-theme` and `if-content` with XPath).
+To apply a rule conditionally, you use `css:if-theme` and `css:if-content` (or `if-theme` and `if-content` with XPath).
 
 You can also create conditions about the current path using `if-path`.
 
