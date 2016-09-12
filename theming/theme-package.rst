@@ -967,9 +967,9 @@ Now we have the Barceloneta resources next to our theme directory and can import
 Install a build system for our resources
 +++++++++++++++++++++++++++++++++++++++
 
-You can use just plain CSS files for your theme, but we highly recommend to use LESS to make your stylesheet more modular and more flexible. It also makes it more flexibe to reuse parts of the Plone default theme ``Barceloneta``.
+You can use just plain CSS files for your theme, but we highly recommend to use LESS to make your stylesheet more modular and more flexible. It also makes it more flexible to reuse parts of the Plone default theme ``Barceloneta``.
 
-Some IDE's have support for LESS, but we will use a build system here to compile LESS into CSS. This compiles all LESS files into CSS, any time a LESS files has changed.
+Some IDEs have support for LESS, but we will use a build system here to compile LESS into CSS. This compiles all LESS files into CSS, any time a LESS files has changed.
 
 We will use Grunt here, because it's also used by the Barceloneta theme, but you can use any other build system like Gulp, Browserify or Webpack.
 
