@@ -99,7 +99,7 @@ General familiarity with SSH is very desirable if you're using Ansible -- as wel
 Installation
 ^^^^^^^^^^^^
 
-Ansible is typically installed on the orchestrating computer -- typically your desktop or laptop.
+Ansible is usually installed on the orchestrating computer -- typically your desktop or laptop.
 It is a large Python application (though a fraction the size of Plone!) that needs many specific Python packages from the Python Package Index (PyPI).
 
 That makes Ansible a strong candidate for a Python ``virtualenv`` installation
@@ -165,6 +165,12 @@ Fortunately, you may pick up everything with a single command.
 
 If you forget that command, it's in the short README.rst file in the playbook.
 
+.. note::
+
+The rationale for checking the Plone Ansible Playbook out inside the virtualenv directory is that it ties the two together.
+Months from now, you'll know that you can use the playbook with the Python and Ansible packages in the virtualenv directory.
+We check out the playbook as a subdirectory of the virtualenv directory so that we can search our playbooks and roles without having to search the whole virtualenv set of packages.
+
 Ansible basics
 ^^^^^^^^^^^^^^
 
@@ -228,7 +234,7 @@ It's meant for use with a Vagrant-style virtualbox.
 This inventory file is complicated by the fact that a virtualbox typically has no DNS host name and uses a non-standard port and a special SSH key file.
 So, we have to specify all those things.
 
-If we were using a DNS-known hostname, it could be much simpler:
+If we were using a DNS-known hostname and our standard ssh key files, it could be much simpler:
 
 .. code-block:: ini
 
@@ -281,11 +287,19 @@ If sudo requires a password, try:
 
 If all that works, congratulations, you're ready to use Ansible to provision the remote machine.
 
+.. note::
+
+    The "become" flag tells Ansible to carry out the action while becoming another user on the remote machine.
+    If no user is specified, we become the superuser.
+    If no method is specified, it's done via ``sudo``.
+
+    You won't often use the ``--become`` flag because the playbooks that need it specify it themselves.
+
 Playbooks
 ^^^^^^^^^
 
-In Ansible, an individual instruction for the setup of the remote server is called a ``play`` or ``task``.
-Here's a play that makes sure a directory exists.
+In Ansible, an individual instruction for the setup of the remote server is called a task.
+Here's a task that makes sure a directory exists.
 
 .. code-block: yaml
 
@@ -309,7 +323,7 @@ Quick intro to YAML
 ```````````````````
 
 YAML isn't a markup language, and it isn't a programming language either.
-It's a data specification notation.
+It's a data-specification notation.
 Just like JSON.
 Except that YAML -- very much unlike JSON -- is meant to be written and read by humans.
 The creators of YAML call it a "human friendly data serialization standard".
@@ -320,9 +334,10 @@ The creators of YAML call it a "human friendly data serialization standard".
     Every JSON file is also a valid YAML file.
     But if we just fed JSON to the YAML parser, we'd be missing the point of YAML, which is human readability.
 
-Basic types available in YAML include strings, booleans, floating-point numbers, integers, dates, times and date-times. Structured types are sequences (lists) and mappings (dictionaries).
+Basic types available in YAML include strings, booleans, floating-point numbers, integers, dates, times and date-times.
+Structured types are sequences (lists) and mappings (dictionaries).
 
-Sequences are indicated by lines with leading dashes:
+Sequences are indicated by list-member lines with leading dashes:
 
 .. code-block:: yaml
 
@@ -393,8 +408,59 @@ Quick code to read YAML from the standard input and turn it into pretty-printed 
 Quick intro to Jinja2
 `````````````````````
 
+YAML doesn't have any built-in way to read a variable.
+Ansible uses the Jinja2 templating language for this purpose.
+
+A quick example: Let's say we have a variable ``timezone`` containing the target server's desired timezone setting.
+We can use that variable in a task via Jinja2's double-brace notation: ``{{ timezone }}``.
+
+Jinja2 also supports limited Python expression syntax and can read object properties or mapping key/vaues with a dot notation::
+
+
+    {{ instance_config.plone_version < '5.0' }}
+
+There are also various filters and tests available via a pipe notation.
+For example, we use the ``default`` filter to supply a default value if a variable is undefined.
+
+.. codeblock:: yaml
+
+    - name: Set timezone variables
+      tags: timezone
+      copy: content={{ timezone|default("UTC\n") }}
+            dest=/etc/timezone
+            owner=root
+            group=root
+            mode=0644
+            backup=yes
+
+Jinja2 also is used as a full templating language whenever we need to treat a text file as a template to fill in variable values or execute loops or branching logic.
+Here's an example from the template used to construct a buildout.cfg::
+
+    zcml =
+    {% if instance_config.plone_zcml_slugs %}
+    {% for slug in instance_config.plone_zcml_slugs %}
+        {{ slug }}
+    {% endfor %}
+    {% endif %}
+
+
 Playbook structure
 ``````````````````
+
+An Ansible "play" is a mapping (or dictionary) with keys for hosts, variables and tasks.
+A playbook is a sequence of such dictionaries.
+
+A simple playbook:
+
+.. codeblock:: yaml
+
+    - hosts: all
+      vars:
+        ... a dictionary of variables
+      tasks:
+        ... a sequence of tasks
+
+The value of hosts could be a single host name, the name of a group of hosts, or "all".
 
 Variables
 :::::::::
@@ -404,6 +470,26 @@ Tasks -- pre, main, post
 
 Notifications and handlers
 ::::::::::::::::::::::::::
+
+We may also specify "handlers" that are run if needed.
+
+.. codeblock:: yaml
+
+    - hosts: all
+      vars:
+        ... a dictionary of variables
+      tasks:
+        - name: Change webserver setup
+          ...
+          notify: restart webserver
+        ...
+      handlers:
+        - name: restart webserver
+          service: webserver
+          state: restarted
+
+Handlers are run if a matching notification is registered.
+A particular handler is only run once, even if several notifications for it are registered.
 
 Roles
 `````
