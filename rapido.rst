@@ -3,10 +3,10 @@ Rapido
 
 In this part you will:
 
-* create a "Like" button on any talk so that visitors can cast votes,
-* display the total of votes next to the button,
-* create a "Top 5" page,
-* reset the votes on workflow change.
+* Create a "Like" button on any talk so that visitors can cast votes,
+* Display the total of votes next to the button,
+* Create a "Top 5" page,
+* Reset the votes on workflow change.
 
 Topics covered:
 
@@ -20,18 +20,18 @@ What is Rapido?
 .. only:: presentation
 
     * A Plone add-on,
-    * it extends your Plone site features,
-    * entirely through the theming tool.
+    * Used to extend your Plone site features,
+    * Works entirely through the theming tool.
 
 .. only:: not presentation
 
-    Rapido is a Plone add-on allowing the implementation of custom features on top of Plone.
+    Rapido is a Plone add-on that allows implementation of custom features on top of Plone.
     It is a simple yet powerful way to extend the behavior of your Plone site without using the underlying frameworks.
     The **Plone theming tool** is the interface used to build ``rapido.plone`` applications.
     This means that Rapido applications can be written both **on the file system** or using the **inline editor** of the Plone theming tool.
 
-    A Rapido application is just a piece of your current theme:
-    it can be imported, exported, copied, modified, etc. just like the rest of the theme.
+    A Rapido application is just a part of your current theme:
+    It can be imported, exported, copied, modified, etc. just like the rest of the theme.
     But in addition to layout and design elements, it can contain business logic implemented in Python.
 
 A couple of comparisons
@@ -50,9 +50,9 @@ A couple of comparisons
         * Dexterity focuses on content types. 
           Content types can only use the Plone business logic,
           you cannot implement your own logic.
-        * in contrast, using Rapido you can implement your own logic;
+        * By contrast, using Rapido you can implement your own logic;
           however you can only store data records,
-          not **Plone contents** (at least, not directly like Dexterity does)
+          not **Plone content items** (at least, not directly like Dexterity does)
 
     * Compared to **Diazo** and **Mosaic**:
 
@@ -74,10 +74,10 @@ Installation
     We will use a `Heroku instance pre-configured with Plone <https://github.com/collective/training-sandbox>`_.
 
     Once deployed, 
-    - create a Plone site, 
-    - go to: *Plone control panel* / *Add-ons*
+    - Create a Plone site, 
+    - Go to: *Plone control panel* / *Add-ons*
       ``http://localhost:8080/Plone/prefs_install_products_form``,
-    - and install Rapido.
+    - Finally install Rapido.
 
 .. only:: not presentation
 
