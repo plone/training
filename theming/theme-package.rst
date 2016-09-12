@@ -205,7 +205,7 @@ To start the Plone instance, run:
 
    $ ./bin/instance fg
 
-The Plone instance will then run on http://localhost:8080.
+The Plone instance will then run on http://localhost:8080. The default username and password is ``admin / admin``.
 Add a Plone site ``Plone``.
 Then activate/install your theme product on http://localhost:8080/Plone/prefs_install_products_form.
 The theme will be automatically enabled.
@@ -237,7 +237,7 @@ Download and prepare a static theme
 
 Let's start with an untouched static theme, such as this bootstrap theme:
 http://startbootstrap.com/template-overviews/business-casual/.
-Just download it and extract it into the theme folder:
+Just download it and extract it into the theme folder. Replace the ``index.html`` with the one in the downloaded theme:
 
 .. code-block:: bash
 
@@ -280,7 +280,7 @@ Just download it and extract it into the theme folder:
 Preparing the template
 ++++++++++++++++++++++
 
-To make the given template more useful, we customize it a little bit.
+To make the given ``index.html`` more useful, we customize it a little bit.
 Right before the second box which contains:
 
 .. code-block:: html
@@ -430,7 +430,7 @@ As a starting point we use this rules set:
 
      <!-- replace theme navbar-nav with Plone plone-navbar-nav -->
      <replace
-       css:theme-children=".plone-navbar-nav"
+       css:theme-children=".navbar-nav"
        css:content-children=".plone-navbar-nav" />
 
      <!-- full-width breadcrumb -->
@@ -498,7 +498,10 @@ As a starting point we use this rules set:
        </replace>
      </rules>
 
-     <replace css:theme-children="#portal-footer" css:content-children="#portal-footer-wrapper" />
+     <!-- footer -->
+     <replace
+       css:theme-children="footer .container"
+       css:content-children="#portal-footer-wrapper" />
    </rules>
 
 
@@ -541,8 +544,8 @@ Breadcrumb & co
 +++++++++++++++
 
 Plone provides some viewlets like the breadcrumbs (the current path) above the content area.
-To get this into the theme layout, we add a placeholder with the CSS id ``#above-content`` to the theme.
-This is the place where we want to insert Plones "above-content" stuff.
+To get this into the theme layout, we add a placeholder with the CSS id ``#above-content`` to the theme's ``index.html``.
+This is the place where we want to insert Plone's "above-content" stuff
 For example at the top of the ``div.container`` after:
 
 .. code-block:: html
