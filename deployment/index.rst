@@ -298,6 +298,9 @@ If all that works, congratulations, you're ready to use Ansible to provision the
 Playbooks
 ^^^^^^^^^
 
+We're going to cover just enough on Ansible playbooks to allow you to read and customize Plone's playbook.
+`Ansible's documentation <http://docs.ansible.com>`_ is excellent if you want to learn more.
+
 In Ansible, an individual instruction for the setup of the remote server is called a task.
 Here's a task that makes sure a directory exists.
 
@@ -465,9 +468,6 @@ The value of hosts could be a single host name, the name of a group of hosts, or
 Variables
 :::::::::
 
-Tasks -- pre, main, post
-::::::::::::::::::::::::
-
 Notifications and handlers
 ::::::::::::::::::::::::::
 
@@ -492,10 +492,39 @@ Handlers are run if a matching notification is registered.
 A particular handler is only run once, even if several notifications for it are registered.
 
 Roles
-`````
+:::::
 
-Galaxy
-::::::
+Ansible has various ways to include the contents of YAML files into your playbook.
+"Roles" do it in a more structured way -- much more like a package.
+Roles contain their own variables, tasks and handlers.
+They inherit the global variable environment and you may pass particular variables when they are called.
+
+Plone's Ansible Playbook includes several roles for chores such as setting up the load balancer and web server.
+Other roles are fetched (the role source itself is fetched) by ``ansible-galaxy`` when we use it to set up requirements.
+Most are fetched from github.
+
+An simple Ansible playbook using roles:
+
+.. code-block:: yaml
+
+    - hosts: all
+      vars:
+        ... a dictionary of variables
+      pre-tasks:
+        ... tasks executed before roles are used.
+      roles:
+        ... a sequence of role invocation mappings like:
+        - role: haproxy
+          var1: value1
+          var2: value2
+          when: install_loadbalancer|default(True)
+        ...
+      tasks:
+        ... other tasks, executed after the roles
+      handlers:
+        ... handlers for our own tasks; roles usually have their own
+
+If we want to pass variables to roles, we just add their keys and values to the mapping.
 
 The Plone Playbook
 ------------------
