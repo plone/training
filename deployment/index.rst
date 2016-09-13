@@ -7,7 +7,7 @@ Automating Plone Deployment
    This chapter is still work in progress! Expect it to be refactored.
 
 .. .. toctree::
-..    :maxdepth: 3
+..    :maxdepth: 4
 ..    :numbered: 1
 
 Introduction
@@ -167,9 +167,9 @@ If you forget that command, it's in the short README.rst file in the playbook.
 
 .. note::
 
-The rationale for checking the Plone Ansible Playbook out inside the virtualenv directory is that it ties the two together.
-Months from now, you'll know that you can use the playbook with the Python and Ansible packages in the virtualenv directory.
-We check out the playbook as a subdirectory of the virtualenv directory so that we can search our playbooks and roles without having to search the whole virtualenv set of packages.
+    The rationale for checking the Plone Ansible Playbook out inside the virtualenv directory is that it ties the two together.
+    Months from now, you'll know that you can use the playbook with the Python and Ansible packages in the virtualenv directory.
+    We check out the playbook as a subdirectory of the virtualenv directory so that we can search our playbooks and roles without having to search the whole virtualenv set of packages.
 
 Ansible basics
 ^^^^^^^^^^^^^^
@@ -425,7 +425,7 @@ Jinja2 also supports limited Python expression syntax and can read object proper
 There are also various filters and tests available via a pipe notation.
 For example, we use the ``default`` filter to supply a default value if a variable is undefined.
 
-.. codeblock:: yaml
+.. code-block:: yaml
 
     - name: Set timezone variables
       tags: timezone
@@ -438,6 +438,8 @@ For example, we use the ``default`` filter to supply a default value if a variab
 
 Jinja2 also is used as a full templating language whenever we need to treat a text file as a template to fill in variable values or execute loops or branching logic.
 Here's an example from the template used to construct a buildout.cfg::
+
+.. code-block:: cfg
 
     zcml =
     {% if instance_config.plone_zcml_slugs %}
@@ -455,7 +457,7 @@ A playbook is a sequence of such dictionaries.
 
 A simple playbook:
 
-.. codeblock:: yaml
+.. code-block:: yaml
 
     - hosts: all
       vars:
@@ -473,7 +475,7 @@ Notifications and handlers
 
 We may also specify "handlers" that are run if needed.
 
-.. codeblock:: yaml
+.. code-block:: yaml
 
     - hosts: all
       vars:
@@ -597,7 +599,7 @@ Local configuration file
 For a quick start, copy one of the ``sample-*.yml`` files to ``local-configure.yml``.
 The ``local-configure.yml`` file is automatically included in the main playbook if it's found.
 
-.. codeblock:: bash
+.. code-block:: bash
 
     cp sample-small.yml local-configure.yml
 
