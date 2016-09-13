@@ -526,6 +526,13 @@ An simple Ansible playbook using roles:
 
 If we want to pass variables to roles, we just add their keys and values to the mapping.
 
+Take a look at the ``when: install_loadbalancer|default(True)`` line above.
+A ``when`` key in a role or task mapping sets a condition for execution.
+For conditionals like ``when``, Ansible expects a Jinja2 expression.
+
+We could also have expressed that ``when`` condition as ``"{{ install_loadbalancer|default(True) }}"``.
+Ansible interprets all literal strings as little Jinja2 templates.
+
 The Plone Playbook
 ------------------
 
