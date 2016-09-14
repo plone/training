@@ -40,6 +40,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Editing while reading. Edited Rapido chapter for language and formatting. [jean]
 
+- Rearrange structure to put all TTW chapters together.
+  [ebrehault]
+
 1.2.4 (2014-10-03)
 ------------------
 
