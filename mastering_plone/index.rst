@@ -32,11 +32,9 @@ Contents:
     case
     features
     plone5
-    configuring_customizing
     theming
     extending
     add-ons
-    dexterity
     buildout_1
     eggs1
     export_code

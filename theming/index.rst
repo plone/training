@@ -11,9 +11,6 @@ Mastering Plone Theming
    :maxdepth: 3
    :numbered: 1
 
-   basic
-   ttw-advanced
-   ttw-advanced_2
    static-theme
    theme-package
    creating-customizing-templates
