@@ -247,7 +247,7 @@ Now the only thing that is missing is the behavior, which we must put into :file
 
         So one solution is to change the special attribute :samp:`_p_changed` to :samp:`True` on the persistent object, or to use a PersistentDict. That is what we are doing here.
 
-        You can find more information in the documentation of the ZODB, in particular `Rules for Persistent Classes <http://www.zodb.org/en/latest/documentation/guide/prog-zodb.html#rules-for-writing-persistent-classes>`_
+        You can find more information in the documentation of the ZODB, in particular `Rules for Persistent Classes <http://www.zodb.org/en/latest/guide/writing-persistent-objects.html>`_
 
 
     Next we provide the internal fields via properties. Using this form of property makes them read only properties, as we did not define write handlers. We don't need them so we won't add them.
