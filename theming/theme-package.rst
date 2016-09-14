@@ -134,23 +134,6 @@ This will create the whole development environment for your package:
    pilconvert.py                     test
 
 
-Start your Plone instance and play with your theme product
-----------------------------------------------------------
-
-To start the Plone instance, run:
-
-.. code-block:: bash
-
-   $ ./bin/instance fg
-
-The Plone instance will then run on http://localhost:8080.
-Add a Plone site ``Plone``.
-Then activate/install your theme product on http://localhost:8080/Plone/prefs_install_products_form.
-The theme will be automatically enabled.
-If something is wrong with the theme,
-you can always go to http://localhost:8080/Plone/@@theming-controlpanel and disable it.
-This control panel will never be themed, so it works even if the theme might be broken.
-
 Inspect your package source
 ---------------------------
 
@@ -213,6 +196,24 @@ As you see, the package already contains a Diazo theme:
 Here you can build your Diazo theme.
 
 
+Start your Plone instance and play with your theme product
+----------------------------------------------------------
+
+To start the Plone instance, run:
+
+.. code-block:: bash
+
+   $ ./bin/instance fg
+
+The Plone instance will then run on http://localhost:8080. The default username and password is ``admin / admin``.
+Add a Plone site ``Plone``.
+Then activate/install your theme product on http://localhost:8080/Plone/prefs_install_products_form.
+The theme will be automatically enabled.
+If something is wrong with the theme,
+you can always go to http://localhost:8080/Plone/@@theming-controlpanel and disable it.
+This control panel will never be themed, so it works even if the theme might be broken.
+
+
 Build your Diazo-based theme
 ============================
 
@@ -232,11 +233,11 @@ theme if you want.
 
 
 Download and prepare a static theme
-+++++++++++++++++++++++++++++++++++
+-----------------------------------
 
 Let's start with an untouched static theme, such as this bootstrap theme:
 http://startbootstrap.com/template-overviews/business-casual/.
-Just download it and extract it into the theme folder:
+Just download it and extract it into the theme folder. Replace the ``index.html`` with the one in the downloaded theme:
 
 .. code-block:: bash
 
@@ -250,7 +251,7 @@ Just download it and extract it into the theme folder:
    │   ├── bootstrap.min.css
    │   ├── bundle.less
    │   ├── business-casual.css
-   │   └── main.less
+   │   └── tango.less
    ├── fonts
    │   ├── glyphicons-halflings-regular.eot
    │   ├── glyphicons-halflings-regular.svg
@@ -277,9 +278,9 @@ Just download it and extract it into the theme folder:
 
 
 Preparing the template
-**********************
+++++++++++++++++++++++
 
-To make the given template more useful, we customize it a little bit.
+To make the given ``index.html`` more useful, we customize it a little bit.
 Right before the second box which contains:
 
 .. code-block:: html
@@ -352,7 +353,7 @@ It should look like this:
 
 
 Using Diazo rules to map the theme with Plone content
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 
 Now that we have the static theme,
 we need to apply the Diazo rules in ``rules.xml`` to map the Plone content
@@ -429,7 +430,7 @@ As a starting point we use this rules set:
 
      <!-- replace theme navbar-nav with Plone plone-navbar-nav -->
      <replace
-       css:theme-children=".plone-navbar-nav"
+       css:theme-children=".navbar-nav"
        css:content-children=".plone-navbar-nav" />
 
      <!-- full-width breadcrumb -->
@@ -497,12 +498,15 @@ As a starting point we use this rules set:
        </replace>
      </rules>
 
-     <replace css:theme-children="#portal-footer" css:content-children="#portal-footer-wrapper" />
+     <!-- footer -->
+     <replace
+       css:theme-children="footer .container"
+       css:content-children="#portal-footer-wrapper" />
    </rules>
 
 
 Login link & co
-***************
++++++++++++++++
 
 Add the login link:
 
@@ -521,7 +525,7 @@ bottom of the page. You can change that to place it where you want.
 
 
 Top-navigation
-**************
+++++++++++++++
 
 Replace the placeholder with the real Plone top-navigation links:
 
@@ -537,11 +541,11 @@ the theme with it.
 
 
 Breadcrumb & co
-***************
++++++++++++++++
 
 Plone provides some viewlets like the breadcrumbs (the current path) above the content area.
-To get this into the theme layout, we add a placeholder with the CSS id ``#above-content`` to the theme.
-This is the place where we want to insert Plones "above-content" stuff.
+To get this into the theme layout, we add a placeholder with the CSS id ``#above-content`` to the theme's ``index.html``.
+This is the place where we want to insert Plone's "above-content" stuff
 For example at the top of the ``div.container`` after:
 
 .. code-block:: html
@@ -604,7 +608,7 @@ Or for anonymous users only:
    The classes like *userrole-anonymous* are provided by Plone in the ``body`` tag.
 
 Slider only on Front-page
-*************************
++++++++++++++++++++++++++
 
 We want the slider in the template only on the front page, and we don't want it
 when we are editing the front page. To make this easier, we wrap the slider
@@ -673,7 +677,7 @@ At the moment the slider is still static, but we will change that later.
 
 
 Status messages
-***************
++++++++++++++++
 
 Plone will render status messages in the ``#global_statusmessage`` element.
 We want to bring these messages across to the theme.
@@ -699,7 +703,7 @@ and use this rule to bring the messages across:
 To test that, just edit the front page. You should see a confirmation-message from Plone.
 
 Main content area
-*****************
++++++++++++++++++
 
 To get the Plone content area in a flexible way which also provides the right
 bootstrap grid classes, we use an inline XSL snippet like this:
@@ -740,7 +744,7 @@ This will add the right grid-classes to the content columns depending on one-col
 
 
 Left and right columns
-**********************
+++++++++++++++++++++++
 
 We have already added the ``column1-container`` and ``column2-container`` ids  to our template.
 The following rules will incorporate the left and the right columns from Plone
@@ -773,7 +777,7 @@ normal ``div``. That is the reason to use inline XSL here:
 
 
 Footer
-******
+++++++
 
 Bring across the footer from Plone:
 
@@ -785,28 +789,221 @@ Bring across the footer from Plone:
      css:content-children="#portal-footer-wrapper" />
 
 
-CSS and JS resources
-++++++++++++++++++++
+CSS resources
+-------------
 
-First let's make sure that we have loaded the ``registerless`` profile of
-Barceloneta.
-To do that, we change our ``metadata.xml`` as follows:
+We could start right now adding our own stylesheets, let's first get some existing styles from the default theme Barceloneta.
 
-.. code:: xml
+To reuse some of the Barceloneta styles, we checkout the Barceloneta sources next to our theme directory.
 
-   <?xml version="1.0"?>
-   <metadata>
-     <version>1000</version>
-     <dependencies>
-       <dependency>profile-plone.app.theming:default</dependency>
-       <dependency>profile-plonetheme.barceloneta:registerless</dependency>
-     </dependencies>
-   </metadata>
+.. code-block:: bash
 
-This will register all LESS files of the Barceloneta theme in Plone's resource
-registry, so that we can use them in our custom LESS files.
+   $ git clone --depth=1 https://github.com/plone/plonetheme.barceloneta.git barceloneta
 
-Now let's add the two LESS files ``main.less`` and ``custom.less`` to our CSS
+Now we have the Barceloneta resources next to our theme directory and can import them in our LESS-files.
+
+.. code-block:: bash
+
+   $ tree -L 2 barceloneta/plonetheme/barceloneta/theme/less/
+   barceloneta/plonetheme/barceloneta/theme/less/
+   ├── accessibility.plone.less
+   ├── alerts.plone.less
+   ├── barceloneta-compiled.css
+   ├── barceloneta-compiled.css.map
+   ├── barceloneta.css.original-reference
+   ├── barceloneta.plone.export.less
+   ├── barceloneta.plone.less
+   ├── barceloneta.plone.local.less
+   ├── behaviors.plone.less
+   ├── breadcrumbs.plone.less
+   ├── buttons.plone.less
+   ├── code.plone.less
+   ├── contents.plone.less
+   ├── controlpanels.plone.less
+   ├── deco.plone.less
+   ├── discussion.plone.less
+   ├── dropzone.plone.less
+   ├── event.plone.less
+   ├── fonts.plone.less
+   ├── footer.plone.less
+   ├── forms.plone.less
+   ├── formtabbing.plone.less
+   ├── grid.plone.less
+   ├── header.plone.less
+   ├── image.plone.less
+   ├── loginform.plone.less
+   ├── main.plone.less
+   ├── mixin.borderradius.plone.less
+   ├── mixin.buttons.plone.less
+   ├── mixin.clearfix.plone.less
+   ├── mixin.font.plone.less
+   ├── mixin.forms.plone.less
+   ├── mixin.gridframework.plone.less
+   ├── mixin.grid.plone.less
+   ├── mixin.images.plone.less
+   ├── mixin.prefixes.plone.less
+   ├── mixin.tabfocus.plone.less
+   ├── modal.plone.less
+   ├── normalize.plone.less
+   ├── pagination.plone.less
+   ├── pickadate.plone.less
+   ├── plone-toolbarlogo.svg
+   ├── portlets.plone.less
+   ├── print.plone.less
+   ├── roboto
+   │   ├── Apache License.txt
+   │   ├── generator_config.txt
+   │   ├── README.rst
+   │   ├── roboto-black.eot
+   │   ├── roboto-blackitalic.eot
+   │   ├── roboto-blackitalic.svg
+   │   ├── roboto-blackitalic.ttf
+   │   ├── roboto-blackitalic.woff
+   │   ├── roboto-blackitalic.woff2
+   │   ├── roboto-black.svg
+   │   ├── roboto-black.ttf
+   │   ├── roboto-black.woff
+   │   ├── roboto-black.woff2
+   │   ├── roboto-bold.eot
+   │   ├── roboto-bolditalic.eot
+   │   ├── roboto-bolditalic.svg
+   │   ├── roboto-bolditalic.ttf
+   │   ├── roboto-bolditalic.woff
+   │   ├── roboto-bolditalic.woff2
+   │   ├── roboto-bold.svg
+   │   ├── roboto-bold.ttf
+   │   ├── roboto-bold.woff
+   │   ├── roboto-bold.woff2
+   │   ├── robotocondensed-bold.eot
+   │   ├── robotocondensed-bolditalic.eot
+   │   ├── robotocondensed-bolditalic.svg
+   │   ├── robotocondensed-bolditalic.ttf
+   │   ├── robotocondensed-bolditalic.woff
+   │   ├── robotocondensed-bolditalic.woff2
+   │   ├── robotocondensed-bold.svg
+   │   ├── robotocondensed-bold.ttf
+   │   ├── robotocondensed-bold.woff
+   │   ├── robotocondensed-bold.woff2
+   │   ├── robotocondensed-italic.eot
+   │   ├── robotocondensed-italic.svg
+   │   ├── robotocondensed-italic.ttf
+   │   ├── robotocondensed-italic.woff
+   │   ├── robotocondensed-italic.woff2
+   │   ├── robotocondensed-light.eot
+   │   ├── robotocondensed-lightitalic.eot
+   │   ├── robotocondensed-lightitalic.svg
+   │   ├── robotocondensed-lightitalic.ttf
+   │   ├── robotocondensed-lightitalic.woff
+   │   ├── robotocondensed-lightitalic.woff2
+   │   ├── robotocondensed-light.svg
+   │   ├── robotocondensed-light.ttf
+   │   ├── robotocondensed-light.woff
+   │   ├── robotocondensed-light.woff2
+   │   ├── robotocondensed-regular.eot
+   │   ├── robotocondensed-regular.svg
+   │   ├── robotocondensed-regular.ttf
+   │   ├── robotocondensed-regular.woff
+   │   ├── robotocondensed-regular.woff2
+   │   ├── roboto-italic.eot
+   │   ├── roboto-italic.svg
+   │   ├── roboto-italic.ttf
+   │   ├── roboto-italic.woff
+   │   ├── roboto-italic.woff2
+   │   ├── roboto-light.eot
+   │   ├── roboto-lightitalic.eot
+   │   ├── roboto-lightitalic.svg
+   │   ├── roboto-lightitalic.ttf
+   │   ├── roboto-lightitalic.woff
+   │   ├── roboto-lightitalic.woff2
+   │   ├── roboto-light.svg
+   │   ├── roboto-light.ttf
+   │   ├── roboto-light.woff
+   │   ├── roboto-light.woff2
+   │   ├── roboto-medium.eot
+   │   ├── roboto-mediumitalic.eot
+   │   ├── roboto-mediumitalic.svg
+   │   ├── roboto-mediumitalic.ttf
+   │   ├── roboto-mediumitalic.woff
+   │   ├── roboto-mediumitalic.woff2
+   │   ├── roboto-medium.svg
+   │   ├── roboto-medium.ttf
+   │   ├── roboto-medium.woff
+   │   ├── roboto-medium.woff2
+   │   ├── roboto-regular.eot
+   │   ├── roboto-regular.svg
+   │   ├── roboto-regular.ttf
+   │   ├── roboto-regular.woff
+   │   ├── roboto-regular.woff2
+   │   ├── roboto-thin.eot
+   │   ├── roboto-thinitalic.eot
+   │   ├── roboto-thinitalic.svg
+   │   ├── roboto-thinitalic.ttf
+   │   ├── roboto-thinitalic.woff
+   │   ├── roboto-thinitalic.woff2
+   │   ├── roboto-thin.svg
+   │   ├── roboto-thin.ttf
+   │   ├── roboto-thin.woff
+   │   └── roboto-thin.woff2
+   ├── scaffolding.plone.less
+   ├── search.plone.less
+   ├── sitemap.plone.less
+   ├── sitenav.plone.less
+   ├── sortable.plone.less
+   ├── states.plone.less
+   ├── tablesorter.plone.less
+   ├── tables.plone.less
+   ├── tags.plone.less
+   ├── thumbs.plone.less
+   ├── toc.plone.less
+   ├── tooltip.plone.less
+   ├── tree.plone.less
+   ├── type.plone.less
+   ├── variables.plone.less
+   └── views.plone.less
+
+   1 directory, 153 files
+
+
+Install a build system for our resources
++++++++++++++++++++++++++++++++++++++++
+
+You can use just plain CSS files for your theme, but we highly recommend to use LESS to make your stylesheet more modular and more flexible. It also makes it more flexible to reuse parts of the Plone default theme ``Barceloneta``.
+
+Some IDEs have support for LESS, but we will use a build system here to compile LESS into CSS. This compiles all LESS files into CSS, any time a LESS files has changed.
+
+We will use Grunt here, because it's also used by the Barceloneta theme, but you can use any other build system like Gulp, Browserify or Webpack.
+
+First we need ``grunt`` installed on our system.
+
+.. code-block:: bash
+
+   sudo npm install -g grunt-cli
+   sudo npm install -g grunt
+
+We install it globally because, we will use it in many projects.
+
+Now we also install ``grunt-browser-sync`` but inside of our package directory and with out the ``-g`` option.
+So that we install it locally in our project.
+
+..code-block:: bash
+
+   npm install grunt-browser-sync --save-dev
+
+For the usage of build systems like ``Grunt`` and ``Gulp``, we need to set some
+variables, which usually come from Plone when one compiles the resources TTW, directly in the Theming Editor for example.
+
+We need a less file from ``Products.CMFPlone``, where the toolbar and some central settings are defined.
+
+We can use them directly from github, but i would recommend to download
+them, so that our build system works without internet connection.
+
+.. code-block:: bash
+
+   $ wget https://raw.githubusercontent.com/plone/Products.CMFPlone/master/Products/CMFPlone/static/patterns/toolbar/src/css/variables.less -O plone.base.vars.less
+
+This downloads the variables.less from CMFPlone into plone.base.vars.less file, which we can import later.
+
+Now let's add the two LESS files ``tango.less`` and ``custom.less`` to our CSS
 folder:
 
 .. code-block:: bash
@@ -816,92 +1013,17 @@ folder:
    ├── bootstrap.css
    ├── bootstrap.min.css
    ├── business-casual.css
+   ├── plone.base.vars.less
    ├── custom.less
-   └── main.less
+   └── tango.less
 
-The ``main.less`` file can look like this:
+The ``tango.less`` file can look like this:
 
 .. code-block:: sass
 
    /* bundle less file that will be compiled into tango-compiled.css */
 
-   // ### PLONE IMPORTS ###
-
-   //*// Font families
-   //@import "@{barceloneta-fonts}";
-
-   //*// Core variables and mixins
-   @import "@{barceloneta-variables}";
-       @import "@{barceloneta-mixin-prefixes}";
-       @import "@{barceloneta-mixin-tabfocus}";
-       @import "@{barceloneta-mixin-images}";
-       @import "@{barceloneta-mixin-forms}";
-       @import "@{barceloneta-mixin-borderradius}";
-       @import "@{barceloneta-mixin-buttons}";
-       @import "@{barceloneta-mixin-clearfix}";
-   //  @import "@{barceloneta-mixin-gridframework}";
-   //  @import "@{barceloneta-mixin-grid}";
-
-
-   //*// Reset and dependencies
-   @import "@{barceloneta-normalize}";
-   @import "@{barceloneta-print}";
-
-   //*// Core CSS
-   @import "@{barceloneta-scaffolding}";
-   @import "@{barceloneta-type}";
-   @import "@{barceloneta-code}";
-   //@import "@{barceloneta-deco}"; //uncomment for deco variant
-   //@import "@{barceloneta-grid}";
-   @import "@{barceloneta-tables}";
-   @import "@{barceloneta-forms}";
-   @import "@{barceloneta-buttons}";
-   @import "@{barceloneta-states}";
-
-   //*// Components
-   @import "@{barceloneta-breadcrumbs}";
-   @import "@{barceloneta-pagination}";
-   @import "@{barceloneta-formtabbing}";
-   @import "@{barceloneta-views}";
-   @import "@{barceloneta-thumbs}";
-   @import "@{barceloneta-alerts}";
-   @import "@{barceloneta-portlets}";
-   @import "@{barceloneta-controlpanels}";
-   @import "@{barceloneta-tags}";
-   @import "@{barceloneta-contents}";
-
-   //*// Patterns
-   @import "@{barceloneta-accessibility}";
-   @import "@{barceloneta-toc}";
-   @import "@{barceloneta-dropzone}";
-   @import "@{barceloneta-modal}";
-   @import "@{barceloneta-pickadate}";
-   @import "@{barceloneta-sortable}";
-   @import "@{barceloneta-tablesorter}";
-   @import "@{barceloneta-tooltip}";
-   @import "@{barceloneta-tree}";
-
-   //*// Structure
-   @import "@{barceloneta-header}";
-   @import "@{barceloneta-sitenav}";
-   @import "@{barceloneta-main}";
-   //@import "@{barceloneta-footer}";
-   @import "@{barceloneta-loginform}";
-   @import "@{barceloneta-sitemap}";
-
-   //*// Products
-   @import "@{barceloneta-event}";
-   @import "@{barceloneta-image}";
-   @import "@{barceloneta-behaviors}";
-   @import "@{barceloneta-discussion}";
-   @import "@{barceloneta-search}";
-
-   //*// Products
-   @import "@{barceloneta-event}";
-   @import "@{barceloneta-image}";
-   @import "@{barceloneta-behaviors}";
-   @import "@{barceloneta-discussion}";
-   @import "@{barceloneta-search}";
+   @barceloneta_path: "../../barceloneta/plonetheme/barceloneta/theme/less";
 
    // ### END OF PLONE IMPORTS ###
 
@@ -927,47 +1049,158 @@ The ``custom.less`` will contain our custom styles and can look like this:
      color: green;
    }
 
-Before we register our bundle, let's also add a JavaScript file with the
-following content as ``js/bundle.js``:
 
-.. code-block:: js
+Lets's also add a folder into our less directory, where we can put customized less files from Plone in.
 
-   /* This is a bundle that uses RequireJS to pull in dependencies.
-      These dependencies are defined in the registry.xml file */
+.. code-block:: bash
+
+   $ mkdir plone_customized
 
 
-   /* do not include jquery multiple times */
-   if (window.jQuery) {
-     define('jquery', [], function() {
-       return window.jQuery;
-     });
-   }
+Creating a Gruntfile for Grunt
+++++++++++++++++++++++++++++++
 
-   require([
-     'jquery',
-   ], function($, dep1, logger){
-     'use strict';
+We now add a ``Gruntfile.js`` to the top level directory of our theme package:
 
-     // initialize only if we are in top frame
-     if (window.parent === window) {
-       $(document).ready(function() {
-         $('body').addClass('tango-main');
+.. code-block:: bash
+
+   module.exports = function (grunt) {
+       'use strict';
+       grunt.initConfig({
+           pkg: grunt.file.readJSON('package.json'),
+           // we could just concatenate everything, really
+           // but we like to have it the complex way.
+           // also, in this way we do not have to worry
+           // about putting files in the correct order
+           // (the dependency tree is walked by r.js)
+           less: {
+               dist: {
+                   options: {
+                       paths: [],
+                       strictMath: false,
+                       sourceMap: true,
+                       outputSourceFiles: true,
+                       sourceMapURL: '++theme++tango/less/tango-compiled.css.map',
+                       sourceMapFilename: 'plonetheme/tango/theme/less/tango-compiled.css.map',
+                       modifyVars: {
+                           "isPlone": "false"
+                       }
+                   },
+                   files: {
+                       'plonetheme/tango/theme/less/tango-compiled.css': 'plonetheme/tango/theme/less/tango.local.less',
+                   }
+               }
+           },
+
+           watch: {
+               scripts: {
+                   files: [
+                       'plonetheme/tango/theme/less/*.less',
+                       'plonetheme/tango/theme/less/plone_customized/*.less'
+                   ],
+                   tasks: ['less']
+               }
+           },
+           browserSync: {
+               html: {
+                   bsFiles: {
+                       src : [
+                         'plonetheme/tango/theme/less/*.less',
+                         'plonetheme/tango/theme/less/plone_customized/*.less'
+                       ]
+                   },
+                   options: {
+                       watchTask: true,
+                       debugInfo: true,
+                       online: true,
+                       server: {
+                           baseDir: "."
+                       },
+                   }
+               },
+               plone: {
+                   bsFiles: {
+                       src : [
+                         'plonetheme/tango/theme/less/*.less',
+                         'plonetheme/tango/theme/less/plone_customized/*.less'
+                       ]
+                   },
+                   options: {
+                       watchTask: true,
+                       debugInfo: true,
+                       proxy: "plone.lan",
+                       reloadDelay: 3000,
+                       // reloadDebounce: 2000,
+                       online: true
+                   }
+               }
+           }
        });
-     }
 
-   });
+       // grunt.loadTasks('tasks');
+       grunt.loadNpmTasks('grunt-browser-sync');
+       grunt.loadNpmTasks('grunt-contrib-watch');
+       grunt.loadNpmTasks('grunt-contrib-less');
+       grunt.registerTask('default', ['watch']);
+       grunt.registerTask('bsync', ["browserSync:html", "watch"]);
+       grunt.registerTask('plone-bsync', ["browserSync:plone", "watch"]);
+   };
+
+At the end, we can see some registered Grunt tasks.
+We can use this task to control what happen when we run Grunt.
+By default Grunt will just watch for changes of our LESS files and when something has changed, it recompiles all LESS files to CSS.
+
+.. code-block:: bash
+
+   $ grunt
+   Running "watch" task
+   Waiting...
+
+If some LESS file has changed, you will see something like this:
+
+.. code-block:: bash
+
+   $ grunt
+   Running "watch" task
+   Waiting...
+   >> File "src/plonetheme/tango/theme/css/tango.less" changed.
+   Running "less:dist" (less) task
+   >> 1 stylesheet created.
+   >> 1 sourcemap created.
+
+   Done, without errors.
+
+.. code-block:: bash
+
+  They are also other useful task like ``plone-bsync``, which we can use to also update the Browser after changes.
 
 
-We now have to register our resources in a bundle. We could use the new
-resource registry directly, but to make this training much simpler and
-easier to understand, we'll prefer to use the new options in ``manifest.cfg``.
-Those allow us to register our CSS and JS in a pre-built implicit ``diazo``
-bundle that is only delivered when Diazo transformations are enabled (which
-is default) in ``@@theming-controlpanel``.
+.. code-block:: bash
 
-So we extend our theme's ``manifest.cfg`` to declare ``development-css``,
-``production-css`` and optionally ``tinymce-content-css``, like this:
+   $ grunt plone-bsync
+   Running "browserSync:plone" (browserSync) task
+   [BS] Proxying: http://localhost:8081
+   [BS] Access URLs:
+    --------------------------------------
+          Local: http://localhost:3000
+       External: http://192.168.2.149:3000
+    --------------------------------------
+             UI: http://localhost:3001
+    UI External: http://192.168.2.149:3001
+    --------------------------------------
+   [BS] Watching files...
 
+   Running "watch" task
+   Waiting...
+
+You will now see an open browser window, which is automatically reloaded any time a LESS file has changed and the CSS was recompiled.
+
+.. note::
+
+   You have to set up the proxy in the Gruntfile.js to the Plone backend address:port.
+
+
+Now we extend our theme's ``manifest.cfg`` to declare ``development-css``, ``production-css`` and optionally ``tinymce-content-css``, like this:
 
 .. code-block:: xml
 
@@ -980,9 +1213,9 @@ So we extend our theme's ``manifest.cfg`` to declare ``development-css``,
    enabled-bundles =
    disabled-bundles =
 
-   development-css = /++theme++plonetheme.tango/css/main.less
+   development-css = /++theme++plonetheme.tango/css/tango.less
    production-css = /++theme++plonetheme.tango/css/tango-compiled.css
-   tinymce-content-css = /++theme++plonetheme.tango/css/business-casual.css
+   tinymce-content-css = /++theme++plonetheme.tango/css/tango-compiled.css
 
    [theme:overrides]
    directory = template-overrides
@@ -992,194 +1225,10 @@ So we extend our theme's ``manifest.cfg`` to declare ``development-css``,
    portal_url = python: portal.absolute_url()
 
 
-The last of these tells Plone to load that particular CSS file wherever a
-TinyMCE rich text field is displayed. Good for specific overrides and stylings.
+The last of these ``tinymce-content-css`` tells Plone to load that particular CSS file wherever a TinyMCE rich text field is displayed.
 
 After adding the manifest changes, we need to deactivate/activate the theme
 for them to take effect. Just go to ``/@@theming-controlpanel`` and do it.
-
-
-Extend your buildout configuration
-++++++++++++++++++++++++++++++++++
-
-Add the following buildout parts, if they don't already exist:
-
-.. code-block:: ini
-
-   [zopepy]
-   recipe = zc.recipe.egg
-   eggs =
-       ${instance:eggs}
-       ${test:eggs}
-   interpreter = zopepy
-   scripts =
-       zopepy
-       plone-generate-gruntfile
-       plone-compile-resources
-
-   [omelette]
-   recipe = collective.recipe.omelette
-   eggs = ${instance:eggs}
-
-
-And add these parts to the list of parts:
-
-.. code-block:: ini
-
-   parts=
-       ...
-       zopepy
-       omelette
-
-Also add ``Products.CMFPlone`` to the eggs list in the ``instance`` part:
-
-.. code-block:: ini
-
-   [instance]
-   recipe = plone.recipe.zope2instance
-   user = admin:admin
-   http-address = 8080
-   eggs =
-       Plone
-       Pillow
-       Products.CMFPlone
-       plonetheme.tango [test]
-
-Now rerun buildout:
-
-.. code-block:: bash
-
-   $ ./bin/buildout
-
-This will generate some new scripts including ``plone-compile-resources`` and
-``plone-generate-gruntfile`` in the ``bin`` folder:
-
-.. code-block:: bash
-
-   $ ls bin/
-   buildout                            flake8
-   check-manifest                      fullrelease
-   code-analysis                       instance
-   code-analysis-check-manifest        lasttagdiff
-   code-analysis-clean-lines           lasttaglog
-   code-analysis-csslint               longtest
-   code-analysis-debug-statements      pilconvert.py
-   code-analysis-deprecated-aliases    pildriver.py
-   code-analysis-find-untranslated     pilfile.py
-   code-analysis-flake8                pilfont.py
-   code-analysis-hasattr               pilprint.py
-   code-analysis-imports               plone-compile-resources
-   code-analysis-jscs                  plone-generate-gruntfile
-   code-analysis-jshint                postrelease
-   code-analysis-pep3101               prerelease
-   code-analysis-prefer-single-quotes  release
-   code-analysis-utf8-header           test
-   code-analysis-zptlint               zopepy
-   develop
-
-You can use ``./bin/plone-compile-resources`` to build your resource bundle as
-detailed below, but you first have to start the instance and add a Plone site
-named ``Plone``, because the compilation process depends on the resource
-registries of the live site.
-
-We also need ``grunt`` installed on our system.
-
-.. code-block:: bash
-
-   sudo npm install -g grunt-cli
-   sudo npm install -g grunt
-
-If you get errors like this:
-
-.. code-block:: bash
-
-   ERR! Error: failed to fetch from registry: grunt
-
-then use this as a workaround and try again:
-
-.. code-block:: bash
-
-   npm config set registry http://registry.npmjs.org/
-
-.. note:: You have to rebuild the bundle whenever you make changes to your LESS/CSS files.
-
-To test changes in LESS files you can build/rebuild your bundle TTW in Plone's
-``resource registry`` control panel.
-Just go to ``@@resourceregistry-controlpanel`` and press *Build* for the tango-bundle.
-
-.. TODO:: show some screenshots here.
-
-Alternatively, you can use the ``plone-compile-resources`` script to rebuild the bundle.
-If you are running a ZEO cluster with multiple clients, you can run this script at any time.
-If not, you have to stop your instance first, because the script needs to write to the ZODB.
-
-.. code-block:: bash
-
-   $ ./bin/plone-compile-resources --bundle=tango-bundle
-
-This will start the Plone instance, read variables from the registry, and
-compile your bundle.
-
-If your Plone site is not named ``Plone``, you can provide the id using the
-``--site-id`` parameter.
-
-After you compiled your bundle with the ``plone-compile-resources`` once,
-you can use the generated ``Gruntfile.js`` and recompile your bundle as follows:
-
-.. code-block:: bash
-
-   $ grunt compile-tango-bundle
-
-The name of our bundle is ``tango-bundle``. You can find the name of the
-generated *Grunt task* to compile your bundle at the bottom of the
-``Gruntfile.js``.
-
-.. note::
-
-    This Grunt-only method is much faster than using the
-    ``plone-compile-resources`` script, but it cannot be used in all
-    circumstances.
-
-   Specifically, you can use this direct method until you change something in
-   the resources and bundle registration.  Then you have to use the
-   ``plone-compile-resources`` once again, before you can use the pure Grunt
-   method.
-
-
-.. Using parts of Bootstrap
-.. +++++++++++++++++++++++
-
-.. Since Plone already uses Bootstrap internally, we only need to load some parts of Bootstrap which does not come with Plone.
-.. To find out what parts of Bootstrap Plone uses already, you can look into ``Products/CMFPlone/profiles/dependencies/registry.xml`` or in the Resource Registry TTW.
-.. But I would recommend the ``registry.xml`` file because, it is easier to search in.
-.. So if you search for bootstrap in the ``registry.xml`` you will find out that Plone uses at least the follwing parts of Bootstrap already:
-
-.. LESS files
-.. **********
-
-.. * less/variables.less
-.. * less/mixins.less
-.. * less/utilities.less
-.. * less/forms.less
-.. * less/navs.less
-.. * less/navbar.less
-.. * less/progress-bars.less
-.. * less/modals.less
-.. * less/button-groups.less
-.. * less/buttons.less
-.. * less/close.less
-.. * less/dropdowns.less
-.. * less/glyphicons.less
-.. * less/badges.less
-
-.. Javascript files
-.. ****************
-
-.. * js/alert.js
-.. * js/dropdown.js
-.. * js/collapse.js
-.. * js/tooltip.js
-.. * js/transition.js
 
 
 Load LESS parts of Bootstrap
@@ -1187,42 +1236,29 @@ Load LESS parts of Bootstrap
 
 To load for example the carousel we first install the LESS version of Bootstrap
 into our theme.
-To do that, we use ``bower``, which you should have globally installed on your
+To do that, we use ``npm``, which you should already have globally installed on your
 system.
-First we initialize our theme package. To do that, we run the following command
-inside our theme folder:
 
 .. code-block:: bash
 
-   $ bower init
+   $ npm install bootstrap --save
 
-This command will ask you some questions, which are all irrelevant for our purposes.  So we can accept all the default answers, except perhaps marking the package as private, as a precaution.  After this we have a bower config file called
-``bower.json``.
-All the packages that we need for our theme should be mentioned in this
-``bower.json`` file.
-
-Now we install bootstrap, using bower:
-
-.. code-block:: bash
-
-   $ bower install bootstrap --save
-
-The ``--save`` option will add the package to ``bower.json`` for us.
+The ``--save`` option will add the package to ``package.json`` for us.
 Now, we can install all dependencies on any other system by running the
 following command from inside of our theme folder:
 
 .. code-block:: bash
 
-   $ bower install
+   $ npm install
 
-Now that we have installed bootstrap using bower, we have all bootstrap
-components available in the subfolder called ``bower_components``:
+Now that we have installed bootstrap using npm, we have all bootstrap
+components available in the subfolder called ``node_modules``:
 
 .. code-block:: bash
 
-   $ tree bower_components/bootstrap/
-   bower_components/bootstrap/
-   ├── bower.json
+   $ tree node_modules/bootstrap/
+   node_modules/bootstrap/
+   ├── CHANGELOG.md
    ├── dist
    │   ├── css
    │   │   ├── bootstrap.css
@@ -1342,28 +1378,27 @@ components available in the subfolder called ``bower_components``:
    │   ├── variables.less
    │   └── wells.less
    ├── LICENSE
-   ├── package.js
    ├── package.json
    └── README.md
 
 To include the needed "carousel" part and some other bootstrap components which
-our downloaded theme uses, we change the end of our ``main.less`` like this:
+our downloaded theme uses, we change the end of our ``tango.less`` like this:
 
 .. code-block:: css
 
    // ### UTILS ###
 
    // import bootstrap variables from Plone -->
-   @import "@{bootstrap-variables}";
+   @import "../node_modules/bootstrap/less/variables.less";
 
-   // import needed bootstrap less files from bower_components
-   @import "../bower_components/bootstrap/less/mixins.less";
-   @import "../bower_components/bootstrap/less/utilities.less";
+   // import needed bootstrap less files from node_modules
+   @import "../node_modules/bootstrap/less/mixins.less";
+   @import "../node_modules/bootstrap/less/utilities.less";
 
-   @import "../bower_components/bootstrap/less/forms.less";
-   @import "../bower_components/bootstrap/less/navs.less";
-   @import "../bower_components/bootstrap/less/navbar.less";
-   @import "../bower_components/bootstrap/less/carousel.less";
+   @import "../node_modules/bootstrap/less/forms.less";
+   @import "../node_modules/bootstrap/less/navs.less";
+   @import "../node_modules/bootstrap/less/navbar.less";
+   @import "../node_modules/bootstrap/less/carousel.less";
 
    // ### END OF UTILS ###
 
@@ -1383,7 +1418,7 @@ file:
 
 .. code:: css
 
-   /* Custom LESS file that is included from the main.less file */
+   /* Custom LESS file that is included from the tango.less file */
 
    .brand-name{
        margin-top: 0.5em;
