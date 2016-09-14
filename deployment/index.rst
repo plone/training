@@ -634,11 +634,60 @@ Note that the value for this variable must be quoted to make sure it's interpret
 Use with Vagrant
 ::::::::::::::::
 
+If you've installed Vagrant/Virtualbox, you're ready to test.
+Just open a command-line prompt, make sure your Ansible virtualenv is activated, and type:
+
+.. code-block:: bash
+
+    vagrant up
+
+.. note::
+
+    The first time you use a "box" it will be downloaded.
+    These are large downloads; expect it to take some time.
+
+.. note::
+
+    Instructor note:
+    Having several students simultaneously downloading a virtualbox over wifi or a slow connection is a nightmare.
+    Have a plan.
+
+Once you've run ``vagrant up``, running it again will not automatically provision the virtualbox.
+In this case, that means that Ansible is not run.
+So, if you change your Ansible configuration, you'll need to use:
+
+.. code-block:: bash
+
+    vagrant provision
+
+.. note::
+
+    When you run ``up`` or ``provision``, watch to make sure it completes successfully.
+    Note that failures for particular plays do not mean that Ansible provisioning failed.
+
+
+Vagrant ports
+.............
+
+The Vagrant setup (in ``Vagrantfile``) maps several ports on the guest machine (the virtualbox) to the host box.
+The general scheme is to forward a host port that is 1000 greater than the guest port.
+For example, the load-balancer monitor port on the guest server is ``1080``.
+On the host machine, that's mapped by ssh tunnel to 2080.
+So, we may see the haproxy monitor at ``http://localhost:2080/admin``.
+
+
+
+
 Run against cloud
 :::::::::::::::::
 
 Firewalling
 :::::::::::
+
+In operation
+^^^^^^^^^^^^
+
+ports, monitors, supervisor, restart script, log messages
 
 More customized use
 ^^^^^^^^^^^^^^^^^^^
