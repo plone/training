@@ -47,7 +47,7 @@ A couple of comparisons
 
     * Compared to **Dexterity**:
 
-        * Dexterity focuses on content types. 
+        * Dexterity focuses on content types.
           Content types can only use the Plone business logic,
           you cannot implement your own logic.
         * By contrast, using Rapido you can implement your own logic;
@@ -58,7 +58,7 @@ A couple of comparisons
 
         * Diazo manages the Plone theme,
         * Mosaic allows you to manage layouts by positioning tiles,
-        * Rapido does not do either theming or layouts, 
+        * Rapido does not do either theming or layouts,
           but a Rapido block can be called from a Diazo rule or displayed in a Mosaic tile.
 
     * Compared to conventional Plone development:
@@ -73,10 +73,9 @@ Installation
 
     We will use a `Heroku instance pre-configured with Plone <https://github.com/collective/training-sandbox>`_.
 
-    Once deployed, 
-    - Create a Plone site, 
-    - Go to: *Plone control panel* / *Add-ons*
-      ``http://localhost:8080/Plone/prefs_install_products_form``,
+    Once deployed,
+    - Create a Plone site,
+    - Go to: *Plone control panel* / *Add-ons* (http://localhost:8080/Plone/prefs_install_products_form),
     - Finally install Rapido.
 
 .. only:: not presentation
@@ -115,7 +114,7 @@ Principles
         Blocks display a chunk of HTML which can be inserted in your Plone pages.
 
     element
-        Elements are the dynamic components of your blocks. 
+        Elements are the dynamic components of your blocks.
         They can be input fields, buttons, or just computed HTML.
         They can also return JSON if you call them from a javascript app,
 
@@ -139,7 +138,7 @@ How to create a Rapido app
 
 
 .. only:: not presentation
-    
+
     A Rapido app is defined by a set of files in our Diazo theme.
 
     The files need to be in a specific location::
@@ -218,7 +217,7 @@ And now, we need to create a ``rate`` block.
     * Add a folder named ``blocks`` in ``rating``,
     * In ``blocks``, add a file named ``rate.html``,
     * In the file, put the following content:
-        
+
       .. code-block:: html
 
          <span>0 votes</span>
@@ -293,7 +292,7 @@ Insert the ``rate`` block content under the Plone page main heading.
 
       * the ``after`` rule targets the page heading
         (identified by the ``.documentFirstHeading`` selector),
-        but it only applies when we are viewing a talk 
+        but it only applies when we are viewing a talk
         (``.template-view.portaltype-talk``),
       * the ``include`` rule retrieves the Rapido block content.
 
@@ -677,7 +676,7 @@ we just use it to match a Diazo rule in charge of replacing the default content 
     <rules if-path="@@rapido/view/show-stats">
         <replace css:content="#content">
             <include css:content="form" href="/@@rapido/stats/block/stats" />
-        </replace>      
+        </replace>
     </rules>
 
 Now if we visit for instance::
@@ -714,7 +713,7 @@ Let's create a block to display the Talks Top 5:
         <rules if-path="@@rapido/view/talks-top-5">
             <replace css:content-children="#content">
                 <include css:content="form" href="/@@rapido/rating/block/top5" />
-            </replace>      
+            </replace>
         </rules>
 
     And then we declare a new action in our footer:
@@ -860,7 +859,7 @@ We want to be able to sort the records according to their votes:
 Create custom content-rules
 ---------------------------
 
-Plone content rules allow triggering a given action depending on an *event* 
+Plone content rules allow triggering a given action depending on an *event*
 (content modified, content created, etc.)
 and on a *list of criteria* (only for such content types, only in this folder, etc.).
 
@@ -915,7 +914,7 @@ We will need to:
     - add a condition on the content type to only target *Talks*,
     - add a Rapido action where the application is ``rating``,
       the block is ``contentrule`` and the method is ``reset``,
-    - activate the rule for the whole site. 
+    - activate the rule for the whole site.
 
 Other topics
 ------------
