@@ -437,9 +437,9 @@ For example, we use the ``default`` filter to supply a default value if a variab
             backup=yes
 
 Jinja2 also is used as a full templating language whenever we need to treat a text file as a template to fill in variable values or execute loops or branching logic.
-Here's an example from the template used to construct a buildout.cfg::
+Here's an example from the template used to construct a buildout.cfg:
 
-.. code-block:: cfg
+.. code-block:: ini
 
     zcml =
     {% if instance_config.plone_zcml_slugs %}
@@ -664,6 +664,15 @@ So, if you change your Ansible configuration, you'll need to use:
 
     When you run ``up`` or ``provision``, watch to make sure it completes successfully.
     Note that failures for particular plays do not mean that Ansible provisioning failed.
+    The playbook has some tests that fail if particular system features are unavailable.
+    Those test failures are ignored and the provisioning continues.
+    The provisioning has only failed if an error causes it to stop.
+
+An example of an ignored failure::
+
+    TASK [varnish : Using systemd?] ************************************************
+    fatal: [trusty]: FAILED! => {"changed": true, "cmd": "which systemctl && systemctl is-enabled varnish.service", "delta": "0:00:00.002085", "end": "2016-09-14 17:50:06.385887", "failed": true, "rc": 1, "start": "2016-09-14 17:50:06.383802", "stderr": "", "stdout": "", "stdout_lines": [], "warnings": []}
+    ...ignoring
 
 
 Vagrant ports
@@ -675,14 +684,38 @@ For example, the load-balancer monitor port on the guest server is ``1080``.
 On the host machine, that's mapped by ssh tunnel to 2080.
 So, we may see the haproxy monitor at ``http://localhost:2080/admin``.
 
+The guest's http port (80) is reached via the host machine's port 1080 --
+but that isn't actually very useful due to URL rewriting for virtual hosting.
+If you take a look at ``http://localhost:1080`` from your host machine, you'll see the default Plone site, but stylesheets, javascript and images will all be missing.
+Instead, look at the load-balancer port (8080 on the guest, 9080 on the host) to see your ZODB root.
 
+Some quick Vagrant
+..................
 
+..code-block:: bash
+
+    vagrant up                 # bring up the virtualbox
+    vagrant provision          # provision the virtualbox
+    vagrant up --no-provision  # bring the box up without provisioning
+    vagrant halt               # stop and save the state of the virtualbox
+    vagrant destroy            # stop and destroy the box
+    vagrant ssh                # ssh to the guest box
+
+To each of the these commands, you may add an id to pick one of the boxes defined in Vagrantfile.
+Read Vagrantfile for the ids.
+For example, ``centos7`` is the id for a CentOS box.
+
+..code-block:: bash
+
+    vagrant up centos7
 
 Run against cloud
 :::::::::::::::::
 
 Firewalling
 :::::::::::
+
+ZODB root notes
 
 In operation
 ^^^^^^^^^^^^
