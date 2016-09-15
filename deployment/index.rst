@@ -229,7 +229,7 @@ It's meant for use with a Vagrant-style virtualbox.
 
 .. code-block:: ini
 
-    myhost ansible_ssh_port=2222 ansible_ssh_host=127.0.0.1 ansible_ssh_user=vagrant ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
+    myhost ansible_port=2222 ansible_host=127.0.0.1 ansible_user=vagrant ansible_private_key_file=~/.vagrant.d/insecure_private_key
 
 This inventory file is complicated by the fact that a virtualbox typically has no DNS host name and uses a non-standard port and a special SSH key file.
 So, we have to specify all those things.
@@ -241,59 +241,6 @@ If we were using a DNS-known hostname and our standard ssh key files, it could b
     direct.newhost.com ansible_ssh_user=root
 
 Ansible inventory files may list multiple hosts and may have aliases for groups of hosts. See docs.ansible.com for details.
-
-You may run Ansible against one, two, all of the hosts in the inventory file, or against alias groups like "plone-servers".
-
-Smoke test
-``````````
-
-Create or pick a remote machine to which you have adequate access.
-Create an inventory.cfg file and an entry for the new host.
-
-Now, let's see if we can use Ansible to connect to the remote machine that we've specified in our inventory.
-
-Does the new machine allow an ssh key login, then you ought to be able to use the command:
-
-.. code-block:: bash
-
-    ansible -i inventory.cfg myhost -a "whoami"
-
-If you need a password for login, try:
-
-.. code-block:: bash
-
-    ansible -i inventory.cfg myhost -a "whoami" -k
-
-And, if that fails, ask for verbose feedback from Ansible:
-
-.. code-block:: bash
-
-    ansible -i inventory.cfg myhost -a "whoami" -k -vvvv
-
-Now, let's test our ability to become superuser on the remote machine.
-If you have passwordless sudo, this should work:
-
-.. code-block:: bash
-
-    ansible -i inventory.cfg myhost -a "whoami" -k --become
-    # omit the "-k" if you need no login password.
-
-If sudo requires a password, try:
-
-.. code-block:: bash
-
-    ansible -i inventory.cfg myhost -a "whoami" -k --become -K
-    # again,  omit the "-k" if you need no login password.
-
-If all that works, congratulations, you're ready to use Ansible to provision the remote machine.
-
-.. note::
-
-    The "become" flag tells Ansible to carry out the action while becoming another user on the remote machine.
-    If no user is specified, we become the superuser.
-    If no method is specified, it's done via ``sudo``.
-
-    You won't often use the ``--become`` flag because the playbooks that need it specify it themselves.
 
 Playbooks
 ^^^^^^^^^
@@ -635,7 +582,9 @@ Use with Vagrant
 ::::::::::::::::
 
 If you've installed Vagrant/Virtualbox, you're ready to test.
-Just open a command-line prompt, make sure your Ansible virtualenv is activated, and type:
+Since Vagrant manages the connection, you don't need to create a inventory file entry.
+
+There is a Vagrant setup file, ``Vagrantfile``, included with the playbook, so you may just open a command-line prompt, make sure your Ansible virtualenv is activated, and type:
 
 .. code-block:: bash
 
@@ -676,7 +625,7 @@ An example of an ignored failure::
 
 
 Vagrant ports
-.............
+!!!!!!!!!!!!!
 
 The Vagrant setup (in ``Vagrantfile``) maps several ports on the guest machine (the virtualbox) to the host box.
 The general scheme is to forward a host port that is 1000 greater than the guest port.
@@ -690,7 +639,7 @@ If you take a look at ``http://localhost:1080`` from your host machine, you'll s
 Instead, look at the load-balancer port (8080 on the guest, 9080 on the host) to see your ZODB root.
 
 Some quick Vagrant
-..................
+!!!!!!!!!!!!!!!!!!
 
 ..code-block:: bash
 
@@ -712,15 +661,198 @@ For example, ``centos7`` is the id for a CentOS box.
 Run against cloud
 :::::::::::::::::
 
-Firewalling
-:::::::::::
+Let's provision a cloud server.
+Here are the facts we need to know about our cloud server:
 
-ZODB root notes
+hostname
+
+    A new server may or may not have a DNS host entry.
+    If it does, use that hostname.
+    If not, invent one and be prepared to supply an IP address.
+
+login id
+
+    The user id of a system account that is either the superuser (root) or is allowed to use ``sudo`` to issue arbitrary commands as the superuser.
+
+password
+
+    If your cloud-hosting company does not set up the user account for ssh-keypair authentication, you'll need a password.
+    Even if your account does allow passwordless login, it may still require a password to run ``sudo``.
+
+    If your cloud-hosting company sets up a root user and password, it's a good practice to login (or use Ansible) to create a new, unprivileged user with sudo rights.
+    Cautious sysadmins will also disable root login via ssh.
+
+connection details
+
+    If you don't have a DNS host record for your server, you'll need to have its IP address.
+    If ssh is switched to an alternate port, you'll need that port number.
+
+With that information, create an inventory file (if none exists) and create a host entry in it.
+We use ``inventory.cfg`` for an inventory file.
+A typical inventory file::
+
+    www.mydomain.co.uk ansible_host=192.168.1.1 ansible_user=steve
+
+You may leave off the ``ansible_host`` if the name supplied matches the DNS host record.
+You may leave off the ``ansible_user`` if your user id is the same on the server.
+
+An inventory file may have many entries.
+You may run Ansible against one, two, all of the hosts in the inventory file, or against alias groups like "plone-servers".
+See `Ansible's inventory documentation <http://docs.ansible.com/ansible/intro_inventory.html>`_ for information on grouping host entries and for more specialized host settings.
+
+Now, let's make things easier for us going forward by creating an ``ansible.cfg`` file in our playbook directory.
+In that text file, specify the location of your inventory file:
+
+..code-block::
+
+    [defaults]
+    inventory = ./inventory.cfg
+    roles_path = ./roles
+
+Smoke test
+``````````
+
+Now, let's see if we can use Ansible to connect to the remote machine that we've specified in our inventory.
+
+Does the new machine allow an ssh key login, then you ought to be able to use the command:
+
+.. code-block:: bash
+
+    ansible www.mydomain.co.uk -a "whoami"
+
+If you need a password for login, try:
+
+.. code-block:: bash
+
+    ansible www.mydomain.co.uk -a "whoami" -k
+
+And, if that fails, ask for verbose feedback from Ansible:
+
+.. code-block:: bash
+
+    ansible www.mydomain.co.uk -a "whoami" -k -vvvv
+
+Now, let's test our ability to become superuser on the remote machine.
+If you have passwordless sudo, this should work:
+
+.. code-block:: bash
+
+    ansible www.mydomain.co.uk -a "whoami" -k --become
+    # omit the "-k" if you need no login password.
+
+If sudo requires a password, try:
+
+.. code-block:: bash
+
+    ansible www.mydomain.co.uk -a "whoami" -k --become -K
+    # again,  omit the "-k" if you need no login password.
+
+If all that works, congratulations, you're ready to use Ansible to provision the remote machine.
+
+.. note::
+
+    The "become" flag tells Ansible to carry out the action while becoming another user on the remote machine.
+    If no user is specified, we become the superuser.
+    If no method is specified, it's done via ``sudo``.
+
+    You won't often use the ``--become`` flag because the playbooks that need it specify it themselves.
+
+Daignosing ssh connection failures
+``````````````````````````````````
+
+If Ansible has trouble connecting to the remote host, you're going to get a message like:
+
+.. code-block:: ruby
+
+    myhost | UNREACHABLE! => {
+        "changed": false,
+        "msg": "Failed to connect to the host via ssh.",
+        "unreachable": true
+    }
+
+If this happens to you, try adding ``-vvv`` to the ``ansible`` or ``ansible-playbook`` command line.
+The extra information may -- or may not -- be useful.
+
+The real test is to use a direct ssh login in order to get the ssh error.
+There's a pretty good chance that the identity of the remote host will have changed, and ssh will give you a command line to clean it up.
+
+Running the playbook
+````````````````````
+
+We're ready to run the playbook.
+Make sure you're logged to your ansible-playbook directory and that you've activated the Python virtualenv that includes Ansible.
+
+If you're targetting all the hosts in your inventory, running the playbook may be as easy as:
+
+.. code-block:: bash
+
+    ansible-playbook playbook.yml
+
+If you need a password for ssh login, add ``-k``.
+
+If you need a password for sudo, add ``-K``.
+
+If you need a password for both, add "-k -K".
+
+If you want to target a particular host in your inventory, add ``--limit=hostname``. Note that the ``--limit`` parameter is a search term; all hostnames matching the parameter will run.
+
+.. note::
+
+    As with Vagrant, check the last message to make sure it completes successfully.
+    When first provisioning a server, timeout errors are more likely.
+    If you have a timeout, just run the playbook again.
+    Note that failures for particular plays do not mean that Ansible provisioning failed.
 
 In operation
 ^^^^^^^^^^^^
 
+.. code-block::
+
+    This server is configured via Ansible.
+    Do not change configuration settings directly.
+
+    Admin email: steve@dcn.org
+    Custom Services/Ports
+    zeoserver: /usr/local/plone-5.0/zeoserver
+        /Plone: myhost [u'default']
+        zeo server: 127.0.0.1:8100
+        haproxy front end: 8080
+        zeo clients: 127.0.0.1:8081 127.0.0.1:8082
+    haproxy monitor: 127.0.0.1:1080
+    varnish: 127.0.0.1:6081
+    varnish admin: 127.0.0.1:6082
+    postfix: 25 (host-only)
+    nginx:
+    - myhost: *:80
+
+ZODB root notes
+
+.. figure:: nostyle.png
+    :align: center
+
+    Typical virtual hosting error.
+
+
 ports, monitors, supervisor, restart script, log messages
+
+.. figure:: haproxy.png
+    :align: center
+
+    Haproxy monitor at :1080/admin
+
+
+postfix
+
+autoupdate
+
+fail2ban
+
+changes philosophy (via Ansible, not shell)
+
+Firewalling
+:::::::::::
+
+blocked ports and ssh tunneling
 
 More customized use
 ^^^^^^^^^^^^^^^^^^^
@@ -732,13 +864,18 @@ Plone setup
 :::::::::::
 
 Eggs and versions
-.................
+!!!!!!!!!!!!!!!!!
 
 Extra files/directories
-.......................
+!!!!!!!!!!!!!!!!!!!!!!!
 
-Virtual hosting tricks
-::::::::::::::::::::::
+buildout from git repo
+!!!!!!!!!!!!!!!!!!!!!!
+
+Virtual hosting
+:::::::::::::::
+
+extra tricks
 
 Multiple Plones per host
 ````````````````````````
@@ -762,6 +899,9 @@ Maintenance strategies -- multiple hosts
 The Plone Role -- using it independently
 ----------------------------------------
 
+
+Helping develop Plone's Ansible tools
+-------------------------------------
 
 .. seealso::
 
