@@ -1,4 +1,4 @@
-.. _about-label:
+.. _about-mastering-label:
 
 About Mastering Plone
 =====================
