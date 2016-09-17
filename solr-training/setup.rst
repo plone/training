@@ -188,13 +188,15 @@ https://wiki.apache.org/solr/SchemaXml#Common_field_options
 
 This is the bare minimum for configuring Solr. There are more options supported by the buildout
 recipe *collective.recipe.solrinstance* and even more by Solr itself. Most notably are the custom
-extensions for *schema.xml* and *solrconfig.xml*
-
-TBD
+extensions for *schema.xml* and *solrconfig.xml* ::
+  
+  additional-schema-config =  TBD
+  additional-solrconfig  = TBD (custom handler)
 
 or even a custom location for this main configuration files. ::
 
-TBD
+  schema-destination = ${buildout:directory}/etc/schema.xml
+  config-destination = ${buildout:directory}/etc/solrconfig.xml
 
 After running the buildout, which downloads and configures Solr and Plone we are ready to fire
 both servers. 
@@ -202,11 +204,11 @@ both servers.
 Plone and Solr
 **************
 
-To activate Solr in Plone *collective.solr* needs to be activated as an addon.
-Look at TBD ::
+To activate Solr in Plone *collective.solr* needs to be activated as an addon
+in Plone.
 
 Activating the Solr addon adds a configuration page to the controlpanel.
-It can be accessed via <PORTAL_URL>/@@solr-settings    # Check TBD
+It can be accessed via <PORTAL_URL>/@@solr-controlpanel
 or via "Configuration" -> "Solr Settings"
 
 Check: "Active", click "Save"
