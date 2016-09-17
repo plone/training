@@ -79,3 +79,6 @@ and sirname set, the *fullname* in Solr appears.
    there is a handy addon for this purpose. It is well documentend
    but further investigation is out of the scope of this training
    See https://pypi.python.org/pypi/collective.dexteritytextindexer
+
+TBD Boosting
+

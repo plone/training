@@ -239,3 +239,4 @@ get the frontpage as result which is not super awsome at the first
 place because we have this without Solr too but it is the first step
 in (TBD nutzen) the full power of Solr.
 
+TBD Configuration with ZCML
