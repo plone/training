@@ -81,7 +81,7 @@ and if ``portal-column-two`` exists, we add ``col-two``.
 
 Now, one can use these markers to define the grid in a semantic way like this:
 
-.. code-block:: css
+.. code-block:: less
 
    body.col-one.col-content.col-two #content-wrapper {
      .make-row();
