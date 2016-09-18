@@ -53,8 +53,7 @@ Let's modify the file :file:`configure.zcml`
     :linenos:
     :emphasize-lines: 16
 
-    <configure
-      ...>
+    <configure xmlns="...">
 
       <includeDependencies package="." />
 

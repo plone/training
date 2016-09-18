@@ -61,7 +61,7 @@ two blocks:
    <metal:block define-macro="content-core">
    <tal:def tal:define="data nocall:view/data">
 
-     <div class="event clearfix" itemscope itemtype="http://data-vocabulary.org/Event">
+     <div class="event clearfix" itemscope="itemscope" itemtype="http://data-vocabulary.org/Event">
 
        <ul class="hiddenStructure">
          <li><a itemprop="url" class="url" href="" tal:attributes="href data/url" tal:content="data/url">url</a></li>
