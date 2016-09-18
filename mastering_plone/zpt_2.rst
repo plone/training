@@ -149,13 +149,13 @@ The first step to uncovering that secret is line 14 of ``listing_summary.pt``:
 
 That template ``listing.pt`` defines the slot ``entries`` like this:
 
-..  code-block:: html
+..  code-block:: xml
 
     <metal:listingmacro define-macro="listing">
       <tal:results define="batch view/batch">
         <tal:listing condition="batch">
           <div class="entries" metal:define-slot="entries">
-            <tal:repeat="item batch" metal:define-macro="entries">
+            <tal:entries repeat="item batch" metal:define-macro="entries">
               <tal:block tal:define="obj item/getObject;
                                      item_url item/getURL;
                                      item_id item/getId;
