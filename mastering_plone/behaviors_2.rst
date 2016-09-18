@@ -52,16 +52,15 @@ Writing Code
 
 To start, we create a directory :file:`behavior` with an empty :file:`behavior/__init__.py` file.
 
-Next we must, as always, register our zcml.
+Next we must, as always, register our ZCML.
 
-First, add the information that there will be another zcml file in :file:`configure.zcml`
+First, add the information that there will be another ZCML file in :file:`configure.zcml`
 
 
 .. code-block:: xml
     :linenos:
 
-    <configure
-          ...>
+    <configure xmlns="...">
 
       ...
       <include package=".behavior" />
