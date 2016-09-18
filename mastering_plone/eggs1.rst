@@ -39,9 +39,7 @@ We create and enter the ``src`` directory (*src* is short for *sources*) and cal
     $ cd src
     $ ../bin/mrbob -O ploneconf.site bobtemplates:plone_addon
 
-We have to answer some questions about the add-on. We will press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your github username if you have one) and 5 (Plone version), where we enter :kbd:`5.0`.
-
-..  code-block:: bash
+We have to answer some questions about the add-on. We will press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your github username if you have one) and 5 (Plone version), where we enter :kbd:`5.0`::
 
     --> What kind of package would you like to create? Choose between 'Basic', 'Dexterity', and 'Theme'. [Basic]:
 
