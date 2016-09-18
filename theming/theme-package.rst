@@ -969,7 +969,7 @@ So we extend our theme's ``manifest.cfg`` to declare ``development-css``,
 ``production-css`` and optionally ``tinymce-content-css``, like this:
 
 
-.. code-block:: xml
+.. code-block:: cfg
 
    [theme]
    title = plonetheme.tango
@@ -1351,7 +1351,7 @@ our downloaded theme uses, we change the end of our ``main.less`` like this:
 
 .. code-block:: css
 
-   // ### UTILS ###
+   // UTILS 
 
    // import bootstrap variables from Plone -->
    @import "@{bootstrap-variables}";
@@ -1365,7 +1365,7 @@ our downloaded theme uses, we change the end of our ``main.less`` like this:
    @import "../bower_components/bootstrap/less/navbar.less";
    @import "../bower_components/bootstrap/less/carousel.less";
 
-   // ### END OF UTILS ###
+   // END OF UTILS 
 
 
    // include theme css as less
@@ -1381,7 +1381,7 @@ Final CSS customization
 To make our theme look nicer, we add some CSS as follows to our ``custom.less``
 file:
 
-.. code:: css
+.. code:: less
 
    /* Custom LESS file that is included from the main.less file */
 
