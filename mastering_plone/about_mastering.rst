@@ -1,4 +1,4 @@
-.. _about-label:
+.. _about-mastering-label:
 
 About Mastering Plone
 =====================
@@ -107,7 +107,7 @@ Exercises
 
 Some additional javascript shows hidden solutions for exercises by clicking.
 
-Just perpend the solution with this markup::
+Just prepend the solution with this markup::
 
     ..  admonition:: Solution
         :class: toggle
