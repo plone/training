@@ -70,8 +70,8 @@ This will take some time and produce a lot of output because it downloads and co
 
 The output should be similar to:
 
-.. code-block:: pypy
-    :emphasize-lines: 10
+.. code-block:: html
+    :emphasize-lines: 9
 
     2015-09-24 15:51:02 INFO ZServer HTTP server started at Thu Sep 24 15:51:02 2015
             Hostname: 0.0.0.0
@@ -231,7 +231,7 @@ You are now logged in as the user vagrant in ``/home/vagrant``. We'll do all ste
 
 Instead we use our own Plone instance during the training. It is in ``/vagrant/buildout/``. Start it in foreground with ``./bin/instance fg``.
 
-.. code-block:: pypy
+.. code-block:: bash
 
     vagrant@training:~$ cd /vagrant/buildout
     vagrant@training:/vagrant/buildout$ ./bin/instance fg
