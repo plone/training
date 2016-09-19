@@ -78,7 +78,7 @@ Change the logo
 
 Let's change the Logo.
 
-* Download a ploneconf logo: http://www.starzel.de/plone-tutorial/ploneconf-logo-2014/image
+* Download a ploneconf logo: http://www.starzel.de/plone-tutorial/ploneconf-logo-2014
 * Go to http://localhost:8080/Plone/@@site-controlpanel
 * Upload the Logo.
 
