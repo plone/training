@@ -215,7 +215,7 @@ In the third tab of this control panel, named "Show/hide content layouts", we ca
 
 In the first tab, named "Content layouts", there is a source editor.
 
-By editing ``manifext.cfg``, we can assign a layout to another content type by changing the ``for =`` line. If we remove this line, the layout is available for any content type.
+By editing ``manifest.cfg``, we can assign a layout to another content type by changing the ``for =`` line. If we remove this line, the layout is available for any content type.
 
 We can also delete the layout section from ``manifest.cfg``, and the layout will be deleted (if we do so, it is recommended to delete its associated HTML file too).
 
