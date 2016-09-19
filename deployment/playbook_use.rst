@@ -264,3 +264,27 @@ If you want to target a particular host in your inventory, add ``--limit=hostnam
     When first provisioning a server, timeout errors are more likely.
     If you have a timeout, just run the playbook again.
     Note that failures for particular plays do not mean that Ansible provisioning failed.
+
+Firewalling
+```````````
+
+Running the Plone playbook does not set up server firewalling.
+That's handled via a separate playbook, included with the kit.
+We've separated the functions because many sysadmins will wish to handle firewalling themselves.
+
+If you wish to use our firewall playbook, just use the command:
+
+.. code-block:: shell-session
+
+    ansible-playbook firewall.yml
+
+``firewall.yml`` is just a dispatcher.
+Actual firewall code is in the ``firewalls`` subdirectory and is playform-specific.
+``ufw`` is used for the Debian-family; ``firewalld``
+
+The general firewall strategy is to block everything but the ports for ssh, http, https and munin-node.
+The munin-node port is restricted to the monitor IP you specify.
+
+.. note::
+
+    This strategy assumes that you're going to use ssh tunnelling if you need to connect to other ports.
