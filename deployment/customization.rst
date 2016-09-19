@@ -199,8 +199,71 @@ It takes advantage of the fact that if you do not specify a zodb_path, the playb
 Mail relay
 ::::::::::
 
+Some cloud server companies do not allow servers to directly send mail to standard mail ports.
+Instead, they require that you use a *mail relay*.
+This is a typical setup:
+
+.. code-block:: yaml
+
+    mailserver_relayhost: smtp.sendgrid.net
+    mailserver_relayport: 587
+    mailserver_relayuser: yoursendgriduser
+    mailserver_relaypassword: yoursendgridpassword
+
 Bypassing components
 ::::::::::::::::::::
 
+Remember our stack diagram?
+The only part of the stack that you're stuck with is Plone.
+All the other components my be replaced.
+To replace them, first prevent the playbook from installing the default component.
+Then, use a playbook of your own to install the alternative component.
+
+For example, to install an alternative to the Postfix mail agent, just add:
+
+.. code-block:: yaml
+
+    install_mailserver: no
+
+.. note::
+
+    If you choose not to install the haproxy, varnish or nginx, you take on some extra responsibilities.
+    You're going to need to make sure in particular that your port addresses match up.
+    If, for example, you replace haproxy, you will need to point varnish to the new load-balancer's frontend.
+    You'll need to point the new load balancer to the ZEO clients.
+
 Multiple Plones per host
 ````````````````````````
+
+So far, we've covered the simple case of having one Plone server installed on your server.
+In fact, you may install additional Plones.
+
+To do so, you create a list variable ``playbook_plones`` containing all the settings that are specific to one or more of your Plone instances.
+
+Nearly all the plone_* variables, and a few others like loadbalancer_port and webserver_virtualhosts may be set in playbook_plones.
+Here's a simple example:
+
+.. code-block:: yaml
+
+    playbook_plones:
+      - plone_instance_name: primary
+        plone_zeo_port: 8100
+        plone_client_base_port: 8081
+        loadbalancer_port: 8080
+        webserver_virtualhosts:
+          - hostname: "{{ inventory_hostname }}"
+            aliases:
+              - default
+            zodb_path: /Plone
+      - plone_instance_name: secondary
+        plone_zeo_port: 7100
+        plone_client_base_port: 7081
+        loadbalancer_port: 7080
+        webserver_virtualhosts:
+          - hostname: www.plone.org
+            zodb_path: /Plone
+
+Note that you're going to have to specify a minimum of an instance name, a zeo port and a client base port (the address of client1 for this Plone instance.)
+
+You may specify up to four items in your ``playbook_plones`` list.
+If you need more, see the docs as you'll need to make a minor change in the main playbook.
