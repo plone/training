@@ -1,8 +1,8 @@
-========================================================================
-TTW advanced: intro to Diazo Theming, build custom rules through the web
-========================================================================
+=============================================
+TTW advanced I: introduction to Diazo Theming
+=============================================
 
-A Plone theme takes uses ``Diazo`` techonology to make theming easier.
+A Plone theme uses ``Diazo`` techonology to make theming easier.
 
 You can find extended information about Diazo and its integration package ``plone.app.theming`` in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_
 and `plone.app.theming docs <http://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
@@ -17,7 +17,7 @@ Copy barceloneta theme
 
 To create our playground we will copy the existing Barceloneta theme.
 
-1. go the "Theming" control panel
+1. go to the "Theming" control panel
 2. you will see the available themes. In a bare new Plone site, you will see something like this:
 
 .. image:: _static/theming-bare_plone_themes_list.png
@@ -49,7 +49,7 @@ Custom rules
 ------------
 Let's open ``rules.xml``. You will see all the rules that are used in Barceloneta theme right now. For the time being let's concentrate on how to hack these rules.
 
-Suppose that we want to make the "above content" block (the one that contains breadcrumbs) conditional, and show it only for authenticated users and PUT HERE ANOTHER EXAMPLE (?).
+Suppose that we want to make the "above content" block (the one that contains breadcrumbs) conditional, and show it only for authenticated users.
 
 Find this line:
 
@@ -57,9 +57,9 @@ Find this line:
 
     <replace css:content="#viewlet-above-content" css:theme="#above-content" />
 
-This rule states that the element that come from the content (Plone) with the id `#viewlet-above-content` must replace the element with the id `#above-content` in the static theme.
+This rule states that the element that comes from the content (Plone) with the id `#viewlet-above-content` must replace the element with the id `#above-content` in the static theme.
 
-We want to hide it for anynoymous users so we can take advantage of the base CSS classes the Plone exposes on the body (SHOW THE CLASSES).
+We want to hide it for anynoymous users so we can take advantage of the base CSS classes that Plone exposes on the body (SHOW THE CLASSES).
 
 The class we are looking for is `userrole-authenticated`. Add another property to the rule so that we produce this code:
 
@@ -72,7 +72,7 @@ The class we are looking for is `userrole-authenticated`. Add another property t
 
 The attribute `css:if-content` allows us to put a condition on the rules based on a CSS selector that acts on the content. In this way the rule will be applied only if the body element has the class `.userrole-authenticated`.
 
-MORE EXAMPLES HERE?
+We will learn more about Diazo rules in :doc:`./ttw-advanced_2`.
 
 
 Customize CSS
@@ -85,7 +85,7 @@ Customize CSS
 
     body{ background-color: red; font-size: 18px ;};
 
-*Note: normally you would place this in a separate file to keep the main one clean but for this example is enough.*
+*Note: normally you would place this in a separate file to keep the main one clean but for this example it is enough.*
 
 3. push the buttons "Save" and "Build CSS"
 

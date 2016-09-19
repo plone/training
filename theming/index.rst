@@ -13,6 +13,7 @@ Mastering Plone Theming
 
    basic
    ttw-advanced
+   ttw-advanced_2
    static-theme
    theme-package
    creating-customizing-templates

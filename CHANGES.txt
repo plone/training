@@ -38,6 +38,12 @@ This changelog is only very rough. For the full changelog please refer to https:
 - Update vagrant installation to include BIOS virtualization note.
   [lbrannon]
 
+- Editing while reading. Edited Rapido chapter for language and formatting. [jean]
+
+- Fix a couple of duplicate labels, unmatched literal ending, typo [jean]
+
+- Fix code blocks that made Pygments lexer choke [jean]
+
 1.2.4 (2014-10-03)
 ------------------
 
