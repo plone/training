@@ -238,13 +238,13 @@ The ``munin-node`` install by the playbook disables many monitors that are unlik
 It also installs a Plone-specific monitor that reports resident memory usage by Plone components.
 
 Changes philosophy
-::::::::::::::::::
+``````````````````
 
-running buildout
+The general philosophy for playbook use is that you make all server configuration changes via Ansible.
+If you find yourself logging in to change settings, think again.
+That's the road to having a server that is no longer reproducible.
 
-ports, monitors, supervisor, restart script, log messages
+If you've got a significant change to make, try it first on a test server or a Vagrant box.
 
-Firewalling
-:::::::::::
-
-blocked ports and ssh tunneling
+This does not mean that you'll never want to log into the server.
+It just means that you shouldn't do it to change configuration.
