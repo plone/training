@@ -1,0 +1,375 @@
+Using plone.restapi
+===================
+
+In this chapter, we will use the relatively new addon `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_ to access Plone from an external application. `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_ provides a hypermedia API to access a Plone sites' content using REST (Representational State Transfer).
+
+Use case
+--------
+
+* Implement a list of conference talks for mobile devices, outside of Plone
+* logged in users using e.g. smartphones can submit lightning talks
+
+Implementation
+--------------
+
+These days there are a lot of Hybrid App Frameworks like Ionic and OnsenUI that run on top of NodeJS. Sometimes you need to register to access more advanced functions of these frameworks. The focus of this training however is Plone, not app development and therefore we will use mobileangularui.com which is smaller and has no requirements beyond Twitter Bootstrap and AngularJS. As an additional pro, it is completely open source and you don't have to register to use it.
+
+We have the following tasks:
+
+* create a login screen. The login data will be forwarded to Plone using REST. Plone will provide us with a JWT token upon succesful login
+* use JWT for authentication/authorization of subsequent requests where appropriate
+* create a talk list view
+* let the user submit a lightning talk
+
+Installing plone.restapi
+------------------------
+
+We install `plone.restapi` like any other add-on package by adding it to `buildout.cfg` and then activating it in the `Add-ons` panel. This will automatically add and configure a new PAS plugin named `jwt_auth` used for JSON web token authentication.
+
+Explore the API
+---------------
+
+Make sure you add some talks to the talks folder and then start exploring the API. We recommend using `Postman <http://www.getpostman.com>`_ or a similar tool, but you can also use `requests <https://pypi.python.org/pypi/requests>`_ in a Python virtual env. `plone.restapi` uses 'content negotiation' to determine wether a client wants a REST API response - if you set the `Accept` HTTP header to `application/json` Plone will provide responses in JSON format. Some requests you could try:
+
+.. code::
+
+    GET /Plone/talks
+    Accept: application/json
+
+.. code::
+
+    POST /@login HTTP/1.1
+    Accept: application/json
+    Content-Type: application/json
+
+    {
+        'login': 'admin',
+        'password': 'admin',
+    }
+
+Exercise
+++++++++
+
+REST APIs use HTTP verbs for manipulating content. PUT is used to update an existing resource. Add a new talk in Plone and then update it's title to match 'Foo 42' using the REST API (from Postman or requests).
+
+Implementing the talklist
+-------------------------
+
+As mentioned earlier we will use Mobile Angular UI to develop our app. We could use NodeJS and npm to download and install a distribution package, but for the purpose of our training we will simply use Plone as our development webserver. To that end, we download the current master branch of `Mobile Angular UI <https://github.com/mcasimir/mobile-angular-ui/archive/master.zip>`_ from Github, extract it and copy the `dist` folder into a new subdirectory of `browser` named `talklist`.
+So, assuming the current working directory is the buildout directory:
+
+.. code-block:: bash
+
+    $ wget https://github.com/mcasimir/mobile-angular-ui/archive/master.zip
+    $ unzip master.zip
+    $ mkdir src/ploneconf.site/src/ploneconf/site/browser/talklist
+    $ cp -a mobile-angular-ui-master/dist src/ploneconf.site/src/ploneconf/site/browser/talklist/
+
+Then we add a new resource directory to `browser/configure.zcml`:
+
+.. code-block:: xml
+
+    <browser:resourceDirectory
+        name="talklist"
+        directory="talklist"
+        />
+
+In the `browser/talklist` directory, we add an HTML page called `index.html`:
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <base href="/Plone/++resource++talklist/" />
+        <title>List Of Talks</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="dist/css/mobile-angular-ui-hover.min.css" />
+        <link rel="stylesheet" href="dist/css/mobile-angular-ui-base.min.css" />
+        <link rel="stylesheet" href="dist/css/mobile-angular-ui-desktop.min.css" />
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+        <script src="dist/js/mobile-angular-ui.min.js"></script>
+        <script src="talklist.js"></script>
+      </head>
+      <body
+        ng-app="TalkListApp"
+        ng-controller="MainController"
+        >
+        <h1>List of talks</h1>
+        <div class="app">
+          <!-- App Body -->
+          <div class="app-body">
+            <div class="scrollable-content section">
+              <div class="panel-group"
+                ui-shared-state="myAccordion"
+                ui-default='2'>
+                <div class="panel panel-default" ng-repeat="item in items">
+                  <div class="panel-heading" ui-set="{'myAccordion': item.pos}">
+                    <h4 class="panel-title">
+                      {{item.type}}: {{item.title}} by {{item.speaker}}
+                    </h4>
+                    <b>{{item.start}}</b>
+                  </div>
+                  <div ui-if="myAccordion == {{item.pos}}">
+                    <div class="panel-body">
+                      {{item.details}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- ~ .app -->
+      </body>
+    </html>
+
+So far, the page will simply display a list of published talks. But we also need some javascript that we put into a file named `talklist.js` in the same folder:
+
+.. code-block:: javascript
+
+    'use strict';
+
+    //
+    // module depends on mobile-angular-ui
+    //
+    var app = angular.module('TalkListApp', [
+      'mobile-angular-ui',
+    ]);
+
+
+    app.controller('MainController', function($rootScope, $scope, $http) {
+
+      $scope.items = [];
+
+      $scope.load_talks = function() {
+        $http.get('/Plone/talks',
+                  {headers:{'Accept':'application/json'}}).
+          success(function(data, status, headers, config) {
+            // get the paths of the talks
+            var paths = [];
+            for (var i=0; i < data.items_total; i++) {
+              paths.push(data.items[i]['@id'])
+            }
+            // next get details for each talk
+            for (var i=0; i < paths.length; i++) {
+              $http.get(paths[i],
+                        {headers:{'Accept':'application/json'}}).
+                success(function(talkdata, status, headers, config) {
+                  // this is an angular 'promise' - we cannot
+                  // rely on variables from an outer scope
+                  var path = talkdata['@id'];
+                  var talk = {
+                    'pos': paths.indexOf(path),
+                    'path': path,
+                    'title': talkdata.title,
+                    'type': talkdata.type_of_talk,
+                    'speaker': (talkdata.speaker != null) ? talkdata.speaker : talkdata.creators[0],
+                    'start': talkdata.start,
+                    'subjects': talkdata.subjects,
+                    'details': (talkdata.details != null) ? talkdata.details.data : talkdata.description
+                  }
+                  $scope.items.push(talk);
+
+                }).
+                error(function(talkdata, status, headers, config) {});
+            }
+          }).
+        error(function(data, status, headers, config) {
+          $scope.items = [];
+        });
+      };
+
+      // initialize
+      $scope.load_talks();
+    });
+
+
+Submit lightning talks
+----------------------
+
+We add a new type of talk: lightning talk. A lightning talk is a short presentation of up to 5 minutes duration that can cover just about any topic. The information we need to provide for lightning talks is far less than for the more formal types of talk. Often the information provided for lightning talks is restricted to the talk subject or title and the speaker name, but we allow for a short summary. Before they can submit a lightning talk, potential speakers will need to login and we will use their previously registered login name as the speaker's name to display in the talk list.
+
+Before we can start to submit lightning talks using REST calls from our single page app, we have to adapt the talk schema:
+
+.. code-block:: xml
+   :linenos:
+   :emphasize-lines: 12, 19, 36, 41
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <model xmlns="http://namespaces.plone.org/supermodel/schema" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security">
+      <schema>
+        <field name="type_of_talk" type="zope.schema.Choice"
+          form:widget="z3c.form.browser.radio.RadioFieldWidget">
+          <description />
+          <title>Type of talk</title>
+          <values>
+            <element>Talk</element>
+            <element>Training</element>
+            <element>Keynote</element>
+            <element>Lightning Talk</element>
+          </values>
+        </field>
+        <field name="details" type="plone.app.textfield.RichText">
+          <description>Add a short description of the talk (max. 2000 characters)</description>
+          <max_length>2000</max_length>
+          <title>Details</title>
+          <required>False</required>
+        </field>
+        <field name="audience" type="zope.schema.Set"
+          form:widget="z3c.form.browser.checkbox.CheckBoxFieldWidget">
+          <description />
+          <title>Audience</title>
+          <value_type type="zope.schema.Choice">
+            <values>
+              <element>Beginner</element>
+              <element>Advanced</element>
+              <element>Professionals</element>
+            </values>
+          </value_type>
+        </field>
+        <field name="speaker" type="zope.schema.TextLine">
+          <description>Name (or names) of the speaker</description>
+          <title>Speaker</title>
+          <required>False</required>
+        </field>
+        <field name="email" type="plone.schema.email.Email">
+          <description>Adress of the speaker</description>
+          <title>Email</title>
+          <required>False</required>
+        </field>
+        <field name="image" type="plone.namedfile.field.NamedBlobImage">
+          <description />
+          <required>False</required>
+          <title>Image</title>
+        </field>
+        <field name="speaker_biography" type="plone.app.textfield.RichText">
+          <description />
+          <max_length>1000</max_length>
+          <required>False</required>
+          <title>Speaker Biography</title>
+        </field>
+      </schema>
+    </model>
+
+Next, in our javascript code, we provide a method for logging in a user and another one to check wether the user has a valid JSON web token. We use the the `localStorage` facility of the browser to store the token on the client.
+
+.. code-block:: javascript
+
+    ...
+    app.controller('MainController', function($rootScope, $scope, $http) {
+    ...
+      $scope.login = function(login, passwd) {
+        $http.post('/Plone/@login',
+                  {'login':login,
+                   'password':passwd},
+                  {headers:
+                   {'Content-type':'application/json',
+                    'Accept':'application/json'}}).
+          success(function(data, status, headers, config){
+            localStorage.setItem('jwtoken', data.token);
+          }).
+          error(function(data, status, headers, config){
+            alert('Could not log you in');
+          });
+      };
+
+      $scope.is_logged_in = function() {
+        // we assume the user is logged in when he has a JWT token (that is naive)
+        return localStorage.getItem('jwtoken') != null;
+      };
+    ...
+
+We continue with changes to `index.html` so that it uses the new methods. We provide a login form if the user doesn't have a valid JSON web token. Only authenticated users can see the rest of the page.
+
+.. code-block:: html
+   :emphasize-lines: 5-31
+
+    ...
+          <div class="app-body">
+
+            <div class="scrollable">
+              <div class="scrollable-content section" ng-if="! is_logged_in()">
+                <form role="form" ng-submit='login(userid,passwd)'>
+                  <fieldset>
+                    <legend>Login</legend>
+                    <div class="form-group has-success has-feedback">
+                      <label>Login</label>
+                      <input type="text"
+                        ng-model="userid"
+                        class="form-control"
+                        placeholder="Enter login">
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input type="password"
+                        ng-model="passwd"
+                        class="form-control"
+                        placeholder="Password">
+                    </div>
+                  </fieldset>
+                  <hr>
+                  <button class="btn btn-primary btn-block">
+                    Login
+                  </button>
+                </form>
+              </div>
+
+              <div class="scrollable-content section" ng-if="is_logged_in()">
+                <div class="panel-group"
+    ...
+
+Last we have to add some code that allows authenticated users to submit a lightning talk. We add another javascript method first:
+
+.. code-block:: javascript
+
+    ...
+    app.controller('MainController', function($rootScope, $scope, $http) {
+    ...
+      $scope.submit_talk = function(subject, summary) {
+        $http.post('/Plone/talks',
+                   {'@type':'talk',
+                    'type_of_talk':'Lightning Talk',
+                    'audience':['Beginner','Advanced','Professionals'],
+                    'title':subject,
+                    'description':summary},
+                   {headers:
+                    {'Content-type':'application/json',
+                     'Authorization': 'Bearer ' + localStorage.getItem('jwtoken'),
+                     'Accept':'application/json'}}).
+          success(function(data, status, headers, config){
+            if(status==201) { // created
+              $scope.load_talks();
+            }
+          }).
+          error(function(data, status, headers, config){
+            // according to docs, status can be 400 or 500
+            // we check wether the token has expired - in this case,
+            // we remove it from localStorage and disply the login page.
+            // In all other cases, we display the message received
+            // from Plone
+            if ( (status == 400) && (data.type == 'ExpiredSignatureError') ) {
+              localStorage.removeItem('jwtoken');
+              location.reload();
+            } else {
+              // reason/error msg is contained in response body
+              alert(data.message);
+            }
+          });
+      };
+    ...
+
+Exercise
+---------
+
+Rewrite the `load_talks()` javascript method so that it uses the portal search instead of `/Plone/talks`.
+
+XXX Todo
+--------
+
+* when using a standalone web server for the app (moving away from Plone) probably CORS issues will occur.
