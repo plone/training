@@ -1,25 +1,15 @@
 Using plone.restapi
 ===================
 
-In this chapter, we will use the relatively new addon `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_ to access Plone from an external application. `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_ provides a hypermedia API to access a Plone sites' content using REST (Representational State Transfer).
+In this chapter, we will have a look at the relatively new addon `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_. It provides a hypermedia API to access Plone content using REST (Representational State Transfer).
 
-Use case
---------
-
-* Implement a list of conference talks for mobile devices, outside of Plone
-* logged in users using e.g. smartphones can submit lightning talks
-
-Implementation
---------------
-
-These days there are a lot of Hybrid App Frameworks like Ionic and OnsenUI that run on top of NodeJS. Sometimes you need to register to access more advanced functions of these frameworks. The focus of this training however is Plone, not app development and therefore we will use mobileangularui.com which is smaller and has no requirements beyond Twitter Bootstrap and AngularJS. As an additional pro, it is completely open source and you don't have to register to use it.
+We will use `plone.restapi` to develop a small standalone 'single page app' targeted at mobile devices. We will present our users with a simple list of conference talks. We add lightning talks as a new type of talk. Users will be able to submit lightning talks e.g. using their mobile phone.
 
 We have the following tasks:
 
-* create a login screen. The login data will be forwarded to Plone using REST. Plone will provide us with a JWT token upon succesful login
-* use JWT for authentication/authorization of subsequent requests where appropriate
 * create a talk list view
-* let the user submit a lightning talk
+* create a login screen and use JWT for authentication/authorization of requests
+* let authenticated users submit lightning talks
 
 Installing plone.restapi
 ------------------------
@@ -55,7 +45,9 @@ REST APIs use HTTP verbs for manipulating content. PUT is used to update an exis
 Implementing the talklist
 -------------------------
 
-As mentioned earlier we will use Mobile Angular UI to develop our app. We could use NodeJS and npm to download and install a distribution package, but for the purpose of our training we will simply use Plone as our development webserver. To that end, we download the current master branch of `Mobile Angular UI <https://github.com/mcasimir/mobile-angular-ui/archive/master.zip>`_ from Github, extract it and copy the `dist` folder into a new subdirectory of `browser` named `talklist`.
+We will use `Mobile Angular UI <http://mobileangularui.com/>`_ to develop our app. This is a relatively lightweight javascript framework for developing hybrid web apps built on top of `AngularJS <https://angularjs.org/>`_. There are a lot of other frameworks available (e.g. Ionic, OnsenUI, Sencha, ...), but most of them have more dependencies than `Mobile Angular UI`. For example, most of them require NodeJS as a development web server. Our focus is Plone and interacting with `plone.restapi`, and `Mobile Angular UI` perfectly suits our needs because it simply let's us use Plone as our development webserver.
+
+To get started, we download the current `master branch of Mobile Angular UI <https://github.com/mcasimir/mobile-angular-ui/archive/master.zip>`_ from Github, extract it and copy the `dist` folder into a new subdirectory of `browser` named `talklist`.
 So, assuming the current working directory is the buildout directory:
 
 .. code-block:: bash
@@ -371,5 +363,6 @@ Rewrite the `load_talks()` javascript method so that it uses the portal search i
 
 XXX Todo
 --------
-
-* when using a standalone web server for the app (moving away from Plone) probably CORS issues will occur.
+* where to go from here, e.g.
+* using a standalone web server for the app, CORS
+* references on REST
