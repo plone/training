@@ -47,6 +47,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Fix code blocks that made Pygments lexer choke [jean]
 
+- Some exercises, draft of a new chapter on plone.restapi and some changes [tschorr]
+
 1.2.4 (2014-10-03)
 ------------------
 
