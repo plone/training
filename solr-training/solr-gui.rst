@@ -74,7 +74,11 @@ Here are some examples:
 Sometimes it is handy to have a separate virtualenv available for doing batch
 operations (delete, update, etc.)
 
-TBD delete a set of UIDS
+I use the following script to delete all Plone Documents from Solr ::
+
+ >>> from mysolr import Solr
+ >>> solr = Solr(base_url='http://localhost:8983/solr')
+ >>> solr.delete_by_query('portal_type:Document')
  
 
 Advanced Solr Query Syntax
