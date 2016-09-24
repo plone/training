@@ -44,6 +44,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Fix code blocks that made Pygments lexer choke [jean]
 
+- Fix some typos, clarify some examples [jean]
+
 1.2.4 (2014-10-03)
 ------------------
 
