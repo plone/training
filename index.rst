@@ -16,3 +16,4 @@ Contents:
     mastering_plone/index
     theming/index
     javascript/index
+    deployment/index
