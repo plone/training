@@ -2,7 +2,7 @@ Production Setup
 ==================
 TBD:
  - multi core
- - mointoring
+ - monitoring
 
 different host setup
 --------------------

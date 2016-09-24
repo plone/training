@@ -1,7 +1,7 @@
 First Steps
 =====================
 
-Maintenacne Tasks
+Maintenance Tasks
 -----------------
 
 All the maintenance tasks are accessible through the
@@ -59,7 +59,7 @@ Indexing a new dexterity field
 ------------------------------
 
 A common use case is to add an aditional field to the index.
-We have two inform both sides (Solr and Plone) if we
+We have to inform both sides (Solr and Plone) if we
 need a new field in the index.
 
 A simple use case is to pass through a raw dexterity field

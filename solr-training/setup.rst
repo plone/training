@@ -44,8 +44,8 @@ Start Solr in another terminal in foreground mode ::
 Solr Buildout
 *************
 
-We assume you are more less familiar with the Plone buildout but let's
-analyze the solr buildout configurtion a bit.
+We assume you are more less familiar with the Plone buildout, but let's
+analyze the solr buildout configuration a bit.
 
 First we have two buildout parts::
 
@@ -62,7 +62,7 @@ details.
 The base Solr settings specify the host (usually localhost or 0.0.0.0), the
 port (8983 is the standard port of Solr) and two Java parameters for specifying 
 lower and upper memory limit. More is usually better. If you want a rough idea
-on how much memory you should use follow the guidelines found in this article:
+on how much memory you should use, follow the guidelines found in this article:
 https://lucidworks.com/blog/2011/09/14/estimating-memory-and-storage-for-lucenesolr/ ::
 
     [settings]
@@ -72,7 +72,7 @@ https://lucidworks.com/blog/2011/09/14/estimating-memory-and-storage-for-lucenes
     solr-max-ram = 256M
 
 There is nothing fancy in the Solr download part. It takes an URL to the Solr
-binary and a md5 sum for verification. 
+binary and a md5 sum for verification.
 
 .. note At time of writing the latest working version of Solr was 4.10.x
 
@@ -274,9 +274,9 @@ Atomic updates and boosting
  - Python script for custom index boosting 
  
 
-With Solr activated  searching in Plone works like the following:
+With Solr activated, searching in Plone works like the following:
 
- - Search contains one of the fields set es required (which is normally
+ - Search contains one of the fields set as required (which is normally
    the fulltext field *SearchableText*) -> Solr results are returned
 
  - Search does not contain all fields marked as required -> ZCatalog
@@ -288,8 +288,8 @@ With Solr activated  searching in Plone works like the following:
 
 
 Then you are ready for your first search. Search for *Plone*. You should
-get the frontpage as result which is not super awsome at the first
-place because we have this without Solr too but it is the first step
+get the frontpage as a result--which is not super awesome at the first
+place because we have this without Solr too--but it is the first step
 in utilizing the full power of Solr.
 
 Configuration with ZCML
