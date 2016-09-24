@@ -219,7 +219,60 @@ and search methods to use Solr for indexing and querying.
 .. note:: Note that ZCatalog is not replaced but Solr is *additionally* used
    for indexing and searching.
 
-TBD Introduction to the configuration options
+Control panel configuration options
+-----------------------------------
+
+ - *Active* - Turn connection between Plone and Solr on/off.
+ - *Host* - The host name of the Solr instance to be used. Defaults to 127.0.0.1
+ - *Port* - The port of the Solr instance to be used. Defaults to 8983
+ - *Base* - The base prefix of the Solr instance to be used. Defaults to /solr
+ - *Asynchronous indexing* - Check to enable asynchronous indexing operations,
+   which will improve Zope response times in return for not having the Solr
+   index updated immediately. 
+
+ - *Automatic commit* - If enabled each index operation will cause a commit to be sent to Solr, which causes it to update its index. If you disable this, you need to configure commit policies on the Solr server side.
+
+ - *Commit within*
+
+Timeouts and search limit
+'''''''''''''''''''''''''
+
+ - Index timeout
+ - Search timeout
+ - Maximum search results
+
+Search query configuration
+'''''''''''''''''''''''''''
+
+ - Required query parameters
+ - Pattern for simple search queries
+ - Default search facets
+ - Filter query parameters
+ - Slow query threshold
+ - Effective date steps
+ - Exclude user from allowedRolesAndUsers
+
+Highlighting
+'''''''''''''
+
+https://wiki.apache.org/solr/HighlightingParameters/
+
+ - Highlighting fields
+ - Highlight formatter: pre
+ - Highlight formatter: post
+ - Highlight Fragment Size
+
+
+ - Default fields to be returned 
+ - Levensthein distance
+
+
+Atomic updates and boosting
+''''''''''''''''''''''''''' 
+
+ - Enable atomic updates
+ - Python script for custom index boosting 
+ 
 
 With Solr activated  searching in Plone works like the following:
 
@@ -237,6 +290,17 @@ With Solr activated  searching in Plone works like the following:
 Then you are ready for your first search. Search for *Plone*. You should
 get the frontpage as result which is not super awsome at the first
 place because we have this without Solr too but it is the first step
-in (TBD nutzen) the full power of Solr.
+in utilizing the full power of Solr.
 
-TBD Configuration with ZCML
+Configuration with ZCML
+-----------------------
+
+Another way to configure the connection is via ZCML. You can use the
+following snippet to configure host, port und basepath: ::
+
+  <configure xmlns:solr="http://namespaces.plone.org/solr">
+    <solr:connection host="127.0.0.23" port="3898" base="/foo" />
+  </configure>
+
+The ZCML configuration takes predence over the configuration in the
+registry / control-panel.
