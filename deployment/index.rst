@@ -2,10 +2,6 @@
 Automating Plone Deployment
 ===========================
 
-.. warning::
-
-   This chapter is still work in progress! Expect it to be refactored.
-
 .. note::
 
     This training is meant to be used in a course or read and worked through by an individual user.
