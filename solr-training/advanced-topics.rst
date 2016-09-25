@@ -241,5 +241,27 @@ https://pypi.python.org/pypi/collective.elasticsearch/
 Google Custom Search
 ~~~~~~~~~~~~~~~~~~~~
 
-Since the GSA will stop their service until 2018 it will not be
-covered here.
+Google provides a couple related tools for using Google as a
+site-specific search engine embedded in your site:
+Google Custom Search (free, ad-supported) and Google Site Search (paid).
+
+(Note: don't confuse these solutions with Google Search Appliance,
+which was a rack-mounted device which has been discontinued.)
+
+Pros:
+
+- Better ranking of results compared to ZCTextIndex.
+- Fairly straightforward to integrate.
+- GUI control panel for basic configuration.
+- Don't have to run and maintain a separate Java service.
+- Can easily be configured to search multiple websites.
+
+Cons:
+
+- Free version includes Google branding and ads in results.
+- Cannot index private items.
+- Changes are not indexed immediately (usually within a week).
+- Only returns top 100 results for a query.
+- Only useful for fulltext search, not searching specific fields.
+- Limited control over result ranking and formatting.
+- Google has a habit of discontinuing free services.
