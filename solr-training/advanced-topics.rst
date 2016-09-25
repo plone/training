@@ -196,18 +196,50 @@ ZCML::
 	         provides="alm.solrindex.interfaces.ISolrFieldHandler"
 	         name="path" />
 
+DIY solr
+~~~~~~~~
+
+If both *collective.solr* and *alm.solrindex* is too much for you
+or you have special needs you can access Solr by custom code.
+This might be, if you
+ - need to access a Solr server with a newer version / multicore
+   setup and you don't have access to the configuration of Solr
+ - Only want a fulltext search page of a small site with no need
+   for full realtime support
+   
+A full featured example of a full fledged custom Solr integration you
+can find at the Ploneintranet (**adavanced!**):
+
+https://github.com/ploneintranet/ploneintranet/pull/299
 
 collective.elasticsearch
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
- https://www.andreas-jung.com/contents/collective-elasticindex-plone-integration-with-elasticsearch
+Another option for an advanced search integration is the younger project
+Elasticsearch https://www.elastic.co/products/elasticsearch. Like for
+Solr the technical foundatation is the Lucene index written in Java.
+
+Pros of Elesticsearch
+
+ - It uses  JSON instead of a fix XML schema for (field) configuration
+   which might be easier to configure.
+ - Clustering and replication is builtin from the beginning. It is
+   easier to configure. Espacially ad-hoc cluster which can
+   (re)configure automatically.
+ - The project and community is agile and active.
+
+Cons of Elasticsearch
+
+ - JSON is abused as Query DSL. It can lead to queries with up to
+   10 layers. This can be anyoing especially if you write them
+   programatically
+
+The integration of Eleasticsearch with Plone is done with
+https://pypi.python.org/pypi/collective.elasticsearch/
 
 
 Google Custom Search
 ~~~~~~~~~~~~~~~~~~~~
 
-
-DIY solr
-~~~~~~~~
-
-- Intranet project
+Since the GSA will stop their service until 2018 it will not be
+covered here.
