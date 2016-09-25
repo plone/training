@@ -7,7 +7,7 @@ and its query syntax.
 Access Solr Gui
 ----------------------------------
 
-Solr is a REST based wrapper around the Java lucene index. It comes with
+Solr is a REST-based wrapper around the Java lucene index. It comes with
 its own web GUI. It it possible to access all of the SOLR API via REST and
 most of this functionality is exposed via its web GUI. To test it out, do the
 following. :
@@ -57,13 +57,13 @@ Copy query from Solr GUI, e.g.::
 
     http://localhost:8983/solr/collection1/select?q=Title%3A%22termine%22&wt=json&indent=true
 
-You can use curl or the Pyhton package `requests` (Link TBD) to access the REST API of Solr.
+You can use curl or the Python package `requests` (Link TBD) to access the REST API of Solr.
 
 Solr Query via API
 ----------------------------------
 
 Another way of accessing Solr is to use a Python wrapper, which exposes the Solr API
-in a pythonic way. Collective.solr has inclueded such a wrapper (solr.py), TBD check,
+in a Pythonic way. Collective.solr has included such a wrapper (solr.py), TBD check,
 which is old but still works for our case. Meanwhile there are other packages around.
 Here are some examples:
 
