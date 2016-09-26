@@ -40,7 +40,69 @@ Make sure you add some talks to the talks folder and then start exploring the AP
 Exercise
 ++++++++
 
-REST APIs use HTTP verbs for manipulating content. PUT is used to update an existing resource. Add a new talk in Plone and then update it's title to match 'Foo 42' using the REST API (from Postman or requests).
+REST APIs use HTTP verbs for manipulating content. `PATCH` is used to update an existing resource. Add a new talk in Plone and then update it's title to match 'Foo 42' using the REST API (from Postman or requests).
+
+..  admonition:: Solution
+    :class: toggle
+
+    We need to login to change content. Using JWT, we do so by POSTing credentials to the `@login` resource to obtain a JSON web token that we can subsequently use to authorize requests.
+
+    .. code-block:: http-request
+
+       POST /@login HTTP/1.1
+       Accept: application/json
+       Content-Type: application/json
+
+       {
+           'login': 'admin',
+           'password': 'admin',
+       }
+
+    The response will look like this:
+
+    .. code-block:: http-request
+
+       {
+           "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6bnVsbCwic3ViIjoiYWRtaW4iLCJleHAiOjE0NzQ5MTU4Mzh9.s27se99V7leTVTo26N_pbYskebR28W5NS87Fb7zowNk"
+       }
+
+    Using the `requests` library from Python, you would do:
+
+    .. code-block:: python
+
+       >>> import requests
+       >>> response = requests.post('http://localhost:8080/Plone/@login',
+       ...                   headers={'Accept': 'application/json', 'Content-Type': 'application/json'},
+       ...                   data='{"login": "admin", "password": "admin"}')
+       >>> response.status_code
+       200
+       >>> response.json()
+       {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6bnVsbCwic3ViIjoiYWRtaW4iLCJleHAiOjE0NzQ5MTYyNzR9.zx8XJb6SCWB2taxyibLZ2461ibDloqU3QbWDkDzT8PY'}
+       >>>
+
+    Now we can change the talk title:
+
+    .. code-block:: http-request
+
+       PATCH /Plone/talks/example-talk
+       Accept: application/json
+       Content-Type: application/json
+       Authentication: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6bnVsbCwic3ViIjoiYWRtaW4iLCJleHAiOjE0NzQ5MTYyNzR9.zx8XJb6SCWB2taxyibLZ2461ibDloqU3QbWDkDzT8PY
+
+       {
+           "@id": "http://localhost:8080/Plone/talks/example-talk",
+           "title": "Foo 42"
+       }
+
+    Using `requests` again:
+
+    .. code-block:: python
+
+       >>> requests.patch('http://localhost:8080/Plone/talks/example-talk',
+       ...                headers={'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6bnVsbCwic3ViIjoiYWRtaW4iLCJleHAiOjE0NzQ5MTYyNzR9.zx8XJb6SCWB2taxyibLZ2461ibDloqU3QbWDkDzT8PY'},
+       ...                data='{"@id":"http://localhost:8080/Plone/talks/example-talk", "title":"Foo 42"}')
+       <Response [204]>
+
 
 Implementing the talklist
 -------------------------
@@ -84,10 +146,6 @@ In the `browser/talklist` directory, we add an HTML page called `index.html`:
         <link rel="stylesheet" href="dist/css/mobile-angular-ui-hover.min.css" />
         <link rel="stylesheet" href="dist/css/mobile-angular-ui-base.min.css" />
         <link rel="stylesheet" href="dist/css/mobile-angular-ui-desktop.min.css" />
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
-        <script src="dist/js/mobile-angular-ui.min.js"></script>
-        <script src="talklist.js"></script>
       </head>
       <body
         ng-app="TalkListApp"
@@ -118,6 +176,10 @@ In the `browser/talklist` directory, we add an HTML page called `index.html`:
             </div>
           </div>
         </div><!-- ~ .app -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+        <script src="dist/js/mobile-angular-ui.min.js"></script>
+        <script src="talklist.js"></script>
       </body>
     </html>
 
@@ -143,6 +205,7 @@ So far, the page will simply display a list of published talks. But we also need
         $http.get('/Plone/talks',
                   {headers:{'Accept':'application/json'}}).
           success(function(data, status, headers, config) {
+            $scope.items = [];
             // get the paths of the talks
             var paths = [];
             for (var i=0; i < data.items_total; i++) {
@@ -359,7 +422,21 @@ Last we have to add some code that allows authenticated users to submit a lightn
 Exercise
 ---------
 
-Rewrite the `load_talks()` javascript method so that it uses the portal search instead of `/Plone/talks`.
+Rewrite the `load_talks()` javascript method so that it uses the portal search instead of `/Plone/talks`. Sort the list by date.
+
+..  admonition:: Solution
+    :class: toggle
+
+    .. code-block:: javascript
+       :emphasize-lines: 3
+
+       ...
+       $scope.load_talks = function() {
+         $http.get('/Plone/@search?portal_type=talk&sort_on=Date',
+                   {headers:{'Accept':'application/json'}}).
+           success(function(data, status, headers, config) {
+       ...
+         });
 
 XXX Todo
 --------
