@@ -14,13 +14,29 @@ Autocomplete
 
 solr.cfg::
 
-    [solr]
+    [solr-instance]
     recipe = collective.recipe.solrinstance
     ...
-    additional-schema-config =
-      <copyField source="Title" dest="title_autocomplete" />
-      <copyField source="Description" dest="description_autocomplete" />
-      <copyField source="Title" dest="title_suggest" />
+    name:title_autocomplete type:text_auto indexed:true stored:true
+    name:description_autocomplete type:text_desc indexed:true stored:true
+
+    additional-solrconfig =
+      <!-- request handler to return typeahead suggestions -->
+      <requestHandler name="/autocomplete" class="solr.SearchHandler">
+        <lst name="defaults">
+          <str name="echoParams">explicit</str>
+          <str name="defType">edismax</str>
+          <str name="rows">10</str>
+          <str name="fl">description_autocomplete,title_autocomplete,score</str>
+          <str name="qf">title_autocomplete^30 description_autocomplete^50.0</str>
+          <str name="pf">title_autocomplete^30 description_autocomplete^50.0</str>
+          <str name="group">true</str>
+          <str name="group.field">title_autocomplete</str>
+          <str name="group.field">description_autocomplete</str>
+          <str name="sort">score desc</str>
+          <str name="group.sort">score desc</str>
+        </lst>
+      </requestHandler>
 
     extra-field-types =
       <fieldType class="solr.TextField" name="text_auto">
@@ -40,52 +56,42 @@ solr.cfg::
          </analyzer>
        </fieldType>
 
+    additional-schema-config =
+      <copyField source="Title" dest="title_autocomplete" />
+      <copyField source="Description" dest="description_autocomplete" />
 
-    # Solr Config => parts/solr/solr/collection1/conf/solrconfig.xml
-    additional-solrconfig =
+search.pt::
 
-      <!-- =================================================================== -->
-      <!-- AUTOCOMPLETE                                                        -->
-      <!-- =================================================================== -->
+    <html lang="en"
+          metal:use-macro="context/main_template/macros/master"
+          i18n:domain="plone">
+    <body>
+      <metal:content-core fill-slot="content-core">
+        <input type="text" list="searchresults"
+               id="acsearch" placeholder="Search site ..." />
+        <datalist id="searchresults" />
 
-      <requestHandler name="/autocomplete" class="solr.SearchHandler">
-        <lst name="defaults">
-
-          <!-- defType: a reference to the query parser that is used.
-               The 'edismax' query parser adds features to enhance search relevancy.
-               https://wiki.apache.org/solr/ExtendedDisMax -->
-          <str name="defType">edismax</str>
-
-          <!-- rows: maximum number of documents included in the response
-               https://wiki.apache.org/solr/CommonQueryParameters#rows -->
-          <str name="rows">10</str>
-
-          <!-- fl: field list to be returned in the response. -->
-          <str name="fl">description_autocomplete,title_autocomplete,score</str>
-
-          <!-- qf: query fields list with 'boosts' that are associated with each
-               field.
-               https://wiki.apache.org/solr/ExtendedDisMax#qf_.28Query_Fields.29
-               -->
-          <str name="qf">title_autocomplete^30 description_autocomplete^50.0</str>
-
-          <!-- pf: phrase fields list to 'boost' the score (after 'fq' and 'qf')
-               of documents where terms in 'q' appear in close proximity.
-               https://wiki.apache.org/solr/ExtendedDisMax#pf_.28Phrase_Fields.29
-               -->
-          <str name="pf">title_autocomplete^30 description_autocomplete^50.0</str>
-
-          <!-- result grouping:
-               https://wiki.apache.org/solr/FieldCollapsing#Request_Parameters -->
-          <str name="group">true</str>
-          <str name="group.field">title_autocomplete</str>
-          <str name="group.field">description_autocomplete</str>
-          <str name="sort">score desc</str>
-          <str name="group.sort">score desc</str>
-
-        </lst>
-      </requestHandler>
-
+        <script>
+          $(document).ready(function() {
+            $("#acsearch").on("input", function(e) {
+              var val = $(this).val();
+              if(val.length < 2) return;
+              $.get("solr-autocomplete", {term:val}, function(res) {
+                var dataList = $("#searchresults");
+                dataList.empty();
+                if(res.length) {
+                  for(var i=0, len=res.length; i<len; i++) {
+                    var opt = $("<option></option>").attr("value", res[i].label);
+                    dataList.append(opt);
+                  }
+                }
+              }, "json");
+            });
+          })
+        </script>
+      </metal:content-core>
+    </body>
+    </html>
 
 
 Suggest
