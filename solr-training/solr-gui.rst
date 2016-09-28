@@ -29,7 +29,53 @@ Query "q"::
     Title:"nachrichten"
     *:"nachrichten"
 
-Filter Query "fq"::
+ Solr response ::
+
+  {
+    "responseHeader":{
+      "status":0,
+      "QTime":0,
+      "params":{
+        "q":"*:*",
+        "indent":"true",
+        "wt":"json"}},
+    "response":{"numFound":51,"start":0,"docs":[
+        {
+          "path_string":"/Plone/news",
+          "Title":"News",
+          "showinsearch":true,
+          "path_depth":3,
+          "exclude_from_nav":false,
+          "Type":"Folder",
+          "UID":"88411960ec3f4b1f86feae9094ba718e",
+          "is_folderish":true,
+          "getId":"news",
+          "Date":"2015-12-25T16:46:24Z",
+          "review_state":"published",
+          "Language":"en",
+          "portal_type":"Folder",
+          "expires":"2499-12-30T22:00:00Z",
+          "allowedRolesAndUsers":["Anonymous"],
+          "path_parents":["/Plone",
+            "/Plone/news"],
+          "object_provides":["Products.ATContentTypes.interfaces.folder.IATFolder",
+            "Products.CMFPlone.interfaces.syndication.ISyndicatable",
+            "eea.facetednavigation.subtypes.interfaces.IPossibleFacetedNavigable",
+            "Products.CMFCore.interfaces._content.IContentish",
+            "webdav.interfaces.IWriteLock"],
+          "Description":"Site News",
+          "effective":"1000-01-05T22:00:00Z",
+          "created":"2015-12-25T16:46:24.841Z",
+          "getIcon":"",
+          "Creator":"admin",
+          "modified":"2015-12-25T16:46:24.841Z",
+          "SearchableText":"news  News  Site News ",
+          "_version_":1545835799688249344},
+
+
+Filter Query "fq":
+
+This parameter can be used to specify a query that can be used to restrict the super set of documents that can be returned, without influencing score. It can be very useful for speeding up complex queries since the queries specified with fq are cached independently from the main query. Caching means the same filter is used again for a later query (i.e. there's a cache hit). See SolrCaching to learn about the caches Solr uses.  ::
 
     is_folderish:true
 
@@ -88,11 +134,30 @@ Simple Query::
 
     "fieldname:value"
 
+A clause can be **mandatory** (finds only articles containing the word *Boston*):
+
+  +Boston
+
+A clause can be **probibited** (finds all articles except those containing the word *Vienna*):
+
+  -Vienna
+
 Operators::
 
     "Title:Foo AND Description:Bar"
 
-"AND", "OR", "+", "-"
+"AND", "OR", "+", "-", "||", "NOT"
+
+Be carefull with combining operators such as
+
+.. code:: New AND York OR Buenos AND Aires
+
+which will probably lead to now results. You will need to use
+sub-queries.
+
+Sub-queries:
+
+.. code:: (New AND York) OR (Buenos Aires)
 
 Range Queries::
 
@@ -102,19 +167,68 @@ Boost Terms:
 
     "people^4"
 
-Fuzzy Search::
+Fuzzy Search:
 
-    "house0.6"
+.. code:: "house0.6"
 
-Proximity Search::
+Proximity Search:
 
-    "'apache solr'2"
+.. code:: "apache solr"~
+
+with treshold
+
+.. code:: "apache solr"~7
+
+Wildcard queries:
+
+Find all cities starting with *New* you can do:
+
+.. code:: New*
+
+Or a single character wildcard:
+
+.. code:: M?ller
+
+which will find *Müller*, *Miller*, etc.
+
+Date math
+***************
+
+Solr provides some useful date units which are available for date queries.
+The units you can choose of are:
+
+*YEAR*, *MONTH*, *DAY*, *DATE* (synonymous with *DAY*), *HOUR*, *MINUTE*, *SECOND*, *MILLISECOND*, *MILLI* (synonymous with *MILLISECOND*) and *NOW*.
+All of these units can be pluralized with an *S* as in *DAYS*.
+
+.. code:: effective:[* TO NOW-3MONTHS]
+
+*NOW* has a millisecond precision. To round down by using the */* operator (it never rounds up).
+
+.. code:: effective:[* TO NOW/DAY-2YEAR]
+
+Existing (and non-existing) queries
+***********************************
+
+Assume we want to find all documents which have a value in a certain field
+(whatever that value is, it doesn't matter).
+
+Find all documents with a description:
+
+.. code:: Description:[* TO *] 
+
+The oposite (finding all documents with no description) is also possible:
+
+.. code::  -Description:[* TO *] 
 
 Faceting
 **************************
 
-TBD
+Faceting is one of the killer features of Solr. It allows the grouping
+and filtering results for better findability. To enable faceting you need
+to turn faceting on in the query and specify the fields you want to
+facet upon:
 
+TBD
 
 Search GUIs
 **************************
