@@ -15,9 +15,18 @@ solr.cfg::
       testing
     default-core-name = collection1
 
+.. note:: collective.solr does not support multicore setups currently.
+   It allways uses the default core for indexing and searching. 
 
 Stopwords
 *********
+
+For indexes with of text, commoun uninteresting words like *"the"*, *"a"*, and
+so on, make the index large and slow down phrase queries. To deal with this
+problem, it is best to remove them from fields where they show up often.
+
+We need to add the **StopFilterFactory** with a reference to a text file
+with one stopword per line to the Solr configuration:
 
 solr.cfg::
 
@@ -25,20 +34,42 @@ solr.cfg::
     recipe = collective.recipe.solrinstance
     filter =
         text solr.StopFilterFactory ignoreCase="true" words="${buildout:directory}/etc/stopwords.txt"
+    java_opts +=
+        -Dsolr.allow.unsafe.resourceloading=true
+
+Since we don't copy over the stopwords file to the *parts/solr-instance* directory we need
+to allow Solr reading resource files outside its home directory.
 
 stopwords.txt::
 
-    der
-    die
-    das
-    und
-    oder
+   a
+   the
+   i
 
-http://svn.apache.org/repos/asf/lucene/dev/trunk/lucene/analysis/common/src/resources/org/apache/lucene/analysis/snowball/german_stop.txt
+For some common language secific examples see the Solr git repository:
+
+  https://github.com/apache/lucene-solr/blob/master/lucene/analysis/common/src/resources/org/apache/lucene/analysis/snowball
 
 
 Stemming
 ********
+
+Stemming is a language specific operation which try to reduce terms to a base form.
+
+Here is an example::
+
+  "riding", "rides", "horses" ==> "ride", "ride", "hors". 
+
+This can help in some situations but may hurt in others.
+
+For example if you run an intranet and people usally know exactly what they are
+looking for it is probably not a good idea but if you provide a Google like search
+where you more browse than search then stemming is probably for you.
+
+If you are interested in this feature look at the Solr documentation here:
+https://wiki.apache.org/solr/LanguageAnalysis
+
+A short example to include a german stemming factory into the buildout is here:
 
 solr.cfg::
 
@@ -50,6 +81,8 @@ solr.cfg::
     #    text solr.GermanLightStemFilterFactory  # Moderately aggressiv
     #    text solr.SnowballPorterFilterFactory language="German2"  # More aggressive
         text solr.StemmerOverrideFilterFactory dictionary="${buildout:directory}/etc/stemdict.txt" ignoreCase="false"
+    java_opts +=
+        -Dsolr.allow.unsafe.resourceloading=true
 
 stemdict.txt::
 
@@ -68,6 +101,10 @@ stemdict.txt::
 
 Synonyms
 ********
+
+Solr can deal with synonyms. Maybe you run a shop for selling smartphones and you
+want people typing "iphone", "i-phone" or even "ephone", "ifone", or "iphnoe" to
+get the latest "iPhone" offers.
 
 solr.cfg::
 

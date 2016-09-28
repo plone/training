@@ -13,11 +13,11 @@ Contents:
    :maxdepth: 2
 
    setup.rst
-   first-steps.rst
    solr-gui.rst
+   first-steps.rst
    how-does-collective-solr-work.rst
-   autocomplete-suggest-etc.rst 
    solr-configuration.rst
+   autocomplete-suggest-etc.rst 
    json-api.rst
    solr-testing.rst
    production-setup.rst
