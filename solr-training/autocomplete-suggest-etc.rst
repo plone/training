@@ -11,6 +11,8 @@ Let's see how and start with autocomplete:
 Autocomplete
 --------------
 
+For autocomplete we need a special Solr handler because we don't search
+full terms but only part of terms.
 
 solr.cfg::
 
@@ -60,6 +62,9 @@ solr.cfg::
       <copyField source="Title" dest="title_autocomplete" />
       <copyField source="Description" dest="description_autocomplete" />
 
+For the search template we utilize the HTML5 datalist element to populate 
+the search input field.
+
 search.pt::
 
     <html lang="en"
@@ -104,156 +109,137 @@ solr.cfg::
     ...
 
     additional-solrconfig =
+      <!-- =================================================================== -->
+      <!-- SUGGEST                                                             -->
+      <!-- =================================================================== -->
+       <!-- Spell Check
 
-        <!-- =================================================================== -->
-        <!-- SUGGEST (INCLUDED IN THE DEFAULT SOLR SELECT REQUEST HANDLER)       -->
-        <!-- =================================================================== -->
+            The spell check component can return a list of alternative spelling
+            suggestions.
 
-        <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
-        <str name="queryAnalyzerFieldType">title</str>
+            http://wiki.apache.org/solr/SpellCheckComponent
+         -->
+      <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
+
+        <str name="queryAnalyzerFieldType">SearchableText</str>
+
+        <!-- Multiple "Spell Checkers" can be declared and used by this
+             component
+          -->
+
+        <!-- a spellchecker built from a field of the main index -->
         <lst name="spellchecker">
-          <str name="name">direct</str>
-          <str name="field">title_suggest</str>
+          <str name="name">default</str>
+          <str name="field">SearchableText</str>
           <str name="classname">solr.DirectSolrSpellChecker</str>
+          <!-- the spellcheck distance measure used, the default is the internal levenshtein -->
           <str name="distanceMeasure">internal</str>
-          <float name="accuracy">0.2</float>
+          <!-- minimum accuracy needed to be considered a valid spellcheck suggestion -->
+          <float name="accuracy">0.5</float>
+          <!-- the maximum #edits we consider when enumerating terms: can be 1 or 2 -->
           <int name="maxEdits">2</int>
+          <!-- the minimum shared prefix when enumerating terms -->
           <int name="minPrefix">1</int>
+          <!-- maximum number of inspections per result. -->
           <int name="maxInspections">5</int>
-          <int name="minQueryLength">3</int>
-          <!--<float name="maxQueryFrequency">0.01</float>-->
+          <!-- minimum length of a query term to be considered for correction -->
+          <int name="minQueryLength">4</int>
+          <!-- maximum threshold of documents a query term can appear to be considered for correction -->
+          <float name="maxQueryFrequency">0.01</float>
+          <!-- uncomment this to require suggestions to occur in 1% of the documents
+            <float name="thresholdTokenFrequency">.01</float>
+          -->
         </lst>
-        </searchComponent>
 
-        <requestHandler name="/select" class="solr.SearchHandler"
-        startup="lazy">
+        <!-- a spellchecker that can break or combine words.  See "/spell" handler below for usage -->
+        <lst name="spellchecker">
+          <str name="name">wordbreak</str>
+          <str name="classname">solr.WordBreakSolrSpellChecker</str>
+          <str name="field">SearchableText</str>
+          <str name="combineWords">true</str>
+          <str name="breakWords">true</str>
+          <int name="maxChanges">10</int>
+        </lst>
+
+        <!-- Custom Spellchecker -->
+        <lst name="spellchecker">
+          <str name="name">suggest</str>
+          <str name="classname">org.apache.solr.spelling.suggest.Suggester</str>
+          <str name="lookupImpl">org.apache.solr.spelling.suggest.fst.WFSTLookupFactory</str>
+          <str name="field">SearchableText</str>
+          <float name="threshold">0.0005</float>
+          <str name="buildOnCommit">true</str>
+        </lst>
+
+      </searchComponent>
+
+      <!-- A request handler for demonstrating the spellcheck component.
+
+           NOTE: This is purely as an example.  The whole purpose of the
+           SpellCheckComponent is to hook it into the request handler that
+           handles your normal user queries so that a separate request is
+           not needed to get suggestions.
+
+           IN OTHER WORDS, THERE IS REALLY GOOD CHANCE THE SETUP BELOW IS
+           NOT WHAT YOU WANT FOR YOUR PRODUCTION SYSTEM!
+
+           See http://wiki.apache.org/solr/SpellCheckComponent for details
+           on the request parameters.
+        -->
+      <requestHandler name="/spell" class="solr.SearchHandler" startup="lazy">
         <lst name="defaults">
-          <!-- Solr Default Select Request Handler -->
-          <str name="echoParams">explicit</str>
-          <int name="rows">500</int>
-          <!-- Suggest -->
-          <str name="df">title_suggest</str>
-          <str name="spellcheck.dictionary">direct</str>
+          <!-- Solr will use suggestions from both the 'default' spellchecker
+               and from the 'wordbreak' spellchecker and combine them.
+               collations (re-written queries) can include a combination of
+               corrections from both spellcheckers -->
+          <str name="spellcheck.dictionary">default</str>
+          <str name="spellcheck.dictionary">wordbreak</str>
+          <str name="spellcheck.dictionary">suggest</str>
           <str name="spellcheck">on</str>
           <str name="spellcheck.extendedResults">true</str>
-          <str name="spellcheck.count">5</str>
+          <str name="spellcheck.count">10</str>
+          <str name="spellcheck.alternativeTermCount">5</str>
+          <str name="spellcheck.maxResultsForSuggest">5</str>
           <str name="spellcheck.collate">true</str>
           <str name="spellcheck.collateExtendedResults">true</str>
+          <str name="spellcheck.maxCollationTries">10</str>
+          <str name="spellcheck.maxCollations">5</str>
         </lst>
         <arr name="last-components">
           <str>spellcheck</str>
         </arr>
-        </requestHandler>
-
-
-Solr Import Handler
-*******************
-
-solr.cfg::
-
-    [solr]
-    recipe = collective.recipe.solrinstance:mc
-    additional-solrconfig =
-      <!-- Generate a unique key when creating documents in solr -->
-      <requestHandler name="/update" class="solr.UpdateRequestHandler">
-        <lst name="defaults">
-          <str name="update.chain">uuid</str>
-        </lst>
       </requestHandler>
 
-      <!-- Generate a unique key when importing documents from csv in solr -->
-      <requestHandler name="/update/csv" class="solr.UpdateRequestHandler">
-        <lst name="defaults">
-          <str name="update.chain">uuid</str>
-        </lst>
-      </requestHandler>
+search.pt::
 
-      <updateRequestProcessorChain name="uuid">
-        <processor class="solr.UUIDUpdateProcessorFactory">
-          <str name="fieldName">id</str>
-        </processor>
-        <processor class="solr.RunUpdateProcessorFactory" />
-      </updateRequestProcessorChain>
+    <html lang="en"
+          metal:use-macro="context/main_template/macros/master"
+          i18n:domain="plone">
+    <body>
+      <metal:content-core fill-slot="content-core">
+        <input type="text" list="searchresults"
+               id="acsearch" placeholder="Search site ..." />
+        <datalist id="searchresults" />
 
-
-    [solr-geolocations-import]
-    recipe = collective.recipe.template
-    input = inline:
-      #!/bin/sh
-      # Delete all data
-      curl http://${settings:solr-host}:${settings:solr-port}/solr/solr-core-geospatial/update?commit=true -H "Content-Type: text/xml" --data-binary '<delete><query>*:*</query></delete>'
-      # Import data
-      curl http://${settings:solr-host}:${settings:solr-port}/solr/solr-core-geospatial/update/csv?commit=true --data-binary @etc/geolocations.csv -H 'Content-type:text/csv; charset=utf-8'
-    output = ${buildout:directory}/bin/solr-geolocations-import
-    mode = 755
-
-
-geolocations.csv::
-
-    "location","geolocation"
-    "01067 Dresden","51.057379, 13.715954"
-    "01069 Dresden","51.04931, 13.744873"
-    "01097 Dresden","51.060424, 13.745002"
-    ...
-
-
-Geospatial Search (with Autocomplete)
-*************************************
-
-Works just when querying Solr directly. collective.solr needs some minor
-fixes. See https://github.com/collective/collective.solr/tree/spatial-filters.
-
-solr.cfg::
-
-    [solr-core-geospatial]
-    max-num-results = 10
-    unique-key = id
-    index =
-      name:id type:uuid indexed:true stored:true multivalued:false required:true
-      name:location type:text indexed:true stored:true
-      name:geolocation type:location indexed:true stored:true
-      name:autocomplete type:text_auto indexed:true stored:true multivalued:true
-
-    additionalFieldConfig =
-      <dynamicField name="*_coordinate"  type="tdouble" indexed="true"  stored="false"/>
-
-    extra-field-types =
-      <fieldType name="uuid" class="solr.UUIDField" indexed="true" />
-      <fieldType class="solr.TextField" name="text_auto">
-        <analyzer>
-          <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-          <filter class="solr.LowerCaseFilterFactory"/>
-          <filter class="solr.ShingleFilterFactory" maxShingleSize="4" outputUnigrams="true"/>
-          <filter class="solr.EdgeNGramFilterFactory" maxGramSize="20" minGramSize="1"/>
-         </analyzer>
-      </fieldType>
-
-    # Copy field city -> autocomplete
-    additional-schema-config =
-      <copyField source="location" dest="autocomplete" />
-
-    additional-solrconfig =
-      <!-- Generate a unique key when creating documents in solr -->
-      <requestHandler name="/update" class="solr.UpdateRequestHandler">
-        <lst name="defaults">
-          <str name="update.chain">uuid</str>
-        </lst>
-      </requestHandler>
-
-      <!-- Generate a unique key when importing documents from csv in solr -->
-      <requestHandler name="/update/csv" class="solr.UpdateRequestHandler">
-        <lst name="defaults">
-          <str name="update.chain">uuid</str>
-        </lst>
-      </requestHandler>
-
-      <updateRequestProcessorChain name="uuid">
-        <processor class="solr.UUIDUpdateProcessorFactory">
-          <str name="fieldName">id</str>
-        </processor>
-        <processor class="solr.RunUpdateProcessorFactory" />
-      </updateRequestProcessorChain>
-
-    filter =
-        text solr.LowerCaseFilterFactory
+        <script>
+          $(document).ready(function() {
+            $("#acsearch").on("input", function(e) {
+              var val = $(this).val();
+              if(val.length < 2) return;
+              $.get("suggest-terms", {term:val}, function(res) {
+                var dataList = $("#searchresults");
+                dataList.empty();
+                if(res.length) {
+                  for(var i=0, len=res.length; i<len; i++) {
+                    var opt = $("<option></option>").attr("value", res[i].label);
+                    dataList.append(opt);
+                  }
+                }
+              }, "json");
+            });
+          })
+        </script>
+      </metal:content-core>
+    </body>
+    </html>
 
