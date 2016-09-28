@@ -104,7 +104,7 @@ Zope Toolkit / Zope3
 Zope Component Architecture (ZCA)
 ---------------------------------
 
-The `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_, which was developed as part of Zope 3, is a system which allows for component pluggability and complex dispatching based on objects which implement an interface (a description of a functionality). Plone makes extensive use of the ZCA in its codebase.
+The `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_, which was developed as part of Zope 3, is a system which allows for component pluggability and complex dispatching based on objects which implement an interface (a description of a functionality). It is a subset of the ZTK but can be used standalone. Plone makes extensive use of the ZCA in its codebase.
 
 
 .. _anatomy-pyramid-label:
@@ -126,3 +126,16 @@ Pyramid
     .. seealso::
 
        * http://docs.pylonsproject.org/projects/pyramid/en/latest/index.html
+
+Exercise
+--------
+
+Definition of the PYTHON_PATH makes up most of the `bin/instance` script's code. Look at the package list (and maybe also the links provided in the respective sections of this chapter). Try to identify 3 packages that belong to the original Zope2, 3 packages from CMF, 3 Zope Toolkit packages and 3 packages from the ZCA.
+
+..  admonition:: Solution
+    :class: toggle
+
+    * Zope2: Zope2, ZODB, Acquistion, AccessControl, ...
+    * CMF: Products.CMFCore, Products.CMFUid, Products.CMFEditions, ... Products.DCWorkflow doesn't fit the pattern but is a very important part of the CMF
+    * ZTK: zope.browser, zope.container, zope.pagetemplate, ... You can find a complete list `<here http://docs.zope.org/zopetoolkit/releases/packages-trunk.html>`_
+    * ZCA: zope.component, zope.interface, zope.event

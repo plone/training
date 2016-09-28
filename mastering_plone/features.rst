@@ -24,13 +24,13 @@ This starts Plone in foreground mode so that we can see what it is doing by moni
 
 You can stop it by pressing :kbd:`ctrl + c`.
 
-The :program:`instance` script offers the following options, which you can call up at any time with `./bin/instance help`::
+Apart from the `fg` command the :program:`instance` script offers several more commands. `./bin/instance help` shows the list of available commands, `bin/instance help <command>` will give a short help for each command. Some commands you will use rather often are::
 
     $ ./bin/instance fg
     $ ./bin/instance start
     $ ./bin/instance stop
-    $ ./bin/instance -O Plone debug
-    $ ./bin/instance -O Plone run myscript.py
+    $ ./bin/instance debug
+    $ ./bin/instance run myscript.py
     $ ./bin/instance adduser name password
 
 .. only:: not presentation
@@ -57,6 +57,69 @@ The :program:`instance` script offers the following options, which you can call 
 
     Plone has many message-boxes. They contain important information. Read them and make sure you understand them!
 
+Exercises
+*********
+
+Exercise 1
+++++++++++
+
+Open the `bin/instance` script in your favorite editor. Now let's say you want Plone to listen on port 9080 instead of the default 8080. Looking at the script, how could you do this?
+
+..  admonition:: Solution
+    :class: toggle
+
+    At the end of the `bin/instance` script, you'll see the following code::
+
+    .. code-block:: python
+
+        if __name__ == '__main__':
+            sys.exit(plone.recipe.zope2instance.ctl.main(
+                ['-C', '/home/vagrant/training/buildout/parts/instance/etc/zope.conf']
+                + sys.argv[1:]))
+
+    The second to last line points to the configuration file your Plone instance is using. An absolute path is used so it might differ depending on the installation method. Open the `zope.conf` file in your
+    editor and look for the section::
+
+    .. code-block::
+
+        <http-server>
+         address 8080
+        </http-server>
+
+    Change the address to 9080 and restart your instance.
+
+Exercise 2
+++++++++++
+
+Knowing that `bin/instance debug` basically offers you a Python prompt, how would you start to explore Plone?
+
+..  admonition:: Solution
+    :class: toggle
+
+    Use `locals()` or `locals().keys()` to see Python objects available in Plone
+
+Exercise 3
+++++++++++
+
+The `app` object you encountered in the previous exercise can be seen as the root of Plone. Once again using Python, can you find your newly created Plone site?
+
+..  admonition:: Solution
+    :class: toggle
+
+    `app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
+
+    .. note::
+
+        Plone and its objects are stored in an object database, the ZODB. You can use `bin/instance debug` as a database client (in the same way e.g. `psql` is a client for PostgreSQL). Instead
+        of a special query language (like SQL) you simply use Python to access and manipulate ZODB objects. Don't worry if you accidentally change objects in `bin/instance debug` - you would have to commit
+        your changes explicitly to make them permanent. The Python code to do so is::
+
+        .. code-block:: pycon
+
+            >>> import transaction
+            >>> transaction.commit()
+
+        You have been warned.
 
 .. _features-walkthrough-label:
 
@@ -115,12 +178,6 @@ Users
 
     Let's create our first users within Plone. So far we used the admin user (admin:admin) configured in the buildout. This user is often called "zope root" and is not managed in Plone but only by Zope. Therefore the user's missing some features like email and full name and  won't be able to use some of plone's features. But the user has all possible permissions. As with the root user of a server, it's a bad practice to make unnecessary use of zope root. Use it to create Plone sites and their initial users, but not much else.
 
-    You can also add zope users via the terminal by entering::
-
-        $ ./bin/instance adduser <someusername> <supersecretpassword>
-
-    That way you can access databases you get from customers where you have no Plone user.
-
     To add a new user in Plone, click on the user icon at the bottom of the left vertical bar and then on :guilabel:`Site setup`. This is Plone's control panel. You can also access it by browsing to http://localhost:8080/Plone/@@overview-controlpanel
 
     Click on :guilabel:`Users and Groups` and add a user. If we had configured a mail server, Plone could send you a mail with a link to a form where you can choose a password. (Or, if you have Products.PrintingMailHost in your buildout, you can see the email scrolling by in the console, just the way it would be sent out.)  We set a password here because we haven't yet configured a mail server.
@@ -134,6 +191,12 @@ Users
         * as anonymous
         * as editor
         * as admin
+
+    You can also add zope users via the terminal by entering::
+
+        $ ./bin/instance adduser <someusername> <supersecretpassword>
+
+    That way you can access databases you get from customers where you have no Plone user.
 
 .. only:: presentation
 
@@ -167,6 +230,11 @@ Configure a Mailserver
 * Site 'From' name: Your name
 * Site 'From' address: Your email address
 
+.. only:: not presentation
+
+    Click on `Save and send test e-mail`. Since we have configured PrintingMailHost, you will see the mail content in the console output of your instance. Plone will not
+    actually send the email to the receivers address.
+
 
 .. _features-content-types-label:
 
@@ -177,7 +245,7 @@ Edit a page:
 
 * :guilabel:`Edit front-page`
 * :guilabel:`Title` :samp:`Plone Conference 2015, Bucharest`
-* :guilabel:`Description` :samp:`Tutorial`
+* :guilabel:`Summary` :samp:`Tutorial`
 * :guilabel:`Text` :samp:`...`
 
 Create a site-structure:
@@ -193,7 +261,7 @@ Create a site-structure:
 * In /events: Add Event "Deadline for talk submission" Date: 2015/08/10
 
 * Add Folder "Register"
-* Delete Folder "Members" (Users)
+* Delete Folder "Users"
 * Add Folder "Intranet"
 
 
