@@ -9,7 +9,6 @@ test_solr_unit.py::
 
     # -*- coding: utf-8 -*-
     from collective.solr.testing import SOLR_FIXTURE
-    import unittest2 as unittest
     import json
     import requests
 
@@ -107,9 +106,6 @@ test_solr_integration.py::
 
         def afterSetUp(self):
             self.maintenance = self.portal.unrestrictedTraverse('solr-maintenance')
-
-        def beforeTearDown(self):
-            pass
 
         def test_search_view_returns_plone_app_search_view(self):
             view = getMultiAdapter(

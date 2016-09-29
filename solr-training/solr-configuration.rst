@@ -6,7 +6,7 @@ Solr Multi Core
 
 solr.cfg::
 
-    [solr]
+    [solr-instance]
     recipe = collective.recipe.solrinstance:mc
     cores =
       collection1
@@ -30,7 +30,7 @@ with one stopword per line to the Solr configuration:
 
 solr.cfg::
 
-    [solr]
+    [solr-instance]
     recipe = collective.recipe.solrinstance
     filter =
         text solr.StopFilterFactory ignoreCase="true" words="${buildout:directory}/etc/stopwords.txt"
@@ -48,7 +48,7 @@ stopwords.txt::
 
 For some common language secific examples see the Solr git repository:
 
-  https://github.com/apache/lucene-solr/blob/master/lucene/analysis/common/src/resources/org/apache/lucene/analysis/snowball
+.. seealso: https://github.com/apache/lucene-solr/blob/master/lucene/analysis/common/src/resources/org/apache/lucene/analysis/snowball
 
 
 Stemming
@@ -67,13 +67,14 @@ looking for it is probably not a good idea but if you provide a Google like sear
 where you more browse than search then stemming is probably for you.
 
 If you are interested in this feature look at the Solr documentation here:
-https://wiki.apache.org/solr/LanguageAnalysis
+
+.. seealso: https://wiki.apache.org/solr/LanguageAnalysis
 
 A short example to include a german stemming factory into the buildout is here:
 
 solr.cfg::
 
-    [solr]
+    [solr-instance]
     recipe = collective.recipe.solrinstance
     ...
     filter =
@@ -131,7 +132,9 @@ synonyms.txt::
     #Examples:
     ipod => i-pod, i pod => ipod,
 
-    #Equivalent synonyms may be separated with commas and give #no explicit mapping.  In this case the mapping behavior will #be taken from the expand parameter in the schema.  This allows #the same synonym file to be used in different synonym handling strategies.
+    #Equivalent synonyms may be separated with commas and give #no explicit mapping.
+    # In this case the mapping behavior will #be taken from the expand parameter in the schema.
+    # This allows #the same synonym file to be used in different synonym handling strategies.
     #Examples:
     ipod, i-pod, i pod
     foozball , foosball
@@ -147,5 +150,6 @@ synonyms.txt::
     #is equivalent to
     foo => foo bar, baz
 
-For a full list of index and query filter factories consult the Solr documentation.
-https://cwiki.apache.org/confluence/display/solr/Understanding+Analyzers%2C+Tokenizers%2C+and+Filters
+For a full list of index and query filter factories consult the Solr documentation:
+
+.. seealso: https://cwiki.apache.org/confluence/display/solr/Understanding+Analyzers%2C+Tokenizers%2C+and+Filters

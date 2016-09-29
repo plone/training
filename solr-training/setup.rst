@@ -184,7 +184,8 @@ configuration options in a buildout way::
 - copyfield: copy content to another field, e.g. copy title, description, subject and SearchableText to default.
 
 For a complete list of schema configuration options refer to the documentation of Solr.
-https://wiki.apache.org/solr/SchemaXml#Common_field_options
+
+.. seealso: https://wiki.apache.org/solr/SchemaXml#Common_field_options
 
 This is the bare minimum for configuring Solr. There are more options supported by the buildout
 recipe *collective.recipe.solrinstance* and even more by Solr itself. Most notably are the custom
@@ -304,3 +305,8 @@ following snippet to configure host, port und basepath: ::
 
 The ZCML configuration takes predence over the configuration in the
 registry / control-panel.
+
+Excercise
+++++++++++++
+
+Have a running Plone and Solr with collective.solr active.

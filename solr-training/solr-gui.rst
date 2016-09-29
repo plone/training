@@ -233,8 +233,15 @@ TBD
 Search GUIs
 **************************
 
- - c.solr ootb
+ - collective.solr out of the box: collective.solr commes with its own
+   search view. For the new version 6.0 it is based on ReactJS and looks
+   similar to the Plone search view with native facet support of Solr.
 
- - eea.facetednavigation
+ - eea.facetednavigation: This addon allows faceting out of the box even
+   without Solr. It is a product for integrators to setup search and
+   filter GUIs TTW. It can be used for several use cases: Search pages,
+   collection replacements, etc.  **DEMO**
 
- - custom
+ - custom: Another way is to create a custom search page. This is
+   easy to do and we will see later on in this training how.
+

@@ -170,3 +170,10 @@ search results with the same term.
 .. note:: Boosting at index time is only available if you turn off
    atomic updates.
 
+
+Excercise
++++++++++
+
+ 1. Create or enhance a Dexterity type with an additional field which is
+    indexed.
+ 2. Create a custom indexer in Plone.

@@ -17,11 +17,10 @@ Contents:
    first-steps.rst
    how-does-collective-solr-work.rst
    solr-configuration.rst
-   autocomplete-suggest-etc.rst 
-   json-api.rst
+   a-fancy-custom-search-page.rst 
    solr-testing.rst
    production-setup.rst
-   advanced-topics.rst
+   solr-alternatives.rst
 
 
 ==================
