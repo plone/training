@@ -12,44 +12,66 @@ Another goodie of accessing the URLs directly is
 they support GET parameters to limit and change
 their behavior. Let's see some examples:
 
+Reindex
++++++++
+
 Reindex all Plone objects found in catalog:
-
-        """ find all contentish objects (meaning all objects derived from one
-            of the catalog mixin classes) and (re)indexes them """
-
 
 http://localhost:8080/Plone/@@solr-maintainance/reindex
 
-batch=1000, skip=0, limit=0, ignore_portal_types=None,
-                only_portal_types=None, idxs=[]):
+The call of this URL finds all contentish objects
+(meaning all objects derived from one of the catalog
+mixin classes) and (re)indexes them.
+
+There are some parameters you can specify:
+
+ - *batch* (default:1000): Batch size for commit. Data is only send to Solr
+   on commit.
+ - *skip* (default:0): Skip N elements when iterating over all contentish objects.
+ - *limit* (default:0): Only index N elements.
+ - *ignore_portal_types* (default:None): Blacklist of portal types not to be indexed.
+ - *only_portal_types* (default:None): Whiltelist of portal types not to be indexed.
+ - *idxs* (default:[]): Only this index fields will be updated.
 
 
 Cleanup
++++++++
 
-remove entries from solr that don't have a corresponding Zope
-            object or have a different UID than the real object
-
+Remove entries from Solr that don't have a corresponding Zope
+object or have a different UID than the real object:
 
 http://localhost:8080/Plone/@@solr-maintainance/cleanup
 
-batch=1000
+The only parameter you can specify is the batch size:
+
+ - *batch* (default:1000): Batch size for commit. Data is only send to Solr
+   on commit.
+
 
 Sync Solr Index
+++++++++++++++Y+
 
-        """Sync the Solr index with the portal catalog. Records contained
-        in the catalog but not in Solr will be indexed and records not
-        contained in the catalog will be removed.
-        """
-
+Sync the Solr index with the portal catalog. Records contained
+in the catalog but not in Solr will be indexed and records not
+contained in the catalog will be removed.
 
 http://localhost:8080/Plone/@@solr-maintainance/sync
 
-batch=1000, preImportDeleteQuery='*:*'
+There are some parameters you can specify:
 
-Purge Solr index
+ - *batch* (default:1000): Batch size for commit. Data is only send to Solr
+   on commit.
+ - *preImportDeleteQuery* (default:*:*): This **delete** query will be executed
+   on Solr before the sync process starts.
+
+Purge Solr Index
+++++++++++++++++
+
+Clear **all** elemnts from the Solr default collection.
 
 http://localhost:8080/Plone/@@solr-maintainance/clear
 
+There are no parameters you can specify for the clear action.
 
 .. note:: Be careful with required fields. If you specify
    required fields in your schema, which are not present
@@ -77,9 +99,9 @@ email which can be used to contact the reponsible support person
 for this task. And we want to make this field to be found in
 fulltext search.
 
-TBD Steps to add field
-TBD Store schema.xml?
-TBD Screenshot adding field to schema
+It does not matter if we add the field TTW, via supermodel or via
+interface. The only thing you have to make sure the **name** of the
+field is identical in Plone and Solr.
 
 Next thing we do is to extend the Solr fields definition in
 our buildout.cfg

@@ -14,6 +14,21 @@ Autocomplete
 For autocomplete we need a special Solr handler because we don't search
 full terms but only part of terms.
 
+With the additional Solr configuration autocomplete can be called
+via URL directly:
+
+  http://localhost:8080/Plone/@@solr-autocomplete?term=Pl
+
+Which gives the response::
+
+    [
+        {
+            "value": "Willkommen bei Plone",
+            "label": "Willkommen bei Plone"
+        }
+    ]
+
+
 solr.cfg::
 
     [solr-instance]
@@ -102,9 +117,44 @@ search.pt::
 Suggest
 --------
 
-solr.cfg::
+The suggest (did you mean ...) feature is well known from popular
+search engines. It is integrated into Solr as a component which needs to
+be enabled and configured. Here is an example configuration which works
+with collective solr. If you change it stick to the names of the parameters
+and handlers.
 
-    [solr]
+The JSON view of Plone can be called with this URL:
+
+    http://localhost:8080/Plone/@@search?format=json&SearchableText=Plane
+
+And from JavaScript::
+
+  GET http://localhost:8080/Plone/@@search?SearchableText=Plane
+  Accept: application/json
+
+We get a response like this::
+
+    {
+        "data": [ ],
+        "suggestions":
+        {
+            "plane":
+            {
+                "endOffset": 87,
+                "numFound": 1,
+                "startOffset": 82,
+                "suggestion":
+                    [
+                        "plone"
+                    ]
+                }
+            }
+        }
+    }
+
+The configuration in buildout is as follows: ::
+
+    [solr-instance]
     recipe = collective.recipe.solrinstance
     ...
 
@@ -210,7 +260,7 @@ solr.cfg::
         </arr>
       </requestHandler>
 
-search.pt::
+A simple integration in our training-search is here: ::
 
     <html lang="en"
           metal:use-macro="context/main_template/macros/master"
