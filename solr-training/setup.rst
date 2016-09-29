@@ -189,12 +189,9 @@ For a complete list of schema configuration options refer to the documentation o
 
 This is the bare minimum for configuring Solr. There are more options supported by the buildout
 recipe *collective.recipe.solrinstance* and even more by Solr itself. Most notably are the custom
-extensions for *schema.xml* and *solrconfig.xml* ::
+extensions for *schema.xml* and *solrconfig.xml*. We will see examples for this later on in the training.
   
-  additional-schema-config =  TBD
-  additional-solrconfig  = TBD (custom handler)
-
-or even a custom location for this main configuration files. ::
+Or you can even point to a custom location for the main configuration files. ::
 
   schema-destination = ${buildout:directory}/etc/schema.xml
   config-destination = ${buildout:directory}/etc/solrconfig.xml
