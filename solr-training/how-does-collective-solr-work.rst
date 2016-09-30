@@ -1,5 +1,6 @@
-Collective Solr
-------------------------------------------------------------------------------
+*****************************
+How does collective.solr work 
+*****************************
 
 Currently we depend on collective.indexing as a means to hook into the 
 normal catalog machinery of Plone to detect content changes.
@@ -11,39 +12,16 @@ the required hooks for its use-case. Going forward it is expected for
 c.indexing to be merged into the underlying ZCatalog implementation,
 at which point collective.solr can use those hooks directly.
 
-
-Collective Solr Control Panel
-*****************************
-
-Basic Configuration:
-
-- Active
-- Host
-- Port
-- Base
-- ...
-
-Query Configuration::
-
-    +(Title:{value}^5 OR
-      Description:{value}^2 OR
-      SearchableText:{value} OR
-      SearchableText:({base_value}
-    )
-    OR searchwords:({base_value})^1000) +showinsearch:True
-
-
 Base Functionality
-******************
+====================
 
 - Patches the ZCatalog
 - Some queries are faster in Solr some are not
 - Indexes and Metadata duplicated
 - Full text search with SearchableText
 
-
 Transactions
-************
+====================
 
 Solr is not transaction-aware and does not support any kind of rollback or
 undo. We therefore only send data to Solr at the end of any successful
@@ -54,7 +32,7 @@ request.
 
 
 Querying Solr with collective.solr
-**********************************
+=====================================
 
 ZCatalog Query::
 
@@ -70,13 +48,14 @@ Direct Solr Queries::
         use_solr='true',
     )
 
-You can pass Solr query params directly to Solr and force a Solr response with
+You can pass Solr query params directly to Solr and force a Solr response
+with ::
 
-.. code:: use_solr='true'
+  use_solr='true'
 
 
 Mangler
-*******
+=====================================
 
 collective.solr has a mangleQuery function that translates / mangles ZCatalog
 query parameters to replace zope specifics with equivalent constructs for

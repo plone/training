@@ -1,8 +1,10 @@
+*****************
 First Steps
-=====================
+*****************
+
 
 Maintenance Tasks
------------------
+===================
 
 All the maintenance tasks are accessible through the
 Solr controlpanel in Plone since version 6.0 of
@@ -13,7 +15,7 @@ they support GET parameters to limit and change
 their behavior. Let's see some examples:
 
 Reindex
-+++++++
+-----------------
 
 Reindex all Plone objects found in catalog:
 
@@ -35,7 +37,7 @@ There are some parameters you can specify:
 
 
 Cleanup
-+++++++
+-----------------
 
 Remove entries from Solr that don't have a corresponding Zope
 object or have a different UID than the real object:
@@ -65,7 +67,7 @@ There are some parameters you can specify:
    on Solr before the sync process starts.
 
 Purge Solr Index
-++++++++++++++++
+-----------------
 
 Clear **all** elemnts from the Solr default collection.
 
@@ -78,7 +80,7 @@ There are no parameters you can specify for the clear action.
    in your indexing record indexing will not happen.
 
 Indexing a new dexterity field
-------------------------------
+================================
 
 A common use case is to add an aditional field to the index.
 We have to inform both sides (Solr and Plone) if we
@@ -157,7 +159,7 @@ and sirname set, the *fullname* in Solr appears.
    See https://pypi.python.org/pypi/collective.dexteritytextindexer
 
 Boosting
---------
+========
 
 In a standard installation of Solr all fields are treated equaly important
 for searching. Usually this is not what we want. We want the Title to be
@@ -194,7 +196,7 @@ search results with the same term.
 
 
 Excercise
-+++++++++
+=========
 
  1. Create or enhance a Dexterity type with an additional field which is
     indexed.

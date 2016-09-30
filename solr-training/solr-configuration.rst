@@ -1,8 +1,9 @@
+****************************
 Solr Buildout Configuration
-------------------------------------------------------------------------------
+****************************
 
 Solr Multi Core
-***************
+==================
 
 solr.cfg::
 
@@ -19,7 +20,7 @@ solr.cfg::
    It allways uses the default core for indexing and searching. 
 
 Stopwords
-*********
+==================
 
 For indexes with of text, commoun uninteresting words like *"the"*, *"a"*, and
 so on, make the index large and slow down phrase queries. To deal with this
@@ -52,7 +53,7 @@ For some common language secific examples see the Solr git repository:
 
 
 Stemming
-********
+==================
 
 Stemming is a language specific operation which try to reduce terms to a base form.
 
@@ -101,7 +102,7 @@ stemdict.txt::
 
 
 Synonyms
-********
+==================
 
 Solr can deal with synonyms. Maybe you run a shop for selling smartphones and you
 want people typing "iphone", "i-phone" or even "ephone", "ifone", or "iphnoe" to
@@ -153,3 +154,4 @@ synonyms.txt::
 For a full list of index and query filter factories consult the Solr documentation:
 
 .. seealso: https://cwiki.apache.org/confluence/display/solr/Understanding+Analyzers%2C+Tokenizers%2C+and+Filters
+

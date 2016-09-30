@@ -1,11 +1,12 @@
+***************************
 Solr GUI and Query Syntax
-===========================
+***************************
 
 In the next part we will take a closer look the the search GUI of Solr
 and its query syntax.
 
 Access Solr Gui
-----------------------------------
+================
 
 Solr is a REST-based wrapper around the Java lucene index. It comes with
 its own web GUI. It it possible to access all of the SOLR API via REST and
@@ -19,8 +20,8 @@ following. :
  - Click: "Load Term Info"
  - Click on term "<fullname>"
 
-Solr Query
-----------------------------------
+Solr Query Syntax
+==================
 
 Solr Query Parameters:
 
@@ -97,7 +98,7 @@ Response Writer "wt"::
 A Response Writer generates the formatted response of a search.
 
 Solr Query via URL
-----------------------------------
+===================
 
 Copy query from Solr GUI, e.g.::
 
@@ -106,7 +107,7 @@ Copy query from Solr GUI, e.g.::
 You can use curl or the Python package `requests` (https://pypi.python.org/pypi/requests) to access the REST API of Solr.
 
 Solr Query via API
-----------------------------------
+===================
 
 Another way of accessing Solr is to use a Python wrapper, which exposes the Solr API
 in a Pythonic way. Collective.solr has included such a wrapper (solr.py), TBD check,
@@ -128,7 +129,7 @@ I use the following script to delete all Plone Documents from Solr ::
  
 
 Advanced Solr Query Syntax
-**************************
+===========================
 
 Simple Query::
 
@@ -148,16 +149,16 @@ Operators::
 
 "AND", "OR", "+", "-", "||", "NOT"
 
-Be carefull with combining operators such as
+Be carefull with combining operators such as::
 
-.. code:: New AND York OR Buenos AND Aires
+ New AND York OR Buenos AND Aires
 
 which will probably lead to now results. You will need to use
 sub-queries.
 
-Sub-queries:
+Sub-queries: ::
 
-.. code:: (New AND York) OR (Buenos Aires)
+ (New AND York) OR (Buenos Aires)
 
 Range Queries::
 
@@ -167,61 +168,61 @@ Boost Terms:
 
     "people^4"
 
-Fuzzy Search:
+Fuzzy Search: ::
 
-.. code:: "house0.6"
+ "house0.6"
 
-Proximity Search:
+Proximity Search: ::
 
-.. code:: "apache solr"~
+ "apache solr"~
 
-with treshold
+with treshold ::
 
-.. code:: "apache solr"~7
+ "apache solr"~7
 
 Wildcard queries:
 
-Find all cities starting with *New* you can do:
+Find all cities starting with *New* you can do: ::
 
-.. code:: New*
+ New*
 
-Or a single character wildcard:
+Or a single character wildcard: ::
 
-.. code:: M?ller
+ M?ller
 
 which will find *Müller*, *Miller*, etc.
 
 Date math
-***************
+===========
 
 Solr provides some useful date units which are available for date queries.
 The units you can choose of are:
 
 *YEAR*, *MONTH*, *DAY*, *DATE* (synonymous with *DAY*), *HOUR*, *MINUTE*, *SECOND*, *MILLISECOND*, *MILLI* (synonymous with *MILLISECOND*) and *NOW*.
-All of these units can be pluralized with an *S* as in *DAYS*.
+All of these units can be pluralized with an *S* as in *DAYS*. ::
 
-.. code:: effective:[* TO NOW-3MONTHS]
+ effective:[* TO NOW-3MONTHS]
 
-*NOW* has a millisecond precision. To round down by using the */* operator (it never rounds up).
+*NOW* has a millisecond precision. To round down by using the */* operator (it never rounds up). ::
 
-.. code:: effective:[* TO NOW/DAY-2YEAR]
+ effective:[* TO NOW/DAY-2YEAR]
 
 Existing (and non-existing) queries
-***********************************
+========================================
 
 Assume we want to find all documents which have a value in a certain field
 (whatever that value is, it doesn't matter).
 
-Find all documents with a description:
+Find all documents with a description: ::
 
-.. code:: Description:[* TO *] 
+ Description:[* TO *] 
 
-The oposite (finding all documents with no description) is also possible:
+The oposite (finding all documents with no description) is also possible: ::
 
-.. code::  -Description:[* TO *] 
+ -Description:[* TO *] 
 
 Faceting
-**************************
+========================================
 
 Faceting is one of the killer features of Solr. It allows the grouping
 and filtering results for better findability. To enable faceting you need
@@ -231,7 +232,7 @@ facet upon:
 TBD
 
 Search GUIs
-**************************
+========================================
 
  - collective.solr out of the box: collective.solr commes with its own
    search view. For the new version 6.0 it is based on ReactJS and looks
@@ -245,3 +246,7 @@ Search GUIs
  - custom: Another way is to create a custom search page. This is
    easy to do and we will see later on in this training how.
 
+Exercise
+=========
+
+ Do some queries in Solr directly

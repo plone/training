@@ -1,11 +1,13 @@
+*****************
 Production Setup
-==================
+*****************
+
 TBD:
  - multi core
  - monitoring
 
 different host setup
---------------------
+=====================================
 
 One use case in a production setup might be the split between the Plone server
 runs on and the Solr server(s).

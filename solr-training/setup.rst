@@ -1,5 +1,6 @@
+*********************
 Set up Plone and Solr
-=====================
+*********************
 
 For using Solr with Plone you need two things:
 
@@ -42,7 +43,7 @@ Start Solr in another terminal in foreground mode ::
   $ bin/solr-instance fg
 
 Solr Buildout
-*************
+=================
 
 We assume you are more less familiar with the Plone buildout, but let's
 analyze the solr buildout configuration a bit.
@@ -200,7 +201,7 @@ After running the buildout, which downloads and configures Solr and Plone we are
 both servers. 
 
 Plone and Solr
-**************
+=================
 
 To activate Solr in Plone *collective.solr* needs to be activated as an addon
 in Plone.
@@ -304,6 +305,6 @@ The ZCML configuration takes predence over the configuration in the
 registry / control-panel.
 
 Excercise
-++++++++++++
+=================
 
 Have a running Plone and Solr with collective.solr active.

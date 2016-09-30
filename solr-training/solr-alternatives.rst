@@ -1,8 +1,9 @@
+**************************************
 Alternative Indexing/Search solutions
------------------------------------------
+**************************************
 
 alm.solrindex
-~~~~~~~~~~~~~
+==============
 
 ``alm.solrindex`` is another addon for connecting Plone search to solr. It takes a different approach:
 
@@ -29,7 +30,7 @@ Cons:
 * Potential for missing some results. (see below)
 
 Setup
-#####
+------
 
 We set up solr in our buildout in a similar way,
 using the ``hexagonit.recipe.download`` and ``collective.recipe.solr`` buildout recipes.
@@ -76,7 +77,7 @@ If you have existing content in the site,
 you'll need to do a full reindex of the ZCatalog to get them indexed in solr.
 
 Why are results missing?
-########################
+-------------------------
 
 There is a limitation to this approach.
 
@@ -117,7 +118,7 @@ There are a couple workarounds for this problem, both of which have their own tr
    (but this detracts from the main advantages of using ``alm.solrindex`` over ``collective.solr``).
 
 Customization
-#############
+--------------
 
 Each type of field has its own *handler* which takes care of translating
 between ZCatalog and solr queries. These can be overridden to handle
@@ -191,11 +192,12 @@ ZCML::
 	         name="path" />
 
 DIY solr
-~~~~~~~~
+=========
 
 If both *collective.solr* and *alm.solrindex* are too much for you
 or you have special needs, you can access Solr by custom code.
 This might be, if you
+
  - need to access a Solr server with a newer version / multicore
    setup and you don't have access to the configuration of Solr
  - Only want a fulltext search page of a small site with no need
@@ -207,7 +209,7 @@ at the Ploneintranet (**advanced!**):
 https://github.com/ploneintranet/ploneintranet/pull/299
 
 collective.elasticsearch
-~~~~~~~~~~~~~~~~~~~~~~~~
+==========================
 
 Another option for an advanced search integration is the younger project
 Elasticsearch https://www.elastic.co/products/elasticsearch. Like for
@@ -233,7 +235,7 @@ https://pypi.python.org/pypi/collective.elasticsearch/
 
 
 Google Custom Search
-~~~~~~~~~~~~~~~~~~~~
+========================
 
 Google provides a couple related tools for using Google as a
 site-specific search engine embedded in your site:
@@ -259,3 +261,4 @@ Cons:
 - Only useful for fulltext search, not searching specific fields.
 - Limited control over result ranking and formatting.
 - Google has a habit of discontinuing free services.
+

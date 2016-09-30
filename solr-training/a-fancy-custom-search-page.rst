@@ -1,5 +1,6 @@
+*****************
 More Features...
-=====================
+*****************
 
 Next we will cover some more advanced topics which need configuration
 on Plone and Solr side. Features like autocomplete and suggest
@@ -9,7 +10,7 @@ They are perfectly doable with the Plone / Solr combination.
 Let's see how and start with autocomplete: 
 
 Autocomplete
---------------
+==============
 
 For autocomplete we need a special Solr handler because we don't search
 full terms but only part of terms.
@@ -115,7 +116,7 @@ search.pt::
 
 
 Suggest
---------
+==============
 
 The suggest (did you mean ...) feature is well known from popular
 search engines. It is integrated into Solr as a component which needs to
