@@ -48,10 +48,10 @@ Now, to use Ansible, activate that Python environment.
     Trainers: check to make sure everyone understands the basic ``source activate`` mechanism.
 
 Now, let's get a copy of the *Plone Ansible Playbook*.
-Make sure you're logged to your ansible_work directory.
+Make sure you're logged in to your ``ansible_work`` directory.
 
-Unless you're participating in the development of the playbook, or need a particular fix, you'll want to clone the ``STABLE`` branch.
-The STABLE branch is a pointer to the last release of the playbook.
+Unless you're participating in the development of the playbook, or need a particular fix, you'll want to check out the ``STABLE`` branch.
+The ``STABLE`` branch is a pointer to the last release of the playbook.
 
 .. code-block:: shell-session
 
@@ -93,7 +93,7 @@ To use Ansible to provision a remote server, we have two requirements:
 
 1. We must be able to connect to the remote machine using ``ssh``; and,
 
-2. We must be able to issue commands as the on the remote server as root (superuser), usually via ``sudo``.
+2. We must be able to issue commands on the remote server as ``root`` (superuser), usually via ``sudo``.
 
 You'll need to familiarize yourself with how to fulfill these requirements on the cloud/virtual environment of your choice.
 Examples:
@@ -105,7 +105,8 @@ Using Vagrant/virtualbox
 
 Using Linode
 
-    You'll set a root password when you create your new machine. If you're willing to use the root user directly, you will not need a ``sudo`` password.
+    You'll set a root password when you create your new machine.
+    If you're willing to use the root user directly, you will not need a ``sudo`` password.
 
 When setting up a Digital Ocean machine
 
@@ -115,9 +116,10 @@ When setting up a Digital Ocean machine
 AWS
 
     AWS EC2 instances are typically created with a an account named "root" or a short name for the OS, like "ubuntu", that contains your ssh public key as an authorized key.
-    Passwordless ``sudo`` is pre-enabled for that acount.
+    Passwordless ``sudo`` is pre-enabled for that account.
 
-The most important thing is that you know your setup. Test that knowledge by trying an ssh login and issuing a superuser command.
+The most important thing is that you know your setup.
+Test that knowledge by trying an ssh login and issuing a superuser command.
 
 
 .. code-block:: shell-session
@@ -152,7 +154,7 @@ If we were using a DNS-known hostname and our standard ssh key files, it could b
 
     direct.newhost.com ansible_ssh_user=root
 
-Ansible inventory files may list multiple hosts and may have aliases for groups of hosts. See docs.ansible.com for details.
+Ansible inventory files may list multiple hosts and may have aliases for groups of hosts. See https://docs.ansible.com for details.
 
 Playbooks
 ^^^^^^^^^
@@ -160,7 +162,7 @@ Playbooks
 We're going to cover just enough on Ansible playbooks to allow you to read and customize Plone's playbook.
 `Ansible's documentation <http://docs.ansible.com>`_ is excellent if you want to learn more.
 
-In Ansible, an individual instruction for the setup of the remote server is called a task.
+In Ansible, an individual instruction for the setup of the remote server is called a _task_.
 Here's a task that makes sure a directory exists.
 
 .. code-block: yaml
@@ -176,7 +178,7 @@ If it doesn't, it's created.
 
 Tasks may also have execution conditions expressed in Python syntax and may iterate over simple data structures.
 
-In addition to tasks, Ansible's basic units are host and variable specifications.
+In addition to tasks, Ansible's basic units are _host_ and _variable_ specifications.
 
 An Ansible ``playbook`` is a specification of tasks that are executed for specified hosts and variables.
 All of these specifications are in YAML.
