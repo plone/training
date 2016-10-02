@@ -224,7 +224,7 @@ And now, we need to create a ``rate`` block.
 
 Once the block is ready, you can display it by visiting its URL in your browser:
 
-http://localhost:8080/Plone/@@rapido/rating/block/rate
+http://localhost:8080/Plone/@@rapido/rating/blocks/rate
 
 .. TODO:: ADD SCREENSHOT HERE
 
@@ -235,14 +235,16 @@ Include Rapido blocks in Plone pages
 
 We can include Rapido blocks in Plone pages using Diazo rules.
 
-The ``include`` rule is able to load another URL than the current page, extract a piece of HTML from it, and include it in regular Diazo rules (such as ``after``, ``before``, etc.).
+The ``include`` rule is able to load another URL than the current page,
+extract a piece of HTML from it,
+and include it in regular Diazo rules (such as ``after``, ``before``, etc.).
 
 So the following rule:
 
 .. code-block:: xml
 
     <after css:content="#content">
-        <include href="@@rapido/stats/block/stats" css:content="form"/>
+        <include href="@@rapido/stats/blocks/stats" css:content="form"/>
     </after>
 
 would insert the ``stats`` block under the Plone main content.
@@ -265,7 +267,8 @@ Insert the ``rate`` block content under the Plone page main heading.
 ..  admonition:: Solution
     :class: toggle
 
-    * in the main ``rules.xml``, add the following line at the begining of the ``<rules>`` tag:
+    * in the main ``rules.xml``, add the following line just after the first
+      ``<rules>`` opening tag:
 
       .. code-block:: xml
 
@@ -283,7 +286,7 @@ Insert the ``rate`` block content under the Plone page main heading.
                  xmlns:xi="http://www.w3.org/2001/XInclude">
 
               <after css:content=".documentFirstHeading" css:if-content=".template-view.portaltype-talk">
-                  <include href="@@rapido/rating/block/rate" css:content="form"/>
+                  <include href="@@rapido/rating/blocks/rate" css:content="form"/>
               </after>
 
           </rules>
@@ -295,6 +298,8 @@ Insert the ``rate`` block content under the Plone page main heading.
         but it only applies when we are viewing a talk
         (``.template-view.portaltype-talk``),
       * the ``include`` rule retrieves the Rapido block content.
+
+.. TODO:: what's that portaltype-talk?
 
 Now, if you visit a talk page, you see the counter below the heading.
 
@@ -442,12 +447,15 @@ For now, the action itself will do nothing, let's just insert it at the right pl
 .. admonition:: Solution
     :class: toggle
 
-    * in ``rate.yaml``, add the following new element:
+    * in ``rate.yaml``, add a new ``like`` element and change the target to ``ajax``
+      After doing this, your YAML file looks as follows:
 
       .. code-block:: yaml
 
           target: ajax
           elements:
+              display_votes:
+                  type: BASIC
               like:
                   type: ACTION
                   label: Like
@@ -539,7 +547,7 @@ Now let's make sure to display the proper total in the ``display_votes`` element
 
 - here also, we need to get the current talk,
 - then we get the corresponding record,
-- and we get its current total votes
+- and we get its current total votes.
 
   .. code-block:: python
 
@@ -658,7 +666,7 @@ We *could* do it with a simple ``replace`` Diazo rule:
 .. code-block:: xml
 
     <replace css:content="#content">
-        <include href="@@rapido/stats/block/stats" css:content="form"/>
+        <include href="@@rapido/stats/blocks/stats" css:content="form"/>
     </replace>
 
 But if we do that, the regular content will not be accessible anymore.
@@ -675,7 +683,7 @@ we just use it to match a Diazo rule in charge of replacing the default content 
 
     <rules if-path="@@rapido/view/show-stats">
         <replace css:content="#content">
-            <include css:content="form" href="/@@rapido/stats/block/stats" />
+            <include css:content="form" href="/@@rapido/stats/blocks/stats" />
         </replace>
     </rules>
 
@@ -712,16 +720,26 @@ Let's create a block to display the Talks Top 5:
 
         <rules if-path="@@rapido/view/talks-top-5">
             <replace css:content-children="#content">
-                <include css:content="form" href="/@@rapido/rating/block/top5" />
+                <include css:content="form" href="/@@rapido/rating/blocks/top5" />
             </replace>
         </rules>
 
     And then we declare a new action in our footer:
 
-    - go to Site Setup / Actions
-    - add a new action in Site actions category with name "Top 5" and as URL::
+    - go to the `site_actions` in the Zope Management Interface::
 
-        string:${globals_view/navigationRootUrl}/@@rapido/view/talks-top-5
+        http://localhost:8080/Plone/portal_actions/site_actions/manage_workspace
+
+    - add a new `top5` action, with the "URL (Expression)" property set to::
+
+       string:${globals_view/navigationRootUrl}/@@rapido/view/talks-top-5
+
+    .. versionadded:: 5.1
+
+        1. go to Site Setup / Actions
+        2. add a new action in Site actions category with name "Top 5" and as URL::
+
+             string:${globals_view/navigationRootUrl}/@@rapido/view/talks-top-5
 
 .. TODO:: ADD SCREENSHOT HERE
 
@@ -797,7 +815,9 @@ We want to be able to sort the records according to their votes:
 
       http://localhost:8080/Plone/@@rapido/rating/refresh
 
-    And to make sure future changes will be indexed, we need to fix the ``like`` function in the ``rate`` block: the indexing is triggered when we call the record's ``save`` method:
+    And to make sure future changes will be indexed,
+    we need to fix the ``like`` function in the ``rate`` block:
+    the indexing is triggered when we call the record's ``save`` method:
 
     .. code-block:: python
 
@@ -861,7 +881,8 @@ Create custom content-rules
 
 Plone content rules allow triggering a given action depending on an *event*
 (content modified, content created, etc.)
-and on a *list of criteria* (only for such content types, only in this folder, etc.).
+and on a *list of criteria* (only for certain content types,
+only in this folder, etc.).
 
 Plone provides a set of useful ready-to-use content rule actions,
 such as moving some content somewhere,
@@ -879,7 +900,9 @@ It allows us to enter the following parameters:
 
 The ``content`` property in the function's ``context`` allows access to the content targeted by the content rule.
 
-For instance, to transform the content title to uppercase every time we modified a content, we would use a function such as this:
+For instance,
+to transform the content title to uppercase every time we edit something,
+we would use a function such as this:
 
 .. code-block:: python
 
