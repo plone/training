@@ -547,7 +547,7 @@ Now let's make sure to display the proper total in the ``display_votes`` element
 
 - here also, we need to get the current talk,
 - then we get the corresponding record,
-- and we get its current total votes
+- and we get its current total votes.
 
   .. code-block:: python
 
@@ -726,10 +726,20 @@ Let's create a block to display the Talks Top 5:
 
     And then we declare a new action in our footer:
 
-    - go to Site Setup / Actions
-    - add a new action in Site actions category with name "Top 5" and as URL::
+    - go to the `site_actions` in the Zope Management Interface::
 
-        string:${globals_view/navigationRootUrl}/@@rapido/view/talks-top-5
+        http://localhost:8080/Plone/portal_actions/site_actions/manage_workspace
+
+    - add a new `top5` action, with the "URL (Expression)" property set to::
+
+       string:${globals_view/navigationRootUrl}/@@rapido/view/talks-top-5
+
+    .. versionadded:: 5.1
+
+        1. go to Site Setup / Actions
+        2. add a new action in Site actions category with name "Top 5" and as URL::
+
+             string:${globals_view/navigationRootUrl}/@@rapido/view/talks-top-5
 
 .. TODO:: ADD SCREENSHOT HERE
 
@@ -805,7 +815,9 @@ We want to be able to sort the records according to their votes:
 
       http://localhost:8080/Plone/@@rapido/rating/refresh
 
-    And to make sure future changes will be indexed, we need to fix the ``like`` function in the ``rate`` block: the indexing is triggered when we call the record's ``save`` method:
+    And to make sure future changes will be indexed,
+    we need to fix the ``like`` function in the ``rate`` block:
+    the indexing is triggered when we call the record's ``save`` method:
 
     .. code-block:: python
 
@@ -869,7 +881,8 @@ Create custom content-rules
 
 Plone content rules allow triggering a given action depending on an *event*
 (content modified, content created, etc.)
-and on a *list of criteria* (only for such content types, only in this folder, etc.).
+and on a *list of criteria* (only for certain content types,
+only in this folder, etc.).
 
 Plone provides a set of useful ready-to-use content rule actions,
 such as moving some content somewhere,
@@ -887,7 +900,9 @@ It allows us to enter the following parameters:
 
 The ``content`` property in the function's ``context`` allows access to the content targeted by the content rule.
 
-For instance, to transform the content title to uppercase every time we modified a content, we would use a function such as this:
+For instance,
+to transform the content title to uppercase every time we edit something,
+we would use a function such as this:
 
 .. code-block:: python
 
