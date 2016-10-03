@@ -72,7 +72,7 @@ Here, choose "Theme" and fill out the rest of the questions however you like::
 
    --> Package description [An add-on for Plone]: Plone theme tango
 
-   --> Plone version [4.3.6]: 5.0
+   --> Plone version [5.0.5]:
 
    Generated file structure at /home/maik/develop/plone/plonetheme.tango
 
@@ -90,6 +90,13 @@ Deactivate mrbob virtualenv:
 .. code-block:: bash
 
    (mrbobvenv)maik@planetmobile:~/develop/plone/plonetheme.tango$ deactivate
+
+.. note::
+
+  Currently you need make a change to need to make some changes to
+  src/plonetheme/tango/configure.zcml. Please copy over the contents
+  of configure.zcml from the collective/plonethem.tango - repo:
+  https://git.io/v6ndD
 
 
 Bootstrap & buildout your development environment
@@ -429,7 +436,7 @@ As a starting point we use this rules set:
 
      <!-- replace theme navbar-nav with Plone plone-navbar-nav -->
      <replace
-       css:theme-children=".plone-navbar-nav"
+       css:theme-children=".navbar-nav"
        css:content-children=".plone-navbar-nav" />
 
      <!-- full-width breadcrumb -->
@@ -816,10 +823,10 @@ folder:
    ├── bootstrap.css
    ├── bootstrap.min.css
    ├── business-casual.css
-   ├── custom.less
+   ├── bundle.less
    └── main.less
 
-The ``main.less`` file can look like this:
+The ``bundle.less`` file can look like this:
 
 .. code-block:: sass
 
@@ -908,18 +915,18 @@ The ``main.less`` file can look like this:
    // include theme css as less
    @import (less) "business-casual.css";
 
-   // include our custom less
-   @import "custom.less";
+   // include our custom css/less
+   @import "main.less";
 
 Here we import a number of specific parts from the default Plone 5 Barceloneta theme.
 Feel free to comment out stuff that you don't need.
 
 At the bottom you can see that we import the ``business-casual.css`` as a LESS
-file, as well as our new ``custom.less`` file.
+file, as well as our new ``main.less`` file.
 The ``business-casual.css`` comes from the downloaded static theme and is
 included to reduce the amount of CSS files.
 
-The ``custom.less`` will contain our custom styles and can look like this:
+The ``main.less`` will contain our custom styles and can look like this:
 
 .. code-block:: css
 
@@ -980,7 +987,7 @@ So we extend our theme's ``manifest.cfg`` to declare ``development-css``,
    enabled-bundles =
    disabled-bundles =
 
-   development-css = /++theme++plonetheme.tango/css/main.less
+   development-css = /++theme++plonetheme.tango/css/bundle.less
    production-css = /++theme++plonetheme.tango/css/tango-compiled.css
    tinymce-content-css = /++theme++plonetheme.tango/css/business-casual.css
 
@@ -1187,42 +1194,45 @@ Load LESS parts of Bootstrap
 
 To load for example the carousel we first install the LESS version of Bootstrap
 into our theme.
-To do that, we use ``bower``, which you should have globally installed on your
+To do that, we use ``npm``, which you should have globally installed on your
 system.
 First we initialize our theme package. To do that, we run the following command
 inside our theme folder:
 
 .. code-block:: bash
 
-   $ bower init
+   $ npm init
 
-This command will ask you some questions, which are all irrelevant for our purposes.  So we can accept all the default answers, except perhaps marking the package as private, as a precaution.  After this we have a bower config file called
-``bower.json``.
+This command will ask you some questions, which are all irrelevant for our purposes.
+So we can accept all the default answers.  After this we have a npm config file called
+``package.json``. Add the entry `"private": true,` to this JSON file as a
+precaution and to avoid the warning 'No repository field' when running the script.
+
 All the packages that we need for our theme should be mentioned in this
-``bower.json`` file.
+``package.json`` file.
 
-Now we install bootstrap, using bower:
+Now we install bootstrap, using npm:
 
 .. code-block:: bash
 
-   $ bower install bootstrap --save
+   $ npm install bootstrap --save
 
-The ``--save`` option will add the package to ``bower.json`` for us.
+The ``--save`` option will add the package to ``package.json`` for us.
 Now, we can install all dependencies on any other system by running the
 following command from inside of our theme folder:
 
 .. code-block:: bash
 
-   $ bower install
+   $ npm install
 
 Now that we have installed bootstrap using bower, we have all bootstrap
-components available in the subfolder called ``bower_components``:
+components available in the subfolder called ``node_modules``:
 
 .. code-block:: bash
 
-   $ tree bower_components/bootstrap/
-   bower_components/bootstrap/
-   ├── bower.json
+   $ tree node_modules/bootstrap/
+   node_modules/bootstrap/
+   ├── CHANGELOG.md
    ├── dist
    │   ├── css
    │   │   ├── bootstrap.css
@@ -1347,7 +1357,7 @@ components available in the subfolder called ``bower_components``:
    └── README.md
 
 To include the needed "carousel" part and some other bootstrap components which
-our downloaded theme uses, we change the end of our ``main.less`` like this:
+our downloaded theme uses, we change the end of our ``bundle.less`` like this:
 
 .. code-block:: css
 
@@ -1357,13 +1367,13 @@ our downloaded theme uses, we change the end of our ``main.less`` like this:
    @import "@{bootstrap-variables}";
 
    // import needed bootstrap less files from bower_components
-   @import "../bower_components/bootstrap/less/mixins.less";
-   @import "../bower_components/bootstrap/less/utilities.less";
+   @import "../node_modules/bootstrap/less/mixins.less";
+   @import "../node_modules/bootstrap/less/utilities.less";
 
-   @import "../bower_components/bootstrap/less/forms.less";
-   @import "../bower_components/bootstrap/less/navs.less";
-   @import "../bower_components/bootstrap/less/navbar.less";
-   @import "../bower_components/bootstrap/less/carousel.less";
+   @import "../node_modules/bootstrap/less/forms.less";
+   @import "../node_modules/bootstrap/less/navs.less";
+   @import "../node_modules/bootstrap/less/navbar.less";
+   @import "../node_modules/bootstrap/less/carousel.less";
 
    // END OF UTILS 
 
@@ -1371,19 +1381,19 @@ our downloaded theme uses, we change the end of our ``main.less`` like this:
    // include theme css as less
    @import (less) "business-casual.css";
 
-   // include our custom less
-   @import "custom.less";
+   // include our custom css/less
+   @import "main.less";
 
 
 Final CSS customization
 +++++++++++++++++++++++
 
-To make our theme look nicer, we add some CSS as follows to our ``custom.less``
+To make our theme look nicer, we add some CSS as follows to our ``main.less``
 file:
 
 .. code:: less
 
-   /* Custom LESS file that is included from the main.less file */
+   /* Custom LESS file that is included from the bundle.less file */
 
    .brand-name{
        margin-top: 0.5em;
