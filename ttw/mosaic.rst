@@ -23,7 +23,7 @@ Few comparisons
 
 .. only:: presentation
 
-    * It allows to manage the layout, not the design (like Diazo).
+    * It allows managing of the layout, not the design (like Diazo).
     * It can manage the layout of any page, it does not provide a specific layout-enabled content (like collective.cover).
 
 .. only:: not presentation
@@ -72,7 +72,8 @@ Once deployed, create a Plone site, and go to Plone control panel / Add-ons http
 Principle
 ---------
 
-Mosaic allows to create layouts by aggregating tiles.
+The basic component of a Mosaic based layout is called a tile.
+A layout is a combination of several tiles.
 
 A tile is a dynamic portion of a web page, it can be a text element, an image, a field, etc.
 
