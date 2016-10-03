@@ -38,7 +38,7 @@ To solve this we add a new Interface to ``interfaces.py``:
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 12-14
+    :emphasize-lines: 5,12-14
 
     # -*- coding: utf-8 -*-
     """Module where all interfaces, events and exceptions live."""
