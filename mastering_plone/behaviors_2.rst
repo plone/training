@@ -246,6 +246,10 @@ Now the only thing that is missing is the behavior, which we must put into :file
 
         So one solution is to change the special attribute :samp:`_p_changed` to :samp:`True` on the persistent object, or to use a PersistentDict. That is what we are doing here.
 
+        An important thing to note about PersistentDict and PersistentList is that they cannot handle write conflicts. What happens if two users rate the same content independently at the same time?
+        In this case, a database conflict will occur because there is no way for Plone to know how to handle the concurrent write access. Although this is rather unlikely during
+        this training, it is a very common problem on high traffic websites.
+
         You can find more information in the documentation of the ZODB, in particular `Rules for Persistent Classes <http://www.zodb.org/en/latest/guide/writing-persistent-objects.html>`_
 
 
@@ -316,3 +320,143 @@ Let's continue with this file:
     The vote method wants a vote and a request. We check the preconditions, then we convert the vote to an integer, store the request to :samp:`voted` and the votes into the :samp:`votes` dictionary. We just count there how often any vote has been given.
 
     Everything else is just python.
+
+Exercises
+*********
+
+Exercise 1
+++++++++++
+
+Refactor the voting behavior so that it uses `BTrees` instead of `PersistentDict` and `PersistentList`. Use `OOBTree` to replace `PersistentDict` and `OIBTree` to replace `PersistentList`.
+
+..  admonition:: Solution
+    :class: toggle
+
+    change :file:`behavior/voting.py`
+
+    .. code-block:: python
+        :emphasize-lines: 3,4,15-17,26-28,39-41
+
+        # encoding=utf-8
+        from hashlib import md5
+        from BTrees.OOBTree import OOBTree
+        from BTrees.OIBTree import OIBTree
+        from zope.annotation.interfaces import IAnnotations
+
+        KEY = "starzel.votable_behavior.behavior.voting.Vote"
+
+
+        class Vote(object):
+            def __init__(self, context):
+                self.context = context
+                annotations = IAnnotations(context)
+                if KEY not in annotations.keys():
+                    annotations[KEY] = OOBTree()
+                    annotations[KEY]['voted'] = OIBTree()
+                    annotations[KEY]['votes'] = OOBTree()
+                self.annotations = annotations[KEY]
+
+            ...
+
+            def vote(self, vote, request):
+                if self.already_voted(request):
+                    raise KeyError("You may not vote twice")
+                vote = int(vote)
+                self.annotations['voted'].insert(
+                    self._hash(request),
+                    len(self.annotations['voted']))
+                votes = self.annotations['votes']
+                if vote not in votes:
+                    votes[vote] = 1
+                else:
+                    votes[vote] += 1
+
+            ...
+
+            def clear(self):
+                annotations = IAnnotations(self.context)
+                annotations[KEY] = OOBTree()
+                annotations[KEY]['voted'] = OIBTree()
+                annotations[KEY]['votes'] = OOBTree()
+                self.annotations = annotations[KEY]
+
+
+Exercise 2
+++++++++++
+
+Write a unit test that simulates concurrent voting. The test should raise a `ConflictError` on the original voting behavior implementation.
+The solution from the first exercise should pass. Look at the file `ZODB/ConflictResolution.txt` in the `ZODB3` egg for how to create a suitable test fixture for conflict testing.
+Look at the test code in `zope.annotation` for how to create annotatable dummy content.
+You will also have to write a 'request' dummy that mocks the `getClientAddr` and `getHeader` methods of Zope's HTTP request object to make the `_hash` method of the voting behavior work.
+
+..  admonition:: Solution
+    :class: toggle
+
+    There are no tests for `starzel.votablebehavior` at all at the moment. But you can refer to chapter 22 for how to setup unit testing for a package.
+    Put the particular test for this exercise into a file named :file:`starzel.votable_behavior/starzel/votable_behavior/tests/test_voting`.
+    Remember you need an empty :file:`__init__.py` file in the :file:`tests` directory to make testing work. You also need to add `starzel.votable_behavior` to
+    `test-eggs` in :file:`buildout.cfg` and re-run buildout.
+
+    .. code-block:: python
+        :linenos:
+
+        import unittest
+        import tempfile
+        import ZODB
+        import transaction
+        from persistent import Persistent
+        from zope.interface import implements
+        from zope.annotation.interfaces import IAttributeAnnotatable
+        from zope.annotation.attribute import AttributeAnnotations
+
+
+        class Dummy(Persistent):
+            implements(IAttributeAnnotatable)
+
+
+        class RequestDummy(object):
+
+            def __init__(self, ip, headers=None):
+                self.ip = ip
+                if headers is not None:
+                    self.headers = headers
+                else:
+                    self.headers = {
+                        'User-Agent': 'foo',
+                        'Accept-Language': 'bar',
+                        'Accept-Encoding': 'baz'
+                        }
+
+            def getClientAddr(self):
+                return self.ip
+
+            def getHeader(self, key):
+                return self.headers[key]
+
+
+        class VotingTests(unittest.TestCase):
+
+            def test_voting_conflict(self):
+                from starzel.votable_behavior.behavior.voting import Vote
+                dbname = tempfile.mktemp()
+                db = ZODB.DB(dbname)
+                tm_A = transaction.TransactionManager()
+                conn_A = db.open(transaction_manager=tm_A)
+                p_A = conn_A.root()['voting'] = Vote(AttributeAnnotations(Dummy()))
+                tm_A.commit()
+                # Now get another copy of 'p' so we can make a conflict.
+                # Think of `conn_A` (connection A) as one thread, and
+                # `conn_B` (connection B) as a concurrent thread.  `p_A`
+                # is a view on the object in the first connection, and `p_B`
+                # is a view on *the same persistent object* in the second connection.
+                tm_B = transaction.TransactionManager()
+                conn_B = db.open(transaction_manager=tm_B)
+                p_B = conn_B.root()['voting']
+                assert p_A.context.obj._p_oid == p_B.context.obj._p_oid
+                # Now we can make a conflict, and see it resolved (or not)
+                request_A = RequestDummy('192.168.0.1')
+                p_A.vote(1, request_A)
+                request_B = RequestDummy('192.168.0.5')
+                p_B.vote(2, request_B)
+                tm_B.commit()
+                tm_A.commit()
