@@ -61,7 +61,7 @@ The part *solr-instance* is for configuring Solr. Let's continue with the
 details.
 
 The base Solr settings specify the host (usually localhost or 0.0.0.0), the
-port (8983 is the standard port of Solr) and two Java parameters for specifying 
+port (8983 is the standard port of Solr) and two Java parameters for specifying
 lower and upper memory limit. More is usually better. If you want a rough idea
 on how much memory you should use, follow the guidelines found in this article:
 https://lucidworks.com/blog/2011/09/14/estimating-memory-and-storage-for-lucenesolr/ ::
@@ -191,14 +191,14 @@ For a complete list of schema configuration options refer to the documentation o
 This is the bare minimum for configuring Solr. There are more options supported by the buildout
 recipe *collective.recipe.solrinstance* and even more by Solr itself. Most notably are the custom
 extensions for *schema.xml* and *solrconfig.xml*. We will see examples for this later on in the training.
-  
+
 Or you can even point to a custom location for the main configuration files. ::
 
   schema-destination = ${buildout:directory}/etc/schema.xml
   config-destination = ${buildout:directory}/etc/solrconfig.xml
 
 After running the buildout, which downloads and configures Solr and Plone we are ready to fire
-both servers. 
+both servers.
 
 Plone and Solr
 =================
@@ -227,7 +227,7 @@ Control panel configuration options
  - *Base* - The base prefix of the Solr instance to be used. Defaults to /solr
  - *Asynchronous indexing* - Check to enable asynchronous indexing operations,
    which will improve Zope response times in return for not having the Solr
-   index updated immediately. 
+   index updated immediately.
 
  - *Automatic commit* - If enabled each index operation will cause a commit to be sent to Solr, which causes it to update its index. If you disable this, you need to configure commit policies on the Solr server side.
 
@@ -254,7 +254,7 @@ Search query configuration
 Highlighting
 '''''''''''''
 
-https://wiki.apache.org/solr/HighlightingParameters/
+https://wiki.apache.org/solr/HighlightingParameters
 
  - Highlighting fields
  - Highlight formatter: pre
@@ -262,16 +262,16 @@ https://wiki.apache.org/solr/HighlightingParameters/
  - Highlight Fragment Size
 
 
- - Default fields to be returned 
+ - Default fields to be returned
  - Levensthein distance
 
 
 Atomic updates and boosting
-''''''''''''''''''''''''''' 
+'''''''''''''''''''''''''''
 
  - Enable atomic updates
- - Python script for custom index boosting 
- 
+ - Python script for custom index boosting
+
 
 With Solr activated, searching in Plone works like the following:
 
