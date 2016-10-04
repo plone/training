@@ -18,3 +18,4 @@ Contents:
     javascript/index
     deployment/index
     ttw/index
+    solr-training/index
