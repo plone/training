@@ -294,3 +294,7 @@ A simple integration in our training-search is here: ::
     </body>
     </html>
 
+Facetting
+==========
+
+TBD

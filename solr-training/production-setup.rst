@@ -42,7 +42,7 @@ Monitoring
 Collective.solr comes with some predefined munin configurations. The values
 for munin are collected and exposed via the Java JMX framework.
 
-You will need munin and the jmx_ extension. The procedere is documented
+You will need munin and the jmx\_ extension. The procedere is documented
 here :
 
 .. seealso:: https://github.com/collective/collective.solr/blob/master/docs/usage/monitoring.rst

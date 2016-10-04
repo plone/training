@@ -110,13 +110,13 @@ Solr Query via API
 ===================
 
 Another way of accessing Solr is to use a Python wrapper, which exposes the Solr API
-in a Pythonic way. Collective.solr has included such a wrapper (solr.py), TBD check,
+in a Pythonic way. Collective.solr has included such a wrapper (``solr.py``),
 which is old but still works for our case. Meanwhile there are other packages around.
 Here are some examples:
 
- - mysolr (https://pypi.python.org/pypi/mysolr/0.8.3)
- - solrpy (https://pypi.python.org/pypi/solrpy3/0.98)
- - pysolr (https://pypi.python.org/pypi/pysolr/3.5.0)
+ - ``mysolr`` (https://pypi.python.org/pypi/mysolr/0.8.3)
+ - ``solrpy`` (https://pypi.python.org/pypi/solrpy3/0.98)
+ - ``pysolr`` (https://pypi.python.org/pypi/pysolr/3.5.0)
 
 Sometimes it is handy to have a separate virtualenv available for doing batch
 operations (delete, update, etc.)
@@ -229,7 +229,49 @@ and filtering results for better findability. To enable faceting you need
 to turn faceting on in the query and specify the fields you want to
 facet upon:
 
-TBD
+For a simple facet query in Solr you activate the feature and
+specify the facet field(s) ::
+
+ http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true&facet=true&facet.field=portal_type
+
+Besides the matching documents this will give you an additional grouping
+of documents: ::
+
+  {
+   "responseHeader":{
+    "status":0,
+    "QTime":6,
+    "params":{
+      "q":"*:*",
+      "facet.field":"portal_type",
+      "indent":"true",
+      "wt":"json",
+      "facet":"true"}},
+   "response":{"numFound":6,"start":0,"docs":[
+     ...
+   ]}
+   "facet_counts":{
+    "facet_queries":{},
+    "facet_fields":{
+      "portal_type":[
+        "Folder",3,
+        "Collection",2,
+        "Document",1]},
+    "facet_dates":{},
+    "facet_ranges":{},
+    "facet_intervals":{}}
+  }
+
+There are more complex scenarios possible. For a complete list
+of options see the according Solr documentation.
+
+.. seealso: https://cwiki.apache.org/confluence/display/solr/Faceting
+
+With collective.solr you don't have to worry about the faceting
+details too much. There is a convenient method to configure the 
+faceting fields in the control panel of collective.solr.
+All the other magic is handled by the product. We will see an
+example later.
 
 Search GUIs
 ========================================
