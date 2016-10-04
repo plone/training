@@ -6,6 +6,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Add solr training
+  [tomgross]
+
 - Rearrange structure so Mastering Plone now lives in it's own folder.
   [pbauer]
 
