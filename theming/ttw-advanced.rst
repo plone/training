@@ -2,10 +2,32 @@
 TTW advanced I: introduction to Diazo Theming
 =============================================
 
-A Plone theme uses ``Diazo`` techonology to make theming easier.
+In this section you will:
 
-You can find extended information about Diazo and its integration package ``plone.app.theming`` in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_
+* Use the "Theming" control panel to make a copy of Plone's default theme (barceloneta)
+* Customize a theme using Diazo rules
+* Customize a theme by editing and compiling LESS files
+
+Topics covered:
+
+* "Barceloneta" - The Default Plone Theme 
+* Diazo and plone.app.theming
+* The "Theming tool"
+* Building CSS in the "Theme tool"
+* Plone Body Tag Base CSS Classes
+* if-content
+
+What is Diazo?
+--------------
+
+``Diazo`` is a theming engine used by Plone to make theming a site easier.
+At it's core, a Diazo theme consists of an HTML page and rules.xml file containing directives.
+
+.. note:: You can find extended information about Diazo and its integration package ``plone.app.theming`` in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_
 and `plone.app.theming docs <http://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
+
+Principles
+----------
 
 For this part of the training you just need to know the basic principles of a Diazo theme:
 
@@ -49,6 +71,8 @@ Custom rules
 ------------
 Let's open ``rules.xml``. You will see all the rules that are used in Barceloneta theme right now. For the time being let's concentrate on how to hack these rules.
 
+Conditionally showing content
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Suppose that we want to make the "above content" block (the one that contains breadcrumbs) conditional, and show it only for authenticated users.
 
 Find this line:
@@ -59,7 +83,22 @@ Find this line:
 
 This rule states that the element that comes from the content (Plone) with the id `#viewlet-above-content` must replace the element with the id `#above-content` in the static theme.
 
-We want to hide it for anynoymous users so we can take advantage of the base CSS classes that Plone exposes on the body (SHOW THE CLASSES).
+We want to hide it for anynoymous users so we can take advantage of the base CSS classes that Plone exposes on the body. 
+
+A short note about base CSS classes on the body tag
+```````````````````````````````````````````````````
+As you browse a Plone site, Plone adds rich information about each item that you view. This information is represented as special classes in the body tag.
+
+Below you can see an example of a page named "front-page", located in the root of a typical plone site::
+
+    <body class="template-document_view portaltype-document site-acme section-front-page icons-on thumbs-on frontend viewpermission-view userrole-anonymous">
+
+And here is what the body tag looks like on the same "front-page" for a manager that has logged in::
+
+    <body class="template-document_view portaltype-document site-acme section-front-page icons-on thumbs-on frontend viewpermission-view userrole-member userrole-manager userrole-authenticated plone-toolbar-left plone-toolbar-expanded plone-toolbar-left-expanded">
+    
+Can you see differences?
+
 
 The class we are looking for is `userrole-authenticated`. Add another property to the rule so that we produce this code:
 
