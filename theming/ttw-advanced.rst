@@ -13,7 +13,7 @@ Topics covered:
 * "Barceloneta" - The Default Plone Theme 
 * Diazo and plone.app.theming
 * The "Theming tool"
-* Building CSS in the "Theme tool"
+* Building CSS in the "Theming tool"
 * Plone Body Tag Base CSS Classes
 * if-content
 
