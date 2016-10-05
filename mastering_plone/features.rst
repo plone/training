@@ -54,10 +54,6 @@ Some commands you will use rather often are::
     This opens a form to create a Plone site.
     Use :samp:`Plone` as the site id.
 
-    .. You now have the option to select some add-ons before you create the site.
-    Since we will use Dexterity from the beginning we select ``Dexterity-based Plone Default Types``.
-    This way even the initial content on our page will be built with dexterity by the add-on ``plone.app.contenttypes`` which will be the default in Plone 5.
-
     You will be automatically redirected to the new site.
 
 .. only:: presentation
@@ -93,7 +89,7 @@ Open the `bin/instance` script in your favorite editor. Now let's say you want P
                 + sys.argv[1:]))
 
     The second to last line points to the configuration file your Plone instance is using. An absolute path is used so it might differ depending on the installation method. Open the `zope.conf` file in your
-    editor and look for the section::
+    editor and look for the section:
 
     .. code-block::
 
