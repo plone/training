@@ -739,7 +739,7 @@ Modify the following template and one by one solve the following problems:
                 class="${python: 'odd' if repeat.talk.odd else 'even'}">
                 <td>
                     <a href="${python:talk.get('url', 'https://www.google.com/search?q=%s' % talk['title'])}">
-                        ${talk_title}
+                        ${python:talk['title']}
                     </a>
                 </td>
                 <td>
@@ -781,7 +781,7 @@ Modify the following template and one by one solve the following problems:
                 class="${python: 'odd' if repeat.talk.odd else 'even'}">
                 <td>
                     <a href="${python:talk.get('url', 'https://www.google.com/search?q=%s' % talk['title'])}">
-                        ${talk_title}
+                        ${python:talk['title']}
                     </a>
                 </td>
                 <td>
@@ -812,7 +812,9 @@ And then wrap the code we want to put in the content area of Plone in:
 
 This will put our code in a section defined in the main_template called "content-core".
 
-The template should now look like this:
+The template should now look like below when we exlude the last exercise.
+
+Here also added the css-class `listing` to the table. It is one of many css-classes used by Plone that you can reuse in your projects:
 
 .. code-block:: xml
   :linenos:
@@ -825,25 +827,34 @@ The template should now look like this:
 
   <metal:content-core fill-slot="content-core">
 
-  <table tal:define="talks python:[{'title':'Dexterity for the win!',
-                                    'subjects':('content-types', 'dexterity')},
-                                   {'title':'Deco is the future',
-                                    'subjects':('layout', 'deco')},
-                                   {'title':'The State of Plone',
-                                    'subjects':('keynote',) },
-                                   {'title':'Diazo designs are great',
-                                    'subjects':('design', 'diazo', 'xslt')}
+  <table class="listing"
+         tal:define="talks python:[{'title': 'Dexterity is the new default!',
+                                    'subjects': ('content-types', 'dexterity')},
+                                   {'title': 'Mosaic will be the next big thing.',
+                                    'subjects': ('layout', 'deco', 'views'),
+                                    'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
+                                   {'title': 'The State of Plone',
+                                    'subjects': ('keynote',) },
+                                   {'title': 'Diazo is a powerful tool for theming!',
+                                    'subjects': ('design', 'diazo', 'xslt')},
+                                   {'title': 'Magic templates in Plone 5',
+                                    'subjects': ('templates', 'TAL'),
+                                    'url': 'http://www.starzel.de/blog/magic-templates-in-plone-5'},
                                   ]">
       <tr>
           <th>Title</th>
           <th>Topics</th>
       </tr>
-      <tr tal:repeat="talk talks">
-          <td tal:content="talk/title">A talk</td>
-          <td tal:define="subjects talk/subjects">
-              <span tal:repeat="subject subjects"
-                    tal:replace="subject">
-              </span>
+
+      <tr tal:repeat="talk python:talks"
+          class="${python: 'odd' if repeat.talk.odd else 'even'}">
+          <td>
+              <a href="${python:talk.get('url', 'https://www.google.com/search?q=%s' % talk['title'])}">
+                  ${python:talk['title']}
+              </a>
+          </td>
+          <td>
+              ${python:', '.join(talk['subjects'])}
           </td>
       </tr>
   </table>
@@ -852,17 +863,6 @@ The template should now look like this:
 
   </body>
   </html>
-
-.. note::
-
-    Since the training only used content from the template, not from the context that it is called on it makes little sense to have editable elements in the side-bar. We hide all the elements by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
-
-    The easiest way to do this is to define a dummy variable. Dummy because it is never used except to allow us to execute some code.
-
-    .. code-block:: xml
-
-        <metal:block fill-slot="top_slot"
-            tal:define="dummy python:request.set('disable_border', 1)" />
 
 
 macros in browser views
