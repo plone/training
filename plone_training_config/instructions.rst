@@ -280,7 +280,7 @@ Instead we use our own Plone instance during the training. It is in :file:`/vagr
         export LC_ALL=en_US.UTF-8
         export LANG=en_US.UTF-8
 
-Now the Zope instance we're using is running. You can stop the running instance anytime using :kdb:`ctrl + c`.
+Now the Zope instance we're using is running. You can stop the running instance anytime using :kbd:`ctrl + c`.
 
 If it doesn't, don't worry, your shell isn't blocked. Type :kbd:`reset` (even if you can't see the prompt) and press RETURN, and it should become visible again.
 
