@@ -95,7 +95,7 @@ Open the `bin/instance` script in your favorite editor. Now let's say you want P
     The second to last line points to the configuration file your Plone instance is using. An absolute path is used so it might differ depending on the installation method. Open the `zope.conf` file in your
     editor and look for the section:
 
-    .. code-block::
+    .. code-block:: xml
 
         <http-server>
          address 8080
