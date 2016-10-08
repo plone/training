@@ -67,10 +67,44 @@ The most important files:
 * :file:`rules.xml`: contains the theme rules (`rules reference <http://docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax>`_);
 * :file:`index.html`: the static HTML of the theme.
 
+<body> CSS classes
+------------------
+
+As you browse a Plone site, Plone adds rich information about your current context. This information is represented as special classes in the <body> element. Information represented by the <body> classes includes:
+
+- the current user role, and permissions,
+- the current content-type and its template,
+- the site section and sub section,
+- the current subsite (if any).
+- whether this is a frontend view
+- if icons are enabled
+
+Below you can see an example of the body classes for a page named "front-page", located in the root of a typical plone site called "acme"::
+
+    <body class="template-document_view portaltype-document site-acme section-front-page icons-on thumbs-on frontend viewpermission-view userrole-anonymous">
+
+And here is what the classes for the same page look like when viewed by a manager that has logged in::
+
+    <body class="template-document_view portaltype-document site-acme section-front-page icons-on thumbs-on frontend viewpermission-view userrole-member userrole-manager userrole-authenticated plone-toolbar-left plone-toolbar-expanded plone-toolbar-left-expanded">
+
+Notice the addition of `userrole-manager`.
+
+For Discussion - <body> classes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+What other roles does the manager have?
+Can you see other differences?
+
+.. admonition:: Solution
+    :class: toggle
+
+    The manager also has the role "member" and "authenticated"
+    
+    There are plone-toolbar classes added to the <body> element, these control the display of the toolbar
+    
 
 Custom rules
 ------------
-Let's open :file:`rules.xml`. You will see all the rules that are used in Barceloneta theme right now. For the time being let's concentrate on how to hack these rules.
+Let's open :file:`rules.xml`. You will see all the rules that are used in the Barceloneta theme right now. For the time being let's concentrate on how to hack these rules.
 
 Conditionally showing content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,30 +122,7 @@ In the :file:`rules.xml` find this line:
 
 This rule states that the element that comes from the content (Plone) with the id `#viewlet-above-content` must replace the element with the id `#above-content` in the static theme.
 
-We want to hide it for anynoymous users so we can take advantage of the base CSS classes that Plone exposes on the body.
-
-A short note about base CSS classes on the body tag
-```````````````````````````````````````````````````
-As you browse a Plone site, Plone adds rich information about each item that you view. This information is represented as special classes in the <body> element.
-
-It is possible to get a lot of information about the current context such as:
-
-- the current user role, and his permissions,
-- the current content-type and its template,
-- the site section and sub section,
-- the current subsite (if any).
-
-
-Below you can see an example of the body classes for a page named "front-page", located in the root of a typical plone site called "acme"::
-
-    <body class="template-document_view portaltype-document site-acme section-front-page icons-on thumbs-on frontend viewpermission-view userrole-anonymous">
-
-And here is what the classes for the same page look like when viewd by a manager that has logged in::
-
-    <body class="template-document_view portaltype-document site-acme section-front-page icons-on thumbs-on frontend viewpermission-view userrole-member userrole-manager userrole-authenticated plone-toolbar-left plone-toolbar-expanded plone-toolbar-left-expanded">
-
-Notice the addition of `userrole-manager`, can you see other differences?
-
+We want to hide it for anynoymous users  (hint: We'll use the <body> classses discussed above).
 
 The class we are looking for is `userrole-authenticated`. Add another property to the rule so that we produce this code:
 
