@@ -43,18 +43,18 @@ To create our playground we will copy the existing Barceloneta theme.
 1. go to the "Theming" control panel
 2. you will see the available themes. In a bare new Plone site, you will see something like this:
 
-.. image:: _static/theming-bare_plone_themes_list.png
+.. image:: ../theming/_static/theming-bare_plone_themes_list.png
    :align: center
 
 3. click on the "copy" button and get to the copy form
 4. insert "My theme" as the name and activate it by default
 
-.. image:: _static/theming-copy_theme_form.png
+.. image:: ../theming/_static/theming-copy_theme_form.png
    :align: center
 
 5. click on create and you get redirected to your new theme's inspector:
 
-.. image:: _static/theming-just_copied_theme_inspector.png
+.. image:: ../theming/_static/theming-just_copied_theme_inspector.png
    :align: center
 
 
@@ -129,7 +129,7 @@ Customize CSS
 
 3. push the buttons "Save" and "Build CSS"
 
-.. image:: _static/theming-editor_compile_css.png
+.. image:: ../theming/_static/theming-editor_compile_css.png
    :align: center
 
 4. go back to the plone site and reload the page: voilá!

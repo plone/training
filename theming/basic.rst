@@ -38,7 +38,7 @@ Customize CSS/LESS variables
 
 Your panel should now look like this
 
-.. image:: _static/theming-dev_mode_on.png
+.. image:: ../theming/_static/theming-dev_mode_on.png
    :align: center
 
 
@@ -47,7 +47,7 @@ Now we can play with some LESS variables:
 1. go to "Less Variables" tab
 2. find the var ``plone-left-toolbar-expanded`` and set it to 400px
 
-.. image:: _static/theming-less_var_hack.png
+.. image:: ../theming/_static/theming-less_var_hack.png
    :align: center
 
 
