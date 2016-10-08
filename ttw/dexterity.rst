@@ -1,0 +1,1 @@
+.. include:: ../mastering_plone/dexterity.rst

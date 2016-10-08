@@ -1,0 +1,1 @@
+.. include:: ../theming/basic.rst

@@ -11,10 +11,10 @@
    :maxdepth: 3
    :numbered: 1
 
-   ../theming/basic
-   ../mastering_plone/configuring_customizing
-   ../theming/ttw-advanced
-   ../theming/ttw-advanced_2
-   ../mastering_plone/dexterity
+   basic
+   configuring_customizing
+   ttw-advanced
+   ttw-advanced_2
+   dexterity
    mosaic
    rapido
