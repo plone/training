@@ -192,7 +192,7 @@ These are the links at the bottom of the page:
 We want a new link to legal information, called "Imprint".
 
 * Go to ``site_actions`` (we know that because we checked in ``@@manage-viewlets``)
-* Add a CMF Action ``imprint``
+* Add a CMF Action :guilabel:`imprint`
 * Set URL to ``string:${portal_url}/imprint``
 * Leave *condition* empty
 * Set permission to ``View``
@@ -246,10 +246,10 @@ Change some css
 * Go to ZMI
 * Go to portal_skins
 * Go to plone_styles
-* Go to ``ploneCustom.css``
-* Click ``customize``
+* Go to :file:`ploneCustom.css`
+* Click :guilabel:`customize`
 
-The css you add to this file is instantly active on the site.
+The CSS you add to this file is instantly active on the site.
 
 
 portal_view_customizations

@@ -27,7 +27,7 @@ A viewlet for the social behavior
 
 .. only:: not presentation
 
-    A viewlet is not a view but a snippet of html and logic that can be put in various places in the site. These places are called ``viewletmanager``.
+    A viewlet is not a view but a snippet of HTML and logic that can be put in various places in the site. These places are called ``viewletmanager``.
 
 * Inspect existing viewlets and their managers by going to http://localhost:8080/Plone/@@manage-viewlets.
 * We already customized a viewlet (:file:`colophon.pt`). Now we add a new one.
@@ -63,10 +63,10 @@ We register the viewlet in :file:`browser/configure.zcml`.
 .. only:: not presentation
 
     This registers a viewlet called ``social``.
-    It is visible on all content that implements the interface ``ISocial`` from our behavior.
+    It is visible on all content that implements the interface :py:class:`ISocial` from our behavior.
     It is also good practice to bind it to a specific ``layer``, so it only shows up if our add-on is actually installed.  We will return to this in a later chapter.
 
-The viewlet class ``SocialViewlet`` is expected in a file ``browser/viewlets.py``.
+The viewlet class :py:class:`SocialViewlet` is expected in a file :file:`browser/viewlets.py`.
 
 .. _BrowserLayer: http://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
 
@@ -101,9 +101,9 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
 
 .. only:: not presentation
 
-    As you can see this is not a valid html document. That is not needed, because we don't want a complete view here, just a html snippet.
+    As you can see this is not a valid HTML document. That is not needed, because we don't want a complete view here, just a html snippet.
 
-    There is a tal define statement, querying for ``view/lanyrd_link``. Same as for views, viewlets have access to their class in page templates, as well.
+    There is a :samp:`tal:define` statement, querying for :samp:`view/lanyrd_link`. Same as for views, viewlets have access to their class in page templates, as well.
 
 We have to extend the Social Viewlet now to add the missing attribute:
 
@@ -117,7 +117,7 @@ We have to extend the Social Viewlet now to add the missing attribute:
           #. It makes it clear that we only want to use the ISocial aspect of the object
           #. If we decide to use a factory, for example to store our attributes in an annotation, we would `not` get back our context, but the adapter.
 
-        Therefore in this example you could simply write ``return self.context.lanyrd``.
+        Therefore in this example you could simply write :samp:`return self.context.lanyrd`.
 
 .. code-block:: python
     :linenos:
@@ -144,7 +144,7 @@ So far, we
 Exercise 1
 ----------
 
-Register a viewlet 'number_of_talks' in the footer that is only visible to admins (the permission you are looking for is ``cmf.ManagePortal``). Use only a template (no class) to display the number of talks already submitted. Hint: Use Acquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
+Register a viewlet 'number_of_talks' in the footer that is only visible to admins (the permission you are looking for is :py:class:`cmf.ManagePortal`). Use only a template (no class) to display the number of talks already submitted. Hint: Use Acquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
 
 ..  admonition:: Solution
     :class: toggle
@@ -163,7 +163,7 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
           />
 
 
-    For the ``for`` and ``layer``-parameters ``*`` is shorthand for ``zope.interface.Interface`` and the same effect as omitting them: The viewlet will be shown for all types of pages and for all Plone sites within your Zope instance.
+    For the ``for`` and ``layer``-parameters ``*`` is shorthand for :py:class:`zope.interface.Interface` and the same effect as omitting them: The viewlet will be shown for all types of pages and for all Plone sites within your Zope instance.
 
     Add the template :file:`browser/templates/number_of_talks.pt`:
 
@@ -175,9 +175,9 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
             There are <span tal:replace="talks" /> talks.
         </div>
 
-    ``python:context.portal_catalog`` will return the catalog through Acquisition. Be careful if you want to use path expressions: ``content/portal_catalog`` calls the catalog (and returns all brains). You need to prevent this by using ``nocall:content/portal_catalog``.
+    :samp:`python:context.portal_catalog` will return the catalog through Acquisition. Be careful if you want to use path expressions: :samp:`content/portal_catalog` calls the catalog (and returns all brains). You need to prevent this by using :samp:`nocall:content/portal_catalog`.
 
-    Relying on Acquisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from ``plone/app/layout/globals/tools.py`` to get the catalog.
+    Relying on Acquisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from :file:`plone/app/layout/globals/tools.py` to get the catalog.
 
     ..  code-block:: html
 
@@ -187,7 +187,7 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
             There are <span tal:replace="talks" /> talks.
         </div>
 
-    ``context/@@plone_tools/catalog`` traverses to the view ``plone_tools`` and calls its method ``catalog``. In python it would look like this:
+    :samp:`context/@@plone_tools/catalog` traverses to the view ``plone_tools`` and calls its method :py:meth:`catalog`. In python it would look like this:
 
     ..  code-block:: html
 
@@ -197,7 +197,8 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
             There are <span tal:replace="talks" /> talks.
         </div>
 
-    It is not a good practice to query the catalog within a template since even simple logic like this should live in Python. But it is very powerful if you are debugging or need a quick and dirty solution.
+    It is not a good practice to query the catalog within a template since even simple logic like this should live in Python.
+    But it is very powerful if you are debugging or need a quick and dirty solution.
 
     In Plone 5 you could even write it like this:
 
@@ -224,7 +225,7 @@ Register a viewlet 'days_to_conference' in the header. Use a class and a templat
 ..  admonition:: Solution
     :class: toggle
 
-    In ``configure.zcml``:
+    In :file:`configure.zcml`:
 
     ..  code-block:: xml
 
@@ -238,7 +239,7 @@ Register a viewlet 'days_to_conference' in the header. Use a class and a templat
           permission="zope2.View"
           />
 
-    In ``viewlets.py``:
+    In :file:`viewlets.py`:
 
     ..  code-block:: python
 
@@ -258,7 +259,7 @@ Register a viewlet 'days_to_conference' in the header. Use a class and a templat
                 return arrow.get(CONFERENCE_START_DATE).humanize()
 
 
-    And in ``templates/days_to_conference.pt``:
+    And in :file:`templates/days_to_conference.pt`:
 
     ..  code-block:: html
 

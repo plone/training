@@ -15,18 +15,18 @@ the url ``./@@manage-viewlets``).
 To override them from your theme product, the easiest way is to use
 ``z3c.jbot`` (Just a Bunch of Templates).
 
-Since jbot is already included in the ``bobtemplates.plone`` theme skeleton,
+Since jbot is already included in the :py:mod:`bobtemplates.plone` theme skeleton,
 you can start using it immediately by adding all the templates you want to
-override in the ``src/plonetheme/tango/browser/overrides`` directory.
+override in the :file:`src/plonetheme/tango/browser/overrides` directory.
 
 In order for jbot to match the override to the template which is being
 overridden, the name of the *new* template needs to include the 
 complete path to the original template as a prefix (with every ``/`` replaced
 by ``.``).
 
-For instance, to override ``colophon.pt`` from ``plone.app.layout``, knowing
-that this template is found in a subfolder named ``viewlets``, you need to name
-the overriding template ``plone.app.layout.viewlets.colophon.pt``.
+For instance, to override :file:`colophon.pt` from :py:mod:`plone.app.layout`, knowing
+that this template is found in a subfolder named :file:`viewlets`, you need to name
+the overriding template :file:`plone.app.layout.viewlets.colophon.pt`.
 
 .. note:: ZMI > portal_view_customizations is a handy way to find the template path.
 
@@ -36,10 +36,10 @@ You can now restart Plone to see the effect.
 Overriding Event Item template
 ******************************
 
-The path to the original template is ``plone/app/event/browser/event_view.pt``,
+The path to the original template is :file:`plone/app/event/browser/event_view.pt`,
 so the full dotted name for our replacement template should be:
-``plone.app.event.browser.event_view.pt``.
-Create a new file with this dotted name into the ``overrides`` folder.
+:file:`plone.app.event.browser.event_view.pt`.
+Create a new file with this dotted name into the :file:`overrides` folder.
 
 Let's say we want to move the full text of the event item to appear before the
 event details block.
@@ -98,11 +98,11 @@ To render our dynamic content for the slider we need a custom view in Plone.
 There are various ways to create Views.
 For now, we will use a very simple template-only-view via jbot and
 ``theming-plugins``.
-The ``bobtemplates.plone`` skeleton includes everything you need.
+The :py:mod:`bobtemplates.plone` skeleton includes everything you need.
 
-The only thing we need to do, is to add a folder named ``views`` in our theme
+The only thing we need to do, is to add a folder named :file:`views` in our theme
 folder.
-Here we now create a template file named ``slider-images.pt``.
+Here we now create a template file named :file:`slider-images.pt`.
 
 .. code-block:: bash
 

@@ -27,7 +27,7 @@ What is Rapido?
 
     Rapido is a Plone add-on that allows implementation of custom features on top of Plone.
     It is a simple yet powerful way to extend the behavior of your Plone site without using the underlying frameworks.
-    The **Plone theming tool** is the interface used to build ``rapido.plone`` applications.
+    The **Plone theming tool** is the interface used to build :py:mod:`rapido.plone` applications.
     This means that Rapido applications can be written both **on the file system** or using the **inline editor** of the Plone theming tool.
 
     A Rapido application is just a part of your current theme:
@@ -80,7 +80,7 @@ Installation
 
 .. only:: not presentation
 
-    Modify ``buildout.cfg`` to add Rapido as a dependency::
+    Modify :file:`buildout.cfg` to add Rapido as a dependency::
 
         eggs =
             ...
@@ -170,7 +170,7 @@ Blocks and elements
     * A block is defined by 3 files:
 
         - a YAML file to declare *elements*,
-        - an HTML (or ``.pt``) file for the layout,
+        - an HTML (or :file:`.pt`) file for the layout,
         - a Python file to implement the logic.
 
 .. only:: not presentation
@@ -441,8 +441,9 @@ we need to activate the AJAX mode in the YAML file:
 Exercise 4: Add the Like button
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Add a Like button to the block.
-For now, the action itself will do nothing, let's just insert it at the right place, and make sure the block is refreshed properly when we click.
+Add a *Like* button to the block.
+For now, the action itself will do nothing. 
+Let's just insert it at the right place, and make sure the block is refreshed properly when we click.
 
 .. admonition:: Solution
     :class: toggle
@@ -515,7 +516,7 @@ Exercise 5: Count votes
 The button is OK now, now let's focus on counting votes.
 To count the votes on a talk, you need store some information:
 
-- an identifier for the talk (we will take the talk path using the Plone ``absolute_url_path()`` method),
+- an identifier for the talk (we will use the talk path, from the Plone ``absolute_url_path()`` method),
 - the total votes it gets.
 
 Let's implement the ``like`` function:
@@ -541,7 +542,8 @@ Let's implement the ``like`` function:
 
 .. only:: not presentation
 
-    Note: we cannot just use the content ``id`` attribute as a valid identifier because it is not unique at site level, so we prefer the path.
+    Note: we cannot just use the content ``id`` attribute as a valid identifier
+    because it is not unique at site level, so we prefer the path.
 
 Now let's make sure to display the proper total in the ``display_votes`` element:
 
@@ -726,7 +728,7 @@ Let's create a block to display the Talks Top 5:
 
     And then we declare a new action in our footer:
 
-    - go to the `site_actions` in the Zope Management Interface::
+    - go to the ``site_actions`` in the Zope Management Interface::
 
         http://localhost:8080/Plone/portal_actions/site_actions/manage_workspace
 
@@ -769,7 +771,7 @@ The ``index_type`` property can have two possible values:
 
 Queries use the *CQE format* (`see documentation <http://docs.repoze.org/catalog/usage.html#query-objects>`_.
 
-Example (assuming `author`, `title` and `price` are existing indexes):
+Example (assuming ``author``, ``title`` and ``price`` are existing indexes):
 
 .. code-block:: python
 
@@ -826,9 +828,8 @@ We want to be able to sort the records according to their votes:
             record = context.app.get_record(content_path)
             if not record:
                 record = context.app.create_record(id=content_path)
-            total = record.get('total', 0)
-            total += 1
-            record['total'] = total
+                record['total'] = 0
+            record['total'] += 1
             record.save(block_id='rate')
 
 
@@ -881,7 +882,7 @@ Create custom content-rules
 
 Plone content rules allow triggering a given action depending on an *event*
 (content modified, content created, etc.)
-and on a *list of criteria* (only for certain content types,
+and on a *list of criteria* (for example: only for certain content types,
 only in this folder, etc.).
 
 Plone provides a set of useful ready-to-use content rule actions,
@@ -889,9 +890,8 @@ such as moving some content somewhere,
 sending mail to an email address,
 executing a workflow change, etc.
 
-Rapido allows to implement our own actions easily.
-
-Rapido just adds a generic "Rapido action" to the Plone content rules system.
+Rapido allows us to easily implement our own actions.
+To do this, it adds a generic "Rapido action" to the Plone content rules system.
 It allows us to enter the following parameters:
 
 - the app id,

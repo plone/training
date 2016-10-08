@@ -122,7 +122,7 @@ Plone tests
 
     Usually, you create three layers on your own, an integration layer, a functional layer and an acceptance test layer. If you were to test code that uses the Solr search engine, you'd use another layer that starts and stops solr between tests. But most of the time you just use the default layers you copied from somewhere or that mr.bob gave you.
 
-    By convention, layers are defined in a module ``testing`` in your module root, ie ``my.code.testing``. Your test classes should be in a folder named ``tests``
+    By convention, layers are defined in a module :py:mod:`testing` in your module root, ie :py:mod:`my.code.testing`. Your test classes should be in a folder named :file:`tests`
 
 Getting started
 ~~~~~~~~~~~~~~~
@@ -136,10 +136,10 @@ The person that wants to make your package work 5 years from now, knows now that
 
 This is why it makes sense to write these tedious tests.
 
-If nothing else matches, ``test_setup.py`` is the right location for anything GenericSetup related.
+If nothing else matches, :file:`test_setup.py` is the right location for anything GenericSetup related.
 In :ref:`eggs1-label` we created a content type. It is time to test this.
 
-We are going to create a test module named ``test_talk``:
+We are going to create a test module named :py:mod:`test_talk`:
 
 .. literalinclude::  ../ploneconf.site_sneak/chapters/02_export_code_p5/src/ploneconf/site/tests/test_talk.py
     :linenos:
@@ -167,7 +167,8 @@ Then we can create content. Looking through the code, we do not want the talks l
 Some advanced thing. Should you ever use an improved search system like collective.solr, results might get batched automatically. Check that if you have 101 talks, that you also get back 101 talks.
 Think about what you want to check in your results. Do you want to make a one to one comparison? How would you handle UUIDs?
 
-A test creating 101 talks can be slow. It tests an edge case. There is a trick: create a new TestCase Class, and set an attribute ``level`` with the value of 2. This test will then only be run when you run the tests with the argument ``-a 2`` or ``--all``
+A test creating 101 talks can be slow. It tests an edge case. There is a trick: create a new :py:class:`TestCase` Class, and set an attribute :py:attr:`level` with the value of 2.
+This test will then only be run when you run the tests with the argument :option:`-a 2` or :option:`--all`
 
 .. admonition:: Solution
    :class: toggle
@@ -186,19 +187,20 @@ Finally, we write a robot test:
 .. literalinclude:: ../ploneconf.site_sneak/chapters/03_zpt_p5/src/ploneconf/site/tests/robot/test_talk.robot
     :linenos:
 
-When you run your tests, you might notice that the robot tests didn't run. This is a feature activated by the robot layer, because robot tests can be quite slow. If you run your tests with ``./bin/test --all``
+When you run your tests, you might notice that the robot tests didn't run. This is a feature activated by the robot layer, because robot tests can be quite slow. If you run your tests with :command:`./bin/test --all`
 your robot tests will run. Now you will realize that you cannot work any more because a browser window pops up all the time.
 
 There are 3 possible workarounds:
 
 - install the headless browser, Phantomjs.
-  Then run the tests with an environment variable ``ROBOT_BROWSER=phantomjs bin/test --all`` This did not work for me btw.
-- Install xvfb, a framebuffer. You wont see the browser then. After installing, start xvfb like this: ``Xvfb :99.0 -screen 0 1024x768x24``. Then run your tests, declaring to connect to the non default X Server: ``DISPLAY=:99.0 bin/test --all``
+  Then run the tests with an environment variable :command:`ROBOT_BROWSER=phantomjs bin/test --all` This did not work for me btw.
+- Install :program:`xvfb`, a framebuffer. You wont see the browser then. After installing, start xvfb like this: :command:`Xvfb :99.0 -screen 0 1024x768x24`. Then run your tests, declaring to connect to the non-default X Server: :command:`DISPLAY=:99.0 bin/test --all`
 - Install Xephyr, it is also a framebuffer, but visible in a window. Start it the same way as you start Xvfb.
 
 The first method, with Phantomjs, will throw failures with our tests, unfortunately.
 
-For debugging, you can run the test like this ``ROBOT_SELENIUM_RUN_ON_FAILURE=Debug bin/test --all``. This will stop the test at the first failure and you end up in an interactive shell where you can try various Robot Framework commands.
+For debugging, you can run the test like this :command:`ROBOT_SELENIUM_RUN_ON_FAILURE=Debug bin/test --all`.
+This will stop the test at the first failure and you end up in an interactive shell where you can try various Robot Framework commands.
 
 More information
 ----------------

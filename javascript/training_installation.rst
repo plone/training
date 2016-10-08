@@ -15,7 +15,8 @@ After that, issue the following command to get the development environment for t
 Installing Mockup
 -----------------
 
-Optionally you can install Mockup. Mockup is already included in the `training_buildout <https://github.com/collective/training_buildout/blob/plone5/buildout.cfg>`_. Uncomment the "mockup" line in ``auto-checkout`` and buildout ``eggs`` section.
+Optionally you can install Mockup. Mockup is already included in the `training_buildout <https://github.com/collective/training_buildout/blob/plone5/buildout.cfg>`_.
+Uncomment the "mockup" lines in the buildout's ``auto-checkout`` and ``eggs`` sections.
 
 After that, run buildout:
 
@@ -25,5 +26,5 @@ After that, run buildout:
 
 .. warning::
 
-    If you are running buildout inside vagrant, always remember to use the vagrant.cfg ``bin/buildout -Nc vagrant.cfg``
+    If you are running buildout inside vagrant, always remember to use specify :file:`vagrant.cfg`: :command:`bin/buildout -Nc vagrant.cfg`
 

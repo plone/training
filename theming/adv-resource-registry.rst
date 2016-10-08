@@ -3,25 +3,25 @@ Advanced resources registry usage
 =================================
 
 In the Plone *resource registry* we can register our static resources, like
-CSS and LESS files and also JavaScript resources.
-We will cover here only CSS and LESS, but you can also do nice things
+CSS and Less files and also JavaScript resources.
+We will cover here only CSS and Less, but you can also do nice things
 with your JavaScript resources (for example using *requirejs* to do the import
 correctly without worrying about import order).
 For details about this, look into the documentation of the *resource registry*
 and in the JavaScript part of the training.
 
 
-Registering CSS/LESS resources in the registry
+Registering CSS/Less resources in the registry
 ==============================================
 
-Because of the flexibility of LESS over CSS we will use only LESS files here,
-but static CSS files can be registered in the same way. LESS files have the
+Because of the flexibility of Less over CSS we will use only Less files here,
+but static CSS files can be registered in the same way. Less files have the
 advantage that we can use imports, and with ``reference-imports`` we can even
 import only the parts of the files which we are really using.
 
 Let's see how we can register a resource in the resource registry.
-To do that, we add an ``IResourceRegistry`` entry into the ``registry.xml`` in
-our ``profiles/default`` folder:
+To do that, we add an ``IResourceRegistry`` entry into the :file:`registry.xml` in
+our :file:`profiles/default` folder:
 
 .. code-block:: xml
 
@@ -35,8 +35,8 @@ our ``profiles/default`` folder:
        </records>
    </registry>
 
-This registers a file named ``main.less`` (from our theme package named
-``plonetheme.tango``) as a *resource* named ``tango-main``.
+This registers a file named :file:`main.less` (from our theme package named
+:file:`plonetheme.tango`) as a *resource* named ``tango-main``.
 We can now add this resource to a *resource bundle* like the existing ``plone`` bundle:
 
 .. code-block:: xml
@@ -61,7 +61,7 @@ We can now add this resource to a *resource bundle* like the existing ``plone`` 
 This has the advantage of reducing the number of bundles,
 which also means reducing the amount of files which are loaded for the site,
 because every bundle will result in *one* compiled CSS file and *one* compiled JavaScript file.
-So if we have multiple LESS resources in the same bundle, they will be merged into one compiled
+So if we have multiple Less resources in the same bundle, they will be merged into one compiled
 CSS file.
 
 We can also create our own custom bundle which contains our resource (this is the way we
@@ -116,14 +116,14 @@ If you have created your own bundle, do the same for this bundle:
 Default value for ``site-id`` is ``Plone`` so you only need to specify that if you're working with a different id for your site object.
 
 
-Using resources in LESS-files
+Using resources in Less-files
 =============================
 
-Let's have a look at our ``main.less`` file:
+Let's have a look at our :file:`main.less` file:
 
 .. code-block:: sass
 
-   /* bundle LESS file that will be compiled into tango-compiled.css */
+   /* bundle Less file that will be compiled into tango-compiled.css */
 
    // ### PLONE IMPORTS ###
 
@@ -211,17 +211,17 @@ Let's have a look at our ``main.less`` file:
    // include our custom less
    @import "custom.less";
 
-Here we use different functionality of LESS and the resource registry.
+Here we use different functionality of Less and the resource registry.
 
-At the bottom line for example, we use LESS-imports to import a second LESS file
-which contains our custom LESS statements.
-And we also import a CSS-file of the downloaded theme as a LESS-file, so we can
-change parts of it using LESS-syntax.
+At the bottom line for example, we use Less-imports to import a second Less file
+which contains our custom Less statements.
+And we also import a CSS-file of the downloaded theme as a Less-file, so we can
+change parts of it using Less-syntax.
 
 Besides these two, we import stuff from Barceloneta. Here we can see that we use
 the names of the registered resource registry resources of the Barceloneta theme
 to import them. So if for example we want to import our registered resource
-``tango-main``, we could import it as follows in our LESS-file:
+``tango-main``, we could import it as follows in our Less-file:
 
 .. code-block:: css
 
@@ -233,7 +233,7 @@ or even with the ``reference`` option:
 
    @import (reference) "@{tango-main}";
 
-If you use the ``reference`` option on LESS-import, only the parts of this file
+If you use the ``reference`` option on Less-import, only the parts of this file
 which are used are included in the compiled version (CSS).
 
 So for example you have to trigger it like:

@@ -41,7 +41,7 @@ Eggs and versions
 
 You're likely to want to add Python packages to your Plone installation to enable add-on functionality.
 
-Let's say you want to add ``Products.PloneFormGen`` and ``webcouturier.dropdownmenu``.
+Let's say you want to add :py:mod:`Products.PloneFormGen` and :py:mod:`webcouturier.dropdownmenu`.
 Just add to your ``local_configure.yml``:
 
 .. code-block:: yaml
@@ -87,7 +87,7 @@ Even if you use your own buildout, you'll need to make sure that some of the pla
 Running buildout and restarting clients
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-By default, the playbook tries to figure out if ``buildout`` needs to be run.
+By default, the playbook tries to figure out if :command:`buildout` needs to be run.
 If you add an egg, for example, the playbook will run buildout to make the buildout-controlled portions of the installation update.
 
 If you don't want that behavior, change it:

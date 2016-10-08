@@ -139,7 +139,7 @@ We could also add a new index to the catalog that will add 'audience' to the pro
         def talk_audience(object, **kw):
              return object.audience
 
-    We'd have to register this factory function as a named adapter in the ``configure.zcml``. Assuming you've put the code above into a file named indexers.py
+    We'd have to register this factory function as a named adapter in the :file:`configure.zcml`. Assuming you've put the code above into a file named :file:`indexers.py`
 
     .. code-block:: xml
 
@@ -149,7 +149,7 @@ We could also add a new index to the catalog that will add 'audience' to the pro
 
 Why use the catalog at all? It checks for permissions, and only returns the talks that the current user may see. They might be private or hidden to you since they are part of a top secret conference for core developers (there is no such thing!).
 
-Most objects in plone act like dictionaries, so you can do ``context.values()`` to get all its contents.
+Most objects in Plone act like dictionaries, so you can do :py:meth:`context.values()` to get all its contents.
 
 For historical reasons some attributes of brains and objects are written differently.
 
@@ -166,7 +166,7 @@ For historical reasons some attributes of brains and objects are written differe
     >>> brain.title == obj.title
     False
 
-Who can guess what ``brain.title`` will return since the brain has no such attribute?
+Who can guess what :py:attr:`brain.title` will return since the brain has no such attribute?
 
 .. only:: not presentation
 
@@ -174,7 +174,7 @@ Who can guess what ``brain.title`` will return since the brain has no such attri
 
         Answer: Acquisition will get the attribute from the nearest parent. ``brain.__parent__`` is ``<CatalogTool at /Plone/portal_catalog>``. The attribute ``title`` of the ``portal_catalog`` is 'Indexes all content in the site'.
 
-Acquisition can be harmful. Brains have no attribute 'getLayout' ``brain.getLayout()``:
+Acquisition can be harmful. Brains have no attribute 'getLayout' :py:meth:`brain.getLayout()`:
 
 .. code-block:: pycon
 
@@ -235,7 +235,7 @@ Since you now know how to query the catalog it is time for some exercise.
 Exercise 1
 **********
 
-Add a method ``get_news`` to ``TalkListView`` that returns a list of brains of all News Items that are published and sort them in the order of their publishing-date.
+Add a method :py:meth:`get_news` to :py:class:`TalkListView` that returns a list of brains of all News Items that are published and sort them in the order of their publishing-date.
 
 ..  admonition:: Solution
     :class: toggle
@@ -315,7 +315,7 @@ The view and the controller are very much mixed in Plone. Especially when you lo
 
 But you should nevertheless do it! You'll end up with more than enough logic in the templates anyway.
 
-Add this simple table to ``templates/talklistview.pt``:
+Add this simple table to :file:`templates/talklistview.pt`:
 
 .. code-block:: html
     :linenos:
@@ -349,7 +349,7 @@ Add this simple table to ``templates/talklistview.pt``:
         </tbody>
     </table>
 
-Afterwards you transform it into a listing. Here we use one of many nice features built into Plone. The ``class="pat-tablesorter"`` (before Plone 5 that was ``class="listing"``) gives the table a nice style and makes the table sortable with some javascript.
+Afterwards you transform it into a listing. Here we use one of many nice features built into Plone. The :samp:`class="pat-tablesorter"` (before Plone 5 that was :samp:`class="listing"`) gives the table a nice style and makes the table sortable with some JavaScript.
 
 .. code-block:: html
     :linenos:
@@ -395,14 +395,14 @@ Afterwards you transform it into a listing. Here we use one of many nice feature
 
 There are some some things that need explanation:
 
-``tal:repeat="talk view/talks"``
-    This iterates over the list of dictionaries returned by the view. ``view/talks`` calls the method ``talks`` of our view and each ``talk`` is in turn one of the dictionaries that are returned by this method. Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict. It would be a good practice to write ``tal:repeat="talk python:view.talks()"``.
+:samp:`tal:repeat="talk view/talks"`
+    This iterates over the list of dictionaries returned by the view. :samp:`view/talks` calls the method :py:meth:`talks` of our view and each :py:obj:`talk` is in turn one of the dictionaries that are returned by this method. Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects we can write :samp:`talk/somekey` as we could :samp:`view/somemethod`. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict. It would be a good practice to write :samp:`tal:repeat="talk python:view.talks()"`.
 
-``tal:content="talk/speaker"``
-    'speaker' is a key in the dict 'talk'. We could also write ``tal:content="python:talk['speaker']"``
+:samp:`tal:content="talk/speaker"`
+    'speaker' is a key in the dict 'talk'. We could also write :samp:`tal:content="python:talk['speaker']"`
 
-``tal:condition="not:view/talks"``
-    This is a fallback if no talks are returned. It then returns an empty list (remember ``results = []``?)
+:samp:`tal:condition="not:view/talks"`
+    This is a fallback if no talks are returned. It then returns an empty list (remember :samp:`results = []`?)
 
 
 Exercise
@@ -455,7 +455,7 @@ Modify the view to only use python expressions.
             </tbody>
         </table>
 
-    To follow the mantra "don't repeat yourself" we define ``talks`` instead of calling the method twice.
+    To follow the mantra "don't repeat yourself" we define :py:obj:`talks` instead of calling the method twice.
 
 
 .. _views3-custom-label:
@@ -463,11 +463,11 @@ Modify the view to only use python expressions.
 Setting a custom view as default view on an object
 --------------------------------------------------
 
-We don't want to always have to append /@@talklistview to our folder to get the view. There is a very easy way to set the view to the folder using the ZMI.
+We don't want to always have to append :samp:`/@@talklistview` to our folder to get the view. There is a very easy way to set the view to the folder using the ZMI.
 
-If we append ``/manage_propertiesForm`` we can set the property "layout" to ``talklistview``.
+If we append :samp:`/manage_propertiesForm` we can set the property "layout" to :samp:`talklistview`.
 
-To make views configurable so that editors can choose them we have to register the view for the content type at hand in its FTI. To enable it for all folders we add a new file ``profiles/default/types/Folder.xml``
+To make views configurable so that editors can choose them we have to register the view for the content type at hand in its FTI. To enable it for all folders we add a new file :file:`profiles/default/types/Folder.xml`
 
 .. code-block:: xml
     :linenos:
@@ -481,7 +481,7 @@ To make views configurable so that editors can choose them we have to register t
 
 After re-applying the typeinfo profile of our add-on (or simply reinstalling it) the content type "Folder" is extended with our additional view method and appears in the display dropdown.
 
-The ``purge="False"`` appends the view to the already existing ones instead of replacing them.
+The :samp:`purge="False"` appends the view to the already existing ones instead of replacing them.
 
 
 .. _views3-summary-label:

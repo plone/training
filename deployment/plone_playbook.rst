@@ -51,7 +51,7 @@ Roles are basically pre-packaged subroutines with their own default variables.
 Several roles are part of the Plone Ansible Playbook kit and will be present in your initial checkout.
 These include roles that set up the haproxy load balancer, varnish cache, nginx http server, postfix SMTP agent, munin-node monitoring, logwatch log analysis, message-of-the-day and a fancy setup for restarting ZEO clients.
 
-Other roles, including the role that actually sets up Plone, are loaded when you use ``ansible-galaxy`` to fetch the items listed in ``requirements.yml``.
+Other roles, including the role that actually sets up Plone, are loaded when you use ``ansible-galaxy`` to fetch the items listed in :file:`requirements.yml`.
 Except for the Plone server role, these are generally very generic Ansible Galaxy roles that we liked.
 
 Vagrant
@@ -63,12 +63,12 @@ We include a couple of files to help you get started with Vagrant testing.
 Vagrantfile
 
     A Vagrant setup file that will allow you to create guest virtual hosts for any of the platforms we support and will run Ansible as the provisioner with playbook.yml.
-    This currently defaults to building an Trusty box, but you may pick others by naming them on the ``vagrant up`` command line.
+    This currently defaults to building a Trusty box, but you may pick others by naming them on the :command:`vagrant up` command line.
 
 vbox_host.cfg
 
     When you use vagrant commands, vagrant controls the ssh connection.
-    vbox_host.cfg is an Ansible inventory file that should allow you to run your playbook directly (without the ``vagrant`` command) against your guest box.
+    :file:`vbox_host.cfg` is an Ansible inventory file that should allow you to run your playbook directly (without the :command:`vagrant` command) against your guest box.
 
 Sample configurations
 `````````````````````
@@ -113,10 +113,10 @@ The ``sample-medium.yml`` file will give you a starting point.
 Tests
 `````
 
-You'll find a ``tests.py`` program file and a ``tests` directory.
-The ``tests`` directory contains Doctest files to test our sample configurations.
+You'll find a :file:`tests.py` program file and a :file:`tests` directory.
+The :file:`tests` directory contains Doctest files to test our sample configurations.
 You may add your own.
 
-The ``tests.py`` program is a convenience script that will run one or more of the Vagrant boxes against one or more of the Doctest files.
+The :file:`tests.py` program is a convenience script that will run one or more of the Vagrant boxes against one or more of the Doctest files.
 Run it with no command line argument for usage help.
 Or, read the source ;)

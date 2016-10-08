@@ -232,7 +232,7 @@ Calling the macro in python looks like this  ``metal:use-macro="python:context.r
 
 .. note::
 
-    In ``talklistview.pt`` the call ``view/talks"`` calls the method ``talks`` from the browser view ``TalkListView`` to get the talks. Reused as a macro on the frontpage it now uses the method ``talks`` by the ``frontpageView`` to get a different list!
+    In :file:`talklistview.pt` the call :samp:`view/talks"` calls the method :py:meth:`talks` from the browser view :py:class:`TalkListView` to get the talks. Reused as a macro on the frontpage it now uses the method :py:meth:`talks` by the ``frontpageView`` to get a different list!
 
     Also: It is not always smart to do that since maybe you want to display other data.
 

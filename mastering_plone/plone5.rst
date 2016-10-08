@@ -13,7 +13,7 @@ Default Theme
 
 The new default theme is called `Barceloneta <https://github.com/plone/plonetheme.barceloneta/>`_
 
-It is a Diazo theme, meaning it uses plone.app.theming to insert the output of Plone into static html/css.
+It is a Diazo theme, meaning it uses :py:mod:`plone.app.theming` to insert the output of Plone into static html/css.
 
 It uses html5, so it uses ``<header>``, ``<nav>``, ``<aside>``, ``<section>``, ``<article>`` and ``<footer>`` for semantic html.
 
@@ -21,7 +21,7 @@ The theme is mostly built with `LESS <http://lesscss.org/>`_ (lots of it!) and u
 
 The `index.html <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/index.html>`_ and `rules.xml <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/rules.xml>`_ are actually not that complicated. Have a look at them.
 
-The following example from the ``rules.xml`` makes sure that the banner saying *"Welcome! Plone 5 rocks!"* is only visible on the frontpage:
+The following example from :file:`rules.xml` makes sure that the banner saying *"Welcome! Plone 5 rocks!"* is only visible on the frontpage:
 
 .. code-block:: xml
 
@@ -31,7 +31,7 @@ The following example from the ``rules.xml`` makes sure that the banner saying *
           href="/@@hero"
           css:if-content="body.template-document_view.section-front-page" />
 
-The browser-view ``@@hero`` (you can find it by searching all zcml-files for ``name="hero"``) is only included when the body-tag of the current page has the css-classes ``template-document_view`` and ``section-front-page``.
+The browser-view ``@@hero`` (you can find it by searching all ZCML-files for ``name="hero"``) is only included when the body-tag of the current page has the css-classes ``template-document_view`` and ``section-front-page``.
 
 
 .. _plone5-ui-widgets-label:
@@ -108,9 +108,9 @@ You can now put a full-grown ``pdb`` in a template.
 
     <?python import pdb; pdb.set_trace() ?>
 
-For debugging check out the variable ``econtext``, it holds all the current elements.
+For debugging check out the variable :py:obj:`econtext`, it holds all the current elements.
 
-You can also add real python blocks inside templates.
+You can also add real Python blocks inside templates.
 
 .. code-block:: html
 
@@ -180,7 +180,7 @@ New portlet manager
 
 ``plone.footerportlets`` is a new place to put portlets. The footer (holding the footer, site_actions, colophon) is now built from portlets. This means you can edit the footer TTW.
 
-There is also a useful new portlet type ``Actions`` used for displaying the site_actions.
+There is also a useful new portlet type :guilabel:`Actions` used for displaying the site_actions.
 
 
 .. _plone5-skins-label:
