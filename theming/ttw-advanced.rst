@@ -2,6 +2,7 @@
 TTW advanced I: introduction to Diazo Theming
 =============================================
 
+
 In this section you will:
 
 * Use the "Theming" control panel to make a copy of Plone's default theme (barceloneta)
@@ -10,12 +11,23 @@ In this section you will:
 
 Topics covered:
 
-* "Barceloneta" - The Default Plone Theme
 * Diazo and plone.app.theming
+* "Barceloneta" - The Default Plone Theme
 * The "Theming tool"
 * Building CSS in the "Theming tool"
-* Plone Body Tag Base CSS Classes
+* <body> element CSS classes
 * Conditionally activating rules
+
+
+Two approaches to theming
+---------------------------
+
+There are two main approaches to creating a custom theme:
+
+1. Copying the default Barceloneta theme
+2. Inheriting from the default Barceloneta theme. 
+
+In this section we'll look at the first approach, part II will explore the second approach. 
 
 What is Diazo?
 --------------
@@ -67,6 +79,33 @@ The most important files:
 * :file:`rules.xml`: contains the theme rules (`rules reference <http://docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax>`_);
 * :file:`index.html`: the static HTML of the theme.
 
+Exercise 1 - Inspecting the manifest.cfg
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To better understand how your theme is arranged start by reading the :file:`manifest.cfg` file.
+
+In the theming tool, open the :file:`manifest.cfg` spend a minute or two looking through it, then
+see if you can answer the questions below.
+
+Where are the main rules located for your theme?
+
+What property in the :file:`manifest.cfg` file defines the source CSS/Less file used by the theme?
+
+What do you think is the purpose of the `prefix` property?
+
+.. admonition:: Solution
+    :class: toggle
+
+    The main rules are defined by the `rules` property (you could point this anywhere, however the accepted convention is to use a file named :file:`rules.xml`.
+
+    The `development-css` property points at the main Less file, when compiled to CSS it is placed
+    in the location defined by the `production-css` property. 
+
+    The `prefix` property defines the default location to look for non prefixed files, for example
+    if your prefix is set to '/++theme++mytheme' then a file like index.html will be expected at
+    '/++theme++mytheme/index.html'
+
+
 <body> CSS classes
 ------------------
 
@@ -79,9 +118,15 @@ As you browse a Plone site, Plone adds rich information about your current conte
 - whether this is a frontend view
 - if icons are enabled
 
+<body> classes for an anonymous visitor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Below you can see an example of the body classes for a page named "front-page", located in the root of a typical plone site called "acme"::
 
     <body class="template-document_view portaltype-document site-acme section-front-page icons-on thumbs-on frontend viewpermission-view userrole-anonymous">
+
+<body> classes for a manager
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 And here is what the classes for the same page look like when viewed by a manager that has logged in::
 
@@ -89,17 +134,23 @@ And here is what the classes for the same page look like when viewed by a manage
 
 Notice the addition of `userrole-manager`.
 
-For Discussion - <body> classes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-What other roles does the manager have?
-Can you see other differences?
+Exercise 2 - Discussion about the <body> classes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Look back at the <body> classes for a manager then see if you can answer the following questions.
+
+1. What other roles does the manager have?
+2. Can you see other differences?
+3. What do you think the `plone-toolbar-expanded` class does?
 
 .. admonition:: Solution
     :class: toggle
 
     The manager also has the role "member" and "authenticated"
     
-    There are plone-toolbar classes added to the <body> element, these control the display of the toolbar
+    There are `plone-toolbar` classes added to the <body> element, these control the display of the toolbar
+
+    The `plone-toolbar-expanded` class is used to control styles used by the expanded version of the toolbar.
     
 
 Custom rules
@@ -141,7 +192,7 @@ We will learn more about Diazo rules in :doc:`./ttw-advanced_2`.
 Customize CSS
 -------------
 
-1. from theme editor open the file `less/barceloneta.plone.less`, that is the main LESS file as specified in the manifest;
+1. from theming tool open the file `less/barceloneta.plone.less`, that is the main LESS file as specified in the manifest;
 2. add your own customization at the bottom, like:
 
 .. code-block:: css
