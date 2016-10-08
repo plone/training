@@ -366,7 +366,7 @@ Add the viewlet class in ``browser/viewlets.py``
 
 :py:meth:`_sponsors` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor objects in memory all the time. But we'd have to wait for up to an hour until changes will be visible.
 
-Instead we'll cache until one of the sponsors is modified by using a callable :py:function:`_sponsors_cachekey` that returns a number that changes when a sponsor is modified.
+Instead we'll cache until one of the sponsors is modified by using a callable :py:func:`_sponsors_cachekey` that returns a number that changes when a sponsor is modified.
 
   ..  code-block:: python
 
