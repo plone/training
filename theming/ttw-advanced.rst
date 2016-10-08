@@ -15,7 +15,7 @@ Topics covered:
 * The "Theming tool"
 * Building CSS in the "Theming tool"
 * Plone Body Tag Base CSS Classes
-* if-content
+* Conditionally activating rules
 
 What is Diazo?
 --------------
@@ -92,17 +92,25 @@ We want to hide it for anynoymous users so we can take advantage of the base CSS
 
 A short note about base CSS classes on the body tag
 ```````````````````````````````````````````````````
-As you browse a Plone site, Plone adds rich information about each item that you view. This information is represented as special classes in the body tag.
+As you browse a Plone site, Plone adds rich information about each item that you view. This information is represented as special classes in the <body> element.
 
-Below you can see an example of a page named "front-page", located in the root of a typical plone site::
+It is possible to get a lot of information about the current context such as:
+
+- the current user role, and his permissions,
+- the current content-type and its template,
+- the site section and sub section,
+- the current subsite (if any).
+
+
+Below you can see an example of the body classes for a page named "front-page", located in the root of a typical plone site called "acme"::
 
     <body class="template-document_view portaltype-document site-acme section-front-page icons-on thumbs-on frontend viewpermission-view userrole-anonymous">
 
-And here is what the body tag looks like on the same "front-page" for a manager that has logged in::
+And here is what the classes for the same page look like when viewd by a manager that has logged in::
 
     <body class="template-document_view portaltype-document site-acme section-front-page icons-on thumbs-on frontend viewpermission-view userrole-member userrole-manager userrole-authenticated plone-toolbar-left plone-toolbar-expanded plone-toolbar-left-expanded">
 
-Can you see differences?
+Notice the addition of `userrole-manager`, can you see other differences?
 
 
 The class we are looking for is `userrole-authenticated`. Add another property to the rule so that we produce this code:
