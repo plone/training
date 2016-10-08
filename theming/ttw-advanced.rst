@@ -74,9 +74,13 @@ Let's open :file:`rules.xml`. You will see all the rules that are used in Barcel
 
 Conditionally showing content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../theming/_static/theming-viewlet-above-content-in-plone-site.png
+   :align: center
+
 Suppose that we want to make the "above content" block (the one that contains breadcrumbs) conditional, and show it only for authenticated users.
 
-Find this line:
+In the :file:`rules.xml` find this line:
 
 .. code-block:: xml
 
