@@ -10,7 +10,7 @@ Copying Barceloneta is not recommended:
 - it makes your theme heavier,
 - upgrading is more difficult.
 
-Instead of copying it, Barceloneta can inherited by a custom theme. Two elements must be inherited: the **rules**, and the **style**:
+Instead of copying it, Barceloneta can be inherited by a custom theme. Two elements must be inherited: the **rules**, and the **style**:
 
 Create a new theme in the theming editor containing the following files:
 
@@ -83,7 +83,7 @@ You use `css:theme` to specify CSS selector corresponding to the targeted elemen
 
 Similarly, you can use `css:theme-children` and `css:content-children` to target the element's children.
 
-.. note:: sometimes CSS selectors are not powerful enough, and you can use XPath selector (using `theme` and `content`).
+.. note:: sometimes CSS selectors are not powerful enough, and you can use XPath selectors (using `theme` and `content`).
 
 To apply a rule conditionally, you use `css:if-theme` and `css:if-content` (or `if-theme` and `if-content` with XPath).
 
@@ -94,7 +94,7 @@ Conditionally enable Barceloneta
 
 The Plone `<body>` element has a lot of CSS classes that allow you to create accurate conditions for your Diazo rules.
 
-Those classes allow to get many information on the context like:
+Those classes make it possible to get a lot of information about the current context like:
 
 - the current user role, and his permissions,
 - the current content-type and its template,
@@ -105,7 +105,7 @@ Here is an example::
 
     template-summary_view portaltype-collection site-Plone section-news subsection-aggregator icons-on thumbs-on frontend viewpermission-view userrole-manager userrole-authenticated userrole-owner plone-toolbar-left plone-toolbar-expanded plone-toolbar-left-expanded pat-plone patterns-loaded
 
-Imagine you might want to use Barceloneta for the website administrators (so they can manage the content conviniently) and offer a completely different layout for visitors, you just need to create rules with ``css:if-content="body.userrole-anonymous"`` or ``css:if-content="body.:not(userrole-anonymous)"`` to enable the theme you want.
+Imagine you might want to use Barceloneta for the website administrators (so they can manage the content conveniently) and offer a completely different layout for visitors, you just need to create rules with ``css:if-content="body.userrole-anonymous"`` or ``css:if-content="body.:not(userrole-anonymous)"`` to enable the theme you want.
 
 As you can see, if the visitor is anonymous, Diazo will use a specific HTML theme (named :file:`front.html`) and not the Barceloneta's :file:`index.html`.
 
@@ -148,4 +148,4 @@ Go to http://www.csszengarden.com/, download a theme (do not use the download li
 
 .. note::
 
-    When you create your Diazo rules, it is important to know how is structured the content Diazo is receiving from Plone. In order to see a non-diazoed page, just add ``?diazo.off=1`` at the end of its URL.
+    When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured. In order to see a "non-diazoed" page, just add ``?diazo.off=1`` at the end of its URL.
