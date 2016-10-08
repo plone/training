@@ -19,7 +19,7 @@ So, we will write our browser view as a grok view. From the component architectu
 
 Grok is not part of plone. We have to add it as a dependency to our egg.
 
-Open setup.py, and add ``five.grok`` to the list off add-ons in ``install_requires``::
+Open :file:`setup.py`, and add :py:mod:`five.grok` to the list of add-ons in ``install_requires``::
 
     ...
         zip_safe=False,
@@ -30,7 +30,7 @@ Open setup.py, and add ``five.grok`` to the list off add-ons in ``install_requir
 
 You need to run buildout now.
 
-Grok nearly magically does find all its annotations. Since its not complete magic, you have to tell grok where to look for grok code. This requires a single line of zcml, that line ensures that your complete package is `grokked`.
+Grok nearly magically does find all its annotations. Since its not complete magic, you have to tell grok where to look for grok code. This requires a single line of ZCML. This line ensures that your complete package is `grokked`.
 
 .. code-block:: xml
     :linenos:
@@ -50,9 +50,9 @@ Grok nearly magically does find all its annotations. Since its not complete magi
         <grok:grok package="." />
         ....
 
-This new grok statement takes care of finding everything grok related.
+This new grok statement takes care of finding everything grok-related.
 
-Now we can add a grok view in a new file ``views.py``:
+Now we can add a grok view in a new file :file:`views.py`:
 
 .. code-block:: python
     :linenos:
@@ -66,9 +66,9 @@ Now we can add a grok view in a new file ``views.py``:
         grok.require("zope2.View")
         grok.context(Interface)
 
-By convention the template must be in a subdirectory called ``views_templates`` and it must be named `talkview.pt`
+By convention the template must be in a subdirectory called :file:`views_templates` and it must be named :file:`talkview.pt`
 
-If we used ``grok`` for viewlets we would not need to register them in the ``configure.zcml`` but do that in python. We would add a file viewlets.py containing the viewlet-class.
+If we used ``grok`` for viewlets we would not need to register them in the :file:`configure.zcml` but do that in python. We would add a file :file:`viewlets.py` containing the viewlet-class.
 
 .. code-block:: python
     :linenos:
@@ -80,4 +80,4 @@ If we used ``grok`` for viewlets we would not need to register them in the ``con
     class SocialViewlet(grok.Viewlet):
         grok.viewletmanager(viewletIFs.IBelowContentTitle)
 
-This would do the same as the code above using grok's paradigm of convention over configuration. In browser views the reference is called view, note that in grok viewlets it is called viewlets (in that case ``viewlet/lanyrd_link``).
+This would do the same as the code above using grok's paradigm of convention over configuration. In browser views the reference is called view; note that in grok viewlets it is called viewlets (in that case ``viewlet/lanyrd_link``).

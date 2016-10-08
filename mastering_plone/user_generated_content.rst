@@ -56,15 +56,15 @@ A custom workflow for talks
 
 We still need to fix a problem: Authenticated users can see all talks, even the ones of other users in the private state. Since we don't want this we will create a modified workflow for talks. The new workflow will only let them see and edit talks they created themselves and not the ones of other users.
 
-* Go to the ZMI > portal_workflow
-* See how talks have the same workflow as most content ``(Default)``
-* Go to the tab *Contents*, check the box next to ``simple_publication_workflow``, click ``copy`` and ``paste``.
+* Go to the ZMI > :guilabel:`portal_workflow`
+* See how talks have the same workflow as most content, namely :guilabel:`(Default)`
+* Go to the tab :guilabel:`Contents`, check the box next to :guilabel:`simple_publication_workflow`, click :guilabel:`copy` and :guilabel:`paste`.
 * Rename the new workflow from *copy_of_simple_publication_workflow* to *talks_workflow*.
 * Edit the workflow by clicking on it: Change the Title to *Talks Workflow*.
-* Click on the tab *States* and click on *private* to edit this state. In the next view select the tab *Permissions*.
-* Find the table column for the role *Contributor* and remove the permissions for ``Access contents information`` and ``View``. Note that the *Owner* (i.e. the Creator) still has some permissions.
-* Do the same for the state *pending*
-* Go back to *portal_workflow* and set the new workflow ``talks_workflow`` for talks. Click *Change* and then *Update security settings*.
+* Click on the tab :guilabel:`States` and click on :guilabel:`private` to edit this state. In the next view select the tab :guilabel:`Permissions`.
+* Find the table column for the role :guilabel:`Contributor` and remove the permissions for :guilabel:`Access contents information` and :guilabel:`View`. Note that the :guilabel:`Owner` (i.e. the Creator) still has some permissions.
+* Do the same for the state :guilabel:`pending`
+* Go back to :file:`portal_workflow` and set the new workflow :file:`talks_workflow` for talks. Click :file:`Change` and then :file:`Update security settings`.
 
 .. note::
 
@@ -84,14 +84,14 @@ Import/Export the Workflow
 **************************
 
 * export the GenericSetup step *Workflow Tool* in http://localhost:8080/Plone/portal_setup/manage_exportSteps.
-* drop the file ``workflows.xml`` into ``profiles/default``.
-* drop ``workflows/talks_workflow/definition.xml`` in ``profiles/default/workflows/talks_workflow/definition.xml``. The others are just definitions of the default-workflows and we only want things in our package that changes Plone.
+* drop the file :file:`workflows.xml` into :file:`profiles/default`.
+* drop :file:`workflows/talks_workflow/definition.xml` in :file:`profiles/default/workflows/talks_workflow/definition.xml`. The others are just definitions of the default-workflows and we only want things in our package that changes Plone.
 
 
 Enable self-registration
 ************************
 
-To enable self-registration add the following to ``profiles/default/registry.xml``:
+To enable self-registration add the following to :file:`profiles/default/registry.xml`:
 
 ..  code-block:: xml
 
@@ -113,7 +113,7 @@ So let's make sure some initial content is created and configured on installing 
 
 To run arbitrary code during the installation of a package we use a special import step, a `setuphandler <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_
 
-Our package already has such an import step registered in ``configure.zcml``. It will be automatically run when (re-)installing the add-on.
+Our package already has such an import step registered in :file:`configure.zcml`. It will be automatically run when (re-)installing the add-on.
 
 ..  code-block:: xml
     :linenos:
@@ -127,9 +127,9 @@ Our package already has such an import step registered in ``configure.zcml``. It
 
 .. note::
 
-    All GenericSetup import steps, including this one, are run for **every add-on product** when they are installed. To make sure that it is only run during installation of your package the code checks for a marker text file ``ploneconfsite_default.txt``.
+    All GenericSetup import steps, including this one, are run for **every add-on product** when they are installed. To make sure that it is only run during installation of your package the code checks for a marker text file :file:`ploneconfsite_default.txt`.
 
-This step makes sure the method ``post_install`` in ``setuphandlers.py`` is executed on installation.
+This step makes sure the method :py:meth:`post_install` in :file:`setuphandlers.py` is executed on installation.
 
 ..  code-block:: python
     :linenos:
@@ -191,18 +191,18 @@ You'd usually create a list of dictionaries containing the type, parent and titl
 
 ..  note::
 
-    You can also export and later import content using the GenericSetup step *Content* (``Products.CMFCore.exportimport.content.exportSiteStructure``) although you cannot set all types of properties (workflow state, layout) and the syntax is a little special.
+    You can also export and later import content using the GenericSetup step *Content* (:py:meth:`Products.CMFCore.exportimport.content.exportSiteStructure`) although you cannot set all types of properties (workflow state, layout) and the syntax is a little special.
 
 
 Exercise 1
 ++++++++++
 
-Create a profile ``content`` that runs its own method in ``setuphandlers.py``. Note that you need a different marker text file to make sure your code is only run when installing the profile ``content``.
+Create a profile ``content`` that runs its own method in :file:`setuphandlers.py`. Note that you need a different marker text file to make sure your code is only run when installing the profile ``content``.
 
 ..  admonition:: Solution
     :class: toggle
 
-    Register the profile and the upgrade step in ``configure.zcml``
+    Register the profile and the upgrade step in :file:`configure.zcml`
 
     .. code-block:: xml
 
@@ -222,9 +222,9 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
             <depends name='typeinfo' />
         </genericsetup:importStep>
 
-    Create the profile folder ``profiles/content`` and drop a marker file ``ploneconfsite_content_marker.txt`` in it.
+    Create the profile folder :file:`profiles/content` and drop a marker file :file:`ploneconfsite_content_marker.txt` in it.
 
-    Also add a ``profiles/content/metadata.xml`` so the default profile gets automatically installed when installing the content profile.
+    Also add a :file:`profiles/content/metadata.xml` so the default profile gets automatically installed when installing the content profile.
 
     ..  code-block:: xml
 
@@ -236,7 +236,7 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
         </metadata>
 
 
-    Add the structure you wish to create as a list of dictionaries in ``setuphandlers.py``:
+    Add the structure you wish to create as a list of dictionaries in :file:`setuphandlers.py`:
 
     ..  code-block:: python
         :linenos:
@@ -313,7 +313,7 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
         ]
 
 
-    Add the method ``content`` to ``setuphandlers.py``. We pointed to that when registering the import step. And add some fancy logic to create the content from ``STRUCTURE``.
+    Add the method :py:meth:`content` to :file:`setuphandlers.py`. We pointed to that when registering the import step. And add some fancy logic to create the content from ``STRUCTURE``.
 
     ..  code-block:: python
         :linenos:
@@ -374,4 +374,4 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
             behavior.setLocallyAllowedTypes(allowed_types)
             behavior.setImmediatelyAddableTypes(allowed_types)
 
-    A huge benefit of this implementation is that you can add any object-attribute as a new item to ``item_dict``. ``plone.api.content.create`` will then set these on the new objects. This way you can also populate fields like ``text`` (using ``plone.app.textfield.RichTextValue``) or ``image`` (using ``plone.namedfile.file.NamedBlobImage``).
+    A huge benefit of this implementation is that you can add any object-attribute as a new item to :py:data:`item_dict`. :py:meth:`plone.api.content.create` will then set these on the new objects. This way you can also populate fields like :py:attr:`text` (using :py:class:`plone.app.textfield.RichTextValue`) or :py:attr:`image` (using :py:class:`plone.namedfile.file.NamedBlobImage`).

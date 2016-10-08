@@ -29,9 +29,15 @@ Zope2
 
 .. only:: not presentation
 
-    Before Zope, there usually was an Apache server that would call a script and give the request as an input. The script would then just print HTML to the standard output. Apache returned that to the user. Opening database connections, checking permission constraints, generating valid HTML, configuring caching, interpreting form data and everything else: you have to do it on your own. When the second request comes in, you have to do everything again.
+    Before Zope, there usually was an Apache server that would call a script and give the request as an input.
+    The script would then just print HTML to the standard output.
+    Apache returned that to the user.
+    Opening database connections, checking permission constraints, generating valid HTML, configuring caching, interpreting form data and everything else: you have to do it on your own.
+    When the second request comes in, you have to do everything again.
 
-    Jim Fulton thought that this was slightly tedious. So he wrote code to handle requests. He believed that site content is object-oriented and that the URL should somehow point directly into the object hierarchy, so he wrote an object-oriented database, called `ZODB <http://www.zodb.org/en/latest/>`_.
+    Jim Fulton thought that this was slightly tedious.
+    So he wrote code to handle requests.
+    He believed that site content is object-oriented and that the URL should somehow point directly into the object hierarchy, so he wrote an object-oriented database, called `ZODB <http://www.zodb.org/en/latest/>`_.
 
     The ZODB is a fully `ACID <https://en.wikipedia.org/wiki/ACID>`_ compliant database with automatic transactional integrity. It automatically maps traversal in the object hierarchy to URL paths, so there is no need to "wire" objects or database nodes to URLs. This gives Plone its easy SEO-friendly URLs.
 
@@ -43,7 +49,9 @@ Zope2
 
     This might sound weird, what do I gain with this?
 
-    You can have different data or code depending on your ``context``. Imagine you want to have header images differing for each section of your page, sometimes even differing for a specific subsection of your site. So you define a path header_image and put a header image at the root of your site. If you want a folder with a different header image, you put the header image into this folder.
+    You can have different data or code depending on your :py:obj:`context`. Imagine you want to have header images differing for each section of your page, sometimes even differing for a specific subsection of your site.
+    So you define a path ``header_image`` and put a header image at the root of your site.
+    If you want a folder with a different header image, you put the header image into this folder.
     Please take a minute to let this settle and think about what this allows you to do.
 
     - contact forms with different e-mail addresses per section
@@ -94,7 +102,7 @@ Zope Toolkit / Zope3
     Unfortunately, only few people started to use Zope 3, nobody migrated to Zope 3 because nobody knew how.
 
     But there were many useful things in Zope 3 that people wanted to use in Zope 2, thus the Zope community adapted some parts so that they could use them in Zope 2.
-    Sometimes, a wrapper of some sort was necessary, these usually are being provided by packages from the ``five`` namespace.  (Zope 2 + Zope 3 = `five`)
+    Sometimes, a wrapper of some sort was necessary, these usually are being provided by packages from the :py:mod:`five` namespace.  (Zope 2 + Zope 3 = "five")
 
     To make the history complete, since people stayed on Zope 2, the Zope community renamed Zope 3 to Bluebream, so that people would not think that Zope 3 was the future. It wasn't anymore.
 

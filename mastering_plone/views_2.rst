@@ -54,9 +54,9 @@ Let us have a look at the zcml and the code.
 
     </configure>
 
-We are adding a file called ``views.py`` in the ``browser`` folder.
+We are adding a file called :file:`views.py` in the :file:`browser` folder.
 
-``browser/views.py``
+:file:`browser/views.py`
 
 .. code-block:: python
     :linenos:
@@ -86,24 +86,24 @@ We are adding a file called ``views.py`` in the ``browser`` folder.
             # def __call__(self):
             #    return self.template()
 
-Do you remember the term MultiAdapter? The browser page is just a MultiAdapter. The ZCML statement ``browser:page`` registers a MultiAdapter and adds additional things needed for a browser view.
+Do you remember the term :py:class:`MultiAdapter`? The browser page is just a MultiAdapter. The ZCML statement :samp:`browser:page` registers a :py:class:`MultiAdapter` and adds additional things needed for a browser view.
 
-An adapter adapts things, a MultiAdapter adapts multiple things.
+An adapter adapts things, a :py:class:`MultiAdapter` adapts multiple things.
 
 When you enter a url, Zope tries to find an object for it. At the end, when Zope does not find any more objects but there is still a path item left, or there are no more path items, Zope looks for an adapter that will reply to the request.
 
 The adapter adapts the request and the object that Zope found with the URL. The adapter class gets instantiated with the objects to be adapted, then it gets called.
 
-The code above does the same thing that the standard implementation would do. It makes ``context`` and ``request`` available as variables on the object.
+The code above does the same thing that the standard implementation would do. It makes :py:attr:`context` and :py:attr:`request` available as variables on the object.
 
 I have written down these methods because it is important to understand some important concepts.
 
-The ``__init__`` method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved. Your code is not security checked. For historical reasons, many errors that happen in the ``__init__`` method can result in a page not found error instead of an exception.
+The :py:meth:`__init__` method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved. Your code is not security checked. For historical reasons, many errors that happen in the :py:meth:`__init__` method can result in a page not found error instead of an exception.
 
-Use the ``__init__`` method to do as little as possible, if at all. Instead, you have the guarantee that the ``__call__`` method is called before anything else (but after the ``__init__`` method). It has the security checks in place and so on.
+Use the :py:meth:`__init__` method to do as little as possible, if at all. Instead, you have the guarantee that the :py:meth:`__call__` method is called before anything else (but after the :py:meth:`__init__` method). It has the security checks in place and so on.
 
-From a practical standpoint, consider the ``__call__`` method your ``__init__`` method, the biggest difference is that this method is supposed to return the html already.
-Let your base class handle the html generation.
+From a practical standpoint, consider the :py:meth:`__call__` method your :py:meth:`__init__` method, the biggest difference is that this method is supposed to return the HTML already.
+Let your base class handle the HTML generation.
 
 
 
@@ -113,9 +113,9 @@ Let your base class handle the html generation.
 The default view
 ----------------
 
-Now we finally add the default view for talks in views.py
+Now we finally add the default view for talks in :file:`views.py`
 
-``browser/configure.zcml``
+:file:`browser/configure.zcml`
 
 .. code-block:: xml
 
@@ -128,7 +128,7 @@ Now we finally add the default view for talks in views.py
        permission="zope2.View"
        />
 
-``browser/views.py``
+:file:`browser/views.py`
 
 .. code-block:: python
 
@@ -140,19 +140,19 @@ Now we finally add the default view for talks in views.py
         """ The default view for talks
         """
 
-The DefaultView base class in plone.dexterity only exists for Dexterity Objects and has some very useful properties available to the template:
+The :py:class:`DefaultView` base class in :py:mod:`plone.dexterity` only exists for Dexterity Objects and has some very useful properties available to the template:
 
-* ``view.w`` is a dictionary of all the display widgets, keyed by field names. This includes widgets from alternative fieldsets.
-* ``view.widgets`` contains a list of widgets in schema order for the default fieldset.
-* ``view.groups`` contains a list of fieldsets in fieldset order.
-* ``view.fieldsets`` contains a dict mapping fieldset name to fieldset
+* :py:attr:`view.w` is a dictionary of all the display widgets, keyed by field names. This includes widgets from alternative fieldsets.
+* :py:attr:`view.widgets` contains a list of widgets in schema order for the default fieldset.
+* :py:attr:`view.groups` contains a list of fieldsets in fieldset order.
+* :py:attr:`view.fieldsets` contains a dict mapping fieldset name to fieldset
 * On a fieldset (group), you can access a widget list to get widgets in that fieldset
 
 .. note::
 
     ``plone.dexterity.browser.view.DefaultView`` has the same features as the grok equivalent ``plone.directives.dexterity.DisplayForm``.
 
-The template ``templates/talkview.pt`` uses the pattern ``view/w/<fieldname>/render`` to render some widgets.
+The template :file:`templates/talkview.pt` uses the pattern :samp:`view/w/<fieldname>/render` to render some widgets.
 
 .. code-block:: xml
     :linenos:
@@ -181,7 +181,7 @@ We should tell Plone that the talkview should be used as the default view for ta
 
 This is a configuration that you can change during runtime and is stored in the database, as such it is also managed by GenericSetup profiles.
 
-open ``profiles/default/types/talk.xml``:
+open :file:`profiles/default/types/talk.xml`:
 
 .. code-block:: xml
     :linenos:
@@ -203,7 +203,7 @@ We will have to either reinstall our add-on or run the GenericSetup import step 
 
 Let's improve the talkview to show all the info we want.
 
-``templates/talkview.pt``:
+:file:`templates/talkview.pt`:
 
 .. code-block:: xml
     :linenos:

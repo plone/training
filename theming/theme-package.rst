@@ -5,7 +5,7 @@ Create a Plone theme python package
 Creating a theme product with the Diazo inline editor is an easy way to start
 and to test, but it is not a solid long term solution.
 
-Even if ``plone.app.theming`` allows importing and exporting of a Diazo theme
+Even if :py:mod:`plone.app.theming` allows importing and exporting of a Diazo theme
 as a ZIP archive, it might be preferable to manage your theme as an actual
 Plone product.
 
@@ -40,7 +40,7 @@ To create a Plone 5 theme skeleton, you will use mr.bob's templates for Plone.
 Install mr.bob and bobtemplates.plone
 -------------------------------------
 
-To install ``mr.bob``, you can use ``pip``:
+To install :py:mod:`mr.bob`, you can use :command:`pip`:
 
 .. code-block:: bash
 
@@ -52,7 +52,7 @@ and to install the required bobtemplates for Plone, do:
 
    $ pip install bobtemplates.plone
 
-Create a Plone 5 theme product skeleton with mrbob:
+Create a Plone 5 theme product skeleton with :command:`mrbob`:
 
 .. code-block:: bash
 
@@ -227,7 +227,7 @@ If you got a static mockup from your designer or from a website like
 http://startbootstrap.com (where the example theme came from), you can use this
 without customization and just apply the Diazo rules to it.
 Another way is to change the static mockup a little bit to use mostly the same
-CSS ids and classes. This way it is easier to reuse CSS/LESS from Barceloneta
+CSS ids and classes. This way it is easier to reuse CSS/Less from Barceloneta
 theme if you want.
 
 
@@ -355,7 +355,7 @@ Using Diazo rules to map the theme with Plone content
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Now that we have the static theme,
-we need to apply the Diazo rules in ``rules.xml`` to map the Plone content
+we need to apply the Diazo rules in :file:`rules.xml` to map the Plone content
 elements to the theme.
 
 First let me explain what we mean when we talk about *content* and *theme*.
@@ -790,7 +790,7 @@ CSS and JS resources
 
 First let's make sure that we have loaded the ``registerless`` profile of
 Barceloneta.
-To do that, we change our ``metadata.xml`` as follows:
+To do that, we change our :file:`metadata.xml` as follows:
 
 .. code:: xml
 
@@ -803,10 +803,10 @@ To do that, we change our ``metadata.xml`` as follows:
      </dependencies>
    </metadata>
 
-This will register all LESS files of the Barceloneta theme in Plone's resource
-registry, so that we can use them in our custom LESS files.
+This will register all Less files of the Barceloneta theme in Plone's resource
+registry, so that we can use them in our custom Less files.
 
-Now let's add the two LESS files ``main.less`` and ``custom.less`` to our CSS
+Now let's add the two Less files :file:`main.less` and :file:`custom.less` to our CSS
 folder:
 
 .. code-block:: bash
@@ -819,7 +819,7 @@ folder:
    ├── custom.less
    └── main.less
 
-The ``main.less`` file can look like this:
+The :file:`main.less` file can look like this:
 
 .. code-block:: sass
 
@@ -914,12 +914,12 @@ The ``main.less`` file can look like this:
 Here we import a number of specific parts from the default Plone 5 Barceloneta theme.
 Feel free to comment out stuff that you don't need.
 
-At the bottom you can see that we import the ``business-casual.css`` as a LESS
-file, as well as our new ``custom.less`` file.
-The ``business-casual.css`` comes from the downloaded static theme and is
+At the bottom you can see that we import the :file:`business-casual.css` as a Less
+file, as well as our new :file:`custom.less` file.
+The :file:`business-casual.css` comes from the downloaded static theme and is
 included to reduce the amount of CSS files.
 
-The ``custom.less`` will contain our custom styles and can look like this:
+The :file:`custom.less` will contain our custom styles and can look like this:
 
 .. code-block:: css
 
@@ -928,7 +928,7 @@ The ``custom.less`` will contain our custom styles and can look like this:
    }
 
 Before we register our bundle, let's also add a JavaScript file with the
-following content as ``js/bundle.js``:
+following content as :file:`js/bundle.js`:
 
 .. code-block:: js
 
@@ -960,12 +960,12 @@ following content as ``js/bundle.js``:
 
 We now have to register our resources in a bundle. We could use the new
 resource registry directly, but to make this training much simpler and
-easier to understand, we'll prefer to use the new options in ``manifest.cfg``.
+easier to understand, we'll prefer to use the new options in :file:`manifest.cfg`.
 Those allow us to register our CSS and JS in a pre-built implicit ``diazo``
 bundle that is only delivered when Diazo transformations are enabled (which
 is default) in ``@@theming-controlpanel``.
 
-So we extend our theme's ``manifest.cfg`` to declare ``development-css``,
+So we extend our theme's :file:`manifest.cfg` to declare ``development-css``,
 ``production-css`` and optionally ``tinymce-content-css``, like this:
 
 
@@ -1031,7 +1031,7 @@ And add these parts to the list of parts:
        zopepy
        omelette
 
-Also add ``Products.CMFPlone`` to the eggs list in the ``instance`` part:
+Also add :py:mod:`Products.CMFPlone` to the eggs list in the ``instance`` part:
 
 .. code-block:: ini
 
@@ -1052,7 +1052,7 @@ Now rerun buildout:
    $ ./bin/buildout
 
 This will generate some new scripts including ``plone-compile-resources`` and
-``plone-generate-gruntfile`` in the ``bin`` folder:
+:command:`plone-generate-gruntfile` in the :file:`bin` folder:
 
 .. code-block:: bash
 
@@ -1077,12 +1077,12 @@ This will generate some new scripts including ``plone-compile-resources`` and
    code-analysis-zptlint               zopepy
    develop
 
-You can use ``./bin/plone-compile-resources`` to build your resource bundle as
+You can use :command:`./bin/plone-compile-resources` to build your resource bundle as
 detailed below, but you first have to start the instance and add a Plone site
 named ``Plone``, because the compilation process depends on the resource
 registries of the live site.
 
-We also need ``grunt`` installed on our system.
+We also need :program:`grunt` installed on our system.
 
 .. code-block:: bash
 
@@ -1101,15 +1101,15 @@ then use this as a workaround and try again:
 
    npm config set registry http://registry.npmjs.org/
 
-.. note:: You have to rebuild the bundle whenever you make changes to your LESS/CSS files.
+.. note:: You have to rebuild the bundle whenever you make changes to your Less/CSS files.
 
-To test changes in LESS files you can build/rebuild your bundle TTW in Plone's
+To test changes in Less files you can build/rebuild your bundle TTW in Plone's
 ``resource registry`` control panel.
 Just go to ``@@resourceregistry-controlpanel`` and press *Build* for the tango-bundle.
 
 .. TODO:: show some screenshots here.
 
-Alternatively, you can use the ``plone-compile-resources`` script to rebuild the bundle.
+Alternatively, you can use the :command:`plone-compile-resources` script to rebuild the bundle.
 If you are running a ZEO cluster with multiple clients, you can run this script at any time.
 If not, you have to stop your instance first, because the script needs to write to the ZODB.
 
@@ -1121,10 +1121,10 @@ This will start the Plone instance, read variables from the registry, and
 compile your bundle.
 
 If your Plone site is not named ``Plone``, you can provide the id using the
-``--site-id`` parameter.
+:option:`--site-id` parameter.
 
-After you compiled your bundle with the ``plone-compile-resources`` once,
-you can use the generated ``Gruntfile.js`` and recompile your bundle as follows:
+After you compiled your bundle with the :command:`plone-compile-resources` once,
+you can use the generated :file:`Gruntfile.js` and recompile your bundle as follows:
 
 .. code-block:: bash
 
@@ -1132,17 +1132,17 @@ you can use the generated ``Gruntfile.js`` and recompile your bundle as follows:
 
 The name of our bundle is ``tango-bundle``. You can find the name of the
 generated *Grunt task* to compile your bundle at the bottom of the
-``Gruntfile.js``.
+:file:`Gruntfile.js`.
 
 .. note::
 
     This Grunt-only method is much faster than using the
-    ``plone-compile-resources`` script, but it cannot be used in all
+    :command:`plone-compile-resources` script, but it cannot be used in all
     circumstances.
 
    Specifically, you can use this direct method until you change something in
    the resources and bundle registration.  Then you have to use the
-   ``plone-compile-resources`` once again, before you can use the pure Grunt
+   :command:`plone-compile-resources` once again, before you can use the pure Grunt
    method.
 
 
@@ -1150,11 +1150,11 @@ generated *Grunt task* to compile your bundle at the bottom of the
 .. +++++++++++++++++++++++
 
 .. Since Plone already uses Bootstrap internally, we only need to load some parts of Bootstrap which does not come with Plone.
-.. To find out what parts of Bootstrap Plone uses already, you can look into ``Products/CMFPlone/profiles/dependencies/registry.xml`` or in the Resource Registry TTW.
-.. But I would recommend the ``registry.xml`` file because, it is easier to search in.
-.. So if you search for bootstrap in the ``registry.xml`` you will find out that Plone uses at least the follwing parts of Bootstrap already:
+.. To find out what parts of Bootstrap Plone uses already, you can look into :file:`Products/CMFPlone/profiles/dependencies/registry.xml` or in the Resource Registry TTW.
+.. But I would recommend the :file:`registry.xml` file because, it is easier to search in.
+.. So if you search for bootstrap in the :file:`registry.xml` you will find out that Plone uses at least the following parts of Bootstrap already:
 
-.. LESS files
+.. Less files
 .. **********
 
 .. * less/variables.less
@@ -1182,12 +1182,12 @@ generated *Grunt task* to compile your bundle at the bottom of the
 .. * js/transition.js
 
 
-Load LESS parts of Bootstrap
+Load Less parts of Bootstrap
 ****************************
 
-To load for example the carousel we first install the LESS version of Bootstrap
+To load for example the carousel we first install the Less version of Bootstrap
 into our theme.
-To do that, we use ``bower``, which you should have globally installed on your
+To do that, we use :program:`bower`, which you should have globally installed on your
 system.
 First we initialize our theme package. To do that, we run the following command
 inside our theme folder:
@@ -1197,9 +1197,9 @@ inside our theme folder:
    $ bower init
 
 This command will ask you some questions, which are all irrelevant for our purposes.  So we can accept all the default answers, except perhaps marking the package as private, as a precaution.  After this we have a bower config file called
-``bower.json``.
+:file:`bower.json`.
 All the packages that we need for our theme should be mentioned in this
-``bower.json`` file.
+:file:`bower.json` file.
 
 Now we install bootstrap, using bower:
 
@@ -1207,7 +1207,7 @@ Now we install bootstrap, using bower:
 
    $ bower install bootstrap --save
 
-The ``--save`` option will add the package to ``bower.json`` for us.
+The :option:`--save` option will add the package to :file:`bower.json` for us.
 Now, we can install all dependencies on any other system by running the
 following command from inside of our theme folder:
 
@@ -1216,7 +1216,7 @@ following command from inside of our theme folder:
    $ bower install
 
 Now that we have installed bootstrap using bower, we have all bootstrap
-components available in the subfolder called ``bower_components``:
+components available in the subfolder called :file:`bower_components`:
 
 .. code-block:: bash
 
@@ -1347,7 +1347,7 @@ components available in the subfolder called ``bower_components``:
    └── README.md
 
 To include the needed "carousel" part and some other bootstrap components which
-our downloaded theme uses, we change the end of our ``main.less`` like this:
+our downloaded theme uses, we change the end of our :file:`main.less` like this:
 
 .. code-block:: css
 
@@ -1378,12 +1378,12 @@ our downloaded theme uses, we change the end of our ``main.less`` like this:
 Final CSS customization
 +++++++++++++++++++++++
 
-To make our theme look nicer, we add some CSS as follows to our ``custom.less``
+To make our theme look nicer, we add some CSS as follows to our :file:`custom.less`
 file:
 
 .. code:: less
 
-   /* Custom LESS file that is included from the main.less file */
+   /* Custom Less file that is included from the main.less file */
 
    .brand-name{
        margin-top: 0.5em;

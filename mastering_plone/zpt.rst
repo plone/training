@@ -64,7 +64,7 @@ results in:
 
     <p>I love red</p>
 
-Let's try it. Open the file ``training.pt`` and add:
+Let's try it. Open the file :file:`training.pt` and add:
 
 .. code-block:: html
 
@@ -124,7 +124,7 @@ We used three TAL-Attributes here. This is the complete list of TAL-attributes:
     replace the content of an element. We replaced the default content above with "An even better conference"
 
 ``tal:attributes``
-    dynamically change element attributes. We set the html attribute ``href`` to the value of the variable ``a_fine_url``
+    dynamically change element attributes. We set the HTML attribute ``href`` to the value of the variable ``a_fine_url``
 
 ``tal:condition``
     tests whether the expression is true or false, and outputs or omits the element accordingly.
@@ -237,9 +237,10 @@ path expressions
 
 Regarding TALES so far we used ``string:`` or ``python:`` or only variables. The next and most common expression are path expressions. Optionally you can start a path expression with ``path:``
 
-Every path expression starts with a variable name. It can either be an object like ``context``, ``view`` or ``template`` or a variable defined earlier like ``talk``.
+Every path expression starts with a variable name. It can either be an object like :py:obj:`context`, :py:obj:`view` or :py:obj:`template` or a variable defined earlier like :py:data:`talk`.
 
-After the variable we add a slash ``/`` and the name of a sub-object, attribute or callable. The '/' is used to end the name of an object and the start of the property name. Properties themselves may be objects that in turn have properties.
+After the variable we add a slash ``/`` and the name of a sub-object, attribute or callable.
+The ``/`` is used to end the name of an object and the start of the property name. Properties themselves may be objects that in turn have properties.
 
 .. code-block:: html
 
@@ -537,7 +538,7 @@ Modify the following template and one by one solve the following problems:
         </table>
 
 
-2. Turn the title in a link to the url of the talk if there is one.
+2. Turn the title in a link to the URL of the talk if there is one.
 
 ..  admonition:: Solution
     :class: toggle
@@ -577,7 +578,7 @@ Modify the following template and one by one solve the following problems:
             </tr>
         </table>
 
-3. If there is no url turn it into a link to a google search for that talk's title
+3. If there is no URL, turn it into a link to a google search for that talk's title:
 
 ..  admonition:: Solution
     :class: toggle
@@ -618,9 +619,9 @@ Modify the following template and one by one solve the following problems:
             </tr>
         </table>
 
-4. Add alternating the css classes 'odd' and 'even' to the <tr>. (``repeat.<name of item in loop>.odd`` is True if the ordinal index of the current iteration is an odd number)
+4. Add alternating the CSS classes 'odd' and 'even' to the <tr>. (:samp:`repeat.{<name of item in loop>}.odd` is True if the ordinal index of the current iteration is an odd number)
 
-   Use some css to prove your solution:
+   Use some CSS to test your solution:
 
    .. code-block:: css
 
@@ -868,7 +869,7 @@ Here also added the css-class `listing` to the table. It is one of many css-clas
 macros in browser views
 +++++++++++++++++++++++
 
-Define a macro in a new file ``macros.pt``
+Define a macro in a new file :file:`macros.pt`
 
 .. code-block:: html
 
@@ -887,7 +888,7 @@ Register it as a simple BrowserView in zcml:
       permission="zope2.View"
       />
 
-Reuse the macro in the template ``training.pt``:
+Reuse the macro in the template :file:`training.pt`:
 
 .. code-block:: html
 
@@ -920,13 +921,13 @@ In templates we can also access other browser views. Some of those exist to prov
                 plone_view context/@@plone;"
 
 ``@@plone_context_state``
-    The BrowserView ``plone.app.layout.globals.context.ContextState`` holds useful methods having to do with the current context object such as ``is_default_page``
+    The BrowserView :py:class:`plone.app.layout.globals.context.ContextState` holds useful methods having to do with the current context object such as :py:meth:`is_default_page`
 
 ``@@plone_portal_state``
-    The BrowserView ``plone.app.layout.globals.portal.PortalState`` holds methods for the portal like ``portal_url``
+    The BrowserView :py:class:`plone.app.layout.globals.portal.PortalState` holds methods for the portal like :py:meth:`portal_url`
 
 ``@@plone_tools``
-    The BrowserView ``plone.app.layout.globals.tools.Tools`` gives access to the most important tools like ``plone_tools/catalog``
+    The BrowserView :py:class:`plone.app.layout.globals.tools.Tools` gives access to the most important tools like ``plone_tools/catalog``
 
 These are very widely used and there are many more.
 

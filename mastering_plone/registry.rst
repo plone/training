@@ -49,14 +49,14 @@ Let's store two values in the registry:
 
 You cannot create values ttw, instead they need to be registered using Generic Setup.
 
-Open the file ``profiles/default/registry.xml``. You already registered several new settings in there:
+Open the file :file:`profiles/default/registry.xml`. You already registered several new settings in there:
 
 - You enabled self registration
 - You stored a site-logo
 - You registered additional criteria useable for Collections
 
 
-Adding the following code to ``registry.xml`` creates a new value in the registry upon installation of the package.
+Adding the following code to :file:`registry.xml`. This creates a new value in the registry upon installation of the package.
 
 ..  code-block:: xml
 
@@ -69,7 +69,7 @@ Adding the following code to ``registry.xml`` creates a new value in the registr
         <value>False</value>
     </record>
 
-When creating a new site a lot of settings are created in the same way. See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/profiles/dependencies/registry.xml to see how ``Products.CMFPlone`` registers values.
+When creating a new site a lot of settings are created in the same way. See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/profiles/dependencies/registry.xml to see how :py:mod:`Products.CMFPlone` registers values.
 
 ..  code-block:: xml
 
@@ -96,7 +96,7 @@ In python you can access the registry like this:
     registry = getUtility(IRegistry)
     start = registry.get('ploneconf.date_of_conference')
 
-``plone.api`` holds methods to make this even easier:
+:py:mod:`plone.api` holds methods to make this even easier:
 
 ..  code-block:: python
 
@@ -121,7 +121,7 @@ For this you define a interface for the schema and a view that auto-generates a 
         class=".controlpanel.PloneconfControlPanelView"
     />
 
-Add a file ``controlpanel.py``:
+Add a file :file:`controlpanel.py`:
 
 ..  code-block:: python
 
@@ -160,7 +160,7 @@ Add a file ``controlpanel.py``:
         PloneconfControlPanelForm, ControlPanelFormWrapper)
 
 
-With this way of using fields you don't have to register the values in ``registry.xml``, instead you have to register the interface:
+With this way of using fields you don't have to register the values in :file:`registry.xml`, instead you have to register the interface:
 
 ..  code-block:: xml
 

@@ -27,9 +27,9 @@ We want to change that a little to allow the resources to be editable and overri
         directory="static"
         />
 
-Now all files we put in the `static` folder can be found via the url http://localhost:8080/Plone/++plone++ploneconf.site/the_real_filename.css
+Now all files we put in the :file:`static` folder can be found via the url http://localhost:8080/Plone/++plone++ploneconf.site/the_real_filename.css
 
-Let's create a file ``ploneconf.css`` in the `static` folder with some css:
+Let's create a file :file:`ploneconf.css` in the :file:`static` folder with some CSS:
 
 .. code-block:: css
     :linenos:
@@ -71,14 +71,16 @@ Let's create a file ``ploneconf.css`` in the `static` folder with some css:
 
 If we now access http://localhost:8080/Plone/++plone++ploneconf.site/ploneconf.css we see our css-file.
 
-Also add a ``ploneconf.js`` in the same folder but leave it empty for now. You could add some javascript to that file later.
+Also add a :file:`ploneconf.js` in the same folder but leave it empty for now. You could add some JavaScript to that file later.
 
-How do our javascript and css files get used when visiting the page? So far the new files are accessible in the browser but we want Plone to use them everytime we access the page. Adding them directly into the html is not a good solution, having many css and js files slows down the page loading.
+How do our JavaScript and CSS files get used when visiting the page?
+So far the new files are accessible in the browser but we want Plone to use them every time we access the page.
+Adding them directly into the HTML is not a good solution, having many CSS and JS files slows down the page loading.
 
 For this we need to register a *bundle* that contains these files. Plone will then make sure that all files that are part of this bundle are also deployed.
 We need to register our resources with GenericSetup.
 
-Open the file ``profiles/default/registry.xml`` and add the following:
+Open the file :file:`profiles/default/registry.xml` and add the following:
 
 .. code-block:: xml
     :linenos:

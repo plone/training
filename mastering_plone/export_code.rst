@@ -15,7 +15,7 @@ Return to Dexterity: Moving contenttypes into Code
 
 In this part you will:
 
-* Move the type *talk* into ``ploneconf.site``
+* Move the *Talk* type into :py:mod:`ploneconf.site`
 * Improve the schema and the FTI
 
 
@@ -33,13 +33,13 @@ Steps:
 * Return to the Dexterity control panel
 * Export the *Talk* Type Profile and save the file
 * Delete the *Talk* from the site before installing it from the file system
-* Extract the files from the exported tar file and add them to our add-on package in ``profiles/default/``
+* Extract the files from the exported tar file and add them to our add-on package in :file:`profiles/default/`
 
 .. note::
 
-    From the buildout directory perspective that is ``src/ploneconf.site/src/ploneconf/site/profiles/default/``
+    From the buildout directory perspective that is :file:`src/ploneconf.site/src/ploneconf/site/profiles/default/`
 
-The file ``profiles/default/types.xml`` tells Plone that there is a new content type defined in file ``talk.xml``.
+The file :file:`profiles/default/types.xml` tells Plone that there is a new content type defined in file :file:`talk.xml`.
 
 .. code-block:: xml
 
@@ -50,7 +50,7 @@ The file ``profiles/default/types.xml`` tells Plone that there is a new content 
      <!-- -*- more types can be added here -*- -->
     </object>
 
-Upon installing, Plone reads the file ``profiles/default/types/talk.xml`` and registers a new type in ``portal_types`` (you can find and inspect this tool in the ZMI!) with the information taken from that file.
+Upon installing, Plone reads the file :file:`profiles/default/types/talk.xml` and registers a new type in ``portal_types`` (you can find and inspect this tool in the ZMI!) with the information taken from that file.
 
 ..  code-block:: xml
 
@@ -157,7 +157,7 @@ Now our package has some real contents. So, we'll need to reinstall it (if insta
 
 The escaped inline xml is simply too ugly to look at. You should move it to a separate file!
 
-Create a new folder ``content`` in the main directory (from the buildout directory perspective that is ``src/ploneconf.site/src/ploneconf/site/content/``). Inside add an empty file ``__init__py`` and a file ``talk.xml`` that contains the real xml (copied from http://localhost:8080/Plone/dexterity-types/talk/@@modeleditor and beautified with some online xml formatter (http://lmgtfy.com/?q=xml+formatter))
+Create a new folder :file:`content` in the main directory (from the buildout directory perspective that is :file:`src/ploneconf.site/src/ploneconf/site/content/`). Inside add an empty file :file:`__init__py` and a file :file:`talk.xml` that contains the real XML (copied from http://localhost:8080/Plone/dexterity-types/talk/@@modeleditor and beautified with some online XML formatter (http://lmgtfy.com/?q=xml+formatter))
 
 ..  code-block:: xml
     :linenos:
@@ -212,22 +212,22 @@ Create a new folder ``content`` in the main directory (from the buildout directo
         </schema>
       </model>
 
-Now remove the ugly model_source and instead point to the new xml file in the FTI by using the property ``model_file``:
+Now remove the ugly model_source and instead point to the new XML file in the FTI by using the property ``model_file``:
 
 ..  code-block:: xml
 
     <property name="model_source"></property>
     <property name="model_file">ploneconf.site.content:talk.xml</property>
 
-``ploneconf.site.content:talk.xml`` points to a file ``talk.xml`` to be found in the python path ``ploneconf.site.content``. The ``__ìnit__.py`` is needed to turn the folder ``content`` into a python-module. It is best-practice to add schemas in this folder and in later chapters you will add new types with pythons-schemata in the same folder.
+``ploneconf.site.content:talk.xml`` points to a file :file:`talk.xml` to be found in the Python path ``ploneconf.site.content``. The :file:`__ìnit__.py` is needed to turn the folder :file:`content` into a Python package. It is best-practice to add schemas in this folder, and in later chapters you will add new types with pythons-schemata in the same folder.
 
 ..  note::
 
     The default types of Plone 5 also have an xml schema like this since that allows the fields of the types to be editable trough the web! Fields for types with a python schema are not editable ttw.
 
-`Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_ is very powerful. By editing it (not all features have a UI) you should be able to do everything you can do with a python schema.
+`Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_ is very powerful. By editing it (not all features have a UI) you should be able to do everything you can do with a Python schema.
 
-Our talks use a dropdown for ``type_of_talk`` and a multiselect for ``audience``. Radio-buttons and checkboxes would be the better choice here. Modify the xml to make that change happen:
+Our talks use a dropdown for :guilabel:`type_of_talk` and a multiselect for :guilabel:`audience`. Radio-buttons and checkboxes would be the better choice here. Modify the XML to make that change happen:
 
 ..  code-block:: xml
     :linenos:
@@ -289,7 +289,7 @@ Our talks use a dropdown for ``type_of_talk`` and a multiselect for ``audience``
 Exercise 1
 ++++++++++
 
-Create a new package called ``collective.behavior.myfeature``. Inspect the directory structure of this package. Delete it after you are done.
+Create a new package called :py:mod:`collective.behavior.myfeature`. Inspect the directory structure of this package. Delete it after you are done.
 
 ..  admonition:: Solution
     :class: toggle
@@ -299,13 +299,13 @@ Create a new package called ``collective.behavior.myfeature``. Inspect the direc
         $ cd src
         $ ../bin/mrbob -O collective.behavior.myfeature bobtemplates:plone_addon
 
-    Many packages that are part of Plone and some add-ons use a nested namespace such as ``plone.app.contenttypes``.
+    Many packages that are part of Plone and some add-ons use a nested namespace such as :py:mod:`plone.app.contenttypes`.
 
 
 Exercise 2
 ++++++++++
 
-Go to the ZMI and and in ``portal_types`` look for the definition of the new ``Talk`` content type. Now deactivate *Implicitly addable?* and save. Go back to the site can you identify what this change has caused? And why is that useful?
+Go to the ZMI and look for the definition of the new ``Talk`` content type in ``portal_types``. Now deactivate :guilabel:`Implicitly addable?` and save. Go back to the site. Can you identify what this change has caused? And why is that useful?
 
 ..  admonition:: Solution
     :class: toggle
@@ -316,7 +316,7 @@ Go to the ZMI and and in ``portal_types`` look for the definition of the new ``T
 
     With this method you can prevent content that only makes sense inside some defined structure to show up in places where they do not belong.
 
-    The equivalent setting for disabling *Implicitly addable* in ``Talk.xml`` is:
+    The equivalent setting for disabling :guilabel:`Implicitly addable` in :file:`Talk.xml` is:
 
     .. code-block:: xml
 

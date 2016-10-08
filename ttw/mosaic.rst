@@ -3,42 +3,46 @@ Mosaic
 
 In this part you will:
 
-* create a home page layout,
-* create a specific talk detail layout,
+* create a *home page* layout,
+* create a *specific talk detail* layout.
 
 Topics covered:
 
-* Create custom layouts
-* Manage layouts
-* Use the layout editor
+* Create custom layouts.
+* Manage layouts.
+* Use the layout editor.
 
 What is Mosaic?
 ---------------
 
 * A Plone add-on,
-* it allows to manage layouts from the Plone interface.
+* which allows managing layouts from the Plone interface.
 
-Few comparisons
----------------
+Some comparisons
+----------------
 
 .. only:: presentation
 
-    * It allows managing of the layout, not the design (like Diazo).
-    * It can manage the layout of any page, it does not provide a specific layout-enabled content (like collective.cover).
+    * It allows to manage the *layout*, not the *design* (unlike Diazo).
+    * It can manage the layout of *any* page, it does not provide a specific layout-enabled content type (like :py:mod:`collective.cover`).
 
 .. only:: not presentation
 
-    * Compare to Diazo:
+    * Compared to Diazo:
 
-        Diazo allows to theme our Plone site, by providing CSS, images, and HTML templates. And it will apply to the entire page (footer, main content, portlets, etc.).
+      Diazo enables theming our Plone site by providing CSS, images,
+      and HTML templates.
+      It will apply to the entire page (footer, main content, portlets, etc.).
 
-        Mosaic uses the grid provided by our design to dynamically build specific content layouts.
+      Mosaic uses the grid provided by our design to dynamically build specific
+      content layouts.
 
-    * Compare to collective.cover:
+    * Compared to :py:mod:`collective.cover`:
 
-        collective.cover provides a specific content-type (a "Cover page") where we can manage the layout in order to build our homepage.
+      :py:mod:`collective.cover` provides a specific content-type 
+      (a "Cover page") where we can manage the layout in order to build our homepage.
 
-        Mosaic does not provide any content-type, it allows to edit any existing content layout.
+      Mosaic does not provide any content-type, it allows to edit any existing content layout.
 
 Installation
 ------------
@@ -49,7 +53,7 @@ Once deployed, create a Plone site, and go to Plone control panel / Add-ons http
 
 .. only:: not presentation
 
-    Modify ``buildout.cfg`` to add Rapido as a dependency::
+    Modify :file:`buildout.cfg` to add Rapido as a dependency::
 
         eggs =
             ...
@@ -210,15 +214,15 @@ Manage custom layouts
 Custom layouts can be managed from the Plone control panel:
 
 - click on user menu / Site settings,
-- click on Mosaic Layout Editor (in the last section, named "Add-on configuration"),
+- click on Mosaic Layout Editor (in the last section, named :guilabel:`Add-on configuration`),
 
-In the third tab of this control panel, named "Show/hide content layouts", we can see the exitsing layouts, their associated content types, and we can deactivate (or re-activate) them by clicking on "Hide" (or "Show").
+In the third tab of this control panel, named "Show/hide content layouts", we can see the existing layouts, their associated content types, and we can deactivate (or re-activate) them by clicking on :guilabel:`Hide` (or :guilabel:`Show`).
 
-In the first tab, named "Content layouts", there is a source editor.
+In the first tab, named :guilabel:`Content layouts`, there is a source editor.
 
-By editing ``manifest.cfg``, we can assign a layout to another content type by changing the ``for =`` line. If we remove this line, the layout is available for any content type.
+By editing :file:`manifest.cfg`, we can assign a layout to another content type by changing the ``for =`` line. If we remove this line, the layout is available for any content type.
 
-We can also delete the layout section from ``manifest.cfg``, and the layout will be deleted (if we do so, it is recommended to delete its associated HTML file too).
+We can also delete the layout section from :file:`manifest.cfg`, and the layout will be deleted (if we do so, it is recommended to delete its associated HTML file too).
 
 Deleting a custom layout can also be managed in another way:
 
@@ -227,7 +231,7 @@ Note: the second tab, named "Site layouts", is not usable for now.
 
 Edit the layout HTML structure
 ------------------------------
-In the Mosaic Layout Editor's first tab ("Content layouts"), ``manifest.cfg`` is not the only editable file.
+In the Mosaic Layout Editor's first tab ("Content layouts"), :file:`manifest.cfg` is not the only editable file.
 
 There is also some HTML files. Each of them corresponds to a layout and they represent what we have built by drag&dropping tiles in our layouts.
 

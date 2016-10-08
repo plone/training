@@ -53,6 +53,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Exercises for behaviors_2, fix some emphasis [tschorr]
 
+- Fix some typos, apply inline directives: file, Python domain, GUI [jean]
+
 1.2.4 (2014-10-03)
 ------------------
 
