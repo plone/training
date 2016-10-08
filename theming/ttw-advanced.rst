@@ -10,7 +10,7 @@ In this section you will:
 
 Topics covered:
 
-* "Barceloneta" - The Default Plone Theme 
+* "Barceloneta" - The Default Plone Theme
 * Diazo and plone.app.theming
 * The "Theming tool"
 * Building CSS in the "Theming tool"
@@ -23,8 +23,9 @@ What is Diazo?
 ``Diazo`` is a theming engine used by Plone to make theming a site easier.
 At it's core, a Diazo theme consists of an HTML page and rules.xml file containing directives.
 
-.. note:: You can find extended information about Diazo and its integration package ``plone.app.theming`` in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_
-and `plone.app.theming docs <http://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
+.. note::
+
+    You can find extended information about Diazo and its integration package ``plone.app.theming`` in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_ and `plone.app.theming docs <http://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
 
 Principles
 ----------
@@ -83,7 +84,7 @@ Find this line:
 
 This rule states that the element that comes from the content (Plone) with the id `#viewlet-above-content` must replace the element with the id `#above-content` in the static theme.
 
-We want to hide it for anynoymous users so we can take advantage of the base CSS classes that Plone exposes on the body. 
+We want to hide it for anynoymous users so we can take advantage of the base CSS classes that Plone exposes on the body.
 
 A short note about base CSS classes on the body tag
 ```````````````````````````````````````````````````
@@ -96,7 +97,7 @@ Below you can see an example of a page named "front-page", located in the root o
 And here is what the body tag looks like on the same "front-page" for a manager that has logged in::
 
     <body class="template-document_view portaltype-document site-acme section-front-page icons-on thumbs-on frontend viewpermission-view userrole-member userrole-manager userrole-authenticated plone-toolbar-left plone-toolbar-expanded plone-toolbar-left-expanded">
-    
+
 Can you see differences?
 
 
