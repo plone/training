@@ -6,7 +6,7 @@ In this section you will:
 
 * Use the "Theming" control panel to make a copy of Plone's default theme (barceloneta)
 * Customize a theme using Diazo rules
-* Customize a theme by editing and compiling LESS files
+* Customize a theme by editing and compiling Less files
 
 Topics covered:
 
@@ -21,7 +21,7 @@ What is Diazo?
 --------------
 
 ``Diazo`` is a theming engine used by Plone to make theming a site easier.
-At it's core, a Diazo theme consists of an HTML page and rules.xml file containing directives.
+At its core, a Diazo theme consists of an HTML page and rules.xml file containing directives.
 
 .. note::
 
@@ -63,14 +63,14 @@ Anatomy of a Diazo theme
 
 The most important files:
 
-* ``manifest.cfg``: contains metadata about the theme (`manifest reference <http://docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file>`_);
-* ``rules.xml``: contains the theme rules (`rules reference <http://docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax>`_);
-* ``index.html``: the static HTML of the theme.
+* :file:`manifest.cfg`: contains metadata about the theme (`manifest reference <http://docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file>`_);
+* :file:`rules.xml`: contains the theme rules (`rules reference <http://docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax>`_);
+* :file:`index.html`: the static HTML of the theme.
 
 
 Custom rules
 ------------
-Let's open ``rules.xml``. You will see all the rules that are used in Barceloneta theme right now. For the time being let's concentrate on how to hack these rules.
+Let's open :file:`rules.xml`. You will see all the rules that are used in Barceloneta theme right now. For the time being let's concentrate on how to hack these rules.
 
 Conditionally showing content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

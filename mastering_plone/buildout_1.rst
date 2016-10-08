@@ -57,7 +57,7 @@ One example is the section
     recipe = plone.recipe.zope2instance
     user = admin:admin
 
-This uses the python package `plone.recipe.zope2instance <https://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the specified recipe.
+This uses the python package `plone.recipe.zope2instance <https://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after :samp:`recipe = xyz` are the configuration of the specified recipe.
 
 .. seealso::
 
@@ -87,7 +87,7 @@ References
 A real life example
 -------------------
 
-Let us walk through the ``buildout.cfg`` for the training and look at some important variables:
+Let us walk through the :file:`buildout.cfg` for the training and look at some important variables:
 
 .. code-block:: ini
 
@@ -215,7 +215,7 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     ploneconf.site_sneak = git https://github.com/collective/ploneconf.site_sneak.git path=src egg=false branch=plone5
 
 
-When you run ``./bin/buildout`` without any arguments, Buildout will look for this file.
+When you run :command:`./bin/buildout` without any arguments, Buildout will look for this file.
 
 .. only:: not presentation
 
@@ -258,13 +258,13 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
         test-eggs +=
         #    ploneconf.site [test]
 
-    This is the list of eggs that we configure to be available for Zope. These eggs are put in the python path of the script ``bin/instance`` with which we start and stop Plone.
+    This is the list of eggs that we configure to be available for Zope. These eggs are put in the python path of the script :command:`bin/instance` with which we start and stop Plone.
 
-    The egg ``Plone`` is a wrapper without code. Among its dependencies is ``Products.CMFPlone``  which is the egg that is at the center of Plone.
+    The egg ``Plone`` is a wrapper without code. Among its dependencies is :py:mod:`Products.CMFPlone`  which is the egg that is at the center of Plone.
 
     The rest are add-ons we already used or will use later. The last eggs are commented out so they will not be installed by Buildout.
 
-    The file ``versions.cfg`` that is included by the ``extends = ...`` statement holds the version pins:
+    The file :file:`versions.cfg` that is included by the :samp:`extends = ...` statement holds the version pins:
 
     .. code-block:: cfg
 
@@ -281,7 +281,7 @@ When you run ``./bin/buildout`` without any arguments, Buildout will look for th
         Products.PythonField = 1.1.3
         ...
 
-    This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file ``versions.cfg``.
+    This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file :file:`versions.cfg`.
 
 .. _buildout1-mrdeveloper-label:
 
@@ -290,11 +290,11 @@ Hello mr.developer!
 
 .. only:: not presentation
 
-    There are many more important things to know, and we can't go through them all in detail but I want to focus on one specific feature: **mr.developer**
+    There are many more important things to know, and we can't go through them all in detail but I want to focus on one specific feature: :py:mod:`mr.developer`
 
-    With mr.developer you can declare which packages you want to check out from which version control system and which repository URL. You can check out sources from git, svn, bzr, hg and maybe more. Also, you can say that some sources are in your local file system.
+    With :py:mod:`mr.developer` you can declare which packages you want to check out from which version control system and which repository URL. You can check out sources from git, svn, bzr, hg and maybe more. Also, you can say that some sources are in your local file system.
 
-    ``mr.developer`` comes with a command, ``./bin/develop``. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them when you write changes that require a new release. You can activate and deactivate eggs via the ``develop`` command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
+    :py:mod:`mr.developer` comes with a command, :command:`./bin/develop`. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them when you write changes that require a new release. You can activate and deactivate eggs via the :command:`develop` command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
 
 .. _buildout1-extensible-label:
 
@@ -318,13 +318,14 @@ Be McGuyver
 
     Another problem is error handling. Buildout tries to install a weird dependency you do not actually want? Buildout will not tell you where it is coming from.
 
-    If there is a problem, you can always run Buildout with ``-v`` to get more verbose output, sometimes it helps.
+    If there is a problem, you can always run Buildout with :option:`-v` to get more verbose output, sometimes it helps.
 
     .. code-block:: bash
 
         $ ./bin/buildout -v
 
-    If strange egg versions are requested, check the dependencies declaration of your eggs and your version pinnings.  Here is an invaluable shell command that allows you to find all packages that depend on a particular egg and version:
+    If strange egg versions are requested, check the dependencies declaration of your eggs and your version pinnings.
+    Here is an invaluable shell command that allows you to find all packages that depend on a particular egg and version:
 
     .. code-block:: bash
 
@@ -332,7 +333,7 @@ Be McGuyver
 
     Put the name of the egg with a version conflict as the first argument.  Also, change the path to the buildout cache folder according to your installation (the vagrant buildout is assumed in the example).
 
-    Some parts of Buildout interpret egg names case sensitive, others won't. This can result in funny problems.
+    Some parts of Buildout interpret egg names case sensitively, others don't. This can result in funny problems.
 
     Always check out the ordering of your extends, always use the :samp:`annotate` command of Buildout to see if it interprets your configuration differently than you. Restrict yourself to simple Buildout files. You can reference variables from other sections, you can even use a whole section as a template. We learned that this does not work well with complex hierarchies and had to abandon that feature.
 

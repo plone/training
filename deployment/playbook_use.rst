@@ -5,14 +5,14 @@ Basic use of the playbook
 Local configuration file
 ````````````````````````
 
-For a quick start, copy one of the ``sample-*.yml`` files to ``local-configure.yml``.
-The ``local-configure.yml`` file is automatically included in the main playbook if it's found.
+For a quick start, copy one of the :file:`sample-*.yml` files to :file:`local-configure.yml`.
+The :file:`local-configure.yml` file is automatically included in the main playbook if it's found.
 
 .. code-block:: shell-session
 
     cp sample-small.yml local-configure.yml
 
-Now, edit the ``local-configure.yml`` file to set some required variables:
+Now, edit the :file:`local-configure.yml` file to set some required variables:
 
 admin_email
 
@@ -46,7 +46,7 @@ Use with Vagrant
 If you've installed Vagrant/Virtualbox, you're ready to test.
 Since Vagrant manages the connection, you don't need to create a inventory file entry.
 
-There is a Vagrant setup file, ``Vagrantfile``, included with the playbook, so you may just open a command-line prompt, make sure your Ansible virtualenv is activated, and type:
+There is a Vagrant setup file, :file:`Vagrantfile`, included with the playbook, so you may just open a command-line prompt, make sure your Ansible virtualenv is activated, and type:
 
 .. code-block:: shell-session
 
@@ -63,7 +63,7 @@ There is a Vagrant setup file, ``Vagrantfile``, included with the playbook, so y
     Having several students simultaneously downloading a virtualbox over wifi or a slow connection is a nightmare.
     Have a plan.
 
-Once you've run ``vagrant up``, running it again will not automatically provision the virtualbox.
+Once you've run :program:`vagrant up`, running it again will not automatically provision the virtualbox.
 In this case, that means that Ansible is not run.
 So, if you change your Ansible configuration, you'll need to use:
 
@@ -89,7 +89,7 @@ An example of an ignored failure::
 Vagrant ports
 !!!!!!!!!!!!!
 
-The Vagrant setup (in ``Vagrantfile``) maps several ports on the guest machine (the virtualbox) to the host box.
+The Vagrant setup (in :file:`Vagrantfile`) maps several ports on the guest machine (the virtualbox) to the host box.
 The general scheme is to forward a host port that is 1000 greater than the guest port.
 For example, the load-balancer monitor port on the guest server is ``1080``.
 On the host machine, that's mapped by ssh tunnel to 2080.
@@ -134,12 +134,12 @@ hostname
 
 login id
 
-    The user id of a system account that is either the superuser (root) or is allowed to use ``sudo`` to issue arbitrary commands as the superuser.
+    The user id of a system account that is either the superuser (root) or is allowed to use :command:`sudo` to issue arbitrary commands as the superuser.
 
 password
 
     If your cloud-hosting company does not set up the user account for ssh-keypair authentication, you'll need a password.
-    Even if your account does allow passwordless login, it may still require a password to run ``sudo``.
+    Even if your account does allow passwordless login, it may still require a password to run :command:`sudo`.
 
     If your cloud-hosting company sets up a root user and password, it's a good practice to login (or use Ansible) to create a new, unprivileged user with sudo rights.
     Cautious sysadmins will also disable root login via ssh.
@@ -150,7 +150,7 @@ connection details
     If ssh is switched to an alternate port, you'll need that port number.
 
 With that information, create an inventory file (if none exists) and create a host entry in it.
-We use ``inventory.cfg`` for an inventory file.
+We use :file:`inventory.cfg` for an inventory file.
 A typical inventory file::
 
     www.mydomain.co.uk ansible_host=192.168.1.1 ansible_user=steve
@@ -162,7 +162,7 @@ An inventory file may have many entries.
 You may run Ansible against one, two, all of the hosts in the inventory file, or against alias groups like "plone-servers".
 See `Ansible's inventory documentation <http://docs.ansible.com/ansible/intro_inventory.html>`_ for information on grouping host entries and for more specialized host settings.
 
-Now, let's make things easier for us going forward by creating an ``ansible.cfg`` file in our playbook directory.
+Now, let's make things easier for us going forward by creating an :file:`ansible.cfg` file in our playbook directory.
 In that text file, specify the location of your inventory file:
 
 .. code-block:: cfg
@@ -215,11 +215,11 @@ If all that works, congratulations, you're ready to use Ansible to provision the
 
     The "become" flag tells Ansible to carry out the action while becoming another user on the remote machine.
     If no user is specified, we become the superuser.
-    If no method is specified, it's done via ``sudo``.
+    If no method is specified, it's done via :command:`sudo`.
 
     You won't often use the ``--become`` flag because the playbooks that need it specify it themselves.
 
-Daignosing ssh connection failures
+Diagnosing ssh connection failures
 ``````````````````````````````````
 
 If Ansible has trouble connecting to the remote host, you're going to get a message like:
@@ -232,7 +232,7 @@ If Ansible has trouble connecting to the remote host, you're going to get a mess
         "unreachable": true
     }
 
-If this happens to you, try adding ``-vvv`` to the ``ansible`` or ``ansible-playbook`` command line.
+If this happens to you, try adding ``-vvv`` to the :program:`ansible` or :program:`ansible-playbook` command line.
 The extra information may -- or may not -- be useful.
 
 The real test is to use a direct ssh login in order to get the ssh error.
@@ -278,8 +278,8 @@ If you wish to use our firewall playbook, just use the command:
 
     ansible-playbook firewall.yml
 
-``firewall.yml`` is just a dispatcher.
-Actual firewall code is in the ``firewalls`` subdirectory and is playform-specific.
+:file:`firewall.yml` is just a dispatcher.
+Actual firewall code is in the :file:`firewalls` subdirectory and is platform-specific.
 ``ufw`` is used for the Debian-family; ``firewalld``
 
 The general firewall strategy is to block everything but the ports for ssh, http, https and munin-node.

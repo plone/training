@@ -14,16 +14,16 @@ Installation
 Ansible is usually installed on the orchestrating computer -- typically your desktop or laptop.
 It is a large Python application (though a fraction the size of Plone!) that needs many specific Python packages from the Python Package Index (PyPI).
 
-That makes Ansible a strong candidate for a Python ``virtualenv`` installation
-If you don't have virtualenv installed on your computer, do it now.
+That makes Ansible a strong candidate for a Python :program:`virtualenv` installation
+If you don't have :program:`virtualenv` installed on your computer, do it now.
 
-``virtualenv`` may be installed via an OS package manager, or on a Linux or BSD machine with the command:
+:program:`virtualenv` may be installed via an OS package manager, or on a Linux or BSD machine with the command:
 
 .. code-block:: shell-session
 
     sudo easy_install-2.7 virtualenv
 
-Once you've got ``virtualenv``, use it to create a working directory containing a virtual Python:
+Once you've got :program:`virtualenv`, use it to create a working directory containing a virtual Python:
 
 .. code-block:: shell-session
 
@@ -91,9 +91,9 @@ Connecting to remote machines
 
 To use Ansible to provision a remote server, we have two requirements:
 
-1. We must be able to connect to the remote machine using ``ssh``; and,
+1. We must be able to connect to the remote machine using :command:`ssh`; and,
 
-2. We must be able to issue commands on the remote server as ``root`` (superuser), usually via ``sudo``.
+2. We must be able to issue commands on the remote server as ``root`` (superuser), usually via :command:`sudo`.
 
 You'll need to familiarize yourself with how to fulfill these requirements on the cloud/virtual environment of your choice.
 Examples:
@@ -101,12 +101,12 @@ Examples:
 Using Vagrant/virtualbox
 
     You will initially be able to log in as the "vagrant" user using a private key that's in a file created by Vagrant.
-    The user "vagrant" may issue ``sudo`` commands with no additional password.
+    The user "vagrant" may issue :command:`sudo` commands with no additional password.
 
 Using Linode
 
     You'll set a root password when you create your new machine.
-    If you're willing to use the root user directly, you will not need a ``sudo`` password.
+    If you're willing to use the root user directly, you will not need a :command:`sudo` password.
 
 When setting up a Digital Ocean machine
 
@@ -116,7 +116,7 @@ When setting up a Digital Ocean machine
 AWS
 
     AWS EC2 instances are typically created with a an account named "root" or a short name for the OS, like "ubuntu", that contains your ssh public key as an authorized key.
-    Passwordless ``sudo`` is pre-enabled for that account.
+    Passwordless :command:`sudo` is pre-enabled for that account.
 
 The most important thing is that you know your setup.
 Test that knowledge by trying an ssh login and issuing a superuser command.
@@ -178,9 +178,9 @@ If it doesn't, it's created.
 
 Tasks may also have execution conditions expressed in Python syntax and may iterate over simple data structures.
 
-In addition to tasks, Ansible's basic units are _host_ and _variable_ specifications.
+In addition to tasks, Ansible's basic units are *host* and *variable* specifications.
 
-An Ansible ``playbook`` is a specification of tasks that are executed for specified hosts and variables.
+An Ansible *playbook* is a specification of tasks that are executed for specified hosts and variables.
 All of these specifications are in YAML.
 
 Quick intro to YAML
@@ -275,7 +275,7 @@ Quick intro to Jinja2
 YAML doesn't have any built-in way to read a variable.
 Ansible uses the Jinja2 templating language for this purpose.
 
-A quick example: Let's say we have a variable ``timezone`` containing the target server's desired timezone setting.
+A quick example: Let's say we have a variable :py:data:`timezone` containing the target server's desired timezone setting.
 We can use that variable in a task via Jinja2's double-brace notation: ``{{ timezone }}``.
 
 Jinja2 also supports limited Python expression syntax and can read object properties or mapping key/vaues with a dot notation::

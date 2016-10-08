@@ -62,8 +62,8 @@ There are two content frameworks in Plone
 What are the differences?
 
 * Dexterity: New, faster, modular, no dark magic for getters and setters
-* Archetype had magic setter/getter - use ``talk.getAudience()`` for the field ``audience``
-* Dexterity: fields are attributes: ``talk.audience`` instead of ``talk.getAudience()``
+* Archetype had magic setter/getter - use :py:meth:`talk.getAudience()` for the field :py:attr:`audience`
+* Dexterity: fields are attributes: :py:attr:`talk.audience` instead of :py:meth:`talk.getAudience()`
 
 "Through The Web" or TTW, i.e. in the browser, without programming:
 

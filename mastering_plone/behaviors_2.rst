@@ -37,7 +37,7 @@ Using Schema
 
 .. only:: not presentation
 
-    The attribute where we store our data will be declared as a schema field. We mark the field as an omitted field (using schema directive similar to ``read_permission`` or ``widget``), because we are not going to create z3c.form widgets for entering or displaying them. We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
+    The attribute where we store our data will be declared as a schema field. We mark the field as an omitted field (using schema directive similar to ``read_permission`` or ``widget``), because we are not going to create :py:mod:`z3c.form` widgets for entering or displaying them. We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
 
     For example, when files were migrated to blobs, new objects had to be created and every schema field was copied. The code can't know about our field, except if we provide schema information.
 

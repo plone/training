@@ -54,6 +54,10 @@ Some commands you will use rather often are::
     This opens a form to create a Plone site.
     Use :samp:`Plone` as the site id.
 
+    You now have the option to select some add-ons before you create the site.
+    Since we will use Dexterity from the beginning we select :guilabel:`Dexterity-based Plone Default Types`.
+    This way even the initial content on our page will be built with dexterity by the add-on :py:mod:`plone.app.contenttypes` which will be the default in Plone 5.
+
     You will be automatically redirected to the new site.
 
 .. only:: presentation
@@ -178,8 +182,8 @@ On the edit bar, we find options affecting the current context...
 * :guilabel:`user actions`
 
 Some edit bar options only show when appropriate;
-for example, ``folder contents`` and ``add`` are only shown for Folders.
-``rules`` is currently invisible because we have no content rules available.
+for example, :guilabel:`folder contents` and :guilabel:`add` are only shown for Folders.
+:guilabel:`rules` is currently invisible because we have no content rules available.
 
 
 
@@ -378,7 +382,7 @@ Manage members and groups
 Workflows
 ---------
 
-Take a look at the ``state`` drop-down on the edit bar on the homepage.
+Take a look at the :guilabel:`state` drop-down on the edit bar on the homepage.
 Now, navigate to one of the folders just added.
 The homepage has the status ``published`` and the new content is ``private``.
 
@@ -448,7 +452,7 @@ Typically, you use it to set a special workflow in a folder that will govern eve
 Since it has effect in a "place" in a site, this mechanism is often called "Placeful Workflow".
 
 As with working-copy support, Placeful Workflow ships with Plone but needs to be activated via the add-on configuration page.
-Once it's added, a ``Policy`` option will appear on the state menu to allow setting a placeful workflow policy.
+Once it's added, a :guilabel:`Policy` option will appear on the state menu to allow setting a placeful workflow policy.
 
 .. Note::
 

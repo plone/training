@@ -11,8 +11,8 @@ The users then only need to customize this content to their needs.
 Create your own TinyMCE templates
 =================================
 
-We create a folder named ``tinymce_templates`` in our theme folder and put a
-file in named ``content-box.html`` in it:
+We create a folder named :file:`tinymce_templates` in our theme folder and put a
+file in named :file:`content-box.html` in it:
 
 .. code-block:: bash
 
@@ -21,7 +21,7 @@ file in named ``content-box.html`` in it:
    tinymce_templates/
    └── content-box.html
 
-In the file ``content-box.html`` we put this HTML template content:
+In the file :file:`content-box.html` we put this HTML template content:
 
 .. code-block:: html
 

@@ -14,7 +14,7 @@ Instead of copying it, Barceloneta can inherited by a custom theme. Two elements
 
 Create a new theme in the theming editor containing the following files:
 
-- ``manifest.cfg``, declaring your theme:
+- :file:`manifest.cfg`, declaring your theme:
 
 .. code-block:: ini
 
@@ -24,7 +24,7 @@ Create a new theme in the theming editor containing the following files:
     development-css = /++theme++mytheme/styles.less
     production-css = /++theme++mytheme/styles.css
 
-- ``rules.xml``, including the Barceloneta rules:
+- :file:`rules.xml`, including the Barceloneta rules:
 
 .. code-block:: xml
 
@@ -44,9 +44,9 @@ Create a new theme in the theming editor containing the following files:
 
     </rules>
 
-- a copy of ``index.html`` from Barceloneta (this one cannot be imported or inherited, it must be local to your theme).
+- a copy of :file:`index.html` from Barceloneta (this one cannot be imported or inherited, it must be local to your theme).
 
-- ``styles.less``, importing Barceloneta styles:
+- :file:`styles.less`, importing Barceloneta styles:
 
 .. code-block:: css
 
@@ -60,7 +60,7 @@ Create a new theme in the theming editor containing the following files:
       color: @plone-text-color;
     }
 
-Then you have to compile ``styles.less`` to obtain your ``styles.css`` file using the "Build CSS" button.
+Then you have to compile :file:`styles.less` to obtain your :file:`styles.css` file using the "Build CSS" button.
 
 Your theme is ready.
 
@@ -107,7 +107,7 @@ Here is an example::
 
 Imagine you might want to use Barceloneta for the website administrators (so they can manage the content conviniently) and offer a completely different layout for visitors, you just need to create rules with ``css:if-content="body.userrole-anonymous"`` or ``css:if-content="body.:not(userrole-anonymous)"`` to enable the theme you want.
 
-As you can see, if the visitor is anonymous, Diazo will use a specific HTML theme (named ``front.html``) and not the Barceloneta's ``index.html``.
+As you can see, if the visitor is anonymous, Diazo will use a specific HTML theme (named :file:`front.html`) and not the Barceloneta's :file:`index.html`.
 
 Exercise: create a specific design for visitors only
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -117,10 +117,10 @@ Go to http://www.csszengarden.com/, download a theme (do not use the download li
 ..  admonition:: Solution
     :class: toggle
 
-    - create a ``front`` folder in the theme,
+    - create a :file:`front` folder in the theme,
     - put the 2 downloaded files in this folder,
-    - in ``index.html``, fix the ``<link>`` element to load ``front/style.css``,
-    - change ``rules.xml`` to:
+    - in :file:`index.html`, fix the ``<link>`` element to load :file:`front/style.css`,
+    - change :file:`rules.xml` to:
 
         .. code-block:: xml
 

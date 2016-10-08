@@ -40,7 +40,7 @@ Use ssh tunnels.
 
 This is a pretty typical login that creates handy tunnels between ports on your local machine with matching haproxy-admin, varnish and haproxy front-end ports on the remote server.
 
-While you're logged in, check out the status of the ``supervisor`` process-control system, which is used to launch your Zope/Plone processes.
+While you're logged in, check out the status of the :program:`supervisor` process-control system, which is used to launch your Zope/Plone processes.
 
 .. code-block:: shell-session
 
@@ -72,7 +72,7 @@ This means that if you need to run ``bin/buildout`` via login, it must be run as
     sudo -u plone_buildout bin/buildout
 
 Typically, you would never start the main ZEO server or its clients directly.
-That's handled via ``supervisorctl``.
+That's handled via :program:`supervisorctl`.
 There's one exception to this rule: the playbook creates a ZEO client named ``client_reserved`` that is not part of the load-balancer pool and is not managed by supervisor.
 The purpose of this extra client is to allow you to handle run scripts or debug starts without affecting the load-balanced client pool.
 It's particularly a good idea to use this mechanism to test an updated buildout:
@@ -90,7 +90,7 @@ Look in your buildout directory for the scripts directory.
 In it, you should find ``restart_clients.sh``.
 (Go ahead and log out if you're still connected.)
 
-This script, which needs to be run as the superuser via ``sudo``, is intended to manage hot restarts.
+This script, which needs to be run as the superuser via :program:`sudo`, is intended to manage hot restarts.
 Its general strategy is to run through your ZEO clients, sequentially doing the following:
 
 1. Mark it down for maintenance in haproxy;
@@ -115,7 +115,7 @@ Event logs are rotated at 5MB, access logs at 20MB.
 cron jobs
 `````````
 
-The playbook automatically creates ``cron`` jobs for ZODB backup and packing.
+The playbook automatically creates :command:`cron` jobs for ZODB backup and packing.
 These jobs are run as ``plone_daemon``.
 
 The jobs are run in the early morning in the server's time zone.
@@ -228,13 +228,13 @@ On Debian family Linux, the playbook installs ``fail2ban`` and configures it to 
 Monitoring
 ``````````
 
-``logwatch`` is installed and configured to email daily log summaries to the administrative email address.
+:program:`logwatch` is installed and configured to email daily log summaries to the administrative email address.
 
 
-Unless you prevent it, ``munin-node`` is installed and configured to accept connections from the IP address you designate.
-To make use of it, you'll need to install ``munin`` on a monitoring machine.
+Unless you prevent it, :program:`munin-node` is installed and configured to accept connections from the IP address you designate.
+To make use of it, you'll need to install :program:`munin` on a monitoring machine.
 
-The ``munin-node`` install by the playbook disables many monitors that are unlikely to be useful to a mostly dedicated Plone servers.
+The :program:`munin-node` install by the playbook disables many monitors that are unlikely to be useful to a mostly dedicated Plone servers.
 It also installs a Plone-specific monitor that reports resident memory usage by Plone components.
 
 Changes philosophy

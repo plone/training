@@ -4,7 +4,7 @@ RequireJS and JavaScript modules
 
 One of the great new features, Plone 5 gives us, is the ability to define and use JavaScript modules.
 
-Most serious programming languages provide the concept of namespaces and module dependencies, like Python's ``import`` mechanism.
+Most serious programming languages provide the concept of namespaces and module dependencies, like Python's :keyword:`import` mechanism.
 Python code would be unmanageable, if we'd rely on the existence of global variables and objects in our own scripts.
 
 But JavaScript doesn't have any concept for declaring dependencies.
@@ -81,7 +81,7 @@ For example, let's assume a project structure like follows and the ``define`` ex
             |___app/
                   |___/my_module.js
 
-Let's do the RequireJS configuration in ``main.js`` and use that as main entry point also to finally let something happen:
+Let's do the RequireJS configuration in :file:`main.js` and use that as main entry point also to finally let something happen:
 
 .. code-block:: javascript
 

@@ -13,7 +13,7 @@ Using Third-Party Behaviors
 Add teaser with collective.behavior.banner
 ------------------------------------------
 
-There are a lot of add-ons in Plone for sliders/banners/teasers. We thought there should be a better one and created ``collective.behavior.banner``.
+There are a lot of add-ons in Plone for sliders/banners/teasers. We thought there should be a better one and created :py:mod:`collective.behavior.banner`.
 
 .. figure:: ../_static/standards.png
    :align: center
@@ -39,7 +39,7 @@ After adding the source, we need to add the egg to buildout:
         collective.behavior.banner
         ...
 
-And rerun ``./bin/buildout``
+And rerun :file:`./bin/buildout`
 
 * Install the add-on
 * Create a new dexterity content type ``Banner`` with **only** the behavior ``Banner`` enabled.
