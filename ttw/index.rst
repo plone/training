@@ -11,10 +11,10 @@
    :maxdepth: 3
    :numbered: 1
 
-   basic
-   configuring_customizing
-   ttw-advanced
-   ttw-advanced_2
-   dexterity
+   Customizing logo and CSS of default theme <basic>
+   Configuring and Customizing Plone <configuring_customizing>
+   Introduction to Diazo Theming <ttw-advanced>
+   Creating a custom theme based on Barceloneta <ttw-advanced_2>
+   Dexterity <dexterity>
    mosaic
    rapido
