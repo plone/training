@@ -3,7 +3,7 @@ Rapido
 
 In this part you will:
 
-* Create a "Like" button on any talk so that visitors can cast votes,
+* Create a :guilabel:`Like` button on any talk so that visitors can cast votes,
 * Display the total of votes next to the button,
 * Create a "Top 5" page,
 * Reset the votes on workflow change.
@@ -20,8 +20,8 @@ What is Rapido?
 .. only:: presentation
 
     * A Plone add-on,
-    * Used to extend your Plone site features,
-    * Works entirely through the theming tool.
+    * used to extend your Plone site features,
+    * which works entirely through the theming tool.
 
 .. only:: not presentation
 
@@ -40,7 +40,7 @@ A couple of comparisons
 .. only:: presentation
 
     * Unlike Dexterity, it focuses on features, not on content types.
-    * Rapido apps can be displayed using Diazo, or as a Mosaic tile, but they cannot manage design or layouts,
+    * Rapido apps can be displayed using Diazo, or as a Mosaic tile, but they cannot manage design or layouts.
     * Unlike Plone development, it is quick and easy to write Rapido apps.
 
 .. only:: not presentation
@@ -52,7 +52,7 @@ A couple of comparisons
           you cannot implement your own logic.
         * By contrast, using Rapido you can implement your own logic;
           however you can only store data records,
-          not **Plone content items** (at least, not directly like Dexterity does)
+          not **Plone content items** (at least, not directly like Dexterity does).
 
     * Compared to **Diazo** and **Mosaic**:
 
@@ -73,10 +73,11 @@ Installation
 
     We will use a `Heroku instance pre-configured with Plone <https://github.com/collective/training-sandbox>`_.
 
-    Once deployed,
-    - Create a Plone site,
-    - Go to: *Plone control panel* / *Add-ons* (http://localhost:8080/Plone/prefs_install_products_form),
-    - Finally install Rapido.
+    Once deployed:
+
+    - create a Plone site,
+    - go to: :menuselection:`Plone control panel -> Add-ons` (http://localhost:8080/Plone/prefs_install_products_form),
+    - finally: install Rapido.
 
 .. only:: not presentation
 
@@ -90,7 +91,7 @@ Installation
 
         $ bin/buildout -N
 
-    Then go to *Plone control panel* / *Add-ons*
+    Then go to :menuselection:`Plone control panel -> Add-ons`
     ``http://localhost:8080/Plone/prefs_install_products_form``,
     and install Rapido.
 
@@ -106,19 +107,19 @@ Principles
 
 .. only:: not presentation
 
-    Rapido application
+    Rapido :dfn:`application`
         It contains the features you implement;
         it is just a folder containing templates, Python code, and YAML files.
 
-    block
+    :dfn:`block`
         Blocks display a chunk of HTML which can be inserted in your Plone pages.
 
-    element
+    :dfn:`element`
         Elements are the dynamic components of your blocks.
         They can be input fields, buttons, or just computed HTML.
         They can also return JSON if you call them from a javascript app,
 
-    records
+    :dfn:`records`
         A Rapido app is able to store data as records.
         Records are just basic dictionaries.
 
@@ -145,7 +146,7 @@ How to create a Rapido app
 
         /rapido/<app-name>
 
-    Here is a typical layout for a rapido app::
+    Here is a typical layout for a Rapido app::
 
         /rapido
             /myapp
@@ -175,14 +176,14 @@ Blocks and elements
 
 .. only:: not presentation
 
-    The app components are ``blocks``.
-    A block is defined by a set of 3 files (HTML, Python, and YAML) located in the ``blocks`` folder.
+    The app components are :dfn:`blocks`.
+    A block is defined by a set of 3 files (HTML, Python, and YAML) located in the :file:`blocks` folder.
 
     The **YAML file** defines the *elements*.
-    An *element* is any dynamically generated element in a block.
+    An :dfn:`element` is any dynamically generated element in a block.
     It can be a form field (input, select, etc.),
-    or a button (``ACTION``),
-    or even just a piece of generated HTML (``BASIC``).
+    or a button (an ``ACTION`` element),
+    or even just a piece of generated HTML (a ``BASIC`` element).
 
     The **HTML file** contains the layout of the block.
     The templating mechanism is super simple:
@@ -197,15 +198,15 @@ Exercise 1: Create the vote block
 
 Let's start by displaying a static counter showing "0 votes" on all talks.
 
-First, we need to create a ``rating`` Rapido app.
+First, we need to create the ``rating`` Rapido app.
 
 ..  admonition:: Solution
     :class: toggle
 
-    * Go to the Plone theming control panel http://localhost:8080/Plone/@@theming-controlpanel
+    * Go to the Plone theming control panel: http://localhost:8080/Plone/@@theming-controlpanel
     * Copy the Barceloneta theme, name it ``training`` and enable it immediately,
-    * Add a new folder named ``rapido``,
-    * And add a subfolder named ``rating``.
+    * Add a new folder named :file:`rapido`,
+    * And add a subfolder named :file:`rating`.
 
     The Rapido app is initialized.
 
@@ -214,8 +215,8 @@ And now, we need to create a ``rate`` block.
 ..  admonition:: Solution
     :class: toggle
 
-    * Add a folder named ``blocks`` in ``rating``,
-    * In ``blocks``, add a file named ``rate.html``,
+    * Add a folder named :file:`blocks` in :file:`rating`,
+    * In :file:`blocks`, add a file named :file:`rate.html`,
     * In the file, put the following content:
 
       .. code-block:: html
@@ -249,7 +250,7 @@ So the following rule:
 
 would insert the ``stats`` block under the Plone main content.
 
-Rapido rules can be added directly in our theme's main ``rules.xml`` file,
+Rapido rules can be added directly in our theme's main :file:`rules.xml` file,
 but it is a good practice to put them in a dedicated rule file which can be located in our app folder.
 
 The app-specific rules file can be included in the main rules file as follows:
@@ -267,14 +268,14 @@ Insert the ``rate`` block content under the Plone page main heading.
 ..  admonition:: Solution
     :class: toggle
 
-    * in the main ``rules.xml``, add the following line just after the first
+    * in the main :file:`rules.xml`, add the following line just after the first
       ``<rules>`` opening tag:
 
       .. code-block:: xml
 
           <xi:include href="rapido/rating/rules.xml" />
 
-    * In the ``rating`` folder, add a new file named ``rules.xml`` containing:
+    * In the :file:`rating` folder, add a new file named :file:`rules.xml` containing:
 
       .. code-block:: xml
 
@@ -299,7 +300,7 @@ Insert the ``rate`` block content under the Plone page main heading.
         (``.template-view.portaltype-talk``),
       * the ``include`` rule retrieves the Rapido block content.
 
-.. TODO:: what's that portaltype-talk?
+.. note:: This presumes having completed :doc:`dexterity`.
 
 Now, if you visit a talk page, you see the counter below the heading.
 
@@ -317,8 +318,8 @@ Make our blocks dynamic
 
 .. only:: not presentation
 
-    The YAML file allows to declare elements.
-    The Python files allows to compute the element value using a function named after the element id.
+    The YAML file allows us to declare elements.
+    The Python files allows computing the *element value* using a function named after the element id.
     And the HTML file can display elements using the curly-brackets notation.
     The 3 files must have the same name (only the extensions change).
 
@@ -369,7 +370,7 @@ For now the Python function will just return 10.
 .. admonition:: Solution
     :class: toggle
 
-    * In the ``blocks`` folder, add a new file named ``rate.yaml`` containing:
+    * In the :file:`blocks` folder, add a new file named :file:`rate.yaml` containing:
 
       .. code-block:: yaml
 
@@ -377,14 +378,14 @@ For now the Python function will just return 10.
               display_votes:
                   type: BASIC
 
-    * Add also a file named ``rate.py`` containing:
+    * Add also a file named :file:`rate.py` containing:
 
       .. code-block:: python
 
           def display_votes(context):
               return 10
 
-    * And change the existing ``rate.html`` as follows:
+    * And change the existing :file:`rate.html` as follows:
 
       .. code-block:: html
 
@@ -398,7 +399,7 @@ Now, if you refresh your talk page, the counter will display the value returned 
 Create actions
 --------------
 
-An action is a regular element, but it is rendered as a button.
+An :dfn:`action` is a regular element, but it is rendered as a button.
 
 Its associated function in the Python file will be called when the user clicks on the button.
 
@@ -441,14 +442,14 @@ we need to activate the AJAX mode in the YAML file:
 Exercise 4: Add the Like button
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Add a *Like* button to the block.
+Add a :guilabel:`Like` button to the block.
 For now, the action itself will do nothing. 
 Let's just insert it at the right place, and make sure the block is refreshed properly when we click.
 
 .. admonition:: Solution
     :class: toggle
 
-    * in ``rate.yaml``, add a new ``like`` element and change the target to ``ajax``
+    * in :file:`rate.yaml`, add a new ``like`` element and change the target to ``ajax``
       After doing this, your YAML file looks as follows:
 
       .. code-block:: yaml
@@ -461,7 +462,7 @@ Let's just insert it at the right place, and make sure the block is refreshed pr
                   type: ACTION
                   label: Like
 
-    * in ``rate.py``, add a new function:
+    * in :file:`rate.py`, add a new function:
 
       .. code-block:: python
 
@@ -469,7 +470,7 @@ Let's just insert it at the right place, and make sure the block is refreshed pr
               # do nothing for now
               pass
 
-    * and in ``rate.html``:
+    * and in :file:`rate.html`:
 
       .. code-block:: html
 
@@ -493,7 +494,7 @@ Something like:
 
 could be a valid record.
 
-The Rapido Python API allows to create, get or delete records:
+The Rapido Python API allows us to create, get or delete records:
 
 .. code-block:: python
 
@@ -519,9 +520,9 @@ To count the votes on a talk, you need store some information:
 - an identifier for the talk (we will use the talk path, from the Plone ``absolute_url_path()`` method),
 - the total votes it gets.
 
-Let's implement the ``like`` function:
+Let's implement the :py:func:`like` function:
 
-- first we need to get the current talk: the Rapido ``context`` allows to get the current Plone content using ``context.content``,
+- first we need to get the current talk: the Rapido :py:obj:`context` allows to get the current Plone content using :py:attr:`context.content`,
 - then we need to get the record corresponding to the current talk,
   - if it does not exist, we need to create it,
 - and then we need to increase the current total votes for that talk by 1.
@@ -605,9 +606,9 @@ TAL templating
 TAL templating is the templating format used in the core of Plone.
 If HTML templating is too limiting, Rapido allows you to use TAL instead.
 
-We just need to provide a file with the ``.pt`` extension instead of the HTML file.
+We just need to provide a file with the :file:`.pt` extension instead of the HTML file.
 
-The block elements are available in the ``elements`` object:
+The block elements are available in the :py:obj:`elements` object:
 
 .. code-block:: python
 
@@ -648,7 +649,7 @@ If an element returns an iterable object (list, dictionary), we can make a loop:
         </li>
     </ul>
 
-The current Rapido context is available in the ``context`` object:
+The current Rapido context is available in the :py:obj:`context` object:
 
 .. code-block:: html
 
@@ -677,7 +678,7 @@ and define an additional URL to display our block as main content?
 
 To accomplish this, Rapido allows you to declare **neutral views**.
 
-By adding ``@@rapido/view/<any-name>`` to a content URL we get the content's default view.
+By adding :samp:`@@rapido/view/{<any-name>}` to a content URL we get the content's default view.
 The ``any-name`` value can actually be **anything**, we do not really care,
 we just use it to match a Diazo rule in charge of replacing the default content with our block:
 
@@ -709,14 +710,14 @@ Let's create a block to display the Talks Top 5:
 .. admonition:: Solution
     :class: toggle
 
-    First we create a ``top5.pt`` file in the ``blocks`` folder with the following content:
+    First we create a :file:`top5.pt` file in the :file:`blocks` folder with the following content:
 
     .. code-block:: html
 
         <h1 class="documentFirstHeading">Talks Top 5</h1>
         <section id="content-core">Empty for now</section>
 
-    Now we add the following to our ``rules.xml`` file:
+    Now we add the following to our :file:`rules.xml` file:
 
     .. code-block:: xml
 
@@ -732,13 +733,13 @@ Let's create a block to display the Talks Top 5:
 
         http://localhost:8080/Plone/portal_actions/site_actions/manage_workspace
 
-    - add a new `top5` action, with the "URL (Expression)" property set to::
+    - add a new ``top5`` action, with the :guilabel:`URL (Expression)` property set to::
 
        string:${globals_view/navigationRootUrl}/@@rapido/view/talks-top-5
 
     .. versionadded:: 5.1
 
-        1. go to Site Setup / Actions
+        1. go to :menuselection:`Site Setup -> Actions`
         2. add a new action in Site actions category with name "Top 5" and as URL::
 
              string:${globals_view/navigationRootUrl}/@@rapido/view/talks-top-5
@@ -803,7 +804,7 @@ We want to be able to sort the records according to their votes:
 .. admonition:: Solution
     :class: toggle
 
-    We add the following to ``rate.yaml`` containing:
+    We add the following to :file:`rate.yaml` containing:
 
     .. code-block:: yaml
 
@@ -818,8 +819,8 @@ We want to be able to sort the records according to their votes:
       http://localhost:8080/Plone/@@rapido/rating/refresh
 
     And to make sure future changes will be indexed,
-    we need to fix the ``like`` function in the ``rate`` block:
-    the indexing is triggered when we call the record's ``save`` method:
+    we need to fix the :py:func:`like` function in the ``rate`` block:
+    the indexing is triggered when we call the record's :py:meth:`save` method:
 
     .. code-block:: python
 
@@ -835,7 +836,7 @@ We want to be able to sort the records according to their votes:
 
     Now let's change the ``top5`` block:
 
-    - create ``top5.yaml``:
+    - create :file:`top5.yaml`:
 
       .. code-block:: yaml
 
@@ -843,7 +844,7 @@ We want to be able to sort the records according to their votes:
               talks:
                   type: BASIC
 
-    - create ``top5.py``:
+    - create :file:`top5.py`:
 
       .. code-block:: python
 
@@ -860,7 +861,7 @@ We want to be able to sort the records according to their votes:
                   })
               return results
 
-    - update ``top5.pt``:
+    - update :file:`top5.pt`:
 
       .. code-block:: html
 
@@ -898,10 +899,9 @@ It allows us to enter the following parameters:
 - the block id,
 - the function name.
 
-The ``content`` property in the function's ``context`` allows access to the content targeted by the content rule.
+The :py:attr:`content` property in the function's :py:obj:`context` allows access to the content targeted by the content rule.
 
-For instance,
-to transform the content title to uppercase every time we edit something,
+For instance, to transform the content title to uppercase every time we edit something,
 we would use a function such as this:
 
 .. code-block:: python
@@ -916,14 +916,14 @@ We would like to reset the votes when we change the workflow status of a talk.
 
 We will need to:
 
-- create a new block to handle our ``reset`` function,
+- create a new block to handle our :py:func:`reset` function,
 - add a content rule to our Plone site,
 - assign the rule to the proper location.
 
 .. admonition:: Solution
     :class: toggle
 
-    - create ``contentrule.py``:
+    - create :file:`contentrule.py`:
 
       .. code-block:: python
 
@@ -933,7 +933,7 @@ We will need to:
             if record:
                 record['total'] = 0
 
-    - go to *Site setup* / *Content rules*, and add a rule for the event "State has changed",
+    - go to :menuselection:`Site setup -> Content rules`, and add a rule for the event :guilabel:`State has changed`,
     - add a condition on the content type to only target *Talks*,
     - add a Rapido action where the application is ``rating``,
       the block is ``contentrule`` and the method is ``reset``,
