@@ -21,11 +21,17 @@ Topics covered:
 What is a content type?
 -----------------------
 
-A content type is a variety of object that can store information and is editable by users. We have different contenttypes to reflect the different kinds of information about which we need to collect and display information. Pages, folders, events, news items, files (binary) and images are all contenttypes.
+A content type is a variety of object that can store information and is editable by users.
+We have different content types to reflect the different kinds of information about which we need to collect and display information.
+Pages, folders, events, news items, files (binary) and images are all content types.
 
-It is common in developing a web site that you'll need customized versions of common contenttypes, or perhaps even entirely new types.
+It is common in developing a web site that you'll need customized versions of common content types, or perhaps even entirely new types.
 
-Remember the requirements for our project? We wanted to be able to solicit and edit conference talks. We could use the ``page`` content type for that purpose. But we need to make sure we collect certain bits of information about a talk and we couldn't be sure to get that information if we just asked potential presenters to create a page. Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks. A custom content type will be ideal.
+Remember the requirements for our project? We wanted to be able to solicit and edit conference talks.
+We could use the Page content type for that purpose.
+But we need to make sure we collect certain bits of information about a talk and we couldn't be sure to get that information if we just asked potential presenters to create a page.
+Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks.
+A custom content type will be ideal.
 
 .. _dexterity1-contains-label:
 
@@ -52,18 +58,17 @@ Dexterity and Archetypes - A Comparison
 
 There are two content frameworks in Plone
 
-* Dexterity: new and the coming default
-* Archetypes: old, tried and tested
-* Archetypes: widespread, used in many add-ons
-* Plone 4.x: Archetypes is the default, with Dexterity available
-* Plone 5.x: Dexterity is the default, with Archetypes available
-* For both, add and edit forms are created automatically from a schema
+* Dexterity: new and the coming default.
+* Archetypes: old, tried and tested. Widespread, used in many add-ons.
+* Plone 4.x: Archetypes is the default, with Dexterity available.
+* Plone 5.x: Dexterity is the default, with Archetypes available.
+* For both, add and edit forms are created automatically from a schema.
 
 What are the differences?
 
-* Dexterity: New, faster, modular, no dark magic for getters and setters
-* Archetype had magic setter/getter - use :py:meth:`talk.getAudience()` for the field :py:attr:`audience`
-* Dexterity: fields are attributes: :py:attr:`talk.audience` instead of :py:meth:`talk.getAudience()`
+* Dexterity: New, faster, modular, no dark magic for getters and setters.
+* Archetype had magic setter/getter - use :py:meth:`talk.getAudience()` for the field :py:attr:`audience`.
+* Dexterity: fields are attributes: :py:attr:`talk.audience` instead of :py:meth:`talk.getAudience()`.
 
 "Through The Web" or TTW, i.e. in the browser, without programming:
 
@@ -73,28 +78,28 @@ What are the differences?
 
 Approaches for Developers:
 
-* Schema in Dexterity: TTW, XML, Python. Interface = schema, often no class needed
-* Schema in Archetypes: Schema only in Python
+* Schema in Dexterity: TTW, XML, Python. Interface = schema, often no class needed.
+* Schema in Archetypes: Schema only in Python.
 
 * Dexterity: Easy permissions per field, easy custom forms.
-* Archetypes: Permissions per field hard, custom forms even harder.
+* Archetypes: Permissions per field are hard, custom forms even harder.
 * If you have to program for old sites you need to know Archetypes!
 * If starting fresh, go with Dexterity.
 
 Extending:
 
-* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content type is e.g. translatable (plone.app.multilingual).
-* Archetypes has archetypes.schemaextender. Powerful but not as flexible.
+* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content type is e.g. translatable (:py:mod:`plone.app.multilingual`).
+* Archetypes has :py:mod:`archetypes.schemaextender`. Powerful but not as flexible.
 
 We have only used Dexterity for the last few years.
 We teach Dexterity and not Archetypes because it's more accessible to beginners, has a great TTW story and is the future.
 
 Views:
 
-* Both Dexterity and Archetypes have a default view for contenttypes.
+* Both Dexterity and Archetypes have a default view for content types.
 * Browser Views provide custom views.
-* You can generate views for content-types in the browser without programming (using the Add-on plone.app.mosaic)
-* Display Forms
+* You can generate views for content types in the browser without programming (using the :py:mod:`plone.app.mosaic` Add-on).
+* Display Forms.
 
 
 .. _dexterity1-modify-label:
@@ -103,11 +108,11 @@ Modifying existing types
 ------------------------
 
 * Go to the control panel http://localhost:8080/Plone/@@dexterity-types
-* Inspect some of the existing default-types
-* Select the type ``News Item`` and add a new field ``Hot News`` of type ``Yes/No``
+* Inspect some of the existing default types.
+* Select the type :guilabel:`News Item` and add a new field ``Hot News`` of type :guilabel:`Yes/No`
 * In another tab add a News Item and you see the new field.
 * Go back to the schema-editor and click on `Edit XML Field Model <http://localhost:8080/Plone/dexterity-types/News%20Item/@@modeleditor>`_.
-* Note that the only field in the xml-schema of the News Item is the one we just added. All others are provided by behaviors.
+* Note that the only field in the XML schema of the News Item is the one we just added. All others are provided by behaviors.
 * Edit the form-widget-type so it says:
 
   .. code-block:: xml
