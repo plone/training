@@ -1,5 +1,5 @@
 =============================================
-TTW advanced I: introduction to Diazo Theming
+TTW Theming I: introduction to Diazo Theming
 =============================================
 
 
