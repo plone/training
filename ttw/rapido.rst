@@ -227,7 +227,8 @@ Once the block is ready, you can display it by visiting its URL in your browser:
 
 http://localhost:8080/Plone/@@rapido/rating/blocks/rate
 
-.. TODO:: ADD SCREENSHOT HERE
+.. image:: _static/rapido-bare_block.png
+   :align: center
 
 But we would prefer to display it inside our existing Plone pages.
 
@@ -304,7 +305,8 @@ Insert the ``rate`` block content under the Plone page main heading.
 
 Now, if you visit a talk page, you see the counter below the heading.
 
-.. TODO:: ADD SCREENSHOT HERE
+.. image:: _static/rapido-static_vote_block.png
+   :align: center
 
 
 Make our blocks dynamic
@@ -394,7 +396,9 @@ For now the Python function will just return 10.
 
 Now, if you refresh your talk page, the counter will display the value returned by your Python function.
 
-.. TODO:: ADD SCREENSHOT HERE
+.. image:: _static/rapido-votes_from_python.png
+   :align: center
+
 
 Create actions
 --------------
@@ -476,7 +480,9 @@ Let's just insert it at the right place, and make sure the block is refreshed pr
 
           <span>{like} {display_votes} votes</span>
 
-.. TODO:: ADD SCREENSHOT HERE
+.. image:: _static/rapido-static_like_button.png
+   :align: center
+
 
 Store data
 ----------
@@ -561,7 +567,9 @@ Now let's make sure to display the proper total in the ``display_votes`` element
               return 0
           return record['total']
 
-.. TODO:: ADD SCREENSHOT HERE
+.. image:: _static/rapido-votes_updating.png
+   :align: center
+
 
 HTML templating vs TAL templating
 ---------------------------------
@@ -744,7 +752,9 @@ Let's create a block to display the Talks Top 5:
 
              string:${globals_view/navigationRootUrl}/@@rapido/view/talks-top-5
 
-.. TODO:: ADD SCREENSHOT HERE
+.. image:: _static/rapido-added_cmf_action.png
+   :align: center
+
 
 Index and query records
 -----------------------
@@ -876,7 +886,9 @@ We want to be able to sort the records according to their votes:
               </ul>
           </section>
 
-.. TODO:: ADD SCREENSHOT HERE
+.. image:: _static/rapido-top5.png
+   :align: center
+
 
 Create custom content-rules
 ---------------------------
