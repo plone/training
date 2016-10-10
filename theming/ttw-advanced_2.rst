@@ -105,9 +105,9 @@ Exercise 2 - viewing the unthemed site
 - ``<replace>`` replaces the theme element with the content element,
 - ``<drop>`` removes the content or the theme element.
 
-You use ``css:theme`` to specify CSS selector corresponding to the targeted element in the theme, and ``css:content`` to specifiy the CSS selector corresponding to the content element to display.
+The ``css:theme`` attribute specifies a CSS expression used to match elements in the theme, and ``css:content`` specifies a CSS selector which matches elements in the content.
 
-Similarly, you can use ``css:theme-children`` and ``css:content-children`` to target the element's children.
+Similarly, you can use ``css:theme-children`` and ``css:content-children`` to target the matched element's children.
 
 .. note:: sometimes CSS selectors are not powerful enough, and you can use XPath selectors (using ``theme`` and ``content``).
 
@@ -116,7 +116,7 @@ To apply a rule conditionally, you use ``css:if-theme`` and ``css:if-content`` (
 You can also create conditions about the current path using ``if-path``.
 
 
-Exercise 3 - the <notheme> and <drop> directives
+Exercise 3 - the <drop> directives
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Add a rule that drops the "search section" checkbox from the search box.
@@ -124,9 +124,6 @@ See the diagram below:
 
   .. image:: ../theming/_static/theming-dropping-thesearchsection.png
 
-2. Disable the theme when the news section is visited
-
-   blah blah
 
 Directive attributes
 ^^^^^^^^^^^^^^^^^^^^
