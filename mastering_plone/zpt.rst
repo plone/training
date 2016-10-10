@@ -217,6 +217,7 @@ Let's try another attribute:
 We change the markup a little to construct a list in which there is an ``<li>`` for every talk:
 
 .. code-block:: html
+   :linenos:
 
     <ul tal:define="talks python:['Dexterity for the win!',
                                   'Deco is the future',
@@ -287,6 +288,7 @@ The most frequently used one is ``nothing`` which is the equivalent to None
 A dict of all the available variables is ``econtext``
 
 ..  code-block:: html
+    :linenos:
 
     <dl tal:define="path_variables_dict econtext">
       <tal:vars tal:repeat="variable path_variables_dict">
@@ -300,6 +302,7 @@ A dict of all the available variables is ``econtext``
     In Plone 4 that used to be ``CONTEXTS``
 
     ..  code-block:: html
+        :linenos:
 
         <dl tal:define="path_variables_dict CONTEXTS">
           <tal:vars tal:repeat="variable path_variables_dict">
@@ -474,6 +477,7 @@ Modify the following template and one by one solve the following problems:
 :
 
 ..  code-block:: html
+    :linenos:
 
     <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                       'subjects': ('content-types', 'dexterity')},
