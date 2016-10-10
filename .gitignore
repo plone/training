@@ -3,6 +3,8 @@
 .Python
 .doctrees
 .vagrant
+*.sublime-project
+*.sublime-workspace
 _build/
 bin/
 build/
