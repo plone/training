@@ -60,16 +60,18 @@ It is the fast way to get content that exists in the site and do something with 
 
 .. code-block:: python
     :linenos:
+    :emphasize-lines: 3, 17-39
 
+    from operator import itemgetter
     from Products.Five.browser import BrowserView
     from plone import api
     from plone.dexterity.browser.view import DefaultView
 
 
     class DemoView(BrowserView):
-        """ This does nothing so far
-        """
+        """A demo listing"""
 
+    ...
 
     class TalkView(DefaultView):
         """ The default view for talks
