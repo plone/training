@@ -60,21 +60,14 @@ It is the fast way to get content that exists in the site and do something with 
 
 .. code-block:: python
     :linenos:
+    :emphasize-lines: 2, 7-25
+
 
     from Products.Five.browser import BrowserView
     from plone import api
     from plone.dexterity.browser.view import DefaultView
 
-
-    class DemoView(BrowserView):
-        """ This does nothing so far
-        """
-
-
-    class TalkView(DefaultView):
-        """ The default view for talks
-        """
-
+    [...]
 
     class TalkListView(BrowserView):
         """ A list of talks
@@ -82,11 +75,7 @@ It is the fast way to get content that exists in the site and do something with 
 
         def talks(self):
             results = []
-            portal_catalog = api.portal.get_tool('portal_catalog')
-            current_path = "/".join(self.context.getPhysicalPath())
-
-            brains = portal_catalog(portal_type="talk",
-                                    path=current_path)
+            brains = api.content.find(context=self.context, portal_type='talk')
             for brain in brains:
                 talk = brain.getObject()
                 results.append({
@@ -100,12 +89,22 @@ It is the fast way to get content that exists in the site and do something with 
                     })
             return results
 
-We query the catalog for two things:
+We query the catalog with two parameters. The catalog returns only items for which **both** apply:
 
-* ``portal_type = "talk"``
-* ``path = "/".join(self.context.getPhysicalPath())``
+* ``context=self.context``
+* ``portal_type='talk'``
 
-We get the path of the current context to query only for objects in the current path. Otherwise we'd get all talks in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for universities with a special talk list) we might not want so see them in our listing.
+We pass a object as `context` to query only for content in the current path. Otherwise we'd get all talks in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for universities with a special talk list) we might not want so see them in our listing. We also query for the `portal_type` so we only find talks.
+
+.. note::
+
+    We use the method :py:meth:`find` in :py:mod:`plone.api` to query the catalog. It is one of many convenience-methods provided as a wrapper around otherwise more complex api's. If you query the catalog direcly you'd have to first get the catalog, and pass it the path for which you want to find items:
+
+    .. code-block:: python:
+
+        portal_catalog = api.portal.get_tool('portal_catalog')
+        current_path = '/'.join(self.context.getPhysicalPath())
+        brains = portal_catalog(path=current_path, portal_type='talk')
 
 We iterate over the list of results that the catalog returns us.
 
