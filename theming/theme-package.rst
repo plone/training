@@ -344,7 +344,7 @@ To start the Plone instance, run:
 
    $ ./bin/instance fg
 
-The Plone instance will then run on http://localhost:8080.
+The Plone instance will then run on http://localhost:8080. The default username and password is ``admin / admin``.
 Add a Plone site ``Plone``.
 Then activate/install your theme product on http://localhost:8080/Plone/prefs_install_products_form.
 The theme will be automatically enabled.
@@ -376,7 +376,7 @@ Download and prepare a static theme
 
 Let's start with an untouched static theme, such as this bootstrap theme:
 http://startbootstrap.com/template-overviews/business-casual/.
-Just download it and extract it into the theme folder:
+Just download it and extract it into the theme folder. Replace the ``index.html`` with the one in the downloaded theme:
 
 .. code-block:: bash
 
@@ -445,7 +445,7 @@ Just download it and extract it into the theme folder:
 Preparing the template
 ++++++++++++++++++++++
 
-To make the given template more useful, we customize it a little bit.
+To make the given ``index.html`` more useful, we customize it a little bit.
 Right before the second box which contains:
 
 .. code-block:: html
@@ -579,8 +579,31 @@ We already have a fully functional rule set based on the Plone 5 default Theme:
      <!-- Copy over the id/class attributes on the body tag. This is important for per-section styling -->
      <copy attributes="*" css:content="body" css:theme="body" />
 
+<<<<<<< HEAD
      <!-- move global nav -->
      <replace css:theme-children="#mainnavigation" css:content-children="#portal-mainnavigation" method="raw" />
+=======
+     <!-- toolbar -->
+     <before
+       css:theme-children="body"
+       css:content-children="#edit-bar"
+       css:if-not-content=".ajax_load"
+       css:if-content=".userrole-authenticated"
+       />
+
+     <!-- login link -->
+     <after
+       css:theme-children="body"
+       css:content="#portal-anontools"
+       css:if-not-content=".ajax_load"
+       css:if-content=".userrole-anonymous"
+       />
+
+     <!-- replace theme navbar-nav with Plone plone-navbar-nav -->
+     <replace
+       css:theme-children=".navbar-nav"
+       css:content-children=".plone-navbar-nav" />
+>>>>>>> 08f2d905ae24516cc762ec68a427866d51d014d5
 
      <!-- full-width breadcrumb -->
      <replace css:content="#viewlet-above-content" css:theme="#above-content" />
@@ -637,6 +660,7 @@ We already have a fully functional rule set based on the Plone 5 default Theme:
        </replace>
      </rules>
 
+<<<<<<< HEAD
      <!-- Content header -->
      <replace css:theme="#portal-top" css:content-children="#portal-top" />
 
@@ -647,6 +671,12 @@ We already have a fully functional rule set based on the Plone 5 default Theme:
      <replace css:theme="#portal-toolbar" css:content-children="#edit-bar" css:if-not-content=".ajax_load" css:if-content=".userrole-authenticated" />
      <replace css:theme="#anonymous-actions" css:content-children="#portal-personaltools-wrapper" css:if-not-content=".ajax_load" css:if-content=".userrole-anonymous" />
 
+=======
+     <!-- footer -->
+     <replace
+       css:theme-children="footer .container"
+       css:content-children="#portal-footer-wrapper" />
+>>>>>>> 08f2d905ae24516cc762ec68a427866d51d014d5
    </rules>
 
 As you probably noticed the theme does not like it should and is missing some important parts like the toolbar. That is because we are using a HTML template here which is different to the on the Plone default theme is using.
@@ -727,6 +757,7 @@ Breadcrumb & co
 +++++++++++++++
 
 Plone provides some viewlets like the breadcrumbs (the current path) above the content area.
+<<<<<<< HEAD
 
 
 we already have the needed rule to insert the Plone above-content stuff into the theme:
@@ -739,6 +770,10 @@ we already have the needed rule to insert the Plone above-content stuff into the
 To get this into the theme layout, we add a placeholder with the CSS id ``#above-content`` to the theme.
 
 This is the place where we want to insert Plone's "above-content" stuff.
+=======
+To get this into the theme layout, we add a placeholder with the CSS id ``#above-content`` to the theme's ``index.html``.
+This is the place where we want to insert Plone's "above-content" stuff
+>>>>>>> 08f2d905ae24516cc762ec68a427866d51d014d5
 For example at the top of the ``div.container`` after:
 
 .. code-block:: html
@@ -1013,10 +1048,6 @@ The rest is more or less CSS.
 
 CSS resources
 -------------
-
-
-
-
 
 
 Here we import a number of specific parts from the default Plone 5 Barceloneta theme.
