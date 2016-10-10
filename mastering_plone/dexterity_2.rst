@@ -30,15 +30,15 @@ Add a marker interface to the talk type
 Marker Interfaces
 +++++++++++++++++
 
-The content type `Talk` is not yet a first class citizen because it does not implement its own interface. Interfaces are like nametags, telling other elements who and what you are and what you can do. A marker interface is like such a nametag. The talks actually have an auto-generated marker interface ``plone.dexterity.schema.generated.Plone_0_talk``.
+The content type `Talk` is not yet a *first class citizen* because it does not implement its own interface. Interfaces are like nametags, telling other elements who and what you are and what you can do. A marker interface is like such a nametag. The talks actually have an auto-generated marker interface ``plone.dexterity.schema.generated.Plone_0_talk``.
 
-The problem is that the name of the Plone instance ``Plone`` is part of that interface name. If you now moved these types to a site with another name, code that uses these interfaces would no longer find the objects in question.
+One problem is that the name of the Plone instance ``Plone`` is part of that interface name. If you now moved these types to a site with another name the code that uses these interfaces would no longer find the objects in question.
 
-To solve this we add a new :py:class:`Interface` to :file:`interfaces.py`:
+To create a real name-tag we add a new :py:class:`Interface` to :file:`interfaces.py`:
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 5,12-14
+    :emphasize-lines: 5,12-13
 
     # -*- coding: utf-8 -*-
     """Module where all interfaces, events and exceptions live."""
@@ -52,8 +52,7 @@ To solve this we add a new :py:class:`Interface` to :file:`interfaces.py`:
 
 
     class ITalk(Interface):
-        """Marker interface for Talks
-        """
+        """Marker interface for Talks"""
 
 :py:class:`ITalk` is a marker interface. We can bind Views and Viewlets to content that provide these interfaces. Lets see how we can provide this Interface. There are two solutions for this.
 
@@ -67,10 +66,10 @@ So let's register the interface as a behavior in :file:`behaviors/configure.zcml
 .. code-block:: xml
 
   <plone:behavior
-    title="Talk"
-    description="Marker interface for talks to be able to bind views to."
-    provides="..interfaces.ITalk"
-    />
+      title="Talk"
+      description="Marker interface for talks to be able to bind views to."
+      provides="..interfaces.ITalk"
+      />
 
 And enable it on the type in :file:`profiles/default/types/talk.xml`
 
@@ -93,13 +92,13 @@ Then we can safely bind the ``talkview`` to the new marker interface.
     :emphasize-lines: 3
 
     <browser:page
-      name="talkview"
-      for="ploneconf.site.interfaces.ITalk"
-      layer="zope.interface.Interface"
-      class=".views.TalkView"
-      template="templates/talkview.pt"
-      permission="zope2.View"
-      />
+        name="talkview"
+        for="ploneconf.site.interfaces.ITalk"
+        layer="zope.interface.Interface"
+        class=".views.TalkView"
+        template="templates/talkview.pt"
+        permission="zope2.View"
+        />
 
 Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface :py:meth:`catalog(object_provides="ploneconf.site.interfaces.ITalk")`. The ``talklistview`` and the ``demoview`` do not get this constraint since they are not only used on talks.
 
@@ -113,10 +112,11 @@ Now the ``/talkview`` can only be used on objects that implement said interface.
 
           from plone.dexterity.content import Container
           from ploneconf.site.interfaces import ITalk
-          from zope.interface import implements
+          from zope.interface import implementer
 
+          @implementer(ITalk)
           class Talk(Container):
-              implements(ITalk)
+              """Class for Talks"""
 
     * Modify the class for new talks in :file:`profiles/default/types/talk.xml`
 
@@ -137,14 +137,21 @@ Now the ``/talkview`` can only be used on objects that implement said interface.
 Upgrade steps
 -------------
 
-When projects evolve you'll sometimes have to modify various things while the site is already up and brimming with content and users. Upgrade steps are pieces of code that run when upgrading from one version of an add-on to a newer one. They can do just about anything.
+When projects evolve you sometimes want to modify various things while the site is already up and brimming with content and users. Upgrade steps are pieces of code that run when upgrading from one version of an add-on to a newer one. They can do just about anything.
+We will use an upgrade-step to enable the new behavior instead of reinstalling the addon.
 
 We will create an upgrade step that
 
 * runs the typeinfo step (i.e. loads the GenericSetup configuration stores in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the add-on to have our changes from above take effect) and
-* cleans up some content that might be scattered around the site in the early stages of creating it. We will move all talks to a folder ``talks`` (unless they already are there).
+* cleans up the talks that might be scattered around the site in the early stages of creating it. We will move all talks to a folder ``talks`` (unless they already are there).
 
-Upgrade steps are usually registered in their own zcml file. Create :file:`upgrades.zcml`
+Upgrade steps can be registered in their own zcml file to prevent cluttering the main :file:`configure.zcml`. Include a new :file:`upgrades.zcml` in our :file:`configure.zcml` by adding:
+
+..  code-block:: xml
+
+    <include file="upgrades.zcml" />
+
+Create :file:`upgrades.zcml`
 
 .. code-block:: xml
     :linenos:
@@ -156,14 +163,14 @@ Upgrade steps are usually registered in their own zcml file. Create :file:`upgra
       i18n_domain="ploneconf.site">
 
       <genericsetup:upgradeStep
-        title="Update and cleanup talks"
-        description="Updates typeinfo and moves talks to a folder 'talks'"
-        source="1000"
-        destination="1001"
-        handler="ploneconf.site.upgrades.upgrade_site"
-        sortkey="1"
-        profile="ploneconf.site:default"
-        />
+          title="Update and cleanup talks"
+          description="Update typeinfo and move talks to a folder 'talks'"
+          source="1000"
+          destination="1001"
+          handler="ploneconf.site.upgrades.upgrade_site"
+          sortkey="1"
+          profile="ploneconf.site:default"
+          />
 
     </configure>
 
@@ -173,18 +180,14 @@ The upgrade step bumps the version number of the GenericSetup profile of ploneco
 
     <version>1001</version>
 
-Include the new :file:`upgrades.zcml` in our :file:`configure.zcml` by adding:
-
-..  code-block:: xml
-
-    <include file="upgrades.zcml" />
-
 GenericSetup now expects the code as a method :py:meth:`upgrade_site` in the file :file:`upgrades.py`. Let's create it.
 
 ..  code-block:: python
     :linenos:
 
+    # -*- coding: utf-8 -*-
     from plone import api
+
     import logging
 
     default_profile = 'profile-ploneconf.site:default'
@@ -193,54 +196,59 @@ GenericSetup now expects the code as a method :py:meth:`upgrade_site` in the fil
 
     def upgrade_site(setup):
         setup.runImportStepFromProfile(default_profile, 'typeinfo')
-        catalog = api.portal.get_tool('portal_catalog')
         portal = api.portal.get()
         # Create a folder 'The event' if needed
         if 'the-event' not in portal:
-            theevent = api.content.create(
+            event_folder = api.content.create(
                 container=portal,
                 type='Folder',
                 id='the-event',
-                title='The event')
+                title=u'The event')
         else:
-            theevent = portal['the-event']
+            event_folder = portal['the-event']
 
         # Create folder 'Talks' inside 'The event' if needed
-        if 'talks' not in theevent:
-            talks = api.content.create(
-                container=theevent,
+        if 'talks' not in event_folder:
+            talks_folder = api.content.create(
+                container=event_folder,
                 type='Folder',
                 id='talks',
-                title='Talks')
+                title=u'Talks')
         else:
-            talks = theevent['talks']
-        talks_url = talks.absolute_url()
+            talks_folder = event_folder['talks']
+        talks_url = talks_folder.absolute_url()
 
-        # Get all talks
-        brains = catalog(portal_type='talk')
+        # Find all talks
+        brains = api.content.find(portal_type='talk')
         for brain in brains:
             if talks_url in brain.getURL():
-                # Skip if the talk is already in target-folder
+                # Skip if the talk is already somewhere inside the target-folder
                 continue
             obj = brain.getObject()
-            logger.info('Moving %s to %s' % (obj.absolute_url(), talks.absolute_url()))
-            # Move each talk to the folder '/the-event/talks'
+            logger.info('Moving {} to {}'.format(
+                obj.absolute_url(), talks_folder.absolute_url()))
+            # Move talk to the folder '/the-event/talks'
             api.content.move(
                 source=obj,
-                target=talks,
+                target=talks_folder,
                 safe_id=True)
 
+Note:
+
+* Upgrade-steps get the tool `portal_setup` passed as their argument.
+* The `portal_setup` tool has a method :py:meth:`runImportStepFromProfile`
+* We create the needed folder-structure if it does not exists.
 
 After restarting the site we can run the step:
 
-* Go to the Add-ons control panel http://localhost:8080/Plone/prefs_install_products_form. There should now be a warning **This add-on has been upgraded. Old profile version was 1000. New profile version is 1001** and a button next to it.
+* Go to the Add-ons control panel http://localhost:8080/Plone/prefs_install_products_form. There should now be a new section **Upgrades** and a button to upgrade from 1000 to 1001.
 * Run the upgrade step by clicking on it.
 
 On the console you should see logging messages like::
 
-    INFO ploneconf.site Moving http://localhost:8080/Plone/old-talk1 to http://localhost:8080/Plone/the-event/talks
+    INFO ploneconf.site.upgrades Moving http://localhost:8080/Plone/old-talk1 to http://localhost:8080/Plone/the-event/talks
 
-Alternatively you can select which upgrade steps to run like this:
+Alternatively you also select which upgrade steps to run like this:
 
 * In the ZMI go to *portal_setup*
 * Go to the tab :guilabel:`Upgrades`
@@ -254,9 +262,9 @@ Alternatively you can select which upgrade steps to run like this:
 
 .. note::
 
-    Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package :py:mod:`plone.app.upgrade`. You should be able to upgrade a clean site from 2.5 to 5.0 with a click.
+    Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package :py:mod:`plone.app.upgrade`. You should be able to upgrade a clean site from 2.5 to 5.0 with one click.
 
-    For an example see the upgrade-step to Plone 5.0a1 https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L23
+    For an example see the upgrade-step to Plone 5.0a1 https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L37
 
 
 
@@ -272,23 +280,34 @@ Since we want the features we write only to be available when ploneconf.site act
 Our package already has a browserlayer (:py:mod:`bobtemplates.plone` added it). See :file:`interfaces.py`:
 
 ..  code-block:: python
+    :linenos:
+    :emphasize-lines: 4, 8-9
+
+    # -*- coding: utf-8 -*-
+    """Module where all interfaces, events and exceptions live."""
 
     from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+    from zope.interface import Interface
+
 
     class IPloneconfSiteLayer(IDefaultBrowserLayer):
         """Marker interface that defines a browser layer."""
 
 
-It is enabled by GenericSetup when installing the package since it is registered in :file:`profiles/default/browserlayer.xml`
+    class ITalk(Interface):
+        """Marker interface for Talks"""
+
+
+It is enabled by GenericSetup when installing the package since it is registered in the :file:`profiles/default/browserlayer.xml`
 
 ..  code-block:: xml
 
-    <?xml version="1.0"?>
+    <?xml version="1.0" encoding="UTF-8"?>
     <layers>
       <layer
-        name="ploneconf.site"
-        interface="ploneconf.site.interfaces.IPloneconfSiteLayer"
-      />
+          name="ploneconf.site"
+          interface="ploneconf.site.interfaces.IPloneconfSiteLayer"
+          />
     </layers>
 
 We should bind all views to it. Here is an example using the talkview.
@@ -297,13 +316,13 @@ We should bind all views to it. Here is an example using the talkview.
     :emphasize-lines: 4
 
     <browser:page
-      name="talklistview"
-      for="*"
-      layer="..interfaces.IPloneconfSiteLayer"
-      class=".views.TalkListView"
-      template="templates/talklistview.pt"
-      permission="zope2.View"
-      />
+        name="talklistview"
+        for="*"
+        layer="..interfaces.IPloneconfSiteLayer"
+        class=".views.TalkListView"
+        template="templates/talklistview.pt"
+        permission="zope2.View"
+        />
 
 Note the relative python path :py:class:`..interfaces.IPloneconfSiteLayer`. It is equivalent to the absolute path :py:class:`ploneconf.site.interfaces.IPloneconfSiteLayer`.
 
@@ -370,6 +389,20 @@ The ``column ..`` entries allow us to display the values of these indexes in the
 
     http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html
 
+.. note::
+
+    The new indexes are still empty. We'll have to reindex them. To do so by hand go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes, select the new indexes and click :guilabel:`Reindex`. We could also rebuild the whole catalog by going to the :guilabel:`advanced`-tab and clicking :guilabel:`Clear and Rebuild`. For large sites that can take a long time.
+
+    We could also write an upgrade step to enable the catalog-indexes and reindex all talks:
+
+    .. code-block:: python
+
+        def add_some_indexes(setup):
+            setup.runImportStepFromProfile(default_profile, 'catalog')
+            for brain in api.content.find(portal_type='talk'):
+                obj = brain.getObject()
+                obj.reindexObject(idxs=['type_of_talk', 'speaker', 'audience'])
+
 
 .. _dexterity2-customindex-label:
 
@@ -394,7 +427,7 @@ We now can use the new indexes to improve the talklistview so we don't have to *
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 17-19
+    :emphasize-lines: 13-15
 
     class TalkListView(BrowserView):
         """ A list of talks
@@ -402,11 +435,7 @@ We now can use the new indexes to improve the talklistview so we don't have to *
 
         def talks(self):
             results = []
-            portal_catalog = api.portal.get_tool('portal_catalog')
-            current_path = "/".join(self.context.getPhysicalPath())
-
-            brains = portal_catalog(portal_type="talk",
-                                    path=current_path)
+            brains = api.content.find(context=self.context, portal_type='talk')
             for brain in brains:
                 results.append({
                     'title': brain.Title,
@@ -419,7 +448,7 @@ We now can use the new indexes to improve the talklistview so we don't have to *
                     })
             return results
 
-The template does not need to be changed and the result in the browser did not change, either.
+The template does not need to be changed and the result in the browser did not change, either. But when listing a large number of objects the site will now be faster since all the data you use comes from the catalog and the objects do not have to be loaded into memory.
 
 .. _dexterity2-collection-criteria-label:
 
@@ -525,3 +554,18 @@ Finally you need to activate the versioning behavior on the content type. Edit `
      <element value="ploneconf.site.interfaces.ITalk"/>
      <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
     </property>
+
+.. note::
+
+    There is currently a bug that breaks showing diffs when multiple-choice fields were changed.
+
+
+Summary
+-------
+
+The talks are now grown up:
+
+* They provide a interface to which you can bind features like views
+* Some fields are indexed in the catalog making the listing faster
+* Talks are now versioned
+* You wrote your first upgrade-step to move the talks around: Whopee!

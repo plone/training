@@ -319,95 +319,75 @@ Add this simple table to :file:`templates/talklistview.pt`:
 .. code-block:: html
     :linenos:
 
-    <table class="listing">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+          metal:use-macro="context/main_template/macros/master"
+          i18n:domain="ploneconf.site">
+    <body>
+      <metal:content-core fill-slot="content-core">
+      <table class="listing"
+             id="talks"
+             tal:define="talks python:view.talks()">
         <thead>
-            <tr>
-                <th>
-                    Title
-                </th>
-                <th>
-                    Speaker
-                </th>
-                <th>
-                    Audience
-                </th>
-            </tr>
+          <tr>
+            <th>Title</th>
+            <th>Speaker</th>
+            <th>Audience</th>
+          </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                   The 7 sins of plone development
-                </td>
-                <td>
-                    Philip Bauer
-                </td>
-                <td>
-                    Advanced
-                </td>
-            </tr>
+          <tr tal:repeat="talk talks">
+            <td>
+              <a href=""
+                 tal:attributes="href python:talk['url'];
+                                 title python:talk['description']"
+                 tal:content="python:talk['title']">
+                 The 7 sins of plone-development
+              </a>
+            </td>
+            <td tal:content="python:talk['speaker']">
+                Philip Bauer
+            </td>
+            <td tal:content="python:talk['audience']">
+                Advanced
+            </td>
+          </tr>
+          <tr tal:condition="not:talks">
+            <td colspan=3>
+                No talks so far :-(
+            </td>
+          </tr>
         </tbody>
-    </table>
+      </table>
 
-Afterwards you transform it into a listing. Here we use one of many nice features built into Plone. The :samp:`class="pat-tablesorter"` (before Plone 5 that was :samp:`class="listing"`) gives the table a nice style and makes the table sortable with some JavaScript.
+      </metal:content-core>
+    </body>
+    </html>
 
-.. code-block:: html
-    :linenos:
-
-    <table class="listing pat-tablesorter" id="talks">
-        <thead>
-            <tr>
-                <th>
-                    Title
-                </th>
-                <th>
-                    Speaker
-                </th>
-                <th>
-                    Audience
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr tal:repeat="talk view/talks">
-                <td>
-                    <a href=""
-                       tal:attributes="href talk/url;
-                                       title talk/description"
-                       tal:content="talk/title">
-                       The 7 sins of plone-development
-                    </a>
-                </td>
-                <td tal:content="talk/speaker">
-                    Philip Bauer
-                </td>
-                <td tal:content="talk/audience">
-                    Advanced
-                </td>
-            </tr>
-            <tr tal:condition="not:view/talks">
-                <td colspan=3>
-                    No talks so far :-(
-                </td>
-            </tr>
-        </tbody>
-    </table>
+Again we use ``class="listing"`` to give the table a nice style.
 
 There are some some things that need explanation:
 
-:samp:`tal:repeat="talk view/talks"`
-    This iterates over the list of dictionaries returned by the view. :samp:`view/talks` calls the method :py:meth:`talks` of our view and each :py:obj:`talk` is in turn one of the dictionaries that are returned by this method. Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects we can write :samp:`talk/somekey` as we could :samp:`view/somemethod`. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict. It would be a good practice to write :samp:`tal:repeat="talk python:view.talks()"`.
+:samp:`tal:define="talks python:view.talks()"`
+    This defines the variable `talks`. We do thins since we reuse it later and don't want to call the same method twice. Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects and methods of classes we can write :samp:`view/talks` as we could :samp:`view/someattribute`. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict.
 
-:samp:`tal:content="talk/speaker"`
-    'speaker' is a key in the dict 'talk'. We could also write :samp:`tal:content="python:talk['speaker']"`
+:samp:`tal:repeat="talk talks"`
+    This iterates over the list of dictionaries returned by the view. Each :py:obj:`talk` is one of the dictionaries that are returned by this method.
 
-:samp:`tal:condition="not:view/talks"`
+:samp:`tal:content="python:talk['speaker']"`
+    'speaker' is a key in the dict 'talk'. We could also write :samp:`tal:content="talk/speaker"`
+
+:samp:`tal:condition="not:talks"`
     This is a fallback if no talks are returned. It then returns an empty list (remember :samp:`results = []`?)
+
+.. note::
+
+    We could also write :samp:`python:not talks` like we could also write :samp:`tal:repeat="talk python:talks"` for the iteration. For simple cases as these path-statements are sometimes fine. On the other hand: If ``talks`` would be a callable we woul need to use ``nocall:talks``, so maybe it would be better to always use ``python:``.
 
 
 Exercise
 ********
 
-Modify the view to only use python expressions.
+Modify the view to only use path-expressions. This is **not** best-practice but there is plenty of code in Plone and in Addons so you have to know how to use them.
 
 ..  admonition:: Solution
     :class: toggle
@@ -415,46 +395,48 @@ Modify the view to only use python expressions.
     .. code-block:: html
         :linenos:
 
-        <table class="listing pat-tablesorter" id="talks">
+        <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+              metal:use-macro="context/main_template/macros/master"
+              i18n:domain="ploneconf.site">
+        <body>
+          <metal:content-core fill-slot="content-core">
+          <table class="listing" id="talks"
+                 tal:define="talks view/talks">
             <thead>
-                <tr>
-                    <th>
-                        Title
-                    </th>
-                    <th>
-                        Speaker
-                    </th>
-                    <th>
-                        Audience
-                    </th>
-                </tr>
+              <tr>
+                <th>Title</th>
+                <th>Speaker</th>
+                <th>Audience</th>
+              </tr>
             </thead>
-            <tbody tal:define="talks python:view.talks()">
-                <tr tal:repeat="talk talks">
-                    <td>
-                        <a href=""
-                           tal:attributes="href python:talk['url'];
-                                           title python:talk['description']"
-                           tal:content="python:talk['title']">
-                           The 7 sins of plone-development
-                        </a>
-                    </td>
-                    <td tal:content="python:talk['speaker']">
-                        Philip Bauer
-                    </td>
-                    <td tal:content="python:talk['audience']">
-                        Advanced
-                    </td>
-                </tr>
-                <tr tal:condition="python:not talks">
-                    <td colspan=3>
-                        No talks so far :-(
-                    </td>
-                </tr>
+            <tbody>
+              <tr tal:repeat="talk talks">
+                <td>
+                  <a href=""
+                     tal:attributes="href talk/url;
+                                     title talk/description"
+                     tal:content="talk/title">
+                     The 7 sins of plone-development
+                  </a>
+                </td>
+                <td tal:content="talk/speaker">
+                    Philip Bauer
+                </td>
+                <td tal:content="talk/audience">
+                    Advanced
+                </td>
+              </tr>
+              <tr tal:condition="not:talks">
+                <td colspan=3>
+                    No talks so far :-(
+                </td>
+              </tr>
             </tbody>
-        </table>
+          </table>
 
-    To follow the mantra "don't repeat yourself" we define :py:obj:`talks` instead of calling the method twice.
+          </metal:content-core>
+        </body>
+        </html>
 
 
 .. _views3-custom-label:
