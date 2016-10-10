@@ -56,7 +56,7 @@ A custom workflow for talks
 
 We still need to fix a problem: Authenticated users can see all talks, even the ones of other users in the private state. Since we don't want this we will create a modified workflow for talks. The new workflow will only let them see and edit talks they created themselves and not the ones of other users.
 
-* Go to the ZMI > :guilabel:`portal_workflow`
+* Go to the :menuselection:`ZMI --> portal_workflow`
 * See how talks have the same workflow as most content, namely :guilabel:`(Default)`
 * Go to the tab :guilabel:`Contents`, check the box next to :guilabel:`simple_publication_workflow`, click :guilabel:`copy` and :guilabel:`paste`.
 * Rename the new workflow from *copy_of_simple_publication_workflow* to *talks_workflow*.

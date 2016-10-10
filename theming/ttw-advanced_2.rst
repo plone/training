@@ -75,6 +75,7 @@ Introduction to the Diazo rule directives
 The Diazo rules file is an XML document containing rules to specify where the content elements (title, footer, main text, etc.) will be located in the targeted theme page. 
 The rules are created with ``rule directives``. The basic Diazo directives are:
 
+<<<<<<< HEAD
 `<theme>`
     Specifies which file to use for the theme
 `<notheme>`
@@ -99,6 +100,20 @@ Exercise 2 - viewing the unthemed site
 
 1. Use diazo.off=1 to your website to view an unthemed version of your site
 2. Using your browser's inspector find out the location/name of some of the unthemed elements
+- ``<after>`` inserts the content element after the theme element,
+- ``<before>`` inserts the content element before the specified theme element,
+- ``<replace>`` replaces the theme element with the content element,
+- ``<drop>`` removes the content or the theme element.
+
+You use ``css:theme`` to specify CSS selector corresponding to the targeted element in the theme, and ``css:content`` to specifiy the CSS selector corresponding to the content element to display.
+
+Similarly, you can use ``css:theme-children`` and ``css:content-children`` to target the element's children.
+
+.. note:: sometimes CSS selectors are not powerful enough, and you can use XPath selectors (using ``theme`` and ``content``).
+
+To apply a rule conditionally, you use ``css:if-theme`` and ``css:if-content`` (or ``if-theme`` and ``if-content`` with XPath).
+
+You can also create conditions about the current path using ``if-path``.
 
 
 Exercise 3 - the <notheme> and <drop> directives
@@ -149,6 +164,10 @@ attributes ``theme`` and ``content``.
 `content-children`
     Used to identify the children of an element that will be used using Xpath selectors.
 
+- the current user role, and its permissions,
+- the current content-type and its template,
+- the site section and sub section,
+- the current subsite (if any).
 
 
 Conditional attributes

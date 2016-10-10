@@ -19,11 +19,11 @@ Topics covered:
 
 * omelette/packages
 * z3c.jbot
-* moment pattern
+* date-formatting and the moment pattern
 * listings
 * skins
 
-To dive deeper into real plone data we now look at some existing templates and customize them.
+To dive deeper into real Plone data we now look at some existing templates and customize them.
 
 
 .. _zpt2-news-label:
@@ -37,12 +37,45 @@ To do this we will customize the template that is used to render News Items.
 
 We use :py:mod:`z3c.jbot` for overriding templates. The package already has the necessary configuration in :file:`browser/configure.zcml`.
 
-* Find the file :file:`newsitem.pt` in :file:`packages/plone/app/contenttypes/browser/templates/` (in vagrant this directory is in :file:`/home/vagrant/packages`, otherwise it is in your buildout directory).
-* Copy that file into the folder :file:`browser/overrides/` of our package. If you use vagrant you'd have to use::
+Find the file :file:`newsitem.pt` in :file:`packages/plone/app/contenttypes/browser/templates/` (in vagrant this directory is in :file:`/home/vagrant/packages`, otherwise it is in your buildout directory).
+
+The file looks like this:
+
+.. code-block:: html
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="plone">
+    <body>
+
+    <metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core"
+                        tal:define="toc context/table_of_contents|nothing;">
+      <div id="parent-fieldname-text"
+          tal:condition="context/text"
+          tal:content="structure python:context.text.output_relative_to(view.context)"
+          tal:attributes="class python: toc and 'pat-autotoc' or ''" />
+    </metal:content-core>
+    </metal:content-core>
+
+    </body>
+    </html>
+
+Note the following:
+
+* Like almost all Plone-templates it uses `metal:use-macro="context/main_template/macros/master"` to use the main_template
+* This template fills teh same slot `content-core` as the template you created in the last chapter. This means the heading and description are displayed by the `main_template`.
+* The image and image-caption that is provided by the behavior is not part of the template.
+
+Copy that file into the folder :file:`browser/overrides/` of our package. If you use vagrant you'd have to use::
 
     cp /home/vagrant/packages/plone/app/contenttypes/browser/templates/newsitem.pt /vagrant/buildout/src/ploneconf.site/src/ploneconf/site/browser/overrides/
 
-* Rename the new file from :file:`newsitem.pt` to :file:`plone.app.contenttypes.browser.templates.newsitem.pt`.
+* Rename the new file from :file:`newsitem.pt` to :file:`plone.app.contenttypes.browser.templates.newsitem.pt`. :py:mod:`z3c.jbot` allows you to override templates by putting a file inside a special directory with a *canonical name* (i.e. the path of the file separated by `.` plus the original filename).
 * Restart Plone
 
 Now Plone will use the new file to override the original one.
@@ -120,6 +153,80 @@ Let's look for the template folder_summary_view.pt::
 
     plone/app/contenttypes/browser/templates/listing_summary.pt
 
+The file looks like this:
+
+.. code-block:: html
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="plone">
+    <body>
+
+    <metal:content-core fill-slot="content-core">
+    <metal:block use-macro="context/@@listing_view/macros/content-core">
+
+      <metal:entries fill-slot="entries">
+        <metal:block use-macro="context/@@listing_view/macros/entries">
+          <metal:entry fill-slot="entry">
+
+            <article class="tileItem" tal:define="obj item/getObject">
+              <h2 class="tileHeadline" metal:define-macro="listitem">
+                <a class="summary url"
+                    tal:attributes="href item_link;
+                                    title item_type"
+                    tal:content="item_title">
+                  Item Title
+                </a>
+              </h2>
+
+              <div metal:use-macro="context/@@listing_view/macros/document_byline"></div>
+
+              <div class="tileImage"
+                   tal:condition="item_has_image"
+                   tal:attributes="class python: 'tileImage' if item_description else 'tileImageNoFloat'">
+                <a tal:attributes="href item_link">
+                  <img tal:define="scales obj/@@images;
+                                   scale python:scales.scale('image', 'thumb')"
+                      tal:replace="structure python:scale and scale.tag() or None" />
+                </a>
+              </div>
+
+              <div class="tileBody" tal:condition="item_description">
+                <span class="description" tal:content="item_description">
+                  description
+                </span>
+              </div>
+
+              <div class="tileFooter">
+                <a tal:attributes="href item_link"
+                    i18n:translate="read_more">
+                  Read More&hellip;
+                </a>
+              </div>
+
+              <div class="visualClear"><!-- --></div>
+
+            </article>
+
+          </metal:entry>
+        </metal:block>
+      </metal:entries>
+
+    </metal:block>
+    </metal:content-core>
+
+    </body>
+    </html>
+
+Note the following:
+
+* Unlike :file:`newsitem.pt` the file does not display data from a context but obviously pre-defined variables like `item`, `item_link`, `item_type` or `item_description`.
+* It reuses multiple macros of a view  `context/@@listing_view`.
+* The variables are most likely defined in the macro `entries` of that view.
 
 Copy it to :file:`browser/overrides/` and rename it to :file:`plone.app.contenttypes.browser.templates.listing_summary.pt`.
 
@@ -131,9 +238,10 @@ Add the following after line 28:
       ${python:plone_view.toLocalizedTime(item.Date())}
     </p>
 
-After you restart the instance and look at the new folder again you'll see the dates.
+After you restart the instance and look at the new folder again you'll see the dates. :py:mod:`z3c.jbot` needs a restart to pick up the new file.
+When you only change a existing override you don't have to restart.
 
-Our addition renders the date of the respective objects that the template iterates over (thus ``item`` instead of ``context`` since ``context`` would be either a collection aggregating the news items or a folder containing a news item).
+The addition renders the date of the respective objects that the template iterates over (hence ``item`` instead of ``context`` since ``context`` would be either a collection aggregating the news items or a folder containing a news item).
 
 The date is only displayed if the variable ``item_type`` is ``News Item``.
 
@@ -145,7 +253,8 @@ The first step to uncovering that secret is line 14 of :file:`listing_summary.pt
 
     <metal:block use-macro="context/@@listing_view/macros/entries">
 
-``use-macro`` tells Plone to reuse the macro ``entries`` from the view ``listing_view``. That view is defined in :file:`packages/plone/app/contenttypes/browser/configure.zcml`.  It uses the template :file:`plone/app/contenttypes/browser/templates/listing.pt`. That makes overriding that much easier :-)
+``use-macro`` tells Plone to reuse the macro ``entries`` from the view ``listing_view``. That view is defined in :file:`packages/plone/app/contenttypes/browser/configure.zcml`.
+It uses the template :file:`plone/app/contenttypes/browser/templates/listing.pt`. That makes overriding that much easier.
 
 That template :file:`listing.pt` defines the slot ``entries`` like this:
 
@@ -189,8 +298,56 @@ Luckily the first is a class that inherits from the second:
 
 :py:meth:`batch` is a method in :py:class:`FolderView` that turns :py:obj:`results` into batches. :py:obj:`results` exists in both classes. This means, in case the item we are looking at is a collection, the method :py:meth:`results` of :py:class:`CollectionView`, will be used; and in case it's a folder, the one in :py:class:`FolderView`.
 
-To be continued...
+So `batch` is a list of items. The way it is created is actually pretty complicated and makes use of a couple of packages to create a filtered (through :py:mod:`plone.app.querystring`) list of optimized representations (through :py:mod:`plone.app.contentlisting`) of items. For now it is enough to know that `item` represents one of the items in the list of News Items.
 
+The template :file:`listing_summary.pt` is extraordinary in its heavy use of nested macros. Most of the templates you will write are much simpler and easier to read.
+
+Trying to understand templates as complicated as these can be hard, but there is help to be found if you know Python: You can use :py:mod:`pdb` to debug templates line by line.
+
+Add the following to line 29 just before our additions::
+
+    <?python import pdb; pdb.set_trace() ?>
+
+When you reload the page and look at the terminal you see you have pdb-console and can inspect the template at its current state by looking at the variable `econtext`. You can now simply look up what `item ` and `PortalType` are:
+
+..  code-block:: python
+
+    (pdb) pp econtext
+    [...]
+    'context': <Collection at /Plone/news/aggregator>,
+    'context_state': <Products.Five.metaclass.ContextState object at 0x10b7f50d0>,
+    'default': <object object at 0x100294c50>,
+    'dummy': None,
+    'here': <Collection at /Plone/news/aggregator>,
+    'isRTL': False,
+    'item': <plone.app.contentlisting.catalog.CatalogContentListingObject instance at /Plone/news/hot-news>,
+    'item_created': '2016-10-08T15:04:17+02:00',
+    'item_creator': 'admin',
+    [...]
+    (pdb) item = econtext['item']
+    (pdb) item
+    <plone.app.contentlisting.catalog.CatalogContentListingObject instance at /Plone/news/hot-news>
+
+As discovered above `item` is a instance of :py:class:`plone.app.contentlisting.catalog.CatalogContentListingObject`. It has several methods and properties:
+
+..  code-block:: python
+
+    (pdb) pp dir(item)
+    [...]
+    'Language',
+    'ModificationDate',
+    'PortalType',
+    'Publisher',
+    'ReviewStateClass',
+    'Rights',
+    [...]
+
+`PortalType` is a method that returns the name of the items content-type.
+
+..  code-block:: python
+
+    (pdb) item.PortalType()
+    'News Item'
 
 .. note::
 
@@ -198,7 +355,7 @@ To be continued...
 
     The Archetypes template for News Items is :file:`newsitems_view.pt` from the same folder. The customized template would then have to be named :file:`Products.CMFPlone.skins.plone_content.newsitems_view.pt`.
 
-    Keep in mind that not only the names and locations have changed but also the content!
+    Keep in mind that not only the names and locations have changed but also the content and the logic behind them!
 
 
 .. _zpt2-finding-label:
@@ -218,13 +375,11 @@ If you don't know which template is used by the page you're looking at you can m
 
     The class ``template-summary_view`` tells us that the name of the view (but not necessarily the name of the template) is ``summary_view``. So we could search all :file:`*.zcml`-Files for ``name="summary_view"`` or search all templates called :file:`summary_view.pt` and probably find the view and also the corresponding template. But only probably because it would not tell us if the template is already being overridden.
 
-2.  The safest method is using :py:mod:`plone.app.debugtoolbar`.  We already have it in our buildout and only need to install it. It adds a "Debug"-Dropdown on top of the page. The Section "Published" shows the complete path to the template that is used to render the page you are seeing.
+    A foolproof way to verify your guess is to modify the template and reload the page. If your modification shows up you obviously found the correct file.
 
-    .. warning::
+2.  The safest method is using :py:mod:`plone.app.debugtoolbar`.  We already have it in our buildout and only need to install it. It adds a "Debug"-Dropdown on top of the page. The section "Published" shows the complete path to the template that is used to render the page you are seeing.
 
-       plone.app.debugtoolbar is not yet compatible with Plone 5. It kind of works but looks really ugly...
-
-3.  The debug session to find the template is a little more complicated. Since we have :py:mod:`Products.PDBDebugMode` in our buildout we can call ``/pdb`` on our page.
+3.  The debug session to find the template is a little more complicated. Since we have :py:mod:`Products.PDBDebugMode` in our buildout we can call ``/pdb`` on our page. We cannot put a `pdb` in the templates since we do not know (yet) which template to put the `pdb` in.
 
     The object that the URL points to is by default :py:obj:`self.context`.
     But the first problem is that the URL we're seeing is not the URL of the collection we want to modify.
@@ -232,19 +387,19 @@ If you don't know which template is used by the page you're looking at you can m
 
     .. code-block:: python
 
-        >>> (Pdb) self.context
+        (Pdb) self.context
         <Folder at /Plone/news>
-        >>> (Pdb) obj = self.context.aggregator
-        >>> (Pdb) obj
+        (Pdb) obj = self.context.aggregator
+        (Pdb) obj
         <Collection at /Plone/news/aggregator>
-        >>> (Pdb) context_state = obj.restrictedTraverse('@@plone_context_state')
-        >>> (Pdb) template_id = context_state.view_template_id()
-        >>> (Pdb) template_id
+        (Pdb) context_state = obj.restrictedTraverse('@@plone_context_state')
+        (Pdb) template_id = context_state.view_template_id()
+        (Pdb) template_id
         'summary_view'
-        >>> (Pdb) view = obj.restrictedTraverse('summary_view')
-        >>> (Pdb) view
+        (Pdb) view = obj.restrictedTraverse('summary_view')
+        (Pdb) view
         <Products.Five.metaclass.SimpleViewClass from /Users/philip/.cache/buildout/eggs/plone.app.contenttypes-1.1b2-py2.7.egg/plone/app/contenttypes/browser/templates/summary_view.pt object at 0x10b00cd90>
-        >>> view.index.filename
+        view.index.filename
         u'/Users/philip/workspace/training_without_vagrant/src/ploneconf.site/ploneconf/site/browser/template_overrides/plone.app.contenttypes.browser.templates.summary_view.pt'
 
     Now we see that we already customized the template.
@@ -255,9 +410,7 @@ If you don't know which template is used by the page you're looking at you can m
 
         def get_template_path(self):
             context_state = api.content.get_view(
-                'plone_context_state',
-                self.context,
-                self.request)
+                'plone_context_state', self.context, self.request)
             view_template_id = context_state.view_template_id()
             view = self.context.restrictedTraverse(view_template_id)
             return view.index.filename
@@ -281,3 +434,12 @@ Skin templates and Python scripts in ``portal_skins`` are deprecated because:
 * they use restricted Python
 * they have no nice way to attach Python code to them
 * they are always callable for everything (they can't easily be bound to an interface)
+
+
+Summary
+-------
+
+* Overriding templates with :py:mod:`z3c.jbot` is easy.
+* Understanding templates can be hard.
+* Use plone.app.debugtoolbar and pdb are there to help you.
+* Skin templates are deprecated, you will probably only encounter when you work on Plone 4

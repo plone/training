@@ -88,7 +88,7 @@ The Mosaic editor
 
 To enable the Mosaic editor on a content item change its default display as follows: go to "Display" menu and select "Mosaic layout".
 
-Now, when we click on "Edit", the default Plone edit form is replaced with the Mosaic editor.
+Now, when we click on :guilabel:`Edit`, the default Plone edit form is replaced with the Mosaic editor.
 
 This editor allows to change our content fields content (just like the regular Plone form), but the fields are rendered into the view layout and they are edited in-place.
 
@@ -96,15 +96,15 @@ This editor allows to change our content fields content (just like the regular P
 
 The top bar offers different buttons:
 
-- "Save", to save our field entries.
-- "Cancel", to cancel our changes.
-- "Properties", to access the content properties: it displays the regular Plone form tabs, but the fields currently involved in the layout are hidden.
-- "Layout", to manage the content layout.
+- :guilabel:`Save`, to save our field entries.
+- :guilabel:`Cancel`, to cancel our changes.
+- :guilabel:`Properties`, to access the content properties: it displays the regular Plone form tabs, but the fields currently involved in the layout are hidden.
+- :guilabel:`Layout`, to manage the content layout.
 
 Change the content layout
 -------------------------
 
-If we click on "Layout" / "Change", we can choose the layout we want for our content.
+If we click on :menuselection:`Layout -> Change`, we can choose the layout we want for our content.
 The choices are restricted to the layout applicable to the current content-type.
 
 For instance for a Page, Mosaic proposes (by default) two layouts: Basic and Document.
@@ -114,7 +114,7 @@ For instance for a Page, Mosaic proposes (by default) two layouts: Basic and Doc
 Customize a content layout
 --------------------------
 
-If we click on "Layout" / "Customize", the Mosaic editor switches to the layout mode, where we can still change our field values, but also change the layout:
+If we click on :menuselection:`Layout -> Customize`, the Mosaic editor switches to the layout mode, where we can still change our field values, but also change the layout:
 
 - by hovering the page content, existing tiles are highlighted and we can drag & drop them in different places,
 - by clicking in a tile, we can edit its content,
@@ -173,22 +173,22 @@ Create an attractive layout for the home page.
 
     - go to Display menu and select "Mosaic layout",
     - click Edit,
-    - click on Layout / Customize,
+    - click on :menuselection:`Layout -> Customize`,
     - change the layout,
     - click Save.
 
 Create a reusable layout
 ------------------------
 
-When the layout has been customized, the "Layout" menu offers a "Save" action.
+When the layout has been customized, the :guilabel:`Layout` menu offers a :guilabel:`Save` action.
 
 This action allows to save the current layout as a reusable layout. 
 
-If "Global" is checked, the layout will be usable by any user (else it is restricted to the current user).
+If :file:`Global` is checked, the layout will be usable by any user (else it is restricted to the current user).
 
 The layout is associated to the current content type, by default it will not be usable for other content types.
 
-Once saved, our layout will be listed with the other available layouts when we click on "Layout" / "Change".
+Once saved, our layout will be listed with the other available layouts when we click on :menuselection:`Layout -> Change`.
 
 Exercise 2: create a layout for talks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -199,12 +199,12 @@ Create an attractive layout for a talk, save it and reuse it for another talk.
     :class: toggle
 
     - customize a talk layout (see Exercise 1),
-    - click on Layout / Save,
+    - click on :guilabel:`Layout` / :guilabel:`Save`,
     - enter its title: "Talk", and select "Global",
-    - click Save,
+    - click :guilabel:`Save`,
     - navigate to another talk,
-    - go to Display menu and select "Mosaic layout",
-    - click Edit,
+    - go to :guilabel:`Display` menu and select "Mosaic layout",
+    - click :guilabel:`Edit`,
     - click on Layout / Change,
     - choose "Talk".
 
@@ -213,7 +213,7 @@ Manage custom layouts
  
 Custom layouts can be managed from the Plone control panel:
 
-- click on user menu / Site settings,
+- click on :menuselection:`user menu --> Site settings`,
 - click on Mosaic Layout Editor (in the last section, named :guilabel:`Add-on configuration`),
 
 In the third tab of this control panel, named "Show/hide content layouts", we can see the existing layouts, their associated content types, and we can deactivate (or re-activate) them by clicking on :guilabel:`Hide` (or :guilabel:`Show`).
@@ -226,7 +226,7 @@ We can also delete the layout section from :file:`manifest.cfg`, and the layout 
 
 Deleting a custom layout can also be managed in another way:
 
-Note: the second tab, named "Site layouts", is not usable for now.
+Note: the second tab, named :guilabel:`Site layouts`, is not usable for now.
 
 
 Edit the layout HTML structure
@@ -237,29 +237,30 @@ There is also some HTML files. Each of them corresponds to a layout and they rep
 
 Using the code editor, we can change this HTML structure manually instead of using the WYSIWIG editor.
 
-Layouts are implemented in regular HTML using nested `<div>` elements and specific CSS classes. Those classes are provided by the Mosaic grid which works as any CSS grid:
+Layouts are implemented in regular HTML using nested ``<div>`` elements and specific CSS classes.
+Those classes are provided by the Mosaic grid which works like any CSS grid:
 
 - structure:
-    - mosaic-grid-row
-    - mosaic-grid-cell
+    - ``mosaic-grid-row``
+    - ``mosaic-grid-cell``
 - sizes:
-    - mosaic-width-full
-    - mosaic-width-half
-    - mosaic-width-quarter
-    - mosaic-width-three-quarters
-    - mosaic-width-third
-    - mosaic-width-two-thirds
+    - ``mosaic-width-full``
+    - ``mosaic-width-half``
+    - ``mosaic-width-quarter``
+    - ``mosaic-width-three-quarters``
+    - ``mosaic-width-third``
+    - ``mosaic-width-two-thirds``
 - positions:
-    - mosaic-position-leftmost
-    - mosaic-position-third
-    - mosaic-position-two-thirds
-    - mosaic-position-quarter
-    - mosaic-position-half
-    - mosaic-position-three-quarters
+    - ``mosaic-position-leftmost``
+    - ``mosaic-position-third``
+    - ``mosaic-position-two-thirds``
+    - ``mosaic-position-quarter``
+    - ``mosaic-position-half``
+    - ``mosaic-position-three-quarters``
 
 Import layouts
 --------------
 
 We might want to work on a layout on our development server, and then be able to deploy it on our production server.
 
-We can achieve that using the Mosaic editor control panel, which allows to copy the layout HTML structure and its declaration in `manifest.cfg`.
+We can achieve that using the Mosaic editor control panel, which allows to copy the layout HTML structure and its declaration in :file:`manifest.cfg`.
