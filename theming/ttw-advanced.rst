@@ -18,6 +18,12 @@ Topics covered:
 * ``<body>`` element CSS classes
 * Conditionally activating rules
 
+Installation
+------------
+
+We will use a `Plone pre-configured Heroku instance <https://github.com/collective/training-sandbox>`_.
+
+Once deployed, create a Plone site.
 
 Two approaches to theming
 -------------------------
