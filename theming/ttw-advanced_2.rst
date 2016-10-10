@@ -74,36 +74,52 @@ Introduction to the Diazo rules
 
 Diazo uses rules to specify where the content elements (title, footer, main text, etc.) must be located in the targeted theme page.
 
-- `<after>` inserts the content element after the theme element,
-- `<before>` inserts the content element before the specified theme element,
-- `<replace>` replaces the theme element with the content element,
-- `<drop>` removes the content or the theme element.
+- ``<after>`` inserts the content element after the theme element,
+- ``<before>`` inserts the content element before the specified theme element,
+- ``<replace>`` replaces the theme element with the content element,
+- ``<drop>`` removes the content or the theme element.
 
-You use `css:theme` to specify CSS selector corresponding to the targeted element in the theme, and `css:content` to specifiy the CSS selector corresponding to the content element to display.
+You use ``css:theme`` to specify CSS selector corresponding to the targeted element in the theme, and ``css:content`` to specifiy the CSS selector corresponding to the content element to display.
 
-Similarly, you can use `css:theme-children` and `css:content-children` to target the element's children.
+Similarly, you can use ``css:theme-children`` and ``css:content-children`` to target the element's children.
 
-.. note:: sometimes CSS selectors are not powerful enough, and you can use XPath selectors (using `theme` and `content`).
+.. note:: sometimes CSS selectors are not powerful enough, and you can use XPath selectors (using ``theme`` and ``content``).
 
-To apply a rule conditionally, you use `css:if-theme` and `css:if-content` (or `if-theme` and `if-content` with XPath).
+To apply a rule conditionally, you use ``css:if-theme`` and ``css:if-content`` (or ``if-theme`` and ``if-content`` with XPath).
 
-You can also create conditions about the current path using `if-path`.
+You can also create conditions about the current path using ``if-path``.
 
 Conditionally enable Barceloneta
 ---------------------------------
 
-The Plone `<body>` element has a lot of CSS classes that allow you to create accurate conditions for your Diazo rules.
+The Plone ``<body>`` element has a lot of CSS classes that allow you to create accurate conditions for your Diazo rules.
 
 Those classes make it possible to get a lot of information about the current context like:
 
-- the current user role, and his permissions,
+- the current user role, and its permissions,
 - the current content-type and its template,
 - the site section and sub section,
 - the current subsite (if any).
 
 Here is an example::
 
-    template-summary_view portaltype-collection site-Plone section-news subsection-aggregator icons-on thumbs-on frontend viewpermission-view userrole-manager userrole-authenticated userrole-owner plone-toolbar-left plone-toolbar-expanded plone-toolbar-left-expanded pat-plone patterns-loaded
+    template-summary_view
+    portaltype-collection
+    site-Plone
+    section-news
+    subsection-aggregator
+    icons-on
+    thumbs-on
+    frontend
+    viewpermission-view
+    userrole-manager
+    userrole-authenticated
+    userrole-owner
+    plone-toolbar-left
+    plone-toolbar-expanded
+    plone-toolbar-left-expanded
+    pat-plone
+    patterns-loaded
 
 Imagine you might want to use Barceloneta for the website administrators (so they can manage the content conveniently) and offer a completely different layout for visitors, you just need to create rules with ``css:if-content="body.userrole-anonymous"`` or ``css:if-content="body.:not(userrole-anonymous)"`` to enable the theme you want.
 

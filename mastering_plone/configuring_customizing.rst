@@ -192,7 +192,7 @@ These are the links at the bottom of the page:
 We want a new link to legal information, called "Imprint".
 
 * Go to ``site_actions`` (we know that because we checked in ``@@manage-viewlets``)
-* Add a CMF Action :guilabel:`imprint`
+* Add a CMF Action ``imprint``
 * Set URL to ``string:${portal_url}/imprint``
 * Leave *condition* empty
 * Set permission to ``View``
