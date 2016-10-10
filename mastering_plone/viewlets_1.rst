@@ -258,6 +258,7 @@ Register a viewlet 'days_to_conference' in the header. Use a class and a templat
             def human(self):
                 return arrow.get(CONFERENCE_START_DATE).humanize()
 
+    Setting the date in python is not very user-friendly. In the chapter :ref:`registry-label` you learn how store global configuration and easily create controlpanels.
 
     And in :file:`templates/days_to_conference.pt`:
 
