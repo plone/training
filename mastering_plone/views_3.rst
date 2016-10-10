@@ -100,7 +100,7 @@ We pass a object as `context` to query only for content in the current path. Oth
 
     We use the method :py:meth:`find` in :py:mod:`plone.api` to query the catalog. It is one of many convenience-methods provided as a wrapper around otherwise more complex api's. If you query the catalog direcly you'd have to first get the catalog, and pass it the path for which you want to find items:
 
-    .. code-block:: python:
+    .. code-block:: python
 
         portal_catalog = api.portal.get_tool('portal_catalog')
         current_path = '/'.join(self.context.getPhysicalPath())
