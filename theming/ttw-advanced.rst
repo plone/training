@@ -1,5 +1,5 @@
 =============================================
-TTW Theming I: introduction to Diazo Theming
+TTW Theming I: Introduction to Diazo Theming
 =============================================
 
 

@@ -75,7 +75,6 @@ Introduction to the Diazo rule directives
 The Diazo rules file is an XML document containing rules to specify where the content elements (title, footer, main text, etc.) will be located in the targeted theme page. 
 The rules are created with ``rule directives``. The basic Diazo directives are:
 
-<<<<<<< HEAD
 `<theme>`
     Specifies which file to use for the theme
 `<notheme>`
