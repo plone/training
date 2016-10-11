@@ -39,3 +39,4 @@ Trainings
     deployment/index
     ttw/index
     solr-training/index
+    workflow/index
