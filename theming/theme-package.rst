@@ -579,6 +579,8 @@ We already have a fully functional rule set based on the Plone 5 default Theme:
        <!-- Don't use Plone icons, use the theme's -->
        <drop css:content="head link[rel='apple-touch-icon']" />
        <drop css:content="head link[rel='shortcut icon']" />
+       <!-- drop the theme stylesheets -->
+       <drop theme="/html/head/link[rel='stylesheet']" />
        <!-- CSS -->
        <after css:theme-children="head" css:content="head link" />
        <!-- Script -->
@@ -1268,6 +1270,17 @@ file:
 
    #right-sidebar {
        padding-right: 0;
+   }
+
+   #content {
+       label, .label {
+           color: #333;
+           font-size: 100%;
+       }
+   }
+
+   .pat-autotoc.autotabs, .autotabs {
+       border-width: 0;
    }
 
    .portal-column-one .portlet,
