@@ -2,7 +2,7 @@
 Advanced Diazo
 ==============
 
-    **"Diazo allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology."**
+**"Diazo allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology."**
 
 To do this diazo do some real complicated stuff on your behalf: it writes XSLT!
 
@@ -91,6 +91,10 @@ Now one can use these markers to define the grid in a semantic way like this:
      }
    }
 
+.. note::
+
+  This way, you don't need the xsl-rules Barceloneta uses to create the main content area. It's more flexible than Barceloneta's approach.
+  Another way could be, to change Plone to provide these classes already ;).
 
 Move plone elements around
 **************************

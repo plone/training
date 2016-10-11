@@ -332,7 +332,14 @@ As you can see, the package already contains a Diazo theme including Barceloneta
    └── views
        └── slider-images.pt.example
 
-This theme basically provides you with a copy of the Plone 5 default theme (Barceloneta), and you can change everything you need to create your own theme.
+This theme basically provides you with a copy of the Plone 5 default theme (Barceloneta), and you can change everything you need to create your own theme. The Barceloneta resources are in the folder barceloneta. This is basically a copy of the theme folder of plonetheme.barceloneta. We removed some unneeded files there, because we only need the LESS part for partially including it in our theme.less. We also have the icons and the backend.xml from Barceloneta in our them folder.
+
+In ``theme/less`` we have our CSS/LESS files. Our own CSS goes into custom.less. You can also add more LESS files and include them in ``theme.less``, if you have a loot of custom CSS.
+
+The ``theme.less`` is our main LESS file. Here we include all other files we need.
+It already has some includes of Barceloneta, Bootstrap and our ``custom.less`` at the bottom.
+
+We also have a package.json, in which we can define external dependencies like Bootstrap or other CSS/JS packages we want to use in our theme, see :ref:`install-ext-packages-with-npm`.
 
 
 Start Plone and install your theme product
@@ -512,9 +519,9 @@ It should look like this:
              </div>
          </div>
      </div>
+     <div id="column2-container"></div>
    </div>
 
-   <div id="column2-container"></div>
 
 
 Using Diazo rules to map the theme with Plone content
@@ -651,9 +658,9 @@ We already have a fully functional rule set based on the Plone 5 default Theme:
 
    </rules>
 
-As you probably noticed, the theme does not look like it should and is missing some important parts like the toolbar. That is because we are using an HTML template, which is different than the one Plone's default theme is using.
+As you probably noticed, the theme does not look like it should and is missing some important parts like the toolbar. That is because we are using an HTML template, which has different HTML structure, than the one Plone's default theme is using.
 
-We can either change our theme's template to use the same structure and naming for classes and ids, or we can change our rule set to work with the theme template like it is. We will go the second way and customize our rule set to work with the provided theme template.
+We can either change our theme's template to use the same structure and naming for classes and ids, or we can change our rule set to work with the theme template like it is. We will mainly go the second way and customize our rule set to work with the provided theme template. In fact if you use a better theme template then this, where more useful CSS classes and ids used and the grid is defined in CSS/LESS and not in the HTML markup it self, it is a lot easier to work with touching the theme. But we use this popular example theme and therefor need also to make changes to the template it self a bit.
 
 Customize the rule set
 ----------------------
@@ -663,14 +670,14 @@ The most important part of Plone is the toolbar. So let's first make sure we hav
 Plone Toolbar
 +++++++++++++
 
-We already have the needed Diazo rules in our rules.xml::
+We already have the needed Diazo rules in our rules.xml:
 
 .. code-block:: xml
 
    <!-- toolbar -->
    <replace css:theme="#portal-toolbar" css:content-children="#edit-bar" css:if-not-content=".ajax_load" css:if-content=".userrole-authenticated" />
 
-The only thing we need is a placeholder in our theme template::
+The only thing we need is a placeholder in our theme template:
 
 .. code-block:: html
 
@@ -692,7 +699,7 @@ You can always log in by adding ``/login`` to the Plone url, so it's optional.
    <div id="anonymous-actions">
    </div>
 
-The necessary rule to fill this with the Plone login link is already in our rules.xml::
+The necessary rule to fill this with the Plone login link is already in our rules.xml:
 
 .. code-block:: xml
 
@@ -857,7 +864,7 @@ Now we can drop it if we are not on the front page and also in some other situat
      css:theme="#front-page-slider"
      css:if-not-content=".section-front-page.template-document_view" />
 
-Currently the slider is still static, but we will change that later.
+Currently the slider is still static, but we will change that later in :ref:`create-dynamic-slider-content-in-plone`.
 
 Title and Description
 +++++++++++++++++++++
@@ -920,7 +927,7 @@ and we already have this rule to bring the messages across:
 
 To test that, just edit the front page. You should see a confirmation message from Plone.
 
-Main content area
+Main content area 1
 +++++++++++++++++
 
 To make the Plone content area flexible and containing the correct
@@ -1011,34 +1018,7 @@ Bring across the footer from Plone:
      css:content-children="#portal-footer-wrapper" />
 
 That was basically all to bring the theme together with the dynamic elements from Plone.
-The rest is more or less CSS.
-
-CSS resources
--------------
-
-
-Here we import a number of specific parts from the default Plone 5 Barceloneta theme.
-Feel free to comment out stuff that you don't need.
-
-At the bottom you can see that we import the ``business-casual.css`` as a LESS
-file, as well as our new ``custom.less`` file.
-The ``business-casual.css`` comes from the downloaded static theme and is
-included to reduce the amount of CSS files.
-
-The ``custom.less`` will contain our custom styles and can look like this:
-
-.. code-block:: css
-
-   h1 {
-     color: green;
-   }
-
-
-Lets's also add a folder into our less directory, where we can put customized less files from Plone in.
-
-.. code-block:: bash
-
-   $ mkdir plone_customized
+The rest is more or less CSS. Later we will :ref:`create-dynamic-slider-content-in-plone` to make the slider dynamic and let users change the pictures for the slider.
 
 
 Understanding and using the Grunt build system
@@ -1149,10 +1129,10 @@ We already have a ``Gruntfile.js`` in the top level directory of our theme packa
    };
 
 
-At the end, we can see some registered Grunt tasks.
-We can use these tasks to control what happens when we run Grunt.
+At the end, we can see some registered ``Grunt`` tasks.
+We can use these tasks to control what happens when we run ``Grunt``.
 
-By default Grunt will just run the compile task, which means the less files are getting compiled and the postcss task is run:
+By default ``Grunt`` will just run the ``compile task``, which means the less files are getting compiled and the postcss task is run:
 
 .. code-block:: bash
 
@@ -1166,7 +1146,7 @@ By default Grunt will just run the compile task, which means the less files are 
 
    Done, without errors.
 
-If we want grunt to watch for changes in our less files and let them compile it automatically after every change, we can run ``grunt watch``, and it will run the compile task after every change of a LESS file:
+If we want ``grunt`` to watch for changes in our less files and let them compile it automatically after every change, we can run ``grunt watch``, and it will run the ``compile`` task after every change of a LESS file:
 
 .. code-block:: bash
 
@@ -1194,10 +1174,7 @@ If some LESS file has changed, you will see something like this:
 
    Done, without errors.
 
-.. code-block:: bash
-
-  They are also other useful tasks like ``plone-bsync``, which we can use to also update the Browser after changes.
-
+They are also other useful tasks like ``plone-bsync``, which we can use to also update the Browser after changes.
 
 .. code-block:: bash
 
@@ -1223,6 +1200,9 @@ You will now see an open browser window, which is automatically reloaded any tim
 
    You have to set up the proxy in the Gruntfile.js to the Plone backend address:port.
 
+
+Theme manifest.xml
+******************
 
 Now let's have a look at our theme's ``manifest.cfg`` which declares ``development-css``, ``production-css`` and optionally ``tinymce-content-css``, like this:
 
@@ -1250,27 +1230,112 @@ Now let's have a look at our theme's ``manifest.cfg`` which declares ``developme
    [theme:parameters]
    # portal_url = python: portal.absolute_url()
 
-The last of these (``tinymce-content-css``) tells Plone to load that particular CSS file wherever a TinyMCE rich text field is displayed.
+The ``development-css`` file is used when Plone is running in development mode, otherwise the file under ``production-css`` will be used.
 
-After making manifest changes, we need to deactivate/activate the theme
-for them to take effect. Just go to ``/@@theming-controlpanel`` and do it.
+The last one ``tinymce-content-css`` tells Plone to load that particular CSS file inside TinyMCE, wherever a TinyMCE rich text field is displayed.
+
+.. note::
+
+  After making manifest changes, we need to deactivate/activate the theme
+  for them to take effect. Just go to ``/@@theming-controlpanel`` and do it.
 
 
-Load LESS parts of Bootstrap
-****************************
+Final CSS customization
++++++++++++++++++++++++
 
-.. note:: the following steps are already included in bobtemplates.plone template, they stay here only for documentation reasons.
+To make our theme look nicer, we add some CSS as follows to our ``custom.less``
+file:
 
-To load for example the carousel we first install the LESS version of Bootstrap
-into our theme.
+.. code:: css
+
+   /* Custom LESS file that is included from the theme.less file */
+
+   .brand-name{
+       margin-top: 0.5em;
+   }
+
+   .documentDescription{
+       margin-top: 1em;
+   }
+
+   .clearFix{
+       clear: both;
+   }
+
+   #left-sidebar {
+       padding-left: 0;
+   }
+
+   #right-sidebar {
+       padding-right: 0;
+   }
+
+   .portal-column-one .portlet,
+   .portal-column-two .portlet {
+       .box;
+   }
+
+   footer .portletActions{
+   }
+
+   footer {
+       .portlet {
+           padding: 1em 0;
+           margin-bottom: 0;
+           border: 0;
+           background: transparent;
+           .portletContent{
+               border: 0;
+               background: transparent;
+               ul {
+                   padding-left: 0;
+                   list-style-type: none;
+                   .portletItem {
+                       display: inline-block;
+                       &:not(:last-child){
+                           padding-right: 0.5em;
+                           margin-right: 0.5em;
+                           border-right: 1px solid;
+                       }
+                       &:hover{
+                           background-color: transparent;
+                       }
+                       a{
+                           color: #000;
+                           padding: 0;
+                           text-decoration: none;
+                           &:hover{
+                               background-color: transparent;
+                           }
+                           &::before{
+                               content: none;
+                           }
+                       }
+                   }
+               }
+           }
+       }
+   }
+
+
+.. _install-ext-packages-with-npm:
+
+Install external CSS and JavaScript with npm and use them in your theme
+***********************************************************************
+
+As our theme is based on ``Bootstrap``, we want to install ``Bootstrap`` with ``npm`` to have more flexibility, for example to use the LESS file of Bootstrap.
 To do that, we use ``npm``, which you should already have globally installed on your
 system.
+
+.. note:: The following steps are already included in bobtemplates.plone template, they are here only for documentation reasons, to show how to install and use external packages like ``Bootstrap``.
+
+To install ``Bootstrap`` with ``npm`` run the following command inside the theme folder:
 
 .. code-block:: bash
 
    $ npm install bootstrap --save
 
-The ``--save`` option will add the package to ``package.json`` for us.
+The ``--save`` option will add the package to ``package.json`` in the theme folder for us.
 Now, we can install all dependencies on any other system by running the
 following command from inside of our theme folder:
 
@@ -1485,8 +1550,6 @@ our downloaded theme uses, we change our ``theme.less`` to look like this:
 
    // ### END OF PLONE IMPORTS ###
 
-
-
    // ### UTILS ###
 
    // import bootstrap files:
@@ -1510,85 +1573,9 @@ our downloaded theme uses, we change our ``theme.less`` to look like this:
    // include our custom css/less
    @import "custom.less";
 
-Here we mainly add the include of our theme css after the END OF UTILS marker.
+Here we mainly add the include of the css the theme provides us in ``theme/css/business-casual.css`` after the END OF UTILS marker. We include the CSS file here as a LESS file. This way we can extend parts of the CSS in our theme, like we will do with the ``.box`` below.
 
-
-Final CSS customization
-+++++++++++++++++++++++
-
-To make our theme look nicer, we add some CSS as follows to our ``custom.less``
-file:
-
-.. code:: css
-
-   /* Custom LESS file that is included from the theme.less file */
-
-   .brand-name{
-       margin-top: 0.5em;
-   }
-
-   .documentDescription{
-       margin-top: 1em;
-   }
-
-   .clearFix{
-       clear: both;
-   }
-
-   #left-sidebar {
-       padding-left: 0;
-   }
-
-   #right-sidebar {
-       padding-right: 0;
-   }
-
-   .portal-column-one .portlet,
-   .portal-column-two .portlet {
-       .box;
-   }
-
-   footer .portletActions{
-   }
-
-   footer {
-       .portlet {
-           padding: 1em 0;
-           margin-bottom: 0;
-           border: 0;
-           background: transparent;
-           .portletContent{
-               border: 0;
-               background: transparent;
-               ul {
-                   padding-left: 0;
-                   list-style-type: none;
-                   .portletItem {
-                       display: inline-block;
-                       &:not(:last-child){
-                           padding-right: 0.5em;
-                           margin-right: 0.5em;
-                           border-right: 1px solid;
-                       }
-                       &:hover{
-                           background-color: transparent;
-                       }
-                       a{
-                           color: #000;
-                           padding: 0;
-                           text-decoration: none;
-                           &:hover{
-                               background-color: transparent;
-                           }
-                           &::before{
-                               content: none;
-                           }
-                       }
-                   }
-               }
-           }
-       }
-   }
+.. note:: Don't forget to run ``grunt compile`` after you changed the LESS files or use ``grunt watch`` to do this automatically after every change!
 
 
 More Diazo and plone.app.theming details

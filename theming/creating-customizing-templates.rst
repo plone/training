@@ -8,30 +8,33 @@ Overriding a Plone template
 A large part of the Plone UI is provided by BrowserView and Viewlet templates.
 
 You can see all viewlets and their managers (sortable containers) when you view
-the url ``./@@manage-viewlets``).
+the URL ``./@@manage-viewlets``).
 
-.. note:: To override them from the ZMI, you can go to ``./portal_view_customizations``.
+.. note::
+
+   To override them from the ZMI, you can go to ``./portal_view_customizations``.
+   But this is very limited and does not work for all views.
 
 To override them from your theme product, the easiest way is to use
 ``z3c.jbot`` (Just a Bunch of Templates).
 
 Since jbot is already included in the ``bobtemplates.plone`` theme skeleton via
-``plone.app.themingplugins``, you can start using it immediately by adding all the 
-templates you want to override in the 
+``plone.app.themingplugins``, you can start using it immediately by adding all the
+templates you want to override in the
 ``src/plonetheme/tango/theme/template-overrides`` directory.
 
 In order for jbot to match the override to the template which is being
-overridden, the name of the *new* template needs to include the 
+overridden, the name of the *new* template needs to include the
 complete path to the original template as a prefix (with every ``/`` replaced
 by ``.``).
 
 For instance, to override ``path_bar.pt`` (the breadcrumbs) from ``plone.app.layout``, knowing
-that this template is found in a subfolder named ``viewlets``, you need to name
+that this template is found in a sub folder named ``viewlets``, you need to name
 the overriding template ``plone.app.layout.viewlets.path_bar.pt``.
 
 .. note:: Clicking the template in ZMI > portal_view_customizations is a handy way to find the template path. You can also copy the original template's code here.
 
-When a new override has been added, the Plone instance needs to be restarted. 
+When a new override has been added, the Plone instance needs to be restarted.
 After this, you can just refresh the page to see any changes to the template.
 
 
@@ -48,7 +51,7 @@ event details block.
 To do this, we copy over the original template code and change the order of the
 two blocks:
 
-.. note:: If your buildout is using ``omelette``, you can find the original template in ``buildout/parts/omelette/plone/app/event/browser``. 
+.. note:: If your buildout is using ``omelette``, you can find the original template in ``buildout/parts/omelette/plone/app/event/browser``.
 
 .. code-block:: xml
 
@@ -95,6 +98,8 @@ You can now restart Plone and view an event to see the effect.
 Creating a new Plone template
 =============================
 
+.. _create-dynamic-slider-content-in-plone:
+
 Create dynamic slider content in Plone
 **************************************
 
@@ -104,16 +109,14 @@ For now, we will use a very simple template-only-view via jbot and
 ``themingplugins``.
 The ``bobtemplates.plone`` skeleton includes everything you need.
 
-The only thing we need to do, is to add a folder named ``views`` in our theme
-folder.
-Here we now create a template file named ``slider-images.pt``.
+The only thing we need to do, is to add a template file in the ``theme/views`` folder.
+Here we create a template file named ``slider-images.pt``. Luckily we already have this file as an example. So the only thing we need to do is, to rename the file ``slider-images.pt.examle```to ``slider-images.pt``.
 
 .. code-block:: bash
 
-   maik@planetmobile:~/develop/plone/plonetheme.tango/src/plonetheme/tango/theme
    $ tree views/
    views/
-   └── slider-images.pt
+   └── slider-images.pt.examle
 
 The template code looks like this:
 
@@ -149,10 +152,13 @@ The template code looks like this:
 This is all that's required to create a very simple template-only View.
 You can test the view after restarting your Plone instance.
 For the View to show up, it needs some images to display.
-To supply the images, we can create a folder in Plone named ``slider-images``
+To supply the images, we have to create a folder in Plone named ``slider-images``
 and add some images there.
+
+.. note:: we will show you later how to :ref:`creating-initial-content-for-the-theme`
+
 Now we can browse to the View on this folder by visiting:
-``/slider-images/@@slider-images`` 
+http://localhost:8080/Plone/slider-images/@@slider-images
 This will render the markup required to render the slider.
 
 
@@ -162,7 +168,7 @@ Take over the dynamic slider content from Plone
 Now that we have our ``slider-images`` View which renders our HTML markup for
 the slider, we need to include that on the front page.
 For that, we use Diazo's ability to load the content from other URLs, using the
-``href`` attribute in ``rules.xml``:
+``href`` attribute in our ``rules.xml``:
 
 .. code-block:: xml
 
