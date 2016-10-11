@@ -103,8 +103,8 @@ Find out where ``event_summary`` comes from and describe how you could override 
     ..  code-block:: bash
 
         $ grep -sirn --include \*.zcml 'name="event_summary"' ./packages
-        ./plone/app/event/browser/configure.zcml:74:        name="event_summary"
-        ./plone/app/event/browser/configure.zcml:83:        name="event_summary"
+        ./packages/plone/app/event/browser/configure.zcml:66:        name="event_summary"
+        ./packages/plone/app/event/browser/configure.zcml:75:        name="event_summary"
 
     The relevant registration is:
 
