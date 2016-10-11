@@ -9,15 +9,7 @@ Resources
 
 We have not yet talked about CSS and Javascript. At the moment these are considered static resources.
 
-You can declare and access static resources with special urls. The `configure.zcml` of our package already has a declaration for resources:
-
-.. code-block:: xml
-
-    <browser:resourceDirectory
-        name="ploneconf.site"
-        directory="static" />
-
-We want to change that a little to allow the resources to be editable and overrideable in the browser using the overrides-tab of the resource registry. Change it to the following:
+You can declare and access static resources with special urls. The `configure.zcml` of our package already has a declaration for a resource-folder :file:`static`.
 
 .. code-block:: xml
 
@@ -27,7 +19,9 @@ We want to change that a little to allow the resources to be editable and overri
         directory="static"
         />
 
-Now all files we put in the :file:`static` folder can be found via the url http://localhost:8080/Plone/++plone++ploneconf.site/the_real_filename.css
+All files we put in the :file:`static` folder can be accessed via the url http://localhost:8080/Plone/++plone++ploneconf.site/the_real_filename.css
+
+Another feature of this folder ist that the resouces you put in there are editable and overrideable in the browser using the overrides-tab of the resource registry.
 
 Let's create a file :file:`ploneconf.css` in the :file:`static` folder with some CSS:
 
@@ -84,15 +78,6 @@ Open the file :file:`profiles/default/registry.xml` and add the following:
 
 .. code-block:: xml
     :linenos:
-
-    <!-- the plonconf resources -->
-    <records prefix="plone.resources/ploneconf-main"
-             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-      <value key="css">
-        <element>++plone++ploneconf.site/ploneconf.css</element>
-      </value>
-      <value key="js">++plone++ploneconf.site/ploneconf.js</value>
-    </records>
 
     <!-- the plonconf bundle -->
     <records prefix="plone.bundles/ursapharm-bundle"
