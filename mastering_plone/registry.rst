@@ -3,16 +3,6 @@
 Storing Settings in the Registry and create control-panels
 ==========================================================
 
-.. sidebar:: Get the code!
-
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
-
-    .. code-block:: bash
-
-        TODO
-
-.. _eggs1-create-label:
-
 
 In this part you will:
 
@@ -61,25 +51,25 @@ Adding the following code to :file:`registry.xml`. This creates a new value in t
 ..  code-block:: xml
 
     <record name="ploneconf.talk_submission_open">
-        <field type="plone.registry.field.Bool">
-            <title>Allow talk submission</title>
-            <description>Allow the submission of talks for anonymous users</description>
-            <required>False</required>
-        </field>
-        <value>False</value>
+      <field type="plone.registry.field.Bool">
+        <title>Allow talk submission</title>
+        <description>Allow the submission of talks for anonymous users</description>
+        <required>False</required>
+      </field>
+      <value>False</value>
     </record>
 
 When creating a new site a lot of settings are created in the same way. See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/profiles/dependencies/registry.xml to see how :py:mod:`Products.CMFPlone` registers values.
 
 ..  code-block:: xml
 
-  <record name="ploneconf.date_of_conference">
-    <field type="plone.registry.field.Date">
+    <record name="ploneconf.date_of_conference">
+      <field type="plone.registry.field.Date">
         <title>First day of the conference</title>
         <required>False</required>
-    </field>
-    <value>2015-10-14</value>
-  </record>
+      </field>
+      <value>2016-10-17</value>
+    </record>
 
 
 Accessing and modifying values in the registry
@@ -110,18 +100,18 @@ Add a custom controlpanel
 
 When you want to add a custom controlpanel it is usually more convenient to register the fields not manually like above but as field in a schema, similar to a content-types schema.
 
-For this you define a interface for the schema and a view that auto-generates a form from the schema.
+For this you define a interface for the schema and a view that auto-generates a form from the schema. In :file:`browser/configure.zcml` add:
 
 ..  code-block:: xml
 
     <browser:page
         name="ploneconf-controlpanel"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        permission="cmf.ManagePortal"
         class=".controlpanel.PloneconfControlPanelView"
-    />
+        permission="cmf.ManagePortal"
+        />
 
-Add a file :file:`controlpanel.py`:
+Add a file :file:`browser/controlpanel.py`:
 
 ..  code-block:: python
 
@@ -139,7 +129,7 @@ Add a file :file:`controlpanel.py`:
         date_of_conference = schema.Date(
             title=u'First day of the conference',
             required=False,
-            default=date(2015,10,14),
+            default=date(2016, 10, 17),
         )
 
         talk_submission_open = schema.Bool(
@@ -164,5 +154,29 @@ With this way of using fields you don't have to register the values in :file:`re
 
 ..  code-block:: xml
 
-    <records interface="ploneconf.site.controlpanel.IPloneconfControlPanel"
+    <records interface="ploneconf.site.browser.controlpanel.IPloneconfControlPanel"
              prefix="ploneconf" />
+
+After reinstalling the package (to load the registry-entry) you can access the controlpanel at http://localhost:8080/Plone/@@ploneconf-controlpanel.
+
+To make it show up in the general controlpanel at http://localhost:8080/Plone/@@overview-controlpanel you have to register it with GenericSetup.
+Add a file :file:`profiles/default/controlpanel.xml`:
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <object name="portal_controlpanel">
+      <configlet
+          title="Ploneconf Settings"
+          action_id="ploneconf-controlpanel"
+          appId="ploneconf-controlpanel"
+          category="Products"
+          condition_expr=""
+          icon_expr=""
+          url_expr="string:${portal_url}/@@ploneconf-controlpanel"
+          visible="True">
+        <permission>Manage portal</permission>
+      </configlet>
+    </object>
+
+Again, after applying the profile (reinstall the package or write a upgrade-step) your controlpanel shows up in http://localhost:8080/Plone/@@overview-controlpanel.
