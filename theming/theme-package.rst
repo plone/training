@@ -1065,7 +1065,7 @@ and we already have this rule to bring the messages across:
 To test that, just edit the front page. You should see a confirmation message from Plone.
 
 Main content area 1
-+++++++++++++++++
++++++++++++++++++++
 
 To make the Plone content area flexible and containing the correct
 bootstrap grid classes, we use an inline XSL snippet.
