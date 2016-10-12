@@ -192,7 +192,7 @@ Exercise 4 - Create a specific design for visitors only
 1. To get started `download a copy of the clean-blog theme as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/master.zip>`_.
 Then upload it to the theme controlpanel.
 
-.. note:: Clean Blog is a free Bootstrap theme, 
+    .. note:: Clean Blog is a free Bootstrap theme, 
           the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
 
 2. Add a :file:`styles.less` file and import the Barceloneta styles 
@@ -200,7 +200,8 @@ Then upload it to the theme controlpanel.
 3. Add a :file:`manifest.cfg` file, configure the production-css`` to use ``styles.css``
 
     .. hint:: You'll need to include the proper theme path, in this case it will most likely be ``++theme++startbootstrap-clean-blog-master``
-              Pay attention to your url bar when using the theming tool.
+              You can identify the theme path by reading your browser's address bar when your theme is open in the 
+              theming tool.
 
 4. Adjust the :file:`rules.xml` file to include Barceloneta rules 
 
