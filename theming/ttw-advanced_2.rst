@@ -2,6 +2,21 @@
 TTW Theming II: Creating a custom theme based on Barceloneta
 =============================================================
 
+In this section you will:
+
+* Create a theme by inheriting from the Barceloneta theme
+* Using the :file:`manifest.cfg`, register a production CSS file
+* Use an XInclude to incorporate rules from the Barceloneta theme
+* Use ``?diazo.off=1`` to temporarily disable theme
+* Use conditional rules to present visitors with a custom theme
+
+Topics covered:
+
+* Inheriting from Barceloneta
+* Diazo rule directives and attributes
+* Viewing the unthemed version of a Plone site
+* Creating a visitor only theme
+
 Inheriting from Barceloneta
 ---------------------------
 
