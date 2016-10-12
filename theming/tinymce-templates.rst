@@ -89,7 +89,7 @@ If the -plugin is not already activated, you can activate the template plugin (t
 
 As we already have the configuration already in place and even a TinyMCE template already exists, we only need to extend the following list with our template file.
 
-.. code-block::
+.. code-block:: xml
 
    <value>[
     {"title": "Image Grid 2x2", "url": "++theme++tango/tinymce-templates/image-grid-2x2.html"},
