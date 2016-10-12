@@ -4,6 +4,8 @@
 .Python
 .doctrees
 .vagrant
+*.sublime-project
+*.sublime-workspace
 _build/
 bin/
 build/
@@ -15,3 +17,4 @@ pip-selfcheck.json
 plone_training_config/training/
 presentation/
 log/
+/training.sublime-workspace
