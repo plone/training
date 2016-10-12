@@ -83,7 +83,7 @@ Open the `bin/instance` script in your favorite editor. Now let's say you want P
 ..  admonition:: Solution
     :class: toggle
 
-    At the end of the `bin/instance` script, you'll see the following code::
+    At the end of the `bin/instance` script, you'll see the following code:
 
     .. code-block:: python
 
