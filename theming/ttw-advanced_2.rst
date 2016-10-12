@@ -21,8 +21,8 @@ Create a new theme in the theming editor containing the following files:
     [theme]
     title = mytheme
     description =
-    development-css = /++theme++mytheme/styles.less
-    production-css = /++theme++mytheme/styles.css
+    development-css = styles.less
+    production-css = styles.css
 
 - :file:`rules.xml`, including the Barceloneta rules:
 
@@ -98,11 +98,17 @@ Exercise 2 - viewing the unthemed site
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Use diazo.off=1 to your website to view an unthemed version of your site
+
 2. Using your browser's inspector find out the location/name of some of the unthemed elements
-- ``<after>`` inserts the content element after the theme element,
-- ``<before>`` inserts the content element before the specified theme element,
-- ``<replace>`` replaces the theme element with the content element,
-- ``<drop>`` removes the content or the theme element.
+
+``<after>``
+    inserts the content element after the theme element,
+``<before>``
+    inserts the content element before the specified theme element,
+``<replace>``
+    replaces the theme element with the content element,
+``<drop>``
+    removes the content or the theme element.
 
 The ``css:theme`` attribute specifies a CSS expression used to match elements in the theme, and ``css:content`` specifies a CSS selector which matches elements in the content.
 
@@ -205,10 +211,18 @@ Imagine you might want to use Barceloneta for the website administrators (so the
 
 As you can see, if the visitor is anonymous, Diazo will use a specific HTML theme (named :file:`front.html`) and not the Barceloneta's :file:`index.html`.
 
-Exercise: create a specific design for visitors only
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Exercise 4 - Create a specific design for visitors only
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Go to http://www.csszengarden.com/, download a theme (do not use the download links, use your brwoser debugger to get the actual HTML markup and the CSS), and add it to your Diazo theme for anonymous visitors only.
+1. To get started `download a copy of the clean-blog theme as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/master.zip>`.
+Then upload it to the theme controlpanel.
+
+.. note:: Clean Blog is a free Bootstrap theme, 
+          the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`
+
+2. Add a :file:`manifest.cfg` file and configure it to inherit styles from barceloneta (see the example).
+
+3. Adjust the :file:`rules.xml` file to 
 
 ..  admonition:: Solution
     :class: toggle
