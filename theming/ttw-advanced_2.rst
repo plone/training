@@ -21,8 +21,8 @@ Create a new theme in the theming editor containing the following files:
     [theme]
     title = mytheme
     description =
-    development-css = styles.less
-    production-css = styles.css
+    development-css = ++theme++custom/styles.less
+    production-css = ++theme++custom/styles.css
 
 - :file:`rules.xml`, including the Barceloneta rules:
 
@@ -195,9 +195,16 @@ Then upload it to the theme controlpanel.
 .. note:: Clean Blog is a free Bootstrap theme, 
           the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
 
-2. Add a :file:`manifest.cfg` file and configure it to inherit styles from barceloneta (see the example).
+2. Add a :file:`styles.less` file and import the Barceloneta styles 
 
-3. Adjust the :file:`rules.xml` file to 
+3. Add a :file:`manifest.cfg` file, configure the production-css`` to use ``styles.css``
+
+    .. hint:: You'll need to include the proper theme path, in this case it will most likely be ``++theme++startbootstrap-clean-blog-master``
+              Pay attention to your url bar when using the theming tool.
+
+4. Adjust the :file:`rules.xml` file to include Barceloneta rules 
+
+    .. hint:: Use ``<xi:include href="++theme++barceloneta/rules.xml" />``
 
 ..  admonition:: Solution
     :class: toggle
