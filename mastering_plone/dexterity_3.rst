@@ -425,12 +425,12 @@ Add the template :file:`browser/templates/sponsors_viewlet.pt`
         </div>
     </div>
 
-There already is some CSS in :file:`browser/static/ploneconf.css` to make it look OK.
+You can now add some CSS in :file:`browser/static/ploneconf.css` to make it look OK.
 
 ..  code-block:: css
 
     .sponsor {
-        float: left;
+        display: inline-block;
         margin: 0 1em 1em 0;
     }
 

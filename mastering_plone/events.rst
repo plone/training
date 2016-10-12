@@ -89,6 +89,28 @@ Edit :file:`browser/templates/talkview.pt`
     </body>
     </html>
 
+Similar to the field `room` the problem now appears that speakers submitting their talks should not be able to set a time and day for their talks.
+Sadly it is not easy to modify permissions of fields provided by behaviors (unless we write the bahvior ourselves).
+At least in this case we can take the easy way out since the field does not contain secret information: We will simply hide the fields from contributors using css and show them for reviewers. We will do so in chapter :ref:`resources-label` when we add some css-files.
+
+Modify :file:`browser/static/ploneconf.css` and add:
+
+.. code-block:: css
+
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-start,
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-end > *,
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-whole_day,
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-open_end {
+        display: none;
+    }
+
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-start,
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-end > *,
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-whole_day,
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-open_end {
+        display: block;
+    }
+
 
 Exercise 1
 ++++++++++

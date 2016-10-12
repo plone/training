@@ -1,7 +1,7 @@
 .. _registry-label:
 
-Storing Settings in the Registry and create control-panels
-==========================================================
+Manage Settings with Registry, Controlpanels and Vocabularies
+=============================================================
 
 
 In this part you will:
@@ -180,3 +180,98 @@ Add a file :file:`profiles/default/controlpanel.xml`:
     </object>
 
 Again, after applying the profile (reinstall the package or write a upgrade-step) your controlpanel shows up in http://localhost:8080/Plone/@@overview-controlpanel.
+
+
+Vocabularies
+------------
+
+Do you remember the field `rooms`? We provided several options to chose from.
+But who says that the next conference will have the same rooms?
+These values should be configurable by the admin.
+The admin could go to the dexterity-controlpanel and change the values but we will use a different approach.
+We will allow the rooms to be added in the controlpanel and use these values in the talk-schema by registering a vocabulary.
+
+Add a new field to :py:class:`IPloneconfControlPanel`:
+
+.. code-block:: python
+   :linenos:
+
+    rooms = schema.Tuple(
+        title=u'Available Rooms for the conference',
+        default=(u'101', u'201', u'Auditorium'),
+        missing_value=None,
+        required=False,
+        value_type=schema.TextLine()
+    )
+
+Create a file :file:`vocabularies.py` and write the vocabulary:
+
+.. code-block:: python
+   :linenos:
+
+    # -*- coding: utf-8 -*-
+    from plone import api
+    from plone.i18n.normalizer.interfaces import IIDNormalizer
+    from zope.component import queryUtility
+    from zope.interface import implementer
+    from zope.schema.interfaces import IVocabularyFactory
+    from zope.schema.vocabulary import SimpleVocabulary
+
+    @implementer(IVocabularyFactory)
+    class RoomsVocabularyFactory(object):
+
+        def __call__(self, context):
+            values = api.portal.get_registry_record('ploneconf.rooms')
+            normalizer = queryUtility(IIDNormalizer)
+            items = [(normalizer.normalize(i), i) for i in values]
+            return SimpleVocabulary.fromItems(items)
+
+    RoomsVocabulary = RoomsVocabularyFactory()
+
+
+Note:
+
+* `RoomsVocabulary` is a instance of :py:class:`RoomsVocabularyFactory`.
+* We normalize values to create a vocabulary since the value of a SimpleVocabulary has to be ASCII. We use one of many useful normalizers that Plone provides.
+
+Register a vocabulary in :file:`configure.zcml` as `ploneconf.site.vocabularies.Rooms`:
+
+.. code-block:: xml
+
+    <utility
+        name="ploneconf.site.vocabularies.Rooms"
+        component="ploneconf.site.vocabularies.RoomsVocabulary" />
+
+Use the vocabulary in the talk-schema. Edit :file:`content/talk.xml`
+
+.. code-block:: xml
+   :linenos:
+   :emphasize-lines: 7
+
+    <field name="room"
+           type="zope.schema.Choice"
+           form:widget="z3c.form.browser.radio.RadioFieldWidget"
+           security:write-permission="cmf.ReviewPortalContent">
+      <description></description>
+      <title>Room</title>
+      <vocabulary>ploneconf.site.vocabularies.Rooms</vocabulary>
+    </field>
+
+Now a admin can configure the rooms available for the conference. We could use the same pattern for the fields `type_of_talk` and `audience`.
+
+.. seealso::
+
+  http://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html
+
+.. note::
+
+    In a python-schema that would look like this:
+
+    .. code-block:: python
+
+        directives.widget(room=RadioFieldWidget)
+        room = schema.Choice(
+            title=_(u'Room'),
+            vocabulary='ploneconf.site.vocabularies.Rooms',
+            required=False,
+        )
