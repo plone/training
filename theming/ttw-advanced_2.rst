@@ -69,72 +69,11 @@ Exercise 1 - create a new theme inheriting from Barceloneta
 
 Follow the example above and create a new theme that inherits from Barceloneta.
 
-Introduction to the Diazo rule directives
------------------------------------------
+Diazo rule directives and attributes
+----------------------------------------------------------
 
 The Diazo rules file is an XML document containing rules to specify where the content elements (title, footer, main text, etc.) will be located in the targeted theme page.
-The rules are created with ``rule directives``. The basic Diazo directives are:
-
-`<theme>`
-    Specifies which file to use for the theme
-`<notheme>`
-    Specifies a condition when to theme should be disabled
-`<after>`
-    inserts the content element after the theme element,
-`<before>`
-    inserts the content element before the specified theme element,
-`<replace>`
-    replaces the theme element with the content element,
-`<drop>`
-    removes the content or the theme element.
-
-.. note: For a more comprehensive overview of all the Diazo rule directives see: http://docs.diazo.org/en/latest/basic.html#rule-directives
-
-.. note::
-
-    When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured. In order to see a "non-diazoed" page, just add ``?diazo.off=1`` at the end of its URL.
-
-Exercise 2 - viewing the unthemed site
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-1. Use diazo.off=1 to your website to view an unthemed version of your site
-
-2. Using your browser's inspector find out the location/name of some of the unthemed elements
-
-``<after>``
-    inserts the content element after the theme element,
-``<before>``
-    inserts the content element before the specified theme element,
-``<replace>``
-    replaces the theme element with the content element,
-``<drop>``
-    removes the content or the theme element.
-
-The ``css:theme`` attribute specifies a CSS expression used to match elements in the theme, and ``css:content`` specifies a CSS selector which matches elements in the content.
-
-Similarly, you can use ``css:theme-children`` and ``css:content-children`` to target the matched element's children.
-
-.. note:: sometimes CSS selectors are not powerful enough, and you can use XPath selectors (using ``theme`` and ``content``).
-
-To apply a rule conditionally, you use ``css:if-theme`` and ``css:if-content`` (or ``if-theme`` and ``if-content`` with XPath).
-
-You can also create conditions about the current path using ``if-path``.
-
-
-Exercise 3 - the <drop> directives
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-1. Add a rule that drops the "search section" checkbox from the search box.
-See the diagram below:
-
-  .. image:: ../theming/_static/theming-dropping-thesearchsection.png
-
-
-Directive attributes
-^^^^^^^^^^^^^^^^^^^^
-
-Directives use attributes which specify which elements to operate upon.
-
+The rules are created with ``rule directives`` which contain ``attributes``. 
 
 CSS selector based attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -165,6 +104,42 @@ attributes ``theme`` and ``content``.
     Used to select the the children of matching elements using Xpath selectors.
 `content-children`
     Used to identify the children of an element that will be used using Xpath selectors.
+
+.. sidebar:: sometimes there are elements in your theme or content which are not easily targeted by CSS selectors
+          in such cases you may need to use XPath selectors 
+          the equivalent Xpath attributes to ``css:theme``,``css:content``,``css:if-theme`` and ``css:if-content``
+          are ``theme``,``content``,``if-theme`` and ``if-content``).
+
+You can also create conditions about the current path using ``if-path``.
+
+
+.. note: For a more comprehensive overview of all the Diazo rule directives see: http://docs.diazo.org/en/latest/basic.html#rule-directives
+
+Viewing the unthemed Plone site
+-------------------------------
+
+When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured. 
+In order to see a "non-diazoed" page, just add ``?diazo.off=1`` at the end of its URL.
+
+Exercise 2 - Viewing the unthemed site
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Use ``diazo.off=1`` to view the unthemed version of your site
+
+2. Using your browser's inspector find out the location/name of some of the unthemed elements
+
+
+
+
+Exercise 3 - the <drop> directives
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Add a rule that drops the "search section" checkbox from the search box.
+See the diagram below:
+
+  .. image:: ../theming/_static/theming-dropping-thesearchsection.png
+
+
 
 - the current user role, and its permissions,
 - the current content-type and its template,
@@ -214,11 +189,11 @@ As you can see, if the visitor is anonymous, Diazo will use a specific HTML them
 Exercise 4 - Create a specific design for visitors only
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. To get started `download a copy of the clean-blog theme as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/master.zip>`.
+1. To get started `download a copy of the clean-blog theme as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/master.zip>`_.
 Then upload it to the theme controlpanel.
 
 .. note:: Clean Blog is a free Bootstrap theme, 
-          the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`
+          the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
 
 2. Add a :file:`manifest.cfg` file and configure it to inherit styles from barceloneta (see the example).
 
