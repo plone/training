@@ -18,6 +18,38 @@ content view templates, viewlets, configuration settings, etc.).
 Preparing your setup
 ====================
 
+Install npm
+-----------
+
+If you don't have already installed ``npm`` on your system please do it.
+Npm comes with nodejs, we just need to install ``npm``.
+On Debian/Ubuntu for example you can do this with apt:
+
+.. code-block:: bash
+
+   $ sudo apt install -y npm
+
+If you need a newer version of ``ǹpm`` just update your version with ``npm`` it self:
+
+.. code-block: bash
+
+   $ npm install npm@latest -g
+
+
+Installing Grunt
+----------------
+
+We also need to install ``grunt-cli`` globaly.
+If you already have it, you can skip this step.
+
+.. code-block:: bash
+
+   $ npm install -g grunt-cli
+
+
+virtualenv and mr.bob
+---------------------
+
 First let's create a Python virtualenv:
 
 .. code-block:: bash

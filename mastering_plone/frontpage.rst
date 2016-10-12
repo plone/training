@@ -38,8 +38,8 @@ Register the view in ``browser/configure.zcml``:
     <browser:page
         name="frontpageview"
         for="*"
-        layer="..interfaces.IPloneconfSiteLayer"
-        class=".frontpage.frontpageView"
+        layer="ploneconf.site.interfaces.IPloneconfSiteLayer"
+        class=".frontpage.FrontpageView"
         template="templates/frontpageview.pt"
         permission="zope2.View"
         />
@@ -56,16 +56,15 @@ Add the view to a file ``browser/frontpage.py``. We want a list of all talks tha
     import datetime
 
 
-    class frontpageView(BrowserView):
+    class FrontpageView(BrowserView):
         """The view of the conference frontpage
         """
 
         def talks(self):
             """Get today's talks"""
             results = []
-            catalog = api.portal.get_tool('portal_catalog')
             today = datetime.date.today()
-            brains = catalog(
+            brains = api.content.find(
                 portal_type='talk',
                 sort_on='start',
                 sort_order='descending'

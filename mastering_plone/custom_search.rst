@@ -3,29 +3,26 @@
 Custom Search
 =============
 
-..  warning::
-
-    The code of eea.facettednavigation is already compatible with Plone 5 but has not been released yet. See https://github.com/eea/eea.facetednavigation
-
-
-We can use the indexes we created in the last chapter to further improve the talk list.
-
-If the chapters about views seem complex, the custom search add-on shown below might be a great alternative until you feel comfortable writing views and templates. There are several tools that allow you to add amazing custom searches and content listings through the web in Plone.
+If the chapters about views seem complex, the custom search add-ons shown below might be a great alternative until you feel comfortable writing views and templates.
+Here are two addons that allow you to add custom searches and content listings through the web in Plone.
 
 .. _customsearch-eea-label:
 
 eea.facetednavigation
 ---------------------
 
+eea.facetednavigation is a full-featured and a very powerful addon to improve search within large collections of items.
+No programming skills are required to configure it since the configuration is done TTW.
+It lets you gradually select and explore different facets (metadata/properties) of the site content and narrow down you search quickly and dynamically.
+
 * Install `eea.facetednavigation <https://pypi.python.org/pypi/eea.facetednavigation/>`_
-* Enable faceted navigation on a new folder "Discover talks" by clicking on *actions* > *Enable faceted navigation*
-* Click on the tab *Faceted criteria* to configure it
+* Enable it on a new folder "Discover talks" by clicking on :guilabel:`Actions > Enable faceted navigation`.
+* Click on the :guilabel:`Faceted > Configure` to configure it through the web.
 
     * Select 'Talk' for *Portal type*, hide *Results per page*
     * Add a checkboxes widget to the left and use the catalog index *Audience* for it.
     * Add a select widget for speaker
     * Add a radio widget for type_of_talk
-    * Other notable widgets are: tag cloud, a-z, search
 
 Examples:
 
@@ -33,11 +30,17 @@ Examples:
 * https://mountaineers.org/learn/courses-clinics-seminars
 * https://www.dyna-jet.com/hochdruckreiniger
 
-.. TODO: add custom eea-view using dates
-
 .. seealso::
 
     We use the new catalog indexes to provide the data for the widgets and search the results. For other use cases we could also use either the built-in vocabularies (https://pypi.python.org/pypi/plone.app.vocabularies) or create custom vocabularies for this.
 
     * Custom vocabularies ttw using `Products.ATVocabularyManager <https://pypi.python.org/pypi/Products.ATVocabularyManager>`_
     * Programming using Vocabularies: http://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html
+
+
+collective.portlet.collectionfilter
+-----------------------------------
+
+A more light-weight solution for custom searches and faceted navigation is `collective.portlet.collectionfilter <https://pypi.python.org/pypi/collective.portlet.collectionfilter>`_.
+By default it allows you to search among the results of a collection and/or filter the results by keywords, author or type.
+It can also be extended quite easily to allow additional filters (like `audience`).
