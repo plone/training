@@ -80,7 +80,7 @@ Then you have to compile :file:`styles.less` to obtain your :file:`styles.css` f
 Your theme is ready.
 
 Exercise 1 - create a new theme inheriting from Barceloneta
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Follow the example above and create a new theme that inherits from Barceloneta.
 
@@ -88,10 +88,10 @@ Diazo rule directives and attributes
 ------------------------------------
 
 The Diazo rules file is an XML document containing rules to specify where the content elements (title, footer, main text, etc.) will be located in the targeted theme page.
-The rules are created with ``rule directives`` which contain ``attributes``. 
+The rules are created with ``rule directives`` which contain ``attributes``.
 
 CSS selector based attributes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++++++++++
 It is generally recommneded that you use CSS3 selectors to target elements in your content or theme.
 The CSS3 selectors used by Diazo directives are listed below:
 
@@ -106,7 +106,8 @@ The CSS3 selectors used by Diazo directives are listed below:
 
 
 Xpath selector based attributes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++++++++++++
+
 Sometimes the content or the theme does not have enough CSS markup to work reliably with CSS selectors.
 In such cases you may be able to use XPath selectors these use the unprefixed
 attributes ``theme`` and ``content``.
@@ -120,11 +121,6 @@ attributes ``theme`` and ``content``.
 `content-children`
     Used to identify the children of an element that will be used using Xpath selectors.
 
-.. sidebar:: sometimes there are elements in your theme or content which are not easily targeted by CSS selectors
-          in such cases you may need to use XPath selectors 
-          the equivalent Xpath attributes to ``css:theme``,``css:content``,``css:if-theme`` and ``css:if-content``
-          are ``theme``,``content``,``if-theme`` and ``if-content``).
-
 You can also create conditions about the current path using ``if-path``.
 
 
@@ -133,11 +129,11 @@ You can also create conditions about the current path using ``if-path``.
 Viewing the unthemed Plone site
 -------------------------------
 
-When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured. 
+When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured.
 In order to see a "non-diazoed" page, just add ``?diazo.off=1`` at the end of its URL.
 
 Exercise 2 - Viewing the unthemed site
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++++++
 
 1. Use ``diazo.off=1`` to view the unthemed version of your site
 
@@ -147,7 +143,7 @@ Exercise 2 - Viewing the unthemed site
 
 
 Exercise 3 - the <drop> directives
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++
 
 1. Add a rule that drops the "search section" checkbox from the search box.
 See the diagram below:
@@ -195,45 +191,54 @@ Exercise 4 - Convert a HTML template into a Diazo theme
 
 
 In this exercise we will work through the process of converting an existing free HTML theme
-into a Diazo based Plone theme. 
+into a Diazo based Plone theme.
 
-.. note:: A theme is packaged as a zip file. Your theme should be structured such that 
+<<<<<<< Updated upstream
+.. note:: A theme is packaged as a zip file. Your theme should be structured such that
           there is only one top level directory in the root of the zip file. The directory
           should contain your index.html and supporting files, it is okay if the supporting
           files (css, javascript and other files) are in subdirectories.
+=======
+Exercise 4 - Create a specific design for visitors only
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>>>>>>> Stashed changes
 
-          We've selected the free `Clean Blog Bootstrap theme <https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_. 
+          We've selected the free `Clean Blog Bootstrap theme <https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_.
           The theme is already packaged in a manner that will work with the theming tool.
 
+<<<<<<< Updated upstream
 1. To get started `download a copy of the Clean Blog theme
    as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/gh-pages.zip>`_.
    Then upload it to the theme controlpanel.
 
-    .. hint:: 
+    .. hint::
        :class: toggle
 
-       This is a generic theme, it does not provide the Plone/Diazo specific :file:`rules.xml` or 
+       This is a generic theme, it does not provide the Plone/Diazo specific :file:`rules.xml` or
        :file:`manifest.cfg` file. When you upload the zip file the theming tool generates a :file:`rules.xml`.
        In the next steps you will add additional files including a :file:`manifest.cfg`.
-             
+
        .. image:: ../theming/_static/theming-uploadzipfile.png
-    
+
        Select the downloaded zip file.
-    
+
        .. image:: ../theming/_static/theming-uploadzipfile2.png
-    
-2. Add a :file:`styles.less` file and import the Barceloneta styles 
+
+2. Add a :file:`styles.less` file and import the Barceloneta styles
+
+    .. note:: Clean Blog is a free Bootstrap theme,
+          the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
 
 3. Add a :file:`manifest.cfg` file, configure the ``production-css`` equal to ``styles.css``
 
-    .. hint:: 
+    .. hint::
        :class: toggle
-    
-       You can identify the theme path by reading your browser's address 
+
+       You can identify the theme path by reading your browser's address
        bar when your theme is open in the theming tool.
        You'll need to include the proper theme path in your :file:`manifest.cfg`,
        in this case it will most likely be something like ``++theme++startbootstrap-clean-blog-gh-pages``
-             
+
 
 
 
@@ -246,8 +251,8 @@ to do so associate your visitor theme rules with ``css:if-content="body.userrole
 For rules that will affect logged in users use the expression
 ``css:if-content="body.:not(userrole-anonymous)"``.
 
-Using the expressions above with the right Diazo rule it should be possible 
-for an anonymous visitor to be presented with a specific HTML theme while presenting the 
+Using the expressions above with the right Diazo rule it should be possible
+for an anonymous visitor to be presented with a specific HTML theme while presenting the
 Barceloneta theme to logged in users.
 
 Exercise 5 - Convert the theme to be a visitors only theme
@@ -256,22 +261,30 @@ Exercise 5 - Convert the theme to be a visitors only theme
 In this exercise we will alter our theme from the previous exercise to make it
 into a visitor only theme.
 
-1. Update the :file:`rules.xml` file to include Barceloneta rules 
+<<<<<<< Updated upstream
+1. Update the :file:`rules.xml` file to include Barceloneta rules
 
-    .. hint:: 
+    .. hint::
        :class: toggle
-       
+
        Use ``<xi:include href="++theme++barceloneta/rules.xml" />``
+=======
+    .. hint:: You'll need to include the proper theme path, in this case it will most likely be ``++theme++startbootstrap-clean-blog-master``
+              You can identify the theme path by reading your browser's address bar when your theme is open in the
+              theming tool.
+
+4. Adjust the :file:`rules.xml` file to include Barceloneta rules
+>>>>>>> Stashed changes
 
 2. Add conditional rules to the :file:`rules.xml` so that new theme is only for anonymous users
    rename :file:`index.html` to :file:`front.html` and add a copy of the Barceloneta :file:`index.html`
 
-    .. hint:: 
+    .. hint::
        :class: toggle
 
        copy the contents of the Barceloneta index.html file
-       then in the new theme create a file called :file:`index.html` 
-       
+       then in the new theme create a file called :file:`index.html`
+
        change :file:`rules.xml` to:
 
         .. code-block:: xml
