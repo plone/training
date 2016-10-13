@@ -8,7 +8,7 @@ In this section you will:
 * Using the :file:`manifest.cfg`, register a production CSS file
 * Use an XInclude to incorporate rules from the Barceloneta theme
 * Use ``?diazo.off=1`` to temporarily disable theme
-* Use conditional rules to present visitors with a custom theme
+* Use conditional rules to have a different backend theme from the anonymous visitors theme
 
 Topics covered:
 
@@ -297,4 +297,3 @@ into a visitor only theme.
                 <replace css:theme-children=".preamble" css:content-children="#content-core" />
               </rules>
             </rules>
-
