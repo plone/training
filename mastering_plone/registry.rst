@@ -3,6 +3,14 @@
 Manage Settings with Registry, Controlpanels and Vocabularies
 =============================================================
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <code>`):
+
+    ..  code-block:: bash
+
+        git checkout registry
+
 
 In this part you will:
 

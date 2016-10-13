@@ -5,11 +5,11 @@ Turning Talks into Events
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/10_events_p5/ src/ploneconf.site
+        git checkout events
 
 
 We forgot something: A list of talks is great especially if you can sort it by your preferences. But if a visitor decides he wants to actually go to see a talk he needs to know when it will take place.
@@ -21,7 +21,7 @@ Luckily the default type *Event* is based on reusable behaviors from the package
 In this chapter we will
 
 * enable this behavior for talks
-* display the date in the talkview
+* display the date in the talkview and talklistview
 
 First we enable the behavior :py:class:`IEventBasic` for talks in :py:mod:`profiles/default/types/talk.xml`
 

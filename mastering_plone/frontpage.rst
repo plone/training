@@ -5,11 +5,11 @@ Creating a Dynamic Front Page
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/XXX/ src/ploneconf.site
+        git checkout frontpage
 
 
 In this chapter we will:

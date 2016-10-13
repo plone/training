@@ -5,11 +5,11 @@ Dexterity Types III: Python
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/13_dexterity_3_p5/ src/ploneconf.site
+        git checkout dexterity_3
 
 
 Without sponsors, a conference would be hard to finance! Plus it is a good opportunity for Plone companies to advertise their services.

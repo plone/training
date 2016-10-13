@@ -6,11 +6,11 @@ Return to Dexterity: Moving contenttypes into Code
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/02_export_code_p5/ src/ploneconf.site
+        git checkout export_code
 
 
 In this part you will:
