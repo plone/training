@@ -1,3 +1,4 @@
+.. _deployment-label:
 
 Automating Plone Deployment
 ===========================
@@ -13,7 +14,6 @@ Contents:
 
 ..  toctree::
     :maxdepth: 3
-    :numbered: 1
 
     intro
     plone_stack
