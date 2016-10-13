@@ -140,6 +140,7 @@ We could also leave the formatting to the frontend. Plone 5 comes with the `mome
     </p>
 
 Now we should see the date in a user-friendly format like ``Today at 12:01 PM``.
+Experiment with other formats such as ``calendar`` and ``LT``.
 
 
 .. _zpt2-summary-label:
