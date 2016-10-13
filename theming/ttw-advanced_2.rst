@@ -7,28 +7,49 @@ In this section you will:
 * Create a theme by inheriting from the Barceloneta theme
 * Using the :file:`manifest.cfg`, register a production CSS file
 * Use an XInclude to incorporate rules from the Barceloneta theme
-* Use ``?diazo.off=1`` to temporarily disable theme
+* Use ``?diazo.off=1`` to view unthemed versions
 * Use conditional rules to have a different backend theme from the anonymous visitors theme
 
 Topics covered:
 
 * Inheriting from Barceloneta
 * Diazo rule directives and attributes
-* Viewing the unthemed version of a Plone site
+* Viewing the unthemed version of a Plone item
 * Creating a visitor only theme
+
 
 Inheriting from Barceloneta
 ---------------------------
 
-Copying Barceloneta is not recommended:
+Copying Barceloneta makes your theme heavier and will likely make upgrading more difficult.
 
-- it makes your theme heavier,
-- upgrading is more difficult.
+.. note:: The Barceloneta theme provides many assets used by Plone's utilities that you do not need
+          to duplicate. Additionally new releases of the theme may introduce optimizations or bug fixes.
+          By inheriting, rather than copying, your theme will benefit from updates to the Barceloneta theme.
+          
+Key Ideas
++++++++++
 
-Instead of copying it, Barceloneta can be inherited by a custom theme. Two elements must be inherited: the **rules**, and the **style**:
+When inheriting from the Barceloneta theme it is helpful to understand the following concepts and considerations:
 
-Create a new theme in the theming editor containing the following files:
+* The theme provides styles and assets used by Plone's backend tools
+* Inheritance involves including the Barceloneta :file:`rules.xml` and styles.
+* The prefix/unique path to the Barceloneta theme is ++theme++barceloneta
+* It is necessary to include a copy of Barceloneta's :file:`index.html` in the root of your custom theme.
+* The three key files involved are :file:`manifest.cfg`, :file:`rules.xml` and a LESS file defined in the manifest which we will 
+  call :file:`styles.less`. 
 
+
+Exercise 1 - Create a new theme inheriting from Barceloneta
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+In this exercise we will create a new theme that inherits the Barceloneta rules and styles.
+
+1. Create a new theme, name it "custom".
+
+2. In the theming editor, ensure that it contains a :file:`manifest.cfg`, :file:`rules.xml`, 
+   :file:`index.html` (from Barceloneta) and :file:`styles.less`.
+   
 - :file:`manifest.cfg`, declaring your theme:
 
 .. code-block:: ini
@@ -75,20 +96,18 @@ Create a new theme in the theming editor containing the following files:
       color: @plone-text-color;
     }
 
-Then you have to compile :file:`styles.less` to obtain your :file:`styles.css` file using the "Build CSS" button.
+Then generate the :file:`styles.css` file using :file:`styles.less` and the "Build CSS" button.
 
 Your theme is ready.
 
-Exercise 1 - create a new theme inheriting from Barceloneta
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Follow the example above and create a new theme that inherits from Barceloneta.
 
 Diazo rule directives and attributes
 ------------------------------------
 
-The Diazo rules file is an XML document containing rules to specify where the content elements (title, footer, main text, etc.) will be located in the targeted theme page.
-The rules are created with ``rule directives`` which contain ``attributes``.
+The Diazo rules file is an XML document containing rules to specify where the content elements 
+(title, footer, main text, etc.) will be located in the targeted theme page.
+The rules are created with ``rule directives`` which contain ``attributes``, attributes
+use either CSS expressions or Xpath expressions.
 
 CSS selector based attributes
 +++++++++++++++++++++++++++++
@@ -108,9 +127,9 @@ css:content-children
 Xpath selector based attributes
 +++++++++++++++++++++++++++++++
 
-Sometimes the content or the theme does not have enough CSS markup to work reliably with CSS selectors.
-In such cases you may be able to use XPath selectors these use the unprefixed
-attributes ``theme`` and ``content``.
+Depending on complexity of the required selector it is sometimes necessary or more convenient 
+to use XPath selectors instead of CSS selectors. XPath selectors use the unprefixed
+attributes ``theme`` and ``content``. The common XPath selector attributes include:
 
 theme
     Used to select target elements from the theme using Xpath selectors
@@ -124,13 +143,14 @@ content-children
 You can also create conditions about the current path using ``if-path``.
 
 
-.. note: For a more comprehensive overview of all the Diazo rule directives see: http://docs.diazo.org/en/latest/basic.html#rule-directives
+.. note: For a more comprehensive overview of all the Diazo rule directives
+   and related attributes see: http://docs.diazo.org/en/latest/basic.html#rule-directives
 
 Viewing the unthemed Plone site
 -------------------------------
 
 When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured.
-In order to see a "non-diazoed" page, just add ``?diazo.off=1`` at the end of its URL.
+In order to see a "non-diazoed" version page, just add ``?diazo.off=1`` at the end of its URL.
 
 Exercise 2 - Viewing the unthemed site
 ++++++++++++++++++++++++++++++++++++++
@@ -186,11 +206,21 @@ if-path
 Converting an existing HTML template into an theme
 ---------------------------------------------------
 
+.. admonition:: gotcha
+
+   Look out for inline styles, it is common to use an inline style 
+   as a background image. Unfortunately this causes at least two issues,
+   
+   * the relative path does not translate properly in the context of the
+   theme. 
+   
+   * it can be challenging to dynamically replace background images provided by
+     inline styles.
+
 Exercise 4 - Convert a HTML template into a Diazo theme
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
-In this exercise we will work through the process of converting an existing free HTML theme
+In this exercise we will walk through the process of converting an existing free HTML theme
 into a Diazo based Plone theme.
 
 .. note:: A theme is packaged as a zip file. Your theme should be structured such that
@@ -232,7 +262,7 @@ into a Diazo based Plone theme.
        You'll need to include the proper theme path in your :file:`manifest.cfg`,
        in this case it will most likely be something like ``++theme++startbootstrap-clean-blog-gh-pages``
 
-
+4. Add rules to include content, add site structure, drop unneeded elements, customize the menu
 
 
 Creating a visitor only theme - conditionally enabling Barceloneta
