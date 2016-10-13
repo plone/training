@@ -1,6 +1,6 @@
 class plone {
 
-    $plone_version = "5.0.5"
+    $plone_version = "5.0.6"
 
     file { ['/home/vagrant/tmp',
             '/home/vagrant/.buildout',
