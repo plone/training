@@ -20,32 +20,37 @@ Topics covered:
 
 Inheriting from Barceloneta
 ---------------------------
+.. sidebar:: Key Ideas
+
+       When inheriting from the Barceloneta theme keep the following in mind:
+
+       * The theme provides styles and assets used by Plone's backend tools
+       * Inheritance involves including the Barceloneta :file:`rules.xml` and styles.
+       * The prefix/unique path to the Barceloneta theme is ``++theme++barceloneta``
+       * It is necessary to include a copy of Barceloneta's :file:`index.html` in the root of your custom theme.
+       * The three key files involved are :file:`manifest.cfg`, :file:`rules.xml` and a LESS file defined in 
+         the manifest which we will call :file:`styles.less`. 
+       * Use "Build CSS" to generate a CSS file from your custom LESS file
 
 Copying Barceloneta makes your theme heavier and will likely make upgrading more difficult.
 
-.. note:: The Barceloneta theme provides many assets used by Plone's utilities that you do not need
-          to duplicate. Additionally new releases of the theme may introduce optimizations or bug fixes.
-          By inheriting, rather than copying, your theme will benefit from updates to the Barceloneta theme.
+The Barceloneta theme provides many assets used by Plone's utilities that you do not need
+to duplicate. Additionally new releases of the theme may introduce optimizations or bug fixes.
+By inheriting, rather than copying, your theme will benefit from updates to the Barceloneta theme.
           
-Key Ideas
-+++++++++
 
-When inheriting from the Barceloneta theme it is helpful to understand the following concepts and considerations:
-
-* The theme provides styles and assets used by Plone's backend tools
-* Inheritance involves including the Barceloneta :file:`rules.xml` and styles.
-* The prefix/unique path to the Barceloneta theme is ++theme++barceloneta
-* It is necessary to include a copy of Barceloneta's :file:`index.html` in the root of your custom theme.
-* The three key files involved are :file:`manifest.cfg`, :file:`rules.xml` and a LESS file defined in the manifest which we will 
-  call :file:`styles.less`. 
-
-
-Exercise 1 - Create a new theme inheriting from Barceloneta
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Exercise 1 - Create a new theme that inherits from Barceloneta
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In this exercise we will create a new theme that inherits the Barceloneta rules and styles.
 
-1. Create a new theme, name it "custom".
+1. Create a new theme
+
+   .. image:: ../theming/_static/theming-new-theme.png
+   
+   and name it "custom"
+   
+   .. image:: ../theming/_static/theming-new-theme2.png
 
 2. In the theming editor, ensure that it contains a :file:`manifest.cfg`, :file:`rules.xml`, 
    :file:`index.html` (from Barceloneta) and :file:`styles.less`.
