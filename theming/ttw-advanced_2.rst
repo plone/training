@@ -85,7 +85,7 @@ Exercise 1 - create a new theme inheriting from Barceloneta
 Follow the example above and create a new theme that inherits from Barceloneta.
 
 Diazo rule directives and attributes
-----------------------------------------------------------
+------------------------------------
 
 The Diazo rules file is an XML document containing rules to specify where the content elements (title, footer, main text, etc.) will be located in the targeted theme page.
 The rules are created with ``rule directives`` which contain ``attributes``. 
@@ -155,13 +155,6 @@ See the diagram below:
   .. image:: ../theming/_static/theming-dropping-thesearchsection.png
 
 
-
-- the current user role, and its permissions,
-- the current content-type and its template,
-- the site section and sub section,
-- the current subsite (if any).
-
-
 Conditional attributes
 ^^^^^^^^^^^^^^^^^^^^^^
 The following attributes can be used to conditionally activate a directive.
@@ -194,41 +187,92 @@ The following attributes can be used to conditionally activate a directive.
         <body template-summary_view portaltype-collection site-Plone section-news subsection-aggregator icons-on thumbs-on frontend viewpermission-view userrole-manager userrole-authenticated userrole-owner plone-toolbar-left plone-toolbar-expanded plone-toolbar-left-expanded pat-plone patterns-loaded>
 
 
-Conditionally enable Barceloneta
----------------------------------
+Converting an existing HTML template into an theme
+--------------------------------------------------
 
-Imagine you might want to use Barceloneta for the website administrators (so they can manage the content conveniently) and offer a completely different layout for visitors, you just need to create rules with ``css:if-content="body.userrole-anonymous"`` or ``css:if-content="body.:not(userrole-anonymous)"`` to enable the theme you want.
-
-As you can see, if the visitor is anonymous, Diazo will use a specific HTML theme (named :file:`front.html`) and not the Barceloneta's :file:`index.html`.
-
-Exercise 4 - Create a specific design for visitors only
+Exercise 4 - Convert a HTML template into a Diazo theme
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. To get started `download a copy of the clean-blog theme as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/master.zip>`_.
-Then upload it to the theme controlpanel.
 
-    .. note:: Clean Blog is a free Bootstrap theme, 
-          the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
+In this exercise we will work through the process of converting an existing free HTML theme
+into a Diazo based Plone theme. 
 
+.. note:: A theme is packaged as a zip file. Your theme should be structured such that 
+          there is only one top level directory in the root of the zip file. The directory
+          should contain your index.html and supporting files, it is okay if the supporting
+          files (css, javascript and other files) are in subdirectories.
+
+          We've selected the free `Clean Blog Bootstrap theme <https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_. 
+          The theme is already packaged in a manner that will work with the theming tool.
+
+1. To get started `download a copy of the Clean Blog theme
+   as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/gh-pages.zip>`_.
+   Then upload it to the theme controlpanel.
+
+    .. hint:: 
+       :class: toggle
+
+       This is a generic theme, it does not provide the Plone/Diazo specific :file:`rules.xml` or 
+       :file:`manifest.cfg` file. When you upload the zip file the theming tool generates a :file:`rules.xml`.
+       In the next steps you will add additional files including a :file:`manifest.cfg`.
+             
+       .. image:: ../theming/_static/theming-uploadzipfile.png
+    
+       Select the downloaded zip file.
+    
+       .. image:: ../theming/_static/theming-uploadzipfile2.png
+    
 2. Add a :file:`styles.less` file and import the Barceloneta styles 
 
-3. Add a :file:`manifest.cfg` file, configure the production-css`` to use ``styles.css``
+3. Add a :file:`manifest.cfg` file, configure the ``production-css`` equal to ``styles.css``
 
-    .. hint:: You'll need to include the proper theme path, in this case it will most likely be ``++theme++startbootstrap-clean-blog-master``
-              You can identify the theme path by reading your browser's address bar when your theme is open in the 
-              theming tool.
+    .. hint:: 
+       :class: toggle
+    
+       You can identify the theme path by reading your browser's address 
+       bar when your theme is open in the theming tool.
+       You'll need to include the proper theme path in your :file:`manifest.cfg`,
+       in this case it will most likely be something like ``++theme++startbootstrap-clean-blog-gh-pages``
+             
 
-4. Adjust the :file:`rules.xml` file to include Barceloneta rules 
 
-    .. hint:: Use ``<xi:include href="++theme++barceloneta/rules.xml" />``
 
-..  admonition:: Solution
-    :class: toggle
+Creating a visitor only theme - conditionally enabling Barceloneta
+------------------------------------------------------------------
 
-    - create a :file:`front` folder in the theme,
-    - put the 2 downloaded files in this folder,
-    - in :file:`index.html`, fix the ``<link>`` element to load :file:`front/style.css`,
-    - change :file:`rules.xml` to:
+Sometimes you want to use Barceloneta for the website administrators (so they can manage the content conveniently)
+and offer a completely different layout for visitors,
+to do so associate your visitor theme rules with ``css:if-content="body.userrole-anonymous"``.
+For rules that will affect logged in users use the expression
+``css:if-content="body.:not(userrole-anonymous)"``.
+
+Using the expressions above with the right Diazo rule it should be possible 
+for an anonymous visitor to be presented with a specific HTML theme while presenting the 
+Barceloneta theme to logged in users.
+
+Exercise 5 - Convert the theme to be a visitors only theme
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this exercise we will alter our theme from the previous exercise to make it
+into a visitor only theme.
+
+1. Update the :file:`rules.xml` file to include Barceloneta rules 
+
+    .. hint:: 
+       :class: toggle
+       
+       Use ``<xi:include href="++theme++barceloneta/rules.xml" />``
+
+2. Add conditional rules to the :file:`rules.xml` so that new theme is only for anonymous users
+   rename :file:`index.html` to :file:`front.html` and add a copy of the Barceloneta :file:`index.html`
+
+    .. hint:: 
+       :class: toggle
+
+       copy the contents of the Barceloneta index.html file
+       then in the new theme create a file called :file:`index.html` 
+       
+       change :file:`rules.xml` to:
 
         .. code-block:: xml
 
@@ -247,7 +291,7 @@ Then upload it to the theme controlpanel.
               </rules>
 
               <rules css:if-content="body.userrole-anonymous">
-                <theme href="front/index.html" />
+                <theme href="front.html" />
                 <replace css:theme-children=".intro header h2" css:content-children=".documentFirstHeading" />
                 <replace css:theme-children=".summary" css:content-children=".documentDescription" />
                 <replace css:theme-children=".preamble" css:content-children="#content-core" />
