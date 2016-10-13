@@ -3,14 +3,6 @@
 Buildout I
 ==========
 
-.. sidebar:: Get the code!
-
-    Get the code for this chapter (:doc:`More info <code>`):
-
-    ..  code-block:: bash
-
-        git checkout buildout_1
-
 In this part you will:
 
 * Learn about Buildout
