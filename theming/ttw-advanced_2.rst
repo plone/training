@@ -95,13 +95,13 @@ CSS selector based attributes
 It is generally recommneded that you use CSS3 selectors to target elements in your content or theme.
 The CSS3 selectors used by Diazo directives are listed below:
 
-`css:theme`
+css:theme
     Used to select target elements from the theme using CSS3 selectors
-`css:content`
+css:content
     Used to specify the element that should be taken from the content
-`css:theme-children`
+css:theme-children
     Used to select the the children of matching elements.
-`css:content-children`
+css:content-children
     Used to identify the children of an element that will be used.
 
 
@@ -112,13 +112,13 @@ Sometimes the content or the theme does not have enough CSS markup to work relia
 In such cases you may be able to use XPath selectors these use the unprefixed
 attributes ``theme`` and ``content``.
 
-`theme`
+theme
     Used to select target elements from the theme using Xpath selectors
-`content`
+content
     Used to specify the element that should be taken from the content using Xpath selectors
-`theme-children`
+theme-children
     Used to select the the children of matching elements using Xpath selectors.
-`content-children`
+content-children
     Used to identify the children of an element that will be used using Xpath selectors.
 
 You can also create conditions about the current path using ``if-path``.
@@ -155,15 +155,15 @@ Conditional attributes
 ^^^^^^^^^^^^^^^^^^^^^^
 The following attributes can be used to conditionally activate a directive.
 
-`css:if-content`
+css:if-content
     defines a CSS3 expression, if there is an element in the content that matches the expression then activate the directive
-`css:if-theme`
+css:if-theme
     defines a CSS3 expression, if there is an element in the theme that matches the expression then activate the directive
-`if-content`
+if-content
     defines an Xpath expression, if there is an element in the content that matches the expression then activate the directive
-`if-theme`
+if-theme
     defines an Xpath expression, if there is an element in the theme that matches the expression then activate the directive
-`if-path`
+if-path
     Conditionally activate the current directive based on the current path.
 
 .. note:: In a previous chapter we discussed the Plone `<body>` element and how to take advantage of the custom CSS classes associated with it.
@@ -184,10 +184,10 @@ The following attributes can be used to conditionally activate a directive.
 
 
 Converting an existing HTML template into an theme
---------------------------------------------------
+---------------------------------------------------
 
 Exercise 4 - Convert a HTML template into a Diazo theme
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 In this exercise we will work through the process of converting an existing free HTML theme
@@ -201,8 +201,7 @@ into a Diazo based Plone theme.
           We've selected the free `Clean Blog Bootstrap theme <https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_.
           The theme is already packaged in a manner that will work with the theming tool.
 
-1. To get started `download a copy of the Clean Blog theme
-   as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/gh-pages.zip>`_.
+1. To get started `download a copy of the Clean Blog theme as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/gh-pages.zip>`_.
    Then upload it to the theme controlpanel.
 
     .. hint::
@@ -239,18 +238,28 @@ into a Diazo based Plone theme.
 Creating a visitor only theme - conditionally enabling Barceloneta
 ------------------------------------------------------------------
 
-Sometimes you want to use Barceloneta for the website administrators (so they can manage the content conveniently)
-and offer a completely different layout for visitors,
-to do so associate your visitor theme rules with ``css:if-content="body.userrole-anonymous"``.
-For rules that will affect logged in users use the expression
+Sometimes it is more convenient for your website administrators to use Barceloneta, Plone's default theme.
+Other visitors would see a completely different layout provided by your custom theme.
+To achieve this you will need to associate your visitor theme rules with
+an expression like ``css:if-content="body.userrole-anonymous"``.
+For rules that will affect logged in users you can use the expression
 ``css:if-content="body.:not(userrole-anonymous)"``.
 
-Using the expressions above with the right Diazo rule it should be possible
-for an anonymous visitor to be presented with a specific HTML theme while presenting the
+Once you've combined the expressions above with the right Diazo rules you will be able
+to present an anonymous visitor with a specific HTML theme while presenting the
 Barceloneta theme to logged in users.
 
+.. admonition:: Gotcha
+    
+   The Barceloneta :file:`rules.xml` expects
+   that the source theme will be provided by 
+   an :file:`index.html` file local to the current theme.
+   It means that you will need do some renaming in your local
+   theme to accomodate the Barceloneta rules.
+
+
 Exercise 5 - Convert the theme to be a visitors only theme
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In this exercise we will alter our theme from the previous exercise to make it
 into a visitor only theme.
@@ -264,7 +273,7 @@ into a visitor only theme.
 
 2. Add conditional rules to the :file:`rules.xml` so that new theme is only for anonymous users
    rename :file:`index.html` to :file:`front.html` and add a copy of the Barceloneta :file:`index.html`
-
+       
     .. hint::
        :class: toggle
 
