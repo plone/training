@@ -111,6 +111,28 @@ Modify :file:`browser/static/ploneconf.css` and add:
         display: block;
     }
 
+You should also display the start-date of a talk in the talklist.
+Modify :file:`browser/templates/talklistview.pt`
+
+..  code-block:: html
+    :linenos:
+    :emphasize-lines: 5-9
+
+    [...]
+    <td tal:content="python:talk['audience']">
+        Advanced
+    </td>
+    <td class="pat-moment"
+        data-pat-moment="format:calendar"
+        tal:content="python:talk['start']">
+        Time
+    </td>
+    <td tal:content="python:talk['room']">
+        101
+    </td>
+    [...]
+
+
 
 Exercise 1
 ++++++++++
@@ -133,13 +155,13 @@ Find out where ``event_summary`` comes from and describe how you could override 
     ..  code-block:: xml
 
         <browser:page
-          for="plone.event.interfaces.IEvent"
-          name="event_summary"
-          class=".event_summary.EventSummaryView"
-          template="event_summary.pt"
-          permission="zope2.View"
-          layer="..interfaces.IBrowserLayer"
-          />
+            for="plone.event.interfaces.IEvent"
+            name="event_summary"
+            class=".event_summary.EventSummaryView"
+            template="event_summary.pt"
+            permission="zope2.View"
+            layer="..interfaces.IBrowserLayer"
+            />
 
     So there is a class :py:class:`plone.app.event.browser.event_summary.EventSummaryView` and a template :file:`event_summary.pt` that could be overridden with :py:mod:`z3c.jbot` by copying it as :file:`plone.app.event.browser.event_summary.pt` in :file:`browser/overrides`.
 
