@@ -211,16 +211,7 @@ if-path
 Converting an existing HTML template into an theme
 ---------------------------------------------------
 
-.. admonition:: gotcha
 
-   Look out for inline styles, it is common to use an inline style 
-   as a background image. Unfortunately this causes at least two issues,
-   
-   * the relative path does not translate properly in the context of the
-   theme. 
-   
-   * it can be challenging to dynamically replace background images provided by
-     inline styles.
 
 Exercise 4 - Convert a HTML template into a Diazo theme
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -269,7 +260,17 @@ into a Diazo based Plone theme.
 
 4. Add rules to include content, add site structure, drop unneeded elements, customize the menu
 
+   .. warning:: 
 
+     Look out for inline styles in this theme (ie. 
+     the use of the ``style`` attribute inside of a tag). This is especially problematic with
+     background images set with relative paths. The two issues that result are:
+   
+       * the relative path does not translate properly in the context of the
+         theme. 
+       * it can be tricky to dynamically replace background images provided by
+         inline styles.
+     
 Creating a visitor only theme - conditionally enabling Barceloneta
 ------------------------------------------------------------------
 
@@ -284,13 +285,12 @@ Once you've combined the expressions above with the right Diazo rules you will b
 to present an anonymous visitor with a specific HTML theme while presenting the
 Barceloneta theme to logged in users.
 
-.. admonition:: Gotcha
-    
-   The Barceloneta :file:`rules.xml` expects
-   that the source theme will be provided by 
-   an :file:`index.html` file local to the current theme.
-   It means that you will need do some renaming in your local
-   theme to accomodate the Barceloneta rules.
+.. warning::
+
+   The Barceloneta :file:`++theme++barceloneta/rules.xml` expects the  
+   Barceloneta :file:`index.html` to reside locally in your current theme.
+   To avoid conflict and to accomodate the inherited Barceloneta, ensure that
+   your theme file has a different name such as :file:`front.html`. 
 
 
 Exercise 5 - Convert the theme to be a visitors only theme
@@ -306,16 +306,16 @@ into a visitor only theme.
 
        Use ``<xi:include href="++theme++barceloneta/rules.xml" />``
 
-2. Add conditional rules to the :file:`rules.xml` so that new theme is only for anonymous users
-   rename :file:`index.html` to :file:`front.html` and add a copy of the Barceloneta :file:`index.html`
+2. Add conditional rules to the :file:`rules.xml` so that the new theme is only shown to anonymous users
+   rename the theme's :file:`index.html` to :file:`front.html` and add a copy of the Barceloneta :file:`index.html`
        
     .. hint::
        :class: toggle
 
        copy the contents of the Barceloneta index.html file
-       then in the new theme create a file called :file:`index.html`
+       then add it to the theme as the new :file:`index.html` file.
 
-       change :file:`rules.xml` to:
+       change :file:`rules.xml` to look similar to this:
 
         .. code-block:: xml
 
