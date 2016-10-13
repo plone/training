@@ -193,20 +193,14 @@ Exercise 4 - Convert a HTML template into a Diazo theme
 In this exercise we will work through the process of converting an existing free HTML theme
 into a Diazo based Plone theme.
 
-<<<<<<< Updated upstream
 .. note:: A theme is packaged as a zip file. Your theme should be structured such that
           there is only one top level directory in the root of the zip file. The directory
           should contain your index.html and supporting files, it is okay if the supporting
           files (css, javascript and other files) are in subdirectories.
-=======
-Exercise 4 - Create a specific design for visitors only
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
->>>>>>> Stashed changes
 
           We've selected the free `Clean Blog Bootstrap theme <https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_.
           The theme is already packaged in a manner that will work with the theming tool.
 
-<<<<<<< Updated upstream
 1. To get started `download a copy of the Clean Blog theme
    as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/gh-pages.zip>`_.
    Then upload it to the theme controlpanel.
@@ -261,20 +255,12 @@ Exercise 5 - Convert the theme to be a visitors only theme
 In this exercise we will alter our theme from the previous exercise to make it
 into a visitor only theme.
 
-<<<<<<< Updated upstream
 1. Update the :file:`rules.xml` file to include Barceloneta rules
 
     .. hint::
        :class: toggle
 
        Use ``<xi:include href="++theme++barceloneta/rules.xml" />``
-=======
-    .. hint:: You'll need to include the proper theme path, in this case it will most likely be ``++theme++startbootstrap-clean-blog-master``
-              You can identify the theme path by reading your browser's address bar when your theme is open in the
-              theming tool.
-
-4. Adjust the :file:`rules.xml` file to include Barceloneta rules
->>>>>>> Stashed changes
 
 2. Add conditional rules to the :file:`rules.xml` so that new theme is only for anonymous users
    rename :file:`index.html` to :file:`front.html` and add a copy of the Barceloneta :file:`index.html`
