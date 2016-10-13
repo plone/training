@@ -36,7 +36,8 @@ Copying Barceloneta makes your theme heavier and will likely make upgrading more
 
 The Barceloneta theme provides many assets used by Plone's utilities that you do not need
 to duplicate. Additionally new releases of the theme may introduce optimizations or bug fixes.
-By inheriting, rather than copying, your theme will benefit from updates to the Barceloneta theme.
+By referencing the Barceloneta rules and styles, instead of copying them, you automatically benefit from
+any updates to the Barceloneta theme while also keeping your custom theme relatively small.
           
 
 Exercise 1 - Create a new theme that inherits from Barceloneta
@@ -48,11 +49,12 @@ In this exercise we will create a new theme that inherits the Barceloneta rules 
 
    .. image:: ../theming/_static/theming-new-theme.png
    
-   and name it "custom"
+   
+   and name it "Custom"
    
    .. image:: ../theming/_static/theming-new-theme2.png
 
-2. In the theming editor, ensure that it contains a :file:`manifest.cfg`, :file:`rules.xml`, 
+2. In the theming editor, ensure that your new theme contains a :file:`manifest.cfg`, :file:`rules.xml`, 
    :file:`index.html` (from Barceloneta) and :file:`styles.less`.
    
 - :file:`manifest.cfg`, declaring your theme:
@@ -116,7 +118,7 @@ use either CSS expressions or Xpath expressions.
 
 CSS selector based attributes
 +++++++++++++++++++++++++++++
-It is generally recommneded that you use CSS3 selectors to target elements in your content or theme.
+It is generally recommended that you use CSS3 selectors to target elements in your content or theme.
 The CSS3 selectors used by Diazo directives are listed below:
 
 css:theme
@@ -162,9 +164,24 @@ Exercise 2 - Viewing the unthemed site
 
 1. Use ``diazo.off=1`` to view the unthemed version of your site
 
-2. Using your browser's inspector find out the location/name of some of the unthemed elements
+2. Using your browser's inspector find out the location/name of some of Plone's elements, try to answer
+   the following:
+   
+   What do you think is the difference between "content-core" and "content"?
+   There are several viewlets, how many do you count?
+   Can you identify any portlets, what do you think they are for?
 
+    .. admonition:: Solution
+       :class: toggle
+       
+       The "content-core" does not include the "title" and "description" while
+       the "content" combines, the "title", "description" and "content-core"
 
+       Out of the box there are six viewlets (viewlet-above-content, viewlet-above-content-title
+       viewlet-below-content-title, viewlet-above-content-body, viewlet-below-content-body,
+       viewlet-below-content).
+        
+       There are a few footer portlets which construct the footer of the site.
 
 
 Exercise 3 - the <drop> directives
