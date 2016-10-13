@@ -59,6 +59,7 @@ Contents:
     dexterity_3
     relations
     registry
+    frontpage
     eggs2
     behaviors_2
     viewlets_2
@@ -66,7 +67,6 @@ Contents:
     embed
     deployment_code
     deployment_sites
-    frontpage
     future_of_plone
     optional
 
