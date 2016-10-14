@@ -49,10 +49,13 @@ Installation
 
 We will use a `Plone pre-configured Heroku instance <https://github.com/collective/training-sandbox>`_.
 
-Once deployed, create a Plone site, and go to Plone control panel / Add-ons http://localhost:8080/Plone/prefs_install_products_form, and install Mosaic.
+Once deployed, create a Plone site, then go to the Plone control panel > Add-ons and install Mosaic.
 
 .. only:: not presentation
 
+    If you already have your own Plone installation you can
+    install Mosaic by customizing it as follows:
+    
     Modify :file:`buildout.cfg` to add Rapido as a dependency::
 
         eggs =
@@ -86,9 +89,17 @@ Mosaic provides an editor able to easily position tiles across our theme's grid.
 The Mosaic editor
 -----------------
 
-To enable the Mosaic editor on a content item change its default display as follows: go to "Display" menu and select "Mosaic layout".
+To enable the Mosaic editor on a content item change its default display as follows: 
+go to :menuselection:`Display -> Mosaic layout`.
 
-Now, when we click on :guilabel:`Edit`, the default Plone edit form is replaced with the Mosaic editor.
+
+You have now enabled the Mosaic editor as a replacement for the default edit form.
+
+Click on :guilabel:`Edit` if this is the first time editing the current item you will be prompted to select a layout.
+
+.. image:: _static/mosaic-select-layout.png
+
+Choose a layout.
 
 This editor allows to change our content fields content (just like the regular Plone form), but the fields are rendered into the view layout and they are edited in-place.
 
@@ -101,6 +112,10 @@ The top bar offers different buttons:
 - :guilabel:`Properties`, to access the content properties: it displays the regular Plone form tabs, but the fields currently involved in the layout are hidden.
 - :guilabel:`Layout`, to manage the content layout.
 
+Exercise 1 - Change the layout of the front page
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+Go to the front page of the website and 
 Change the content layout
 -------------------------
 
