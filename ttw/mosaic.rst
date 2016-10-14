@@ -103,7 +103,7 @@ Choose a layout.
 
 This editor allows to change our content fields content (just like the regular Plone form), but the fields are rendered into the view layout and they are edited in-place.
 
-.. TODO:: ADD SCREENSHOT HERE
+.. image:: _static/mosaic-editor.png
 
 The top bar offers different buttons:
 
