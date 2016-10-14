@@ -5,7 +5,10 @@
 }
 
 .rst-content .menuselection{
-    font-weight: bold;
+    background-color: #f9ebb3;
+    border: 1px solid #f0b37e;
+    border-radius: 3px;
+    padding: 1px 6px;
 }
 
 .rst-content .guilabel{

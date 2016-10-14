@@ -90,7 +90,7 @@ The Mosaic editor
 -----------------
 
 To enable the Mosaic editor on a content item change its default display as follows: 
-go to :menuselection:`Display -> Mosaic layout`.
+go to :menuselection:`Display --> Mosaic layout`.
 
 
 You have now enabled the Mosaic editor as a replacement for the default edit form.
@@ -113,23 +113,32 @@ The top bar offers different buttons:
 - :guilabel:`Layout`, to manage the content layout.
 
 Exercise 1 - Change the layout of the front page
-++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Go to the front page of the website and update the layout
+as follows:
 
-Go to the front page of the website and 
+1. Activate :menuselection:`Display --> Mosaic layout`
+2. :guilabel:`Edit` and select the "Document" layout
+3. The select :menuselection:`Layout --> Customize`
+4. Add a Document Byline to the bottom of the layout :menuselection:`Insert > Document Byline`
+5. Click :guilabel:`Save`
+
+Do you know the difference between :guilabel:`Save` and :menuselection:`Layout --> Save`?
+
 Change the content layout
 -------------------------
 
-If we click on :menuselection:`Layout -> Change`, we can choose the layout we want for our content.
+If we click on :menuselection:`Layout --> Change`, we can choose the layout we want for our content.
 The choices are restricted to the layout applicable to the current content-type.
 
 For instance for a Page, Mosaic proposes (by default) two layouts: Basic and Document.
 
-.. TODO:: ADD SCREENSHOT HERE
+.. image:: _static/mosaic-select-layout.png
 
 Customize a content layout
 --------------------------
 
-If we click on :menuselection:`Layout -> Customize`, the Mosaic editor switches to the layout mode, where we can still change our field values, but also change the layout:
+If we click on :menuselection:`Layout --> Customize`, the Mosaic editor switches to the layout mode, where we can still change our field values, but also change the layout:
 
 - by hovering the page content, existing tiles are highlighted and we can drag & drop them in different places,
 - by clicking in a tile, we can edit its content,
@@ -137,13 +146,13 @@ If we click on :menuselection:`Layout -> Customize`, the Mosaic editor switches 
 
 In layout mode, the top bar contains two extra buttons:
 
-- "Format", which provides different simple formatting options for tiles (text padding, floating) or for rows (change background color),
-- "Insert", which allows to add new tiles to our layout.
+- :guilabel:`Format`, which provides different simple formatting options for tiles (text padding, floating) or for rows (change background color),
+- :guilabel:`Insert`, which allows to add new tiles to our layout.
 
 The tiles
 ---------
 
-Mosaic proposes the following tiles:
+Mosaic provides the following tiles:
 
 - Structure tiles:
 
@@ -178,7 +187,7 @@ Mosaic proposes the following tiles:
     - existing content: it allows to display another content in a tile
     - if Rapido is installed, there is also a Rapido tile, which allows to display any Rapido block.
 
-Exercise 1: Customize the home page layout
+Exercise 2: Customize the home page layout
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create an attractive layout for the home page.
@@ -188,7 +197,7 @@ Create an attractive layout for the home page.
 
     - go to Display menu and select "Mosaic layout",
     - click Edit,
-    - click on :menuselection:`Layout -> Customize`,
+    - click on :menuselection:`Layout --> Customize`,
     - change the layout,
     - click Save.
 
@@ -203,9 +212,9 @@ If :file:`Global` is checked, the layout will be usable by any user (else it is 
 
 The layout is associated to the current content type, by default it will not be usable for other content types.
 
-Once saved, our layout will be listed with the other available layouts when we click on :menuselection:`Layout -> Change`.
+Once saved, our layout will be listed with the other available layouts when we click on :menuselection:`Layout --> Change`.
 
-Exercise 2: create a layout for talks
+Exercise 3: create a layout for talks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create an attractive layout for a talk, save it and reuse it for another talk.
@@ -213,8 +222,8 @@ Create an attractive layout for a talk, save it and reuse it for another talk.
 ..  admonition:: Solution
     :class: toggle
 
-    - customize a talk layout (see Exercise 1),
-    - click on :guilabel:`Layout` / :guilabel:`Save`,
+    - customize a talk layout (see Exercise 2),
+    - click on :menuselection::menuselection:`Layout --> Save`,
     - enter its title: "Talk", and select "Global",
     - click :guilabel:`Save`,
     - navigate to another talk,
