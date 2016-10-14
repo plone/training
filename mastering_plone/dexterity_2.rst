@@ -5,11 +5,11 @@ Dexterity Types II: Growing Up
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/09_dexterity_2_p5/ src/ploneconf.site
+        git checkout dexterity_2
 
 
 The existing talks are still lacking some functionality we want to use.

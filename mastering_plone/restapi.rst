@@ -1,6 +1,15 @@
 Using plone.restapi
 ===================
 
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <code>`):
+
+    ..  code-block:: bash
+
+        git checkout restapi
+
+
 In this chapter, we will have a look at the relatively new addon `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_. It provides a hypermedia API to access Plone content using REST (Representational State Transfer).
 
 We will use :py:mod:`plone.restapi` to develop a small standalone 'single page app' targeted at mobile devices. We will present our users with a simple list of conference talks. We add lightning talks as a new type of talk. Users will be able to submit lightning talks e.g. using their mobile phone.

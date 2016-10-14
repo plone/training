@@ -15,11 +15,11 @@ Topics covered:
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/14_embed_p5/ src/ploneconf.site
+        TODO
 
 
 .. only:: not presentation
@@ -59,13 +59,11 @@ Next up we modify :file:`profiles/default/metadata.xml`
 
 .. code-block:: xml
     :linenos:
-    :emphasize-lines: 6
+    :emphasize-lines: 4
 
     <metadata>
       <version>1002</version>
         <dependencies>
-          <dependency>profile-plone.app.dexterity:default</dependency>
-          <dependency>profile-plone.app.relationfield:default</dependency>
           <dependency>profile-starzel.votable_behavior:default</dependency>
         </dependencies>
     </metadata>

@@ -5,11 +5,11 @@ Write Your Own Add-Ons to Customize Plone
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/01_eggs1_p5/ src/ploneconf.site
+        git checkout eggs1
 
 .. _eggs1-create-label:
 

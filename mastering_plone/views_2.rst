@@ -5,11 +5,11 @@ Views II: A Default View for "Talk"
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/05_views_2_p5/ src/ploneconf.site
+        git checkout views_2
 
 In this part you will:
 

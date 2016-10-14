@@ -6,11 +6,11 @@ Return to Dexterity: Moving contenttypes into Code
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/02_export_code_p5/ src/ploneconf.site
+        git checkout export_code
 
 
 In this part you will:
@@ -316,7 +316,7 @@ We only want to prevent writing, not reading, so we'll only manage the `write-pe
 
 ..  code-block:: xml
     :linenos:
-    :emphasize-lines: 38-45
+    :emphasize-lines: 38-46
 
     <?xml version="1.0" encoding="UTF-8"?>
     <model xmlns="http://namespaces.plone.org/supermodel/schema"
@@ -360,6 +360,7 @@ We only want to prevent writing, not reading, so we'll only manage the `write-pe
                form:widget="z3c.form.browser.radio.RadioFieldWidget"
                security:write-permission="cmf.ReviewPortalContent">
           <description></description>
+          <required>False</required>
           <title>Room</title>
           <vocabulary>ploneconf.site.vocabularies.Rooms</vocabulary>
         </field>
