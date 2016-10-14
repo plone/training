@@ -1,0 +1,173 @@
+Pattern wrapping a 3rd party library
+====================================
+
+..  warning::
+
+    This exercise requires a working buildout using a fork of the
+    collective.jstraining package.
+
+
+In this exercise, we'll be walking through wrapping the tablesorter JavaScript
+library into a pattern
+
+We will be working in the `exercise8` directory of the collective.jstraining package.
+
+
+Add your pattern file
+---------------------
+
+First off, in your `exercise8/static` directory, add a file named `pattern.js`. Use
+this file to build your pattern. This example will simply load and initialize the table sorter js::
+
+
+    /* global require */
+
+    require([
+      'jquery',
+      'mockup-patterns-base',
+      'tablesorter'
+    ], function($, Base) {
+      'use strict';
+
+      /* combining bundle and pattern in same file this example */
+
+      Base.extend({
+        name: 'tablesorter',
+        trigger: '.pat-tablesorter',
+        parser: 'mockup',
+        defaults: {
+        },
+        init: function() {
+          var that = this;
+          that.$el.tablesorter();
+        }
+      });
+
+    });
+
+Notice in this example how we're not using `define` for this pattern. In this
+example, we are defining our pattern right inside what will be our bundle.
+
+`tablesorter` will be our registered 3rd party library include.
+
+Register static resource directory
+----------------------------------
+
+Next, let’s register the static directory we just placed our script into. To
+register, you need to add ZCML registration for the static directory your script
+is in. Add this to the `exercise8/configure.zcml` file::
+
+    <plone:static
+         directory="static"
+         type="plone"
+         name="exercise8"
+         />
+
+Register your bundle
+--------------------
+
+Registering your bundle is done by adding Generic Setup xml configuration to the
+Plone registry. This is done in the `registry.xml` file in the `profiles/default`
+directory.
+
+
+Tablesorter
+~~~~~~~~~~~
+
+Resource is done exactly the same as in Exercise 1::
+
+    <records prefix="plone.resources/tablesorter"
+                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++exercise8/jquery.tablesorter.min.js</value>
+      </records>
+
+
+Bundle resource
+~~~~~~~~~~~~~~~
+
+Our pattern is a bundlable resource since it uses the `require` function instead
+of the `define` function::
+
+    <records prefix="plone.resources/exercise8"
+                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++exercise8/pattern.js</value>
+        <value key="css">
+          <element>++plone++exercise8/pattern.less</element>
+        </value>
+      </records>
+
+
+Bundle
+~~~~~~
+
+Finally, let's create our bundle registration::
+
+    <records prefix="plone.bundles/exercise8"
+              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+      <value key="resources">
+        <element>exercise8</element>
+      </value>
+      <value key="merge_with">default</value>
+      <value key="enabled">True</value>
+      <value key="jscompilation">++plone++exercise8/exercise8-compiled.min.js</value>
+      <value key="csscompilation">++plone++exercise8/exercise8-compiled.css</value>
+      <value key="last_compilation">2016-10-04 00:00:00</value>
+      <value key="stub_js_modules">
+        <element>jquery</element>
+        <element>mockup-patterns-base</element>
+      </value>
+    </records>
+
+
+Installation
+------------
+
+At this point, we have all the files necessary to run the pattern.
+
+1) Start up your Plone instance
+2) Install the `Exercise 8` add-on
+
+
+Running
+-------
+
+At this point, we have no compiled version of the code that we're running with
+so our code doesn't do anything.
+
+1) Go into `Site Setup` -> `Resource Registries`
+2) Check "Development Mode"
+3) Select to develop JavaScript and CSS for the `exercise8` bundle
+4) Click save
+
+This should load your JavaScript and LESS files now; however, we don't have
+any elements with the `pat-exercise8` class assigned to them.
+
+It's up to you how to apply the pattern class to an element of your choice. A
+couple options available to you are:
+
+1) use TinyMCE source view and add `class="pat-exercise8"` onto any `table` tag
+2) customize the theme on your site and add it to an element in your theme file
+   or use a diazo rule diazo rule to dynamically add the class to an element
+
+
+Production
+----------
+
+To build our bundle, we'll utilize the `plone-compile-resources` script that
+Plone ships with.
+
+
+..  warning::
+
+    If you're not running a ZEO setup, you'll need to shut down your Plone
+    instance since the ZODB in this mode does not allow multiple processes
+    to access it at the same time.
+
+
+An example command will look like this::
+
+    ./bin/plone-compile-resources --site-id=Plone --bundle=exercise8
+
+
+Once this command finishes, your bundle is built and will be deployed with your
+package package.

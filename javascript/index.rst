@@ -3,31 +3,35 @@
 JavaScript for Plone Developers
 ===============================
 
-..  warning::
+The definitive location for documentation regarding Plone's JavaScript
+and Resource Registries is located at:
+http://docs.plone.org/adapt-and-extend/theming/resourceregistry.html
 
-    This chapter is still work in progress!
+
+Training Objective
+------------------
+
+The most important objective of this training is mostly to explain how to
+integrate JavaScript applications and integrations into Plone in many different
+scenarios. Secondly, it is to explain the JavaScript technologies used in Plone
+itself(RequireJS, Patterns, Resource registry).
+
+This training is *not* about:
+
+- how to write JavaScript
+- how to write React/Angular 2/JS framework of the week
 
 
-See also the docs about the resource registry: http://docs.plone.org/adapt-and-extend/theming/resourceregistry.html
+Contents
+--------
 
 ..  toctree::
-    :maxdepth: 3
+    :maxdepth: 2
     :numbered: 1
 
-    training_installation
     development-process
     requirejs-modules
     mockup
     mockup-writing-documentation
     javascript-3-ttw
-    javascript-scratchpad
-
-
-
-TODO:
-
- - chapter about mockup/patternslib
- - chapter about testing
- - Go through example.plone5resources
- - Go through mockup-minimalpattern
-
+    exercises/index
