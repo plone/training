@@ -1,5 +1,5 @@
-Using plone.restapi
-===================
+Plone REST API
+==============
 
 .. sidebar:: Get the code!
 
@@ -199,6 +199,7 @@ In the :file:`browser/talklist` directory, we add an HTML page called :file:`ind
       </body>
     </html>
 
+Now you can point your browser to http://localhost:8080/Plone/++resource++talklist/index.html to see the result.
 So far, the page will simply display a list of published talks. But we also need some JavaScript that we put into a file named :file:`talklist.js` in the same folder:
 
 .. code-block:: javascript
@@ -273,10 +274,16 @@ Before we can start to submit lightning talks using REST calls from our single p
 
 .. code-block:: xml
    :linenos:
-   :emphasize-lines: 12, 19, 36, 41
+   :emphasize-lines: 18, 25, 52, 57
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <model xmlns="http://namespaces.plone.org/supermodel/schema" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security">
+    <model xmlns="http://namespaces.plone.org/supermodel/schema"
+       xmlns:form="http://namespaces.plone.org/supermodel/form"
+       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+       xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
+       xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
+       xmlns:security="http://namespaces.plone.org/supermodel/security"
+       xmlns:users="http://namespaces.plone.org/supermodel/users">
       <schema>
         <field name="type_of_talk" type="zope.schema.Choice"
           form:widget="z3c.form.browser.radio.RadioFieldWidget">
@@ -295,7 +302,8 @@ Before we can start to submit lightning talks using REST calls from our single p
           <title>Details</title>
           <required>False</required>
         </field>
-        <field name="audience" type="zope.schema.Set"
+        <field name="audience"
+          type="zope.schema.Set"
           form:widget="z3c.form.browser.checkbox.CheckBoxFieldWidget">
           <description />
           <title>Audience</title>
@@ -306,6 +314,15 @@ Before we can start to submit lightning talks using REST calls from our single p
               <element>Professionals</element>
             </values>
           </value_type>
+        </field>
+        <field name="room"
+          type="zope.schema.Choice"
+          form:widget="z3c.form.browser.radio.RadioFieldWidget"
+          security:write-permission="cmf.ReviewPortalContent">
+          <description></description>
+          <required>False</required>
+          <title>Room</title>
+          <vocabulary>ploneconf.site.vocabularies.Rooms</vocabulary>
         </field>
         <field name="speaker" type="zope.schema.TextLine">
           <description>Name (or names) of the speaker</description>
@@ -457,9 +474,3 @@ Rewrite the ``load_talks()`` javascript method so that it uses the portal search
            success(function(data, status, headers, config) {
        ...
          });
-
-XXX Todo
---------
-* where to go from here, e.g.
-* using a standalone web server for the app, CORS
-* references on REST
