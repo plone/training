@@ -123,7 +123,7 @@ as follows:
 4. Add a Document Byline to the bottom of the layout :menuselection:`Insert > Document Byline`
 5. Click :guilabel:`Save`
 
-Do you know the difference between :guilabel:`Save` and :menuselection:`Layout --> Save`?
+In the context of the Mosaic Editor, do you know the difference between :guilabel:`Save` and :menuselection:`Layout --> Save`?
 
 Change the content layout
 -------------------------
