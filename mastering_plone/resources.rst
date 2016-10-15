@@ -71,7 +71,7 @@ Open the file :file:`profiles/default/registry.xml` and add the following:
     :linenos:
 
     <!-- the plonconf bundle -->
-    <records prefix="plone.bundles/ursapharm-bundle"
+    <records prefix="plone.bundles/ploneconf-bundle"
              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
       <value key="resources">
         <element>ploneconf-main</element>
