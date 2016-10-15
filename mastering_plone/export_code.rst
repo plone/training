@@ -316,7 +316,7 @@ We only want to prevent writing, not reading, so we'll only manage the `write-pe
 
 ..  code-block:: xml
     :linenos:
-    :emphasize-lines: 38-46
+    :emphasize-lines: 38-50
 
     <?xml version="1.0" encoding="UTF-8"?>
     <model xmlns="http://namespaces.plone.org/supermodel/schema"
@@ -362,7 +362,11 @@ We only want to prevent writing, not reading, so we'll only manage the `write-pe
           <description></description>
           <required>False</required>
           <title>Room</title>
-          <vocabulary>ploneconf.site.vocabularies.Rooms</vocabulary>
+          <values>
+            <element>101</element>
+            <element>201</element>
+            <element>Auditorium</element>
+          </values>
         </field>
         <field name="speaker" type="zope.schema.TextLine">
           <description>Name (or names) of the speaker</description>
