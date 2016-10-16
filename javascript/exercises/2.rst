@@ -147,7 +147,7 @@ Finally, wire it up with ZCML registration in the ``exercise1/configure.zcml`` f
     <browser:page
          name="exercise2"
          for="*"
-         class=".browser.Exercise1View"
+         class=".browser.Exercise2View"
          template="page.pt"
          permission="zope2.View"
          />
