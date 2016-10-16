@@ -137,7 +137,7 @@ Add in view python code to tell Plone to render the script in the
         def __call__(self):
             # utility function to add resource to rendered page
             add_resource_on_request(self.request, 'exercise2')
-            return super(Exercise1View, self).__call__()
+            return super(Exercise2View, self).__call__()
 
 
 The most interesting part here is to look at ``add_resource_on_request``.
