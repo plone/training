@@ -23,12 +23,19 @@ Add this line to the end of your ``buildout.cfg`` file:
 
 ``<location of your fork>`` should be replaced with where your fork is.
 
-Finally, add ``collective.jstraining`` to the auto-checkout list::
+Also, add ``collective.jstraining`` to the auto-checkout list::
 
     auto-checkout =
       ...
       collective.jstraining
       ...
+
+And one more spot to add collective.jstraining to: eggs::
+
+    eggs =
+        ...
+        collective.jstraining
+        ...
 
 Contents
 --------

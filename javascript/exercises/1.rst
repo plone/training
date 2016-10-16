@@ -14,9 +14,10 @@ We will be working in the ``exercise1`` directory of the collective.jstraining p
 Add your JavaScript file
 ------------------------
 
-First off, in your ``exercise1/static`` directory, add a file named ``script.js``. Use
-this file to do anything you would like to the page. This example will stay very
-simple we’ll use jQuery to do a simple animation effect on the title of the page::
+First off, in your ``exercise1/static`` directory, add a file named ``script.js``.
+This exercise is open ended as to what you do with JavaScript on the page.
+We'll stay very simple for the sake of brevity, using jQuery to do a simple
+animation effect on the title of the page::
 
     require([
       'jquery'
@@ -46,7 +47,8 @@ simple we’ll use jQuery to do a simple animation effect on the title of the pa
     });
 
 
-Like I said, you can do whatever in this script.
+Feel free to customize the script to do whatever you'd like.
+
 
 Register static resource directory
 ----------------------------------
@@ -143,7 +145,7 @@ Installation
 
 
 Then, visit the URL:
-`http://localhost:8080/Plone/front-page/@@exercise1`. This is assuming your Plone
+``http://localhost:8080/Plone/front-page/@@exercise1``. This is assuming your Plone
 is is located at the URL ``http://localhost:8080/Plone``.
 
 
