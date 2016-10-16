@@ -12,6 +12,8 @@ For this exercise, we will run an angular 2 application inside a plone browser v
 We have most of the angular 2 boiler plate code created for you so let's just
 finish up a few things so you can customize it.
 
+In this case we are going to use angular client to create the app inside the package.
+
 We will be working in the ``exercise2`` directory of the collective.jstraining package.
 
 Bootstrap
@@ -20,24 +22,17 @@ Bootstrap
 Install npm dependencies::
 
     cd exercise2/static
-    npm install
-
+    npm install -g angular-cli
+    ng new ng2app
 
 Add your angular 2 component
 ----------------------------
 
-In your ``exercise2/static/app`` directory, add a file named ``app.component.ts``. Use
-this file to do anything you would like to the page. This example will stick
-with the angular 2 quickstart code. We hope you like typescript::
+In your ``exercise2/static/ng2app`` directory, there is a bolierplate code
+for an ng2 app. You can use ng2 cli to create new components, modules,
+services,... We hope you like typescript.
 
-    import { Component } from '@angular/core';
-    @Component({
-      selector: 'my-app',
-      template: '<h1>NG2 from Exercise 2</h1>'
-    })
-    export class AppComponent { }
-
-
+We can change the exercise2/static/src/app/app.component.html to create your own template.
 
 Like I said, you can do whatever in this module.
 
@@ -62,7 +57,7 @@ Build the file with webpack
 Our deployment is built using webpack::
 
     cd exercise2/static
-    webpack
+    ng build --prod
 
 
 Whenever you make a change to your component files, webpack will auto re-build
@@ -72,14 +67,42 @@ the distribution
 Register JavaScript resource
 ----------------------------
 
-Let’s register our script as a JavaScript resource with Plone. In the
-``exercise2/profiles/default/registry.xml`` file, add configuration to register
-your script::
+Angular CLI creates three js, one for basic webpack instructions, 
+one with the main js and another with the styling js. You will need 
+to register the three on the ``exercise2/profiles/default/registry.xml``::
+
+
+    <records prefix="plone.resources/exercise2-inline"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise2/ng2app/dist/inline.js</value>
+    </records>
+    <records prefix="plone.resources/exercise2-main"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise2/ng2app/dist/main.8b778eea5dd35968ef66.bundle.js</value>
+      <value key="deps">exercise2-inline</value>
+      <value key="deps">exercise2-style</value>
+    </records>
+    <records prefix="plone.resources/exercise2-style"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise2/ng2app/dist/styles.b52d2076048963e7cbfd.bundle.js</value>
+    </records>
+
+Its really important that in case that you need to have dependency on loading 
+the js you define on the registry.xml as its showen for the main js.
+
+Finally we want to create a single entry point to load them, so we are going to
+create and register a js with the requires that are loading the app on a file
+called ``static/ng2app/main.js``::
+
+require(['exercise2-inline','exercise2-style','exercise2-main'])
+
+With the main.js defined on the filesystem we can now create the resource as a new
+resource.
 
     <records prefix="plone.resources/exercise2"
-                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-          <value key="js">++plone++exercise2/dist.js</value>
-      </records>
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise2/ng2app/main.js</value>
+    </records>
 
 
 Create your browser view
