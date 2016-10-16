@@ -83,7 +83,7 @@ and to install the required bobtemplates for Plone, do:
 
 .. code-block:: bash
 
-   (mrbobvenv):$ pip install git+https://github.com/plone/bobtemplates.plone.git@1.0.5
+   (mrbobvenv):$ pip install git+https://github.com/plone/bobtemplates.plone.git@1.0.5_boston --upgrade
 
 after bobtemplates.plone >= 1.0.5 is released do:
 
