@@ -12,7 +12,7 @@ For this exercise, we will run an angular 2 application inside a plone browser v
 We have most of the angular 2 boiler plate code created for you so let's just
 finish up a few things so you can customize it.
 
-We will be working in the `exercise2` directory of the collective.jstraining package.
+We will be working in the ``exercise2`` directory of the collective.jstraining package.
 
 Bootstrap
 ---------
@@ -26,7 +26,7 @@ Install npm dependencies::
 Add your angular 2 component
 ----------------------------
 
-In your `exercise2/static/app` directory, add a file named `app.component.ts`. Use
+In your ``exercise2/static/app`` directory, add a file named ``app.component.ts``. Use
 this file to do anything you would like to the page. This example will stick
 with the angular 2 quickstart code. We hope you like typescript::
 
@@ -47,7 +47,7 @@ Register static resource directory
 
 Next, let’s register the static directory we just placed our script into. To
 register, you need to add ZCML registration for the static directory your script
-is in. Add this to the `exercise2/configure.zcml` file::
+is in. Add this to the ``exercise2/configure.zcml`` file::
 
     <plone:static
          directory="static"
@@ -73,7 +73,7 @@ Register JavaScript resource
 ----------------------------
 
 Let’s register our script as a JavaScript resource with Plone. In the
-`exercise2/profiles/default/registry.xml` file, add configuration to register
+``exercise2/profiles/default/registry.xml`` file, add configuration to register
 your script::
 
     <records prefix="plone.resources/exercise2"
@@ -96,7 +96,7 @@ it on.
 
 In our case, let’s add a basic new page view. The page template doesn’t need to
 implement any logic and we can use the main template to bring in the content of
-the page we’re using in the JavaScript(h1). Add this into your `exercise1/page.pt` file::
+the page we’re using in the JavaScript(h1). Add this into your ``exercise1/page.pt`` file::
 
 
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
@@ -118,7 +118,7 @@ the page we’re using in the JavaScript(h1). Add this into your `exercise1/page
     </html>
 
 
-The `my-app` tag is what is used for the component selector. You can customize
+The ``my-app`` tag is what is used for the component selector. You can customize
 this and use whatever selector you like.
 
 
@@ -126,7 +126,7 @@ Load your JavaScript resource
 -----------------------------
 
 Add in view python code to tell Plone to render the script in the
-`exercise2/browser.py` file::
+``exercise2/browser.py`` file::
 
     from Products.CMFPlone.resources import add_resource_on_request
     from Products.Five import BrowserView
@@ -140,9 +140,9 @@ Add in view python code to tell Plone to render the script in the
             return super(Exercise1View, self).__call__()
 
 
-The most interesting part here is to look at `add_resource_on_request`.
+The most interesting part here is to look at ``add_resource_on_request``.
 
-Finally, wire it up with ZCML registration in the `exercise1/configure.zcml` file::
+Finally, wire it up with ZCML registration in the ``exercise1/configure.zcml`` file::
 
     <browser:page
          name="exercise2"
@@ -157,12 +157,12 @@ Installation
 ------------
 
 1) Start up your Plone instance
-2) Install the `Exercise 2` add-on
+2) Install the ``Exercise 2`` add-on
 
 
 Then, visit the URL:
-`http://localhost:8080/Plone/front-page/@@exercise2`. This is assuming your Plone
-is is located at the URL `http://localhost:8080/Plone`.
+``http://localhost:8080/Plone/front-page/@@exercise2``. This is assuming your Plone
+is is located at the URL ``http://localhost:8080/Plone``.
 
 
 Production

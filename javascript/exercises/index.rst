@@ -17,13 +17,13 @@ Prerequisites
 Install forked collective.jstraining
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add this line to the end of your `buildout.cfg` file:
+Add this line to the end of your ``buildout.cfg`` file:
 
     collective.jstraining = git <location of your fork>
 
-`<location of your fork>` should be replaced with where your fork is.
+``<location of your fork>`` should be replaced with where your fork is.
 
-Finally, add `collective.jstraining` to the auto-checkout list::
+Finally, add ``collective.jstraining`` to the auto-checkout list::
 
     auto-checkout =
       ...

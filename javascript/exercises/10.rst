@@ -9,12 +9,12 @@ Customizing pattern
 
 In this exercise, we'll be walking through customizing the livesearch pattern.
 
-We will be working in the `exercise10` directory of the collective.jstraining package.
+We will be working in the ``exercise10`` directory of the collective.jstraining package.
 
 Add your pattern file
 ---------------------
 
-First off, in your `exercise10/static` directory, add a file named `pattern.js`. Use
+First off, in your ``exercise10/static`` directory, add a file named ``pattern.js``. Use
 this file to build your pattern. This example will define a new pattern to
 overwrite the existing livesearch pattern::
 
@@ -69,7 +69,7 @@ Next, we're extending the existing pattern::
     ...
 
 
-And just overriding the `init` function to provide our customization(default
+And just overriding the ``init`` function to provide our customization(default
 search current section):
 
     ...
@@ -82,7 +82,7 @@ Register static resource directory
 
 Next, let’s register the static directory we just placed our script into. To
 register, you need to add ZCML registration for the static directory your script
-is in. Add this to the `exercise10/configure.zcml` file::
+is in. Add this to the ``exercise10/configure.zcml`` file::
 
     <plone:static
          directory="static"
@@ -132,7 +132,7 @@ Installation
 At this point, we have all the files necessary to run the pattern.
 
 1) Start up your Plone instance
-2) Install the `Exercise 10` add-on
+2) Install the ``Exercise 10`` add-on
 
 
 Running
@@ -141,9 +141,9 @@ Running
 At this point, we have no compiled version of the code that we're running with
 so our code doesn't do anything.
 
-1) Go into `Site Setup` -> `Resource Registries`
+1) Go into ``Site Setup`` -> ``Resource Registries``
 2) Check "Development Mode"
-3) Select to develop JavaScript and CSS for the `exercise10` bundle
+3) Select to develop JavaScript and CSS for the ``exercise10`` bundle
 4) Click save
 
 Now, you should see the livesearch pattern default to searching the current
@@ -153,7 +153,7 @@ section.
 Production
 ----------
 
-To build our bundle, we'll utilize the `plone-compile-resources` script that
+To build our bundle, we'll utilize the ``plone-compile-resources`` script that
 Plone ships with.
 
 
