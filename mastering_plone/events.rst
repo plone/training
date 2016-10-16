@@ -5,11 +5,11 @@ Turning Talks into Events
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/10_events_p5/ src/ploneconf.site
+        git checkout events
 
 
 We forgot something: A list of talks is great especially if you can sort it by your preferences. But if a visitor decides he wants to actually go to see a talk he needs to know when it will take place.
@@ -21,7 +21,7 @@ Luckily the default type *Event* is based on reusable behaviors from the package
 In this chapter we will
 
 * enable this behavior for talks
-* display the date in the talkview
+* display the date in the talkview and talklistview
 
 First we enable the behavior :py:class:`IEventBasic` for talks in :py:mod:`profiles/default/types/talk.xml`
 
@@ -89,6 +89,50 @@ Edit :file:`browser/templates/talkview.pt`
     </body>
     </html>
 
+Similar to the field `room` the problem now appears that speakers submitting their talks should not be able to set a time and day for their talks.
+Sadly it is not easy to modify permissions of fields provided by behaviors (unless we write the bahvior ourselves).
+At least in this case we can take the easy way out since the field does not contain secret information: We will simply hide the fields from contributors using css and show them for reviewers. We will do so in chapter :ref:`resources-label` when we add some css-files.
+
+Modify :file:`browser/static/ploneconf.css` and add:
+
+.. code-block:: css
+
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-start,
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-end > *,
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-whole_day,
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-open_end {
+        display: none;
+    }
+
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-start,
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-end > *,
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-whole_day,
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-open_end {
+        display: block;
+    }
+
+You should also display the start-date of a talk in the talklist.
+Modify :file:`browser/templates/talklistview.pt`
+
+..  code-block:: html
+    :linenos:
+    :emphasize-lines: 5-9
+
+    [...]
+    <td tal:content="python:talk['audience']">
+        Advanced
+    </td>
+    <td class="pat-moment"
+        data-pat-moment="format:calendar"
+        tal:content="python:talk['start']">
+        Time
+    </td>
+    <td tal:content="python:talk['room']">
+        101
+    </td>
+    [...]
+
+
 
 Exercise 1
 ++++++++++
@@ -111,13 +155,13 @@ Find out where ``event_summary`` comes from and describe how you could override 
     ..  code-block:: xml
 
         <browser:page
-          for="plone.event.interfaces.IEvent"
-          name="event_summary"
-          class=".event_summary.EventSummaryView"
-          template="event_summary.pt"
-          permission="zope2.View"
-          layer="..interfaces.IBrowserLayer"
-          />
+            for="plone.event.interfaces.IEvent"
+            name="event_summary"
+            class=".event_summary.EventSummaryView"
+            template="event_summary.pt"
+            permission="zope2.View"
+            layer="..interfaces.IBrowserLayer"
+            />
 
     So there is a class :py:class:`plone.app.event.browser.event_summary.EventSummaryView` and a template :file:`event_summary.pt` that could be overridden with :py:mod:`z3c.jbot` by copying it as :file:`plone.app.event.browser.event_summary.pt` in :file:`browser/overrides`.
 

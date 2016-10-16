@@ -6,11 +6,11 @@ Return to Dexterity: Moving contenttypes into Code
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/02_export_code_p5/ src/ploneconf.site
+        git checkout export_code
 
 
 In this part you will:
@@ -163,7 +163,13 @@ Create a new folder :file:`content` in the main directory (from the buildout dir
     :linenos:
 
     <?xml version='1.0' encoding='utf8'?>
-      <model xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns="http://namespaces.plone.org/supermodel/schema">
+      <model xmlns="http://namespaces.plone.org/supermodel/schema"
+             xmlns:form="http://namespaces.plone.org/supermodel/form"
+             xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+             xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
+             xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
+             xmlns:security="http://namespaces.plone.org/supermodel/security"
+             xmlns:users="http://namespaces.plone.org/supermodel/users">
         <schema>
           <field name="type_of_talk" type="zope.schema.Choice">
             <description/>
@@ -225,16 +231,26 @@ Now remove the ugly model_source and instead point to the new XML file in the FT
 
     The default types of Plone 5 also have an xml schema like this since that allows the fields of the types to be editable trough the web! Fields for types with a python schema are not editable ttw.
 
+Changing a widget
+-----------------
+
 `Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_ is very powerful. By editing it (not all features have a UI) you should be able to do everything you can do with a Python schema.
+Sadly not every feature also is exposed in the UI of the dexterity schema editor. For example you cannot yet change the widgets or permissions for fields in the UI. We need to do this in the xml- or python-schema.
 
 Our talks use a dropdown for :guilabel:`type_of_talk` and a multiselect for :guilabel:`audience`. Radio-buttons and checkboxes would be the better choice here. Modify the XML to make that change happen:
 
 ..  code-block:: xml
     :linenos:
-    :emphasize-lines: 5, 20
+    :emphasize-lines: 10, 25
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <model xmlns="http://namespaces.plone.org/supermodel/schema" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security">
+    <model xmlns="http://namespaces.plone.org/supermodel/schema"
+           xmlns:form="http://namespaces.plone.org/supermodel/form"
+           xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+           xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
+           xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
+           xmlns:security="http://namespaces.plone.org/supermodel/security"
+           xmlns:users="http://namespaces.plone.org/supermodel/users">
       <schema>
         <field name="type_of_talk" type="zope.schema.Choice"
           form:widget="z3c.form.browser.radio.RadioFieldWidget">
@@ -284,6 +300,101 @@ Our talks use a dropdown for :guilabel:`type_of_talk` and a multiselect for :gui
         </field>
       </schema>
     </model>
+
+Protect fields with permissions
+-------------------------------
+
+We also want to have a add a new field `room` to show where a talk will take place.
+Our case-study says the speakers will submit the talks online.
+How should they know in which room the talk will take place (if it got accepted at all)?
+So we need to hide this field from them by requiring a permission that they do not have.
+
+Let's assume the prospective speakers will not have the permission to review content (i.e. edit submitted content and publish it) but the organizing commitee has.
+You can then protect the field using the permission `Review portal content` in this case the name of the permission-utility for this permission: `cmf.ReviewPortalContent`.
+
+We only want to prevent writing, not reading, so we'll only manage the `write-permission`:
+
+..  code-block:: xml
+    :linenos:
+    :emphasize-lines: 38-50
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <model xmlns="http://namespaces.plone.org/supermodel/schema"
+           xmlns:form="http://namespaces.plone.org/supermodel/form"
+           xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+           xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
+           xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
+           xmlns:security="http://namespaces.plone.org/supermodel/security"
+           xmlns:users="http://namespaces.plone.org/supermodel/users">
+      <schema>
+        <field name="type_of_talk" type="zope.schema.Choice"
+          form:widget="z3c.form.browser.radio.RadioFieldWidget">
+          <description />
+          <title>Type of talk</title>
+          <values>
+            <element>Talk</element>
+            <element>Training</element>
+            <element>Keynote</element>
+          </values>
+        </field>
+        <field name="details" type="plone.app.textfield.RichText">
+          <description>Add a short description of the talk (max. 2000 characters)</description>
+          <max_length>2000</max_length>
+          <title>Details</title>
+        </field>
+        <field name="audience"
+               type="zope.schema.Set"
+               form:widget="z3c.form.browser.checkbox.CheckBoxFieldWidget">
+          <description />
+          <title>Audience</title>
+          <value_type type="zope.schema.Choice">
+            <values>
+              <element>Beginner</element>
+              <element>Advanced</element>
+              <element>Professionals</element>
+            </values>
+          </value_type>
+        </field>
+        <field name="room"
+               type="zope.schema.Choice"
+               form:widget="z3c.form.browser.radio.RadioFieldWidget"
+               security:write-permission="cmf.ReviewPortalContent">
+          <description></description>
+          <required>False</required>
+          <title>Room</title>
+          <values>
+            <element>101</element>
+            <element>201</element>
+            <element>Auditorium</element>
+          </values>
+        </field>
+        <field name="speaker" type="zope.schema.TextLine">
+          <description>Name (or names) of the speaker</description>
+          <title>Speaker</title>
+        </field>
+        <field name="email" type="plone.schema.email.Email">
+          <description>Adress of the speaker</description>
+          <title>Email</title>
+        </field>
+        <field name="image" type="plone.namedfile.field.NamedBlobImage">
+          <description />
+          <required>False</required>
+          <title>Image</title>
+        </field>
+        <field name="speaker_biography" type="plone.app.textfield.RichText">
+          <description />
+          <max_length>1000</max_length>
+          <required>False</required>
+          <title>Speaker Biography</title>
+        </field>
+      </schema>
+    </model>
+
+
+.. seealso::
+
+   * http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html
+   * https://github.com/plone/plone.autoform/blob/master/plone/autoform/supermodel.txt
 
 
 Exercise 1

@@ -5,11 +5,11 @@ Customizing Existing Templates
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/04_zpt_2_p5/ src/ploneconf.site
+        git checkout zpt_2
 
 In this part you will:
 
@@ -140,6 +140,7 @@ We could also leave the formatting to the frontend. Plone 5 comes with the `mome
     </p>
 
 Now we should see the date in a user-friendly format like ``Today at 12:01 PM``.
+Experiment with other formats such as ``calendar`` and ``LT``.
 
 
 .. _zpt2-summary-label:

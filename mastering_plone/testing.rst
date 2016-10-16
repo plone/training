@@ -1,8 +1,16 @@
 .. _testing-label:
 
-
 Testing in Plone
 ================
+
+.. sidebar:: Get the code!
+
+    Get the code for this chapter (:doc:`More info <code>`):
+
+    ..  code-block:: bash
+
+        git checkout testing
+
 
 In this chapter we:
 

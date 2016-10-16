@@ -3,9 +3,14 @@
 Resources
 =========
 
-..  warning::
+.. sidebar:: Get the code!
 
-    This chapter is still work-in-progress.
+    Get the code for this chapter (:doc:`More info <code>`):
+
+    ..  code-block:: bash
+
+        git checkout resources
+
 
 We have not yet talked about CSS and Javascript. At the moment these are considered static resources.
 
@@ -28,40 +33,26 @@ Let's create a file :file:`ploneconf.css` in the :file:`static` folder with some
 .. code-block:: css
     :linenos:
 
-    .sponsor {
-        float: left;
-        margin: 0 1em 1em 0;
-    }
-
-    .sponsor:hover {
-        box-shadow: 0 0 8px #000000;
-        -moz-box-shadow: 0 0 8px #000000;
-        -webkit-box-shadow: 0 0 8px #000000;
-    }
-
     header #portal-header #portal-searchbox .searchSection {
         display: none;
     }
 
-    #content .event.summary {
-        box-shadow: none;
-        float: none;
-        max-width: 100%;
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-start,
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-end > *,
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-whole_day,
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-open_end {
+        display: none;
     }
 
-    .talkinfo #portal-column-content {
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.17);
-        padding: 1em;
-        background-color: #fff;
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-start,
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-end > *,
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-whole_day,
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-open_end {
+        display: block;
     }
 
-    .talkinfo h1 {
-        font-size: 20px;
-    }
-
-    .talkinfo .event.summary {
-        background-color: #fff;
-    }
+The css is not very exciting. It hides the :guilabel:`only in current section` below the search-box (we could also overwrite the viewlet, but ...). It also hides the event-fields we added in :ref:`events-label` from people submitting their talks.
+For exiting css you take the training :ref:`theming-label`.
 
 If we now access http://localhost:8080/Plone/++plone++ploneconf.site/ploneconf.css we see our css-file.
 
@@ -80,7 +71,7 @@ Open the file :file:`profiles/default/registry.xml` and add the following:
     :linenos:
 
     <!-- the plonconf bundle -->
-    <records prefix="plone.bundles/ursapharm-bundle"
+    <records prefix="plone.bundles/ploneconf-bundle"
              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
       <value key="resources">
         <element>ploneconf-main</element>

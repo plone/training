@@ -128,4 +128,5 @@ The following is a minimal pattern example, except that it uses jQuery and chang
     });
 
 
-For a complete example including tests, bundle config und Plone integration see: https://github.com/collective/mockup-minimalpattern
+For a complete example including tests, bundle config und Plone integration see:
+https://github.com/collective/mockup-minimalpattern

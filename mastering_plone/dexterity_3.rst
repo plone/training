@@ -5,11 +5,11 @@ Dexterity Types III: Python
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/13_dexterity_3_p5/ src/ploneconf.site
+        git checkout dexterity_3
 
 
 Without sponsors, a conference would be hard to finance! Plus it is a good opportunity for Plone companies to advertise their services.
@@ -425,12 +425,12 @@ Add the template :file:`browser/templates/sponsors_viewlet.pt`
         </div>
     </div>
 
-There already is some CSS in :file:`browser/static/ploneconf.css` to make it look OK.
+You can now add some CSS in :file:`browser/static/ploneconf.css` to make it look OK.
 
 ..  code-block:: css
 
     .sponsor {
-        float: left;
+        display: inline-block;
         margin: 0 1em 1em 0;
     }
 

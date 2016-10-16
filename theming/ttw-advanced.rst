@@ -165,7 +165,7 @@ And here is what the classes for the same page look like when viewed by a manage
                  plone-toolbar-expanded
                  plone-toolbar-left-expanded">
 
-Notice the addition of `userrole-manager`.
+Notice the addition of ``userrole-manager``.
 
 Exercise 2 - Discussion about the ``<body>`` classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -174,7 +174,7 @@ Look back at the ``<body>`` classes for a manager then see if you can answer the
 
 1. What other roles does the manager have?
 2. Can you see other differences?
-3. What do you think the `plone-toolbar-expanded` class does?
+3. What do you think the ``plone-toolbar-expanded`` class does?
 
 .. admonition:: Solution
     :class: toggle

@@ -4,6 +4,19 @@
     padding-right: 2em;
 }
 
+.rst-content .menuselection{
+    background-color: #f9ebb3;
+    border: 1px solid #f0b37e;
+    border-radius: 3px;
+    padding: 1px 6px;
+}
+
+.rst-content .guilabel{
+    border: 1px solid #777;
+    background-color: #cee3fb;
+    border-radius: 3px;
+    padding: 1px 6px;
+}
 .rst-content .toggle {
     background: none repeat scroll 0 0 #e7f2fa;
     padding: 12px;

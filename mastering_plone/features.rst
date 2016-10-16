@@ -3,10 +3,6 @@
 The Features of Plone
 =====================
 
-..  warning::
-
-    This chapter has not yet been updated for Plone 5!
-
 In-depth user-manual: http://docs.plone.org
 
 See also: http://docs.plone.org/working-with-content/index.html
@@ -127,7 +123,7 @@ The `app` object you encountered in the previous exercise can be seen as the roo
 
         Plone and its objects are stored in an object database, the ZODB. You can use `bin/instance debug` as a database client (in the same way e.g. `psql` is a client for PostgreSQL). Instead
         of a special query language (like SQL) you simply use Python to access and manipulate ZODB objects. Don't worry if you accidentally change objects in `bin/instance debug` - you would have to commit
-        your changes explicitly to make them permanent. The Python code to do so is::
+        your changes explicitly to make them permanent. The Python code to do so is:
 
         .. code-block:: pycon
 

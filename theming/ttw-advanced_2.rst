@@ -2,18 +2,61 @@
 TTW Theming II: Creating a custom theme based on Barceloneta
 =============================================================
 
+In this section you will:
+
+* Create a theme by inheriting from the Barceloneta theme
+* Using the :file:`manifest.cfg`, register a production CSS file
+* Use an XInclude to incorporate rules from the Barceloneta theme
+* Use ``?diazo.off=1`` to view unthemed versions
+* Use conditional rules to have a different backend theme from the anonymous visitors theme
+
+Topics covered:
+
+* Inheriting from Barceloneta
+* Diazo rule directives and attributes
+* Viewing the unthemed version of a Plone item
+* Creating a visitor only theme
+
+
 Inheriting from Barceloneta
 ---------------------------
+.. sidebar:: Key Ideas
 
-Copying Barceloneta is not recommended:
+       When inheriting from the Barceloneta theme keep the following in mind:
 
-- it makes your theme heavier,
-- upgrading is more difficult.
+       * The theme provides styles and assets used by Plone's backend tools
+       * Inheritance involves including the Barceloneta :file:`rules.xml` and styles.
+       * The prefix/unique path to the Barceloneta theme is ``++theme++barceloneta``
+       * It is necessary to include a copy of Barceloneta's :file:`index.html` in the root of your custom theme.
+       * The three key files involved are :file:`manifest.cfg`, :file:`rules.xml` and a LESS file defined in 
+         the manifest which we will call :file:`styles.less`. 
+       * Use "Build CSS" to generate a CSS file from your custom LESS file
 
-Instead of copying it, Barceloneta can be inherited by a custom theme. Two elements must be inherited: the **rules**, and the **style**:
+Copying Barceloneta makes your theme heavier and will likely make upgrading more difficult.
 
-Create a new theme in the theming editor containing the following files:
+The Barceloneta theme provides many assets used by Plone's utilities that you do not need
+to duplicate. Additionally new releases of the theme may introduce optimizations or bug fixes.
+By referencing the Barceloneta rules and styles, instead of copying them, you automatically benefit from
+any updates to the Barceloneta theme while also keeping your custom theme relatively small.
+          
 
+Exercise 1 - Create a new theme that inherits from Barceloneta
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+In this exercise we will create a new theme that inherits the Barceloneta rules and styles.
+
+1. Create a new theme
+
+   .. image:: ../theming/_static/theming-new-theme.png
+   
+   
+   and name it "Custom"
+   
+   .. image:: ../theming/_static/theming-new-theme2.png
+
+2. In the theming editor, ensure that your new theme contains a :file:`manifest.cfg`, :file:`rules.xml`, 
+   :file:`index.html` (from Barceloneta) and :file:`styles.less`.
+   
 - :file:`manifest.cfg`, declaring your theme:
 
 .. code-block:: ini
@@ -21,8 +64,8 @@ Create a new theme in the theming editor containing the following files:
     [theme]
     title = mytheme
     description =
-    development-css = styles.less
-    production-css = styles.css
+    development-css = ++theme++custom/styles.less
+    production-css = ++theme++custom/styles.css
 
 - :file:`rules.xml`, including the Barceloneta rules:
 
@@ -60,79 +103,89 @@ Create a new theme in the theming editor containing the following files:
       color: @plone-text-color;
     }
 
-Then you have to compile :file:`styles.less` to obtain your :file:`styles.css` file using the "Build CSS" button.
+Then generate the :file:`styles.css` file using :file:`styles.less` and the "Build CSS" button.
 
 Your theme is ready.
 
-Exercise 1 - create a new theme inheriting from Barceloneta
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Follow the example above and create a new theme that inherits from Barceloneta.
 
 Diazo rule directives and attributes
-----------------------------------------------------------
+------------------------------------
 
-The Diazo rules file is an XML document containing rules to specify where the content elements (title, footer, main text, etc.) will be located in the targeted theme page.
-The rules are created with ``rule directives`` which contain ``attributes``. 
+The Diazo rules file is an XML document containing rules to specify where the content elements 
+(title, footer, main text, etc.) will be located in the targeted theme page.
+The rules are created with ``rule directives`` which contain ``attributes``, attributes
+use either CSS expressions or Xpath expressions.
 
 CSS selector based attributes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-It is generally recommneded that you use CSS3 selectors to target elements in your content or theme.
++++++++++++++++++++++++++++++
+It is generally recommended that you use CSS3 selectors to target elements in your content or theme.
 The CSS3 selectors used by Diazo directives are listed below:
 
-`css:theme`
+css:theme
     Used to select target elements from the theme using CSS3 selectors
-`css:content`
+css:content
     Used to specify the element that should be taken from the content
-`css:theme-children`
+css:theme-children
     Used to select the the children of matching elements.
-`css:content-children`
+css:content-children
     Used to identify the children of an element that will be used.
 
 
 Xpath selector based attributes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Sometimes the content or the theme does not have enough CSS markup to work reliably with CSS selectors.
-In such cases you may be able to use XPath selectors these use the unprefixed
-attributes ``theme`` and ``content``.
++++++++++++++++++++++++++++++++
 
-`theme`
+Depending on complexity of the required selector it is sometimes necessary or more convenient 
+to use XPath selectors instead of CSS selectors. XPath selectors use the unprefixed
+attributes ``theme`` and ``content``. The common XPath selector attributes include:
+
+theme
     Used to select target elements from the theme using Xpath selectors
-`content`
+content
     Used to specify the element that should be taken from the content using Xpath selectors
-`theme-children`
+theme-children
     Used to select the the children of matching elements using Xpath selectors.
-`content-children`
+content-children
     Used to identify the children of an element that will be used using Xpath selectors.
-
-.. sidebar:: sometimes there are elements in your theme or content which are not easily targeted by CSS selectors
-          in such cases you may need to use XPath selectors 
-          the equivalent Xpath attributes to ``css:theme``,``css:content``,``css:if-theme`` and ``css:if-content``
-          are ``theme``,``content``,``if-theme`` and ``if-content``).
 
 You can also create conditions about the current path using ``if-path``.
 
 
-.. note: For a more comprehensive overview of all the Diazo rule directives see: http://docs.diazo.org/en/latest/basic.html#rule-directives
+.. note: For a more comprehensive overview of all the Diazo rule directives
+   and related attributes see: http://docs.diazo.org/en/latest/basic.html#rule-directives
 
 Viewing the unthemed Plone site
 -------------------------------
 
-When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured. 
-In order to see a "non-diazoed" page, just add ``?diazo.off=1`` at the end of its URL.
+When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured.
+In order to see a "non-diazoed" version page, just add ``?diazo.off=1`` at the end of its URL.
 
 Exercise 2 - Viewing the unthemed site
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++++++
 
 1. Use ``diazo.off=1`` to view the unthemed version of your site
 
-2. Using your browser's inspector find out the location/name of some of the unthemed elements
+2. Using your browser's inspector find out the location/name of some of Plone's elements, try to answer
+   the following:
+   
+   What do you think is the difference between "content-core" and "content"?
+   There are several viewlets, how many do you count?
+   Can you identify any portlets, what do you think they are for?
 
+    .. admonition:: Solution
+       :class: toggle
+       
+       The "content-core" does not include the "title" and "description" while
+       the "content" combines, the "title", "description" and "content-core"
 
+       Out of the box there are six viewlets (viewlet-above-content, viewlet-above-content-title
+       viewlet-below-content-title, viewlet-above-content-body, viewlet-below-content-body,
+       viewlet-below-content).
+        
+       There are a few footer portlets which construct the footer of the site.
 
 
 Exercise 3 - the <drop> directives
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++
 
 1. Add a rule that drops the "search section" checkbox from the search box.
 See the diagram below:
@@ -140,26 +193,19 @@ See the diagram below:
   .. image:: ../theming/_static/theming-dropping-thesearchsection.png
 
 
-
-- the current user role, and its permissions,
-- the current content-type and its template,
-- the site section and sub section,
-- the current subsite (if any).
-
-
 Conditional attributes
 ^^^^^^^^^^^^^^^^^^^^^^
 The following attributes can be used to conditionally activate a directive.
 
-`css:if-content`
+css:if-content
     defines a CSS3 expression, if there is an element in the content that matches the expression then activate the directive
-`css:if-theme`
+css:if-theme
     defines a CSS3 expression, if there is an element in the theme that matches the expression then activate the directive
-`if-content`
+if-content
     defines an Xpath expression, if there is an element in the content that matches the expression then activate the directive
-`if-theme`
+if-theme
     defines an Xpath expression, if there is an element in the theme that matches the expression then activate the directive
-`if-path`
+if-path
     Conditionally activate the current directive based on the current path.
 
 .. note:: In a previous chapter we discussed the Plone `<body>` element and how to take advantage of the custom CSS classes associated with it.
@@ -179,33 +225,114 @@ The following attributes can be used to conditionally activate a directive.
         <body template-summary_view portaltype-collection site-Plone section-news subsection-aggregator icons-on thumbs-on frontend viewpermission-view userrole-manager userrole-authenticated userrole-owner plone-toolbar-left plone-toolbar-expanded plone-toolbar-left-expanded pat-plone patterns-loaded>
 
 
-Conditionally enable Barceloneta
----------------------------------
+Converting an existing HTML template into an theme
+---------------------------------------------------
 
-Imagine you might want to use Barceloneta for the website administrators (so they can manage the content conveniently) and offer a completely different layout for visitors, you just need to create rules with ``css:if-content="body.userrole-anonymous"`` or ``css:if-content="body.:not(userrole-anonymous)"`` to enable the theme you want.
 
-As you can see, if the visitor is anonymous, Diazo will use a specific HTML theme (named :file:`front.html`) and not the Barceloneta's :file:`index.html`.
 
-Exercise 4 - Create a specific design for visitors only
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Exercise 4 - Convert a HTML template into a Diazo theme
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-1. To get started `download a copy of the clean-blog theme as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/master.zip>`_.
-Then upload it to the theme controlpanel.
+In this exercise we will walk through the process of converting an existing free HTML theme
+into a Diazo based Plone theme.
 
-.. note:: Clean Blog is a free Bootstrap theme, 
+.. note:: A theme is packaged as a zip file. Your theme should be structured such that
+          there is only one top level directory in the root of the zip file. The directory
+          should contain your index.html and supporting files, it is okay if the supporting
+          files (css, javascript and other files) are in subdirectories.
+
+          We've selected the free `Clean Blog Bootstrap theme <https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_.
+          The theme is already packaged in a manner that will work with the theming tool.
+
+1. To get started `download a copy of the Clean Blog theme as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/gh-pages.zip>`_.
+   Then upload it to the theme controlpanel.
+
+    .. hint::
+       :class: toggle
+
+       This is a generic theme, it does not provide the Plone/Diazo specific :file:`rules.xml` or
+       :file:`manifest.cfg` file. When you upload the zip file the theming tool generates a :file:`rules.xml`.
+       In the next steps you will add additional files including a :file:`manifest.cfg`.
+
+       .. image:: ../theming/_static/theming-uploadzipfile.png
+
+       Select the downloaded zip file.
+
+       .. image:: ../theming/_static/theming-uploadzipfile2.png
+
+2. Add a :file:`styles.less` file and import the Barceloneta styles
+
+    .. note:: Clean Blog is a free Bootstrap theme,
           the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
 
-2. Add a :file:`manifest.cfg` file and configure it to inherit styles from barceloneta (see the example).
+3. Add a :file:`manifest.cfg` file, configure the ``production-css`` equal to ``styles.css``
 
-3. Adjust the :file:`rules.xml` file to 
+    .. hint::
+       :class: toggle
 
-..  admonition:: Solution
-    :class: toggle
+       You can identify the theme path by reading your browser's address
+       bar when your theme is open in the theming tool.
+       You'll need to include the proper theme path in your :file:`manifest.cfg`,
+       in this case it will most likely be something like ``++theme++startbootstrap-clean-blog-gh-pages``
 
-    - create a :file:`front` folder in the theme,
-    - put the 2 downloaded files in this folder,
-    - in :file:`index.html`, fix the ``<link>`` element to load :file:`front/style.css`,
-    - change :file:`rules.xml` to:
+4. Add rules to include content, add site structure, drop unneeded elements, customize the menu
+
+   .. warning:: 
+
+     Look out for inline styles in this theme (ie. 
+     the use of the ``style`` attribute inside of a tag). This is especially problematic with
+     background images set with relative paths. The two issues that result are:
+   
+       * the relative path does not translate properly in the context of the
+         theme. 
+       * it can be tricky to dynamically replace background images provided by
+         inline styles.
+     
+Creating a visitor only theme - conditionally enabling Barceloneta
+------------------------------------------------------------------
+
+Sometimes it is more convenient for your website administrators to use Barceloneta, Plone's default theme.
+Other visitors would see a completely different layout provided by your custom theme.
+To achieve this you will need to associate your visitor theme rules with
+an expression like ``css:if-content="body.userrole-anonymous"``.
+For rules that will affect logged in users you can use the expression
+``css:if-content="body.:not(userrole-anonymous)"``.
+
+Once you've combined the expressions above with the right Diazo rules you will be able
+to present an anonymous visitor with a specific HTML theme while presenting the
+Barceloneta theme to logged in users.
+
+.. warning::
+
+   The Barceloneta :file:`++theme++barceloneta/rules.xml` expects the  
+   Barceloneta :file:`index.html` to reside locally in your current theme.
+   To avoid conflict and to accomodate the inherited Barceloneta, ensure that
+   your theme file has a different name such as :file:`front.html`. 
+
+
+Exercise 5 - Convert the theme to be a visitors only theme
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+In this exercise we will alter our theme from the previous exercise to make it
+into a visitor only theme.
+
+1. Update the :file:`rules.xml` file to include Barceloneta rules
+
+    .. hint::
+       :class: toggle
+
+       Use ``<xi:include href="++theme++barceloneta/rules.xml" />``
+
+2. Add conditional rules to the :file:`rules.xml` so that the new theme is only shown to anonymous users
+   rename the theme's :file:`index.html` to :file:`front.html` and add a copy of the Barceloneta :file:`index.html`
+       
+    .. hint::
+       :class: toggle
+
+       copy the contents of the Barceloneta index.html file
+       then add it to the theme as the new :file:`index.html` file.
+
+       change :file:`rules.xml` to look similar to this:
 
         .. code-block:: xml
 
@@ -224,10 +351,9 @@ Then upload it to the theme controlpanel.
               </rules>
 
               <rules css:if-content="body.userrole-anonymous">
-                <theme href="front/index.html" />
+                <theme href="front.html" />
                 <replace css:theme-children=".intro header h2" css:content-children=".documentFirstHeading" />
                 <replace css:theme-children=".summary" css:content-children=".documentDescription" />
                 <replace css:theme-children=".preamble" css:content-children="#content-core" />
               </rules>
             </rules>
-

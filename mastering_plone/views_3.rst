@@ -5,11 +5,11 @@ Views III: A Talk List
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/06_views_3_p5/ src/ploneconf.site
+        git checkout views_3
 
 In this part you will:
 

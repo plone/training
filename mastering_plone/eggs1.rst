@@ -5,11 +5,11 @@ Write Your Own Add-Ons to Customize Plone
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/01_eggs1_p5/ src/ploneconf.site
+        git checkout eggs1
 
 .. _eggs1-create-label:
 
@@ -39,7 +39,7 @@ We create and enter the :file:`src` directory (*src* is short for *sources*) and
     $ cd src
     $ ../bin/mrbob -O ploneconf.site bobtemplates:plone_addon
 
-We have to answer some questions about the add-on. We will press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your github username if you have one) and 5 (Plone version), where we enter :kbd:`5.0`::
+We have to answer some questions about the add-on. We will press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your github username if you have one) and 5 (Plone version), where we enter :kbd:`5.0.6`::
 
     --> What kind of package would you like to create? Choose between 'Basic', 'Dexterity', and 'Theme'. [Basic]:
 
@@ -51,7 +51,7 @@ We have to answer some questions about the add-on. We will press :kbd:`Enter` (i
 
     --> Package description [An add-on for Plone]:
 
-    --> Plone version [4.3.6]: 5.0.5
+    --> Plone version [5.0.5]: 5.0.6
 
     Generated file structure at /vagrant/buildout/src/ploneconf.site
 
@@ -135,15 +135,14 @@ In :file:`src` there is now a new folder :file:`ploneconf.site` and in there is 
 Including the package in Plone
 -----------------------------------
 
-Before we can use our new package we have to tell Plone about it. Edit :file:`buildout.cfg` and uncomment ``ploneconf.site`` in the sections `auto-checkout`, `eggs` and `test`:
+Before we can use our new package we have to tell Plone about it. Look at :file:`buildout.cfg` and see how ``ploneconf.site`` is included in `auto-checkout`, `eggs` and `test`:
 
 .. code-block:: cfg
-    :emphasize-lines: 4, 32, 40
+    :emphasize-lines: 2, 31, 40
 
     auto-checkout +=
-        ploneconf.site_sneak
-    #    starzel.votable_behavior
         ploneconf.site
+    #    starzel.votable_behavior
 
     parts =
         checkversions
@@ -183,16 +182,32 @@ Before we can use our new package we have to tell Plone about it. Edit :file:`bu
 
 This tells Buildout to add the egg :py:mod:`ploneconf.site`. The sources for this eggs are defined in the section ``[sources]`` at the bottom of :file:`buildout.cfg`.
 
-.. code-block:: cfg
-   :emphasize-lines: 2
+..  code-block:: cfg
+    :emphasize-lines: 2
 
-   [sources]
-   ploneconf.site = fs ploneconf.site path=src
-   # ploneconf.site = fs final full-path=src/ploneconf.site_sneak/chapters/final
-   starzel.votable_behavior = git https://github.com/collective
+    [sources]
+    ploneconf.site = git https://github.com/collective/ploneconf.site.git pushurl=git@github.com:collective/ploneconf.site.git
+    starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
 
+The tells buildout not to download it from pypi but to do a cjeckout from github put the code in :file:`src/ploneconf.site`.
 
-The definition tells buildout not to download it from pypi, and expect it in :file:`src/ploneconf.site`. This is done with the directive *fs*, which allows you to add eggs on the filesystem without a version control system.
+..  note::
+
+    The package ``ploneconf.site`` is now downloaded from github and automatically in the branch master
+
+..  note::
+
+    If you do **not** want to use the prepared package for ploneconf.site from github but write it yourself (we suggest you try that) then add the following instead:
+
+    ..  code-block:: cfg
+        :emphasize-lines: 2
+
+        [sources]
+        ploneconf.site = fs ploneconf.site path=src
+        starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
+
+    This tells buildout to expect `ploneconf.site` in :file:`src/ploneconf.site`.
+    The directive ``fs`` allows you to add eggs on the filesystem without a version control system.
 
 Now run buildout to reconfigure Plone with the updated configuration:
 
