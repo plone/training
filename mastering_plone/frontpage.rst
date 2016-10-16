@@ -215,7 +215,7 @@ Now use that macro in ``browser/templates/frontpageview.pt``
         </div>
     </div>
 
-Calling that macro in python looks like this ``,etal:use-macro="python: context.restrictedTraverse('talklistview')['talklist']"``
+Calling that macro in python looks like this ``metal:use-macro="python: context.restrictedTraverse('talklistview')['talklist']"``
 
 .. note::
 
