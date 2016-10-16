@@ -6,6 +6,8 @@ Next we will cover some more advanced topics which need configuration
 on Plone and Solr side. Features like autocomplete and suggest
 (did you mean ...) are often requested when it comes to search.
 They are perfectly doable with the Plone / Solr combination.
+At the end of this chapter we will build a full search page with
+autocomplete, suggest, term highlighting and faceting turned on.
 
 Let's see how and start with autocomplete: 
 
@@ -297,4 +299,223 @@ A simple integration in our training-search is here: ::
 Facetting
 ==========
 
-TBD
+Facetting is tightly integrated in ``collective.solr`` and works out of
+the box. We will now create a full search page with faceting, autocomplete,
+search term highlighting and suggest enabled. The HTML of the page is mainly
+taken from the standard page. To reduce complexity some of the standard
+features like syndication, i18n and view actions has been removed ::
+
+  <html metal:use-macro="here/main_template/macros/master">
+  <head>
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1);
+                     disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                     enable_column_two python:request.set('disable_plone.rightcolumn',0);"/>
+    <metal:block fill-slot="column_one_slot"/>
+
+    <metal:js fill-slot="javascript_head_slot">
+      <script type="text/javascript" src=""
+              tal:attributes="src string:${portal_url}/++resource++collective.showmore.js">
+      </script>
+      <script type="text/javascript">
+
+    $(document).ready(function() {
+      $("#acsearch").on("input", function(e) {
+        var val = $(this).val();
+        if(val.length < 2) return;
+        $.get("solr-autocomplete", {term:val}, function(res) {
+          var dataList = $("#searchresults");
+          dataList.empty();
+          if(res.length) {
+            for(var i=0, len=res.length; i<len; i++) {
+              var opt = $("<option></option>").attr("value", res[i].label);
+              dataList.append(opt);
+            }
+          }
+        },"json");
+      });
+    })
+
+
+      </script>
+    </metal:js>
+  </head>
+
+  <body>
+  <div metal:fill-slot="main"
+       tal:define="results view/search">
+    <form name="searchform"
+          action="search"
+          class="searchPage"
+          tal:attributes="action request/getURL">
+      <input class="searchPage" name="SearchableText" id="acsearch" type="text"
+             size="25" list="searchresults" title="Search Site"
+             placeholder="Search Site ..."
+             tal:attributes="value request/SearchableText|nothing;"/>
+      <datalist id="searchresults"/>
+      <input class="searchPage searchButton" type="submit" value="Search"/>
+      <div tal:define="view nocall: context/@@search-facets | nothing"
+           tal:condition="python: view"
+           tal:replace="structure view/hiddenfields"/>
+    </form>
+    <h1 class="documentFirstHeading">
+      Search results
+      <span class="discreet">
+          &mdash;
+        <span tal:content="python:len(results)">234</span>
+        items matching your search terms
+      </span>
+    </h1>
+
+    <div tal:condition="not: view/has_results">
+      <p tal:define="suggest view/suggest">
+        <tal:noresuls>No results were found.</tal:noresuls>
+        <tal:suggest condition="suggest">Did you mean:
+          <strong>
+            <a href="" tal:attributes="href suggest/url"
+               tal:content="suggest/word">Plone</a>
+          </strong>
+        </tal:suggest>
+      </p>
+    </div>
+    <div tal:condition="results" id="content-core">
+      <dl class="searchResults">
+        <tal:results repeat="result results">
+          <dt tal:attributes="class result/ContentTypeClass">
+            <a href="#"
+               tal:attributes="href result/getURL;
+                               class string:state-${result/review_state}"
+               tal:content="result/Title"/>
+          </dt>
+          <dd>
+            <span tal:replace="result/CroppedDescription">Cropped description</span>
+            <br/>
+          </dd>
+        </tal:results>
+      </dl>
+      <div metal:use-macro="here/batch_macros/macros/navigation"/>
+    </div>
+
+  </div>
+  <div metal:fill-slot="portlets_two_slot">
+    <div tal:define="facet_view nocall: context/@@search-facets;
+                       results view/search;"
+         tal:condition="view/has_results"
+         tal:replace="structure python:facet_view(results=results._sequence._basesequence)"/>
+  </div>
+  </body>
+  </html>
+
+
+Let's analyze the important parts. The head includes a reference to the ``showmore.js``
+JavaScript, which is included in ``collective.solr`` and used to reduce long lists
+of facets. Additionally the left column is removed on the search page.
+The right column is kept. No portlets will be displayed it is used for the facets.
+
+The first thing we do in our search is geting the results for the search query,
+if there is one. ::
+
+    def search(self):
+        if not self.request.get('SearchableText'):
+            return []
+        catalog = api.portal.get_tool('portal_catalog')
+        results = IContentListing(catalog(hl='true', **self.request.form))
+        self.has_results = bool(len(results))
+        b_start = self.request.get('b_start', 0)
+        batch = Batch(results, size=20, start=b_start)
+        return batch
+
+We can use the standard Plone catalo API for getting the results.
+
+ .. note: Don't use plone.api.content.find because it `fixes` the
+    query to match the indexes defined in Zcatalog and will strip
+    all Solr related query parameters. We don't want that.
+
+After we got the results we wrap it with ``IContentListing`` to have
+unified access to them. Finally we create a Batch, to make sure
+long result sets are batched on our search view.
+
+The next thing we have in our search view is the form itself: ::
+
+    <form name="searchform"
+          action="search"
+          class="searchPage"
+          tal:attributes="action request/getURL">
+      <input class="searchPage" name="SearchableText" id="acsearch" type="text"
+             size="25" list="searchresults" title="Search Site"
+             placeholder="Search Site ..."
+             tal:attributes="value request/SearchableText|nothing;"/>
+      <datalist id="searchresults"/>
+      <input class="searchPage searchButton" type="submit" value="Search"/>
+      <div tal:define="view nocall: context/@@search-facets | nothing"
+           tal:condition="python: view"
+           tal:replace="structure view/hiddenfields"/>
+    </form>
+
+We have a input field for used input. For the autocompletion we reference the
+datalist with the ``list`` attribute.
+For the facets we need to render the ``hiddenfields`` snippet, which is constructed
+by the ``search-facets`` view of ``collective.solr``. This snippet will add the
+necessary query parameters like **facet=true&facet.field=portal_type&facet.field=review_state**.
+
+We use the ``h1`` element for displaying the number of elements.
+
+The next section is reseved for the suggest snippet. ::
+
+    <div tal:condition="not: view/has_results">
+      <p tal:define="suggest view/suggest">
+        <tal:noresuls>No results were found.</tal:noresuls>
+        <tal:suggest condition="suggest">Did you mean:
+          <strong>
+            <a href="" tal:attributes="href suggest/url"
+               tal:content="suggest/word">Plone</a>
+          </strong>
+        </tal:suggest>
+      </p>
+    </div>
+
+If no results are found with the query, a term is suggested. This term is fetched from
+the collective.solr AJAX view **suggest-terms**. The code in our view class is here: ::
+
+    def suggest(self):
+        self.request.form['term'] = self.request.get('SearchableText')
+        suggest_view = getMultiAdapter((self.context, self.request),
+                                       name='suggest-terms')
+        suggestions = json.loads(suggest_view())
+        if suggestions:
+            word = suggestions[0]['value']['word']
+            query = self.request.form.copy()
+            query['SearchableText'] = word
+            return {'word': word,
+                    'url': '{0}?{1}'.format(self.request.getURL(),
+                                            urlencode(query, doseq=1))}
+        return ''
+
+We get suggestions from the Solr handler and construct an URL for a new
+search with query parameters preserved.
+
+The next thing we have is the result list. There is nothing fancy in it. We show
+the title, which is linked to the article found and the cropped description.
+
+Finally we have the snippet for the factes in the right slot: ::
+
+  <div metal:fill-slot="portlets_two_slot">
+      <div tal:define="facet_view nocall: context/@@search-facets;
+                         results view/search;"
+           tal:condition="view/has_results"
+           tal:replace="structure python:facet_view(results=results._sequence._basesequence)"/>
+    </div>
+
+We call the facet view of ``collective.solr`` with our resultset and get
+the facets fully rendered as HTML. 
+
+ .. note: We need to pass the `real` solr response to the facet view.
+    That's why we have to escape the batch (_sequence) and the
+    contentlisting (_basesequence)
+
+Now we have a fully functional Plone search with faceting, autocompletion,
+suggestion and term highlighting. The complete example you can find on
+github:
+
+  https://github.com/collective/plonetraining.solr_example
+
