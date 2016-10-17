@@ -1,5 +1,5 @@
-Pattern with react
-==================
+Exercise 9: Pattern with react
+==============================
 
 ..  warning::
 
@@ -81,35 +81,35 @@ Register your bundle
 Registration is done exactly like the other examples::
 
     <records prefix="plone.resources/exercise9-react"
-                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++exercise9/react.min.js</value>
-        <value key="css">
-        </value>
-      </records>
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise9/react.min.js</value>
+      <value key="css">
+      </value>
+    </records>
 
-      <records prefix="plone.resources/exercise9"
-                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++exercise9/pattern.js</value>
-        <value key="css">
-          <element>++plone++exercise9/pattern.less</element>
-        </value>
-      </records>
+    <records prefix="plone.resources/exercise9"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise9/pattern.js</value>
+      <value key="css">
+        <element>++plone++exercise9/pattern.less</element>
+      </value>
+    </records>
 
-      <records prefix="plone.bundles/exercise9"
-                interface='Products.CMFPlone.interfaces.IBundleRegistry'>
-        <value key="resources">
-          <element>exercise9</element>
-        </value>
-        <value key="merge_with">default</value>
-        <value key="enabled">True</value>
-        <value key="jscompilation">++plone++exercise9/exercise9-compiled.min.js</value>
-        <value key="csscompilation">++plone++exercise9/exercise9-compiled.css</value>
-        <value key="last_compilation">2016-10-04 00:00:00</value>
-        <value key="stub_js_modules">
-          <element>jquery</element>
-          <element>mockup-patterns-base</element>
-        </value>
-      </records>
+    <records prefix="plone.bundles/exercise9"
+              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+      <value key="resources">
+        <element>exercise9</element>
+      </value>
+      <value key="merge_with">default</value>
+      <value key="enabled">True</value>
+      <value key="jscompilation">++plone++exercise9/exercise9-compiled.min.js</value>
+      <value key="csscompilation">++plone++exercise9/exercise9-compiled.css</value>
+      <value key="last_compilation">2016-10-04 00:00:00</value>
+      <value key="stub_js_modules">
+        <element>jquery</element>
+        <element>mockup-patterns-base</element>
+      </value>
+    </records>
 
 
 Installation

@@ -1,5 +1,5 @@
-Customizing pattern
-===================
+Exercise 10: Customizing pattern
+================================
 
 ..  warning::
 
@@ -14,7 +14,7 @@ We will be working in the ``exercise10`` directory of the collective.jstraining 
 Add your pattern file
 ---------------------
 
-First off, in your ``exercise10/static`` directory, add a file named ``pattern.js``. Use
+In your ``exercise10/static`` directory, add a file named ``pattern.js``. Use
 this file to build your pattern. This example will define a new pattern to
 overwrite the existing livesearch pattern::
 
@@ -53,7 +53,7 @@ overwrite the existing livesearch pattern::
     });
 
 
-First off, pay close attention to what we're doing here::
+Pay close attention to what we're doing here::
 
     ...
     delete registry.patterns.livesearch;
@@ -89,6 +89,7 @@ is in. Add this to the ``exercise10/configure.zcml`` file::
          type="plone"
          name="exercise10"
          />
+
 
 Register your bundle
 --------------------
@@ -129,7 +130,7 @@ Again, registration is done examctly the same as previous exercises::
 Installation
 ------------
 
-At this point, we have all the files necessary to run the pattern.
+We have all the files necessary to run the pattern now.
 
 1) Start up your Plone instance
 2) Install the ``Exercise 10`` add-on

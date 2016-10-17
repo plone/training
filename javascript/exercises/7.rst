@@ -1,5 +1,5 @@
-Using a pattern in a z3c form widget
-====================================
+Exercise 7: Using a pattern in a z3c form widget
+================================================
 
 ..  warning::
 
@@ -16,8 +16,7 @@ Add your JavaScript file
 ------------------------
 
 First off, in your ``exercise7/static`` directory, add a file named ``script.js``. Use
-this file to do anything you would like to the page. This example will stay very
-simple we’ll use jQuery to do a simple animation effect on the title of the page::
+this file to do anything you would like to the page::
 
 
     /* global require, FileReader, Image */
@@ -86,14 +85,14 @@ is in. Add this to the ``exercise7/configure.zcml`` file::
 Register JavaScript resource
 ----------------------------
 
-Let’s register our script as a JavaScript resource with Plone. In the
+Register our script as a JavaScript resource with Plone. In the
 ``exercise7/profiles/default/registry.xml`` file, add configuration to register
 your script::
 
     <records prefix="plone.resources/exercise7"
-                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-          <value key="js">++plone++exercise7/script.js</value>
-      </records>
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++exercise7/script.js</value>
+    </records>
 
 
 Create a custom widget
@@ -158,7 +157,7 @@ Next, we need to register our custom widget so it is used. In your ``configure.z
 file, add the following::
 
     <adapter factory=".widget.LeadImageMinSizeImageFieldWidget" />
-     <z3c:widgetTemplate
+    <z3c:widgetTemplate
       mode="input"
       widget=".interfaces.IMinSizeImageWidget"
       layer=".interfaces.IExercise7Layer"

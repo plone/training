@@ -1,5 +1,5 @@
-Include JavaScript in browser view
-==================================
+Exercise 1: Include JavaScript in browser view
+==============================================
 
 ..  warning::
 

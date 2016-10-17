@@ -1,5 +1,5 @@
-Gallery integration with theme
-==============================
+Exercise 5: Gallery integration with theme
+==========================================
 
 ..  warning::
 
@@ -62,7 +62,7 @@ This tells RequirejS to load the jQuery and the lightGallery JavaScript.
 What is important to pay attention to in this example is that we're seeing
 if there are any ``photoAlbumEntry`` elements on the page.
 
-If there are, we modify the DOM structure slightly to work seemlessly with
+If there are any, we modify the DOM structure slightly to work seemlessly with
 lightGallery::
 
     ...
@@ -100,7 +100,7 @@ we'll simple include the JavaScript/CSS into the theme ``index.html`` file.
 CSS
 ~~~
 
-In the bottom of the head section in the ``index.html`` file, add::
+At the bottom of the head section in the ``index.html`` file, add::
 
   <link rel="stylesheet" type="text/css"
           href="../++theme++exercise5/lightgallery/css/lightgallery.min.css" />
@@ -109,7 +109,7 @@ In the bottom of the head section in the ``index.html`` file, add::
 JavaScript
 ~~~~~~~~~~
 
-In the bottom of the ``index.html`` file, add::
+At the bottom of the ``index.html`` file, before the ``</body>`` closing tag, add::
 
   <script src="../++theme++exercise5/integration.js"></script>
 

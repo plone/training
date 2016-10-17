@@ -5,7 +5,7 @@ Basic: Customizing logo and CSS of default theme
 In this section you will:
 
 * Use the Site control panel to add a custom logo
-* Customize the look of a Plone site by adjusting LESS Variables
+* Customize the look of a Plone site by adjusting Less Variables
 * Add a custom toolbar logo
 
 Topics covered:
@@ -17,7 +17,7 @@ Topics covered:
 Customize logo
 --------------
 
-1. Go to the Plone Control Panel: toolbar -> admin -> Site Setup
+1. Go to the Plone Control Panel: :menuselection:`toolbar --> admin --> Site Setup`
 2. Go to the "Site" control panel.
 3. You will see this form:
 
@@ -28,12 +28,12 @@ Customize logo
 See the `official docs <http://docs.plone.org/adapt-and-extend/change-the-logo.html>`_.
 
 
-Customize CSS/LESS variables
+Customize CSS/Less variables
 ----------------------------
 
 1. Go back to the Control Panel.
-2. Go to the "Resource Registries" control panel.
-3. On the first tab: enable "Development Mode".
+2. Go to the :guilabel:`Resource Registries` control panel.
+3. On the first tab: enable :guilabel:`Development Mode`.
 4. In the "plone" bundle below, click on "develop CSS".
 
 Your panel should now look like this:
@@ -42,9 +42,9 @@ Your panel should now look like this:
    :align: center
 
 
-Now we can play with some LESS variables:
+Now we can play with some Less variables:
 
-1. Go to the "Less Variables" tab.
+1. Go to the :guilabel:`Less Variables` tab.
 2. Find the variable ``plone-left-toolbar-expanded`` and set it to 400px.
 
 .. image:: ../theming/_static/theming-less_var_hack.png

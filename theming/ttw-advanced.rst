@@ -2,7 +2,6 @@
 TTW Theming I: Introduction to Diazo Theming
 =============================================
 
-
 In this section you will:
 
 * Use the "Theming" control panel to make a copy of Plone's default theme (barceloneta)
@@ -225,7 +224,7 @@ We will learn more about Diazo rules in :doc:`./ttw-advanced_2`.
 Customize CSS
 -------------
 
-1. from theming tool open the file :file:`less/barceloneta.plone.less`, that is the main LESS file as specified in the manifest;
+1. from theming tool open the file :file:`less/barceloneta.plone.less`, that is the main Less file as specified in the manifest;
 2. add your own customization at the bottom, like:
 
 .. code-block:: css

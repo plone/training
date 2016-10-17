@@ -3,8 +3,7 @@
 Exercises
 =========
 
-Prerequisites
--------------
+**Prerequisites**
 
 - Follow the instructions here to get a training buildout installed:
   https://training.plone.org/5/plone_training_config/instructions.html
@@ -14,8 +13,7 @@ Prerequisites
 - webpack installed on your system
 
 
-Install forked collective.jstraining
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Install forked collective.jstraining**
 
 Add this line to the end of your ``buildout.cfg`` file:
 
@@ -37,12 +35,11 @@ And one more spot to add collective.jstraining to: eggs::
         collective.jstraining
         ...
 
-Contents
---------
+
+**Exercises**
 
 ..  toctree::
     :maxdepth: 3
-    :numbered: 1
 
     1
     2
