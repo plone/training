@@ -21,9 +21,10 @@ Bootstrap
 
 Install npm dependencies::
 
-    cd exercise2/static
+    cd exercise2/static/ng2app
+    npm install
     npm install -g angular-cli
-    ng new ng2app
+
 
 Add your angular 2 component
 ----------------------------
@@ -56,7 +57,7 @@ Build the file with webpack
 
 Our deployment is built using the ng cli tool::
 
-    cd exercise2/static
+    cd exercise2/static/ng2app
     ng build --prod
 
 
