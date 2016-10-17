@@ -19,12 +19,14 @@ alm.solrindex
   then those results will be further filtered by other ZCatalog indexes.
 
 Pros:
+
 * solr is more efficient than ZCTextIndex at indexing and querying fulltext.
 * Avoids duplication of index storage.
 * Less data needs to be sent between Plone and solr when indexing.
 * Don't need to add new indexes to solr and reindex.
  
 Cons:
+
 * No admin UI in Plone control panel.
 * Customizations can require monkey patching.
 * Potential for missing some results. (see below)
