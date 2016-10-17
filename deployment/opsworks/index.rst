@@ -1,7 +1,7 @@
-.. _deployment-label:
+.. _opsworks-label:
 
-Automating Plone Deployment
-===========================
+Orchestrating Plone Deployments with Amazon OpsWorks
+====================================================
 
 .. note::
 
@@ -16,20 +16,8 @@ Contents:
     :maxdepth: 3
 
     intro
-    plone_stack
-    ansible
-    plone_playbook
-    playbook_use
-    in_operation
-    customization
+    terms
+    installation
+    running
     maintenance
-
-.. seealso::
-
-   http://docs.plone.org/manage/deploying/
-
-OpsWorks
-========
-
-:doc:`opsworks/index`
-    Using Amazon Opsworks to orchestrate clusters for scalable/high availablity deployments.
+    loose-ends
