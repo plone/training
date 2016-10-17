@@ -38,7 +38,7 @@ Instance.
 If you use Travis CI to provide automatic testing of your
 buildout/application, you can configure Travis to automatically lanuch an
 Opsworks deploy for a specific Stack and Application on successful builds (see
-https://docs .travis-ci.com/user/deployment/opsworks/).
+https://docs.travis-ci.com/user/deployment/opsworks/).
 
 
 Instance Sizes
