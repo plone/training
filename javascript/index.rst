@@ -21,6 +21,9 @@ This training is *not* about:
 - how to write React/Angular 2/JS framework of the week
 
 
+**Sections**
+
+
 ..  toctree::
     :maxdepth: 2
     :numbered: -1

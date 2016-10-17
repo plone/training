@@ -36,6 +36,8 @@ And one more spot to add collective.jstraining to: eggs::
         ...
 
 
+**Exercises**
+
 ..  toctree::
     :maxdepth: 3
 
