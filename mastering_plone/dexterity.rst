@@ -109,6 +109,8 @@ Views:
 Modifying existing types
 ------------------------
 
+For now, we will not code anything, we will only use the Plone web interface features, so if you do not have a local Plone instance installed on your machine, you can use a `Plone pre-configured Heroku instance <https://github.com/collective/training-sandbox>`_. Once deployed, just create a Plone site.
+
 * Go to the control panel http://localhost:8080/Plone/@@dexterity-types
 * Inspect some of the existing default types.
 * Select the type :guilabel:`News Item` and add a new field ``Hot News`` of type :guilabel:`Yes/No`
