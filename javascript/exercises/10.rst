@@ -70,7 +70,7 @@ Next, we're extending the existing pattern::
 
 
 And just overriding the ``init`` function to provide our customization(default
-search current section):
+search current section)::
 
     ...
     $('.searchSection input', that.$el)[0].checked = true;
