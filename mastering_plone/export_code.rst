@@ -241,7 +241,7 @@ Our talks use a dropdown for :guilabel:`type_of_talk` and a multiselect for :gui
 
 ..  code-block:: xml
     :linenos:
-    :emphasize-lines: 10, 25
+    :emphasize-lines: 11, 26
 
     <?xml version="1.0" encoding="UTF-8"?>
     <model xmlns="http://namespaces.plone.org/supermodel/schema"
