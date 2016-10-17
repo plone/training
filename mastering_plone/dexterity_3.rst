@@ -13,12 +13,12 @@ Dexterity Types III: Python
 
 
 Without sponsors, a conference would be hard to finance! Plus it is a good opportunity for Plone companies to advertise their services.
-But sponsors want to be displayed in a nice way according to the amount of money the sponsor.
+But sponsors want to be displayed in a nice way according to the size of their sponsorship.
 
 In this part we will:
 
-* create the content type *sponsor* that has a Python schema
-* create a viewlet that shows the sponsor logos sorted by sponsoring level
+* create the content type *sponsor* that has a Python schema,
+* create a viewlet that shows the sponsor logos sorted by sponsoring level.
 
 
 The topics we cover are:
@@ -33,7 +33,7 @@ The topics we cover are:
 The Python schema
 -----------------
 
-First we create the schema for the new type. Instead of XML, we use Python now.
+First we create the schema for the new type. Instead of XML, we use Python this time.
 In chapter :ref:`export_code-label` you already created a folder :file:`content` with an empty :file:`__init__.py` in it.
 We don't need to register that folder in :file:`configure.zcml` since we don't need a :file:`content/configure.zcml` (at least not yet).
 
@@ -84,13 +84,13 @@ Now add a new file :file:`content/sponsor.py`.
             required=False
         )
 
-        fieldset('Images', fields=['logo', 'advertisment'])
+        fieldset('Images', fields=['logo', 'advertisement'])
         logo = namedfile.NamedBlobImage(
             title=_(u'Logo'),
             required=False,
         )
 
-        advertisment = namedfile.NamedBlobImage(
+        advertisement = namedfile.NamedBlobImage(
             title=_(u'Advertisement (Gold-sponsors and above)'),
             required=False,
         )
@@ -109,7 +109,7 @@ Some things are notable here:
 * :py:class:`LevelVocabulary` is used to create the options used in the field ``level``. This way we could easily translate the displayed value.
 * :samp:`fieldset('Images', fields=['logo', 'advertisement'])` moves the two image fields to another tab.
 * :samp:`directives.read_permission(...)` sets the read and write permission for the field ``notes`` to users who can add new members. Usually this permission is only granted to Site Administrators and Managers. We use it to store information that should not be publicly visible. Please note that :py:attr:`obj.notes` is still accessible in templates and Python. Only using the widget (like we do in the view later) checks for the permission.
-* We use no grok here
+* We use no grok here.
 
 ..  seealso::
 
@@ -120,7 +120,7 @@ Some things are notable here:
 The FTI
 -------
 
-Second we create the FTI for the new type in ``profiles/default/types/sponsor.xml``
+Second we create the FTI for the new type in :file:`profiles/default/types/sponsor.xml`
 
 .. code-block:: xml
     :linenos:
@@ -171,7 +171,7 @@ Second we create the FTI for the new type in ``profiles/default/types/sponsor.xm
      </action>
     </object>
 
-Then we register the FTI in ``profiles/default/types.xml``
+Then we register the FTI in :file:`profiles/default/types.xml`
 
 .. code-block:: xml
     :linenos:
@@ -191,7 +191,7 @@ After reinstalling our package we can create the new type.
 Exercise 1
 ++++++++++
 
-Sponsors are containers but they don't have to be. Turn them into items by changing their class to :py:class:`plone.dexterity.content.Item`.
+Sponsors are containers but they don't need to be. Turn them into items by changing their class to :py:class:`plone.dexterity.content.Item`.
 
 ..  admonition:: Solution
     :class: toggle
@@ -209,7 +209,7 @@ The view
 
 We use the default view provided by dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
 
-But we could tweak the default view with some css to make it less ugly. Add the following to ``resources/ploneconf.css``
+But we could tweak the default view with some CSS to make it less ugly. Add the following to :file:`resources/ploneconf.css`:
 
 .. code-block:: css
 
@@ -254,8 +254,8 @@ But we could tweak the default view with some css to make it less ugly. Add the 
                 Website
               </a>
 
-              <img tal:condition="python:getattr(context, 'advertisment', None)"
-                   tal:attributes="src string:${context/absolute_url}/@@images/advertisment/preview" />
+              <img tal:condition="python:getattr(context, 'advertisement', None)"
+                   tal:attributes="src string:${context/absolute_url}/@@images/advertisement/preview" />
 
               <div tal:condition="python: 'notes' in view.w"
                    tal:content="structure view/w/notes/render">
@@ -276,7 +276,7 @@ The viewlet
 
 Instead of writing a view you will have to display the sponsors at the bottom of the website in a viewlet.
 
-Register the viewlet in ``browser/configure.zcml``
+Register the viewlet in :file:`browser/configure.zcml`
 
 .. code-block:: xml
     :linenos:
@@ -291,7 +291,7 @@ Register the viewlet in ``browser/configure.zcml``
         permission="zope2.View"
         />
 
-Add the viewlet class in ``browser/viewlets.py``
+Add the viewlet class in :file:`browser/viewlets.py`
 
 .. code-block:: python
     :linenos:
@@ -363,7 +363,7 @@ Add the viewlet class in ``browser/viewlets.py``
 
 * :py:meth:`_sponsors` returns a list of dictionaries containing all necessary info about sponsors.
 * We create the complete img tag using a custom scale (200x80) using the view ``images`` from :py:mod:`plone.namedfile.` This actually scales the logos and saves them as new blobs.
-* In :py:meth:`sponsors` we return a ordered dictionary of randomized lists of dicts (containing the information on sponsors). The order is by sponsor-level since we want the platinum-sponsors on top and the bronze-sponsors at the bottom. The randomization is for fairness among equal sponsors.
+* In :py:meth:`sponsors` we return an ordered dictionary of randomized lists of dicts (containing the information on sponsors). The order is by sponsor-level since we want the platinum-sponsors on top and the bronze-sponsors at the bottom. The randomization is for fairness among equal sponsors.
 
 :py:meth:`_sponsors` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor objects in memory all the time. But we'd have to wait for up to an hour until changes will be visible.
 
@@ -435,9 +435,9 @@ You can now add some CSS in :file:`browser/static/ploneconf.css` to make it look
     }
 
     .sponsor:hover {
-        box-shadow: 0 0 8px #000000;
-        -moz-box-shadow: 0 0 8px #000000;
-        -webkit-box-shadow: 0 0 8px #000000;
+        box-shadow: 0 0 8px #000;
+        -moz-box-shadow: 0 0 8px #000;
+        -webkit-box-shadow: 0 0 8px #000;
     }
 
 
@@ -446,7 +446,7 @@ Exercise 2
 
 Turn the content type Speaker from :ref:`Exercise 2 of the first chapter on dexterity <dexterity1-excercises-label>` into a Python-based type.
 
-Is should hold the following fields:
+When we're done, it should have the following fields:
 
 * title
 * email
@@ -595,7 +595,7 @@ Do *not* use the :py:class:`IBasic` or :py:class:`IDublinCore` behavior to add t
 Exercise 3
 ++++++++++
 
-This is more of a python-exercise. The gold- and bronze sponsors should also have a bigger logo than the others. Give the sponsors the following logo-sizes without using css.
+This is more of a Python exercise. The gold- and bronze sponsors should also have a bigger logo than the others. Give the sponsors the following logo-sizes without using CSS.
 
 * Platinum: 500x200
 * Gold: 350x150
