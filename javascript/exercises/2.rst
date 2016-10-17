@@ -120,7 +120,7 @@ it on.
 
 In our case, let’s add a basic new page view. The page template doesn’t need to
 implement any logic and we can use the main template to bring in the content of
-the page we’re using in the JavaScript(h1). Add this into your ``exercise1/page.pt`` file::
+the page we’re using in the JavaScript(h1). Add this into your ``exercise2/page.pt`` file::
 
 
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
@@ -166,7 +166,7 @@ Add in view python code to tell Plone to render the script in the
 
 The most interesting part here is to look at ``add_resource_on_request``.
 
-Finally, wire it up with ZCML registration in the ``exercise1/configure.zcml`` file::
+Finally, wire it up with ZCML registration in the ``exercise2/configure.zcml`` file::
 
     <browser:page
          name="exercise2"
