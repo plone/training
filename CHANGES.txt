@@ -50,7 +50,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 - Update vagrant installation to include BIOS virtualization note.
   [lbrannon]
 
-- Editing while reading. Edited Rapido chapter for language and formatting. [jean]
+- Editing while reading. Edited Rapido chapter for language and formatting.
+  [jean]
 
 - Fix a couple of duplicate labels, unmatched literal ending, typo [jean]
 
