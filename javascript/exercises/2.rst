@@ -99,7 +99,7 @@ called ``static/ng2app/main.js``::
 
 
 With the main.js defined on the filesystem we can now create the resource as a new
-resource.
+resource::
 
     <records prefix="plone.resources/exercise2"
               interface='Products.CMFPlone.interfaces.IResourceRegistry'>
