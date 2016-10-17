@@ -9,7 +9,7 @@ Access Solr Gui
 ================
 
 Solr is a REST-based wrapper around the Java lucene index. It comes with
-its own web GUI. It it possible to access all of the SOLR API via REST and
+its own web GUI. It is possible to access all of the SOLR API via REST and
 most of this functionality is exposed via its web GUI. To test it out, do the
 following. :
 

@@ -22,7 +22,7 @@ via URL directly:
 
   http://localhost:8080/Plone/@@solr-autocomplete?term=Pl
 
-Which gives the response::
+Which gives the response ::
 
     [
         {
@@ -123,7 +123,7 @@ Suggest
 The suggest (did you mean ...) feature is well known from popular
 search engines. It is integrated into Solr as a component which needs to
 be enabled and configured. Here is an example configuration which works
-with collective solr. If you change it stick to the names of the parameters
+with collective.solr. If you change it stick to the names of the parameters
 and handlers.
 
 The JSON view of Plone can be called with this URL:
@@ -497,7 +497,7 @@ search with query parameters preserved.
 The next thing we have is the result list. There is nothing fancy in it. We show
 the title, which is linked to the article found and the cropped description.
 
-Finally we have the snippet for the factes in the right slot: ::
+Finally we have the snippet for the facets in the right slot: ::
 
   <div metal:fill-slot="portlets_two_slot">
       <div tal:define="facet_view nocall: context/@@search-facets;
@@ -524,4 +524,4 @@ Excercise
 =================
 
 Have a custom search page with autocomplete, suggest, highlighting
-and facetting working.
+and faceting working.

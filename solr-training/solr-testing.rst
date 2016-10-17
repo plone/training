@@ -60,10 +60,10 @@ A test for our suggest method in our fancy search looks like this: ::
 
 
 Note the **activateAndReindex** method. It is a nice testing helper to cleat the Solr index and reindex all objects
-again. If testing Solr it is adviceble to call it at the test setup. Otherwise the documents created during
+again. If testing Solr it is advisable to call it at the test setup. Otherwise the documents created during
 the tests would pile up in the index.
 
-Excercise
+Exercise
 =================
 
 Write a custom test for a Solr feature used in Plone.

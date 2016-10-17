@@ -316,21 +316,21 @@ following snippet to configure host, port und basepath: ::
 The ZCML configuration takes predence over the configuration in the
 registry / control-panel.
 
-Commiting strategies
-=====================
+Committing strategies
+=======================
 
-Syncronous immediately
-----------------------
+Synchronous immediately
+------------------------
 
 The default commit strategy is to commit to Solr on every Zope
 commit. This ensures an always up to date index but may come at
 cost of indexing time especcially when doing batch operations
 like data import.  
 
-To use this behavior turn **Automatic commit** ON in the Solr
+To use this behavior, turn **Automatic commit** ON in the Solr
 controlpanel in Plone.
 
-Syncronous timed
+Synchronous batched
 --------------------
 
 Another commit strategy is to do timed commits in Solr.
@@ -353,7 +353,7 @@ The third commit stragey is to do full asynchronous commits. This
 can be activated by setting the Flag **Asynchronous indexing** in
 the Solr control panel to ON. This behavior is the most efficient
 in terms of Zope response time. Since it is fire and forget the
-consistency could be harmed in mid term. It is advisable to to a
+consistency could be harmed in midterm. It is advisable to to a
 sync or full-index from time to time if you work with this strategy.
 
 Additional information can be found in the Solr documentation:
@@ -364,4 +364,4 @@ Excercise
 =================
 
 Have a running Plone and Solr with collective.solr active and experiment
-with commit stragegies.
+with commit strategies.

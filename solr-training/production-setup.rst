@@ -5,7 +5,7 @@ Production Setup
 Multi Core
 ==========
 
-Multi core setup is the default for Solr 5 and above but unfortunatelly
+Multi core setup is the default for Solr 5 and above but unfortunately
 not supported by collective.solr. You can access a multicore Solr but only
 the default core, which can be specified in the ``collective.recipe.solrinstance``
 buildout recipe.
