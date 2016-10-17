@@ -50,10 +50,11 @@ example, we are defining our pattern right inside what will be our bundle.
 
 ``tablesorter`` will be our registered 3rd party library include.
 
+
 Register static resource directory
 ----------------------------------
 
-Next, let’s register the static directory we just placed our script into. To
+Register the static directory we just placed our script into. To
 register, you need to add ZCML registration for the static directory your script
 is in. Add this to the ``exercise8/configure.zcml`` file::
 
@@ -77,15 +78,15 @@ Tablesorter
 Resource is done exactly the same as in Exercise 1::
 
     <records prefix="plone.resources/tablesorter"
-                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++exercise8/jquery.tablesorter.min.js</value>
-      </records>
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise8/jquery.tablesorter.min.js</value>
+    </records>
 
 
 Bundle resource
 ~~~~~~~~~~~~~~~
 
-Our pattern is a bundlable resource since it uses the ``require`` function instead
+Our pattern is a bundle-able resource since it uses the ``require`` function instead
 of the ``define`` function::
 
     <records prefix="plone.resources/exercise8"

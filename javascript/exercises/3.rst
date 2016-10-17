@@ -68,13 +68,13 @@ Our deployment is built using webpack::
 
 
 Whenever you make a change to your component files, webpack will auto re-build
-the distribution
+the distribution.
 
 
-Register JavaScript resource
-----------------------------
+Register JavaScript resource as a bundle
+----------------------------------------
 
-Let’s register our script as a JavaScript resource with Plone. In the
+Register our script as a JavaScript resource with Plone. In the
 ``exercise3/profiles/default/registry.xml`` file, add configuration to register
 your script::
 
@@ -82,10 +82,18 @@ your script::
               interface='Products.CMFPlone.interfaces.IBundleRegistry'>
       <value key="merge_with">default</value>
       <value key="enabled">True</value>
+      <value key="compile">False</value>
       <value key="jscompilation">++plone++exercise3/exercise3-compiled.min.js</value>
       <value key="csscompilation">++plone++exercise3/exercise3-compiled.css</value>
       <value key="last_compilation">2016-10-04 00:00:00</value>
     </records>
+
+
+A couple notes about this configuration:
+
+- ``merge_with`` tells plone to combine this file with the default Plone bundles
+- ``compile`` is distinguish this bundle as one that is compiled outside of Plone
+- ``jscompilation`` and ``csscompilation`` are what Plone uses as the final compiled output
 
 
 Installation

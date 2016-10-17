@@ -82,6 +82,7 @@ your script::
               interface='Products.CMFPlone.interfaces.IBundleRegistry'>
       <value key="merge_with">logged-in</value>
       <value key="enabled">True</value>
+      <value key="compile">False</value>
       <value key="expression">python: member is not None</value>
       <value key="jscompilation">++plone++exercise4/exercise4-compiled.min.js</value>
       <value key="csscompilation">++plone++exercise4/exercise4-compiled.css</value>
