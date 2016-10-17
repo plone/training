@@ -148,8 +148,12 @@ attributes ``theme`` and ``content``. The common XPath selector attributes inclu
 ``content-children``
     Used to identify the children of an element that will be used using XPath selectors.
 
+Condition about the current URL
++++++++++++++++++++++++++++++++
+
 You can also create conditions about the current path using ``if-path``.
 
+For instance, a rule with ``if-path="/about"`` would only apply when the user visits ``http://www.mysite.com/about`` (nevertheless, most part of time is better to target a ``body`` tag CSS class selector).
 
 .. note:: For a more comprehensive overview of all the Diazo rule directives
    and related attributes see: http://docs.diazo.org/en/latest/basic.html#rule-directives
