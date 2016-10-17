@@ -103,6 +103,14 @@ Installation
 2) Install the ``Exercise 3`` add-on
 
 
+..  warning::
+
+    To make sure your resource registry configuration changes apply, you'll need to
+    be in development mode. You can also toggle development mode on and off,
+    click save, to force configuration to be re-built after changes instead of
+    keeping development mode on.
+
+
 Running
 -------
 

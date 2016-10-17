@@ -113,6 +113,14 @@ A couple options available to you are:
    or use a diazo rule diazo rule to dynamically add the class to an element
 
 
+..  warning::
+
+   To make sure your resource registry configuration changes apply, you'll need to
+   be in development mode. You can also toggle development mode on and off,
+   click save, to force configuration to be re-built after changes instead of
+   keeping development mode on.
+
+
 Development
 -----------
 

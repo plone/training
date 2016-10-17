@@ -183,11 +183,20 @@ Installation
 
 1) Start up your Plone instance
 2) Install the ``Exercise 2`` add-on
+3) Toggle development mode to make sure the new resources are included
 
 
 Then, visit the URL:
 ``http://localhost:8080/Plone/front-page/@@exercise2``. This is assuming your Plone
 is is located at the URL ``http://localhost:8080/Plone``.
+
+
+..  warning::
+
+    To make sure your resource registry configuration changes apply, you'll need to
+    be in development mode. You can also toggle development mode on and off,
+    click save, to force configuration to be re-built after changes instead of
+    keeping development mode on.
 
 
 Production
