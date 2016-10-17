@@ -25,7 +25,7 @@ Inheriting from Barceloneta
        When inheriting from the Barceloneta theme keep the following in mind:
 
        * The theme provides styles and assets used by Plone's backend tools
-       * Inheritance involves including the Barceloneta :file:`rules.xml` and styles.
+       * Inheritance involves including the Barceloneta :file:`rules.xml` (``++theme++barceloneta/rules.xml``) and styles.
        * The prefix/unique path to the Barceloneta theme is ``++theme++barceloneta``
        * It is necessary to include a copy of Barceloneta's :file:`index.html` in the root of your custom theme.
        * The three key files involved are :file:`manifest.cfg`, :file:`rules.xml` and a LESS file defined in 
@@ -227,8 +227,9 @@ if-path
 
 Converting an existing HTML template into an theme
 ---------------------------------------------------
-
-
+In the Plone "universe" it is not uncommon to convert an existing HTML template into a 
+Diazo theme. Just ensure that when you zip up the source theme that there is a single folder
+in the root of the zip file. We will explore this in more detail in the next exercise.
 
 Exercise 4 - Convert a HTML template into a Diazo theme
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -236,15 +237,17 @@ Exercise 4 - Convert a HTML template into a Diazo theme
 In this exercise we will walk through the process of converting an existing free HTML theme
 into a Diazo based Plone theme.
 
-.. note:: A theme is packaged as a zip file. Your theme should be structured such that
-          there is only one top level directory in the root of the zip file. The directory
-          should contain your index.html and supporting files, it is okay if the supporting
-          files (css, javascript and other files) are in subdirectories.
+.. image:: ../theming/_static/theming-startbootstrap-newage-theme.png
 
-          We've selected the free `Clean Blog Bootstrap theme <https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_.
-          The theme is already packaged in a manner that will work with the theming tool.
+We've selected the free `New Age Bootstrap theme <https://github.com/BlackrockDigital/startbootstrap-new-age>`_.
+The theme is already packaged in a manner that will work with the theming tool.
 
-1. To get started `download a copy of the Clean Blog theme as a zip file <https://github.com/BlackrockDigital/startbootstrap-clean-blog/archive/gh-pages.zip>`_.
+.. note:: When being distributed, Plone themes are packaged as zip files. A theme should be structured such that
+          there is only one top level directory in the root of the zip file. By convention the directory
+          should contain your index.html and supporting files, the supporting
+          files (css, javascript and other files) may be in subdirectories.
+
+1. To get started `download a copy of the New Age theme as a zip file <https://github.com/BlackrockDigital/startbootstrap-new-age/archive/master.zip>`_.
    Then upload it to the theme controlpanel.
 
     .. hint::
@@ -252,7 +255,8 @@ into a Diazo based Plone theme.
 
        This is a generic theme, it does not provide the Plone/Diazo specific :file:`rules.xml` or
        :file:`manifest.cfg` file. When you upload the zip file the theming tool generates a :file:`rules.xml`.
-       In the next steps you will add additional files including a :file:`manifest.cfg`.
+       In the next steps you will add additional files including a :file:`manifest.cfg` (perhaps in the future
+       the manifest.cfg will also be generated for you). 
 
        .. image:: ../theming/_static/theming-uploadzipfile.png
 
@@ -262,10 +266,7 @@ into a Diazo based Plone theme.
 
 2. Add a :file:`styles.less` file and import the Barceloneta styles
 
-    .. note:: Clean Blog is a free Bootstrap theme,
-          the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
-
-3. Add a :file:`manifest.cfg` file, configure the ``production-css`` equal to ``styles.css``
+3. Add a :file:`manifest.cfg` file, set the ``production-css`` equal to ``styles.css``
 
     .. hint::
        :class: toggle
@@ -273,9 +274,29 @@ into a Diazo based Plone theme.
        You can identify the theme path by reading your browser's address
        bar when your theme is open in the theming tool.
        You'll need to include the proper theme path in your :file:`manifest.cfg`,
-       in this case it will most likely be something like ``++theme++startbootstrap-clean-blog-gh-pages``
+       in this case it will most likely be something like ``++theme++startbootstrap-new-age-gh-pages``
+       
+       [theme]
+       title = New Age
+       prefix = ++theme++startbootstrap-new-age-gh-pages/
+       production-css = ++theme++startbootstrap-new-age-gh-pages/styles.css
+       
 
-4. Add rules to include content, add site structure, drop unneeded elements, customize the menu
+4. Add rules to include the Barceloneta backend utilities
+   ::
+   
+       <?xml version="1.0" encoding="UTF-8"?>
+    <rules
+        xmlns="http://namespaces.plone.org/diazo"
+        xmlns:css="http://namespaces.plone.org/diazo/css"
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+        xmlns:xi="http://www.w3.org/2001/XInclude">
+    
+      <!-- Include the backend theme -->
+      <xi:include href="++theme++barceloneta/backend.xml" />
+  
+
+5. include content, add site structure, drop unneeded elements, customize the menu
 
    .. warning:: 
 

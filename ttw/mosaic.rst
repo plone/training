@@ -217,6 +217,9 @@ Once saved, our layout will be listed with the other available layouts when we c
 Exercise 3: create a layout for talks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. note:: This exercise assumes that you have created a content type called "Talk".
+          you can quickly create one by the following the steps in `Dexterity: Creating TTW content types <dexterity.html#creating-contenttypes-ttw>`__ documentation.
+
 Create an attractive layout for a talk, save it and reuse it for another talk.
 
 ..  admonition:: Solution

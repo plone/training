@@ -2,7 +2,6 @@
 TTW Theming I: Introduction to Diazo Theming
 =============================================
 
-
 In this section you will:
 
 * Use the "Theming" control panel to make a copy of Plone's default theme (barceloneta)
