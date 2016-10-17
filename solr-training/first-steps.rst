@@ -69,7 +69,7 @@ There are some parameters you can specify:
 Purge Solr Index
 -----------------
 
-Clear **all** elemnts from the Solr default collection.
+Clear **all** elements from the Solr default collection.
 
 http://localhost:8080/Plone/@@solr-maintainance/clear
 
@@ -82,7 +82,7 @@ There are no parameters you can specify for the clear action.
 Indexing a new dexterity field
 ================================
 
-A common use case is to add an aditional field to the index.
+A common use case is to add an additional field to the index.
 We have to inform both sides (Solr and Plone) if we
 need a new field in the index.
 
@@ -93,11 +93,11 @@ We do this TTW right now.
 .. note:: In the production setup you will define your schema
    with an interface or a supermodel XML but this is beyond of
    this training. More information on dexterity schemas and
-   fields can be found in the Plone documention:
+   fields can be found in the Plone documentation:
    http://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html
 
 Let's add a field *email* to a task. We assume this is contact
-email which can be used to contact the reponsible support person
+email which can be used to contact the responsible support person
 for this task. And we want to make this field to be found in
 fulltext search.
 
@@ -124,7 +124,7 @@ and restart Solr and Plone ::
  $ bin/solr-instance fg
 
 This method works out of the box, if the name of the Dexterity field in Plone
-is the same as the field in the schema of Solr. And asuming you *have* the
+is the same as the field in the schema of Solr. And assuming you *have* the
 information you need for the index available as a Dexterity field.
 
 Let's assume we have a field *fullname* in Solr and in Plone we have separate
@@ -142,7 +142,7 @@ First we need an indexer binding to our DX content: ::
       return getattr(obj, 'firstname', '') + ' ' + getattr(obj, 'sirname', '')
 
 
-And we need a named adapter, which corelates with the name of the field
+And we need a named adapter, which correlates with the name of the field
 in Solr (*fullname* in our case). ::
 
   <adapter factory=".indexer.fullname_indexer" name="fullname" />
@@ -153,15 +153,15 @@ and sirname set, the *fullname* in Solr appears.
 
 .. note:: Pro tip: If you need to modify or extend the existing
    fulltext implementation in Plone (This could be adding a
-   custom field to it, or remove title or dexription from it),
-   there is a handy addon for this purpose. It is well documentend
+   custom field to it, or remove title or description from it),
+   there is a handy addon for this purpose. It is well documented
    but further investigation is out of the scope of this training
    See https://pypi.python.org/pypi/collective.dexteritytextindexer
 
 Boosting
 ========
 
-In a standard installation of Solr all fields are treated equaly important
+In a standard installation of Solr all fields are treated equally important
 for searching. Usually this is not what we want. We want the Title to be
 more important, or a special type (e.g. News) to be prioritized.
 Solr offers boosting values at index and at search time.
@@ -172,9 +172,9 @@ search pattern: ::
   +(Title:{value}^5 OR Description:{value}^2 OR SearchableText:{value} OR
   SearchableText:({base_value}) OR searchwords:({base_value})^1000)
 
-This reads like this. If a term occurs in the *Title*-field priortize it
-5 times, if it is in the *Description*-field priotize it two times.
-Search but don't priotize terms occuring in the *SearchableText* index.
+This reads like this. If a term occurs in the *Title*-field prioritize it
+5 times, if it is in the *Description*-field prioritize it two times.
+Search but don't prioritize terms occuring in the *SearchableText* index.
 If a term occurs in the *searchwords* priotize it by value 1000 so it
 always be on top.
 
@@ -195,7 +195,7 @@ search results with the same term.
    atomic updates.
 
 
-Excercise
+Exercise
 =========
 
  1. Create or enhance a Dexterity type with an additional field which is

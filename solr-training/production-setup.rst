@@ -5,7 +5,7 @@ Production Setup
 Multi Core
 ==========
 
-Multi core setup is the default for Solr 5 and above but unfortunatelly
+Multi core setup is the default for Solr 5 and above but unfortunately
 not supported by collective.solr. You can access a multicore Solr but only
 the default core, which can be specified in the ``collective.recipe.solrinstance``
 buildout recipe.
@@ -34,7 +34,7 @@ default-core-name
 An example for a multi-core configuration you can find in the documentation
 of ``collective.recipe.solrinstance``:
 
-.. seealso:: https://github.com/collective/collective.recipe.solrinstance/blob/master/README.rst#multi-core-solr
+.. seealso: https://github.com/collective/collective.recipe.solrinstance/blob/master/README.rst#multi-core-solr
 
 Monitoring
 ============
@@ -45,7 +45,7 @@ for munin are collected and exposed via the Java JMX framework.
 You will need munin and the jmx\_ extension. The procedere is documented
 here :
 
-.. seealso:: https://github.com/collective/collective.solr/blob/master/docs/usage/monitoring.rst
+.. seealso: https://github.com/collective/collective.solr/blob/master/docs/usage/monitoring.rst
 
 The munin configs however seem a little outdated.
 
@@ -62,3 +62,11 @@ To make this happen you have to consider a couple of things:
    usually means it has the *SAME* User ID than the user which runs the Zope
    server.
 
+Further reading
+================
+
+Solr is very well documented in its own wiki.
+
+.. seealso: https://cwiki.apache.org/confluence/display/solr/
+
+There are a couple of books available.

@@ -16,6 +16,7 @@ Bootstrap project::
   $ curl -O https://bootstrap.pypa.io/bootstrap-buildout.py
   $ curl -O https://raw.githubusercontent.com/collective/collective.solr/master/solr.cfg
   $ curl -o plone5.cfg https://raw.githubusercontent.com/collective/minimalplone5/master/buildout.cfg
+  $ curl -o solr4.cfg https://raw.githubusercontent.com/collective/collective.solr/master/solr-4.10.x.cfg
 
 
 a buildout (*buildout.cfg*) which installs both requirements::
@@ -24,10 +25,16 @@ a buildout (*buildout.cfg*) which installs both requirements::
     extends =
         plone5.cfg
         solr.cfg
+        solr4.cfg
 
     [instance]
     eggs +=
         collective.solr
+
+    [versions]
+    collective.solr = 6.0a1
+    collective.recipe.solrinstance = 6.0.0b3
+
 
 Run buildout::
 
@@ -48,7 +55,7 @@ Solr Buildout
 We assume you are more less familiar with the Plone buildout, but let's
 analyze the solr buildout configuration a bit.
 
-First we have two buildout parts::
+First we have two buildout parts in *solr.cfg* ::
 
     [buildout]
     parts +=
@@ -62,9 +69,7 @@ details.
 
 The base Solr settings specify the host (usually localhost or 0.0.0.0), the
 port (8983 is the standard port of Solr) and two Java parameters for specifying
-lower and upper memory limit. More is usually better. If you want a rough idea
-on how much memory you should use, follow the guidelines found in this article:
-https://lucidworks.com/blog/2011/09/14/estimating-memory-and-storage-for-lucenesolr/ ::
+lower and upper memory limit. More is usually better. ::
 
     [settings]
     solr-host = 127.0.0.1
@@ -72,16 +77,22 @@ https://lucidworks.com/blog/2011/09/14/estimating-memory-and-storage-for-lucenes
     solr-min-ram = 128M
     solr-max-ram = 256M
 
+If you want a rough idea on how much memory you should use, follow the
+guidelines found in this article:
+.. seealso: https://lucidworks.com/blog/2011/09/14/estimating-memory-and-storage-for-lucenesolr/
+
 There is nothing fancy in the Solr download part. It takes an URL to the Solr
 binary and a md5 sum for verification.
 
 .. note At time of writing the latest working version of Solr was 4.10.x
 
-It looks like this in *solr.cfg*::
+It looks like this in *solr.cfg* and *solr4.cfg* ::
 
     [solr-download]
     recipe = hexagonit.recipe.download
     strip-top-level-dir = true
+
+    [solr-download]
     url = https://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.tgz
     md5sum = 8ae107a760b3fc1ec7358a303886ca06
 
@@ -140,12 +151,13 @@ no changes in *zope.conf* are necessary. ::
 .. note: Another easy way to use different hosts on dev, stage and production
    machines is to define a host alias in /etc/hosts
 
-Like the Zope catalog the Solr index has a schema consisting of index and metadata fields.
+Like the Zope ZCatalog the Solr index has a schema consisting of index
+and metadata fields.
 You can think of index fields as something you can use for querying / searching
 and metadata something you return as result list.
-Solr defines its schema in a big XML schema.xml. There is a section in the
-*collective.recipe.solrinstance* which gives you access to the most common
-configuration options in a buildout way::
+Solr defines its schema in a big XML file called ``schema.xml``. There is a
+section in the ``collective.recipe.solrinstance`` buildout recipe which gives you 
+access to the most common configuration options in a buildout way::
 
     index =
         name:allowedRolesAndUsers   type:string stored:false multivalued:true
@@ -179,9 +191,9 @@ configuration options in a buildout way::
         name:UID                    type:string stored:true required:true
 
 - name: Name of the field
-- type: Type of the field (e.g. "string", "text", "date", "boolean")
-- indexed: searchable
-- stored: returned as metadata
+- type: Type of the field (e.g. ``string`` , ``text``, ``date``, ``boolean``)
+- indexed: The field is searchable
+- stored: The field is returned as metadata
 - copyfield: copy content to another field, e.g. copy title, description, subject and SearchableText to default.
 
 For a complete list of schema configuration options refer to the documentation of Solr.
@@ -189,7 +201,7 @@ For a complete list of schema configuration options refer to the documentation o
 .. seealso: https://wiki.apache.org/solr/SchemaXml#Common_field_options
 
 This is the bare minimum for configuring Solr. There are more options supported by the buildout
-recipe *collective.recipe.solrinstance* and even more by Solr itself. Most notably are the custom
+recipe ``collective.recipe.solrinstance`` and even more by Solr itself. Most notably are the custom
 extensions for *schema.xml* and *solrconfig.xml*. We will see examples for this later on in the training.
 
 Or you can even point to a custom location for the main configuration files. ::
@@ -304,7 +316,52 @@ following snippet to configure host, port und basepath: ::
 The ZCML configuration takes predence over the configuration in the
 registry / control-panel.
 
+Committing strategies
+=======================
+
+Synchronous immediately
+------------------------
+
+The default commit strategy is to commit to Solr on every Zope
+commit. This ensures an always up to date index but may come at
+cost of indexing time especcially when doing batch operations
+like data import.  
+
+To use this behavior, turn **Automatic commit** ON in the Solr
+controlpanel in Plone.
+
+Synchronous batched
+--------------------
+
+Another commit strategy is to do timed commits in Solr.
+This method is usually way faster but comes with the cost
+of index delays.
+
+To use this behavior you have to do two things:
+
+ - Turn **Automatic commit** OFF in the Solr controlpanel in Plone.
+ - Set one or both of the following options in the Solr server configuration
+   via the collective.recipe.solrinstance buildout recipe:
+
+   - ``autoCommitMaxDocs`` - The number of updates that have occurred since the last commit.
+   - ``autoCommitMaxTime`` - The number of milliseconds since the oldest uncommitted update.
+
+Asynchronous
+-------------
+
+The third commit stragey is to do full asynchronous commits. This
+can be activated by setting the Flag **Asynchronous indexing** in
+the Solr control panel to ON. This behavior is the most efficient
+in terms of Zope response time. Since it is fire and forget the
+consistency could be harmed in midterm. It is advisable to to a
+sync or full-index from time to time if you work with this strategy.
+
+Additional information can be found in the Solr documentation:
+
+.. seealso: https://cwiki.apache.org/confluence/display/solr/UpdateHandlers+in+SolrConfig#UpdateHandlersinSolrConfig-commitWithin
+
 Excercise
 =================
 
-Have a running Plone and Solr with collective.solr active.
+Have a running Plone and Solr with collective.solr active and experiment
+with commit strategies.

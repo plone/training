@@ -22,7 +22,7 @@ solr.cfg::
 Stopwords
 ==================
 
-For indexes with of text, commoun uninteresting words like *"the"*, *"a"*, and
+For indexes with of text, common uninteresting words like *"the"*, *"a"*, and
 so on, make the index large and slow down phrase queries. To deal with this
 problem, it is best to remove them from fields where they show up often.
 
@@ -108,7 +108,7 @@ Solr can deal with synonyms. Maybe you run a shop for selling smartphones and yo
 want people typing "iphone", "i-phone" or even "ephone", "ifone", or "iphnoe" to
 get the latest "iPhone" offers.
 
-A simple synonym like soltion us to use the *searchwords* extension which is
+A simple synonym like solution us to use the *searchwords* extension which is
 provided by collective.solr. It is a schemaextender for all types and allows
 to specify terms which are boosted by factor 1000 in the default search
 query. For "real" synonyms implemented in Solr you can use the
@@ -155,3 +155,8 @@ For a full list of index and query filter factories consult the Solr documentati
 
 .. seealso: https://cwiki.apache.org/confluence/display/solr/Understanding+Analyzers%2C+Tokenizers%2C+and+Filters
 
+Exercise
+=================
+
+Experiment with stemming, stopwords and synonyms.
+Add your own values and see how Solr behaves.
