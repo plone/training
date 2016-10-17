@@ -22,7 +22,7 @@ Add your JavaScript file
 The lightGallery distribution files are already included in the
 ``collective.jstraining`` package you're working with.
 
-In your ``exercise5/static`` directory, add a file named ``integration.js``.
+In your ``exercise5/theme`` directory, add a file named ``integration.js``.
 We'll use this file to integrate with Plone's album view::
 
     require([
