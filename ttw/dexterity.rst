@@ -2,4 +2,4 @@ This page is included here from the :ref:`mastering_plone-label`. The narrative 
 
 .. include:: ../mastering_plone/dexterity.rst
 
-In one of the next chapters of :ref:`mastering_plone-label` it is explaned how you can move the content-type you created into code: :ref:`export_code-label`.
+In one of the next chapters of :ref:`mastering_plone-label` it is explained how you can move the content-type you created into code: :ref:`export_code-label`.

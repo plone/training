@@ -3,8 +3,7 @@
 Exercises
 =========
 
-Prerequisites
--------------
+**Prerequisites**
 
 - Follow the instructions here to get a training buildout installed:
   https://training.plone.org/5/plone_training_config/instructions.html
@@ -12,30 +11,36 @@ Prerequisites
   into your buildout from the previous step
 - npm/nodejs install on your system
 - webpack installed on your system
+- grunt-cli installed on your system(``npm install -g grunt-cli``)
 
 
-Install forked collective.jstraining
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Install forked collective.jstraining**
 
-Add this line to the end of your `buildout.cfg` file:
+Add this line to the end of your ``buildout.cfg`` file:
 
     collective.jstraining = git <location of your fork>
 
-`<location of your fork>` should be replaced with where your fork is.
+``<location of your fork>`` should be replaced with where your fork is.
 
-Finally, add `collective.jstraining` to the auto-checkout list::
+Also, add ``collective.jstraining`` to the auto-checkout list::
 
     auto-checkout =
       ...
       collective.jstraining
       ...
 
-Contents
---------
+And one more spot to add collective.jstraining to: eggs::
+
+    eggs =
+        ...
+        collective.jstraining
+        ...
+
+
+**Exercises**
 
 ..  toctree::
     :maxdepth: 3
-    :numbered: 1
 
     1
     2

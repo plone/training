@@ -43,6 +43,7 @@ Trainings
     theming/index
     javascript/index
     deployment/index
+    deployment/opsworks/index
     ttw/index
     solr-training/index
     workflow/index

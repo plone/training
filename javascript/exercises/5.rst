@@ -1,5 +1,5 @@
-Gallery integration with theme
-==============================
+Exercise 5: Gallery integration with theme
+==========================================
 
 ..  warning::
 
@@ -14,15 +14,15 @@ This example essentially re-uses the Barceloneta theme. It's more important
 to pay attention to how the integration with the theme works, than worrying
 about diazo/theming details for this exercise.
 
-We will be working in the `exercise5` directory of the collective.jstraining package.
+We will be working in the ``exercise5`` directory of the collective.jstraining package.
 
 Add your JavaScript file
 ------------------------
 
 The lightGallery distribution files are already included in the
-`collective.jstraining` package you're working with.
+``collective.jstraining`` package you're working with.
 
-In your `exercise5/static` directory, add a file named `integration.js`.
+In your ``exercise5/theme`` directory, add a file named ``integration.js``.
 We'll use this file to integrate with Plone's album view::
 
     require([
@@ -60,9 +60,9 @@ Require the lightGallery JavaScript::
 This tells RequirejS to load the jQuery and the lightGallery JavaScript.
 
 What is important to pay attention to in this example is that we're seeing
-if there are any `photoAlbumEntry` elements on the page.
+if there are any ``photoAlbumEntry`` elements on the page.
 
-If there are, we modify the DOM structure slightly to work seemlessly with
+If there are any, we modify the DOM structure slightly to work seemlessly with
 lightGallery::
 
     ...
@@ -90,17 +90,17 @@ Including JavaScript/CSS into your theme
 ----------------------------------------
 
 For JavaScript and CSS, you can include resources with convenience theme
-configuration settings of `development-css`, `production-css`, `development-js`
-and `production-js`.
+configuration settings of ``development-css``, ``production-css``, ``development-js``
+and ``production-js``.
 
 Since we're reusing the existing Barceloneta theme with this example though,
-we'll simple include the JavaScript/CSS into the theme `index.html` file.
+we'll simple include the JavaScript/CSS into the theme ``index.html`` file.
 
 
 CSS
 ~~~
 
-In the bottom of the head section in the `index.html` file, add::
+At the bottom of the head section in the ``index.html`` file, add::
 
   <link rel="stylesheet" type="text/css"
           href="../++theme++exercise5/lightgallery/css/lightgallery.min.css" />
@@ -109,7 +109,7 @@ In the bottom of the head section in the `index.html` file, add::
 JavaScript
 ~~~~~~~~~~
 
-In the bottom of the `index.html` file, add::
+At the bottom of the ``index.html`` file, before the ``</body>`` closing tag, add::
 
   <script src="../++theme++exercise5/integration.js"></script>
 
@@ -118,7 +118,7 @@ Installation
 ------------
 
 1) Start up your Plone instance
-2) Install the `Exercise 5` add-on
+2) Install the ``Exercise 5`` add-on
 
 
 Trying it out
@@ -126,7 +126,7 @@ Trying it out
 
 1) Create a folder and add some images to it in your Plone site.
 
-2) Specify `Album view` for your folder.
+2) Specify ``Album view`` for your folder.
 
 3) Now when you click on an image, it should show the gallery viewer.
 

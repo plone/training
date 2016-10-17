@@ -64,11 +64,13 @@ Once deployed, create a Plone site, then go to the Plone control panel > Add-ons
 
         versions =
             ...
-            plone.tiles = 1.5.2
-            plone.app.tiles = 2.2.1
-            plone.app.standardtiles = 1.0
-            plone.app.blocks = 3.1.0
-            plone.app.drafts = 1.0
+            plone.tiles = 1.8.0
+            plone.subrequest = 1.7.0
+            plone.app.tiles = 3.0.0
+            plone.app.standardtiles = 2.0.0rc1
+            plone.app.blocks = 4.0.0rc1
+            plone.app.drafts = 1.1.1
+            plone.app.mosaic = 2.0.0rc1
 
     Run your buildout::
 
@@ -216,6 +218,9 @@ Once saved, our layout will be listed with the other available layouts when we c
 
 Exercise 3: create a layout for talks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note:: This exercise assumes that you have created a content type called "Talk".
+          you can quickly create one by the following the steps in `Dexterity: Creating TTW content types <dexterity.html#creating-contenttypes-ttw>`__ documentation.
 
 Create an attractive layout for a talk, save it and reuse it for another talk.
 

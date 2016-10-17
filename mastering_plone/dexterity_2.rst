@@ -16,10 +16,10 @@ The existing talks are still lacking some functionality we want to use.
 
 In this part we will:
 
-* add a marker interface to our talk type
-* create custom catalog indexes
-* query the catalog for them
-* enable some more default features for our type
+* add a marker interface to our talk type,
+* create custom catalog indexes,
+* query the catalog for them,
+* enable some more default features for our type.
 
 
 .. _dexterity2-marker-label:
@@ -30,7 +30,8 @@ Add a marker interface to the talk type
 Marker Interfaces
 +++++++++++++++++
 
-The content type `Talk` is not yet a *first class citizen* because it does not implement its own interface. Interfaces are like nametags, telling other elements who and what you are and what you can do. A marker interface is like such a nametag. The talks actually have an auto-generated marker interface ``plone.dexterity.schema.generated.Plone_0_talk``.
+The content type `Talk` is not yet a *first class citizen* because it does not implement its own interface.
+Interfaces are like nametags, telling other elements who and what you are and what you can do. A marker interface is like such a nametag. The talks actually have an auto-generated marker interface ``plone.dexterity.schema.generated.Plone_0_talk``.
 
 One problem is that the name of the Plone instance ``Plone`` is part of that interface name. If you now moved these types to a site with another name the code that uses these interfaces would no longer find the objects in question.
 
@@ -140,18 +141,18 @@ Upgrade steps
 When projects evolve you sometimes want to modify various things while the site is already up and brimming with content and users. Upgrade steps are pieces of code that run when upgrading from one version of an add-on to a newer one. They can do just about anything.
 We will use an upgrade-step to enable the new behavior instead of reinstalling the addon.
 
-We will create an upgrade step that
+We will create an upgrade step that:
 
-* runs the typeinfo step (i.e. loads the GenericSetup configuration stores in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the add-on to have our changes from above take effect) and
+* runs the typeinfo step (i.e. loads the GenericSetup configuration stored in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the add-on to have our changes from above take effect) and
 * cleans up the talks that might be scattered around the site in the early stages of creating it. We will move all talks to a folder ``talks`` (unless they already are there).
 
-Upgrade steps can be registered in their own zcml file to prevent cluttering the main :file:`configure.zcml`. Include a new :file:`upgrades.zcml` in our :file:`configure.zcml` by adding:
+Upgrade steps can be registered in their own ZCML file to prevent cluttering the main :file:`configure.zcml`. Include a new :file:`upgrades.zcml` in our :file:`configure.zcml` by adding:
 
 ..  code-block:: xml
 
     <include file="upgrades.zcml" />
 
-Create :file:`upgrades.zcml`
+Create :file:`upgrades.zcml`:
 
 .. code-block:: xml
     :linenos:
@@ -174,7 +175,7 @@ Create :file:`upgrades.zcml`
 
     </configure>
 
-The upgrade step bumps the version number of the GenericSetup profile of ploneconf.site from 1000 to 1001. The version is stored in :file:`profiles/default/metadata.xml`. Change it to
+The upgrade step bumps the version number of the GenericSetup profile of :py:mod:`ploneconf.site` from 1000 to 1001. The version is stored in :file:`profiles/default/metadata.xml`. Change it to
 
 ..  code-block:: xml
 
@@ -235,13 +236,14 @@ GenericSetup now expects the code as a method :py:meth:`upgrade_site` in the fil
 
 Note:
 
-* Upgrade-steps get the tool `portal_setup` passed as their argument.
-* The `portal_setup` tool has a method :py:meth:`runImportStepFromProfile`
+* Upgrade-steps get the tool ``portal_setup`` passed as their argument.
+* The ``portal_setup`` tool has a method :py:meth:`runImportStepFromProfile`
 * We create the needed folder-structure if it does not exists.
 
 After restarting the site we can run the step:
 
-* Go to the Add-ons control panel http://localhost:8080/Plone/prefs_install_products_form. There should now be a new section **Upgrades** and a button to upgrade from 1000 to 1001.
+* Go to the :guilabel:`Add-ons` control panel http://localhost:8080/Plone/prefs_install_products_form.
+  There should now be a new section **Upgrades** and a button to upgrade from 1000 to 1001.
 * Run the upgrade step by clicking on it.
 
 On the console you should see logging messages like::
@@ -275,9 +277,9 @@ Add a browserlayer
 
 A browserlayer is another such marker interface. Browserlayers allow us to easily enable and disable views and other site functionality based on installed add-ons and themes.
 
-Since we want the features we write only to be available when ploneconf.site actually is installed we can bind them to a browserlayer.
+Since we want the features we write only to be available when :py:mod:`ploneconf.site` actually is installed we can bind them to a browserlayer.
 
-Our package already has a browserlayer (:py:mod:`bobtemplates.plone` added it). See :file:`interfaces.py`:
+Our package already has a browserlayer (added by :py:mod:`bobtemplates.plone`). See :file:`interfaces.py`:
 
 ..  code-block:: python
     :linenos:
@@ -324,7 +326,7 @@ We should bind all views to it. Here is an example using the talkview.
         permission="zope2.View"
         />
 
-Note the relative python path :py:class:`..interfaces.IPloneconfSiteLayer`. It is equivalent to the absolute path :py:class:`ploneconf.site.interfaces.IPloneconfSiteLayer`.
+Note the relative Python path :py:class:`..interfaces.IPloneconfSiteLayer`. It is equivalent to the absolute path :py:class:`ploneconf.site.interfaces.IPloneconfSiteLayer`.
 
 .. seealso::
 
@@ -379,7 +381,7 @@ The ``column ..`` entries allow us to display the values of these indexes in the
 
 .. note::
 
-    Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the add-on purged the indexes! See http://www.starzel.de/blog/a-reminder-about-catalog-indexes.
+    Until Plone 4.3.2 adding indexes in :file:`catalog.xml` was harmful because reinstalling the add-on purged the indexes! See http://www.starzel.de/blog/a-reminder-about-catalog-indexes.
 
 * Reinstall the add-on
 * Go to http://localhost:8080/Plone/portal_catalog/manage_catalogAdvanced to update the catalog
@@ -423,7 +425,7 @@ The new indexes behave like the ones that Plone has already built in:
     >>> (Pdb) brain.speaker
     u'David Glick'
 
-We now can use the new indexes to improve the talklistview so we don't have to *wake up* the objects any more. Instead we use the brains new attributes.
+We now can use the new indexes to improve the talklistview so we don't have to *wake up* the objects any more. Instead we use the brains' new attributes.
 
 .. code-block:: python
     :linenos:
@@ -458,7 +460,7 @@ Add collection criteria
 To be able to search content in collections using these new indexes we would have to register them as criteria for the querystring widget that collections use. As with all features make sure you only do this if you really need it!
 
 
-Add a new file ``profiles/default/registry.xml``
+Add a new file :file:`profiles/default/registry.xml`
 
 .. code-block:: xml
     :linenos:
@@ -511,7 +513,7 @@ Add versioning through GenericSetup
 
 Configure the versioning policy and a diff-view for talks through GenericSetup.
 
-Add new file ``profiles/default/repositorytool.xml``
+Add new file :file:`profiles/default/repositorytool.xml`
 
 .. code-block:: xml
     :linenos:
@@ -527,7 +529,7 @@ Add new file ``profiles/default/repositorytool.xml``
     </repositorytool>
 
 
-Add new file ``profiles/default/diff_tool.xml``
+Add new file :file:`profiles/default/diff_tool.xml`
 
 .. code-block:: xml
     :linenos:
@@ -541,7 +543,7 @@ Add new file ``profiles/default/diff_tool.xml``
       </difftypes>
     </object>
 
-Finally you need to activate the versioning behavior on the content type. Edit ``profiles/default/types/talk.xml``:
+Finally you need to activate the versioning behavior on the content type. Edit :file:`profiles/default/types/talk.xml`:
 
 .. code-block:: xml
     :linenos:

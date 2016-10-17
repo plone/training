@@ -1,5 +1,5 @@
-Using a pattern in a z3c form widget
-====================================
+Exercise 7: Using a pattern in a z3c form widget
+================================================
 
 ..  warning::
 
@@ -10,14 +10,13 @@ Using a pattern in a z3c form widget
 This exercise will go through adding a widget that checks the minimum size
 of an image before it is uploaded.
 
-We will be working in the `exercise7` directory of the collective.jstraining package.
+We will be working in the ``exercise7`` directory of the collective.jstraining package.
 
 Add your JavaScript file
 ------------------------
 
-First off, in your `exercise7/static` directory, add a file named `script.js`. Use
-this file to do anything you would like to the page. This example will stay very
-simple we’ll use jQuery to do a simple animation effect on the title of the page::
+First off, in your ``exercise7/static`` directory, add a file named ``script.js``. Use
+this file to do anything you would like to the page::
 
 
     /* global require, FileReader, Image */
@@ -65,7 +64,7 @@ simple we’ll use jQuery to do a simple animation effect on the title of the pa
     });
 
 
-This pattern simply has `minWidth` and `minHeight` options and when a file is
+This pattern simply has ``minWidth`` and ``minHeight`` options and when a file is
 selected for upload, will check to make sure it is a valid size.
 
 
@@ -74,7 +73,7 @@ Register static resource directory
 
 Next, let’s register the static directory we just placed our script into. To
 register, you need to add ZCML registration for the static directory your script
-is in. Add this to the `exercise7/configure.zcml` file::
+is in. Add this to the ``exercise7/configure.zcml`` file::
 
     <plone:static
          directory="static"
@@ -86,21 +85,21 @@ is in. Add this to the `exercise7/configure.zcml` file::
 Register JavaScript resource
 ----------------------------
 
-Let’s register our script as a JavaScript resource with Plone. In the
-`exercise7/profiles/default/registry.xml` file, add configuration to register
+Register our script as a JavaScript resource with Plone. In the
+``exercise7/profiles/default/registry.xml`` file, add configuration to register
 your script::
 
     <records prefix="plone.resources/exercise7"
-                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-          <value key="js">++plone++exercise7/script.js</value>
-      </records>
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++exercise7/script.js</value>
+    </records>
 
 
 Create a custom widget
 ----------------------
 
-Our custom widget will apply to all lead images. Add a file `widget.py` to your
-`exercise7` directory with the follow contents::
+Our custom widget will apply to all lead images. Add a file ``widget.py`` to your
+``exercise7`` directory with the follow contents::
 
     from .interfaces import IExercise7Layer
     from .interfaces import IMinSizeImageWidget
@@ -142,23 +141,23 @@ Our custom widget will apply to all lead images. Add a file `widget.py` to your
         return widget
 
 
-Notice in the `render` method we utilize the `add_resource_on_request` function
+Notice in the ``render`` method we utilize the ``add_resource_on_request`` function
 to load our pattern.
 
 
-The code for `image_widget.pt` is already provided for this example since it is
+The code for ``image_widget.pt`` is already provided for this example since it is
 quite long. Review the file and notice where we are passing the value from the
-`pattern_options` method into our widget.
+``pattern_options`` method into our widget.
 
 
 Register widget customization
 -----------------------------
 
-Next, we need to register our custom widget so it is used. In your `configure.zcml`
+Next, we need to register our custom widget so it is used. In your ``configure.zcml``
 file, add the following::
 
     <adapter factory=".widget.LeadImageMinSizeImageFieldWidget" />
-     <z3c:widgetTemplate
+    <z3c:widgetTemplate
       mode="input"
       widget=".interfaces.IMinSizeImageWidget"
       layer=".interfaces.IExercise7Layer"
@@ -169,7 +168,14 @@ Installation
 ------------
 
 1) Start up your Plone instance
-2) Install the `Exercise 7` add-on
+2) Install the ``Exercise 7`` add-on
 
 
 Now, try to add/edit a lead image to content on the site.
+
+..  warning::
+
+    To make sure your resource registry configuration changes apply, you'll need to
+    be in development mode. You can also toggle development mode on and off,
+    click save, to force configuration to be re-built after changes instead of
+    keeping development mode on.

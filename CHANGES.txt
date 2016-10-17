@@ -50,7 +50,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 - Update vagrant installation to include BIOS virtualization note.
   [lbrannon]
 
-- Editing while reading. Edited Rapido chapter for language and formatting. [jean]
+- Editing while reading. Edited Rapido chapter for language and formatting.
+  [jean]
 
 - Fix a couple of duplicate labels, unmatched literal ending, typo [jean]
 
@@ -62,10 +63,13 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Exercises for behaviors_2, fix some emphasis [tschorr]
 
-- Fix some typos, apply inline directives: file, Python domain, GUI, literals [jean]
+- Fix some typos, apply inline directives: file, Python domain, GUI, literals
+  [jean]
 
 - Add Plone 5 Workflow Training
   [calvinhp]
+
+- Editing Dexterity chapters (typos, markup, some grammar) [jean]
 
 1.2.4 (2014-10-03)
 ------------------
