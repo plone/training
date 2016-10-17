@@ -46,6 +46,7 @@ If you already have it, you can skip this step.
 
    $ npm install -g grunt-cli
 
+.. note:: If you get an error with node on Debian/Ubuntu, please check if you already have /usr/bin/node if not create a symlink like: ``ln -s /usr/bin/nodejs /usr/bin/node``.
 
 virtualenv and mr.bob
 ---------------------
