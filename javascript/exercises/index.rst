@@ -11,6 +11,7 @@ Exercises
   into your buildout from the previous step
 - npm/nodejs install on your system
 - webpack installed on your system
+- grunt-cli installed on your system(``npm install -g grunt-cli``)
 
 
 **Install forked collective.jstraining**
