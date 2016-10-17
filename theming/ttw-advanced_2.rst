@@ -285,7 +285,11 @@ The theme is already packaged in a manner that will work with the theming tool.
 
        .. image:: ../theming/_static/theming-uploadzipfile2.png
 
-2. Add a :file:`styles.less` file and import the Barceloneta styles.
+2. Add a :file:`styles.less` file and import the Barceloneta styles:
+    .. code-block:: css
+
+        /* Import Barceloneta styles */
+        @import "++theme++barceloneta/less/barceloneta.plone.less";
 
 3. Add a :file:`manifest.cfg` file, set ``production-css`` equal to ``styles.css``
 
