@@ -519,3 +519,9 @@ github:
 
   https://github.com/collective/plonetraining.solr_example
 
+
+Excercise
+=================
+
+Have a custom search page with autocomplete, suggest, highlighting
+and facetting working.

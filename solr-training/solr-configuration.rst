@@ -155,3 +155,8 @@ For a full list of index and query filter factories consult the Solr documentati
 
 .. seealso: https://cwiki.apache.org/confluence/display/solr/Understanding+Analyzers%2C+Tokenizers%2C+and+Filters
 
+Excercise
+=================
+
+Experiment with stemming, stopwords and synonyms.
+Add your own values and see how Solr behaves.
