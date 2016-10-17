@@ -1,5 +1,5 @@
-NG2 APP in logged in bundle
-===========================
+Exercise 4: NG2 APP in logged in bundle
+=======================================
 
 ..  warning::
 

@@ -1,5 +1,5 @@
-NG2 APP component in a bundle
-=============================
+Exercise 3: NG2 APP component in a bundle
+=========================================
 
 ..  warning::
 

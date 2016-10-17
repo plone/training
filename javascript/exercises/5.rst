@@ -1,5 +1,5 @@
-Gallery integration with theme
-==============================
+Exercise 5: Gallery integration with theme
+==========================================
 
 ..  warning::
 

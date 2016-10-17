@@ -1,5 +1,5 @@
-Customizing pattern
-===================
+Exercise 10: Customizing pattern
+================================
 
 ..  warning::
 

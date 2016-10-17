@@ -1,5 +1,5 @@
-Pattern with react
-==================
+Exercise 9: Pattern with react
+==============================
 
 ..  warning::
 

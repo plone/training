@@ -1,5 +1,5 @@
-Simple Pattern
-==============
+Exercise 6: Simple Pattern
+==========================
 
 ..  warning::
 

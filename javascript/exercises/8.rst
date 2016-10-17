@@ -1,5 +1,5 @@
-Pattern wrapping a 3rd party library
-====================================
+Exercise 8: Pattern wrapping a 3rd party library
+================================================
 
 ..  warning::
 

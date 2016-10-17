@@ -1,5 +1,5 @@
-Using a pattern in a z3c form widget
-====================================
+Exercise 7: Using a pattern in a z3c form widget
+================================================
 
 ..  warning::
 
