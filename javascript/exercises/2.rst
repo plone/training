@@ -142,7 +142,7 @@ the page we’re using in the JavaScript(h1). Add this into your ``exercise1/pag
     </html>
 
 
-The ``my-app`` tag is what is used for the component selector. You can customize
+The ``app-root`` tag is what is used for the component selector. You can customize
 this and use whatever selector you like.
 
 
