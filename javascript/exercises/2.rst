@@ -54,7 +54,7 @@ is in. Add this to the ``exercise2/configure.zcml`` file::
 Build the file with webpack
 ---------------------------
 
-Our deployment is built using webpack::
+Our deployment is built using the ng cli tool::
 
     cd exercise2/static
     ng build --prod
@@ -94,7 +94,8 @@ Finally we want to create a single entry point to load them, so we are going to
 create and register a js with the requires that are loading the app on a file
 called ``static/ng2app/main.js``::
 
-require(['exercise2-inline','exercise2-style','exercise2-main'])
+    require(['exercise2-inline','exercise2-style','exercise2-main'])
+
 
 With the main.js defined on the filesystem we can now create the resource as a new
 resource.
@@ -133,7 +134,7 @@ the page we’re using in the JavaScript(h1). Add this into your ``exercise1/pag
 
       <metal:content-core fill-slot="content-core">
       <metal:content-core define-macro="content-core">
-        <my-app></my-app>
+        <app-root></app-root>
       </metal:content-core>
       </metal:content-core>
 
