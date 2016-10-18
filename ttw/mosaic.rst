@@ -1,7 +1,7 @@
 Mosaic
 ======
 
-In this part you will:
+In this section we will:
 
 * create a *home page* layout,
 * create a *specific talk detail* layout.
@@ -47,16 +47,12 @@ Some comparisons
 Installation
 ------------
 
-We will use a `Plone pre-configured Heroku instance <https://github.com/collective/training-sandbox>`_.
-
-Once deployed, create a Plone site, then go to the Plone control panel > Add-ons and install Mosaic.
-
-.. only:: not presentation
+.. sidebar:: On an existing Plone Buildout
 
     If you already have your own Plone installation you can
     install Mosaic by customizing it as follows:
     
-    Modify :file:`buildout.cfg` to add Rapido as a dependency::
+    Modify :file:`buildout.cfg` to add Mosaic as a dependency::
 
         eggs =
             ...
@@ -76,7 +72,12 @@ Once deployed, create a Plone site, then go to the Plone control panel > Add-ons
 
         $ bin/buildout -N
 
-    Then go to Plone control panel / Add-ons http://localhost:8080/Plone/prefs_install_products_form, and install Mosaic.
+    Then go to :menuselection:`Site Setup --> Add-ons` and Mosaic :guilabel:`Install`.
+
+
+We will use a `Plone pre-configured Heroku instance <https://github.com/collective/training-sandbox>`_.
+
+Once deployed, create a Plone site, then go to the :menuselection:`Site Setup --> Add-ons` and Mosaic :guilabel:`Install`.
 
 Principle
 ---------

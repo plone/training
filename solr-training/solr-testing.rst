@@ -4,122 +4,66 @@ Solr Testing
 
 collective.solr comes with a few test fixtures that make it easier to test Solr.
 
-SOLR_FIXTURE fires up and tears down a Solr instance. This fixture can be used to write unit tests for a Solr configuration.
+``SOLR_FIXTURE`` fires up and tears down a Solr instance. This fixture can be used to write unit tests for a Solr configuration.
 
-test_solr_unit.py::
+Usually you need the ``COLLECTIVE_SOLR_FIXTURE`` which spins off a Solr instance
+and installs ``collective.solr``. A custom test layer based on this fixture looks
+like this ::
 
-    # -*- coding: utf-8 -*-
-    from collective.solr.testing import SOLR_FIXTURE
-    import json
-    import requests
+  class PlonetrainingSolrExampleLayer(PloneSandboxLayer):
 
-    SOLR_BASE_URL = 'http://localhost:8090/solr/collection1'
+      defaultBases = (COLLECTIVE_SOLR_FIXTURE,)
 
+      def setUpZope(self, app, configurationContext):
+          # Load any other ZCML that is required for your tests.
+          # The z3c.autoinclude feature is disabled in the Plone fixture base
+          # layer.
+          self.loadZCML(package=plonetraining.solr_example)
 
-    class TestSuggesetSolrConfig(unittest.TestCase):
+      def setUpPloneSite(self, portal):
+          applyProfile(portal, 'plonetraining.solr_example:default')
 
-        layer = SOLR_FIXTURE
+A test for our suggest method in our fancy search looks like this: ::
 
-        def setUp(self):
-            self.clear()
-
-        def clear(self):
-            headers = {'Content-type': 'text/xml', 'charset': 'utf-8'}
-            requests.post(
-                SOLR_BASE_URL + "/update",
-                data="<delete><select>*:*</select></delete>",
-                headers=headers)
-            requests.post(
-                "http://localhost:8090/solr/update",
-                data="<commit/>",
-                headers=headers)
-
-        def add(self, payload):
-            headers = {'Content-type': 'application/json'}
-            request = requests.post(
-                SOLR_BASE_URL + "/update/json?commit=true",
-                data=json.dumps(payload),
-                headers=headers
-            )
-            if request.status_code != 200:
-                print "FAILURE"
-
-        def select(self, select):
-            return requests.get(
-                SOLR_BASE_URL + '/select?wt=json&q=%s' % select)
-
-        def test_suggest(self):
-            self.add([{
-                "UID": "1",
-                "Title": "Krebs",
-                "SearchableText": "Krebs",
-            }])
-            response = self.select("Krabs")
-
-            self.assertEqual(response.status_code, 200)
-            self.assertEqual(
-                response.json()['spellcheck']['suggestions'][1]['numFound'],
-                1,
-                "Number of found suggestions should be 1."
-            )
-            self.assertEqual(
-                response.json()['spellcheck']['suggestions'][1]
-                ['suggestion'][0]['word'],
-                u'Krebs'
-            )
-
-COLLECTIVE_SOLR_FIXTURE fires up and tears down a Solr instance. In addition it activates and configures the collective.solr connection.
-
-test_solr_integration.py::
-
-    # -*- coding: utf-8 -*-
-    from collective.solr.browser.interfaces import IThemeSpecific
-    from collective.solr.testing import COLLECTIVE_SOLR_INTEGRATION_TESTING
-    from collective.solr.utils import activate
-    from plone.app.testing import TEST_USER_ID
-    from plone.app.testing import setRoles
-    from zope.component import getMultiAdapter
-    from zope.interface import directlyProvides
-
-    import json
-    import unittest
+  # -*- coding: utf-8 -*-
+  """Setup tests for this package."""
+  from plone import api
+  from plone.app.testing import setRoles
+  from plone.app.testing import TEST_USER_ID
+  from plonetraining.solr_example.browser.views import FancySearchView
+  from plonetraining.solr_example.testing import PLONETRAINING_SOLR_EXAMPLE_FUNCTIONAL_TESTING  # noqa
+  from collective.solr.testing import activateAndReindex
+  import unittest
 
 
-    class JsonSolrTests(unittest.TestCase):
+  class TestSearchView(unittest.TestCase):
+      """Test that plonetraining.solr_example is properly installed."""
 
-        layer = COLLECTIVE_SOLR_INTEGRATION_TESTING
+      layer = PLONETRAINING_SOLR_EXAMPLE_FUNCTIONAL_TESTING
 
-        def setUp(self):
-            self.portal = self.layer['portal']
-            self.request = self.layer['request']
-            self.app = self.layer['app']
-            self.portal.REQUEST.RESPONSE.write = lambda x: x    # ignore output
-            self.maintenance = \
-                self.portal.unrestrictedTraverse('@@solr-maintenance')
-            activate()
-            self.maintenance.clear()
-            self.maintenance.reindex()
-            directlyProvides(self.request, IThemeSpecific)
-            setRoles(self.portal, TEST_USER_ID, ['Manager'])
+      def setUp(self):
+          """Custom shared utility setup for tests."""
+          self.portal = self.layer['portal']
+          setRoles(self.portal, TEST_USER_ID, ('Manager', ))
+          api.content.create(self.portal, 'Document', title='Lorem Ipsum')
+          activateAndReindex(self.portal)
 
-        def tearDown(self):
-            activate(active=False)
+      def test_suggest(self):
+          """Test if plonetraining.solr_example is installed."""
+          request = self.layer['request']
+          view = FancySearchView(self.portal, request)
+          request.form['SearchableText'] = 'lore'
+          self.assertEqual(
+              view.suggest(),
+              {'url': 'http://nohost?term=lore&SearchableText=lorem', 'word': u'lorem'}
+          )
 
-        def afterSetUp(self):
-            self.maintenance = self.portal.unrestrictedTraverse('solr-maintenance')
 
-        def test_search_view_returns_plone_app_search_view(self):
-            view = getMultiAdapter(
-                (self.portal, self.request),
-                name="search"
-            )
-            self.assertTrue(view)
+Note the **activateAndReindex** method. It is a nice testing helper to cleat the Solr index and reindex all objects
+again. If testing Solr it is advisable to call it at the test setup. Otherwise the documents created during
+the tests would pile up in the index.
 
-        def test_search_view_with_json_accept_header(self):
-            self.request.response.setHeader('Accept', 'application/json')
-            view = getMultiAdapter(
-                (self.portal, self.request),
-                name="search"
-            )
-            view = view.__of__(self.portal)
-            self.assertEqual(json.loads(view())['data'], [])
+Exercise
+=================
+
+Write a custom test for a Solr feature used in Plone.
