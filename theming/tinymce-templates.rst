@@ -66,7 +66,7 @@ If the -plugin is not already activated, you can activate the template plugin (t
        </field>
        <value>[
          {"title": "Image Grid 2x2", "url": "++theme++tango/tinymce-templates/image-grid-2x2.html"},
-         {"title": "Content box", "url": "++theme++plonetheme.tango/tinymce-templates/content-box.html"}
+         {"title": "Content box", "url": "++theme++tango/tinymce-templates/content-box.html"}
          ]
        </value>
      </record>
