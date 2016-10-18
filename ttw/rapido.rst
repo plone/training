@@ -197,7 +197,6 @@ Let's start by displaying a static counter showing "0 votes" on all talks.
 First, we need to create the ``rating`` Rapido app.
 
 ..  admonition:: Solution
-    :class: toggle
 
     * Go to the Plone theming control panel: http://localhost:8080/Plone/@@theming-controlpanel
     * Copy the Barceloneta theme, name it ``training`` and enable it immediately,
@@ -209,7 +208,6 @@ First, we need to create the ``rating`` Rapido app.
 And now, we need to create a ``rate`` block.
 
 ..  admonition:: Solution
-    :class: toggle
 
     * Add a folder named :file:`blocks` in :file:`rating`,
     * In :file:`blocks`, add a file named :file:`rate.html`,
@@ -263,7 +261,6 @@ Exercise 2: Display the vote block in Plone pages
 Insert the ``rate`` block content under the Plone page main heading.
 
 ..  admonition:: Solution
-    :class: toggle
 
     * in the main :file:`rules.xml`, add the following line just after the first
       ``<rules>`` opening tag:
@@ -366,7 +363,6 @@ To do this, you need to add an element to the block.
 For now the Python function will just return 10.
 
 .. admonition:: Solution
-    :class: toggle
 
     * In the :file:`blocks` folder, add a new file named :file:`rate.yaml` containing:
 
@@ -447,7 +443,6 @@ For now, the action itself will do nothing.
 Let's just insert it at the right place, and make sure the block is refreshed properly when we click.
 
 .. admonition:: Solution
-    :class: toggle
 
     * in :file:`rate.yaml`, add a new ``like`` element and change the target to ``ajax``
       After doing this, your YAML file looks as follows:
@@ -530,7 +525,6 @@ Let's implement the :py:func:`like` function:
 - and then we need to increase the current total votes for that talk by 1.
 
 .. admonition:: Solution
-    :class: toggle
 
     .. code-block:: python
 
@@ -712,7 +706,6 @@ Let's create a block to display the Talks Top 5:
 - Visitors will access it from a footer link.
 
 .. admonition:: Solution
-    :class: toggle
 
     First we create a :file:`top5.pt` file in the :file:`blocks` folder with the following content:
 
@@ -808,7 +801,6 @@ We want to be able to sort the records according to their votes:
 - we need to update the ``top5`` block to display the first 5 ranked talks.
 
 .. admonition:: Solution
-    :class: toggle
 
     We add the following to :file:`rate.yaml` containing:
 
@@ -929,7 +921,6 @@ We will need to:
 - assign the rule to the proper location.
 
 .. admonition:: Solution
-    :class: toggle
 
     - create :file:`contentrule.py`:
 
