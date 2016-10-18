@@ -51,7 +51,7 @@ The only parameter you can specify is the batch size:
 
 
 Sync Solr Index
-++++++++++++++Y+
+-----------------
 
 Sync the Solr index with the portal catalog. Records contained
 in the catalog but not in Solr will be indexed and records not
@@ -111,8 +111,8 @@ our buildout.cfg
 to the *fields* section of the *solr* part we add the
 following line: ::
 
- name:email    type:string copyfield:default stored:true multivalued:false
- name:fullname type:string copyfield:default stored:true multivalued:false
+ name:email    type:string copyfield:SearchableText stored:true multivalued:false
+ name:fullname type:string copyfield:SearchableText stored:true multivalued:false
 
 After we have done that we need to rerun the buildout ::
 
