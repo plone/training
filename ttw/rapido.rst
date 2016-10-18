@@ -69,9 +69,7 @@ A couple of comparisons
 Installation
 ------------
 
-.. only:: presentation
-
-    We will use a `Heroku instance pre-configured with Plone <https://github.com/collective/training-sandbox>`_.
+    For the training, we will use a `Heroku instance pre-configured with Plone <https://github.com/collective/training-sandbox>`_.
 
     Once deployed:
 
@@ -79,9 +77,7 @@ Installation
     - go to: :menuselection:`Plone control panel -> Add-ons` (http://localhost:8080/Plone/prefs_install_products_form),
     - finally: install Rapido.
 
-.. only:: not presentation
-
-    Modify :file:`buildout.cfg` to add Rapido as a dependency::
+    But to deploy Rapido on an actual Plone instance, modify :file:`buildout.cfg` to add Rapido as a dependency::
 
         eggs =
             ...
