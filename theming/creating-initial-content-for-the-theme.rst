@@ -15,8 +15,22 @@ We have the needed images inside ``theme/img`` folder. To create the folder and 
 
 .. code-block:: python
 
+   # -*- coding: utf-8 -*-
+
    from plone import api
+   from Products.CMFPlone.interfaces import INonInstallable
+   from zope.interface import implementer
    import os
+
+
+   @implementer(INonInstallable)
+   class HiddenProfiles(object):
+
+       def getNonInstallableProfiles(self):
+           """Hide uninstall profile from site-creation and quickinstaller"""
+           return [
+               'plonetheme.tango:uninstall',
+           ]
 
 
    def post_install(context):
@@ -62,9 +76,6 @@ We have the needed images inside ``theme/img`` folder. To create the folder and 
 
    def uninstall(context):
        """Uninstall script"""
-       if context.readDataFile('plonethemetango_uninstall.txt') is None:
-           return
-           # Do something during the uninstallation of this package
 
 .. note::
 
