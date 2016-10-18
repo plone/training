@@ -52,7 +52,7 @@ Installation
     If you already have your own Plone installation you can
     install Mosaic by customizing it as follows:
     
-    Modify :file:`buildout.cfg` to add Rapido as a dependency::
+    Modify :file:`buildout.cfg` to add Mosaic as a dependency::
 
         eggs =
             ...
