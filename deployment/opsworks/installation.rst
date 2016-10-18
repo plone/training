@@ -171,8 +171,8 @@ which can occasionally cause annoyance:
 
     * A setup or deploy may fail because of problems accessing Repos or PyPI packages. If the initial instance setup fails, it is not generally necessary to stop, wait and then start the instance (which can take a long time), you generally can re-run the ``setup`` phase from the Stack panel using the ``Run Command`` button.
 
-    * Downloading public packages from PyPI and dist.plone.org is often the slowest part of initial instance setup. It can help tremendously to have a tarball of all required eggs stored in a public S3 url, you can use the Custom JSON to tell OpsWorks to fetch this tarball before running the buildout. The configuration goes under the ``deploy[app_name]`` key and looks like::
+    * Downloading public packages from PyPI and dist.plone.org is often the slowest part of initial instance setup. It can help tremendously to have a tarball of all required eggs stored in a public S3 url, you can use the Custom JSON to tell OpsWorks to fetch this tarball before running the buildout. The configuration goes under the ``deploy[app_name]`` key and looks like [*]_ ::
 
-            "buildout_cache_archives" : [{"url" : "https://my-bucket.s3.amazonaws.com/my-eggs-archive.tgz", "path" : "shared"}] [*]_
+            "buildout_cache_archives" : [{"url" : "https://my-bucket.s3.amazonaws.com/my-eggs-archive.tgz", "path" : "shared"}]
 
 .. [*] This configuration assumes that the tarball has top-level directory called ``eggs``. If you've setup such a tarball in an S3 bucket (usually creating it from your first instance deploy), you simply add this configuration to both the ``deploy["plone_instances"]`` and ``deploy["zeoserver"]`` Custom JSON before launching an instance.
