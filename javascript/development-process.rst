@@ -5,7 +5,7 @@ The JavaScript development process in Plone
 Code style
 ==========
 
-Together with :py:mod:`plone.api` we developed `code style guidelines <https://github.com/plone/plone.api/blob/master/docs/contribute/conventions.rst>`_, which we are enforcing now for core Plone development.
+Together with :mod:`plone.api` we developed `code style guidelines <https://github.com/plone/plone.api/blob/master/docs/contribute/conventions.rst>`_, which we are enforcing now for core Plone development.
 Finally!
 This makes code so much more readable.
 It currently doesn't cover JavaScript code guidelines, but those were considered when Mockup was developed.

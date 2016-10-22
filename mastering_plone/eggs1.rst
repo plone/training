@@ -16,13 +16,13 @@ Write Your Own Add-Ons to Customize Plone
 
 In this part you will:
 
-* Create a custom Python package :py:mod:`ploneconf.site` to hold all the code
+* Create a custom Python package :mod:`ploneconf.site` to hold all the code
 * Modify buildout to install that package
 
 
 Topics covered:
 
-* :py:mod:`mr.bob` and :py:mod:`bobtemplates.plone`
+* :mod:`mr.bob` and :mod:`bobtemplates.plone`
 * the structure of eggs
 
 
@@ -180,7 +180,7 @@ Before we can use our new package we have to tell Plone about it. Look at :file:
     test-eggs +=
         ploneconf.site [test]
 
-This tells Buildout to add the egg :py:mod:`ploneconf.site`. The sources for this eggs are defined in the section ``[sources]`` at the bottom of :file:`buildout.cfg`.
+This tells Buildout to add the egg :mod:`ploneconf.site`. The sources for this eggs are defined in the section ``[sources]`` at the bottom of :file:`buildout.cfg`.
 
 ..  code-block:: cfg
     :emphasize-lines: 2
@@ -215,6 +215,6 @@ Now run buildout to reconfigure Plone with the updated configuration:
 
     $ ./bin/buildout
 
-After restarting Plone with :command:`./bin/instance fg` the new add-on :py:mod:`ploneconf.site` is available for install like PloneFormGen or Plone True Gallery.
+After restarting Plone with :command:`./bin/instance fg` the new add-on :mod:`ploneconf.site` is available for install like PloneFormGen or Plone True Gallery.
 
 We will not install it now since we did not add any of our own code or configuration yet. Let's do that next.

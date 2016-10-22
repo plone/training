@@ -42,7 +42,7 @@ At its core, a Diazo theme consists of an HTML page and :file:`rules.xml` file c
 
 .. note::
 
-    You can find extended information about Diazo and its integration package :py:mod:`plone.app.theming` in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_ and `plone.app.theming docs <http://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
+    You can find extended information about Diazo and its integration package :mod:`plone.app.theming` in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_ and `plone.app.theming docs <http://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
 
 Principles
 ----------

@@ -13,7 +13,7 @@ Default Theme
 
 The new default theme is called `Barceloneta <https://github.com/plone/plonetheme.barceloneta/>`_
 
-It is a Diazo theme, meaning it uses :py:mod:`plone.app.theming` to insert the output of Plone into static html/css.
+It is a Diazo theme, meaning it uses :mod:`plone.app.theming` to insert the output of Plone into static html/css.
 
 It uses html5, so it uses ``<header>``, ``<nav>``, ``<aside>``, ``<section>``, ``<article>`` and ``<footer>`` for semantic html.
 
@@ -108,7 +108,7 @@ You can now put a full-grown ``pdb`` in a template.
 
     <?python import pdb; pdb.set_trace() ?>
 
-For debugging check out the variable :py:obj:`econtext`, it holds all the current elements.
+For debugging check out the variable :obj:`econtext`, it holds all the current elements.
 
 You can also add real Python blocks inside templates.
 

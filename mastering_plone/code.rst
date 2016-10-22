@@ -69,7 +69,7 @@ Telling Plone about ploneconf.site
 ----------------------------------
 
 If you did not yet do this (it is covered in chapter :ref:`eggs1-label`) you will have to
-modify :file:`buildout.cfg` to have Plone expect the egg :py:mod:`ploneconf.site` to be in :file:`src`.
+modify :file:`buildout.cfg` to have Plone expect the egg :mod:`ploneconf.site` to be in :file:`src`.
 
 .. code-block:: cfg
     :linenos:

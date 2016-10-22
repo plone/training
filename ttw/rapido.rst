@@ -27,7 +27,7 @@ What is Rapido?
 
     Rapido is a Plone add-on that allows implementation of custom features on top of Plone.
     It is a simple yet powerful way to extend the behavior of your Plone site without using the underlying frameworks.
-    The **Plone theming tool** is the interface used to build :py:mod:`rapido.plone` applications.
+    The **Plone theming tool** is the interface used to build :mod:`rapido.plone` applications.
     This means that Rapido applications can be written both **on the file system** or using the **inline editor** of the Plone theming tool.
 
     A Rapido application is just a part of your current theme:
@@ -517,9 +517,9 @@ To count the votes on a talk, you need store some information:
 - an identifier for the talk (we will use the talk path, from the Plone ``absolute_url_path()`` method),
 - the total votes it gets.
 
-Let's implement the :py:func:`like` function:
+Let's implement the :func:`like` function:
 
-- first we need to get the current talk: the Rapido :py:obj:`context` allows to get the current Plone content using :py:attr:`context.content`,
+- first we need to get the current talk: the Rapido :obj:`context` allows to get the current Plone content using :attr:`context.content`,
 - then we need to get the record corresponding to the current talk,
   - if it does not exist, we need to create it,
 - and then we need to increase the current total votes for that talk by 1.
@@ -606,7 +606,7 @@ If HTML templating is too limiting, Rapido allows you to use TAL instead.
 
 We just need to provide a file with the :file:`.pt` extension instead of the HTML file.
 
-The block elements are available in the :py:obj:`elements` object:
+The block elements are available in the :obj:`elements` object:
 
 .. code-block:: python
 
@@ -647,7 +647,7 @@ If an element returns an iterable object (list, dictionary), we can make a loop:
         </li>
     </ul>
 
-The current Rapido context is available in the :py:obj:`context` object:
+The current Rapido context is available in the :obj:`context` object:
 
 .. code-block:: html
 
@@ -817,8 +817,8 @@ We want to be able to sort the records according to their votes:
       http://localhost:8080/Plone/@@rapido/rating/refresh
 
     And to make sure future changes will be indexed,
-    we need to fix the :py:func:`like` function in the ``rate`` block:
-    the indexing is triggered when we call the record's :py:meth:`save` method:
+    we need to fix the :func:`like` function in the ``rate`` block:
+    the indexing is triggered when we call the record's :meth:`save` method:
 
     .. code-block:: python
 
@@ -899,7 +899,7 @@ It allows us to enter the following parameters:
 - the block id,
 - the function name.
 
-The :py:attr:`content` property in the function's :py:obj:`context` allows access to the content targeted by the content rule.
+The :attr:`content` property in the function's :obj:`context` allows access to the content targeted by the content rule.
 
 For instance, to transform the content title to uppercase every time we edit something,
 we would use a function such as this:
@@ -916,7 +916,7 @@ We would like to reset the votes when we change the workflow status of a talk.
 
 We will need to:
 
-- create a new block to handle our :py:func:`reset` function,
+- create a new block to handle our :func:`reset` function,
 - add a content rule to our Plone site,
 - assign the rule to the proper location.
 

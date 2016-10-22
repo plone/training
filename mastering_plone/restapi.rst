@@ -12,7 +12,7 @@ Plone REST API
 
 In this chapter, we will have a look at the relatively new addon `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_. It provides a hypermedia API to access Plone content using REST (Representational State Transfer).
 
-We will use :py:mod:`plone.restapi` to develop a small standalone 'single page app' targeted at mobile devices. We will present our users with a simple list of conference talks. We add lightning talks as a new type of talk. Users will be able to submit lightning talks e.g. using their mobile phone.
+We will use :mod:`plone.restapi` to develop a small standalone 'single page app' targeted at mobile devices. We will present our users with a simple list of conference talks. We add lightning talks as a new type of talk. Users will be able to submit lightning talks e.g. using their mobile phone.
 
 We have the following tasks:
 
@@ -23,7 +23,7 @@ We have the following tasks:
 Installing plone.restapi
 ------------------------
 
-We install :py:mod:`plone.restapi` like any other add-on package by adding it to :file:`buildout.cfg` and then activating it in the :guilabel:`Add-ons` panel.
+We install :mod:`plone.restapi` like any other add-on package by adding it to :file:`buildout.cfg` and then activating it in the :guilabel:`Add-ons` panel.
 This will automatically add and configure a new PAS plugin named `jwt_auth` used for JSON web token authentication.
 
 Explore the API
@@ -31,7 +31,7 @@ Explore the API
 
 Make sure you add some talks to the talks folder and then start exploring the API.
 We recommend using `Postman <http://www.getpostman.com>`_ or a similar tool, but you can also use `requests <https://pypi.python.org/pypi/requests>`_ in a Python virtual env.
-:py:mod:`plone.restapi` uses 'content negotiation' to determine whether a client wants a REST API response - if you set the ``Accept`` HTTP header to ``application/json``, Plone will provide responses in JSON format. Some requests you could try:
+:mod:`plone.restapi` uses 'content negotiation' to determine whether a client wants a REST API response - if you set the ``Accept`` HTTP header to ``application/json``, Plone will provide responses in JSON format. Some requests you could try:
 
 .. code::
 
@@ -78,7 +78,7 @@ REST APIs use HTTP verbs for manipulating content. ``PATCH`` is used to update a
            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6bnVsbCwic3ViIjoiYWRtaW4iLCJleHAiOjE0NzQ5MTU4Mzh9.s27se99V7leTVTo26N_pbYskebR28W5NS87Fb7zowNk"
        }
 
-    Using the :py:mod:`requests` library from Python, you would do:
+    Using the :mod:`requests` library from Python, you would do:
 
     .. code-block:: python
 
@@ -106,7 +106,7 @@ REST APIs use HTTP verbs for manipulating content. ``PATCH`` is used to update a
            "title": "Foo 42"
        }
 
-    Using :py:mod:`requests` again:
+    Using :mod:`requests` again:
 
     .. code-block:: python
 
@@ -123,7 +123,7 @@ We will use `Mobile Angular UI <http://mobileangularui.com/>`_ to develop our ap
 This is a relatively lightweight JavaScript framework for developing hybrid web apps built on top of `AngularJS <https://angularjs.org/>`_.
 There are a lot of other frameworks available (e.g. Ionic, OnsenUI, Sencha, ...), but most of them have more dependencies than `Mobile Angular UI`.
 For example, most of them require NodeJS as a development web server.
-Our focus is Plone and interacting with :py:mod:`plone.restapi`, and `Mobile Angular UI` perfectly suits our needs because it simply lets us use Plone as our development webserver.
+Our focus is Plone and interacting with :mod:`plone.restapi`, and `Mobile Angular UI` perfectly suits our needs because it simply lets us use Plone as our development webserver.
 
 To get started, we download the current `master branch of Mobile Angular UI <https://github.com/mcasimir/mobile-angular-ui/archive/master.zip>`_ from Github, extract it and copy the :file:`dist` folder into a new subdirectory of :file:`browser` named :file:`talklist`.
 So, assuming the current working directory is the buildout directory:

@@ -15,7 +15,7 @@ Return to Dexterity: Moving contenttypes into Code
 
 In this part you will:
 
-* Move the *Talk* type into :py:mod:`ploneconf.site`
+* Move the *Talk* type into :mod:`ploneconf.site`
 * Improve the schema and the FTI
 
 
@@ -400,7 +400,7 @@ We only want to prevent writing, not reading, so we'll only manage the `write-pe
 Exercise 1
 ++++++++++
 
-Create a new package called :py:mod:`collective.behavior.myfeature`. Inspect the directory structure of this package. Delete it after you are done.
+Create a new package called :mod:`collective.behavior.myfeature`. Inspect the directory structure of this package. Delete it after you are done.
 
 ..  admonition:: Solution
     :class: toggle
@@ -410,7 +410,7 @@ Create a new package called :py:mod:`collective.behavior.myfeature`. Inspect the
         $ cd src
         $ ../bin/mrbob -O collective.behavior.myfeature bobtemplates:plone_addon
 
-    Many packages that are part of Plone and some add-ons use a nested namespace such as :py:mod:`plone.app.contenttypes`.
+    Many packages that are part of Plone and some add-ons use a nested namespace such as :mod:`plone.app.contenttypes`.
 
 
 Exercise 2

@@ -13,7 +13,7 @@ Using Third-Party Behaviors
 Add teaser with collective.behavior.banner
 ------------------------------------------
 
-There are a lot of add-ons in Plone for sliders/banners/teasers. We thought there should be a better one and created :py:mod:`collective.behavior.banner`.
+There are a lot of add-ons in Plone for sliders/banners/teasers. We thought there should be a better one and created :mod:`collective.behavior.banner`.
 
 .. figure:: ../_static/standards.png
    :align: center

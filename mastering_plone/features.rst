@@ -52,7 +52,7 @@ Some commands you will use rather often are::
 
     You now have the option to select some add-ons before you create the site.
     Since we will use Dexterity from the beginning we select :guilabel:`Dexterity-based Plone Default Types`.
-    This way even the initial content on our page will be built with dexterity by the add-on :py:mod:`plone.app.contenttypes` which will be the default in Plone 5.
+    This way even the initial content on our page will be built with dexterity by the add-on :mod:`plone.app.contenttypes` which will be the default in Plone 5.
 
     You will be automatically redirected to the new site.
 

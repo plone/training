@@ -98,7 +98,7 @@ We pass a object as `context` to query only for content in the current path. Oth
 
 .. note::
 
-    We use the method :py:meth:`find` in :py:mod:`plone.api` to query the catalog. It is one of many convenience-methods provided as a wrapper around otherwise more complex api's. If you query the catalog direcly you'd have to first get the catalog, and pass it the path for which you want to find items:
+    We use the method :meth:`find` in :mod:`plone.api` to query the catalog. It is one of many convenience-methods provided as a wrapper around otherwise more complex api's. If you query the catalog direcly you'd have to first get the catalog, and pass it the path for which you want to find items:
 
     .. code-block:: python
 
@@ -148,7 +148,7 @@ We could also add a new index to the catalog that will add 'audience' to the pro
 
 Why use the catalog at all? It checks for permissions, and only returns the talks that the current user may see. They might be private or hidden to you since they are part of a top secret conference for core developers (there is no such thing!).
 
-Most objects in Plone act like dictionaries, so you can do :py:meth:`context.values()` to get all its contents.
+Most objects in Plone act like dictionaries, so you can do :meth:`context.values()` to get all its contents.
 
 For historical reasons some attributes of brains and objects are written differently.
 
@@ -165,7 +165,7 @@ For historical reasons some attributes of brains and objects are written differe
     >>> brain.title == obj.title
     False
 
-Who can guess what :py:attr:`brain.title` will return since the brain has no such attribute?
+Who can guess what :attr:`brain.title` will return since the brain has no such attribute?
 
 .. only:: not presentation
 
@@ -173,7 +173,7 @@ Who can guess what :py:attr:`brain.title` will return since the brain has no suc
 
         Answer: Acquisition will get the attribute from the nearest parent. ``brain.__parent__`` is ``<CatalogTool at /Plone/portal_catalog>``. The attribute ``title`` of the ``portal_catalog`` is 'Indexes all content in the site'.
 
-Acquisition can be harmful. Brains have no attribute 'getLayout' :py:meth:`brain.getLayout()`:
+Acquisition can be harmful. Brains have no attribute 'getLayout' :meth:`brain.getLayout()`:
 
 .. code-block:: pycon
 
@@ -234,7 +234,7 @@ Since you now know how to query the catalog it is time for some exercise.
 Exercise 1
 **********
 
-Add a method :py:meth:`get_news` to :py:class:`TalkListView` that returns a list of brains of all News Items that are published and sort them in the order of their publishing-date.
+Add a method :meth:`get_news` to :class:`TalkListView` that returns a list of brains of all News Items that are published and sort them in the order of their publishing-date.
 
 ..  admonition:: Solution
     :class: toggle
@@ -371,7 +371,7 @@ There are some some things that need explanation:
     This defines the variable `talks`. We do thins since we reuse it later and don't want to call the same method twice. Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects and methods of classes we can write :samp:`view/talks` as we could :samp:`view/someattribute`. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict.
 
 :samp:`tal:repeat="talk talks"`
-    This iterates over the list of dictionaries returned by the view. Each :py:obj:`talk` is one of the dictionaries that are returned by this method.
+    This iterates over the list of dictionaries returned by the view. Each :obj:`talk` is one of the dictionaries that are returned by this method.
 
 :samp:`tal:content="python:talk['speaker']"`
     'speaker' is a key in the dict 'talk'. We could also write :samp:`tal:content="talk/speaker"`

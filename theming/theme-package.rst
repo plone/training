@@ -6,7 +6,7 @@ Creating a theme product with the Diazo inline editor is an easy way to start
 and to test, but it is not a solid long term solution and you are also limited
 in what you can do that way.
 
-Even if :py:mod:`plone.app.theming` allows importing and exporting of a Diazo theme
+Even if :mod:`plone.app.theming` allows importing and exporting of a Diazo theme
 as a ZIP archive, it might be preferable to manage your theme as an actual
 Plone product.
 
@@ -74,7 +74,7 @@ To create a Plone 5 theme skeleton, you will use mr.bob's templates for Plone.
 Install mr.bob and bobtemplates.plone
 -------------------------------------
 
-To install :py:mod:`mr.bob`, you can use :command:`pip`:
+To install :mod:`mr.bob`, you can use :command:`pip`:
 
 .. code-block:: bash
 

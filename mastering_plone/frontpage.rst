@@ -219,7 +219,7 @@ Calling that macro in python looks like this ``metal:use-macro="python: context.
 
 .. note::
 
-    In :file:`talklistview.pt` the call :samp:`view/talks"` calls the method :py:meth:`talks` from the browser view :py:class:`TalkListView` to get the talks. Reused as a macro on the frontpage it now uses the method :py:meth:`talks` by the ``frontpageView`` to get a different list!
+    In :file:`talklistview.pt` the call :samp:`view/talks"` calls the method :meth:`talks` from the browser view :class:`TalkListView` to get the talks. Reused as a macro on the frontpage it now uses the method :meth:`talks` by the ``frontpageView`` to get a different list!
     It is not always smart to do that since you might want to display other data. E.g. for a list of todays talks you don't want show the date but only the time using ``data-pat-moment="format:LT"``
     Also this frontpage will probably not win a beauty-contest. But that's not the task of this training.
 

@@ -63,10 +63,10 @@ We register the viewlet in :file:`browser/configure.zcml`.
 .. only:: not presentation
 
     This registers a viewlet called ``social``.
-    It is visible on all content that implements the interface :py:class:`ISocial` from our behavior.
+    It is visible on all content that implements the interface :class:`ISocial` from our behavior.
     It is also good practice to bind it to a specific ``layer``, so it only shows up if our add-on is actually installed.  We will return to this in a later chapter.
 
-The viewlet class :py:class:`SocialViewlet` is expected in a file :file:`browser/viewlets.py`.
+The viewlet class :class:`SocialViewlet` is expected in a file :file:`browser/viewlets.py`.
 
 .. _BrowserLayer: http://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
 
@@ -144,7 +144,7 @@ So far, we
 Exercise 1
 ----------
 
-Register a viewlet 'number_of_talks' in the footer that is only visible to admins (the permission you are looking for is :py:class:`cmf.ManagePortal`). Use only a template (no class) to display the number of talks already submitted. Hint: Use Acquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
+Register a viewlet 'number_of_talks' in the footer that is only visible to admins (the permission you are looking for is :class:`cmf.ManagePortal`). Use only a template (no class) to display the number of talks already submitted. Hint: Use Acquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
 
 ..  admonition:: Solution
     :class: toggle
@@ -163,7 +163,7 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
           />
 
 
-    For the ``for`` and ``layer``-parameters ``*`` is shorthand for :py:class:`zope.interface.Interface` and the same effect as omitting them: The viewlet will be shown for all types of pages and for all Plone sites within your Zope instance.
+    For the ``for`` and ``layer``-parameters ``*`` is shorthand for :class:`zope.interface.Interface` and the same effect as omitting them: The viewlet will be shown for all types of pages and for all Plone sites within your Zope instance.
 
     Add the template :file:`browser/templates/number_of_talks.pt`:
 
@@ -187,7 +187,7 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
             There are <span tal:replace="talks" /> talks.
         </div>
 
-    :samp:`context/@@plone_tools/catalog` traverses to the view ``plone_tools`` and calls its method :py:meth:`catalog`. In python it would look like this:
+    :samp:`context/@@plone_tools/catalog` traverses to the view ``plone_tools`` and calls its method :meth:`catalog`. In python it would look like this:
 
     ..  code-block:: html
 

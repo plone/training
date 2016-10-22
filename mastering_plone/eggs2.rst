@@ -3,7 +3,7 @@
 Creating Reusable Packages
 ==========================
 
-We already created the package :py:mod:`ploneconf.site`  much earlier.
+We already created the package :mod:`ploneconf.site`  much earlier.
 
 In this part you will:
 
@@ -11,7 +11,7 @@ In this part you will:
 
 Topics covered:
 
-* :py:mod:`mr.bob`
+* :mod:`mr.bob`
 
 
 Now you are going to create a feature that is completely independent of the ploneconf site and can be reused in other packages.

@@ -24,7 +24,7 @@ Some comparisons
 .. only:: presentation
 
     * It allows to manage the *layout*, not the *design* (unlike Diazo).
-    * It can manage the layout of *any* page, it does not provide a specific layout-enabled content type (like :py:mod:`collective.cover`).
+    * It can manage the layout of *any* page, it does not provide a specific layout-enabled content type (like :mod:`collective.cover`).
 
 .. only:: not presentation
 
@@ -37,9 +37,9 @@ Some comparisons
       Mosaic uses the grid provided by our design to dynamically build specific
       content layouts.
 
-    * Compared to :py:mod:`collective.cover`:
+    * Compared to :mod:`collective.cover`:
 
-      :py:mod:`collective.cover` provides a specific content-type 
+      :mod:`collective.cover` provides a specific content-type 
       (a "Cover page") where we can manage the layout in order to build our homepage.
 
       Mosaic does not provide any content-type, it allows to edit any existing content layout.

@@ -130,7 +130,7 @@ Plone tests
 
     Usually, you create three layers on your own, an integration layer, a functional layer and an acceptance test layer. If you were to test code that uses the Solr search engine, you'd use another layer that starts and stops solr between tests. But most of the time you just use the default layers you copied from somewhere or that mr.bob gave you.
 
-    By convention, layers are defined in a module :py:mod:`testing` in your module root, ie :py:mod:`my.code.testing`. Your test classes should be in a folder named :file:`tests`
+    By convention, layers are defined in a module :mod:`testing` in your module root, ie :mod:`my.code.testing`. Your test classes should be in a folder named :file:`tests`
 
 Getting started
 ~~~~~~~~~~~~~~~
@@ -147,7 +147,7 @@ This is why it makes sense to write these tedious tests.
 If nothing else matches, :file:`test_setup.py` is the right location for anything GenericSetup related.
 In :ref:`eggs1-label` we created a content type. It is time to test this.
 
-We are going to create a test module named :py:mod:`test_talk`:
+We are going to create a test module named :mod:`test_talk`:
 
 .. literalinclude::  ../ploneconf.site_sneak/chapters/02_export_code_p5/src/ploneconf/site/tests/test_talk.py
     :linenos:
@@ -175,7 +175,7 @@ Then we can create content. Looking through the code, we do not want the talks l
 Some advanced thing. Should you ever use an improved search system like collective.solr, results might get batched automatically. Check that if you have 101 talks, that you also get back 101 talks.
 Think about what you want to check in your results. Do you want to make a one to one comparison? How would you handle UUIDs?
 
-A test creating 101 talks can be slow. It tests an edge case. There is a trick: create a new :py:class:`TestCase` Class, and set an attribute :py:attr:`level` with the value of 2.
+A test creating 101 talks can be slow. It tests an edge case. There is a trick: create a new :class:`TestCase` Class, and set an attribute :attr:`level` with the value of 2.
 This test will then only be run when you run the tests with the argument :option:`-a 2` or :option:`--all`
 
 .. admonition:: Solution

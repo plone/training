@@ -164,7 +164,7 @@ Let's build a registration form:
 
 .. note::
 
-    Need CAPTCHAs? Add the :py:mod:`collective.recaptcha` package to your buildout and PFG will have a CAPTCHA field.
+    Need CAPTCHAs? Add the :mod:`collective.recaptcha` package to your buildout and PFG will have a CAPTCHA field.
 
     Need encryption? Add GPG encryption to your system, add a GPG configuration for the Plone daemon user that includes a public key for the mail targets, and you'll be able to encrypt email before sending.
 
@@ -179,7 +179,7 @@ By the way, while PloneFormGen is good at what it does, it is not a good model f
 
 .. _add-ons-ptg-label:
 
-Add Photo Gallery with :py:mod:`collective.plonetruegallery`
+Add Photo Gallery with :mod:`collective.plonetruegallery`
 ------------------------------------------------------------
 
 To advertise the conference we want to show some photos showing past conferences and the city where the conference is taking place.
@@ -206,7 +206,7 @@ We're not doing this with the conference site since the *lingua franca* of the P
 
 We would use the built-in addon https://pypi.python.org/pypi/plone.app.multilingual for this.
 
-Building a multi-lingual site requires activating :py:mod:`plone.app.multilingual`, but no add-on is necessary to build a site in only one language. Just select a different site language when creating a Plone site, and all text in the user-interface will be switched to that language.
+Building a multi-lingual site requires activating :mod:`plone.app.multilingual`, but no add-on is necessary to build a site in only one language. Just select a different site language when creating a Plone site, and all text in the user-interface will be switched to that language.
 
 
 .. _add-ons-summary-label:

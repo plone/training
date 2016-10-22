@@ -215,19 +215,19 @@ Add the template :file:`templates/talkview.pt`:
 After a restart, we can test our view by going to a talk and adding */talkview* to the url.
 
 
-Using helper-methods from :py:class:`DefaultView`
+Using helper-methods from :class:`DefaultView`
 -------------------------------------------------
 
-Dexterity comes with a nice helper-class suited for views of content-types: The :py:class:`DefaultView` base class in :py:mod:`plone.dexterity`.
+Dexterity comes with a nice helper-class suited for views of content-types: The :class:`DefaultView` base class in :mod:`plone.dexterity`.
 It only works for Dexterity Objects and has some very useful properties available to the template:
 
-* :py:attr:`view.w` is a dictionary of all the display widgets, keyed by field names. This includes widgets from alternative fieldsets.
-* :py:attr:`view.widgets` contains a list of widgets in schema order for the default fieldset.
-* :py:attr:`view.groups` contains a list of fieldsets in fieldset order.
-* :py:attr:`view.fieldsets` contains a dict mapping fieldset name to fieldset
+* :attr:`view.w` is a dictionary of all the display widgets, keyed by field names. This includes widgets from alternative fieldsets.
+* :attr:`view.widgets` contains a list of widgets in schema order for the default fieldset.
+* :attr:`view.groups` contains a list of fieldsets in fieldset order.
+* :attr:`view.fieldsets` contains a dict mapping fieldset name to fieldset
 * On a fieldset (group), you can access a widget list to get widgets in that fieldset
 
-You can now change the :py:class:`TalkView` to use that
+You can now change the :class:`TalkView` to use that
 
 .. code-block:: python
 
@@ -389,23 +389,23 @@ Behind the scenes
             # def __call__(self):
             #    return self.template()
 
-Do you remember the term :py:class:`MultiAdapter`? The browser page is just a MultiAdapter. The ZCML statement :samp:`browser:page` registers a :py:class:`MultiAdapter` and adds additional things needed for a browser view.
+Do you remember the term :class:`MultiAdapter`? The browser page is just a MultiAdapter. The ZCML statement :samp:`browser:page` registers a :class:`MultiAdapter` and adds additional things needed for a browser view.
 
-An adapter adapts things, a :py:class:`MultiAdapter` adapts multiple things.
+An adapter adapts things, a :class:`MultiAdapter` adapts multiple things.
 
 When you enter a url, Zope tries to find an object for it. At the end, when Zope does not find any more objects but there is still a path item left, or there are no more path items, Zope looks for an adapter that will reply to the request.
 
 The adapter adapts the request and the object that Zope found with the URL. The adapter class gets instantiated with the objects to be adapted, then it gets called.
 
-The code above does the same thing that the standard implementation would do. It makes :py:attr:`context` and :py:attr:`request` available as variables on the object.
+The code above does the same thing that the standard implementation would do. It makes :attr:`context` and :attr:`request` available as variables on the object.
 
 I have written down these methods because it is important to understand some important concepts.
 
-The :py:meth:`__init__` method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved. Your code is not security checked. For historical reasons, many errors that happen in the :py:meth:`__init__` method can result in a page not found error instead of an exception.
+The :meth:`__init__` method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved. Your code is not security checked. For historical reasons, many errors that happen in the :meth:`__init__` method can result in a page not found error instead of an exception.
 
-Use the :py:meth:`__init__` method to do as little as possible, if at all. Instead, you have the guarantee that the :py:meth:`__call__` method is called before anything else (but after the :py:meth:`__init__` method). It has the security checks in place and so on.
+Use the :meth:`__init__` method to do as little as possible, if at all. Instead, you have the guarantee that the :meth:`__call__` method is called before anything else (but after the :meth:`__init__` method). It has the security checks in place and so on.
 
-From a practical standpoint, consider the :py:meth:`__call__` method your :py:meth:`__init__` method, the biggest difference is that this method is supposed to return the HTML already.
+From a practical standpoint, consider the :meth:`__call__` method your :meth:`__init__` method, the biggest difference is that this method is supposed to return the HTML already.
 Let your base class handle the HTML generation.
 
 .. seealso::

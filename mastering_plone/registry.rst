@@ -67,7 +67,7 @@ Adding the following code to :file:`registry.xml`. This creates a new value in t
       <value>False</value>
     </record>
 
-When creating a new site a lot of settings are created in the same way. See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/profiles/dependencies/registry.xml to see how :py:mod:`Products.CMFPlone` registers values.
+When creating a new site a lot of settings are created in the same way. See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/profiles/dependencies/registry.xml to see how :mod:`Products.CMFPlone` registers values.
 
 ..  code-block:: xml
 
@@ -94,7 +94,7 @@ In python you can access the registry like this:
     registry = getUtility(IRegistry)
     start = registry.get('ploneconf.date_of_conference')
 
-:py:mod:`plone.api` holds methods to make this even easier:
+:mod:`plone.api` holds methods to make this even easier:
 
 ..  code-block:: python
 
@@ -199,7 +199,7 @@ These values should be configurable by the admin.
 The admin could go to the dexterity-controlpanel and change the values but we will use a different approach.
 We will allow the rooms to be added in the controlpanel and use these values in the talk-schema by registering a vocabulary.
 
-Add a new field to :py:class:`IPloneconfControlPanel`:
+Add a new field to :class:`IPloneconfControlPanel`:
 
 .. code-block:: python
    :linenos:
@@ -239,7 +239,7 @@ Create a file :file:`vocabularies.py` and write the vocabulary:
 
 Note:
 
-* `RoomsVocabulary` is a instance of :py:class:`RoomsVocabularyFactory`.
+* `RoomsVocabulary` is a instance of :class:`RoomsVocabularyFactory`.
 * We normalize values to create a vocabulary since the value of a SimpleVocabulary has to be ASCII. We use one of many useful normalizers that Plone provides.
 
 Register a vocabulary in :file:`configure.zcml` as `ploneconf.site.vocabularies.Rooms`:

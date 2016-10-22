@@ -35,7 +35,7 @@ Interfaces are like nametags, telling other elements who and what you are and wh
 
 One problem is that the name of the Plone instance ``Plone`` is part of that interface name. If you now moved these types to a site with another name the code that uses these interfaces would no longer find the objects in question.
 
-To create a real name-tag we add a new :py:class:`Interface` to :file:`interfaces.py`:
+To create a real name-tag we add a new :class:`Interface` to :file:`interfaces.py`:
 
 .. code-block:: python
     :linenos:
@@ -55,7 +55,7 @@ To create a real name-tag we add a new :py:class:`Interface` to :file:`interface
     class ITalk(Interface):
         """Marker interface for Talks"""
 
-:py:class:`ITalk` is a marker interface. We can bind Views and Viewlets to content that provide these interfaces. Lets see how we can provide this Interface. There are two solutions for this.
+:class:`ITalk` is a marker interface. We can bind Views and Viewlets to content that provide these interfaces. Lets see how we can provide this Interface. There are two solutions for this.
 
 1. Let them be instances of a class that implements this Interface.
 2. Register this interface as a behavior and enable it on talks.
@@ -101,13 +101,13 @@ Then we can safely bind the ``talkview`` to the new marker interface.
         permission="zope2.View"
         />
 
-Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface :py:meth:`catalog(object_provides="ploneconf.site.interfaces.ITalk")`. The ``talklistview`` and the ``demoview`` do not get this constraint since they are not only used on talks.
+Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface :meth:`catalog(object_provides="ploneconf.site.interfaces.ITalk")`. The ``talklistview`` and the ``demoview`` do not get this constraint since they are not only used on talks.
 
 .. note::
 
-    Just for completeness sake, this is what would have to happen for the first option (associating the :py:class:`ITalk` interface with a :py:class:`Talk` class):
+    Just for completeness sake, this is what would have to happen for the first option (associating the :class:`ITalk` interface with a :class:`Talk` class):
 
-    * Create a new class that inherits from :py:class:`plone.dexterity.content.Container` and implements the marker interface.
+    * Create a new class that inherits from :class:`plone.dexterity.content.Container` and implements the marker interface.
 
       .. code-block:: python
 
@@ -175,13 +175,13 @@ Create :file:`upgrades.zcml`:
 
     </configure>
 
-The upgrade step bumps the version number of the GenericSetup profile of :py:mod:`ploneconf.site` from 1000 to 1001. The version is stored in :file:`profiles/default/metadata.xml`. Change it to
+The upgrade step bumps the version number of the GenericSetup profile of :mod:`ploneconf.site` from 1000 to 1001. The version is stored in :file:`profiles/default/metadata.xml`. Change it to
 
 ..  code-block:: xml
 
     <version>1001</version>
 
-GenericSetup now expects the code as a method :py:meth:`upgrade_site` in the file :file:`upgrades.py`. Let's create it.
+GenericSetup now expects the code as a method :meth:`upgrade_site` in the file :file:`upgrades.py`. Let's create it.
 
 ..  code-block:: python
     :linenos:
@@ -237,7 +237,7 @@ GenericSetup now expects the code as a method :py:meth:`upgrade_site` in the fil
 Note:
 
 * Upgrade-steps get the tool ``portal_setup`` passed as their argument.
-* The ``portal_setup`` tool has a method :py:meth:`runImportStepFromProfile`
+* The ``portal_setup`` tool has a method :meth:`runImportStepFromProfile`
 * We create the needed folder-structure if it does not exists.
 
 After restarting the site we can run the step:
@@ -264,7 +264,7 @@ Alternatively you also select which upgrade steps to run like this:
 
 .. note::
 
-    Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package :py:mod:`plone.app.upgrade`. You should be able to upgrade a clean site from 2.5 to 5.0 with one click.
+    Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package :mod:`plone.app.upgrade`. You should be able to upgrade a clean site from 2.5 to 5.0 with one click.
 
     For an example see the upgrade-step to Plone 5.0a1 https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L37
 
@@ -277,9 +277,9 @@ Add a browserlayer
 
 A browserlayer is another such marker interface. Browserlayers allow us to easily enable and disable views and other site functionality based on installed add-ons and themes.
 
-Since we want the features we write only to be available when :py:mod:`ploneconf.site` actually is installed we can bind them to a browserlayer.
+Since we want the features we write only to be available when :mod:`ploneconf.site` actually is installed we can bind them to a browserlayer.
 
-Our package already has a browserlayer (added by :py:mod:`bobtemplates.plone`). See :file:`interfaces.py`:
+Our package already has a browserlayer (added by :mod:`bobtemplates.plone`). See :file:`interfaces.py`:
 
 ..  code-block:: python
     :linenos:
@@ -326,7 +326,7 @@ We should bind all views to it. Here is an example using the talkview.
         permission="zope2.View"
         />
 
-Note the relative Python path :py:class:`..interfaces.IPloneconfSiteLayer`. It is equivalent to the absolute path :py:class:`ploneconf.site.interfaces.IPloneconfSiteLayer`.
+Note the relative Python path :class:`..interfaces.IPloneconfSiteLayer`. It is equivalent to the absolute path :class:`ploneconf.site.interfaces.IPloneconfSiteLayer`.
 
 .. seealso::
 
@@ -341,7 +341,7 @@ Do you need to bind the :ref:`viewlets1-social2-label` from the chapter 'Writing
 ..  admonition:: Solution
     :class: toggle
 
-    No, it would make no difference since the viewlet is already bound to the marker interface :py:class:`ploneconf.site.behaviors.social.ISocial`.
+    No, it would make no difference since the viewlet is already bound to the marker interface :class:`ploneconf.site.behaviors.social.ISocial`.
 
 .. _dexterity2-catalogindex-label:
 
@@ -375,7 +375,7 @@ Add a new file :file:`profiles/default/catalog.xml`
       <column value="speaker" />
     </object>
 
-This adds new indexes for the three fields we want to show in the listing. Note that *audience* is a :py:class:`KeywordIndex` because the field is multi-valued, but we want a separate index entry for every value in an object.
+This adds new indexes for the three fields we want to show in the listing. Note that *audience* is a :class:`KeywordIndex` because the field is multi-valued, but we want a separate index entry for every value in an object.
 
 The ``column ..`` entries allow us to display the values of these indexes in the tableview of collections.
 

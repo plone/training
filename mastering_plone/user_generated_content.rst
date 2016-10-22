@@ -138,7 +138,7 @@ Our package already has such an method registered in :file:`configure.zcml`. It 
         post_handler=".setuphandlers.post_install"
         />
 
-This makes sure the method :py:meth:`post_install` in :file:`setuphandlers.py` is executed after the installation. The method already exists doing nothing. You need to extend it to do what we want.
+This makes sure the method :meth:`post_install` in :file:`setuphandlers.py` is executed after the installation. The method already exists doing nothing. You need to extend it to do what we want.
 
 ..  code-block:: python
     :linenos:
@@ -333,7 +333,7 @@ Create a profile ``content`` that runs its own post_handler in :file:`setuphandl
         ]
 
 
-    Add the method :py:meth:`content` to :file:`setuphandlers.py`. We pointed to that when registering the import step. And add some fancy logic to create the content from ``STRUCTURE``.
+    Add the method :meth:`content` to :file:`setuphandlers.py`. We pointed to that when registering the import step. And add some fancy logic to create the content from ``STRUCTURE``.
 
     ..  code-block:: python
         :linenos:
@@ -392,4 +392,4 @@ Create a profile ``content`` that runs its own post_handler in :file:`setuphandl
             behavior.setLocallyAllowedTypes(allowed_types)
             behavior.setImmediatelyAddableTypes(allowed_types)
 
-    A huge benefit of this implementation is that you can add any object-attribute as a new item to :py:data:`item_dict`. :py:meth:`plone.api.content.create` will then set these on the new objects. This way you can also populate fields like :py:attr:`text` (using :py:class:`plone.app.textfield.RichTextValue`) or :py:attr:`image` (using :py:class:`plone.namedfile.file.NamedBlobImage`).
+    A huge benefit of this implementation is that you can add any object-attribute as a new item to :data:`item_dict`. :meth:`plone.api.content.create` will then set these on the new objects. This way you can also populate fields like :attr:`text` (using :class:`plone.app.textfield.RichTextValue`) or :attr:`image` (using :class:`plone.namedfile.file.NamedBlobImage`).

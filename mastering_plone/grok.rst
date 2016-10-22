@@ -19,7 +19,7 @@ So, we will write our browser view as a grok view. From the component architectu
 
 Grok is not part of plone. We have to add it as a dependency to our egg.
 
-Open :file:`setup.py`, and add :py:mod:`five.grok` to the list of add-ons in ``install_requires``::
+Open :file:`setup.py`, and add :mod:`five.grok` to the list of add-ons in ``install_requires``::
 
     ...
         zip_safe=False,

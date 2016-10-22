@@ -246,7 +246,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
 
     This is the list of eggs that we configure to be available for Zope. These eggs are put in the python path of the script :command:`bin/instance` with which we start and stop Plone.
 
-    The egg ``Plone`` is a wrapper without code. Among its dependencies is :py:mod:`Products.CMFPlone`  which is the egg that is at the center of Plone.
+    The egg ``Plone`` is a wrapper without code. Among its dependencies is :mod:`Products.CMFPlone`  which is the egg that is at the center of Plone.
 
     The rest are add-ons we already used or will use later. The last eggs are commented out so they will not be installed by Buildout.
 
@@ -277,11 +277,11 @@ Hello mr.developer!
 
 .. only:: not presentation
 
-    There are many more important things to know, and we can't go through them all in detail but I want to focus on one specific feature: :py:mod:`mr.developer`
+    There are many more important things to know, and we can't go through them all in detail but I want to focus on one specific feature: :mod:`mr.developer`
 
-    With :py:mod:`mr.developer` you can declare which packages you want to check out from which version control system and which repository URL. You can check out sources from git, svn, bzr, hg and maybe more. Also, you can say that some sources are in your local file system.
+    With :mod:`mr.developer` you can declare which packages you want to check out from which version control system and which repository URL. You can check out sources from git, svn, bzr, hg and maybe more. Also, you can say that some sources are in your local file system.
 
-    :py:mod:`mr.developer` comes with a command, :command:`./bin/develop`. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them when you write changes that require a new release. You can activate and deactivate eggs via the :command:`develop` command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
+    :mod:`mr.developer` comes with a command, :command:`./bin/develop`. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them when you write changes that require a new release. You can activate and deactivate eggs via the :command:`develop` command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
 
 .. _buildout1-extensible-label:
 

@@ -69,8 +69,8 @@ There are two content frameworks in Plone:
 What are the differences?
 
 * Dexterity: New, faster, modular, no dark magic for getters and setters.
-* Archetypes had magic setter/getter - use :py:meth:`talk.getAudience()` for the field :py:attr:`audience`.
-* Dexterity: fields are attributes: :py:attr:`talk.audience` instead of :py:meth:`talk.getAudience()`.
+* Archetypes had magic setter/getter - use :meth:`talk.getAudience()` for the field :attr:`audience`.
+* Dexterity: fields are attributes: :attr:`talk.audience` instead of :meth:`talk.getAudience()`.
 
 "Through The Web" or TTW, i.e. in the browser, without programming:
 
@@ -90,8 +90,8 @@ Approaches for Developers:
 
 Extending:
 
-* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content type is e.g. translatable (:py:mod:`plone.app.multilingual`).
-* Archetypes has :py:mod:`archetypes.schemaextender`. Powerful but not as flexible.
+* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content type is e.g. translatable (:mod:`plone.app.multilingual`).
+* Archetypes has :mod:`archetypes.schemaextender`. Powerful but not as flexible.
 
 We have only used Dexterity for the last few years.
 We teach Dexterity and not Archetypes because it's more accessible to beginners, has a great TTW story and is the future.
@@ -100,7 +100,7 @@ Views:
 
 * Both Dexterity and Archetypes have a default view for content types.
 * Browser Views provide custom views.
-* You can generate views for content types in the browser without programming (using the :py:mod:`plone.app.mosaic` Add-on).
+* You can generate views for content types in the browser without programming (using the :mod:`plone.app.mosaic` Add-on).
 * Display Forms.
 
 

@@ -23,7 +23,7 @@ In this chapter we will
 * enable this behavior for talks
 * display the date in the talkview and talklistview
 
-First we enable the behavior :py:class:`IEventBasic` for talks in :py:mod:`profiles/default/types/talk.xml`
+First we enable the behavior :class:`IEventBasic` for talks in :mod:`profiles/default/types/talk.xml`
 
 .. code-block:: xml
     :linenos:
@@ -163,7 +163,7 @@ Find out where ``event_summary`` comes from and describe how you could override 
             layer="..interfaces.IBrowserLayer"
             />
 
-    So there is a class :py:class:`plone.app.event.browser.event_summary.EventSummaryView` and a template :file:`event_summary.pt` that could be overridden with :py:mod:`z3c.jbot` by copying it as :file:`plone.app.event.browser.event_summary.pt` in :file:`browser/overrides`.
+    So there is a class :class:`plone.app.event.browser.event_summary.EventSummaryView` and a template :file:`event_summary.pt` that could be overridden with :mod:`z3c.jbot` by copying it as :file:`plone.app.event.browser.event_summary.pt` in :file:`browser/overrides`.
 
 
 Exercise 2
@@ -174,7 +174,7 @@ Find out where the event behavior is defined and which fields it offers.
 ..  admonition:: Solution
     :class: toggle
 
-    The id with which the behavior is registered in :file:`Talk.xml` is a Python path. So :py:class:`plone.app.event.dx.behaviors.IEventBasic` can be found in :file:`packages/plone.app.event/plone/app/event/dx/behaviors.py`
+    The id with which the behavior is registered in :file:`Talk.xml` is a Python path. So :class:`plone.app.event.dx.behaviors.IEventBasic` can be found in :file:`packages/plone.app.event/plone/app/event/dx/behaviors.py`
 
     ..  code-block:: python
 

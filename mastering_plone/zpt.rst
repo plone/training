@@ -238,7 +238,7 @@ path expressions
 
 Regarding TALES so far we used ``string:`` or ``python:`` or only variables. The next and most common expression are path expressions. Optionally you can start a path expression with ``path:``
 
-Every path expression starts with a variable name. It can either be an object like :py:obj:`context`, :py:obj:`view` or :py:obj:`template` or a variable defined earlier like :py:data:`talk`.
+Every path expression starts with a variable name. It can either be an object like :obj:`context`, :obj:`view` or :obj:`template` or a variable defined earlier like :data:`talk`.
 
 After the variable we add a slash ``/`` and the name of a sub-object, attribute or callable.
 The ``/`` is used to end the name of an object and the start of the property name. Properties themselves may be objects that in turn have properties.
@@ -925,13 +925,13 @@ In templates we can also access other browser views. Some of those exist to prov
                 plone_view context/@@plone;"
 
 ``@@plone_context_state``
-    The BrowserView :py:class:`plone.app.layout.globals.context.ContextState` holds useful methods having to do with the current context object such as :py:meth:`is_default_page`
+    The BrowserView :class:`plone.app.layout.globals.context.ContextState` holds useful methods having to do with the current context object such as :meth:`is_default_page`
 
 ``@@plone_portal_state``
-    The BrowserView :py:class:`plone.app.layout.globals.portal.PortalState` holds methods for the portal like :py:meth:`portal_url`
+    The BrowserView :class:`plone.app.layout.globals.portal.PortalState` holds methods for the portal like :meth:`portal_url`
 
 ``@@plone_tools``
-    The BrowserView :py:class:`plone.app.layout.globals.tools.Tools` gives access to the most important tools like ``plone_tools/catalog``
+    The BrowserView :class:`plone.app.layout.globals.tools.Tools` gives access to the most important tools like ``plone_tools/catalog``
 
 These are very widely used and there are many more.
 
