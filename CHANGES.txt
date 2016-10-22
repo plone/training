@@ -73,6 +73,10 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Fix reST lists [davisagli]
 
+- Specify Python version for virtualenv using option, not command alias, as
+  alias is not always present [jean]
+
+
 1.2.4 (2014-10-03)
 ------------------
 
