@@ -1,4 +1,4 @@
-.. _deployment-label:
+.. _deployment-buildout-label:
 
 Buildout II: Getting Ready for Deployment
 =========================================
@@ -6,7 +6,7 @@ Buildout II: Getting Ready for Deployment
 
 .. _deployment-starzel-label:
 
-The starzel buildout
+The Starzel buildout
 --------------------
 
 Have a look at the buildout some of the trainers use for their projects: https://github.com/starzel/buildout
