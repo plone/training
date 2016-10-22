@@ -5,36 +5,39 @@ Dexterity Types III: Python
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/13_dexterity_3_p5/ src/ploneconf.site
+        git checkout dexterity_3
 
 
-Without sponsors a conference would be hard to finance plus it is a good opportunity for Plone companies to advertise their services.
+Without sponsors, a conference would be hard to finance! Plus it is a good opportunity for Plone companies to advertise their services.
+But sponsors want to be displayed in a nice way according to the size of their sponsorship.
 
 In this part we will:
 
-* create the content type *sponsor* that has a python schema
-* create a viewlet that shows the sponsor logos sorted by sponsoring level
+* create the content type *sponsor* that has a Python schema,
+* create a viewlet that shows the sponsor logos sorted by sponsoring level.
 
 
 The topics we cover are:
 
-* python schema for dexterity
+* Python schema for Dexterity
 * schema hint and directives
 * field permissions
 * image scales
 * caching
 
 
-The python schema
+The Python schema
 -----------------
 
-First we create the schema for the new type. Instead of xml we use python now. Create a new folder ``content`` with an empty ``__init__.py`` in it. We don't need to register that folder in ``configure.zcml`` since we don't need a ``content/configure.zcml`` (at least not yet).
+First we create the schema for the new type. Instead of XML, we use Python this time.
+In chapter :ref:`export_code-label` you already created a folder :file:`content` with an empty :file:`__init__.py` in it.
+We don't need to register that folder in :file:`configure.zcml` since we don't need a :file:`content/configure.zcml` (at least not yet).
 
-Now add a new file ``content/sponsor.py``.
+Now add a new file :file:`content/sponsor.py`.
 
 .. code-block:: python
     :linenos:
@@ -81,13 +84,13 @@ Now add a new file ``content/sponsor.py``.
             required=False
         )
 
-        fieldset('Images', fields=['logo', 'advertisment'])
+        fieldset('Images', fields=['logo', 'advertisement'])
         logo = namedfile.NamedBlobImage(
             title=_(u'Logo'),
             required=False,
         )
 
-        advertisment = namedfile.NamedBlobImage(
+        advertisement = namedfile.NamedBlobImage(
             title=_(u'Advertisement (Gold-sponsors and above)'),
             required=False,
         )
@@ -101,12 +104,12 @@ Now add a new file ``content/sponsor.py``.
 
 Some things are notable here:
 
-* The fields in the schema are mostly from ``zope.schema``. A reference of available fields is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html
-* In ``directives.widget(level=RadioFieldWidget)`` we change the default widget for a Choice field from a dropdown to radio-boxes. An incomplete reference of available widgets is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html
-* ``LevelVocabulary`` is used to create the options used in the field ``level``. This way we could easily translate the displayed value.
-* ``fieldset('Images', fields=['logo', 'advertisment'])`` moves the two image fields to another tab.
-* ``directives.read_permission(...)`` sets the read and write permission for the field ``notes`` to users who can add new members. Usually this permission is only granted to Site Administrators and Managers. We use it to store information that should not be publicly visible. Please note that ``obj.notes`` is still accessible in templates and python. Only using the widget (like we do in the view later) checks for the permission.
-* We use no grok here
+* The fields in the schema are mostly from :py:mod:`zope.schema`. A reference of available fields is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html
+* In :samp:`directives.widget(level=RadioFieldWidget)` we change the default widget for a Choice field from a dropdown to radio-boxes. An incomplete reference of available widgets is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html
+* :py:class:`LevelVocabulary` is used to create the options used in the field ``level``. This way we could easily translate the displayed value.
+* :samp:`fieldset('Images', fields=['logo', 'advertisement'])` moves the two image fields to another tab.
+* :samp:`directives.read_permission(...)` sets the read and write permission for the field ``notes`` to users who can add new members. Usually this permission is only granted to Site Administrators and Managers. We use it to store information that should not be publicly visible. Please note that :py:attr:`obj.notes` is still accessible in templates and Python. Only using the widget (like we do in the view later) checks for the permission.
+* We use no grok here.
 
 ..  seealso::
 
@@ -117,7 +120,7 @@ Some things are notable here:
 The FTI
 -------
 
-Second we create the FTI for the new type in ``profiles/default/types/sponsor.xml``
+Second we create the FTI for the new type in :file:`profiles/default/types/sponsor.xml`
 
 .. code-block:: xml
     :linenos:
@@ -168,7 +171,7 @@ Second we create the FTI for the new type in ``profiles/default/types/sponsor.xm
      </action>
     </object>
 
-Then we register the FTI in ``profiles/default/types.xml``
+Then we register the FTI in :file:`profiles/default/types.xml`
 
 .. code-block:: xml
     :linenos:
@@ -188,7 +191,7 @@ After reinstalling our package we can create the new type.
 Exercise 1
 ++++++++++
 
-Sponsors are containers but they don't have to be. Turn them into items by changing their class to ``plone.dexterity.content.Item``.
+Sponsors are containers but they don't need to be. Turn them into items by changing their class to :py:class:`plone.dexterity.content.Item`.
 
 ..  admonition:: Solution
     :class: toggle
@@ -206,7 +209,7 @@ The view
 
 We use the default view provided by dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
 
-But we could tweak the default view with some css to make it less ugly. Add the following to ``resources/ploneconf.css``
+But we could tweak the default view with some CSS to make it less ugly. Add the following to :file:`resources/ploneconf.css`:
 
 .. code-block:: css
 
@@ -251,8 +254,8 @@ But we could tweak the default view with some css to make it less ugly. Add the 
                 Website
               </a>
 
-              <img tal:condition="python:getattr(context, 'advertisment', None)"
-                   tal:attributes="src string:${context/absolute_url}/@@images/advertisment/preview" />
+              <img tal:condition="python:getattr(context, 'advertisement', None)"
+                   tal:attributes="src string:${context/absolute_url}/@@images/advertisement/preview" />
 
               <div tal:condition="python: 'notes' in view.w"
                    tal:content="structure view/w/notes/render">
@@ -264,7 +267,8 @@ But we could tweak the default view with some css to make it less ugly. Add the 
         </body>
         </html>
 
-    Note how we handle the field with special permissions: ``tal:condition="python: 'notes' in view.w"`` checks if the convenience-dictionary ``w`` provided by the base class ``DefaultView`` holds the widget for the field ``notes``. If the current user does not have the permission ``cmf.ManagePortal`` it will be omitted from the dictionary and get an error since ``notes`` would not be a key in ``w``. By first checking if it's missing we work around that.
+    Note how we handle the field with special permissions: :samp:`tal:condition="python: 'notes' in view.w"` checks if the convenience-dictionary :py:data:`w` (provided by the base class :py:class:`DefaultView`) holds the widget for the field ``notes``.
+    If the current user does not have the permission :py:mod:`cmf.ManagePortal` it will be omitted from the dictionary and get an error since ``notes`` would not be a key in :py:data:`w`. By first checking if it's missing we work around that.
 
 
 The viewlet
@@ -272,26 +276,28 @@ The viewlet
 
 Instead of writing a view you will have to display the sponsors at the bottom of the website in a viewlet.
 
-Register the viewlet in ``browser/configure.zcml``
+Register the viewlet in :file:`browser/configure.zcml`
 
 .. code-block:: xml
     :linenos:
 
     <browser:viewlet
-      name="sponsorsviewlet"
-      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-      for="*"
-      layer="..interfaces.IPloneconfSiteLayer"
-      class=".viewlets.SponsorsViewlet"
-      template="templates/sponsors_viewlet.pt"
-      permission="zope2.View"
-      />
+        name="sponsorsviewlet"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        for="*"
+        layer="..interfaces.IPloneconfSiteLayer"
+        class=".viewlets.SponsorsViewlet"
+        template="templates/sponsors_viewlet.pt"
+        permission="zope2.View"
+        />
 
-Add the viewlet class in ``browser/viewlets.py``
+Add the viewlet class in :file:`browser/viewlets.py`
 
 .. code-block:: python
     :linenos:
+    :emphasize-lines: 2-3, 5, 7-9, 19-65
 
+    # -*- coding: utf-8 -*-
     from collections import OrderedDict
     from plone import api
     from plone.app.layout.viewlets.common import ViewletBase
@@ -313,10 +319,8 @@ Add the viewlet class in ``browser/viewlets.py``
 
         @ram.cache(lambda *args: time() // (60 * 60))
         def _sponsors(self):
-            catalog = api.portal.get_tool('portal_catalog')
-            brains = catalog(portal_type='sponsor')
             results = []
-            for brain in brains:
+            for brain in api.content.find(portal_type='sponsor'):
                 obj = brain.getObject()
                 scales = api.content.get_view(
                     name='images',
@@ -327,17 +331,17 @@ Add the viewlet class in ``browser/viewlets.py``
                     width=200,
                     height=80,
                     direction='down')
-                tag = scale.tag() if scale else ''
+                tag = scale.tag() if scale else None
                 if not tag:
                     # only display sponsors with a logo
                     continue
-                results.append(dict(
-                    title=brain.Title,
-                    description=brain.Description,
-                    tag=tag,
-                    url=obj.url or obj.absolute_url(),
-                    level=obj.level
-                ))
+                results.append({
+                    'title': obj.title,
+                    'description': obj.description,
+                    'tag': tag,
+                    'url': obj.url or obj.absolute_url(),
+                    'level': obj.level
+                })
             return results
 
         def sponsors(self):
@@ -357,20 +361,19 @@ Add the viewlet class in ``browser/viewlets.py``
                 results[level] = level_sponsors
             return results
 
-* ``_sponsors`` returns a list of dictionaries containing all necessary info about sponsors.
-* We create the complete img tag using a custom scale (200x80) using the view ``images`` from plone.namedfile. This actually scales the logos and saves them as new blobs.
-* In ``sponsors`` we return a ordered dictionary of randomized lists of dicts (containing the information on sponsors).
+* :py:meth:`_sponsors` returns a list of dictionaries containing all necessary info about sponsors.
+* We create the complete img tag using a custom scale (200x80) using the view ``images`` from :py:mod:`plone.namedfile.` This actually scales the logos and saves them as new blobs.
+* In :py:meth:`sponsors` we return an ordered dictionary of randomized lists of dicts (containing the information on sponsors). The order is by sponsor-level since we want the platinum-sponsors on top and the bronze-sponsors at the bottom. The randomization is for fairness among equal sponsors.
 
-``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor objects in memory all the time. But we'd have to wait for up to an hour until changes will be visible.
+:py:meth:`_sponsors` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor objects in memory all the time. But we'd have to wait for up to an hour until changes will be visible.
 
-Instead we'll cache until one of the sponsors is modified by using a callable ``_sponsors_cachekey`` that returns a number that changes when a sponsor is modified.
+Instead we should cache until one of the sponsors is modified by using a callable :py:func:`_sponsors_cachekey` that returns a number that changes when a sponsor is modified.
 
   ..  code-block:: python
 
       ...
       def _sponsors_cachekey(method, self):
-          catalog = api.portal.get_tool('portal_catalog')
-          brains = catalog(portal_type='sponsor')
+          brains = api.content.find(portal_type='sponsor')
           cachekey = sum([int(i.modified) for i in brains])
           return cachekey
 
@@ -389,7 +392,7 @@ Instead we'll cache until one of the sponsors is modified by using a callable ``
 The template for the viewlet
 ----------------------------
 
-Add the template ``browser/templates/sponsors_viewlet.pt``
+Add the template :file:`browser/templates/sponsors_viewlet.pt`
 
 .. code-block:: xml
     :linenos:
@@ -422,28 +425,28 @@ Add the template ``browser/templates/sponsors_viewlet.pt``
         </div>
     </div>
 
-There already is some css in ``browser/static/ploneconf.css`` to make it look ok.
+You can now add some CSS in :file:`browser/static/ploneconf.css` to make it look OK.
 
 ..  code-block:: css
 
     .sponsor {
-        float: left;
+        display: inline-block;
         margin: 0 1em 1em 0;
     }
 
     .sponsor:hover {
-        box-shadow: 0 0 8px #000000;
-        -moz-box-shadow: 0 0 8px #000000;
-        -webkit-box-shadow: 0 0 8px #000000;
+        box-shadow: 0 0 8px #000;
+        -moz-box-shadow: 0 0 8px #000;
+        -webkit-box-shadow: 0 0 8px #000;
     }
 
 
 Exercise 2
 ++++++++++
 
-Turn the a content type speaker from :ref:`Exercise 2 of the first chapter on dexterity <dexterity1-excercises-label>` into a python-based type.
+Turn the content type Speaker from :ref:`Exercise 2 of the first chapter on dexterity <dexterity1-excercises-label>` into a Python-based type.
 
-Is should hold the following fields:
+When we're done, it should have the following fields:
 
 * title
 * email
@@ -454,7 +457,7 @@ Is should hold the following fields:
 * irc_name
 * image
 
-Do *not* use the IBasic or IDublinCore behavior to add title and description. Instead add your own field ``title`` and give it the title *Name*.
+Do *not* use the :py:class:`IBasic` or :py:class:`IDublinCore` behavior to add title and description. Instead add your own field ``title`` and give it the title *Name*.
 
 ..  admonition:: Solution
     :class: toggle
@@ -521,7 +524,7 @@ Do *not* use the IBasic or IDublinCore behavior to add title and description. In
                 required=False,
             )
 
-    Register the type in ``profiles/default/types.xml``
+    Register the type in :file:`profiles/default/types.xml`
 
     .. code-block:: xml
         :linenos:
@@ -536,7 +539,7 @@ Do *not* use the IBasic or IDublinCore behavior to add title and description. In
          <!-- -*- more types can be added here -*- -->
         </object>
 
-    The FTI goes in ``profiles/default/types/speaker.xml``. Again we use ``Item`` as the base-class:
+    The FTI goes in :file:`profiles/default/types/speaker.xml`. Again we use :py:class:`Item` as the base-class:
 
     .. code-block:: xml
         :linenos:
@@ -587,3 +590,99 @@ Do *not* use the IBasic or IDublinCore behavior to add title and description. In
         </object>
 
     After reinstalling the package the new type is usable.
+
+
+Exercise 3
+++++++++++
+
+This is more of a Python exercise. The gold- and bronze sponsors should also have a bigger logo than the others. Give the sponsors the following logo-sizes without using CSS.
+
+* Platinum: 500x200
+* Gold: 350x150
+* Silver: 200x80
+* Bronze: 150x60
+
+
+..  admonition:: Solution
+    :class: toggle
+
+    ..  code-block:: python
+        :linenos:
+        :emphasize-lines: 10-15, 41, 44-45
+
+        # -*- coding: utf-8 -*-
+        from collections import OrderedDict
+        from plone import api
+        from plone.app.layout.viewlets.common import ViewletBase
+        from plone.memoize import ram
+        from ploneconf.site.behaviors.social import ISocial
+        from ploneconf.site.content.sponsor import LevelVocabulary
+        from random import shuffle
+
+        LEVEL_SIZE_MAPPING = {
+            'platinum': (500, 200),
+            'gold': (350, 150),
+            'silver': (200, 80),
+            'bronze': (150, 60),
+        }
+
+
+        class SocialViewlet(ViewletBase):
+
+            def lanyrd_link(self):
+                adapted = ISocial(self.context)
+                return adapted.lanyrd
+
+
+        class SponsorsViewlet(ViewletBase):
+
+            def _sponsors_cachekey(method, self):
+                brains = api.content.find(portal_type='sponsor')
+                cachekey = sum([int(i.modified) for i in brains])
+                return cachekey
+
+            @ram.cache(_sponsors_cachekey)
+            def _sponsors(self):
+                results = []
+                for brain in api.content.find(portal_type='sponsor'):
+                    obj = brain.getObject()
+                    scales = api.content.get_view(
+                        name='images',
+                        context=obj,
+                        request=self.request)
+                    width, height = LEVEL_SIZE_MAPPING[obj.level]
+                    scale = scales.scale(
+                        'logo',
+                        width=width,
+                        height=height,
+                        direction='down')
+                    tag = scale.tag() if scale else None
+                    if not tag:
+                        # only display sponsors with a logo
+                        continue
+                    results.append({
+                        'title': obj.title,
+                        'description': obj.description,
+                        'tag': tag,
+                        'url': obj.url or obj.absolute_url(),
+                        'level': obj.level
+                    })
+                return results
+
+            def sponsors(self):
+                sponsors = self._sponsors()
+                if not sponsors:
+                    return
+                results = OrderedDict()
+                levels = [i.value for i in LevelVocabulary]
+                for level in levels:
+                    level_sponsors = []
+                    for sponsor in sponsors:
+                        if level == sponsor['level']:
+                            level_sponsors.append(sponsor)
+                    if not level_sponsors:
+                        continue
+                    shuffle(level_sponsors)
+                    results[level] = level_sponsors
+                return results
+

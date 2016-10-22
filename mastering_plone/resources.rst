@@ -3,21 +3,18 @@
 Resources
 =========
 
-..  warning::
+.. sidebar:: Get the code!
 
-    This chapter is still work-in-progress.
+    Get the code for this chapter (:doc:`More info <code>`):
+
+    ..  code-block:: bash
+
+        git checkout resources
+
 
 We have not yet talked about CSS and Javascript. At the moment these are considered static resources.
 
-You can declare and access static resources with special urls. The `configure.zcml` of our package already has a declaration for resources:
-
-.. code-block:: xml
-
-    <browser:resourceDirectory
-        name="ploneconf.site"
-        directory="static" />
-
-We want to change that a little to allow the resources to be editable and overrideable in the browser using the overrides-tab of the resource registry. Change it to the following:
+You can declare and access static resources with special urls. The `configure.zcml` of our package already has a declaration for a resource-folder :file:`static`.
 
 .. code-block:: xml
 
@@ -27,73 +24,54 @@ We want to change that a little to allow the resources to be editable and overri
         directory="static"
         />
 
-Now all files we put in the `static` folder can be found via the url http://localhost:8080/Plone/++plone++ploneconf.site/the_real_filename.css
+All files we put in the :file:`static` folder can be accessed via the url http://localhost:8080/Plone/++plone++ploneconf.site/the_real_filename.css
 
-Let's create a file ``ploneconf.css`` in the `static` folder with some css:
+Another feature of this folder ist that the resouces you put in there are editable and overrideable in the browser using the overrides-tab of the resource registry.
+
+Let's create a file :file:`ploneconf.css` in the :file:`static` folder with some CSS:
 
 .. code-block:: css
     :linenos:
-
-    .sponsor {
-        float: left;
-        margin: 0 1em 1em 0;
-    }
-
-    .sponsor:hover {
-        box-shadow: 0 0 8px #000000;
-        -moz-box-shadow: 0 0 8px #000000;
-        -webkit-box-shadow: 0 0 8px #000000;
-    }
 
     header #portal-header #portal-searchbox .searchSection {
         display: none;
     }
 
-    #content .event.summary {
-        box-shadow: none;
-        float: none;
-        max-width: 100%;
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-start,
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-end > *,
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-whole_day,
+    body.userrole-contributor #formfield-form-widgets-IEventBasic-open_end {
+        display: none;
     }
 
-    .talkinfo #portal-column-content {
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.17);
-        padding: 1em;
-        background-color: #fff;
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-start,
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-end > *,
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-whole_day,
+    body.userrole-reviewer #formfield-form-widgets-IEventBasic-open_end {
+        display: block;
     }
 
-    .talkinfo h1 {
-        font-size: 20px;
-    }
-
-    .talkinfo .event.summary {
-        background-color: #fff;
-    }
+The css is not very exciting. It hides the :guilabel:`only in current section` below the search-box (we could also overwrite the viewlet, but ...). It also hides the event-fields we added in :ref:`events-label` from people submitting their talks.
+For exiting css you take the training :ref:`theming-label`.
 
 If we now access http://localhost:8080/Plone/++plone++ploneconf.site/ploneconf.css we see our css-file.
 
-Also add a ``ploneconf.js`` in the same folder but leave it empty for now. You could add some javascript to that file later.
+Also add a :file:`ploneconf.js` in the same folder but leave it empty for now. You could add some JavaScript to that file later.
 
-How do our javascript and css files get used when visiting the page? So far the new files are accessible in the browser but we want Plone to use them everytime we access the page. Adding them directly into the html is not a good solution, having many css and js files slows down the page loading.
+How do our JavaScript and CSS files get used when visiting the page?
+So far the new files are accessible in the browser but we want Plone to use them every time we access the page.
+Adding them directly into the HTML is not a good solution, having many CSS and JS files slows down the page loading.
 
 For this we need to register a *bundle* that contains these files. Plone will then make sure that all files that are part of this bundle are also deployed.
 We need to register our resources with GenericSetup.
 
-Open the file ``profiles/default/registry.xml`` and add the following:
+Open the file :file:`profiles/default/registry.xml` and add the following:
 
 .. code-block:: xml
     :linenos:
 
-    <!-- the plonconf resources -->
-    <records prefix="plone.resources/ploneconf-main"
-             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-      <value key="css">
-        <element>++plone++ploneconf.site/ploneconf.css</element>
-      </value>
-      <value key="js">++plone++ploneconf.site/ploneconf.js</value>
-    </records>
-
     <!-- the plonconf bundle -->
-    <records prefix="plone.bundles/ursapharm-bundle"
+    <records prefix="plone.bundles/ploneconf-bundle"
              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
       <value key="resources">
         <element>ploneconf-main</element>

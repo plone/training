@@ -28,9 +28,9 @@ Contents:
     intro
     installation
     ../plone_training_config/instructions.rst
-    anatomy
     case
     features
+    anatomy
     plone5
     configuring_customizing
     theming
@@ -59,6 +59,7 @@ Contents:
     dexterity_3
     relations
     registry
+    frontpage
     eggs2
     behaviors_2
     viewlets_2
@@ -66,7 +67,7 @@ Contents:
     embed
     deployment_code
     deployment_sites
-    frontpage
+    restapi
     future_of_plone
     optional
 

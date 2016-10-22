@@ -1,25 +1,40 @@
+.. _creating-initial-content-for-the-theme:
+
 ======================================
 Creating initial content for the theme
 ======================================
 
 Our theme relies on some initial content structure,
-specifically the ``slider-images`` folder with some images inside.
+specifically the :file:`slider-images` folder with some images inside.
 Let's improve our theme package to create this content on install.
 
-To do that we create the ``slider-images`` folder in our ``setuphandlers.py``
+To do that we create the :file:`slider-images` folder in our :file:`setuphandlers.py`
 and load also some example images into that folder.
+
+We have the needed images inside ``theme/img`` folder. To create the folder and the immages put the following code in your setuphandlers.py.
 
 .. code-block:: python
 
+   # -*- coding: utf-8 -*-
+
    from plone import api
+   from Products.CMFPlone.interfaces import INonInstallable
+   from zope.interface import implementer
    import os
+
+
+   @implementer(INonInstallable)
+   class HiddenProfiles(object):
+
+       def getNonInstallableProfiles(self):
+           """Hide uninstall profile from site-creation and quickinstaller"""
+           return [
+               'plonetheme.tango:uninstall',
+           ]
 
 
    def post_install(context):
        """Post install script"""
-       if context.readDataFile('plonethemetango_default.txt') is None:
-           return
-       # Do something during the installation of this package
        portal = api.portal.get()
        _create_content(portal)
 
@@ -37,9 +52,10 @@ and load also some example images into that folder.
                slider_image = api.content.create(
                    type='Image',
                    container=slider,
+                   title=slider_name,
                    id=slider_name
                )
-               slider_image.image = load_image(slider_number)
+               slider_image.image = _load_image(slider_number)
            # NOTE: if your plone site is not a vanilla plone
            # you can have different workflows on folders and images
            # or different transitions names so this could fail
@@ -48,7 +64,7 @@ and load also some example images into that folder.
            api.content.transition(obj=slider, transition='publish')
 
 
-   def load_image(slider):
+   def _load_image(slider):
        from plone.namedfile.file import NamedBlobImage
        filename = os.path.join(os.path.dirname(__file__), 'theme', 'img',
                                'slide-{0}.jpg'.format(slider))
@@ -60,6 +76,8 @@ and load also some example images into that folder.
 
    def uninstall(context):
        """Uninstall script"""
-       if context.readDataFile('plonethemetango_uninstall.txt') is None:
-           return
-           # Do something during the uninstallation of this package
+
+.. note::
+
+  After adding this code to the setuphandlers.py, we need to restart Plone
+  and uninstall/install our theme package.

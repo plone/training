@@ -10,11 +10,8 @@ Optional
 * RelStorage
 * More and more complex fields
 * Custom edit forms
-* Control panels
-* plone.app.registry
 * Users, authentication, member profiles, LDAP
 * Caching (plone.app.caching)
-* GenericSetup
 * Migrations
 * Asynchronous processing
 * Talking with external APIs

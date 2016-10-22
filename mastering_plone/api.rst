@@ -36,8 +36,8 @@ In existing code you'll often encounter methods that don't mean anything to you.
 
 Some of these methods will be replaced by plone.api in the future:
 
-- ``Products.CMFCore.utils.getToolByName`` -> ``api.portal.get_tool``
-- ``zope.component.getMultiAdapter`` -> ``api.content.get_view``
+- :py:meth:`Products.CMFCore.utils.getToolByName` -> :py:meth:`api.portal.get_tool`
+- :py:meth:`zope.component.getMultiAdapter` -> :py:meth:`api.content.get_view`
 
 
 .. _api-portal-tools-label:
@@ -45,22 +45,23 @@ Some of these methods will be replaced by plone.api in the future:
 portal-tools
 ------------
 
-Some parts of Plone are very complex modules in themselves (e.g. the versioning machinery of ``Products.CMFEditions``). Some of them have an api that you will have to learn sooner or later.
+Some parts of Plone are very complex modules in themselves (e.g. the versioning machinery of :py:mod:`Products.CMFEditions`).
+Some of them have an API that you will have to learn sooner or later.
 
 Here are a few examples:
 
 portal_catalog
-    ``unrestrictedSearchResults()`` returns search results without checking if the current user has the permission to access the objects.
+    :py:meth:`unrestrictedSearchResults()` returns search results without checking if the current user has the permission to access the objects.
 
-    ``uniqueValuesFor()`` returns all entries in an index
+    :py:meth:`uniqueValuesFor()` returns all entries in an index
 
 portal_setup
-    ``runAllExportSteps()`` generates a tarball containing artifacts from all export steps.
+    :py:meth:`runAllExportSteps()` generates a tarball containing artifacts from all export steps.
 
 portal_quickinstaller
-    ``isProductInstalled()`` checks if a product is installed.
+    :py:meth:`isProductInstalled()` checks if a product is installed.
 
-Usually the best way to learn about the api of a tool is to look in the ``interfaces.py`` in the respective package and read the docstrings.
+Usually the best way to learn about the api of a tool is to look in the :file:`interfaces.py` in the respective package and read the docstrings.
 
 
 .. _api-debugging-label:
@@ -76,41 +77,42 @@ tracebacks and the log
 pdb
     The python debugger pdb is the single most important tool for us when programming. Just add ``import pdb; pdb.set_trace()`` in your code and debug away!
 
-    Since Plone 5 you can even add it to templates: add ``<?python import pdb; pdb.set_trace() ?>`` to a template and you end up in a pdb shell on calling the template. Look at the variable ``econtext`` to see what might have gone wrong.
+    Since Plone 5 you can even add it to templates: add ``<?python import pdb; pdb.set_trace() ?>`` to a template and you end up in a pdb shell on calling the template. Look at the variable :py:obj:`econtext` to see what might have gone wrong.
 
 ipdb
-    Enhanced pdb with the power of IPython, e.g. tab completion, syntax highlighting, better tracebacks and introspection. It also works nicely with Products.PDBDebugMode.
+    Enhanced pdb with the power of IPython, e.g. tab completion, syntax highlighting, better tracebacks and introspection. It also works nicely with :py:mod:`Products.PDBDebugMode`.
 
 Products.PDBDebugMode
     An add-on that has two killer features.
 
     **Post-mortem debugging**: throws you in a pdb whenever an exception occurs. This way you can find out what is going wrong.
 
-    **pdb view**: simply adding ``/pdb`` to a url drops you in a pdb session with the current context as ``self.context``. From there you can do just about anything.
+    **pdb view**: simply adding ``/pdb`` to a url drops you in a pdb session with the current context as :py:obj:`self.context`. From there you can do just about anything.
 
 Debug mode
-    When starting Plone using ``./bin/instance -O Plone debug`` you'll end up in an interactive debugger.
+    When starting Plone using :command:`./bin/instance debug` you'll end up in an interactive debugger.
 
 plone.app.debugtoolbar
-    An add-on that allows you to inspect nearly everything. It even has an interactive console, a tester for TALES-expressions and includs a reload-feature like plone.reload.
+    An add-on that allows you to inspect nearly everything. It even has an interactive console, a tester for TALES-expressions and includs a reload-feature like :py:mod:`plone.reload`.
 
 plone.reload
-    An add-on that allows to reload code that you changed without restarting the site. It is also used by plone.app.debugtoolbar.
+    An add-on that allows to reload code that you changed without restarting the site. It is also used by :py:mod:`plone.app.debugtoolbar`.
 
 Products.PrintingMailHost
     An add-on that prevents Plone from sending mails. Instead, they are logged.
 
 Products.enablesettrace or Products.Ienablesettrace
-    Add-on that allows to use pdb and ipdb in python skin scripts. Very useful when debugging legacy code.
+    Add-on that allows to use pdb and ipdb in Python skin scripts. Very useful when debugging legacy code.
 
 ``verbose-security = on``
-    An option for the recipe *plone.recipe.zope2instance* that logs the detailed reasons why a user might not be authorized to see something.
+    An option for the recipe :py:mod:`plone.recipe.zope2instance` that logs the detailed reasons why a user might not be authorized to see something.
 
-``./bin/buildout annotate``
+:command:`./bin/buildout annotate`
     An option when running buildout that logs all the pulled packages and versions.
 
 Sentry
-    `Sentry <https://github.com/getsentry/sentry>`_ is an error logging application you can host yourself. It aggregates tracebacks from many sources and (here comes the killer feature) even the values of variables in the traceback. We use it in all our production sites.
+    `Sentry <https://github.com/getsentry/sentry>`_ is an error logging application you can host yourself.
+    It aggregates tracebacks from many sources and (here comes the killer feature) even the values of variables in the traceback. We use it in all our production sites.
 
 zopepy
     Buildout can create a python shell for you that has all the packages from your Plone site in its python path. Add the part like this::

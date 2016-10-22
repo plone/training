@@ -17,7 +17,7 @@ The Control Panel
 The most important parts of Plone can be configured in the control panel.
 
 * Click on the portrait/username in the toolbar
-* Click "Site Setup"
+* Click :guilabel:`Site Setup`
 
 We'll explain every page and mention some of the actions you can perform here.
 
@@ -76,9 +76,9 @@ Below the links you will find information on your Plone, Zope and Python Version
 Change the logo
 +++++++++++++++
 
-Let's change the Logo.
+Let's change the logo.
 
-* Download a ploneconf logo: http://www.starzel.de/plone-tutorial/ploneconf-logo-2014/image
+* Download a ploneconf logo: http://www.starzel.de/plone-tutorial/ploneconf-logo-2014
 * Go to http://localhost:8080/Plone/@@site-controlpanel
 * Upload the Logo.
 
@@ -87,13 +87,12 @@ Let's change the Logo.
    http://docs.plone.org/adapt-and-extend/change-the-logo.html
 
 
-
 .. _customizing-portlets-label:
 
 Portlets
 --------
 
-In the toolbar under *More options* you can open the configuration for the different places where you can have portlets.
+In the toolbar under :guilabel:`More options` you can open the configuration for the different places where you can have portlets.
 
 * UI fit for smart content editors
 * Various types
@@ -131,10 +130,10 @@ Portlets save data, Viewlets usually don't. Viewlets are often used for UI-Eleme
 * Not locally addable, no configurable inheritance.
 * Usually global (depends on code)
 * Will be replaced by tiles?
-* The code is much simpler (we'll create one tomorrow)
-* Live in viewlet managers, can be nested (by adding a viewlet that contains a viewlet manager)
-* TTW reordering only within the same viewlet manager
-* The code decides when it is shown and what it shows
+* The code is much simpler (we'll create one tomorrow).
+* Live in viewlet managers, can be nested (by adding a viewlet that contains a viewlet manager).
+* TTW reordering only within the same viewlet manager.
+* The code decides when it is shown and what it shows.
 
 
 .. _customizing-ZMI-label:
@@ -152,7 +151,8 @@ Zope is the foundation of Plone. Here you can access the inner workings of Zope 
 
 .. only:: not presentation
 
-    We only cover three parts of customization in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
+    We only cover three parts of customization in the ZMI now.
+    Later on when we added our own code we'll come back to the ZMI and will look for it.
 
     At some point you'll have to learn what all those objects are about. But not today.
 
@@ -166,8 +166,8 @@ Actions (portal_actions)
 
 Examples:
 
-* Links in the Footer (site_actions)
-* Actions Dropdown (folder_buttons)
+* Links in the Footer (``site_actions``)
+* Actions Dropdown (``folder_buttons``)
 
 Actions have properties like:
 
@@ -179,8 +179,8 @@ Actions have properties like:
 
 
 
-site_actions
-++++++++++++
+``site_actions``
+++++++++++++++++
 
 These are the links at the bottom of the page:
 
@@ -214,14 +214,14 @@ Global navigation
 +++++++++++++++++
 
 * The horizontal navigation is called ``portal_tabs``
-* Go to ``portal_actions`` > ``portal_tabs`` `Link <http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main>`_
+* Go to :menuselection:`portal_actions --> portal_tabs` `Link <http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main>`_
 * Edit ``index_html``
 
 Where is the navigation?
 
-The navigation shows content-objects, which are in Plone's root. Plus all actions in portal_tabs
+The navigation shows content-objects, which are in Plone's root. Plus all actions in ``portal_tabs``.
 
-Explain & edit index_html
+Explain & edit ``index_html``
 
 Configuring the navigation itself is done elsewhere: http://localhost:8080/Plone/@@navigation-controlpanel
 
@@ -231,25 +231,25 @@ If time explain:
 * user > login/logout
 
 
-Skins (portal_skins)
-********************
+Skins (``portal_skins``)
+************************
 
-In portal_skins we can change certain images, css-files and templates.
+In ``portal_skins`` we can change certain images, CSS-files and templates.
 
-* portal_skins is deprecated technology
-* Plone 5 got rid of most files that lived in portal_skins.
+* ``portal_skins`` is deprecated technology
+* Plone 5 got rid of most files that lived in ``portal_skins``.
 
 
-Change some css
+Change some CSS
 +++++++++++++++
 
 * Go to ZMI
-* Go to portal_skins
-* Go to plone_styles
-* Go to ``ploneCustom.css``
-* Click ``customize``
+* Go to ``portal_skins``
+* Go to ``plone_styles``
+* Go to :file:`ploneCustom.css`
+* Click :guilabel:`customize`
 
-The css you add to this file is instantly active on the site.
+The CSS you add to this file is instantly active on the site.
 
 
 portal_view_customizations
@@ -279,8 +279,8 @@ Change the footer
    http://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html
 
 
-CSS Registry (portal_css)
-*************************
+CSS Registry (``portal_css``)
+*****************************
 
 *deprecated* (See the chapter on theming)
 
@@ -290,12 +290,12 @@ Further tools in the ZMI
 
 There are many more notable items in the ZMI. We'll visit some of them later.
 
-* acl_users
-* error_log
-* portal_properties (deprecated)
-* portal_setup
-* portal_workflow
-* portal_catalog
+* :guilabel:`acl_users`
+* :guilabel:`error_log`
+* :guilabel:`portal_properties` (deprecated)
+* :guilabel:`portal_setup`
+* :guilabel:`portal_workflow`
+* :guilabel:`portal_catalog`
 
 
 .. _customizing-summary-label:
@@ -303,4 +303,4 @@ There are many more notable items in the ZMI. We'll visit some of them later.
 Summary
 -------
 
-You can configure and customize a lot in Plone through the web. The most important options are accessible in the `plone control panel <http://localhost:8080/Plone/@@overview-controlpanel>`_ but some are hidden away in the `ZMI <http://localhost:8080/Plone/manage>`_. The amount and presentation of information is overwhelming but you'll get the hang of it through a lot of practice.
+You can configure and customize a lot in Plone through the web. The most important options are accessible in the `Plone control panel <http://localhost:8080/Plone/@@overview-controlpanel>`_ but some are hidden away in the `ZMI <http://localhost:8080/Plone/manage>`_. The amount and presentation of information is overwhelming but you'll get the hang of it through a lot of practice.

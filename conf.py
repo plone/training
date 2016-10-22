@@ -18,7 +18,7 @@ if not on_rtd:
     import sphinx_rtd_theme
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
     html_theme = 'sphinx_rtd_theme'
-    
+
 else:
     html_theme = 'default'
 
@@ -45,14 +45,20 @@ extensions = [
 
 # Options for the linkcheck builder
 # Ignore localhost
-linkcheck_ignore = [r'http://localhost:\d+/', r'http://localhost:8080\d+/', r'http://localhost:8080', r'http://127.0.0.1:8080']
+linkcheck_ignore = [
+    r'http://localhost:\d+/',
+    r'http://localhost:8080\d+/',
+    r'http://localhost:8080',
+    r'http://127.0.0.1:8080',
+    r'https://wiki.apache.org/solr',
+]
 linkcheck_anchors = False
-linkcheck_timeout = 15.0
+linkcheck_timeout = 30.0
 
 
 # This is our wordlist with know words, like Github or Plone ...
 spelling_word_list_filename = 'spelling_wordlist.txt'
-spelling_ignore_pypi_package_names=True
+spelling_ignore_pypi_package_names = True
 
 # See http://sphinx-doc.org/ext/todo.html#confval-todo_include_todos
 todo_include_todos = True

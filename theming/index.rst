@@ -3,16 +3,13 @@
 Mastering Plone Theming
 =======================
 
-.. warning::
-
-   This chapter is still work in progress!
-
 .. toctree::
    :maxdepth: 3
    :numbered: 1
 
    basic
    ttw-advanced
+   ttw-advanced_2
    static-theme
    theme-package
    creating-customizing-templates
@@ -25,4 +22,5 @@ Mastering Plone Theming
 
 .. seealso::
 
-   http://docs.plone.org/adapt-and-extend/theming/index.html
+   - :ref:`ttw-label`
+   - http://docs.plone.org/adapt-and-extend/theming/index.html

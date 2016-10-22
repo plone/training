@@ -51,10 +51,9 @@ Let's modify the file :file:`configure.zcml`
 
 .. code-block:: xml
     :linenos:
-    :emphasize-lines: 16
+    :emphasize-lines: 5-13
 
-    <configure
-      ...>
+    <configure xmlns="...">
 
       <includeDependencies package="." />
 

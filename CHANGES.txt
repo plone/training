@@ -6,6 +6,18 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Update JavaScript training with latest exercises and documentation using
+  collective.jstraining
+  [vangheem]
+
+- Update theming training to reflect the changes in bobtemplates.plone and
+  general cleanup, also add refs to ttw training, remove usage of resource
+  registry for theming
+  [MrTango]
+
+- Add solr training
+  [tomgross]
+
 - Rearrange structure so Mastering Plone now lives in it's own folder.
   [pbauer]
 
@@ -37,6 +49,29 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Update vagrant installation to include BIOS virtualization note.
   [lbrannon]
+
+- Editing while reading. Edited Rapido chapter for language and formatting.
+  [jean]
+
+- Fix a couple of duplicate labels, unmatched literal ending, typo [jean]
+
+- Fix code blocks that made Pygments lexer choke [jean]
+
+- Fix some typos, clarify some examples [jean]
+
+- Some exercises, draft of a new chapter on plone.restapi and some changes [tschorr]
+
+- Exercises for behaviors_2, fix some emphasis [tschorr]
+
+- Fix some typos, apply inline directives: file, Python domain, GUI, literals
+  [jean]
+
+- Add Plone 5 Workflow Training
+  [calvinhp]
+
+- Editing Dexterity chapters (typos, markup, some grammar) [jean]
+
+- Clarify which template we're editing [djowett]
 
 1.2.4 (2014-10-03)
 ------------------

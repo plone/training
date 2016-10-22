@@ -1,0 +1,208 @@
+Exercise 2: NG2 APP component rendered in a browser view
+========================================================
+
+..  warning::
+
+    This exercise requires a working buildout using a fork of the
+    collective.jstraining package.
+
+
+For this exercise, we will run an angular 2 application inside a plone browser view.
+
+We have most of the angular 2 boiler plate code created for you so let's just
+finish up a few things so you can customize it.
+
+In this case we are going to use angular client to create the app inside the package.
+
+We will be working in the ``exercise2`` directory of the collective.jstraining package.
+
+Bootstrap
+---------
+
+Install npm dependencies::
+
+    cd exercise2/static/ng2app
+    npm install
+    npm install -g angular-cli
+
+
+Add your angular 2 component
+----------------------------
+
+In your ``exercise2/static/ng2app`` directory, there is a bolierplate code
+for an ng2 app. You can use ng2 cli to create new components, modules,
+services,... We hope you like typescript.
+
+We can change the exercise2/static/src/app/app.component.html to create your own template.
+
+Like I said, you can do whatever in this module.
+
+
+Register static resource directory
+----------------------------------
+
+Next, let’s register the static directory we just placed our script into. To
+register, you need to add ZCML registration for the static directory your script
+is in. Add this to the ``exercise2/configure.zcml`` file::
+
+    <plone:static
+         directory="static"
+         type="plone"
+         name="exercise2"
+         />
+
+
+Build the file with webpack
+---------------------------
+
+Our deployment is built using the ng cli tool::
+
+    cd exercise2/static/ng2app
+    ng build --prod
+
+
+Whenever you make a change to your component files, webpack will auto re-build
+the distribution
+
+
+Register JavaScript resource
+----------------------------
+
+Angular CLI creates three js, one for basic webpack instructions,
+one with the main js and another with the styling js. You will need
+to register the three on the ``exercise2/profiles/default/registry.xml``::
+
+
+    <records prefix="plone.resources/exercise2-inline"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise2/ng2app/dist/inline.js</value>
+    </records>
+    <records prefix="plone.resources/exercise2-main"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise2/ng2app/dist/main.8b778eea5dd35968ef66.bundle.js</value>
+      <value key="deps">exercise2-inline</value>
+      <value key="deps">exercise2-style</value>
+    </records>
+    <records prefix="plone.resources/exercise2-style"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise2/ng2app/dist/styles.b52d2076048963e7cbfd.bundle.js</value>
+    </records>
+
+Its really important that in case that you need to have dependency on loading
+the js you define on the registry.xml as its showen for the main js.
+
+Finally we want to create a single entry point to load them, so we are going to
+create and register a js with the requires that are loading the app on a file
+called ``static/ng2app/main.js``::
+
+    require(['exercise2-inline','exercise2-style','exercise2-main'])
+
+
+With the main.js defined on the filesystem we can now create the resource as a new
+resource::
+
+    <records prefix="plone.resources/exercise2"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise2/ng2app/main.js</value>
+    </records>
+
+
+Create your browser view
+------------------------
+
+..  warning::
+
+    This might be redundant with other documentation. Skip ahead if you know
+    how to create browser views.
+
+
+Finally, let’s load our JavaScript file to only load on a specific page you need
+it on.
+
+In our case, let’s add a basic new page view. The page template doesn’t need to
+implement any logic and we can use the main template to bring in the content of
+the page we’re using in the JavaScript(h1). Add this into your ``exercise2/page.pt`` file::
+
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="plone">
+    <body>
+
+      <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
+        <app-root></app-root>
+      </metal:content-core>
+      </metal:content-core>
+
+    </body>
+    </html>
+
+
+The ``app-root`` tag is what is used for the component selector. You can customize
+this and use whatever selector you like.
+
+
+Load your JavaScript resource
+-----------------------------
+
+Add in view python code to tell Plone to render the script in the
+``exercise2/browser.py`` file::
+
+    from Products.CMFPlone.resources import add_resource_on_request
+    from Products.Five import BrowserView
+
+
+    class Exercise2View(BrowserView):
+
+        def __call__(self):
+            # utility function to add resource to rendered page
+            add_resource_on_request(self.request, 'exercise2')
+            return super(Exercise2View, self).__call__()
+
+
+The most interesting part here is to look at ``add_resource_on_request``.
+
+Finally, wire it up with ZCML registration in the ``exercise2/configure.zcml`` file::
+
+    <browser:page
+         name="exercise2"
+         for="*"
+         class=".browser.Exercise2View"
+         template="page.pt"
+         permission="zope2.View"
+         />
+
+
+Installation
+------------
+
+1) Start up your Plone instance
+2) Install the ``Exercise 2`` add-on
+3) Toggle development mode to make sure the new resources are included
+
+
+Then, visit the URL:
+``http://localhost:8080/Plone/front-page/@@exercise2``. This is assuming your Plone
+is is located at the URL ``http://localhost:8080/Plone``.
+
+
+..  warning::
+
+    To make sure your resource registry configuration changes apply, you'll need to
+    be in development mode. You can also toggle development mode on and off,
+    click save, to force configuration to be re-built after changes instead of
+    keeping development mode on.
+
+
+Production
+----------
+
+In this exercise, there is no special distinction between development and
+production builds. Webpack re-builds the resource on every change for you
+and the JavaScript build file is not added to any bundle--it is just loaded
+for this particular page.

@@ -1,0 +1,135 @@
+Exercise 4: NG2 APP in logged in bundle
+=======================================
+
+..  warning::
+
+    This exercise requires a working buildout using a fork of the
+    collective.jstraining package.
+
+
+For this exercise, we will add an angular 2 application to a plone bundle.
+
+We have most of the angular 2 boilerplate code created for you so let's just
+finish up a few things so you can customize it.
+
+We will be working in the ``exercise4`` directory of the collective.jstraining package.
+
+Bootstrap
+---------
+
+Install npm dependencies::
+
+    cd exercise4/static
+    npm install
+
+
+Add your angular 2 component
+----------------------------
+
+In your ``exercise4/static/app`` directory, add a file named ``app.component.ts``. Use
+this file to do anything you would like to the page. This example will stick
+with the angular 2 quickstart code. We hope you like typescript::
+
+    import { Component } from '@angular/core';
+    @Component({
+      selector: '.my-app',
+      template: '<h1>NG2 from Exercise 4</h1>'
+    })
+    export class AppComponent { }
+
+
+You can do whatever in this module however, please notice how we changed the
+selector to ``.my-app``. In Angular 2, the selector can be anything. By changing
+it to a class name, it'll be easier for us to choose where we want to bootstrap
+our angular 2 component.
+
+
+Register static resource directory
+----------------------------------
+
+Next, let’s register the static directory we just placed our script into. To
+register, you need to add ZCML registration for the static directory your script
+is in. Add this to the ``exercise4/configure.zcml`` file::
+
+    <plone:static
+         directory="static"
+         type="plone"
+         name="exercise4"
+         />
+
+
+Build the file with webpack
+---------------------------
+
+Our deployment is built using webpack::
+
+    cd exercise4/static
+    webpack
+
+
+Whenever you make a change to your component files, webpack will auto re-build
+the distribution
+
+
+Register JavaScript resource
+----------------------------
+
+Let’s register our script as a JavaScript resource with Plone. In the
+``exercise4/profiles/default/registry.xml`` file, add configuration to register
+your script::
+
+    <records prefix="plone.bundles/exercise4"
+              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+      <value key="merge_with">logged-in</value>
+      <value key="enabled">True</value>
+      <value key="compile">False</value>
+      <value key="expression">python: member is not None</value>
+      <value key="jscompilation">++plone++exercise4/exercise4-compiled.min.js</value>
+      <value key="csscompilation">++plone++exercise4/exercise4-compiled.css</value>
+      <value key="last_compilation">2016-10-04 00:00:00</value>
+    </records>
+
+
+Pay attention to this part of the exercise. Here we merge the bundle with
+``logged-in`` instead of ``default``. We also added an ``expression`` configuration
+option to specify that we only want this bundle to load for logged in users.
+
+
+Installation
+------------
+
+1) Start up your Plone instance
+2) Install the ``Exercise 4`` add-on
+
+
+Running
+-------
+
+It's up to you how to apply the component class name to an element of your choice.
+A couple options available to you are:
+
+1) use TinyMCE source view and add ``class="my-app"`` onto any tag
+2) customize the theme on your site and add it to an element in your theme file
+   or use a diazo rule diazo rule to dynamically add the class to an element
+
+
+..  warning::
+
+   To make sure your resource registry configuration changes apply, you'll need to
+   be in development mode. You can also toggle development mode on and off,
+   click save, to force configuration to be re-built after changes instead of
+   keeping development mode on.
+
+
+Development
+-----------
+
+To make sure your changes are loaded after every build with webpack, make sure
+to go into Site setup -> Resource registries and enabled development mode.
+
+
+Production
+----------
+
+Production for this is simple when you're no longer in development mode on
+your Plone site. Webpack rebuilds the JavaScript distribution on every change.

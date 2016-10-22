@@ -1,0 +1,174 @@
+Exercise 10: Customizing pattern
+================================
+
+..  warning::
+
+    This exercise requires a working buildout using a fork of the
+    collective.jstraining package.
+
+
+In this exercise, we'll be walking through customizing the livesearch pattern.
+
+We will be working in the ``exercise10`` directory of the collective.jstraining package.
+
+Add your pattern file
+---------------------
+
+In your ``exercise10/static`` directory, add a file named ``pattern.js``. Use
+this file to build your pattern. This example will define a new pattern to
+overwrite the existing livesearch pattern::
+
+
+    /* global require */
+
+    require([
+      'jquery',
+      'mockup-patterns-livesearch',
+      'pat-registry'
+    ], function($, Livesearch, registry) {
+      'use strict';
+      /* combining bundle and pattern in same file this example */
+
+
+      // first, unregister existing pattern
+      delete registry.patterns.livesearch;
+      delete $.fn.patLivesearch;
+
+
+      // creating new pattern automatically registers it
+      Livesearch.extend({
+        name: 'livesearch',
+        trigger: '.pat-livesearch',
+        parser: 'mockup',
+        init: function() {
+          var that = this;
+          Livesearch.prototype.init.call(that);
+
+          // all we're doing in this customization is defaulting to searching
+          // current section
+          $('.searchSection input', that.$el)[0].checked = true;
+        }
+      });
+
+    });
+
+
+Pay close attention to what we're doing here::
+
+    ...
+    delete registry.patterns.livesearch;
+    delete $.fn.patLivesearch;
+    ...
+
+We're deleting the existing registration of the livesearch pattern.
+
+Next, we're extending the existing pattern::
+
+    ...
+    Livesearch.extend({
+    ...
+
+
+And just overriding the ``init`` function to provide our customization(default
+search current section)::
+
+    ...
+    $('.searchSection input', that.$el)[0].checked = true;
+    ...
+
+
+Register static resource directory
+----------------------------------
+
+Next, let’s register the static directory we just placed our script into. To
+register, you need to add ZCML registration for the static directory your script
+is in. Add this to the ``exercise10/configure.zcml`` file::
+
+    <plone:static
+         directory="static"
+         type="plone"
+         name="exercise10"
+         />
+
+
+Register your bundle
+--------------------
+
+Again, registration is done examctly the same as previous exercises::
+
+    <?xml version="1.0"?>
+    <registry>
+
+      <records prefix="plone.resources/exercise10"
+                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++exercise10/pattern.js</value>
+        <value key="css">
+          <element>++plone++exercise10/pattern.less</element>
+        </value>
+      </records>
+
+      <records prefix="plone.bundles/exercise10"
+                interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+        <value key="resources">
+          <element>exercise10</element>
+        </value>
+        <value key="merge_with">default</value>
+        <value key="enabled">True</value>
+        <value key="jscompilation">++plone++exercise10/exercise10-compiled.min.js</value>
+        <value key="csscompilation">++plone++exercise10/exercise10-compiled.css</value>
+        <value key="last_compilation">2016-10-04 00:00:00</value>
+        <value key="stub_js_modules">
+          <element>jquery</element>
+          <element>mockup-patterns-livesearch</element>
+          <element>pat-registry</element>
+        </value>
+      </records>
+
+    </registry>
+
+
+Installation
+------------
+
+We have all the files necessary to run the pattern now.
+
+1) Start up your Plone instance
+2) Install the ``Exercise 10`` add-on
+
+
+Running
+-------
+
+At this point, we have no compiled version of the code that we're running with
+so our code doesn't do anything.
+
+1) Go into ``Site Setup`` -> ``Resource Registries``
+2) Check "Development Mode"
+3) Select to develop JavaScript and CSS for the ``exercise10`` bundle
+4) Click save
+
+Now, you should see the livesearch pattern default to searching the current
+section.
+
+
+Production
+----------
+
+To build our bundle, we'll utilize the ``plone-compile-resources`` script that
+Plone ships with.
+
+
+..  warning::
+
+    If you're not running a ZEO setup, you'll need to shut down your Plone
+    instance since the ZODB in this mode does not allow multiple processes
+    to access it at the same time.
+
+
+An example command will look like this::
+
+    ./bin/plone-compile-resources --site-id=Plone --bundle=exercise10
+
+
+Once this command finishes, your bundle is built and will be deployed with your
+package package.

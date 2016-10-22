@@ -5,11 +5,11 @@ User Generated Content
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/11_user_generated_content_p5/ src/ploneconf.site
+        git checkout user_generated_content
 
 
 How do prospective speakers submit talks? We let them register on the site and grant right to create talks. For this we go back to changing the site through-the-web.
@@ -56,15 +56,15 @@ A custom workflow for talks
 
 We still need to fix a problem: Authenticated users can see all talks, even the ones of other users in the private state. Since we don't want this we will create a modified workflow for talks. The new workflow will only let them see and edit talks they created themselves and not the ones of other users.
 
-* Go to the ZMI > portal_workflow
-* See how talks have the same workflow as most content ``(Default)``
-* Go to the tab *Contents*, check the box next to ``simple_publication_workflow``, click ``copy`` and ``paste``.
+* Go to the :menuselection:`ZMI --> portal_workflow`
+* See how talks have the same workflow as most content, namely :guilabel:`(Default)`
+* Go to the tab :guilabel:`Contents`, check the box next to :guilabel:`simple_publication_workflow`, click :guilabel:`copy` and :guilabel:`paste`.
 * Rename the new workflow from *copy_of_simple_publication_workflow* to *talks_workflow*.
 * Edit the workflow by clicking on it: Change the Title to *Talks Workflow*.
-* Click on the tab *States* and click on *private* to edit this state. In the next view select the tab *Permissions*.
-* Find the table column for the role *Contributor* and remove the permissions for ``Access contents information`` and ``View``. Note that the *Owner* (i.e. the Creator) still has some permissions.
-* Do the same for the state *pending*
-* Go back to *portal_workflow* and set the new workflow ``talks_workflow`` for talks. Click *Change* and then *Update security settings*.
+* Click on the tab :guilabel:`States` and click on :guilabel:`private` to edit this state. In the next view select the tab :guilabel:`Permissions`.
+* Find the table column for the role :guilabel:`Contributor` and remove the permissions for :guilabel:`Access contents information` and :guilabel:`View`. Note that the :guilabel:`Owner` (i.e. the Creator) still has some permissions.
+* Do the same for the state :guilabel:`pending`
+* Go back to :file:`portal_workflow` and set the new workflow :file:`talks_workflow` for talks. Click :file:`Change` and then :file:`Update security settings`.
 
 .. note::
 
@@ -84,24 +84,34 @@ Import/Export the Workflow
 **************************
 
 * export the GenericSetup step *Workflow Tool* in http://localhost:8080/Plone/portal_setup/manage_exportSteps.
-* drop the file ``workflows.xml`` into ``profiles/default``.
-* drop ``workflows/talks_workflow/definition.xml`` in ``profiles/default/workflows/talks_workflow/definition.xml``. The others are just definitions of the default-workflows and we only want things in our package that changes Plone.
+* drop the file :file:`workflows.xml` into :file:`profiles/default` an clean out everything that is not related to talks.
+
+  .. code-block:: xml
+
+      <?xml version="1.0"?>
+      <object name="portal_workflow" meta_type="Plone Workflow Tool">
+       <object name="talks_workflow" meta_type="Workflow"/>
+       <bindings>
+        <type type_id="talk">
+         <bound-workflow workflow_id="talks_workflow"/>
+        </type>
+       </bindings>
+      </object>
+
+* drop :file:`workflows/talks_workflow/definition.xml` in :file:`profiles/default/workflows/talks_workflow/definition.xml`. The other files are just definitions of the default-workflows and we only want things in our package that changes Plone.
 
 
 Enable self-registration
 ************************
 
-To enable self-registration add the following to ``profiles/default/registry.xml``:
+To enable self-registration you need to change the global setting that controls this option.
+Most global setting are stored in the registry. You can modify it by adding following to :file:`profiles/default/registry.xml`:
 
 ..  code-block:: xml
 
-    <record name="plone.enable_self_reg" interface="Products.CMFPlone.interfaces.controlpanel.ISecuritySchema" field="enable_self_reg">
+    <record name="plone.enable_self_reg">
       <value>True</value>
     </record>
-
-.. note::
-
-   Before Plone 5 this had to be done in python in a setuphandler (see below) since there was not yet an exportable setting for this.
 
 
 Grant local roles
@@ -111,98 +121,117 @@ Since the granting of local roles applies only to a certain folder in the site w
 
 So let's make sure some initial content is created and configured on installing the package.
 
-To run arbitrary code during the installation of a package we use a special import step, a `setuphandler <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_
+To run arbitrary code during the installation of a package we use a `post_handler <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_
 
-Our package already has such an import step registered in ``configure.zcml``. It will be automatically run when (re-)installing the add-on.
+Our package already has such an method registered in :file:`configure.zcml`. It will be automatically run when (re-)installing the add-on.
 
 ..  code-block:: xml
     :linenos:
+    :emphasize-lines: 7
 
-    <genericsetup:importStep
-        name="ploneconf.site-postInstall"
-        title="ploneconf.site post_install import step"
-        description="Post install import step from ploneconf.site"
-        handler=".setuphandlers.post_install">
-    </genericsetup:importStep>
+    <genericsetup:registerProfile
+        name="default"
+        title="ploneconf.site"
+        directory="profiles/default"
+        description="Installs the ploneconf.site add-on."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        post_handler=".setuphandlers.post_install"
+        />
 
-.. note::
-
-    All GenericSetup import steps, including this one, are run for **every add-on product** when they are installed. To make sure that it is only run during installation of your package the code checks for a marker text file ``ploneconfsite_default.txt``.
-
-This step makes sure the method ``post_install`` in ``setuphandlers.py`` is executed on installation.
+This makes sure the method :py:meth:`post_install` in :file:`setuphandlers.py` is executed after the installation. The method already exists doing nothing. You need to extend it to do what we want.
 
 ..  code-block:: python
     :linenos:
+    :emphasize-lines: 2-3, 7-10, 26-27, 30-65
 
     # -*- coding: utf-8 -*-
-    from Products.CMFPlone.interfaces import constrains
     from plone import api
+    from Products.CMFPlone.interfaces import constrains
+    from Products.CMFPlone.interfaces import INonInstallable
+    from zope.interface import implementer
 
     import logging
 
-    PROFILE_ID = 'profile-ploneconf.site:default'
     logger = logging.getLogger(__name__)
+    PROFILE_ID = 'profile-ploneconf.site:default'
 
 
-    def isNotCurrentProfile(context):
-        return context.readDataFile('ploneconfsite_default.txt') is None
+    @implementer(INonInstallable)
+    class HiddenProfiles(object):
+
+        def getNonInstallableProfiles(self):
+            """Hide uninstall profile from site-creation and quickinstaller"""
+            return [
+                'ploneconf.site:uninstall',
+            ]
 
 
     def post_install(context):
         """Post install script"""
-        if isNotCurrentProfile(context):
-            return
-        # Do something during the installation of this package
+        # Do something at the end of the installation of this package.
         portal = api.portal.get()
         set_up_content(portal)
 
 
     def set_up_content(portal):
-        """Create and configure some initial content"""
-        # Abort if there is already a folder 'talks'
-        if 'talks' in portal:
-            logger.info('An item called "talks" already exists')
-            return
-        talks = api.content.create(
-            container=portal,
-            type='Folder',
-            id='talks',
-            title='Talks')
-        api.content.transition(talks, 'publish')
+        """Create and configure some initial content.
+        Part of this code is taken from upgrades.py
+        """
+        # Create a folder 'The event' if needed
+        if 'the-event' not in portal:
+            event_folder = api.content.create(
+                container=portal,
+                type='Folder',
+                id='the-event',
+                title=u'The event')
+        else:
+            event_folder = portal['the-event']
+
+        # Create folder 'Talks' inside 'The event' if needed
+        if 'talks' not in event_folder:
+            talks_folder = api.content.create(
+                container=event_folder,
+                type='Folder',
+                id='talks',
+                title=u'Talks')
+        else:
+            talks_folder = event_folder['talks']
 
         # Allow logged-in users to create content
         api.group.grant_roles(
             groupname='AuthenticatedUsers',
             roles=['Contributor'],
-            obj=talks)
+            obj=talks_folder)
 
         # Constrain addable types to talk
-        behavior = constrains.ISelectableConstrainTypes(talks)
+        behavior = constrains.ISelectableConstrainTypes(talks_folder)
         behavior.setConstrainTypesMode(constrains.ENABLED)
         behavior.setLocallyAllowedTypes(['talk'])
         behavior.setImmediatelyAddableTypes(['talk'])
-        logger.info('Created and configured %s' % talks.absolute_url())
+        logger.info('Added and configured {0}'.format(talks_folder.absolute_url()))
 
-Once we reinstall our package a folder 'talks' is created with the appropriate local roles and constraints.
 
-Remember that we wrote similar code to create the folder *The Event* in :ref:`dexterity2-upgrades-label`. We should probably add it also to setuphandlers to make sure a sane structure gets created when we create a new site by hand or in tests.
+    def uninstall(context):
+        """Uninstall script"""
+        # Do something at the end of the uninstallation of this package.
 
-You'd usually create a list of dictionaries containing the type, parent and title plus optionally layout, workflow state etc. to create an initial structure. In some projects it could also make sense to have a separate profile besides ``default`` which might be called ``content`` that creates an initial structure and maybe another ``testing`` that creates dummy content (talks, speakers etc) for tests.
+Once we reinstall our package a folder :file:`talks` is created with the appropriate local roles and constraints.
 
-..  note::
+We wrote similar code to create the folder *The Event* in :ref:`dexterity2-upgrades-label`.
+We need it to make sure a sane structure gets created when we create a new site by hand or in tests.
 
-    You can also export and later import content using the GenericSetup step *Content* (``Products.CMFCore.exportimport.content.exportSiteStructure``) although you cannot set all types of properties (workflow state, layout) and the syntax is a little special.
+You would usually create a list of dictionaries containing the type, parent and title plus optionally layout, workflow state etc. to create an initial structure. In some projects it could also make sense to have a separate profile besides ``default`` which might be called ``demo`` or ``content`` that creates an initial structure and maybe another ``testing`` that creates dummy content (talks, speakers etc) for tests.
 
 
 Exercise 1
 ++++++++++
 
-Create a profile ``content`` that runs its own method in ``setuphandlers.py``. Note that you need a different marker text file to make sure your code is only run when installing the profile ``content``.
+Create a profile ``content`` that runs its own post_handler in :file:`setuphandlers.py`.
 
 ..  admonition:: Solution
     :class: toggle
 
-    Register the profile and the upgrade step in ``configure.zcml``
+    Register the profile and the upgrade step in :file:`configure.zcml`
 
     .. code-block:: xml
 
@@ -212,19 +241,10 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
             directory="profiles/content"
             description="Extension profile for PloneConf Talk to add initial content"
             provides="Products.GenericSetup.interfaces.EXTENSION"
+            post_handler=".setuphandlers.post_content"
             />
 
-        <genericsetup:importStep
-            name="ploneconf.site-content"
-            title="ploneconf.site with initial content"
-            description="Post install import step from ploneconf.site with initial content"
-            handler=".setuphandlers.content">
-            <depends name='typeinfo' />
-        </genericsetup:importStep>
-
-    Create the profile folder ``profiles/content`` and drop a marker file ``ploneconfsite_content_marker.txt`` in it.
-
-    Also add a ``profiles/content/metadata.xml`` so the default profile gets automatically installed when installing the content profile.
+    Also add a :file:`profiles/content/metadata.xml` so the default profile gets automatically installed when installing the content profile.
 
     ..  code-block:: xml
 
@@ -236,7 +256,7 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
         </metadata>
 
 
-    Add the structure you wish to create as a list of dictionaries in ``setuphandlers.py``:
+    Add the structure you wish to create as a list of dictionaries in :file:`setuphandlers.py`:
 
     ..  code-block:: python
         :linenos:
@@ -313,7 +333,7 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
         ]
 
 
-    Add the method ``content`` to ``setuphandlers.py``. We pointed to that when registering the import step. And add some fancy logic to create the content from ``STRUCTURE``.
+    Add the method :py:meth:`content` to :file:`setuphandlers.py`. We pointed to that when registering the import step. And add some fancy logic to create the content from ``STRUCTURE``.
 
     ..  code-block:: python
         :linenos:
@@ -321,10 +341,7 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
         from zope.lifecycleevent import modified
 
 
-        def content(context):
-            if context.readDataFile('ploneconfsite_content_marker.txt') is None:
-                return
-
+        def post_content(context):
             portal = api.portal.get()
             for item in STRUCTURE:
                 _create_content(item, portal)
@@ -368,10 +385,11 @@ Create a profile ``content`` that runs its own method in ``setuphandlers.py``. N
             for subitem in children:
                 _create_content(subitem, new)
 
+
         def _constrain(context, allowed_types):
             behavior = constrains.ISelectableConstrainTypes(context)
             behavior.setConstrainTypesMode(constrains.ENABLED)
             behavior.setLocallyAllowedTypes(allowed_types)
             behavior.setImmediatelyAddableTypes(allowed_types)
 
-    A huge benefit of this implementation is that you can add any object-attribute as a new item to ``item_dict``. ``plone.api.content.create`` will then set these on the new objects. This way you can also populate fields like ``text`` (using ``plone.app.textfield.RichTextValue``) or ``image`` (using ``plone.namedfile.file.NamedBlobImage``).
+    A huge benefit of this implementation is that you can add any object-attribute as a new item to :py:data:`item_dict`. :py:meth:`plone.api.content.create` will then set these on the new objects. This way you can also populate fields like :py:attr:`text` (using :py:class:`plone.app.textfield.RichTextValue`) or :py:attr:`image` (using :py:class:`plone.namedfile.file.NamedBlobImage`).

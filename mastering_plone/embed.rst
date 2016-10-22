@@ -15,11 +15,11 @@ Topics covered:
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`) using this command in the buildout directory:
 
     .. code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/14_embed_p5/ src/ploneconf.site
+        TODO
 
 
 .. only:: not presentation
@@ -59,13 +59,11 @@ Next up we modify :file:`profiles/default/metadata.xml`
 
 .. code-block:: xml
     :linenos:
-    :emphasize-lines: 6
+    :emphasize-lines: 4
 
     <metadata>
       <version>1002</version>
         <dependencies>
-          <dependency>profile-plone.app.dexterity:default</dependency>
-          <dependency>profile-plone.app.relationfield:default</dependency>
           <dependency>profile-starzel.votable_behavior:default</dependency>
         </dependencies>
     </metadata>
@@ -80,9 +78,10 @@ To add the behavior to talks, we do this in :file:`profiles/default/types/talk.x
 
 .. note::
 
-    After changing the ``metadata.xml`` you have to restart your site since unlike other GenericSetup XML files that file is cached.
+    After changing the :file:`metadata.xml` you have to restart your site since unlike other GenericSetup XML files that file is cached.
 
-    Managing dependencies in metadata.xml is good practice. We can't rely on remembering what we'd have to do by hand. In Plone 4 we should also have added ``<dependency>profile-plone.app.contenttypes:plone-content</dependency>`` like the `documentation for plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html#installation-as-a-dependency-from-another-product>`_ recommends.
+    Managing dependencies in :file:`metadata.xml` is good practice. We can't rely on remembering what we'd have to do by hand.
+    In Plone 4 we should also have added :samp:`<dependency>profile-plone.app.contenttypes:plone-content</dependency>` like the `documentation for plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html#installation-as-a-dependency-from-another-product>`_ recommends.
 
     Read more: http://docs.plone.org/develop/addons/components/genericsetup.html#dependencies
 
@@ -100,11 +99,14 @@ To add the behavior to talks, we do this in :file:`profiles/default/types/talk.x
 
     Now you can reinstall your Plone site.
 
-    Everybody can now vote on talks. That's not what we wanted. We only want reviewers to vote on pending Talks. This means the permission has to change depending on the workflow state. Luckily, workflows can be configured to do just that. Since Talks already have their own workflow we also won't interfere with other content.
+    Everybody can now vote on talks. That's not what we wanted. We only want reviewers to vote on *pending* Talks.
+    This means the permission has to change depending on the workflow state. Luckily, workflows can be configured to do just that.
+    Since Talks already have their own workflow we also won't interfere with other content.
 
     First, we have to tell the workflow that it will be managing more permissions. Next, for each state we have to configure which role has the two new permissions.
 
-    That is a very verbose configuration, maybe you want to do it in the web interface and export the settings. On the other hand, it is easy to make a simple mistake in both ways. I will just present the xml way here.
+    That is a very verbose configuration, maybe you want to do it in the web interface and export the settings.
+    Whichever way you choose, it is easy to make a simple mistake. I will just present the XML way here.
 
 The config for the Workflow is in :file:`profiles/default/workfows/talks_workflow.xml`
 

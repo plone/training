@@ -5,11 +5,11 @@ Page Templates
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/03_zpt_p5/ src/ploneconf.site
+        git checkout zpt
 
 
 In this part you will:
@@ -64,7 +64,7 @@ results in:
 
     <p>I love red</p>
 
-Let's try it. Open the file ``training.pt`` and add:
+Let's try it. Open the file :file:`training.pt` and add:
 
 .. code-block:: html
 
@@ -124,7 +124,7 @@ We used three TAL-Attributes here. This is the complete list of TAL-attributes:
     replace the content of an element. We replaced the default content above with "An even better conference"
 
 ``tal:attributes``
-    dynamically change element attributes. We set the html attribute ``href`` to the value of the variable ``a_fine_url``
+    dynamically change element attributes. We set the HTML attribute ``href`` to the value of the variable ``a_fine_url``
 
 ``tal:condition``
     tests whether the expression is true or false, and outputs or omits the element accordingly.
@@ -217,6 +217,7 @@ Let's try another attribute:
 We change the markup a little to construct a list in which there is an ``<li>`` for every talk:
 
 .. code-block:: html
+   :linenos:
 
     <ul tal:define="talks python:['Dexterity for the win!',
                                   'Deco is the future',
@@ -237,9 +238,10 @@ path expressions
 
 Regarding TALES so far we used ``string:`` or ``python:`` or only variables. The next and most common expression are path expressions. Optionally you can start a path expression with ``path:``
 
-Every path expression starts with a variable name. It can either be an object like ``context``, ``view`` or ``template`` or a variable defined earlier like ``talk``.
+Every path expression starts with a variable name. It can either be an object like :py:obj:`context`, :py:obj:`view` or :py:obj:`template` or a variable defined earlier like :py:data:`talk`.
 
-After the variable we add a slash ``/`` and the name of a sub-object, attribute or callable. The '/' is used to end the name of an object and the start of the property name. Properties themselves may be objects that in turn have properties.
+After the variable we add a slash ``/`` and the name of a sub-object, attribute or callable.
+The ``/`` is used to end the name of an object and the start of the property name. Properties themselves may be objects that in turn have properties.
 
 .. code-block:: html
 
@@ -286,6 +288,7 @@ The most frequently used one is ``nothing`` which is the equivalent to None
 A dict of all the available variables is ``econtext``
 
 ..  code-block:: html
+    :linenos:
 
     <dl tal:define="path_variables_dict econtext">
       <tal:vars tal:repeat="variable path_variables_dict">
@@ -299,6 +302,7 @@ A dict of all the available variables is ``econtext``
     In Plone 4 that used to be ``CONTEXTS``
 
     ..  code-block:: html
+        :linenos:
 
         <dl tal:define="path_variables_dict CONTEXTS">
           <tal:vars tal:repeat="variable path_variables_dict">
@@ -473,6 +477,7 @@ Modify the following template and one by one solve the following problems:
 :
 
 ..  code-block:: html
+    :linenos:
 
     <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                       'subjects': ('content-types', 'dexterity')},
@@ -537,7 +542,7 @@ Modify the following template and one by one solve the following problems:
         </table>
 
 
-2. Turn the title in a link to the url of the talk if there is one.
+2. Turn the title in a link to the URL of the talk if there is one.
 
 ..  admonition:: Solution
     :class: toggle
@@ -577,7 +582,7 @@ Modify the following template and one by one solve the following problems:
             </tr>
         </table>
 
-3. If there is no url turn it into a link to a google search for that talk's title
+3. If there is no URL, turn it into a link to a google search for that talk's title:
 
 ..  admonition:: Solution
     :class: toggle
@@ -618,9 +623,9 @@ Modify the following template and one by one solve the following problems:
             </tr>
         </table>
 
-4. Add alternating the css classes 'odd' and 'even' to the <tr>. (``repeat.<name of item in loop>.odd`` is True if the ordinal index of the current iteration is an odd number)
+4. Add alternating the CSS classes 'odd' and 'even' to the <tr>. (:samp:`repeat.{<name of item in loop>}.odd` is True if the ordinal index of the current iteration is an odd number)
 
-   Use some css to prove your solution:
+   Use some CSS to test your solution:
 
    .. code-block:: css
 
@@ -739,7 +744,7 @@ Modify the following template and one by one solve the following problems:
                 class="${python: 'odd' if repeat.talk.odd else 'even'}">
                 <td>
                     <a href="${python:talk.get('url', 'https://www.google.com/search?q=%s' % talk['title'])}">
-                        ${talk_title}
+                        ${python:talk['title']}
                     </a>
                 </td>
                 <td>
@@ -781,7 +786,7 @@ Modify the following template and one by one solve the following problems:
                 class="${python: 'odd' if repeat.talk.odd else 'even'}">
                 <td>
                     <a href="${python:talk.get('url', 'https://www.google.com/search?q=%s' % talk['title'])}">
-                        ${talk_title}
+                        ${python:talk['title']}
                     </a>
                 </td>
                 <td>
@@ -812,7 +817,9 @@ And then wrap the code we want to put in the content area of Plone in:
 
 This will put our code in a section defined in the main_template called "content-core".
 
-The template should now look like this:
+The template should now look like below when we exlude the last exercise.
+
+Here also added the css-class `listing` to the table. It is one of many css-classes used by Plone that you can reuse in your projects:
 
 .. code-block:: xml
   :linenos:
@@ -825,25 +832,34 @@ The template should now look like this:
 
   <metal:content-core fill-slot="content-core">
 
-  <table tal:define="talks python:[{'title':'Dexterity for the win!',
-                                    'subjects':('content-types', 'dexterity')},
-                                   {'title':'Deco is the future',
-                                    'subjects':('layout', 'deco')},
-                                   {'title':'The State of Plone',
-                                    'subjects':('keynote',) },
-                                   {'title':'Diazo designs are great',
-                                    'subjects':('design', 'diazo', 'xslt')}
+  <table class="listing"
+         tal:define="talks python:[{'title': 'Dexterity is the new default!',
+                                    'subjects': ('content-types', 'dexterity')},
+                                   {'title': 'Mosaic will be the next big thing.',
+                                    'subjects': ('layout', 'deco', 'views'),
+                                    'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
+                                   {'title': 'The State of Plone',
+                                    'subjects': ('keynote',) },
+                                   {'title': 'Diazo is a powerful tool for theming!',
+                                    'subjects': ('design', 'diazo', 'xslt')},
+                                   {'title': 'Magic templates in Plone 5',
+                                    'subjects': ('templates', 'TAL'),
+                                    'url': 'http://www.starzel.de/blog/magic-templates-in-plone-5'},
                                   ]">
       <tr>
           <th>Title</th>
           <th>Topics</th>
       </tr>
-      <tr tal:repeat="talk talks">
-          <td tal:content="talk/title">A talk</td>
-          <td tal:define="subjects talk/subjects">
-              <span tal:repeat="subject subjects"
-                    tal:replace="subject">
-              </span>
+
+      <tr tal:repeat="talk python:talks"
+          class="${python: 'odd' if repeat.talk.odd else 'even'}">
+          <td>
+              <a href="${python:talk.get('url', 'https://www.google.com/search?q=%s' % talk['title'])}">
+                  ${python:talk['title']}
+              </a>
+          </td>
+          <td>
+              ${python:', '.join(talk['subjects'])}
           </td>
       </tr>
   </table>
@@ -853,22 +869,11 @@ The template should now look like this:
   </body>
   </html>
 
-.. note::
-
-    Since the training only used content from the template, not from the context that it is called on it makes little sense to have editable elements in the side-bar. We hide all the elements by setting the respective variable on the current request with python to 1: ``request.set('disable_border', 1)``.
-
-    The easiest way to do this is to define a dummy variable. Dummy because it is never used except to allow us to execute some code.
-
-    .. code-block:: xml
-
-        <metal:block fill-slot="top_slot"
-            tal:define="dummy python:request.set('disable_border', 1)" />
-
 
 macros in browser views
 +++++++++++++++++++++++
 
-Define a macro in a new file ``macros.pt``
+Define a macro in a new file :file:`macros.pt`
 
 .. code-block:: html
 
@@ -887,7 +892,7 @@ Register it as a simple BrowserView in zcml:
       permission="zope2.View"
       />
 
-Reuse the macro in the template ``training.pt``:
+Reuse the macro in the template :file:`training.pt`:
 
 .. code-block:: html
 
@@ -920,13 +925,13 @@ In templates we can also access other browser views. Some of those exist to prov
                 plone_view context/@@plone;"
 
 ``@@plone_context_state``
-    The BrowserView ``plone.app.layout.globals.context.ContextState`` holds useful methods having to do with the current context object such as ``is_default_page``
+    The BrowserView :py:class:`plone.app.layout.globals.context.ContextState` holds useful methods having to do with the current context object such as :py:meth:`is_default_page`
 
 ``@@plone_portal_state``
-    The BrowserView ``plone.app.layout.globals.portal.PortalState`` holds methods for the portal like ``portal_url``
+    The BrowserView :py:class:`plone.app.layout.globals.portal.PortalState` holds methods for the portal like :py:meth:`portal_url`
 
 ``@@plone_tools``
-    The BrowserView ``plone.app.layout.globals.tools.Tools`` gives access to the most important tools like ``plone_tools/catalog``
+    The BrowserView :py:class:`plone.app.layout.globals.tools.Tools` gives access to the most important tools like ``plone_tools/catalog``
 
 These are very widely used and there are many more.
 

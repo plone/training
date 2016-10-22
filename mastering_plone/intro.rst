@@ -17,7 +17,7 @@ Tell us about yourselves:
 * What are your expectations for this tutorial?
 * What is your favorite text editor?
 * If this training will include the development chapters:
-    * Do you know the html of the output of this?
+    * Do you know the HTML of the output of this?
 
       .. code-block:: html
 
