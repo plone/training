@@ -1,4 +1,4 @@
-.. _javascript-label:
+.. _javascript-excercises-label:
 
 Exercises
 =========
