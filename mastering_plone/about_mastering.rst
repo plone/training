@@ -13,8 +13,6 @@ If you want to inquire the original authors about organizing a training please c
 Upcoming Trainings
 ------------------
 
-There will be several trainings during `Ploneconf 2016 in Boston <https://2016.ploneconf.org/>`_.
-
 If you want to have a training near you please ask for trainings on https://community.plone.org
 
 .. _about-previous-label:
@@ -24,6 +22,7 @@ Previous Trainings
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
+* `Ploneconf 2016 in Boston <https://2016.ploneconf.org/>`_
 * October 2015, Bucharest
 * `March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
 * Plone Conference 2014, Bristol
