@@ -85,7 +85,7 @@ SSH Access
 ^^^^^^^^^^
 
 Ideally, you never have to login to your cloud server, but things go wrong and
-you might have to eventually, even if only out of curiosity. [*]_ By default
+you might have to eventually, even if only out of curiosity. By default
 OpsWorks does not assign an SSH key to new instances, but you can set one if
 desired at either the instance or the Stack level. Better yet, Opsworks allows
 more granular access control in combination with IAM. If you create a user via
