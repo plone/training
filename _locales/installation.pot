@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,15 +25,15 @@ msgid "Installing Plone"
 msgstr ""
 
 #: ../installation.rst:10
-msgid "Plone 4.3.x requires a working Python 2.7 and several other system-tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that Python can can be used:"
+msgid "Plone 4.3.x requires a working Python 2.7 and several other system tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that Python can be used:"
 msgstr ""
 
 #: ../installation.rst:18
-msgid "use a Python that comes pre-installed in your operating-system (most Linuxes and Mac OS have one)"
+msgid "use a Python that comes pre-installed in your operating system (most Linuxes and Mac OS have one)"
 msgstr ""
 
 #: ../installation.rst:19
-msgid "use the `python-buildout <https://github.com/collective/buildout.python>`_"
+msgid "use the `python buildout <https://github.com/collective/buildout.python>`_"
 msgstr ""
 
 #: ../installation.rst:20
@@ -49,19 +49,19 @@ msgid "PyWin32 (Windows)"
 msgstr ""
 
 #: ../installation.rst:26
-msgid "MacOS 10.8 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones. To run a Plone-version older than 4.0 you need Python 2.4. That's not always easy to install."
+msgid "MacOS 10.8 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones. To run a Plone version older than 4.0 you need Python 2.4. That's not always easy to install."
 msgstr ""
 
 #: ../installation.rst:28
-msgid "Most developers use their primary system to develop Plone. For complex setups they often use virtual linux-machines."
+msgid "Most developers use their primary system to develop Plone. For complex setups they often use Linux virtual machines."
 msgstr ""
 
 #: ../installation.rst:30
-msgid "OS X: Use the python-buildout to compile python and homebrew for some missing linux-tools."
+msgid "OS X: Use the python buildout to compile python and homebrew for some missing Linux tools."
 msgstr ""
 
 #: ../installation.rst:31
-msgid "Linux: Depending on your linux-flavor you might have to build python yourself and install some tools."
+msgid "Linux: Depending on your Linux flavor you might have to build python yourself and install some tools."
 msgstr ""
 
 #: ../installation.rst:32
@@ -89,15 +89,15 @@ msgid "Use your own Buildout"
 msgstr ""
 
 #: ../installation.rst:41
-msgid "You can download all of these at http://plone.org/products/plone/releases/4.3.3"
+msgid "You can download all of these at http://old.plone.org/products/plone/releases/4.3.4"
 msgstr ""
 
 #: ../installation.rst:46
-msgid "For the training we'll use option 3 and 4 to install and run Plone. We'll create our own Buildout and extend it as we wish. But we will do so in a vagrant machine. For your own first experiments we recommend option 2 or 3 (if you have a windows-laptop or encounter problems). Later on you should be able to use your own Buildout (we'll cover that later on)."
+msgid "For the training we'll use option 3 and 4 to install and run Plone. We'll create our own Buildout and extend it as we wish. But we will do so in a vagrant machine. For your own first experiments we recommend option 2 or 3 (if you have a Windows laptop or encounter problems). Later on you should be able to use your own Buildout (we'll cover that later on)."
 msgstr ""
 
 #: ../installation.rst:54
-msgid "http://docs.plone.org/manage/installing/installation.html"
+msgid "http://docs.plone.org/4/en/manage/installing/installation.html"
 msgstr ""
 
 #: ../installation.rst:58
@@ -105,7 +105,7 @@ msgid "Hosting Plone"
 msgstr ""
 
 #: ../installation.rst:62
-msgid "If you want to host a real-live Plone site yourself then running it from your laptop is not a viable option."
+msgid "If you want to host a real live Plone site yourself then running it from your laptop is not a viable option."
 msgstr ""
 
 #: ../installation.rst:64
@@ -113,7 +113,7 @@ msgid "You can host Plone..."
 msgstr ""
 
 #: ../installation.rst:66
-msgid "with one of many professional `hosting-providers <http://plone.org/support/hosting-providers>`_"
+msgid "with one of many professional `hosting providers <http://plone.com/providers>`_"
 msgstr ""
 
 #: ../installation.rst:67
@@ -125,7 +125,7 @@ msgid "on dedicated servers"
 msgstr ""
 
 #: ../installation.rst:69
-msgid "on `heroku <http://heroku.com>`_ you can run Plone for *free* using the `Heroku buildpack for Plone <https://github.com/niteoweb/heroku-buildpack-plone>`_"
+msgid "on `heroku <https://www.heroku.com/>`_ you can run Plone for *free* using the `Heroku buildpack for Plone <https://github.com/niteoweb/heroku-buildpack-plone>`_"
 msgstr ""
 
 #: ../installation.rst:70
@@ -133,7 +133,7 @@ msgid "in the cloud (e.g. using Amazon EC2 or `Codio.com <http://blog.dbain.com/
 msgstr ""
 
 #: ../installation.rst:74
-msgid "Plone Installation Requirements: http://docs.plone.org/manage/installing/requirements.html"
+msgid "Plone Installation Requirements: http://docs.plone.org/4/en/manage/installing/requirements.html"
 msgstr ""
 
 #: ../installation.rst:75
@@ -141,7 +141,7 @@ msgid "Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-on-
 msgstr ""
 
 #: ../installation.rst:76
-msgid "Where to host Plone: http://plone.org/documentation/faq/where-can-i-host-my-plone-site"
+msgid "Where to host Plone: http://old.plone.org/documentation/faq/where-can-i-host-my-plone-site"
 msgstr ""
 
 #: ../installation.rst:79
@@ -173,6 +173,6 @@ msgid "And, you'll need to learn strategies for efficient backup and log file ro
 msgstr ""
 
 #: ../installation.rst:93
-msgid "All these topics are introduced in `Guide to deploying and installing Plone in production <http://docs.plone.org/manage/deploying/index.html>`_"
+msgid "All these topics are introduced in `Guide to deploying and installing Plone in production <http://docs.plone.org/4/en/manage/deploying/index.html>`_."
 msgstr ""
 

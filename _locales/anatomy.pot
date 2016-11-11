@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,7 +145,7 @@ msgid "To make the history complete, since people stayed on Zope 2, the Zope com
 msgstr ""
 
 #: ../anatomy.rst:82
-msgid "http://plone.org/documentation/faq/zope-3-and-plone"
+msgid "http://old.plone.org/documentation/faq/zope-3-and-plone"
 msgstr ""
 
 #: ../anatomy.rst:86

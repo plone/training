@@ -1,0 +1,410 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
+# This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastering Plone 1.2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../intro_advanced.rst:2
+msgid "Introduction"
+msgstr ""
+
+#: ../intro_advanced.rst:5
+msgid "Who are we"
+msgstr ""
+
+#: ../intro_advanced.rst:7
+msgid "..."
+msgstr ""
+
+#: ../intro_advanced.rst:11
+msgid "Who are you?"
+msgstr ""
+
+#: ../intro_advanced.rst:13
+msgid "Tell us about yourselves:"
+msgstr ""
+
+#: ../intro_advanced.rst:15
+msgid "Name, company, country..."
+msgstr ""
+
+#: ../intro_advanced.rst:16
+msgid "What is your Plone experience?"
+msgstr ""
+
+#: ../intro_advanced.rst:17
+msgid "What is your web-development experience?"
+msgstr ""
+
+#: ../intro_advanced.rst:18
+msgid "What are your expectations for this training?"
+msgstr ""
+
+#: ../intro_advanced.rst:19
+msgid "I count to three. At three please shout out the name of your favorite text editor!"
+msgstr ""
+
+#: ../intro_advanced.rst:20
+msgid "Do you know the html of the output of this?"
+msgstr ""
+
+#: ../intro_advanced.rst:32
+msgid "The answer is::"
+msgstr ""
+
+#: ../intro_advanced.rst:36
+msgid "Do you know what the following would return?::"
+msgstr ""
+
+#: ../intro_advanced.rst:47
+msgid "What will we do?"
+msgstr ""
+
+#: ../intro_advanced.rst:49
+msgid "Some technologies and tools we use during the training:"
+msgstr ""
+
+#: ../intro_advanced.rst:51
+msgid "`Virtualbox <https://www.virtualbox.org/>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:52
+msgid "`Vagrant <http://www.vagrantup.com/>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:53
+msgid "`Ubuntu linux <http://www.ubuntu.com/>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:54
+msgid "Through-the-web (TTW)"
+msgstr ""
+
+#: ../intro_advanced.rst:55
+msgid "`Buildout <http://www.buildout.org/en/latest/>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:56
+msgid "A little XML"
+msgstr ""
+
+#: ../intro_advanced.rst:57
+msgid "A little Python"
+msgstr ""
+
+#: ../intro_advanced.rst:58
+msgid "`Git <http://git-scm.com/>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:59
+msgid "`Github <http://github.com>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:60
+msgid "`Try Git (Nice introduction to git and github) <https://try.github.io/>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:61
+msgid "TAL"
+msgstr ""
+
+#: ../intro_advanced.rst:62
+msgid "METAL"
+msgstr ""
+
+#: ../intro_advanced.rst:63
+msgid "ZCML"
+msgstr ""
+
+#: ../intro_advanced.rst:64
+msgid "`Python <http://python.org>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:65
+msgid "Dexterity"
+msgstr ""
+
+#: ../intro_advanced.rst:66
+msgid "Viewlets"
+msgstr ""
+
+#: ../intro_advanced.rst:67
+msgid "`JQuery <http://jquery.com/>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:70
+msgid "What will we not do?"
+msgstr ""
+
+#: ../intro_advanced.rst:72
+msgid "We will not cover the following topics:"
+msgstr ""
+
+#: ../intro_advanced.rst:74
+msgid "`Archetypes <http://docs.plone.org/4/en/old-reference-manuals/archetypes/index.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:75
+msgid "`Portlets <http://docs.plone.org/4/en/old-reference-manuals/portlets/index.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:76
+msgid "`z3c.forms <http://docs.plone.org/4/en/develop/plone/forms/z3c.form.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:77
+msgid "`Theming <http://docs.plone.org/4/en/adapt-and-extend/theming/index.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:78
+msgid "`Testing <http://docs.plone.org/4/en/external/plone.app.testing/docs/source/index.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:79
+msgid "`i18n and locales <http://docs.plone.org/4/en/develop/plone/i18n/index.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:80
+msgid "`Deployment, Hosting and Caching <http://docs.plone.org/4/en/manage/deploying/index.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:81
+msgid ":doc:`grok`"
+msgstr ""
+
+#: ../intro_advanced.rst:82
+msgid "`References/Relations <http://docs.plone.org/4/en/external/plone.app.dexterity/docs/advanced/references.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:84
+msgid "Other topics are only covered lightly:"
+msgstr ""
+
+#: ../intro_advanced.rst:86
+msgid "`Zope Component Architecture <http://docs.plone.org/4/en/develop/addons/components/index.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:87
+msgid "`GenericSetup <http://docs.plone.org/4/en/develop/addons/components/genericsetup.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:88
+msgid "`ZODB <http://docs.plone.org/4/en/develop/plone/persistency/index.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:89
+msgid "`Security <http://docs.plone.org/4/en/develop/plone/security/index.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:90
+msgid "`Permissions <http://docs.plone.org/4/en/develop/plone/security/permissions.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:91
+msgid "`Performance and Caching <http://docs.plone.org/4/en/manage/deploying/testing_tuning/performance/index.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:96
+msgid "The schedule"
+msgstr ""
+
+#: ../intro_advanced.rst:98
+msgid ":doc:`intro`"
+msgstr ""
+
+#: ../intro_advanced.rst:99
+msgid ":doc:`plone_training_config/instructions`"
+msgstr ""
+
+#: ../intro_advanced.rst:100
+msgid ":doc:`dexterity`"
+msgstr ""
+
+#: ../intro_advanced.rst:101
+msgid ":doc:`views_1`"
+msgstr ""
+
+#: ../intro_advanced.rst:102
+msgid ":doc:`zpt`"
+msgstr ""
+
+#: ../intro_advanced.rst:103
+msgid ":doc:`zpt_2`"
+msgstr ""
+
+#: ../intro_advanced.rst:104
+msgid ":doc:`views_2`"
+msgstr ""
+
+#: ../intro_advanced.rst:105
+msgid ":doc:`views_3`"
+msgstr ""
+
+#: ../intro_advanced.rst:106
+msgid ":doc:`behaviors1`"
+msgstr ""
+
+#: ../intro_advanced.rst:107
+msgid ":doc:`viewlets_1`"
+msgstr ""
+
+#: ../intro_advanced.rst:108
+msgid ":doc:`api`"
+msgstr ""
+
+#: ../intro_advanced.rst:109
+msgid ":doc:`ide`"
+msgstr ""
+
+#: ../intro_advanced.rst:110
+msgid ":doc:`dexterity_2`"
+msgstr ""
+
+#: ../intro_advanced.rst:111
+msgid ":doc:`custom_search`"
+msgstr ""
+
+#: ../intro_advanced.rst:112
+msgid ":doc:`events`"
+msgstr ""
+
+#: ../intro_advanced.rst:113
+msgid ":doc:`user_generated_content`"
+msgstr ""
+
+#: ../intro_advanced.rst:114
+msgid ":doc:`resources`"
+msgstr ""
+
+#: ../intro_advanced.rst:115
+msgid ":doc:`thirdparty_behaviors`"
+msgstr ""
+
+#: ../intro_advanced.rst:116
+msgid ":doc:`dexterity_3`"
+msgstr ""
+
+#: ../intro_advanced.rst:117
+msgid ":doc:`eggs2`"
+msgstr ""
+
+#: ../intro_advanced.rst:118
+msgid ":doc:`behaviors2`"
+msgstr ""
+
+#: ../intro_advanced.rst:119
+msgid ":doc:`viewlets_2`"
+msgstr ""
+
+#: ../intro_advanced.rst:120
+msgid ":doc:`reusable`"
+msgstr ""
+
+#: ../intro_advanced.rst:121
+msgid ":doc:`embed`"
+msgstr ""
+
+#: ../intro_advanced.rst:122
+msgid ":doc:`deployment_sites`"
+msgstr ""
+
+#: ../intro_advanced.rst:123
+msgid ":doc:`future_of_plone`"
+msgstr ""
+
+#: ../intro_advanced.rst:124
+msgid ":doc:`optional`"
+msgstr ""
+
+#: ../intro_advanced.rst:128
+msgid "What to expect"
+msgstr ""
+
+#: ../intro_advanced.rst:130
+msgid "At the end of the first two days of training, you'll know many of the tools required for Plone installation, integration and configuration. You'll be able to install add-on packages and will know something about the technologies underlying Plone and their histories. You'll be ready to extend your skills via reading books like Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_ and the `Plone documentation <http://docs.plone.org>`_."
+msgstr ""
+
+#: ../intro_advanced.rst:132
+msgid "At the end of the second two days, you won't be a complete professional Plone-programmer, but you will know some of the more powerful features of Plone and should be able to construct a more complex website with custom themes and packages. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core-technologies involved in Plone-programming."
+msgstr ""
+
+#: ../intro_advanced.rst:134
+msgid "If you want to become a professional Plone-developer or a highly sophisticated Plone-integrator you should definitely read `Martin Aspeli's book <http://www.packtpub.com/professional-plone-4-development/book>`_ and then re-read it again while actually doing a complex project."
+msgstr ""
+
+#: ../intro_advanced.rst:136
+msgid "Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_."
+msgstr ""
+
+#: ../intro_advanced.rst:139
+msgid "Documentation"
+msgstr ""
+
+#: ../intro_advanced.rst:141
+msgid "Follow the training at http://plone-training.readthedocs.org/"
+msgstr ""
+
+#: ../intro_advanced.rst:145
+msgid "You can use this presentation to copy & paste the code but you will memorize more if you type yourself."
+msgstr ""
+
+#: ../intro_advanced.rst:149
+msgid "Further Reading"
+msgstr ""
+
+#: ../intro_advanced.rst:150
+msgid "`Martin Aspeli: Professional Plone4 Development <http://www.packtpub.com/professional-plone-4-development/book>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:151
+msgid "`Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:152
+msgid "`Zope Page Templates Reference <http://docs.zope.org/zope2/zope2book/AppendixC.html>`_"
+msgstr ""
+
+#: ../intro_advanced.rst:158
+msgid "Stop us and ask questions when you have them!"
+msgstr ""
+
+#: ../intro_advanced.rst:159
+msgid "Tell us if we speak to fast, to slow or not loud enough."
+msgstr ""
+
+#: ../intro_advanced.rst:160
+msgid "One of us is always there to help you if you are stuck. Please give us a sign if you are stuck."
+msgstr ""
+
+#: ../intro_advanced.rst:161
+msgid "We'll make some breaks, the first one will be at XX."
+msgstr ""
+
+#: ../intro_advanced.rst:162
+msgid "Where is food, restrooms"
+msgstr ""
+
+#: ../intro_advanced.rst:163
+msgid "Someone please take the time we take for each chapter (incl. title)"
+msgstr ""
+
+#: ../intro_advanced.rst:164
+msgid "Someone please write down errors"
+msgstr ""
+
+#: ../intro_advanced.rst:165
+msgid "Contact us after the training: team@starzel.de"
+msgstr ""
+

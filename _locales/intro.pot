@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgid "What is your Plone experience?"
 msgstr ""
 
 #: ../intro.rst:12
-msgid "What is your web-development experience?"
+msgid "What is your web development experience?"
 msgstr ""
 
 #: ../intro.rst:13
@@ -157,31 +157,31 @@ msgid "We will not cover the following topics:"
 msgstr ""
 
 #: ../intro.rst:71
-msgid "`Archetypes <http://docs.plone.org/old-reference-manuals/archetypes/index.html>`_"
+msgid "`Archetypes <http://docs.plone.org/4/en/old-reference-manuals/archetypes/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:72
-msgid "`Portlets <http://docs.plone.org/old-reference-manuals/portlets/index.html>`_"
+msgid "`Portlets <http://docs.plone.org/4/en/old-reference-manuals/portlets/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:73
-msgid "`z3c.forms <http://docs.plone.org/develop/plone/forms/z3c.form.html>`_"
+msgid "`z3c.forms <http://docs.plone.org/4/en/develop/plone/forms/z3c.form.html>`_"
 msgstr ""
 
 #: ../intro.rst:74
-msgid "`Theming <http://docs.plone.org/adapt-and-extend/theming/index.html>`_"
+msgid "`Theming <http://docs.plone.org/4/en/adapt-and-extend/theming/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:75
-msgid "`Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_"
+msgid "`Testing <http://docs.plone.org/4/en/external/plone.app.testing/docs/source/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:76
-msgid "`i18n and locales <http://docs.plone.org/develop/plone/i18n/index.html>`_"
+msgid "`i18n and locales <http://docs.plone.org/4/en/develop/plone/i18n/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:77
-msgid "`Deployment, Hosting and Caching <http://docs.plone.org/manage/deploying/index.html>`_"
+msgid "`Deployment, Hosting and Caching <http://docs.plone.org/4/en/manage/deploying/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:78
@@ -189,7 +189,7 @@ msgid ":doc:`grok`"
 msgstr ""
 
 #: ../intro.rst:79
-msgid "`References/Relations <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_"
+msgid "`References/Relations <http://docs.plone.org/4/en/external/plone.app.dexterity/docs/advanced/references.html>`_"
 msgstr ""
 
 #: ../intro.rst:81
@@ -197,27 +197,27 @@ msgid "Other topics are only covered lightly:"
 msgstr ""
 
 #: ../intro.rst:83
-msgid "`Zope Component Architecture <http://docs.plone.org/develop/addons/components/index.html>`_"
+msgid "`Zope Component Architecture <http://docs.plone.org/4/en/develop/addons/components/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:84
-msgid "`GenericSetup <http://docs.plone.org/develop/addons/components/genericsetup.html>`_"
+msgid "`GenericSetup <http://docs.plone.org/4/en/develop/addons/components/genericsetup.html>`_"
 msgstr ""
 
 #: ../intro.rst:85
-msgid "`ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_"
+msgid "`ZODB <http://docs.plone.org/4/en/develop/plone/persistency/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:86
-msgid "`Security <http://docs.plone.org/develop/plone/security/index.html>`_"
+msgid "`Security <http://docs.plone.org/4/en/develop/plone/security/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:87
-msgid "`Permissions <http://docs.plone.org/develop/plone/security/permissions.html>`_"
+msgid "`Permissions <http://docs.plone.org/4/en/develop/plone/security/permissions.html>`_"
 msgstr ""
 
 #: ../intro.rst:88
-msgid "`Performance and Caching <http://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_"
+msgid "`Performance and Caching <http://docs.plone.org/4/en/manage/deploying/testing_tuning/performance/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:91
@@ -225,15 +225,15 @@ msgid "What to expect"
 msgstr ""
 
 #: ../intro.rst:93
-msgid "At the end of the first two days of training, you'll know many of the tools required for Plone installation, integration and configuration. You'll be able to install add-on packages and will know something about the technologies underlying Plone and their histories. You'll be ready to extend your skills via reading books like Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_ and the `Plone documentation <http://docs.plone.org>`_."
+msgid "At the end of the first two days of training, you'll know many of the tools required for Plone installation, integration and configuration. You'll be able to install add-on packages and will know something about the technologies underlying Plone and their histories. You'll be ready to extend your skills via reading books like `Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_ and the `Plone documentation <http://docs.plone.org>`_."
 msgstr ""
 
 #: ../intro.rst:95
-msgid "At the end of the second two days, you won't be a complete professional Plone-programmer, but you will know some of the more powerful features of Plone and should be able to construct a more complex website with custom themes and packages. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core-technologies involved in Plone-programming."
+msgid "At the end of the second two days, you won't be a complete professional Plone-programmer, but you will know some of the more powerful features of Plone and should be able to construct a more complex website with custom themes and packages. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core technologies involved in Plone programming."
 msgstr ""
 
 #: ../intro.rst:97
-msgid "If you want to become a professional Plone-developer or a highly sophisticated Plone-integrator you should definitely read `Martin Aspeli's book <http://www.packtpub.com/professional-plone-4-development/book>`_ and then re-read it again while actually doing a complex project."
+msgid "If you want to become a professional Plone developer or a highly sophisticated Plone integrator you should definitely read `Martin Aspeli's book <http://www.packtpub.com/professional-plone-4-development/book>`_ and then re-read it again while actually doing a complex project."
 msgstr ""
 
 #: ../intro.rst:99
@@ -273,7 +273,7 @@ msgid "Stop us and ask questions when you have them!"
 msgstr ""
 
 #: ../intro.rst:122
-msgid "Tell us if we speak to fast, to slow or not loud enough."
+msgid "Tell us if we speak too fast, too slow or not loud enough."
 msgstr ""
 
 #: ../intro.rst:123
@@ -281,7 +281,7 @@ msgid "One of us is always there to help you if you are stuck. Please give us a 
 msgstr ""
 
 #: ../intro.rst:124
-msgid "We'll make some breaks, the first one will be at XX."
+msgid "We'll take some breaks, the first one will be at XX."
 msgstr ""
 
 #: ../intro.rst:125
@@ -289,7 +289,7 @@ msgid "Where is food, restrooms"
 msgstr ""
 
 #: ../intro.rst:126
-msgid "Someone please take the time we take for each chapter (incl. title)"
+msgid "Someone please record the time we take for each chapter (incl. title)"
 msgstr ""
 
 #: ../intro.rst:127

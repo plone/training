@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -116,39 +116,39 @@ msgstr ""
 msgid "And a :file:`behaviors/social.py` containing:"
 msgstr ""
 
-#: ../behaviors1.rst:131
+#: ../behaviors1.rst:130
 msgid "Lets get through this step by step."
 msgstr ""
 
-#: ../behaviors1.rst:133
+#: ../behaviors1.rst:132
 msgid "We register a behavior in :ref:`behaviors/configure.zcml <social-behavior-zcml-label>`. We do not say for which content type this behavior is valid. You do this, through the web or in the GenericSetup profile."
 msgstr ""
 
-#: ../behaviors1.rst:134
+#: ../behaviors1.rst:133
 msgid "We create a marker interface in :ref:`behaviors/social.py <social-behavior-python-label>` for our behavior and make it also a schema containing the fields we want to declare. We could just use define schema fields on a zope.intereface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features."
 msgstr ""
 
-#: ../behaviors1.rst:136
+#: ../behaviors1.rst:135
 msgid "We also add a `fieldset`_ so that our fields are not mixed with the normal fields of the object."
 msgstr ""
 
-#: ../behaviors1.rst:137
+#: ../behaviors1.rst:136
 msgid "We add a normal `URI`_ schema field to store the URI to lanyrd."
 msgstr ""
 
-#: ../behaviors1.rst:138
+#: ../behaviors1.rst:137
 msgid "We mark our schema as a class that also implements the `IFormFieldProvider`_ interface. This is a marker interface, we do not need to implement anything to provide the interface."
 msgstr ""
 
-#: ../behaviors1.rst:141
+#: ../behaviors1.rst:140
 msgid "Adding it to our talk"
 msgstr ""
 
-#: ../behaviors1.rst:145
+#: ../behaviors1.rst:144
 msgid "We could add this behavior now via the plone control panel. But instead, we will do it directly properly in our GenericSetup profile"
 msgstr ""
 
-#: ../behaviors1.rst:147
+#: ../behaviors1.rst:146
 msgid "We must add the behavior to :file:`profiles/default/types/talk.xml`:"
 msgstr ""
 

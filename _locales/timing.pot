@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../timing.rst:2
-msgid "Timtable"
+msgid "Timetable"
 msgstr ""
 
 #: ../timing.rst:5
@@ -376,11 +376,11 @@ msgid "#8 Extend Plone with Add-ons"
 msgstr ""
 
 #: ../timing.rst:60
-msgid "#8 - How to find addons"
+msgid "#8 - How to find add-ons"
 msgstr ""
 
 #: ../timing.rst:61
-msgid "#8 - Installing Addons"
+msgid "#8 - Installing Add-ons"
 msgstr ""
 
 #: ../timing.rst:62
@@ -388,7 +388,7 @@ msgid "#8 - PloneFormGen"
 msgstr ""
 
 #: ../timing.rst:63
-msgid "#8 - Internationalisation"
+msgid "#8 - Internationalization"
 msgstr ""
 
 #: ../timing.rst:64
@@ -436,7 +436,7 @@ msgid "#20 Extending Dexterity-Types with Behaviors"
 msgstr ""
 
 #: ../timing.rst:80
-msgid "#21 Ressources"
+msgid "#21 Resources"
 msgstr ""
 
 #: ../timing.rst:81

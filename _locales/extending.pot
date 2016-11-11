@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgid "If you want to install an add-on, you are going to install an Egg — a f
 msgstr ""
 
 #: ../extending.rst:10
-msgid "There is a huge variety of Plone-compatible packages available. Most are listed in the `Python Package Index <https://pypi.python.org/pypi>`_. A more browseable listing is available at the `Plone.org add-on listing <https://plone.org/products/>`_. The source repository for many public Plone add-ons is `the GitHub Collective <https://github.com/collective>`_. You may also create your own packages or maintain custom repositories."
+msgid "There is a huge variety of Plone-compatible packages available. Most are listed in the `Python Package Index <https://pypi.python.org/pypi>`_. A more browse-able listing is available at the `Plone.org add-on listing <https://plone.org/products/>`_. The source repository for many public Plone add-ons is `the GitHub Collective <https://github.com/collective>`_. You may also create your own packages or maintain custom repositories."
 msgstr ""
 
 #: ../extending.rst:12
@@ -53,7 +53,7 @@ msgid "You can create extensions with new types of objects to add to your Plone 
 msgstr ""
 
 #: ../extending.rst:26
-msgid "You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures searchable by adding a converter from jpg to text."
+msgid "You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures search-able by adding a converter from jpg to text."
 msgstr ""
 
 #: ../extending.rst:30

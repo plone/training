@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgid "Extend Plone with Add-On Packages"
 msgstr ""
 
 #: ../addons.rst:4
-msgid "There are more than 2,000 addons for Plone. We will cover only a handfull today."
+msgid "There are more than 2,000 add-ons for Plone. We will cover only a handful today."
 msgstr ""
 
 #: ../addons.rst:5
@@ -29,7 +29,7 @@ msgid "Using them can saves a lot of time"
 msgstr ""
 
 #: ../addons.rst:6
-msgid "The success of a project often depends on finding the right addon"
+msgid "The success of a project often depends on finding the right add-on"
 msgstr ""
 
 #: ../addons.rst:7
@@ -69,7 +69,7 @@ msgid "ask in irc and on the mailing list"
 msgstr ""
 
 #: ../addons.rst:23
-msgid "A talk on finding and managing addons: http://www.youtube.com/watch?v=Sc6NkqaSjqw"
+msgid "A talk on finding and managing ad-dons: http://www.youtube.com/watch?v=Sc6NkqaSjqw"
 msgstr ""
 
 #: ../addons.rst:27
@@ -77,7 +77,7 @@ msgid "Some notable add-ons"
 msgstr ""
 
 #: ../addons.rst:30
-msgid "`Products.PloneFormGen <http://docs.plone.org/develop/plone/forms/ploneformgen.html>`_"
+msgid "`Products.PloneFormGen <http://docs.plone.org/4/en/develop/plone/forms/ploneformgen.html>`_"
 msgstr ""
 
 #: ../addons.rst:30
@@ -105,7 +105,7 @@ msgid "`collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_"
 msgstr ""
 
 #: ../addons.rst:39
-msgid "Flexible bundle of addons to georeference content and display in maps"
+msgid "Flexible bundle of add-ons to georeference content and display in maps"
 msgstr ""
 
 #: ../addons.rst:42
@@ -201,7 +201,7 @@ msgid "In the section ``[instance]`` there is a variable called ``eggs``, which 
 msgstr ""
 
 #: ../addons.rst:85
-msgid "We already have added the addons that we will use now:"
+msgid "We already have added the ad-dons that we will use now:"
 msgstr ""
 
 #: ../addons.rst:87
@@ -361,7 +361,7 @@ msgid "https://pypi.python.org/pypi/collective.plonetruegallery"
 msgstr ""
 
 #: ../addons.rst:167
-msgid "Activate the addon"
+msgid "Activate the add-on"
 msgstr ""
 
 #: ../addons.rst:168

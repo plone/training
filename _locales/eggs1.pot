@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,227 +28,263 @@ msgstr ""
 msgid "Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:"
 msgstr ""
 
-#: ../eggs1.rst:13
-msgid "Using zopeskel to create an egg"
+#: ../eggs1.rst:12
+msgid "In this part you will:"
+msgstr ""
+
+#: ../eggs1.rst:14
+msgid "Create a custom python distribution ``ploneconf.site`` to hold all the code"
 msgstr ""
 
 #: ../eggs1.rst:15
-msgid "Our own code has to be organized as an egg. An egg is a zip file or a directory that follows certain conventions. We are going to use `ZopeSkel <https://pypi.python.org/pypi/ZopeSkel>`_ to create a skeleton project. We only need to fill the holes."
+msgid "Modify buildout to install that distribution"
 msgstr ""
 
-#: ../eggs1.rst:19
-msgid "In the current version of the training we use ZopeSkel 2.21.2 to create eggs. We do this because it is shipped with Plone's Unified Installer. In the future and in our own projects we use `bobtemplates.plone <https://pypi.python.org/pypi/bobtemplates.plone>`_ to create eggs.  This will also be the standard with Plone 5."
+#: ../eggs1.rst:18
+msgid "Topics covered:"
+msgstr ""
+
+#: ../eggs1.rst:20
+msgid "mr.bob and bobtemplates.plone"
 msgstr ""
 
 #: ../eggs1.rst:21
-msgid "We enter the ``src`` directory and call a script called ``zopeskel`` from our projects bin-directory."
+msgid "the structure of eggs"
+msgstr ""
+
+#: ../eggs1.rst:25
+msgid "Creating the distribution"
+msgstr ""
+
+#: ../eggs1.rst:27
+msgid "Our own code has to be organized as a python distribution, also called *egg*. An egg is a zip file or a directory that follows certain conventions. We are going to use `bobtemplates.plone <https://pypi.python.org/pypi/bobtemplates.plone>`_ to create a skeleton project. We only need to fill in the blanks."
 msgstr ""
 
 #: ../eggs1.rst:29
-msgid "This returns a list of available templates we might use. We choose dexterity since it is pretty small but already has some of the right dependencies we need."
-msgstr ""
-
-#: ../eggs1.rst:35
-msgid "We answer some questions:"
+msgid "We create and enter the ``src`` directory (*src* is short for *sources*) and call a script called ``mrbob`` from our buildout's bin directory:"
 msgstr ""
 
 #: ../eggs1.rst:37
-msgid "Enter project name: ``ploneconf.site``"
-msgstr ""
-
-#: ../eggs1.rst:38
-msgid "Expert Mode? (What question mode would you like? (easy/expert/all)?) ['easy']: ``easy``"
-msgstr ""
-
-#: ../eggs1.rst:39
-msgid "Version (Version number for project) ['1.0']: ``1.0.0``"
-msgstr ""
-
-#: ../eggs1.rst:40
-msgid "Description (One-line description of the project) ['Example Dexterity Product']: ``PloneConf Site``"
-msgstr ""
-
-#: ../eggs1.rst:41
-msgid "Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: ``False``"
-msgstr ""
-
-#: ../eggs1.rst:42
-msgid "Use relations? (True/False: include support for relations?) [False]: ``True``"
-msgstr ""
-
-#: ../eggs1.rst:46
-msgid "If this is your first egg, this is a very special moment. We are going to create the egg with a script that generates a lot of necessary files. They all are necessary, but sometimes in a subtle way. It takes a while do understand their full meaning. Only last year I learnt and understood why I should have a ``manifest.in`` file. You can get along without one, but trust me, you get along better with a proper manifest file."
-msgstr ""
-
-#: ../eggs1.rst:49
-msgid "Inspecting the package"
-msgstr ""
-
-#: ../eggs1.rst:51
-msgid "Let's have a look at some of it's files."
-msgstr ""
-
-#: ../eggs1.rst:54
-msgid "bootstrap.py, buildout.cfg, plone.cfg"
-msgstr ""
-
-#: ../eggs1.rst:54
-msgid "You can ignore these files for now. They are here to create a buildout only for this egg to make testing easier. Once we start writing tests for this package we will have to update these files to the current best-practices and versions."
+msgid "We have to answer some questions about the add-on. We will press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your github username if you have one) and 5 (Plone version), where we enter :kbd:`4.3.10`."
 msgstr ""
 
 #: ../eggs1.rst:57
-msgid "docs, README.txt"
+msgid "If this is your first egg, this is a very special moment. We are going to create the egg with a script that generates a lot of necessary files. They all are necessary, but sometimes in a subtle way. It takes a while to understand their full meaning. Only last year I learned and understood why I should have a ``MANIFEST.in`` file. You can get along without one, but trust me, you get along better with a proper manifest file."
 msgstr ""
 
-#: ../eggs1.rst:57
-msgid "The documentation and changelog of your egg goes in there"
+#: ../eggs1.rst:63
+msgid "Inspecting the distribution"
 msgstr ""
 
-#: ../eggs1.rst:60
+#: ../eggs1.rst:65
+msgid "In ``src`` there is now a new folder ``ploneconf.site`` and in there is the new distribution. Let's have a look at some of the files:"
+msgstr ""
+
+#: ../eggs1.rst:68
+msgid "bootstrap-buildout.py, buildout.cfg, travis.cfg, .travis.yml, .coveragerc"
+msgstr ""
+
+#: ../eggs1.rst:68
+msgid "You can ignore these files for now. They are here to create a buildout only for this egg to make testing it easier. Once we start writing tests for this distribution we will have another look at them."
+msgstr ""
+
+#: ../eggs1.rst:71
+msgid "README.rst, CHANGES.rst, CONTRIBUTORS.rst, docs/"
+msgstr ""
+
+#: ../eggs1.rst:71
+msgid "The documentation, changelog, the list of contributors and the license of your egg goes in here."
+msgstr ""
+
+#: ../eggs1.rst:74
 msgid "setup.py"
 msgstr ""
 
-#: ../eggs1.rst:60
-msgid "This file configures the package, it's name, dependencies and some metadata like the authors name. The dependencies listed here are automatically added by buildout."
+#: ../eggs1.rst:74
+msgid "This file configures the distribution, its name, dependencies and some metadata like the author's name and email address. The dependencies listed here are automatically downloaded when running buildout."
 msgstr ""
 
-#: ../eggs1.rst:63
-msgid "ploneconf/site/configure.zcml"
-msgstr ""
-
-#: ../eggs1.rst:63
-msgid "The phone-book of the packages. By reading it you can find out which functionality is registered though the component architecture."
-msgstr ""
-
-#: ../eggs1.rst:66
-msgid "ploneconf/site/locales/"
-msgstr ""
-
-#: ../eggs1.rst:66
-msgid "This holds translation-files (see http://docs.plone.org/develop/plone/i18n/internationalisation.html). We won't use it during the training."
-msgstr ""
-
-#: ../eggs1.rst:69
-msgid "ploneconf/site/resources/"
-msgstr ""
-
-#: ../eggs1.rst:69
-msgid "A directory that holds static resources (images/css/js). They are accessible through URLs like ``++resource++ploneconf.site/myawesome.css``"
-msgstr ""
-
-#: ../eggs1.rst:72
-msgid "ploneconf/site/profiles/default/"
-msgstr ""
-
-#: ../eggs1.rst:72
-msgid "The folder contains the GenericSetup-profile. During the training will put some xml-files there that hold configuration for the site."
+#: ../eggs1.rst:79
+msgid "src/ploneconf/site/"
 msgstr ""
 
 #: ../eggs1.rst:77
-msgid "ploneconf/site/profiles/default/metadata.xml"
+msgid "The distribution itself lives inside a special folder structure. That seems confusing but is necessary for good testability. Our distribution contains a `namespace package <https://www.python.org/dev/peps/pep-0420/>`_ called *ploneconf.site* and because of this there is a folder ``ploneconf`` with a ``__init__.py`` and in there another folder ``site`` and in there finally is our code. From the buildout's perspective our code is in ``<your buildout directory>/src/ploneconf.site/src/ploneconf/site/<real code>``"
 msgstr ""
 
-#: ../eggs1.rst:75
-msgid "Version-number and dependencies that are auto-installed."
+#: ../eggs1.rst:83
+msgid "Unless discussing the buildout we will from now on silently omit these folders when describing files and assume that ``<your buildout directory>/src/ploneconf.site/src/ploneconf/site/`` is the root of our distribution!"
 msgstr ""
 
-#: ../eggs1.rst:77
-msgid "We could replace ``<dependency>profile-plone.app.dexterity:default</dependency>`` with ``<dependency>profile-plone.app.contenttypes:plone-content</dependency>`` to depend the addon we picked when creating our site with this egg."
+#: ../eggs1.rst:87
+msgid "configure.zcml (src/ploneconf/site/configure.zcml)"
 msgstr ""
 
-#: ../eggs1.rst:80
-msgid "ploneconf/site/profiles/default/types.xml"
+#: ../eggs1.rst:87
+msgid "The phone book of the distribution. By reading it you can find out which functionality is registered though the component architecture."
 msgstr ""
 
-#: ../eggs1.rst:80
-msgid "Registration of types"
+#: ../eggs1.rst:90
+msgid "setuphandlers.py (src/ploneconf/site/setuphandlers.py)"
 msgstr ""
 
-#: ../eggs1.rst:82
-msgid "There are also some files that can be deleted because they use outdated approaches to testing: ``ploneconf/site/tests.py`` and ``ploneconf/site/INTEGRATION.txt``."
+#: ../eggs1.rst:90
+msgid "This holds code that is automatically run when installing and uninstalling our add-on."
 msgstr ""
 
-#: ../eggs1.rst:86
-msgid "Including the egg in Plone"
+#: ../eggs1.rst:93
+msgid "interfaces.py (src/ploneconf/site/interfaces.py)"
 msgstr ""
 
-#: ../eggs1.rst:88
-msgid "Before we can use our new addon we have to tell Plone about it. Edit ``buildout.cfg`` and uncomment ``ploneconf.site`` in the `eggs` and `sources` sections:"
+#: ../eggs1.rst:93
+msgid "Here a browserlayer is defined in a straightforward python class. We will need it later."
 msgstr ""
 
-#: ../eggs1.rst:106
-msgid "This tells Buildout to add the egg ``ploneconf.site``. Since it is also in the `sources`-section Buildout will not try to download it from pypi but will expect it in ``src/ploneconf.site``. *fs* allows you to add packages on the file system without a version control system, or with an unsupported one."
+#: ../eggs1.rst:96
+msgid "testing.py"
+msgstr ""
+
+#: ../eggs1.rst:96
+msgid "This holds the setup for running tests."
+msgstr ""
+
+#: ../eggs1.rst:99
+msgid "tests/"
+msgstr ""
+
+#: ../eggs1.rst:99
+msgid "This holds the tests."
+msgstr ""
+
+#: ../eggs1.rst:102
+msgid "browser/"
+msgstr ""
+
+#: ../eggs1.rst:102
+msgid "This directory is a python package (because it has a ``__init__.py``) and will by convention hold most things that are visible in the browser."
+msgstr ""
+
+#: ../eggs1.rst:105
+msgid "browser/configure.zcml"
+msgstr ""
+
+#: ../eggs1.rst:105
+msgid "The phonebook of the browser package. Here views, resources and overrides are registered."
 msgstr ""
 
 #: ../eggs1.rst:108
-msgid "Now run buildout to reconfigure Plone with the updated configuration:"
+msgid "browser/overrides/"
+msgstr ""
+
+#: ../eggs1.rst:108
+msgid "This add-on is already configured to allow overriding existing default Plone templates."
+msgstr ""
+
+#: ../eggs1.rst:111
+msgid "browser/static/"
+msgstr ""
+
+#: ../eggs1.rst:111
+msgid "A directory that holds static resources (images/css/js). The files in here will be accessible through URLs like ``++resource++ploneconf.site/myawesome.css``"
 msgstr ""
 
 #: ../eggs1.rst:114
-msgid "After restarting Plone with ``./bin/instance fg`` the new addon `ploneconf.site` is available for install like PloneFormGen or Plone True Gallery."
+msgid "profiles/default/"
 msgstr ""
 
-#: ../eggs1.rst:116
-msgid "We will not install it now since we did not add any of our own code or configuration yet. Let's do that."
+#: ../eggs1.rst:114
+msgid "This folder contains the GenericSetup profile. During the training we will put some xml files here that hold configuration for the site."
 msgstr ""
 
-#: ../eggs1.rst:119
-msgid "Return to Dexterity: moving content types into code"
+#: ../eggs1.rst:117
+msgid "profiles/default/metadata.xml"
 msgstr ""
 
-#: ../eggs1.rst:121
-msgid "Remember the *Talks* content type that we created through-the-web with Dexterity? Let's move that new content type into our add-on package so that it may be installed in other sites without TTW manipulation."
+#: ../eggs1.rst:117
+msgid "Version number and dependencies that are auto-installed when installing our add-on."
 msgstr ""
 
-#: ../eggs1.rst:123
-msgid "Steps:"
-msgstr ""
-
-#: ../eggs1.rst:125
-msgid "Return to the Dexterity control panel"
+#: ../eggs1.rst:124
+msgid "Including the egg in Plone"
 msgstr ""
 
 #: ../eggs1.rst:126
+msgid "Before we can use our new addon we have to tell Plone about it. Edit ``buildout.cfg`` and uncomment ``ploneconf.site`` in the `eggs` and `sources` sections:"
+msgstr ""
+
+#: ../eggs1.rst:144
+msgid "This tells Buildout to add the egg ``ploneconf.site``. Since it is also in the `sources`-section Buildout will not try to download it from pypi but will expect it in ``src/ploneconf.site``. *fs* allows you to add packages on the file system without a version control system, or with an unsupported one."
+msgstr ""
+
+#: ../eggs1.rst:146
+msgid "Now run buildout to reconfigure Plone with the updated configuration:"
+msgstr ""
+
+#: ../eggs1.rst:152
+msgid "After restarting Plone with ``./bin/instance fg`` the new addon `ploneconf.site` is available for install like PloneFormGen or Plone True Gallery."
+msgstr ""
+
+#: ../eggs1.rst:154
+msgid "We will not install it now since we did not add any of our own code or configuration yet. Let's do that."
+msgstr ""
+
+#: ../eggs1.rst:157
+msgid "Return to Dexterity: moving content types into code"
+msgstr ""
+
+#: ../eggs1.rst:159
+msgid "Remember the *Talks* content type that we created through-the-web with Dexterity? Let's move that new content type into our add-on package so that it may be installed in other sites without TTW manipulation."
+msgstr ""
+
+#: ../eggs1.rst:161
+msgid "Steps:"
+msgstr ""
+
+#: ../eggs1.rst:163
+msgid "Return to the Dexterity control panel"
+msgstr ""
+
+#: ../eggs1.rst:164
 msgid "Export the Type Profile and save the file"
 msgstr ""
 
-#: ../eggs1.rst:127
+#: ../eggs1.rst:165
 msgid "Delete the Type from the site before installing it from the file system"
 msgstr ""
 
-#: ../eggs1.rst:128
+#: ../eggs1.rst:166
 msgid "Extract the files from the exported tar-file and add them to our addon-package in ``ploneconf/site/profiles/default/``"
 msgstr ""
 
-#: ../eggs1.rst:130
+#: ../eggs1.rst:168
 msgid "The file ``ploneconf/site/profiles/default/types.xml`` tells plone that there is a new content type defined in file ``talk.xml``."
 msgstr ""
 
-#: ../eggs1.rst:141
+#: ../eggs1.rst:179
 msgid "Upon installing, Plone reads the file ``ploneconf/site/profiles/default/types/talk.xml`` and registers a new type in ``portal_types`` (you can find this tool in the ZMI) with the information taken from that file."
 msgstr ""
 
-#: ../eggs1.rst:239
+#: ../eggs1.rst:277
 msgid "Now our package has some real contents. So, we'll need to reinstall it (if installed before)."
 msgstr ""
 
-#: ../eggs1.rst:241
+#: ../eggs1.rst:279
 msgid "Restart Plone."
 msgstr ""
 
-#: ../eggs1.rst:242
+#: ../eggs1.rst:280
 msgid "Re-install ploneconf.site (deactivate and activate)."
 msgstr ""
 
-#: ../eggs1.rst:243
+#: ../eggs1.rst:281
 msgid "Go to the ZMI and look at the definition of the new type in ``portal_types``."
 msgstr ""
 
-#: ../eggs1.rst:244
+#: ../eggs1.rst:282
 msgid "Test the type by adding an object or editing one of the old ones."
 msgstr ""
 
-#: ../eggs1.rst:245
+#: ../eggs1.rst:283
 msgid "Look at how the talks are presented in the browser."
 msgstr ""
 

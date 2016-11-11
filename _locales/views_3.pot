@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -149,7 +149,7 @@ msgid "Answer: Acquisition will get the attribute from the nearest parent. ``bra
 msgstr ""
 
 #: ../views_3.rst:155
-msgid "Acquisition can be harmfull. Brains have no attribute 'getLayout' ``brain.getLayout()``::"
+msgid "Acquisition can be harmful. Brains have no attribute 'getLayout' ``brain.getLayout()``::"
 msgstr ""
 
 #: ../views_3.rst:166
@@ -161,7 +161,7 @@ msgid "Querying the catalog"
 msgstr ""
 
 #: ../views_3.rst:178
-msgid "There are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::"
+msgid "There are many `catalog indexes <http://docs.plone.org/4/en/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::"
 msgstr ""
 
 #: ../views_3.rst:186
@@ -169,7 +169,7 @@ msgid "Calling the catalog without parameters return the whole site::"
 msgstr ""
 
 #: ../views_3.rst:193
-msgid "http://docs.plone.org/develop/plone/searching_and_indexing/query.html"
+msgid "http://docs.plone.org/4/en/develop/plone/searching_and_indexing/query.html"
 msgstr ""
 
 #: ../views_3.rst:197
@@ -235,7 +235,7 @@ msgid "DRY:"
 msgstr ""
 
 #: ../views_3.rst:264
-msgid "In Python you can reuse methods and easily refactor code. Refactoring TAL usually means having to do big changes in the html-structure which results in uncomprehensible diffs."
+msgid "In Python you can reuse methods and easily re-factor code. Refactoring TAL usually means having to do big changes in the html-structure which results in incomprehensible diffs."
 msgstr ""
 
 #: ../views_3.rst:267
