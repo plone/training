@@ -91,7 +91,7 @@ Usually, one enters the eggs by adding one more line per egg into the configurat
 
 If you add new add-ons here you will have to run buildout and restart the site:
 
-.. source-code:: bash
+.. code-block:: bash
 
     $ cd /vagrant/buildout
     $ bin/buildout
