@@ -1,30 +1,34 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
-# This file is distributed under the same license as the Mastering Plone package.
-# 
+# Copyright (C) The text and illustrations in this website are licensed by
+# the Plone Foundation under a Creative Commons Attribution 4.0
+# International license.
+# This file is distributed under the same license as the Mastering Plone
+# package.
+#
 # Translators:
 # Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 09:50-0430\n"
-"PO-Revision-Date: 2014-11-05 12:04+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, "
+"2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.3.4\n"
 
 #: ../timing.rst:2
-msgid "Timtable"
+msgid "Timetable"
 msgstr ""
 
 #: ../timing.rst:5
 msgid "Version 1.2"
-msgstr "Version 1.2"
+msgstr "Versión 1.2"
 
 #: ../timing.rst:8 ../timing.rst:16 ../timing.rst:44 ../timing.rst:52
 #: ../timing.rst:59 ../timing.rst:82 ../timing.rst:84 ../timing.rst:86
@@ -273,11 +277,11 @@ msgid "#8 Extend Plone with Add-ons"
 msgstr ""
 
 #: ../timing.rst:60
-msgid "#8 - How to find addons"
+msgid "#8 - How to find add-ons"
 msgstr ""
 
 #: ../timing.rst:61
-msgid "#8 - Installing Addons"
+msgid "#8 - Installing Add-ons"
 msgstr ""
 
 #: ../timing.rst:62
@@ -285,7 +289,7 @@ msgid "#8 - PloneFormGen"
 msgstr ""
 
 #: ../timing.rst:63
-msgid "#8 - Internationalisation"
+msgid "#8 - Internationalization"
 msgstr ""
 
 #: ../timing.rst:64
@@ -333,7 +337,7 @@ msgid "#20 Extending Dexterity-Types with Behaviors"
 msgstr ""
 
 #: ../timing.rst:80
-msgid "#21 Ressources"
+msgid "#21 Resources"
 msgstr ""
 
 #: ../timing.rst:81
@@ -359,3 +363,19 @@ msgstr ""
 #: ../timing.rst:86
 msgid "#27 Optional"
 msgstr ""
+
+#~ msgid "Timtable"
+#~ msgstr ""
+
+#~ msgid "#8 - How to find addons"
+#~ msgstr ""
+
+#~ msgid "#8 - Installing Addons"
+#~ msgstr ""
+
+#~ msgid "#8 - Internationalisation"
+#~ msgstr ""
+
+#~ msgid "#21 Ressources"
+#~ msgstr ""
+

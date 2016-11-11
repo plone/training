@@ -3,23 +3,23 @@
 # This file is distributed under the same license as the Mastering Plone package.
 # 
 # Translators:
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2016
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 09:50-0430\n"
-"PO-Revision-Date: 2014-11-05 12:04+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../sneak.rst:2
 msgid "Using the code for the training"
-msgstr ""
+msgstr "Usando el código para un entrenamiento"
 
 #: ../sneak.rst:4
 msgid "We provide the code for this training divided in into chapters."
@@ -27,43 +27,48 @@ msgstr ""
 
 #: ../sneak.rst:7
 msgid "Telling Plone about ploneconf.site"
-msgstr ""
+msgstr "Diciéndole a Plone acerca de ploneconf.site"
 
 #: ../sneak.rst:9
 msgid ""
 "Modify ``buildout.cfg`` to have Plone expect the egg ``ploneconf.site`` to "
 "be in ``src``."
 msgstr ""
+"Modifique el archivo ``buildout.cfg`` por que Plone espera el paquete egg "
+"``ploneconf.site`` este en el directorio ``src``."
 
 #: ../sneak.rst:30
 msgid "Gettin the code-package"
-msgstr ""
+msgstr "Cómo obtener el paquete de código"
 
 #: ../sneak.rst:32
 msgid ""
 "Download the code into a directory called ``src/ploneconf.site_sneak``."
 msgstr ""
+"Descargar el código dentro del directorio llamado "
+"``src/ploneconf.site_sneak``."
 
 #: ../sneak.rst:41
 msgid "Copy the relevant chapter so that Plone can use into"
-msgstr ""
+msgstr "Copie el capítulo correspondiente para que Plone pueda usar dentro"
 
 #: ../sneak.rst:43
 msgid "To use the code for a certain chapter stop Plone and do this:"
-msgstr ""
+msgstr "Para usar el código para cierto capítulo, detenga Plone y haga esto: "
 
 #: ../sneak.rst:51
 msgid "This will:"
-msgstr ""
+msgstr "Esto sera:"
 
 #: ../sneak.rst:53
 msgid "replace any existing previous chapter with the one you want to copy"
 msgstr ""
+"reemplace cualquier capítulo anterior existente por el que desea copiar"
 
 #: ../sneak.rst:54
 msgid "run buildout and restart Plone"
-msgstr ""
+msgstr "ejecute buildout y reinicie Plone"
 
 #: ../sneak.rst:56
 msgid "These are the chapters for which there is code::"
-msgstr ""
+msgstr "Estos son los capítulos para los que dispone código fuente::"

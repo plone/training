@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the Mastering Plone package.
 # 
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2016.
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2014-11-05 12:04+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,8 +63,8 @@ msgid ""
 msgstr ""
 
 #: ../grok.rst:18
-msgid "http://docs.plone.org/develop/addons/five-grok/index.html"
-msgstr "http://docs.plone.org/develop/addons/five-grok/index.html"
+msgid "http://docs.plone.org/4/en/appendices/five-grok/index.html"
+msgstr "http://docs.plone.org/4/en/appendices/five-grok/index.html"
 
 #: ../grok.rst:20
 msgid ""

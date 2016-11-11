@@ -4,16 +4,16 @@
 # 
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
 # Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2014-11-05 12:04+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Carlos J Morales G. <carlosm0177@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,7 +32,9 @@ msgstr "El buildout de starzel"
 msgid ""
 "Have a look at the buildout we use for our projects: "
 "https://github.com/starzel/buildout"
-msgstr "Miremos la configuración buildout que usaremos para nuestros proyectos: https://github.com/starzel/buildout"
+msgstr ""
+"Miremos la configuración buildout que usaremos para nuestros proyectos: "
+"https://github.com/starzel/buildout"
 
 #: ../deployment_sites.rst:10
 msgid "It has some noteable features:"
@@ -41,7 +43,8 @@ msgstr "Tiene algunas características notables:"
 #: ../deployment_sites.rst:12
 msgid ""
 "It extends to files on github shared by all projects of the same version"
-msgstr "Se extiende a archivos en github por todos los proyectos de la misma versión"
+msgstr ""
+"Se extiende a archivos en github por todos los proyectos de la misma versión"
 
 #: ../deployment_sites.rst:20
 msgid "Minimal work to setup a new project"
@@ -53,7 +56,7 @@ msgstr "Preestablecidos para desarrollo, pruebas, implantación y producción"
 
 #: ../deployment_sites.rst:24
 msgid "A deployment-setup"
-msgstr "Una instalacion de despliegue"
+msgstr "Una instalación de despliegue"
 
 #: ../deployment_sites.rst:26
 msgid "zeoserver and zeoclients"

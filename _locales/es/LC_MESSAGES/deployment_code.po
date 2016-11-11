@@ -4,16 +4,16 @@
 # 
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
 # Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2014-11-05 12:04+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +38,12 @@ msgid ""
 "repeatable deployments and definitive versions of software. That means you "
 "don't just run your production site with your latest source code from your "
 "source repository. You want to work with eggs."
-msgstr "¡Finalmente tenemos algo de código funcionando! dependiendo de sus políticas, usted necesitaras despliegues repetitivos y versiones definitivas de software. Lo que significa que no corres tu sitio en producción con tu ultimo fuente de tu repositorio de fuentes. Quieres trabajar con paquetes eggs."
+msgstr ""
+"¡Finalmente tenemos algo de código funcionando! dependiendo de sus "
+"políticas, usted necesitaras despliegues repetitivos y versiones definitivas"
+" de software. Lo que significa que no corres tu sitio en producción con tu "
+"ultimo fuente de tu repositorio de fuentes. Quieres trabajar con paquetes "
+"eggs."
 
 #: ../deployment_code.rst:9
 msgid ""
@@ -48,14 +53,24 @@ msgid ""
 "get a good idea, how many changes there are (semantic version number "
 "scheme). You of course always document everything, but for upgrades it is "
 "even more important to have complete changelogs."
-msgstr "Haciendo los paquetes eggs es fácil, hacerlos apropiadamente no tanto, hay un gran numero de buenas practicas que le gustaría asegurar. Veamos. Quieres tener un número sensible de versión. Mirando solamente al número de versión, uno debería tener una idea, de cuantos cambios hay (esquema semántico de numero de versión). Tu por supuesto siempre debes documentar todo, pero para las actualizaciones es incluso mas importante tener un registro de cambios."
+msgstr ""
+"Haciendo los paquetes eggs es fácil, hacerlos apropiadamente no tanto, hay "
+"un gran numero de buenas practicas que le gustaría asegurar. Veamos. Quieres"
+" tener un número sensible de versión. Mirando solamente al número de "
+"versión, uno debería tener una idea, de cuantos cambios hay (esquema "
+"semántico de numero de versión). Tu por supuesto siempre debes documentar "
+"todo, pero para las actualizaciones es incluso más importante tener un "
+"registro de cambios."
 
 #: ../deployment_code.rst:12
 msgid ""
 "Sometimes, you cannot upgrade to a newer version, but you need a hotfix or "
 "whatever. It is crucial that you are able to checkout the exact version you "
 "use for your egg."
-msgstr "Algunas veces no puedes actualizar a una nueva versión, pero necesitas un parche o algo. Es crucial que seas capaz de chequear la versión exacta que usas de su paquete egg."
+msgstr ""
+"Algunas veces no puedes actualizar a una nueva versión, pero necesitas un "
+"parche o algo. Es crucial que seas capaz de chequear la versión exacta que "
+"usas de su paquete egg."
 
 #: ../deployment_code.rst:14
 msgid ""
@@ -63,26 +78,38 @@ msgid ""
 "wrong. luckily, there is a way to automate it. zest.releaser provides "
 "scripts to release an egg, to check what has changed since the release and "
 "to check if the documentation has errors."
-msgstr "Hay muchos pasos que hacer, y muchas acciones que pueden salir mal. Afortunadamente, hay una forma de automatizarlo. zest.releaser provee scripts para publicar un paquete egg, chequear que ha cambiado y ver si la documentación tiene errores."
+msgstr ""
+"Hay muchos pasos que hacer, y muchas acciones que pueden salir mal. "
+"Afortunadamente, hay una forma de automatizarlo. zest.releaser provee "
+"scripts para publicar un paquete egg, chequear que ha cambiado y ver si la "
+"documentación tiene errores."
 
 #: ../deployment_code.rst:16
 msgid ""
 "There once was a book on python. It also had a chapter on releasing an egg "
 "with sample code. The sample code was about a printer of nested lists. There"
 " are a lot of packages to print out nested lists on pypi."
-msgstr "Hubo una vez un libro en python. Ese tenia un capitulo de como instalar un paquete egg con un código ejemplo. El código ejemplo fue acerca de una lista anidada de impresoras. Hay muchos paquetes para imprimir listas anidadas en el Indice de paquetes Python (PyPI)."
+msgstr ""
+"Hubo una vez un libro en python. Ese tenia un capítulo de como instalar un "
+"paquete egg con un código ejemplo. El código ejemplo fue acerca de una lista"
+" anidada de impresoras. Hay muchos paquetes para imprimir listas anidadas en"
+" el Indice de paquetes Python (PyPI)."
 
 #: ../deployment_code.rst:18
 msgid ""
 "We will avoid this. Everybody, go to `testpypi.python.org "
 "<https://testpypi.python.org>`_ and create an account now."
-msgstr "Vamos a evitar esto. Todos, vayan a `testpypi.python.org <https://testpypi.python.org>`_ y creen una cuenta."
+msgstr ""
+"Vamos a evitar esto. Todos, vayan a `testpypi.python.org "
+"<https://testpypi.python.org>`_ y creen una cuenta."
 
 #: ../deployment_code.rst:20
 msgid ""
 "Next, copy the pypirc_sample file to ~/.pypirc, modify it to contain your "
 "real username and password."
-msgstr "Siguiente, copia el archivo pypirc_sample a ~/.pypirc, modifiquelo para contener tu usuario y contraseña real."
+msgstr ""
+"Siguiente, copia el archivo pypirc_sample a ~/.pypirc, modifíquelo para "
+"contener tu usuario y contraseña real."
 
 #: ../deployment_code.rst:22
 msgid "Now that we are prepared, let's install zest.releaser."

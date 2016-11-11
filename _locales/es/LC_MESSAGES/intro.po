@@ -1,24 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
-# This file is distributed under the same license as the Mastering Plone package.
-# 
+# Copyright (C) The text and illustrations in this website are licensed by
+# the Plone Foundation under a Creative Commons Attribution 4.0
+# International license.
+# This file is distributed under the same license as the Mastering Plone
+# package.
+#
 # Translators:
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
+# Carlos J Morales G. <carlosm0177@gmail.com>, 2014-2015
 # Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-07 14:39+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Carlos J Morales G. <carlosm0177@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.3.4\n"
 
 #: ../intro.rst:2
 msgid "Introduction"
@@ -30,7 +32,7 @@ msgstr "¿Quien eres tu?"
 
 #: ../intro.rst:8
 msgid "Tell us about yourselves:"
-msgstr "Cuentenos acerca de usted:"
+msgstr "Cuéntenos acerca de usted:"
 
 #: ../intro.rst:10
 msgid "Name, company, country..."
@@ -41,8 +43,8 @@ msgid "What is your Plone experience?"
 msgstr "¿Como ha sido tu experiencia en Plone?"
 
 #: ../intro.rst:12
-msgid "What is your web-development experience?"
-msgstr "¿Cual ha sido tu experiencia en desarrollo Web?"
+msgid "What is your web development experience?"
+msgstr "¿Cual ha sido tu experiencia en desarrollo de aplicaciones?"
 
 #: ../intro.rst:13
 msgid "What are your expectations for this tutorial?"
@@ -110,7 +112,7 @@ msgstr "Un poco de Python"
 
 #: ../intro.rst:53
 msgid "For the advanced chapters:"
-msgstr "Para los capitulos avanzados:"
+msgstr "Para los capítulos avanzados:"
 
 #: ../intro.rst:55
 msgid "`Git <http://git-scm.com/>`_"
@@ -121,9 +123,10 @@ msgid "`Github <http://github.com>`_"
 msgstr "`Github <http://github.com>`_"
 
 #: ../intro.rst:57
-msgid ""
-"`Try Git (Nice introduction to git and github) <https://try.github.io/>`_"
-msgstr "`Prueba Git (Una introducción agradable para git y github) <https://try.github.io/>`_"
+msgid "`Try Git (Nice introduction to git and github) <https://try.github.io/>`_"
+msgstr ""
+"`Prueba Git (Una introducción agradable para git y github) "
+"<https://try.github.io/>`_"
 
 #: ../intro.rst:58
 msgid "TAL"
@@ -163,40 +166,59 @@ msgstr "Nosotros no cubriremos los siguientes tópicos:"
 
 #: ../intro.rst:71
 msgid ""
-"`Archetypes <http://docs.plone.org/old-reference-"
+"`Archetypes <http://docs.plone.org/4/en/old-reference-"
 "manuals/archetypes/index.html>`_"
-msgstr "`Archetypes <http://docs.plone.org/old-reference-manuals/archetypes/index.html>`_"
+msgstr ""
+"`Archetypes <http://docs.plone.org/4/en/old-reference-"
+"manuals/archetypes/index.html>`_"
 
 #: ../intro.rst:72
 msgid ""
-"`Portlets <http://docs.plone.org/old-reference-"
+"`Portlets <http://docs.plone.org/4/en/old-reference-"
 "manuals/portlets/index.html>`_"
-msgstr "`Portlets <http://docs.plone.org/old-reference-manuals/portlets/index.html>`_"
+msgstr ""
+"`Portlets <http://docs.plone.org/4/en/old-reference-"
+"manuals/portlets/index.html>`_"
 
 #: ../intro.rst:73
-msgid "`z3c.forms <http://docs.plone.org/develop/plone/forms/z3c.form.html>`_"
-msgstr "`z3c.forms <http://docs.plone.org/develop/plone/forms/z3c.form.html>`_"
+msgid ""
+"`z3c.forms "
+"<http://docs.plone.org/4/en/develop/plone/forms/z3c.form.html>`_"
+msgstr ""
+"`z3c.forms "
+"<http://docs.plone.org/4/en/develop/plone/forms/z3c.form.html>`_"
 
 #: ../intro.rst:74
-msgid "`Theming <http://docs.plone.org/adapt-and-extend/theming/index.html>`_"
-msgstr "`Theming <http://docs.plone.org/adapt-and-extend/theming/index.html>`_"
+msgid ""
+"`Theming <http://docs.plone.org/4/en/adapt-and-"
+"extend/theming/index.html>`_"
+msgstr ""
+"`Theming <http://docs.plone.org/4/en/adapt-and-"
+"extend/theming/index.html>`_"
 
 #: ../intro.rst:75
 msgid ""
 "`Testing "
-"<http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_"
-msgstr "`Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_"
+"<http://docs.plone.org/4/en/external/plone.app.testing/docs/source/index.html>`_"
+msgstr ""
+"`Testing "
+"<http://docs.plone.org/4/en/external/plone.app.testing/docs/source/index.html>`_"
 
 #: ../intro.rst:76
 msgid ""
-"`i18n and locales <http://docs.plone.org/develop/plone/i18n/index.html>`_"
-msgstr "`i18n y locales <http://docs.plone.org/develop/plone/i18n/index.html>`_"
+"`i18n and locales "
+"<http://docs.plone.org/4/en/develop/plone/i18n/index.html>`_"
+msgstr ""
+"`i18n y locales "
+"<http://docs.plone.org/4/en/develop/plone/i18n/index.html>`_"
 
 #: ../intro.rst:77
 msgid ""
 "`Deployment, Hosting and Caching "
-"<http://docs.plone.org/manage/deploying/index.html>`_"
-msgstr "`Desarrollo, hosting y cacheo de contenidos <http://docs.plone.org/manage/deploying/index.html>`_"
+"<http://docs.plone.org/4/en/manage/deploying/index.html>`_"
+msgstr ""
+"`Desarrollo, hosting y cacheo de contenidos "
+"<http://docs.plone.org/4/en/manage/deploying/index.html>`_"
 
 #: ../intro.rst:78
 msgid ":doc:`grok`"
@@ -205,8 +227,10 @@ msgstr ":doc:`grok`"
 #: ../intro.rst:79
 msgid ""
 "`References/Relations "
-"<http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_"
-msgstr "`Referencias / Relaciones <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_"
+"<http://docs.plone.org/4/en/external/plone.app.dexterity/docs/advanced/references.html>`_"
+msgstr ""
+"`Referencias / Relaciones "
+"<http://docs.plone.org/4/en/external/plone.app.dexterity/docs/advanced/references.html>`_"
 
 #: ../intro.rst:81
 msgid "Other topics are only covered lightly:"
@@ -215,34 +239,42 @@ msgstr "Otros tópicos están ligeramente cubiertos:"
 #: ../intro.rst:83
 msgid ""
 "`Zope Component Architecture "
-"<http://docs.plone.org/develop/addons/components/index.html>`_"
-msgstr "`Arquitectura de componentes Zope <http://docs.plone.org/develop/addons/components/index.html>`_"
+"<http://docs.plone.org/4/en/develop/addons/components/index.html>`_"
+msgstr ""
+"`Arquitectura de componentes Zope "
+"<http://docs.plone.org/4/en/develop/addons/components/index.html>`_"
 
 #: ../intro.rst:84
 msgid ""
 "`GenericSetup "
-"<http://docs.plone.org/develop/addons/components/genericsetup.html>`_"
-msgstr "`GenericSetup <http://docs.plone.org/develop/addons/components/genericsetup.html>`_"
+"<http://docs.plone.org/4/en/develop/addons/components/genericsetup.html>`_"
+msgstr ""
+"`GenericSetup "
+"<http://docs.plone.org/4/en/develop/addons/components/genericsetup.html>`_"
 
 #: ../intro.rst:85
-msgid "`ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_"
-msgstr "`ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_"
+msgid "`ZODB <http://docs.plone.org/4/en/develop/plone/persistency/index.html>`_"
+msgstr "`ZODB <http://docs.plone.org/4/en/develop/plone/persistency/index.html>`_"
 
 #: ../intro.rst:86
-msgid "`Security <http://docs.plone.org/develop/plone/security/index.html>`_"
-msgstr "`Security <http://docs.plone.org/develop/plone/security/index.html>`_"
+msgid "`Security <http://docs.plone.org/4/en/develop/plone/security/index.html>`_"
+msgstr "`Security <http://docs.plone.org/4/en/develop/plone/security/index.html>`_"
 
 #: ../intro.rst:87
 msgid ""
 "`Permissions "
-"<http://docs.plone.org/develop/plone/security/permissions.html>`_"
-msgstr "`Permissions <http://docs.plone.org/develop/plone/security/permissions.html>`_"
+"<http://docs.plone.org/4/en/develop/plone/security/permissions.html>`_"
+msgstr ""
+"`Permissions "
+"<http://docs.plone.org/4/en/develop/plone/security/permissions.html>`_"
 
 #: ../intro.rst:88
 msgid ""
 "`Performance and Caching "
-"<http://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_"
-msgstr "`Desempeño y Cacheo de contenidos <http://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_"
+"<http://docs.plone.org/4/en/manage/deploying/testing_tuning/performance/index.html>`_"
+msgstr ""
+"`Desempeño y Cacheo de contenidos "
+"<http://docs.plone.org/4/en/manage/deploying/testing_tuning/performance/index.html>`_"
 
 #: ../intro.rst:91
 msgid "What to expect"
@@ -250,39 +282,66 @@ msgstr "¿Qué esperar?"
 
 #: ../intro.rst:93
 msgid ""
-"At the end of the first two days of training, you'll know many of the tools "
-"required for Plone installation, integration and configuration. You'll be "
-"able to install add-on packages and will know something about the "
-"technologies underlying Plone and their histories. You'll be ready to extend"
-" your skills via reading books like Practical Plone <http://www.packtpub.com"
-"/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_ and"
-" the `Plone documentation <http://docs.plone.org>`_."
-msgstr "Al final de los dos primeros días de entrenamiento, usted sabrá muchas de las herramientas necesarias para la instalación, integración y configuración de Plone. Usted será capaz de instalar los paquetes add-on y va a saber algo sobre las tecnologías subyacentes Plone y sus historias. Usted estará listo para extender sus habilidades a través de la lectura de libros como `Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_ y la `documentación de Plone <http://docs.plone.org>`_."
+"At the end of the first two days of training, you'll know many of the "
+"tools required for Plone installation, integration and configuration. "
+"You'll be able to install add-on packages and will know something about "
+"the technologies underlying Plone and their histories. You'll be ready to"
+" extend your skills via reading books like `Practical Plone "
+"<http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-"
+"powerful-websites/book>`_ and the `Plone documentation "
+"<http://docs.plone.org>`_."
+msgstr ""
+"Al final de los dos primeros días de entrenamiento, conocerá muchas de las "
+"herramientas necesarias para la instalación, integración y configuración de Plone."
+"Usted será capaz de instalar los paquetes complementarios y conocerá algo sobre "
+"las tecnologías que subyacen a Plone y sus historias. Usted estará listo para"
+" extender sus habilidades a través de la lectura de libros como `Practical Plone "
+"<http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-"
+"powerful-websites/book>`_ y la `documentación de Plone "
+"<http://docs.plone.org>`_."
+
 
 #: ../intro.rst:95
 msgid ""
 "At the end of the second two days, you won't be a complete professional "
-"Plone-programmer, but you will know some of the more powerful features of "
-"Plone and should be able to construct a more complex website with custom "
-"themes and packages. You should also be able to find out where to look for "
-"instructions to do tasks we did not cover. You will know most of the core-"
-"technologies involved in Plone-programming."
-msgstr "Al final de los segundo dos días, usted no será un programador de Plone Profesional completo, pero usted sabrá algunos de los rasgos más poderosos de Plone y debe ser capaz de construir un sitio web más complejo, con temas y paquetes personalizados. Usted debe también ser capaz de averiguar donde encontrar instrucciones para realizar tareas no cubiertas en este entrenamiento. Usted sabrá la mayoría de las principales tecnologías de núcleo involucradas en la programación de Plone."
+"Plone-programmer, but you will know some of the more powerful features of"
+" Plone and should be able to construct a more complex website with custom"
+" themes and packages. You should also be able to find out where to look "
+"for instructions to do tasks we did not cover. You will know most of the "
+"core technologies involved in Plone programming."
+msgstr ""
+"Al final de los segundo dos días, usted no será un completo programador "
+"profesional de Plone, pero conocerá algunas de las características más potentes de"
+" Plone y debe ser capaz de construir un sitio web más Plone y debería ser capaz de construir un sitio web más complejo con "
+"temas y paquetes personalizados. Usted debe también ser capaz de encontrar dónde buscar "
+"instrucciones para hacer tareas que no cubrimos en este entrenamiento. "
+"Usted conocerá la mayoría la mayoría de las principales tecnologías de núcleo "
+"involucradas en la programación de Plone."
 
 #: ../intro.rst:97
 msgid ""
-"If you want to become a professional Plone-developer or a highly "
-"sophisticated Plone-integrator you should definitely read `Martin Aspeli's "
-"book <http://www.packtpub.com/professional-plone-4-development/book>`_ and "
-"then re-read it again while actually doing a complex project."
-msgstr "Si quieres convertirte en un desarrollador profesional de Plone o un integrador de Plone usted definitivamente debe leer el `libro de Martins <http://www.packtpub.com/professional-plone-4-development/book>`_ y después volver a leerlo de nuevo mientras actualmente este haciendo un proyecto complejo."
+"If you want to become a professional Plone developer or a highly "
+"sophisticated Plone integrator you should definitely read `Martin "
+"Aspeli's book <http://www.packtpub.com/professional-"
+"plone-4-development/book>`_ and then re-read it again while actually "
+"doing a complex project."
+msgstr ""
+"Si quieres convertirte en un desarrollador profesional de Plone o un "
+"integrador altamente sofisticado de Plone, usted definitivamente debe leer el `libro de Martins "
+"<http://www.packtpub.com/professional-plone-4-development/book>`_ y "
+"después volver a leerlo de nuevo mientras actualmente este haciendo un "
+"complejo proyecto."
 
 #: ../intro.rst:99
 msgid ""
-"Most importantly you should practice your skills and not stop here but go "
-"forward! One recommended way would be to follow the `todo-app "
+"Most importantly you should practice your skills and not stop here but go"
+" forward! One recommended way would be to follow the `todo-app "
 "<http://tutorialtodoapp.readthedocs.org/en/latest/>`_."
-msgstr "Más importante es ¡usted debe practicar sus habilidades y no detenerte aquí y seguir delante! una vía recomendada para esto es debe realizar los pasos del tutorial `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_."
+msgstr ""
+"Más importante es ¡usted debe practicar sus habilidades y no detenerte "
+"aquí y seguir delante! una vía recomendada para esto es debe realizar los"
+" pasos del tutorial `todo-app "
+"<http://tutorialtodoapp.readthedocs.org/en/latest/>`_."
 
 #: ../intro.rst:102
 msgid "Documentation"
@@ -294,9 +353,11 @@ msgstr "Sigue el entrenamiento en http://plone-training.readthedocs.org/"
 
 #: ../intro.rst:108
 msgid ""
-"You can use this presentation to copy & paste the code but you will memorize"
-" more if you type yourself."
-msgstr "Usted puede utilizar esta presentación para copiar y pegar el código, pero usted memorizará más si escribe usted mismo."
+"You can use this presentation to copy & paste the code but you will "
+"memorize more if you type yourself."
+msgstr ""
+"Usted puede utilizar esta presentación para copiar y pegar el código, "
+"pero usted memorizará más si escribe usted mismo."
 
 #: ../intro.rst:112
 msgid "Further Reading"
@@ -306,36 +367,46 @@ msgstr "Lecturas recomendadas"
 msgid ""
 "`Martin Aspeli: Professional Plone4 Development <http://www.packtpub.com"
 "/professional-plone-4-development/book>`_"
-msgstr "`Martin Aspeli: Professional Plone4 Development <http://www.packtpub.com/professional-plone-4-development/book>`_"
+msgstr ""
+"`Martin Aspeli: Professional Plone4 Development <http://www.packtpub.com"
+"/professional-plone-4-development/book>`_"
 
 #: ../intro.rst:114
 msgid ""
-"`Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-"
-"to-building-powerful-websites/book>`_"
-msgstr "`Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-guide-to-building-powerful-websites/book>`_"
+"`Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-"
+"guide-to-building-powerful-websites/book>`_"
+msgstr ""
+"`Practical Plone <http://www.packtpub.com/practical-plone-3-beginners-"
+"guide-to-building-powerful-websites/book>`_"
 
 #: ../intro.rst:115
 msgid ""
 "`Zope Page Templates Reference "
 "<http://docs.zope.org/zope2/zope2book/AppendixC.html>`_"
-msgstr "`Referencia de Zope Page Templates <http://docs.zope.org/zope2/zope2book/AppendixC.html>`_"
+msgstr ""
+"`Referencia de Zope Page Templates "
+"<http://docs.zope.org/zope2/zope2book/AppendixC.html>`_"
 
 #: ../intro.rst:121
 msgid "Stop us and ask questions when you have them!"
 msgstr "¡Puede detenernos y pregunte cuando tenga alguna duda!"
 
 #: ../intro.rst:122
-msgid "Tell us if we speak to fast, to slow or not loud enough."
-msgstr "Díganos si hablamos muy rápido, para frenar o no ser lo suficientemente fuerte."
+msgid "Tell us if we speak too fast, too slow or not loud enough."
+msgstr ""
+"Díganos si hablamos muy rápido, para frenar o no ser lo suficientemente "
+"fuerte."
 
 #: ../intro.rst:123
 msgid ""
 "One of us is always there to help you if you are stuck. Please give us a "
 "sign if you are stuck."
-msgstr "Uno de nosotros siempre está ahí para ayudarle si usted está atascado. Por favor, danos  una señal si usted está atascado."
+msgstr ""
+"Uno de nosotros siempre está ahí para ayudarle si usted está atascado. "
+"Por favor, danos  una señal si usted está atascado."
 
 #: ../intro.rst:124
-msgid "We'll make some breaks, the first one will be at XX."
+msgid "We'll take some breaks, the first one will be at XX."
 msgstr "Vamos a hacer algunas pausas, la primera será a las XX."
 
 #: ../intro.rst:125
@@ -343,8 +414,10 @@ msgid "Where is food, restrooms"
 msgstr "¿Dónde está la comida, los baños?"
 
 #: ../intro.rst:126
-msgid "Someone please take the time we take for each chapter (incl. title)"
-msgstr "Por favor, alguien tome el tiempo que tomemos para cada capítulo (título incluido)"
+msgid "Someone please record the time we take for each chapter (incl. title)"
+msgstr ""
+"Por favor, alguien tome el tiempo que tomemos para cada capítulo (título "
+"incluido)"
 
 #: ../intro.rst:127
 msgid "Someone please write down errors"
@@ -352,4 +425,5 @@ msgstr "Por favor, alguien puede indicar a errores"
 
 #: ../intro.rst:128
 msgid "Contact us after the training: team@starzel.de"
-msgstr "Contactanos despues del entrenamiento: team@starzel.de"
+msgstr "Nos puede contactar después del entrenamiento: team@starzel.de"
+

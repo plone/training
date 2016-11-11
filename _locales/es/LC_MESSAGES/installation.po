@@ -1,22 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
-# This file is distributed under the same license as the Mastering Plone package.
-# 
+# Copyright (C) The text and illustrations in this website are licensed by
+# the Plone Foundation under a Creative Commons Attribution 4.0
+# International license.
+# This file is distributed under the same license as the Mastering Plone
+# package.
+#
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2016
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-07 15:01+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, "
+"2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.3.4\n"
 
 #: ../installation.rst:2
 msgid "Installation & Setup"
@@ -28,21 +32,26 @@ msgstr "Instalando Plone"
 
 #: ../installation.rst:10
 msgid ""
-"Plone 4.3.x requires a working Python 2.7 and several other system-tools "
-"that not every OS provides. Therefore the installation of Plone is different"
-" on every system. Here are some ways that Python can can be used:"
-msgstr "Plone 4.3.x requiere Python 2.7 y varias otras herramientas del sistema que no todos los sistemas operativos proporciona por defecto. Por lo tanto la instalación de Plone es diferente en cada sistema. Aquí hay algunas maneras que Python se puede utilizar:"
+"Plone 4.3.x requires a working Python 2.7 and several other system tools "
+"that not every OS provides. Therefore the installation of Plone is "
+"different on every system. Here are some ways that Python can be used:"
+msgstr ""
+"Plone 4.3.x requiere Python 2.7 y varias otras herramientas del sistema "
+"que no todos los sistemas operativos proporciona por defecto. Por lo "
+"tanto la instalación de Plone es diferente en cada sistema. Aquí hay "
+"algunas maneras que Python se puede utilizar:"
 
 #: ../installation.rst:18
 msgid ""
-"use a Python that comes pre-installed in your operating-system (most Linuxes"
-" and Mac OS have one)"
-msgstr "utilizar un Python que viene instalado previamente en su sistema operativo (en la mayoría de GNU/Linux y Mac OS tienen uno incorporado)"
+"use a Python that comes pre-installed in your operating system (most "
+"Linuxes and Mac OS have one)"
+msgstr ""
+"utilizar un Python que viene instalado previamente en su sistema "
+"operativo (en la mayoría de GNU/Linux y Mac OS tienen uno incorporado)"
 
 #: ../installation.rst:19
-msgid ""
-"use the `python-buildout <https://github.com/collective/buildout.python>`_"
-msgstr "use el `python-buildout <https://github.com/collective/buildout.python>`_"
+msgid "use the `python buildout <https://github.com/collective/buildout.python>`_"
+msgstr "use el `python buildout <https://github.com/collective/buildout.python>`_"
 
 #: ../installation.rst:20
 msgid "building Linux-packages"
@@ -58,34 +67,48 @@ msgstr "PyWin32 (Windows)"
 
 #: ../installation.rst:26
 msgid ""
-"MacOS 10.8 and Ubuntu 14.04 come with a working default Python 2.7 built in."
-" These are the lucky ones. To run a Plone-version older than 4.0 you need "
-"Python 2.4. That's not always easy to install."
-msgstr "MacOS 10.8 y Ubuntu 14.04 tendrán instalado por defecto un Python 2.7. Los usuarios de estos sistemas son los afortunados. Para ejecutar una versión de Plone anterior a la 4.0 usted necesita Python 2.4. No siempre es fácil de instalar."
+"MacOS 10.8 and Ubuntu 14.04 come with a working default Python 2.7 built "
+"in. These are the lucky ones. To run a Plone version older than 4.0 you "
+"need Python 2.4. That's not always easy to install."
+msgstr ""
+"MacOS 10.8 y Ubuntu 14.04 tendrán instalado por defecto un Python 2.7. "
+"Los usuarios de estos sistemas son los afortunados. Para ejecutar una "
+"versión de Plone anterior a la 4.0 usted necesita Python 2.4. No siempre "
+"es fácil de instalar."
 
 #: ../installation.rst:28
 msgid ""
 "Most developers use their primary system to develop Plone. For complex "
-"setups they often use virtual linux-machines."
-msgstr "La mayoría de los desarrolladores suelen utilizar su sistema primario para desarrollar Plone. Para configuraciones complejas que a menudo usan máquinas virtuales en Linux."
+"setups they often use Linux virtual machines."
+msgstr ""
+"La mayoría de los desarrolladores suelen utilizar su sistema primario "
+"para desarrollar Plone. Para configuraciones complejas que a menudo usan "
+"máquinas virtuales en Linux."
 
 #: ../installation.rst:30
 msgid ""
-"OS X: Use the python-buildout to compile python and homebrew for some "
-"missing linux-tools."
-msgstr "OS X, Usa el python-buildout para compilar todas las versiones necesarias de Python y la herramienta homebrew para instalar algunas herramientas de Linux."
+"OS X: Use the python buildout to compile python and homebrew for some "
+"missing Linux tools."
+msgstr ""
+"OS X: Usa el buildout de python para compilar todas las versiones necesarias"
+" de Python y la herramienta homebrew para instalar algunas herramientas "
+"de Linux."
 
 #: ../installation.rst:31
 msgid ""
-"Linux: Depending on your linux-flavor you might have to build python "
+"Linux: Depending on your Linux flavor you might have to build python "
 "yourself and install some tools."
-msgstr "Linux: Dependiendo de su sabor de Linux que usted podría tener que construir Python por ti mismo e instalar algunas herramientas."
+msgstr ""
+"Linux: Dependiendo de su sabor de Linux que usted podría tener que "
+"construir Python por ti mismo e instalar algunas herramientas."
 
 #: ../installation.rst:32
 msgid ""
-"Windows: Alan Runyan (one of Plone's founders) uses it. A downside: Plone "
-"seems to be running much slower on Windows."
-msgstr "Windows: Alan Runyan (uno de los fundadores Plone) lo utiliza. Un inconveniente: Plone parece funcionar mucho más lento en Windows."
+"Windows: Alan Runyan (one of Plone's founders) uses it. A downside: Plone"
+" seems to be running much slower on Windows."
+msgstr ""
+"Windows: Alan Runyan (uno de los fundadores Plone) lo utiliza. Un "
+"inconveniente: Plone parece funcionar mucho más lento en Windows."
 
 #: ../installation.rst:34
 msgid "Plone offers multiple options for being installed:"
@@ -110,21 +133,29 @@ msgstr "Utilice su propio Buildout"
 #: ../installation.rst:41
 msgid ""
 "You can download all of these at "
-"http://plone.org/products/plone/releases/4.3.3"
-msgstr "Puede descargar todo esto en http://plone.org/products/plone/releases/4.3.3"
+"http://old.plone.org/products/plone/releases/4.3.4"
+msgstr ""
+"Puede descargar todo esto en "
+"http://old.plone.org/products/plone/releases/4.3.4"
 
 #: ../installation.rst:46
 msgid ""
-"For the training we'll use option 3 and 4 to install and run Plone. We'll "
-"create our own Buildout and extend it as we wish. But we will do so in a "
-"vagrant machine. For your own first experiments we recommend option 2 or 3 "
-"(if you have a windows-laptop or encounter problems). Later on you should be"
-" able to use your own Buildout (we'll cover that later on)."
-msgstr "Para el entrenamiento vamos a utilizar la opción 3 y 4 para instalar y ejecutar Plone. Vamos a crear nuestro propio Buildout y la extendemos a nuestro antojo. Pero lo haremos en una máquina vagrant. Para sus primeros experimentos propios se recomienda la opción 2 o 3 (si usted tiene una portátil con Windows o al encontrar problemas). Más tarde usted debería ser capaz de utilizar su propio Buildout (vamos a cubrir que más tarde)."
+"For the training we'll use option 3 and 4 to install and run Plone. We'll"
+" create our own Buildout and extend it as we wish. But we will do so in a"
+" vagrant machine. For your own first experiments we recommend option 2 or"
+" 3 (if you have a Windows laptop or encounter problems). Later on you "
+"should be able to use your own Buildout (we'll cover that later on)."
+msgstr ""
+"Para el entrenamiento vamos a utilizar la opción 3 y 4 para instalar y "
+"ejecutar Plone. Vamos a crear nuestro propio Buildout y lo extenderemos "
+"como deseamos. Pero lo haremos en una máquina vagrant. Para sus primeros"
+" experimentos propios se recomienda la opción 2 o 3 (si usted tiene un "
+"como deseamos con Windows o al encontrar problemas). Más adelante usted debería "
+"ser capaz de utilizar su propio Buildout (lo cubriremos más adelante)."
 
 #: ../installation.rst:54
-msgid "http://docs.plone.org/manage/installing/installation.html"
-msgstr "http://docs.plone.org/manage/installing/installation.html"
+msgid "http://docs.plone.org/4/en/manage/installing/installation.html"
+msgstr "http://docs.plone.org/4/en/manage/installing/installation.html"
 
 #: ../installation.rst:58
 msgid "Hosting Plone"
@@ -132,9 +163,11 @@ msgstr "Alojando Plone"
 
 #: ../installation.rst:62
 msgid ""
-"If you want to host a real-live Plone site yourself then running it from "
+"If you want to host a real live Plone site yourself then running it from "
 "your laptop is not a viable option."
-msgstr "Si usted desea alojando un sitio real de Plone por si mismo entonces ejecutarlo desde su computadora portátil no es una opción viable."
+msgstr ""
+"Si usted desea alojando un sitio real de Plone por si mismo entonces ejecutarlo "
+"desde su computadora portátil no es una opción viable."
 
 #: ../installation.rst:64
 msgid "You can host Plone..."
@@ -142,9 +175,11 @@ msgstr "Puede alojar Plone..."
 
 #: ../installation.rst:66
 msgid ""
-"with one of many professional `hosting-providers <http://plone.org/support"
-"/hosting-providers>`_"
-msgstr "con uno de los muchos `proveedores de alojamiento <http://plone.org/support/hosting-providers>`_"
+"with one of many professional `hosting providers "
+"<http://plone.com/providers>`_"
+msgstr ""
+"con uno de los muchos `proveedores de alojamiento "
+"<http://plone.com/providers>`_"
 
 #: ../installation.rst:67
 msgid "on a virtual private server"
@@ -156,34 +191,47 @@ msgstr "en los servidores dedicados"
 
 #: ../installation.rst:69
 msgid ""
-"on `heroku <http://heroku.com>`_ you can run Plone for *free* using the "
-"`Heroku buildpack for Plone <https://github.com/niteoweb/heroku-buildpack-"
-"plone>`_"
-msgstr "en `heroku <http://heroku.com>`_ puede ejecutar Plone para uso *gratis* usando el `Heroku buildpack para Plone <https://github.com/niteoweb/heroku-buildpack-plone>`_"
+"on `heroku <https://www.heroku.com/>`_ you can run Plone for *free* using"
+" the `Heroku buildpack for Plone <https://github.com/niteoweb/heroku-"
+"buildpack-plone>`_"
+msgstr ""
+"en `heroku <https://www.heroku.com/>`_ puede ejecutar Plone para uso "
+"*gratis* usando el `Heroku buildpack para Plone "
+"<https://github.com/niteoweb/heroku-buildpack-plone>`_"
 
 #: ../installation.rst:70
 msgid ""
 "in the cloud (e.g. using Amazon EC2 or `Codio.com "
-"<http://blog.dbain.com/2014/04/install-plone-in-under-5-minutes-on.html>`_)"
-msgstr "en la nube (por ejemplo, el uso de Amazon EC2 o `Codio.com <http://blog.dbain.com/2014/04/install-plone-in-under-5-minutes-on.html>`_)"
+"<http://blog.dbain.com/2014/04/install-plone-in-under-5-minutes-"
+"on.html>`_)"
+msgstr ""
+"en la nube (por ejemplo, el uso de Amazon EC2 o `Codio.com "
+"<http://blog.dbain.com/2014/04/install-plone-in-under-5-minutes-"
+"on.html>`_)"
 
 #: ../installation.rst:74
 msgid ""
 "Plone Installation Requirements: "
-"http://docs.plone.org/manage/installing/requirements.html"
-msgstr "Requerimientos de la instalación de Plone : http://docs.plone.org/manage/installing/requirements.html"
+"http://docs.plone.org/4/en/manage/installing/requirements.html"
+msgstr ""
+"Requerimientos de la instalación de Plone : "
+"http://docs.plone.org/4/en/manage/installing/requirements.html"
 
 #: ../installation.rst:75
 msgid ""
 "Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-"
 "on-5-a-month"
-msgstr "Ejecute Plone en un plan de 5$ http://www.stevemcmahon.com/steves-blog/plone-on-5-a-month"
+msgstr ""
+"Ejecute Plone en un plan de 5$ http://www.stevemcmahon.com/steves-blog"
+"/plone-on-5-a-month"
 
 #: ../installation.rst:76
 msgid ""
-"Where to host Plone: http://plone.org/documentation/faq/where-can-i-host-my-"
-"plone-site"
-msgstr "Dónde alojar Plone: http://plone.org/documentation/faq/where-can-i-host-my-plone-site"
+"Where to host Plone: http://old.plone.org/documentation/faq/where-can-i"
+"-host-my-plone-site"
+msgstr ""
+"Dónde alojar Plone: http://old.plone.org/documentation/faq/where-can-i"
+"-host-my-plone-site"
 
 #: ../installation.rst:79
 msgid "Production Deployment"
@@ -191,42 +239,64 @@ msgstr "Despliegue en ambientes de producción"
 
 #: ../installation.rst:81
 msgid ""
-"The way we're setting up a Plone site during this class may be adequate for "
-"a small site — or even a very large one that's not very busy — but you're "
-"likely to want to do much more if you're using Plone for anything demanding."
-msgstr "La manera en que estamos montando un sitio Plone durante esta clase puede ser adecuado para un sitio pequeño - o incluso uno muy grande que no está muy ocupado - pero es muy probable que desee hacer mucho más si estás usando Plone para ninguna demanda."
+"The way we're setting up a Plone site during this class may be adequate "
+"for a small site — or even a very large one that's not very busy — but "
+"you're likely to want to do much more if you're using Plone for anything "
+"demanding."
+msgstr ""
+"La manera en que estamos montando un sitio Plone durante esta clase puede"
+" ser adecuado para un sitio pequeño - o incluso uno muy grande que no "
+"está muy ocupado - pero es muy probable que desee hacer mucho más si "
+"estás usando Plone para ninguna demanda."
 
 #: ../installation.rst:83
 msgid ""
-"Using a production web server like Apache or Nginx for URL rewriting, SSL "
-"and combining multiple, best-of-breed solutions into a single web site."
-msgstr "El uso de un servidor web de producción como Apache o Nginx para la reescritura de URL, SSL y combinación de múltiples, las mejores soluciones de su clase todo en un solo sitio web."
+"Using a production web server like Apache or Nginx for URL rewriting, SSL"
+" and combining multiple, best-of-breed solutions into a single web site."
+msgstr ""
+"El uso de un servidor web de producción como Apache o Nginx para la "
+"reescritura de URL, SSL y combinación de múltiples, las mejores "
+"soluciones de su clase todo en un solo sitio web."
 
 #: ../installation.rst:85
 msgid ""
-"Reverse proxy caching with a tool like Varnish to improve site performance."
-msgstr "El almacenamiento en caché de proxy inverso con una herramienta como Varnish para mejorar el rendimiento del sitio."
+"Reverse proxy caching with a tool like Varnish to improve site "
+"performance."
+msgstr ""
+"El almacenamiento en caché de proxy inverso con una herramienta como "
+"Varnish para mejorar el rendimiento del sitio."
 
 #: ../installation.rst:87
 msgid ""
 "Load balancing to make best use of multiple core CPUs and even multiple "
 "servers."
-msgstr "El balanceo de carga para hacer el mejor uso de núcleo múltiple de CPU e incluso múltiples servidores."
+msgstr ""
+"El balanceo de carga para hacer el mejor uso de núcleo múltiple de CPU e "
+"incluso múltiples servidores."
 
 #: ../installation.rst:89
 msgid ""
 "Optimizing cache headers and Plone's internal caching schemes with "
 "plone.app.caching."
-msgstr "Optimización cabeceras de caché y esquemas de caché interna de Plone con plone.app.caching."
+msgstr ""
+"Optimización cabeceras de caché y esquemas de caché interna de Plone con "
+"plone.app.caching."
 
 #: ../installation.rst:91
 msgid ""
 "And, you'll need to learn strategies for efficient backup and log file "
 "rotation."
-msgstr "Y, usted necesita aprender estrategias eficientes para la copia de seguridad y rotación del archivo de los registros."
+msgstr ""
+"Y, usted necesita aprender estrategias eficientes para la copia de "
+"seguridad y rotación del archivo de los registros."
 
 #: ../installation.rst:93
 msgid ""
-"All these topics are introduced in `Guide to deploying and installing Plone "
-"in production <http://docs.plone.org/manage/deploying/index.html>`_"
-msgstr "Todos estos temas son introducidos en la `Guía para el despliegue e instalación de Plone en producción <http://docs.plone.org/manage/deploying/index.html>`_"
+"All these topics are introduced in `Guide to deploying and installing "
+"Plone in production "
+"<http://docs.plone.org/4/en/manage/deploying/index.html>`_."
+msgstr ""
+"Todos estos temas son introducidos en la `Guía para el despliegue e "
+"instalación de Plone en producción "
+"<http://docs.plone.org/4/en/manage/deploying/index.html>`_."
+

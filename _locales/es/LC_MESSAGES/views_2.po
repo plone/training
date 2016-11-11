@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 09:50-0430\n"
-"PO-Revision-Date: 2015-03-08 18:46+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,7 +31,9 @@ msgstr "¡Obtén el código!"
 msgid ""
 "Get the code for this chapter (:doc:`More info <sneak>`) using this command "
 "in the buildout-directory:"
-msgstr "Obtén el código para este capítulo (:doc:`Más información <sneak>`) usando este comando en el directorio buildout:"
+msgstr ""
+"Obtén el código para este capítulo (:doc:`Más información <sneak>`) usando "
+"este comando en el directorio buildout:"
 
 #: ../views_2.rst:14
 msgid "View-Classes"
@@ -41,7 +44,10 @@ msgid ""
 "Earlier we wrote a demo view which we also used to experiment with page "
 "templates. Let us have a look at the zcml and the Page Template again. I "
 "have extended the code just slightly."
-msgstr "Anteriormente hemos escrito una vista de demostración que también utilizamos para experimentar con las plantillas de página. Vamos a echar un vistazo a la ZCML y la Page Template de nuevo. Yo he ampliado el código sólo un poco."
+msgstr ""
+"Anteriormente hemos escrito una vista de demostración que también utilizamos"
+" para experimentar con las plantillas de página. Vamos a echar un vistazo a "
+"la ZCML y la Page Template de nuevo. Yo he ampliado el código sólo un poco."
 
 #: ../views_2.rst:20 ../views_2.rst:97
 msgid "``browser/configure.zcml``"
@@ -56,7 +62,10 @@ msgid ""
 "Do you remember the term MultiAdapter? The browser page is just a "
 "MultiAdapter. The ZCML statement ``browser:page`` registers a MultiAdapter "
 "and adds additional things needed for a browser view."
-msgstr "¿Recuerdas el término MultiAdapter? La browser page es sólo un MultiAdapter. La declaración ZCML ``browser:page`` registra un MultiAdapter y agrega cosas adicionales que se necesitan para una browser view."
+msgstr ""
+"¿Recuerdas el término MultiAdapter? La browser page es sólo un MultiAdapter."
+" La declaración ZCML ``browser:page`` registra un MultiAdapter y agrega "
+"cosas adicionales que se necesitan para una browser view."
 
 #: ../views_2.rst:72
 msgid "An adapter adapts things, a MultiAdapter adapts multiple things."
@@ -68,26 +77,38 @@ msgid ""
 " Zope does not find any more objects but there is still a path item left, or"
 " there are no more path items, Zope looks for an adapter that will reply to "
 "the request."
-msgstr "Al introducir una dirección URL, Zope trata de encontrar un objeto para él. Al final, cuando Zope no encuentra ningún objeto más, pero todavía hay un elemento de ruta, o no hay más elementos de rutas, Zope busca un adaptador que va a responder a la solicitud."
+msgstr ""
+"Al introducir una dirección URL, Zope trata de encontrar un objeto para él. "
+"Al final, cuando Zope no encuentra ningún objeto más, pero todavía hay un "
+"elemento de ruta, o no hay más elementos de rutas, Zope busca un adaptador "
+"que va a responder a la solicitud."
 
 #: ../views_2.rst:76
 msgid ""
 "The adapter adapts the request and the object that Zope found with the URL. "
 "The adapter class gets instantiated with the objects to be adapted, then it "
 "gets called."
-msgstr "El adaptador se adapta la solicitud y el objeto que Zope ha encontrado con la dirección URL. La clase de adaptador se crea instanciada con los objetos que han de adaptarse, entonces se llama."
+msgstr ""
+"El adaptador se adapta la solicitud y el objeto que Zope ha encontrado con "
+"la dirección URL. La clase de adaptador se crea instanciada con los objetos "
+"que han de adaptarse, entonces se llama."
 
 #: ../views_2.rst:78
 msgid ""
 "The code above does the same thing that the standard implementation would "
 "do. It makes context and request available as variables on the object."
-msgstr "El código fuente anterior hace la misma cosa que la implementación estándar haría. Hace que el contexto y la solicitud estén disponibles como variables en el objeto."
+msgstr ""
+"El código fuente anterior hace la misma cosa que la implementación estándar "
+"haría. Hace que el contexto y la solicitud estén disponibles como variables "
+"en el objeto."
 
 #: ../views_2.rst:80
 msgid ""
 "I have written down these methods because it important to understand some "
 "important concepts."
-msgstr "Yo he escrito estos métodos porque es importante entender algunos conceptos importantes."
+msgstr ""
+"Yo he escrito estos métodos porque es importante entender algunos conceptos "
+"importantes."
 
 #: ../views_2.rst:82
 msgid ""
@@ -102,14 +123,21 @@ msgid ""
 "Don't do much at all in the init method. Instead you have the guarantee that"
 " the call method is called before anything else (except the init method). It"
 " has the security checks in place and so on."
-msgstr "No hagas mucho a todos en el método init. En su lugar usted tiene la garantía que el método call es llamado antes de cualquier otra cosa (excepto el método init). Tiene los controles de seguridad en su lugar y así sucesivamente."
+msgstr ""
+"No hagas mucho a todos en el método init. En su lugar usted tiene la "
+"garantía que el método call es llamado antes de cualquier otra cosa (excepto"
+" el método init). Tiene los controles de seguridad en su lugar y así "
+"sucesivamente."
 
 #: ../views_2.rst:86
 msgid ""
 "From a practical standpoint, consider the call method your init method, the "
 "biggest difference is that this method is supposed to return the html "
 "already. Let your base class handle the html generation."
-msgstr "Desde un punto de vista práctico, considere el método call en su método init, la mayor diferencia es que este método debe retornar el HTML listo. Deje a su clase base manejar la generación de HTML."
+msgstr ""
+"Desde un punto de vista práctico, considere el método call en su método "
+"init, la mayor diferencia es que este método debe retornar el HTML listo. "
+"Deje a su clase base manejar la generación de HTML."
 
 #: ../views_2.rst:93
 msgid "The default-view"
@@ -117,69 +145,96 @@ msgstr "La vista por defecto"
 
 #: ../views_2.rst:95
 msgid "Now we finally add the default-view for talks in views.py"
-msgstr "Ahora nosotros finalmente agregamos la vista por defecto para las charlas en views.py"
+msgstr ""
+"Ahora nosotros finalmente agregamos la vista por defecto para las charlas en"
+" views.py"
 
 #: ../views_2.rst:122
 msgid ""
 "The DefaultView base class in plone.dexterity only exists for Dextertity-"
 "Objects and has some very useful available to the template:"
-msgstr "La clase base DefaultView en el paquete plone.dexterity solamente existe para los Objectos Dextertity y tiene algo de gran utilidad a disposición de la plantilla:"
+msgstr ""
+"La clase base DefaultView en el paquete plone.dexterity solamente existe "
+"para los Objetos Dextertity y tiene algo de gran utilidad a disposición de "
+"la plantilla:"
 
 #: ../views_2.rst:124
 msgid ""
 "view.w is a dictionary of all the display widgets, keyed by field names. "
 "This includes widgets from alternative fieldsets."
-msgstr "view.w es un diccionario de todos los widgets de pantalla, con clave de nombres de campos. Esto incluye widgets de conjunto de campos alternativos."
+msgstr ""
+"view.w es un diccionario de todos los widgets de pantalla, con clave de "
+"nombres de campos. Esto incluye widgets de conjunto de campos alternativos."
 
 #: ../views_2.rst:125
 msgid ""
 "view.widgets contains a list of widgets in schema order for the default "
 "fieldset."
-msgstr "view.widgets contiene una lista de widgets en esquema de ordenar para el conjunto de campos predeterminado."
+msgstr ""
+"view.widgets contiene una lista de widgets en esquema de ordenar para el "
+"conjunto de campos predeterminado."
 
 #: ../views_2.rst:126
 msgid "view.groups contains a list of fieldsets in fieldset order."
-msgstr "view.groups contiene una lista de conjunto de campos con el fin de ordenar conjunto de campo."
+msgstr ""
+"view.groups contiene una lista de conjunto de campos con el fin de ordenar "
+"conjunto de campo."
 
 #: ../views_2.rst:127
 msgid "view.fieldsets contains a dict mapping fieldset name to fieldset"
-msgstr "view.fieldsets contiene un nombre de conjunto de campo mapeado un diccionario a conjunto de campo"
+msgstr ""
+"view.fieldsets contiene un nombre de conjunto de campo mapeado un "
+"diccionario a conjunto de campo"
 
 #: ../views_2.rst:128
 msgid ""
 "On a fieldset (group), you can access a widgets list to get widgets in that "
 "fieldset"
-msgstr "En un conjunto de campos (grupo), puede acceder a una lista de widgets para obtener los widgets en ese conjunto de campo"
+msgstr ""
+"En un conjunto de campos (grupo), puede acceder a una lista de widgets para "
+"obtener los widgets en ese conjunto de campo"
 
 #: ../views_2.rst:132
 msgid ""
 "``plone.dexterity.browser.view.DefaultView`` has the same features as the "
 "grok-equivalent ``plone.directives.dexterity.DisplayForm``."
-msgstr "La vista ``plone.dexterity.browser.view.DefaultView`` tiene las mismas características que el equivalente Grok ``plone.directives.dexterity.DisplayForm``."
+msgstr ""
+"La vista ``plone.dexterity.browser.view.DefaultView`` tiene las mismas "
+"características que el equivalente Grok "
+"``plone.directives.dexterity.DisplayForm``."
 
 #: ../views_2.rst:134
 msgid ""
 "The template ``templates/talkview.pt`` uses the pattern "
 "``view/w/<fieldname>/render`` to render some widgets."
-msgstr "La plantilla ``templates/talkview.pt`` usa el patrón ``view/w/<fieldname>/render`` para hacer algunos widgets."
+msgstr ""
+"La plantilla ``templates/talkview.pt`` usa el patrón "
+"``view/w/<fieldname>/render`` para hacer algunos widgets."
 
 #: ../views_2.rst:157
 msgid ""
 "After a restart, we can test our view by going to a talk and add /talkview "
 "to the url."
-msgstr "Después de un reinicio, podemos probar nuestra vista, yendo a un tipo de contenido charla agregada y agrégale a la dirección URL /talkview."
+msgstr ""
+"Después de un reinicio, podemos probar nuestra vista, yendo a un tipo de "
+"contenido charla agregada y agrégale a la dirección URL /talkview."
 
 #: ../views_2.rst:159
 msgid ""
 "We should tell Plone, that the talkview should be used as the default view "
 "for talks instead of the built-in view."
-msgstr "Debemos decirle a Plone, que la vista talkview debe ser utilizado como la vista predeterminada para las charlas en lugar de la vista incorporada."
+msgstr ""
+"Debemos decirle a Plone, que la vista talkview debe ser utilizado como la "
+"vista predeterminada para las charlas en lugar de la vista incorporada."
 
 #: ../views_2.rst:161
 msgid ""
 "This is a configuration that you can change during runtime and is stored in "
 "the database, as such it is also managed by GenericSetup profiles."
-msgstr "Esta es una configuración que puede cambiar en tiempo de ejecución y se almacena en la base de datos, como tal, también es gestionado por perfiles GenericSetup."
+msgstr ""
+"Esta es una configuración que puede cambiar en tiempo de ejecución y se "
+"almacena en la base de datos, como tal, también es gestionado por perfiles "
+"GenericSetup."
 
 #: ../views_2.rst:165
 msgid ""
@@ -188,7 +243,14 @@ msgid ""
 "(*talk*). Now add ``talkview`` to the list *Available view methods*. Now the"
 " new view is available in the menu *Display*. To make it the default view "
 "enter it in ``Default view method``."
-msgstr "Para cambiarlo a través de la Web valla a la ZMI (http://localhost:8080/Plone/manage), luego vaya a la herramienta ``portal_types`` y seleccione el tipo para el cual el nuevo tipo de contenido debe ser seleccionable (*talk*). Ahora agregue ``talkview`` a la lista *Available view methods*. Ahora la nueva vista está disponible en el menú *Mostrar*. Para que sea la vista predeterminada ingrese esta vista en la sección ``Default view method``."
+msgstr ""
+"Para cambiarlo a través de la Web valla a la ZMI "
+"(http://localhost:8080/Plone/manage), luego vaya a la herramienta "
+"``portal_types`` y seleccione el tipo para el cual el nuevo tipo de "
+"contenido debe ser seleccionable (*talk*). Ahora agregue ``talkview`` a la "
+"lista *Available view methods*. Ahora la nueva vista está disponible en el "
+"menú *Mostrar*. Para que sea la vista predeterminada ingrese esta vista en "
+"la sección ``Default view method``."
 
 #: ../views_2.rst:167
 msgid "open ``profiles/default/types/talk.xml``:"
@@ -198,17 +260,22 @@ msgstr "Abra el archivo ``profiles/default/types/talk.xml``:"
 msgid ""
 "We will have to either reinstall our addon or run the generic-setup step "
 "``typeinfo`` so Plone learns about the change."
-msgstr "Vamos a tener que reinstalar nuestro complemento o ejecutar el paso GenericSetup llamado ``typeinfo`` entonces Plone aprende sobre el cambio."
+msgstr ""
+"Vamos a tener que reinstalar nuestro complemento o ejecutar el paso "
+"GenericSetup llamado ``typeinfo`` entonces Plone aprende sobre el cambio."
 
 #: ../views_2.rst:183
 msgid ""
 "We could also tell plone about this in the ZMI: "
 "http://localhost:8080/Plone/portal_types/talk/manage_propertiesForm"
-msgstr "También podríamos decirle a Plone sobre esto en el ZMI: http://localhost:8080/Plone/portal_types/talk/manage_propertiesForm"
+msgstr ""
+"También podríamos decirle a Plone sobre esto en el ZMI: "
+"http://localhost:8080/Plone/portal_types/talk/manage_propertiesForm"
 
 #: ../views_2.rst:185
 msgid "Let's improve the talkview to show all the info we want."
-msgstr "Mejoremos la vista talkview para mostrar toda la información que queremos."
+msgstr ""
+"Mejoremos la vista talkview para mostrar toda la información que queremos."
 
 #: ../views_2.rst:187
 msgid "``templates/talkview.pt``:"
@@ -222,7 +289,10 @@ msgstr "Ejercicio"
 msgid ""
 "Add the new field \"room\" to the Talk type (TTW) and display it below "
 "Audience in the browser view, it should contain the following data:"
-msgstr "Agregar el nuevo campo \"room\" con el tipo de contenido Talk (a través de la Web) y mostrarlo debajo del campo Audience en la browser view, debe contener los siguientes datos:"
+msgstr ""
+"Agregar el nuevo campo \"room\" con el tipo de contenido Talk (a través de "
+"la Web) y mostrarlo debajo del campo Audience en la browser view, debe "
+"contener los siguientes datos:"
 
 #: ../views_2.rst:238
 msgid "Title: Room"
@@ -240,12 +310,14 @@ msgstr "Solución"
 msgid ""
 "Go to http://localhost:8080/Plone/dexterity-types/talk/@@fields and add the "
 "new fields"
-msgstr "Valla a la dirección URL http://localhost:8080/Plone/dexterity-types/talk/@@fields y agregue los nuevos campos"
+msgstr ""
+"Valla a la dirección URL http://localhost:8080/Plone/dexterity-"
+"types/talk/@@fields y agregue los nuevos campos"
 
 #: ../views_2.rst:245
 msgid "Add the new HTML below the audience part:"
 msgstr "Agregar el nuevo HTML siguiente en la parte de audience:"
 
 #: ../views_2.rst:258
-msgid "http://docs.plone.org/develop/plone/views/browserviews.html"
-msgstr "http://docs.plone.org/develop/plone/views/browserviews.html"
+msgid "http://docs.plone.org/4/en/develop/plone/views/browserviews.html"
+msgstr "http://docs.plone.org/4/en/develop/plone/views/browserviews.html"

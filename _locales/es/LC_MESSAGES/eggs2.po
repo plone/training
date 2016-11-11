@@ -3,81 +3,92 @@
 # This file is distributed under the same license as the Mastering Plone package.
 # 
 # Translators:
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2016
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2014-11-05 12:04+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../eggs2.rst:2
 msgid "Creating reusable packages with eggs"
-msgstr ""
+msgstr "Creando paquetes reusables con Eggs"
 
 #: ../eggs2.rst:4
 msgid "We already created an egg much earlier."
-msgstr ""
+msgstr "Nosotros ya hemos creado un paquete Egg anteriormente."
 
 #: ../eggs2.rst:6
 msgid ""
 "Now we are going to create a feature that is completely independent of our "
 "ploneconf site and can be reused in other packages."
 msgstr ""
+"Ahora vamos a crear una función que es totalmente independiente de nuestro "
+"sitio ploneconf y puede ser reutilizado en otros paquetes."
 
 #: ../eggs2.rst:8
 msgid ""
 "To make the distinction clear, this is not a package from the namespace "
 ":samp:`ploneconf` but from :samp:`starzel`."
 msgstr ""
+"Para hacer la distinción clara, esto no es un paquete de los nombres "
+":samp:`ploneconf` pero desde :samp:`starzel`."
 
 #: ../eggs2.rst:10
 msgid "We are going to add a voting behavior."
-msgstr ""
+msgstr "Vamos a agregar el comportamiento voting."
 
 #: ../eggs2.rst:12
 msgid "For this we need:"
-msgstr ""
+msgstr "Para esto nosotros necesitamos:"
 
 #: ../eggs2.rst:14
 msgid "A behavior that stores it's data in annotations"
-msgstr ""
+msgstr "Un comportamiento que almacene esa data en anotaciones."
 
 #: ../eggs2.rst:15
 msgid "A viewlet to present the votes"
-msgstr ""
+msgstr "Un viewlet para presentar los votos."
 
 #: ../eggs2.rst:16
 msgid "A bit of javascript"
-msgstr ""
+msgstr "Un poco de Javascript."
 
 #: ../eggs2.rst:17
 msgid "A bit of css"
-msgstr ""
+msgstr "Un poco de CSS."
 
 #: ../eggs2.rst:18
 msgid ""
 "Some helper views so that the Javascript code can communicate with Plone"
 msgstr ""
+"Algunos helper views para que el código Javascript puede comunicarse con "
+"Plone."
 
 #: ../eggs2.rst:20
 msgid ""
 "We move to the :file:`src` directory and call a script called "
 ":file:`zopeskel` from our projects bin-directory."
 msgstr ""
+"Nos ubicamos dentro del directorio :file:`src` y ejecutamos el script "
+"llamado :file:`zopeskel` desde nuestro directorio bin del proyecto."
 
 #: ../eggs2.rst:28
 msgid ""
 "This returns a list of available templates we might use. We choose dexerity "
 "since it is pretty small but already has some of the right dependencies we "
 "need."
-msgstr "Esto devuelve una lista de plantillas disponibles que podríamos utilizar. Elegimos dexerity ya que es bastante pequeña, pero ya cuenta con algunas de las dependencias adecuadas que necesitamos."
+msgstr ""
+"Esto devuelve una lista de plantillas disponibles que podríamos utilizar. "
+"Elegimos Dexerity ya que es bastante pequeña, pero ya cuenta con algunas de "
+"las dependencias adecuadas que necesitamos."
 
 #: ../eggs2.rst:34
 msgid "We answer some questions:"
@@ -85,13 +96,15 @@ msgstr "Nosotros respondemos algunas preguntas:"
 
 #: ../eggs2.rst:36
 msgid "Enter project name: ``starzel.votable_behavior``"
-msgstr ""
+msgstr "Enter project name: ``starzel.votable_behavior``"
 
 #: ../eggs2.rst:37
 msgid ""
 "Expert Mode? (What question mode would you like? (easy/expert/all)?) "
 "['easy']: ``easy``"
-msgstr "Expert Mode? (What question mode would you like? (easy/expert/all)?) ['easy']: ``easy``"
+msgstr ""
+"Expert Mode? (What question mode would you like? (easy/expert/all)?) "
+"['easy']: ``easy``"
 
 #: ../eggs2.rst:38
 msgid "Version (Version number for project) ['1.0']: ``1.0.0``"
@@ -102,22 +115,28 @@ msgid ""
 "Description (One-line description of the project) ['Example Dexterity "
 "Product']: ``Voting Behavior``"
 msgstr ""
+"Description (One-line description of the project) ['Example Dexterity "
+"Product']: ``Voting Behavior``"
 
 #: ../eggs2.rst:40
 msgid ""
 "Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: "
 "``False``"
-msgstr "Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: ``False``"
+msgstr ""
+"Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: "
+"``False``"
 
 #: ../eggs2.rst:41
 msgid ""
 "Use relations? (True/False: include support for relations?) [False]: "
 "``False``"
 msgstr ""
+"Use relations? (True/False: include support for relations?) [False]: "
+"``False``"
 
 #: ../eggs2.rst:44
 msgid "We have to modify the generated files slightly."
-msgstr ""
+msgstr "Tenemos que modificar ligeramente los archivos generados."
 
 #: ../eggs2.rst:46
 msgid ""
@@ -126,15 +145,24 @@ msgid ""
 " a lot of code into the source directory that we don't want. To the "
 ":samp:`install_requires` list, we add an entry for :samp:`plone.api`."
 msgstr ""
+"En :file:`setup.py`, eliminamos por completo las variables "
+"``setup_requires`` y ``paster_plugins``. Estos son necesarios para las "
+"características que se usan muy poco y añade una gran cantidad de código en "
+"el directorio de fuentes que no queremos. Para la lista "
+":samp:`install_requires`, añadimos una entrada para :samp:`plone.api`."
 
 #: ../eggs2.rst:48
 msgid ""
 "We just delete the file :file:`tests.py`. This is an outdated test system, "
 "we don't want you to start from there."
 msgstr ""
+"Nosotros eliminamos el archivo :file:`tests.py`. Este ofrece un sistema de "
+"pruebas descontinuado, no queremos que empieces a partir de ahí."
 
 #: ../eggs2.rst:50
 msgid ""
 "The file :file:`profiles/default/types.xml` we just delete also. We won't "
 "define new types."
 msgstr ""
+"El archivo :file:`profiles/default/types.xml` lo eliminamos también. No "
+"vamos a definir nuevos tipos de contenidos."

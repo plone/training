@@ -1,0 +1,448 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) The text and illustrations in this website are licensed by
+# the Plone Foundation under a Creative Commons Attribution 4.0
+# International license.
+# This file is distributed under the same license as the Mastering Plone
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastering Plone 1.2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../intro_advanced_2.rst:2
+msgid "Part 1 in nutshell"
+msgstr ""
+
+#: ../intro_advanced_2.rst:5
+msgid "The case study"
+msgstr ""
+
+#: ../intro_advanced_2.rst:7
+msgid ""
+"For this training we will build a website for a fictional Plone "
+"conference."
+msgstr ""
+
+#: ../intro_advanced_2.rst:9
+msgid "Main features will be:"
+msgstr ""
+
+#: ../intro_advanced_2.rst:11
+msgid "As a visitor I want to find current information on the conference"
+msgstr ""
+
+#: ../intro_advanced_2.rst:12
+msgid "As a visitor I want to register for the conference"
+msgstr ""
+
+#: ../intro_advanced_2.rst:13
+msgid "As a visitor I want to see the talks and sort them by my preferences"
+msgstr ""
+
+#: ../intro_advanced_2.rst:14
+msgid "As a speaker I want to be able to submit talks"
+msgstr ""
+
+#: ../intro_advanced_2.rst:15
+msgid "As a speaker I want to see and edit my submitted talks"
+msgstr ""
+
+#: ../intro_advanced_2.rst:16
+msgid "As a jury-member I want to vote on talks"
+msgstr ""
+
+#: ../intro_advanced_2.rst:17
+msgid "As a jury-member I want to decide, which talks to accept, and which not"
+msgstr ""
+
+#: ../intro_advanced_2.rst:18
+msgid "As an organizer I want to see a list of all proposed talks"
+msgstr ""
+
+#: ../intro_advanced_2.rst:20
+msgid ""
+"Note that all of our requirements connect roles with capabilities. This "
+"is important because we'll want to limit the capabilities to those to "
+"whom we assign particular roles."
+msgstr ""
+
+#: ../intro_advanced_2.rst:24
+msgid "The Anatomy of Plone"
+msgstr ""
+
+#: ../intro_advanced_2.rst:26
+msgid "Full chapter: :doc:`anatomy`"
+msgstr ""
+
+#: ../intro_advanced_2.rst:28
+msgid "Zope2 is a web application framework that Plone runs on top of."
+msgstr ""
+
+#: ../intro_advanced_2.rst:29
+msgid "ZODB is the Object Database used"
+msgstr ""
+
+#: ../intro_advanced_2.rst:30
+msgid ""
+"`CMF (Content Management Framework) "
+"<http://old.zope.org/Products/CMF/index.html/>`_ is an add-on for Zope to"
+" build Content Management Systems (like Plone)."
+msgstr ""
+
+#: ../intro_advanced_2.rst:31
+msgid "Zope Toolkit / Zope3 was intended as a ground-up rewrite of Zope."
+msgstr ""
+
+#: ../intro_advanced_2.rst:32
+msgid ""
+"Plone uses parts of it provided by the `Zope Toolkit (ZTK) "
+"<http://docs.zope.org/zopetoolkit/>`_."
+msgstr ""
+
+#: ../intro_advanced_2.rst:33
+msgid ""
+"Zope Component Architecture (ZCA) is a system which allows for component "
+"pluggability and complex dispatching. I is based on objects which "
+"implement an interface (a description of a functionality). Pyramid, and "
+"independent Python web application server, uses the ZCA “under the hood” "
+"to perform view dispatching and other application configuration tasks."
+msgstr ""
+
+#: ../intro_advanced_2.rst:34
+msgid "Acquisition"
+msgstr ""
+
+#: ../intro_advanced_2.rst:38
+msgid "The Features of Plone"
+msgstr ""
+
+#: ../intro_advanced_2.rst:40
+msgid "Full chapter: :doc:`features`"
+msgstr ""
+
+#: ../intro_advanced_2.rst:43
+msgid "Starting/Stopping"
+msgstr ""
+
+#: ../intro_advanced_2.rst:45
+msgid "We control Plone with a small script called \"instance\"::"
+msgstr ""
+
+#: ../intro_advanced_2.rst:54
+msgid ""
+"Go to http://localhost:8080/Plone to see the site that comes with the "
+"provided database."
+msgstr ""
+
+#: ../intro_advanced_2.rst:58
+msgid "Users"
+msgstr ""
+
+#: ../intro_advanced_2.rst:60
+msgid "Let's create a Plone user which we use for most of the training:"
+msgstr ""
+
+#: ../intro_advanced_2.rst:62
+msgid ":guilabel:`admin` > :guilabel:`Site setup` > :guilabel:`Users and Groups`"
+msgstr ""
+
+#: ../intro_advanced_2.rst:63
+msgid ""
+"Add a user ``training`` with password: ``training``. Add him to the group"
+" Administrators"
+msgstr ""
+
+#: ../intro_advanced_2.rst:65
+msgid "We already have the following users in the provided Database:"
+msgstr ""
+
+#: ../intro_advanced_2.rst:67
+msgid "\"editor:editor\" (groups: None)"
+msgstr ""
+
+#: ../intro_advanced_2.rst:68
+msgid "\"jurymember:jurymember\" (groups: None)"
+msgstr ""
+
+#: ../intro_advanced_2.rst:69
+msgid "\"testuser:testuser\" (groups: None)"
+msgstr ""
+
+#: ../intro_advanced_2.rst:71
+msgid ""
+"The mailserver is already configured. Please do not abuse the account. "
+"We'll disable it after the training."
+msgstr ""
+
+#: ../intro_advanced_2.rst:75
+msgid "The Plone UI"
+msgstr ""
+
+#: ../intro_advanced_2.rst:79
+msgid "Content-Types"
+msgstr ""
+
+#: ../intro_advanced_2.rst:81
+msgid "These are the default content-types:"
+msgstr ""
+
+#: ../intro_advanced_2.rst:83
+msgid "Document"
+msgstr ""
+
+#: ../intro_advanced_2.rst:84
+msgid "News Item"
+msgstr ""
+
+#: ../intro_advanced_2.rst:85
+msgid "Event"
+msgstr ""
+
+#: ../intro_advanced_2.rst:86
+msgid "File"
+msgstr ""
+
+#: ../intro_advanced_2.rst:87
+msgid "Image"
+msgstr ""
+
+#: ../intro_advanced_2.rst:88
+msgid "Link"
+msgstr ""
+
+#: ../intro_advanced_2.rst:89
+msgid "Folder"
+msgstr ""
+
+#: ../intro_advanced_2.rst:90
+msgid "Collection"
+msgstr ""
+
+#: ../intro_advanced_2.rst:94
+msgid ""
+"Please keep in mind that we use `plone.app.contenttypes "
+"<http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html>`_"
+" for the training. Therefore the types are based on Dexterity and "
+"slightly different from the types that you will find in a default-Plone "
+"4.3.x-site."
+msgstr ""
+
+#: ../intro_advanced_2.rst:96
+msgid "We created a site-structure:"
+msgstr ""
+
+#: ../intro_advanced_2.rst:98
+msgid "Add folder \"The Event\" and in that ..."
+msgstr ""
+
+#: ../intro_advanced_2.rst:100
+msgid "Folder \"Talks\""
+msgstr ""
+
+#: ../intro_advanced_2.rst:101
+msgid "Folder \"Training\""
+msgstr ""
+
+#: ../intro_advanced_2.rst:102
+msgid "Folder \"Sprint\""
+msgstr ""
+
+#: ../intro_advanced_2.rst:104
+msgid "In /news: Added a News Item \"Conference Website online!\" with some image"
+msgstr ""
+
+#: ../intro_advanced_2.rst:105
+msgid "In /news: Added a News Item \"Submit your talks!\""
+msgstr ""
+
+#: ../intro_advanced_2.rst:106
+msgid ""
+"In /events: Added an Event \"Deadline for talk-submission\" Date: "
+"10.10.2014"
+msgstr ""
+
+#: ../intro_advanced_2.rst:108
+msgid "Added a Folder \"Register\""
+msgstr ""
+
+#: ../intro_advanced_2.rst:109
+msgid "Deleted the Folder \"Members\" (Users)"
+msgstr ""
+
+#: ../intro_advanced_2.rst:110
+msgid "Added a Folder \"Intranet\""
+msgstr ""
+
+#: ../intro_advanced_2.rst:113
+msgid "Some core-features"
+msgstr ""
+
+#: ../intro_advanced_2.rst:115
+msgid "folder_contents"
+msgstr ""
+
+#: ../intro_advanced_2.rst:116
+msgid "default_pages"
+msgstr ""
+
+#: ../intro_advanced_2.rst:117
+msgid "Collections"
+msgstr ""
+
+#: ../intro_advanced_2.rst:118
+msgid "Content Rules"
+msgstr ""
+
+#: ../intro_advanced_2.rst:119
+msgid "Versioning"
+msgstr ""
+
+#: ../intro_advanced_2.rst:120
+msgid "Members, roles and groups"
+msgstr ""
+
+#: ../intro_advanced_2.rst:121
+msgid "Workflows"
+msgstr ""
+
+#: ../intro_advanced_2.rst:122
+msgid "Working copy"
+msgstr ""
+
+#: ../intro_advanced_2.rst:123
+msgid "Placeful workflows"
+msgstr ""
+
+#: ../intro_advanced_2.rst:127
+msgid "Configuring and Customizing Plone"
+msgstr ""
+
+#: ../intro_advanced_2.rst:129
+msgid "Full chapter: :doc:`configuring_customizing`"
+msgstr ""
+
+#: ../intro_advanced_2.rst:131
+msgid "The Control Panel  http://localhost:8080/Plone/@@overview-controlpanel"
+msgstr ""
+
+#: ../intro_advanced_2.rst:132
+msgid "Portlets http://localhost:8080/Plone/@@manage-portlets"
+msgstr ""
+
+#: ../intro_advanced_2.rst:133
+msgid "Viewlets http://localhost:8080/Plone/@@manage-viewlets"
+msgstr ""
+
+#: ../intro_advanced_2.rst:134
+msgid "ZMI http://localhost:8080/Plone/manage"
+msgstr ""
+
+#: ../intro_advanced_2.rst:135
+msgid "portal_actions (We added a link to ``string:${portal_url}/imprint``)"
+msgstr ""
+
+#: ../intro_advanced_2.rst:136
+msgid "portal_skins (we changed some css and changed the logo)"
+msgstr ""
+
+#: ../intro_advanced_2.rst:137
+msgid "portal_view_customizations (we customized the footer)"
+msgstr ""
+
+#: ../intro_advanced_2.rst:141
+msgid "Extending Plone"
+msgstr ""
+
+#: ../intro_advanced_2.rst:143
+msgid "Full chapter: :doc:`extending`"
+msgstr ""
+
+#: ../intro_advanced_2.rst:145
+msgid "skin_folders"
+msgstr ""
+
+#: ../intro_advanced_2.rst:146
+msgid "GenericSetup"
+msgstr ""
+
+#: ../intro_advanced_2.rst:147
+msgid "Component Architecture (zcml)"
+msgstr ""
+
+#: ../intro_advanced_2.rst:150
+msgid "Extend Plone with Add-On Packages"
+msgstr ""
+
+#: ../intro_advanced_2.rst:152
+msgid "Full chapter: :doc:`addons`"
+msgstr ""
+
+#: ../intro_advanced_2.rst:154
+msgid "Finding addons"
+msgstr ""
+
+#: ../intro_advanced_2.rst:155
+msgid "noteable add-ons"
+msgstr ""
+
+#: ../intro_advanced_2.rst:156
+msgid "Installing Add-ons"
+msgstr ""
+
+#: ../intro_advanced_2.rst:159
+msgid "Buildout"
+msgstr ""
+
+#: ../intro_advanced_2.rst:161
+msgid "Full chapter: :doc:`buildout_1`"
+msgstr ""
+
+#: ../intro_advanced_2.rst:163
+msgid "We discussed the buildout used for this training"
+msgstr ""
+
+#: ../intro_advanced_2.rst:165
+msgid ""
+"Since Plone 4.3.4 was released today you could update the buildout to use"
+" this version."
+msgstr ""
+
+#: ../intro_advanced_2.rst:167
+msgid "Change ``buildout.cfg`` to extend from the ``versions.cfg`` of Plone 4.3.4"
+msgstr ""
+
+#: ../intro_advanced_2.rst:178
+msgid "Creating addons to customize Plone"
+msgstr ""
+
+#: ../intro_advanced_2.rst:180
+msgid "Full chapter: :doc:`eggs1`"
+msgstr ""
+
+#: ../intro_advanced_2.rst:182
+msgid "We created a egg using ZopeSkel (not mr.bob)."
+msgstr ""
+
+#: ../intro_advanced_2.rst:183
+msgid "The egg is called ``ploneconf.site``"
+msgstr ""
+
+#: ../intro_advanced_2.rst:184
+msgid "It will contain most of the code we write"
+msgstr ""
+
+#: ../intro_advanced_2.rst:185
+msgid "Does everybody have the code from ``ploneconf.site_sneak`` already?"
+msgstr ""
+
