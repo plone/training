@@ -15,7 +15,7 @@ So, we will write our browser view as a grok view. From the component architectu
 
 .. seealso::
 
-    http://docs.plone.org/develop/addons/five-grok/index.html
+    http://docs.plone.org/4/en/appendices/five-grok/index.html
 
 Grok is not part of plone. We have to add it as a dependency to our egg.
 

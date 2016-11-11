@@ -226,7 +226,7 @@ Alternatively you can select which upgrade-steps to run like this:
 
 .. seealso::
 
-    http://docs.plone.org/develop/addons/components/genericsetup.html#id1
+    http://docs.plone.org/4/en/develop/addons/components/genericsetup.html#id1
 
 
 .. note::
@@ -280,7 +280,7 @@ Note the relative python-path ``..interfaces.IPloneconfSiteLayer``. It is equiva
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/views/layers.html
+    http://docs.plone.org/4/en/develop/plone/views/layers.html
 
 
 Exercise
@@ -330,14 +330,14 @@ The ``column ..`` entry allows us to display these values of these indexes in th
 
     Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the addon purged the indexes! See http://www.starzel.de/blog/a-reminder-about-catalog-indexes.
 
-    To run additional custom code on (re-)installing an addon you should use a `setuphandler.py <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_.
+    To run additional custom code on (re-)installing an addon you should use a `setuphandler.py <http://docs.plone.org/4/en/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_.
 
 * Reinstall the addon
 * Go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes to inspect populate and inspect the new indexes
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html
+    http://docs.plone.org/4/en/develop/plone/searching_and_indexing/indexing.html
 
 
 Query for custom indexes
@@ -424,7 +424,7 @@ Add a new file ``profiles/default/registry.xml``
 
 .. seealso::
 
-  http://docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed
+  http://docs.plone.org/4/en/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed
 
 
 Add more features through generic-setup

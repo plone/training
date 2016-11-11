@@ -85,8 +85,8 @@ First we create the schema for the new type. Instead of xml we use python now. C
 
 Some things are notable here:
 
-* The fields in the schema are mostly from ``zope.schema``. A reference of available fields is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html
-* In ``directives.widget(level=RadioFieldWidget)`` we change the default widget for a Choice-field from a dropdown to radioboxes. A incomplete reference of available widgets is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html
+* The fields in the schema are mostly from ``zope.schema``. A reference of available fields is at http://docs.plone.org/4/en/external/plone.app.dexterity/docs/reference/fields.html
+* In ``directives.widget(level=RadioFieldWidget)`` we change the default widget for a Choice-field from a dropdown to radioboxes. A incomplete reference of available widgets is at http://docs.plone.org/4/en/external/plone.app.dexterity/docs/reference/widgets.html
 * ``LevelVocabulary`` is used to create the options used in the field ``level``. This way we could easily translate the displayed value.
 * ``fieldset('Images', fields=['logo', 'advertisment'])`` moves the two image-fields to another tab.
 * ``directives.read_permission(...)`` sets the read- and write-permission for the field ``note`` to users who can add new members. Usually this permission is only granted to Site-Administrators and Managers. We use it to store information that should not be publicly visible. Please note that ``obj.note`` is still accessible in templates and python. Only using the widget (like we do in the view later) checks for the permission.
@@ -309,7 +309,7 @@ Add the viewlet-class in ``browser/viewlets.py``
 
 
 * ``_sponsors`` returns a list of dictionaries containing all necessary info about sponsors.
-* ``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. We could also cache until one of the sponsors is modified:
+* ``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/4/en/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. We could also cache until one of the sponsors is modified:
 
   .. code-block:: python
 
@@ -331,7 +331,7 @@ Add the viewlet-class in ``browser/viewlets.py``
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/images/content.html#image-scales-plone-4
+    http://docs.plone.org/4/en/develop/plone/images/content.html#for-plone-4
 
 Add the template ``browser/templates/sponsors_viewlet.pt``
 

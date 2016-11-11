@@ -91,7 +91,7 @@ These are the default content-types:
 
 .. note::
 
-    Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default-Plone 4.3.x-site.
+    Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default-Plone 4.3.x-site.
 
 We created a site-structure:
 

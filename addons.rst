@@ -26,7 +26,7 @@ How to find add-ons
 Some notable add-ons
 ---------------------
 
-`Products.PloneFormGen <http://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
+`Products.PloneFormGen <http://docs.plone.org/4/en/develop/plone/forms/ploneformgen.html>`_
   A form generator
 
 `collective.plonetruegallery <https://pypi.python.org/pypi/collective.plonetruegallery>`_

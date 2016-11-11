@@ -141,7 +141,7 @@ You can now open the output from ``_build/html/index.html``. To build the presen
 Things to do before a training (as a trainer)
 +++++++++++++++++++++++++++++++++++++++++++++
 
-- Prepare a mailserver for the user registration mail (http://plone-training.readthedocs.org/en/latest/features.html#configure-a-mailserver)
+- Prepare a mailserver for the user registration mail (http://plone-training.readthedocs.io/en/legacy/features.html#configure-a-mailserver)
 - If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not at the buildout path /vagrant/buildout/)
 
 
@@ -156,7 +156,7 @@ License
 
 The Mastering Plone Training is licensed under a `Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_.
 
-Make sure you have filled out a `Contributor Agreement <http://plone.org/foundation/contributors-agreement>`_.
+Make sure you have filled out a `Contributor Agreement <http://old.plone.org/foundation/contributors-agreement>`_.
 
 If you haven't filled out a Contributor Agreement, you can still contribute. Contact the Documentation team, for instance via the `mailinglist <http://sourceforge.net/p/plone/mailman/plone-docs/>`_ or directly send a mail to plone-docs@lists.sourceforge.net
 Basically, all we need is your written confirmation that you are agreeing your contribution can be under Creative Commons. You can also add in a comment with your pull request "I, <full name>, agree to have this published under Creative Commons 4.0 International BY".

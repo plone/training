@@ -255,5 +255,5 @@ Add the new field "room" to the Talk type (TTW) and display it below Audience in
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/views/browserviews.html
+    http://docs.plone.org/4/en/develop/plone/views/browserviews.html
 

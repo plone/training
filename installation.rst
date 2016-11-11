@@ -38,7 +38,7 @@ Plone offers multiple options for being installed:
 3. A vagrant/virtualbox install kit (all platforms)
 4. Use your own Buildout
 
-You can download all of these at http://plone.org/products/plone/releases/4.3.4
+You can download all of these at http://old.plone.org/products/plone/releases/4.3.4
 
 
 .. only:: not presentation
@@ -51,7 +51,7 @@ You can download all of these at http://plone.org/products/plone/releases/4.3.4
 
 .. seealso::
 
-    * http://docs.plone.org/manage/installing/installation.html
+    * http://docs.plone.org/4/en/manage/installing/installation.html
 
 
 Hosting Plone
@@ -66,14 +66,14 @@ You can host Plone...
 * with one of many professional `hosting providers <http://plone.com/providers>`_
 * on a virtual private server
 * on dedicated servers
-* on `heroku <http://heroku.com>`_ you can run Plone for *free* using the `Heroku buildpack for Plone <https://github.com/niteoweb/heroku-buildpack-plone>`_
+* on `heroku <https://www.heroku.com/>`_ you can run Plone for *free* using the `Heroku buildpack for Plone <https://github.com/niteoweb/heroku-buildpack-plone>`_
 * in the cloud (e.g. using Amazon EC2 or `Codio.com <http://blog.dbain.com/2014/04/install-plone-in-under-5-minutes-on.html>`_)
 
 .. seealso::
 
-    * Plone Installation Requirements: http://docs.plone.org/manage/installing/requirements.html
+    * Plone Installation Requirements: http://docs.plone.org/4/en/manage/installing/requirements.html
     * Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-on-5-a-month
-    * Where to host Plone: http://plone.org/documentation/faq/where-can-i-host-my-plone-site
+    * Where to host Plone: http://old.plone.org/documentation/faq/where-can-i-host-my-plone-site
 
 Production Deployment
 ---------------------
@@ -90,4 +90,4 @@ The way we're setting up a Plone site during this class may be adequate for a sm
 
 And, you'll need to learn strategies for efficient backup and log file rotation.
 
-All these topics are introduced in `Guide to deploying and installing Plone in production <http://docs.plone.org/manage/deploying/index.html>`_.
+All these topics are introduced in `Guide to deploying and installing Plone in production <http://docs.plone.org/4/en/manage/deploying/index.html>`_.

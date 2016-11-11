@@ -79,7 +79,7 @@ Zope Toolkit / Zope3
 
     .. seealso::
 
-        http://plone.org/documentation/faq/zope-3-and-plone
+        http://old.plone.org/documentation/faq/zope-3-and-plone
 
 
 Zope Component Architecture (ZCA)

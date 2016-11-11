@@ -71,24 +71,24 @@ What will we not do?
 
 We will not cover the following topics:
 
-* `Archetypes <http://docs.plone.org/old-reference-manuals/archetypes/index.html>`_
-* `Portlets <http://docs.plone.org/old-reference-manuals/portlets/index.html>`_
-* `z3c.forms <http://docs.plone.org/develop/plone/forms/z3c.form.html>`_
-* `Theming <http://docs.plone.org/adapt-and-extend/theming/index.html>`_
-* `Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_
-* `i18n and locales <http://docs.plone.org/develop/plone/i18n/index.html>`_
-* `Deployment, Hosting and Caching <http://docs.plone.org/manage/deploying/index.html>`_
+* `Archetypes <http://docs.plone.org/4/en/old-reference-manuals/archetypes/index.html>`_
+* `Portlets <http://docs.plone.org/4/en/old-reference-manuals/portlets/index.html>`_
+* `z3c.forms <http://docs.plone.org/4/en/develop/plone/forms/z3c.form.html>`_
+* `Theming <http://docs.plone.org/4/en/adapt-and-extend/theming/index.html>`_
+* `Testing <http://docs.plone.org/4/en/external/plone.app.testing/docs/source/index.html>`_
+* `i18n and locales <http://docs.plone.org/4/en/develop/plone/i18n/index.html>`_
+* `Deployment, Hosting and Caching <http://docs.plone.org/4/en/manage/deploying/index.html>`_
 * :doc:`grok`
-* `References/Relations <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_
+* `References/Relations <http://docs.plone.org/4/en/external/plone.app.dexterity/docs/advanced/references.html>`_
 
 Other topics are only covered lightly:
 
-* `Zope Component Architecture <http://docs.plone.org/develop/addons/components/index.html>`_
-* `GenericSetup <http://docs.plone.org/develop/addons/components/genericsetup.html>`_
-* `ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_
-* `Security <http://docs.plone.org/develop/plone/security/index.html>`_
-* `Permissions <http://docs.plone.org/develop/plone/security/permissions.html>`_
-* `Performance and Caching <http://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_
+* `Zope Component Architecture <http://docs.plone.org/4/en/develop/addons/components/index.html>`_
+* `GenericSetup <http://docs.plone.org/4/en/develop/addons/components/genericsetup.html>`_
+* `ZODB <http://docs.plone.org/4/en/develop/plone/persistency/index.html>`_
+* `Security <http://docs.plone.org/4/en/develop/plone/security/index.html>`_
+* `Permissions <http://docs.plone.org/4/en/develop/plone/security/permissions.html>`_
+* `Performance and Caching <http://docs.plone.org/4/en/manage/deploying/testing_tuning/performance/index.html>`_
 
 
 

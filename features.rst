@@ -1,9 +1,9 @@
 The Features of Plone
 =====================
 
-In-depth user-manual: http://plone.org/documentation/manual/plone-4-user-manual
+In-depth user-manual: http://old.plone.org/documentation/manual/plone-4-user-manual
 
-See also: http://docs.plone.org/working-with-content/index.html
+See also: http://docs.plone.org/4/en/working-with-content/index.html
 
 Starting and Stopping Plone
 ---------------------------
@@ -188,7 +188,7 @@ The default content-types:
 
 .. note::
 
-    Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default-Plone 4.3.x-site.
+    Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default-Plone 4.3.x-site.
 
 
 Folders
@@ -261,7 +261,7 @@ A complete set of workflow states and transitions make up a ``workflow``. Plone 
 
     An oddity in the all of the standard Plone workflows: a content item may be viewable even if its container is not. Making a container private does **not** automatically make its contents private.
 
-Read more at: http://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
+Read more at: http://docs.plone.org/4/en/working-with-content/collaboration-and-workflow/index.html
 
 Working copy
 ------------

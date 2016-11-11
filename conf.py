@@ -311,5 +311,5 @@ epub_copyright = u'2014, Philip Bauer, Patrick Gerken'
 #epub_tocdup = True
 
 intersphinx_mapping = {
-    'plone': ('http://docs.plone.org/', None),
+    'plone': ('http://docs.plone.org/4/en/', None),
 }

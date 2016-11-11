@@ -161,7 +161,7 @@ We must add the behavior to :file:`profiles/default/types/talk.xml`:
     </object>
 
 
-.. _plone.supermodel: http://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
-.. _fieldset: http://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
-.. _IFormFieldProvider: http://docs.plone.org/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms
+.. _plone.supermodel: http://docs.plone.org/4/en/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
+.. _fieldset: http://docs.plone.org/4/en/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
+.. _IFormFieldProvider: http://docs.plone.org/4/en/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms
 .. _URI: http://docs.zope.org/zope.schema/fields.html#uri

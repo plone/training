@@ -151,7 +151,7 @@ We want a new link to legal information, called "Imprint".
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/functionality/actions.html
+    http://docs.plone.org/4/en/develop/plone/functionality/actions.html
 
 
 Global navigation
@@ -258,7 +258,7 @@ Let's change the Logo.
 
 .. seealso::
 
-   http://docs.plone.org/adapt-and-extend/change-the-logo.html
+   http://docs.plone.org/4/en/adapt-and-extend/change-the-logo.html
 
 
 portal_view_customizations
@@ -285,7 +285,7 @@ Change the footer
 
 .. seealso::
 
-   http://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html
+   http://docs.plone.org/4/en/adapt-and-extend/theming/templates_css/skin_layers.html
 
 
 CSS-Registry (portal_css)
