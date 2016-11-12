@@ -129,7 +129,7 @@ Write the upgrade-step in ``upgrades.py``
                 obj.start = obj.end = date
                 obj.timezone = "Europe/London"
 
-After we ran the upgrade-step we can now add a time to existing events. To display this we reuse a default event-summary view as documented in http://ploneappevent.readthedocs.org/en/latest/development.html#reusing-the-event-summary-view-to-list-basic-event-information
+After we ran the upgrade-step we can now add a time to existing events. To display this we reuse a default event-summary view as documented in http://ploneappevent.readthedocs.io/en/latest/development.html#reusing-the-event-summary-view-to-list-basic-event-information
 
 Edit ``browser/templates/talkview.pt``
 

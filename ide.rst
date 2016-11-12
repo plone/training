@@ -8,7 +8,7 @@ People pick editors themselves. Use whatever you are comfortable and productive 
 * `Sublime <http://www.sublimetext.com/>`_
 * `PyCharm <http://www.jetbrains.com/pycharm/>`_
 * `Wing IDE <http://wingide.com/>`_
-* `PyDev <http://pydev.org/>`_ for `Eclipse <http://eclipse.org/>`_
+* `PyDev <http://www.pydev.org/>`_ for `Eclipse <https://eclipse.org/>`_
 * `Aptana Studio <http://www.aptana.com/products/studio3.html>`_
 * vim
 * emacs

@@ -43,8 +43,8 @@ Some technologies and tools we use during the training:
 * For the beginning training:
 
     * `Virtualbox <https://www.virtualbox.org/>`_
-    * `Vagrant <http://www.vagrantup.com/>`_
-    * `Ubuntu linux <http://www.ubuntu.com/>`_
+    * `Vagrant <https://www.vagrantup.com/>`_
+    * `Ubuntu linux <https://www.ubuntu.com/>`_
     * Through-the-web (TTW)
     * `Buildout <http://www.buildout.org/en/latest/>`_
     * A little XML
@@ -52,13 +52,13 @@ Some technologies and tools we use during the training:
 
 * For the advanced chapters:
 
-    * `Git <http://git-scm.com/>`_
-    * `Github <http://github.com>`_
+    * `Git <https://git-scm.com/>`_
+    * `Github <https://github.com>`_
     * `Try Git (Nice introduction to git and github) <https://try.github.io/>`_
     * TAL
     * METAL
     * ZCML
-    * `Python <http://python.org>`_
+    * `Python <https://www.python.org>`_
     * Dexterity
     * Viewlets
     * `JQuery <http://jquery.com/>`_
@@ -96,12 +96,12 @@ At the end of the second two days, you won't be a complete professional Plone-pr
 
 If you want to become a professional Plone developer or a highly sophisticated Plone integrator you should definitely read `Martin Aspeli's book <http://www.packtpub.com/professional-plone-4-development/book>`_ and then re-read it again while actually doing a complex project.
 
-Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_.
+Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.io/en/latest/>`_.
 
 Documentation
 --------------
 
-Follow the training at http://plone-training.readthedocs.org/
+Follow the training at http://plone-training.readthedocs.io/en/legacy/
 
 .. note::
 

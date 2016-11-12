@@ -20,7 +20,7 @@ How to find add-ons
 
 .. seealso::
 
-   * A talk on finding and managing ad-dons: http://www.youtube.com/watch?v=Sc6NkqaSjqw
+   * A talk on finding and managing ad-dons: https://www.youtube.com/watch?v=Sc6NkqaSjqw
 
 
 Some notable add-ons
@@ -35,7 +35,7 @@ Some notable add-ons
 `collective.cover <https://github.com/collective/collective.cover/blob/master/docs/end-user.rst>`_
   UI to create complex landing-pages
 
-`collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_
+`collective.geo <http://collectivegeo.readthedocs.io/en/latest/>`_
   Flexible bundle of add-ons to georeference content and display in maps
 
 `collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_
@@ -56,10 +56,10 @@ Some notable add-ons
 `collective.behavior.banner <https://github.com/collective/collective.behavior.banner>`_
   Add decorative banners and sliders
 
-`plone.app.multilingual <http://pypi.python.org/pypi/plone.app.multilingual>`_
+`plone.app.multilingual <https://pypi.python.org/pypi/plone.app.multilingual>`_
   Allows multilingual sites by translating content
 
-`Plomino <http://www.plomino.net/>`_
+`Plomino <http://plomino.net/>`_
   Powerful and flexible web-based application builder for Plone
 
 
@@ -179,7 +179,7 @@ Plone can run the same site in many different languages.
 
 We're not doing this with the conference-site since the *lingua franca* of the Plone-community is English.
 
-We would use http://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes).
+We would use https://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes).
 
 .. note::
 

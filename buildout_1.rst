@@ -40,7 +40,7 @@ One example is the section
     recipe = plone.recipe.zope2instance
     user = admin:admin
 
-This uses the python-package `plone.recipe.zope2instance <http://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the used recipe.
+This uses the python-package `plone.recipe.zope2instance <https://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the used recipe.
 
 .. seealso::
 

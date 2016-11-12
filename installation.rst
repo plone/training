@@ -38,7 +38,7 @@ Plone offers multiple options for being installed:
 3. A vagrant/virtualbox install kit (all platforms)
 4. Use your own Buildout
 
-You can download all of these at http://old.plone.org/products/plone/releases/4.3.4
+You can download all of these at https://old.plone.org/products/plone/releases/4.3.4
 
 
 .. only:: not presentation
@@ -73,7 +73,7 @@ You can host Plone...
 
     * Plone Installation Requirements: http://docs.plone.org/4/en/manage/installing/requirements.html
     * Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-on-5-a-month
-    * Where to host Plone: http://old.plone.org/documentation/faq/where-can-i-host-my-plone-site
+    * Where to host Plone: https://old.plone.org/documentation/faq/where-can-i-host-my-plone-site
 
 Production Deployment
 ---------------------

@@ -1,7 +1,7 @@
 The Features of Plone
 =====================
 
-In-depth user-manual: http://old.plone.org/documentation/manual/plone-4-user-manual
+In-depth user-manual: https://old.plone.org/documentation/manual/plone-4-user-manual
 
 See also: http://docs.plone.org/4/en/working-with-content/index.html
 

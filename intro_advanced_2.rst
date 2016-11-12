@@ -29,7 +29,7 @@ Full chapter: :doc:`anatomy`
 * ZODB is the Object Database used
 * `CMF (Content Management Framework) <http://old.zope.org/Products/CMF/index.html/>`_ is an add-on for Zope to build Content Management Systems (like Plone).
 * Zope Toolkit / Zope3 was intended as a ground-up rewrite of Zope.
-* Plone uses parts of it provided by the `Zope Toolkit (ZTK) <http://docs.zope.org/zopetoolkit/>`_.
+* Plone uses parts of it provided by the `Zope Toolkit (ZTK) <https://zopetoolkit.readthedocs.io/en/latest/>`_.
 * Zope Component Architecture (ZCA) is a system which allows for component pluggability and complex dispatching. I is based on objects which implement an interface (a description of a functionality). Pyramid, and independent Python web application server, uses the ZCA “under the hood” to perform view dispatching and other application configuration tasks.
 * Acquisition
 

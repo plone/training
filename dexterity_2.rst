@@ -328,7 +328,7 @@ The ``column ..`` entry allows us to display these values of these indexes in th
 
 .. note::
 
-    Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the addon purged the indexes! See http://www.starzel.de/blog/a-reminder-about-catalog-indexes.
+    Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the addon purged the indexes! See https://www.starzel.de/blog/a-reminder-about-catalog-indexes.
 
     To run additional custom code on (re-)installing an addon you should use a `setuphandler.py <http://docs.plone.org/4/en/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_.
 

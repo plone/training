@@ -37,7 +37,7 @@ We introduce each other
 
 * Patrick Gerken, do3cc, patrick@starzel.de
 * Philip Bauer, pbauer, bauer@starzel.de
-* Starzel (http://www.starzel.de)
+* Starzel (https://www.starzel.de)
 * Munich User Group
 
 Who are you?
@@ -154,7 +154,7 @@ Plone 4.2 requires a working Python 2.7 and several other system-tools that not 
 
 MacOS 10.8 and Ubuntu 12.4 come with a working default Python 2.7 built in. These are the lucky ones. But to run a older Plone-version you need Python 2.4 and that's not always easy to install.
 
-To find out how to install Plone on your machine read http://old.plone.org/documentation/manual/installing-plone
+To find out how to install Plone on your machine read https://old.plone.org/documentation/manual/installing-plone
 
 Everyone usually uses his primary system to develop Plone. I use MacOS and therefore I use the python-buildout (https://github.com/collective/buildout.python) to compile all neccessary version of python and homebrew (http://mxcl.github.com/homebrew/) for some linux-tools. Patrick uses ubuntu. Our friend Stefan always uses the unified installer's python. Alan Runyan (one of Plone's founders) uses Windows and i have no idea how he can live with that.
 
@@ -620,7 +620,7 @@ Lets try it!...
 Introduction (Patrick)
 ----------------------
 
- * 1684 Erweiterungen auf http://old.plone.org/products
+ * 1684 Erweiterungen auf https://old.plone.org/products
  * http://pypi.python.org/
  * Beispiele:
 
@@ -670,7 +670,7 @@ Internationalisation with LinguaPlone (Philip)
 * Englische Startseite anlegen
 * Infos zum übersetzen (folder übersetzen, language_independent)
 
-   http://old.plone.org/products/linguaplone/issues/250
+   https://old.plone.org/products/linguaplone/issues/250
    http://localhost:8080/Plone/@@language-setup-folders
    Seit Plone4 ist der Standardweg von Übersetzungen, das jede Sprache
    einen eigenen Folder bekommt. Wenn Inhalte übersetzt werden, wird
@@ -1809,7 +1809,7 @@ For historical reasons only the same attributes of brains and objects are writte
 
 But brain.title returns the name of the catalog :-(
 
-The documentation is extensive: http://collective-docs.readthedocs.org/en/latest/searching_and_indexing/index.html
+The documentation is extensive: http://collective-docs.readthedocs.io/en/latest/searching_and_indexing/index.html
 
 Look there to find out how to query for date, language. interface
 
@@ -1962,7 +1962,7 @@ Here we use one of many nice feature build into Plone. The class="listing" gives
 
 But we could improve that table further by using a nice javascript-library called "datatables". It might even become part of the Plone-core at some point.
 
-Like for many js-libraries there is already a package that doe the plone-integration for us: "collective.js.datatables". Like all python-packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables
+Like for many js-libraries there is already a package that doe the plone-integration for us: "collective.js.datatables". Like all python-packages you can find it on pypi: https://pypi.python.org/pypi/collective.js.datatables
 
 We already added the addon to our buildout and just have to activate it in our template::
 
