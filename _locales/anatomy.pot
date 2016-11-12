@@ -45,7 +45,7 @@ msgid "Jim Fulton thought that this was slightly tedious. So he wrote code to ha
 msgstr ""
 
 #: ../anatomy.rst:19
-msgid "The ZODB is a fully `ACID <http://en.wikipedia.org/wiki/ACID>`_ compliant database with automatic transactional integrity. It automatically maps traversal in the object hierarchy to URL paths, so there is no need to \"wire\" objects or database nodes to URLs. This gives Plone its easy SEO-friendly URLs."
+msgid "The ZODB is a fully `ACID <https://en.wikipedia.org/wiki/ACID>`_ compliant database with automatic transactional integrity. It automatically maps traversal in the object hierarchy to URL paths, so there is no need to \"wire\" objects or database nodes to URLs. This gives Plone its easy SEO-friendly URLs."
 msgstr ""
 
 #: ../anatomy.rst:21
@@ -129,7 +129,7 @@ msgid "Zope 3 was originally intended as a ground-up rewrite of Zope."
 msgstr ""
 
 #: ../anatomy.rst:69
-msgid "Plone uses parts of it provided by the `Zope Toolkit (ZTK) <http://docs.zope.org/zopetoolkit/>`_."
+msgid "Plone uses parts of it provided by the `Zope Toolkit (ZTK) <https://zopetoolkit.readthedocs.io/en/latest/>`_."
 msgstr ""
 
 #: ../anatomy.rst:73
@@ -145,7 +145,7 @@ msgid "To make the history complete, since people stayed on Zope 2, the Zope com
 msgstr ""
 
 #: ../anatomy.rst:82
-msgid "http://old.plone.org/documentation/faq/zope-3-and-plone"
+msgid "https://old.plone.org/documentation/faq/zope-3-and-plone"
 msgstr ""
 
 #: ../anatomy.rst:86

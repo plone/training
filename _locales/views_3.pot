@@ -359,7 +359,7 @@ msgid "But we could improve that table further by using a nice javascript-librar
 msgstr ""
 
 #: ../views_3.rst:457
-msgid "Like for many js-libraries there is already a package that doe the plone-integration for us: ``collective.js.datatables``. Like all python-packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables"
+msgid "Like for many js-libraries there is already a package that doe the plone-integration for us: ``collective.js.datatables``. Like all python-packages you can find it on pypi: https://pypi.python.org/pypi/collective.js.datatables"
 msgstr ""
 
 #: ../views_3.rst:459

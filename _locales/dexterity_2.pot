@@ -281,7 +281,7 @@ msgid "The ``column ..`` entry allows us to display these values of these indexe
 msgstr ""
 
 #: ../dexterity_2.rst:331
-msgid "Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the addon purged the indexes! See http://www.starzel.de/blog/a-reminder-about-catalog-indexes."
+msgid "Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the addon purged the indexes! See https://www.starzel.de/blog/a-reminder-about-catalog-indexes."
 msgstr ""
 
 #: ../dexterity_2.rst:333

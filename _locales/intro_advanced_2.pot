@@ -93,7 +93,7 @@ msgid "Zope Toolkit / Zope3 was intended as a ground-up rewrite of Zope."
 msgstr ""
 
 #: ../intro_advanced_2.rst:32
-msgid "Plone uses parts of it provided by the `Zope Toolkit (ZTK) <http://docs.zope.org/zopetoolkit/>`_."
+msgid "Plone uses parts of it provided by the `Zope Toolkit (ZTK) <https://zopetoolkit.readthedocs.io/en/latest/>`_."
 msgstr ""
 
 #: ../intro_advanced_2.rst:33

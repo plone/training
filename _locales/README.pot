@@ -21,6 +21,6 @@ msgid "Mastering Plone"
 msgstr ""
 
 #: ../README.rst:4
-msgid "Read the trainings at http://training.plone.org"
+msgid "Read the trainings at https://training.plone.org"
 msgstr ""
 

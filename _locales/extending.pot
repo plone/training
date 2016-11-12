@@ -29,7 +29,7 @@ msgid "If you want to install an add-on, you are going to install an Egg — a f
 msgstr ""
 
 #: ../extending.rst:10
-msgid "There is a huge variety of Plone-compatible packages available. Most are listed in the `Python Package Index <https://pypi.python.org/pypi>`_. A more browse-able listing is available at the `Plone.org add-on listing <https://plone.org/products/>`_. The source repository for many public Plone add-ons is `the GitHub Collective <https://github.com/collective>`_. You may also create your own packages or maintain custom repositories."
+msgid "There is a huge variety of Plone-compatible packages available. Most are listed in the `Python Package Index <https://pypi.python.org/pypi>`_. A more browse-able listing is available at the `Plone.org add-on listing <https://old.plone.org/products/>`_. The source repository for many public Plone add-ons is `the GitHub Collective <https://github.com/collective>`_. You may also create your own packages or maintain custom repositories."
 msgstr ""
 
 #: ../extending.rst:12

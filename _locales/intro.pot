@@ -109,11 +109,11 @@ msgid "For the advanced chapters:"
 msgstr ""
 
 #: ../intro.rst:55
-msgid "`Git <http://git-scm.com/>`_"
+msgid "`Git <https://git-scm.com/>`_"
 msgstr ""
 
 #: ../intro.rst:56
-msgid "`Github <http://github.com>`_"
+msgid "`Github <https://github.com>`_"
 msgstr ""
 
 #: ../intro.rst:57
@@ -237,7 +237,7 @@ msgid "If you want to become a professional Plone developer or a highly sophisti
 msgstr ""
 
 #: ../intro.rst:99
-msgid "Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_."
+msgid "Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.io/en/latest/>`_."
 msgstr ""
 
 #: ../intro.rst:102
@@ -245,7 +245,7 @@ msgid "Documentation"
 msgstr ""
 
 #: ../intro.rst:104
-msgid "Follow the training at http://plone-training.readthedocs.org/"
+msgid "Follow the training at http://plone-training.readthedocs.io/en/legacy/"
 msgstr ""
 
 #: ../intro.rst:108

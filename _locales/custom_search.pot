@@ -33,7 +33,7 @@ msgid "eea.facetednavigation"
 msgstr ""
 
 #: ../custom_search.rst:11
-msgid "Install `eea.facetednavigation <http://pypi.python.org/pypi/eea.facetednavigation/>`_"
+msgid "Install `eea.facetednavigation <https://pypi.python.org/pypi/eea.facetednavigation/>`_"
 msgstr ""
 
 #: ../custom_search.rst:12

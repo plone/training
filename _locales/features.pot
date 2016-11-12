@@ -21,7 +21,7 @@ msgid "The Features of Plone"
 msgstr ""
 
 #: ../features.rst:4
-msgid "In-depth user-manual: http://old.plone.org/documentation/manual/plone-4-user-manual"
+msgid "In-depth user-manual: https://old.plone.org/documentation/manual/plone-4-user-manual"
 msgstr ""
 
 #: ../features.rst:6

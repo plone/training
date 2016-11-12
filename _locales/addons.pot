@@ -69,7 +69,7 @@ msgid "ask in irc and on the mailing list"
 msgstr ""
 
 #: ../addons.rst:23
-msgid "A talk on finding and managing ad-dons: http://www.youtube.com/watch?v=Sc6NkqaSjqw"
+msgid "A talk on finding and managing ad-dons: https://www.youtube.com/watch?v=Sc6NkqaSjqw"
 msgstr ""
 
 #: ../addons.rst:27
@@ -101,7 +101,7 @@ msgid "UI to create complex landing-pages"
 msgstr ""
 
 #: ../addons.rst:39
-msgid "`collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_"
+msgid "`collective.geo <http://collectivegeo.readthedocs.io/en/latest/>`_"
 msgstr ""
 
 #: ../addons.rst:39
@@ -157,7 +157,7 @@ msgid "Add decorative banners and sliders"
 msgstr ""
 
 #: ../addons.rst:60
-msgid "`plone.app.multilingual <http://pypi.python.org/pypi/plone.app.multilingual>`_"
+msgid "`plone.app.multilingual <https://pypi.python.org/pypi/plone.app.multilingual>`_"
 msgstr ""
 
 #: ../addons.rst:60
@@ -165,7 +165,7 @@ msgid "Allows multilingual sites by translating content"
 msgstr ""
 
 #: ../addons.rst:65
-msgid "`Plomino <http://www.plomino.net/>`_"
+msgid "`Plomino <http://plomino.net/>`_"
 msgstr ""
 
 #: ../addons.rst:63
@@ -397,7 +397,7 @@ msgid "We're not doing this with the conference-site since the *lingua franca* o
 msgstr ""
 
 #: ../addons.rst:182
-msgid "We would use http://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes)."
+msgid "We would use https://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes)."
 msgstr ""
 
 #: ../addons.rst:186

@@ -510,7 +510,7 @@ msgid "Let's change the Logo."
 msgstr ""
 
 #: ../configuring_customizing.rst:255
-msgid "Download a ploneconf logo: http://www.starzel.de/plone-tutorial/ploneconf-logo-2014/image"
+msgid "Download a ploneconf logo: https://www.starzel.de/plone-tutorial/ploneconf-logo-2014/image"
 msgstr ""
 
 #: ../configuring_customizing.rst:256

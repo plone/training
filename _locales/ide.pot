@@ -41,7 +41,7 @@ msgid "`Wing IDE <http://wingide.com/>`_"
 msgstr ""
 
 #: ../ide.rst:11
-msgid "`PyDev <http://pydev.org/>`_ for `Eclipse <http://eclipse.org/>`_"
+msgid "`PyDev <http://www.pydev.org/>`_ for `Eclipse <http://eclipse.org/>`_"
 msgstr ""
 
 #: ../ide.rst:12

@@ -69,7 +69,7 @@ msgid "One example is the section"
 msgstr ""
 
 #: ../buildout_1.rst:43
-msgid "This uses the python-package `plone.recipe.zope2instance <http://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the used recipe."
+msgid "This uses the python-package `plone.recipe.zope2instance <https://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the used recipe."
 msgstr ""
 
 #: ../buildout_1.rst:47
