@@ -27,8 +27,8 @@ msgid "Mastering Plone"
 msgstr "Maestría en Plone"
 
 #: ../README.rst:4
-msgid "Read the trainings at http://training.plone.org"
-msgstr "Lea los diversos entrenamientos en http://training.plone.org"
+msgid "Read the trainings at https://training.plone.org"
+msgstr "Lea los diversos entrenamientos en https://training.plone.org"
 
 #~ msgid ""
 #~ "Mastering Plone is intended as a "
@@ -38,6 +38,6 @@ msgstr "Lea los diversos entrenamientos en http://training.plone.org"
 #~ " Plone-development."
 #~ msgstr ""
 
-#~ msgid "Read it at http://plone-training.readthedocs.org/en/latest/index.html"
+#~ msgid "Read it at http://plone-training.readthedocs.io/en/legacy/en/latest/index.html"
 #~ msgstr ""
 

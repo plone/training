@@ -76,13 +76,13 @@ msgstr ""
 
 #: ../anatomy.rst:19
 msgid ""
-"The ZODB is a fully `ACID <http://en.wikipedia.org/wiki/ACID>`_ compliant "
+"The ZODB is a fully `ACID <https://en.wikipedia.org/wiki/ACID>`_ compliant "
 "database with automatic transactional integrity. It automatically maps "
 "traversal in the object hierarchy to URL paths, so there is no need to "
 "\"wire\" objects or database nodes to URLs. This gives Plone its easy SEO-"
 "friendly URLs."
 msgstr ""
-"El ZODB es una base de datos `ACID <http://en.wikipedia.org/wiki/ACID>`_ "
+"El ZODB es una base de datos `ACID <https://en.wikipedia.org/wiki/ACID>`_ "
 "totalmente compatible con integridad transaccional automático. Se asigna "
 "automáticamente el recorrido en la jerarquía de objetos a rutas URL, así que"
 " no hay necesidad de objetos \"cableados\" o nodos de bases de datos a las "
@@ -271,10 +271,10 @@ msgstr ""
 #: ../anatomy.rst:69
 msgid ""
 "Plone uses parts of it provided by the `Zope Toolkit (ZTK) "
-"<http://docs.zope.org/zopetoolkit/>`_."
+"<https://zopetoolkit.readthedocs.io/en/latest/>`_."
 msgstr ""
 "Plone usa partes provistas por el `Zope Toolkit (ZTK) "
-"<http://docs.zope.org/zopetoolkit/>`_."
+"<https://zopetoolkit.readthedocs.io/en/latest/>`_."
 
 #: ../anatomy.rst:73
 msgid ""
@@ -308,8 +308,8 @@ msgstr ""
 "que Zope 3 era el futuro. No era nada más."
 
 #: ../anatomy.rst:82
-msgid "http://old.plone.org/documentation/faq/zope-3-and-plone"
-msgstr "http://old.plone.org/documentation/faq/zope-3-and-plone"
+msgid "https://old.plone.org/documentation/faq/zope-3-and-plone"
+msgstr "https://old.plone.org/documentation/faq/zope-3-and-plone"
 
 #: ../anatomy.rst:86
 msgid "Zope Component Architecture (ZCA)"

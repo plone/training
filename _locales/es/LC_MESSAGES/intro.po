@@ -115,12 +115,12 @@ msgid "For the advanced chapters:"
 msgstr "Para los capítulos avanzados:"
 
 #: ../intro.rst:55
-msgid "`Git <http://git-scm.com/>`_"
-msgstr "`Git <http://git-scm.com/>`_"
+msgid "`Git <https://git-scm.com/>`_"
+msgstr "`Git <https://git-scm.com/>`_"
 
 #: ../intro.rst:56
-msgid "`Github <http://github.com>`_"
-msgstr "`Github <http://github.com>`_"
+msgid "`Github <https://github.com>`_"
+msgstr "`Github <https://github.com>`_"
 
 #: ../intro.rst:57
 msgid "`Try Git (Nice introduction to git and github) <https://try.github.io/>`_"
@@ -336,20 +336,20 @@ msgstr ""
 msgid ""
 "Most importantly you should practice your skills and not stop here but go"
 " forward! One recommended way would be to follow the `todo-app "
-"<http://tutorialtodoapp.readthedocs.org/en/latest/>`_."
+"<http://tutorialtodoapp.readthedocs.io/en/latest/>`_."
 msgstr ""
 "Más importante es ¡usted debe practicar sus habilidades y no detenerte "
 "aquí y seguir delante! una vía recomendada para esto es debe realizar los"
 " pasos del tutorial `todo-app "
-"<http://tutorialtodoapp.readthedocs.org/en/latest/>`_."
+"<http://tutorialtodoapp.readthedocs.io/en/latest/>`_."
 
 #: ../intro.rst:102
 msgid "Documentation"
 msgstr "Documentación"
 
 #: ../intro.rst:104
-msgid "Follow the training at http://plone-training.readthedocs.org/"
-msgstr "Sigue el entrenamiento en http://plone-training.readthedocs.org/"
+msgid "Follow the training at http://plone-training.readthedocs.io/en/legacy/"
+msgstr "Sigue el entrenamiento en http://plone-training.readthedocs.io/en/legacy/"
 
 #: ../intro.rst:108
 msgid ""

@@ -491,10 +491,10 @@ msgstr ""
 #: ../instructions.rst:196
 msgid ""
 "Then we checkout our tutorial buildout from "
-"http://github.com/starzel/training_buildout and build it."
+"https://github.com/starzel/training_buildout and build it."
 msgstr ""
 "Luego comprobamos nuestro buildout del tutorial de "
-"http://github.com/starzel/training_buildout y construimos."
+"https://github.com/starzel/training_buildout y construimos."
 
 # 0d1e9aa084c244be989e18bd3ae8c8cb
 #: ../instructions.rst:206

@@ -36,7 +36,7 @@ msgid ""
 "Move sources to https://github.com/plone/training and render at http"
 "://plone-training.readthedocs.org/ [pbauer]"
 msgstr ""
-"Mover las fuentes de http://github.com/plone/training y renderizarlo en http"
+"Mover las fuentes de https://github.com/plone/training y renderizarlo en http"
 "://plone-training.readthedocs.org/ [pbauer, hellfish2]"
 
 # ff9861326a97459fa5d7fc90efd84151
@@ -46,9 +46,9 @@ msgstr "integrar con docs.plone.org y papyrus [do3cc, hellfish2]"
 
 # 767ffcad931f4a3bb8c2fed78731e434
 #: ../changelog.rst:14
-msgid "Change license to http://creativecommons.org/licenses/by/4.0/ [pbauer]"
+msgid "Change license to https://creativecommons.org/licenses/by/4.0/ [pbauer]"
 msgstr ""
-"Cambiar licencia a http://creativecommons.org/licenses/by/4.0/ [pbauer, "
+"Cambiar licencia a https://creativecommons.org/licenses/by/4.0/ [pbauer, "
 "hellfish2]"
 
 # 27525873e8384ed88d54f4051a4b5a16

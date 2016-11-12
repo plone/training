@@ -50,10 +50,10 @@ msgstr "eea.facetednavigation"
 #: ../custom_search.rst:11
 msgid ""
 "Install `eea.facetednavigation "
-"<http://pypi.python.org/pypi/eea.facetednavigation/>`_"
+"<https://pypi.python.org/pypi/eea.facetednavigation/>`_"
 msgstr ""
 "Instale el complemento `eea.facetednavigation "
-"<http://pypi.python.org/pypi/eea.facetednavigation/>`_."
+"<https://pypi.python.org/pypi/eea.facetednavigation/>`_."
 
 #: ../custom_search.rst:12
 msgid ""

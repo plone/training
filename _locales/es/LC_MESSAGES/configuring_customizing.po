@@ -612,10 +612,10 @@ msgstr "Cambiemos el Logotipo."
 
 #: ../configuring_customizing.rst:255
 msgid ""
-"Download a ploneconf logo: http://www.starzel.de/plone-tutorial/ploneconf-"
+"Download a ploneconf logo: https://www.starzel.de/plone-tutorial/ploneconf-"
 "logo-2014/image"
 msgstr ""
-"Baje un logotipo de la ploneconf: http://www.starzel.de/plone-tutorial"
+"Baje un logotipo de la ploneconf: https://www.starzel.de/plone-tutorial"
 "/ploneconf-logo-2014/image"
 
 #: ../configuring_customizing.rst:256

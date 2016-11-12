@@ -133,10 +133,10 @@ msgstr "Utilice su propio Buildout"
 #: ../installation.rst:41
 msgid ""
 "You can download all of these at "
-"http://old.plone.org/products/plone/releases/4.3.4"
+"https://old.plone.org/products/plone/releases/4.3.4"
 msgstr ""
 "Puede descargar todo esto en "
-"http://old.plone.org/products/plone/releases/4.3.4"
+"https://old.plone.org/products/plone/releases/4.3.4"
 
 #: ../installation.rst:46
 msgid ""
@@ -227,10 +227,10 @@ msgstr ""
 
 #: ../installation.rst:76
 msgid ""
-"Where to host Plone: http://old.plone.org/documentation/faq/where-can-i"
+"Where to host Plone: https://old.plone.org/documentation/faq/where-can-i"
 "-host-my-plone-site"
 msgstr ""
-"Dónde alojar Plone: http://old.plone.org/documentation/faq/where-can-i"
+"Dónde alojar Plone: https://old.plone.org/documentation/faq/where-can-i"
 "-host-my-plone-site"
 
 #: ../installation.rst:79

@@ -88,10 +88,10 @@ msgstr "Pregunta en el canal irc y la lista de correo"
 #: ../addons.rst:23
 msgid ""
 "A talk on finding and managing ad-dons: "
-"http://www.youtube.com/watch?v=Sc6NkqaSjqw"
+"https://www.youtube.com/watch?v=Sc6NkqaSjqw"
 msgstr ""
 "Una conversación sobre encontrar y administrar complementos: "
-"http://www.youtube.com/watch?v=Sc6NkqaSjqw"
+"https://www.youtube.com/watch?v=Sc6NkqaSjqw"
 
 #: ../addons.rst:27
 msgid "Some notable add-ons"
@@ -136,8 +136,8 @@ msgid "UI to create complex landing-pages"
 msgstr "Interfaz para crear paginas de inicios complejas"
 
 #: ../addons.rst:39
-msgid "`collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_"
-msgstr "`collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_"
+msgid "`collective.geo <http://collectivegeo.readthedocs.io/en/latest/>`_"
+msgstr "`collective.geo <http://collectivegeo.readthedocs.io/en/latest/>`_"
 
 #: ../addons.rst:39
 msgid "Flexible bundle of add-ons to georeference content and display in maps"
@@ -216,18 +216,18 @@ msgstr "Agrega banners decorativos y pasarelas"
 #: ../addons.rst:60
 msgid ""
 "`plone.app.multilingual "
-"<http://pypi.python.org/pypi/plone.app.multilingual>`_"
+"<https://pypi.python.org/pypi/plone.app.multilingual>`_"
 msgstr ""
 "`plone.app.multilingual "
-"<http://pypi.python.org/pypi/plone.app.multilingual>`_"
+"<https://pypi.python.org/pypi/plone.app.multilingual>`_"
 
 #: ../addons.rst:60
 msgid "Allows multilingual sites by translating content"
 msgstr "Permite sitios multilingues mediante la traducción de contenido"
 
 #: ../addons.rst:65
-msgid "`Plomino <http://www.plomino.net/>`_"
-msgstr "`Plomino <http://www.plomino.net/>`_"
+msgid "`Plomino <http://plomino.net/>`_"
+msgstr "`Plomino <http://plomino.net/>`_"
 
 #: ../addons.rst:63
 msgid "Powerful and flexible web-based application builder for Plone"
@@ -598,11 +598,11 @@ msgstr ""
 
 #: ../addons.rst:182
 msgid ""
-"We would use http://pypi.python.org/pypi/plone.app.multilingual for this."
+"We would use https://pypi.python.org/pypi/plone.app.multilingual for this."
 " It is the successor of Products.LinguaPlone (which only works with "
 "Archetypes)."
 msgstr ""
-"Para esto debe usar http://pypi.python.org/pypi/plone.app.multilingual. "
+"Para esto debe usar https://pypi.python.org/pypi/plone.app.multilingual. "
 "Ese es el sucesor del Products.LinguaPlone (el cual solo usa Archetypes)."
 
 #: ../addons.rst:186

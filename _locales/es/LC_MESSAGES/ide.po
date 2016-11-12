@@ -53,8 +53,8 @@ msgid "`Wing IDE <http://wingide.com/>`_"
 msgstr "`Wing IDE <http://wingide.com/>`_."
 
 #: ../ide.rst:11
-msgid "`PyDev <http://pydev.org/>`_ for `Eclipse <http://eclipse.org/>`_"
-msgstr "`PyDev <http://pydev.org/>`_ para `Eclipse <http://eclipse.org/>`_."
+msgid "`PyDev <http://www.pydev.org/>`_ for `Eclipse <http://eclipse.org/>`_"
+msgstr "`PyDev <http://www.pydev.org/>`_ para `Eclipse <http://eclipse.org/>`_."
 
 #: ../ide.rst:12
 msgid "`Aptana Studio <http://www.aptana.com/products/studio3.html>`_"

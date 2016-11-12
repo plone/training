@@ -26,7 +26,7 @@ msgstr "Las características de Plone"
 
 #: ../features.rst:4
 msgid ""
-"In-depth user-manual: http://old.plone.org/documentation/manual/plone-4-user-"
+"In-depth user-manual: https://old.plone.org/documentation/manual/plone-4-user-"
 "manual"
 msgstr ""
 "En profundidad el Manual de usuario (en idioma Español): "
@@ -37,7 +37,7 @@ msgstr ""
 msgid "See also: http://docs.plone.org/4/en/working-with-content/index.html"
 msgstr ""
 "Ver también la versión original del manual (en idioma Ingles) en las "
-"siguientes direcciones URL: http://old.plone.org/documentation/manual/plone-4"
+"siguientes direcciones URL: https://old.plone.org/documentation/manual/plone-4"
 "-user-manual y http://docs.plone.org/4/en/working-with-content/index.html"
 
 #: ../features.rst:9

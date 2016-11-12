@@ -57,7 +57,7 @@ msgstr ""
 #: ../CHANGES.rst:25
 msgid ""
 "Add support for translations on "
-"https://www.transifex.com/projects/p/plone4-training/ [macagua]"
+"https://www.transifex.com/plone/plone4-training/ [macagua]"
 msgstr ""
 
 #: ../CHANGES.rst:30
@@ -75,7 +75,7 @@ msgid "Integrate with docs.plone.org and papyrus [do3cc]"
 msgstr ""
 
 #: ../CHANGES.rst:39
-msgid "Change license to http://creativecommons.org/licenses/by/4.0/ [pbauer]"
+msgid "Change license to https://creativecommons.org/licenses/by/4.0/ [pbauer]"
 msgstr ""
 
 #: ../CHANGES.rst:42

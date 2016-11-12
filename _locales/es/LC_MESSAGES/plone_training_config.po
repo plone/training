@@ -644,7 +644,7 @@ msgid ""
 "*plone4* and build it."
 msgstr ""
 "Entonces nosotros comprobamos nuestro buildout del tutorial de "
-"http://github.com/collective/training_buildout, nos cambiamos a la rama "
+"https://github.com/collective/training_buildout, nos cambiamos a la rama "
 "*plone4* y lo construimos."
 
 #: ../plone_training_config/what_vagrant_does.rst:65
@@ -711,11 +711,11 @@ msgstr ""
 
 #~ msgid ""
 #~ ":download:`http://plone-"
-#~ "training.readthedocs.org/en/latest/_downloads/plone_training_config.zip"
+#~ "training.readthedocs.io/en/latest/_downloads/plone_training_config.zip"
 #~ " <../plone_training_config.zip>`."
 #~ msgstr ""
 #~ ":download:`http://plone-"
-#~ "training.readthedocs.org/en/latest/_downloads/plone_training_config.zip"
+#~ "training.readthedocs.io/en/latest/_downloads/plone_training_config.zip"
 #~ " <../plone_training_config.zip>`."
 
 #~ msgid "and copy its contents into your training directory."
