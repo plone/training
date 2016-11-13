@@ -30,7 +30,7 @@ The api is divided in five sections. Here is one example from each:
 * `Users:` `Get user roles <http://docs.plone.org/develop/plone.api/docs/user.html#get-user-roles>`_
 * `Environment:` `Switch roles inside a block <http://docs.plone.org/develop/plone.api/docs/env.html#switch-roles-inside-a-block>`_
 
-plone.api is not yet part of the Plone core. Therefore you will not see any use of plone.api in Plone itself. It will be part of Plone 5.
+plone.api is a tool for integrators and developers that is included when you install Plone, though for technical reasons it is not used by Plone itself.
 
 In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out  what they do.
 
