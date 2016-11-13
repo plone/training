@@ -218,7 +218,7 @@ msgid ""
 "Mastering Plone!\""
 msgstr ""
 "Agregue un portlet estático. \"Entrenamiento destacada: Conviértete en un "
-"Rockstar de Plone en la ¡Maestría en Plone!\""
+"Rockstar de Plone en la ¡Maestría en Plone 4!\""
 
 #: ../configuring_customizing.rst:65
 msgid "Viewlets"

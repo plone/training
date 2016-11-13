@@ -25,11 +25,11 @@ msgstr ""
 
 #: ../index.rst:2
 msgid "Mastering Plone!"
-msgstr "¡Maestría en Plone!"
+msgstr "¡Maestría en Plone 4!"
 
 #: ../index.rst:4
 msgid "This is the documentation for the \"Mastering Plone\"-training."
-msgstr "Esta es la documentación del entrenamiento \"Maestría en Plone\"."
+msgstr "Esta es la documentación del entrenamiento \"Maestría en Plone 4\"."
 
 #: ../index.rst:6
 msgid ""
@@ -37,7 +37,7 @@ msgid ""
 "new to Plone or want to learn about the current best-practices of Plone "
 "development. It can be split in two tranings:"
 msgstr ""
-"El entrenamiento \"Maestría en Plone\" está pensado para una semana para "
+"El entrenamiento \"Maestría en Plone 4\" está pensado para una semana para "
 "las personas que son nuevas en Plone o a las personas que quieren "
 "aprender acerca de las actuales mejores prácticas en el desarrollo de "
 "Plone. Se puede dividir en dos (02) entrenamientos:"

@@ -24,7 +24,7 @@ msgstr ""
 
 #: ../about.rst:2
 msgid "About Mastering Plone"
-msgstr "Sobre \"Maestría en Plone\""
+msgstr "Sobre \"Maestría en Plone 4\""
 
 #: ../about.rst:4
 msgid ""
@@ -78,7 +78,7 @@ msgid ""
 "The Mastering Plone Training was so far held publicly at the following "
 "occasions:"
 msgstr ""
-"El entrenamiento \"Maestría en Plone\" se celebró públicamente en las "
+"El entrenamiento \"Maestría en Plone 4\" se celebró públicamente en las "
 "siguientes ocasiones:"
 
 #: ../about.rst:21
@@ -129,7 +129,7 @@ msgstr "Entrenadores"
 msgid "The following trainers have given trainings based on Mastering Plone:"
 msgstr ""
 "Los siguientes entrenadores han dado entrenamiento basado en el material "
-"\"Maestría en Plone\":"
+"\"Maestría en Plone 4\":"
 
 #: ../about.rst:36
 msgid "Leonardo Caballero"
@@ -405,7 +405,7 @@ msgid ""
 "Attribution 4.0 International License "
 "<https://creativecommons.org/licenses/by/4.0/>`_."
 msgstr ""
-"El entrenamiento \"Maestría en Plone\" es licenciado bajo la `Creative "
+"El entrenamiento \"Maestría en Plone 4\" es licenciado bajo la `Creative "
 "Commons Attribution 4.0 International License "
 "<https://creativecommons.org/licenses/by/4.0/>`_."
 

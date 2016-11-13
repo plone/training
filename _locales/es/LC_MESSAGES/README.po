@@ -24,7 +24,7 @@ msgstr ""
 
 #: ../README.rst:2
 msgid "Mastering Plone"
-msgstr "Maestría en Plone"
+msgstr "Maestría en Plone 4"
 
 #: ../README.rst:4
 msgid "Read the trainings at https://training.plone.org"
