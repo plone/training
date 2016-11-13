@@ -22,7 +22,7 @@ plone.api
 
 The most important tool nowadays for plone developers is the add-on `plone.api <http://docs.plone.org/develop/plone.api/docs/index.html>`_ that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
 
-The api is divided in five sections. Here is one example from each:
+The API is divided in five sections. Here is one example from each:
 
 * `Content:` `Create content <http://docs.plone.org/develop/plone.api/docs/content.html#create-content>`_
 * `Portal:` `Send E-Mail <http://docs.plone.org/develop/plone.api/docs/portal.html#send-e-mail>`_
@@ -61,7 +61,7 @@ portal_setup
 portal_quickinstaller
     :py:meth:`isProductInstalled()` checks if a product is installed.
 
-Usually the best way to learn about the api of a tool is to look in the :file:`interfaces.py` in the respective package and read the docstrings.
+Usually the best way to learn about the API of a tool is to look in the :file:`interfaces.py` in the respective package and read the docstrings.
 
 
 .. _api-debugging-label:
