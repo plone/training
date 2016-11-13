@@ -148,7 +148,7 @@ Classroom Protocol
 Documentation
 --------------
 
-Follow the training at http://training.plone.org/5
+Follow the training at https://training.plone.org/5
 
 .. note::
 

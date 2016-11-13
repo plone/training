@@ -53,7 +53,7 @@ Mockup uses JSHint with the following `.jshintrc configuration file <https://git
 .. note::
 
     When working with JSHint or JSLint, it can be very useful to get some more context and explanation about several lint-errors.
-    There is a lint-error database available, which can be very handy: http://jslinterrors.com/
+    For JSHint there is a list of all configurable options: http://jshint.com/docs/options/
 
 
 We strongly recommend to configure your editor of choice to do JavaScript code linting on save.

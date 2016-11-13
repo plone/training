@@ -381,7 +381,7 @@ The ``column ..`` entries allow us to display the values of these indexes in the
 
 .. note::
 
-    Until Plone 4.3.2 adding indexes in :file:`catalog.xml` was harmful because reinstalling the add-on purged the indexes! See http://www.starzel.de/blog/a-reminder-about-catalog-indexes.
+    Until Plone 4.3.2 adding indexes in :file:`catalog.xml` was harmful because reinstalling the add-on purged the indexes! See https://www.starzel.de/blog/a-reminder-about-catalog-indexes.
 
 * Reinstall the add-on
 * Go to http://localhost:8080/Plone/portal_catalog/manage_catalogAdvanced to update the catalog
