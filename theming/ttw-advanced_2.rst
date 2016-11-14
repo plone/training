@@ -189,9 +189,9 @@ Exercise 3 - the ``<drop>`` directives
 ++++++++++++++++++++++++++++++++++++++
 
 1. Add a rule that drops the "search section" checkbox from the search box.
-  See the diagram below:
+   See the diagram below:
 
-  .. image:: ../theming/_static/theming-dropping-thesearchsection.png
+   .. image:: ../theming/_static/theming-dropping-thesearchsection.png
 
 
 Conditional attributes
