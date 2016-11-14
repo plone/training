@@ -1,26 +1,22 @@
-*****************
+****************
 More Features...
-*****************
+****************
 
-Next we will cover some more advanced topics which need configuration
-on Plone and Solr side. Features like autocomplete and suggest
-(did you mean ...) are often requested when it comes to search.
+Next we will cover some more advanced topics which need configuration on Plone and Solr side.
+Features like autocomplete and suggest (did you mean ...) are often requested when it comes to search.
 They are perfectly doable with the Plone / Solr combination.
-At the end of this chapter we will build a full search page with
-autocomplete, suggest, term highlighting and faceting turned on.
+At the end of this chapter we will build a full search page with autocomplete, suggest, term highlighting and faceting turned on.
 
 Let's see how and start with autocomplete: 
 
 Autocomplete
-==============
+============
 
-For autocomplete we need a special Solr handler because we don't search
-full terms but only part of terms.
+For autocomplete we need a special Solr handler because we don't search full terms but only part of terms.
 
-With the additional Solr configuration autocomplete can be called
-via URL directly:
+With the additional Solr configuration autocomplete can be called via URL directly::
 
-  http://localhost:8080/Plone/@@solr-autocomplete?term=Pl
+    http://localhost:8080/Plone/@@solr-autocomplete?term=Pl
 
 Which gives the response ::
 
@@ -80,8 +76,7 @@ solr.cfg::
       <copyField source="Title" dest="title_autocomplete" />
       <copyField source="Description" dest="description_autocomplete" />
 
-For the search template we utilize the HTML5 datalist element to populate 
-the search input field.
+For the search template we utilize the HTML5 datalist element to populate the search input field.
 
 search.pt::
 
@@ -118,15 +113,14 @@ search.pt::
 
 
 Suggest
-==============
+=======
 
-The suggest (did you mean ...) feature is well known from popular
-search engines. It is integrated into Solr as a component which needs to
-be enabled and configured. Here is an example configuration which works
-with collective.solr. If you change it stick to the names of the parameters
-and handlers.
+The suggest (did you mean ...) feature is well known from popular search engines.
+It is integrated into Solr as a component which needs to be enabled and configured.
+Here is an example configuration which works with collective.solr.
+If you change it stick to the names of the parameters and handlers.
 
-The JSON view of Plone can be called with this URL:
+The JSON view of Plone can be called with this URL::
 
     http://localhost:8080/Plone/@@search?format=json&SearchableText=Plane
 
@@ -155,7 +149,7 @@ We get a response like this::
         }
     }
 
-The configuration in buildout is as follows: ::
+The configuration in buildout is as follows::
 
     [solr-instance]
     recipe = collective.recipe.solrinstance
@@ -263,7 +257,7 @@ The configuration in buildout is as follows: ::
         </arr>
       </requestHandler>
 
-A simple integration in our training-search is here: ::
+A simple integration in our training-search is here::
 
     <html lang="en"
           metal:use-macro="context/main_template/macros/master"
@@ -297,13 +291,12 @@ A simple integration in our training-search is here: ::
     </html>
 
 Facetting
-==========
+=========
 
-Facetting is tightly integrated in ``collective.solr`` and works out of
-the box. We will now create a full search page with faceting, autocomplete,
-search term highlighting and suggest enabled. The HTML of the page is mainly
-taken from the standard page. To reduce complexity some of the standard
-features like syndication, i18n and view actions has been removed ::
+Facetting is tightly integrated in ``collective.solr`` and works out of the box.
+We will now create a full search page with faceting, autocomplete, search term highlighting and suggest enabled.
+The HTML of the page is mainly taken from the standard page.
+To reduce complexity some of the standard features like syndication,  i18n and view actions has been removed::
 
   <html metal:use-macro="here/main_template/macros/master">
   <head>
@@ -407,13 +400,15 @@ features like syndication, i18n and view actions has been removed ::
   </html>
 
 
-Let's analyze the important parts. The head includes a reference to the ``showmore.js``
-JavaScript, which is included in ``collective.solr`` and used to reduce long lists
-of facets. Additionally the left column is removed on the search page.
-The right column is kept. No portlets will be displayed it is used for the facets.
+Let's analyze the important parts.
+The head includes a reference to the ``showmore.js`` JavaScript,
+which is included in ``collective.solr`` and used to reduce long lists of facets.
+Additionally the left column is removed on the search page.
+The right column is kept.
+No portlets will be displayed, it is used for the facets.
 
 The first thing we do in our search is geting the results for the search query,
-if there is one. ::
+if there is one::
 
     def search(self):
         if not self.request.get('SearchableText'):
@@ -427,15 +422,13 @@ if there is one. ::
 
 We can use the standard Plone catalo API for getting the results.
 
- .. note: Don't use plone.api.content.find because it `fixes` the
-    query to match the indexes defined in Zcatalog and will strip
-    all Solr related query parameters. We don't want that.
+.. note:: Don't use plone.api.content.find because it `fixes` the query to match the indexes defined in Zcatalog and will strip all Solr related query parameters.
+    We don't want that.
 
-After we got the results we wrap it with ``IContentListing`` to have
-unified access to them. Finally we create a Batch, to make sure
-long result sets are batched on our search view.
+After we got the results we wrap it with ``IContentListing`` to have unified access to them.
+Finally we create a Batch, to make sure long result sets are batched on our search view.
 
-The next thing we have in our search view is the form itself: ::
+The next thing we have in our search view is the form itself::
 
     <form name="searchform"
           action="search"
@@ -452,15 +445,15 @@ The next thing we have in our search view is the form itself: ::
            tal:replace="structure view/hiddenfields"/>
     </form>
 
-We have a input field for used input. For the autocompletion we reference the
-datalist with the ``list`` attribute.
-For the facets we need to render the ``hiddenfields`` snippet, which is constructed
-by the ``search-facets`` view of ``collective.solr``. This snippet will add the
-necessary query parameters like **facet=true&facet.field=portal_type&facet.field=review_state**.
+We have a input field for used input.
+For the autocompletion we reference the datalist with the ``list`` attribute.
+For the facets we need to render the ``hiddenfields`` snippet,
+which is constructed by the ``search-facets`` view of ``collective.solr``.
+This snippet will add the necessary query parameters like **facet=true&facet.field=portal_type&facet.field=review_state**.
 
 We use the ``h1`` element for displaying the number of elements.
 
-The next section is reseved for the suggest snippet. ::
+The next section is reseved for the suggest snippet::
 
     <div tal:condition="not: view/has_results">
       <p tal:define="suggest view/suggest">
@@ -474,8 +467,9 @@ The next section is reseved for the suggest snippet. ::
       </p>
     </div>
 
-If no results are found with the query, a term is suggested. This term is fetched from
-the collective.solr AJAX view **suggest-terms**. The code in our view class is here: ::
+If no results are found with the query, a term is suggested.
+This term is fetched from the collective.solr AJAX view **suggest-terms**.
+The code in our view class is here::
 
     def suggest(self):
         self.request.form['term'] = self.request.get('SearchableText')
@@ -491,13 +485,13 @@ the collective.solr AJAX view **suggest-terms**. The code in our view class is h
                                             urlencode(query, doseq=1))}
         return ''
 
-We get suggestions from the Solr handler and construct an URL for a new
-search with query parameters preserved.
+We get suggestions from the Solr handler and construct an URL for a new search with query parameters preserved.
 
-The next thing we have is the result list. There is nothing fancy in it. We show
-the title, which is linked to the article found and the cropped description.
+The next thing we have is the result list.
+There is nothing fancy in it.
+We show the title, which is linked to the article found and the cropped description.
 
-Finally we have the snippet for the facets in the right slot: ::
+Finally we have the snippet for the facets in the right slot::
 
   <div metal:fill-slot="portlets_two_slot">
       <div tal:define="facet_view nocall: context/@@search-facets;
@@ -506,22 +500,18 @@ Finally we have the snippet for the facets in the right slot: ::
            tal:replace="structure python:facet_view(results=results._sequence._basesequence)"/>
     </div>
 
-We call the facet view of ``collective.solr`` with our resultset and get
-the facets fully rendered as HTML. 
+We call the facet view of ``collective.solr`` with our resultset and get the facets fully rendered as HTML. 
 
- .. note: We need to pass the `real` solr response to the facet view.
-    That's why we have to escape the batch (_sequence) and the
-    contentlisting (_basesequence)
+.. note:: We need to pass the `real` solr response to the facet view.
+    That's why we have to escape the batch (_sequence) and the contentlisting (_basesequence)
 
-Now we have a fully functional Plone search with faceting, autocompletion,
-suggestion and term highlighting. The complete example you can find on
-github:
+Now we have a fully functional Plone search with faceting, autocompletion, suggestion and term highlighting.
+The complete example you can find on github:
 
   https://github.com/collective/plonetraining.solr_example
 
 
 Excercise
-=================
+=========
 
-Have a custom search page with autocomplete, suggest, highlighting
-and faceting working.
+Have a custom search page with autocomplete, suggest, highlighting and faceting working.
