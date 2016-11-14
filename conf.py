@@ -53,7 +53,7 @@ linkcheck_ignore = [
     r'http://wiki.apache.org',
 ]
 linkcheck_anchors = False
-linkcheck_timeout = 30.0
+linkcheck_timeout = 30
 
 
 # This is our wordlist with know words, like Github or Plone ...
