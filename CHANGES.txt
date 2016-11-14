@@ -5,7 +5,7 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 1.2.5 (unreleased)
 ------------------
-- Add contributing.md
+- Add CONTRIBUTING.md
   [stevepiercy]
 
 - Move PloneConf 2016 to Previous Trainings
