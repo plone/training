@@ -380,9 +380,8 @@ We use the ``localStorage`` facility of the browser to store the token on the cl
 We continue with changes to :file:`index.html` so that it uses the new methods. We provide a login form if the user doesn't have a valid JSON web token. Only authenticated users can see the rest of the page.
 
 .. code-block:: html
-   :emphasize-lines: 5-31
+   :emphasize-lines: 4-30
 
-    ...
           <div class="app-body">
 
             <div class="scrollable">
@@ -414,7 +413,6 @@ We continue with changes to :file:`index.html` so that it uses the new methods. 
 
               <div class="scrollable-content section" ng-if="is_logged_in()">
                 <div class="panel-group"
-    ...
 
 Last we have to add some code that allows authenticated users to submit a lightning talk. We add another javascript method first:
 
