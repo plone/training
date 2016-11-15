@@ -37,4 +37,5 @@ If you are having issues, please let us know by opening an issue in our `Issue T
 License
 -------
 
-The project is licensed under the GPLv2.
+The project is licensed under the `Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_ by the `Plone Foundation <https://plone.org>`_
+
