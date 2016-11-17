@@ -5,6 +5,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 1.2.5 (unreleased)
 ------------------
+- Use Intersphinx syntax
+  [stevepiercy]
+
 - Fix Sphinx warnings emitted on clean build
   [stevepiercy]
 
