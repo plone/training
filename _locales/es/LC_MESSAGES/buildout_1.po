@@ -1,18 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Carlos J Morales G. <carlosm0177@gmail.com>, 2016\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
 "Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -91,7 +89,12 @@ msgid ""
 "another value in the next line and indent it, Buildout understands that both"
 " values belong to the parameter name, and the parameter stores all values as"
 " a list."
-msgstr "La sintaxis de los archivos de configuración de despliegue es similar a los archivos clásicos ini. Usted escribe un nombre de parámetro, un signo igual y el valor. Si introduce otro valor en la siguiente línea y indentada, Buildout entiende que ambos valores pertenecen al nombre del parámetro y el parámetro almacena todos los valores en forma de lista."
+msgstr ""
+"La sintaxis de los archivos de configuración de despliegue es similar a los "
+"archivos clásicos ini. Usted escribe un nombre de parámetro, un signo igual "
+"y el valor. Si introduce otro valor en la siguiente línea y indentada, "
+"Buildout entiende que ambos valores pertenecen al nombre del parámetro y el "
+"parámetro almacena todos los valores en forma de lista."
 
 #: ../buildout_1.rst:26
 msgid ""
@@ -237,7 +240,7 @@ msgstr ""
 "Examinemos el archivo ``buildout.cfg`` para el entrenamiento y miremos "
 "algunas de las variables más importantes:"
 
-#: ../buildout_1.rst:157
+#: ../buildout_1.rst:203
 msgid ""
 "When you run ``./bin/buildout`` without any arguments, Buildout will look "
 "for this file."
@@ -245,11 +248,11 @@ msgstr ""
 "Cuando usted ejecuta el comando ``./bin/buildout`` sin argumentos, Buildout "
 "buscara por este archivo:"
 
-#: ../buildout_1.rst:161
+#: ../buildout_1.rst:207
 msgid "Let us look closer at some variables."
 msgstr "Echemos un vistazo más de cerca a algunas variables."
 
-#: ../buildout_1.rst:171
+#: ../buildout_1.rst:217
 msgid ""
 "This line tells Buildout to read more configuration files. You can refer to "
 "configuration files on your computer or to configuration files on the "
@@ -268,7 +271,7 @@ msgstr ""
 "especificaciones de la versión o la configuración que difieren entre los "
 "diferentes entornos de instalación como desarrollo, calidad, producción."
 
-#: ../buildout_1.rst:193
+#: ../buildout_1.rst:239
 msgid ""
 "This is the list of eggs that we configure to be available for Zope. These "
 "eggs are put in the python-path of the script ``bin/instance`` with which we"
@@ -278,7 +281,7 @@ msgstr ""
 "disponible para Zope. Estos paquetes eggs se ponen en el PYTHONPATH del "
 "script ``bin/instance`` con el cual se iniciara y detendrá con Plone."
 
-#: ../buildout_1.rst:195
+#: ../buildout_1.rst:241
 msgid ""
 "The egg ``Plone`` is a wrapper without code. Among its dependencies is "
 "``Products.CMFPlone``  which is the egg that is at the center of Plone."
@@ -287,7 +290,7 @@ msgstr ""
 "dependencias esta ``Products.CMFPlone`` que es el paquete egg en el cual "
 "esta propiamente de Plone."
 
-#: ../buildout_1.rst:197
+#: ../buildout_1.rst:243
 msgid ""
 "The rest are addons we already used or will use later. The last eggs are "
 "commented out so they will not be installed by Buildout."
@@ -295,7 +298,7 @@ msgstr ""
 "El resto son complementos que ya hemos usado o usará más tarde. Los últimos "
 "paquetes eggs están comentadas por lo que no se instalarán por Buildout."
 
-#: ../buildout_1.rst:199
+#: ../buildout_1.rst:245
 msgid ""
 "The file ``versions.cfg`` that is included by the ``extends = ...`` "
 "statement hold the version-pinnings:"
@@ -303,7 +306,7 @@ msgstr ""
 "El archivo ``versions.cfg`` se incluye por la declaración ``extends = ...`` "
 "contiene las versiones que definimos:"
 
-#: ../buildout_1.rst:210
+#: ../buildout_1.rst:256
 msgid ""
 "This is another special section. It has become a special section by "
 "declaration. In our :samp:`[buildout]` section we set a variable "
@@ -318,11 +321,11 @@ msgstr ""
 " Buildout instala paquetes eggs se utilizará la versión definida en esta "
 "sección."
 
-#: ../buildout_1.rst:213
+#: ../buildout_1.rst:259
 msgid "Hello mr.developer!"
 msgstr "¡Hola mr.developer!"
 
-#: ../buildout_1.rst:217
+#: ../buildout_1.rst:263
 msgid ""
 "There are many more important things to know, and we can't go through them "
 "in all the detail but I want to focus on one specific feature: "
@@ -332,7 +335,7 @@ msgstr ""
 "ellos en todos los detalles, pero quiero centrarme en una característica "
 "específica: **mr.developer**"
 
-#: ../buildout_1.rst:219
+#: ../buildout_1.rst:265
 msgid ""
 "With mr.developer you can declare which packages you want to check out from "
 "which version control system and which repository URL. You can check out "
@@ -346,7 +349,7 @@ msgstr ""
 "algún código fuente se encuentran en el sistema de archivos local sin "
 "aplicar control de versiones."
 
-#: ../buildout_1.rst:221
+#: ../buildout_1.rst:267
 msgid ""
 "``mr.developer`` comes with a command, ``./bin/develop``. You can use it to "
 "update your code, to check for changes and so on. You can activate and "
@@ -368,11 +371,11 @@ msgstr ""
 " configuración Buildout. Siempre debe usar la forma Buildout. Su commit "
 "sirve como documentación."
 
-#: ../buildout_1.rst:224
+#: ../buildout_1.rst:270
 msgid "Extensible"
 msgstr "Extensible"
 
-#: ../buildout_1.rst:228
+#: ../buildout_1.rst:274
 msgid ""
 "You might have noticed that most if not all functionality is only available "
 "via plugins. One of the things that Buildout excels at without any plugin, "
@@ -392,11 +395,11 @@ msgstr ""
 "todas sus versiones de paquete egg. De otro modo Buildout podría instalar "
 "las nuevas versiones."
 
-#: ../buildout_1.rst:231
+#: ../buildout_1.rst:277
 msgid "Be McGuyver"
 msgstr "Sea un McGuyver"
 
-#: ../buildout_1.rst:235
+#: ../buildout_1.rst:281
 msgid ""
 "As you can see, you can build very complex systems with Buildout. It is time"
 " for some warnings. Be selective in your recipes. Supervisor is a program to"
@@ -407,7 +410,7 @@ msgstr ""
 " un programa para gestionar servidores en ejecución, es bastante bueno. No "
 "hay una receta para ello."
 
-#: ../buildout_1.rst:237
+#: ../buildout_1.rst:283
 msgid ""
 "The configuration for this recipe is more complicated than the supervisor "
 "configuration itself! By using this recipe, you force others to understand "
@@ -424,7 +427,7 @@ msgstr ""
 "<https://pypi.python.org/pypi/collective.recipe.template>`_ presenta una "
 "mejor coincidencia."
 
-#: ../buildout_1.rst:239
+#: ../buildout_1.rst:285
 msgid ""
 "Another problem is error handling. Buildout tries to install a weird "
 "dependency you do not actually want? Buildout will not tell you, where it is"
@@ -434,7 +437,7 @@ msgstr ""
 "dependencia que en realidad no quiere? Buildout no le dirá, lo que está "
 "viniendo."
 
-#: ../buildout_1.rst:241
+#: ../buildout_1.rst:287
 msgid ""
 "If there is a problem, you can always run Buildout with ``-v``, to get more "
 "verbose output, sometimes it helps."
@@ -442,7 +445,7 @@ msgstr ""
 "Si hay un problema, siempre se puede ejecutar Buildout con la opción ``-v``,"
 " para obtener una salida más detallada, a veces ayuda."
 
-#: ../buildout_1.rst:247
+#: ../buildout_1.rst:293
 msgid ""
 "If strange egg versions are requested, check the dependencies declaration of"
 " your eggs and your version pinnings."
@@ -450,7 +453,7 @@ msgstr ""
 "Si se solicitan las versiones de paquetes eggs extraños, verifique la "
 "declaración de las dependencias de los paquetes eggs y su versión definida."
 
-#: ../buildout_1.rst:249
+#: ../buildout_1.rst:295
 msgid ""
 "Some parts of Buildout interpret egg names case-sensitive, others won't. "
 "This can result in funny problems."
@@ -459,7 +462,7 @@ msgstr ""
 "mayúsculas y minúsculas, otros no. Esto puede dar lugar a problemas de "
 "divertidos."
 
-#: ../buildout_1.rst:251
+#: ../buildout_1.rst:297
 msgid ""
 "Always check out the ordering of your extends, always use the "
 ":samp:`annotate` command of Buildout to see if it interprets your "
@@ -476,7 +479,7 @@ msgstr ""
 "aprendido que esto no funciona bien con jerarquías complejas y se tuvo que "
 "abandonar esa característica."
 
-#: ../buildout_1.rst:253
+#: ../buildout_1.rst:299
 msgid ""
 "In the chapter :doc:`deployment_sites` we will have a look at a production-"
 "ready for Plone that has many useful features."
@@ -485,35 +488,35 @@ msgstr ""
 "despliegue lista para entornos de producción de Plone que tiene muchas "
 "características útiles."
 
-#: ../buildout_1.rst:259
+#: ../buildout_1.rst:305
 msgid "Buildout-Documentation"
 msgstr "Documentación de Buildout"
 
-#: ../buildout_1.rst:258
+#: ../buildout_1.rst:304
 msgid "http://docs.plone.org/4/en/old-reference-manuals/buildout/index.html"
 msgstr "http://docs.plone.org/4/en/old-reference-manuals/buildout/index.html"
 
-#: ../buildout_1.rst:259
+#: ../buildout_1.rst:305
 msgid "http://www.buildout.org/en/latest/docs/index.html"
 msgstr "http://www.buildout.org/en/latest/docs/index.html"
 
-#: ../buildout_1.rst:262
+#: ../buildout_1.rst:308
 msgid "Troubleshooting"
 msgstr "Solución de problemas"
 
-#: ../buildout_1.rst:262
+#: ../buildout_1.rst:308
 msgid "http://docs.plone.org/4/en/manage/troubleshooting/buildout.html"
 msgstr "http://docs.plone.org/4/en/manage/troubleshooting/buildout.html"
 
-#: ../buildout_1.rst:265
+#: ../buildout_1.rst:311
 msgid "A minimal buildout for Plone 4"
 msgstr "Un buildout mínimo para Plone 4"
 
-#: ../buildout_1.rst:265
+#: ../buildout_1.rst:311
 msgid "https://github.com/collective/minimalplone4"
 msgstr "https://github.com/collective/minimalplone4"
 
-#: ../buildout_1.rst:270
+#: ../buildout_1.rst:316
 msgid ""
 "The buildout of the unified installer has some valuable documentation as "
 "inline-comment"
@@ -521,7 +524,7 @@ msgstr ""
 "El archivo Buildout del instalador unificado tiene documentación valiosa "
 "como comentarios entre linea"
 
-#: ../buildout_1.rst:268
+#: ../buildout_1.rst:314
 msgid ""
 "https://github.com/plone/Installers-"
 "UnifiedInstaller/blob/master/buildout_templates/buildout.cfg"
@@ -529,7 +532,7 @@ msgstr ""
 "https://github.com/plone/Installers-"
 "UnifiedInstaller/blob/master/buildout_templates/buildout.cfg"
 
-#: ../buildout_1.rst:269
+#: ../buildout_1.rst:315
 msgid ""
 "https://github.com/plone/Installers-"
 "UnifiedInstaller/blob/master/base_skeleton/base.cfg"
@@ -537,7 +540,7 @@ msgstr ""
 "https://github.com/plone/Installers-"
 "UnifiedInstaller/blob/master/base_skeleton/base.cfg"
 
-#: ../buildout_1.rst:270
+#: ../buildout_1.rst:316
 msgid ""
 "https://github.com/plone/Installers-"
 "UnifiedInstaller/blob/master/base_skeleton/develop.cfg"
@@ -545,10 +548,10 @@ msgstr ""
 "https://github.com/plone/Installers-"
 "UnifiedInstaller/blob/master/base_skeleton/develop.cfg"
 
-#: ../buildout_1.rst:272
+#: ../buildout_1.rst:318
 msgid "mr.developer"
 msgstr "mr.developer"
 
-#: ../buildout_1.rst:273
+#: ../buildout_1.rst:319
 msgid "https://pypi.python.org/pypi/mr.developer/"
 msgstr "https://pypi.python.org/pypi/mr.developer/"

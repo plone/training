@@ -1,18 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Angel Lopez <angel_lopez_1990@hotmail.es>, 2016\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
 "Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -218,7 +216,7 @@ msgid ""
 "Mastering Plone!\""
 msgstr ""
 "Agregue un portlet estático. \"Entrenamiento destacada: Conviértete en un "
-"Rockstar de Plone en la ¡Maestría en Plone 4!\""
+"Rockstar de Plone en la ¡Maestría en Plone!\""
 
 #: ../configuring_customizing.rst:65
 msgid "Viewlets"
@@ -488,7 +486,7 @@ msgid ""
 "actions in portal_tabs"
 msgstr ""
 "La navegación muestra objetos de contenido, los cuales están en el raíz del "
-"directorio de Plone, además de las acciones en ``portal_tabs``"
+"directorio de Plone, además de las acciones en la herramienta ``portal_tabs``"
 
 #: ../configuring_customizing.rst:168
 msgid "Explain & edit index_html"
@@ -498,7 +496,9 @@ msgstr "Edite y explique ``index_html``"
 msgid ""
 "Configuring the navigation itself is done elsewhere: "
 "http://localhost:8080/Plone/@@navigation-controlpanel"
-msgstr "Configurando la navegación por si mismo es hecho en cualquier parte: http://localhost:8080/Plone/@@navigation-controlpanel"
+msgstr ""
+"Configurando la navegación por si mismo es hecho en cualquier parte: "
+"http://localhost:8080/Plone/@@navigation-controlpanel"
 
 #: ../configuring_customizing.rst:172
 msgid "If time explain:"
@@ -506,11 +506,11 @@ msgstr "Si hay tiempo explique:"
 
 #: ../configuring_customizing.rst:174
 msgid "user > undo (cool!)"
-msgstr "user > undo (¡chevere!)"
+msgstr "usuario > deshacer (¡chevere!)"
 
 #: ../configuring_customizing.rst:175
 msgid "user > login/logout"
-msgstr "user > login/logout"
+msgstr "usuario > entrar/salir"
 
 #: ../configuring_customizing.rst:179
 msgid "Skins (portal_skins)"
@@ -518,7 +518,8 @@ msgstr "Skins (portal_skins)"
 
 #: ../configuring_customizing.rst:181
 msgid "In portal_skins we can change certain images, css-files and templates."
-msgstr "En portal_skins podemos cambiar ciertas imágenes, archivos css y plantillas."
+msgstr ""
+"En la herramienta portal_skins podemos cambiar ciertas imágenes, archivos css y plantillas."
 
 #: ../configuring_customizing.rst:183
 msgid "portal_skins is deprecated technology"
@@ -534,7 +535,7 @@ msgid ""
 "portal_skins."
 msgstr ""
 "Plone 5 tendrá una gran cantidad de funcionalidades que aún vive en "
-"portal_skins."
+"la herramienta portal_skins."
 
 #: ../configuring_customizing.rst:190
 msgid ""
@@ -559,11 +560,11 @@ msgstr "Ir a ZMI"
 
 #: ../configuring_customizing.rst:197
 msgid "go to portal_skins"
-msgstr "Ir a portal_skins"
+msgstr "Ir a la herramienta portal_skins"
 
 #: ../configuring_customizing.rst:198
 msgid "go to plone_styles"
-msgstr "Ir a plone_styles"
+msgstr "Ir a la herramienta plone_styles"
 
 #: ../configuring_customizing.rst:199
 msgid "go to ``ploneCustom.css``"
@@ -600,7 +601,7 @@ msgstr ""
 msgid "Let's add some more css to make our site a little responsive:"
 msgstr ""
 "Vamos a añadir un poco más estilos CSS para hacer nuestro sitio un poco "
-"responsive:"
+"adaptativo:"
 
 #: ../configuring_customizing.rst:251
 msgid "Change the logo"
@@ -634,7 +635,7 @@ msgstr "http://docs.plone.org/4/en/adapt-and-extend/change-the-logo.html"
 
 #: ../configuring_customizing.rst:265
 msgid "portal_view_customizations"
-msgstr "portal_view_customizations"
+msgstr "la herramienta portal_view_customizations"
 
 #: ../configuring_customizing.rst:268
 msgid "Change the footer"
@@ -656,7 +657,9 @@ msgstr "Reemplace el contenido con lo siguiente"
 msgid ""
 "http://docs.plone.org/4/en/adapt-and-"
 "extend/theming/templates_css/skin_layers.html"
-msgstr "http://docs.plone.org/4/en/adapt-and-extend/theming/templates_css/skin_layers.html"
+msgstr ""
+"http://docs.plone.org/4/en/adapt-and-"
+"extend/theming/templates_css/skin_layers.html"
 
 #: ../configuring_customizing.rst:292
 msgid "CSS-Registry (portal_css)"
@@ -673,11 +676,13 @@ msgstr "En el fondo esta el archivo ``ploneCustom.css``"
 #: ../configuring_customizing.rst:296
 msgid ""
 "Disable ``Development mode``: The css-files are merged and have a cache-key."
-msgstr "Deshabilite ``Development mode``: Los archivos CSS serán mezclados y teniendo un cache-key."
+msgstr ""
+"Deshabilite ``Development mode``: Los archivos CSS serán mezclados y "
+"teniendo un cache-key."
 
 #: ../configuring_customizing.rst:300
 msgid "The JavaScripts Registry (portal_javascripts) is very similar."
-msgstr "El JavaScripts Registry (portal_javascripts) es muy similar."
+msgstr "El JavaScripts Registry (la herramienta portal_javascripts) es muy similar."
 
 #: ../configuring_customizing.rst:302
 msgid ""
@@ -721,19 +726,19 @@ msgstr "error_log"
 
 #: ../configuring_customizing.rst:317
 msgid "portal_properties"
-msgstr "portal_properties"
+msgstr "la herramienta portal_properties"
 
 #: ../configuring_customizing.rst:318
 msgid "portal_setup"
-msgstr "portal_setup"
+msgstr "la herramienta portal_setup"
 
 #: ../configuring_customizing.rst:319
 msgid "portal_workflow"
-msgstr "portal_workflow"
+msgstr "la herramienta portal_workflow"
 
 #: ../configuring_customizing.rst:320
 msgid "portal_catalog"
-msgstr "portal_catalog"
+msgstr "la herramienta portal_catalog"
 
 #: ../configuring_customizing.rst:324
 msgid "Summary"

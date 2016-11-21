@@ -4,15 +4,14 @@
 # International license.
 # This file is distributed under the same license as the Mastering Plone
 # package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
-# Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"POT-Creation-Date: 2016-11-21 00:23-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, "
 "2016\n"
@@ -160,11 +159,11 @@ msgstr ""
 
 #: ../viewlets_1.rst:106
 msgid ""
-"There is a tal define statement, querying for `view/lanyrd_link. Like in "
-"page templates the template has access to its class."
+"There is a tal define statement, querying for `view/lanyrd_link`. Like in"
+" page templates the template has access to its class."
 msgstr ""
 "Hay una sentencia ``tal:define``, para las consultas "
-"``view/lanyrd_link``. Al igual en la page templates de la plantilla tiene"
+"`view/lanyrd_link`. Al igual en la page templates de la plantilla tiene"
 " acceso a su clase."
 
 #: ../viewlets_1.rst:108
@@ -293,8 +292,8 @@ msgid ""
 " get the catalog."
 msgstr ""
 "Basándose en Adquisición es una mala idea. Sería mucho mejor utilizar la "
-"helper view ``plone_tools`` desde el módulo ``plone/app/layout/globals/tools.py`` "
-"para obtener el catálogo."
+"helper view ``plone_tools`` desde el módulo "
+"``plone/app/layout/globals/tools.py`` para obtener el catálogo."
 
 #: ../viewlets_1.rst:188
 msgid ""

@@ -1,10 +1,8 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2015
 #, fuzzy
 msgid ""
 msgstr ""
@@ -34,10 +32,10 @@ msgstr "1.2.3 (2014-07-11)"
 #: ../changelog.rst:7
 msgid ""
 "Move sources to https://github.com/plone/training and render at http"
-"://plone-training.readthedocs.org/ [pbauer]"
+"://plone-training.readthedocs.io/en/legacy/ [pbauer]"
 msgstr ""
-"Mover las fuentes de https://github.com/plone/training y renderizarlo en http"
-"://plone-training.readthedocs.org/ [pbauer, hellfish2]"
+"Mover las fuentes de https://github.com/plone/training y renderizarlo en "
+"http://plone-training.readthedocs.io/en/legacy/ [pbauer]"
 
 # ff9861326a97459fa5d7fc90efd84151
 #: ../changelog.rst:11
@@ -46,10 +44,10 @@ msgstr "integrar con docs.plone.org y papyrus [do3cc, hellfish2]"
 
 # 767ffcad931f4a3bb8c2fed78731e434
 #: ../changelog.rst:14
-msgid "Change license to https://creativecommons.org/licenses/by/4.0/ [pbauer]"
+msgid ""
+"Change license to https://creativecommons.org/licenses/by/4.0/ [pbauer]"
 msgstr ""
-"Cambiar licencia a https://creativecommons.org/licenses/by/4.0/ [pbauer, "
-"hellfish2]"
+"Cambiar licencia a https://creativecommons.org/licenses/by/4.0/ [pbauer]"
 
 # 27525873e8384ed88d54f4051a4b5a16
 #: ../changelog.rst:17
@@ -70,8 +68,8 @@ msgstr "1.2.2 (2014-06-01)"
 #: ../changelog.rst:26
 msgid "Fix all mistakes found during the training in May 2014 [pbauer]"
 msgstr ""
-"Arreglar todos los errores encontrados durante el entrenamiento en Mayo 2014 "
-"[pbauer, hellfish2]"
+"Arreglar todos los errores encontrados durante el entrenamiento en Mayo 2014"
+" [pbauer, hellfish2]"
 
 # 6d6cdc8f3eba4d1db336dc6e36858379
 #: ../changelog.rst:29
@@ -203,7 +201,7 @@ msgstr "[pbauer, do3cc]"
 
 # 249609335804477789a0335ae10cf9cf
 #: ../changelog.rst:83
-msgid "1.1 (Octubre 2013)"
+msgid "1.1 (October 2013)"
 msgstr "1.1 (Octubre 2013)"
 
 # 744d63ede1d14b2cb1c82ff54343fe6b
@@ -213,7 +211,7 @@ msgstr "Revisado para Ploneconf 2013, Brasilia [pbauer, do3cc, hellfish2]"
 
 # 6301f4c0c4d34ff8a375118a1309b525
 #: ../changelog.rst:90
-msgid "1.0 (Octubre, 2012)"
+msgid "1.0 (October, 2012)"
 msgstr "1.0 (Octubre, 2012)"
 
 # 6b73f36f686a49dc997c6fa105fe583c
@@ -223,7 +221,7 @@ msgstr "Primera versión de Ploneconf 2012, Arnhem [pbauer, do3cc, hellfish2]"
 
 # cb5827ed52f94a549be529c430434c18
 #: ../changelog.rst:97
-msgid "0.1 (Octubre 2009)"
+msgid "0.1 (October 2009)"
 msgstr "0.1 (Octubre 2009)"
 
 # 85d25a6508c449569762d36ac7aa1a9a

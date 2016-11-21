@@ -1,21 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
-# This file is distributed under the same license as the Mastering Plone package.
-# 
-# Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2016
+# Copyright (C) The text and illustrations in this website are licensed by
+# the Plone Foundation under a Creative Commons Attribution 4.0
+# International license.
+# This file is distributed under the same license as the Mastering Plone
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-21 00:23-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, "
+"2016\n"
 "Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
 
 #: ../eggs2.rst:2
 msgid "Creating reusable packages with eggs"
@@ -27,11 +31,11 @@ msgstr "Nosotros ya hemos creado un paquete Egg anteriormente."
 
 #: ../eggs2.rst:6
 msgid ""
-"Now we are going to create a feature that is completely independent of our "
-"ploneconf site and can be reused in other packages."
+"Now we are going to create a feature that is completely independent of "
+"our ploneconf site and can be reused in other packages."
 msgstr ""
-"Ahora vamos a crear una función que es totalmente independiente de nuestro "
-"sitio ploneconf y puede ser reutilizado en otros paquetes."
+"Ahora vamos a crear una función que es totalmente independiente de "
+"nuestro sitio ploneconf y puede ser reutilizado en otros paquetes."
 
 #: ../eggs2.rst:8
 msgid ""
@@ -66,8 +70,7 @@ msgid "A bit of css"
 msgstr "Un poco de CSS."
 
 #: ../eggs2.rst:18
-msgid ""
-"Some helper views so that the Javascript code can communicate with Plone"
+msgid "Some helper views so that the Javascript code can communicate with Plone"
 msgstr ""
 "Algunos helper views para que el código Javascript puede comunicarse con "
 "Plone."
@@ -78,17 +81,18 @@ msgid ""
 ":file:`zopeskel` from our projects bin-directory."
 msgstr ""
 "Nos ubicamos dentro del directorio :file:`src` y ejecutamos el script "
-"llamado :file:`zopeskel` desde nuestro directorio bin del proyecto."
+"llamado :file:`zopeskel` desde nuestro directorio :file:`bin` del "
+"proyecto."
 
 #: ../eggs2.rst:28
 msgid ""
-"This returns a list of available templates we might use. We choose dexerity "
-"since it is pretty small but already has some of the right dependencies we "
-"need."
+"This returns a list of available templates we might use. We choose "
+"dexterity since it is pretty small but already has some of the right "
+"dependencies we need."
 msgstr ""
-"Esto devuelve una lista de plantillas disponibles que podríamos utilizar. "
-"Elegimos Dexerity ya que es bastante pequeña, pero ya cuenta con algunas de "
-"las dependencias adecuadas que necesitamos."
+"Esto devuelve una lista de plantillas disponibles que podríamos utilizar."
+" Elegimos Dexterity ya que es bastante pequeña, pero ya cuenta con "
+"algunas de las dependencias adecuadas que necesitamos."
 
 #: ../eggs2.rst:34
 msgid "We answer some questions:"
@@ -120,11 +124,11 @@ msgstr ""
 
 #: ../eggs2.rst:40
 msgid ""
-"Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: "
-"``False``"
+"Grok-Based? (True/False: Use grok conventions to simplify coding?) "
+"[True]: ``False``"
 msgstr ""
-"Grok-Based? (True/False: Use grok conventions to simplify coding?) [True]: "
-"``False``"
+"Grok-Based? (True/False: Use grok conventions to simplify coding?) "
+"[True]: ``False``"
 
 #: ../eggs2.rst:41
 msgid ""
@@ -140,29 +144,30 @@ msgstr "Tenemos que modificar ligeramente los archivos generados."
 
 #: ../eggs2.rst:46
 msgid ""
-"In :file:`setup.py`, we completely remove the variables setup_requires and "
-"paster_plugins. These are required for features that are rarely used and add"
-" a lot of code into the source directory that we don't want. To the "
-":samp:`install_requires` list, we add an entry for :samp:`plone.api`."
+"In :file:`setup.py`, we completely remove the variables setup_requires "
+"and paster_plugins. These are required for features that are rarely used "
+"and add a lot of code into the source directory that we don't want. To "
+"the :samp:`install_requires` list, we add an entry for :samp:`plone.api`."
 msgstr ""
 "En :file:`setup.py`, eliminamos por completo las variables "
 "``setup_requires`` y ``paster_plugins``. Estos son necesarios para las "
-"características que se usan muy poco y añade una gran cantidad de código en "
-"el directorio de fuentes que no queremos. Para la lista "
+"características que se usan muy poco y añade una gran cantidad de código "
+"en el directorio de fuentes que no queremos. Para la lista "
 ":samp:`install_requires`, añadimos una entrada para :samp:`plone.api`."
 
 #: ../eggs2.rst:48
 msgid ""
-"We just delete the file :file:`tests.py`. This is an outdated test system, "
-"we don't want you to start from there."
+"We just delete the file :file:`tests.py`. This is an outdated test "
+"system, we don't want you to start from there."
 msgstr ""
-"Nosotros eliminamos el archivo :file:`tests.py`. Este ofrece un sistema de "
-"pruebas descontinuado, no queremos que empieces a partir de ahí."
+"Nosotros eliminamos el archivo :file:`tests.py`. Este ofrece un sistema "
+"de pruebas descontinuado, no queremos que empieces a partir de ahí."
 
 #: ../eggs2.rst:50
 msgid ""
-"The file :file:`profiles/default/types.xml` we just delete also. We won't "
-"define new types."
+"The file :file:`profiles/default/types.xml` we just delete also. We won't"
+" define new types."
 msgstr ""
 "El archivo :file:`profiles/default/types.xml` lo eliminamos también. No "
 "vamos a definir nuevos tipos de contenidos."
+

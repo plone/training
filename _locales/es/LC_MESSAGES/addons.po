@@ -1,27 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) The text and illustrations in this website are licensed by
-# the Plone Foundation under a Creative Commons Attribution 4.0
-# International license.
-# This file is distributed under the same license as the Mastering Plone
-# package.
-#
-# Translators:
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2016.
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
+# This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-11 11:13-0400\n"
-"PO-Revision-Date: 2016-11-11 07:27-0400\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, "
-"2016\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
 "Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../addons.rst:2
 msgid "Extend Plone with Add-On Packages"
@@ -29,8 +24,8 @@ msgstr "Extiende Plone con paquetes Complementos"
 
 #: ../addons.rst:4
 msgid ""
-"There are more than 2,000 add-ons for Plone. We will cover only a handful"
-" today."
+"There are more than 2,000 add-ons for Plone. We will cover only a handful "
+"today."
 msgstr ""
 "Hay más de 2000 complementos para Plone. Nosotros vamos a cubrir sólo un "
 "puñado de hoy."
@@ -41,7 +36,8 @@ msgstr "Usándolos puedes ahorrarte mucho tiempo"
 
 #: ../addons.rst:6
 msgid "The success of a project often depends on finding the right add-on"
-msgstr "El éxito del proyecto a veces depende en encontrar el complemento adecuado"
+msgstr ""
+"El éxito del proyecto a veces depende en encontrar el complemento adecuado"
 
 #: ../addons.rst:7
 msgid "Their use, usefulness, quality and complexity varies a lot"
@@ -119,7 +115,8 @@ msgstr ""
 
 #: ../addons.rst:33
 msgid "Photo galleries with a huge selection of various js-libraries"
-msgstr "Galerías de fotos con una gran selección de varios librerías javascript"
+msgstr ""
+"Galerías de fotos con una gran selección de varios librerías javascript"
 
 #: ../addons.rst:36
 msgid ""
@@ -147,11 +144,9 @@ msgstr ""
 
 #: ../addons.rst:42
 msgid ""
-"`collective.mailchimp "
-"<https://pypi.python.org/pypi/collective.mailchimp>`_"
+"`collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_"
 msgstr ""
-"`collective.mailchimp "
-"<https://pypi.python.org/pypi/collective.mailchimp>`_"
+"`collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_"
 
 #: ../addons.rst:42
 msgid "Allows visitors to subscribe to mailchimp newsletters"
@@ -223,17 +218,16 @@ msgstr ""
 
 #: ../addons.rst:60
 msgid "Allows multilingual sites by translating content"
-msgstr "Permite sitios multilingues mediante la traducción de contenido"
+msgstr "Permite sitios plurilingüe mediante la traducción de contenido"
 
 #: ../addons.rst:65
 msgid "`Plomino <http://plomino.net/>`_"
-msgstr "`Plomino <http://plomino.net/>`_"
+msgstr "`Plomino <http://www.plomino.net/>`_"
 
 #: ../addons.rst:63
 msgid "Powerful and flexible web-based application builder for Plone"
 msgstr ""
-"Un poderoso y flexible constructor de aplicaciones basado en Web para "
-"Plone"
+"Un poderoso y flexible constructor de aplicaciones basado en Web para Plone"
 
 #: ../addons.rst:68
 msgid "Installing Add-ons"
@@ -249,12 +243,12 @@ msgstr "Haciendo los paquetes Complementos disponibles para Zope"
 
 #: ../addons.rst:75
 msgid ""
-"First, we must make the add-on packages available to Zope. This means, "
-"that Zope can import the code. Buildout is responsible for this."
+"First, we must make the add-on packages available to Zope. This means, that "
+"Zope can import the code. Buildout is responsible for this."
 msgstr ""
-"Primero, debemos asegurarnos que los paquetes Complementos estén "
-"disponible para Zope. Esto significa, que Zope puede importar el código. "
-"Buildout es responsable de esto."
+"Primero, debemos asegurarnos que los paquetes Complementos estén disponible "
+"para Zope. Esto significa, que Zope puede importar el código. Buildout es "
+"responsable de esto."
 
 #: ../addons.rst:77
 msgid "Look at ``buildout.cfg`` file in ``/vagrant/buildout``."
@@ -262,29 +256,28 @@ msgstr "Busca el archivo ``buildout.cfg`` en ``/vagrant/buildout``."
 
 #: ../addons.rst:81
 msgid ""
-"If you're using our Vagrant kit, the Plone configuration is available in "
-"a folder that is shared between the host and guest operating systems. "
-"Look in your Vagrant install directory for the ``buildout`` folder. You "
-"may edit configuration files using your favorite text editor in the host "
-"operating system, then switch into your virtual machine to run buildout "
-"on the guest operating system."
+"If you're using our Vagrant kit, the Plone configuration is available in a "
+"folder that is shared between the host and guest operating systems. Look in "
+"your Vagrant install directory for the ``buildout`` folder. You may edit "
+"configuration files using your favorite text editor in the host operating "
+"system, then switch into your virtual machine to run buildout on the guest "
+"operating system."
 msgstr ""
 "Si estás utilizando nuestro kit Vagrant, la configuración Plone está "
 "disponible en una carpeta que se comparte entre los sistemas operativos "
 "anfitrión y huésped. Busque en su directorio de instalación Vagrant la "
-"carpeta ``buildout``. Puede editar los archivos de configuración "
-"utilizando su editor de texto favorito en el sistema operativo huésped, "
-"luego cambiar en la máquina virtual para ejecutar buildout en el sistema "
-"operativo invitado."
+"carpeta ``buildout``. Puede editar los archivos de configuración utilizando "
+"su editor de texto favorito en el sistema operativo huésped, luego cambiar "
+"en la máquina virtual para ejecutar buildout en el sistema operativo "
+"invitado."
 
 #: ../addons.rst:83
 msgid ""
-"In the section ``[instance]`` there is a variable called ``eggs``, which "
-"has a list of *eggs* as a value. Add the following eggs:"
+"In the section ``[instance]`` there is a variable called ``eggs``, which has"
+" a list of *eggs* as a value. Add the following eggs:"
 msgstr ""
-"En la sección ``[instance]`` existe una variable llamada ``eggs``, la "
-"cual tiene una lista de *eggs* como valor. Agregue los siguientes "
-"paquetes eggs:"
+"En la sección ``[instance]`` existe una variable llamada ``eggs``, la cual "
+"tiene una lista de *eggs* como valor. Agregue los siguientes paquetes eggs:"
 
 #: ../addons.rst:85
 msgid "We already have added the ad-dons that we will use now:"
@@ -302,21 +295,21 @@ msgstr "``collective.plonetruegallery``"
 msgid ""
 "Usually, one enters the eggs by adding one more line per egg into the "
 "configuration. You must write the egg name indented, this way buildout "
-"understands that the current line is part of the last variable and not a "
-"new variable."
+"understands that the current line is part of the last variable and not a new"
+" variable."
 msgstr ""
-"Generalmente, uno ingresa los paquetes eggs agregando una linea adicional"
-" por cada paquete egg en la configuración, Debes escribir el nombre del "
-"paquete egg de forma indentada, así el buildout entiende que la linea "
-"actual es parte de la ultima variable y no una nueva variable."
+"Generalmente, uno ingresa los paquetes eggs agregando una linea adicional "
+"por cada paquete egg en la configuración, Debes escribir el nombre del "
+"paquete egg de forma indentada, así el buildout entiende que la linea actual"
+" es parte de la ultima variable y no una nueva variable."
 
 #: ../addons.rst:92
 msgid ""
-"If you add new add-ons here you will have to run buildout and restart the"
-" site:"
+"If you add new add-ons here you will have to run buildout and restart the "
+"site:"
 msgstr ""
-"Si agregas nuevos complementos tendrás que ejecutar buildout y reiniciar "
-"el sitio:"
+"Si agregas nuevos complementos tendrás que ejecutar buildout y reiniciar el "
+"sitio:"
 
 #: ../addons.rst:100
 msgid "Now the code is available from within Plone."
@@ -328,33 +321,31 @@ msgstr "Instalando complementos en su sitio de Plone"
 
 #: ../addons.rst:105
 msgid ""
-"Your Plone site has not yet been told to use the add-on. For this, you "
-"have to activate the add-ons in your Plone Site."
+"Your Plone site has not yet been told to use the add-on. For this, you have "
+"to activate the add-ons in your Plone Site."
 msgstr ""
 "Tu sitio de Plone no ha sido especificado para usar el complemento. Para "
 "esto debes activar los complementos en tu sitio de Plone."
 
 #: ../addons.rst:109
 msgid ""
-"Why the extra step of activating the add-on package? You my have multiple"
-" Plone sites in a single Zope installation. It's common to want to "
-"activate some add-ons in one site, others in another."
+"Why the extra step of activating the add-on package? You my have multiple "
+"Plone sites in a single Zope installation. It's common to want to activate "
+"some add-ons in one site, others in another."
 msgstr ""
-"¿Por qué el paso adicional de activar el paquete complemento? Usted mi "
-"tiene varios sitios Plone en una única instalación de Zope. Es normal que"
-" desee activar algunos complementos en un sitio, otros complementos en "
-"otro sitio."
+"¿Por qué el paso adicional de activar el paquete complemento? Usted mi tiene"
+" varios sitios Plone en una única instalación de Zope. Es normal que desee "
+"activar algunos complementos en un sitio, otros complementos en otro sitio."
 
 #: ../addons.rst:111
 msgid ""
 "In your browser, go to Site Setup (shortcut: add ``/@@overview-"
-"controlpanel`` to the Plone site URL), and open the ``Add-ons`` Panel. "
-"You will see that you can install the add-ons there."
+"controlpanel`` to the Plone site URL), and open the ``Add-ons`` Panel. You "
+"will see that you can install the add-ons there."
 msgstr ""
 "En el navegador, vaya a Configuración del sitio (atajo: añadir en su "
 "dirección URL ``/@@overview-controlpanel`` del sitio Plone), y abrir el "
-"panel ``Complementos``. Usted verá que puede instalar los complementos "
-"allí."
+"panel ``Complementos``. Usted verá que puede instalar los complementos allí."
 
 #: ../addons.rst:113
 msgid "Install **PloneFormGen** and  **Plone True Gallery** them now."
@@ -362,11 +353,11 @@ msgstr "Instala **PloneFormGen** y **Plone True Gallery** ahora."
 
 #: ../addons.rst:115
 msgid ""
-"This is what happens: The GenericSetup profile of the product gets "
-"loaded. This does things like:"
+"This is what happens: The GenericSetup profile of the product gets loaded. "
+"This does things like:"
 msgstr ""
-"Esto es lo que sucede: el perfil GenericSetup del producto se ha cargado."
-" esto hace cosas como:"
+"Esto es lo que sucede: el perfil GenericSetup del producto se ha cargado. "
+"esto hace cosas como:"
 
 #: ../addons.rst:117
 msgid "configuring new actions,"
@@ -382,7 +373,8 @@ msgstr "Registrando archivos CSS y Javascripts"
 
 #: ../addons.rst:120
 msgid "creating some content/configuration objects in your Plone site."
-msgstr "Creando algunos objetos contenidos / configuración en tu sitio de Plone."
+msgstr ""
+"Creando algunos objetos contenidos / configuración en tu sitio de Plone."
 
 #: ../addons.rst:122
 msgid "Let's have a look at what we just installed."
@@ -410,21 +402,20 @@ msgstr "A través de la Web: Products.PloneFormGen"
 
 #: ../addons.rst:134
 msgid ""
-"The basic concept of PloneFormGen is that you build a form by adding a "
-"Form Folder, to which you add form fields as content items. Fields are "
-"added, deleted, edited and moved just as with any other type of content. "
-"Form submissions may be automatically emailed and/or saved for download. "
-"There are many PFG add-ons that provide additional field types and "
-"actions."
+"The basic concept of PloneFormGen is that you build a form by adding a Form "
+"Folder, to which you add form fields as content items. Fields are added, "
+"deleted, edited and moved just as with any other type of content. Form "
+"submissions may be automatically emailed and/or saved for download. There "
+"are many PFG add-ons that provide additional field types and actions."
 msgstr ""
-"El concepto básico de PloneFormGen es usted construye un formulario "
-"mediante la adición de una carpeta de formulario, a esta agrega campos de"
-" formulario como elementos de contenido. Se añaden, eliminar, editar "
-"campos y mueven al igual que con cualquier otro tipo de contenido. Los "
-"envíos de formularios pueden ser enviados por correo electrónico de forma"
-" automática y / o guardarse para descargar, por ejemplo en un archivo "
-"CSV. Hay muchas complementos para PloneFormGen que proporcionan los tipos"
-" de campo adicionales y acciones."
+"El concepto básico de PloneFormGen es usted construye un formulario mediante"
+" la adición de una carpeta de formulario, a esta agrega campos de formulario"
+" como elementos de contenido. Se añaden, eliminar, editar campos y mueven al"
+" igual que con cualquier otro tipo de contenido. Los envíos de formularios "
+"pueden ser enviados por correo electrónico de forma automática y / o "
+"guardarse para descargar, por ejemplo en un archivo CSV. Hay muchas "
+"complementos para PloneFormGen que proporcionan los tipos de campo "
+"adicionales y acciones."
 
 #: ../addons.rst:136
 msgid "Let's build a registration form:"
@@ -432,8 +423,8 @@ msgstr "Vamos a construir un formulario de registro:"
 
 #: ../addons.rst:138
 msgid ""
-"Activate PloneFormGen for this site via the add-on configuration panel in"
-" site setup"
+"Activate PloneFormGen for this site via the add-on configuration panel in "
+"site setup"
 msgstr ""
 "Activar PloneFormGen para este sitio a través del panel de configuración "
 "Complementos en la Configuración del sitio."
@@ -443,14 +434,14 @@ msgid ""
 "Add an object of the new type 'Form Folder' in the site root. Call it "
 "\"Registration\""
 msgstr ""
-"Agrega un objeto del nuevo tipo 'Form Folder' en el raíz del sitio "
-"llamado \"Registro\""
+"Agrega un objeto del nuevo tipo 'Form Folder' en el raíz del sitio llamado "
+"\"Registro\""
 
 #: ../addons.rst:140
 msgid "Save and view the result, a simple contact form that we may customize"
 msgstr ""
-"Guarde y ver el resultado, un sencillo formulario de contacto el cual "
-"puede personalizar"
+"Guarde y ver el resultado, un sencillo formulario de contacto el cual puede "
+"personalizar"
 
 #: ../addons.rst:141
 msgid "Click in QuickEdit"
@@ -474,46 +465,45 @@ msgstr "Personalizar el script de envío de correo"
 
 #: ../addons.rst:149
 msgid ""
-"Need CAPTCHAs? Add the ``collective.recaptcha`` package to your buildout "
-"and PFG will have a CAPTCHA field."
+"Need CAPTCHAs? Add the ``collective.recaptcha`` package to your buildout and"
+" PFG will have a CAPTCHA field."
 msgstr ""
-"¿Necesita CAPTCHA? Agregue el paquete ``collective.recaptcha`` a su "
-"buildout y PloneFormGen - PFG tendrá un campo de CAPTCHA."
+"¿Necesita CAPTCHA? Agregue el paquete ``collective.recaptcha`` a su buildout"
+" y PloneFormGen - PFG tendrá un campo de CAPTCHA."
 
 #: ../addons.rst:151
 msgid ""
-"Need encryption? Add GPG encryption to your system, add a GPG "
-"configuration for the Plone daemon user that includes a public keys for "
-"the mail targets, and you'll be able to encrypt email before sending."
+"Need encryption? Add GPG encryption to your system, add a GPG configuration "
+"for the Plone daemon user that includes a public keys for the mail targets, "
+"and you'll be able to encrypt email before sending."
 msgstr ""
 "¿Necesita cifrado? Añadir cifrado GPG para su sistema, añada una "
-"configuración GPG para el usuario demonio de Plone que incluye unas "
-"claves públicas para los objetivos de correo, y usted será capaz de "
-"cifrar el correo electrónico antes de enviar."
+"configuración GPG para el usuario demonio de Plone que incluye unas claves "
+"públicas para los objetivos de correo, y usted será capaz de cifrar el "
+"correo electrónico antes de enviar."
 
 #: ../addons.rst:153
 msgid ""
 "Think PFG is too complicated for your site editors? Administrators (and "
-"we're logged in as an administrator) see lots of more complex options "
-"that are invisible to site editors."
+"we're logged in as an administrator) see lots of more complex options that "
+"are invisible to site editors."
 msgstr ""
-"¿Piense PoneFormGen es demasiado complicado para sus editores del sitio? "
-"Los administradores (y estamos registrados como administrador) ver un "
-"montón de opciones más complejas que son invisibles para editores del "
-"sitio."
+"¿Piense PoneFormGen es demasiado complicado para sus editores del sitio? Los"
+" administradores (y estamos registrados como administrador) ver un montón de"
+" opciones más complejas que son invisibles para editores del sitio."
 
 #: ../addons.rst:155
 msgid ""
-"By the way, while PloneFormGen is good at what it does, is not a good "
-"model for designing your own extensions. It's was created before the Zope"
-" Component Architecture became widely used. The authors would write it "
-"much differently if they were starting from scratch."
+"By the way, while PloneFormGen is good at what it does, is not a good model "
+"for designing your own extensions. It's was created before the Zope "
+"Component Architecture became widely used. The authors would write it much "
+"differently if they were starting from scratch."
 msgstr ""
 "Por cierto, mientras PloneFormGen es bueno en lo que hace, no es un buen "
-"modelo para el diseño de sus propias extensiones. Se fue creado antes de "
-"la arquitectura de componentes de Zope convirtió ampliamente utilizado. "
-"Los autores desean escribir de manera muy diferente si estaban empezando "
-"desde cero."
+"modelo para el diseño de sus propias extensiones. Se fue creado antes de la "
+"arquitectura de componentes de Zope convirtió ampliamente utilizado. Los "
+"autores desean escribir de manera muy diferente si estaban empezando desde "
+"cero."
 
 #: ../addons.rst:159
 msgid "Add Photogallery with collective.plonetruegallery"
@@ -529,13 +519,13 @@ msgstr ""
 
 #: ../addons.rst:163
 msgid ""
-"Instead of creating custom content types for galleries, it integrates "
-"with the Plone functionality to choose different views for folderish "
-"content types."
+"Instead of creating custom content types for galleries, it integrates with "
+"the Plone functionality to choose different views for folderish content "
+"types."
 msgstr ""
 "En vez de crear tipos de contenido personalizados para galerías, este se "
-"integra con la funcionalidad de Plone para elegir diferentes vistas de "
-"tipos de contenidos en carpeta."
+"integra con la funcionalidad de Plone para elegir diferentes vistas de tipos"
+" de contenidos en carpeta."
 
 #: ../addons.rst:165
 msgid "https://pypi.python.org/pypi/collective.plonetruegallery"
@@ -548,17 +538,17 @@ msgstr "Activar el producto"
 #: ../addons.rst:168
 msgid ""
 "Enable the behavior ``Plone True Gallery`` on the type ``Folder``: "
-"http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step"
-" is only required because plonetruegallery does not yet know about the "
-"newer plone.app.contenttypes, which we activated to replace Plone's old "
-"content types with newer, Dexterity-style, ones.)"
+"http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step is"
+" only required because plonetruegallery does not yet know about the newer "
+"plone.app.contenttypes, which we activated to replace Plone's old content "
+"types with newer, Dexterity-style, ones.)"
 msgstr ""
-"Habilitar el comportamiento ``Plone True Gallery`` en el tipo "
-"``Carpeta``: http://localhost:8080/Plone/dexterity-"
-"types/Folder/@@behaviors (sólo este paso es necesario porque "
-"PloneTrueGallery todavía no sabe sobre los nuevos tipos de contenidos en "
-"el paquete plone.app.contenttypes, entonces hay activamos para reemplazar"
-" viejos tipos de contenido de Plone con más nuevos, de estilo Dexterity.)"
+"Habilitar el comportamiento ``Plone True Gallery`` en el tipo ``Carpeta``: "
+"http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (sólo este "
+"paso es necesario porque PloneTrueGallery todavía no sabe sobre los nuevos "
+"tipos de contenidos en el paquete plone.app.contenttypes, entonces hay "
+"activamos para reemplazar viejos tipos de contenido de Plone con más nuevos,"
+" de estilo Dexterity.)"
 
 #: ../addons.rst:169
 msgid "Add a folder /the-event/location"
@@ -577,8 +567,8 @@ msgid ""
 "collective.plonetruegallery is a better model for how to write a Plone "
 "Extension."
 msgstr ""
-"collective.plonetruegallery es un mejor modelo para escribir una "
-"extensión de Plone."
+"collective.plonetruegallery es un mejor modelo para escribir una extensión "
+"de Plone."
 
 #: ../addons.rst:176
 msgid "Internationalization"
@@ -590,34 +580,35 @@ msgstr "Plone puede ejecutar el mismo sitio en múltiples lenguajes."
 
 #: ../addons.rst:180
 msgid ""
-"We're not doing this with the conference-site since the *lingua franca* "
-"of the Plone-community is English."
+"We're not doing this with the conference-site since the *lingua franca* of "
+"the Plone-community is English."
 msgstr ""
-"No estamos haciendo esto con el sitio de la conferencia ya que la *lengua"
-" franca* de la comunidad Plone es el Ingles."
+"No estamos haciendo esto con el sitio de la conferencia ya que la *lengua "
+"franca* de la comunidad Plone es el Ingles."
 
 #: ../addons.rst:182
 msgid ""
-"We would use https://pypi.python.org/pypi/plone.app.multilingual for this."
-" It is the successor of Products.LinguaPlone (which only works with "
+"We would use https://pypi.python.org/pypi/plone.app.multilingual for this. "
+"It is the successor of Products.LinguaPlone (which only works with "
 "Archetypes)."
 msgstr ""
-"Para esto debe usar https://pypi.python.org/pypi/plone.app.multilingual. "
-"Ese es el sucesor del Products.LinguaPlone (el cual solo usa Archetypes)."
+"Para esto debe usar https://pypi.python.org/pypi/plone.app.multilingual. Ese"
+" es el sucesor del Products.LinguaPlone (el cual solo usa tipos de "
+"contenidos Archetypes)."
 
 #: ../addons.rst:186
 msgid ""
 "Building a multi-lingual site requires activating "
-"``plone.app.multilingual``, but no add-on is necessary to build a site in"
-" a single language other than English. Just select a different site "
-"language when creating a Plone site, and all the basic messages will be "
-"translated and and LTR or RTL needs handled."
+"``plone.app.multilingual``, but no add-on is necessary to build a site in a "
+"single language other than English. Just select a different site language "
+"when creating a Plone site, and all the basic messages will be translated "
+"and and LTR or RTL needs handled."
 msgstr ""
 "La construcción de un sitio multilingüe exige activar el producto "
 "``plone.app.multilingual``, pero no es necesario un complemento para "
 "construir un sitio en un solo idioma que no sea Inglés. Sólo tienes que "
-"seleccionar un lenguaje sitio diferente al crear un sitio Plone, y todos "
-"los mensajes básicos serán traducidos y LTR o RTL necesidades manejados."
+"seleccionar un lenguaje sitio diferente al crear un sitio Plone, y todos los"
+" mensajes básicos serán traducidos y LTR o RTL necesidades manejados."
 
 #: ../addons.rst:190
 msgid "Summary"
@@ -625,11 +616,11 @@ msgstr "Resumen"
 
 #: ../addons.rst:192
 msgid ""
-"We are now able to customize and extend many parts of our website. We can"
-" even install extensions that add new functionality."
+"We are now able to customize and extend many parts of our website. We can "
+"even install extensions that add new functionality."
 msgstr ""
-"Ahora somos capaces de personalizar y ampliar muchas partes de nuestro "
-"sitio web. Incluso podemos instalar extensiones que añaden nuevas "
+"Ahora somos capaces de personalizar y ampliar muchas partes de nuestro sitio"
+" web. Incluso podemos instalar extensiones que añaden nuevas "
 "funcionalidades."
 
 #: ../addons.rst:194
@@ -642,7 +633,8 @@ msgstr "¿Podemos enviar Charlas al jurado evaluador ahora?"
 
 #: ../addons.rst:197
 msgid "Can we create lists with the most important properties of each tasks?"
-msgstr "¿Podemos crear listas con las propiedades mas importantes de cada tarea?"
+msgstr ""
+"¿Podemos crear listas con las propiedades mas importantes de cada tarea?"
 
 #: ../addons.rst:198
 msgid "Can we allow a jury to vote on talks?"
@@ -654,8 +646,7 @@ msgid ""
 "this TTW, but at some point we reach barriers. In the next part of the "
 "training, we'll teach you, how to break through these barriers."
 msgstr ""
-"Algunas veces trabajamos con data estructurada. Hasta un grado podemos "
-"hacer todo a través de la Web, pero a algún punto nos encontramos con "
-"barreras, en la siguiente parte de nuestro entrenamiento, te enseñaremos "
-"como romper esas barreras."
-
+"Algunas veces trabajamos con data estructurada. Hasta un grado podemos hacer"
+" todo a través de la Web, pero a algún punto nos encontramos con barreras, "
+"en la siguiente parte de nuestro entrenamiento, te enseñaremos como romper "
+"esas barreras."

@@ -1,18 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
-# HECTOR JOSE REVILLA SOCORRO <hjrevilla@outlook.com>, 2015
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: HECTOR JOSE REVILLA SOCORRO <hjrevilla@outlook.com>, 2016\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
 "Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,19 +24,20 @@ msgstr "Las características de Plone"
 
 #: ../features.rst:4
 msgid ""
-"In-depth user-manual: https://old.plone.org/documentation/manual/plone-4-user-"
-"manual"
+"In-depth user-manual: https://old.plone.org/documentation/manual/plone-4"
+"-user-manual"
 msgstr ""
 "En profundidad el Manual de usuario (en idioma Español): "
-"https://plone.org/countries/ve/publicaciones/plone-para-usuarios-"
+"https://old.plone.org/countries/ve/publicaciones/plone-para-usuarios-"
 "principiantes"
 
 #: ../features.rst:6
 msgid "See also: http://docs.plone.org/4/en/working-with-content/index.html"
 msgstr ""
 "Ver también la versión original del manual (en idioma Ingles) en las "
-"siguientes direcciones URL: https://old.plone.org/documentation/manual/plone-4"
-"-user-manual y http://docs.plone.org/4/en/working-with-content/index.html"
+"siguientes direcciones URL: "
+"http://old.plone.org/documentation/manual/plone-4-user-manual y "
+"http://docs.plone.org/4/en/working-with-content/index.html"
 
 #: ../features.rst:9
 msgid "Starting and Stopping Plone"
@@ -487,13 +486,13 @@ msgstr "Colección"
 #: ../features.rst:191
 msgid ""
 "Please keep in mind that we use `plone.app.contenttypes "
-"<http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html>`_ "
-"for the training. Therefore the types are based on Dexterity and slightly "
+"<http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html>`_"
+" for the training. Therefore the types are based on Dexterity and slightly "
 "different from the types that you will find in a default-Plone 4.3.x-site."
 msgstr ""
 "Por favor, tenga en cuenta que usamos `plone.app.contenttypes "
-"<http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html>`_ "
-"para la formación. Por lo tanto, los tipos se basan en Dexterity y un poco "
+"<http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html>`_"
+" para la formación. Por lo tanto, los tipos se basan en Dexterity y un poco "
 "diferente de los tipos que se encuentran en un sitio Plone 4.3.x por "
 "defecto."
 
@@ -710,11 +709,11 @@ msgstr ""
 
 #: ../features.rst:264
 msgid ""
-"Read more at: http://docs.plone.org/4/en/working-with-content/collaboration-and-"
-"workflow/index.html"
+"Read more at: http://docs.plone.org/4/en/working-with-content/collaboration-"
+"and-workflow/index.html"
 msgstr ""
-"Lea más en: http://docs.plone.org/4/en/working-with-content/collaboration-and-"
-"workflow/index.html"
+"Lea más en: http://docs.plone.org/4/en/working-with-content/collaboration-"
+"and-workflow/index.html"
 
 #: ../features.rst:267
 msgid "Working copy"

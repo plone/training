@@ -1,12 +1,8 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) The text and illustrations in this website are licensed by
-# the Plone Foundation under a Creative Commons Attribution 4.0
-# International license.
-# This file is distributed under the same license as the Mastering Plone
-# package.
-#
-# Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2015
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
+# This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -14,13 +10,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, "
-"2016\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
 "Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../thirdparty_behaviors.rst:2
 msgid "Using third-party behaviors"
@@ -32,9 +28,8 @@ msgstr "Agregar banner con el complemento collective.behavior.banner"
 
 #: ../thirdparty_behaviors.rst:8
 msgid ""
-"There are a lot of addons in Plone for sliders/banners/teasers. We "
-"thought there should be a better one and created "
-"``collective.behavior.banner``."
+"There are a lot of addons in Plone for sliders/banners/teasers. We thought "
+"there should be a better one and created ``collective.behavior.banner``."
 msgstr ""
 "Hay un montón de complementos en Plone para deslizadores / banners / "
 "teasers. Nosotros pensamos que debe haber una mejor y fue creado "
@@ -42,29 +37,29 @@ msgstr ""
 
 #: ../thirdparty_behaviors.rst:12
 msgid ""
-"Like many ad-dons it has not yet been released on pypi but only exists as"
-" code on github."
+"Like many ad-dons it has not yet been released on pypi but only exists as "
+"code on github."
 msgstr ""
 "Al igual muchos complementos que aún no se ha lanzado en PyPI pero sólo "
 "existe como código fuente en GitHub."
 
 #: ../thirdparty_behaviors.rst:14
 msgid ""
-"The training-buildout hold a section ``[sources]`` that tells buildout to"
-" download a specific ad-don not from pypi but from some code repository "
+"The training-buildout hold a section ``[sources]`` that tells buildout to "
+"download a specific ad-don not from pypi but from some code repository "
 "(usually github):"
 msgstr ""
-"El buildout del entrenamiento contiene una sección ``[sources]`` que le dice "
-"buildout para descargar un complemento específico no disponible en PyPI "
+"El buildout del entrenamiento contiene una sección ``[sources]`` que le dice"
+" buildout para descargar un complemento específico no disponible en PyPI "
 "sino en algún repositorio de código (generalmente github):"
 
 #: ../thirdparty_behaviors.rst:21
 msgid ""
-"Pinning the revision saves us from being surprised by changes in the code"
-" we might not want."
+"Pinning the revision saves us from being surprised by changes in the code we"
+" might not want."
 msgstr ""
-"Definiendo la revisión nos salva de ser sorprendidos por los cambios en "
-"el código fuente puede ser que no quiera."
+"Definiendo la revisión nos salva de ser sorprendidos por los cambios en el "
+"código fuente puede ser que no quiera."
 
 #: ../thirdparty_behaviors.rst:23
 msgid "After adding the source, we need to add the egg to buildout:"
@@ -82,8 +77,8 @@ msgstr "Instalar el producto"
 
 #: ../thirdparty_behaviors.rst:36
 msgid ""
-"Create a new dexterity-ct ``Banner`` with **only** the behavior "
-"``Banner`` enabled."
+"Create a new dexterity-ct ``Banner`` with **only** the behavior ``Banner`` "
+"enabled."
 msgstr ""
 "Crear un nuevo tipo de contenido Dexterity ``Banner`` con **sólo** el "
 "comportamiento ``Banner`` habilitado."
@@ -97,11 +92,12 @@ msgid ""
 "Add two banners into that folder using images taken from "
 "http://lorempixel.com/800/150/"
 msgstr ""
-"Agregar dos banners dentro de la carpeta usando imágenes tomadas desde la"
-" dirección URL http://lorempixel.com/800/150/"
+"Agregar dos banners dentro de la carpeta usando imágenes tomadas desde la "
+"dirección URL http://lorempixel.com/800/150/"
 
 #: ../thirdparty_behaviors.rst:39
-msgid "Add the Behavior ``Slider`` to the default-contenttype ``Page (Document)``"
+msgid ""
+"Add the Behavior ``Slider`` to the default-contenttype ``Page (Document)``"
 msgstr ""
 "Agregar el comportamiento ``Slider`` al tipo de contenido por defecto "
 "``Página (Document)``"
@@ -109,4 +105,3 @@ msgstr ""
 #: ../thirdparty_behaviors.rst:40
 msgid "Edit the front-page and link to the new banners."
 msgstr "Edita el la página frontpage y enlace a los nuevos banners."
-

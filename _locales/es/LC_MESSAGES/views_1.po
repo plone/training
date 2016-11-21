@@ -1,12 +1,8 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) The text and illustrations in this website are licensed by
-# the Plone Foundation under a Creative Commons Attribution 4.0
-# International license.
-# This file is distributed under the same license as the Mastering Plone
-# package.
-#
-# Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
+# This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -14,29 +10,29 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-11 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, "
-"2016\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
 "Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../views_1.rst:2
 msgid "Views I"
 msgstr "Views - Parte I"
 
-#: ../views_1.rst
+#: ../views_1.rst:0
 msgid "Get the code!"
 msgstr "¡Obtén el código!"
 
 #: ../views_1.rst:6
 msgid ""
-"Get the code for this chapter (:doc:`More info <sneak>`) using this "
-"command in the buildout-directory:"
+"Get the code for this chapter (:doc:`More info <sneak>`) using this command "
+"in the buildout-directory:"
 msgstr ""
-"Obtén el código para este capítulo (:doc:`Más información <sneak>`) "
-"usando este comando en el directorio buildout:"
+"Obtén el código para este capítulo (:doc:`Más información <sneak>`) usando "
+"este comando en el directorio buildout:"
 
 #: ../views_1.rst:14
 msgid "A simple browser view"
@@ -44,23 +40,27 @@ msgstr "Una simple browser view"
 
 #: ../views_1.rst:16
 msgid ""
-"Before writing the talk view itself we step back and talk *a little* "
-"about views and templates."
+"Before writing the talk view itself we step back and talk *a little* about "
+"views and templates."
 msgstr ""
-"Antes de escribir la vista de tipo de contenido talk en sí, retrocedemos y hablamos *un poco*"
-"sobre las vistas y las plantillas."
+"Antes de escribir la vista de tipo de contenido talk en sí, retrocedemos y "
+"hablamos *un poco*sobre las vistas y las plantillas."
 
 #: ../views_1.rst:18
 msgid ""
 "A view in Plone is usually a ``BrowserView``. It can hold a lot of cool "
 "python code but we will first focus on the template."
 msgstr ""
+"Una vista en Plone suele ser un ``BrowserView``. Puede contener mucho código"
+" de python, pero primero nos centraremos en la plantilla."
 
 #: ../views_1.rst:20
 msgid ""
 "Edit the file ``browser/configure.zcml`` and register a new view called "
 "*training*:"
 msgstr ""
+"Edite el archivo ``browser/configure.zcml`` y registre una nueva vista "
+"llamada *training*:"
 
 #: ../views_1.rst:54
 msgid "Add a file ``browser/templates/training.pt``"
@@ -74,96 +74,22 @@ msgstr ""
 
 #: ../views_1.rst:61
 msgid "You should now see \"Hello World\"."
-msgstr "Usted deberia ver \"Hello World\"."
+msgstr "Usted debería ver \"Hello World\"."
 
 #: ../views_1.rst:63
 msgid "We now have everything in place to learn about page templates."
 msgstr ""
-"Ahora tenemos todo en su lugar para aprender sobre las Zope Page "
-"Templates - ZPT."
+"Ahora tenemos todo en su lugar para aprender sobre las Zope Page Templates -"
+" ZPT."
 
 #: ../views_1.rst:67
 msgid ""
 "The view ``training`` has no python class registered for it but only a "
 "template. It acts as if it had an empty python class inheriting from "
-"``Products.Five.browser.BrowserView`` but the way that happens is "
-"actually quite a bit of magic..."
+"``Products.Five.browser.BrowserView`` but the way that happens is actually "
+"quite a bit of magic..."
 msgstr ""
-
-#~ msgid ""
-#~ "A basic view in Plone is usually"
-#~ " a ``BrowserView``. It can hold a "
-#~ "lot of python-code but it can "
-#~ "also be only a empty "
-#~ "``BrowserView``-class that renders a template"
-#~ " when called. Such an empty class "
-#~ "is what we create at first so "
-#~ "we can concentrate on the template."
-#~ msgstr ""
-#~ "Una vista básica en Plone suele "
-#~ "ser una ``BrowserView``. Ese puede "
-#~ "contener una gran cantidad de código "
-#~ "Python, pero también puede ser sólo "
-#~ "una clase ``BrowserView`` vacía que hace"
-#~ " una plantilla cuando se le llama."
-#~ " Tal clase vacía es lo que "
-#~ "creamos en un primer momento para "
-#~ "que podamos concentrarnos en la "
-#~ "plantilla."
-
-#~ msgid ""
-#~ "Add a new directory "
-#~ "``src/ploneconf.site/ploneconf/site/browser``. By "
-#~ "convention the dir ``browser`` should "
-#~ "hold all UI displayed in the "
-#~ "browser."
-#~ msgstr ""
-#~ "Agregue un nuevo directorio "
-#~ "``src/ploneconf.site/ploneconf/site/browser``. Por "
-#~ "convención el directorio ``browser`` debe "
-#~ "contener todas las interfaz de usuario"
-#~ " que se muestran en el navegador."
-
-#~ msgid "Add an empty file ``browser/__init__.py``"
-#~ msgstr "Agregar un archivo vacío ``browser/__init__.py``"
-
-#~ msgid ""
-#~ "We need to tell Plone to consider"
-#~ " this directory. Modify the existing "
-#~ "``configure.zcml`` and add"
-#~ msgstr ""
-#~ "Necesitamos decirle a Plone que "
-#~ "considerar este directorio. Modifique el "
-#~ "archivo ``configure.zcml`` existente y agregue"
-#~ " el siguiente código fuente:"
-
-#~ msgid "Then add a file ``browser/configure.zcml``:"
-#~ msgstr "Entonces agregue un archivo ``browser/configure.zcml``:"
-
-#~ msgid ""
-#~ "This might seem a lot of "
-#~ "boilerplate if we only want to "
-#~ "render a template but every bit of"
-#~ " it can be changed to achieve "
-#~ "different effects. It's not useless code"
-#~ " but actually very powerful. We only"
-#~ " ignore it for now and concentrate"
-#~ " on the template."
-#~ msgstr ""
-#~ "Esto puede parecer un montón de "
-#~ "cosas repetitiva si sólo queremos "
-#~ "renderizar una plantilla, pero cada poco"
-#~ " se puede cambiar para conseguir "
-#~ "diferentes efectos. No es código inútil,"
-#~ " pero en realidad es muy potente. "
-#~ "Nosotros sólo los ignoramos por ahora"
-#~ " y nos concentramos en la plantilla."
-
-#~ msgid ""
-#~ "Add a directory ``browser/templates`` and "
-#~ "add an file ``browser/templates/demoview.pt``"
-#~ msgstr ""
-#~ "Agregar un directorio ``browser/templates`` y"
-#~ " agregue un archivo "
-#~ "``browser/templates/demoview.pt``"
-
+"La vista ``training`` no tiene ninguna clase python registrada para ella "
+"pero sólo una plantilla. Actúa como si tuviera una clase vacía python "
+"heredando de ``Products.Five.browser.BrowserView``, pero la forma en que "
+"sucede es realmente es un poco de magia..."
