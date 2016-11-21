@@ -25,7 +25,7 @@ We move to the :file:`src` directory and call a script called :file:`zopeskel` f
     $ cd src
     $ ../bin/zopeskel
 
-This returns a list of available templates we might use. We choose dexerity since it is pretty small but already has some of the right dependencies we need.
+This returns a list of available templates we might use. We choose dexterity since it is pretty small but already has some of the right dependencies we need.
 
 .. code-block:: bash
 
