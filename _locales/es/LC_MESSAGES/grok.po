@@ -1,17 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2014-11-05 12:04+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,6 +28,9 @@ msgid ""
 "It is compatible with the Zope Component Architecture, it used just an "
 "alternative syntax."
 msgstr ""
+"Grok es un lenguaje de declaración alternativo para declarar sus "
+"componentes. Es compatible con la arquitectura de componentes de Zope, "
+"utilizó sólo una sintaxis alternativa."
 
 #: ../grok.rst:7
 msgid ""
@@ -37,6 +40,11 @@ msgid ""
 "in the plone core. The plone community decided against it, because it "
 "increases the technology stack without adding functionality."
 msgstr ""
+"En lugar de escribir archivos zcml separados, usted anota su código fuente y"
+" cree contenido conforme a nombres de archivo específicos para que se "
+"encuentren automáticamente. Ha habido discusiones si grok se debe utilizar "
+"en el núcleo del plone. La comunidad plone decidió en contra, porque aumenta"
+" la pila de tecnología sin agregar funcionalidad."
 
 #: ../grok.rst:10
 msgid ""
@@ -45,12 +53,19 @@ msgid ""
 "disadvantage, grok components cannot be overridden by z3c.jbot. I would not "
 "be surprised if this could be fixed though."
 msgstr ""
+"Algunas personas incluso están en contra de usarlo en Complementos, porque "
+"no habría una sola manera de declarar componentes, sino dos. Entonces hay "
+"una última desventaja, los componentes grok no pueden ser sobre-escritos por"
+" el paquete z3c.jbot. No me sorprendería si esto podría arreglarse."
 
 #: ../grok.rst:12
 msgid ""
 "After all these negative things let us tell you why we still like it: We "
 "like to write as few lines of code and configuration as possible."
 msgstr ""
+"Después de todas estas cosas negativas vamos a decirle por qué todavía nos "
+"gusta: Nos gusta escribir como pocas líneas de código y configuración como "
+"sea posible."
 
 #: ../grok.rst:14
 msgid ""
@@ -60,25 +75,36 @@ msgid ""
 "view shall be used is declared with a single line annotation or deduced from"
 " file names."
 msgstr ""
+"Por lo tanto, vamos a escribir nuestra browser view como una vista grok. "
+"Desde el lado de la arquitectura de componentes, nada cambia. Todavía "
+"tenemos que escribir un adaptador múltiple. Todos los detalles como la "
+"plantilla a utilizar o para qué browser layer se utilizará la vista se "
+"declarará con una sola anotación de línea o se deducirá de los nombres de "
+"archivo."
 
 #: ../grok.rst:18
-msgid "http://docs.plone.org/develop/addons/five-grok/index.html"
-msgstr "http://docs.plone.org/develop/addons/five-grok/index.html"
+msgid "http://docs.plone.org/4/en/appendices/five-grok/index.html"
+msgstr "http://docs.plone.org/4/en/appendices/five-grok/index.html"
 
 #: ../grok.rst:20
 msgid ""
 "Grok is not part of plone. We have to add it as a dependency to our egg."
 msgstr ""
+"Grok no es parte de plone. Tenemos que añadirlo como una dependencia de "
+"nuestro paquete egg."
 
 #: ../grok.rst:22
 msgid ""
 "Open setup.py, and add ``five.grok`` to the list off addons in "
 "``install_requires``::"
 msgstr ""
+"Open setup.py, and add ``five.grok`` to the list off addons in ``install_requires``::\n"
+"\n"
+"Abra el archivo ``setup.py`` y agregue ``five.grok`` a la lista de complementos en la declarativa ``install_requires``::"
 
 #: ../grok.rst:31
 msgid "You need to run buildout now."
-msgstr ""
+msgstr "Usted necesita ejecutar buildout ahora."
 
 #: ../grok.rst:33
 msgid ""
@@ -87,17 +113,26 @@ msgid ""
 "single line of zcml, that line ensures that your complete package is "
 "`grokked`."
 msgstr ""
+"Grok casi mágicamente encuentra todas sus anotaciones. Puesto que su magia "
+"no es completa, tienes que decirle a grok dónde buscar código grok. Esto "
+"requiere una sola línea de zcml, esa línea asegura que su paquete sea "
+"completamente `grokked`."
 
 #: ../grok.rst:53
 msgid "This new grok statement takes care of finding everything grok related."
 msgstr ""
+"Esta nueva declaración grok se encarga de encontrar todo lo relacionado con "
+"grok."
 
 #: ../grok.rst:55
 msgid "Now we can add a grok view in a new file ``views.py``:"
 msgstr ""
+"Ahora nosotros agregamos una vista grok en el nuevo archivo ``views.py``:"
 
 #: ../grok.rst:69
 msgid ""
 "By convention the template must be in a subdirectory called "
 "``views_templates`` and it must be named `talkview.pt`"
 msgstr ""
+"Por convención, la plantilla debe estar en un sub-directorio llamado "
+"``views_templates`` y debe llamarse `talkview.pt`"

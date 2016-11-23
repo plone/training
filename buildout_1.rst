@@ -40,7 +40,7 @@ One example is the section
     recipe = plone.recipe.zope2instance
     user = admin:admin
 
-This uses the python-package `plone.recipe.zope2instance <http://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the used recipe.
+This uses the python-package `plone.recipe.zope2instance <https://pypi.python.org/pypi/plone.recipe.zope2instance>`_ to create and configure the Zope 2 instance which we use to run Plone. All the lines after ``recipe = xyz`` are the configuration of the used recipe.
 
 .. seealso::
 
@@ -301,11 +301,11 @@ Be McGuyver
 .. seealso::
 
     Buildout-Documentation
-        * http://docs.plone.org/old-reference-manuals/buildout/index.html
+        * http://docs.plone.org/4/en/old-reference-manuals/buildout/index.html
         * http://www.buildout.org/en/latest/docs/index.html
 
     Troubleshooting
-        http://docs.plone.org/manage/troubleshooting/buildout.html
+        http://docs.plone.org/4/en/manage/troubleshooting/buildout.html
 
     A minimal buildout for Plone 4
         https://github.com/collective/minimalplone4

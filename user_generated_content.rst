@@ -78,7 +78,7 @@ Workflow
 Self-registration
 *****************
 
-This has to happen in python in a custom `setuphandler.py <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_ since there is not yet a exportable setting for this.
+This has to happen in python in a custom `setuphandler.py <http://docs.plone.org/4/en/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_ since there is not yet a exportable setting for this.
 
 Register a import-step in ``configure.zcml``. It will be automatically run when (re-)installing the addon.
 

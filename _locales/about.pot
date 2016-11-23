@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-21 00:23-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgid "About Mastering Plone"
 msgstr ""
 
 #: ../about.rst:4
-msgid "This training was created by Philip Bauer and Patrick Gerken of `starzel.de <http://www.starzel.de>`_ to create a canonical training for future Plone developers. The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it. It is published as Open Source on `github <https://github.com/plone/training>`_ and `readthedocs <http://plone-training.readthedocs.org/>`_."
+msgid "This training was created by Philip Bauer and Patrick Gerken of `starzel.de <https://www.starzel.de>`_ to create a canonical training for future Plone developers. The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it. It is published as Open Source on `github <https://github.com/plone/training>`_ and `readthedocs <http://plone-training.readthedocs.io/en/legacy/>`_."
 msgstr ""
 
 #: ../about.rst:6
@@ -33,7 +33,7 @@ msgid "Upcoming Trainings"
 msgstr ""
 
 #: ../about.rst:14
-msgid "`Mastering Plone 5 Development: 2. - 6. March 2015, Munich <http://www.starzel.de/leistungen/training/>`_"
+msgid "`Mastering Plone 5 Development: 2. - 6. March 2015, Munich <https://www.starzel.de/leistungen/training/>`_"
 msgstr ""
 
 #: ../about.rst:13
@@ -57,7 +57,7 @@ msgid "`June 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068
 msgstr ""
 
 #: ../about.rst:23
-msgid "`May 2014, Munich <http://www.starzel.de/blog/mastering-plone>`_"
+msgid "`May 2014, Munich <https://www.starzel.de/blog/mastering-plone>`_"
 msgstr ""
 
 #: ../about.rst:24
@@ -97,7 +97,7 @@ msgid "Philip Bauer"
 msgstr ""
 
 #: ../about.rst:39
-msgid "Philip Bauer is a Webdeveloper from Munich who fell in love with Plone in 2005 and since then works almost exclusively with Plone. A historian by education he drifted towards creating websites in the 90's and founded the company Starzel.de in 2000. He is a member of the Plone foundation, loves teaching and is dedicated to Open Source. Among other Plone-related projects he started creating the Mastering Plone Training so that everyone can become a Plone-Developer."
+msgid "Philip Bauer is a web developer from Munich who fell in love with Plone in 2005 and since then works almost exclusively with Plone. A historian by education he drifted towards creating websites in the 90's and founded the company Starzel.de in 2000. He is a member of the Plone foundation, loves teaching and is dedicated to Open Source. Among other Plone-related projects he started creating the Mastering Plone Training so that everyone can become a Plone-Developer."
 msgstr ""
 
 #: ../about.rst:42
@@ -105,7 +105,7 @@ msgid "Patrick Gerken"
 msgstr ""
 
 #: ../about.rst:42
-msgid "Patrick Gerken works with Python since 2002. He started working with pure Zope-Applications and now to develops mainly with with Plone, Pyramid and Javascript as well as doing what is called DevOps. He works at Starzel.de."
+msgid "Patrick Gerken works with Python since 2002. He started working with pure Zope applications and now develops mainly with Plone, Pyramid and Javascript as well as doing what is called DevOps. He works at Starzel.de."
 msgstr ""
 
 #: ../about.rst:45
@@ -141,7 +141,7 @@ msgid "default"
 msgstr ""
 
 #: ../about.rst:59
-msgid "The verbose version used for the online-documentation and for the trainer. Build it in sphinx with ``make html`` or use the online-version."
+msgid "The verbose version used for the online documentation and for the trainer. Build it in sphinx with ``make html`` or use the online version."
 msgstr ""
 
 #: ../about.rst:62
@@ -149,15 +149,15 @@ msgid "presentation"
 msgstr ""
 
 #: ../about.rst:62
-msgid "A abbreviated version used for the projector during a training. It should uses more bullet-points than verbose text. Build it in sphinx with ``make presentation``."
+msgid "A abbreviated version used for the projector during a training. It should use more bullet points than verbose text. Build it in sphinx with ``make presentation``."
 msgstr ""
 
 #: ../about.rst:66
-msgid "By prefixing an indented block of text or code with ``.. only:: presentation`` you can control that this block is used for the presentation-version only."
+msgid "By prefixing an indented block of text or code with ``.. only:: presentation`` you can control that this block is used for the presentation version only."
 msgstr ""
 
 #: ../about.rst:68
-msgid "To hide a block from the presentation-version use ``.. only:: not presentation``"
+msgid "To hide a block from the presentation version use ``.. only:: not presentation``"
 msgstr ""
 
 #: ../about.rst:70
@@ -165,11 +165,11 @@ msgid "Content without a prefix will be included in both versions."
 msgstr ""
 
 #: ../about.rst:74
-msgid "The readthedocs-theme"
+msgid "The readthedocs theme"
 msgstr ""
 
 #: ../about.rst:76
-msgid "We slightly tweaked readthedocs-theme in ``_static/custom.css`` so that it works better with projectors:"
+msgid "We slightly tweaked readthedocs theme in ``_static/custom.css`` so that it works better with projectors:"
 msgstr ""
 
 #: ../about.rst:78
@@ -225,7 +225,7 @@ msgid "To build the documentation follow these steps:"
 msgstr ""
 
 #: ../about.rst:138
-msgid "You can now open the output from ``_build/html/index.html``. To build the presentation-version use ``make presentation`` instead of ``make html``. You can open the presentation at ``presentation/index.html``."
+msgid "You can now open the output from ``_build/html/index.html``. To build the presentation version use ``make presentation`` instead of ``make html``. You can open the presentation at ``presentation/index.html``."
 msgstr ""
 
 #: ../about.rst:142
@@ -233,11 +233,11 @@ msgid "Things to do before a training (as a trainer)"
 msgstr ""
 
 #: ../about.rst:144
-msgid "Prepare a mailserver for the user registration mail (http://plone-training.readthedocs.org/en/latest/features.html#configure-a-mailserver)"
+msgid "Prepare a mailserver for the user registration mail (http://plone-training.readthedocs.io/en/legacy/features.html#configure-a-mailserver)"
 msgstr ""
 
 #: ../about.rst:145
-msgid "If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not with the buildout path /vagrant/buildout/)"
+msgid "If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not at the buildout path /vagrant/buildout/)"
 msgstr ""
 
 #: ../about.rst:149
@@ -248,23 +248,19 @@ msgstr ""
 msgid "Everyone is **very welcome** to contribute. Minor bugfixes can be pushed direcly in the `repository <https://github.com/plone/training>`_, bigger changes should made as `pull-requests <https://github.com/plone/training/pull/>`_ and discussed previously in tickets."
 msgstr ""
 
-#: ../about.rst:153
-msgid "By prefixing a indented block of text or code with ``.. only:: presentation`` or ``.. only:: not presentation`` you can control which of the versions the indented block will show up. Content without a prefix will be included in both versions."
-msgstr ""
-
-#: ../about.rst:157
+#: ../about.rst:155
 msgid "License"
 msgstr ""
 
+#: ../about.rst:157
+msgid "The Mastering Plone Training is licensed under a `Creative Commons Attribution 4.0 International License <https://creativecommons.org/licenses/by/4.0/>`_."
+msgstr ""
+
 #: ../about.rst:159
-msgid "The Mastering Plone Training is licensed under a `Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_."
+msgid "Make sure you have filled out a `Contributor Agreement <https://old.plone.org/foundation/contributors-agreement>`_."
 msgstr ""
 
 #: ../about.rst:161
-msgid "Make sure you have filled out a `Contributor Agreement <http://plone.org/foundation/contributors-agreement>`_."
-msgstr ""
-
-#: ../about.rst:163
-msgid "If you haven't filled in a Contributor Agreement, you can still contribute. Contact the Documentation team, for instance via the `mailinglist <http://sourceforge.net/p/plone/mailman/plone-docs/>`_ or directly send a mail to plone-docs@lists.sourceforge.net Basically, all we need is your written confirmation that you are agreeing your contribution can be under Creative Commons. You can also add in a comment with your pull request \"I, <full name>, agree to have this published under Creative Commons 4.0 International BY\"."
+msgid "If you haven't filled out a Contributor Agreement, you can still contribute. Contact the Documentation team, for instance via the `mailinglist <https://sourceforge.net/p/plone/mailman/plone-docs/>`_ or directly send a mail to plone-docs@lists.sourceforge.net Basically, all we need is your written confirmation that you are agreeing your contribution can be under Creative Commons. You can also add in a comment with your pull request \"I, <full name>, agree to have this published under Creative Commons 4.0 International BY\"."
 msgstr ""
 

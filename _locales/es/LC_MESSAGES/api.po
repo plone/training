@@ -1,19 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-06 15:32+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,11 +29,17 @@ msgstr "plone.api"
 #: ../api.rst:7
 msgid ""
 "The most important tool nowadays for plone-developers is the addon "
-"`plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ that"
-" covers 20% of the tasks any Plone developer does 80% of the time. If you "
-"are not sure how to handle a certain task be sure to first check if "
+"`plone.api <http://docs.plone.org/4/en/external/plone.api/docs/index.html>`_"
+" that covers 20% of the tasks any Plone developer does 80% of the time. If "
+"you are not sure how to handle a certain task be sure to first check if "
 "plone.api has a solution for you."
-msgstr "La herramienta mas importante actualmente para desarrolladores Plone es el complemento `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ , el cual cubre el 20% de las tareas que cualquier desarrollador Plone que normalmente hace en 80% de su tiempo. Si no estas seguro de como manejar alguna tarea, verifica primero si plone.api tiene una solución para ti."
+msgstr ""
+"La herramienta mas importante actualmente para desarrolladores Plone es el "
+"complemento `plone.api "
+"<http://docs.plone.org/4/en/external/plone.api/docs/index.html>`_ , el cual "
+"cubre el 20% de las tareas que cualquier desarrollador Plone que normalmente"
+" hace en 80% de su tiempo. Si no estas seguro de como manejar alguna tarea, "
+"verifica primero si plone.api tiene una solución para ti."
 
 #: ../api.rst:9
 msgid "The api is divided in five sections. Here is one example from each:"
@@ -44,51 +48,72 @@ msgstr "El api esta divido en 5 secciones. Este es un ejemplo de cada uno:"
 #: ../api.rst:11
 msgid ""
 "`Content`: `Create content "
-"<http://docs.plone.org/external/plone.api/docs/content.html#create-"
+"<http://docs.plone.org/4/en/external/plone.api/docs/content.html#create-"
 "content>`_"
-msgstr "`Contenido`: `Crear contenido <http://docs.plone.org/external/plone.api/docs/content.html#create-content>`_"
+msgstr ""
+"`Contenido`: `Crear contenido "
+"<http://docs.plone.org/4/en/external/plone.api/docs/content.html#create-"
+"content>`_"
 
 #: ../api.rst:12
 msgid ""
 "`Portal`: `Send E-Mail "
-"<http://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_"
-msgstr "`Portal`: `Enviar E-Mail <http://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_"
+"<http://docs.plone.org/4/en/external/plone.api/docs/portal.html#send-e-mail>`_"
+msgstr ""
+"`Portal`: `Enviar E-Mail "
+"<http://docs.plone.org/4/en/external/plone.api/docs/portal.html#send-e-mail>`_"
 
 #: ../api.rst:13
 msgid ""
 "`Groups`: `Grant roles to group "
-"<http://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-"
-"group>`_"
-msgstr "`Grupos`: `Asignar roles al grupo <http://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-group>`_"
+"<http://docs.plone.org/4/en/external/plone.api/docs/group.html#grant-roles-"
+"to-group>`_"
+msgstr ""
+"`Grupos`: `Asignar roles al grupo "
+"<http://docs.plone.org/4/en/external/plone.api/docs/group.html#grant-roles-"
+"to-group>`_"
 
 #: ../api.rst:14
 msgid ""
 "`Users`: `Get user roles "
-"<http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_"
-msgstr "`Usuarios`: `Obtener roles de usuario <http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_"
+"<http://docs.plone.org/4/en/external/plone.api/docs/user.html#get-user-"
+"roles>`_"
+msgstr ""
+"`Usuarios`: `Obtener roles de usuario "
+"<http://docs.plone.org/4/en/external/plone.api/docs/user.html#get-user-"
+"roles>`_"
 
 #: ../api.rst:15
 msgid ""
 "`Environment`: `Switch roles inside a block "
-"<http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-"
+"<http://docs.plone.org/4/en/external/plone.api/docs/env.html#switch-roles-"
 "inside-a-block>`_"
-msgstr "`Entorno`: `Cambiar roles dentro de un bloque <http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_"
+msgstr ""
+"`Entorno`: `Cambiar roles dentro de un bloque "
+"<http://docs.plone.org/4/en/external/plone.api/docs/env.html#switch-roles-"
+"inside-a-block>`_"
 
 #: ../api.rst:17
 msgid ""
 "plone.api is not yet part of the Plone core. Therefore you will not see any "
 "use of plone.api in in Plone itself. It will be part of Plone 5."
-msgstr "plone.api aun no es parte del núcleo de Plone, Por lo tanto, no veras ningún uso de plone.api dentro de Plone. Pero estamos seguros que sera parte de Plone."
+msgstr ""
+"plone.api aun no es parte del núcleo de Plone, Por lo tanto, no veras ningún"
+" uso de plone.api dentro de Plone. Pero estamos seguros que sera parte de "
+"Plone."
 
 #: ../api.rst:19
 msgid ""
 "In existing code you'll often encounter methods that don't mean anything to "
 "you. You'll have to use the source to find out about what they do."
-msgstr "En el código existente a veces encontraras métodos que no significan nada para usted. Usted tiene que usar el fuente para averiguar que hacen."
+msgstr ""
+"En el código existente a veces encontraras métodos que no significan nada "
+"para usted. Usted tiene que usar el fuente para averiguar que hacen."
 
 #: ../api.rst:21
 msgid "Some of these methods will be replaced by plone.api in the future:"
-msgstr "Algunos de estos métodos serán reemplazados por plone.api en el futuro:"
+msgstr ""
+"Algunos de estos métodos serán reemplazados por plone.api en el futuro:"
 
 #: ../api.rst:23
 msgid "``Products.CMFCore.utils.getToolByName`` -> ``api.portal.get_tool``"
@@ -107,11 +132,14 @@ msgid ""
 "Some parts of Plone are very complex modules in themselves (e.g. the while "
 "versioning-machinery of ``Products.CMFEditions``). Some of them have an api "
 "that you will have to learn sooner or later."
-msgstr "Algunas partes de Plone son módulos muy complejos entre si (ej. blanco mecanismo de versionado de ``Products.CMFEditions``). Algunos de ellos tienen una api que usted aprenderá a usar tarde o temprano."
+msgstr ""
+"Algunas partes de Plone son módulos muy complejos entre si (ej. blanco "
+"mecanismo de versionado de ``Products.CMFEditions``). Algunos de ellos "
+"tienen una api que usted aprenderá a usar tarde o temprano."
 
 #: ../api.rst:32
 msgid "Here are a few examples:"
-msgstr "Aqui tienes unos ejemplos:"
+msgstr "Aquí tienes unos ejemplos:"
 
 #: ../api.rst:37
 msgid "portal_catalog"
@@ -121,11 +149,13 @@ msgstr "portal_catalog"
 msgid ""
 "``unrestrictedSearchResults()`` returns search-results without checking if "
 "the current user has the permission to access the objects."
-msgstr "``unrestrictedSearchResults()`` regresa los resultados de búsqueda sin verificar si el usuario actual tiene permiso de acceso a los objetos."
+msgstr ""
+"``unrestrictedSearchResults()`` regresa los resultados de búsqueda sin "
+"verificar si el usuario actual tiene permiso de acceso a los objetos."
 
 #: ../api.rst:37
 msgid "``uniqueValuesFor()`` returns all entries in a index"
-msgstr "``uniqueValuesFor()`` regresa todas las entradas en un indice"
+msgstr "``uniqueValuesFor()`` regresa todas las entradas en un índice"
 
 #: ../api.rst:40
 msgid "portal_setup"
@@ -135,7 +165,9 @@ msgstr "portal_setup"
 msgid ""
 "``runAllExportSteps()`` generates a tarball containing artifacts from all "
 "export steps."
-msgstr "``runAllExportSteps()`` genera un archivo comprimido en formato Tar conteniendo los artefactos de todos los pasos de exportación."
+msgstr ""
+"``runAllExportSteps()`` genera un archivo comprimido en formato Tar "
+"conteniendo los artefactos de todos los pasos de exportación."
 
 #: ../api.rst:43
 msgid "portal_quickinstaller"
@@ -149,7 +181,10 @@ msgstr "``isProductInstalled()`` verifica si un producto esta instalado."
 msgid ""
 "Usually the best way to learn about the api of a tool is to look in the "
 "``interfaces.py`` in the respective package and read the docstrings."
-msgstr "Usualmente la mejor forma para aprender acerca de la herramienta de un api es mirando en el  ``interfaces.py``  en el respectivo paquete y leer la documentación incluida en docstrings."
+msgstr ""
+"Usualmente la mejor forma para aprender acerca de la herramienta de un api "
+"es mirando en el  ``interfaces.py``  en el respectivo paquete y leer la "
+"documentación incluida en docstrings."
 
 #: ../api.rst:49
 msgid "Debugging"
@@ -159,7 +194,10 @@ msgstr "Depurando"
 msgid ""
 "Here are some tools and techniques we often use when developing and "
 "debugging. We use some of them in various situations during the training."
-msgstr "Aquí hay algunas herramientas y técnicas que usamos frecuentemente cuando desarrollamos y depuramos. Usamos algunas de ellas en varias situaciones durante el entrenamiento."
+msgstr ""
+"Aquí hay algunas herramientas y técnicas que usamos frecuentemente cuando "
+"desarrollamos y depuramos. Usamos algunas de ellas en varias situaciones "
+"durante el entrenamiento."
 
 #: ../api.rst:54
 msgid "tracebacks and the log"
@@ -171,7 +209,12 @@ msgid ""
 "messages Plone prints. When a exception occurs Plone thows a traceback. Most"
 " of the time the traceback is everything you need to find out what is going "
 "wrong. Also adding your own information to the log is very simple."
-msgstr "El log (y la consola cuando ejecutamos en modo foreground) recolecta todos los mensajes de log que Plone imprime. Cuando ocurre una excepción Plone lanza un rastreo. La mayoría del tiempo el rastreo es todo lo que necesitas para averiguar que esta sucediendo. También agregando tu propia información al log es muy simple "
+msgstr ""
+"El log (y la consola cuando ejecutamos en modo foreground) recolecta todos "
+"los mensajes de log que Plone imprime. Cuando ocurre una excepción Plone "
+"lanza un rastreo. La mayoría del tiempo el rastreo es todo lo que necesitas "
+"para averiguar que esta sucediendo. También agregando tu propia información "
+"al log es muy simple "
 
 #: ../api.rst:57
 msgid "pdb"
@@ -182,7 +225,10 @@ msgid ""
 "The python debugger pdb is the single most important tool for us when "
 "programming. Just add ``import pdb; pdb.set_trace()`` in your code and debug"
 " away!"
-msgstr "El depurador de Python pdb, es la herramienta simple mas importante para nosotros cuando programemos. ¡Solo agrega ``import pdb; pdb.set_trace()`` en tu código y empieza a depurar!"
+msgstr ""
+"El depurador de Python pdb, es la herramienta simple mas importante para "
+"nosotros cuando programemos. ¡Solo agrega ``import pdb; pdb.set_trace()`` en"
+" tu código y empieza a depurar!"
 
 #: ../api.rst:60
 msgid "ipdb"
@@ -193,7 +239,10 @@ msgid ""
 "Enhance pdb with the power of IPython, e.g. tab completion, syntax "
 "highlighting, better tracebacks and introspection. It also works nicely with"
 " Products.PDBDebugMode."
-msgstr "Mejorar pdb con el poder de IPython, por ejemplo, la implementación del tabulador, resaltado de sintaxis, mejores rastreos y la introspección. También funciona muy bien con el producto Products.PDBDebugMode."
+msgstr ""
+"Mejorar pdb con el poder de IPython, por ejemplo, la implementación del "
+"tabulador, resaltado de sintaxis, mejores rastreos y la introspección. "
+"También funciona muy bien con el producto Products.PDBDebugMode."
 
 #: ../api.rst:67
 msgid "Products.PDBDebugMode"
@@ -207,14 +256,19 @@ msgstr "Un complemento que tiene dos características esenciales para su uso."
 msgid ""
 "**Post-mortem debugging**: throws you in a pdb whenever a exception occurs. "
 "This way you can find out what is going wrong."
-msgstr "**Post-mortem debugging**: le lanza en un pdb cuando ocurra una excepción. de esta forma puedes averiguar que es lo que esta mal."
+msgstr ""
+"**Post-mortem debugging**: le lanza en un pdb cuando ocurra una excepción. "
+"de esta forma puedes averiguar que es lo que esta mal."
 
 #: ../api.rst:67
 msgid ""
 "**pdb-view**: simply adding ``/pdb`` to a url drops you in a pdb-session "
 "with the current context as ``self.context``. From there you can do just "
 "about anything."
-msgstr "**pdb-view**:  simplemente agregando ``/pdb`` a una dirección URL, le lanza a una sesión pdb con el contexto actual como ``self.context``. De allí puedes hacer casi todo."
+msgstr ""
+"**pdb-view**:  simplemente agregando ``/pdb`` a una dirección URL, le lanza "
+"a una sesión pdb con el contexto actual como ``self.context``. De allí "
+"puedes hacer casi todo."
 
 #: ../api.rst:70
 msgid "Debug-mode"
@@ -224,7 +278,9 @@ msgstr "Modo Depuración"
 msgid ""
 "When starting Plone using ``./bin/instance debug -O Plone`` you'll end up in"
 " a interactive debugger."
-msgstr "Cuando se inicia Plone usando el comando ``./bin/instance debug -O Plone`` usted terminara en una depurador Interactivo."
+msgstr ""
+"Cuando se inicia Plone usando el comando ``./bin/instance debug -O Plone`` "
+"usted terminara en una depurador Interactivo."
 
 #: ../api.rst:73
 msgid "plone.app.debugtoolbar"
@@ -234,7 +290,9 @@ msgstr "plone.app.debugtoolbar"
 msgid ""
 "A addon that allows you to inspect nearly everything. It even has a "
 "interactive console and a tester for TALES-expressions."
-msgstr "Un complemento que permite inspeccionar todo muy cercanamente. Incluso tiene una consola interactiva y un probador para expresiones TALES."
+msgstr ""
+"Un complemento que permite inspeccionar todo muy cercanamente. Incluso tiene"
+" una consola interactiva y un probador para expresiones TALES."
 
 #: ../api.rst:76
 msgid "plone.reload"
@@ -244,7 +302,9 @@ msgstr "plone.reload"
 msgid ""
 "An addon that allows to reload code that you changed without restarting the "
 "site. It is also used by plone.app.debugtoolbar."
-msgstr "Un complemento que permite recargar el código que has cambiado sin reiniciar el sitio. Esto es también usado por plone.app.debugtoolbar."
+msgstr ""
+"Un complemento que permite recargar el código que has cambiado sin reiniciar"
+" el sitio. Esto es también usado por plone.app.debugtoolbar."
 
 #: ../api.rst:79
 msgid "Products.PrintingMailHost"
@@ -253,7 +313,9 @@ msgstr "Products.PrintingMailHost"
 #: ../api.rst:79
 msgid ""
 "A addon that prevents Plone from sending mails. They are instead logged."
-msgstr "Un complemento que previene a Plone de enviar mensajes. Ellos son registrados como eventos en el registro o log del servicio."
+msgstr ""
+"Un complemento que previene a Plone de enviar mensajes. Ellos son "
+"registrados como eventos en el registro o log del servicio."
 
 #: ../api.rst:82
 msgid "Products.Ienablesettrace"
@@ -262,7 +324,8 @@ msgstr "Products.Ienablesettrace"
 #: ../api.rst:82
 msgid ""
 "Addon that allows to use pdb and ipdb in python skin-scripts. Very useful."
-msgstr "Complemento que permite usar pdb y ipdb en scripts python skin. Muy útil."
+msgstr ""
+"Complemento que permite usar pdb y ipdb en scripts python skin. Muy útil."
 
 #: ../api.rst:85
 msgid "``verbose-security = on``"
@@ -272,7 +335,10 @@ msgstr "``verbose-security = on``"
 msgid ""
 "A option for the recipe *plone.recipe.zope2instance* that logs the detailed "
 "reasons why a user might not be authorized to see something."
-msgstr "Una opción para la receta *plone.recipe.zope2instance* que hace un log de las razones detalladas sobre por que un usuario no puede ser autorizado a ver algo."
+msgstr ""
+"Una opción para la receta *plone.recipe.zope2instance* que hace un log de "
+"las razones detalladas sobre por que un usuario no puede ser autorizado a "
+"ver algo."
 
 #: ../api.rst:88
 msgid "``./bin/buildout annotate``"
@@ -282,7 +348,9 @@ msgstr "``./bin/buildout annotate``"
 msgid ""
 "A option when running buildout that logs all the pulled packages and "
 "versions."
-msgstr "Una opción que cuando se ejecute buildout realiza un log de los paquetes traídos y sus versiones."
+msgstr ""
+"Una opción que cuando se ejecute buildout realiza un log de los paquetes "
+"traídos y sus versiones."
 
 #: ../api.rst:91
 msgid "Sentry"
@@ -291,10 +359,15 @@ msgstr "Sentry"
 #: ../api.rst:91
 msgid ""
 "`Sentry <https://github.com/getsentry/sentry>`_ is a error logging "
-"application you can host yourself. It aggregarates tracebacks from many "
+"application you can host yourself. It aggregates tracebacks from many "
 "sources and (here comes the killer-feature) even the values of variables in "
 "the stacktrace. We use it in all our production-sites."
-msgstr "`Sentry <https://github.com/getsentry/sentry>`_ es una aplicación de log de errores que puede usar usted mismo. Agrega rastreos de muchas fuentes y (aquí viene la característica esencial para su uso) incluso los valores de las variables en el Stack trace. Lo usamos en todos nuestro sitios en producción. "
+msgstr ""
+"`Sentry <https://github.com/getsentry/sentry>`_ es una aplicación de log de "
+"errores que puede usar usted mismo. Agrega rastreos de muchas fuentes y "
+"(aquí viene la característica esencial para su uso) incluso los valores de "
+"las variables en el Stack trace. Lo usamos en todos nuestro sitios en "
+"producción. "
 
 #: ../api.rst:98
 msgid "zopepy"
@@ -304,4 +377,6 @@ msgstr "zopepy"
 msgid ""
 "Buildout can create a python-shell for you that has all the packages from "
 "your Plone site in it's python-path. Add the part like this::"
-msgstr "Buildout puede crear un script de shell de Python para ti que tiene los paquetes de su sitio Plone en su PYTHONPATH. Agrega la parte como esto::"
+msgstr ""
+"Buildout puede crear un script de shell de Python para ti que tiene los "
+"paquetes de su sitio Plone en su PYTHONPATH. Agrega la parte como esto::"

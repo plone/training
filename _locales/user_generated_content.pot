@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-21 00:23-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -163,7 +163,7 @@ msgid "drop ``workflows/talks_workflow/definition.xml`` in ``profiles/default/wo
 msgstr ""
 
 #: ../user_generated_content.rst:81
-msgid "This has to happen in python in a custom `setuphandler.py <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_ since there is not yet a exportable setting for this."
+msgid "This has to happen in python in a custom `setuphandler.py <http://docs.plone.org/4/en/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_ since there is not yet a exportable setting for this."
 msgstr ""
 
 #: ../user_generated_content.rst:83

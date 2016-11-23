@@ -543,7 +543,7 @@ There is a lot more about TAL, TALES and METAL that we have not covered. You'll 
 
 .. seealso::
 
-  * http://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html
+  * http://docs.plone.org/4/en/adapt-and-extend/theming/templates_css/template_basics.html
   * Using Zope Page Templates: http://docs.zope.org/zope2/zope2book/ZPT.html
   * Zope Page Templates Reference: http://docs.zope.org/zope2/zope2book/AppendixC.html
 

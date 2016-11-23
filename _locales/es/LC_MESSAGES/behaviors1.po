@@ -1,21 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# hellfish2 <hellfish2@gmail.com>, 2014
-# hellfish2 <hellfish2@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-07 03:28+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,36 +30,48 @@ msgstr "¡Obtén el código!"
 msgid ""
 "Get the code for this chapter (:doc:`More info <sneak>`) using this command "
 "in the buildout-directory:"
-msgstr "Obtén el código para este capitulo (:doc:`Mas información <sneak>`) usando este comando en el directorio buildout:"
+msgstr ""
+"Obtén el código para este capítulo (:doc:`Más información <sneak>`) usando "
+"este comando en el directorio buildout:"
 
 #: ../behaviors1.rst:16
 msgid ""
 "You can extend the functionality of your dexterity object by writing an "
 "adapter that adapts your dexterity object to add another feature or aspect."
-msgstr "Usted puede extender la funcionalidad de su objeto dexterity solo creando un adaptador que se adapte a su objeto dexterity para agregar otra caracteristica o aspecto."
+msgstr ""
+"Usted puede extender la funcionalidad de su objeto Dexterity solo creando un"
+" adaptador que se adapte a su objeto Dexterity para agregar otra "
+"característica o aspecto."
 
 #: ../behaviors1.rst:18
 msgid ""
 "But if you want to use this adapter, you must somehow know that an object "
 "implements that. Also, you could not easily add more fields to an object "
 "with such an approach."
-msgstr "Pero si usted desea utilizar este adaptador, debe saber de alguna manera que un objeto implementa eso. Además, no se puede fácilmente agregar más campos a un objeto con ese enfoque."
+msgstr ""
+"Pero si usted desea utilizar este adaptador, debe saber saber de alguna "
+"manera que un objeto implementa este. Además, usted no puede fácilmente "
+"agregar más campos a un objeto con ese enfoque."
 
 #: ../behaviors1.rst:21
 msgid "Dexterity Approach"
-msgstr "Acercamiento Dexterity"
+msgstr "Enfoque Dexterity"
 
 #: ../behaviors1.rst:25
 msgid ""
 "Dexterity has a solution for it, with special adapters that are called and "
 "registered by the name behavior."
-msgstr "Dexterity tiene una solución para ello, con adaptadores especiales que se llaman y son registrados por el nombre del comportamiento."
+msgstr ""
+"Dexterity tiene una solución para ello, con adaptadores especiales los "
+"cuales se llaman y registran por el nombre del comportamiento."
 
 #: ../behaviors1.rst:27
 msgid ""
 "A behavior can be added to any content type through the web and during "
 "runtime."
-msgstr "Un comportamiento puede ser agregado a cualquier tipo de contenido a través de la web y durante el tiempo de ejecución."
+msgstr ""
+"Un comportamiento puede ser agregado a cualquier tipo de contenido a través "
+"de la Web y durante el tiempo de ejecución."
 
 #: ../behaviors1.rst:29
 msgid ""
@@ -71,11 +79,16 @@ msgid ""
 "forms, the views also check whether there are behaviors referenced with the "
 "current context and if these behavior have a schema of their own, these "
 "fields get shown in addition."
-msgstr "Todas las vistas predeterminadas deben conocer el concepto de comportamientos y  cuando renderizar los formularios, las vistas también comprueban si hay conductas referenciadas con el contexto actual y si estos comportamientos tienen un esquema propio, esos campos a mostrar adicionalmente."
+msgstr ""
+"Todas las vistas predeterminadas deben conocer el concepto de "
+"comportamientos y cuando renderizar los formularios, las vistas también "
+"comprueban si hay comportamientos referenciados con el contexto actual y si "
+"estos comportamientos tienen un esquema propio, esos campos se mostraran "
+"adicionalmente."
 
 #: ../behaviors1.rst:32
 msgid "Names and Theory"
-msgstr "Nombres y Teoria"
+msgstr "Nombres y Teoría"
 
 #: ../behaviors1.rst:36
 msgid ""
@@ -85,13 +98,21 @@ msgid ""
 " that it works independent of the content type on which the aspect is "
 "applied. You should not have dependencies to specific fields of your object "
 "or to other behaviors."
-msgstr "El nombre del comportamiento no es un término estándar en el desarrollo de software. Pero es una buena idea pensar en un comportamiento como un aspecto. Usted está agregando un aspecto a tu tipo de contenido y desea escribir su aspecto de tal manera, que funciona independientemente del tipo de contenido en el que se aplica el aspecto. Usted no debe tener dependencias a campos específicos de su objeto o de otros comportamientos."
+msgstr ""
+"El nombre del comportamiento no es un término estándar en el desarrollo de "
+"software. Pero es una buena idea pensar en un comportamiento como un "
+"aspecto. Usted está agregando un aspecto a tu tipo de contenido y usted "
+"quiere escribir su aspecto de tal manera, que funciona independientemente "
+"del tipo de contenido en el que se aplica el aspecto. Usted no debe tener "
+"dependencias a campos específicos de su objeto o de otros comportamientos."
 
 #: ../behaviors1.rst:38
 msgid ""
 "Such an object allows you to apply the `Open/closed principle`_ to your "
 "dexterity objects."
-msgstr "Tal objeto le permite aplicar la `Open/closed principle`_ a los objetos de dexterity."
+msgstr ""
+"Como un objeto le permite aplicar el `principio Abierto/cerrado`_ a los "
+"objetos de Dexterity."
 
 #: ../behaviors1.rst:47
 msgid "Practical example"
@@ -106,26 +127,37 @@ msgid ""
 "In the future, we want our presentation be represented in Lanyrd (a Social "
 "Conference Directory - Lanyrd.com) too. For now we will just provide a link "
 "so that visitors can collaborate easily with the Lanyrd site."
-msgstr "En el futuro, queremos que nuestra presentación estará representada en Lanyrd (un Directorio Conferencia Social - Lanyrd.com) también. Por ahora nos limitaremos a ofrecer un enlace para que los visitantes puedan colaborar fácilmente con el sitio Lanyrd."
+msgstr ""
+"En el futuro, queremos que nuestra presentación este representadá también en"
+" Lanyrd (un Directorio Conferencia Social - Lanyrd.com). Por ahora nos "
+"limitaremos a ofrecer un enlace para que los visitantes puedan colaborar "
+"fácilmente con el sitio Lanyrd."
 
 #: ../behaviors1.rst:55
 msgid ""
 "So for now, our behavior just adds a new field for storing the url to "
 "Lanyrd."
-msgstr "Así que por ahora, nuestro comportamiento sólo añade un nuevo campo para almacenar la dirección url a Lanyrd."
+msgstr ""
+"Así que por ahora, nuestro comportamiento sólo añade un nuevo campo para "
+"almacenar la dirección URL del servicio Lanyrd."
 
 #: ../behaviors1.rst:57
 msgid ""
 "We want to keep a clean structure, so we create a :file:`behaviors` "
 "directory first, and include it into the zcml declarations of our "
 ":file:`configure.zcml`."
-msgstr "Queremos mantener una estructura limpia, así que creamos primero un directorio :file:`behaviors`, y luego lo incluimos dentro de las declaraciones zcml de nuestro archivo `configure.zcml`."
+msgstr ""
+"Queremos mantener una estructura limpia, así que creamos primero un "
+"directorio :file:`behaviors`, y luego lo incluimos dentro de las "
+"declaraciones ZCML de nuestro archivo :file:`configure.zcml`."
 
 #: ../behaviors1.rst:63
 msgid ""
 "Then, we add an empty :file:`behaviors/__init__.py` and a "
 ":file:`behaviors/configure.zcml` containing"
-msgstr "Entonces, agregamos un archivo vacio :file:`behaviors/__init__.py` y un archivo :file:`behaviors/configure.zcml` conteniendo"
+msgstr ""
+"Entonces, agregamos un archivo vació :file:`behaviors/__init__.py` y un "
+"archivo  :file:`behaviors/configure.zcml` conteniendo el siguiente código:"
 
 #: ../behaviors1.rst:0
 msgid "Advanced reference"
@@ -135,19 +167,25 @@ msgstr "Referencia avanzada"
 msgid ""
 "The original documentation is doctest code, so no documentation and no "
 "debuggable test."
-msgstr "La documentación original es código doctest, así que no hay documentación y ninguna prueba depurable."
+msgstr ""
+"La documentación original tiene código doctest, así que no hay documentación"
+" y ninguna prueba depurable."
 
 #: ../behaviors1.rst:71
 msgid ""
 "It can be a bit confusing of when to use factory, or marker interfaces and "
 "when not."
-msgstr "Puede ser un poco confuso cuándo se utilizar la factory, o las marker interfaces y cuando no."
+msgstr ""
+"Puede ser un poco confuso cuándo se utilizar la factory, o las interfaces "
+"marker y cuando no."
 
 #: ../behaviors1.rst:73
 msgid ""
 "If you do not define a factory, your attributes will be stored directly on "
 "the object. This can result in clashes with other behaviors."
-msgstr "Si usted no define un factory, sus atributos se almacenan directamente en el objeto. Esto puede dar lugar a resultar en comportamientos no deseados."
+msgstr ""
+"Si usted no define un factory, sus atributos se almacenan directamente en el"
+" objeto. Esto puede dar lugar a resultar en comportamientos no deseados."
 
 #: ../behaviors1.rst:75
 msgid ""
@@ -155,65 +193,95 @@ msgid ""
 "This one stores your attributes in an :ref:`Annotation <plone:annotations>`."
 " But then you *must* use a marker interface if you want to have custom "
 "viewlets, browser views or portlets."
-msgstr "Esto se puede evitar mediante el uso de la fábrica plone.behavior.AnnotationStorage. Éste almacena sus atributos en una :ref:`Annotation <plone:annotations>`. Pero entonces usted *debe* utilizar una interfaz de marcador si usted quiere tener viewlets personalizados, vistas del navegador o portlets."
+msgstr ""
+"Esto se puede evitar mediante el uso de la fábrica "
+"``plone.behavior.AnnotationStorage``. Éste almacena sus atributos en una "
+":ref:`Annotation <plone:annotations>`. Pero entonces usted *debe* utilizar "
+"una interfaz marcador si usted quiere tener viewlets personalizados, browser"
+" views o portlets."
 
 #: ../behaviors1.rst:78
 msgid ""
 "Without it, you would have no interface against which you could register "
 "your views."
-msgstr "Sin ella, no tendrías interfaz contra el cual podría registrar sus vistas."
+msgstr ""
+"Sin ella, no tendrías interfaz contra el cual podría registrar sus vistas."
 
 #: ../behaviors1.rst:99
 msgid "And a :file:`behaviors/social.py` containing:"
-msgstr "y un archivo :file:`behaviors/social.py` conteniendo:"
+msgstr ""
+"Y un archivo :file:`behaviors/social.py` conteniendo el siguiente código:"
 
-#: ../behaviors1.rst:131
+#: ../behaviors1.rst:130
 msgid "Lets get through this step by step."
-msgstr "Deja para seguir a través de este paso a paso."
+msgstr "Vamos a llevarlo a través de este paso a paso."
 
-#: ../behaviors1.rst:133
+#: ../behaviors1.rst:132
 msgid ""
 "We register a behavior in :ref:`behaviors/configure.zcml <social-behavior-"
 "zcml-label>`. We do not say for which content type this behavior is valid. "
 "You do this, through the web or in the GenericSetup profile."
-msgstr "Registramos un comportamiento en :ref:`behaviors/configure.zcml <social-behavior-zcml-label>`. No decimos para qué tipo de contenido este comportamiento es válido. Para ello, a través de la web o en el perfil GenericSetup."
+msgstr ""
+"Registramos un comportamiento en el archivo :ref:`behaviors/configure.zcml "
+"<social-behavior-zcml-label>`. Nosotros decimos para qué tipo de contenido "
+"este comportamiento es válido. Para hacer esto, a través de la Web o en el "
+"perfil GenericSetup."
 
-#: ../behaviors1.rst:134
+#: ../behaviors1.rst:133
 msgid ""
 "We create a marker interface in :ref:`behaviors/social.py <social-behavior-"
 "python-label>` for our behavior and make it also a schema containing the "
 "fields we want to declare. We could just use define schema fields on a "
 "zope.intereface class, but we use an extended form from `plone.supermodel`_,"
 " else we could not use the fieldset features."
-msgstr "Creamos una interfaz de marcador en :ref:`behaviors/social.py <social-behavior-python-label>` para nuestra conducta y que sea también un esquema que contiene los campos que queremos declarar. Podríamos simplemente utilizar definir campos de esquema en una clase zope.interface, pero utilizar una forma extendida de `plone.supermodel`_, cosa que no podía usar las características de campos."
+msgstr ""
+"Creamos una interfaz marcador en :ref:`behaviors/social.py <social-behavior-"
+"python-label>` para nuestro comportamiento y hacer que sea también un "
+"esquema el cual contiene los campos que queremos declarar. Podríamos "
+"simplemente utilizar definiciones de campos de esquema en una clase "
+"``zope.interface``, pero utilizar un formulario extendido desde el paquete "
+"`plone.supermodel`_, de lo contrario nosotros podríamos no usar las "
+"características del conjunto de campos."
 
-#: ../behaviors1.rst:136
+#: ../behaviors1.rst:135
 msgid ""
 "We also add a `fieldset`_ so that our fields are not mixed with the normal "
 "fields of the object."
-msgstr "También añadimos un `fieldset`_ para que nuestros campos no se mezclan con los campos normales del objeto."
+msgstr ""
+"También añadimos un `fieldset`_ para que nuestros campos no se mezclen con "
+"los campos normales del objeto."
+
+#: ../behaviors1.rst:136
+msgid "We add a normal `URI`_ schema field to store the URI to lanyrd."
+msgstr ""
+"Añadimos un campo de esquema `URI`_ normal para almacenar la dirección URI "
+"del servicio Lanyrd."
 
 #: ../behaviors1.rst:137
-msgid "We add a normal `URI`_ schema field to store the URI to lanyrd."
-msgstr "Añadimos un campo de esquema `URI`_ normal para almacenar la URI lanyrd."
-
-#: ../behaviors1.rst:138
 msgid ""
 "We mark our schema as a class that also implements the `IFormFieldProvider`_"
 " interface. This is a marker interface, we do not need to implement anything"
 " to provide the interface."
-msgstr "Marcamos nuestro esquema como una clase que también implementa la interfaz `IFormFieldProvider`_. Se trata de una interfaz de marcador, no necesitamos implementar nada para proporcionar la interfaz."
+msgstr ""
+"Nosotros marcamos nuestro esquema como una clase que también implementa la "
+"interfaz `IFormFieldProvider`_. Se trata de una interfaz marcador, nosotros "
+"no necesitamos implementar nada para proporcionar la interfaz."
 
-#: ../behaviors1.rst:141
+#: ../behaviors1.rst:140
 msgid "Adding it to our talk"
-msgstr "Agregandolo a nuestra Talk"
+msgstr "Agregándolo a nuestra Talk"
 
-#: ../behaviors1.rst:145
+#: ../behaviors1.rst:144
 msgid ""
 "We could add this behavior now via the plone control panel. But instead, we "
 "will do it directly properly in our GenericSetup profile"
-msgstr "Podríamos añadir este comportamiento ahora a través del panel de control de Plone. Pero en cambio, lo haremos directamente adecuadamente en nuestro perfil GenericSetup"
+msgstr ""
+"Podríamos añadir este comportamiento ahora a través del panel de control de "
+"Plone llamado ``Tipos de contenidos Dexterity``. Pero en cambio, lo haremos "
+"directamente adecuadamente en nuestro perfil GenericSetup"
 
-#: ../behaviors1.rst:147
+#: ../behaviors1.rst:146
 msgid "We must add the behavior to :file:`profiles/default/types/talk.xml`:"
-msgstr "Debemos agregar el comportamiento al archivo :file:`profiles/default/types/talk.xml`:"
+msgstr ""
+"Debemos agregar el comportamiento al archivo "
+":file:`profiles/default/types/talk.xml`:"

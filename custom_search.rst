@@ -8,7 +8,7 @@ If the chapters about views seem complex, the now shown custom search addon migh
 eea.facetednavigation
 ---------------------
 
-* Install `eea.facetednavigation <http://pypi.python.org/pypi/eea.facetednavigation/>`_
+* Install `eea.facetednavigation <https://pypi.python.org/pypi/eea.facetednavigation/>`_
 * Enable faceted navigation on a new folder "Discover talks" by clicking on *actions* > *Enable faceted navigation*
 * Click on the tab *Faceted criteria* to configure it
 
@@ -31,4 +31,4 @@ Examples:
     We use the new catalog indexes to provide the data for the widgets and search the results. For other use-cases we could also use either the built-in vocabularies (https://pypi.python.org/pypi/plone.app.vocabularies) or create custom vocabularies for this.
 
     * Custom vocabularies ttw using `Products.ATVocabularyManager <https://pypi.python.org/pypi/Products.ATVocabularyManager>`_
-    * Programming using Vocabularies: http://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html
+    * Programming using Vocabularies: http://docs.plone.org/4/en/external/plone.app.dexterity/docs/advanced/vocabularies.html

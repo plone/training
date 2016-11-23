@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-21 00:23-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,11 +57,11 @@ msgid "Some things are notable here:"
 msgstr ""
 
 #: ../dexterity_3.rst:88
-msgid "The fields in the schema are mostly from ``zope.schema``. A reference of available fields is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html"
+msgid "The fields in the schema are mostly from ``zope.schema``. A reference of available fields is at http://docs.plone.org/4/en/external/plone.app.dexterity/docs/reference/fields.html"
 msgstr ""
 
 #: ../dexterity_3.rst:89
-msgid "In ``directives.widget(level=RadioFieldWidget)`` we change the default widget for a Choice-field from a dropdown to radioboxes. A incomplete reference of available widgets is at http://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html"
+msgid "In ``directives.widget(level=RadioFieldWidget)`` we change the default widget for a Choice-field from a dropdown to radioboxes. A incomplete reference of available widgets is at http://docs.plone.org/4/en/external/plone.app.dexterity/docs/reference/widgets.html"
 msgstr ""
 
 #: ../dexterity_3.rst:90
@@ -121,7 +121,7 @@ msgid "``_sponsors`` returns a list of dictionaries containing all necessary inf
 msgstr ""
 
 #: ../dexterity_3.rst:312
-msgid "``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. We could also cache until one of the sponsors is modified:"
+msgid "``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/4/en/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. We could also cache until one of the sponsors is modified:"
 msgstr ""
 
 #: ../dexterity_3.rst:329
@@ -133,7 +133,7 @@ msgid "In ``sponsors`` we return a ordered dictionary of randomized lists of dic
 msgstr ""
 
 #: ../dexterity_3.rst:334
-msgid "http://docs.plone.org/develop/plone/images/content.html#image-scales-plone-4"
+msgid "http://docs.plone.org/4/en/develop/plone/images/content.html#for-plone-4"
 msgstr ""
 
 #: ../dexterity_3.rst:336

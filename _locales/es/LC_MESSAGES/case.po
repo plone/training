@@ -1,19 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-07 18:46+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,7 +25,9 @@ msgstr "El caso de estudio"
 #: ../case.rst:4
 msgid ""
 "For this training we will build a website for a fictional Plone conference."
-msgstr "Para este entrenamiento construiremos un Sitio Web para una conferencia ficticia de Plone."
+msgstr ""
+"Para este entrenamiento construiremos un Sitio Web para una conferencia "
+"ficticia de Plone."
 
 #: ../case.rst:7
 msgid "Background"
@@ -37,7 +37,9 @@ msgstr "Detalle"
 msgid ""
 "The Plone conference takes place every year and all Plone developers at "
 "least try to go there."
-msgstr "La conferencia de Plone toma lugar cada año y todos los desarrolladores al menos intentan ir."
+msgstr ""
+"La conferencia de Plone toma lugar cada año y todos los desarrolladores al "
+"menos intentan ir."
 
 #: ../case.rst:12
 msgid "Requirements"
@@ -45,7 +47,9 @@ msgstr "Requerimientos"
 
 #: ../case.rst:14
 msgid "As a visitor I want to find current information on the conference"
-msgstr "Como un visitante, yo quiero encontrar información actualizada en la conferencia."
+msgstr ""
+"Como un visitante, yo quiero encontrar información actualizada en la "
+"conferencia."
 
 #: ../case.rst:15
 msgid "As a visitor I want to register for the conference"
@@ -53,7 +57,8 @@ msgstr "Como visitante, yo quiero registrarme para la conferencia."
 
 #: ../case.rst:16
 msgid "As a visitor I want to see the talks and sort them by my preferences"
-msgstr "Como visitante, yo quiero ver las charlas y ordenarlas por mis preferencias."
+msgstr ""
+"Como visitante, yo quiero ver las charlas y ordenarlas por mis preferencias."
 
 #: ../case.rst:17
 msgid "As a speaker I want to be able to submit talks"
@@ -70,20 +75,28 @@ msgstr "Como miembro del jurado, yo quiero votar en las charlas."
 #: ../case.rst:20
 msgid ""
 "As a jury-member I want to decide, which talks to accept, and which not"
-msgstr "Como miembro del jurado, yo quiero decidir, cuales charlas aceptar, y cuales no."
+msgstr ""
+"Como miembro del jurado, yo quiero decidir, cuales charlas aceptar, y cuales"
+" no."
 
 #: ../case.rst:21
 msgid "As an organizer I want to see a list of all proposed talks"
-msgstr "Como organizador, yo quiero ver una lista de todas las charlas propuestas."
+msgstr ""
+"Como organizador, yo quiero ver una lista de todas las charlas propuestas."
 
 #: ../case.rst:22
 msgid ""
 "As an organizer I want to have an overview about how many people registered"
-msgstr "Como organizador, yo quiero tener un resumen acerca de cuantas personas están registradas."
+msgstr ""
+"Como organizador, yo quiero tener un resumen acerca de cuantas personas "
+"están registradas."
 
 #: ../case.rst:24
 msgid ""
 "Note that all of our requirements connect roles with capabilities. This is "
 "important because we'll want to limit the capabilities to those to whom we "
 "assign particular roles."
-msgstr "Tenga en cuenta que todos nuestros requisitos conectar roles con sus capacidades. Esto es importante porque vamos a querer limitar las capacidades de aquellos a los que asignamos roles particulares."
+msgstr ""
+"Tenga en cuenta que todos nuestros requisitos conectar roles con sus "
+"capacidades. Esto es importante porque vamos a querer limitar las "
+"capacidades de aquellos a los que asignamos roles particulares."

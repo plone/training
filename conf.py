@@ -41,6 +41,20 @@ extensions = [
     'sphinx.ext.todo',
 ]
 
+
+# Options for the linkcheck builder
+# Ignore localhost
+linkcheck_ignore = [
+    r'http://localhost:\d+/',
+    r'http://localhost:8080\d+/',
+    r'http://localhost:8080',
+    r'http://127.0.0.1:8080',
+    r'http://wiki.apache.org',
+]
+linkcheck_anchors = False
+linkcheck_timeout = 30.0
+
+
 # See http://sphinx-doc.org/ext/todo.html#confval-todo_include_todos
 todo_include_todos = True
 
@@ -138,6 +152,7 @@ pygments_style = 'sphinx'
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #html_favicon = None
+html_favicon = '_static/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -311,5 +326,5 @@ epub_copyright = u'2014, Philip Bauer, Patrick Gerken'
 #epub_tocdup = True
 
 intersphinx_mapping = {
-    'plone': ('http://docs.plone.org/', None),
+    'plone': ('http://docs.plone.org/4/en/', None),
 }

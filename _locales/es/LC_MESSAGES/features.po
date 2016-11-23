@@ -1,17 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-08 15:25+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,13 +24,20 @@ msgstr "Las características de Plone"
 
 #: ../features.rst:4
 msgid ""
-"In-depth user-manual: http://plone.org/documentation/manual/plone-4-user-"
-"manual"
-msgstr "En profundidad el Manual de usuario (en idioma Español): https://plone.org/countries/ve/publicaciones/plone-para-usuarios-principiantes"
+"In-depth user-manual: https://old.plone.org/documentation/manual/plone-4"
+"-user-manual"
+msgstr ""
+"En profundidad el Manual de usuario (en idioma Español): "
+"https://old.plone.org/countries/ve/publicaciones/plone-para-usuarios-"
+"principiantes"
 
 #: ../features.rst:6
-msgid "See also: http://docs.plone.org/working-with-content/index.html"
-msgstr "Ver también la versión original del manual (en idioma Ingles) en las siguientes direcciones URL: http://plone.org/documentation/manual/plone-4-user-manual y http://docs.plone.org/working-with-content/index.html"
+msgid "See also: http://docs.plone.org/4/en/working-with-content/index.html"
+msgstr ""
+"Ver también la versión original del manual (en idioma Ingles) en las "
+"siguientes direcciones URL: "
+"http://old.plone.org/documentation/manual/plone-4-user-manual y "
+"http://docs.plone.org/4/en/working-with-content/index.html"
 
 #: ../features.rst:9
 msgid "Starting and Stopping Plone"
@@ -47,7 +54,13 @@ msgid ""
 "that when Plone is started in foreground mode, it is also automatically in "
 "development mode. Development mode gives better feedback, but is much "
 "slower, particularly on Windows."
-msgstr "Esto arranca Plone en el modo foreground para que podamos ver lo que está haciendo mediante el control de los mensajes de consola. Este es un método de desarrollo importante. Tenga en cuenta que cuando Plone se inicia en el modo foreground, es también automáticamente en el modo de desarrollo. Modo de desarrollo da una mejor respuesta, pero es mucho más lento, particularmente en Windows."
+msgstr ""
+"Esto arranca Plone en el modo foreground para que podamos ver lo que está "
+"haciendo mediante el control de los mensajes de consola. Este es un método "
+"de desarrollo importante. Tenga en cuenta que cuando Plone se inicia en el "
+"modo foreground, es también automáticamente en el modo de desarrollo. Modo "
+"de desarrollo da una mejor respuesta, pero es mucho más lento, "
+"particularmente en Windows."
 
 #: ../features.rst:17
 msgid "You can stop it by pressing :kbd:`ctrl + c`."
@@ -62,13 +75,18 @@ msgid ""
 "Depending on your computer, it might take up to a minute until Zope will "
 "tell you that its ready to serve requests. On a decent laptop it should be "
 "running in under 15 seconds."
-msgstr "Dependiendo del equipo, puede tardar hasta un minuto hasta que Zope le dirá que ya está listo para servir peticiones. En un portátil decente debe estar en ejecución en menos de 15 segundos."
+msgstr ""
+"Dependiendo del equipo, puede tardar hasta un minuto hasta que Zope le dirá "
+"que ya está listo para servir peticiones. En un portátil decente debe estar "
+"en ejecución en menos de 15 segundos."
 
 #: ../features.rst:32
 msgid ""
 "A standard installation listens on port 8080, so lets have a look at our "
 "Zope site by visiting http://localhost:8080"
-msgstr "Una instalación estándar escucha en el puerto 8080, así que vamos a echar un vistazo a nuestro sitio Zope visitando http://localhost:8080"
+msgstr ""
+"Una instalación estándar escucha en el puerto 8080, así que vamos a echar un"
+" vistazo a nuestro sitio Zope visitando http://localhost:8080"
 
 #: ../features.rst:34
 msgid "As you can see, there is no Plone yet!"
@@ -79,7 +97,12 @@ msgid ""
 "We have a running Zope with a database but no content. But luckily there is "
 "a button to create a Plone site. Click on that button (login: admin:admin). "
 "This opens a form to create a Plone site. Use :samp:`Plone` as the site id."
-msgstr "Tenemos un Zope corriendo con una base de datos pero no el sitio Plone. Pero, afortunadamente, hay un botón para crear un sitio Plone. Haga clic en el botón ``Crear un nuevo sitio Plone`` (inicio de sesión: admin:admin). Esto abre un formulario para crear un sitio Plone. Utilice :samp:`Plone` como el identificador del sitio."
+msgstr ""
+"Tenemos un Zope corriendo con una base de datos pero no el sitio Plone. "
+"Pero, afortunadamente, hay un botón para crear un sitio Plone. Haga clic en "
+"el botón ``Crear un nuevo sitio Plone`` (inicio de sesión: admin:admin). "
+"Esto abre un formulario para crear un sitio Plone. Utilice :samp:`Plone` "
+"como el identificador del sitio."
 
 #: ../features.rst:38
 msgid ""
@@ -88,7 +111,13 @@ msgid ""
 "Plone Default Types``. This way even the initial content on our page will be"
 " built with dexterity by the addon ``plone.app.contenttypes`` which will be "
 "the default in Plone 5."
-msgstr "Ahora tiene la opción de seleccionar algunos complementos antes de crear el sitio. Dado que vamos a utilizar Dexterity desde el principio seleccionamos el complemento ``Dexterity-based Plone Default Types``. De esta manera, incluso el contenido inicial en nuestra página será construido con dexterity por lo complemento plone.app.contenttypes que será el predeterminado en Plone 5."
+msgstr ""
+"Ahora tiene la opción de seleccionar algunos complementos antes de crear el "
+"sitio. Dado que vamos a utilizar Dexterity desde el principio seleccionamos "
+"el complemento ``Dexterity-based Plone Default Types``. De esta manera, "
+"incluso el contenido inicial en nuestra página será construido con dexterity"
+" por lo complemento plone.app.contenttypes que será el predeterminado en "
+"Plone 5."
 
 #: ../features.rst:40
 msgid "You will be automatically redirected to the new site."
@@ -98,7 +127,9 @@ msgstr "Usted será automáticamente redirigido al sitio nuevo."
 msgid ""
 "Plone has many message-boxes. They contain important information. Read them "
 "and make sure you understand them!"
-msgstr "Plone tiene muchos mensajes. Contienen información importante. ¡Léalos y asegúrese de entender su contenido!"
+msgstr ""
+"Plone tiene muchos mensajes. Contienen información importante. ¡Léalos y "
+"asegúrese de entender su contenido!"
 
 #: ../features.rst:56
 msgid "Users"
@@ -114,17 +145,31 @@ msgid ""
 " the root user of a server, it's a bad practice to make unnecessary use of "
 "zope-root. Use it to create Plone sites and their initial users, but not "
 "much else."
-msgstr "Vamos a crear nuestros primeros usuarios en Plone. Hasta ahora hemos utilizado el usuario administrador (admin:admin) configurado en el buildout. Este usuario es a menudo se le llama \"el administrador de Zope\" y con este usuario no se gestiona en Plone mas sólo es usado para la gestión de Zope. Por lo tanto el usuario le faltan algunas características como el correo electrónico y el nombre completo y no va a ser capaz de utilizar algunas de las características de Plone. Sin embargo, el usuario tiene todos los permisos posibles.  Al igual que con el usuario root de un servidor, que es una mala práctica hacer uso innecesario del raíz de Zope. Se usa para crear sitios Plone y sus usuarios iniciales, pero no mucho más."
+msgstr ""
+"Vamos a crear nuestros primeros usuarios en Plone. Hasta ahora hemos "
+"utilizado el usuario administrador (admin:admin) configurado en el buildout."
+" Este usuario es a menudo se le llama \"el administrador de Zope\" y con "
+"este usuario no se gestiona en Plone mas sólo es usado para la gestión de "
+"Zope. Por lo tanto el usuario le faltan algunas características como el "
+"correo electrónico y el nombre completo y no va a ser capaz de utilizar "
+"algunas de las características de Plone. Sin embargo, el usuario tiene todos"
+" los permisos posibles.  Al igual que con el usuario root de un servidor, "
+"que es una mala práctica hacer uso innecesario del raíz de Zope. Se usa para"
+" crear sitios Plone y sus usuarios iniciales, pero no mucho más."
 
 #: ../features.rst:62
 msgid "You can also add zope-users also via the terminal by entering::"
-msgstr "También puede agregar los usuarios zope a través del terminal ejecutando el siguiente comando:"
+msgstr ""
+"También puede agregar los usuarios zope a través del terminal ejecutando el "
+"siguiente comando:"
 
 #: ../features.rst:66
 msgid ""
 "That way you can access databases you get from customers where you have no "
 "Plone-user."
-msgstr "De esa manera usted puede tener acceso a las bases de datos que recibe de los clientes donde no tienes usuario Plone."
+msgstr ""
+"De esa manera usted puede tener acceso a las bases de datos que recibe de "
+"los clientes donde no tienes usuario Plone."
 
 #: ../features.rst:68
 msgid ""
@@ -132,7 +177,11 @@ msgid ""
 "right corner and then on :guilabel:`Site setup`. This is Plone's control "
 "panel. You can also access it by browsing to http://localhost:8080/Plone"
 "/@@overview-controlpanel"
-msgstr "Para agregar un nuevo usuario haga clic en el nombre :guilabel:`admin` ubicado en la esquina superior derecha y luego en :guilabel:`Configuración del sitio`. Este es el panel de control de Plone. También puede acceder a él por la dirección URL a http://localhost:8080/Plone/@@overview-controlpanel"
+msgstr ""
+"Para agregar un nuevo usuario haga clic en el nombre :guilabel:`admin` "
+"ubicado en la esquina superior derecha y luego en :guilabel:`Configuración "
+"del sitio`. Este es el panel de control de Plone. También puede acceder a él"
+" por la dirección URL a http://localhost:8080/Plone/@@overview-controlpanel"
 
 #: ../features.rst:70
 msgid ""
@@ -140,23 +189,34 @@ msgid ""
 "configured a mail server, Plone could send you a mail with a link to a form "
 "where you can choose a password. We set a password here because we haven't "
 "yet configure a mail server."
-msgstr "Haga clic en :guilabel:`Usuarios y Grupos` y añada un usuario. Si ha configurado un servidor de correo, Plone puede enviarle un correo electrónico con un enlace a un formulario donde puede elegir una contraseña. Establezca una una contraseña aquí porque no ha configurado aun un servidor de correo."
+msgstr ""
+"Haga clic en :guilabel:`Usuarios y Grupos` y añada un usuario. Si ha "
+"configurado un servidor de correo, Plone puede enviarle un correo "
+"electrónico con un enlace a un formulario donde puede elegir una contraseña."
+" Establezca una una contraseña aquí porque no ha configurado aun un servidor"
+" de correo."
 
 #: ../features.rst:72
 msgid "Make this user with your name an administrator."
-msgstr "Estableciendo a este usuario con su nombre un Administrador del sitio."
+msgstr ""
+"Estableciendo a este usuario con su nombre un Administrador del sitio."
 
 #: ../features.rst:74
 msgid ""
 "Then create another user called ``testuser``. Make this one a normal user. "
 "You can use this user to see how Plone looks and behaves to users that have "
 "no admin-permission."
-msgstr "A continuación, cree otro usuario llamado ``testuser``. Hágalo un usuario normal. Puede utilizar este usuario para ver cómo luce Plone y se comporta a los usuarios que no tienen permiso de administrador."
+msgstr ""
+"A continuación, cree otro usuario llamado ``testuser``. Hágalo un usuario "
+"normal. Puede utilizar este usuario para ver cómo luce Plone y se comporta a"
+" los usuarios que no tienen permiso de administrador."
 
 #: ../features.rst:76
 msgid ""
 "Now let's see the site in 3 different browsers with three different roles:"
-msgstr "Ahora vamos a ver el sitio en tres (03) navegadores diferentes, con tres roles diferentes:"
+msgstr ""
+"Ahora vamos a ver el sitio en tres (03) navegadores diferentes, con tres "
+"roles diferentes:"
 
 #: ../features.rst:78
 msgid "as anonymous"
@@ -178,7 +238,10 @@ msgstr "Configurar un servidor de correo"
 msgid ""
 "We have to configure a mailserver since later we will create some content-"
 "actions that send emails when new content is put on our site."
-msgstr "Tenemos que configurar un servidor de correo desde temprano vamos a crear algunas acciones de contenido que envían mensajes de correo electrónico cuando el nuevo contenido se pone en nuestro sitio."
+msgstr ""
+"Tenemos que configurar un servidor de correo desde temprano vamos a crear "
+"algunas acciones de contenido que envían mensajes de correo electrónico "
+"cuando el nuevo contenido se pone en nuestro sitio."
 
 #: ../features.rst:106
 msgid "Server: :samp:`mail.gocept.net`"
@@ -195,7 +258,9 @@ msgstr "Contraseña: :samp:`training2014`"
 #: ../features.rst:110
 msgid ""
 "Please do not abuse this. We'll disable this account after the training."
-msgstr "Por favor, no abuses de esto. Vamos a deshabilitar esta cuenta después de la capacitación."
+msgstr ""
+"Por favor, no abuses de esto. Vamos a deshabilitar esta cuenta después de la"
+" capacitación."
 
 #: ../features.rst:114
 msgid "Walkthrough of the UI"
@@ -215,7 +280,7 @@ msgstr ":guilabel:`personaltools`: nombre, salir etc."
 
 #: ../features.rst:121
 msgid ":guilabel:`logo`: with a link to the frontpage"
-msgstr ":guilabel:`logo`: con un enlace a la pagina principal"
+msgstr ":guilabel:`logo`: con un enlace a la página principal"
 
 #: ../features.rst:122
 msgid ":guilabel:`search`"
@@ -233,7 +298,9 @@ msgstr ":guilabel:`portal-columns`: un contenedor que contienen:"
 msgid ""
 ":guilabel:`portal-column-one`: portlets (configurable boxes with tool like "
 "navigation, news etc.)"
-msgstr ":guilabel:`portal-column-one`: portlets (cajas configurables como herramientas para navegación, noticias etc.)"
+msgstr ""
+":guilabel:`portal-column-one`: portlets (cajas configurables como "
+"herramientas para navegación, noticias etc.)"
 
 #: ../features.rst:128
 msgid ":guilabel:`portal-column-content`: the content and the editor"
@@ -255,11 +322,15 @@ msgstr ":guilabel:`portal-footer`: viewlets"
 msgid ""
 "These are also the css-classes of the respective div's. If you want to do "
 "theming you'll need them."
-msgstr "Estos son también los clases CSS de los respectivos de DIV del HTML. Si usted quiere hacer la temas visuales usted los necesita."
+msgstr ""
+"Estos son también los clases CSS de los respectivos de DIV del HTML. Si "
+"usted quiere hacer la temas visuales usted los necesita."
 
 #: ../features.rst:138
 msgid "On the edit bar, we find options affecting the current context..."
-msgstr "En la barra de edición, encontramos opciones que afectan el contexto actual..."
+msgstr ""
+"En la barra de edición, encontramos opciones que afectan el contexto "
+"actual..."
 
 #: ../features.rst:140
 msgid ":guilabel:`folder contents`"
@@ -298,7 +369,11 @@ msgid ""
 "Some edit bar options only show when appropriate; for example,``folder "
 "content`` and ``add`` are only shown for Folders. ``rules`` is currently "
 "invisible because we have no content rules available."
-msgstr "Algunas opciones de la barra de edición sólo muestran cuando proceda; por ejemplo, la carpeta ``Contenidos`` y ``Agregar nuevo...`` sólo se muestran para carpetas. Las opción ``Reglas`` esta actualmente invisible porque no tenemos reglas de contenido disponible."
+msgstr ""
+"Algunas opciones de la barra de edición sólo muestran cuando proceda; por "
+"ejemplo, la carpeta ``Contenidos`` y ``Agregar nuevo...`` sólo se muestran "
+"para carpetas. Las opción ``Reglas`` esta actualmente invisible porque no "
+"tenemos reglas de contenido disponible."
 
 #: ../features.rst:152
 msgid "Content-Types"
@@ -346,7 +421,9 @@ msgstr "Carpeta \"Sprint\""
 
 #: ../features.rst:169
 msgid "In /news: Add News Item \"Conference Website online!\" with some image"
-msgstr "En la ruta /news: Agregar una Noticia \"¡Sitio Web de la Conferencia esta en linea!\" con una imagen"
+msgstr ""
+"En la ruta /news: Agregar una Noticia \"¡Sitio Web de la Conferencia esta en"
+" linea!\" con una imagen"
 
 #: ../features.rst:170
 msgid "In /news: Add News Item \"Submit your talks!\""
@@ -354,7 +431,9 @@ msgstr "En la ruta /news: Agregar una Noticia \"¡Enviar sus charlas!\""
 
 #: ../features.rst:171
 msgid "In /events: Add Event \"Deadline for talk-submission\" Date: 10.10.2014"
-msgstr "En la ruta /news: Agregar un Evento \"Fecha limite para enviar charlas\" Fecha 10.10.2014"
+msgstr ""
+"En la ruta /news: Agregar un Evento \"Fecha limite para enviar charlas\" "
+"Fecha 10.10.2014"
 
 #: ../features.rst:173
 msgid "Add Folder \"Register\""
@@ -407,10 +486,15 @@ msgstr "Colección"
 #: ../features.rst:191
 msgid ""
 "Please keep in mind that we use `plone.app.contenttypes "
-"<http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ "
-"for the training. Therefore the types are based on Dexterity and slightly "
+"<http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html>`_"
+" for the training. Therefore the types are based on Dexterity and slightly "
 "different from the types that you will find in a default-Plone 4.3.x-site."
-msgstr "Por favor, tenga en cuenta que usamos `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ para la formación. Por lo tanto, los tipos se basan en Dexterity y un poco diferente de los tipos que se encuentran en un sitio Plone 4.3.x por defecto."
+msgstr ""
+"Por favor, tenga en cuenta que usamos `plone.app.contenttypes "
+"<http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html>`_"
+" para la formación. Por lo tanto, los tipos se basan en Dexterity y un poco "
+"diferente de los tipos que se encuentran en un sitio Plone 4.3.x por "
+"defecto."
 
 #: ../features.rst:195
 msgid "Folders"
@@ -446,7 +530,9 @@ msgstr "default_pages"
 
 #: ../features.rst:204
 msgid "Add a page to 'the-event': \"The Event\" and make it the default-page"
-msgstr "Agregar una página a 'el-evento': \"El Evento\" y hacerlo su página por defecto"
+msgstr ""
+"Agregar una página a 'el-evento': \"El Evento\" y hacerlo su página por "
+"defecto"
 
 #: ../features.rst:205
 msgid "The future: ``wildcard.foldercontents``"
@@ -458,13 +544,17 @@ msgstr "Colecciones"
 
 #: ../features.rst:211
 msgid "add a new collection: \"all content that has pending as wf_state\"."
-msgstr "agregar nueva colección: \"todos los contenidos que este pendiente por revisión\"."
+msgstr ""
+"agregar nueva colección: \"todos los contenidos que este pendiente por "
+"revisión\"."
 
 #: ../features.rst:212
 msgid ""
 "explain the default collection for events at "
 "http://localhost:8080/Plone/events/aggregator/edit"
-msgstr "explicar la colección por defecto de eventos en http://localhost:8080/Plone/events/aggregator/edit"
+msgstr ""
+"explicar la colección por defecto de eventos en "
+"http://localhost:8080/Plone/events/aggregator/edit"
 
 #: ../features.rst:213
 msgid "explain Topics"
@@ -500,7 +590,8 @@ msgstr "Histórico"
 
 #: ../features.rst:229
 msgid "Show and explain; mention versioning and its relation to types."
-msgstr "Mostrar y explicar; el control de versiones y su relación con los tipos."
+msgstr ""
+"Mostrar y explicar; el control de versiones y su relación con los tipos."
 
 #: ../features.rst:233
 msgid "Manage members and groups"
@@ -539,14 +630,21 @@ msgid ""
 "Take a look at the ``state`` drop-down on the edit bar on the homepage. Now,"
 " navigate to one of the folders just added. The homepage has the status "
 "``published`` and the new content is ``private``."
-msgstr "Echa un vistazo al menú desplegable ``Estado`` en la barra de edición en la página principal. Ahora, vaya a una de las carpetas que acaba de añadir. La página principal tiene el estado ``Publicado`` y el nuevo contenido es ``Privado``."
+msgstr ""
+"Echa un vistazo al menú desplegable ``Estado`` en la barra de edición en la "
+"página principal. Ahora, vaya a una de las carpetas que acaba de añadir. La "
+"página principal tiene el estado ``Publicado`` y el nuevo contenido es "
+"``Privado``."
 
 #: ../features.rst:249
 msgid ""
 "Let's look at the state transitions available for each type. We can make a "
 "published item private and a private item published. We can also submit an "
 "item for review."
-msgstr "Echemos un vistazo a las transiciones de estado disponibles para cada tipo. Podemos hacer un artículo publicado en privado y un artículo privado se pueda publicar. También podemos enviar un artículo para su revisión."
+msgstr ""
+"Echemos un vistazo a las transiciones de estado disponibles para cada tipo. "
+"Podemos hacer un artículo publicado en privado y un artículo privado se "
+"pueda publicar. También podemos enviar un artículo para su revisión."
 
 #: ../features.rst:251
 msgid "Each of these states connects roles to permissions."
@@ -555,13 +653,18 @@ msgstr "Cada uno de esos estados conecta los roles a permisos."
 #: ../features.rst:253
 msgid ""
 "In ``published`` state, the content is available to anonymous visitors;"
-msgstr "En el estado ``Publicado``, el contenido está disponible para los visitantes anónimos;"
+msgstr ""
+"En el estado ``Publicado``, el contenido está disponible para los visitantes"
+" anónimos;"
 
 #: ../features.rst:254
 msgid ""
 "In ``private`` state, the content is only viewable by the author (owner) and"
 " users who have the ``can view`` role for the content."
-msgstr "En el estado ``Privado``, el contenido es sólo visible para el autor (propietario) y los usuarios que tienen el rol local ``Puede ver`` para el contenido."
+msgstr ""
+"En el estado ``Privado``, el contenido es sólo visible para el autor "
+"(propietario) y los usuarios que tienen el rol local ``Puede ver`` para el "
+"contenido."
 
 #: ../features.rst:256
 msgid ""
@@ -569,7 +672,11 @@ msgid ""
 "permissions. Moving from one state to another is a ``transition``. "
 "Transitions (like ``submit for review``) may have actions — like the "
 "execution of a content role or script — associated with them."
-msgstr "Un estado de flujo de trabajo es una asociación entre un rol y uno o más permisos. Pasar de un estado a otro es una ``transición``. Las transiciones (como ``Enviar a revisión``) pueden tener acciones - como la ejecución de una regla de contenido o un script - asociado a ellos."
+msgstr ""
+"Un estado de flujo de trabajo es una asociación entre un rol y uno o más "
+"permisos. Pasar de un estado a otro es una ``transición``. Las transiciones "
+"(como ``Enviar a revisión``) pueden tener acciones - como la ejecución de "
+"una regla de contenido o un script - asociado a ellos."
 
 #: ../features.rst:258
 msgid ""
@@ -579,20 +686,34 @@ msgid ""
 "their own workflow. Or, and this is particularly interesting, no workflow. "
 "In that case, which initially applies to file and image uploads, the content"
 " object inherits the workflow of its container."
-msgstr "Un conjunto completo de estados de flujo de trabajo y las transiciones constituyen una ``flujo de trabajo``. Plone le permite seleccionar entre varios flujos de trabajo preconfigurados que son apropiados para los diferentes tipos de sitios. Tipos de contenido individuales pueden tener su propio flujo de trabajo. O, lo que es particularmente interesante, sin flujo de trabajo. En ese caso, que se aplica inicialmente a presentar y la subida de imágenes, el objeto de contenido hereda el flujo de trabajo de su contenedor."
+msgstr ""
+"Un conjunto completo de estados de flujo de trabajo y las transiciones "
+"constituyen una ``flujo de trabajo``. Plone le permite seleccionar entre "
+"varios flujos de trabajo preconfigurados que son apropiados para los "
+"diferentes tipos de sitios. Tipos de contenido individuales pueden tener su "
+"propio flujo de trabajo. O, lo que es particularmente interesante, sin flujo"
+" de trabajo. En ese caso, que se aplica inicialmente a presentar y la subida"
+" de imágenes, el objeto de contenido hereda el flujo de trabajo de su "
+"contenedor."
 
 #: ../features.rst:262
 msgid ""
 "An oddity in the all of the standard Plone workflows: a content item may be "
 "viewable even if its container is not. Making a container private does "
 "**not** automatically make its contents private."
-msgstr "Una rareza en el todo de los flujos de trabajo estándar de Plone: un elemento de contenido puede ser visible incluso si su contenedor no es. Haciendo un contenedor privado **no** hacen automáticamente su contenido privado."
+msgstr ""
+"Una rareza en el todo de los flujos de trabajo estándar de Plone: un "
+"elemento de contenido puede ser visible incluso si su contenedor no es. "
+"Haciendo un contenedor privado **no** hacen automáticamente su contenido "
+"privado."
 
 #: ../features.rst:264
 msgid ""
-"Read more at: http://docs.plone.org/working-with-content/collaboration-and-"
-"workflow/index.html"
-msgstr "Lea mas en: http://docs.plone.org/working-with-content/collaboration-and-workflow/index.html"
+"Read more at: http://docs.plone.org/4/en/working-with-content/collaboration-"
+"and-workflow/index.html"
+msgstr ""
+"Lea más en: http://docs.plone.org/4/en/working-with-content/collaboration-"
+"and-workflow/index.html"
 
 #: ../features.rst:267
 msgid "Working copy"
@@ -605,7 +726,13 @@ msgid ""
 "In fact, the original author may not even have permission to change the "
 "document without review. Or, you may need to make a partial edit. In either "
 "case, it may be undesirable for changes to be immediately visible."
-msgstr "El contenido publicado, incluso en un entorno de Intranet, puede plantear un problema especial para la edición. Puede ser necesario revisar antes de que los cambios se hacen disponible. De hecho, el autor original puede incluso podría no tener permiso para cambiar el documento sin revisión. O bien, puede que tenga que hacer una edición parcial. En cualquiera de los casos, puede ser deseable para que los cambios sean visibles inmediatamente."
+msgstr ""
+"El contenido publicado, incluso en un entorno de Intranet, puede plantear un"
+" problema especial para la edición. Puede ser necesario revisar antes de que"
+" los cambios se hacen disponible. De hecho, el autor original puede incluso "
+"podría no tener permiso para cambiar el documento sin revisión. O bien, "
+"puede que tenga que hacer una edición parcial. En cualquiera de los casos, "
+"puede ser deseable para que los cambios sean visibles inmediatamente."
 
 #: ../features.rst:271
 msgid ""
@@ -613,7 +740,14 @@ msgid ""
 "/check-in function for content — available on the actions menu. A content "
 "item may be checked out, worked on, then checked back in. Or abandoned if "
 "the changes weren't acceptable. Not until check in is the content visible."
-msgstr "El producto *Soporte de Copia de Trabajo* resuelve este problema mediante la adición una acción para *Retirar revisión* o *Guardar nueva revisión* de cambios para el contenido - disponible en el menú de acciones. Un elemento de contenido puede *guardar nueva revisión*, trabajado en una copia del elemento y después se *guardar nueva revisión* de nuevo. O *Cancelar retirada de revisión* si los cambios no eran aceptables. Hasta no guardar una nueva revisión de los cambios, el contenido anterior sera visible."
+msgstr ""
+"El producto *Soporte de Copia de Trabajo* resuelve este problema mediante la"
+" adición una acción para *Retirar revisión* o *Guardar nueva revisión* de "
+"cambios para el contenido - disponible en el menú de acciones. Un elemento "
+"de contenido puede *guardar nueva revisión*, trabajado en una copia del "
+"elemento y después se *guardar nueva revisión* de nuevo. O *Cancelar "
+"retirada de revisión* si los cambios no eran aceptables. Hasta no guardar "
+"una nueva revisión de los cambios, el contenido anterior sera visible."
 
 #: ../features.rst:273
 msgid ""
@@ -621,13 +755,21 @@ msgid ""
 "So, if you need it, you need to activate it via the add-on packages "
 "configuration page. Unless activated, check-in/check-out options are not "
 "visible."
-msgstr "Mientras este complemento viene incorporado en Plone, el soporte de copia de trabajo no es una necesidad común. Así que, si usted lo necesita, usted necesita para activarlo a través de la página de configuración de Complementos. A menos que se active este complemento, las opciones de *Retirar revisión* / *Guardar nueva revisión* no son visibles."
+msgstr ""
+"Mientras este complemento viene incorporado en Plone, el soporte de copia de"
+" trabajo no es una necesidad común. Así que, si usted lo necesita, usted "
+"necesita para activarlo a través de la página de configuración de "
+"Complementos. A menos que se active este complemento, las opciones de "
+"*Retirar revisión* / *Guardar nueva revisión* no son visibles."
 
 #: ../features.rst:277
 msgid ""
 "Working-copy support is not yet available for content types created via "
 "Dexterity. This is on the way."
-msgstr "Soporte de Copia de Trabajo no está disponible para los tipos de contenido creados a través de Dexterity. Esto está en el camino (es un trabajo en proceso)."
+msgstr ""
+"Soporte de Copia de Trabajo no está disponible para los tipos de contenido "
+"creados a través de Dexterity. Esto está en el camino (es un trabajo en "
+"proceso)."
 
 #: ../features.rst:281
 msgid "Placeful workflows"
@@ -639,7 +781,12 @@ msgid ""
 "example, we created an intranet folder. Since this is intended for use by "
 "our conference organizers — but not the public — the simple workflow we wish"
 " to use for the rest of the site will not be desirable."
-msgstr "Usted puede necesitar tener diferentes flujos de trabajo en diferentes partes de un sitio. Por ejemplo, creamos una carpeta intranet. Dado que este es para uso de nuestros organizadores de la conferencia - pero no para el público - el sencillo flujo de trabajo que deseamos utilizar para que el resto del sitio no será deseable aquí."
+msgstr ""
+"Usted puede necesitar tener diferentes flujos de trabajo en diferentes "
+"partes de un sitio. Por ejemplo, creamos una carpeta intranet. Dado que este"
+" es para uso de nuestros organizadores de la conferencia - pero no para el "
+"público - el sencillo flujo de trabajo que deseamos utilizar para que el "
+"resto del sitio no será deseable aquí."
 
 #: ../features.rst:285
 msgid ""
@@ -648,7 +795,13 @@ msgid ""
 "to set a special workflow in a folder that will govern everything under that"
 " folder. Since it has effect in a \"place\" in a site, this mechanism is "
 "often called \"Placeful Workflow\"."
-msgstr "El paquete ``Soporte de Copia de Trabajo`` te da la posibilidad de configurar diferentes flujos de trabajo en las diferentes secciones de un sitio. Normalmente, se utiliza para configurar un flujo de trabajo especial en una carpeta que regirá todo bajo esa carpeta. Ya que tiene efecto en un \"lugar\" en un sitio, este mecanismo es a menudo llamado \"flujo de trabajo Placeful\"."
+msgstr ""
+"El paquete ``Soporte de Copia de Trabajo`` te da la posibilidad de "
+"configurar diferentes flujos de trabajo en las diferentes secciones de un "
+"sitio. Normalmente, se utiliza para configurar un flujo de trabajo especial "
+"en una carpeta que regirá todo bajo esa carpeta. Ya que tiene efecto en un "
+"\"lugar\" en un sitio, este mecanismo es a menudo llamado \"flujo de trabajo"
+" Placeful\"."
 
 #: ../features.rst:287
 msgid ""
@@ -656,10 +809,18 @@ msgid ""
 "to be activated via the add-on configuration page. Once it's added, a "
 "``Policy`` option will appear on the state menu to allow setting a placeful "
 "workflow policy."
-msgstr "Tanto como el Soporte de Copia de Trabajo, como el Soporte de Política de Flujo de trabajo Placeful viene incorporados en Plone, pero tiene que ser activadas a través de la página de configuración de Complementos. Una vez se ha añadido, una opción ``Política...`` aparecerá en el menú de Estado para permitir el establecimiento de una política de flujo de trabajo Placeful."
+msgstr ""
+"Tanto como el Soporte de Copia de Trabajo, como el Soporte de Política de "
+"Flujo de trabajo Placeful viene incorporados en Plone, pero tiene que ser "
+"activadas a través de la página de configuración de Complementos. Una vez se"
+" ha añadido, una opción ``Política...`` aparecerá en el menú de Estado para "
+"permitir el establecimiento de una política de flujo de trabajo Placeful."
 
 #: ../features.rst:291
 msgid ""
 "Workflow Policy support is not yet available for folderish content types "
 "created via Dexterity. This is on the way."
-msgstr "Soporte de Copia de Trabajo aún no está disponible para los tipos de contenido Carpeta creados a través de Dexterity. Esto está en el camino (es un trabajo en proceso)."
+msgstr ""
+"Soporte de Copia de Trabajo aún no está disponible para los tipos de "
+"contenido Carpeta creados a través de Dexterity. Esto está en el camino (es "
+"un trabajo en proceso)."

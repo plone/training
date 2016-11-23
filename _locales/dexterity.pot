@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-21 00:23-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -137,7 +137,7 @@ msgid "Archetypes has no TTW story."
 msgstr ""
 
 #: ../dexterity.rst:60
-msgid "UML-modeling: `ArchGenXML <http://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ for Archetypes, `agx <http://agx.me>`_ for Dexterity"
+msgid "UML-modeling: `ArchGenXML <http://docs.plone.org/4/en/old-reference-manuals/archgenxml/index.html>`_ for Archetypes, `agx <http://agx.me>`_ for Dexterity"
 msgstr ""
 
 #: ../dexterity.rst:62
@@ -269,7 +269,7 @@ msgid "The new field ``Hot News`` is not displayed when rendering the News Item.
 msgstr ""
 
 #: ../dexterity.rst:125
-msgid "http://docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types"
+msgid "http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html#extending-the-types"
 msgstr ""
 
 #: ../dexterity.rst:128
@@ -353,7 +353,7 @@ msgid "So, we'll ultimately want to move our new content type into a Python pack
 msgstr ""
 
 #: ../dexterity.rst:216
-msgid "`Dexterity Developer Manual <http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_"
+msgid "`Dexterity Developer Manual <http://docs.plone.org/4/en/external/plone.app.dexterity/docs/index.html>`_"
 msgstr ""
 
 #: ../dexterity.rst:220

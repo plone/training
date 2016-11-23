@@ -1,17 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-07 14:28+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,18 +25,28 @@ msgstr "Sobre \"Maestría en Plone\""
 #: ../about.rst:4
 msgid ""
 "This training was created by Philip Bauer and Patrick Gerken of `starzel.de "
-"<http://www.starzel.de>`_ to create a canonical training for future Plone "
+"<https://www.starzel.de>`_ to create a canonical training for future Plone "
 "developers. The aim is that anyone with the appropriate knowledge can give a"
 " training based on it and contribute to it. It is published as Open Source "
 "on `github <https://github.com/plone/training>`_ and `readthedocs <http"
-"://plone-training.readthedocs.org/>`_."
-msgstr "Esta entrenamiento fue creada por Philip Bauer y Patrick Gerken de la empresa `starzel.de <http://www.starzel.de>`_ para crear una formación canónica para futuros desarrolladores de Plone. El objetivo es que cualquier persona con los conocimientos adecuados puede dar un entrenamiento basado en este y si lo desea pueda contribuir a mejorar este material. Se publica como código abierto en `github <https://github.com/plone/training>`_ y `readthedocs <http://plone-training.readthedocs.org/>`_."
+"://plone-training.readthedocs.io/en/legacy/>`_."
+msgstr ""
+"Esta entrenamiento fue creada por Philip Bauer y Patrick Gerken de la "
+"empresa `starzel.de <https://www.starzel.de>`_ para crear una formación "
+"canónica para futuros desarrolladores de Plone. El objetivo es que cualquier"
+" persona con los conocimientos adecuados puede dar un entrenamiento basado "
+"en este y si lo desea pueda contribuir a mejorar este material. Se publica "
+"como código abierto en `github <https://github.com/plone/training>`_ y "
+"`readthedocs <http://plone-training.readthedocs.io/en/legacy/>`_."
 
 #: ../about.rst:6
 msgid ""
 "If you want to inquire the original authors about organizing a training "
 "please contact them at team@starzel.de."
-msgstr "Si desea ponerse en contacto con los autores originales para un entrenamiento, por favor,  puede hacerlo por medio del correo team@starzel.de."
+msgstr ""
+"Si desea ponerse en contacto con los autores originales para un "
+"entrenamiento, por favor,  puede hacerlo por medio del correo "
+"team@starzel.de."
 
 #: ../about.rst:10
 msgid "Upcoming Trainings"
@@ -45,8 +55,10 @@ msgstr "Próximos entrenamientos"
 #: ../about.rst:14
 msgid ""
 "`Mastering Plone 5 Development: 2. - 6. March 2015, Munich "
-"<http://www.starzel.de/leistungen/training/>`_"
-msgstr "`Mastering Plone 5 Development: 2. - 6 de Marzo de 2015, en Múnich <http://www.starzel.de/leistungen/training/>`_"
+"<https://www.starzel.de/leistungen/training/>`_"
+msgstr ""
+"`Mastering Plone 5 Development: 2. - 6 de Marzo de 2015, en Múnich "
+"<https://www.starzel.de/leistungen/training/>`_"
 
 #: ../about.rst:13
 msgid "by Philip Bauer and Patrick Gerken"
@@ -60,27 +72,34 @@ msgstr "Entrenamientos previos"
 msgid ""
 "The Mastering Plone Training was so far held publicly at the following "
 "occasions:"
-msgstr "El entrenamiento \"Maestría en Plone\" se celebró públicamente en las siguientes ocasiones:"
+msgstr ""
+"El entrenamiento \"Maestría en Plone\" se celebró públicamente en las "
+"siguientes ocasiones:"
 
 #: ../about.rst:21
 msgid "`Plone Conference 2014, Bristol <http://2014.ploneconf.org/training>`_"
-msgstr "`Plone Conference 2014, Bristol <http://2014.ploneconf.org/training>`_"
+msgstr ""
+"`Plone Conference 2014, Bristol <http://2014.ploneconf.org/training>`_"
 
 #: ../about.rst:22
 msgid ""
 "`June 2014, Caracas "
 "<https://twitter.com/hellfish2/status/476906131970068480>`_"
-msgstr "`Junio de 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068480>`_"
+msgstr ""
+"`Junio de 2014, Caracas "
+"<https://twitter.com/hellfish2/status/476906131970068480>`_"
 
 #: ../about.rst:23
-msgid "`May 2014, Munich <http://www.starzel.de/blog/mastering-plone>`_"
-msgstr "`Mayo de 2014, Múnich <http://www.starzel.de/blog/mastering-plone>`_"
+msgid "`May 2014, Munich <https://www.starzel.de/blog/mastering-plone>`_"
+msgstr "`Mayo de 2014, Múnich <https://www.starzel.de/blog/mastering-plone>`_"
 
 #: ../about.rst:24
 msgid ""
 "`PythonBrasil/Plone Conference 2013, Brasilia "
 "<http://2013.pythonbrasil.org.br/program/training/mastering-plone>`_"
-msgstr "`PythonBrasil/Plone Conference 2013, Brasilia <http://2013.pythonbrasil.org.br/program/training/mastering-plone>`_"
+msgstr ""
+"`PythonBrasil/Plone Conference 2013, Brasilia "
+"<http://2013.pythonbrasil.org.br/program/training/mastering-plone>`_"
 
 #: ../about.rst:25
 msgid "`PyCon DE 2012, Leipzig <https://2012.de.pycon.org/>`_"
@@ -90,7 +109,9 @@ msgstr "`PyCon DE 2012, Leipzig <https://2012.de.pycon.org/>`_"
 msgid ""
 "`Plone Conference 2012, Arnheim <http://2012.ploneconf.org/the-"
 "event/training/conference-trainings/mastering-plone>`_"
-msgstr "`Plone Conference 2012, Arnhem <http://2012.ploneconf.org/the-event/training/conference-trainings/mastering-plone>`_"
+msgstr ""
+"`Plone Conference 2012, Arnhem <http://2012.ploneconf.org/the-event/training"
+"/conference-trainings/mastering-plone>`_"
 
 #: ../about.rst:27
 msgid "`PyCon De 2011, Leipzig <http://2011.de.pycon.org/2011/home/>`_"
@@ -102,7 +123,9 @@ msgstr "Entrenadores"
 
 #: ../about.rst:33
 msgid "The following trainers have given trainings based on Mastering Plone:"
-msgstr "Los siguientes entrenadores han dado entrenamiento basado en el material \"Maestría en Plone\":"
+msgstr ""
+"Los siguientes entrenadores han dado entrenamiento basado en el material "
+"\"Maestría en Plone\":"
 
 #: ../about.rst:36
 msgid "Leonardo Caballero"
@@ -119,6 +142,14 @@ msgid ""
 "spoken at or helped organize Plone and open-source events throughout South "
 "America."
 msgstr ""
+"Leonardo J. Caballero G. de Maracaibo, Venezuela, es Director Técnico de "
+"Covantec R.L. y Conectivo C.A. Leonardo mantiene las traducciones en español"
+" de más de 49 complementos de Plone, así como documentación en español para "
+"Plone. Ha contribuido con varios complementos de Plone que forman parte de "
+"PloneGov. Actualmente sirve a la Junta de Plone como Embajador de Plone, "
+"Leonardo también ha servido como un miembro de la Junta Asesora y ha hablado"
+" en o ayudado a organizar eventos de Plone y código abierto en toda América "
+"del Sur."
 
 #: ../about.rst:39
 msgid "Philip Bauer"
@@ -126,7 +157,7 @@ msgstr "Philip Bauer"
 
 #: ../about.rst:39
 msgid ""
-"Philip Bauer is a Webdeveloper from Munich who fell in love with Plone in "
+"Philip Bauer is a web developer from Munich who fell in love with Plone in "
 "2005 and since then works almost exclusively with Plone. A historian by "
 "education he drifted towards creating websites in the 90's and founded the "
 "company Starzel.de in 2000. He is a member of the Plone foundation, loves "
@@ -134,17 +165,28 @@ msgid ""
 " he started creating the Mastering Plone Training so that everyone can "
 "become a Plone-Developer."
 msgstr ""
+"Philip Bauer es un desarrollador web de Munich que se enamoró de Plone en "
+"2005 y desde entonces trabaja casi exclusivamente con Plone. Un historiador "
+"por educación que derivó hacia la creación de sitios web en los años 90 y "
+"fundó la empresa Starzel.de en 2000. Es miembro de la Fundación Plone, ama "
+"la enseñanza y se dedica al Open Source. Entre otros proyectos relacionados "
+"con Plone, comenzó a crear el manual de entrenamiento \"Maestría en Plone\" "
+"para que todos puedan convertirse en programadores Plone."
 
 #: ../about.rst:42
 msgid "Patrick Gerken"
-msgstr ""
+msgstr "Patrick Gerken"
 
 #: ../about.rst:42
 msgid ""
 "Patrick Gerken works with Python since 2002. He started working with pure "
-"Zope-Applications and now to develops mainly with with Plone, Pyramid and "
-"Javascript as well as doing what is called DevOps. He works at Starzel.de."
+"Zope applications and now develops mainly with Plone, Pyramid and Javascript"
+" as well as doing what is called DevOps. He works at Starzel.de."
 msgstr ""
+"Patrick Gerken trabaja con Python desde 2002. Comenzó a trabajar con "
+"aplicaciones Zope puras y ahora desarrolla principalmente con Plone, Pyramid"
+" y Javascript, además de hacer tareas de lo que se llama DevOps. Trabaja en "
+"Starzel.de."
 
 #: ../about.rst:45
 msgid "Steve McMahon"
@@ -157,6 +199,11 @@ msgid ""
 "installer. Steve also wrote several chapters of Practical Plone and is an "
 "experienced speaker and instructor."
 msgstr ""
+"Steve McMahon es un miembro de la comunidad Plone hace mucho tiempo, "
+"colaborador y entrenador. Él es el creador del producto PloneFormGen, el "
+"cual es un generador de formulario a traves de la Web para Plone y el "
+"mantenedor del instalador unificado. Steve también escribió varios capítulos"
+" del libro 'Practical Plone' y es un orador e instructor experimentado."
 
 #: ../about.rst:49
 msgid "Steffen Lindner"
@@ -169,6 +216,10 @@ msgid ""
 "developer he joined the Plone core developer team 2011 and works at "
 "Starzel.de."
 msgstr ""
+"Steffen Lindner comenzó a desarrollar Plone en 2006. Trabajó en pequeños "
+"sitios de Plone y también en enormes sitios de intranet. Como desarrollador "
+"de Open Source / Software Libre se unió al equipo de desarrolladores del "
+"núcleo de Plone en 2011 y trabaja en Starzel.de."
 
 #: ../about.rst:52
 msgid "Using the documentation for a training"
@@ -179,11 +230,16 @@ msgid ""
 "Feel free to organize a training yourself. Please be so kind to contribute "
 "any bugfixes or enhancements you made to the documentation for your "
 "training."
-msgstr "Siéntase libre para organizar un entrenamiento por ti mismo. Por favor, sea tan amable de aportar cualquier corrección de errores o mejoras que haya realizado en la documentación de su entrenamiento."
+msgstr ""
+"Siéntase libre para organizar un entrenamiento por ti mismo. Por favor, sea "
+"tan amable de aportar cualquier corrección de errores o mejoras que haya "
+"realizado en la documentación de su entrenamiento."
 
 #: ../about.rst:56
 msgid "The training is rendered using sphinx and builds in two flavors:"
-msgstr "El entrenamiento se genera mediante la herramienta Sphinx y se basa en dos sabores:"
+msgstr ""
+"El entrenamiento se genera mediante la herramienta Sphinx y se basa en dos "
+"sabores:"
 
 #: ../about.rst:59
 msgid "default"
@@ -191,9 +247,12 @@ msgstr "por defecto"
 
 #: ../about.rst:59
 msgid ""
-"The verbose version used for the online-documentation and for the trainer. "
-"Build it in sphinx with ``make html`` or use the online-version."
-msgstr "La versión detallada utilizada para la documentación en línea y para el instructor. Para construirlo con Sphinx, ejecute el el comando ``make html`` o use la versión en línea."
+"The verbose version used for the online documentation and for the trainer. "
+"Build it in sphinx with ``make html`` or use the online version."
+msgstr ""
+"La versión detallada utilizada para la documentación en línea y para el "
+"instructor. Para construirlo con Sphinx, ejecute el el comando ``make html``"
+" o use la versión en línea."
 
 #: ../about.rst:62
 msgid "presentation"
@@ -202,42 +261,54 @@ msgstr "presentation"
 #: ../about.rst:62
 msgid ""
 "A abbreviated version used for the projector during a training. It should "
-"uses more bullet-points than verbose text. Build it in sphinx with ``make "
+"use more bullet points than verbose text. Build it in sphinx with ``make "
 "presentation``."
-msgstr "Una versión abreviada utilizada para el proyector durante un entrenamiento. Ese debe usar más lista de viñetas que texto detallado. Para construirlo con Sphinx, ejecute el el comando ``make presentation``."
+msgstr ""
+"Una versión abreviada utilizada para el proyector durante un entrenamiento. "
+"Ese debe usar más lista de viñetas que texto detallado. Para construirlo con"
+" Sphinx, ejecute el el comando ``make presentation``."
 
 #: ../about.rst:66
 msgid ""
 "By prefixing an indented block of text or code with ``.. only:: "
-"presentation`` you can control that this block is used for the presentation-"
+"presentation`` you can control that this block is used for the presentation "
 "version only."
-msgstr "Anteponiendo un bloque con indentación de texto o código con ``.. only:: presentation`` usted puede controlar cuál de sus bloque es usado solamente en la versión presentación."
+msgstr ""
+"Anteponiendo un bloque con indentación de texto o código con ``.. only:: "
+"presentation`` usted puede controlar que este bloque es usado solamente en "
+"la versión presentación."
 
 #: ../about.rst:68
 msgid ""
-"To hide a block from the presentation-version use ``.. only:: not "
+"To hide a block from the presentation version use ``.. only:: not "
 "presentation``"
-msgstr "Para ocultar un bloque desde la versión presentation use ``.. only:: not presentation``"
+msgstr ""
+"Para ocultar un bloque desde la versión presentation use ``.. only:: not "
+"presentation``"
 
 #: ../about.rst:70
 msgid "Content without a prefix will be included in both versions."
 msgstr "Contenido sin un prefijo sera incluido en ambas versiones."
 
 #: ../about.rst:74
-msgid "The readthedocs-theme"
+msgid "The readthedocs theme"
 msgstr "El tema readthedocs"
 
 #: ../about.rst:76
 msgid ""
-"We slightly tweaked readthedocs-theme in ``_static/custom.css`` so that it "
+"We slightly tweaked readthedocs theme in ``_static/custom.css`` so that it "
 "works better with projectors:"
-msgstr "Nos ajustamos ligeramente al tema readthedocs en el archivo ``_static/custom.css`` para que funcione mejor con proyectores:"
+msgstr ""
+"Nos ajustamos ligeramente al tema readthedocs en el archivo "
+"``_static/custom.css`` para que funcione mejor con proyectores:"
 
 #: ../about.rst:78
 msgid ""
 "We start hiding the navbar much earlier so that it does not interfere with "
 "the text."
-msgstr "Comenzamos ocultar la barra de navegación mucho antes de manera que no interfiera con el texto."
+msgstr ""
+"Comenzamos ocultar la barra de navegación mucho antes de manera que no "
+"interfiera con el texto."
 
 #: ../about.rst:79
 msgid "We enlarge the default width of the content-area."
@@ -250,7 +321,9 @@ msgstr "Ejercicios"
 #: ../about.rst:84
 msgid ""
 "Some additional javascript shows hidden solutions for exercises by clicking."
-msgstr "Algunos javascript adicionales muestran las soluciones ocultas para los ejercicios haciendo clic en ellos."
+msgstr ""
+"Algunos javascript adicionales muestran las soluciones ocultas para los "
+"ejercicios haciendo clic en ellos."
 
 #: ../about.rst:86
 msgid "Just prepend the solution with this markup::"
@@ -278,7 +351,8 @@ msgstr "Solución"
 
 #: ../about.rst:117
 msgid "To save the world with only seconds to spare do the following:"
-msgstr "Para salvar al mundo con sólo unos segundos de sobra haga lo siguiente:"
+msgstr ""
+"Para salvar al mundo con sólo unos segundos de sobra haga lo siguiente:"
 
 #: ../about.rst:125
 msgid "Building the documentation locally"
@@ -291,9 +365,13 @@ msgstr "Para construir la documentación siga estos pasos:"
 #: ../about.rst:138
 msgid ""
 "You can now open the output from ``_build/html/index.html``. To build the "
-"presentation-version use ``make presentation`` instead of ``make html``. You"
+"presentation version use ``make presentation`` instead of ``make html``. You"
 " can open the presentation at ``presentation/index.html``."
-msgstr "Ahora puede abrir lo generado en el directorio ``_build/html/index.html``. Para construir la versión de presentación ejecute el comando ``make presentation`` en lugar del comando ``make html``. Usted puede abrir la versión presentación en el directorio ``presentation/index.html``."
+msgstr ""
+"Ahora puede abrir lo generado en el directorio ``_build/html/index.html``. "
+"Para construir la versión de presentación ejecute el comando ``make "
+"presentation`` en lugar del comando ``make html``. Usted puede abrir la "
+"versión presentación en el directorio ``presentation/index.html``."
 
 #: ../about.rst:142
 msgid "Things to do before a training (as a trainer)"
@@ -302,16 +380,23 @@ msgstr "Cosas que hacer antes de un entrenamiento (como entrenador)"
 #: ../about.rst:144
 msgid ""
 "Prepare a mailserver for the user registration mail (http://plone-"
-"training.readthedocs.org/en/latest/features.html#configure-a-mailserver)"
-msgstr "Preparar un servidor de correo electrónico para el registro de usuario (http://plone-training.readthedocs.org/en/latest/features.html#configure-a-mailserver)"
+"training.readthedocs.io/en/legacy/features.html#configure-a-mailserver)"
+msgstr ""
+"Preparar un servidor de correo electrónico para el registro de usuario (http"
+"://plone-"
+"training.readthedocs.io/en/legacy/features.html#configure-a-mailserver)"
 
 #: ../about.rst:145
 msgid ""
 "If you do only a part of the training (Advanced) prepare a database with the"
 " steps of the previous sections. Be aware that the file- and blobstorage in "
-"the Vagrant box is here: /home/vagrant/var/ (not with the buildout path "
+"the Vagrant box is here: /home/vagrant/var/ (not at the buildout path "
 "/vagrant/buildout/)"
-msgstr "Si usted sólo hace una parte del entrenamiento (Avanzado) prepare una base de datos con los pasos de los apartados anteriores. Tenga en cuenta que el archivo y el blobstorage en el Vagrant box está aquí: /home/vagrant/var/ (no con la ruta del directorio de buildout /vagrant/buildout/)"
+msgstr ""
+"Si usted sólo hace una parte del entrenamiento (Avanzado) prepare una base "
+"de datos con los pasos de los secciones anteriores. Tenga en cuenta que el "
+"archivo y el blobstorage en el Vagrant box está aquí: /home/vagrant/var/ (no"
+" con la ruta del directorio de buildout /vagrant/buildout/)"
 
 #: ../about.rst:149
 msgid "Contributing"
@@ -324,41 +409,52 @@ msgid ""
 "changes should made as `pull-requests "
 "<https://github.com/plone/training/pull/>`_ and discussed previously in "
 "tickets."
-msgstr "Todos **están invitados** a contribuir. Los cambios de errores menores pueden ser empujados directamente en el `repositorio <https://github.com/plone/training>`_, los cambios más grandes deben haber como un `pull requests <https://github.com/plone/training/pull/>`_ y discutirlos previamente en tickets."
+msgstr ""
+"Todos **están invitados** a contribuir. Los cambios de errores menores "
+"pueden ser empujados directamente en el `repositorio "
+"<https://github.com/plone/training>`_, los cambios más grandes deben haber "
+"como un `pull requests <https://github.com/plone/training/pull/>`_ y "
+"discutirlos previamente en tickets."
 
-#: ../about.rst:153
-msgid ""
-"By prefixing a indented block of text or code with ``.. only:: "
-"presentation`` or ``.. only:: not presentation`` you can control which of "
-"the versions the indented block will show up. Content without a prefix will "
-"be included in both versions."
-msgstr "Anteponiendo un bloque indentado de texto o código con ``.. only:: presentation`` o ``.. only:: not presentation`` usted puede controlar cuál de las versiones del bloque con sangría se mostrará. El contenido sin prefijo se incluirá en ambas versiones."
-
-#: ../about.rst:157
+#: ../about.rst:155
 msgid "License"
 msgstr "Licencia"
 
-#: ../about.rst:159
+#: ../about.rst:157
 msgid ""
 "The Mastering Plone Training is licensed under a `Creative Commons "
 "Attribution 4.0 International License "
-"<http://creativecommons.org/licenses/by/4.0/>`_."
-msgstr "El entrenamiento \"Maestría en Plone\" es licenciado bajo la `Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_."
+"<https://creativecommons.org/licenses/by/4.0/>`_."
+msgstr ""
+"El entrenamiento \"Maestría en Plone\" es licenciado bajo la `Creative "
+"Commons Attribution 4.0 International License "
+"<https://creativecommons.org/licenses/by/4.0/>`_."
+
+#: ../about.rst:159
+msgid ""
+"Make sure you have filled out a `Contributor Agreement "
+"<https://old.plone.org/foundation/contributors-agreement>`_."
+msgstr ""
+"Asegúrese que usted ha completado el `Acuerdo de contribuidor "
+"<https://old.plone.org/foundation/contributors-agreement>`_."
 
 #: ../about.rst:161
 msgid ""
-"Make sure you have filled out a `Contributor Agreement "
-"<http://plone.org/foundation/contributors-agreement>`_."
-msgstr "Asegúrese de que ha completado el `Acuerdo de contribuidor <http://plone.org/foundation/contributors-agreement>`_."
-
-#: ../about.rst:163
-msgid ""
-"If you haven't filled in a Contributor Agreement, you can still contribute. "
-"Contact the Documentation team, for instance via the `mailinglist "
-"<http://sourceforge.net/p/plone/mailman/plone-docs/>`_ or directly send a "
+"If you haven't filled out a Contributor Agreement, you can still contribute."
+" Contact the Documentation team, for instance via the `mailinglist "
+"<https://sourceforge.net/p/plone/mailman/plone-docs/>`_ or directly send a "
 "mail to plone-docs@lists.sourceforge.net Basically, all we need is your "
 "written confirmation that you are agreeing your contribution can be under "
 "Creative Commons. You can also add in a comment with your pull request \"I, "
 "<full name>, agree to have this published under Creative Commons 4.0 "
 "International BY\"."
-msgstr "Si usted no ha completado un Acuerdo de colaborador, todavía puede aportar. Póngase en contacto con el equipo de documentación, por ejemplo a través de la `lista de correo <http://sourceforge.net/p/plone/mailman/plone-docs/>`_ o directamente enviar un correo a plone-docs@lists.sourceforge.net. Básicamente, todo lo que necesitamos es la confirmación por escrito de que usted está de acuerdo que su contribución puede ser bajo licencia Creative Commons. También puede agregar en un comentario con tu solicitud de extracción \"Yo, <nombre completo>, estoy acuerdo en que esta publicado bajo licencia Creative Commons 4.0 International BY\"."
+msgstr ""
+"Si usted no ha completado un Acuerdo de colaborador, todavía puede aportar. "
+"Póngase en contacto con el equipo de documentación, por ejemplo a través de "
+"la `lista de correo <https://sourceforge.net/p/plone/mailman/plone-docs/>`_ "
+"o directamente enviar un correo a plone-docs@lists.sourceforge.net. "
+"Básicamente, todo lo que necesitamos es la confirmación por escrito de que "
+"usted está de acuerdo que su contribución puede ser bajo licencia Creative "
+"Commons. También puede agregar en un comentario con su pull request \"Yo, "
+"<nombre completo>, estoy acuerdo en que esta publicado bajo licencia "
+"Creative Commons 4.0 International BY\"."

@@ -43,8 +43,8 @@ Some technologies and tools we use during the training:
 * For the beginning training:
 
     * `Virtualbox <https://www.virtualbox.org/>`_
-    * `Vagrant <http://www.vagrantup.com/>`_
-    * `Ubuntu linux <http://www.ubuntu.com/>`_
+    * `Vagrant <https://www.vagrantup.com/>`_
+    * `Ubuntu linux <https://www.ubuntu.com/>`_
     * Through-the-web (TTW)
     * `Buildout <http://www.buildout.org/en/latest/>`_
     * A little XML
@@ -52,13 +52,13 @@ Some technologies and tools we use during the training:
 
 * For the advanced chapters:
 
-    * `Git <http://git-scm.com/>`_
-    * `Github <http://github.com>`_
+    * `Git <https://git-scm.com/>`_
+    * `Github <https://github.com>`_
     * `Try Git (Nice introduction to git and github) <https://try.github.io/>`_
     * TAL
     * METAL
     * ZCML
-    * `Python <http://python.org>`_
+    * `Python <https://www.python.org>`_
     * Dexterity
     * Viewlets
     * `JQuery <http://jquery.com/>`_
@@ -68,24 +68,24 @@ What will we not do?
 
 We will not cover the following topics:
 
-* `Archetypes <http://docs.plone.org/old-reference-manuals/archetypes/index.html>`_
-* `Portlets <http://docs.plone.org/old-reference-manuals/portlets/index.html>`_
-* `z3c.forms <http://docs.plone.org/develop/plone/forms/z3c.form.html>`_
-* `Theming <http://docs.plone.org/adapt-and-extend/theming/index.html>`_
-* `Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_
-* `i18n and locales <http://docs.plone.org/develop/plone/i18n/index.html>`_
-* `Deployment, Hosting and Caching <http://docs.plone.org/manage/deploying/index.html>`_
+* `Archetypes <http://docs.plone.org/4/en/old-reference-manuals/archetypes/index.html>`_
+* `Portlets <http://docs.plone.org/4/en/old-reference-manuals/portlets/index.html>`_
+* `z3c.forms <http://docs.plone.org/4/en/develop/plone/forms/z3c.form.html>`_
+* `Theming <http://docs.plone.org/4/en/adapt-and-extend/theming/index.html>`_
+* `Testing <http://docs.plone.org/4/en/external/plone.app.testing/docs/source/index.html>`_
+* `i18n and locales <http://docs.plone.org/4/en/develop/plone/i18n/index.html>`_
+* `Deployment, Hosting and Caching <http://docs.plone.org/4/en/manage/deploying/index.html>`_
 * :doc:`grok`
-* `References/Relations <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_
+* `References/Relations <http://docs.plone.org/4/en/external/plone.app.dexterity/docs/advanced/references.html>`_
 
 Other topics are only covered lightly:
 
-* `Zope Component Architecture <http://docs.plone.org/develop/addons/components/index.html>`_
-* `GenericSetup <http://docs.plone.org/develop/addons/components/genericsetup.html>`_
-* `ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_
-* `Security <http://docs.plone.org/develop/plone/security/index.html>`_
-* `Permissions <http://docs.plone.org/develop/plone/security/permissions.html>`_
-* `Performance and Caching <http://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_
+* `Zope Component Architecture <http://docs.plone.org/4/en/develop/addons/components/index.html>`_
+* `GenericSetup <http://docs.plone.org/4/en/develop/addons/components/genericsetup.html>`_
+* `ZODB <http://docs.plone.org/4/en/develop/plone/persistency/index.html>`_
+* `Security <http://docs.plone.org/4/en/develop/plone/security/index.html>`_
+* `Permissions <http://docs.plone.org/4/en/develop/plone/security/permissions.html>`_
+* `Performance and Caching <http://docs.plone.org/4/en/manage/deploying/testing_tuning/performance/index.html>`_
 
 What to expect
 --------------
@@ -96,12 +96,12 @@ At the end of the second two days, you won't be a complete professional Plone-pr
 
 If you want to become a professional Plone developer or a highly sophisticated Plone integrator you should definitely read `Martin Aspeli's book <http://www.packtpub.com/professional-plone-4-development/book>`_ and then re-read it again while actually doing a complex project.
 
-Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.org/en/latest/>`_.
+Most importantly you should practice your skills and not stop here but go forward! One recommended way would be to follow the `todo-app <http://tutorialtodoapp.readthedocs.io/en/latest/>`_.
 
 Documentation
 --------------
 
-Follow the training at http://plone-training.readthedocs.org/
+Follow the training at http://plone-training.readthedocs.io/en/legacy/
 
 .. note::
 

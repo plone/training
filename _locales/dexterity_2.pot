@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-21 00:23-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -197,7 +197,7 @@ msgid "Run the upgrade step."
 msgstr ""
 
 #: ../dexterity_2.rst:229
-msgid "http://docs.plone.org/develop/addons/components/genericsetup.html#id1"
+msgid "http://docs.plone.org/4/en/develop/addons/components/genericsetup.html#id1"
 msgstr ""
 
 #: ../dexterity_2.rst:234
@@ -237,7 +237,7 @@ msgid "Note the relative python-path ``..interfaces.IPloneconfSiteLayer``. It is
 msgstr ""
 
 #: ../dexterity_2.rst:283
-msgid "http://docs.plone.org/develop/plone/views/layers.html"
+msgid "http://docs.plone.org/4/en/develop/plone/views/layers.html"
 msgstr ""
 
 #: ../dexterity_2.rst:287
@@ -281,11 +281,11 @@ msgid "The ``column ..`` entry allows us to display these values of these indexe
 msgstr ""
 
 #: ../dexterity_2.rst:331
-msgid "Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the addon purged the indexes! See http://www.starzel.de/blog/a-reminder-about-catalog-indexes."
+msgid "Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the addon purged the indexes! See https://www.starzel.de/blog/a-reminder-about-catalog-indexes."
 msgstr ""
 
 #: ../dexterity_2.rst:333
-msgid "To run additional custom code on (re-)installing an addon you should use a `setuphandler.py <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_."
+msgid "To run additional custom code on (re-)installing an addon you should use a `setuphandler.py <http://docs.plone.org/4/en/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_."
 msgstr ""
 
 #: ../dexterity_2.rst:335
@@ -297,7 +297,7 @@ msgid "Go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes to
 msgstr ""
 
 #: ../dexterity_2.rst:340
-msgid "http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html"
+msgid "http://docs.plone.org/4/en/develop/plone/searching_and_indexing/indexing.html"
 msgstr ""
 
 #: ../dexterity_2.rst:344
@@ -329,7 +329,7 @@ msgid "Add a new file ``profiles/default/registry.xml``"
 msgstr ""
 
 #: ../dexterity_2.rst:427
-msgid "http://docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed"
+msgid "http://docs.plone.org/4/en/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed"
 msgstr ""
 
 #: ../dexterity_2.rst:431

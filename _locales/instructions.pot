@@ -273,7 +273,7 @@ msgstr ""
 
 #: ../instructions.rst:196
 # be40399bbf1943f8973ecf979b6a054c
-msgid "Then we checkout our tutorial buildout from http://github.com/starzel/training_buildout and build it."
+msgid "Then we checkout our tutorial buildout from https://github.com/starzel/training_buildout and build it."
 msgstr ""
 
 #: ../instructions.rst:206

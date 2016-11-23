@@ -175,7 +175,7 @@ The same is true for methods::
 Querying the catalog
 --------------------
 
-There are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::
+There are many `catalog indexes <http://docs.plone.org/4/en/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::
 
     >>> portal_catalog = getToolByName(self.context, 'portal_catalog')
     >>> portal_catalog(Subject=('cats', 'dogs'))
@@ -190,7 +190,7 @@ Calling the catalog without parameters return the whole site::
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/searching_and_indexing/query.html
+    http://docs.plone.org/4/en/develop/plone/searching_and_indexing/query.html
 
 
 Exercises
@@ -454,7 +454,7 @@ Here we use one of many nice feature build into Plone. The class="listing" gives
 
 But we could improve that table further by using a nice javascript-library called "datatables". It might even become part of the Plone-core at some point.
 
-Like for many js-libraries there is already a package that doe the plone-integration for us: ``collective.js.datatables``. Like all python-packages you can find it on pypi: http://pypi.python.org/pypi/collective.js.datatables
+Like for many js-libraries there is already a package that doe the plone-integration for us: ``collective.js.datatables``. Like all python-packages you can find it on pypi: https://pypi.python.org/pypi/collective.js.datatables
 
 We already added the addon to our buildout, you just have to activate it in our template.
 

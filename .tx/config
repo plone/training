@@ -2,283 +2,301 @@
 host = https://www.transifex.com
 type = PO
 
-[mastering-plone-training.aboutpot]
+[plone4-training.about]
 file_filter = _locales/<lang>/LC_MESSAGES/about.po
 source_file = _locales/about.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.addonspot]
+[plone4-training.addons]
 file_filter = _locales/<lang>/LC_MESSAGES/addons.po
 source_file = _locales/addons.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.anatomypot]
+[plone4-training.anatomy]
 file_filter = _locales/<lang>/LC_MESSAGES/anatomy.po
 source_file = _locales/anatomy.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.apipot]
+[plone4-training.api]
 file_filter = _locales/<lang>/LC_MESSAGES/api.po
 source_file = _locales/api.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.behaviors1pot]
+[plone4-training.behaviors1]
 file_filter = _locales/<lang>/LC_MESSAGES/behaviors1.po
 source_file = _locales/behaviors1.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.behaviors2pot]
+[plone4-training.behaviors2]
 file_filter = _locales/<lang>/LC_MESSAGES/behaviors2.po
 source_file = _locales/behaviors2.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.buildout1pot]
+[plone4-training.buildout_1]
 file_filter = _locales/<lang>/LC_MESSAGES/buildout_1.po
 source_file = _locales/buildout_1.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.casepot]
+[plone4-training.case]
 file_filter = _locales/<lang>/LC_MESSAGES/case.po
 source_file = _locales/case.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.changelogpot]
+[plone4-training.CHANGES]
+file_filter = _locales/<lang>/LC_MESSAGES/CHANGES.po
+source_file = _locales/CHANGES.pot
+source_lang = en
+type = PO
+
+[plone4-training.changelog]
 file_filter = _locales/<lang>/LC_MESSAGES/changelog.po
 source_file = _locales/changelog.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.configuring_customizingpot]
+[plone4-training.configuring_customizing]
 file_filter = _locales/<lang>/LC_MESSAGES/configuring_customizing.po
 source_file = _locales/configuring_customizing.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.custom_searchpot]
+[plone4-training.custom_search]
 file_filter = _locales/<lang>/LC_MESSAGES/custom_search.po
 source_file = _locales/custom_search.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.deployment_codepot]
+[plone4-training.deployment_code]
 file_filter = _locales/<lang>/LC_MESSAGES/deployment_code.po
 source_file = _locales/deployment_code.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.deployment_sitespot]
+[plone4-training.deployment_sites]
 file_filter = _locales/<lang>/LC_MESSAGES/deployment_sites.po
 source_file = _locales/deployment_sites.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.dexteritypot]
+[plone4-training.dexterity]
 file_filter = _locales/<lang>/LC_MESSAGES/dexterity.po
 source_file = _locales/dexterity.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.dexterity2pot]
+[plone4-training.dexterity_2]
 file_filter = _locales/<lang>/LC_MESSAGES/dexterity_2.po
 source_file = _locales/dexterity_2.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.dexterity3pot]
+[plone4-training.dexterity3]
 file_filter = _locales/<lang>/LC_MESSAGES/dexterity_3.po
 source_file = _locales/dexterity_3.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.eggs1pot]
+[plone4-training.eggs1]
 file_filter = _locales/<lang>/LC_MESSAGES/eggs1.po
 source_file = _locales/eggs1.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.eggs2pot]
+[plone4-training.eggs2]
 file_filter = _locales/<lang>/LC_MESSAGES/eggs2.po
 source_file = _locales/eggs2.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.embedpot]
+[plone4-training.embed]
 file_filter = _locales/<lang>/LC_MESSAGES/embed.po
 source_file = _locales/embed.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.eventspot]
+[plone4-training.events]
 file_filter = _locales/<lang>/LC_MESSAGES/events.po
 source_file = _locales/events.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.extendingpot]
+[plone4-training.extending]
 file_filter = _locales/<lang>/LC_MESSAGES/extending.po
 source_file = _locales/extending.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.featurespot]
+[plone4-training.features]
 file_filter = _locales/<lang>/LC_MESSAGES/features.po
 source_file = _locales/features.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.futureofplonepot]
+[plone4-training.future_of_plone]
 file_filter = _locales/<lang>/LC_MESSAGES/future_of_plone.po
 source_file = _locales/future_of_plone.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.grokpot]
+[plone4-training.grok]
 file_filter = _locales/<lang>/LC_MESSAGES/grok.po
 source_file = _locales/grok.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.idepot]
+[plone4-training.ide]
 file_filter = _locales/<lang>/LC_MESSAGES/ide.po
 source_file = _locales/ide.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.indexpot]
+[plone4-training.index]
 file_filter = _locales/<lang>/LC_MESSAGES/index.po
 source_file = _locales/index.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.installationpot]
+[plone4-training.installation]
 file_filter = _locales/<lang>/LC_MESSAGES/installation.po
 source_file = _locales/installation.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.intropot]
+[plone4-training.instructions]
+file_filter = _locales/<lang>/LC_MESSAGES/instructions.po
+source_file = _locales/instructions.pot
+source_lang = en
+type = PO
+
+[plone4-training.intro]
 file_filter = _locales/<lang>/LC_MESSAGES/intro.po
 source_file = _locales/intro.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.optionalpot]
+[plone4-training.intro_advanced]
+file_filter = _locales/<lang>/LC_MESSAGES/intro_advanced.po
+source_file = _locales/intro_advanced.pot
+source_lang = en
+type = PO
+
+[plone4-training.intro_advanced_2]
+file_filter = _locales/<lang>/LC_MESSAGES/intro_advanced_2.po
+source_file = _locales/intro_advanced_2.pot
+source_lang = en
+type = PO
+
+[plone4-training.optional]
 file_filter = _locales/<lang>/LC_MESSAGES/optional.po
 source_file = _locales/optional.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.plonetrainingconfigpot]
+[plone4-training.plone_training_config]
 file_filter = _locales/<lang>/LC_MESSAGES/plone_training_config.po
 source_file = _locales/plone_training_config.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.READMEpot]
+[plone4-training.README]
 file_filter = _locales/<lang>/LC_MESSAGES/README.po
 source_file = _locales/README.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.resourcespot]
+[plone4-training.resources]
 file_filter = _locales/<lang>/LC_MESSAGES/resources.po
 source_file = _locales/resources.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.reusablepot]
+[plone4-training.reusable]
 file_filter = _locales/<lang>/LC_MESSAGES/reusable.po
 source_file = _locales/reusable.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.roadmappot]
-file_filter = _locales/<lang>/LC_MESSAGES/roadmap.po
-source_file = _locales/roadmap.pot
-source_lang = en
-type = PO
-
-[mastering-plone-training.sneakpot]
+[plone4-training.sneak]
 file_filter = _locales/<lang>/LC_MESSAGES/sneak.po
 source_file = _locales/sneak.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.themingpot]
+[plone4-training.theming]
 file_filter = _locales/<lang>/LC_MESSAGES/theming.po
 source_file = _locales/theming.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.thirdpartybehaviorspot]
+[plone4-training.thirdparty_behaviors]
 file_filter = _locales/<lang>/LC_MESSAGES/thirdparty_behaviors.po
 source_file = _locales/thirdparty_behaviors.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.timingpot]
+[plone4-training.timing]
 file_filter = _locales/<lang>/LC_MESSAGES/timing.po
 source_file = _locales/timing.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.roadmappot]
+[plone4-training.roadmap]
 file_filter = _locales/<lang>/LC_MESSAGES/roadmap.po
 source_file = _locales/roadmap.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.usergeneratedcontentpot]
+[plone4-training.user_generated_content]
 file_filter = _locales/<lang>/LC_MESSAGES/user_generated_content.po
 source_file = _locales/user_generated_content.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.viewlets1pot]
+[plone4-training.viewlets_1]
 file_filter = _locales/<lang>/LC_MESSAGES/viewlets_1.po
 source_file = _locales/viewlets_1.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.viewlets2pot]
+[plone4-training.viewlets_2]
 file_filter = _locales/<lang>/LC_MESSAGES/viewlets_2.po
 source_file = _locales/viewlets_2.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.views1pot]
+[plone4-training.views1]
 file_filter = _locales/<lang>/LC_MESSAGES/views_1.po
 source_file = _locales/views_1.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.views2pot]
+[plone4-training.views_2]
 file_filter = _locales/<lang>/LC_MESSAGES/views_2.po
 source_file = _locales/views_2.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.views3pot]
+[plone4-training.views3]
 file_filter = _locales/<lang>/LC_MESSAGES/views_3.po
 source_file = _locales/views_3.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.zptpot]
+[plone4-training.zpt]
 file_filter = _locales/<lang>/LC_MESSAGES/zpt.po
 source_file = _locales/zpt.pot
 source_lang = en
 type = PO
 
-[mastering-plone-training.zpt2pot]
+[plone4-training.zpt_2]
 file_filter = _locales/<lang>/LC_MESSAGES/zpt_2.po
 source_file = _locales/zpt_2.pot
 source_lang = en

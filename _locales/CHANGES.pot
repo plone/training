@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2016-11-21 00:23-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,193 +16,195 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../changelog.rst:2
-# 9da0bbff61a6427e9952e01ca23f38f6
+#: ../CHANGES.rst:2
 msgid "Changelog"
 msgstr ""
 
-#: ../changelog.rst:5
-# 51a38effda194a71b9993937b5007cb7
+#: ../CHANGES.rst:5
+msgid "1.2.5 (unreleased)"
+msgstr ""
+
+#: ../CHANGES.rst:7
+msgid "Revision of part one for Ploneconf 2014, Bristol [smcmahon]"
+msgstr ""
+
+#: ../CHANGES.rst:11
+msgid "1.2.4 (2014-10-03)"
+msgstr ""
+
+#: ../CHANGES.rst:13
+msgid "Revised for Ploneconf 2014, Bristol [pbauer, gomez]"
+msgstr ""
+
+#: ../CHANGES.rst:16
+msgid "Add first exercises and create css+js for expanding/collapsing the solutions [pbauer]"
+msgstr ""
+
+#: ../CHANGES.rst:19
+msgid "Fix local build with the rtd-Theme [pbauer]"
+msgstr ""
+
+#: ../CHANGES.rst:22
+msgid "Add spanish translation. [macagua]"
+msgstr ""
+
+#: ../CHANGES.rst:25
+msgid "Add support for translations on https://www.transifex.com/plone/plone4-training/ [macagua]"
+msgstr ""
+
+#: ../CHANGES.rst:30
 msgid "1.2.3 (2014-07-11)"
 msgstr ""
 
-#: ../changelog.rst:7
-# a5fc889f0eb14044a252334532f779c3
+#: ../CHANGES.rst:32
 msgid "Move sources to https://github.com/plone/training and render at http://plone-training.readthedocs.io/en/legacy/ [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:11
-# ff9861326a97459fa5d7fc90efd84151
+#: ../CHANGES.rst:36
 msgid "Integrate with docs.plone.org and papyrus [do3cc]"
 msgstr ""
 
-#: ../changelog.rst:14
-# 767ffcad931f4a3bb8c2fed78731e434
+#: ../CHANGES.rst:39
 msgid "Change license to https://creativecommons.org/licenses/by/4.0/ [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:17
-# 27525873e8384ed88d54f4051a4b5a16
+#: ../CHANGES.rst:42
 msgid "Document how to contribute [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:20
-# d2ce649ec7974ae7b4ea597f0951c078
+#: ../CHANGES.rst:45
 msgid "Update introduction [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:24
-# dedc61b59b8544ec981e3789d327eee1
+#: ../CHANGES.rst:49
 msgid "1.2.2 (2014-06-01)"
 msgstr ""
 
-#: ../changelog.rst:26
-# a0a5f018bbaa4f82bc59b6a25304cd05
+#: ../CHANGES.rst:51
 msgid "Fix all mistakes found during the training in May 2014 [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:29
-# 6d6cdc8f3eba4d1db336dc6e36858379
-msgid "Move rest-files to https://github.com/starzel/training [pbauer]"
+#: ../CHANGES.rst:54
+msgid "Move rst-files to https://github.com/starzel/training [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:33
-# 738571b1199d4874925f1242918df3a5
+#: ../CHANGES.rst:58
 msgid "1.2.1 (2014-05-30)"
 msgstr ""
 
-#: ../changelog.rst:35
-# 3ad041c9f6fc4b88a47481d4b3d127f1
+#: ../CHANGES.rst:60
 msgid "Publish verbose version on http://starzel.github.io/training/index.html [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:38
-# 40f2be31557244aa9a6b06cfd2b57646
+#: ../CHANGES.rst:63
 msgid "Add bash-command to copy the code from ploneconf.site_sneak to ploneconf.site for each chapter [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:41
-# 9da86c2941d54f46a53042536fcddfb2
+#: ../CHANGES.rst:66
 msgid "include vagrant-setup as zip-file [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:44
-# 312856932ee44652985f17e15ad1236c
+#: ../CHANGES.rst:69
 msgid "several small bugfixes [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:49
-# 3bd821b96bd94d6aba9c2616582ed3c2
+#: ../CHANGES.rst:74
 msgid "1.2 (2014-05-23)"
 msgstr ""
 
-#: ../changelog.rst:51
-# 92665259c85643e1bd97c567c793474a
+#: ../CHANGES.rst:76
 msgid "Heavily expanded and rewritten for a training in Mai 2014 [pbauer, do3cc]"
 msgstr ""
 
-#: ../changelog.rst:54
-# 262e1d23c67d491b871863a256432b78
+#: ../CHANGES.rst:79
 msgid "remove grok [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:57
-# beebf6bdae2c43c58ceebbdbf82d5bc2
+#: ../CHANGES.rst:82
 msgid "use plone.app.contenttypes from the beginning [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:60
-# a783d81773ee4408b752947ba9aa3859
+#: ../CHANGES.rst:85
 msgid "use plone.api [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:63
-# 807ad42ea3a5487eaec1015621a943b3
+#: ../CHANGES.rst:88
 msgid "rewrite vagrant-setup [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:66
-# cf254978d4214564b3252790129d71e2
+#: ../CHANGES.rst:91
 msgid "drop use of plone.app.themeeditor [pbauer]"
 msgstr ""
 
-#: ../changelog.rst:69
-# a6f257bc435f4ddeb56e853396684265
+#: ../CHANGES.rst:94
 msgid "add more chapters:"
 msgstr ""
 
-#: ../changelog.rst:71
-# 84ca0065bcac4201bfa17f42c984e70d
+#: ../CHANGES.rst:96
 msgid "Dexterity Types II: Growing up"
 msgstr ""
 
-#: ../changelog.rst:72
-# f91f2c99c8b044eb946c00fffd30b50b
+#: ../CHANGES.rst:97
 msgid "User generated content"
 msgstr ""
 
-#: ../changelog.rst:73
-# 9e4e3b924a324f7eb0933ec83f0258ad
+#: ../CHANGES.rst:98
 msgid "Programming Plone"
 msgstr ""
 
-#: ../changelog.rst:74
-# f36c53d4530e438d9c33440d6d2db19e
+#: ../CHANGES.rst:99
 msgid "Custom Search"
 msgstr ""
 
-#: ../changelog.rst:75
-# c55e4ae6b4294648a36515d56e49b101
+#: ../CHANGES.rst:100
 msgid "Events"
 msgstr ""
 
-#: ../changelog.rst:76
-# 12e5aedcb53f4e35b9a481e87465632a
+#: ../CHANGES.rst:101
 msgid "Using third-party behaviors"
 msgstr ""
 
-#: ../changelog.rst:77
-# 38a7ca22c9324426a432cf100a7154ab
+#: ../CHANGES.rst:102
 msgid "Dexterity Types III: Python"
 msgstr ""
 
-#: ../changelog.rst:78
-# 77de04895124407e80b0b1a48751d845
+#: ../CHANGES.rst:103
 msgid "..."
 msgstr ""
 
-#: ../changelog.rst:79
-# 7cb38db999d64b1fa62a2e9bfe60fe82
+#: ../CHANGES.rst:105
 msgid "[pbauer, do3cc]"
 msgstr ""
 
-#: ../changelog.rst:83
-# 249609335804477789a0335ae10cf9cf
+#: ../CHANGES.rst:109
 msgid "1.1 (October 2013)"
 msgstr ""
 
-#: ../changelog.rst:85
-# 744d63ede1d14b2cb1c82ff54343fe6b
-msgid "Revised for Ploneconf 2013, Brasilia [pbauer, do3cc]"
+#: ../CHANGES.rst:111
+msgid "Revised and expanded for Ploneconf 2013, Brasilia [pbauer, do3cc]"
 msgstr ""
 
-#: ../changelog.rst:90
-# 6301f4c0c4d34ff8a375118a1309b525
+#: ../CHANGES.rst:116
 msgid "1.0 (October, 2012)"
 msgstr ""
 
-#: ../changelog.rst:92
-# 6b73f36f686a49dc997c6fa105fe583c
-msgid "First version for Ploneconf 2012, Arnhem [pbauer, do3cc]"
+#: ../CHANGES.rst:118
+msgid "First version under the title 'Mastering Plone' for Ploneconf 2012, Arnhem [pbauer, do3cc]"
 msgstr ""
 
-#: ../changelog.rst:97
-# cb5827ed52f94a549be529c430434c18
+#: ../CHANGES.rst:123
+msgid "0.2 October 2011"
+msgstr ""
+
+#: ../CHANGES.rst:125
+msgid "Expanded as Plone-Tutorial for PyCon De 2011, Leipzig [pbauer]"
+msgstr ""
+
+#: ../CHANGES.rst:129
 msgid "0.1 (October 2009)"
 msgstr ""
 
-#: ../changelog.rst:99
-# 85d25a6508c449569762d36ac7aa1a9a
+#: ../CHANGES.rst:131
 msgid "Initial parts created for the Plone-Einsteigerkurs (http://www.plone.de/trainings/einsteiger-kurs/kursuebersicht) [pbauer]"
 msgstr ""
 

@@ -1,19 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2015
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-28 20:53-0430\n"
-"PO-Revision-Date: 2015-02-06 23:30+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,34 +26,38 @@ msgstr "Cambios"
 # 51a38effda194a71b9993937b5007cb7
 #: ../changelog.rst:5
 msgid "1.2.3 (2014-07-11)"
-msgstr ""
+msgstr "1.2.3 (2014-07-11)"
 
 # a5fc889f0eb14044a252334532f779c3
 #: ../changelog.rst:7
 msgid ""
 "Move sources to https://github.com/plone/training and render at http"
-"://plone-training.readthedocs.org/ [pbauer]"
+"://plone-training.readthedocs.io/en/legacy/ [pbauer]"
 msgstr ""
+"Mover las fuentes de https://github.com/plone/training y renderizarlo en "
+"http://plone-training.readthedocs.io/en/legacy/ [pbauer]"
 
 # ff9861326a97459fa5d7fc90efd84151
 #: ../changelog.rst:11
 msgid "Integrate with docs.plone.org and papyrus [do3cc]"
-msgstr ""
+msgstr "integrar con docs.plone.org y papyrus [do3cc, hellfish2]"
 
 # 767ffcad931f4a3bb8c2fed78731e434
 #: ../changelog.rst:14
-msgid "Change license to http://creativecommons.org/licenses/by/4.0/ [pbauer]"
+msgid ""
+"Change license to https://creativecommons.org/licenses/by/4.0/ [pbauer]"
 msgstr ""
+"Cambiar licencia a https://creativecommons.org/licenses/by/4.0/ [pbauer]"
 
 # 27525873e8384ed88d54f4051a4b5a16
 #: ../changelog.rst:17
 msgid "Document how to contribute [pbauer]"
-msgstr ""
+msgstr "Documento de como contribuir [pbauer, hellfish2]"
 
 # d2ce649ec7974ae7b4ea597f0951c078
 #: ../changelog.rst:20
 msgid "Update introduction [pbauer]"
-msgstr ""
+msgstr "Actualizar introducción [pbauer, hellfish2]"
 
 # dedc61b59b8544ec981e3789d327eee1
 #: ../changelog.rst:24
@@ -66,11 +68,15 @@ msgstr "1.2.2 (2014-06-01)"
 #: ../changelog.rst:26
 msgid "Fix all mistakes found during the training in May 2014 [pbauer]"
 msgstr ""
+"Arreglar todos los errores encontrados durante el entrenamiento en Mayo 2014"
+" [pbauer, hellfish2]"
 
 # 6d6cdc8f3eba4d1db336dc6e36858379
 #: ../changelog.rst:29
 msgid "Move rest-files to https://github.com/starzel/training [pbauer]"
 msgstr ""
+"Mover los rest-files a https://github.com/starzel/training [pbauer, "
+"hellfish2]"
 
 # 738571b1199d4874925f1242918df3a5
 #: ../changelog.rst:33
@@ -83,6 +89,8 @@ msgid ""
 "Publish verbose version on http://starzel.github.io/training/index.html "
 "[pbauer]"
 msgstr ""
+"Publicar una versión verbosa en http://starzel.github.io/training/index.html"
+" [pbauer, hellfish2]"
 
 # 40f2be31557244aa9a6b06cfd2b57646
 #: ../changelog.rst:38
@@ -90,16 +98,18 @@ msgid ""
 "Add bash-command to copy the code from ploneconf.site_sneak to "
 "ploneconf.site for each chapter [pbauer]"
 msgstr ""
+"Agregar un comando bash, para copiar el código de ploneconf.site_sneak a "
+"ploneconf.site para cada capítulo [pbauer, hellfish2]"
 
 # 9da86c2941d54f46a53042536fcddfb2
 #: ../changelog.rst:41
 msgid "include vagrant-setup as zip-file [pbauer]"
-msgstr ""
+msgstr "Incluir vagrant-setup como un archivo Zip [pbauer, hellfish2]"
 
 # 312856932ee44652985f17e15ad1236c
 #: ../changelog.rst:44
 msgid "several small bugfixes [pbauer]"
-msgstr ""
+msgstr "Serios pequeños bugfixes [pbauer, hellfish2]"
 
 # 3bd821b96bd94d6aba9c2616582ed3c2
 #: ../changelog.rst:49
@@ -111,41 +121,43 @@ msgstr "1.2 (2014-05-23)"
 msgid ""
 "Heavily expanded and rewritten for a training in Mai 2014 [pbauer, do3cc]"
 msgstr ""
+"Ampliamente expandido y reescrito para un entrenamiento en Mayo 2014 "
+"[pbauer, do3cc, hellfish2]"
 
 # 262e1d23c67d491b871863a256432b78
 #: ../changelog.rst:54
 msgid "remove grok [pbauer]"
-msgstr ""
+msgstr "Remover grok [pbauer, hellfish2]"
 
 # beebf6bdae2c43c58ceebbdbf82d5bc2
 #: ../changelog.rst:57
 msgid "use plone.app.contenttypes from the beginning [pbauer]"
-msgstr ""
+msgstr "usar plone.app.contenttypes desde el principio [pbauer, hellfish2]"
 
 # a783d81773ee4408b752947ba9aa3859
 #: ../changelog.rst:60
 msgid "use plone.api [pbauer]"
-msgstr ""
+msgstr "usar plone.api [pbauer, hellfish2]"
 
 # 807ad42ea3a5487eaec1015621a943b3
 #: ../changelog.rst:63
 msgid "rewrite vagrant-setup [pbauer]"
-msgstr ""
+msgstr "Reescribir vagrant-setup [pbauer, hellfish2]"
 
 # cf254978d4214564b3252790129d71e2
 #: ../changelog.rst:66
 msgid "drop use of plone.app.themeeditor [pbauer]"
-msgstr ""
+msgstr "Eliminar el uso de plone.app.themeeditor [pbauer, hellfish2]"
 
 # a6f257bc435f4ddeb56e853396684265
 #: ../changelog.rst:69
 msgid "add more chapters:"
-msgstr "Agregue mas capítulos:"
+msgstr "Agregue más capítulos:"
 
 # 84ca0065bcac4201bfa17f42c984e70d
 #: ../changelog.rst:71
 msgid "Dexterity Types II: Growing up"
-msgstr "Tipos Dexterity - II: Creciendo"
+msgstr "Tipos Dexterity II: Creciendo"
 
 # f91f2c99c8b044eb946c00fffd30b50b
 #: ../changelog.rst:72
@@ -160,7 +172,7 @@ msgstr "Programando en Plone"
 # f36c53d4530e438d9c33440d6d2db19e
 #: ../changelog.rst:74
 msgid "Custom Search"
-msgstr "Busqueda Personalizada"
+msgstr "Búsqueda Personalizada"
 
 # c55e4ae6b4294648a36515d56e49b101
 #: ../changelog.rst:75
@@ -170,7 +182,7 @@ msgstr "Eventos"
 # 12e5aedcb53f4e35b9a481e87465632a
 #: ../changelog.rst:76
 msgid "Using third-party behaviors"
-msgstr "Usando comportamientos de terceros"
+msgstr "Usando comportamientos de complementos de terceros"
 
 # 38a7ca22c9324426a432cf100a7154ab
 #: ../changelog.rst:77
@@ -190,27 +202,27 @@ msgstr "[pbauer, do3cc]"
 # 249609335804477789a0335ae10cf9cf
 #: ../changelog.rst:83
 msgid "1.1 (October 2013)"
-msgstr "1.1 (October 2013)"
+msgstr "1.1 (Octubre 2013)"
 
 # 744d63ede1d14b2cb1c82ff54343fe6b
 #: ../changelog.rst:85
 msgid "Revised for Ploneconf 2013, Brasilia [pbauer, do3cc]"
-msgstr ""
+msgstr "Revisado para Ploneconf 2013, Brasilia [pbauer, do3cc, hellfish2]"
 
 # 6301f4c0c4d34ff8a375118a1309b525
 #: ../changelog.rst:90
 msgid "1.0 (October, 2012)"
-msgstr "1.0 (October, 2012)"
+msgstr "1.0 (Octubre, 2012)"
 
 # 6b73f36f686a49dc997c6fa105fe583c
 #: ../changelog.rst:92
 msgid "First version for Ploneconf 2012, Arnhem [pbauer, do3cc]"
-msgstr ""
+msgstr "Primera versión de Ploneconf 2012, Arnhem [pbauer, do3cc, hellfish2]"
 
 # cb5827ed52f94a549be529c430434c18
 #: ../changelog.rst:97
 msgid "0.1 (October 2009)"
-msgstr "0.1 (October 2009)"
+msgstr "0.1 (Octubre 2009)"
 
 # 85d25a6508c449569762d36ac7aa1a9a
 #: ../changelog.rst:99
@@ -218,3 +230,6 @@ msgid ""
 "Initial parts created for the Plone-Einsteigerkurs "
 "(http://www.plone.de/trainings/einsteiger-kurs/kursuebersicht) [pbauer]"
 msgstr ""
+"Partes iniciales creadas para el Plone-Einsteigerkurs "
+"(http://www.plone.de/trainings/einsteiger-kurs/kursuebersicht) [pbauer, "
+"hellfish2]"

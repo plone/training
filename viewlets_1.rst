@@ -52,7 +52,7 @@ We register the viewlet in :file:`browser/configure.zcml`.
 
 The viewlet-class ``SocialViewlet`` is expected in a file ``browser/viewlets.py``.
 
-.. _BrowserLayer: http://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
+.. _BrowserLayer: http://docs.plone.org/4/en/develop/plone/views/layers.html?highlight=browserlayer#introduction
 
 .. code-block:: python
     :linenos:
@@ -103,7 +103,7 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
 
     As you can see this is not a valid html document. That is not needed, because we don't want a complete view here, just a html snippet.
 
-    There is a tal define statement, querying for `view/lanyrd_link. Like in page templates the template has access to its class.
+    There is a tal define statement, querying for `view/lanyrd_link`. Like in page templates the template has access to its class.
 
 We have to extend the Social Viewlet now to add the missing attribute:
 

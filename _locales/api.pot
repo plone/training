@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
+"POT-Creation-Date: 2016-11-21 00:23-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "plone.api"
 msgstr ""
 
 #: ../api.rst:7
-msgid "The most important tool nowadays for plone-developers is the addon `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you."
+msgid "The most important tool nowadays for plone-developers is the addon `plone.api <http://docs.plone.org/4/en/external/plone.api/docs/index.html>`_ that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you."
 msgstr ""
 
 #: ../api.rst:9
@@ -33,23 +33,23 @@ msgid "The api is divided in five sections. Here is one example from each:"
 msgstr ""
 
 #: ../api.rst:11
-msgid "`Content`: `Create content <http://docs.plone.org/external/plone.api/docs/content.html#create-content>`_"
+msgid "`Content`: `Create content <http://docs.plone.org/4/en/external/plone.api/docs/content.html#create-content>`_"
 msgstr ""
 
 #: ../api.rst:12
-msgid "`Portal`: `Send E-Mail <http://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_"
+msgid "`Portal`: `Send E-Mail <http://docs.plone.org/4/en/external/plone.api/docs/portal.html#send-e-mail>`_"
 msgstr ""
 
 #: ../api.rst:13
-msgid "`Groups`: `Grant roles to group <http://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-group>`_"
+msgid "`Groups`: `Grant roles to group <http://docs.plone.org/4/en/external/plone.api/docs/group.html#grant-roles-to-group>`_"
 msgstr ""
 
 #: ../api.rst:14
-msgid "`Users`: `Get user roles <http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_"
+msgid "`Users`: `Get user roles <http://docs.plone.org/4/en/external/plone.api/docs/user.html#get-user-roles>`_"
 msgstr ""
 
 #: ../api.rst:15
-msgid "`Environment`: `Switch roles inside a block <http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_"
+msgid "`Environment`: `Switch roles inside a block <http://docs.plone.org/4/en/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_"
 msgstr ""
 
 #: ../api.rst:17
@@ -225,7 +225,7 @@ msgid "Sentry"
 msgstr ""
 
 #: ../api.rst:91
-msgid "`Sentry <https://github.com/getsentry/sentry>`_ is a error logging application you can host yourself. It aggregarates tracebacks from many sources and (here comes the killer-feature) even the values of variables in the stacktrace. We use it in all our production-sites."
+msgid "`Sentry <https://github.com/getsentry/sentry>`_ is a error logging application you can host yourself. It aggregates tracebacks from many sources and (here comes the killer-feature) even the values of variables in the stacktrace. We use it in all our production-sites."
 msgstr ""
 
 #: ../api.rst:98

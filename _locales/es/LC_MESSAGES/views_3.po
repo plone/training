@@ -1,17 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014-2015
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-08 19:51+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,14 +30,19 @@ msgstr "¡Obtén el código!"
 msgid ""
 "Get the code for this chapter (:doc:`More info <sneak>`) using this command "
 "in the buildout-directory:"
-msgstr "Obtén el código para este capítulo (:doc:`Más información <sneak>`) usando este comando en el directorio buildout:"
+msgstr ""
+"Obtén el código para este capítulo (:doc:`Más información <sneak>`) usando "
+"este comando en el directorio buildout:"
 
 #: ../views_3.rst:13
 msgid ""
 "Now we don't want to provide information about one specific item but on "
 "several items. What now? We can't look at several items at the same time as "
 "context."
-msgstr "Ahora no queremos proporcionar información sobre un elemento específico, sino en varios elementos. ¿Y ahora qué? No podemos mirar a varios elementos al mismo tiempo que el contexto."
+msgstr ""
+"Ahora no queremos proporcionar información sobre un elemento específico, "
+"sino en varios elementos. ¿Y ahora qué? No podemos mirar a varios elementos "
+"al mismo tiempo que el contexto."
 
 #: ../views_3.rst:17
 msgid "Using portal_catalog"
@@ -49,13 +54,19 @@ msgid ""
 "our conference. We can just go to the folder and select a display-method "
 "that suits us. But none does because we want to show the target-audience in "
 "our listing."
-msgstr "Digamos que queremos mostrar una lista de todas las charlas que se presentaron durante la conferencia. Sólo podemos ir a la carpeta y seleccione un método de visualización que nos convenga. Pero ninguno lo hace porque queremos para mostrar al público objetivo en nuestro listado."
+msgstr ""
+"Digamos que queremos mostrar una lista de todas las charlas que se "
+"presentaron durante la conferencia. Sólo podemos ir a la carpeta y "
+"seleccione un método de visualización que nos convenga. Pero ninguno lo hace"
+" porque queremos para mostrar al público objetivo en nuestro listado."
 
 #: ../views_3.rst:21
 msgid ""
 "So we need to get all the talks. For this we use the python-class of the "
 "view to query the catalog for the talks."
-msgstr "Así que tenemos que conseguir todas las charlas. Para ello utilizamos la vista de la clase Python para consultar en el catálogo las charlas."
+msgstr ""
+"Así que tenemos que conseguir todas las charlas. Para ello utilizamos la "
+"vista de la clase Python para consultar en el catálogo las charlas."
 
 #: ../views_3.rst:23
 msgid ""
@@ -65,7 +76,14 @@ msgid ""
 "author, content_type, it's path in the site etc. But it does not hold the "
 "content of \"heavy\" fields like images or files, richtext-fields and field "
 "that we just defined ourselves."
-msgstr "El catálogo es como un motor de búsqueda por el contenido de nuestro sitio. Contiene información sobre todos los objetos, así como algunos de sus atributos como título, descripción, desde estado de flujo de trabajo, palabras clave que fueron etiquetadas, autor, tipo de contenido, su ruta en el sitio, etc. Sin embargo, no se mantiene el contenido de campos \"pesado\" como imágenes o archivos, campos texto enriquecidos y el campo que acabamos de definir nosotros mismos."
+msgstr ""
+"El catálogo es como un motor de búsqueda por el contenido de nuestro sitio. "
+"Contiene información sobre todos los objetos, así como algunos de sus "
+"atributos como título, descripción, desde estado de flujo de trabajo, "
+"palabras clave que fueron etiquetadas, autor, tipo de contenido, su ruta en "
+"el sitio, etc. Sin embargo, no se mantiene el contenido de campos \"pesado\""
+" como imágenes o archivos, campos texto enriquecidos y el campo que acabamos"
+" de definir nosotros mismos."
 
 #: ../views_3.rst:25
 msgid ""
@@ -73,7 +91,11 @@ msgid ""
 "with it. From the results of the catalog we can get the objects themselves "
 "but often we don't need them, but only the properties that the results "
 "already have."
-msgstr "Es la forma más rápida de obtener el contenido que existe en el sitio y hacer algo con él. A partir de los resultados del catálogo podemos conseguir los mismos objetos, pero a menudo no lo necesita, pero sólo las propiedades que los resultados ya tienen."
+msgstr ""
+"Es la forma más rápida de obtener el contenido que existe en el sitio y "
+"hacer algo con él. A partir de los resultados del catálogo podemos conseguir"
+" los mismos objetos, pero a menudo no lo necesita, pero sólo las propiedades"
+" que los resultados ya tienen."
 
 #: ../views_3.rst:27
 msgid "``browser/configure.zcml``"
@@ -102,18 +124,27 @@ msgid ""
 "some talks to a different part of the site (e.g. a sub-conference for "
 "universities with a special talk-list) we might not want so see them in our "
 "listing."
-msgstr "Obtenemos la ruta del contexto actual para consultar sólo para los objetos en la ruta actual. De lo contrario íbamos a obtener todas las charlas en todo el sitio. Si nos trasladamos algunas charlas a una parte diferente del lugar (por ejemplo, un sub-conferencia de universidades con una lista especial charla) puede ser que no quiera ver así en nuestra lista."
+msgstr ""
+"Obtenemos la ruta del contexto actual para consultar sólo para los objetos "
+"en la ruta actual. De lo contrario íbamos a obtener todas las charlas en "
+"todo el sitio. Si nos trasladamos algunas charlas a una parte diferente del "
+"lugar (por ejemplo, un sub-conferencia de universidades con una lista "
+"especial charla) puede ser que no quiera ver así en nuestra lista."
 
 #: ../views_3.rst:92
 msgid "We iterate over the list of results that the catalog returns us."
-msgstr "Nosotros iteramos sobre la lista de resultados que el catálogo nos devuelve."
+msgstr ""
+"Nosotros iteramos sobre la lista de resultados que el catálogo nos devuelve."
 
 #: ../views_3.rst:94
 msgid ""
 "We create a dictionary that holds all the information we want to show in the"
 " template. This way we don't have to put any complex logic into the "
 "template."
-msgstr "Creamos un diccionario que contiene toda la información que queremos mostrar en la plantilla. De esta manera no tiene que poner ninguna lógica compleja en la plantilla."
+msgstr ""
+"Creamos un diccionario que contiene toda la información que queremos mostrar"
+" en la plantilla. De esta manera no tiene que poner ninguna lógica compleja "
+"en la plantilla."
 
 #: ../views_3.rst:97
 msgid "brains and objects"
@@ -124,7 +155,12 @@ msgid ""
 "Objects are normally not loaded into memory but lie dormant in the Database "
 "ZODB. Waking objects up can be slow, especially if you're waking up a lot of"
 " objects. Fortunately our talks are not especially heavy since they are:"
-msgstr "Los objetos normalmente no se cargan en la memoria, pero permanecen latentes en el base de datos ZODB. Despertar objetos hasta puede ser lento, especialmente si usted está despertando una gran cantidad de objetos. Afortunadamente nuestros tipos de contenidos no son especialmente pesados, ya que son:"
+msgstr ""
+"Los objetos normalmente no se cargan en la memoria, pero permanecen latentes"
+" en el base de datos ZODB. Despertar objetos hasta puede ser lento, "
+"especialmente si usted está despertando una gran cantidad de objetos. "
+"Afortunadamente nuestros tipos de contenidos no son especialmente pesados, "
+"ya que son:"
 
 #: ../views_3.rst:101
 msgid "dexterity-objects which are lighter than their archetypes-brothers"
@@ -133,23 +169,33 @@ msgstr "objetos dexterity que son más ligeros que sus hermanos archetypes"
 #: ../views_3.rst:102
 msgid ""
 "relatively few since we don't have thousands of talks at our conference"
-msgstr "relativamente pocos, ya que no tenemos miles de charlas en nuestra conferencia"
+msgstr ""
+"relativamente pocos, ya que no tenemos miles de charlas en nuestra "
+"conferencia"
 
 #: ../views_3.rst:104
 msgid ""
 "We want to show the target-audience but that attributes of the talks is not "
 "in the catalog. This is why we need to get to the objects themselves."
-msgstr "Queremos mostrar al público objetivo, pero que los atributos de las charlas no está en el catálogo. Esto es por qué tenemos que llegar a los objetos mismos."
+msgstr ""
+"Queremos mostrar al público objetivo, pero que los atributos de las charlas "
+"no está en el catálogo. Esto es por qué tenemos que llegar a los objetos "
+"mismos."
 
 #: ../views_3.rst:106
 msgid ""
 "We could also add a new index to the catalog that will add 'audience' to the"
 " properties of the brains, we have to weight pros and cons:"
-msgstr "También podríamos agregar un nuevo índice al catálogo que agregará 'audience' a las propiedades de los cerebros. Tenemos que ponderar los pros y contras:"
+msgstr ""
+"También podríamos agregar un nuevo índice al catálogo que agregará "
+"'audience' a las propiedades de los cerebros. Tenemos que ponderar los pros "
+"y contras:"
 
 #: ../views_3.rst:108
 msgid "talks are important and thus most likely always in memory"
-msgstr "charlas son importantes y por lo tanto más probable es que siempre este en memoria"
+msgstr ""
+"charlas son importantes y por lo tanto más probable es que siempre este en "
+"memoria"
 
 #: ../views_3.rst:109
 msgid "prevent bloating of catalog with indexes"
@@ -164,7 +210,10 @@ msgid ""
 "We'd have to register this factory function as a named adapter in the "
 "``configure.zcml``. Assuming you've put the code above into a file named "
 "indexers.py"
-msgstr "Tendríamos que registrar esta función factory como un adaptador llamado en el archivo ``configure.zcml``. Suponiendo que haya puesto el código fuente anterior en un archivo llamado indexers.py"
+msgstr ""
+"Tendríamos que registrar esta función factory como un adaptador llamado en "
+"el archivo ``configure.zcml``. Suponiendo que haya puesto el código fuente "
+"anterior en un archivo llamado indexers.py"
 
 #: ../views_3.rst:128
 msgid "We will add some indexers later on."
@@ -176,25 +225,35 @@ msgid ""
 "talks that the current user may see. They might be private or hidden to you "
 "since they are part of a top-secret conference for core-developers (there is"
 " no such thing!)."
-msgstr "¿Por qué utilizar el catálogo en absoluto?, comprueba los permisos, y sólo devuelve las charlas que el usuario actual puede ver. Puede ser que sean privados u ocultos a usted, ya que son parte de una conferencia de super secreta para los desarrolladores del núcleo de Plone (¡no hay tal cosa!)."
+msgstr ""
+"¿Por qué utilizar el catálogo en absoluto?, comprueba los permisos, y sólo "
+"devuelve las charlas que el usuario actual puede ver. Puede ser que sean "
+"privados u ocultos a usted, ya que son parte de una súper conferencia "
+"secreta para los desarrolladores del núcleo de Plone (¡no hay tal cosa!)."
 
 #: ../views_3.rst:132
 msgid ""
 "Most objects in plone act like dictionaries, so you can do "
 "``context.values()`` to get all it's contents."
-msgstr "La mayoría de los objetos en Plone son como diccionarios, por lo que podían hacer ``context.values()`` para obtener todos sus contenidos."
+msgstr ""
+"La mayoría de los objetos en Plone son como diccionarios, por lo que podían "
+"hacer ``context.values()`` para obtener todos sus contenidos."
 
 #: ../views_3.rst:134
 msgid ""
 "For historical reasons some attributes of brains and objects are written "
 "differently::"
-msgstr "Por razones históricas, algunos atributos de los cerebros y los objetos se escriben de manera diferente:"
+msgstr ""
+"Por razones históricas, algunos atributos de los cerebros y los objetos se "
+"escriben de manera diferente:"
 
 #: ../views_3.rst:147
 msgid ""
 "Who can guess what ``brain.title`` will return since the brain has no such "
 "attribute?"
-msgstr "¿Quién puede adivinar lo que ``brain.title`` volverán ya que el cerebro no tiene ese atributo?"
+msgstr ""
+"¿Quién puede adivinar lo que ``brain.title`` volverán ya que el cerebro no "
+"tiene ese atributo?"
 
 #: ../views_3.rst:153
 msgid ""
@@ -202,13 +261,19 @@ msgid ""
 "``brain.__parent__`` is ``<CatalogTool at /Plone/portal_catalog>``. The "
 "attribute ``title`` of the ``portal_catalog`` is 'Indexes all content in the"
 " site'."
-msgstr "Respuesta: La Adquisición obtendrá el atributo de servidor principal más cercano. ``brain.__parent__``  es ``<CatalogTool at /Plone/portal_catalog>``. El atributo ``title`` del ``portal_catalog`` es 'Indexado en todo el contenido en el sitio'."
+msgstr ""
+"Respuesta: La Adquisición obtendrá el atributo de servidor principal más "
+"cercano. ``brain.__parent__``  es ``<CatalogTool at "
+"/Plone/portal_catalog>``. El atributo ``title`` del ``portal_catalog`` es "
+"'Indexado en todo el contenido en el sitio'."
 
 #: ../views_3.rst:155
 msgid ""
-"Acquisition can be harmfull. Brains have no attribute 'getLayout' "
+"Acquisition can be harmful. Brains have no attribute 'getLayout' "
 "``brain.getLayout()``::"
-msgstr "La Adquisición puede ser nocivo. Los cerebros no tienen el atributo 'getLayout' ``brain.getLayout()``::"
+msgstr ""
+"La Adquisición puede ser nocivo. Los cerebros no tienen el atributo "
+"'getLayout' ``brain.getLayout()``::"
 
 #: ../views_3.rst:166
 msgid "The same is true for methods::"
@@ -221,17 +286,22 @@ msgstr "Consultando el catálogo"
 #: ../views_3.rst:178
 msgid ""
 "There are many `catalog indexes "
-"<http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_"
+"<http://docs.plone.org/4/en/develop/plone/searching_and_indexing/indexing.html>`_"
 " to query. Here are some examples::"
-msgstr "Hay muchos `índices de catálogo <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ para consultar. He aquí algunos ejemplos::"
+msgstr ""
+"Hay muchos `índices de catálogo "
+"<http://docs.plone.org/4/en/develop/plone/searching_and_indexing/indexing.html>`_"
+" para consultar. He aquí algunos ejemplos::"
 
 #: ../views_3.rst:186
 msgid "Calling the catalog without parameters return the whole site::"
 msgstr "Llamando al catálogo sin parámetros devuelven todo el sitio::"
 
 #: ../views_3.rst:193
-msgid "http://docs.plone.org/develop/plone/searching_and_indexing/query.html"
-msgstr "http://docs.plone.org/develop/plone/searching_and_indexing/query.html"
+msgid ""
+"http://docs.plone.org/4/en/develop/plone/searching_and_indexing/query.html"
+msgstr ""
+"http://docs.plone.org/4/en/develop/plone/searching_and_indexing/query.html"
 
 #: ../views_3.rst:197
 msgid "Exercises"
@@ -240,7 +310,9 @@ msgstr "Ejercicios"
 #: ../views_3.rst:199
 msgid ""
 "Since you now know how to query the catalog it is time for some exercise."
-msgstr "Ya que ahora saben cómo consultar el catálogo es el momento para un poco de ejercicio."
+msgstr ""
+"Ya que ahora saben cómo consultar el catálogo es el momento para un poco de "
+"ejercicio."
 
 #: ../views_3.rst:202
 msgid "Exercise 1"
@@ -251,7 +323,10 @@ msgid ""
 "Add a method ``get_news`` to ``TalkListView`` that returns a list of brains "
 "of all News Items that are published and sort them in the order of their "
 "publishing-date."
-msgstr "Agregue un método ``get_news`` a ``TalkListView`` que devuelve una lista de los cerebros de todos los elementos de Noticias que se publican y ordenarlos en el orden de su publicación fecha."
+msgstr ""
+"Agregue un método ``get_news`` a ``TalkListView`` que devuelve una lista de "
+"los cerebros de todos los elementos de Noticias que se publican y ordenarlos"
+" en el orden de su publicación fecha."
 
 #: ../views_3.rst:206 ../views_3.rst:228 ../views_3.rst:377
 msgid "Solution"
@@ -263,7 +338,8 @@ msgstr "Ejercicio 2"
 
 #: ../views_3.rst:226
 msgid "Add a method that returns all published keynotes as objects."
-msgstr "Agregar un método que regresa todas las keynotes publicadas como objetos."
+msgstr ""
+"Agregar un método que regresa todas las keynotes publicadas como objetos."
 
 #: ../views_3.rst:251
 msgid "The template for the listing"
@@ -273,11 +349,14 @@ msgstr "La plantilla para la lista"
 msgid ""
 "Next you create a template in which you use the results of the method "
 "'talks'."
-msgstr "A continuación, crear una plantilla en la usa los resultados del método de las 'charlas'."
+msgstr ""
+"A continuación, crear una plantilla en la usa los resultados del método de "
+"las 'charlas'."
 
 #: ../views_3.rst:255
 msgid "Try to keep logic mostly in python. This is for two reasons:"
-msgstr "Trate de mantener la lógica mayormente en Python. Esto es por dos razones:"
+msgstr ""
+"Trate de mantener la lógica mayormente en Python. Esto es por dos razones:"
 
 #: ../views_3.rst:258
 msgid "Readability:"
@@ -295,7 +374,9 @@ msgstr "Velocidad:"
 msgid ""
 "Python-code is faster than code executed in templates. It's also easy to add"
 " caching to methods."
-msgstr "El código Python es más rápido que el código ejecutado en las plantillas. También es fácil de añadir almacenamiento en caché a los métodos."
+msgstr ""
+"El código Python es más rápido que el código ejecutado en las plantillas. "
+"También es fácil de añadir almacenamiento en caché a los métodos."
 
 #: ../views_3.rst:265
 msgid "DRY:"
@@ -303,15 +384,20 @@ msgstr "Don't Repeat Yourself (DRY):"
 
 #: ../views_3.rst:264
 msgid ""
-"In Python you can reuse methods and easily refactor code. Refactoring TAL "
+"In Python you can reuse methods and easily re-factor code. Refactoring TAL "
 "usually means having to do big changes in the html-structure which results "
-"in uncomprehensible diffs."
-msgstr "En Python se puede volver a utilizar métodos y refactorizar código fácilmente. Refactorizando TAL generalmente significa tener que hacer grandes cambios en la estructura HTML que se traduce en diffs incomprensible."
+"in incomprehensible diffs."
+msgstr ""
+"En Python se puede volver a utilizar métodos y refactorizar código "
+"fácilmente. Refactorizando TAL generalmente significa tener que hacer "
+"grandes cambios en la estructura HTML que se traduce en diffs "
+"incomprensible."
 
 #: ../views_3.rst:267
 msgid ""
 "The MVC-Schema does not directly apply to Plone but look at it like this:"
-msgstr "El esquema MVC no se aplica directamente a Plone pero míralo de esta manera:"
+msgstr ""
+"El esquema MVC no se aplica directamente a Plone pero míralo de esta manera:"
 
 #: ../views_3.rst:270
 msgid "Model:"
@@ -343,13 +429,19 @@ msgid ""
 "you look at some of the older code of Plone you'll see that the policy of "
 "keeping logic in python and representation in templates was not always "
 "enforced."
-msgstr "La vista y el controlador están muy mezclados en Plone. Especialmente cuando nos fijamos en algunos de los códigos más antiguos de Plone verás que la política de mantener la lógica en Python y representación en las plantillas no siempre se cumple."
+msgstr ""
+"La vista y el controlador están muy mezclados en Plone. Especialmente cuando"
+" nos fijamos en algunos de los códigos más antiguos de Plone verás que la "
+"política de mantener la lógica en Python y representación en las plantillas "
+"no siempre se cumple."
 
 #: ../views_3.rst:280
 msgid ""
 "But you should nevertheless do it! You'll end up with more than enough logic"
 " in the templates anyway."
-msgstr "¡Pero usted debe, no obstante, que lo haga! Usted va a terminar con más que suficiente lógica en las plantillas de todos modos."
+msgstr ""
+"¡Pero usted debe, no obstante, que lo haga! Usted va a terminar con más que "
+"suficiente lógica en las plantillas de todos modos."
 
 #: ../views_3.rst:282
 msgid "Add this simple table to ``templates/talklistview.pt``:"
@@ -378,7 +470,17 @@ msgid ""
 "the page-template alone we have often no way of knowing if something is an "
 "attribute, a method or the value of a dict. It would be a good practice to "
 "write ``tal:repeat=\"talk python:view.talks()\"``."
-msgstr "Este itera sobre la lista de diccionarios devueltos por la vista. La vista ``view/talks`` llama al método ``talks`` de nuestro vista y cada ``talk`` es a su vez regresa uno de los diccionarios que son devueltos por este método. Desde las expresiones de ruta TAL para la búsqueda de los valores en los diccionarios es la misma que los atributos de los objetos se puede escribir ``talk/somekey`` como pudimos ``view/somemethod``. Práctico, pero a veces irritante ya de mirar la page template solos a menudo no tenemos forma de saber si algo es un atributo, un método o el valor de un diccionario. Sería una buena práctica para escribir ``tal:repeat=\"talk python:view.talks()\"``."
+msgstr ""
+"Este itera sobre la lista de diccionarios devueltos por la vista. La vista "
+"``view/talks`` llama al método ``talks`` de nuestro vista y cada ``talk`` es"
+" a su vez regresa uno de los diccionarios que son devueltos por este método."
+" Desde las expresiones de ruta TAL para la búsqueda de los valores en los "
+"diccionarios es la misma que los atributos de los objetos se puede escribir "
+"``talk/somekey`` como pudimos ``view/somemethod``. Práctico, pero a veces "
+"irritante ya de mirar la page template solos a menudo no tenemos forma de "
+"saber si algo es un atributo, un método o el valor de un diccionario. Sería "
+"una buena práctica para escribir ``tal:repeat=\"talk "
+"python:view.talks()\"``."
 
 #: ../views_3.rst:366
 msgid "``tal:content=\"talk/speaker\"``"
@@ -388,7 +490,9 @@ msgstr "``tal:content=\"talk/speaker\"``"
 msgid ""
 "'speaker' is a key in the dict 'talk'. We could also write "
 "``tal:content=\"python:talk['speaker']\"``"
-msgstr "'speaker' es una clave en el diccionario 'talk'. También podríamos escribir ``tal:content=\"python:talk['speaker']\"``"
+msgstr ""
+"'speaker' es una clave en el diccionario 'talk'. También podríamos escribir "
+"``tal:content=\"python:talk['speaker']\"``"
 
 #: ../views_3.rst:370
 msgid "``tal:condition=\"not:view/talks\"``"
@@ -398,7 +502,9 @@ msgstr "``tal:condition=\"not:view/talks\"``"
 msgid ""
 "This is a fallback if no talks are returned. It then return an empty list "
 "(remember ``results = []``?)"
-msgstr "Esta es una alternativa en caso de no se devuelven las charlas. A continuación, devolver una lista vacía (¿recuerda ``results = []``?)"
+msgstr ""
+"Esta es una alternativa en caso de no se devuelven las charlas. A "
+"continuación, devolver una lista vacía (¿recuerda ``results = []``?)"
 
 #: ../views_3.rst:373
 msgid "Exercise"
@@ -412,44 +518,61 @@ msgstr "Modificar la vista para solamente expresiones Python."
 msgid ""
 "To follow the mantra \"don't repeat yourself\" we define ``talks`` instead "
 "of calling the method twice."
-msgstr "Para seguir el principio \"don't repeat yourself\" nosotros definimos ``talks`` vez de llamar al método dos veces."
+msgstr ""
+"Para seguir el principio \"don't repeat yourself\" nosotros definimos "
+"``talks`` vez de llamar al método dos veces."
 
 #: ../views_3.rst:426
 msgid "Setting a custom view as default-view on an object"
-msgstr "Configuración de una vista personalizada como vista por defecto en un objeto"
+msgstr ""
+"Configuración de una vista personalizada como vista por defecto en un objeto"
 
 #: ../views_3.rst:428
 msgid ""
 "We don't want to always have to append /@@talklistview to our folder to get "
 "the view. There is a very easy way to set the view to the folder using the "
 "ZMI."
-msgstr "No queremos tener siempre que a anexar /@@talklistview a nuestra carpeta para obtener la vista. Hay una manera muy fácil de configurar la vista de la carpeta con el ZMI."
+msgstr ""
+"No queremos tener siempre que a anexar /@@talklistview a nuestra carpeta "
+"para obtener la vista. Hay una manera muy fácil de configurar la vista de la"
+" carpeta con el ZMI."
 
 #: ../views_3.rst:430
 msgid ""
 "If we append ``/manage_propertiesForm`` we can set the property \"layout\" "
 "to ``talklistview``."
-msgstr "Si agregamos ``/manage_propertiesForm`` podemos establecer la propiedad \"layout\" para la vista ``talklistview``."
+msgstr ""
+"Si agregamos ``/manage_propertiesForm`` podemos establecer la propiedad "
+"\"layout\" para la vista ``talklistview``."
 
 #: ../views_3.rst:432
 msgid ""
 "To make views configurable so that editors can choose them we have to "
 "register the view for the content-type at hand in it's FTI. To enable if for"
 " all folders we add a new file ``profiles/default/types/Folder.xml``"
-msgstr "Para hacer vistas configurables para que los editores pueden elegir entonces tenemos que registrar la vista para el tipo de contenido que nos ocupa, en que es FTI. Para activar si todas las carpetas tiene esta vista se añade un nuevo archivo ``profiles/default/types/Folder.xml``"
+msgstr ""
+"Para hacer vistas configurables para que los editores pueden elegir entonces"
+" tenemos que registrar la vista para el tipo de contenido que nos ocupa, en "
+"que es FTI. Para activar si todas las carpetas tiene esta vista se añade un "
+"nuevo archivo ``profiles/default/types/Folder.xml``"
 
 #: ../views_3.rst:445
 msgid ""
 "After reapplying the typeinfo-profile of out addon (or simply reinstalling "
 "it) the content-type \"Folder\" is extended with our additional view-method "
 "and appears in the display-dropdown."
-msgstr "Después de volver a aplicar el perfil typeinfo del complemento (o, simplemente, volver a instalarlo) el tipo de contenido \"Carpeta\" se amplía con nuestro método de vista adicional y aparece en la pantalla desplegable."
+msgstr ""
+"Después de volver a aplicar el perfil typeinfo del complemento (o, "
+"simplemente, volver a instalarlo) el tipo de contenido \"Carpeta\" se amplía"
+" con nuestro método de vista adicional y aparece en la pantalla desplegable."
 
 #: ../views_3.rst:447
 msgid ""
 "The ``purge=\"False\"`` appends the view to the already existing ones "
 "instead of replacing them."
-msgstr "La opción ``purge=\"False\"`` anexa a la vista de los ya existentes en lugar de reemplazarlos."
+msgstr ""
+"La opción ``purge=\"False\"`` anexa a la vista de los ya existentes en lugar"
+" de reemplazarlos."
 
 #: ../views_3.rst:451
 msgid "Adding some javascript (collective.js.datatables)"
@@ -460,38 +583,55 @@ msgid ""
 "Here we use one of many nice feature build into Plone. The class=\"listing\""
 " gives the table a nice style and makes the table sortable with some "
 "javascript."
-msgstr "Aquí se utiliza una de las muchas agradables característica construida en Plone. La class=\"listing\" da la tabla un buen estilo y hace que la tabla se puede ordenar con un poco de Javascript."
+msgstr ""
+"Aquí se utiliza una de las muchas agradables característica construida en "
+"Plone. La class=\"listing\" da la tabla un buen estilo y hace que la tabla "
+"se puede ordenar con un poco de Javascript."
 
 #: ../views_3.rst:455
 msgid ""
 "But we could improve that table further by using a nice javascript-library "
 "called \"datatables\". It might even become part of the Plone-core at some "
 "point."
-msgstr "Pero podríamos mejorar esa tabla aún más mediante el uso de una buena biblioteca Javascript llamada \"datatables\". Incluso podría llegar a ser parte del core de Plone en algún momento."
+msgstr ""
+"Pero podríamos mejorar esa tabla aún más mediante el uso de una buena "
+"biblioteca Javascript llamada \"datatables\". Incluso podría llegar a ser "
+"parte del core de Plone en algún momento."
 
 #: ../views_3.rst:457
 msgid ""
 "Like for many js-libraries there is already a package that doe the plone-"
 "integration for us: ``collective.js.datatables``. Like all python-packages "
 "you can find it on pypi: "
-"http://pypi.python.org/pypi/collective.js.datatables"
-msgstr "Al igual que para muchas bibliotecas Javascript ya hacen esto y hay un paquete que sin embargo la integración con Plone para nosotros es: ``collective.js.datatables``. Al igual que todos los paquetes Python usted lo puede encontrar en PYPI: http://pypi.python.org/pypi/collective.js.datatables"
+"https://pypi.python.org/pypi/collective.js.datatables"
+msgstr ""
+"Al igual que para muchas librerías Javascript, ya hay un paquete que hace la"
+" integración de Plone por nosotros: ``collective.js.datatables``. Al igual "
+"que todos los paquetes Python usted lo puede encontrar en PYPI: "
+"https://pypi.python.org/pypi/collective.js.datatables"
 
 #: ../views_3.rst:459
 msgid ""
 "We already added the addon to our buildout, you just have to activate it in "
 "our template."
-msgstr "Ya hemos añadido el complemento a nuestra buildout, sólo tienes que activarlo en nuestra plantilla."
+msgstr ""
+"Ya hemos añadido el complemento a nuestra buildout, sólo tienes que "
+"activarlo en nuestra plantilla."
 
 #: ../views_3.rst:527
 msgid ""
 "We don't need the css-class ``listing`` anymore since it might clash with "
 "datatables (it does not but still...)."
-msgstr "Nosotros no necesitamos la clase CSS ``listing`` nunca más, ya que podría entrar en conflicto con la biblioteca datatables (no es así, pero aún así ...)."
+msgstr ""
+"Nosotros no necesitamos la clase CSS ``listing`` nunca más, ya que podría "
+"entrar en conflicto con la biblioteca datatables (no es así, pero aún así "
+"...)."
 
 #: ../views_3.rst:529
 msgid "The documentation of datatables is beyond our training."
-msgstr "La documentación de la biblioteca datatables está más allá de nuestro entrenamiento."
+msgstr ""
+"La documentación de la biblioteca datatables está más allá de nuestro "
+"entrenamiento."
 
 #: ../views_3.rst:531
 msgid ""
@@ -499,11 +639,17 @@ msgid ""
 "\"javascript_head_slot\" is part of the html's ``<head>``-area in Plone and "
 "can be extended this way. We could also just put the code inline but having "
 "nicely ordered html is a good practice."
-msgstr "Utilizamos METAL de nuevo pero esta vez para llenar un slot diferente. El \"javascript_head_slot\" es parte de área <head> del HTML en Plone y se puede ampliar de esta manera. También podríamos simplemente poner el código fuente en línea, pero con HTML muy bien ordenado es una buena práctica."
+msgstr ""
+"Utilizamos METAL de nuevo pero esta vez para llenar un slot diferente. El "
+"\"javascript_head_slot\" es parte de área <head> del HTML en Plone y se "
+"puede ampliar de esta manera. También podríamos simplemente poner el código "
+"fuente en línea, pero con HTML muy bien ordenado es una buena práctica."
 
 #: ../views_3.rst:533
 msgid "Let's test it: http://localhost:8080/Plone/talklistview"
-msgstr "Hagamos una prueba con la siguiente dirección URL: http://localhost:8080/Plone/talklistview"
+msgstr ""
+"Hagamos una prueba con la siguiente dirección URL: "
+"http://localhost:8080/Plone/talklistview"
 
 #: ../views_3.rst:537
 msgid ""
@@ -511,7 +657,12 @@ msgid ""
 "HTML without using Plone JavaScript registry (portal_javascript). By using "
 "the registry you could enable merging of js files and advanced caching. A "
 "GenericSetup profile is included in the collective.js.datatables package."
-msgstr "Añadimos el archivo ``jquery.datatables.js`` directamente a la ranura HEAD del HTML sin utilizar un registro en la herramienta Plone JavaScript registry (portal_javascript). Al utilizar el registro podría permitir la fusión de los archivos js y almacenamiento en caché avanzado. Un perfil GenericSetup está incluido en el paquete collective.js.datatables."
+msgstr ""
+"Añadimos el archivo ``jquery.datatables.js`` directamente a la ranura HEAD "
+"del HTML sin utilizar un registro en la herramienta Plone JavaScript "
+"registry (portal_javascript). Al utilizar el registro podría permitir la "
+"fusión de los archivos js y almacenamiento en caché avanzado. Un perfil "
+"GenericSetup está incluido en el paquete collective.js.datatables."
 
 #: ../views_3.rst:540
 msgid "Summary"
@@ -520,4 +671,6 @@ msgstr "Resumen"
 #: ../views_3.rst:542
 msgid ""
 "We created a nice listing, that can be called at any place in the website."
-msgstr "Hemos creado un bonito listado, que se puede llamar en cualquier lugar en el sitio web."
+msgstr ""
+"Hemos creado un bonito listado, que se puede llamar en cualquier lugar en el"
+" sitio web."

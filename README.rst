@@ -1,4 +1,4 @@
 Mastering Plone
 ===============
 
-Read the trainings at http://training.plone.org
+Read the trainings at https://training.plone.org

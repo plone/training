@@ -1,17 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2015
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 20:23-0430\n"
-"PO-Revision-Date: 2015-03-06 14:36+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,17 +30,22 @@ msgstr "¡Obtén el código!"
 msgid ""
 "Get the code for this chapter (:doc:`More info <sneak>`) using this command "
 "in the buildout-directory:"
-msgstr "Obtén el código para este capitulo (:doc:`Mas información <sneak>`) usando este comando en el directorio buildout:"
+msgstr ""
+"Obtén el código para este capítulo (:doc:`Más información <sneak>`) usando "
+"este comando en el directorio buildout:"
 
 #: ../dexterity_3.rst:13
 msgid ""
 "Without sponsors a conference would be hard to finance plus it is a good "
 "opportunity for Plone-companies to advertise their services."
 msgstr ""
+"Sin patrocinadores una conferencia sería difícil de financiar además de que "
+"es una buena oportunidad para las empresas Plone para hacer publicidad de "
+"sus servicios."
 
 #: ../dexterity_3.rst:15
 msgid "In this part we will:"
-msgstr "En esta parte vamos a:"
+msgstr "En esta parte vamos a tratar:"
 
 #: ../dexterity_3.rst:17
 msgid "create the content-type *sponsor* that has a python-schema"
@@ -48,11 +53,11 @@ msgstr "crear el tipo de contenido *sponsor* que tiene un esquema Python"
 
 #: ../dexterity_3.rst:18
 msgid "create a viewlet that shows the sponsors sorted by level"
-msgstr "crear un viewlet que muestra los patrocinantes ordenados por el nivel"
+msgstr "crear un viewlet que muestra los patrocinadores ordenados por el nivel"
 
 #: ../dexterity_3.rst:19
 msgid "discuss image-scales"
-msgstr ""
+msgstr "Discutir escalas imagen."
 
 #: ../dexterity_3.rst:21
 msgid ""
@@ -60,6 +65,10 @@ msgid ""
 "now. Create a new folder ``content`` with a empty ``__init__.py`` in it. Now"
 " add a new file ``content/sponsor.py``."
 msgstr ""
+"Primero creamos el esquema para el nuevo tipo de contenido. En lugar del "
+"código XML ahora usamos código Python. Cree una nueva carpeta ``content`` "
+"con un vacío archivo ``__init__.py`` en este. Ahora agregue un nuevo archivo"
+" ``content/sponsor.py``."
 
 #: ../dexterity_3.rst:86
 msgid "Some things are notable here:"
@@ -69,28 +78,41 @@ msgstr "Algunas cosas son notables aquí:"
 msgid ""
 "The fields in the schema are mostly from ``zope.schema``. A reference of "
 "available fields is at "
-"http://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html"
+"http://docs.plone.org/4/en/external/plone.app.dexterity/docs/reference/fields.html"
 msgstr ""
+"Los campos en el esquema son en su mayoría basado en el paquete "
+"``zope.schema``. Una referencia de campos disponibles está en "
+"http://docs.plone.org/4/en/external/plone.app.dexterity/docs/reference/fields.html"
 
 #: ../dexterity_3.rst:89
 msgid ""
 "In ``directives.widget(level=RadioFieldWidget)`` we change the default "
 "widget for a Choice-field from a dropdown to radioboxes. A incomplete "
 "reference of available widgets is at "
-"http://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html"
+"http://docs.plone.org/4/en/external/plone.app.dexterity/docs/reference/widgets.html"
 msgstr ""
+"En ``directives.widget(level=RadioFieldWidget)`` cambiamos el widget "
+"predeterminado para un campo de elección de un menú desplegable para casilla"
+" de selección simple. Una referencia incompleta de widgets disponibles está "
+"en "
+"http://docs.plone.org/4/en/external/plone.app.dexterity/docs/reference/widgets.html"
 
 #: ../dexterity_3.rst:90
 msgid ""
 "``LevelVocabulary`` is used to create the options used in the field "
 "``level``. This way we could easily translate the displayed value."
 msgstr ""
+"``LevelVocabulary`` se utiliza para crear las opciones que se utilizan en el"
+" campo ``level``. De esta manera se podría traducir fácilmente el valor "
+"mostrado."
 
 #: ../dexterity_3.rst:91
 msgid ""
 "``fieldset('Images', fields=['logo', 'advertisment'])`` moves the two image-"
 "fields to another tab."
 msgstr ""
+"``fieldset('Images', fields=['logo', 'advertisment'])`` mueve las dos campos"
+" de imágenes a otra pestaña."
 
 #: ../dexterity_3.rst:92
 msgid ""
@@ -101,37 +123,55 @@ msgid ""
 "``obj.note`` is still accessible in templates and python. Only using the "
 "widget (like we do in the view later) checks for the permission."
 msgstr ""
+"``directives.read_permission(...)`` establece la lectura y escritura, el "
+"permiso para el campo ``note`` a los usuarios que pueden agregar nuevos "
+"miembros. Por lo general, este permiso sólo se concede a Administradores de "
+"Sitio y Administradores. Lo utilizamos para almacenar información que no "
+"debe ser visible públicamente. Tenga en cuenta que ``obj.note`` sigue siendo"
+" accesible en plantillas y Python. Sólo utilizando el widget (como lo "
+"hacemos en la vista posterior) comprueba si el permiso."
 
 #: ../dexterity_3.rst:93
 msgid "We use no grok here"
-msgstr "Nosotros no usaremos grok aquí"
+msgstr "Nosotros no usaremos Grok aquí"
 
 #: ../dexterity_3.rst:95
 msgid ""
 "Second we create the FTI for new type in "
 "``profiles/default/types/sponsor.xml``"
-msgstr "Segundo nosotros creamos el FTI para el nuevo tipo en el archivo ``profiles/default/types/sponsor.xml``"
+msgstr ""
+"Segundo nosotros creamos el FTI para el nuevo tipo de contenido en el "
+"archivo ``profiles/default/types/sponsor.xml``"
 
 #: ../dexterity_3.rst:146
 msgid "Then we register the FTI in ``profiles/default/types.xml``"
-msgstr "Entonces nosotros registramos el FTI en el archivo ``profiles/default/types.xml``"
+msgstr ""
+"Entonces nosotros registramos el FTI en el archivo "
+"``profiles/default/types.xml``"
 
 #: ../dexterity_3.rst:160
 msgid ""
 "After reinstalling our package we can create the new type. We use the "
 "default-view provided by dexterity since we display the sponsors in a "
 "viewlet."
-msgstr "Después reinstalamos nuestro paquete y entonces nosotros podemos crear un tipo de contenido. Utilizamos la vista predeterminada proporcionada por Dexterity ya que mostremos a los patrocinadores en un viewlet."
+msgstr ""
+"Después volvemos a instalar nuestro paquete y entonces nosotros podemos "
+"crear un tipo de contenido. Utilizamos la vista predeterminada proporcionada"
+" por Dexterity ya que mostremos a los patrocinadores en un viewlet."
 
 #: ../dexterity_3.rst:162
 msgid ""
 "Instead we tweak the default-view with some css. Add the following to "
 "``resources/ploneconf.css``"
-msgstr "En cambio, nos ajustamos la vista predeterminada con algunas sentencias css. Agregue lo siguiente al archivo ``resources/ploneconf.css``"
+msgstr ""
+"En cambio, nos ajustamos la vista predeterminada con algunas sentencias CSS."
+" Agregue lo siguiente al archivo ``resources/ploneconf.css``"
 
 #: ../dexterity_3.rst:175
 msgid "If we would want a custom view for sponsors it could look like this."
-msgstr "Si quisiéramos una vista personalizada para los patrocinadores podría tenerlo con este aspecto."
+msgstr ""
+"Si quisiéramos una vista personalizada para los patrocinadores podría "
+"tenerlo con esta apariencia."
 
 #: ../dexterity_3.rst:220
 msgid ""
@@ -143,56 +183,81 @@ msgid ""
 "since ``notes`` would not be a key in ``w``. By first checking if it is "
 "missing we work around that."
 msgstr ""
+"Tenga en cuenta que tenemos que manejar el campo con permisos especiales: "
+"``tal:condition=\"python: 'notes' in view.w\"`` comprueba si la conveniencia"
+" diccionario ``w`` proporcionada por la clase base ``DefaultView`` sostiene "
+"el widget para el campo ``note``. Si el usuario actual no tiene permiso "
+"``cmf.ManagePortal`` será omitido del diccionario y sale un error ya que "
+"``notes`` no sería una clave en ``w``. Por primera comprobación de si falta "
+"trabajamos alrededor de eso."
 
 #: ../dexterity_3.rst:223
 msgid "We display the sponsors at the bottom of the website in a viewlet."
-msgstr "Nosotros mostramos los patrocinadores en la parte inferior de la página web en un viewlet."
+msgstr ""
+"Nosotros mostramos los patrocinadores en la parte inferior de la página Web "
+"en un viewlet."
 
 #: ../dexterity_3.rst:225
 msgid "Register the viewlet in ``browser/configure.zcml``"
-msgstr "Registrar el viewlet en ``browser/configure.zcml``"
+msgstr "Registrar el viewlet en el archivo ``browser/configure.zcml``"
 
 #: ../dexterity_3.rst:240
 msgid "Add the viewlet-class in ``browser/viewlets.py``"
-msgstr "Agregue en la clase viewlet en ``browser/viewlets.py``"
+msgstr "Agregue en la clase viewlet en el archivo ``browser/viewlets.py``"
 
 #: ../dexterity_3.rst:311
 msgid ""
 "``_sponsors`` returns a list of dictionaries containing all necessary info "
 "about sponsors."
 msgstr ""
+"``_sponsors`` regresa una lista de diccionarios conteniendo todo la "
+"necesaria información sobre patrocinadores."
 
 #: ../dexterity_3.rst:312
 msgid ""
 "``_sponsors`` is cached for an hour using `plone.memoize "
-"<http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html"
+"<http://docs.plone.org/4/en/manage/deploying/testing_tuning/performance/decorators.html"
 "#timeout-caches>`_. This way we don't need to keep all sponsor-objects in "
 "memory all the time. We could also cache until one of the sponsors is "
 "modified:"
 msgstr ""
+"``_sponsors`` se almacena en caché durante una hora usando `plone.memoize "
+"<http://docs.plone.org/4/en/manage/deploying/testing_tuning/performance/decorators.html"
+"#timeout-caches>`_. De esta manera no es necesario mantener todos los "
+"objetos patrocinadores en la memoria todo el tiempo. También podríamos "
+"almacenar en caché hasta que uno de los patrocinadores se modifica:"
 
 #: ../dexterity_3.rst:329
 msgid ""
 "We create the complete img-tag using a custom scale (200x80) using the view "
 "``images`` from plone.namedfile. This actually scales the logos and saves "
 "them as new blobs."
-msgstr "Creamos la etiqueta HTML IMG completa utilizando una escala personalizada (200x80) utilizando la vista ``images`` del paquete plone.namedfile. Este escalas en realidad los logos y las guarda como nuevos registros blobs."
+msgstr ""
+"Creamos la etiqueta HTML IMG completa utilizando una escala personalizada "
+"(200x80) utilizando la vista ``images`` del paquete plone.namedfile. Este "
+"escalas en realidad los logotipos y las guarda como nuevos registros blobs."
 
 #: ../dexterity_3.rst:330
 msgid ""
 "In ``sponsors`` we return a ordered dictionary of randomized lists of dicts "
 "(containing the information on sponsors)."
 msgstr ""
+"En ``sponsors`` regresamos un diccionario ordenado de una listas aleatorias "
+"de diccionarios (que contiene la información sobre los patrocinadores)."
 
 #: ../dexterity_3.rst:334
 msgid ""
-"http://docs.plone.org/develop/plone/images/content.html#image-scales-plone-4"
-msgstr "http://docs.plone.org/develop/plone/images/content.html#image-scales-plone-4"
+"http://docs.plone.org/4/en/develop/plone/images/content.html#for-plone-4"
+msgstr ""
+"http://docs.plone.org/4/en/develop/plone/images/content.html#for-plone-4"
 
 #: ../dexterity_3.rst:336
 msgid "Add the template ``browser/templates/sponsors_viewlet.pt``"
-msgstr "Agregar la plantilla en el archivo `browser/templates/sponsors_viewlet.pt``"
+msgstr ""
+"Agregar la plantilla en el archivo `browser/templates/sponsors_viewlet.pt``"
 
 #: ../dexterity_3.rst:366
 msgid "Now add some css to make it look ok. Edit ``resources/ploneconf.css``"
-msgstr "Ahora agregue algunas sentencias CSS para estilizar la apariencia. Edite el archivo ``resources/ploneconf.css``"
+msgstr ""
+"Ahora agregue algunas sentencias CSS para estilizar la apariencia. Edite el "
+"archivo ``resources/ploneconf.css``"

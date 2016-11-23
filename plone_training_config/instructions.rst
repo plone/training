@@ -41,7 +41,7 @@ If you feel comfortable, please work on your own machine with your own Python. B
         sudo apt-get install libreadline-dev wv poppler-utils
         sudo apt-get install git
 
-    For more information or in case of problems see the `official installation instructions <http://docs.plone.org/manage/installing/installation.html>`_.
+    For more information or in case of problems see the `official installation instructions <http://docs.plone.org/4/en/manage/installing/installation.html>`_.
 
 
 
