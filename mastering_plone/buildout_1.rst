@@ -266,7 +266,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
         # pins for some Addons
         Products.PloneFormGen = 1.8.1
         Products.PythonField = 1.1.3
-        ...
+        # ...
 
     This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file :file:`versions.cfg`.
 

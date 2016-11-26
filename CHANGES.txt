@@ -5,6 +5,17 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 1.2.5 (unreleased)
 ------------------
+- Fix Sphinx warnings emitted on clean build
+  [stevepiercy]
+
+- Update README.rst to refer to how to build the docs locally.
+  [stevepiercy]
+
+- Add CONTRIBUTING.md
+  [stevepiercy]
+
+- Move PloneConf 2016 to Previous Trainings
+  [stevepiercy]
 
 - Update JavaScript training with latest exercises and documentation using
   collective.jstraining
@@ -78,6 +89,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Fix duplicate labels [jean]
 
+- Fix tests [gforcada]
+
+- Review solr docs [gforcada]
 
 1.2.4 (2014-10-03)
 ------------------
@@ -97,7 +111,7 @@ This changelog is only very rough. For the full changelog please refer to https:
 - Add Spanish translation.
   [macagua]
 
-- Add support for translations on https://www.transifex.com/plone/mastering-plone-training/
+- Add support for translations on transifex
   [macagua]
 
 

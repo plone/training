@@ -39,7 +39,7 @@ First we enable the behavior :py:class:`IEventBasic` for talks in :py:mod:`profi
 
 After we activate the behavior by hand or reinstalled the add-on we will now have some additional fields for ``start`` and ``end``.
 
-To display the new field we reuse a default event summary view as documented in http://ploneappevent.readthedocs.org/en/latest/development.html#reusing-the-event-summary-view-to-list-basic-event-information
+To display the new field we reuse a default event summary view as documented in http://ploneappevent.readthedocs.io/en/latest/development.html#reusing-the-event-summary-view-to-list-basic-event-information
 
 Edit :file:`browser/templates/talkview.pt`
 

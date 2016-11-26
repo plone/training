@@ -1,9 +1,9 @@
-**************************************
+*************************************
 Alternative Indexing/Search solutions
-**************************************
+*************************************
 
 alm.solrindex
-==============
+=============
 
 ``alm.solrindex`` is another addon for connecting Plone search to solr. It takes a different approach:
 
@@ -13,7 +13,8 @@ alm.solrindex
   it decides to query either ZCatalog or solr but not both.
 * ``alm.solrindex`` operates as an index *within* the Zope catalog,
   replacing the standard SearchableText index.
-  solr only needs to index the fulltext, and the ZCatalog no longer needs to do so.
+  Solr only needs to index the fulltext,
+  and the ZCatalog no longer needs to do so.
   When a search is performed that includes a SearchableText criterion,
   first alm.solrindex will query solr for results,
   then those results will be further filtered by other ZCatalog indexes.
@@ -32,7 +33,7 @@ Cons:
 * Potential for missing some results. (see below)
 
 Setup
-------
+-----
 
 We set up solr in our buildout in a similar way,
 using the ``hexagonit.recipe.download`` and ``collective.recipe.solr`` buildout recipes.
@@ -57,49 +58,49 @@ The ``solr-instance`` buildout part looks a bit different::
 * We set the ``unique-key`` identifying the record to ``docid``.
   ``alm.solrindex`` will pass the ZCatalog's internal integer record id
   (``rid``) in this field.
-* We set the ``default-search-field`` to SearchableText
+* We set the ``default-search-field`` to SearchableText,
   so that solr queries which don't specify a field will use SearchableText.
 * We configure fields for docid and each of the standard Plone fulltext indexes,
   but not any other fields.
 * We set ``stored: false`` on the indexes so that solr will only store the docid.
 
-We also need to reference the solr URI in an environment variable
-for the Plone instance part, so that ``alm.solrindex`` knows where to connect::
+We also need to reference the solr URI in an environment variable for the Plone instance part,
+so that ``alm.solrindex`` knows where to connect::
 
-	[instance]
-	environment-vars =
-        SOLR_URI http://${settings:solr-host}:${settings:solr-port}/solr
+    [instance]
+    environment-vars =
+    SOLR_URI http://${settings:solr-host}:${settings:solr-port}/solr
 
-After running buildout, we can start Plone
-and activate ``alm.solrindex`` in the Addons control panel.
+After running buildout,
+we can start Plone and activate ``alm.solrindex`` in the Addons control panel.
 
-Note: The default installation profile removes the existing SearchableText,
-Title, and Description indexes, but does not automatically reindex existing content.
-If you have existing content in the site,
-you'll need to do a full reindex of the ZCatalog to get them indexed in solr.
+.. note:: The default installation profile removes the existing SearchableText,
+   Title, and Description indexes, but does not automatically reindex existing content.
+   If you have existing content in the site,
+   you'll need to do a full reindex of the ZCatalog to get them indexed in solr.
 
 Why are results missing?
--------------------------
+------------------------
 
 There is a limitation to this approach.
 
 solr is configured with a maximum limit on the number of results it will return
 (``max-num-results`` in the buildout configuration).
-This is done because it hurts performance if there are thousands and thousands of
-results, and solr has to serialize all of them and Plone has to deserialize all of
-them.
+This is done because it hurts performance if there are thousands and thousands of results,
+and solr has to serialize all of them and Plone has to deserialize all of them.
 
 For queries that only use indexes that are in solr (i.e. the fulltext indexes),
-this is not a big problem. solr ranks the results so the limited set it returns
-should be the most relevant results, and most users are not going to navigate
-past more than a few pages of results anyway.
+this is not a big problem.
+Solr ranks the results so the limited set it returns should be the most relevant results,
+and most users are not going to navigate past more than a few pages of results anyway.
 
-However it can be a problem when the search term is very generic (so there are
-many results and its hard for solr to determine the most relevant ones) and
-the results are also going to be filtered by other indexes (such as in a faceted
-search solution). In this case the limited result set from solr is fairly arbitrary,
-the other filters only get to operate on this limited set, and we might end up
-missing results that should be there.
+However it can be a problem when the search term is very generic
+(so there are many results and its hard for solr to determine the most relevant ones)
+and the results are also going to be filtered by other indexes
+(such as in a faceted search solution).
+In this case the limited result set from solr is fairly arbitrary,
+the other filters only get to operate on this limited set,
+and we might end up missing results that should be there.
 
 Example: Consider a site where there are 10,000 items with the term 'pdf',
 including one in a folder "/annual-reports/2015".
@@ -120,42 +121,40 @@ There are a couple workarounds for this problem, both of which have their own tr
    (but this detracts from the main advantages of using ``alm.solrindex`` over ``collective.solr``).
 
 Customization
---------------
+-------------
 
-Each type of field has its own *handler* which takes care of translating
-between ZCatalog and solr queries. These can be overridden to handle
-advanced customization:
+Each type of field has its own *handler* which takes care of translating between ZCatalog and solr queries.
+These can be overridden to handle advanced customization:
 
-Example: monkey patch the ``TextFieldHandler`` to use an
-``edismax`` query that allows boosting some fields::
+Example: monkey patch the ``TextFieldHandler`` to use an ``edismax`` query that allows boosting some fields::
 
-	from Products.PluginIndexes.common.util import parseIndexRequest
-	from alm.solrindex.handlers import TextFieldHandler
-	from alm.solrindex.quotequery import quote_query
+    from Products.PluginIndexes.common.util import parseIndexRequest
+    from alm.solrindex.handlers import TextFieldHandler
+    from alm.solrindex.quotequery import quote_query
 
-	def parse_query(self, field, field_query):
-	    name = field.name
-	    request = {name: field_query}
-	    record = parseIndexRequest(request, name, ('query',))
-	    if not record.keys:
-	        return None
+    def parse_query(self, field, field_query):
+        name = field.name
+        request = {name: field_query}
+        record = parseIndexRequest(request, name, ('query',))
+        if not record.keys:
+            return None
 
-	    query_str = ' '.join(record.keys)
-	    if not query_str:
-	        return None
+            query_str = ' '.join(record.keys)
+            if not query_str:
+                return None
 
-	    if name == 'SearchableText':
-	        q = quote_query(query_str)
-	    else:
-	        q = u'+%s:%s' % (name, quote_query(query_str))
+            if name == 'SearchableText':
+                q = quote_query(query_str)
+            else:
+                q = u'+%s:%s' % (name, quote_query(query_str))
 
-	    return {
-	        'q': q,
-	        'defType': 'edismax',
-	        'qf': 'Title^10 Description^2 SearchableText^0.2',  # boost fields
-	        'pf': 'Title~2^20 Description~5^5 SearchableText~10^2',  # boost phrases
-	    }
-	TextFieldHandler.parse_query = parse_query
+            return {
+                'q': q,
+                'defType': 'edismax',
+                'qf': 'Title^10 Description^2 SearchableText^0.2',  # boost fields
+                'pf': 'Title~2^20 Description~5^5 SearchableText~10^2',  # boost phrases
+            }
+            TextFieldHandler.parse_query = parse_query
 
 
 Example: Add a `path` index that works like Zope's ``ExtendedPathIndex``
@@ -194,57 +193,52 @@ ZCML::
 	         name="path" />
 
 DIY solr
-=========
+========
 
-If both *collective.solr* and *alm.solrindex* are too much for you
-or you have special needs, you can access Solr by custom code.
-This might be, if you
+If both *collective.solr* and *alm.solrindex* are too much for you or you have special needs,
+you can access Solr by custom code.
+This might be, if you:
 
- - need to access a Solr server with a newer version / multicore
-   setup and you don't have access to the configuration of Solr
- - Only want a fulltext search page of a small site with no need
-   for full realtime support
+ - need to access a Solr server with a newer version / multicore setup and you don't have access to the configuration of Solr
+ - Only want a fulltext search page of a small site with no need for full realtime support
    
-You can find a full-featured example of a full-fledged custom Solr integration
-at the Ploneintranet (**advanced!**):
+You can find a full-featured example of a full-fledged custom Solr integration at the Ploneintranet (**advanced!**):
 
 https://github.com/ploneintranet/ploneintranet/pull/299
 
 collective.elasticsearch
-==========================
+========================
 
-Another option for an advanced search integration is the younger project
-Elasticsearch https://www.elastic.co/products/elasticsearch. Like for
-Solr, the technical foundation is the Lucene index, written in Java.
+Another option for an advanced search integration is the younger project Elasticsearch https://www.elastic.co/products/elasticsearch.
+Like for Solr, the technical foundation is the Lucene index, written in Java.
 
 Pros of Elasticsearch
 
- - It uses JSON instead of an XML schema for (field) configuration,
-   which might be easier to configure.
- - Clustering and replication is builtin from the beginning. It is
-   easier to configure. Espacially ad-hoc cluster which can
-   (re)configure automatically.
- - The project and community is agile and active.
+- It uses JSON instead of an XML schema for (field) configuration,
+  which might be easier to configure.
+- Clustering and replication is builtin from the beginning.
+  It is easier to configure.
+  Especially ad-hoc cluster which can (re)configure automatically.
+- The project and community is agile and active.
 
 Cons of Elasticsearch
 
- - JSON is abused as Query DSL. It can lead to queries with up to
-   10 layers. This can be annoying especially if you write them
-   programatically.
+- JSON is abused as Query DSL.
+  It can lead to queries with up to 10 layers.
+  This can be annoying especially if you write them programatically.
 
 The integration of Elasticsearch with Plone is done with
 https://pypi.python.org/pypi/collective.elasticsearch/
 
-
 Google Custom Search
-========================
+====================
 
 Google provides a couple related tools for using Google as a
 site-specific search engine embedded in your site:
 Google Custom Search (free, ad-supported) and Google Site Search (paid).
 
-(Note: don't confuse these solutions with Google Search Appliance,
-which was a rack-mounted device which has been discontinued.)
+.. note:: don't confuse these solutions with Google Search Appliance,
+   which was a rack-mounted device which has been discontinued.
 
 Pros:
 
@@ -263,4 +257,3 @@ Cons:
 - Only useful for fulltext search, not searching specific fields.
 - Limited control over result ranking and formatting.
 - Google has a habit of discontinuing free services.
-

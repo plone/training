@@ -85,4 +85,4 @@ Open the file :file:`profiles/default/registry.xml` and add the following:
 
 The resources that are part of the registered bundle will now be deployed with every request.
 
-For more infos please see http://docs.plone.org/adapt-and-extend/theming/resourceregistry.html or http://training.plone.org/5/theming/adv-resource-registry.html.
+For more infos please see http://docs.plone.org/adapt-and-extend/theming/resourceregistry.html or https://training.plone.org/5/theming/adv-resource-registry.html.

@@ -1,17 +1,16 @@
-***************************
+*************************
 Solr GUI and Query Syntax
-***************************
+*************************
 
-In the next part we will take a closer look the the search GUI of Solr
-and its query syntax.
+In the next part we will take a closer look the the search GUI of Solr and its query syntax.
 
-Access Solr Gui
-================
+Access Solr GUI
+===============
 
-Solr is a REST-based wrapper around the Java lucene index. It comes with
-its own web GUI. It is possible to access all of the SOLR API via REST and
-most of this functionality is exposed via its web GUI. To test it out, do the
-following. :
+Solr is a REST-based wrapper around the Java lucene index.
+It comes with its own web GUI.
+It is possible to access all of the SOLR API via REST and most of this functionality is exposed via its web GUI.
+To test it out, do the following:
 
  - Go to: http://localhost:8983/solr/#/
  - Select Core "collection1"
@@ -21,16 +20,16 @@ following. :
  - Click on term "<fullname>"
 
 Solr Query Syntax
-==================
+=================
 
 Solr Query Parameters:
 
 Query "q"::
 
-    Title:"nachrichten"
-    *:"nachrichten"
+    Title:"news"
+    *:"news"
 
- Solr response ::
+Solr response ::
 
   {
     "responseHeader":{
@@ -76,7 +75,11 @@ Query "q"::
 
 Filter Query "fq":
 
-This parameter can be used to specify a query that can be used to restrict the super set of documents that can be returned, without influencing score. It can be very useful for speeding up complex queries since the queries specified with fq are cached independently from the main query. Caching means the same filter is used again for a later query (i.e. there's a cache hit). See SolrCaching to learn about the caches Solr uses.  ::
+This parameter can be used to specify a query that can be used to restrict the super set of documents that can be returned,
+without influencing the score.
+It can be very useful for speeding up complex queries since the queries specified with fq are cached independently from the main query.
+Caching means the same filter is used again for a later query (i.e. there's a cache hit).
+See SolrCaching to learn about the caches Solr uses::
 
     is_folderish:true
 
@@ -89,7 +92,8 @@ Filter List "fl"::
 
     Title,Type
 
-This parameter can be used to specify a set of fields to return, limiting the amount of information in the response.
+This parameter can be used to specify a set of fields to return,
+limiting the amount of information in the response.
 
 Response Writer "wt"::
 
@@ -98,7 +102,7 @@ Response Writer "wt"::
 A Response Writer generates the formatted response of a search.
 
 Solr Query via URL
-===================
+==================
 
 Copy query from Solr GUI, e.g.::
 
@@ -107,19 +111,20 @@ Copy query from Solr GUI, e.g.::
 You can use curl or the Python package `requests` (https://pypi.python.org/pypi/requests) to access the REST API of Solr.
 
 Solr Query via API
-===================
+==================
 
-Another way of accessing Solr is to use a Python wrapper, which exposes the Solr API
-in a Pythonic way. Collective.solr has included such a wrapper (``solr.py``),
-which is old but still works for our case. Meanwhile there are other packages around.
+Another way of accessing Solr is to use a Python wrapper,
+which exposes the Solr API in a Pythonic way.
+Collective.solr has included such a wrapper (``solr.py``),
+which is old but still works for our case.
+Meanwhile there are other packages around.
 Here are some examples:
 
- - ``mysolr`` (https://pypi.python.org/pypi/mysolr/0.8.3)
- - ``solrpy`` (https://pypi.python.org/pypi/solrpy3/0.98)
- - ``pysolr`` (https://pypi.python.org/pypi/pysolr/3.5.0)
+ - ``mysolr``: https://pypi.python.org/pypi/mysolr/0.8.3
+ - ``solrpy``: https://pypi.python.org/pypi/solrpy3/0.98
+ - ``pysolr``: https://pypi.python.org/pypi/pysolr/3.5.0
 
-Sometimes it is handy to have a separate virtualenv available for doing batch
-operations (delete, update, etc.)
+Sometimes it is handy to have a separate virtualenv available for doing batch operations (delete, update, etc.)
 
 I use the following script to delete all Plone Documents from Solr ::
 
@@ -129,17 +134,17 @@ I use the following script to delete all Plone Documents from Solr ::
  
 
 Advanced Solr Query Syntax
-===========================
+==========================
 
 Simple Query::
 
     "fieldname:value"
 
-A clause can be **mandatory** (finds only articles containing the word *Boston*):
+A clause can be **mandatory** (finds only articles containing the word *Boston*)::
 
   +Boston
 
-A clause can be **probibited** (finds all articles except those containing the word *Vienna*):
+A clause can be **probibited** (finds all articles except those containing the word *Vienna*)::
 
   -Vienna
 
@@ -153,10 +158,10 @@ Be carefull with combining operators such as::
 
  New AND York OR Buenos AND Aires
 
-which will probably lead to now results. You will need to use
-sub-queries.
+which will probably lead to no results.
+You will need to use sub-queries.
 
-Sub-queries: ::
+Sub-queries::
 
  (New AND York) OR (Buenos Aires)
 
@@ -164,36 +169,36 @@ Range Queries::
 
     "[* TO NOW]"
 
-Boost Terms:
+Boost Terms::
 
     "people^4"
 
-Fuzzy Search: ::
+Fuzzy Search::
 
  "house0.6"
 
-Proximity Search: ::
+Proximity Search::
 
  "apache solr"~
 
-with treshold ::
+with treshold::
 
  "apache solr"~7
 
 Wildcard queries:
 
-Find all cities starting with *New* you can do: ::
+Find all cities starting with *New* you can do::
 
  New*
 
-Or a single character wildcard: ::
+Or a single character wildcard::
 
  M?ller
 
 which will find *Müller*, *Miller*, etc.
 
 Date math
-===========
+=========
 
 Solr provides some useful date units which are available for date queries.
 The units you can choose of are:
@@ -203,39 +208,37 @@ All of these units can be pluralized with an *S* as in *DAYS*. ::
 
  effective:[* TO NOW-3MONTHS]
 
-*NOW* has a millisecond precision. To round down by using the */* operator (it never rounds up). ::
+*NOW* has a millisecond precision.
+To round down by using the */* operator (it never rounds up)::
 
  effective:[* TO NOW/DAY-2YEAR]
 
 Existing (and non-existing) queries
-========================================
+===================================
 
 Assume we want to find all documents which have a value in a certain field
 (whatever that value is, it doesn't matter).
 
-Find all documents with a description: ::
+Find all documents with a description::
 
  Description:[* TO *] 
 
-The oposite (finding all documents with no description) is also possible: ::
+The oposite (finding all documents with no description) is also possible::
 
  -Description:[* TO *] 
 
 Faceting
-========================================
+========
 
-Faceting is one of the killer features of Solr. It allows the grouping
-and filtering results for better findability. To enable faceting you need
-to turn faceting on in the query and specify the fields you want to
-facet upon:
+Faceting is one of the killer features of Solr.
+It allows the grouping nd filtering results for better findability.
+To enable faceting you need o turn faceting on in the query and specify the fields you want tofacet upon:
 
-For a simple facet query in Solr you activate the feature and
-specify the facet field(s) ::
+For a simple facet query in Solr you activate the feature and specify the facet fields(s)::
 
  http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true&facet=true&facet.field=portal_type
 
-Besides the matching documents this will give you an additional grouping
-of documents: ::
+Besides the matching documents this will give you an additional grouping of documents::
 
   {
    "responseHeader":{
@@ -265,30 +268,27 @@ of documents: ::
 There are more complex scenarios possible. For a complete list
 of options see the according Solr documentation.
 
-.. seealso: https://cwiki.apache.org/confluence/display/solr/Faceting
+.. seealso:: https://cwiki.apache.org/confluence/display/solr/Faceting
 
-With collective.solr you don't have to worry about the faceting
-details too much. There is a convenient method to configure the 
-faceting fields in the control panel of collective.solr.
-All the other magic is handled by the product. We will see an
-example later.
+With collective.solr you don't have to worry about the faceting details too much.
+There is a convenient method to configure the faceting fields in the control panel of collective.solr.
+All the other magic is handled by the product.
+We will see an example later.
 
 Search GUIs
-========================================
+===========
 
- - collective.solr out of the box: collective.solr commes with its own
-   search view. For the new version 6.0 it is based on ReactJS and looks
-   similar to the Plone search view with native facet support of Solr.
+ - collective.solr out of the box: collective.solr commes with its own search view. 
+   For the new version 6.0 it is based on ReactJS and looks similar to the Plone search view with native facet support of Solr.
 
- - eea.facetednavigation: This addon allows faceting out of the box even
-   without Solr. It is a product for integrators to setup search and
-   filter GUIs TTW. It can be used for several use cases: Search pages,
-   collection replacements, etc.  **DEMO**
+ - eea.facetednavigation: This addon allows faceting out of the box even without Solr.
+   It is a product for integrators to setup search and filter GUIs TTW.
+   It can be used for several use cases: Search pages, collection replacements, etc.  **DEMO**
 
- - custom: Another way is to create a custom search page. This is
-   easy to do and we will see later on in this training how.
+ - custom: Another way is to create a custom search page. 
+   This is easy to do and we will see later on in this training how.
 
 Exercise
-=========
+========
 
  Do some queries in Solr directly
