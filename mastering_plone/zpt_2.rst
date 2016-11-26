@@ -67,9 +67,9 @@ The file looks like this:
 
 Note the following:
 
-* Like almost all Plone-templates it uses `metal:use-macro="context/main_template/macros/master"` to use the main_template
-* This template fills teh same slot `content-core` as the template you created in the last chapter. This means the heading and description are displayed by the `main_template`.
-* The image and image-caption that is provided by the behavior is not part of the template.
+* Like almost all Plone templates, it uses `metal:use-macro="context/main_template/macros/master"` to use the main_template
+* This template fills the same slot `content-core` as the template you created in the last chapter. This means the heading and description are displayed by the `main_template`.
+* The image and image caption that is provided by the behavior is not part of the template.
 
 Copy that file into the folder :file:`browser/overrides/` of our package. If you use vagrant you'd have to use::
 
@@ -125,9 +125,9 @@ Here we first get the Plone view and then the method :py:meth:`toLocalizedTime` 
 
 .. note::
 
-    On older Plone versions (using Archetypes) we used ``python:context.toLocalizedTime(context.Date(), longFormat=False)``. That called the python script ``toLocalizedTime.py`` in the Folder ``Products/CMFPlone/skins/plone_scripts/``.
+    On older Plone versions using Archetypes we used ``python:context.toLocalizedTime(context.Date(), longFormat=False)``. That called the Python script ``toLocalizedTime.py`` in the Folder ``Products/CMFPlone/skins/plone_scripts/``.
 
-    That folder ``plone_scripts`` holds a multitude of useful scripts that are still widely used. But they are all deprecated and most of theme are gone in Plone 5 and replaced by proper python methods in BrowserViews.
+    That folder ``plone_scripts`` holds a multitude of useful scripts that are still widely used. But they are all deprecated and most of them are gone in Plone 5 and replaced by proper Python methods in BrowserViews.
 
 
 We could also leave the formatting to the frontend. Plone 5 comes with the `moment pattern <http://plone.github.io/mockup/dev/#pattern/moment>`_ that uses the library `moment.js <http://plone.github.io/mockup/dev/#pattern/moment>`_ to format dates. Try the relative calendar format:
@@ -303,13 +303,13 @@ So `batch` is a list of items. The way it is created is actually pretty complica
 
 The template :file:`listing_summary.pt` is extraordinary in its heavy use of nested macros. Most of the templates you will write are much simpler and easier to read.
 
-Trying to understand templates as complicated as these can be hard, but there is help to be found if you know Python: You can use :py:mod:`pdb` to debug templates line by line.
+It can be hard to understand templates as complicated as these, but there is help to be found if you know Python: use :py:mod:`pdb` to debug templates line by line.
 
 Add the following to line 29 just before our additions::
 
     <?python import pdb; pdb.set_trace() ?>
 
-When you reload the page and look at the terminal you see you have pdb-console and can inspect the template at its current state by looking at the variable `econtext`. You can now simply look up what `item ` and `PortalType` are:
+When you reload the page and look at the terminal you see you have the pdb console and can inspect the template at its current state by looking at the variable `econtext`. You can now simply look up what `item ` and `PortalType` are:
 
 ..  code-block:: python
 
@@ -329,7 +329,7 @@ When you reload the page and look at the terminal you see you have pdb-console a
     (pdb) item
     <plone.app.contentlisting.catalog.CatalogContentListingObject instance at /Plone/news/hot-news>
 
-As discovered above `item` is a instance of :py:class:`plone.app.contentlisting.catalog.CatalogContentListingObject`. It has several methods and properties:
+As discovered above, `item` is a instance of :py:class:`plone.app.contentlisting.catalog.CatalogContentListingObject`. It has several methods and properties:
 
 ..  code-block:: python
 
@@ -366,7 +366,7 @@ Finding the right template
 
 We changed the display of the listing of news items at http://localhost:8080/Plone/news. But how do we know which template to customize?
 
-If you don't know which template is used by the page you're looking at you can make an educated guess, start a debug session or use :py:mod:`plone.app.debugtoolbar`.
+If you don't know which template is used by the page you're looking at, you can make an educated guess. Start a debug session or use :py:mod:`plone.app.debugtoolbar`.
 
 1.  We could check the HTML with Firebug and look for a structure in the content area that looks unique. We could also look for the CSS class of the body
 
@@ -378,7 +378,7 @@ If you don't know which template is used by the page you're looking at you can m
 
     A foolproof way to verify your guess is to modify the template and reload the page. If your modification shows up you obviously found the correct file.
 
-2.  The safest method is using :py:mod:`plone.app.debugtoolbar`.  We already have it in our buildout and only need to install it. It adds a "Debug"-Dropdown on top of the page. The section "Published" shows the complete path to the template that is used to render the page you are seeing.
+2.  The safest method is using :py:mod:`plone.app.debugtoolbar`.  We already have it in our buildout and only need to install it. It adds a "Debug" dropdown menu on top of the page. The section "Published" shows the complete path to the template that is used to render the page you are seeing.
 
 3.  The debug session to find the template is a little more complicated. Since we have :py:mod:`Products.PDBDebugMode` in our buildout we can call ``/pdb`` on our page. We cannot put a `pdb` in the templates since we do not know (yet) which template to put the `pdb` in.
 
@@ -442,5 +442,5 @@ Summary
 
 * Overriding templates with :py:mod:`z3c.jbot` is easy.
 * Understanding templates can be hard.
-* Use plone.app.debugtoolbar and pdb are there to help you.
-* Skin templates are deprecated, you will probably only encounter when you work on Plone 4
+* Use plone.app.debugtoolbar and pdb; they are there to help you.
+* Skin templates are deprecated; you will probably only encounter them when you work on Plone 4.
