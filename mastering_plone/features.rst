@@ -42,7 +42,7 @@ Some commands you will use rather often are::
 
     A standard installation listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
 
-    As you can see, there is no Plone yet!
+    As you can see, there is no Plone site yet!
 
     We have a running Zope with a database but no content.
     But luckily there is a button to create a Plone site.
@@ -52,19 +52,19 @@ Some commands you will use rather often are::
 
     You now have the option to select some add-ons before you create the site.
     Since we will use Dexterity from the beginning we select :guilabel:`Dexterity-based Plone Default Types`.
-    This way even the initial content on our page will be built with dexterity by the add-on :py:mod:`plone.app.contenttypes` which will be the default in Plone 5.
+    This way even the initial content on our page will be built with Dexterity using the add-on :py:mod:`plone.app.contenttypes` which is the default in Plone 5.
 
     You will be automatically redirected to the new site.
 
 .. only:: presentation
 
     * By default Plone listens on port 8080. Look at http://localhost:8080
-    * No Plone yet! Create a new Plone site.
+    * No Plone site yet! Create a new Plone site.
     * Use :samp:`Plone` (the default) as the site id.
 
 .. note::
 
-    Plone has many message-boxes.
+    Plone has many message boxes.
     They contain important information.
     Read them and make sure you understand them!
 
@@ -192,10 +192,10 @@ Users
 
     Let's create our first users within Plone.
     So far we used the admin user (admin:admin) configured in the buildout.
-    This user is often called "zope root" and is not managed in Plone but only by Zope.
-    Therefore the user's missing some features like email and full name and won't be able to use some of Plone's features.
+    This user is often called "Zope root" and is not managed in Plone but only by Zope.
+    Therefore the user is missing some features like email and full name and won't be able to use some of Plone's features.
     But the user has all possible permissions.
-    As with the root user of a server, it's a bad practice to make unnecessary use of Zope root.
+    As with the root user of a server, it's bad practice to make unnecessary use of Zope root.
     Use it to create Plone sites and their initial users, but not much else.
 
     You can also add Zope users via the terminal by entering::
@@ -224,12 +224,6 @@ Users
         * as anonymous
         * as editor
         * as admin
-
-    You can also add zope users via the terminal by entering::
-
-        $ ./bin/instance adduser <someusername> <supersecretpassword>
-
-    That way you can access databases you get from customers where you have no Plone user.
 
 .. only:: presentation
 
@@ -281,24 +275,24 @@ Edit a page:
 * :guilabel:`Summary` :samp:`Tutorial`
 * :guilabel:`Text` :samp:`...`
 
-Create a site-structure:
+Create a site structure:
 
-* Add folder "The Event" and in that ...
+* Add a folder "The Event" and in it add:
 
   * Folder "Talks"
   * Folder "Training"
   * Folder "Sprint"
 
-* In ``/news``: Add News Item "Conference Website online!" with some image
-* In ``/news``: Add News Item "Submit your talks!"
-* In ``/events``: Add Event "Deadline for talk submission" Date: 2015/08/10
+* In ``/news``: Add a News Item "Conference Website online!" with some image
+* In ``/news``: Add a News Item "Submit your talks!"
+* In ``/events``: Add an Event "Deadline for talk submission" Date: 2015/08/10
 
-* Add Folder "Register"
-* Delete Folder "Users"
-* Add Folder "Intranet"
+* Add a Folder "Register"
+* Delete the Folder "Users"
+* Add a Folder "Intranet"
 
 
-The default contenttypes:
+The default Plone content types are:
 
 * Collection
 * Event
@@ -320,12 +314,12 @@ Folders
 -------
 
 * Go to 'the-event'
-* explain title/id/url
+* explain the difference between title, ID, and URL
 * explain /folder_contents
-* change order
-* bulk-actions
+* change the order of items
+* explain bulk actions
 * dropdown "display"
-* default_pages
+* default pages
 * Add a page to 'the-event': "The Event" and make it the default page
 
 
@@ -370,7 +364,7 @@ Manage members and groups
 
   * Add group "Editors" and add the user 'editor' to it
   * Add group: ``orga``
-  * add group: ``jury`` and add user 'jurymember' to it.
+  * Add group: ``jury`` and add user 'jurymember' to it.
 
 
 .. _features-workflows-label:
@@ -378,7 +372,7 @@ Manage members and groups
 Workflows
 ---------
 
-Take a look at the :guilabel:`state` drop-down on the edit bar on the homepage.
+Take a look at the :guilabel:`state` drop down on the edit bar on the homepage.
 Now, navigate to one of the folders just added.
 The homepage has the status ``published`` and the new content is ``private``.
 
@@ -393,12 +387,12 @@ Each of these states connects roles to permissions.
 
 A *workflow state* is an association between a role and one or more permissions.
 Moving from one state to another is a ``transition``.
-Transitions (like ``submit for review``) may have actions — like the execution of a content rule or script — associated with them.
+Transitions (like ``submit for review``) may have actions — such as the execution of a content rule or script — associated with them.
 
-A complete set of workflow states and transitions make up a *workflow*.
+A complete set of workflow states and transitions makes up a *workflow*.
 Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites.
-Individual contenttypes may have their own workflow.
-Or, and this is particularly interesting, no workflow.
+Individual content types may have their own workflow.
+Or, and this is particularly interesting, they may have no workflow.
 In that case, which initially applies to file and image uploads, the content object inherits the workflow state of its container.
 
 .. note::
@@ -421,8 +415,8 @@ In either case, it may be undesirable for changes to be immediately visible.
 
 Plone's working copy support solves this problem by adding a check-out/check-in function for content — available on the actions menu.
 A content item may be checked out, worked on, then checked back in.
-Or abandoned if the changes weren't acceptable.
-Not until check in is the content visible.
+Or it may abandoned if the changes weren't acceptable.
+Not until check in is the new content visible.
 
 While it's shipped with Plone, working copy support is not a common need.
 So, if you need it, you need to activate it via the add-on packages configuration page.
@@ -430,7 +424,7 @@ Unless activated, check-in/check-out options are not visible.
 
 .. Note::
 
-    Working-copy support is not yet available for contenttypes created via Dexterity.
+    Working-copy support is not yet available for content types created via Dexterity.
     This is on the way.
 
 
