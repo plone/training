@@ -106,7 +106,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     # The directory this buildout is in. Modified when using vagrant.
     buildout_dir = ${buildout:directory}
 
-    # We want to checkouts these eggs directly from github
+    # We want to checkouts these eggs directly from GitHub
     auto-checkout =
         ploneconf.site
     #    starzel.votable_behavior

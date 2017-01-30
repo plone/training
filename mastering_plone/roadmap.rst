@@ -15,4 +15,4 @@ Add new chapters:
 Todo
 ----
 
-Todos are managed as issues in the `github-reposiory <https://github.com/plone/training/issues>`_
+Todos are managed as issues in the `GitHub repository <https://github.com/plone/training/issues>`_
