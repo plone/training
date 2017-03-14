@@ -329,11 +329,13 @@ Be McGuyver
 .. seealso::
 
     Buildout-Documentation
-        * http://docs.plone.org/old-reference-manuals/buildout/index.html
-        * http://www.buildout.org/en/latest/docs/index.html
+        http://docs.buildout.org/en/latest/contents.html
 
     Troubleshooting
         http://docs.plone.org/manage/troubleshooting/buildout.html
+
+    A minimal buildout for Plone 5
+        https://github.com/collective/minimalplone5
 
     A minimal buildout for Plone 4
         https://github.com/collective/minimalplone4
