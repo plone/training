@@ -3,7 +3,7 @@
 About Mastering Plone
 =====================
 
-This training was created by Philip Bauer and Patrick Gerken of `starzel.de <http://www.starzel.de>`_ to create a canonical training for future Plone developers. The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it. It is published as Open Source on `github <https://github.com/plone/training>`_ and `training.plone.org <http://training.plone.org/>`_.
+This training was created by Philip Bauer and Patrick Gerken of `starzel.de <https://www.starzel.de>`_ to create a canonical training for future Plone developers. The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it. It is published as Open Source on `github <https://github.com/plone/training>`_ and `training.plone.org <https://training.plone.org/>`_.
 
 If you want to inquire the original authors about organizing a training please contact them at team@starzel.de.
 
@@ -12,8 +12,6 @@ If you want to inquire the original authors about organizing a training please c
 
 Upcoming Trainings
 ------------------
-
-There will be several trainings during `Ploneconf 2016 in Boston <https://2016.ploneconf.org/>`_.
 
 If you want to have a training near you please ask for trainings on https://community.plone.org
 
@@ -24,11 +22,12 @@ Previous Trainings
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
+* `Ploneconf 2016 in Boston <https://2016.ploneconf.org/>`_
 * October 2015, Bucharest
-* `March 2015, Munich <http://www.starzel.de/leistungen/training/>`_
+* `March 2015, Munich <https://www.starzel.de/leistungen/training/>`_
 * Plone Conference 2014, Bristol
 * `June 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068480>`_
-* `May 2014, Munich <http://www.starzel.de/blog/mastering-plone>`_
+* `May 2014, Munich <https://www.starzel.de/blog/mastering-plone>`_
 * `PythonBrasil/Plone Conference 2013, Brasilia <http://2013.pythonbrasil.org.br/>`_
 * PyCon DE 2012, Leipzig
 * Plone Conference 2012, Arnheim
@@ -172,7 +171,7 @@ To build the documentation follow these steps:
 
     $ git clone https://github.com/plone/training.git --recursive
     $ cd training
-    $ virtualenv-2.7 .
+    $ virtualenv --python=python2.7 .
     $ source bin/activate
 
 Now install dependencies and build.
@@ -191,7 +190,7 @@ Build new
 
     $ git clone https://github.com/plone/training.git --recursive
     $ cd training
-    $ virtualenv-2.7 .
+    $ virtualenv --python=python2.7 .
     $ source bin/activate
     $ pip install -r requirements.txt
     $ make html
@@ -278,7 +277,7 @@ Everyone is **very welcome** to contribute. Minor bug fixes can be pushed direct
 License
 -------
 
-The Mastering Plone Training is licensed under a `Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_.
+The Mastering Plone Training is licensed under a `Creative Commons Attribution 4.0 International License <https://creativecommons.org/licenses/by/4.0/>`_.
 
 Make sure you have filled out a `Contributor Agreement <https://plone.org/foundation/contributors-agreement>`_.
 

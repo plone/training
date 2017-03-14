@@ -5,9 +5,8 @@ Set up Plone and Solr
 For using Solr with Plone you need two things:
 
  1) A running Solr server
- 2) A integration product (like collective.solr) for delegation of indexing
-    and searching to the Solr server. In this training we will focus on
-    collective.solr for this purpose.
+ 2) An integration product (like collective.solr) for delegation of indexing and searching to the Solr server.
+    In this training we will focus on collective.solr for this purpose.
 
 Bootstrap project::
 
@@ -19,7 +18,7 @@ Bootstrap project::
   $ curl -o solr4.cfg https://raw.githubusercontent.com/collective/collective.solr/master/solr-4.10.x.cfg
 
 
-a buildout (*buildout.cfg*) which installs both requirements::
+Create a buildout (*buildout.cfg*) which installs both requirements::
 
     [buildout]
     extends =
@@ -50,10 +49,10 @@ Start Solr in another terminal in foreground mode ::
   $ bin/solr-instance fg
 
 Solr Buildout
-=================
+=============
 
-We assume you are more less familiar with the Plone buildout, but let's
-analyze the solr buildout configuration a bit.
+We assume you are more or less familiar with the Plone buildout,
+but let's analyze the solr buildout configuration a bit.
 
 First we have two buildout parts in *solr.cfg* ::
 
@@ -62,14 +61,13 @@ First we have two buildout parts in *solr.cfg* ::
         solr-download
         solr-instance
 
-As the name suggests *solr-download* gets the full Solr package from
-the official download server and unpacks it.
-The part *solr-instance* is for configuring Solr. Let's continue with the
-details.
+As the name suggests *solr-download* gets the full Solr package from the official download server and unpacks it.
+The part *solr-instance* is for configuring Solr. Let's continue with the details.
 
-The base Solr settings specify the host (usually localhost or 0.0.0.0), the
-port (8983 is the standard port of Solr) and two Java parameters for specifying
-lower and upper memory limit. More is usually better. ::
+The base Solr settings specify the host (usually localhost or 127.0.0.1),
+the port (8983 is the standard port of Solr)
+and two Java parameters for specifying lower and upper memory limit.
+More is usually better. ::
 
     [settings]
     solr-host = 127.0.0.1
@@ -77,14 +75,15 @@ lower and upper memory limit. More is usually better. ::
     solr-min-ram = 128M
     solr-max-ram = 256M
 
-If you want a rough idea on how much memory you should use, follow the
-guidelines found in this article:
-.. seealso: https://lucidworks.com/blog/2011/09/14/estimating-memory-and-storage-for-lucenesolr/
+If you want a rough idea on how much memory you should use,
+follow the guidelines found in this article:
 
-There is nothing fancy in the Solr download part. It takes an URL to the Solr
-binary and a md5 sum for verification.
+.. seealso:: https://lucidworks.com/blog/2011/09/14/estimating-memory-and-storage-for-lucenesolr/
 
-.. note At time of writing the latest working version of Solr was 4.10.x
+There is nothing fancy in the Solr download part.
+It takes an URL to the Solr binary and an md5 sum for verification.
+
+.. note:: At time of writing the latest working version of Solr was 4.10.x
 
 It looks like this in *solr.cfg* and *solr4.cfg* ::
 
@@ -96,9 +95,9 @@ It looks like this in *solr.cfg* and *solr4.cfg* ::
     url = https://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.tgz
     md5sum = 8ae107a760b3fc1ec7358a303886ca06
 
-The Solr instance part is more complicated. It provides a subset of many,
-many configuration options of Solr and the possibility to define the
-schema of the index::
+The Solr instance part is more complicated.
+It provides a subset of many,
+many configuration options of Solr and the possibility to define the schema of the index::
 
     [solr-instance]
     recipe = collective.recipe.solrinstance
@@ -133,31 +132,28 @@ Specify the location of Solr, dowloaded with the previous part. ::
     basepath = /solr
 
 Base configuration for running Solr referencing previously defined settings.
-With this configuration it is possible to access Solr in a browser with the
-following URL: http://localhost:8983/solr ::
-The section-name defines the name which can be used to reflect custom address
-and/or basepath settings in zope.conf.::
+With this configuration it is possible to access Solr in a browser with the following URL:
+http://localhost:8983/solr
+
+The section-name defines the name which can be used to reflect custom address and/or basepath settings in zope.conf.::
 
     section-name = SOLR
 
-It follows the following pattern in *zope.conf* If you use standard settings
-no changes in *zope.conf* are necessary. ::
+It follows the following pattern in *zope.conf*:
+if you use standard settings no changes in *zope.conf* are necessary. ::
 
     <product-config ${part:section-name}>
         address ${part:host}:${part:port}
         basepath ${part:basepath}
     </product-config>
 
-.. note: Another easy way to use different hosts on dev, stage and production
+.. note:: Another easy way to use different hosts on dev, stage and production
    machines is to define a host alias in /etc/hosts
 
-Like the Zope ZCatalog the Solr index has a schema consisting of index
-and metadata fields.
-You can think of index fields as something you can use for querying / searching
-and metadata something you return as result list.
-Solr defines its schema in a big XML file called ``schema.xml``. There is a
-section in the ``collective.recipe.solrinstance`` buildout recipe which gives you 
-access to the most common configuration options in a buildout way::
+Like the Zope ZCatalog the Solr index has a schema consisting of index and metadata fields.
+You can think of index fields as something you can use for querying / searching and metadata something you return as result list.
+Solr defines its schema in a big XML file called ``schema.xml``.
+There is a section in the ``collective.recipe.solrinstance`` buildout recipe which gives you access to the most common configuration options in a buildout way::
 
     index =
         name:allowedRolesAndUsers   type:string stored:false multivalued:true
@@ -196,9 +192,9 @@ access to the most common configuration options in a buildout way::
 - stored: The field is returned as metadata
 - copyfield: copy content to another field, e.g. copy title, description, subject and SearchableText to default.
 
-For a complete list of schema configuration options refer to the documentation of Solr.
+For a complete list of schema configuration options refer to Solr documentation.
 
-.. seealso: https://wiki.apache.org/solr/SchemaXml#Common_field_options
+.. seealso:: https://wiki.apache.org/solr/SchemaXml#Common_field_options
 
 This is the bare minimum for configuring Solr. There are more options supported by the buildout
 recipe ``collective.recipe.solrinstance`` and even more by Solr itself. Most notably are the custom
@@ -209,18 +205,16 @@ Or you can even point to a custom location for the main configuration files. ::
   schema-destination = ${buildout:directory}/etc/schema.xml
   config-destination = ${buildout:directory}/etc/solrconfig.xml
 
-After running the buildout, which downloads and configures Solr and Plone we are ready to fire
-both servers.
+After running the buildout,
+which downloads and configures Solr and Plone we are ready to fire both servers.
 
 Plone and Solr
-=================
+==============
 
-To activate Solr in Plone *collective.solr* needs to be activated as an addon
-in Plone.
+To activate Solr in Plone *collective.solr* needs to be activated as an addon in Plone.
 
 Activating the Solr addon adds a configuration page to the controlpanel.
-It can be accessed via <PORTAL_URL>/@@solr-controlpanel
-or via "Configuration" -> "Solr Settings"
+It can be accessed via <PORTAL_URL>/@@solr-controlpanel or via "Configuration" -> "Solr Settings"
 
 Check: "Active", click "Save"
 
@@ -241,7 +235,10 @@ Control panel configuration options
    which will improve Zope response times in return for not having the Solr
    index updated immediately.
 
- - *Automatic commit* - If enabled each index operation will cause a commit to be sent to Solr, which causes it to update its index. If you disable this, you need to configure commit policies on the Solr server side.
+ - *Automatic commit* - If enabled each index operation will cause a commit to be sent to Solr,
+   which causes it to update its index.
+   If you disable this,
+   you need to configure commit policies on the Solr server side.
 
  - *Commit within*
 
@@ -287,81 +284,74 @@ Atomic updates and boosting
 
 With Solr activated, searching in Plone works like the following:
 
- - Search contains one of the fields set as required (which is normally
-   the fulltext field *SearchableText*) -> Solr results are returned
+ - Search contains one of the fields set as required
+   (which is normally the fulltext field *SearchableText*)
+   -> Solr results are returned
 
- - Search does not contain all fields marked as required -> ZCatalog
-   results are returned. Which is the case for rendering the navigation,
+ - Search does not contain all fields marked as required
+   -> ZCatalog results are returned.
+   Which is the case for rendering the navigation,
    folder contents, etc.
 
- - The search contains the stanza *use_solr=True*. -> Solr results are
-   returned independent of the required fields.
+ - The search contains the stanza *use_solr=True*.
+   -> Solr results are returned independent of the required fields.
 
-
-Then you are ready for your first search. Search for *Plone*. You should
-get the frontpage as a result--which is not super awesome at the first
-place because we have this without Solr too--but it is the first step
-in utilizing the full power of Solr.
+Then you are ready for your first search.
+Search for *Plone*.
+You should get the frontpage as a result--which is not super awesome at the first place because we have this without Solr too--but it is the first step in utilizing the full power of Solr.
 
 Configuration with ZCML
 -----------------------
 
-Another way to configure the connection is via ZCML. You can use the
-following snippet to configure host, port und basepath: ::
+Another way to configure the connection is via ZCML.
+You can use the following snippet to configure host, port und basepath: ::
 
   <configure xmlns:solr="http://namespaces.plone.org/solr">
     <solr:connection host="127.0.0.23" port="3898" base="/foo" />
   </configure>
 
-The ZCML configuration takes predence over the configuration in the
-registry / control-panel.
+The ZCML configuration takes predence over the configuration in the registry / control-panel.
 
 Committing strategies
-=======================
+=====================
 
 Synchronous immediately
-------------------------
+-----------------------
 
-The default commit strategy is to commit to Solr on every Zope
-commit. This ensures an always up to date index but may come at
-cost of indexing time especcially when doing batch operations
-like data import.  
+The default commit strategy is to commit to Solr on every Zope commit.
+This ensures an always up to date index but may come at cost of indexing time especially when doing batch operations like data import.
 
 To use this behavior, turn **Automatic commit** ON in the Solr
 controlpanel in Plone.
 
 Synchronous batched
---------------------
+-------------------
 
 Another commit strategy is to do timed commits in Solr.
-This method is usually way faster but comes with the cost
-of index delays.
+This method is usually way faster but comes with the cost of index delays.
 
 To use this behavior you have to do two things:
 
  - Turn **Automatic commit** OFF in the Solr controlpanel in Plone.
- - Set one or both of the following options in the Solr server configuration
-   via the collective.recipe.solrinstance buildout recipe:
+ - Set one or both of the following options in the Solr server configuration via the collective.recipe.solrinstance buildout recipe:
 
    - ``autoCommitMaxDocs`` - The number of updates that have occurred since the last commit.
    - ``autoCommitMaxTime`` - The number of milliseconds since the oldest uncommitted update.
 
 Asynchronous
--------------
+------------
 
-The third commit stragey is to do full asynchronous commits. This
-can be activated by setting the Flag **Asynchronous indexing** in
-the Solr control panel to ON. This behavior is the most efficient
-in terms of Zope response time. Since it is fire and forget the
-consistency could be harmed in midterm. It is advisable to to a
-sync or full-index from time to time if you work with this strategy.
+The third commit stragey is to do full asynchronous commits.
+This can be activated by setting the Flag **Asynchronous indexing** in the Solr control panel to ON.
+This behavior is the most efficient in terms of Zope response time.
+Since it is fire and forget the consistency could be harmed in midterm.
+It is advisable to to a sync or full-index from time to time if you work with this strategy.
 
 Additional information can be found in the Solr documentation:
 
-.. seealso: https://cwiki.apache.org/confluence/display/solr/UpdateHandlers+in+SolrConfig#UpdateHandlersinSolrConfig-commitWithin
+.. seealso:: https://cwiki.apache.org/confluence/display/solr/UpdateHandlers+in+SolrConfig#UpdateHandlersinSolrConfig-commitWithin
 
 Excercise
-=================
+=========
 
-Have a running Plone and Solr with collective.solr active and experiment
-with commit strategies.
+Have a running Plone and Solr with collective.solr active and experiment with commit strategies.

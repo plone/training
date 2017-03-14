@@ -26,7 +26,7 @@ Some notable add-ons
 `plone.app.mosaic <https://github.com/plone/plone.app.mosaic>`_
   Layout solution to easily create complex layouts through the web.
 
-`collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_
+`collective.geo <http://collectivegeo.readthedocs.io/en/latest/>`_
   Flexible bundle of add-ons to geo-reference content and display in maps
 
 `collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_
@@ -50,7 +50,7 @@ Some notable add-ons
 `Rapido <https://rapidoplone.readthedocs.io/en/latest/>`_
   Allows developers with a little knowledge of HTML and a little knowledge of Python to implement custom elements and insert them anywhere they want.
 
-`Plomino <http://www.plomino.net/>`_
+`Plomino <http://plomino.net/>`_
   Powerful and flexible web-based application builder for Plone
 
 .. warning::

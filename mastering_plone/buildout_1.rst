@@ -266,7 +266,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
         # pins for some Addons
         Products.PloneFormGen = 1.8.1
         Products.PythonField = 1.1.3
-        ...
+        # ...
 
     This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file :file:`versions.cfg`.
 
@@ -329,11 +329,13 @@ Be McGuyver
 .. seealso::
 
     Buildout-Documentation
-        * http://docs.plone.org/old-reference-manuals/buildout/index.html
-        * http://www.buildout.org/en/latest/docs/index.html
+        http://docs.buildout.org/en/latest/contents.html
 
     Troubleshooting
         http://docs.plone.org/manage/troubleshooting/buildout.html
+
+    A minimal buildout for Plone 5
+        https://github.com/collective/minimalplone5
 
     A minimal buildout for Plone 4
         https://github.com/collective/minimalplone4
