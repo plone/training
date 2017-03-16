@@ -189,7 +189,7 @@ This tells Buildout to add the egg :py:mod:`ploneconf.site`. The sources for thi
     ploneconf.site = git https://github.com/collective/ploneconf.site.git pushurl=git@github.com:collective/ploneconf.site.git
     starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
 
-The tells buildout not to download it from pypi but to do a cjeckout from github put the code in :file:`src/ploneconf.site`.
+The tells buildout not to download it from pypi but to do a checkout from github put the code in :file:`src/ploneconf.site`.
 
 ..  note::
 
