@@ -147,9 +147,9 @@ msgstr ""
 "Para el entrenamiento vamos a utilizar la opción 3 y 4 para instalar y "
 "ejecutar Plone. Vamos a crear nuestro propio Buildout y lo extenderemos como"
 " deseamos. Pero lo haremos en una máquina vagrant. Para sus primeros "
-"experimentos propios se recomienda la opción 2 o 3 (si usted tiene un como "
-"deseamos con Windows o al encontrar problemas). Más adelante usted debería "
-"ser capaz de utilizar su propio Buildout (lo cubriremos más adelante)."
+"experimentos propios se recomienda la opción 2 o 3 (si usted tiene una portátil "
+"con Windows o al encontrar problemas en su proceso de instalación). Más adelante "
+"usted debería ser capaz de utilizar su propio Buildout (lo cubriremos más adelante)."
 
 #: ../installation.rst:54
 msgid "http://docs.plone.org/4/en/manage/installing/installation.html"
