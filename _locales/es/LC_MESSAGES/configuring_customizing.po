@@ -141,7 +141,7 @@ msgstr "Usuarios y Grupos"
 
 #: ../configuring_customizing.rst:38
 msgid "Zope Management Interface (here be dragons)"
-msgstr "Interfaz de administración de Zope (He aquí dragones)"
+msgstr "Interfaz de administración de Zope (Aquí hay dragones, ¡Precaución!)"
 
 #: ../configuring_customizing.rst:40
 msgid ""
@@ -175,7 +175,7 @@ msgstr "La configuración de Portlets es heredada"
 
 #: ../configuring_customizing.rst:51
 msgid "managing"
-msgstr "son administrados"
+msgstr "Son administrados"
 
 #: ../configuring_customizing.rst:52
 msgid "ordering/weighting"
@@ -593,8 +593,8 @@ msgid ""
 "portal_skins it to make quick fixes to sites that are already online."
 msgstr ""
 "La interfaz de usuario deja mucho que desear. En un contexto profesional "
-"esto es inútil (sin control de versiones, no resaltado de sintaxis, etc pp)."
-" Pero todo el mundo usa la herramienta portal_skins, para hacer arreglos "
+"esto es inútil (sin control de versiones, no resaltado de sintaxis, etc. pp.). "
+"Pero todo el mundo usa la herramienta portal_skins, para hacer arreglos "
 "rápidos a los sitios que ya están en línea."
 
 #: ../configuring_customizing.rst:222
