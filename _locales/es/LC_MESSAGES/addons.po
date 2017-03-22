@@ -37,7 +37,7 @@ msgstr "Usándolos puedes ahorrarte mucho tiempo"
 #: ../addons.rst:6
 msgid "The success of a project often depends on finding the right add-on"
 msgstr ""
-"El éxito del proyecto a veces depende en encontrar el complemento adecuado"
+"El éxito de un proyecto a veces depende en encontrar el complemento adecuado"
 
 #: ../addons.rst:7
 msgid "Their use, usefulness, quality and complexity varies a lot"
@@ -116,7 +116,7 @@ msgstr ""
 #: ../addons.rst:33
 msgid "Photo galleries with a huge selection of various js-libraries"
 msgstr ""
-"Galerías de fotos con una gran selección de varios librerías javascript"
+"Galerías de fotos con una gran selección de varios librerías Javascript"
 
 #: ../addons.rst:36
 msgid ""
@@ -130,7 +130,7 @@ msgstr ""
 
 #: ../addons.rst:36
 msgid "UI to create complex landing-pages"
-msgstr "Interfaz para crear paginas de inicios complejas"
+msgstr "Interfaz para crear páginas de inicios (landing pages) complejas"
 
 #: ../addons.rst:39
 msgid "`collective.geo <http://collectivegeo.readthedocs.io/en/latest/>`_"
@@ -194,7 +194,7 @@ msgstr "`Products.Doormat <https://pypi.python.org/pypi/Products.Doormat>`_"
 
 #: ../addons.rst:54
 msgid "A flexible doormat"
-msgstr "Un flexible pie de pagina basado en el patrón de diseño Doormat"
+msgstr "Un flexible pie de página basado en el patrón de diseño Doormat"
 
 #: ../addons.rst:57
 msgid ""
@@ -313,7 +313,7 @@ msgstr ""
 
 #: ../addons.rst:100
 msgid "Now the code is available from within Plone."
-msgstr "Ahora el código está disponible desde dentro de Plone."
+msgstr "Ahora el código está disponible desde a dentro de Plone."
 
 #: ../addons.rst:103
 msgid "Installing add-ons in your Plone Site"
@@ -361,7 +361,7 @@ msgstr ""
 
 #: ../addons.rst:117
 msgid "configuring new actions,"
-msgstr "Configurando nuevas acciones,"
+msgstr "Configurando nuevas acciones"
 
 #: ../addons.rst:118
 msgid "registering new content types"
@@ -488,8 +488,8 @@ msgid ""
 "we're logged in as an administrator) see lots of more complex options that "
 "are invisible to site editors."
 msgstr ""
-"¿Piense PoneFormGen es demasiado complicado para sus editores del sitio? Los"
-" administradores (y estamos registrados como administrador) ver un montón de"
+"¿Piensa que PloneFormGen es demasiado complicado para sus editores del sitio? Los"
+" administradores (y estamos iniciado sesión de usuario como un administrador) ven un montón de"
 " opciones más complejas que son invisibles para editores del sitio."
 
 #: ../addons.rst:155
