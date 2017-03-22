@@ -94,7 +94,7 @@ msgstr ""
 
 #: ../theming.rst:21
 msgid "Diazo example"
-msgstr "ejemplo Diazo"
+msgstr "Ejemplo Diazo"
 
 #: ../theming.rst:23
 msgid "Activate Diazo via the add-ons control panel form"
@@ -131,7 +131,7 @@ msgid ""
 "Copy the Bootstrap Theme, use the ``Modify Theme`` button to see the Diazo "
 "rules."
 msgstr ""
-"Copie el tema Twitter Bootstrap Example, use el botón ``Copiar`` y cree un "
+"Copie el tema Twitter Bootstrap Example, use el botón ``Copiar`` para crear un "
 "tema en base a esta copia y poder modificar el tema para ver las reglas "
 "Diazo."
 
@@ -148,7 +148,7 @@ msgid ""
 "Take a look at ``plone.belowcontenttitle.documentbyline`` — get an idea how "
 "TAL logic is used to pull in context content."
 msgstr ""
-"Echa un vistazo a ``plone.belowcontenttitle.documentbyline`` - tener una "
+"Echa un vistazo a ``plone.belowcontenttitle.documentbyline`` — tener una "
 "idea de cómo se utiliza la lógica TAL para tirar en el contenido de "
 "contexto."
 
