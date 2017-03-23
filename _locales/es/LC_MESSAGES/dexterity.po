@@ -137,7 +137,7 @@ msgstr "Dexterity y Archetypes - Una comparación"
 
 #: ../dexterity.rst:41
 msgid "There are two content-frameworks in Plone"
-msgstr "Hay dos framworks de contenido en Plone"
+msgstr "Hay dos frameworks de contenido en Plone"
 
 #: ../dexterity.rst:43
 msgid "Dexterity: new and the coming default"
@@ -157,7 +157,7 @@ msgstr "Plone 4.x: Archetypes es el predeterminado, con Dexterity disponible"
 
 #: ../dexterity.rst:47
 msgid "Plone 5.x: Dexterity is the default with Archetypes available"
-msgstr "Plone 5.x: Dexterity es el defecto con Archetypes disponibles"
+msgstr "Plone 5.x: Dexterity es el predeterminado, con Archetypes disponible"
 
 #: ../dexterity.rst:48
 msgid "For both, add and edit forms are created automatically from a schema"
@@ -197,11 +197,11 @@ msgstr "A través de la Web:"
 
 #: ../dexterity.rst:58
 msgid "Dexterity has a good TTW story."
-msgstr "Dexterity tiene una buena historia a través de la Web."
+msgstr "Dexterity tiene una buena experiencia a través de la Web."
 
 #: ../dexterity.rst:59
 msgid "Archetypes has no TTW story."
-msgstr "Archetypes no tiene historia a través de la Web."
+msgstr "Archetypes no tiene experiencia a través de la Web, por defecto, solo vía productos adicionales de tercero sin soporte oficial."
 
 #: ../dexterity.rst:60
 msgid ""
@@ -249,7 +249,7 @@ msgstr ""
 
 #: ../dexterity.rst:70
 msgid "If starting fresh, go with Dexterity."
-msgstr "Si empieza desde cero en nuevo sitios, use Dexterity."
+msgstr "Si empieza desde cero en nuevo sitios, ¡use Dexterity!."
 
 #: ../dexterity.rst:72
 msgid "Extending:"
@@ -262,7 +262,7 @@ msgid ""
 msgstr ""
 "Dexterity tiene Comportamientos: fácilmente ampliable. Basta con activar un "
 "comportamiento a través de la Web y su tipo de contenido es, por ejemplo "
-"traducible (plone.app.multilingual)."
+"traducible (con el complemento plone.app.multilingual)."
 
 #: ../dexterity.rst:75
 msgid ""
@@ -279,7 +279,7 @@ msgid ""
 msgstr ""
 "Sólo hemos utilizado Dexterity en los últimos años. Enseñamos Dexterity y no"
 " Archetypes  porque es más accesible a los principiantes, tiene una gran "
-"historia a través de la Web y es el futuro."
+"experiencia a través de la Web y es el futuro."
 
 #: ../dexterity.rst:80
 msgid "Views:"
@@ -293,7 +293,7 @@ msgstr ""
 
 #: ../dexterity.rst:83
 msgid "Browser Views provide custom views."
-msgstr "Browser Views proveen vistas personalizadas."
+msgstr "Las Browser Views proveen vistas personalizadas."
 
 #: ../dexterity.rst:84
 msgid "TTW (future)"
@@ -381,12 +381,12 @@ msgid ""
 "Note that the only field in the xml-schema of the News Item is the one we "
 "just added. All others are provided by behaviors."
 msgstr ""
-"Note que el único campo en el esquema XML de la Noticia es el que acaba de "
+"Note que el único campo en el esquema XML de la Noticia, es el que acaba de "
 "agregar. Todos los demás son proporcionados por los comportamientos."
 
 #: ../dexterity.rst:113
 msgid "Edit the form-widget-type so it says:"
-msgstr "Editar el de tipo widget del formulario por lo que dice:"
+msgstr "Editar el tipo de widget del formulario por lo que dice:"
 
 #: ../dexterity.rst:119
 msgid ""
@@ -454,7 +454,7 @@ msgid ""
 "Add Field \"Audience\", type \"Multiple Choice\". Add options: beginner, "
 "advanced, pro"
 msgstr ""
-"Agregue  el campo\"Audience\", de tipo \"Selección múltiple\". Agregar "
+"Agregue  el campo \"Audience\", de tipo \"Selección múltiple\". Agregar "
 "opciones: beginner, advanced, pro"
 
 #: ../dexterity.rst:137
@@ -588,7 +588,7 @@ msgstr ""
 
 #: ../dexterity.rst:233
 msgid "Check the box next to *Lead Image* and save."
-msgstr "Marque la casilla junto a *Imagen Lead * y guardar."
+msgstr "Marque la casilla junto a *Imagen Lead* y guardar."
 
 #: ../dexterity.rst:235
 msgid "The images are displayed above the title."
@@ -616,7 +616,7 @@ msgstr "Last Name"
 
 #: ../dexterity.rst:245
 msgid "Email"
-msgstr "Correo electrónico"
+msgstr "Email"
 
 #: ../dexterity.rst:246
 msgid "Homepage (optional)"
