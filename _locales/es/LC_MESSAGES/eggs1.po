@@ -43,11 +43,11 @@ msgid ""
 "Create a custom python distribution ``ploneconf.site`` to hold all the code"
 msgstr ""
 "Cree una distribución python personalizada llamada ``ploneconf.site`` para "
-"mantener todo el código"
+"contener todo el código"
 
 #: ../eggs1.rst:15
 msgid "Modify buildout to install that distribution"
-msgstr "Modificar la configuración buildout para instalar esa distribucion"
+msgstr "Modificar la configuración buildout para instalar esa distribución"
 
 #: ../eggs1.rst:18
 msgid "Topics covered:"
@@ -156,9 +156,8 @@ msgid ""
 "The documentation, changelog, the list of contributors and the license of "
 "your egg goes in here."
 msgstr ""
-"La documentación y el archivo de registro de cambios, el archivo de la lista"
-" de contribuidores y el archivo de la licencia de de su paquete egg van "
-"allí."
+"La documentación y el archivo de registro de cambios, el archivo de la lista "
+"de contribuidores y el archivo de la licencia de su paquete egg van allí."
 
 #: ../eggs1.rst:74
 msgid "setup.py"
@@ -188,7 +187,7 @@ msgid ""
 " our code. From the buildout's perspective our code is in ``<your buildout "
 "directory>/src/ploneconf.site/src/ploneconf/site/<real code>``"
 msgstr ""
-"La distribución misma vive dentro de una estructura de carpetas especial. "
+"La distribución Python en si misma vive dentro de una estructura de carpetas especial. "
 "Eso parece confuso, pero es necesario para tener buena habilidad de prueba."
 " Nuestra distribución contiene un `paquete de espacio de nombres "
 "<https://www.python.org/dev/peps/pep-0420/>`_  llamado *ploneconf.site* y "
@@ -207,7 +206,7 @@ msgstr ""
 "A menos que discutamos el buildout, de ahora en adelante, omitiremos "
 "silenciosamente estas carpetas al describir los archivos y asumiremos que "
 "``<su directorio buildout>/src/ploneconf.site/src/ploneconf/site/`` ¡es el "
-"directorio raíz de nuestra distribución!"
+"directorio raíz de nuestra distribución Python!"
 
 #: ../eggs1.rst:87
 msgid "configure.zcml (src/ploneconf/site/configure.zcml)"
@@ -283,7 +282,7 @@ msgid ""
 "The phonebook of the browser package. Here views, resources and overrides "
 "are registered."
 msgstr ""
-"La agenda del paquete del browser. Aquí se registran vistas, recursos y "
+"La guía del paquete del browser. Aquí se registran vistas, recursos y "
 "sobre-escrituras de Plone."
 
 #: ../eggs1.rst:108
