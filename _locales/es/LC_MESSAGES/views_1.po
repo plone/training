@@ -44,7 +44,7 @@ msgid ""
 "views and templates."
 msgstr ""
 "Antes de escribir la vista de tipo de contenido talk en sí, retrocedemos y "
-"hablamos *un poco*sobre las vistas y las plantillas."
+"hablamos *un poco* sobre las vistas y las plantillas."
 
 #: ../views_1.rst:18
 msgid ""
