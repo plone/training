@@ -221,7 +221,7 @@ msgid ""
 "to the url."
 msgstr ""
 "Después de un reinicio, podemos probar nuestra vista, yendo a un tipo de "
-"contenido charla agregada y agrégale a la dirección URL /talkview."
+"contenido talk agregado y agrégale a la dirección URL /talkview."
 
 #: ../views_2.rst:159
 msgid ""
