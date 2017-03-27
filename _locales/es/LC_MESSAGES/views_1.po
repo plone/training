@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../views_1.rst:2
 msgid "Views I"
-msgstr "Views - Parte I"
+msgstr "Vistas - Parte I"
 
 #: ../views_1.rst:0
 msgid "Get the code!"
