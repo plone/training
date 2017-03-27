@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../views_2.rst:2
 msgid "Views II: A default view for \"talk\""
-msgstr "Views - Parte II: Una vista por defecto para la \"charla\""
+msgstr "Vistas - Parte II: Una vista por defecto para la \"charla\""
 
 #: ../views_2.rst:0
 msgid "Get the code!"
