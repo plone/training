@@ -6,6 +6,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Fix typos, improve wording
+  [svx]
+
 - Clarify which template we're editing 
   [djowett]
 

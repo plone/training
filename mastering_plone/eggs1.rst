@@ -39,7 +39,7 @@ We create and enter the :file:`src` directory (*src* is short for *sources*) and
     $ cd src
     $ ../bin/mrbob -O ploneconf.site bobtemplates:plone_addon
 
-We have to answer some questions about the add-on. We will press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your github username if you have one) and 5 (Plone version), where we enter :kbd:`5.0.6`::
+We have to answer some questions about the add-on. We will press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your GitHub username if you have one) and 5 (Plone version), where we enter :kbd:`5.0.6`::
 
     --> What kind of package would you like to create? Choose between 'Basic', 'Dexterity', and 'Theme'. [Basic]:
 
@@ -47,7 +47,7 @@ We have to answer some questions about the add-on. We will press :kbd:`Enter` (i
 
     --> Author's email [bauer@starzel.de]:
 
-    --> Author's github username: fulv
+    --> Author's GitHub username: fulv
 
     --> Package description [An add-on for Plone]:
 
@@ -189,15 +189,15 @@ This tells Buildout to add the egg :py:mod:`ploneconf.site`. The sources for thi
     ploneconf.site = git https://github.com/collective/ploneconf.site.git pushurl=git@github.com:collective/ploneconf.site.git
     starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
 
-The tells buildout not to download it from pypi but to do a checkout from github put the code in :file:`src/ploneconf.site`.
+This tells buildout not to download it from pypi but to do a checkout from GitHub put the code in :file:`src/ploneconf.site`.
 
 ..  note::
 
-    The package ``ploneconf.site`` is now downloaded from github and automatically in the branch master
+    The package ``ploneconf.site`` is now downloaded from GitHub and automatically in the branch master
 
 ..  note::
 
-    If you do **not** want to use the prepared package for ploneconf.site from github but write it yourself (we suggest you try that) then add the following instead:
+    If you do **not** want to use the prepared package for ploneconf.site from GitHub but write it yourself (we suggest you try that) then add the following instead:
 
     ..  code-block:: cfg
         :emphasize-lines: 2
