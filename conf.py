@@ -51,6 +51,7 @@ linkcheck_ignore = [
     r'http://localhost:8080',
     r'http://127.0.0.1:8080',
     r'http://wiki.apache.org',
+    r'https://www.vagrantup.com',
 ]
 linkcheck_anchors = False
 linkcheck_timeout = 30
