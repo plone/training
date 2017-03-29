@@ -64,7 +64,7 @@ Zope2
 
     .. seealso::
 
-       * http://www.zope.org/the-world-of-zope
+       * http://www.zope.org/en/latest/world.html
        * http://docs.zope.org/zope2/zope2book/
 
 
