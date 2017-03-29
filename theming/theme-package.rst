@@ -373,7 +373,7 @@ As you can see, the package already contains a Diazo theme including Barceloneta
 
 This theme basically provides you with a copy of the Plone 5 default theme (Barceloneta), and you can change everything you need to create your own theme. The Barceloneta resources are in the folder barceloneta. This is basically a copy of the theme folder of plonetheme.barceloneta. We removed some unneeded files there, because we only need the LESS part for partially including it in our theme.less. We also have the icons and the backend.xml from Barceloneta in our them folder.
 
-In ``theme/less`` we have our CSS/LESS files. Our own CSS goes into custom.less. You can also add more LESS files and include them in ``theme.less``, if you have a loot of custom CSS.
+In ``theme/less`` we have our CSS/LESS files. Our own CSS goes into custom.less. You can also add more LESS files and include them in ``theme.less``, if you have a lot of custom CSS.
 
 The ``theme.less`` is our main LESS file. Here we include all other files we need.
 It already has some includes of Barceloneta, Bootstrap and our ``custom.less`` at the bottom.
