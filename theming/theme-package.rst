@@ -29,7 +29,7 @@ On Debian/Ubuntu for example you can do this with apt:
 
    $ sudo apt install -y npm
 
-If you need a newer version of ``ǹpm`` just update your version with ``npm`` it self:
+If you need a newer version of ``npm`` just update your version with ``npm`` it self:
 
 .. code-block: bash
 
