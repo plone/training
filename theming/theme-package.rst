@@ -134,8 +134,8 @@ Deactivate mrbob virtualenv:
    (mrbobvenv):~/develop/plone/plonetheme.tango$ deactivate
 
 
-Install Buildout and boostrap your development environment
-----------------------------------------------------------
+Install Buildout and bootstrap your development environment
+-----------------------------------------------------------
 
 You can install Buildout globally or on a virtualenv.
 To install zc.buildout globally:
