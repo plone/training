@@ -1,7 +1,10 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
-# This file is distributed under the same license as the Mastering Plone package.
-# 
+# Copyright (C) The text and illustrations in this website are licensed by
+# the Plone Foundation under a Creative Commons Attribution 4.0
+# International license.
+# This file is distributed under the same license as the Mastering Plone
+# package.
+#
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
 # Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
@@ -9,167 +12,158 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-13 00:40-0430\n"
+"POT-Creation-Date: 2017-04-20 15:07-0400\n"
 "PO-Revision-Date: 2014-07-13 04:27+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
+"plone-training/language/es/)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
 
-# 320264c74aa9414ebcb9368a8471ac33
-#: ../optional.rst:2
+#: ../optional.rst:4
 msgid "Optional"
 msgstr "Opcional"
 
-# fd6a4bc6bf564b54ba4c6fc88cbdef8e
-#: ../optional.rst:4
+#: ../optional.rst:6
 msgid "Testing"
 msgstr "Pruebas"
 
-# 2eb23eda67824d4ea795ec0f2873df78
-#: ../optional.rst:5
+#: ../optional.rst:7
 msgid "zc3.form"
 msgstr "zc3.form"
 
-# d6fcb222082648bcb45e5b27849ebaa4
-#: ../optional.rst:6
-msgid "portlets"
+#: ../optional.rst:8
+#, fuzzy
+msgid "Portlets"
 msgstr "portlets"
 
-# 3a4bfcffc3ae42c6850e65e800a757a6
-#: ../optional.rst:7
-msgid "zca in depth"
+#: ../optional.rst:9
+#, fuzzy
+msgid "ZCA in depth"
 msgstr "zca en profundidad"
 
-# c980e8a208e4487aaa68c59c24cfa0d1
-#: ../optional.rst:8
+#: ../optional.rst:10
 msgid ":doc:`grok`"
 msgstr ":doc:`grok`"
 
-# facf656291a847f493c9c03b53983729
-#: ../optional.rst:9
+#: ../optional.rst:11
 msgid "ZODB"
 msgstr "ZODB"
 
-# 386400853b874fbaba843aa74bef55d1
-#: ../optional.rst:10
-msgid "more and more more complex fields"
+#: ../optional.rst:12
+#, fuzzy
+msgid "More and more more complex fields"
 msgstr "Mas y mas campos complejos"
 
-# 713756f11e884349bdd0c1b39fe845a5
-#: ../optional.rst:11
-msgid "relations"
+#: ../optional.rst:13
+#, fuzzy
+msgid "Relations"
 msgstr "relaciones"
 
-# b0f7d5f91fdf4283b1b70b387d68560d
-#: ../optional.rst:12
-msgid "custom edit-forms"
+#: ../optional.rst:14
+#, fuzzy
+msgid "Custom edit forms"
 msgstr "formularios de edición personalizados"
 
-# 82370122edb94b9fa82e9d5a95f359e7
-#: ../optional.rst:13
-msgid "control panels"
+#: ../optional.rst:15
+#, fuzzy
+msgid "Control panels"
 msgstr "paneles de control"
 
-# c6a0ec739065489b8697acf3f0431fad
-#: ../optional.rst:14
+#: ../optional.rst:16
 msgid "plone.app.registry"
 msgstr "plone.app.registry"
 
-# 13b11950452e4b1ba7b372bcd285ac04
-#: ../optional.rst:15
-msgid "security (permission/roles/workflow)"
+#: ../optional.rst:17
+#, fuzzy
+msgid "Security (permission/roles/workflow)"
 msgstr "seguridad (permisos / roles / flujo de trabajo)"
 
-# 604c1d143504458f885f764ce0efb6f9
-#: ../optional.rst:16
-msgid "custom permissions"
+#: ../optional.rst:18
+#, fuzzy
+msgid "Custom permissions"
 msgstr "permisos personalizados"
 
-# 377e6f5bda2641508fb0a33cceebbea8
-#: ../optional.rst:17
-msgid "custom workflow"
+#: ../optional.rst:19
+#, fuzzy
+msgid "Custom workflow"
 msgstr "flujo de trabajo personalizado"
 
-# 491af315c61f454a87da2c5979802027
-#: ../optional.rst:18
-msgid "users, authentication, member profiles, ldap"
+#: ../optional.rst:20
+#, fuzzy
+msgid "Users, authentication, member profiles, LDAP"
 msgstr "usuarios, autenticación, perfiles de miembros, ldap"
 
-# 2957bd56873a463298cae3a9eadc88c9
-#: ../optional.rst:19
-msgid "caching (plone.app.caching)"
+#: ../optional.rst:21
+#, fuzzy
+msgid "Caching (plone.app.caching)"
 msgstr "cacheo (plone.app.caching)"
 
-# b781e37b9f534ffbb763850ec5cc1da3
-#: ../optional.rst:20
+#: ../optional.rst:22
 msgid "GenericSetup"
 msgstr "GenericSetup"
 
-# 365a863d5d7b447f9b70453a3d6477c6
-#: ../optional.rst:21
-msgid "Upgrade-Steps"
+#: ../optional.rst:23
+#, fuzzy
+msgid "Upgrade Steps"
 msgstr "Pasos de actualización"
 
-# cfbc781fb25b428387845be7cd16405b
-#: ../optional.rst:22
+#: ../optional.rst:24
 msgid "Migrations"
 msgstr "Migraciones"
 
-# 6c96d4ac0a774e95b8018a8f1d09d539
-#: ../optional.rst:23
-msgid "Asynchronous stuff"
+#: ../optional.rst:25
+#, fuzzy
+msgid "Asynchronous processing"
 msgstr "Cosas asincronas"
 
-# 7ba9c4a2d0844cbdb99498e7600499e9
-#: ../optional.rst:24
-msgid "Talking with external api’s"
+#: ../optional.rst:26
+#, fuzzy
+msgid "Talking with external APIs"
 msgstr "Hablando con apis externas"
 
-# 3c3e87074ac64cbf807e6350f3ec1eea
-#: ../optional.rst:25
+#: ../optional.rst:27
 msgid "Mockup"
 msgstr "Mockup"
 
-# 690b9dcd406443f7bb785f6c426c46e6
-#: ../optional.rst:26
-msgid "cutomizing barcelonetta"
+#: ../optional.rst:28
+#, fuzzy
+msgid "Customizing barceloneta"
 msgstr "personalizando barcelonetta"
 
-# 4a757daaa2744f33a8972b04cfaa5669
-#: ../optional.rst:27
+#: ../optional.rst:29
 msgid "plone.app.widgets"
 msgstr "plone.app.widgets"
 
-# a619d3eeccb847e4bcccbe5d58af6c03
-#: ../optional.rst:28
+#: ../optional.rst:30
 msgid ":doc:`deployment_code`"
 msgstr ":doc:`deployment_code`"
 
-# baba869e7c5e42c580e09d9356516bde
-#: ../optional.rst:29
+#: ../optional.rst:31
 msgid "Deployment"
 msgstr "Despliegue"
 
-# b4b66d224637416482fd2d65f761418d
-#: ../optional.rst:31
-msgid "storage options"
+#: ../optional.rst:33
+#, fuzzy
+msgid "Storage options"
 msgstr "opciones de almacenamiento"
 
-# 4da8b2e701ff4c87afcf6e7164115dea
-#: ../optional.rst:32
-msgid "backup"
+#: ../optional.rst:34
+#, fuzzy
+msgid "Backup"
 msgstr "respaldo"
 
-# 7a601c9c75b44816a4dadc715f4ada5d
-#: ../optional.rst:33
-msgid "deployment buildouts"
+#: ../optional.rst:35
+#, fuzzy
+msgid "Deployment buildouts"
 msgstr "configuraciones buildous de despliegue"
 
-# 10457819d3804b3bbb45761b45b7b916
-#: ../optional.rst:34
-msgid "caching (varnish)"
+#: ../optional.rst:36
+#, fuzzy
+msgid "Caching (varnish)"
 msgstr "cacheo (varnish)"
+

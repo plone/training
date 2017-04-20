@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2017-04-20 15:07-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,83 +16,63 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../views_1.rst:2
-# b09211f7380c41bfae312158cc529507
+#: ../views_1.rst:4
 msgid "Views I"
 msgstr ""
 
-#: ../views_1.rst:0
-# 4aa342ac975745dbbb3ea263703a21a0
-msgid "Get the code!"
+#: ../views_1.rst:6
+msgid "In this part you will:"
 msgstr ""
 
-#: ../views_1.rst:6
-# e1a0c5932609425da2d53a6d40cd3834
-msgid "Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:"
+#: ../views_1.rst:8
+msgid "Register a view"
+msgstr ""
+
+#: ../views_1.rst:9
+msgid "Create and use a template for the view"
+msgstr ""
+
+#: ../views_1.rst:12
+msgid "Topics covered:"
 msgstr ""
 
 #: ../views_1.rst:14
-# 73e42089b84d47f39e9a6666d7e7d68a
+msgid "zcml"
+msgstr ""
+
+#: ../views_1.rst:19
 msgid "A simple browser view"
 msgstr ""
 
-#: ../views_1.rst:16
-# 1fffba79e5ad443bb05cb3bc128e49dc
-msgid "We need to add some boilerplate-code to be able to create a view. Before we write the talk-view itself we need to step back and talk *a little* about views and templates."
-msgstr ""
-
-#: ../views_1.rst:18
-# 66548c1911744be0afb045b70b23f6cb
-msgid "A basic view in Plone is usually a ``BrowserView``. It can hold a lot of python-code but it can also be only a empty ``BrowserView``-class that renders a template when called. Such an empty class is what we create at first so we can concentrate on the template."
-msgstr ""
-
-#: ../views_1.rst:20
-# a634a887c156461ca3c0995c58501784
-msgid "Add a new directory ``src/ploneconf.site/ploneconf/site/browser``. By convention the dir ``browser`` should hold all UI displayed in the browser."
-msgstr ""
-
 #: ../views_1.rst:21
-# 925d36d92549457bad9d13bf1c19d463
-msgid "Add an empty file ``browser/__init__.py``"
+msgid "Before writing the talk view itself we step back and talk *a little* about views and templates."
 msgstr ""
 
-#: ../views_1.rst:22
-# 4caf2109ad7a47f185cf549b76cfe5e3
-msgid "We need to tell Plone to consider this directory. Modify the existing ``configure.zcml`` and add"
+#: ../views_1.rst:23
+msgid "A view in Plone is usually a ``BrowserView``. It can hold a lot of cool python code but we will first focus on the template."
 msgstr ""
 
-#: ../views_1.rst:28
-# 900d37d186db4cf9b7382ba5d7bd70b3
-msgid "Then add a file ``browser/configure.zcml``:"
+#: ../views_1.rst:25
+msgid "Edit the file ``browser/configure.zcml`` and register another view similar to the demoview already there:"
 msgstr ""
 
-#: ../views_1.rst:48
-# 938808d74d434aa082d8c09c72b6f1a3
-msgid "Add a file ``browser/views.py``::"
+#: ../views_1.rst:68
+msgid "Add a file ``browser/templates/training.pt``"
 msgstr ""
 
-#: ../views_1.rst:56
-# 2f528da9e6c4428d816a22fc69991167
-msgid "This might seem a lot of boilerplate if we only want to render a template but every bit of it can be changed to achieve different effects. It's not useless code but actually very powerful stuff. We only ignore it for now and concentrate on the template."
+#: ../views_1.rst:74
+msgid "Restart Plone and open http://localhost:8080/Plone/@@training."
 msgstr ""
 
-#: ../views_1.rst:58
-# 4a0770acdb294977af28d7b94962f1ee
-msgid "Add a directory ``browser/templates`` and add an file ``browser/templates/demoview.pt``"
+#: ../views_1.rst:75
+msgid "You should now see \"Hello World\"."
 msgstr ""
 
-#: ../views_1.rst:64
-# 056a427324be434e9ae94b817e2d990f
-msgid "Restart Plone and open http://localhost:8080/Plone/@@demoview."
+#: ../views_1.rst:77
+msgid "We now have everything in place to learn about page templates."
 msgstr ""
 
-#: ../views_1.rst:65
-# d35e0a908fb7421b87c776b5b11522d6
-msgid "You should see \"Hello World\"."
-msgstr ""
-
-#: ../views_1.rst:67
-# 498cfd379e724d7d988b57c72b866151
-msgid "We now have everything in place to learn about zope page templates."
+#: ../views_1.rst:81
+msgid "The view ``training`` has no python class registered for it but only a template. It acts as if it had an empty python class inheriting from ``Products.Five.browser.BrowserView`` but the way that happens is actually quite a bit of magic..."
 msgstr ""
 
