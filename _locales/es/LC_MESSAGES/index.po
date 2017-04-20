@@ -29,7 +29,7 @@ msgstr "¡Maestría en Plone!"
 #: ../index.rst:6
 msgid "Mastering Plone moved to http://training.plone.org"
 msgstr ""
-"El entrenamiento ¡Maestría en Plone! fue movido a http://training.plone.org"
+"El entrenamiento Maestría en Plone, fue movido a http://training.plone.org"
 
 #: ../index.rst:9
 msgid "`Mastering Plone 5 <http://training.plone.org/5>`_"
