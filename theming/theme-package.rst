@@ -142,10 +142,9 @@ To install zc.buildout globally:
 
 .. code-block:: bash
 
-   $ sudo pip install zc.buildout
-
-.. code-block:: bash
-
+   $ virtualenv buildoutvenv
+   $ source buildoutvenv/bin/activate
+   $ pip install zc.buildout
    $ buildout bootstrap
 
 Now you have everything in place and you can run buildout:
@@ -153,6 +152,7 @@ Now you have everything in place and you can run buildout:
 .. code-block:: bash
 
    $ ./bin/buildout
+   $ deactivate
 
 This will create the whole development environment for your package:
 
