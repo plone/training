@@ -26,7 +26,7 @@ It lets you gradually select and explore different facets (metadata/properties) 
 
 Examples:
 
-* http://www.dipf.de/en/research/projects
+* https://www.dipf.de/en/research/projects
 * https://www.mountaineers.org/learn/courses-clinics-seminars
 * https://www.dyna-jet.com/hochdruckreiniger
 
