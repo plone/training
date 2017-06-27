@@ -5,7 +5,7 @@ JavaScript for Plone Developers
 
 The definitive location for documentation regarding Plone's JavaScript
 and Resource Registries is located at:
-http://docs.plone.org/adapt-and-extend/theming/resourceregistry.html
+https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html
 
 
 **Training Objective**

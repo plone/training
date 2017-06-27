@@ -749,9 +749,9 @@ msgstr "Hay mucho más acerca de TAL, TALES y METAL que no hemos cubierto. Usted
 # acd01bfb6fce46a3b902b4d0e98a52f0
 #: ../zpt.rst:546
 msgid ""
-"http://docs.plone.org/adapt-and-"
+"https://docs.plone.org/adapt-and-"
 "extend/theming/templates_css/template_basics.html"
-msgstr "http://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html"
+msgstr "https://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html"
 
 # d31995c5fbc648d9af26a2da12defeba
 #: ../zpt.rst:547

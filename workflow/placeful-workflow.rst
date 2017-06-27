@@ -27,7 +27,7 @@ Internals of Placeful Workflow
 * Works by providing a more specific ``adapter`` for the ``IWorkflowChain`` interface defined by DCWorkflow.
 
   * This means that when you install this product, the ``portal_workflow`` tool is marked with an ``IPlacefulWorkflow`` interface, and from then on, the adapter defined by the product is used when looking up the workflow chain for an object
-  * A great example of the `marker pattern <http://docs.plone.org/external/plone.app.dexterity/docs/behaviors/providing-marker-interfaces.html>`_
+  * A great example of the `marker pattern <https://docs.plone.org/external/plone.app.dexterity/docs/behaviors/providing-marker-interfaces.html>`_
 
 * You add a *workflow policy* in the location where you want to have customized workflow assignments.
 

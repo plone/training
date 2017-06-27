@@ -207,7 +207,7 @@ msgstr ""
 
 #: ../user_generated_content.rst:83
 # 77a13fb9c67a4d3db82c3e6a349fe20b
-msgid "This has to happen in python in a custom `setuphandler.py <http://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_ since there is not yet a exportable setting for this."
+msgid "This has to happen in python in a custom `setuphandler.py <https://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_ since there is not yet a exportable setting for this."
 msgstr ""
 
 #: ../user_generated_content.rst:85

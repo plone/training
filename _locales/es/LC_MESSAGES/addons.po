@@ -103,8 +103,8 @@ msgstr "Algunos complementos notables"
 #: ../addons.rst:30
 msgid ""
 "`Products.PloneFormGen "
-"<http://docs.plone.org/develop/plone/forms/ploneformgen.html>`_"
-msgstr "`Products.PloneFormGen <http://docs.plone.org/develop/plone/forms/ploneformgen.html>`_"
+"<https://docs.plone.org/develop/plone/forms/ploneformgen.html>`_"
+msgstr "`Products.PloneFormGen <https://docs.plone.org/develop/plone/forms/ploneformgen.html>`_"
 
 # faec4eb14e824339aeb11b2285108ec7
 #: ../addons.rst:30

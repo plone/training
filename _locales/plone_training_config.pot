@@ -183,7 +183,7 @@ msgstr ""
 
 #: ../plone_training_config/instructions.rst:107
 # ce04222f403e4a4bbf42048aa3db6ed9
-msgid "If you have to use Windows you'll have to login to with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User _and_ password are `vagrant`."
+msgid "If you have to use Windows you'll have to login to with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User _and_ password are `vagrant`."
 msgstr ""
 
 #: ../plone_training_config/instructions.rst:109

@@ -120,7 +120,7 @@ The `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_, which 
 Pyramid
 -------
 
-* `Pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ is a Python web application development framework that is often seen as the successor to Zope.
+* `Pyramid <https://trypyramid.com/resources.html>`_ is a Python web application development framework that is often seen as the successor to Zope.
 * It does less than Zope, is very pluggable and `uses the Zope Component Architecture <http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_ “under the hood” to perform view dispatching and other application configuration tasks.
 
 .. only:: not presentation

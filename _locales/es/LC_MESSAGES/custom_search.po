@@ -130,5 +130,5 @@ msgstr "Vocabularios personalizados a través de la Web usando `Products.ATVocab
 #: ../custom_search.rst:34
 msgid ""
 "Programming using Vocabularies: "
-"http://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html"
-msgstr "Programando usando vocabularios: http://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html"
+"https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html"
+msgstr "Programando usando vocabularios: https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html"

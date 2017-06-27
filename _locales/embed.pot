@@ -90,7 +90,7 @@ msgstr ""
 
 #: ../embed.rst:64
 # 53ed465f6f704f6d83907f96fcea125f
-msgid "We should instead also add ``<dependency>profile-plone.app.contenttypes:plone-content</dependency>`` like the `documentation for plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html#installation-as-a-dependency-from-another-product>`_ recommends."
+msgid "We should instead also add ``<dependency>profile-plone.app.contenttypes:plone-content</dependency>`` like the `documentation for plone.app.contenttypes <https://docs.plone.org/external/plone.app.contenttypes/docs/README.html#installation-as-a-dependency-from-another-product>`_ recommends."
 msgstr ""
 
 #: ../embed.rst:78

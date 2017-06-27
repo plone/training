@@ -26,7 +26,7 @@ Contents:
 
 .. seealso::
 
-   http://docs.plone.org/manage/deploying/
+   https://docs.plone.org/manage/deploying/
 
 OpsWorks
 ========

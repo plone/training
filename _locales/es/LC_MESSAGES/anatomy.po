@@ -261,10 +261,10 @@ msgstr "Pyramid"
 # 02091034744649798c63715649bc667f
 #: ../anatomy.rst:92
 msgid ""
-"`Pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ is a "
+"`Pyramid <https://trypyramid.com/resources.html>`_ is a "
 "Python web application development framework that is often seen as the "
 "successor to Zope."
-msgstr "`Pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ es un framework de desarrollo de aplicaciones Web en Python que es a veces visto como el sucesor natural de Zope."
+msgstr "`Pyramid <https://trypyramid.com/resources.html>`_ es un framework de desarrollo de aplicaciones Web en Python que es a veces visto como el sucesor natural de Zope."
 
 # e582e67056f14b83b5b193ff2bc9c942
 #: ../anatomy.rst:93

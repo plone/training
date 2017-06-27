@@ -48,7 +48,7 @@ msgstr ""
 
 #: ../grok.rst:18
 # ea839b0c115843b987ce268fab93df3a
-msgid "http://docs.plone.org/develop/addons/five-grok/index.html"
+msgid "https://docs.plone.org/develop/addons/five-grok/index.html"
 msgstr ""
 
 #: ../grok.rst:20

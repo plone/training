@@ -198,7 +198,7 @@ msgstr ""
 
 #: ../views_3.rst:178
 # 0ee16be258274008b86ff233e85edfa7
-msgid "The are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::"
+msgid "The are many `catalog indexes <https://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::"
 msgstr ""
 
 #: ../views_3.rst:186
@@ -208,7 +208,7 @@ msgstr ""
 
 #: ../views_3.rst:193
 # d898900a012e42b19f08b4953abd57d1
-msgid "http://docs.plone.org/develop/plone/searching_and_indexing/query.html"
+msgid "https://docs.plone.org/develop/plone/searching_and_indexing/query.html"
 msgstr ""
 
 #: ../views_3.rst:197

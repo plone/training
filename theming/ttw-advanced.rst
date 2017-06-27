@@ -42,7 +42,7 @@ At its core, a Diazo theme consists of an HTML page and :file:`rules.xml` file c
 
 .. note::
 
-    You can find extended information about Diazo and its integration package :py:mod:`plone.app.theming` in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_ and `plone.app.theming docs <http://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
+    You can find extended information about Diazo and its integration package :py:mod:`plone.app.theming` in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_ and `plone.app.theming docs <https://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
 
 Principles
 ----------
@@ -80,8 +80,8 @@ Anatomy of a Diazo theme
 
 The most important files:
 
-* :file:`manifest.cfg`: contains metadata about the theme (`manifest reference <http://docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file>`_);
-* :file:`rules.xml`: contains the theme rules (`rules reference <http://docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax>`_);
+* :file:`manifest.cfg`: contains metadata about the theme (`manifest reference <https://docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file>`_);
+* :file:`rules.xml`: contains the theme rules (`rules reference <https://docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax>`_);
 * :file:`index.html`: the static HTML of the theme.
 
 Exercise 1 - Inspecting the :file:`manifest.cfg`

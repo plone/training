@@ -166,8 +166,8 @@ msgstr "Licencia"
 msgid ""
 "The Mastering Plone Training is licensed under a `Creative Commons "
 "Attribution 4.0 International License "
-"<http://creativecommons.org/licenses/by/4.0/>`_."
-msgstr "El entrenamiento Mastering Plone es licenciado bajo la `Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_."
+"<https://creativecommons.org/licenses/by/4.0/>`_."
+msgstr "El entrenamiento Mastering Plone es licenciado bajo la `Creative Commons Attribution 4.0 International License <https://creativecommons.org/licenses/by/4.0/>`_."
 
 # 038d2dc625634e8abccdf82a9c4d8463
 #: ../about.rst:60

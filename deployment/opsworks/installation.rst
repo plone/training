@@ -36,7 +36,7 @@ use your own buildout repository in these App configurations, but any buildout
 you use should probably be cloned from the one used in this demo configuration
 because it provides a number of buildout parts and variables that the
 deployment recipes expect to be in place:
-https://github.com/alecpm/opsworks_example_buildouts.git
+https://github.com/alecpm/opsworks_example_buildouts
 
 Finally, you'll need to provide some additional configuration (Chef
 Attributes) in the form of the Stack ``Custom JSON`` which can be edited in

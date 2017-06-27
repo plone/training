@@ -143,8 +143,8 @@ msgstr "Para el entrenamiento vamos a utilizar la opción 3 y 4 para instalar y 
 #: ../installation.rst:60
 msgid ""
 "Read more about installing Plone: https://plone.org/documentation/manual"
-"/installing-plone and http://docs.plone.org/manage/installing/index.html"
-msgstr "Lea más acerca de la instalación Plone: https://plone.org/documentation/manual/installing-plone y http://docs.plone.org/manage/installing/index.html"
+"/installing-plone and https://docs.plone.org/manage/installing/index.html"
+msgstr "Lea más acerca de la instalación Plone: https://plone.org/documentation/manual/installing-plone y https://docs.plone.org/manage/installing/index.html"
 
 # a61c37811e654b14879b9d53876be76b
 #: ../installation.rst:64

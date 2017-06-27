@@ -82,7 +82,7 @@ We do this TTW right now.
 
 .. note:: In the production setup you will define your schema with an interface or a supermodel XML but this is beyond of this training.
    More information on dexterity schemas and fields can be found in the Plone documentation:
-   http://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html
+   https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html
 
 Let's add a field *email* to a task.
 We assume this is contact email which can be used to contact the responsible support person for this task.

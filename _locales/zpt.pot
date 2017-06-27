@@ -664,7 +664,7 @@ msgstr ""
 
 #: ../zpt.rst:546
 # acd01bfb6fce46a3b902b4d0e98a52f0
-msgid "http://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html"
+msgid "https://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html"
 msgstr ""
 
 #: ../zpt.rst:547
