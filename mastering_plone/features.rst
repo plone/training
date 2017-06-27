@@ -422,11 +422,6 @@ While it's shipped with Plone, working copy support is not a common need.
 So, if you need it, you need to activate it via the add-on packages configuration page.
 Unless activated, check-in/check-out options are not visible.
 
-.. Note::
-
-    Working-copy support is not yet available for content types created via Dexterity.
-    This is on the way.
-
 
 .. _features-placeful-wf-label:
 
@@ -444,7 +439,3 @@ Since it has effect in a "place" in a site, this mechanism is often called "Plac
 As with working-copy support, Placeful Workflow ships with Plone but needs to be activated via the add-on configuration page.
 Once it's added, a :guilabel:`Policy` option will appear on the state menu to allow setting a placeful workflow policy.
 
-.. Note::
-
-    Workflow Policy support is not yet available for folderish contenttypes created via Dexterity.
-    This is on the way.
