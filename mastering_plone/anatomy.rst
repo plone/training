@@ -121,7 +121,7 @@ Pyramid
 -------
 
 * `Pyramid <https://trypyramid.com/resources.html>`_ is a Python web application development framework that is often seen as the successor to Zope.
-* It does less than Zope, is very pluggable and `uses the Zope Component Architecture <http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_ “under the hood” to perform view dispatching and other application configuration tasks.
+* It does less than Zope, is very pluggable and `uses the Zope Component Architecture <https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_ “under the hood” to perform view dispatching and other application configuration tasks.
 
 .. only:: not presentation
 
@@ -133,7 +133,7 @@ Pyramid
 
     .. seealso::
 
-       * http://docs.pylonsproject.org/projects/pyramid/en/latest/index.html
+       * https://docs.pylonsproject.org/projects/pyramid/en/latest/index.html
 
 Exercise
 --------

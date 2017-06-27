@@ -271,8 +271,8 @@ msgstr "`Pyramid <https://trypyramid.com/resources.html>`_ es un framework de de
 msgid ""
 "It does less than Zope, is very pluggable and `uses the Zope Component "
 "Architecture "
-"<http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
-msgstr "Eso hace menos que Zope, es muy configurable y `usa la Arquitectura de Componentes Zope <http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
+"<https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
+msgstr "Eso hace menos que Zope, es muy configurable y `usa la Arquitectura de Componentes Zope <https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
 
 # e13307aabc0e4534a17a8666d74ff28e
 #: ../anatomy.rst:97

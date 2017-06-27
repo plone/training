@@ -152,8 +152,8 @@ msgstr "``tal:define``"
 #: ../zpt.rst:107
 msgid ""
 "define variables. We definded the variable url to the string "
-"\"http://www.ploneconf.org\""
-msgstr "definir las variables. Nosotros definimos la variable url para la cadena \"http://www.ploneconf.org\""
+"\"https://www.ploneconf.org/\""
+msgstr "definir las variables. Nosotros definimos la variable url para la cadena \"https://www.ploneconf.org/\""
 
 # 8cdd71b484ec4dcfa5f22bc469140942
 #: ../zpt.rst:110

@@ -273,6 +273,6 @@ The Plone Role -- using it independently
 
 Finally, for really big changes, you may find that the full playbook is of little or no use.
 In that case, you may still wish to use Plone's Ansible Role independently, in your own playbooks.
-The `Plone server role <https://github.com/plone/ansible.plone_server.git>`_ is maintained separately, and may become a role in your playbooks if it works for you.
+The `Plone server role <https://github.com/plone/ansible.plone_server>`_ is maintained separately, and may become a role in your playbooks if it works for you.
 
 

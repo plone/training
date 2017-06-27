@@ -193,7 +193,7 @@ msgstr ""
 
 #: ../anatomy.rst:93
 # e582e67056f14b83b5b193ff2bc9c942
-msgid "It does less than Zope, is very pluggable and `uses the Zope Component Architecture <http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
+msgid "It does less than Zope, is very pluggable and `uses the Zope Component Architecture <https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
 msgstr ""
 
 #: ../anatomy.rst:97

@@ -3,7 +3,7 @@
 The Features of Plone
 =====================
 
-In-depth user-manual: http://docs.plone.org
+In-depth user-manual: https://docs.plone.org/
 
 See also: https://docs.plone.org/working-with-content/index.html
 
