@@ -6,6 +6,7 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 - Update Features training to reflect that Dexterity is now supported by Working Copy Support and Placeful Workflow.
+
 - Fix a typo
   [staeff]
 
