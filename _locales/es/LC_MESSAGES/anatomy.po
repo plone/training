@@ -246,12 +246,12 @@ msgstr "Zope Component Architecture (ZCA)"
 # d3b14c1374024d0b9cb3b299dad0914e
 #: ../anatomy.rst:86
 msgid ""
-"The `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_ is "
+"The `Zope Component Architecture <https://zopecomponent.readthedocs.io/en/latest/>`_ is "
 "a system which allows for application pluggability and complex dispatching "
 "based on objects which implement an interface. Pyramid uses the ZCA “under "
 "the hood” to perform view dispatching and other application configuration "
 "tasks."
-msgstr "La `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_ es un sistema el cual permite por la versatibilidad y despacho de aplicaciones basadas en objetos que implementan una interfaz. Pyramid usa la ZCA \"bajo la capucha\" para ejecutar despacho de vistas y otras tareas de configuración de aplicaciones."
+msgstr "La `Zope Component Architecture <https://zopecomponent.readthedocs.io/en/latest/>`_ es un sistema el cual permite por la versatibilidad y despacho de aplicaciones basadas en objetos que implementan una interfaz. Pyramid usa la ZCA \"bajo la capucha\" para ejecutar despacho de vistas y otras tareas de configuración de aplicaciones."
 
 # 6d8583e2c5384094822ef9b2847d74dc
 #: ../anatomy.rst:90
@@ -271,8 +271,8 @@ msgstr "`Pyramid <https://trypyramid.com>`_ es un framework de desarrollo de apl
 msgid ""
 "It does less than Zope, is very pluggable and `uses the Zope Component "
 "Architecture "
-"<https://docs.zope.org/zope.component/narr.html>`_."
-msgstr "Eso hace menos que Zope, es muy configurable y `usa la Arquitectura de Componentes Zope <https://docs.zope.org/zope.component/narr.html>`_."
+"<https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
+msgstr "Eso hace menos que Zope, es muy configurable y `usa la Arquitectura de Componentes Zope <https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
 
 # e13307aabc0e4534a17a8666d74ff28e
 #: ../anatomy.rst:97

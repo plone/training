@@ -112,7 +112,7 @@ Zope Toolkit / Zope3
 Zope Component Architecture (ZCA)
 ---------------------------------
 
-The `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_, which was developed as part of Zope 3, is a system which allows for component pluggability and complex dispatching based on objects which implement an interface (a description of a functionality). It is a subset of the ZTK but can be used standalone. Plone makes extensive use of the ZCA in its codebase.
+The `Zope Component Architecture <https://zopecomponent.readthedocs.io/en/latest/>`_, which was developed as part of Zope 3, is a system which allows for component pluggability and complex dispatching based on objects which implement an interface (a description of a functionality). It is a subset of the ZTK but can be used standalone. Plone makes extensive use of the ZCA in its codebase.
 
 
 .. _anatomy-pyramid-label:
