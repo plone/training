@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
-# 
+#
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
@@ -261,18 +261,18 @@ msgstr "Pyramid"
 # 02091034744649798c63715649bc667f
 #: ../anatomy.rst:92
 msgid ""
-"`Pyramid <https://trypyramid.com/resources.html>`_ is a "
+"`Pyramid <https://trypyramid.com>`_ is a "
 "Python web application development framework that is often seen as the "
 "successor to Zope."
-msgstr "`Pyramid <https://trypyramid.com/resources.html>`_ es un framework de desarrollo de aplicaciones Web en Python que es a veces visto como el sucesor natural de Zope."
+msgstr "`Pyramid <https://trypyramid.com>`_ es un framework de desarrollo de aplicaciones Web en Python que es a veces visto como el sucesor natural de Zope."
 
 # e582e67056f14b83b5b193ff2bc9c942
 #: ../anatomy.rst:93
 msgid ""
 "It does less than Zope, is very pluggable and `uses the Zope Component "
 "Architecture "
-"<https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
-msgstr "Eso hace menos que Zope, es muy configurable y `usa la Arquitectura de Componentes Zope <https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
+"<https://docs.zope.org/zope.component/narr.html>`_."
+msgstr "Eso hace menos que Zope, es muy configurable y `usa la Arquitectura de Componentes Zope <https://docs.zope.org/zope.component/narr.html>`_."
 
 # e13307aabc0e4534a17a8666d74ff28e
 #: ../anatomy.rst:97
