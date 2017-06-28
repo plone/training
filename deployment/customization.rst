@@ -3,9 +3,9 @@ More customized use
 ^^^^^^^^^^^^^^^^^^^
 
 We intend that you should be able to make most changes by changing default variable settings in your ``local_configure.yml`` file.
-We've made a serious effort to make sure that all those settings are documented in the `Plone's Ansible Playbook <http://docs.plone.org/external/ansible-playbook/docs/index.html>` documentation.
+We've made a serious effort to make sure that all those settings are documented in the `Plone's Ansible Playbook <https://docs.plone.org/external/ansible-playbook/docs/index.html>` documentation.
 
-For example, if you want to change the time at which backup occurs, you can check the doc and discover that we have a `plone-backup-at setting <http://docs.plone.org/external/ansible-playbook/docs/plone.html#plone-backup-at>`_.
+For example, if you want to change the time at which backup occurs, you can check the doc and discover that we have a `plone-backup-at setting <https://docs.plone.org/external/ansible-playbook/docs/plone.html#plone-backup-at>`_.
 The default setting is:
 
 .. code-block:: yaml
@@ -81,7 +81,7 @@ If that's the case, you may check out your whole buildout directory via git:
     buildout_git_repo: https://github.com/plone/plone.com.ansible.git
     buildout_git_version: master
 
-Make sure you check the `documentation on this setting <http://docs.plone.org/external/ansible-playbook/docs/plone.html#plone-buildout-git-repo>`_.
+Make sure you check the `documentation on this setting <https://docs.plone.org/external/ansible-playbook/docs/plone.html#plone-buildout-git-repo>`_.
 Even if you use your own buildout, you'll need to make sure that some of the playbook settings reflect your configuration.
 
 Running buildout and restarting clients
@@ -273,6 +273,6 @@ The Plone Role -- using it independently
 
 Finally, for really big changes, you may find that the full playbook is of little or no use.
 In that case, you may still wish to use Plone's Ansible Role independently, in your own playbooks.
-The `Plone server role <https://github.com/plone/ansible.plone_server.git>`_ is maintained separately, and may become a role in your playbooks if it works for you.
+The `Plone server role <https://github.com/plone/ansible.plone_server>`_ is maintained separately, and may become a role in your playbooks if it works for you.
 
 

@@ -23,4 +23,4 @@ Mastering Plone Theming
 .. seealso::
 
    - :ref:`ttw-label`
-   - http://docs.plone.org/adapt-and-extend/theming/index.html
+   - https://docs.plone.org/adapt-and-extend/theming/index.html

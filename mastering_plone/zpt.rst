@@ -101,7 +101,7 @@ The same happens with attributes. Replace the <p>-line with:
 .. code-block:: html
 
     <a href="http://www.mssharepointconference.com"
-       tal:define="a_fine_url string:http://www.ploneconf.org"
+       tal:define="a_fine_url string:https://www.ploneconf.org/"
        tal:attributes="href a_fine_url"
        tal:content="string:An even better conference">
         A sharepoint conference
@@ -111,14 +111,14 @@ results in:
 
 .. code-block:: html
 
-    <a href="http://www.ploneconf.org">
+    <a href="https://www.ploneconf.org/">
         An even better conference
     </a>
 
 We used three TAL-Attributes here. This is the complete list of TAL-attributes:
 
 ``tal:define``
-    define variables. We defined the variable ``a_fine_url`` to the string "http://www.ploneconf.org"
+    define variables. We defined the variable ``a_fine_url`` to the string "https://www.ploneconf.org/"
 
 ``tal:content``
     replace the content of an element. We replaced the default content above with "An even better conference"
@@ -958,7 +958,7 @@ There is a lot more about TAL, TALES and METAL that we have not covered. You'll 
 
 .. seealso::
 
-  * http://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html
+  * https://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html
   * Using Zope Page Templates: http://docs.zope.org/zope2/zope2book/ZPT.html
   * Zope Page Templates Reference: http://docs.zope.org/zope2/zope2book/AppendixC.html
   * https://chameleon.readthedocs.io/en/latest/

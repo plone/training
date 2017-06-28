@@ -13,5 +13,5 @@ A state can also assign local roles to groups. This is akin to assigning roles t
 
 Additional Resources
 ++++++++++++++++++++
-* http://docs.plone.org/working-with-content/collaboration-and-workflow/collaboration-through-sharing.html
-* http://docs.plone.org/develop/plone/security/local_roles.html
+* https://docs.plone.org/working-with-content/collaboration-and-workflow/collaboration-through-sharing.html
+* https://docs.plone.org/develop/plone/security/local_roles.html

@@ -246,5 +246,5 @@ msgstr "Mejoremos la vista talkview para mostrar toda la información que querem
 
 # 8bd21e5cdbf3419a84c828131dc3d982
 #: ../views_2.rst:215
-msgid "http://docs.plone.org/develop/plone/views/browserviews.html"
-msgstr "http://docs.plone.org/develop/plone/views/browserviews.html"
+msgid "https://docs.plone.org/develop/plone/views/browserviews.html"
+msgstr "https://docs.plone.org/develop/plone/views/browserviews.html"

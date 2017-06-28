@@ -78,7 +78,7 @@ More is usually better. ::
 If you want a rough idea on how much memory you should use,
 follow the guidelines found in this article:
 
-.. seealso:: https://lucidworks.com/blog/2011/09/14/estimating-memory-and-storage-for-lucenesolr/
+.. seealso:: https://lucidworks.com/2011/09/14/estimating-memory-and-storage-for-lucenesolr/
 
 There is nothing fancy in the Solr download part.
 It takes an URL to the Solr binary and an md5 sum for verification.

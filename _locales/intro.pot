@@ -183,37 +183,37 @@ msgstr ""
 
 #: ../intro.rst:70
 # 3249f194d5f54ef2a7f9a3bcb7e1641e
-msgid "`Archetypes <http://docs.plone.org/old-reference-manuals/archetypes/index.html>`_"
+msgid "`Archetypes <https://docs.plone.org/old-reference-manuals/archetypes/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:71
 # 97264330ab9e4195aeec4d6a43342177
-msgid "`Portlets <http://docs.plone.org/old-reference-manuals/portlets/index.html>`_"
+msgid "`Portlets <https://docs.plone.org/old-reference-manuals/portlets/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:72
 # 9e4429808a5f4b39a2389e9f0920cec1
-msgid "`z3c.forms <http://docs.plone.org/develop/plone/forms/z3c.form.html>`_"
+msgid "`z3c.forms <https://docs.plone.org/develop/plone/forms/z3c.form.html>`_"
 msgstr ""
 
 #: ../intro.rst:73
 # 0188cac4c0534486928a7082f1278281
-msgid "`Theming <http://docs.plone.org/adapt-and-extend/theming/index.html>`_"
+msgid "`Theming <https://docs.plone.org/adapt-and-extend/theming/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:74
 # f90ef4ff874f469ca7e47617f2fb3680
-msgid "`Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_"
+msgid "`Testing <https://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:75
 # f54e759087cf42d494d245b3670c5bfc
-msgid "`i18n and locales <http://docs.plone.org/develop/plone/i18n/index.html>`_"
+msgid "`i18n and locales <https://docs.plone.org/develop/plone/i18n/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:76
 # b38c0669379c48aab8c82e3b213ca18b
-msgid "`Deployment, Hosting and Caching <http://docs.plone.org/manage/deploying/index.html>`_"
+msgid "`Deployment, Hosting and Caching <https://docs.plone.org/manage/deploying/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:77
@@ -223,7 +223,7 @@ msgstr ""
 
 #: ../intro.rst:78
 # ed696ff08135434abd7a68b9889a09a3
-msgid "`References/Relations <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_"
+msgid "`References/Relations <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_"
 msgstr ""
 
 #: ../intro.rst:80
@@ -233,32 +233,32 @@ msgstr ""
 
 #: ../intro.rst:82
 # 248411a78e55436cb791a5ae79ade309
-msgid "`Zope Component Architecture <http://docs.plone.org/develop/addons/components/index.html>`_"
+msgid "`Zope Component Architecture <https://docs.plone.org/develop/addons/components/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:83
 # 1d13ea5583c84250a41264e63ad82c09
-msgid "`GenericSetup <http://docs.plone.org/develop/addons/components/genericsetup.html>`_"
+msgid "`GenericSetup <https://docs.plone.org/develop/addons/components/genericsetup.html>`_"
 msgstr ""
 
 #: ../intro.rst:84
 # 0868a4cc5dbf413e9971ec5cf82ef300
-msgid "`ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_"
+msgid "`ZODB <https://docs.plone.org/develop/plone/persistency/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:85
 # 4730a62e1a04488a839ef74b302233b9
-msgid "`Security <http://docs.plone.org/develop/plone/security/index.html>`_"
+msgid "`Security <https://docs.plone.org/develop/plone/security/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:86
 # 701b995d16e74eae8a2e1a804f0d6399
-msgid "`Permissions <http://docs.plone.org/develop/plone/security/permissions.html>`_"
+msgid "`Permissions <https://docs.plone.org/develop/plone/security/permissions.html>`_"
 msgstr ""
 
 #: ../intro.rst:87
 # 6f414f4e798944b5ab62511d293976da
-msgid "`Performance and Caching <http://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_"
+msgid "`Performance and Caching <https://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_"
 msgstr ""
 
 #: ../intro.rst:90

@@ -28,7 +28,7 @@ msgstr ""
 
 #: ../features.rst:6
 # 6cae27c9b47f45f985063c2542e85c49
-msgid "See also: http://docs.plone.org/working-with-content/index.html"
+msgid "See also: https://docs.plone.org/working-with-content/index.html"
 msgstr ""
 
 #: ../features.rst:9
@@ -378,7 +378,7 @@ msgstr ""
 
 #: ../features.rst:176
 # 8d72a460e6ee43948ac5279af19d38c9
-msgid "Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default-Plone 4.3.x-site."
+msgid "Please keep in mind that we use `plone.app.contenttypes <https://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default-Plone 4.3.x-site."
 msgstr ""
 
 #: ../features.rst:180
@@ -533,7 +533,7 @@ msgstr ""
 
 #: ../features.rst:232
 # 045b5f9ea6f9450889d32196d1ee25ea
-msgid "Read more at: http://docs.plone.org/working-with-content/collaboration-and-workflow/index.html"
+msgid "Read more at: https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html"
 msgstr ""
 
 #: ../features.rst:235

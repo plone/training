@@ -235,9 +235,9 @@ msgstr "Una vez Vagrant termina el proceso de aprovisionamiento, se puede accede
 #: ../plone_training_config/instructions.rst:107
 msgid ""
 "If you have to use Windows you'll have to login to with `putty "
-"<http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect"
+"<http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html/download.html>`_. Connect"
 " to vagrant@127.0.01 at port 2222. User _and_ password are `vagrant`."
-msgstr "Si usted tiene que usar Windows tendrás que iniciar sesión para con `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Conecte a vagrant@127.0.01 en el puerto 2222. usuario y contraseña son `vagrant`."
+msgstr "Si usted tiene que usar Windows tendrás que iniciar sesión para con `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html/download.html>`_. Conecte a vagrant@127.0.01 en el puerto 2222. usuario y contraseña son `vagrant`."
 
 # 7ead314bf5f142ac957f909413e18933
 #: ../plone_training_config/instructions.rst:109

@@ -88,5 +88,5 @@ msgstr "Si usted busca un entrenamiento sobre Diazo se recomienda un entrenamien
 
 # 51ee408981b147c0af2a00bfbdba59d1
 #: ../theming.rst:17
-msgid "http://docs.plone.org/adapt-and-extend/theming/index.html"
-msgstr "http://docs.plone.org/adapt-and-extend/theming/index.html"
+msgid "https://docs.plone.org/adapt-and-extend/theming/index.html"
+msgstr "https://docs.plone.org/adapt-and-extend/theming/index.html"

@@ -62,7 +62,7 @@ Instead of using a named vocabulary we can also use ``source``:
 To ``CatalogSource`` you can pass the same argument that you use for catalog-queries.
 This makes it very flexible to limit relateable items by type, path, date etc.
 
-For even more flexibility you can create your own `dynamic vocabularies <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html#dynamic-sources>`_.
+For even more flexibility you can create your own `dynamic vocabularies <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html#dynamic-sources>`_.
 
 
 Accessing and displaying related items

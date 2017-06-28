@@ -41,7 +41,7 @@ If you feel comfortable, please work on your own machine with your own Python. B
         sudo apt-get install libreadline-dev wv poppler-utils
         sudo apt-get install git
 
-    For more information or in case of problems see the `official installation instructions <http://docs.plone.org/manage/installing/installation.html>`_.
+    For more information or in case of problems see the `official installation instructions <https://docs.plone.org/manage/installing/installation.html>`_.
 
 
 
@@ -225,7 +225,7 @@ Once Vagrant finishes the provisioning process, you can login to the now running
 
 .. note::
 
-    If you use Windows you'll have to login with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User **and** password are ``vagrant``.
+    If you use Windows you'll have to login with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User **and** password are ``vagrant``.
 
 You are now logged in as the user vagrant in :file:`/home/vagrant`. We'll do all steps of the training as this user.
 

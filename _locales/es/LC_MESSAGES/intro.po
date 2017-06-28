@@ -187,46 +187,46 @@ msgstr "Nosotros no cubriremos los siguientes tópicos:"
 # 3249f194d5f54ef2a7f9a3bcb7e1641e
 #: ../intro.rst:70
 msgid ""
-"`Archetypes <http://docs.plone.org/old-reference-"
+"`Archetypes <https://docs.plone.org/old-reference-"
 "manuals/archetypes/index.html>`_"
-msgstr "`Archetypes <http://docs.plone.org/old-reference-manuals/archetypes/index.html>`_"
+msgstr "`Archetypes <https://docs.plone.org/old-reference-manuals/archetypes/index.html>`_"
 
 # 97264330ab9e4195aeec4d6a43342177
 #: ../intro.rst:71
 msgid ""
-"`Portlets <http://docs.plone.org/old-reference-"
+"`Portlets <https://docs.plone.org/old-reference-"
 "manuals/portlets/index.html>`_"
-msgstr "`Portlets <http://docs.plone.org/old-reference-manuals/portlets/index.html>`_"
+msgstr "`Portlets <https://docs.plone.org/old-reference-manuals/portlets/index.html>`_"
 
 # 9e4429808a5f4b39a2389e9f0920cec1
 #: ../intro.rst:72
-msgid "`z3c.forms <http://docs.plone.org/develop/plone/forms/z3c.form.html>`_"
-msgstr "`z3c.forms <http://docs.plone.org/develop/plone/forms/z3c.form.html>`_"
+msgid "`z3c.forms <https://docs.plone.org/develop/plone/forms/z3c.form.html>`_"
+msgstr "`z3c.forms <https://docs.plone.org/develop/plone/forms/z3c.form.html>`_"
 
 # 0188cac4c0534486928a7082f1278281
 #: ../intro.rst:73
-msgid "`Theming <http://docs.plone.org/adapt-and-extend/theming/index.html>`_"
-msgstr "`Temas <http://docs.plone.org/adapt-and-extend/theming/index.html>`_"
+msgid "`Theming <https://docs.plone.org/adapt-and-extend/theming/index.html>`_"
+msgstr "`Temas <https://docs.plone.org/adapt-and-extend/theming/index.html>`_"
 
 # f90ef4ff874f469ca7e47617f2fb3680
 #: ../intro.rst:74
 msgid ""
 "`Testing "
-"<http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_"
-msgstr "`Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_"
+"<https://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_"
+msgstr "`Testing <https://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_"
 
 # f54e759087cf42d494d245b3670c5bfc
 #: ../intro.rst:75
 msgid ""
-"`i18n and locales <http://docs.plone.org/develop/plone/i18n/index.html>`_"
-msgstr "`i18n y locales <http://docs.plone.org/develop/plone/i18n/index.html>`_"
+"`i18n and locales <https://docs.plone.org/develop/plone/i18n/index.html>`_"
+msgstr "`i18n y locales <https://docs.plone.org/develop/plone/i18n/index.html>`_"
 
 # b38c0669379c48aab8c82e3b213ca18b
 #: ../intro.rst:76
 msgid ""
 "`Deployment, Hosting and Caching "
-"<http://docs.plone.org/manage/deploying/index.html>`_"
-msgstr "`Desarrollo, hosting y cacheo de contenidos <http://docs.plone.org/manage/deploying/index.html>`_"
+"<https://docs.plone.org/manage/deploying/index.html>`_"
+msgstr "`Desarrollo, hosting y cacheo de contenidos <https://docs.plone.org/manage/deploying/index.html>`_"
 
 # 3dd9a8458e774d72a5f208ff7092980e
 #: ../intro.rst:77
@@ -237,8 +237,8 @@ msgstr ":doc:`grok`"
 #: ../intro.rst:78
 msgid ""
 "`References/Relations "
-"<http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_"
-msgstr "`Referencias / Relaciones <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_"
+"<https://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_"
+msgstr "`Referencias / Relaciones <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_"
 
 # 09b3fe42c08b4a32b433f85cbd113a10
 #: ../intro.rst:80
@@ -249,39 +249,39 @@ msgstr "Otros tópicos están ligeramente cubiertos:"
 #: ../intro.rst:82
 msgid ""
 "`Zope Component Architecture "
-"<http://docs.plone.org/develop/addons/components/index.html>`_"
-msgstr "`Arquitectura de componentes Zope <http://docs.plone.org/develop/addons/components/index.html>`_"
+"<https://docs.plone.org/develop/addons/components/index.html>`_"
+msgstr "`Arquitectura de componentes Zope <https://docs.plone.org/develop/addons/components/index.html>`_"
 
 # 1d13ea5583c84250a41264e63ad82c09
 #: ../intro.rst:83
 msgid ""
 "`GenericSetup "
-"<http://docs.plone.org/develop/addons/components/genericsetup.html>`_"
-msgstr "`GenericSetup <http://docs.plone.org/develop/addons/components/genericsetup.html>`_"
+"<https://docs.plone.org/develop/addons/components/genericsetup.html>`_"
+msgstr "`GenericSetup <https://docs.plone.org/develop/addons/components/genericsetup.html>`_"
 
 # 0868a4cc5dbf413e9971ec5cf82ef300
 #: ../intro.rst:84
-msgid "`ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_"
-msgstr "`ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_"
+msgid "`ZODB <https://docs.plone.org/develop/plone/persistency/index.html>`_"
+msgstr "`ZODB <https://docs.plone.org/develop/plone/persistency/index.html>`_"
 
 # 4730a62e1a04488a839ef74b302233b9
 #: ../intro.rst:85
-msgid "`Security <http://docs.plone.org/develop/plone/security/index.html>`_"
-msgstr "`Seguridad <http://docs.plone.org/develop/plone/security/index.html>`_"
+msgid "`Security <https://docs.plone.org/develop/plone/security/index.html>`_"
+msgstr "`Seguridad <https://docs.plone.org/develop/plone/security/index.html>`_"
 
 # 701b995d16e74eae8a2e1a804f0d6399
 #: ../intro.rst:86
 msgid ""
 "`Permissions "
-"<http://docs.plone.org/develop/plone/security/permissions.html>`_"
-msgstr "`Permissions <http://docs.plone.org/develop/plone/security/permissions.html>`_"
+"<https://docs.plone.org/develop/plone/security/permissions.html>`_"
+msgstr "`Permissions <https://docs.plone.org/develop/plone/security/permissions.html>`_"
 
 # 6f414f4e798944b5ab62511d293976da
 #: ../intro.rst:87
 msgid ""
 "`Performance and Caching "
-"<http://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_"
-msgstr "`Desempeño y Cacheo de contenidos <http://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_"
+"<https://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_"
+msgstr "`Desempeño y Cacheo de contenidos <https://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_"
 
 # 71309be6a15e48d885ac485d37dd19fc
 #: ../intro.rst:90

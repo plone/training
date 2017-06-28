@@ -264,7 +264,7 @@ The theme is already packaged in a manner that will work with the theming tool.
           should contain your :file:`index.html` and supporting files, the supporting
           files (CSS, javascript and other files) may be in subdirectories.
 
-1. To get started `download a copy of the New Age theme as a zip file <https://github.com/BlackrockDigital/startbootstrap-new-age/archive/master.zip>`_.
+1. To get started `download a copy of the New Age theme as a zip file <https://codeload.github.com/BlackrockDigital/startbootstrap-new-age/zip/master>`_.
    Then upload it to the theme controlpanel.
 
     .. hint::

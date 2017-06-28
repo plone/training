@@ -165,10 +165,10 @@ msgstr "Los arquetipos no tiene historia a través de la Web."
 # 27f7043e0fff4a17aad74c3a54ca3990
 #: ../dexterity.rst:51
 msgid ""
-"UML-modeling: `ArchGenXML <http://docs.plone.org/old-reference-"
+"UML-modeling: `ArchGenXML <https://docs.plone.org/old-reference-"
 "manuals/archgenxml/index.html>`_ for Archetypes, `agx <http://agx.me>`_ for "
 "Dexterity"
-msgstr "Modelado UML  `ArchGenXML <http://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ para arquetipos, `agx <http://agx.me>`_ para Dexterity"
+msgstr "Modelado UML  `ArchGenXML <https://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ para arquetipos, `agx <http://agx.me>`_ para Dexterity"
 
 # 666d31de87c945a4b9e927134139aec1
 #: ../dexterity.rst:53
@@ -546,5 +546,5 @@ msgstr "Ahora vamos a ver, si no podemos mejorar la vista predeterminada. Para h
 #: ../dexterity.rst:326
 msgid ""
 "`Dexterity Developer Manual "
-"<http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_"
-msgstr "`Dexterity Developer Manual <http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_"
+"<https://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_"
+msgstr "`Dexterity Developer Manual <https://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_"

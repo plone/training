@@ -258,9 +258,9 @@ msgstr "Consultando el catálogo"
 #: ../views_3.rst:178
 msgid ""
 "The are many `catalog indexes "
-"<http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_"
+"<https://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_"
 " to query. Here are some examples::"
-msgstr "Los muchos `índices de catálogo <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ para consultar. He aquí algunos ejemplos::"
+msgstr "Los muchos `índices de catálogo <https://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ para consultar. He aquí algunos ejemplos::"
 
 # 688eac13f69d487287b25257899a23fa
 #: ../views_3.rst:186
@@ -269,8 +269,8 @@ msgstr "Llamando al catálogo sin parámetros devuelven todo el sitio::"
 
 # d898900a012e42b19f08b4953abd57d1
 #: ../views_3.rst:193
-msgid "http://docs.plone.org/develop/plone/searching_and_indexing/query.html"
-msgstr "http://docs.plone.org/develop/plone/searching_and_indexing/query.html"
+msgid "https://docs.plone.org/develop/plone/searching_and_indexing/query.html"
+msgstr "https://docs.plone.org/develop/plone/searching_and_indexing/query.html"
 
 # 54c763ce1e494266afa3240b0c04a283
 #: ../views_3.rst:197

@@ -76,7 +76,7 @@ What are the differences?
 
 * Dexterity has a good TTW story.
 * Archetypes has no TTW story.
-* UML-modeling: `ArchGenXML <http://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ for Archetypes, `agx <http://agx.me>`_ for Dexterity
+* UML-modeling: `ArchGenXML <https://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ for Archetypes, `agx <http://agx.me>`_ for Dexterity
 
 Approaches for Developers:
 
@@ -127,7 +127,7 @@ Modifying existing types
 
 .. seealso::
 
-   http://docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types
+   https://docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types
 
 .. _dexterity1-create-ttw-label:
 
@@ -227,8 +227,8 @@ So, we'll ultimately want to move our new content type into a Python package. We
 
 .. seealso::
 
-   * `Dexterity Developer Manual <http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
-   * `The standard behaviors <http://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html>`_
+   * `Dexterity Developer Manual <https://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
+   * `The standard behaviors <https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html>`_
 
 
 .. _dexterity1-excercises-label:
@@ -319,5 +319,5 @@ We could use this content type later to convert speakers into Plone users. We co
 
 ..  seealso::
 
-    * `Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_
-    * `Model-driven types <http://docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types>`_
+    * `Dexterity XML <https://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_
+    * `Model-driven types <https://docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types>`_

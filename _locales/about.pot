@@ -128,7 +128,7 @@ msgstr ""
 
 #: ../about.rst:58
 # 65b75ca907e247509414da1346f5b75b
-msgid "The Mastering Plone Training is licensed under a `Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_."
+msgid "The Mastering Plone Training is licensed under a `Creative Commons Attribution 4.0 International License <https://creativecommons.org/licenses/by/4.0/>`_."
 msgstr ""
 
 #: ../about.rst:60

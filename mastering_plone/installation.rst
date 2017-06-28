@@ -70,7 +70,7 @@ You can download all of these at https://plone.org/download
 
 .. seealso::
 
-    * http://docs.plone.org/manage/installing/installation.html
+    * https://docs.plone.org/manage/installing/installation.html
 
 
 .. _installation-hosting-label:
@@ -92,7 +92,7 @@ You can host Plone...
 
 .. seealso::
 
-    * Plone Installation Requirements: http://docs.plone.org/manage/installing/requirements.html
+    * Plone Installation Requirements: https://docs.plone.org/manage/installing/requirements.html
     * Run Plone on a 5$ plan: https://www.stevemcmahon.com/steves-blog/plone-on-5-a-month
     * Where to host Plone: https://old.plone.org/documentation/faq/where-can-i-host-my-plone-site
 
@@ -114,4 +114,4 @@ The way we're setting up a Plone site during this class may be adequate for a sm
 
 And, you'll need to learn strategies for efficient backup and log file rotation.
 
-All these topics are introduced in `Guide to deploying and installing Plone in production <http://docs.plone.org/manage/deploying/index.html>`_.
+All these topics are introduced in `Guide to deploying and installing Plone in production <https://docs.plone.org/manage/deploying/index.html>`_.
