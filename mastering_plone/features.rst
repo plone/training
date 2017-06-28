@@ -422,7 +422,7 @@ While it's shipped with Plone, working copy support is not a common need.
 So, if you need it, you need to activate it via the add-on packages configuration page.
 Unless activated, check-in/check-out options are not visible.
 
-.. note::
+.. Note::
 
     Working Copy Support has limited support for Dexterity content types. The limitation is that there are some outstanding issues with folderish items that contain many items.
 
