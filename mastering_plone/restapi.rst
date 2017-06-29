@@ -125,12 +125,12 @@ There are a lot of other frameworks available (e.g. Ionic, OnsenUI, Sencha, ...)
 For example, most of them require NodeJS as a development web server.
 Our focus is Plone and interacting with :py:mod:`plone.restapi`, and `Mobile Angular UI` perfectly suits our needs because it simply lets us use Plone as our development webserver.
 
-To get started, we download the current `master branch of Mobile Angular UI <https://github.com/mcasimir/mobile-angular-ui/archive/master.zip>`_ from Github, extract it and copy the :file:`dist` folder into a new subdirectory of :file:`browser` named :file:`talklist`.
+To get started, we download the current `master branch of Mobile Angular UI <https://codeload.github.com/mcasimir/mobile-angular-ui/zip/master>`_ from Github, extract it and copy the :file:`dist` folder into a new subdirectory of :file:`browser` named :file:`talklist`.
 So, assuming the current working directory is the buildout directory:
 
 .. code-block:: bash
 
-    $ wget https://github.com/mcasimir/mobile-angular-ui/archive/master.zip
+    $ wget https://codeload.github.com/mcasimir/mobile-angular-ui/zip/master
     $ unzip master.zip
     $ mkdir src/ploneconf.site/src/ploneconf/site/browser/talklist
     $ cp -a mobile-angular-ui-master/dist src/ploneconf.site/src/ploneconf/site/browser/talklist/

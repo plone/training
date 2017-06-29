@@ -332,7 +332,7 @@ Be McGuyver
         http://docs.buildout.org/en/latest/contents.html
 
     Troubleshooting
-        http://docs.plone.org/manage/troubleshooting/buildout.html
+        https://docs.plone.org/manage/troubleshooting/buildout.html
 
     A minimal buildout for Plone 5
         https://github.com/collective/minimalplone5

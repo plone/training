@@ -3,9 +3,9 @@
 The Features of Plone
 =====================
 
-In-depth user-manual: http://docs.plone.org
+In-depth user-manual: https://docs.plone.org/
 
-See also: http://docs.plone.org/working-with-content/index.html
+See also: https://docs.plone.org/working-with-content/index.html
 
 .. _features-start-stop-label:
 
@@ -305,7 +305,7 @@ The default Plone content types are:
 
 .. note::
 
-    Please keep in mind that we use `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training, which are the default in Plone 5. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default Plone 4.3.x site.
+    Please keep in mind that we use `plone.app.contenttypes <https://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training, which are the default in Plone 5. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default Plone 4.3.x site.
 
 
 .. _features-folders-label:
@@ -400,7 +400,7 @@ In that case, which initially applies to file and image uploads, the content obj
     An oddity in all of the standard Plone workflows: a content item may be viewable even if its container is not.
     Making a container private does **not** automatically make its contents private.
 
-Read more at: http://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
+Read more at: https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
 
 .. _features-wc-label:
 
@@ -425,6 +425,7 @@ Unless activated, check-in/check-out options are not visible.
 .. Note::
 
     Working Copy Support has limited support for Dexterity content types. The limitation is that there are some outstanding issues with folderish items that contain many items.
+    See: `plone/Products.CMFPlone#665 <https://github.com/plone/Products.CMFPlone/issues/665>`_
 
 .. _features-placeful-wf-label:
 
@@ -441,4 +442,3 @@ Since it has effect in a "place" in a site, this mechanism is often called "Plac
 
 As with working-copy support, Placeful Workflow ships with Plone but needs to be activated via the add-on configuration page.
 Once it's added, a :guilabel:`Policy` option will appear on the state menu to allow setting a placeful workflow policy.
-

@@ -193,6 +193,6 @@ msgstr ""
 
 #: ../views_2.rst:215
 # 8e8b711ec384438e80e0d79849fdad8c
-msgid "http://docs.plone.org/develop/plone/views/browserviews.html"
+msgid "https://docs.plone.org/develop/plone/views/browserviews.html"
 msgstr ""
 

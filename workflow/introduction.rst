@@ -10,7 +10,7 @@ The goal of workflow software is to streamline and track workflow activity. Sinc
 
 The workflow system inside of Plone is an example of a State Machine. 
 
-From `Wikipedia <http://en.wikipedia.org/wiki/Finite-state_machine>`_:
+From `Wikipedia <https://en.wikipedia.org/wiki/Finite-state_machine>`_:
 
 .. pull-quote:: A finite-state machine (FSM) or finite-state automaton (plural: automata), or simply a state machine, is a behavioral model used to design computer programs. It is composed of a finite number of states associated to transitions. A transition is a set of actions that starts from one state and ends in another (or the same) state. A transition is started by a trigger, and a trigger can be an event or a condition.
 

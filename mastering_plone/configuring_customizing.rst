@@ -84,7 +84,7 @@ Let's change the logo.
 
 .. seealso::
 
-   http://docs.plone.org/adapt-and-extend/change-the-logo.html
+   https://docs.plone.org/adapt-and-extend/change-the-logo.html
 
 
 .. _customizing-portlets-label:
@@ -207,7 +207,7 @@ We want a new link to legal information, called "Imprint".
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/functionality/actions.html
+    https://docs.plone.org/develop/plone/functionality/actions.html
 
 
 Global navigation
@@ -276,7 +276,7 @@ Change the footer
 
 .. seealso::
 
-   http://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html
+   https://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html
 
 
 CSS Registry (``portal_css``)

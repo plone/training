@@ -188,12 +188,12 @@ msgstr ""
 
 #: ../anatomy.rst:92
 # 02091034744649798c63715649bc667f
-msgid "`Pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ is a Python web application development framework that is often seen as the successor to Zope."
+msgid "`Pyramid <https://trypyramid.com>`_ is a Python web application development framework that is often seen as the successor to Zope."
 msgstr ""
 
 #: ../anatomy.rst:93
 # e582e67056f14b83b5b193ff2bc9c942
-msgid "It does less than Zope, is very pluggable and `uses the Zope Component Architecture <http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
+msgid "It does less than Zope, is very pluggable and `uses the Zope Component Architecture <https://docs.zope.org/zope.component/narr.html>`_."
 msgstr ""
 
 #: ../anatomy.rst:97

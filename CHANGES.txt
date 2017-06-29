@@ -133,13 +133,13 @@ This changelog is only very rough. For the full changelog please refer to https:
 ------------------
 
 - Move sources to https://github.com/plone/training and render
-  at https://plone-training.readthedocs.org/en/legacy/
+  at https://plone-training.readthedocs.io/en/legacy/
   [pbauer]
 
 - Integrate with docs.plone.org and papyrus
   [do3cc]
 
-- Change license to http://creativecommons.org/licenses/by/4.0/
+- Change license to https://creativecommons.org/licenses/by/4.0/
   [pbauer]
 
 - Document how to contribute

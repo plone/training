@@ -118,7 +118,7 @@ msgstr ""
 
 #: ../installation.rst:60
 # 743b1ed6f4c546a68d5e51488d537707
-msgid "Read more about installing Plone: https://plone.org/documentation/manual/installing-plone and http://docs.plone.org/manage/installing/index.html"
+msgid "Read more about installing Plone: https://plone.org/documentation/manual/installing-plone and https://docs.plone.org/manage/installing/index.html"
 msgstr ""
 
 #: ../installation.rst:64

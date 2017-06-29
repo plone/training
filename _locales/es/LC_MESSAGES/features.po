@@ -32,8 +32,8 @@ msgstr "En profundidad el Manual de usuario: http://plone.org/documentation/manu
 
 # 6cae27c9b47f45f985063c2542e85c49
 #: ../features.rst:6
-msgid "See also: http://docs.plone.org/working-with-content/index.html"
-msgstr "Ver tambien: http://docs.plone.org/working-with-content/index.html"
+msgid "See also: https://docs.plone.org/working-with-content/index.html"
+msgstr "Ver tambien: https://docs.plone.org/working-with-content/index.html"
 
 # 718af20cd67847c89ccde76e9c30af7f
 #: ../features.rst:9
@@ -428,10 +428,10 @@ msgstr "Colección"
 #: ../features.rst:176
 msgid ""
 "Please keep in mind that we use `plone.app.contenttypes "
-"<http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ "
+"<https://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ "
 "for the training. Therefore the types are based on Dexterity and slightly "
 "different from the types that you will find in a default-Plone 4.3.x-site."
-msgstr "Por favor, tenga en cuenta que usamos `plone.app.contenttypes <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ para la formación. Por lo tanto, los tipos se basan en Dexterity y un poco diferente de los tipos que se encuentran en un sitio Plone 4.3.x por defecto."
+msgstr "Por favor, tenga en cuenta que usamos `plone.app.contenttypes <https://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ para la formación. Por lo tanto, los tipos se basan en Dexterity y un poco diferente de los tipos que se encuentran en un sitio Plone 4.3.x por defecto."
 
 # 215e130da62446b6b5c5e9d11cad85d1
 #: ../features.rst:180
@@ -588,9 +588,9 @@ msgstr "Flujos de trabajos"
 # 045b5f9ea6f9450889d32196d1ee25ea
 #: ../features.rst:232
 msgid ""
-"Read more at: http://docs.plone.org/working-with-content/collaboration-and-"
+"Read more at: https://docs.plone.org/working-with-content/collaboration-and-"
 "workflow/index.html"
-msgstr "Lea mas en: http://docs.plone.org/working-with-content/collaboration-and-workflow/index.html"
+msgstr "Lea mas en: https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html"
 
 # 981c224ae73c45ffaf7d72b6471a7cdb
 #: ../features.rst:235

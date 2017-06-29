@@ -695,7 +695,7 @@ This 'unthemed host name' is managed in the Theming control panel > Advanced Set
 
 For more details on how to use Diazo rules, look at
 http://docs.diazo.org/en/latest/ and
-http://docs.plone.org/external/plone.app.theming/docs/index.html.
+https://docs.plone.org/external/plone.app.theming/docs/index.html.
 
 
 We already have a fully functional rule set based on the Plone 5 default Theme:
@@ -1743,4 +1743,4 @@ here we define the bootstrap path, so that we can use it in all bootstrap includ
 More Diazo and plone.app.theming details
 ****************************************
 
-For more details how to build a Diazo based theme, look at http://docs.diazo.org/en/latest/ and http://docs.plone.org/external/plone.app.theming/docs/index.html.
+For more details how to build a Diazo based theme, look at http://docs.diazo.org/en/latest/ and https://docs.plone.org/external/plone.app.theming/docs/index.html.

@@ -410,5 +410,5 @@ Let your base class handle the HTML generation.
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/views/browserviews.html
+    https://docs.plone.org/develop/plone/views/browserviews.html
 

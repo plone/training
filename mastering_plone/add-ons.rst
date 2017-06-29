@@ -14,7 +14,7 @@ Extend Plone With Add-On Packages
 Some notable add-ons
 ---------------------
 
-`Products.PloneFormGen <http://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
+`Products.PloneFormGen <https://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
   A form generator.
 
 `collective.disqus <https://pypi.python.org/pypi/collective.disqus/>`_

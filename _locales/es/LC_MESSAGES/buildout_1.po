@@ -385,8 +385,8 @@ msgstr "Documentación de Buildout"
 
 # a25e15d7db894e38a6511f9bbb4d5cc7
 #: ../buildout_1.rst:250
-msgid "http://docs.plone.org/old-reference-manuals/buildout/index.html"
-msgstr "http://docs.plone.org/old-reference-manuals/buildout/index.html"
+msgid "https://docs.plone.org/old-reference-manuals/buildout/index.html"
+msgstr "https://docs.plone.org/old-reference-manuals/buildout/index.html"
 
 # a8fed26ee2ab4785816f13d9ae1faf1b
 #: ../buildout_1.rst:251
@@ -400,8 +400,8 @@ msgstr "Solución de Problemas"
 
 # 61b0a2ceb5034ec0bab38416c6441027
 #: ../buildout_1.rst:254
-msgid "http://docs.plone.org/manage/troubleshooting/buildout.html"
-msgstr "http://docs.plone.org/manage/troubleshooting/buildout.html"
+msgid "https://docs.plone.org/manage/troubleshooting/buildout.html"
+msgstr "https://docs.plone.org/manage/troubleshooting/buildout.html"
 
 # d04ec86baa4343febc7e2ea131bb2b8c
 #: ../buildout_1.rst:259

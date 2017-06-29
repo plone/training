@@ -21,11 +21,11 @@ Customize logo
 2. Go to the "Site" control panel.
 3. You will see this form:
 
-   .. image:: http://docs.plone.org/_images/change-logo-in-site-control-panel.png
+   .. image:: https://docs.plone.org/_images/change-logo-in-site-control-panel.png
 
 4. You can now add / remove your custom logo
 
-See the `official docs <http://docs.plone.org/adapt-and-extend/change-the-logo.html>`_.
+See the `official docs <https://docs.plone.org/adapt-and-extend/change-the-logo.html>`_.
 
 
 Customize CSS/Less variables

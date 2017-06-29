@@ -63,6 +63,6 @@ msgstr ""
 
 #: ../theming.rst:17
 # 2866771da7f7402eb67a0a133d68718f
-msgid "http://docs.plone.org/adapt-and-extend/theming/index.html"
+msgid "https://docs.plone.org/adapt-and-extend/theming/index.html"
 msgstr ""
 

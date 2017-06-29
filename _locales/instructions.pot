@@ -183,7 +183,7 @@ msgstr ""
 
 #: ../instructions.rst:107
 # 0f9235fcd19a4030bae7e0571084f5a0
-msgid "If you have to use Windows you'll have to login to with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User _and_ password are `vagrant`."
+msgid "If you have to use Windows you'll have to login to with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User _and_ password are `vagrant`."
 msgstr ""
 
 #: ../instructions.rst:109

@@ -259,7 +259,7 @@ Alternatively you also select which upgrade steps to run like this:
 
 .. seealso::
 
-    http://docs.plone.org/develop/addons/components/genericsetup.html#id1
+    https://docs.plone.org/develop/addons/components/genericsetup.html#id1
 
 
 .. note::
@@ -330,7 +330,7 @@ Note the relative Python path :py:class:`..interfaces.IPloneconfSiteLayer`. It i
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/views/layers.html
+    https://docs.plone.org/develop/plone/views/layers.html
 
 
 Exercise
@@ -389,7 +389,7 @@ The ``column ..`` entries allow us to display the values of these indexes in the
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html
+    https://docs.plone.org/develop/plone/searching_and_indexing/indexing.html
 
 .. note::
 
@@ -503,7 +503,7 @@ Add a new file :file:`profiles/default/registry.xml`
 
 .. seealso::
 
-  http://docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed
+  https://docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed
 
 
 .. _dexterity2-GS-label:

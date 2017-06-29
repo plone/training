@@ -269,7 +269,7 @@ Now a admin can configure the rooms available for the conference. We could use t
 
 .. seealso::
 
-  http://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html
+  https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html
 
 .. note::
 

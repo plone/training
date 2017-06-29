@@ -30,4 +30,4 @@ Portlets
 
 Portlets are a very flexible way of providing context related information in the right, left or footer area.
 
-For details on how to use, configure and create Portlets, look into the Plone docs `Plone docs Portlet sections <http://docs.plone.org/develop/plone/functionality/portlets.html>`_
+For details on how to use, configure and create Portlets, look into the Plone docs `Plone docs Portlet sections <https://docs.plone.org/develop/plone/functionality/portlets.html>`_

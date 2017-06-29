@@ -2,7 +2,7 @@
 Intro to Plone Stack
 --------------------
 
-If you haven't read the first couple of chapters of `Guide to deploying and installing Plone in production <http://docs.plone.org/manage/deploying/index.html>`_, take a moment to do so. You'll want to be familiar with the main components of a typical Plone install for deployment and know when each is vital and when unnecessary.
+If you haven't read the first couple of chapters of `Guide to deploying and installing Plone in production <https://docs.plone.org/manage/deploying/index.html>`_, take a moment to do so. You'll want to be familiar with the main components of a typical Plone install for deployment and know when each is vital and when unnecessary.
 
 .. figure:: full_stack.png
     :align: center

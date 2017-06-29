@@ -202,7 +202,7 @@ The same is true for methods:
 Querying the catalog
 --------------------
 
-The are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples:
+The are many `catalog indexes <https://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples:
 
 .. code-block:: pycon
 
@@ -221,7 +221,7 @@ Calling the catalog without parameters returns the whole site:
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/searching_and_indexing/query.html
+    https://docs.plone.org/develop/plone/searching_and_indexing/query.html
 
 
 .. _views3-excercises-label:
