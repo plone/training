@@ -10,6 +10,7 @@ This changelog is only very rough. For the full changelog please refer to https:
   [stevepiercy]
 
 - Update Features training to reflect that Dexterity is now supported by Working Copy Support and Placeful Workflow.
+  [robinsjm2]
 
 - Fix a typo
   [staeff]
@@ -17,7 +18,7 @@ This changelog is only very rough. For the full changelog please refer to https:
 - Fix typos, improve wording
   [svx]
 
-- Clarify which template we're editing 
+- Clarify which template we're editing
   [djowett]
 
 - Fix typos
