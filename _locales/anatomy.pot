@@ -177,8 +177,8 @@ msgid "Zope Component Architecture (ZCA)"
 msgstr ""
 
 #: ../anatomy.rst:86
-# d3b14c1374024d0b9cb3b299dad0914e
-msgid "The `Zope Component Architecture <http://muthukadan.net/docs/zca.html>`_ is a system which allows for application pluggability and complex dispatching based on objects which implement an interface. Pyramid uses the ZCA “under the hood” to perform view dispatching and other application configuration tasks."
+# d3b14c1374024d0b9cb3qb299dad0914e
+msgid "The `Zope Component Architecture <https://zopecomponent.readthedocs.io/en/latest/>`_ is a system which allows for application pluggability and complex dispatching based on objects which implement an interface. Pyramid uses the ZCA “under the hood” to perform view dispatching and other application configuration tasks."
 msgstr ""
 
 #: ../anatomy.rst:90
@@ -193,7 +193,7 @@ msgstr ""
 
 #: ../anatomy.rst:93
 # e582e67056f14b83b5b193ff2bc9c942
-msgid "It does less than Zope, is very pluggable and `uses the Zope Component Architecture <https://docs.zope.org/zope.component/narr.html>`_."
+msgid "It does less than Zope, is very pluggable and `uses the Zope Component Architecture <https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/zca.html>`_."
 msgstr ""
 
 #: ../anatomy.rst:97
