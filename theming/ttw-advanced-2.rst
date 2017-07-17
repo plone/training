@@ -5,14 +5,14 @@ TTW Theming II: Creating a custom theme based on Barceloneta
 In this section you will:
 
 * Create a theme by inheriting from the Barceloneta theme.
-* Using the :file:`manifest.cfg`, register a production CSS file.
+* Use the :file:`manifest.cfg` to register a production CSS file.
 * Use an XInclude to incorporate rules from the Barceloneta theme.
 * Use ``?diazo.off=1`` to view unthemed versions.
 * Use conditional rules to have a different backend theme from the anonymous visitors theme.
 
 Topics covered:
 
-* Inheriting from Barceloneta.
+* Inheriting from Barceloneta theme.
 * Diazo rule directives and attributes.
 * Viewing the unthemed version of a Plone item.
 * Creating a visitor-only theme.
@@ -28,85 +28,83 @@ Inheriting from Barceloneta
     * Inheritance involves including the Barceloneta :file:`rules.xml` (``++theme++barceloneta/rules.xml``) and styles.
     * The prefix/unique path to the Barceloneta theme is ``++theme++barceloneta``.
     * It is necessary to include a copy of Barceloneta's :file:`index.html` in the root of your custom theme.
-    * The three key files involved are :file:`manifest.cfg`, :file:`rules.xml` and a Less file defined in
-      the manifest which we will call :file:`styles.less`.
+    * The three key files involved are :file:`manifest.cfg`, :file:`rules.xml` and a Less file defined in the manifest which we will call :file:`styles.less`.
     * Use "Build CSS" to generate a CSS file from your custom Less file.
 
 Copying Barceloneta makes your theme heavier and will likely make upgrading more difficult.
 
-The Barceloneta theme provides many assets used by Plone's utilities that you do not need
-to duplicate. Additionally new releases of the theme may introduce optimizations or bug fixes.
-By referencing the Barceloneta rules and styles, instead of copying them, you automatically benefit from
-any updates to the Barceloneta theme while also keeping your custom theme relatively small.
-
+The Barceloneta theme provides many assets used by Plone's utilities that you do not need to duplicate.
+Additionally new releases of the theme may introduce optimizations or bug fixes.
+By referencing the Barceloneta rules and styles, instead of copying them, you automatically benefit from any updates to the Barceloneta theme while also keeping your custom theme relatively small.
 
 Exercise 1 - Create a new theme that inherits from Barceloneta
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In this exercise we will create a new theme that inherits the Barceloneta rules and styles.
 
-1. Create a new theme
+#. Go to the :guilabel:`Theming` control panel.
+#. Click the :guilabel:`New theme` button to create a new theme:
 
    .. image:: ../theming/_static/theming-new-theme.png
 
-
-   and name it "Custom"
+#. Give the theme a name, e.g. "Custom", and click the checkbox to immediately enable the theme:
 
    .. image:: ../theming/_static/theming-new-theme2.png
 
-2. In the theming editor, ensure that your new theme contains the files
-   :file:`manifest.cfg`, :file:`rules.xml`, :file:`index.html`
-   (from Barceloneta) and :file:`styles.less`.
+#. Click on :guilabel:`Create` and you get redirected to your new theme's inspector.
 
-- :file:`manifest.cfg`, declaring your theme:
+#. In the theming editor, ensure that your new theme contains the files :file:`manifest.cfg`, :file:`rules.xml`, :file:`index.html` (from Barceloneta) and :file:`styles.less`.
 
-.. code-block:: ini
+#. Edit the file :file:`manifest.cfg` which contains the configuration for your theme:
 
-    [theme]
-    title = mytheme
-    description =
-    development-css = ++theme++custom/styles.less
-    production-css = ++theme++custom/styles.css
+   .. code-block:: ini
 
-- :file:`rules.xml`, including the Barceloneta rules:
+      [theme]
+      title = Custom
+      description = A custom theme
+      development-css = ++theme++custom/styles.less
+      production-css = ++theme++custom/styles.css
 
-.. code-block:: xml
+#. Edit the file :file:`rules.xml` which includes the link to the Barceloneta rules:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <rules
-        xmlns="http://namespaces.plone.org/diazo"
-        xmlns:css="http://namespaces.plone.org/diazo/css"
-        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        xmlns:xi="http://www.w3.org/2001/XInclude">
+   .. code-block:: xml
 
-      <!-- Import Barceloneta rules -->
-      <xi:include href="++theme++barceloneta/rules.xml" />
+      <?xml version="1.0" encoding="UTF-8"?>
+      <rules
+          xmlns="http://namespaces.plone.org/diazo"
+          xmlns:css="http://namespaces.plone.org/diazo/css"
+          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+          xmlns:xi="http://www.w3.org/2001/XInclude">
 
-      <rules css:if-content="#visual-portal-wrapper">
-        <!-- Placeholder for your own additional rules -->
+        <!-- Import Barceloneta rules -->
+        <xi:include href="++theme++barceloneta/rules.xml" />
+
+        <rules css:if-content="#visual-portal-wrapper">
+          <!-- Placeholder for your own additional rules -->
+        </rules>
+
       </rules>
 
-    </rules>
+#. Create a copy of the file :file:`index.html` from Barceloneta (this one cannot be imported or inherited, it must be local to your theme).
 
-- a copy of :file:`index.html` from Barceloneta (this one cannot be imported or inherited, it must be local to your theme).
+#. Edit the file :file:`styles.less` which includes imports from the Barceloneta styles:
 
-- :file:`styles.less`, importing Barceloneta styles:
+   .. code-block:: css
 
-.. code-block:: css
+      /* Import Barceloneta styles */
+      @import "++theme++barceloneta/less/barceloneta.plone.less";
 
-    /* Import Barceloneta styles */
-    @import "++theme++barceloneta/less/barceloneta.plone.less";
+      /* Customize whatever you want */
+      @plone-sitenav-bg: pink;
+      @plone-sitenav-link-hover-bg: darken(pink, 20%);
+      .plone-nav > li > a {
+        color: @plone-text-color;
+      }
 
-    /* Customize whatever you want */
-    @plone-sitenav-bg: pink;
-    @plone-sitenav-link-hover-bg: darken(pink, 20%);
-    .plone-nav > li > a {
-      color: @plone-text-color;
-    }
+#. Generate the :file:`styles.css` CSS file using :file:`styles.less`.
+   Click the buttons :guilabel:`Save` and :guilabel:`Build CSS` to create the file.
 
-Then generate the :file:`styles.css` file using :file:`styles.less` and the "Build CSS" button.
-
-Your theme is ready.
+#. Your theme is ready.
 
 
 Diazo rule directives and attributes
