@@ -25,7 +25,9 @@ Trainings
     How to create and make optimum use of custom Plone workflows
 
 :doc:`javascript/index`
-    Learn best practices in Javascript development, how to develop and test your own patterns, and how to integrate your custom Javascript applications with Plone. Technologies will include NPM, Grunt, Patternslib and React.
+    Learn best practices in JavaScript development, how to develop and test your own patterns,
+    and how to integrate your custom JavaScript applications with Plone.
+    Technologies will include NPM, Grunt, Patternslib and React.
 
 :doc:`deployment/index`
     How to automate deployment of Plone servers, whether it’s one server or 100.
