@@ -17,24 +17,24 @@ Topics covered:
 Customize logo
 --------------
 
-1. Go to the Plone Control Panel: :menuselection:`toolbar --> admin --> Site Setup`
-2. Go to the "Site" control panel.
-3. You will see this form:
+#. Go to the Plone Control Panel: :menuselection:`toolbar --> admin --> Site Setup`
+#. Go to the "Site" control panel.
+#. You will see this form:
 
    .. image:: https://docs.plone.org/_images/change-logo-in-site-control-panel.png
 
-4. You can now add / remove your custom logo
+#. You can now add/edit/remove your custom logo.
 
-See the `official docs <https://docs.plone.org/adapt-and-extend/change-the-logo.html>`_.
+For more information, take a look at the `official docs <https://docs.plone.org/adapt-and-extend/change-the-logo.html>`_.
 
 
 Customize CSS/Less variables
 ----------------------------
 
-1. Go back to the Control Panel.
-2. Go to the :guilabel:`Resource Registries` control panel.
-3. On the first tab: enable :guilabel:`Development Mode`.
-4. In the "plone" bundle below, click on "develop CSS".
+#. Go back to the Control Panel.
+#. Go to the :guilabel:`Resource Registries` control panel.
+#. On the first tab: enable :guilabel:`Development Mode`.
+#. In the "plone" bundle below, click on "develop CSS".
 
 Your panel should now look like this:
 
@@ -44,15 +44,14 @@ Your panel should now look like this:
 
 Now we can play with some Less variables:
 
-1. Go to the :guilabel:`Less Variables` tab.
-2. Find the variable ``plone-left-toolbar-expanded`` and set it to 400px.
+#. Go to the :guilabel:`Less Variables` tab.
+#. Find the variable ``plone-left-toolbar-expanded`` and set it to 400px.
 
-.. image:: ../theming/_static/theming-less_var_hack.png
-   :align: center
+   .. image:: ../theming/_static/theming-less_var_hack.png
+      :align: center
 
-
-3. Hit the :guilabel:`Save` button in the upper right and reload the page.
-4. Click on the toolbar logo to expand the toolbar: voilá!
+#. Hit the :guilabel:`Save` button in the upper right and reload the page.
+#. Click on the toolbar logo to expand the toolbar: voilá!
 
 You can play around with some other variables, if you want.
 
