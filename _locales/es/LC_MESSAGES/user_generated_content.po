@@ -40,8 +40,8 @@ msgid ""
 "and grant right to create talks. For this we go back to changing the site "
 "through-the-web."
 msgstr ""
-"¿Cómo hacer que los ponentes potenciales envíen sus charlas? Dejamos que se "
-"registren en el sitio y otorgan derecho a crear tipos de contenidos Talk. "
+"¿Cómo hacer que los potenciales ponentes envíen sus charlas? Dejamos que se "
+"registren en el sitio y se le otorgan derecho a crear tipos de contenidos Talk. "
 "Para ello volvemos a cambiar el sitio a través de la Web."
 
 #: ../user_generated_content.rst:15
@@ -54,7 +54,7 @@ msgstr "Permitir auto registro de usuario."
 
 #: ../user_generated_content.rst:18
 msgid "constrain types on the talk-folder"
-msgstr "Restringir tipos de contenidos en la carpeta de las charlas."
+msgstr "Restringir tipos de contenidos en la carpeta ``talks`` de las charlas."
 
 #: ../user_generated_content.rst:19
 msgid "grant local roles"
@@ -62,7 +62,7 @@ msgstr "Otorgar roles locales."
 
 #: ../user_generated_content.rst:20
 msgid "create a custom workflow for talks"
-msgstr "Crear un flujo de trabajo para las charlas."
+msgstr "Crear un flujo de trabajo para los tipos de contenidos Talk."
 
 #: ../user_generated_content.rst:24 ../user_generated_content.rst:79
 msgid "Self-registration"
@@ -74,8 +74,7 @@ msgid ""
 "controlpanel and Enable self-registration"
 msgstr ""
 "Valla al panel de control de Seguridad en la dirección URL "
-"http://localhost:8080/Plone/@@security-controlpanel and Enable self-"
-"registration"
+"http://localhost:8080/Plone/@@security-controlpanel y Habilitar auto-registro"
 
 #: ../user_generated_content.rst:27
 msgid "Leave \"Enable User Folders\" off unless you want a community-site."
@@ -93,10 +92,10 @@ msgid ""
 "event/talks/folder_constraintypes_form>`_ from the *Add new* menu. Only "
 "allow to add talks."
 msgstr ""
-"En la carpeta charlas seleccione `Restricciones… "
-"<http://localhost:8080/Plone/el-evento/charlas/folder_constraintypes_form>`_"
+"En la carpeta ``talks`` seleccione `Restricciones… "
+"<http://localhost:8080/Plone/the-event/talks/folder_constraintypes_form>`_"
 " en el menú *Añadir nuevo...*. Solo permita agregar tipos de contenidos "
-"charlas."
+"``Talks``."
 
 #: ../user_generated_content.rst:37 ../user_generated_content.rst:137
 msgid "Grant local roles"
@@ -132,20 +131,20 @@ msgid ""
 "users."
 msgstr ""
 "Todavía tenemos que solucionar un problema: los usuarios autenticados pueden"
-" ver todas las conversaciones, incluso los de otros usuarios en el estado "
+" ver todos los tipos de contenidos ``talks``, incluso los de otros usuarios en el estado "
 "privado. Ya que no queremos que esto vamos a crear un flujo de trabajo "
-"modificado para las charlas. El nuevo flujo de trabajo sólo les permitirá "
-"ver y editar las conversaciones que han creado ellos mismos y no los de "
+"modificado para los tipos de contenidos ``talks``. El nuevo flujo de trabajo sólo les permitirá "
+"ver y editar los tipos de contenidos ``talks`` que han creado ellos mismos y no los de "
 "otros usuarios."
 
 #: ../user_generated_content.rst:49
 msgid "Go to the ZMI > portal_workflow"
-msgstr "Valla a la ZMI > portal_workflow"
+msgstr "Valla a la herramienta ``ZMI`` > ``portal_workflow``"
 
 #: ../user_generated_content.rst:50
 msgid "See how talks have the same workflow as most content ``(Default)``"
 msgstr ""
-"Ver como las charlas tiene el mismo flujo de trabajo como la mayoría del "
+"Ver como los tipos de contenidos ``talks`` tiene el mismo flujo de trabajo como la mayoría del "
 "contenido ``(Por defecto)``"
 
 #: ../user_generated_content.rst:51
@@ -168,8 +167,7 @@ msgstr ""
 msgid ""
 "Edit the workflow by clicking on it: Change the Title to *Talks Workflow*."
 msgstr ""
-"Edite el flujo de trabajo haciendo clic en: Change the Title to *Flujo de "
-"trabajo de Charla*."
+"Edite el flujo de trabajo haciendo clic en: Change the Title to *Talks Workflow*."
 
 #: ../user_generated_content.rst:54
 msgid ""
@@ -185,13 +183,13 @@ msgid ""
 "for ``Access contents information`` and ``View``. Note that the *Owner* "
 "(i.e. the Creator) still has some permissions."
 msgstr ""
-"Encuentra en la columna tabla para el rol * Colaborador * y quitar los "
+"Encuentra en la columna de la tabla para el rol *Colaborador* y quitar los "
 "permisos para ``Access contents information`` y ``View``. Tenga en cuenta "
-"que el *Propietario* (es decir, el Creador) todavía tiene algunos permisos."
+"que el rol *Propietario* (es decir, el rol Creador) todavía tiene algunos permisos."
 
 #: ../user_generated_content.rst:56
 msgid "Do the same for the state *pending*"
-msgstr "Hacer lo mismo para el estado *pending*"
+msgstr "Hacer lo mismo para el estado *pending*."
 
 #: ../user_generated_content.rst:57
 msgid ""
@@ -199,7 +197,7 @@ msgid ""
 " talks. Click *Change* and then *Update security settings*."
 msgstr ""
 "Valla a la herramienta *portal_workflow* y establecer el nuevo flujo de "
-"trabajo ``talks_workflow`` para los tipos de contenidos talks. Haga clic "
+"trabajo ``talks_workflow`` para los tipos de contenidos ``talks``. Haga clic "
 "*Change* y entonces *Update security settings*."
 
 #: ../user_generated_content.rst:61
@@ -239,7 +237,7 @@ msgid ""
 "export the GenericSetup step *Workflow Tool* in "
 "http://localhost:8080/Plone/portal_setup/manage_exportSteps."
 msgstr ""
-"Exporte el paso GenericSetup *Workflow Tool* en "
+"Exporte el paso GenericSetup *Workflow Tool* en la siguiente dirección URL "
 "http://localhost:8080/Plone/portal_setup/manage_exportSteps."
 
 #: ../user_generated_content.rst:75
@@ -267,7 +265,7 @@ msgid ""
 "#custom-installer-code-setuphandlers-py>`_ since there is not yet a "
 "exportable setting for this."
 msgstr ""
-"Esto tiene que suceder en Python en una archivo personalizable `setuphandler.py <http://docs.plone.org/4/en/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_  ya que aún no existe un entorno exportable para esto."
+"Esto tiene que suceder en Python en una archivo `setuphandler.py <http://docs.plone.org/4/en/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_ personalizable, ya que aún no existe un entorno exportable para esto."
 
 #: ../user_generated_content.rst:83
 msgid ""
@@ -282,13 +280,13 @@ msgid ""
 "Note that the setuphandler has a dependency on `typeinfo` because it will "
 "only allow the creation of talks. For this the type already has to exist."
 msgstr ""
-"Tenga en cuenta que el script setuphandler tiene una dependencia en "
-"`typeinfo` porque sólo permitirá la creación de charlas. Para este tipo ya "
+"Tenga en cuenta que el módulo ``setuphandler`` tiene una dependencia en "
+"`typeinfo` porque sólo permitirá la creación de tipos de contenidos ``talks``. Para este tipo ya "
 "tiene que existir."
 
 #: ../user_generated_content.rst:98
 msgid "Create a new file ``setuphandlers.py``"
-msgstr "Crear un nuevo archivo ``setuphandlers.py``"
+msgstr "Crear un nuevo archivo ``setuphandlers.py``, agregando el siguiente código Python:"
 
 #: ../user_generated_content.rst:132
 msgid ""
@@ -296,7 +294,7 @@ msgid ""
 "line 18::"
 msgstr ""
 "Agregue el archivo marcador ``profile/default/ploneconf.site_various.txt`` "
-"usado en la linea 18::"
+"usado en la linea 18, usando el código anterior, con el siguiente contenido::"
 
 #: ../user_generated_content.rst:139
 msgid ""
@@ -311,7 +309,7 @@ msgid ""
 "But we can easily add a method to the setuphandler that creates the folder "
 "and sets up some setting for it."
 msgstr ""
-"Pero podemos añadir fácilmente un método para la setuphandler cree la "
+"Pero podemos añadir fácilmente un método para el módulo ``setuphandler`` el cual cree la "
 "carpeta y se establece un cierto ajuste por ello."
 
 #: ../user_generated_content.rst:143
