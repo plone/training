@@ -27,14 +27,14 @@ msgstr "Creando paquetes reusables con Eggs"
 
 #: ../eggs2.rst:4
 msgid "We already created an egg much earlier."
-msgstr "Nosotros ya hemos creado un paquete Egg anteriormente."
+msgstr "Nosotros ya hemos creado un paquete ``Egg`` anteriormente."
 
 #: ../eggs2.rst:6
 msgid ""
 "Now we are going to create a feature that is completely independent of "
 "our ploneconf site and can be reused in other packages."
 msgstr ""
-"Ahora vamos a crear una función que es totalmente independiente de "
+"Ahora vamos a crear una característica que es totalmente independiente de "
 "nuestro sitio ploneconf y puede ser reutilizado en otros paquetes."
 
 #: ../eggs2.rst:8
@@ -47,7 +47,7 @@ msgstr ""
 
 #: ../eggs2.rst:10
 msgid "We are going to add a voting behavior."
-msgstr "Vamos a agregar el comportamiento voting."
+msgstr "Vamos a agregar el comportamiento de votaciones."
 
 #: ../eggs2.rst:12
 msgid "For this we need:"
@@ -55,7 +55,7 @@ msgstr "Para esto nosotros necesitamos:"
 
 #: ../eggs2.rst:14
 msgid "A behavior that stores it's data in annotations"
-msgstr "Un comportamiento que almacene esa data en anotaciones."
+msgstr "Un comportamiento que almacene esos datos en registros de anotaciones."
 
 #: ../eggs2.rst:15
 msgid "A viewlet to present the votes"
@@ -63,7 +63,7 @@ msgstr "Un viewlet para presentar los votos."
 
 #: ../eggs2.rst:16
 msgid "A bit of javascript"
-msgstr "Un poco de Javascript."
+msgstr "Un poco de código Javascript."
 
 #: ../eggs2.rst:17
 msgid "A bit of css"
@@ -82,7 +82,7 @@ msgid ""
 msgstr ""
 "Nos ubicamos dentro del directorio :file:`src` y ejecutamos el script "
 "llamado :file:`zopeskel` desde nuestro directorio :file:`bin` del "
-"proyecto."
+"proyecto, con los siguientes comando:"
 
 #: ../eggs2.rst:28
 msgid ""
@@ -91,8 +91,8 @@ msgid ""
 "dependencies we need."
 msgstr ""
 "Esto devuelve una lista de plantillas disponibles que podríamos utilizar."
-" Elegimos Dexterity ya que es bastante pequeña, pero ya cuenta con "
-"algunas de las dependencias adecuadas que necesitamos."
+" Elegimos la plantilla ``dexterity`` ya que es bastante pequeña, pero ya cuenta con "
+"algunas de las dependencias adecuadas que necesitamos, con el siguiente comando:"
 
 #: ../eggs2.rst:34
 msgid "We answer some questions:"
@@ -169,5 +169,5 @@ msgid ""
 " define new types."
 msgstr ""
 "El archivo :file:`profiles/default/types.xml` lo eliminamos también. No "
-"vamos a definir nuevos tipos de contenidos."
+"vamos a definir nuevos tipos de contenidos en este paquete."
 
