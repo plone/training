@@ -28,7 +28,7 @@ msgid ""
 " talk-list."
 msgstr ""
 "Podemos usar los índices creados en el último capítulo para mejorar la lista"
-" de charlas."
+" de tipos de contenidos talks."
 
 #: ../custom_search.rst:6
 msgid ""
@@ -37,8 +37,8 @@ msgid ""
 "templates. There are several tools that allow you to add amazing custom "
 "searches and content-listings through the web in Plone."
 msgstr ""
-"Si los capítulos acerca de Vistas le parece complejo, el complemento de "
-"búsqueda personalizado ahora se muestra como una gran alternativa hasta que "
+"Si los capítulos acerca de las vistas le parece complejo, ahora mostraremos el "
+"complemento de búsqueda personalizado como una gran alternativa hasta que "
 "se sientas cómodo escribiendo vistas y plantillas. También hay muchas "
 "herramientas que permitan agregar impresionantes búsquedas personalizadas y "
 "listados de contenidos a través de la Web en Plone."
@@ -66,7 +66,7 @@ msgstr ""
 
 #: ../custom_search.rst:13
 msgid "Click on the tab *Faceted criteria* to configure it"
-msgstr "Haga clic en la pestaña *Faceted criteria* para configurar esta."
+msgstr "Haga clic en la pestaña *Faceted criteria* para configurarla."
 
 #: ../custom_search.rst:15
 msgid "Select 'Talk' for *Portal type*, hide *Results per page*"
@@ -81,15 +81,15 @@ msgstr ""
 
 #: ../custom_search.rst:17
 msgid "Add a select-widget for speaker"
-msgstr "Agrega un widget de selección para el Speaker."
+msgstr "Agrega un widget de selección para ``speaker``."
 
 #: ../custom_search.rst:18
 msgid "Add a radio-widget for type_of_talk"
-msgstr "Agregue un widget de radio para type_of_talk."
+msgstr "Agregue un widget de radio para ``type_of_talk``."
 
 #: ../custom_search.rst:19
 msgid "Other noteable widgets are: tagcloud, a-z, search"
-msgstr "Otros widgets notables son: tagcloud, a-z, search."
+msgstr "Otros widgets notables son: ``tagcloud``, ``a-z``, ``search``."
 
 #: ../custom_search.rst:21
 msgid "Examples:"
