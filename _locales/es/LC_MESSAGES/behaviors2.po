@@ -361,7 +361,7 @@ msgstr ""
 "A continuación ofrecemos los campos internos a través de propiedades. El uso"
 " de este formulario de propiedad, hace que lean únicamente la propiedad, ya que no "
 "nos definimos manipuladores de escritura. Nosotros no los necesitamos entonces "
-"para que nosotros no los agregarmos."
+"para que nosotros no los agregaremos."
 
 #: ../behaviors2.rst:239
 msgid ""
@@ -416,3 +416,4 @@ msgstr ""
 #: ../behaviors2.rst:303
 msgid "Everything else is just boring python."
 msgstr "Todo lo demás es simplemente código Python aburrido."
+
