@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2017-08-05 05:00-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,148 +16,204 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../viewlets_1.rst:2
-# 42deb963f87b405cb2cfbca5ce9bf340
+#: ../viewlets_1.rst:4
 msgid "Writing Viewlets"
 msgstr ""
 
 #: ../viewlets_1.rst:0
-# be1a772ec88742768293fb81718532cc
 msgid "Get the code!"
 msgstr ""
 
-#: ../viewlets_1.rst:6
-# a8462e805b094552b1c6ee3843e9f888
-msgid "Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout-directory:"
+#: ../viewlets_1.rst:8
+msgid "Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:"
 msgstr ""
 
-#: ../viewlets_1.rst:14
-# 754bd3437252497b94fe9b7a79b5c26a
-msgid "A viewlet for the social behavior"
+#: ../viewlets_1.rst:15
+msgid "In this part you will:"
 msgstr ""
 
-#: ../viewlets_1.rst:18
-# 784c29cd19544ef289da2dd2fb60250e
-msgid "A viewlet is no view but a snippet of html and logic that can be put in various places in the site. These places are called ``viewletmanager``."
+#: ../viewlets_1.rst:17
+msgid "Display data from a behavior in a viewlet"
 msgstr ""
 
-#: ../viewlets_1.rst:20
-# 1f0d6c98a1ef4bf2854cf83700e38b3b
-msgid "Inspect existing viewlets and their managers by going to http://localhost:8080/Plone/@@manage-viewlets."
+#: ../viewlets_1.rst:19
+msgid "Topics covered:"
 msgstr ""
 
 #: ../viewlets_1.rst:21
-# a0b1b5588b1446fb9bbfa8f282f3030e
-msgid "We already customized a viewlet (:file:`collophon.pt`). Now we add a new one."
-msgstr ""
-
-#: ../viewlets_1.rst:22
-# 136f20e6cc604497a30515ae31bce6d1
-msgid "Viewlets don't save data (portlets do)"
-msgstr ""
-
-#: ../viewlets_1.rst:23
-# f305775336ea400f87e99a0443f14952
-msgid "Viewlets have no user-interface (portlets do)"
+msgid "Viewlets"
 msgstr ""
 
 #: ../viewlets_1.rst:26
-# c5d0f18407314f559ba807961af51ef5
-msgid "social-viewlet"
+msgid "A viewlet for the social behavior"
 msgstr ""
 
 #: ../viewlets_1.rst:30
-# dd7f75404f8e4686923ef1ac4a6ee279
-msgid "Let's add a link to the site that uses the information that we collected using the social-behavior."
+msgid "A viewlet is not a view but a snippet of html and logic that can be put in various places in the site. These places are called ``viewletmanager``."
 msgstr ""
 
 #: ../viewlets_1.rst:32
-# cc40c702099a465d9f08ba6b6d8592d8
+msgid "Inspect existing viewlets and their managers by going to http://localhost:8080/Plone/@@manage-viewlets."
+msgstr ""
+
+#: ../viewlets_1.rst:33
+msgid "We already customized a viewlet (:file:`colophon.pt`). Now we add a new one."
+msgstr ""
+
+#: ../viewlets_1.rst:34
+msgid "Viewlets don't save data (portlets do)"
+msgstr ""
+
+#: ../viewlets_1.rst:35
+msgid "Viewlets have no user interface (portlets do)"
+msgstr ""
+
+#: ../viewlets_1.rst:40
+msgid "Social viewlet"
+msgstr ""
+
+#: ../viewlets_1.rst:44
+msgid "Let's add a link to the site that uses the information that we collected using the social behavior."
+msgstr ""
+
+#: ../viewlets_1.rst:46
 msgid "We register the viewlet in :file:`browser/configure.zcml`."
 msgstr ""
 
-#: ../viewlets_1.rst:49
-# 6395ce763e4442d99c7ce8d655e3b794
-msgid "This registers a viewlet called ``social``. It is visible on all content that implements the interface ``ISocial`` from our behavior. It is also good practice to bind it to the `BrowserLayer`_ ``IPloneconfSiteLayer`` of our addon so it only shows up if our addon is actually installed."
+#: ../viewlets_1.rst:61
+msgid "``for``, ``manager``, ``layer`` and ``permission`` are constraints that limit the contexts in which the viewlet is loaded and rendered, by filtering out all the contexts that do not match those constraints."
 msgstr ""
 
-#: ../viewlets_1.rst:53
-# a7c010a994d64ad5a6af689491a1a3c7
-msgid "The viewlet-class ``SocialViewlet`` is expected in a file ``browser/viewlets.py``."
+#: ../viewlets_1.rst:65
+msgid "This registers a viewlet called ``social``. It is visible on all content that implements the interface ``ISocial`` from our behavior. It is also good practice to bind it to a specific ``layer``, so it only shows up if our addon is actually installed.  We will return to this in a later chapter."
 msgstr ""
 
-#: ../viewlets_1.rst:68
-# 45c16a2b8b0a48fb9b3cef648eaab453
-msgid "This class does nothing except rendering the associated template (That we have to write yet)"
-msgstr ""
-
-#: ../viewlets_1.rst:72
-# 0cf52c98fedc4733b6d4cdd406465ed6
-msgid "If we used ``grok`` we would not need to register the viewlets in the ``configure.zcml`` but do that in python. We would add a file viewlets.py containing the viewlet-class."
+#: ../viewlets_1.rst:69
+msgid "The viewlet class ``SocialViewlet`` is expected in a file ``browser/viewlets.py``."
 msgstr ""
 
 #: ../viewlets_1.rst:84
-# 3899ab148a28492d996faeaf3993d198
-msgid "This would do the same as the coe above using grok's paradigm of convention over configuration."
+msgid "This class does nothing except rendering the associated template (That we have yet to write)"
 msgstr ""
 
 #: ../viewlets_1.rst:86
-# a94cacb2a77b4bedab0d4b3bf20aff51
 msgid "Let's add the missing template :file:`templates/social_viewlet.pt`."
 msgstr ""
 
 #: ../viewlets_1.rst:104
-# ce9bb775c6974f1f9c4ebec3a7d8e3d0
 msgid "As you can see this is not a valid html document. That is not needed, because we don't want a complete view here, just a html snippet."
 msgstr ""
 
 #: ../viewlets_1.rst:106
-# d0a9b5f8e00c4bc8bf76ce38e730cafe
-msgid "There is a tal define statement, querying for viewlet/lanyrd_link. Like in page templates the template has access to its class. In browser views the reference is called view, in viewlets it is called viewlets."
+msgid "There is a tal define statement, querying for ``view/lanyrd_link``. Same as for views, viewlets have access to their class in page templates, as well."
 msgstr ""
 
 #: ../viewlets_1.rst:108
-# 3a6e09b85c644195b081a2841d19483b
 msgid "We have to extend the Social Viewlet now to add the missing attribute:"
 msgstr ""
 
 #: ../viewlets_1.rst:0
-# 3fc2f740585c4f7f87b8d2d3e4abe3dc
 msgid "Why not to access context directly"
 msgstr ""
 
 #: ../viewlets_1.rst:115
-# fff578dc14f142f39716c8a5ea34c82a
 msgid "In this example, :samp:`ISocial(self.context)` does return the context directly. It is still good to use this idiom for two reasons:"
 msgstr ""
 
 #: ../viewlets_1.rst:117
-# d8e82dffeea2445f9f985cc988e584da
-msgid "It makes it clear, that we only want to use the ISocial aspect of the object"
+msgid "It makes it clear that we only want to use the ISocial aspect of the object"
 msgstr ""
 
 #: ../viewlets_1.rst:118
-# 1f40d9b7b0c0410cb500c8b09e07b70e
-msgid "If we decide to use a factory, for example to store our attributes in an annotation, we would `not` get back our context, but the adapter"
+msgid "If we decide to use a factory, for example to store our attributes in an annotation, we would `not` get back our context, but the adapter."
 msgstr ""
 
-#: ../viewlets_1.rst:133
-# 5eb5a516d2804de38708aba5628fb7c0
-msgid "So far, we"
+#: ../viewlets_1.rst:120
+msgid "Therefore in this example you could simply write ``return self.context.lanyrd``."
 msgstr ""
 
 #: ../viewlets_1.rst:135
-# 49c1aafad1f44190a1058c01a6c66fcb
-msgid "register the viewlet to content that has the ISocial Interface."
-msgstr ""
-
-#: ../viewlets_1.rst:136
-# d6c66bedb94747598bc1729abe26121f
-msgid "adapt the object to it's behavior to be able to access the fields of the behavior"
+msgid "So far, we"
 msgstr ""
 
 #: ../viewlets_1.rst:137
-# d535fad64b664d47acfdb088f879c7a6
+msgid "register the viewlet to content that has the ISocial Interface."
+msgstr ""
+
+#: ../viewlets_1.rst:138
+msgid "adapt the object to its behavior to be able to access the fields of the behavior"
+msgstr ""
+
+#: ../viewlets_1.rst:139
 msgid "return the link"
+msgstr ""
+
+#: ../viewlets_1.rst:145
+msgid "Exercise 1"
+msgstr ""
+
+#: ../viewlets_1.rst:147
+msgid "Register a viewlet 'number_of_talks' in the footer that is only visible to admins (the permission you are looking for is ``cmf.ManagePortal``). Use only a template (no class) to display the number of talks already submitted. Hint: Use Acquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)"
+msgstr ""
+
+#: ../viewlets_1.rst:149
+#: ../viewlets_1.rst:224
+msgid "Solution"
+msgstr ""
+
+#: ../viewlets_1.rst:152
+msgid "Register the viewlet in :file:`browser/configure.zcml`"
+msgstr ""
+
+#: ../viewlets_1.rst:166
+msgid "For the ``for`` and ``layer``-parameters ``*`` is shorthand for ``zope.interface.Interface`` and the same effect as omitting them: The viewlet will be shown for all types of pages and for all Plone sites within your Zope instance."
+msgstr ""
+
+#: ../viewlets_1.rst:168
+msgid "Add the template :file:`browser/templates/number_of_talks.pt`:"
+msgstr ""
+
+#: ../viewlets_1.rst:178
+msgid "``python:context.portal_catalog`` will return the catalog through Acquisition. Be careful if you want to use path expressions: ``content/portal_catalog`` calls the catalog (and returns all brains). You need to prevent this by using ``nocall:content/portal_catalog``."
+msgstr ""
+
+#: ../viewlets_1.rst:180
+msgid "Relying on Acquisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from ``plone/app/layout/globals/tools.py`` to get the catalog."
+msgstr ""
+
+#: ../viewlets_1.rst:190
+msgid "``context/@@plone_tools/catalog`` traverses to the view ``plone_tools`` and calls its method ``catalog``. In python it would look like this:"
+msgstr ""
+
+#: ../viewlets_1.rst:200
+msgid "It is not a good practice to query the catalog within a template since even simple logic like this should live in Python. But it is very powerful if you are debugging or need a quick and dirty solution."
+msgstr ""
+
+#: ../viewlets_1.rst:202
+msgid "In Plone 5 you could even write it like this:"
+msgstr ""
+
+#: ../viewlets_1.rst:220
+msgid "Exercise 2"
+msgstr ""
+
+#: ../viewlets_1.rst:222
+msgid "Register a viewlet 'days_to_conference' in the header. Use a class and a template to display the number of days until the conference. You get bonus points if you display it in a nice format (think \"In 2 days\" and \"Last Month\") by using either javascript or a python library."
+msgstr ""
+
+#: ../viewlets_1.rst:227
+msgid "In ``configure.zcml``:"
+msgstr ""
+
+#: ../viewlets_1.rst:241
+msgid "In ``viewlets.py``:"
+msgstr ""
+
+#: ../viewlets_1.rst:261
+msgid "And in ``templates/days_to_conference.pt``:"
+msgstr ""
+
+#: ../viewlets_1.rst:269
+msgid "Or using the moment pattern in Plone 5:"
 msgstr ""
 

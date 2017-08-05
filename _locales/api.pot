@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2017-08-05 05:00-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,268 +16,252 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../api.rst:2
-# 79dc5e3c669b43d680fd8aadaba2121a
+#: ../api.rst:4
 msgid "Programming Plone"
 msgstr ""
 
-#: ../api.rst:5
-# a13e6ca45a1f400e82c0bd5b57bf0b76
-msgid "plone.api"
+#: ../api.rst:6
+msgid "In this part you will:"
 msgstr ""
 
-#: ../api.rst:7
-# b5283bbb7da54de089e86831b33b42e1
-msgid "The most important tool nowadays for plone-developers is the addon `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ hat covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you."
+#: ../api.rst:8
+msgid "Learn about the right ways to do something in code in Plone."
 msgstr ""
 
 #: ../api.rst:9
-# 4ac3d7db1d3d4ff48c9d475b4ca56961
-msgid "The api is devided in five sections. Here is one example from each:"
+msgid "Learn to debug"
 msgstr ""
 
 #: ../api.rst:11
-# e2b9cc0e09a84672b46d1fde2af6728d
-msgid "`Content`: `Create content <http://docs.plone.org/external/plone.api/docs/content.html#create-content>`_"
-msgstr ""
-
-#: ../api.rst:12
-# 4083a94c945d41c1895b50f3369d43ea
-msgid "`Portal`: `Send E-Mail <http://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_"
+msgid "Topics covered:"
 msgstr ""
 
 #: ../api.rst:13
-# 981b8d8040664700bda7607ae6459a8d
-msgid "`Groups`: `Grant roles to group <http://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-group>`_"
-msgstr ""
-
-#: ../api.rst:14
-# be8b330d291e4e1da33415fbc7edd7af
-msgid "`Users`: `Get user roles <http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_"
-msgstr ""
-
-#: ../api.rst:15
-# c537800684f749d18617cc0660e44155
-msgid "`Environment`: `Switch roles inside a block <http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_"
-msgstr ""
-
-#: ../api.rst:17
-# 3c909ba5f17047418c2a5a8428b173ef
-msgid "plone.api is not yet part of the Plone core. Therefore you will not see any use of plone.api in in Plone itself. But we are sure it will be part of Plone 5 if someone gets around to submitting the PLIP."
-msgstr ""
-
-#: ../api.rst:19
-# 8108716e6d6f45cd96d6cbfab1a4a95c
-msgid "In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out about what they do."
-msgstr ""
-
-#: ../api.rst:21
-# 19e50e967d9e49a3baa09c0817b69a98
-msgid "Some of these methods will be replaced by plone.api in the future:"
-msgstr ""
-
-#: ../api.rst:23
-# fbbffd17ba034816a734f4139b172c08
-msgid "``Products.CMFCore.utils.getToolByName`` -> ``api.portal.get_tool``"
-msgstr ""
-
-#: ../api.rst:24
-# 51cc580f8b2f42528f700ac1e4889c36
-msgid "``zope.component.getMultiAdapter`` -> ``api.content.get_view``"
-msgstr ""
-
-#: ../api.rst:28
-# 8ec2f3c911ab454ba3358aa63839c8a7
-msgid "portal-tools"
-msgstr ""
-
-#: ../api.rst:30
-# a1d85015103541fe88e8331daa6c0e0c
-msgid "Some parts of Plone are very complex modules in themselves (e.g. the while versioning-machinery of ``Products.CMFEditions``). Some of them have an api that you will have to learn sooner or later."
-msgstr ""
-
-#: ../api.rst:32
-# 744e5e397b4f4b8fb315ddc36daf5289
-msgid "Here are a few examples:"
-msgstr ""
-
-#: ../api.rst:37
-# e38452b9851b46bfb7f86a5d42e81402
-msgid "portal_catalog"
-msgstr ""
-
-#: ../api.rst:35
-# 5524c6919cf44e99ad3fbfd3326743fe
-msgid "``unrestrictedSearchResults()`` returns search-results without checking if the current user has the permission to access the objects."
-msgstr ""
-
-#: ../api.rst:37
-# d875a75c7a2b4ccb92d868f220d5946c
-msgid "``uniqueValuesFor()`` returns all entries in a index"
-msgstr ""
-
-#: ../api.rst:40
-# 45b9798523934139a21916ab3964abbe
-msgid "portal_setup"
-msgstr ""
-
-#: ../api.rst:40
-# 33a7fd1659e34b53b259b289cc715103
-msgid "``runAllExportSteps()`` generates a tarball containing artifacts from all export steps."
-msgstr ""
-
-#: ../api.rst:43
-# b3a7c95826104b65b71c68c536a6515a
-msgid "portal_quickinstaller"
-msgstr ""
-
-#: ../api.rst:43
-# 75f617c2e07a40398b00123cd75d820b
-msgid "``isProductInstalled()`` checks wether a product is installed."
-msgstr ""
-
-#: ../api.rst:45
-# 9e31a5aa43e84b739b39ec0d41a98dbb
-msgid "Usually the best way to learn about the api of a tool is to look in the ``interfaces.py`` in the respective package and read the docstrings."
-msgstr ""
-
-#: ../api.rst:49
-# 21bf5f0124724578b4ef57637d0985bc
+#: ../api.rst:69
 msgid "Debugging"
 msgstr ""
 
-#: ../api.rst:51
-# 39c30fb82934438a8ad8704385ad93b3
+#: ../api.rst:14
+msgid "Plone API"
+msgstr ""
+
+#: ../api.rst:15
+msgid "Portal tools"
+msgstr ""
+
+#: ../api.rst:21
+msgid "plone.api"
+msgstr ""
+
+#: ../api.rst:23
+msgid "The most important tool nowadays for plone developers is the add-on `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you."
+msgstr ""
+
+#: ../api.rst:25
+msgid "The api is divided in five sections. Here is one example from each:"
+msgstr ""
+
+#: ../api.rst:27
+msgid "`Content`: `Create content <http://docs.plone.org/external/plone.api/docs/content.html#create-content>`_"
+msgstr ""
+
+#: ../api.rst:28
+msgid "`Portal`: `Send E-Mail <http://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_"
+msgstr ""
+
+#: ../api.rst:29
+msgid "`Groups`: `Grant roles to group <http://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-group>`_"
+msgstr ""
+
+#: ../api.rst:30
+msgid "`Users`: `Get user roles <http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_"
+msgstr ""
+
+#: ../api.rst:31
+msgid "`Environment`: `Switch roles inside a block <http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_"
+msgstr ""
+
+#: ../api.rst:33
+msgid "plone.api is not yet part of the Plone core. Therefore you will not see any use of plone.api in Plone itself. It will be part of Plone 5."
+msgstr ""
+
+#: ../api.rst:35
+msgid "In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out  what they do."
+msgstr ""
+
+#: ../api.rst:37
+msgid "Some of these methods will be replaced by plone.api in the future:"
+msgstr ""
+
+#: ../api.rst:39
+msgid "``Products.CMFCore.utils.getToolByName`` -> ``api.portal.get_tool``"
+msgstr ""
+
+#: ../api.rst:40
+msgid "``zope.component.getMultiAdapter`` -> ``api.content.get_view``"
+msgstr ""
+
+#: ../api.rst:46
+msgid "portal-tools"
+msgstr ""
+
+#: ../api.rst:48
+msgid "Some parts of Plone are very complex modules in themselves (e.g. the versioning machinery of ``Products.CMFEditions``). Some of them have an api that you will have to learn sooner or later."
+msgstr ""
+
+#: ../api.rst:50
+msgid "Here are a few examples:"
+msgstr ""
+
+#: ../api.rst:55
+msgid "portal_catalog"
+msgstr ""
+
+#: ../api.rst:53
+msgid "``unrestrictedSearchResults()`` returns search results without checking if the current user has the permission to access the objects."
+msgstr ""
+
+#: ../api.rst:55
+msgid "``uniqueValuesFor()`` returns all entries in a index"
+msgstr ""
+
+#: ../api.rst:58
+msgid "portal_setup"
+msgstr ""
+
+#: ../api.rst:58
+msgid "``runAllExportSteps()`` generates a tarball containing artifacts from all export steps."
+msgstr ""
+
+#: ../api.rst:61
+msgid "portal_quickinstaller"
+msgstr ""
+
+#: ../api.rst:61
+msgid "``isProductInstalled()`` checks if a product is installed."
+msgstr ""
+
+#: ../api.rst:63
+msgid "Usually the best way to learn about the api of a tool is to look in the ``interfaces.py`` in the respective package and read the docstrings."
+msgstr ""
+
+#: ../api.rst:71
 msgid "Here are some tools and techniques we often use when developing and debugging. We use some of them in various situations during the training."
 msgstr ""
 
-#: ../api.rst:54
-# ec5d13626bc440b2a46dff7aa0f2ce4d
+#: ../api.rst:74
 msgid "tracebacks and the log"
 msgstr ""
 
-#: ../api.rst:54
-# 4d0e1b5d10ba42a0be8b5560544c393a
-msgid "The log (and the console when running in foreground) collect all log-messages Plone prints. When a exception occurs Plone thows a traceback. Most of the time the traceback is everything you need to find out what is going wrong. Also adding your own information to the log is very simple."
+#: ../api.rst:74
+msgid "The log (and the console when running in foreground) collect all log messages Plone prints. When an exception occurs Plone throws a traceback. Most of the time the traceback is everything you need to find out what is going wrong. Also adding your own information to the log is very simple."
 msgstr ""
 
-#: ../api.rst:57
-# 52b0e69f6618457e9c338e152cff8621
+#: ../api.rst:79
 msgid "pdb"
 msgstr ""
 
-#: ../api.rst:57
-# 8e9a414dea254bbbbb3ea46563404545
+#: ../api.rst:77
 msgid "The python debugger pdb is the single most important tool for us when programming. Just add ``import pdb; pdb.set_trace()`` in your code and debug away!"
 msgstr ""
 
-#: ../api.rst:64
-# 22a48d34e2f94ba3b55bfceb6d3c3350
+#: ../api.rst:79
+msgid "Since Plone 5 you can even add it to templates: add ``<?python import pdb; pdb.set_trace() ?>`` to a template and you end up in a pdb shell on calling the template. Look at the variable ``econtext`` to see what might have gone wrong."
+msgstr ""
+
+#: ../api.rst:82
+msgid "ipdb"
+msgstr ""
+
+#: ../api.rst:82
+msgid "Enhanced pdb with the power of IPython, e.g. tab completion, syntax highlighting, better tracebacks and introspection. It also works nicely with Products.PDBDebugMode."
+msgstr ""
+
+#: ../api.rst:89
 msgid "Products.PDBDebugMode"
 msgstr ""
 
-#: ../api.rst:60
-# 07cb843706c54fc594eadf2b20827dca
-msgid "A addon that has two killer-features."
-msgstr ""
-
-#: ../api.rst:62
-# 7bc7a8c336f444e6beb83407e77b0623
-msgid "**Post-mortem debugging**: throws you in a pdb whenever a exception occurs. This way you can find out what is going wrong."
-msgstr ""
-
-#: ../api.rst:64
-# 84587f207489441a8be250ddff0064e3
-msgid "**pdb-view**: simply adding ``/pdb`` to a url drops you in a pdb-session with the current context as ``self.context``. From there you can do just about anything."
-msgstr ""
-
-#: ../api.rst:67
-# e2d06b24351648c7ad0d446f8884cb9f
-msgid "Debug-mode"
-msgstr ""
-
-#: ../api.rst:67
-# 9360a6cc113e49a586d89125b1b17f83
-msgid "When starting Plone using ``./bin/instance debug -O Plone`` you'll end up in a interactive debugger."
-msgstr ""
-
-#: ../api.rst:70
-# d1329e587ac34be8b0ce514fbd7c2c71
-msgid "plone.app.debugtoolbar"
-msgstr ""
-
-#: ../api.rst:70
-# 469cccf43cbc44b8b150b124128b1eca
-msgid "A addon that allows you to inspect nearly everything. It even has a interactive console and a tester for TALES-expressions."
-msgstr ""
-
-#: ../api.rst:73
-# c5f08844ee664692965767ce93336806
-msgid "plone.reload"
-msgstr ""
-
-#: ../api.rst:73
-# 157206159a33404caada2a639aa18a32
-msgid "An addon that allows to reload code that you changed without restarting the site. It is also used by plone.app.debugtoolbar."
-msgstr ""
-
-#: ../api.rst:76
-# 63f296a6140d47c89fdad6205df2ad4d
-msgid "Products.PrintingMailHost"
-msgstr ""
-
-#: ../api.rst:76
-# ad6148b9ae2e4430a0f294d4c81f7d1d
-msgid "A addon that prevents Plone from sending mails. They are instead logged."
-msgstr ""
-
-#: ../api.rst:79
-# fd523f7698ef4b629a55c81650638d4d
-msgid "Products.Ienablesettrace"
-msgstr ""
-
-#: ../api.rst:79
-# 8bd0ecee9c6746ce89bd01e19ec5e5fa
-msgid "Addon that allows to use pdb and ipdb in python skin-scripts. Very useful."
-msgstr ""
-
-#: ../api.rst:82
-# 1a019a7855cc4af29c290c26901fde91
-msgid "``verbose-security = on``"
-msgstr ""
-
-#: ../api.rst:82
-# 2d0213c350b04dac8d38456a4c2cb232
-msgid "A option for the recipe *plone.recipe.zope2instance* that logs the detailed reasons why a user might not be authorized to see something."
-msgstr ""
-
 #: ../api.rst:85
-# ee9f6b21615f47d8ba3a96bfb4507134
-msgid "``./bin/buildout annotate``"
+msgid "An add-on that has two killer features."
 msgstr ""
 
-#: ../api.rst:85
-# 1e575b739a73499d8a511a53aaca7300
-msgid "A option when running buildout that logs all the pulled packages and versions."
+#: ../api.rst:87
+msgid "**Post-mortem debugging**: throws you in a pdb whenever an exception occurs. This way you can find out what is going wrong."
 msgstr ""
 
-#: ../api.rst:88
-# 77d9757028204f75a99e4b862a1d64fe
-msgid "Sentry"
+#: ../api.rst:89
+msgid "**pdb-view**: simply adding ``/pdb`` to a url drops you in a pdb session with the current context as ``self.context``. From there you can do just about anything."
 msgstr ""
 
-#: ../api.rst:88
-# cb6789113ff64a75a78f32b0f6ab1076
-msgid "`Sentry <https://github.com/getsentry/sentry>`_ is a error logging application you can host yourself. It aggregarates tracebacks from many sources and (here comes the killer-feature) even the values of variables in the stacktrace. We use it in all our production-sites."
+#: ../api.rst:92
+msgid "Debug mode"
+msgstr ""
+
+#: ../api.rst:92
+msgid "When starting Plone using ``./bin/instance debug -O Plone`` you'll end up in an interactive debugger."
 msgstr ""
 
 #: ../api.rst:95
-# 641ffbe7928844a9b8d0fba9af9f9bbe
+msgid "plone.app.debugtoolbar (not working yet in Plone 5!)"
+msgstr ""
+
+#: ../api.rst:95
+msgid "An add-on that allows you to inspect nearly everything. It even has an interactive console and a tester for TALES-expressions."
+msgstr ""
+
+#: ../api.rst:98
+msgid "plone.reload"
+msgstr ""
+
+#: ../api.rst:98
+msgid "An add-on that allows to reload code that you changed without restarting the site. It is also used by plone.app.debugtoolbar."
+msgstr ""
+
+#: ../api.rst:101
+msgid "Products.PrintingMailHost"
+msgstr ""
+
+#: ../api.rst:101
+msgid "An add-on that prevents Plone from sending mails. Instead, they are logged."
+msgstr ""
+
+#: ../api.rst:104
+msgid "Products.enablesettrace or Products.Ienablesettrace"
+msgstr ""
+
+#: ../api.rst:104
+msgid "Add-on that allows to use pdb and ipdb in python skin scripts. Very useful when debugging legacy code."
+msgstr ""
+
+#: ../api.rst:107
+msgid "``verbose-security = on``"
+msgstr ""
+
+#: ../api.rst:107
+msgid "An option for the recipe *plone.recipe.zope2instance* that logs the detailed reasons why a user might not be authorized to see something."
+msgstr ""
+
+#: ../api.rst:110
+msgid "``./bin/buildout annotate``"
+msgstr ""
+
+#: ../api.rst:110
+msgid "An option when running buildout that logs all the pulled packages and versions."
+msgstr ""
+
+#: ../api.rst:113
+msgid "Sentry"
+msgstr ""
+
+#: ../api.rst:113
+msgid "`Sentry <https://github.com/getsentry/sentry>`_ is an error logging application you can host yourself. It aggregates tracebacks from many sources and (here comes the killer feature) even the values of variables in the traceback. We use it in all our production sites."
+msgstr ""
+
+#: ../api.rst:120
 msgid "zopepy"
 msgstr ""
 
-#: ../api.rst:91
-# 608dd431b20845239f9cfa4d01d33687
-msgid "Buildout can create a python-shell for you that has all the packages from your plone-site in it's python-path. Add the part like this::"
+#: ../api.rst:116
+msgid "Buildout can create a python shell for you that has all the packages from your Plone site in its python path. Add the part like this::"
 msgstr ""
 

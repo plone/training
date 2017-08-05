@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2017-08-05 05:00-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,62 +17,54 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../sneak.rst:2
-# 88a7bebe4e7240c29b278bce95b9ef0f
 msgid "Using the code for the training"
 msgstr ""
 
 #: ../sneak.rst:4
-# 03e85edc49c74c13bf9b11515db5d17f
-msgid "We provide the code for this training divided in into chapters. To"
+msgid "We provide the code for this training divided in into chapters."
 msgstr ""
 
 #: ../sneak.rst:7
-# c3be725e33e4455db4531749bc7cd109
-msgid "Telling Plone about ploneconf.site"
+msgid "The code-package"
 msgstr ""
 
 #: ../sneak.rst:9
-# db0fd40ded22488f8a37bc27f6bdb378
-msgid "Modify ``buildout.cfg`` to have Plone expect the egg ``ploneconf.site`` to be in ``src``."
+msgid "The package containing the eggs for each chapter is already automatically downloaded by buildout into a directory called ``src/ploneconf.site_sneak/``."
 msgstr ""
 
-#: ../sneak.rst:30
-# 0c58849416424180b381b1f5b5f17650
-msgid "Gettin the code-package"
+#: ../sneak.rst:13
+msgid "If you want to do it by hand do the following:"
 msgstr ""
 
-#: ../sneak.rst:32
-# b0a81681a3f9494fae859077591fc7d5
-msgid "Download the code into a directory called ``src/ploneconf.site_sneak``."
-msgstr ""
-
-#: ../sneak.rst:41
-# ee30b317762f40129454e668008d2707
+#: ../sneak.rst:23
 msgid "Copy the relevant chapter so that Plone can use into"
 msgstr ""
 
-#: ../sneak.rst:43
-# efa5da59ac05409e824757282237a174
+#: ../sneak.rst:25
 msgid "To use the code for a certain chapter stop Plone and do this:"
 msgstr ""
 
-#: ../sneak.rst:51
-# 930ab85b13a44c3aad5838ead6cc9a31
+#: ../sneak.rst:33
 msgid "This will:"
 msgstr ""
 
-#: ../sneak.rst:53
-# 618c5eadaa754479bde9878cbbc8a099
+#: ../sneak.rst:35
 msgid "replace any existing previous chapter with the one you want to copy"
 msgstr ""
 
-#: ../sneak.rst:54
-# 5bd986d500de4772889f578077c3ddf9
+#: ../sneak.rst:36
 msgid "run buildout and restart Plone"
 msgstr ""
 
-#: ../sneak.rst:56
-# 44a5334f177040ad83a76d5ba152c8d6
-msgid "These are the chapters for which there is code::"
+#: ../sneak.rst:40
+msgid "Telling Plone about ploneconf.site"
+msgstr ""
+
+#: ../sneak.rst:42
+msgid "If you did not yet do this (it is covered in chapter :ref:`eggs1-label`) you will have to modify ``buildout.cfg`` to have Plone expect the egg ``ploneconf.site`` to be in ``src``."
+msgstr ""
+
+#: ../sneak.rst:64
+msgid "These are the names of the folders for which there is code. The same folder with the code for Plone 5 are appended with '_p5'::"
 msgstr ""
 

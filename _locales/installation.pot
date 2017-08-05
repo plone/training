@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2017-08-05 05:00-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,153 +16,163 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../installation.rst:2
-# fea91e7e45ef46ccbca84dfb86de4620
+#: ../installation.rst:4
 msgid "Installation & Setup"
 msgstr ""
 
-#: ../installation.rst:6
-# 73e280cd1ac946eea5586d41e8ee734d
+#: ../installation.rst:10
 msgid "Installing Plone"
 msgstr ""
 
-#: ../installation.rst:10
-# ff6d8b454ecc47daaa7a1b279534b07b
-msgid "Plone 4.3.x requires a working Python 2.7 and several other system-tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that Python can can be used:"
-msgstr ""
-
-#: ../installation.rst:18
-# f07dd3d78cb04525911c28856fdcbbad
-msgid "use a Python that comes pre-installed in your operating-system (most Linuxes and Mac OS have one)"
-msgstr ""
-
-#: ../installation.rst:19
-# bc4aad4a2fa3485586c7259a9c176884
-msgid "use the `python-buildout <https://github.com/collective/buildout.python>`_"
-msgstr ""
-
-#: ../installation.rst:20
-# db5ef50f5b6a45ffb512b4e6011c8ca5
-msgid "building Linux-packages"
-msgstr ""
-
-#: ../installation.rst:21
-# a7eeb7540b6b498d8c991b48331c2285
-msgid "`homebrew <http://mxcl.github.com/homebrew>`_ (Mac OS X)"
+#: ../installation.rst:14
+msgid "Plone 5.x requires a working Python 2.7 and several other system tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that Python can be used:"
 msgstr ""
 
 #: ../installation.rst:22
-# a57d64d9cb3c44e7b43af0b7d130c167
-msgid "PyWin32 (Windows)"
+msgid "use a Python that comes pre-installed in your operating system (most Linuxes and Mac OS X have one)"
+msgstr ""
+
+#: ../installation.rst:23
+msgid "use the `python buildout <https://github.com/collective/buildout.python>`_"
+msgstr ""
+
+#: ../installation.rst:24
+msgid "building Linux packages"
+msgstr ""
+
+#: ../installation.rst:25
+msgid "`homebrew <http://mxcl.github.com/homebrew>`_ (Mac OS X)"
 msgstr ""
 
 #: ../installation.rst:26
-# 9de1cda05b354a6881a534a2bf5ed9a4
-msgid "MacOS 10.8 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones. To run a older Plone-version you need Python 2.4 and that's not always easy to install."
+msgid "PyWin32 (Windows)"
 msgstr ""
 
-#: ../installation.rst:28
-# 1754fa3fb9cf4d7f82f0ff6350a27793
-msgid "Most developers usually use their primary system to develop Plone."
+#: ../installation.rst:30
+msgid "Mac OS X 10.8 - 10.10 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones. To run a Plone version older than 4.0 you need Python 2.4. That's not always easy to install.  And Plone 4.0.x and 4.1.x require Python 2.6.  Plone 4.2 can be run with Python 2.6 or 2.7, while Plone 4.3 requires Python 2.7."
 msgstr ""
 
 #: ../installation.rst:32
-# 8fb714fc4261465d9888f53c84773c1e
-msgid "Philip has MacOS, therefore he uses the python-buildout to compile all necessary versions of python and homebrew for some linux-tools."
-msgstr ""
-
-#: ../installation.rst:33
-# 54a6ceca40e945c8bddd27de534a9618
-msgid "Patrick uses Ubuntu."
+msgid "Most developers use their primary system to develop Plone. For complex setups they often use Linux virtual machines."
 msgstr ""
 
 #: ../installation.rst:34
-# 6ebd4e842e5e4386b6d41fd2d65d421b
-msgid "Alan Runyan (one of Plone's founders) uses Windows. We have no idea how he can live with that but to me he seems managing perfectly well. Plone is much slower on Windows."
+msgid "OS X: Use the python buildout to compile python and homebrew for some missing Linux tools."
 msgstr ""
 
-#: ../installation.rst:42
-# 60024929d13a4e0c9f306460a335c354
-msgid "Plone offers some options for being installed:"
+#: ../installation.rst:35
+msgid "Linux: Depending on your Linux flavor you might have to build python yourself and install some tools."
 msgstr ""
 
-#: ../installation.rst:44
-# eb17bdbd5e8e4b8b9d85d0843a60d1e6
-msgid "One-click installers for Mac and Windows (4.3.3 is not yet finished)"
+#: ../installation.rst:36
+msgid "Windows: Alan Runyan (one of Plone's founders) uses it. A downside: Plone seems to be running much slower on Windows."
 msgstr ""
 
-#: ../installation.rst:45
-# e7cd12c117254795ada5fbc3335c7395
+#: ../installation.rst:38
+msgid "Plone offers multiple options for being installed:"
+msgstr ""
+
+#: ../installation.rst:40
+msgid "One-click installers for Mac and Windows"
+msgstr ""
+
+#: ../installation.rst:41
 msgid "Unified installers (all 'nix, including MacOS)"
 msgstr ""
 
-#: ../installation.rst:46
-# 57b9fbdb70354a09aca5cfb73e4af1a1
+#: ../installation.rst:42
 msgid "A vagrant/virtualbox install kit (all platforms)"
 msgstr ""
 
-#: ../installation.rst:47
-# 3fac86f46510455fba56f495695ac62a
+#: ../installation.rst:43
 msgid "Use your own Buildout"
 msgstr ""
 
-#: ../installation.rst:49
-# a65f0ef24cf442e3864f01d189a3b1df
-msgid "You can download all of these at http://plone.org/products/plone/releases/4.3.3"
+#: ../installation.rst:45
+msgid "You can download all of these at http://plone.org/products/plone/releases/4.3.4 and https://plone.org/products/plone/releases/5.0"
 msgstr ""
 
-#: ../installation.rst:54
-# 2d2a51c40c504475900324628ea30e9a
-msgid "For the training we'll use option 3 and 4 to install and run Plone. We'll create our own Buildout and extend it as we wish. But we will do so in a vagrant machine. For your own first experiments we recommend option 2 or 3 (if you have a windows-laptop or encounter problems). Later on you should be able to use your own Buildout (we'll cover that later on)."
+#: ../installation.rst:50
+msgid "For the training we'll use option 3 and 4 to install and run Plone. We'll create our own Buildout and extend it as we wish. But we will do so in a vagrant machine. For your own first experiments we recommend option 2 or 3 (if you have a Windows laptop or encounter problems). Later on you should be able to use your own Buildout (we'll cover that later on)."
 msgstr ""
 
-#: ../installation.rst:60
-# 743b1ed6f4c546a68d5e51488d537707
-msgid "Read more about installing Plone: https://plone.org/documentation/manual/installing-plone and http://docs.plone.org/manage/installing/index.html"
+#: ../installation.rst:58
+msgid "http://docs.plone.org/manage/installing/installation.html"
 msgstr ""
 
 #: ../installation.rst:64
-# a61c37811e654b14879b9d53876be76b
 msgid "Hosting Plone"
 msgstr ""
 
 #: ../installation.rst:68
-# e188beb7f86b491fa7894b021d02fc20
-msgid "If you want to host a real-live Plone-Site yourself then running it from your laptop is not a viable option."
+msgid "If you want to host a real live Plone site yourself then running it from your laptop is not a viable option."
 msgstr ""
 
 #: ../installation.rst:70
-# 643622f1aca74e02bbee431ae7dc1c87
 msgid "You can host Plone..."
 msgstr ""
 
 #: ../installation.rst:72
-# d419767f0445483ca9a2fb3030bb94a0
-msgid "with one of many `hosting-providers <http://plone.org/support/hosting-providers>`_"
+msgid "with one of many professional `hosting providers <http://plone.com/providers>`_"
 msgstr ""
 
 #: ../installation.rst:73
-# 4f4f542ff7114b42a07a141f291139bd
 msgid "on a virtual private server"
 msgstr ""
 
 #: ../installation.rst:74
-# 7d21c92633a3440e8da6fa9b2e11d8c2
 msgid "on dedicated servers"
 msgstr ""
 
 #: ../installation.rst:75
-# 2754758e22bc401c9e3ff4a434269311
+msgid "on `heroku <http://heroku.com>`_ you can run Plone for *free* using the `Heroku buildpack for Plone <https://github.com/niteoweb/heroku-buildpack-plone>`_"
+msgstr ""
+
+#: ../installation.rst:76
 msgid "in the cloud (e.g. using Amazon EC2 or `Codio.com <http://blog.dbain.com/2014/04/install-plone-in-under-5-minutes-on.html>`_)"
 msgstr ""
 
-#: ../installation.rst:77
-# 4a37a89d5935411c85581cc7a8f946fe
+#: ../installation.rst:80
+msgid "Plone Installation Requirements: http://docs.plone.org/manage/installing/requirements.html"
+msgstr ""
+
+#: ../installation.rst:81
 msgid "Run Plone on a 5$ plan: http://www.stevemcmahon.com/steves-blog/plone-on-5-a-month"
 msgstr ""
 
-#: ../installation.rst:79
-# ebe96fcf3b8447f4b14bda40cafa1ae0
+#: ../installation.rst:82
 msgid "Where to host Plone: http://plone.org/documentation/faq/where-can-i-host-my-plone-site"
+msgstr ""
+
+#: ../installation.rst:88
+msgid "Production Deployment"
+msgstr ""
+
+#: ../installation.rst:90
+msgid "The way we're setting up a Plone site during this class may be adequate for a small site — or even a very large one that's not very busy — but you're likely to want to do much more if you're using Plone for anything demanding."
+msgstr ""
+
+#: ../installation.rst:92
+msgid "Using a production web server like Apache or Nginx for URL rewriting, SSL and combining multiple, best-of-breed solutions into a single web site."
+msgstr ""
+
+#: ../installation.rst:94
+msgid "Reverse proxy caching with a tool like Varnish to improve site performance."
+msgstr ""
+
+#: ../installation.rst:96
+msgid "Load balancing to make best use of multiple core CPUs and even multiple servers."
+msgstr ""
+
+#: ../installation.rst:98
+msgid "Optimizing cache headers and Plone's internal caching schemes with plone.app.caching."
+msgstr ""
+
+#: ../installation.rst:100
+msgid "And, you'll need to learn strategies for efficient backup and log file rotation."
+msgstr ""
+
+#: ../installation.rst:102
+msgid "All these topics are introduced in `Guide to deploying and installing Plone in production <http://docs.plone.org/manage/deploying/index.html>`_."
 msgstr ""
 

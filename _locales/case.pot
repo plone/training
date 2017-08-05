@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2017-08-05 05:00-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,73 +16,67 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../case.rst:2
-# 19acf0e48a0848b997f45fc65c4159d5
-msgid "The Case-Study"
+#: ../case.rst:4
+msgid "The Case Study"
 msgstr ""
 
-#: ../case.rst:4
-# 1bd0271bd3cd427baabe3ab0c7902d85
+#: ../case.rst:6
 msgid "For this training we will build a website for a fictional Plone conference."
 msgstr ""
 
-#: ../case.rst:7
-# aa99fd241d1b46e5b414e8979b50ce6d
+#: ../case.rst:11
 msgid "Background"
 msgstr ""
 
-#: ../case.rst:9
-# 73f6f8cfd1c34e5a92de00ed5273dbe7
+#: ../case.rst:13
 msgid "The Plone conference takes place every year and all Plone developers at least try to go there."
 msgstr ""
 
-#: ../case.rst:12
-# c6b727ce71eb4929b054d69eca354300
+#: ../case.rst:18
 msgid "Requirements"
 msgstr ""
 
-#: ../case.rst:14
-# c3b9d0a0314349bd840b76c7d006d33a
-msgid "As a visitor I want to find current information on the conference"
-msgstr ""
-
-#: ../case.rst:15
-# 07507c876f364f82a4325667b784e353
-msgid "As a visitor I want to register for the conference"
-msgstr ""
-
-#: ../case.rst:16
-# 5d75dec38f1f46dea43551053b3e00a4
-msgid "As a visitor I want to see the talks and sort them by my preferences"
-msgstr ""
-
-#: ../case.rst:17
-# b4369e6dc7f64eaf8bd22d4aae4ac686
-msgid "As a speaker I want to be able to sumbit talks"
-msgstr ""
-
-#: ../case.rst:18
-# 254db43b24fd4e47976bf097859df205
-msgid "As a speaker I want to see and edit my submitted talks"
-msgstr ""
-
-#: ../case.rst:19
-# 0feaca718c2645b297fce0a60ffa55e3
-msgid "As a jury-member I want to vote on talks"
-msgstr ""
-
 #: ../case.rst:20
-# 3790da3679c2456c9b3d8cfc0446fa2a
-msgid "As a jury-member I want to decide, which talks to accept, and which not"
-msgstr ""
-
-#: ../case.rst:21
-# 90051a2eeeee4b0cbe9f87e51c4a9ace
-msgid "As an organizer I want to see a list of all proposed talks"
+msgid "Here are some requirements that we want to meet when the site is done:"
 msgstr ""
 
 #: ../case.rst:22
-# 0753924f90af4f6b9d7727a8fc976c7f
+msgid "As a visitor I want to find current information on the conference"
+msgstr ""
+
+#: ../case.rst:23
+msgid "As a visitor I want to register for the conference"
+msgstr ""
+
+#: ../case.rst:24
+msgid "As a visitor I want to see the talks and sort them by my preferences"
+msgstr ""
+
+#: ../case.rst:25
+msgid "As a speaker I want to be able to submit talks"
+msgstr ""
+
+#: ../case.rst:26
+msgid "As a speaker I want to see and edit my submitted talks"
+msgstr ""
+
+#: ../case.rst:27
+msgid "As an organizer I want to see a list of all proposed talks"
+msgstr ""
+
+#: ../case.rst:28
 msgid "As an organizer I want to have an overview about how many people registered"
+msgstr ""
+
+#: ../case.rst:29
+msgid "As a jury member I want to vote on talks"
+msgstr ""
+
+#: ../case.rst:30
+msgid "As a jury member I want to decide which talks to accept, and which not"
+msgstr ""
+
+#: ../case.rst:32
+msgid "Note that all of our requirements connect roles with capabilities. This is important because we'll want to limit the capabilities to those to whom we assign particular roles."
 msgstr ""
 

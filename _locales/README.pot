@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone 1.2.3\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 20:53-0430\n"
+"POT-Creation-Date: 2017-08-05 05:00-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,17 +17,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../README.rst:2
-# a37b3edf4315470d825b8e4f862318a5
 msgid "Mastering Plone"
 msgstr ""
 
 #: ../README.rst:4
-# f5a5c1d14380478ebbc838dc428af81b
 msgid "Mastering Plone is intended as a week-long training for people who are new to Plone or want to learn about the current best-practices of Plone-development."
 msgstr ""
 
 #: ../README.rst:6
-# b5046db005fa43b09f1424f37a23d016
 msgid "Read it at http://plone-training.readthedocs.org/en/latest/index.html"
 msgstr ""
 
