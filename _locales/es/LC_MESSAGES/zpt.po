@@ -48,7 +48,7 @@ msgstr "Las plantillas de página debe ser XML válido."
 
 #: ../zpt.rst:17
 msgid "The three languages are:"
-msgstr "Las tres lenguas son:"
+msgstr "Los tres lenguajes son:"
 
 #: ../zpt.rst:19
 msgid "TAL: \"Template Attribute Language\""
@@ -77,7 +77,7 @@ msgstr "METAL: \"Macro Expansion for TAL\""
 #: ../zpt.rst:31
 msgid "this enables us to combine, re-use and nest templates together"
 msgstr ""
-"esto nos permite combinar, la reutilización y las plantillas anidadas juntos"
+"esto nos permite combinar, la reutilización y las plantillas anidadas juntas"
 
 #: ../zpt.rst:33
 msgid ""
@@ -327,7 +327,7 @@ msgid ""
 "turn have properties."
 msgstr ""
 "Después de la variable se añade una barra ``/`` y el nombre de un sub-"
-"objeto, atributo o método invocable. El '/' se utiliza para terminar el "
+"objeto, atributo o método invocable. El carácter '/' se utiliza para terminar el "
 "nombre de un objeto y el inicio del nombre de la propiedad. Mismas "
 "propiedades pueden ser objetos que a su vez tienen propiedades."
 
@@ -350,7 +350,7 @@ msgid ""
 "The ``|`` (\"or\") character is used to find an alternative value to a path "
 "if the first path evaluates to ``nothing`` or does not exist."
 msgstr ""
-"El ``|`` (\"o\") se utiliza para encontrar un valor alternativo a un camino "
+"El carácter ``|`` (operador lógico \"o\") se utiliza para encontrar un valor alternativo a un camino "
 "si la primera ruta se evalúe como ``nothing`` o no existe."
 
 #: ../zpt.rst:248
@@ -374,8 +374,8 @@ msgid ""
 "``tal:content=\"talk/averange_ratting | nothing\"`` and you might wonder why"
 " there are no ratings later on..."
 msgstr ""
-"Conseguiremos ``KeyError: 'average_rating'``. Es muy mala práctica, use "
-"``|`` con demasiada frecuencia, ya que se tragará errores como un error "
+"Conseguiremos ``KeyError: 'average_rating'``. Es muy mala práctica, use el "
+"carácter ``|`` con demasiada frecuencia, ya que se tragará errores como un error "
 "tipográfico en ``tal:content=\"talk/averange_ratting | nothing\"`` y es "
 "posible que se preguntan por qué no existen calificaciones más tarde..."
 
@@ -492,7 +492,7 @@ msgstr ""
 #: ../zpt.rst:381
 msgid "Omit the element tags, leaving only the inner content."
 msgstr ""
-"Omita las etiquetas de los elementos, dejando sólo el contenido interno."
+"Omite las etiquetas de los elementos, dejando sólo el contenido interno."
 
 #: ../zpt.rst:386
 msgid ""

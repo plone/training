@@ -56,7 +56,7 @@ msgid ""
 "Now all files we put in the resources-folder can be found via the url "
 "http://localhost:8080/Plone/++resource++ploneconf.site/something.js"
 msgstr ""
-"Ahora todos los archivos que ponemos en la carpeta de recursos se pueden "
+"Ahora todos los archivos que ponemos en la carpeta llamada ``resources`` se pueden "
 "encontrar a través de la dirección URL "
 "http://localhost:8080/Plone/++resource++ploneconf.site/something.js"
 
@@ -65,7 +65,7 @@ msgid ""
 "Let's create a ``ploneconf.css`` and a ``ploneconf.js`` in that folder."
 msgstr ""
 "Vamos a crear un archivo ``ploneconf.css`` y un archivo ``ploneconf.js`` en "
-"esa carpeta."
+"la carpeta ``resources``."
 
 #: ../resources.rst:56
 msgid ""
@@ -94,20 +94,20 @@ msgid ""
 " conditionally and Plone automatically stops merging files when you are "
 "debugging Plone in the foreground."
 msgstr ""
-"Con la herramientas ``portal_css`` y ``portal_javascript`` Plone tiene "
-"administradores de recursos que son capaces de combinar y comprimir archivos"
+"Con las herramientas ``portal_css`` y ``portal_javascript`` Plone tiene "
+"administradores de recursos que son capaces de *combinar* y *comprimir archivos*"
 " JS y CSS. Los recursos pueden ser añadidos de forma condicional y Plone "
 "detiene automáticamente la combinación de archivos cuando se está depurando "
-"Plone en primer plano."
+"Plone en modo ``foreground``."
 
 #: ../resources.rst:62
 msgid "We need to register our resources with GenericSetup."
-msgstr "Tenemos que registrar nuestros recursos con GenericSetup."
+msgstr "Tenemos que registrar nuestros recursos dentro de un perfil GenericSetup."
 
 #: ../resources.rst:64
 msgid "Add a new file ``profiles/default/cssregistry.xml``"
-msgstr "Agregar un nuevo archivo ``profiles/default/cssregistry.xml``"
+msgstr "Agregar un nuevo archivo ``profiles/default/cssregistry.xml``, con el siguiente código XML:"
 
 #: ../resources.rst:88
 msgid "Add a new file ``profiles/default/jsregistry.xml``"
-msgstr "Agregar un nuevo archivo ``profiles/default/jsregistry.xml``"
+msgstr "Agregar un nuevo archivo ``profiles/default/jsregistry.xml``, con el siguiente código XML:"

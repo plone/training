@@ -32,19 +32,19 @@ msgstr "Agregar nuevo capítulos:"
 
 #: ../roadmap.rst:9
 msgid "z3c.forms (incl. controlpanels and plone.app.registry)"
-msgstr "z3c.forms (incluyendo paneles de control y plone.app.registry)"
+msgstr "Paquete z3c.forms (incluyendo paneles de control y el paquete plone.app.registry)."
 
 #: ../roadmap.rst:10
 msgid "testing (incl. robottests)"
-msgstr "testing (incluyendo robot tests)"
+msgstr "Testing (incluyendo robot tests)."
 
 #: ../roadmap.rst:11
 msgid "relations (incl. widgets, custom indexers)"
-msgstr "relaciones (incluyendo widgets, indexes personalizados)"
+msgstr "Relaciones (incluyendo widgets, indexes personalizados)."
 
 #: ../roadmap.rst:12
 msgid "security (incl. custom permissions and roles)"
-msgstr "seguridad (incluyendo permisos personalizados y roles)"
+msgstr "Seguridad (incluyendo permisos personalizados y roles)."
 
 #: ../roadmap.rst:16
 msgid "Todo"
@@ -56,4 +56,4 @@ msgid ""
 "<https://github.com/plone/training/issues>`_"
 msgstr ""
 "Todos son mantenidos como incidencias en el `repositorio github "
-"<https://github.com/plone/training/issues>`_"
+"<https://github.com/plone/training/issues>`_."

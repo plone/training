@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../events.rst:2
 msgid "Turn talks into events"
-msgstr "Convertir las charlas en eventos"
+msgstr "Convertir charlas en eventos"
 
 #: ../events.rst:0
 msgid "Get the code!"
@@ -40,7 +40,7 @@ msgid ""
 "by your preferences. But if a visitor decides he wants to see a talk he "
 "needs to know when it will take place."
 msgstr ""
-"Se nos olvidó algo: Una lista de las charlas es excelente especialmente si "
+"Se nos olvidó algo: Una lista de los tipos de contenidos talks es especialmente excelente si "
 "usted puede ordenarlo por sus preferencias. Pero si un visitante decide que "
 "quiere ver una charla que necesita saber cuándo va a tener lugar."
 
@@ -49,7 +49,7 @@ msgid ""
 "We need a schedule and for this we need to store the information when a talk"
 " will happen."
 msgstr ""
-"Necesitamos un programa y para ello necesitamos almacenar la información en "
+"Necesitamos un programa y para ello necesitamos almacenar la información de cuando "
 "una charla va a suceder."
 
 #: ../events.rst:17
@@ -71,28 +71,28 @@ msgstr "Habilitar este comportamiento para las charlas."
 #: ../events.rst:22
 msgid "write an upgrade step to work around a bug in plone.app.event"
 msgstr ""
-"Escribir un paso de actualización (upgrade step) para para evitar un error "
-"en el paquete plone.app.event."
+"Escribir un paso de actualización (upgrade step) para evitar un error "
+"en el paquete ``plone.app.event``."
 
 #: ../events.rst:23
 msgid "display the date in the talkview"
-msgstr "Mostrar la fecha en la vista talkview."
+msgstr "Mostrar la fecha en la vista ``talkview``."
 
 #: ../events.rst:25
 msgid ""
 "First we enable the behavior ``IEventBasic`` for talks in "
 "``profiles/default/types/talk.xml``"
 msgstr ""
-"Primero nosotros habilitamos el comportamiento ``IEventBasic`` para las "
-"charlas en el archivo ``profiles/default/types/talk.xml``"
+"Primero nosotros habilitamos el comportamiento ``IEventBasic`` para los tipos de contenidos talks"
+"en el archivo ``profiles/default/types/talk.xml``, agregando el siguiente código XML:"
 
 #: ../events.rst:39
 msgid ""
 "After we activate the behavior by hand or reinstalled the addon we could add"
 " new talks with new field for ``start`` and ``end``."
 msgstr ""
-"Después activamos el comportamiento con la mano o vuelta a instalar el "
-"complemento podríamos añadir nuevas charlas con el nuevo campo de ``start`` "
+"Después activamos el comportamiento manualmente o vuelta a instalar el "
+"complemento, podríamos añadir nuevos tipos de contenidos ``talks`` con el nuevo campo de ``start`` "
 "y ``end``."
 
 #: ../events.rst:41
@@ -108,15 +108,15 @@ msgstr ""
 "<https://github.com/plone/plone.app.event/issues/160>`_ no se espera que los"
 " objetos existentes obtengan el comportamiento. Desde los tipos de "
 "contenidos existentes no tienen valores en los campos ``start`` y ``end`` "
-"nos encontraremos con un traceback en línea de validación cuando editamos "
-"estos. Para solucionar esto creamos un paso de actualización que establece "
+"nos encontraremos con un ``traceback`` en línea de validación cuando editamos "
+"estos campos. Para solucionar esto creamos un paso de actualización que establece "
 "alguna una fecha inicial."
 
 #: ../events.rst:43
 msgid "Register the new upgrade step in ``upgrades.zcml``"
 msgstr ""
 "Registrar el nuevo paso de actualización (upgrade step) en el archivo "
-"``upgrades.zcml``"
+"``upgrades.zcml``, agregando el siguiente código ZCML:"
 
 #: ../events.rst:58
 msgid "Bump the profile-version to 1002 in ``profiles/default/metadata.xml``"
@@ -128,7 +128,7 @@ msgstr ""
 msgid "Write the upgrade-step in ``upgrades.py``"
 msgstr ""
 "Escribir el paso de actualización (upgrade sted) en el archivo "
-"``upgrades.py``"
+"``upgrades.py``, agregando el siguiente código Python:"
 
 #: ../events.rst:132
 msgid ""
@@ -145,4 +145,4 @@ msgstr ""
 
 #: ../events.rst:134
 msgid "Edit ``browser/templates/talkview.pt``"
-msgstr "Edite el archivo ``browser/templates/talkview.pt``"
+msgstr "Edite el archivo ``browser/templates/talkview.pt``, agregando el siguiente código ZPT:"

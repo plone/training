@@ -38,8 +38,8 @@ msgstr ""
 msgid ""
 "The existing talks are still lacking some functionality we want to use."
 msgstr ""
-"Las charlas existentes todavía faltan algunas funciones que queremos "
-"utilizar."
+"Los tipos de contenidos talks existentes todavía le faltan algunas funcionalidades "
+"que queremos utilizar."
 
 #: ../dexterity_2.rst:15
 msgid "In this part we will:"
@@ -47,7 +47,7 @@ msgstr "En esta parte vamos a tratar:"
 
 #: ../dexterity_2.rst:17
 msgid "add a marker-interface to our talk-type"
-msgstr "Añadir una interfaz marcador para nuestro tipo de contenido talk."
+msgstr "Añadir una interfaz marker para nuestro tipo de contenido talk."
 
 #: ../dexterity_2.rst:18
 msgid "create custom catalog-indexes"
@@ -65,7 +65,7 @@ msgstr ""
 
 #: ../dexterity_2.rst:24
 msgid "Add a marker-interface to the talk-type"
-msgstr "Agregar una interfaz marcador para el tipo de contenido talk"
+msgstr "Agregar una interfaz marker para el tipo de contenido talk"
 
 #: ../dexterity_2.rst:27
 msgid "Marker Interfaces"
@@ -82,8 +82,8 @@ msgstr ""
 "El tipo de contenido `Talk` no es aun ciudadano de primera clase porque no "
 "implementa su propia interfaz. Las interfaces son como etiquetas de nombre, "
 "diciendo a otros elementos quien y que eres y que puedes hacer. Una interfaz"
-" marcador es como una etiqueta. Los tipo de contenido talks actualmente tienen una interfaz "
-"marcador auto generado en ``plone.dexterity.schema.generated.Plone_0_talk``."
+" marker es como una etiqueta. Los tipo de contenido talks actualmente tienen una interfaz "
+"marker auto generado en ``plone.dexterity.schema.generated.Plone_0_talk``."
 
 #: ../dexterity_2.rst:31
 msgid ""
@@ -107,7 +107,7 @@ msgid ""
 "that provide these interfaces. Lets see how we can provide this Interface. "
 "There are two solution for this."
 msgstr ""
-"``ITalk`` es una interfaz marcador. Podemos anexar Vistas y Viewlets a "
+"``ITalk`` es una interfaz marker. Podemos anexar Vistas y Viewlets al "
 "contenido que provee estas interfaces. Ahora veremos como proveer esta "
 "interfaz. Hay dos soluciones para esto."
 
@@ -142,7 +142,7 @@ msgstr ""
 #: ../dexterity_2.rst:62
 msgid "And enable it on the type in ``profiles/default/types/talk.xml``"
 msgstr ""
-"Y habilite este en la definición de tipo de contenido en en configuraciones "
+"Y habilite ese comportamiento en la definición de tipo de contenido en su configuración "
 "GenericSetup en el archivo ``profiles/default/types/talk.xml``"
 
 #: ../dexterity_2.rst:75
@@ -157,8 +157,8 @@ msgstr ""
 #: ../dexterity_2.rst:77
 msgid "Then we can safely bind the talkview to the new marker interface."
 msgstr ""
-"Entonces podemos unir con seguridad el la vista talkview a la nueva interfaz"
-" marcador."
+"Entonces podemos con seguridad unir la vista ``talkview`` a la nueva interfaz"
+" marker, agregando el siguiente código ZCML:"
 
 #: ../dexterity_2.rst:91
 msgid ""
@@ -172,8 +172,8 @@ msgstr ""
 "implementan dicha interfaz. Ahora también podemos consultar el catálogo para"
 " los objetos que proporcionan esta interfaz "
 "``catalog(object_provides=\"ploneconf.site.interfaces.ITalk\")``. Las vistas"
-" `talklistview` y el `demoview` no reciben esta restricción, ya que no sólo "
-"son utilizados en las charlas."
+" `talklistview` y `demoview` no reciben esta restricción, ya que no sólo "
+"son utilizados en los tipos de contenidos talks."
 
 #: ../dexterity_2.rst:95
 msgid ""
@@ -189,12 +189,12 @@ msgid ""
 "and implements the marker interface."
 msgstr ""
 "Crear una nueva clase que herede desde ``plone.dexterity.content.Container``"
-" e implementa la interfaz marcador."
+" e implementa la interfaz marker."
 
 #: ../dexterity_2.rst:108
 msgid "Modify the class for new talks in ``profiles/default/types/talk.xml``"
 msgstr ""
-"Modificar la clase para las nuevas charlas en el archivo "
+"Modificar la clase para los nuevos tipos de contenidos talks en el archivo "
 "``profiles/default/types/talk.xml``"
 
 #: ../dexterity_2.rst:120
@@ -220,7 +220,7 @@ msgid ""
 "newer one. They can do just about anything."
 msgstr ""
 "Cuando los proyectos se desarrollan a veces tendrá que modificar varias "
-"cosas mientras que el sitio ya este arriba y lleno de contenido y usuarios. "
+"cosas mientras que el sitio ya este arriba, lleno de contenido y usuarios. "
 "Los pasos de actualización son piezas de código que se ejecutan al "
 "actualizar de una versión de un complemento a una más reciente. Ellos pueden"
 " hacer casi cualquier cosa."
@@ -237,7 +237,7 @@ msgid ""
 "effect) and"
 msgstr ""
 "Ejecute el paso ``typeinfo`` (es decir, carga los almacenes de configuración"
-" GenericSetup en ``profiles/default/types.xml`` y ``profiles/default "
+" GenericSetup en ``profiles/default/types.xml`` y ``profiles/default"
 "/types/...`` por lo que no tiene que volver a instalar el complemento para "
 "tener nuestros cambios hechos) y"
 
@@ -248,8 +248,8 @@ msgid ""
 "they already are there)."
 msgstr ""
 "haga una limpieza de algún contenido que pudiera estar esparcidos alrededor "
-"del sitio en las primeras etapas de su creación. Nos movemos todas las "
-"charlas en una carpeta llamadas ``talks`` (a menos que ya están allí)."
+"del sitio en las primeras etapas de su creación. Nos movemos todas los "
+"tipos de contenidos talks en una carpeta llamadas ``talks`` (a menos que ya están allí)."
 
 #: ../dexterity_2.rst:132
 msgid ""
@@ -257,7 +257,7 @@ msgid ""
 "``upgrades.zcml``"
 msgstr ""
 "Los pasos de actualización son usualmente registrados en en su propio "
-"archivo ZCML. Cree el archivo ``upgrades.zcml``"
+"archivo ZCML. Cree el archivo ``upgrades.zcml``, agregando el siguiente código ZCML:"
 
 #: ../dexterity_2.rst:155
 msgid ""
@@ -265,23 +265,23 @@ msgid ""
 "ploneconf.site from 1 to 1001. The version is stored in "
 "``profiles/default/metadata.xml``. Change it to"
 msgstr ""
-"El paso de actualización cambia la versión número del perfil GenericSetup de"
-" paquete ploneconf.site de 1 a 1001. La versión se almacena en "
+"El paso de actualización cambia la versión número del perfil GenericSetup del "
+"complemento ``ploneconf.site`` de 1 a 1001. La versión se almacena en "
 "``profiles/default/metadata.xml``. Cámbielo a:"
 
 #: ../dexterity_2.rst:161
 msgid "Include the new ``upgrades.zcml`` in our ``configure.zcml`` by adding:"
 msgstr ""
 "Incluir el nuevo archivo ``upgrades.zcml`` en nuestro archivo "
-"``configure.zcml`` agregando:"
+"``configure.zcml``, agregando el siguiente código ZCML:"
 
 #: ../dexterity_2.rst:167
 msgid ""
 "GenericSetup now expects the code as a method ``upgrade_site`` in the file "
 "``upgrades.py``. Let's create it."
 msgstr ""
-"GenericSetup ahora espera el código como un método ``upgrade_site`` en el "
-"archivo ``upgrades.py``. Vamos a crearlo."
+"Ahora GenericSetup espera el código como un método ``upgrade_site`` en el "
+"archivo ``upgrades.py``. Vamos a crearlo, agregando el siguiente código Python:"
 
 #: ../dexterity_2.rst:211
 msgid "After restarting the site we can run the step:"
@@ -368,7 +368,7 @@ msgid ""
 "easily enable and disable views and other site functionality based on "
 "installed add-ons and themes."
 msgstr ""
-"Una Browser Layer es otro ejemplo de la interfaz marcador. Las Browser Layer"
+"Una BrowserLayer es otro ejemplo de la interfaz marker. Las BrowserLayers"
 " nos permiten fácilmente habilitar y deshabilitar opiniones y funcionalidad "
 "de otro sitio basado en complementos y temas instalados."
 
@@ -378,20 +378,20 @@ msgid ""
 " actually is installed we can bind them to a browserlayer."
 msgstr ""
 "Como queremos que las características que escribimos sólo estén disponible "
-"cuando el paquete ploneconf.site actualmente este instalado podemos "
-"asociarlos a una browserlayer."
+"cuando el paquete ``ploneconf.site`` actualmente este instalado podemos "
+"asociarlos a una BrowserLayer."
 
 #: ../dexterity_2.rst:247
 msgid "In ``interfaces.py`` we add:"
 msgstr ""
-"En el archivo ``interfaces.py`` nosotros agregamos el siguiente código:"
+"En el archivo ``interfaces.py`` nosotros agregamos el siguiente código Python:"
 
 #: ../dexterity_2.rst:255
 msgid ""
 "We register the browserlayer in GenericSetup in "
 "``profiles/default/browserlayer.xml``"
 msgstr ""
-"Nosotros registramos la Browser Layer en GenericSetup en el archivo "
+"Nosotros registramos la BrowserLayer en GenericSetup en el archivo "
 "``profiles/default/browserlayer.xml``"
 
 #: ../dexterity_2.rst:265
@@ -399,9 +399,9 @@ msgid ""
 "After reinstalling the addon we can bind the talkview, the demoview and the "
 "talklistview to our layer. Here is an example using the talkview."
 msgstr ""
-"Después de volver a instalar el complemento podemos obligar a la vista "
-"talkview, la vista demoview y la vista talklistview sean parte de nuestra "
-"Browser Layer. Aquí hay un ejemplo usando la vista talkview."
+"Después de volver a instalar el complemento podemos obligar a las vistas "
+"``talkview``, ``demoview`` y ``talklistview`` a que sean parte de nuestra "
+"layer. Aquí hay un ejemplo usando la vista ``talkview``."
 
 #: ../dexterity_2.rst:279
 msgid ""
@@ -427,7 +427,7 @@ msgid ""
 "layer?"
 msgstr ""
 "¿Es necesario vincular el viewlet social desde el capítulo 20 de este nuevo "
-"Browser Layer?"
+"Browser-Layer?"
 
 #: ../dexterity_2.rst:291
 msgid "Solution"
@@ -439,7 +439,7 @@ msgid ""
 "marker interface ``ploneconf.site.behaviors.social.ISocial``."
 msgstr ""
 "No, no haría ninguna diferencia desde el viewlet ya está asociada a la "
-"interfaz marcador ``ploneconf.site.behaviors.social.ISocial``."
+"interfaz marker ``ploneconf.site.behaviors.social.ISocial``."
 
 #: ../dexterity_2.rst:297
 msgid "Add catalog-indexes"
@@ -467,7 +467,7 @@ msgstr ""
 
 #: ../dexterity_2.rst:303
 msgid "Add a new file ``profiles/default/catalog.xml``"
-msgstr "Agregar un nuevo archivo ``profiles/default/catalog.xml``"
+msgstr "Agregar un nuevo archivo ``profiles/default/catalog.xml``, con el siguiente código XML:"
 
 #: ../dexterity_2.rst:325
 msgid ""
@@ -486,7 +486,7 @@ msgid ""
 "in the tableview of collections."
 msgstr ""
 "La entrada ``column ..`` nos permite visualizar estos valores de estos "
-"índices en la vista tableview de colecciones."
+"índices en la vista ``tableview`` de colecciones."
 
 #: ../dexterity_2.rst:331
 msgid ""
@@ -494,7 +494,7 @@ msgid ""
 "reinstalling the addon purged the indexes! See https://www.starzel.de/blog/a"
 "-reminder-about-catalog-indexes."
 msgstr ""
-"Hasta Plone 4.3.2 agregando índices en el archivo catalog.xml era "
+"Hasta Plone 4.3.2 agregar índices en el archivo ``catalog.xml`` era "
 "perjudicial porque ¡al volver a instalar el complemento purgaba los índices!"
 " Ver mas detalles en la dirección URL https://www.starzel.de/blog/a"
 "-reminder-about-catalog-indexes."
@@ -545,7 +545,7 @@ msgid ""
 "We now can use the new indexes to improve the talklistview so we don't have "
 "to wake up the objects any more."
 msgstr ""
-"Ahora podemos usar los nuevos índices para mejorar la vista talklistview así"
+"Ahora podemos usar los nuevos índices para mejorar la vista ``talklistview`` así"
 " que no tenemos que despertar los objetos nunca más."
 
 #: ../dexterity_2.rst:388
@@ -565,13 +565,13 @@ msgid ""
 "have to register them as criteria for the querystring-widget that "
 "collections use."
 msgstr ""
-"Para ser capaz de buscar contenido en colecciones utilizando los nuevos "
+"Para ser capaz de buscar contenido en tipo de contenidos `Colecciones` utilizando los nuevos "
 "índices tendríamos que registrarlos como criterios para el widget de cadena "
-"de consulta que usan las colecciones."
+"de consulta que usan las `Colecciones`."
 
 #: ../dexterity_2.rst:395
 msgid "Add a new file ``profiles/default/registry.xml``"
-msgstr "Agregar un nuevo archivo ``profiles/default/registry.xml``"
+msgstr "Agregar un nuevo archivo ``profiles/default/registry.xml``, agregando el siguiente código XML:"
 
 #: ../dexterity_2.rst:427
 msgid ""
@@ -588,13 +588,13 @@ msgstr "Añadir más características a través de GenericSetup"
 #: ../dexterity_2.rst:433
 msgid "Enable versioning and a diff-view for talks through GenericSetup."
 msgstr ""
-"Habilitar el control de versiones y una visión del diff para las charlas a "
+"Habilitar el control de versiones y una visión del diff para los tipos de contenidos talks a "
 "través de GenericSetup."
 
 #: ../dexterity_2.rst:435
 msgid "Add new file ``profiles/default/repositorytool.xml``"
-msgstr "Agregar nuevo archivo ``profiles/default/repositorytool.xml``"
+msgstr "Agregar nuevo archivo ``profiles/default/repositorytool.xml``, con el siguiente código XML:"
 
 #: ../dexterity_2.rst:451
 msgid "Add new file ``profiles/default/diff_tool.xml``"
-msgstr "Agregar nuevo archivo ``profiles/default/diff_tool.xml``"
+msgstr "Agregar nuevo archivo ``profiles/default/diff_tool.xml``, con el siguiente código XML:"

@@ -114,7 +114,7 @@ msgid ""
 "you can search through the complete Plone-code in 3 seconds."
 msgstr ""
 "La capacidad de realizar una *búsqueda a texto completo* a través del "
-"código completo de Plone es inestimable. gracias a la receta omelette, "
+"código completo de Plone es inestimable. gracias a la receta ``omelette``, con "
 "una unidad de estado sólido y mucha RAM puedes buscar en el código de "
 "Plone en 3 segundos."
 

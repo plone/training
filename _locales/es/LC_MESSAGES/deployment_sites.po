@@ -46,11 +46,11 @@ msgstr ""
 
 #: ../deployment_sites.rst:20
 msgid "Minimal work to setup a new project"
-msgstr "Trabajo mínimo para instalar un nuevo proyecto"
+msgstr "Trabajo mínimo para instalar un nuevo proyecto."
 
 #: ../deployment_sites.rst:21
 msgid "Presets for development, testing, staging and production"
-msgstr "Preestablecidos para desarrollo, pruebas, implantación y producción"
+msgstr "Preestablecidos para desarrollo, pruebas, implantación y producción."
 
 #: ../deployment_sites.rst:24
 msgid "A deployment-setup"
@@ -58,43 +58,43 @@ msgstr "Una instalación de despliegue"
 
 #: ../deployment_sites.rst:26
 msgid "zeoserver and zeoclients"
-msgstr "zeoserver y zeoclients"
+msgstr "servidor zeo (zeoserver) y clientes zeo (zeoclients)."
 
 #: ../deployment_sites.rst:27
 msgid "haproxy"
-msgstr "haproxy"
+msgstr "balanceador de carga con haproxy."
 
 #: ../deployment_sites.rst:28
 msgid "nagios"
-msgstr "nagios"
+msgstr "monitoreo de red con nagios."
 
 #: ../deployment_sites.rst:29
 msgid "varnish"
-msgstr "varnish"
+msgstr "cacheo de contenidos con varnish."
 
 #: ../deployment_sites.rst:30
 msgid "monitoring"
-msgstr "monitoreo"
+msgstr "monitoreo."
 
 #: ../deployment_sites.rst:31
 msgid "supervisor"
-msgstr "supervisor"
+msgstr "supervisor de procesos."
 
 #: ../deployment_sites.rst:32
 msgid "backup"
-msgstr "respaldo"
+msgstr "respaldo del despliegue."
 
 #: ../deployment_sites.rst:33
 msgid "logrotate"
-msgstr "logrotate"
+msgstr "logrotate los registros de eventos."
 
 #: ../deployment_sites.rst:34
 msgid "precompiler"
-msgstr "precompilador"
+msgstr "precompilador de codigo Python."
 
 #: ../deployment_sites.rst:35
 msgid "cronjobs"
-msgstr "tareas crontab (cronjobs)"
+msgstr "tareas crontab (cronjobs)."
 
 #: ../deployment_sites.rst:39
 msgid "Other tools we use"
@@ -102,32 +102,32 @@ msgstr "Otras herramientas a usar"
 
 #: ../deployment_sites.rst:41
 msgid "Fabric (manage sites)"
-msgstr "Fabric (administra sitios)"
+msgstr "Fabric (administra sitios)."
 
 #: ../deployment_sites.rst:42
 msgid "Sentry (error-monitoring)"
-msgstr "Sentry (monitoreo de errores)"
+msgstr "Sentry (monitoreo de errores)."
 
 #: ../deployment_sites.rst:43
 msgid "Ansible (manage and setup servers and tools)"
-msgstr "Ansible (Administra e instala servidores y herramientas)"
+msgstr "Ansible (Administra e instala servidores y herramientas)."
 
 #: ../deployment_sites.rst:44
 msgid "Nagios (server-monitoring)"
-msgstr "Nagios (monitoreo de servidores)"
+msgstr "Nagios (monitoreo de servidores)."
 
 #: ../deployment_sites.rst:45
 msgid "jenkins (tests)"
-msgstr "Jenkins (pruebas continuas de software)"
+msgstr "Jenkins (pruebas continuas de software)."
 
 #: ../deployment_sites.rst:46
 msgid "piwik (statictics)"
-msgstr "Piwik (estadísticas)"
+msgstr "Piwik (estadísticas)."
 
 #: ../deployment_sites.rst:47
 msgid "gitlab (code-repo and code-review)"
-msgstr "Gitlab (repositorio y revisión de código)"
+msgstr "Gitlab (repositorio y revisión de código)."
 
 #: ../deployment_sites.rst:48
 msgid "redmine (ticket-system and wiki)"
-msgstr "Redmine (sistema de ticket y wiki)"
+msgstr "Redmine (sistema de ticket y wiki)."

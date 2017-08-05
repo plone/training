@@ -148,7 +148,7 @@ msgstr ""
 "Plone. Ha contribuido con varios complementos de Plone que forman parte de "
 "PloneGov. Actualmente sirve a la Junta de Plone como Embajador de Plone, "
 "Leonardo también ha servido como un miembro de la Junta Asesora y ha hablado"
-" en o ayudado a organizar eventos de Plone y código abierto en toda América "
+" o ayudado en la organización eventos de Plone y código abierto en toda América "
 "del Sur."
 
 #: ../about.rst:39

@@ -208,7 +208,6 @@ msgid "[pbauer, do3cc]"
 msgstr "[pbauer, do3cc]"
 
 #: ../CHANGES.rst:109
-#, fuzzy
 msgid "1.1 (October 2013)"
 msgstr "1.1 (Octubre 2013)"
 
@@ -217,7 +216,6 @@ msgid "Revised and expanded for Ploneconf 2013, Brasilia [pbauer, do3cc]"
 msgstr "Revisado y ampliado para la Ploneconf 2013, Brasilia [pbauer, do3cc]"
 
 #: ../CHANGES.rst:116
-#, fuzzy
 msgid "1.0 (October, 2012)"
 msgstr "1.0 (Octubre, 2012)"
 
@@ -230,16 +228,14 @@ msgstr ""
 "Arnhem [pbauer, do3cc]"
 
 #: ../CHANGES.rst:123
-#, fuzzy
 msgid "0.2 October 2011"
 msgstr "0.2 Octubre 2011"
 
 #: ../CHANGES.rst:125
 msgid "Expanded as Plone-Tutorial for PyCon De 2011, Leipzig [pbauer]"
-msgstr "Ampliado como el tutorial Plone para la PyCon De 2011, Leipzig [pbauer]"
+msgstr "Ampliado como el Tutorial Plone para la PyCon De 2011, Leipzig [pbauer]"
 
 #: ../CHANGES.rst:129
-#, fuzzy
 msgid "0.1 (October 2009)"
 msgstr "0.1 (Octubre 2009)"
 

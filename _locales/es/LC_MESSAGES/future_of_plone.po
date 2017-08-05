@@ -24,15 +24,15 @@ msgstr "El futuro de Plone"
 
 #: ../future_of_plone.rst:4
 msgid "Plone 5"
-msgstr "Plone 5"
+msgstr "Plone 5."
 
 #: ../future_of_plone.rst:5
 msgid "Plone Roadmap 2020"
-msgstr "Mapa de ruta de Plone 2020"
+msgstr "Mapa de ruta de Plone hasta el año 2020."
 
 #: ../future_of_plone.rst:7
 msgid "The Plone-process and the Plone-Community"
-msgstr "El proceso Plone y la Comunidad Plone"
+msgstr "El proceso Plone y la Comunidad Plone."
 
 #: ../future_of_plone.rst:9
 msgid "Plips: https://dev.plone.org/report/24"

@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../views_3.rst:2
 msgid "Views III: A Talk list"
-msgstr "Views - Parte III: Una lista de Charlas"
+msgstr "Vistas - Parte III: Una lista de Charlas"
 
 #: ../views_3.rst:0
 msgid "Get the code!"
@@ -128,8 +128,8 @@ msgstr ""
 "Obtenemos la ruta del contexto actual para consultar sólo para los objetos "
 "en la ruta actual. De lo contrario íbamos a obtener todas las charlas en "
 "todo el sitio. Si nos trasladamos algunas charlas a una parte diferente del "
-"lugar (por ejemplo, un sub-conferencia de universidades con una lista "
-"especial charla) puede ser que no quiera ver así en nuestra lista."
+"sitio (por ejemplo, un sub-conferencia para universidades con una especial lista "
+"charla) puede ser que no quiera ver así en nuestra lista."
 
 #: ../views_3.rst:92
 msgid "We iterate over the list of results that the catalog returns us."
@@ -178,8 +178,8 @@ msgid ""
 "We want to show the target-audience but that attributes of the talks is not "
 "in the catalog. This is why we need to get to the objects themselves."
 msgstr ""
-"Queremos mostrar al público objetivo, pero que los atributos de las charlas "
-"no está en el catálogo. Esto es por qué tenemos que llegar a los objetos "
+"Queremos mostrar la audiencia destinada de la charla, pero esos atributos de las charlas "
+"no está en el catálogo. Esto es por qué necesitamos llegar a los objetos "
 "mismos."
 
 #: ../views_3.rst:106
@@ -203,7 +203,7 @@ msgstr "prevenir la inflamación del catálogo con índices"
 
 #: ../views_3.rst:113
 msgid "The code to add such an index would look like this::"
-msgstr "El código para agregar este índice se vería como el siguiente:"
+msgstr "El código para agregar este índice se vería como el siguiente::"
 
 #: ../views_3.rst:122
 msgid ""
@@ -277,7 +277,7 @@ msgstr ""
 
 #: ../views_3.rst:166
 msgid "The same is true for methods::"
-msgstr "Lo mismo es cierto para los métodos:"
+msgstr "Lo mismo es cierto para los métodos::"
 
 #: ../views_3.rst:176
 msgid "Querying the catalog"
@@ -339,7 +339,8 @@ msgstr "Ejercicio 2"
 #: ../views_3.rst:226
 msgid "Add a method that returns all published keynotes as objects."
 msgstr ""
-"Agregar un método que regresa todas las keynotes publicadas como objetos."
+"Agregar un método que regresa todas los tipos de contenidos Talk de "
+"tipo keynotes publicadas como objetos."
 
 #: ../views_3.rst:251
 msgid "The template for the listing"
@@ -350,8 +351,8 @@ msgid ""
 "Next you create a template in which you use the results of the method "
 "'talks'."
 msgstr ""
-"A continuación, crear una plantilla en la usa los resultados del método de "
-"las 'charlas'."
+"A continuación, crear una plantilla en la usa los resultados del método "
+"'talks'."
 
 #: ../views_3.rst:255
 msgid "Try to keep logic mostly in python. This is for two reasons:"
@@ -564,7 +565,7 @@ msgid ""
 msgstr ""
 "Después de volver a aplicar el perfil typeinfo del complemento (o, "
 "simplemente, volver a instalarlo) el tipo de contenido \"Carpeta\" se amplía"
-" con nuestro método de vista adicional y aparece en la pantalla desplegable."
+" con nuestro método de vista adicional y aparece en la lista desplegable Mostrar."
 
 #: ../views_3.rst:447
 msgid ""
@@ -595,7 +596,7 @@ msgid ""
 "point."
 msgstr ""
 "Pero podríamos mejorar esa tabla aún más mediante el uso de una buena "
-"biblioteca Javascript llamada \"datatables\". Incluso podría llegar a ser "
+"librería Javascript llamada \"datatables\". Incluso podría llegar a ser "
 "parte del core de Plone en algún momento."
 
 #: ../views_3.rst:457
@@ -624,13 +625,13 @@ msgid ""
 "datatables (it does not but still...)."
 msgstr ""
 "Nosotros no necesitamos la clase CSS ``listing`` nunca más, ya que podría "
-"entrar en conflicto con la biblioteca datatables (no es así, pero aún así "
+"entrar en conflicto con la librería datatables (no es así, pero aún así "
 "...)."
 
 #: ../views_3.rst:529
 msgid "The documentation of datatables is beyond our training."
 msgstr ""
-"La documentación de la biblioteca datatables está más allá de nuestro "
+"La documentación de la librería datatables está más allá de nuestro "
 "entrenamiento."
 
 #: ../views_3.rst:531
