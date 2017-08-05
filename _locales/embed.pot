@@ -52,11 +52,6 @@ msgstr ""
 msgid "Next up we modify :file:`profiles/default/metadata.xml`"
 msgstr ""
 
-#: ../embed.rst:52
-#: ../embed.rst:76
-msgid "... only:: not presentation"
-msgstr ""
-
 #: ../embed.rst:54
 msgid "What a weird name. profile- is a prefix you will always need nowadays. Then comes the egg name, and the part after the colon is the name of the profile. The name of the profile is defined in zcml. So far I've stumbled only over one package where the profile directory name was different to the GenericSetup Profile name."
 msgstr ""
