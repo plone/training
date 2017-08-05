@@ -1,81 +1,103 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2014, Philip Bauer, Patrick Gerken. Version 1.2.2
-# This file is distributed under the same license as the Mastering Plone package.
-# 
+# This file is distributed under the same license as the Mastering Plone
+# package.
+#
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-22 11:27-0430\n"
+"POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-06-22 16:47+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
+"plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.3.4\n"
 
-# 1bff5abe3ad141089fd8688da844d0ec
 #: ../sneak.rst:2
 msgid "Using the code for the training"
 msgstr ""
 
-# 48fb1b0d53924475a050bdd25ea29259
 #: ../sneak.rst:4
-msgid "We provide the code for this training divided in into chapters. To"
+msgid "We provide the code for this training divided in into chapters."
 msgstr ""
 
-# 9a95e29bbce14b5cb2235e1c4fda0eb1
 #: ../sneak.rst:7
-msgid "Telling Plone about ploneconf.site"
+msgid "The code-package"
 msgstr ""
 
-# 46321054fe4749168785b8b04a2a4b74
 #: ../sneak.rst:9
 msgid ""
-"Modify ``buildout.cfg`` to have Plone expect the egg ``ploneconf.site`` to "
-"be in ``src``."
+"The package containing the eggs for each chapter is already automatically"
+" downloaded by buildout into a directory called "
+"``src/ploneconf.site_sneak/``."
 msgstr ""
 
-# 9824510305304a3aaf3cfedb8e81c261
-#: ../sneak.rst:30
-msgid "Gettin the code-package"
+#: ../sneak.rst:13
+msgid "If you want to do it by hand do the following:"
 msgstr ""
 
-# e4ebb210e2b4419691fa15e78307d6b9
-#: ../sneak.rst:32
-msgid ""
-"Download the code into a directory called ``src/ploneconf.site_sneak``."
-msgstr ""
-
-# fe55b88078e14d03b9aed16516df313e
-#: ../sneak.rst:41
+#: ../sneak.rst:23
 msgid "Copy the relevant chapter so that Plone can use into"
 msgstr ""
 
-# 55237013bf294df492059bc1323b6750
-#: ../sneak.rst:43
+#: ../sneak.rst:25
 msgid "To use the code for a certain chapter stop Plone and do this:"
 msgstr ""
 
-# 4e27ca438a0441f09d584f369b27b0c4
-#: ../sneak.rst:51
+#: ../sneak.rst:33
 msgid "This will:"
 msgstr ""
 
-# 8a9523a44ce8451fa249338cc75dc785
-#: ../sneak.rst:53
+#: ../sneak.rst:35
 msgid "replace any existing previous chapter with the one you want to copy"
 msgstr ""
 
-# 08faea25bc464638a2804e876f96f294
-#: ../sneak.rst:54
+#: ../sneak.rst:36
 msgid "run buildout and restart Plone"
 msgstr ""
 
-# 9de7afdacad5416191d27a9483024cce
-#: ../sneak.rst:56
-msgid "These are the chapters for which there is code::"
+#: ../sneak.rst:40
+msgid "Telling Plone about ploneconf.site"
 msgstr ""
+
+#: ../sneak.rst:42
+msgid ""
+"If you did not yet do this (it is covered in chapter :ref:`eggs1-label`) "
+"you will have to modify ``buildout.cfg`` to have Plone expect the egg "
+"``ploneconf.site`` to be in ``src``."
+msgstr ""
+
+#: ../sneak.rst:64
+msgid ""
+"These are the names of the folders for which there is code. The same "
+"folder with the code for Plone 5 are appended with '_p5'::"
+msgstr ""
+
+# 48fb1b0d53924475a050bdd25ea29259
+#~ msgid "We provide the code for this training divided in into chapters. To"
+#~ msgstr ""
+
+# 46321054fe4749168785b8b04a2a4b74
+#~ msgid ""
+#~ "Modify ``buildout.cfg`` to have Plone "
+#~ "expect the egg ``ploneconf.site`` to be"
+#~ " in ``src``."
+#~ msgstr ""
+
+# 9824510305304a3aaf3cfedb8e81c261
+#~ msgid "Gettin the code-package"
+#~ msgstr ""
+
+# e4ebb210e2b4419691fa15e78307d6b9
+#~ msgid "Download the code into a directory called ``src/ploneconf.site_sneak``."
+#~ msgstr ""
+
+# 9de7afdacad5416191d27a9483024cce
+#~ msgid "These are the chapters for which there is code::"
+#~ msgstr ""
+

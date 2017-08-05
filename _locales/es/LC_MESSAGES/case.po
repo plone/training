@@ -1,7 +1,10 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
-# This file is distributed under the same license as the Mastering Plone package.
-# 
+# Copyright (C) The text and illustrations in this website are licensed by
+# the Plone Foundation under a Creative Commons Attribution 4.0
+# International license.
+# This file is distributed under the same license as the Mastering Plone
+# package.
+#
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
 # Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
@@ -9,87 +12,102 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastering Plone Training\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-15 12:28-0430\n"
+"POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-07-14 23:07+0000\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
+"plone-training/language/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.3.4\n"
 
-# 19acf0e48a0848b997f45fc65c4159d5
-#: ../case.rst:2
-msgid "The Case-Study"
+#: ../case.rst:4
+#, fuzzy
+msgid "The Case Study"
 msgstr "El caso de estudio"
 
-# 1bd0271bd3cd427baabe3ab0c7902d85
-#: ../case.rst:4
+#: ../case.rst:6
 msgid ""
-"For this training we will build a website for a fictional Plone conference."
-msgstr "Para este entrenamiento construiremos un Sitio Web para una conferencia ficticia de Plone."
+"For this training we will build a website for a fictional Plone "
+"conference."
+msgstr ""
+"Para este entrenamiento construiremos un Sitio Web para una conferencia "
+"ficticia de Plone."
 
-# aa99fd241d1b46e5b414e8979b50ce6d
-#: ../case.rst:7
+#: ../case.rst:11
 msgid "Background"
 msgstr "Detalle"
 
-# 73f6f8cfd1c34e5a92de00ed5273dbe7
-#: ../case.rst:9
+#: ../case.rst:13
 msgid ""
 "The Plone conference takes place every year and all Plone developers at "
 "least try to go there."
-msgstr "La conferencia de Plone toma lugar cada año y todos los desarrolladores al menos intentan ir."
+msgstr ""
+"La conferencia de Plone toma lugar cada año y todos los desarrolladores "
+"al menos intentan ir."
 
-# c6b727ce71eb4929b054d69eca354300
-#: ../case.rst:12
+#: ../case.rst:18
 msgid "Requirements"
 msgstr "Requerimientos"
 
-# c3b9d0a0314349bd840b76c7d006d33a
-#: ../case.rst:14
-msgid "As a visitor I want to find current information on the conference"
-msgstr "Como un visitante, yo quiero encontrar información actualizada en la conferencia."
+#: ../case.rst:20
+msgid "Here are some requirements that we want to meet when the site is done:"
+msgstr ""
 
-# 07507c876f364f82a4325667b784e353
-#: ../case.rst:15
+#: ../case.rst:22
+msgid "As a visitor I want to find current information on the conference"
+msgstr ""
+"Como un visitante, yo quiero encontrar información actualizada en la "
+"conferencia."
+
+#: ../case.rst:23
 msgid "As a visitor I want to register for the conference"
 msgstr "Como visitante, yo quiero registrarme para la conferencia."
 
-# 5d75dec38f1f46dea43551053b3e00a4
-#: ../case.rst:16
+#: ../case.rst:24
 msgid "As a visitor I want to see the talks and sort them by my preferences"
-msgstr "Como visitante, yo quiero ver las charlas y ordenarlas por mis preferencias."
+msgstr ""
+"Como visitante, yo quiero ver las charlas y ordenarlas por mis "
+"preferencias."
 
-# b4369e6dc7f64eaf8bd22d4aae4ac686
-#: ../case.rst:17
-msgid "As a speaker I want to be able to sumbit talks"
+#: ../case.rst:25
+#, fuzzy
+msgid "As a speaker I want to be able to submit talks"
 msgstr "Como un ponente, yo quiero ser capaz de agregar charlas."
 
-# 254db43b24fd4e47976bf097859df205
-#: ../case.rst:18
+#: ../case.rst:26
 msgid "As a speaker I want to see and edit my submitted talks"
 msgstr "Como un ponente, yo quiero ver y editar mis charlas enviadas."
 
-# 0feaca718c2645b297fce0a60ffa55e3
-#: ../case.rst:19
-msgid "As a jury-member I want to vote on talks"
-msgstr "Como miembro de jurado, yo quiero votar en las charlas."
-
-# 3790da3679c2456c9b3d8cfc0446fa2a
-#: ../case.rst:20
-msgid ""
-"As a jury-member I want to decide, which talks to accept, and which not"
-msgstr "Como miembro del jurado, yo quiero decidir, cuales charlas aceptar, y cuales no."
-
-# 90051a2eeeee4b0cbe9f87e51c4a9ace
-#: ../case.rst:21
+#: ../case.rst:27
 msgid "As an organizer I want to see a list of all proposed talks"
 msgstr "Como organizador, yo quiero ver una lista de todas las charlas propuestas."
 
-# 0753924f90af4f6b9d7727a8fc976c7f
-#: ../case.rst:22
+#: ../case.rst:28
 msgid ""
-"As an organizer I want to have an overview about how many people registered"
-msgstr "Como organizador, yo quiero tener un resumen acerca de cuantas personas están registradas."
+"As an organizer I want to have an overview about how many people "
+"registered"
+msgstr ""
+"Como organizador, yo quiero tener un resumen acerca de cuantas personas "
+"están registradas."
+
+#: ../case.rst:29
+#, fuzzy
+msgid "As a jury member I want to vote on talks"
+msgstr "Como miembro de jurado, yo quiero votar en las charlas."
+
+#: ../case.rst:30
+#, fuzzy
+msgid "As a jury member I want to decide which talks to accept, and which not"
+msgstr ""
+"Como miembro del jurado, yo quiero decidir, cuales charlas aceptar, y "
+"cuales no."
+
+#: ../case.rst:32
+msgid ""
+"Note that all of our requirements connect roles with capabilities. This "
+"is important because we'll want to limit the capabilities to those to "
+"whom we assign particular roles."
+msgstr ""
+
