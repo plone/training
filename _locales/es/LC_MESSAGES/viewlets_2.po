@@ -20,27 +20,27 @@ msgstr ""
 
 #: ../viewlets_2.rst:2
 msgid "A viewlet for the voteable behavior"
-msgstr "Un viewlet para el comportamiento voteable"
+msgstr "Un viewlet para el comportamiento de votaciones"
 
 #: ../viewlets_2.rst:6
 msgid "Voting Viewlet"
-msgstr "Viewlet Voting"
+msgstr "Viewlet de Votaciones"
 
 #: ../viewlets_2.rst:8
 msgid "Viewlet for IVoteable"
-msgstr "Viewlet para IVoteable"
+msgstr "El viewlet para la interfaz IVoteable."
 
 #: ../viewlets_2.rst:9
 msgid "the viewlet-template"
-msgstr "la plantilla del viewlet"
+msgstr "La plantilla del viewlet."
 
 #: ../viewlets_2.rst:10
 msgid "add jquery include statements"
-msgstr "agregar jQuery incluyen declaraciones"
+msgstr "Agregar jQuery incluyen declaraciones."
 
 #: ../viewlets_2.rst:11
 msgid "saving the vote on the object using annotations"
-msgstr "guardar el voto en el objeto usando anotaciones"
+msgstr "Guardar el voto en el objeto usando anotaciones."
 
 #: ../viewlets_2.rst:16
 msgid ""
@@ -56,33 +56,33 @@ msgid ""
 "but also the talk-listing) we need to put it somewhere."
 msgstr ""
 "Puesto que queremos utilizar la interfaz de usuario en más de una página (no"
-" sólo la vista talk-view sino también la vista talk-listing) debemos ponerla"
+" sólo la vista ``talk-view`` sino también la vista ``talk-listing``) debemos ponerla"
 " en alguna parte."
 
 #: ../viewlets_2.rst:20
 msgid "To handle the user-input we don't use a form but links and ajax."
 msgstr ""
-"Para manejar el user-input nosotros no usamos un formulario pero si links y "
+"Para manejar el ingreso de datos del usuario nosotros no usamos un formulario pero si links y "
 "ajax."
 
 #: ../viewlets_2.rst:21
 msgid "The voting itself is a fact handled by another view"
-msgstr "La votación en si, es en su efecto manejada por otra vista"
+msgstr "La votación en si, es en su efecto manejada por otra vista."
 
 #: ../viewlets_2.rst:23
 msgid "We register the viewlet in :file:`browser/configure.zcml`."
-msgstr "Registramos el viewlet en el archivo :file:`browser/configure.zcml`."
+msgstr "Registramos el viewlet en el archivo :file:`browser/configure.zcml`, agregando el siguiente código ZCML:"
 
 #: ../viewlets_2.rst:48
 msgid "We extend the file :file:`browser/viewlets.py`"
-msgstr "Nosotros extendemos en el archivo :file:`browser/viewlets.py`"
+msgstr "Nosotros extendemos en el archivo :file:`browser/viewlets.py`, agregando el siguiente código Python:"
 
 #: ../viewlets_2.rst:61
 msgid ""
 "This will add a viewlet to a slot below the title and expect a template "
 ":file:`voting_viewlet.pt` in a folder :file:`browser/templates`."
 msgstr ""
-"Esto agregará un viewlet a una ranura debajo del título y esperará una "
+"Esto agregará un ``viewlet`` a una ranura debajo del título y esperará una "
 "plantilla :file:`voting_viewlet.pt` en una carpeta "
 ":file:`browser/templates`."
 
@@ -96,23 +96,23 @@ msgstr ""
 
 #: ../viewlets_2.rst:78
 msgid "restart Plone"
-msgstr "reiniciar Plone"
+msgstr "Reinicie Plone."
 
 #: ../viewlets_2.rst:79
 msgid "show the viewlet"
-msgstr "mostrar el viewlet"
+msgstr "Muestre el viewlet."
 
 #: ../viewlets_2.rst:82
 msgid "Writing the Viewlet code"
-msgstr "Escribiendo el código fuente del Viewlet"
+msgstr "Escribiendo el código del Viewlet"
 
 #: ../viewlets_2.rst:88
 msgid ""
 "Update the viewlet to contain the necessary logic in "
 ":file:`browser/viewlets`"
 msgstr ""
-"Actualizar en la clase viewlet que contiene la lógica necesaria en el "
-"archivo :file:`browser/viewlets`"
+"Actualizar en la clase ``viewlet`` que contiene la lógica necesaria en el "
+"archivo :file:`browser/viewlets.py`, con el siguiente código Python:"
 
 #: ../viewlets_2.rst:126
 msgid "The template"
@@ -122,7 +122,7 @@ msgstr "La plantilla"
 msgid "And extend the template in :file:`browser/templates/voting_viewlet.pt`"
 msgstr ""
 "Y extiende la plantilla en el archivo "
-":file:`browser/templates/voting_viewlet.pt`"
+":file:`browser/templates/voting_viewlet.pt`, con el siguiente código ZPT:"
 
 #: ../viewlets_2.rst:170
 msgid ""
@@ -140,8 +140,8 @@ msgstr ""
 msgid ""
 "We need some css that we store in :file:`static/starzel_votablebehavior.css`"
 msgstr ""
-"Nosotros necesitamos algunos css que almacenaremos en el archivo "
-":file:`static/starzel_votablebehavior.css`"
+"Nosotros necesitamos algunos sentencias CSS que almacenaremos en el archivo "
+":file:`static/starzel_votablebehavior.css`, con el siguiente código CSS:"
 
 #: ../viewlets_2.rst:220
 msgid "The javascript code"
@@ -152,8 +152,8 @@ msgid ""
 "To make it work in the browser, some javascript "
 ":file:`static/starzel_votablebehavior.js`"
 msgstr ""
-"Para que funcione en el navegador, algunos javascript en el archivo "
-":file:`static/starzel_votablebehavior.js`"
+"Para que funcione en el navegador, algunas sentencias Javascript en el archivo "
+":file:`static/starzel_votablebehavior.js`, con el siguiente código Javascript:"
 
 #: ../viewlets_2.rst:269
 msgid ""
@@ -161,13 +161,13 @@ msgid ""
 "declared at the beginning of the method. We show and hide quite a few small "
 "html elements here"
 msgstr ""
-"Este código js se adhiere a las reglas jshint de crockfort, por lo que todas"
+"Este código Javascript se adhiere a las reglas ``jshint`` de crockfort, por lo que todas"
 " las variables se declaran al principio del método. Mostramos y ocultamos "
-"bastantes pequeños elementos html aquí"
+"bastantes pequeños elementos html aquí."
 
 #: ../viewlets_2.rst:274
 msgid "Writing 2 simple view helpers"
-msgstr "Escribiendo 2 ejemplo de view helpers"
+msgstr "Escribiendo 2 simples helpers view"
 
 #: ../viewlets_2.rst:278
 msgid ""
@@ -176,10 +176,10 @@ msgid ""
 " status. Exceptions set the right status and aren't being shown by "
 "javascript, so this will suit us fine."
 msgstr ""
-"Nuestro código javascript se comunica con nuestro sitio llamando a las "
+"Nuestro código Javascript se comunica con nuestro sitio llamando a las "
 "vistas que aún no existen. Estas vistas no necesitan mostrar código html, "
 "pero deben devolver un estatus válido. Las excepciones establecen el estado "
-"correcto y no están siendo mostradas por javascript, por lo que nos conviene"
+"correcto y no están siendo mostradas por Javascript, por lo que nos conviene"
 " bien."
 
 #: ../viewlets_2.rst:282
@@ -202,7 +202,7 @@ msgstr ""
 msgid ""
 "Zope claims some exceptions for themselves. It needs them to work correctly."
 msgstr ""
-"Zope reclama algunas excepciones para sí mismos. Necesita que funcionen "
+"Zope reclama algunas excepciones para sí mismos. Eso necesita que funcionen "
 "correctamente."
 
 #: ../viewlets_2.rst:299
@@ -227,14 +227,15 @@ msgstr ""
 msgid "As so often, we must extend :file:`browser/configure.zcml`:"
 msgstr ""
 "Como tantas veces, debemos extender en el archivo "
-":file:`browser/configure.zcml`:"
+":file:`browser/configure.zcml`, agregando el siguiente código ZCML:"
 
 #: ../viewlets_2.rst:329
 msgid "Then we add our simple views into the file :file:`browser/vote.py`"
 msgstr ""
 "A continuación, agregamos nuestras vistas simples en el archivo "
-":file:`browser/vote.py`"
+":file:`browser/vote.py`, con el siguiente código Python:"
 
 #: ../viewlets_2.rst:354
 msgid "A lot of moving parts have been created. Here is a small overview:"
 msgstr "Se han creado muchas partes móviles. Aquí hay un pequeño resumen:"
+
