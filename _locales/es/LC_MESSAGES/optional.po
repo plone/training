@@ -28,95 +28,95 @@ msgstr "Pruebas"
 
 #: ../optional.rst:5
 msgid "zc3.form"
-msgstr "zc3.form"
+msgstr "Paquete ``zc3.form``."
 
 #: ../optional.rst:6
 msgid "portlets"
-msgstr "portlets"
+msgstr "Los portlets."
 
 #: ../optional.rst:7
 msgid "ZCA in depth"
-msgstr "ZCA en profundidad"
+msgstr "La ZCA en profundidad."
 
 #: ../optional.rst:8
 msgid "ZODB"
-msgstr "ZODB"
+msgstr "La ZODB."
 
 #: ../optional.rst:9
 msgid "more and more complex fields"
-msgstr "Más y más campos complejos"
+msgstr "Más y más campos complejos."
 
 #: ../optional.rst:10
 msgid "relations"
-msgstr "relaciones"
+msgstr "Relaciones."
 
 #: ../optional.rst:11
 msgid "custom edit-forms"
-msgstr "formularios de edición personalizados"
+msgstr "Formularios de edición personalizados."
 
 #: ../optional.rst:12
 msgid "control panels"
-msgstr "paneles de control"
+msgstr "Paneles de control."
 
 #: ../optional.rst:13
 msgid "plone.app.registry"
-msgstr "plone.app.registry"
+msgstr "Paquete ``plone.app.registry``."
 
 #: ../optional.rst:14
 msgid "security (permission/roles/workflow)"
-msgstr "seguridad (permisos / roles / flujo de trabajo)"
+msgstr "Seguridad (permisos / roles / flujo de trabajo)."
 
 #: ../optional.rst:15
 msgid "custom permissions"
-msgstr "permisos personalizados"
+msgstr "Permisos personalizados."
 
 #: ../optional.rst:16
 msgid "custom workflow"
-msgstr "flujo de trabajo personalizado"
+msgstr "Flujo de trabajo personalizado."
 
 #: ../optional.rst:17
 msgid "users, authentication, member profiles, ldap"
-msgstr "usuarios, autenticación, perfiles de miembros, ldap"
+msgstr "Usuarios, autenticación, perfiles de miembros, ldap."
 
 #: ../optional.rst:18
 msgid "caching (plone.app.caching)"
-msgstr "cacheo (plone.app.caching)"
+msgstr "Cacheo (con el paquete ``plone.app.caching``)."
 
 #: ../optional.rst:19
 msgid "GenericSetup"
-msgstr "GenericSetup"
+msgstr "GenericSetup."
 
 #: ../optional.rst:20
 msgid "Upgrade-Steps"
-msgstr "Pasos de actualización"
+msgstr "Pasos de actualización."
 
 #: ../optional.rst:21
 msgid "Migrations"
-msgstr "Migraciones"
+msgstr "Migraciones."
 
 #: ../optional.rst:22
 msgid "Asynchronous processing"
-msgstr "Procesamiento asíncrono"
+msgstr "Procesamiento asíncrono."
 
 #: ../optional.rst:23
 msgid "Talking with external API’s"
-msgstr "Hablando con apis externas"
+msgstr "Hablando con APIs externas."
 
 #: ../optional.rst:24
 msgid "Mockup"
-msgstr "Mockup"
+msgstr "Mockup."
 
 #: ../optional.rst:25
 msgid "customizing barceloneta theme"
-msgstr "personalizando el tema barcelonetta"
+msgstr "Personalizando el tema barcelonetta."
 
 #: ../optional.rst:26
 msgid "plone.app.widgets"
-msgstr "plone.app.widgets"
+msgstr "Paquete ``plone.app.widgets``."
 
 #: ../optional.rst:27
 msgid ":doc:`deployment_code`"
-msgstr ":doc:`deployment_code`"
+msgstr ":doc:`deployment_code`."
 
 #: ../optional.rst:28
 msgid "Deployment"
@@ -124,7 +124,7 @@ msgstr "Despliegue"
 
 #: ../optional.rst:30
 msgid "storage options"
-msgstr "opciones de almacenamiento"
+msgstr "Opciones de almacenamiento."
 
 #: ../optional.rst:31
 msgid "backup"
@@ -132,8 +132,8 @@ msgstr "respaldo"
 
 #: ../optional.rst:32
 msgid "deployment buildouts"
-msgstr "configuraciones buildous de despliegue"
+msgstr "Configuraciones buildouts de despliegue."
 
 #: ../optional.rst:33
 msgid "caching (varnish)"
-msgstr "cacheo (varnish)"
+msgstr "Cacheo (con varnish)."
