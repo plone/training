@@ -4,6 +4,12 @@ Changelog
 1.2.5 (unreleased)
 ------------------
 
+- Updated Spanish translation.
+  [macagua]
+
+- Updated POT files.
+  [macagua]
+
 - Revision of part one for Ploneconf 2014, Bristol
   [smcmahon]
 
