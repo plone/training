@@ -30,8 +30,8 @@ msgstr "Esta paquete contiene algunos problemas."
 msgid ""
 "No permission settings, Users can't customize who and when users can vote"
 msgstr ""
-"Sin configuración de permisos, los usuarios no pueden personalizar quién y "
-"cuándo los usuarios pueden votar"
+"Sin la configuración de permisos, los usuarios no pueden personalizar quién y "
+"cuándo los usuarios pueden votar."
 
 #: ../reusable.rst:7
 msgid "We do things, but don't trigger events. Events allow others to react."
@@ -69,7 +69,7 @@ msgid ""
 "Luckily, there is a zcml statement to register a permission both ways in one"
 " step."
 msgstr ""
-"Por suerte, hay una declaración zcml para registrar un permiso de ambas "
+"Por suerte, hay una declaración ZCML para registrar un permiso de ambas "
 "maneras en un solo paso."
 
 #: ../reusable.rst:31
@@ -100,7 +100,7 @@ msgstr ""
 
 #: ../reusable.rst:37
 msgid "Lets modify the file :file:`configure.zcml`"
-msgstr "Modificar el archivo :file:`configure.zcml`"
+msgstr "Modificar el archivo :file:`configure.zcml`, con el siguiente código ZCML:"
 
 #: ../reusable.rst:65
 msgid ""
@@ -112,7 +112,7 @@ msgstr ""
 
 #: ../reusable.rst:67
 msgid "We provide this in :file:`__init__.py`"
-msgstr "Proporcionamos esto en el archivo :file:`__init__.py`"
+msgstr "Proporcionamos esto en el archivo :file:`__init__.py`, con el siguiente código Python:"
 
 #: ../reusable.rst:78
 msgid "Using our permissions"
@@ -143,7 +143,7 @@ msgstr ""
 #: ../reusable.rst:88
 msgid "We can add this restriction to :file:`browser/configure.zcml`"
 msgstr ""
-"Podemos agregar esta restricción al archivo :file:`browser/configure.zcml`"
+"Podemos agregar esta restricción al archivo :file:`browser/configure.zcml`, con el siguiente código ZCML:"
 
 #: ../reusable.rst:125
 msgid ""
@@ -165,8 +165,8 @@ msgid ""
 " without any restriction, it is your job to take care of security."
 msgstr ""
 "La persona podría votar, mediante la elaboración manual de la URL. Las "
-"Browser Views ejecutar código sin ninguna restricción, es su trabajo para "
-"cuidar de la seguridad."
+"Browser Views ejecutar código sin ninguna restricción, es su trabajo tener "
+"cuidado de la seguridad."
 
 #: ../reusable.rst:133
 msgid ""
@@ -194,7 +194,7 @@ msgid ""
 "We now protect our views and viewlets. We still show the option to vote "
 "though."
 msgstr ""
-"Ahora protegemos nuestras vistas y viewlets. Todavía mostramos la opción de "
+"Ahora protegemos nuestras ``views`` y ``viewlets``. Todavía mostramos la opción de "
 "votar."
 
 #: ../reusable.rst:139
@@ -207,12 +207,12 @@ msgstr ""
 
 #: ../reusable.rst:141
 msgid "Lets move on to :file:`browser/viewlets.py`"
-msgstr "Mueva al archivo :file:`browser/viewlets.py`"
+msgstr "Mueva al archivo :file:`browser/viewlets.py`, con el siguiente código Python:"
 
 #: ../reusable.rst:170
 msgid "And the template in :file:`browser/templates/voting_viewlet.pt`"
 msgstr ""
-"Y la plantilla en el archivo :file:`browser/templates/voting_viewlet.pt`"
+"Y la plantilla en el archivo :file:`browser/templates/voting_viewlet.pt`, con el siguiente código ZPT:"
 
 #: ../reusable.rst:201
 msgid ""
@@ -220,7 +220,7 @@ msgid ""
 "that I should only animate people to vote, if they are allowed to vote!"
 msgstr ""
 "A veces se producen errores sutiles debido a los cambios, en este caso, me "
-"di cuenta de que sólo debería animar a la gente a votar, ¡si ellos se les "
+"di cuenta de que sólo debería animar a la gente a votar, ¡si a ellos se les "
 "permite votar!"
 
 #: ../reusable.rst:204
@@ -229,7 +229,7 @@ msgstr "Proporcionar valores por defecto"
 
 #: ../reusable.rst:208
 msgid "Are we done yet? Who may vote now?"
-msgstr "¿Ya terminamos? ¿Quién puede votar ahora?"
+msgstr "¿Ya terminamos?, ¿Quién puede votar ahora?"
 
 #: ../reusable.rst:210
 msgid "We have to tell that someone."
@@ -240,7 +240,7 @@ msgid ""
 "Who has which permissions is managed in Zope, it is persistent, persistent "
 "configuration goes to GenericSetup."
 msgstr ""
-"En ZTK, un permiso es un objeto que se obtiene registrado como una Utilidad."
+"En el ZTK, un permiso es un objeto que se obtiene registrado como una Utilidad."
 
 #: ../reusable.rst:214
 msgid ""
@@ -248,4 +248,4 @@ msgid ""
 ":file:`profiles/default/rolemap.xml`"
 msgstr ""
 "La configuración persistente se gestiona en otro archivo: "
-":file:`profiles/default/rolemap.xml`"
+":file:`profiles/default/rolemap.xml`, con el siguiente código XML:"
