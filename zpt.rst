@@ -182,7 +182,7 @@ tal:condition
 
 * If it's true, then the tag is rendered.
 * If it's false then the tag **and all its children** are removed and no longer evaluated.
-* We can reverse the logic by prepending a ``not:`` to the expression.
+* We can reverse the logic by perpending a ``not:`` to the expression.
 
 Let's add another TAL Attribute to our above example::
 
@@ -927,7 +927,7 @@ In templates we can also access other browser views. Some of those exist to prov
     The BrowserView ``plone.app.layout.globals.portal.PortalState`` holds methods for the portal like ``portal_url``
 
 ``@@plone_tools``
-    The BrowserView ``plone.app.layout.globals.tools.Tools`` gives access to the most importan tools like ``plone_tools/catalog``
+    The BrowserView ``plone.app.layout.globals.tools.Tools`` gives access to the most important tools like ``plone_tools/catalog``
 
 These are very widely used and there are many more.
 
@@ -954,7 +954,7 @@ There is a lot more about TAL, TALES and METAL that we have not covered. You'll 
 
 .. seealso::
 
-  * http://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html
+  * http://docs.plone.org/4/en/adapt-and-extend/theming/templates_css/template_basics.html
   * Using Zope Page Templates: http://docs.zope.org/zope2/zope2book/ZPT.html
   * Zope Page Templates Reference: http://docs.zope.org/zope2/zope2book/AppendixC.html
 

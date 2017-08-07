@@ -2,20 +2,23 @@
 # Copyright (C) 2014, Philip Bauer, Patrick Gerken. Version 1.2.2
 # This file is distributed under the same license as the Mastering Plone
 # package.
-#
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
+
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
-"PO-Revision-Date: 2014-07-16 06:13-0530\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: ES <LL@li.org>\n"
+"PO-Revision-Date: 2017-08-07 07:40-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish Team\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "Generated-By: Babel 2.3.4\n"
 
 #: ../theming.rst:4
@@ -204,48 +207,45 @@ msgid "Good starting places:"
 msgstr ""
 
 #: ../theming.rst:80
-#, fuzzy
 msgid ""
 "Diazo (plone.app.theming): This is the modern way to go and the `default "
 "theme in Plone 5 <https://github.com/plone/plonetheme.barceloneta/>`_ "
 "will be a Diazo theme! Diazo is available from Plone 4.2+."
 msgstr ""
-"Diazo (plone.app.theming): Esta es la forma moderna de hacerlo y el "
-"¡`tema por defecto en Plone 5 "
-"<https://github.com/plone/plonetheme.barceloneta/>`_ será un tema diazo!"
+"Diazo (plone.app.theming): Esta es la forma moderna de hacerlo y el ¡`tema "
+"por defecto en Plone 5 <https://github.com/plone/plonetheme.barceloneta/>`_ "
+"será un tema Diazo! Diazo esta disponible desde la versión de Plone 4.2 en "
+"adelante."
 
 #: ../theming.rst:81
-#, fuzzy
 msgid ""
 "You can use (and adapt) one of many publicly available Diazo themes: "
 "https://pypi.python.org/pypi?%3Aaction=search&term=plonetheme&submit=search"
 " (try `plonetheme.onegov "
 "<https://pypi.python.org/pypi/plonetheme.onegov>`_ for example)"
 msgstr ""
-"Usted puede utilizar (y adaptar) una de las muchas temas Diazo disponible"
-" públicamente: "
-"https://pypi.python.org/pypi?%3Aaction=search&term=plonetheme&submit=search"
-" (intente con  `plonetheme.onegov "
-"<https://pypi.python.org/pypi/plonetheme.onegov>`_ por ejemplo)"
+"Usted puede utilizar (y adaptar) una de las muchas temas Diazo disponible "
+"públicamente: https://pypi.python.org/pypi?%"
+"3Aaction=search&term=plonetheme&submit=search (intente con "
+"`plonetheme.onegov <https://pypi.python.org/pypi/plonetheme.onegov>`_ por "
+"ejemplo)"
 
 #: ../theming.rst:82
 msgid "Creating a custom theme"
 msgstr "Creando un tema personalizado"
 
 #: ../theming.rst:83
-#, fuzzy
 msgid "A starting point can be the built-in Diazo Theme editor"
-msgstr "Un punto de partida puede ser el editor incorporados de temas Diazo"
+msgstr "Un punto de partida puede ser el editor incorporado de temas Diazo"
 
 #: ../theming.rst:84
-#, fuzzy
 msgid "Old-school Theming (extending the built-in default theme)"
-msgstr "Los temas a la vieja escuela (ampliando el tema por defecto integrado)"
+msgstr ""
+"Los temas a la vieja escuela (ampliando el tema por defecto incorporado)"
 
 #: ../theming.rst:85
-#, fuzzy
 msgid "Deliverance/XDV"
-msgstr "Deliverance"
+msgstr "Deliverance/XDV"
 
 #: ../theming.rst:87
 msgid ""
@@ -253,9 +253,9 @@ msgid ""
 "Wainwright <https://twitter.com/cdw9>`_ or `Maik DerStappen <http://www"
 ".derstappen-it.de/>`_"
 msgstr ""
-"Si usted busca un entrenamiento sobre Diazo se recomienda un "
-"entrenamiento por `Chrissy Wainwright <https://twitter.com/cdw9>`_ o "
-"`Maik DerStappen <http://www.derstappen-it.de/>`_"
+"Si usted busca un entrenamiento sobre Diazo se recomienda un entrenamiento "
+"por `Chrissy Wainwright <https://twitter.com/cdw9>`_ o `Maik DerStappen "
+"<http://www.derstappen-it.de/>`_"
 
 #: ../theming.rst:92
 msgid ""
@@ -266,4 +266,3 @@ msgstr ""
 #: ../theming.rst:96
 msgid "http://docs.plone.org/adapt-and-extend/theming/index.html"
 msgstr "http://docs.plone.org/adapt-and-extend/theming/index.html"
-

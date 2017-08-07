@@ -1,12 +1,14 @@
 class plone {
 
+    $plone_version = "4.3.10"
+
     file { ['/home/vagrant/tmp',
             '/home/vagrant/.buildout',
             '/home/vagrant/buildout-cache',
             '/home/vagrant/buildout-cache/eggs',
             '/home/vagrant/buildout-cache/downloads',
             '/home/vagrant/buildout-cache/extends',
-            '/home/vagrant/buildout-cache/Plone',]:
+            ]:
         ensure => directory,
         owner => 'vagrant',
         group => 'vagrant',
@@ -62,7 +64,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         creates => '/home/vagrant/py27',
         user => 'vagrant',
         cwd => '/home/vagrant',
-        before => Exec["install_plone"],
+        before => Exec["download_buildout_cache"],
         timeout => 300,
     }
 
@@ -72,8 +74,10 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         creates => '/home/vagrant/Plone/zinstance/bin/buildout',
         user => 'vagrant',
         cwd => '/home/vagrant',
-        before => Exec["copy_cache"],
-        timeout => 0,
+        user => 'vagrant',
+        group => 'vagrant',
+        before => Exec["unpack_buildout_cache"],
+        timeout => 600,
     }
 
     # Copy buildout-cache

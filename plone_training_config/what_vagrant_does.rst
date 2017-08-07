@@ -1,9 +1,9 @@
-What Vagrant does
------------------
+What Vagrant is and does
+------------------------
 
 .. note::
 
-    These steps are automatically done by vagrant and puppet. They are only explained here if you want to know what goes on below the hood.
+    These steps are automatically done by Vagrant and Puppet for you. They are only interesting if you want to know what goes on under the hood for preparing your virtual training environment.
 
 Puppet does the first installation, Puppet is a tool to automatically manage servers (real and virtual). We won't get into Puppet since it is not that widely used. This is basically what Puppet does if we did it by hand:
 
@@ -55,7 +55,8 @@ Instead, vagrant now creates our own little Buildout and only uses the eggs that
 
 .. code-block:: bash
 
-    $ cp -Rf /home/vagrant/Plone/buildout-cache /home/vagrant
+    $ wget http://dist.plone.org/release/4.3.10/buildout-cache.tar.bz2
+    $ tar xjf buildout-cache.tar.bz2
 
 Then we checkout our tutorial buildout from http://github.com/collective/training_buildout, switch to the branch 'plone5' and build it.
 
@@ -71,7 +72,7 @@ Then we checkout our tutorial buildout from http://github.com/collective/trainin
 
 At this point vagrant has finished its job.
 
-You can now connect to the machine and start plone.
+You can now connect to the machine and start Plone.
 
 .. code-block:: bash
 

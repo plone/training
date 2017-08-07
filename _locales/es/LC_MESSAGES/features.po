@@ -6,16 +6,15 @@
 # package.
 #
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-07-19 15:55+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +22,7 @@ msgstr ""
 
 #: ../features.rst:4
 msgid "The Features of Plone"
-msgstr "Las caracteristicas de Plone"
+msgstr "Las características de Plone"
 
 #: ../features.rst:8
 msgid "This chapter has not yet been updated for Plone 5!"
@@ -47,7 +46,8 @@ msgstr "Iniciando y Deteniendo Plone"
 
 #: ../features.rst:19
 msgid "We control Plone with a small script called \"instance\"::"
-msgstr "Tenemos el control de Plone con un pequeño script llamado \"instance\"::"
+msgstr "Tenemos el control de Plone con un pequeño script llamado \"instance\" "
+"a continuación un ejemplo de su uso::"
 
 #: ../features.rst:23
 msgid ""
@@ -374,7 +374,7 @@ msgstr "Tipos de Contenidos"
 
 #: ../features.rst:174
 msgid "Edit a page:"
-msgstr "Editar una pagina:"
+msgstr "Editar una página:"
 
 #: ../features.rst:176
 msgid ":guilabel:`Edit front-page`"
@@ -421,7 +421,7 @@ msgstr ""
 
 #: ../features.rst:190
 msgid "In /news: Add News Item \"Submit your talks!\""
-msgstr "En la ruta /news: Agregar una Noticia \"¡Enviar sus Charlas!\""
+msgstr "En la ruta /news: Agregar una Noticia \"¡Enviar sus charlas!\""
 
 #: ../features.rst:191
 #, fuzzy
@@ -432,7 +432,7 @@ msgstr ""
 
 #: ../features.rst:193
 msgid "Add Folder \"Register\""
-msgstr "Agregar Carpeta \"Registro\""
+msgstr "Agregar carpeta llamada \"Registro\""
 
 #: ../features.rst:194
 #, fuzzy
@@ -441,7 +441,7 @@ msgstr "Eliminar la Carpeta \"Members\""
 
 #: ../features.rst:195
 msgid "Add Folder \"Intranet\""
-msgstr "Agregar Carpeta \"Intranet\""
+msgstr "Agregar carpeta llamada \"Intranet\""
 
 #: ../features.rst:198
 msgid "The default content-types:"
@@ -516,11 +516,11 @@ msgstr "cambiar orden"
 
 #: ../features.rst:223
 msgid "bulk-actions"
-msgstr "acciones en masa"
+msgstr "acciones masivas"
 
 #: ../features.rst:224
 msgid "dropdown \"display\""
-msgstr "desplegable \"Mostrar\""
+msgstr "menú desplegable \"Mostrar\""
 
 #: ../features.rst:225
 msgid "default_pages"
@@ -558,7 +558,7 @@ msgstr ""
 
 #: ../features.rst:237
 msgid "explain Topics"
-msgstr "explicar Topicos"
+msgstr "explicar Tópicos"
 
 #: ../features.rst:238
 #, fuzzy
@@ -613,7 +613,7 @@ msgstr "grupos"
 
 #: ../features.rst:269
 msgid "Add group \"Editors\" and add the user 'editor' to it"
-msgstr "Agregar grupo \"Editores\" y agregar el usuario 'editor' a este"
+msgstr "Agregar grupo \"Editores\" y agregar el usuario 'editor' a ese."
 
 #: ../features.rst:270
 msgid "Add group: ``orga``"
@@ -621,7 +621,7 @@ msgstr "Agregar grupo: ``orga``"
 
 #: ../features.rst:271
 msgid "add group: ``jury`` and add user 'jurymember' to it."
-msgstr "agregar grupo: ``jury`` y agregue usuario 'jurymember' a este."
+msgstr "agregar grupo: ``jury`` y agregue usuario 'jurymember' a ese."
 
 #: ../features.rst:277
 msgid "Workflows"

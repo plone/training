@@ -39,7 +39,7 @@ We create and enter the ``src`` directory (*src* is short for *sources*) and cal
 
 .. code-block:: bash
 
-    $ mkdir src
+    $ mkdir src      # (if src does not exist already)
     $ cd src
     $ ../bin/mrbob -O ploneconf.site bobtemplates:plone_addon
 
@@ -67,9 +67,6 @@ We have to answer some questions about the addon. We will press :kbd:`Enter` (i.
 
 
 .. _eggs1-inspect-label:
-
-Inspecting the package
-----------------------
 
 In ``src`` there is now a new folder ``ploneconf.site`` and in there is the new package. Let's have a look at some of the files:
 

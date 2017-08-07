@@ -6,15 +6,17 @@
 # package.
 #
 # Translators:
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-06-22 16:45+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, "
+"2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,6 +29,8 @@ msgstr ""
 #: ../eggs2.rst:6
 msgid "We already created the package ``ploneconf.site``  much earlier."
 msgstr ""
+"Ahora vamos a crear una característica que es totalmente independiente de "
+"nuestro sitio ploneconf y puede ser reutilizado en otros paquetes."
 
 #: ../eggs2.rst:8
 msgid "In this part you will:"
@@ -55,14 +59,16 @@ msgid ""
 "To make the distinction clear, this is not a package from the namespace "
 ":samp:`ploneconf` but from :samp:`starzel`."
 msgstr ""
+"Para hacer la distinción clara, esto no es un paquete de los nombres "
+":samp:`ploneconf` pero desde :samp:`starzel`."
 
 #: ../eggs2.rst:21
 msgid "We are going to add a voting behavior."
-msgstr ""
+msgstr "Vamos a agregar el comportamiento de votaciones."
 
 #: ../eggs2.rst:23
 msgid "For this we need:"
-msgstr ""
+msgstr "Para esto nosotros necesitamos:"
 
 #: ../eggs2.rst:25
 msgid "A behavior that stores its data in annotations"
@@ -70,15 +76,15 @@ msgstr ""
 
 #: ../eggs2.rst:26
 msgid "A viewlet to present the votes"
-msgstr ""
+msgstr "Un viewlet para presentar los votos."
 
 #: ../eggs2.rst:27
 msgid "A bit of javascript"
-msgstr ""
+msgstr "Un poco de código Javascript."
 
 #: ../eggs2.rst:28
 msgid "A bit of css"
-msgstr ""
+msgstr "Un poco de CSS."
 
 #: ../eggs2.rst:29
 msgid "Some helper views so that the Javascript code can communicate with Plone"
@@ -90,12 +96,17 @@ msgid ""
 ":file:`mrbob` from our project's :file:`bin` directory and the template "
 "from ``bobtemplates.plone`` to create the package."
 msgstr ""
+"Algunos helper views para que el código Javascript puede comunicarse con "
+"Plone."
 
 #: ../eggs2.rst:39
 msgid ""
 "We press :kbd:`Enter` to all questions *except* our personal data and the"
 " Plone version. Here we enter :kbd:`5.0a3`."
 msgstr ""
+"Nos ubicamos dentro del directorio :file:`src` y ejecutamos el script "
+"llamado :file:`zopeskel` desde nuestro directorio :file:`bin` del "
+"proyecto, con los siguientes comando:"
 
 # 20b64a7a456340bea3660f846a9e5305
 #~ msgid "Creating reusable packages with eggs"

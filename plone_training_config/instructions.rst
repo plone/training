@@ -106,7 +106,7 @@ Vagrant uses Oracle’s VirtualBox to create virtual environments. Here is a lin
 Install and configure Vagrant
 +++++++++++++++++++++++++++++
 
-Get the latest version from http://www.vagrantup.com/downloads for your operating system and install it.
+Get the latest version from https://www.vagrantup.com/downloads.html for your operating system and install it.
 
 .. note::
 
@@ -160,7 +160,7 @@ This takes a **veeeeery loooong time** (up to 1h depending on your internet conn
 
 .. note::
 
-    Sometimes this stops with the message *Skipping because of failed dependencies*.
+    Sometimes this stops with the message:
 
     .. code-block:: bash
 
@@ -240,3 +240,15 @@ What Vagrant does
 +++++++++++++++++
 
 Installation is done automatically by vagrant and puppet. If you want to know which steps are actually done please see the chapter :doc:`what_vagrant_does`.
+
+.. _instructions-vagrant-care-handling-label:
+
+.. note::
+
+    **Vagrant Care and Handling**
+
+    Keep in mind the following recommendations for using your Vagrant virtualboxes:
+
+    * Use the ``vagrant suspend`` or ``vagrant halt`` commands to put the virtualbox to "sleep" or to "power it off" before attempting to start another Plone instance anywhere else on your machine, if it uses the same port.  That's because vagrant "reserves" port 8080, and even if you stopped Plone in vagrant, that port is still in use by the guest OS.
+    * If you are done with a vagrant box, and want to delete it, always remember to run ``vagrant destroy`` on it before actually deleting the directory containing it.  Otherwise you'll leave its "ghost" in the list of boxes managed by vagrant and possibly taking up disk space on your machine.
+    * See ``vagrant help`` for all available commands, including ``suspend``, ``halt``, ``destroy``, ``up``, ``ssh`` and ``resume``.

@@ -32,7 +32,7 @@ Zope2
 
     Jim Fulton thought that this was slightly tedious. So he wrote code to handle requests. He believed that site content is object-oriented and that the URL should somehow point directly into the object hierarchy, so he wrote an object-oriented database, called `ZODB <http://www.zodb.org/en/latest/>`_.
 
-    The ZODB is a fully `ACID <http://en.wikipedia.org/wiki/ACID>`_ compliant database with automatic transactional integrity. It automatically maps traversal in the object hierarchy to URL paths, so there is no need to "wire" objects or database nodes to URLs. This gives Plone its easy SEO-friendly URLs.
+    The ZODB is a fully `ACID <https://en.wikipedia.org/wiki/ACID>`_ compliant database with automatic transactional integrity. It automatically maps traversal in the object hierarchy to URL paths, so there is no need to "wire" objects or database nodes to URLs. This gives Plone its easy SEO-friendly URLs.
 
     Traversal through the object database is security checked at every point via very fine grained access-control lists.
 

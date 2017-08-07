@@ -1,5 +1,5 @@
-Timtable
-========
+Timetable
+=========
 
 Version 1.2
 -----------

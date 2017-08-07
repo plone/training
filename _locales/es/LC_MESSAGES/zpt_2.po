@@ -4,47 +4,45 @@
 # International license.
 # This file is distributed under the same license as the Mastering Plone
 # package.
-#
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
-"PO-Revision-Date: 2014-07-29 01:48+0000\n"
+"PO-Revision-Date: 2017-08-07 09:53-0400\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"Language-Team: Spanish Team\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "Generated-By: Babel 2.3.4\n"
 
 #: ../zpt_2.rst:4
-#, fuzzy
 msgid "Customizing Existing Templates"
-msgstr "Personalizar plantillas existentes"
+msgstr "Personalizar Plantillas Existentes"
 
 #: ../zpt_2.rst
 msgid "Get the code!"
 msgstr "¡Obtén el código!"
 
 #: ../zpt_2.rst:8
-#, fuzzy
 msgid ""
 "Get the code for this chapter (:doc:`More info <sneak>`) using this "
 "command in the buildout directory:"
 msgstr ""
-"Obten el codigo para este capitulo (:doc:`Mas información <sneak>`) "
-"usando este comando en el directorio buildout"
+"Obtén el código para este capítulo (:doc:`Más información <sneak>`) usando "
+"este comando en el directorio buildout:"
 
 #: ../zpt_2.rst:14
 msgid "In this part you will:"
 msgstr ""
 
 #: ../zpt_2.rst:16
-#, fuzzy
 msgid "Customize existing templates"
 msgstr "Personalizar plantillas existentes"
 
@@ -73,13 +71,12 @@ msgid "skins"
 msgstr ""
 
 #: ../zpt_2.rst:26
-#, fuzzy
 msgid ""
 "To dive deeper into real plone data we now look at some existing "
 "templates and customize them."
 msgstr ""
-"Para profundizar más en los datos real de plone, nosotros ahora miraremos"
-" algunas plantillas existentes y las personalizaremos."
+"Para profundizar más en los datos real de plone, nosotros ahora miraremos "
+"algunas plantillas existentes y las personalizaremos."
 
 #: ../zpt_2.rst:32
 msgid "The view for News Items"
@@ -134,10 +131,9 @@ msgstr ""
 
 #: ../zpt_2.rst:46
 msgid "Restart Plone"
-msgstr "Reiniciar Plone"
+msgstr "Reinicie Plone"
 
 #: ../zpt_2.rst:48
-#, fuzzy
 msgid "Now Plone will use the new file to override the original one."
 msgstr "Ahora Plone debería usar el nuevo archivo sobrescribiendo el original."
 
@@ -148,9 +144,8 @@ msgid ""
 "``plone.app.contenttypes.browser.templates.newsitem.pt`` and insert the "
 "following before the ``<div id=\"parent-fieldname-text\"``...:"
 msgstr ""
-"Edite la plantilla "
-"``plone.app.contenttypes.browser.templates.newsitem.pt`` e inserte el "
-"siguiente después de la linea 39:"
+"Edite la plantilla ``plone.app.contenttypes.browser.templates.newsitem.pt`` "
+"e inserte el siguiente después de la linea 39:"
 
 #: ../zpt_2.rst:58
 msgid "Since we use Plone 5 and Chameleon we could also write:"
@@ -531,7 +526,6 @@ msgid ""
 msgstr ""
 
 #: ../zpt_2.rst:273
-#, fuzzy
 msgid "skin templates"
 msgstr "plantillas skins"
 
@@ -586,7 +580,7 @@ msgstr ""
 
 #: ../zpt_2.rst:285
 msgid "they use restricted python"
-msgstr "ellas son python restringido"
+msgstr "ellos son Python restringido"
 
 #: ../zpt_2.rst:286
 #, fuzzy
@@ -804,4 +798,3 @@ msgstr ""
 #~ "plantilla ``document_view.pt`` espera que el"
 #~ " contexto para tener un \"texto\" de"
 #~ " campo que intenta representar."
-

@@ -23,7 +23,7 @@ Topics covered:
 
     Buildout does this without touching your system Python or affecting any other package. The commands created by buildout bring all the required packages into the Python environment. Each command it creates may use different libraries or even different versions of the same library.
 
-    Plone needs folders for logfiles, databases and configuration files. Buildout assembles all of this for you.
+    Plone needs folders for log files, databases and configuration files. Buildout assembles all of this for you.
 
     You will need a lot of functionality that Buildout does not provide out of the box, so you'll need several extensions.
     Some extensions provide new functionality, like mr.developer, the best way to manage your checked out sources.
@@ -78,7 +78,7 @@ References
 
     The omelette-recipe needs to know which eggs to reference. We want the same eggs as our instance uses, so we reference the eggs of the instance instead of repeating the whole list.
 
-    Another example: Say you create configuration files for a webserver like nginx, you can define the target port for the reverse proxy by looking it up from the zope2instance recipe.
+    Another example: Say you create configuration files for a web server like nginx, you can define the target port for the reverse proxy by looking it up from the zope2instance recipe.
 
     Configuring complex systems always involves a lot of duplication of information. Using references in the buildout configuration allows you to minimize these duplications.
 
@@ -110,6 +110,9 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     show-picked-versions = true
     find-links = http://dist.plone.org
     extensions = mr.developer
+    # Tell mr.developer to ask before updating a checkout.
+    always-checkout = true
+    show-picked-versions = true
     sources = sources
 
     # Put checkouts in src-mrd. We keep our own package in src
@@ -213,6 +216,12 @@ Let us walk through the ``buildout.cfg`` for the training and look at some impor
     recipe = zc.recipe.egg
     eggs = ${buildout:eggs}
     interpreter = zopepy
+
+    [mrbob]
+    recipe = zc.recipe.egg
+    eggs =
+        mr.bob
+        bobtemplates.plone
 
     [mrbob]
     recipe = zc.recipe.egg
@@ -360,11 +369,11 @@ Be McGuyver
 .. seealso::
 
     Buildout-Documentation
-        * http://docs.plone.org/old-reference-manuals/buildout/index.html
+        * http://docs.plone.org/4/en/old-reference-manuals/buildout/index.html
         * http://www.buildout.org/en/latest/docs/index.html
 
     Troubleshooting
-        http://docs.plone.org/manage/troubleshooting/buildout.html
+        http://docs.plone.org/4/en/manage/troubleshooting/buildout.html
 
     A minimal buildout for Plone 4
         https://github.com/collective/minimalplone4

@@ -48,11 +48,11 @@ Some noteable add-ons
 `collective.cover <https://github.com/collective/collective.cover/blob/master/docs/end-user.rst>`_
   UI to create complex landing-pages
 
-`collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_
-  Flexible bundle of addons to georeference content and display in maps
+`collective.geo <http://collectivegeo.readthedocs.io/en/latest/>`_
+  Flexible bundle of add-ons to georeference content and display in maps
 
 `collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_
-  Allows visitors to subcribe to mailchimp newsletters
+  Allows visitors to subscribe to mailchimp newsletters
 
 `eea.facetednavigation <https://pypi.python.org/pypi/eea.facetednavigation/>`_
   Create faceted navigation and searches through the web.
@@ -69,10 +69,10 @@ Some noteable add-ons
 `collective.behavior.banner <https://github.com/collective/collective.behavior.banner>`_
   Add decorative banners and sliders
 
-`plone.app.multilingual <http://pypi.python.org/pypi/plone.app.multilingual>`_
+`plone.app.multilingual <https://pypi.python.org/pypi/plone.app.multilingual>`_
   Allows multilingual sites by translating content
 
-`Plomino <http://www.plomino.net/>`_
+`Plomino <http://plomino.net/>`_
   Powerful and flexible web-based application builder for Plone
 
 
@@ -104,7 +104,7 @@ Usually, one enters the eggs by adding one more line per egg into the configurat
 
 If you add new add-ons here you will have to run buildout and restart the site:
 
-.. sourcecode:: bash
+.. code-block:: bash
 
     $ cd /vagrant/buildout
     $ bin/buildout
@@ -184,7 +184,7 @@ https://pypi.python.org/pypi/collective.plonetruegallery
 * Activate the add-on
 * Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors (This step is only required because plonetruegallery does not yet know about the newer plone.app.contenttypes, which we activated to replace Plone's old content types with newer, Dexterity-style, ones.)
 * Add a folder /the-event/location
-* Upload some fotos from http://lorempixel.com/600/400/city/
+* Upload some photos from http://lorempixel.com/600/400/city/
 * Enable the view ``galleryview``
 
 collective.plonetruegallery is a better model for how to write a Plone Extension.
@@ -198,7 +198,7 @@ Plone can run the same site in many different languages.
 
 We're not doing this with the conference site since the *lingua franca* of the Plone community is English.
 
-We would use http://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes).
+We would use https://pypi.python.org/pypi/plone.app.multilingual for this. It is the successor of Products.LinguaPlone (which only works with Archetypes).
 
 .. note::
 

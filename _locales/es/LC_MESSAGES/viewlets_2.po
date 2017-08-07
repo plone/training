@@ -6,16 +6,15 @@
 # package.
 #
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-07-13 05:24+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,7 +26,7 @@ msgstr ""
 
 #: ../viewlets_2.rst:10
 msgid "Voting Viewlet"
-msgstr ""
+msgstr "Viewlet de Votaciones"
 
 #: ../viewlets_2.rst:12
 msgid "In this part you will:"
@@ -39,11 +38,11 @@ msgstr ""
 
 #: ../viewlets_2.rst:15
 msgid "add jquery include statements"
-msgstr ""
+msgstr "Agregar jQuery incluyen declaraciones."
 
 #: ../viewlets_2.rst:16
 msgid "saving the vote on the object using annotations"
-msgstr ""
+msgstr "Guardar el voto en el objeto usando anotaciones."
 
 #: ../viewlets_2.rst:18
 msgid "Topics covered:"
@@ -63,58 +62,72 @@ msgid ""
 "Earlier we added the logic that saves votes on the objects. We now create"
 " the user interface for it."
 msgstr ""
+"Anteriormente hemos agregado la lógica que salva los votos en los objetos. "
+"Nosotros ahora podemos crear la interfaz de usuario para esto."
 
 #: ../viewlets_2.rst:29
 msgid ""
 "Since we want to use the UI on more than one page (not only the talk view"
 " but also the talk listing) we need to put it somewhere."
 msgstr ""
+"Puesto que queremos utilizar la interfaz de usuario en más de una página (no"
+" sólo la vista ``talk-view`` sino también la vista ``talk-listing``) debemos ponerla"
+" en alguna parte."
 
 #: ../viewlets_2.rst:31
 msgid "To handle the user input we don't use a form but links and ajax."
 msgstr ""
+"Para manejar el ingreso de datos del usuario nosotros no usamos un formulario pero si links y "
+"ajax."
 
 #: ../viewlets_2.rst:32
 msgid "The voting itself is a fact handled by another view"
-msgstr ""
+msgstr "La votación en si, es en su efecto manejada por otra vista."
 
 #: ../viewlets_2.rst:34
 msgid "We register the viewlet in :file:`browser/configure.zcml`."
-msgstr "Registramos el viewlet en el archivo :file:`browser/configure.zcml`."
+msgstr "Registramos el viewlet en el archivo :file:`browser/configure.zcml`, agregando el siguiente código ZCML:"
 
 #: ../viewlets_2.rst:59
 msgid "We extend the file :file:`browser/viewlets.py`"
-msgstr ""
+msgstr "Nosotros extendemos en el archivo :file:`browser/viewlets.py`, agregando el siguiente código Python:"
 
 #: ../viewlets_2.rst:72
 msgid ""
 "This will add a viewlet to a slot below the title and expect a template "
 ":file:`voting_viewlet.pt` in a folder :file:`browser/templates`."
 msgstr ""
+"Esto agregará un ``viewlet`` a una ranura debajo del título y esperará una "
+"plantilla :file:`voting_viewlet.pt` en una carpeta "
+":file:`browser/templates`."
 
 #: ../viewlets_2.rst:74
 msgid ""
 "Let's create the file :file:`browser/templates/voting_viewlet.pt` without"
 " any logic"
 msgstr ""
+"Vamos a agregar el archivo de la plantilla "
+":file:`templates/social_viewlet.pt` sin ninguna lógica."
 
 #: ../viewlets_2.rst:89
 msgid "restart Plone"
-msgstr "reiniciar Plone"
+msgstr "Reinicie Plone."
 
 #: ../viewlets_2.rst:90
 msgid "show the viewlet"
-msgstr ""
+msgstr "Muestre el viewlet."
 
 #: ../viewlets_2.rst:95
 msgid "Writing the Viewlet code"
-msgstr ""
+msgstr "Escribiendo el código del Viewlet"
 
 #: ../viewlets_2.rst:101
 msgid ""
 "Update the viewlet to contain the necessary logic in "
 ":file:`browser/viewlets`"
 msgstr ""
+"Actualizar en la clase ``viewlet`` que contiene la lógica necesaria en el "
+"archivo :file:`browser/viewlets.py`, con el siguiente código Python:"
 
 #: ../viewlets_2.rst:141
 msgid "The template"
@@ -123,6 +136,8 @@ msgstr "La plantilla"
 #: ../viewlets_2.rst:143
 msgid "And extend the template in :file:`browser/templates/voting_viewlet.pt`"
 msgstr ""
+"Y extiende la plantilla en el archivo "
+":file:`browser/templates/voting_viewlet.pt`, con el siguiente código ZPT:"
 
 #: ../viewlets_2.rst:185
 msgid ""
@@ -131,12 +146,18 @@ msgid ""
 "use standard translation tools to translate. Translating strings in "
 "javascript requires extra work."
 msgstr ""
+"Tenemos muchas piezas pequeñas, la mayoría de las cuales serán ocultadas por"
+" javascript a menos que sea necesario. Al proporcionar toda esta información"
+" de estado en HTML, podemos utilizar herramientas de traducción estándar "
+"para traducir. Traducir cadenas en javascript requiere trabajo adicional."
 
 #: ../viewlets_2.rst:188
 msgid ""
 "We need some css that we store in "
 ":file:`static/starzel_votablebehavior.css`"
 msgstr ""
+"Nosotros necesitamos algunos sentencias CSS que almacenaremos en el archivo "
+":file:`static/starzel_votablebehavior.css`, con el siguiente código CSS:"
 
 #: ../viewlets_2.rst:237
 msgid "The javascript code"
@@ -147,6 +168,8 @@ msgid ""
 "To make it work in the browser, some javascript "
 ":file:`static/starzel_votablebehavior.js`"
 msgstr ""
+"Para que funcione en el navegador, algunas sentencias Javascript en el archivo "
+":file:`static/starzel_votablebehavior.js`, con el siguiente código Javascript:"
 
 #: ../viewlets_2.rst:286
 msgid ""
@@ -154,10 +177,13 @@ msgid ""
 "declared at the beginning of the method. We show and hide quite a few "
 "small html elements here."
 msgstr ""
+"Este código Javascript se adhiere a las reglas ``jshint`` de crockfort, por lo que todas"
+" las variables se declaran al principio del método. Mostramos y ocultamos "
+"bastantes pequeños elementos html aquí."
 
 #: ../viewlets_2.rst:292
 msgid "Writing 2 simple view helpers"
-msgstr ""
+msgstr "Escribiendo 2 simples helpers view"
 
 #: ../viewlets_2.rst:296
 msgid ""
@@ -166,6 +192,11 @@ msgid ""
 "return a valid status. Exceptions set the right status and aren't being "
 "shown by javascript, so this will suit us fine."
 msgstr ""
+"Nuestro código Javascript se comunica con nuestro sitio llamando a las "
+"vistas que aún no existen. Estas vistas no necesitan mostrar código html, "
+"pero deben devolver un estatus válido. Las excepciones establecen el estado "
+"correcto y no están siendo mostradas por Javascript, por lo que nos conviene"
+" bien."
 
 #: ../viewlets_2.rst:300
 msgid ""
@@ -173,20 +204,29 @@ msgid ""
 " if somebody votes twice. We do not catch this exception. The user will "
 "never see this exception."
 msgstr ""
+"Como puede recordar, el método :samp:`vote` puede devolver una excepción, si"
+" alguien vota dos veces. No capturamos esta excepción. El usuario nunca verá"
+" esta excepción."
 
 #: ../viewlets_2.rst:305
 msgid "Catching exceptions contain a gotcha for new developers."
 msgstr ""
+"La captura de excepciones contiene un comportamiento contra-intuitivo para "
+"los nuevos desarrolladores."
 
 #: ../viewlets_2.rst:315
 msgid "Zope claims some exceptions for itself. It needs them to work correctly."
 msgstr ""
+"Zope reclama algunas excepciones para sí mismos. Eso necesita que funcionen "
+"correctamente."
 
 #: ../viewlets_2.rst:317
 msgid ""
 "For example, if two requests try to modify something at the same time, "
 "one request will throw an exception, a :samp:`ConflictError`."
 msgstr ""
+"Por ejemplo, si dos solicitudes intentan modificar algo al mismo tiempo, una"
+" solicitud lanzará una excepción, a  :samp:`ConflictError`."
 
 #: ../viewlets_2.rst:319
 msgid ""
@@ -194,14 +234,21 @@ msgid ""
 "to process the request again, up to three times. If you catch that "
 "exception, you are in trouble, so don't do that. Ever."
 msgstr ""
+"Zope captura la excepción, espera una cantidad de tiempo aleatoria e intenta"
+" procesar la solicitud nuevamente, hasta tres veces. Si capturas esa "
+"excepción, estás en problemas, así que no lo hagas. Nunca."
 
 #: ../viewlets_2.rst:322
 msgid "As so often, we must extend :file:`browser/configure.zcml`:"
 msgstr ""
+"Como tantas veces, debemos extender en el archivo "
+":file:`browser/configure.zcml`, agregando el siguiente código ZCML:"
 
 #: ../viewlets_2.rst:347
 msgid "Then we add our simple views into the file :file:`browser/vote.py`"
 msgstr ""
+"A continuación, agregamos nuestras vistas simples en el archivo "
+":file:`browser/vote.py`, con el siguiente código Python:"
 
 #: ../viewlets_2.rst:372
 msgid "A lot of moving parts have been created. Here is a small overview:"

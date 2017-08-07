@@ -1,6 +1,6 @@
 class aptgetupdate {
 
-    exec { "aptitude update --quiet --assume-yes":
+    exec { "apt-get update -q --assume-yes --fix-missing":
         path => "/usr/bin",
         user => "root",
         timeout => 0,

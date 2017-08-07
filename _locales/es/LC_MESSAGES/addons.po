@@ -4,60 +4,58 @@
 # International license.
 # This file is distributed under the same license as the Mastering Plone
 # package.
-#
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
+
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
-"PO-Revision-Date: 2014-07-16 12:46+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"PO-Revision-Date: 2017-08-07 08:28-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish Team\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "Generated-By: Babel 2.3.4\n"
 
 #: ../addons.rst:4
-#, fuzzy
 msgid "Extend Plone With Add-On Packages"
-msgstr "Extiende Plone con Complementos"
+msgstr "Extiende Plone con paquetes Complementos"
 
 #: ../addons.rst:6
-#, fuzzy
 msgid ""
 "There are more than 2,000 add-ons for Plone. We will cover only a handful"
 " today."
 msgstr ""
-"Hay mas de 2000 Complementos para Plone. Cubriremos solamente una porción"
-" de ellos."
+"Hay más de 2000 complementos para Plone. Cubriremos solamente una porción de "
+"ellos."
 
 #: ../addons.rst:7
-#, fuzzy
 msgid "Using them saves a lot of time"
 msgstr "Usándolos puedes ahorrarte mucho tiempo"
 
 #: ../addons.rst:8
-#, fuzzy
 msgid "The success of a project often depends on finding the right add-on"
-msgstr "El éxito del proyecto a veces depende en encontrar el complemento adecuado"
+msgstr ""
+"El éxito del proyecto a veces depende en encontrar el complemento adecuado"
 
 #: ../addons.rst:9
 msgid "Their use, usefulness, quality and complexity varies a lot"
 msgstr "Su uso, utilidad, calidad y complejidad varia mucho"
 
 #: ../addons.rst:15
-#, fuzzy
 msgid "How to find add-ons"
 msgstr "Como encontrar complementos"
 
 #: ../addons.rst:17
 msgid "https://pypi.python.org/pypi - use the search form!"
-msgstr "https://pypi.python.org/pypi - ¡Use el Formulario de Búsqueda!"
+msgstr "https://pypi.python.org/pypi - ¡Use el formulario de búsqueda!"
 
 #: ../addons.rst:18
 msgid "https://github.com/collective >1200 repos"
@@ -73,7 +71,9 @@ msgstr "http://news.gmane.org/gmane.comp.web.zope.plone.user"
 
 #: ../addons.rst:21
 msgid "google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)"
-msgstr "google (por ejemplo `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)"
+msgstr ""
+"Navegando en Google (por ejemplo `Plone+Slider "
+"<http://lmgtfy.com/?q=plone+slider>`_)"
 
 #: ../addons.rst:22
 msgid ""
@@ -86,16 +86,14 @@ msgid "ask in irc and on the mailing list"
 msgstr "Pregunta en el canal irc y la lista de correo"
 
 #: ../addons.rst:27
-#, fuzzy
 msgid ""
 "A talk on finding and managing add-ons: "
 "http://www.youtube.com/watch?v=Sc6NkqaSjqw"
 msgstr ""
-"Una conversación sobre encontrar y administrar complementos: "
-"http://www.youtube.com/watch?v=Sc6NkqaSjqw"
+"Una conferencia sobre encontrar y administrar complementos, esta disponible "
+"en la siguiente dirección URL: http://www.youtube.com/watch?v=Sc6NkqaSjqw"
 
 #: ../addons.rst:33
-#, fuzzy
 msgid "Some noteable add-ons"
 msgstr "Algunos complementos notables"
 
@@ -124,9 +122,8 @@ msgstr ""
 "<http://docs.plone.org/develop/plone/forms/ploneformgen.html>`_"
 
 #: ../addons.rst:43
-#, fuzzy
 msgid "A form generator."
-msgstr "Un generador de formularios"
+msgstr "Un generador de formulario."
 
 #: ../addons.rst:46
 msgid ""
@@ -138,7 +135,8 @@ msgstr ""
 
 #: ../addons.rst:46
 msgid "Photo galleries with a huge selection of various js-libraries"
-msgstr "Galerías de fotos con una gran selección de varios librerías javascript"
+msgstr ""
+"Galerías de fotos con una gran selección de varios librerías Javascript"
 
 #: ../addons.rst:49
 msgid ""
@@ -152,7 +150,7 @@ msgstr ""
 
 #: ../addons.rst:49
 msgid "UI to create complex landing-pages"
-msgstr "Interfaz para crear paginas de inicios complejas"
+msgstr "Interfaz para crear páginas de inicios (landing pages) complejas"
 
 #: ../addons.rst:52
 msgid "`collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_"
@@ -186,7 +184,7 @@ msgstr ""
 
 #: ../addons.rst:58
 msgid "Create faceted navigation and searches through the web."
-msgstr "Crear la navegación facetada y búsquedas a través de la web."
+msgstr "Crear la navegación facetada y búsquedas a través de la Web."
 
 #: ../addons.rst:61
 msgid ""
@@ -218,16 +216,15 @@ msgstr "`Products.Doormat <https://pypi.python.org/pypi/Products.Doormat>`_"
 
 #: ../addons.rst:67
 msgid "A flexible doormat"
-msgstr "Un flexible pie de pagina basado en el patrón de diseño doormat"
+msgstr "Un flexible pie de página basado en el patrón de diseño Doormat"
 
 #: ../addons.rst:70
-#, fuzzy
 msgid ""
 "`collective.behavior.banner "
 "<https://github.com/collective/collective.behavior.banner>`_"
 msgstr ""
 "`collective.behavior.banner "
-"<https://github.com/starzel/collective.behavior.banner>`_"
+"<https://github.com/collective/collective.behavior.banner>`_"
 
 #: ../addons.rst:70
 msgid "Add decorative banners and sliders"
@@ -243,7 +240,7 @@ msgstr ""
 
 #: ../addons.rst:73
 msgid "Allows multilingual sites by translating content"
-msgstr "Permite sitios multilingues mediante la traducción de contenido"
+msgstr "Permite sitios plurilingüe mediante la traducción de contenido"
 
 #: ../addons.rst:78
 msgid "`Plomino <http://www.plomino.net/>`_"
@@ -256,7 +253,6 @@ msgstr ""
 "Plone"
 
 #: ../addons.rst:83
-#, fuzzy
 msgid "Installing Add-ons"
 msgstr "Instalando complementos"
 
@@ -265,21 +261,18 @@ msgid "Installation is a two-step process."
 msgstr "La instalación es un proceso de dos pasos."
 
 #: ../addons.rst:88
-#, fuzzy
 msgid "Making the add-on packages available to Zope"
-msgstr "Haciendo el código de los complementos disponibles para Zope"
+msgstr "Haciendo los paquetes disponibles para Zope"
 
 #: ../addons.rst:90
-#, fuzzy
 msgid ""
 "First, we must make the add-on packages available to Zope. This means "
 "that Zope can import the code. Buildout is responsible for this."
 msgstr ""
-"Primero, debemos hacer el código de los complementos disponible para "
-"Zope, Buildout es responsable de esto."
+"Primero, debemos hacer los paquetes complementos disponible para Zope, "
+"Buildout es responsable de esto."
 
 #: ../addons.rst:92
-#, fuzzy
 msgid "Look at the ``buildout.cfg`` file in ``/vagrant/buildout``."
 msgstr "Busca el archivo ``buildout.cfg`` en ``/vagrant/buildout``."
 
@@ -294,13 +287,12 @@ msgid ""
 msgstr ""
 
 #: ../addons.rst:98
-#, fuzzy
 msgid ""
 "In the section ``[instance]`` there is a variable called ``eggs``, which "
 "has a list of *eggs* as a value."
 msgstr ""
-"En la sección ``[instance]`` existe una variable llamada ``eggs``, la "
-"cual tiene múltiples *eggs* como valor. Agrega los siguientes eggs:"
+"En la sección ``[instance]`` existe una variable llamada ``eggs``, la cual "
+"tiene múltiples *eggs* como valor."
 
 #: ../addons.rst:100
 msgid "``Products.PloneFormGen``"
@@ -323,25 +315,22 @@ msgstr ""
 "actual es parte de la ultima variable y no una nueva variable."
 
 #: ../addons.rst:105
-#, fuzzy
 msgid ""
 "If you add new add-ons here you will have to run buildout and restart the"
 " site:"
 msgstr ""
-"Si agregas nuevos complementos tendrás que ejecutar buildout y reiniciar "
-"el sitio:"
+"Si agrega nuevos complementos aquí tendrá que ejecutar de nuevo buildout y "
+"reiniciar el sitio:"
 
 #: ../addons.rst:113
 msgid "Now the code is available from within Plone."
 msgstr ""
 
 #: ../addons.rst:116
-#, fuzzy
 msgid "Installing add-ons in your Plone Site"
 msgstr "Instalando complementos en tu sitio de Plone"
 
 #: ../addons.rst:118
-#, fuzzy
 msgid ""
 "Your Plone site has not yet been told to use the add-on. For this, you "
 "have to activate the add-ons in your Plone Site."
@@ -357,20 +346,19 @@ msgid ""
 msgstr ""
 
 #: ../addons.rst:124
-#, fuzzy
 msgid ""
 "In your browser, go to Site Setup (shortcut: add ``/@@overview-"
 "controlpanel`` to the Plone site URL), and open the ``Add-ons`` Panel. "
 "You will see that you can install the add-ons there."
 msgstr ""
-"En su navegador Web, ve a panel de control ``@@plone_control_panel``, y "
-"abre el panel de ``Complementos``. Usted vera que puedes instalar los "
-"complementos desde allí."
+"En su navegador Web, valla a la Configuración del sitio  (acceso directo: "
+"add ``/@@overview-controlpanel`` a la dirección URL de la Configuración del "
+"sitio), y abre el panel de ``Complementos``. Usted vera que puedes instalar "
+"los complementos desde allí."
 
 #: ../addons.rst:126
-#, fuzzy
 msgid "Install **PloneFormGen** and **Plone True Gallery** now."
-msgstr "Instala **PloneFormGen** y **Plone True Gallery** ahora."
+msgstr "Instale **PloneFormGen** y **Plone True Gallery** ahora."
 
 #: ../addons.rst:128
 msgid ""
@@ -381,25 +369,23 @@ msgstr ""
 " esto hace cosas como:"
 
 #: ../addons.rst:130
-#, fuzzy
 msgid "configuring new actions"
-msgstr "Configurando nuevas acciones,"
+msgstr "Configurando nuevas acciones"
 
 #: ../addons.rst:131
 msgid "registering new content types"
 msgstr "Registrando nuevos tipos de contenido"
 
 #: ../addons.rst:132
-#, fuzzy
 msgid "registering css and js files"
 msgstr "Registrando archivos css y javascripts"
 
 #: ../addons.rst:133
 msgid "creating some content/configuration objects in your Plone site."
-msgstr "Creando algunos objetos contenidos / configuración en tu sitio de Plone."
+msgstr ""
+"Creando algunos objetos contenidos / configuración en tu sitio de Plone."
 
 #: ../addons.rst:135
-#, fuzzy
 msgid "Let's have a look at what we just installed."
 msgstr "Observe lo que ha instalado."
 
@@ -413,16 +399,15 @@ msgstr ""
 
 #: ../addons.rst:145
 msgid "pure: html and python in a view"
-msgstr "puro: html y python en una vista"
+msgstr "Puro: HTML y Python en una vista"
 
 #: ../addons.rst:146
 msgid "framework: z3c.form, formlib, deform"
-msgstr "usando framework: z3c.form, formlib, deform"
+msgstr "Usando framework: z3c.form, formlib, deform"
 
 #: ../addons.rst:147
-#, fuzzy
 msgid "TTW: Products.PloneFormGen"
-msgstr "a través de la web: Products.PloneFormGen"
+msgstr "A través de la web: Products.PloneFormGen"
 
 #: ../addons.rst:149
 msgid ""
@@ -435,9 +420,8 @@ msgid ""
 msgstr ""
 
 #: ../addons.rst:151
-#, fuzzy
 msgid "Let's build a registration form:"
-msgstr "Formulario de registro:"
+msgstr "Contruyamos un formulario de registro:"
 
 #: ../addons.rst:153
 msgid ""
@@ -446,13 +430,12 @@ msgid ""
 msgstr ""
 
 #: ../addons.rst:154
-#, fuzzy
 msgid ""
 "Add an object of the new type 'Form Folder' in the site root. Call it "
 "\"Registration\""
 msgstr ""
-"Agrega un objeto del nuevo tipo 'Form Folder' en el raíz del sitio "
-"llamado \"Registro\""
+"Agrega un objeto del nuevo tipo 'Form Folder' en el raíz del sitio llamado "
+"\"Registration\""
 
 #: ../addons.rst:155
 msgid "Save and view the result, a simple contact form that we may customize"
@@ -467,13 +450,12 @@ msgid "Remove field \"Subject\""
 msgstr "Remueva el campo \"Subject\""
 
 #: ../addons.rst:158
-#, fuzzy
 msgid "Add fields for food preference and shirt size"
-msgstr "Agrega campos para food-preference y shirt-size"
+msgstr "Agrega campos para la preferencia de comida y tamaño de camisa"
 
 #: ../addons.rst:159
 msgid "Add a DataSave Adapter"
-msgstr "Agrega un adaptador DataSave"
+msgstr "Agregar un adaptador DataSave"
 
 #: ../addons.rst:160
 msgid "Customize the mailer"
@@ -512,14 +494,12 @@ msgid "Add Photogallery with collective.plonetruegallery"
 msgstr "Agrega galerías de fotos con collective.plonetruegallery"
 
 #: ../addons.rst:178
-#, fuzzy
 msgid ""
 "To advertise the conference we want to show some photos showing past "
 "conferences and the city where the conference is taking place."
 msgstr ""
-"Para promocionar la conferencia, se quiere mostrar algunas fotos "
-"mostrando conferencias pasadas y la ciudad donde la conferencia se esta "
-"realizando."
+"Para promocionar la conferencia, se quiere mostrar algunas fotos mostrando "
+"conferencias pasadas y la ciudad donde la conferencia se esta realizando."
 
 #: ../addons.rst:180
 msgid ""
@@ -550,7 +530,7 @@ msgstr ""
 
 #: ../addons.rst:186
 msgid "Add a folder /the-event/location"
-msgstr "Agregue una carpeta /the-event/location"
+msgstr "Agregue una carpeta /el-evento/ubicacion"
 
 #: ../addons.rst:187
 msgid "Upload some fotos from http://lorempixel.com/600/400/city/"
@@ -561,16 +541,14 @@ msgid "Enable the view ``galleryview``"
 msgstr "Habilite la vista ``galleryview``"
 
 #: ../addons.rst:190
-#, fuzzy
 msgid ""
 "collective.plonetruegallery is a better model for how to write a Plone "
 "Extension."
 msgstr ""
-"collective.plonetruegallery es un modelo a seguir sobre cómo escribir una"
-" extensión de Plone."
+"collective.plonetruegallery es un modelo mejor a seguir sobre cómo escribir "
+"una extensión de Plone."
 
 #: ../addons.rst:195
-#, fuzzy
 msgid "Internationalization"
 msgstr "Internacionalización"
 
@@ -579,13 +557,12 @@ msgid "Plone can run the same site in many different languages."
 msgstr "Plone puede ejecutar el mismo sitio en múltiples lenguajes."
 
 #: ../addons.rst:199
-#, fuzzy
 msgid ""
 "We're not doing this with the conference site since the *lingua franca* "
 "of the Plone community is English."
 msgstr ""
-"No estamos haciendo esto con el sitio de la conferencia desde que el "
-"lenguaje Franco de la comunidad Plone es el Ingles."
+"No estamos haciendo esto con el sitio de la conferencia desde que el *idioma "
+"franca* de la comunidad Plone es el Ingles."
 
 #: ../addons.rst:201
 msgid ""
@@ -624,28 +601,28 @@ msgstr "Pero:"
 
 #: ../addons.rst:217
 msgid "Can we submit talks now?"
-msgstr "¿Podemos enviar Charlas ahora?"
+msgstr "¿Podemos enviar Charlas al jurado evaluador ahora?"
 
 #: ../addons.rst:218
-#, fuzzy
 msgid "Can we create lists with the most important properties of each talk?"
-msgstr "¿Podemos crear listas con las propiedades mas importantes de cada tarea?"
+msgstr ""
+"¿Podemos crear listas con las propiedades más importantes de cada tipos de "
+"contenidos ``talks``?"
 
 #: ../addons.rst:219
 msgid "Can we allow a jury to vote on talks?"
-msgstr "¿Podemos permitir a un jurado votar en las Charlas?"
+msgstr "¿Podemos permitir a un miembro del jurado votar en las Charlas?"
 
 #: ../addons.rst:221
-#, fuzzy
 msgid ""
 "We often have to work with structured data. Up to a degree we can do all "
 "this TTW, but at some point we run into barriers. In the next part of the"
 " training, we'll teach you how to break through these barriers."
 msgstr ""
-"Algunas veces trabajamos con data estructurada. Hasta un grado podemos "
-"hacer todo a través de la web, pero a algún punto nos encontramos con "
-"barreras, en la siguiente parte de nuestro entrenamiento, te enseñaremos "
-"como romper esas barreras."
+"Algunas veces trabajamos con data estructurada. Hasta un grado podemos hacer "
+"todo a través de la web, pero a algún punto nos encontramos con barreras, "
+"en la siguiente parte de nuestro entrenamiento, te enseñaremos como romper "
+"esas barreras."
 
 # 44b928fa38b04b80a2d579ad3d643fc3
 #~ msgid "Check shortlist (Plone Paragon) that will come in 2014 on plone.org"
@@ -693,4 +670,3 @@ msgstr ""
 #~ "Habilite el comportamiento \"Plone True "
 #~ "Gallery\" en el tipo \"Folder\": "
 #~ "http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors"
-

@@ -178,6 +178,10 @@ We should tell Plone that the talkview should be used as the default view for ta
 
 This is a configuration that you can change during runtime and is stored in the database, as such it is also managed by GenericSetup profiles.
 
+..  note::
+
+    To change it ttw got to the ZMI (http://localhost:8080/Plone/manage), go to ``portal_types`` and select the type for which the new should be selectable (*talk*). Now add ``talkview`` to the list *Available view methods*. Now the new view is available in the menu *Display*. To make it the default view enter it in ``Default view method``.
+
 open ``profiles/default/types/talk.xml``:
 
 .. code-block:: xml
@@ -272,5 +276,5 @@ Add the new choice field "room" to the Talk type (TTW) and display it below Audi
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/views/browserviews.html
+    http://docs.plone.org/4/en/develop/plone/views/browserviews.html
 

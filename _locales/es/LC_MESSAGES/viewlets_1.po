@@ -6,16 +6,16 @@
 # package.
 #
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-07-13 05:24+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, "
+"2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -65,6 +65,9 @@ msgid ""
 "in various places in the site. These places are called "
 "``viewletmanager``."
 msgstr ""
+"Un viewlet no es una vista, pero es un fragmento de HTML y la lógica Python que "
+"se puede colocar en varios lugares en el sitio. Estos lugares se llaman "
+"``ViewletManager``."
 
 #: ../viewlets_1.rst:32
 msgid ""
@@ -85,7 +88,7 @@ msgstr ""
 
 #: ../viewlets_1.rst:34
 msgid "Viewlets don't save data (portlets do)"
-msgstr "Los viewlets no guardan los datos (los portlets lo hacen)"
+msgstr "Los viewlets no guardan los datos (los portlets si lo hacen)."
 
 #: ../viewlets_1.rst:35
 #, fuzzy
@@ -102,10 +105,12 @@ msgid ""
 "Let's add a link to the site that uses the information that we collected "
 "using the social behavior."
 msgstr ""
+"Vamos a añadir un enlace al sitio que utiliza la información que hemos "
+"recopilado utilizando el comportamiento social."
 
 #: ../viewlets_1.rst:46
 msgid "We register the viewlet in :file:`browser/configure.zcml`."
-msgstr "Registramos el viewlet en el archivo :file:`browser/configure.zcml`."
+msgstr "Registramos el viewlet en el archivo :file:`browser/configure.zcml`, agregando el siguiente código ZCML:"
 
 #: ../viewlets_1.rst:61
 msgid ""
@@ -113,6 +118,11 @@ msgid ""
 "limit the contexts in which the viewlet is loaded and rendered, by "
 "filtering out all the contexts that do not match those constraints."
 msgstr ""
+"Esto registra un viewlet llamado ``social``. Es visible en todos los "
+"contenidos que implementa la interfaz ``ISocial`` de nuestro "
+"comportamiento. También es una buena práctica de obligar a la "
+"`BrowserLayer`_ llamada ``IPloneconfSiteLayer`` de nuestro complemento "
+"para que sólo sea mostrado si nuestro complemento esta instalado en realidad."
 
 #: ../viewlets_1.rst:65
 msgid ""
@@ -122,6 +132,8 @@ msgid ""
 "our addon is actually installed.  We will return to this in a later "
 "chapter."
 msgstr ""
+"Esta clase no hace nada excepto hacer que la plantilla asociada (Esa "
+"tenemos aún que escribirla)"
 
 #: ../viewlets_1.rst:69
 #, fuzzy
@@ -137,16 +149,25 @@ msgid ""
 "This class does nothing except rendering the associated template (That we"
 " have yet to write)"
 msgstr ""
+"Esto haría lo mismo que el código anterior utilizando el paradigma de "
+"``Grok`` de la convención sobre la configuración. En las browser views la "
+"referencia es llamada ``view``, usted tenga en cuenta que en las viewlets Grok se "
+"llama ``viewlets`` (en ese caso ``viewlet/lanyrd_link``)."
 
 #: ../viewlets_1.rst:86
 msgid "Let's add the missing template :file:`templates/social_viewlet.pt`."
-msgstr "Vamos a añadir la plantilla faltante :file:`templates/social_viewlet.pt`."
+msgstr ""
+"Vamos a agregar el archivo de la plantilla restante "
+":file:`templates/social_viewlet.pt`."
 
 #: ../viewlets_1.rst:104
 msgid ""
 "As you can see this is not a valid html document. That is not needed, "
 "because we don't want a complete view here, just a html snippet."
 msgstr ""
+"Como se puede ver esto no es un documento válido HTML. Eso no es "
+"necesario, porque no queremos una ``view`` completa aquí, sólo un fragmento"
+" de código HTML."
 
 #: ../viewlets_1.rst:106
 msgid ""
@@ -154,6 +175,9 @@ msgid ""
 "as for views, viewlets have access to their class in page templates, as "
 "well."
 msgstr ""
+"Hay una sentencia ``tal:define``, para la consulta "
+"`view/lanyrd_link`. Al igual en la page templates de la plantilla tiene"
+" acceso a su clase."
 
 #: ../viewlets_1.rst:108
 msgid "We have to extend the Social Viewlet now to add the missing attribute:"
@@ -163,13 +187,15 @@ msgstr ""
 
 #: ../viewlets_1.rst
 msgid "Why not to access context directly"
-msgstr ""
+msgstr "¿Por qué no acceder directamente contexto?"
 
 #: ../viewlets_1.rst:115
 msgid ""
 "In this example, :samp:`ISocial(self.context)` does return the context "
 "directly. It is still good to use this idiom for two reasons:"
 msgstr ""
+"En este ejemplo, :samp:`ISocial(self.context)` devuelve el contexto "
+"directamente. Todavía es bueno utilizar este idioma por dos razones:"
 
 #: ../viewlets_1.rst:117
 msgid ""
@@ -188,6 +214,9 @@ msgid ""
 "Therefore in this example you could simply write ``return "
 "self.context.lanyrd``."
 msgstr ""
+"Si decidimos utilizar una factory, por ejemplo, para almacenar nuestros "
+"atributos en una annotation, nosotros deberíamos `no` conseguir nuestro "
+"contexto, pero si el adaptador."
 
 #: ../viewlets_1.rst:135
 msgid "So far, we"
@@ -195,7 +224,7 @@ msgstr "Hasta ahora, hemos"
 
 #: ../viewlets_1.rst:137
 msgid "register the viewlet to content that has the ISocial Interface."
-msgstr "registrar el viewlet al contenido que tiene la interfaz iSocial."
+msgstr "Registrar el viewlet al contenido que tiene la interfaz ISocial."
 
 #: ../viewlets_1.rst:138
 #, fuzzy

@@ -5,16 +5,15 @@
 #
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-07-12 23:41+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -35,7 +34,7 @@ msgid ""
 "We can use the indexes we created in the last chapter to further improve "
 "the talk list."
 msgstr ""
-"Podemos usar los indices creados en el ultimo capitulo para mejorar la "
+"Podemos usar los índices creados en el ultimo capitulo para mejorar la "
 "lista de Charlas."
 
 #: ../custom_search.rst:13
@@ -74,11 +73,11 @@ msgstr ""
 
 #: ../custom_search.rst:22
 msgid "Click on the tab *Faceted criteria* to configure it"
-msgstr "Haga clic en la pestaña *Faceted criteria* para configurarla"
+msgstr "Haga clic en la pestaña *Faceted criteria* para configurarla."
 
 #: ../custom_search.rst:24
 msgid "Select 'Talk' for *Portal type*, hide *Results per page*"
-msgstr "Selecciona \"Talk\" para *Portal type*, oculta  *Results per page*"
+msgstr "Selecciona \"Talk\" para *Portal type*, oculta  *Results per page*."
 
 #: ../custom_search.rst:25
 #, fuzzy
@@ -86,7 +85,7 @@ msgid ""
 "Add a checkboxes widget to the left and use the catalog index *Audience* "
 "for it."
 msgstr ""
-"Agregue un widget de selección a la izquierda y usa el indice de catalogo"
+"Agregue un widget de selección a la izquierda y usa el índice de catalogo"
 " *Audience* para eso."
 
 #: ../custom_search.rst:26
@@ -101,7 +100,7 @@ msgstr "Agregue un widget de radio para type_of_talk"
 
 #: ../custom_search.rst:28
 msgid "Other noteable widgets are: tagcloud, a-z, search"
-msgstr "Otros widgets notables son: tagcloud, a-z, search"
+msgstr "Otros widgets notables son: ``tagcloud``, ``a-z``, ``search``."
 
 #: ../custom_search.rst:30
 msgid "Examples:"
@@ -128,7 +127,7 @@ msgid ""
 "(https://pypi.python.org/pypi/plone.app.vocabularies) or create custom "
 "vocabularies for this."
 msgstr ""
-"Usaremos el nuevo indice de catalogo para proveer la data de los widgets "
+"Usaremos el nuevo índice de catalogo para proveer la data de los widgets "
 "y buscar los resultados. Para otros casos de uso podremos usar entre los "
 "vocabularios integrados "
 "(https://pypi.python.org/pypi/plone.app.vocabularies) o crear "

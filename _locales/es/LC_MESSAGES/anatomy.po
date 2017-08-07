@@ -4,22 +4,24 @@
 # International license.
 # This file is distributed under the same license as the Mastering Plone
 # package.
-#
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
+
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
-"PO-Revision-Date: 2014-07-17 01:01+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"PO-Revision-Date: 2017-08-07 08:06-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish Team\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "Generated-By: Babel 2.3.4\n"
 
 #: ../anatomy.rst:4
@@ -43,9 +45,8 @@ msgid "CMF"
 msgstr ""
 
 #: ../anatomy.rst:13
-#, fuzzy
 msgid "Zope"
-msgstr "Zope2"
+msgstr "Zope"
 
 #: ../anatomy.rst:14 ../anatomy.rst:116
 msgid "Pyramid"
@@ -56,9 +57,8 @@ msgid "Bluebream"
 msgstr ""
 
 #: ../anatomy.rst:18
-#, fuzzy
 msgid "Python, Zope, CMF, Plone ... -- how does all that fit together?"
-msgstr "Python, Zope, CMF, Plone, ¿como se integran entre si?"
+msgstr "Python, Zope, CMF, Plone ... --- ¿como se integran entre si?"
 
 #: ../anatomy.rst:24
 msgid "Zope2"
@@ -66,11 +66,12 @@ msgstr "Zope2"
 
 #: ../anatomy.rst:26
 msgid "Zope is a web application framework that Plone runs on top of."
-msgstr "Zope es un Framework de aplicación web que Plone corre encima."
+msgstr ""
+"Zope es un framework de aplicación Web, el cual Plone corre encima de él."
 
 #: ../anatomy.rst:27
 msgid "It serves applications that communicate with users via http."
-msgstr "Ese sirve aplicaciones que comunica con usuarios vía http."
+msgstr "Ese sirve aplicaciones que comunica con usuarios vía HTTP."
 
 #: ../anatomy.rst:31
 #, fuzzy
@@ -83,14 +84,14 @@ msgid ""
 "you have to do it on your own. When the second request comes in, you have"
 " to do everything again."
 msgstr ""
-"Antes de Zope, generalmente era un servidor Apache que llamar a un script"
-" y dar la petición como una entrada. La secuencia de comandos sería "
-"entonces simplemente imprimir HTML en la salida estándar. Apache retornó "
-"al usuario. La apertura de las conexiones de base de datos, verificando "
-"las restricciones de permisos, la generación de HTML válido, la "
-"configuración de almacenamiento en caché, la interpretación de los datos "
-"del formulario y todo lo que tiene que hacer por su cuenta. Cuando la "
-"segunda petición llega, usted tiene que hacer todo de nuevo."
+"Antes de Zope, generalmente era un servidor Apache que llamar a un script y "
+"dar la petición como una entrada. La secuencia de comandos sería entonces "
+"simplemente imprimir HTML en la salida estándar. Apache retornó al usuario. "
+"La apertura de las conexiones de base de datos, verificando las "
+"restricciones de permisos, la generación de HTML válido, la configuración de "
+"almacenamiento en caché, la interpretación de los datos del formulario y "
+"todo lo que tiene que hacer por su cuenta. Cuando la segunda petición llega, "
+"usted tiene que hacer todo de nuevo."
 
 #: ../anatomy.rst:33
 msgid ""
@@ -100,12 +101,11 @@ msgid ""
 "he wrote an object-oriented database, called `ZODB "
 "<http://www.zodb.org/en/latest/>`_."
 msgstr ""
-"Jim Fulton pensaba que esto era un poco tedioso. Así que escribió el "
-"código para manejar las peticiones. Él creía que el contenido del sitio "
-"es orientado a objetos y que la URL de alguna manera debe apuntar "
-"directamente a la jerarquía de objetos, por lo que escribió una base de "
-"datos orientada a objetos, llamada `ZODB "
-"<http://www.zodb.org/en/latest/>`_."
+"Jim Fulton pensaba que esto era un poco tedioso. Así que escribió el código "
+"para manejar las peticiones. Él creía que el contenido del sitio es "
+"orientado a objetos y que la URL de alguna manera debe apuntar directamente "
+"a la jerarquía de objetos, por lo que escribió una base de datos orientada a "
+"objetos, llamada `ZODB <http://www.zodb.org/en/latest/>`_."
 
 #: ../anatomy.rst:35
 msgid ""
@@ -208,18 +208,12 @@ msgid "Basically this is Zope."
 msgstr "Básicamente esto es Zope."
 
 #: ../anatomy.rst:58
-#, fuzzy
 msgid "http://www.zope.org/the-world-of-zope"
-msgstr ""
-"http://www.zope.org/the-world-of-zope y "
-"http://docs.zope.org/zope2/zope2book/"
+msgstr "http://www.zope.org/the-world-of-zope"
 
 #: ../anatomy.rst:59
-#, fuzzy
 msgid "http://docs.zope.org/zope2/zope2book/"
-msgstr ""
-"http://www.zope.org/the-world-of-zope y "
-"http://docs.zope.org/zope2/zope2book/"
+msgstr "http://docs.zope.org/zope2/zope2book/"
 
 #: ../anatomy.rst:65
 msgid "Content Management Framework"
@@ -483,4 +477,3 @@ msgstr ""
 #~ " la capucha\" para ejecutar despacho "
 #~ "de vistas y otras tareas de "
 #~ "configuración de aplicaciones."
-

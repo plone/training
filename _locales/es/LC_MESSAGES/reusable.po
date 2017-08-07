@@ -8,13 +8,12 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-07-13 05:24+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,55 +41,68 @@ msgstr ""
 
 #: ../reusable.rst:15
 msgid "The package contains some problems."
-msgstr ""
+msgstr "Esta paquete contiene algunos problemas."
 
 #: ../reusable.rst:17
 msgid "No permission settings, Users can't customize who and when users can vote"
 msgstr ""
+"Sin la configuración de permisos, los usuarios no pueden personalizar quién y "
+"cuándo los usuarios pueden votar."
 
 #: ../reusable.rst:18
 msgid "We do things, but don't trigger events. Events allow others to react."
 msgstr ""
+"Hacemos cosas, pero no provocamos eventos. Los eventos permiten que otros "
+"reaccionen."
 
 #: ../reusable.rst:23
 msgid "Adding permissions"
-msgstr ""
+msgstr "Agregando permisos"
 
 #: ../reusable.rst:32
 msgid "Permissions have a long history, there are two types of permissions."
-msgstr ""
+msgstr "Los permisos tienen una larga historia, hay dos tipos de permisos."
 
 #: ../reusable.rst:34
 msgid "In Zope2, a permission was just a string."
-msgstr ""
+msgstr "En Zope2, un permiso era sólo una cadena."
 
 #: ../reusable.rst:36
 msgid "In ZTK, a permission is an object that gets registered as a Utility."
 msgstr ""
+"En ZTK, un permiso es un objeto que se obtiene registrado como una Utilidad."
 
 #: ../reusable.rst:38
 msgid ""
 "We must support both, in some cases we have to reference the permission "
 "by their Zope2 version, in some by their ZTK Version."
 msgstr ""
+"Debemos apoyar a ambos, en algunos casos tenemos que referenciar el permiso "
+"por su versión Zope2, en algunos por su versión ZTK."
 
 #: ../reusable.rst:40
 msgid ""
 "Luckily, there is a zcml statement to register a permission both ways in "
 "one step."
 msgstr ""
+"Por suerte, hay una declaración ZCML para registrar un permiso de ambas "
+"maneras en un solo paso."
 
 #: ../reusable.rst:44
 msgid ""
 "The configuration registry was meant to solve a problem, but we will now "
 "stumble over a problem that did not get resolved properly."
 msgstr ""
+"El registro de configuración quería resolver un problema, pero ahora nos "
+"topamos con un problema que no se resolvió correctamente."
 
 #: ../reusable.rst:46
 msgid ""
 "Our permission is a utility. Our browser views declare this permission as"
 " a requirement for viewing them."
 msgstr ""
+"Nuestro permiso es una utilidad. Nuestras browser views declaran este "
+"permiso como un requisito para verlas."
 
 #: ../reusable.rst:48
 msgid ""
@@ -98,6 +110,9 @@ msgid ""
 "already. If you try to register the permissions after the views, Zope "
 "won't start because it doesn't know about the permissions."
 msgstr ""
+"Cuando nuestras browser views se registren, los permisos deben existir ya. "
+"Si intenta registrar los permisos después de las vistas, Zope no se iniciará"
+" porque no sabe acerca de los permisos."
 
 #: ../reusable.rst:50
 msgid "Let's modify the file :file:`configure.zcml`"
@@ -108,36 +123,44 @@ msgid ""
 "In some places we have to reference the Zope 2 permission strings. It is "
 "best practice to provide a static variable for this."
 msgstr ""
+"En algunos lugares tenemos que hacer referencia a las cadenas de permisos de"
+" Zope 2. Es la mejor práctica proporcionar una variable estática para esto."
 
 #: ../reusable.rst:80
 msgid "We provide this in :file:`__init__.py`"
-msgstr ""
+msgstr "Proporcionamos esto en el archivo :file:`__init__.py`, con el siguiente código Python:"
 
 #: ../reusable.rst:93
 msgid "Using our permissions"
-msgstr ""
+msgstr "Usando nuestros permisos"
 
 #: ../reusable.rst:97
 msgid ""
 "As you can see, we created two permissions, one for voting, one for "
 "viewing the votes."
 msgstr ""
+"Como puede ver, creamos dos permisos, uno para votar, uno para ver los "
+"votos."
 
 #: ../reusable.rst:99
 msgid ""
 "If a user is not allowed to see the votes, she does not need access to "
 "the vote viewlet."
 msgstr ""
+"Si uno no puede ver las votaciones, no necesita acceso al viewlet de votos."
 
 #: ../reusable.rst:101
 msgid ""
 "While we are at it, if a user can't vote, she needs no access to the "
 "helper view to actually submit a vote."
 msgstr ""
+"Mientras estamos en ello, si uno no puede votar, no necesita acceso a la "
+"helper view para presentar realmente un voto."
 
 #: ../reusable.rst:103
 msgid "We can add this restriction to :file:`browser/configure.zcml`"
 msgstr ""
+"Podemos agregar esta restricción al archivo :file:`browser/configure.zcml`, con el siguiente código ZCML:"
 
 #: ../reusable.rst:140
 msgid ""
@@ -145,6 +168,9 @@ msgid ""
 "permission, which is the :samp:`id` part of the declaration we added "
 "earlier."
 msgstr ""
+"Estamos configurando componentes, por lo que usamos el nombre de componente "
+"del permiso, que es el :samp:`id` parte de la declaración que añadimos "
+"anteriormente."
 
 #: ../reusable.rst:144
 msgid "So, what happens if we do not protect the browser view to vote?"
@@ -155,6 +181,9 @@ msgid ""
 "The person could still vote, by handcrafting the URL. Browser Views run "
 "code without any restriction, it is your job to take care of security."
 msgstr ""
+"La persona podría votar, mediante la elaboración manual de la URL. Las "
+"Browser Views ejecutar código sin ninguna restricción, es su trabajo tener "
+"cuidado de la seguridad."
 
 #: ../reusable.rst:148
 msgid ""
@@ -162,6 +191,9 @@ msgid ""
 "site is configured that Anonymous users cannot access private objects, "
 "the unauthorized users will not be able to submit a vote."
 msgstr ""
+"Pero... si una persona no tiene acceso al objeto en absoluto, tal vez porque"
+" el sitio está configurado para que los usuarios anónimos no puedan acceder "
+"a objetos privados, los usuarios no autorizados no podrán enviar un voto."
 
 #: ../reusable.rst:150
 msgid ""
@@ -170,50 +202,63 @@ msgid ""
 " met, no view ill ever be called, because that would have been the next "
 "step."
 msgstr ""
+"Es decir, porque Zope comprueba los permisos de seguridad al intentar "
+"encontrar el objeto correcto. Si no puede encontrar el objeto debido a las "
+"restricciones de seguridad no se cumplen, ninguna vista mal, nunca ser "
+"llamado, ya que habría sido el siguiente paso."
 
 #: ../reusable.rst:152
 msgid ""
 "We now protect our views and viewlets. We still show the option to vote "
 "though."
 msgstr ""
+"Ahora protegemos nuestras ``views`` y ``viewlets``. Todavía mostramos la opción de "
+"votar."
 
 #: ../reusable.rst:154
 msgid ""
 "We must add a condition in our page template, and we must provide the "
 "condition information in our viewlet class."
 msgstr ""
+"Debemos agregar una condición en nuestra plantilla de página, y debemos "
+"proporcionar la información de la condición en nuestra clase viewlet."
 
 #: ../reusable.rst:156
 msgid "Lets move on to :file:`browser/viewlets.py`"
-msgstr ""
+msgstr "Mueva al archivo :file:`browser/viewlets.py`, con el siguiente código Python:"
 
 #: ../reusable.rst:185
 msgid "And the template in :file:`browser/templates/voting_viewlet.pt`"
 msgstr ""
+"Y la plantilla en el archivo :file:`browser/templates/voting_viewlet.pt`, con el siguiente código ZPT:"
 
 #: ../reusable.rst:216
 msgid ""
 "Sometimes subtle bugs come up because of changes. In this case I noticed "
 "that I should only prompt people to vote if they are allowed to vote!"
 msgstr ""
+"A veces se producen errores sutiles debido a los cambios, en este caso, me "
+"di cuenta de que sólo debería animar a la gente a votar, ¡si a ellos se les "
+"permite votar!"
 
 #: ../reusable.rst:221
 msgid "Provide defaults"
-msgstr ""
+msgstr "Proporcionar valores por defecto"
 
 #: ../reusable.rst:225
 msgid "Are we done yet? Who may vote now?"
-msgstr ""
+msgstr "¿Ya terminamos?, ¿Quién puede votar ahora?"
 
 #: ../reusable.rst:227
 msgid "We have to tell that someone."
-msgstr ""
+msgstr "Tenemos que decirle a alguien."
 
 #: ../reusable.rst:229
 msgid ""
 "Who has which permissions is managed in Zope. This is persistent, and "
 "persistent configuration is handled by GenericSetup."
 msgstr ""
+"En el ZTK, un permiso es un objeto que se obtiene registrado como una Utilidad."
 
 #: ../reusable.rst:231
 msgid ""

@@ -6,16 +6,15 @@
 # package.
 #
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-07-19 15:56+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,6 +83,25 @@ msgstr ""
 
 #: ../extending.rst:26
 msgid ""
+"There is a huge variety of Plone-compatible packages available. Most are "
+"listed in the `Python Package Index <https://pypi.python.org/pypi>`_. A more"
+" browse-able listing is available at the `Plone.org add-on listing "
+"<https://old.plone.org/products/>`_. The source repository for many public "
+"Plone add-ons is `the GitHub Collective <https://github.com/collective>`_. "
+"You may also create your own packages or maintain custom repositories."
+msgstr ""
+"Hay una gran variedad de paquetes compatibles con Plone disponibles. La "
+"mayor parte se enumeran en el `Python Package Index "
+"<https://pypi.python.org/pypi>`_. Una lista más navegable está disponible en "
+"la `antigua lista complemento de Plone.org <https://old.plone.org/products/>`_ "
+"y la `nueva lista complemento de Plone.org <https://plone.org/download/add-ons>`_. El "
+"repositorio de código fuente para muchos complementos públicos Plone esta en"
+" la organización `Collective de GitHub <https://github.com/collective>`_. "
+"También puede crear sus propios paquetes o mantener repositorios "
+"personalizados."
+
+#: ../extending.rst:12
+msgid ""
 "Eggs are younger than Zope. Zope needed something like eggs before there "
 "were eggs, and the Zope developers wrote their own system. Old, outdated "
 "Plone systems contain a lot of code that is not bundled in an egg. Older "
@@ -113,7 +131,7 @@ msgstr "¿Cómo extender Plone?"
 
 #: ../extending.rst:36
 msgid "This depends on what type of extension you want to create."
-msgstr "Esto depende de que tipo de extension usted quiere crear."
+msgstr "Esto depende de que tipo de extensión usted quiere crear."
 
 #: ../extending.rst:41
 msgid ""
@@ -242,7 +260,7 @@ msgstr ""
 
 #: ../extending.rst:109
 msgid "The last way to extend Plone is via *Components*."
-msgstr "La última manera de extender Plone es a través de los *Components*."
+msgstr "La última manera de extender Plone es a través de los *Componentes*."
 
 #: ../extending.rst:111
 msgid "A bit of history is in order."

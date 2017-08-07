@@ -6,13 +6,12 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-06-22 16:47+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,7 +30,7 @@ msgstr ""
 
 #: ../thirdparty_behaviors.rst:14
 msgid "Add teaser with collective.behavior.banner"
-msgstr ""
+msgstr "Agregar el comportamiento de banner con el complemento ``collective.behavior.banner``"
 
 #: ../thirdparty_behaviors.rst:16
 msgid ""
@@ -39,12 +38,17 @@ msgid ""
 "thought there should be a better one and created "
 "``collective.behavior.banner``."
 msgstr ""
+"Hay un montón de complementos en Plone para diapositivas / banners / "
+"teasers. Nosotros pensamos que debe haber un mejor complemento y fue creado "
+"``collective.behavior.banner``."
 
 #: ../thirdparty_behaviors.rst:20
 msgid ""
 "Like many add-ons it has not yet been released on pypi but only exists as"
 " code on github."
 msgstr ""
+"Al igual muchos complementos que aún no se ha lanzado en PyPI pero sólo "
+"existe como código fuente en GitHub."
 
 #: ../thirdparty_behaviors.rst:22
 msgid ""
@@ -52,16 +56,31 @@ msgid ""
 "download a specific add-on not from pypi but from some code repository "
 "(usually github):"
 msgstr ""
+"El buildout del entrenamiento contiene una sección ``[sources]`` que le dice"
+" buildout para descargar un complemento específico no disponible en PyPI "
+"sino en algún repositorio de código (generalmente GitHub):"
 
 #: ../thirdparty_behaviors.rst:29
 msgid ""
 "Pinning the revision saves us from being surprised by changes in the code"
 " we might not want."
 msgstr ""
+"Definiendo la revisión nos salva de ser sorprendidos por algunos cambios en el "
+"código fuente que puede que no querríamos tener."
 
 #: ../thirdparty_behaviors.rst:31
 msgid "After adding the source, we need to add the egg to buildout:"
 msgstr ""
+"Después de añadir el código fuente, tenemos que añadir el paquete ``Egg`` al "
+"archivo buildout:"
+
+#: ../thirdparty_behaviors.rst:33
+msgid "And rerun ``./bin/buildout``"
+msgstr "Y vuelva a ejecutar el comando ``./bin/buildout``"
+
+#: ../thirdparty_behaviors.rst:35
+msgid "Install the ad-don"
+msgstr "Instalar el complemento"
 
 #: ../thirdparty_behaviors.rst:41
 msgid "And rerun ``./bin/buildout``"
@@ -76,20 +95,26 @@ msgid ""
 "Create a new dexterity content type ``Banner`` with **only** the behavior"
 " ``Banner`` enabled."
 msgstr ""
+"Crear un nuevo tipo de contenido Dexterity ``Banner`` con **sólo** el "
+"comportamiento ``Banner`` habilitado."
 
 #: ../thirdparty_behaviors.rst:45
 msgid "Create a folder called ``banners``"
-msgstr ""
+msgstr "Crear una carpeta llamada ``banners``"
 
 #: ../thirdparty_behaviors.rst:46
 msgid ""
 "Add two banners into that folder using images taken from "
 "http://lorempixel.com/800/150/"
 msgstr ""
+"Agregar dos banners dentro de la carpeta usando imágenes tomadas desde la "
+"dirección URL http://lorempixel.com/800/150/"
 
 #: ../thirdparty_behaviors.rst:47
 msgid "Add the Behavior ``Slider`` to the default contenttype ``Page (Document)``"
 msgstr ""
+"Agregar el comportamiento ``Slider`` al tipo de contenido por defecto "
+"``Página (Document)``"
 
 #: ../thirdparty_behaviors.rst:48
 msgid "Edit the front-page and link to the new banners."

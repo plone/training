@@ -249,7 +249,7 @@ Alternatively you can select which upgrade steps to run like this:
 
 .. seealso::
 
-    http://docs.plone.org/develop/addons/components/genericsetup.html#id1
+    http://docs.plone.org/4/en/develop/addons/components/genericsetup.html#id1
 
 
 .. note::
@@ -309,7 +309,7 @@ Note the relative python path ``..interfaces.IPloneconfSiteLayer``. It is equiva
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/views/layers.html
+    http://docs.plone.org/4/en/develop/plone/views/layers.html
 
 
 Exercise
@@ -359,14 +359,15 @@ The ``column ..`` entry allows us to display the values of these indexes in the 
 
 .. note::
 
-    Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the addon purged the indexes! See http://www.starzel.de/blog/a-reminder-about-catalog-indexes.
+    Until Plone 4.3.2 adding indexes in catalog.xml was harmful because reinstalling the addon purged the indexes! See https://www.starzel.de/blog/a-reminder-about-catalog-indexes.
+
 
 * Reinstall the addon
 * Go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes to inspect and manage the new indexes
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html
+    http://docs.plone.org/4/en/develop/plone/searching_and_indexing/indexing.html
 
 
 .. _dexterity2-customindex-label:
@@ -470,7 +471,7 @@ Add a new file ``profiles/default/registry.xml``
 
 .. seealso::
 
-  http://docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed
+  http://docs.plone.org/4/en/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed
 
 
 .. _dexterity2-GS-label:

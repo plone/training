@@ -114,7 +114,7 @@ Zope is the foundation of Plone. Here you can access the inner workings of Zope 
 
 .. only:: not presentation
 
-    We only cover three parts of customisation in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
+    We only cover three parts of customization in the ZMI now. Later on when we added our own code we'll come back to the ZMI and will look for it.
 
     At some point you'll have to learn what all those objects are about. But not today.
 
@@ -169,7 +169,7 @@ We want a new link to legal information, called "Imprint".
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/functionality/actions.html
+    http://docs.plone.org/4/en/develop/plone/functionality/actions.html
 
 
 Global navigation
@@ -270,13 +270,13 @@ Change the logo
 
 Let's change the Logo.
 
-* Download a ploneconf logo: http://www.starzel.de/plone-tutorial/ploneconf-logo-2014/image
+* Download a ploneconf logo: https://www.starzel.de/plone-tutorial/ploneconf-logo-2014/download
 * Go to ``portal_skins`` / ``plone_images``
 * Click on ``logo.png``, click ``Customize`` and Upload the Logo.
 
 .. seealso::
 
-   http://docs.plone.org/adapt-and-extend/change-the-logo.html
+   http://docs.plone.org/4/en/adapt-and-extend/change-the-logo.html
 
 
 portal_view_customizations
@@ -303,7 +303,7 @@ Change the footer
 
 .. seealso::
 
-   http://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html
+   http://docs.plone.org/4/en/adapt-and-extend/theming/templates_css/skin_layers.html
 
 
 CSS Registry (portal_css)
@@ -328,7 +328,7 @@ The merging function solves a big problem: we'd like to develop our CSS and JS r
 Further tools in the ZMI
 ************************
 
-There are many more noteable items in the ZMI. We'll visit some of them later.
+There are many more notable items in the ZMI. We'll visit some of them later.
 
 * acl_users
 * error_log

@@ -93,4 +93,4 @@ If you seek a training about Diazo we recommend a training by `Chrissy Wainwrigh
 
 .. seealso::
 
-    http://docs.plone.org/adapt-and-extend/theming/index.html
+    http://docs.plone.org/4/en/adapt-and-extend/theming/index.html

@@ -5,16 +5,16 @@
 #
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-07-09 21:59+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, "
+"2016\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -63,15 +63,15 @@ msgstr ""
 
 #: ../ide.rst:18
 msgid "`Sublime <http://www.sublimetext.com/>`_"
-msgstr "`Sublime <http://www.sublimetext.com/>`_"
+msgstr "`Sublime <http://www.sublimetext.com/>`_."
 
 #: ../ide.rst:19
 msgid "`PyCharm <http://www.jetbrains.com/pycharm/>`_"
-msgstr "`PyCharm <http://www.jetbrains.com/pycharm/>`_"
+msgstr "`PyCharm <http://www.jetbrains.com/pycharm/>`_."
 
 #: ../ide.rst:20
 msgid "`Wing IDE <http://wingide.com/>`_"
-msgstr "`Wing IDE <http://wingide.com/>`_"
+msgstr "`Wing IDE <http://wingide.com/>`_."
 
 #: ../ide.rst:21
 msgid "`PyDev <http://pydev.org/>`_ for `Eclipse <http://eclipse.org/>`_"
@@ -83,15 +83,15 @@ msgstr "`Aptana Studio <http://aptana.com/products/studio3/>`_"
 
 #: ../ide.rst:23
 msgid "vim"
-msgstr "vim"
+msgstr "vim."
 
 #: ../ide.rst:24
 msgid "emacs"
-msgstr "emacs"
+msgstr "emacs."
 
 #: ../ide.rst:25
 msgid "`Textmate <http://macromates.com/>`_"
-msgstr "`Textmate <http://macromates.com/>`_"
+msgstr "`Textmate <http://macromates.com/>`_."
 
 #: ../ide.rst:27
 msgid ""
@@ -119,7 +119,7 @@ msgstr ""
 
 #: ../ide.rst:32
 msgid "**Goto Definition** (SublimeText3 with codeintel: ``alt + click``)"
-msgstr "**Ir a Definición** (SublimeText3 with codeintel: ``alt + click``)"
+msgstr "**Ir a Definición** (SublimeText3 con codeintel: ``alt + click``)"
 
 #: ../ide.rst:33
 msgid "**Powerful search & replace**"

@@ -4,22 +4,24 @@
 # International license.
 # This file is distributed under the same license as the Mastering Plone
 # package.
-#
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
+
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
-"PO-Revision-Date: 2014-07-13 04:27+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"PO-Revision-Date: 2017-08-07 07:37-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish Team\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "Generated-By: Babel 2.3.4\n"
 
 #: ../optional.rst:4
@@ -32,17 +34,15 @@ msgstr "Pruebas"
 
 #: ../optional.rst:7
 msgid "zc3.form"
-msgstr "zc3.form"
+msgstr "Paquete ``zc3.form``."
 
 #: ../optional.rst:8
-#, fuzzy
 msgid "Portlets"
-msgstr "portlets"
+msgstr "Portlets"
 
 #: ../optional.rst:9
-#, fuzzy
 msgid "ZCA in depth"
-msgstr "zca en profundidad"
+msgstr "ZCA en profundidad"
 
 #: ../optional.rst:10
 msgid ":doc:`grok`"
@@ -53,60 +53,50 @@ msgid "ZODB"
 msgstr "ZODB"
 
 #: ../optional.rst:12
-#, fuzzy
 msgid "More and more more complex fields"
-msgstr "Mas y mas campos complejos"
+msgstr "Más y muchos más campos complejos"
 
 #: ../optional.rst:13
-#, fuzzy
 msgid "Relations"
-msgstr "relaciones"
+msgstr "Relaciones"
 
 #: ../optional.rst:14
-#, fuzzy
 msgid "Custom edit forms"
-msgstr "formularios de edición personalizados"
+msgstr "Formularios de edición personalizados"
 
 #: ../optional.rst:15
-#, fuzzy
 msgid "Control panels"
-msgstr "paneles de control"
+msgstr "Paneles de control"
 
 #: ../optional.rst:16
 msgid "plone.app.registry"
-msgstr "plone.app.registry"
+msgstr "Paquete plone.app.registry"
 
 #: ../optional.rst:17
-#, fuzzy
 msgid "Security (permission/roles/workflow)"
-msgstr "seguridad (permisos / roles / flujo de trabajo)"
+msgstr "Seguridad (permisos / roles / flujo de trabajo)"
 
 #: ../optional.rst:18
-#, fuzzy
 msgid "Custom permissions"
-msgstr "permisos personalizados"
+msgstr "Permisos personalizados"
 
 #: ../optional.rst:19
-#, fuzzy
 msgid "Custom workflow"
-msgstr "flujo de trabajo personalizado"
+msgstr "Flujo de trabajo personalizado"
 
 #: ../optional.rst:20
-#, fuzzy
 msgid "Users, authentication, member profiles, LDAP"
-msgstr "usuarios, autenticación, perfiles de miembros, ldap"
+msgstr "Usuarios, autenticación, perfiles de miembros, LDAP"
 
 #: ../optional.rst:21
-#, fuzzy
 msgid "Caching (plone.app.caching)"
-msgstr "cacheo (plone.app.caching)"
+msgstr "Cacheo de contenido (Paquete plone.app.caching)"
 
 #: ../optional.rst:22
 msgid "GenericSetup"
 msgstr "GenericSetup"
 
 #: ../optional.rst:23
-#, fuzzy
 msgid "Upgrade Steps"
 msgstr "Pasos de actualización"
 
@@ -115,53 +105,45 @@ msgid "Migrations"
 msgstr "Migraciones"
 
 #: ../optional.rst:25
-#, fuzzy
 msgid "Asynchronous processing"
-msgstr "Cosas asincronas"
+msgstr "Procesamiento asincronos"
 
 #: ../optional.rst:26
-#, fuzzy
 msgid "Talking with external APIs"
-msgstr "Hablando con apis externas"
+msgstr "Hablando con APIs externas"
 
 #: ../optional.rst:27
 msgid "Mockup"
 msgstr "Mockup"
 
 #: ../optional.rst:28
-#, fuzzy
 msgid "Customizing barceloneta"
-msgstr "personalizando barcelonetta"
+msgstr "Personalización del tema barcelonetta"
 
 #: ../optional.rst:29
 msgid "plone.app.widgets"
-msgstr "plone.app.widgets"
+msgstr "Paquete ``plone.app.widgets``."
 
 #: ../optional.rst:30
 msgid ":doc:`deployment_code`"
-msgstr ":doc:`deployment_code`"
+msgstr ":doc:`deployment_code`."
 
 #: ../optional.rst:31
 msgid "Deployment"
 msgstr "Despliegue"
 
 #: ../optional.rst:33
-#, fuzzy
 msgid "Storage options"
-msgstr "opciones de almacenamiento"
+msgstr "Opciones de almacenamiento"
 
 #: ../optional.rst:34
-#, fuzzy
 msgid "Backup"
-msgstr "respaldo"
+msgstr "Respaldo"
 
 #: ../optional.rst:35
-#, fuzzy
 msgid "Deployment buildouts"
-msgstr "configuraciones buildous de despliegue"
+msgstr "Configuraciones buildous de despliegue"
 
 #: ../optional.rst:36
-#, fuzzy
 msgid "Caching (varnish)"
-msgstr "cacheo (varnish)"
-
+msgstr "Cacheo de contenido (varnish)"

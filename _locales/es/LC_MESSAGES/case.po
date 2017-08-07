@@ -4,28 +4,29 @@
 # International license.
 # This file is distributed under the same license as the Mastering Plone
 # package.
-#
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
+
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
-"PO-Revision-Date: 2014-07-14 23:07+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"PO-Revision-Date: 2017-08-07 08:30-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish Team\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "Generated-By: Babel 2.3.4\n"
 
 #: ../case.rst:4
-#, fuzzy
 msgid "The Case Study"
-msgstr "El caso de estudio"
+msgstr "El Caso de Estudio"
 
 #: ../case.rst:6
 msgid ""
@@ -68,13 +69,11 @@ msgstr "Como visitante, yo quiero registrarme para la conferencia."
 #: ../case.rst:24
 msgid "As a visitor I want to see the talks and sort them by my preferences"
 msgstr ""
-"Como visitante, yo quiero ver las charlas y ordenarlas por mis "
-"preferencias."
+"Como visitante, yo quiero ver las charlas y ordenarlas por mis preferencias."
 
 #: ../case.rst:25
-#, fuzzy
 msgid "As a speaker I want to be able to submit talks"
-msgstr "Como un ponente, yo quiero ser capaz de agregar charlas."
+msgstr "Como un ponente, yo quiero ser capaz de presentar charlas."
 
 #: ../case.rst:26
 msgid "As a speaker I want to see and edit my submitted talks"
@@ -93,16 +92,14 @@ msgstr ""
 "están registradas."
 
 #: ../case.rst:29
-#, fuzzy
 msgid "As a jury member I want to vote on talks"
 msgstr "Como miembro de jurado, yo quiero votar en las charlas."
 
 #: ../case.rst:30
-#, fuzzy
 msgid "As a jury member I want to decide which talks to accept, and which not"
 msgstr ""
-"Como miembro del jurado, yo quiero decidir, cuales charlas aceptar, y "
-"cuales no."
+"Como miembro del jurado, yo quiero decidir, cuales charlas aceptar, y cuales "
+"no."
 
 #: ../case.rst:32
 msgid ""
@@ -110,4 +107,3 @@ msgid ""
 "is important because we'll want to limit the capabilities to those to "
 "whom we assign particular roles."
 msgstr ""
-

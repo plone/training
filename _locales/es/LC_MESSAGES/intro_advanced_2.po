@@ -1,0 +1,497 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
+# This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastering Plone 1.2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../intro_advanced_2.rst:2
+msgid "Part 1 in nutshell"
+msgstr "Parte 1 en pocas palabras"
+
+#: ../intro_advanced_2.rst:5
+msgid "The case study"
+msgstr "El caso de estudio"
+
+#: ../intro_advanced_2.rst:7
+msgid ""
+"For this training we will build a website for a fictional Plone conference."
+msgstr ""
+"Para este entrenamiento construiremos un Sitio Web para una conferencia "
+"ficticia de Plone."
+
+#: ../intro_advanced_2.rst:9
+msgid "Main features will be:"
+msgstr "Las principales características serán:"
+
+#: ../intro_advanced_2.rst:11
+msgid "As a visitor I want to find current information on the conference"
+msgstr ""
+"Como un visitante, yo quiero encontrar información actualizada en la "
+"conferencia."
+
+#: ../intro_advanced_2.rst:12
+msgid "As a visitor I want to register for the conference"
+msgstr "Como visitante, yo quiero registrarme para la conferencia."
+
+#: ../intro_advanced_2.rst:13
+msgid "As a visitor I want to see the talks and sort them by my preferences"
+msgstr ""
+"Como visitante, yo quiero ver las charlas y ordenarlas por mis preferencias."
+
+#: ../intro_advanced_2.rst:14
+msgid "As a speaker I want to be able to submit talks"
+msgstr "Como un ponente, yo quiero ser capaz de enviar charlas."
+
+#: ../intro_advanced_2.rst:15
+msgid "As a speaker I want to see and edit my submitted talks"
+msgstr "Como un ponente, yo quiero ver y editar mis charlas enviadas."
+
+#: ../intro_advanced_2.rst:16
+msgid "As a jury-member I want to vote on talks"
+msgstr "Como miembro del jurado, yo quiero votar en las charlas."
+
+#: ../intro_advanced_2.rst:17
+msgid ""
+"As a jury-member I want to decide, which talks to accept, and which not"
+msgstr ""
+"Como miembro del jurado, yo quiero decidir, cuales charlas aceptar, y cuales"
+" no."
+
+#: ../intro_advanced_2.rst:18
+msgid "As an organizer I want to see a list of all proposed talks"
+msgstr ""
+"Como organizador, yo quiero ver una lista de todas las charlas propuestas."
+
+#: ../intro_advanced_2.rst:20
+msgid ""
+"Note that all of our requirements connect roles with capabilities. This is "
+"important because we'll want to limit the capabilities to those to whom we "
+"assign particular roles."
+msgstr ""
+"Tenga en cuenta que todos nuestros requisitos conectar roles con sus "
+"capacidades. Esto es importante porque vamos a querer limitar las "
+"capacidades de aquellos a los que asignamos roles particulares."
+
+#: ../intro_advanced_2.rst:24
+msgid "The Anatomy of Plone"
+msgstr "La Anatomía de Plone"
+
+#: ../intro_advanced_2.rst:26
+msgid "Full chapter: :doc:`anatomy`"
+msgstr "Capítulo completo: :doc:`anatomy`"
+
+#: ../intro_advanced_2.rst:28
+msgid "Zope2 is a web application framework that Plone runs on top of."
+msgstr ""
+"Zope es un framework de aplicación Web el cual Plone corre encima de él."
+
+#: ../intro_advanced_2.rst:29
+msgid "ZODB is the Object Database used"
+msgstr "ZODB es la base de datos de objetos utilizada"
+
+#: ../intro_advanced_2.rst:30
+msgid ""
+"`CMF (Content Management Framework) "
+"<http://old.zope.org/Products/CMF/index.html/>`_ is an add-on for Zope to "
+"build Content Management Systems (like Plone)."
+msgstr ""
+"`CMF (Content Management Framework) "
+"<http://old.zope.org/Products/CMF/index.html/>`_ es un complemento para Zope"
+" para construir sistemas de gestión de contenido (como Plone)."
+
+#: ../intro_advanced_2.rst:31
+msgid "Zope Toolkit / Zope3 was intended as a ground-up rewrite of Zope."
+msgstr ""
+"Zope Toolkit / Zope 3 fue originalmente creada como una profunda re-"
+"escritura de Zope."
+
+#: ../intro_advanced_2.rst:32
+msgid ""
+"Plone uses parts of it provided by the `Zope Toolkit (ZTK) "
+"<https://zopetoolkit.readthedocs.io/en/latest/>`_."
+msgstr ""
+"Plone usa partes provistas por el `Zope Toolkit (ZTK) "
+"<https://zopetoolkit.readthedocs.io/en/latest/>`_."
+
+#: ../intro_advanced_2.rst:33
+msgid ""
+"Zope Component Architecture (ZCA) is a system which allows for component "
+"pluggability and complex dispatching. I is based on objects which implement "
+"an interface (a description of a functionality). Pyramid, and independent "
+"Python web application server, uses the ZCA “under the hood” to perform view"
+" dispatching and other application configuration tasks."
+msgstr ""
+"La Zope Component Architecture (ZCA) es un sistema el cual permite por la "
+"versatibilidad y despacho de aplicaciones. Es basada en objetos que "
+"implementan una interfaz (una descripción de una funcionalidad). Pyramid, y "
+"el servidor de aplicaciones Web Python independiente, utiliza la ZCA \"bajo "
+"la capucha\" para ejecutar despacho de vistas y otras tareas de "
+"configuración de aplicación."
+
+#: ../intro_advanced_2.rst:34
+msgid "Acquisition"
+msgstr "Adquisición"
+
+#: ../intro_advanced_2.rst:38
+msgid "The Features of Plone"
+msgstr "Las características de Plone"
+
+#: ../intro_advanced_2.rst:40
+msgid "Full chapter: :doc:`features`"
+msgstr "Capítulo completo: :doc:`features`"
+
+#: ../intro_advanced_2.rst:43
+msgid "Starting/Stopping"
+msgstr "Iniciando y Deteniendo Plone"
+
+#: ../intro_advanced_2.rst:45
+msgid "We control Plone with a small script called \"instance\"::"
+msgstr "Tenemos el control de Plone con un pequeño script llamado \"instance\"::"
+
+#: ../intro_advanced_2.rst:54
+msgid ""
+"Go to http://localhost:8080/Plone to see the site that comes with the "
+"provided database."
+msgstr ""
+"Valla a la dirección URL http://localhost:8080/Plone para ver el sitio que "
+"viene con la base de datos proporcionada."
+
+#: ../intro_advanced_2.rst:58
+msgid "Users"
+msgstr "Usuarios"
+
+#: ../intro_advanced_2.rst:60
+msgid "Let's create a Plone user which we use for most of the training:"
+msgstr ""
+"Vamos a crear un usuario de Plone que usamos para la mayor parte del "
+"entrenamiento:"
+
+#: ../intro_advanced_2.rst:62
+msgid ""
+":guilabel:`admin` > :guilabel:`Site setup` > :guilabel:`Users and Groups`"
+msgstr ""
+":guilabel:`admin` > :guilabel:`Configuración de sitio` > :guilabel:`Usuarios"
+" y Grupos`"
+
+#: ../intro_advanced_2.rst:63
+msgid ""
+"Add a user ``training`` with password: ``training``. Add him to the group "
+"Administrators"
+msgstr ""
+"Add a user ``training`` with password: ``training``. Add him to the group Administrators\n"
+"Añada un usuario llamado ``training`` con la contraseña: ``training``. Agregarlo al grupo Administradores"
+
+#: ../intro_advanced_2.rst:65
+msgid "We already have the following users in the provided Database:"
+msgstr "Ya tenemos los siguientes usuarios en la Base de datos proporcionada:"
+
+#: ../intro_advanced_2.rst:67
+msgid "\"editor:editor\" (groups: None)"
+msgstr "\"editor:editor\" (grupos: Ninguno)"
+
+#: ../intro_advanced_2.rst:68
+msgid "\"jurymember:jurymember\" (groups: None)"
+msgstr "\"jurymember:jurymember\" (grupos: Ninguno)"
+
+#: ../intro_advanced_2.rst:69
+msgid "\"testuser:testuser\" (groups: None)"
+msgstr "\"testuser:testuser\" (grupos: Ninguno)"
+
+#: ../intro_advanced_2.rst:71
+msgid ""
+"The mailserver is already configured. Please do not abuse the account. We'll"
+" disable it after the training."
+msgstr ""
+"El servidor de correo ya está configurado. Por favor, no abuses de esto. Lo "
+"desactivaremos después del entrenamiento."
+
+#: ../intro_advanced_2.rst:75
+msgid "The Plone UI"
+msgstr "La Interfaz de Usuario Plone"
+
+#: ../intro_advanced_2.rst:79
+msgid "Content-Types"
+msgstr "Tipos de Contenido"
+
+#: ../intro_advanced_2.rst:81
+msgid "These are the default content-types:"
+msgstr "Estos son los tipos de contenidos por defecto:"
+
+#: ../intro_advanced_2.rst:83
+msgid "Document"
+msgstr "Documento"
+
+#: ../intro_advanced_2.rst:84
+msgid "News Item"
+msgstr "Noticia"
+
+#: ../intro_advanced_2.rst:85
+msgid "Event"
+msgstr "Evento"
+
+#: ../intro_advanced_2.rst:86
+msgid "File"
+msgstr "Archivo"
+
+#: ../intro_advanced_2.rst:87
+msgid "Image"
+msgstr "Imagen"
+
+#: ../intro_advanced_2.rst:88
+msgid "Link"
+msgstr "Enlace"
+
+#: ../intro_advanced_2.rst:89
+msgid "Folder"
+msgstr "Carpeta"
+
+#: ../intro_advanced_2.rst:90
+msgid "Collection"
+msgstr "Colección"
+
+#: ../intro_advanced_2.rst:94
+msgid ""
+"Please keep in mind that we use `plone.app.contenttypes "
+"<http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html>`_"
+" for the training. Therefore the types are based on Dexterity and slightly "
+"different from the types that you will find in a default-Plone 4.3.x-site."
+msgstr ""
+"Por favor, tenga en cuenta que usamos `plone.app.contenttypes "
+"<http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html>`_"
+" para la formación. Por lo tanto, los tipos se basan en Dexterity y un poco "
+"diferente de los tipos que se encuentran en un sitio Plone 4.3.x por "
+"defecto."
+
+#: ../intro_advanced_2.rst:96
+msgid "We created a site-structure:"
+msgstr "Nosotros creamos una estructura del sitio:"
+
+#: ../intro_advanced_2.rst:98
+msgid "Add folder \"The Event\" and in that ..."
+msgstr "Agregar carpeta \"El Evento\" y que contenga..."
+
+#: ../intro_advanced_2.rst:100
+msgid "Folder \"Talks\""
+msgstr "Carpeta \"Charlas\""
+
+#: ../intro_advanced_2.rst:101
+msgid "Folder \"Training\""
+msgstr "Carpeta \"Entrenamientos\""
+
+#: ../intro_advanced_2.rst:102
+msgid "Folder \"Sprint\""
+msgstr "Carpeta \"Sprint\""
+
+#: ../intro_advanced_2.rst:104
+msgid "In /news: Added a News Item \"Conference Website online!\" with some image"
+msgstr ""
+"En la ruta /news: Agregar una Noticia \"¡Sitio Web de la Conferencia esta en"
+" linea!\" con alguna imagen"
+
+#: ../intro_advanced_2.rst:105
+msgid "In /news: Added a News Item \"Submit your talks!\""
+msgstr "En la ruta /news: Agregar una Noticia \"¡Enviar sus charlas!\""
+
+#: ../intro_advanced_2.rst:106
+msgid ""
+"In /events: Added an Event \"Deadline for talk-submission\" Date: 10.10.2014"
+msgstr ""
+"En la ruta /events: Agregar un Evento \"Fecha limite para enviar charlas\" "
+"Fecha 10.10.2014"
+
+#: ../intro_advanced_2.rst:108
+msgid "Added a Folder \"Register\""
+msgstr "Agregada una carpeta llamada \"Registro\""
+
+#: ../intro_advanced_2.rst:109
+msgid "Deleted the Folder \"Members\" (Users)"
+msgstr "Eliminado la carpeta llamada \"Members\" (Usuarios)"
+
+#: ../intro_advanced_2.rst:110
+msgid "Added a Folder \"Intranet\""
+msgstr "Agregada carpeta llamada \"Intranet\""
+
+#: ../intro_advanced_2.rst:113
+msgid "Some core-features"
+msgstr "Algunas características principales"
+
+#: ../intro_advanced_2.rst:115
+msgid "folder_contents"
+msgstr "explicar /folder_contents"
+
+#: ../intro_advanced_2.rst:116
+msgid "default_pages"
+msgstr "default_pages"
+
+#: ../intro_advanced_2.rst:117
+msgid "Collections"
+msgstr "Colecciones"
+
+#: ../intro_advanced_2.rst:118
+msgid "Content Rules"
+msgstr "Reglas de Contenido"
+
+#: ../intro_advanced_2.rst:119
+msgid "Versioning"
+msgstr "Versionando"
+
+#: ../intro_advanced_2.rst:120
+msgid "Members, roles and groups"
+msgstr "Miembros, usuarios y grupos"
+
+#: ../intro_advanced_2.rst:121
+msgid "Workflows"
+msgstr "Flujos de trabajos"
+
+#: ../intro_advanced_2.rst:122
+msgid "Working copy"
+msgstr "Copia de trabajo"
+
+#: ../intro_advanced_2.rst:123
+msgid "Placeful workflows"
+msgstr "Flujos de trabajo Placeful"
+
+#: ../intro_advanced_2.rst:127
+msgid "Configuring and Customizing Plone"
+msgstr "Configurando y personalizando Plone"
+
+#: ../intro_advanced_2.rst:129
+msgid "Full chapter: :doc:`configuring_customizing`"
+msgstr "Capítulo completo: :doc:`configuring_customizing`"
+
+#: ../intro_advanced_2.rst:131
+msgid "The Control Panel  http://localhost:8080/Plone/@@overview-controlpanel"
+msgstr ""
+"El panel de control http://localhost:8080/Plone/@@overview-controlpanel"
+
+#: ../intro_advanced_2.rst:132
+msgid "Portlets http://localhost:8080/Plone/@@manage-portlets"
+msgstr "Portlets http://localhost:8080/Plone/@@manage-portlets"
+
+#: ../intro_advanced_2.rst:133
+msgid "Viewlets http://localhost:8080/Plone/@@manage-viewlets"
+msgstr "Viewlets http://localhost:8080/Plone/@@manage-viewlets"
+
+#: ../intro_advanced_2.rst:134
+msgid "ZMI http://localhost:8080/Plone/manage"
+msgstr "ZMI http://localhost:8080/Plone/manage"
+
+#: ../intro_advanced_2.rst:135
+msgid "portal_actions (We added a link to ``string:${portal_url}/imprint``)"
+msgstr ""
+"portal_actions (Nosotros agregamos un enlace a "
+"``string:${portal_url}/imprint``)"
+
+#: ../intro_advanced_2.rst:136
+msgid "portal_skins (we changed some css and changed the logo)"
+msgstr "portal_skins (nosotros cambiamos algún css y cambiamos el logotipo)"
+
+#: ../intro_advanced_2.rst:137
+msgid "portal_view_customizations (we customized the footer)"
+msgstr "portal_view_customizations (nosotros personalizamos el pie de página)"
+
+#: ../intro_advanced_2.rst:141
+msgid "Extending Plone"
+msgstr "Extendiendo Plone"
+
+#: ../intro_advanced_2.rst:143
+msgid "Full chapter: :doc:`extending`"
+msgstr "Capítulo completo: :doc:`extending`"
+
+#: ../intro_advanced_2.rst:145
+msgid "skin_folders"
+msgstr "skin_folders"
+
+#: ../intro_advanced_2.rst:146
+msgid "GenericSetup"
+msgstr "GenericSetup"
+
+#: ../intro_advanced_2.rst:147
+msgid "Component Architecture (zcml)"
+msgstr "Arquitectura de Componente (zcml)"
+
+#: ../intro_advanced_2.rst:150
+msgid "Extend Plone with Add-On Packages"
+msgstr "Extiende Plone con paquetes Complementos"
+
+#: ../intro_advanced_2.rst:152
+msgid "Full chapter: :doc:`addons`"
+msgstr "Capítulo completo: :doc:`addons`"
+
+#: ../intro_advanced_2.rst:154
+msgid "Finding addons"
+msgstr "Buscando complementos"
+
+#: ../intro_advanced_2.rst:155
+msgid "noteable add-ons"
+msgstr "complementos notables"
+
+#: ../intro_advanced_2.rst:156
+msgid "Installing Add-ons"
+msgstr "Instalando complementos"
+
+#: ../intro_advanced_2.rst:159
+msgid "Buildout"
+msgstr "Buildout"
+
+#: ../intro_advanced_2.rst:161
+msgid "Full chapter: :doc:`buildout_1`"
+msgstr "Capítulo completo: :doc:`buildout_1`"
+
+#: ../intro_advanced_2.rst:163
+msgid "We discussed the buildout used for this training"
+msgstr "Se discutió el buildout usado para este entrenamiento"
+
+#: ../intro_advanced_2.rst:165
+msgid ""
+"Since Plone 4.3.4 was released today you could update the buildout to use "
+"this version."
+msgstr ""
+"Desde que se lanzó Plone 4.3.4 hoy se puede actualizar la buildout para usar"
+" esta versión."
+
+#: ../intro_advanced_2.rst:167
+msgid ""
+"Change ``buildout.cfg`` to extend from the ``versions.cfg`` of Plone 4.3.4"
+msgstr ""
+"Change ``buildout.cfg`` to extend from the ``versions.cfg`` of Plone 4.3.4\n"
+"Cambie el archivo ``buildout.cfg`` para extenderlo desde el archivo ``versions.cfg`` de Plone 4.3.4"
+
+#: ../intro_advanced_2.rst:178
+msgid "Creating addons to customize Plone"
+msgstr "Creando complementos para personalizar Plone"
+
+#: ../intro_advanced_2.rst:180
+msgid "Full chapter: :doc:`eggs1`"
+msgstr "Capítulo completo: :doc:`eggs1`"
+
+#: ../intro_advanced_2.rst:182
+msgid "We created a egg using ZopeSkel (not mr.bob)."
+msgstr "Hemos creado un paquete egg usando ZopeSkel (no mr.bob)."
+
+#: ../intro_advanced_2.rst:183
+msgid "The egg is called ``ploneconf.site``"
+msgstr "El paquete egg es llamado ``ploneconf.site``"
+
+#: ../intro_advanced_2.rst:184
+msgid "It will contain most of the code we write"
+msgstr "Ese contendrá la mayor parte del código que escribimos"
+
+#: ../intro_advanced_2.rst:185
+msgid "Does everybody have the code from ``ploneconf.site_sneak`` already?"
+msgstr ""
+"¿Ya todos tienen el código fuente del paquete ``ploneconf.site_sneak``?"

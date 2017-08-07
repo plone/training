@@ -4,22 +4,24 @@
 # International license.
 # This file is distributed under the same license as the Mastering Plone
 # package.
-#
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
+
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
-"PO-Revision-Date: 2014-07-24 15:12+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"PO-Revision-Date: 2017-08-07 08:31-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish Team\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "Generated-By: Babel 2.3.4\n"
 
 #: ../buildout_1.rst:4
@@ -39,18 +41,16 @@ msgid "Topics covered:"
 msgstr ""
 
 #: ../buildout_1.rst:12
-#, fuzzy
 msgid "Buildout"
-msgstr "Buildout - Parte I"
+msgstr "Buildout"
 
 #: ../buildout_1.rst:13 ../buildout_1.rst:48
 msgid "Recipes"
 msgstr "Recetas"
 
 #: ../buildout_1.rst:14
-#, fuzzy
 msgid "Buildout Configuration"
-msgstr "Documentación de Buildout"
+msgstr "Configuración de Buildout"
 
 #: ../buildout_1.rst:15 ../buildout_1.rst:377
 msgid "mr.developer"
@@ -74,13 +74,13 @@ msgid ""
 "eggs, but in the end, Buildout has to install 300 eggs, all with the "
 "correct version in order to resolve all the dependencies."
 msgstr ""
-"Para componer su aplicación es necesario definir los paquetes eggs que "
-"usted necesita, ¿qué versión?, ¿qué archivos de configuración Buildout "
-"tiene que generar para usted?, para descargar y compilar, y así "
-"sucesivamente. Buildout descarga los paquetes eggs requeridos y resuelve "
-"todas las dependencias. Es posible que tenga cinco paquetes eggs "
-"diferentes, pero al final, Buildout tiene que instalar 300 paquetes eggs,"
-" todos con la versión correcta."
+"Para componer su aplicación es necesario definir los paquetes eggs que usted "
+"necesita, ¿qué versión?, ¿qué archivos de configuración Buildout tiene que "
+"generar para usted?, para descargar y compilar, y así sucesivamente. "
+"Buildout descarga los paquetes eggs requeridos y resuelve todas las "
+"dependencias. Es posible que tenga cinco paquetes eggs diferentes, pero al "
+"final, Buildout tiene que instalar 300 paquetes eggs, todos con la versión "
+"correcta."
 
 #: ../buildout_1.rst:24
 msgid ""
@@ -550,7 +550,7 @@ msgstr "http://www.buildout.org/en/latest/docs/index.html"
 
 #: ../buildout_1.rst:367
 msgid "Troubleshooting"
-msgstr "Solución de Problemas"
+msgstr "Solución de problemas"
 
 #: ../buildout_1.rst:367
 msgid "http://docs.plone.org/manage/troubleshooting/buildout.html"
@@ -636,4 +636,3 @@ msgstr "https://pypi.python.org/pypi/mr.developer/"
 #~ "todas sus versiones de paquete egg. "
 #~ "De otro modo Buildout podría instalar"
 #~ " las nuevas versiones."
-

@@ -8,13 +8,12 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-07-13 05:23+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,7 +21,7 @@ msgstr ""
 
 #: ../embed.rst:4
 msgid "Using starzel.votable_behavior in ploneconf.site"
-msgstr ""
+msgstr "Usando starzel.votable_behavior en ploneconf.site"
 
 #: ../embed.rst:6
 msgid "In this part you will:"
@@ -57,20 +56,26 @@ msgstr ""
 #: ../embed.rst:27
 msgid "We want to use the votable behavior, so that our reviewers can vote."
 msgstr ""
+"Queremos usar el comportamiento de votación, para que nuestros usuarios "
+"revisores puedan votar."
 
 #: ../embed.rst:28
 msgid ""
 "To show how to use events, we are going to auto-publish talks that have "
 "reached a certain rating."
 msgstr ""
+"Para mostrar cómo usar los eventos, vamos a publicar automáticamente los "
+"tipos de contenidos talks que han alcanzado una cierta puntuación."
 
 #: ../embed.rst:29
 msgid "We are not going to let everybody vote everything."
-msgstr ""
+msgstr "No vamos a dejar que todos voten todo."
 
 #: ../embed.rst:31
 msgid "First, we must add our package as a dependency to ploneconf.site."
 msgstr ""
+"Primero, debemos agregar nuestro paquete como una dependencia al paquete "
+"``ploneconf.site``."
 
 #: ../embed.rst:35
 msgid ""
@@ -78,12 +83,17 @@ msgid ""
 ":samp:`starzel.votable_behavior` as a dependency. Else no source code "
 "will be available."
 msgstr ""
+"Hacemos esto en dos lugares. La descripción del paquete egg en el archivo "
+":file:`setup.py` necesita :samp:`starzel.votable_behavior` como una "
+"dependencia. De lo contrario ningún código fuente estará disponible."
 
 #: ../embed.rst:38
 msgid ""
 "The persistent configuration needs to be installed when we install our "
 "site. This is configured in GenericSetup."
 msgstr ""
+"La configuración persistente necesita ser instalada cuando instalamos "
+"nuestro sitio. Esto se configura en GenericSetup."
 
 #: ../embed.rst:40
 msgid "We start by editing :file:`setup.py`"
@@ -92,6 +102,7 @@ msgstr ""
 #: ../embed.rst:58
 msgid "Next up we modify :file:`profiles/default/metadata.xml`"
 msgstr ""
+"A continuación modificamos el archivo :file:`profiles/default/metadata.xml`, con el siguiente código XML:"
 
 #: ../embed.rst:73 ../embed.rst:99
 msgid "... only:: not presentation"
@@ -105,6 +116,12 @@ msgid ""
 " over only one package where the profile directory name was different "
 "than the GenericSetup Profile name."
 msgstr ""
+"Qué nombre tan raro. ``profile-`` es un prefijo que siempre necesitarás hoy en "
+"día. Luego viene el nombre del paquete egg, y la parte después de los dos "
+"puntos es el nombre del perfil. El nombre del perfil se define en "
+"configuraciones ZCML. Hasta ahora he tropezado sólo sobre un paquete donde "
+"el nombre del directorio de perfil era diferente al nombre del perfil "
+"GenericSetup."
 
 #: ../embed.rst:77
 msgid ""
@@ -113,18 +130,29 @@ msgid ""
 "the control panel, export the settings and store it in our egg. Let's "
 "just add it by hand now."
 msgstr ""
+"Ahora el paquete está allí, pero nada es votable. Esto se debe a que ningún "
+"tipo de contenido declara utilizar este comportamiento. Podemos añadir este "
+"comportamiento a través del panel de control, exportar la configuración y "
+"almacenarla en nuestro paquete egg. Vamos a añadirlo a mano ahora."
 
 #: ../embed.rst:79
 msgid ""
 "To add the behavior to talks, we do this in "
 ":file:`profiles/default/types/talk.xml`"
 msgstr ""
+"Tenemos que agregar el comportamiento al tipo de contenidos talks, haremos "
+"esto en el archivo :file:`profiles/default/types/talk.xml`."
 
 #: ../embed.rst:83
 msgid ""
 "After changing the ``metadata.xml`` you have to restart your site since "
 "unlike other GenericSetup XML files that file is cached."
 msgstr ""
+"Administrando las dependencias en el archivo ``metadata.xml`` es una buena "
+"práctica. No podemos confiar en recordar lo que tendríamos que hacer a mano. "
+"Por ejemplo, ¿recuerdas que tuvimos que añadir para seleccionar ``Tipos "
+"predeterminados de Plone basados en Dexterity`` al crear un nuevo sitio de "
+"Plone?"
 
 #: ../embed.rst:85
 msgid ""
@@ -135,6 +163,11 @@ msgid ""
 " <http://docs.plone.org/external/plone.app.contenttypes/docs/README.html"
 "#installation-as-a-dependency-from-another-product>`_ recommends."
 msgstr ""
+"En lugar de eso, debemos agregar ``<dependency>profile-"
+"plone.app.contenttypes:plone-content</dependency>`` como la `documentación "
+"de plone.app.contenttypes "
+"<http://docs.plone.org/4/en/external/plone.app.contenttypes/docs/README.html"
+"#installation-as-a-dependency-from-another-product>`_ recomienda."
 
 #: ../embed.rst:87
 msgid ""
@@ -154,6 +187,12 @@ msgid ""
 "configured to do just that. Since Talks already have their own workflow "
 "we also won't interfere with other content."
 msgstr ""
+"Todo el mundo puede votar ahora en los tipos de contenidos ``talks``. Eso no es lo que queríamos. "
+"En realidad, sólo queremos que los revisores voten en las charlas "
+"pendientes. Esto significa que, dependiendo del estado del flujo de trabajo,"
+" el permiso tiene que cambiar. Por suerte, los flujos de trabajo se pueden "
+"configurar para hacer precisamente eso. Los tipos de contenidos ``talks`` ya tienen su propio "
+"flujo de trabajo. Así que no interferiremos con otros paquetes."
 
 #: ../embed.rst:105
 msgid ""
@@ -161,6 +200,9 @@ msgid ""
 "permissions. Next, for each state we have to configure which role has the"
 " two new permissions."
 msgstr ""
+"En primer lugar, tenemos que decirle al flujo de trabajo que gestionará más "
+"permisos. A continuación, tenemos que configurar para cada estado, que el "
+"rol de usuario tiene ahora los dos nuevos permisos."
 
 #: ../embed.rst:107
 msgid ""
@@ -168,16 +210,21 @@ msgid ""
 "interface and export the settings. On the other hand, it is easy to make "
 "a simple mistake in both ways. I will just present the xml way here."
 msgstr ""
+"Esa es una configuración muy detallada, tal vez usted quiere hacerlo en la "
+"interfaz web y exportar la configuración. Por otro lado, es fácil cometer un"
+" simple error en ambos sentidos. Yo acabo de presentar la forma XML aquí."
 
 #: ../embed.rst:109
 msgid ""
 "The config for the Workflow is in "
 ":file:`profiles/default/workfows/talks_workflow.xml`"
 msgstr ""
+"La configuración del flujo de trabajo está en el archivo "
+":file:`profiles/default/workfows/talks_workflow.xml`, con el siguiente código XML:"
 
 #: ../embed.rst:167
 msgid "We have to reinstall our product again."
-msgstr ""
+msgstr "Tenemos que volver a instalar nuestro producto de nuevo."
 
 #: ../embed.rst:169
 msgid ""
@@ -185,28 +232,39 @@ msgid ""
 "changes. As long as a workflow change didn't happen, the talks have the "
 "same permissions as ever."
 msgstr ""
+"Pero esta vez, esto no es suficiente. Los permisos se actualizan en los "
+"cambios de flujo de trabajo. Mientras no ocurra un cambio en el flujo de "
+"trabajo, los tipos de contenidos ``talks`` tienen los mismos permisos que nunca."
 
 #: ../embed.rst:171
 msgid ""
 "Luckily, there is a button for that in the ZMI Workflow view "
 ":guilabel:`Update security settings`."
 msgstr ""
+"Afortunadamente, para eso hay un botón \":guilabel:`Update security settings`\" "
+"en la vista Flujo de trabajo de la ZMI."
 
 #: ../embed.rst:173
 msgid ""
 "After clicking on this, only managers and Reviewers can see the Voting "
 "functionality."
 msgstr ""
+"Después de hacer clic en este, sólo los usuarios Administradores y los "
+"usuarios Revisores pueden ver la funcionalidad de votación."
 
 #: ../embed.rst:175
 msgid "Lastly, we add our silly function to auto-approve talks."
 msgstr ""
+"Por último, añadimos nuestra tonta función para autorizar los tipos de "
+"contenidos ``talks``."
 
 #: ../embed.rst:177
 msgid ""
 "You quickly end up writing many event handlers, so we put everything into"
 " a directory for eventhandlers."
 msgstr ""
+"Rápidamente terminas escribiendo muchos manejadores de eventos, por lo que "
+"ponemos todo en un directorio para los manejadores de eventos."
 
 #: ../embed.rst:179
 msgid "For the events we need an :file:`events` directory."
@@ -217,16 +275,22 @@ msgid ""
 "Create the :file:`events` directory and add an empty "
 ":file:`events/__init__.py` file."
 msgstr ""
+"Crear el directorio :file:`events` y agregar un archivo vació "
+":file:`events/__init__.py`."
 
 #: ../embed.rst:183
 msgid "Next, register the events directory in :file:`configure.zcml`"
 msgstr ""
+"Lo próximo, registramos el directorio :file:`events` en el archivo "
+":file:`configure.zcml`"
 
 #: ../embed.rst:190
 msgid ""
 "Now write the ZCML configuration for the events into "
 ":file:`events/configure.zcml`"
 msgstr ""
+"Entonces, escribimos la configuración ZCML para los eventos dentro del "
+"archivo :file:`events/configure.zcml`, agregando el siguiente código ZCML:"
 
 #: ../embed.rst:209
 msgid ""
@@ -234,10 +298,15 @@ msgid ""
 "object gets modified. Our method will receive the votable object and the "
 "event itself."
 msgstr ""
+"Esto parece un ``MultiAdapter``. Queremos ser notificados cuando un objeto "
+"``IVotable`` se modifica. Nuestro método recibirá el objeto ``votable``, y el evento"
+" en sí."
 
 #: ../embed.rst:211
 msgid "And finally, our event handler in :file:`events/votable.py`"
 msgstr ""
+"Y finalmente, nuestro manipulador del evento en el archivo "
+":file:`events/votable.py`, con el siguiente código:"
 
 #: ../embed.rst:229
 msgid ""
@@ -247,6 +316,12 @@ msgid ""
 "can see, the :samp:`transition` Method does not want the target state, "
 "but the transition to move the state to the target state."
 msgstr ""
+"Estamos usando un montón de sentencias plone api aquí. La Plone API hace el código una "
+"brisa fresca. Además, no hay nada realmente interesante. Sólo haremos algo, "
+"si el estado de flujo de trabajo está pendiente y el voto promedio es "
+"superior a 0,5. Como puede ver, el método :samp:`transition` no quiere el "
+"estado de destino, sino la transición para mover el estado al estado de "
+"destino."
 
 #: ../embed.rst:233
 msgid "There is nothing special going on."

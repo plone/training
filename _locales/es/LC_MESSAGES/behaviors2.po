@@ -1,51 +1,52 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.
 # This file is distributed under the same license as the Mastering Plone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-13 00:40-0430\n"
-"PO-Revision-Date: 2014-07-13 05:22+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-plone-training/language/es/)\n"
+"POT-Creation-Date: 2016-11-11 11:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 89d71dc2a1d04fd3b3b51fcf8d8cd2fb
 #: ../behaviors2.rst:2
 msgid "More complex behaviors"
 msgstr "Más comportamientos complejos"
 
-# 6387f57dc5324c61b7531952f1a13e5b
 #: ../behaviors2.rst:5
 msgid "Using Annotations"
 msgstr "Usando Anotaciones"
 
-# eb7d36e9ca6c4ae28993d93d37965d7e
 #: ../behaviors2.rst:8
 msgid ""
 "We are going to store the information in an annotation. Not because it is "
 "needed but because you will find code that uses annotations and need to "
 "understand the implications."
 msgstr ""
+"Vamos a almacenar la información en una anotación. No porque se necesita, "
+"sino porque se encuentra el código que utiliza anotaciones y la necesidad de"
+" entender las implicaciones."
 
-# 6cdfa51c70cc44ec96ad6b36e2acf057
 #: ../behaviors2.rst:10
 msgid ""
 "`Annotations`_ in Zope/Plone mean that data won't be stored directly on an "
 "object but in an indirect way and with namespaces so that multiple packages "
 "can store information under the same attribute, without colliding."
 msgstr ""
+"`Annotations`_ en Zope / Plone significa que los datos no serán almacenados "
+"directamente en un objeto, sino de una manera indirecta y con multiples "
+"espacios de nombres para que varios paquetes pueden almacenar información "
+"bajo el mismo atributo, sin colisionar."
 
-# 1a3e654de94546c49c7c5b9855ab8a01
 #: ../behaviors2.rst:12
 msgid ""
 "So using annotations avoids namespace conflicts. The cost is an indirection."
@@ -53,13 +54,15 @@ msgid ""
 "could give attributes a name containing a namespace prefix to avoid naming "
 "collisions."
 msgstr ""
+"Así que usando anotaciones evita los conflictos de nombres. El costo es una "
+"indirección. El diccionario es persistente por lo que tiene que ser "
+"almacenado por separado. Además, se podría dar atributos un nombre que "
+"contiene un prefijo de espacio de nombres para evitar colisiones de nombres."
 
-# 655105291ce14f43b5b59c007ed19592
 #: ../behaviors2.rst:22
 msgid "Using Schema"
 msgstr "Usando Esquema"
 
-# 79c0520a6b984e988c81d51f63f14dd8
 #: ../behaviors2.rst:26
 msgid ""
 "The attribute where we store our data will be declared as a schema field. We"
@@ -68,87 +71,99 @@ msgid ""
 "other packages use the schema information to get knowledge of the relevant "
 "fields."
 msgstr ""
+"El atributo donde almacenamos nuestros datos será declarado como un campo de"
+" esquema. Marcamos el campo como un campo omitido, porque no vamos a crear "
+"widgets del paquete ``z3c.form`` para mostrarlos. Nosotros ofrecemos un esquema, porque "
+"muchos otros paquetes utilizan la información de esquema para obtener el "
+"conocimiento de los campos pertinentes."
 
-# 3475c354c72f4d7bb081a0ab9eb6952a
 #: ../behaviors2.rst:28
 msgid ""
 "For example, when files have been migrated to blobs, new objects had to be "
 "created and every schema field was copied. The code can't know about our "
 "field, except if we provide schema information."
 msgstr ""
+"Por ejemplo, cuando los archivos se han migrado a ``blobs``, los nuevos objetos "
+"tuvieron que ser creados y cada campo de esquema fue copiado. El código no "
+"puede saber acerca de nuestro campo, excepto si proporcionamos información "
+"de esquema."
 
-# 75883a5fbdbd4623a9048db8e1d4f049
 #: ../behaviors2.rst:35
 msgid "Writing Code"
 msgstr "Escribiendo código"
 
-# 6e74054944974d96895e0170bb672075
 #: ../behaviors2.rst:37
 msgid ""
 "To start, we create a directory :file:`behavior` with an empty "
 ":file:`behavior/__init__.py` file."
-msgstr "Para iniciar, creamos un directorio :file:`behavior` con un archivo vació :file:`behavior/__init__.py`."
+msgstr ""
+"Para iniciar, creamos un directorio :file:`behavior` con un archivo vació "
+":file:`behavior/__init__.py`."
 
-# 0ad852b0139f4bfd941b6be5138636de
 #: ../behaviors2.rst:39
 msgid "Next we must, as always, register our zcml."
-msgstr "Luego debemos, como siempre, registrar nuestro zcml."
+msgstr "Luego debemos, como siempre, registrar nuestro ZCML."
 
-# 8a5802de718c45cbb30bd170b4fe0d4d
 #: ../behaviors2.rst:41
 msgid ""
 "First, add the information that there will be another zcml file in "
 ":file:`configure.zcml`"
-msgstr "Primero, agrega la información de que existe otro archivo zcml en :file:`configure.zcml`"
+msgstr ""
+"Primero, agrega la información de que existe otro archivo ZCML en "
+":file:`configure.zcml`, con el siguiente código ZCML:"
 
-# 0d454f6971694aed8110073fe964c59d
 #: ../behaviors2.rst:56
 msgid "Next, create :file:`behavior/configure.zcml`"
-msgstr "Luego, crea el archivo :file:`behavior/configure.zcml`"
+msgstr "Luego, cree el archivo :file:`behavior/configure.zcml`, agregando el siguiente código ZCML:"
 
-# f2ca15f8225546e88bebef19a48c3442
 #: ../behaviors2.rst:75
 msgid "There are some important differences to our first behavior:"
 msgstr "Hay algunas diferencias importantes de nuestro primer comportamiento:"
 
-# 16ebe6ecd57a4d5195791d6256bae828
 #: ../behaviors2.rst:77
 msgid "There is a marker interface"
-msgstr "Hay una interfaz marcador"
+msgstr "Hay una interfaz marker."
 
-# 063aad8ac0744b4988754c12d9526583
 #: ../behaviors2.rst:78
 msgid "There is a factory"
-msgstr "Hay una fabrica"
+msgstr "Hay una factory."
 
-# c9726d9483014e5b8a79390868e124f1
 #: ../behaviors2.rst:82
 msgid ""
 "The factory is a class that provides the behavior logic and gives access to "
 "the attributes we provide. Factories in Plone/Zope land are retrieved by "
-"adapting an object with an interface. If I want my behavior, I'd write "
-":samp:`IVoting(object)`"
+"adapting an object with an interface. If you want your behavior, you would "
+"write :samp:`IVoting(object)`"
 msgstr ""
+"La factory es una clase que proporciona la lógica de comportamiento y da "
+"acceso a los atributos que ofrecemos. Las factories en la tierra de Plone / "
+"Zope se recuperan mediante la adaptación de un objeto con una interfaz. Si "
+"usted quiere su comportamiento, usted escribiría :samp:`IVoting(object)`"
 
-# a7dcce5f76934828adaab97f312ae080
 #: ../behaviors2.rst:86
 msgid ""
-"But in order for this to work, my object may *not* be implementing the "
+"But in order for this to work, your object may *not* be implementing the "
 "IVoting interface, because if it would, :samp:`IVoting(object)` would return"
 " the object itself! If I need a marker interface for objects providing my "
 "behavior, I must provide one, for this we use the marker attribute. My "
 "object implements :samp:`IVotable` and because of this, we can write views "
 "and viewlets just for this content type."
 msgstr ""
+"Pero para que esto funcione, el objeto *no* puede estar implementando la "
+"interfaz IVoting, porque si lo haría, ¡ :samp:`IVoting(object)` devolvería "
+"el objeto en sí mismo!. Si yo necesito una interfaz marker de los objetos "
+"proporcionando mi comportamiento, yo debo proporcionar uno, para esto usamos"
+" el atributo marker. Mi objeto implementa :samp:`IVotable` y debido a "
+"esto, podemos escribir ``views`` y ``viewlets`` sólo para este tipo de contenido."
 
-# db224e14f8ec4304b4d266865b9980e7
 #: ../behaviors2.rst:89
 msgid ""
 "The interfaces need to be written, in our cases into a file "
 ":file:`interfaces.py`:"
-msgstr "Las interfaces necesitan ser escritas, en nuestro caso en un archivo :file:`interfaces.py`:"
+msgstr ""
+"Las interfaces necesitan ser escritas, en nuestro caso en un archivo "
+":file:`interfaces.py`, agregando el siguiente código Python:"
 
-# 2527eb1aa09e472aa029c7309982dfc8
 #: ../behaviors2.rst:165
 msgid ""
 "This is a lot of code. The IVotableLayer we will need later for viewlets and"
@@ -156,8 +171,12 @@ msgid ""
 " marker interface. It will only be used to bind browser views and viewlets "
 "to content types that provide our behavior, so no code needed."
 msgstr ""
+"Se trata de una gran cantidad de código. El ``IVotableLayer`` nosotros lo "
+"necesitaremos más tarde para las ``viewlets`` y los ``browser views``. Permite agregar aquí "
+"mismo. La interfaz ``IVotable`` es la interfaz marker simple. Sólo se utiliza "
+"para enlazar los ``browser views`` y ``viewlets`` a tipos de contenido que "
+"proporcionan nuestro comportamiento, por lo que no hay código necesario."
 
-# 5143a931006a40f59db9ae5ec0785f0c
 #: ../behaviors2.rst:168
 msgid ""
 "The IVoting class is more complex, as you can see. While IVoting is just an "
@@ -167,15 +186,22 @@ msgid ""
 "annotate this additional information so that the autoform renderers for "
 "forms can use the additional information."
 msgstr ""
+"La clase ``IVoting`` es más compleja, como se puede ver. Mientras ``IVoting`` es "
+"sólo una interfaz, utilizamos :samp:`plone.supermodel.model.Schema` para las"
+" características avanzadas Dexterity. El paquete ``zope.schema`` no proporciona "
+"medios para ocultar campos. La directivas :samp:`form.omitted` de "
+":samp:`plone.autoform` nos permite a nosotros anotar esta información "
+"adicional para que los auto-formularios renderizados puedan utilizar la "
+"información adicional."
 
-# 156ee307f88c4d81b6446988d55e3c90
 #: ../behaviors2.rst:171
 msgid ""
 "We make this omit conditional. If we run Plone in debug mode, we will be "
 "able to see the internal data in the edit form."
 msgstr ""
+"Hacemos esta omitir condicional. Si ejecutamos Plone en modo de depuración, "
+"seremos capaces de ver los datos internos en el formulario de edición."
 
-# 09477a05018e4746b447d65515ece502
 #: ../behaviors2.rst:173
 msgid ""
 "We create minimal schema fields for our internal data structures. For a "
@@ -187,15 +213,24 @@ msgid ""
 "the behavior, the :samp:`votes` and :samp:`voted` attributes are implemented"
 " in such a way that you can't just modify these fields, they are read only."
 msgstr ""
+"Creamos los campos esquema mínimos para nuestras estructuras de datos "
+"internas. Por una pequeña prueba, yo le quité las directivas omitida de "
+"formulario y abrí la vista de edición de un tipo de contenido ``talks`` que "
+"utiliza el comportamiento. Después de ver la fealdad, yo decidí que debía "
+"proporcionar al menos mínimo de información. Los títulos y requerido son "
+"puramente opcional, pero muy útil si no se omitirán los campos, algo que "
+"puede ser útil al depurar el comportamiento. Más tarde, cuando ponemos en "
+"práctica el comportamiento, los atributos :samp:`votes` y :samp:`voted` se "
+"apliquen de tal manera que no se puede simplemente modificar estos campos, "
+"que son de sólo lectura."
 
-# 5fcffbfad7e641d38c5f1fd5247fa841
 #: ../behaviors2.rst:176
 msgid ""
 "Then we define the API that we are going to use in browser views and "
 "viewlets."
 msgstr ""
+"Luego definimos la API que vamos a usar en los ``browser views`` y las ``viewlets``."
 
-# 718782a336e84df39163667e9d946705
 #: ../behaviors2.rst:178
 msgid ""
 "The last line ensures that the schema fields are known to other packages. "
@@ -205,45 +240,58 @@ msgid ""
 ":samp:`IFormFieldProvider` functionality. Only then we fields are known as "
 "schema fields."
 msgstr ""
+"La última línea se asegura de que los campos esquema sean conocidos por "
+"otros paquetes. Siempre que algún código quiere todos los esquemas de un "
+"objeto, que recibe el esquema definido directamente sobre el objeto y los "
+"esquemas adicional. Los esquemas adicionales se compilan mediante la "
+"búsqueda de comportamientos y si ofrecen  la funcionalidad "
+":samp:`IFormFieldProvider`. Sólo entonces nuestros campos son conocidos como"
+" campos de esquema."
 
-# 3e4be264d0554716b636f71847143fa5
 #: ../behaviors2.rst:180
 msgid ""
 "Now the only thing that is missing is the behavior, which we must put into "
 ":file:`behavior/voting.py`"
-msgstr "Ahora la única cosa que falta es el comportamiento, la cual debemos colocar en :file:`behavior/voting.py`"
+msgstr ""
+"Ahora la única cosa que falta es el comportamiento, la cual debemos colocar "
+"en archivo :file:`behavior/voting.py`, con el siguiente código Python:"
 
-# e971c27df0614b6a985ba2e731340f61
 #: ../behaviors2.rst:215
 msgid ""
 "In our :samp:`__init__` method we get *annotations* from the object. We look"
 " for data with a specific key."
 msgstr ""
+"En nuestro método :samp:`__init__` obtenemos las *anotaciones* del objeto. "
+"Buscamos los datos con una específica clave."
 
-# bd3fd05c4ff44b53b97f75e429a10e91
 #: ../behaviors2.rst:218
 msgid ""
 "The key in this example is the same as what I would get with "
 ":samp:`__name__+Vote.__name__`. But we won't create a dynamic name, this "
 "would be very clever and clever is bad."
 msgstr ""
+"La clave en este ejemplo es el mismo que lo que obtendría con "
+":samp:`__name__+Vote.__name__`. Pero no vamos a crear un nombre dinámico, "
+"esto sería muy inteligente y hábil es malo."
 
-# d003f425396847559de35a115b3b6e6c
 #: ../behaviors2.rst:220
 msgid ""
 "By declaring a static name, we won't run into problems if we restructure the"
 " code."
 msgstr ""
+"Al declarar un nombre estático, no vamos a tener problemas si "
+"reestructuramos el código."
 
-# 2ffd9c17118e48bd8a658e723fe2801e
 #: ../behaviors2.rst:222
 msgid ""
 "You can see, that we initialize the data if it doesn't exist. We work with "
 "PersistentDict and PersistentList. To understand why we do this, it is "
 "important to understand how the ZODB works."
 msgstr ""
+"Usted puede ver, que inicializamos los datos si no existe. Trabajamos con "
+"``PersistentDict`` y ``PersistentList``. Para entender por qué hacemos esto, es "
+"importante entender cómo funciona el ``ZODB``."
 
-# a904b5b8f9e841ad956d05638fa84ebe
 #: ../behaviors2.rst:226
 msgid ""
 "The ZODB can store objects. It has a special root object that you will never"
@@ -251,8 +299,12 @@ msgid ""
 " it is an object sublclassing :samp:`persistent.Persistent` Then it will be "
 "stored independently."
 msgstr ""
+"El ``ZODB`` puede almacenar objetos. Tiene un objeto raíz especial que usted "
+"nunca toca. Cualquier cosa que usted almacena donde, formará parte del "
+"objeto raíz, excepto si se trata de un sublclassing objeto "
+":samp:`persistent.Persistent`. Entonces se almacenará de forma "
+"independiente."
 
-# ad9236386fef4ded81f6d763ee945288
 #: ../behaviors2.rst:228
 msgid ""
 "Zope/ZODB Persistent objects note when you change an attribute on it and "
@@ -261,71 +313,93 @@ msgid ""
 "ran and the Zope Server is preparing to send back the response we generated,"
 " the transaction will be committed and everything we changed will be saved."
 msgstr ""
+"Tenga cuenta que los objetos persistentes Zope/ZODB cuando se cambia un "
+"atributo en él y marcar como cambiado. Los objetos modificados se guardarán "
+"en la base de datos. Esto sucede automáticamente. Cada ``request`` inicia una "
+"transacción y después de nuestro código corrió y el servidor Zope está "
+"preparando para enviar de nuevo la respuesta que nosotros generamos, la "
+"transacción sera enviada y todo lo cambiamos, será salvo."
 
-# 99127738cca94378a6208feb230a7ba1
 #: ../behaviors2.rst:230
 msgid ""
 "Now, if have a normal dictionary on a persistent object, and you will only "
 "change the dictionary, the persistent object has no way to know, if the "
 "dictionary has been changed. This `happens`_ from time to time."
 msgstr ""
+"Ahora, si tienen un diccionario normal sobre un objeto persistente, y usted "
+"sólo va a cambiar el diccionario, el objeto persistente no tiene manera de "
+"saber, si el diccionario se ha cambiado. Esto `sucede`_ de vez en cuando."
 
-# f965ee53970446c89700b979ef44faae
 #: ../behaviors2.rst:232
 msgid ""
 "So one solution is to change the special attribute :samp:`_p_changed` to "
 ":samp:`True` on the persistent object, or to use a PersistentDict. That is "
 "what we are doing here."
 msgstr ""
+"Así que una solución es cambiar el atributo especial :samp:`_p_changed` a "
+":samp:`True` en el objeto persistente, o utilizar un ``PersistentDict``. Eso es"
+" lo que estamos haciendo aquí."
 
-# e76a4924daaa41efb3d268f0fba90a7e
 #: ../behaviors2.rst:234
 msgid ""
 "You can find more information in the documentation of the ZODB, in "
 "particular `Rules for Persistent Classes "
-"<http://www.zodb.org/en/latest/documentation/guide/prog-zodb.html#rules-for-"
+"<http://www.zodb.org/en/latest/articles/old-guide/prog-zodb.html#rules-for-"
 "writing-persistent-classes>`_"
 msgstr ""
+"Puede encontrar más información en la documentación de la ZODB, en "
+"particular, `Reglas para Clases Persistentes "
+"<http://www.zodb.org/en/latest/articles/old-guide/prog-zodb.html#rules-for-"
+"writing-persistent-classes>`_"
 
-# 151c8fe4baad44ac8cbce1d8340c2b9e
 #: ../behaviors2.rst:237
 msgid ""
 "Next we provide the internal fields via properties. Using this form of "
 "property, makes them read only property, as we did not define write "
 "handlers. We don't need them so we won't add them."
 msgstr ""
+"A continuación ofrecemos los campos internos a través de propiedades. El uso"
+" de este formulario de propiedad, hace que lean únicamente la propiedad, ya que no "
+"nos definimos manipuladores de escritura. Nosotros no los necesitamos entonces "
+"para que nosotros no los agregaremos."
 
-# 0c4a479bc84e4c3db9c9cc8ea730e434
 #: ../behaviors2.rst:239
 msgid ""
 "As you have seen in the Schema declaration, if you run your site in debug "
 "mode, you will see an edit field for these fields. But trying to change "
 "these fields will throw an exception."
 msgstr ""
+"Como se ha visto en la declaración del esquema, si ejecuta su sitio en modo "
+"de depuración, verá un campo de edición para estos campos. Pero si tratar de"
+" cambiar estos campos abra una excepción."
 
-# b896c42b88c44d3989cb11473b2e05e6
 #: ../behaviors2.rst:247
 msgid "Lets continue with this file:"
-msgstr "Continuemos con este archivo: "
+msgstr "Continuemos con este archivo:"
 
-# bea22f9752da47be929f6b36984b2550
 #: ../behaviors2.rst:297
 msgid ""
 "We start with a little helper method which is not exposed via the interface."
 " We don't want people to vote twice. There are many ways to ensure this and "
 "each one has flaws."
 msgstr ""
+"Empezamos con un poco del método ``helper`` que no está expuesta a través de la "
+"interfaz. No queremos que la gente vote dos veces. Hay muchas formas para "
+"asegurar esto y cada uno tiene defectos."
 
-# dfdd271615994887824234d04514c36c
 #: ../behaviors2.rst:299
 msgid ""
 "We chose this way to show you how to access information from the request the"
 " browser of the user sent to us. First, we get the ip of the user, then we "
-"access a small bunch of headers from the users browser and generate an md5 "
+"access a small set of headers from the users browser and generate an md5 "
 "checksum of this."
 msgstr ""
+"Elegimos esta manera de mostrar cómo acceder a la información de la ``request`` "
+"del navegador del usuario que nos envió. En primer lugar, tenemos la dirección IP del "
+"usuario, entonces podemos acceder a un pequeño conjunto de encabezados desde"
+" el navegador de los usuarios y generar una suma de comprobación MD5 de "
+"esto."
 
-# 88ce978100824d4ebc13e65b89e3d49d
 #: ../behaviors2.rst:301
 msgid ""
 "The vote method, wants a vote and a request. We check the preconditions, "
@@ -333,8 +407,13 @@ msgid ""
 ":samp:`voted` and the votes into the :samp:`votes` dictionary. We just count"
 " there, how often any vote has been given."
 msgstr ""
+"El método de votación, quiere un voto y una ``request``. Comprobamos las "
+"condiciones previas, a continuación, convertimos el voto a un número entero,"
+" almacenar la ``request`` que tiene :samp:`voted` y los votos en el diccionario "
+":samp:`votes`. Sólo contamos allí, con qué frecuencia se ha dado ninguna "
+"votación."
 
-# e564fdeb8dd94cbab6c05344816af19a
 #: ../behaviors2.rst:303
 msgid "Everything else is just boring python."
-msgstr ""
+msgstr "Todo lo demás es simplemente código Python aburrido."
+

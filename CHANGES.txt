@@ -28,7 +28,7 @@ Changelog
 - Add spanish translation.
   [macagua]
 
-- Add support for translations on https://www.transifex.com/projects/p/mastering-plone-training/
+- Add support for translations on https://www.transifex.com/plone/plone4-training/
   [macagua]
 
 
@@ -36,13 +36,13 @@ Changelog
 ------------------
 
 - Move sources to https://github.com/plone/training and render
-  at http://plone-training.readthedocs.org/
+  at http://plone-training.readthedocs.io/en/legacy/
   [pbauer]
 
 - Integrate with docs.plone.org and papyrus
   [do3cc]
 
-- Change license to http://creativecommons.org/licenses/by/4.0/
+- Change license to https://creativecommons.org/licenses/by/4.0/
   [pbauer]
 
 - Document how to contribute

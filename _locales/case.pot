@@ -80,3 +80,7 @@ msgstr ""
 msgid "Note that all of our requirements connect roles with capabilities. This is important because we'll want to limit the capabilities to those to whom we assign particular roles."
 msgstr ""
 
+#: ../case.rst:24
+msgid "Note that all of our requirements connect roles with capabilities. This is important because we'll want to limit the capabilities to those to whom we assign particular roles."
+msgstr ""
+

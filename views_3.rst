@@ -197,7 +197,7 @@ The same is true for methods::
 Querying the catalog
 --------------------
 
-The are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::
+There are many `catalog indexes <http://docs.plone.org/4/en/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples::
 
     >>> portal_catalog = getToolByName(self.context, 'portal_catalog')
     >>> portal_catalog(Subject=('cats', 'dogs'))
@@ -212,7 +212,7 @@ Calling the catalog without parameters returns the whole site::
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/searching_and_indexing/query.html
+    http://docs.plone.org/4/en/develop/plone/searching_and_indexing/query.html
 
 
 .. _views3-excercises-label:

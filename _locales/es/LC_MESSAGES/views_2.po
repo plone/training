@@ -4,16 +4,15 @@
 # package.
 #
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
 "PO-Revision-Date: 2014-07-12 23:36+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/plone/teams/21152/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -291,7 +290,7 @@ msgstr ""
 
 #: ../views_2.rst:181
 msgid "open ``profiles/default/types/talk.xml``:"
-msgstr "abrir ``profiles/default/types/talk.xml``:"
+msgstr "Abra el archivo ``profiles/default/types/talk.xml``:"
 
 #: ../views_2.rst:195
 #, fuzzy
@@ -313,7 +312,49 @@ msgstr ""
 
 #: ../views_2.rst:201
 msgid "Let's improve the talkview to show all the info we want."
-msgstr "Mejoremos la vista talkview para mostrar toda la información que queremos."
+msgstr ""
+"Mejoremos la vista talkview para mostrar toda la información que queremos."
+
+#: ../views_2.rst:187
+msgid "``templates/talkview.pt``:"
+msgstr "El archivo ``templates/talkview.pt``:"
+
+#: ../views_2.rst:234
+msgid "Exercise"
+msgstr "Ejercicio"
+
+#: ../views_2.rst:236
+msgid ""
+"Add the new field \"room\" to the Talk type (TTW) and display it below "
+"Audience in the browser view, it should contain the following data:"
+msgstr ""
+"Agregar el nuevo campo \"room\" con el tipo de contenido Talk (a través de "
+"la Web) y mostrarlo debajo del campo Audience en la browser view, debe "
+"contener los siguientes datos:"
+
+#: ../views_2.rst:238
+msgid "Title: Room"
+msgstr "Título: Room"
+
+#: ../views_2.rst:239
+msgid "Possible values: Room 101, Room 102, Auditorium"
+msgstr "Posible valores: Room 101, Room 102, Auditorium"
+
+#: ../views_2.rst:241
+msgid "Solution"
+msgstr "Solución"
+
+#: ../views_2.rst:244
+msgid ""
+"Go to http://localhost:8080/Plone/dexterity-types/talk/@@fields and add the "
+"new fields"
+msgstr ""
+"Valla a la dirección URL http://localhost:8080/Plone/dexterity-"
+"types/talk/@@fields y agregue los nuevos campos"
+
+#: ../views_2.rst:245
+msgid "Add the new HTML below the audience part:"
+msgstr "Agregar el nuevo HTML siguiente en la parte de audiencia:"
 
 #: ../views_2.rst:203
 msgid "``templates/talkview.pt``:"

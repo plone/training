@@ -4,46 +4,45 @@
 # International license.
 # This file is distributed under the same license as the Mastering Plone
 # package.
-#
 # Translators:
 # Carlos J Morales G. <carlosm0177@gmail.com>, 2014
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
+
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
-"PO-Revision-Date: 2014-07-24 15:28+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"PO-Revision-Date: 2017-08-07 08:46-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish Team\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "Generated-By: Babel 2.3.4\n"
 
 #: ../dexterity.rst:4
-#, fuzzy
 msgid "Dexterity I: \"Through The Web\""
-msgstr "Dexterity - Parte I: A través de la web"
+msgstr "Dexterity - Parte I: \"A través de la Web\""
 
 #: ../dexterity.rst:6
 msgid "In this part you will:"
 msgstr ""
 
 #: ../dexterity.rst:8
-#, fuzzy
 msgid "Create the new content type *talk*"
-msgstr "Probar el tipo de contenido"
+msgstr "Crear el nuevo tipo de contenido *talk*"
 
 #: ../dexterity.rst:11
 msgid "Topics covered:"
 msgstr ""
 
 #: ../dexterity.rst:13
-#, fuzzy
 msgid "content types"
-msgstr "Probar el tipo de contenido"
+msgstr "tipos de contenido"
 
 #: ../dexterity.rst:14
 msgid "archetypes and dexterity"
@@ -58,7 +57,6 @@ msgid "widgets"
 msgstr ""
 
 #: ../dexterity.rst:22
-#, fuzzy
 msgid "What is a content type?"
 msgstr "¿Qué es un tipo de contenido?"
 
@@ -90,9 +88,8 @@ msgid ""
 msgstr ""
 
 #: ../dexterity.rst:33
-#, fuzzy
 msgid "The makings of a Plone content type"
-msgstr "¿Qué es un tipo de contenido?"
+msgstr "Los elementos de un tipo de contenido Plone"
 
 #: ../dexterity.rst:35
 msgid "Every Plone content type has the following parts:"
@@ -103,7 +100,6 @@ msgid "Schema"
 msgstr "Esquema"
 
 #: ../dexterity.rst:38
-#, fuzzy
 msgid ""
 "A definition of fields that comprise a content type; properties of an "
 "object."
@@ -116,19 +112,16 @@ msgid "FTI"
 msgstr "FTI"
 
 #: ../dexterity.rst:42
-#, fuzzy
 msgid ""
 "The \"Factory Type Information\" configures the content type in Plone, "
 "assigns it a name, an icon, additional features and possible views to it."
 msgstr ""
 "La \"Factory Type Information\" configura el tipo de contenido en Plone, "
-"asigna un nombre, un icono, características adicionales y posibles "
-"vistas."
+"asigna un nombre, un icono, características adicionales y posibles vistas."
 
 #: ../dexterity.rst:46
-#, fuzzy
 msgid "Views"
-msgstr "Vistas:"
+msgstr "Vistas"
 
 #: ../dexterity.rst:45
 msgid ""
@@ -141,24 +134,23 @@ msgstr ""
 
 #: ../dexterity.rst:51
 msgid "Dexterity and Archetypes - A Comparison"
-msgstr "Dexterity y Arquetipos - Una comparacion"
+msgstr "Dexterity y Archetypes - Una comparación"
 
 #: ../dexterity.rst:53
-#, fuzzy
 msgid "There are two content frameworks in Plone"
-msgstr "Dos framworks de contenido en Plone"
+msgstr "Hay dos framworks de contenido en Plone"
 
 #: ../dexterity.rst:55
 msgid "Dexterity: new and the coming default"
-msgstr "Dexterity: nuevo y el que vendra por defecto"
+msgstr "Dexterity: nuevo y el que vendrá por defecto"
 
 #: ../dexterity.rst:56
 msgid "Archetypes: old, tried and tested"
-msgstr "Arquetipos: los tipos de contenidos viejos, intentados y probados"
+msgstr "Archetypes: los tipos de contenidos viejos, intentados y probados"
 
 #: ../dexterity.rst:57
 msgid "Archetypes: widespread though addons"
-msgstr "Arquetipos: extenso sin embargo con complementos"
+msgstr "Archetypes: extenso sin embargo con complementos"
 
 #: ../dexterity.rst:58
 msgid "Plone 4.x: Archetypes is the default, with Dexterity available"
@@ -169,52 +161,48 @@ msgid "Plone 5.x: Dexterity is the default with Archetypes available"
 msgstr ""
 
 #: ../dexterity.rst:60
-#, fuzzy
 msgid "For both, add and edit forms are created automatically from a schema"
-msgstr "formularios de agregar y editar son creados automáticamente de un esquema"
+msgstr ""
+"Por tanto, añadir y editar formularios se crean automáticamente a partir de "
+"un esquema"
 
 #: ../dexterity.rst:62
 msgid "What are the differences?"
 msgstr "¿Cuales son las diferencias?"
 
 #: ../dexterity.rst:64
-#, fuzzy
 msgid "Dexterity: New, faster, modular, no dark magic for getters and setters"
 msgstr ""
-"Dexterity: Nuevo, mas rápido, sin magia negra para getters y setters, "
-"modular"
+"Dexterity: Nuevo, más rápido, modular, sin magia oscura para los métodos "
+"getters y setters"
 
 #: ../dexterity.rst:65
-#, fuzzy
 msgid ""
 "Archetype had magic setter/getter - use ``talk.getAudience()`` for the "
 "field ``audience``"
 msgstr ""
-"Arquetipo tiene métodos setter / getter mágico - usa  talk.getAudience() "
-"para el campo 'audience'"
+"Arquetipo tiene métodos setter/getter mágicos - usa ``talk.getAudience()`` "
+"para el campo ``audience``"
 
 #: ../dexterity.rst:66
-#, fuzzy
 msgid ""
 "Dexterity: fields are attributes: ``talk.audience`` instead of "
 "``talk.getAudience()``"
 msgstr ""
-"Dexterity: los campos son atributos: talk.audience en vez de "
-"talk.getAudience()"
+"Dexterity: los campos son atributos: ``talk.audience`` en vez de "
+"``talk.getAudience()``"
 
 #: ../dexterity.rst:68
 msgid "TTW:"
-msgstr "TTW:"
+msgstr "A través de la Web:"
 
 #: ../dexterity.rst:70
-#, fuzzy
 msgid "Dexterity has a good TTW story."
-msgstr "Dexterity tiene una buena historia A través de la Web."
+msgstr "Dexterity tiene una buena historia a través de la Web."
 
 #: ../dexterity.rst:71
-#, fuzzy
 msgid "Archetypes has no TTW story."
-msgstr "Los arquetipos no tiene historia a través de la Web."
+msgstr "Archetypes no tiene historia a través de la Web."
 
 #: ../dexterity.rst:72
 msgid ""
@@ -228,42 +216,37 @@ msgstr ""
 
 #: ../dexterity.rst:74
 msgid "Approaches for Developers:"
-msgstr "Acercamiento para desarrolladores:"
+msgstr "Enfoques para Desarrolladores:"
 
 #: ../dexterity.rst:76
-#, fuzzy
 msgid ""
 "Schema in Dexterity: TTW, XML, Python. Interface = schema, often no class"
 " needed"
 msgstr ""
-"Esquema en Dexterity: a través de la web, xml, código python. interfaz = "
-"esquema, algunas veces no se necesitan clases"
+"Esquema en Dexterity: A través de la Web, XML, Python. Interface = esquema, "
+"a menudo no hay clase necesaria"
 
 #: ../dexterity.rst:77
-#, fuzzy
 msgid "Schema in Archetypes: Schema only in Python"
-msgstr "Esquema en Arquetipos: Esquema únicamente en código python"
+msgstr "Esquema en Archetypes: Esquemas solamente en Python"
 
 #: ../dexterity.rst:79
-#, fuzzy
 msgid "Dexterity: Easy permissions per field, easy custom forms."
 msgstr ""
-"Dexterity: facilidad de permisos por campo, facilidad de formularios "
-"personalizados"
+"Dexterity: Permisos fácil por cada campo. fácil personalización de "
+"formularios."
 
 #: ../dexterity.rst:80
-#, fuzzy
 msgid "Archetypes: Permissions per field hard, custom forms even harder."
 msgstr ""
-"Arquetipos: Dificultad de permisos por campo, formularios personalizados "
-"aun mas difícil"
+"Archetypes: Permisos por campo duros, los formularios personalizados aún más "
+"difícil."
 
 #: ../dexterity.rst:81
-#, fuzzy
 msgid "If you have to program for old sites you need to know Archetypes!"
 msgstr ""
-"¡Si tienes que programar para sitios viejos necesitas conocer los "
-"Arquetipos!"
+"Si tiene que programar para los sitios antiguos ¡usted necesita saber "
+"Archetypes!"
 
 #: ../dexterity.rst:82
 msgid "If starting fresh, go with Dexterity."
@@ -274,41 +257,38 @@ msgid "Extending:"
 msgstr "Extendiendo:"
 
 #: ../dexterity.rst:86
-#, fuzzy
 msgid ""
 "Dexterity has Behaviors: easily extendable. Just activate a behavior TTW "
 "and your content type is e.g. translatable (plone.app.multilingual)."
 msgstr ""
-"Destreza tiene Comportamientos: fácilmente ampliable. Basta con activar "
-"un comportamiento a través de la Web y su tipo de contenido es traducible"
-" (con el producto plone.app.multilingual). Incluso podría haber "
-"comportamientos por ejemplo en una vez..."
+"Dexterity tiene Comportamientos: fácilmente ampliable. Basta con activar un "
+"comportamiento a través de la Web y su tipo de contenido es, por ejemplo "
+"traducible (con el comportamiento del paquete plone.app.multilingual)."
 
 #: ../dexterity.rst:87
-#, fuzzy
 msgid "Archetypes has archetypes.schemaextender. Powerful but not as flexible."
-msgstr "Arquetipos tiene archetypes.schemaextender. Poderoso pero no tan flexible"
+msgstr ""
+"Archetypes tiene el producto archetypes.schemaextender. Potente pero no tan "
+"flexible."
 
 #: ../dexterity.rst:89
-#, fuzzy
 msgid ""
 "We have only used Dexterity for the last few years. We teach Dexterity "
 "and not Archetypes because it's more accessible to beginners, has a great"
 " TTW story and is the future."
 msgstr ""
-"Usaremos solo Dexterity por los siguientes años. Enseñaremos Dexterity y "
-"no Arquetipos ya que es mucho mas accesible a los principiantes, tiene "
-"una gran A través de Web y es el futuro."
+"Sólo hemos utilizado Dexterity en los últimos años. Enseñamos Dexterity y no "
+"Archetypes porque es más accesible a los principiantes, tiene una gran "
+"historia a través de la Web y es el futuro."
 
 #: ../dexterity.rst:92
 msgid "Views:"
 msgstr "Vistas:"
 
 #: ../dexterity.rst:94
-#, fuzzy
 msgid "Both Dexterity and Archetypes have a default view for content types."
 msgstr ""
-"Ambos Dexterity y Arquetipos tienen una vista por defecto para tipos de "
+"Tanto Dexterity y Archetypes tienen una vista predeterminada de tipos de "
 "contenido."
 
 #: ../dexterity.rst:95
@@ -350,15 +330,13 @@ msgstr ""
 "nuevo campo."
 
 #: ../dexterity.rst:125
-#, fuzzy
 msgid ""
 "Go back to the schema-editor and click on `Edit XML Field Model "
 "<http://localhost:8080/Plone/dexterity-"
 "types/News%20Item/@@modeleditor>`_."
 msgstr ""
-"Volver al editor de esquema y haga clic en `Editar modelo de campo XML "
-"<http://localhost:8080/Plone/dexterity-"
-"types/News%20Item/@@modeleditor>`_."
+"Valla al editor de esquema y haga clic en `Editar el modelo de campo XML "
+"<http://localhost:8080/Plone/dexterity-types/News%20Item/@@modeleditor>`_."
 
 #: ../dexterity.rst:126
 msgid ""
@@ -369,18 +347,16 @@ msgstr ""
 "de agregar. Todos los demás son proporcionados por los comportamientos."
 
 #: ../dexterity.rst:127
-#, fuzzy
 msgid "Edit the form-widget-type so it says:"
-msgstr "Edite el de tipo widget del formulario de manera que diga"
+msgstr "Edite el tipo widget del formulario de manera que diga:"
 
 #: ../dexterity.rst:133
-#, fuzzy
 msgid ""
 "Edit the News Item again. The widget changed from a radio field to a "
 "checkbox."
 msgstr ""
-"Edite el elemento Noticia de nuevo. El cambio widget a partir de un campo"
-" de radio a una casilla de verificación."
+"Edite de nuevo el elemento de Noticia. El widget de cambiado de un campo de "
+"radio a una casilla de verificación."
 
 #: ../dexterity.rst:134
 msgid ""
@@ -391,14 +367,14 @@ msgstr ""
 " la Noticia. Nosotros nos ocuparemos de esto más adelante."
 
 #: ../dexterity.rst:139
-#, fuzzy
 msgid ""
 "http://docs.plone.org/external/plone.app.contenttypes/docs/README.html"
 "#extending-the-types"
-msgstr "https://github.com/plone/plone.app.contenttypes#extending-the-types"
+msgstr ""
+"http://docs.plone.org/external/plone.app.contenttypes/docs/README.html"
+"#extending-the-types"
 
 #: ../dexterity.rst:144
-#, fuzzy
 msgid "Creating content types TTW"
 msgstr "Creando tipos de contenidos a través de la Web"
 
@@ -412,7 +388,9 @@ msgstr ""
 
 #: ../dexterity.rst:148
 msgid "Add new content type \"Talk\" and some fields for it:"
-msgstr "Agregar un nuevo tipo \"Talk\" y algunos campos para el:"
+msgstr ""
+"Agregar un nuevo tipo de contenido llamado \"Talk\" y algunos campos para "
+"el:"
 
 #: ../dexterity.rst:150
 msgid ""
@@ -437,18 +415,16 @@ msgstr ""
 "opciones: beginner, advanced, pro"
 
 #: ../dexterity.rst:153
-#, fuzzy
 msgid ""
 "Check the behaviors that are enabled:  Dublin Core metadata, Name from "
 "title. Do we need them all?"
 msgstr ""
-"Marque los comportamientos que están habilitados: Metadatos básicos, "
-"Nombre desde el título, Referenceable"
+"Marque los comportamientos que están habilitados: Metadatos Dublin Core, "
+"Nombre a partir del título. ¿Tenemos todos necesitamos?"
 
 #: ../dexterity.rst:155
-#, fuzzy
 msgid "Test the content type"
-msgstr "Probar el tipo de contenido"
+msgstr "Pruebe el tipo de contenido"
 
 #: ../dexterity.rst:156
 msgid "Return to the control panel http://localhost:8080/Plone/@@dexterity-types"
@@ -459,24 +435,20 @@ msgid "Extend the new type"
 msgstr "Extiende el nuevo tipo"
 
 #: ../dexterity.rst:159
-#, fuzzy
 msgid "\"Speaker\", type: \"Text line\""
-msgstr "\"Speaker\", de Tipo: \"Text line\""
+msgstr "\"Speaker\", tipo: \"Línea de texto (cadena de caracteres)\""
 
 #: ../dexterity.rst:160
-#, fuzzy
 msgid "\"Email\", type: \"Text line\""
-msgstr "\"Email\", de Tipo: \"Text line\""
+msgstr "\"Email\", tipo: \"Línea de texto (cadena de caracteres)\""
 
 #: ../dexterity.rst:161
-#, fuzzy
 msgid "\"Image\", type: \"Image\", not required"
-msgstr "\"Image\", de Tipo: \"Image\", no es requiredo"
+msgstr "\"Image\", tipo: \"Image\", no requerido"
 
 #: ../dexterity.rst:162
-#, fuzzy
 msgid "\"Speaker Biography\", type: \"Rich Text\""
-msgstr "\"Speaker Biography\", de Tipo: \"Rich Text\""
+msgstr "\"Speaker Biography\", tipo: \"Rich Text\""
 
 #: ../dexterity.rst:164
 msgid "Test again"
@@ -484,12 +456,12 @@ msgstr "Probar otra vez"
 
 #: ../dexterity.rst:166
 msgid "Here is the complete xml-schema created by our actions."
-msgstr "Aquí está el código completo de esquema XML creado por nuestras acciones."
+msgstr ""
+"Aquí está el código completo de esquema XML creado por nuestras acciones."
 
 #: ../dexterity.rst:224
-#, fuzzy
 msgid "Moving content types into code"
-msgstr "Mover tipos de contenido a código fuente"
+msgstr "Moviendo el tipo de contenido dentro del código fuente"
 
 #: ../dexterity.rst:226
 msgid ""
@@ -520,14 +492,14 @@ msgstr ""
 "<http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_"
 
 #: ../dexterity.rst:235
-#, fuzzy
 msgid ""
 "`The standard behaviors "
 "<http://docs.plone.org/external/plone.app.dexterity/docs/reference"
 "/standard-behaviours.html>`_"
 msgstr ""
-"`Dexterity Developer Manual "
-"<http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_"
+"`The standard behaviors "
+"<http://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-"
+"behaviours.html>`_"
 
 #: ../dexterity.rst:241
 msgid "Exercises"
@@ -544,16 +516,16 @@ msgid ""
 msgstr ""
 
 #: ../dexterity.rst:248 ../dexterity.rst:277
-#, fuzzy
 msgid "Solution"
-msgstr "Instalación"
+msgstr "Solución"
 
 #: ../dexterity.rst:251
-#, fuzzy
 msgid ""
 "Go to the dexterity-controlpanel (http://localhost:8080/Plone"
 "/@@dexterity-types)"
-msgstr "Ir a panel de control http://localhost:8080/Plone/@@dexterity-types"
+msgstr ""
+"Valla al panel de control Tipos de contenido Dexterity "
+"(http://localhost:8080/Plone/@@dexterity-types)"
 
 #: ../dexterity.rst:252
 msgid "Click on *Page* (http://127.0.0.1:8080/Plone/dexterity-types/Document)"
@@ -632,24 +604,23 @@ msgid "The schema should look like this:"
 msgstr ""
 
 #: ../dexterity.rst:324
-#, fuzzy
 msgid ""
 "`Dexterity XML "
 "<http://docs.plone.org/external/plone.app.dexterity/docs/reference"
 "/dexterity-xml.html>`_"
 msgstr ""
-"`Dexterity Developer Manual "
-"<http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_"
+"`Dexterity XML "
+"<http://docs.plone.org/external/plone.app.dexterity/docs/reference"
+"/dexterity-xml.html>`_"
 
 #: ../dexterity.rst:325
-#, fuzzy
 msgid ""
 "`Model-driven types "
 "<http://docs.plone.org/external/plone.app.dexterity/docs/model-driven-"
 "types.html#model-driven-types>`_"
 msgstr ""
-"`Dexterity Developer Manual "
-"<http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_"
+"`Model-driven types <http://docs.plone.org/external/plone.app.dexterity/docs"
+"/model-driven-types.html#model-driven-types>`_"
 
 # 765de3e7ab014b92b6e0a301fc7c3040
 #~ msgid "Get the code!"
@@ -884,4 +855,3 @@ msgstr ""
 #~ " mejorar la vista predeterminada. Para "
 #~ "hacer esto, primero tenemos que aprender"
 #~ " sobre las plantillas."
-

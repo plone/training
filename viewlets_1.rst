@@ -68,7 +68,7 @@ We register the viewlet in :file:`browser/configure.zcml`.
 
 The viewlet class ``SocialViewlet`` is expected in a file ``browser/viewlets.py``.
 
-.. _BrowserLayer: http://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
+.. _BrowserLayer: http://docs.plone.org/4/en/develop/plone/views/layers.html?highlight=browserlayer#introduction
 
 .. code-block:: python
     :linenos:

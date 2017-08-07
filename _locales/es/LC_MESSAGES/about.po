@@ -4,26 +4,28 @@
 # International license.
 # This file is distributed under the same license as the Mastering Plone
 # package.
-#
 # Translators:
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2014, 2016, 2017
+
 msgid ""
 msgstr ""
-"Project-Id-Version: Mastering Plone Training\n"
+"Project-Id-Version: Mastering Plone 1.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-05 04:39-0400\n"
-"PO-Revision-Date: 2014-07-13 14:17+0000\n"
-"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/mastering-"
-"plone-training/language/es/)\n"
+"PO-Revision-Date: 2017-08-07 08:15-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2017\n"
+"Language-Team: Spanish Team\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "Generated-By: Babel 2.3.4\n"
 
 #: ../about.rst:4
 msgid "About Mastering Plone"
-msgstr "Sobre Mastering Plone"
+msgstr "Sobre \"Maestría en Plone\""
 
 #: ../about.rst:6
 msgid ""
@@ -36,14 +38,12 @@ msgid ""
 msgstr ""
 
 #: ../about.rst:8
-#, fuzzy
 msgid ""
 "If you want to inquire the original authors about organizing a training "
 "please contact them at team@starzel.de."
 msgstr ""
-"Si desea ponerse en contacto con los autores originales para un "
-"entrenamiento puede llegar a ellos en por medio del correo "
-"team@starzel.de."
+"Si desea ponerse en contacto con los autores originales para organizar un "
+"entrenamiento, por favor, contactar por medio del correo team@starzel.de."
 
 #: ../about.rst:14
 msgid "Upcoming Trainings"
@@ -209,43 +209,39 @@ msgid "default"
 msgstr "por defecto"
 
 #: ../about.rst:69
-#, fuzzy
 msgid ""
 "The verbose version used for the online documentation and for the "
 "trainer. Build it in sphinx with ``make html`` or use the online version."
 msgstr ""
 "La versión detallada utilizada para la documentación en línea y para el "
-"instructor. Para construirlo con Sphinx, ejecute el el comando ``make "
-"html`` o use la versión en línea."
+"instructor. Para construirlo con Sphinx, ejecute el comando ``make html`` o "
+"use la versión en línea."
 
 #: ../about.rst:72
 msgid "presentation"
 msgstr "presentation"
 
 #: ../about.rst:72
-#, fuzzy
 msgid ""
 "A abbreviated version used for the projector during a training. It should"
 " use more bullet points than verbose text. Build it in sphinx with ``make"
 " presentation``."
 msgstr ""
-"Una versión abreviada utilizada para el proyector durante un "
-"entrenamiento. Ese debe usar más lista de viñetas que texto detallado. "
-"Para construirlo con Sphinx, ejecute el el comando ``make presentation``."
+"Una versión abreviada utilizada para el proyector durante un entrenamiento. "
+"Ese debe usar más lista de viñetas que texto detallado. Para construirlo con "
+"Sphinx, ejecute el comando ``make presentation``."
 
 #: ../about.rst:76
-#, fuzzy
 msgid ""
 "By prefixing an indented block of text or code with ``.. only:: "
 "presentation`` you can control that this block is used for the "
 "presentation version only."
 msgstr ""
 "Anteponiendo un bloque con sangría de texto o código con ``.. only:: "
-"presentation`` usted puede controlar cuál de sus bloque es usado "
-"solamente en la versión presentation."
+"presentation`` usted puede controlar cuál de sus bloque es usado solamente "
+"en la versión presentation."
 
 #: ../about.rst:78
-#, fuzzy
 msgid ""
 "To hide a block from the presentation version use ``.. only:: not "
 "presentation``"
@@ -262,7 +258,6 @@ msgid "The readthedocs theme"
 msgstr ""
 
 #: ../about.rst:86
-#, fuzzy
 msgid ""
 "We slightly tweaked readthedocs theme in ``_static/custom.css`` so that "
 "it works better with projectors:"
@@ -321,9 +316,8 @@ msgid "To save the world with only seconds to spare do the following:"
 msgstr ""
 
 #: ../about.rst:135
-#, fuzzy
 msgid "Building the documentation locally"
-msgstr "Usando la documentación para un entrenamiento"
+msgstr "Usando la documentación localmente"
 
 #: ../about.rst:137
 msgid "To build the documentation follow these steps:"
@@ -375,7 +369,6 @@ msgid "Contributing"
 msgstr "Contribuyendo"
 
 #: ../about.rst:198
-#, fuzzy
 msgid ""
 "Everyone is **very welcome** to contribute. Minor bugfixes can be pushed "
 "direcly in the `repository <https://github.com/plone/training>`_, bigger "
@@ -383,10 +376,10 @@ msgid ""
 "<https://github.com/plone/training/pull/>`_ and discussed previously in "
 "tickets."
 msgstr ""
-"Todos están invitados a contribuir. Correcciones de errores menores "
-"pueden ser empujados directamente en el `repositorio "
-"<https://github.com/plone/training>`_, los cambios más grandes deben "
-"haber como `pull requests <https://github.com/plone/training/pull/>`_."
+"Todos están invitados a contribuir. Correcciones de errores menores pueden "
+"ser enviados directamente pormedio de un `git push` en el `repositorio "
+"<https://github.com/plone/training>`_, los cambios más grandes deben haber "
+"como `pull requests <https://github.com/plone/training/pull/>`_."
 
 #: ../about.rst:204
 msgid "License"
@@ -411,7 +404,6 @@ msgstr ""
 "<http://plone.org/foundation/contributors-agreement>`_."
 
 #: ../about.rst:210
-#, fuzzy
 msgid ""
 "If you haven't filled out a Contributor Agreement, you can still "
 "contribute. Contact the Documentation team, for instance via the "
@@ -422,16 +414,15 @@ msgid ""
 " with your pull request \"I, <full name>, agree to have this published "
 "under Creative Commons 4.0 International BY\"."
 msgstr ""
-"Si usted no ha completado un Acuerdo de colaborador, todavía puede "
-"aportar. Póngase en contacto con el equipo de documentación, por ejemplo "
-"a través de la `lista de correo <http://sourceforge.net/p/plone/mailman"
-"/plone-docs/>`_ o directamente enviar un correo a plone-"
-"docs@lists.sourceforge.net. Básicamente, todo lo que necesitamos es la "
-"confirmación por escrito de que usted está de acuerdo que su contribución"
-" puede ser bajo licencia Creative Commons. También puede agregar en un "
-"comentario con tu solicitud de extracción \"Yo, <nombre completo>, estoy "
-"acuerdo en que esta publicado bajo licencia Creative Commons 4.0 "
-"International BY\"."
+"Si usted no ha completado un Acuerdo de colaborador, todavía puede aportar. "
+"Póngase en contacto con el equipo de documentación, por ejemplo a través de "
+"la `lista de correo <http://sourceforge.net/p/plone/mailman/plone-docs/>`_ o "
+"directamente enviar un correo a plone-docs@lists.sourceforge.net. "
+"Básicamente, todo lo que necesitamos es la confirmación por escrito de que "
+"usted está de acuerdo que su contribución puede ser bajo licencia Creative "
+"Commons. También puede agregar en un comentario con tu solicitud de "
+"extracción \"Yo, <nombre completo>, estoy acuerdo en que esta publicado bajo "
+"licencia Creative Commons 4.0 International BY\"."
 
 # cbe06f3646cc4578a73dd3633c5e86a7
 #~ msgid "History"
@@ -493,4 +484,3 @@ msgstr ""
 #~ "sangría se mostrará. El contenido sin"
 #~ " prefijo se incluirá en ambas "
 #~ "versiones."
-

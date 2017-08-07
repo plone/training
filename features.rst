@@ -144,7 +144,7 @@ Users
     #. Add another user "reviewer" (groups: Reviewers)
     #. Add another user "jurymember" (groups: None)
 
-    Logout as admin by klicking 'Logout' and following the instructions.
+    Logout as admin by clicking 'Logout' and following the instructions.
 
     Login to the site with your user now.
 
@@ -293,7 +293,7 @@ A complete set of workflow states and transitions make up a ``workflow``. Plone 
 
     An oddity in the all of the standard Plone workflows: a content item may be viewable even if its container is not. Making a container private does **not** automatically make its contents private.
 
-Read more at: http://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
+Read more at: http://docs.plone.org/4/en/working-with-content/collaboration-and-workflow/index.html
 
 .. _features-wc-label:
 

@@ -11,16 +11,17 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys, os
+# on_rtd is whether we are on readthedocs.org, this line of code grabbed from docs.readthedocs.org
+
+import os
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
-if not on_rtd:
+if not on_rtd:  # only import and set the theme if we're building docs locally
     import sphinx_rtd_theme
-    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
     html_theme = 'sphinx_rtd_theme'
-else:
-    html_theme = 'default'
+    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
+# otherwise, readthedocs.org uses their theme by default, so no need to specify it
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -39,6 +40,20 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
 ]
+
+
+# Options for the linkcheck builder
+# Ignore localhost
+linkcheck_ignore = [
+    r'http://localhost:\d+/',
+    r'http://localhost:8080\d+/',
+    r'http://localhost:8080',
+    r'http://127.0.0.1:8080',
+    r'http://wiki.apache.org',
+]
+linkcheck_anchors = False
+linkcheck_timeout = 30.0
+
 
 # See http://sphinx-doc.org/ext/todo.html#confval-todo_include_todos
 todo_include_todos = True
@@ -138,6 +153,7 @@ pygments_style = 'sphinx'
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #html_favicon = None
+html_favicon = '_static/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -311,5 +327,5 @@ epub_copyright = u'2014, Philip Bauer, Patrick Gerken'
 #epub_tocdup = True
 
 intersphinx_mapping = {
-    'plone': ('http://docs.plone.org/', None),
+    'plone': ('http://docs.plone.org/4/en/', None),
 }

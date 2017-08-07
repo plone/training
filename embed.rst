@@ -70,7 +70,7 @@ Next up we modify :file:`profiles/default/metadata.xml`
         </dependencies>
     </metadata>
 
-... only:: not presentation
+.. only:: not presentation
 
     What a weird name. profile- is a prefix you will always need nowadays. Then comes the egg name, and the part after the colon is the name of the profile. The name of the profile is defined in zcml. So far I've stumbled over only one package where the profile directory name was different than the GenericSetup Profile name.
 
@@ -96,7 +96,7 @@ To add the behavior to talks, we do this in :file:`profiles/default/types/talk.x
       <element value="starzel.votable_behavior.interfaces.IVoting"/>
     </property>
 
-... only:: not presentation
+.. only:: not presentation
 
     Now you can reinstall your Plone site.
 

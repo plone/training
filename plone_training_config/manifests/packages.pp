@@ -61,17 +61,11 @@ class packages {
       ensure => present,
   }
   # Optional packages to enable indexing of office/pdf docs
-  # package { "wv":
-  #   ensure => present,
-  # }
-  # package { "poppler-utils":
-  #   ensure => present,
-  # }
+  # package { "wv":                ensure => present, }
+  # package { "poppler-utils":     ensure => present, }
 
   # used for creating a PuTTy-compatible key file
-  package { "putty-tools":
-    ensure => present,
-  }
+  package { "putty-tools":       ensure => present, }
 
 }
 
