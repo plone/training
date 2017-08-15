@@ -5,7 +5,7 @@ The Plone Playbook
 Supported Platforms
 ===================
 
-We currently support two Linux families: Debian and RHEL.
+We support two Linux families: Debian and RHEL.
 *Support* means that the playbook knows how to load platform package dependencies and how to set up users, groups, and the platform's method for setting up daemons to start and stop with the operating system.
 
 .. note::
@@ -28,7 +28,7 @@ RHEL
 Quick review of contents
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's quickly review what you're getting when you check out the Plone Ansible Playbook.
+Let's review what you're getting when you check out the Plone Ansible Playbook.
 
 Playbooks
 `````````
@@ -52,18 +52,18 @@ Several roles are part of the Plone Ansible Playbook kit and will be present in 
 These include roles that set up the haproxy load balancer, varnish cache, nginx http server, postfix SMTP agent, munin-node monitoring, logwatch log analysis, message-of-the-day and a fancy setup for restarting ZEO clients.
 
 Other roles, including the role that actually sets up Plone, are loaded when you use ``ansible-galaxy`` to fetch the items listed in :file:`requirements.yml`.
-Except for the Plone server role, these are generally very generic Ansible Galaxy roles that we liked.
+Except for the Plone server role, these are generally generic Ansible Galaxy roles that we liked.
 
 Vagrant
 ```````
 
-Vagrant/Virtualbox is a very handy way to test your playbook, both during development and for future maintenance.
+Vagrant/Virtualbox is a handy way to test your playbook, both during development and for future maintenance.
 We include a couple of files to help you get started with Vagrant testing.
 
 Vagrantfile
 
     A Vagrant setup file that will allow you to create guest virtual hosts for any of the platforms we support and will run Ansible as the provisioner with playbook.yml.
-    This currently defaults to building a Trusty box, but you may pick others by naming them on the :command:`vagrant up` command line.
+    This defaults to building a Trusty box, but you may pick others by naming them on the :command:`vagrant up` command line.
 
 vbox_host.cfg
 
@@ -78,7 +78,7 @@ The playbook kit contains several sample configuration files.
 sample-very-small.yml
 
     Targets a server with 512MB of memory and one CPU core.
-    Sets up one ZEO client with two threads with very small object caches.
+    Sets up one ZEO client with two threads with small object caches.
     No load balancer.
     Varnish cache is file-based.
 
@@ -101,8 +101,8 @@ sample-multiserver.yml
     A configuration that demonstrates how to run multiple Zope/Plone installs with different versions and virtual hosting.
 
 The first four samples are meant to be immediately useful.
-Just copy and customize.
-The multiserver sample is just a demonstration of several customization techniques.
+Copy and customize.
+The multiserver sample is a demonstration of several customization techniques.
 Read it for examples, but don't expect to use it without substantial customization.
 
 Why no ``sample-large.yml``?

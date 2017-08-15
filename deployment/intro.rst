@@ -36,7 +36,7 @@ Linux
 
     BSD is great.
     macOS is familiar.
-    Windows works just fine.
+    Windows works fine, too.
     But our experience and the majority experience in the Plone community is with Linux for production servers.
     That doesn't mean you have to use Linux for your laptop or desktop; anything that runs Python is likely fine.
 

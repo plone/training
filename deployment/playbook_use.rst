@@ -48,7 +48,7 @@ If you've installed Vagrant/Virtualbox, you're ready to test.
 Since Vagrant manages the connection, you don't need to create a inventory file entry.
 
 There is a Vagrant setup file, :file:`Vagrantfile`, included with the playbook,
-you may just open a command-line prompt, make sure your Ansible virtualenv is activated, and type:
+you may open a command-line prompt, make sure your Ansible virtualenv is activated, and type:
 
 .. code-block:: shell-session
 
@@ -80,7 +80,7 @@ If you change your Ansible configuration, you'll need to use:
     Note that failures for particular plays do not mean that Ansible provisioning failed.
     The playbook has some tests that fail if particular system features are unavailable.
     Those test failures are ignored and the provisioning continues.
-    The provisioning has only failed if an error causes it to stop.
+    The provisioning has failed if an error causes it to stop.
 
 An example of an ignored failure::
 
@@ -101,10 +101,10 @@ On the host machine, that's mapped by ssh tunnel to 2080.
 We may see the haproxy monitor at ``http://localhost:2080/admin``.
 
 The guest's http port (80) is reached via the host machine's port 1080 --
-but that isn't actually very useful due to URL rewriting for virtual hosting.
+but that isn't actually useful due to URL rewriting for virtual hosting.
 
 If you take a look at ``http://localhost:1080`` from your host machine, you'll see the default Plone site,
-but stylesheets, javascript and images will all be missing.
+but stylesheets, JavaScript and images will all be missing.
 
 Instead, look at the load-balancer port (8080 on the guest, 9080 on the host) to see your ZODB root.
 
@@ -283,7 +283,7 @@ If you want to target a particular host in your inventory, add ``--limit=hostnam
     As with Vagrant, check the last message to make sure it completes successfully.
     When first provisioning a server, timeout errors are more likely.
 
-    If you have a timeout, just run the playbook again.
+    If you have a timeout, run the playbook again.
     Note that failures for particular plays do not mean that Ansible provisioning failed.
 
 Firewalling
@@ -294,13 +294,13 @@ That's handled via a separate playbook, included with the kit.
 
 We've separated the functions because many sysadmins will wish to handle firewalling themselves.
 
-If you wish to use our firewall playbook, just use the command:
+If you wish to use our firewall playbook, use the command:
 
 .. code-block:: shell-session
 
     ansible-playbook firewall.yml
 
-:file:`firewall.yml` is just a dispatcher.
+:file:`firewall.yml` is a dispatcher.
 Actual firewall code is in the :file:`firewalls` subdirectory and is platform-specific.
 ``ufw`` is used for the Debian-family; ``firewalld``
 

@@ -7,13 +7,13 @@ written in Python and using `YAML <http://www.yaml.org/start.html/>`_ (YAML Ain'
 
 Ansible makes its connections from your computer to the target machine using SSH.
 
-There is no server-side component other than an SSH server.
-General familiarity with SSH is very desirable if you're using Ansible -- as well as being a baseline skill for server administration.
+The one server site requirement is an SSH server.
+General familiarity with SSH is desirable if you're using Ansible -- as well as being a baseline skill for server administration.
 
 Installation
 ============
 
-Ansible is usually installed on the orchestrating computer -- typically your desktop or laptop.
+Ansible is installed on the orchestrating computer -- typically your desktop or laptop.
 It is a large Python application (though a fraction the size of Plone!) that needs many specific Python packages from the Python Package Index (PyPI).
 
 That makes Ansible a strong candidate for a Python :program:`virtualenv` installation
@@ -71,7 +71,7 @@ Or,
 That gives you the Plone Ansible Playbook.
 You'll also need to install a few Ansible roles.
 Roles are Ansible playbooks packaged for distribution.
-Fortunately, you may pick up everything with a single command.
+You may pick up everything with a single command.
 
 .. code-block:: shell-session
 
@@ -84,7 +84,7 @@ If you forget that command, it's in the short README.rst file in the playbook.
 
     The rationale for checking the Plone Ansible Playbook out inside the virtualenv directory is that it ties the two together.
     Months from now, you'll know that you can use the playbook with the Python and Ansible packages in the virtualenv directory.
-    
+
     We check out the playbook as a subdirectory of the virtualenv directory so that we can search our playbooks and roles
     without having to search the whole virtualenv set of packages.
 
@@ -98,7 +98,7 @@ To use Ansible to provision a remote server, we have two requirements:
 
 1. We must be able to connect to the remote machine using :command:`ssh`; and,
 
-2. We must be able to issue commands on the remote server as ``root`` (superuser), usually via :command:`sudo`.
+2. We must be able to issue commands on the remote server as root (superuser) via :command:`sudo`.
 
 You'll need to familiarize yourself with how to fulfill these requirements on the cloud/virtual environment of your choice.
 Examples:
@@ -136,7 +136,7 @@ Test that knowledge by trying an ssh login and issuing a superuser command.
 Inventories
 -----------
 
-Ansible is usually run on a local computer, and it usually acts on one or more remote machines.
+Ansible runs on a local computer, and it acts on one or more remote machines.
 We tell Ansible how to connect to remote machines by maintaining a text inventory file.
 
 There is a sample inventory configuration file in your distribution.
@@ -151,7 +151,7 @@ It's meant for use with a Vagrant-style virtualbox.
     myhost ansible_port=2222 ansible_host=127.0.0.1 ansible_user=vagrant ansible_private_key_file=~/.vagrant.d/insecure_private_key
 
 This inventory file is complicated by the fact that a virtualbox typically has no DNS host name and uses a non-standard port and a special SSH key file.
-So, we have to specify all those things.
+Because of this we have to specify all those things.
 
 If we were using a DNS-known hostname and our standard ssh key files, it could be much simpler:
 
@@ -193,7 +193,7 @@ Quick Intro To YAML
 
 YAML isn't a markup language, and it isn't a programming language either.
 It's a data-specification notation.
-Just like JSON.
+Like JSON.
 Except that YAML -- very much unlike JSON -- is meant to be written and read by humans.
 The creators of YAML call it a "human friendly data serialization standard".
 
@@ -201,8 +201,8 @@ The creators of YAML call it a "human friendly data serialization standard".
 
     YAML is actually a superset of JSON.
     Every JSON file is also a valid YAML file.
-    
-    But if we just fed JSON to the YAML parser, we'd be missing the point of YAML, which is human readability.
+
+    But if we fed JSON to the YAML parser, we'd be missing the point of YAML, which is human readability.
 
 Basic types available in YAML include strings, booleans, floating-point numbers, integers, dates, times and date-times.
 Structured types are sequences (lists) and mappings (dictionaries).
@@ -397,7 +397,7 @@ An simple Ansible playbook using roles:
       handlers:
         ... handlers for our own tasks; roles usually have their own
 
-If we want to pass variables to roles, we just add their keys and values to the mapping.
+If we want to pass variables to roles, we add their keys and values to the mapping.
 
 Take a look at the ``when: install_loadbalancer|default(True)`` line above.
 A ``when`` key in a role or task mapping sets a condition for execution.
