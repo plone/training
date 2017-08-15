@@ -1,6 +1,6 @@
-
+============
 Introduction
-------------
+============
 
 The subject of this training is the deployment of Plone for production purposes.
 We will, in particular, be focusing on automating deployment using tools which can target a fresh Linux server and create on it an efficient, robust server.
@@ -24,8 +24,8 @@ They may not be the ones we would choose this month if we were starting over.
 But, they are tools widely used in the Plone community.
 They are well-understood, and you should get few "I've never heard of that" complaints if you ask questions of the Plone community.
 
-Our big choices
-^^^^^^^^^^^^^^^
+Our Choices
+===========
 
 Linux
 

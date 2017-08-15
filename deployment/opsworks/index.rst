@@ -1,7 +1,8 @@
 .. _opsworks-label:
 
-Orchestrating Plone Deployments with Amazon OpsWorks
-====================================================
+======================================
+Plone Deployments With Amazon OpsWorks
+======================================
 
 .. note::
 

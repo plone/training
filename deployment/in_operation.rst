@@ -1,6 +1,6 @@
-
-In operation
-^^^^^^^^^^^^
+============
+In Operation
+============
 
 Hopefully, you've got a provisioned server.
 Do a quick check by ssh'ing to the server.
