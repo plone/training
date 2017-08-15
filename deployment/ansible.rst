@@ -14,7 +14,7 @@ Installation
 ============
 
 Ansible is installed on the orchestrating computer -- typically your desktop or laptop.
-It is a large Python application (though a fraction the size of Plone!) that needs many specific Python packages from the Python Package Index (PyPI).
+It is a large Python application (though a fraction the size of Plone!) that needs specific Python packages from the Python Package Index (PyPI).
 
 That makes Ansible a strong candidate for a Python :program:`virtualenv` installation
 If you don't have :program:`virtualenv` installed on your computer, do it now.
@@ -192,8 +192,8 @@ Quick Intro To YAML
 -------------------
 
 YAML isn't a markup language, and it isn't a programming language either.
-It's a data-specification notation.
-Like JSON.
+It's a data-specification notation like JSON.
+
 Except that YAML -- very much unlike JSON -- is meant to be written and read by humans.
 The creators of YAML call it a "human friendly data serialization standard".
 
@@ -285,7 +285,7 @@ Ansible uses the Jinja2 templating language for this purpose.
 A quick example: Let's say we have a variable ``timezone`` containing the target server's desired timezone setting.
 We can use that variable in a task via Jinja2's double-brace notation: ``{{ timezone }}``.
 
-Jinja2 also supports limited Python expression syntax and can read object properties or mapping key/vaues with a dot notation::
+Jinja2 also supports limited Python expression syntax and can read object properties or mapping key/values with a dot notation::
 
 
     {{ instance_config.plone_version < '5.0' }}

@@ -87,7 +87,7 @@ That's handled via :program:`supervisorctl`.
 There's one exception to this rule: the playbook creates a ZEO client named ``client_reserved`` that is not part of the load-balancer pool and is not managed by supervisor.
 
 The purpose of this extra client is to allow you to handle run scripts or debug starts without affecting the load-balanced client pool.
-It's particularly a good idea to use this mechanism to test an updated buildout:
+It's a good idea to use this mechanism to test an updated buildout:
 
 .. code-block:: shell-session
 
@@ -201,7 +201,7 @@ our VCL setup does the dispatching to the different front ends.
 Web Hosting
 -----------
 
-We use nginx for the outer web server, depending on it to do efficient URL rewriting for virtual hosting and for handling https.
+We use Nginx for the outer web server, depending on it to do efficient URL rewriting for virtual hosting and for handling https.
 
 We'll have much more to say about virtual hosting later when we talk about how to customize it.
 What you need to know now is that simple virtual hosting is automatically set up between the hostname you supply in the inventory and the ``/Plone`` site in the ZODB.

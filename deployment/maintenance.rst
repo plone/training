@@ -39,7 +39,7 @@ What Belongs To The playbook And What Doesn't
 =============================================
 
 The general strategy for playbook changes is to not modify anything that's included with the playbook.
-We've gone to some trouble to make sure that you can make most forseeable setup changes without touching distribution files.
+We've gone to some trouble to make sure that you can make most foreseeable setup changes without touching distribution files.
 
 The :file:`local-configure.yml` is an example of this strategy.
 It is **not** included with the distribution files.
