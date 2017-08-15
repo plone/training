@@ -11,9 +11,6 @@ Plone Deployments With Amazon OpsWorks
     
     Many sections may be zipped through in a class, noting to students that the full text is available for review.
 
-
-Contents:
-
 ..  toctree::
     :maxdepth: 3
     :hidden:

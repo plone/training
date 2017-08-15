@@ -43,7 +43,7 @@ Eggs And Versions
 
 You're likely to want to add Python packages to your Plone installation to enable add-on functionality.
 
-Let's say you want to add :py:mod:`Products.PloneFormGen` and :py:mod:`webcouturier.dropdownmenu`.
+Let's say you want to add `Products.PloneFormGen <https://pypi.python.org/pypi/Products.PloneFormGen>`_ and `webcouturier.dropdownmenu <https://pypi.python.org/pypi/webcouturier.dropdownmenu>`_.
 
 Add to your ``local_configure.yml``:
 
