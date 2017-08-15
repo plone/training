@@ -5,7 +5,7 @@ What Doesn't It Do
 Storage Options
 ===============
 
-Amazon recently introduced ``Elastic File System`` an effectively unlimited
+Amazon introduced ``Elastic File System`` an effectively unlimited
 size cloud file storage that can be mounted simultaneously on multiple
 servers.
 
@@ -32,9 +32,9 @@ If you have multiple proxy caches which could be going online or offline automat
 changing IP addresses, then having persistent configuration of caches to purge
 is not ideal.
 
-It would be very useful to add support in `plone.app.caching <https://github.com/plone/plone.app.caching>`_ for reading a list
-of proxy servers from an environment variable or other mechanism that can
-easily be managed as part of the configuration phase.
+It would be very useful to add support in `plone.app.caching <https://github.com/plone/plone.app.caching>`_
+for reading a list of proxy servers from an environment variable or other mechanism that can
+be managed as part of the configuration phase.
 
 
 Chef 12

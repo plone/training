@@ -112,7 +112,7 @@ Its general strategy is to run through your ZEO clients, sequentially doing the 
 4. Fetch the homepage directly from the client to load the cache.
    This will be the first request the client receives,
    since haproxy hasn't have marked it live yet.
-   So, when haproxy marks it live, the cache will be warm.
+   When haproxy marks it live, the cache will be warm.
 5. Mark the client available in haproxy.
 
 After running through the clients, it flushes the varnish cache.
@@ -234,14 +234,14 @@ In this configuration, it should not accept connections from the outside world.
 
     You will probably have another SMTP agent that's the real mail exchange (MX) for your domain.
     Make sure that server is configured to accept mail from the ``FROM`` addresses in use on your Plone server.
-    
+
     Otherwise, mail exchanges that "grey list" may not accept mail from your Plone server.
 
 Updating System Packages
 ------------------------
 
 On Debian family Linux, the playbook sets up the server for automatic installation of routine updates.
-We do not, however, set up an automatic reboot for updates that require a system restart.
+We do not set up an automatic reboot for updates that require a system restart.
 
 Be aware that you'll need to watch for "reboot required" messages and schedule a reboot.
 
@@ -272,4 +272,4 @@ That's the road to having a server that is no longer reproducible.
 If you've got a significant change to make, try it first on a test server or a Vagrant box.
 
 This does not mean that you'll never want to log into the server.
-It just means that you shouldn't do it to change configuration.
+It means that you shouldn't do it to change configuration.

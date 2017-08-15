@@ -9,7 +9,7 @@ Maintenance Strategies
 If you're successful with Plone's Ansible Playbook, you will wish to keep an eye on its continued development.
 You may wish to be able to integrate bug fixes and new features that have become part of the distribution.
 
-But, since this project targets production servers, you'll wish to be very careful in integrating those changes so that you minimize risk of breaking a live server configuration.
+But, since this project targets production servers, you'll wish to be careful in integrating those changes so that you minimize risk of breaking a live server configuration.
 
 .. caution::
 
@@ -74,4 +74,3 @@ Now, inside that directory, create one file per target host, each with a name th
 
 Each of these files should be the same as the local-configure.yml file that would be used if this was a single host.
 Delete the no-longer-needed :file:`local-configure.yml` file.
-
