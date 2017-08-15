@@ -73,8 +73,8 @@ What if your developing packages via git?
 There's more that you can do with the ``plone_sources`` setting.
 See the docs!
 
-Buildout From Git Repo
-~~~~~~~~~~~~~~~~~~~~~~
+Buildout From Git Repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It's entirely possible that the buildout created by the playbook won't be adequate to your needs.
 
@@ -228,7 +228,7 @@ All the other components my be replaced.
 To replace them, first prevent the playbook from installing the default component.
 Then, use a playbook of your own to install the alternative component.
 
-For example, to install an alternative to the Postfix mail agent, just add:
+For example, to install an alternative to the Postfix mail agent, add:
 
 .. code-block:: yaml
 
@@ -236,9 +236,9 @@ For example, to install an alternative to the Postfix mail agent, just add:
 
 .. note::
 
-    If you choose not to install the haproxy, varnish or nginx, you take on some extra responsibilities.
+    If you choose not to install the HAProxy, varnish or nginx, you take on some extra responsibilities.
     You're going to need to make sure in particular that your port addresses match up.
-    If, for example, you replace haproxy, you will need to point varnish to the new load-balancer's frontend.
+    If, for example, you replace HAProxy, you will need to point varnish to the new load-balancer's frontend.
     You'll need to point the new load balancer to the ZEO clients.
 
 Multiple Plones Per Host

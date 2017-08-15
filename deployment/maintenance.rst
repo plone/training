@@ -31,7 +31,7 @@ If you followed our installation instructions, you have a Python virtualenv atta
 That virtualenv has its own installation of Ansible.
 That's good, because it protects your playbook against unexpected changes in the global environment -- such as Ansible being updated by the OS update mechanisms.
 
-You may need or wish to update the installation of Ansible in your Virtualenv.
+You may need or wish to update the installation of Ansible in your virtualenv.
 If so, make sure you use the copy of :program:`pip` in your virtualenv.
 Then, test running your playbook with your new Ansible.
 

@@ -103,7 +103,7 @@ To use Ansible to provision a remote server, we have two requirements:
 You'll need to familiarize yourself with how to fulfill these requirements on the cloud/virtual environment of your choice.
 Examples:
 
-Using Vagrant/virtualbox
+Using Vagrant/VirtualBox
 
     You will initially be able to log in as the "vagrant" user using a private key that's in a file created by Vagrant.
     The user "vagrant" may issue :command:`sudo` commands with no additional password.
@@ -140,7 +140,7 @@ Ansible runs on a local computer, and it acts on one or more remote machines.
 We tell Ansible how to connect to remote machines by maintaining a text inventory file.
 
 There is a sample inventory configuration file in your distribution.
-It's meant for use with a Vagrant-style virtualbox.
+It's meant for use with a Vagrant-style VirtualBox.
 
 .. code-block:: shell-session
 
@@ -150,7 +150,7 @@ It's meant for use with a Vagrant-style virtualbox.
 
     myhost ansible_port=2222 ansible_host=127.0.0.1 ansible_user=vagrant ansible_private_key_file=~/.vagrant.d/insecure_private_key
 
-This inventory file is complicated by the fact that a virtualbox typically has no DNS host name and uses a non-standard port and a special SSH key file.
+This inventory file is complicated by the fact that a VirtualBox typically has no DNS host name and uses a non-standard port and a special SSH key file.
 Because of this we have to specify all those things.
 
 If we were using a DNS-known hostname and our standard ssh key files, it could be much simpler:
