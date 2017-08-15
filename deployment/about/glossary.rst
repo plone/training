@@ -31,3 +31,10 @@ Glossary
    Amazon Opsworks
       `AWS OpsWorks <https://aws.amazon.com/opsworks/>`_ is a configuration management service that uses Chef,
        an automation platform that treats server configurations as code.
+
+   Ansible
+      `Ansible <https://www.ansible.com/>`_ is an open source automation platform.
+       Ansible can help you with configuration management, application deployment, task automation.
+
+   Chef
+      `A configuration management tool written in Ruby and Erlang <https://www.chef.io/chef/>`_.
