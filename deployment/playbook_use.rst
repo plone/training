@@ -6,6 +6,7 @@ Local Configuration File
 ========================
 
 For a quick start, copy one of the :file:`sample-*.yml` files to :file:`local-configure.yml`.
+
 The :file:`local-configure.yml` file is automatically included in the main playbook if it's found.
 
 .. code-block:: shell-session
@@ -41,12 +42,13 @@ You should be able to pick any version from 4.3.x or 5.x.x.
 Note that the value for this variable must be quoted to make sure it's interpreted as a string.
 
 Use With Vagrant
-----------------
+================
 
 If you've installed Vagrant/Virtualbox, you're ready to test.
 Since Vagrant manages the connection, you don't need to create a inventory file entry.
 
-There is a Vagrant setup file, :file:`Vagrantfile`, included with the playbook, so you may just open a command-line prompt, make sure your Ansible virtualenv is activated, and type:
+There is a Vagrant setup file, :file:`Vagrantfile`, included with the playbook,
+you may just open a command-line prompt, make sure your Ansible virtualenv is activated, and type:
 
 .. code-block:: shell-session
 
@@ -65,7 +67,8 @@ There is a Vagrant setup file, :file:`Vagrantfile`, included with the playbook, 
 
 Once you've run :program:`vagrant up`, running it again will not automatically provision the virtualbox.
 In this case, that means that Ansible is not run.
-So, if you change your Ansible configuration, you'll need to use:
+
+If you change your Ansible configuration, you'll need to use:
 
 .. code-block:: shell-session
 
@@ -86,22 +89,27 @@ An example of an ignored failure::
     ...ignoring
 
 
-Vagrant ports
-!!!!!!!!!!!!!
+Vagrant Ports
+-------------
 
 The Vagrant setup (in :file:`Vagrantfile`) maps several ports on the guest machine (the virtualbox) to the host box.
 The general scheme is to forward a host port that is 1000 greater than the guest port.
+
 For example, the load-balancer monitor port on the guest server is ``1080``.
 On the host machine, that's mapped by ssh tunnel to 2080.
-So, we may see the haproxy monitor at ``http://localhost:2080/admin``.
+
+We may see the haproxy monitor at ``http://localhost:2080/admin``.
 
 The guest's http port (80) is reached via the host machine's port 1080 --
 but that isn't actually very useful due to URL rewriting for virtual hosting.
-If you take a look at ``http://localhost:1080`` from your host machine, you'll see the default Plone site, but stylesheets, javascript and images will all be missing.
+
+If you take a look at ``http://localhost:1080`` from your host machine, you'll see the default Plone site,
+but stylesheets, javascript and images will all be missing.
+
 Instead, look at the load-balancer port (8080 on the guest, 9080 on the host) to see your ZODB root.
 
-Some quick Vagrant
-!!!!!!!!!!!!!!!!!!
+Some Quick Vagrant
+------------------
 
 .. code-block:: shell-session
 
@@ -114,14 +122,15 @@ Some quick Vagrant
 
 To each of the these commands, you may add an id to pick one of the boxes defined in Vagrantfile.
 Read Vagrantfile for the ids.
+
 For example, ``centos7`` is the id for a CentOS box.
 
 .. code-block:: shell-session
 
     vagrant up centos7
 
-Run against cloud
-:::::::::::::::::
+Run Against Cloud
+=================
 
 Let's provision a cloud server.
 Here are the facts we need to know about our cloud server:
@@ -150,7 +159,9 @@ connection details
     If ssh is switched to an alternate port, you'll need that port number.
 
 With that information, create an inventory file (if none exists) and create a host entry in it.
+
 We use :file:`inventory.cfg` for an inventory file.
+
 A typical inventory file::
 
     www.mydomain.co.uk ansible_host=192.168.1.1 ansible_user=steve
@@ -160,9 +171,12 @@ You may leave off the ``ansible_user`` if your user id is the same on the server
 
 An inventory file may have many entries.
 You may run Ansible against one, two, all of the hosts in the inventory file, or against alias groups like "plone-servers".
-See `Ansible's inventory documentation <http://docs.ansible.com/ansible/intro_inventory.html>`_ for information on grouping host entries and for more specialized host settings.
+
+See `Ansible's inventory documentation <http://docs.ansible.com/ansible/intro_inventory.html>`_
+for information on grouping host entries and for more specialized host settings.
 
 Now, let's make things easier for us going forward by creating an :file:`ansible.cfg` file in our playbook directory.
+
 In that text file, specify the location of your inventory file:
 
 .. code-block:: cfg
@@ -171,8 +185,8 @@ In that text file, specify the location of your inventory file:
     inventory = ./inventory.cfg
     roles_path = ./roles
 
-Smoke test
-``````````
+Smoke Test
+----------
 
 Now, let's see if we can use Ansible to connect to the remote machine that we've specified in our inventory.
 
@@ -195,6 +209,7 @@ And, if that fails, ask for verbose feedback from Ansible:
     ansible www.mydomain.co.uk -a "whoami" -k -vvvv
 
 Now, let's test our ability to become superuser on the remote machine.
+
 If you have passwordless sudo, this should work:
 
 .. code-block:: shell-session
@@ -214,13 +229,15 @@ If all that works, congratulations, you're ready to use Ansible to provision the
 .. note::
 
     The "become" flag tells Ansible to carry out the action while becoming another user on the remote machine.
+
     If no user is specified, we become the superuser.
+
     If no method is specified, it's done via :command:`sudo`.
 
     You won't often use the ``--become`` flag because the playbooks that need it specify it themselves.
 
-Diagnosing ssh connection failures
-``````````````````````````````````
+Diagnosing SSH Connection Failures
+----------------------------------
 
 If Ansible has trouble connecting to the remote host, you're going to get a message like:
 
@@ -233,15 +250,18 @@ If Ansible has trouble connecting to the remote host, you're going to get a mess
     }
 
 If this happens to you, try adding ``-vvv`` to the :program:`ansible` or :program:`ansible-playbook` command line.
+
 The extra information may -- or may not -- be useful.
 
 The real test is to use a direct ssh login in order to get the ssh error.
+
 There's a pretty good chance that the identity of the remote host will have changed, and ssh will give you a command line to clean it up.
 
-Running the playbook
-````````````````````
+Running The Playbook
+--------------------
 
 We're ready to run the playbook.
+
 Make sure you're logged to your ansible-playbook directory and that you've activated the Python virtualenv that includes Ansible.
 
 If you're targetting all the hosts in your inventory, running the playbook may be as easy as:
@@ -262,14 +282,16 @@ If you want to target a particular host in your inventory, add ``--limit=hostnam
 
     As with Vagrant, check the last message to make sure it completes successfully.
     When first provisioning a server, timeout errors are more likely.
+
     If you have a timeout, just run the playbook again.
     Note that failures for particular plays do not mean that Ansible provisioning failed.
 
 Firewalling
-```````````
+-----------
 
 Running the Plone playbook does not set up server firewalling.
 That's handled via a separate playbook, included with the kit.
+
 We've separated the functions because many sysadmins will wish to handle firewalling themselves.
 
 If you wish to use our firewall playbook, just use the command:
