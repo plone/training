@@ -38,3 +38,11 @@ Glossary
 
    Chef
       `A configuration management tool written in Ruby and Erlang <https://www.chef.io/chef/>`_.
+
+   CloudFormation
+      `AWS CloudFormation <https://aws.amazon.com/cloudformation/>`_ gives developers and systems administrators an way to create and manage
+      a collection of related AWS resources, provisioning and updating them in an orderly and predictable fashion.
+
+   Travis CI
+      Travis CI is a hosted, distributed continuous integration service used to build and test software projects hosted at GitHub.
+      Open source projects may be tested at no charge via `travis-ci.org <https://travis-ci.org>`_.

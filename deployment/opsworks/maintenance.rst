@@ -40,7 +40,9 @@ JSON.
 Updates
 =======
 
-Ubuntu security and OS package updates can be automated by adding the following Custom JSON config::
+Ubuntu security and OS package updates can be automated by adding the following Custom JSON config
+
+.. code-block:: json
 
     "apt": {
         "unattended_upgrades": {
@@ -66,8 +68,8 @@ performance server and client performance monitoring for Plone, as well as
 plugins for Nginx, Varnish and HAProxy services and standard CPU, Disk space
 and RAM server metrics.
 
-There's also a recipe provided to integrate the Papertrail log tracing and
-searching service.
+There's also a recipe provided to integrate the `Papertrail <https://papertrailapp.com/>`_
+log tracing and searching service.
 
 To help you live the dream of never having to SSH into your
 servers.
@@ -102,7 +104,7 @@ Users control panel.
 
 In OpsWorks users can be given access to specific stacks, allowing them to view,
 deploy or manage them, as well as granting them SSH
-and/or sudo access to Stack Instances using a public key that can be added
+and/or :command:`sudo` access to Stack Instances using a public key that can be added
 through the web interface.
 
 Once you've imported an IAM user into Opsworks and
@@ -113,7 +115,7 @@ all instances in the stack. [*]_
 
     A note on OS permissions: all application related files live under
     ``/srv/www`` and are generally owned by the ``deploy`` user with fairly
-    restricted permissions. Any user SSH'ing in will probably need to sudo to the
+    restricted permissions. Any user SSH'ing in will probably need to :command:`sudo` to the
     ``deploy`` user to see or do much of interest.
 
 .. [*] You should *never* manually modify any configuration on a cloud configured server, except for purposes of troubleshooting. Any changes you make to the server should be made via the Stack configuration (i.e. the Custom JSON and the Recipes assigned to Layers).
