@@ -44,7 +44,7 @@ Note that the value for this variable must be quoted to make sure it's interpret
 Use With Vagrant
 ================
 
-If you've installed Vagrant/Virtualbox, you're ready to test.
+If you've installed Vagrant/VirtualBox, you're ready to test.
 Since Vagrant manages the connection, you don't need to create a inventory file entry.
 
 There is a Vagrant setup file, :file:`Vagrantfile`, included with the playbook,
@@ -62,10 +62,10 @@ you may open a command-line prompt, make sure your Ansible virtualenv is activat
 .. note::
 
     Instructor note:
-    Having several students simultaneously downloading a virtualbox over wifi or a slow connection is a nightmare.
+    Having several students simultaneously downloading a VirtualBox over wifi or a slow connection is a nightmare.
     Have a plan.
 
-Once you've run :program:`vagrant up`, running it again will not automatically provision the virtualbox.
+Once you've run :program:`vagrant up`, running it again will not automatically provision the VirtualBox.
 In this case, that means that Ansible is not run.
 
 If you change your Ansible configuration, you'll need to use:
@@ -92,13 +92,13 @@ An example of an ignored failure::
 Vagrant Ports
 -------------
 
-The Vagrant setup (in :file:`Vagrantfile`) maps several ports on the guest machine (the virtualbox) to the host box.
+The Vagrant setup (in :file:`Vagrantfile`) maps several ports on the guest machine (the VirtualBox) to the host box.
 The general scheme is to forward a host port that is 1000 greater than the guest port.
 
 For example, the load-balancer monitor port on the guest server is ``1080``.
 On the host machine, that's mapped by ssh tunnel to 2080.
 
-We may see the haproxy monitor at ``http://localhost:2080/admin``.
+We may see the HAProxy monitor at ``http://localhost:2080/admin``.
 
 The guest's http port (80) is reached via the host machine's port 1080 --
 but that isn't actually useful due to URL rewriting for virtual hosting.
@@ -113,10 +113,10 @@ Some Quick Vagrant
 
 .. code-block:: shell-session
 
-    vagrant up                 # bring up the virtualbox
-    vagrant provision          # provision the virtualbox
+    vagrant up                 # bring up the VirtualBox
+    vagrant provision          # provision the VirtualBox
     vagrant up --no-provision  # bring the box up without provisioning
-    vagrant halt               # stop and save the state of the virtualbox
+    vagrant halt               # stop and save the state of the Virtualbox
     vagrant destroy            # stop and destroy the box
     vagrant ssh                # ssh to the guest box
 
@@ -253,7 +253,7 @@ If this happens to you, try adding ``-vvv`` to the :program:`ansible` or :progra
 
 The extra information may -- or may not -- be useful.
 
-The real test is to use a direct ssh login in order to get the ssh error.
+The real test is to use a direct ssh login to get the ssh error.
 
 There's a pretty good chance that the identity of the remote host will have changed, and ssh will give you a command line to clean it up.
 

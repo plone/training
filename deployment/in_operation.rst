@@ -41,7 +41,7 @@ Use SSH tunnels.
     ssh ubuntu@54.244.201.44 -L 1080:localhost:1080 -L 6081:localhost:6081 -L 8080:localhost:8080
 
 This is a pretty typical login that creates handy tunnels between ports on your local machine
-with matching haproxy-admin, varnish and haproxy front-end ports on the remote server.
+with matching HAProxy-admin, varnish and HAProxy front-end ports on the remote server.
 
 While you're logged in, check out the status of the :program:`supervisor` process-control system,
 which is used to launch your Zope/Plone processes.
@@ -106,18 +106,18 @@ In it, you should find ``restart_clients.sh``.
 This script, which needs to be run as the superuser via :program:`sudo`, is intended to manage hot restarts.
 Its general strategy is to run through your ZEO clients, sequentially doing the following:
 
-1. Mark it down for maintenance in haproxy;
+1. Mark it down for maintenance in HAProxy;
 2. stop client;
 3. start client; wait long enough for it to start listening
 4. Fetch the homepage directly from the client to load the cache.
    This will be the first request the client receives,
-   since haproxy hasn't have marked it live yet.
-   When haproxy marks it live, the cache will be warm.
-5. Mark the client available in haproxy.
+   since HAProxy hasn't have marked it live yet.
+   When HAProxy marks it live, the cache will be warm.
+5. Mark the client available in HAProxy.
 
 After running through the clients, it flushes the varnish cache.
 
-This is only really useful if you're running multiple ZEO and using haproxy for your load balancer.
+This is useful if you're running multiple ZEO and using HAProxy for your load balancer.
 
 Client Logs
 -----------
@@ -139,10 +139,10 @@ Load Balancing
 
 Let's step up the delivery stack.
 
-All but the smallest sample playbooks set up ZEO load balancing via haproxy.
-One of the things we gain from haproxy is good reporting.
+All but the smallest sample playbooks set up ZEO load balancing via HAProxy.
+One of the things we gain from HAProxy is good reporting.
 
-The web interface for the haproxy monitor is deliberately not available to a remote connection.
+The web interface for the HAProxy monitor is deliberately not available to a remote connection.
 
 It's easy to get around that with an ssh tunnel:
 
@@ -158,7 +158,7 @@ Since we're restricting access, we don't bother with a password.
 
     Haproxy monitor at http://localhost:1080/admin
 
-If your optimizing, it's a great idea to look at the haproxy stats to see what kind of queues are building up in your ZEO client cluster.
+If your optimizing, it's a great idea to look at the HAProxy stats to see what kind of queues are building up in your ZEO client cluster.
 
 A word about the cluster strategy.
 
@@ -174,7 +174,7 @@ The cost is somewhat more memory use: a ZEO client with multiple threads does so
 It's not a lot, but that gives it some memory use advantage over multiple, single-threaded clients.
 You may want to make that trade off differently.
 
-We also have haproxy set up to only make one connection at a time to each of our ZEO clients.
+We also have HAProxy set up to only make one connection at a time to each of our ZEO clients.
 This is also a trade off.
 
 We lose the nice client behavior of automatically using different delivery threads for blobs.
@@ -216,7 +216,7 @@ If your inventory hostname does not have a matching DNS host record, you're goin
     Typical virtual hosting error.
 
 You're seeing a virtual-hosting setup error.
-The requested *page* is being returned, but all the resource URLs in the page -- images, stylesheets and javascript resources -- are pointing to the hostname supplied in the inventory.
+The requested *page* is being returned, but all the resource URLs in the page -- images, stylesheets and JavaScript resources -- are pointing to the hostname supplied in the inventory.
 
 You may fix that by supplying a DNS-valid hostname, or by setting up specific virtual hosting.
 That's detailed below.
