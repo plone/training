@@ -282,7 +282,7 @@ Quick Intro To Jinja2
 YAML doesn't have any built-in way to read a variable.
 Ansible uses the Jinja2 templating language for this purpose.
 
-A quick example: Let's say we have a variable :py:data:`timezone` containing the target server's desired timezone setting.
+A quick example: Let's say we have a variable ``timezone`` containing the target server's desired timezone setting.
 We can use that variable in a task via Jinja2's double-brace notation: ``{{ timezone }}``.
 
 Jinja2 also supports limited Python expression syntax and can read object properties or mapping key/vaues with a dot notation::
