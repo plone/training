@@ -2,7 +2,9 @@
 Intro To Ansible
 ================
 
-Ansible is an open-source configuration management, provisioning and application deployment platform written in Python and using YAML (YAML Ain't Markup Language) as a configuration language.
+`Ansible <https://www.ansible.com/>`_ is an open-source configuration management, provisioning and application deployment platform
+written in Python and using `YAML <http://www.yaml.org/start.html/>`_ (YAML Ain't Markup Language) as a configuration language.
+
 Ansible makes its connections from your computer to the target machine using SSH.
 
 There is no server-side component other than an SSH server.
@@ -51,6 +53,7 @@ Now, let's get a copy of the *Plone Ansible Playbook*.
 Make sure you're logged in to your ``ansible_work`` directory.
 
 Unless you're participating in the development of the playbook, or need a particular fix, you'll want to check out the ``STABLE`` branch.
+
 The ``STABLE`` branch is a pointer to the last release of the playbook.
 
 .. code-block:: shell-session
@@ -81,13 +84,15 @@ If you forget that command, it's in the short README.rst file in the playbook.
 
     The rationale for checking the Plone Ansible Playbook out inside the virtualenv directory is that it ties the two together.
     Months from now, you'll know that you can use the playbook with the Python and Ansible packages in the virtualenv directory.
-    We check out the playbook as a subdirectory of the virtualenv directory so that we can search our playbooks and roles without having to search the whole virtualenv set of packages.
+    
+    We check out the playbook as a subdirectory of the virtualenv directory so that we can search our playbooks and roles
+    without having to search the whole virtualenv set of packages.
 
-Ansible basics
-^^^^^^^^^^^^^^
+Ansible Basics
+==============
 
-Connecting to remote machines
-`````````````````````````````
+Connecting To Remote Machines
+-----------------------------
 
 To use Ansible to provision a remote server, we have two requirements:
 
@@ -129,7 +134,7 @@ Test that knowledge by trying an ssh login and issuing a superuser command.
     myhost.com $ sudo ls  # (are you asked for your password?)
 
 Inventories
-```````````
+-----------
 
 Ansible is usually run on a local computer, and it usually acts on one or more remote machines.
 We tell Ansible how to connect to remote machines by maintaining a text inventory file.
@@ -157,7 +162,7 @@ If we were using a DNS-known hostname and our standard ssh key files, it could b
 Ansible inventory files may list multiple hosts and may have aliases for groups of hosts. See https://docs.ansible.com for details.
 
 Playbooks
-^^^^^^^^^
+=========
 
 We're going to cover just enough on Ansible playbooks to allow you to read and customize Plone's playbook.
 `Ansible's documentation <http://docs.ansible.com>`_ is excellent if you want to learn more.
@@ -183,8 +188,8 @@ In addition to tasks, Ansible's basic units are *host* and *variable* specificat
 An Ansible *playbook* is a specification of tasks that are executed for specified hosts and variables.
 All of these specifications are in YAML.
 
-Quick intro to YAML
-```````````````````
+Quick Intro To YAML
+-------------------
 
 YAML isn't a markup language, and it isn't a programming language either.
 It's a data-specification notation.
@@ -196,6 +201,7 @@ The creators of YAML call it a "human friendly data serialization standard".
 
     YAML is actually a superset of JSON.
     Every JSON file is also a valid YAML file.
+    
     But if we just fed JSON to the YAML parser, we'd be missing the point of YAML, which is human readability.
 
 Basic types available in YAML include strings, booleans, floating-point numbers, integers, dates, times and date-times.
@@ -261,6 +267,7 @@ Finally, remember that this is a superset of JSON:
 
 Want to turn YAML into Python data structures?
 Or Python into YAML?
+
 Python has several YAML parser/generators.
 The most commonly used is PyYAML.
 
@@ -269,8 +276,8 @@ Quick code to read YAML from the standard input and turn it into pretty-printed 
 .. literalinclude:: read_yaml.py
    :language: python
 
-Quick intro to Jinja2
-`````````````````````
+Quick Intro To Jinja2
+---------------------
 
 YAML doesn't have any built-in way to read a variable.
 Ansible uses the Jinja2 templating language for this purpose.
@@ -298,6 +305,7 @@ For example, we use the ``default`` filter to supply a default value if a variab
             backup=yes
 
 Jinja2 also is used as a full templating language whenever we need to treat a text file as a template to fill in variable values or execute loops or branching logic.
+
 Here's an example from the template used to construct a buildout.cfg:
 
 .. code-block:: none
@@ -310,8 +318,8 @@ Here's an example from the template used to construct a buildout.cfg:
     {% endif %}
 
 
-Playbook structure
-``````````````````
+Playbook Structure
+==================
 
 An Ansible "play" is a mapping (or dictionary) with keys for hosts, variables and tasks.
 A playbook is a sequence of such dictionaries.
@@ -329,10 +337,10 @@ A simple playbook:
 The value of hosts could be a single host name, the name of a group of hosts, or "all".
 
 Variables
-:::::::::
+---------
 
-Notifications and handlers
-::::::::::::::::::::::::::
+Notifications And Handlers
+--------------------------
 
 We may also specify "handlers" that are run if needed.
 
@@ -355,16 +363,18 @@ Handlers are run if a matching notification is registered.
 A particular handler is only run once, even if several notifications for it are registered.
 
 Roles
-:::::
+-----
 
 Ansible has various ways to include the contents of YAML files into your playbook.
 "Roles" do it in a more structured way -- much more like a package.
+
 Roles contain their own variables, tasks and handlers.
 They inherit the global variable environment and you may pass particular variables when they are called.
 
 Plone's Ansible Playbook includes several roles for chores such as setting up the load balancer and web server.
+
 Other roles are fetched (the role source itself is fetched) by ``ansible-galaxy`` when we use it to set up requirements.
-Most are fetched from github.
+Most are fetched from GitHub.
 
 An simple Ansible playbook using roles:
 
