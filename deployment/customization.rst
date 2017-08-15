@@ -33,7 +33,7 @@ in your ``local_configure.yml`` file.
 Common Customization Points
 ===========================
 
-Let's review the settings that are very commonly changed.
+Let's review the settings that are commonly changed.
 
 Plone Setup
 -----------
@@ -118,7 +118,7 @@ If you're conservative, you'll first try starting and stopping the reserved clie
 .. note::
 
     By the way, if buildout fails, your playbook run will halt.
-    So, you don't need to worry that an automated restart might occur after a failed buildout.
+    You don't need to worry that an automated restart might occur after a failed buildout.
 
 
 Web Hosting Options
@@ -184,7 +184,7 @@ Alternatively, you could specify use of certificates already on the server:
 .. caution::
 
     One hazard for the current playbook web server support is that it does **not** delete old host files.
-    So, if you had previously set up ``www.mynewclient.com`` and then deleted that item from the playbook host list, the nginx host file would remain.
+    If you had previously set up ``www.mynewclient.com`` and then deleted that item from the playbook host list, the nginx host file would remain.
     Log in and delete it if needed.
     Yes, this is an exception to the "don't login to change configuration rule".
 
@@ -244,7 +244,7 @@ For example, to install an alternative to the Postfix mail agent, just add:
 Multiple Plones Per Host
 ------------------------
 
-So far, we've covered the simple case of having one Plone server installed on your server.
+We've covered the simple case of having one Plone server installed on your server.
 In fact, you may install additional Plones.
 
 To do so, you create a list variable ``playbook_plones`` containing all the settings that are specific to one or more of your Plone instances.
@@ -280,7 +280,7 @@ If you need more, see the docs as you'll need to make a minor change in the main
 The Plone Role -- Using It Independently
 ----------------------------------------
 
-Finally, for big changes, you may find that the full playbook is of little or no use.
+For big changes, you may find that the full playbook is of little or no use.
 In that case, you may still wish to use Plone's Ansible Role independently, in your own playbooks.
 
 The `Plone server role <https://github.com/plone/ansible.plone_server>`_ is maintained separately, and may become a role in your playbooks if it works for you.

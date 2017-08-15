@@ -23,5 +23,4 @@ The Plone Ansible Playbook makes choices for each generic component.
 **You are not stuck with our choices!**
 
 If, for example, you wish to use Apache rather than Nginx for the web server component, that won't be a particular problem.
-You'll just need to do more work to customize.
-
+You'll need to do more work to customize.
