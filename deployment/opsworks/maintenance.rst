@@ -1,8 +1,9 @@
+===========
 Maintenance
-^^^^^^^^^^^
+===========
 
 Backups
-```````
+=======
 
 The recipes automatically setup weekly ZODB packing and log rotation. I like
 to Amazon's EBS snapshot feature for backups, and the EBS Snapshotting layer
@@ -37,7 +38,7 @@ JSON.
 
 
 Updates
-```````
+=======
 
 Ubuntu security and OS package updates can be automated by adding the following Custom JSON config::
 
@@ -51,28 +52,33 @@ Ubuntu security and OS package updates can be automated by adding the following 
     }
 
 Monitoring
-^^^^^^^^^^
+==========
 
-AWS provides various monitoring and alerting features, but most alerting
-features need to be manually configured on a per EC2 instance basis. That's
-not so convenient for a stack of instances which may grow, shrink or change
-over time. For that reason I like to use New Relic for server monitoring.
+:term:`AWS` provides various monitoring and alerting features, but most alerting
+features need to be manually configured on a per EC2 instance basis.
+
+That's not so convenient for a stack of instances which may grow, shrink or change
+over time.
+
+For that reason I like to use New Relic for server monitoring.
 There is built-in integration in the recipes, which includes detailed
 performance server and client performance monitoring for Plone, as well as
 plugins for Nginx, Varnish and HAProxy services and standard CPU, Disk space
 and RAM server metrics.
 
 There's also a recipe provided to integrate the Papertrail log tracing and
-searching service. To help you live the dream of never having to SSH into your
+searching service.
+
+To help you live the dream of never having to SSH into your
 servers.
 
 
 Sending Mail
-^^^^^^^^^^^^
+============
 
 It's possible, and not difficult to install and configure a mailer using a
-chef postfix recipe and  some more Custom JSON. However, I do not recommend
-doing so. Cloud Servers generally, and EC2 specifically tend to land on SPAM
+chef postfix recipe and some more Custom JSON.
+However, I do not recommend doing so. Cloud Servers generally, and EC2 specifically tend to land on SPAM
 blacklists, ensuring your outgoing mail is not blackholed generally requires
 some special care and requests to Amazon to setup reverse DNS and whitelist
 any outgoing mail servers. 
@@ -82,19 +88,24 @@ perhaps GMail.
 
 
 SSH Access
-^^^^^^^^^^
+==========
 
 Ideally, you never have to login to your cloud server, but things go wrong and
-you might have to eventually, even if only out of curiosity. By default
-OpsWorks does not assign an SSH key to new instances, but you can set one if
+you might have to eventually, even if only out of curiosity.
+
+By default OpsWorks does not assign an SSH key to new instances, but you can set one if
 desired at either the instance or the Stack level. Better yet, Opsworks allows
 more granular access control in combination with IAM. If you create a user via
 the AWS IAM console (no permissions need be assigned, and no credentials added
 or recorded for SSH access), you can then import that user into the OpsWorks
-Users control panel. In OpsWorks users can be given access to specific stacks,
-allowing them to view, deploy or manage them, as well as granting them SSH
-and/or sudo accees to Stack Instances using a public key that can be added
-through the web interface. Once you've imported an IAM user into Opsworks and
+Users control panel.
+
+In OpsWorks users can be given access to specific stacks, allowing them to view,
+deploy or manage them, as well as granting them SSH
+and/or sudo access to Stack Instances using a public key that can be added
+through the web interface.
+
+Once you've imported an IAM user into Opsworks and
 granted it SSH access with a public key, that user should be able to log in to
 all instances in the stack. [*]_
 
