@@ -236,7 +236,7 @@ html_static_path = ['_static']
 #
 # html_search_options = {'type': 'default'}
 
-# The name of a javascript file (relative to the configuration directory) that
+# The name of a JavaScript file (relative to the configuration directory) that
 # implements a search results scorer. If empty, the default will be used.
 #
 # html_search_scorer = 'scorer.js'
