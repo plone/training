@@ -236,7 +236,7 @@ For example, to install an alternative to the Postfix mail agent, add:
 
 .. note::
 
-    If you choose not to install the HAProxy, varnish or nginx, you take on some extra responsibilities.
+    If you choose not to install the HAProxy, varnish or Nginx, you take on some extra responsibilities.
     You're going to need to make sure in particular that your port addresses match up.
     If, for example, you replace HAProxy, you will need to point varnish to the new load-balancer's frontend.
     You'll need to point the new load balancer to the ZEO clients.

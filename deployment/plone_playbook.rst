@@ -49,7 +49,7 @@ roles
 
 Roles are basically pre-packaged subroutines with their own default variables.
 Several roles are part of the Plone Ansible Playbook kit and will be present in your initial checkout.
-These include roles that set up the haproxy load balancer, varnish cache, nginx http server, postfix SMTP agent, munin-node monitoring, logwatch log analysis, message-of-the-day and a fancy setup for restarting ZEO clients.
+These include roles that set up the HAProxy load balancer, varnish cache, nginx http server, postfix SMTP agent, munin-node monitoring, logwatch log analysis, message-of-the-day and a fancy setup for restarting ZEO clients.
 
 Other roles, including the role that actually sets up Plone, are loaded when you use ``ansible-galaxy`` to fetch the items listed in :file:`requirements.yml`.
 Except for the Plone server role, these are generally generic Ansible Galaxy roles that we liked.
