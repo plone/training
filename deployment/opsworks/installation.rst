@@ -2,11 +2,10 @@
 Creating Your First Stack
 =========================
 
-Setting up a Stack with all of its layers is a tedious excersise it TTW
-configuration.
-Thankfully there's another AWS tool (there's always another AWS
-tool) called CloudFormation that lets us quickly configure a basic Plone stack
-with the most common layers configured.
+Setting up a Stack with all of its layers is a tedious excersise it :term:`TTW` configuration.
+
+Thankfully there's another :term:`AWS` tool called :term:`CloudFormation` that
+lets us quickly configure a basic Plone stack with the most common layers configured.
 
 If you navigate to CloudFormation in the AWS console you'll be presented with
 the option to create a ``Stack``.
@@ -26,12 +25,14 @@ Opsworks control panel to see your new Stack. [*]_
 The CloudFormation setup creates a stack outside of a VPC (Virtual Private
 Cloud), which is probably not ideal since some instance options are not
 available outside of a VPC.
+
 If you want the stack to use a VPC or to be in a different EC2 region than you initially ran CloudFormation from, then you can
 clone the Stack from the Opsworks Dashboard to set your desired region and VPC
 settings.
 
 There are a few important settings which CloudFormation is not able to manage
 and have to be modified after stack creation.
+
 The two Apps (``Plone Instances`` and ``Zeoserver``) should be edited to set the ``Data Source`` to
 ``None`` (this setting is useful for a Relstorage configuration, but does
 nothing for a ZEO server configuraiton).

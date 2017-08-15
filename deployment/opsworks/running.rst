@@ -45,8 +45,9 @@ JSON under the top-level ``plone_instances`` key.
 When that is set, the deploy will wait that amount of time between each ZEO client restart for a given
 Instance.
 
-If you use Travis CI to provide automatic testing of your buildout/application, you can configure Travis to automatically lanuch an
-Opsworks deploy for a specific Stack and Application on successful builds (see
+If you use :term:`Travis CI` to provide automatic testing of your buildout/application,
+you can configure Travis to automatically lanuch an Opsworks deploy for
+a specific Stack and Application on successful builds (see
 https://docs.travis-ci.com/user/deployment/opsworks/).
 
 
