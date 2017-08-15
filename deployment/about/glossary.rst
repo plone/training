@@ -15,3 +15,15 @@ Glossary
    DigitalOcean
       `DigitalOcean, Inc. <https://www.digitalocean.com/>`_ is an American cloud infrastructure provider
        headquartered in New York City with data centers worldwide.
+
+   ZODB
+      `A native object database for Python <http://www.zodb.org/en/latest/>`_.
+
+   TTW
+      Through-The-Web, changes in the browser/
+
+   S3
+      `Amazon S3 <https://aws.amazon.com/s3/>`_ - Object storage built to store and retrieve any amount of data from anywhere.
+
+   NFS
+      `Network File System <https://en.wikipedia.org/wiki/Network_File_System/>`_.
