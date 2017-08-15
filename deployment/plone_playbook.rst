@@ -1,9 +1,9 @@
-
+==================
 The Plone Playbook
-------------------
+==================
 
-Currently supported platforms
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Supported Platforms
+===================
 
 We currently support two Linux families: Debian and RHEL.
 *Support* means that the playbook knows how to load platform package dependencies and how to set up users, groups, and the platform's method for setting up daemons to start and stop with the operating system.

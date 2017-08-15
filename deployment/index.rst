@@ -9,11 +9,10 @@ Automating Plone Deployment
     Instructors should note that this makes it more discursive than it would be if it was only meant for classroom use.
     Many sections may be zipped through in a class, noting to students that the full text is available for review.
 
-
-Contents:
-
 ..  toctree::
+    :hidden:
     :maxdepth: 3
+    :caption: Ansible
 
     intro
     plone_stack
@@ -24,12 +23,20 @@ Contents:
     customization
     maintenance
 
+..  toctree::
+    :hidden:
+    :maxdepth: 3
+    :caption: OpsWorks
+    
+    opsworks/index
+
+..  toctree::
+    :hidden:
+    :maxdepth: 3
+    :caption: Plone Trainings
+
+    about
+
 .. seealso::
 
    https://docs.plone.org/manage/deploying/
-
-OpsWorks
-========
-
-:doc:`opsworks/index`
-    Using Amazon Opsworks to orchestrate clusters for scalable/high availablity deployments.

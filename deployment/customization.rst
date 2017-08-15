@@ -1,6 +1,6 @@
-
-More customized use
-^^^^^^^^^^^^^^^^^^^
+==============
+Customized Use
+==============
 
 We intend that you should be able to make most changes by changing default variable settings in your ``local_configure.yml`` file.
 We've made a serious effort to make sure that all those settings are documented in the `Plone's Ansible Playbook <https://docs.plone.org/external/ansible-playbook/docs/index.html>` documentation.

@@ -1,6 +1,6 @@
-
-Intro to Ansible
-----------------
+================
+Intro To Ansible
+================
 
 Ansible is an open-source configuration management, provisioning and application deployment platform written in Python and using YAML (YAML Ain't Markup Language) as a configuration language.
 Ansible makes its connections from your computer to the target machine using SSH.
@@ -9,7 +9,7 @@ There is no server-side component other than an SSH server.
 General familiarity with SSH is very desirable if you're using Ansible -- as well as being a baseline skill for server administration.
 
 Installation
-^^^^^^^^^^^^
+============
 
 Ansible is usually installed on the orchestrating computer -- typically your desktop or laptop.
 It is a large Python application (though a fraction the size of Plone!) that needs many specific Python packages from the Python Package Index (PyPI).

@@ -1,9 +1,9 @@
+=========================
+Basic Use Of The Playbook
+=========================
 
-Basic use of the playbook
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Local configuration file
-````````````````````````
+Local Configuration File
+========================
 
 For a quick start, copy one of the :file:`sample-*.yml` files to :file:`local-configure.yml`.
 The :file:`local-configure.yml` file is automatically included in the main playbook if it's found.
@@ -40,8 +40,8 @@ You're also nearly certainly going to want to specify a Plone version via the ``
 You should be able to pick any version from 4.3.x or 5.x.x.
 Note that the value for this variable must be quoted to make sure it's interpreted as a string.
 
-Use with Vagrant
-::::::::::::::::
+Use With Vagrant
+----------------
 
 If you've installed Vagrant/Virtualbox, you're ready to test.
 Since Vagrant manages the connection, you don't need to create a inventory file entry.
