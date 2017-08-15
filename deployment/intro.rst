@@ -3,17 +3,22 @@ Introduction
 ============
 
 The subject of this training is the deployment of Plone for production purposes.
-We will, in particular, be focusing on automating deployment using tools which can target a fresh Linux server and create on it an efficient, robust server.
 
-That target server may be a cloud server newly created on AWS, Linode or DigitalOcean.
+We will, in particular, be focusing on automating deployment using tools which can target
+a fresh Linux server and create on it an efficient, robust server.
+
+That target server may be a cloud server newly created on :term:`AWS`, :term:`Linode` or :term:`DigitalOcean`.
+
 Or, it may be a virtual machine created for testing on your own desk or laptop.
 
 Our goal is that these deployments be *repeatable*.
 If we run the automated deployment multiple times against multiple cloud servers, we should get the same results.
+
 If we run the automated deployment against a virtual machine on our laptop, we should be able to test it as if it was a matching cloud server.
 
 The tools we use for this purpose reflect the opinions of the Plone Installer Team.
 *We are opinionated*.
+
 With a great many years of experience administering servers and Plone, we feel we have a right to our opinions.
 But, most importantly, we know we have to make choices and support those choices.
 
@@ -30,7 +35,7 @@ Our Choices
 Linux
 
     BSD is great.
-    OS X is familiar.
+    macOS is familiar.
     Windows works just fine.
     But our experience and the majority experience in the Plone community is with Linux for production servers.
     That doesn't mean you have to use Linux for your laptop or desktop; anything that runs Python is likely fine.
@@ -50,7 +55,8 @@ Ansible
 
     There are all sorts of great tools for automating deployment.
     People we respect have chosen Puppet, Salt/Minion and lots of other tools.
-    We chose Ansible because it requires no preinstalled server component, it's written in Python, and its configuration language is YAML, which is awfully easy to read.
+    We chose Ansible because it requires no preinstalled server component, it's written in Python,
+    and its configuration language is YAML, which is awfully easy to read.
 
 And ...
 
