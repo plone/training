@@ -1,5 +1,6 @@
+======================
 Deployment Terminology
-^^^^^^^^^^^^^^^^^^^^^^
+======================
 
 It's probably a good idea to be familar with a few core Chef concepts, though
 digging deeply into Chef is definitely not something I encourage Python
@@ -18,15 +19,17 @@ developers to do.
 
 
 Opsworks
-````````
+========
 
 Amazon Opsworks takes this basic configuration framework and provides its own
-set of concepts, to implement cluster orchestration. When using Opsworks, you
-will be making use built-in Opsworks Chef Cookbooks provided by Amazon. These
-built-in Cookbooks provide a number of Recipes for configuring and deploying
+set of concepts, to implement cluster orchestration.
+
+When using Opsworks, you will be making use built-in Opsworks Chef Cookbooks provided by Amazon.
+These built-in Cookbooks provide a number of Recipes for configuring and deploying
 many types of applications using simple TTW configuration from the Opsworks
-control panel. These include Node.js, Rails, PHP, and Java applications, but
-not Python [*]_.
+control panel.
+
+These include Node.js, Rails, PHP, and Java applications, but not Python [*]_.
 
 I've created a couple supplemental Cookbooks that extend the existing Opsworks
 deployment recipes to support Python and Plone along with other supporting
@@ -45,20 +48,21 @@ Opsworks has its own vocabulary of concepts related to deploying and orchestrati
   * ``Resources``: A set of Amazon EC2 resources that will be used by the stack by being attached/assigned to Instances when they are started. These include Elastic IP addresses, EBS storage volumes and RDS databases (useful you are running Relstorage).
 
 A Stack can be configured with a single Instance running all the Layers, or
-multiple Instances each running different Layers. You might, for example, have
-a production stack with five Instances running the Plone ZEO client
+multiple Instances each running different Layers.
+You might, for example, have a production stack with five Instances running the Plone ZEO client
 Application Layer, a single instance running the ZEO server Application Layer,
 and two Instances running the front end proxy/loadbalancer Layer (with an
-Elastic Load Balancer in front of those). You might also have a staging stack
-with all the same Layers applied to a single modest server. Other than the
-Instance definitions (and perhaps the App repository branch), these Stacks
+Elastic Load Balancer in front of those).
+
+You might also have a staging stack with all the same Layers applied to a single modest server.
+Other than the Instance definitions (and perhaps the App repository branch), these Stacks
 would be essentially identical.
 
 .. [*] Boo!
 .. [*] Though you could separate each of these front end services into their own layers if you really wanted to, we combine them by default under a customized HAProxy layer which already provides a nice UI for a few HAProxy features.
 
 Instance Lifecycle
-``````````````````
+==================
 
 Each Opsworks Instance goes through a few phases during its lifecycle:
 
@@ -69,9 +73,10 @@ Each Opsworks Instance goes through a few phases during its lifecycle:
   * ``shutdown``
 
 Each of these lifecycle phases runs recipes assigned to that phase in the
-assigned Layers.  When these recipes are run, the Stack configuration is
-passed to the server. This configuration includes complete information about
-the state of the entire Stack and all of its running Instances.
+assigned Layers.
+When these recipes are run, the Stack configuration is passed to the server.
+
+This configuration includes complete information about the state of the entire Stack and all of its running Instances.
 
 When an Instance starts, it first goes through a ``setup`` phase: installing
 all package dependencies for all assigned Layers and running all the recipes
@@ -79,9 +84,10 @@ assigned to the ``setup`` phase of those Layers.
 
 Once the ``setup`` phase is complete, a ``deploy`` phase is automatically
 started. running all the recipes assigned to the ``deploy`` phase of any
-assigned Layers. Subsequently, you may manually run a ``deploy`` for a
-specific Application on any or all of the instances to update the application
-code and reconfigure services.
+assigned Layers.
+
+Subsequently, you may manually run a ``deploy`` for a specific Application on
+any or all of the instances to update the application code and reconfigure services.
 
 The ``shutdown`` phase is run automatically before an instance is stopped.
 
@@ -90,10 +96,14 @@ manually removed from an instance.
 
 Whenever an Instance is started or stopped and it's ``setup`` or ``shutdown``
 phase has completed a ``configure`` phase is initiated on all running
-instances. As with all recipe runs, the ``configure`` phase recipes are passed
+instances.
+
+As with all recipe runs, the ``configure`` phase recipes are passed
 data about all the curently running Instances and their Layers so that they
 can automatcially reconfigure themselves based on the updated state of the
-Stack. For example, a load balancer may need to automatically add or remove
+Stack.
+
+For example, a load balancer may need to automatically add or remove
 Plone ZEO clients from it's list of active backends, a ZEO client may need to
 change its ZEO server or its Relstorage Memcache if configuration for those
 services have changed.
