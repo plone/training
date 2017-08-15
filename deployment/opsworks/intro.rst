@@ -2,7 +2,7 @@
 Introduction
 ============
 
-The subject of this training is using Amazon Opsworks deployment system to
+The subject of this training is using the :term:`Amazon Opsworks` deployment system to
 orchestrate complex, scalable, and redundant multi-server deployments of
 Plone.
 
