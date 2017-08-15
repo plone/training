@@ -1,6 +1,6 @@
-
-Maintenance strategies
-^^^^^^^^^^^^^^^^^^^^^^
+======================
+Maintenance Strategies
+======================
 
 This section covers strategies for long-run maintenance of your playbook.
 If you're successful with Plone's Ansible Playbook, you will wish to keep an eye on its continued development.
