@@ -5,6 +5,9 @@
   "rules": {
     "write-good": {
       "so": true
+    },
+    "max-number-of-lines": {
+        "max" : 1000
     }
   }
 }
