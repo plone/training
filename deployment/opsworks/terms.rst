@@ -26,7 +26,7 @@ set of concepts, to implement cluster orchestration.
 
 When using Opsworks, you will be making use built-in Opsworks Chef Cookbooks provided by Amazon.
 These built-in Cookbooks provide a number of Recipes for configuring and deploying
-many types of applications using simple TTW configuration from the Opsworks
+many types of applications using TTW (through the web) configuration from the Opsworks
 control panel.
 
 These include Node.js, Rails, PHP, and Java applications, but not Python [*]_.
