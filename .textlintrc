@@ -7,7 +7,7 @@
       "so": true
     },
     "max-number-of-lines": {
-        "max" : 1000
+        "max" : 600
     }
   }
 }
