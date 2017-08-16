@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    "rst"
+  ],
+  "rules": {
+    "write-good": {
+      "so": true
+    }
+  }
+}
