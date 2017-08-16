@@ -12,7 +12,7 @@ the option to create a ``Stack``.
 Confusingly, a CloudFormation Stack is not the same thing as an Opsworks Stack,
 but the former is what we use to automate the creation of the latter so we can use the terms a bit interchangeably.
 
-You'll want to download the following file from Github: https://raw.githubusercontent.com/alecpm/opsworks-web-python/master/plone_buildout/examples/zeoserver-stack.template
+You'll want to download the following file from GitHub: https://raw.githubusercontent.com/alecpm/opsworks-web-python/master/plone_buildout/examples/zeoserver-stack.template
 
 And use the "Upload a template to Amazon S3" option to upload the above file
 which provides a basic ZEO server stack configuration [*]_.
