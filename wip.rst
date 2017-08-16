@@ -2,6 +2,9 @@
 Work In Progress
 ================
 
+
+.. todo:: Sync this info with the wiki
+
 Structure
 =========
 
