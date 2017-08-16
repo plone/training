@@ -2,7 +2,7 @@
 Creating Your First Stack
 =========================
 
-Setting up a Stack with all of its layers is a tedious excersise it :term:`TTW` configuration.
+Setting up a Stack with all of its layers is a tedious excersise it :term:`TTW` (through the web) configuration.
 
 Thankfully there's another :term:`AWS` tool called :term:`CloudFormation` that
 lets us quickly configure a basic Plone stack with the most common layers configured.
