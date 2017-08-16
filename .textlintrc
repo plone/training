@@ -8,6 +8,32 @@
     },
     "max-number-of-lines": {
         "max" : 600
-    }
+    },
+    "terminology": {
+      // Load default terms (see terms.json in the repository)
+      "defaultTerms": true,
+      // Syntax elements to skip. Overrides the default
+      "skip": ["Blockquote"],
+      // List of terms
+      "terms": [
+        // Exact spelling including the case
+        "JavaScript",
+        "ESLint",
+        "Sass",
+        "Less",
+        "npm",
+        // RegExp (case-insensitive) → replacement
+        ["front[- ]end(\\w*)", "frontend$1"],
+        ["back[- ]end(\\w*)", "backend$1"],
+        ["web[- ]?site(s?)", "site$1"],
+        ["hot[- ]key", "hotkey"],
+        ["repo\\b", "repository"],
+        ["CLI tool(s?)", "command line tool$1"],
+        ["build system(s?)", "build tool$1"],
+        ["id['’]?s", "IDs"],
+        ["(\\w+[^.?!]\\)? )webpack", "$1webpack"],
+        ["(\\w+[^.?!]\\)? )internet", "$internet"]
+      ]
+      }
   }
 }
