@@ -189,7 +189,7 @@ We use Varnish for reverse-proxy caching.
 The size of the cache and its storage strategy is customizable.
 
 By default, we set up 512MB caches.
-That's probably about right if you're using a CDN, but may be low if if your site is large and you're not using a CDN.
+That's probably about right if you're using a CDN (content delivery network), but may be low if if your site is large and you're not using a CDN.
 The two small samples use Varnish's ``file`` method for cache storage.
 The larger samples use ``malloc``.
 

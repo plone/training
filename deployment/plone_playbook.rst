@@ -63,7 +63,7 @@ We include a couple of files to help you get started with Vagrant testing.
 Vagrantfile
 
     A Vagrant setup file that will allow you to create guest virtual hosts for any of the platforms we support and will run Ansible as the provisioner with playbook.yml.
-    This defaults to building a Trusty box, but you may pick others by naming them on the :command:`vagrant up` command line.
+    This defaults to building a Xenial box, but you may pick others by naming them on the :command:`vagrant up` command line.
 
 vbox_host.cfg
 
