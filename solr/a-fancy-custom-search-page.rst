@@ -414,12 +414,14 @@ To reduce complexity some of the standard features like syndication,  i18n and v
 Let's analyze the important parts.
 The head includes a reference to the ``showmore.js`` JavaScript,
 which is included in ``collective.solr`` and used to reduce long lists of facets.
+
 Additionally the left column is removed on the search page.
 The right column is kept.
 No portlets will be displayed, it is used for the facets.
 
-The first thing we do in our search is geting the results for the search query,
-if there is one::
+The first thing we do in our search is getting the results for the search query, if there is one
+
+.. code-block:: python
 
     def search(self):
         if not self.request.get('SearchableText'):
@@ -431,15 +433,19 @@ if there is one::
         batch = Batch(results, size=20, start=b_start)
         return batch
 
-We can use the standard Plone catalo API for getting the results.
+We can use the standard Plone catalog API for getting the results.
 
-.. note:: Don't use plone.api.content.find because it `fixes` the query to match the indexes defined in Zcatalog and will strip all Solr related query parameters.
-    We don't want that.
+.. note::
+
+   Don't use plone.api.content.find because it `fixes` the query to match the indexes defined in Zcatalog and will strip all Solr related query parameters.
+   We don't want that.
 
 After we got the results we wrap it with ``IContentListing`` to have unified access to them.
 Finally we create a Batch, to make sure long result sets are batched on our search view.
 
-The next thing we have in our search view is the form itself::
+The next thing we have in our search view is the form itself
+
+.. code-block:: python
 
     <form name="searchform"
           action="search"
@@ -464,7 +470,7 @@ This snippet will add the necessary query parameters like **facet=true&facet.fie
 
 We use the ``h1`` element for displaying the number of elements.
 
-The next section is reseved for the suggest snippet::
+The next section is reserved for the suggest snippet::
 
     <div tal:condition="not: view/has_results">
       <p tal:define="suggest view/suggest">
@@ -479,8 +485,11 @@ The next section is reseved for the suggest snippet::
     </div>
 
 If no results are found with the query, a term is suggested.
-This term is fetched from the collective.solr AJAX view **suggest-terms**.
-The code in our view class is here::
+This term is fetched from the ``collective.solr`` AJAX view **suggest-terms**.
+
+The code in our view class is here
+
+.. code-block:: python
 
     def suggest(self):
         self.request.form['term'] = self.request.get('SearchableText')
@@ -500,6 +509,7 @@ We get suggestions from the Solr handler and construct an URL for a new search w
 
 The next thing we have is the result list.
 There is nothing fancy in it.
+
 We show the title, which is linked to the article found and the cropped description.
 
 Finally we have the snippet for the facets in the right slot::
@@ -513,14 +523,13 @@ Finally we have the snippet for the facets in the right slot::
 
 We call the facet view of ``collective.solr`` with our resultset and get the facets fully rendered as HTML.
 
-.. note:: We need to pass the `real` solr response to the facet view.
-    That's why we have to escape the batch (_sequence) and the contentlisting (_basesequence)
+.. note::
+
+   We need to pass the `real` Solr response to the facet view.
+   That's why we have to escape the batch (_sequence) and the contentlisting (_basesequence)
 
 Now we have a fully functional Plone search with faceting, autocompletion, suggestion and term highlighting.
-The complete example you can find on github:
-
-  https://github.com/collective/plonetraining.solr_example
-
+You can find the complete example on `GitHub <https://github.com/collective/plonetraining.solr_example>`_.
 
 Excercise
 =========

@@ -5,10 +5,12 @@ Alternative Indexing/Search Solutions
 alm.solrindex
 =============
 
-``alm.solrindex`` is another addon for connecting Plone search to solr. It takes a different approach:
+``alm.solrindex`` is another addon for connecting Plone search to Solr.
+
+It takes a different approach:
 
 * ``collective.solr`` *wraps* the Zope catalog.
-  Each item is indexed both in the ZCatalog and in solr, typically including many indexes in both.
+  Each item is indexed both in the ZCatalog and in Solr, typically including many indexes in both.
   When a search is performed, based on the indexes used,
   it decides to query either ZCatalog or solr but not both.
 * ``alm.solrindex`` operates as an index *within* the Zope catalog,
@@ -21,10 +23,10 @@ alm.solrindex
 
 Pros:
 
-* solr is more efficient than ZCTextIndex at indexing and querying fulltext.
+* Solr is more efficient than ZCTextIndex at indexing and querying fulltext.
 * Avoids duplication of index storage.
 * Less data needs to be sent between Plone and solr when indexing.
-* Don't need to add new indexes to solr and reindex.
+* Don't need to add new indexes to Solr and reindex.
 
 Cons:
 
@@ -35,10 +37,12 @@ Cons:
 Setup
 -----
 
-We set up solr in our buildout in a similar way,
-using the ``hexagonit.recipe.download`` and ``collective.recipe.solr`` buildout recipes.
+We set up Solr in our buildout in a similar way,
+using the `hexagonit.recipe.download <https://pypi.python.org/pypi/hexagonit.recipe.download>`_ and ``collective.recipe.solr`` buildout recipes.
 
-The ``solr-instance`` buildout part looks a bit different::
+The ``solr-instance`` buildout part looks a bit different.
+
+.. code-block:: ini
 
 	[solr-instance]
 	recipe = collective.recipe.solrinstance
@@ -59,12 +63,12 @@ The ``solr-instance`` buildout part looks a bit different::
   ``alm.solrindex`` will pass the ZCatalog's internal integer record id
   (``rid``) in this field.
 * We set the ``default-search-field`` to SearchableText,
-  so that solr queries which don't specify a field will use SearchableText.
+  so that Solr queries which don't specify a field will use SearchableText.
 * We configure fields for docid and each of the standard Plone fulltext indexes,
   but not any other fields.
-* We set ``stored: false`` on the indexes so that solr will only store the docid.
+* We set ``stored: false`` on the indexes so that Solr will only store the docid.
 
-We also need to reference the solr URI in an environment variable for the Plone instance part,
+We also need to reference the Solr URI in an environment variable for the Plone instance part,
 so that ``alm.solrindex`` knows where to connect
 
 .. code-block:: ini
@@ -74,7 +78,7 @@ so that ``alm.solrindex`` knows where to connect
     SOLR_URI http://${settings:solr-host}:${settings:solr-port}/solr
 
 After running buildout,
-we can start Plone and activate ``alm.solrindex`` in the Addons control panel.
+we can start Plone and activate ``alm.solrindex`` in the Add-ons control panel.
 
 .. note::
 
@@ -82,7 +86,7 @@ we can start Plone and activate ``alm.solrindex`` in the Addons control panel.
    Title, and Description indexes, but does not automatically reindex existing content.
 
    If you have existing content in the site,
-   you'll need to do a full reindex of the ZCatalog to get them indexed in solr.
+   you'll need to do a full reindex of the ZCatalog to get them indexed in Solr.
 
 Why Are Results Missing?
 ------------------------
@@ -100,10 +104,11 @@ this is not a big problem.
 Solr ranks the results so the limited set it returns should be the most relevant results,
 and most users are not going to navigate past more than a few pages of results anyway.
 
-However it can be a problem when the search term is very generic
+It can be a problem when the search term is very generic
 (so there are many results and its hard for Solr to determine the most relevant ones)
 and the results are also going to be filtered by other indexes
 (such as in a faceted search solution).
+
 In this case the limited result set from Solr is fairly arbitrary,
 the other filters only get to operate on this limited set,
 and we might end up missing results that should be there.
@@ -115,7 +120,7 @@ If a search is performed for 'pdf' within the path '/annual-reports/2015':
 1. First Solr finds all documents matching 'pdf', and ranks them.
 2. Next it returns the top 500 results to Plone.
 3. Next Plone filters those results by path. There is a good chance that
-   our target document was not included in the 500 that solr returned,
+   our target document was not included in the 500 that Solr returned,
    so this filters down to no results.
 
 There are a couple workarounds for this problem, both of which have their own tradeoff:
