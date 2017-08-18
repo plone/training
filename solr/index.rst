@@ -21,9 +21,9 @@ It powers the search of sites like Twitter, the Apple and iTunes Stores, Wikiped
    solr-alternatives
 
 .. toctree::
-   :hidden:
    :maxdepth: 3
    :caption: Plone Trainings
+   :hidden:
 
-   ../about/index
-   ../about/glossary
+   about/index
+   about/glossary

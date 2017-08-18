@@ -1,13 +1,13 @@
-****************
-More Features...
-****************
+=============
+More Features
+=============
 
 Next we will cover some more advanced topics which need configuration on Plone and Solr side.
 Features like autocomplete and suggest (did you mean ...) are often requested when it comes to search.
 They are perfectly doable with the Plone / Solr combination.
 At the end of this chapter we will build a full search page with autocomplete, suggest, term highlighting and faceting turned on.
 
-Let's see how and start with autocomplete: 
+Let's see how and start with autocomplete:
 
 Autocomplete
 ============
@@ -500,7 +500,7 @@ Finally we have the snippet for the facets in the right slot::
            tal:replace="structure python:facet_view(results=results._sequence._basesequence)"/>
     </div>
 
-We call the facet view of ``collective.solr`` with our resultset and get the facets fully rendered as HTML. 
+We call the facet view of ``collective.solr`` with our resultset and get the facets fully rendered as HTML.
 
 .. note:: We need to pass the `real` solr response to the facet view.
     That's why we have to escape the batch (_sequence) and the contentlisting (_basesequence)
