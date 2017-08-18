@@ -1,5 +1,6 @@
 .. _deployment-label:
 
+==========================
 Automating Plone Deployment
 ===========================
 

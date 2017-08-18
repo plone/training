@@ -1,24 +1,27 @@
-*********************
-Set up Plone and Solr
-*********************
+=====================
+Set Up Plone And Solr
+=====================
 
-For using Solr with Plone you need two things:
+For using :term:`Solr` with Plone you need two things:
 
- 1) A running Solr server
- 2) An integration product (like collective.solr) for delegation of indexing and searching to the Solr server.
+1) A running Solr server
+2) An integration product (like collective.solr) for delegation of indexing and searching to the Solr server.
     In this training we will focus on collective.solr for this purpose.
 
-Bootstrap project::
+Bootstrap project:
 
-  $ mkdir plone-training-solr
-  $ cd plone-training-solr
-  $ curl -O https://bootstrap.pypa.io/bootstrap-buildout.py
-  $ curl -O https://raw.githubusercontent.com/collective/collective.solr/master/solr.cfg
-  $ curl -o plone5.cfg https://raw.githubusercontent.com/collective/minimalplone5/master/buildout.cfg
-  $ curl -o solr4.cfg https://raw.githubusercontent.com/collective/collective.solr/master/solr-4.10.x.cfg
+.. code-block:: console
 
+   mkdir plone-training-solr
+   cd plone-training-solr
+   curl -O https://bootstrap.pypa.io/bootstrap-buildout.py
+   curl -O https://raw.githubusercontent.com/collective/collective.solr/master/solr.cfg
+   curl -o plone5.cfg https://raw.githubusercontent.com/collective/minimalplone5/master/buildout.cfg
+   curl -o solr4.cfg https://raw.githubusercontent.com/collective/collective.solr/master/solr-4.10.x.cfg
 
-Create a buildout (*buildout.cfg*) which installs both requirements::
+Create a buildout (*buildout.cfg*) which installs both requirements
+
+.. code-block:: ini
 
     [buildout]
     extends =
@@ -35,18 +38,24 @@ Create a buildout (*buildout.cfg*) which installs both requirements::
     collective.recipe.solrinstance = 6.0.0b3
 
 
-Run buildout::
+Run buildout:
 
-  $ python2.7 bootstrap-buildout.py
-  $ bin/buildout
+.. code-block:: console
 
-Start Plone in foreground mode to see that everything is ok::
+   python2.7 bootstrap-buildout.py
+   bin/buildout
 
-  $ bin/instance fg
+Start Plone in foreground mode to see that everything is working:
 
-Start Solr in another terminal in foreground mode ::
+.. code-block:: console
 
-  $ bin/solr-instance fg
+   bin/instance fg
+
+Start Solr in another terminal in foreground mode:
+
+.. code-block:: console
+
+   bin/solr-instance fg
 
 Solr Buildout
 =============
@@ -54,7 +63,9 @@ Solr Buildout
 We assume you are more or less familiar with the Plone buildout,
 but let's analyze the solr buildout configuration a bit.
 
-First we have two buildout parts in *solr.cfg* ::
+First we have two buildout parts in *solr.cfg*:
+
+.. code-block:: ini
 
     [buildout]
     parts +=
@@ -67,7 +78,10 @@ The part *solr-instance* is for configuring Solr. Let's continue with the detail
 The base Solr settings specify the host (usually localhost or 127.0.0.1),
 the port (8983 is the standard port of Solr)
 and two Java parameters for specifying lower and upper memory limit.
-More is usually better. ::
+
+More is usually better.
+
+.. code-block:: ini
 
     [settings]
     solr-host = 127.0.0.1
@@ -81,11 +95,16 @@ follow the guidelines found in this article:
 .. seealso:: https://lucidworks.com/2011/09/14/estimating-memory-and-storage-for-lucenesolr/
 
 There is nothing fancy in the Solr download part.
+
 It takes an URL to the Solr binary and an md5 sum for verification.
 
-.. note:: At time of writing the latest working version of Solr was 4.10.x
+.. note::
 
-It looks like this in *solr.cfg* and *solr4.cfg* ::
+   At time of writing the latest working version of Solr was 4.10.x
+
+It looks like this in *solr.cfg* and *solr4.cfg*:
+
+.. code-block:: ini
 
     [solr-download]
     recipe = hexagonit.recipe.download
@@ -121,39 +140,54 @@ many configuration options of Solr and the possibility to define the schema of t
       -Xms${settings:solr-min-ram}
       -Xmx${settings:solr-max-ram}
 
-Let's analyze them one by one ::
+Let's analyze them one by one:
 
-    solr-location = ${solr-download:location}
+.. code-block:: ini
 
-Specify the location of Solr, dowloaded with the previous part. ::
+   solr-location = ${solr-download:location}
 
-    host = ${settings:solr-host}
-    port = ${settings:solr-port}
-    basepath = /solr
+Specify the location of Solr, dowloaded with the previous part.
+
+.. code-block:: ini
+
+   host = ${settings:solr-host}
+   port = ${settings:solr-port}
+   basepath = /solr
 
 Base configuration for running Solr referencing previously defined settings.
 With this configuration it is possible to access Solr in a browser with the following URL:
 http://localhost:8983/solr
 
-The section-name defines the name which can be used to reflect custom address and/or basepath settings in zope.conf.::
+The section-name defines the name which can be used to reflect custom address and/or basepath settings in zope.conf.
 
-    section-name = SOLR
+.. code-block:: ini
+
+   section-name = SOLR
 
 It follows the following pattern in *zope.conf*:
-if you use standard settings no changes in *zope.conf* are necessary. ::
+if you use standard settings no changes in *zope.conf* are necessary.
+
+.. code-block:: ini
 
     <product-config ${part:section-name}>
         address ${part:host}:${part:port}
         basepath ${part:basepath}
     </product-config>
 
-.. note:: Another easy way to use different hosts on dev, stage and production
-   machines is to define a host alias in /etc/hosts
+.. note::
+
+   Another easy way to use different hosts on development, staging
+   and production machines is to define a host alias in /etc/hosts.
 
 Like the Zope ZCatalog the Solr index has a schema consisting of index and metadata fields.
 You can think of index fields as something you can use for querying / searching and metadata something you return as result list.
+
 Solr defines its schema in a big XML file called ``schema.xml``.
-There is a section in the ``collective.recipe.solrinstance`` buildout recipe which gives you access to the most common configuration options in a buildout way::
+
+There is a section in the ``collective.recipe.solrinstance`` buildout recipe which gives
+you access to the most common configuration options in a buildout way
+
+.. code-block:: ini
 
     index =
         name:allowedRolesAndUsers   type:string stored:false multivalued:true
@@ -192,40 +226,46 @@ There is a section in the ``collective.recipe.solrinstance`` buildout recipe whi
 - stored: The field is returned as metadata
 - copyfield: copy content to another field, e.g. copy title, description, subject and SearchableText to default.
 
-For a complete list of schema configuration options refer to Solr documentation.
+For a complete list of schema configuration options refer to `Solr documentation <http://lucene.apache.org/solr/resources.html>`_.
 
 .. seealso:: https://wiki.apache.org/solr/SchemaXml#Common_field_options
 
 This is the bare minimum for configuring Solr. There are more options supported by the buildout
-recipe ``collective.recipe.solrinstance`` and even more by Solr itself. Most notably are the custom
-extensions for *schema.xml* and *solrconfig.xml*. We will see examples for this later on in the training.
+recipe ``collective.recipe.solrinstance`` and even more by Solr itself.
+Most notably are the custom extensions for *schema.xml* and *solrconfig.xml*.
 
-Or you can even point to a custom location for the main configuration files. ::
+We will see examples for this later on in the training.
 
-  schema-destination = ${buildout:directory}/etc/schema.xml
-  config-destination = ${buildout:directory}/etc/solrconfig.xml
+Or you can even point to a custom location for the main configuration files.
+
+.. code-block:: ini
+
+   schema-destination = ${buildout:directory}/etc/schema.xml
+   config-destination = ${buildout:directory}/etc/solrconfig.xml
 
 After running the buildout,
 which downloads and configures Solr and Plone we are ready to fire both servers.
 
-Plone and Solr
+Plone And Solr
 ==============
 
-To activate Solr in Plone *collective.solr* needs to be activated as an addon in Plone.
+To activate Solr in Plone *collective.solr* needs to be activated as an add-on in Plone.
 
-Activating the Solr addon adds a configuration page to the controlpanel.
+Activating the Solr add-on adds a configuration page to the controlpanel.
 It can be accessed via <PORTAL_URL>/@@solr-controlpanel or via "Configuration" -> "Solr Settings"
 
-Check: "Active", click "Save"
+Check: :guilabel:`Active`, click :guilabel:`Save`
 
 Activating Solr in the controlpanel activates a patch of Plones indexing
 and search methods to use Solr for indexing and querying.
 
-.. note:: Note that ZCatalog is not replaced but Solr is *additionally* used
+.. note::
+
+   Note that ZCatalog is not replaced but Solr is *additionally* used
    for indexing and searching.
 
-Control panel configuration options
------------------------------------
+Control Panel Configuration
+---------------------------
 
  - *Active* - Turn connection between Plone and Solr on/off.
  - *Host* - The host name of the Solr instance to be used. Defaults to 127.0.0.1
@@ -237,20 +277,19 @@ Control panel configuration options
 
  - *Automatic commit* - If enabled each index operation will cause a commit to be sent to Solr,
    which causes it to update its index.
-   If you disable this,
-   you need to configure commit policies on the Solr server side.
+   If you disable this, you need to configure commit policies on the Solr server side.
 
  - *Commit within*
 
-Timeouts and search limit
-'''''''''''''''''''''''''
+Timeouts And Search Limit
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
  - Index timeout
  - Search timeout
  - Maximum search results
 
-Search query configuration
-'''''''''''''''''''''''''''
+Search Query Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  - Required query parameters
  - Pattern for simple search queries
@@ -261,7 +300,7 @@ Search query configuration
  - Exclude user from allowedRolesAndUsers
 
 Highlighting
-'''''''''''''
+~~~~~~~~~~~~
 
 https://wiki.apache.org/solr/HighlightingParameters
 
@@ -275,8 +314,8 @@ https://wiki.apache.org/solr/HighlightingParameters
  - Levensthein distance
 
 
-Atomic updates and boosting
-'''''''''''''''''''''''''''
+Atomic Updates And Boosting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  - Enable atomic updates
  - Python script for custom index boosting
@@ -298,33 +337,35 @@ With Solr activated, searching in Plone works like the following:
 
 Then you are ready for your first search.
 Search for *Plone*.
+
 You should get the frontpage as a result--which is not super awesome at the first place because we have this without Solr too--but it is the first step in utilizing the full power of Solr.
 
-Configuration with ZCML
+Configuration With ZCML
 -----------------------
 
-Another way to configure the connection is via ZCML.
-You can use the following snippet to configure host, port und basepath: ::
+Another way to configure the connection is via :term:`ZCML`.
+You can use the following snippet to configure host, port und basepath:
+
+.. code-block:: xml
 
   <configure xmlns:solr="http://namespaces.plone.org/solr">
     <solr:connection host="127.0.0.23" port="3898" base="/foo" />
   </configure>
 
-The ZCML configuration takes predence over the configuration in the registry / control-panel.
+The ZCML configuration takes presence over the configuration in the registry / control-panel.
 
-Committing strategies
+Committing Strategies
 =====================
 
-Synchronous immediately
+Synchronous Immediately
 -----------------------
 
 The default commit strategy is to commit to Solr on every Zope commit.
 This ensures an always up to date index but may come at cost of indexing time especially when doing batch operations like data import.
 
-To use this behavior, turn **Automatic commit** ON in the Solr
-controlpanel in Plone.
+To use this behavior, turn **Automatic commit** ON in the Solr controlpanel in Plone.
 
-Synchronous batched
+Synchronous Batched
 -------------------
 
 Another commit strategy is to do timed commits in Solr.
@@ -341,9 +382,10 @@ To use this behavior you have to do two things:
 Asynchronous
 ------------
 
-The third commit stragey is to do full asynchronous commits.
-This can be activated by setting the Flag **Asynchronous indexing** in the Solr control panel to ON.
+The third commit strategy is to do full asynchronous commits.
+This can be activated by setting the Flag **Asynchronous indexing** in the Solr control panel to :guilabel:`ON`.
 This behavior is the most efficient in terms of Zope response time.
+
 Since it is fire and forget the consistency could be harmed in midterm.
 It is advisable to to a sync or full-index from time to time if you work with this strategy.
 
@@ -351,7 +393,7 @@ Additional information can be found in the Solr documentation:
 
 .. seealso:: https://cwiki.apache.org/confluence/display/solr/UpdateHandlers+in+SolrConfig#UpdateHandlersinSolrConfig-commitWithin
 
-Excercise
-=========
+Exercise
+========
 
 Have a running Plone and Solr with collective.solr active and experiment with commit strategies.
