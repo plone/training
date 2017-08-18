@@ -26,7 +26,7 @@ Proxy Cache Purging
 ===================
 
 Plone provides some very nice proxy caching configuration, but that
-configuration is managed :term:`TTW` (through the web) and stored persistently in the :term:`ZODB`.
+configuration is managed :term:`TTW` (Through-The-Web) and stored persistently in the :term:`ZODB`.
 
 If you have multiple proxy caches which could be going online or offline automatically or
 changing IP addresses, then having persistent configuration of caches to purge
