@@ -26,61 +26,62 @@ Solr Query Parameters:
 
 Query "q"::
 
-    Title:"news"
-    *:"news"
+   Title:"news"
+   *:"news"
 
 Solr response
 
-.. code-block:: json
-
-  {
-    "responseHeader":{
-      "status":0,
-      "QTime":0,
-      "params":{
-        "q":"*:*",
-        "indent":"true",
-        "wt":"json"}},
-    "response":{"numFound":51,"start":0,"docs":[
-        {
-          "path_string":"/Plone/news",
-          "Title":"News",
-          "showinsearch":true,
-          "path_depth":3,
-          "exclude_from_nav":false,
-          "Type":"Folder",
-          "UID":"88411960ec3f4b1f86feae9094ba718e",
-          "is_folderish":true,
-          "getId":"news",
-          "Date":"2015-12-25T16:46:24Z",
-          "review_state":"published",
-          "Language":"en",
-          "portal_type":"Folder",
-          "expires":"2499-12-30T22:00:00Z",
-          "allowedRolesAndUsers":["Anonymous"],
-          "path_parents":["/Plone",
-            "/Plone/news"],
-          "object_provides":["Products.ATContentTypes.interfaces.folder.IATFolder",
-            "Products.CMFPlone.interfaces.syndication.ISyndicatable",
-            "eea.facetednavigation.subtypes.interfaces.IPossibleFacetedNavigable",
-            "Products.CMFCore.interfaces._content.IContentish",
-            "webdav.interfaces.IWriteLock"],
-          "Description":"Site News",
-          "effective":"1000-01-05T22:00:00Z",
-          "created":"2015-12-25T16:46:24.841Z",
-          "getIcon":"",
-          "Creator":"admin",
-          "modified":"2015-12-25T16:46:24.841Z",
-          "SearchableText":"news  News  Site News ",
-          "_version_":1545835799688249344},
 
 
-Filter Query "fq":
+   {
+     "responseHeader":{
+       "status":0,
+       "QTime":0,
+       "params":{
+         "q":"*:*",
+         "indent":"true",
+         "wt":"json"}},
+     "response":{"numFound":51,"start":0,"docs":[
+         {
+           "path_string":"/Plone/news",
+           "Title":"News",
+           "showinsearch":true,
+           "path_depth":3,
+           "exclude_from_nav":false,
+           "Type":"Folder",
+           "UID":"88411960ec3f4b1f86feae9094ba718e",
+           "is_folderish":true,
+           "getId":"news",
+           "Date":"2015-12-25T16:46:24Z",
+           "review_state":"published",
+           "Language":"en",
+           "portal_type":"Folder",
+           "expires":"2499-12-30T22:00:00Z",
+           "allowedRolesAndUsers":["Anonymous"],
+           "path_parents":["/Plone",
+             "/Plone/news"],
+           "object_provides":["Products.ATContentTypes.interfaces.folder.IATFolder",
+             "Products.CMFPlone.interfaces.syndication.ISyndicatable",
+             "eea.facetednavigation.subtypes.interfaces.IPossibleFacetedNavigable",
+             "Products.CMFCore.interfaces._content.IContentish",
+             "webdav.interfaces.IWriteLock"],
+           "Description":"Site News",
+           "effective":"1000-01-05T22:00:00Z",
+           "created":"2015-12-25T16:46:24.841Z",
+           "getIcon":"",
+           "Creator":"admin",
+           "modified":"2015-12-25T16:46:24.841Z",
+           "SearchableText":"news  News  Site News ",
+           "_version_":1545835799688249344},
+
+Filter Query "fq"
 
 This parameter can be used to specify a query that can be used to restrict the super set of documents that can be returned,
 without influencing the score.
+
 It can be very useful for speeding up complex queries since the queries specified with fq are cached independently from the main query.
 Caching means the same filter is used again for a later query (i.e. there's a cache hit).
+
 See SolrCaching to learn about the caches Solr uses::
 
     is_folderish:true
@@ -103,7 +104,7 @@ Response Writer "wt"::
 
 A Response Writer generates the formatted response of a search.
 
-Solr Query via URL
+Solr Query Via URL
 ==================
 
 Copy query from Solr GUI, e.g.::
@@ -112,12 +113,13 @@ Copy query from Solr GUI, e.g.::
 
 You can use curl or the Python package `requests` (https://pypi.python.org/pypi/requests) to access the REST API of Solr.
 
-Solr Query via API
+Solr Query Via API
 ==================
 
 Another way of accessing Solr is to use a Python wrapper,
 which exposes the Solr API in a Pythonic way.
-Collective.solr has included such a wrapper (``solr.py``),
+
+``collective.solr`` has included such a wrapper (``solr.py``),
 which is old but still works for our case.
 Meanwhile there are other packages around.
 Here are some examples:
@@ -128,7 +130,9 @@ Here are some examples:
 
 Sometimes it is handy to have a separate virtualenv available for doing batch operations (delete, update, etc.)
 
-I use the following script to delete all Plone Documents from Solr ::
+I use the following script to delete all Plone Documents from Solr
+
+.. code-block:: python
 
  >>> from mysolr import Solr
  >>> solr = Solr(base_url='http://localhost:8983/solr')
@@ -156,7 +160,7 @@ Operators::
 
 "AND", "OR", "+", "-", "||", "NOT"
 
-Be carefull with combining operators such as::
+Be careful with combining operators such as::
 
  New AND York OR Buenos AND Aires
 
@@ -215,7 +219,7 @@ To round down by using the */* operator (it never rounds up)::
 
  effective:[* TO NOW/DAY-2YEAR]
 
-Existing (and non-existing) queries
+Existing (And Non-existing) Queries
 ===================================
 
 Assume we want to find all documents which have a value in a certain field
@@ -233,14 +237,16 @@ Faceting
 ========
 
 Faceting is one of the killer features of Solr.
-It allows the grouping nd filtering results for better findability.
+It allows the grouping nd filtering results for better find ability.
 To enable faceting you need o turn faceting on in the query and specify the fields you want tofacet upon:
 
 For a simple facet query in Solr you activate the feature and specify the facet fields(s)::
 
  http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true&facet=true&facet.field=portal_type
 
-Besides the matching documents this will give you an additional grouping of documents::
+Besides the matching documents this will give you an additional grouping of documents
+
+.. code-block:: json
 
   {
    "responseHeader":{
@@ -267,24 +273,24 @@ Besides the matching documents this will give you an additional grouping of docu
     "facet_intervals":{}}
   }
 
-There are more complex scenarios possible. For a complete list
-of options see the according Solr documentation.
+There are more complex scenarios possible.
+For a complete list of options see the according Solr documentation.
 
 .. seealso:: https://cwiki.apache.org/confluence/display/solr/Faceting
 
-With collective.solr you don't have to worry about the faceting details too much.
-There is a convenient method to configure the faceting fields in the control panel of collective.solr.
+With ``collective.solr`` you don't have to worry about the faceting details too much.
+There is a convenient method to configure the faceting fields in the control panel of ``collective.solr``.
 All the other magic is handled by the product.
 We will see an example later.
 
 Search GUIs
 ===========
 
- - collective.solr out of the box: collective.solr commes with its own search view.
-   For the new version 6.0 it is based on ReactJS and looks similar to the Plone search view with native facet support of Solr.
+ - ``collective.solr`` out of the box: ``collective.solr`` comes with its own search view.
+   For the new version 6.0 it is based on `React <https://facebook.github.io/react/>`_ and looks similar to the Plone search view with native facet support of Solr.
 
- - eea.facetednavigation: This addon allows faceting out of the box even without Solr.
-   It is a product for integrators to setup search and filter GUIs TTW.
+ - `eea.facetednavigation <https://github.com/eea/eea.facetednavigation>`_: This add-on allows faceting out of the box even without Solr.
+   It is a product for integrators to setup search and filter GUIs TTW (Through-The-Web).
    It can be used for several use cases: Search pages, collection replacements, etc.  **DEMO**
 
  - custom: Another way is to create a custom search page.

@@ -5,7 +5,9 @@ Solr Buildout Configuration
 Solr Multi Core
 ===============
 
-solr.cfg::
+solr.cfg
+
+.. code-block:: ini
 
     [solr-instance]
     recipe = collective.recipe.solrinstance:mc
@@ -17,7 +19,7 @@ solr.cfg::
     default-core-name = collection1
 
 .. note:: collective.solr does not support multicore setups currently.
-   It always uses the default core for indexing and searching. 
+   It always uses the default core for indexing and searching.
 
 Stopwords
 =========
@@ -26,9 +28,11 @@ For indexes with lot of text,
 common uninteresting words like *"the"*, *"a"*, and so on, make the index large and slow down phrase queries.
 To deal with this problem, it is best to remove them from fields where they show up often.
 
-We need to add the **StopFilterFactory** with a reference to a text file with one stopword per line to the Solr configuration:
+We need to add the **StopFilterFactory** with a reference to a text file with one stop word per line to the Solr configuration:
 
-solr.cfg::
+solr.cfg
+
+.. code-block:: ini
 
     [solr-instance]
     recipe = collective.recipe.solrinstance
@@ -46,7 +50,7 @@ stopwords.txt::
    the
    i
 
-For some common language secific examples see the Solr git repository:
+For some common language specific examples see the Solr git repository:
 
 .. seealso:: https://github.com/apache/lucene-solr/tree/master/lucene/analysis/common/src/resources/org/apache/lucene/analysis/snowball
 
@@ -58,7 +62,7 @@ Stemming is a language specific operation which try to reduce terms to a base fo
 
 Here is an example::
 
-  "riding", "rides", "horses" ==> "ride", "ride", "hors". 
+  "riding", "rides", "horses" ==> "ride", "ride", "hors".
 
 This can help in some situations but may hurt in others.
 
@@ -70,9 +74,11 @@ If you are interested in this feature look at the Solr documentation here:
 
 .. seealso:: https://wiki.apache.org/solr/LanguageAnalysis
 
-A short example to include a german stemming factory into the buildout is here:
+A short example to include a German stemming factory into the buildout is here:
 
-solr.cfg::
+solr.cfg
+
+.. code-block:: ini
 
     [solr-instance]
     recipe = collective.recipe.solrinstance
@@ -94,7 +100,7 @@ stemdict.txt::
     # some crazy ones that a stemmer would never do
     dogs    cat
 
-    # german stemming
+    # German stemming
     gelaufen    lauf
     lief        lauf
     risiken     risiko
@@ -111,7 +117,9 @@ A simple synonym like solution is to use the *searchwords* extension which is pr
 It is a schemaextender for all types and allows to specify terms which are boosted by factor 1000 in the default search query.
 For "real" synonyms implemented in Solr you can use the *SynonymFilterFactory*:
 
-solr.cfg::
+solr.cfg
+
+code-block:: ini
 
     [solr]
     recipe = collective.recipe.solrinstance
@@ -155,5 +163,5 @@ For a full list of index and query filter factories consult the Solr documentati
 Exercise
 ========
 
-Experiment with stemming, stopwords and synonyms.
+Experiment with stemming, stop words and synonyms.
 Add your own values and see how Solr behaves.
