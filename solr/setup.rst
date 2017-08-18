@@ -1,12 +1,13 @@
-=====================
-Set Up Plone And Solr
-=====================
+=====
+Setup
+=====
 
-For using :term:`Solr` with Plone you need two things:
+For using :term:`Solr` with Plone you need:
 
-1) A running Solr server
-2) An integration product (like collective.solr) for delegation of indexing and searching to the Solr server.
-    In this training we will focus on collective.solr for this purpose.
+- A running Solr server
+- An integration product (like `collective.solr <https://github.com/collective/collective.solr>`_) for delegation of indexing and searching to the Solr server.
+
+In this training we will focus on collective.solr for this purpose.
 
 Bootstrap project:
 
