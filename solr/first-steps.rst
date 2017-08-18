@@ -1,12 +1,13 @@
-***********
+===========
 First Steps
-***********
+===========
 
 Maintenance Task
 ================
 
-All the maintenance tasks are accessible through the Solr controlpanel in Plone since version 6.0 of collective.solr.
-Nevertheless it is good to know the direct URLs sometimes.
+All the maintenance tasks are accessible through the Solr controlpanel in Plone since version 6.0 of ``collective.solr``.
+It is good to know the direct URLs sometimes.
+
 Another goodie of accessing the URLs directly is they support GET parameters to limit and change their behavior.
 
 Let's see some examples:
@@ -66,11 +67,13 @@ http://localhost:8080/Plone/@@solr-maintainance/clear
 
 There are no parameters you can specify for the clear action.
 
-.. note:: Be careful with required fields.
-   If you specify required fields in your schema,
-   which are not present in your indexing record indexing will not happen.
+.. note::
 
-Indexing a new dexterity field
+   Be careful with required fields.
+
+   If you specify required fields in your schema, which are not present in your indexing record indexing will not happen.
+
+Indexing A New Dexterity Field
 ==============================
 
 A common use case is to add an additional field to the index.
@@ -78,9 +81,13 @@ We have to inform both sides (Solr and Plone) if we need a new field in the inde
 
 A simple use case is to pass through a raw dexterity field to the index.
 First we add the field to the schema.
-We do this TTW right now.
 
-.. note:: In the production setup you will define your schema with an interface or a supermodel XML but this is beyond of this training.
+We do this :term:`TTW` (Through-The-Web) right now.
+
+.. note::
+
+   In the production setup you will define your schema with an interface or a supermodel XML but this is beyond of this training.
+
    More information on dexterity schemas and fields can be found in the Plone documentation:
    https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html
 
@@ -88,8 +95,7 @@ Let's add a field *email* to a task.
 We assume this is contact email which can be used to contact the responsible support person for this task.
 And we want to make this field to be found in fulltext search.
 
-It does not matter if we add the field TTW,
-via supermodel or via interface.
+It does not matter if we add the field TTW (Through-The-Web), via supermodel or via interface.
 The only thing you have to make sure the **name** of the field is identical in Plone and Solr.
 
 Next thing we do is to extend the Solr fields definition in our buildout.cfg.
@@ -99,24 +105,31 @@ On the *fields* section of the *solr* part we add the following line: ::
     name:email    type:string copyfield:SearchableText stored:true multivalued:false
     name:fullname type:string copyfield:SearchableText stored:true multivalued:false
 
-After we have done that we need to rerun buildout ::
+After we have done that we need to rerun buildout
 
-    $ bin/buildout
+.. code-block:: console
 
-and restart Solr and Plone ::
+   bin/buildout
 
-    $ bin/instance restart
-    $ bin/solr-instance fg
+and restart Solr and Plone
+
+.. code-block:: console
+
+   bin/instance restart
+   bin/solr-instance fg
 
 This method works out of the box,
 if the name of the Dexterity field in Plone is the same as the field in the schema of Solr.
+
 And assuming you *have* the information you need for the index available as a Dexterity field.
 
 Let's assume we have a field *fullname* in Solr and in Plone we have separate fields for *firstname* and *surname*.
 We need an indexing adapter to have the fullname indexed.
 This is done like this:
 
-First we need an indexer binding to our dexterity content::
+First we need an indexer binding to our dexterity content
+
+.. code-block:: python
 
     from plone.indexer import indexer
     from plonetraining.solr_example.interfaces import ITask
@@ -127,8 +140,9 @@ First we need an indexer binding to our dexterity content::
         return getattr(obj, 'firstname', '') + ' ' + getattr(obj, 'surname', '')
 
 
-And we need a named adapter,
-which correlates with the name of the field in Solr (*fullname* in our case). ::
+And we need a named adapter, which correlates with the name of the field in Solr (*fullname* in our case)
+
+.. code-block:: python
 
     <adapter factory=".indexer.fullname_indexer" name="fullname" />
 
@@ -137,10 +151,14 @@ After adding a new Task or reindexing an existing one with firstname and surname
 the *fullname* in Solr appears.
 
 
-.. note:: Pro tip:
+.. note::
+
+   Pro tip:
+
    If you need to modify or extend the existing fulltext implementation in Plone
    (This could be adding a custom field to it, or remove title or description from it),
    there is a handy addon for this purpose.
+
    It is well documented but further investigation is out of the scope of this training,
    see https://pypi.python.org/pypi/collective.dexteritytextindexer
 
@@ -149,8 +167,8 @@ Boosting
 
 In a standard installation of Solr all fields are treated equally important for searching.
 Usually this is not what we want.
-We want the Title to be more important,
-or a special type (e.g. News) to be prioritized.
+We want the Title to be more important, or a special type (e.g. News) to be prioritized.
+
 Solr offers boosting values at index and at search time.
 The search boosting is utilized automatically when you install collective.solr.
 It is configured in the control-panel with the default search pattern: ::
@@ -161,6 +179,7 @@ It is configured in the control-panel with the default search pattern: ::
 This reads like this.
 If a term occurs in the *Title* field prioritize it 5 times,
 if it is in the *Description* field prioritize it two times.
+
 Search but don't prioritize terms occuring in the *SearchableText* index.
 If a term occurs in the *searchwords* priotize it by value 1000 so it will show always at the top.
 
@@ -169,14 +188,19 @@ You can override this pattern to fit your needs.
 Another way to boost documents is at indexing time.
 For this purpose you can specify a Restricted Python script in Solr control panel.
 Let's assume we want to put a special emphasis on News Items.
-Our script looks as follows::
+
+Our script looks like:
+
+.. code-block:: python
 
    return {'': 20} if data.get('portal_type') == 'News Item' else {}
 
 This will boost all fields of *News Items* by factor 20.
 Which means *News Items* will be prioritized in the ranking and show as first search results with the same term.
 
-.. note:: Boosting at index time is only available if you turn off atomic updates.
+.. note::
+
+   Boosting at index time is only available if you turn off atomic updates.
 
 Exercise
 ========
