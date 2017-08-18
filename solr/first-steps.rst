@@ -157,7 +157,7 @@ the *fullname* in Solr appears.
 
    If you need to modify or extend the existing fulltext implementation in Plone
    (This could be adding a custom field to it, or remove title or description from it),
-   there is a handy addon for this purpose.
+   there is a handy add-on for this purpose.
 
    It is well documented but further investigation is out of the scope of this training,
    see https://pypi.python.org/pypi/collective.dexteritytextindexer

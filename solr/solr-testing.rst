@@ -1,14 +1,17 @@
-************
+============
 Solr Testing
-************
+============
 
-collective.solr comes with a few test fixtures that make it easier to test Solr.
+``collective.solr`` comes with a few test fixtures that make it easier to test Solr.
 
 ``SOLR_FIXTURE`` fires up and tears down a Solr instance.
 This fixture can be used to write unit tests for a Solr configuration.
 
 Usually you need the ``COLLECTIVE_SOLR_FIXTURE`` which spins off a Solr instance and installs ``collective.solr``.
-A custom test layer based on this fixture looks like this::
+
+A custom test layer based on this fixture looks like this
+
+.. code-block:: python
 
   class PlonetrainingSolrExampleLayer(PloneSandboxLayer):
 
@@ -23,7 +26,9 @@ A custom test layer based on this fixture looks like this::
       def setUpPloneSite(self, portal):
           applyProfile(portal, 'plonetraining.solr_example:default')
 
-A test for our suggest method in our fancy search looks like this::
+A test for our suggest method in our fancy search looks like this
+
+.. code-block:: python
 
   # -*- coding: utf-8 -*-
   """Setup tests for this package."""
@@ -60,6 +65,7 @@ A test for our suggest method in our fancy search looks like this::
 
 
 Note the **activateAndReindex** method.
+
 It is a nice testing helper to cleat the Solr index and reindex all objects again.
 If testing Solr it is advisable to call it at the test setup.
 Otherwise the documents created during the tests would pile up in the index.

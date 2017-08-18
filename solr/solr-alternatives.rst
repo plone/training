@@ -65,7 +65,9 @@ The ``solr-instance`` buildout part looks a bit different::
 * We set ``stored: false`` on the indexes so that solr will only store the docid.
 
 We also need to reference the solr URI in an environment variable for the Plone instance part,
-so that ``alm.solrindex`` knows where to connect::
+so that ``alm.solrindex`` knows where to connect
+
+.. code-block:: ini
 
     [instance]
     environment-vars =
@@ -74,31 +76,35 @@ so that ``alm.solrindex`` knows where to connect::
 After running buildout,
 we can start Plone and activate ``alm.solrindex`` in the Addons control panel.
 
-.. note:: The default installation profile removes the existing SearchableText,
+.. note::
+
+   The default installation profile removes the existing SearchableText,
    Title, and Description indexes, but does not automatically reindex existing content.
+
    If you have existing content in the site,
    you'll need to do a full reindex of the ZCatalog to get them indexed in solr.
 
-Why are results missing?
+Why Are Results Missing?
 ------------------------
 
 There is a limitation to this approach.
 
-solr is configured with a maximum limit on the number of results it will return
+Solr is configured with a maximum limit on the number of results it will return
 (``max-num-results`` in the buildout configuration).
 This is done because it hurts performance if there are thousands and thousands of results,
-and solr has to serialize all of them and Plone has to deserialize all of them.
+and Solr has to serialize all of them and Plone has to deserialize all of them.
 
-For queries that only use indexes that are in solr (i.e. the fulltext indexes),
+For queries that only use indexes that are in Solr (i.e. the fulltext indexes),
 this is not a big problem.
+
 Solr ranks the results so the limited set it returns should be the most relevant results,
 and most users are not going to navigate past more than a few pages of results anyway.
 
 However it can be a problem when the search term is very generic
-(so there are many results and its hard for solr to determine the most relevant ones)
+(so there are many results and its hard for Solr to determine the most relevant ones)
 and the results are also going to be filtered by other indexes
 (such as in a faceted search solution).
-In this case the limited result set from solr is fairly arbitrary,
+In this case the limited result set from Solr is fairly arbitrary,
 the other filters only get to operate on this limited set,
 and we might end up missing results that should be there.
 
@@ -106,7 +112,7 @@ Example: Consider a site where there are 10,000 items with the term 'pdf',
 including one in a folder "/annual-reports/2015".
 If a search is performed for 'pdf' within the path '/annual-reports/2015':
 
-1. First solr finds all documents matching 'pdf', and ranks them.
+1. First Solr finds all documents matching 'pdf', and ranks them.
 2. Next it returns the top 500 results to Plone.
 3. Next Plone filters those results by path. There is a good chance that
    our target document was not included in the 500 that solr returned,
@@ -117,16 +123,18 @@ There are a couple workarounds for this problem, both of which have their own tr
 1. Increase ``max-num-results`` above the total number of documents
    (but this will hurt performance for queries that return many results).
 2. Make sure that other indexes that are likely to narrow down the results a lot
-   are also included in solr
+   are also included in Solr
    (but this detracts from the main advantages of using ``alm.solrindex`` over ``collective.solr``).
 
 Customization
 -------------
 
-Each type of field has its own *handler* which takes care of translating between ZCatalog and solr queries.
+Each type of field has its own *handler* which takes care of translating between ZCatalog and Solr queries.
 These can be overridden to handle advanced customization:
 
-Example: monkey patch the ``TextFieldHandler`` to use an ``edismax`` query that allows boosting some fields::
+Example: monkey patch the ``TextFieldHandler`` to use an ``edismax`` query that allows boosting some fields
+
+.. code-block:: python
 
     from Products.PluginIndexes.common.util import parseIndexRequest
     from alm.solrindex.handlers import TextFieldHandler
@@ -160,7 +168,9 @@ Example: monkey patch the ``TextFieldHandler`` to use an ``edismax`` query that 
 Example: Add a `path` index that works like Zope's ``ExtendedPathIndex``
 (i.e. it'll find anything whose path begins with the query value):
 
-solr.cfg::
+solr.cfg
+
+.. code-block:: ini
 
 	[solr-instance]
 	...
@@ -168,7 +178,9 @@ solr.cfg::
 	    ...
 	    name:path           type:descendent_path stored:false
 
-handlers.py::
+handlers.py
+
+.. code-block:: python
 
 	from alm.solrindex.handlers import DefaultFieldHandler
 
@@ -192,7 +204,7 @@ ZCML::
 	         provides="alm.solrindex.interfaces.ISolrFieldHandler"
 	         name="path" />
 
-DIY solr
+DIY Solr
 ========
 
 If both *collective.solr* and *alm.solrindex* are too much for you or you have special needs,
@@ -209,14 +221,14 @@ https://github.com/ploneintranet/ploneintranet/pull/299
 collective.elasticsearch
 ========================
 
-Another option for an advanced search integration is the younger project Elasticsearch https://www.elastic.co/products/elasticsearch.
+Another option for an advanced search integration is the younger project `Elasticsearch <https://www.elastic.co/products/elasticsearch>`_.
 Like for Solr, the technical foundation is the Lucene index, written in Java.
 
 Pros of Elasticsearch
 
 - It uses JSON instead of an XML schema for (field) configuration,
   which might be easier to configure.
-- Clustering and replication is builtin from the beginning.
+- Clustering and replication is built in from the beginning.
   It is easier to configure.
   Especially ad-hoc cluster which can (re)configure automatically.
 - The project and community is agile and active.

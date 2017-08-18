@@ -1,6 +1,6 @@
-****************
+================
 Production Setup
-****************
+================
 
 Multi Core
 ==========
@@ -33,15 +33,15 @@ An example for a multi-core configuration you can find in the documentation of `
 Monitoring
 ==========
 
-collective.solr comes with some predefined munin configurations.
-The values for munin are collected and exposed via the Java JMX framework.
+``collective.solr`` comes with some predefined `Munin <http://munin-monitoring.org/>`_ configuration.
+The values for Munin are collected
+and exposed via the `Java JMX <http://www.oracle.com/technetwork/articles/java/javamanagement-140525.html>`_ framework.
 
-You will need munin and the jmx\_ extension.
-The procedure is documented here :
+You will need Munin and the JMX\_ extension.
 
 .. seealso:: https://github.com/collective/collective.solr/blob/master/docs/usage/monitoring.rst
 
-The munin configs however seem a little outdated.
+The Munin config however seems a little outdated.
 
 Different host setup
 ====================
@@ -49,14 +49,14 @@ Different host setup
 One use case in a production setup might be the split between the Plone server runs on and the Solr server(s).
 To make this happen you have to consider a couple of things:
 
- - configure host of Solr in c.solr, it can be done TTW, via ZCML or via /etc/hosts
+ - configure host of Solr in ``collective.solr``, it can be done TTW (Through-The-Web), via ZCML or via /etc/hosts
  - make sure the blobstorage directory of Plone is available via a network drive to the Solr host.
-   You need to make sure Solr has read permissions which usually means it has the *SAME* User ID than the user which runs the Zope server.
+   You need to make sure Solr has read permissions which means it has the *SAME* User ID than the user which runs the Zope server.
 
 Further reading
 ===============
 
-Solr is very well documented in its own wiki.
+Solr is documented in its own `Wiki <https://wiki.apache.org/solr/>`_.
 
 .. seealso:: https://cwiki.apache.org/confluence/display/solr/Apache+Solr+Reference+Guide
 

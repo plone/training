@@ -5,6 +5,7 @@ More Features
 Next we will cover some more advanced topics which need configuration on Plone and Solr side.
 Features like autocomplete and suggest (did you mean ...) are often requested when it comes to search.
 They are perfectly doable with the Plone / Solr combination.
+
 At the end of this chapter we will build a full search page with autocomplete, suggest, term highlighting and faceting turned on.
 
 Let's see how and start with autocomplete:
@@ -28,7 +29,9 @@ Which gives the response ::
     ]
 
 
-solr.cfg::
+solr.cfg
+
+..code-block:: ini
 
     [solr-instance]
     recipe = collective.recipe.solrinstance
@@ -120,16 +123,22 @@ It is integrated into Solr as a component which needs to be enabled and configur
 Here is an example configuration which works with collective.solr.
 If you change it stick to the names of the parameters and handlers.
 
-The JSON view of Plone can be called with this URL::
+The JSON view of Plone can be called with this URL
 
-    http://localhost:8080/Plone/@@search?format=json&SearchableText=Plane
+.. code-block:: json
 
-And from JavaScript::
+   http://localhost:8080/Plone/@@search?format=json&SearchableText=Plane
 
-  GET http://localhost:8080/Plone/@@search?SearchableText=Plane
-  Accept: application/json
+And from JavaScript
 
-We get a response like this::
+.. code-block:: js
+
+   GET http://localhost:8080/Plone/@@search?SearchableText=Plane
+   Accept: application/json
+
+We get a response like this
+
+.. code-block:: json
 
     {
         "data": [ ],
@@ -149,7 +158,9 @@ We get a response like this::
         }
     }
 
-The configuration in buildout is as follows::
+The configuration in buildout is as follows
+
+.. code-block:: ini
 
     [solr-instance]
     recipe = collective.recipe.solrinstance
