@@ -1,6 +1,6 @@
-*************************************
-Alternative Indexing/Search solutions
-*************************************
+=====================================
+Alternative Indexing/Search Solutions
+=====================================
 
 alm.solrindex
 =============
@@ -25,7 +25,7 @@ Pros:
 * Avoids duplication of index storage.
 * Less data needs to be sent between Plone and solr when indexing.
 * Don't need to add new indexes to solr and reindex.
- 
+
 Cons:
 
 * No admin UI in Plone control panel.
@@ -201,7 +201,7 @@ This might be, if you:
 
  - need to access a Solr server with a newer version / multicore setup and you don't have access to the configuration of Solr
  - Only want a fulltext search page of a small site with no need for full realtime support
-   
+
 You can find a full-featured example of a full-fledged custom Solr integration at the Ploneintranet (**advanced!**):
 
 https://github.com/ploneintranet/ploneintranet/pull/299

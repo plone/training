@@ -1,6 +1,6 @@
-*************************
-Solr GUI and Query Syntax
-*************************
+=========================
+Solr GUI And Query Syntax
+=========================
 
 In the next part we will take a closer look the the search GUI of Solr and its query syntax.
 
@@ -29,7 +29,9 @@ Query "q"::
     Title:"news"
     *:"news"
 
-Solr response ::
+Solr response
+
+.. code-block:: json
 
   {
     "responseHeader":{
@@ -131,7 +133,7 @@ I use the following script to delete all Plone Documents from Solr ::
  >>> from mysolr import Solr
  >>> solr = Solr(base_url='http://localhost:8983/solr')
  >>> solr.delete_by_query('portal_type:Document')
- 
+
 
 Advanced Solr Query Syntax
 ==========================
@@ -221,11 +223,11 @@ Assume we want to find all documents which have a value in a certain field
 
 Find all documents with a description::
 
- Description:[* TO *] 
+ Description:[* TO *]
 
 The oposite (finding all documents with no description) is also possible::
 
- -Description:[* TO *] 
+ -Description:[* TO *]
 
 Faceting
 ========
@@ -278,14 +280,14 @@ We will see an example later.
 Search GUIs
 ===========
 
- - collective.solr out of the box: collective.solr commes with its own search view. 
+ - collective.solr out of the box: collective.solr commes with its own search view.
    For the new version 6.0 it is based on ReactJS and looks similar to the Plone search view with native facet support of Solr.
 
  - eea.facetednavigation: This addon allows faceting out of the box even without Solr.
    It is a product for integrators to setup search and filter GUIs TTW.
    It can be used for several use cases: Search pages, collection replacements, etc.  **DEMO**
 
- - custom: Another way is to create a custom search page. 
+ - custom: Another way is to create a custom search page.
    This is easy to do and we will see later on in this training how.
 
 Exercise
