@@ -1,6 +1,6 @@
-*****************************
-How does collective.solr work 
-*****************************
+=============================
+How Does collective.solr Work
+=============================
 
 Currently we depend on collective.indexing as a means to hook into the normal catalog machinery of Plone to detect content changes.
 collective.indexing before version two had some persistent data structures that frequently caused problems when removing the add-on.
@@ -56,5 +56,3 @@ Mangler
 collective.solr has a mangleQuery function that translates / mangles ZCatalog query parameters to replace zope specifics with equivalent constructs for Solr.
 
 .. seealso:: https://github.com/collective/collective.solr/blob/master/src/collective/solr/mangler.py#L96
-
-
