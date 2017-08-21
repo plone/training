@@ -29,9 +29,7 @@ Query "q"::
    Title:"news"
    *:"news"
 
-Solr response
-
-
+Solr response::
 
    {
      "responseHeader":{
@@ -299,4 +297,4 @@ Search GUIs
 Exercise
 ========
 
- Do some queries in Solr directly
+ Do some queries in Solr directly.
