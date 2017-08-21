@@ -119,7 +119,7 @@ For "real" synonyms implemented in Solr you can use the *SynonymFilterFactory*:
 
 solr.cfg
 
-code-block:: ini
+.. code-block:: ini
 
     [solr]
     recipe = collective.recipe.solrinstance
