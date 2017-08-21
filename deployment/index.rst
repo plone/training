@@ -1,8 +1,11 @@
 .. _deployment-label:
 
-==========================
+===========================
 Automating Plone Deployment
 ===========================
+
+:About: Deploying Plone with Ansible and OpsWorks
+:Level: All levels
 
 .. note::
 

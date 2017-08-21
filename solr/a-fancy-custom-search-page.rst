@@ -31,7 +31,7 @@ Which gives the response ::
 
 solr.cfg
 
-..code-block:: ini
+.. code-block:: ini
 
     [solr-instance]
     recipe = collective.recipe.solrinstance
