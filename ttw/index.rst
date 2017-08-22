@@ -9,7 +9,7 @@
       This chapter is still work in progress!
 
 :About: Customize Plone Through-The-Web
-:Level: Experienced 
+:Level: Experienced
 :Status: Work in progress
 
 .. toctree::
@@ -18,9 +18,9 @@
    :caption: "Through-The-Web"
 
    basic
-   configuring_customizing
+   configuring-customizing
    ttw-advanced
-   ttw-advanced_2
+   ttw-advanced-2
    Dexterity <dexterity>
    mosaic
    rapido
