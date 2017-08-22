@@ -121,7 +121,8 @@ Example:
 Viewlets
 --------
 
-Portlets save data, Viewlets usually don't. Viewlets are often used for UI-Elements and have no nice UI to customize them.
+Portlets save data, Viewlets usually don't.
+Viewlets are often used for UI-Elements and have no nice UI to customize them.
 
 * ``@@manage-viewlets``
 * Viewlets have no nice UI
@@ -218,7 +219,8 @@ Global Navigation
 
 Where is the navigation?
 
-The navigation shows content-objects, which are in Plone's root. Plus all actions in ``portal_tabs``.
+The navigation shows content-objects, which are in Plone's root.
+Plus all actions in ``portal_tabs``.
 
 Explain & edit ``index_html``
 
