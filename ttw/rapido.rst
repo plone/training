@@ -34,8 +34,8 @@ What is Rapido?
     The **Plone theming tool** is the interface used to build :py:mod:`rapido.plone` applications.
     This means that Rapido applications can be written both **on the file system** or using the **inline editor** of the Plone theming tool.
 
-    A Rapido application is just a part of your current theme:
-    It can be imported, exported, copied, modified, etc. just like the rest of the theme.
+    A Rapido application is a part of your current theme:
+    It can be imported, exported, copied, modified, etc. like the rest of the theme.
     But in addition to layout and design elements, it can contain business logic implemented in Python.
 
 A couple Of Comparisons
@@ -113,19 +113,19 @@ Principles
 
     Rapido :dfn:`application`
         It contains the features you implement;
-        it is just a folder containing templates, Python code, and YAML files.
+        it is a folder containing templates, Python code, and YAML files.
 
     :dfn:`block`
         Blocks display a chunk of HTML which can be inserted in your Plone pages.
 
     :dfn:`element`
         Elements are the dynamic components of your blocks.
-        They can be input fields, buttons, or just computed HTML.
-        They can also return JSON if you call them from a javascript app,
+        They can be input fields, buttons, or computed HTML.
+        They can also return JSON if you call them from a JavaScript app,
 
     :dfn:`records`
         A Rapido app is able to store data as records.
-        Records are just basic dictionaries.
+        Records are basic dictionaries.
 
 How To Create A Rapido App
 ==========================
@@ -190,14 +190,14 @@ Blocks And Elements
     An :dfn:`element` is any dynamically generated element in a block.
     It can be a form field (input, select, etc.),
     or a button (an ``ACTION`` element),
-    or even just a piece of generated HTML (a ``BASIC`` element).
+    or even a piece of generated HTML (a ``BASIC`` element).
 
     The **HTML file** contains the layout of the block.
     The templating mechanism is super simple:
-    elements are simply enclosed in curly brackets, like this: ``{my_element}``.
+    elements are enclosed in curly brackets, like this: ``{my_element}``.
 
     The **Python file** contains the application logic.
-    We will see later how exactly we use those Python files.
+    We will see later how we use those Python files.
 
 
 Exercise 1: Create The Vote Block
@@ -371,7 +371,7 @@ Exercise 3: Create An Element To Display The Votes
 Let's replace the "0" value in our rate block with a computed value.
 
 To do this, you need to add an element to the block.
-For now the Python function will just return 10.
+For now the Python function will return 10.
 
 .. admonition:: Solution
 
@@ -437,8 +437,9 @@ Example:
 Every time the user clicks the action, the block is reloaded (so elements are refreshed).
 
 When the block is inserted in a Plone page using a Diazo rule,
-the reloading will just replace the current page with the bare block.
-Usually this is not what we want.
+the reloading will replace the current page with the bare block.
+This is not what we want.
+
 If we want the current Plone page to be preserved, we need to activate the AJAX mode in the YAML file:
 
 .. code-block:: yaml
@@ -449,7 +450,7 @@ Exercise 4: Add The Like Button
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Add a :guilabel:`Like` button to the block.
-For now, the action itself will do nothing. 
+For now, the action itself will do nothing.
 Let's just insert it at the right place, and make sure the block is refreshed properly when we click.
 
 .. admonition:: Solution
@@ -905,9 +906,9 @@ Rapido allows us to easily implement our own actions.
 To do this, it adds a generic "Rapido action" to the Plone content rules system.
 It allows us to enter the following parameters:
 
-- the app id,
-- the block id,
-- the function name.
+- The app id,
+- The block id,
+- The function name.
 
 The :py:attr:`content` property in the function's :py:obj:`context` allows access to the content targeted by the content rule.
 
