@@ -111,51 +111,49 @@ Principles
 
 .. only:: not presentation
 
-Rapido :dfn:`application`
-   It contains the features you implement;
-   it is just a folder containing templates, Python code, and YAML files.
+    Rapido :dfn:`application`
+        It contains the features you implement;
+        it is just a folder containing templates, Python code, and YAML files.
 
-   :dfn:`block`
-   Blocks display a chunk of HTML which can be inserted in your Plone pages.
+    :dfn:`block`
+        Blocks display a chunk of HTML which can be inserted in your Plone pages.
 
-   :dfn:`element`
-   
-   Elements are the dynamic components of your blocks.
-   They can be input fields, buttons, or just computed HTML.
-   They can also return JSON if you call them from a javascript app,
+    :dfn:`element`
+        Elements are the dynamic components of your blocks.
+        They can be input fields, buttons, or just computed HTML.
+        They can also return JSON if you call them from a javascript app,
 
-   :dfn:`records`
-   A Rapido app is able to store data as records.
-   Records are just basic dictionaries.
-
+    :dfn:`records`
+        A Rapido app is able to store data as records.
+        Records are just basic dictionaries.
 
 How To Create A Rapido App
 ==========================
 
 .. only:: presentation
 
-* a folder in our Diazo theme::
+    * a folder in our Diazo theme::
 
-   /rapido/<app-name>
+        /rapido/<app-name>
 
-* a sub-folder with blocks::
+    * a sub-folder with blocks::
 
-   /rapido/<app-name>/blocks
+        /rapido/<app-name>/blocks
 
 
 .. only:: not presentation
 
-A Rapido app is defined by a set of files in our Diazo theme.
+    A Rapido app is defined by a set of files in our Diazo theme.
 
-The files need to be in a specific location::
+    The files need to be in a specific location::
 
-   /rapido/<app-name>
+        /rapido/<app-name>
 
-Here is a typical layout for a Rapido app::
+    Here is a typical layout for a Rapido app::
 
-   /rapido
-      /myapp
-         /settings.yaml
+        /rapido
+            /myapp
+                settings.yaml
                 /blocks
                     stats.html
                     stats.py
