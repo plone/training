@@ -41,7 +41,7 @@ Some Comparisons
     * Compared to :py:mod:`collective.cover`:
 
       :py:mod:`collective.cover` provides a specific content-type 
-      (a "Cover page") where we can manage the layout in order to build our homepage.
+      (a "Cover page") where we can manage the layout in order to build our home page.
 
       Mosaic does not provide any content-type, it allows to edit any existing content layout.
 
@@ -120,7 +120,7 @@ The top bar offers different buttons:
 - :guilabel:`Properties`, to access the content properties: it displays the regular Plone form tabs, but the fields currently involved in the layout are hidden.
 - :guilabel:`Layout`, to manage the content layout.
 
-Exercise 1 - Change the layout of the front page
+Exercise 1 - Change The Layout Of The Front Page
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Go to the front page of the website and update the layout
 as follows:
@@ -151,7 +151,7 @@ where we can still change our field values, but also change the layout:
 
 - by hovering the page content, existing tiles are highlighted and we can drag & drop them in different places,
 - by clicking in a tile, we can edit its content,
-- by clicking outside the curently edited tile, we disable the edit mode.
+- by clicking outside the currently edited tile, we disable the edit mode.
 
 In layout mode, the top bar contains two extra buttons:
 
@@ -196,7 +196,7 @@ Mosaic provides the following tiles:
     - existing content: it allows to display another content in a tile
     - if Rapido is installed, there is also a Rapido tile, which allows to display any Rapido block.
 
-Exercise 2: Customize the home page layout
+Exercise 2: Customize The Home Page Layout
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create an attractive layout for the home page.
@@ -223,7 +223,7 @@ The layout is associated to the current content type, by default it will not be 
 
 Once saved, our layout will be listed with the other available layouts when we click on :menuselection:`Layout --> Change`.
 
-Exercise 3: create a layout for talks
+Exercise 3: Create A Layout For Talks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
