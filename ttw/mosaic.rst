@@ -48,7 +48,7 @@ Some Comparisons
 Installation
 ============
 
-.. sidebar:: On an existing Plone Buildout
+.. sidebar:: On An Existing Plone Buildout
 
    If you already have your own Plone installation you can
    install Mosaic by customizing it as follows:
