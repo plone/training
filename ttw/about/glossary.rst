@@ -52,3 +52,10 @@ Glossary
 
    ZCML
       The `Zope Configuration Mark-up Language <https://docs.plone.org/develop/addons/components/zcml.html>`_.
+
+   Diazo
+      `Diazo theme engine guide <http://docs.diazo.org/en/latest/>`_
+      Diazo allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology.
+
+   Dexterity
+      `Dexterity <https://github.com/plone/plone.dexterity>`_, the base framework for building content types, both through-the-web and as filesystem code for Zope.
