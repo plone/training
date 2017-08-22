@@ -9,7 +9,7 @@
       This chapter is still work in progress!
 
 :About: Customize Plone Through-The-Web
-:Level: All levels
+:Level: Experienced 
 :Status: Work in progress
 
 .. toctree::
@@ -18,9 +18,9 @@
    :caption: "Through-The-Web"
 
    basic
-   Configuring And Customizing Plone <configuring_customizing>
-   Introduction To Diazo Theming <ttw-advanced>
-   Creating A Custom Theme Based On Barceloneta <ttw-advanced_2>
+   configuring_customizing
+   ttw-advanced
+   ttw-advanced_2
    Dexterity <dexterity>
    mosaic
    rapido
@@ -30,5 +30,5 @@
    :maxdepth: 3
    :caption: Plone Trainings
 
-    ../about/index
-    ../about/glossary
+   about/index
+   about/glossary
