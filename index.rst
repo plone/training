@@ -44,5 +44,4 @@ Trainings
     mastering_plone/index
     theming/index
     javascript/index
-    ttw/index
     workflow/index
