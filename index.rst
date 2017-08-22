@@ -45,5 +45,4 @@ Trainings
     theming/index
     javascript/index
     ttw/index
-    solr-training/index
     workflow/index
