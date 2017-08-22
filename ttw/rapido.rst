@@ -89,7 +89,7 @@ But to deploy Rapido on an actual Plone instance, modify :file:`buildout.cfg` to
    ...
    rapido.plone
 
-Run your buildout::
+Run your buildout
 
 .. code-block:: console
 
@@ -132,11 +132,11 @@ How To Create A Rapido App
 
 .. only:: presentation
 
-    * a folder in our Diazo theme::
+    - A folder in our Diazo theme::
 
         /rapido/<app-name>
 
-    * a sub-folder with blocks::
+    - A sub-folder with blocks::
 
         /rapido/<app-name>/blocks
 
@@ -145,11 +145,15 @@ How To Create A Rapido App
 
     A Rapido app is defined by a set of files in our Diazo theme.
 
-    The files need to be in a specific location::
+    The files need to be in a specific location
+
+    .. code-block:: console
 
         /rapido/<app-name>
 
-    Here is a typical layout for a Rapido app::
+    Here is a typical layout for a Rapido app
+
+    .. code-block:: console
 
         /rapido
             /myapp
