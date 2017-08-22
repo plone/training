@@ -1,6 +1,7 @@
 .. _ttw-label:
 
-"Through-the-web" Plone customization
+=====================================
+"Through-The-Web" Plone Customization
 =====================================
 
 ..  warning::
@@ -9,12 +10,21 @@
 
 .. toctree::
    :maxdepth: 3
-   :numbered: 1
+   :hidden:
+   :caption: "Through-The-Web"
 
-   Customizing logo and CSS of default theme <basic>
-   Configuring and Customizing Plone <configuring_customizing>
-   Introduction to Diazo Theming <ttw-advanced>
-   Creating a custom theme based on Barceloneta <ttw-advanced_2>
+   Customizing Logo And CSS Of Default Theme <basic>
+   Configuring And Customizing Plone <configuring_customizing>
+   Introduction To Diazo Theming <ttw-advanced>
+   Creating A Custom Theme Based On Barceloneta <ttw-advanced_2>
    Dexterity <dexterity>
    mosaic
    rapido
+
+.. toctree::
+   :hidden:
+   :maxdepth: 3
+   :caption: Plone Trainings
+
+    ../about/index
+    ../about/glossary
