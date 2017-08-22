@@ -6,14 +6,18 @@
 
 ..  warning::
 
-    This chapter is still work in progress!
+      This chapter is still work in progress!
+
+:About: Customize Plone Through-The-Web
+:Level: All levels
+:Status: Work in progress
 
 .. toctree::
    :maxdepth: 3
    :hidden:
    :caption: "Through-The-Web"
 
-   Customizing Logo And CSS Of Default Theme <basic>
+   basic
    Configuring And Customizing Plone <configuring_customizing>
    Introduction To Diazo Theming <ttw-advanced>
    Creating A Custom Theme Based On Barceloneta <ttw-advanced_2>
