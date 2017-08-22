@@ -2,6 +2,9 @@
 Rapido
 ======
 
+`Rapido <https://rapidoplone.readthedocs.io/en/latest/>`_ allows you to create
+Plone applications in the Theme.
+
 In this part you will:
 
 * Create a :guilabel:`Like` button on any talk so that visitors can cast votes,
@@ -40,8 +43,8 @@ A couple Of Comparisons
 
 .. only:: presentation
 
-    * Unlike Dexterity, it focuses on features, not on content types.
-    * Rapido apps can be displayed using Diazo, or as a Mosaic tile, but they cannot manage design or layouts.
+    * Unlike :term:`Dexterity`, it focuses on features, not on content types.
+    * Rapido apps can be displayed using :term:`Diazo`, or as a Mosaic tile, but they cannot manage design or layouts.
     * Unlike Plone development, it is quick and easy to write Rapido apps.
 
 .. only:: not presentation
@@ -57,7 +60,7 @@ A couple Of Comparisons
 
     * Compared to **Diazo** and **Mosaic**:
 
-        * Diazo manages the Plone theme,
+        * :term:`Diazo` manages the Plone theme,
         * Mosaic allows you to manage layouts by positioning tiles,
         * Rapido does not do either theming or layouts,
           but a Rapido block can be called from a Diazo rule or displayed in a Mosaic tile.
