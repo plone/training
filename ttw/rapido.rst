@@ -1,3 +1,4 @@
+======
 Rapido
 ======
 
@@ -15,7 +16,7 @@ Topics covered:
 * Implement scripts in Rapido.
 
 What is Rapido?
----------------
+===============
 
 .. only:: presentation
 
@@ -34,8 +35,8 @@ What is Rapido?
     It can be imported, exported, copied, modified, etc. just like the rest of the theme.
     But in addition to layout and design elements, it can contain business logic implemented in Python.
 
-A couple of comparisons
------------------------
+A couple Of Comparisons
+=======================
 
 .. only:: presentation
 
@@ -67,86 +68,91 @@ A couple of comparisons
         * but Rapido code runs in restricted mode, so you cannot import any unsafe Python module in your code.
 
 Installation
-------------
+============
 
-    For the training, we will use a `Heroku instance pre-configured with Plone <https://github.com/collective/training-sandbox>`_.
+For the training, we will use a `Heroku instance pre-configured with Plone <https://github.com/collective/training-sandbox>`_.
 
-    Once deployed:
+Once deployed:
 
-    - create a Plone site,
-    - go to: :menuselection:`Plone control panel -> Add-ons` (http://localhost:8080/Plone/prefs_install_products_form),
-    - finally: install Rapido.
+- Create a Plone site,
+- Go to: :menuselection:`Plone control panel -> Add-ons` (http://localhost:8080/Plone/prefs_install_products_form),
+- Finally: install Rapido.
 
-    But to deploy Rapido on an actual Plone instance, modify :file:`buildout.cfg` to add Rapido as a dependency::
+But to deploy Rapido on an actual Plone instance, modify :file:`buildout.cfg` to add Rapido as a dependency
+
+.. code-block:: ini
 
         eggs =
             ...
             rapido.plone
 
-    Run your buildout::
+Run your buildout::
 
-        $ bin/buildout -N
+.. code-block:: console
 
-    Then go to :menuselection:`Plone control panel -> Add-ons`
-    ``http://localhost:8080/Plone/prefs_install_products_form``,
-    and install Rapido.
+   bin/buildout -N
+
+Then go to :menuselection:`Plone control panel -> Add-ons`
+``http://localhost:8080/Plone/prefs_install_products_form``,
+and install Rapido.
 
 Principles
 ----------
 
 .. only:: presentation
 
-    * Rapido application
-    * block
-    * element
-    * record
+* Rapido application
+* block
+* element
+* record
 
 .. only:: not presentation
 
-    Rapido :dfn:`application`
-        It contains the features you implement;
-        it is just a folder containing templates, Python code, and YAML files.
+Rapido :dfn:`application`
+   It contains the features you implement;
+   it is just a folder containing templates, Python code, and YAML files.
 
-    :dfn:`block`
-        Blocks display a chunk of HTML which can be inserted in your Plone pages.
+   :dfn:`block`
+   Blocks display a chunk of HTML which can be inserted in your Plone pages.
 
-    :dfn:`element`
-        Elements are the dynamic components of your blocks.
-        They can be input fields, buttons, or just computed HTML.
-        They can also return JSON if you call them from a javascript app,
+   :dfn:`element`
+   
+   Elements are the dynamic components of your blocks.
+   They can be input fields, buttons, or just computed HTML.
+   They can also return JSON if you call them from a javascript app,
 
-    :dfn:`records`
-        A Rapido app is able to store data as records.
-        Records are just basic dictionaries.
+   :dfn:`records`
+   A Rapido app is able to store data as records.
+   Records are just basic dictionaries.
 
 
-How to create a Rapido app
+How To Create A Rapido App
 --------------------------
 
 .. only:: presentation
 
-    * a folder in our Diazo theme::
+* a folder in our Diazo theme::
 
-        /rapido/<app-name>
+   /rapido/<app-name>
 
-    * a sub-folder with blocks::
+* a sub-folder with blocks::
 
-        /rapido/<app-name>/blocks
+   /rapido/<app-name>/blocks
 
 
 .. only:: not presentation
 
-    A Rapido app is defined by a set of files in our Diazo theme.
+A Rapido app is defined by a set of files in our Diazo theme.
 
-    The files need to be in a specific location::
+The files need to be in a specific location::
 
-        /rapido/<app-name>
+   /rapido/<app-name>
 
-    Here is a typical layout for a Rapido app::
+Here is a typical layout for a Rapido app::
 
-        /rapido
-            /myapp
-                settings.yaml
+   /rapido
+      /myapp
+         /settings.yaml
                 /blocks
                     stats.html
                     stats.py
@@ -157,7 +163,7 @@ How to create a Rapido app
 
 .. TODO:: ADD SCREENSHOT HERE
 
-Blocks and elements
+Blocks And Elements
 -------------------
 
 .. only:: presentation
