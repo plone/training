@@ -1,6 +1,6 @@
-=============================================
-Configuring And Customizing "Through The Web"
-=============================================
+===========================
+Configuring And Customizing
+===========================
 
 ..  warning::
 
@@ -144,7 +144,7 @@ Go to http://localhost:8080/Plone/manage
 
 Zope is the foundation of Plone. Here you can access the inner workings of Zope and Plone alike.
 
-.. note::
+.. warning::
 
   Here you can easily break your site so you should know what you are doing!
 
