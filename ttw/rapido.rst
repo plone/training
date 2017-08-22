@@ -82,9 +82,9 @@ But to deploy Rapido on an actual Plone instance, modify :file:`buildout.cfg` to
 
 .. code-block:: ini
 
-        eggs =
-            ...
-            rapido.plone
+   eggs =
+   ...
+   rapido.plone
 
 Run your buildout::
 
@@ -97,7 +97,7 @@ Then go to :menuselection:`Plone control panel -> Add-ons`
 and install Rapido.
 
 Principles
-----------
+==========
 
 .. only:: presentation
 
@@ -127,7 +127,7 @@ Rapido :dfn:`application`
 
 
 How To Create A Rapido App
---------------------------
+==========================
 
 .. only:: presentation
 
@@ -195,7 +195,7 @@ Blocks And Elements
     We will see later how exactly we use those Python files.
 
 
-Exercise 1: Create the vote block
+Exercise 1: Create The Vote Block
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's start by displaying a static counter showing "0 votes" on all talks.
@@ -232,7 +232,7 @@ http://localhost:8080/Plone/@@rapido/rating/blocks/rate
 
 But we would prefer to display it inside our existing Plone pages.
 
-Include Rapido blocks in Plone pages
+Include Rapido Blocks In Plone Pages
 ------------------------------------
 
 We can include Rapido blocks in Plone pages using Diazo rules.
@@ -261,7 +261,7 @@ The app-specific rules file can be included in the main rules file as follows:
     <xi:include href="rapido/myapp/rules.xml" />
 
 
-Exercise 2: Display the vote block in Plone pages
+Exercise 2: Display The Vote Block In Plone Pages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Insert the ``rate`` block content under the Plone page main heading.
@@ -308,7 +308,7 @@ Now, if you visit a talk page, you see the counter below the heading.
    :align: center
 
 
-Make our blocks dynamic
+Make Our Blocks Dynamic
 -----------------------
 
 .. only:: presentation
@@ -360,7 +360,7 @@ A typical element is defined and used as follows:
       <span>Answer to the Ultimate Question of Life, the Universe, and Everything: {answer}</span>
 
 
-Exercise 3: Create an element to display the votes
+Exercise 3: Create An Element To Display The Votes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's replace the "0" value in our rate block with a computed value.
@@ -398,7 +398,7 @@ Now, if you refresh your talk page, the counter will display the value returned 
    :align: center
 
 
-Create actions
+Create Actions
 --------------
 
 An :dfn:`action` is a regular element, but it is rendered as a button.
@@ -434,14 +434,13 @@ Every time the user clicks the action, the block is reloaded (so elements are re
 When the block is inserted in a Plone page using a Diazo rule,
 the reloading will just replace the current page with the bare block.
 Usually this is not what we want.
-If we want the current Plone page to be preserved,
-we need to activate the AJAX mode in the YAML file:
+If we want the current Plone page to be preserved, we need to activate the AJAX mode in the YAML file:
 
 .. code-block:: yaml
 
     target: ajax
 
-Exercise 4: Add the Like button
+Exercise 4: Add The Like Button
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Add a :guilabel:`Like` button to the block.
@@ -481,7 +480,7 @@ Let's just insert it at the right place, and make sure the block is refreshed pr
    :align: center
 
 
-Store data
+Store Data
 ----------
 
 Each Rapido app provides an internal storage utility able to store records.
@@ -514,7 +513,7 @@ The record items are managed like regular Python dictionary items:
     record['age'] = 42
     del record['age']
 
-Exercise 5: Count votes
+Exercise 5: Count Votes
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 The button is OK now, now let's focus on counting votes.
@@ -567,7 +566,7 @@ Now let's make sure to display the proper total in the ``display_votes`` element
    :align: center
 
 
-HTML templating vs TAL templating
+HTML Templating Vs TAL Templating
 ---------------------------------
 
 HTML templating
@@ -604,7 +603,7 @@ And if the element is a dictionary, we can access its items:
 
 It is easy to use but it cannot perform loops or conditional insertion.
 
-TAL templating
+TAL Templating
 ^^^^^^^^^^^^^^
 
 TAL templating is the templating format used in the core of Plone.
@@ -661,7 +660,7 @@ The current Rapido context is available in the :py:obj:`context` object:
 
 See the `TAL commands documentation <http://www.owlfish.com/software/simpleTAL/tal-guide.html>`_ for more details about TAL.
 
-Create custom views
+Create Custom Views
 -------------------
 
 For now, we have just added small chunks of HTML in existing pages.
@@ -702,7 +701,7 @@ we see our block instead of the regular page content.
 
 (And if we visit http://localhost:8080/Plone/page1, we get the regular content of course.)
 
-Exercise 5: Create the Top 5 page
+Exercise 5: Create The Top 5 Page
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's create a block to display the Talks Top 5:
@@ -751,7 +750,7 @@ Let's create a block to display the Talks Top 5:
    :align: center
 
 
-Index and query records
+Index And Query Records
 -----------------------
 
 Rapido record items can be indexed, so we can filter or sort records easily.
@@ -797,7 +796,7 @@ We can also reindex all the records using the ``refresh`` URL command::
     http://myserver.com/Plone/@@rapido/<app-id>/refresh
 
 
-Exercise 6: Compute the top 5
+Exercise 6: Compute The Top 5
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We want to be able to sort the records according to their votes:
@@ -884,7 +883,7 @@ We want to be able to sort the records according to their votes:
    :align: center
 
 
-Create custom content-rules
+Create Custom Content-rules
 ---------------------------
 
 Plone content rules allow triggering a given action depending on an *event*
@@ -915,7 +914,7 @@ we would use a function such as this:
     def upper(context):
         context.content.title = context.content.title.upper()
 
-Exercise 7: Reset the votes on workflow change
+Exercise 7: Reset The Votes On Workflow change
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We would like to reset the votes when we change the workflow status of a talk.
@@ -944,7 +943,7 @@ We will need to:
       the block is ``contentrule`` and the method is ``reset``,
     - activate the rule for the whole site.
 
-Other topics
+Other Topics
 ------------
 
 The following Rapido features haven't been covered by this training:
