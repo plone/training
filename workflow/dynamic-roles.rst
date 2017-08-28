@@ -73,7 +73,7 @@ Example ``localroles.py``
             (principal_id, [role1, role2])"""
             return [ ("dummy_id", ["Editor"]) ]
 
-Custom local role implementation is made effective using ZCML adapter directive in your add-ons ``configure.zcml``
+Custom local role implementation is made effective using :term:`ZCML` adapter directive in your add-ons ``configure.zcml``
 
 .. code:: xml
 
