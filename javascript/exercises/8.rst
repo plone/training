@@ -1,4 +1,5 @@
-Exercise 8: Pattern wrapping a 3rd party library
+================================================
+Exercise 8: Pattern Wrapping A 3rd Party Library
 ================================================
 
 ..  warning::
@@ -13,11 +14,14 @@ library into a pattern
 We will be working in the ``exercise8`` directory of the collective.jstraining package.
 
 
-Add your pattern file
----------------------
+Add Your Pattern File
+=====================
 
-First off, in your ``exercise8/static`` directory, add a file named ``pattern.js``. Use
-this file to build your pattern. This example will simply load and initialize the table sorter js::
+First off, in your ``exercise8/static`` directory, add a file named ``pattern.js``.
+
+Use this file to build your pattern. This example will simply load and initialize the table sorter js
+
+.. code-block:: javascript
 
 
     /* global require */
@@ -45,18 +49,22 @@ this file to build your pattern. This example will simply load and initialize th
 
     });
 
-Notice in this example how we're not using ``define`` for this pattern. In this
-example, we are defining our pattern right inside what will be our bundle.
+Notice in this example how we're not using ``define`` for this pattern.
+In this example, we are defining our pattern right inside what will be our bundle.
 
 ``tablesorter`` will be our registered 3rd party library include.
 
 
-Register static resource directory
-----------------------------------
+Register Static Resource Directory
+==================================
 
-Register the static directory we just placed our script into. To
-register, you need to add ZCML registration for the static directory your script
-is in. Add this to the ``exercise8/configure.zcml`` file::
+Register the static directory we just placed our script into.
+To register, you need to add ZCML registration for the static directory your script
+is in.
+
+Add this to the ``exercise8/configure.zcml`` file
+
+.. code-block:: xml
 
     <plone:static
          directory="static"
@@ -64,18 +72,22 @@ is in. Add this to the ``exercise8/configure.zcml`` file::
          name="exercise8"
          />
 
-Register your bundle
---------------------
+Register Your Bundle
+====================
 
 Registering your bundle is done by adding Generic Setup xml configuration to the
-Plone registry. This is done in the ``registry.xml`` file in the ``profiles/default``
+Plone registry.
+
+This is done in the ``registry.xml`` file in the ``profiles/default``
 directory.
 
 
 Tablesorter
-~~~~~~~~~~~
+-----------
 
-Resource is done exactly the same as in Exercise 1::
+Resource is done exactly the same as in Exercise 1
+
+.. code-block:: xml
 
     <records prefix="plone.resources/tablesorter"
              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -83,11 +95,13 @@ Resource is done exactly the same as in Exercise 1::
     </records>
 
 
-Bundle resource
-~~~~~~~~~~~~~~~
+Bundle Resource
+---------------
 
 Our pattern is a bundle-able resource since it uses the ``require`` function instead
-of the ``define`` function::
+of the ``define`` function
+
+.. code-block:: xml
 
     <records prefix="plone.resources/exercise8"
                 interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -99,9 +113,11 @@ of the ``define`` function::
 
 
 Bundle
-~~~~~~
+------
 
-Finally, let's create our bundle registration::
+Finally, let's create our bundle registration
+
+.. code-block:: xml
 
     <records prefix="plone.bundles/exercise8"
               interface='Products.CMFPlone.interfaces.IBundleRegistry'>
@@ -121,7 +137,7 @@ Finally, let's create our bundle registration::
 
 
 Installation
-------------
+============
 
 At this point, we have all the files necessary to run the pattern.
 
@@ -130,21 +146,21 @@ At this point, we have all the files necessary to run the pattern.
 
 
 Running
--------
+=======
 
 At this point, we have no compiled version of the code that we're running with
 so our code doesn't do anything.
 
-1) Go into ``Site Setup`` -> ``Resource Registries``
-2) Check "Development Mode"
+1) Go into :menuselection:`Site Setup --> Resource Registries`
+2) Check :guilabel:`Development Mode`
 3) Select to develop JavaScript and CSS for the ``exercise8`` bundle
-4) Click save
+4) Click :guilabel:`Save`
 
 This should load your JavaScript and LESS files now; however, we don't have
 any elements with the ``pat-exercise8`` class assigned to them.
 
-It's up to you how to apply the pattern class to an element of your choice. A
-couple options available to you are:
+It's up to you how to apply the pattern class to an element of your choice.
+A couple options available to you are:
 
 1) use TinyMCE source view and add ``class="pat-tablesorter"`` onto any ``table`` tag.
    You need to use ``th`` tags for the top row in your header in order for
@@ -154,7 +170,7 @@ couple options available to you are:
 
 
 Production
-----------
+==========
 
 To build our bundle, we'll utilize the ``plone-compile-resources`` script that
 Plone ships with.
@@ -167,7 +183,9 @@ Plone ships with.
     to access it at the same time.
 
 
-An example command will look like this::
+An example command will look like this
+
+.. code-block:: console
 
     ./bin/plone-compile-resources --site-id=Plone --bundle=exercise8
 
