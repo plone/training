@@ -1,34 +1,39 @@
-Through-The-Web development
+===========================
+Through-The-Web Development
 ===========================
 
-It is possible to include Javascript functionality without the need to know about any of the tools involved.
-This is not reccommended for when you need to do a complex and modular implementation.
+It is possible to include JavaScript functionality without the need to know about any of the tools involved.
+
+.. note::
+
+   This is not reccommended for when you need to do a complex and modular implementation.
 
 
 portal_javascript & portal_css
-++++++++++++++++++++++++++++++
+==============================
 
 These two portal tools are no longer used in Plone 5.
 They are still present, but nothing should be included in them.
 
 
 Resource Registries
-+++++++++++++++++++
+===================
 
 This is the new tool included in Plone 5.
-From here we will manage everything related to Javascript and CSS resources.
+From here we will manage everything related to JavaScript and CSS resources.
+
 It can be found right at the bottom of Plone's Control Panel, in the :guilabel:`Advanced` section.
 
 .. figure:: _static/resource_registry.png
    :align: center
 
 
-Add files
----------
+Add Files
+=========
 
-We are going to include 2 new resources, a Javascript file, and a LESS file.
+We are going to include 2 new resources, a JavaScript file, and a LESS file.
 
-The Javascript will look like this:
+The JavaScript will look like this:
 
 .. code-block:: js
 
@@ -50,7 +55,7 @@ The LESS will look like this:
 * Go to the :guilabel:`Overrides` tab
 * Click the :guilabel:`Add file` button
 * Name the new file :file:`++plone++static/custom-links.js`
-* Paste the contents of the Javascript section into the textarea
+* Paste the contents of the JavaScript section into the textarea
 * Click :guilabel:`Save`
 * Click the :guilabel:`Add file` button again
 * Name the new file :file:`++plone++static/custom-links.less`
@@ -58,8 +63,8 @@ The LESS will look like this:
 * Click :guilabel:`Save`
 
 
-Create the resource
--------------------
+Create The Resource
+===================
 
 * Go to the :guilabel:`Registry` tab
 * Click the :guilabel:`Add resource` button
@@ -68,7 +73,7 @@ Create the resource
 * For the :guilabel:`CSS/LESS` section, click :guilabel:`Add`
 * Enter :file:`++plone++static/custom-links.less`
 
-It should look somthing like this:
+It should look something like this:
 
 .. figure:: _static/add_resource.png
    :align: center
@@ -76,8 +81,8 @@ It should look somthing like this:
 * Click :guilabel:`Save`
 
 
-Create the bundle and wire everything up
-----------------------------------------
+Create The Bundle And Wire Everything Up
+========================================
 
 * Go to the :guilabel:`Registry` tab
 * Click the :guilabel:`Add bundle` button
@@ -86,7 +91,7 @@ Create the bundle and wire everything up
 * For the :guilabel:`Depends` section, we'll use ``plone``
 * Make sure :guilabel:`Enabled` is checked
 
-It should look somthing like this:
+It should look something like this:
 
 .. figure:: _static/add_bundle.png
    :align: center
@@ -94,8 +99,8 @@ It should look somthing like this:
 * Click :guilabel:`Save`
 
 
-Build the bundle
-----------------
+Build The Bundle
+================
 
-In order for changes to be included, you need to build your bundle.
-For doing this, you just need to click the :guilabel:`Build` under the bundle you want to build.
+To include changes, you need to build your bundle.
+For doing this, you need to click the :guilabel:`Build` under the bundle you want to build.
