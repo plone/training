@@ -1,3 +1,4 @@
+==========================
 Exercise 6: Simple Pattern
 ==========================
 
@@ -11,12 +12,15 @@ In this exercise, we'll be walking through creating a simple Plone pattern.
 
 We will be working in the ``exercise6`` directory of the collective.jstraining package.
 
-Add your pattern file
----------------------
+Add Your Pattern File
+=====================
 
-First off, in your ``exercise6/static`` directory, add a file named ``pattern.js``. Use
-this file to build your pattern. This example will stay very simple we’ll use
-jQuery to do a simply modify the content of an element::
+First off, in your ``exercise6/static`` directory, add a file named ``pattern.js``.
+Use this file to build your pattern.
+
+This example will stay very simple we’ll use `jQuery <https://jquery.com/>`_ to do a simply modify the content of an element
+
+.. code-block:: javascript
 
     define([
       'jquery',
@@ -52,27 +56,31 @@ In our example, we're using the RequireJS ``define`` function to define our patt
 as a JavaScript module.
 
 
-Integrating with LESS
----------------------
+Integrating With LESS
+=====================
 
 Add a ``pattern.less`` file to the ``exercise6/static`` directory and provide
-whatever styles you'd like for your pattern::
+whatever styles you'd like for your pattern
+
+.. code-block:: less
 
     .pat-exercise6 {
       color: red;
     }
 
 
-Creating your bundle
---------------------
+Creating Your Bundle
+====================
 
-To register the pattern, we'll create a bundle. Recall the difference between
-using ``require`` and ``define`` from the RequireJS docs.
+To register the pattern, we'll create a bundle.
+Recall the difference between using ``require`` and ``define`` from the RequireJS docs.
 
 Our bundle will use the ``require`` function to include the JavaScript module
 pattern we created our previously.
 
-Create a ``bundle.js`` file in your ``exercise6/static`` directory::
+Create a ``bundle.js`` file in your ``exercise6/static`` directory
+
+.. code-block:: javascript
 
     require([
       'exercise6'
@@ -81,20 +89,27 @@ Create a ``bundle.js`` file in your ``exercise6/static`` directory::
     });
 
 The only thing we're doing in this file is including the ``exercise6`` module
-we defined earlier--that's it. Bundles can do more as well. Then can include
-initialization code for example. See Plone's `default bundle
-<https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/static/plone.js>`_.
+we defined earlier--that's it.
 
-Bundles more or less tell the compiler what we care about loading. They do
-the dependency resolution and include the modules that were required with them.
+Bundles can do more as well.
+Then can include initialization code for example.
+
+See Plone's `default bundle <https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/static/plone.js>`_.
+
+Bundles more or less tell the compiler what we care about loading.
+They do the dependency resolution and include the modules that were required with them.
 
 
-Register static resource directory
-----------------------------------
+Register Static Resource Directory
+==================================
 
-Next, let’s register the static directory we just placed our script into. To
-register, you need to add ZCML registration for the static directory your script
-is in. Add this to the ``exercise6/configure.zcml`` file::
+Next, let’s register the static directory we just placed our script into.
+To register, you need to add :term:`ZCML` registration for the static directory your script
+is in.
+
+Add this to the ``exercise6/configure.zcml`` file
+
+.. code-block:: xml
 
     <plone:static
          directory="static"
@@ -102,18 +117,20 @@ is in. Add this to the ``exercise6/configure.zcml`` file::
          name="exercise6"
          />
 
-Register your bundle
---------------------
+Register Your Bundle
+====================
 
 Registering your bundle is done by adding Generic Setup xml configuration to the
-Plone registry. This is done in the ``registry.xml`` file in the ``profiles/default``
-directory.
+Plone registry.
+This is done in the ``registry.xml`` file in the ``profiles/default`` directory.
 
 
 Resource
-~~~~~~~~
+--------
 
-Resource is done exactly the same as in Exercise 1::
+Resource is done exactly the same as in Exercise 1
+
+.. code-block:: xml
 
     <records prefix="plone.resources/exercise6"
               interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -121,12 +138,17 @@ Resource is done exactly the same as in Exercise 1::
     </records>
 
 
-Bundle resource
-~~~~~~~~~~~~~~~
+Bundle Resource
+---------------
 
-The bundle resource is just another resource registration like any other. Remember, the only
-difference here is in the content of the JavaScript file. One file uses ``require``,
-the other uses ``define``. Addditionally, we include our CSS/LESS dependencies here::
+The bundle resource is another resource registration like any other.
+Remember, the difference here is in the content of the JavaScript file.
+
+One file uses ``require``, the other uses ``define``.
+
+Addditionally, we include our CSS/LESS dependencies here
+
+.. code-block:: xml
 
     <records prefix="plone.resources/bundle-exercise6"
               interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -138,9 +160,11 @@ the other uses ``define``. Addditionally, we include our CSS/LESS dependencies h
 
 
 Bundle
-~~~~~~
+------
 
-Finally, let's create our bundle registration::
+Finally, let's create our bundle registration
+
+.. code-block:: xml
 
     <records prefix="plone.bundles/exercise6"
               interface='Products.CMFPlone.interfaces.IBundleRegistry'>
@@ -163,28 +187,28 @@ Finally, let's create our bundle registration::
 
 
 Installation
-------------
+============
 
 1) Start up your Plone instance
 2) Install the ``Exercise 6`` add-on
 
 
 Running
--------
+=======
 
 At this point, we have no compiled version of the code that we're running with
 so our code doesn't do anything.
 
-1) Go into ``Site Setup`` -> ``Resource Registries``
-2) Check "Development Mode"
+1) Go into ::menuselection:`Site Setup --> Resource Registries`
+2) Check :guilabel:`Development Mode`
 3) Select to develop JavaScript and CSS for the ``exercise6`` bundle
-4) Click save
+4) Click :guilabel:`Save`
 
 This should load your JavaScript and LESS files now; however, we don't have
 any elements with the ``pat-exercise6`` class assigned to them.
 
-It's up to you how to apply the pattern class to an element of your choice. A
-couple options available to you are:
+It's up to you how to apply the pattern class to an element of your choice.
+A couple options available to you are:
 
 1) use TinyMCE source view and add ``class="pat-exercise6"`` onto any ``p`` tag
 2) customize the theme on your site and add it to an element in your theme file
@@ -192,7 +216,7 @@ couple options available to you are:
 
 
 Production
-----------
+==========
 
 To build our bundle, we'll utilize the ``plone-compile-resources`` script that
 Plone ships with.
@@ -205,7 +229,9 @@ Plone ships with.
     to access it at the same time.
 
 
-An example command will look like this::
+An example command will look like this
+
+.. code-block:: console
 
     ./bin/plone-compile-resources --site-id=Plone --bundle=exercise6
 
