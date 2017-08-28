@@ -1,5 +1,5 @@
 ================================
-RequireJS and JavaScript modules
+RequireJS And JavaScript Modules
 ================================
 
 One of the great new features, Plone 5 gives us, is the ability to define and use JavaScript modules.
@@ -11,10 +11,12 @@ But JavaScript doesn't have any concept for declaring dependencies.
 Only the new and finalized ECMAScript 6 (ES6) standard finally comes with a module definition system (actually directly inspired by RequireJS and CommonJS), along other great features like proper variable scoping.
 
 In Plone, we use `RequireJS <http://requirejs.org>`_ as a framework to define and load modules.
+
 RequireJS is an implementation of the `Asynchronous Module Definition API <https://github.com/amdjs/amdjs-api/blob/master/AMD.md>`_.
 The module definition and loading standard of CommonJS is used by NodeJS.
 RequireJS adds the ability to load modules asynchronously, which can be better for performance.
 The CommonJS module loading syntax can also be used in RequireJS.
+
 But the main point why Plone uses RequireJS is, that there is a JavaScript based compiler, which allows us to build bundles (a combined, optimized and minified form with all dependencies) Through-The-Web.
 RequireJS and CommonJS are also forward compatible with ES6's module definition standard.
 
@@ -23,7 +25,7 @@ No need to depend on the existence of global variables and a strict order, in wh
 You can still use legacy-style JavaScript, but Plone encourages you to enter the modern world of JavaScript development.
 
 
-Defining a module
+Defining A module
 =================
 
 In the past years, a common pattern of defining anonymous function calls has evolved.
@@ -51,6 +53,7 @@ If your code should be reused like a library, you can define a module export.
 
 
 RequireJS extends this pattern and removes the necessity for globals to refer to other modules.
+
 In RequireJS, you're wrapping your code like this:
 
 .. code-block:: javascript
@@ -66,12 +69,15 @@ In RequireJS, you're wrapping your code like this:
 
 No need for any globals anymore (except for the ``define`` and ``require`` methods)!
 
-Also note, that the code within the RequireJS define wrapper is exactly the same as in the module pattern example above. Using RequireJS doesn't mean, you have to rewrite everything.
-It's just about modularizing code.
+Also note, that the code within the RequireJS define wrapper is exactly the same as in the module pattern example above.
+Using RequireJS doesn't mean, you have to rewrite everything.
+It's about modularizing code.
 
 To be able to use the defined module somewhere else, you need to be able to reference it by a module id.
 You can pass it as very first argument to the ``define`` function, but you might better do that in the RequireJS configuration.
+
 If you don't do it at all, it gets automatically assigned the name of the file.
+
 For example, let's assume a project structure like follows and the ``define`` example from above living in a file called ``my_module.js``::
 
     index.html
@@ -96,9 +102,11 @@ Let's do the RequireJS configuration in :file:`main.js` and use that as main ent
     })
 
 
-You can use your defined module as a dependency in another ``define`` module definition - if you just want to run some non-reusable code - as a dependency in a ``require`` call.
+You can use your defined module as a dependency in another ``define`` module definition - if you
+want to run some non-reusable code - as a dependency in a ``require`` call.
+
 While you have to return a module export in ``define``, you don't need that for ``require``.
-So, ``require`` corresponds to the first form of the module pattern explained above.
+``require`` corresponds to the first form of the module pattern explained above.
 
 When using in the browser (and not in NodeJS, for example), we have to include an entry point as script tag in our HTML markup:
 
@@ -118,4 +126,5 @@ In that case, you could omit the configuration, because the entry point script i
 More information
 ================
 
-More on RequireJS' API and how to include legacy code, which doesn't use the ``define`` module definition pattern, see the `RequireJS API documentation <http://requirejs.org/docs/api.html#define>`_.
+More on RequireJS' API and how to include legacy code,
+which doesn't use the ``define`` module definition pattern, see the `RequireJS API documentation <http://requirejs.org/docs/api.html#define>`_.
