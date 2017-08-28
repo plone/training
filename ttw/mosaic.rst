@@ -40,7 +40,7 @@ Some Comparisons
 
     * Compared to :py:mod:`collective.cover`:
 
-      :py:mod:`collective.cover` provides a specific content-type 
+      :py:mod:`collective.cover` provides a specific content-type
       (a "Cover page") where we can manage the layout in order to build our home page.
 
       Mosaic does not provide any content-type, it allows to edit any existing content layout.
@@ -52,7 +52,7 @@ Installation
 
    If you already have your own Plone installation you can
    install Mosaic by customizing it as follows:
-   
+
    Modify :file:`buildout.cfg` to add Mosaic as a dependency
 
    .. code-block:: ini
@@ -92,12 +92,12 @@ A layout is a combination of several tiles.
 
 A tile is a dynamic portion of a web page, it can be a text element, an image, a field, etc.
 
-Mosaic provides an editor able to easily position tiles across our theme's grid.
+Mosaic provides an editor able to position tiles across our theme's grid.
 
 The Mosaic Editor
 =================
 
-To enable the Mosaic editor on a content item change its default display as follows: 
+To enable the Mosaic editor on a content item change its default display as follows:
 go to :menuselection:`Display --> Mosaic layout`.
 
 
@@ -109,7 +109,8 @@ Click on :guilabel:`Edit` if this is the first time editing the current item you
 
 Choose a layout.
 
-This editor allows to change our content fields content (just like the regular Plone form), but the fields are rendered into the view layout and they are edited in-place.
+This editor allows to change our content fields content (like the regular Plone form),
+but the fields are rendered into the view layout and they are edited in-place.
 
 .. image:: _static/mosaic-editor.png
 
@@ -192,7 +193,7 @@ Mosaic provides the following tiles:
 
 - Advanced:
 
-    - content listing: it is a collection-like tile, it allows to list all contents matching given criterias (criterias can be changed in the modal window),
+    - content listing: it is a collection-like tile, it allows to list all contents matching given criterias (be changed in the modal window),
     - existing content: it allows to display another content in a tile
     - if Rapido is installed, there is also a Rapido tile, which allows to display any Rapido block.
 
@@ -215,7 +216,7 @@ Create A Reusable Layout
 
 When the layout has been customized, the :guilabel:`Layout` menu offers a :guilabel:`Save` action.
 
-This action allows to save the current layout as a reusable layout. 
+This action allows to save the current layout as a reusable layout.
 
 If :file:`Global` is checked, the layout will be usable by any user (else it is restricted to the current user).
 
@@ -248,7 +249,7 @@ Create an attractive layout for a talk, save it and reuse it for another talk.
 
 Manage Custom Layouts
 =====================
- 
+
 Custom layouts can be managed from the Plone control panel:
 
 - click on :menuselection:`user menu --> Site settings`,

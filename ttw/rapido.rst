@@ -78,7 +78,7 @@ For the training, we will use a `Heroku instance pre-configured with Plone <http
 Once deployed:
 
 - Create a Plone site,
-- Go to: :menuselection:`Plone control panel -> Add-ons` (http://localhost:8080/Plone/prefs_install_products_form),
+- Go to: :menuselection:`Plone control panel -> Add-ons`,
 - Finally: install Rapido.
 
 But to deploy Rapido on an actual Plone instance, modify :file:`buildout.cfg` to add Rapido as a dependency
