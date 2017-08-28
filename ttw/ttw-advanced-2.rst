@@ -35,7 +35,8 @@ Inheriting From Barceloneta
 Copying Barceloneta makes your theme heavier and will likely make upgrading more difficult.
 
 The Barceloneta theme provides many assets used by Plone's utilities that you do not need
-to duplicate. Additionally new releases of the theme may introduce optimizations or bug fixes.
+to duplicate.
+Additionally new releases of the theme may introduce optimizations or bug fixes.
 
 By referencing the Barceloneta rules and styles, instead of copying them, you automatically benefit from
 any updates to the Barceloneta theme while also keeping your custom theme relatively small.
@@ -192,15 +193,15 @@ Viewing the unthemed site.
        There are a few *footer* portlets which construct the footer of the site.
 
 
-Exercise
---------
+Exercise 3
+----------
 
 The ``<drop>`` directives.
 
 1. Add a rule that drops the "search section" checkbox from the search box.
    See the diagram below:
 
-   .. image:: ../theming/_static/theming-dropping-thesearchsection.png
+   .. image:: _static/theming-dropping-thesearchsection.png
 
 
 Conditional Attributes
@@ -223,9 +224,9 @@ The following attributes can be used to conditionally activate a directive.
 
    In a previous chapter we discussed the Plone ``<body>`` element and how to take
    advantage of the custom CSS classes associated with it.
-  
+
    We were introduced to the attribute ``css:if-content``.
-  
+
    Remember that we are able to determine a lot of context related information from the classes,
    such as::
 
@@ -283,9 +284,11 @@ The theme is already packaged in a manner that will work with the theming tool.
 
 .. note::
 
-   When being distributed, Plone themes are packaged as zip files. A theme should be structured such that
-   there is only one top level directory in the root of the zip file. By convention the directory
-   should contain your :file:`index.html` and supporting files, the supporting
+   When being distributed, Plone themes are packaged as zip files.
+   A theme should be structured such that
+   there is only one top level directory in the root of the zip file.
+
+   By convention the directory should contain your :file:`index.html` and supporting files, the supporting
    files (CSS, javascript and other files) may be in subdirectories.
 
 1. To get started `download a copy of the New Age theme as a zip file <https://codeload.github.com/BlackrockDigital/startbootstrap-new-age/zip/master>`_.
@@ -299,20 +302,20 @@ The theme is already packaged in a manner that will work with the theming tool.
        In the next steps you will add additional files including a :file:`manifest.cfg` (perhaps in the future
        the manifest.cfg will also be generated for you).
 
-       .. image:: ../theming/_static/theming-uploadzipfile.png
+       .. image:: _static/theming-uploadzipfile.png
 
        Select the downloaded zip file.
 
-       .. image:: ../theming/_static/theming-uploadzipfile2.png
+       .. image:: _static/theming-uploadzipfile2.png
 
 2. Add a :file:`styles.less` file and import the Barceloneta styles.
 
 3. Add a :file:`manifest.cfg` file, set ``production-css`` equal to ``styles.css``
 
-   .. note::
+.. note::
 
    Clean Blog is a free Bootstrap theme,
-   the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
+   the latest version is available on GitHub `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
 
     .. hint::
        :class: toggle
@@ -355,7 +358,7 @@ The theme is already packaged in a manner that will work with the theming tool.
        * it can be tricky to dynamically replace background images provided by
          inline styles.
 
-Creating A VisitorOonly Theme - Conditionally Enabling Barceloneta
+Creating A Visitor Only Theme - Conditionally Enabling Barceloneta
 ==================================================================
 
 Sometimes it is more convenient for your website administrators to use Barceloneta, Plone's default theme.

@@ -93,7 +93,7 @@ Portlets
 
 In the toolbar under :guilabel:`More options` you can open the configuration for the different places where you can have portlets.
 
-* UI fit for smart content editors
+* UI (User Interface) fit for smart content editors
 * Various types
 * Portlet configuration is inherited
 * Managing
@@ -132,7 +132,7 @@ Viewlets are often used for UI-Elements and have no nice UI to customize them.
 * Will be replaced by tiles?
 * The code is much simpler (we'll create one tomorrow).
 * Live in viewlet managers, can be nested (by adding a viewlet that contains a viewlet manager).
-* TTW reordering only within the same viewlet manager.
+* TTW (Trough-The-Web) reordering only within the same viewlet manager.
 * The code decides when it is shown and what it shows.
 
 
@@ -147,7 +147,7 @@ Zope is the foundation of Plone. Here you can access the inner workings of Zope 
 
 .. warning::
 
-  Here you can easily break your site so you should know what you are doing!
+  Here you can break your site so you should know what you are doing!
 
 .. only:: not presentation
 
@@ -160,7 +160,8 @@ Zope is the foundation of Plone. Here you can access the inner workings of Zope 
 Actions (portal_actions)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Actions are mostly links. But **really flexible** links.
+* Actions are mostly links.
+But **really flexible** links.
 * Actions are configurable TTW (Trough-The-Web) and through code.
 * These actions are usually iterated over in viewlets and displayed.
 
@@ -228,7 +229,7 @@ Configuring the navigation itself is done elsewhere: http://localhost:8080/Plone
 
 If time explain:
 
-* user > undo (cool!)
+* user > undo
 * user > login/logout
 
 

@@ -30,9 +30,9 @@ Two Approaches To Theming
 There are two main approaches to creating a custom theme:
 
 1. Copying the default Barceloneta theme
-2. Inheriting from the default Barceloneta theme. 
+2. Inheriting from the default Barceloneta theme.
 
-In this section we'll look at the first approach, part II will explore the second approach. 
+In this section we'll look at the first approach, part II will explore the second approach.
 
 What Is Diazo?
 ==============
@@ -47,7 +47,7 @@ At its core, a Diazo theme consists of an HTML page and :file:`rules.xml` file c
 Principles
 ==========
 
-For this part of the training you just need to know the basic principles of a Diazo theme:
+For this part of the training you need to know the basic principles of a Diazo theme:
 
 * Plone renders the content of the page;
 * Diazo rules inject the content into any static theme;
@@ -107,7 +107,7 @@ What do you think is the purpose of the ``prefix`` property?
     The main rules are defined by the ``rules`` property (you could point this anywhere, however the accepted convention is to use a file named :file:`rules.xml`.
 
     The ``development-css`` property points at the main Less file, when compiled to CSS it is placed
-    in the location defined by the ``production-css`` property. 
+    in the location defined by the ``production-css`` property.
 
     The ``prefix`` property defines the default location to look for non prefixed files, for example
     if your prefix is set to ``/++theme++mytheme`` then a file like index.html will be expected at
@@ -182,11 +182,11 @@ Look back at the ``<body>`` classes for a manager then see if you can answer the
     :class: toggle
 
     The manager also has the role "member" and "authenticated"
-    
+
     There are ``plone-toolbar`` classes added to the ``<body>`` element, these control the display of the toolbar
 
     The ``plone-toolbar-expanded`` class is used to control styles used by the expanded version of the toolbar.
-    
+
 
 Custom Rules
 ============
@@ -225,7 +225,7 @@ The class we are looking for is ``userrole-authenticated``. Add another property
 The attribute ``css:if-content`` allows us to put a condition on the rules based on a CSS selector that acts on the content.
 In this way the rule will be applied only if the body element has the class ``.userrole-authenticated``.
 
-We will learn more about Diazo rules in :doc:`./ttw-advanced_2`.
+We will learn more about Diazo rules in :doc:`ttw-advanced-2`.
 
 
 Customize CSS
@@ -253,4 +253,6 @@ Customize CSS
 
 ..  Warning::
 
-    At the moment you need to "Build CSS" from the main file, the one declared in the manifest (in this case :file:`less/barceloneta.plone.less`). So, whatever Less file you edit, go back to the main one to compile. This behavior will be improved but for now, just remember this simple rule ;)
+    At the moment you need to "Build CSS" from the main file, the one declared in the manifest (in this case :file:`less/barceloneta.plone.less`).
+
+    Whatever Less file you edit, go back to the main one to compile. This behavior will be improved but for now, just remember this simple rule ;)
