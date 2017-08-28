@@ -1,16 +1,36 @@
+=================
 Placeful Workflow
 =================
 
-Sometimes you may want a specific section of the site to allow different permissions and roles than other areas of the site such as providing an intranet are for internal staff to collaborate. In the past, if you wanted to do this, you would need to make custom content types that were identical to the standard types so you can attach an alternate workflow policy to them to limit access. This just causes extra boilerplate code and confusion amongst your users as they just want to create standard "Pages", but in this area they may have to create "Intranet Pages".
+Sometimes you may want a specific section of the site to allow different permissions and roles than other areas
+of the site such as providing an intranet are for internal staff to collaborate.
+In the past, if you wanted to do this, you would need to make custom content types that were identical to the
+standard types so you can attach an alternate workflow policy to them to limit access.
 
-Plone comes standard with a feature that addresses this specific issue. Plone's "Workflow Policy Support" add-on is available, but not active by default and allows site administrators to define workflow policies that only apply in specific sections of the site. The name Placeful Workflow comes from the fact you do this in a specific place.  Placeful workflow allows you to define workflow policies that define content type to workflow mappings that can be applied in any sub-folder of your Plone site.
+This causes extra boilerplate code and confusion amongst your users as they just want to create standard "Pages",
+but in this area they may have to create "Intranet Pages".
+
+Plone comes standard with a feature that addresses this specific issue.
+
+Plone's "Workflow Policy Support" add-on is available, but not active by default and allows site administrators to
+define workflow policies that only apply in specific sections of the site.
+
+The name Placeful Workflow comes from the fact you do this in a specific place.
+
+Placeful workflow allows you to define workflow policies that define content type to workflow mappings that can be applied
+in any sub-folder of your Plone site.
 
 Getting Started
-+++++++++++++++
+===============
 
-To get started with Placeful Workflow in Plone, you will need to first activate the add-on via the ``Site Setup`` > ``Add-Ons`` control panel. Just click ``Activate`` next to the "Workflow Policy Support" add-on and you will be ready to start assigning local policies to folders.
+To get started with Placeful Workflow in Plone, you will need to first activate the add-on
+via the :menuselection:`Site Setup -> Add-Ons` control panel.
 
-Create or go to any folder inside of your site and click the workflow state menu and you will now see an option for ``Policy...``. Select this option to begin assigning local workflow mappings to this folder.
+Click :guilabel:`Activate` next to the "Workflow Policy Support" add-on and you will be ready to start assigning local policies to folders.
+
+Create or go to any folder inside of your site and click the workflow state menu and you will now see an option for ``Policy...``.
+
+Select this option to begin assigning local workflow mappings to this folder.
 
 By default, the Placeful Workflow product has created some default mappings for you:
 
@@ -21,17 +41,24 @@ By default, the Placeful Workflow product has created some default mappings for 
 
 From the ``Workflow Policies`` control panel, you can create your own custom mappings and then assign them via the ``Policy...`` menu option per folder inside your site.
 
-Internals of Placeful Workflow
-++++++++++++++++++++++++++++++
+Internals Of Placeful Workflow
+==============================
 
-* Works by providing a more specific ``adapter`` for the ``IWorkflowChain`` interface defined by DCWorkflow.
+This works by providing a more specific ``adapter`` for the ``IWorkflowChain`` interface defined by DCWorkflow.
 
-  * This means that when you install this product, the ``portal_workflow`` tool is marked with an ``IPlacefulWorkflow`` interface, and from then on, the adapter defined by the product is used when looking up the workflow chain for an object
-  * A great example of the `marker pattern <https://docs.plone.org/external/plone.app.dexterity/docs/behaviors/providing-marker-interfaces.html>`_
+It means that when you install this product, the ``portal_workflow`` tool is marked with an ``IPlacefulWorkflow`` interface,
+and from then on, the adapter defined by the product is used when looking up the workflow chain for an object
 
-* You add a *workflow policy* in the location where you want to have customized workflow assignments.
+.. tip::
 
-  * A ``policy`` is basically just a mapping of workflows to content types.  Just like what you see in ``ZMI`` > ``portal_workflow`` > ``workflows``
+   A great example of the `marker pattern <https://docs.plone.org/external/plone.app.dexterity/docs/behaviors/providing-marker-interfaces.html>`_
+
+- You add a *workflow policy* in the location where you want to have customized workflow assignments.
+
+- A ``policy`` is basically just a mapping of workflows to content types.
+  Like what you see in :menuselection:`ZMI -> portal_workflow -> workflows`
+
+
   * This policy can control workflow ''in'' the object where it is located, and *below* it
 
     * *In* means the policy applies to the object itself and its content.
