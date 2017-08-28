@@ -1,9 +1,11 @@
 .. _mockup-writing-documentation:
 
-Writing documentation for Mockup
+================================
+Writing Documentation For Mockup
 ================================
 
 The documentation for Mockup is automatically generated from comments in pattern code.
+
 The structure is as follows::
 
     /* PATTERN TITLE
@@ -36,4 +38,3 @@ The structure is as follows::
      *   declared in package.json.
      *
      */
-
