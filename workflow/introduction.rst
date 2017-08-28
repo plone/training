@@ -1,14 +1,21 @@
-Introduction to Workflows in Plone
-==================================
+=========================
+Introduction To Workflows
+=========================
 
-What is a Workflow?
-+++++++++++++++++++
+What Is A Workflow?
+===================
 
-Workflow is the series of interactions that should happen to complete a task. Business organizations have many kinds of workflow. For example, insurance companies process claims, delivery companies track shipments, and schools accept applications for admission. All these tasks involve several people, sometimes take a long time, and vary significantly from organization to organization.
+Workflow is the series of interactions that should happen to complete a task.
+Business organizations have many kinds of workflow.
 
-The goal of workflow software is to streamline and track workflow activity. Since different organizations have different workflow processes, workflow software must be flexible and easy to customize.
+For example, insurance companies process claims, delivery companies track shipments, and schools accept applications for admission.
 
-The workflow system inside of Plone is an example of a State Machine. 
+All these tasks involve several people, sometimes take a long time, and vary significantly from organization to organization.
+
+The goal of workflow software is to streamline and track workflow activity.
+Since different organizations have different workflow processes, workflow software must be flexible and easy to customize.
+
+The workflow system inside of Plone is an example of a State Machine.
 
 From `Wikipedia <https://en.wikipedia.org/wiki/Finite-state_machine>`_:
 
@@ -23,10 +30,10 @@ From `Wikipedia <https://en.wikipedia.org/wiki/Finite-state_machine>`_:
 .. image:: _static/simple_workflow.png
 
 
-What's in a Workflow?
-+++++++++++++++++++++
+What's In a Workflow?
+=====================
 
-Workflows control
+Workflows Control
 -----------------
 
 * What ``states`` and ``transitions`` are available
@@ -38,7 +45,7 @@ Workflows control
 
   * These are basic python scripts, and are not used much anymore now that ``events`` are available
 
-States control
+States Control
 --------------
 
 * What transitions are available **out**
@@ -48,7 +55,7 @@ States control
   * This is probably the least-used aspect of workflow
   * It can be spectacularly useful
 
-Transitions control
+Transitions Control
 -------------------
 
 * What ``state`` they will end in
@@ -67,8 +74,8 @@ Transitions control
       * Updating the object to meet the conditions will not kick it off
       * You'll have to back it out of the current ``state`` and re-do the transition that should have kicked it off
 
-How Does Workflow Work in Plone?
-++++++++++++++++++++++++++++++++
+How Does Workflow Work In Plone?
+================================
 
 The tool in Plone that handles all workflow is called ``portal_workflow``
 
@@ -86,7 +93,7 @@ The tool in Plone that handles all workflow is called ``portal_workflow``
   * A particular content object knows **nothing** about it's own workflow state
   * queries about the workflow of an object **must** be addressed to portal_workflow
 
-.. code:: python 
+.. code:: python
 
     >>> from plone import api
     >>> fpage = api.content.get("/front-page")
@@ -115,22 +122,22 @@ The tool in Plone that handles all workflow is called ``portal_workflow``
 
   * Users can only access the workflow information for which they have permissions
 
-.. code:: python 
+.. code:: python
 
     >>> with api.env.adopt_user('site-admin'):
     ...     wft.getTransitionsFor(fpage)
     ...
     >>> from pprint import pprint
     >>> pprint(wft.getTransitionsFor(fpage))
-    ({'description': 'If you submitted the item by mistake or want to perform 
+    ({'description': 'If you submitted the item by mistake or want to perform
                       additional edits, this will take it back.',
       'id': 'retract',
       'name': 'Retract',
       'title': 'Member retracts submission',
       'title_or_id': 'Member retracts submission',
       'url': 'Plone/front-page/content_status_modify?workflow_action=retract'},
-     {'description': 'Sending the item back will return the item to the original 
-                      author instead of publishing it. You should preferably include 
+     {'description': 'Sending the item back will return the item to the original
+                      author instead of publishing it. You should preferably include
                       a reason for why it was not published.',
       'id': 'reject',
       'name': 'Send back',
@@ -140,7 +147,7 @@ The tool in Plone that handles all workflow is called ``portal_workflow``
 
 
 Moving Content Through Workflows
-++++++++++++++++++++++++++++++++
+================================
 
 * As stated above, any object with workflow is **always** in exactly **one** ``state`` for each workflow in it's chain.
 
