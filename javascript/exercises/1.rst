@@ -12,13 +12,17 @@ For this exercise, we are simply including JavaScript in a browser view.
 
 We will be working in the ``exercise1`` directory of the collective.jstraining package.
 
-Add your JavaScript file
-------------------------
+Add Your JavaScript File
+========================
 
-First off, in your ``exercise1/static`` directory, add a file named ``script.js``.
+In your ``exercise1/static`` directory, add a file named ``script.js``.
+
 This exercise is open ended as to what you do with JavaScript on the page.
-We'll stay very simple for the sake of brevity, using jQuery to do a simple
-animation effect on the title of the page::
+
+We'll stay very simple for the sake of brevity, using `jQuery <https://jquery.com/>`_ to do a
+animation effect on the title of the page
+
+.. code-block:: javascript
 
     require([
       'jquery'
@@ -51,12 +55,17 @@ animation effect on the title of the page::
 Feel free to customize the script to do whatever you'd like.
 
 
-Register static resource directory
-----------------------------------
+Register Static Resource Directory
+==================================
 
-Next, let’s register the static directory we just placed our script into. To
-register, you need to add ZCML registration for the static directory your script
-is in. Add this to the ``exercise1/configure.zcml`` file::
+Next, let’s register the static directory we just placed our script into.
+
+To register, you need to add :term:`ZCML` registration for the static directory your script
+is in.
+
+Add this to the ``exercise1/configure.zcml`` file
+
+.. code-block:: xml
 
     <plone:static
          directory="static"
@@ -65,12 +74,15 @@ is in. Add this to the ``exercise1/configure.zcml`` file::
          />
 
 
-Register JavaScript resource
-----------------------------
+Register JavaScript Resource
+============================
 
-Let’s register our script as a JavaScript resource with Plone. In the
-``exercise1/profiles/default/registry.xml`` file, add configuration to register
-your script::
+Let’s register our script as a JavaScript resource with Plone.
+
+In the ``exercise1/profiles/default/registry.xml`` file, add configuration to register
+your script
+
+.. code-block:: xml
 
     <records prefix="plone.resources/exercise1"
                 interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -78,21 +90,26 @@ your script::
       </records>
 
 
-Create your browser view
-------------------------
+Create Your Browser View
+========================
 
 ..  warning::
 
-    This might be redundant with other documentation. Skip ahead if you know
-    how to create browser views.
+    This might be redundant with other documentation.
+
+    Skip ahead if you know how to create browser views.
 
 
-Finally, let’s load our JavaScript file to only load on a specific page you need
-it on.
+Let’s load our JavaScript file to only load on a specific page you need it on.
 
-In our case, let’s add a basic new page view. The page template doesn’t need to
-implement any logic and we can use the main template to bring in the content of
-the page we’re using in the JavaScript(h1). Add this into your ``exercise1/page.pt`` file::
+In our case, let’s add a basic new page view.
+
+The page template doesn’t need to implement any logic and we can use the main template
+to bring in the content of the page we’re using in the JavaScript(h1).
+
+Add this into your ``exercise1/page.pt`` file
+
+.. code-block:: xml
 
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
         xmlns:tal="http://xml.zope.org/namespaces/tal"
@@ -107,11 +124,13 @@ the page we’re using in the JavaScript(h1). Add this into your ``exercise1/pag
     </html>
 
 
-Load your JavaScript resource
------------------------------
+Load Your JavaScript Resource
+=============================
 
 Add in view python code to tell Plone to render the script in the
-``exercise1/browser.py`` file::
+``exercise1/browser.py`` file
+
+.. code-block:: python
 
     from Products.CMFPlone.resources import add_resource_on_request
     from Products.Five import BrowserView
@@ -127,7 +146,9 @@ Add in view python code to tell Plone to render the script in the
 
 The most interesting part here is to look at ``add_resource_on_request``.
 
-Finally, wire it up with ZCML registration in the ``exercise1/configure.zcml`` file::
+Wire it up with :term:`ZCML` registration in the ``exercise1/configure.zcml`` file
+
+.. code-block:: xml
 
     <browser:page
          name="exercise1"
@@ -139,19 +160,21 @@ Finally, wire it up with ZCML registration in the ``exercise1/configure.zcml`` f
 
 
 Installation
-------------
+============
 
 1) Start up your Plone instance
 2) Install the ``Exercise 1`` add-on
 
 
-Then, visit the URL:
-``http://localhost:8080/Plone/front-page/@@exercise1``. This is assuming your Plone
-is is located at the URL ``http://localhost:8080/Plone``.
+Then, visit the URL: ``http://localhost:8080/Plone/front-page/@@exercise1``.
+
+This is assuming your Plone is is located at the URL ``http://localhost:8080/Plone``.
 
 
 Production
-----------
+==========
 
 In this exercise, there is no special distinction between development and
-production builds. The JavaScript is developed without any build process.
+production builds.
+
+The JavaScript is developed without any build process.
