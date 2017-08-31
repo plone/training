@@ -1,4 +1,5 @@
-Exercise 2: NG2 APP component rendered in a browser view
+========================================================
+Exercise 2: NG2 APP Component Rendered In A Browser View
 ========================================================
 
 ..  warning::
@@ -7,9 +8,9 @@ Exercise 2: NG2 APP component rendered in a browser view
     collective.jstraining package.
 
 
-For this exercise, we will run an angular 2 application inside a plone browser view.
+For this exercise, we will run an Angular 2 application inside a Plone browser view.
 
-We have most of the angular 2 boiler plate code created for you so let's just
+We have most of the Angular 2 boiler plate code created for you so let's
 finish up a few things so you can customize it.
 
 In this case we are going to use angular client to create the app inside the package.
@@ -17,33 +18,43 @@ In this case we are going to use angular client to create the app inside the pac
 We will be working in the ``exercise2`` directory of the collective.jstraining package.
 
 Bootstrap
----------
+=========
 
-Install npm dependencies::
+Install npm dependencies
+
+.. code-block:: console
 
     cd exercise2/static/ng2app
     npm install
     npm install -g angular-cli
 
 
-Add your angular 2 component
-----------------------------
+Add Your Angular 2 Component
+============================
 
-In your ``exercise2/static/ng2app`` directory, there is a bolierplate code
-for an ng2 app. You can use ng2 cli to create new components, modules,
-services,... We hope you like typescript.
+In your ``exercise2/static/ng2app`` directory, there is a boilerplate code
+for an ng2 app.
+
+You can use ng2 cli to create new components, modules, services, ...
+
+We hope you like typescript.
 
 We can change the exercise2/static/src/app/app.component.html to create your own template.
 
 Like I said, you can do whatever in this module.
 
 
-Register static resource directory
-----------------------------------
+Register Static Resource Directory
+==================================
 
-Next, let’s register the static directory we just placed our script into. To
-register, you need to add ZCML registration for the static directory your script
-is in. Add this to the ``exercise2/configure.zcml`` file::
+Next, let’s register the static directory we just placed our script into.
+
+To register, you need to add :term:`ZCML` registration for the static directory your script
+is in.
+
+Add this to the ``exercise2/configure.zcml`` file
+
+.. code-block:: xml
 
     <plone:static
          directory="static"
@@ -52,25 +63,30 @@ is in. Add this to the ``exercise2/configure.zcml`` file::
          />
 
 
-Build the file with webpack
----------------------------
+Build The File With Webpack
+===========================
 
-Our deployment is built using the ng cli tool::
+Our deployment is built using the ng cli tool
+
+.. code-block:: console
 
     cd exercise2/static/ng2app
     ng build --prod
 
 
 Whenever you make a change to your component files, webpack will auto re-build
-the distribution
+the distribution.
 
 
-Register JavaScript resource
-----------------------------
+Register JavaScript Resource
+============================
 
 Angular CLI creates three js, one for basic webpack instructions,
-one with the main js and another with the styling js. You will need
-to register the three on the ``exercise2/profiles/default/registry.xml``::
+one with the main js and another with the styling js.
+
+You will need to register the three on the ``exercise2/profiles/default/registry.xml``
+
+.. code-block:: xml
 
 
     <records prefix="plone.resources/exercise2-inline"
@@ -89,17 +105,21 @@ to register the three on the ``exercise2/profiles/default/registry.xml``::
     </records>
 
 Its really important that in case that you need to have dependency on loading
-the js you define on the registry.xml as its showen for the main js.
+the js you define on the registry.xml as its shown for the main js.
 
 Finally we want to create a single entry point to load them, so we are going to
 create and register a js with the requires that are loading the app on a file
-called ``static/ng2app/main.js``::
+called ``static/ng2app/main.js``
+
+.. code-block:: javascript
 
     require(['exercise2-inline','exercise2-style','exercise2-main'])
 
 
 With the main.js defined on the filesystem we can now create the resource as a new
-resource::
+resource
+
+.. code-block:: xml
 
     <records prefix="plone.resources/exercise2"
               interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -107,21 +127,26 @@ resource::
     </records>
 
 
-Create your browser view
-------------------------
+Create Your Browser View
+========================
 
 ..  warning::
 
-    This might be redundant with other documentation. Skip ahead if you know
-    how to create browser views.
+    This might be redundant with other documentation.
+
+    Skip ahead if you know how to create browser views.
 
 
-Finally, let’s load our JavaScript file to only load on a specific page you need
-it on.
+Let’s load our JavaScript file to only load on a specific page you need it on.
 
-In our case, let’s add a basic new page view. The page template doesn’t need to
-implement any logic and we can use the main template to bring in the content of
-the page we’re using in the JavaScript(h1). Add this into your ``exercise2/page.pt`` file::
+In our case, let’s add a basic new page view.
+
+The page template doesn’t need to implement any logic and we can use the main template
+to bring in the content of the page we’re using in the JavaScript(h1).
+
+Add this into your ``exercise2/page.pt`` file
+
+.. code-block:: xml
 
 
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
@@ -143,15 +168,18 @@ the page we’re using in the JavaScript(h1). Add this into your ``exercise2/pag
     </html>
 
 
-The ``app-root`` tag is what is used for the component selector. You can customize
-this and use whatever selector you like.
+The ``app-root`` tag is what is used for the component selector.
+
+You can customize this and use whatever selector you like.
 
 
-Load your JavaScript resource
------------------------------
+Load Your JavaScript Resource
+=============================
 
 Add in view python code to tell Plone to render the script in the
-``exercise2/browser.py`` file::
+``exercise2/browser.py`` file
+
+.. code-block:: python
 
     from Products.CMFPlone.resources import add_resource_on_request
     from Products.Five import BrowserView
@@ -167,7 +195,9 @@ Add in view python code to tell Plone to render the script in the
 
 The most interesting part here is to look at ``add_resource_on_request``.
 
-Finally, wire it up with ZCML registration in the ``exercise2/configure.zcml`` file::
+Finally, wire it up with :term:`ZCML` registration in the ``exercise2/configure.zcml`` file
+
+.. code-block:: xml
 
     <browser:page
          name="exercise2"
@@ -179,30 +209,33 @@ Finally, wire it up with ZCML registration in the ``exercise2/configure.zcml`` f
 
 
 Installation
-------------
+============
 
 1) Start up your Plone instance
 2) Install the ``Exercise 2`` add-on
 3) Toggle development mode to make sure the new resources are included
 
 
-Then, visit the URL:
-``http://localhost:8080/Plone/front-page/@@exercise2``. This is assuming your Plone
-is is located at the URL ``http://localhost:8080/Plone``.
+Then, visit the URL:``http://localhost:8080/Plone/front-page/@@exercise2``.
 
+This is assuming your Plone is is located at the URL ``http://localhost:8080/Plone``.
 
 ..  warning::
 
     To make sure your resource registry configuration changes apply, you'll need to
-    be in development mode. You can also toggle development mode on and off,
+    be in development mode.
+
+    You can also toggle development mode on and off,
     click save, to force configuration to be re-built after changes instead of
     keeping development mode on.
 
 
 Production
-----------
+==========
 
 In this exercise, there is no special distinction between development and
-production builds. Webpack re-builds the resource on every change for you
-and the JavaScript build file is not added to any bundle--it is just loaded
+production builds.
+
+webpack re-builds the resource on every change for you
+and the JavaScript build file is not added to any bundle--it is loaded
 for this particular page.
