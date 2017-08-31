@@ -1,4 +1,5 @@
-Exercise 3: NG2 APP component in a bundle
+=========================================
+Exercise 3: NG2 APP Component In a Aundle
 =========================================
 
 ..  warning::
@@ -7,28 +8,35 @@ Exercise 3: NG2 APP component in a bundle
     collective.jstraining package.
 
 
-For this exercise, we will add an angular 2 application to a plone bundle.
+For this exercise, we will add an Angular 2 application to a Plone bundle.
 
-We have most of the angular 2 boiler plate code created for you so let's just
+We have most of the Angular 2 boiler plate code created for you so let's
 finish up a few things so you can customize it.
 
 We will be working in the ``exercise3`` directory of the collective.jstraining package.
 
 Bootstrap
----------
+=========
 
-Install npm dependencies::
+Install npm dependencies
+
+.. code-block:: console
 
     cd exercise3/static
     npm install
 
 
-Add your angular 2 component
-----------------------------
+Add Your Angular 2 Component
+============================
 
-In your ``exercise3/static/app`` directory, add a file named ``app.component.ts``. Use
-this file to do anything you would like to the page. This example will stick
-with the angular 2 quickstart code. We hope you like typescript::
+In your ``exercise3/static/app`` directory, add a file named ``app.component.ts``.
+Use this file to do anything you would like to the page.
+
+This example will stick with the angular 2 quickstart code.
+
+We hope you like typescript
+
+.. code-block:: typescript
 
     import { Component } from '@angular/core';
     @Component({
@@ -39,17 +47,23 @@ with the angular 2 quickstart code. We hope you like typescript::
 
 
 You can do whatever in this module however, please notice how we changed the
-selector to ``.my-app``. In Angular 2, the selector can be anything. By changing
-it to a class name, it'll be easier for us to choose where we want to bootstrap
-our angular 2 component.
+selector to ``.my-app``.
+
+In Angular 2, the selector can be anything.
+
+By changing it to a class name, it will be easier for us to choose where we want to bootstrap
+our Angular 2 component.
 
 
-Register static resource directory
-----------------------------------
+Register Static Resource Directory
+==================================
 
-Next, let’s register the static directory we just placed our script into. To
-register, you need to add ZCML registration for the static directory your script
-is in. Add this to the ``exercise3/configure.zcml`` file::
+Next, let’s register the static directory we placed our script into.
+
+To register, you need to add :term:`ZCML` registration for the static directory your script
+is in. Add this to the ``exercise3/configure.zcml`` file
+
+.. code-block:: xml
 
     <plone:static
          directory="static"
@@ -58,10 +72,12 @@ is in. Add this to the ``exercise3/configure.zcml`` file::
          />
 
 
-Build the file with webpack
----------------------------
+Build The File With Webpack
+===========================
 
-Our deployment is built using webpack::
+Our deployment is built using webpack
+
+.. code-block:: console
 
     cd exercise3/static
     webpack
@@ -71,12 +87,15 @@ Whenever you make a change to your component files, webpack will auto re-build
 the distribution.
 
 
-Register JavaScript resource as a bundle
-----------------------------------------
+Register JavaScript Resource As A Bundle
+========================================
 
-Register our script as a JavaScript resource with Plone. In the
-``exercise3/profiles/default/registry.xml`` file, add configuration to register
-your script::
+Register our script as a JavaScript resource with Plone.
+
+In the ``exercise3/profiles/default/registry.xml`` file, add configuration to register
+your script
+
+.. code-block:: xml
 
     <records prefix="plone.bundles/exercise3"
               interface='Products.CMFPlone.interfaces.IBundleRegistry'>
@@ -91,13 +110,13 @@ your script::
 
 A couple notes about this configuration:
 
-- ``merge_with`` tells plone to combine this file with the default Plone bundles
+- ``merge_with`` tells Plone to combine this file with the default Plone bundles
 - ``compile`` is distinguish this bundle as one that is compiled outside of Plone
 - ``jscompilation`` and ``csscompilation`` are what Plone uses as the final compiled output
 
 
 Installation
-------------
+============
 
 1) Start up your Plone instance
 2) Install the ``Exercise 3`` add-on
@@ -106,13 +125,15 @@ Installation
 ..  warning::
 
     To make sure your resource registry configuration changes apply, you'll need to
-    be in development mode. You can also toggle development mode on and off,
+    be in development mode.
+
+    You can also toggle development mode on and off,
     click save, to force configuration to be re-built after changes instead of
     keeping development mode on.
 
 
 Running
--------
+=======
 
 It's up to you how to apply the component class name to an element of your choice.
 A couple options available to you are:
@@ -123,14 +144,16 @@ A couple options available to you are:
 
 
 Development
------------
+===========
 
 To make sure your changes are loaded after every build with webpack, make sure
-to go into Site setup -> Resource registries and enabled development mode.
+to go into :menuselection:`Setup --> Resource registries` and enable development mode.
 
 
 Production
-----------
+==========
 
 Production for this is simple when you're no longer in development mode on
-your Plone site. Webpack rebuilds the JavaScript distribution on every change.
+your Plone site.
+
+webpack rebuilds the JavaScript distribution on every change.
