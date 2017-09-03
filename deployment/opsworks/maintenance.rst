@@ -5,9 +5,10 @@ Maintenance
 Backups
 =======
 
-The recipes automatically setup weekly ZODB packing and log rotation. I like
-to Amazon's EBS snapshot feature for backups, and the EBS Snapshotting layer
-provides that functionality automatically.
+The recipes automatically setup weekly ZODB packing and log rotation.
+I like to use Amazon's EBS snapshot feature for backups.
+
+The EBS Snapshotting layer provides that functionality automatically.
 
 It requires you to use the AWS IAM Console to create a new user with the following permissions::
 
@@ -18,7 +19,7 @@ It requires you to use the AWS IAM Console to create a new user with the followi
     ec2:DescribeSnapshots
 
 You will need to note the API credentials for this new user and enter them into the Stack
-Custom JSON as follows
+Custom JSON as follows:
 
 .. code-block:: json
 
@@ -30,8 +31,8 @@ Custom JSON as follows
 
 
 The EBS Snapshotting Layer should be assigned to any production instance which
-has EBS volumes on which you are storing data. Generally speaking, any
-production instance with the Zeoserver, Shared Blob, or Solr Layers assigned should
+has EBS volumes on which you are storing data.
+Generally speaking, any production instance with the Zeoserver, Shared Blob, or Solr Layers assigned should
 also have the EBS Snapshotting Layer assigned.
 
 This Layer will setup automatic nightly snapshots of all mounted EBS volumes.
@@ -43,7 +44,7 @@ JSON.
 Updates
 =======
 
-Ubuntu security and OS package updates can be automated by adding the following Custom JSON config:
+Ubuntu security and OS package updates can be automated by adding the following Custom JSON configuration:
 
 .. code-block:: json
 
@@ -68,6 +69,7 @@ That's not so convenient for a stack of instances which may grow, shrink or chan
 over time.
 
 For that reason I like to use New Relic for server monitoring.
+
 There is built-in integration in the recipes, which includes detailed
 performance server and client performance monitoring for Plone, as well as
 plugins for Nginx, Varnish and HAProxy services and standard CPU, Disk space
@@ -76,8 +78,7 @@ and RAM server metrics.
 There's also a recipe provided to integrate the `Papertrail <https://papertrailapp.com/>`_
 log tracing and searching service.
 
-To help you live the dream of never having to SSH into your
-servers.
+To help you live the dream of never having to SSH into your servers.
 
 
 Sending Mail
@@ -85,13 +86,15 @@ Sending Mail
 
 It's possible, and not difficult to install and configure a mailer using a
 chef postfix recipe and some more Custom JSON.
-However, I do not recommend doing so. Cloud Servers generally, and EC2 specifically tend to land on SPAM
+
+I do not recommend doing so.
+
+Cloud Servers generally, and EC2 specifically tend to land on SPAM
 blacklists, ensuring your outgoing mail is not blackholed generally requires
 some special care and requests to Amazon to setup reverse DNS and whitelist
 any outgoing mail servers.
 
-Instead I recommend using a hosted mail delivery service like Amazon SES or
-perhaps GMail.
+Instead I recommend using a hosted mail delivery service like Amazon SES or perhaps GMail.
 
 
 SSH Access
@@ -101,9 +104,11 @@ Ideally, you never have to login to your cloud server, but things go wrong and
 you might have to eventually, even if only out of curiosity.
 
 By default OpsWorks does not assign an SSH key to new instances, but you can set one if
-desired at either the instance or the Stack level. Better yet, Opsworks allows
-more granular access control in combination with IAM. If you create a user via
-the AWS IAM console (no permissions need be assigned, and no credentials added
+desired at either the instance or the Stack level.
+
+Better yet, Opsworks allows more granular access control in combination with IAM.
+
+If you create a user via the AWS IAM console (no permissions need be assigned, and no credentials added
 or recorded for SSH access), you can then import that user into the OpsWorks
 Users control panel.
 
