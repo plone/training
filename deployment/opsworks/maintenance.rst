@@ -18,12 +18,15 @@ It requires you to use the AWS IAM Console to create a new user with the followi
     ec2:DescribeSnapshots
 
 You will need to note the API credentials for this new user and enter them into the Stack
-Custom JSON as follows::
+Custom JSON as follows
 
+.. code-block:: json
+
+   {
     "ebs_snapshots" : {
         "aws_key" : "***** AWS KEY FOR SNAPSHOTTING (IAM USER) *****",
         "aws_secret" : "***** AWS SECRET FOR SNAPSHOTTING (IAM USER) *****"}
-    }
+   }
 
 
 The EBS Snapshotting Layer should be assigned to any production instance which
@@ -40,10 +43,11 @@ JSON.
 Updates
 =======
 
-Ubuntu security and OS package updates can be automated by adding the following Custom JSON config
+Ubuntu security and OS package updates can be automated by adding the following Custom JSON config:
 
 .. code-block:: json
 
+   {
     "apt": {
         "unattended_upgrades": {
           "package_blacklist": [],
@@ -52,6 +56,7 @@ Ubuntu security and OS package updates can be automated by adding the following 
           "auto_fix_interrupted_dpkg": true
         }
     }
+   }
 
 Monitoring
 ==========
@@ -83,7 +88,7 @@ chef postfix recipe and some more Custom JSON.
 However, I do not recommend doing so. Cloud Servers generally, and EC2 specifically tend to land on SPAM
 blacklists, ensuring your outgoing mail is not blackholed generally requires
 some special care and requests to Amazon to setup reverse DNS and whitelist
-any outgoing mail servers. 
+any outgoing mail servers.
 
 Instead I recommend using a hosted mail delivery service like Amazon SES or
 perhaps GMail.
