@@ -78,12 +78,6 @@ To install :py:mod:`mr.bob`, you can use :command:`pip`:
 
 .. code-block:: bash
 
-   (mrbobvenv):$ pip install mr.bob
-
-and to install the required bobtemplates for Plone, do:
-
-.. code-block:: bash
-
    (mrbobvenv):$ pip install bobtemplates.plone
 
 Create a Plone 5 theme product skeleton with :command:`mrbob`:
