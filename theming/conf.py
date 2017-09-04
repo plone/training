@@ -58,7 +58,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Plone Solr Training'
+project = u'Plone Theming Training'
 copyright = u'2017, Plone Community'
 author = u'Plone Community'
 
@@ -89,11 +89,11 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-# This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = ['_build', 'lib', 'bin', 'include', 'local',
                     'ploneconf.site_sneak', 'log', 'README.rst',
                     'CHANGES.txt', 'spelling_wordlist.txt', '_build',
                     'Thumbs.db', '.DS_Store']
+
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
 #
@@ -144,11 +144,11 @@ html_theme = "sphinx_rtd_theme"
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-html_title = u'Plone Solr Training'
+html_title = u'Plone Theming Training'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
-html_short_title = 'Solr Training'
+html_short_title = 'Theming Training'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -244,7 +244,7 @@ html_static_path = ['_static']
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'SolrTraininig'
+htmlhelp_basename = 'ThemingTraininig'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -270,7 +270,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'SolrTraining.tex', u'SolrTraining Documentation',
+    (master_doc, 'ThemingTraining.tex', u'ThemingTraining Documentation',
      u'Plone Community', 'manual'),
 ]
 
@@ -312,7 +312,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'SolrTraining', u'SolrTraining Documentation',
+    (master_doc, 'ThemingTraining', u'ThemingTraining Documentation',
      [author], 1)
 ]
 
@@ -327,8 +327,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'SolrTraining', u'SolrTraining Documentation',
-     author, 'Documentation', 'Plone Solr Training.',
+    (master_doc, 'ThemingTraining', u'ThemingTraining Documentation',
+     author, 'Documentation', 'Plone Theming Training.',
      'Miscellaneous'),
 ]
 

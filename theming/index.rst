@@ -1,11 +1,13 @@
 .. _theming-label:
 
-Mastering Plone Theming
-=======================
+=============
+Plone Theming
+=============
 
 .. toctree::
    :maxdepth: 3
-   :numbered: 1
+   :hidden:
+   :caption: Theming
 
    basic
    ttw-advanced
@@ -19,6 +21,14 @@ Mastering Plone Theming
    adv-diazo
    collective-jbot
    custom-components
+
+.. toctree::
+   :hidden:
+   :maxdepth: 3
+   :caption: Plone Trainings
+
+    about/index
+    about/glossary
 
 .. seealso::
 
