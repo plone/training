@@ -20,11 +20,11 @@ Automating Plone Deployment
     :caption: Ansible
 
     intro
-    plone_stack
+    plone-stack
     ansible
-    plone_playbook
-    playbook_use
-    in_operation
+    plone-playbook
+    playbook-use
+    in-operation
     customization
     maintenance
 
