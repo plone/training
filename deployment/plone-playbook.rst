@@ -57,7 +57,7 @@ Except for the Plone server role, these are generally generic Ansible Galaxy rol
 Vagrant
 ```````
 
-Vagrant/Virtualbox is a handy way to test your playbook, both during development and for future maintenance.
+Vagrant/VirtualBox is a handy way to test your playbook, both during development and for future maintenance.
 We include a couple of files to help you get started with Vagrant testing.
 
 Vagrantfile
