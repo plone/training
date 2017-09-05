@@ -116,7 +116,7 @@ Some Quick Vagrant
     vagrant up                 # bring up the VirtualBox
     vagrant provision          # provision the VirtualBox
     vagrant up --no-provision  # bring the box up without provisioning
-    vagrant halt               # stop and save the state of the Virtualbox
+    vagrant halt               # stop and save the state of the VirtualBox
     vagrant destroy            # stop and destroy the box
     vagrant ssh                # ssh to the guest box
 
