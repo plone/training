@@ -19,6 +19,7 @@ It requires you to use the AWS IAM Console to create a new user with the followi
     ec2:DescribeSnapshots
 
 You will need to note the API credentials for this new user and enter them into the Stack
+
 Custom JSON as follows:
 
 .. code-block:: json
@@ -30,8 +31,7 @@ Custom JSON as follows:
    }
 
 
-The EBS Snapshotting Layer should be assigned to any production instance which
-has EBS volumes on which you are storing data.
+The EBS Snapshotting Layer should be assigned to any production instance which has EBS volumes on which you are storing data.
 Generally speaking, any production instance with the Zeoserver, Shared Blob, or Solr Layers assigned should
 also have the EBS Snapshotting Layer assigned.
 
@@ -62,21 +62,16 @@ Ubuntu security and OS package updates can be automated by adding the following 
 Monitoring
 ==========
 
-:term:`AWS` provides various monitoring and alerting features, but most alerting
-features need to be manually configured on a per EC2 instance basis.
+:term:`AWS` provides various monitoring and alerting features, but most alerting features need to be manually configured on a per EC2 instance basis.
 
-That's not so convenient for a stack of instances which may grow, shrink or change
-over time.
+That's not so convenient for a stack of instances which may grow, shrink or change over time.
 
 For that reason I like to use New Relic for server monitoring.
 
-There is built-in integration in the recipes, which includes detailed
-performance server and client performance monitoring for Plone, as well as
-plugins for Nginx, Varnish and HAProxy services and standard CPU, Disk space
-and RAM server metrics.
+There is built-in integration in the recipes, which includes detailed performance server and client performance monitoring for Plone,
+as well as plugins for Nginx, Varnish and HAProxy services and standard CPU, Disk space and RAM server metrics.
 
-There's also a recipe provided to integrate the `Papertrail <https://papertrailapp.com/>`_
-log tracing and searching service.
+There's also a recipe provided to integrate the `Papertrail <https://papertrailapp.com/>`_ log tracing and searching service.
 
 To help you live the dream of never having to SSH into your servers.
 
@@ -84,15 +79,12 @@ To help you live the dream of never having to SSH into your servers.
 Sending Mail
 ============
 
-It's possible, and not difficult to install and configure a mailer using a
-chef postfix recipe and some more Custom JSON.
+It's possible, and not difficult to install and configure a mailer using a chef postfix recipe and some more Custom JSON.
 
 I do not recommend doing so.
 
-Cloud Servers generally, and EC2 specifically tend to land on SPAM
-blacklists, ensuring your outgoing mail is not blackholed generally requires
-some special care and requests to Amazon to setup reverse DNS and whitelist
-any outgoing mail servers.
+Cloud Servers generally, and EC2 specifically tend to land on SPAM blacklists, ensuring your outgoing mail is not blackholed generally requires
+some special care and requests to Amazon to setup reverse DNS and whitelist any outgoing mail servers.
 
 Instead I recommend using a hosted mail delivery service like Amazon SES or perhaps GMail.
 
@@ -100,26 +92,20 @@ Instead I recommend using a hosted mail delivery service like Amazon SES or perh
 SSH Access
 ==========
 
-Ideally, you never have to login to your cloud server, but things go wrong and
-you might have to eventually, even if only out of curiosity.
+Ideally, you never have to login to your cloud server, but things go wrong and you might have to eventually, even if only out of curiosity.
 
-By default OpsWorks does not assign an SSH key to new instances, but you can set one if
-desired at either the instance or the Stack level.
+By default OpsWorks does not assign an SSH key to new instances, but you can set one if desired at either the instance or the Stack level.
 
-Better yet, Opsworks allows more granular access control in combination with IAM.
+Better yet, OpsWorks allows more granular access control in combination with IAM.
 
-If you create a user via the AWS IAM console (no permissions need be assigned, and no credentials added
-or recorded for SSH access), you can then import that user into the OpsWorks
-Users control panel.
+If you create a user via the AWS IAM console (no permissions need be assigned, and no credentials added or recorded for SSH access),
+you can then import that user into the OpsWorks Users control panel.
 
-In OpsWorks users can be given access to specific stacks, allowing them to view,
-deploy or manage them, as well as granting them SSH
-and/or :command:`sudo` access to Stack Instances using a public key that can be added
-through the web interface.
+In OpsWorks users can be given access to specific stacks, allowing them to view, deploy or manage them, as well as granting them SSH
+and/or :command:`sudo` access to Stack Instances using a public key that can be added through the web interface.
 
-Once you've imported an IAM user into Opsworks and
-granted it SSH access with a public key, that user should be able to log in to
-all instances in the stack. [*]_
+Once you've imported an IAM user into OpsWorks and granted it SSH access with a public key,
+that user should be able to log in to all instances in the stack. [*]_
 
 .. note::
 

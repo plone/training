@@ -7,7 +7,7 @@
       "so": true
     },
     "max-number-of-lines": {
-        "max" : 990
+        "max" : 999
     },
     "terminology": {
       // Load default terms (see terms.json in the repository)
@@ -22,6 +22,8 @@
         "Sass",
         "Less",
         "npm",
+        "VirtualBox",
+        "OpsWorks",
         // RegExp (case-insensitive) → replacement
         ["front[- ]end(\\w*)", "frontend$1"],
         ["back[- ]end(\\w*)", "backend$1"],
