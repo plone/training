@@ -160,8 +160,7 @@ Zope is the foundation of Plone. Here you can access the inner workings of Zope 
 Actions (portal_actions)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Actions are mostly links.
-But **really flexible** links.
+* Actions are mostly links. But **really flexible** links.
 * Actions are configurable TTW (Trough-The-Web) and through code.
 * These actions are usually iterated over in viewlets and displayed.
 
