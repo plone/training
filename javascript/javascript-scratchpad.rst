@@ -26,6 +26,7 @@ General Advises
 .. note::
 
     The mockup grunt infrastructure is build with a convention over configuration approach in mind.
+    
     It's actually very picky about a lot of things:
     locations of your bundle files, location of your bundle Less files, location of your pattern JavaScript and Less files and the require JavaScript ids of those.
 
@@ -37,6 +38,7 @@ General Advises
     Both build steps need the Client side RequireJS respectively Less compilers.
 
     The resources are downloaded to your browser, compiled there and re-upload to the Plone server, where they are stored in ZODB as :py:mod:`plone.resource` resources.
+    
     We can pre-build everything using standard JavaScript and Less development frameworks, e.g. via ``mockup``'s Grunt infrastructure.
 
 
