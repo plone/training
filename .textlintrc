@@ -34,7 +34,11 @@
         ["build system(s?)", "build tool$1"],
         ["id['’]?s", "IDs"],
         ["(\\w+[^.?!]\\)? )webpack", "$1webpack"],
-        ["(\\w+[^.?!]\\)? )internet", "$internet"]
+        ["(\\w+[^.?!]\\)? )internet", "$internet"],
+        ["OS X", "macOS"],
+        ["Mac ?OS", "macOS"],
+        ["Node(?:js)?", "Node.js"],
+        ["React[ .]js", "React"]
       ]
       }
   }
