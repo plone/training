@@ -42,7 +42,9 @@ At its core, a Diazo theme consists of an HTML page and :file:`rules.xml` file c
 
 .. note::
 
-    You can find extended information about Diazo and its integration package :py:mod:`plone.app.theming` in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_ and `plone.app.theming docs <https://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
+    You can find extended information about Diazo and its integration package :py:mod:`plone.app.theming`
+    in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_ and
+    `plone.app.theming docs <https://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
 
 Principles
 ==========
@@ -73,7 +75,7 @@ To create our playground we will copy the existing Barceloneta theme.
 
 5. Click on :guilabel:`Create` and you get redirected to your new theme's inspector:
 
-.. image:: ../theming/_static/theming-just_copied_theme_inspector.png
+.. image:: _static/theming-just_copied_theme_inspector.png
    :align: center
    :alt: result of copied theme
 
