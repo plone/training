@@ -51,25 +51,25 @@ About this training
         DAY1
             Framework Tools
             Create Mockup Pattern
-            Integrate Other (Non-Mockup based) Javascript
+            Integrate Other (Non-Mockup based) JavaScript
         DAY2
             Practicing
 
 Preparing for the training
-    About Javascript, Mockup, Patternslib and Plone 5
+    About JavaScript, Mockup, Patternslib and Plone 5
         History of everything, What's what.
 
 Installation Mockup
 
 
 Development environment
-    Javascript and editor support
+    JavaScript and editor support
     Code Linter
     Grunt
     Bower
     Testing
 
-Whirlwind tour through Mockup, Patternslib and Javascript in Plone 5
+Whirlwind tour through Mockup, Patternslib and JavaScript in Plone 5
     Short explanation of the code tree / main modules:
     Mockup
     Patternslib
