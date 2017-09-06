@@ -28,7 +28,7 @@ This is called a *workflow chain*.
 
    The adapter factory should return a tuple of string workflow names (``IWorkflowChain`` is a specialisation of ``IReadSequence``, i.e. a tuple).
 
-   The default obviously looks at the mappings in the ``portal_workflow`` tool,
+   The default looks at the mappings in the ``portal_workflow`` tool,
    but it is possible to override the mapping, e.g. by using a custom adapter registered for some marker interface,
    which in turn could be provided by a type-specific behavior.
 
