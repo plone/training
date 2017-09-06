@@ -11,7 +11,7 @@ General Advises
 .. note::
 
     When providing static resources (JS/Less/CSS) for Plone 5's resource registry,
-    use :py:mod:`plone.resource` based resources instead of Zope's browser resources.
+    use `plone.resource <https://pypi.python.org/pypi/plone.resource>`_ based resources instead of Zope's browser resources.
     The latter are cached heavily and you won't get your changes built with Zope resources.
 
 .. note::
@@ -37,7 +37,7 @@ General Advises
     There is currently no API to build JavaScript and Less resources programmatically after importing them.
     Both build steps need the Client side RequireJS respectively Less compilers.
 
-    The resources are downloaded to your browser, compiled there and re-upload to the Plone server, where they are stored in ZODB as :py:mod:`plone.resource` resources.
+    The resources are downloaded to your browser, compiled there and re-upload to the Plone server, where they are stored in ZODB as `plone.resource <https://pypi.python.org/pypi/plone.resource>`_` resources.
     
     We can pre-build everything using standard JavaScript and Less development frameworks, e.g. via ``mockup``'s Grunt infrastructure.
 
