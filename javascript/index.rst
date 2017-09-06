@@ -37,12 +37,14 @@ This training is **not** about:
     :hidden:
     :caption: JavaScript
 
+    training-installation
     development-process
     requirejs-modules
     mockup
     mockup-writing-documentation
     javascript-3-ttw
     exercises/index
+    javascript-scratchpad
 
 .. toctree::
    :hidden:
