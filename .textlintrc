@@ -25,6 +25,31 @@
     "max-number-of-lines": {
         "max" : 999
     },
+    "unexpanded-acronym": {
+      "ignore_acronyms": [
+        "AWS",
+        "CLI",
+        "NFS",
+        "BSD",
+        "SMTP",
+        "EBS",
+        "ZEO",
+        "ZODB",
+        "API",
+        "DNS",
+        "LTS",
+        "SSH",
+        "SES",
+        "YAML",
+        "JSON",
+        "URL",
+        "IAM",
+        "CPU",
+        "SPAM",
+        "TASK",
+        "RHEL"
+      ]
+    },
     "terminology": {
       // Load default terms (see terms.json in the repository)
       "defaultTerms": false,
@@ -40,6 +65,7 @@
         "npm",
         "VirtualBox",
         "OpsWorks",
+        "CloudFormation",
         // RegExp (case-insensitive) → replacement
         ["front[- ]end(\\w*)", "frontend$1"],
         ["back[- ]end(\\w*)", "backend$1"],
