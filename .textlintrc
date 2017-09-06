@@ -4,14 +4,30 @@
   ],
   "rules": {
     "write-good": {
-      "so": true
+      "so": true,
+      "thereIs": false,
+      "cliches": false,
+      "weasel": false,
+      "tooWordy": false,
+      "adverb": false,
+      "passive": false
     },
+    // "rousseau": {
+      // "showLevels": [
+      // "error"
+      // ],
+      // "ignoreTypes": [
+      // "sentence:uppercase",
+      // "passive",
+      // "weasel"
+      // ]
+    // },
     "max-number-of-lines": {
         "max" : 999
     },
     "terminology": {
       // Load default terms (see terms.json in the repository)
-      "defaultTerms": true,
+      "defaultTerms": false,
       // Syntax elements to skip. Overrides the default
       "skip": ["Blockquote"],
       // List of terms
@@ -37,7 +53,6 @@
         ["(\\w+[^.?!]\\)? )internet", "$internet"],
         ["OS X", "macOS"],
         ["Mac ?OS", "macOS"],
-        ["Node(?:js)?", "Node.js"],
         ["React[ .]js", "React"]
       ]
       }
