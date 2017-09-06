@@ -66,7 +66,7 @@ Add this to the ``exercise2/configure.zcml`` file
 Build The File With Webpack
 ===========================
 
-Our deployment is built using the ng cli tool
+Our deployment is built using the ng command line tool
 
 .. code-block:: console
 
@@ -218,7 +218,7 @@ Installation
 
 Then, visit the URL:``http://localhost:8080/Plone/front-page/@@exercise2``.
 
-This is assuming your Plone is is located at the URL ``http://localhost:8080/Plone``.
+This is assuming your Plone is located at the URL ``http://localhost:8080/Plone``.
 
 ..  warning::
 
