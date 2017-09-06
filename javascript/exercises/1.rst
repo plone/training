@@ -168,7 +168,7 @@ Installation
 
 Then, visit the URL: ``http://localhost:8080/Plone/front-page/@@exercise1``.
 
-This is assuming your Plone is is located at the URL ``http://localhost:8080/Plone``.
+This is assuming your Plone is located at the URL ``http://localhost:8080/Plone``.
 
 
 Production

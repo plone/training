@@ -55,7 +55,12 @@
         "FSM",
         "TODO",
         "HTTP",
-        "TTW"
+        "TTW",
+        "LESS",
+        "CSS",
+        "HTML",
+        "PEP",
+        "DOM"
       ]
     },
     "terminology": {
@@ -69,7 +74,7 @@
         "JavaScript",
         "ESLint",
         "Sass",
-        "Less",
+        // "Less",
         "npm",
         "VirtualBox",
         "OpsWorks",
