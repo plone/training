@@ -156,7 +156,7 @@ Now you should be able to start your instance, and after a little while (dependi
 This Zope instance won't have a Plone site yet, so having added the ``default`` security group earlier to allow yourself
 direct access to the ZEO clients will come in handy here.
 
-Your instance should have a public IP address (the front end layer assigns an Elastic IP by default,
+Your instance should have a public IP address (the frontend layer assigns an Elastic IP by default,
 though you could manually transfer one in if you were moving an existing EC2 server).
 
 You should be able to access the first ZEO client at port 8081 and create your Plone site.
