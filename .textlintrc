@@ -47,7 +47,15 @@
         "CPU",
         "SPAM",
         "TASK",
-        "RHEL"
+        "RHEL",
+        "ZMI",
+        "XML",
+        "ZCML",
+        "CMF",
+        "FSM",
+        "TODO",
+        "HTTP",
+        "TTW"
       ]
     },
     "terminology": {
