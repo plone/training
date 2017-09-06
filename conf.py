@@ -338,4 +338,5 @@ epub_copyright = u'2016, Plone Community'
 
 intersphinx_mapping = {
     'plone': ('https://docs.plone.org/', None),
+    'python': ('https://docs.python.org/2.7', None)
 }
