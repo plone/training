@@ -163,7 +163,7 @@ It's up to you how to apply the pattern class to an element of your choice.
 A couple options available to you are:
 
 1) use TinyMCE source view and add ``class="pat-tablesorter"`` onto any ``table`` tag.
-   You need to use ``th`` tags for the top row in your header in order for
+   You need to use ``th`` tags for the top row in your header for
    tablesorter to know to do anything.
 2) customize the theme on your site and add it to an element in your theme file
    or use a diazo rule diazo rule to dynamically add the class to an element
