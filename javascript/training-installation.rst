@@ -2,7 +2,7 @@
 Setup
 =====
 
-To get Plone and example packages for this training installed, please follow the installation instructions at :doc:`/plone_training_config/instructions`.
+To get Plone and example packages for this training installed, please follow the installation instructions about `how to get setup <https://training.plone.org/5/plone_training_config/instructions.html>`_
 
 After that, issue the following command to get the development environment for the ``mockup-minimalpattern`` example package installed
 
