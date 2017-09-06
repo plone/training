@@ -141,9 +141,9 @@ hostname
     If it does, use that hostname.
     If not, invent one and be prepared to supply an IP address.
 
-login id
+login ID
 
-    The user id of a system account that is either the superuser (root) or is allowed to use :command:`sudo` to issue arbitrary commands as the superuser.
+    The user ID of a system account that is either the superuser (root) or is allowed to use :command:`sudo` to issue arbitrary commands as the superuser.
 
 password
 
