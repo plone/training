@@ -337,6 +337,6 @@ epub_copyright = u'2016, Plone Community'
 #epub_tocdup = True
 
 intersphinx_mapping = {
-    'plone': ('https://docs.plone.org/', None),
-    'python': ('https://docs.python.org/2.7', None)
+    'plonedocs' : ('https://docs.plone.org/', None),
+    'python' : ('https://docs.python.org/2.7', None)
 }
