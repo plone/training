@@ -3,7 +3,7 @@ Deploying Changes
 =================
 
 Now that you've got one or more Instances up and running, you may need to update the code on them.
-Traditionally, you'd SSH into the server pull in new changes from the repo(s), run buildout, and restart ZEO clients if necessary.
+Traditionally, you'd SSH into the server pull in new changes from the repositories, run buildout, and restart ZEO clients if necessary.
 
 With OpsWorks, you click a deploy button and everything is handled automtically.
 
@@ -20,7 +20,7 @@ What happens when you click the Deploy button for an OpsWorks App?
 - If there are no changes to the repository, and the new ``deploy.cfg`` is identical to the prior version,
   then it checks for an ``always_buildout_on_deploy`` flag in the Stack's ``deploy[appname]`` Custom JSON.
   If that flag is true, then it runs buildout and restarts the ZEO clients on success.
-  This is useful if you are deploying changes from external repositories pulled in by mr.developer, even when the buildout repo itself hasn't changed.
+  This is useful if you are deploying changes from external repositories pulled in by mr.developer, even when the buildout repository itself hasn't changed.
 
 Steps 1 and 2 are essentially a ``Capistrano`` style deployment familiar from the Rails world.
 This process allows for explicit rollback of deployed code to prior versions at any time.
@@ -81,9 +81,9 @@ Any load balancers will automatically discover any new ZEO clients.
 
 The Stack reconfiguration will happen automatically whenever an instance goes up or down.
 
-You can view the HAProxy ZEO client status by visiting the password protected url ``/balancer/stats`` for your front end instance IP(s).
+You can view the HAProxy ZEO client status by visiting the password protected url ``/balancer/stats`` for your frontend instance IP(s).
 
-For a high traffic site that requires a high availability configuration, it may also make sense to run the front end HAProxy layer
+For a high traffic site that requires a high availability configuration, it may also make sense to run the frontend HAProxy layer
 on multiple Instances in different Availablilty Zones.
 
 You would need to route external traffic to those servers using an adaptive DNS service or Amazon's Elastic Load Balancer.
@@ -99,7 +99,7 @@ and the full list of Plone Buildout cookbook specific attributes is in `attribut
 
 Any of those attributes can be customized via the Stack Custom JSON.
 For example, the ``nginx_plone["additional_configuration"]`` and ``nginx_plone["additional_servers"]``
-may be the most generically useful items for front end configuration.
+may be the most generically useful items for frontend configuration.
 
 The recipes and example buildout also include optional support for running and configuring a Solr search server and setting
 up a Celery task queue for running asynchronous jobs using collective.celery.

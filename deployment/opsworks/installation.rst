@@ -9,7 +9,7 @@ lets us quickly configure a basic Plone stack with the most common layers config
 
 If you navigate to CloudFormation in the AWS console you'll be presented with
 the option to create a ``Stack``.
-Confusingly, a CloudFormation Stack is not the same thing as an Opsworks Stack,
+Confusingly, a CloudFormation Stack is not the same thing as an OpsWorks Stack,
 but the former is what we use to automate the creation of the latter so we can use the terms a bit interchangeably.
 
 You'll want to download the following file from GitHub: https://raw.githubusercontent.com/alecpm/opsworks-web-python/master/plone_buildout/examples/zeoserver-stack.template
@@ -20,13 +20,13 @@ which provides a basic ZEO server stack configuration [*]_.
 You may want to select the EC2 region for you stack before creating the stack, but if you
 don't you can always clone the stack into another region later.
 The stack creation will take a few minutes; once it succeeds you can navigate to the
-Opsworks control panel to see your new Stack. [*]_
+OpsWorks control panel to see your new Stack. [*]_
 
 The CloudFormation setup creates a stack outside of a VPC (Virtual Private Cloud),
 which is probably not ideal since some instance options are not available outside of a VPC.
 
 If you want the stack to use a VPC or to be in a different EC2 region than you initially ran CloudFormation from,
-then you can clone the Stack from the Opsworks Dashboard to set your desired region and VPC settings.
+then you can clone the Stack from the OpsWorks Dashboard to set your desired region and VPC settings.
 
 There are a few important settings which CloudFormation is not able to manage and have to be modified after stack creation.
 

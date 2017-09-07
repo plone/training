@@ -120,10 +120,10 @@ Some Quick Vagrant
     vagrant destroy            # stop and destroy the box
     vagrant ssh                # ssh to the guest box
 
-To each of the these commands, you may add an id to pick one of the boxes defined in Vagrantfile.
-Read Vagrantfile for the ids.
+To each of the these commands, you may add an ID to pick one of the boxes defined in Vagrantfile.
+Read Vagrantfile for the IDs.
 
-For example, ``centos7`` is the id for a CentOS box.
+For example, ``centos7`` is the ID for a CentOS box.
 
 .. code-block:: shell-session
 
@@ -167,7 +167,7 @@ A typical inventory file::
     www.mydomain.co.uk ansible_host=192.168.1.1 ansible_user=steve
 
 You may leave off the ``ansible_host`` if the name supplied matches the DNS host record.
-You may leave off the ``ansible_user`` if your user id is the same on the server.
+You may leave off the ``ansible_user`` if your user ID is the same on the server.
 
 An inventory file may have many entries.
 You may run Ansible against one, two, all of the hosts in the inventory file, or against alias groups like "plone-servers".
