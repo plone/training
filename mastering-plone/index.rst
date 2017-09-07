@@ -22,7 +22,7 @@ Contents:
 
 ..  toctree::
     :maxdepth: 2
-    :numbered: 1
+    :numbered:
 
     about_mastering
     intro
