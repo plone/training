@@ -18,7 +18,7 @@ You should see a welcome message like:
     zeoserver: /usr/local/plone-5.0/zeoserver
         /Plone: myhost [u'default']
         zeo server: 127.0.0.1:8100
-        haproxy front end: 8080
+        haproxy frontend: 8080
         zeo clients: 127.0.0.1:8081 127.0.0.1:8082
     haproxy monitor: 127.0.0.1:1080
     varnish: 127.0.0.1:6081
@@ -41,7 +41,7 @@ Use SSH tunnels.
     ssh ubuntu@54.244.201.44 -L 1080:localhost:1080 -L 6081:localhost:6081 -L 8080:localhost:8080
 
 This is a pretty typical login that creates handy tunnels between ports on your local machine
-with matching HAProxy-admin, varnish and HAProxy front-end ports on the remote server.
+with matching HAProxy-admin, varnish and HAProxy frontend ports on the remote server.
 
 While you're logged in, check out the status of the :program:`supervisor` process-control system,
 which is used to launch your Zope/Plone processes.
@@ -195,8 +195,8 @@ The larger samples use ``malloc``.
 
 Varnish's control channel is limited to use by localhost and has no secret.
 
-In a multi-Plone configuration, where you set up multiple, separate Plone servers with separate load-balancing front ends,
-our VCL setup does the dispatching to the different front ends.
+In a multi-Plone configuration, where you set up multiple, separate Plone servers with separate load-balancing frontends,
+our VCL setup does the dispatching to the different frontends.
 
 Web Hosting
 -----------

@@ -28,7 +28,7 @@ Glossary
    NFS
       `Network File System <https://en.wikipedia.org/wiki/Network_File_System/>`_.
 
-   Amazon Opsworks
+   Amazon OpsWorks
       `AWS OpsWorks <https://aws.amazon.com/opsworks/>`_ is a configuration management service that uses Chef,
        an automation platform that treats server configurations as code.
 
