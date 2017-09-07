@@ -58,7 +58,7 @@ manual: *.rst
 
 .PHONY: presentation
 presentation: *.rst
-	$(SPHINXBUILD) -b html -t presentation . presentation
+	$(SPHINXBUILD) -b html -t presentation . $(BUILDDIR)/presentation
 
 .PHONY: dirhtml
 dirhtml:
