@@ -4,7 +4,7 @@ RequireJS And JavaScript Modules
 
 One of the great new features, Plone 5 gives us, is the ability to define and use JavaScript modules.
 
-Most serious programming languages provide the concept of namespaces and module dependencies, like Python's :keyword:`import` mechanism.
+Most serious programming languages provide the concept of namespaces and module dependencies, like Python's :py:mod:`import <importlib>` mechanism.
 Python code would be unmanageable, if we'd rely on the existence of global variables and objects in our own scripts.
 
 But JavaScript doesn't have any concept for declaring dependencies.
