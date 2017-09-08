@@ -1,5 +1,0 @@
-GMail
-GitHub
-JavaScript
-CloudFormation
-VirtualBox
