@@ -1,5 +1,6 @@
 .. _case-label:
 
+==============
 The Case Study
 ==============
 
@@ -8,14 +9,14 @@ For this training we will build a website for a fictional Plone conference.
 .. _case-background-label:
 
 Background
-----------
+==========
 
 The Plone conference takes place every year and all Plone developers at least try to go there.
 
 .. _case-requirements-label:
 
 Requirements
-------------
+============
 
 Here are some requirements that we want to meet when the site is done:
 
@@ -30,4 +31,5 @@ Here are some requirements that we want to meet when the site is done:
 * As a jury member I want to decide which talks to accept, and which not.
 
 Note that all of our requirements connect roles with capabilities.
+
 This is important because we'll want to limit the capabilities to those to whom we assign particular roles.
