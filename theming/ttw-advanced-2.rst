@@ -4,9 +4,9 @@ TTW Theming II: Creating a custom theme based on Barceloneta
 
 In this section you will:
 
-* Create a theme by inheriting from the Barceloneta theme.
+* Create a new theme by inheriting from the :term:`Barceloneta` theme.
 * Use the :file:`manifest.cfg` to register a production CSS file.
-* Use an XInclude to incorporate rules from the Barceloneta theme.
+* Use an ``XInclude`` to incorporate rules from the :term:`Barceloneta` theme.
 * Use ``?diazo.off=1`` to view unthemed versions.
 * Use conditional rules to have a different backend theme from the anonymous visitors theme.
 
