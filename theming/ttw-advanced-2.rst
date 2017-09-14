@@ -37,6 +37,7 @@ The Barceloneta theme provides many assets used by Plone's utilities that you do
 Additionally new releases of the theme may introduce optimizations or bug fixes.
 By referencing the Barceloneta rules and styles, instead of copying them, you automatically benefit from any updates to the Barceloneta theme while also keeping your custom theme relatively small.
 
+
 Exercise 1 - Create a new theme that inherits from Barceloneta
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -108,6 +109,32 @@ In this exercise we will create a new theme that inherits the Barceloneta rules 
 #. Your theme is ready.
 
 
+Viewing the unthemed Plone site
+-------------------------------
+
+When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured.
+In order to see a "non-diazoed" version page, just add ``?diazo.off=1`` at the end of its URL.
+
+
+Exercise 2 - Viewing the unthemed site
+++++++++++++++++++++++++++++++++++++++
+
+Use ``?diazo.off=1`` to view the unthemed version of your site.
+Using your browser's inspector, find out the location/name of some of Plone's elements.
+Then try to answer the following:
+
+#. What do you think is the difference between "content-core" and "content"?
+#. There are several viewlets, how many do you count?
+#. Can you identify any portlets, what do you think they are for?
+
+.. admonition:: Solution
+   :class: toggle
+
+   #. The "content-core" does not include the "title" and "description" while the "content" combines the "title", "description" and "content-core".
+   #. Out of the box there are six viewlets (``viewlet-above-content``, ``viewlet-above-content-title``, ``viewlet-below-content-title``, ``viewlet-above-content-body``, ``viewlet-below-content-body``, ``viewlet-below-content``).
+   #. There are a few *footer* portlets which construct the footer of the site.
+
+
 Diazo rule directives and attributes
 ------------------------------------
 
@@ -115,6 +142,7 @@ The Diazo rules file is an :term:`XML` document containing rules to specify wher
 (title, footer, main text, etc.) will be located in the targeted theme page.
 The rules are created using *rule directives* which have *attributes*; attribute values
 are either CSS expressions or :term:`XPath` expressions.
+
 
 CSS selector based attributes
 +++++++++++++++++++++++++++++
@@ -153,42 +181,33 @@ You can also create conditions about the current path using ``if-path``.
 .. note:: For a more comprehensive overview of all the Diazo rule directives
    and related attributes see: http://docs.diazo.org/en/latest/basic.html#rule-directives
 
-Viewing the unthemed Plone site
--------------------------------
-
-When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured.
-In order to see a "non-diazoed" version page, just add ``?diazo.off=1`` at the end of its URL.
-
-Exercise 2 - Viewing the unthemed site
-++++++++++++++++++++++++++++++++++++++
-
-Use ``diazo.off=1`` to view the unthemed version of your site.
-Using your browser's inspector, find out the location/name of some of Plone's elements.
-Then try to answer the following:
-
-#. What do you think is the difference between "content-core" and "content"?
-#. There are several viewlets, how many do you count?
-#. Can you identify any portlets, what do you think they are for?
-
-.. admonition:: Solution
-   :class: toggle
-
-   #. The "content-core" does not include the "title" and "description" while the "content" combines the "title", "description" and "content-core".
-   #. Out of the box there are six viewlets (``viewlet-above-content``, ``viewlet-above-content-title``, ``viewlet-below-content-title``, ``viewlet-above-content-body``, ``viewlet-below-content-body``, ``viewlet-below-content``).
-   #. There are a few *footer* portlets which construct the footer of the site.
-
 
 Exercise 3 - the ``<drop>`` directives
 ++++++++++++++++++++++++++++++++++++++
 
-1. Add a rule that drops the "search section" checkbox from the search box.
-   See the diagram below:
+Add a rule that drops the "search section" checkbox from the search box.
+See the diagram below:
 
-   .. image:: ../theming/_static/theming-dropping-thesearchsection.png
+.. image:: ../theming/_static/theming-dropping-thesearchsection.png
 
+.. admonition:: Solution
+   :class: toggle
+
+   The ``div`` which contains the checkbox has the class ``searchSection`` applied.
+   To remove it, extend your :file:`rules.xml` to include the following lines:
+
+   .. code-block:: xml
+
+      <rules css:if-content="#visual-portal-wrapper">
+        <!-- Placeholder for your own additional rules -->
+
+        <!-- Remove the "only in current section" checkbox. -->
+        <drop css:content="div.searchSection" />
+      </rules>
 
 Conditional attributes
-^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++
+
 The following attributes can be used to conditionally activate a directive.
 
 ``css:if-content``
@@ -205,14 +224,14 @@ The following attributes can be used to conditionally activate a directive.
 .. note:: In a previous chapter we discussed the Plone ``<body>`` element and how to take advantage of the custom CSS classes associated with it.
     We were introduced to the attribute ``css:if-content``.
     Remember that we are able to determine a lot of context related information from the classes,
-    such as::
+    such as:
 
-    - the current user role, and its permissions,
-    - the current content-type and its template,
-    - the site section and sub section,
-    - the current subsite (if any).
+    * the current user role and permissions,
+    * the current content-type and its template,
+    * the site section and sub section,
+    * the current subsite (if any).
 
-    Here is an example
+    Here is an example:
 
     .. code-block:: xml
 
@@ -240,6 +259,7 @@ Converting an existing HTML template into an theme
 In the Plone "universe" it is not uncommon to convert an existing HTML template into a
 Diazo theme. Just ensure that when you zip up the source theme that there is a single folder
 in the root of the zip file. We will explore this in more detail in the next exercise.
+
 
 Exercise 4 - Convert a HTML template into a Diazo theme
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
