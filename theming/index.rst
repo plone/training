@@ -4,7 +4,11 @@
 Plone Theming
 =============
 
+:About: Adjusting the visual representation of Plone with Diazo
+:Level: All levels
+
 .. toctree::
+   :hideen:
    :maxdepth: 3
    :hidden:
    :caption: Theming
