@@ -78,7 +78,7 @@ In this exercise we will create a new theme that inherits the Barceloneta rules 
           xmlns:xi="http://www.w3.org/2001/XInclude">
 
         <!-- Import Barceloneta rules -->
-        <xi:include href="++theme++barceloneta/rules.xml" />
+        <xi:include href="++theme++barceloneta/rules.xml"><xi:fallback /></xi:include>
 
         <rules css:if-content="#visual-portal-wrapper">
           <!-- Placeholder for your own additional rules -->
