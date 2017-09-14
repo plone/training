@@ -4,18 +4,18 @@ TTW Theming I: Introduction to Diazo Theming
 
 In this section you will:
 
-* Use the "Theming" control panel to make a copy of Plone's default theme (barceloneta)
-* Customize a theme using Diazo rules
-* Customize a theme by editing and compiling Less files
+* Use the "Theming" control panel to make a copy of Plone's default theme (:term:`Barceloneta`)
+* Customize a theme using :term:`Diazo` rules
+* Customize a theme by editing and compiling :term:`Less` files
 
 Topics covered:
 
-* Diazo and plone.app.theming
-* "Barceloneta" - The Default Plone Theme
-* The "Theming tool"
-* Building CSS in the "Theming tool"
-* ``<body>`` element CSS classes
-* Conditionally activating rules
+* :term:`Diazo` and plone.app.theming
+* The Default Plone Theme (:term:`Barceloneta`)
+* The "Theming Tool"
+* Building CSS in the "Theming Tool"
+* CSS classes of the ``<body>`` element
+* Conditionally activating :term:`Diazo` rules
 
 
 Installation
