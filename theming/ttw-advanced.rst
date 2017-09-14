@@ -218,7 +218,7 @@ The class we are looking for is ``userrole-authenticated``. Add another property
 
 The attribute ``css:if-content`` allows us to put a condition on the rules based on a CSS selector that acts on the content. In this way the rule will be applied only if the body element has the class ``.userrole-authenticated``.
 
-We will learn more about Diazo rules in :doc:`./ttw-advanced_2`.
+We will learn more about Diazo rules in :doc:`./ttw-advanced-2`.
 
 
 Customize CSS
