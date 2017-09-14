@@ -19,11 +19,20 @@ Glossary
    ZODB
       `A native object database for Python <http://www.zodb.org/en/latest/>`_.
 
+   Barceloneta
+      The default theme for Plone 5.
+
+   CSS
+      Cascading Style Sheets (CSS) is a stylesheet language used for describing the (most of the times visual) representation of web pages.
+
    Diazo
       `Diazo <http://docs.diazo.org/en/latest/>`_ allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology.
 
+   Less
+      A dynamic stylesheet language that can be compiled into :term:`CSS` (Cascading Style Sheets).
+
    TTW
-      Through-The-Web, changes in the browser/
+      Through-The-Web, changes in the browser.
 
    S3
       `Amazon S3 <https://aws.amazon.com/s3/>`_ - Object storage built to store and retrieve any amount of data from anywhere.
