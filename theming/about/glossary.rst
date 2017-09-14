@@ -20,8 +20,7 @@ Glossary
       `A native object database for Python <http://www.zodb.org/en/latest/>`_.
 
    Diazo
-      `Diazo theme engine guide <http://docs.diazo.org/en/latest/>`_
-      Diazo allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology.
+      `Diazo <http://docs.diazo.org/en/latest/>`_ allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology.
 
    TTW
       Through-The-Web, changes in the browser/
