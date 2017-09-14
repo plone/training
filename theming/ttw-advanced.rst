@@ -34,18 +34,19 @@ There are two main approaches to creating a custom theme:
 #. Copying the default Barceloneta theme
 #. Inheriting from the default Barceloneta theme.
 
-In this section we'll look at the first approach, part II will explore the second approach.
+In this section we will work with the first approach
+The second one will be covered in detail in :doc:`ttw-advanced-2`.
 
 
 What is Diazo?
 --------------
 
 :program:`Diazo` is a theming engine used by Plone to make theming a site easier.
-At its core, a Diazo theme consists of an HTML page and :file:`rules.xml` file containing directives.
+At it's core, a :term:`Diazo` theme consists of an HTML page and :file:`rules.xml` file containing directives.
 
 .. note::
 
-   You can find extended information about Diazo and its integration package :py:mod:`plone.app.theming` in the official docs: `Diazo docs <http://docs.diazo.org/en/latest/>`_ and `plone.app.theming docs <https://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
+   You can find extended information about Diazo and its integration package :py:mod:`plone.app.theming` in the official docs for `Diazo <http://docs.diazo.org/en/latest/>`_ and `plone.app.theming <https://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
 
 
 Principles
@@ -109,14 +110,14 @@ In the theming tool, open the :file:`manifest.cfg` spend a minute or two looking
    #. The ``prefix`` property defines the default location to look for non prefixed files, for example if your prefix is set to ``/++theme++mytheme`` then a file like index.html will be expected at ``/++theme++mytheme/index.html``
 
 
-``<body>`` CSS classes
-----------------------
+CSS classes for the ``<body>`` element
+--------------------------------------
 
 As you browse a Plone site, Plone adds rich information about your current context.
 This information is represented as special classes in the ``<body>`` element.
 Information represented by the ``<body>`` classes includes:
 
-* the current user role, and permissions,
+* the current user role  and permissions,
 * the current content-type and its template,
 * the site section and sub section,
 * the current subsite (if any),
@@ -218,7 +219,7 @@ Add another attribute to the rule so that we produce this code:
 The attribute ``css:if-content`` allows us to put a condition on the rule based on a CSS selector that acts on the content.
 In this way the rule will be applied only if the body element has the class ``.userrole-authenticated``.
 
-We will learn more about Diazo rules in :doc:`./ttw-advanced-2`.
+We will learn more about Diazo rules in :doc:`ttw-advanced-2`.
 
 
 Customize CSS
