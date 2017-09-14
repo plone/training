@@ -344,7 +344,7 @@ The theme is already packaged in a manner that will work with the theming tool.
       * the relative path does not translate properly in the context of the theme;
       * it can be tricky to dynamically replace background images provided by inline styles.
 
-.. admonition:: Solution
+.. hint::
    :class: toggle
 
    #. Add the theme file:
@@ -413,67 +413,101 @@ Creating a visitor-only theme - conditionally enabling Barceloneta
 
 Sometimes it is more convenient for your website administrators to use Barceloneta, Plone's default theme.
 Other visitors would see a completely different layout provided by your custom theme.
-To achieve this you will need to associate your visitor theme rules with
-an expression like ``css:if-content="body.userrole-anonymous"``.
-For rules that will affect logged-in users you can use the expression
-``css:if-content="body.:not(userrole-anonymous)"``.
+To achieve this you will need to associate your visitor theme rules with an expression like ``css:if-content="body.userrole-anonymous"``.
+For rules that will affect logged-in users you can use the expression ``css:if-content="body.:not(userrole-anonymous)"``.
 
-Once you've combined the expressions above with the right Diazo rules you will be able
-to present an anonymous visitor with a specific HTML theme while presenting the
-Barceloneta theme to logged-in users.
+Once you've combined the expressions above with the right Diazo rules you will be able to present an anonymous visitor with a specific HTML theme while presenting the Barceloneta theme to logged-in users.
 
 .. warning::
 
-   The Barceloneta :file:`++theme++barceloneta/rules.xml` expects the
-   Barceloneta :file:`index.html` to reside locally in your current theme.
-   To avoid conflict and to accomodate the inherited Barceloneta, ensure that
-   your theme file has a different name such as :file:`front.html`.
+   The Barceloneta :file:`++theme++barceloneta/rules.xml` expects the Barceloneta :file:`index.html` to reside locally in your current theme.
+   To avoid conflict and to accomodate the inherited Barceloneta, ensure that your theme file has a different name such as :file:`front.html`.
 
 
 Exercise 5 - Convert the theme to be a visitor-only theme
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-In this exercise we will alter our theme from the previous exercise to make it
-into a visitor-only theme.
+In this exercise we will alter our theme from the previous exercise to make it into a visitor-only theme.
 
-1. Update the :file:`rules.xml` file to include Barceloneta rules.
+#. Update the :file:`rules.xml` file to include Barceloneta rules.
 
-    .. hint::
-       :class: toggle
+   .. hint::
+      :class: toggle
 
-       Use ``<xi:include href="++theme++barceloneta/rules.xml" />``
+      Use ``<xi:include href="++theme++barceloneta/rules.xml" />``
 
-2. Add conditional rules to :file:`rules.xml` so that the new theme is only shown to anonymous users,
-   rename the theme's :file:`index.html` to :file:`front.html` and add a copy of the Barceloneta :file:`index.html`.
+#. Add conditional rules to :file:`rules.xml` so that the new theme is only shown to anonymous users.
+   Rename the theme's :file:`index.html` to :file:`front.html` and add a copy of the Barceloneta :file:`index.html`.
 
-    .. hint::
-       :class: toggle
+   .. hint::
+      :class: toggle
 
-       Copy the contents of the Barceloneta :file:`index.html` file
-       then add it to the theme as the new :file:`index.html` file.
+      Copy the contents of the Barceloneta :file:`index.html` file, then add it to the theme as the new :file:`index.html` file.
 
-       Change :file:`rules.xml` to look similar to this:
+      Change :file:`rules.xml` to look similar to this:
 
-        .. code-block:: xml
+      .. code-block:: xml
 
-            <?xml version="1.0" encoding="UTF-8"?>
-            <rules
-                xmlns="http://namespaces.plone.org/diazo"
-                xmlns:css="http://namespaces.plone.org/diazo/css"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xi="http://www.w3.org/2001/XInclude">
+         <?xml version="1.0" encoding="UTF-8"?>
+         <rules
+             xmlns="http://namespaces.plone.org/diazo"
+             xmlns:css="http://namespaces.plone.org/diazo/css"
+             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+             xmlns:xi="http://www.w3.org/2001/XInclude">
 
-              <notheme css:if-not-content="#visual-portal-wrapper" />
+           <rules css:if-content="body:not(.userrole-anonymous)">
+             <!-- Import Barceloneta rules -->
+             <xi:include href="++theme++barceloneta/rules.xml" />
+           </rules>
 
-              <rules css:if-content="body:not(.userrole-anonymous)">
-                <!-- Import Barceloneta rules -->
-                <xi:include href="++theme++barceloneta/rules.xml" />
-              </rules>
+           <rules css:if-content="body.userrole-anonymous">
 
-              <rules css:if-content="body.userrole-anonymous">
-                <theme href="front.html" />
-                <replace css:theme-children=".intro header h2" css:content-children=".documentFirstHeading" />
-                <replace css:theme-children=".summary" css:content-children=".documentDescription" />
-                <replace css:theme-children=".preamble" css:content-children="#content-core" />
-              </rules>
-            </rules>
+             <theme href="front.html" />
+
+             <rules css:if-content="#portal-top">
+               <!--  Attributes  -->
+               <copy attributes="*" css:theme="html" css:content="html"/>
+               <!--  Base tag  -->
+               <before css:theme="title" css:content="base"/>
+               <!--  Title  -->
+               <replace css:theme="title" css:content="title"/>
+               <!--  Pull in Plone Meta  -->
+               <after css:theme-children="head" css:content="head meta"/>
+               <!--  Don't use Plone icons, use the theme's  -->
+               <drop css:content="head link[rel='apple-touch-icon']"/>
+               <drop css:content="head link[rel='shortcut icon']"/>
+               <!--  CSS  -->
+               <after css:theme-children="head" css:content="head link"/>
+               <after css:theme-children="head" css:content="head style"/>
+               <!--  Script  -->
+               <after css:theme-children="head" css:content="head script"/>
+             </rules>
+
+             <!-- Copy over the id/class attributes on the body tag. This is important for per-section styling -->
+             <copy attributes="*" css:content="body" css:theme="body"/>
+
+             <rules css:if-content="#visual-portal-wrapper">
+               <!-- Placeholder for your own additional rules -->
+
+               <replace css:theme=".navbar-brand" css:content="#portal-logo" />
+
+               <replace css:theme-children=".masthead .header-content" css:content-children=".hero" />
+               <drop css:theme=".masthead > .container" css:if-not-content=".hero" />
+               <drop css:content=".hero" />
+               <drop css:theme=".masthead .device-container" />
+
+               <!--  move global nav  -->
+               <replace css:theme-children=".navbar-nav" css:content-children=".plone-nav" />
+
+               <replace css:theme-children=".features" css:content-children="#content" />
+
+               <drop css:theme="section.download" />
+               <drop css:theme="section.cta" />
+               <drop css:theme="section.contact" />
+             </rules>
+
+             <!-- Include the backend theme -->
+             <xi:include href="++theme++barceloneta/backend.xml"><xi:fallback /></xi:include>
+
+           </rules>
+         </rules>
