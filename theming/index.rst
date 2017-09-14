@@ -11,13 +11,13 @@ Plone Theming
 **Training Objective**
 
 The most important objective of this training is to explain how to adjust the layout and design of a Plone site.
-It will cover basic customizations you can do :term:`TTW` in your Plone site, as well as advanced theming methods and tools to create stunning themes for your Plone website based on existing HTML templates.
+It will cover basic customizations you can do :term:`TTW` (Through-The-Web) in your Plone site, as well as advanced theming methods and tools to create stunning themes for your Plone website based on existing HTML templates.
 
 
 This training is **not** about:
 
 - How to write JavaScript and integrate it into Plone
-- How to create designs or templates used for the advances theming
+- How to create designs or templates used for the advanced theming
 
 
 .. toctree::
