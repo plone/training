@@ -138,10 +138,8 @@ Then try to answer the following:
 Diazo rule directives and attributes
 ------------------------------------
 
-The Diazo rules file is an :term:`XML` document containing rules to specify where the content elements
-(title, footer, main text, etc.) will be located in the targeted theme page.
-The rules are created using *rule directives* which have *attributes*; attribute values
-are either CSS expressions or :term:`XPath` expressions.
+The Diazo rules file is an :term:`XML` document containing rules to specify where the content elements (title, footer, main text, etc.) will be located in the targeted theme page.
+The rules are created using *rule directives* which have *attributes*; attribute values are either CSS expressions or :term:`XPath` expressions.
 
 
 CSS selector based attributes
@@ -162,9 +160,9 @@ The CSS3 selectors used by Diazo directives are listed below:
 XPath selector based attributes
 +++++++++++++++++++++++++++++++
 
-Depending on complexity of the required selector it is sometimes necessary or more convenient
-to use :term:`XPath` selectors instead of CSS selectors. XPath selectors use the unprefixed
-attributes ``theme`` and ``content``. The common XPath selector attributes include:
+Depending on complexity of the required selector it is sometimes necessary or more convenient to use :term:`XPath` selectors instead of CSS selectors.
+XPath selectors use the unprefixed attributes ``theme`` and ``content``.
+The common XPath selector attributes include:
 
 ``theme``
     Used to select target elements from the theme using XPath selectors.
@@ -223,8 +221,7 @@ The following attributes can be used to conditionally activate a directive.
 
 .. note:: In a previous chapter we discussed the Plone ``<body>`` element and how to take advantage of the custom CSS classes associated with it.
     We were introduced to the attribute ``css:if-content``.
-    Remember that we are able to determine a lot of context related information from the classes,
-    such as:
+    Remember that we are able to determine a lot of context related information from the classes, such as:
 
     * the current user role and permissions,
     * the current content-type and its template,
@@ -256,16 +253,15 @@ The following attributes can be used to conditionally activate a directive.
 
 Converting an existing HTML template into an theme
 ---------------------------------------------------
-In the Plone "universe" it is not uncommon to convert an existing HTML template into a
-Diazo theme. Just ensure that when you zip up the source theme that there is a single folder
-in the root of the zip file. We will explore this in more detail in the next exercise.
+In the Plone "universe" it is not uncommon to convert an existing HTML template into a Diazo theme.
+Just ensure that when you zip up the source theme that there is a single folder in the root of the zip file.
+We will explore this in more detail in the next exercise.
 
 
 Exercise 4 - Convert a HTML template into a Diazo theme
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-In this exercise we will walk through the process of converting an existing free HTML theme
-into a Diazo-based Plone theme.
+In this exercise we will walk through the process of converting an existing free HTML theme into a Diazo-based Plone theme.
 
 .. image:: ../theming/_static/theming-startbootstrap-newage-theme.png
 
