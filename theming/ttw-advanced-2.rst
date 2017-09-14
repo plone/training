@@ -62,6 +62,7 @@ In this exercise we will create a new theme that inherits the Barceloneta rules 
       [theme]
       title = Custom
       description = A custom theme
+      doctype = <!DOCTYPE html>
       development-css = ++theme++custom/styles.less
       production-css = ++theme++custom/styles.css
 
