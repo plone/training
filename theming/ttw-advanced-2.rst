@@ -111,10 +111,10 @@ In this exercise we will create a new theme that inherits the Barceloneta rules 
 Diazo rule directives and attributes
 ------------------------------------
 
-The Diazo rules file is an XML document containing rules to specify where the content elements
+The Diazo rules file is an :term:`XML` document containing rules to specify where the content elements
 (title, footer, main text, etc.) will be located in the targeted theme page.
 The rules are created using *rule directives* which have *attributes*; attribute values
-are either CSS expressions or XPath expressions.
+are either CSS expressions or :term:`XPath` expressions.
 
 CSS selector based attributes
 +++++++++++++++++++++++++++++
@@ -135,7 +135,7 @@ XPath selector based attributes
 +++++++++++++++++++++++++++++++
 
 Depending on complexity of the required selector it is sometimes necessary or more convenient
-to use XPath selectors instead of CSS selectors. XPath selectors use the unprefixed
+to use :term:`XPath` selectors instead of CSS selectors. XPath selectors use the unprefixed
 attributes ``theme`` and ``content``. The common XPath selector attributes include:
 
 ``theme``
@@ -162,26 +162,20 @@ In order to see a "non-diazoed" version page, just add ``?diazo.off=1`` at the e
 Exercise 2 - Viewing the unthemed site
 ++++++++++++++++++++++++++++++++++++++
 
-1. Use ``diazo.off=1`` to view the unthemed version of your site.
+Use ``diazo.off=1`` to view the unthemed version of your site.
+Using your browser's inspector, find out the location/name of some of Plone's elements.
+Then try to answer the following:
 
-2. Using your browser's inspector, find out the location/name of some of Plone's elements.
-   Then try to answer the following:
+#. What do you think is the difference between "content-core" and "content"?
+#. There are several viewlets, how many do you count?
+#. Can you identify any portlets, what do you think they are for?
 
-   What do you think is the difference between "content-core" and "content"?
-   There are several viewlets, how many do you count?
-   Can you identify any portlets, what do you think they are for?
+.. admonition:: Solution
+   :class: toggle
 
-    .. admonition:: Solution
-       :class: toggle
-
-       The "content-core" does not include the "title" and "description" while
-       the "content" combines the "title", "description" and "content-core".
-
-       Out of the box there are six viewlets (``viewlet-above-content``, ``viewlet-above-content-title``
-       ``viewlet-below-content-title``, ``viewlet-above-content-body``, ``viewlet-below-content-body``,
-       ``viewlet-below-content``).
-
-       There are a few *footer* portlets which construct the footer of the site.
+   #. The "content-core" does not include the "title" and "description" while the "content" combines the "title", "description" and "content-core".
+   #. Out of the box there are six viewlets (``viewlet-above-content``, ``viewlet-above-content-title``, ``viewlet-below-content-title``, ``viewlet-above-content-body``, ``viewlet-below-content-body``, ``viewlet-below-content``).
+   #. There are a few *footer* portlets which construct the footer of the site.
 
 
 Exercise 3 - the ``<drop>`` directives

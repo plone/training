@@ -82,6 +82,12 @@ Glossary
       While it can still serve as a valuable tool for Plone specialists to fix problems or accomplish certain tasks,
       it is not recommended as a regular tool for Plone maintenance.
 
+   XML
+      The Extensible Markup Language.
+
+   XPath
+      XPath (XML Path Language) is a query language for selecting nodes from an XML document.
+
    ZCML
       The `Zope Configuration Mark-up Language <https://docs.plone.org/develop/addons/components/zcml.html>`_.
 
