@@ -17,10 +17,10 @@
    :hidden:
    :caption: "Through-The-Web"
 
-   basic
-   configuring-customizing
-   ttw-advanced
-   ttw-advanced-2
+   Customizing logo and CSS of default theme <basic>
+   Configuring and Customizing Plone <configuring_customizing>
+   Introduction to Diazo Theming <ttw-advanced>
+   Creating a custom theme based on Barceloneta <ttw-advanced-2>
    Dexterity <dexterity>
    mosaic
    rapido
@@ -29,7 +29,7 @@
    :hidden:
    :maxdepth: 3
    :caption: Plone Trainings
-    :name: plone-trainings-ttw-toc
+   :name: plone-trainings-ttw-toc
 
    about/index
    about/glossary
