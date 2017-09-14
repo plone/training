@@ -268,75 +268,145 @@ In this exercise we will walk through the process of converting an existing free
 We've selected the free `New Age Bootstrap theme <https://github.com/BlackrockDigital/startbootstrap-new-age>`_.
 The theme is already packaged in a manner that will work with the theming tool.
 
-.. note:: When being distributed, Plone themes are packaged as zip files. A theme should be structured such that
-          there is only one top level directory in the root of the zip file. By convention the directory
-          should contain your :file:`index.html` and supporting files, the supporting
-          files (CSS, javascript and other files) may be in subdirectories.
+.. note::
 
-1. To get started `download a copy of the New Age theme as a zip file <https://codeload.github.com/BlackrockDigital/startbootstrap-new-age/zip/master>`_.
+   When being distributed, Plone themes are packaged as zip files.
+   A theme should be structured such that there is only one top level directory in the root of the zip file.
+   By convention the directory should contain your :file:`index.html`, the supporting files (CSS, javascript and other files) may be in subdirectories.
+
+#. To get started `download a copy of the New Age theme as a zip file <https://codeload.github.com/BlackrockDigital/startbootstrap-new-age/zip/master>`_.
    Then upload it to the theme controlpanel.
 
-    .. hint::
-       :class: toggle
+   .. hint::
+      :class: toggle
 
-       This is a generic theme, it does not provide the Plone/Diazo specific :file:`rules.xml` or
-       :file:`manifest.cfg` file. When you upload the zip file the theming tool generates a :file:`rules.xml`.
-       In the next steps you will add additional files including a :file:`manifest.cfg` (perhaps in the future
-       the manifest.cfg will also be generated for you).
+      This is a generic theme, it does not provide the Plone/Diazo specific :file:`rules.xml` or :file:`manifest.cfg` file.
+      When you upload the zip file the theming tool generates a :file:`rules.xml`.
+      In the next steps you will add additional files including a :file:`manifest.cfg` (perhaps in the future the manifest.cfg will also be generated for you).
 
-       .. image:: ../theming/_static/theming-uploadzipfile.png
+   .. image:: ../theming/_static/theming-uploadzipfile.png
 
-       Select the downloaded zip file.
+   Select the downloaded zip file.
 
-       .. image:: ../theming/_static/theming-uploadzipfile2.png
+   .. image:: ../theming/_static/theming-uploadzipfile2.png
 
-2. Add a :file:`styles.less` file and import the Barceloneta styles.
+#. Add a :file:`styles.less` file and import the Barceloneta styles (look back to Excercise 1).
+#. Add a :file:`manifest.cfg` file, set ``production-css`` equal to ``styles.css``
 
-3. Add a :file:`manifest.cfg` file, set ``production-css`` equal to ``styles.css``
+   .. note::
 
-    .. note:: Clean Blog is a free Bootstrap theme,
-          the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
+      Clean Blog is a free Bootstrap theme, the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
 
-    .. hint::
-       :class: toggle
+   .. hint::
+      :class: toggle
 
-       You can identify the theme path by reading your browser's address
-       bar when your theme is open in the theming tool.
-       You'll need to include the proper theme path in your :file:`manifest.cfg`,
-       in this case it will most likely be something like ``++theme++startbootstrap-new-age-gh-pages``
+      You can identify the theme path by reading your browser's address bar when your theme is open in the theming tool.
+      You'll need to include the proper theme path in your :file:`manifest.cfg`, in this case it will most likely be something like ``++theme++startbootstrap-new-age-master``
 
-       [theme]
-       title = New Age
-       prefix = ++theme++startbootstrap-new-age-gh-pages/
-       production-css = ++theme++startbootstrap-new-age-gh-pages/styles.css
+   .. code-block:: ini
 
-
-4. Add rules to include the Barceloneta backend utilities
-   ::
-
-       <?xml version="1.0" encoding="UTF-8"?>
-    <rules
-        xmlns="http://namespaces.plone.org/diazo"
-        xmlns:css="http://namespaces.plone.org/diazo/css"
-        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        xmlns:xi="http://www.w3.org/2001/XInclude">
-
-      <!-- Include the backend theme -->
-      <xi:include href="++theme++barceloneta/backend.xml" />
+      [theme]
+      title = New Age
+      prefix = /++theme++startbootstrap-new-age-master
+      doctype = <!DOCTYPE html>
+      development-css = ++theme++startbootstrap-new-age-master/styles.less
+      production-css = ++theme++startbootstrap-new-age-master/styles.css
 
 
-5. Add rules to include content, add site structure, drop unneeded elements, customize the menu.
+#. Add rules to include the Barceloneta backend utilities.
+
+   .. code-block:: xml
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <rules
+          xmlns="http://namespaces.plone.org/diazo"
+          xmlns:css="http://namespaces.plone.org/diazo/css"
+          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+          xmlns:xi="http://www.w3.org/2001/XInclude">
+
+        <!-- Include the backend theme -->
+        <xi:include href="++theme++barceloneta/backend.xml"><xi:fallback /></xi:include>
+
+        <rules css:if-content="#visual-portal-wrapper">
+          <!-- Placeholder for your own additional rules -->
+        </rules>
+
+      </rules>
+
+#. Add rules to include content, add site structure, drop unneeded elements, customize the menu.
 
    .. warning::
 
-     Look out for inline styles in this theme
-     (i.e. the use of the ``style`` attribute on a tag). This is especially problematic with
-     background images set with relative paths. The two issues that result are:
+      Look out for inline styles in this theme (i.e. the use of the ``style`` attribute on a tag).
+      This is especially problematic with background images set with relative paths.
+      The two issues that result are:
 
-       * the relative path does not translate properly in the context of the
-         theme;
-       * it can be tricky to dynamically replace background images provided by
-         inline styles.
+      * the relative path does not translate properly in the context of the theme;
+      * it can be tricky to dynamically replace background images provided by inline styles.
+
+.. admonition:: Solution
+   :class: toggle
+
+   #. Add the theme file:
+
+      .. code-block:: xml
+
+         <theme href="index.html" />
+
+   #. To add the Plone related header data, add those rules:
+
+      .. code-block:: xml
+
+         <rules css:if-content="#portal-top">
+           <!--  Attributes  -->
+           <copy attributes="*" css:theme="html" css:content="html"/>
+           <!--  Base tag  -->
+           <before css:theme="title" css:content="base"/>
+           <!--  Title  -->
+           <replace css:theme="title" css:content="title"/>
+           <!--  Pull in Plone Meta  -->
+           <after css:theme-children="head" css:content="head meta"/>
+           <!--  Don't use Plone icons, use the theme's  -->
+           <drop css:content="head link[rel='apple-touch-icon']"/>
+           <drop css:content="head link[rel='shortcut icon']"/>
+           <!--  CSS  -->
+           <after css:theme-children="head" css:content="head link"/>
+           <after css:theme-children="head" css:content="head style"/>
+           <!--  Script  -->
+           <after css:theme-children="head" css:content="head script"/>
+         </rules>
+
+   #. The attributes from the ``body`` element from Plone are important:
+
+      .. code-block:: xml
+
+         <!-- Copy over the id/class attributes on the body tag. This is important for per-section styling -->
+         <copy attributes="*" css:content="body" css:theme="body"/>
+
+   #. Add content related rules:
+
+      .. code-block:: xml
+
+         <rules css:if-content="#visual-portal-wrapper">
+           <!-- Placeholder for your own additional rules -->
+
+           <replace css:theme=".navbar-brand" css:content="#portal-logo" />
+
+           <replace css:theme-children=".masthead .header-content" css:content-children=".hero" />
+           <drop css:theme=".masthead > .container" css:if-not-content=".hero" />
+           <drop css:content=".hero"/>
+           <drop css:theme=".masthead .device-container" />
+
+           <!--  move global nav  -->
+           <replace css:theme-children=".navbar-nav" css:content-children=".plone-nav" />
+
+           <replace css:theme-children=".features" css:content-children="#content" />
+
+           <drop css:theme="section.download" />
+           <drop css:theme="section.cta" />
+           <drop css:theme="section.contact" />
+         </rules>
+
 
 Creating a visitor-only theme - conditionally enabling Barceloneta
 ------------------------------------------------------------------
