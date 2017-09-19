@@ -1033,6 +1033,35 @@ The only thing we need is the corresponding HTML part in our theme template:
 You can add it right after the opening body tag in your :file:`index.html`.
 
 
+Unthemed Backend
+++++++++++++++++
+
+If the only thing you want to do is theme your frontend, and use the default Barceloneta theme for your backend (edit, folder contents, settings), you can include Barceloneta's :file:`backend.xml`.
+To only have your frontend theme rules active when you visit the frontend part of your site, you can wrap the existing rules into another ``rules`` block:
+
+.. code-block:: xml
+   :emphasize-lines: 1-4,6-7,14
+
+   <!-- Include barceloneta's backend.xml for backend theming. -->
+   <rules css:if-not-content="body.viewpermission-view, body.viewpermission-none">
+     <xi:include href="++theme++barceloneta/backend.xml" />
+   </rules>
+
+   <!-- Include theme for frontend theming. -->
+   <rules css:if-content="body.viewpermission-view, body.viewpermission-none">
+     <theme href="index.html" />
+     <notheme css:if-not-content="#visual-portal-wrapper" />
+
+     <rules css:if-content="#portal-top">
+       <!-- Attributes -->
+       ...
+     </rules>
+   </rules>
+
+
+Note that we include the file from the theme directly, and don't use the one we got from :py:mod:`bobtemplates.plone`.
+
+
 Login link & co
 +++++++++++++++
 
