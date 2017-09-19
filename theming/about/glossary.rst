@@ -31,6 +31,10 @@ Glossary
    Less
       A dynamic stylesheet language that can be compiled into :term:`CSS` (Cascading Style Sheets).
 
+   NPM
+      npm is a package manager for the JavaScript programming language.
+      It is the default package manager for the JavaScript runtime environment Node.js.
+
    TTW
       Through-The-Web, changes in the browser.
 
