@@ -610,12 +610,16 @@ Let's start with an untouched static template, such as this Twitter Bootstrap ba
 The latest version of that template uses a beta version of Twitter Bootstrap 4.
 We are going to use the latest release which uses Twitter Bootstrap 3.
 Download it from https://github.com/BlackrockDigital/startbootstrap-business-casual/releases/tag/v3.3.7 and extract it into the theme folder.
-Replace the :file:`index.html` with the one from the downloaded template:
+Replace the :file:`index.html` with the one from the downloaded template.
+The content of your theme folder should now look like this:
 
 .. code-block:: bash
 
-   $ tree -L 2 .
-   .
+   $ tree -L 2 src/ploneconf/theme/theme/
+   src/ploneconf/theme/theme/
+   ├── HOWTO_DEVELOP.rst
+   ├── LICENSE
+   ├── README.md
    ├── about.html
    ├── backend.xml
    ├── barceloneta
@@ -624,8 +628,8 @@ Replace the :file:`index.html` with the one from the downloaded template:
    ├── barceloneta-apple-touch-icon-144x144-precomposed.png
    ├── barceloneta-apple-touch-icon-57x57-precomposed.png
    ├── barceloneta-apple-touch-icon-72x72-precomposed.png
-   ├── barceloneta-apple-touch-icon.png
    ├── barceloneta-apple-touch-icon-precomposed.png
+   ├── barceloneta-apple-touch-icon.png
    ├── barceloneta-favicon.ico
    ├── blog.html
    ├── contact.html
@@ -641,7 +645,6 @@ Replace the :file:`index.html` with the one from the downloaded template:
    │   └── glyphicons-halflings-regular.woff2
    ├── form-handler-nodb.php
    ├── form-handler.php
-   ├── HOWTO_DEVELOP.rst
    ├── img
    │   ├── bg.jpg
    │   ├── intro-pic.jpg
@@ -658,22 +661,22 @@ Replace the :file:`index.html` with the one from the downloaded template:
    │   ├── plone.toolbar.vars.less
    │   ├── roboto
    │   ├── theme-compiled.css
-   │   ├── theme-compiled.css.map
    │   ├── theme.less
    │   └── theme.local.less
-   ├── LICENSE
    ├── manifest.cfg
    ├── node_modules
    │   └── bootstrap
+   ├── package-lock.json
    ├── package.json
    ├── preview.png
-   ├── README.md
    ├── rules.xml
    ├── template-overrides
    ├── tinymce-templates
    │   └── image-grid-2x2.html
    └── views
        └── slider-images.pt.example
+
+   13 directories, 45 files
 
 
 Preparing the template
@@ -704,47 +707,47 @@ Add this:
      <div id="column2-container"></div>
    </div>
 
-And then move the main content (the box 2 and box 3 including the parent row
-``div``) into the ``content-container``.
+And then move the main content (the box 2 and box 3 including the parent ``div`` with the class ``row``) into the ``content-container``.
 
-It should look like this:
+It should now look like this:
 
 .. code-block:: html
 
    <div class="row">
      <div id="column1-container"></div>
-
      <div id="content-container">
-         <div class="row">
-             <div class="box">
-                 <div class="col-lg-12">
-                     <hr>
-                     <h2 class="intro-text text-center">Build a website
-                         <strong>worth visiting</strong>
-                     </h2>
-                     <hr>
-                     <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="">
-                     <hr class="visible-xs">
-                     <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
-                     <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                 </div>
-             </div>
-         </div>
+       <!-- main content (box2 and box3) comes here -->
 
-         <div class="row">
-             <div class="box">
-                 <div class="col-lg-12">
-                     <hr>
-                     <h2 class="intro-text text-center">Beautiful boxes
-                         <strong>to showcase your content</strong>
-                     </h2>
-                     <hr>
-                     <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                 </div>
-             </div>
+       <div class="row">
+         <div class="box">
+           <div class="col-lg-12">
+             <hr>
+             <h2 class="intro-text text-center">Build a website
+               <strong>worth visiting</strong>
+             </h2>
+             <hr>
+             <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="">
+             <hr class="visible-xs">
+             <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
+             <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+           </div>
          </div>
+       </div>
+
+       <div class="row">
+         <div class="box">
+           <div class="col-lg-12">
+             <hr>
+             <h2 class="intro-text text-center">Beautiful boxes
+               <strong>to showcase your content</strong>
+             </h2>
+             <hr>
+             <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+           </div>
+         </div>
+       </div>
      </div>
      <div id="column2-container"></div>
    </div>
@@ -752,34 +755,34 @@ It should look like this:
 Include theme CSS
 +++++++++++++++++
 
-We need to include the CSS from the theme into our ``theme.less`` file:
+Next we need to include the CSS from the template into our :file:`theme.less` file:
 
-.. code-block:: css
+.. code-block:: less
 
-   /* theme.less file that will be compiled */
+   // theme.less file that will be compiled
 
-   // ### PLONE IMPORTS ###
+   /* ### PLONE IMPORTS ### */
 
    @barceloneta_path: "barceloneta/less";
 
-   //*// Core variables and mixins
+   // Core variables and mixins
    @import "@{barceloneta_path}/fonts.plone.less";
    @import "@{barceloneta_path}/variables.plone.less";
-       @import "@{barceloneta_path}/mixin.prefixes.plone.less";
-       @import "@{barceloneta_path}/mixin.tabfocus.plone.less";
-       @import "@{barceloneta_path}/mixin.images.plone.less";
-       @import "@{barceloneta_path}/mixin.forms.plone.less";
-       @import "@{barceloneta_path}/mixin.borderradius.plone.less";
-       @import "@{barceloneta_path}/mixin.buttons.plone.less";
-       @import "@{barceloneta_path}/mixin.clearfix.plone.less";
-   //    @import "@{barceloneta_path}/mixin.gridframework.plone.less"; //grid Bootstrap
-       @import "@{barceloneta_path}/mixin.grid.plone.less"; //grid Bootstrap
+   @import "@{barceloneta_path}/mixin.prefixes.plone.less";
+   @import "@{barceloneta_path}/mixin.tabfocus.plone.less";
+   @import "@{barceloneta_path}/mixin.images.plone.less";
+   @import "@{barceloneta_path}/mixin.forms.plone.less";
+   @import "@{barceloneta_path}/mixin.borderradius.plone.less";
+   @import "@{barceloneta_path}/mixin.buttons.plone.less";
+   @import "@{barceloneta_path}/mixin.clearfix.plone.less";
+   // @import "@{barceloneta_path}/mixin.gridframework.plone.less"; //grid Bootstrap
+   @import "@{barceloneta_path}/mixin.grid.plone.less"; //grid Bootstrap
 
    @import "@{barceloneta_path}/normalize.plone.less";
    @import "@{barceloneta_path}/print.plone.less";
    @import "@{barceloneta_path}/code.plone.less";
 
-   //*// Core CSS
+   // Core CSS
    @import "@{barceloneta_path}/grid.plone.less";
    @import "@{barceloneta_path}/scaffolding.plone.less";
    @import "@{barceloneta_path}/type.plone.less";
@@ -788,7 +791,7 @@ We need to include the CSS from the theme into our ``theme.less`` file:
    @import "@{barceloneta_path}/buttons.plone.less";
    @import "@{barceloneta_path}/states.plone.less";
 
-   //*// Components
+   // Components
    @import "@{barceloneta_path}/breadcrumbs.plone.less";
    @import "@{barceloneta_path}/pagination.plone.less";
    @import "@{barceloneta_path}/formtabbing.plone.less"; //pattern
@@ -800,7 +803,7 @@ We need to include the CSS from the theme into our ``theme.less`` file:
    @import "@{barceloneta_path}/tags.plone.less";
    @import "@{barceloneta_path}/contents.plone.less";
 
-   //*// Patterns
+   // Patterns
    @import "@{barceloneta_path}/accessibility.plone.less";
    @import "@{barceloneta_path}/toc.plone.less";
    @import "@{barceloneta_path}/dropzone.plone.less";
@@ -811,7 +814,7 @@ We need to include the CSS from the theme into our ``theme.less`` file:
    @import "@{barceloneta_path}/tooltip.plone.less";
    @import "@{barceloneta_path}/tree.plone.less";
 
-   //*// Structure
+   // Structure
    @import "@{barceloneta_path}/header.plone.less";
    @import "@{barceloneta_path}/sitenav.plone.less";
    @import "@{barceloneta_path}/main.plone.less";
@@ -819,18 +822,16 @@ We need to include the CSS from the theme into our ``theme.less`` file:
    @import "@{barceloneta_path}/loginform.plone.less";
    @import "@{barceloneta_path}/sitemap.plone.less";
 
-   //*// Products
+   // Products
    @import "@{barceloneta_path}/event.plone.less";
    @import "@{barceloneta_path}/image.plone.less";
    @import "@{barceloneta_path}/behaviors.plone.less";
    @import "@{barceloneta_path}/discussion.plone.less";
    @import "@{barceloneta_path}/search.plone.less";
 
-   // ### END OF PLONE IMPORTS ###
+   /* ### END OF PLONE IMPORTS ### */
 
-
-
-   // ### UTILS ###
+   /* ### UTILS ### */
 
    // import bootstrap files:
    @bootstrap_path: "node_modules/bootstrap/less";
@@ -845,17 +846,25 @@ We need to include the CSS from the theme into our ``theme.less`` file:
    @import "@{bootstrap_path}/navbar.less";
    @import "@{bootstrap_path}/carousel.less";
 
-   // ### END OF UTILS ###
-
-   // include theme css as less
-   @import (less) "../css/business-casual.css";
+   /* ### END OF UTILS ### */
 
    // include our custom css/less
    @import "custom.less";
 
-Here we mainly add the include of the css the theme provides us in ``theme/css/business-casual.css`` after the END OF UTILS marker, but before the custom.less include. We include the CSS file here as a LESS file. This way we can extend parts of the CSS in our theme, like we will do with the ``.box`` below.
+We will add the include of the CSS the template provides in :file:`theme/css/business-casual.css` after the ``END OF UTILS`` marker, but before the ``custom.less`` include:
 
-.. note:: Don't forget to run ``grunt compile`` in your package root, after you changed the LESS files or use ``grunt watch`` to do this automatically after every change!
+.. code-block:: less
+
+   /* ### END OF UTILS ### */
+   @import "../css/business-casual.css";
+
+We include the CSS file here as a :term:`Less` file.
+This way we can extend parts of the CSS in our theme (we will do this with the ``.box`` class in the next section).
+
+.. note::
+
+   Don't forget to run :command:`grunt compile` in your package root after you changed the :term:`Less` files.
+   You can also use :command:`grunt watch` to automatically compile your :term:`Less` files to CSS whenver they are changed.
 
 Using Diazo rules to map the theme with Plone content
 -----------------------------------------------------
