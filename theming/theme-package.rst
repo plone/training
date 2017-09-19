@@ -866,16 +866,14 @@ This way we can extend parts of the CSS in our theme (we will do this with the `
    Don't forget to run :command:`grunt compile` in your package root after you changed the :term:`Less` files.
    You can also use :command:`grunt watch` to automatically compile your :term:`Less` files to CSS whenver they are changed.
 
+
 Using Diazo rules to map the theme with Plone content
 -----------------------------------------------------
 
-Now that we have the static theme,
-we need to apply the Diazo rules in :file:`rules.xml` to map the Plone content
-elements to the theme.
+Now that we have the static theme, we need to apply the Diazo rules in :file:`rules.xml` to map the Plone content elements to the theme.
 
 First let me explain what we mean when we talk about *content* and *theme*.
-*Content* is usually the dynamic generated content on the Plone site, and the
-*theme* is the static template site.
+*Content* is usually the dynamic generated content on the Plone site, and the *theme* is the static template site.
 
 For example:
 
@@ -883,19 +881,15 @@ For example:
 
    <replace css:theme="#headline" css:content="#firstHeading" />
 
-This means that the element ``#headline`` in the theme should be replaced by
-the ``#firstHeading`` element from the generated Plone content.
+This rule will replace the element with the CSS id ``#headline`` in the theme with the element with CSS id ``#firstHeading`` from the generated Plone content.
 
 To inspect the content side, you can open another Browser tab, but instead of http://localhost:8080/Plone, use http://127.0.0.1:8080/Plone.
-In this tab Diazo is disabled, allowing you to use your browser's Inspector or Developer tools to view the DOM structure of default Plone.
-This 'unthemed host name' is managed in the Theming control panel > Advanced Settings, where more domains can be added.
+In this tab Diazo is disabled, allowing you to use your browser's Inspector or Developer tools to view the DOM structure of the default, unthemed Plone content.
+This *unthemed host name* is managed in the :guilabel:`Theming Control Panel` under :guilabel:`Advanced Settings`, where more domains can be added.
 
-For more details on how to use Diazo rules, look at
-http://docs.diazo.org/en/latest/ and
-https://docs.plone.org/external/plone.app.theming/docs/index.html.
+For more details on how to use Diazo rules, take a look at http://docs.diazo.org/en/latest/ and https://docs.plone.org/external/plone.app.theming/docs/index.html.
 
-
-We already have a fully functional rule set based on the Plone 5 default Theme:
+With our theme generated from :py:mod:`bobtemplates.plone` we already got a fully functional rule set based on the Plone 5 default Theme:
 
 .. code-block:: xml
 
@@ -1002,121 +996,131 @@ We already have a fully functional rule set based on the Plone 5 default Theme:
 
    </rules>
 
-As you probably noticed, the theme does not look like it should and is missing some important parts like the toolbar. That is because we are using an HTML template, which has different HTML structure, than the one Plone's default theme is using.
+As you probably noticed, the theme does not look like it should right now and is missing some important parts like the toolbar.
+That is because we are using an HTML template which has a different HTML structure than the one Plone's default theme is using.
 
-We can either change our theme's template to use the same structure and naming for classes and ids, or we can change our rule set to work with the theme template like it is. We will mainly go the second way and customize our rule set to work with the provided theme template. In fact if you use a better theme template then this, where more useful CSS classes and ids used and the grid is defined in CSS/LESS and not in the HTML markup it self, it is a lot easier to work with touching the theme. But we use this popular example theme and therefor need also to make changes to the template it self a bit.
+We can either change our theme's template to use the same structure and naming for classes and id's, or we can change our rule set to work with the theme template like it is.
+We will use the second approach and customize our rule set to work with the provided theme template.
+In fact, if you use a better theme template then this one - where more useful CSS classes and id's are used and the grid is defined in CSS/Less and not in the HTML markup itself - it is a lot easier to work with without touching the template.
+But we decided to use this popular template as an example and therefor we have to make changes to the template itself.
 
-Customize the rule set
-----------------------
 
-The most important part of Plone is the toolbar. So let's first make sure we have it in our theme template.
+Customizing the rule set
+------------------------
+
+In this section we will adjust the Diazo rules to place the Plone content into the predefined template sections.
 
 Plone Toolbar
 +++++++++++++
 
-We already have the needed Diazo rules in our rules.xml:
+We start with the toolbar since it is the most important part of the Plone site (for logged in users).
+So let's first make sure we have it in our theme template.
+We already have the required Diazo rule in our :file:`rules.xml`:
 
 .. code-block:: xml
 
    <!-- toolbar -->
    <replace css:theme="#portal-toolbar" css:content-children="#edit-bar" css:if-not-content=".ajax_load" css:if-content=".userrole-authenticated" />
 
-The only thing we need is a placeholder in our theme template:
+The only thing we need is the corresponding HTML part in our theme template:
 
 .. code-block:: html
+   :emphasize-lines: 2
 
-   <section id="portal-toolbar">
-   </section>
+   <body>
+     <section id="portal-toolbar"></section>
 
-You can put it right after the opening body tag in your index.html
-
+You can add it right after the opening body tag in your :file:`index.html`.
 
 
 Login link & co
 +++++++++++++++
 
 If you want to have a login link for your users, you can put this placeholder in your theme template where you want the link to display.
-You can always log in by adding ``/login`` to the Plone url, so it's optional.
+You can always login into the Plone site by adding ``/login`` to the Plone url, so it's optional.
+You can add it right before the tag ``<div class="brand">Business Casual</div>`` in your :file:`index.html`.
 
 .. code-block:: html
+   :emphasize-lines: 3
 
-   <div id="anonymous-actions">
-   </div>
+   <body>
+     <section id="portal-toolbar"></section>
+     <div id="anonymous-actions"></div>
 
-The necessary rule to fill this with the Plone login link is already in our rules.xml:
+     <div class="brand">Business Casual</div>
+
+The necessary rule to fill this with the Plone login link is already in our rules.xml.
+But because the id for the anonymous tools in Plone changed in one of the recent versions, we have to update it (change ``#portal-personaltools-wrapper`` to ``#portal-anontools``):
 
 .. code-block:: xml
 
-   <replace css:theme="#anonymous-actions" css:content-children="#portal-personaltools-wrapper" css:if-not-content=".ajax_load" css:if-content=".userrole-anonymous" />
+   <replace css:theme="#anonymous-actions" css:content-children="#portal-anontools" css:if-not-content=".ajax_load" css:if-content=".userrole-anonymous" />
 
-This will replace your placeholder with ``#portal-personaltools-wrapper`` from Plone (for example the login link). The link will only be inserted if the user is not already logged in.
+This will replace your placeholder with ``#portal-anontools`` from Plone (for example the login link).
+The link will only be inserted if the user is not already logged in.
 
 
 Top-navigation
 ++++++++++++++
 
-Replace the placeholder with the real Plone top-navigation links.
-To do this we replace this rule from Barceloneta:
+In the next step we will replace the menu placeholder with the real Plone top-navigation links.
+To do this we adjust this rule from Barceloneta:
 
 .. code-block:: xml
 
    <!-- move global nav -->
    <replace css:theme-children="#mainnavigation" css:content-children="#portal-mainnavigation" method="raw" />
 
-with our new rule:
+Change the rule to the following:
 
 .. code-block:: xml
 
-   <!-- replace theme navbar-nav with Plone plone-navbar-nav -->
-   <replace
-     css:theme-children=".navbar-nav"
-     css:content-children=".plone-navbar-nav" />
+   <!-- move global nav -->
+   <replace css:theme-children=".navbar-nav" css:content-children="#portal-globalnav" />
 
-Here we take the list of links from Plone and replace the placeholder links in
-the theme with it. The Barceloneta rule copies the whole navigation container into the theme, but only need to copy the links over.
+Here we take the list of links from Plone and replace the placeholder links in the theme.
+The Barceloneta rule copies the whole navigation container into the theme, but we only need to copy the links over.
 
 
 Breadcrumb & co
 +++++++++++++++
 
-Plone provides some viewlets like the breadcrumbs (the current path) above the content area.
+Plone provides some viewlets like the breadcrumbs (showing the current path) which are rendered in the *above the content* area.
 
-We already have the needed rule to insert the Plone above-content stuff into the theme:
+We already have the required rule to insert the Plone above-content viewlets into the theme:
 
 .. code-block:: xml
 
    <!-- full-width breadcrumb -->
    <replace css:content="#viewlet-above-content" css:theme="#above-content" />
 
-To get this into the theme layout, we add a placeholder with the CSS id ``#above-content`` to the theme's ``index.html``.
-This is the place where we want to insert Plone's "above-content" stuff.
+All we have to do to get this into the theme layout is to add a placeholder with the CSS id ``#above-content`` to the theme's :file:`index.html`.
 
-For example, at the top of the ``div.container`` after:
-
-.. code-block:: html
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation">
-        ...
-    </nav>
-
-    <div class="container">
-
-        <!-- insert here -->
-
-goes this before the row/box:
+We can add this for example as a first element in the main container with the CSS class ``.container``, after the main navigation:
 
 .. code-block:: html
+   :emphasize-lines: 8-10
 
-       <div class="row">
-           <div id="above-content" class="box"></div>
-       </div>
+   <!-- Navigation -->
+   <nav class="navbar navbar-default" role="navigation">
+     ...
+   </nav>
+
+   <div class="container">
+
+     <div class="row">
+       <div id="above-content" class="box"></div>
+     </div>
+
+     <div class="row">
+       <div class="box">
+         <div class="col-lg-12 text-center">
+           ...
 
 
-This will bring over everything from the ``viewlet-above-content`` block from
-Plone.
-
-This also includes the Breadcrumb bar. Because our current theme does not provide a breadcrumb bar, we can just drop it from the Plone content, like this:
+This will bring over everything from the ``viewlet-above-content`` block from Plone.
+It also includes the breadcrumbs bar.
+Because our current theme does not provide a breadcrumbs bar, we can drop it from the Plone content, like this:
 
 .. code-block:: xml
 
@@ -1125,20 +1129,20 @@ This also includes the Breadcrumb bar. Because our current theme does not provid
 If you only want to drop this for non-administrators, you can do it like this:
 
 .. code-block:: xml
+   :emphasize-lines: 2
 
-   <drop
-    css:content="#portal-breadcrumbs"
-    css:if-not-content=".userrole-manager"
-    />
+   <drop css:content="#portal-breadcrumbs"
+       css:if-not-content=".userrole-manager"
+       />
 
 Or for anonymous users only:
 
 .. code-block:: xml
+   :emphasize-lines: 2
 
-   <drop
-    css:content="#portal-breadcrumbs"
-    css:if-content=".userrole-anonymous"
-    />
+   <drop css:content="#portal-breadcrumbs"
+       css:if-content=".userrole-anonymous"
+       />
 
 .. note::
 
