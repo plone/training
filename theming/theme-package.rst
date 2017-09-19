@@ -117,8 +117,7 @@ Now you have a new Python package in your current folder:
 
 .. code-block:: bash
 
-   (mrbobvenv):$ cd ploneconf.theme
-   (mrbobvenv):$ ls
+   (mrbobvenv):$ ls ploneconf.theme
    CHANGES.rst            LICENSE.GPL            bootstrap-buildout.py  package.json           src
    CONTRIBUTORS.rst       LICENSE.rst            bootstrap-buildout.pyc requirements.txt
    Gruntfile.js           MANIFEST.in            buildout.cfg           setup.cfg
@@ -129,6 +128,19 @@ It is now safe to deactivate the ``mrbob`` virtualenv:
 .. code-block:: bash
 
    (mrbobvenv):$ deactivate
+
+.. hint::
+   :class: toggle
+
+   This would be the perfect time to initialize your package with Git and put your files under version control:
+
+   .. code-block:: bash
+
+      $ cd ploneconf.theme
+      $ git init .
+      $ git add .
+      $ git commit -m "Initial commit."
+      $ cd ..
 
 
 Install Buildout and boostrap your development environment
@@ -141,6 +153,7 @@ We will install ``zc.buildout`` in a new virtual environment using the provided 
 
    $ virtualenv buildoutvenv
    $ source buildoutvenv/bin/activate
+   (buildoutvenv):$ cd ploneconf.theme
    (buildoutvenv):$ pip install -r requirements.txt
    (buildoutvenv):$ buildout bootstrap
 
@@ -553,31 +566,51 @@ The default username is ``admin`` and password is ``admin``.
 If something is wrong with the theme, you can always go to http://localhost:8080/Plone/@@theming-controlpanel and disable it.
 This control panel will never be themed, so it works even if the theme might be broken.
 
+.. hint::
+   :class: toggle
+
+   Don't forget to commit any changes on your package to version control.
+   After the first buildout run, there are some new files and folders.
+   Some of them (:file:`node_modules` and :file:`package-lock.json`) can be ignored, while others (:file:`theme-compiled.css`) need to be added to the repository.
+
+   Edit the :file:`.gitignore` file and add the following entries:
+
+   .. code-block:: bash
+
+      node_modules/
+      package-lock.json
+
+   Then run the following commands:
+
+   .. code-block:: bash
+
+      $ git add .
+      $ git commit -m "Add compiled CSS file."
+
 
 Build your Diazo-based theme
 ============================
 
-You can start with the example files in the theme folder and just change the index.html and custom.less file to customize the default theme to your needs.
-As stated above it's the Plone 5 default ``Barceloneta`` theme plus some custom files you can use to to override or write css/less.
+You can start with the example files in the theme folder and just change the :file:`index.html` and :file:`custom.less` files to customize the default theme to your needs.
+As stated above it's the Plone 5 default :term:`Barceloneta` theme plus some custom files you can use to to override or write CSS/Less.
 
 Use your own static mockup
 --------------------------
 
-If you got a static mockup from your designer or from a website like
-http://startbootstrap.com (where the example theme came from), you can use this
-without customization and just apply the Diazo rules to it.
+If you got a static mockup from your designer or from a website like http://startbootstrap.com (where the example template came from), you can use this without customization and just apply the Diazo rules to it.
 
-Another way is to change the static mockup a little bit is to use mostly the same
-CSS ids and classes. This way it is easier to reuse CSS/LESS from Barceloneta
-theme and Plone add-ons if needed.
+Another way is to change the static mockup a little bit to use mostly the same CSS id's and classes like Plone does.
+This way it is easier to reuse CSS/Less from Barceloneta and Plone add-ons if needed.
 
 
 Download and prepare a static theme
 -----------------------------------
 
-Let's start with an untouched static theme, such as this bootstrap theme:
-http://startbootstrap.com/template-overviews/business-casual/.
-Just download it and extract it into the theme folder. Replace the ``index.html`` with the one in the downloaded theme:
+Let's start with an untouched static template, such as this Twitter Bootstrap based one: http://startbootstrap.com/template-overviews/business-casual/.
+The latest version of that template uses a beta version of Twitter Bootstrap 4.
+We are going to use the latest release which uses Twitter Bootstrap 3.
+Download it from https://github.com/BlackrockDigital/startbootstrap-business-casual/releases/tag/v3.3.7 and extract it into the theme folder.
+Replace the :file:`index.html` with the one from the downloaded template:
 
 .. code-block:: bash
 
