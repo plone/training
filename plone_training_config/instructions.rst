@@ -119,7 +119,7 @@ Now you have a working Plone site up and running and can continue with the next 
 Installing Plone with vagrant
 -----------------------------
 
-In order not to waste too much time with installing and debugging the differences between systems, we use a virtual machine (Ubuntu 14.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development environment to everyone.
+In order not to waste too much time with installing and debugging the differences between systems, we use a virtual machine (Ubuntu 16.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development environment to everyone.
 
 `Vagrant <https://www.vagrantup.com>`_ is a tool for building complete development environments. We use it together with Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to create and manage a virtual environment.
 
@@ -128,7 +128,7 @@ In order not to waste too much time with installing and debugging the difference
 Install VirtualBox
 ++++++++++++++++++
 
-Vagrant uses Oracle’s VirtualBox to create virtual environments. Here is a link directly to the download page: https://www.virtualbox.org/wiki/Downloads. We use VirtualBox 4.3.x
+Vagrant uses Oracle’s VirtualBox to create virtual environments. Here is a link directly to the download page: https://www.virtualbox.org/wiki/Downloads. We use VirtualBox 5.0.x
 
 
 .. _instructions-configure-vagrant-label:
@@ -183,7 +183,7 @@ Now start setting up the VM that is configured in :file:`Vagrantfile`:
 
 This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on your internet connection and system speed) since it does all the following steps:
 
-* downloads a virtual machine (Official Ubuntu Server 14.04 LTS, also called "Trusty Tahr")
+* downloads a virtual machine (Official Ubuntu Server 16.04 LTS, also called "Xenial Xerus")
 * sets up the VM
 * updates the VM
 * installs various system-packages needed for Plone development
