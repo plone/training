@@ -1,6 +1,6 @@
 class plone {
 
-    $plone_version = "5.0.6"
+    $plone_version = "5.0.7"
 
     file { ['/home/ubuntu/tmp',
             '/home/ubuntu/.buildout',
@@ -43,53 +43,53 @@ extends-cache = /home/ubuntu/buildout-cache/extends'),
         creates => '/home/ubuntu/py27',
         user => 'ubuntu',
         cwd => '/home/ubuntu',
-        before => Exec["download_buildout_cache"],
+        before => Exec["install_buildout_setuptools"],
         timeout => 300,
     }
 
-    # Download the buildout-cache from dist.plone.org
-    exec {"wget http://dist.plone.org/release/${plone_version}/buildout-cache.tar.bz2":
-        alias => "download_buildout_cache",
-        creates => "/home/ubuntu/buildout-cache.tar.bz2",
-        cwd => '/home/ubuntu',
-        user => 'ubuntu',
-        group => 'ubuntu',
-        before => Exec["unpack_buildout_cache"],
-        timeout => 600,
-    }
-
-    # Unpack the buildout-cache to /home/ubuntu/buildout-cache/
-    exec {"tar xjf /home/ubuntu/buildout-cache.tar.bz2":
-        alias => "unpack_buildout_cache",
-        creates => "/home/ubuntu/buildout-cache/eggs/Products.CMFPlone-${plone_version}-py2.7.egg/",
+    # Install zc.buildout, setuptools
+    exec {'/home/ubuntu/py27/bin/pip install -U zc.buildout==2.5.3 setuptools==26.1.1':
+        alias => "install_buildout_setuptools",
+        creates => '/home/ubuntu/py27/bin/buildout',
         user => 'ubuntu',
         cwd => '/home/ubuntu',
         before => Exec["checkout_training"],
         timeout => 0,
     }
 
-    # get training buildout
-    exec {'git clone https://github.com/collective/training_buildout.git buildout && cd buildout && cd ..':
+    ## Download the buildout-cache from dist.plone.org - XXX training_buildout now uses 5.0.7 but there is no buildout cache dl for this release
+    #exec {"wget http://dist.plone.org/release/${plone_version}/buildout-cache.tar.bz2":
+    #    alias => "download_buildout_cache",
+    #    creates => "/home/ubuntu/buildout-cache.tar.bz2",
+    #    cwd => '/home/ubuntu',
+    #    user => 'ubuntu',
+    #    group => 'ubuntu',
+    #    before => Exec["unpack_buildout_cache"],
+    #    timeout => 600,
+    #}
+
+    ## Unpack the buildout-cache to /home/ubuntu/buildout-cache/
+    #exec {"tar xjf /home/ubuntu/buildout-cache.tar.bz2":
+    #    alias => "unpack_buildout_cache",
+    #    creates => "/home/ubuntu/buildout-cache/eggs/Products.CMFPlone-${plone_version}-py2.7.egg/",
+    #    user => 'ubuntu',
+    #    cwd => '/home/ubuntu',
+    #    before => Exec["checkout_training"],
+    #    timeout => 0,
+    #}
+
+    # get training buildout, xenial branch
+    exec {'git clone https://github.com/collective/training_buildout.git buildout && cd buildout && git checkout vagrant_xenial_update && cd ..':
         alias => "checkout_training",
         creates => '/vagrant/buildout',
         user => 'ubuntu',
         cwd => '/vagrant',
-        before => Exec["bootstrap_training"],
-        timeout => 0,
-    }
-
-    # bootstrap training buildout
-    exec {'/home/ubuntu/py27/bin/python bootstrap.py':
-        alias => "bootstrap_training",
-        creates => '/vagrant/buildout/bin/buildout',
-        user => 'ubuntu',
-        cwd => '/vagrant/buildout',
         before => Exec["buildout_training"],
         timeout => 0,
     }
 
     # run training buildout
-    exec {'/vagrant/buildout/bin/buildout -c vagrant_provisioning.cfg':
+    exec {'/home/ubuntu/py27/bin/buildout -c vagrant_provisioning.cfg':
         alias => "buildout_training",
         creates => '/vagrant/buildout/bin/instance',
         user => 'ubuntu',
