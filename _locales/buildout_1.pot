@@ -253,7 +253,7 @@ msgstr ""
 
 #: ../buildout_1.rst:250
 # a25e15d7db894e38a6511f9bbb4d5cc7
-msgid "http://docs.plone.org/old-reference-manuals/buildout/index.html"
+msgid "https://docs.plone.org/old-reference-manuals/buildout/index.html"
 msgstr ""
 
 #: ../buildout_1.rst:251
@@ -268,7 +268,7 @@ msgstr ""
 
 #: ../buildout_1.rst:254
 # 61b0a2ceb5034ec0bab38416c6441027
-msgid "http://docs.plone.org/manage/troubleshooting/buildout.html"
+msgid "https://docs.plone.org/manage/troubleshooting/buildout.html"
 msgstr ""
 
 #: ../buildout_1.rst:259

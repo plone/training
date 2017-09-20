@@ -1,0 +1,166 @@
+Exercise 9: Pattern with react
+==============================
+
+..  warning::
+
+    This exercise requires a working buildout using a fork of the
+    collective.jstraining package.
+
+
+In this exercise, we'll be walking through creating a pattern that uses
+ReactJS.
+
+We will be working in the ``exercise9`` directory of the collective.jstraining package.
+
+
+Add your pattern file
+---------------------
+
+First off, in your ``exercise9/static`` directory, add a file named ``pattern.js``. Use
+this file to build your pattern. This example will bind a React component
+to a pattern element::
+
+    /* global require */
+
+    require([
+      'jquery',
+      'mockup-patterns-base',
+      'exercise9-react'
+    ], function($, Base, R) {
+      'use strict';
+      /* combining bundle and pattern in same file this example */
+
+      var D = R.DOM;
+
+
+      var Exercise9Component = R.createClass({
+        render: function(){
+          return D.div({}, [
+            D.span({}, 'Foobar rendered by exercise 9')
+          ]);
+        }
+      });
+
+      Base.extend({
+        name: 'exercise9',
+        trigger: '.pat-exercise9',
+        parser: 'mockup',
+        defaults: {
+        },
+        init: function() {
+          var that = this;
+          R.render(R.createElement(Exercise9Component, that.options), that.$el[0]);
+        }
+      });
+
+    });
+
+
+Notice that the ``init`` of the pattern utilizes the React element binding syntax.
+From there, react takes over and options from the pattern go into ``props`` for
+the React component.
+
+
+
+Register static resource directory
+----------------------------------
+
+Next, let’s register the static directory we just placed our script into. To
+register, you need to add ZCML registration for the static directory your script
+is in. Add this to the ``exercise9/configure.zcml`` file::
+
+    <plone:static
+         directory="static"
+         type="plone"
+         name="exercise9"
+         />
+
+Register your bundle
+--------------------
+
+Registration is done exactly like the other examples::
+
+    <records prefix="plone.resources/exercise9-react"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise9/react.min.js</value>
+      <value key="css">
+      </value>
+    </records>
+
+    <records prefix="plone.resources/exercise9"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise9/pattern.js</value>
+      <value key="css">
+        <element>++plone++exercise9/pattern.less</element>
+      </value>
+    </records>
+
+    <records prefix="plone.bundles/exercise9"
+              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+      <value key="resources">
+        <element>exercise9</element>
+      </value>
+      <value key="merge_with">default</value>
+      <value key="enabled">True</value>
+      <value key="jscompilation">++plone++exercise9/exercise9-compiled.min.js</value>
+      <value key="csscompilation">++plone++exercise9/exercise9-compiled.css</value>
+      <value key="last_compilation">2016-10-04 00:00:00</value>
+      <value key="stub_js_modules">
+        <element>jquery</element>
+        <element>mockup-patterns-base</element>
+      </value>
+    </records>
+
+
+Installation
+------------
+
+At this point, we have all the files necessary to run the pattern.
+
+1) Start up your Plone instance
+2) Install the ``Exercise 9`` add-on
+
+
+Running
+-------
+
+At this point, we have no compiled version of the code that we're running with
+so our code doesn't do anything.
+
+1) Go into ``Site Setup`` -> ``Resource Registries``
+2) Check "Development Mode"
+3) Select to develop JavaScript and CSS for the ``exercise9`` bundle
+4) Click save
+
+This should load your JavaScript and LESS files now; however, we don't have
+any elements with the ``pat-exercise9`` class assigned to them.
+
+It's up to you how to apply the pattern class to an element of your choice. A
+couple options available to you are:
+
+1) use TinyMCE source view and add ``class="pat-exercise9"`` onto any tag
+2) customize the theme on your site and add it to an element in your theme file
+   or use a diazo rule diazo rule to dynamically add the class to an element
+
+
+Production
+----------
+
+To build our bundle, we'll utilize the ``plone-compile-resources`` script that
+Plone ships with.
+
+
+..  warning::
+
+    If you're not running a ZEO setup, you'll need to shut down your Plone
+    instance since the ZODB in this mode does not allow multiple processes
+    to access it at the same time.
+
+
+An example command will look like this::
+
+    ./bin/plone-compile-resources --site-id=Plone --bundle=exercise9
+
+
+Once this command finishes, your bundle is built and will be deployed with your
+package package.

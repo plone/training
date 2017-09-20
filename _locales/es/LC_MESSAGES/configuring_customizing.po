@@ -509,8 +509,8 @@ msgstr "Cree un nuevo Documento \"Aviso legal\" y publiquelo"
 
 # 82fb078e244b4c9bafec768572a2db58
 #: ../configuring_customizing.rst:154
-msgid "http://docs.plone.org/develop/plone/functionality/actions.html"
-msgstr "http://docs.plone.org/develop/plone/functionality/actions.html"
+msgid "https://docs.plone.org/develop/plone/functionality/actions.html"
+msgstr "https://docs.plone.org/develop/plone/functionality/actions.html"
 
 # 597616bfb4c44db4b07cf9c45fbac9c8
 #: ../configuring_customizing.rst:158
@@ -693,8 +693,8 @@ msgstr "Haga clic en ``logo.png``, luego haga clic en ``Customize`` y suba el Lo
 
 # a0facaff74684040b50c0ae5a2e0618c
 #: ../configuring_customizing.rst:261
-msgid "http://docs.plone.org/adapt-and-extend/change-the-logo.html"
-msgstr "http://docs.plone.org/adapt-and-extend/change-the-logo.html"
+msgid "https://docs.plone.org/adapt-and-extend/change-the-logo.html"
+msgstr "https://docs.plone.org/adapt-and-extend/change-the-logo.html"
 
 # 6c865e32fdb142d19a9d5952a987154d
 #: ../configuring_customizing.rst:265
@@ -724,9 +724,9 @@ msgstr "reemplace el contenido con lo siguiente"
 # d186a41602554352a62e77a25c4f0e32
 #: ../configuring_customizing.rst:288
 msgid ""
-"http://docs.plone.org/adapt-and-"
+"https://docs.plone.org/adapt-and-"
 "extend/theming/templates_css/skin_layers.html"
-msgstr "http://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html"
+msgstr "https://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html"
 
 # 4405d5f1dc3c46d4bd3c6d19e892c354
 #: ../configuring_customizing.rst:292

@@ -1,0 +1,156 @@
+Exercise 1: Include JavaScript in browser view
+==============================================
+
+..  warning::
+
+    This exercise requires a working buildout using a fork of the
+    collective.jstraining package.
+
+
+For this exercise, we are simply including JavaScript in a browser view.
+
+We will be working in the ``exercise1`` directory of the collective.jstraining package.
+
+Add your JavaScript file
+------------------------
+
+First off, in your ``exercise1/static`` directory, add a file named ``script.js``.
+This exercise is open ended as to what you do with JavaScript on the page.
+We'll stay very simple for the sake of brevity, using jQuery to do a simple
+animation effect on the title of the page::
+
+    require([
+      'jquery'
+    ], function($){
+
+      var cycle = function(){
+        $('h1').animate({
+          left: '250px',
+          opacity: '0.5',
+          'font-size': '30px'
+        }, function(){
+          $('h1').animate({
+            left: '0',
+            opacity: '1',
+            'font-size': '20px'
+          }, function(){
+            setTimeout(function(){
+              cycle();
+            }, 2000);
+          });
+        });
+      };
+
+      $(document).ready(function(){
+        cycle();
+      });
+    });
+
+
+Feel free to customize the script to do whatever you'd like.
+
+
+Register static resource directory
+----------------------------------
+
+Next, let’s register the static directory we just placed our script into. To
+register, you need to add ZCML registration for the static directory your script
+is in. Add this to the ``exercise1/configure.zcml`` file::
+
+    <plone:static
+         directory="static"
+         type="plone"
+         name="exercise1"
+         />
+
+
+Register JavaScript resource
+----------------------------
+
+Let’s register our script as a JavaScript resource with Plone. In the
+``exercise1/profiles/default/registry.xml`` file, add configuration to register
+your script::
+
+    <records prefix="plone.resources/exercise1"
+                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+          <value key="js">++plone++exercise1/script.js</value>
+      </records>
+
+
+Create your browser view
+------------------------
+
+..  warning::
+
+    This might be redundant with other documentation. Skip ahead if you know
+    how to create browser views.
+
+
+Finally, let’s load our JavaScript file to only load on a specific page you need
+it on.
+
+In our case, let’s add a basic new page view. The page template doesn’t need to
+implement any logic and we can use the main template to bring in the content of
+the page we’re using in the JavaScript(h1). Add this into your ``exercise1/page.pt`` file::
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="plone">
+    <body>
+
+    </body>
+    </html>
+
+
+Load your JavaScript resource
+-----------------------------
+
+Add in view python code to tell Plone to render the script in the
+``exercise1/browser.py`` file::
+
+    from Products.CMFPlone.resources import add_resource_on_request
+    from Products.Five import BrowserView
+
+
+    class Exercise1View(BrowserView):
+
+        def __call__(self):
+            # utility function to add resource to rendered page
+            add_resource_on_request(self.request, 'exercise1')
+            return super(Exercise1View, self).__call__()
+
+
+The most interesting part here is to look at ``add_resource_on_request``.
+
+Finally, wire it up with ZCML registration in the ``exercise1/configure.zcml`` file::
+
+    <browser:page
+         name="exercise1"
+         for="*"
+         class=".browser.Exercise1View"
+         template="page.pt"
+         permission="zope2.View"
+         />
+
+
+Installation
+------------
+
+1) Start up your Plone instance
+2) Install the ``Exercise 1`` add-on
+
+
+Then, visit the URL:
+``http://localhost:8080/Plone/front-page/@@exercise1``. This is assuming your Plone
+is is located at the URL ``http://localhost:8080/Plone``.
+
+
+Production
+----------
+
+In this exercise, there is no special distinction between development and
+production builds. The JavaScript is developed without any build process.

@@ -5,11 +5,11 @@ The JavaScript development process in Plone
 Code style
 ==========
 
-Together with ``plone.api`` we developed `code style guidelines <https://github.com/plone/plone.api/blob/master/docs/contribute/conventions.rst>`_, which we are enforcing now for core Plone development.
+Together with :py:mod:`plone.api` we developed `code style guidelines <https://github.com/plone/plone.api/blob/master/docs/contribute/conventions.rst>`_, which we are enforcing now for core Plone development.
 Finally!
 This makes code so much more readable.
-It currently doesn't cover JavaScript code guidelines, but those were thought of, when Mockup was developed.
-And luckily, similar to PEP 8 and the associated tooling (``pep8``, ``pyflakes``, ``flake8``), JavaScript also has some guidelines - not official, but well respected.
+It currently doesn't cover JavaScript code guidelines, but those were considered when Mockup was developed.
+And luckily, similar to PEP 8 and the associated tooling (:program:`pep8`, :program:`pyflakes`, :program:`flake8`), JavaScript also has some guidelines - not official, but well respected.
 `Douglas Crockford <http://javascript.crockford.com/>`_ - besides of specifying the JSON standard - wrote the well known book "JavaScript the good parts".
 Out of that he developed the code linter `JSLint <http://www.jslint.com/>`_.
 Because this one was too strict, some other people wrote `JSHint <http://jshint.com/>`_.
@@ -53,7 +53,7 @@ Mockup uses JSHint with the following `.jshintrc configuration file <https://git
 .. note::
 
     When working with JSHint or JSLint, it can be very useful to get some more context and explanation about several lint-errors.
-    There is a lint-error database available, which can be very handy: http://jslinterrors.com/
+    For JSHint there is a list of all configurable options: http://jshint.com/docs/options/
 
 
 We strongly recommend to configure your editor of choice to do JavaScript code linting on save.
@@ -81,13 +81,13 @@ Still, you can do many commits to not accidentally loose changes and still commi
 
   git commit --amend -am"my commit message".
 
-Don't forget to also include a change log entry in the ``CHANGES.rst`` file.
+Don't forget to also include a change log entry in the :file:`CHANGES.rst` file.
 
 
 Documentation
 =============
 
-Besides documenting your changes in the ``CHANGES.rst`` file, also include user and developer documentation as appropriate.
+Besides documenting your changes in the :file:`CHANGES.rst` file, also include user and developer documentation as appropriate.
 
 For patterns, the user documentation is included in a comment in the header of the pattern file, as described in :ref:`mockup-writing-documentation`.
 

@@ -108,6 +108,6 @@ msgstr ""
 
 #: ../custom_search.rst:34
 # d85b31c8e4b5424785084ccbbdeda8d6
-msgid "Programming using Vocabularies: http://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html"
+msgid "Programming using Vocabularies: https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html"
 msgstr ""
 

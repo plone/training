@@ -148,7 +148,7 @@ msgstr ""
 
 #: ../dexterity.rst:51
 # 27f7043e0fff4a17aad74c3a54ca3990
-msgid "UML-modeling: `ArchGenXML <http://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ for Archetypes, `agx <http://agx.me>`_ for Dexterity"
+msgid "UML-modeling: `ArchGenXML <https://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ for Archetypes, `agx <http://agx.me>`_ for Dexterity"
 msgstr ""
 
 #: ../dexterity.rst:53
@@ -473,6 +473,6 @@ msgstr ""
 
 #: ../dexterity.rst:326
 # 98bdfbd8f55f451d94968abcccea2c58
-msgid "`Dexterity Developer Manual <http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_"
+msgid "`Dexterity Developer Manual <https://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_"
 msgstr ""
 

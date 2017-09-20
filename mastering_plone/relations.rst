@@ -1,9 +1,9 @@
 Relations
 =========
 
-You can model relationships between content items by placing them in a hierarchy (a folder *speakers* containing the (folderish) speakers and within each speaker the talks) or by linking them to each other in Richtext-Fields. But where would you store a talk that two speakers give together together?
+You can model relationships between content items by placing them in a hierarchy (a folder *speakers* containing the (folderish) speakers and within each speaker the talks) or by linking them to each other in Richtext-Fields. But where would you store a talk that two speakers give together?
 
-Relations allow developers to model relationships between objects without a links or a hierarchy. The behavior ``plone.app.relationfield.behavior.IRelatedItems`` provides the field *Related Items* in the tab *Categorization*. That field simply says ``a`` is somehow related to ``b``.
+Relations allow developers to model relationships between objects without a links or a hierarchy. The behavior :py:class:`plone.app.relationfield.behavior.IRelatedItems` provides the field :guilabel:`Related Items` in the tab :guilabel:`Categorization`. That field simply says ``a`` is somehow related to ``b``.
 
 By using custom relations you can model your data in a much more meaningful way.
 
@@ -62,7 +62,7 @@ Instead of using a named vocabulary we can also use ``source``:
 To ``CatalogSource`` you can pass the same argument that you use for catalog-queries.
 This makes it very flexible to limit relateable items by type, path, date etc.
 
-For even more flexibility you can create your own `dynamic vocabularies <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html#dynamic-sources>`_.
+For even more flexibility you can create your own `dynamic vocabularies <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html#dynamic-sources>`_.
 
 
 Accessing and displaying related items
@@ -101,15 +101,15 @@ So we add a method to the view to return the related items so that we're able to
             results.append(brains[0])
         return results
 
-We use ``rel.to_path`` and use the items path to query the catalog for its catalog-entry. This is much more efficient than using ``rel.to_object`` since we don't have to wake up any objects. Setting ``depth`` to ``0`` will only return items with exactly this path, so it will always return a list with one item.
+We use :py:meth:`rel.to_path` and use the items path to query the catalog for its catalog-entry. This is much more efficient than using :py:meth:`rel.to_object` since we don't have to wake up any objects. Setting ``depth`` to ``0`` will only return items with exactly this path, so it will always return a list with one item.
 
 ..  note::
 
-    Using the path sounds a little complicated and it would indeed be more convenient if a ``RelationItem`` would contain the ``UID`` (so we can query the catalog for that) or if the ``portal_catalog`` would index the ``IntId``. But that's the way it is for now.
+    Using the path sounds a little complicated and it would indeed be more convenient if a :py:class:`RelationItem` would contain the ``UID`` (so we can query the catalog for that) or if the ``portal_catalog`` would index the ``IntId``. But that's the way it is for now.
 
-For reference look at how the default viewlet displays the information for related items stored by the behavior ``IRelatedItems``. See how it does exatly the same in ``related2brains``.
-This is the python-path for the viewlet: ``plone.app.layout.viewlets.content.ContentRelatedItems``
-This is the file-path for the template: ``plone/app/layout/viewlets/document_relateditems.pt``
+For reference look at how the default viewlet displays the information for related items stored by the behavior :py:class:`IRelatedItems`. See how it does exactly the same in ``related2brains``.
+This is the Python-path for the viewlet: :py:class:`plone.app.layout.viewlets.content.ContentRelatedItems`
+This is the file-path for the template: :file:`plone/app/layout/viewlets/document_relateditems.pt`
 
 
 Creating Relationfields through the web
@@ -215,8 +215,8 @@ In addition, the relation value knows under which attribute it has been stored a
 But it can also be the name of a relation that is created by code, e.g. linkintegrity-relations (`isReferencing`) or the relation between a working copy and the original (`iterate-working-copy`).
 
 
-Getting of relations and backrelations in code
-----------------------------------------------
+Accessing relations and backrelations from code
+-----------------------------------------------
 
 If you want to find out what objects are related to each other, you use the relation catalog. Here is a convenience-method that allows you to find all kinds of relations.
 

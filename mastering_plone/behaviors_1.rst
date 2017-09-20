@@ -5,11 +5,11 @@ Behaviors
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/07_behaviors_1_p5/ src/ploneconf.site
+        git checkout behaviors_1
 
 In this part you will:
 
@@ -37,7 +37,7 @@ Dexterity Approach
 
     A behavior can be added to any content type through the web and at runtime.
 
-    All default views know about the concept of behaviors and when rendering forms, the views also check whether there are behaviors referenced with the current context and if these behaviors have a schema of their own, these fields get shown in addition.
+    All default views (e.g. the add- and edit-forms) know about the concept of behaviors and when rendering forms, the views also check whether there are behaviors referenced with the current context and if these behaviors have a schema of their own, these fields get shown in addition.
 
 .. _behaviors1-names-label:
 
@@ -81,13 +81,11 @@ Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/confi
 
     .. sidebar:: Advanced reference
 
-        The original documentation is doctest code, so no documentation and no debuggable test.
-
         It can be a bit confusing when to use factories or marker interfaces and when not to.
 
         If you do not define a factory, your attributes will be stored directly on the object. This can result in clashes with other behaviors.
 
-        You can avoid this by using the plone.behavior.AnnotationStorage factory. This one stores your attributes in an :ref:`Annotation <plone:annotations>`.
+        You can avoid this by using the :py:class:`plone.behavior.AnnotationStorage` factory. This stores your attributes in an :ref:`Annotation <plone:annotations>`.
         But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
 
         Without it, you would have no interface against which you could register your views.
@@ -181,7 +179,7 @@ We must add the behavior to :file:`profiles/default/types/talk.xml`:
     </object>
 
 
-.. _plone.supermodel: http://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
-.. _fieldset: http://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
-.. _IFormFieldProvider: http://docs.plone.org/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms
+.. _plone.supermodel: https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
+.. _fieldset: https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
+.. _IFormFieldProvider: https://docs.plone.org/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms
 .. _URI: http://docs.zope.org/zope.schema/fields.html#uri

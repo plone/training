@@ -5,7 +5,7 @@ Dexterity I: "Through The Web"
 
 In this part you will:
 
-* Create the new content type *talk*
+* Create a new content type called *Talk*.
 
 
 Topics covered:
@@ -21,11 +21,17 @@ Topics covered:
 What is a content type?
 -----------------------
 
-A content type is a variety of object that can store information and is editable by users. We have different contenttypes to reflect the different kinds of information about which we need to collect and display information. Pages, folders, events, news items, files (binary) and images are all contenttypes.
+A content type is a kind of object that can store information and is editable by users.
+We have different content types to reflect the different kinds of information about which we need to collect and display information.
+Pages, folders, events, news items, files (binary) and images are all content types.
 
-It is common in developing a web site that you'll need customized versions of common contenttypes, or perhaps even entirely new types.
+It is common in developing a web site that you'll need customized versions of common content types, or perhaps even entirely new types.
 
-Remember the requirements for our project? We wanted to be able to solicit and edit conference talks. We could use the ``page`` content type for that purpose. But we need to make sure we collect certain bits of information about a talk and we couldn't be sure to get that information if we just asked potential presenters to create a page. Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks. A custom content type will be ideal.
+Remember the requirements for our project? We wanted to be able to solicit and edit conference talks.
+We *could* use the **Page** content type for that purpose.
+But we need to make sure we collect certain bits of information about a talk and we couldn't be sure to get that information if we just asked potential presenters to create a page.
+Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks.
+A custom content type will be ideal.
 
 .. _dexterity1-contains-label:
 
@@ -42,7 +48,9 @@ FTI
     The "Factory Type Information" configures the content type in Plone, assigns it a name, an icon, additional features and possible views to it.
 
 Views
-    A view is a representation of the object and the content of its fields that may be rendered in response to a request. You may have one or more views for an object. Some may be visual — intended for display as web pages — others may be intended to satisfy AJAX requests and be in formats like JSON or XML.
+    A view is a representation of the object and the content of its fields that may be rendered in response to a request.
+    You may have *one or more* views for an object.
+    Some may be *visual* — intended for display as web pages — others may be intended to satisfy AJAX requests and render content in formats like JSON or XML.
 
 
 .. _dexterity1-comparison-label:
@@ -50,51 +58,50 @@ Views
 Dexterity and Archetypes - A Comparison
 ---------------------------------------
 
-There are two content frameworks in Plone
+There are two content frameworks in Plone:
 
-* Dexterity: new and the coming default
-* Archetypes: old, tried and tested
-* Archetypes: widespread, used in many add-ons
-* Plone 4.x: Archetypes is the default, with Dexterity available
-* Plone 5.x: Dexterity is the default, with Archetypes available
-* For both, add and edit forms are created automatically from a schema
+* *Dexterity*: new and the coming default.
+* *Archetypes*: old, tried and tested. Widespread, used in many add-ons.
+* Plone 4.x: Archetypes is the default, with Dexterity available.
+* Plone 5.x: Dexterity is the default, with Archetypes available.
+* For both, add and edit forms are created automatically from a schema.
 
 What are the differences?
 
-* Dexterity: New, faster, modular, no dark magic for getters and setters
-* Archetype had magic setter/getter - use ``talk.getAudience()`` for the field ``audience``
-* Dexterity: fields are attributes: ``talk.audience`` instead of ``talk.getAudience()``
+* Dexterity: New, faster, modular, no dark magic for getters and setters.
+* Archetypes had magic setter/getter - use :py:meth:`talk.getAudience()` for the field :py:attr:`audience`.
+* Dexterity: fields are attributes: :py:attr:`talk.audience` instead of :py:meth:`talk.getAudience()`.
 
 "Through The Web" or TTW, i.e. in the browser, without programming:
 
 * Dexterity has a good TTW story.
 * Archetypes has no TTW story.
-* UML-modeling: `ArchGenXML <http://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ for Archetypes, `agx <http://agx.me>`_ for Dexterity
+* UML-modeling: `ArchGenXML <https://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ for Archetypes, `agx <http://agx.me>`_ for Dexterity
 
 Approaches for Developers:
 
-* Schema in Dexterity: TTW, XML, Python. Interface = schema, often no class needed
-* Schema in Archetypes: Schema only in Python
+* Schema in Dexterity: TTW, XML, Python. Interface = schema, often no class needed.
+* Schema in Archetypes: Schema only in Python.
 
 * Dexterity: Easy permissions per field, easy custom forms.
-* Archetypes: Permissions per field hard, custom forms even harder.
+* Archetypes: Permissions per field are hard, custom forms even harder.
 * If you have to program for old sites you need to know Archetypes!
 * If starting fresh, go with Dexterity.
 
 Extending:
 
-* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content type is e.g. translatable (plone.app.multilingual).
-* Archetypes has archetypes.schemaextender. Powerful but not as flexible.
+* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content type is e.g. translatable (:py:mod:`plone.app.multilingual`).
+* Archetypes has :py:mod:`archetypes.schemaextender`. Powerful but not as flexible.
 
 We have only used Dexterity for the last few years.
 We teach Dexterity and not Archetypes because it's more accessible to beginners, has a great TTW story and is the future.
 
 Views:
 
-* Both Dexterity and Archetypes have a default view for contenttypes.
+* Both Dexterity and Archetypes have a default view for content types.
 * Browser Views provide custom views.
-* You can generate views for content-types in the browser without programming (using the Add-on plone.app.mosaic)
-* Display Forms
+* You can generate views for content types in the browser without programming (using the :py:mod:`plone.app.mosaic` Add-on).
+* Display Forms.
 
 
 .. _dexterity1-modify-label:
@@ -103,11 +110,11 @@ Modifying existing types
 ------------------------
 
 * Go to the control panel http://localhost:8080/Plone/@@dexterity-types
-* Inspect some of the existing default-types
-* Select the type ``News Item`` and add a new field ``Hot News`` of type ``Yes/No``
-* In another tab add a News Item and you see the new field.
+* Inspect some of the existing default types.
+* Select the type :guilabel:`News Item` and add a new field ``Hot News`` of type :guilabel:`Yes/No`
+* In another tab, add a *News Item* and you'll see the new field.
 * Go back to the schema-editor and click on `Edit XML Field Model <http://localhost:8080/Plone/dexterity-types/News%20Item/@@modeleditor>`_.
-* Note that the only field in the xml-schema of the News Item is the one we just added. All others are provided by behaviors.
+* Note that the only field in the XML schema of the News Item is the one we just added. All others are provided by behaviors.
 * Edit the form-widget-type so it says:
 
   .. code-block:: xml
@@ -120,34 +127,34 @@ Modifying existing types
 
 .. seealso::
 
-   http://docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types
+   https://docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types
 
 .. _dexterity1-create-ttw-label:
 
-Creating contenttypes TTW
+Creating content types TTW
 --------------------------
 
 In this step we will create a content type called *Talk* and try it out. When it's ready we will move the code from the web to the file system and into our own add-on. Later we will extend that type, add behaviors and a viewlet for Talks.
 
 * Add new content type "Talk" and some fields for it:
 
-  * Add Field "Type of talk", type "Choice". Add options: talk, keynote, training
-  * Add Field "Details", type "Rich Text" with a maximal length of 2000
-  * Add Field "Audience", type "Multiple Choice". Add options: beginner, advanced, pro
-  * Check the behaviors that are enabled:  Dublin Core metadata, Name from title. Do we need them all?
+  * :guilabel:`Add new field` "Type of talk", type "Choice". Add options: talk, keynote, training.
+  * :guilabel:`Add new field` "Details", type "Rich Text" with a maximal length of 2000.
+  * :guilabel:`Add new field` "Audience", type "Multiple Choice". Add options: beginner, advanced, pro.
+  * Check the behaviors that are enabled:  *Dublin Core metadata*, *Name from title*. Do we need them all?
 
-* Test the content type
+* Test the content type.
 * Return to the control panel http://localhost:8080/Plone/@@dexterity-types
-* Extend the new type
+* Extend the new type: add the following fields:
 
   * "Speaker", type: "Text line"
   * "Email", type: "Email"
   * "Image", type: "Image", not required
   * "Speaker Biography", type: "Rich Text"
 
-* Test again
+* Test again.
 
-Here is the complete xml-schema created by our actions.
+Here is the complete XML schema created by our actions:
 
 .. code-block:: xml
   :linenos:
@@ -220,8 +227,8 @@ So, we'll ultimately want to move our new content type into a Python package. We
 
 .. seealso::
 
-   * `Dexterity Developer Manual <http://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
-   * `The standard behaviors <http://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html>`_
+   * `Dexterity Developer Manual <https://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
+   * `The standard behaviors <https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html>`_
 
 
 .. _dexterity1-excercises-label:
@@ -240,7 +247,7 @@ Modify Pages to allow uploading an image as decoration (like News Items do).
     * Go to the dexterity control panel (http://localhost:8080/Plone/@@dexterity-types)
     * Click on *Page* (http://127.0.0.1:8080/Plone/dexterity-types/Document)
     * Select the tab *Behaviors* (http://127.0.0.1:8080/Plone/dexterity-types/Document/@@behaviors)
-    * Check the box next to *Lead Image* and save.
+    * Check the box next to :guilabel:`Lead Image` and save.
 
     The images are displayed above the title.
 
@@ -312,5 +319,5 @@ We could use this content type later to convert speakers into Plone users. We co
 
 ..  seealso::
 
-    * `Dexterity XML <http://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_
-    * `Model-driven types <http://docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types>`_
+    * `Dexterity XML <https://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_
+    * `Model-driven types <https://docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types>`_

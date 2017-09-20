@@ -93,7 +93,7 @@ msgstr ""
 
 #: ../addons.rst:30
 # 16e25707739940cd9218f172ffbdb708
-msgid "`Products.PloneFormGen <http://docs.plone.org/develop/plone/forms/ploneformgen.html>`_"
+msgid "`Products.PloneFormGen <https://docs.plone.org/develop/plone/forms/ploneformgen.html>`_"
 msgstr ""
 
 #: ../addons.rst:30

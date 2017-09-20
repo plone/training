@@ -140,7 +140,7 @@ msgstr ""
 
 #: ../zpt.rst:107
 # e3939d187565489498d587652eb30c52
-msgid "define variables. We definded the variable url to the string \"http://www.ploneconf.org\""
+msgid "define variables. We definded the variable url to the string \"https://www.ploneconf.org/\""
 msgstr ""
 
 #: ../zpt.rst:110
@@ -664,7 +664,7 @@ msgstr ""
 
 #: ../zpt.rst:546
 # acd01bfb6fce46a3b902b4d0e98a52f0
-msgid "http://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html"
+msgid "https://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html"
 msgstr ""
 
 #: ../zpt.rst:547

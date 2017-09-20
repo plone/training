@@ -195,9 +195,9 @@ msgstr "ploneconf/site/locales/"
 #: ../eggs1.rst:66
 msgid ""
 "This holds translation-files (see "
-"http://docs.plone.org/develop/plone/i18n/internationalisation.html). We "
+"https://docs.plone.org/develop/plone/i18n/internationalisation.html). We "
 "won't use it during the training."
-msgstr "Esto contiene los archivos de traducción (ver http://docs.plone.org/develop/plone/i18n/internationalisation.html). No vamos a utilizar durante el entrenamiento."
+msgstr "Esto contiene los archivos de traducción (ver https://docs.plone.org/develop/plone/i18n/internationalisation.html). No vamos a utilizar durante el entrenamiento."
 
 # d5e4b17272bb4bd19a52cc086eb5f71f
 #: ../eggs1.rst:69

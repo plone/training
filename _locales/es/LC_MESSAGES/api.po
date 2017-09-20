@@ -33,11 +33,11 @@ msgstr "plone.api"
 #: ../api.rst:7
 msgid ""
 "The most important tool nowadays for plone-developers is the addon "
-"`plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ hat "
+"`plone.api <https://docs.plone.org/external/plone.api/docs/index.html>`_ hat "
 "covers 20% of the tasks any Plone developer does 80% of the time. If you are"
 " not sure how to handle a certain task be sure to first check if plone.api "
 "has a solution for you."
-msgstr "La herramienta mas importante actualmente para desarrolladores Plone es el complemento `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ , el cual cubre el 20% de las tareas que cualquier desarrollador Plone que normalmente hace en 80% de su tiempo. Si no estas seguro de como manejar alguna tarea, verifica primero si plone.api tiene una solución para ti."
+msgstr "La herramienta mas importante actualmente para desarrolladores Plone es el complemento `plone.api <https://docs.plone.org/external/plone.api/docs/index.html>`_ , el cual cubre el 20% de las tareas que cualquier desarrollador Plone que normalmente hace en 80% de su tiempo. Si no estas seguro de como manejar alguna tarea, verifica primero si plone.api tiene una solución para ti."
 
 # d810bec0cfcf4e2480752ccd7d9d3ff3
 #: ../api.rst:9
@@ -48,39 +48,39 @@ msgstr "El api esta divido en 5 secciones. Este es un ejemplo de cada uno:"
 #: ../api.rst:11
 msgid ""
 "`Content`: `Create content "
-"<http://docs.plone.org/external/plone.api/docs/content.html#create-"
+"<https://docs.plone.org/external/plone.api/docs/content.html#create-"
 "content>`_"
-msgstr "`Contenido`: `Crear contenido <http://docs.plone.org/external/plone.api/docs/content.html#create-content>`_"
+msgstr "`Contenido`: `Crear contenido <https://docs.plone.org/external/plone.api/docs/content.html#create-content>`_"
 
 # 077698d0c85249d68493c383f8bdd55f
 #: ../api.rst:12
 msgid ""
 "`Portal`: `Send E-Mail "
-"<http://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_"
-msgstr "`Portal`: `Enviar E-Mail <http://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_"
+"<https://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_"
+msgstr "`Portal`: `Enviar E-Mail <https://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_"
 
 # 7ade2234a89e44d8afb85ddf3439181b
 #: ../api.rst:13
 msgid ""
 "`Groups`: `Grant roles to group "
-"<http://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-"
+"<https://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-"
 "group>`_"
-msgstr "`Grupos`: `Asignar roles al grupo <http://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-group>`_"
+msgstr "`Grupos`: `Asignar roles al grupo <https://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-group>`_"
 
 # a086e8b5e0914f07a0406a377b7dfe7b
 #: ../api.rst:14
 msgid ""
 "`Users`: `Get user roles "
-"<http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_"
-msgstr "`Usuarios`: `Obtener roles de usuario <http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_"
+"<https://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_"
+msgstr "`Usuarios`: `Obtener roles de usuario <https://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_"
 
 # 72fa3b77600b4b5388b59c72b61a2fc0
 #: ../api.rst:15
 msgid ""
 "`Environment`: `Switch roles inside a block "
-"<http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-"
+"<https://docs.plone.org/external/plone.api/docs/env.html#switch-roles-"
 "inside-a-block>`_"
-msgstr "`Entorno`: `Cambiar roles dentro de un bloque <http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_"
+msgstr "`Entorno`: `Cambiar roles dentro de un bloque <https://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_"
 
 # c5d3b92f852f45178f9cad82365250d4
 #: ../api.rst:17

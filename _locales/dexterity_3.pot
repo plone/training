@@ -143,7 +143,7 @@ msgstr ""
 
 #: ../dexterity_3.rst:311
 # bc800b8e33574f97aee0f36b0f5826e9
-msgid "``_sponsors`` is cached for an hour using `plone.memoize <http://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. We could also cache until one of the sponsors is modified:"
+msgid "``_sponsors`` is cached for an hour using `plone.memoize <https://docs.plone.org/manage/deploying/testing_tuning/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor-objects in memory all the time. We could also cache until one of the sponsors is modified:"
 msgstr ""
 
 #: ../dexterity_3.rst:328
@@ -158,7 +158,7 @@ msgstr ""
 
 #: ../dexterity_3.rst:333
 # 892f3a69fe814325adc081ad2b35875a
-msgid "http://docs.plone.org/develop/plone/images/content.html#image-scales-plone-4"
+msgid "https://docs.plone.org/develop/plone/images/content.html#image-scales-plone-4"
 msgstr ""
 
 #: ../dexterity_3.rst:335

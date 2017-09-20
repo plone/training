@@ -5,6 +5,48 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 1.2.5 (unreleased)
 ------------------
+- Use correct links for ZCA itself and its usage in Pyramid, as well in
+  translation files.
+  [stevepiercy]
+
+- Update Features training to reflect that Dexterity is now supported by Working Copy Support and Placeful Workflow.
+  [robinsjm2]
+
+- Fix a typo
+  [staeff]
+
+- Fix typos, improve wording
+  [svx]
+
+- Clarify which template we're editing
+  [djowett]
+
+- Fix typos
+  [tkimnguyen]
+
+- Fix Sphinx warnings emitted on clean build
+  [stevepiercy]
+
+- Update README.rst to refer to how to build the docs locally.
+  [stevepiercy]
+
+- Add CONTRIBUTING.md
+  [stevepiercy]
+
+- Move PloneConf 2016 to Previous Trainings
+  [stevepiercy]
+
+- Update JavaScript training with latest exercises and documentation using
+  collective.jstraining
+  [vangheem]
+
+- Update theming training to reflect the changes in bobtemplates.plone and
+  general cleanup, also add refs to ttw training, remove usage of resource
+  registry for theming
+  [MrTango]
+
+- Add solr training
+  [tomgross]
 
 - Rearrange structure so Mastering Plone now lives in it's own folder.
   [pbauer]
@@ -38,6 +80,38 @@ This changelog is only very rough. For the full changelog please refer to https:
 - Update vagrant installation to include BIOS virtualization note.
   [lbrannon]
 
+- Editing while reading. Edited Rapido chapter for language and formatting.
+  [jean]
+
+- Fix a couple of duplicate labels, unmatched literal ending, typo [jean]
+
+- Fix code blocks that made Pygments lexer choke [jean]
+
+- Fix some typos, clarify some examples [jean]
+
+- Some exercises, draft of a new chapter on plone.restapi and some changes [tschorr]
+
+- Exercises for behaviors_2, fix some emphasis [tschorr]
+
+- Fix some typos, apply inline directives: file, Python domain, GUI, literals
+  [jean]
+
+- Add Plone 5 Workflow Training
+  [calvinhp]
+
+- Editing Dexterity chapters (typos, markup, some grammar) [jean]
+
+- Fix reST lists [davisagli]
+
+- Specify Python version for virtualenv using option, not command alias, as
+  alias is not always present [jean]
+
+- Fix duplicate labels [jean]
+
+- Fix tests [gforcada]
+
+- Review solr docs [gforcada]
+
 1.2.4 (2014-10-03)
 ------------------
 
@@ -56,7 +130,7 @@ This changelog is only very rough. For the full changelog please refer to https:
 - Add Spanish translation.
   [macagua]
 
-- Add support for translations on https://www.transifex.com/plone/mastering-plone-training/
+- Add support for translations on transifex
   [macagua]
 
 
@@ -64,13 +138,13 @@ This changelog is only very rough. For the full changelog please refer to https:
 ------------------
 
 - Move sources to https://github.com/plone/training and render
-  at https://plone-training.readthedocs.org/en/legacy/
+  at https://plone-training.readthedocs.io/en/legacy/
   [pbauer]
 
 - Integrate with docs.plone.org and papyrus
   [do3cc]
 
-- Change license to http://creativecommons.org/licenses/by/4.0/
+- Change license to https://creativecommons.org/licenses/by/4.0/
   [pbauer]
 
 - Document how to contribute

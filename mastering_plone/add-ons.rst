@@ -14,7 +14,7 @@ Extend Plone With Add-On Packages
 Some notable add-ons
 ---------------------
 
-`Products.PloneFormGen <http://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
+`Products.PloneFormGen <https://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
   A form generator.
 
 `collective.disqus <https://pypi.python.org/pypi/collective.disqus/>`_
@@ -26,7 +26,7 @@ Some notable add-ons
 `plone.app.mosaic <https://github.com/plone/plone.app.mosaic>`_
   Layout solution to easily create complex layouts through the web.
 
-`collective.geo <http://collectivegeo.readthedocs.org/en/latest/>`_
+`collective.geo <http://collectivegeo.readthedocs.io/en/latest/>`_
   Flexible bundle of add-ons to geo-reference content and display in maps
 
 `collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_
@@ -50,7 +50,7 @@ Some notable add-ons
 `Rapido <https://rapidoplone.readthedocs.io/en/latest/>`_
   Allows developers with a little knowledge of HTML and a little knowledge of Python to implement custom elements and insert them anywhere they want.
 
-`Plomino <http://www.plomino.net/>`_
+`Plomino <http://plomino.net/>`_
   Powerful and flexible web-based application builder for Plone
 
 .. warning::
@@ -88,11 +88,13 @@ Making the add-on packages available to Zope
 
 First, we must make the add-on packages available to Zope. This means that Zope can import the code. Buildout is responsible for this.
 
-Look at the ``buildout.cfg`` file in ``/vagrant/buildout``.
+Look at the :file:`buildout.cfg` file in :file:`/vagrant/buildout`.
 
 .. note::
 
-    If you're using our Vagrant kit, the Plone configuration is available in a folder that is shared between the host and guest operating systems. Look in your Vagrant install directory for the ``buildout`` folder. You may edit configuration files using your favorite text editor in the host operating system, then switch into your virtual machine to run buildout on the guest operating system.
+    If you're using our Vagrant kit, the Plone configuration is available in a folder that is shared between the host and guest operating systems.
+    Look in your Vagrant install directory for the :file:`buildout` folder.
+    You may edit configuration files using your favorite text editor in the host operating system, then switch into your virtual machine to run buildout on the guest operating system.
 
 In the section ``[instance]`` there is a variable called ``eggs``, which has a list of *eggs* as a value. For example::
 
@@ -101,7 +103,8 @@ In the section ``[instance]`` there is a variable called ``eggs``, which has a l
         Products.PloneFormGen
         plone.app.debugtoolbar
 
-You add an egg by adding a new line containing the package name to the configuration. You must write the egg name indented, this way buildout understands that the current line is part of the last variable and not a new variable.
+You add an egg by adding a new line containing the package name to the configuration.
+You must write the egg name indented: this way, buildout understands that the current line is part of the last variable and not a new variable.
 
 If you add new add-ons here you will have to run buildout and restart the site:
 
@@ -161,7 +164,7 @@ Let's build a registration form:
 
 .. note::
 
-    Need CAPTCHAs? Add the ``collective.recaptcha`` package to your buildout and PFG will have a CAPTCHA field.
+    Need CAPTCHAs? Add the :py:mod:`collective.recaptcha` package to your buildout and PFG will have a CAPTCHA field.
 
     Need encryption? Add GPG encryption to your system, add a GPG configuration for the Plone daemon user that includes a public key for the mail targets, and you'll be able to encrypt email before sending.
 
@@ -176,8 +179,8 @@ By the way, while PloneFormGen is good at what it does, it is not a good model f
 
 .. _add-ons-ptg-label:
 
-Add Photo Gallery with collective.plonetruegallery
---------------------------------------------------
+Add Photo Gallery with :py:mod:`collective.plonetruegallery`
+------------------------------------------------------------
 
 To advertise the conference we want to show some photos showing past conferences and the city where the conference is taking place.
 
@@ -187,7 +190,7 @@ https://pypi.python.org/pypi/collective.plonetruegallery
 
 * Activate the add-on
 * Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors
-* Add a folder /the-event/location
+* Add a folder ``/the-event/location``
 * Upload some photos from lorempixel.com
 * Enable the view ``galleryview``
 
@@ -203,7 +206,7 @@ We're not doing this with the conference site since the *lingua franca* of the P
 
 We would use the built-in addon https://pypi.python.org/pypi/plone.app.multilingual for this.
 
-Building a multi-lingual site requires activating ``plone.app.multilingual``, but no add-on is necessary to build a site in only one language. Just select a different site language when creating a Plone site, and all text in the user-interface will be switched to that language.
+Building a multi-lingual site requires activating :py:mod:`plone.app.multilingual`, but no add-on is necessary to build a site in only one language. Just select a different site language when creating a Plone site, and all text in the user-interface will be switched to that language.
 
 
 .. _add-ons-summary-label:
@@ -219,7 +222,9 @@ But:
 * Can we create lists with the most important properties of each talk?
 * Can we allow a jury to vote on talks?
 
-We often have to work with structured data. Up to a degree we can do all this TTW, but at some point we run into barriers. In the next part of the training, we'll teach you how to break through these barriers.
+We often have to work with structured data.
+Up to a degree we can do all this TTW, but at some point we run into barriers.
+In the next part of the training, we'll teach you how to break through these barriers.
 
 
 

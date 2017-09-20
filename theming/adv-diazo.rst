@@ -2,39 +2,47 @@
 Advanced Diazo
 ==============
 
-    **"Diazo allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology."**
+**"Diazo allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology."**
 
-To do this diazo do some real complicated stuff on your behalf: it writes XSLT!
+To do this, Diazo does some real complicated stuff on your behalf: it writes XSLT!
 
-But sometimes basic rules are not enough and you need to write a bit of XLST your self.
+But sometimes basic rules are not enough and you need to write a bit of XLST yourself.
 
 
 Modify the theme and the content on the fly
 ===========================================
 
-Let's see some example from the `official diazo docs <http://docs.diazo.org/en/latest/advanced.html#modifying-the-theme-on-the-fly>`_.
+Let's look at some examples from the `official diazo docs <http://docs.diazo.org/en/latest/advanced.html#modifying-the-theme-on-the-fly>`_.
 
 
 Extend rules
-============
+------------
 
-You can `re-use or extend rules <http://docs.diazo.org/en/latest/advanced.html#xinclude>`_ from another theme or from another file in your theme.
+You can `re-use or extend rules <http://docs.diazo.org/en/latest/advanced.html#xinclude>`_
+from another theme or from another file in your theme.
 
-A good example of a use case is the one described by `Asko Soukka <https://twitter.com/datakurre>`_  (thanks!!!) in this blog post about `how to  Customize Plone 5 default theme on the fly <http://datakurre.pandala.org/2015/05/customize-plone-5-default-theme-on-fly.html>`_.
+A good example of a use case is the one described by
+`Asko Soukka <https://twitter.com/datakurre>`_  (thanks!!!) in this blog post about
+`how to  Customize Plone 5 default theme on the fly <http://datakurre.pandala.org/2015/05/customize-plone-5-default-theme-on-fly.html>`_.
 
 
 Include external content
-========================
+------------------------
 
-You can `include external content <http://docs.diazo.org/en/latest/advanced.html#including-external-content>`_ from another website or from a custom view.
+You can `include external content <http://docs.diazo.org/en/latest/advanced.html#including-external-content>`_
+from another website or from a custom view.
 
 
 Recipes and snippets
 ====================
 
-The docs provide `a basic recipe set <http://docs.diazo.org/en/latest/recipes/index.html>`_ and you can have your own, but how to remember and re-use them?
+The docs provide `a basic recipe set <http://docs.diazo.org/en/latest/recipes/index.html>`_
+and you can have your own, but how to remember and re-use them?
 
-`David Bain introduces a "diazo snippets library" <http://blog.dbain.com/2014/12/introducing-diazo-snippets-library.html>`_ that allows you to get snippets from a chrome extensions. `All the snippets are available here <http://pigeonflight.github.io/lessArcane/>`_.
+`David Bain introduces a "diazo snippets library" <http://blog.dbain.com/2014/12/introducing-diazo-snippets-library.html>`_
+that allows you to get snippets from a chrome extensions.
+`All the snippets are available here <http://pigeonflight.github.io/lessArcane/>`_.
+
 
 More snippets
 -------------
@@ -51,20 +59,28 @@ Make some links open in new window
 
 At diazo.org is another way described in the recipes: http://docs.diazo.org/en/latest/recipes/adding-an-attribute/index.html
 
-Add CSS marker classes depending on existing portal-columns
-***********************************************************
+Add CSS marker classes depending on existing ``portal-columns``
+***************************************************************
 
-This adds a CSS class for every existing portal-column to the body tag. If portal-column-one exist we add col-one, if portal-column-content exsists we add col-content and if portal-column-two exists we add col-two.
+This adds a CSS class for every existing ``portal-column`` to the ``body`` tag.
+If ``portal-column-one`` exists, we add ``col-one``;
+if ``portal-column-content`` exists, we add ``col-content``;
+and if ``portal-column-two`` exists, we add ``col-two``.
 
 .. code-block:: xml
 
    <before theme-children="/html/body" method="raw">
-     <xsl:attribute name="class"><xsl:value-of select="/html/body/@class" /><xsl:if css:test="#portal-column-one"> col-one</xsl:if><xsl:if css:test="#portal-column-content"> col-content</xsl:if><xsl:if css:test="#portal-column-two"> col-two</xsl:if></xsl:attribute>
+     <xsl:attribute name="class">
+       <xsl:value-of select="/html/body/@class" />
+       <xsl:if css:test="#portal-column-one"> col-one</xsl:if>
+       <xsl:if css:test="#portal-column-content"> col-content</xsl:if>
+       <xsl:if css:test="#portal-column-two"> col-two</xsl:if>
+     </xsl:attribute>
    </before>
 
-Now one can use these markers to define the grid in a semantic way like this:
+Now, one can use these markers to define the grid in a semantic way like this:
 
-.. code-block:: css
+.. code-block:: less
 
    body.col-one.col-content.col-two #content-wrapper {
      .make-row();
@@ -91,11 +107,16 @@ Now one can use these markers to define the grid in a semantic way like this:
      }
    }
 
+.. note::
 
-Move plone elements around
+  This way, you don't need the xsl-rules Barceloneta uses to create the main content area. It's more flexible than Barceloneta's approach.
+  Another way could be, to change Plone to provide these classes already ;).
+
+Move Plone elements around
 **************************
 
-Sometimes one need to move Plone elements from one place to another or merge some elements together. In the following example we merge the language flags together with the document actions.
+Sometimes one needs to move Plone elements from one place to another or merge some elements together.
+In the following example we merge the language flags together with the document actions.
 
 .. code-block:: xml
 

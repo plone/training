@@ -28,6 +28,7 @@ TODO
 
 SCREENSHOTS
 
-Additinal goodie
-----------------
-Overrides are stored on the FS and you can version / backup them as you like!
+Additional goodie
+-----------------
+
+Overrides are stored on the filesystem and you can version / backup them as you like!

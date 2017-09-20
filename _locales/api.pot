@@ -28,7 +28,7 @@ msgstr ""
 
 #: ../api.rst:7
 # b5283bbb7da54de089e86831b33b42e1
-msgid "The most important tool nowadays for plone-developers is the addon `plone.api <http://docs.plone.org/external/plone.api/docs/index.html>`_ hat covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you."
+msgid "The most important tool nowadays for plone-developers is the addon `plone.api <https://docs.plone.org/external/plone.api/docs/index.html>`_ hat covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you."
 msgstr ""
 
 #: ../api.rst:9
@@ -38,27 +38,27 @@ msgstr ""
 
 #: ../api.rst:11
 # e2b9cc0e09a84672b46d1fde2af6728d
-msgid "`Content`: `Create content <http://docs.plone.org/external/plone.api/docs/content.html#create-content>`_"
+msgid "`Content`: `Create content <https://docs.plone.org/external/plone.api/docs/content.html#create-content>`_"
 msgstr ""
 
 #: ../api.rst:12
 # 4083a94c945d41c1895b50f3369d43ea
-msgid "`Portal`: `Send E-Mail <http://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_"
+msgid "`Portal`: `Send E-Mail <https://docs.plone.org/external/plone.api/docs/portal.html#send-e-mail>`_"
 msgstr ""
 
 #: ../api.rst:13
 # 981b8d8040664700bda7607ae6459a8d
-msgid "`Groups`: `Grant roles to group <http://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-group>`_"
+msgid "`Groups`: `Grant roles to group <https://docs.plone.org/external/plone.api/docs/group.html#grant-roles-to-group>`_"
 msgstr ""
 
 #: ../api.rst:14
 # be8b330d291e4e1da33415fbc7edd7af
-msgid "`Users`: `Get user roles <http://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_"
+msgid "`Users`: `Get user roles <https://docs.plone.org/external/plone.api/docs/user.html#get-user-roles>`_"
 msgstr ""
 
 #: ../api.rst:15
 # c537800684f749d18617cc0660e44155
-msgid "`Environment`: `Switch roles inside a block <http://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_"
+msgid "`Environment`: `Switch roles inside a block <https://docs.plone.org/external/plone.api/docs/env.html#switch-roles-inside-a-block>`_"
 msgstr ""
 
 #: ../api.rst:17

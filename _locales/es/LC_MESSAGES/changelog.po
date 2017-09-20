@@ -42,7 +42,7 @@ msgstr ""
 
 # 767ffcad931f4a3bb8c2fed78731e434
 #: ../changelog.rst:14
-msgid "Change license to http://creativecommons.org/licenses/by/4.0/ [pbauer]"
+msgid "Change license to https://creativecommons.org/licenses/by/4.0/ [pbauer]"
 msgstr ""
 
 # 27525873e8384ed88d54f4051a4b5a16

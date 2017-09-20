@@ -10,7 +10,7 @@ Keep in mind that you need a fast internet connection during installation since 
 
 .. warning::
 
-    If you feel the desire to try out both methods below (with Vagrant and without), make sure you use different ``training`` directories!  The two installations do not coexist well.
+    If you feel the desire to try out both methods below (with Vagrant and without), make sure you use different :file:`training` directories!  The two installations do not coexist well.
 
 
 Installing Plone without vagrant
@@ -41,7 +41,7 @@ If you feel comfortable, please work on your own machine with your own Python. B
         sudo apt-get install libreadline-dev wv poppler-utils
         sudo apt-get install git
 
-    For more information or in case of problems see the `official installation instructions <http://docs.plone.org/manage/installing/installation.html>`_.
+    For more information or in case of problems see the `official installation instructions <https://docs.plone.org/manage/installing/installation.html>`_.
 
 
 
@@ -53,7 +53,7 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
     $ cd training
     $ git clone https://github.com/collective/training_buildout.git buildout
     $ cd buildout
-    $ virtualenv-2.7 py27
+    $ virtualenv --python=python2.7 py27
 
 Now you can run the buildout for the first time:
 
@@ -70,8 +70,8 @@ This will take some time and produce a lot of output because it downloads and co
 
 The output should be similar to:
 
-.. code-block:: pypy
-    :emphasize-lines: 10
+.. code-block:: html
+    :emphasize-lines: 9
 
     2015-09-24 15:51:02 INFO ZServer HTTP server started at Thu Sep 24 15:51:02 2015
             Hostname: 0.0.0.0
@@ -105,9 +105,9 @@ The output should be similar to:
 
 If the output says ``INFO Zope Ready to handle requests`` then you are in business.
 
-If you point your browser at http://localhost:8080 you see that Plone is running. Now create a new Plone site by clicking "Create a new Plone site". The username and the password are both "admin" (Never do this on a real site!).
+If you point your browser at http://localhost:8080 you see that Plone is running. There is no Plone site yet - we will create one in chapter 6.
 
-Now you have a working Plone site up and running and can continue with the next chapter.  You can stop the running instance anytime using ``ctrl + c``.
+Now you have a working Plone site up and running and can continue with the next chapter.  You can stop the running instance anytime using :kbd:`ctrl + c`.
 
 .. warning::
 
@@ -142,7 +142,7 @@ Get the latest version from https://www.vagrantup.com/downloads.html for your op
 
     In Windows there is a bug in the recent version of Vagrant. Here are the instructions for how to work around the warning ``Vagrant could not detect VirtualBox! Make sure VirtualBox is properly installed``.
 
-Now your system has a command ``vagrant`` that you can run in the terminal.
+Now your system has a command :command:`vagrant` that you can run in the terminal.
 
 .. note::
 
@@ -153,7 +153,7 @@ First, create a directory in which you want to do the training.
 
 .. warning::
 
-    If you already have a ``training`` directory because you followed the **Installing Plone without vagrant** instructions above, you should either delete it, rename it, or use a different name below.
+    If you already have a :file:`training` directory because you followed the **Installing Plone without vagrant** instructions above, you should either delete it, rename it, or use a different name below.
 
 .. code-block:: bash
 
@@ -173,9 +173,9 @@ Now download :download:`plone_training_config.zip <../_static/plone_training_con
     $ wget https://raw.githubusercontent.com/plone/training/master/_static/plone_training_config.zip
     $ unzip plone_training_config.zip
 
-The training directory should now hold the file ``Vagrantfile`` and the directory ``manifests`` which again contains several files.
+The training directory should now hold the file :file:`Vagrantfile` and the directory :file:`manifests` which again contains several files.
 
-Now start setting up the VM that is configured in ``Vagrantfile``:
+Now start setting up the VM that is configured in :file:`Vagrantfile`:
 
 .. code-block:: bash
 
@@ -225,13 +225,13 @@ Once Vagrant finishes the provisioning process, you can login to the now running
 
 .. note::
 
-    If you use Windows you'll have to login with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_. Connect to vagrant@127.0.01 at port 2222. User **and** password are ``vagrant``.
+    If you use Windows you'll have to login with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_. Connect to vagrant@127.0.01 at port 2222. User **and** password are ``vagrant``.
 
-You are now logged in as the user vagrant in ``/home/vagrant``. We'll do all steps of the training as this user.
+You are now logged in as the user vagrant in :file:`/home/vagrant`. We'll do all steps of the training as this user.
 
-Instead we use our own Plone instance during the training. It is in ``/vagrant/buildout/``. Start it in foreground with ``./bin/instance fg``.
+Instead we use our own Plone instance during the training. It is in :file:`/vagrant/buildout/`. Start it in foreground with :command:`./bin/instance fg`.
 
-.. code-block:: pypy
+.. code-block:: bash
 
     vagrant@training:~$ cd /vagrant/buildout
     vagrant@training:/vagrant/buildout$ ./bin/instance fg
@@ -280,13 +280,13 @@ Instead we use our own Plone instance during the training. It is in ``/vagrant/b
         export LC_ALL=en_US.UTF-8
         export LANG=en_US.UTF-8
 
-Now the Zope instance we're using is running. You can stop the running instance anytime using ``ctrl + c``.
+Now the Zope instance we're using is running. You can stop the running instance anytime using :kbd:`ctrl + c`.
 
-If it doesn't, don't worry, your shell isn't blocked. Type ``reset`` (even if you can't see the prompt) and press RETURN, and it should become visible again.
+If it doesn't, don't worry, your shell isn't blocked. Type :kbd:`reset` (even if you can't see the prompt) and press RETURN, and it should become visible again.
 
-If you point your local browser at http://localhost:8080 you see that Plone is running in vagrant. This works because VirtualBox forwards the port 8080 from the guest system (the vagrant Ubuntu) to the host system (your normal operating system). Now create a new Plone site by clicking "Create a new Plone site". The username and the password are both "admin" (Never do this on a real site!).
+If you point your local browser at http://localhost:8080 you see that Plone is running in vagrant. This works because VirtualBox forwards the port 8080 from the guest system (the vagrant Ubuntu) to the host system (your normal operating system).  There is no Plone site yet - we will create one in chapter 6.
 
-The Buildout for this Plone is in a shared folder.  This means we run it in the vagrant box from ``/vagrant/buildout`` but we can also access it in our own operating system and use our favorite editor. You will find the directory ``buildout`` in the directory ``training`` that you created in the very beginning next to ``Vagrantfile`` and ``manifests``.
+The Buildout for this Plone is in a shared folder.  This means we run it in the vagrant box from :file:`/vagrant/buildout` but we can also access it in our own operating system and use our favorite editor. You will find the directory :file:`buildout` in the directory :file:`training` that you created in the very beginning next to :file:`Vagrantfile` and :file:`manifests`.
 
 .. note::
 
@@ -310,6 +310,6 @@ Installation is done automatically by vagrant and puppet. If you want to know wh
 
     Keep in mind the following recommendations for using your Vagrant virtualboxes:
 
-    * Use the ``vagrant suspend`` or ``vagrant halt`` commands to put the virtualbox to "sleep" or to "power it off" before attempting to start another Plone instance anywhere else on your machine, if it uses the same port.  That's because vagrant "reserves" port 8080, and even if you stopped Plone in vagrant, that port is still in use by the guest OS.
-    * If you are done with a vagrant box, and want to delete it, always remember to run ``vagrant destroy`` on it before actually deleting the directory containing it.  Otherwise you'll leave its "ghost" in the list of boxes managed by vagrant and possibly taking up disk space on your machine.
-    * See ``vagrant help`` for all available commands, including ``suspend``, ``halt``, ``destroy``, ``up``, ``ssh`` and ``resume``.
+    * Use the :command:`vagrant suspend` or :command:`vagrant halt` commands to put the virtualbox to "sleep" or to "power it off" before attempting to start another Plone instance anywhere else on your machine, if it uses the same port.  That's because vagrant "reserves" port 8080, and even if you stopped Plone in vagrant, that port is still in use by the guest OS.
+    * If you are done with a vagrant box, and want to delete it, always remember to run :command:`vagrant destroy` on it before actually deleting the directory containing it.  Otherwise you'll leave its "ghost" in the list of boxes managed by vagrant and possibly taking up disk space on your machine.
+    * See :command:`vagrant help` for all available commands, including :command:`suspend`, :command:`halt`, :command:`destroy`, :command:`up`, :command:`ssh` and :command:`resume`.

@@ -1,4 +1,4 @@
-.. _deployment-label:
+.. _deployment-buildout-label:
 
 Buildout II: Getting Ready for Deployment
 =========================================
@@ -6,7 +6,7 @@ Buildout II: Getting Ready for Deployment
 
 .. _deployment-starzel-label:
 
-The starzel buildout
+The Starzel buildout
 --------------------
 
 Have a look at the buildout some of the trainers use for their projects: https://github.com/starzel/buildout
@@ -36,7 +36,7 @@ Another noteable buildout to look for inspiration:
 A deployment setup
 ------------------
 
-Deploying Plone and production-setups are outside the scope for this training. Please see http://docs.plone.org/manage/deploying/index.html
+Deploying Plone and production-setups are outside the scope for this training. Please see https://docs.plone.org/manage/deploying/index.html
 
 .. _deployment-tools-label:
 

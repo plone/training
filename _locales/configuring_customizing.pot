@@ -485,7 +485,7 @@ msgstr ""
 
 #: ../configuring_customizing.rst:154
 # 82fb078e244b4c9bafec768572a2db58
-msgid "http://docs.plone.org/develop/plone/functionality/actions.html"
+msgid "https://docs.plone.org/develop/plone/functionality/actions.html"
 msgstr ""
 
 #: ../configuring_customizing.rst:158
@@ -650,7 +650,7 @@ msgstr ""
 
 #: ../configuring_customizing.rst:261
 # a0facaff74684040b50c0ae5a2e0618c
-msgid "http://docs.plone.org/adapt-and-extend/change-the-logo.html"
+msgid "https://docs.plone.org/adapt-and-extend/change-the-logo.html"
 msgstr ""
 
 #: ../configuring_customizing.rst:265
@@ -680,7 +680,7 @@ msgstr ""
 
 #: ../configuring_customizing.rst:288
 # d186a41602554352a62e77a25c4f0e32
-msgid "http://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html"
+msgid "https://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html"
 msgstr ""
 
 #: ../configuring_customizing.rst:292

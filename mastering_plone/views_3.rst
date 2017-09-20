@@ -5,11 +5,11 @@ Views III: A Talk List
 
 .. sidebar:: Get the code!
 
-    Get the code for this chapter (:doc:`More info <sneak>`) using this command in the buildout directory:
+    Get the code for this chapter (:doc:`More info <code>`):
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
-        cp -R src/ploneconf.site_sneak/chapters/06_views_3_p5/ src/ploneconf.site
+        git checkout views_3
 
 In this part you will:
 
@@ -60,21 +60,14 @@ It is the fast way to get content that exists in the site and do something with 
 
 .. code-block:: python
     :linenos:
+    :emphasize-lines: 2, 7-25
+
 
     from Products.Five.browser import BrowserView
     from plone import api
     from plone.dexterity.browser.view import DefaultView
 
-
-    class DemoView(BrowserView):
-        """ This does nothing so far
-        """
-
-
-    class TalkView(DefaultView):
-        """ The default view for talks
-        """
-
+    [...]
 
     class TalkListView(BrowserView):
         """ A list of talks
@@ -82,11 +75,7 @@ It is the fast way to get content that exists in the site and do something with 
 
         def talks(self):
             results = []
-            portal_catalog = api.portal.get_tool('portal_catalog')
-            current_path = "/".join(self.context.getPhysicalPath())
-
-            brains = portal_catalog(portal_type="talk",
-                                    path=current_path)
+            brains = api.content.find(context=self.context, portal_type='talk')
             for brain in brains:
                 talk = brain.getObject()
                 results.append({
@@ -100,12 +89,22 @@ It is the fast way to get content that exists in the site and do something with 
                     })
             return results
 
-We query the catalog for two things:
+We query the catalog with two parameters. The catalog returns only items for which **both** apply:
 
-* ``portal_type = "talk"``
-* ``path = "/".join(self.context.getPhysicalPath())``
+* ``context=self.context``
+* ``portal_type='talk'``
 
-We get the path of the current context to query only for objects in the current path. Otherwise we'd get all talks in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for universities with a special talk list) we might not want so see them in our listing.
+We pass a object as `context` to query only for content in the current path. Otherwise we'd get all talks in the whole site. If we moved some talks to a different part of the site (e.g. a sub-conference for universities with a special talk list) we might not want so see them in our listing. We also query for the `portal_type` so we only find talks.
+
+.. note::
+
+    We use the method :py:meth:`find` in :py:mod:`plone.api` to query the catalog. It is one of many convenience-methods provided as a wrapper around otherwise more complex api's. If you query the catalog direcly you'd have to first get the catalog, and pass it the path for which you want to find items:
+
+    .. code-block:: python
+
+        portal_catalog = api.portal.get_tool('portal_catalog')
+        current_path = '/'.join(self.context.getPhysicalPath())
+        brains = portal_catalog(path=current_path, portal_type='talk')
 
 We iterate over the list of results that the catalog returns us.
 
@@ -139,7 +138,7 @@ We could also add a new index to the catalog that will add 'audience' to the pro
         def talk_audience(object, **kw):
              return object.audience
 
-    We'd have to register this factory function as a named adapter in the ``configure.zcml``. Assuming you've put the code above into a file named indexers.py
+    We'd have to register this factory function as a named adapter in the :file:`configure.zcml`. Assuming you've put the code above into a file named :file:`indexers.py`
 
     .. code-block:: xml
 
@@ -149,7 +148,7 @@ We could also add a new index to the catalog that will add 'audience' to the pro
 
 Why use the catalog at all? It checks for permissions, and only returns the talks that the current user may see. They might be private or hidden to you since they are part of a top secret conference for core developers (there is no such thing!).
 
-Most objects in plone act like dictionaries, so you can do ``context.values()`` to get all its contents.
+Most objects in Plone act like dictionaries, so you can do :py:meth:`context.values()` to get all its contents.
 
 For historical reasons some attributes of brains and objects are written differently.
 
@@ -166,7 +165,7 @@ For historical reasons some attributes of brains and objects are written differe
     >>> brain.title == obj.title
     False
 
-Who can guess what ``brain.title`` will return since the brain has no such attribute?
+Who can guess what :py:attr:`brain.title` will return since the brain has no such attribute?
 
 .. only:: not presentation
 
@@ -174,7 +173,7 @@ Who can guess what ``brain.title`` will return since the brain has no such attri
 
         Answer: Acquisition will get the attribute from the nearest parent. ``brain.__parent__`` is ``<CatalogTool at /Plone/portal_catalog>``. The attribute ``title`` of the ``portal_catalog`` is 'Indexes all content in the site'.
 
-Acquisition can be harmful. Brains have no attribute 'getLayout' ``brain.getLayout()``:
+Acquisition can be harmful. Brains have no attribute 'getLayout' :py:meth:`brain.getLayout()`:
 
 .. code-block:: pycon
 
@@ -203,7 +202,7 @@ The same is true for methods:
 Querying the catalog
 --------------------
 
-The are many `catalog indexes <http://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples:
+The are many `catalog indexes <https://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>`_ to query. Here are some examples:
 
 .. code-block:: pycon
 
@@ -222,7 +221,7 @@ Calling the catalog without parameters returns the whole site:
 
 .. seealso::
 
-    http://docs.plone.org/develop/plone/searching_and_indexing/query.html
+    https://docs.plone.org/develop/plone/searching_and_indexing/query.html
 
 
 .. _views3-excercises-label:
@@ -235,7 +234,7 @@ Since you now know how to query the catalog it is time for some exercise.
 Exercise 1
 **********
 
-Add a method ``get_news`` to ``TalkListView`` that returns a list of brains of all News Items that are published and sort them in the order of their publishing-date.
+Add a method :py:meth:`get_news` to :py:class:`TalkListView` that returns a list of brains of all News Items that are published and sort them in the order of their publishing-date.
 
 ..  admonition:: Solution
     :class: toggle
@@ -315,100 +314,80 @@ The view and the controller are very much mixed in Plone. Especially when you lo
 
 But you should nevertheless do it! You'll end up with more than enough logic in the templates anyway.
 
-Add this simple table to ``templates/talklistview.pt``:
+Add this simple table to :file:`templates/talklistview.pt`:
 
 .. code-block:: html
     :linenos:
 
-    <table class="listing">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+          metal:use-macro="context/main_template/macros/master"
+          i18n:domain="ploneconf.site">
+    <body>
+      <metal:content-core fill-slot="content-core">
+      <table class="listing"
+             id="talks"
+             tal:define="talks python:view.talks()">
         <thead>
-            <tr>
-                <th>
-                    Title
-                </th>
-                <th>
-                    Speaker
-                </th>
-                <th>
-                    Audience
-                </th>
-            </tr>
+          <tr>
+            <th>Title</th>
+            <th>Speaker</th>
+            <th>Audience</th>
+          </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                   The 7 sins of plone development
-                </td>
-                <td>
-                    Philip Bauer
-                </td>
-                <td>
-                    Advanced
-                </td>
-            </tr>
+          <tr tal:repeat="talk talks">
+            <td>
+              <a href=""
+                 tal:attributes="href python:talk['url'];
+                                 title python:talk['description']"
+                 tal:content="python:talk['title']">
+                 The 7 sins of plone-development
+              </a>
+            </td>
+            <td tal:content="python:talk['speaker']">
+                Philip Bauer
+            </td>
+            <td tal:content="python:talk['audience']">
+                Advanced
+            </td>
+          </tr>
+          <tr tal:condition="not:talks">
+            <td colspan=3>
+                No talks so far :-(
+            </td>
+          </tr>
         </tbody>
-    </table>
+      </table>
 
-Afterwards you transform it into a listing. Here we use one of many nice features built into Plone. The ``class="pat-tablesorter"`` (before Plone 5 that was ``class="listing"``) gives the table a nice style and makes the table sortable with some javascript.
+      </metal:content-core>
+    </body>
+    </html>
 
-.. code-block:: html
-    :linenos:
-
-    <table class="listing pat-tablesorter" id="talks">
-        <thead>
-            <tr>
-                <th>
-                    Title
-                </th>
-                <th>
-                    Speaker
-                </th>
-                <th>
-                    Audience
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr tal:repeat="talk view/talks">
-                <td>
-                    <a href=""
-                       tal:attributes="href talk/url;
-                                       title talk/description"
-                       tal:content="talk/title">
-                       The 7 sins of plone-development
-                    </a>
-                </td>
-                <td tal:content="talk/speaker">
-                    Philip Bauer
-                </td>
-                <td tal:content="talk/audience">
-                    Advanced
-                </td>
-            </tr>
-            <tr tal:condition="not:view/talks">
-                <td colspan=3>
-                    No talks so far :-(
-                </td>
-            </tr>
-        </tbody>
-    </table>
+Again we use ``class="listing"`` to give the table a nice style.
 
 There are some some things that need explanation:
 
-``tal:repeat="talk view/talks"``
-    This iterates over the list of dictionaries returned by the view. ``view/talks`` calls the method ``talks`` of our view and each ``talk`` is in turn one of the dictionaries that are returned by this method. Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects we can write ``talk/somekey`` as we could ``view/somemethod``. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict. It would be a good practice to write ``tal:repeat="talk python:view.talks()"``.
+:samp:`tal:define="talks python:view.talks()"`
+    This defines the variable `talks`. We do thins since we reuse it later and don't want to call the same method twice. Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects and methods of classes we can write :samp:`view/talks` as we could :samp:`view/someattribute`. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict.
 
-``tal:content="talk/speaker"``
-    'speaker' is a key in the dict 'talk'. We could also write ``tal:content="python:talk['speaker']"``
+:samp:`tal:repeat="talk talks"`
+    This iterates over the list of dictionaries returned by the view. Each :py:obj:`talk` is one of the dictionaries that are returned by this method.
 
-``tal:condition="not:view/talks"``
-    This is a fallback if no talks are returned. It then returns an empty list (remember ``results = []``?)
+:samp:`tal:content="python:talk['speaker']"`
+    'speaker' is a key in the dict 'talk'. We could also write :samp:`tal:content="talk/speaker"`
+
+:samp:`tal:condition="not:talks"`
+    This is a fallback if no talks are returned. It then returns an empty list (remember :samp:`results = []`?)
+
+.. note::
+
+    We could also write :samp:`python:not talks` like we could also write :samp:`tal:repeat="talk python:talks"` for the iteration. For simple cases as these path-statements are sometimes fine. On the other hand: If ``talks`` would be a callable we woul need to use ``nocall:talks``, so maybe it would be better to always use ``python:``.
 
 
 Exercise
 ********
 
-Modify the view to only use python expressions.
+Modify the view to only use path-expressions. This is **not** best-practice but there is plenty of code in Plone and in Addons so you have to know how to use them.
 
 ..  admonition:: Solution
     :class: toggle
@@ -416,46 +395,48 @@ Modify the view to only use python expressions.
     .. code-block:: html
         :linenos:
 
-        <table class="listing pat-tablesorter" id="talks">
+        <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+              metal:use-macro="context/main_template/macros/master"
+              i18n:domain="ploneconf.site">
+        <body>
+          <metal:content-core fill-slot="content-core">
+          <table class="listing" id="talks"
+                 tal:define="talks view/talks">
             <thead>
-                <tr>
-                    <th>
-                        Title
-                    </th>
-                    <th>
-                        Speaker
-                    </th>
-                    <th>
-                        Audience
-                    </th>
-                </tr>
+              <tr>
+                <th>Title</th>
+                <th>Speaker</th>
+                <th>Audience</th>
+              </tr>
             </thead>
-            <tbody tal:define="talks python:view.talks()">
-                <tr tal:repeat="talk talks">
-                    <td>
-                        <a href=""
-                           tal:attributes="href python:talk['url'];
-                                           title python:talk['description']"
-                           tal:content="python:talk['title']">
-                           The 7 sins of plone-development
-                        </a>
-                    </td>
-                    <td tal:content="python:talk['speaker']">
-                        Philip Bauer
-                    </td>
-                    <td tal:content="python:talk['audience']">
-                        Advanced
-                    </td>
-                </tr>
-                <tr tal:condition="python:not talks">
-                    <td colspan=3>
-                        No talks so far :-(
-                    </td>
-                </tr>
+            <tbody>
+              <tr tal:repeat="talk talks">
+                <td>
+                  <a href=""
+                     tal:attributes="href talk/url;
+                                     title talk/description"
+                     tal:content="talk/title">
+                     The 7 sins of plone-development
+                  </a>
+                </td>
+                <td tal:content="talk/speaker">
+                    Philip Bauer
+                </td>
+                <td tal:content="talk/audience">
+                    Advanced
+                </td>
+              </tr>
+              <tr tal:condition="not:talks">
+                <td colspan=3>
+                    No talks so far :-(
+                </td>
+              </tr>
             </tbody>
-        </table>
+          </table>
 
-    To follow the mantra "don't repeat yourself" we define ``talks`` instead of calling the method twice.
+          </metal:content-core>
+        </body>
+        </html>
 
 
 .. _views3-custom-label:
@@ -463,11 +444,11 @@ Modify the view to only use python expressions.
 Setting a custom view as default view on an object
 --------------------------------------------------
 
-We don't want to always have to append /@@talklistview to our folder to get the view. There is a very easy way to set the view to the folder using the ZMI.
+We don't want to always have to append :samp:`/@@talklistview` to our folder to get the view. There is a very easy way to set the view to the folder using the ZMI.
 
-If we append ``/manage_propertiesForm`` we can set the property "layout" to ``talklistview``.
+If we append :samp:`/manage_propertiesForm` we can set the property "layout" to :samp:`talklistview`.
 
-To make views configurable so that editors can choose them we have to register the view for the content type at hand in its FTI. To enable it for all folders we add a new file ``profiles/default/types/Folder.xml``
+To make views configurable so that editors can choose them we have to register the view for the content type at hand in its FTI. To enable it for all folders we add a new file :file:`profiles/default/types/Folder.xml`
 
 .. code-block:: xml
     :linenos:
@@ -481,7 +462,7 @@ To make views configurable so that editors can choose them we have to register t
 
 After re-applying the typeinfo profile of our add-on (or simply reinstalling it) the content type "Folder" is extended with our additional view method and appears in the display dropdown.
 
-The ``purge="False"`` appends the view to the already existing ones instead of replacing them.
+The :samp:`purge="False"` appends the view to the already existing ones instead of replacing them.
 
 
 .. _views3-summary-label:

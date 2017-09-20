@@ -17,7 +17,7 @@ Tell us about yourselves:
 * What are your expectations for this tutorial?
 * What is your favorite text editor?
 * If this training will include the development chapters:
-    * Do you know the html of the output of this?
+    * Do you know the HTML of the output of this?
 
       .. code-block:: html
 
@@ -50,7 +50,7 @@ Some technologies and tools we use during the training:
 
     * `Virtualbox <https://www.virtualbox.org/>`_
     * `Vagrant <https://www.vagrantup.com/>`_
-    * `Ubuntu linux <http://www.ubuntu.com/>`_
+    * `Ubuntu linux <https://www.ubuntu.com/>`_
     * Through-the-web (TTW)
     * `Buildout <http://www.buildout.org/en/latest/>`_
     * A little XML
@@ -59,7 +59,7 @@ Some technologies and tools we use during the training:
 * For the advanced chapters:
 
     * `Git <https://git-scm.com/>`_
-    * `Github <https://github.com>`_
+    * `GitHub <https://github.com>`_
     * `Try Git (Nice introduction to git and github) <https://try.github.io/levels/1/challenges/1>`_
     * TAL
     * METAL
@@ -68,8 +68,8 @@ Some technologies and tools we use during the training:
     * Dexterity
     * Viewlets
     * `JQuery <http://jquery.com/>`_
-    * `Testing <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_
-    * `References/Relations <http://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_
+    * `Testing <https://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_
+    * `References/Relations <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_
 
 .. _intro-what-wont-happen-label:
 
@@ -78,22 +78,22 @@ What will we not do?
 
 We will not cover the following topics:
 
-* `Archetypes <http://docs.plone.org/old-reference-manuals/archetypes/index.html>`_
-* `Portlets <http://docs.plone.org/old-reference-manuals/portlets/index.html>`_
-* `z3c.forms <http://docs.plone.org/develop/plone/forms/z3c.form.html>`_
-* `Theming <http://docs.plone.org/adapt-and-extend/theming/index.html>`_
-* `i18n and locales <http://docs.plone.org/develop/plone/i18n/index.html>`_
-* `Deployment, Hosting and Caching <http://docs.plone.org/manage/deploying/index.html>`_
+* `Archetypes <https://docs.plone.org/old-reference-manuals/archetypes/index.html>`_
+* `Portlets <https://docs.plone.org/old-reference-manuals/portlets/index.html>`_
+* `z3c.forms <https://docs.plone.org/develop/plone/forms/z3c.form.html>`_
+* `Theming <https://docs.plone.org/adapt-and-extend/theming/index.html>`_
+* `i18n and locales <https://docs.plone.org/develop/plone/i18n/index.html>`_
+* `Deployment, Hosting and Caching <https://docs.plone.org/manage/deploying/index.html>`_
 * :doc:`grok`
 
 Other topics are only covered lightly:
 
-* `Zope Component Architecture <http://docs.plone.org/develop/addons/components/index.html>`_
-* `GenericSetup <http://docs.plone.org/develop/addons/components/genericsetup.html>`_
-* `ZODB <http://docs.plone.org/develop/plone/persistency/index.html>`_
-* `Security <http://docs.plone.org/develop/plone/security/index.html>`_
-* `Permissions <http://docs.plone.org/develop/plone/security/permissions.html>`_
-* `Performance and Caching <http://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_
+* `Zope Component Architecture <https://docs.plone.org/develop/addons/components/index.html>`_
+* `GenericSetup <https://docs.plone.org/develop/addons/components/genericsetup.html>`_
+* `ZODB <https://docs.plone.org/develop/plone/persistency/index.html>`_
+* `Security <https://docs.plone.org/develop/plone/security/index.html>`_
+* `Permissions <https://docs.plone.org/develop/plone/security/permissions.html>`_
+* `Performance and Caching <https://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_
 
 .. _intro-expect-label:
 
@@ -148,7 +148,7 @@ Classroom Protocol
 Documentation
 --------------
 
-Follow the training at http://training.plone.org/5
+Follow the training at https://training.plone.org/5
 
 .. note::
 
