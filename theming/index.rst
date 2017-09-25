@@ -31,6 +31,7 @@ This training is **not** about:
    ttw-advanced-2
    static-theme
    theme-package
+   theme-package-2
    creating-customizing-templates
    creating-initial-content-for-the-theme
    tinymce-templates
