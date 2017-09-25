@@ -1,6 +1,6 @@
-==================================
-Make it reproducible: static theme
-==================================
+=====================================
+TTW Theming III: Make It Reproducible
+=====================================
 
 You just created your shiny brand new theme :term:`TTW`.
 

@@ -1,6 +1,6 @@
-================================================
-Basic: Customizing logo and CSS of default theme
-================================================
+========================================================
+Basic: Customize The Logo And CSS From The Default Theme
+========================================================
 
 In this section you will:
 
@@ -14,7 +14,7 @@ Topics covered:
 * The "Resource Registries" Control Panel
 * Resource Registries > Development Mode
 
-Customize logo
+Customize Logo
 --------------
 
 #. Go to the Plone Control Panel: :menuselection:`toolbar --> admin --> Site Setup`
@@ -28,7 +28,7 @@ Customize logo
 For more information, take a look at the `official docs <https://docs.plone.org/adapt-and-extend/change-the-logo.html>`_.
 
 
-Customize CSS/Less variables
+Customize CSS/Less Variables
 ----------------------------
 
 #. Go back to the Control Panel.
