@@ -115,10 +115,10 @@ Add this:
 .. code-block:: html
 
    <div class="row">
-     <div id="column1-container"></div>
      <div id="content-container">
        <!-- main content (box2 and box3) comes here -->
      </div>
+     <div id="column1-container"></div>
      <div id="column2-container"></div>
    </div>
 
@@ -127,10 +127,9 @@ And then move the main content (the box 2 and box 3 including the parent ``div``
 It should now look like this:
 
 .. code-block:: html
-   :emphasize-lines: 1-4,36-38
+   :emphasize-lines: 1-3,35-38
 
    <div class="row">
-     <div id="column1-container"></div>
      <div id="content-container">
        <!-- main content (box2 and box3) comes here -->
 
@@ -165,8 +164,14 @@ It should now look like this:
          </div>
        </div>
      </div>
+     <div id="column1-container"></div>
      <div id="column2-container"></div>
    </div>
+
+.. hint::
+
+   Note that we added the portlet columns *after* the main content.
+   Using the correct Twitter Bootstrap grid classes we can later *push* the 1st portlet column visually before the main content.
 
 
 Include Theme CSS
@@ -729,17 +734,28 @@ Main Content Area
 To make the Plone content area flexible and containing the correct Twitter Bootstrap grid classes, we use an inline :term:`XSLT` snippet.
 This is already available in our :file:`rules.xml` file, but it needs some customization for our theme:
 
+#. We need to wrap the grid columns into an element with the class ``box``.
+#. We have to adjust the CSS class depending on the available portlets.
+
 .. code-block:: xml
-   :emphasize-lines: 16,20,23,27
+   :emphasize-lines: 5-13,24,28,31,35
 
    <!-- Central column -->
    <replace css:theme="#content-container" method="raw">
 
      <xsl:variable name="central">
-       <xsl:if test="//aside[@id='portal-column-one'] and //aside[@id='portal-column-two']">col-xs-12 col-sm-6</xsl:if>
-       <xsl:if test="//aside[@id='portal-column-two'] and not(//aside[@id='portal-column-one'])">col-xs-12 col-sm-9</xsl:if>
-       <xsl:if test="//aside[@id='portal-column-one'] and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-9</xsl:if>
-       <xsl:if test="not(//aside[@id='portal-column-one']) and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-12</xsl:if>
+       <xsl:if test="//aside[@id='portal-column-one'] and //aside[@id='portal-column-two']">
+         col-xs-12 col-sm-12 col-md-6 col-md-push-3
+       </xsl:if>
+       <xsl:if test="//aside[@id='portal-column-two'] and not(//aside[@id='portal-column-one'])">
+         col-xs-12 col-sm-12 col-md-9
+       </xsl:if>
+       <xsl:if test="//aside[@id='portal-column-one'] and not(//aside[@id='portal-column-two'])">
+         col-xs-12 col-sm-12 col-md-9 col-md-push-3
+       </xsl:if>
+       <xsl:if test="not(//aside[@id='portal-column-one']) and not(//aside[@id='portal-column-two'])">
+         col-xs-12 col-sm-12
+       </xsl:if>
      </xsl:variable>
 
      <div class="{$central}">
@@ -765,7 +781,15 @@ This is already available in our :file:`rules.xml` file, but it needs some custo
 
 
 This code will add the correct Twitter Bootstrap grid classes to the content columns, depending on a one-, two- or three-column-layout.
-For our template we need to wrap the content and the viewlets showing below the content in a ``<div>`` tag with the CSS class ``box``.
+We had to adjust the column classes (we added ``col-md-push-3``) to push the main content (visually) after the 1st portlet column, if this one is available.
+
+For our template we also need to wrap the content and the viewlets showing below the content in a ``<div>`` tag with the CSS class ``box``.
+This will add the shiny white transparent background.
+
+.. hint::
+
+   We also changed the column classes to use the ``col-sm-*`` size for small screens to use the full width and the ``col-md-*`` size for mid-size screens to use a column layout.
+   This fits better on smaller screen sizes.
 
 
 Left And Right Columns
