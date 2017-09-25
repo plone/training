@@ -850,17 +850,105 @@ The ruleset we got from ``bobtemplates.plone`` assigned the ID ``sidebar`` twice
 Footer Area
 -----------
 
-Bring across the footer from Plone:
+Last but not least we have to integrate the footer area from Plone.
+The rule to move all footer portlets at once is already available, the only thing we have to adjust is the selector for the theme:
+
+.. code-block:: xml
+   :emphasize-lines: 3
+
+   <!-- Footer -->
+   <replace
+       css:theme-children="footer > .container"
+       css:content-children="#portal-footer-wrapper"
+       />
+
+If we want to go advanced, we can create a doormat like footer.
+Therefor, we first have to select the *footer*, *site actions* and *colophon* (which are the default portlets available in the footer) and move them into place:
 
 .. code-block:: xml
 
-   <!-- footer -->
-   <replace
-     css:theme-children="footer > .container"
-     css:content-children="#portal-footer-wrapper" />
+   <!-- Footer -->
+   <!-- <replace css:theme-children="footer > .container" css:content-children="#portal-footer-wrapper" /> -->
+   <replace css:theme-children="footer > .container">
+     <xsl:if css:test="#portal-footer-signature">
+       <div class="row">
+         <div class="col-xs-12 text-center">
+           <p><xsl:apply-templates select="//section[@id='portal-footer-signature']/div/node()" /></p>
+         </div>
+       </div>
+     </xsl:if>
+     <xsl:if css:test="#portal-footer-wrapper .portletActions">
+       <div class="row">
+         <div class="col-xs-12 text-center">
+           <xsl:apply-templates select="//footer[@id='portal-footer-wrapper']//section[contains(@class,'portletActions')]/node()" />
+         </div>
+       </div>
+     </xsl:if>
+     <xsl:if css:test="#portal-colophon">
+       <div class="row">
+         <div class="col-xs-12 text-center">
+           <p><xsl:apply-templates select="//section[@id='portal-colophon']/div/node()" /></p>
+         </div>
+       </div>
+     </xsl:if>
+   </replace>
+
+Next we have to select all other available footer portlets, if any, and add them before the *footer*, *site actions* and *colophon* portlets in the footer area.
+We will count the amount of portlets, and based on the number we get we set the column classes.
+
+.. code-block:: xml
+
+   <!-- Move all other footer portlets into footer area. -->
+   <before css:theme-children="footer > .container">
+     <xsl:variable name="portlets" select="count(//footer[@id='portal-footer-wrapper']//div[@class='portletWrapper']/*[not(contains(@id,'portal-colophon')) and not(contains(@id,'portal-footer-signature')) and not(contains(@class,'portletActions'))])"></xsl:variable>
+     <xsl:variable name="columns">
+       <xsl:if test="$portlets=1">col-md-12</xsl:if>
+       <xsl:if test="$portlets=2">col-md-6</xsl:if>
+       <xsl:if test="$portlets=3">col-md-4</xsl:if>
+       <xsl:if test="$portlets=4">col-md-3</xsl:if>
+       <xsl:if test="$portlets>4">col-md-4</xsl:if>
+     </xsl:variable>
+     <xsl:for-each select="//footer[@id='portal-footer-wrapper']//div[@class='portletWrapper']/*[not(contains(@id,'portal-colophon')) and not(contains(@id,'portal-footer-signature')) and not(contains(@class,'portletActions'))]">
+       <div class="col-xs-12 {$columns}">
+         <xsl:for-each select=".">
+           <xsl:choose>
+             <xsl:when css:test=".portlet">
+               <xsl:choose>
+                 <xsl:when css:test=".portletHeader:not(.titleless)">
+                   <div class="headline"><h2><xsl:value-of css:select=".portletHeader" /></h2></div>
+                 </xsl:when>
+               </xsl:choose>
+               <xsl:choose>
+                 <xsl:when css:test=".portletCollection">
+                   <ul>
+                     <xsl:for-each css:select=".portletItem">
+                       <li>
+                         <a><xsl:copy-of select="a/attribute::*" /><xsl:copy-of select="./a/text()" /></a>
+                         <small><xsl:value-of css:select=".portletItemDetails" /></small>
+                       </li>
+                     </xsl:for-each>
+                   </ul>
+                 </xsl:when>
+                 <xsl:otherwise>
+                   <xsl:copy-of css:select=".portletContent" />
+                 </xsl:otherwise>
+               </xsl:choose>
+               <xsl:if css:test=".portletFooter">
+                 <p><xsl:copy-of select="./node()[@class='portletFooter']/node()" /></p>
+               </xsl:if>
+             </xsl:when>
+             <xsl:otherwise>
+               <xsl:copy-of select="./node()" />
+             </xsl:otherwise>
+           </xsl:choose>
+         </xsl:for-each>
+       </div>
+     </xsl:for-each>
+   </before>
 
 That was basically all to bring the theme together with the dynamic elements from Plone.
-The rest is more or less CSS. Later we will :ref:`create-dynamic-slider-content-in-plone` to make the slider dynamic and let users change the pictures for the slider.
+The rest is more or less CSS.
+Later we will :ref:`create-dynamic-slider-content-in-plone` to make the slider dynamic and let users change the pictures for the slider.
 
 
 Understanding And Using The Grunt Build System
