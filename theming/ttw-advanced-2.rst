@@ -1,6 +1,6 @@
-=============================================================
-TTW Theming II: Creating a custom theme based on Barceloneta
-=============================================================
+==========================================================
+TTW Theming II: Create A Custom Theme Based On Barceloneta
+==========================================================
 
 In this section you will:
 
@@ -18,7 +18,7 @@ Topics covered:
 * Creating a visitor-only theme.
 
 
-Inheriting from Barceloneta
+Inheriting From Barceloneta
 ---------------------------
 .. sidebar:: Key Ideas
 
@@ -38,7 +38,7 @@ Additionally new releases of the theme may introduce optimizations or bug fixes.
 By referencing the Barceloneta rules and styles, instead of copying them, you automatically benefit from any updates to the Barceloneta theme while also keeping your custom theme relatively small.
 
 
-Exercise 1 - Create a new theme that inherits from Barceloneta
+Exercise 1 - Create A New Theme That Inherits From Barceloneta
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In this exercise we will create a new theme that inherits the Barceloneta rules and styles.
@@ -109,14 +109,14 @@ In this exercise we will create a new theme that inherits the Barceloneta rules 
 #. Your theme is ready.
 
 
-Viewing the unthemed Plone site
+Viewing The Unthemed Plone Site
 -------------------------------
 
 When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured.
 In order to see a "non-diazoed" version page, just add ``?diazo.off=1`` at the end of its URL.
 
 
-Exercise 2 - Viewing the unthemed site
+Exercise 2 - Viewing The Unthemed Site
 ++++++++++++++++++++++++++++++++++++++
 
 Use ``?diazo.off=1`` to view the unthemed version of your site.
@@ -135,14 +135,14 @@ Then try to answer the following:
    #. There are a few *footer* portlets which construct the footer of the site.
 
 
-Diazo rule directives and attributes
+Diazo Rule Directives And Attributes
 ------------------------------------
 
 The Diazo rules file is an :term:`XML` document containing rules to specify where the content elements (title, footer, main text, etc.) will be located in the targeted theme page.
 The rules are created using *rule directives* which have *attributes*; attribute values are either CSS expressions or :term:`XPath` expressions.
 
 
-CSS selector based attributes
+CSS Selector Based Attributes
 +++++++++++++++++++++++++++++
 It is generally recommended that you use CSS3 selectors to target elements in your content or theme.
 The CSS3 selectors used by Diazo directives are listed below:
@@ -157,7 +157,7 @@ The CSS3 selectors used by Diazo directives are listed below:
     Used to identify the children of an element that will be used.
 
 
-XPath selector based attributes
+XPath Selector Based Attributes
 +++++++++++++++++++++++++++++++
 
 Depending on complexity of the required selector it is sometimes necessary or more convenient to use :term:`XPath` selectors instead of CSS selectors.
@@ -180,8 +180,8 @@ You can also create conditions about the current path using ``if-path``.
    and related attributes see: http://docs.diazo.org/en/latest/basic.html#rule-directives
 
 
-Exercise 3 - the ``<drop>`` directives
-++++++++++++++++++++++++++++++++++++++
+Exercise 3 - The ``<drop>`` Directive
++++++++++++++++++++++++++++++++++++++
 
 Add a rule that drops the "search section" checkbox from the search box.
 See the diagram below:
@@ -203,7 +203,8 @@ See the diagram below:
         <drop css:content="div.searchSection" />
       </rules>
 
-Conditional attributes
+
+Conditional Attributes
 ++++++++++++++++++++++
 
 The following attributes can be used to conditionally activate a directive.
@@ -251,14 +252,14 @@ The following attributes can be used to conditionally activate a directive.
                      patterns-loaded">
 
 
-Converting an existing HTML template into an theme
----------------------------------------------------
+Converting An Existing HTML Template Into A Theme
+-------------------------------------------------
 In the Plone "universe" it is not uncommon to convert an existing HTML template into a Diazo theme.
 Just ensure that when you zip up the source theme that there is a single folder in the root of the zip file.
 We will explore this in more detail in the next exercise.
 
 
-Exercise 4 - Convert a HTML template into a Diazo theme
+Exercise 4 - Convert A HTML Template Into A Diazo Theme
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In this exercise we will walk through the process of converting an existing free HTML theme into a Diazo-based Plone theme.
@@ -290,7 +291,7 @@ The theme is already packaged in a manner that will work with the theming tool.
 
    .. image:: ../theming/_static/theming-uploadzipfile2.png
 
-#. Add a :file:`styles.less` file and import the Barceloneta styles (look back to Excercise 1).
+#. Add a :file:`styles.less` file and import the Barceloneta styles (look back to Exercise 1).
 #. Add a :file:`manifest.cfg` file, set ``production-css`` equal to ``styles.css``
 
    .. note::
@@ -408,8 +409,8 @@ The theme is already packaged in a manner that will work with the theming tool.
          </rules>
 
 
-Creating a visitor-only theme - conditionally enabling Barceloneta
-------------------------------------------------------------------
+Create A Visitor-Only Theme - Conditionally Enabling Barceloneta
+----------------------------------------------------------------
 
 Sometimes it is more convenient for your website administrators to use Barceloneta, Plone's default theme.
 Other visitors would see a completely different layout provided by your custom theme.
@@ -424,7 +425,7 @@ Once you've combined the expressions above with the right Diazo rules you will b
    To avoid conflict and to accomodate the inherited Barceloneta, ensure that your theme file has a different name such as :file:`front.html`.
 
 
-Exercise 5 - Convert the theme to be a visitor-only theme
+Exercise 5 - Convert The Theme To Be A Visitor-Only Theme
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In this exercise we will alter our theme from the previous exercise to make it into a visitor-only theme.

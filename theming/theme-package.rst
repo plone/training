@@ -1,5 +1,5 @@
 ===================================
-Create a Plone Theme python package
+Create A Plone Theme Python Package
 ===================================
 
 Creating a theme product with the Diazo inline editor is an easy way to start and to test, but it is not a solid long term solution and you are also limited in what you can do that way.
@@ -9,7 +9,7 @@ Even if :py:mod:`plone.app.theming` allows importing and exporting of a Diazo th
 One of the most obvious reasons is that it will allow you to override Plone elements that are not accessible via pure Diazo features (such as overloading content view templates, viewlets, configuration settings, etc.).
 
 
-Preparing your setup
+Preparing Your Setup
 ====================
 
 Install npm
@@ -36,8 +36,8 @@ If you need a newer version of :program:`npm` just update your version with :com
    $ npm install npm@latest -g
 
 
-Installing Grunt
-----------------
+Install Grunt
+-------------
 
 We also need to install :program:`grunt-cli` globally.
 If you already have it, you can skip this step.
@@ -56,8 +56,8 @@ If you already have it, you can skip this step.
       ln -s /usr/bin/nodejs /usr/bin/node
 
 
-virtualenv and mr.bob
----------------------
+Setup A Python Virtual Environment
+----------------------------------
 
 First, let's create a Python :program:`virtualenv`:
 
@@ -73,13 +73,13 @@ Then we enable the virtualenv:
    (mrbobvenv):$
 
 
-Create a product to handle your Diazo theme
+Create A Product To Handle Your Diazo Theme
 ===========================================
 
 To create a Plone 5 theme skeleton, you will use :program:`mr.bob`'s templates for Plone.
 
 
-Install mr.bob and bobtemplates.plone
+Install mr.bob And bobtemplates.plone
 -------------------------------------
 
 To install :py:mod:`mr.bob`, you can use :command:`pip`:
@@ -143,8 +143,8 @@ It is now safe to deactivate the ``mrbob`` virtualenv:
       $ cd ..
 
 
-Install Buildout and boostrap your development environment
-----------------------------------------------------------
+Install zc.buildout And Boostrap Your Development Environment
+-------------------------------------------------------------
 
 You can install Buildout globally or on a virtualenv.
 We will install ``zc.buildout`` in a new virtual environment using the provided :file:`requirements.txt`.
@@ -189,7 +189,7 @@ This will create the whole development environment for your package:
    code-analysis-jshint            instance                        postrelease
 
 
-Inspect your package source
+Inspect Your Package Source
 ---------------------------
 
 Your package source code is in the ``src`` folder:
@@ -544,7 +544,7 @@ We also have a file :file:`package.json`, which we can use to define external de
 For more information on how to do this, see :ref:`install-ext-packages-with-npm`.
 
 
-Start Plone and install your theme product
+Start Plone And Install Your Theme Product
 ------------------------------------------
 
 To start the Plone instance, run:
@@ -588,13 +588,13 @@ This control panel will never be themed, so it works even if the theme might be 
       $ git commit -m "Add compiled CSS file."
 
 
-Build your Diazo-based theme
+Build Your Diazo-Based Theme
 ============================
 
 You can start with the example files in the theme folder and just change the :file:`index.html` and :file:`custom.less` files to customize the default theme to your needs.
 As stated above it's the Plone 5 default :term:`Barceloneta` theme plus some custom files you can use to to override or write CSS/Less.
 
-Use your own static mockup
+Use Your Own Static Mockup
 --------------------------
 
 If you got a static mockup from your designer or from a website like http://startbootstrap.com (where the example template came from), you can use this without customization and just apply the Diazo rules to it.
@@ -603,7 +603,7 @@ Another way is to change the static mockup a little bit to use mostly the same C
 This way it is easier to reuse CSS/Less from Barceloneta and Plone add-ons if needed.
 
 
-Download and prepare a static theme
+Download And Prepare A Static Theme
 -----------------------------------
 
 Let's start with an untouched static template, such as this Twitter Bootstrap based one: http://startbootstrap.com/template-overviews/business-casual/.
@@ -679,7 +679,7 @@ The content of your theme folder should now look like this:
    13 directories, 45 files
 
 
-Preparing the template
+Preparing The Template
 ++++++++++++++++++++++
 
 To make the given template :file:`index.html` more useful, we customize it a little bit.
@@ -752,7 +752,7 @@ It should now look like this:
      <div id="column2-container"></div>
    </div>
 
-Include theme CSS
+Include Theme CSS
 +++++++++++++++++
 
 Next we need to include the CSS from the template into our :file:`theme.less` file:
@@ -867,7 +867,7 @@ This way we can extend parts of the CSS in our theme (we will do this with the `
    You can also use :command:`grunt watch` to automatically compile your :term:`Less` files to CSS whenver they are changed.
 
 
-Using Diazo rules to map the theme with Plone content
+Using Diazo Rules To Map The Theme With Plone Content
 -----------------------------------------------------
 
 Now that we have the static theme, we need to apply the Diazo rules in :file:`rules.xml` to map the Plone content elements to the theme.
@@ -1005,8 +1005,8 @@ In fact, if you use a better theme template then this one - where more useful CS
 But we decided to use this popular template as an example and therefor we have to make changes to the template itself.
 
 
-Customizing the rule set
-------------------------
+Customizing The Ruleset
+-----------------------
 
 In this section we will adjust the Diazo rules to place the Plone content into the predefined template sections.
 
@@ -1062,7 +1062,7 @@ To only have your frontend theme rules active when you visit the frontend part o
 Note that we include the file from the theme directly, and don't use the one we got from :py:mod:`bobtemplates.plone`.
 
 
-Login link & co
+Login Link & Co
 +++++++++++++++
 
 If you want to have a login link for your users, you can put this placeholder in your theme template where you want the link to display.
@@ -1089,7 +1089,7 @@ This will replace your placeholder with ``#portal-anontools`` from Plone (for ex
 The link will only be inserted if the user is not already logged in.
 
 
-Top-navigation
+Top Navigation
 ++++++++++++++
 
 In the next step we will replace the menu placeholder with the real Plone top-navigation links.
@@ -1111,8 +1111,8 @@ Here we take the list of links from Plone and replace the placeholder links in t
 The Barceloneta rule copies the whole navigation container into the theme, but we only need to copy the links over.
 
 
-Breadcrumb & co
-+++++++++++++++
+Breadcrumbs & Co
+++++++++++++++++
 
 Plone provides some viewlets like the breadcrumbs (showing the current path) which are rendered in the *above the content* area.
 
@@ -1178,7 +1178,7 @@ Or for anonymous users only:
    The classes like *userrole-anonymous* are provided by Plone in the ``body`` tag.
 
 
-Slider only on Front-Page
+Slider Only On Front Page
 +++++++++++++++++++++++++
 
 We want the slider in the template to be only visible on the front page.
@@ -1246,7 +1246,7 @@ Now we can drop it if we are not on the front page and also in some other situat
 Currently the slider is still static, but we will change that later in :ref:`create-dynamic-slider-content-in-plone`.
 
 
-Title and Description
+Title And Description
 +++++++++++++++++++++
 
 The front page with the slider gives us a nice structure we can use for our title and description.

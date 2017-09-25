@@ -1,5 +1,5 @@
 =============================================
-TTW Theming I: Introduction to Diazo Theming
+TTW Theming I: Introduction To Diazo Theming
 =============================================
 
 In this section you will:
@@ -26,7 +26,7 @@ We will use a `Plone pre-configured Heroku instance <https://github.com/collecti
 Once deployed, create a Plone site.
 
 
-Two approaches to theming
+Two Approaches To Theming
 -------------------------
 
 There are two main approaches to creating a custom theme:
@@ -38,7 +38,7 @@ In this section we will work with the first approach
 The second one will be covered in detail in :doc:`ttw-advanced-2`.
 
 
-What is Diazo?
+What Is Diazo?
 --------------
 
 :program:`Diazo` is a theming engine used by Plone to make theming a site easier.
@@ -58,7 +58,7 @@ For this part of the training you just need to know the basic principles of a Di
 * Diazo rules inject the content into any static theme.
 
 
-Copy barceloneta theme
+Copy Barceloneta Theme
 ----------------------
 
 To create our playground we will copy the existing Barceloneta theme.
@@ -82,7 +82,7 @@ To create our playground we will copy the existing Barceloneta theme.
       :align: center
 
 
-Anatomy of a Diazo theme
+Anatomy Of A Diazo Theme
 ------------------------
 
 The most important files:
@@ -91,7 +91,7 @@ The most important files:
 * :file:`rules.xml`: contains the theme rules (`rules reference <https://docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax>`_);
 * :file:`index.html`: the static HTML of the theme.
 
-Exercise 1 - Inspecting the :file:`manifest.cfg`
+Exercise 1 - Inspecting The :file:`manifest.cfg`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To better understand how your theme is arranged start by reading the :file:`manifest.cfg` file.
@@ -110,7 +110,7 @@ In the theming tool, open the :file:`manifest.cfg` spend a minute or two looking
    #. The ``prefix`` property defines the default location to look for non prefixed files, for example if your prefix is set to ``/++theme++mytheme`` then a file like index.html will be expected at ``/++theme++mytheme/index.html``
 
 
-CSS classes for the ``<body>`` element
+CSS Classes For The ``<body>`` Element
 --------------------------------------
 
 As you browse a Plone site, Plone adds rich information about your current context.
@@ -124,7 +124,7 @@ Information represented by the ``<body>`` classes includes:
 * whether this is a frontend view,
 * whether icons are enabled.
 
-``<body>`` classes for an anonymous visitor
+``<body>`` Classes For An Anonymous Visitor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Below you can see an example of the body classes for a page named "front-page", located in the root of a typical Plone site called "acme":
@@ -141,7 +141,7 @@ Below you can see an example of the body classes for a page named "front-page", 
                  viewpermission-view
                  userrole-anonymous">
 
-``<body>`` classes for a manager
+``<body>`` Classes For A Manager
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 And here is what the classes for the same page look like when viewed by a manager who has logged in:
@@ -165,7 +165,7 @@ And here is what the classes for the same page look like when viewed by a manage
 
 Notice the addition of ``userrole-manager``.
 
-Exercise 2 - Discussion about the ``<body>`` classes
+Exercise 2 - Discussion About The ``<body>`` Classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Look back at the ``<body>`` classes for a manager. Can you answer the following questions?
@@ -182,13 +182,13 @@ Look back at the ``<body>`` classes for a manager. Can you answer the following 
    #. The ``plone-toolbar-expanded`` class is used to control styles used by the expanded version of the toolbar.
 
 
-Custom rules
+Custom Rules
 ------------
 Let's open the default rules file :file:`rules.xml`.
 You will see all the rules that are used in the Barceloneta theme right now.
 For the time being let's concentrate on how to hack these rules.
 
-Conditionally showing content
+Conditionally Showing Content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: ../theming/_static/theming-viewlet-above-content-in-plone-site.png
