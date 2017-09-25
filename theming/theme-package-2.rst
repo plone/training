@@ -795,36 +795,56 @@ This will add the shiny white transparent background.
 Left And Right Columns
 ----------------------
 
-We have already added the ``column1-container`` and ``column2-container`` ids to our template.
-The following rules will incorporate the left and the right columns from Plone
-into the theme, and also change their markup to be an ``aside`` instead of a
-normal ``div``. That is the reason to use inline XSL here, but we already have it in our rules:
+We already added the necessary placeholders ``column1-container`` and ``column2-container`` for the two portlet columns to our template.
+The next set of rules will add the left and right portlet columns from Plone into the theme, and also change their markup to be an ``<aside>`` element instead of a normal ``<div>`` tag.
+
+Because the main content column is coming before the two portlet columns, but we want to have the 1st column appear on the left side, we need to *pull* the column before the main content.
+This is done with the CSS classes ``col-md-pull-6`` (if both portlet columns are available) and ``col-md-pull-9`` (if only the left column is available).
 
 .. code-block:: xml
+   :emphasize-lines: 4-12,23-31
 
    <!-- Left column -->
    <rules css:if-content="#portal-column-one">
      <replace css:theme="#column1-container">
-         <div id="left-sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
-           <aside id="portal-column-one">
-              <xsl:copy-of css:select="#portal-column-one > *" />
-           </aside>
-         </div>
+       <xsl:variable name="columnone">
+         <xsl:if test="//aside[@id='portal-column-two']">
+           col-xs-12 col-sm-6 col-md-3 col-md-pull-6
+         </xsl:if>
+         <xsl:if test="//aside[@id='portal-column-one'] and not(//aside[@id='portal-column-two'])">
+           col-xs-12 col-sm-12 col-md-3 col-md-pull-9
+         </xsl:if>
+       </xsl:variable>
+       <div id="left-sidebar" class="{$columnone} sidebar-offcanvas">
+         <aside id="portal-column-one">
+           <xsl:copy-of css:select="#portal-column-one > *" />
+         </aside>
+       </div>
      </replace>
    </rules>
 
    <!-- Right column -->
    <rules css:if-content="#portal-column-two">
      <replace css:theme="#column2-container">
-         <div id="right-sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas" role="complementary">
-           <aside id="portal-column-two">
-              <xsl:copy-of css:select="#portal-column-two > *" />
-           </aside>
-         </div>
+       <xsl:variable name="columntwo">
+         <xsl:if test="//aside[@id='portal-column-one']">
+           col-xs-12 col-sm-6 col-md-3
+         </xsl:if>
+         <xsl:if test="//aside[@id='portal-column-two'] and not(//aside[@id='portal-column-one'])">
+           col-xs-12 col-sm-12 col-md-3
+         </xsl:if>
+       </xsl:variable>
+       <div id="right-sidebar" class="{$columntwo} sidebar-offcanvas" role="complementary">
+         <aside id="portal-column-two">
+           <xsl:copy-of css:select="#portal-column-two > *" />
+         </aside>
+       </div>
      </replace>
    </rules>
 
-So nothing more to do here.
+
+Another thing we have to change are the CSS-IDs for the columns.
+The ruleset we got from ``bobtemplates.plone`` assigned the ID ``sidebar`` twice, which is not valid HTML.
 
 
 Footer Area
