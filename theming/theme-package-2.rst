@@ -127,6 +127,7 @@ And then move the main content (the box 2 and box 3 including the parent ``div``
 It should now look like this:
 
 .. code-block:: html
+   :emphasize-lines: 1-4,36-38
 
    <div class="row">
      <div id="column1-container"></div>
