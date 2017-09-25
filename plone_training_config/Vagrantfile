@@ -33,13 +33,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       apt-get install -y puppet
   SHELL
 
-  # Run apt-get update as a separate step in order to avoid
-  # package install errors
-  config.vm.provision :puppet do |puppet|
-      puppet.manifests_path = "manifests"
-      puppet.manifest_file  = "aptgetupdate.pp"
-  end
-
   # ensure we have the packages we need
   config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "manifests"
