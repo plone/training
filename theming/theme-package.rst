@@ -1281,28 +1281,29 @@ If we are on the front page, the Plone title will be placed inside the tag with 
 For all other pages, the title and description stay at their place in the content area.
 
 
-Status messages
+Status Messages
 +++++++++++++++
 
-Plone will render status messages in the ``#global_statusmessage`` element.
-We want to bring these messages across to the theme.
-For this, we add another placeholder into our theme template:
+Plone will render status messages in an element with the CSS-ID ``#global_statusmessage``.
+To show the messages in our theme, we have to add another placeholder into our theme template (e.g. next to the ``above-content`` viewlets):
 
 .. code-block:: html
+   :emphasize-lines: 2
 
    <div class="row">
-       <div id="global_statusmessage"></div>
-       <div id="above-content"></div>
+     <div id="global_statusmessage"></div>
+     <div id="above-content"></div>
    </div>
 
-and we already have this rule to bring the messages across:
+The necessary rule is already available:
 
 .. code-block:: xml
 
    <!-- Alert message -->
    <replace css:theme-children="#global_statusmessage" css:content-children="#global_statusmessage" />
 
-To test that, just edit the front page. You should see a confirmation message from Plone.
+To test that the status messages are working, you can for example edit the front page and then click on cancel or save, which will give you a confirmation message from Plone.
+
 
 Main content area 1
 +++++++++++++++++++
