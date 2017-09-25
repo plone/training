@@ -1,20 +1,16 @@
-===================================
-Theme Package II: Create Your Theme
-===================================
+==============================================
+Theme Package II: Build Your Diazo-Based Theme
+==============================================
 
 In the previous section we prepared our setup for our custom theme package.
 Now we will adjust the skeleton we got using ``bobtemplates.plone`` and build our Diazo theme.
-
-
-Build Your Diazo-Based Theme
-============================
 
 You can start with the example files in the theme folder and just change the :file:`index.html` and :file:`custom.less` files to customize the default theme to your needs.
 As stated above it's the Plone 5 default :term:`Barceloneta` theme plus some custom files you can use to to override or write CSS/Less.
 
 
 Use Your Own Static Mockup
---------------------------
+==========================
 
 If you got a static mockup from your designer or from a website like http://startbootstrap.com (where the example template came from), you can use this without customization and just apply the Diazo rules to it.
 
@@ -23,7 +19,7 @@ This way it is easier to reuse CSS/Less from Barceloneta and Plone add-ons if ne
 
 
 Download And Prepare A Static Theme
------------------------------------
+===================================
 
 Let's start with an untouched static template, such as this Twitter Bootstrap based one: http://startbootstrap.com/template-overviews/business-casual/.
 The latest version of that template uses a beta version of Twitter Bootstrap 4.
@@ -99,7 +95,7 @@ The content of your theme folder should now look like this:
 
 
 Preparing The Template
-++++++++++++++++++++++
+----------------------
 
 To make the given template :file:`index.html` more useful, we customize it a little bit.
 Right before the second box which contains:
@@ -173,7 +169,7 @@ It should now look like this:
 
 
 Include Theme CSS
-+++++++++++++++++
+-----------------
 
 Next we need to include the CSS from the template into our :file:`theme.less` file:
 
@@ -288,7 +284,7 @@ This way we can extend parts of the CSS in our theme (we will do this with the `
 
 
 Using Diazo Rules To Map The Theme With Plone Content
------------------------------------------------------
+=====================================================
 
 Now that we have the static theme, we need to apply the Diazo rules in :file:`rules.xml` to map the Plone content elements to the theme.
 
@@ -426,13 +422,13 @@ But we decided to use this popular template as an example and therefor we have t
 
 
 Customizing The Ruleset
------------------------
+=======================
 
 In this section we will adjust the Diazo rules to place the Plone content into the predefined template sections.
 
 
 Plone Toolbar
-+++++++++++++
+-------------
 
 We start with the toolbar since it is the most important part of the Plone site (for logged in users).
 So let's first make sure we have it in our theme template.
@@ -455,7 +451,7 @@ You can add it right after the opening body tag in your :file:`index.html`.
 
 
 Unthemed Backend
-++++++++++++++++
+----------------
 
 If the only thing you want to do is theme your frontend, and use the default Barceloneta theme for your backend (edit, folder contents, settings), you can include Barceloneta's :file:`backend.xml`.
 To only have your frontend theme rules active when you visit the frontend part of your site, you can wrap the existing rules into another ``rules`` block:
@@ -484,7 +480,7 @@ Note that we include the file from the theme directly, and don't use the one we 
 
 
 Login Link & Co
-+++++++++++++++
+---------------
 
 If you want to have a login link for your users, you can put this placeholder in your theme template where you want the link to display.
 You can always login into the Plone site by adding ``/login`` to the Plone url, so it's optional.
@@ -511,7 +507,7 @@ The link will only be inserted if the user is not already logged in.
 
 
 Top Navigation
-++++++++++++++
+--------------
 
 In the next step we will replace the menu placeholder with the real Plone top-navigation links.
 To do this we adjust this rule from Barceloneta:
@@ -533,7 +529,7 @@ The Barceloneta rule copies the whole navigation container into the theme, but w
 
 
 Breadcrumbs & Co
-++++++++++++++++
+----------------
 
 Plone provides some viewlets like the breadcrumbs (showing the current path) which are rendered in the *above the content* area.
 
@@ -600,7 +596,7 @@ Or for anonymous users only:
 
 
 Slider Only On Front Page
-+++++++++++++++++++++++++
+-------------------------
 
 We want the slider in the template to be only visible on the front page.
 To make this easier, we add the CSS-ID ``#front-page-slider`` to the outer row ``div``-tag which contains the slider:
@@ -668,7 +664,7 @@ Currently the slider is still static, but we will change that later in :ref:`cre
 
 
 Title And Description
-+++++++++++++++++++++
+---------------------
 
 The front page with the slider gives us a nice structure we can use for our title and description.
 We will use the ``<h1>`` tag with the class ``brand-name`` for the title and the following ``<h2>`` tag for the description.
@@ -703,7 +699,7 @@ For all other pages, the title and description stay at their place in the conten
 
 
 Status Messages
-+++++++++++++++
+---------------
 
 Plone will render status messages in an element with the CSS-ID ``#global_statusmessage``.
 To show the messages in our theme, we have to add another placeholder into our theme template (e.g. next to the ``above-content`` viewlets):
@@ -726,8 +722,8 @@ The necessary rule is already available:
 To test that the status messages are working, you can for example edit the front page and then click on cancel or save, which will give you a confirmation message from Plone.
 
 
-Main content area 1
-+++++++++++++++++++
+Main Content Area
+-----------------
 
 To make the Plone content area flexible and containing the correct
 bootstrap grid classes, we use an inline XSL snippet.
@@ -770,8 +766,8 @@ This will add the right grid classes to the content columns depending on one-col
 We need to wrap these elements in a div with the class ``box``.
 
 
-Left and right columns
-++++++++++++++++++++++
+Left And Right Columns
+----------------------
 
 We have already added the ``column1-container`` and ``column2-container`` ids to our template.
 The following rules will incorporate the left and the right columns from Plone
@@ -804,8 +800,9 @@ normal ``div``. That is the reason to use inline XSL here, but we already have i
 
 So nothing more to do here.
 
-Footer
-++++++
+
+Footer Area
+-----------
 
 Bring across the footer from Plone:
 
@@ -819,8 +816,9 @@ Bring across the footer from Plone:
 That was basically all to bring the theme together with the dynamic elements from Plone.
 The rest is more or less CSS. Later we will :ref:`create-dynamic-slider-content-in-plone` to make the slider dynamic and let users change the pictures for the slider.
 
-Understanding and using the Grunt build system
-++++++++++++++++++++++++++++++++++++++++++++++
+
+Understanding And Using The Grunt Build System
+==============================================
 
 We already have a ``Gruntfile.js`` in the top level directory of our theme package:
 
@@ -999,8 +997,8 @@ You will now see an open browser window, which is automatically reloaded any tim
    If you use other ports or IP's for your Plone backend, you have to set up the proxy in the Gruntfile.js to the Plone backend address:port.
 
 
-Theme manifest.xml
-******************
+Theme :file:`manifest.xml`
+==========================
 
 Now let's have a look at our theme's ``manifest.cfg`` which declares ``development-css``, ``production-css`` and optionally ``tinymce-content-css``, like this:
 
@@ -1038,8 +1036,8 @@ The last one ``tinymce-content-css`` tells Plone to load that particular CSS fil
   for them to take effect. Just go to ``/@@theming-controlpanel`` and do it.
 
 
-Final CSS customization
-+++++++++++++++++++++++
+Final CSS Customization
+=======================
 
 To make our theme look nicer, we add some CSS as follows to our ``custom.less``
 file:
@@ -1127,10 +1125,10 @@ file:
    }
 
 
-.. _install-ext-packages-with-npm:
 
-Install external CSS and JavaScript with npm and use them in your theme
-***********************************************************************
+.. _install-ext-packages-with-npm:
+Install External CSS And JavaScript Libraries With npm And Use Them In Your Theme
+---------------------------------------------------------------------------------
 
 As our theme is based on ``Bootstrap``, we want to install ``Bootstrap`` with ``npm`` to have more flexibility, for example to use the LESS file of Bootstrap.
 To do that, we use ``npm``, which you should already have globally installed on your
@@ -1395,7 +1393,7 @@ here we define the bootstrap path, so that we can use it in all bootstrap includ
 .. note:: Don't forget to run ``grunt compile`` after you changed the LESS files or use ``grunt watch`` to do this automatically after every change!
 
 
-More Diazo and plone.app.theming details
-****************************************
+More Diazo And plone.app.theming Details
+========================================
 
 For more details how to build a Diazo based theme, look at http://docs.diazo.org/en/latest/ and https://docs.plone.org/external/plone.app.theming/docs/index.html.
