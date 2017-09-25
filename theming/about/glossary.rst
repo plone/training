@@ -89,6 +89,10 @@ Glossary
    XML
       The Extensible Markup Language.
 
+   XSLT
+      The Extensible Stylesheet Language Transformations.
+      A language which defines elements to describe transformations to be applied on a document.
+
    XPath
       XPath (XML Path Language) is a query language for selecting nodes from an XML document.
 

@@ -725,11 +725,11 @@ To test that the status messages are working, you can for example edit the front
 Main Content Area
 -----------------
 
-To make the Plone content area flexible and containing the correct
-bootstrap grid classes, we use an inline XSL snippet.
-This is already in our rules.xml, but needs some customization for our theme:
+To make the Plone content area flexible and containing the correct Twitter Bootstrap grid classes, we use an inline :term:`XSLT` snippet.
+This is already available in our :file:`rules.xml` file, but it needs some customization for our theme:
 
 .. code-block:: xml
+   :emphasize-lines: 16,20,23,27
 
    <!-- Central column -->
    <replace css:theme="#content-container" method="raw">
@@ -762,8 +762,9 @@ This is already in our rules.xml, but needs some customization for our theme:
      </div>
    </replace>
 
-This will add the right grid classes to the content columns depending on one-column-, two-column- or three-column-layout.
-We need to wrap these elements in a div with the class ``box``.
+
+This code will add the correct Twitter Bootstrap grid classes to the content columns, depending on a one-, two- or three-column-layout.
+For our template we need to wrap the content and the viewlets showing below the content in a ``<div>`` tag with the CSS class ``box``.
 
 
 Left And Right Columns
