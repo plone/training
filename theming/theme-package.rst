@@ -1249,36 +1249,36 @@ Currently the slider is still static, but we will change that later in :ref:`cre
 Title and Description
 +++++++++++++++++++++
 
-Let's delete the tag with the id ``brand-before`` from the theme template.
+The front page with the slider gives us a nice structure we can use for our title and description.
+We will use the ``<h1>`` tag with the class ``brand-name`` for the title and the following ``<h2>`` tag for the description.
+There is also an ``<h2>`` tag with the class ``brand-before`` which we don't need, so we will remove it.
+
+The resulting block of rules can be wrapped into a separate ``rules`` tag with the ``css:if-content`` condition, so we only have to write this once:
 
 .. code-block:: xml
 
-   <drop
-     css:theme=".brand-before"
-     css:if-content=".section-front-page" />
+   <!-- Title & Description on front page -->
+   <rules css:if-content=".section-front-page">
+     <drop css:theme=".brand-before" />
 
-Now let's put the necessary rules for the Title and Description in our rules.xml:
+     <replace
+         css:theme-children=".brand-name"
+         css:content-children=".documentFirstHeading"
+         method="raw"
+         />
+     <drop css:content=".documentFirstHeading" />
 
-.. code-block:: xml
-
-   <replace
-     css:theme-children=".brand-name"
-     css:content-children=".documentFirstHeading"
-     method="raw" />
-   <drop
-     css:content=".documentFirstHeading"
-     css:if-content=".section-front-page" />
-
-   <replace
-     css:theme="#front-page-slider h2"
-     css:content=".documentDescription"
-     method="raw" />
-   <drop
-     css:content=".documentDescription"
-     css:if-content=".section-front-page" />
+     <replace
+       css:theme="#front-page-slider h2"
+       css:content=".documentDescription"
+       method="raw"
+       />
+     <drop css:content=".documentDescription" />
+   </rules>
 
 
-If we have the slider on the front page, the Plone title will be placed inside the tag with the class ``brand-name``. If we don't have the slider, we see the title inside the tag with the class ``documentFirstHeading``.
+If we are on the front page, the Plone title will be placed inside the tag with the class ``brand-name``.
+For all other pages, the title and description stay at their place in the content area.
 
 
 Status messages
