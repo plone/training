@@ -1178,58 +1178,59 @@ Or for anonymous users only:
    The classes like *userrole-anonymous* are provided by Plone in the ``body`` tag.
 
 
-Slider only on Front-page
+Slider only on Front-Page
 +++++++++++++++++++++++++
 
-We want the slider in the template only on the front page, and we don't want it
-when we are editing the front page. To make this easier, we add ``#front-page-slider`` to the outer row ``div``-tag which contains the slider:
+We want the slider in the template to be only visible on the front page.
+To make this easier, we add the CSS-ID ``#front-page-slider`` to the outer row ``div``-tag which contains the slider:
 
 .. code-block:: html
+   :emphasize-lines: 1
 
    <div class="row" id="front-page-slider">
-       <div class="box">
-           <div class="col-lg-12 text-center">
-               <div id="carousel-example-generic" class="carousel slide">
-                   <!-- Indicators -->
-                   <ol class="carousel-indicators hidden-xs">
-                       <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                       <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                       <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                   </ol>
+     <div class="box">
+       <div class="col-lg-12 text-center">
+         <div id="carousel-example-generic" class="carousel slide">
+           <!-- Indicators -->
+           <ol class="carousel-indicators hidden-xs">
+             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+           </ol>
 
-                   <!-- Wrapper for slides -->
-                   <div class="carousel-inner">
-                       <div class="item active">
-                           <img class="img-responsive img-full" src="img/slide-1.jpg" alt="">
-                       </div>
-                       <div class="item">
-                           <img class="img-responsive img-full" src="img/slide-2.jpg" alt="">
-                       </div>
-                       <div class="item">
-                           <img class="img-responsive img-full" src="img/slide-3.jpg" alt="">
-                       </div>
-                   </div>
-
-                   <!-- Controls -->
-                   <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                       <span class="icon-prev"></span>
-                   </a>
-                   <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                       <span class="icon-next"></span>
-                   </a>
-               </div>
-               <h2 class="brand-before">
-                       <small>Welcome to</small>
-               </h2>
-               <h1 class="brand-name">Business Casual</h1>
-               <hr class="tagline-divider">
-               <h2>
-                   <small>By
-                       <strong>Start Bootstrap</strong>
-                   </small>
-               </h2>
+           <!-- Wrapper for slides -->
+           <div class="carousel-inner">
+             <div class="item active">
+               <img class="img-responsive img-full" src="img/slide-1.jpg" alt="">
              </div>
+             <div class="item">
+               <img class="img-responsive img-full" src="img/slide-2.jpg" alt="">
+             </div>
+             <div class="item">
+               <img class="img-responsive img-full" src="img/slide-3.jpg" alt="">
+             </div>
+           </div>
+
+           <!-- Controls -->
+           <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+             <span class="icon-prev"></span>
+           </a>
+           <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+             <span class="icon-next"></span>
+           </a>
+         </div>
+         <h2 class="brand-before">
+           <small>Welcome to</small>
+         </h2>
+         <h1 class="brand-name">Business Casual</h1>
+         <hr class="tagline-divider">
+         <h2>
+           <small>By
+             <strong>Start Bootstrap</strong>
+           </small>
+         </h2>
        </div>
+     </div>
    </div>
 
 
@@ -1238,10 +1239,12 @@ Now we can drop it if we are not on the front page and also in some other situat
 .. code-block:: xml
 
    <drop
-     css:theme="#front-page-slider"
-     css:if-not-content=".section-front-page.template-document_view" />
+       css:theme="#front-page-slider"
+       css:if-not-content=".section-front-page"
+       />
 
 Currently the slider is still static, but we will change that later in :ref:`create-dynamic-slider-content-in-plone`.
+
 
 Title and Description
 +++++++++++++++++++++
