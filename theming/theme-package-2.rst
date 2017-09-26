@@ -2,7 +2,7 @@
 Theme Package II: Build Your Diazo-Based Theme
 ==============================================
 
-In the previous section we prepared our setup for our custom theme package.
+In the previous section we :doc:`prepared our setup for our custom theme package <theme-package>`.
 Now we will adjust the skeleton we got using ``bobtemplates.plone`` and build our Diazo theme.
 
 You can start with the example files in the theme folder and just change the :file:`index.html` and :file:`custom.less` files to customize the default theme to your needs.
@@ -947,5 +947,5 @@ We will count the amount of portlets, and based on the number we get we set the 
    </before>
 
 That was basically all to bring the theme together with the dynamic elements from Plone.
-The rest is more or less CSS.
-Later we will :ref:`create-dynamic-slider-content-in-plone` to make the slider dynamic and let users change the pictures for the slider.
+The next part will :doc:`cover necessary CSS customizations <theme-package-3>` for our theme.
+Later we will :ref:`make the slider dynamic and let users change the pictures for the slider <create-dynamic-slider-content-in-plone>`.
