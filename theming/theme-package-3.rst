@@ -320,15 +320,19 @@ Replace the example content with the following Less code in the file :file:`cust
      .box;
    }
 
-   footer .portletActions{
-   }
-
    footer {
+     margin-top: 1em;
+
      .portlet {
        padding: 1em 0;
        margin-bottom: 0;
        border: 0;
        background: transparent;
+       box-shadow: none;
+
+       p {
+         padding: 1em 0;
+       }
 
        .portletContent {
          border: 0;
