@@ -380,42 +380,47 @@ Replace the example content with the following Less code in the file :file:`cust
 Install External CSS And JavaScript Libraries With npm And Use Them In Your Theme
 ---------------------------------------------------------------------------------
 
-As our theme is based on ``Bootstrap``, we want to install ``Bootstrap`` with ``npm`` to have more flexibility, for example to use the LESS file of Bootstrap.
-To do that, we use ``npm``, which you should already have globally installed on your
-system.
+As our theme is based on ``Bootstrap``, we want to install ``Bootstrap`` with :program:`npm` to have more flexibility, for example to use the Less file of Bootstrap.
+To do that, we use :program:`npm`, which we already :doc:`installed in the preparations <theme-package>`.
 
-.. note:: The following steps are already included in bobtemplates.plone template, they are here only for documentation reasons, to show how to install and use external packages like ``Bootstrap``.
+.. note::
 
-To install ``Bootstrap`` with ``npm`` run the following command inside the theme folder:
+   The following steps are already included in the ``bobtemplates.plone`` template
+   We show them here only for documentation reasons, so you see how you can install and use external packages like ``Bootstrap``.
+
+To install ``Bootstrap`` with :program:`npm`, run the following command inside the theme folder:
 
 .. code-block:: bash
-
+   $ cd src/ploneconf/theme/theme
    $ npm install bootstrap --save
 
-The ``--save`` option will add the package to ``package.json`` in the theme folder for us.
-Now, we can install all dependencies on any other system by running the
-following command from inside of our theme folder:
+The ``--save`` option will add the ``bootstrap`` package to the file :file:`package.json` in the theme folder for us.
+Now we can install all dependencies on any other system by running the following command from inside of our theme folder:
 
 .. code-block:: bash
 
    $ npm install
 
-Now that we have installed bootstrap using npm, we have all bootstrap
-components available in the subfolder called ``node_modules``:
+Now that we have installed bootstrap using :command:`npm` we have all the ``bootstrap`` components available in the subfolder called :file:`node_modules`:
 
 .. code-block:: bash
 
    $ tree node_modules/bootstrap/
    node_modules/bootstrap/
    ├── CHANGELOG.md
+   ├── Gruntfile.js
+   ├── LICENSE
+   ├── README.md
    ├── dist
    │   ├── css
+   │   │   ├── bootstrap-theme.css
+   │   │   ├── bootstrap-theme.css.map
+   │   │   ├── bootstrap-theme.min.css
+   │   │   ├── bootstrap-theme.min.css.map
    │   │   ├── bootstrap.css
    │   │   ├── bootstrap.css.map
    │   │   ├── bootstrap.min.css
-   │   │   ├── bootstrap-theme.css
-   │   │   ├── bootstrap-theme.css.map
-   │   │   └── bootstrap-theme.min.css
+   │   │   └── bootstrap.min.css.map
    │   ├── fonts
    │   │   ├── glyphicons-halflings-regular.eot
    │   │   ├── glyphicons-halflings-regular.svg
@@ -437,9 +442,10 @@ components available in the subfolder called ``node_modules``:
    │   ├── bs-glyphicons-data-generator.js
    │   ├── bs-lessdoc-parser.js
    │   ├── bs-raw-files-generator.js
+   │   ├── change-version.js
    │   ├── configBridge.json
+   │   ├── npm-shrinkwrap.json
    │   └── sauce_browsers.yml
-   ├── Gruntfile.js
    ├── js
    │   ├── affix.js
    │   ├── alert.js
@@ -526,39 +532,41 @@ components available in the subfolder called ``node_modules``:
    │   ├── utilities.less
    │   ├── variables.less
    │   └── wells.less
-   ├── LICENSE
-   ├── package.json
-   └── README.md
+   └── package.json
 
-To include the needed "carousel" part and some other bootstrap components which
-our downloaded theme uses, we change our ``theme.less`` to look like this:
+   9 directories, 117 files
 
-.. code-block:: css
 
-   /* theme.less file that will be compiled */
+We will include the "carousel" part and some other bootstrap components which our downloaded theme uses.
+To do this, we include the required bootstrap components in our :file:`theme.less` file (they were already added from ``bobtemplates.plone``):
+
+.. code-block:: less
+   :emphasize-lines: 75-86
+
+   // theme.less file that will be compiled
 
    /* ### PLONE IMPORTS ### */
 
    @barceloneta_path: "barceloneta/less";
 
-   /* Core variables and mixins */
+   // Core variables and mixins
    @import "@{barceloneta_path}/fonts.plone.less";
    @import "@{barceloneta_path}/variables.plone.less";
-       @import "@{barceloneta_path}/mixin.prefixes.plone.less";
-       @import "@{barceloneta_path}/mixin.tabfocus.plone.less";
-       @import "@{barceloneta_path}/mixin.images.plone.less";
-       @import "@{barceloneta_path}/mixin.forms.plone.less";
-       @import "@{barceloneta_path}/mixin.borderradius.plone.less";
-       @import "@{barceloneta_path}/mixin.buttons.plone.less";
-       @import "@{barceloneta_path}/mixin.clearfix.plone.less";
-   //    @import "@{barceloneta_path}/mixin.gridframework.plone.less"; //grid Bootstrap
-       @import "@{barceloneta_path}/mixin.grid.plone.less"; //grid Bootstrap
+   @import "@{barceloneta_path}/mixin.prefixes.plone.less";
+   @import "@{barceloneta_path}/mixin.tabfocus.plone.less";
+   @import "@{barceloneta_path}/mixin.images.plone.less";
+   @import "@{barceloneta_path}/mixin.forms.plone.less";
+   @import "@{barceloneta_path}/mixin.borderradius.plone.less";
+   @import "@{barceloneta_path}/mixin.buttons.plone.less";
+   @import "@{barceloneta_path}/mixin.clearfix.plone.less";
+   // @import "@{barceloneta_path}/mixin.gridframework.plone.less"; //grid Bootstrap
+   @import "@{barceloneta_path}/mixin.grid.plone.less"; //grid Bootstrap
 
    @import "@{barceloneta_path}/normalize.plone.less";
    @import "@{barceloneta_path}/print.plone.less";
    @import "@{barceloneta_path}/code.plone.less";
 
-   /* Core CSS */
+   // Core CSS
    @import "@{barceloneta_path}/grid.plone.less";
    @import "@{barceloneta_path}/scaffolding.plone.less";
    @import "@{barceloneta_path}/type.plone.less";
@@ -567,7 +575,7 @@ our downloaded theme uses, we change our ``theme.less`` to look like this:
    @import "@{barceloneta_path}/buttons.plone.less";
    @import "@{barceloneta_path}/states.plone.less";
 
-   /* Components */
+   // Components
    @import "@{barceloneta_path}/breadcrumbs.plone.less";
    @import "@{barceloneta_path}/pagination.plone.less";
    @import "@{barceloneta_path}/formtabbing.plone.less"; //pattern
@@ -579,7 +587,7 @@ our downloaded theme uses, we change our ``theme.less`` to look like this:
    @import "@{barceloneta_path}/tags.plone.less";
    @import "@{barceloneta_path}/contents.plone.less";
 
-   /* Patterns */
+   // Patterns
    @import "@{barceloneta_path}/accessibility.plone.less";
    @import "@{barceloneta_path}/toc.plone.less";
    @import "@{barceloneta_path}/dropzone.plone.less";
@@ -590,7 +598,7 @@ our downloaded theme uses, we change our ``theme.less`` to look like this:
    @import "@{barceloneta_path}/tooltip.plone.less";
    @import "@{barceloneta_path}/tree.plone.less";
 
-   /* Structure */
+   // Structure
    @import "@{barceloneta_path}/header.plone.less";
    @import "@{barceloneta_path}/sitenav.plone.less";
    @import "@{barceloneta_path}/main.plone.less";
@@ -598,16 +606,16 @@ our downloaded theme uses, we change our ``theme.less`` to look like this:
    @import "@{barceloneta_path}/loginform.plone.less";
    @import "@{barceloneta_path}/sitemap.plone.less";
 
-   /* Products */
+   // Products
    @import "@{barceloneta_path}/event.plone.less";
    @import "@{barceloneta_path}/image.plone.less";
    @import "@{barceloneta_path}/behaviors.plone.less";
    @import "@{barceloneta_path}/discussion.plone.less";
    @import "@{barceloneta_path}/search.plone.less";
 
-   // ### END OF PLONE IMPORTS ###
+   /* ### END OF PLONE IMPORTS ### */
 
-   // ### UTILS ###
+   /* ### UTILS ### */
 
    // import bootstrap files:
    @bootstrap_path: "node_modules/bootstrap/less";
@@ -622,28 +630,30 @@ our downloaded theme uses, we change our ``theme.less`` to look like this:
    @import "@{bootstrap_path}/navbar.less";
    @import "@{bootstrap_path}/carousel.less";
 
-   // END OF UTILS
-
-   // include theme css as less
+   /* ### END OF UTILS ### */
    @import (less) "../css/business-casual.css";
 
    // include our custom css/less
    @import "custom.less";
 
-Here you can see how we include the resources like ``@import "@{bootstrap_path}/carousel.less";`` in our LESS file.
+Here you can see how we include the resources like ``@import "@{bootstrap_path}/carousel.less";`` in our Less file.
 
-Also take notice of the definition:
+But before they can be used, it is important to add the path to the less files:
 
 .. code-block:: css
+   :emphasize-lines: 2
 
+   // import bootstrap files:
    @bootstrap_path: "node_modules/bootstrap/less";
 
-here we define the bootstrap path, so that we can use it in all bootstrap includes.
+This defines the path to the ``bootstrap`` files, so that we can use it in all bootstrap includes.
 
-.. note:: Don't forget to run ``grunt compile`` after you changed the LESS files or use ``grunt watch`` to do this automatically after every change!
+.. note::
+
+   Don't forget to run :command:`grunt compile` after you changed any of the Less files or use :command:`grunt watch` to do this automatically after every file change.
 
 
 More Diazo And plone.app.theming Details
 ========================================
 
-For more details how to build a Diazo based theme, look at http://docs.diazo.org/en/latest/ and https://docs.plone.org/external/plone.app.theming/docs/index.html.
+For more information on how to build a Diazo based theme take a look at `the diazo documentation <http://docs.diazo.org/en/latest/>`_ and `the plone.app.theming manual <https://docs.plone.org/external/plone.app.theming/docs/index.html>`_.
