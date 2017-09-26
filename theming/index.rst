@@ -32,6 +32,7 @@ This training is **not** about:
    static-theme
    theme-package
    theme-package-2
+   theme-package-3
    creating-customizing-templates
    creating-initial-content-for-the-theme
    tinymce-templates
