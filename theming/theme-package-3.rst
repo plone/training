@@ -272,91 +272,103 @@ The file :file:`tinymce-content-css` tells Plone to load that particular CSS fil
 Final CSS Customization
 =======================
 
-To make our theme look nicer, we add some CSS as follows to our ``custom.less``
-file:
+Our example theme already looks pretty good.
+But with the help of some CSS we can give it the final touch.
+We will re-use the definition of the ``box`` class from the file :file:`theme/css/business-casual.css` for portlets in the left and right portlet column.
+Replace the example content with the following Less code in the file :file:`custom.less`:
 
-.. code:: css
+.. code-block:: less
+   :emphasize-lines: 36-39
 
-   /* Custom LESS file that is included from the theme.less file */
+   /* Custom Less file that is included from the theme.less file. */
 
-   .brand-name{
-       margin-top: 0.5em;
+   .brand-name {
+     margin-top: 0.5em;
    }
 
    .documentDescription{
-       margin-top: 1em;
+     margin-top: 1em;
    }
 
    .clearFix{
-       clear: both;
+     clear: both;
    }
 
    #left-sidebar {
-       padding-left: 0;
+     padding-left: 0;
    }
 
    #right-sidebar {
-       padding-right: 0;
+     padding-right: 0;
    }
 
    #content {
-       label, .label {
-           color: #333;
-           font-size: 100%;
-       }
+     label,
+     .label {
+       color: #333;
+       font-size: 100%;
+     }
    }
 
-   .pat-autotoc.autotabs, .autotabs {
-       border-width: 0;
+   .pat-autotoc.autotabs,
+   .autotabs {
+     border-width: 0;
    }
 
-   .portal-column-one .portlet,
-   .portal-column-two .portlet {
-       .box;
+   #portal-column-one .portlet,
+   #portal-column-two .portlet {
+     .box;
    }
 
    footer .portletActions{
    }
 
    footer {
-       .portlet {
-           padding: 1em 0;
-           margin-bottom: 0;
-           border: 0;
-           background: transparent;
-           .portletContent{
-               border: 0;
-               background: transparent;
-               ul {
-                   padding-left: 0;
-                   list-style-type: none;
-                   .portletItem {
-                       display: inline-block;
-                       &:not(:last-child){
-                           padding-right: 0.5em;
-                           margin-right: 0.5em;
-                           border-right: 1px solid;
-                       }
-                       &:hover{
-                           background-color: transparent;
-                       }
-                       a{
-                           color: #000;
-                           padding: 0;
-                           text-decoration: none;
-                           &:hover{
-                               background-color: transparent;
-                           }
-                           &::before{
-                               content: none;
-                           }
-                       }
-                   }
-               }
-           }
-       }
-   }
+     .portlet {
+       padding: 1em 0;
+       margin-bottom: 0;
+       border: 0;
+       background: transparent;
 
+       .portletContent {
+         border: 0;
+         background: transparent;
+
+         ul {
+           padding-left: 0;
+           list-style-type: none;
+
+           .portletItem {
+             display: inline-block;
+
+             &:not(:last-child) {
+               padding-right: 0.5em;
+               margin-right: 0.5em;
+               border-right: 1px solid;
+             }
+
+             &:hover {
+               background-color: transparent;
+             }
+
+             a {
+               color: #000;
+               padding: 0;
+               text-decoration: none;
+
+               &:hover {
+                 background-color: transparent;
+               }
+
+               &::before {
+                 content: none;
+               }
+             }
+           }
+         }
+       }
+     }
+   }
 
 
 .. _install-ext-packages-with-npm:
