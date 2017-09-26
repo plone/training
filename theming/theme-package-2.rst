@@ -177,9 +177,11 @@ It should now look like this:
 Include Theme CSS
 -----------------
 
-Next we need to include the CSS from the template into our :file:`theme.less` file:
+Next we need to include the CSS from the template into our :file:`theme.less` file.
+We will add the include of the CSS the template provides in :file:`theme/css/business-casual.css` after the ``END OF UTILS`` marker, but before the ``custom.less`` include:
 
 .. code-block:: less
+   :emphasize-lines: 89
 
    // theme.less file that will be compiled
 
@@ -269,16 +271,11 @@ Next we need to include the CSS from the template into our :file:`theme.less` fi
    @import "@{bootstrap_path}/carousel.less";
 
    /* ### END OF UTILS ### */
+   @import (less) "../css/business-casual.css";
 
    // include our custom css/less
    @import "custom.less";
 
-We will add the include of the CSS the template provides in :file:`theme/css/business-casual.css` after the ``END OF UTILS`` marker, but before the ``custom.less`` include:
-
-.. code-block:: less
-
-   /* ### END OF UTILS ### */
-   @import "../css/business-casual.css";
 
 We include the CSS file here as a :term:`Less` file.
 This way we can extend parts of the CSS in our theme (we will do this with the ``.box`` class in the next section).
