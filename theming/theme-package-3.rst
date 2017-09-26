@@ -229,25 +229,27 @@ A change of the HTML template file :file:`index.html` or Diazo rules file :file:
 Theme :file:`manifest.xml`
 ==========================
 
-Now let's have a look at our theme's ``manifest.cfg`` which declares ``development-css``, ``production-css`` and optionally ``tinymce-content-css``, like this:
+Settings for our theme are declared in the file :file:`manifest.cfg`.
+It contains settings for CSS files to use for development and production, a CSS file for the content editor TinyMCE and several other optional settings.
+The one we get from ``bobtemplates.plone`` looks like this:
 
 .. code-block:: cfg
 
    [theme]
-   title = Plone Theme: Tango
+   title = Plone Theme: Ploneconf theme
    description = A Diazo based Plone theme
    doctype = <!DOCTYPE html>
-   rules = /++theme++tango/rules.xml
-   prefix = /++theme++tango
+   rules = /++theme++ploneconf-theme/rules.xml
+   prefix = /++theme++ploneconf-theme
    enabled-bundles =
    disabled-bundles =
 
-   development-css = /++theme++tango/less/theme.less
-   production-css = /++theme++tango/less/theme-compiled.css
-   tinymce-content-css = /++theme++tango/less/theme-compiled.css
+   development-css = /++theme++ploneconf-theme/less/theme.less
+   production-css = /++theme++ploneconf-theme/less/theme-compiled.css
+   tinymce-content-css = /++theme++ploneconf-theme/less/theme-compiled.css
 
-   # development-js = /++theme++tango/js/theme.js
-   # production-js = /++theme++tango/js/theme-compiled.js
+   # development-js = /++theme++ploneconf-theme/js/theme.js
+   # production-js = /++theme++ploneconf-theme/js/theme-compiled.js
 
    [theme:overrides]
    directory = template-overrides
@@ -255,14 +257,16 @@ Now let's have a look at our theme's ``manifest.cfg`` which declares ``developme
    [theme:parameters]
    # portal_url = python: portal.absolute_url()
 
-The ``development-css`` file is used when Plone is running in development mode, otherwise the file under ``production-css`` will be used.
+The :file:`development-css` file is used when Plone is running in development mode, otherwise the file defined in :file:`production-css` will be used.
+The file :file:`tinymce-content-css` tells Plone to load that particular CSS file inside TinyMCE, whenever a TinyMCE rich text field is displayed.
 
-The last one ``tinymce-content-css`` tells Plone to load that particular CSS file inside TinyMCE, wherever a TinyMCE rich text field is displayed.
+.. hint::
+
+   After making changes to the file :file:`manifest.cfg`, we need to deactivate/activate the theme for them to take effect.
 
 .. note::
 
-  After making manifest changes, we need to deactivate/activate the theme
-  for them to take effect. Just go to ``/@@theming-controlpanel`` and do it.
+   You can read more about the :file:`manifest.cfg` and the available options in the `plone.app.theming documentation <https://docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file>`_.
 
 
 Final CSS Customization
