@@ -588,4 +588,4 @@ This control panel will never be themed, so it works even if the theme might be 
       $ git add .
       $ git commit -m "Add compiled CSS file."
 
-In the next section we will adjust the skeleton we got from ``bobtemplates.plone`` and fill it with our custom theme.
+:doc:`In the next section <theme-package-2>` we will adjust the skeleton we got from ``bobtemplates.plone`` and fill it with our custom theme.

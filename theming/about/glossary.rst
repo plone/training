@@ -28,6 +28,10 @@ Glossary
    Diazo
       `Diazo <http://docs.diazo.org/en/latest/>`_ allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology.
 
+   Grunt
+      The JavaScript Task Runner.
+      Automates the creation and manipulation of static assets for the theme.
+
    Less
       A dynamic stylesheet language that can be compiled into :term:`CSS` (Cascading Style Sheets).
 
