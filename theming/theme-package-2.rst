@@ -731,7 +731,7 @@ Main Content Area
 To make the Plone content area flexible and containing the correct Twitter Bootstrap grid classes, we use an inline :term:`XSLT` snippet.
 This is already available in our :file:`rules.xml` file, but it needs some customization for our theme:
 
-#. We need to wrap the grid columns into an element with the class ``box``.
+#. We need to wrap the grid columns into an element with the class ``box`` and ``clearfix``.
 #. We have to adjust the CSS class depending on the available portlets.
 
 .. code-block:: xml
@@ -760,14 +760,14 @@ This is already available in our :file:`rules.xml` file, but it needs some custo
          <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
        </p> -->
        <div class="row">
-         <div class="box">
+         <div class="box clearfix">
            <div class="col-xs-12 col-sm-12">
              <xsl:apply-templates css:select="#content" />
            </div>
          </div>
        </div>
        <footer class="row">
-         <div class="box">
+         <div class="box clearfix">
            <div class="col-xs-12 col-sm-12">
              <xsl:copy-of css:select="#viewlet-below-content" />
            </div>
