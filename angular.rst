@@ -263,7 +263,7 @@ First we need to generate a new component::
 
 The CLI creates a new folder containing the component implementation, and it declares it in ``src/app/app.module.ts``.
 
-Our global navigation needs to inherit from the Plone's one:
+Our global navigation needs to inherit from Plone's own:
 
 ``src/app/global-navigation/global-navigation.component.ts``:
 
@@ -439,10 +439,10 @@ Nevertheless, we might need to style it a little bit, let's do that in ``src/sty
     }
   }
 
-Creating a custom view for the Talk content-type
+Creating a custom view for the Talk content type
 ------------------------------------------------
 
-Create the Talk content-type in the backend
+Create the Talk content type in the backend
 *******************************************
 
 We need to go to our Plone backend, then in :menuselection:`Site Setup --> Dexterity content-types`, we add a new content type named Talk.
@@ -454,7 +454,7 @@ And we select the following behaviors:
 - Lead image
 - Rich text
 
-Then we create a new folder named "Talks" where we add few talks, and we publish them all (including the folder).
+Then we create a new folder named "Talks" where we add a few talks, and we publish them all (including the folder).
 
 Create a view component for talks
 *********************************
@@ -469,10 +469,10 @@ To turn it into a valid view component, there are 3 steps:
 
 - declare it in the module's ``entryComponents``,
 - inherit from a Plone view component,
-- register the view to traversal.
+- register the view for traversal.
 
 In ``app.module.ts``, we can see the CLI has already added ``TalkComponent`` in ``declarations`` which is mandatory for any Angular component.
-But as a view component is dynamically instanciated (depending on the traversed path), we also need to add it in ``entryComponents``:
+But as a view component is dynamically instantiated (depending on the traversed path), we also need to add it in ``entryComponents``:
 
 .. code-block:: ts
 
@@ -501,7 +501,7 @@ Now let's change ``src/app/talk/talk.component.ts`` to inherit from ``ViewView``
   })
   export class TalkComponent extends ViewView {}
 
-And lastly, let's associate this component to the ``talk`` content-type as its default view in ``src/app/app.component.ts``:
+And lastly, let's associate this component to the ``talk`` content type as its default view in ``src/app/app.component.ts``:
 
 .. code-block:: ts
 
@@ -541,10 +541,10 @@ The view is now properly set up, let's work on the template in ``src/app/talk/ta
 Enable comments
 ***************
 
-We want to allow visitor to post comments about the talks.
+We want to allow visitors to post comments about the talks.
 
 In the Plone backend, in :menuselection:`Site Setup --> Discussion`, we activate comments globally and we allow anonymous comments.
-And in :menuselection:`Site Setup --> Content types`, we select the Talk type, and we allow comments.
+And in :menuselection:`Site Setup --> Content Settings`, we select the Talk type, and we allow comments.
 
 Now in ``src/app/talk/talk.component.html`` we just append:
 
@@ -650,8 +650,9 @@ including the image:
 
 It does work, but what about turning it into a nice slideshow?
 
-First let's implement the logic, we need to manage the currently displayed news,
-and we need to news to provide a ``state`` property set to ``'active'`` or ``'inactive'``.
+First let's implement the logic.
+We need to manage the currently displayed news,
+and we need the news to provide a ``state`` property set to ``'active'`` or ``'inactive'``.
 
 .. code-block:: ts
 
@@ -829,9 +830,9 @@ Customizing the Link content-type
 
 We will use the Bootstrap font icon.
 
-We need to customize the Link default content-type so it can handle an icon identifier.
+We need to customize the Link default content type so it can handle an icon identifier.
 
-Go to the Plone site setup page / Dexterity  content-types, and select Link.
+Go to the Plone site setup page / Dexterity  content types, and select Link.
 
 Then in the Fields tab, we add a new textline field named 'icon'.
 
@@ -854,7 +855,7 @@ Let's implement the Footer component able to display those links.
 
       $ ng generate component footer
         
-    .. note:: we do not need to add it ``entryComponents`` in the module as it is not a traversing component.
+    .. note:: we do not need to add it to ``entryComponents`` in the module as it is not a traversing component.
 
     We get the links using the ``resource`` service:
     
@@ -990,7 +991,7 @@ just like the rest of our code.
 
 Fortunately, two tools will help us to achieve that:
 
-- `collective.themesitesetup <https://github.com/collective/collective.themesitesetup/>`_ allowing to manage a Plone configuration into a Plone theme,
+- `collective.themesitesetup <https://github.com/collective/collective.themesitesetup/>`_ allowing to manage a Plone configuration as part of a Plone theme,
 - `plonetheme-upload <https://github.com/datakurre/plonetheme-upload>`_ allowing to push a Plone theme from a local NPM project to a remote Plone backend.
 
 Creating a theme to handle the configuration
@@ -1034,7 +1035,7 @@ Now we need to save our current Plone configuration into our theme.
 We need to use the collective.themesitesetup export feature available here:
 http://whatever.herokuapp.com/Plone/++theme++plonecustom/@@export-site-setup.
 
-Obviously we do not need to export everything, in our current case we just want to get the comment feature related configuration and the content-type configuration, so we just select `typeinfo` and `plone.app.registry`.
+Obviously we do not need to export everything, in our current case we just want to get the comment feature related configuration and the content type configuration, so we just select `typeinfo` and `plone.app.registry`.
 
 After clicking on `Export`, our theme will contain a new folder named ``install``.
 
