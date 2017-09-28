@@ -79,7 +79,7 @@ extends-cache = /home/ubuntu/buildout-cache/extends'),
     #}
 
     # get training buildout, xenial branch
-    exec {'git clone https://github.com/collective/training_buildout.git buildout && cd buildout && git checkout vagrant_xenial_update && cd ..':
+    exec {'git clone https://github.com/collective/training_buildout.git buildout':
         alias => "checkout_training",
         creates => '/vagrant/buildout',
         user => 'ubuntu',
