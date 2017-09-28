@@ -233,37 +233,40 @@ Instead we use our own Plone instance during the training. It is in :file:`/vagr
 
 .. code-block:: bash
 
-    vagrant@training:~$ cd /vagrant/buildout
-    vagrant@training:/vagrant/buildout$ ./bin/instance fg
-    2015-09-24 15:51:02 INFO ZServer HTTP server started at Thu Sep 24 15:51:02 2015
-            Hostname: 0.0.0.0
-            Port: 8080
-    2015-09-24 15:51:05 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
-    2015-09-24 15:51:05 WARNING PrintingMailHost
+	ubuntu@training:~$ cd /vagrant/buildout/
+	ubuntu@training:/vagrant/buildout$ bin/instance fg
+	2017-09-28 09:19:21 INFO ZServer HTTP server started at Thu Sep 28 09:19:21 2017
+		Hostname: 0.0.0.0
+		Port: 8080
+	2017-09-28 09:19:24 INFO Products.PloneFormGen gpg_subprocess initialized, using /usr/bin/gpg
+	2017-09-28 09:19:24 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
+	2017-09-28 09:19:24 WARNING PrintingMailHost
 
-    ******************************************************************************
+	******************************************************************************
 
-    Monkey patching MailHosts to print e-mails to the terminal.
+	Monkey patching MailHosts to print e-mails to the terminal.
 
-    This is instead of sending them.
+	This is instead of sending them.
 
-    NO MAIL WILL BE SENT FROM ZOPE AT ALL!
+	NO MAIL WILL BE SENT FROM ZOPE AT ALL!
 
-    Turn off debug mode or remove Products.PrintingMailHost from the eggs
-    or remove ENABLE_PRINTING_MAILHOST from the environment variables to
-    return to normal e-mail sending.
+	Turn off debug mode or remove Products.PrintingMailHost from the eggs
+	or remove ENABLE_PRINTING_MAILHOST from the environment variables to
+	return to normal e-mail sending.
 
-    See https://pypi.python.org/pypi/Products.PrintingMailHost
+	See https://pypi.python.org/pypi/Products.PrintingMailHost
 
-    ******************************************************************************
+	******************************************************************************
 
-    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob directory `.../buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
-    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob temporary directory '.../buildout/var/blobstorage/tmp' does not exist. Created new directory.
-    .../.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
-      from plone.app.multilingual.content.lrf import LanguageRootFolder
-    2015-09-24 15:51:09 INFO Plone OpenID system packages not installed, OpenID support not available
-    2015-09-24 15:51:11 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
-    2015-09-24 15:51:11 INFO Zope Ready to handle requests
+	/home/ubuntu/buildout-cache/eggs/plone.app.dexterity-2.3.7-py2.7.egg/plone/app/dexterity/__init__.py:14: DeprecationWarning: Name clash, now use '_' as usal. Will be removed in Plone 5.2
+	  DeprecationWarning)
+	/home/ubuntu/buildout-cache/eggs/plone.app.multilingual-5.0.3-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
+	  from plone.app.multilingual.content.lrf import LanguageRootFolder
+	/home/ubuntu/buildout-cache/eggs/plone.portlet.collection-3.1-py2.7.egg/plone/portlet/collection/collection.py:2: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
+	  from plone.app.layout.navigation.defaultpage import isDefaultPage
+	2017-09-28 09:19:28 INFO Plone OpenID system packages not installed, OpenID support not available
+	2017-09-28 09:19:30 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
+	2017-09-28 09:19:30 INFO Zope Ready to handle requests
 
 .. note::
 
@@ -290,7 +293,7 @@ The Buildout for this Plone is in a shared folder.  This means we run it in the 
 
 .. note::
 
-    The database and the python packages are not accessible in your own system since large files cannot make use of symlinks in shared folders. The database lies in ``/home/vagrant/var``, the python packages are in ``/home/vagrant/packages``.
+    The database and the python packages are not accessible in your own system since large files cannot make use of symlinks in shared folders. The database lies in ``/home/ubuntu/var``, the python packages are in ``/home/ubuntu/packages``.
 
 If you have any problems or questions please mail us at team@starzel.de or create a ticket at https://github.com/plone/training/issues.
 
