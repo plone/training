@@ -22,7 +22,7 @@ What is Angular
 - It works with TypeScript, a superset of EcmaScript 6, which allows a cleaner coding.
 - It provides a powerful CLI to build projects.
 
-It makes it a very good framework which is both powerful and easy to use. 
+For these reasons it is a very good framework which is both powerful and easy to use.
 
 .. note::
 
@@ -45,11 +45,11 @@ It provides:
 Traversing
 ----------
 
-Traversing is a key feature when working with CMS.
+Traversing is a key feature when working with a CMS.
 Angular core, like the other major JS frameworks, uses routing.
-It works perfectly for applications, but it is not applicable for web sites (as the site structure is not predictable).
+Routing works perfectly for applications, but it is not suitable for web sites (as the site structure is not predictable).
 
-The Traversal service based on `Angular traversal <https://github.com/makinacorpus/angular-traversal>`_ replaces the default Angular routing. It uses the current location to determine the backend resource (the **context**) and the desired rendering (the **view**).
+The Traversal service implemented by `Angular traversal <https://github.com/makinacorpus/angular-traversal>`_ replaces the default Angular routing. It uses the current location to determine the backend resource (the **context**) and the desired rendering (the **view**).
 
 The view is the last part of the current location and is prefixed by `@@`.
 If no view is specified, it defaults to `view`.
@@ -58,9 +58,9 @@ The rest of the location is the resource URL.
 
 Example: `/news/what-about-traversal/@@edit`
 
-When traversing to the location, the resource will be requested to the backend, and the result will become the current context, accessible from any component in the app.
+When traversing to the location, the resource will be requested from the backend, and the result will become the current context, accessible from any component in the app.
 
-According the values in the `@type` property of the context, the appropriate component will be used to render the view.
+According to the value of the `@type` property of the context, the appropriate component will be used to render the view.
 
 .. note::
 
@@ -71,7 +71,7 @@ A new integration approach for Plone
 
 Creating pure frontend applications to publish Plone-managed information rather than customizing the Plone web interface has several benefits:
 
-- those web sites look better and fit the expectations of nowaday visitors and customers,
+- those web sites look better and fit the expectations of today's visitors and customers,
 - they are faster and can easily work offline, which makes them more suitable for mobile,
 - frontend development is more approachable than Plone development, and a constantly growing amount of web developers master this kind of technology.
 
@@ -118,7 +118,7 @@ We can serve our project locally using the CLI::
 
 The result can be seen on http://localhost:4200.
 
-This development server offers the different features we can expect for a convinient frontend developement environment like autoreload and sourcemaps.
+This development server offers the different features we can expect for a convenient frontend developement environment like autoreload and sourcemaps.
 
 The CLI also allows to run the tests::
 
@@ -130,7 +130,7 @@ Using and customizing the Angular Plone components
 Preparing the Plone backend
 ***************************
 
-We need a Plone server running the `plone.restapi <http://plonerestapi.readthedocs.io>`_ last version.
+We need a Plone server running the latest version of `plone.restapi <http://plonerestapi.readthedocs.io>`_ .
 
 We will use a `Plone pre-configured Heroku instance <https://github.com/collective/training-sandbox>`_.
 
@@ -152,7 +152,7 @@ We are now ready to use the Plone Angular SDK.
 Connecting the project to the Plone backend
 *******************************************
 
-In ``src/app.module.ts``, load the Plone module and set the backend URL:
+In ``src/app/app.module.ts``, load the Plone module and set the backend URL:
 
 .. code-block:: ts
 
@@ -177,7 +177,7 @@ In ``src/app.module.ts``, load the Plone module and set the backend URL:
 
 .. warning:: Make sure to use ``http`` and not ``https`` because the Heroku web configuration is not set up properly for that.
 
-We have to set up the default Plone views for traversal in ``src/app.component.ts``:
+We have to set up the default Plone views for traversal in ``src/app/app.component.ts``:
 
 .. code-block:: ts
 
@@ -196,7 +196,7 @@ We have to set up the default Plone views for traversal in ``src/app.component.t
     }
   }
 
-And we need to insert the Plone view in our main page. Let's change ``src/app.component.html`` that way:
+And we need to insert the Plone view in our main page. Let's change ``src/app/app.component.html`` that way:
 
 .. code-block:: html
 
@@ -210,7 +210,7 @@ Now, traversing is active, so we can visit the following links:
 
 Despite our very bad looking rendering, any content stored in our Plone backend can be requested locally.
 
-The same goes with default views, like:
+The same goes for default views, like:
 
 - ``http://localhost:4200/@@sitemap``
 - ``http://localhost:4200/news/@@search?SearchableText=News``
