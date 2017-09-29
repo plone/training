@@ -15,7 +15,7 @@ We already have a folder named ``tinymce-templates`` in our theme folder. So we 
 
 .. code-block:: bash
 
-   maik@planetmobile:~/develop/plone/plonetheme.tango/src/plonetheme/tango/theme
+   maik@planetmobile:~/develop/plone/ploneconf.theme/src/ploneconf/theme/theme
    $ tree tinymce-templates/
    tinymce-templates/
    └── content-box.html
@@ -48,7 +48,7 @@ This is the template content we will get in TinyMCE when we use this template.
 Activate TinyMCE templates plugin
 =================================
 
-.. note:: The activation of the TinyMCE template plugin is already provided by bobtemplates.plone, the only thing you have to do is to add your template tothe registry, like described below.
+.. note:: The activation of the TinyMCE template plugin is already provided by bobtemplates.plone, the only thing you have to do is to add your template to the registry ``ploneconf.theme/src/ploneconf/theme/profiles/default/registry.xml``, like described below.
 
 If the -plugin is not already activated, you can activate the template plugin (the ``custom_plugins`` record) and register this template for TinyMCE (the ``template`` record):
 
@@ -65,9 +65,9 @@ If the -plugin is not already activated, you can activate the template plugin (t
          <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="label_tinymce_templates">Templates</title>
        </field>
        <value>[
-         {"title": "Image Grid 2x2", "url": "++theme++tango/tinymce-templates/image-grid-2x2.html"},
-         {"title": "Content box", "url": "++theme++tango/tinymce-templates/content-box.html"}
-         ]
+	  	{"title": "Image Grid 2x2", "url": "++theme++ploneconf-theme/tinymce-templates/image-grid-2x2.html"},
+			{"title": "Content box", "url": "++theme++ploneconf-theme/tinymce-templates/content-box.html"}
+	  	]
        </value>
      </record>
 
@@ -92,8 +92,8 @@ As we already have the configuration already in place and even a TinyMCE templat
 .. code-block:: xml
 
    <value>[
-    {"title": "Image Grid 2x2", "url": "++theme++tango/tinymce-templates/image-grid-2x2.html"},
-    {"title": "Content box", "url": "++theme++plonetheme.tango/tinymce-templates/content-box.html"}
+    {"title": "Image Grid 2x2", "url": "++theme++ploneconf-theme/tinymce-templates/image-grid-2x2.html"},
+    {"title": "Content box", "url": "++theme++ploneconf-theme/tinymce-templates/content-box.html"}
     ]
    </value>
 
@@ -108,11 +108,11 @@ You can also add the template TTW in the TinyMCE control panel by updating the f
      [
        {
         "title": "Image Grid 2x2",
-        "url": "++theme++tango/tinymce-templates/image-grid-2x2.html"
+        "url": "++theme++ploneconf-theme/tinymce-templates/image-grid-2x2.html"
        },
        {
         "title": "Content box",
-        "url": "++theme++plonetheme.tango/tinymce-templates/content-box.html"
+        "url": "++theme++ploneconf-theme/tinymce-templates/content-box.html"
        }
      ]
 
