@@ -110,13 +110,13 @@ For now, we will use a very simple template-only-view via jbot and
 The ``bobtemplates.plone`` skeleton includes everything you need.
 
 The only thing we need to do, is to add a template file in the ``theme/views`` folder.
-Here we create a template file named ``slider-images.pt``. Luckily we already have this file as an example. So the only thing we need to do is, to rename the file ``slider-images.pt.examle```to ``slider-images.pt``.
+Here we create a template file named ``slider-images.pt``. Luckily we already have this file as an example. So the only thing we need to do is, to rename the file ``slider-images.pt.example```to ``slider-images.pt``.
 
 .. code-block:: bash
 
    $ tree views/
    views/
-   └── slider-images.pt.examle
+   └── slider-images.pt.example
 
 The template code looks like this:
 
