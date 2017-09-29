@@ -415,7 +415,7 @@ Create A Visitor-Only Theme - Conditionally Enabling Barceloneta
 Sometimes it is more convenient for your website administrators to use Barceloneta, Plone's default theme.
 Other visitors would see a completely different layout provided by your custom theme.
 To achieve this you will need to associate your visitor theme rules with an expression like ``css:if-content="body.userrole-anonymous"``.
-For rules that will affect logged-in users you can use the expression ``css:if-content="body.:not(userrole-anonymous)"``.
+For rules that will affect logged-in users you can use the expression ``css:if-content="body:not(.userrole-anonymous)"``.
 
 Once you've combined the expressions above with the right Diazo rules you will be able to present an anonymous visitor with a specific HTML theme while presenting the Barceloneta theme to logged-in users.
 
