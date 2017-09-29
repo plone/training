@@ -110,7 +110,7 @@ For now, we will use a very simple template-only-view via jbot and
 The ``bobtemplates.plone`` skeleton includes everything you need.
 
 The only thing we need to do, is to add a template file in the ``theme/views`` folder.
-Here we create a template file named ``slider-images.pt``. Luckily we already have this file as an example. So the only thing we need to do is, to rename the file ``slider-images.pt.example```to ``slider-images.pt``.
+Here we create a template file named ``slider-images.pt``. Luckily we already have this file as an example. So the only thing we need to do is, to rename the file ``slider-images.pt.example`` to ``slider-images.pt``.
 
 .. code-block:: bash
 
@@ -167,6 +167,15 @@ Take over the dynamic slider content from Plone
 
 Now that we have our ``slider-images`` View which renders our HTML markup for
 the slider, we need to include that on the front page.
+
+First we need to add a simple line in the main HTML page: ''<div id="carousel-example-generic"></div>'' right after ''<main id="main-container" class="row row-offcanvas row-offcanvas-right" role="main">''
+
+''
+<main id="main-container" class="row row-offcanvas row-offcanvas-right" role="main">
+          <div id="carousel-example-generic"></div>
+          <div id="column1-container">
+''          
+
 For that, we use Diazo's ability to load the content from other URLs, using the
 ``href`` attribute in our ``rules.xml``:
 
