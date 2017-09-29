@@ -11,7 +11,7 @@ Let's improve our theme package to create this content on install.
 To do that we create the :file:`slider-images` folder in our :file:`setuphandlers.py`
 and load also some example images into that folder.
 
-We have the needed images inside ``theme/img`` folder. To create the folder and the immages put the following code in your setuphandlers.py.
+We have the needed images inside ``theme/img`` folder. To create the folder and the images put the following code in your setuphandlers.py.
 
 .. code-block:: python
 
@@ -80,4 +80,4 @@ We have the needed images inside ``theme/img`` folder. To create the folder and 
 .. note::
 
   After adding this code to the setuphandlers.py, we need to restart Plone
-  and uninstall/install our theme package.
+  and uninstall/install our theme package add-on.
