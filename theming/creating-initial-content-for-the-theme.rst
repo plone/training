@@ -29,7 +29,7 @@ We have the needed images inside ``theme/img`` folder. To create the folder and 
        def getNonInstallableProfiles(self):
            """Hide uninstall profile from site-creation and quickinstaller"""
            return [
-               'plonetheme.tango:uninstall',
+               'ploneconf.theme:uninstall',
            ]
 
 
