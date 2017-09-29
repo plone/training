@@ -21,7 +21,7 @@ To override them from your theme product, the easiest way is to use
 Since jbot is already included in the ``bobtemplates.plone`` theme skeleton via
 ``plone.app.themingplugins``, you can start using it immediately by adding all the
 templates you want to override in the
-``src/plonetheme/tango/theme/template-overrides`` directory.
+``src/ploneconf/theme/theme/template-overrides`` directory.
 
 In order for jbot to match the override to the template which is being
 overridden, the name of the *new* template needs to include the
@@ -177,4 +177,3 @@ For that, we use Diazo's ability to load the content from other URLs, using the
      css:theme="#carousel-example-generic"
      css:content="#carousel-example-generic"
      href="/slider-images/@@slider-images" />
-
