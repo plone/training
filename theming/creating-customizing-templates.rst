@@ -171,9 +171,9 @@ the slider, we need to include that on the front page.
 First we need to add a simple line in the main HTML page: ``<div id="carousel-example-generic"></div>`` right after ``<main id="main-container" class="row row-offcanvas row-offcanvas-right" role="main">``
 
 .. code-block:: xml
-<main id="main-container" class="row row-offcanvas row-offcanvas-right" role="main">
-          <div id="carousel-example-generic"></div>
-          <div id="column1-container">
+    <main id="main-container" class="row row-offcanvas row-offcanvas-right" role="main">
+      <div id="carousel-example-generic"></div>
+      <div id="column1-container">
 
 
 For that, we use Diazo's ability to load the content from other URLs, using the
