@@ -190,7 +190,7 @@ We have to set up the default Plone views for traversal in ``src/app.component.t
   export class AppComponent {
 
     constructor(
-      private views:PloneViews,
+      public views:PloneViews,
     ) {
       this.views.initialize();
     }
@@ -514,8 +514,8 @@ And lastly, let's associate this component to the ``talk`` content-type as its d
   })
   export class AppComponent {
     constructor(
-      private views: PloneViews,
-      private plone: Services,
+      public views: PloneViews,
+      public plone: Services,
     ) {
       this.views.initialize();
       this.plone.traverser.addView('view', 'talk', TalkComponent);
@@ -651,7 +651,7 @@ including the image:
 It does work, but what about turning it into a nice slideshow?
 
 First let's implement the logic, we need to manage the currently displayed news,
-and we need to news to provide a ``state`` property set to ``'active'`` or ``'inactive'``.
+and we need to provide a ``state`` property set to ``'active'`` or ``'inactive'``.
 
 .. code-block:: ts
 
@@ -816,6 +816,58 @@ And we need update the markup in ``home.component.html``:
   }
 
 And we are done!
+
+
+Login
+-----
+
+Let's add a login/logout link on the top-right corner.
+
+In our ``AppComponent``, we add a boolean property to manage the login status,
+and we use the ``authentication`` service to set its value:
+
+.. code-block:: ts
+
+  export class AppComponent {
+
+    logged = false;
+
+    constructor(
+      ...
+    ) {
+      ...
+      this.plone.authentication.isAuthenticated.subscribe(auth => {
+        this.logged = auth.state;
+      });
+    }
+
+Now, if we are not logged yet, we display in ``app.component.html`` a link to traverse to the ``@@login`` view:
+
+.. code-block:: html+ng2
+
+  <div class="col-md-12">
+    <a *ngIf="!logged" traverseTo="@@login" class="pull-right">Login</a>
+  </div>
+
+Let's implement the logout link.
+
+..  admonition:: Solution
+  :class: toggle
+
+    .. code-block:: html+ng2
+
+      <div class="col-md-12">
+        <a *ngIf="!logged" traverseTo="@@login" class="pull-right">Login</a>
+        <a *ngIf="logged" (click)="logout()" class="pull-right">Logout</a>
+      </div>
+
+    .. code-block:: ts
+
+      logout() {
+        this.services.authentication.logout();
+      }
+
+Now if we create private contents in Plone, they won't show unless we are logged.
 
 Adding quick links in the footer
 --------------------------------
@@ -1064,17 +1116,27 @@ And now we can push our local `./plonecustom` to our Plone backend using the fol
 
   $ npm run update-backend
 
-Enabling offline
-----------------
+Advanced
+--------
 
-SEO
----
+.. todo:: To be completed
 
-robots.txt and sitemap.xml.gz
-*****************************
+Moving logic in a service
++++++++++++++++++++++++++
+
+Reactive programming with RxJS
+++++++++++++++++++++++++++++++
+
+Enabling offline & PWA
+++++++++++++++++++++++
+
+.. note:: HTTPS is mandatory.
+
+SEO and server-side rendering
++++++++++++++++++++++++++++++
+
+robots.txt
 
 Title and meta tags
-*******************
 
-Deploying as a server-side rendered site
-****************************************
+Angular Universal
