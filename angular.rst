@@ -22,7 +22,7 @@ What is Angular
 - It works with TypeScript, a superset of EcmaScript 6, which allows a cleaner coding.
 - It provides a powerful CLI to build projects.
 
-It makes it a very good framework which is both powerful and easy to use. 
+For these reasons it is a very good framework which is both powerful and easy to use.
 
 .. note::
 
@@ -45,11 +45,11 @@ It provides:
 Traversing
 ----------
 
-Traversing is a key feature when working with CMS.
+Traversing is a key feature when working with a CMS.
 Angular core, like the other major JS frameworks, uses routing.
-It works perfectly for applications, but it is not applicable for web sites (as the site structure is not predictable).
+Routing works perfectly for applications, but it is not suitable for web sites (as the site structure is not predictable).
 
-The Traversal service based on `Angular traversal <https://github.com/makinacorpus/angular-traversal>`_ replaces the default Angular routing. It uses the current location to determine the backend resource (the **context**) and the desired rendering (the **view**).
+The Traversal service implemented by `Angular traversal <https://github.com/makinacorpus/angular-traversal>`_ replaces the default Angular routing. It uses the current location to determine the backend resource (the **context**) and the desired rendering (the **view**).
 
 The view is the last part of the current location and is prefixed by `@@`.
 If no view is specified, it defaults to `view`.
@@ -58,9 +58,9 @@ The rest of the location is the resource URL.
 
 Example: `/news/what-about-traversal/@@edit`
 
-When traversing to the location, the resource will be requested to the backend, and the result will become the current context, accessible from any component in the app.
+When traversing to the location, the resource will be requested from the backend, and the result will become the current context, accessible from any component in the app.
 
-According the values in the `@type` property of the context, the appropriate component will be used to render the view.
+According to the value of the `@type` property of the context, the appropriate component will be used to render the view.
 
 .. note::
 
@@ -71,7 +71,7 @@ A new integration approach for Plone
 
 Creating pure frontend applications to publish Plone-managed information rather than customizing the Plone web interface has several benefits:
 
-- those web sites look better and fit the expectations of nowaday visitors and customers,
+- those web sites look better and fit the expectations of today's visitors and customers,
 - they are faster and can easily work offline, which makes them more suitable for mobile,
 - frontend development is more approachable than Plone development, and a constantly growing amount of web developers master this kind of technology.
 
@@ -118,7 +118,7 @@ We can serve our project locally using the CLI::
 
 The result can be seen on http://localhost:4200.
 
-This development server offers the different features we can expect for a convinient frontend developement environment like autoreload and sourcemaps.
+This development server offers the different features we can expect for a convenient frontend developement environment like autoreload and sourcemaps.
 
 The CLI also allows to run the tests::
 
@@ -130,7 +130,7 @@ Using and customizing the Angular Plone components
 Preparing the Plone backend
 ***************************
 
-We need a Plone server running the `plone.restapi <http://plonerestapi.readthedocs.io>`_ last version.
+We need a Plone server running the latest version of `plone.restapi <http://plonerestapi.readthedocs.io>`_ .
 
 We will use a `Plone pre-configured Heroku instance <https://github.com/collective/training-sandbox>`_.
 
@@ -152,7 +152,7 @@ We are now ready to use the Plone Angular SDK.
 Connecting the project to the Plone backend
 *******************************************
 
-In ``src/app.module.ts``, load the Plone module and set the backend URL:
+In ``src/app/app.module.ts``, load the Plone module and set the backend URL:
 
 .. code-block:: ts
 
@@ -177,7 +177,7 @@ In ``src/app.module.ts``, load the Plone module and set the backend URL:
 
 .. warning:: Make sure to use ``http`` and not ``https`` because the Heroku web configuration is not set up properly for that.
 
-We have to set up the default Plone views for traversal in ``src/app.component.ts``:
+We have to set up the default Plone views for traversal in ``src/app/app.component.ts``:
 
 .. code-block:: ts
 
@@ -196,7 +196,7 @@ We have to set up the default Plone views for traversal in ``src/app.component.t
     }
   }
 
-And we need to insert the Plone view in our main page. Let's change ``src/app.component.html`` that way:
+And we need to insert the Plone view in our main page. Let's change ``src/app/app.component.html`` that way:
 
 .. code-block:: html
 
@@ -210,7 +210,7 @@ Now, traversing is active, so we can visit the following links:
 
 Despite our very bad looking rendering, any content stored in our Plone backend can be requested locally.
 
-The same goes with default views, like:
+The same goes for default views, like:
 
 - ``http://localhost:4200/@@sitemap``
 - ``http://localhost:4200/news/@@search?SearchableText=News``
@@ -263,7 +263,7 @@ First we need to generate a new component::
 
 The CLI creates a new folder containing the component implementation, and it declares it in ``src/app/app.module.ts``.
 
-Our global navigation needs to inherit from the Plone's one:
+Our global navigation needs to inherit from Plone's own:
 
 ``src/app/global-navigation/global-navigation.component.ts``:
 
@@ -439,13 +439,13 @@ Nevertheless, we might need to style it a little bit, let's do that in ``src/sty
     }
   }
 
-Creating a custom view for the Talk content-type
+Creating a custom view for the Talk content type
 ------------------------------------------------
 
-Create the Talk content-type in the backend
+Create the Talk content type in the backend
 *******************************************
 
-We need to go to our Plone backend, then in :menuselection:`Site Setup --> Dexterity content-types`, we add a new content type named Talk.
+We need to go to our Plone backend, then in :menuselection:`Site Setup --> Dexterity content types`, we add a new content type named Talk.
 
 We add a text field named ``speaker``.
 
@@ -454,7 +454,7 @@ And we select the following behaviors:
 - Lead image
 - Rich text
 
-Then we create a new folder named "Talks" where we add few talks, and we publish them all (including the folder).
+Then we create a new folder named "Talks" where we add a few talks, and we publish them all (including the folder).
 
 Create a view component for talks
 *********************************
@@ -469,10 +469,10 @@ To turn it into a valid view component, there are 3 steps:
 
 - declare it in the module's ``entryComponents``,
 - inherit from a Plone view component,
-- register the view to traversal.
+- register the view for traversal.
 
 In ``app.module.ts``, we can see the CLI has already added ``TalkComponent`` in ``declarations`` which is mandatory for any Angular component.
-But as a view component is dynamically instanciated (depending on the traversed path), we also need to add it in ``entryComponents``:
+But as a view component is dynamically instantiated (depending on the traversed path), we also need to add it in ``entryComponents``:
 
 .. code-block:: ts
 
@@ -501,7 +501,7 @@ Now let's change ``src/app/talk/talk.component.ts`` to inherit from ``ViewView``
   })
   export class TalkComponent extends ViewView {}
 
-And lastly, let's associate this component to the ``talk`` content-type as its default view in ``src/app/app.component.ts``:
+And lastly, let's associate this component to the ``talk`` content type as its default view in ``src/app/app.component.ts``:
 
 .. code-block:: ts
 
@@ -541,10 +541,10 @@ The view is now properly set up, let's work on the template in ``src/app/talk/ta
 Enable comments
 ***************
 
-We want to allow visitor to post comments about the talks.
+We want to allow visitors to post comments about the talks.
 
 In the Plone backend, in :menuselection:`Site Setup --> Discussion`, we activate comments globally and we allow anonymous comments.
-And in :menuselection:`Site Setup --> Content types`, we select the Talk type, and we allow comments.
+And in :menuselection:`Site Setup --> Content Settings`, we select the Talk type, and we allow comments.
 
 Now in ``src/app/talk/talk.component.html`` we just append:
 
@@ -650,8 +650,9 @@ including the image:
 
 It does work, but what about turning it into a nice slideshow?
 
-First let's implement the logic, we need to manage the currently displayed news,
-and we need to provide a ``state`` property set to ``'active'`` or ``'inactive'``.
+First let's implement the logic.
+We need to manage the currently displayed news,
+and we need the news to provide a ``state`` property set to ``'active'`` or ``'inactive'``.
 
 .. code-block:: ts
 
@@ -876,14 +877,14 @@ We want to display useful links in the footer, and each link should have an icon
 
 We want those icons to be managed in Plone.
 
-Customizing the Link content-type
+Customizing the Link content type
 *********************************
 
 We will use the Bootstrap font icon.
 
-We need to customize the Link default content-type so it can handle an icon identifier.
+We need to customize the Link default content type so it can handle an icon identifier.
 
-Go to the Plone site setup page / Dexterity  content-types, and select Link.
+Go to the Plone site setup page / Dexterity  content types, and select Link.
 
 Then in the Fields tab, we add a new textline field named 'icon'.
 
@@ -906,7 +907,7 @@ Let's implement the Footer component able to display those links.
 
       $ ng generate component footer
         
-    .. note:: we do not need to add it ``entryComponents`` in the module as it is not a traversing component.
+    .. note:: we do not need to add it to ``entryComponents`` in the module as it is not a traversing component.
 
     We get the links using the ``resource`` service:
     
@@ -1042,7 +1043,7 @@ just like the rest of our code.
 
 Fortunately, two tools will help us to achieve that:
 
-- `collective.themesitesetup <https://github.com/collective/collective.themesitesetup/>`_ allowing to manage a Plone configuration into a Plone theme,
+- `collective.themesitesetup <https://github.com/collective/collective.themesitesetup/>`_ allowing to manage a Plone configuration as part of a Plone theme,
 - `plonetheme-upload <https://github.com/datakurre/plonetheme-upload>`_ allowing to push a Plone theme from a local NPM project to a remote Plone backend.
 
 Creating a theme to handle the configuration
@@ -1086,7 +1087,7 @@ Now we need to save our current Plone configuration into our theme.
 We need to use the collective.themesitesetup export feature available here:
 http://whatever.herokuapp.com/Plone/++theme++plonecustom/@@export-site-setup.
 
-Obviously we do not need to export everything, in our current case we just want to get the comment feature related configuration and the content-type configuration, so we just select `typeinfo` and `plone.app.registry`.
+Obviously we do not need to export everything, in our current case we just want to get the comment feature related configuration and the content type configuration, so we just select `typeinfo` and `plone.app.registry`.
 
 After clicking on `Export`, our theme will contain a new folder named ``install``.
 
