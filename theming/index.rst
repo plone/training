@@ -27,8 +27,8 @@ Plone Theming
    :maxdepth: 3
    :caption: Plone Trainings
 
-    about/index
-    about/glossary
+   about/index
+   about/glossary
 
 .. seealso::
 
