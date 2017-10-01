@@ -445,7 +445,7 @@ Creating a custom view for the Talk content type
 Create the Talk content type in the backend
 *******************************************
 
-We need to go to our Plone backend, then in :menuselection:`Site Setup --> Dexterity content-types`, we add a new content type named Talk.
+We need to go to our Plone backend, then in :menuselection:`Site Setup --> Dexterity content types`, we add a new content type named Talk.
 
 We add a text field named ``speaker``.
 
@@ -825,7 +825,7 @@ We want to display useful links in the footer, and each link should have an icon
 
 We want those icons to be managed in Plone.
 
-Customizing the Link content-type
+Customizing the Link content type
 *********************************
 
 We will use the Bootstrap font icon.
