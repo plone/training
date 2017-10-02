@@ -50,6 +50,7 @@ This training is **not** about:
    :hidden:
    :maxdepth: 3
    :caption: Plone Trainings
+    :name: plone-trainings-javascript-toc
 
    about/index
    about/glossary

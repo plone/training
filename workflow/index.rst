@@ -54,6 +54,7 @@ the ``portal_workflow`` screen in the ZMI when you change your workflows’ secu
    :hidden:
    :maxdepth: 3
    :caption: Plone Trainings
+   :name: plone-trainings-workflow-toc
 
    about/index
    about/glossary
