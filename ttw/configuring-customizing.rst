@@ -8,7 +8,7 @@ Configuring And Customizing
 
  .. sectionauthor:: Philip Bauer <bauer@starzel.de>
 
-.. _customizing-controlpanel-label:
+.. _customizing-controlpanel-label-ttw:
 
 The Control Panel
 =================
@@ -86,7 +86,7 @@ Let's change the logo.
    https://docs.plone.org/adapt-and-extend/change-the-logo.html
 
 
-.. _customizing-portlets-label:
+.. _customizing-portlets-label-ttw:
 
 Portlets
 --------
@@ -116,7 +116,7 @@ Example:
   * You could turn that into a link to a copyright page later.
 
 
-.. _customizing-viewlets-label:
+.. _customizing-viewlets-label-ttw:
 
 Viewlets
 --------
@@ -136,7 +136,7 @@ Viewlets are often used for UI-Elements and have no nice UI to customize them.
 * The code decides when it is shown and what it shows.
 
 
-.. _customizing-ZMI-label:
+.. _customizing-zmi-label-ttw:
 
 ZMI (Zope Management Interface)
 -------------------------------
@@ -293,7 +293,7 @@ There are many more notable items in the ZMI. We'll visit some of them later.
 * :guilabel:`portal_catalog`
 
 
-.. _customizing-summary-label:
+.. _customizing-summary-label-ttw:
 
 Summary
 -------

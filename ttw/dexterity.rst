@@ -1,4 +1,4 @@
-.. _dexterity1-label:
+.. _dexterity1-label-ttw:
 
 =========
 Dexterity
@@ -17,7 +17,7 @@ Topics covered:
 * Widgets
 
 
-.. _dexterity1-what-label:
+.. _dexterity1-what-label-ttw:
 
 What Is A Content Type?
 =======================
@@ -38,7 +38,7 @@ Also, we'll want to be able to display talks featuring that special information,
 
 A custom content type will be ideal.
 
-.. _dexterity1-contains-label:
+.. _dexterity1-contains-label-ttw:
 
 The Makings Of A Plone Content Type
 ===================================
@@ -58,7 +58,7 @@ Views
     Some may be *visual* — intended for display as web pages — others may be intended to satisfy AJAX requests and render content in formats like JSON or XML.
 
 
-.. _dexterity1-comparison-label:
+.. _dexterity1-comparison-label-ttw:
 
 Dexterity And Archetypes
 ========================
@@ -109,7 +109,7 @@ Views:
 * Display Forms.
 
 
-.. _dexterity1-modify-label:
+.. _dexterity1-modify-label-ttw:
 
 Modifying Existing Types
 ========================
@@ -134,7 +134,7 @@ Modifying Existing Types
 
    https://docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types
 
-.. _dexterity1-create-ttw-label:
+.. _dexterity1-create-ttw-label-ttw:
 
 Creating Content Types "Through-The-Web"
 ========================================
@@ -219,7 +219,7 @@ Here is the complete XML schema created by our actions:
   </model>
 
 
-.. _dexterity1-ttw-to-code-label:
+.. _dexterity1-ttw-to-code-label-ttw:
 
 Moving Content Types Into Code
 ==============================
@@ -236,7 +236,7 @@ So, we'll ultimately want to move our new content type into a Python package. We
    * `The standard behaviors <https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html>`_
 
 
-.. _dexterity1-excercises-label:
+.. _dexterity1-excercises-label-ttw:
 
 Exercises
 =========
