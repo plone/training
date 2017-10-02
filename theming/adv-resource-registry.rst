@@ -30,34 +30,35 @@ our :file:`profiles/default` folder:
 
    <?xml version="1.0"?>
    <registry>
-       <records prefix="plone.resources/tango-main"
-                 interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-          <value key="css">
-             <element>++theme++plonetheme.tango/css/main.less</element>
-          </value>
-       </records>
+     <records prefix="plone.resources/conf-main"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="css">
+          <element>++theme++ploneconf-theme/less/custom.less</element>
+        </value>
+      </records>
    </registry>
 
 This registers a file named :file:`main.less` (from our theme package named
-:file:`plonetheme.tango`) as a *resource* named ``tango-main``.
+:file:`ploneconf.theme`) as a *resource* named ``conf-main``.
 We can now add this resource to a *resource bundle* like the existing ``plone`` bundle:
 
 .. code-block:: xml
 
    <?xml version="1.0"?>
    <registry>
-       <records prefix="plone.resources/tango-main"
-                 interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+       <records prefix="plone.resources/conf-main"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
           <value key="css">
-             <element>++theme++plonetheme.tango/css/main.less</element>
+            <element>++theme++ploneconf-theme/less/custom.less</element>
           </value>
        </records>
 
+       <!-- bundle definition -->
        <records prefix="plone.bundles/plone"
-                 interface='Products.CMFPlone.interfaces.IBundleRegistry'>
-         <value key="resources" purge="false">
-           <element>tango-main</element>
-         </value>
+              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+          <value key="resources" purge="false">
+            <element>conf-main</element>
+          </value>
        </records>
    </registry>
 
@@ -72,25 +73,25 @@ We can also create our own custom bundle which contains our resource:
 
    <?xml version="1.0"?>
    <registry>
-       <records prefix="plone.resources/tango-main"
-                 interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-          <value key="css">
-             <element>++theme++plonetheme.tango/css/main.less</element>
-          </value>
-       </records>
+      <records prefix="plone.resources/conf-main"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+         <value key="css">
+           <element>++theme++ploneconf-theme/less/custom.less</element>
+         </value>
+      </records>
 
-       <!-- bundle definition -->
-       <records prefix="plone.bundles/tango-bundle"
-                 interface='Products.CMFPlone.interfaces.IBundleRegistry'>
-         <value key="resources">
-           <element>tango-main</element>
+      <!-- bundle definition -->
+      <records prefix="plone.bundles/plone"
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+         <value key="resources" purge="false">
+           <element>conf-main</element>
          </value>
          <value key="enabled">True</value>
          <value key="compile">True</value>
-         <value key="csscompilation">++theme++plonetheme.tango/css/tango-compiled.css</value>
+         <value key="csscompilation">++theme++ploneconf-theme/less/custom.css</value>
          <value key="last_compilation"></value>
-       </records>
-   </registry>
+      </records>
+  </registry>
 
 This can make sense if we only want to load that bundle under certain conditions,
 like in a specific context.
