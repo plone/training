@@ -53,7 +53,6 @@ In this exercise we will create a new theme that inherits the Barceloneta rules 
 
    .. image:: _static/theming-new-theme.png
 
-
    and name it "Custom"
 
    .. image:: _static/theming-new-theme2.png
@@ -108,7 +107,7 @@ In this exercise we will create a new theme that inherits the Barceloneta rules 
       color: @plone-text-color;
     }
 
-Then generate the :file:`styles.css` file using :file:`styles.less` and the "Build CSS" button.
+Then generate the :file:`styles.css` file using :file:`styles.less` and the :guilabel:`Build CSS` button.
 
 Your theme is ready.
 
@@ -228,7 +227,7 @@ The following attributes can be used to conditionally activate a directive.
    We were introduced to the attribute ``css:if-content``.
 
    Remember that we are able to determine a lot of context related information from the classes,
-   such as::
+   such as:
 
    - the current user role, and its permissions,
    - the current content-type and its template,
@@ -332,17 +331,18 @@ The theme is already packaged in a manner that will work with the theming tool.
 
 
 4. Add rules to include the Barceloneta backend utilities
-   ::
+
+   .. code-block:: xml
 
        <?xml version="1.0" encoding="UTF-8"?>
-    <rules
-        xmlns="http://namespaces.plone.org/diazo"
-        xmlns:css="http://namespaces.plone.org/diazo/css"
-        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        xmlns:xi="http://www.w3.org/2001/XInclude">
+       <rules
+           xmlns="http://namespaces.plone.org/diazo"
+           xmlns:css="http://namespaces.plone.org/diazo/css"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+           xmlns:xi="http://www.w3.org/2001/XInclude">
 
-      <!-- Include the backend theme -->
-      <xi:include href="++theme++barceloneta/backend.xml" />
+           <!-- Include the backend theme -->
+           <xi:include href="++theme++barceloneta/backend.xml" />
 
 
 5. Add rules to include content, add site structure, drop unneeded elements, customize the menu.

@@ -8,7 +8,7 @@ Configuring And Customizing
 
  .. sectionauthor:: Philip Bauer <bauer@starzel.de>
 
-.. _customizing-controlpanel-label:
+.. _customizing-controlpanel-label-ttw:
 
 The Control Panel
 =================
@@ -70,14 +70,14 @@ Advanced
 #. Resource Registries
 
 
-Below the links you will find information on your Plone, Zope and Python Versions and an indicator as to whether you're running in production or development mode.
+Below the links you will find information on your Plone, Zope and Python versions and an indicator as to whether you're running in production or development mode.
 
 Change The Logo
 ---------------
 
 Let's change the logo.
 
-* Download a Plone Conference logo: https://www.starzel.de/plone-tutorial/ploneconf-logo-2014
+* Download a Plone Conference logo: https://2017.ploneconf.org/++theme++ploneconf2017/img/brand.svg
 * Go to http://localhost:8080/Plone/@@site-controlpanel
 * Upload the Logo.
 
@@ -86,7 +86,7 @@ Let's change the logo.
    https://docs.plone.org/adapt-and-extend/change-the-logo.html
 
 
-.. _customizing-portlets-label:
+.. _customizing-portlets-label-ttw:
 
 Portlets
 --------
@@ -106,17 +106,17 @@ Example:
 * Go to http://localhost:8080/Plone/@@manage-portlets
 * Add a static portlet "Sponsors" on the right side.
 * Remove the news portlet and add a new one on the left side.
-* Go to the training folder: http://localhost:8080/Plone/the-event/training and click ``Manage portlets``
+* Go to the training folder: http://localhost:8080/Plone/the-event/training and click :guilabel:`Manage portlets`
 * Add a static portlet. "Featured training: Become a Plone-Rockstar at Mastering Plone!"
 * Use the toolbar to configure the portlets of the footer:
 
   * Hide the portlets "Footer" and "Colophon".
-  * Add a "Static text portlet" enter "Copyright 2015 by Plone Community".
+  * Add a "Static text portlet" enter "Copyright 2017 by Plone Community".
   * Use "Insert > Special Character" to add a real © sign.
   * You could turn that into a link to a copyright page later.
 
 
-.. _customizing-viewlets-label:
+.. _customizing-viewlets-label-ttw:
 
 Viewlets
 --------
@@ -136,7 +136,7 @@ Viewlets are often used for UI-Elements and have no nice UI to customize them.
 * The code decides when it is shown and what it shows.
 
 
-.. _customizing-ZMI-label:
+.. _customizing-zmi-label-ttw:
 
 ZMI (Zope Management Interface)
 -------------------------------
@@ -260,7 +260,7 @@ Change the footer
 ^^^^^^^^^^^^^^^^^
 
 * Go to ``portal_view_customizations``
-* Search ``plone.footer``, click and customize
+* Search ``plone.footer``, click on :guilabel:`customize`
 * Replace the content with the following
 
   .. code-block:: html
@@ -293,7 +293,7 @@ There are many more notable items in the ZMI. We'll visit some of them later.
 * :guilabel:`portal_catalog`
 
 
-.. _customizing-summary-label:
+.. _customizing-summary-label-ttw:
 
 Summary
 -------

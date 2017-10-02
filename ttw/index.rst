@@ -29,6 +29,7 @@
    :hidden:
    :maxdepth: 3
    :caption: Plone Trainings
+    :name: plone-trainings-ttw-toc
 
    about/index
    about/glossary

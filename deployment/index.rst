@@ -39,6 +39,7 @@ Automating Plone Deployment
     :hidden:
     :maxdepth: 3
     :caption: Plone Trainings
+    :name: plone-trainings-deployment-toc
 
     about/index
     about/glossary

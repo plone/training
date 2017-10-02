@@ -26,9 +26,10 @@ Plone Theming
    :hidden:
    :maxdepth: 3
    :caption: Plone Trainings
+    :name: plone-trainings-theming-toc
 
-    about/index
-    about/glossary
+   about/index
+   about/glossary
 
 .. seealso::
 
