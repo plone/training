@@ -38,7 +38,7 @@ our :file:`profiles/default` folder:
       </records>
    </registry>
 
-This registers a file named :file:`main.less` (from our theme package named
+This registers a file named :file:`custom.less` (from our theme package named
 :file:`ploneconf.theme`) as a *resource* named ``conf-main``.
 We can now add this resource to a *resource bundle* like the existing ``plone`` bundle:
 
