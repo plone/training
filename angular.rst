@@ -574,7 +574,12 @@ First we need a Home component. Let's initialize it properly.
 
     .. code-block:: ts
 
+  import { HomeComponent } from './home/home.component';
+
+  ...
+
       this.traverser.addView('view', 'Plone Site', HomeComponent);
+
 
 We want this component to display the 3 most recent news.
 The ``resource`` service from ``@plone/restapi-angular`` provides a ``find`` method to do that.
