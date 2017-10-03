@@ -765,8 +765,12 @@ And we need update the markup in ``home.component.html``:
       [@flyInOut]="item.state">
       <img [src]="item.image.download" />
       <div>
-        <a [traverseTo]="item['@id']">{{ item.title }}</a>
-        <p>{{ item.description }}</p>
+        <div class="title">
+          <a [traverseTo]="item['@id']">{{ item.title }}</a>
+        </div>
+        <div class="description">
+          <p>{{ item.description }}</p>
+        </div>
       </div>
       <i class="next-news glyphicon glyphicon-chevron-right" (click)="goTo(current+1)"></i>
     </div>
@@ -798,7 +802,7 @@ And we need update the markup in ``home.component.html``:
       top: 60%;
       left: 66%;
     }
-    a, p {
+    .title, .description {
       text-transform: uppercase;
       text-decoration: none;
       color: white;
@@ -806,11 +810,9 @@ And we need update the markup in ``home.component.html``:
       padding: 1.5em;
     }
     a {
+      color: white;
       font-weight: bold;
       font-size: 120%;
-    }
-    p {
-      margin-top: 3em;
     }
     .next-news {
       color: white;
