@@ -853,8 +853,10 @@ Now, if we are not logged in yet, we display in ``app.component.html`` a link to
 
 .. code-block:: html+ng2
 
-  <div class="col-md-12">
-    <a *ngIf="!logged" traverseTo="@@login" class="pull-right">Login</a>
+  <div class="row">
+    <div class="col-md-12">
+      <a *ngIf="!logged" traverseTo="@@login" class="pull-right">Login</a>
+    </div>
   </div>
 
 Let's implement the logout link.
@@ -864,10 +866,12 @@ Let's implement the logout link.
 
     .. code-block:: html+ng2
 
+    <div class="row">
       <div class="col-md-12">
         <a *ngIf="!logged" traverseTo="@@login" class="pull-right">Login</a>
         <a *ngIf="logged" (click)="logout()" class="pull-right">Logout</a>
       </div>
+    </div>
 
     .. code-block:: ts
 
