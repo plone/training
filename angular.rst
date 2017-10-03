@@ -827,7 +827,7 @@ And we are done!
 Login
 -----
 
-Let's add a login/logout link on the top-right corner.
+Let's add a login/logout link in the top-right corner.
 
 In our ``AppComponent``, we add a boolean property to manage the login status,
 and we use the ``authentication`` service to set its value:
@@ -847,7 +847,7 @@ and we use the ``authentication`` service to set its value:
       });
     }
 
-Now, if we are not logged yet, we display in ``app.component.html`` a link to traverse to the ``@@login`` view:
+Now, if we are not logged in yet, we display in ``app.component.html`` a link to traverse to the ``@@login`` view:
 
 .. code-block:: html+ng2
 
@@ -870,10 +870,10 @@ Let's implement the logout link.
     .. code-block:: ts
 
       logout() {
-        this.services.authentication.logout();
+        this.plone.authentication.logout();
       }
 
-Now if we create private contents in Plone, they won't show unless we are logged.
+Now if we create private contents in Plone, they won't show unless we are logged in.
 
 Adding quick links in the footer
 --------------------------------
