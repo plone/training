@@ -903,7 +903,7 @@ Now we can go back to the Plone site home, add a new folder named Quicklinks, an
 
 For each of them, we will choose an icon name from https://getbootstrap.com/docs/3.3/components/#glyphicons-glyphs
 
-And we will hide the Quicklinks folder from navigation.
+And we will exclude the Quicklinks folder from navigation.
 
 Displaying the links
 ********************
@@ -943,7 +943,7 @@ Let's implement the Footer component able to display those links.
         ngOnInit() {
           this.plone.resource.find(
             { portal_type: 'Link' },
-            '/quick-links',
+            '/quicklinks',
             { fullobjects: true }
           ).subscribe(res => {
             this.links = res.items;
@@ -972,9 +972,8 @@ Let's implement the Footer component able to display those links.
       @import "../../variables.scss";
 
       .footer-container {
-        background-color: $darkgrey;
+        background-color: darkgrey;
         color: white;
-        margin-top: 2em;
       }
       ul {
         display: flex;
@@ -1001,7 +1000,7 @@ Let's implement the Footer component able to display those links.
 
     .. code-block:: html+ng2
       <footer>
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
             <app-footer></app-footer>
           </div>
