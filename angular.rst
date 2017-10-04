@@ -1110,7 +1110,7 @@ Let's add `plonetheme-upload` to our development dependencies:
 
 .. code-block::
 
-  $ yarn add plonetheme-upload --dev
+  $ npm install plonetheme-upload --dev
 
 And let's add a new script in our ``package.json``:
 
