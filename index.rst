@@ -17,6 +17,7 @@ A collection of trainings developed and created by the Plone Community.
     ttw/index
     solr/index
     workflow/index
+    angular/index
 
 ..  toctree::
     :hidden:
@@ -56,3 +57,6 @@ Trainings
 
 :doc:`solr/index`
     How to add enterprise-grade search to your Plone site.
+
+:doc:`angular/index`
+    Building Angular 4 apps using the Plone REST API.
