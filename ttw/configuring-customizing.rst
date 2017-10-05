@@ -8,7 +8,7 @@ Configuring And Customizing
 
  .. sectionauthor:: Philip Bauer <bauer@starzel.de>
 
-.. _customizing-controlpanel-label:
+.. _customizing-controlpanel-label-ttw:
 
 The Control Panel
 =================
@@ -86,7 +86,7 @@ Let's change the logo.
    https://docs.plone.org/adapt-and-extend/change-the-logo.html
 
 
-.. _customizing-portlets-label:
+.. _customizing-portlets-label-ttw:
 
 Portlets
 --------
@@ -116,7 +116,7 @@ Example:
   * You could turn that into a link to a copyright page later.
 
 
-.. _customizing-viewlets-label:
+.. _customizing-viewlets-label-ttw:
 
 Viewlets
 --------
