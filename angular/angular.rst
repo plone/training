@@ -911,9 +911,10 @@ Displaying the links
 Let's implement the Footer component able to display those links.
 
 ..  admonition:: Solution
-  :class: toggle
+    :class: toggle
 
     First we generate the component:
+
     ::
 
       $ ng generate component footer
@@ -969,6 +970,7 @@ Let's implement the Footer component able to display those links.
     ``src/app/footer/footer.component.scss``:
 
     .. code-block:: scss
+
       @import "../../variables.scss";
 
       .footer-container {
@@ -999,6 +1001,7 @@ Let's implement the Footer component able to display those links.
     ``src/app/app.component.html``:
 
     .. code-block:: html+ng2
+
       <footer>
         <div class="container-fluid">
           <div class="row">
@@ -1014,7 +1017,7 @@ The development bundle served by ``ng serve`` is not optimized for production.
 
 To get a production-ready bundle, we use the following command:
 
-.. code-block::
+.. code-block:: shell-session
 
   $ ng build --prod
 
@@ -1029,9 +1032,7 @@ we will obtain http://example.com/news thanks to angular-traversal.
 
 But if decide to refresh the page at this point, we will get a 404, because our Nginx server will search for ``/news/index.html`` which does not exist.
 
-So we need to fix our Nginx VHOST to preserve the client-side routing:
-
-.. code-block::
+So we need to fix our Nginx VHOST to preserve the client-side routing::
 
   location / {
     try_files   $uri $uri/ /index.html;
@@ -1059,8 +1060,9 @@ Fortunately, two tools will help us to achieve that:
 Creating a theme to handle the configuration
 ++++++++++++++++++++++++++++++++++++++++++++
 
-.. note:: collective.themesitesetup is deployed by default on our Heroku instance.
-If you use your own backend, you will need to deploy it.
+.. note::
+
+    collective.themesitesetup is deployed by default on our Heroku instance. If you use your own backend, you will need to deploy it.
 
 We need to go to our Plone backend, then in :menuselection:`Site Setup --> Theming`, we create a new theme.
 Let's name it ``plonecustom`` for instance.
@@ -1069,7 +1071,7 @@ As we do not really want to customize our backend theme, it will be very simple.
 The only file we will need here for now is ``manifest.cfg``.
 It will just be a copy of our default Barceloneta manifest:
 
-.. code-block::
+.. code-block:: ini
 
   [theme]
   title = plonecustom
@@ -1108,13 +1110,13 @@ Pushing the Plone configuration from the Angular project
 
 Let's add `plonetheme-upload` to our development dependencies:
 
-.. code-block::
+.. code-block:: shell-session
 
   $ npm install plonetheme-upload --dev
 
 And let's add a new script in our ``package.json``:
 
-.. code-block::
+.. code-block:: json
 
   "scripts": {
     ...
@@ -1123,7 +1125,7 @@ And let's add a new script in our ``package.json``:
 
 And now we can push our local `./plonecustom` to our Plone backend using the following command:
 
-.. code-block::
+.. code-block:: shell-session
 
   $ npm run update-backend
 
