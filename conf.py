@@ -49,10 +49,13 @@ linkcheck_ignore = [
     r'http://localhost:\d+/',
     r'http://localhost:8080\d+/',
     r'http://localhost:8080',
+    r'http://localhost:4200',
     r'http://127.0.0.1:8080',
     r'http://wiki.apache.org',
     r'https://www.vagrantup.com',
     r'https://www.dipf.de/en/research/projects',
+    r'http://whatever.herokuapp.com',
+    r'http://example.com\d+/',
 ]
 linkcheck_anchors = False
 linkcheck_timeout = 30
