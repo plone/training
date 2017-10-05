@@ -3,7 +3,7 @@ Intro To Ansible
 ================
 
 `Ansible <https://www.ansible.com/>`_ is an open-source configuration management, provisioning and application deployment platform
-written in Python and using `YAML <http://www.yaml.org/start.html/>`_ (YAML Ain't Markup Language) as a configuration language.
+written in Python and using `YAML <http://www.yaml.org/start.html>`_ (YAML Ain't Markup Language) as a configuration language.
 
 Ansible makes its connections from your computer to the target machine using SSH.
 

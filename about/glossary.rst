@@ -26,7 +26,7 @@ Glossary
       `Amazon S3 <https://aws.amazon.com/s3/>`_ - Object storage built to store and retrieve any amount of data from anywhere.
 
    NFS
-      `Network File System <https://en.wikipedia.org/wiki/Network_File_System/>`_.
+      `Network File System <https://en.wikipedia.org/wiki/Network_File_System>`_.
 
    Amazon Opsworks
       `AWS OpsWorks <https://aws.amazon.com/opsworks/>`_ is a configuration management service that uses Chef,
