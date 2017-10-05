@@ -4,13 +4,13 @@ Introduction To Diazo Theming
 
 In this section you will:
 
-* Use the "Theming" control panel to make a copy of Plone's default theme (barceloneta)
+* Use the :guilabel:`Theming` control panel to make a copy of Plone's default theme (barceloneta)
 * Customize a theme using Diazo rules
 * Customize a theme by editing and compiling Less files
 
 Topics covered:
 
-* Diazo and plone.app.theming
+* Diazo and :py:mod:`plone.app.theming`
 * "Barceloneta" - The Default Plone Theme
 * The "Theming tool"
 * Building CSS in the "Theming tool"
@@ -112,7 +112,7 @@ What do you think is the purpose of the ``prefix`` property?
     in the location defined by the ``production-css`` property.
 
     The ``prefix`` property defines the default location to look for non prefixed files, for example
-    if your prefix is set to ``/++theme++mytheme`` then a file like index.html will be expected at
+    if your prefix is set to ``/++theme++mytheme`` then a file like :file:`index.html` will be expected at
     ``/++theme++mytheme/index.html``
 
 
@@ -147,7 +147,7 @@ Below you can see an example of the body classes for a page named "front-page", 
                  viewpermission-view
                  userrole-anonymous">
 
-``<body>`` Classes for A Manager
+``<body>`` Classes For A Manager
 --------------------------------
 
 And here is what the classes for the same page look like when viewed by a manager that has logged in:

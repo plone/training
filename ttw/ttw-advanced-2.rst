@@ -53,7 +53,6 @@ In this exercise we will create a new theme that inherits the Barceloneta rules 
 
    .. image:: _static/theming-new-theme.png
 
-
    and name it "Custom"
 
    .. image:: _static/theming-new-theme2.png
@@ -108,7 +107,7 @@ In this exercise we will create a new theme that inherits the Barceloneta rules 
       color: @plone-text-color;
     }
 
-Then generate the :file:`styles.css` file using :file:`styles.less` and the "Build CSS" button.
+Then generate the :file:`styles.css` file using :file:`styles.less` and the :guilabel:`Build CSS` button.
 
 Your theme is ready.
 
@@ -332,15 +331,16 @@ The theme is already packaged in a manner that will work with the theming tool.
 
 
 4. Add rules to include the Barceloneta backend utilities
-   ::
 
-       <?xml version="1.0" encoding="UTF-8"?>
-    <rules
-        xmlns="http://namespaces.plone.org/diazo"
-        xmlns:css="http://namespaces.plone.org/diazo/css"
-        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        xmlns:xi="http://www.w3.org/2001/XInclude">
+   .. code-block:: xml
 
+      <?xml version="1.0" encoding="UTF-8"?>
+      <rules
+          xmlns="http://namespaces.plone.org/diazo"
+          xmlns:css="http://namespaces.plone.org/diazo/css"
+          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+          xmlns:xi="http://www.w3.org/2001/XInclude">
+    
       <!-- Include the backend theme -->
       <xi:include href="++theme++barceloneta/backend.xml" />
 
