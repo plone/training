@@ -30,11 +30,11 @@ The API is divided in five sections. Here is one example from each:
 * `Users:` `Get user roles <https://docs.plone.org/develop/plone.api/docs/user.html#get-user-roles>`_
 * `Environment:` `Switch roles inside a block <https://docs.plone.org/develop/plone.api/docs/env.html#switch-roles-inside-a-block>`_
 
-plone.api is a tool for integrators and developers that is included when you install Plone, though for technical reasons it is not used by Plone itself.
+:py:mod:`plone.api` is a great tool for integrators and developers that is included when you install Plone, though for technical reasons it is not used by the code of Plone itself.
 
 In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out  what they do.
 
-Some of these methods will be replaced by plone.api in the future:
+Some of these methods will be replaced by :py:mod:`plone.api` in the future:
 
 - :py:meth:`Products.CMFCore.utils.getToolByName` -> :py:meth:`api.portal.get_tool`
 - :py:meth:`zope.component.getMultiAdapter` -> :py:meth:`api.content.get_view`
@@ -46,7 +46,7 @@ portal-tools
 ------------
 
 Some parts of Plone are very complex modules in themselves (e.g. the versioning machinery of :py:mod:`Products.CMFEditions`).
-Some of them have an API that you will have to learn sooner or later.
+Most of them have an API of themselves that you will have to look up at when you need to implement a feature that is not covered by plone.api.
 
 Here are a few examples:
 
@@ -61,8 +61,20 @@ portal_setup
 portal_quickinstaller
     :py:meth:`isProductInstalled()` checks if a product is installed.
 
-Usually the best way to learn about the API of a tool is to look in the :file:`interfaces.py` in the respective package and read the docstrings.
+Usually the best way to learn about the API of a tool is to look in the :file:`interfaces.py` in the respective package and read the docstrings. But sometimes the only way to figure out which features a tool offers is to read its code.
 
+To use a tool you usually first get the tool with :py:mod:`plone.api` and then invoke the method.
+
+Here is an example where we get the tool `portal_membership` and use one of its methods to logout a user:
+
+.. code-block:: python
+
+    mt = api.portal.get_tool('portal_membership')
+    mt.logoutUser(request)
+
+.. note::
+
+    The code for :py:meth:`logoutUser()` is in :py:meth:`Products.PlonePAS.tools.membership.MembershipTool.logoutUser`. Many tools that are used in Plone are actually subclasses of tools from the package :py:mod:`Products.CMFCore`. For example `portal_membership` is subclassing and extending the same tool from :py:class:`Products.CMFCore.MembershipTool.MembershipTool`. That can make it hard to know which options a tool has. There is a ongoing effort by the Plone Community to consolidate tools to make it easier to work with them as a developer.
 
 .. _api-debugging-label:
 
