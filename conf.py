@@ -55,6 +55,7 @@ linkcheck_ignore = [
     r'https://www.vagrantup.com',
     r'https://www.dipf.de/en/research/projects',
     r'http://whatever.herokuapp.com',
+    r'http://example.com/news',
     r'http://example.com\d+/',
 ]
 linkcheck_anchors = False
