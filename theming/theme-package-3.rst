@@ -657,3 +657,5 @@ More Diazo And plone.app.theming Details
 ========================================
 
 For more information on how to build a Diazo based theme take a look at `the diazo documentation <http://docs.diazo.org/en/latest/>`_ and `the plone.app.theming manual <https://docs.plone.org/external/plone.app.theming/docs/index.html>`_.
+
+In the next part we will :doc:`take a look at template customizations <theme-package-4>` for our theme and :ref:`make the slider dynamic and let users change the pictures for the slider <create-dynamic-slider-content-in-plone>`.
