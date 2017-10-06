@@ -28,8 +28,10 @@ For these reasons it is a very good framework which is both powerful and easy to
 .. note::
 
    Angular was initially known as Angular 2 as AngularJS was its ancestor.
-   Angular and AngularJS are very different, but their name are quite close so when looking for packages,
-    verify carefully which Angular it is compliant with.
+   Angular and AngularJS are very different.
+
+   Their names are quite close, when looking for packages,
+   verify carefully which Angular it is compliant with.
 
 What Is The Plone Angular SDK
 =============================
@@ -72,7 +74,9 @@ According to the value of the `@type` property of the context, the appropriate c
 
    We can also use another criteria than `@type` by registring a custom marker
    (the package comes with an `InterfaceMarker` which marks context according the `interfaces` attribute,
-   which is supposed to be a list. At the moment, the Plone REST API does not expose this attribute).
+   which is supposed to be a list.
+
+   At the moment, the Plone REST API does not expose this attribute).
 
 A New Integration Approach For Plone
 ====================================
@@ -247,7 +251,7 @@ Let's change again ``src/app.component.html``:
 
 Now we get the main navigation bar and the breadcrumbs. Note the navigation is performed client-side (the page is not reloaded).
 
-Integrating a theme
+Integrating A Theme
 -------------------
 
 Integrate Bootstrap
@@ -275,7 +279,7 @@ Import Bootstrap in our main stylesheet ``src/styles.scss``
    $icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
    @import "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
-Override a default Plone component template
+Override A default Plone Component Template
 *******************************************
 
 We need to change the template of the global navigation.
@@ -416,7 +420,7 @@ Style it in ``src/app/global-navigation/global-navigation.component.scss``:
      }
    }
 
-Update the app component markup
+Update The App Component Markup
 *******************************
 
 Now we can fix the main component markup in ``src/app/app.component.html``:
@@ -465,10 +469,10 @@ Nevertheless, we might need to style it a little bit, let's do that in ``src/sty
      }
    }
 
-Creating a custom view for the Talk content type
+Creating A Custom View For The Talk Content Type
 ------------------------------------------------
 
-Create the Talk content type in the backend
+Create The Talk Content Type In The Backend
 *******************************************
 
 We need to go to our Plone backend, then in :menuselection:`Site Setup --> Dexterity content types`,
@@ -483,7 +487,7 @@ And we select the following behaviors:
 
 Then we create a new folder named "Talks" where we add a few talks, and we publish them all (including the folder).
 
-Create a view component for talks
+Create A View Component For Talks
 *********************************
 
 We could use the default view to display talks, but it would only display the title and the text,
@@ -570,7 +574,7 @@ The view is now properly set up, let's work on the template in ``src/app/talk/ta
      <div [innerHTML]="context.text.data"></div>
    </div>
 
-Enable comments
+Enable Comments
 ***************
 
 We want to allow visitors to post comments about the talks.
@@ -585,7 +589,7 @@ Now in ``src/app/talk/talk.component.html`` we just append:
 
    <plone-comments></plone-comments>
 
-Displaying news on the home page
+Displaying News On The Home Page
 --------------------------------
 
 We want to display the 3 most recent news on the home page.
@@ -914,14 +918,14 @@ Let's implement the logout link.
 
 Now if we create private contents in Plone, they won't show unless we are logged in.
 
-Adding quick links in the footer
+Adding Quick Links In the Footer
 --------------------------------
 
 We want to display useful links in the footer, and each link should have an icon.
 
 We want those icons to be managed in Plone.
 
-Customizing the Link content type
+Customizing The Link Content Type
 *********************************
 
 We will use the Bootstrap font icon.
@@ -938,7 +942,7 @@ For each of them, we will choose an icon name from https://getbootstrap.com/docs
 
 And we will exclude the Quicklinks folder from navigation.
 
-Displaying the links
+Displaying The Links
 ********************
 
 Let's implement the Footer component able to display those links.
@@ -1073,7 +1077,7 @@ So we need to fix our Nginx VHOST to preserve the client-side routing::
 
 That way, any existing file (like ``index.html``, ``vendor.xxx.bundle.js``, etc.) is served directly, but for anything else, we just return ``index.html`` so the client-side routing will take over.
 
-Managing the Plone configuration from the Angular project
+Managing The Plone Configuration From The Angular Project
 ---------------------------------------------------------
 
 We have been customizing our Plone backend instance in order to comply with our project needs.
@@ -1090,7 +1094,7 @@ Fortunately, two tools will help us to achieve that:
 - `collective.themesitesetup <https://github.com/collective/collective.themesitesetup/>`_ allowing to manage a Plone configuration as part of a Plone theme,
 - `plonetheme-upload <https://github.com/datakurre/plonetheme-upload>`_ allowing to push a Plone theme from a local NPM project to a remote Plone backend.
 
-Creating a theme to handle the configuration
+Creating A Theme To Handle The Configuration
 ++++++++++++++++++++++++++++++++++++++++++++
 
 .. note::
@@ -1138,7 +1142,7 @@ After clicking on `Export`, our theme will contain a new folder named ``install`
 
 Now we can download our theme from the Theming control panel and extract the resulting .zip file in our Angular project which contains now a folder named ``./plonecustom``.
 
-Pushing the Plone configuration from the Angular project
+Pushing The Plone Configuration From The Angular Project
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Let's add `plonetheme-upload` to our development dependencies:
@@ -1167,18 +1171,18 @@ Advanced
 
 .. todo:: To be completed
 
-Moving logic in a service
+Moving Logic In A Service
 +++++++++++++++++++++++++
 
-Reactive programming with RxJS
+Reactive Programming With RxJS
 ++++++++++++++++++++++++++++++
 
-Enabling offline & PWA
+Enabling Offline & PWA
 ++++++++++++++++++++++
 
 .. note:: HTTPS is mandatory.
 
-SEO and server-side rendering
+SEO And Server-side Rendering
 +++++++++++++++++++++++++++++
 
 robots.txt
