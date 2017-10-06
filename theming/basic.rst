@@ -21,7 +21,7 @@ Customize Logo
 #. Go to the "Site" control panel.
 #. You will see this form:
 
-   .. image:: https://docs.plone.org/_images/change-logo-in-site-control-panel.png
+   .. image:: ../theming/_static/change-logo-in-site-control-panel.png
 
 #. You can now add/edit/remove your custom logo.
 
