@@ -374,6 +374,10 @@ Replace the example content with the following Less code in the file :file:`cust
      }
    }
 
+   body.mce-content-body {
+     background-image: none;
+   }
+
 
 .. _install-ext-packages-with-npm:
 
@@ -391,6 +395,7 @@ To do that, we use :program:`npm`, which we already :doc:`installed in the prepa
 To install ``Bootstrap`` with :program:`npm`, run the following command inside the theme folder:
 
 .. code-block:: bash
+
    $ cd src/ploneconf/theme/theme
    $ npm install bootstrap --save
 
