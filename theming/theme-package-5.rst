@@ -1,19 +1,19 @@
 .. _creating-initial-content-for-the-theme:
 
-======================================
-Creating initial content for the theme
-======================================
+=========================================
+Theme Package V: Creating Initial Content
+=========================================
 
-Our theme relies on some initial content structure,
-specifically the :file:`slider-images` folder with some images inside.
-Let's improve our theme package to create this content on install.
+Our theme relies on some initial content structure, specifically the :file:`slider-images` folder with some images inside.
+We will improve our theme package to create this content on install.
 
-To do that we create the :file:`slider-images` folder in our :file:`setuphandlers.py`
-and load also some example images into that folder.
+To do that we create the :file:`slider-images` folder in our :file:`setuphandlers.py` and load some example images into that folder.
 
-We have the needed images inside ``theme/img`` folder. To create the folder and the images put the following code in your setuphandlers.py.
+We will add some images tp the :file:`theme/img` folder.
+To create the folder and the images add the following code in your setuphandlers.py:
 
 .. code-block:: python
+   :emphasize-lines: 2-3,6,22-23,31-67
 
    # -*- coding: utf-8 -*-
 
@@ -35,8 +35,14 @@ We have the needed images inside ``theme/img`` folder. To create the folder and 
 
    def post_install(context):
        """Post install script"""
+       # Do something at the end of the installation of this package.
        portal = api.portal.get()
        _create_content(portal)
+
+
+   def uninstall(context):
+       """Uninstall script"""
+       # Do something at the end of the uninstallation of this package.
 
 
    def _create_content(portal):
@@ -66,18 +72,18 @@ We have the needed images inside ``theme/img`` folder. To create the folder and 
 
    def _load_image(slider):
        from plone.namedfile.file import NamedBlobImage
-       filename = os.path.join(os.path.dirname(__file__), 'theme', 'img',
-                               'slide-{0}.jpg'.format(slider))
+       filename = os.path.join(
+           os.path.dirname(__file__),
+           'theme',
+           'img',
+           'slide-{0}.jpg'.format(slider),
+       )
        return NamedBlobImage(
            data=open(filename, 'r').read(),
            filename=u'slide-{0}.jpg'.format(slider)
        )
 
 
-   def uninstall(context):
-       """Uninstall script"""
-
 .. note::
 
-  After adding this code to the setuphandlers.py, we need to restart Plone
-  and uninstall/install our theme package add-on.
+   After adding this code to the file :file:`setuphandlers.py`, we need to restart Plone and uninstall/install our theme package add-on.
