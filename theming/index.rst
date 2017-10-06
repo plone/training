@@ -26,15 +26,15 @@ This training is **not** about:
    :hidden:
    :caption: Theming
 
-   basic
-   ttw-advanced
-   ttw-advanced-2
-   static-theme
-   theme-package
-   theme-package-2
-   theme-package-3
-   theme-package-4
-   theme-package-5
+   Basic Customizations <basic>
+   TTW Theming I: Introduction <ttw-advanced>
+   TTW Theming II: Custom Barceloneta Theme <ttw-advanced-2>
+   TTW Theming III: Make It Reproducible <static-theme>
+   Theme Package I: Preparations <theme-package>
+   Theme Package II: Diazo Theme <theme-package-2>
+   Theme Package III: Customizations <theme-package-3>
+   Theme Package IV: Templates <theme-package-4>
+   Theme Package V: Initial Content <theme-package-5>
    tinymce-templates
    adv-resource-registry
    adv-diazo
