@@ -27,7 +27,9 @@ Installing Plone
 
     (Hopefully you won't have to deal with any Plone sites older than version 3.x.)
 
-    Plone 5.x requires a working Python 2.7 and several other system tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that Python can be used:
+    Plone 5.x requires a working Python 2.7 and several other system tools that not every OS provides.
+    Therefore the installation of Plone is different on every system.
+    Here are some ways that Python can be used:
 
 .. only:: presentation
 
@@ -43,11 +45,13 @@ Installing Plone
 
 .. only:: not presentation
 
-    Mac OS X 10.8 - 10.10 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones.
+    Mac OS X 10.8 - 10.10 and Ubuntu 14.04 come with a working default Python 2.7 built in.
+    These are the lucky ones.
 
-Most developers use their primary system to develop Plone. For complex setups they often use Linux virtual machines.
+Most developers use their primary system to develop Plone.
+For complex setups they often use Linux virtual machines.
 
-* OS X: Use the python buildout to compile python and homebrew for some missing Linux tools.
+* OS X: Use the python buildout to compile python and `Homebrew <https://docs.brew.sh/Installation.html>`_ for some missing Linux tools.
 * Linux: Depending on your Linux flavor you might have to build python yourself and install some tools.
 * Windows: Alan Runyan (one of Plone's founders) uses it. A downside: Plone seems to be running much slower on Windows.
 
@@ -63,7 +67,12 @@ You can download all of these at https://plone.org/download
 
 .. only:: not presentation
 
-    For the training we'll use option 2 and 4 to install and run Plone. We'll create our own Buildout and extend it as we wish. But we will do so in a vagrant machine. For your own first experiments we recommend option 1 or 2 (if you have a Windows laptop or encounter problems). Later on you should be able to use your own Buildout (we'll cover that later on).
+    For the training we'll use option 2 and 4 to install and run Plone.
+    We'll create our own Buildout and extend it as we wish.
+    We will do so in a vagrant machine.
+
+    For your own first experiments we recommend option 1 or 2 (if you have a Windows laptop or encounter problems).
+    Later on you should be able to use your own Buildout (we'll cover that later on).
 
 .. only:: presentation
 
@@ -103,7 +112,8 @@ You can host Plone...
 Production Deployment
 ---------------------
 
-The way we're setting up a Plone site during this class may be adequate for a small site — or even a very large one that's not very busy — but you're likely to want to do much more if you're using Plone for anything demanding.
+The way we're setting up a Plone site during this class may be adequate for a small site
+— or even a very large one that's not very busy — but you're likely to want to do much more if you're using Plone for anything demanding.
 
 * Using a production web server like Apache or Nginx for URL rewriting, SSL and combining multiple, best-of-breed solutions into a single web site.
 
