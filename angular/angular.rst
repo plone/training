@@ -450,7 +450,7 @@ Now we can fix the main component markup in ``src/app/app.component.html``:
 Note we use our custom global navigation component (``app-global-navigation``)
 but we keep the Plone default breadcrumbs component (``plone-breadcrumbs``) as its markup is fine.
 
-Nevertheless, we might need to style it a little bit, let's do that in ``src/styles.scss``:
+We need to style it a little bit, let's do that in ``src/styles.scss``:
 
 .. code-block:: scss
 
@@ -652,7 +652,7 @@ Here is the ``HomeComponent`` implementation:
      }
    }
 
-We could display those news with a very basic layout like this:
+We could display those news with a basic layout like this:
 
 .. code-block:: html+ng2
 
@@ -665,6 +665,7 @@ We could display those news with a very basic layout like this:
 Titles are not enough, it would be better to display images.
 
 The ``find`` method returns "light" search results, with only few metadata.
+
 By adding the ``fullobjects: true`` parameter, it will retrieve the actual News Item objects,
 including the image:
 
@@ -680,6 +681,7 @@ including the image:
           fullobjects: true,
         },
       )
+
 
 .. code-block:: html+ng2
 
@@ -1095,11 +1097,13 @@ Fortunately, two tools will help us to achieve that:
 - `plonetheme-upload <https://github.com/datakurre/plonetheme-upload>`_ allowing to push a Plone theme from a local NPM project to a remote Plone backend.
 
 Creating A Theme To Handle The Configuration
-++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------
 
 .. note::
 
-    collective.themesitesetup is deployed by default on our Heroku instance. If you use your own backend, you will need to deploy it.
+   collective.themesitesetup is deployed by default on our Heroku instance.
+
+   If you use your own backend, you will need to deploy it.
 
 We need to go to our Plone backend, then in :menuselection:`Site Setup --> Theming`, we create a new theme.
 Let's name it ``plonecustom`` for instance.
@@ -1110,14 +1114,14 @@ It will just be a copy of our default Barceloneta manifest:
 
 .. code-block:: ini
 
-  [theme]
-  title = plonecustom
-  description =
-  rules = /++theme++barceloneta/rules.xml
-  prefix = /++theme++barceloneta
-  doctype = <!DOCTYPE html>
-  enabled-bundles =
-  disabled-bundles =
+   [theme]
+   title = plonecustom
+   description =
+   rules = /++theme++barceloneta/rules.xml
+   prefix = /++theme++barceloneta
+   doctype = <!DOCTYPE html>
+   enabled-bundles =
+   disabled-bundles =
 
   # Resources must be registered either here in the Diazo bundle or in registry.xml
   development-css = /++theme++barceloneta/less/barceloneta.plone.less
@@ -1143,7 +1147,7 @@ After clicking on `Export`, our theme will contain a new folder named ``install`
 Now we can download our theme from the Theming control panel and extract the resulting .zip file in our Angular project which contains now a folder named ``./plonecustom``.
 
 Pushing The Plone Configuration From The Angular Project
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------------
 
 Let's add `plonetheme-upload` to our development dependencies:
 
@@ -1167,20 +1171,22 @@ And now we can push our local `./plonecustom` to our Plone backend using the fol
    npm run update-backend
 
 Advanced
---------
+========
 
 .. todo:: To be completed
 
 Moving Logic In A Service
-+++++++++++++++++++++++++
+-------------------------
 
 Reactive Programming With RxJS
-++++++++++++++++++++++++++++++
+------------------------------
 
 Enabling Offline & PWA
-++++++++++++++++++++++
+----------------------
 
-.. note:: HTTPS is mandatory.
+.. note::
+
+   HTTPS is mandatory.
 
 SEO And Server-side Rendering
 +++++++++++++++++++++++++++++
