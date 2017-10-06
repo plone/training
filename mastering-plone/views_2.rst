@@ -31,7 +31,7 @@ View Classes
 
 Earlier we wrote a demo view which we also used to experiment with page templates.
 Now we are going to enhance that view so that it will have some python code, in addition to a template.
-Let us have a look at the zcml and the code.
+Let us have a look at the ZCML and the code.
 
 ``browser/configure.zcml``
 
@@ -239,7 +239,8 @@ You can now change the :py:class:`TalkView` to use that
         """ The default view for talks
         """
 
-The template :file:`templates/talkview.pt` still works but now you can modify it to use the pattern :samp:`view/w/<fieldname>/render` to render the widgets:
+The template :file:`templates/talkview.pt` still works but now you can modify it
+to use the pattern :samp:`view/w/<fieldname>/render` to render the widgets:
 
 .. code-block:: xml
     :linenos:
@@ -286,7 +287,11 @@ We will have to either reinstall our add-on or run the GenericSetup import step 
 
 ..  note::
 
-    To change it ttw got to the ZMI (http://localhost:8080/Plone/manage), go to ``portal_types`` and select the type for which the new view should be selectable (*talk*). Now add ``talkview`` to the list *Available view methods*. Now the new view is available in the menu *Display*. To make it the default view enter it in ``Default view method``.
+    To change it ttw got to the ZMI (http://localhost:8080/Plone/manage), go to ``portal_types`` and select the type for which the new view should be selectable (*talk*).
+
+    Now add ``talkview`` to the list *Available view methods*.
+    Now the new view is available in the menu *Display*.
+    To make it the default view enter it in ``Default view method``.
 
 Let's improve the talkview to show all the info we want.
 
@@ -340,7 +345,8 @@ Let's improve the talkview to show all the info we want.
 Exercise
 --------
 
-Add the new choice field "room" to the Talk type (TTW) and display it below Audience in the browser view, it should contain the following data:
+Add the new choice field "room" to the Talk type (TTW) and display it below Audience in the browser view,
+it should contain the following data:
 
 * Title: Room
 * Possible values: Room 101, Room 102, Auditorium
@@ -389,23 +395,39 @@ Behind the scenes
             # def __call__(self):
             #    return self.template()
 
-Do you remember the term :py:class:`MultiAdapter`? The browser page is just a MultiAdapter. The ZCML statement :samp:`browser:page` registers a :py:class:`MultiAdapter` and adds additional things needed for a browser view.
+Do you remember the term :py:class:`MultiAdapter`?
+
+The browser page is just a MultiAdapter.
+The ZCML statement :samp:`browser:page` registers a :py:class:`MultiAdapter` and adds additional things needed for a browser view.
 
 An adapter adapts things, a :py:class:`MultiAdapter` adapts multiple things.
 
-When you enter a url, Zope tries to find an object for it. At the end, when Zope does not find any more objects but there is still a path item left, or there are no more path items, Zope looks for an adapter that will reply to the request.
+When you enter a URL, Zope tries to find an object for it.
+At the end, when Zope does not find any more objects but there is still a path item left,
+or there are no more path items, Zope looks for an adapter that will reply to the request.
 
-The adapter adapts the request and the object that Zope found with the URL. The adapter class gets instantiated with the objects to be adapted, then it gets called.
+The adapter adapts the request and the object that Zope found with the URL.
+The adapter class gets instantiated with the objects to be adapted, then it gets called.
 
-The code above does the same thing that the standard implementation would do. It makes :py:attr:`context` and :py:attr:`request` available as variables on the object.
+The code above does the same thing that the standard implementation would do.
+It makes :py:attr:`context` and :py:attr:`request` available as variables on the object.
 
 I have written down these methods because it is important to understand some important concepts.
 
-The :py:meth:`__init__` method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved. Your code is not security checked. For historical reasons, many errors that happen in the :py:meth:`__init__` method can result in a page not found error instead of an exception.
+The :py:meth:`__init__` method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved.
+Your code is not security checked.
 
-Use the :py:meth:`__init__` method to do as little as possible, if at all. Instead, you have the guarantee that the :py:meth:`__call__` method is called before anything else (but after the :py:meth:`__init__` method). It has the security checks in place and so on.
+For historical reasons, many errors that happen in the :py:meth:`__init__` method can result
+in a page not found error instead of an exception.
 
-From a practical standpoint, consider the :py:meth:`__call__` method your :py:meth:`__init__` method, the biggest difference is that this method is supposed to return the HTML already.
+Use the :py:meth:`__init__` method to do as little as possible, if at all.
+Instead, you have the guarantee that the :py:meth:`__call__` method is called before anything else (but after the :py:meth:`__init__` method).
+
+It has the security checks in place and so on.
+
+From a practical standpoint, consider the :py:meth:`__call__` method your :py:meth:`__init__` method,
+the biggest difference is that this method is supposed to return the HTML already.
+
 Let your base class handle the HTML generation.
 
 .. seealso::
