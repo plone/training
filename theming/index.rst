@@ -33,7 +33,7 @@ This training is **not** about:
    theme-package
    theme-package-2
    theme-package-3
-   creating-customizing-templates
+   theme-package-4
    creating-initial-content-for-the-theme
    tinymce-templates
    adv-resource-registry
