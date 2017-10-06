@@ -1,6 +1,6 @@
-========================================
-Creating And Customizing Plone Templates
-========================================
+==========================================================
+Theme Package IV: Creating And Customizing Plone Templates
+==========================================================
 
 Overriding A Plone Template
 ===========================
