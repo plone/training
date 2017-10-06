@@ -1,5 +1,6 @@
 .. _intro-label:
 
+============
 Introduction
 ============
 
@@ -7,7 +8,7 @@ Introduction
 .. _intro-who-are-you-label:
 
 Who are you?
-------------
+============
 
 Tell us about yourselves:
 
@@ -42,7 +43,7 @@ Tell us about yourselves:
 .. _intro-what-happens-label:
 
 What will we do?
-----------------
+================
 
 Some technologies and tools we use during the training:
 
@@ -74,7 +75,7 @@ Some technologies and tools we use during the training:
 .. _intro-what-wont-happen-label:
 
 What will we not do?
---------------------
+====================
 
 We will not cover the following topics:
 
@@ -98,19 +99,28 @@ Other topics are only covered lightly:
 .. _intro-expect-label:
 
 What to expect
---------------
+==============
 
-At the end of the first two days of training, you'll know many of the tools required for Plone installation, integration and configuration. You'll be able to install add-on packages and will know something about the technologies underlying Plone and their histories.
+At the end of the first two days of training, you'll know many of the tools required for Plone installation,
+integration and configuration.
 
-At the end of the second two days, you won't be a complete professional Plone-programmer, but you will know some of the more powerful features of Plone and should be able to construct a more complex website with custom themes and packages. You should also be able to find out where to look for instructions to do tasks we did not cover. You will know most of the core technologies involved in Plone programming.
+You'll be able to install add-on packages and will know something about the technologies underlying Plone and their histories.
 
-If you want to become a professional Plone developer or a highly sophisticated Plone integrator you should definitely read `Martin Aspeli's book <https://www.packtpub.com/web-development/professional-plone-4-development>`_ and then re-read it again while actually doing a complex project.
+At the end of the second two days, you won't be a complete professional Plone-programmer,
+but you will know some of the more powerful features of Plone and should be able to construct a more complex website with custom themes and packages.
+
+You should also be able to find out where to look for instructions to do tasks we did not cover.
+You will know most of the core technologies involved in Plone programming.
+
+If you want to become a professional Plone developer or a highly sophisticated Plone integrator you should
+definitely read `Martin Aspeli's book <https://www.packtpub.com/web-development/professional-plone-4-development>`_
+and then re-read it again while actually doing a complex project.
 
 
 .. _intro-classroom-protocol:
 
 Classroom Protocol
-------------------
+==================
 
 .. only:: not presentation
 
@@ -146,7 +156,7 @@ Classroom Protocol
 .. _intro-docs-label:
 
 Documentation
---------------
+=============
 
 Follow the training at https://training.plone.org/5
 
@@ -158,7 +168,8 @@ Follow the training at https://training.plone.org/5
 .. _intro-further-reading-label:
 
 Further Reading
----------------
+===============
+
 * `Martin Aspeli: Professional Plone4 Development <https://www.packtpub.com/web-development/professional-plone-4-development>`_
 * `Practical Plone <https://www.packtpub.com/web-development/practical-plone-3-beginners-guide-building-powerful-websites>`_
 * `Zope Page Templates Reference <http://docs.zope.org/zope2/zope2book/AppendixC.html>`_
