@@ -36,7 +36,7 @@ This training is **not** about:
    Theme Package IV: Templates <theme-package-4>
    Theme Package V: Initial Content <theme-package-5>
    Theme Package VI: TinyMCE Templates <theme-package-6>
-   adv-resource-registry
+   Theme Package VI: Resource Registry <theme-package-7>
    adv-diazo
    collective-jbot
    custom-components
