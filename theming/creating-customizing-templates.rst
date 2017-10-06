@@ -1,59 +1,46 @@
 ========================================
-Creating and customizing Plone templates
+Creating And Customizing Plone Templates
 ========================================
 
-Overriding a Plone template
+Overriding A Plone Template
 ===========================
 
 A large part of the Plone UI is provided by BrowserView and Viewlet templates.
 
-You can see all viewlets and their managers (sortable containers) when you view
-the URL ``./@@manage-viewlets``).
+You can see all viewlets and their managers (sortable containers) when you view the URL ``./@@manage-viewlets``).
 
 .. note::
 
    To override them from the ZMI, you can go to ``./portal_view_customizations``.
    But this is very limited and does not work for all views.
 
-To override them from your theme product, the easiest way is to use
-``z3c.jbot`` (Just a Bunch of Templates).
+To override them from your theme product, the easiest way is to use ``z3c.jbot`` (Just a Bunch of Templates).
 
-Since jbot is already included in the ``bobtemplates.plone`` theme skeleton via
-``plone.app.themingplugins``, you can start using it immediately by adding all the
-templates you want to override in the
-``src/ploneconf/theme/theme/template-overrides`` directory.
+Since jbot is already included in the ``bobtemplates.plone`` theme skeleton via ``plone.app.themingplugins``, you can start using it immediately by adding all the templates you want to override in the :file:`src/ploneconf/theme/theme/template-overrides` directory.
 
-In order for jbot to match the override to the template which is being
-overridden, the name of the *new* template needs to include the
-complete path to the original template as a prefix (with every ``/`` replaced
-by ``.``).
+In order for jbot to match the override to the template which is being overridden, the name of the *new* template needs to include the complete path to the original template as a prefix (with every ``/`` replaced by a ``.``).
 
-For instance, to override ``path_bar.pt`` (the breadcrumbs) from ``plone.app.layout``, knowing
-that this template is found in a sub folder named ``viewlets``, you need to name
-the overriding template ``plone.app.layout.viewlets.path_bar.pt``.
+For instance, to override the :file:`path_bar.pt` template (the breadcrumbs) from ``plone.app.layout``, knowing that this template is found in a sub folder named ``viewlets``, you need to name the overriding template :file:`plone.app.layout.viewlets.path_bar.pt`.
 
-.. note:: Clicking the template in ZMI > portal_view_customizations is a handy way to find the template path. You can also copy the original template's code here.
+.. hint::
+
+   Clicking the template in ZMI > portal_view_customizations is a handy way to find the template path. You can also copy the original template's code here.
 
 When a new override has been added, the Plone instance needs to be restarted.
 After this, you can just refresh the page to see any changes to the template.
 
 
-Overriding Event Item template
-******************************
+Overriding The Event Item Template
+----------------------------------
 
-The path to the original template is :file:`plone/app/event/browser/event_view.pt`,
-so the full dotted name for our replacement template should be:
-``plone.app.event.browser.event_view.pt``.
-Create a new file with this dotted name into the ``template-overrides`` folder.
+The path to the original template is :file:`plone/app/event/browser/event_view.pt`, so the full dotted name for our replacement template should be: :file:`plone.app.event.browser.event_view.pt`.
+Create a new file with this dotted name into the :file:`template-overrides` folder.
 
-Let's say we want to move the full text of the event item to appear before the
-event details block.
-To do this, we copy over the original template code and change the order of the
-two blocks:
-
-.. note:: If your buildout is using ``omelette``, you can find the original template in ``buildout/parts/omelette/plone/app/event/browser``.
+Let's say we want to move the full text of the event item to appear before the event details block.
+To do this, we copy over the original template code and change the order of the two blocks:
 
 .. code-block:: xml
+   :emphasize-lines: 22-24
 
    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
          xmlns:tal="http://xml.zope.org/namespaces/tal"
@@ -62,38 +49,38 @@ two blocks:
          lang="en"
          metal:use-macro="context/main_template/macros/master"
          i18n:domain="plone.app.event">
-   <body>
+     <body>
 
-   <metal:content-core fill-slot="content-core">
-   <metal:block define-macro="content-core">
-   <tal:def tal:define="data nocall:view/data">
+       <metal:content-core fill-slot="content-core">
+         <metal:block define-macro="content-core">
+           <tal:def tal:define="data nocall:view/data">
+             <div class="event clearfix" itemscope="itemscope" itemtype="http://data-vocabulary.org/Event">
+               <ul class="hiddenStructure">
+                 <li><a itemprop="url" class="url" href="" tal:attributes="href data/url" tal:content="data/url">url</a></li>
+                 <li itemprop="summary" class="summary" tal:content="data/title">title</li>
+                 <li itemprop="startDate" class="dtstart" tal:content="data/start/isoformat">start</li>
+                 <li itemprop="endDate" class="dtend" tal:content="data/end/isoformat">end</li>
+                 <li itemprop="description" class="description" tal:content="data/description">description</li>
+               </ul>
 
-     <div class="event clearfix" itemscope="itemscope" itemtype="http://data-vocabulary.org/Event">
+               <div id="parent-fieldname-text" tal:condition="data/text">
+                 <tal:text content="structure data/text" />
+               </div>
 
-       <ul class="hiddenStructure">
-         <li><a itemprop="url" class="url" href="" tal:attributes="href data/url" tal:content="data/url">url</a></li>
-         <li itemprop="summary" class="summary" tal:content="data/title">title</li>
-         <li itemprop="startDate" class="dtstart" tal:content="data/start/isoformat">start</li>
-         <li itemprop="endDate" class="dtend" tal:content="data/end/isoformat">end</li>
-         <li itemprop="description" class="description" tal:content="data/description">description</li>
-       </ul>
-
-       <div id="parent-fieldname-text" tal:condition="data/text">
-         <tal:text content="structure data/text" />
-       </div>
-
-       <tal:eventsummary replace="structure context/@@event_summary"/>
-
-     </div>
-
-   </tal:def>
-   </metal:block>
-   </metal:content-core>
-
-   </body>
+               <tal:eventsummary replace="structure context/@@event_summary" />
+             </div>
+           </tal:def>
+         </metal:block>
+       </metal:content-core>
+     </body>
    </html>
 
 You can now restart Plone and view an event to see the effect.
+
+.. hint::
+
+   If your buildout is using ``omelette``, you can find the original template in :file:`buildout/parts/omelette/plone/app/event/browser`.
+
 
 Creating a new Plone template
 =============================
