@@ -143,7 +143,7 @@ Definition of the PYTHON_PATH makes up most of the `bin/instance` script's code.
 ..  admonition:: Solution
     :class: toggle
 
-    * Zope2: Zope2, ZODB, Acquistion, AccessControl, ...
+    * Zope2: Zope2, ZODB, Acquisition, AccessControl, ...
     * CMF: Products.CMFCore, Products.CMFUid, Products.CMFEditions, ... Products.DCWorkflow doesn't fit the pattern but is a very important part of the CMF
-    * ZTK: zope.browser, zope.container, zope.pagetemplate, ... You can find a complete list `<here https://dist.plone.org/versions/zopetoolkit-1-0-8-zopeapp-versions.cfg>`_
+    * ZTK: zope.browser, zope.container, zope.pagetemplate, ... You can find a complete list `here <https://dist.plone.org/versions/zopetoolkit-1-0-8-zopeapp-versions.cfg>`_
     * ZCA: zope.component, zope.interface, zope.event
