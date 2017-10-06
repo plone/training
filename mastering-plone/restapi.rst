@@ -5,14 +5,20 @@ Plone REST API
 
     Get the code for this chapter (:doc:`More info <code>`):
 
-    ..  code-block:: bash
+    ..  code-block:: console
 
         git checkout restapi
 
 
-In this chapter, we will have a look at the relatively new addon `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_. It provides a hypermedia API to access Plone content using REST (Representational State Transfer).
+In this chapter, we will have a look at the relatively new add-on `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_.
 
-We will use :py:mod:`plone.restapi` to develop a small standalone 'single page app' targeted at mobile devices. We will present our users with a simple list of conference talks. We add lightning talks as a new type of talk. Users will be able to submit lightning talks e.g. using their mobile phone.
+It provides a hypermedia API to access Plone content using REST (Representational State Transfer).
+
+We will use :py:mod:`plone.restapi` to develop a small standalone 'single page app' targeted at mobile devices.
+We will present our users with a simple list of conference talks.
+
+We add lightning talks as a new type of talk.
+Users will be able to submit lightning talks e.g. using their mobile phone.
 
 We have the following tasks:
 
@@ -31,7 +37,10 @@ Explore the API
 
 Make sure you add some talks to the talks folder and then start exploring the API.
 We recommend using `Postman <https://www.getpostman.com>`_ or a similar tool, but you can also use `requests <https://pypi.python.org/pypi/requests>`_ in a Python virtual env.
-:py:mod:`plone.restapi` uses 'content negotiation' to determine whether a client wants a REST API response - if you set the ``Accept`` HTTP header to ``application/json``, Plone will provide responses in JSON format. Some requests you could try:
+
+:py:mod:`plone.restapi` uses 'content negotiation' to determine whether a client wants
+a REST API response - if you set the ``Accept`` HTTP header to ``application/json``,
+Plone will provide responses in JSON format. Some requests you could try:
 
 .. code::
 
@@ -52,12 +61,17 @@ We recommend using `Postman <https://www.getpostman.com>`_ or a similar tool, bu
 Exercise
 ++++++++
 
-REST APIs use HTTP verbs for manipulating content. ``PATCH`` is used to update an existing resource. Add a new talk in Plone and then update it's title to match 'Foo 42' using the REST API (from Postman or requests).
+REST APIs use HTTP verbs for manipulating content.
+``PATCH`` is used to update an existing resource.
+
+Add a new talk in Plone and then update it's title to match 'Foo 42' using the REST API (from Postman or requests).
 
 ..  admonition:: Solution
     :class: toggle
 
-    We need to login to change content. Using JWT, we do so by POSTing credentials to the ``@login`` resource to obtain a JSON web token that we can subsequently use to authorize requests.
+    We need to login to change content.
+    Using JWT, we do so by POSTing credentials to the ``@login`` resource to obtain a JSON web token
+    that we can subsequently use to authorize requests.
 
     .. code-block:: http-request
 
@@ -121,19 +135,25 @@ Implementing the talklist
 
 We will use `Mobile Angular UI <http://mobileangularui.com/>`_ to develop our app.
 This is a relatively lightweight JavaScript framework for developing hybrid web apps built on top of `AngularJS <https://angularjs.org/>`_.
-There are a lot of other frameworks available (e.g. Ionic, OnsenUI, Sencha, ...), but most of them have more dependencies than `Mobile Angular UI`.
+There are a lot of other frameworks available (e.g. Ionic, OnsenUI, Sencha, ...),
+but most of them have more dependencies than `Mobile Angular UI`.
+
 For example, most of them require NodeJS as a development web server.
-Our focus is Plone and interacting with :py:mod:`plone.restapi`, and `Mobile Angular UI` perfectly suits our needs because it simply lets us use Plone as our development webserver.
 
-To get started, we download the current `master branch of Mobile Angular UI <https://codeload.github.com/mcasimir/mobile-angular-ui/zip/master>`_ from Github, extract it and copy the :file:`dist` folder into a new subdirectory of :file:`browser` named :file:`talklist`.
-So, assuming the current working directory is the buildout directory:
+Our focus is Plone and interacting with :py:mod:`plone.restapi`, and `Mobile Angular UI` perfectly suits our needs
+because it simply lets us use Plone as our development webserver.
 
-.. code-block:: bash
+To get started, we download the current `master branch of Mobile Angular UI <https://codeload.github.com/mcasimir/mobile-angular-ui/zip/master>`_
+from GitHub, extract it and copy the :file:`dist` folder into a new subdirectory of :file:`browser` named :file:`talklist`.
 
-    $ wget https://codeload.github.com/mcasimir/mobile-angular-ui/zip/master
-    $ unzip master.zip
-    $ mkdir src/ploneconf.site/src/ploneconf/site/browser/talklist
-    $ cp -a mobile-angular-ui-master/dist src/ploneconf.site/src/ploneconf/site/browser/talklist/
+Assuming the current working directory is the buildout directory:
+
+.. code-block:: console
+
+   wget https://codeload.github.com/mcasimir/mobile-angular-ui/zip/master
+   unzip master.zip
+   mkdir src/ploneconf.site/src/ploneconf/site/browser/talklist
+   cp -a mobile-angular-ui-master/dist src/ploneconf.site/src/ploneconf/site/browser/talklist/
 
 Then we add a new resource directory to :file:`browser/configure.zcml`:
 
@@ -200,7 +220,10 @@ In the :file:`browser/talklist` directory, we add an HTML page called :file:`ind
     </html>
 
 Now you can point your browser to http://localhost:8080/Plone/++resource++talklist/index.html to see the result.
-So far, the page will simply display a list of published talks. But we also need some JavaScript that we put into a file named :file:`talklist.js` in the same folder:
+
+The page will display a list of published talks.
+
+We also need some JavaScript that we put into a file named :file:`talklist.js` in the same folder:
 
 .. code-block:: javascript
 
@@ -265,10 +288,15 @@ So far, the page will simply display a list of published talks. But we also need
 Submit lightning talks
 ----------------------
 
-We add a new type of talk: lightning talk. A lightning talk is a short presentation of up to 5 minutes duration that can cover just about any topic.
+We add a new type of talk: lightning talk.
+A lightning talk is a short presentation of up to 5 minutes duration that can cover just about any topic.
+
 The information we need to provide for lightning talks is far less than for the more formal types of talk.
+
 Often the information provided for lightning talks is restricted to the talk subject or title and the speaker name, but we allow for a short summary.
-Before they can submit a lightning talk, potential speakers will need to login and we will use their previously registered login name as the speaker's name to display in the talk list.
+
+Before they can submit a lightning talk, potential speakers will need to login
+and we will use their previously registered login name as the speaker's name to display in the talk list.
 
 Before we can start to submit lightning talks using REST calls from our single page app, we have to adapt the talk schema:
 
@@ -377,7 +405,10 @@ We use the ``localStorage`` facility of the browser to store the token on the cl
       };
     ...
 
-We continue with changes to :file:`index.html` so that it uses the new methods. We provide a login form if the user doesn't have a valid JSON web token. Only authenticated users can see the rest of the page.
+We continue with changes to :file:`index.html` so that it uses the new methods.
+We provide a login form if the user doesn't have a valid JSON web token.
+
+Only authenticated users can see the rest of the page.
 
 .. code-block:: html
    :emphasize-lines: 4-30
@@ -414,7 +445,7 @@ We continue with changes to :file:`index.html` so that it uses the new methods. 
               <div class="scrollable-content section" ng-if="is_logged_in()">
                 <div class="panel-group"
 
-Last we have to add some code that allows authenticated users to submit a lightning talk. We add another javascript method first:
+Last we have to add some code that allows authenticated users to submit a lightning talk. We add another JavaScript method first:
 
 .. code-block:: javascript
 
@@ -457,7 +488,8 @@ Last we have to add some code that allows authenticated users to submit a lightn
 Exercise
 ---------
 
-Rewrite the ``load_talks()`` javascript method so that it uses the portal search instead of ``/Plone/talks``. Sort the list by date.
+Rewrite the ``load_talks()`` JavaScript method that it uses the portal search instead of ``/Plone/talks``.
+Sort the list by date.
 
 ..  admonition:: Solution
     :class: toggle
