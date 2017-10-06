@@ -1,6 +1,6 @@
-=======================
-Using TinyMCE templates
-=======================
+=========================================
+Theme Package VI: Using TinyMCE Templates
+=========================================
 
 TinyMCE has a *templates* plugin which provides an easy way to create
 complex content in TinyMCE.
