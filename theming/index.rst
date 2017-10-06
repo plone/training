@@ -34,7 +34,7 @@ This training is **not** about:
    theme-package-2
    theme-package-3
    theme-package-4
-   creating-initial-content-for-the-theme
+   theme-package-5
    tinymce-templates
    adv-resource-registry
    adv-diazo
