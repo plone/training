@@ -2,12 +2,18 @@
 Theme Package IV: Creating And Customizing Plone Templates
 ==========================================================
 
+In the previous sections we :doc:`created our custom theme <theme-package-2>` and :doc:`customized it using CSS <theme-package-3>`.
+But sometimes CSS isn't enough, sometimes we have to adjust the HTML markup. If we don't want to use Diazo rules and :term:`XSLT` for it, there is another way: customizing templates.
+
+In this section we will show you how you can customize existing templates and create new ones specific for your theme.
+
+
 Overriding A Plone Template
 ===========================
 
-A large part of the Plone UI is provided by BrowserView and Viewlet templates.
+A large part of the Plone UI is provided by *BrowserView* and *Viewlet* templates.
 
-You can see all viewlets and their managers (sortable containers) when you view the URL ``./@@manage-viewlets``).
+You can see all viewlets and their managers (sortable containers) when you view the URL ``./@@manage-viewlets``.
 
 .. note::
 
@@ -27,11 +33,11 @@ For instance, to override the :file:`path_bar.pt` template (the breadcrumbs) fro
    Clicking the template in ZMI > portal_view_customizations is a handy way to find the template path. You can also copy the original template's code here.
 
 When a new override has been added, the Plone instance needs to be restarted.
-After this, you can just refresh the page to see any changes to the template.
+After this, a page reload is enough to see any changes to the template.
 
 
-Overriding The Event Item Template
-----------------------------------
+Example: Overriding The Event Item Template
+-------------------------------------------
 
 The path to the original template is :file:`plone/app/event/browser/event_view.pt`, so the full dotted name for our replacement template should be: :file:`plone.app.event.browser.event_view.pt`.
 Create a new file with this dotted name into the :file:`template-overrides` folder.
@@ -152,8 +158,8 @@ Now we can browse to the View on this folder by visiting: http://localhost:8080/
 This will render the markup required to render the slider.
 
 
-Take over the dynamic slider content from Plone
-***********************************************
+Use The Dynamic Slider Content From Plone
+-----------------------------------------
 
 Now that we have our ``slider-images`` view which renders our HTML markup for the slider, we need to replace that with the static markup in our template.
 
