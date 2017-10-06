@@ -82,96 +82,96 @@ You can now restart Plone and view an event to see the effect.
    If your buildout is using ``omelette``, you can find the original template in :file:`buildout/parts/omelette/plone/app/event/browser`.
 
 
-Creating a new Plone template
+Creating A New Plone Template
 =============================
 
 .. _create-dynamic-slider-content-in-plone:
 
-Create dynamic slider content in Plone
-**************************************
+Create Dynamic Slider Content In Plone
+--------------------------------------
 
 To render our dynamic content for the slider we need a custom view in Plone.
-There are various ways to create Views.
-For now, we will use a very simple template-only-view via jbot and
-``themingplugins``.
-The ``bobtemplates.plone`` skeleton includes everything you need.
+There are various ways to create views.
+For now, we will use a very simple template-only-view via ``jbot`` and ``themingplugins``.
+The ``bobtemplates.plone`` skeleton includes already everything you need.
 
-The only thing we need to do, is to add a template file in the ``theme/views`` folder.
-Here we create a template file named ``slider-images.pt``. Luckily we already have this file as an example. So the only thing we need to do is, to rename the file ``slider-images.pt.example`` to ``slider-images.pt``.
+The only thing we need to do, is to add a template file in the :file:`theme/views` folder.
+Here we create a template file named :file:`slider-images.pt`.
+And we already have this file as an example.
+So the only thing we need to do is to rename the file :file:`slider-images.pt.example` to :file:`slider-images.pt`.
 
 .. code-block:: bash
 
-   $ tree views/
-   views/
+   $ tree src/ploneconf/theme/theme/views/
+   src/ploneconf/theme/theme/views/
    └── slider-images.pt.example
+
+   0 directories, 1 file
 
 The template code looks like this:
 
 .. code-block:: xml
 
    <div id="carousel-example-generic" class="carousel slide">
-    <!-- Indicators -->
-    <ol class="carousel-indicators hidden-xs">
-        <li tal:repeat="item context/keys"
-            data-target="#carousel-example-generic"
-            data-slide-to="${python:repeat.item.index}"
-            class="${python: repeat.item.start and 'active' or ''}"></li>
-    </ol>
+     <!-- Indicators -->
+     <ol class="carousel-indicators hidden-xs">
+       <li tal:repeat="item context/keys"
+           data-target="#carousel-example-generic"
+           data-slide-to="${python:repeat.item.index}"
+           class="${python: repeat.item.start and 'active' or ''}"></li>
+     </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        <div tal:repeat="item context/values"
+     <!-- Wrapper for slides -->
+     <div class="carousel-inner">
+       <div tal:repeat="item context/values"
             class="item ${python: repeat.item.start and 'active' or ''}">
-            <img tal:define="scales item/@@images"
-                tal:replace="structure python: scales.tag('image', scale='large', css_class='img-responsive img-full')" />
-        </div>
-    </div>
+         <img tal:define="scales item/@@images"
+              tal:replace="structure python: scales.tag('image', scale='large', css_class='img-responsive img-full')" />
+       </div>
+     </div>
 
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-        <span class="icon-prev"></span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-        <span class="icon-next"></span>
-    </a>
+     <!-- Controls -->
+     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+       <span class="icon-prev"></span>
+     </a>
+     <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+       <span class="icon-next"></span>
+     </a>
    </div>
 
-This is all that's required to create a very simple template-only View.
+This is all that's required to create a very simple template-only view.
 You can test the view after restarting your Plone instance.
-For the View to show up, it needs some images to display.
-To supply the images, we have to create a folder in Plone named ``slider-images``
-and add some images there.
+For the view to show up, it needs some images to display.
+To supply the images, we have to create a folder in Plone named ``slider-images`` and add some images there.
 
-.. note:: we will show you later how to :ref:`creating-initial-content-for-the-theme`
+.. note::
 
-Now we can browse to the View on this folder by visiting:
-http://localhost:8080/Plone/slider-images/@@slider-images
+   We will show you later how to :ref:`create initial content for the theme <creating-initial-content-for-the-theme>`
+
+Now we can browse to the View on this folder by visiting: http://localhost:8080/Plone/slider-images/@@slider-images.
 This will render the markup required to render the slider.
 
 
 Take over the dynamic slider content from Plone
 ***********************************************
 
-Now that we have our ``slider-images`` View which renders our HTML markup for
-the slider, we need to include that on the front page.
+Now that we have our ``slider-images`` view which renders our HTML markup for the slider, we need to replace that with the static markup in our template.
 
-For that, first we need to add a simple line in the main ``index.html`` file: ``<div id="carousel-example-generic"></div>`` right after ``<main id="main-container" class="row row-offcanvas row-offcanvas-right" role="main">``
-
-.. code-block:: xml
-
-   <main id="main-container" class="row row-offcanvas row-offcanvas-right" role="main">
-      <div id="carousel-example-generic"></div>
-      <div id="column1-container">
-
-
-Then we use Diazo's ability to load the content from other URLs, using the
-``href`` attribute in our ``rules.xml``. We also use css:if-content to make sure it is only on the front page:
+For that we use Diazo's ability to load the content from other URLs, using the
+``href`` attribute in our :file:`rules.xml`.
+We also make use of the ``css:if-content`` attribute to make sure it is only on the front page:
 
 .. code-block:: xml
+   :emphasize-lines: 2-7
 
-   <!-- dynamic slider content -->
+   <!-- Front Page Slider -->
    <replace
-     css:theme="#carousel-example-generic"
-     css:content="#carousel-example-generic"
-     href="/slider-images/@@slider-images"
-     css:if-content=".section-front-page" />
+       css:theme="#carousel-example-generic"
+       css:content="#carousel-example-generic"
+       href="/slider-images/@@slider-images"
+       css:if-content=".section-front-page"
+       />
+   <drop
+       css:theme="#front-page-slider"
+       css:if-not-content=".section-front-page"
+       />
