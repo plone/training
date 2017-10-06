@@ -29,7 +29,7 @@ This training is **not** about:
    Basic Customizations <basic>
    TTW Theming I: Introduction <ttw-advanced>
    TTW Theming II: Custom Barceloneta Theme <ttw-advanced-2>
-   TTW Theming III: Make It Reproducible <static-theme>
+   TTW Theming III: Make It Reproducible <ttw-advanced-3>
    Theme Package I: Preparations <theme-package>
    Theme Package II: Diazo Theme <theme-package-2>
    Theme Package III: Customizations <theme-package-3>
