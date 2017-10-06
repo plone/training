@@ -13,13 +13,13 @@ We will add some images tp the :file:`theme/img` folder.
 To create the folder and the images add the following code in your setuphandlers.py:
 
 .. code-block:: python
-   :emphasize-lines: 2-3,6,22-23,31-67
+   :emphasize-lines: 2,5-6,22-23,31-67
 
    # -*- coding: utf-8 -*-
-
    from plone import api
    from Products.CMFPlone.interfaces import INonInstallable
    from zope.interface import implementer
+
    import os
 
 
