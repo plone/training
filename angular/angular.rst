@@ -83,8 +83,8 @@ Creating pure frontend applications to publish Plone-managed information rather 
 - they are faster and can work offline, which makes them more suitable for mobile,
 - frontend development is more approachable than Plone development, and a constantly growing amount of web developers master this kind of technology.
 
-Installing the development environment
---------------------------------------
+Installing The Development Environment
+======================================
 
 First, we need NodeJS 6.10+. We recommend to use nvm to install NodeJS instead of using your OS-based version.
 
@@ -92,22 +92,26 @@ Install nvm on your system using the instructions and provided script at:
 
 https://github.com/creationix/nvm#install-script
 
-Using nvm we will look up the latest lts version of NodeJS and install it::
+Using nvm we will look up the latest lts version of NodeJS and install it
 
-  $ nvm ls-remote --lts
-  $ nvm install v6.10
-  $ nvm use v6.10
+.. code-block:: console
 
-NodeJS is provided with npm, its package manager, we will use it to install the Angular CLI (ng)::
+   nvm ls-remote --lts
+   nvm install v6.10
+   nvm use v6.10
 
-  $ npm install -g @angular/cli@latest
+NodeJS is provided with npm, its package manager, we will use it to install the Angular CLI (ng)
+
+.. code-block:: console
+
+   npm install -g @angular/cli@latest
 
 .. note:: ``-g`` means the CLI will be available globally in our nvm instance.
 
 Initializing A New Project
 ==========================
 
-The CLI allows to initialize a project
+The CLI allows to initialize a project:
 
 .. code-block:: console
 
@@ -121,7 +125,7 @@ If we inspect our newly created ``./training``, we see a default Angular project
 - the dependencies are declared in ``package.json``,
 - and they are installed in the ``./node_modules`` folder.
 
-We can serve our project locally using the CLI
+We can serve our project locally using the CLI.
 
 .. code-block:: console
 
@@ -130,19 +134,20 @@ We can serve our project locally using the CLI
 
 The result can be seen on http://localhost:4200.
 
-This development server offers the different features we can expect for a convenient frontend developement environment like autoreload and sourcemaps.
+This development server offers the different features we can expect for a convenient frontend developement environment
+like autoreload and sourcemaps.
 
-The CLI also allows to run the tests
+The CLI also allows to run the tests:
 
 .. code-block:: console
 
    ng test
 
-Using and customizing the Angular Plone components
---------------------------------------------------
+Using And Customizing The Angular Plone Components
+==================================================
 
-Preparing the Plone backend
-***************************
+Preparing The Plone Backend
+---------------------------
 
 We need a Plone server running the latest version of `plone.restapi <http://plonerestapi.readthedocs.io>`_ .
 
@@ -150,12 +155,12 @@ We will use a `Plone pre-configured Heroku instance <https://github.com/collecti
 
 Once deployed, create a Plone site, then go to the :menuselection:`Site Setup --> Add-ons` and Plone RESTAPI :guilabel:`Install`.
 
-Adding the @plone/restapi-angular dependency
-********************************************
+Adding The @plone/restapi-angular Dependency
+--------------------------------------------
 
-::
+.. code-block:: console
 
-    $ npm install @plone/restapi-angular --save
+   npm install @plone/restapi-angular --save
 
 The ``@plone/restapi-angular`` and its own dependencies have been installed in our ``./node_modules`` folder.
 
@@ -163,8 +168,8 @@ The ``@plone/restapi-angular`` and its own dependencies have been installed in o
 
 We are now ready to use the Plone Angular SDK.
 
-Connecting the project to the Plone backend
-*******************************************
+Connecting The Project To The Plone Backend
+-------------------------------------------
 
 In ``src/app/app.module.ts``, load the Plone module and set the backend URL:
 
@@ -189,32 +194,34 @@ In ``src/app/app.module.ts``, load the Plone module and set the backend URL:
     ],
     ...
 
-.. warning:: Make sure to use ``http`` and not ``https`` because the Heroku web configuration is not set up properly for that.
+.. warning::
+
+   Make sure to use ``http`` and not ``https`` because the Heroku web configuration is not set up properly for that.
 
 We have to set up the default Plone views for traversal in ``src/app/app.component.ts``:
 
 .. code-block:: ts
 
-  import { Component } from '@angular/core';
-  import { PloneViews } from '@plone/restapi-angular';
+   import { Component } from '@angular/core';
+   import { PloneViews } from '@plone/restapi-angular';
 
-  @Component({
-    ...
-  })
-  export class AppComponent {
+   @Component({
+   ...
+   })
+   export class AppComponent {
 
-    constructor(
-      public views:PloneViews,
-    ) {
-      this.views.initialize();
-    }
+   constructor(
+    public views:PloneViews,
+   ) {
+     this.views.initialize();
+   }
   }
 
-And we need to insert the Plone view in our main page. Let's change ``src/app/app.component.html`` that way:
+We need to insert the Plone view in our main page. Let's change ``src/app/app.component.html`` that way:
 
 .. code-block:: html
 
-  <traverser-outlet></traverser-outlet>
+   <traverser-outlet></traverser-outlet>
 
 Now, traversing is active, so we can visit the following links:
 
@@ -234,9 +241,9 @@ Let's change again ``src/app.component.html``:
 
 .. code-block:: html
 
-  <plone-global-navigation></plone-global-navigation>
-  <plone-breadcrumbs></plone-breadcrumbs>
-  <traverser-outlet></traverser-outlet>
+   <plone-global-navigation></plone-global-navigation>
+   <plone-breadcrumbs></plone-breadcrumbs>
+   <traverser-outlet></traverser-outlet>
 
 Now we get the main navigation bar and the breadcrumbs. Note the navigation is performed client-side (the page is not reloaded).
 
@@ -246,34 +253,38 @@ Integrating a theme
 Integrate Bootstrap
 *******************
 
-Add the bootstrap dependency::
+Add the bootstrap dependency:
 
-  $ npm install bootstrap-sass@~3.3.7 --save
+.. code-block:: console
+
+   npm install bootstrap-sass@~3.3.7 --save
 
 Create a file to manage our SCSS variables: ``src/variables.scss``
 
 .. code-block:: scss
 
-  $blue: #50c0e9;
-  $lightgrey: #f9f9f9;
+   $blue: #50c0e9;
+   $lightgrey: #f9f9f9;
 
 Import Bootstrap in our main stylesheet ``src/styles.scss``
 
 .. code-block:: scss
 
-  @import "variables.scss";
+   @import "variables.scss";
 
-  $icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
-  @import "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+   $icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+   @import "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 Override a default Plone component template
 *******************************************
 
 We need to change the template of the global navigation.
 
-First we need to generate a new component::
+First we need to generate a new component
 
-  $ ng generate component global-navigation
+.. code-block:: console
+
+   ng generate component global-navigation
 
 The CLI creates a new folder containing the component implementation, and it declares it in ``src/app/app.module.ts``.
 
@@ -283,15 +294,15 @@ Our global navigation needs to inherit from Plone's own:
 
 .. code-block:: ts
 
-  import { Component } from '@angular/core';
-  import { GlobalNavigation } from '@plone/restapi-angular';
+   import { Component } from '@angular/core';
+   import { GlobalNavigation } from '@plone/restapi-angular';
 
-  @Component({
-    selector: 'app-global-navigation',
-    templateUrl: './global-navigation.component.html',
-    styleUrls: ['./global-navigation.component.scss']
-  })
-  export class GlobalNavigationComponent extends GlobalNavigation {}
+   @Component({
+     selector: 'app-global-navigation',
+     templateUrl: './global-navigation.component.html',
+     styleUrls: ['./global-navigation.component.scss']
+   })
+   export class GlobalNavigationComponent extends GlobalNavigation {}
 
 And now we can set the template we need:
 
@@ -299,111 +310,111 @@ And now we can set the template we need:
 
 .. code-block:: html
 
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <div class="navbar-brand">
-          <a traverseTo="/">
-            <h1>Plone conference</h1>
-          </a>
-        </div>
-      </div>
-      <div class="menu">
-        <ul class="nav nav-tabs" role="tablist">
-          <li *ngFor="let link of links" [ngClass]="{'active': link.active}">
-            <a [traverseTo]="link.path">{{ link.title }}</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+   <nav class="navbar navbar-default" role="navigation">
+     <div class="container-fluid">
+       <div class="navbar-header">
+         <div class="navbar-brand">
+           <a traverseTo="/">
+             <h1>Plone conference</h1>
+           </a>
+         </div>
+       </div>
+       <div class="menu">
+         <ul class="nav nav-tabs" role="tablist">
+           <li *ngFor="let link of links" [ngClass]="{'active': link.active}">
+             <a [traverseTo]="link.path">{{ link.title }}</a>
+           </li>
+         </ul>
+       </div>
+     </div>
+   </nav>
 
-And style it in ``src/app/global-navigation/global-navigation.component.scss``:
+Style it in ``src/app/global-navigation/global-navigation.component.scss``:
 
 .. code-block:: scss
 
-  @import "../../variables.scss";
+   @import "../../variables.scss";
 
-  .navbar-default {
-    background-color: white;
-    border-radius:0;
-    border-right:0;
-    border-left:0;
-    border-top:0;
-  }
+   .navbar-default {
+     background-color: white;
+     border-radius:0;
+     border-right:0;
+     border-left:0;
+     border-top:0;
+   }
 
-  .container-fluid > .navbar-header {
-    margin-right: 30px;
-    margin-left: 10px;
-    margin-top:20px;
-    border-radius:0;
-  }
-  .navbar-brand {
-    float: left;
-    height: 30px;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
-    h1 {
-      float: left;
-      line-height:20px;
-      padding: 20px;
-      font-size: 30px;
-      margin-top:-23px;
-      color: $blue;
-      &:hover {
-        background-color:white;
-      }
-    }
-  }
+   .container-fluid > .navbar-header {
+     margin-right: 30px;
+     margin-left: 10px;
+     margin-top:20px;
+     border-radius:0;
+   }
+   .navbar-brand {
+     float: left;
+     height: 30px;
+     padding: 15px 15px;
+     font-size: 18px;
+     line-height: 20px;
+     h1 {
+       float: left;
+       line-height:20px;
+       padding: 20px;
+       font-size: 30px;
+       margin-top:-23px;
+       color: $blue;
+       &:hover {
+         background-color:white;
+       }
+     }
+   }
 
-  .menu {
-    font-size:14px;
-    float:right;
-    text-transform:uppercase;
-    font-weight:600;
-    ul.nav-tabs li {
-      color: black;
-    }
-  }
+   .menu {
+     font-size:14px;
+     float:right;
+     text-transform:uppercase;
+     font-weight:600;
+     ul.nav-tabs li {
+       color: black;
+     }
+   }
 
-  .nav-tabs {
-    border-bottom: 0;
-    & > li {
-      float: left;
-      margin-bottom: 0;
-      & > a {
-        margin-top:20px;
-        margin-bottom:20px;
-        margin-right: 20px;
-        line-height: 1.42857143;
-        border-bottom: 3px solid transparent;
-        border-radius:0;
-        color: black;
-        border-top:0;
-        border-right:0;
-        border-left:0;
-        & > a:hover {
-          border-color: #eee #eee $blue;
-          color: $blue;
-          border-radius:0;
-          background-color: $lightgrey;
-        }
-      }
-      &.active {
-        & > a,
-        & > a:hover,
-        & > a:focus {
-          color: white;
-          cursor: default;
-          background-color: $blue;
-          border: 0;
-          border-bottom-color: transparent;
-          cursor:pointer;
-        }
-      }
-    }
-  }
+   .nav-tabs {
+     border-bottom: 0;
+     & > li {
+       float: left;
+       margin-bottom: 0;
+       & > a {
+         margin-top:20px;
+         margin-bottom:20px;
+         margin-right: 20px;
+         line-height: 1.42857143;
+         border-bottom: 3px solid transparent;
+         border-radius:0;
+         color: black;
+         border-top:0;
+         border-right:0;
+         border-left:0;
+         & > a:hover {
+           border-color: #eee #eee $blue;
+           color: $blue;
+           border-radius:0;
+           background-color: $lightgrey;
+         }
+       }
+       &.active {
+         & > a,
+         & > a:hover,
+         & > a:focus {
+           color: white;
+           cursor: default;
+           background-color: $blue;
+           border: 0;
+           border-bottom-color: transparent;
+           cursor:pointer;
+         }
+       }
+     }
+   }
 
 Update the app component markup
 *******************************
@@ -412,46 +423,47 @@ Now we can fix the main component markup in ``src/app/app.component.html``:
 
 .. code-block:: html
 
-  <header>
-    <div class="container-fluid">
-      <div class="row">
-        <app-global-navigation></app-global-navigation>
-      </div>
-    </div>
-    <div class="container-fluid">
-      <div class="row">
-        <plone-breadcrumbs></plone-breadcrumbs>
-      </div>
-    </div>
-  </header>
-  <main>
-    <div class="container-fluid">
-      <div class="row">
-        <traverser-outlet></traverser-outlet>
-      </div>
-    </div>
-  </main>
+   <header>
+     <div class="container-fluid">
+       <div class="row">
+         <app-global-navigation></app-global-navigation>
+       </div>
+     </div>
+     <div class="container-fluid">
+       <div class="row">
+         <plone-breadcrumbs></plone-breadcrumbs>
+       </div>
+     </div>
+   </header>
+   <main>
+     <div class="container-fluid">
+       <div class="row">
+         <traverser-outlet></traverser-outlet>
+       </div>
+     </div>
+   </main>
 
-Note we use our custom global navigation component (``app-global-navigation``) but we keep the Plone default breadcrumbs component (``plone-breadcrumbs``) as its markup is fine.
+Note we use our custom global navigation component (``app-global-navigation``)
+but we keep the Plone default breadcrumbs component (``plone-breadcrumbs``) as its markup is fine.
 
 Nevertheless, we might need to style it a little bit, let's do that in ``src/styles.scss``:
 
 .. code-block:: scss
 
-  *[traverseTo], *[ng-reflect-traverse-to] {
-    cursor: pointer;
-  }
+   *[traverseTo], *[ng-reflect-traverse-to] {
+     cursor: pointer;
+   }
 
-  a, a:hover, a:focus {
-    color: $blue;
-  }
+   a, a:hover, a:focus {
+     color: $blue;
+   }
 
-  .breadcrumb {
-    background-color: transparent;
-    & > .active {
-      color: black;
-    }
-  }
+   .breadcrumb {
+     background-color: transparent;
+     & > .active {
+       color: black;
+     }
+   }
 
 Creating a custom view for the Talk content type
 ------------------------------------------------
@@ -459,7 +471,8 @@ Creating a custom view for the Talk content type
 Create the Talk content type in the backend
 *******************************************
 
-We need to go to our Plone backend, then in :menuselection:`Site Setup --> Dexterity content types`, we add a new content type named Talk.
+We need to go to our Plone backend, then in :menuselection:`Site Setup --> Dexterity content types`,
+we add a new content type named Talk.
 
 We add a text field named ``speaker``.
 
@@ -473,11 +486,14 @@ Then we create a new folder named "Talks" where we add a few talks, and we publi
 Create a view component for talks
 *********************************
 
-We could use the default view to display talks, but it would only display the title and the text, and we would like to also display the image and the speaker.
+We could use the default view to display talks, but it would only display the title and the text,
+and we would like to also display the image and the speaker.
 
-Let's generate a new component with the CLI::
+Let's generate a new component with the CLI
 
-  $ ng generate component talk
+.. code-block:: console
+
+   ng generate component talk
 
 To turn it into a valid view component, there are 3 steps:
 
@@ -485,72 +501,74 @@ To turn it into a valid view component, there are 3 steps:
 - inherit from a Plone view component,
 - register the view for traversal.
 
-In ``app.module.ts``, we can see the CLI has already added ``TalkComponent`` in ``declarations`` which is mandatory for any Angular component.
+In ``app.module.ts``, we can see the CLI has already added ``TalkComponent`` in ``declarations`` which is mandatory
+for any Angular component.
+
 But as a view component is dynamically instantiated (depending on the traversed path), we also need to add it in ``entryComponents``:
 
 .. code-block:: ts
 
-  @NgModule({
-    declarations: [
-      AppComponent,
-      GlobalNavigationComponent,
-      TalkComponent
-    ],
-    entryComponents: [
-      TalkComponent,
-    ],
-    ...
+   @NgModule({
+     declarations: [
+       AppComponent,
+       GlobalNavigationComponent,
+       TalkComponent
+     ],
+     entryComponents: [
+       TalkComponent,
+     ],
+     ...
 
 Now let's change ``src/app/talk/talk.component.ts`` to inherit from ``ViewView``:
 
 .. code-block:: ts
 
-  import { Component } from '@angular/core';
-  import { ViewView } from '@plone/restapi-angular';
+   import { Component } from '@angular/core';
+   import { ViewView } from '@plone/restapi-angular';
 
-  @Component({
-    selector: 'app-talk',
-    templateUrl: './talk.component.html',
-    styleUrls: ['./talk.component.scss']
-  })
-  export class TalkComponent extends ViewView {}
+   @Component({
+     selector: 'app-talk',
+     templateUrl: './talk.component.html',
+     styleUrls: ['./talk.component.scss']
+   })
+   export class TalkComponent extends ViewView {}
 
 And lastly, let's associate this component to the ``talk`` content type as its default view in ``src/app/app.component.ts``:
 
 .. code-block:: ts
 
-  ...
-  import { Services } from '@plone/restapi-angular';
-  import { TalkComponent } from './talk/talk.component';
+   ...
+   import { Services } from '@plone/restapi-angular';
+   import { TalkComponent } from './talk/talk.component';
 
-  @Component({
-  ...
-  })
-  export class AppComponent {
-    constructor(
-      public views: PloneViews,
-      public plone: Services,
-    ) {
-      this.views.initialize();
-      this.plone.traverser.addView('view', 'talk', TalkComponent);
-    }
-  }
+   @Component({
+   ...
+   })
+   export class AppComponent {
+     constructor(
+       public views: PloneViews,
+       public plone: Services,
+     ) {
+       this.views.initialize();
+       this.plone.traverser.addView('view', 'talk', TalkComponent);
+     }
+   }
 
 The view is now properly set up, let's work on the template in ``src/app/talk/talk.component.html``:
 
 .. code-block:: html+ng2
 
-  <div class="col-md-6">
-    <img [src]="context.image.scales.large.download" alt="Illustration" />
-  </div>
-  <div class="col-md-6">
-    <h1>{{ context.title }}</h1>
-    <p>
-      <span class="glyphicon glyphicon-user"></span>
-      {{ context.speaker }}
-    </p>
-    <div [innerHTML]="context.text.data"></div>
-  </div>
+   <div class="col-md-6">
+     <img [src]="context.image.scales.large.download" alt="Illustration" />
+   </div>
+   <div class="col-md-6">
+     <h1>{{ context.title }}</h1>
+     <p>
+       <span class="glyphicon glyphicon-user"></span>
+       {{ context.speaker }}
+     </p>
+     <div [innerHTML]="context.text.data"></div>
+   </div>
 
 Enable comments
 ***************
@@ -558,13 +576,14 @@ Enable comments
 We want to allow visitors to post comments about the talks.
 
 In the Plone backend, in :menuselection:`Site Setup --> Discussion`, we activate comments globally and we allow anonymous comments.
-And in :menuselection:`Site Setup --> Content Settings`, we select the Talk type, and we allow comments.
+
+In :menuselection:`Site Setup --> Content Settings`, we select the Talk type, and we allow comments.
 
 Now in ``src/app/talk/talk.component.html`` we just append:
 
 .. code-block:: html+ng2
 
-  <plone-comments></plone-comments>
+   <plone-comments></plone-comments>
 
 Displaying news on the home page
 --------------------------------
@@ -578,9 +597,9 @@ First we need a Home component. Let's initialize it properly.
 
     We use the CLI:
 
-    ::
+    ..code-block:: console
 
-      $ ng generate component home
+       ng generate component home
 
     Then we add `HomeComponent` in `entryComponents` in the module.
 
@@ -602,42 +621,42 @@ Here is the ``HomeComponent`` implementation:
 
 .. code-block:: ts
 
-  import { Component, OnInit } from '@angular/core';
-  import { ViewView } from '@plone/restapi-angular';
+   import { Component, OnInit } from '@angular/core';
+   import { ViewView } from '@plone/restapi-angular';
 
-  @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
-  })
-  export class HomeComponent extends ViewView implements OnInit {
+   @Component({
+     selector: 'app-home',
+     templateUrl: './home.component.html',
+     styleUrls: ['./home.component.scss']
+   })
+   export class HomeComponent extends ViewView implements OnInit {
 
-    news: any[] = [];
+     news: any[] = [];
 
-    ngOnInit() {
-      this.services.resource.find(
-        { portal_type: 'News Item' },
-        '/',
-        {
-          sort_on: 'created',
-          sort_order: 'reverse',
-          size: 3,
-        },
-      ).subscribe(res => {
-        this.news = res.items;
-      });
-    }
-  }
+     ngOnInit() {
+       this.services.resource.find(
+         { portal_type: 'News Item' },
+         '/',
+         {
+           sort_on: 'created',
+           sort_order: 'reverse',
+           size: 3,
+         },
+       ).subscribe(res => {
+         this.news = res.items;
+       });
+     }
+   }
 
 We could display those news with a very basic layout like this:
 
 .. code-block:: html+ng2
 
-  <ul>
-    <li *ngFor="let item of news">
-      <a [traverseTo]="item['@id']">{{ item.title }}</a>
-    </li>
-  </ul>
+   <ul>
+     <li *ngFor="let item of news">
+       <a [traverseTo]="item['@id']">{{ item.title }}</a>
+     </li>
+   </ul>
 
 Titles are not enough, it would be better to display images.
 
@@ -660,12 +679,12 @@ including the image:
 
 .. code-block:: html+ng2
 
-  <ul>
-    <li *ngFor="let item of news">
-      <a [traverseTo]="item['@id']">{{ item.title }}</a>
-      <img [src]="item.image.download" />
-    </li>
-  </ul>
+   <ul>
+     <li *ngFor="let item of news">
+       <a [traverseTo]="item['@id']">{{ item.title }}</a>
+       <img [src]="item.image.download" />
+     </li>
+   </ul>
 
 It does work, but what about turning it into a nice slideshow?
 
@@ -675,13 +694,13 @@ and we need the news to provide a ``state`` property set to ``'active'`` or ``'i
 
 .. code-block:: ts
 
-  export class HomeComponent extends ViewView implements OnInit {
+   export class HomeComponent extends ViewView implements OnInit {
 
-    news: any[] = [];
-    current = -1;
+     news: any[] = [];
+     current = -1;
 
-    ngOnInit() {
-      this.services.resource.find(
+     ngOnInit() {
+       this.services.resource.find(
         { portal_type: 'News Item' },
         '/',
         {
@@ -717,11 +736,11 @@ Now let's try it with our basic layout:
 
 .. code-block:: html+ng2
 
-  <div *ngIf="current > -1">
-    <a [traverseTo]="news[current]['@id']">{{ news[current].title }}</a>
-    <img [src]="news[current].image.download" />
-  </div>
-  <span (click)="goTo(current+1)">Next</span>
+   <div *ngIf="current > -1">
+     <a [traverseTo]="news[current]['@id']">{{ news[current].title }}</a>
+     <img [src]="news[current].image.download" />
+   </div>
+   <span (click)="goTo(current+1)">Next</span>
 
 Good, now let's render it with animations.
 
@@ -729,12 +748,12 @@ We need to import the animation module in ``app.module.ts``:
 
 .. code-block:: ts
 
-  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-  ...
-    imports: [
-      BrowserModule,
-      BrowserAnimationsModule,
-      ...
+   import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+   ...
+     imports: [
+       BrowserModule,
+       BrowserAnimationsModule,
+       ...
 
 We need to declare the states and transition in the component decorator:
 
@@ -1124,24 +1143,24 @@ Pushing the Plone configuration from the Angular project
 
 Let's add `plonetheme-upload` to our development dependencies:
 
-.. code-block:: shell-session
+.. code-block:: console
 
-  $ npm install plonetheme-upload --dev
+   npm install plonetheme-upload --dev
 
 And let's add a new script in our ``package.json``:
 
 .. code-block:: json
 
-  "scripts": {
-    ...
-    "update-backend": "plonetheme-upload --enable plonecustom http://whatever.herokuapp.com/Plone"
-  }
+   "scripts": {
+     ...
+     "update-backend": "plonetheme-upload --enable plonecustom http://whatever.herokuapp.com/Plone"
+   }
 
 And now we can push our local `./plonecustom` to our Plone backend using the following command:
 
-.. code-block:: shell-session
+.. code-block:: console
 
-  $ npm run update-backend
+   npm run update-backend
 
 Advanced
 --------
