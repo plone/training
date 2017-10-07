@@ -309,7 +309,7 @@ We really want this material to be used, re-used, expanded and improved by Plone
 These chapters don't contain any Plone specific advice, there's background, theory,
 check lists and tips for anyone trying to teach technical subjects.
 
-:doc:`../trainthetrainer/index`
+:doc:`../teachers-training/index`
 
 .. _about-contribute-label:
 
@@ -337,4 +337,3 @@ or directly send a mail to plone-docs@lists.sourceforge.net
 Basically, all we need is your written confirmation that you are agreeing your contribution can be under Creative Commons.
 
 You can also add in a comment with your pull request "I, <full name>, agree to have this published under Creative Commons 4.0 International BY".
-
