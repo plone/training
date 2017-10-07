@@ -1,5 +1,6 @@
 .. _resources-label:
 
+=========
 Resources
 =========
 
@@ -12,9 +13,11 @@ Resources
         git checkout resources
 
 
-We have not yet talked about CSS and Javascript. At the moment these are considered static resources.
+We have not yet talked about CSS and JavaScript.
+At the moment these are considered static resources.
 
-You can declare and access static resources with special urls. The `configure.zcml` of our package already has a declaration for a resource-folder :file:`static`.
+You can declare and access static resources with special urls.
+The `configure.zcml` of our package already has a declaration for a resource-folder :file:`static`.
 
 .. code-block:: xml
 
@@ -26,12 +29,13 @@ You can declare and access static resources with special urls. The `configure.zc
 
 All files we put in the :file:`static` folder can be accessed via the url http://localhost:8080/Plone/++plone++ploneconf.site/the_real_filename.css
 
-Another feature of this folder ist that the resouces you put in there are editable and overrideable in the browser using the overrides-tab of the resource registry.
+Another feature of this folder is that the resources you put in there are editable and overrideable in the browser
+using the overrides-tab of the resource registry.
 
 Let's create a file :file:`ploneconf.css` in the :file:`static` folder with some CSS:
 
 .. code-block:: css
-    :linenos:
+   :linenos:
 
     header #portal-header #portal-searchbox .searchSection {
         display: none;
@@ -51,24 +55,31 @@ Let's create a file :file:`ploneconf.css` in the :file:`static` folder with some
         display: block;
     }
 
-The css is not very exciting. It hides the :guilabel:`only in current section` below the search-box (we could also overwrite the viewlet, but ...). It also hides the event-fields we added in :ref:`events-label` from people submitting their talks.
-For exiting css you take the training :ref:`theming-label`.
+The css is not very exciting.
+It hides the :guilabel:`only in current section` below the search-box (we could also overwrite the viewlet, but ...).
 
-If we now access http://localhost:8080/Plone/++plone++ploneconf.site/ploneconf.css we see our css-file.
+It also hides the event-fields we added in :ref:`events-label` from people submitting their talks.
+
+For exiting CSS you take the training :ref:`theming-label`.
+
+If we now access http://localhost:8080/Plone/++plone++ploneconf.site/ploneconf.css we see our CSS file.
 
 Also add a :file:`ploneconf.js` in the same folder but leave it empty for now. You could add some JavaScript to that file later.
 
 How do our JavaScript and CSS files get used when visiting the page?
-So far the new files are accessible in the browser but we want Plone to use them every time we access the page.
+For now the new files are accessible in the browser but we want Plone to use them every time we access the page.
+
 Adding them directly into the HTML is not a good solution, having many CSS and JS files slows down the page loading.
 
-For this we need to register a *bundle* that contains these files. Plone will then make sure that all files that are part of this bundle are also deployed.
+For this we need to register a *bundle* that contains these files.
+Plone will then make sure that all files that are part of this bundle are also deployed.
+
 We need to register our resources with GenericSetup.
 
 Open the file :file:`profiles/default/registry.xml` and add the following:
 
 .. code-block:: xml
-    :linenos:
+   :linenos:
 
     <!-- the plonconf bundle -->
     <records prefix="plone.bundles/ploneconf-bundle"
@@ -85,4 +96,5 @@ Open the file :file:`profiles/default/registry.xml` and add the following:
 
 The resources that are part of the registered bundle will now be deployed with every request.
 
-For more infos please see https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html or https://training.plone.org/5/theming/adv-resource-registry.html.
+For more infos please see the docs about `resource registry <https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html>`_
+or this `training part <https://training.plone.org/5/theming/adv-resource-registry.html>`_.
