@@ -16,7 +16,7 @@ Resources
 We have not yet talked about CSS and JavaScript.
 At the moment these are considered static resources.
 
-You can declare and access static resources with special urls.
+You can declare and access static resources with special URLs.
 The `configure.zcml` of our package already has a declaration for a resource-folder :file:`static`.
 
 .. code-block:: xml
@@ -97,4 +97,4 @@ Open the file :file:`profiles/default/registry.xml` and add the following:
 The resources that are part of the registered bundle will now be deployed with every request.
 
 For more infos please see the docs about `resource registry <https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html>`_
-or this `training part <https://training.plone.org/5/theming/adv-resource-registry.html>`_.
+or this `training part <https://training.plone.org/5/theming/adv-diazo.html>`_.
