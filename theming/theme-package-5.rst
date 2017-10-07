@@ -5,6 +5,7 @@ Theme Package V: Creating Initial Content
 =========================================
 
 Our theme relies on some initial content structure, specifically the :file:`slider-images` folder with some images inside.
+
 We will improve our theme package to create this content on install.
 
 To do that we create the :file:`slider-images` folder in our :file:`setuphandlers.py` and load some example images into that folder.
