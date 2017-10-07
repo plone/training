@@ -57,7 +57,8 @@ You can play around with some other variables, if you want.
 
 ..  Warning::
 
-    "Development Mode" is really expensive for the browser.
+    "Development Mode" is expensive for the browser.
     Depending on the browser and on the system, you might encounter extreme slowness while rendering the page.
     You could see an unthemed page for a while.
+
     Remember to switch it off as soon as you finished tweaking.
