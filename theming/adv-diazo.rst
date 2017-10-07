@@ -9,13 +9,13 @@ To do this, Diazo does some real complicated stuff on your behalf: it writes XSL
 But sometimes basic rules are not enough and you need to write a bit of XLST yourself.
 
 
-Modify the theme and the content on the fly
-===========================================
+Modify Theme And Content On The Fly
+===================================
 
 Let's look at some examples from the `official diazo docs <http://docs.diazo.org/en/latest/advanced.html#modifying-the-theme-on-the-fly>`_.
 
 
-Extend rules
+Extend Rules
 ------------
 
 You can `re-use or extend rules <http://docs.diazo.org/en/latest/advanced.html#xinclude>`_
@@ -26,14 +26,14 @@ A good example of a use case is the one described by
 `how to  Customize Plone 5 default theme on the fly <http://datakurre.pandala.org/2015/05/customize-plone-5-default-theme-on-fly.html>`_.
 
 
-Include external content
+Include External Content
 ------------------------
 
 You can `include external content <http://docs.diazo.org/en/latest/advanced.html#including-external-content>`_
 from another website or from a custom view.
 
 
-Recipes and snippets
+Recipes And Snippets
 ====================
 
 The docs provide `a basic recipe set <http://docs.diazo.org/en/latest/recipes/index.html>`_
@@ -44,10 +44,10 @@ that allows you to get snippets from a chrome extensions.
 `All the snippets are available here <http://pigeonflight.github.io/lessArcane/>`_.
 
 
-More snippets
+More Snippets
 -------------
 
-Make some links open in new window
+Make Some Links Open In New Window
 **********************************
 
 .. code-block:: xml
@@ -57,9 +57,9 @@ Make some links open in new window
      <a target="_blank"><xsl:apply-templates select="./@*[contains(' href title class rel ', concat(' ', name(), ' '))]"/><xsl:value-of select="." /></a>
    </xsl:template>
 
-At diazo.org is another way described in the recipes: http://docs.diazo.org/en/latest/recipes/adding-an-attribute/index.html
+At `diazo.org <http://docs.diazo.org/en/latest/recipes/adding-an-attribute/index.html>`_ is another way described.
 
-Add CSS marker classes depending on existing ``portal-columns``
+Add CSS Marker Classes Depending On Existing ``portal-columns``
 ***************************************************************
 
 This adds a CSS class for every existing ``portal-column`` to the ``body`` tag.
@@ -109,10 +109,12 @@ Now, one can use these markers to define the grid in a semantic way like this:
 
 .. note::
 
-  This way, you don't need the xsl-rules Barceloneta uses to create the main content area. It's more flexible than Barceloneta's approach.
-  Another way could be, to change Plone to provide these classes already ;).
+   This way, you don't need the xsl-rules Barceloneta uses to create the main content area.
+   It's more flexible than Barceloneta's approach.
 
-Move Plone elements around
+   Another way could be, to change Plone to provide these classes already ;).
+
+Move Plone Elements Around
 **************************
 
 Sometimes one needs to move Plone elements from one place to another or merge some elements together.
@@ -130,7 +132,7 @@ In the following example we merge the language flags together with the document 
    </replace>
 
 
-Taking over specific portlets
+Taking Over Specific Portlets
 *****************************
 
 .. code-block:: xml
@@ -148,4 +150,3 @@ Taking over specific portlets
      content="//div[@id='portal-column-one']//dl[not(contains(@class,'portletNavigationTree'))]"
      css:theme-children='#portal-column-two'
      />
-
