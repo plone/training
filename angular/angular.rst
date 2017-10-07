@@ -48,7 +48,7 @@ It provides:
 - traversing.
 
 Traversing
-==========
+----------
 
 Traversing is a key feature when working with a CMS.
 Angular core, like the other major JS frameworks, uses routing.
@@ -58,25 +58,25 @@ The Traversal service implemented by `Angular traversal <https://github.com/maki
 
 It uses the current location to determine the backend resource (the **context**) and the desired rendering (the **view**).
 
-The view is the last part of the current location and is prefixed by `@@`.
-If no view is specified, it defaults to `view`.
+The view is the last part of the current location and is prefixed by ``@@``.
+If no view is specified, it defaults to ``view``.
 
 The rest of the location is the resource URL.
 
-Example: `/news/what-about-traversal/@@edit`
+Example: ``/news/what-about-traversal/@@edit``
 
 When traversing to the location, the resource will be requested from the backend,
 and the result will become the current context, accessible from any component in the app.
 
-According to the value of the `@type` property of the context, the appropriate component will be used to render the view.
+According to the value of the ``@type`` property of the context, the appropriate component will be used to render the view.
 
 .. note::
 
-   We can also use another criteria than `@type` by registring a custom marker
-   (the package comes with an `InterfaceMarker` which marks context according the `interfaces` attribute,
+   We can also use another criteria than ``@type`` by registring a custom marker
+   (the package comes with an ``InterfaceMarker`` which marks context according the ``interfaces`` attribute,
    which is supposed to be a list.
 
-   At the moment, the Plone REST API does not expose this attribute).
+   (At the moment, the Plone REST API does not expose this attribute).
 
 A New Integration Approach For Plone
 ====================================
@@ -157,7 +157,7 @@ We need a Plone server running the latest version of `plone.restapi <http://plon
 
 We will use a `Plone pre-configured Heroku instance <https://github.com/collective/training-sandbox>`_.
 
-Once deployed, create a Plone site, then go to the :menuselection:`Site Setup --> Add-ons` and Plone RESTAPI :guilabel:`Install`.
+Once deployed, create a Plone site, then go to the :menuselection:`Site Setup --> Add-ons` and :guilabel:`Install` Plone RESTAPI.
 
 Adding The @plone/restapi-angular Dependency
 --------------------------------------------
@@ -221,7 +221,7 @@ We have to set up the default Plone views for traversal in ``src/app/app.compone
    }
   }
 
-We need to insert the Plone view in our main page. Let's change ``src/app/app.component.html`` that way:
+We need to insert the Plone view in our main page. Let's change ``src/app/app.component.html`` this way:
 
 .. code-block:: html
 
@@ -252,10 +252,10 @@ Let's change again ``src/app.component.html``:
 Now we get the main navigation bar and the breadcrumbs. Note the navigation is performed client-side (the page is not reloaded).
 
 Integrating A Theme
--------------------
+===================
 
 Integrate Bootstrap
-*******************
+-------------------
 
 Add the bootstrap dependency:
 
@@ -280,7 +280,7 @@ Import Bootstrap in our main stylesheet ``src/styles.scss``
    @import "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 Override A default Plone Component Template
-*******************************************
+===========================================
 
 We need to change the template of the global navigation.
 
@@ -421,7 +421,7 @@ Style it in ``src/app/global-navigation/global-navigation.component.scss``:
    }
 
 Update The App Component Markup
-*******************************
+-------------------------------
 
 Now we can fix the main component markup in ``src/app/app.component.html``:
 
@@ -470,10 +470,10 @@ We need to style it a little bit, let's do that in ``src/styles.scss``:
    }
 
 Creating A Custom View For The Talk Content Type
-------------------------------------------------
+================================================
 
 Create The Talk Content Type In The Backend
-*******************************************
+-------------------------------------------
 
 We need to go to our Plone backend, then in :menuselection:`Site Setup --> Dexterity content types`,
 we add a new content type named Talk.
@@ -488,7 +488,7 @@ And we select the following behaviors:
 Then we create a new folder named "Talks" where we add a few talks, and we publish them all (including the folder).
 
 Create A View Component For Talks
-*********************************
+---------------------------------
 
 We could use the default view to display talks, but it would only display the title and the text,
 and we would like to also display the image and the speaker.
@@ -575,7 +575,7 @@ The view is now properly set up, let's work on the template in ``src/app/talk/ta
    </div>
 
 Enable Comments
-***************
+---------------
 
 We want to allow visitors to post comments about the talks.
 
@@ -590,7 +590,7 @@ Now in ``src/app/talk/talk.component.html`` we just append:
    <plone-comments></plone-comments>
 
 Displaying News On The Home Page
---------------------------------
+================================
 
 We want to display the 3 most recent news on the home page.
 
@@ -601,21 +601,21 @@ First we need a Home component. Let's initialize it properly.
 
     We use the CLI:
 
-    ..code-block:: console
+    .. code-block:: console
 
        ng generate component home
 
-    Then we add `HomeComponent` in `entryComponents` in the module.
+    Then we add  ``HomeComponent`` in  ``entryComponents`` in the module.
 
-    We declare it as a view for the `Plone Site` type in `AppComponent`:
+    We declare it as a view for the ``Plone Site`` type in ``AppComponent``:
 
     .. code-block:: ts
 
-  import { HomeComponent } from './home/home.component';
+        import { HomeComponent } from './home/home.component';
 
-  ...
+        ...
 
-      this.traverser.addView('view', 'Plone Site', HomeComponent);
+        this.traverser.addView('view', 'Plone Site', HomeComponent);
 
 
 We want this component to display the 3 most recent news.
@@ -866,7 +866,7 @@ And we are done!
 
 
 Login
------
+=====
 
 Let's add a login/logout link in the top-right corner.
 
@@ -901,34 +901,39 @@ Now, if we are not logged in yet, we display in ``app.component.html`` a link to
 Let's implement the logout link.
 
 ..  admonition:: Solution
-  :class: toggle
+    :class: toggle
+
+    We add a second link with an output bound to the ``click`` event, which will call the ``logout()`` method of our component.
 
     .. code-block:: html+ng2
 
-    <div class="row">
-      <div class="col-md-12">
-        <a *ngIf="!logged" traverseTo="@@login" class="pull-right">Login</a>
-        <a *ngIf="logged" (click)="logout()" class="pull-right">Logout</a>
-      </div>
-    </div>
+        <div class="row">
+          <div class="col-md-12">
+            <a *ngIf="!logged" traverseTo="@@login" class="pull-right">Login</a>
+            <a *ngIf="logged" (click)="logout()" class="pull-right">Logout</a>
+          </div>
+        </div>
+
+
+    So let's define the ``logout()`` method:
 
     .. code-block:: ts
 
-      logout() {
-        this.plone.authentication.logout();
-      }
+        logout() {
+          this.plone.authentication.logout();
+        }
 
 Now if we create private contents in Plone, they won't show unless we are logged in.
 
 Adding Quick Links In the Footer
---------------------------------
+================================
 
 We want to display useful links in the footer, and each link should have an icon.
 
 We want those icons to be managed in Plone.
 
 Customizing The Link Content Type
-*********************************
+---------------------------------
 
 We will use the Bootstrap font icon.
 
@@ -945,7 +950,7 @@ For each of them, we will choose an icon name from https://getbootstrap.com/docs
 And we will exclude the Quicklinks folder from navigation.
 
 Displaying The Links
-********************
+--------------------
 
 Let's implement the Footer component able to display those links.
 
@@ -958,7 +963,7 @@ Let's implement the Footer component able to display those links.
 
       $ ng generate component footer
 
-    .. note:: we do not need to add it to ``entryComponents`` in the module as it is not a traversing component.
+    .. note:: We do not need to add it to ``entryComponents`` in the module as it is not a traversing component.
 
     We get the links using the ``resource`` service:
 
@@ -1050,7 +1055,7 @@ Let's implement the Footer component able to display those links.
       </footer>
 
 Deployment
-----------
+==========
 
 The development bundle served by ``ng serve`` is not optimized for production.
 
@@ -1062,7 +1067,7 @@ To get a production-ready bundle, we use the following command:
 
 The resulting bundle is generated in the ``./dist`` folder.
 
-It is just a set of static files, it can be served by any HTTP server.
+It is just a set of static files and can be served by any HTTP server.
 
 Let's say we deploy it on http://example.com and we use Nginx to serve the files.
 
@@ -1077,10 +1082,10 @@ So we need to fix our Nginx VHOST to preserve the client-side routing::
     try_files   $uri $uri/ /index.html;
   }
 
-That way, any existing file (like ``index.html``, ``vendor.xxx.bundle.js``, etc.) is served directly, but for anything else, we just return ``index.html`` so the client-side routing will take over.
+This way, any existing file (like ``index.html``, ``vendor.xxx.bundle.js``, etc.) is served directly, but for anything else, we just return ``index.html`` so the client-side routing will take over.
 
 Managing The Plone Configuration From The Angular Project
----------------------------------------------------------
+=========================================================
 
 We have been customizing our Plone backend instance in order to comply with our project needs.
 
@@ -1101,11 +1106,11 @@ Creating A Theme To Handle The Configuration
 
 .. note::
 
-   collective.themesitesetup is deployed by default on our Heroku instance.
+   ``collective.themesitesetup`` is deployed by default on our Heroku instance.
 
    If you use your own backend, you will need to deploy it.
 
-We need to go to our Plone backend, then in :menuselection:`Site Setup --> Theming`, we create a new theme.
+We need to go to our Plone backend, then in :menuselection:`Site Setup --> Theming` we create a new theme.
 Let's name it ``plonecustom`` for instance.
 
 As we do not really want to customize our backend theme, it will be very simple.
@@ -1132,24 +1137,24 @@ It will just be a copy of our default Barceloneta manifest:
 
   [theme:genericsetup]
 
-As you can see, we have added an extra section named ``[theme:genericsetup]``,
-that's how collective.themesitesetup gets enabled.
+As you can see, we have added an extra section named ``[theme:genericsetup]``.
+That's how collective.themesitesetup gets enabled.
 
 Now we need to save our current Plone configuration into our theme.
 
-We need to use the collective.themesitesetup export feature available here:
+We need to use the ``collective.themesitesetup`` export feature available here:
 http://whatever.herokuapp.com/Plone/++theme++plonecustom/@@export-site-setup.
 
-Obviously we do not need to export everything, in our current case we just want to get the comment feature related configuration and the content type configuration, so we just select `typeinfo` and `plone.app.registry`.
+Obviously we do not need to export everything, in our current case we just want to get the comment feature related configuration and the content type configuration, so we just select ``typeinfo`` and ``plone.app.registry``.
 
-After clicking on `Export`, our theme will contain a new folder named ``install``.
+After clicking on ``Export``, our theme will contain a new folder named ``install``.
 
-Now we can download our theme from the Theming control panel and extract the resulting .zip file in our Angular project which contains now a folder named ``./plonecustom``.
+Now we can download our theme from the Theming control panel and extract the resulting .zip file in our Angular project which now contains a folder named ``./plonecustom``.
 
 Pushing The Plone Configuration From The Angular Project
 --------------------------------------------------------
 
-Let's add `plonetheme-upload` to our development dependencies:
+Let's add ``plonetheme-upload`` to our development dependencies:
 
 .. code-block:: console
 
@@ -1164,7 +1169,7 @@ And let's add a new script in our ``package.json``:
      "update-backend": "plonetheme-upload --enable plonecustom http://whatever.herokuapp.com/Plone"
    }
 
-And now we can push our local `./plonecustom` to our Plone backend using the following command:
+And now we can push our local ``./plonecustom`` to our Plone backend using the following command:
 
 .. code-block:: console
 
@@ -1189,7 +1194,7 @@ Enabling Offline & PWA
    HTTPS is mandatory.
 
 SEO And Server-side Rendering
-+++++++++++++++++++++++++++++
+-----------------------------
 
 robots.txt
 
