@@ -35,6 +35,7 @@ There are two main approaches to creating a custom theme:
 #. Inheriting from the default Barceloneta theme.
 
 In this section we will work with the first approach
+
 The second one will be covered in detail in :doc:`ttw-advanced-2`.
 
 
@@ -46,7 +47,9 @@ At it's core, a :term:`Diazo` theme consists of an HTML page and :file:`rules.xm
 
 .. note::
 
-   You can find extended information about Diazo and its integration package :py:mod:`plone.app.theming` in the official docs for `Diazo <http://docs.diazo.org/en/latest/>`_ and `plone.app.theming <https://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
+   You can find extended information about Diazo and its integration package :py:mod:`plone.app.theming`
+   in the official docs for `Diazo <http://docs.diazo.org/en/latest/>`_ and
+   `plone.app.theming <https://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme>`_.
 
 
 Principles
@@ -251,4 +254,4 @@ Customize CSS
 
    At the moment you need to "Build CSS" from the main file, the one declared in the manifest (in this case :file:`less/barceloneta.plone.less`).
    So, whatever Less file you edit, go back to the main one to compile.
-   This behavior will be improved in the future, but for now just remember this simple rule.
+   This behavior will be improved in the future, but for now remember this simple rule.
