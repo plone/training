@@ -34,7 +34,9 @@ Inheriting From Barceloneta
 Copying Barceloneta makes your theme heavier and will likely make upgrading more difficult.
 
 The Barceloneta theme provides many assets used by Plone's utilities that you do not need to duplicate.
-Additionally new releases of the theme may introduce optimizations or bug fixes.
+
+New releases of the theme may introduce optimizations or bug fixes.
+
 By referencing the Barceloneta rules and styles, instead of copying them, you automatically benefit from any updates to the Barceloneta theme while also keeping your custom theme relatively small.
 
 
@@ -162,6 +164,7 @@ XPath Selector Based Attributes
 
 Depending on complexity of the required selector it is sometimes necessary or more convenient to use :term:`XPath` selectors instead of CSS selectors.
 XPath selectors use the unprefixed attributes ``theme`` and ``content``.
+
 The common XPath selector attributes include:
 
 ``theme``
@@ -176,7 +179,9 @@ The common XPath selector attributes include:
 You can also create conditions about the current path using ``if-path``.
 
 
-.. note:: For a more comprehensive overview of all the Diazo rule directives
+.. note::
+
+   For a more comprehensive overview of all the Diazo rule directives
    and related attributes see: http://docs.diazo.org/en/latest/basic.html#rule-directives
 
 
@@ -220,20 +225,22 @@ The following attributes can be used to conditionally activate a directive.
 ``if-path``
     Conditionally activate the current directive based on the current path.
 
-.. note:: In a previous chapter we discussed the Plone ``<body>`` element and how to take advantage of the custom CSS classes associated with it.
-    We were introduced to the attribute ``css:if-content``.
-    Remember that we are able to determine a lot of context related information from the classes, such as:
+.. note::
 
-    * the current user role and permissions,
-    * the current content-type and its template,
-    * the site section and sub section,
-    * the current subsite (if any).
+   In a previous chapter we discussed the Plone ``<body>`` element and how to take advantage of the custom CSS classes associated with it.
+   We were introduced to the attribute ``css:if-content``.
+   Remember that we are able to determine a lot of context related information from the classes, such as:
 
-    Here is an example:
+   * the current user role and permissions,
+   * the current content-type and its template,
+   * the site section and sub section,
+   * the current subsite (if any).
 
-    .. code-block:: xml
+Here is an example:
 
-        <body class="template-summary_view
+.. code-block:: xml
+
+      <body class="template-summary_view
                      portaltype-collection
                      site-Plone
                      section-news
@@ -255,7 +262,9 @@ The following attributes can be used to conditionally activate a directive.
 Converting An Existing HTML Template Into A Theme
 -------------------------------------------------
 In the Plone "universe" it is not uncommon to convert an existing HTML template into a Diazo theme.
-Just ensure that when you zip up the source theme that there is a single folder in the root of the zip file.
+
+Ensure that when you zip up the source theme that there is a single folder in the root of the zip file.
+
 We will explore this in more detail in the next exercise.
 
 
@@ -273,7 +282,9 @@ The theme is already packaged in a manner that will work with the theming tool.
 
    When being distributed, Plone themes are packaged as zip files.
    A theme should be structured such that there is only one top level directory in the root of the zip file.
-   By convention the directory should contain your :file:`index.html`, the supporting files (CSS, javascript and other files) may be in subdirectories.
+
+   By convention the directory should contain your :file:`index.html`,
+   the supporting files (CSS, JavasSript and other files) may be in subdirectories.
 
 #. To get started `download a copy of the New Age theme as a zip file <https://codeload.github.com/BlackrockDigital/startbootstrap-new-age/zip/master>`_.
    Then upload it to the theme controlpanel.
@@ -296,13 +307,14 @@ The theme is already packaged in a manner that will work with the theming tool.
 
    .. note::
 
-      Clean Blog is a free Bootstrap theme, the latest version is available on github `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
+      Clean Blog is a free Bootstrap theme, the latest version is available on GitHub `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
 
    .. hint::
       :class: toggle
 
       You can identify the theme path by reading your browser's address bar when your theme is open in the theming tool.
-      You'll need to include the proper theme path in your :file:`manifest.cfg`, in this case it will most likely be something like ``++theme++startbootstrap-new-age-master``
+      You'll need to include the proper theme path in your :file:`manifest.cfg`,
+      in this case it will most likely be something like ``++theme++startbootstrap-new-age-master``
 
    .. code-block:: ini
 
@@ -414,15 +426,17 @@ Create A Visitor-Only Theme - Conditionally Enabling Barceloneta
 
 Sometimes it is more convenient for your website administrators to use Barceloneta, Plone's default theme.
 Other visitors would see a completely different layout provided by your custom theme.
+
 To achieve this you will need to associate your visitor theme rules with an expression like ``css:if-content="body.userrole-anonymous"``.
 For rules that will affect logged-in users you can use the expression ``css:if-content="body:not(.userrole-anonymous)"``.
 
-Once you've combined the expressions above with the right Diazo rules you will be able to present an anonymous visitor with a specific HTML theme while presenting the Barceloneta theme to logged-in users.
+Once you've combined the expressions above with the right Diazo rules you will be able to present an anonymous visitor
+with a specific HTML theme while presenting the Barceloneta theme to logged-in users.
 
 .. warning::
 
    The Barceloneta :file:`++theme++barceloneta/rules.xml` expects the Barceloneta :file:`index.html` to reside locally in your current theme.
-   To avoid conflict and to accomodate the inherited Barceloneta, ensure that your theme file has a different name such as :file:`front.html`.
+   To avoid conflict and to accommodate the inherited Barceloneta, ensure that your theme file has a different name such as :file:`front.html`.
 
 
 Exercise 5 - Convert The Theme To Be A Visitor-Only Theme
