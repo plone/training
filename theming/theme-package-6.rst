@@ -3,20 +3,23 @@ Theme Package VI: Using TinyMCE Templates
 =========================================
 
 TinyMCE has a *templates* plugin which provides an easy way to create complex content in TinyMCE.
+
 You can use that to help users to add complex content structures like predefined tables or content.
-The users then only need to customize this content to their needs.
+
+The users then need to customize this content to their needs.
 
 Create Your Own TinyMCE Templates
 =================================
 
 We already have a folder named :file:`tinymce-templates` in our theme folder.
 ``bobtemplates.plone`` already created an example template for us, but we will add another one.
+
 To create our first template we will add a new file named :file:`content-box.html` in this folder:
 
-.. code-block:: bash
+.. code-block:: console
    :emphasize-lines: 3
 
-   $ tree src/ploneconf/theme/theme/tinymce-templates
+   tree src/ploneconf/theme/theme/tinymce-templates
    src/ploneconf/theme/theme/tinymce-templates
    ├── content-box.html
    └── image-grid-2x2.html
@@ -56,7 +59,8 @@ Activate TinyMCE Templates Plugin
 .. note::
 
    The activation of the TinyMCE template plugin is already provided by ``bobtemplates.plone``.
-   The only thing we have to do is to add our template to the registry in the file :file:`ploneconf.theme/src/ploneconf/theme/profiles/default/registry.xml`, like described below.
+   The only thing we have to do is to add our template to the registry in the file :file:`ploneconf.theme/src/ploneconf/theme/profiles/default/registry.xml`,
+   like described below.
 
 If the plugin is not already activated, you can activate it using the ``plone.custom_plugins`` record:
 
@@ -94,6 +98,7 @@ If the plugin is not already activated, you can activate it using the ``plone.cu
 
 
 In the next step we have to register our newly created TinyMCE template so we can use it in our Plone website.
+
 To add the registration, we have to extend the ``plone.templates`` record:
 
 .. code-block:: xml
@@ -136,7 +141,8 @@ To add the registration, we have to extend the ``plone.templates`` record:
 
 .. hint::
 
-   You can also add the template TTW in the TinyMCE control panel by updating the following snippet (*Plugins and Toolbar* tab, *Templates* setting):
+   You can also add the template TTW (Trough-The-Web) in the TinyMCE control panel by updating the following snippet
+   (*Plugins and Toolbar* tab, *Templates* setting):
 
    .. code-block:: json
 
@@ -151,7 +157,7 @@ To add the registration, we have to extend the ``plone.templates`` record:
         }
       ]
 
-   Just remember to activate the plugin TTW as well in the *Plugins and Toolbar* tab, *Custom plugins* setting:
+Remember to activate the plugin TTW (Through-The-Web) as well in the *Plugins and Toolbar* tab, *Custom plugins* setting:
 
    .. code-block:: text
 
