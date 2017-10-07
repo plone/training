@@ -22,7 +22,6 @@ This training is **not** about:
 
 
 .. toctree::
-   :hidden:
    :maxdepth: 3
    :hidden:
    :caption: Theming
