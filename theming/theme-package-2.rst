@@ -5,14 +5,17 @@ Theme Package II: Build Your Diazo-Based Theme
 In the previous section we :doc:`prepared our setup for our custom theme package <theme-package>`.
 Now we will adjust the skeleton we got using ``bobtemplates.plone`` and build our Diazo theme.
 
-You can start with the example files in the theme folder and just change the :file:`index.html` and :file:`custom.less` files to customize the default theme to your needs.
+You can start with the example files in the theme folder.
+Change the :file:`index.html` and :file:`custom.less` files to customize the default theme to your needs.
+
 As stated above it's the Plone 5 default :term:`Barceloneta` theme plus some custom files you can use to to override or write CSS/Less.
 
 
 Use Your Own Static Mockup
 ==========================
 
-If you got a static mockup from your designer or from a website like http://startbootstrap.com (where the example template came from), you can use this without customization and just apply the Diazo rules to it.
+If you got a static mockup from your designer or from a website like http://startbootstrap.com (where the example template came from),
+you can use this without customization and just apply the Diazo rules to it.
 
 Another way is to change the static mockup a little bit to use mostly the same CSS id's and classes like Plone does.
 This way it is easier to reuse CSS/Less from Barceloneta and Plone add-ons if needed.
@@ -23,14 +26,17 @@ Download And Prepare A Static Theme
 
 Let's start with an untouched static template, such as this Twitter Bootstrap based one: http://startbootstrap.com/template-overviews/business-casual/.
 The latest version of that template uses a beta version of Twitter Bootstrap 4.
+
 We are going to use the latest release which uses Twitter Bootstrap 3.
 Download it from https://github.com/BlackrockDigital/startbootstrap-business-casual/releases/tag/v3.3.7 and extract it into the theme folder.
+
 Replace the :file:`index.html` with the one from the downloaded template.
+
 The content of your theme folder should now look like this:
 
-.. code-block:: bash
+.. code-block:: console
 
-   $ tree -L 2 src/ploneconf/theme/theme/
+   tree -L 2 src/ploneconf/theme/theme/
    src/ploneconf/theme/theme/
    ├── HOWTO_DEVELOP.rst
    ├── LICENSE
@@ -98,6 +104,7 @@ Preparing The Template
 ----------------------
 
 To make the given template :file:`index.html` more useful, we customize it a little bit.
+
 Right before the second box which contains:
 
 .. code-block:: html
@@ -168,9 +175,10 @@ It should now look like this:
      <div id="column2-container"></div>
    </div>
 
-.. hint::
+.. note::
 
-   Note that we added the portlet columns *after* the main content.
+   We added the portlet columns *after* the main content.
+
    Using the correct Twitter Bootstrap grid classes we can later *push* the 1st portlet column visually before the main content.
 
 
@@ -178,7 +186,8 @@ Include Theme CSS
 -----------------
 
 Next we need to include the CSS from the template into our :file:`theme.less` file.
-We will add the include of the CSS the template provides in :file:`theme/css/business-casual.css` after the ``END OF UTILS`` marker, but before the ``custom.less`` include:
+We will add the include of the CSS the template provides in :file:`theme/css/business-casual.css` after the ``END OF UTILS`` marker,
+but before the ``custom.less`` include:
 
 .. code-block:: less
    :emphasize-lines: 89
@@ -283,7 +292,8 @@ This way we can extend parts of the CSS in our theme (we will do this with the `
 .. note::
 
    Don't forget to run :command:`grunt compile` in your package root after you changed the :term:`Less` files.
-   You can also use :command:`grunt watch` to automatically compile your :term:`Less` files to CSS whenver they are changed.
+
+   You can use :command:`grunt watch` to automatically compile your :term:`Less` files to CSS whenver they are changed.
 
 
 Using Diazo Rules To Map The Theme With Plone Content
@@ -292,6 +302,7 @@ Using Diazo Rules To Map The Theme With Plone Content
 Now that we have the static theme, we need to apply the Diazo rules in :file:`rules.xml` to map the Plone content elements to the theme.
 
 First let me explain what we mean when we talk about *content* and *theme*.
+
 *Content* is usually the dynamic generated content on the Plone site, and the *theme* is the static template site.
 
 For example:
@@ -304,6 +315,7 @@ This rule will replace the element with the CSS id ``#headline`` in the theme wi
 
 To inspect the content side, you can open another Browser tab, but instead of http://localhost:8080/Plone, use http://127.0.0.1:8080/Plone.
 In this tab Diazo is disabled, allowing you to use your browser's Inspector or Developer tools to view the DOM structure of the default, unthemed Plone content.
+
 This *unthemed host name* is managed in the :guilabel:`Theming Control Panel` under :guilabel:`Advanced Settings`, where more domains can be added.
 
 For more details on how to use Diazo rules, take a look at http://docs.diazo.org/en/latest/ and https://docs.plone.org/external/plone.app.theming/docs/index.html.
@@ -420,6 +432,7 @@ That is because we are using an HTML template which has a different HTML structu
 
 We can either change our theme's template to use the same structure and naming for classes and id's, or we can change our rule set to work with the theme template like it is.
 We will use the second approach and customize our rule set to work with the provided theme template.
+
 In fact, if you use a better theme template then this one - where more useful CSS classes and id's are used and the grid is defined in CSS/Less and not in the HTML markup itself - it is a lot easier to work with without touching the template.
 But we decided to use this popular template as an example and therefor we have to make changes to the template itself.
 
@@ -456,7 +469,9 @@ You can add it right after the opening body tag in your :file:`index.html`.
 Unthemed Backend
 ----------------
 
-If the only thing you want to do is theme your frontend, and use the default Barceloneta theme for your backend (edit, folder contents, settings), you can include Barceloneta's :file:`backend.xml`.
+If the only thing you want to do is theme your frontend, and use the default Barceloneta theme for your backend (edit, folder contents, settings),
+you can include Barceloneta's :file:`backend.xml`.
+
 To only have your frontend theme rules active when you visit the frontend part of your site, you can wrap the existing rules into another ``rules`` block:
 
 .. code-block:: xml
@@ -487,6 +502,7 @@ Login Link & Co
 
 If you want to have a login link for your users, you can put this placeholder in your theme template where you want the link to display.
 You can always login into the Plone site by adding ``/login`` to the Plone url, so it's optional.
+
 You can add it right before the tag ``<div class="brand">Business Casual</div>`` in your :file:`index.html`.
 
 .. code-block:: html
@@ -499,7 +515,8 @@ You can add it right before the tag ``<div class="brand">Business Casual</div>``
      <div class="brand">Business Casual</div>
 
 The necessary rule to fill this with the Plone login link is already in our rules.xml.
-But because the id for the anonymous tools in Plone changed in one of the recent versions, we have to update it (change ``#portal-personaltools-wrapper`` to ``#portal-anontools``):
+But because the id for the anonymous tools in Plone changed in one of the recent versions,
+we have to update it (change ``#portal-personaltools-wrapper`` to ``#portal-anontools``):
 
 .. code-block:: xml
 
@@ -569,6 +586,7 @@ We can add this for example as a first element in the main container with the CS
 
 This will bring over everything from the ``viewlet-above-content`` block from Plone.
 It also includes the breadcrumbs bar.
+
 Because our current theme does not provide a breadcrumbs bar, we can drop it from the Plone content, like this:
 
 .. code-block:: xml
@@ -722,7 +740,8 @@ The necessary rule is already available:
    <!-- Alert message -->
    <replace css:theme-children="#global_statusmessage" css:content-children="#global_statusmessage" />
 
-To test that the status messages are working, you can for example edit the front page and then click on cancel or save, which will give you a confirmation message from Plone.
+To test that the status messages are working, you can for example edit the front page and then click on cancel or save,
+which will give you a confirmation message from Plone.
 
 
 Main Content Area
@@ -897,6 +916,7 @@ Therefor, we first have to select the *footer*, *site actions* and *colophon* (w
    </replace>
 
 Next we have to select all other available footer portlets, if any, and add them before the *footer*, *site actions* and *colophon* portlets in the footer area.
+
 We will count the amount of portlets, and based on the number we get we set the column classes.
 
 .. code-block:: xml
