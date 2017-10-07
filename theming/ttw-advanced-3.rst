@@ -2,11 +2,11 @@
 TTW Theming III: Make It Reproducible
 =====================================
 
-You just created your shiny brand new theme :term:`TTW`.
+You created your shiny brand new theme :term:`TTW`.
 
 .. note::
 
-   For more TTW configuring and customizing options, see :ref:`ttw-label`.
+   For more TTW (Through-The-Web) configuring and customizing options, see :ref:`ttw-label`.
 
 Now, let's see how you can re-use it in another Plone site.
 
