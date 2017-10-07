@@ -5,13 +5,17 @@ Theme Package VII: Advanced Resource Registries Usage
 .. note::
 
    For theming in general you don't need to use the **Resource Registries**.
-   The following infos are here only as an example usage of the Plone **Resource Registries**.
+   The following infos are here as an example usage of the Plone **Resource Registries**.
 
-In the Plone **Resource Registries** we can register our static resources, like CSS and LESS files and also JavaScript resources.
+In **Resource Registries** we can register our static resources, like CSS and LESS files and also JavaScript resources.
+
 In fact even our resources we defined in the :file:`manifest.xml` are registered here automatically, but hidden.
 
-In this chapter we will cover only CSS and LESS, but you can also do nice things with your JavaScript resources (for example using ``requirejs`` to do the import correctly without worrying about import order).
-For details about this, take a look into the documentation of the **Plone Resource Registries** and in the :doc:`JavaScript part of the training <../javascript/index>`.
+In this chapter we will cover CSS and LESS, but you can also do nice things with your JavaScript resources
+(for example using ``requirejs`` to do the import correctly without worrying about import order).
+
+For details about this, take a look into the documentation of the **Plone Resource Registries** and
+in the :doc:`JavaScript part of the training <../javascript/index>`.
 
 
 Register CSS And Less Resources In The Registry
@@ -60,8 +64,10 @@ We can now add this resource to a *resource bundle* like the existing ``plone`` 
      </records>
    </registry>
 
-This has the advantage of reducing the number of bundles, which also means reducing the amount of files which are loaded for the site, because every bundle will result in *one* compiled CSS file and *one* compiled JavaScript file.
-So if we have multiple LESS resources in the same bundle, they will be merged into one compiled CSS file.
+This has the advantage of reducing the number of bundles, which also means reducing the amount of files which are loaded for the site,
+because every bundle will result in *one* compiled CSS file and *one* compiled JavaScript file.
+
+If we have multiple LESS resources in the same bundle, they will be merged into one compiled CSS file.
 
 We can also create our own custom bundle which contains our resource:
 
@@ -93,14 +99,17 @@ We can also create our own custom bundle which contains our resource:
 This can make sense if we only want to load that bundle under certain conditions, like only in a specific context.
 This could lead to a smaller size of loaded static resources, when they are not all needed.
 
-After making changes to the registry, like adding resources to a bundle, you have to reload the registry configuration via an upgrade step, or via a uninstall/install of the package.
+After making changes to the registry, like adding resources to a bundle, you have to reload the registry configuration via an upgrade step,
+or via a uninstall/install of the package.
 
 If you change a bundle, it has to be built or rebuilt.
 You can do this in the ``@@resourceregistry-controlpanel`` by clicking on *Build* for the bundle involved.
 
 .. note::
 
-   Before you can compile the bundles TTW you have to adjust the ``@barceloneta_path`` and ``@bootstrap_path`` variables in the file :file:`theme.less`.
+   Before you can compile the bundles TTW (Through-The-Web) you have to adjust the ``@barceloneta_path`` and ``@bootstrap_path``
+    variables in the file :file:`theme.less`.
+
    Otherwise Plone can't find the resources and will give you an error during compilation.
 
    .. code-block:: less
