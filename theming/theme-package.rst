@@ -2,11 +2,14 @@
 Theme Package I: Preparations
 =============================
 
-Creating a theme product with the Diazo inline editor is an easy way to start and to test, but it is not a solid long term solution and you are also limited in what you can do that way.
+Creating a theme product with the Diazo inline editor is an easy way to start and to test,
+but it is not a solid long term solution and you are also limited in what you can do that way.
 
-Even if :py:mod:`plone.app.theming` allows importing and exporting of a Diazo theme as a ZIP archive, it might be preferable to manage your theme as an actual Plone product.
+Even if :py:mod:`plone.app.theming` allows importing and exporting of a Diazo theme as a ZIP archive,
+it might be preferable to manage your theme as an actual Plone product.
 
-One of the most obvious reasons is that it will allow you to override Plone elements that are not accessible via pure Diazo features (such as overloading content view templates, viewlets, configuration settings, etc.).
+One of the most obvious reasons is that it will allow you to override Plone elements that are not accessible via pure Diazo features
+(such as overloading content view templates, viewlets, configuration settings, etc.).
 
 
 Preparing Your Setup
@@ -18,41 +21,44 @@ Install npm
 
 If you don't have :term:`npm` already installed on your system please do it.
 :program:`npm` comes with :program:`nodejs`, we just need to install :program:`npm`.
+
 On Debian/Ubuntu for example you can do this with apt:
 
-.. code-block:: bash
+.. code-block:: console
 
-   $ sudo apt install -y npm
+   sudo apt install -y npm
 
 On a Mac you can install :program:`npm` using :program:`Homebrew`:
 
-.. code-block:: bash
+.. code-block:: console
 
-   $ brew install node
+   brew install node
 
 If you need a newer version of :program:`npm` just update your version with :command:`npm` itself:
 
-.. code-block:: bash
+.. code-block:: console
 
-   $ npm install npm@latest -g
+   npm install npm@latest -g
 
 
 Install Grunt
 -------------
 
 We also need to install :program:`grunt-cli` globally.
+
 If you already have it, you can skip this step.
 
-.. code-block:: bash
+.. code-block:: console
 
-   $ npm install -g grunt-cli
+   npm install -g grunt-cli
 
 .. note::
    :class: toggle
 
-   If you get an error with :program:`node` on Debian/Ubuntu, please check if you already have ``/usr/bin/node``, if not create a symlink like:
+   If you get an error with :program:`node` on Debian/Ubuntu, please check if you already have ``/usr/bin/node``,
+   if not create a symlink like:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       ln -s /usr/bin/nodejs /usr/bin/node
 
@@ -62,15 +68,15 @@ Setup A Python Virtual Environment
 
 First, let's create a Python :program:`virtualenv`:
 
-.. code-block:: bash
+.. code-block:: console
 
-   $ virtualenv mrbobvenv
+   virtualenv mrbobvenv
 
 Then we enable the virtualenv:
 
-.. code-block:: bash
+.. code-block:: console
 
-   $ source mrbobvenv/bin/activate
+   source mrbobvenv/bin/activate
    (mrbobvenv):$
 
 
@@ -85,16 +91,22 @@ Install mr.bob And bobtemplates.plone
 
 To install :py:mod:`mr.bob`, you can use :command:`pip`:
 
-.. code-block:: bash
+.. code-block:: console
 
-   (mrbobvenv):$ pip install bobtemplates.plone==2.0
+   (mrbobvenv): pip install mr.bob
+
+and to install the required bobtemplates for Plone, do:
+
+.. code-block:: console
+
+   (mrbobvenv): pip install bobtemplates.plone==2.0
 
 Create a Plone 5 theme product skeleton with :command:`mrbob`.
 It will ask you some questions about the new theme package:
 
-.. code-block:: bash
+.. code-block:: console
 
-   (mrbobvenv):$ mrbob -O ploneconf.theme bobtemplates:plone_theme_package
+   (mrbobvenv): mrbob -O ploneconf.theme bobtemplates:plone_theme_package
 
    Welcome to mr.bob interactive mode. Before we generate directory structure, some questions need to be answered.
 
@@ -116,9 +128,9 @@ It will ask you some questions about the new theme package:
 
 Now you have a new Python package in your current folder:
 
-.. code-block:: bash
+.. code-block:: console
 
-   (mrbobvenv):$ ls ploneconf.theme
+   (mrbobvenv): ls ploneconf.theme
    CHANGES.rst            LICENSE.GPL            bootstrap-buildout.py  package.json           src
    CONTRIBUTORS.rst       LICENSE.rst            bootstrap-buildout.pyc requirements.txt
    Gruntfile.js           MANIFEST.in            buildout.cfg           setup.cfg
@@ -126,56 +138,58 @@ Now you have a new Python package in your current folder:
 
 It is now safe to deactivate the ``mrbob`` virtualenv:
 
-.. code-block:: bash
+.. code-block:: console
 
-   (mrbobvenv):$ deactivate
+   (mrbobvenv): deactivate
 
 .. hint::
    :class: toggle
 
    This would be the perfect time to initialize your package with Git and put your files under version control:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      $ cd ploneconf.theme
-      $ git init .
-      $ git add .
-      $ git commit -m "Initial commit."
-      $ cd ..
+      cd ploneconf.theme
+      git init .
+      git add .
+      git commit -m "Initial commit."
+      cd ..
 
 
 Install zc.buildout And Boostrap Your Development Environment
 -------------------------------------------------------------
 
 You can install Buildout globally or on a virtualenv.
+
 We will install ``zc.buildout`` in a new virtual environment using the provided :file:`requirements.txt`.
 
-.. code-block:: bash
+.. code-block:: console
 
-   $ virtualenv buildoutvenv
-   $ source buildoutvenv/bin/activate
+   virtualenv buildoutvenv
+   source buildoutvenv/bin/activate
    (buildoutvenv):$ cd ploneconf.theme
    (buildoutvenv):$ pip install -r requirements.txt
    (buildoutvenv):$ buildout bootstrap
 
 Now you have everything in place and you can run :command:`buildout`.
+
 Depending on your internet connection and your local buildout cache this can take several minutes to complete.
 
-.. code-block:: bash
+.. code-block:: console
 
-   (buildoutvenv):$ ./bin/buildout
+   (buildoutvenv): ./bin/buildout
 
 After buildout finished successfully it is now safe to deactivate the ``buildoutvenv`` virtualenv:
 
-.. code-block:: bash
+.. code-block:: console
 
-   (buildoutvenv):$ deactivate
+   (buildoutvenv): deactivate
 
 This will create the whole development environment for your package:
 
-.. code-block:: bash
+.. code-block:: console
 
-   $ ls bin
+   ls bin
    addchangelogentry               code-analysis-zptlint           lasttagdiff                     prerelease
    buildout                        coverage                        lasttaglog                      pybabel
    bumpversion                     createcoverage                  libdoc                          pybot
@@ -195,9 +209,9 @@ Inspect Your Package Source
 
 Your package source code is in the ``src`` folder:
 
-.. code-block:: bash
+.. code-block:: console
 
-   $ tree src/ploneconf/theme/
+   tree src/ploneconf/theme/
    src/ploneconf/theme
    ├── __init__.py
    ├── browser
@@ -489,9 +503,9 @@ Your package source code is in the ``src`` folder:
 
 As you can see, the package already contains a :term:`Diazo` theme including the :term:`Barceloneta` resources:
 
-.. code-block:: bash
+.. code-block:: console
 
-   $ tree -L 2 src/ploneconf/theme/theme/
+   tree -L 2 src/ploneconf/theme/theme/
    src/ploneconf/theme/theme/
    ├── HOWTO_DEVELOP.rst
    ├── backend.xml
@@ -529,16 +543,20 @@ As you can see, the package already contains a :term:`Diazo` theme including the
 
 This theme basically provides you with a copy of the Plone 5 default theme (Barceloneta), and you can change everything you need to create your own theme.
 The Barceloneta resources are in the folder ``barceloneta``.
+
 This is basically a copy of the theme folder of :py:mod:`plonetheme.barceloneta`.
 We removed some unneeded files there, because we only need the :term:`Less` part for partially including it in our file :file:`theme.less`.
+
 We also have the icons and the file :file:`backend.xml` from Barceloneta in our theme folder.
 
 In the folder ``theme/less`` we have our :term:`CSS`/:term:`Less` files.
 Our own CSS goes into the file :file:`custom.less`.
+
 You can also add more :term:`Less` files and include them in :file:`theme.less`, if you have a lot of custom CSS and you like to split it into multiple files.
 
 The file :file:`theme.less` is our main :term:`Less` file.
 Here we include all other files we need.
+
 It already has some includes of :term:`Barceloneta`, Twitter Bootstrap and our cusomizations from the file :file:`custom.less` at the bottom.
 
 We also have a file :file:`package.json`, which we can use to define external dependencies like Twitter Bootstrap or other CSS/JS packages we want to use in our theme.
@@ -550,9 +568,9 @@ Start Plone And Install Your Theme Product
 
 To start the Plone instance, run:
 
-.. code-block:: bash
+.. code-block:: console
 
-   $ ./bin/instance fg
+   ./bin/instance fg
 
 The Plone instance will then be available at http://localhost:8080.
 The default username is ``admin`` and password is ``admin``.
@@ -565,6 +583,7 @@ The default username is ``admin`` and password is ``admin``.
 #. The theme will be automatically enabled.
 
 If something is wrong with the theme, you can always go to http://localhost:8080/Plone/@@theming-controlpanel and disable it.
+
 This control panel will never be themed, so it works even if the theme might be broken.
 
 .. hint::
@@ -572,18 +591,19 @@ This control panel will never be themed, so it works even if the theme might be 
 
    Don't forget to commit any changes on your package to version control.
    After the first buildout run, there are some new files and folders.
-   Some of them (:file:`node_modules` and :file:`package-lock.json`) can be ignored, while others (:file:`theme-compiled.css`) need to be added to the repository.
+   Some of them (:file:`node_modules` and :file:`package-lock.json`) can be ignored,
+   while others (:file:`theme-compiled.css`) need to be added to the repository.
 
    Edit the :file:`.gitignore` file and add the following entries:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       node_modules/
       package-lock.json
 
    Then run the following commands:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git add .
       $ git commit -m "Add compiled CSS file."
