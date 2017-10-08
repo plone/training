@@ -3,7 +3,7 @@ More Features
 =============
 
 Next we will cover some more advanced topics which need configuration on Plone and Solr side.
-Features like autocomplete and suggest (did you mean ...) are often requested when it comes to search.
+Features like autocomplete and suggest ("did you mean ...") are often requested when it comes to search.
 They are perfectly doable with the Plone / Solr combination.
 
 At the end of this chapter we will build a full search page with autocomplete, suggest, term highlighting and faceting turned on.
@@ -15,7 +15,7 @@ Autocomplete
 
 For autocomplete we need a special Solr handler because we don't search full terms but only part of terms.
 
-With the additional Solr configuration autocomplete can be called via URL directly::
+With the additional Solr configuration, autocomplete can be called via URL directly::
 
     http://localhost:8080/Plone/@@solr-autocomplete?term=Pl
 
@@ -29,7 +29,7 @@ Which gives the response ::
     ]
 
 
-solr.cfg
+:file:`solr.cfg`
 
 .. code-block:: ini
 
@@ -81,7 +81,9 @@ solr.cfg
 
 For the search template we utilize the HTML5 datalist element to populate the search input field.
 
-search.pt::
+:file:`search.pt`:
+
+.. code-block:: html
 
     <html lang="en"
           metal:use-macro="context/main_template/macros/master"
@@ -120,18 +122,15 @@ Suggest
 
 The suggest (did you mean ...) feature is well known from popular search engines.
 It is integrated into Solr as a component which needs to be enabled and configured.
-Here is an example configuration which works with collective.solr.
-If you change it stick to the names of the parameters and handlers.
+Here is an example configuration which works with :py:mod:`collective.solr`.
+If you change it, stick to the names of the parameters and handlers.
 
-The JSON view of Plone can be called with this URL
-
-.. code-block:: json
-
-   http://localhost:8080/Plone/@@search?format=json&SearchableText=Plane
+The JSON view of Plone can be called with this URL:
+``http://localhost:8080/Plone/@@search?format=json&SearchableText=Plane``
 
 And from JavaScript
 
-.. code-block:: js
+.. code-block:: http
 
    GET http://localhost:8080/Plone/@@search?SearchableText=Plane
    Accept: application/json
@@ -141,24 +140,18 @@ We get a response like this
 .. code-block:: json
 
     {
-        "data": [ ],
-        "suggestions":
-        {
-            "plane":
-            {
-                "endOffset": 87,
-                "numFound": 1,
-                "startOffset": 82,
-                "suggestion":
-                    [
-                        "plone"
-                    ]
+        "data": [],
+        "suggestions": {
+                "plane": {
+                        "endOffset": 87,
+                        "numFound": 1,
+                        "startOffset": 82,
+                        "suggestion": ["plone"]
                 }
-            }
         }
     }
 
-The configuration in buildout is as follows
+The configuration in buildout is as follows:
 
 .. code-block:: ini
 
@@ -268,7 +261,9 @@ The configuration in buildout is as follows
         </arr>
       </requestHandler>
 
-A simple integration in our training-search is here::
+A simple integration in our training-search is here:
+
+.. code-block:: html
 
     <html lang="en"
           metal:use-macro="context/main_template/macros/master"
@@ -304,10 +299,12 @@ A simple integration in our training-search is here::
 Facetting
 =========
 
-Facetting is tightly integrated in ``collective.solr`` and works out of the box.
+Facetting is tightly integrated in :py:mod::`collective.solr` and works out of the box.
 We will now create a full search page with faceting, autocomplete, search term highlighting and suggest enabled.
 The HTML of the page is mainly taken from the standard page.
-To reduce complexity some of the standard features like syndication,  i18n and view actions has been removed::
+To reduce complexity some of the standard features like syndication,  i18n and view actions have been removed:
+
+.. code-block:: html
 
   <html metal:use-macro="here/main_template/macros/master">
   <head>
@@ -412,14 +409,14 @@ To reduce complexity some of the standard features like syndication,  i18n and v
 
 
 Let's analyze the important parts.
-The head includes a reference to the ``showmore.js`` JavaScript,
-which is included in ``collective.solr`` and used to reduce long lists of facets.
+The head includes a reference to the :file:`showmore.js` JavaScript,
+which is included in :py:mod::`collective.solr` and used to reduce long lists of facets.
 
 Additionally the left column is removed on the search page.
 The right column is kept.
 No portlets will be displayed, it is used for the facets.
 
-The first thing we do in our search is getting the results for the search query, if there is one
+The first thing we do in our search is getting the results for the search query, if there is one:
 
 .. code-block:: python
 
@@ -437,10 +434,10 @@ We can use the standard Plone catalog API for getting the results.
 
 .. note::
 
-   Don't use plone.api.content.find because it `fixes` the query to match the indexes defined in Zcatalog and will strip all Solr related query parameters.
+   Don't use :py:meth:`plone.api.content.find` because it "fixes" the query to match the indexes defined in ZCatalog and will strip all Solr-related query parameters.
    We don't want that.
 
-After we got the results we wrap it with ``IContentListing`` to have unified access to them.
+After we have the results, we wrap it with ``IContentListing`` to have unified access to them.
 Finally we create a Batch, to make sure long result sets are batched on our search view.
 
 The next thing we have in our search view is the form itself
@@ -470,7 +467,9 @@ This snippet will add the necessary query parameters like **facet=true&facet.fie
 
 We use the ``h1`` element for displaying the number of elements.
 
-The next section is reserved for the suggest snippet::
+The next section is reserved for the *suggest* snippet:
+
+.. code-block:: html
 
     <div tal:condition="not: view/has_results">
       <p tal:define="suggest view/suggest">
@@ -521,7 +520,7 @@ Finally we have the snippet for the facets in the right slot::
            tal:replace="structure python:facet_view(results=results._sequence._basesequence)"/>
     </div>
 
-We call the facet view of ``collective.solr`` with our resultset and get the facets fully rendered as HTML.
+We call the facet view of :py:mod::`collective.solr` with our resultset and get the facets fully rendered as HTML.
 
 .. note::
 

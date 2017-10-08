@@ -312,7 +312,7 @@ And now we can set the template we need:
 
 ``src/app/global-navigation/global-navigation.component.html``:
 
-.. code-block:: html
+.. code-block:: html+ng2
 
    <nav class="navbar navbar-default" role="navigation">
      <div class="container-fluid">
@@ -333,7 +333,7 @@ And now we can set the template we need:
      </div>
    </nav>
 
-Style it in ``src/app/global-navigation/global-navigation.component.scss``:
+Style it in :file:`src/app/global-navigation/global-navigation.component.scss`:
 
 .. code-block:: scss
 
@@ -450,7 +450,7 @@ Now we can fix the main component markup in ``src/app/app.component.html``:
 Note we use our custom global navigation component (``app-global-navigation``)
 but we keep the Plone default breadcrumbs component (``plone-breadcrumbs``) as its markup is fine.
 
-We need to style it a little bit, let's do that in ``src/styles.scss``:
+We need to style it a little bit, let's do that in :file:`src/styles.scss`:
 
 .. code-block:: scss
 
@@ -601,7 +601,7 @@ First we need a Home component. Let's initialize it properly.
 
     We use the CLI:
 
-    ..code-block:: console
+    .. code-block:: console
 
        ng generate component home
 
@@ -611,11 +611,11 @@ First we need a Home component. Let's initialize it properly.
 
     .. code-block:: ts
 
-  import { HomeComponent } from './home/home.component';
+        import { HomeComponent } from './home/home.component';
 
-  ...
+        ...
 
-      this.traverser.addView('view', 'Plone Site', HomeComponent);
+        this.traverser.addView('view', 'Plone Site', HomeComponent);
 
 
 We want this component to display the 3 most recent news.
@@ -815,9 +815,9 @@ And we need update the markup in ``home.component.html``:
     </div>
   </div>
 
-... and the style in ``home.component.scss``:
+... and the style in :file:`home.component.scss`:
 
-.. code-block:: css
+.. code-block:: scss
 
   @import "../../variables.scss";
 
@@ -901,16 +901,16 @@ Now, if we are not logged in yet, we display in ``app.component.html`` a link to
 Let's implement the logout link.
 
 ..  admonition:: Solution
-  :class: toggle
+    :class: toggle
 
     .. code-block:: html+ng2
 
-    <div class="row">
-      <div class="col-md-12">
-        <a *ngIf="!logged" traverseTo="@@login" class="pull-right">Login</a>
-        <a *ngIf="logged" (click)="logout()" class="pull-right">Logout</a>
-      </div>
-    </div>
+        <div class="row">
+          <div class="col-md-12">
+            <a *ngIf="!logged" traverseTo="@@login" class="pull-right">Login</a>
+            <a *ngIf="logged" (click)="logout()" class="pull-right">Logout</a>
+          </div>
+        </div>
 
     .. code-block:: ts
 
@@ -991,7 +991,7 @@ Let's implement the Footer component able to display those links.
         }
       }
 
-    ``src/app/footer/footer.component.html``:
+    :file:`src/app/footer/footer.component.html`:
 
     .. code-block:: html+ng2
 
@@ -1006,7 +1006,7 @@ Let's implement the Footer component able to display those links.
         </ul>
       </div>
 
-    ``src/app/footer/footer.component.scss``:
+    :file:`src/app/footer/footer.component.scss`:
 
     .. code-block:: scss
 
@@ -1037,7 +1037,7 @@ Let's implement the Footer component able to display those links.
         }
       }
 
-    ``src/app/app.component.html``:
+    :file:`src/app/app.component.html`:
 
     .. code-block:: html+ng2
 
@@ -1155,7 +1155,7 @@ Let's add `plonetheme-upload` to our development dependencies:
 
    npm install plonetheme-upload --dev
 
-And let's add a new script in our ``package.json``:
+And let's add a new script in our :file:`package.json`:
 
 .. code-block:: json
 
@@ -1189,7 +1189,7 @@ Enabling Offline & PWA
    HTTPS is mandatory.
 
 SEO And Server-side Rendering
-+++++++++++++++++++++++++++++
+-----------------------------
 
 robots.txt
 
