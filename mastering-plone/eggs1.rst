@@ -143,7 +143,7 @@ Including the package in Plone
 Before we can use our new package we have to tell Plone about it. Look at :file:`buildout.cfg` and see how ``ploneconf.site`` is included in `auto-checkout`, `eggs` and `test`:
 
 .. code-block:: cfg
-    :emphasize-lines: 2, 31, 40
+    :emphasize-lines: 2, 31, 39
 
     auto-checkout +=
         ploneconf.site

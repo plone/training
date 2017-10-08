@@ -13,16 +13,16 @@ Topics covered:
 
 Plone consists of more than 20.000 files! You need a tool to manage that. No development environment is complete without a good editor.
 
-People pick editors themselves. Use whatever you are comfortable and productive with. These are the most used editors in the Plone community:
+People pick editors themselves. Use whatever you are comfortable and productive with. Here are some of the most used editors in the Plone community:
 
 * `Sublime <https://www.sublimetext.com/>`_
 * `PyCharm <http://www.jetbrains.com/pycharm/>`_
 * `Wing IDE <http://wingide.com/>`_
-* `PyDev <http://www.pydev.org/>`_ for `Eclipse <http://www.eclipse.org/>`_
-* `Aptana Studio <http://www.aptana.com/products/studio3.html>`_
+* `Visual Studio Code <https://code.visualstudio.com/>`_
 * vim
 * emacs
 * `Textmate <http://macromates.com/>`_
+* `PyDev <http://www.pydev.org/>`_ for `Eclipse <http://www.eclipse.org/>`_
 
 Some features that most editors have in one form or another are essential when developing with Plone.
 
@@ -45,5 +45,4 @@ The capability of performing a *full text search* through the complete Plone cod
     * SublimeLinter with SublimeLinter-flake8 ...
     * INI (syntax for ini-Files)
     * SideBarEnhancements
-    * MacTerminal
     * SyncedSideBar

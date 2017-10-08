@@ -238,7 +238,7 @@ path expressions
 
 Regarding TALES so far we used ``string:`` or ``python:`` or only variables. The next and most common expression are path expressions. Optionally you can start a path expression with ``path:``
 
-Every path expression starts with a variable name. It can either be an object like :py:obj:`context`, :py:obj:`view` or :py:obj:`template` or a variable defined earlier like :py:data:`talk`.
+Every path expression starts with a variable name. It can either be an object like :py:obj:`context`, :py:obj:`view` or :py:obj:`template` or a variable defined by you like :py:data:`talk`.
 
 After the variable we add a slash ``/`` and the name of a sub-object, attribute or callable.
 The ``/`` is used to end the name of an object and the start of the property name. Properties themselves may be objects that in turn have properties.
@@ -285,7 +285,7 @@ The most frequently used one is ``nothing`` which is the equivalent to None
         this comment will not be rendered
     </p>
 
-A dict of all the available variables is ``econtext``
+A dict of all the available variables at the current state is ``econtext``
 
 ..  code-block:: html
     :linenos:
@@ -296,6 +296,8 @@ A dict of all the available variables is ``econtext``
         <dd>${python:path_variables_dict[variable]}</dd>
       </tal:vars>
     </dl>
+
+Useful for debugging :-)
 
 ..  note::
 
@@ -310,8 +312,6 @@ A dict of all the available variables is ``econtext``
             <dd tal:content="python:path_variables_dict[variable]"></dd>
           </tal:vars>
         </dl>
-
-Useful for debugging :-)
 
 
 Pure TAL blocks
@@ -795,6 +795,8 @@ Modify the following template and one by one solve the following problems:
             </tr>
         </table>
 
+    Do not use this trick in your projects! This level of python-logic belongs in a class, not in a template.
+
 
 METAL and macros
 ----------------
@@ -915,7 +917,13 @@ Restart your Plone instance from the command line, and then open http://localhos
 Accessing Plone from the template
 ---------------------------------
 
-In our template we have access to the context object on which the view is called on, the browser view itself (i.e. all python methods we'll put in the view later on), the request and response objects and with these we can get almost anything.
+In our template you have access to:
+
+* the **context** object on which your view is called on
+* the **view** itself (and all python methods we'll put in the view later on)
+* the **request**
+
+With these three we can do almost anything!
 
 In templates we can also access other browser views. Some of those exist to provide easy access to methods we often need::
 
