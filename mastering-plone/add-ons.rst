@@ -14,14 +14,8 @@ Extend Plone With Add-On Packages
 Some notable add-ons
 ---------------------
 
-`Products.PloneFormGen <https://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
-  A form generator.
-
-`collective.disqus <https://pypi.python.org/pypi/collective.disqus/>`_
-  Integrates the Disqus commenting platform API into Plone
-
-`collective.plonetruegallery <https://pypi.python.org/pypi/collective.plonetruegallery>`_
-  Photo galleries with a huge selection of various js-libraries.
+`collective.easyform <https://pypi.python.org/pypi/collective.easyform>`_
+  A form generator and the successor to `Products.PloneFormGen <https://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
 
 `plone.app.mosaic <https://github.com/plone/plone.app.mosaic>`_
   Layout solution to easily create complex layouts through the web.
@@ -44,18 +38,17 @@ Some notable add-ons
 `collective.behavior.banner <https://github.com/collective/collective.behavior.banner>`_
   Add decorative banners and sliders
 
-`plone.app.multilingual <https://pypi.python.org/pypi/plone.app.multilingual>`_
-  Allows multilingual sites by translating content.
-
 `Rapido <https://rapidoplone.readthedocs.io/en/latest/>`_
   Allows developers with a little knowledge of HTML and a little knowledge of Python to implement custom elements and insert them anywhere they want.
 
 `Plomino <http://plomino.net/>`_
   Powerful and flexible web-based application builder for Plone
 
-.. warning::
+`collective.disqus <https://pypi.python.org/pypi/collective.disqus/>`_
+  Integrates the Disqus commenting platform API into Plone
 
-    Some add-ons may not yet run under Plone 5 and will have to be updated to be compatible.
+`collective.plonetruegallery <https://pypi.python.org/pypi/collective.plonetruegallery>`_
+  Photo galleries with a huge selection of various js-libraries.
 
 
 .. _add-ons-find-label:
@@ -100,7 +93,7 @@ In the section ``[instance]`` there is a variable called ``eggs``, which has a l
 
     eggs =
         Plone
-        Products.PloneFormGen
+        collective.easyform
         plone.app.debugtoolbar
 
 You add an egg by adding a new line containing the package name to the configuration.
@@ -126,7 +119,7 @@ Your Plone site has not yet been told to use the add-on. For this, you have to a
 
 In your browser, go to Site Setup (shortcut: add ``/@@overview-controlpanel`` to the Plone site URL), and open the ``Add-ons`` Panel. You will see that you can install the add-ons there.
 
-Install **PloneFormGen** now.
+Install EasyForm *the human-readable name of :py:mod:`collective.easyform` now.
 
 This is what happens: The GenericSetup profile of the product gets loaded. This does things like:
 
@@ -140,41 +133,31 @@ Let's have a look at what we just installed.
 
 .. _add-ons-PFG-label:
 
-PloneFormGen
-------------
+collective.easyform
+-------------------
 
 There are many ways to create forms in Plone:
 
-* Pure: html and python in a view
-* Framework: z3c.form, formlib, deform
-* TTW: Products.PloneFormGen
+* Pure: html and python in a BrowserView
+* Framework: :py:mod:`z3c.form`
+* TTW: :py:mod:`Products.PloneFormGen` and :py:mod:`collective.easyform`
 
-The basic concept of PloneFormGen is that you build a form by adding a Form Folder, to which you add form fields as content items. Fields are added, deleted, edited and moved just as with any other type of content. Form submissions may be automatically emailed and/or saved for download. There are many add-ons to PloneFormGen that provide additional field types and actions.
+The concept of :py:mod:`collective.easyform` is that you add a form, to which you add form fields as schema-fields exactly like the dexterity schema-editor. Fields are added, deleted, edited and moved just as with any other type of content. Form submissions may be automatically emailed and/or saved for download.
 
 Let's build a registration form:
 
-* Activate PloneFormGen for this site via the add-on configuration panel in site setup
-* Add an object of the new type 'Form Folder' in the site root. Call it "Registration"
+* Add an object of the new type 'EasyForm' in the site root. Call it "Registration"
 * Save and view the result, a simple contact form that we may customize
-* Click in QuickEdit
-* Remove field "Subject"
-* Add fields for food preference and shirt size
-* Add a DataSave Adapter
+* In the `Actions` Menu click on "Define form fields"
+* Remove field "comments"
+* Add fields for food preference (a choice field) and shirt size (also choice)
+* In the `Actions` Menu click on "Define form actions"
+* Add a new action and select "Save Data" as the type. This stores all entered data.
 * Customize the mailer
 
 .. note::
 
-    Need CAPTCHAs? Add the :py:mod:`collective.recaptcha` package to your buildout and PFG will have a CAPTCHA field.
-
-    Need encryption? Add GPG encryption to your system, add a GPG configuration for the Plone daemon user that includes a public key for the mail targets, and you'll be able to encrypt email before sending.
-
-    Think PFG is too complicated for your site editors? Administrators (and we're logged in as an administrator) see lots of more complex options that are invisible to site editors.
-
-By the way, while PloneFormGen is good at what it does, it is not a good model for designing your own extensions. It was created before the Zope Component Architecture became widely used. The authors would write it much differently if they were starting from scratch.
-
-.. note::
-
-   `collective.easyform <https://pypi.python.org/pypi/collective.easyform>`_ is a alternative form-generator that uses dexterity. It is still under development.
+    Need CAPTCHAs? Read the `instructions how to add add Recapcha-field to easyform <https://github.com/collective/collective.easyform#recaptcha-support>`_
 
 
 .. _add-ons-ptg-label:
@@ -214,7 +197,7 @@ Building a multi-lingual site requires activating :py:mod:`plone.app.multilingua
 Summary
 -------
 
-We are now able to customize and extend many parts of our website. We can even install extensions that add new functionality.
+You are now able to customize and extend many parts of our website. You can even install extensions that add new functionality.
 
 But:
 
