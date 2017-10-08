@@ -1,6 +1,6 @@
 class plone {
 
-    $plone_version = "5.0.7"
+    $plone_version = "5.1rc1"
 
     file { ['/home/ubuntu/tmp',
             '/home/ubuntu/.buildout',
@@ -57,7 +57,7 @@ extends-cache = /home/ubuntu/buildout-cache/extends'),
         timeout => 0,
     }
 
-    ## Download the buildout-cache from dist.plone.org - XXX training_buildout now uses 5.0.7 but there is no buildout cache dl for this release
+    ## Download the buildout-cache from dist.plone.org - XXX training_buildout now uses 5.1rc1 but there is no buildout cache dl for this release
     #exec {"wget http://dist.plone.org/release/${plone_version}/buildout-cache.tar.bz2":
     #    alias => "download_buildout_cache",
     #    creates => "/home/ubuntu/buildout-cache.tar.bz2",
