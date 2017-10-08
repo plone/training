@@ -6,6 +6,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Update link [sgrepos]
+
 - Add angular training
   [barbichu, fulv]
 
