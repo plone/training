@@ -91,8 +91,11 @@ pdb
 
     Since Plone 5 you can even add it to templates: add ``<?python import pdb; pdb.set_trace() ?>`` to a template and you end up in a pdb shell on calling the template. Look at the variable :py:obj:`econtext` to see what might have gone wrong.
 
+pdbpp
+    A great drop-in replacement for pdb with tab completion, syntax highlighting, better tracebacks,  introspection and more. And the best feature ever: The command :command:`ll` prints the whole current method.
+
 ipdb
-    Enhanced pdb with the power of IPython, e.g. tab completion, syntax highlighting, better tracebacks and introspection. It also works nicely with :py:mod:`Products.PDBDebugMode`.
+    Another enhanced pdb with the power of IPython, e.g. tab completion, syntax highlighting, better tracebacks and introspection. It also works nicely with :py:mod:`Products.PDBDebugMode`. Needs to be invoked with ``import ipdb; ipdb.set_trace()``.
 
 Products.PDBDebugMode
     An add-on that has two killer features.
@@ -114,7 +117,7 @@ Products.PrintingMailHost
     An add-on that prevents Plone from sending mails. Instead, they are logged.
 
 Products.enablesettrace or Products.Ienablesettrace
-    Add-on that allows to use pdb and ipdb in Python skin scripts. Very useful when debugging legacy code.
+    Add-on that allows to use pdb and ipdb in Python skin scripts. Very useful when debugging terrible legacy code.
 
 ``verbose-security = on``
     An option for the recipe :py:mod:`plone.recipe.zope2instance` that logs the detailed reasons why a user might not be authorized to see something.
@@ -133,3 +136,7 @@ zopepy
         recipe = zc.recipe.egg
         eggs = ${instance:eggs}
         interpreter = zopepy
+
+..  seealso::
+
+    A video of the talk `Debug like a pro. How to become a better programmer through pdb-driven development <http://pyvideo.org/pycon-de-2016/debug-like-a-pro-how-to-become-a-better-programmer-through-pdb-driven-development.html>`_

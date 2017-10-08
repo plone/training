@@ -29,7 +29,7 @@ A simple browser view
 
 Before writing the talk view itself we step back and talk *a little* about views and templates.
 
-A view in Plone is usually a ``BrowserView``.
+A view in Plone is usually a :py:class:`BrowserView`.
 It can hold a lot of cool python code but we will first focus on the template.
 
 Edit the file ``browser/configure.zcml`` and register a new view called *training*:

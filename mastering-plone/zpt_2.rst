@@ -17,7 +17,7 @@ In this part you will:
 
 Topics covered:
 
-* omelette/packages
+* packages (omelette)
 * z3c.jbot
 * date-formatting and the moment pattern
 * listings
@@ -33,7 +33,7 @@ The view for News Items
 
 We want to show the date a News Item is published. This way people can see at a glance if they are looking at current or old news.
 
-To do this we will customize the template that is used to render News Items.
+To do this you will first customize the template that is used to render News Items.
 
 We use :py:mod:`z3c.jbot` for overriding templates. The package already has the necessary configuration in :file:`browser/configure.zcml`.
 
@@ -69,9 +69,9 @@ Note the following:
 
 * Like almost all Plone templates, it uses `metal:use-macro="context/main_template/macros/master"` to use the main_template
 * This template fills the same slot `content-core` as the template you created in the last chapter. This means the heading and description are displayed by the `main_template`.
-* The image and image caption that is provided by the behavior is not part of the template.
+* The image and image caption that is provided by the behavior is not part of the template. Instead a Viewlet is used to display it.
 
-Copy that file into the folder :file:`browser/overrides/` of our package. If you use vagrant you'd have to use::
+Copy that file into the folder :file:`browser/overrides/` of your package. If you use vagrant you'd have to use::
 
     cp /home/vagrant/packages/plone/app/contenttypes/browser/templates/newsitem.pt /vagrant/buildout/src/ploneconf.site/src/ploneconf/site/browser/overrides/
 
@@ -121,16 +121,11 @@ The same in a slightly different style:
             The current Date in its local short format
     </p>
 
-Here we first get the Plone view and then the method :py:meth:`toLocalizedTime` and we use ``nocall:`` to prevent the method :py:meth:`toLocalizedTime` from being called, since we only want to make it available for later use.
+Here we first get the Plone view and then the method :py:meth:`toLocalizedTime` and we use ``nocall`` to prevent the method :py:meth:`toLocalizedTime` from being called, since we only want to make it available for later use.
 
-.. note::
+We could also leave the formatting to the frontend. Plone 5 comes with the `moment pattern <http://plone.github.io/mockup/dev/#pattern/moment>`_ that uses the library `moment.js <http://plone.github.io/mockup/dev/#pattern/moment>`_ to format dates in the browser with javascript.
 
-    On older Plone versions using Archetypes we used ``python:context.toLocalizedTime(context.Date(), longFormat=False)``. That called the Python script ``toLocalizedTime.py`` in the Folder ``Products/CMFPlone/skins/plone_scripts/``.
-
-    That folder ``plone_scripts`` holds a multitude of useful scripts that are still widely used. But they are all deprecated and most of them are gone in Plone 5 and replaced by proper Python methods in BrowserViews.
-
-
-We could also leave the formatting to the frontend. Plone 5 comes with the `moment pattern <http://plone.github.io/mockup/dev/#pattern/moment>`_ that uses the library `moment.js <http://plone.github.io/mockup/dev/#pattern/moment>`_ to format dates. Try the relative calendar format:
+Try the relative calendar format:
 
 ..  code-block:: html
 
@@ -171,10 +166,12 @@ The file looks like this:
     <metal:block use-macro="context/@@listing_view/macros/content-core">
 
       <metal:entries fill-slot="entries">
-        <metal:block use-macro="context/@@listing_view/macros/entries">
+        <metal:block use-macro="context/@@listing_view/macros/entries"
+            tal:define="portal context/@@plone_portal_state/portal;
+                        image_scale portal/@@image_scale">
           <metal:entry fill-slot="entry">
 
-            <article class="tileItem" tal:define="obj item/getObject">
+            <article class="tileItem">
               <h2 class="tileHeadline" metal:define-macro="listitem">
                 <a class="summary url"
                     tal:attributes="href item_link;
@@ -186,13 +183,12 @@ The file looks like this:
 
               <div metal:use-macro="context/@@listing_view/macros/document_byline"></div>
 
-              <div class="tileImage"
-                   tal:condition="item_has_image"
+              <div tal:define="thumb_url python:item_url + '/@@images/image/' + thumb_scale_summary;"
+                   tal:condition="python: item_has_image and thumb_scale_summary"
                    tal:attributes="class python: 'tileImage' if item_description else 'tileImageNoFloat'">
                 <a tal:attributes="href item_link">
-                  <img tal:define="scales obj/@@images;
-                                   scale python:scales.scale('image', 'thumb')"
-                      tal:replace="structure python:scale and scale.tag() or None" />
+                  <img tal:replace="structure python:image_scale.tag(item, 'image', scale=thumb_scale_summary, css_class='thumb-' + thumb_scale_summary)" />
+
                 </a>
               </div>
 
@@ -235,7 +231,7 @@ Add the following after line 28:
 
 ..  code-block:: html
 
-    <p tal:condition="python:item_type == 'News Item'">
+    <p tal:condition="python: item_type == 'News Item'">
       ${python:plone_view.toLocalizedTime(item.Date())}
     </p>
 
@@ -262,27 +258,33 @@ That template :file:`listing.pt` defines the slot ``entries`` like this:
 ..  code-block:: xml
 
     <metal:listingmacro define-macro="listing">
-      <tal:results define="batch view/batch">
+      <tal:results define="batch view/batch;
+                           thumb_scale_list view/get_thumb_scale_list;
+                           thumb_scale_table view/get_thumb_scale_table;
+                           thumb_scale_summary view/get_thumb_scale_summary;
+                           img_class python:'thumb-%s pull-right' % thumb_scale_list;
+                           showicons view/show_icons">
         <tal:listing condition="batch">
-          <div class="entries" metal:define-slot="entries">
-            <tal:entries repeat="item batch" metal:define-macro="entries">
+          <div class="entries" metal:define-slot="entries"
+              tal:define="portal context/@@plone_portal_state/portal;
+                          image_scale portal/@@image_scale">
+            <tal:repeat repeat="item batch" metal:define-macro="entries">
               <tal:block tal:define="obj item/getObject;
-                                     item_url item/getURL;
-                                     item_id item/getId;
-                                     item_title item/Title;
-                                     item_description item/Description;
-                                     item_type item/PortalType;
-                                     item_modified item/ModificationDate;
-                                     item_created item/CreationDate;
-                                     item_icon item/getIcon;
-                                     item_type_class python:'contenttype-' + view.normalizeString(item_type);
-                                     item_wf_state item/review_state;
-                                     item_wf_state_class python:'state-' + view.normalizeString(item_wf_state);
-                                     item_creator item/Creator;
-                                     item_link python:item_type in view.use_view_action and item_url+'/view' or item_url;
-                                     item_has_image python:view.has_image(obj);
-                                     item_is_event python:view.is_event(obj)">
-
+                  item_url item/getURL;
+                  item_id item/getId;
+                  item_title item/Title;
+                  item_description item/Description;
+                  item_type item/PortalType;
+                  item_modified item/ModificationDate;
+                  item_created item/CreationDate;
+                  item_wf_state item/review_state;
+                  item_wf_state_class python:'state-' + view.normalizeString(item_wf_state);
+                  item_creator item/Creator;
+                  item_link python:item_type in view.use_view_action and item_url+'/view' or item_url;
+                  item_is_event python:view.is_event(obj);
+                  item_has_image python:item.getIcon;
+                  item_type_class python:('contenttype-' + view.normalizeString(item_type)) if showicons else '' ;
+                  ">
     ...
 
 Here the ``item_type`` is defined as ``item_type item/PortalType``. Let's dig a little deeper and find out what ``item`` and  ``PortalType`` are.
@@ -350,14 +352,6 @@ As discovered above, `item` is a instance of :py:class:`plone.app.contentlisting
     (pdb) item.PortalType()
     'News Item'
 
-.. note::
-
-    In Plone 4 without :py:mod:`plone.app.contenttypes` the template to customize would be :file:`folder_summary_view.pt`, a skin template for Archetypes that can be found in the folder :file:`Products/CMFPlone/skins/plone_content/`. The customized template would be :file:`Products.CMFPlone.skins.plone_content.folder_summary_view.pt`.
-
-    The Archetypes template for News Items is :file:`newsitems_view.pt` from the same folder. The customized template would then have to be named :file:`Products.CMFPlone.skins.plone_content.newsitems_view.pt`.
-
-    Keep in mind that not only the names and locations have changed but also the content and the logic behind them!
-
 
 .. _zpt2-finding-label:
 
@@ -378,7 +372,8 @@ If you don't know which template is used by the page you're looking at, you can 
 
     A foolproof way to verify your guess is to modify the template and reload the page. If your modification shows up you obviously found the correct file.
 
-2.  The safest method is using :py:mod:`plone.app.debugtoolbar`.  We already have it in our buildout and only need to install it. It adds a "Debug" dropdown menu on top of the page. The section "Published" shows the complete path to the template that is used to render the page you are seeing.
+2.  The safest method is using :py:mod:`plone.app.debugtoolbar`. We already have it in our buildout and only need to install it. It adds a "Debug" dropdown menu on top of the page. The section "Published" shows the complete path to the template that is used to render the page you are seeing.
+Install it now and find information about the current template in the section **Published**.
 
 3.  The debug session to find the template is a little more complicated. Since we have :py:mod:`Products.PDBDebugMode` in our buildout we can call ``/pdb`` on our page. We cannot put a `pdb` in the templates since we do not know (yet) which template to put the `pdb` in.
 
@@ -443,4 +438,4 @@ Summary
 * Overriding templates with :py:mod:`z3c.jbot` is easy.
 * Understanding templates can be hard.
 * Use plone.app.debugtoolbar and pdb; they are there to help you.
-* Skin templates are deprecated; you will probably only encounter them when you work on Plone 4.
+* Skin templates are deprecated; you will probably only encounter them when you work on Plone 4 or older addons and client code.

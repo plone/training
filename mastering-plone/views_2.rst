@@ -63,8 +63,6 @@ We are adding a file called :file:`views.py` in the :file:`browser` folder.
     from Products.Five.browser import BrowserView
 
     class DemoView(BrowserView):
-        """ This does nothing so far
-        """
 
         def the_title(self):
             return u'A list of great trainings:'
@@ -75,7 +73,7 @@ In the template :file:`training.pt` we can now use this view as `view` and acces
 
     <h2 tal:content="python: view.the_title()" />
 
-The logic contained in that file can now be moved to the class:
+The logic contained in the template can now be moved to the class:
 
 .. code-block:: python
     :linenos:
@@ -165,8 +163,9 @@ And the template will now be much simpler.
 The default view
 ----------------
 
-Using a view you can now create a nice view for talks in :file:`views.py`.
-First we will not write any methods for `view` but instead access the fields from the talk-schema as `context.<fieldname>`.
+Now you know everything to create a nice view for talks in :file:`views.py`.
+
+First we will not write any methods for `view` but access the fields from the talk-schema as `context.<fieldname>`.
 
 Register a view `talkview` in :file:`browser/configure.zcml`:
 
@@ -218,8 +217,10 @@ After a restart, we can test our view by going to a talk and adding */talkview* 
 Using helper-methods from :py:class:`DefaultView`
 -------------------------------------------------
 
+In the previous section we used :py:class:`BrowserView` as the base-class for :py:class:`TalkView`.
+
 Dexterity comes with a nice helper-class suited for views of content-types: The :py:class:`DefaultView` base class in :py:mod:`plone.dexterity`.
-It only works for Dexterity Objects and has some very useful properties available to the template:
+It has some very useful properties available to use in the template:
 
 * :py:attr:`view.w` is a dictionary of all the display widgets, keyed by field names. This includes widgets from alternative fieldsets.
 * :py:attr:`view.widgets` contains a list of widgets in schema order for the default fieldset.
@@ -227,7 +228,7 @@ It only works for Dexterity Objects and has some very useful properties availabl
 * :py:attr:`view.fieldsets` contains a dict mapping fieldset name to fieldset
 * On a fieldset (group), you can access a widget list to get widgets in that fieldset
 
-You can now change the :py:class:`TalkView` to use that
+You can now change the :py:class:`TalkView` to use it
 
 .. code-block:: python
 
@@ -287,13 +288,13 @@ We will have to either reinstall our add-on or run the GenericSetup import step 
 
 ..  note::
 
-    To change it ttw got to the ZMI (http://localhost:8080/Plone/manage), go to ``portal_types`` and select the type for which the new view should be selectable (*talk*).
+    To change it ttw go to the ZMI (http://localhost:8080/Plone/manage), go to ``portal_types`` and select the type for which the new view should be selectable (*talk*).
 
     Now add ``talkview`` to the list *Available view methods*.
     Now the new view is available in the menu *Display*.
     To make it the default view enter it in ``Default view method``.
 
-Let's improve the talkview to show all the info we want.
+Now you can improve the talkview to show all the info:
 
 :file:`templates/talkview.pt`:
 
