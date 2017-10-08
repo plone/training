@@ -45,7 +45,7 @@ Schema
     properties of an object.
 
 FTI
-    The "Factory Type Information" configures the content type in Plone, assigns it a name, an icon, additional features and possible views to it.
+    The "Factory Type Information" configures the content type in Plone, assigns it a name, additional features and available views to it.
 
 Views
     A view is a representation of the object and the content of its fields that may be rendered in response to a request.
@@ -58,12 +58,12 @@ Views
 Dexterity and Archetypes - A Comparison
 ---------------------------------------
 
-There are two content frameworks in Plone:
+There used to be two content frameworks in Plone:
 
-* *Dexterity*: new and the coming default.
-* *Archetypes*: old, tried and tested. Widespread, used in many add-ons.
+* *Dexterity*: new and default.
+* *Archetypes*: the old default in Plone 4 and deprecated. Still used in some add-ons.
 * Plone 4.x: Archetypes is the default, with Dexterity available.
-* Plone 5.x: Dexterity is the default, with Archetypes available.
+* Plone 5.x: Dexterity is the default, with Archetypes available. In Plone 6 Archetypes will not be available any more.
 * For both, add and edit forms are created automatically from a schema.
 
 What are the differences?
@@ -85,8 +85,8 @@ Approaches for Developers:
 
 * Dexterity: Easy permissions per field, easy custom forms.
 * Archetypes: Permissions per field are hard, custom forms even harder.
-* If you have to program for old sites you need to know Archetypes!
-* If starting fresh, go with Dexterity.
+* If you have to program for old Plone 4-based sites you still need to know Archetypes!
+* If starting fresh always use Dexterity.
 
 Extending:
 

@@ -100,7 +100,6 @@ The output should be similar to:
     .../.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
       from plone.app.multilingual.content.lrf import LanguageRootFolder
     2015-09-24 15:51:09 INFO Plone OpenID system packages not installed, OpenID support not available
-    2015-09-24 15:51:11 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
     2015-09-24 15:51:11 INFO Zope Ready to handle requests
 
 If the output says ``INFO Zope Ready to handle requests`` then you are in business.
@@ -238,7 +237,6 @@ Instead we use our own Plone instance during the training. It is in :file:`/vagr
 	2017-09-28 09:19:21 INFO ZServer HTTP server started at Thu Sep 28 09:19:21 2017
 		Hostname: 0.0.0.0
 		Port: 8080
-	2017-09-28 09:19:24 INFO Products.PloneFormGen gpg_subprocess initialized, using /usr/bin/gpg
 	2017-09-28 09:19:24 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
 	2017-09-28 09:19:24 WARNING PrintingMailHost
 
@@ -265,7 +263,6 @@ Instead we use our own Plone instance during the training. It is in :file:`/vagr
 	/home/ubuntu/buildout-cache/eggs/plone.portlet.collection-3.1-py2.7.egg/plone/portlet/collection/collection.py:2: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
 	  from plone.app.layout.navigation.defaultpage import isDefaultPage
 	2017-09-28 09:19:28 INFO Plone OpenID system packages not installed, OpenID support not available
-	2017-09-28 09:19:30 INFO PloneFormGen Patching plone.app.portlets ColumnPortletManagerRenderer to not catch Retry exceptions
 	2017-09-28 09:19:30 INFO Zope Ready to handle requests
 
 .. note::

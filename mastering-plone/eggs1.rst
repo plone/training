@@ -31,27 +31,32 @@ Creating the package
 
 Our own code has to be organized as a Python package, also called *egg*. An egg is a zip file or a directory that follows certain conventions. We are going to use `bobtemplates.plone <https://pypi.python.org/pypi/bobtemplates.plone>`_ to create a skeleton project. We only need to fill in the blanks.
 
-We create and enter the :file:`src` directory (*src* is short for *sources*) and call a script called :command:`mrbob` from our buildout's :file:`bin` directory:
+We enter the :file:`src` directory (*src* is short for *sources*) and call a script called :command:`mrbob` from our buildout's :file:`bin` directory:
 
 .. code-block:: bash
 
-    $ mkdir src      # (if src does not exist already)
     $ cd src
-    $ ../bin/mrbob -O ploneconf.site bobtemplates:plone_addon
+    $ ../bin/mrbob -O ploneconf.site bobtemplates.plone:addon
 
-We have to answer some questions about the add-on. We will press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your GitHub username if you have one) and 5 (Plone version), where we enter :kbd:`5.0.6`::
+.. warning::
 
-    --> What kind of package would you like to create? Choose between 'Basic', 'Dexterity', and 'Theme'. [Basic]:
+    Before version 2.0.0 of :py:mod:`bobtemplates.plone` the command to create a addon was different:
+
+    .. code-block:: bash
+
+        $ ../bin/mrbob -O ploneconf.site bobtemplates:plone_addon
+
+We have to answer some questions about the add-on. We will press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your GitHub username if you have one) and 5 (Plone version), where we enter :kbd:`5.1`::
 
     --> Author's name [Philip Bauer]:
 
     --> Author's email [bauer@starzel.de]:
 
-    --> Author's GitHub username: fulv
+    --> Author's GitHub username: pbauer
 
     --> Package description [An add-on for Plone]:
 
-    --> Plone version [5.0.5]: 5.0.6
+    --> Plone version [5.0.8]: 5.1
 
     Generated file structure at /vagrant/buildout/src/ploneconf.site
 
@@ -94,7 +99,7 @@ In :file:`src` there is now a new folder :file:`ploneconf.site` and in there is 
 
 
 :file:`configure.zcml` (:file:`src/ploneconf/site/configure.zcml`)
-    The phone book of the distribution. By reading it you can find out which functionality is registered using the component architecture.
+    The phone book of the distribution. By reading it you can find out which functionality is registered using the component architecture. There are more registrations in other zcml-files in this addons (e.g. :file:`browser/configure.zcml` and :file:`upgrades.zcml`) that are included in your main :file:`browser/configure.zcml`
 
 :file:`setuphandlers.py` (:file:`src/ploneconf/site/setuphandlers.py`)
     This holds code that is automatically run when installing and uninstalling our add-on.
@@ -166,8 +171,8 @@ Before we can use our new package we have to tell Plone about it. Look at :file:
         plone.app.debugtoolbar
         Products.PrintingMailHost
 
-    # TTW Forms (based on Archetypes)
-        Products.PloneFormGen
+    # TTW Forms
+        collective.easyform
 
     # The add-on we develop in the training
         ploneconf.site
@@ -215,6 +220,6 @@ Now run buildout to reconfigure Plone with the updated configuration:
 
     $ ./bin/buildout
 
-After restarting Plone with :command:`./bin/instance fg` the new add-on :py:mod:`ploneconf.site` is available for install like PloneFormGen or Plone True Gallery.
+After restarting Plone with :command:`./bin/instance fg` the new add-on :py:mod:`ploneconf.site` is available for install like EasyForm or Plone True Gallery.
 
 We will not install it now since we did not add any of our own code or configuration yet. Let's do that next.
