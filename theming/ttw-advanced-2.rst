@@ -281,20 +281,21 @@ The theme is already packaged in a manner that will work with the theming tool.
 .. note::
 
    When being distributed, Plone themes are packaged as zip files.
-   A theme should be structured such that there is only one top level directory in the root of the zip file.
+   A theme should be structured such that there is only one top-level directory in the root of the zip file.
 
-   By convention the directory should contain your :file:`index.html`,
-   the supporting files (CSS, JavasSript and other files) may be in subdirectories.
+   By convention the directory should contain your :file:`index.html`.
+   The supporting files (CSS, JavasSript and other files) may be in subdirectories.
 
 #. To get started `download a copy of the New Age theme as a zip file <https://codeload.github.com/BlackrockDigital/startbootstrap-new-age/zip/master>`_.
-   Then upload it to the theme controlpanel.
+   Then upload it to the theme control panel.
 
    .. hint::
       :class: toggle
 
-      This is a generic theme, it does not provide the Plone/Diazo specific :file:`rules.xml` or :file:`manifest.cfg` file.
-      When you upload the zip file the theming tool generates a :file:`rules.xml`.
-      In the next steps you will add additional files including a :file:`manifest.cfg` (perhaps in the future the manifest.cfg will also be generated for you).
+      This is a generic theme, it does not provide the Plone/Diazo specific :file:`rules.xml` or :file:`manifest.cfg` files.
+      When you upload the zip file, the theming tool generates a :file:`rules.xml` file.
+      In the next steps you will add additional files including a :file:`manifest.cfg` file
+      (perhaps in the future the :file:`manifest.cfg` file will also be generated for you).
 
    .. image:: ../theming/_static/theming-uploadzipfile.png
 
@@ -307,7 +308,7 @@ The theme is already packaged in a manner that will work with the theming tool.
 
    .. note::
 
-      Clean Blog is a free Bootstrap theme, the latest version is available on GitHub `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
+      *Clean Blog* is a free Bootstrap theme, the latest version is available on GitHub `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
 
    .. hint::
       :class: toggle
@@ -366,7 +367,7 @@ The theme is already packaged in a manner that will work with the theming tool.
 
          <theme href="index.html" />
 
-   #. To add the Plone related header data, add those rules:
+   #. To add the Plone-related header data, add these rules:
 
       .. code-block:: xml
 
@@ -396,7 +397,7 @@ The theme is already packaged in a manner that will work with the theming tool.
          <!-- Copy over the id/class attributes on the body tag. This is important for per-section styling -->
          <copy attributes="*" css:content="body" css:theme="body"/>
 
-   #. Add content related rules:
+   #. Add content-related rules:
 
       .. code-block:: xml
 

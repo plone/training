@@ -52,7 +52,7 @@ Principles
 For this part of the training you need to know the basic principles of a Diazo theme:
 
 * Plone renders the content of the page;
-* Diazo rules inject the content into any static theme;
+* Diazo rules inject the content into any static theme.
 
 Copy Barceloneta Theme
 ======================
@@ -92,9 +92,9 @@ The most important files:
 Exercise 1 - Inspecting the :file:`manifest.cfg`
 ------------------------------------------------
 
-To better understand how your theme is arranged start by reading the :file:`manifest.cfg` file.
+To better understand how your theme is arranged, start by reading the :file:`manifest.cfg` file.
 
-In the theming tool, open the :file:`manifest.cfg` spend a minute or two looking through it, then
+In the theming tool, open :file:`manifest.cfg` spend a minute or two looking through it, then
 see if you can answer the questions below.
 
 Where are the main rules located for your theme?
@@ -111,7 +111,7 @@ What do you think is the purpose of the ``prefix`` property?
     The ``development-css`` property points at the main Less file, when compiled to CSS it is placed
     in the location defined by the ``production-css`` property.
 
-    The ``prefix`` property defines the default location to look for non prefixed files, for example
+    The ``prefix`` property defines the default location to look for non-prefixed files, for example
     if your prefix is set to ``/++theme++mytheme`` then a file like :file:`index.html` will be expected at
     ``/++theme++mytheme/index.html``
 
@@ -174,7 +174,7 @@ Notice the addition of ``userrole-manager``.
 Exercise 2 - Discussion about the ``<body>`` classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Look back at the ``<body>`` classes for a manager then see if you can answer the following questions.
+Look back at the ``<body>`` classes for a manager, then see if you can answer the following questions.
 
 1. What other roles does the manager have?
 2. Can you see other differences?
