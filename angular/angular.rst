@@ -312,7 +312,7 @@ And now we can set the template we need:
 
 ``src/app/global-navigation/global-navigation.component.html``:
 
-.. code-block:: html
+.. code-block:: html+ng2
 
    <nav class="navbar navbar-default" role="navigation">
      <div class="container-fluid">
@@ -337,88 +337,89 @@ Style it in ``src/app/global-navigation/global-navigation.component.scss``:
 
 .. code-block:: scss
 
-   @import "../../variables.scss";
+    @import "../../variables.scss";
 
-   .navbar-default {
-     background-color: white;
-     border-radius:0;
-     border-right:0;
-     border-left:0;
-     border-top:0;
-   }
+    .navbar-default {
+      background-color: white;
+      border-radius:0;
+      border-right:0;
+      border-left:0;
+      border-top:0;
+    }
 
-   .container-fluid > .navbar-header {
-     margin-right: 30px;
-     margin-left: 10px;
-     margin-top:20px;
-     border-radius:0;
-   }
-   .navbar-brand {
-     float: left;
-     height: 30px;
-     padding: 15px 15px;
-     font-size: 18px;
-     line-height: 20px;
-     h1 {
-       float: left;
-       line-height:20px;
-       padding: 20px;
-       font-size: 30px;
-       margin-top:-23px;
-       color: $blue;
-       &:hover {
-         background-color:white;
-       }
-     }
-   }
+    .container-fluid > .navbar-header {
+      margin-right: 30px;
+      margin-left: 10px;
+      margin-top:20px;
+      border-radius:0;
+    }
 
-   .menu {
-     font-size:14px;
-     float:right;
-     text-transform:uppercase;
-     font-weight:600;
-     ul.nav-tabs li {
-       color: black;
-     }
-   }
+    .navbar-brand {
+      float: left;
+      height: 30px;
+      padding: 15px 15px;
+      font-size: 18px;
+      line-height: 20px;
+      h1 {
+        float: left;
+        line-height:20px;
+        padding: 20px;
+        font-size: 30px;
+        margin-top:-23px;
+        color: $blue;
+        &:hover {
+          background-color:white;
+        }
+      }
+    }
 
-   .nav-tabs {
-     border-bottom: 0;
-     & > li {
-       float: left;
-       margin-bottom: 0;
-       & > a {
-         margin-top:20px;
-         margin-bottom:20px;
-         margin-right: 20px;
-         line-height: 1.42857143;
-         border-bottom: 3px solid transparent;
-         border-radius:0;
-         color: black;
-         border-top:0;
-         border-right:0;
-         border-left:0;
-         & > a:hover {
-           border-color: #eee #eee $blue;
-           color: $blue;
-           border-radius:0;
-           background-color: $lightgrey;
-         }
-       }
-       &.active {
-         & > a,
-         & > a:hover,
-         & > a:focus {
-           color: white;
-           cursor: default;
-           background-color: $blue;
-           border: 0;
-           border-bottom-color: transparent;
-           cursor:pointer;
-         }
-       }
-     }
-   }
+    .menu {
+      font-size:14px;
+      float:right;
+      text-transform:uppercase;
+      font-weight:600;
+      ul.nav-tabs li {
+        color: black;
+      }
+    }
+
+    .nav-tabs {
+      border-bottom: 0;
+      & > li {
+        float: left;
+        margin-bottom: 0;
+        & > a {
+          margin-top:20px;
+          margin-bottom:20px;
+          margin-right: 20px;
+          line-height: 1.42857143;
+          border-bottom: 3px solid transparent;
+          border-radius:0;
+          color: black;
+          border-top:0;
+          border-right:0;
+          border-left:0;
+          & > a:hover {
+            border-color: #eee #eee $blue;
+            color: $blue;
+            border-radius:0;
+            background-color: $lightgrey;
+          }
+        }
+        &.active {
+          & > a,
+          & > a:hover,
+          & > a:focus {
+            color: white;
+            cursor: default;
+            background-color: $blue;
+            border: 0;
+            border-bottom-color: transparent;
+            cursor:pointer;
+          }
+        }
+      }
+    }
 
 Update The App Component Markup
 -------------------------------
@@ -817,7 +818,7 @@ And we need update the markup in ``home.component.html``:
 
 ... and the style in ``home.component.scss``:
 
-.. code-block:: css
+.. code-block:: scss
 
   @import "../../variables.scss";
 
@@ -1164,9 +1165,16 @@ And let's add a new script in our ``package.json``:
 
 .. code-block:: json
 
-   "scripts": {
-     ...
-     "update-backend": "plonetheme-upload --enable plonecustom http://whatever.herokuapp.com/Plone"
+   {
+     "scripts": {
+       "ng": "ng",
+       "start": "ng serve",
+       "build": "ng build",
+       "test": "ng test",
+       "lint": "ng lint",
+       "e2e": "ng e2e",
+       "update-backend": "plonetheme-upload --enable plonecustom http://whatever.herokuapp.com/Plone"
+     }
    }
 
 And now we can push our local ``./plonecustom`` to our Plone backend using the following command:
