@@ -132,8 +132,8 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
         plone.app.debugtoolbar
         Products.PrintingMailHost
 
-    # TTW Forms (based on Archetypes)
-        Products.PloneFormGen
+    # TTW Forms
+        collective.easyform
 
     # The addon we develop in the training
         ploneconf.site
@@ -230,8 +230,8 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
             plone.app.debugtoolbar
             Products.PrintingMailHost
 
-        # TTW Forms (based on Archetypes)
-            Products.PloneFormGen
+        # TTW Forms
+            collective.easyform
 
         # The addon we develop in the training
             ploneconf.site
@@ -264,9 +264,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
         Products.PrintingMailHost = 1.0
 
         # pins for some Addons
-        Products.PloneFormGen = 1.8.1
-        Products.PythonField = 1.1.3
-        # ...
+        collective.easyform = 2.0.0b2
 
     This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file :file:`versions.cfg`.
 

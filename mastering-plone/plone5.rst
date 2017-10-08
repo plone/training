@@ -1,9 +1,13 @@
 .. _plone5-label:
 
-What's New in Plone 5
-=====================
+What's New in Plone 5 and 5.1
+=============================
 
-If you are already used to Plone 5 you could skip this section.
+Plone 5.0 was released in September 2015 and is the currently at version 5.0.8 main version if Plone. Plone 5 was a mayor release, that changed the content type framework, the user interface and the default design.
+
+Plone 5.1 will be released in Oktober 2017 and holds a couple of smaller improvements.
+
+If you are already familiar with Plone 5 and 5.1 you can skip this section.
 
 
 .. _plone5-theme-label:
@@ -190,3 +194,16 @@ Remove portal_skins
 
 Many of the old skin templates were replaced by real browser views.
 
+
+Plone 5.1
+---------
+
+Plone 5.1 holds a long list of incremental improvements. But none really changes the way you develop for Plone. Here are three noteworthy changes:
+
+* The operations for indexing, reindexing and unindexing are queued, optimized and only processed at the end of the transaction. This change can have big performance benefits.
+
+* Actions now have a user-interface in the Plone control panel. You no longer need to use the ZMI to manage them by hand.
+
+* "Retina" Image scales: Plone now has scales for high pixel density images.
+
+For a longer list of changes see the `upgrade-guide <https://docs.plone.org/manage/upgrading/version_specific_migration/index.html>`_ (once 5.1 is released).
