@@ -38,7 +38,7 @@ What is Rapido?
     It can be imported, exported, copied, modified, etc. like the rest of the theme.
     But in addition to layout and design elements, it can contain business logic implemented in Python.
 
-A couple Of Comparisons
+A couple of comparisons
 =======================
 
 .. only:: presentation
@@ -81,7 +81,7 @@ Once deployed:
 - Go to: :menuselection:`Plone control panel -> Add-ons`,
 - Finally: install Rapido.
 
-But to deploy Rapido on an actual Plone instance, modify :file:`buildout.cfg` to add Rapido as a dependency
+But to deploy Rapido on an actual Plone instance, modify :file:`buildout.cfg` to add Rapido as a dependency:
 
 .. code-block:: ini
 
@@ -89,7 +89,7 @@ But to deploy Rapido on an actual Plone instance, modify :file:`buildout.cfg` to
    ...
    rapido.plone
 
-Run your buildout
+Run your buildout:
 
 .. code-block:: console
 
@@ -104,10 +104,10 @@ Principles
 
 .. only:: presentation
 
-* Rapido application
-* block
-* element
-* record
+* :term:`Rapido application`
+* :term:`block`
+* :term:`element`
+* :term:`record`
 
 .. only:: not presentation
 
@@ -368,10 +368,10 @@ A typical element is defined and used as follows:
 Exercise 3: Create An Element To Display The Votes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's replace the "0" value in our rate block with a computed value.
+Let's replace the "``0``" value in our rate block with a computed value.
 
 To do this, you need to add an element to the block.
-For now the Python function will return 10.
+For now the Python function will return ``10``.
 
 .. admonition:: Solution
 

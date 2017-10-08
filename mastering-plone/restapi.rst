@@ -73,7 +73,7 @@ Add a new talk in Plone and then update it's title to match 'Foo 42' using the R
     Using JWT, we do so by POSTing credentials to the ``@login`` resource to obtain a JSON web token
     that we can subsequently use to authorize requests.
 
-    .. code-block:: http-request
+    .. code-block:: http
 
        POST /@login HTTP/1.1
        Accept: application/json
@@ -86,7 +86,7 @@ Add a new talk in Plone and then update it's title to match 'Foo 42' using the R
 
     The response will look like this:
 
-    .. code-block:: http-request
+    .. code-block:: http
 
        {
            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6bnVsbCwic3ViIjoiYWRtaW4iLCJleHAiOjE0NzQ5MTU4Mzh9.s27se99V7leTVTo26N_pbYskebR28W5NS87Fb7zowNk"
@@ -108,7 +108,7 @@ Add a new talk in Plone and then update it's title to match 'Foo 42' using the R
 
     Now we can change the talk title:
 
-    .. code-block:: http-request
+    .. code-block:: http
 
        PATCH /Plone/talks/example-talk
        Accept: application/json

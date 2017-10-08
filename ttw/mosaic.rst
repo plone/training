@@ -100,10 +100,9 @@ The Mosaic Editor
 To enable the Mosaic editor on a content item change its default display as follows:
 go to :menuselection:`Display --> Mosaic layout`.
 
-
 You have now enabled the Mosaic editor as a replacement for the default edit form.
 
-Click on :guilabel:`Edit` if this is the first time editing the current item you will be prompted to select a layout.
+Click on :guilabel:`Edit`. If this is the first time editing the current item, you will be prompted to select a layout.
 
 .. image:: _static/mosaic-select-layout.png
 
@@ -126,11 +125,11 @@ Exercise 1 - Change The Layout Of The Front Page
 Go to the front page of the website and update the layout
 as follows:
 
-1. Activate :menuselection:`Display --> Mosaic layout`
-2. :guilabel:`Edit` and select the "Document" layout
-3. The select :menuselection:`Layout --> Customize`
-4. Add a Document Byline to the bottom of the layout :menuselection:`Insert > Document Byline`
-5. Click :guilabel:`Save`
+1. Activate :menuselection:`Display --> Mosaic layout`.
+2. :guilabel:`Edit` and select the "*Document*" layout.
+3. Then select :menuselection:`Layout --> Customize`.
+4. Add a *Document Byline* to the bottom of the layout :menuselection:`Insert > Document Byline`.
+5. Click :guilabel:`Save`.
 
 In the context of the Mosaic Editor, do you know the difference between :guilabel:`Save` and :menuselection:`Layout --> Save`?
 
@@ -140,7 +139,7 @@ Change The Content Layout
 If we click on :menuselection:`Layout --> Change`, we can choose the layout we want for our content.
 The choices are restricted to the layout applicable to the current content-type.
 
-For instance for a Page, Mosaic proposes (by default) two layouts: Basic and Document.
+For instance for a *Page*, Mosaic proposes (by default) two layouts: *Basic* and *Document*.
 
 .. image:: _static/mosaic-select-layout.png
 
@@ -173,7 +172,7 @@ Mosaic provides the following tiles:
     - bulleted list,
     - numbered list,
     - table of contents,
-    - navigation: this tiles displays a navigation menu, its settings can be changed in a modal window (click on the "i" button on the bottom-right corner to display the modal),
+    - navigation: this tile displays a navigation menu. Its settings can be changed in a modal window (click on the :guilabel:`i` button on the bottom-right corner to display the modal),
 
 - Media:
 
@@ -193,8 +192,8 @@ Mosaic provides the following tiles:
 
 - Advanced:
 
-    - content listing: it is a collection-like tile, it allows to list all contents matching given criterias (be changed in the modal window),
-    - existing content: it allows to display another content in a tile
+    - content listing: this is a collection-like tile. It allows to list all contents matching given criteria (which be edited in the modal window),
+    - existing content: it allows to display any content item in a tile.
     - if Rapido is installed, there is also a Rapido tile, which allows to display any Rapido block.
 
 Exercise 2: Customize The Home Page Layout
@@ -205,7 +204,7 @@ Create an attractive layout for the home page.
 ..  admonition:: Solution
     :class: toggle
 
-    - Go to Display menu and select :guilabel:`Mosaic layout`,
+    - Go to the :guilabel:`Display` menu and select :guilabel:`Mosaic layout`,
     - Click :guilabel:`Edit`,
     - Click on :menuselection:`Layout --> Customize`,
     - Change the layout,
@@ -218,9 +217,9 @@ When the layout has been customized, the :guilabel:`Layout` menu offers a :guila
 
 This action allows to save the current layout as a reusable layout.
 
-If :file:`Global` is checked, the layout will be usable by any user (else it is restricted to the current user).
+If :guilabel:`Global` is checked, the layout will be usable by any user (else it is restricted to the current user).
 
-The layout is associated to the current content type, by default it will not be usable for other content types.
+The layout is associated with the current content type. By default it will not be usable for other content types.
 
 Once saved, our layout will be listed with the other available layouts when we click on :menuselection:`Layout --> Change`.
 
@@ -230,7 +229,7 @@ Exercise 3: Create A Layout For Talks
 .. note::
 
    This exercise assumes that you have created a content type called "Talk".
-   you can quickly create one by the following the steps in `Dexterity: Creating TTW content types <dexterity.html#creating-contenttypes-ttw>`__ documentation.
+   You can quickly create one by the following the steps in the `Dexterity: Creating TTW content types <dexterity.html#creating-contenttypes-ttw>`_ documentation.
 
 Create an attractive layout for a talk, save it and reuse it for another talk.
 
@@ -244,7 +243,7 @@ Create an attractive layout for a talk, save it and reuse it for another talk.
     - navigate to another talk,
     - go to :guilabel:`Display` menu and select "Mosaic layout",
     - click :guilabel:`Edit`,
-    - click on Layout / Change,
+    - click on :menuselection:`Layout --> Change`,
     - choose "Talk".
 
 Manage Custom Layouts
@@ -253,9 +252,9 @@ Manage Custom Layouts
 Custom layouts can be managed from the Plone control panel:
 
 - click on :menuselection:`user menu --> Site settings`,
-- click on Mosaic Layout Editor (in the last section, named :guilabel:`Add-on configuration`),
+- click on :guilabel:`Mosaic Layout Editor` (in the last section, namely :guilabel:`Add-on configuration`),
 
-In the third tab of this control panel, named "Show/hide content layouts", we can see the existing layouts, their associated content types, and we can deactivate (or re-activate) them by clicking on :guilabel:`Hide` (or :guilabel:`Show`).
+In the third tab of this control panel, named :guilabel:`Show/hide content layouts`, we can see the existing layouts, their associated content types, and we can deactivate (or re-activate) them by clicking on :guilabel:`Hide` (or :guilabel:`Show`).
 
 In the first tab, named :guilabel:`Content layouts`, there is a source editor.
 
@@ -265,15 +264,17 @@ We can also delete the layout section from :file:`manifest.cfg`, and the layout 
 
 Deleting a custom layout can also be managed in another way:
 
+.. missing?
+
 Note: the second tab, named :guilabel:`Site layouts`, is not usable for now.
 
 
 Edit The Layout HTML Structure
 ==============================
 
-In the Mosaic Layout Editor's first tab ("Content layouts"), :file:`manifest.cfg` is not the only editable file.
+In the Mosaic Layout Editor's first tab (:guilabel:`Content layouts`), :file:`manifest.cfg` is not the only editable file.
 
-There is also some HTML files. Each of them corresponds to a layout and they represent what we have built by drag&dropping tiles in our layouts.
+There are also some HTML files. Each of them corresponds to a layout and they represent what we have built by drag & dropping tiles in our layouts.
 
 Using the code editor, we can change this HTML structure manually instead of using the WYSIWIG editor.
 
