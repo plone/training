@@ -1,7 +1,7 @@
 Using the code for the training
 ===============================
 
-You can get the complete code for this training in https://github.com/collective/ploneconf.site
+You can get the complete code for this training from `GitHub <https://github.com/collective/ploneconf.site>`_.
 
 The code-package
 ----------------
@@ -23,6 +23,7 @@ Getting the code for a certain chapter
 
 To use the code for a certain chapter you need to checkout the appropriate tag for the chapter.
 The package will then contain the complete code for that chapter (excluding exercises).
+
 If you want to add the code for the chapter yourself you have to checkout the tag for the previous chapter.
 
 
@@ -32,23 +33,24 @@ Here is a example:
 
     git checkout views_2
 
-The names of the tags are the same as the url of the chapter.
-So the tag for the chapter https://training.plone.org/5/mastering-plone/registry.html is ``registry`` and you can get it with :command:`git checkout registry`.
+The names of the tags are the same as the URL of the chapter.
+The tag for the chapter https://training.plone.org/5/mastering-plone/registry.html is ``registry``
+and you can get it with :command:`git checkout registry`.
 
 
 Moving from chapter to chapter
 ------------------------------
 
-To change the code to the state of the next chapter simply checkout the tag for the next chapter:
+To change the code to the state of the next chapter checkout the tag for the next chapter:
 
-..  code-block:: bash
+..  code-block:: console
 
     git checkout views_3
 
 
 If you made any changes to the code you have to get them out of the way first:
 
-..  code-block:: bash
+..  code-block:: console
 
     git stash
 
@@ -57,7 +59,7 @@ You should learn about the command :command:`git stash` before you try reapply s
 
 If you want to remove any changes you made locally you can delete them with this command:
 
-..  code-block:: bash
+..  code-block:: console
 
     git reset --hard HEAD
 
