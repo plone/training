@@ -816,7 +816,7 @@ And we need update the markup in ``home.component.html``:
     </div>
   </div>
 
-... and the style in ``home.component.scss``:
+... and the style in :file:`home.component.scss`:
 
 .. code-block:: scss
 
@@ -997,7 +997,7 @@ Let's implement the Footer component able to display those links.
         }
       }
 
-    ``src/app/footer/footer.component.html``:
+    :file:`src/app/footer/footer.component.html`:
 
     .. code-block:: html+ng2
 
@@ -1012,7 +1012,7 @@ Let's implement the Footer component able to display those links.
         </ul>
       </div>
 
-    ``src/app/footer/footer.component.scss``:
+    :file:`src/app/footer/footer.component.scss`:
 
     .. code-block:: scss
 
@@ -1043,7 +1043,7 @@ Let's implement the Footer component able to display those links.
         }
       }
 
-    ``src/app/app.component.html``:
+    :file:`src/app/app.component.html`:
 
     .. code-block:: html+ng2
 
@@ -1161,7 +1161,7 @@ Let's add ``plonetheme-upload`` to our development dependencies:
 
    npm install plonetheme-upload --dev
 
-And let's add a new script in our ``package.json``:
+And let's add a new script in our :file:`package.json`:
 
 .. code-block:: js
 

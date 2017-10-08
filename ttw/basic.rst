@@ -10,15 +10,15 @@ In this section you will:
 
 Topics covered:
 
-* The "Site" control panel
-* The "Resource Registries" Control Panel
+* The :guilabel:`Site` control panel
+* The :guilabel:`Resource Registries` Control Panel
 * Resource Registries > Development Mode
 
 Customize Logo
 ==============
 
 1. Go to the Plone Control Panel: :menuselection:`toolbar --> admin --> Site Setup`
-2. Go to the "Site" control panel.
+2. Go to the :guilabel:`Site` control panel.
 3. You will see this form:
 
    .. image:: https://docs.plone.org/_images/change-logo-in-site-control-panel.png
@@ -34,7 +34,7 @@ Customize CSS/Less Variables
 1. Go back to the Control Panel.
 2. Go to the :guilabel:`Resource Registries` control panel.
 3. On the first tab: enable :guilabel:`Development Mode`.
-4. In the "plone" bundle below, click on "develop CSS".
+4. In the "plone" bundle below, click on :guilabel:`develop CSS`.
 
 Your panel should now look like this:
 
