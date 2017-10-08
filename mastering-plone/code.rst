@@ -33,7 +33,7 @@ Here is a example:
     git checkout views_2
 
 The names of the tags are the same as the url of the chapter.
-So the tag for the chapter https://training.plone.org/5/mastering_plone/registry.html is ``registry`` and you can get it with :command:`git checkout registry`.
+So the tag for the chapter https://training.plone.org/5/mastering-plone/registry.html is ``registry`` and you can get it with :command:`git checkout registry`.
 
 
 Moving from chapter to chapter

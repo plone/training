@@ -11,14 +11,14 @@ Voting Viewlet
 
 In this part you will:
 
-* write the viewlet template
-* add jquery include statements
-* saving the vote on the object using annotations
+* Write the viewlet template
+* Add jQuery include statements
+* Saving the vote on the object using annotations
 
 Topics covered:
 
 * Viewlets
-* Javascript inclusion
+* JavaScript inclusion
 
 
 
@@ -182,8 +182,10 @@ And extend the template in :file:`browser/templates/voting_viewlet.pt`
 
 .. only:: not presentation
 
-    We have many small parts, most of which will be hidden by javascript unless needed.
-    By providing all this status information in HTML, we can use standard translation tools to translate. Translating strings in javascript requires extra work.
+    We have many small parts, most of which will be hidden by JavaScript unless needed.
+    By providing all this status information in HTML, we can use standard translation tools to translate.
+
+    Translating strings in JavaScript requires extra work.
 
 We need some css that we store in :file:`static/starzel_votablebehavior.css`
 
@@ -233,10 +235,10 @@ We need some css that we store in :file:`static/starzel_votablebehavior.css`
 
 .. _viewlets2-js-label:
 
-The javascript code
--------------------
+JavaScript code
+---------------
 
-To make it work in the browser, some javascript :file:`static/starzel_votablebehavior.js`
+To make it work in the browser, some JavaScript :file:`static/starzel_votablebehavior.js`
 
 .. code-block:: js
     :linenos:
@@ -284,7 +286,7 @@ To make it work in the browser, some javascript :file:`static/starzel_votablebeh
 .. only:: not presentation
 
     This js code adheres to crockfort jshint rules, so all variables are declared at the beginning of the method.
-    We show and hide quite a few small html elements here.
+    We show and hide quite a few small HTML elements here.
 
 .. _viewlets2-helpers-label:
 
@@ -293,9 +295,9 @@ Writing 2 simple view helpers
 
 .. only:: not presentation
 
-    Our javascript code communicates with our site by calling views that don't exist yet.
-    These Views do not need to render html, but should return a valid status.
-    Exceptions set the right status and aren't being shown by javascript, so this will suit us fine.
+    Our JavaScript code communicates with our site by calling views that don't exist yet.
+    These Views do not need to render HTML, but should return a valid status.
+    Exceptions set the right status and aren't being shown by JavaScript, so this will suit us fine.
 
     As you might remember, the :samp:`vote` method might return an exception, if somebody votes twice.
     We do not catch this exception. The user will never see this exception.
@@ -312,7 +314,8 @@ Writing 2 simple view helpers
             except:
                 fix_something()
 
-        Zope claims some exceptions for itself. It needs them to work correctly.
+        Zope claims some exceptions for itself.
+        It needs them to work correctly.
 
         For example, if two requests try to modify something at the same time, one request will throw an exception, a :samp:`ConflictError`.
 

@@ -1,8 +1,11 @@
 .. _theming-mastering-label:
 
+=======
 Theming
 =======
 
-We don't do any real theming during the training. We'll just explain the options you have.
+We don't do any real theming during the training.
+We will give a short overview about the options you have.
 
-If you really want to learn about theming see https://docs.plone.org/adapt-and-extend/theming/index.html and the Training :doc:`../theming/index`
+If you want to learn about theming see `the documentation <https://docs.plone.org/adapt-and-extend/theming/index.html>`_
+and the Training :doc:`../theming/index`

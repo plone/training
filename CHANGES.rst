@@ -5,7 +5,16 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 1.2.5 (unreleased)
 ------------------
+
+- Update link [sgrepos]
+
+- Add angular training
+  [barbichu, fulv]
+
 - Fix some IDs and filename references [jean]
+
+- Update and restructure theming documentation.
+  [tmassman, RobZoneNet]
 
 - Use correct links for ZCA itself and its usage in Pyramid, as well in
   translation files.

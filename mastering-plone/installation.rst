@@ -27,47 +27,56 @@ Installing Plone
 
     (Hopefully you won't have to deal with any Plone sites older than version 3.x.)
 
-    Plone 5.x requires a working Python 2.7 and several other system tools that not every OS provides. Therefore the installation of Plone is different on every system. Here are some ways that Python can be used:
+    Plone 5.x requires a working Python 2.7 and other system tools that not every OS provides.
+    The installation of Plone is different on every system.
+    Here are some ways that Python can be used:
 
 .. only:: presentation
 
-    Plone 4.3-x and Plone 5 require a working Python 2.7 and several other tools.
+    Plone 4.3-x and Plone 5 require a working Python 2.7 and other tools.
 
     Installation is different on every system.
 
-* use a Python that comes pre-installed in your operating system (most Linux Distributions and Mac OS X have one)
+* use a Python that comes pre-installed in your operating system (most Linux Distributions and macOS have one)
 * use the `python buildout <https://github.com/collective/buildout.python>`_
 * building Linux packages
-* `homebrew <http://mxcl.github.io/homebrew/>`_ (Mac OS X)
+* `Homebrew <https://brew.sh>`_ (macOS)
 * PyWin32 (Windows)
 
 .. only:: not presentation
 
-    Mac OS X 10.8 - 10.10 and Ubuntu 14.04 come with a working default Python 2.7 built in. These are the lucky ones.
+    macOS 10.8 - 10.10 and Ubuntu 14.04 come with a working default Python 2.7 built in.
+    These are the lucky ones.
 
-Most developers use their primary system to develop Plone. For complex setups they often use Linux virtual machines.
+Most developers use their primary system to develop Plone.
+For complex setups they often use Linux virtual machines.
 
-* OS X: Use the python buildout to compile python and homebrew for some missing Linux tools.
+* macOS: Use the python buildout to compile python and `Homebrew <https://docs.brew.sh/Installation.html>`_ for some missing Linux tools.
 * Linux: Depending on your Linux flavor you might have to build python yourself and install some tools.
 * Windows: Alan Runyan (one of Plone's founders) uses it. A downside: Plone seems to be running much slower on Windows.
 
 Plone offers multiple options for being installed:
 
-1. Unified installers (all 'nix, including OS X)
+1. Unified installers (all 'nix, including macOS)
 2. A Vagrant/VirtualBox install kit (all platforms)
 3. A VirtualBox Appliance
 4. Use your own Buildout
 
-You can download all of these at https://plone.org/download
+Visit the `download page <https://plone.org/download>`_ to see all the options.
 
 
 .. only:: not presentation
 
-    For the training we'll use option 2 and 4 to install and run Plone. We'll create our own Buildout and extend it as we wish. But we will do so in a vagrant machine. For your own first experiments we recommend option 1 or 2 (if you have a Windows laptop or encounter problems). Later on you should be able to use your own Buildout (we'll cover that later on).
+    For the training we will use option 2 and 4 to install and run Plone.
+    We will create our own Buildout and extend it as we wish.
+    We will do so in a Vagrant machine.
+
+    For your own first experiments we recommend option 1 or 2 (if you have a Windows laptop or encounter problems).
+    Later on you should be able to use your own Buildout (we will cover that later on).
 
 .. only:: presentation
 
-    For the training we'll use option 2 and 4 to install and run Plone.
+    For the training we will use option 2 and 4 to install and run Plone.
 
 .. seealso::
 
@@ -88,7 +97,7 @@ You can host Plone...
 * with one of many professional `hosting providers <http://plone.com/providers>`_
 * on a virtual private server
 * on dedicated servers
-* on `heroku <https://www.heroku.com>`_ you can run Plone for *free* using the `Heroku buildpack for Plone <https://github.com/plone/heroku-buildpack-plone>`_
+* on `Heroku <https://www.heroku.com>`_ you can run Plone for *free* using the `Heroku buildpack for Plone <https://github.com/plone/heroku-buildpack-plone>`_
 * in the cloud (e.g. using Amazon EC2 or `Codio.com <http://blog.dbain.com/2014/04/install-plone-in-under-5-minutes-on.html>`_)
 
 .. seealso::
@@ -103,7 +112,8 @@ You can host Plone...
 Production Deployment
 ---------------------
 
-The way we're setting up a Plone site during this class may be adequate for a small site — or even a very large one that's not very busy — but you're likely to want to do much more if you're using Plone for anything demanding.
+The way we are setting up a Plone site during this class may be adequate for a small site
+— or even a large one that's not very busy — but you are likely to want to do much more if you are using Plone for anything demanding.
 
 * Using a production web server like Apache or Nginx for URL rewriting, SSL and combining multiple, best-of-breed solutions into a single web site.
 
@@ -113,6 +123,6 @@ The way we're setting up a Plone site during this class may be adequate for a sm
 
 * Optimizing cache headers and Plone's internal caching schemes with plone.app.caching.
 
-And, you'll need to learn strategies for efficient backup and log file rotation.
+And, you will need to learn strategies for efficient backup and log file rotation.
 
 All these topics are introduced in `Guide to deploying and installing Plone in production <https://docs.plone.org/manage/deploying/index.html>`_.

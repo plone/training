@@ -16,11 +16,16 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
-import sphinx_rtd_theme
+import sys, os
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
+if not on_rtd:
+    import sphinx_rtd_theme
+    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+    html_theme = 'sphinx_rtd_theme'
+
+else:
+    html_theme = 'default'
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -35,6 +40,12 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
 ]
+
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+exclude_patterns = ['README.rst', '_*.rst',
+            'CHANGES.rst',
+            'LICENSE',]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -58,7 +69,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Plone Theming Training'
+project = u'Angular SDK'
 copyright = u'2017, Plone Community'
 author = u'Plone Community'
 
@@ -90,10 +101,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['_build', 'lib', 'bin', 'include', 'local',
-                    'ploneconf.site_sneak', 'log', 'README.rst',
-                    'CHANGES.txt', 'spelling_wordlist.txt', '_build',
-                    'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'README.rst']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -133,23 +141,27 @@ todo_include_todos = True
 # a list of builtin themes.
 #
 #html_theme = 'alabaster'
-html_theme = "sphinx_rtd_theme"
+#html_theme = "sphinx_rtd_theme"
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+    'collapse_navigation' : False,
+    'sticky_navigation': False,
+}
+
 #html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-html_title = u'Plone Theming Training'
+html_title = u'Angular SDK'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
-html_short_title = 'Theming Training'
+html_short_title = 'Building Angular 4 apps using the Plone REST API.'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -161,7 +173,7 @@ html_short_title = 'Theming Training'
 # pixels large.
 #
 # html_favicon = None
-html_favicon = '_static/favicon.ico'
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
@@ -245,7 +257,7 @@ html_static_path = ['_static']
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ThemingTraininig'
+htmlhelp_basename = 'PloneTraininig'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -271,7 +283,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ThemingTraining.tex', u'ThemingTraining Documentation',
+    (master_doc, 'PloneTraining.tex', u'PloneTraining Documentation',
      u'Plone Community', 'manual'),
 ]
 
@@ -297,7 +309,7 @@ latex_documents = [
 #
 # latex_appendices = []
 
-# It false, will not define \strong, \code, 	itleref, \crossref ... but only
+# It false, will not define \strong, \code,     itleref, \crossref ... but only
 # \sphinxstrong, ..., \sphinxtitleref, ... To help avoid clash with user added
 # packages.
 #
@@ -313,7 +325,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'ThemingTraining', u'ThemingTraining Documentation',
+    (master_doc, 'PloneTraining', u'PloneTraining Documentation',
      [author], 1)
 ]
 
@@ -328,8 +340,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ThemingTraining', u'ThemingTraining Documentation',
-     author, 'Documentation', 'Plone Theming Training.',
+    (master_doc, 'PloneTraining', u'PloneTraining Documentation',
+     author, 'Documentation', 'Plone Training.',
      'Miscellaneous'),
 ]
 

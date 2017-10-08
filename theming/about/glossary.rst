@@ -19,8 +19,28 @@ Glossary
    ZODB
       `A native object database for Python <http://www.zodb.org/en/latest/>`_.
 
+   Barceloneta
+      The default theme for Plone 5.
+
+   CSS
+      Cascading Style Sheets (CSS) is a stylesheet language used for describing the (most of the times visual) representation of web pages.
+
+   Diazo
+      `Diazo <http://docs.diazo.org/en/latest/>`_ allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology.
+
+   Grunt
+      The JavaScript Task Runner.
+      Automates the creation and manipulation of static assets for the theme.
+
+   Less
+      A dynamic stylesheet language that can be compiled into :term:`CSS` (Cascading Style Sheets).
+
+   NPM
+      npm is a package manager for the JavaScript programming language.
+      It is the default package manager for the JavaScript runtime environment Node.js.
+
    TTW
-      Through-The-Web, changes in the browser/
+      Through-The-Web, changes in the browser.
 
    S3
       `Amazon S3 <https://aws.amazon.com/s3/>`_ - Object storage built to store and retrieve any amount of data from anywhere.
@@ -69,3 +89,21 @@ Glossary
       The ZMI is a direct interface into the backend software stack of Plone.
       While it can still serve as a valuable tool for Plone specialists to fix problems or accomplish certain tasks,
       it is not recommended as a regular tool for Plone maintenance.
+
+   XML
+      The Extensible Markup Language.
+
+   XSLT
+      The Extensible Stylesheet Language Transformations.
+      A language which defines elements to describe transformations to be applied on a document.
+
+   XPath
+      XPath (XML Path Language) is a query language for selecting nodes from an XML document.
+
+   ZCML
+      The `Zope Configuration Mark-up Language <https://docs.plone.org/develop/addons/components/zcml.html>`_.
+
+   ZMI
+      The Zope Management Interface.
+      The ZMI is a direct interface into the backend software stack of Plone.
+      While it can still serve as a valuable tool for Plone specialists to fix problems or accomplish certain tasks, it is not recommended as a regular tool for Plone maintenance.

@@ -1,5 +1,6 @@
 .. _thirdparty-label:
 
+===========================
 Using Third-Party Behaviors
 ===========================
 
@@ -10,17 +11,19 @@ Using Third-Party Behaviors
 
 .. _thirdparty-banner-label:
 
-Add teaser with collective.behavior.banner
-------------------------------------------
+Add Teaser With collective.behavior.banner
+==========================================
 
-There are a lot of add-ons in Plone for sliders/banners/teasers. We thought there should be a better one and created :py:mod:`collective.behavior.banner`.
+There are a lot of add-ons in Plone for sliders/banners/teasers.
+We thought there should be a better one and created :py:mod:`collective.behavior.banner`.
 
 .. figure:: ../_static/standards.png
    :align: center
 
-Like many add-ons it has not yet been released on pypi but only exists as code on github.
+Like many add-ons it has not yet been released on PyPI (Python Package Index) but only exists as code on GitHub.
 
-The training buildout has a section ``[sources]`` that tells buildout to download a specific add-on not from pypi but from some code repository (usually github):
+The training buildout has a section ``[sources]`` that tells buildout to download a specific add-on not from PyPI
+but from some code repository (usually GitHub):
 
 .. code-block:: cfg
 
