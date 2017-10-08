@@ -9,6 +9,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 - Update Mastering Plone Chapters for Ploneconf 2017 and use Plone 5.1rc1
   [pbauer]
 
+- More formatting, markup and editing [jean]
+
 - Update link [sgrepos]
 
 - Add angular training
