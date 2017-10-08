@@ -6,6 +6,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- More formatting, markup and editing [jean]
+
 - Update link [sgrepos]
 
 - Add angular training
