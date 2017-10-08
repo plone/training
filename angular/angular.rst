@@ -1163,19 +1163,12 @@ Let's add ``plonetheme-upload`` to our development dependencies:
 
 And let's add a new script in our ``package.json``:
 
-.. code-block:: json
+.. code-block:: js
 
-   {
      "scripts": {
-       "ng": "ng",
-       "start": "ng serve",
-       "build": "ng build",
-       "test": "ng test",
-       "lint": "ng lint",
-       "e2e": "ng e2e",
+       ...
        "update-backend": "plonetheme-upload --enable plonecustom http://whatever.herokuapp.com/Plone"
      }
-   }
 
 And now we can push our local ``./plonecustom`` to our Plone backend using the following command:
 
