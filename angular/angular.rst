@@ -333,7 +333,7 @@ And now we can set the template we need:
      </div>
    </nav>
 
-Style it in ``src/app/global-navigation/global-navigation.component.scss``:
+Style it in :file:`src/app/global-navigation/global-navigation.component.scss`:
 
 .. code-block:: scss
 
@@ -451,7 +451,7 @@ Now we can fix the main component markup in ``src/app/app.component.html``:
 Note we use our custom global navigation component (``app-global-navigation``)
 but we keep the Plone default breadcrumbs component (``plone-breadcrumbs``) as its markup is fine.
 
-We need to style it a little bit, let's do that in ``src/styles.scss``:
+We need to style it a little bit, let's do that in :file:`src/styles.scss`:
 
 .. code-block:: scss
 

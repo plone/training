@@ -136,7 +136,7 @@ Viewlets are often used for UI-Elements and have no nice UI to customize them.
 * The code decides when it is shown and what it shows.
 
 
-.. _customizing-ZMI-label:
+.. _customizing-zmi-label-ttw:
 
 ZMI (Zope Management Interface)
 -------------------------------
@@ -293,7 +293,7 @@ There are many more notable items in the ZMI. We'll visit some of them later.
 * :guilabel:`portal_catalog`
 
 
-.. _customizing-summary-label:
+.. _customizing-summary-label-ttw:
 
 Summary
 -------
