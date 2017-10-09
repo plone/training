@@ -232,38 +232,46 @@ Instead we use our own Plone instance during the training. It is in :file:`/vagr
 
 .. code-block:: bash
 
-	ubuntu@training:~$ cd /vagrant/buildout/
-	ubuntu@training:/vagrant/buildout$ bin/instance fg
-	2017-09-28 09:19:21 INFO ZServer HTTP server started at Thu Sep 28 09:19:21 2017
-		Hostname: 0.0.0.0
-		Port: 8080
-	2017-09-28 09:19:24 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
-	2017-09-28 09:19:24 WARNING PrintingMailHost
+    ubuntu@training:/vagrant/buildout$ bin/instance fg
+    2017-10-09 16:28:01 INFO ZServer HTTP server started at Mon Oct  9 16:28:01 2017
+        Hostname: 0.0.0.0
+        Port: 8080
+    2017-10-09 16:28:03 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
+    2017-10-09 16:28:03 WARNING PrintingMailHost
 
-	******************************************************************************
+    ******************************************************************************
 
-	Monkey patching MailHosts to print e-mails to the terminal.
+    Monkey patching MailHosts to print e-mails to the terminal.
 
-	This is instead of sending them.
+    This is instead of sending them.
 
-	NO MAIL WILL BE SENT FROM ZOPE AT ALL!
+    NO MAIL WILL BE SENT FROM ZOPE AT ALL!
 
-	Turn off debug mode or remove Products.PrintingMailHost from the eggs
-	or remove ENABLE_PRINTING_MAILHOST from the environment variables to
-	return to normal e-mail sending.
+    Turn off debug mode or remove Products.PrintingMailHost from the eggs
+    or remove ENABLE_PRINTING_MAILHOST from the environment variables to
+    return to normal e-mail sending.
 
-	See https://pypi.python.org/pypi/Products.PrintingMailHost
+    See https://pypi.python.org/pypi/Products.PrintingMailHost
 
-	******************************************************************************
+    ******************************************************************************
 
-	/home/ubuntu/buildout-cache/eggs/plone.app.dexterity-2.3.7-py2.7.egg/plone/app/dexterity/__init__.py:14: DeprecationWarning: Name clash, now use '_' as usal. Will be removed in Plone 5.2
-	  DeprecationWarning)
-	/home/ubuntu/buildout-cache/eggs/plone.app.multilingual-5.0.3-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
-	  from plone.app.multilingual.content.lrf import LanguageRootFolder
-	/home/ubuntu/buildout-cache/eggs/plone.portlet.collection-3.1-py2.7.egg/plone/portlet/collection/collection.py:2: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
-	  from plone.app.layout.navigation.defaultpage import isDefaultPage
-	2017-09-28 09:19:28 INFO Plone OpenID system packages not installed, OpenID support not available
-	2017-09-28 09:19:30 INFO Zope Ready to handle requests
+    /home/ubuntu/buildout-cache/eggs/plone.formwidget.namedfile-2.0.4-py2.7.egg/plone/formwidget/namedfile/widget.py:18: DeprecationWarning: MimeTypeException is deprecated. Import from Products.MimetypesRegistry.interfaces instead
+      from Products.MimetypesRegistry.common import MimeTypeException
+    /home/ubuntu/buildout-cache/eggs/plone.app.dexterity-2.4.6-py2.7.egg/plone/app/dexterity/__init__.py:14: DeprecationWarning: Name clash, now use '_' as usual. Will be removed in Plone 5.2
+      DeprecationWarning)
+    /home/ubuntu/buildout-cache/eggs/plone.app.multilingual-5.1.2-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
+      from plone.app.multilingual.content.lrf import LanguageRootFolder
+    /home/ubuntu/buildout-cache/eggs/plone.portlet.collection-3.2-py2.7.egg/plone/portlet/collection/collection.py:2: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
+      from plone.app.layout.navigation.defaultpage import isDefaultPage
+    /home/ubuntu/buildout-cache/eggs/Products.CMFPlone-5.1rc1-py2.7.egg/Products/CMFPlone/browser/syndication/views.py:17: DeprecationWarning: wrap_form is deprecated. Import from plone.z3cform.layout instead.
+      from plone.app.z3cform.layout import wrap_form
+    /home/ubuntu/buildout-cache/eggs/Zope2-2.13.26-py2.7.egg/OFS/Application.py:102: DeprecationWarning: Expected text
+      transaction.get().note("Created Zope Application")
+    /home/ubuntu/buildout-cache/eggs/Zope2-2.13.26-py2.7.egg/OFS/Application.py:265: DeprecationWarning: Expected text
+      transaction.get().note(note)
+    /home/ubuntu/buildout-cache/eggs/Zope2-2.13.26-py2.7.egg/OFS/Application.py:521: DeprecationWarning: Expected text
+      transaction.get().note('Prior to product installs')
+    2017-10-09 16:28:07 INFO Zope Ready to handle requests
 
 .. note::
 
