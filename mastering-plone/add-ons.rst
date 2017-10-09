@@ -119,7 +119,7 @@ Your Plone site has not yet been told to use the add-on. For this, you have to a
 
 In your browser, go to Site Setup (shortcut: add ``/@@overview-controlpanel`` to the Plone site URL), and open the ``Add-ons`` Panel. You will see that you can install the add-ons there.
 
-Install EasyForm *the human-readable name of :py:mod:`collective.easyform` now.
+Install EasyForm (the human-readable name of :py:mod:`collective.easyform`) now.
 
 This is what happens: The GenericSetup profile of the product gets loaded. This does things like:
 
