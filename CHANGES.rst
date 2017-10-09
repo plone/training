@@ -6,6 +6,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Fix some more Sphinx warnings [jean]
+
 - Update Mastering Plone Chapters for Ploneconf 2017 and use Plone 5.1rc1
   [pbauer]
 
