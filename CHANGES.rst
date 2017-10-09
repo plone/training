@@ -8,6 +8,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Fix some more Sphinx warnings [jean]
 
+- Update to ttw-advanced-2 in theming training [jean]
+
 - Update Mastering Plone Chapters for Ploneconf 2017 and use Plone 5.1rc1
   [pbauer]
 

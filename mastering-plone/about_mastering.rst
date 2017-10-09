@@ -294,8 +294,7 @@ Upgrade the vagrant and buildout to a new Plone-version
 .. code-block:: console
 
    cd plone_training_config
-   zip -r plone_training_config.zip *
-   mv plone_training_config.zip ../_static/
+   zip -r ../_static/plone_training_config.zip *
 
 - Commit and push the changes to https://github.com/plone/training
 
