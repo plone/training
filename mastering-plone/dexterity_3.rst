@@ -117,6 +117,161 @@ Some things are notable here:
     * `Schema-driven types with Dexterity <https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types>`_
     * `Form schema hints and directives <https://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html>`_
 
+
+Directives
+----------
+
+Directives can be placed anywhere in the class body (annotations are made directly on the class). By convention they are kept next to the fields they apply to.
+
+For example, here is a schema that omits a field:
+
+..  code-block:: python
+
+    from plone.autoform import directives
+    from plone.supermodel import model
+    from zope import schema
+
+
+    class ISampleSchema(model.Schema):
+
+        title = schema.TextLine(title=u'Title')
+
+        directives.omitted('additionalInfo')
+        additionalInfo = schema.Bytes()
+
+
+You can also handle multiple fields with one directive:
+
+..  code-block:: python
+
+    directives.omitted('field_1', 'field_2')
+
+With the directive "mode" you can set fields to 'input', 'display' or 'hidden'.
+
+..  code-block:: python
+
+    directives.mode(additionalInfo='hidden')
+
+You can apply directives to certain forms only. Here we drop a field from the add-form, it will still show up in the edit-form.
+
+..  code-block:: python
+
+    from z3c.form.interfaces import IAddForm
+
+    class ITask(model.Schema):
+
+        title = schema.TextLine(title=u'Title')
+
+        directives.omitted(IAddForm, 'done')
+        done = schema.Bool(
+            title=_(u'Done'),
+            required=False,
+        )
+
+The same works for custom forms.
+
+With the directive :py:meth:`widget` you can not only change the widget used for a field. With :py:data:`pattern_options` you can pass additional parameters to the widget. Here we configure the datetime-widget powered by the js-library `pickadate <http://amsul.ca/pickadate.js>`_  by adding options that are used by it. Plone only passes the options to the library.
+
+..  code-block:: python
+
+    class IMeeting(model.Schema):
+
+        meeting_date = schema.Datetime(
+            title=_(default=u'Date and Time'),
+            required=False,
+        )
+        directives.widget(
+            'meeting_date',
+            DatetimeFieldWidget,
+            pattern_options={
+                'time': {'interval': 60, 'min': [7, 0], 'max': [19, 0]}},
+        )
+
+
+Validation and default values
+-----------------------------
+
+In the following example we add a validator and a default value.
+
+
+..  code-block:: python
+
+    from zope.interface import Invalid
+    import datetime
+
+
+    def future_date(value):
+        if value and not value.date() >= datetime.date.today():
+            raise Invalid(_(u"Meeting date can not be before today."))
+        return True
+
+    def meeting_date_default_value():
+        return datetime.datetime.today() + datetime.timedelta(7)
+
+
+    class IMeeting(model.Schema):
+
+        meeting_date = schema.Datetime(
+            title=_(default=u'Date and Time'),
+            required=False,
+            constraint=future_date,
+            defaultFactory=meeting_date_default_value,
+        )
+
+Validators and defaults can be also be made aware of the context (i.e. to check against the values of other fields).
+
+For context aware defaults you need to use a :py:class:`IContextAwareDefaultFactory`. It will be passed the container for which the add form is being displayed:
+
+..  code-block:: python
+
+    from zope.interface import provider
+    from zope.schema.interfaces import IContextAwareDefaultFactory
+
+    @provider(IContextAwareDefaultFactory)
+    def get_container_id(context):
+        return context.id.upper()
+
+    class IMySchema(model.Schema):
+
+    parent_id = schema.TextLine(
+        title=_(u'Parent id'),
+        required=False,
+        defaultFactory=get_container_id,
+    )
+
+For context-aware validators you need to use :py:meth:`invariant`:
+
+..  code-block:: python
+
+    from zope.interface import Invalid
+    from zope.interface import invariant
+    from zope.schema.interfaces import IContextAwareDefaultFactory
+
+
+    class IMyEvent(model.Schema):
+
+        start = schema.Datetime(
+            title=_(u'Start date'),
+            required=False)
+
+        end = schema.Datetime(
+                title=_(u"End date"),
+                required=False)
+
+        @invariant
+        def validate_start_end(data):
+            if data.start is not None and data.end is not None:
+                if data.start > data.end:
+                    raise Invalid(_('Start must be before the end.'))
+
+To learn more about directives, validators and default values read:
+
+* `Form schema hints and directives <https://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html>`_
+* `Validation <https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html>`_ (these docs still use grok-examples)
+* `z3c.form documentation <https://pypi.python.org/pypi/z3c.form#validators>`_
+* `Default values for fields on add forms <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html>`_
+
+
 The FTI
 -------
 
@@ -295,7 +450,7 @@ Add the viewlet class in :file:`browser/viewlets.py`
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 2-3, 5, 7-9, 19-65
+    :emphasize-lines: 2-3, 5, 7-9, 19-63
 
     # -*- coding: utf-8 -*-
     from collections import OrderedDict
@@ -481,12 +636,8 @@ Do *not* use the :py:class:`IBasic` or :py:class:`IDublinCore` behavior to add t
             """Dexterity-Schema for Speaker
             """
 
-            first_name = schema.TextLine(
-                title=_(u'First Name'),
-            )
-
-            last_name = schema.TextLine(
-                title=_(u'Last Name'),
+            title = schema.TextLine(
+                title=_(u'Name'),
             )
 
             email = schema.TextLine(
@@ -549,7 +700,7 @@ Do *not* use the :py:class:`IBasic` or :py:class:`IDublinCore` behavior to add t
            xmlns:i18n="http://xml.zope.org/namespaces/i18n">
          <property name="title" i18n:translate="">Speaker</property>
          <property name="description" i18n:translate=""></property>
-         <property name="icon_expr">string:${portal_url}/document_icon.png</property>
+         <property name="icon_expr"></property>
          <property name="factory">speaker</property>
          <property name="add_view_expr">string:${folder_url}/++add++speaker</property>
          <property name="link_target"></property>
@@ -565,13 +716,12 @@ Do *not* use the :py:class:`IBasic` or :py:class:`IDublinCore` behavior to add t
          <property name="default_view_fallback">False</property>
          <property name="add_permission">cmf.AddPortalContent</property>
          <property name="klass">plone.dexterity.content.Item</property>
-         <property name="behaviors">
-          <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
-          <element value="plone.app.content.interfaces.INameFromTitle"/>
-         </property>
          <property name="schema">ploneconf.site.content.speaker.ISpeaker</property>
          <property name="model_source"></property>
          <property name="model_file"></property>
+         <property name="behaviors">
+          <element value="plone.app.content.interfaces.INameFromTitle"/>
+         </property>
          <property name="schema_policy">dexterity</property>
          <alias from="(Default)" to="(dynamic view)"/>
          <alias from="edit" to="@@edit"/>
@@ -595,7 +745,7 @@ Do *not* use the :py:class:`IBasic` or :py:class:`IDublinCore` behavior to add t
 Exercise 3
 ++++++++++
 
-This is more of a Python exercise. The gold- and bronze sponsors should also have a bigger logo than the others. Give the sponsors the following logo-sizes without using CSS.
+This is more of a Python exercise. The gold- and bronze sponsors should also have a bigger logo than the others. Scale the sponsors logos to the following logo-sizes without using CSS.
 
 * Platinum: 500x200
 * Gold: 350x150
