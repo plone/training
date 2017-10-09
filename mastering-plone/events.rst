@@ -179,6 +179,7 @@ Find out where the event behavior is defined and which fields it offers.
     ..  code-block:: python
 
         class IEventBasic(model.Schema, IDXEvent):
+
             """ Basic event schema.
             """
             start = schema.Datetime(
@@ -193,6 +194,12 @@ Find out where the event behavior is defined and which fields it offers.
                 required=True,
                 defaultFactory=default_start
             )
+            directives.widget(
+                'start',
+                DatetimeFieldWidget,
+                default_timezone=default_timezone,
+                klass=u'event_start'
+            )
 
             end = schema.Datetime(
                 title=_(
@@ -205,6 +212,12 @@ Find out where the event behavior is defined and which fields it offers.
                 ),
                 required=True,
                 defaultFactory=default_end
+            )
+            directives.widget(
+                'end',
+                DatetimeFieldWidget,
+                default_timezone=default_timezone,
+                klass=u'event_end'
             )
 
             whole_day = schema.Bool(
@@ -219,6 +232,11 @@ Find out where the event behavior is defined and which fields it offers.
                 required=False,
                 default=False
             )
+            directives.widget(
+                'whole_day',
+                SingleCheckBoxFieldWidget,
+                klass=u'event_whole_day'
+            )
 
             open_end = schema.Bool(
                 title=_(
@@ -231,6 +249,11 @@ Find out where the event behavior is defined and which fields it offers.
                 ),
                 required=False,
                 default=False
+            )
+            directives.widget(
+                'open_end',
+                SingleCheckBoxFieldWidget,
+                klass=u'event_open_end'
             )
 
     Note how it uses ``defaultFactory`` to set an initial value.
