@@ -1,25 +1,25 @@
-============================================
-Creating A Custom Theme Based On Barceloneta
-============================================
+==========================================================
+TTW Theming II: Create A Custom Theme Based On Barceloneta
+==========================================================
 
 In this section you will:
 
-* Create a theme by inheriting from the Barceloneta theme.
-* Using the :file:`manifest.cfg`, register a production CSS file.
-* Use an XInclude to incorporate rules from the Barceloneta theme.
+* Create a new theme by inheriting from the :term:`Barceloneta` theme.
+* Use the :file:`manifest.cfg` to register a production CSS file.
+* Use an ``XInclude`` to incorporate rules from the :term:`Barceloneta` theme.
 * Use ``?diazo.off=1`` to view unthemed versions.
 * Use conditional rules to have a different backend theme from the anonymous visitors theme.
 
 Topics covered:
 
-* Inheriting from Barceloneta.
+* Inheriting from Barceloneta theme.
 * Diazo rule directives and attributes.
 * Viewing the unthemed version of a Plone item.
 * Creating a visitor-only theme.
 
 
 Inheriting From Barceloneta
-===========================
+---------------------------
 .. sidebar:: Key Ideas
 
     When inheriting from the Barceloneta theme keep the following in mind:
@@ -28,103 +28,129 @@ Inheriting From Barceloneta
     * Inheritance involves including the Barceloneta :file:`rules.xml` (``++theme++barceloneta/rules.xml``) and styles.
     * The prefix/unique path to the Barceloneta theme is ``++theme++barceloneta``.
     * It is necessary to include a copy of Barceloneta's :file:`index.html` in the root of your custom theme.
-    * The three key files involved are :file:`manifest.cfg`, :file:`rules.xml` and a Less file defined in
-      the manifest which we will call :file:`styles.less`.
+    * The three key files involved are :file:`manifest.cfg`, :file:`rules.xml` and a Less file defined in the manifest which we will call :file:`styles.less`.
     * Use "Build CSS" to generate a CSS file from your custom Less file.
 
 Copying Barceloneta makes your theme heavier and will likely make upgrading more difficult.
 
-The Barceloneta theme provides many assets used by Plone's utilities that you do not need
-to duplicate.
-Additionally new releases of the theme may introduce optimizations or bug fixes.
+The Barceloneta theme provides many assets used by Plone's utilities that you do not need to duplicate.
 
-By referencing the Barceloneta rules and styles, instead of copying them, you automatically benefit from
-any updates to the Barceloneta theme while also keeping your custom theme relatively small.
+New releases of the theme may introduce optimizations or bug fixes.
+
+By referencing the Barceloneta rules and styles, instead of copying them,
+you automatically benefit from any updates to the Barceloneta theme
+while also keeping your custom theme relatively small.
 
 
-Exercise 1
-----------
-
-Create a new theme that inherits from Barceloneta.
+Exercise 1 - Create A New Theme That Inherits From Barceloneta
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In this exercise we will create a new theme that inherits the Barceloneta rules and styles.
 
-1. Create a new theme
+#. Go to the :guilabel:`Theming` control panel.
+#. Click the :guilabel:`New theme` button to create a new theme:
 
-   .. image:: _static/theming-new-theme.png
+   .. image:: ../theming/_static/theming-new-theme.png
 
-   and name it "Custom"
+#. Give the theme a name, e.g. "Custom", and click the checkbox to immediately enable the theme:
 
-   .. image:: _static/theming-new-theme2.png
+   .. image:: ../theming/_static/theming-new-theme2.png
 
-2. In the theming editor, ensure that your new theme contains the files
-   :file:`manifest.cfg`, :file:`rules.xml`, :file:`index.html`
-   (from Barceloneta) and :file:`styles.less`.
+#. Click on :guilabel:`Create` and you get redirected to your new theme's inspector.
 
-- :file:`manifest.cfg`, declaring your theme:
+#. In the theming editor, ensure that your new theme contains the files :file:`manifest.cfg`,
+   :file:`rules.xml`, :file:`index.html` (from Barceloneta) and :file:`styles.less`.
 
-.. code-block:: ini
+#. Edit the file :file:`manifest.cfg` which contains the configuration for your theme:
 
-    [theme]
-    title = mytheme
-    description =
-    development-css = ++theme++custom/styles.less
-    production-css = ++theme++custom/styles.css
+   .. code-block:: ini
 
-- :file:`rules.xml`, including the Barceloneta rules:
+      [theme]
+      title = Custom
+      description = A custom theme
+      doctype = <!DOCTYPE html>
+      development-css = ++theme++custom/styles.less
+      production-css = ++theme++custom/styles.css
 
-.. code-block:: xml
+#. Edit the file :file:`rules.xml` which includes the link to the Barceloneta rules:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <rules
-        xmlns="http://namespaces.plone.org/diazo"
-        xmlns:css="http://namespaces.plone.org/diazo/css"
-        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        xmlns:xi="http://www.w3.org/2001/XInclude">
+   .. code-block:: xml
 
-      <!-- Import Barceloneta rules -->
-      <xi:include href="++theme++barceloneta/rules.xml" />
+      <?xml version="1.0" encoding="UTF-8"?>
+      <rules
+          xmlns="http://namespaces.plone.org/diazo"
+          xmlns:css="http://namespaces.plone.org/diazo/css"
+          xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+          xmlns:xi="http://www.w3.org/2001/XInclude">
 
-      <rules css:if-content="#visual-portal-wrapper">
-        <!-- Placeholder for your own additional rules -->
+        <!-- Import Barceloneta rules -->
+        <xi:include href="++theme++barceloneta/rules.xml"><xi:fallback /></xi:include>
+
+        <rules css:if-content="#visual-portal-wrapper">
+          <!-- Placeholder for your own additional rules -->
+        </rules>
+
       </rules>
 
-    </rules>
+#. Create a copy of the file :file:`index.html` from Barceloneta (this one cannot be imported or inherited, it must be local to your theme).
 
-- A copy of :file:`index.html` from Barceloneta (this one cannot be imported or inherited, it must be local to your theme).
+#. Edit the file :file:`styles.less` which includes imports from the Barceloneta styles:
 
-- :file:`styles.less`, importing Barceloneta styles:
+   .. code-block:: css
 
-.. code-block:: css
+      /* Import Barceloneta styles */
+      @import "++theme++barceloneta/less/barceloneta.plone.less";
 
-    /* Import Barceloneta styles */
-    @import "++theme++barceloneta/less/barceloneta.plone.less";
+      /* Customize whatever you want */
+      @plone-sitenav-bg: pink;
+      @plone-sitenav-link-hover-bg: darken(pink, 20%);
+      .plone-nav > li > a {
+        color: @plone-text-color;
+      }
 
-    /* Customize whatever you want */
-    @plone-sitenav-bg: pink;
-    @plone-sitenav-link-hover-bg: darken(pink, 20%);
-    .plone-nav > li > a {
-      color: @plone-text-color;
-    }
+#. Generate the :file:`styles.css` CSS file using :file:`styles.less`.
+   Click the buttons :guilabel:`Save` and :guilabel:`Build CSS` to create the file.
 
-Then generate the :file:`styles.css` file using :file:`styles.less` and the :guilabel:`Build CSS` button.
+#. Your theme is ready.
 
-Your theme is ready.
+
+Viewing The Unthemed Plone Site
+-------------------------------
+
+When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured.
+In order to see a "non-diazoed" version page, just add ``?diazo.off=1`` at the end of its URL.
+
+
+Exercise 2 - Viewing The Unthemed Site
+++++++++++++++++++++++++++++++++++++++
+
+Use ``?diazo.off=1`` to view the unthemed version of your site.
+Using your browser's inspector, find out the location/name of some of Plone's elements.
+Then try to answer the following:
+
+#. What do you think is the difference between "content-core" and "content"?
+#. There are several viewlets, how many do you count?
+#. Can you identify any portlets, what do you think they are for?
+
+.. admonition:: Solution
+   :class: toggle
+
+   #. The "content-core" does not include the "title" and "description" while the "content" combines the "title", "description" and "content-core".
+   #. Out of the box there are six viewlets (``viewlet-above-content``, ``viewlet-above-content-title``, ``viewlet-below-content-title``, ``viewlet-above-content-body``, ``viewlet-below-content-body``, ``viewlet-below-content``).
+   #. There are a few *footer* portlets which construct the footer of the site.
 
 
 Diazo Rule Directives And Attributes
-====================================
+------------------------------------
 
-The Diazo rules file is an XML document containing rules to specify where the content elements
-(title, footer, main text, etc.) will be located in the targeted theme page.
+The Diazo rules file is an :term:`XML` document containing rules to specify where the content elements (title, footer, main text, etc.) will be located in the targeted theme page.
+The rules are created using *rule directives* which have *attributes*; attribute values are either CSS expressions or :term:`XPath` expressions.
 
-The rules are created using *rule directives* which have *attributes*; attribute values
-are either CSS expressions or XPath expressions.
 
 CSS Selector Based Attributes
------------------------------
++++++++++++++++++++++++++++++
 
-It is recommended that you use CSS3 selectors to target elements in your content or theme.
+It is generally recommended that you use CSS3 selectors to target elements in your content or theme.
 The CSS3 selectors used by Diazo directives are listed below:
 
 ``css:theme``
@@ -138,11 +164,12 @@ The CSS3 selectors used by Diazo directives are listed below:
 
 
 XPath Selector Based Attributes
--------------------------------
++++++++++++++++++++++++++++++++
 
-Depending on complexity of the required selector it is sometimes necessary or more convenient
-to use XPath selectors instead of CSS selectors. XPath selectors use the unprefixed
-attributes ``theme`` and ``content``. The common XPath selector attributes include:
+Depending on complexity of the required selector it is sometimes necessary or more convenient to use :term:`XPath` selectors instead of CSS selectors.
+XPath selectors use the unprefixed attributes ``theme`` and ``content``.
+
+The common XPath selector attributes include:
 
 ``theme``
     Used to select target elements from the theme using XPath selectors.
@@ -156,55 +183,38 @@ attributes ``theme`` and ``content``. The common XPath selector attributes inclu
 You can also create conditions about the current path using ``if-path``.
 
 
-.. note:: For a more comprehensive overview of all the Diazo rule directives
+.. note::
+
+   For a more comprehensive overview of all the Diazo rule directives
    and related attributes see: http://docs.diazo.org/en/latest/basic.html#rule-directives
 
-Viewing The Unthemed Plone Site
-===============================
 
-When you create your Diazo rules, it is important to know how the content Diazo is receiving from Plone is structured.
-To see a "non-diazoed" version page, just add ``?diazo.off=1`` at the end of its URL.
+Exercise 3 - The ``<drop>`` Directive
++++++++++++++++++++++++++++++++++++++
 
-Exercise 2
-----------
+Add a rule that drops the "search section" checkbox from the search box.
+See the diagram below:
 
-Viewing the unthemed site.
+.. image:: ../theming/_static/theming-dropping-thesearchsection.png
 
-1. Use ``diazo.off=1`` to view the unthemed version of your site.
+.. admonition:: Solution
+   :class: toggle
 
-2. Using your browser's inspector, find out the location/name of some of Plone's elements.
-   Then try to answer the following:
+   The ``div`` which contains the checkbox has the class ``searchSection`` applied.
+   To remove it, extend your :file:`rules.xml` to include the following lines:
 
-   What do you think is the difference between "content-core" and "content"?
-   There are several viewlets, how many do you count?
-   Can you identify any portlets, what do you think they are for?
+   .. code-block:: xml
 
-    .. admonition:: Solution
-       :class: toggle
+      <rules css:if-content="#visual-portal-wrapper">
+        <!-- Placeholder for your own additional rules -->
 
-       The "content-core" does not include the "title" and "description" while
-       the "content" combines the "title", "description" and "content-core".
-
-       Out of the box there are six viewlets (``viewlet-above-content``, ``viewlet-above-content-title``
-       ``viewlet-below-content-title``, ``viewlet-above-content-body``, ``viewlet-below-content-body``,
-       ``viewlet-below-content``).
-
-       There are a few *footer* portlets which construct the footer of the site.
-
-
-Exercise 3
-----------
-
-The ``<drop>`` directives.
-
-1. Add a rule that drops the "search section" checkbox from the search box.
-   See the diagram below:
-
-   .. image:: _static/theming-dropping-thesearchsection.png
+        <!-- Remove the "only in current section" checkbox. -->
+        <drop css:content="div.searchSection" />
+      </rules>
 
 
 Conditional Attributes
-----------------------
+++++++++++++++++++++++
 
 The following attributes can be used to conditionally activate a directive.
 
@@ -221,62 +231,53 @@ The following attributes can be used to conditionally activate a directive.
 
 .. note::
 
-   In a previous chapter we discussed the Plone ``<body>`` element and how to take
-   advantage of the custom CSS classes associated with it.
-
+   In a previous chapter we discussed the Plone ``<body>`` element and how to take advantage of the custom CSS classes associated with it.
    We were introduced to the attribute ``css:if-content``.
+   Remember that we are able to determine a lot of context related information from the classes, such as:
 
-   Remember that we are able to determine a lot of context related information from the classes,
-   such as::
+   * the current user role and permissions,
+   * the current content-type and its template,
+   * the site section and sub section,
+   * the current subsite (if any).
 
-   - the current user role, and its permissions,
-   - the current content-type and its template,
-   - the site section and sub section,
-   - the current subsite (if any).
+Here is an example:
 
-   Here is an example
+.. code-block:: xml
 
-   .. code-block:: xml
-
-       <body class="template-summary_view
-                    portaltype-collection
-                    site-Plone
-                    section-news
-                    subsection-aggregator
-                    icons-on
-                    thumbs-on
-                    frontend
-                    viewpermission-view
-                    userrole-manager
-                    userrole-authenticated
-                    userrole-owner
-                    plone-toolbar-left
-                    plone-toolbar-expanded
-                    plone-toolbar-left-expanded
-                    pat-plone
-                    patterns-loaded">
+      <body class="template-summary_view
+                     portaltype-collection
+                     site-Plone
+                     section-news
+                     subsection-aggregator
+                     icons-on
+                     thumbs-on
+                     frontend
+                     viewpermission-view
+                     userrole-manager
+                     userrole-authenticated
+                     userrole-owner
+                     plone-toolbar-left
+                     plone-toolbar-expanded
+                     plone-toolbar-left-expanded
+                     pat-plone
+                     patterns-loaded">
 
 
-Converting An Existing HTML Template Into An Theme
-==================================================
+Converting An Existing HTML Template Into A Theme
+-------------------------------------------------
+In the Plone "universe" it is not uncommon to convert an existing HTML template into a Diazo theme.
 
-In the Plone "universe" it is not uncommon to convert an existing HTML template into a
-Diazo theme.
-
-Ensure that when you zip up the source theme that there is a single folder
-in the root of the zip file.
+Ensure that when you zip up the source theme that there is a single folder in the root of the zip file.
 
 We will explore this in more detail in the next exercise.
 
-Exercise 4
-----------
 
-Convert a HTML template into a Diazo theme.
+Exercise 4 - Convert A HTML Template Into A Diazo Theme
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-In this exercise we will walk through the process of converting an existing free HTML theme
-into a Diazo-based Plone theme.
+In this exercise we will walk through the process of converting an existing free HTML theme into a Diazo-based Plone theme.
 
-.. image:: _static/theming-startbootstrap-newage-theme.png
+.. image:: ../theming/_static/theming-startbootstrap-newage-theme.png
 
 We've selected the free `New Age Bootstrap theme <https://github.com/BlackrockDigital/startbootstrap-new-age>`_.
 The theme is already packaged in a manner that will work with the theming tool.
@@ -284,53 +285,53 @@ The theme is already packaged in a manner that will work with the theming tool.
 .. note::
 
    When being distributed, Plone themes are packaged as zip files.
-   A theme should be structured such that
-   there is only one top level directory in the root of the zip file.
+   A theme should be structured such that there is only one top-level directory in the root of the zip file.
 
-   By convention the directory should contain your :file:`index.html` and supporting files, the supporting
-   files (CSS, javascript and other files) may be in subdirectories.
+   By convention the directory should contain your :file:`index.html`.
+   The supporting files (CSS, JavasSript and other files) may be in subdirectories.
 
-1. To get started `download a copy of the New Age theme as a zip file <https://codeload.github.com/BlackrockDigital/startbootstrap-new-age/zip/master>`_.
-   Then upload it to the theme controlpanel.
+#. To get started `download a copy of the New Age theme as a zip file <https://codeload.github.com/BlackrockDigital/startbootstrap-new-age/zip/master>`_.
+   Then upload it to the theme control panel.
 
-    .. hint::
-       :class: toggle
+   .. hint::
+      :class: toggle
 
-       This is a generic theme, it does not provide the Plone/Diazo specific :file:`rules.xml` or
-       :file:`manifest.cfg` file. When you upload the zip file the theming tool generates a :file:`rules.xml`.
-       In the next steps you will add additional files including a :file:`manifest.cfg` (perhaps in the future
-       the manifest.cfg will also be generated for you).
+      This is a generic theme, it does not provide the Plone/Diazo specific :file:`rules.xml` or :file:`manifest.cfg` files.
+      When you upload the zip file, the theming tool generates a :file:`rules.xml` file.
+      In the next steps you will add additional files including a :file:`manifest.cfg` file
+      (perhaps in the future the :file:`manifest.cfg` file will also be generated for you).
 
-       .. image:: _static/theming-uploadzipfile.png
+   .. image:: ../theming/_static/theming-uploadzipfile.png
 
-       Select the downloaded zip file.
+   Select the downloaded zip file.
 
-       .. image:: _static/theming-uploadzipfile2.png
+   .. image:: ../theming/_static/theming-uploadzipfile2.png
 
-2. Add a :file:`styles.less` file and import the Barceloneta styles.
+#. Add a :file:`styles.less` file and import the Barceloneta styles (look back to Exercise 1).
+#. Add a :file:`manifest.cfg` file, set ``production-css`` equal to ``styles.css``
 
-3. Add a :file:`manifest.cfg` file, set ``production-css`` equal to ``styles.css``
+   .. note::
 
-.. note::
+      *Clean Blog* is a free Bootstrap theme, the latest version is available on GitHub `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
 
-   Clean Blog is a free Bootstrap theme,
-   the latest version is available on GitHub `<https://github.com/BlackrockDigital/startbootstrap-clean-blog>`_
+   .. hint::
+      :class: toggle
 
-    .. hint::
-       :class: toggle
+      You can identify the theme path by reading your browser's address bar when your theme is open in the theming tool.
+      You'll need to include the proper theme path in your :file:`manifest.cfg`,
+      in this case it will most likely be something like ``++theme++startbootstrap-new-age-master``
 
-       You can identify the theme path by reading your browser's address
-       bar when your theme is open in the theming tool.
-       You'll need to include the proper theme path in your :file:`manifest.cfg`,
-       in this case it will most likely be something like ``++theme++startbootstrap-new-age-gh-pages``
+   .. code-block:: ini
 
-       [theme]
-       title = New Age
-       prefix = ++theme++startbootstrap-new-age-gh-pages/
-       production-css = ++theme++startbootstrap-new-age-gh-pages/styles.css
+      [theme]
+      title = New Age
+      prefix = /++theme++startbootstrap-new-age-master
+      doctype = <!DOCTYPE html>
+      development-css = ++theme++startbootstrap-new-age-master/styles.less
+      production-css = ++theme++startbootstrap-new-age-master/styles.css
 
 
-4. Add rules to include the Barceloneta backend utilities
+#. Add rules to include the Barceloneta backend utilities.
 
    .. code-block:: xml
 
@@ -340,93 +341,193 @@ The theme is already packaged in a manner that will work with the theming tool.
           xmlns:css="http://namespaces.plone.org/diazo/css"
           xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
           xmlns:xi="http://www.w3.org/2001/XInclude">
-    
-      <!-- Include the backend theme -->
-      <xi:include href="++theme++barceloneta/backend.xml" />
 
+        <!-- Include the backend theme -->
+        <xi:include href="++theme++barceloneta/backend.xml"><xi:fallback /></xi:include>
 
-5. Add rules to include content, add site structure, drop unneeded elements, customize the menu.
+        <rules css:if-content="#visual-portal-wrapper">
+          <!-- Placeholder for your own additional rules -->
+        </rules>
+
+      </rules>
+
+#. Add rules to include content, add site structure, drop unneeded elements, customize the menu.
 
    .. warning::
 
-     Look out for inline styles in this theme
-     (i.e. the use of the ``style`` attribute on a tag). This is especially problematic with
-     background images set with relative paths. The two issues that result are:
+      Look out for inline styles in this theme (i.e. the use of the ``style`` attribute on a tag).
+      This is especially problematic with background images set with relative paths.
+      The two issues that result are:
 
-       * the relative path does not translate properly in the context of the
-         theme;
-       * it can be tricky to dynamically replace background images provided by
-         inline styles.
+      * the relative path does not translate properly in the context of the theme;
+      * it can be tricky to dynamically replace background images provided by inline styles.
 
-Creating A Visitor Only Theme - Conditionally Enabling Barceloneta
-==================================================================
+.. hint::
+   :class: toggle
+
+   #. Add the theme file:
+
+      .. code-block:: xml
+
+         <theme href="index.html" />
+
+   #. To add the Plone-related header data, add these rules:
+
+      .. code-block:: xml
+
+         <rules css:if-content="#portal-top">
+           <!--  Attributes  -->
+           <copy attributes="*" css:theme="html" css:content="html"/>
+           <!--  Base tag  -->
+           <before css:theme="title" css:content="base"/>
+           <!--  Title  -->
+           <replace css:theme="title" css:content="title"/>
+           <!--  Pull in Plone Meta  -->
+           <after css:theme-children="head" css:content="head meta"/>
+           <!--  Don't use Plone icons, use the theme's  -->
+           <drop css:content="head link[rel='apple-touch-icon']"/>
+           <drop css:content="head link[rel='shortcut icon']"/>
+           <!--  CSS  -->
+           <after css:theme-children="head" css:content="head link"/>
+           <after css:theme-children="head" css:content="head style"/>
+           <!--  Script  -->
+           <after css:theme-children="head" css:content="head script"/>
+         </rules>
+
+   #. The attributes from the ``body`` element from Plone are important:
+
+      .. code-block:: xml
+
+         <!-- Copy over the id/class attributes on the body tag. This is important for per-section styling -->
+         <copy attributes="*" css:content="body" css:theme="body"/>
+
+   #. Add content-related rules:
+
+      .. code-block:: xml
+
+         <rules css:if-content="#visual-portal-wrapper">
+           <!-- Placeholder for your own additional rules -->
+
+           <replace css:theme=".navbar-brand" css:content="#portal-logo" />
+
+           <replace css:theme-children=".masthead .header-content" css:content-children=".hero" />
+           <drop css:theme=".masthead > .container" css:if-not-content=".hero" />
+           <drop css:content=".hero"/>
+           <drop css:theme=".masthead .device-container" />
+
+           <!--  move global nav  -->
+           <replace css:theme-children=".navbar-nav" css:content-children=".plone-nav" />
+
+           <replace css:theme-children=".features" css:content-children="#content" />
+
+           <drop css:theme="section.download" />
+           <drop css:theme="section.cta" />
+           <drop css:theme="section.contact" />
+         </rules>
+
+
+Create A Visitor-Only Theme - Conditionally Enabling Barceloneta
+----------------------------------------------------------------
 
 Sometimes it is more convenient for your website administrators to use Barceloneta, Plone's default theme.
 Other visitors would see a completely different layout provided by your custom theme.
-To achieve this you will need to associate your visitor theme rules with
-an expression like ``css:if-content="body.userrole-anonymous"``.
 
-For rules that will affect logged-in users you can use the expression
-``css:if-content="body.:not(userrole-anonymous)"``.
+To achieve this you will need to associate your visitor theme rules with an expression like ``css:if-content="body.userrole-anonymous"``.
+For rules that will affect logged-in users you can use the expression ``css:if-content="body:not(.userrole-anonymous)"``.
 
-Once you've combined the expressions above with the right Diazo rules you will be able
-to present an anonymous visitor with a specific HTML theme while presenting the
-Barceloneta theme to logged-in users.
+Once you've combined the expressions above with the right Diazo rules you will be able to present an anonymous visitor
+with a specific HTML theme while presenting the Barceloneta theme to logged-in users.
 
 .. warning::
 
-   The Barceloneta :file:`++theme++barceloneta/rules.xml` expects the
-   Barceloneta :file:`index.html` to reside locally in your current theme.
-   To avoid conflict and to accomodate the inherited Barceloneta, ensure that
-   your theme file has a different name such as :file:`front.html`.
+   The Barceloneta :file:`++theme++barceloneta/rules.xml` expects the Barceloneta :file:`index.html` to reside locally in your current theme.
+   To avoid conflict and to accommodate the inherited Barceloneta, ensure that your theme file has a different name such as :file:`front.html`.
 
 
-Exercise 5
-----------
+Exercise 5 - Convert The Theme To Be A Visitor-Only Theme
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Convert the theme to be a visitor-only theme.
+In this exercise we will alter our theme from the previous exercise to make it into a visitor-only theme.
 
-In this exercise we will alter our theme from the previous exercise to make it
-into a visitor-only theme.
+#. Update the :file:`rules.xml` file to include Barceloneta rules.
 
-1. Update the :file:`rules.xml` file to include Barceloneta rules.
+   .. hint::
+      :class: toggle
 
-    .. hint::
-       :class: toggle
+      Use ``<xi:include href="++theme++barceloneta/rules.xml" />``
 
-       Use ``<xi:include href="++theme++barceloneta/rules.xml" />``
+#. Add conditional rules to :file:`rules.xml` so that the new theme is only shown to anonymous users.
+   Rename the theme's :file:`index.html` to :file:`front.html` and add a copy of the Barceloneta :file:`index.html`.
 
-2. Add conditional rules to :file:`rules.xml` so that the new theme is only shown to anonymous users,
-   rename the theme's :file:`index.html` to :file:`front.html` and add a copy of the Barceloneta :file:`index.html`.
+   .. hint::
+      :class: toggle
 
-    .. hint::
-       :class: toggle
+      Copy the contents of the Barceloneta :file:`index.html` file, then add it to the theme as the new :file:`index.html` file.
 
-       Copy the contents of the Barceloneta :file:`index.html` file
-       then add it to the theme as the new :file:`index.html` file.
+      Change :file:`rules.xml` to look similar to this:
 
-       Change :file:`rules.xml` to look similar to this:
+      .. code-block:: xml
 
-        .. code-block:: xml
+         <?xml version="1.0" encoding="UTF-8"?>
+         <rules
+             xmlns="http://namespaces.plone.org/diazo"
+             xmlns:css="http://namespaces.plone.org/diazo/css"
+             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+             xmlns:xi="http://www.w3.org/2001/XInclude">
 
-            <?xml version="1.0" encoding="UTF-8"?>
-            <rules
-                xmlns="http://namespaces.plone.org/diazo"
-                xmlns:css="http://namespaces.plone.org/diazo/css"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xi="http://www.w3.org/2001/XInclude">
+           <rules css:if-content="body:not(.userrole-anonymous)">
+             <!-- Import Barceloneta rules -->
+             <xi:include href="++theme++barceloneta/rules.xml" />
+           </rules>
 
-              <notheme css:if-not-content="#visual-portal-wrapper" />
+           <rules css:if-content="body.userrole-anonymous">
 
-              <rules css:if-content="body:not(.userrole-anonymous)">
-                <!-- Import Barceloneta rules -->
-                <xi:include href="++theme++barceloneta/rules.xml" />
-              </rules>
+             <theme href="front.html" />
 
-              <rules css:if-content="body.userrole-anonymous">
-                <theme href="front.html" />
-                <replace css:theme-children=".intro header h2" css:content-children=".documentFirstHeading" />
-                <replace css:theme-children=".summary" css:content-children=".documentDescription" />
-                <replace css:theme-children=".preamble" css:content-children="#content-core" />
-              </rules>
-            </rules>
+             <rules css:if-content="#portal-top">
+               <!--  Attributes  -->
+               <copy attributes="*" css:theme="html" css:content="html"/>
+               <!--  Base tag  -->
+               <before css:theme="title" css:content="base"/>
+               <!--  Title  -->
+               <replace css:theme="title" css:content="title"/>
+               <!--  Pull in Plone Meta  -->
+               <after css:theme-children="head" css:content="head meta"/>
+               <!--  Don't use Plone icons, use the theme's  -->
+               <drop css:content="head link[rel='apple-touch-icon']"/>
+               <drop css:content="head link[rel='shortcut icon']"/>
+               <!--  CSS  -->
+               <after css:theme-children="head" css:content="head link"/>
+               <after css:theme-children="head" css:content="head style"/>
+               <!--  Script  -->
+               <after css:theme-children="head" css:content="head script"/>
+             </rules>
+
+             <!-- Copy over the id/class attributes on the body tag. This is important for per-section styling -->
+             <copy attributes="*" css:content="body" css:theme="body"/>
+
+             <rules css:if-content="#visual-portal-wrapper">
+               <!-- Placeholder for your own additional rules -->
+
+               <replace css:theme=".navbar-brand" css:content="#portal-logo" />
+
+               <replace css:theme-children=".masthead .header-content" css:content-children=".hero" />
+               <drop css:theme=".masthead > .container" css:if-not-content=".hero" />
+               <drop css:content=".hero" />
+               <drop css:theme=".masthead .device-container" />
+
+               <!--  move global nav  -->
+               <replace css:theme-children=".navbar-nav" css:content-children=".plone-nav" />
+
+               <replace css:theme-children=".features" css:content-children="#content" />
+
+               <drop css:theme="section.download" />
+               <drop css:theme="section.cta" />
+               <drop css:theme="section.contact" />
+             </rules>
+
+             <!-- Include the backend theme -->
+             <xi:include href="++theme++barceloneta/backend.xml"><xi:fallback /></xi:include>
+
+           </rules>
+         </rules>
