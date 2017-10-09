@@ -31,13 +31,16 @@ To dive deeper into real Plone data we now look at some existing templates and c
 The view for News Items
 -----------------------
 
-We want to show the date a News Item is published. This way people can see at a glance if they are looking at current or old news.
+We want to show the date a News Item is published.
+This way people can see at a glance if they are looking at current or old news.
 
 To do this you will first customize the template that is used to render News Items.
 
-We use :py:mod:`z3c.jbot` for overriding templates. The package already has the necessary configuration in :file:`browser/configure.zcml`.
+We use :py:mod:`z3c.jbot` for overriding templates.
+The package already has the necessary configuration in :file:`browser/configure.zcml`.
 
-Find the file :file:`newsitem.pt` in :file:`packages/plone/app/contenttypes/browser/templates/` (in vagrant this directory is in :file:`/home/vagrant/packages`, otherwise it is in your buildout directory).
+Find the file :file:`newsitem.pt` in :file:`packages/plone/app/contenttypes/browser/templates/`
+(in vagrant this directory is in :file:`/home/vagrant/packages`, otherwise it is in your buildout directory).
 
 The file looks like this:
 
@@ -65,15 +68,17 @@ The file looks like this:
     </body>
     </html>
 
-Note the following:
+.. note::
 
-* Like almost all Plone templates, it uses `metal:use-macro="context/main_template/macros/master"` to use the main_template
-* This template fills the same slot `content-core` as the template you created in the last chapter. This means the heading and description are displayed by the `main_template`.
-* The image and image caption that is provided by the behavior is not part of the template. Instead a Viewlet is used to display it.
+   * Like almost all Plone templates, it uses `metal:use-macro="context/main_template/macros/master"` to use the main_template
+   * This template fills the same slot `content-core` as the template you created in the last chapter. This means the heading and description are displayed by the `main_template`.
+   * The image and image caption that is provided by the behavior is not part of the template. Instead a Viewlet is used to display it.
 
-Copy that file into the folder :file:`browser/overrides/` of your package. If you use vagrant you'd have to use::
+Copy that file into the folder :file:`browser/overrides/` of your package. If you use vagrant you'd have to use
 
-    cp /home/vagrant/packages/plone/app/contenttypes/browser/templates/newsitem.pt /vagrant/buildout/src/ploneconf.site/src/ploneconf/site/browser/overrides/
+.. code-block:: console
+
+   cp /home/vagrant/packages/plone/app/contenttypes/browser/templates/newsitem.pt /vagrant/buildout/src/ploneconf.site/src/ploneconf/site/browser/overrides/
 
 * Rename the new file from :file:`newsitem.pt` to :file:`plone.app.contenttypes.browser.templates.newsitem.pt`. :py:mod:`z3c.jbot` allows you to override templates by putting a file inside a special directory with a *canonical name* (i.e. the path of the file separated by `.` plus the original filename).
 * Restart Plone
@@ -82,7 +87,7 @@ Now Plone will use the new file to override the original one.
 
 Edit the new file :file:`plone.app.contenttypes.browser.templates.newsitem.pt` and insert the following before the ``<div id="parent-fieldname-text"``...:
 
-..  code-block:: html
+.. code-block:: html
 
     <p tal:content="python: context.Date()">
         The current Date
@@ -90,7 +95,7 @@ Edit the new file :file:`plone.app.contenttypes.browser.templates.newsitem.pt` a
 
 Since we use Plone 5 and Chameleon we could also write:
 
-..  code-block:: html
+.. code-block:: html
 
     <p>
         ${python: context.Date()}
@@ -98,9 +103,11 @@ Since we use Plone 5 and Chameleon we could also write:
 
 * Open an existing news item in the browser
 
-This will show something like: ``2015-02-21T12:01:31+01:00``. Not very user-friendly. Let's extend the code and use one of many helpers Plone offers.
+This will show something like: ``2015-02-21T12:01:31+01:00``.
+Not very user-friendly.
+Let's extend the code and use one of many helpers Plone offers.
 
-..  code-block:: html
+.. code-block:: html
 
     <p>
         ${python: plone_view.toLocalizedTime(context.Date())}
@@ -113,7 +120,7 @@ This will render ``Feb 21, 2015``.
 
 The same in a slightly different style:
 
-..  code-block:: html
+.. code-block:: html
 
     <p tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                    date python:context.Date()"
@@ -121,13 +128,16 @@ The same in a slightly different style:
             The current Date in its local short format
     </p>
 
-Here we first get the Plone view and then the method :py:meth:`toLocalizedTime` and we use ``nocall`` to prevent the method :py:meth:`toLocalizedTime` from being called, since we only want to make it available for later use.
+Here we first get the Plone view and then the method :py:meth:`toLocalizedTime`
+and we use ``nocall`` to prevent the method :py:meth:`toLocalizedTime` from being called, since we want to make it available for later use.
 
-We could also leave the formatting to the frontend. Plone 5 comes with the `moment pattern <http://plone.github.io/mockup/dev/#pattern/moment>`_ that uses the library `moment.js <http://plone.github.io/mockup/dev/#pattern/moment>`_ to format dates in the browser with javascript.
+We could also leave the formatting to the frontend.
+Plone 5 comes with the `moment pattern <http://plone.github.io/mockup/dev/#pattern/moment>`_
+that uses the library `moment.js <http://plone.github.io/mockup/dev/#pattern/moment>`_ to format dates in the browser with JavaScript.
 
 Try the relative calendar format:
 
-..  code-block:: html
+.. code-block:: html
 
     <p class="pat-moment"
        data-pat-moment="format:calendar">
@@ -135,6 +145,7 @@ Try the relative calendar format:
     </p>
 
 Now we should see the date in a user-friendly format like ``Today at 12:01 PM``.
+
 Experiment with other formats such as ``calendar`` and ``LT``.
 
 
@@ -143,7 +154,10 @@ Experiment with other formats such as ``calendar`` and ``LT``.
 The Summary View
 ----------------
 
-We use the view "Summary View" to list news releases. They should also have the date. The template associated with that view is :file:`listing_summary.pt`.
+We use the view "Summary View" to list news releases.
+They should also have the date.
+
+The template associated with that view is :file:`listing_summary.pt`.
 
 Let's look for the template folder_summary_view.pt::
 
@@ -229,7 +243,7 @@ Copy it to :file:`browser/overrides/` and rename it to :file:`plone.app.contentt
 
 Add the following after line 28:
 
-..  code-block:: html
+.. code-block:: html
 
     <p tal:condition="python: item_type == 'News Item'">
       ${python:plone_view.toLocalizedTime(item.Date())}
@@ -238,7 +252,8 @@ Add the following after line 28:
 After you restart the instance and look at the new folder again you'll see the dates. :py:mod:`z3c.jbot` needs a restart to pick up the new file.
 When you only change a existing override you don't have to restart.
 
-The addition renders the date of the respective objects that the template iterates over (hence ``item`` instead of ``context`` since ``context`` would be either a collection aggregating the news items or a folder containing a news item).
+The addition renders the date of the respective objects that the template iterates over
+(hence ``item`` instead of ``context`` since ``context`` would be either a collection aggregating the news items or a folder containing a news item).
 
 The date is only displayed if the variable ``item_type`` is ``News Item``.
 
@@ -250,12 +265,15 @@ The first step to uncovering that secret is line 14 of :file:`listing_summary.pt
 
     <metal:block use-macro="context/@@listing_view/macros/entries">
 
-``use-macro`` tells Plone to reuse the macro ``entries`` from the view ``listing_view``. That view is defined in :file:`packages/plone/app/contenttypes/browser/configure.zcml`.
-It uses the template :file:`plone/app/contenttypes/browser/templates/listing.pt`. That makes overriding that much easier.
+``use-macro`` tells Plone to reuse the macro ``entries`` from the view ``listing_view``.
+That view is defined in :file:`packages/plone/app/contenttypes/browser/configure.zcml`.
+
+It uses the template :file:`plone/app/contenttypes/browser/templates/listing.pt`.
+That makes overriding that much easier.
 
 That template :file:`listing.pt` defines the slot ``entries`` like this:
 
-..  code-block:: xml
+.. code-block:: xml
 
     <metal:listingmacro define-macro="listing">
       <tal:results define="batch view/batch;
@@ -287,23 +305,37 @@ That template :file:`listing.pt` defines the slot ``entries`` like this:
                   ">
     ...
 
-Here the ``item_type`` is defined as ``item_type item/PortalType``. Let's dig a little deeper and find out what ``item`` and  ``PortalType`` are.
+Here the ``item_type`` is defined as ``item_type item/PortalType``.
+Let's dig a little deeper and find out what ``item`` and  ``PortalType`` are.
 
 ``tal:repeat="item batch"`` tells the template to iterate over an iterable ``batch`` which is defined as ``batch view/batch``.
 
-``view`` is always the BrowserView for which the template is registered. In our case this is either :py:class:`plone.app.contenttypes.browser.collection.CollectionView` if you called that view on a collection, or :py:class:`plone.app.contenttypes.browser.folder.FolderView` for folders. You might remember that both are defined in :file:`configure.zcml`
+``view`` is always the BrowserView for which the template is registered.
+In our case this is either :py:class:`plone.app.contenttypes.browser.collection.CollectionView` if you called that view on a collection,
+or :py:class:`plone.app.contenttypes.browser.folder.FolderView` for folders.
+
+You might remember that both are defined in :file:`configure.zcml`
 
 Luckily the first is a class that inherits from the second:
 
-..  code-block:: python
+.. code-block:: python
 
     class CollectionView(FolderView):
 
-:py:meth:`batch` is a method in :py:class:`FolderView` that turns :py:obj:`results` into batches. :py:obj:`results` exists in both classes. This means, in case the item we are looking at is a collection, the method :py:meth:`results` of :py:class:`CollectionView`, will be used; and in case it's a folder, the one in :py:class:`FolderView`.
+:py:meth:`batch` is a method in :py:class:`FolderView` that turns :py:obj:`results` into batches. :py:obj:`results` exists in both classes.
+This means, in case the item we are looking at is a collection, the method :py:meth:`results` of :py:class:`CollectionView`,
+will be used; and in case it's a folder, the one in :py:class:`FolderView`.
 
-So `batch` is a list of items. The way it is created is actually pretty complicated and makes use of a couple of packages to create a filtered (through :py:mod:`plone.app.querystring`) list of optimized representations (through :py:mod:`plone.app.contentlisting`) of items. For now it is enough to know that `item` represents one of the items in the list of News Items.
+`batch` is a list of items.
 
-The template :file:`listing_summary.pt` is extraordinary in its heavy use of nested macros. Most of the templates you will write are much simpler and easier to read.
+The way it is created is actually pretty complicated and makes use of a couple of packages to create
+a filtered (through :py:mod:`plone.app.querystring`) list of optimized representations (through :py:mod:`plone.app.contentlisting`) of items.
+
+For now it is enough to know that `item` represents one of the items in the list of News Items.
+
+The template :file:`listing_summary.pt` is extraordinary in its heavy use of nested macros.
+
+Most of the templates you will write are much simpler and easier to read.
 
 It can be hard to understand templates as complicated as these, but there is help to be found if you know Python: use :py:mod:`pdb` to debug templates line by line.
 
@@ -311,9 +343,12 @@ Add the following to line 29 just before our additions::
 
     <?python import pdb; pdb.set_trace() ?>
 
-When you reload the page and look at the terminal you see you have the pdb console and can inspect the template at its current state by looking at the variable `econtext`. You can now simply look up what `item ` and `PortalType` are:
+When you reload the page and look at the terminal you see you have the pdb console and
+can inspect the template at its current state by looking at the variable `econtext`.
 
-..  code-block:: python
+You can now simply look up what `item ` and `PortalType` are:
+
+.. code-block:: python
 
     (pdb) pp econtext
     [...]
@@ -331,9 +366,11 @@ When you reload the page and look at the terminal you see you have the pdb conso
     (pdb) item
     <plone.app.contentlisting.catalog.CatalogContentListingObject instance at /Plone/news/hot-news>
 
-As discovered above, `item` is a instance of :py:class:`plone.app.contentlisting.catalog.CatalogContentListingObject`. It has several methods and properties:
+As discovered above, `item` is a instance of :py:class:`plone.app.contentlisting.catalog.CatalogContentListingObject`.
 
-..  code-block:: python
+It has several methods and properties:
+
+.. code-block:: python
 
     (pdb) pp dir(item)
     [...]
@@ -347,7 +384,7 @@ As discovered above, `item` is a instance of :py:class:`plone.app.contentlisting
 
 `PortalType` is a method that returns the name of the items content-type.
 
-..  code-block:: python
+.. code-block:: python
 
     (pdb) item.PortalType()
     'News Item'
@@ -358,11 +395,16 @@ As discovered above, `item` is a instance of :py:class:`plone.app.contentlisting
 Finding the right template
 --------------------------
 
-We changed the display of the listing of news items at http://localhost:8080/Plone/news. But how do we know which template to customize?
+We changed the display of the listing of news items at http://localhost:8080/Plone/news.
 
-If you don't know which template is used by the page you're looking at, you can make an educated guess. Start a debug session or use :py:mod:`plone.app.debugtoolbar`.
+How do we know which template to customize?
 
-1.  We could check the HTML with Firebug and look for a structure in the content area that looks unique. We could also look for the CSS class of the body
+If you don't know which template is used by the page you're looking at,
+you can make an educated guess. Start a debug session or use :py:mod:`plone.app.debugtoolbar`.
+
+1. We could check the HTML with Firebug and look for a structure in the content area that looks unique.
+
+We could also look for the CSS class of the body
 
     .. code-block:: html
 
@@ -372,7 +414,11 @@ If you don't know which template is used by the page you're looking at, you can 
 
     A foolproof way to verify your guess is to modify the template and reload the page. If your modification shows up you obviously found the correct file.
 
-2.  The safest method is using :py:mod:`plone.app.debugtoolbar`. We already have it in our buildout and only need to install it. It adds a "Debug" dropdown menu on top of the page. The section "Published" shows the complete path to the template that is used to render the page you are seeing.
+2. The safest method is using :py:mod:`plone.app.debugtoolbar`.
+We already have it in our buildout and only need to install it.
+It adds a "Debug" dropdown menu on top of the page.
+
+The section "Published" shows the complete path to the template that is used to render the page you are seeing.
 Install it now and find information about the current template in the section **Published**.
 
 3.  The debug session to find the template is a little more complicated. Since we have :py:mod:`Products.PDBDebugMode` in our buildout we can call ``/pdb`` on our page. We cannot put a `pdb` in the templates since we do not know (yet) which template to put the `pdb` in.
@@ -419,11 +465,17 @@ skin templates
 
 .. only:: not presentation
 
-    Why don't we always only use templates? Because we might want to do something more complicated than get an attribute from the context and render its value in some html tag.
+    Why don't we always only use templates?
+    Because we might want to do something more complicated than get an attribute from the context and render its value in some HTML tag.
 
-    There is a deprecated technology called 'skin templates' that allows you to simply add some page template (e.g. 'old_style_template.pt') to a certain folder in the ZMI or your egg and you can access it in the browser by opening a url like http://localhost:8080/Plone/old_style_template and it will be rendered. But we don't use it and you too should not, even though these skin templates are still all over Plone.
+    There is a deprecated technology called 'skin templates' that allows you to simply add some page template (e.g. 'old_style_template.pt')
+    to a certain folder in the ZMI or your egg and you can access it in the browser by opening
+    a URL like http://localhost:8080/Plone/old_style_template and it will be rendered.
 
-    Since we use :py:mod:`plone.app.contenttypes` we do not encounter many skin templates when dealing with content any more. But more often than not you'll have to customize an old site that still uses skin templates.
+    But we don't use it and you too should not, even though these skin templates are still all over Plone.
+
+    Since we use :py:mod:`plone.app.contenttypes` we do not encounter many skin templates when dealing with content any more.
+    But more often than not you'll have to customize an old site that still uses skin templates.
 
 Skin templates and Python scripts in ``portal_skins`` are deprecated because:
 
@@ -438,4 +490,4 @@ Summary
 * Overriding templates with :py:mod:`z3c.jbot` is easy.
 * Understanding templates can be hard.
 * Use plone.app.debugtoolbar and pdb; they are there to help you.
-* Skin templates are deprecated; you will probably only encounter them when you work on Plone 4 or older addons and client code.
+* Skin templates are deprecated; you will probably only encounter them when you work on Plone 4 or older add-ons and client code.
