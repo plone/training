@@ -6,6 +6,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Update Mastering Plone Chapters for Ploneconf 2017 and use Plone 5.1rc1
+  [pbauer]
+
 - Update link [sgrepos]
 
 - Add angular training
