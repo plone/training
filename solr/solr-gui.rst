@@ -257,8 +257,8 @@ Besides the matching documents this will give you an additional grouping of docu
       "wt":"json",
       "facet":"true"}},
    "response":{"numFound":6,"start":0,"docs":[
-     ...
-   ]}
+     "..."
+   ]},
    "facet_counts":{
     "facet_queries":{},
     "facet_fields":{
