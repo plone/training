@@ -960,21 +960,3 @@ The following Rapido features haven't been covered by this training:
 - Rapido JSON REST API.
 
 You can find information about those features and also interesting use cases in the `Rapido documentation <http://rapidoplone.readthedocs.io/en/latest/>`_.
-
-.. glossary::
-
-    Rapido application
-        It contains the features you implement;
-        it is a folder containing templates, Python code, and YAML files.
-
-    block
-        Blocks display a chunk of HTML which can be inserted in your Plone pages.
-
-    element
-        Elements are the dynamic components of your blocks.
-        They can be input fields, buttons, or computed HTML.
-        They can also return JSON if you call them from a JavaScript app,
-
-    record
-        A Rapido app is able to store data as records.
-        Records are basic dictionaries.
