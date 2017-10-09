@@ -2,7 +2,7 @@
 Angular SDK For Plone
 =====================
 
-In this part you will:
+In this training you will:
 
 * Create a static site with Angular,
 * Display contents stored in Plone and retrieved using the REST API,
@@ -79,7 +79,7 @@ According to the value of the ``@type`` property of the context, the appropriate
    (At the moment, the Plone REST API does not expose this attribute).
 
 A New Integration Approach For Plone
-====================================
+------------------------------------
 
 Creating pure frontend applications to publish Plone-managed information rather than customizing the Plone web interface has several benefits:
 

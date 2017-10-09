@@ -1,8 +1,8 @@
 .. _angular-label:
 
-===========
-Angular SDK
-===========
+=====================
+Angular SDK for Plone
+=====================
 
 :About: Building Angular 4 apps using the Plone REST API.
 :Level: All levels
@@ -20,7 +20,20 @@ Angular SDK
     :maxdepth: 3
     :caption: Angular SDK
 
-    angular
+    summary
+    whatisangular
+    sdk
+    installing
+    using
+    theming
+    overriding
+    views
+    aggregating
+    authentication
+    footer
+    deploying
+    configuration
+    advanced
 
 ..  toctree::
     :hidden:
