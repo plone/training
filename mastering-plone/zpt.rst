@@ -7,7 +7,7 @@ Page Templates
 
     Get the code for this chapter (:doc:`More info <code>`):
 
-    ..  code-block:: bash
+    ..  code-block:: console
 
         git checkout zpt
 
@@ -26,7 +26,7 @@ Topics covered:
 
 Page Templates are HTML files with some additional information, written in TAL, METAL and TALES.
 
-Page templates must be valid xml.
+Page templates must be valid XML.
 
 The three languages are:
 
@@ -34,7 +34,7 @@ The three languages are:
 
   * Templating XML/HTML using special attributes
 
-  * Using TAL we include expressions within html
+  * Using TAL we include expressions within HTML
 
 * TALES: "TAL Expression Syntax"
 
@@ -44,7 +44,10 @@ The three languages are:
 
   * this enables us to combine, re-use and nest templates together
 
-TAL and METAL are written like html attributes (href, src, title). TALES are written like the values of html attributes. A typical TAL attribute looks like this:
+TAL and METAL are written like HTML attributes (href, src, title).
+TALES are written like the values of HTML attributes.
+
+A typical TAL attribute looks like this:
 
 .. code-block:: html
 
@@ -64,7 +67,9 @@ results in:
 
     <p>I love red</p>
 
-Let's try it. Open the file :file:`training.pt` and add:
+Let's try it.
+
+Open the file :file:`training.pt` and add:
 
 .. code-block:: html
 
@@ -96,7 +101,9 @@ This will result in:
 
 Without restarting Plone open http://localhost:8080/Plone/@@training.
 
-The same happens with attributes. Replace the <p>-line with:
+The same happens with attributes.
+
+Replace the <p>-line with:
 
 .. code-block:: html
 
@@ -115,7 +122,9 @@ results in:
         An even better conference
     </a>
 
-We used three TAL-Attributes here. This is the complete list of TAL-attributes:
+We used three TAL-Attributes here.
+
+This is the complete list of TAL-attributes:
 
 ``tal:define``
     define variables. We defined the variable ``a_fine_url`` to the string "https://www.ploneconf.org/"
@@ -145,7 +154,12 @@ We used three TAL-Attributes here. This is the complete list of TAL-attributes:
 python expressions
 ++++++++++++++++++
 
-So far we only used one TALES expression (the ``string:`` bit). Let's use a different TALES expression now. With ``python:`` we can use python code. A simple example:
+Till now we only used one TALES expression (the ``string:`` bit).
+Let's use a different TALES expression now.
+
+With ``Python:`` we can use Python code.
+
+A example:
 
 .. code-block:: html
 
@@ -180,7 +194,7 @@ tal:condition
 
 * If it's true, then the tag is rendered.
 * If it's false then the tag **and all its children** are removed and no longer evaluated.
-* We can reverse the logic by prepending a ``not:`` to the expression.
+* We can reverse the logic by perpending a ``not:`` to the expression.
 
 Let's add another TAL Attribute to our above example::
 
@@ -236,12 +250,18 @@ We change the markup a little to construct a list in which there is an ``<li>`` 
 path expressions
 ++++++++++++++++
 
-Regarding TALES so far we used ``string:`` or ``python:`` or only variables. The next and most common expression are path expressions. Optionally you can start a path expression with ``path:``
+Regarding TALES so far we used ``string:`` or ``python:`` or only variables.
+The next and most common expression are path expressions.
 
-Every path expression starts with a variable name. It can either be an object like :py:obj:`context`, :py:obj:`view` or :py:obj:`template` or a variable defined by you like :py:data:`talk`.
+Optionally you can start a path expression with ``path:``
+
+Every path expression starts with a variable name.
+It can either be an object like :py:obj:`context`, :py:obj:`view` or :py:obj:`template` or a variable defined by you like :py:data:`talk`.
 
 After the variable we add a slash ``/`` and the name of a sub-object, attribute or callable.
-The ``/`` is used to end the name of an object and the start of the property name. Properties themselves may be objects that in turn have properties.
+The ``/`` is used to end the name of an object and the start of the property name.
+
+Properties themselves may be objects that in turn have properties.
 
 .. code-block:: html
 
@@ -267,11 +287,16 @@ This returns the id of the context if it has no title.
 
       <p tal:replace="talk/average_rating | nothing"></p>
 
-This returns nothing if there is no 'average_rating' for a talk. What will not work is ``tal:content="python:talk['average_rating'] or ''"``. Who knows what this would yield?
+This returns nothing if there is no 'average_rating' for a talk.
+
+What will not work is ``tal:content="python:talk['average_rating'] or ''"``.
+
+Who knows what this would yield?
 
 .. only:: not presentation
 
-    We'll get ``KeyError: 'average_rating'``. It is very bad practice to use ``|`` too often since it will swallow errors like a typo in ``tal:content="talk/averange_ratting | nothing"`` and you might wonder why there are no ratings later on...
+    We'll get ``KeyError: 'average_rating'``. It is very bad practice to use ``|`` too often since it will swallow errors like a typo
+    in ``tal:content="talk/averange_ratting | nothing"`` and you might wonder why there are no ratings later on...
 
     You can't and should not use it to prevent errors like a try/except block.
 
@@ -279,7 +304,7 @@ There are several **built-in variables**  that can be used in paths:
 
 The most frequently used one is ``nothing`` which is the equivalent to None
 
-..  code-block:: html
+.. code-block:: html
 
     <p tal:replace="nothing">
         this comment will not be rendered
@@ -287,7 +312,7 @@ The most frequently used one is ``nothing`` which is the equivalent to None
 
 A dict of all the available variables at the current state is ``econtext``
 
-..  code-block:: html
+.. code-block:: html
     :linenos:
 
     <dl tal:define="path_variables_dict econtext">
@@ -317,7 +342,9 @@ Useful for debugging :-)
 Pure TAL blocks
 +++++++++++++++
 
-We can use TAL attributes without HTML Tags. This is useful when we don't need to add any tags to the markup
+We can use TAL attributes without HTML Tags.
+
+This is useful when we don't need to add any tags to the markup.
 
 Syntax:
 
@@ -365,7 +392,10 @@ this results in:
         &lt;img src='https://plone.org/logo.png'&gt;
     </p>
 
-``tal:replace`` drops its own base tag in favor of the result of the TALES expression. Thus the original ``<img... >`` is replaced. But the result is escaped by default.
+``tal:replace`` drops its own base tag in favor of the result of the TALES expression.
+Thus the original ``<img... >`` is replaced.
+
+But the result is escaped by default.
 
 To prevent escaping we use ``structure``
 
@@ -404,7 +434,8 @@ Now let's emulate a typical Plone structure by creating a dictionary.
         </tr>
     </table>
 
-We emulate a list of talks and display information about them in a table. We'll get back to the list of talks later when we use the real talk objects that we created with dexterity.
+We emulate a list of talks and display information about them in a table.
+We'll get back to the list of talks later when we use the real talk objects that we created with dexterity.
 
 To complete the list here are the TAL attributes we have not yet used:
 
@@ -427,14 +458,19 @@ When an element has multiple TAL attributes, they are executed in this order:
 Plone 5
 -------
 
-Plone 5 uses a new rendering engine called `Chameleon <https://chameleon.readthedocs.io/en/latest/>`_. Using the integration layer `five.pt <https://pypi.python.org/pypi/five.pt>`_ it is fully compatible with the normal TAL syntax but offers some additional features:
+Plone 5 uses a new rendering engine called `Chameleon <https://chameleon.readthedocs.io/en/latest/>`_.
 
-You can use ``${...}`` as short-hand for text insertion in pure html effectively making ``tal:content`` and ``tal:attributes`` obsolete. Here are some examples:
+Using the integration layer `five.pt <https://pypi.python.org/pypi/five.pt>`_ it is fully compatible with the normal TAL syntax
+but offers some additional features:
+
+You can use ``${...}`` as short-hand for text insertion in pure html effectively making ``tal:content`` and ``tal:attributes`` obsolete.
+
+Here are some examples:
 
 Plone 4 and Plone 5:
 
-..  code-block:: html
-    :linenos:
+.. code-block:: html
+   :linenos:
 
     <a tal:attributes="href string:${context/absolute_url}?ajax_load=1;
                        class python:context.portal_type.lower().replace(' ', '')"
@@ -444,8 +480,8 @@ Plone 4 and Plone 5:
 
 Plone 5 (and Plone 4 with five.pt) :
 
-..  code-block:: html
-    :linenos:
+.. code-block:: html
+   :linenos:
 
     <a href="${context/absolute_url}?ajax_load=1"
        class="${python:context.portal_type.lower().replace(' ', '')}">
@@ -454,8 +490,8 @@ Plone 5 (and Plone 4 with five.pt) :
 
 You can also add pure python into the templates:
 
-..  code-block:: html
-    :linenos:
+.. code-block:: html
+   :linenos:
 
     <div>
       <?python
@@ -476,8 +512,8 @@ Exercise 1
 Modify the following template and one by one solve the following problems:
 :
 
-..  code-block:: html
-    :linenos:
+.. code-block:: html
+   :linenos:
 
     <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                       'subjects': ('content-types', 'dexterity')},
@@ -511,8 +547,8 @@ Modify the following template and one by one solve the following problems:
 ..  admonition:: Solution
     :class: toggle
 
-    ..  code-block:: html
-        :linenos:
+    .. code-block:: html
+       :linenos:
         :emphasize-lines: 21
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
@@ -547,9 +583,9 @@ Modify the following template and one by one solve the following problems:
 ..  admonition:: Solution
     :class: toggle
 
-    ..  code-block:: html
-        :linenos:
-        :emphasize-lines: 20
+    .. code-block:: html
+       :linenos:
+       :emphasize-lines: 20
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
@@ -587,9 +623,9 @@ Modify the following template and one by one solve the following problems:
 ..  admonition:: Solution
     :class: toggle
 
-    ..  code-block:: html
-        :linenos:
-        :emphasize-lines: 20, 21
+    .. code-block:: html
+       :linenos:
+       :emphasize-lines: 20, 21
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
@@ -623,7 +659,8 @@ Modify the following template and one by one solve the following problems:
             </tr>
         </table>
 
-4. Add alternating the CSS classes 'odd' and 'even' to the <tr>. (:samp:`repeat.{<name of item in loop>}.odd` is True if the ordinal index of the current iteration is an odd number)
+4. Add alternating the CSS classes 'odd' and 'even' to the <tr>. (:samp:`repeat.{<name of item in loop>}.odd` is True
+if the ordinal index of the current iteration is an odd number).
 
    Use some CSS to test your solution:
 
@@ -636,9 +673,9 @@ Modify the following template and one by one solve the following problems:
 ..  admonition:: Solution
     :class: toggle
 
-    ..  code-block:: html
-        :linenos:
-        :emphasize-lines: 19
+    .. code-block:: html
+       :linenos:
+       :emphasize-lines: 19
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
@@ -680,8 +717,8 @@ Modify the following template and one by one solve the following problems:
 ..  admonition:: Solution
     :class: toggle
 
-    ..  code-block:: html
-        :linenos:
+    .. code-block:: html
+       :linenos:
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
@@ -718,9 +755,9 @@ Modify the following template and one by one solve the following problems:
 ..  admonition:: Solution
     :class: toggle
 
-    ..  code-block:: html
-        :linenos:
-        :emphasize-lines: 20, 24, 28
+    .. code-block:: html
+       :linenos:
+       :emphasize-lines: 20, 24, 28
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
@@ -758,9 +795,9 @@ Modify the following template and one by one solve the following problems:
 ..  admonition:: Solution
     :class: toggle
 
-    ..  code-block:: html
-        :linenos:
-        :emphasize-lines: 19, 21
+    .. code-block:: html
+       :linenos:
+       :emphasize-lines: 19, 21
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},
@@ -801,7 +838,9 @@ Modify the following template and one by one solve the following problems:
 METAL and macros
 ----------------
 
-Why is our output so ugly? How do we get our html to render in Plone the UI?
+Why is our output so ugly?
+
+How do we get our HTML to render in Plone the UI?
 
 We use METAL (Macro Extension to TAL) to define slots that we can fill and macros that we can reuse.
 
@@ -819,7 +858,7 @@ And then wrap the code we want to put in the content area of Plone in:
 
 This will put our code in a section defined in the main_template called "content-core".
 
-The template should now look like below when we exlude the last exercise.
+The template should now look like below when we exclude the last exercise.
 
 Here also added the css-class `listing` to the table. It is one of many css-classes used by Plone that you can reuse in your projects:
 
@@ -910,7 +949,8 @@ Which is the same as:
             Instead of this the content of the macro will appear...
         </div>
 
-Restart your Plone instance from the command line, and then open http://localhost:8080/Plone/@@training to see this macro being used in our @@training browser view template.
+Restart your Plone instance from the command line, and then open http://localhost:8080/Plone/@@training to see this macro
+being used in our @@training browser view template.
 
 .. _tal-access-plone-label:
 
@@ -962,7 +1002,8 @@ If we refer to content objects, without using the nocall: modifier these objects
 ``i18n:translate`` and ``i18n:domain``
     the strings we put in templates can be translated automatically.
 
-There is a lot more about TAL, TALES and METAL that we have not covered. You'll only learn it if you keep reading, writing and customizing templates.
+There is a lot more about TAL, TALES and METAL that we have not covered.
+You'll only learn it if you keep reading, writing and customizing templates.
 
 .. seealso::
 
