@@ -58,7 +58,7 @@ Views
     Some may be *visual* — intended for display as web pages — others may be intended to satisfy AJAX requests and render content in formats like JSON or XML.
 
 
-.. _dexterity1-comparison-label:
+.. _dexterity1-comparison-label-ttw:
 
 Dexterity And Archetypes
 ========================
