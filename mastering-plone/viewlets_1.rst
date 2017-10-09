@@ -27,7 +27,8 @@ A viewlet for the social behavior
 
 .. only:: not presentation
 
-    A viewlet is not a view but a snippet of HTML and logic that can be put in various places in the site. These places are called ``viewletmanager``.
+    A viewlet is not a view but a snippet of HTML and logic that can be put in various places in the site.
+    These places are called ``viewletmanager``.
 
 * Inspect existing viewlets and their managers by going to http://localhost:8080/Plone/@@manage-viewlets.
 * We already customized a viewlet (:file:`colophon.pt`). Now we add a new one.
@@ -58,13 +59,15 @@ We register the viewlet in :file:`browser/configure.zcml`.
       permission="zope2.View"
       />
 
-``for``, ``manager``, ``layer`` and ``permission`` are constraints that limit the contexts in which the viewlet is loaded and rendered, by filtering out all the contexts that do not match those constraints.
+``for``, ``manager``, ``layer`` and ``permission`` are constraints that limit the contexts in which the viewlet is loaded and rendered,
+by filtering out all the contexts that do not match those constraints.
 
 .. only:: not presentation
 
     This registers a viewlet called ``social``.
     It is visible on all content that implements the interface :py:class:`ISocial` from our behavior.
-    It is also good practice to bind it to a specific ``layer``, so it only shows up if our add-on is actually installed.  We will return to this in a later chapter.
+    It is also good practice to bind it to a specific ``layer``, so it only shows up if our add-on is actually installed.
+    We will return to this in a later chapter.
 
 The viewlet class :py:class:`SocialViewlet` is expected in a file :file:`browser/viewlets.py`.
 
@@ -101,9 +104,11 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
 
 .. only:: not presentation
 
-    As you can see this is not a valid HTML document. That is not needed, because we don't want a complete view here, just a html snippet.
+    As you can see this is not a valid HTML document.
+    That is not needed, because we don't want a complete view here, a HTML snippet is enough.
 
-    There is a :samp:`tal:define` statement, querying for :samp:`view/lanyrd_link`. Same as for views, viewlets have access to their class in page templates, as well.
+    There is a :samp:`tal:define` statement, querying for :samp:`view/lanyrd_link`.
+    Same as for views, viewlets have access to their class in page templates, as well.
 
 We have to extend the Social Viewlet now to add the missing attribute:
 
@@ -112,7 +117,8 @@ We have to extend the Social Viewlet now to add the missing attribute:
 
     .. sidebar:: Why not to access context directly
 
-        In this example, :samp:`ISocial(self.context)` does return the context directly. It is still good to use this idiom for two reasons:
+        In this example, :samp:`ISocial(self.context)` does return the context directly.
+        It is still good to use this idiom for two reasons:
 
           #. It makes it clear that we only want to use the ISocial aspect of the object
           #. If we decide to use a factory, for example to store our attributes in an annotation, we would `not` get back our context, but the adapter.
@@ -144,7 +150,10 @@ So far, we
 Exercise 1
 ----------
 
-Register a viewlet 'number_of_talks' in the footer that is only visible to admins (the permission you are looking for is :py:class:`cmf.ManagePortal`). Use only a template (no class) to display the number of talks already submitted. Hint: Use Acquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
+Register a viewlet 'number_of_talks' in the footer that is only visible to admins (the permission you are looking for is :py:class:`cmf.ManagePortal`).
+Use only a template (no class) to display the number of talks already submitted.
+
+Hint: Use Acquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
 
 ..  admonition:: Solution
     :class: toggle
@@ -220,7 +229,10 @@ Register a viewlet 'number_of_talks' in the footer that is only visible to admin
 Exercise 2
 ----------
 
-Register a viewlet 'days_to_conference' in the header. Use a class and a template to display the number of days until the conference. You get bonus points if you display it in a nice format (think "In 2 days" and "Last Month") by using either javascript or a python library.
+Register a viewlet 'days_to_conference' in the header.
+Use a class and a template to display the number of days until the conference.
+
+You get bonus points if you display it in a nice format (think "In 2 days" and "Last Month") by using either JavaScript or a Python library.
 
 ..  admonition:: Solution
     :class: toggle
