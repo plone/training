@@ -63,3 +63,19 @@ Glossary
    Dublin Core
       The Dublin Core Schema is a small set of vocabulary terms that can be used to describe web resources
       (video, images, web pages, etc.), as well as physical resources such as books or CDs, and objects like artworks.
+
+   Rapido application
+       It contains the features you implement;
+       it is a folder containing templates, Python code, and YAML files.
+
+   block
+       Blocks display a chunk of HTML which can be inserted in your Plone pages.
+
+   element
+       Elements are the dynamic components of your blocks.
+       They can be input fields, buttons, or computed HTML.
+       They can also return JSON if you call them from a JavaScript app,
+
+   record
+       A Rapido app is able to store data as records.
+       Records are basic dictionaries.

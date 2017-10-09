@@ -548,8 +548,8 @@ Modify the following template and one by one solve the following problems:
     :class: toggle
 
     .. code-block:: html
-       :linenos:
         :emphasize-lines: 21
+        :linenos:
 
         <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                           'subjects': ('content-types', 'dexterity')},

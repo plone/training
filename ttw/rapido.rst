@@ -111,7 +111,7 @@ Principles
 
 .. only:: not presentation
 
-    Rapido :dfn:`application`
+    :dfn:`Rapido application`
         It contains the features you implement;
         it is a folder containing templates, Python code, and YAML files.
 
