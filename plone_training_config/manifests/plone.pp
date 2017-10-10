@@ -53,30 +53,32 @@ extends-cache = /home/ubuntu/buildout-cache/extends'),
         creates => '/home/ubuntu/py27/bin/buildout',
         user => 'ubuntu',
         cwd => '/home/ubuntu',
-        before => Exec["checkout_training"],
+        before => Exec["download_buildout_cache"],
         timeout => 0,
     }
 
-    ## Download the buildout-cache from dist.plone.org - XXX training_buildout now uses 5.1rc1 but there is no buildout cache dl for this release
-    #exec {"wget http://dist.plone.org/release/${plone_version}/buildout-cache.tar.bz2":
-    #    alias => "download_buildout_cache",
-    #    creates => "/home/ubuntu/buildout-cache.tar.bz2",
-    #    cwd => '/home/ubuntu',
-    #    user => 'ubuntu',
-    #    group => 'ubuntu',
-    #    before => Exec["unpack_buildout_cache"],
-    #    timeout => 600,
-    #}
+    # Download the buildout-cache from dist.plone.org
+    # Try only once and rely on wget's default read timeout of 900s
+    exec {"wget -t 1 http://dist.plone.org/release/${plone_version}/buildout-cache.tar.bz2":
+        alias => "download_buildout_cache",
+        creates => "/home/ubuntu/buildout-cache.tar.bz2",
+        cwd => '/home/ubuntu',
+        user => 'ubuntu',
+        group => 'ubuntu',
+        before => Exec["unpack_buildout_cache"],
+        returns => [0,8], # no error if tarball is unavailable
+    }
 
-    ## Unpack the buildout-cache to /home/ubuntu/buildout-cache/
-    #exec {"tar xjf /home/ubuntu/buildout-cache.tar.bz2":
-    #    alias => "unpack_buildout_cache",
-    #    creates => "/home/ubuntu/buildout-cache/eggs/Products.CMFPlone-${plone_version}-py2.7.egg/",
-    #    user => 'ubuntu',
-    #    cwd => '/home/ubuntu',
-    #    before => Exec["checkout_training"],
-    #    timeout => 0,
-    #}
+    # Unpack the buildout-cache to /home/ubuntu/buildout-cache/
+    exec {"tar xjf /home/ubuntu/buildout-cache.tar.bz2":
+        alias => "unpack_buildout_cache",
+        creates => "/home/ubuntu/buildout-cache/eggs/Products.CMFPlone-${plone_version}-py2.7.egg/",
+        user => 'ubuntu',
+        cwd => '/home/ubuntu',
+        before => Exec["checkout_training"],
+        timeout => 0,
+        onlyif => "test -f /home/ubuntu/buildout-cache.tar.bz2" # managed to dowload the tarball
+    }
 
     # get training buildout, xenial branch
     exec {'git clone https://github.com/collective/training_buildout.git buildout':
