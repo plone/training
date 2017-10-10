@@ -9,11 +9,10 @@ In this part you will:
 
 Topics covered:
 
-* Skin folders
-* GenericSetup
 * Component Architecture
 * ZCML
-
+* GenericSetup
+* Skin folders
 
 Zope is extensible and so is Plone.
 
@@ -42,32 +41,67 @@ This depends on what type of extension you want to create.
     * You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures searchable by adding a converter from jpg to text.
 
 
-Skin Folders
-^^^^^^^^^^^^
+Component Architecture
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. only:: presentation
 
-    * Very old style
-    * Very quick
-    * Very unmaintainable
+    * State of the art
+    * verbose
+    * cryptic
+    * Powerful and flexible
 
 .. only:: not presentation
 
-    Do you remember Acquisition? The Skin Folders extends the concepts of Acquisition. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder.
+    The best way to extend Plone is via *Components*.
 
-    The Plone logo is in a skin folder.
+    A bit of history is in order.
 
-    By default, your site has a ``custom`` folder, and items are first searched for in that folder.
+    When Zope started, object-oriented design was **the** silver bullet.
 
-    To customize the logo, you copy it into the ``custom`` folder, and change it there. This way you can change templates, CSS styles, images and behavior, because a container may contain Python scripts.
+    Object-oriented design is good at modeling inheritance, but breaks down when an object has multiple aspects that are part of multiple taxonomies.
 
-    Skin-folder style customization may be accomplished TTW via the ZMI, or with add-on packages. Many older-style packages create their own skin folder and add it to the skin layer for Plone when installed.
+    Some object-oriented programming languages like Python handle this through multiple inheritance. But it's not a good way to do it. Zope objects have more than 10 base classes. Too many namespaces makes code that's hard to maintain. Where did that method/attribute come from?
+
+    After a while, XML and Components became the next silver bullet (Does anybody remember J2EE?).
+
+    Based on their experiences with Zope in the past, Zope developers thought that a component system configured via XML might be the way to go to keep the code more maintainable.
+
+    Before Zope Components functionality was often extended by a practice called Monkey Patching: Changing code in other modules by importing and then modifying it at runtime.
+
+    Monkey Patching, like subclassing via multiple inheritance, does not scale. Multiple plugins might overwrite each other, you would explain to people that they have to reorder the imports, and then, suddenly, you will be forced to import feature A before B, B before C and C before A, or else your application won't work.
+
+    As the new concepts were radically different from the old Zope concepts, the Zope developers renamed the new project to Zope 3. But it did not gain traction, the community somehow renamed it to Bluebream and this died off.
+
+    But the component architecture itself is quite successful and the Zope developers extracted it into the Zope Toolkit. The Zope toolkit is part of Zope, and Plone developers use it extensively.
+
+    This is what you want to use.
+
+
+.. _extending-components-label:
+
+Configuring Zope Components with ZCML
+-------------------------------------
 
 .. only:: not presentation
 
-    .. warning::
+    ZCML, the Zope Configuration Mark-up Language is an XML based language used to configure Zope Components. With ZCML you declare utilities, adapters and browser views.
 
-        This is deprecated technology.
+    Components are distinguished from one another by the interfaces (formal definitions of functionality) that they require or provide.
+
+    During startup, Zope reads all these ZCML statements, validates that there are not two declarations trying to register the same components and only then registers everything. All components are registered by interfaces required and provided. Components with the same interfaces may optionally also be named.
+
+    This is a good thing. ZCML is, by the way, only *one* way to declare your configuration.
+
+    Grok provides another way, where some Python magic allows you to use decorators to register Python classes and functions as components. You can use ZCML and Grok together if you wish.
+
+    Some like Grok because it allows you to do nearly everything in your Python source files. No additional XML wiring required. If you're XML-allergic, Grok is your ticket to Python nirvana.
+
+    Not everybody loves Grok. Some parts of the Plone community think that there should only be one configuration language, others are against adding the relative big dependency of Grok to Plone. One real problem is the fact that you cannot customize components declared with grok with jbot (which we'll discuss later). Grok is not allowed in the Plone core for these reasons.
+
+    The choice to Grok or not to Grok is yours to make. In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to get maximum acceptance.
+
+    Personally, I just find it cumbersome but even for me as a developer it offers a nice advantage: thanks to ZCML, I hardly ever have a hard time to find what and where extensions or customizations are defined. For me, ZCML files are like a phone book.
 
 
 GenericSetup
@@ -94,73 +128,29 @@ GenericSetup
     GenericSetup profiles may also be built into Python packages. Every package that is listed on the add-on package list inside a Plone installation has a GS profile that details how it fits into Plone. Packages that are part of Plone itself may have GS profiles, but are excluded from the active/inactive listing.
 
 
-Component Architecture
-^^^^^^^^^^^^^^^^^^^^^^
+Deprecated: Skin Folders
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. only:: presentation
 
-    * State of the art
-    * verbose
-    * cryptic
-    * Powerful and flexible
+    * Very old style
+    * Very quick
+    * Very unmaintainable
 
 .. only:: not presentation
 
-    The last way to extend Plone is via *Components*.
+    Do you remember Acquisition? The Skin Folders extends the concepts of Acquisition. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder.
 
-    A bit of history is in order.
+    The Plone logo is in a skin folder.
 
-    When Zope started, object-oriented design was **the** silver bullet.
+    By default, your site has a ``custom`` folder, and items are first searched for in that folder.
 
-    Object-oriented design is good at modeling inheritance, but breaks down when an object has multiple aspects that are part of multiple taxonomies.
+    To customize the logo, you copy it into the ``custom`` folder, and change it there. This way you can change templates, CSS styles, images and behavior, because a container may contain Python scripts.
 
-    Some object-oriented programming languages like Python handle this through multiple inheritance. But it's not a good way to do it. Zope objects have more than 10 base classes. Too many namespaces makes code that's hard to maintain. Where did that method/attribute come from?
-
-    After a while, XML and Components became the next silver bullet (Does anybody remember J2EE?).
-
-    Based on their experiences with Zope in the past, Zope developers thought that a component system configured via XML might be the way to go to keep the code more maintainable.
-
-    As the new concepts were radically different from the old Zope concepts, the Zope developers renamed the new project to Zope 3. But it did not gain traction, the community somehow renamed it to Bluebream and this died off.
-
-    But the component architecture itself is quite successful and the Zope developers extracted it into the Zope Toolkit. The Zope toolkit is part of Zope, and Plone developers use it extensively.
-
-    This is what you want to use.
-
-
-.. _extending-components-label:
-
-What are components, what is ZCML
----------------------------------
+    Skin-folder style customization may be accomplished TTW via the ZMI, or with add-on packages. Many older-style packages create their own skin folder and add it to the skin layer for Plone when installed.
 
 .. only:: not presentation
 
-    What is the absolute simplest way to extend functionality?
+    .. warning::
 
-    Monkey Patching.
-
-    It means that you change code in other files while my file gets loaded.
-
-    If you want to have an extensible registry of icons for different contenttypes, you could create a global dictionary, and whoever implements a new icon for a different content type would add an entry to my dictionary during import time.
-
-    This approach, like subclassing via multiple inheritance, does not scale. Multiple plugins might overwrite each other, you would explain to people that they have to reorder the imports, and then, suddenly, you will be forced to import feature A before B, B before C and C before A, or else your application won't work.
-
-    The Zope Component Architecture with its ZCML configuration is an answer to these problems.
-
-    With ZCML you declare utilities, adapters and browser views in ZCML, which is an XML dialect. ZCML stands for Zope Component Markup Language.
-
-    Components are differentiated from one another by the interfaces (formal definitions of functionality) that they require or provide.
-
-    During startup, Zope reads all these ZCML statements, validates that there are not two declarations trying to register the same components and only then registers everything. All components are registered by interfaces required and provided. Components with the same interfaces may optionally also be named.
-
-    This is a good thing. ZCML is, by the way, only *one* way to declare your configuration.
-
-    Grok provides another way, where some Python magic allows you to use decorators to register Python classes and functions as components. You can use ZCML and Grok together if you wish.
-
-    Some like Grok because it allows you to do nearly everything in your Python source files. No additional XML wiring required. If you're XML-allergic, Grok is your ticket to Python nirvana.
-
-    Not everybody loves Grok. Some parts of the Plone community think that there should only be one configuration language, others are against adding the relative big dependency of Grok to Plone. One real problem is the fact that you cannot customize components declared with grok with jbot (which we'll discuss later). Grok is not allowed in the Plone core for these reasons.
-
-    The choice to Grok or not to Grok is yours to make. In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to get maximum acceptance.
-
-    Personally, I just find it cumbersome but even for me as a developer it offers a nice advantage: thanks to ZCML, I hardly ever have a hard time to find what and where extensions or customizations are defined. For me, ZCML files are like a phone book.
-
+        This is deprecated technology.
