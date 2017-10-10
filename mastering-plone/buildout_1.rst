@@ -93,7 +93,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
     [buildout]
     extends =
-        http://dist.plone.org/release/5.0.6/versions.cfg
+        http://dist.plone.org/release/5.1rc1/versions.cfg
         versions.cfg
     extends-cache = extends-cache
 
@@ -106,7 +106,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     # The directory this buildout is in. Modified when using vagrant.
     buildout_dir = ${buildout:directory}
 
-    # We want to checkouts these eggs directly from GitHub
+    # We want to checkouts these eggs directly from github
     auto-checkout =
         ploneconf.site
     #    starzel.votable_behavior
@@ -185,7 +185,10 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
     [zopepy]
     recipe = zc.recipe.egg
-    eggs = ${buildout:eggs}
+    eggs =
+        ${buildout:eggs}
+    # need to explicitly mention Products.CMFPlone in order for plone-compile-resources to be found
+        Products.CMFPlone
     interpreter = zopepy
     scripts =
         zopepy
@@ -202,6 +205,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     ploneconf.site = git https://github.com/collective/ploneconf.site.git pushurl=git@github.com:collective/ploneconf.site.git
     starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
 
+
 When you run :command:`./bin/buildout` without any arguments, Buildout will look for this file.
 
 .. only:: not presentation
@@ -213,7 +217,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
     .. code-block:: cfg
 
         extends =
-            http://dist.plone.org/release/5.0.6/versions.cfg
+            http://dist.plone.org/release/5.1rc1/versions.cfg
 
     This line tells Buildout to read another configuration file. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configurations that differ between different environments.
 
@@ -256,14 +260,11 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
 
         [versions]
         # dev tools
-        mr.developer = 1.34
         Products.PDBDebugMode = 1.3.1
         corneti.recipes.codeintel = 0.3
-        plone.app.debugtoolbar = 1.1.1
-        z3c.jbot = 0.7.2
         Products.PrintingMailHost = 1.0
 
-        # pins for some Addons
+        # pins for Addons
         collective.easyform = 2.0.0b2
 
     This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file :file:`versions.cfg`.
