@@ -15,9 +15,8 @@ At conferences a shortened 2-day version of the advanced training with a slightl
 
 
 ..  toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :numbered:
-    :hidden:
     :caption: Mastering Plone
 
     about_mastering
@@ -72,9 +71,3 @@ Please note that this document is *not complete* without the spoken word of a tr
 
 Even though we attempt to include the most important parts of what we teach in the narrative but
 reading it here can in no way be considered equal to attending a training.
-
-
-..  toctree::
-    :maxdepth: 2
-
-    ../CHANGES
