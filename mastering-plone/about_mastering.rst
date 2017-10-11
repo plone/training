@@ -26,6 +26,7 @@ Previous Trainings
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
+* `Ploneconf 2017 in Barcelona <https://2017.ploneconf.org/>`_
 * `Ploneconf 2016 in Boston <https://2016.ploneconf.org/>`_
 * October 2015, Bucharest
 * `March 2015, Munich <https://www.starzel.de/leistungen/training/>`_

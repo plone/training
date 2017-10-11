@@ -59,10 +59,10 @@ Now you can run the buildout for the first time:
 
 .. code-block:: bash
 
-    $ ./py27/bin/python bootstrap.py
+    $ ./py27/bin/pip install -r requirements.txt
     $ ./bin/buildout
 
-This will take some time and produce a lot of output because it downloads and configures Plone. Once it is done you can start your instance with
+This will take a lot of time and produce a lot of output because it downloads and configures Plone. Once it is done you can start your instance with
 
 .. code-block:: bash
 
