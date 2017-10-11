@@ -24,7 +24,7 @@ First we need a Home component. Let's initialize it properly.
 
         ...
 
-        this.traverser.addView('view', 'Plone Site', HomeComponent);
+        this.services.traverser.addView('view', 'Plone Site', HomeComponent);
 
 
 We want this component to display the 3 most recent news.

@@ -56,10 +56,10 @@ Let's implement the Footer component able to display those links.
 
         links: any[] = [];
 
-        constructor(public plone: Services) { }
+        constructor(public services: Services) { }
 
         ngOnInit() {
-          this.plone.resource.find(
+          this.services.resource.find(
             { portal_type: 'Link' },
             '/quicklinks',
             { fullobjects: true }

@@ -80,10 +80,10 @@ And lastly, let's associate this component to the ``talk`` content type as its d
    export class AppComponent {
      constructor(
        public views: PloneViews,
-       public plone: Services,
+       public services: Services,
      ) {
        this.views.initialize();
-       this.plone.traverser.addView('view', 'talk', TalkComponent);
+       this.services.traverser.addView('view', 'talk', TalkComponent);
      }
    }
 

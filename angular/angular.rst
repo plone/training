@@ -451,7 +451,7 @@ Now we can fix the main component markup in ``src/app/app.component.html``:
 Note we use our custom global navigation component (``app-global-navigation``)
 but we keep the Plone default breadcrumbs component (``plone-breadcrumbs``) as its markup is fine.
 
-We need to style it a little bit, let's do that in :file:`src/styles.scss`:
+We need to style it a little bit, let's add that in :file:`src/styles.scss`:
 
 .. code-block:: scss
 
@@ -616,7 +616,7 @@ First we need a Home component. Let's initialize it properly.
 
         ...
 
-        this.traverser.addView('view', 'Plone Site', HomeComponent);
+        this.services.traverser.addView('view', 'Plone Site', HomeComponent);
 
 
 We want this component to display the 3 most recent news.
@@ -984,10 +984,10 @@ Let's implement the Footer component able to display those links.
 
         links: any[] = [];
 
-        constructor(public plone: Services) { }
+        constructor(public services: Services) { }
 
         ngOnInit() {
-          this.plone.resource.find(
+          this.services.resource.find(
             { portal_type: 'Link' },
             '/quicklinks',
             { fullobjects: true }
