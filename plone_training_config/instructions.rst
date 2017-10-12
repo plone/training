@@ -243,7 +243,7 @@ This will only repeat steps that have not finished correctly.
 
 .. code-block:: console
 
-vagrant provision
+   vagrant provision
 
 You can do this multiple times to fix problems, e.g. if your network connection was down and steps could not finish because of this.
 
