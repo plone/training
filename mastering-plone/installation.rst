@@ -22,7 +22,7 @@ Installing Plone
      4.2.x       2.6 or 2.7
      4.3.x       2.7
      5.0.x       2.7
-     5.1.x       2.7
+     5.1.x       2.7.9
     ==========  ==============
 
     (Hopefully you won't have to deal with any Plone sites older than version 4.3.x)

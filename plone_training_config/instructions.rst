@@ -20,6 +20,10 @@ Installing Plone without vagrant
 
     If you are **not** used to running Plone on your laptop skip this part and continue with :ref:`install-virtualbox`.
 
+.. warning::
+
+    To run Plone 5.1 you at least need Python 2.7.9!
+
 If you **are** experienced with running Plone on your own laptop, we encourage you to do so because you will have certain benefits:
 
 * You can use the editor you are used to.
@@ -35,11 +39,19 @@ If you feel comfortable, please work on your own machine with your own Python. B
 
 .. note::
 
-    Please make sure you have your system properly prepared and installed all necessary prerequisites. For example, on Ubuntu/Debian, you need to install the following::
+    Please make sure you have your system properly prepared and installed all necessary prerequisites. For example, on Ubuntu/Debian, you need to install the following:
+
+    .. code-block:: shell-session
 
         sudo apt-get install python-setuptools python-virtualenv python-dev build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
         sudo apt-get install libreadline-dev wv poppler-utils
         sudo apt-get install git
+
+    On macOS you at least need to install some dependencies with homebrew::
+
+    .. code-block:: shell-session
+
+        brew install zlib git readline jpeg libpng libyaml
 
     For more information or in case of problems see the `official installation instructions <https://docs.plone.org/manage/installing/installation.html>`_.
 
@@ -53,16 +65,18 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
     $ cd training
     $ git clone https://github.com/collective/training_buildout.git buildout
     $ cd buildout
-    $ virtualenv --python=python2.7 py27
+    $ virtualenv --python=python2.7 .
+    $ ./bin/pip install -r requirements.txt
+
+This creates a virtualenv with Python 2.7 in the folder :file:`buildout` and installs some requirements in it.
 
 Now you can run the buildout for the first time:
 
 .. code-block:: bash
 
-    $ ./py27/bin/pip install -r requirements.txt
     $ ./bin/buildout
 
-This will take a lot of time and produce a lot of output because it downloads and configures Plone. Once it is done you can start your instance with
+This will take a very lot of time and produce a lot of output because it downloads and configures more than 260 Python packages. Once it is done you can start your Plone instance with
 
 .. code-block:: bash
 
