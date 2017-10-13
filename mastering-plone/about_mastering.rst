@@ -145,7 +145,7 @@ Exercises
 
 Some additional JavaScript shows hidden solutions for exercises by clicking.
 
-Perpend the solution with this markup::
+Prepend the solution with this markup::
 
     ..  admonition:: Solution
         :class: toggle
