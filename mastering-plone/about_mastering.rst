@@ -117,7 +117,7 @@ default
     Build it in sphinx with ``make html`` or use the online version.
 
 presentation
-    A abbreviated version used for the projector during a training.
+    An abbreviated version used for the projector during a training.
     It should use more bullet points than verbose text.
     Build it in sphinx with ``make presentation``.
 
