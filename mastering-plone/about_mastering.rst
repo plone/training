@@ -110,16 +110,16 @@ Using the documentation for a training
 Feel free to organize a training yourself.
 Please be so kind to contribute any bug fixes or enhancements you made to the documentation for your training.
 
-The training is rendered using sphinx and builds in two flavors:
+The training is rendered using Sphinx and builds in two flavors:
 
 default
     The verbose version used for the online documentation and for the trainer.
-    Build it in sphinx with ``make html`` or use the online version.
+    Build it in Sphinx with ``make html`` or use the online version.
 
 presentation
     A abbreviated version used for the projector during a training.
     It should use more bullet points than verbose text.
-    Build it in sphinx with ``make presentation``.
+    Build it in Sphinx with ``make presentation``.
 
 .. note::
 
