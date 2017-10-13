@@ -304,10 +304,10 @@ Train the trainer
 -----------------
 
 If you are a trainer there is a special mini training about giving technical trainings.
-We really want this material to be used, re-used, expanded and improved by Plone trainers world wide.
+We really want this material to be used, re-used, expanded, and improved by Plone trainers world wide.
 
-These chapters don't contain any Plone specific advice, there's background, theory,
-check lists and tips for anyone trying to teach technical subjects.
+These chapters don't contain any Plone specific advice.
+There's background, theory, check lists, and tips for anyone trying to teach technical subjects.
 
 :doc:`../teachers-training/index`
 
