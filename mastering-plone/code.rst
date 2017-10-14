@@ -185,4 +185,4 @@ The final result should look like this:
 .. figure:: ../_static/code_tree.png
    :align: center
 
-I earlier versions we used a folder-based such as in https://github.com/collective/ploneconf.site_sneak. It proved to be a lot a lot of work to maintain that.
+In earlier versions we used a folder-based such as in https://github.com/collective/ploneconf.site_sneak. It proved to be a lot a lot of work to maintain that.
