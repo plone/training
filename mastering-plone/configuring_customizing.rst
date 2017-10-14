@@ -107,12 +107,12 @@ Example:
 * Go to http://localhost:8080/Plone/@@manage-portlets
 * Add a static portlet "Sponsors" on the right side.
 * Remove the news portlet and add a new one on the left side.
-* Go to the training folder: http://localhost:8080/Plone/the-event/training and click ``Manage portlets``
+* Go to the training folder: http://localhost:8080/Plone/the-event/training and click :guilabel:`Manage portlets`
 * Add a static portlet. "Featured training: Become a Plone-Rockstar at Mastering Plone!"
 * Use the toolbar to configure the portlets of the footer:
 
   * Hide the portlets "Footer" and "Colophon".
-  * Add a "Static text portlet" enter "Copyright 2015 by Plone Community".
+  * Add a :guilabel:`Static text portlet` and enter "Copyright 2015 by Plone Community".
   * Use :menuselection:`Insert --> Special Character` to add a real © sign.
   * You could turn that into a link to a copyright page later.
 
@@ -161,7 +161,7 @@ Actions (portal_actions)
 ************************
 
 * Actions are mostly links. But **really flexible** links.
-* Actions are configurable ttw and through code.
+* Actions are configurable TTW (Through-The-Web) and through code.
 * These actions are usually iterated over in viewlets and displayed.
 
 Examples:
@@ -184,10 +184,10 @@ Actions have properties like:
 
 These are the links at the bottom of the page:
 
-* Site Map
-* Accessibility
-* Contact
-* Site Setup
+* :guilabel:`Site Map`
+* :guilabel:`Accessibility`
+* :guilabel:`Contact`
+* :guilabel:`Site Setup`
 
 We want a new link to legal information, called "Imprint".
 
@@ -203,7 +203,7 @@ We want a new link to legal information, called "Imprint".
   explain
 
 * Check if the link is on the page
-* Create new Document `Imprint` and publish
+* Create new Document "Imprint" and publish
 
 .. seealso::
 

@@ -161,7 +161,7 @@ Actions (portal_actions)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Actions are mostly links. But **really flexible** links.
-* Actions are configurable TTW (Trough-The-Web) and through code.
+* Actions are configurable TTW (Through-The-Web) and through code.
 * These actions are usually iterated over in viewlets and displayed.
 
 Examples:
@@ -232,8 +232,9 @@ If time explain:
 * user > login/logout
 
 
-Skins
-~~~~~
+Skins (``portal_skins``)
+************************
+
 
 In ``portal_skins`` we can change certain images, CSS-files and templates.
 
