@@ -91,6 +91,8 @@ modify :file:`buildout.cfg` to have Plone expect the egg :py:mod:`ploneconf.site
     ploneconf.site = git https://github.com/collective/ploneconf.site.git
 
 
+Tags
+----
 
 These are the tags for which there is code:
 
@@ -141,3 +143,46 @@ Chapter                           Tag-Name
 :doc:`deployment_sites`
 
 ==============================    ===============================
+
+Updating the code-package
+-------------------------
+
+This section if for training who want to update the code in :py:mod:`ploneconf.site` wfter changing something in the training documentation.
+
+The current model uses only one branch of commits and maintains the integrity through rebases.
+
+It goes like this:
+
+* Only one one branch (master)
+* Write the code for chapter 1 and commit
+* Write the code for chapter 2 and commit
+* Add the code for chapter 3 and commit
+* You realize that something or wrong in chapter 1
+* You branch off at the commit id for chapter 1
+  `git checkout -b temp 123456`
+* You cange the code and do a commit.
+  `git commit -am 'Changed foo to also do bar'`
+* Switch to master and rebase on the branch holding the fix which will inject your new commit into master at the right place:
+  `git checkout master`
+  `git rebase temp`
+  That inserts the changes into master in the right place. You only maintain a master branch that is a sequence of commits.
+* You then can update your chapter-docs to point to the corresponding commit ids:
+  chapter one: `git checkout 121431243`
+  chapter two: `git checkout 498102980`
+
+Additionally you can
+
+* set tags on the respective commits and move the tags. This way the docs do not need to change
+* squash the commits between the chapters to every chapter is one commit.
+
+To move tags after changes you do:
+
+* Move a to another commit: `git tag -a <tagname> <commithash> -f`
+* Move the tag on the server `git push --tags -f`
+
+The final result should look like this:
+
+.. figure:: ../_static/code_tree.png
+   :align: center
+
+I earlier versions we used a folder-based such as in https://github.com/collective/ploneconf.site_sneak. It proved to be a lot a lot of work to maintain that.

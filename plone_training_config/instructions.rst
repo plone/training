@@ -170,19 +170,7 @@ Install and configure Vagrant
 
 Get the latest version from https://www.vagrantup.com/downloads.html for your operating system and install it.
 
-.. note::
-
-    In Windows there is a bug in the recent version of Vagrant.
-    Here are the instructions for how to work around the warning ``Vagrant could not detect VirtualBox!
-
-    Make sure VirtualBox is properly installed``.
-
 Now your system has a command :command:`vagrant` that you can run in the terminal.
-
-.. note::
-
-    You don't need to install ``NodeJS`` as mentioned in the previous section. Our Vagrant configuration already does that for you.
-
 
 First, create a directory in which you want to do the training.
 

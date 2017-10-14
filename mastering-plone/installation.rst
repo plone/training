@@ -51,7 +51,7 @@ Installing Plone
 Most developers use their primary system to develop Plone.
 For complex setups they often use Linux virtual machines.
 
-* macOS: Use the system python and `Homebrew <https://docs.brew.sh/Installation.html>`_ for some missing Linux tools.
+* macOS: Use the system python and `Homebrew <https://brew.sh>`_ for some missing Linux tools.
 * Linux: Depending on your Linux flavor you might have to build python yourself and install some tools.
 * Windows: Alan Runyan (one of Plone's founders) uses it. A downside: Plone seems to be running slower on Windows.
 
