@@ -6,6 +6,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Note that ploneconf.site_sneak is being replaced [jean]
+
 - Add missing Build step [jean]
 
 - Fix some more Sphinx warnings [jean]
