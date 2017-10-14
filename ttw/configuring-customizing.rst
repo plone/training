@@ -157,8 +157,8 @@ Zope is the foundation of Plone. Here you can access the inner workings of Zope 
     At some point you'll have to learn what all those objects are about. But not today.
 
 
-Actions (portal_actions)
-~~~~~~~~~~~~~~~~~~~~~~~~
+Actions (:guilabel:`portal_actions`)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Actions are mostly links. But **really flexible** links.
 * Actions are configurable TTW (Through-The-Web) and through code.
@@ -166,8 +166,8 @@ Actions (portal_actions)
 
 Examples:
 
-* Links in the Footer (``site_actions``)
-* Actions Dropdown (``folder_buttons``)
+* Links in the Footer (:guilabel:`site_actions`)
+* Actions Dropdown (:guilabel:`folder_buttons`)
 
 Actions have properties like:
 
@@ -179,8 +179,8 @@ Actions have properties like:
 
 
 
-``site_actions``
-^^^^^^^^^^^^^^^^
+:guilabel:`site_actions`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 These are the links at the bottom of the page:
 
@@ -191,8 +191,9 @@ These are the links at the bottom of the page:
 
 We want a new link to legal information, called "Imprint".
 
-* Go to ``site_actions`` (we know that because we checked in ``@@manage-viewlets``)
+* Go to :guilabel:`site_actions` (we know that because we checked in ``@@manage-viewlets``)
 * Add a CMF Action ``imprint``
+* Set the *Title* to ``Imprint`` (this will be the link text)
 * Set URL to ``string:${portal_url}/imprint``
 * Leave *condition* empty
 * Set permission to ``View``
@@ -213,16 +214,16 @@ We want a new link to legal information, called "Imprint".
 Global Navigation
 ~~~~~~~~~~~~~~~~~
 
-* The horizontal navigation is called ``portal_tabs``
-* Go to :menuselection:`portal_actions --> portal_tabs` `Link <http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main>`_
+* The horizontal navigation is called :guilabel:`portal_tabs`
+* Go to :menuselection:`portal_actions --> portal_tabs` (`link <http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main>`_)
 * Edit ``index_html``
 
 Where is the navigation?
 
 The navigation shows content-objects, which are in Plone's root.
-Plus all actions in ``portal_tabs``.
+Plus all actions in :guilabel:`portal_tabs`.
 
-Explain & edit ``index_html``
+Explain & edit ``index_html``.
 
 Configuring the navigation itself is done elsewhere: http://localhost:8080/Plone/@@navigation-controlpanel
 
@@ -236,18 +237,18 @@ Skins (``portal_skins``)
 ************************
 
 
-In ``portal_skins`` we can change certain images, CSS-files and templates.
+In :guilabel:`portal_skins` we can change certain images, CSS-files and templates.
 
-* ``portal_skins`` is deprecated technology
-* Plone 5 got rid of most files that lived in ``portal_skins``.
+* :guilabel:`portal_skins` is deprecated technology
+* Plone 5 got rid of most files that lived in :guilabel:`portal_skins`.
 
 
 Change Some CSS
 ~~~~~~~~~~~~~~~
 
 * Go to ZMI
-* Go to ``portal_skins``
-* Go to ``plone_styles``
+* Go to :guilabel:`portal_skins`
+* Go to :guilabel:`plone_styles`
 * Go to :file:`ploneCustom.css`
 * Click :guilabel:`customize`
 
@@ -260,7 +261,7 @@ Portal View Customizations
 Change the footer
 ^^^^^^^^^^^^^^^^^
 
-* Go to ``portal_view_customizations``
+* Go to :guilabel:`portal_view_customizations`
 * Search ``plone.footer``, and click :guilabel:`Customize`
 * Replace the content with the following
 
@@ -268,7 +269,7 @@ Change the footer
 
      <div i18n:domain="plone"
           id="portal-footer">
-        <p>&copy; 2016 by me! |
+        <p>&copy; 2017 by me! |
           <a href="mailto:info@ploneconf.org">
            Contact us
           </a>
