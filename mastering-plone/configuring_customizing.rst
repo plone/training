@@ -113,7 +113,7 @@ Example:
 
   * Hide the portlets "Footer" and "Colophon".
   * Add a "Static text portlet" enter "Copyright 2015 by Plone Community".
-  * Use "Insert > Special Character" to add a real © sign.
+  * Use :menuselection:`Insert --> Special Character` to add a real © sign.
   * You could turn that into a link to a copyright page later.
 
 
