@@ -86,8 +86,8 @@ But to deploy Rapido on an actual Plone instance, modify :file:`buildout.cfg` to
 .. code-block:: ini
 
    eggs =
-   ...
-   rapido.plone
+       ...
+       rapido.plone
 
 Run your buildout:
 
