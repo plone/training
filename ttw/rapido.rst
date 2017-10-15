@@ -944,7 +944,7 @@ We will need to:
             if record:
                 record['total'] = 0
 
-    - go to :menuselection:`Site setup -> Content rules`, and add a rule for the event :guilabel:`State has changed`,
+    - go to :menuselection:`Site setup --> Content rules`, and add a rule for the event :guilabel:`State has changed`,
     - add a condition on the content type to only target *Talks*,
     - add a Rapido action where the application is ``rating``,
       the block is ``contentrule`` and the method is ``reset``,
