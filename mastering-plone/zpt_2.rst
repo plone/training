@@ -399,29 +399,33 @@ We changed the display of the listing of news items at http://localhost:8080/Plo
 
 How do we know which template to customize?
 
-If you don't know which template is used by the page you're looking at,
-you can make an educated guess. Start a debug session or use :py:mod:`plone.app.debugtoolbar`.
+If you don't know which template is used by the page you're looking at, you can:
 
-1. We could check the HTML with Firebug and look for a structure in the content area that looks unique.
+#. make an educated guess
+#. use :py:mod:`plone.app.debugtoolbar`
+#. or start a debug session
 
-We could also look for the CSS class of the body
+1.  We could check the HTML with Firebug and look for a structure in the content area that looks unique.
 
-    .. code-block:: html
+    We could also look for the CSS class of the body
 
-        <body class="template-summary_view portaltype-collection site-Plone section-news subsection-aggregator icons-on userrole-anonymous" dir="ltr">
+      .. code-block:: html
+
+          <body class="template-summary_view portaltype-collection site-Plone section-news subsection-aggregator icons-on userrole-anonymous" dir="ltr">
 
     The class ``template-summary_view`` tells us that the name of the view (but not necessarily the name of the template) is ``summary_view``. So we could search all :file:`*.zcml`-Files for ``name="summary_view"`` or search all templates called :file:`summary_view.pt` and probably find the view and also the corresponding template. But only probably because it would not tell us if the template is already being overridden.
 
     A foolproof way to verify your guess is to modify the template and reload the page. If your modification shows up you obviously found the correct file.
 
-2. The safest method is using :py:mod:`plone.app.debugtoolbar`.
-We already have it in our buildout and only need to install it.
-It adds a "Debug" dropdown menu on top of the page.
+2.  The safest method is using :py:mod:`plone.app.debugtoolbar`.
+    We already have it in our buildout and only need to install it.
+    It adds a "Debug" dropdown menu on top of the page.
 
-The section "Published" shows the complete path to the template that is used to render the page you are seeing.
-Install it now and find information about the current template in the section **Published**.
+    The section "Published" shows the complete path to the template that is used to render the page you are seeing.
 
-3.  The debug session to find the template is a little more complicated. Since we have :py:mod:`Products.PDBDebugMode` in our buildout we can call ``/pdb`` on our page. We cannot put a `pdb` in the templates since we do not know (yet) which template to put the `pdb` in.
+    Install it now and find information about the current template in the section **Published**.
+
+3.  The debug session to find the template is a little more complicated. Since we have :py:mod:`Products.PDBDebugMode` in our buildout we can call the Browser View ``pdb`` on our page by appending ``/pdb`` to the url. We cannot put a `pdb` in the templates since we do not know (yet) which template to put the `pdb` in.
 
     The object that the URL points to is by default :py:obj:`self.context`.
     But the first problem is that the URL we're seeing is not the URL of the collection we want to modify.
@@ -446,7 +450,7 @@ Install it now and find information about the current template in the section **
 
     Now we see that we already customized the template.
 
-    Here is a method that could be used in a view or viewlet to display that path:
+    Here is a small method that could be used in a view or viewlet to display that path:
 
     ..  code-block:: python
 

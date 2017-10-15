@@ -206,7 +206,6 @@ Now use that macro in ``browser/templates/frontpageview.pt``
 
 ..  code-block:: html
     :linenos:
-    :emphasize-lines: 8, 70
 
     <div class="col-lg-6">
         <h2>Todays Talks</h2>

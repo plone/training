@@ -21,8 +21,8 @@ In this part you will:
 
 Topics covered:
 
+* Content type definitions with generic setup
 * FTI
-* type definitions with generic setup
 * XML schema
 * more widgets
 
@@ -148,7 +148,7 @@ Upon installing, Plone reads the file :file:`profiles/default/types/talk.xml` an
      </action>
     </object>
 
-Now our package has some real contents. So, we'll need to reinstall it (if installed before).
+Now our package has new configuration for Generic Setup. Generic Setup store the configiuration for the site in the folder :file:`profiles/`. This configuration is applied to your site upon installing the package. So, we'll need to reinstall it (if installed before).
 
 * Restart Plone.
 * Re-install ploneconf.site (deactivate and activate).
@@ -397,23 +397,8 @@ We only want to prevent writing, not reading, so we'll only manage the `write-pe
    * https://github.com/plone/plone.autoform/blob/master/plone/autoform/supermodel.txt
 
 
+
 Exercise 1
-++++++++++
-
-Create a new package called :py:mod:`collective.behavior.myfeature`. Inspect the directory structure of this package. Delete it after you are done.
-
-..  admonition:: Solution
-    :class: toggle
-
-    .. code-block:: bash
-
-        $ cd src
-        $ ../bin/mrbob -O collective.behavior.myfeature bobtemplates:plone_addon
-
-    Many packages that are part of Plone and some add-ons use a nested namespace such as :py:mod:`plone.app.contenttypes`.
-
-
-Exercise 2
 ++++++++++
 
 Go to the ZMI and look for the definition of the new ``Talk`` content type in ``portal_types``. Now deactivate :guilabel:`Implicitly addable?` and save. Go back to the site. Can you identify what this change has caused? And why is that useful?
@@ -432,3 +417,11 @@ Go to the ZMI and look for the definition of the new ``Talk`` content type in ``
     .. code-block:: xml
 
         <property name="global_allow">False</property>
+
+
+Summary
+-------
+
+* You can now create new content-types and store them in a reproduceable way
+* You installed the package to apoply the Generic Setup configuration
+* You learned how to read and modify the content type schema in xml

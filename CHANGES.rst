@@ -6,6 +6,12 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Markup fixes and small edits [jean]
+
+- Bring similar chapters into sync (ttw/mastering) [jean]
+
+- Add missing Build step [jean]
+
 - Fix some more Sphinx warnings [jean]
 
 - Update to ttw-advanced-2 in theming training [jean]

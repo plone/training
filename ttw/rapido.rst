@@ -86,8 +86,8 @@ But to deploy Rapido on an actual Plone instance, modify :file:`buildout.cfg` to
 .. code-block:: ini
 
    eggs =
-   ...
-   rapido.plone
+       ...
+       rapido.plone
 
 Run your buildout:
 
@@ -259,11 +259,12 @@ would insert the ``stats`` block under the Plone main content.
 Rapido rules can be added directly in our theme's main :file:`rules.xml` file,
 but it is a good practice to put them in a dedicated rule file which can be located in our app folder.
 
-The app-specific rules file can be included in the main rules file as follows:
+The app-specific rules file can be included in the main rules file as follows 
+(where ``MYAPP`` is the name that you gave your application):
 
 .. code-block:: xml
 
-    <xi:include href="rapido/myapp/rules.xml" />
+    <xi:include href="rapido/MYAPP/rules.xml" />
 
 
 Exercise 2: Display The Vote Block In Plone Pages
@@ -747,7 +748,7 @@ Let's create a block to display the Talks Top 5:
 
     .. versionadded:: 5.1
 
-        1. go to :menuselection:`Site Setup -> Actions`
+        1. go to :menuselection:`Site Setup --> Actions`
         2. add a new action in Site actions category with name "Top 5" and as URL::
 
              string:${globals_view/navigationRootUrl}/@@rapido/view/talks-top-5
@@ -943,7 +944,7 @@ We will need to:
             if record:
                 record['total'] = 0
 
-    - go to :menuselection:`Site setup -> Content rules`, and add a rule for the event :guilabel:`State has changed`,
+    - go to :menuselection:`Site setup --> Content rules`, and add a rule for the event :guilabel:`Workflow state changed`,
     - add a condition on the content type to only target *Talks*,
     - add a Rapido action where the application is ``rating``,
       the block is ``contentrule`` and the method is ``reset``,

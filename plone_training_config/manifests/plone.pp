@@ -48,7 +48,7 @@ extends-cache = /home/ubuntu/buildout-cache/extends'),
     }
 
     # Install zc.buildout, setuptools
-    exec {'/home/ubuntu/py27/bin/pip install -U zc.buildout==2.5.3 setuptools==26.1.1':
+    exec {'/home/ubuntu/py27/bin/pip install -U zc.buildout==2.9.4 setuptools==33.1.1':
         alias => "install_buildout_setuptools",
         creates => '/home/ubuntu/py27/bin/buildout',
         user => 'ubuntu',

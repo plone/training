@@ -4,6 +4,60 @@ Timetable
 This is just meant as info for trainers about how long it might take to teach certain chapters.
 Please update when you have different experiences.
 
+Ploneconf 2017
+--------------
+
+======  ======  =======================================================
+Name    #Time#  Chapter
+**++**  ?? min  1 About Mastering Plone
+**pb**  ?? min  2 Introduction
+**pb**  ?? min  3 Installation & Setup
+**pb**  ?? min  4 Installing Plone for the Training
+**pb**  ?? min  5 The Case Study
+**ts**  ?? min  6 The Features of Plone
+**ts**  ?? min  7 The Anatomy of Plone
+**pb**  ?? min  8 What’s New in Plone 5 and 5.1
+**pb**  ?? min  9 Configuring and Customizing Plone “Through The Web”
+**pb**  ?? min  10 Theming
+**ts**  ?? min  11 Extending Plone
+**pb**  ?? min  12 Extend Plone With Add-On Packages
+**pb**  ?? min  13 Dexterity I: “Through The Web”
+**ts**  ?? min  14 Buildout I
+**pb**  ?? min  15 Write Your Own Add-Ons to Customize Plone
+**pb**  ?? min  16 Return to Dexterity: Moving contenttypes into Codetemplates
+**pb**  ?? min  17 Views I
+**pb**  ?? min  18 Page Templates
+**pb**  ?? min  19 Customizing Existing Templates
+**pb**  ?? min  20 Views II: A Default View for “Talk”
+**pb**  ?? min  21 Views III: A Talk List
+**ts**  ?? min  22 Testing in Plone
+**ts**  ?? min  23 Behaviors
+**ts**  ?? min  24 Writing Viewlets
+**pb**  ?? min  25 Programming Plone
+**pb**  ?? min  26 IDEs and Editors
+**ts**  ?? min  27 Dexterity Types II: Growing Up
+**ts**  ?? min  28 Custom Search
+**pb**  ?? min  29 Turning Talks into Events
+**ts**  ?? min  30 User Generated Content
+**ts**  ?? min  31 Resources
+**pb**  ?? min  32 Using Third-Party Behaviors
+**pb**  ?? min  33 Dexterity Types III: Python
+**pb**  ?? min  34 Relations
+**pb**  ?? min  35 Manage Settings with Registry, Controlpanels and VocabulariesDeploying your site
+**pb**  ?? min  36 Creating a Dynamic Front Page
+**XX**  ?? min  37 Creating Reusable Packages
+**XX**  ?? min  38 More Complex Behaviors
+**XX**  ?? min  39 A Viewlet for the Votable Behavior
+**XX**  ?? min  40 Making Our Package Reusable
+**XX**  ?? min  41 Using starzel.votable_behavior in ploneconf.site
+**XX**  ?? min  42 Releasing Your Code
+**XX**  ?? min  43 Buildout II: Getting Ready for Deployment
+**ts**  ?? min  44 Plone REST API
+**pb**  ?? min  45 The Future of Plone
+**pb**  ?? min  46 Optional
+======  ======  =======================================================
+
+
 Version 1.2
 -----------
 

@@ -26,6 +26,7 @@ Previous Trainings
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
+* `Ploneconf 2017 in Barcelona <https://2017.ploneconf.org/>`_
 * `Ploneconf 2016 in Boston <https://2016.ploneconf.org/>`_
 * October 2015, Bucharest
 * `March 2015, Munich <https://www.starzel.de/leistungen/training/>`_
@@ -109,16 +110,16 @@ Using the documentation for a training
 Feel free to organize a training yourself.
 Please be so kind to contribute any bug fixes or enhancements you made to the documentation for your training.
 
-The training is rendered using sphinx and builds in two flavors:
+The training is rendered using Sphinx and builds in two flavors:
 
 default
     The verbose version used for the online documentation and for the trainer.
-    Build it in sphinx with ``make html`` or use the online version.
+    Build it in Sphinx with ``make html`` or use the online version.
 
 presentation
-    A abbreviated version used for the projector during a training.
+    An abbreviated version used for the projector during a training.
     It should use more bullet points than verbose text.
-    Build it in sphinx with ``make presentation``.
+    Build it in Sphinx with ``make presentation``.
 
 .. note::
 
@@ -144,7 +145,7 @@ Exercises
 
 Some additional JavaScript shows hidden solutions for exercises by clicking.
 
-Perpend the solution with this markup::
+Prepend the solution with this markup::
 
     ..  admonition:: Solution
         :class: toggle
@@ -190,7 +191,7 @@ Building the documentation locally
 Dependencies
 ++++++++++++
 
-Please make sure that you have `Enchant <https://www.abisource.com/projects/enchant/>`_ installed, this is needed for spell-checking.
+Please make sure that you have `Enchant <https://www.abisource.com/projects/enchant/>`_ installed. This is needed for spell-checking.
 
 Install Enchant on macOS:
 
@@ -303,10 +304,10 @@ Train the trainer
 -----------------
 
 If you are a trainer there is a special mini training about giving technical trainings.
-We really want this material to be used, re-used, expanded and improved by Plone trainers world wide.
+We really want this material to be used, re-used, expanded, and improved by Plone trainers world wide.
 
-These chapters don't contain any Plone specific advice, there's background, theory,
-check lists and tips for anyone trying to teach technical subjects.
+These chapters don't contain any Plone specific advice.
+There's background, theory, check lists, and tips for anyone trying to teach technical subjects.
 
 :doc:`../teachers-training/index`
 
