@@ -379,10 +379,6 @@ This adds new indexes for the three fields we want to show in the listing. Note 
 
 The ``column ..`` entries allow us to display the values of these indexes in the tableview of collections.
 
-.. note::
-
-    Until Plone 4.3.2 adding indexes in :file:`catalog.xml` was harmful because reinstalling the add-on purged the indexes! See https://www.starzel.de/blog/a-reminder-about-catalog-indexes.
-
 * Reinstall the add-on
 * Go to http://localhost:8080/Plone/portal_catalog/manage_catalogAdvanced to update the catalog
 * Go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes to inspect and manage the new indexes
@@ -451,6 +447,84 @@ We now can use the new indexes to improve the talklistview so we don't have to *
             return results
 
 The template does not need to be changed and the result in the browser did not change, either. But when listing a large number of objects the site will now be faster since all the data you use comes from the catalog and the objects do not have to be loaded into memory.
+
+
+.. _dexterity2-use_indexes-label:
+
+Exercise 1
+----------
+
+In fact we could now simplify the view even further by only returning the brains.
+
+Modify :py:class:`TalkListView` to return only brains and adapt the template to these changes. Remember to move ``', '.join(brain.audience or [])`` into the template.
+
+..  admonition:: Solution
+    :class: toggle
+
+    Here is the class:
+
+    ..  code-block:: python
+        :linenos:
+
+        class TalkListView(BrowserView):
+            """ A list of talks
+            """
+
+            def talks(self):
+                return api.content.find(context=self.context, portal_type='talk')
+
+
+    Here is the template:
+
+    ..  code-block:: html
+        :linenos:
+
+        <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+              metal:use-macro="context/main_template/macros/master"
+              i18n:domain="ploneconf.site">
+        <body>
+          <metal:content-core fill-slot="content-core">
+
+          <table class="listing"
+                 id="talks"
+                 tal:define="brains python:view.talks()">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Speaker</th>
+                <th>Audience</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr tal:repeat="brain brains">
+                <td>
+                  <a href=""
+                     tal:attributes="href python:brain.getURL();
+                                     title python:brain.Description"
+                     tal:content="python:brain.Title">
+                     The 7 sins of plone-development
+                  </a>
+                </td>
+                <td tal:content="python:brain.speaker">
+                    Philip Bauer
+                </td>
+                <td tal:content="python:', '.join(brain.audience or [])">
+                    Advanced
+                </td>
+              </tr>
+              <tr tal:condition="not:talks">
+                <td colspan=3>
+                    No talks so far :-(
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          </metal:content-core>
+        </body>
+        </html>
+
+
 
 .. _dexterity2-collection-criteria-label:
 

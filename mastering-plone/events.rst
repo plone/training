@@ -16,14 +16,14 @@ We forgot something: A list of talks is great especially if you can sort it by y
 
 We need a schedule and for this we need to store the information when a talk will happen.
 
-Luckily the default type *Event* is based on reusable behaviors from the package plone.app.event.
+Luckily the default type *Event* is based on reusable behaviors from the package :py:mod:`plone.app.event` that we can reuse.
 
-In this chapter we will
+In this chapter you will
 
 * enable this behavior for talks
 * display the date in the talkview and talklistview
 
-First we enable the behavior :py:class:`IEventBasic` for talks in :py:mod:`profiles/default/types/talk.xml`
+First enable the behavior :py:class:`IEventBasic` for talks in :file:`profiles/default/types/talk.xml`
 
 .. code-block:: xml
     :linenos:
@@ -37,7 +37,7 @@ First we enable the behavior :py:class:`IEventBasic` for talks in :py:mod:`profi
       <element value="plone.app.event.dx.behaviors.IEventBasic"/>
     </property>
 
-After we activate the behavior by hand or reinstalled the add-on we will now have some additional fields for ``start`` and ``end``.
+After you activate the behavior by hand or reinstalled the add-on you will now have some additional fields for ``start`` and ``end``.
 
 To display the new field we reuse a default event summary view as documented in http://ploneappevent.readthedocs.io/en/latest/development.html#reusing-the-event-summary-view-to-list-basic-event-information
 
@@ -90,7 +90,7 @@ Edit :file:`browser/templates/talkview.pt`
     </html>
 
 Similar to the field `room` the problem now appears that speakers submitting their talks should not be able to set a time and day for their talks.
-Sadly it is not easy to modify permissions of fields provided by behaviors (unless we write the bahvior ourselves).
+Sadly it is not easy to modify permissions of fields provided by behaviors (unless you write the behavior yourself).
 At least in this case we can take the easy way out since the field does not contain secret information: We will simply hide the fields from contributors using css and show them for reviewers. We will do so in chapter :ref:`resources-label` when we add some css-files.
 
 Modify :file:`browser/static/ploneconf.css` and add:
@@ -111,8 +111,33 @@ Modify :file:`browser/static/ploneconf.css` and add:
         display: block;
     }
 
-You should also display the start-date of a talk in the talklist.
-Modify :file:`browser/templates/talklistview.pt`
+You can now display the start-date of a talk in the talklist.
+Modify the class :py:class:`TalkListView` and the template :file:`browser/templates/talklistview.pt` to show the new info:
+
+..  code-block:: python
+    :linenos:
+    :emphasize-lines: 17
+
+    class TalkListView(BrowserView):
+        """ A list of talks
+        """
+
+        def talks(self):
+            results = []
+            brains = api.content.find(context=self.context, portal_type='talk')
+            for brain in brains:
+                results.append({
+                    'title': brain.Title,
+                    'description': brain.Description,
+                    'url': brain.getURL(),
+                    'audience': ', '.join(brain.audience or []),
+                    'type_of_talk': brain.type_of_talk,
+                    'speaker': brain.speaker,
+                    'room': brain.room,
+                    'start': brain.start,
+                    })
+            return results
+
 
 ..  code-block:: html
     :linenos:
@@ -132,6 +157,9 @@ Modify :file:`browser/templates/talklistview.pt`
     </td>
     [...]
 
+.. note::
+
+    If you changed the view :py:class:`TalkListView` to only return brains as described in :ref:`dexterity2-use_indexes-label` you can save youself a lot of work and simply use the existing index `start` (generously provided by :py:mod:`plone.app.event`) in the template as ``python:brain.start``.
 
 
 Exercise 1
@@ -258,3 +286,9 @@ Find out where the event behavior is defined and which fields it offers.
 
     Note how it uses ``defaultFactory`` to set an initial value.
 
+Summary
+-------
+
+* You reused a existing behavior to add new fields
+* You reused existing indexes to display the time of a talk
+* You did not have to write your own datetime-fields and indexers \o/

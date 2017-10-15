@@ -14,7 +14,7 @@ Views I
 
 In this part you will:
 
-* Register a view
+* Register a view that can be opened in the browser
 * Create and use a template for the view
 
 
@@ -75,7 +75,7 @@ Add a file ``browser/templates/training.pt``
 * Restart Plone and open http://localhost:8080/Plone/@@training.
 * You should now see "Hello World".
 
-We now have everything in place to learn about page templates.
+You now have everything in place to learn about page templates.
 
 ..  note::
 

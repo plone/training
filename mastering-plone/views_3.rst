@@ -23,7 +23,7 @@ Topics covered:
 * plone.api
 * portal_catalog
 * brains and objects
-* tables
+* Acquisition
 
 
 Now we don't want to provide information about one specific item but on several items. What now? We can't look at several items at the same time as context.
@@ -470,4 +470,8 @@ The :samp:`purge="False"` appends the view to the already existing ones instead 
 Summary
 -------
 
-We created a nice listing, that can be called at any place in the website.
+* You created a nice listing, that can be called at any place in the website
+* You wrote your first fully grown BrowserView that combines a template, a class and a method in that class
+* You learned about portal_catalog, brains and how they objects
+* You learned about Acquisition and how it can have unintended effects
+* You extended the FTI of a existing content type to allow the use the new view to all Editior
