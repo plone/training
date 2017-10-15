@@ -5,6 +5,7 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 1.2.5 (unreleased)
 ------------------
+- Add content of Advanced Python Training
 
 - Markup fixes and small edits [jean]
 

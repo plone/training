@@ -18,6 +18,7 @@ A collection of trainings developed and created by the Plone Community.
     solr/index
     workflow/index
     angular/index
+    advanced-python/index
 
 ..  toctree::
     :hidden:
