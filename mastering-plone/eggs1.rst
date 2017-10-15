@@ -234,3 +234,16 @@ After restarting Plone with :command:`./bin/instance fg` the new add-on :py:mod:
 We will not install it now since we did not add any of our own code or configuration yet. Let's do that next.
 
 
+Exercises
+---------
+
+1. Create a new package called :py:mod:`collective.behavior.myfeature`. Inspect the directory structure of this package. Delete it after you are done. Many packages that are part of Plone and some add-ons use a nested namespace such as :py:mod:`plone.app.contenttypes`.
+
+2. Open https://github.com/plone/bobtemplates.plone and read about the templates and subtemplates it provides.
+
+
+Summary
+-------
+
+* You created the package * :py:mod:`ploneconf.site` to hold your code.
+* You added the new package to buildout so that Plone can use it.
