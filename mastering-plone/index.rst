@@ -15,7 +15,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
 
 
 ..  toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :numbered:
     :caption: Mastering Plone
 
