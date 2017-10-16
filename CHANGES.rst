@@ -6,6 +6,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- different buildout invocation in vagrant setup
+  [tschorr]
+
 - Bring similar chapters into sync (ttw/mastering) [jean]
 
 - Add missing Build step [jean]
