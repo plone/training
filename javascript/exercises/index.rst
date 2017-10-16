@@ -61,4 +61,3 @@ And one more spot to add collective.jstraining to: eggs:
     7
     8
     9
-    10

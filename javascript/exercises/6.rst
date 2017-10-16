@@ -1,6 +1,6 @@
-==========================
-Exercise 6: Simple Pattern
-==========================
+================================================
+Exercise 6: Using A Pattern In A Z3C Form Widget
+================================================
 
 ..  warning::
 
@@ -8,103 +8,75 @@ Exercise 6: Simple Pattern
     collective.jstraining package.
 
 
-In this exercise, we'll be walking through creating a simple Plone pattern.
+This exercise will go through adding a widget that checks the minimum size
+of an image before it is uploaded.
 
 We will be working in the ``exercise6`` directory of the collective.jstraining package.
 
-Add Your Pattern File
-=====================
+Add Your JavaScript File
+========================
 
-First off, in your ``exercise6/static`` directory, add a file named ``pattern.js``.
-Use this file to build your pattern.
+First off, in your ``exercise6/static`` directory, add a file named ``script.js``.
 
-This example will stay very simple we’ll use `jQuery <https://jquery.com/>`_ to do a simply modify the content of an element
+Use this file to do anything you would like to the page
 
 .. code-block:: javascript
 
-    define([
+
+    /* global require, FileReader, Image */
+
+    require([
       'jquery',
       'mockup-patterns-base',
     ], function($, Base) {
       'use strict';
 
-      var Pattern = Base.extend({
+      Base.extend({
         name: 'exercise6',
         trigger: '.pat-exercise6',
         parser: 'mockup',
         defaults: {
+          minHeight: 200,
+          minWidth: 200
         },
         init: function() {
           var that = this;
-          that.$el.append(' <span>Exercise 6 was here</span>');
+
+          that.$el.on('change', function(){
+            if(this.files.length === 0){
+              return;
+            }
+
+            var fr = new FileReader();
+            fr.onload = function() {
+              var img = new Image();
+              img.onload = function() {
+                if(img.width < that.options.minWidth ||
+                   img.height < that.options.minHeight){
+                  alert('Invalid image size. The image must be at least ' +
+                        that.options.minWidth + 'x' + that.options.minHeight + '.');
+                  that.$el[0].value = '';
+                }
+              };
+              img.src = fr.result;
+            };
+            fr.readAsDataURL(this.files[0]);
+          });
         }
       });
 
-      return Pattern;
     });
 
 
-For more details on how to write a mockup pattern, utilize the various resources
-available.
-
-- `Minimal pattern <https://github.com/collective/mockup-minimalpattern>`_
-- `Mockup docs <http://plone.github.io/mockup/dev/>`_
-- `Patternslib <http://patternslib.com/>`_
-
-
-In our example, we're using the RequireJS ``define`` function to define our pattern
-as a JavaScript module.
-
-
-Integrating With LESS
-=====================
-
-Add a ``pattern.less`` file to the ``exercise6/static`` directory and provide
-whatever styles you'd like for your pattern
-
-.. code-block:: less
-
-    .pat-exercise6 {
-      color: red;
-    }
-
-
-Creating Your Bundle
-====================
-
-To register the pattern, we'll create a bundle.
-Recall the difference between using ``require`` and ``define`` from the RequireJS docs.
-
-Our bundle will use the ``require`` function to include the JavaScript module
-pattern we created our previously.
-
-Create a ``bundle.js`` file in your ``exercise6/static`` directory
-
-.. code-block:: javascript
-
-    require([
-      'exercise6'
-    ], function() {
-      'use strict';
-    });
-
-The only thing we're doing in this file is including the ``exercise6`` module
-we defined earlier--that's it.
-
-Bundles can do more as well.
-Then can include initialization code for example.
-
-See Plone's `default bundle <https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/static/plone.js>`_.
-
-Bundles more or less tell the compiler what we care about loading.
-They do the dependency resolution and include the modules that were required with them.
+This pattern simply has ``minWidth`` and ``minHeight`` options and when a file is
+selected for upload, will check to make sure it is a valid size.
 
 
 Register Static Resource Directory
 ==================================
 
-Next, let’s register the static directory we just placed our script into.
-To register, you need to add :term:`ZCML` registration for the static directory your script
+Next, let’s register the static directory we just placed our script into. To
+register, you need to add :term:`ZCML` registration for the static directory your script
 is in.
 
 Add this to the ``exercise6/configure.zcml`` file
@@ -117,74 +89,98 @@ Add this to the ``exercise6/configure.zcml`` file
          name="exercise6"
          />
 
-Register Your Bundle
-====================
 
-Registering your bundle is done by adding Generic Setup xml configuration to the
-Plone registry.
-This is done in the ``registry.xml`` file in the ``profiles/default`` directory.
+Register JavaScript Resource
+============================
 
+Register our script as a JavaScript resource with Plone.
 
-Resource
---------
-
-Resource is done exactly the same as in Exercise 1
+In the ``exercise6/profiles/default/registry.xml`` file, add configuration to register
+your script
 
 .. code-block:: xml
 
     <records prefix="plone.resources/exercise6"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-      <value key="js">++plone++exercise6/pattern.js</value>
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++exercise6/script.js</value>
     </records>
 
 
-Bundle Resource
----------------
+Create A Custom Widget
+======================
 
-The bundle resource is another resource registration like any other.
-Remember, the difference here is in the content of the JavaScript file.
+Our custom widget will apply to all lead images.
 
-One file uses ``require``, the other uses ``define``.
+Add a file ``widget.py`` to your ``exercise6`` directory with the follow contents
 
-Addditionally, we include our CSS/LESS dependencies here
+.. code-block:: python
+
+    from .interfaces import IExercise6Layer
+    from .interfaces import IMinSizeImageWidget
+    from plone.app.contenttypes.behaviors.leadimage import ILeadImage
+    from plone.formwidget.namedfile.widget import NamedImageWidget
+    from Products.CMFPlone.resources import add_resource_on_request
+    from z3c.form.interfaces import IFieldWidget
+    from z3c.form.util import getSpecification
+    from zope.component import adapter
+    from zope.interface import implementer
+    from zope.interface import implements
+
+    import json
+    import z3c.form.widget
+
+
+    class MinSizeImageWidget(NamedImageWidget):
+        """A widget for a named file object
+        """
+        implements(IMinSizeImageWidget)
+
+        def pattern_options(self):
+            # provide the pattern options
+            return json.dumps({
+                'minHeight': 300,
+                'minWidth': 300
+            })
+
+        def render(self):
+            # add the registered resource
+            add_resource_on_request(self.request, 'exercise6')
+            return super(MinSizeImageWidget, self).render()
+
+
+    @adapter(getSpecification(ILeadImage['image']), IExercise6Layer)
+    @implementer(IFieldWidget)
+    def LeadImageMinSizeImageFieldWidget(field, request):
+        widget = z3c.form.widget.FieldWidget(field, MinSizeImageWidget(request))
+        return widget
+
+
+Notice in the ``render`` method we utilize the ``add_resource_on_request`` function
+to load our pattern.
+
+
+The code for ``image_widget.pt`` is already provided for this example since it is
+quite long.
+
+Review the file and notice where we are passing the value from the ``pattern_options`` method into our widget.
+
+
+Register Widget Customization
+=============================
+
+Next, we need to register our custom widget so it is used.
+
+In your ``configure.zcml`` file, add the following
 
 .. code-block:: xml
 
-    <records prefix="plone.resources/bundle-exercise6"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-      <value key="js">++plone++exercise6/bundle.js</value>
-      <value key="css">
-        <element>++plone++exercise6/pattern.less</element>
-      </value>
-    </records>
-
-
-Bundle
-------
-
-Finally, let's create our bundle registration
-
-.. code-block:: xml
-
-    <records prefix="plone.bundles/exercise6"
-              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
-      <value key="resources">
-        <!-- reference to bundle resource definition -->
-        <element>bundle-exercise6</element>
-      </value>
-      <value key="merge_with">default</value>
-      <value key="enabled">True</value>
-      <value key="jscompilation">++plone++exercise6/exercise6-compiled.min.js</value>
-      <value key="csscompilation">++plone++exercise6/exercise6-compiled.css</value>
-      <value key="last_compilation">2016-10-04 00:00:00</value>
-
-      <!-- so we don't include these modules multiple times -->
-      <value key="stub_js_modules">
-        <element>jquery</element>
-        <element>mockup-patterns-base</element>
-      </value>
-    </records>
-
+    <adapter factory=".widget.LeadImageMinSizeImageFieldWidget" />
+    <z3c:widgetTemplate
+      mode="input"
+      widget=".interfaces.IMinSizeImageWidget"
+      layer=".interfaces.IExercise6Layer"
+      template="image_widget.pt"
+      />
 
 Installation
 ============
@@ -193,48 +189,11 @@ Installation
 2) Install the ``Exercise 6`` add-on
 
 
-Running
-=======
-
-At this point, we have no compiled version of the code that we're running with
-so our code doesn't do anything.
-
-1) Go into ::menuselection:`Site Setup --> Resource Registries`
-2) Check :guilabel:`Development Mode`
-3) Select to develop JavaScript and CSS for the ``exercise6`` bundle
-4) Click :guilabel:`Save`
-
-This should load your JavaScript and LESS files now; however, we don't have
-any elements with the ``pat-exercise6`` class assigned to them.
-
-It's up to you how to apply the pattern class to an element of your choice.
-A couple options available to you are:
-
-1) use TinyMCE source view and add ``class="pat-exercise6"`` onto any ``p`` tag
-2) customize the theme on your site and add it to an element in your theme file
-   or use a diazo rule diazo rule to dynamically add the class to an element
-
-
-Production
-==========
-
-To build our bundle, we'll utilize the ``plone-compile-resources`` script that
-Plone ships with.
-
+Now, try to add/edit a lead image to content on the site.
 
 ..  warning::
 
-    If you're not running a ZEO setup, you'll need to shut down your Plone
-    instance since the ZODB in this mode does not allow multiple processes
-    to access it at the same time.
-
-
-An example command will look like this
-
-.. code-block:: console
-
-    ./bin/plone-compile-resources --site-id=Plone --bundle=exercise6
-
-
-Once this command finishes, your bundle is built and will be deployed with your
-package package.
+    To make sure your resource registry configuration changes apply, you'll need to
+    be in development mode. You can also toggle development mode on and off,
+    click save, to force configuration to be re-built after changes instead of
+    keeping development mode on.

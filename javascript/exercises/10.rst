@@ -1,6 +1,6 @@
-================================
-Exercise 10: Customizing Pattern
-================================
+=========================================================
+Exercise 10: NG2 APP Component Rendered In A Browser View
+=========================================================
 
 ..  warning::
 
@@ -8,97 +8,53 @@ Exercise 10: Customizing Pattern
     collective.jstraining package.
 
 
-In this exercise, we'll be walking through customizing the livesearch pattern.
+For this exercise, we will run an Angular 2 application inside a Plone browser view.
+
+We have most of the Angular 2 boiler plate code created for you so let's
+finish up a few things so you can customize it.
+
+In this case we are going to use angular client to create the app inside the package.
 
 We will be working in the ``exercise10`` directory of the collective.jstraining package.
 
-Add Your Pattern File
-=====================
+Bootstrap
+=========
 
-In your ``exercise10/static`` directory, add a file named ``pattern.js``.
-Use this file to build your pattern.
+Install npm dependencies
 
-This example will define a new pattern to overwrite the existing livesearch pattern:
+.. code-block:: console
 
-.. code-block:: javascript
-
-    /* global require */
-
-    require([
-      'jquery',
-      'mockup-patterns-livesearch',
-      'pat-registry'
-    ], function($, Livesearch, registry) {
-      'use strict';
-      /* combining bundle and pattern in same file this example */
+    cd exercise10/static/ng2app
+    npm install
+    npm install -g angular-cli
 
 
-      // first, unregister existing pattern
-      delete registry.patterns.livesearch;
-      delete $.fn.patLivesearch;
+Add Your Angular 2 Component
+============================
 
+In your ``exercise10/static/ng2app`` directory, there is a boilerplate code
+for an ng2 app.
 
-      // creating new pattern automatically registers it
-      Livesearch.extend({
-        name: 'livesearch',
-        trigger: '.pat-livesearch',
-        parser: 'mockup',
-        init: function() {
-          var that = this;
-          Livesearch.prototype.init.call(that);
+You can use ng2 cli to create new components, modules, services, ...
 
-          // all we're doing in this customization is defaulting to searching
-          // current section
-          $('.searchSection input', that.$el)[0].checked = true;
-        }
-      });
+We hope you like typescript.
 
-    });
+We can change the exercise10/static/src/app/app.component.html to create your own template.
 
+Like I said, you can do whatever in this module.
 
-Pay close attention to what we're doing here:
-
-.. code-block:: javascript
-
-    (
-    ...
-    delete registry.patterns.livesearch;
-    delete $.fn.patLivesearch;
-    ...
-    )
-
-We're deleting the existing registration of the livesearch pattern.
-
-Next, we're extending the existing pattern:
-
-.. code-block:: javascript
-
-    (
-    ...
-    Livesearch.extend({
-    ...
-    )
-
-
-And overriding the ``init`` function to provide our customization(default
-search current section):
-
-.. code-block:: javascript
-
-   (
-    ...
-    $('.searchSection input', that.$el)[0].checked = true;
-    ...
-   )
 
 Register Static Resource Directory
 ==================================
 
 Next, let’s register the static directory we just placed our script into.
-To register, you need to add ZCML registration for the static directory your script
+
+To register, you need to add :term:`ZCML` registration for the static directory your script
 is in.
 
-Add this to the ``exercise10/configure.zcml`` file::
+Add this to the ``exercise10/configure.zcml`` file
+
+.. code-block:: xml
 
     <plone:static
          directory="static"
@@ -107,88 +63,179 @@ Add this to the ``exercise10/configure.zcml`` file::
          />
 
 
-Register Your Bundle
-====================
+Build The File With Webpack
+===========================
 
-Again, registration is done exactly the same as previous exercises:
+Our deployment is built using the ng command line tool
+
+.. code-block:: console
+
+    cd exercise10/static/ng2app
+    ng build --prod
+
+
+Whenever you make a change to your component files, webpack will auto re-build
+the distribution.
+
+
+Register JavaScript Resource
+============================
+
+Angular CLI creates three js, one for basic webpack instructions,
+one with the main js and another with the styling js.
+
+You will need to register the three on the ``exercise10/profiles/default/registry.xml``
 
 .. code-block:: xml
 
-    <?xml version="1.0"?>
-    <registry>
 
-      <records prefix="plone.resources/exercise10"
-                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++exercise10/pattern.js</value>
-        <value key="css">
-          <element>++plone++exercise10/pattern.less</element>
-        </value>
-      </records>
+    <records prefix="plone.resources/exercise10-inline"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise10/ng2app/dist/inline.js</value>
+    </records>
+    <records prefix="plone.resources/exercise10-main"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise10/ng2app/dist/main.8b778eea5dd35968ef66.bundle.js</value>
+      <value key="deps">exercise10-inline</value>
+      <value key="deps">exercise10-style</value>
+    </records>
+    <records prefix="plone.resources/exercise10-style"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise10/ng2app/dist/styles.b52d2076048963e7cbfd.bundle.js</value>
+    </records>
 
-      <records prefix="plone.bundles/exercise10"
-                interface='Products.CMFPlone.interfaces.IBundleRegistry'>
-        <value key="resources">
-          <element>exercise10</element>
-        </value>
-        <value key="merge_with">default</value>
-        <value key="enabled">True</value>
-        <value key="jscompilation">++plone++exercise10/exercise10-compiled.min.js</value>
-        <value key="csscompilation">++plone++exercise10/exercise10-compiled.css</value>
-        <value key="last_compilation">2016-10-04 00:00:00</value>
-        <value key="stub_js_modules">
-          <element>jquery</element>
-          <element>mockup-patterns-livesearch</element>
-          <element>pat-registry</element>
-        </value>
-      </records>
+Its really important that in case that you need to have dependency on loading
+the js you define on the registry.xml as its shown for the main js.
 
-    </registry>
+Finally we want to create a single entry point to load them, so we are going to
+create and register a js with the requires that are loading the app on a file
+called ``static/ng2app/main.js``
+
+.. code-block:: javascript
+
+    require(['exercise10-inline','exercise10-style','exercise10-main'])
+
+
+With the main.js defined on the filesystem we can now create the resource as a new
+resource
+
+.. code-block:: xml
+
+    <records prefix="plone.resources/exercise10"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise10/ng2app/main.js</value>
+    </records>
+
+
+Create Your Browser View
+========================
+
+..  warning::
+
+    This might be redundant with other documentation.
+
+    Skip ahead if you know how to create browser views.
+
+
+Let’s load our JavaScript file to only load on a specific page you need it on.
+
+In our case, let’s add a basic new page view.
+
+The page template doesn’t need to implement any logic and we can use the main template
+to bring in the content of the page we’re using in the JavaScript(h1).
+
+Add this into your ``exercise10/page.pt`` file
+
+.. code-block:: xml
+
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="plone">
+    <body>
+
+      <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
+        <app-root></app-root>
+      </metal:content-core>
+      </metal:content-core>
+
+    </body>
+    </html>
+
+
+The ``app-root`` tag is what is used for the component selector.
+
+You can customize this and use whatever selector you like.
+
+
+Load Your JavaScript Resource
+=============================
+
+Add in view python code to tell Plone to render the script in the
+``exercise10/browser.py`` file
+
+.. code-block:: python
+
+    from Products.CMFPlone.resources import add_resource_on_request
+    from Products.Five import BrowserView
+
+
+    class Exercise10View(BrowserView):
+
+        def __call__(self):
+            # utility function to add resource to rendered page
+            add_resource_on_request(self.request, 'exercise10')
+            return super(Exercise10View, self).__call__()
+
+
+The most interesting part here is to look at ``add_resource_on_request``.
+
+Finally, wire it up with :term:`ZCML` registration in the ``exercise10/configure.zcml`` file
+
+.. code-block:: xml
+
+    <browser:page
+         name="exercise10"
+         for="*"
+         class=".browser.Exercise10View"
+         template="page.pt"
+         permission="zope2.View"
+         />
 
 
 Installation
 ============
 
-We have all the files necessary to run the pattern now.
-
 1) Start up your Plone instance
 2) Install the ``Exercise 10`` add-on
+3) Toggle development mode to make sure the new resources are included
 
 
-Running
-========
+Then, visit the URL:``http://localhost:8080/Plone/front-page/@@exercise10``.
 
-At this point, we have no compiled version of the code that we're running with
-because of that our code doesn't do anything.
-
-1) Go into :menuselection:`Site Setup --> Resource Registries`
-2) Check :guilabel:`Development Mode`
-3) Select to develop JavaScript and CSS for the ``exercise10`` bundle
-4) Click :guilabel:`Save`
-
-Now, you should see the livesearch pattern default to searching the current
-section.
-
-
-Production
-----------
-
-To build our bundle, we'll utilize the ``plone-compile-resources`` script that
-Plone ships with.
-
+This is assuming your Plone is located at the URL ``http://localhost:8080/Plone``.
 
 ..  warning::
 
-    If you're not running a ZEO setup, you'll need to shut down your Plone
-    instance since the ZODB in this mode does not allow multiple processes
-    to access it at the same time.
+    To make sure your resource registry configuration changes apply, you'll need to
+    be in development mode.
+
+    You can also toggle development mode on and off,
+    click save, to force configuration to be re-built after changes instead of
+    keeping development mode on.
 
 
-An example command will look like this
+Production
+==========
 
-.. code-block:: console
+In this exercise, there is no special distinction between development and
+production builds.
 
-    ./bin/plone-compile-resources --site-id=Plone --bundle=exercise10
-
-
-Once this command finishes, your bundle is built and will be deployed with your
-package package.
+webpack re-builds the resource on every change for you
+and the JavaScript build file is not added to any bundle--it is loaded
+for this particular page.
