@@ -24,7 +24,7 @@ This example will stay very simple we’ll use `jQuery <https://jquery.com/>`_ t
 
     define([
       'jquery',
-      'mockup-patterns-base',
+      'pat-base',
     ], function($, Base) {
       'use strict';
 
@@ -181,7 +181,7 @@ Finally, let's create our bundle registration
       <!-- so we don't include these modules multiple times -->
       <value key="stub_js_modules">
         <element>jquery</element>
-        <element>mockup-patterns-base</element>
+        <element>pat-base</element>
       </value>
     </records>
 

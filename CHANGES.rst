@@ -6,6 +6,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Updates and Fixes in the JavaScript training section [staeff]
+
 - Reorder Javascript exercises [frapell]
 
 - Add content of Advanced Python Training
