@@ -38,7 +38,7 @@ middleware. But before we examine how it is done by some of the most famous
 WSGI frameworks, we implement a primitive routing middleware on our own.
 
 Exercise 4
-----------
+++++++++++
 A small improvement would be to replace the giant ``if ... elif ... else``
 with a dictionary and map a ``PATH_INFO`` to a callable. The middleware should use this mapping to call the correct WSGI callable.
 
@@ -140,7 +140,7 @@ A middleware can modify the response or the environment. Modifying the latter,
 we can pass new objects via the environment dictionary to the callable.
 
 Exercise 5
-----------
+++++++++++
 
 Modify the main app matching mechanism to use regular expression groups,
 to match certain URL parts as groups. These groups are the URL args,
