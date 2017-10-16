@@ -5,6 +5,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 1.2.5 (unreleased)
 ------------------
+- Add one more chapter to Advanced Python Training
+
 - Add content of Advanced Python Training
 
 - Fix some more Sphinx warnings [jean]
