@@ -1,6 +1,6 @@
-================================================
-Exercise 8: Pattern Wrapping A 3rd Party Library
-================================================
+================================
+Exercise 8: Customizing Pattern
+================================
 
 ..  warning::
 
@@ -8,63 +8,97 @@ Exercise 8: Pattern Wrapping A 3rd Party Library
     collective.jstraining package.
 
 
-In this exercise, we'll be walking through wrapping the tablesorter JavaScript
-library into a pattern
+In this exercise, we'll be walking through customizing the livesearch pattern.
 
 We will be working in the ``exercise8`` directory of the collective.jstraining package.
-
 
 Add Your Pattern File
 =====================
 
-First off, in your ``exercise8/static`` directory, add a file named ``pattern.js``.
+In your ``exercise8/static`` directory, add a file named ``pattern.js``.
+Use this file to build your pattern.
 
-Use this file to build your pattern. This example will simply load and initialize the table sorter js
+This example will define a new pattern to overwrite the existing livesearch pattern:
 
 .. code-block:: javascript
-
 
     /* global require */
 
     require([
       'jquery',
-      'mockup-patterns-base',
-      'tablesorter'
-    ], function($, Base) {
+      'mockup-patterns-livesearch',
+      'pat-registry'
+    ], function($, Livesearch, registry) {
       'use strict';
-
       /* combining bundle and pattern in same file this example */
 
-      Base.extend({
-        name: 'tablesorter',
-        trigger: '.pat-tablesorter',
+
+      // first, unregister existing pattern
+      delete registry.patterns.livesearch;
+      delete $.fn.patLivesearch;
+
+
+      // creating new pattern automatically registers it
+      Livesearch.extend({
+        name: 'livesearch',
+        trigger: '.pat-livesearch',
         parser: 'mockup',
-        defaults: {
-        },
         init: function() {
           var that = this;
-          that.$el.tablesorter();
+          Livesearch.prototype.init.call(that);
+
+          // all we're doing in this customization is defaulting to searching
+          // current section
+          $('.searchSection input', that.$el)[0].checked = true;
         }
       });
 
     });
 
-Notice in this example how we're not using ``define`` for this pattern.
-In this example, we are defining our pattern right inside what will be our bundle.
 
-``tablesorter`` will be our registered 3rd party library include.
+Pay close attention to what we're doing here:
 
+.. code-block:: javascript
+
+    (
+    ...
+    delete registry.patterns.livesearch;
+    delete $.fn.patLivesearch;
+    ...
+    )
+
+We're deleting the existing registration of the livesearch pattern.
+
+Next, we're extending the existing pattern:
+
+.. code-block:: javascript
+
+    (
+    ...
+    Livesearch.extend({
+    ...
+    )
+
+
+And overriding the ``init`` function to provide our customization(default
+search current section):
+
+.. code-block:: javascript
+
+   (
+    ...
+    $('.searchSection input', that.$el)[0].checked = true;
+    ...
+   )
 
 Register Static Resource Directory
 ==================================
 
-Register the static directory we just placed our script into.
+Next, let’s register the static directory we just placed our script into.
 To register, you need to add ZCML registration for the static directory your script
 is in.
 
-Add this to the ``exercise8/configure.zcml`` file
-
-.. code-block:: xml
+Add this to the ``exercise8/configure.zcml`` file::
 
     <plone:static
          directory="static"
@@ -72,38 +106,18 @@ Add this to the ``exercise8/configure.zcml`` file
          name="exercise8"
          />
 
+
 Register Your Bundle
 ====================
 
-Registering your bundle is done by adding Generic Setup xml configuration to the
-Plone registry.
-
-This is done in the ``registry.xml`` file in the ``profiles/default``
-directory.
-
-
-Tablesorter
------------
-
-Resource is done exactly the same as in Exercise 1
+Again, registration is done exactly the same as previous exercises:
 
 .. code-block:: xml
 
-    <records prefix="plone.resources/tablesorter"
-             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-      <value key="js">++plone++exercise8/jquery.tablesorter.min.js</value>
-    </records>
+    <?xml version="1.0"?>
+    <registry>
 
-
-Bundle Resource
----------------
-
-Our pattern is a bundle-able resource since it uses the ``require`` function instead
-of the ``define`` function
-
-.. code-block:: xml
-
-    <records prefix="plone.resources/exercise8"
+      <records prefix="plone.resources/exercise8"
                 interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++exercise8/pattern.js</value>
         <value key="css">
@@ -111,66 +125,52 @@ of the ``define`` function
         </value>
       </records>
 
+      <records prefix="plone.bundles/exercise8"
+                interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+        <value key="resources">
+          <element>exercise8</element>
+        </value>
+        <value key="merge_with">default</value>
+        <value key="enabled">True</value>
+        <value key="jscompilation">++plone++exercise8/exercise8-compiled.min.js</value>
+        <value key="csscompilation">++plone++exercise8/exercise8-compiled.css</value>
+        <value key="last_compilation">2016-10-04 00:00:00</value>
+        <value key="stub_js_modules">
+          <element>jquery</element>
+          <element>mockup-patterns-livesearch</element>
+          <element>pat-registry</element>
+        </value>
+      </records>
 
-Bundle
-------
-
-Finally, let's create our bundle registration
-
-.. code-block:: xml
-
-    <records prefix="plone.bundles/exercise8"
-              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
-      <value key="resources">
-        <element>exercise8</element>
-      </value>
-      <value key="merge_with">default</value>
-      <value key="enabled">True</value>
-      <value key="jscompilation">++plone++exercise8/exercise8-compiled.min.js</value>
-      <value key="csscompilation">++plone++exercise8/exercise8-compiled.css</value>
-      <value key="last_compilation">2016-10-04 00:00:00</value>
-      <value key="stub_js_modules">
-        <element>jquery</element>
-        <element>mockup-patterns-base</element>
-      </value>
-    </records>
+    </registry>
 
 
 Installation
 ============
 
-At this point, we have all the files necessary to run the pattern.
+We have all the files necessary to run the pattern now.
 
 1) Start up your Plone instance
 2) Install the ``Exercise 8`` add-on
 
 
 Running
-=======
+========
 
 At this point, we have no compiled version of the code that we're running with
-so our code doesn't do anything.
+because of that our code doesn't do anything.
 
 1) Go into :menuselection:`Site Setup --> Resource Registries`
 2) Check :guilabel:`Development Mode`
 3) Select to develop JavaScript and CSS for the ``exercise8`` bundle
 4) Click :guilabel:`Save`
 
-This should load your JavaScript and LESS files now; however, we don't have
-any elements with the ``pat-exercise8`` class assigned to them.
-
-It's up to you how to apply the pattern class to an element of your choice.
-A couple options available to you are:
-
-1) use TinyMCE source view and add ``class="pat-tablesorter"`` onto any ``table`` tag.
-   You need to use ``th`` tags for the top row in your header for
-   tablesorter to know to do anything.
-2) customize the theme on your site and add it to an element in your theme file
-   or use a diazo rule diazo rule to dynamically add the class to an element
+Now, you should see the livesearch pattern default to searching the current
+section.
 
 
 Production
-==========
+----------
 
 To build our bundle, we'll utilize the ``plone-compile-resources`` script that
 Plone ships with.
