@@ -9,7 +9,7 @@ Views I
 
     ..  code-block:: bash
 
-        git checkout views_1
+        git checkout zpt
 
 
 In this part you will:
