@@ -1,0 +1,179 @@
+===============================
+Exercise 13: Pattern with React
+===============================
+
+..  warning::
+
+    This exercise requires a working buildout using a fork of the
+    collective.jstraining package.
+
+
+In this exercise, we'll be walking through creating a pattern that uses
+`ReactJS <https://facebook.github.io/react/>`_.
+
+We will be working in the ``exercise13`` directory of the collective.jstraining package.
+
+
+Add Your Pattern File
+=====================
+
+First off, in your ``exercise13/static`` directory, add a file named ``pattern.js``.
+Use this file to build your pattern.
+
+This example will bind a React component to a pattern element:
+
+.. code-block:: javascript
+
+    /* global require */
+
+    require([
+      'jquery',
+      'mockup-patterns-base',
+      'exercise13-react'
+    ], function($, Base, R) {
+      'use strict';
+      /* combining bundle and pattern in same file this example */
+
+      var D = R.DOM;
+
+
+      var Exercise13Component = R.createClass({
+        render: function(){
+          return D.div({}, [
+            D.span({}, 'Foobar rendered by exercise 9')
+          ]);
+        }
+      });
+
+      Base.extend({
+        name: 'exercise13',
+        trigger: '.pat-exercise13',
+        parser: 'mockup',
+        defaults: {
+        },
+        init: function() {
+          var that = this;
+          R.render(R.createElement(Exercise13Component, that.options), that.$el[0]);
+        }
+      });
+
+    });
+
+
+Notice that the ``init`` of the pattern utilizes the React element binding syntax.
+
+From there, react takes over and options from the pattern go into ``props`` for
+the React component.
+
+
+
+Register Static Resource Directory
+==================================
+
+Next, let’s register the static directory we just placed our script into.
+To register, you need to add :term:`ZCML` registration for the static directory your script
+is in.
+
+Add this to the ``exercise13/configure.zcml`` file
+
+.. code-block:: xml
+
+    <plone:static
+         directory="static"
+         type="plone"
+         name="exercise13"
+         />
+
+Register Your Bundle
+====================
+
+Registration is done exactly like the other examples:
+
+.. code-block:: xml
+
+    <records prefix="plone.resources/exercise13-react"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise13/react.min.js</value>
+      <value key="css">
+      </value>
+    </records>
+
+    <records prefix="plone.resources/exercise13"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise13/pattern.js</value>
+      <value key="css">
+        <element>++plone++exercise13/pattern.less</element>
+      </value>
+    </records>
+
+    <records prefix="plone.bundles/exercise13"
+              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+      <value key="resources">
+        <element>exercise13</element>
+      </value>
+      <value key="merge_with">default</value>
+      <value key="enabled">True</value>
+      <value key="jscompilation">++plone++exercise13/exercise13-compiled.min.js</value>
+      <value key="csscompilation">++plone++exercise13/exercise13-compiled.css</value>
+      <value key="last_compilation">2016-10-04 00:00:00</value>
+      <value key="stub_js_modules">
+        <element>jquery</element>
+        <element>mockup-patterns-base</element>
+      </value>
+    </records>
+
+
+Installation
+============
+
+At this point, we have all the files necessary to run the pattern.
+
+1) Start up your Plone instance
+2) Install the ``Exercise 13`` add-on
+
+
+Running
+=======
+
+At this point, we have no compiled version of the code that we're running with
+so our code doesn't do anything.
+
+1) Go into :menuselection:`Site Setup --> Resource Registries`
+2) Check :guilabel:`Development Mode`
+3) Select to develop JavaScript and CSS for the ``exercise13`` bundle
+4) Click :guilabel:`save`
+
+This should load your JavaScript and LESS files now; however, we don't have
+any elements with the ``pat-exercise13`` class assigned to them.
+
+It's up to you how to apply the pattern class to an element of your choice.
+A couple options available to you are:
+
+1) use TinyMCE source view and add ``class="pat-exercise13"`` onto any tag
+2) customize the theme on your site and add it to an element in your theme file
+   or use a diazo rule diazo rule to dynamically add the class to an element
+
+
+Production
+==========
+
+To build our bundle, we'll utilize the ``plone-compile-resources`` script that
+Plone ships with.
+
+
+..  warning::
+
+    If you're not running a ZEO setup, you'll need to shut down your Plone
+    instance since the ZODB in this mode does not allow multiple processes
+    to access it at the same time.
+
+
+An example command will look like this:
+
+.. code-block:: console
+
+    ./bin/plone-compile-resources --site-id=Plone --bundle=exercise13
+
+
+Once this command finishes, your bundle is built and will be deployed with your
+package package.

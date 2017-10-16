@@ -1,6 +1,6 @@
-==============================================
-Exercise 1: Include JavaScript In Browser View
-==============================================
+=============================================
+Exercise 1: Include a JavaScript resource TTW
+=============================================
 
 ..  warning::
 
@@ -8,19 +8,58 @@ Exercise 1: Include JavaScript In Browser View
     collective.jstraining package.
 
 
-For this exercise, we are simply including JavaScript in a browser view.
+For this exercise, we are going to include a Javascript using the resource registry through the web
 
 We will be working in the ``exercise1`` directory of the collective.jstraining package.
 
-Add Your JavaScript File
+
+Create your browser view
 ========================
 
-In your ``exercise1/static`` directory, add a file named ``script.js``.
+..  warning::
 
-This exercise is open ended as to what you do with JavaScript on the page.
+    This might be redundant with other documentation. Skip ahead if you know
+    how to create browser views.
 
-We'll stay very simple for the sake of brevity, using `jQuery <https://jquery.com/>`_ to do a
-animation effect on the title of the page
+Let’s add a basic new page view. This is only needed for calling our Javascript file.
+Add this into your ``exercise1/page.pt`` file
+
+.. code-block:: xml
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="plone">
+    <body>
+
+    </body>
+    </html>
+
+And wire it up with :term:`ZCML` registration in the ``exercise1/configure.zcml`` file
+
+.. code-block:: xml
+
+    <browser:page
+         name="exercise1"
+         for="*"
+         template="page.pt"
+         permission="zope2.View"
+         />
+
+
+Add your JavaScript file
+========================
+
+Go to the Site Setup, then to the Resource Registries.
+
+Under the ``Overrides`` tab, click ``Add file``
+
+When it asks to give it a name, enter ``++plone++static/exercise1.js``
+
+Inside the new editor that comes up, enter the following
 
 .. code-block:: javascript
 
@@ -52,62 +91,15 @@ animation effect on the title of the page
     });
 
 
-Feel free to customize the script to do whatever you'd like.
+Click ``Save``
+
+You can verify that the resource works by going to ``http://localhost:8080/Plone/++plone++static/exercise1.js``
 
 
-Register Static Resource Directory
-==================================
+Use the Javascript in your template
+-----------------------------------
 
-Next, let’s register the static directory we just placed our script into.
-
-To register, you need to add :term:`ZCML` registration for the static directory your script
-is in.
-
-Add this to the ``exercise1/configure.zcml`` file
-
-.. code-block:: xml
-
-    <plone:static
-         directory="static"
-         type="plone"
-         name="exercise1"
-         />
-
-
-Register JavaScript Resource
-============================
-
-Let’s register our script as a JavaScript resource with Plone.
-
-In the ``exercise1/profiles/default/registry.xml`` file, add configuration to register
-your script
-
-.. code-block:: xml
-
-    <records prefix="plone.resources/exercise1"
-                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-          <value key="js">++plone++exercise1/script.js</value>
-      </records>
-
-
-Create Your Browser View
-========================
-
-..  warning::
-
-    This might be redundant with other documentation.
-
-    Skip ahead if you know how to create browser views.
-
-
-Let’s load our JavaScript file to only load on a specific page you need it on.
-
-In our case, let’s add a basic new page view.
-
-The page template doesn’t need to implement any logic and we can use the main template
-to bring in the content of the page we’re using in the JavaScript(h1).
-
-Add this into your ``exercise1/page.pt`` file
+Now, you just need to edit your ``exercise1/page.pt`` file, so it would look like this
 
 .. code-block:: xml
 
@@ -118,63 +110,29 @@ Add this into your ``exercise1/page.pt`` file
         lang="en"
         metal:use-macro="context/main_template/macros/master"
         i18n:domain="plone">
+
+    <metal:block fill-slot="javascript_head_slot">
+        <script type="text/javascript" src="//localhost:8080/Plone/++plone++static/exercise1.js"></script>
+    </metal:block>
+
     <body>
 
     </body>
     </html>
 
-
-Load Your JavaScript Resource
-=============================
-
-Add in view python code to tell Plone to render the script in the
-``exercise1/browser.py`` file
-
-.. code-block:: python
-
-    from Products.CMFPlone.resources import add_resource_on_request
-    from Products.Five import BrowserView
-
-
-    class Exercise1View(BrowserView):
-
-        def __call__(self):
-            # utility function to add resource to rendered page
-            add_resource_on_request(self.request, 'exercise1')
-            return super(Exercise1View, self).__call__()
-
-
-The most interesting part here is to look at ``add_resource_on_request``.
-
-Wire it up with :term:`ZCML` registration in the ``exercise1/configure.zcml`` file
-
-.. code-block:: xml
-
-    <browser:page
-         name="exercise1"
-         for="*"
-         class=".browser.Exercise1View"
-         template="page.pt"
-         permission="zope2.View"
-         />
-
-
 Installation
-============
+------------
 
 1) Start up your Plone instance
-2) Install the ``Exercise 1`` add-on
 
+Then, visit the URL:
+``http://localhost:8080/Plone/front-page/@@exercise1``. 
 
-Then, visit the URL: ``http://localhost:8080/Plone/front-page/@@exercise1``.
-
-This is assuming your Plone is located at the URL ``http://localhost:8080/Plone``.
+This is assuming your Plone is is located at the URL ``http://localhost:8080/Plone``.
 
 
 Production
-==========
+----------
 
 In this exercise, there is no special distinction between development and
-production builds.
-
-The JavaScript is developed without any build process.
+production builds. The JavaScript is developed without any build process.
