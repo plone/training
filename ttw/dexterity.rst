@@ -48,10 +48,9 @@ Every Plone content type has the following parts:
 Schema
     A definition of fields that comprise a content type;
     properties of an object.
-
 FTI
-    The "Factory Type Information" configures the content type in Plone, assigns it a name, an icon, additional features and possible views to it.
-
+    The "Factory Type Information" configures the content type in Plone,
+    assigns it a name, an icon, additional features and possible views to it.
 Views
     A view is a representation of the object and the content of its fields that may be rendered in response to a request.
     You may have *one or more* views for an object.
@@ -95,7 +94,8 @@ Approaches for Developers:
 
 Extending:
 
-* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content type is e.g. translatable (:py:mod:`plone.app.multilingual`).
+* Dexterity has *Behaviors*: easily extendable.
+  Just activate a behavior TTW and your content type is e.g. translatable (:py:mod:`plone.app.multilingual`).
 * Archetypes has :py:mod:`archetypes.schemaextender`. Powerful but not as flexible.
 
 We have only used Dexterity for the last few years.
@@ -139,23 +139,26 @@ Modifying Existing Types
 Creating Content Types "Through-The-Web"
 ========================================
 
-In this step we will create a content type called *Talk* and try it out. When it's ready we will move the code from the web to the file system and into our own add-on. Later we will extend that type, add behaviors and a viewlet for Talks.
+In this step we will create a content type called *Talk* and try it out.
+When it's ready, we will move the code from the web to the file system and into our own add-on.
+Later we will extend that type, add behaviors and a viewlet for Talks.
 
 * Add new content type "Talk" and some fields for it:
 
-  * :guilabel:`Add new field` "Type of talk", type "Choice". Add options: talk, keynote, training.
-  * :guilabel:`Add new field` "Details", type "Rich Text" with a maximal length of 2000.
-  * :guilabel:`Add new field` "Audience", type "Multiple Choice". Add options: beginner, advanced, pro.
+  * :guilabel:`Add new field` "Type of talk", type :guilabel:`Choice`.
+    Go to :menuselection:`Settings` and add options: talk, keynote, training.
+  * :guilabel:`Add new field` "Details", type :guilabel:`Rich Text` with a maximal length of 2000.
+  * :guilabel:`Add new field` "Audience", type :guilabel:`Multiple Choice`. Add options: beginner, advanced, pro.
   * Check the behaviors that are enabled:  *Dublin Core metadata*, *Name from title*. Do we need them all?
 
 * Test the content type.
 * Return to the control panel http://localhost:8080/Plone/@@dexterity-types
 * Extend the new type: add the following fields:
 
-  * "Speaker", type: "Text line"
-  * "Email", type: "Email"
-  * "Image", type: "Image", not required
-  * "Speaker Biography", type: "Rich Text"
+  * "Speaker", type: :guilabel:`Text line`
+  * "Email", type: :guilabel:`Email`
+  * "Image", type: :guilabel:`Image`, not required
+  * "Speaker Biography", type: :guilabel:`Rich Text`
 
 * Test again.
 
@@ -224,11 +227,15 @@ Here is the complete XML schema created by our actions:
 Moving Content Types Into Code
 ==============================
 
-It's awesome that we can do so much through the web. But it's also a dead end if we want to reuse this content type in other sites.
+It's awesome that we can do so much through the web.
+But it's also a dead end if we want to reuse this content type in other sites.
 
-Also, for professional development, we want to be able to use version control for our work, and we'll want to be able to add the kind of business logic that will require programming.
+Also, for professional development,
+we want to be able to use version control for our work,
+and we'll want to be able to add the kind of business logic that will require programming.
 
-So, we'll ultimately want to move our new content type into a Python package. We're missing some skills to do that, and we'll cover those in the next couple of chapters.
+So, we'll ultimately want to move our new content type into a Python package.
+We're missing some skills to do that, and we'll cover those in the next couple of chapters.
 
 .. seealso::
 
@@ -244,7 +251,7 @@ Exercises
 Exercise 1
 ----------
 
-Modify Pages to allow uploading an image as decoration (like News Items do).
+Modify Pages to allow uploading an image as decoration (like *News Items* do).
 
 ..  admonition:: Solution
     :class: toggle
@@ -262,14 +269,14 @@ Exercise 2
 Create a new content type called *Speaker* and export the schema to a XML File.
 It should contain the following fields:
 
-* Title, type: "Text Line"
-* Email, type: "Email"
-* Homepage, type: "URL" (optional)
-* Biography, type: "Rich Text" (optional)
-* Company, type: "Text Line" (optional)
-* Twitter Handle, type: "Text Line" (optional)
-* IRC Handle, type: "Text Line" (optional)
-* Image, type: "Image" (optional)
+* Title, type: :guilabel:`Text Line`
+* Email, type: :guilabel:`Email`
+* Homepage, type: :guilabel:`URL` (optional)
+* Biography, type: :guilabel:`Rich Text` (optional)
+* Company, type: :guilabel:`Text Line` (optional)
+* Twitter Handle, type: :guilabel:`Text Line` (optional)
+* IRC Handle, type: :guilabel:`Text Line` (optional)
+* Image, type: :guilabel:`Image` (optional)
 
 Do not use the :term:`Dublin Core` or the Basic behavior since a speaker should not have a description (unselect it in the Behaviors tab).
 

@@ -54,7 +54,8 @@ Now we can play with some Less variables:
 
 
 3. Hit the :guilabel:`Save` button in the upper right and reload the page.
-4. Click on the toolbar logo to expand the toolbar: voilá!
+4. Go back to the :guilabel:`Registry` tab and hit the :guilabel:`Build` button for the ``plone`` bundle.
+5. Click on the toolbar logo to expand the toolbar: voilá!
 
 You can play around with some other variables, if you want.
 

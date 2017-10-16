@@ -3,14 +3,17 @@
 Installing Plone for the Training
 =================================
 
-Keep in mind that you need a fast internet connection during installation since you'll have to download a lot of data!
+Keep in mind that you need a fast Internet connection during installation since you'll have to download a lot of data!
 
 
 .. _instructions-no-vagrant-label:
 
 .. warning::
 
-    If you feel the desire to try out both methods below (with Vagrant and without), make sure you use different :file:`training` directories!  The two installations do not coexist well.
+    If you feel the desire to try out both methods below (with Vagrant and without),
+    make sure you use different :file:`training` directories!
+
+    The two installations do not coexist well.
 
 
 Installing Plone without vagrant
@@ -20,53 +23,71 @@ Installing Plone without vagrant
 
     If you are **not** used to running Plone on your laptop skip this part and continue with :ref:`install-virtualbox`.
 
+.. warning::
+
+    To run Plone 5.1 you at least need Python 2.7.9!
+
 If you **are** experienced with running Plone on your own laptop, we encourage you to do so because you will have certain benefits:
 
 * You can use the editor you are used to.
 * You can use *omelette* to have all the code of Plone at your fingertips.
 * You do not have to switch between different operating systems during the training.
 
-If you feel comfortable, please work on your own machine with your own Python. But **please** make sure that you have a system that will work, since we don't want you to lose valuable time!
+If you feel comfortable, please work on your own machine with your own Python.
+
+**Please** make sure that you have a system that will work, since we don't want you to lose valuable time!
 
 .. note::
 
-    If you also want to follow the JavaScript training and install the JavaScript development tools, you need `NodeJS <https://nodejs.org/en/download/>`_ installed on your development computer.
-
+    If you also want to follow the JavaScript training and install the JavaScript development tools,
+    you need `NodeJS <https://nodejs.org/en/download/>`_ installed on your development computer.
 
 .. note::
 
-    Please make sure you have your system properly prepared and installed all necessary prerequisites. For example, on Ubuntu/Debian, you need to install the following::
+    Please make sure you have your system properly prepared and installed all necessary prerequisites.
 
-        sudo apt-get install python-setuptools python-virtualenv python-dev build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
-        sudo apt-get install libreadline-dev wv poppler-utils
-        sudo apt-get install git
+The following instructions are based on Ubuntu and macOS, if you use a different operating system (OS), please adjust them to fit your OS.
 
-    For more information or in case of problems see the `official installation instructions <https://docs.plone.org/manage/installing/installation.html>`_.
+On Ubuntu/Debian, you need to install the following:
 
+.. code-block:: console
 
+    sudo apt-get install python-setuptools python-virtualenv python-dev build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
+    sudo apt-get install libreadline-dev wv poppler-utils
+    sudo apt-get install git
+
+On macOS you at least need to install some dependencies with `Homebrew <https://brew.sh/>`_
+
+.. code-block:: console
+
+    brew install zlib git readline jpeg libpng libyaml
+
+For more information or in case of problems see the `official installation instructions <https://docs.plone.org/manage/installing/installation.html>`_.
 
 Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
-.. code-block:: bash
+.. code-block:: console
 
-    $ mkdir training
-    $ cd training
-    $ git clone https://github.com/collective/training_buildout.git buildout
-    $ cd buildout
-    $ virtualenv --python=python2.7 py27
+    mkdir training
+    cd training
+    git clone https://github.com/collective/training_buildout.git buildout
+    cd buildout
+    virtualenv --python=python2.7 .
+    ./bin/pip install -r requirements.txt
+
+This creates a virtualenv with Python 2.7 in the folder :file:`buildout` and installs some requirements in it.
 
 Now you can run the buildout for the first time:
 
-.. code-block:: bash
+.. code-block:: console
 
-    $ ./py27/bin/python bootstrap.py
-    $ ./bin/buildout
+    ./bin/buildout
 
-This will take some time and produce a lot of output because it downloads and configures Plone. Once it is done you can start your instance with
+This will take a very lot of time and produce a lot of output because it downloads and configures more than 260 Python packages. Once it is done you can start your Plone instance with
 
-.. code-block:: bash
+.. code-block:: console
 
-    $ ./bin/instance fg
+    ./bin/instance fg
 
 The output should be similar to:
 
@@ -104,9 +125,13 @@ The output should be similar to:
 
 If the output says ``INFO Zope Ready to handle requests`` then you are in business.
 
-If you point your browser at http://localhost:8080 you see that Plone is running. There is no Plone site yet - we will create one in chapter 6.
+If you point your browser at http://localhost:8080 you see that Plone is running.
 
-Now you have a working Plone site up and running and can continue with the next chapter.  You can stop the running instance anytime using :kbd:`ctrl + c`.
+There is no Plone site yet - we will create one in chapter 6.
+
+Now you have a working Plone site up and running and can continue with the next chapter.
+
+You can stop the running instance anytime using :kbd:`ctrl + c`.
 
 .. warning::
 
@@ -115,19 +140,27 @@ Now you have a working Plone site up and running and can continue with the next 
 
 .. _instructions-vagrant-label:
 
-Installing Plone with vagrant
+Installing Plone with Vagrant
 -----------------------------
 
-In order not to waste too much time with installing and debugging the differences between systems, we use a virtual machine (Ubuntu 16.04) to run Plone during the training. We rely on Vagrant and VirtualBox to give the same development environment to everyone.
+We use a virtual machine (Ubuntu 16.04) to run Plone during the training.
 
-`Vagrant <https://www.vagrantup.com>`_ is a tool for building complete development environments. We use it together with Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to create and manage a virtual environment.
+We rely on `Vagrant <https://www.vagrantup.com>`_ and `VirtualBox <https://www.virtualbox.org>`_ to give the same development environment to everyone.
+
+`Vagrant <https://www.vagrantup.com>`_ is a tool for building complete development environments.
+
+We use it together with Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to create and manage a virtual environment.
 
 .. _install-virtualbox:
 
 Install VirtualBox
 ++++++++++++++++++
 
-Vagrant uses Oracle’s VirtualBox to create virtual environments. Here is a link directly to the download page: https://www.virtualbox.org/wiki/Downloads. We use VirtualBox 5.0.x
+Vagrant uses Oracle’s VirtualBox to create virtual environments.
+
+Here is a link directly to the download page: https://www.virtualbox.org/wiki/Downloads.
+
+We use VirtualBox 5.0.x
 
 
 .. _instructions-configure-vagrant-label:
@@ -137,50 +170,43 @@ Install and configure Vagrant
 
 Get the latest version from https://www.vagrantup.com/downloads.html for your operating system and install it.
 
-.. note::
-
-    In Windows there is a bug in the recent version of Vagrant. Here are the instructions for how to work around the warning ``Vagrant could not detect VirtualBox! Make sure VirtualBox is properly installed``.
-
 Now your system has a command :command:`vagrant` that you can run in the terminal.
-
-.. note::
-
-    You don't need to install ``NodeJS`` as mentioned in the previous section. Our Vagrant configuration already does that for you.
-
 
 First, create a directory in which you want to do the training.
 
 .. warning::
 
-    If you already have a :file:`training` directory because you followed the **Installing Plone without vagrant** instructions above, you should either delete it, rename it, or use a different name below.
+    If you already have a :file:`training` directory because you followed the **Installing Plone without vagrant** instructions above,
+    you should either delete it, rename it, or use a different name below.
 
-.. code-block:: bash
+.. code-block:: console
 
-    $ mkdir training
-    $ cd training
+    mkdir training
+    cd training
 
-Setup Vagrant to automatically install the current guest additions. You can choose to skip this step if you encounter any problems with it.
+Setup Vagrant to automatically install the current guest additions.
+You can choose to skip this step if you encounter any problems with it.
 
-.. code-block:: bash
+.. code-block:: console
 
-    $ vagrant plugin install vagrant-vbguest
+    vagrant plugin install vagrant-vbguest
 
 Now download :download:`plone_training_config.zip <../_static/plone_training_config.zip>` and copy its contents into your training directory.
 
-.. code-block:: bash
+.. code-block:: console
 
-    $ wget https://raw.githubusercontent.com/plone/training/master/_static/plone_training_config.zip
-    $ unzip plone_training_config.zip
+    wget https://raw.githubusercontent.com/plone/training/master/_static/plone_training_config.zip
+    unzip plone_training_config.zip
 
 The training directory should now hold the file :file:`Vagrantfile` and the directory :file:`manifests` which again contains several files.
 
-Now start setting up the VM that is configured in :file:`Vagrantfile`:
+Now start setting up the virtual machine (VM) that is configured in :file:`Vagrantfile`:
 
-.. code-block:: bash
+.. code-block:: console
 
-    $ vagrant up
+    vagrant up
 
-This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on your internet connection and system speed) since it does all the following steps:
+This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on your Internet connection and system speed) since it does all the following steps:
 
 * downloads a virtual machine (Official Ubuntu Server 16.04 LTS, also called "Xenial Xerus")
 * sets up the VM
@@ -194,43 +220,53 @@ This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on y
 
     Sometimes this stops with the message:
 
-    .. code-block:: bash
+    .. code-block:: console
 
         Skipping because of failed dependencies
 
-    If this happens or you have the feeling that something has gone wrong and the installation has not finished correctly for some reason you need to run the following command to repeat the process. This will only repeat steps that have not finished correctly.
+If this happens or you have the feeling that something has gone wrong and the installation has not finished correctly for some reason
+you need to run the following command to repeat the process.
 
-    .. code-block:: bash
+This will only repeat steps that have not finished correctly.
 
-        $ vagrant provision
+.. code-block:: console
 
-    You can do this multiple times to fix problems, e.g. if your network connection was down and steps could not finish because of this.
+   vagrant provision
+
+You can do this multiple times to fix problems, e.g. if your network connection was down and steps could not finish because of this.
 
 .. note::
 
     If while bringing vagrant up you get an error similar to:
 
-    .. code-block:: bash
+    .. code-block:: console
 
         ssh_exchange_identification: read: Connection reset by peer
 
-    The configuration may have stalled out because your computer's BIOS requires virtualization to be enabled. Check with your computer's manufacturer on how to properly enable virtualization.  See: https://teamtreehouse.com/community/vagrant-ssh-sshexchangeidentification-read-connection-reset-by-peer
+The configuration may have stalled out because your computer's BIOS requires virtualization to be enabled.
+Check with your computer's manufacturer on how to properly enable virtualization.
+
+See: https://teamtreehouse.com/community/vagrant-ssh-sshexchangeidentification-read-connection-reset-by-peer
 
 Once Vagrant finishes the provisioning process, you can login to the now running virtual machine.
 
-.. code-block:: bash
+.. code-block:: console
 
-    $ vagrant ssh
+    vagrant ssh
 
 .. note::
 
-    If you use Windows you'll have to login with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_. Connect to vagrant@127.0.01 at port 2222. User **and** password are ``vagrant``.
+    If you use Windows you'll have to login with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_.
+    Connect to vagrant@127.0.01 at port 2222. User **and** password are ``vagrant``.
 
-You are now logged in as the user vagrant in :file:`/home/vagrant`. We'll do all steps of the training as this user.
+You are now logged in as the user vagrant in :file:`/home/vagrant`.
 
-Instead we use our own Plone instance during the training. It is in :file:`/vagrant/buildout/`. Start it in foreground with :command:`./bin/instance fg`.
+We'll do all steps of the training as this user.
 
-.. code-block:: bash
+Instead we use our own Plone instance during the training.
+It is in :file:`/vagrant/buildout/`. Start it in foreground with :command:`./bin/instance fg`.
+
+.. code-block:: console
 
     ubuntu@training:/vagrant/buildout$ bin/instance fg
     2017-10-09 16:28:01 INFO ZServer HTTP server started at Mon Oct  9 16:28:01 2017
@@ -275,30 +311,43 @@ Instead we use our own Plone instance during the training. It is in :file:`/vagr
 
 .. note::
 
-    In rare cases when you are using OSX with an UTF-8 character set starting Plone might fail with the following error:
+    In rare cases when you are using macOS with an UTF-8 character set starting Plone might fail with the following error:
 
     .. code-block:: text
 
        ValueError: unknown locale: UTF-8
 
-    In that case you have to put the localized keyboard and language settings in the .bash_profile of the vagrant user to your locale (like ``en_US.UTF-8`` or ``de_DE.UTF-8``)
+In that case you have to put the localized keyboard and language settings in the .bash_profile
+of the vagrant user to your locale (like ``en_US.UTF-8`` or ``de_DE.UTF-8``)
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        export LC_ALL=en_US.UTF-8
-        export LANG=en_US.UTF-8
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
 
-Now the Zope instance we're using is running. You can stop the running instance anytime using :kbd:`ctrl + c`.
+Now the Zope instance we're using is running.
+You can stop the running instance anytime using :kbd:`ctrl + c`.
 
-If it doesn't, don't worry, your shell isn't blocked. Type :kbd:`reset` (even if you can't see the prompt) and press RETURN, and it should become visible again.
+If it doesn't, don't worry, your shell isn't blocked.
 
-If you point your local browser at http://localhost:8080 you see that Plone is running in vagrant. This works because VirtualBox forwards the port 8080 from the guest system (the vagrant Ubuntu) to the host system (your normal operating system).  There is no Plone site yet - we will create one in chapter 6.
+Type :kbd:`reset` (even if you can't see the prompt) and press RETURN, and it should become visible again.
 
-The Buildout for this Plone is in a shared folder.  This means we run it in the vagrant box from :file:`/vagrant/buildout` but we can also access it in our own operating system and use our favorite editor. You will find the directory :file:`buildout` in the directory :file:`training` that you created in the very beginning next to :file:`Vagrantfile` and :file:`manifests`.
+If you point your local browser at http://localhost:8080 you see that Plone is running in Vagrant.
+
+This works because VirtualBox forwards the port 8080 from the guest system (the vagrant Ubuntu) to the host system (your normal operating system).
+
+There is no Plone site yet - we will create one in chapter 6.
+
+The Buildout for this Plone is in a shared folder.
+This means we run it in the vagrant box from :file:`/vagrant/buildout` but we can also access it in our own operating system and use our favorite editor.
+
+You will find the directory :file:`buildout` in the directory :file:`training` that you created in the beginning
+next to :file:`Vagrantfile` and :file:`manifests`.
 
 .. note::
 
-    The database and the python packages are not accessible in your own system since large files cannot make use of symlinks in shared folders. The database lies in ``/home/ubuntu/var``, the python packages are in ``/home/ubuntu/packages``.
+    The database and the python packages are not accessible in your own system since large files cannot make use of symlinks in shared folders.
+    The database lies in ``/home/ubuntu/var``, the python packages are in ``/home/ubuntu/packages``.
 
 If you have any problems or questions please mail us at team@starzel.de or create a ticket at https://github.com/plone/training/issues.
 
@@ -308,7 +357,8 @@ If you have any problems or questions please mail us at team@starzel.de or creat
 What Vagrant does
 +++++++++++++++++
 
-Installation is done automatically by vagrant and puppet. If you want to know which steps are actually done please see the chapter :doc:`what_vagrant_does`.
+Installation is done automatically by vagrant and puppet.
+If you want to know which steps are actually done please see the chapter :doc:`what_vagrant_does`.
 
 .. _instructions-vagrant-care-handling-label:
 
@@ -316,8 +366,8 @@ Installation is done automatically by vagrant and puppet. If you want to know wh
 
     **Vagrant Care and Handling**
 
-    Keep in mind the following recommendations for using your Vagrant virtualboxes:
+    Keep in mind the following recommendations for using your Vagrant VirtualBoxes:
 
-    * Use the :command:`vagrant suspend` or :command:`vagrant halt` commands to put the virtualbox to "sleep" or to "power it off" before attempting to start another Plone instance anywhere else on your machine, if it uses the same port.  That's because vagrant "reserves" port 8080, and even if you stopped Plone in vagrant, that port is still in use by the guest OS.
+    * Use the :command:`vagrant suspend` or :command:`vagrant halt` commands to put the VirtualBox to "sleep" or to "power it off" before attempting to start another Plone instance anywhere else on your machine, if it uses the same port.  That's because vagrant "reserves" port 8080, and even if you stopped Plone in vagrant, that port is still in use by the guest OS.
     * If you are done with a vagrant box, and want to delete it, always remember to run :command:`vagrant destroy` on it before actually deleting the directory containing it.  Otherwise you'll leave its "ghost" in the list of boxes managed by vagrant and possibly taking up disk space on your machine.
     * See :command:`vagrant help` for all available commands, including :command:`suspend`, :command:`halt`, :command:`destroy`, :command:`up`, :command:`ssh` and :command:`resume`.

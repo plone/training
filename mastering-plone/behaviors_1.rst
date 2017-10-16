@@ -85,7 +85,7 @@ Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/confi
 
         If you do not define a factory, your attributes will be stored directly on the object. This can result in clashes with other behaviors.
 
-        You can avoid this by using the :py:class:`plone.behavior.AnnotationStorage` factory. This stores your attributes in an :ref:`Annotation <plone:annotations>`.
+        You can avoid this by using the :py:class:`plone.behavior.AnnotationStorage` factory. This stores your attributes in an `Annotation <https://docs.plone.org/develop/plone/misc/annotations.html>`_.
         But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
 
         Without it, you would have no interface against which you could register your views.

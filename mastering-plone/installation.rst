@@ -22,10 +22,10 @@ Installing Plone
      4.2.x       2.6 or 2.7
      4.3.x       2.7
      5.0.x       2.7
-     5.1.x       2.7
+     5.1.x       2.7.9
     ==========  ==============
 
-    (Hopefully you won't have to deal with any Plone sites older than version 3.x.)
+    (Hopefully you won't have to deal with any Plone sites older than version 4.3.x)
 
     Plone 5.x requires a working Python 2.7 and other system tools that not every OS provides.
     The installation of Plone is different on every system.
@@ -33,7 +33,7 @@ Installing Plone
 
 .. only:: presentation
 
-    Plone 4.3-x and Plone 5 require a working Python 2.7 and other tools.
+    Plone 4.3.x and Plone 5.x require a working Python 2.7 and other tools.
 
     Installation is different on every system.
 
@@ -45,15 +45,15 @@ Installing Plone
 
 .. only:: not presentation
 
-    macOS 10.8 - 10.10 and Ubuntu 14.04 come with a working default Python 2.7 built in.
+    macOS 10.8 - 10.11 and Ubuntu 14.04 come with a working default Python 2.7 built in.
     These are the lucky ones.
 
 Most developers use their primary system to develop Plone.
 For complex setups they often use Linux virtual machines.
 
-* macOS: Use the python buildout to compile python and `Homebrew <https://docs.brew.sh/Installation.html>`_ for some missing Linux tools.
+* macOS: Use the system python and `Homebrew <https://brew.sh>`_ for some missing Linux tools.
 * Linux: Depending on your Linux flavor you might have to build python yourself and install some tools.
-* Windows: Alan Runyan (one of Plone's founders) uses it. A downside: Plone seems to be running much slower on Windows.
+* Windows: Alan Runyan (one of Plone's founders) uses it. A downside: Plone seems to be running slower on Windows.
 
 Plone offers multiple options for being installed:
 

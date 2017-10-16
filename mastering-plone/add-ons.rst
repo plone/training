@@ -57,9 +57,9 @@ How to find add-ons
 -------------------
 
 * https://plone.org/download/add-ons
-* https://pypi.python.org/pypi - use the search form!
-* https://github.com/collective >1200 repos
-* https://github.com/plone >260 repos
+* https://pypi.python.org/pypi >3400 Plone related packages - use the search form!
+* https://github.com/collective >1500 repos
+* https://github.com/plone >310 repos
 * https://community.plone.org - ask the community
 * google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)
 * ask in irc and on the mailing list
