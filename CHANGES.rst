@@ -7,6 +7,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 ------------------
 =======
 
+- Fixes to Advanced Python Training [oz123]
+
 - Add one more chapter to Advanced Python Training [oz123]
 
 - Reorder Javascript exercises [frapell]
