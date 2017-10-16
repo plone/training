@@ -1,6 +1,6 @@
-=========================================
-Exercise 3: NG2 APP Component In a Aundle
-=========================================
+==========================================
+Exercise 3: Gallery Integration With Theme
+==========================================
 
 ..  warning::
 
@@ -8,111 +8,127 @@ Exercise 3: NG2 APP Component In a Aundle
     collective.jstraining package.
 
 
-For this exercise, we will add an Angular 2 application to a Plone bundle.
+In this exercise, we'll be walking through how to include custom JavaScript
+into your theme.
 
-We have most of the Angular 2 boiler plate code created for you so let's
-finish up a few things so you can customize it.
+This example essentially re-uses the Barceloneta theme.
+
+It's more important to pay attention to how the integration with the theme works,
+than worrying about diazo/theming details for this exercise.
 
 We will be working in the ``exercise3`` directory of the collective.jstraining package.
 
-Bootstrap
-=========
+Add Your JavaScript File
+========================
 
-Install npm dependencies
+The lightGallery distribution files are already included in the
+``collective.jstraining`` package you're working with.
 
-.. code-block:: console
+In your ``exercise3/theme`` directory, add a file named ``integration.js``.
+We'll use this file to integrate with Plone's album view
 
-    cd exercise3/static
-    npm install
+.. code-block:: javascript
+
+    require([
+      'jquery',
+      '++theme++exercise3/lightgallery/js/lightgallery.min'
+    ], function($){
+      $(document).ready(function() {
+        var $photos = $('.photoAlbumEntry a');
+        if($photos.size() > 0){
+          // we're on an album view page
+          // we need to adjust links so the work nicely with light gallery
+          $photos.each(function(){
+            var $a = $(this);
+            $a.attr('href', $a.attr('href').replace('/view', ''));
+          });
+          $("#content-core").lightGallery({
+            selector: '.photoAlbumEntry a'
+          });
+        }
+      });
+    });
 
 
-Add Your Angular 2 Component
-============================
+Let's talk about each part of this file in detail...
 
-In your ``exercise3/static/app`` directory, add a file named ``app.component.ts``.
-Use this file to do anything you would like to the page.
+Require the lightGallery JavaScript
 
-This example will stick with the angular 2 quickstart code.
+.. code-block:: javascript
 
-We hope you like typescript
-
-.. code-block:: typescript
-
-    import { Component } from '@angular/core';
-    @Component({
-      selector: '.my-app',
-      template: '<h1>NG2 from Exercise 3</h1>'
+    (
+    ...
+    require([
+      'jquery',
+      '++theme++exercise3/lightgallery/js/lightgallery.min'
+    ], function($){
+    ...
     })
-    export class AppComponent { }
+
+This tells `RequirejS <http://requirejs.org/>`_ to load the `jQuery <https://jquery.com/>`_ and the lightGallery JavaScript.
+
+What is important to pay attention to in this example is that we are seeing
+if there are any ``photoAlbumEntry`` elements on the page.
+
+If there are any, we modify the DOM structure slightly to work seemlessly with lightGallery>
+
+.. code-block:: javascript
+
+    (
+    ...
+    var $photos = $('.photoAlbumEntry a');
+    if($photos.size() > 0){
+      // we're on an album view page
+      // we need to adjust links so the work nicely with light gallery
+      $photos.each(function(){
+        var $a = $(this);
+        $a.attr('href', $a.attr('href').replace('/view', ''));
+      });
+    ...
+    )
 
 
-You can do whatever in this module however, please notice how we changed the
-selector to ``.my-app``.
+We call the lightGallery initialization with our configuration
 
-In Angular 2, the selector can be anything.
+.. code-block:: javascript
 
-By changing it to a class name, it will be easier for us to choose where we want to bootstrap
-our Angular 2 component.
-
-
-Register Static Resource Directory
-==================================
-
-Next, let’s register the static directory we placed our script into.
-
-To register, you need to add :term:`ZCML` registration for the static directory your script
-is in. Add this to the ``exercise3/configure.zcml`` file
-
-.. code-block:: xml
-
-    <plone:static
-         directory="static"
-         type="plone"
-         name="exercise3"
-         />
+    ...
+    $("#content-core").lightGallery({
+      selector: '.photoAlbumEntry a'
+    });
+    ...
 
 
-Build The File With Webpack
-===========================
-
-Our deployment is built using webpack
-
-.. code-block:: console
-
-    cd exercise3/static
-    webpack
-
-
-Whenever you make a change to your component files, webpack will auto re-build
-the distribution.
-
-
-Register JavaScript Resource As A Bundle
+Including JavaScript/CSS Into Your Theme
 ========================================
 
-Register our script as a JavaScript resource with Plone.
+For JavaScript and CSS, you can include resources with convenience theme
+configuration settings of ``development-css``, ``production-css``, ``development-js``
+and ``production-js``.
 
-In the ``exercise3/profiles/default/registry.xml`` file, add configuration to register
-your script
-
-.. code-block:: xml
-
-    <records prefix="plone.bundles/exercise3"
-              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
-      <value key="merge_with">default</value>
-      <value key="enabled">True</value>
-      <value key="compile">False</value>
-      <value key="jscompilation">++plone++exercise3/exercise3-compiled.min.js</value>
-      <value key="csscompilation">++plone++exercise3/exercise3-compiled.css</value>
-      <value key="last_compilation">2016-10-04 00:00:00</value>
-    </records>
+Since we are reusing the existing Barceloneta theme with this example though,
+we will simple include the JavaScript/CSS into the theme ``index.html`` file.
 
 
-A couple notes about this configuration:
+CSS
+---
 
-- ``merge_with`` tells Plone to combine this file with the default Plone bundles
-- ``compile`` is distinguish this bundle as one that is compiled outside of Plone
-- ``jscompilation`` and ``csscompilation`` are what Plone uses as the final compiled output
+At the bottom of the head section in the ``index.html`` file, add
+
+.. code-block:: html
+
+   <link rel="stylesheet" type="text/css"
+          href="../++theme++exercise3/lightgallery/css/lightgallery.min.css" />
+
+
+JavaScript
+----------
+
+At the bottom of the ``index.html`` file, before the ``</body>`` closing tag, add
+
+.. code-block:: html
+
+   <script src="../++theme++exercise3/integration.js"></script>
 
 
 Installation
@@ -122,38 +138,20 @@ Installation
 2) Install the ``Exercise 3`` add-on
 
 
-..  warning::
+Trying It Out
+=============
 
-    To make sure your resource registry configuration changes apply, you'll need to
-    be in development mode.
+1) Create a folder and add some images to it in your Plone site.
 
-    You can also toggle development mode on and off,
-    click save, to force configuration to be re-built after changes instead of
-    keeping development mode on.
+2) Specify ``Album view`` for your folder.
 
-
-Running
-=======
-
-It's up to you how to apply the component class name to an element of your choice.
-A couple options available to you are:
-
-1) use TinyMCE source view and add ``class="my-app"`` onto any tag
-2) customize the theme on your site and add it to an element in your theme file
-   or use a diazo rule diazo rule to dynamically add the class to an element
-
-
-Development
-===========
-
-To make sure your changes are loaded after every build with webpack, make sure
-to go into :menuselection:`Setup --> Resource registries` and enable development mode.
+3) Now when you click on an image, it should show the gallery viewer.
 
 
 Production
 ==========
 
-Production for this is simple when you're no longer in development mode on
-your Plone site.
+In this example, there is no difference with development vs production.
 
-webpack rebuilds the JavaScript distribution on every change.
+You can combine this example with other examples of building JavaScript projects
+to build, compile and minify your resources.

@@ -1,6 +1,6 @@
-==========================================
-Exercise 5: Gallery Integration With Theme
-==========================================
+==========================
+Exercise 5: Simple Pattern
+==========================
 
 ..  warning::
 
@@ -8,127 +8,182 @@ Exercise 5: Gallery Integration With Theme
     collective.jstraining package.
 
 
-In this exercise, we'll be walking through how to include custom JavaScript
-into your theme.
-
-This example essentially re-uses the Barceloneta theme.
-
-It's more important to pay attention to how the integration with the theme works,
-than worrying about diazo/theming details for this exercise.
+In this exercise, we'll be walking through creating a simple Plone pattern.
 
 We will be working in the ``exercise5`` directory of the collective.jstraining package.
 
-Add Your JavaScript File
-========================
+Add Your Pattern File
+=====================
 
-The lightGallery distribution files are already included in the
-``collective.jstraining`` package you're working with.
+First off, in your ``exercise5/static`` directory, add a file named ``pattern.js``.
+Use this file to build your pattern.
 
-In your ``exercise5/theme`` directory, add a file named ``integration.js``.
-We'll use this file to integrate with Plone's album view
+This example will stay very simple we’ll use `jQuery <https://jquery.com/>`_ to do a simply modify the content of an element
 
 .. code-block:: javascript
 
-    require([
+    define([
       'jquery',
-      '++theme++exercise5/lightgallery/js/lightgallery.min'
-    ], function($){
-      $(document).ready(function() {
-        var $photos = $('.photoAlbumEntry a');
-        if($photos.size() > 0){
-          // we're on an album view page
-          // we need to adjust links so the work nicely with light gallery
-          $photos.each(function(){
-            var $a = $(this);
-            $a.attr('href', $a.attr('href').replace('/view', ''));
-          });
-          $("#content-core").lightGallery({
-            selector: '.photoAlbumEntry a'
-          });
+      'mockup-patterns-base',
+    ], function($, Base) {
+      'use strict';
+
+      var Pattern = Base.extend({
+        name: 'exercise5',
+        trigger: '.pat-exercise5',
+        parser: 'mockup',
+        defaults: {
+        },
+        init: function() {
+          var that = this;
+          that.$el.append(' <span>Exercise 5 was here</span>');
         }
       });
+
+      return Pattern;
     });
 
 
-Let's talk about each part of this file in detail...
+For more details on how to write a mockup pattern, utilize the various resources
+available.
 
-Require the lightGallery JavaScript
+- `Minimal pattern <https://github.com/collective/mockup-minimalpattern>`_
+- `Mockup docs <http://plone.github.io/mockup/dev/>`_
+- `Patternslib <http://patternslib.com/>`_
+
+
+In our example, we're using the RequireJS ``define`` function to define our pattern
+as a JavaScript module.
+
+
+Integrating With LESS
+=====================
+
+Add a ``pattern.less`` file to the ``exercise5/static`` directory and provide
+whatever styles you'd like for your pattern
+
+.. code-block:: less
+
+    .pat-exercise5 {
+      color: red;
+    }
+
+
+Creating Your Bundle
+====================
+
+To register the pattern, we'll create a bundle.
+Recall the difference between using ``require`` and ``define`` from the RequireJS docs.
+
+Our bundle will use the ``require`` function to include the JavaScript module
+pattern we created our previously.
+
+Create a ``bundle.js`` file in your ``exercise5/static`` directory
 
 .. code-block:: javascript
 
-    (
-    ...
     require([
-      'jquery',
-      '++theme++exercise5/lightgallery/js/lightgallery.min'
-    ], function($){
-    ...
-    })
-
-This tells `RequirejS <http://requirejs.org/>`_ to load the `jQuery <https://jquery.com/>`_ and the lightGallery JavaScript.
-
-What is important to pay attention to in this example is that we are seeing
-if there are any ``photoAlbumEntry`` elements on the page.
-
-If there are any, we modify the DOM structure slightly to work seemlessly with lightGallery>
-
-.. code-block:: javascript
-
-    (
-    ...
-    var $photos = $('.photoAlbumEntry a');
-    if($photos.size() > 0){
-      // we're on an album view page
-      // we need to adjust links so the work nicely with light gallery
-      $photos.each(function(){
-        var $a = $(this);
-        $a.attr('href', $a.attr('href').replace('/view', ''));
-      });
-    ...
-    )
-
-
-We call the lightGallery initialization with our configuration
-
-.. code-block:: javascript
-
-    ...
-    $("#content-core").lightGallery({
-      selector: '.photoAlbumEntry a'
+      'exercise5'
+    ], function() {
+      'use strict';
     });
-    ...
+
+The only thing we're doing in this file is including the ``exercise5`` module
+we defined earlier--that's it.
+
+Bundles can do more as well.
+Then can include initialization code for example.
+
+See Plone's `default bundle <https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/static/plone.js>`_.
+
+Bundles more or less tell the compiler what we care about loading.
+They do the dependency resolution and include the modules that were required with them.
 
 
-Including JavaScript/CSS Into Your Theme
-========================================
+Register Static Resource Directory
+==================================
 
-For JavaScript and CSS, you can include resources with convenience theme
-configuration settings of ``development-css``, ``production-css``, ``development-js``
-and ``production-js``.
+Next, let’s register the static directory we just placed our script into.
+To register, you need to add :term:`ZCML` registration for the static directory your script
+is in.
 
-Since we are reusing the existing Barceloneta theme with this example though,
-we will simple include the JavaScript/CSS into the theme ``index.html`` file.
+Add this to the ``exercise5/configure.zcml`` file
+
+.. code-block:: xml
+
+    <plone:static
+         directory="static"
+         type="plone"
+         name="exercise5"
+         />
+
+Register Your Bundle
+====================
+
+Registering your bundle is done by adding Generic Setup xml configuration to the
+Plone registry.
+This is done in the ``registry.xml`` file in the ``profiles/default`` directory.
 
 
-CSS
----
+Resource
+--------
 
-At the bottom of the head section in the ``index.html`` file, add
+Resource is done exactly the same as in Exercise 1
 
-.. code-block:: html
+.. code-block:: xml
 
-   <link rel="stylesheet" type="text/css"
-          href="../++theme++exercise5/lightgallery/css/lightgallery.min.css" />
+    <records prefix="plone.resources/exercise5"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise5/pattern.js</value>
+    </records>
 
 
-JavaScript
-----------
+Bundle Resource
+---------------
 
-At the bottom of the ``index.html`` file, before the ``</body>`` closing tag, add
+The bundle resource is another resource registration like any other.
+Remember, the difference here is in the content of the JavaScript file.
 
-.. code-block:: html
+One file uses ``require``, the other uses ``define``.
 
-   <script src="../++theme++exercise5/integration.js"></script>
+Addditionally, we include our CSS/LESS dependencies here
+
+.. code-block:: xml
+
+    <records prefix="plone.resources/bundle-exercise5"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++exercise5/bundle.js</value>
+      <value key="css">
+        <element>++plone++exercise5/pattern.less</element>
+      </value>
+    </records>
+
+
+Bundle
+------
+
+Finally, let's create our bundle registration
+
+.. code-block:: xml
+
+    <records prefix="plone.bundles/exercise5"
+              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+      <value key="resources">
+        <!-- reference to bundle resource definition -->
+        <element>bundle-exercise5</element>
+      </value>
+      <value key="merge_with">default</value>
+      <value key="enabled">True</value>
+      <value key="jscompilation">++plone++exercise5/exercise5-compiled.min.js</value>
+      <value key="csscompilation">++plone++exercise5/exercise5-compiled.css</value>
+      <value key="last_compilation">2016-10-04 00:00:00</value>
+
+      <!-- so we don't include these modules multiple times -->
+      <value key="stub_js_modules">
+        <element>jquery</element>
+        <element>mockup-patterns-base</element>
+      </value>
+    </records>
 
 
 Installation
@@ -138,20 +193,48 @@ Installation
 2) Install the ``Exercise 5`` add-on
 
 
-Trying It Out
-=============
+Running
+=======
 
-1) Create a folder and add some images to it in your Plone site.
+At this point, we have no compiled version of the code that we're running with
+so our code doesn't do anything.
 
-2) Specify ``Album view`` for your folder.
+1) Go into ::menuselection:`Site Setup --> Resource Registries`
+2) Check :guilabel:`Development Mode`
+3) Select to develop JavaScript and CSS for the ``exercise5`` bundle
+4) Click :guilabel:`Save`
 
-3) Now when you click on an image, it should show the gallery viewer.
+This should load your JavaScript and LESS files now; however, we don't have
+any elements with the ``pat-exercise5`` class assigned to them.
+
+It's up to you how to apply the pattern class to an element of your choice.
+A couple options available to you are:
+
+1) use TinyMCE source view and add ``class="pat-exercise5"`` onto any ``p`` tag
+2) customize the theme on your site and add it to an element in your theme file
+   or use a diazo rule diazo rule to dynamically add the class to an element
 
 
 Production
 ==========
 
-In this example, there is no difference with development vs production.
+To build our bundle, we'll utilize the ``plone-compile-resources`` script that
+Plone ships with.
 
-You can combine this example with other examples of building JavaScript projects
-to build, compile and minify your resources.
+
+..  warning::
+
+    If you're not running a ZEO setup, you'll need to shut down your Plone
+    instance since the ZODB in this mode does not allow multiple processes
+    to access it at the same time.
+
+
+An example command will look like this
+
+.. code-block:: console
+
+    ./bin/plone-compile-resources --site-id=Plone --bundle=exercise5
+
+
+Once this command finishes, your bundle is built and will be deployed with your
+package package.
