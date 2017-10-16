@@ -5,10 +5,13 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 1.2.5 (unreleased)
 ------------------
+=======
+
+- Add one more chapter to Advanced Python Training [oz123]
 
 - Reorder Javascript exercises [frapell]
 
-- Add content of Advanced Python Training
+- Add content of Advanced Python Training [oz123]
 
 - Markup fixes and small edits [jean]
 

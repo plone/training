@@ -16,7 +16,6 @@ How to build your own webframework from scracth
    middlewares
    routing
    raw_wsgi
-   sessions
    data_model
    metaclasses
    functional
