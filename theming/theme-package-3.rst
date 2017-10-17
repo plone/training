@@ -235,7 +235,7 @@ A change of the HTML template file :file:`index.html` or Diazo rules file :file:
    in the :file:`Gruntfile.js` to match your Plone configuration.
 
 
-Theme :file:`manifest.xml`
+Theme :file:`manifest.cfg`
 ==========================
 
 Settings for our theme are declared in the file :file:`manifest.cfg`.
