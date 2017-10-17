@@ -879,7 +879,7 @@ The rule to move all footer portlets at once is already available, the only thin
        />
 
 If we want to go advanced, we can create a doormat like footer.
-Therefor, we first have to select the *footer*, *site actions* and *colophon* (which are the default portlets available in the footer) and move them into place:
+Therefore, we first have to select the *footer*, *site actions* and *colophon* (which are the default portlets available in the footer) and move them into place:
 
 .. code-block:: xml
 
