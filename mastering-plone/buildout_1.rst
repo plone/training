@@ -216,6 +216,11 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
 When you run :command:`./bin/buildout` without any arguments, Buildout will look for this file.
 
+.. note::
+    If you are using the vagrant installation, you will have to activate your `virtualenv` and run the command :command:`buildout` only.
+    In the vagrant setup `zc.buildout` and `setuptools` are installed in the virtualenv and therefore available without specifying the
+    preceding path. This is possible because in recent versions of `zc.buildout` the `bootstrap` step is no longer necessary.
+
 .. only:: not presentation
 
     Let us look closer at some variables.
