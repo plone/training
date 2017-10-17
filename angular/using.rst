@@ -10,6 +10,9 @@ We will use a `Plone pre-configured Heroku instance <https://github.com/collecti
 
 Once deployed, create a Plone site, then go to the :menuselection:`Site Setup --> Add-ons` and :guilabel:`Install` Plone RESTAPI.
 
+It will also be helpful for development to turn off `CORS <https://en.wikipedia.org/wiki/Cross-origin_resource_sharing>`_.  
+There are many ways to do that.  For example, in Google Chrome we can install an `extension <https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?utm_source=chrome-app-launcher>`_ that takes care of it.
+
 Adding The @plone/restapi-angular Dependency
 --------------------------------------------
 
