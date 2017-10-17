@@ -16,7 +16,7 @@ and we use the ``authentication`` service to set its value:
       ...
     ) {
       ...
-      this.plone.authentication.isAuthenticated.subscribe(auth => {
+      this.services.authentication.isAuthenticated.subscribe(auth => {
         this.logged = auth.state;
       });
     }
@@ -53,7 +53,7 @@ Let's implement the logout link.
     .. code-block:: ts
 
         logout() {
-          this.plone.authentication.logout();
+          this.services.authentication.logout();
         }
 
 Now if we create private contents in Plone, they won't show unless we are logged in.
