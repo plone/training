@@ -27,7 +27,7 @@ Use this file to do anything you would like to the page
 
     require([
       'jquery',
-      'mockup-patterns-base',
+      'pat-base',
     ], function($, Base) {
       'use strict';
 
@@ -119,6 +119,7 @@ Add a file ``widget.py`` to your ``exercise6`` directory with the follow content
     from .interfaces import IMinSizeImageWidget
     from plone.app.contenttypes.behaviors.leadimage import ILeadImage
     from plone.formwidget.namedfile.widget import NamedImageWidget
+    from plone.namedfile.interfaces import INamedImageField
     from Products.CMFPlone.resources import add_resource_on_request
     from z3c.form.interfaces import IFieldWidget
     from z3c.form.util import getSpecification
@@ -148,7 +149,7 @@ Add a file ``widget.py`` to your ``exercise6`` directory with the follow content
             return super(MinSizeImageWidget, self).render()
 
 
-    @adapter(getSpecification(ILeadImage['image']), IExercise6Layer)
+    @adapter(INamedImageField, IExercise6Layer)
     @implementer(IFieldWidget)
     def LeadImageMinSizeImageFieldWidget(field, request):
         widget = z3c.form.widget.FieldWidget(field, MinSizeImageWidget(request))

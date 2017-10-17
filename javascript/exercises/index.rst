@@ -18,6 +18,11 @@ Exercises
 
 - grunt-cli installed on your system(``npm install -g grunt-cli``)
 
+.. note::
+
+   On macOS versions of npm/nodejs newer than 6.9.1 can make the bundling process fail.
+   Installing and using version 6.9.1 fixes the problem. Different versions of nodejs can
+   be managed with nvm (Node Version Manager).
 
 **Install forked collective.jstraining**
 

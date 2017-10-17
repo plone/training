@@ -28,7 +28,7 @@ This example will bind a React component to a pattern element:
 
     require([
       'jquery',
-      'mockup-patterns-base',
+      'pat-base',
       'exercise13-react'
     ], function($, Base, R) {
       'use strict';
@@ -118,7 +118,7 @@ Registration is done exactly like the other examples:
       <value key="last_compilation">2016-10-04 00:00:00</value>
       <value key="stub_js_modules">
         <element>jquery</element>
-        <element>mockup-patterns-base</element>
+        <element>pat-base</element>
       </value>
     </records>
 

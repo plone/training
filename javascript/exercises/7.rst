@@ -28,7 +28,7 @@ Use this file to build your pattern. This example will simply load and initializ
 
     require([
       'jquery',
-      'mockup-patterns-base',
+      'pat-base',
       'tablesorter'
     ], function($, Base) {
       'use strict';
@@ -131,7 +131,7 @@ Finally, let's create our bundle registration
       <value key="last_compilation">2016-10-04 00:00:00</value>
       <value key="stub_js_modules">
         <element>jquery</element>
-        <element>mockup-patterns-base</element>
+        <element>pat-base</element>
       </value>
     </records>
 

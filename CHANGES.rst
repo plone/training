@@ -11,6 +11,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Add one more chapter to Advanced Python Training [oz123]
 
+- Updates and Fixes in the JavaScript training section [staeff]
+
 - Reorder Javascript exercises [frapell]
 
 - Add content of Advanced Python Training [oz123]
