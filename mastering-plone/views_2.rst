@@ -44,7 +44,7 @@ Let us have a look at the ZCML and the code.
         i18n_domain="ploneconf.site">
 
         <browser:page
-           name="demoview"
+           name="training"
            for="*"
            class=".views.DemoView"
            template="templates/training.pt"
