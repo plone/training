@@ -156,8 +156,8 @@ It is now safe to deactivate the ``mrbob`` virtualenv:
       cd ..
 
 
-Install zc.buildout And Boostrap Your Development Environment
--------------------------------------------------------------
+Install zc.buildout And Bootstrap Your Development Environment
+----------------------------------------------------------------
 
 You can install Buildout globally or on a virtualenv.
 

@@ -55,7 +55,7 @@ This changelog is only very rough. For the full changelog please refer to https:
   [robinsjm2]
 
 - Fix a typo
-  [staeff]
+  [staeff, b4oshany]
 
 - Fix typos, improve wording
   [svx]
