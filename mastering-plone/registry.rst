@@ -209,7 +209,7 @@ Add a new field to :py:class:`IPloneconfControlPanel`:
         default=(u'101', u'201', u'Auditorium'),
         missing_value=None,
         required=False,
-        value_type=schema.TextLine()
+        value_type=schema.TextLine(),
     )
 
 Create a file :file:`vocabularies.py` and write the vocabulary:
@@ -219,38 +219,33 @@ Create a file :file:`vocabularies.py` and write the vocabulary:
 
     # -*- coding: utf-8 -*-
     from plone import api
-    from plone.i18n.normalizer.interfaces import IIDNormalizer
-    from zope.component import queryUtility
+    from plone.app.vocabularies.terms import safe_simplevocabulary_from_values
     from zope.interface import implementer
     from zope.schema.interfaces import IVocabularyFactory
-    from zope.schema.vocabulary import SimpleVocabulary
 
     @implementer(IVocabularyFactory)
-    class RoomsVocabularyFactory(object):
-
-        def __call__(self, context):
-            values = api.portal.get_registry_record('ploneconf.rooms')
-            normalizer = queryUtility(IIDNormalizer)
-            items = [(normalizer.normalize(i), i) for i in values]
-            return SimpleVocabulary.fromItems(items)
-
-    RoomsVocabulary = RoomsVocabularyFactory()
+    def RoomsVocabularyFactory(context):
+        values = api.portal.get_registry_record('ploneconf.rooms')
+        return safe_simplevocabulary_from_values(values)
 
 
 Note:
 
-* `RoomsVocabulary` is a instance of :py:class:`RoomsVocabularyFactory`.
-* We normalize values to create a vocabulary since the value of a SimpleVocabulary has to be ASCII. We use one of many useful normalizers that Plone provides.
+* We turn the values freom the registry into a dynamic `SimpleVocabulary` that can be used in the schema.
+* We use the handy helper-method `safe_simplevocabulary_from_values` to create the vocabulary since the `token` of a `SimpleTerm` in a `SimpleVocabulary` needs to be bytes, not unicode.
+* You could use the context in which the vocabulary is created to further control the values in the vocabulary.
 
-Register a vocabulary in :file:`configure.zcml` as `ploneconf.site.vocabularies.Rooms`:
+You need to register this vocabulary as a utility in :file:`configure.zcml` as `ploneconf.site.vocabularies.Rooms`:
 
 .. code-block:: xml
 
     <utility
         name="ploneconf.site.vocabularies.Rooms"
-        component="ploneconf.site.vocabularies.RoomsVocabulary" />
+        component="ploneconf.site.vocabularies.RoomsVocabularyFactory" />
 
-Use the vocabulary in the talk-schema. Edit :file:`content/talk.xml`
+From now on you can use this vocabulary by only referring to its name `ploneconf.site.vocabularies.Rooms`.
+
+Use the new vocabulary in the talk-schema. Edit :file:`content/talk.xml`
 
 .. code-block:: xml
    :linenos:
@@ -265,12 +260,6 @@ Use the vocabulary in the talk-schema. Edit :file:`content/talk.xml`
       <vocabulary>ploneconf.site.vocabularies.Rooms</vocabulary>
     </field>
 
-Now a admin can configure the rooms available for the conference. We could use the same pattern for the fields `type_of_talk` and `audience`.
-
-.. seealso::
-
-  https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html
-
 .. note::
 
     In a python-schema that would look like this:
@@ -283,3 +272,11 @@ Now a admin can configure the rooms available for the conference. We could use t
             vocabulary='ploneconf.site.vocabularies.Rooms',
             required=False,
         )
+
+A admin can now configure the rooms available for the conference.
+
+We could use the same pattern for the fields `type_of_talk` and `audience`.
+
+.. seealso::
+
+  https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html
