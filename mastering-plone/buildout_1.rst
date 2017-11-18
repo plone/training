@@ -67,9 +67,9 @@ to create and configure the Zope 2 instance which we use to run Plone.
 
 All the lines after :samp:`recipe = xyz` are the configuration of the specified recipe.
 
-.. seealso::
+.. note::
 
-    http://www.buildout.org/en/latest/docs/recipelist.html
+    There are way to many buidout-recipes. See https://pypi.python.org/pypi?%3Aaction=search&term=buildout+recipe&submit=search
 
 .. _buildout1-references-label:
 
