@@ -315,10 +315,10 @@ A dict of all the available variables at the current state is ``econtext``
 .. code-block:: html
     :linenos:
 
-    <dl tal:define="path_variables_dict econtext">
-      <tal:vars tal:repeat="variable path_variables_dict">
+    <dl>
+      <tal:vars tal:repeat="variable econtext">
         <dt>${variable}</dt>
-        <dd>${python:path_variables_dict[variable]}</dd>
+        <dd>${python:econtext[variable]}</dd>
       </tal:vars>
     </dl>
 
@@ -331,10 +331,10 @@ Useful for debugging :-)
     ..  code-block:: html
         :linenos:
 
-        <dl tal:define="path_variables_dict CONTEXTS">
-          <tal:vars tal:repeat="variable path_variables_dict">
+        <dl>
+          <tal:vars tal:repeat="variable CONTEXTS">
             <dt tal:content="variable"></dt>
-            <dd tal:content="python:path_variables_dict[variable]"></dd>
+            <dd tal:content="python:CONTEXTS[variable]"></dd>
           </tal:vars>
         </dl>
 
