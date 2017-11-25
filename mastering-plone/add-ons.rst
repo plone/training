@@ -56,18 +56,32 @@ Some notable add-ons
 How to find add-ons
 -------------------
 
-* https://plone.org/download/add-ons
-* https://pypi.python.org/pypi >3400 Plone related packages - use the search form!
-* https://github.com/collective >1500 repos
-* https://github.com/plone >310 repos
-* https://community.plone.org - ask the community
-* google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)
-* ask in irc and on the mailing list
+It can be very hard to find the right addon for your requirements. Here are some tips:
 
-.. seealso::
+* Make a list of required features. You'll almost never ﬁnd an add-on that exactly ﬁts your needs.
+* Either adapt your requirements to what is available, invest the time & money to modify an existing addons to ﬁt your needs or create a new addon that does exactly what you need.
+* Then search using the follwing links below.
 
-   * A talk on finding and managing add-ons: https://www.youtube.com/watch?v=Sc6NkqaSjqw
+  * https://plone.org/download/add-ons
+  * https://pypi.python.org/pypi >3400 Plone related packages - use the search form!
+  * https://github.com/collective >1500 repos
+  * https://github.com/plone >310 repos
+  * google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)
 
+* Once you have a shortlist test these addons. Here are the main issues you need to test before you install a addon on a production site:
+
+  * Test all required features. Read but do not trust the documentation
+  * Check if the addon runs on your required version and is currently maintained
+  * Does it have i18n-support, i.e. is the user-interface translated to your language?
+  * Does it uninstall cleanly? A tough one. See http://blog.keul.it/2013/05/how-to-make-your-plone-add-on-products.html for the reason why.
+  * Check for unwanted dependecies
+
+Once you found an addon you like you should ask the community if you made a good choice or if you missed something:
+
+* Message Board: https://community.plone.org
+* Chat: https://plone.org/support/chat
+
+There is also a talk that discusses in depth how to find the right addon: https://www.youtube.com/watch?v=Sc6NkqaSjqw
 
 .. _add-ons-installing-label:
 
