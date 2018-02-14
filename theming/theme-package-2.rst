@@ -199,7 +199,7 @@ but before the ``custom.less`` include:
    @barceloneta_path: "barceloneta/less";
 
    // Core variables and mixins
-   @import "@{barceloneta_path}/mixin.fonts.plone.less";
+   @import "@{barceloneta_path}/mixin.font.plone.less";
    @import "@{barceloneta_path}/fonts.plone.less";
    @import "@{barceloneta_path}/variables.plone.less";
    @import "@{barceloneta_path}/mixin.prefixes.plone.less";
