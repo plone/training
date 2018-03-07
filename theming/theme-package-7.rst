@@ -84,7 +84,7 @@ We can also create our own custom bundle which contains our resource:
      </records>
 
      <!-- Bundle definition -->
-     <records prefix="plone.bundles/plone"
+     <records prefix="plone.bundles/mycustomtheme"
               interface='Products.CMFPlone.interfaces.IBundleRegistry'>
        <value key="resources" purge="false">
          <element>conf-main</element>
