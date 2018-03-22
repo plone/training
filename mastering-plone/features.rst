@@ -287,8 +287,6 @@ Edit a page:
 * :guilabel:`Summary` :samp:`Tutorial`
 * :guilabel:`Text` :samp:`...`
 
-.. image:: _static/features_edit_front_page.png
-		:scale: 70 %
 
 Create a site structure:
 
@@ -373,7 +371,7 @@ Content Rules
 		:scale: 60 %
 		
 .. image:: _static/features_add_rule_2.png
-		:scale: 60 %
+		:scale: 30 %
 		
 .. image:: _static/features_add_rule_3.png
 		:scale: 60 %
