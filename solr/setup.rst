@@ -387,7 +387,7 @@ The third commit strategy is to do full asynchronous commits.
 This can be activated by setting the Flag **Asynchronous indexing** in the Solr control panel to :guilabel:`ON`.
 This behavior is the most efficient in terms of Zope response time.
 
-Since it is fire and forget the consistency could be harmed in interim.
+Since it is fire and forget the consistency could be harmed in the interim.
 It is advisable to do a sync or full-index from time to time if you work with this strategy.
 
 Additional information can be found in the Solr documentation:
