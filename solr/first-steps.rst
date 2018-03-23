@@ -25,12 +25,12 @@ and (re)indexes them.
 
 There are some parameters you can specify:
 
- - *batch* (default:1000): Batch size for commit. Data is only send to Solr on commit.
+ - *batch* (default:1000): Batch size for commit. Data is only sent to Solr on commit.
  - *skip* (default:0): Skip N elements when iterating over all contentish objects.
  - *limit* (default:0): Only index N elements.
  - *ignore_portal_types* (default:None): Blacklist of portal types not to be indexed.
  - *only_portal_types* (default:None): Whiltelist of portal types not to be indexed.
- - *idxs* (default:[]): Only this index fields will be updated.
+ - *idxs* (default:[]): Only these index fields will be updated.
 
 
 Cleanup
@@ -42,7 +42,7 @@ http://localhost:8080/Plone/@@solr-maintainance/cleanup
 
 The only parameter you can specify is the batch size:
 
- - *batch* (default:1000): Batch size for commit. Data is only send to Solr on commit.
+ - *batch* (default:1000): Batch size for commit. Data is only sent to Solr on commit.
 
 
 Sync Solr Index
@@ -55,7 +55,7 @@ http://localhost:8080/Plone/@@solr-maintainance/sync
 
 There are some parameters you can specify:
 
- - *batch* (default:1000): Batch size for commit. Data is only send to Solr on commit.
+ - *batch* (default:1000): Batch size for commit. Data is only sent to Solr on commit.
  - *preImportDeleteQuery* (default:*:*): This **delete** query will be executed on Solr before the sync process starts.
 
 Purge Solr Index
@@ -86,14 +86,14 @@ We do this :term:`TTW` (Through-The-Web) right now.
 
 .. note::
 
-   In the production setup you will define your schema with an interface or a supermodel XML but this is beyond of this training.
+   In the production setup you will define your schema with an interface or a supermodel XML but this is beyond the scope of this training.
 
    More information on dexterity schemas and fields can be found in the Plone documentation:
    https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html
 
 Let's add a field *email* to a task.
 We assume this is contact email which can be used to contact the responsible support person for this task.
-And we want to make this field to be found in fulltext search.
+And we want this field to be found in fulltext search.
 
 It does not matter if we add the field TTW (Through-The-Web), via supermodel or via interface.
 The only thing you have to make sure the **name** of the field is identical in Plone and Solr.
@@ -156,7 +156,7 @@ the *fullname* in Solr appears.
    Pro tip:
 
    If you need to modify or extend the existing fulltext implementation in Plone
-   (This could be adding a custom field to it, or remove title or description from it),
+   (this could be adding a custom field to it, or removing title or description from it),
    there is a handy add-on for this purpose.
 
    It is well documented but further investigation is out of the scope of this training,
@@ -165,7 +165,7 @@ the *fullname* in Solr appears.
 Boosting
 ========
 
-In a standard installation of Solr all fields are treated equally important for searching.
+In a standard installation of Solr all fields are treated as equally important for searching.
 Usually this is not what we want.
 We want the Title to be more important, or a special type (e.g. News) to be prioritized.
 
@@ -181,7 +181,7 @@ If a term occurs in the *Title* field prioritize it 5 times,
 if it is in the *Description* field prioritize it two times.
 
 Search but don't prioritize terms occuring in the *SearchableText* index.
-If a term occurs in the *searchwords* priotize it by value 1000 so it will show always at the top.
+If a term occurs in the *searchwords* priotize it by the value 1000 so it will show always at the top.
 
 You can override this pattern to fit your needs.
 
