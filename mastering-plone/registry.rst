@@ -170,7 +170,7 @@ After reinstalling the package (to load the registry-entry) you can access the c
 To make it show up in the general controlpanel at http://localhost:8080/Plone/@@overview-controlpanel you have to register it with GenericSetup.
 Add a file :file:`profiles/default/controlpanel.xml`:
 
-.. code-block:: xml
+..  code-block:: xml
 
     <?xml version="1.0"?>
     <object name="portal_controlpanel">
@@ -201,8 +201,8 @@ We will allow the rooms to be added in the controlpanel and use these values in 
 
 Add a new field to :py:class:`IPloneconfControlPanel`:
 
-.. code-block:: python
-   :linenos:
+..  code-block:: python
+    :linenos:
 
     rooms = schema.Tuple(
         title=u'Available Rooms for the conference',
@@ -214,30 +214,23 @@ Add a new field to :py:class:`IPloneconfControlPanel`:
 
 Create a file :file:`vocabularies.py` and write the vocabulary:
 
-.. code-block:: python
-   :linenos:
+..  code-block:: python
+    :linenos:
 
     # -*- coding: utf-8 -*-
     from plone import api
     from plone.app.vocabularies.terms import safe_simplevocabulary_from_values
-    from zope.interface import implementer
+    from zope.interface import provider
     from zope.schema.interfaces import IVocabularyFactory
 
-    @implementer(IVocabularyFactory)
+    @provider(IVocabularyFactory)
     def RoomsVocabularyFactory(context):
         values = api.portal.get_registry_record('ploneconf.rooms')
         return safe_simplevocabulary_from_values(values)
 
-
-Note:
-
-* We turn the values freom the registry into a dynamic `SimpleVocabulary` that can be used in the schema.
-* We use the handy helper-method `safe_simplevocabulary_from_values` to create the vocabulary since the `token` of a `SimpleTerm` in a `SimpleVocabulary` needs to be bytes, not unicode.
-* You could use the context in which the vocabulary is created to further control the values in the vocabulary.
-
 You need to register this vocabulary as a utility in :file:`configure.zcml` as `ploneconf.site.vocabularies.Rooms`:
 
-.. code-block:: xml
+..  code-block:: xml
 
     <utility
         name="ploneconf.site.vocabularies.Rooms"
@@ -245,11 +238,31 @@ You need to register this vocabulary as a utility in :file:`configure.zcml` as `
 
 From now on you can use this vocabulary by only referring to its name `ploneconf.site.vocabularies.Rooms`.
 
+Note:
+
+* We turn the values from the registry into a dynamic `SimpleVocabulary` that can be used in the schema.
+* You could use the context with which the vocabulary is called or the request (using `getRequest` from `from zope.globalrequest import getRequest`) to constrain the values in the vocabulary.
+* We use the handy helper-method `safe_simplevocabulary_from_values` to create the vocabulary since the `token` of a `SimpleTerm` in a `SimpleVocabulary` needs to be bytes, not unicode.
+* You can write your own helper to further control the creation of the vocabulary terms. The `value` is stored on the object, the `token` used to communicate with the widget during editing and `title` is what is displayed in the widget.
+  This example allows you to translate the displayed title while keeping the value stored on the object the same in all languages:
+
+  ..  code-block::
+
+      from binascii import b2a_qp
+      from ploneconf.site import _
+      from zope.schema.vocabulary import SimpleTerm
+      from zope.schema.vocabulary import SimpleVocabulary
+
+      def simplevoc(values):
+          return SimpleVocabulary(
+              [SimpleTerm(value=i, token=b2a_qp(i.encode('utf-8')), title=_(i)) for i in values],
+          )
+
 Use the new vocabulary in the talk-schema. Edit :file:`content/talk.xml`
 
-.. code-block:: xml
-   :linenos:
-   :emphasize-lines: 7
+..  code-block:: xml
+    :linenos:
+    :emphasize-lines: 7
 
     <field name="room"
            type="zope.schema.Choice"
@@ -260,18 +273,17 @@ Use the new vocabulary in the talk-schema. Edit :file:`content/talk.xml`
       <vocabulary>ploneconf.site.vocabularies.Rooms</vocabulary>
     </field>
 
-.. note::
 
-    In a python-schema that would look like this:
+In a python-schema that would look like this:
 
-    .. code-block:: python
+..  code-block:: python
 
-        directives.widget(room=RadioFieldWidget)
-        room = schema.Choice(
-            title=_(u'Room'),
-            vocabulary='ploneconf.site.vocabularies.Rooms',
-            required=False,
-        )
+    directives.widget(room=RadioFieldWidget)
+    room = schema.Choice(
+        title=_(u'Room'),
+        vocabulary='ploneconf.site.vocabularies.Rooms',
+        required=False,
+    )
 
 A admin can now configure the rooms available for the conference.
 
