@@ -228,7 +228,7 @@ Create a file :file:`vocabularies.py` and write the vocabulary:
         values = api.portal.get_registry_record('ploneconf.rooms')
         return safe_simplevocabulary_from_values(values)
 
-You need to register this vocabulary as a utility in :file:`configure.zcml` as `ploneconf.site.vocabularies.Rooms`:
+You can now register this vocabulary as a named utility in :file:`configure.zcml` as `ploneconf.site.vocabularies.Rooms`:
 
 ..  code-block:: xml
 
@@ -240,13 +240,14 @@ From now on you can use this vocabulary by only referring to its name `ploneconf
 
 Note:
 
+* Plone comes with many useful vocabularies that you can use in your own projects. See https://github.com/plone/plone.app.vocabularies/ for a list of them.
 * We turn the values from the registry into a dynamic `SimpleVocabulary` that can be used in the schema.
 * You could use the context with which the vocabulary is called or the request (using `getRequest` from `from zope.globalrequest import getRequest`) to constrain the values in the vocabulary.
 * We use the handy helper-method `safe_simplevocabulary_from_values` to create the vocabulary since the `token` of a `SimpleTerm` in a `SimpleVocabulary` needs to be bytes, not unicode.
 * You can write your own helper to further control the creation of the vocabulary terms. The `value` is stored on the object, the `token` used to communicate with the widget during editing and `title` is what is displayed in the widget.
   This example allows you to translate the displayed title while keeping the value stored on the object the same in all languages:
 
-  ..  code-block::
+  ..  code-block:: python
 
       from binascii import b2a_qp
       from ploneconf.site import _
