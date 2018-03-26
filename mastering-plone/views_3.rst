@@ -472,6 +472,6 @@ Summary
 
 * You created a nice listing, that can be called at any place in the website
 * You wrote your first fully grown BrowserView that combines a template, a class and a method in that class
-* You learned about portal_catalog, brains and how they objects
+* You learned about portal_catalog, brains and how they are related to objects
 * You learned about Acquisition and how it can have unintended effects
 * You extended the FTI of a existing content type to allow the use the new view to all Editior
