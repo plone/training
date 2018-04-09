@@ -594,6 +594,11 @@ You can now add some CSS in :file:`browser/static/ploneconf.css` to make it look
         -moz-box-shadow: 0 0 8px #000;
         -webkit-box-shadow: 0 0 8px #000;
     }
+    
+    
+Result:
+
+.. image:: _static/dexterity_3_sponsor_schema.png
 
 
 Exercise 2

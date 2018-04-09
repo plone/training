@@ -82,6 +82,8 @@ Let's change the logo.
 * Go to http://localhost:8080/Plone/@@site-controlpanel
 * Upload the Logo.
 
+.. image:: _static/configuring_customizing_logo.png
+
 .. seealso::
 
    https://docs.plone.org/adapt-and-extend/change-the-logo.html
