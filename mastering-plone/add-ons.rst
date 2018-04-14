@@ -17,10 +17,16 @@ Some notable add-ons
 `collective.easyform <https://pypi.python.org/pypi/collective.easyform>`_
   A form generator and the successor to `Products.PloneFormGen <https://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
 
-.. image:: _static/add_ons_easyform_1.png
+  .. figure:: _static/add_ons_easyform_1.png
+  	  :scale: 50%
+  	  
+  	  A simple form created with collective.easyform.
 
-.. image:: _static/add_ons_easyform_2.png
-
+  .. figure:: _static/add_ons_easyform_2.png
+	  :scale: 50%
+	  
+	  Editing a form field through the web.
+	
 
 `plone.app.mosaic <https://github.com/plone/plone.app.mosaic>`_
   Layout solution to easily create complex layouts through the web.

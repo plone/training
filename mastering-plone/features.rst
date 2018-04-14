@@ -296,8 +296,8 @@ Create a site structure:
   * Folder "Training"
   * Folder "Sprint"
   
-.. image:: _static/features_the_event_folder_content.png
-		:scale: 60 %
+.. figure:: _static/features_the_event_folder_content.png
+	:scale: 60 %
 
 * In ``/news``: Add a News Item "Conference Website online!" with some image
 * In ``/news``: Add a News Item "Submit your talks!"
@@ -307,8 +307,8 @@ Create a site structure:
 * Delete the Folder "Users"
 * Add a Folder "Intranet"
 
-.. image:: _static/features_new_navigation.png
-		:scale: 60 %
+.. figure:: _static/features_new_navigation.png
+	:scale: 60 %
 
 
 The default Plone content types are:
@@ -349,8 +349,8 @@ Collections
 
 * add a new collection: "all content that has ``pending`` as wf_state".
 
-.. image:: _static/features_pending_collection.png
-		:scale: 60 %
+.. figure:: _static/features_pending_collection.png
+	:scale: 60 %
 
 * explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit
 * explain Topics
@@ -367,17 +367,17 @@ Content Rules
 * Create new rule "a new talk is in town"!
 * New content in folder "Talks" -> Send Mail to reviewers.
 
-.. image:: _static/features_add_rule_1.png
-		:scale: 60 %
+.. figure:: _static/features_add_rule_1.png
+	:scale: 60 %
 		
-.. image:: _static/features_add_rule_2.png
-		:scale: 30 %
+.. figure:: _static/features_add_rule_2.png
+	:scale: 30 %
 		
-.. image:: _static/features_add_rule_3.png
-		:scale: 60 %
+.. figure:: _static/features_add_rule_3.png
+	:scale: 60 %
 		
-.. image:: _static/features_add_rule_4.png
-		:scale: 60 %
+.. figure:: _static/features_add_rule_4.png
+	:scale: 60 %
 
 
 .. _features-history-label:
