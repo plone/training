@@ -233,7 +233,7 @@ For a complete list of schema configuration options refer to `Solr documentation
 
 This is the bare minimum for configuring Solr. There are more options supported by the buildout
 recipe ``collective.recipe.solrinstance`` and even more by Solr itself.
-Most notably are the custom extensions for *schema.xml* and *solrconfig.xml*.
+Most notably the custom extensions for *schema.xml* and *solrconfig.xml*.
 
 We will see examples for this later on in the training.
 
@@ -245,7 +245,7 @@ Or you can even point to a custom location for the main configuration files.
    config-destination = ${buildout:directory}/etc/solrconfig.xml
 
 After running the buildout,
-which downloads and configures Solr and Plone we are ready to fire both servers.
+which downloads and configures Solr and Plone, we are ready to fire up both servers.
 
 Plone And Solr
 ==============
@@ -339,7 +339,7 @@ With Solr activated, searching in Plone works like the following:
 Then you are ready for your first search.
 Search for *Plone*.
 
-You should get the frontpage as a result--which is not super awesome at the first place because we have this without Solr too--but it is the first step in utilizing the full power of Solr.
+You should get the frontpage as a result--which is not super awesome to begin with because we have this without Solr too--but it is the first step in utilizing the full power of Solr.
 
 Configuration With ZCML
 -----------------------
@@ -353,7 +353,7 @@ You can use the following snippet to configure host, port und basepath:
     <solr:connection host="127.0.0.23" port="3898" base="/foo" />
   </configure>
 
-The ZCML configuration takes presence over the configuration in the registry / control-panel.
+The ZCML configuration takes precedence over the configuration in the registry / control-panel.
 
 Committing Strategies
 =====================
@@ -362,7 +362,7 @@ Synchronous Immediately
 -----------------------
 
 The default commit strategy is to commit to Solr on every Zope commit.
-This ensures an always up to date index but may come at cost of indexing time especially when doing batch operations like data import.
+This ensures an always up to date index but may come at the cost of indexing time especially when doing batch operations like data import.
 
 To use this behavior, turn **Automatic commit** ON in the Solr controlpanel in Plone.
 
@@ -370,7 +370,7 @@ Synchronous Batched
 -------------------
 
 Another commit strategy is to do timed commits in Solr.
-This method is usually way faster but comes with the cost of index delays.
+This method is usually way faster but comes with the downside of index delays.
 
 To use this behavior you have to do two things:
 
@@ -387,8 +387,8 @@ The third commit strategy is to do full asynchronous commits.
 This can be activated by setting the Flag **Asynchronous indexing** in the Solr control panel to :guilabel:`ON`.
 This behavior is the most efficient in terms of Zope response time.
 
-Since it is fire and forget the consistency could be harmed in midterm.
-It is advisable to to a sync or full-index from time to time if you work with this strategy.
+Since it is fire and forget the consistency could be harmed in the interim.
+It is advisable to do a sync or full-index from time to time if you work with this strategy.
 
 Additional information can be found in the Solr documentation:
 

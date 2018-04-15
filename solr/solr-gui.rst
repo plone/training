@@ -235,8 +235,8 @@ Faceting
 ========
 
 Faceting is one of the killer features of Solr.
-It allows the grouping nd filtering results for better find ability.
-To enable faceting you need o turn faceting on in the query and specify the fields you want tofacet upon:
+It allows the grouping and filtering results for better findability.
+To enable faceting you need to turn faceting on in the query and specify the fields you want to facet upon:
 
 For a simple facet query in Solr you activate the feature and specify the facet fields(s)::
 
