@@ -379,28 +379,28 @@ Content Rules
 * New content in folder "Talks" -> Send Mail to reviewers.
 
 .. figure:: _static/features_add_rule_1.png
-	:scale: 60 %
-	:alt: Add a rule through the web.
+    :scale: 60 %
+    :alt: Add a rule through the web.
 	
-	Add a rule through the web.
+    Add a rule through the web.
 		
 .. figure:: _static/features_add_rule_2.png
-	:scale: 30 %
-	:alt: Add an action to the rule.
+    :scale: 30 %
+    :alt: Add an action to the rule.
 	
-	Add an action to the rule.
+    Add an action to the rule.
 		
 .. figure:: _static/features_add_rule_3.png
-	:scale: 60 %
-	:alt: Add mail action.
+    :scale: 60 %
+    :alt: Add mail action.
 	
-	Add mail action.
+    Add mail action.
 		
 .. figure:: _static/features_add_rule_4.png
-	:scale: 60 %
-	:alt: Assign the newly created rule.
+    :scale: 60 %
+    :alt: Assign the newly created rule.
 	
-	Assign the newly created rule.
+    Assign the newly created rule.
 
 
 .. _features-history-label:

@@ -599,10 +599,11 @@ You can now add some CSS in :file:`browser/static/ploneconf.css` to make it look
 Result:
 
 .. figure:: _static/dexterity_3_sponsor_schema.png
-	:scale: 50%
-	:alt: The result of the newly created content type.
+    :scale: 50%
+    :alt: The result of the newly created content type.
 	
-	The result of the newly created content type.
+    The result of the newly created content type.
+    
 
 Exercise 2
 ++++++++++
