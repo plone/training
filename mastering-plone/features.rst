@@ -296,8 +296,13 @@ Create a site structure:
   * Folder "Training"
   * Folder "Sprint"
   
+  
   .. figure:: _static/features_the_event_folder_content.png
       :scale: 60 %
+      :alt: The view of the newly created site structure.
+      
+      The view of the newly created site structure.
+      
 
 * In ``/news``: Add a News Item "Conference Website online!" with some image
 * In ``/news``: Add a News Item "Submit your talks!"
@@ -309,6 +314,9 @@ Create a site structure:
 
 .. figure:: _static/features_new_navigation.png
 	:scale: 60 %
+	:alt: The view of the extended navigation bar.
+	
+	The view of the extended navigation bar.
 
 
 The default Plone content types are:
@@ -351,6 +359,9 @@ Collections
 
 .. figure:: _static/features_pending_collection.png
 	:scale: 60 %
+	:alt: Add a collection through the web.
+	
+	Add a collection through the web.
 
 * explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit
 * explain Topics
@@ -369,15 +380,27 @@ Content Rules
 
 .. figure:: _static/features_add_rule_1.png
 	:scale: 60 %
+	:alt: Add a rule through the web.
+	
+	Add a rule through the web.
 		
 .. figure:: _static/features_add_rule_2.png
 	:scale: 30 %
+	:alt: Add an action to the rule.
+	
+	Add an action to the rule.
 		
 .. figure:: _static/features_add_rule_3.png
 	:scale: 60 %
+	:alt: Add mail action.
+	
+	Add mail action.
 		
 .. figure:: _static/features_add_rule_4.png
 	:scale: 60 %
+	:alt: Assign the newly created rule.
+	
+	Assign the newly created rule.
 
 
 .. _features-history-label:

@@ -600,7 +600,9 @@ Result:
 
 .. figure:: _static/dexterity_3_sponsor_schema.png
 	:scale: 50%
-
+	:alt: The result of the newly created content type.
+	
+	The result of the newly created content type.
 
 Exercise 2
 ++++++++++

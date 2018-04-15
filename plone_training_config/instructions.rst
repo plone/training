@@ -129,6 +129,9 @@ If you point your browser at http://localhost:8080 you see that Plone is running
 
 .. figure:: _static/instructions_plone_running.png
 	:scale: 50 %
+	:alt: A running Plone instance.
+	
+	A running plone instance.
 
 There is no Plone site yet - we will create one in chapter 6.
 
