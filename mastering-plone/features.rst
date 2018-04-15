@@ -42,7 +42,7 @@ Some commands you will use rather often are::
 
     A standard installation listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
 
-	.. image:: _static/features_plone_running.png
+	.. figure:: _static/features_plone_running.png
 		:scale: 50 %
 
     As you can see, there is no Plone site yet!
@@ -53,7 +53,7 @@ Some commands you will use rather often are::
     This opens a form to create a Plone site.
     Use :samp:`Plone` as the site id.
     
-    .. image:: _static/features_create_site_form.png
+    .. figure:: _static/features_create_site_form.png
 		:scale: 50 %
 
     You now have the option to select some add-ons before you create the site.
@@ -214,7 +214,7 @@ Users
     This is Plone's control panel.
     You can also access it by browsing to http://localhost:8080/Plone/@@overview-controlpanel
     
-    .. image:: _static/features_control_panel.png
+    .. figure:: _static/features_control_panel.png
 		:scale: 80 %
 
     Click on :guilabel:`Users and Groups` and add a user.
@@ -224,8 +224,8 @@ Users
 
     Make this user with your name an administrator.
     
-     .. image:: _static/features_add_user_form.png
-		:scale: 80 %
+    .. figure:: _static/features_add_user_form.png
+        :scale: 80 %
 
     Then create another user called ``testuser``.
     Make this one a normal user.
@@ -296,8 +296,8 @@ Create a site structure:
   * Folder "Training"
   * Folder "Sprint"
   
-.. figure:: _static/features_the_event_folder_content.png
-	:scale: 60 %
+  .. figure:: _static/features_the_event_folder_content.png
+      :scale: 60 %
 
 * In ``/news``: Add a News Item "Conference Website online!" with some image
 * In ``/news``: Add a News Item "Submit your talks!"
