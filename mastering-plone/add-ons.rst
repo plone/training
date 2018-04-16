@@ -19,11 +19,13 @@ Some notable add-ons
 
   .. figure:: _static/add_ons_easyform_1.png
   	  :scale: 50%
+  	  :alt: A simple form created with collective.easyform.
   	  
   	  A simple form created with collective.easyform.
 
   .. figure:: _static/add_ons_easyform_2.png
 	  :scale: 50%
+	  :alt: Editing a form field through the web.
 	  
 	  Editing a form field through the web.
 	
