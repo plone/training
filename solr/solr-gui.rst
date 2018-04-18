@@ -109,7 +109,7 @@ Copy query from Solr GUI, e.g.::
 
     http://localhost:8983/solr/collection1/select?q=Title%3A%22termine%22&wt=json&indent=true
 
-You can use curl or the Python package `requests` (https://pypi.org/project/equests) to access the REST API of Solr.
+You can use curl or the Python package `requests` (https://pypi.org/project/requests) to access the REST API of Solr.
 
 Solr Query Via API
 ==================
