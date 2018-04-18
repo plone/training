@@ -31,7 +31,7 @@ Creating the package
 
 Your own code has to be organized as a `Python package <https://docs.python.org/2/tutorial/modules.html#packages>`_. An python package is directory that follows certain conventions to hold python modules.
 
-We are going to use `bobtemplates.plone <https://pypi.python.org/pypi/bobtemplates.plone>`_ to create a skeleton package. You only need to fill in the blanks.
+We are going to use `bobtemplates.plone <https://pypi.org/project/bobtemplates.plone>`_ to create a skeleton package. You only need to fill in the blanks.
 
 :py:mod:`bobtemplates.plone` offers several Plone-specific templates for :py:mod:`mr.bob`, a projekt template builder similar to :py:mod:`cookiecutter`.
 
@@ -74,7 +74,7 @@ You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. cho
 Eggs
 ----
 
-When a python package is production-ready you can choose to distribute it as an egg over the python package index, `pypi <https://pypi.python.org/pypi>`_. This allows everyone to install and use your package without having to download the code from github. The over 260 python packages that are used by your current Plone instance are also distributed as eggs.
+When a python package is production-ready you can choose to distribute it as an egg over the python package index, `pypi <https://pypi.org>`_. This allows everyone to install and use your package without having to download the code from github. The over 260 python packages that are used by your current Plone instance are also distributed as eggs.
 
 
 .. _eggs1-inspect-label:

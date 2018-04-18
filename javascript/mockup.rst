@@ -11,7 +11,7 @@ For Plone, it was high time to update and modernize its input widgets.
 
 Not because the new ones look much better, but because they offer a much more comfortable way of entering data.
 
-To update Plone's widgets was the goal of `plone.app.widgets <https://pypi.python.org/pypi/plone.app.widgets>`_, started by Nathan van Gheem and pushed wide forward by Rok Garbas.
+To update Plone's widgets was the goal of `plone.app.widgets <https://pypi.org/project/plone.app.widgets>`_, started by Nathan van Gheem and pushed wide forward by Rok Garbas.
 Rok forked Patternslib and created the Mockup project.
 
 Patternslib used a complex configuration syntax parser instead of a simple JSON based approach and the test coverage was not high enough.

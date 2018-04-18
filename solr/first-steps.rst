@@ -160,7 +160,7 @@ the *fullname* in Solr appears.
    there is a handy add-on for this purpose.
 
    It is well documented but further investigation is out of the scope of this training,
-   see https://pypi.python.org/pypi/collective.dexteritytextindexer
+   see https://pypi.org/project/collective.dexteritytextindexer
 
 Boosting
 ========

@@ -38,7 +38,7 @@ Setup
 -----
 
 We set up Solr in our buildout in a similar way,
-using the `hexagonit.recipe.download <https://pypi.python.org/pypi/hexagonit.recipe.download>`_ and ``collective.recipe.solr`` buildout recipes.
+using the `hexagonit.recipe.download <https://pypi.org/project/hexagonit.recipe.download>`_ and ``collective.recipe.solr`` buildout recipes.
 
 The ``solr-instance`` buildout part looks a bit different.
 
@@ -245,7 +245,7 @@ Cons of Elasticsearch
   This can be annoying especially if you write them programatically.
 
 The integration of Elasticsearch with Plone is done with
-https://pypi.python.org/pypi/collective.elasticsearch/
+https://pypi.org/project/collective.elasticsearch/
 
 Google Custom Search
 ====================

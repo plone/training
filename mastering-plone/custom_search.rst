@@ -19,7 +19,7 @@ No programming skills are required to configure it since the configuration is do
 It lets you gradually select and explore different facets (metadata/properties) of the site content and narrow down you search quickly
 and dynamically.
 
-* Install `eea.facetednavigation <https://pypi.python.org/pypi/eea.facetednavigation/>`_
+* Install `eea.facetednavigation <https://pypi.org/project/eea.facetednavigation/>`_
 * Enable it on a new folder "Discover talks" by clicking on :guilabel:`Actions > Enable faceted navigation`.
 * Click on the :guilabel:`Faceted > Configure` to configure it through the web.
 
@@ -37,16 +37,16 @@ Examples:
 .. seealso::
 
     We use the new catalog indexes to provide the data for the widgets and search the results.
-    For other use cases we could also use either the built-in vocabularies (https://pypi.python.org/pypi/plone.app.vocabularies) or create custom vocabularies for this.
+    For other use cases we could also use either the built-in vocabularies (https://pypi.org/project/plone.app.vocabularies) or create custom vocabularies for this.
 
-    * Custom vocabularies TTW (Through-The-Web) using `Products.ATVocabularyManager <https://pypi.python.org/pypi/Products.ATVocabularyManager>`_
+    * Custom vocabularies TTW (Through-The-Web) using `Products.ATVocabularyManager <https://pypi.org/project/Products.ATVocabularyManager>`_
     * Programming using Vocabularies: https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html
 
 
 collective.portlet.collectionfilter
 -----------------------------------
 
-A more light-weight solution for custom searches and faceted navigation is `collective.portlet.collectionfilter <https://pypi.python.org/pypi/collective.portlet.collectionfilter>`_.
+A more light-weight solution for custom searches and faceted navigation is `collective.portlet.collectionfilter <https://pypi.org/project/collective.portlet.collectionfilter>`_.
 By default it allows you to search among the results of a collection and/or filter the results by keywords, author or type.
 
 It can also be extended quite easily to allow additional filters (like `audience`).

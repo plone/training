@@ -14,21 +14,21 @@ Extend Plone With Add-On Packages
 Some notable add-ons
 ---------------------
 
-`collective.easyform <https://pypi.python.org/pypi/collective.easyform>`_
+`collective.easyform <https://pypi.org/project/collective.easyform>`_
   A form generator and the successor to `Products.PloneFormGen <https://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
 
   .. figure:: _static/add_ons_easyform_1.png
   	  :scale: 50%
   	  :alt: A simple form created with collective.easyform.
-  	  
+
   	  A simple form created with collective.easyform.
 
   .. figure:: _static/add_ons_easyform_2.png
 	  :scale: 50%
 	  :alt: Editing a form field through the web.
-	  
+
 	  Editing a form field through the web.
-	
+
 
 `plone.app.mosaic <https://github.com/plone/plone.app.mosaic>`_
   Layout solution to easily create complex layouts through the web.
@@ -36,16 +36,16 @@ Some notable add-ons
 `collective.geo <http://collectivegeo.readthedocs.io/en/latest/>`_
   Flexible bundle of add-ons to geo-reference content and display in maps
 
-`collective.mailchimp <https://pypi.python.org/pypi/collective.mailchimp>`_
+`collective.mailchimp <https://pypi.org/project/collective.mailchimp>`_
   Allows visitors to subscribe to mailchimp newsletters
 
-`eea.facetednavigation <https://pypi.python.org/pypi/eea.facetednavigation/>`_
+`eea.facetednavigation <https://pypi.org/project/eea.facetednavigation/>`_
   Create faceted navigation and searches through the web.
 
-`collective.lineage <https://pypi.python.org/pypi/collective.lineage>`_
+`collective.lineage <https://pypi.org/project/collective.lineage>`_
   Microsites for Plone - makes subfolders appear to be autonomous Plone sites
 
-`Products.Doormat <https://pypi.python.org/pypi/Products.Doormat>`_
+`Products.Doormat <https://pypi.org/project/Products.Doormat>`_
   A flexible doormat
 
 `collective.behavior.banner <https://github.com/collective/collective.behavior.banner>`_
@@ -57,10 +57,10 @@ Some notable add-ons
 `Plomino <http://plomino.net/>`_
   Powerful and flexible web-based application builder for Plone
 
-`collective.disqus <https://pypi.python.org/pypi/collective.disqus/>`_
+`collective.disqus <https://pypi.org/project/collective.disqus/>`_
   Integrates the Disqus commenting platform API into Plone
 
-`collective.plonetruegallery <https://pypi.python.org/pypi/collective.plonetruegallery>`_
+`collective.plonetruegallery <https://pypi.org/project/collective.plonetruegallery>`_
   Photo galleries with a huge selection of various js-libraries.
 
 
@@ -76,7 +76,7 @@ It can be very hard to find the right addon for your requirements. Here are some
 * Then search using the follwing links below.
 
   * https://plone.org/download/add-ons
-  * https://pypi.python.org/pypi >3400 Plone related packages - use the search form!
+  * https://pypi.org >3400 Plone related packages - use the search form!
   * https://github.com/collective >1500 repos
   * https://github.com/plone >310 repos
   * google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)
@@ -196,7 +196,7 @@ To advertise the conference we want to show some photos showing past conferences
 
 Instead of creating new contenttypes for galleries, it integrates with the Plone functionality to choose different views for folderish contenttypes.
 
-https://pypi.python.org/pypi/collective.plonetruegallery
+https://pypi.org/project/collective.plonetruegallery
 
 * Activate the add-on
 * Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors
@@ -214,7 +214,7 @@ Plone can run the same site in many different languages.
 
 We're not doing this with the conference site since the *lingua franca* of the Plone community is English.
 
-We would use the built-in addon https://pypi.python.org/pypi/plone.app.multilingual for this.
+We would use the built-in addon https://pypi.org/project/plone.app.multilingual for this.
 
 Building a multi-lingual site requires activating :py:mod:`plone.app.multilingual`, but no add-on is necessary to build a site in only one language. Just select a different site language when creating a Plone site, and all text in the user-interface will be switched to that language.
 

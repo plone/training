@@ -153,7 +153,7 @@ RelationList:
 The stack
 ---------
 
-Relations are based on `zc.relation <https://pypi.python.org/pypi/zc.relation/>`_.
+Relations are based on `zc.relation <https://pypi.org/project/zc.relation/>`_.
 This package allows to store transitive and intransitive relationships.
 It allows for complex relationships and searches along them.
 Because of this functionality, the package is a bit complicated.
@@ -166,7 +166,7 @@ You can use `zc.relation` to store the objects and its relations directly into t
 But the additional packages that make up the relation functionality don't use the catalog this way.
 
 We want to work with schemas to get auto generated forms.
-The logic for this is provided by the package `z3c.relationfield <https://pypi.python.org/pypi/z3c.relationfield/>`_.
+The logic for this is provided by the package `z3c.relationfield <https://pypi.org/project/z3c.relationfield/>`_.
 This package contains the RelationValue object and everything needed to define a relation schema, and all the code that is necessary to automatically update the catalog.
 
 A RelationValue Object does not reference all objects directly.

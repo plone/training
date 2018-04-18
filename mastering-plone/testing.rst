@@ -217,6 +217,6 @@ For more in-depth information and reference see
 
 * `plone.app.testing documentation <https://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_.
 
-* `plone.testing package <https://pypi.python.org/pypi/plone.testing>`_
+* `plone.testing package <https://pypi.org/project/plone.testing>`_
 
 

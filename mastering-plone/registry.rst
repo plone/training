@@ -31,7 +31,7 @@ The registry is used to get and set values stored in records. Each record contai
 
 All global settings in Plone 5 are stored in the registry.
 
-The registry itself is provided by `plone.registry <https://pypi.python.org/pypi/plone.registry>`_ and the UI to interact with it by `plone.app.registry <https://pypi.python.org/pypi/plone.app.registry>`_
+The registry itself is provided by `plone.registry <https://pypi.org/project/plone.registry>`_ and the UI to interact with it by `plone.app.registry <https://pypi.org/project/plone.app.registry>`_
 
 Almost all settings in ``/plone_control_panel`` are actually stored in the registry and can be modified using its UI directly.
 

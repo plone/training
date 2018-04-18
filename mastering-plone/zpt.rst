@@ -460,7 +460,7 @@ Plone 5
 
 Plone 5 uses a new rendering engine called `Chameleon <https://chameleon.readthedocs.io/en/latest/>`_.
 
-Using the integration layer `five.pt <https://pypi.python.org/pypi/five.pt>`_ it is fully compatible with the normal TAL syntax
+Using the integration layer `five.pt <https://pypi.org/project/five.pt>`_ it is fully compatible with the normal TAL syntax
 but offers some additional features:
 
 You can use ``${...}`` as short-hand for text insertion in pure html effectively making ``tal:content`` and ``tal:attributes`` obsolete.

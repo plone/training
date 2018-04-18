@@ -16,7 +16,7 @@ Topics covered:
 
 .. only:: not presentation
 
-    `Buildout <https://pypi.python.org/pypi/zc.buildout>`_ composes your application for you, according to your rules.
+    `Buildout <https://pypi.org/project/zc.buildout>`_ composes your application for you, according to your rules.
 
     To compose your application you must define the eggs you need, which version, what configuration files Buildout has to generate for you, what to download and compile, and so on.
     Buildout downloads the eggs you requested and resolves all dependencies. You might need five different eggs, but in the end, Buildout has to install 300 eggs, all with the correct version in order to resolve all the dependencies.
@@ -62,14 +62,14 @@ One example is the section
     recipe = plone.recipe.zope2instance
     user = admin:admin
 
-This uses the python package `plone.recipe.zope2instance <https://pypi.python.org/pypi/plone.recipe.zope2instance>`_
+This uses the python package `plone.recipe.zope2instance <https://pypi.org/project/plone.recipe.zope2instance>`_
 to create and configure the Zope 2 instance which we use to run Plone.
 
 All the lines after :samp:`recipe = xyz` are the configuration of the specified recipe.
 
 .. note::
 
-    There are way to many buidout-recipes. See https://pypi.python.org/pypi?%3Aaction=search&term=buildout+recipe&submit=search
+    There are way to many buidout-recipes. See https://pypi.org/search/?q=buildout+recipe
 
 .. _buildout1-references-label:
 
@@ -82,7 +82,7 @@ References
 
     If you have a big setup with many Plone sites with minor changes between each configuration, you can generate a template configuration, and each site references everything from the template and overrides just what needs to be changed.
 
-    Even in smaller buildouts this is a useful feature. We are using `collective.recipe.omelette <https://pypi.python.org/pypi/collective.recipe.omelette>`_. A very practical recipe that creates a virtual directory that eases the navigation to the source code of each egg.
+    Even in smaller buildouts this is a useful feature. We are using `collective.recipe.omelette <https://pypi.org/project/collective.recipe.omelette>`_. A very practical recipe that creates a virtual directory that eases the navigation to the source code of each egg.
 
     The omelette recipe needs to know which eggs to reference. We want the same eggs that our instance uses, so we reference the eggs of the instance instead of repeating the whole list.
 
@@ -320,7 +320,7 @@ Be McGuyver
 
     As you can see, you can build very complex systems with Buildout. It is time for some warnings. Be selective in your recipes. Supervisor is a program to manage running servers, and it's pretty good. There is a recipe for it.
 
-    The configuration for this recipe is more complicated than the supervisor configuration itself! By using this recipe, you force others to understand the recipe's specific configuration syntax *and* the supervisor syntax. For such cases, `collective.recipe.template <https://pypi.python.org/pypi/collective.recipe.template>`_ is a better match.
+    The configuration for this recipe is more complicated than the supervisor configuration itself! By using this recipe, you force others to understand the recipe's specific configuration syntax *and* the supervisor syntax. For such cases, `collective.recipe.template <https://pypi.org/project/collective.recipe.template>`_ is a better match.
 
     Another problem is error handling. Buildout tries to install a weird dependency you do not actually want? Buildout will not tell you where it is coming from.
 
@@ -365,4 +365,4 @@ Be McGuyver
         * https://github.com/plone/Installers-UnifiedInstaller/blob/master/base_skeleton/develop.cfg
 
     mr.developer
-        https://pypi.python.org/pypi/mr.developer/
+        https://pypi.org/project/mr.developer/

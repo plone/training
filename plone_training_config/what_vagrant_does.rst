@@ -44,7 +44,7 @@ Then we create a virtual python environment using virtualenv. This is always a g
 
     $ virtualenv --no-site-packages /home/vagrant/py27
 
-Now we download and unpack a buildout-cache that holds all the python packages that make up Plone. This is an optimisation: We could skip this step and have buildout download all packages individually from the `python packaging index PyPi <https://pypi.python.org/pypi>`_ but that takes much longer on a first install.
+Now we download and unpack a buildout-cache that holds all the python packages that make up Plone. This is an optimisation: We could skip this step and have buildout download all packages individually from the `python packaging index PyPi <https://pypi.org>`_ but that takes much longer on a first install.
 
 .. code-block:: bash
 

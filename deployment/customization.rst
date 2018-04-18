@@ -43,7 +43,7 @@ Eggs And Versions
 
 You're likely to want to add Python packages to your Plone installation to enable add-on functionality.
 
-Let's say you want to add `collective.easyform <https://pypi.python.org/pypi/collective.easyform>`_ and `webcouturier.dropdownmenu <https://pypi.python.org/pypi/webcouturier.dropdownmenu>`_.
+Let's say you want to add `collective.easyform <https://pypi.org/project/collective.easyform>`_ and `webcouturier.dropdownmenu <https://pypi.org/project/webcouturier.dropdownmenu/>`_.
 
 Add to your ``local_configure.yml``:
 
@@ -61,7 +61,7 @@ If you add eggs, you should nearly always specify their versions:
       - "collective.easyform = 2.0.0b2"
       - "webcouturier.dropdownmenu = 3.0.1"
 
-That takes care of packages that are available on the `Python Package Index <https://pypi.python.org/pypi>`_.
+That takes care of packages that are available on the `Python Package Index <https://pypi.org/>`_.
 What if your developing packages via git?
 
 .. code-block:: yaml

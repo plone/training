@@ -28,7 +28,7 @@ Using Annotations
  * What are annotations
  * When to use them
 
-.. _Annotations: https://pypi.python.org/pypi/zope.annotation/4.2.0
+.. _Annotations: https://pypi.org/project/zope.annotation/4.2.0
 
 .. _behaviors2-schema-label:
 

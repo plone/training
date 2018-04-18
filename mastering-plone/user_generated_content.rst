@@ -68,7 +68,7 @@ We still need to fix a problem: Authenticated users can see all talks, even the 
 
 .. note::
 
-    The add-on `plone.app.workflowmanager <https://pypi.python.org/pypi/plone.app.workflowmanager>`_ provides a much nicer user-interface for this. The problem is you need a big screen for it and it can be pretty confusing as well.
+    The add-on `plone.app.workflowmanager <https://pypi.org/project/plone.app.workflowmanager>`_ provides a much nicer user-interface for this. The problem is you need a big screen for it and it can be pretty confusing as well.
 
 Done.
 

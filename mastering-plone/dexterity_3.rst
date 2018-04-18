@@ -268,7 +268,7 @@ To learn more about directives, validators and default values read:
 
 * `Form schema hints and directives <https://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html>`_
 * `Validation <https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html>`_ (these docs still use grok-examples)
-* `z3c.form documentation <https://pypi.python.org/pypi/z3c.form#validators>`_
+* `z3c.form documentation <https://pypi.org/project/z3c.form#validators>`_
 * `Default values for fields on add forms <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html>`_
 
 
@@ -594,16 +594,16 @@ You can now add some CSS in :file:`browser/static/ploneconf.css` to make it look
         -moz-box-shadow: 0 0 8px #000;
         -webkit-box-shadow: 0 0 8px #000;
     }
-    
-    
+
+
 Result:
 
 .. figure:: _static/dexterity_3_sponsor_schema.png
     :scale: 50%
     :alt: The result of the newly created content type.
-	
+
     The result of the newly created content type.
-    
+
 
 Exercise 2
 ++++++++++

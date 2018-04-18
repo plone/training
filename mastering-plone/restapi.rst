@@ -36,7 +36,7 @@ Explore the API
 ---------------
 
 Make sure you add some talks to the talks folder and then start exploring the API.
-We recommend using `Postman <https://www.getpostman.com>`_ or a similar tool, but you can also use `requests <https://pypi.python.org/pypi/requests>`_ in a Python virtual env.
+We recommend using `Postman <https://www.getpostman.com>`_ or a similar tool, but you can also use `requests <https://pypi.org/project/requests>`_ in a Python virtual env.
 
 :py:mod:`plone.restapi` uses 'content negotiation' to determine whether a client wants
 a REST API response - if you set the ``Accept`` HTTP header to ``application/json``,
