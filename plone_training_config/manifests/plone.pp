@@ -1,6 +1,6 @@
 class plone {
 
-    $plone_version = "5.1rc1"
+    $plone_version = "5.1.2"
 
     file { ['/home/ubuntu/tmp',
             '/home/ubuntu/.buildout',
@@ -48,7 +48,7 @@ extends-cache = /home/ubuntu/buildout-cache/extends'),
     }
 
     # Install zc.buildout, setuptools
-    exec {'/home/ubuntu/py27/bin/pip install -U zc.buildout==2.9.4 setuptools==33.1.1':
+    exec {'/home/ubuntu/py27/bin/pip install -r http://dist.plone.org/release/${plone_version}/requirements.txt':
         alias => "install_buildout_setuptools",
         creates => '/home/ubuntu/py27/bin/buildout',
         user => 'ubuntu',

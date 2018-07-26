@@ -166,7 +166,7 @@ Vagrant uses Oracle’s VirtualBox to create virtual environments.
 
 Here is a link directly to the download page: https://www.virtualbox.org/wiki/Downloads.
 
-We use VirtualBox 5.0.x
+We use VirtualBox 5.2.x
 
 
 .. _instructions-configure-vagrant-label:
