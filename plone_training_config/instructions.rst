@@ -201,7 +201,7 @@ Now download :download:`plone_training_config.zip <../_static/plone_training_con
 
 .. code-block:: console
 
-    wget https://raw.githubusercontent.com/plone/training/master/_static/plone_training_config.zip
+    wget https://github.com/plone/training/raw/master/_static/plone_training_config.zip
     unzip plone_training_config.zip
 
 The training directory should now hold the file :file:`Vagrantfile` and the directory :file:`manifests` which again contains several files.
