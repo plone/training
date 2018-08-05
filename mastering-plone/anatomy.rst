@@ -9,13 +9,47 @@ In this part you will:
 
 Topics covered:
 
+* ZODB
 * CMF
 * Zope
 * Pyramid
 * Bluebream
 
 
-Python, Zope, CMF, Plone ... -- how does all that fit together?
+Python, ZODB, Zope, CMF, Plone ... -- how does all that fit together?
+
+
+Database
+--------
+
+* `ZODB <http://www.zodb.org>`_: A Native object database for Python
+
+  * No separate language for database operations
+  * Very little impact on your code to make objects persistent
+  * Object database != ORM
+  * almost no seam between code and database.
+
+.. code-block:: python
+
+    import persistent
+
+    class Account(persistent.Persistent):
+
+        def __init__(self):
+            self.balance = 0.0
+
+        def deposit(self, amount):
+            self.balance += amount
+
+        def cash(self, amount):
+            assert amount < self.balance
+            self.balance -= amount
+
+* "NoSQL"
+* `ZEO <https://github.com/zopefoundation/ZEO>`_: Server + many clients
+* `ZRS <https://github.com/zc/zrs>`_: DB-Replication
+* `RelStorage <https://relstorage.readthedocs.io/en/latest/>`_ (store pickles in a relational database) for Postgres, MySQL etc.
+* blobstorage (binary large objects) in filesystem
 
 
 .. _anatomy-zope2-label:
