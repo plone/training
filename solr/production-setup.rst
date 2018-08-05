@@ -34,8 +34,7 @@ Monitoring
 ==========
 
 ``collective.solr`` comes with some predefined `Munin <http://munin-monitoring.org/>`_ configuration.
-The values for Munin are collected
-and exposed via the `Java JMX <http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html>`_ framework.
+The values for Munin are collected and exposed via the Java JMX framework.
 
 You will need Munin and the JMX\_ extension.
 
