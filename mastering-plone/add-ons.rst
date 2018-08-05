@@ -54,7 +54,7 @@ Some notable add-ons
 `Rapido <https://rapidoplone.readthedocs.io/en/latest/>`_
   Allows developers with a little knowledge of HTML and a little knowledge of Python to implement custom elements and insert them anywhere they want.
 
-`Plomino <http://plomino.net/>`_
+`Plomino <https://github.com/plomino/Plomino>`_
   Powerful and flexible web-based application builder for Plone
 
 `collective.disqus <https://pypi.org/project/collective.disqus/>`_
