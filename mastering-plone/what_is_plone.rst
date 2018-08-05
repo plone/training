@@ -59,7 +59,7 @@ Traversal
 Object publishing
 -----------------
 
-* Objects can be called and return a representation of itself - usually html.
+Objects can be called and return a representation of itself - usually html.
 
 .. code-block:: python
 
@@ -73,8 +73,11 @@ Object publishing
 Schema-driven content
 ---------------------
 
-* Models/Schemas with fields: Content has fields to store data defined in a schema.
-* Values of these fields on instances of objects are attributes
+Models/Schemas with fields: Content has fields to store data defined in a schema.
+
+Values of these fields on instances of objects are attributes
+
+.. code-block:: python
 
     >>> obj.title
     u'A Newsitem'
@@ -85,11 +88,17 @@ Schema-driven content
     u'A new description'
     >>> obj.image
     <plone.namedfile.file.NamedBlobImage object at 0x11634c320>
+    >>> obj.image
+    <plone.namedfile.file.NamedBlobImage object at 0x11634c320>
+    >>> obj.image.data
+    '\x89PNG\r\n\x1a\n\x00\x00\x00\...'
 
-* Objects can have multiple schemata. Additional schemata are called behaviors.
+Objects can have multiple schemata. Additional schemata are called behaviors.
+
+.. code-block:: python
 
     >>> from plone.dexterity.utils import iterSchemata
-    >>> pp [i for i in iterSchemata(self.context)]
+    >>> [i for i in iterSchemata(self.context)]
     [<InterfaceClass plone.dexterity.schema.generated.Plone_0_News_1_Item>,
      <SchemaClass plone.app.dexterity.behaviors.metadata.IDublinCore>,
      <SchemaClass plone.app.contenttypes.behaviors.richtext.IRichText>,
@@ -99,18 +108,33 @@ Schema-driven content
      <SchemaClass plone.app.relationfield.behavior.IRelatedItems>,
      <SchemaClass plone.app.contenttypes.behaviors.leadimage.ILeadImage>,
      <SchemaClass plone.app.versioningbehavior.behaviors.IVersionable>]
-    >>> pp [[fieldname for fieldname in schema] for schema in [schemata for schemata in iterSchemata(obj)]]
-    [[],
-     ['language', 'expires', 'contributors', 'effective', 'rights', 'title', 'creators', 'subjects', 'description'],
-     ['text'],
-     ['allow_discussion'],
-     ['id'],
-     ['exclude_from_nav'],
-     ['relatedItems'],
-     ['image', 'image_caption'],
-     ['versioning_enabled', 'changeNote']]
 
-* Plone creates forms from all these schemata to add and edit content.
+* Each schema can have multiple fields
+
+.. code-block:: python
+
+    >>> [i.namesAndDescriptions(all=True) for i in iterSchemata(obj)]
+    [[],
+     [('rights', <zope.schema._bootstrapfields.Text object at 0x10bf7dfd0>),
+      ('subjects', <zope.schema._field.Tuple object at 0x10bf7d990>),
+      ('description', <zope.schema._bootstrapfields.Text object at 0x10bf7d7d0>),
+      ('language', <zope.schema._field.Choice object at 0x10bf7da10>),
+      ('title', <zope.schema._bootstrapfields.TextLine object at 0x10bf7d790>),
+      ('effective', <zope.schema._field.Datetime object at 0x10bf7db90>),
+      ('contributors', <zope.schema._field.Tuple object at 0x10bf7df10>),
+      ('expires', <zope.schema._field.Datetime object at 0x10bf7dc10>),
+      ('creators', <zope.schema._field.Tuple object at 0x10be68750>)],
+     [('text', <plone.app.textfield.RichText object at 0x10c274810>)],
+     [('allow_discussion', <zope.schema._field.Choice object at 0x10c4f7590>)],
+     [('id', <zope.schema._field.ASCIILine object at 0x10c4f7c50>)],
+     [('exclude_from_nav', <zope.schema._bootstrapfields.Bool object at 0x10c4ea090>)],
+     [('relatedItems', <z3c.relationfield.schema.RelationList object at 0x10c527710>)],
+     [('image', <plone.namedfile.field.NamedBlobImage object at 0x10bb89750>),
+      ('image_caption', <zope.schema._bootstrapfields.TextLine object at 0x10bb89410>)],
+     [('versioning_enabled', <zope.schema._bootstrapfields.Bool object at 0x10c956410>),
+      ('changeNote', <zope.schema._bootstrapfields.TextLine object at 0x10c956350>)]]
+
+Plone creates forms from all these schemata to add and edit content.
 
 
 Component Architecture
