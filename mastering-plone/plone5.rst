@@ -198,7 +198,7 @@ Many of the old skin templates were replaced by real browser views.
 Plone 5.1
 ---------
 
-Plone 5.1 holds a long list of incremental improvements. But none really changes the way you develop for Plone. Here are three noteworthy changes:
+Plone 5.1 comes with many incremental improvements. But none really changes the way you develop for Plone. Here are three noteworthy changes:
 
 * The operations for indexing, reindexing and unindexing are queued, optimized and only processed at the end of the transaction. This change can have big performance benefits.
 
@@ -206,4 +206,4 @@ Plone 5.1 holds a long list of incremental improvements. But none really changes
 
 * "Retina" Image scales: Plone now has scales for high pixel density images.
 
-For a longer list of changes see the `upgrade-guide <https://docs.plone.org/manage/upgrading/version_specific_migration/index.html>`_ (once 5.1 is released).
+For a complete list of changes see https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_51.html#changes-between-plone-5-0-and-5-1
