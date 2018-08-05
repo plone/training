@@ -36,7 +36,36 @@ Another noteable buildout to look for inspiration:
 A deployment setup
 ------------------
 
-Deploying Plone and production-setups are outside the scope for this training. Please see https://docs.plone.org/manage/deploying/index.html
+A 'normal' deployment setup could look like this:
+
+
+.. code-block:: text
+
+    ZEO-Server   ->   ZEO-Server (ZRS)
+
+       / | \
+
+    ZEO Clients (as many as you want)
+
+       \ | /
+
+    Load balancer (nginx or haproxy)
+
+         |
+
+       Cache (varnish)
+
+         |
+
+    Webserver (nginx)
+
+
+Deploying Plone and production-setups are outside the scope for this training.
+
+.. seealso::
+
+    * https://docs.plone.org/manage/deploying/index.html
+    * https://training.plone.org/5/deployment
 
 .. _deployment-tools-label:
 
