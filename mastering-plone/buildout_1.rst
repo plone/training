@@ -29,6 +29,23 @@ Topics covered:
     Some extensions provide new functionality, like mr.developer, the best way to manage your checked out sources.
 
 
+Minimal Example
+---------------
+
+Here is a functioning minimal example from https://github.com/collective/minimalplone5:
+
+.. code-block:: ini
+
+    [buildout]
+    parts = instance
+    extends = https://dist.plone.org/release/5-latest/versions.cfg
+
+    [instance]
+    recipe = plone.recipe.zope2instance
+    eggs =
+        Plone
+        Pillow
+
 .. _buildout1-syntax-label:
 
 Syntax
