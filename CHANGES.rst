@@ -5,7 +5,6 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 1.2.5 (unreleased)
 ------------------
-=======
 
 - Fixes to Advanced Python Training [oz123]
 

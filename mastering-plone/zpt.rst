@@ -160,7 +160,22 @@ A example:
        A big title
     </p>
 
-And another:
+With ``context.title`` you access information from the context object, that is the object on which the view is called. Modify the template :file:`training.pt` like this
+
+.. code-block:: html
+
+    <p tal:content="python: "This is the {0} '{1}' at {2}".format(context.portal_type, context.title, context.absolute_url()">
+    </p>
+
+Now call the view on different urls and see what happens:
+
+* http://localhost:8080/Plone/training
+* http://localhost:8080/Plone/news/training
+* http://localhost:8080/Plone/events/aggregator/training
+* http://localhost:8080/Plone/the-event/training
+* http://localhost:8080/Plone/news/conference-website-online/training
+
+And another python-statement:
 
 .. code-block:: html
 
@@ -979,7 +994,7 @@ Exercise 2
 * Render a mail-link to the speaker.
 * Display the speaker instead of the raw email-adress.
 * If there is no speaker-name display the adress.
-* To modify attributes of html-tags my adding your statements into the attributes directly like ``title="${python: context.type_of_talk.capitalize()}"``.
+* Modify attributes of html-tags by adding your statements into the attributes directly like ``title="${python: context.type_of_talk.capitalize()}"``.
 
 ..  admonition:: Solution
     :class: toggle

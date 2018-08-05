@@ -3,9 +3,9 @@
 What's New in Plone 5 and 5.1
 =============================
 
-Plone 5.0 was released in September 2015 and is the currently at version 5.0.8 main version if Plone. Plone 5 was a mayor release, that changed the content type framework, the user interface and the default design.
+Plone 5.0 was released in September 2015. Plone 5 was a mayor release, that changed the content type framework, the user interface and the default design.
 
-Plone 5.1 will be released in Oktober 2017 and holds a couple of smaller improvements.
+Plone 5.1 was released in Oktober 2017 and holds a couple of smaller improvements.
 
 If you are already familiar with Plone 5 and 5.1 you can skip this section.
 
@@ -15,7 +15,7 @@ If you are already familiar with Plone 5 and 5.1 you can skip this section.
 Default Theme
 -------------
 
-The new default theme is called `Barceloneta <https://github.com/plone/plonetheme.barceloneta/>`_
+The default theme of Plone 5.x is called `Barceloneta <https://github.com/plone/plonetheme.barceloneta/>`_
 
 It is a Diazo theme, meaning it uses :py:mod:`plone.app.theming` to insert the output of Plone into static html/css.
 
@@ -23,32 +23,19 @@ It uses html5, so it uses ``<header>``, ``<nav>``, ``<aside>``, ``<section>``, `
 
 The theme is mostly built with `LESS <http://lesscss.org/>`_ (lots of it!) and uses the same grid system as `bootstrap <http://getbootstrap.com/css/#grid>`_. This means you can use css classes like ``col-xs-12 col-sm-9`` to control the width of elements for different screen-sizes. If you prefer a different grid-system (like `foundation <http://foundation.zurb.com/sites/docs/grid.html>`_) over bootstrap you can adapt the theme to use that.
 
-The `index.html <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/index.html>`_ and `rules.xml <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/rules.xml>`_ are actually not that complicated. Have a look at them.
-
-The following example from :file:`rules.xml` makes sure that the banner saying *"Welcome! Plone 5 rocks!"* is only visible on the frontpage:
-
-.. code-block:: xml
-
-   <!-- include view @@hero on homepage only -->
-   <after css:theme="#mainnavigation-wrapper"
-          css:content=".principal"
-          href="/@@hero"
-          css:if-content="body.template-document_view.section-front-page" />
-
-The browser-view ``@@hero`` (you can find it by searching all ZCML-files for ``name="hero"``) is only included when the body-tag of the current page has the css-classes ``template-document_view`` and ``section-front-page``.
-
+The `index.html <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/index.html>`_ and `rules.xml <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/rules.xml>`_ are the main elements to make this happen.
 
 .. _plone5-ui-widgets-label:
 
 New UI and widgets
 ------------------
 
-The green edit bar is replaced by a toolbar that is located on the left or top and can be expanded. The design of the toolbar is pretty isolated from the theme and it should not break if you use a different theme.
+While Plone 4 had a green edit-bar above the content Plone 5 has a toolbar that is located on the left or top and can be expanded. The design of the toolbar is pretty isolated from the theme and it should not break if you use a different theme.
 
 The widgets where you input data are also completely rewritten.
 
-* We now use the newest TinyMCE
-* The tags (keywords) widget and the widgets where you input usernames now use `select2 <http://select2.github.io>`_ autocomplete to give a better user experience
+* Plone now uses the newest TinyMCE
+* The tags (keywords) widget and the widgets where you input usernames use `select2 <http://select2.github.io>`_ autocomplete to give a better user experience
 * The related-items widget is a complete rewrite
 
 
@@ -57,7 +44,7 @@ The widgets where you input data are also completely rewritten.
 Folder Contents
 ---------------
 
-The view to display the content of a folder is new and offers many new features:
+The view to display the content of a folder is new and offers many new features compared to Plone 4:
 
 * configurable table columns
 * changing properties of multiple items at once
@@ -70,7 +57,7 @@ The view to display the content of a folder is new and offers many new features:
 Content Types
 -------------
 
-All default types are based on Dexterity. This means you can use behaviors to change their features and edit them through the web. Existing old content can be migrated to these types.
+While Plone 4 used Archetypes all default types are based on Dexterity in Plone 5. This means you can use behaviors to change their features and edit them through the web. Existing old content can be migrated to these types.
 
 
 .. _plone5-resource-registry-label:
@@ -198,7 +185,7 @@ Many of the old skin templates were replaced by real browser views.
 Plone 5.1
 ---------
 
-Plone 5.1 comes with many incremental improvements. But none really changes the way you develop for Plone. Here are three noteworthy changes:
+Plone 5.1 comes with many incremental improvements. None of these changes the way you develop for Plone. Here are three noteworthy changes:
 
 * The operations for indexing, reindexing and unindexing are queued, optimized and only processed at the end of the transaction. This change can have big performance benefits.
 

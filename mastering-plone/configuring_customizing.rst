@@ -78,14 +78,13 @@ Change the logo
 
 Let's change the logo.
 
-* Download a ploneconf logo: https://www.starzel.de/plone-tutorial/ploneconf-logo-2014
+* Download a ploneconf logo: https://www.starzel.de/plone-tutorial/logo.png
 * Go to http://localhost:8080/Plone/@@site-controlpanel
 * Upload the Logo.
 
 .. figure:: _static/configuring_customizing_logo.png
-    :scale: 80 %
     :alt: The view of the homepage with the customized logo.
-    
+
     The view of the homepage with the customized logo.
 
 .. seealso::
