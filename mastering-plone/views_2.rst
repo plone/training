@@ -158,6 +158,109 @@ And the template will now be much simpler.
     </html>
 
 
+Browser Views
+-------------
+
+In the next example you will access the ``context`` in which the view is called.
+
+Edit ``browser/views.py`` and add a method ``context_info`` to the view ``DemoView`` that returns information on the context.
+
+In a method of a Browser View the content object which was ``context`` in the template is now accessed as ``self.context``.
+
+.. code-block:: python
+
+    def context_info(self):
+        context = self.context
+        title = context.title
+        portal_type = context.portal_type
+        url = context.absolute_url()
+        return u"This is the {0} '{1}' at {2}".format(portal_type, title, url)
+
+.. note::
+
+    The result is the same as in :ref:`python-expressions-label` where you wrote ``<p tal:content="python: "This is the {0} '{1}' at {2}".format(context.portal_type, context.title, context.absolute_url()">
+    </p>`` in the template.
+
+The template :file:`training.pt` still needs to display that:
+
+.. code-block:: xml
+
+    <p tal:content="python: view.context_info()">
+        Info on the context
+    </p>
+
+Open the view on a talk and it will show you information on that talk.
+
+.. note::
+
+    Changes in python-files are picked up by restarting Plone or using the addon ``plone.reload``: http://localhost:8080/@@reload
+
+
+Reusing Browser Views
+---------------------
+
+* Browser Views can be called by accessing it as a url in the browser. Append ``/training`` to any url and the view will be called.
+* Browser Views can be associated with a template (like ``training.pt``) to return some html.
+* Browser Views can be reused in your code using ``plone.api.content.get_view('<name of the view>', context, request)``. This allows you to reuse code and methods.
+
+The method ``context_info`` that returned information on the current object can be reused any time like this:
+
+.. code-block:: python
+    :linenos:
+
+    from Products.Five.browser import BrowserView
+    from plone import api
+
+    class SomeOtherView(BrowserView):
+
+        def __call__(self):
+            training_view = api.content.get_view('training', self.context, self.request)
+            return training_view.context_info()
+
+You would still need to register the view in configure.zcml:
+
+.. code-block:: xml
+
+    <browser:page
+        name="some_view"
+        for="*"
+        class=".views.SomeOtherView"
+        permission="zope2.View"
+        />
+
+Using ``/some_view`` would now return infomation of the current object in the browser without a template.
+
+You can define which ``context``-object should be used:
+
+.. code-block:: python
+    :linenos:
+
+    from Products.Five.browser import BrowserView
+    from plone import api
+
+    class SomeOtherView(BrowserView):
+
+        def __call__(self):
+            portal = api.portal.get()
+            some_talk = portal['dexterity-for-the-win']
+            training_view = api.content.get_view('training', some_talk, self.request)
+            return training_view.context_info()
+
+``typeinfo`` will now be "This is the talk 'Dexterity for the win' at http://localhost:8080/Plone/dexterity-for-the-win"
+
+.. note::
+
+    Browser Views
+
+    * are the swiss army knife of every Plone developer
+    * can be called by accessing their name as a url in the browser. Append ``/training`` to any url and the view will be called.
+    * can be associated with a template (like ``training.pt``) to return some html.
+    * can be reused in your code using ``plone.api.content.get_view('<name of the view>', context, request)``.
+    * can be protected with permissions
+    * can be constrained to certain content-types by using ``for="plonconf.site.content.sponsor.ISponsor"``
+    * can be constrained to certain addons by using ``layer="plonconf.site.interfaces.IPloneconfSiteLayer"``
+
+
 .. _views2-default-label:
 
 The default view
