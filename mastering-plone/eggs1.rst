@@ -50,7 +50,7 @@ Enter the :file:`src` directory (*src* is short for *sources*) and call a script
 
         $ ../bin/mrbob -O ploneconf.site bobtemplates:plone_addon
 
-You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your GitHub username if you have one) and 5 (Plone version), where you enter :kbd:`5.1`::
+You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your GitHub username if you have one) and 4 (where you yas no)::
 
     --> Author's name [Philip Bauer]:
 
@@ -60,7 +60,9 @@ You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. cho
 
     --> Package description [An add-on for Plone]:
 
-    --> Plone version [5.0.8]: 5.1
+    --> Do you want me to initialze a GIT repository in your new package? (y/n) [y]:
+
+    --> Plone version [5.1]:
 
     Generated file structure at /Users/pbauer/workspace/training_buildout/src/ploneconf.site
 
@@ -74,7 +76,7 @@ You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. cho
 Eggs
 ----
 
-When a python package is production-ready you can choose to distribute it as an egg over the python package index, `pypi <https://pypi.org>`_. This allows everyone to install and use your package without having to download the code from github. The over 260 python packages that are used by your current Plone instance are also distributed as eggs.
+When a python package is production-ready you can choose to distribute it as an egg over the python package index, `pypi <https://pypi.org>`_. This allows everyone to install and use your package without having to download the code from github. The over 270 python packages that are used by your current Plone instance are also distributed as eggs.
 
 
 .. _eggs1-inspect-label:
@@ -161,7 +163,6 @@ Before we can use our new package we have to tell Plone about it. Look at :file:
 
     parts =
         checkversions
-        codeintel
         instance
         mrbob
         packages
@@ -179,6 +180,7 @@ Before we can use our new package we have to tell Plone about it. Look at :file:
         Products.PDBDebugMode
         plone.app.debugtoolbar
         Products.PrintingMailHost
+        pdbpp
 
     # TTW Forms
         collective.easyform
@@ -237,7 +239,7 @@ We will not install it now since we did not add any of our own code or configura
 Exercises
 ---------
 
-1. Create a new package called :py:mod:`collective.behavior.myfeature`. Inspect the directory structure of this package. Delete it after you are done. Many packages that are part of Plone and some add-ons use a nested namespace such as :py:mod:`plone.app.contenttypes`.
+1. Create a new package called :py:mod:`collective.behavior.myfeature`. Inspect the directory structure of this package. Delete it after you are done. Many packages that are part of Plone and some add-ons use a *nested namespace* such as :py:mod:`plone.app.contenttypes`.
 
 2. Open https://github.com/plone/bobtemplates.plone and read about the templates and subtemplates it provides.
 

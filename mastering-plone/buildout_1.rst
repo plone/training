@@ -118,7 +118,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
     [buildout]
     extends =
-        http://dist.plone.org/release/5.1rc1/versions.cfg
+        http://dist.plone.org/release/5.1.2/versions.cfg
         versions.cfg
     extends-cache = extends-cache
 
@@ -138,7 +138,6 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
     parts =
         checkversions
-        codeintel
         instance
         mrbob
         packages
@@ -151,11 +150,11 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
         Pillow
 
     # development tools
-        z3c.jbot
         plone.reload
         Products.PDBDebugMode
         plone.app.debugtoolbar
         Products.PrintingMailHost
+        pdbpp
 
     # TTW Forms
         collective.easyform
@@ -200,10 +199,6 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     eggs = ${buildout:eggs}
     location = ${buildout:buildout_dir}/packages
 
-    [codeintel]
-    recipe = corneti.recipes.codeintel
-    eggs = ${buildout:eggs}
-
     [checkversions]
     recipe = zc.recipe.egg
     eggs = z3c.checkversions [buildout]
@@ -247,7 +242,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
     .. code-block:: cfg
 
         extends =
-            http://dist.plone.org/release/5.1rc1/versions.cfg
+            http://dist.plone.org/release/5.1.2/versions.cfg
 
     This line tells Buildout to read another configuration file. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configurations that differ between different environments.
 
@@ -263,6 +258,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
             Products.PDBDebugMode
             plone.app.debugtoolbar
             Products.PrintingMailHost
+            pdbpp
 
         # TTW Forms
             collective.easyform
@@ -291,11 +287,36 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
         [versions]
         # dev tools
         Products.PDBDebugMode = 1.3.1
-        corneti.recipes.codeintel = 0.3
-        Products.PrintingMailHost = 1.0
+        Products.PrintingMailHost = 1.1.0
+        pdbpp = 0.9.2
+        fancycompleter = 0.8
+        pyrepl = 0.8.4
+        colorama = 0.3.9
+        wmctrl = 0.3
 
         # pins for Addons
-        collective.easyform = 2.0.0b2
+        collective.easyform = 2.0.0b5
+
+        # pins for mr.bob and bobtemplates.plone
+        MarkupSafe = 1.0
+        bobtemplates.plone = 3.4.1
+        mr.bob = 0.1.2
+        ply = 3.11
+        stringcase = 1.2.0
+        case-conversion = 2.1.0
+        regex = 2018.7.11
+
+        # pinns for tests
+        plone.testing = 5.1.1
+
+        # Some other pins from coredev
+        PyYAML = 3.13
+        argh = 0.26.2
+        pathtools = 0.1.2
+        watchdog = 0.8.3
+        chardet = 3.0.4
+        idna = 2.6
+
 
     This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file :file:`versions.cfg`.
 
