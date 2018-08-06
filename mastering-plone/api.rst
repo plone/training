@@ -10,9 +10,9 @@ In this part you will:
 
 Topics covered:
 
-* Debugging
-* Plone API
+* plone.api
 * Portal tools
+* Debugging
 
 
 .. _api-api-label:
@@ -34,7 +34,7 @@ The API is divided in five sections. Here is one example from each:
 
 In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out  what they do.
 
-Some of these methods will be replaced by :py:mod:`plone.api` in the future:
+Some of these methods will be replaced by :py:mod:`plone.api`:
 
 - :py:meth:`Products.CMFCore.utils.getToolByName` -> :py:meth:`api.portal.get_tool`
 - :py:meth:`zope.component.getMultiAdapter` -> :py:meth:`api.content.get_view`
@@ -140,3 +140,100 @@ zopepy
 ..  seealso::
 
     A video of the talk `Debug like a pro. How to become a better programmer through pdb-driven development <http://pyvideo.org/pycon-de-2016/debug-like-a-pro-how-to-become-a-better-programmer-through-pdb-driven-development.html>`_
+
+
+Exercise
+--------
+
+* Create a new BrowserView callable as ``/@@demo_content`` in a new file :file:`demo.py`
+* The view should create 5 talks each time it is called
+* Use the docs at https://docs.plone.org/develop/plone.api/docs/content.html#create-content to find out how to create new talks.
+* Use ``plone.api.content.transition`` to publish all new talks. Find the docs for that method.
+* Only managers should be able to use the view (the permission is called **cmf.ManagePortal**).
+* Reload the frontpage after calling the view.
+* Display a message about the results (https://docs.plone.org/develop/plone.api/docs/portal.html#show-notification-message).
+* For extra credits use the library `requests <http://docs.python-requests.org/en/master/>`_ and http://www.icndb.com/api/ to populate the talks with jokes.
+* Use the utility methods ``cropText`` from ``Producs.CMFPlone.browser.ploneview.Plone`` to crop the title after 20 characters.
+
+.. note::
+
+    * Do not try everything at the same time, work in small iterations, use ``plone.reload`` to check your results frequently.
+    * Use ``pdb`` during development to experiment.
+
+
+..  admonition:: Solution
+    :class: toggle
+
+    Add this to :file:`browser/configure.zcml`:
+
+    .. code-block:: xml
+
+      <browser:page
+          name="demo_content"
+          for="*"
+          class="ploneconf.site.browser.demo.DemoContent"
+          permission="cmf.ManagePortal"
+          />
+
+
+    This is :file:`browser/demo.py`:
+
+    .. code-block:: python
+
+        # -*- coding: utf-8 -*-
+        from Products.Five import BrowserView
+        from plone import api
+        from plone.protect.interfaces import IDisableCSRFProtection
+        from zope.interface import alsoProvides
+
+        import json
+        import logging
+        import requests
+
+        logger = logging.getLogger(__name__)
+
+
+        class DemoContent(BrowserView):
+
+            def __call__(self):
+                portal = api.portal.get()
+                self.create_talks(portal)
+                return self.request.response.redirect(portal.absolute_url())
+
+            def create_talks(self, container, amount=5):
+                """Create some talks"""
+
+                alsoProvides(self.request, IDisableCSRFProtection)
+                plone_view = api.content.get_view('plone', self.context, self.request)
+                jokes = self.random_jokes(amount)
+                for data in jokes:
+                    joke = data['joke']
+                    talk = api.content.create(
+                        container=container,
+                        type='talk',
+                        title=plone_view.cropText(joke, length=20),
+                        description=joke,
+                        type_of_talk='Talk',
+                    )
+                    api.content.transition(talk, to_state='published')
+                    logger.info(u'Created talk {0}'.format(talk.absolute_url()))
+                api.portal.show_message(
+                    u'Created {0} talks!'.format(amount), self.request)
+
+            def random_jokes(self, amount):
+                jokes = requests.get(
+                    'http://api.icndb.com/jokes/random/{0}'.format(amount))
+                return json.loads(jokes.text)['value']
+
+    Some notes:
+
+    * Since calling view is a GET and not a POST we need ``alsoProvides(self.request, IDisableCSRFProtection)`` to allow write-on-read without Plone complaining. Alternatively we could create a simple form and create the content on submit.
+    * https://docs.plone.org/develop/plone.api/docs/content.html#transition. ``transition`` has two modes of operation: The documented one is ``api.content.transition(obj=foo, transition='bar')``. That mode tries to execute that specific tranistion. But sometimes it is better to use `to_state` which tries to to find a way to get from the current state to the target-state. See https://docs.plone.org/develop/plone.api/docs/api/content.html#plone.api.content.transition for the docstring.
+    * To use methods like ``cropText`` from another view you sue the method  already discussed in
+    * Here the joke is added as the description. To add it as the text you'd need to create a instance of ``RichTextValue`` and set that as a attribute:
+
+      .. code-block:: python
+
+         from plone.app.textfield.value import RichTextValue
+         talk.details = RichTextValue(joke, 'text/plain', 'text/html',)
+
