@@ -108,7 +108,7 @@ Making the add-on packages available to Zope
 
 First, we must make the add-on packages available to Zope. This means that Zope can import the code. Buildout is responsible for this.
 
-Look at the :file:`buildout.cfg` file in :file:`/vagrant/buildout`.
+Look at the :file:`buildout.cfg`.
 
 .. note::
 

@@ -157,6 +157,9 @@ And the template will now be much simpler.
     </body>
     </html>
 
+.. note::
+
+    It is a very common pattern that you prepare the data you want to display in python.
 
 Browser Views
 -------------
@@ -168,6 +171,7 @@ Edit ``browser/views.py`` and add a method ``context_info`` to the view ``DemoVi
 In a method of a Browser View the content object which was ``context`` in the template is now accessed as ``self.context``.
 
 .. code-block:: python
+    :linenos:
 
     def context_info(self):
         context = self.context
@@ -184,6 +188,7 @@ In a method of a Browser View the content object which was ``context`` in the te
 The template :file:`training.pt` still needs to display that:
 
 .. code-block:: xml
+    :linenos:
 
     <p tal:content="python: view.context_info()">
         Info on the context
@@ -220,6 +225,7 @@ The method ``context_info`` that returned information on the current object can 
 You would still need to register the view in configure.zcml:
 
 .. code-block:: xml
+    :linenos:
 
     <browser:page
         name="some_view"
@@ -273,6 +279,7 @@ First we will not write any methods for `view` but access the fields from the ta
 Register a view `talkview` in :file:`browser/configure.zcml`:
 
 .. code-block:: xml
+    :linenos:
 
     <browser:page
        name="talkview"
@@ -286,6 +293,7 @@ Register a view `talkview` in :file:`browser/configure.zcml`:
 :file:`browser/views.py`
 
 .. code-block:: python
+    :linenos:
 
     class TalkView(BrowserView):
         """ The default view for talks"""
@@ -334,6 +342,7 @@ It has some very useful properties available to use in the template:
 You can now change the :py:class:`TalkView` to use it
 
 .. code-block:: python
+    :linenos:
 
     from plone.dexterity.browser.view import DefaultView
 

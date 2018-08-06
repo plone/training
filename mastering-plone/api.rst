@@ -167,18 +167,20 @@ Exercise
     Add this to :file:`browser/configure.zcml`:
 
     .. code-block:: xml
+       :linenos:
 
-      <browser:page
-          name="demo_content"
-          for="*"
-          class="ploneconf.site.browser.demo.DemoContent"
-          permission="cmf.ManagePortal"
-          />
+       <browser:page
+         name="demo_content"
+         for="*"
+         class="ploneconf.site.browser.demo.DemoContent"
+         permission="cmf.ManagePortal"
+         />
 
 
     This is :file:`browser/demo.py`:
 
-    .. code-block:: python
+    ..  code-block:: python
+        :linenos:
 
         # -*- coding: utf-8 -*-
         from Products.Five import BrowserView

@@ -405,7 +405,7 @@ If you don't know which template is used by the page you're looking at, you can:
 #. use :py:mod:`plone.app.debugtoolbar`
 #. or start a debug session
 
-1.  We could check the HTML with Firebug and look for a structure in the content area that looks unique.
+1.  We could check the HTML and look for a structure in the content area that looks unique.
 
     We could also look for the CSS class of the body
 
@@ -415,7 +415,7 @@ If you don't know which template is used by the page you're looking at, you can:
 
     The class ``template-summary_view`` tells us that the name of the view (but not necessarily the name of the template) is ``summary_view``. So we could search all :file:`*.zcml`-Files for ``name="summary_view"`` or search all templates called :file:`summary_view.pt` and probably find the view and also the corresponding template. But only probably because it would not tell us if the template is already being overridden.
 
-    A foolproof way to verify your guess is to modify the template and reload the page. If your modification shows up you obviously found the correct file.
+    A foolproof way to verify your guess is to modify the template and reload the page. If your modification shows up you must have found the correct file.
 
 2.  The safest method is using :py:mod:`plone.app.debugtoolbar`.
     We already have it in our buildout and only need to install it.
@@ -433,22 +433,22 @@ If you don't know which template is used by the page you're looking at, you can:
 
     .. code-block:: python
 
-        (Pdb) self.context
+        >>> self.context
         <Folder at /Plone/news>
-        (Pdb) obj = self.context.aggregator
-        (Pdb) obj
+        >>> obj = self.context.aggregator
+        >>> obj
         <Collection at /Plone/news/aggregator>
-        (Pdb) context_state = obj.restrictedTraverse('@@plone_context_state')
-        (Pdb) template_id = context_state.view_template_id()
-        (Pdb) template_id
+        >>> context_state = obj.restrictedTraverse('@@plone_context_state')
+        >>> template_id = context_state.view_template_id()
+        >>> template_id
         'summary_view'
-        (Pdb) view = obj.restrictedTraverse('summary_view')
-        (Pdb) view
+        >>> view = obj.restrictedTraverse('summary_view')
+        >>> view
         <Products.Five.metaclass.SimpleViewClass from /Users/philip/.cache/buildout/eggs/plone.app.contenttypes-1.1b2-py2.7.egg/plone/app/contenttypes/browser/templates/summary_view.pt object at 0x10b00cd90>
-        view.index.filename
+        >>> view.index.filename
         u'/Users/philip/workspace/training_without_vagrant/src/ploneconf.site/ploneconf/site/browser/template_overrides/plone.app.contenttypes.browser.templates.summary_view.pt'
 
-    Now we see that we already customized the template.
+    Now we see that we already customized the template using ``z3c.jbot``.
 
     Here is a small method that could be used in a view or viewlet to display that path:
 
