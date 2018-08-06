@@ -143,6 +143,8 @@ This is the complete list of TAL-attributes:
     handle errors.
 
 
+.. _python-expressions-label:
+
 python expressions
 ++++++++++++++++++
 
@@ -162,9 +164,10 @@ A example:
 
 With ``context.title`` you access information from the context object, that is the object on which the view is called. Modify the template :file:`training.pt` like this
 
-.. code-block:: html
+.. code-block:: xml
 
-    <p tal:content="python: "This is the {0} '{1}' at {2}".format(context.portal_type, context.title, context.absolute_url()">
+    <p>
+      ${python: 'This is the {0} "{1}" at {2}'.format(context.portal_type, context.title, context.absolute_url())}
     </p>
 
 Now call the view on different urls and see what happens:
