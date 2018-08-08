@@ -19,7 +19,7 @@ It has some notable features:
 
       [buildout]
       extends =
-          https://raw.githubusercontent.com/starzel/buildout/5.0.5/linkto/base.cfg
+          https://raw.githubusercontent.com/starzel/buildout/5.1.2/linkto/base.cfg
 
 * It allows to update a project simply by changing the version it extends.
 * It allows to update all projects of one version by changing remote files (very useful for HotFixes).

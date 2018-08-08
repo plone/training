@@ -80,7 +80,7 @@ extends-cache = /home/ubuntu/buildout-cache/extends'),
         onlyif => "test -f /home/ubuntu/buildout-cache.tar.bz2" # managed to dowload the tarball
     }
 
-    # get training buildout, xenial branch
+    # get training buildout
     exec {'git clone https://github.com/collective/training_buildout.git buildout':
         alias => "checkout_training",
         creates => '/vagrant/buildout',

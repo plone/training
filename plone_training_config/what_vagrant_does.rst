@@ -20,35 +20,52 @@ First we update Ubuntu and install some packages.
 .. code-block:: bash
 
     $ sudo aptitude update --quiet --assume-yes
+    $ sudo aptitude upgrade --quiet --assume-yes
     $ sudo apt-get install build-essential
-    $ sudo apt-get install python-dev
-    $ sudo apt-get install python-tk
-    $ sudo apt-get install libjpeg-dev
-    $ sudo apt-get install libxml2-dev
-    $ sudo apt-get install libxslt-dev
-    $ sudo apt-get install git
-    $ sudo apt-get install libz-dev
-    $ sudo apt-get install libssl-dev
-    $ sudo apt-get install subversion
-    $ sudo apt-get install wget
     $ sudo apt-get install curl
     $ sudo apt-get install elinks
-    $ sudo apt-get install vim
     $ sudo apt-get install gettext
+    $ sudo apt-get install git
+    $ sudo apt-get install libedit-dev
+    $ sudo apt-get install libjpeg-dev
+    $ sudo apt-get install libpcre3-dev
+    $ sudo apt-get install libssl-dev
+    $ sudo apt-get install libxml2-dev
+    $ sudo apt-get install libxslt-dev
+    $ sudo apt-get install libyaml-dev
+    $ sudo apt-get install libz-dev
+    $ sudo apt-get install nodejs
+    $ sudo apt-get install nodejs-legacy
+    $ sudo apt-get install npm
+    $ sudo apt-get install python-dev
+    $ sudo apt-get install python-tk
     $ sudo apt-get install python-virtualenv
+    $ sudo apt-get install subversion
+    $ sudo apt-get install unzip
+    $ sudo apt-get install vim
+    $ sudo apt-get install wget
+    $ sudo apt-get install wv
+    $ sudo apt-get install poppler-utils
     $ sudo apt-get install putty-tools
 
 Then we create a virtual python environment using virtualenv. This is always a good practice since that way we get a clean isolated copy of our system python, so that we do not break the system python by installing eggs that might collide with other eggs. Python is nowadays used a lot by your operating system as well for all kinds of system tools and scripting.
 
 .. code-block:: bash
 
-    $ virtualenv --no-site-packages /home/vagrant/py27
+    $ virtualenv --no-site-packages /home/ubuntu/py27
+
+
+Install zc.buildout, setuptools and other dependencies for the current version into the new virtualenv.
+
+.. code-block:: bash
+
+    $ /home/ubuntu/py27/bin/pip install -r http://dist.plone.org/release/5.1.2/requirements.txt
 
 Now we download and unpack a buildout-cache that holds all the python packages that make up Plone. This is an optimisation: We could skip this step and have buildout download all packages individually from the `python packaging index PyPi <https://pypi.org>`_ but that takes much longer on a first install.
 
 .. code-block:: bash
 
-    $ wget http://dist.plone.org/release/5.0.5/buildout-cache.tar.bz2
+    $ wget http://dist.plone.org/release/5.1.2/buildout-cache.tar.bz2
     $ tar xjf buildout-cache.tar.bz2
 
 Then we check out our tutorial buildout from https://github.com/collective/training_buildout and build it.
@@ -58,10 +75,14 @@ Then we check out our tutorial buildout from https://github.com/collective/train
     $ cd /vagrant
     $ git clone https://github.com/collective/training_buildout.git buildout
     $ cd buildout
-    $ /home/vagrant/py27/bin/python bootstrap.py
-    $ ./bin/buildout -c vagrant_provisioning.cfg
 
-This will download additional eggs that are not yet part of the buildout-cache and configure Plone to be ready to run.
+Then we run buildout:
+
+.. code-block:: bash
+
+    $ /home/ubuntu/py27/bin/buildout -c vagrant_provisioning.cfg
+
+This will download many additional eggs that are not yet part of the buildout-cache and configure Plone to be ready to run.
 
 At this point Vagrant and Puppet have finished their job to set up your virtual training environment on your local machine.
 

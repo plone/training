@@ -48,7 +48,14 @@ If you feel comfortable, please work on your own machine with your own Python.
 
 The following instructions are based on Ubuntu and macOS, if you use a different operating system (OS), please adjust them to fit your OS.
 
-On Ubuntu/Debian, you need to install the following:
+On Ubuntu/Debian, you need to make sure you system is up-to-date:
+
+.. code-block:: console
+
+    sudo apt-get update
+    sudo apt-get -y upgrade
+
+Then, you need to install the following packages:
 
 .. code-block:: console
 
@@ -56,7 +63,7 @@ On Ubuntu/Debian, you need to install the following:
     sudo apt-get install libreadline-dev wv poppler-utils
     sudo apt-get install git
 
-On macOS you at least need to install some dependencies with `Homebrew <https://brew.sh/>`_
+On MacOS you at least need to install some dependencies with `Homebrew <https://brew.sh/>`_
 
 .. code-block:: console
 
