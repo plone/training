@@ -12,17 +12,10 @@ Topics covered:
 * Component Architecture
 * ZCML
 * GenericSetup
-* Skin folders
 
-Zope is extensible and so is Plone.
+As a developer you want to go further than simply configuring Plone, you want to extend and customize it.
 
-.. only:: not presentation
-
-    If you want to install an add-on, you are going to install an Egg — a form of Python package. Eggs consist of Python files together with other needed files like page templates and the like and a bit of metadata, bundled to a single archive file.
-
-    There is a huge variety of Plone-compatible packages available. See `Plone.org add-on listing <https://plone.org/download/add-ons/>`_. The source repository for many public Plone add-ons is `the GitHub Collective <https://github.com/collective>`_. You may also create your own packages or maintain custom repositories.
-
-    Eggs are younger than Zope. Zope needed something like eggs before there were eggs, and the Zope developers wrote their own system. Old, outdated Plone systems contain a lot of code that is not bundled in an egg. Older code did not have metadata to register things, instead you needed a special setup method. We don't need this method but you might see it in other code. It is usually used to register Archetypes code. Archetypes is the old content type system. Instead, we use the new content type system Dexterity.
+Plone is built to be extended. Extendability is not a afterthought but is the core of Plone and the systems it is based on. Plone started as a extension for CMF, which is a extension for Zope.
 
 
 .. _extending-technologies-label:
@@ -36,10 +29,10 @@ This depends on what type of extension you want to create.
 
 .. only:: not presentation
 
-
     * You can create extensions with new types of objects to add to your Plone site. Usually these are contenttypes.
     * You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures searchable by adding a converter from jpg to text.
 
+For most projects you mix all kinds of methods to extend Plone.
 
 Component Architecture
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -81,7 +74,13 @@ Component Architecture
 .. _extending-components-label:
 
 Configuring Zope Components with ZCML
--------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. only:: presentation
+
+    * zcml (Zope Component Markup Language) is used to register components
+    * components are distingushed by interfaces (contracts) that they require or provide
+
 
 .. only:: not presentation
 
@@ -89,19 +88,19 @@ Configuring Zope Components with ZCML
 
     Components are distinguished from one another by the interfaces (formal definitions of functionality) that they require or provide.
 
-    During startup, Zope reads all these ZCML statements, validates that there are not two declarations trying to register the same components and only then registers everything. All components are registered by interfaces required and provided. Components with the same interfaces may optionally also be named.
+    During startup, Zope reads all these ZCML statements, validates that there are not two declarations trying to register the same components and registers everything. All components are registered by interfaces required and provided. Components with the same interfaces may optionally also be named.
 
-    This is a good thing. ZCML is, by the way, only *one* way to declare your configuration.
+    It may seem a little cumbersome that you have to have to register all components. But thanks to ZCML, you hardly ever have a hard time to find what and where extensions or customizations are defined. ZCML files are like a phone book.
 
-    Grok provides another way, where some Python magic allows you to use decorators to register Python classes and functions as components. You can use ZCML and Grok together if you wish.
+.. epigraph::
 
-    Some like Grok because it allows you to do nearly everything in your Python source files. No additional XML wiring required. If you're XML-allergic, Grok is your ticket to Python nirvana.
+    Explicit is better than implicit
 
-    Not everybody loves Grok. Some parts of the Plone community think that there should only be one configuration language, others are against adding the relative big dependency of Grok to Plone. One real problem is the fact that you cannot customize components declared with grok with jbot (which we'll discuss later). Grok is not allowed in the Plone core for these reasons.
+    -- The Zen of Python
 
-    The choice to Grok or not to Grok is yours to make. In any case, if you start to write an extension that is reusable, convert your grok declarations to ZCML to get maximum acceptance.
+.. note::
 
-    Personally, I just find it cumbersome but even for me as a developer it offers a nice advantage: thanks to ZCML, I hardly ever have a hard time to find what and where extensions or customizations are defined. For me, ZCML files are like a phone book.
+    An alternative way to configure components was used by :py:mod:`grok`: *Convention over configuration*. It is now discouraged to use it. See :ref:`grok-label`.
 
 
 GenericSetup
@@ -110,14 +109,11 @@ GenericSetup
 .. only:: presentation
 
     * Old style
-    * Limited use cases
-    * Full of surprises
+    * Does not cover 100% of use cases
 
 .. only:: not presentation
 
-    The next thing is *GenericSetup*. As the name clearly implies, *GenericSetup* is part of CMF.
-
-    GenericSetup is tough to master, I am afraid.
+    The next thing is :py:mod:`Products.GenericSetup`.
 
     *GenericSetup* lets you define persistent configuration in XML files. *GenericSetup* parses the XML files and updates the persistent configuration according to the configuration. This is a step you have to run on your own!
 
@@ -126,6 +122,36 @@ GenericSetup
     Typically you use *GenericSetup* to change workflows or add new content type definitions.
 
     GenericSetup profiles may also be built into Python packages. Every package that is listed on the add-on package list inside a Plone installation has a GS profile that details how it fits into Plone. Packages that are part of Plone itself may have GS profiles, but are excluded from the active/inactive listing.
+
+Example:
+
+.. code-block::xml
+
+    :file:`metadata.xml`:
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <metadata>
+      <version>1000</version>
+      <dependencies>
+        <dependency>profile-pas.plugins.ldap:default</dependency>
+        <dependency>profile-collective.folderishtypes.dx:default</dependency>
+        <dependency>profile-collective.geolocationbehavior:default</dependency>
+        <dependency>profile-collective.behavior.banner:default</dependency>
+      </dependencies>
+    </metadata>
+
+Most settings are stored in a tool called ``portal_registry``. Since it has great import/export handlers for GenericSetup it can be configures with :file:`registry.xml`:
+
+.. code-block::xml
+
+    :file:`registry.xml`:
+
+    <?xml version="1.0"?>
+    <registry>
+      <record name="plone.site_title" >
+        <value>Mastering Plone Development</value>
+      </record>
+    </registry>
 
 
 Deprecated: Skin Folders

@@ -15,14 +15,13 @@ Topics covered:
 * Pyramid
 * Bluebream
 
-
-Python, ZODB, Zope, CMF, Plone ... -- how does all that fit together?
+Plone started as a extension for CMF, which is a extension for Zope. Python, ZODB, Zope, CMF, Plone ... -- how does all that fit together?
 
 
 Database
 --------
 
-* `ZODB <http://www.zodb.org>`_: A Native object database for Python
+* `ZODB <http://www.zodb.org>`_: A native object database for Python
 
   * No separate language for database operations
   * Very little impact on your code to make objects persistent
@@ -54,12 +53,22 @@ Database
 
 .. _anatomy-zope2-label:
 
-Zope2
------
+Zope
+----
 
 * Zope is a web application framework that Plone runs on top of.
 * The majority of Zope's code is written in Python, like everything else written on top of it.
 * It serves applications that communicate with users via http.
+
+.. note::
+
+   **The great Version-Confusion**
+
+   * Plone was always based on Zope 2.x. Starting with Plone 5.2+ it uses Zope 4.x
+   * Starting with Zope 4.0, the package is only called Zope (not Zope2 or Zope4)
+   * *Zope 3* is **not** a version of Zope but a ill-named rewrite of Zope 2 *(sigh)*
+   * 4.x is a mayor new release of Zope that supports Python 3 (among many other improvements)
+
 
 .. only:: not presentation
 
@@ -83,42 +92,44 @@ Zope2
 
     Traversal through the object database is security checked at every point via very fine grained access-control lists.
 
-    One missing piece is important and complicated: ``Acquisition``.
+    .. note::
 
-    Acquisition is a kind of magic. Imagine a programming system where you do not access the file system and where you do not need to import code.
-    You work with objects.
-    An object can be a folder that contains more objects, an HTML page, data, or another script.
+        **Acquisition**
 
-    To access an object, you need to know where the object is.
-    Objects are found by paths that look like URLs, but without the domain name.
-    Now Acquisition allows you to write an incomplete path.
+        One missing piece is important and complicated: ``Acquisition``.
 
-    An incomplete path is a relative path, it does not explicitly state that the path starts from the root,
-    it starts relative to where the content object is -- its context.
+        Acquisition is a kind of magic. Imagine a programming system where you do not access the file system and where you do not need to import code.
+        You work with objects.
+        An object can be a folder that contains more objects, an HTML page, data, or another script.
 
-    If Zope cannot resolve the path to an object relative to your code, it tries the same path in the containing folder.
-    And then the folder containing the folder.
+        To access an object, you need to know where the object is.
+        Objects are found by paths that look like URLs, but without the domain name.
+        Now Acquisition allows you to write an incomplete path.
 
-    This might sound weird, what do I gain with this?
+        An incomplete path is a relative path, it does not explicitly state that the path starts from the root,
+        it starts relative to where the content object is -- its context.
 
-    You can have different data or code depending on your :py:obj:`context`.
-    Imagine you want to have header images differing for each section of your page, sometimes even differing for a specific subsection of your site.
+        If Zope cannot resolve the path to an object relative to your code, it tries the same path in the containing folder.
+        And then the folder containing the folder.
 
-    You define a path ``header_image`` and put a header image at the root of your site.
-    If you want a folder with a different header image, you put the header image into this folder.
+        This might sound weird, what do I gain with this?
 
-    Please take a minute to let this settle and think about what this allows you to do.
+        You can have different data or code depending on your :py:obj:`context`.
+        Imagine you want to have header images differing for each section of your page, sometimes even differing for a specific subsection of your site.
 
-    - contact forms with different e-mail addresses per section
-    - different CSS styles for different parts of your site
-    - One site, multiple customers, everything looks different for each customer.
+        You define a path ``header_image`` and put a header image at the root of your site.
+        If you want a folder with a different header image, you put the header image into this folder.
 
-    As with all programming magic, acquisition exacts a price.
-    Zope code must be written carefully in order to avoid inheriting side effects via acquisition.
+        Please take a minute to let this settle and think about what this allows you to do.
 
-    The Zope community expresses this with the Python (Monty) maxim: Beware the `Spammish Acquisition`.
+        - contact forms with different e-mail addresses per section
+        - different CSS styles for different parts of your site
+        - One site, multiple customers, everything looks different for each customer.
 
-    Basically this is Zope.
+        As with all programming magic, acquisition exacts a price.
+        Zope code must be written carefully in order to avoid inheriting side effects via acquisition.
+
+        The Zope community expresses this with the Python (Monty) maxim: Beware the `Spammish Acquisition`.
 
     .. seealso::
 
@@ -160,6 +171,7 @@ Zope Toolkit / Zope3
 
 * Zope 3 was originally intended as a rewrite of Zope from the ground up.
 * Plone uses parts of it provided by the `Zope Toolkit (ZTK) <https://zopetoolkit.readthedocs.io/en/latest/>`_.
+* The name was very unfortunate since it was in no way compatible with Zope 2
 
 .. only:: not presentation
 

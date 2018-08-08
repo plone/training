@@ -73,7 +73,9 @@ Objects can be called and return a representation of itself - usually html.
 Schema-driven content
 ---------------------
 
-Models/Schemas with fields: Content has fields to store data defined in a schema.
+Plone comes with a list of pre-defined content-types.
+
+Content types are defined in models/schemas. A schema can define fields to store data.
 
 Values of these fields on instances of objects are attributes
 
@@ -93,7 +95,7 @@ Values of these fields on instances of objects are attributes
     >>> obj.image.data
     '\x89PNG\r\n\x1a\n\x00\x00\x00\...'
 
-Objects can have multiple schemata. Additional schemata are called behaviors.
+Objects can have multiple schemata. Additional schemata are called behaviors. They are meant to be used across types.
 
 .. code-block:: python
 
@@ -109,32 +111,34 @@ Objects can have multiple schemata. Additional schemata are called behaviors.
      <SchemaClass plone.app.contenttypes.behaviors.leadimage.ILeadImage>,
      <SchemaClass plone.app.versioningbehavior.behaviors.IVersionable>]
 
-* Each schema can have multiple fields
+Each schema can define fields
 
 .. code-block:: python
 
-    >>> [i.namesAndDescriptions(all=True) for i in iterSchemata(obj)]
+    >>> from plone.dexterity.utils import iterSchemata
+    >>> from zope.schema import getFieldsInOrder
+    >>> [getFieldsInOrder(schema) for schema in iterSchemata(obj)]
     [[],
-     [('rights', <zope.schema._bootstrapfields.Text object at 0x10bf7dfd0>),
-      ('subjects', <zope.schema._field.Tuple object at 0x10bf7d990>),
-      ('description', <zope.schema._bootstrapfields.Text object at 0x10bf7d7d0>),
-      ('language', <zope.schema._field.Choice object at 0x10bf7da10>),
-      ('title', <zope.schema._bootstrapfields.TextLine object at 0x10bf7d790>),
-      ('effective', <zope.schema._field.Datetime object at 0x10bf7db90>),
-      ('contributors', <zope.schema._field.Tuple object at 0x10bf7df10>),
-      ('expires', <zope.schema._field.Datetime object at 0x10bf7dc10>),
-      ('creators', <zope.schema._field.Tuple object at 0x10be68750>)],
-     [('text', <plone.app.textfield.RichText object at 0x10c274810>)],
-     [('allow_discussion', <zope.schema._field.Choice object at 0x10c4f7590>)],
-     [('id', <zope.schema._field.ASCIILine object at 0x10c4f7c50>)],
-     [('exclude_from_nav', <zope.schema._bootstrapfields.Bool object at 0x10c4ea090>)],
-     [('relatedItems', <z3c.relationfield.schema.RelationList object at 0x10c527710>)],
-     [('image', <plone.namedfile.field.NamedBlobImage object at 0x10bb89750>),
-      ('image_caption', <zope.schema._bootstrapfields.TextLine object at 0x10bb89410>)],
-     [('versioning_enabled', <zope.schema._bootstrapfields.Bool object at 0x10c956410>),
-      ('changeNote', <zope.schema._bootstrapfields.TextLine object at 0x10c956350>)]]
+     [('title', <zope.schema._bootstrapfields.TextLine object at 0x114f1e790>),
+      ('description', <zope.schema._bootstrapfields.Text object at 0x114f1e7d0>),
+      ('subjects', <zope.schema._field.Tuple object at 0x114f1e990>),
+      ('language', <zope.schema._field.Choice object at 0x114f1ea10>),
+      ('effective', <zope.schema._field.Datetime object at 0x114f1eb90>),
+      ('expires', <zope.schema._field.Datetime object at 0x114f1ec10>),
+      ('creators', <zope.schema._field.Tuple object at 0x114e09750>),
+      ('contributors', <zope.schema._field.Tuple object at 0x114f1ef10>),
+      ('rights', <zope.schema._bootstrapfields.Text object at 0x114f1efd0>)],
+     [('text', <plone.app.textfield.RichText object at 0x115215810>)],
+     [('allow_discussion', <zope.schema._field.Choice object at 0x11553c590>)],
+     [('id', <zope.schema._field.ASCIILine object at 0x11553cc50>)],
+     [('exclude_from_nav', <zope.schema._bootstrapfields.Bool object at 0x11552f090>)],
+     [('relatedItems', <z3c.relationfield.schema.RelationList object at 0x11556c710>)],
+     [('image', <plone.namedfile.field.NamedBlobImage object at 0x114b2a750>),
+      ('image_caption', <zope.schema._bootstrapfields.TextLine object at 0x114b2a410>)],
+     [('changeNote', <zope.schema._bootstrapfields.TextLine object at 0x11599b350>),
+      ('versioning_enabled', <zope.schema._bootstrapfields.Bool object at 0x11599b410>)]]
 
-Plone creates forms from all these schemata to add and edit content.
+Plone creates forms from these schemata to add and edit content.
 
 
 Component Architecture
@@ -161,37 +165,3 @@ Written by smart people:
 .. seealso::
 
     * The Keynote by Cris Ewing at PyCon 2016: https://youtu.be/eGRJbBI_H2w?t=21m47s
-
-
-Deployment
-----------
-
-A deployment setup could look like this:
-
-.. code-block:: text
-
-    ZEO-Server   ->   ZEO-Server (ZRS)
-
-       / | \
-
-    ZEO Clients (as many as you want)
-
-       \ | /
-
-    Load balancer (haproxy or nginx)
-
-         |
-
-       Cache (varnish)
-
-         |
-
-      Webserver (nginx)
-
-         |
-
-      Internet
-
-Zope comes with its own basic Webserver (ZServer). With 5.2 (Python 3) it is replaced by a WSGI-Server like waitress or uwsgi.
-
-

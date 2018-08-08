@@ -1,3 +1,4 @@
+.. _grok-label:
 
 Grok
 ====
