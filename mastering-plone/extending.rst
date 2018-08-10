@@ -125,9 +125,9 @@ GenericSetup
 
 Example:
 
-.. code-block::xml
+:file:`metadata.xml`:
 
-    :file:`metadata.xml`:
+.. code-block:: xml
 
     <?xml version="1.0" encoding="UTF-8"?>
     <metadata>
@@ -142,9 +142,9 @@ Example:
 
 Most settings are stored in a tool called ``portal_registry``. Since it has great import/export handlers for GenericSetup it can be configures with :file:`registry.xml`:
 
-.. code-block::xml
+:file:`registry.xml`:
 
-    :file:`registry.xml`:
+.. code-block:: xml
 
     <?xml version="1.0"?>
     <registry>
