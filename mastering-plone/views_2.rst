@@ -309,7 +309,7 @@ Add the template :file:`templates/talkview.pt`:
         i18n:domain="ploneconf.site">
     <body>
         <metal:content-core fill-slot="content-core">
-            <p>Suitable for <em tal:content="python: ', '.join(context.subject)"></em>
+            <p>Suitable for <em tal:content="python: ', '.join(context.audience)"></em>
             </p>
 
             <div tal:condition="python: context.details"
