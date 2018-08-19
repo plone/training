@@ -453,30 +453,6 @@ Now you can improve the talkview to show all the info:
     </body>
     </html>
 
-.. _views2-exercise-label:
-
-Exercise
---------
-
-Add the new choice field "room" to the Talk type (TTW) and display it below Audience in the browser view,
-it should contain the following data:
-
-* Title: Room
-* Possible values: Room 101, Room 102, Auditorium
-
-..  admonition:: Solution
-        :class: toggle
-
-        * Go to http://localhost:8080/Plone/dexterity-types/talk/@@fields and add the new field
-        * Add the new HTML below the audience part:
-
-        .. code-block:: xml
-
-            <p>
-                <span tal:replace="structure view/w/room/render">
-                    Room
-                </span>
-            </p>
 
 
 Behind the scenes
