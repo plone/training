@@ -406,7 +406,22 @@ We will have to either reinstall our add-on or run the GenericSetup import step 
     Now the new view is available in the menu *Display*.
     To make it the default view enter it in ``Default view method``.
 
-Now you can improve the talkview to show all the info:
+
+The complete template for talks
+-------------------------------
+
+Now you can improve the talkview to show data for all fields in the talk-schema:
+
+* type_of_talk
+* details
+* audience
+* room
+* speaker
+* email
+* image
+* speaker_biography
+
+Since we will use the macro ``content-core`` the values for `title` and `description` of the talk will be rendered for us and we do not have to deal with them.
 
 :file:`templates/talkview.pt`:
 
@@ -449,10 +464,69 @@ Now you can improve the talkview to show all the info:
                 </div>
             </div>
 
+            <p>
+                <span tal:replace="structure view/w/room/render">
+                    Room
+                </span>
+            </p>
+
         </metal:content-core>
     </body>
     </html>
 
+.. note::
+
+    If you want to customize the rendering of `title` and `description` simply use the macro ``main`` and add your own version to your template.
+    The default rendering is defined in :py:mod:`Products.CMFPlone` in :file:`/Products/CMFPlone/browser/templates/main_template.pt`.
+
+    .. code-block:: xml
+
+        <header>
+          <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" />
+          <metal:title define-slot="content-title">
+              <h1 class="documentFirstHeading"
+                  tal:define="title context/Title"
+                  tal:condition="title"
+                  tal:content="title">Title or id</h1>
+          </metal:title>
+          <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" />
+
+          <metal:description define-slot="content-description">
+              <div class="documentDescription description"
+                   tal:define="description context/Description"
+                   tal:content="description"
+                   tal:condition="description">
+                  Description
+              </div>
+          </metal:description>
+        </header>
+
+    Note that both `title` and `description` are wrapped in `slots` and can be overwritten like this example:
+
+    .. code-block:: xml
+
+        <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+              lang="en"
+              metal:use-macro="context/main_template/macros/master"
+              i18n:domain="ploneconf.site">
+        <body>
+
+        <metal:foo fill-slot="content-title">
+          <h1 class="documentFirstHeading">
+            <span tal:replace="python:context.title" />
+            (<span class="pat-moment"
+                   data-pat-moment="format:relative"
+                   tal:content="python:context.Date()">
+            </span>)
+          </h1>
+        </metal:foo>
+
+        <metal:content-core fill-slot="content-core">
+            [...]
+        </metal:content-core>
+
+        </body>
+        </html>
 
 
 Behind the scenes
@@ -486,7 +560,7 @@ Behind the scenes
 
 Do you remember the term :py:class:`MultiAdapter`?
 
-The browser page is just a MultiAdapter.
+The BrowserView is just a MultiAdapter.
 The ZCML statement :samp:`browser:page` registers a :py:class:`MultiAdapter` and adds additional things needed for a browser view.
 
 An adapter adapts things, a :py:class:`MultiAdapter` adapts multiple things.
