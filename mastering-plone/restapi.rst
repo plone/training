@@ -54,8 +54,8 @@ Plone will provide responses in JSON format. Some requests you could try:
     Content-Type: application/json
 
     {
-        'login': 'admin',
-        'password': 'admin',
+        "login": "admin",
+        "password": "admin"
     }
 
 Exercise
@@ -80,8 +80,8 @@ Add a new talk in Plone and then update it's title to match 'Foo 42' using the R
        Content-Type: application/json
 
        {
-           'login': 'admin',
-           'password': 'admin',
+           "login": "admin",
+           "password": "admin"
        }
 
     The response will look like this:
