@@ -70,7 +70,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'GatsbyJS'
-copyright = u'2017, Plone Community'
+copyright = u'2018, Plone Community'
 author = u'Plone Community'
 
 # The version info for the project you're documenting, acts as replacement for

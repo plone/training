@@ -21,6 +21,7 @@ A collection of trainings developed and created by the Plone Community.
     react/index
     volto/index
     advanced-python/index
+    gatsby/index
 
 ..  toctree::
     :hidden:
@@ -69,3 +70,6 @@ Trainings
 
 :doc:`volto/index`
     Build a custom website using Volto and the Plone REST API.
+
+:doc:`gatsby/index`
+    Building static websites with GatsbyJS.
