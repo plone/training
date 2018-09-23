@@ -22,8 +22,9 @@ GatsbyJS
 
     summary
     whatisgatsby
+    howitworks
+    installing
     
-
 ..  toctree::
     :hidden:
     :maxdepth: 3

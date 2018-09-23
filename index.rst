@@ -19,7 +19,7 @@ A collection of trainings developed and created by the Plone Community.
     workflow/index
     angular/index
     advanced-python/index
-
+    gatsby/index
 ..  toctree::
     :hidden:
     :maxdepth: 3
@@ -61,3 +61,6 @@ Trainings
 
 :doc:`angular/index`
     Building Angular 4 apps using the Plone REST API.
+
+:doc:`gatsby/index`
+    Building static websites with GatsbyJS.
