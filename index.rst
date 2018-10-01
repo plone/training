@@ -66,6 +66,3 @@ Trainings
 
 :doc:`react/index`
     Learn React, Redux and React-Router.
-
-:doc:`volto/index`
-    Create a website using Volto.
