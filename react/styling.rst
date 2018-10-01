@@ -4,4 +4,73 @@
 Styling Your Component
 ======================
 
-todo: styling of item
+Add stylesheet
+==============
+
+To add a stylesheet we simply import the :file:`css` file:
+
+::
+
+    import './App.css';
+
+Exercise
+========
+
+Style the component so that the dot on each item is removed and the question is
+underlined.
+
+..  admonition:: Solution
+    :class: toggle
+
+    :file:`App.css`
+
+    ::
+
+        .faq-item {
+          list-style-type: none;
+        }
+
+        .question {
+          text-decoration: underline;
+        }
+
+    :file:`App.js`
+
+    ::
+
+        import React, { Component } from "react";
+        import "./App.css";
+
+        class App extends Component {
+          render() {
+            return (
+              <ul>
+                <li className="faq-item">
+                  <h2 className="question">What does the Plone Foundation do?</h2>
+                  <p>
+                    The mission of the Plone Foundation is to protect and promote Plone.
+                    The Foundation provides marketing assistance, awareness, and
+                    evangelism assistance to the Plone community. The Foundation also
+                    assists with development funding and coordination of funding for
+                    large feature implementations. In this way, our role is similar to
+                    the role of the Apache Software Foundation and its relationship with
+                    the Apache Project.
+                  </p>
+                </li>
+                <li className="faq-item">
+                  <h2 className="question">Why does Plone need a Foundation?</h2>
+                  <p>
+                    Plone has reached critical mass, with enterprise implementations and
+                    worldwide usage. The Foundation is able to speak for Plone, and
+                    provide strong and consistent advocacy for both the project and the
+                    community. The Plone Foundation also helps ensure a level playing
+                    field, to preserve what is good about Plone as new participants
+                    arrive.
+                  </p>
+                </li>
+              </ul>
+            );
+          }
+        }
+
+        export default App;
