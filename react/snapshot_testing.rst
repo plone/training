@@ -39,3 +39,16 @@ To run our tests we will run the command:
 .. code-block:: console
 
     yarn test
+
+This will output our test results:
+
+::
+
+    PASS  src/components/FaqItem.test.js
+    PASS  src/App.test.js
+
+    Test Suites: 2 passed, 2 total
+    Tests:       2 passed, 2 total
+    Snapshots:   1 passed, 1 total
+    Time:        1.491s
+    Ran all test suites related to changed files.
