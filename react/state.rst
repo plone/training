@@ -54,7 +54,7 @@ Exercise
 To save space in the view we want to be able to show and hide the answer when
 you click on the question. Add a state variable to the :file:`FaqItem` component
 which keeps the state of the answer being shown or not and adjust the render
-method to show or hide answer.
+method to show or hide the answer.
 
 ..  admonition:: Solution
     :class: toggle
