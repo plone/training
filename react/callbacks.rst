@@ -41,6 +41,8 @@ an empty :file:`onDelete` handler which is called when the button is pressed.
             });
           }
 
+          onDelete() {}
+
           render() {
             return (
               <li className="faq-item">
