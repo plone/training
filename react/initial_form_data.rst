@@ -7,7 +7,7 @@ Use Initial Form Data To Edit An Item
 Two Modes For The Faq Item
 ==========================
 
-In order to edit an item we'll use inline editing. Create a button to switch to
+We'll use inline editing to edit an item. Create a button to switch to
 'edit' mode. This mode should be set in the state. Change the render method to
 show a form (similar to the 'add' form) in 'edit' mode and the view we currently
 have in the 'view' mode. The :file:`onSave` handler can be a dummy handler for now,
