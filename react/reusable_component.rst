@@ -10,7 +10,9 @@ Create A Reusable component
 In order to reuse the markup of a faq item we will split up the code. The app
 component will contain just the data of the faq item and will render a newly
 created sub component called :file:`FaqItem`. The data is passed to the sub
-component using properties. The :file:`App.js` code will be changed to:
+component using properties. In the :file:`FaqItem` component you will have
+access to the properties with :file:`this.props.question` for example. The
+:file:`App.js` code will be changed to:
 
 ::
 
@@ -54,8 +56,7 @@ component using properties. The :file:`App.js` code will be changed to:
 Exercise
 ========
 
-Create the :file:`FaqItem` component which renders the same output. Take into
-account best practices like property validation.
+Create the :file:`FaqItem` component which renders the same output.
 
 ..  admonition:: Solution
     :class: toggle
@@ -67,11 +68,6 @@ account best practices like property validation.
         import "./FaqItem.css";
 
         class FaqItem extends Component {
-          static propTypes = {
-            question: PropTypes.string.isRequired,
-            answer: PropTypes.string.isRequired
-          };
-
           render() {
             return (
               <li className="faq-item">
@@ -83,3 +79,17 @@ account best practices like property validation.
         }
 
         export default FaqItem;
+
+Property Validation
+===================
+
+React has a builtin mechanism to validate the properties being passed in into a
+component. In the above example you can add the following to the class to
+validate the properties:
+
+::
+
+    static propTypes = {
+      question: PropTypes.string.isRequired,
+      answer: PropTypes.string.isRequired
+    };

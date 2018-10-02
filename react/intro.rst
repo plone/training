@@ -22,12 +22,12 @@ What will we do?
 
 Some technologies and tools we use during the training:
 
-* `React <https://reactjs.org/>`
-* `create-react-app <https://github.com/facebook/create-react-app>`
-* `Yarn <https://yarnpkg.com>`
+* React https://reactjs.org/
+* create-react-app https://github.com/facebook/create-react-app
+* Yarn https://yarnpkg.com
 * JSX
-* `Redux <https://redux.js.org>`
-* `React-Router <https://reacttraining.com/react-router/>`
+* Redux https://redux.js.org
+* React-Router https://reacttraining.com/react-router/
 
 .. _intro-what-to-expect-label:
 
