@@ -19,7 +19,6 @@ A collection of trainings developed and created by the Plone Community.
     workflow/index
     angular/index
     react/index
-    volto/index
     advanced-python/index
 
 ..  toctree::
