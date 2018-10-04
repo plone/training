@@ -42,4 +42,4 @@ React, Redux and React-Router.
 Documentation
 =============
 
-Follow the training at https://training.plone.org/react
+Follow the training at https://training.plone.org
