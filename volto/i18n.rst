@@ -1,0 +1,8 @@
+.. _i18n-label:
+
+====================
+Internationalization
+====================
+
+adding locales
+makeing text translatable
