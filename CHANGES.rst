@@ -6,6 +6,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Explanation about less variables and development/production mode in the theming training first chapter. [fredvd]
+
 - Fixes to Advanced Python Training [oz123]
 
 - Add one more chapter to Advanced Python Training [oz123]
