@@ -25,6 +25,7 @@ GatsbyJS
     howitworks
     installing
     pages
+    data
     
 ..  toctree::
     :hidden:

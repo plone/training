@@ -22,7 +22,10 @@ It is used to store and serve fetched data in a common and easily to access way.
 The second component is ReactJS.
 React is a javascript library that allows to create powerful and reusable interfaces.
 It works with a basic rule: everything is a component, and every interface is built with a set of components.
-In Gatsby all pages are React components that fetch (if needed) data from GraphQL and display them in the page.
+Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
+Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.
+
+In Gatsby all pages are React components that takes in input some data (if needed) from GraphQL and displays some informations.
 
 The last component is Webpack.
 Webpack is a module bundler.
