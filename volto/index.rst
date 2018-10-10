@@ -18,9 +18,9 @@ The Volto training is intended as a single day training for people who are new t
     styling
     static-resources
     override-components
+    i18n
     override-views
     custom-views
     custom-widget
     richtext
-    i18n
     actions-reducers
