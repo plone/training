@@ -22,14 +22,14 @@ Let's see how is made `index.js` file. This page is the homepage of our example 
 
   import React from 'react'
   import { Link } from 'gatsby'  
-  import Layout from '../components/layout'  
+
   const IndexPage = () => (
-      <Layout>
-          <h1>Gatsby Site</h1>
-          <p>Welcome to your new Gatsby site.</p>
-          <p>Now go build something great.</p>
-          <Link to="/page-2/">Go to page 2</Link>
-      </Layout>
+    <div>
+      <h1>Gatsby Site</h1>
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <Link to="/page-2/">Go to page 2</Link>
+    </div>
   )  
   export default IndexPage
 
@@ -54,12 +54,12 @@ so every time we make some changes, the page will automatically update.
 
     .. code-block:: none
 
-        <Layout>
-            <h1>Hi Plone people</h1>
-            <p>Welcome to your new Gatsby site.</p>
-            <p>Now go build something great.</p>
-            <Link to="/page-2/">Go to page 2</Link>
-        </Layout>
+      <div>
+        <h1>Hi Plone people</h1>
+        <p>Welcome to your new Gatsby site.</p>
+        <p>Now go build something great.</p>
+        <Link to="/page-2/">Go to page 2</Link>
+      </div>
 
 
 Components
@@ -91,14 +91,12 @@ Create a new page and link it in the index.
         import React from 'react'
         import { Link } from 'gatsby'
 
-        import Layout from '../components/layout'
-
         const PloneconfPage = () => (
-        <Layout>
+          <div>
             <h1>Ploneconf training</h1>
             <p>That's a page created at the training.</p>
             <Link to="/">Go to the homepage</Link>
-        </Layout>
+          </div>
         )
 
         export default PloneconfPage
@@ -112,9 +110,43 @@ Exercise
 
 Create a new component that renders the page title in a common way, and use it in every page.
 
-Steps to do:
+..  admonition:: Solution
+    :class: toggle
 
-- Create `components` folder
-- Create a new file "Header.js"
-- In that file, create a React component that accept parameters and returns some html that uses parameters values
-- Import and use it in previously created pages, substituting h1 with that.
+    Create `components` folder and a new file `header.js`
+
+    .. code-block:: none
+
+        import React from 'react'
+      
+        export default Header = ({label}) => (
+          <div
+            className="header"
+            style={{
+                backgroundColor: blue;
+                color: rgb(255, 255, 255);
+                padding: 1em;
+                fontSize: 72px;
+                textAlign: center;
+            }}
+          >
+            {label}
+          </div>
+        )
+
+    Then we need to import `Header` component in our pages (index.js for example), and use it.
+
+    .. code-block:: none
+      
+        ...
+        import Header from '../components/header';
+        
+        const PloneconfPage = () => (
+          <div>
+            <Header label="Ploneconf Tokyo 2018" />
+            <h1>Welcome to Ploneconf trainings</h1>
+            <p>That's a page created at the training.</p>
+            <Link to="/">Go to the homepage</Link>
+          </div>
+        )
+    
