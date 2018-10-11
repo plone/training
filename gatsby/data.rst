@@ -42,7 +42,7 @@ There are three columns:
 Site metadata
 -------------
 
-As we'll see in the next chapters, there are several configuration files in every project, that allows us to customize different aspects of the site.
+As we'll see in the next chapters, there are different configuration files in every project, that allows us to customize different aspects of the site.
 There is a file (gatsby-config.js) where we can set some general site metadata that can be queried with GraphQL and used in pages.
 
 For example, if we need to show the sitename in every page, we don't want to write it in every page, because it can change in the future.
@@ -50,7 +50,7 @@ We could also read it from a common place and use it in our pages.
 
 If we open `gatsby-config.js`, we'll se something like this:
 
-.. code-block:: json
+.. code-block:: none
 
     module.exports = {
         siteMetadata: {
@@ -76,35 +76,92 @@ If we open `gatsby-config.js`, we'll se something like this:
 
 `siteMetadata` is the section that we need to focus on.
 
-
-Exercise
-++++++++
-
-Read this value from GraphQL and insert it our pages. And then try to change the title.
-
-Hints:
-
-First of all, try to query the title in GraphiQL tool, and then use it in our component.
-That's the syntax to use GraphQL queries in a page component:
+If we try to go to GraphiQL page, we could try to access this information with the following query:
 
 .. code-block:: none
 
-    ...
+    query {
+        site {
+            siteMetadata {
+                title
+            }
+        }
+    }
+
+.. note:: `query` is a keyword that means that we are requesting data. If we need to modify the data, we need to use `mutation`.
+
+Now that we have seen how to query some data from GraphQL, let's insert this in our pages.
+
+Change our index.js page like this:
+
+.. code-block:: none
+    :emphasize-lines: 3,5,8,14-22
+
+    import React from "react"
+    import Header from '../components/header';
     import { graphql } from "gatsby"
-    ...
 
     export default ({ data }) => (
-        ...
-        <h1>{data.site.siteMetadata.title}</h1>
-        ...
+        <div>
+            <Header label="Ploneconf Tokyo 2018" />
+            <h3>About {data.site.siteMetadata.title}</h3>
+            <p>Welcome to your new Gatsby site.</p>
+            <p>Now go build something great.</p>
+            <Link to="/page-2/">Go to page 2</Link>
+        </div>
     )
 
     export const query = graphql`
         query {
             site {
-            siteMetadata {
-                title
-            }
+                siteMetadata {
+                    title
+                }
             }
         }
     `
+
+As you can see, first of all, we imported a new module `graphql`. This is used on the bottom of the file,
+to generate our query.
+
+When we add a GraphQL query in our component, the result is automatically passed to the component as a prop called `data`.
+
+In that prop, we have the required informations, in the same data structure of the query.
+
+This method could be used in every page component, but if we break up our layout in several pieces (components) like we do in the previous chapter with the header,
+we need to use a different approach using `StaticQuery` components.
+
+This is very useful because we can't expose a GraphQL query in components that are not page components, and with these `StaticQuery` components
+we could avoid passing useless props through the components hierarchy that are only needed by a certain leaf.
+
+.. note:: passing props to too many levels is called `props drilling` in ReactJS, and is always better avoid it.
+
+For example, if we want to access some data in a component like our `Header`, we need to use this syntax:
+
+.. code-block:: none
+    :emphasize-lines: 3,5,8,14-22
+
+    import React from 'react'
+    import { StaticQuery, Link, graphql } from "gatsby"
+
+    export default Header = () => (
+        <StaticQuery
+            query={
+                graphql`
+                    query {
+                        site {
+                            siteMetadata {
+                                title
+                            }
+                        }
+                    }
+                `
+            }
+            render={data => (
+                <div className="header">
+                    <h1>{data.site.siteMetadata.title}</h1>
+                </div>
+            )}
+        </StaticQuery>
+    )
+
