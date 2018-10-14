@@ -38,7 +38,7 @@ To implement an API, we need to export a function with the same name of the API 
 
 Let's start with the first one, and export a function called `onCreateNode`:
 
-.. code.block:: none
+.. code-block:: none
 
   exports.onCreateNode = ({ node }) => {
     console.log(node.internal.type)
@@ -53,14 +53,14 @@ The last thing that we need to do, is to add the slug attribute to the node. Nod
 
 And finally, our `onCreateNode` function will be similar to this:
 
-.. code.block:: none
+.. code-block:: none
 
   const { createFilePath } = require(`gatsby-source-filesystem`)
 
   exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions
     if (node.internal.type === `MarkdownRemark`) {
-      const slug = createFilePath({ node, getNode, basePath: `pages` })
+      const slug = createFilePath({ node, getNode, basePath: `blog` })
       createNodeField({
         node,
         name: `slug`,
@@ -71,3 +71,105 @@ And finally, our `onCreateNode` function will be similar to this:
 
 If we restart the server and try to query the data, we'll see the slug under the `fields` attribute.
 
+Now that we have all the informations, we need to create pages.
+
+As mentioned in the intro, to create a page, we need to query data with GraphQL and then map the results into a page.
+So we need to export the `createPage` function as follows:
+
+.. code-block:: none
+
+  ...
+  const path = require(`path`)
+  ...
+
+  exports.createPages = ({ graphql, actions }) => {
+    const { createPage } = actions
+    return new Promise((resolve, reject) => {
+      graphql(`
+        {
+          allMarkdownRemark {
+            edges {
+              node {
+                fields {
+                  slug
+                }
+              }
+            }
+          }
+        }
+      `).then(result => {
+        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve(`./src/templates/blog-post.js`),
+            context: {
+              slug: node.fields.slug,
+            },
+          })
+        })
+        resolve()
+      })
+    })
+  }
+
+What can we see here?
+
+First of all we perform a GraphQL query, and we iterate through results to create a new page.
+
+The method `createPage` is an helper method that Gatsby uses to generate dynamic pages. It takes 3 parameters:
+
+- `path`: the slug value. This is used to generate the url where we can access the current page
+- `component`: is the template used to populate a blog post page. It's similar to a page component (we will see it shortly)
+- `context`: we can pass a list of variables that can be used by the component's queries to fetch infos about the current node.
+
+A this point we just have to create the `blog-post.js` template file to end our setup:
+
+.. code-block:: none
+
+  import React from "react"
+  import { graphql } from "gatsby"
+
+  export default ({ data }) => {
+    const post = data.markdownRemark
+    return (
+      <div>
+        <h1>{post.frontmatter.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      </div>
+    )
+  }
+
+  export const query = graphql`
+    query($slug: String!) {
+      markdownRemark(fields: { slug: { eq: $slug } }) {
+        html
+        frontmatter {
+          title
+        }
+      }
+    }
+  `
+
+As you can see, it's similar to a simple page, with the only difference in GraphQL query: we need to fetch data from a specific node. To do this, we can use the `slug` value to filter only desired node.
+
+.. note:: we can filter with almost every node attribute, but it's always better use uniques values like some id or the slug.
+
+.. note:: `dangerouslySetInnerHTML` is an helper function of ReactJS that allows to insert some not-reactish html into a component.
+
+If we restart the server, we could now access directly to the new pages created automatically.
+
+.. note:: to easily get a list of generated urls, try to access to a random page like http://localhost:8000/asdf . The default 404 page will propose you possible alternative urls.
+
+Last thing that we could do, is to link them in our index.js page:
+
+.. code-block:: none
+
+  ...
+  <Link to={node.fields.slug}>
+    <h3>
+      {node.frontmatter.title}{" "}
+      <span>
+        — {node.frontmatter.date}
+      </span>
+    </h3>
+  </Link>
