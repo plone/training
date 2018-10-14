@@ -27,6 +27,8 @@ GatsbyJS
     pages
     data
     sourceplugins
+    transformerplugins
+    dynamicpages
     
 ..  toctree::
     :hidden:
