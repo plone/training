@@ -38,7 +38,7 @@ render the view.
 Exercise
 ========
 
-Change the :file:`App.js` file to show to FAQ items with the following content:
+Change the :file:`App.js` file to show two FAQ items with the following content:
 
 * Question 1: What does the Plone Foundation do?
 * Answer 1: The mission of the Plone Foundation is to protect and promote Plone. The Foundation provides marketing assistance, awareness, and evangelism assistance to the Plone community. The Foundation also assists with development funding and coordination of funding for large feature implementations. In this way, our role is similar to the role of the Apache Software Foundation and its relationship with the Apache Project.
