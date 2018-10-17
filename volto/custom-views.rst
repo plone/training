@@ -5,4 +5,4 @@ Custom Views
 ============
 
 
-add custom view
+add custom view => move summary view to all content view
