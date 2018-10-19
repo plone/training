@@ -193,7 +193,7 @@ Building the documentation locally
 Dependencies
 ++++++++++++
 
-Please make sure that you have `Enchant <https://www.abisource.com/projects/enchant/>`_ installed. This is needed for spell-checking.
+Please make sure that you have `Enchant <https://abiword.github.io/enchant/>`_ installed. This is needed for spell-checking.
 
 Install Enchant on macOS:
 
