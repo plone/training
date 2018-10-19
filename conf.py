@@ -52,6 +52,7 @@ linkcheck_ignore = [
     r'http://localhost:4200',
     r'http://127.0.0.1:8080',
     r'http://wiki.apache.org',
+    r'https://wiki.apache.org/solr\d+/',
     r'https://www.vagrantup.com',
     r'https://www.dipf.de/en/research/projects',
     r'http://whatever.herokuapp.com',
