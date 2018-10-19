@@ -122,9 +122,9 @@ which is old but still works for our case.
 Meanwhile there are other packages around.
 Here are some examples:
 
- - ``mysolr``: https://pypi.org/project/mysolr/0.8.3
- - ``solrpy``: https://pypi.org/project/solrpy3/0.98
- - ``pysolr``: https://pypi.org/project/pysolr/3.5.0
+ - ``mysolr``: https://pypi.org/project/mysolr
+ - ``solrpy``: https://pypi.org/project/solrpy
+ - ``pysolr``: https://pypi.org/project/pysolr
 
 Sometimes it is handy to have a separate virtualenv available for doing batch operations (delete, update, etc.)
 
