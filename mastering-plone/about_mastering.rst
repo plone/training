@@ -212,7 +212,7 @@ To build the documentation follow these steps:
 
 .. code-block:: console
 
-    git clone https://github.com/plone/training.git --recursive
+    git clone https://github.com/plone/training.git
     cd training
     virtualenv --python=python2.7 .
     $ source bin/activate
@@ -234,7 +234,7 @@ Build new
 
 .. code-block:: console
 
-    git clone https://github.com/plone/training.git --recursive
+    git clone https://github.com/plone/training.git
     cd training
     virtualenv --python=python2.7 .
     source bin/activate
