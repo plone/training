@@ -12,9 +12,9 @@ GraphQL
 
 GraphQL is a query language developed by Facebook that allows to create api endpoints that can be queried with a particular syntax that describes exactly what kind of data we need (only desired values) and it returns only that data.
 
-.. note::  For more detailed informations, you could read the `official documentation <https://graphql.org/>`_ and `tutorial <https://www.howtographql.com/>`_.
+.. note::  For more detailed information, you could read the `official documentation <https://graphql.org/>`_ and `tutorial <https://www.howtographql.com/>`_.
 
-Gatsby uses GraphQL to expose stored data in a common way, and allows page components to access to it and retrieve only the desired informations.
+Gatsby uses GraphQL to expose stored data in a common way, and allows page components to access to it and retrieve only the desired information.
 
 Not only fetched data are stored in GraphQL. Gatsby uses GraphQL data also to expose some common informations (site metadata) and to show what plugins are installed.
 
