@@ -245,7 +245,7 @@ Twitter
 -------
 
 You might also want to embed a twitter feed into the page. Luckily twitter makes it easy to do that.
-When you browse to the `twitter docs <https://dev.twitter.com/web/embedded-timelines/search>`_ and learn how to create the appropriate snippet of code and paste it in the template wrapped in a ``<div class="col-lg-6">...</div>`` to have the talklist next to the feeds:
+When you browse to the `twitter docs <https://developer.twitter.com/en/docs/twitter-for-websites/timelines/overview>`_ and learn how to create the appropriate snippet of code and paste it in the template wrapped in a ``<div class="col-lg-6">...</div>`` to have the talklist next to the feeds:
 
 ..  code-block:: html
     :emphasize-lines: 19-22

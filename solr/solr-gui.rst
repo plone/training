@@ -274,7 +274,7 @@ Besides the matching documents this will give you an additional grouping of docu
 There are more complex scenarios possible.
 For a complete list of options see the according Solr documentation.
 
-.. seealso:: https://cwiki.apache.org/confluence/display/solr/Faceting
+.. seealso:: https://lucene.apache.org/solr/guide/6_6/faceting.html
 
 With ``collective.solr`` you don't have to worry about the faceting details too much.
 There is a convenient method to configure the faceting fields in the control panel of ``collective.solr``.
@@ -285,7 +285,7 @@ Search GUIs
 ===========
 
  - ``collective.solr`` out of the box: ``collective.solr`` comes with its own search view.
-   For the new version 6.0 it is based on `React <https://facebook.github.io/react/>`_ and looks similar to the Plone search view with native facet support of Solr.
+   For the new version 6.0 it is based on `React <https://reactjs.org/>`_ and looks similar to the Plone search view with native facet support of Solr.
 
  - `eea.facetednavigation <https://github.com/eea/eea.facetednavigation>`_: This add-on allows faceting out of the box even without Solr.
    It is a product for integrators to setup search and filter GUIs TTW (Through-The-Web).

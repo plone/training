@@ -33,7 +33,7 @@ Some notable add-ons
 `plone.app.mosaic <https://github.com/plone/plone.app.mosaic>`_
   Layout solution to easily create complex layouts through the web.
 
-`collective.geo <http://collectivegeo.readthedocs.io/en/latest/>`_
+`collective.geo <https://collectivegeo.readthedocs.io/en/latest/>`_
   Flexible bundle of add-ons to geo-reference content and display in maps
 
 `collective.mailchimp <https://pypi.org/project/collective.mailchimp>`_

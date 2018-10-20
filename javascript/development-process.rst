@@ -15,11 +15,11 @@ It currently doesn't cover JavaScript code guidelines, but those were considered
 And luckily, similar to PEP 8 and the associated tooling (:program:`pep8`, :program:`pyflakes`, :program:`flake8`),
 JavaScript also has some guidelines - not official, but well respected.
 
-`Douglas Crockford <http://javascript.crockford.com/>`_ - besides of specifying the JSON standard - wrote the well known book "JavaScript the good parts".
+`Douglas Crockford <http://crockford.com/javascript/>`_ - besides of specifying the JSON standard - wrote the well known book "JavaScript the good parts".
 
 Out of that he developed the code linter `JSLint <http://www.jslint.com/>`_.
 
-Because this one was too strict, some other people wrote `JSHint <http://jshint.com/>`_.
+Because this one was too strict, some other people wrote `JSHint <https://jshint.com/>`_.
 
 Mockup uses JSHint with the following `.jshintrc configuration file <https://github.com/plone/mockup/blob/master/mockup/.jshintrc>`_:
 
@@ -60,14 +60,14 @@ Mockup uses JSHint with the following `.jshintrc configuration file <https://git
 .. note::
 
     When working with JSHint or JSLint, it can be very useful to get some more context and explanation about several lint-errors.
-    For JSHint there is a list of all configurable options: http://jshint.com/docs/options/
+    For JSHint there is a list of all configurable options: https://jshint.com/docs/options/
 
 
 We strongly recommend to configure your editor of choice to do JavaScript code linting on save.
 The Mockup project is enforcing Lint-error-free code.
 
 Besides of that, this will also make you a better coder.
-The JSHint site lists some editors with Plugins to support JSHint linting: http://jshint.com/install/
+The JSHint site lists some editors with Plugins to support JSHint linting: https://jshint.com/install/
 
 
 Regarding spaces/tabs and indentation:

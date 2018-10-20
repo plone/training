@@ -14,7 +14,7 @@ As stated above it's the Plone 5 default :term:`Barceloneta` theme plus some cus
 Use Your Own Static Mockup
 ==========================
 
-If you got a static mockup from your designer or from a website like http://startbootstrap.com (where the example template came from),
+If you got a static mockup from your designer or from a website like https://startbootstrap.com (where the example template came from),
 you can use this without customization and just apply the Diazo rules to it.
 
 Another way is to change the static mockup a little bit to use mostly the same CSS id's and classes like Plone does.
@@ -24,7 +24,7 @@ This way it is easier to reuse CSS/Less from Barceloneta and Plone add-ons if ne
 Download And Prepare A Static Theme
 ===================================
 
-Let's start with an untouched static template, such as this Twitter Bootstrap based one: http://startbootstrap.com/template-overviews/business-casual/.
+Let's start with an untouched static template, such as this Twitter Bootstrap based one: https://startbootstrap.com/template-overviews/business-casual/.
 The latest version of that template uses a beta version of Twitter Bootstrap 4.
 
 We are going to use the latest release which uses Twitter Bootstrap 3.

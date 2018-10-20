@@ -57,6 +57,6 @@ Further reading
 
 Solr is documented in its own `Wiki <https://wiki.apache.org/solr/>`_.
 
-.. seealso:: https://cwiki.apache.org/confluence/display/solr/Apache+Solr+Reference+Guide
+.. seealso:: https://lucene.apache.org/solr/guide/6_6/
 
 There are a couple of books available.

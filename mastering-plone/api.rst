@@ -139,7 +139,7 @@ zopepy
 
 ..  seealso::
 
-    A video of the talk `Debug like a pro. How to become a better programmer through pdb-driven development <http://pyvideo.org/pycon-de-2016/debug-like-a-pro-how-to-become-a-better-programmer-through-pdb-driven-development.html>`_
+    A video of the talk `Debug like a pro. How to become a better programmer through pdb-driven development <https://pyvideo.org/pycon-de-2016/debug-like-a-pro-how-to-become-a-better-programmer-through-pdb-driven-development.html>`_
 
 
 Exercise

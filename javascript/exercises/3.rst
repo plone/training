@@ -65,7 +65,7 @@ Require the lightGallery JavaScript
     ...
     })
 
-This tells `RequirejS <http://requirejs.org/>`_ to load the `jQuery <https://jquery.com/>`_ and the lightGallery JavaScript.
+This tells `RequirejS <https://requirejs.org/>`_ to load the `jQuery <https://jquery.com/>`_ and the lightGallery JavaScript.
 
 What is important to pay attention to in this example is that we are seeing
 if there are any ``photoAlbumEntry`` elements on the page.
