@@ -39,10 +39,14 @@ There are several boilerplates created by the community that allows to bootstrap
 These boilerplates are called "starters" and in the `offical site <https://www.gatsbyjs.org/docs/gatsby-starters/>`_ you could
 find a complete list of available starters. There are starters with some pre-configured themes (for example material-ui or bootstrap), support for authentication, and so on.
 
-There are also some starters specialized in integration with some external sources (for example CMS like Plone or Wordpress) that creates a boilerplate with all the configuration to fetch data from them (this is made with a different type of plugins called "source-plugins" that we will cover in next chapters) and give some helper methods to build the pages/interface with that specific data (for example the breadcrumbs or navigation).
+There are also some starters that are specialized in integration with some external sources, such as a CMS like Plone or WordPress.
+They create a boilerplate with all the configuration to fetch data from the external sources and give some helper methods to build the pages/interface with that specific data, such as the breadcrumbs or navigation.
+
+Data fetching part is usually managed by a different type of plugins called "source-plugins" that can retrieve data from a specific source.
+
+We will cover "source-plugins" in later chapters.
 
 .. note:: To create a new project with a starter, you need to append the github url of the desired starter in the cli command: ``gatsby new [SITE_DIRECTORY] [URL_OF_STARTER_GITHUB_REPO]``
-
 
 .. code-block:: console
 
