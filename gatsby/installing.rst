@@ -33,13 +33,13 @@ The CLI allows to initialize a project:
    gatsby new hello-world
 
 This command says gatsby-cli to create a new Gatsby project with name `hello-world` with a basic default file structure.
+
 There are several boilerplates created by the community that allows to easily bootstrap an application for different use-cases.
 
 These boilerplates are called "starters" and in the `offical site <https://www.gatsbyjs.org/docs/gatsby-starters/>`_ you could
-find a complete list of available starters. There are starters with some themes already configured (for example material-ui or bootstrap),
-others with the support for authentication or for some CMS integration. There are also source-plugin specific starters which
-specifically implement and use a recommended configuration for the source-plugin, allowing users to use it to kickstart
-GatsbyJS sites with that plugin or use it as reference.
+find a complete list of available starters. There are starters with some pre-configured themes (for example material-ui or bootstrap), support for authentication, etc.
+
+There are also some starters specialized in integration with some external sources (for example CMS like Plone or Wordpress) that creates a boilerplate with all the configuration to fetch data from them (this is made with a different type of plugins called "source-plugins" that we will cover in next chapters) and give some helper methods to build the pages/interface with that specific data (for example the breadcrumbs or navigation).
 
 .. note:: To create a new project with a starter, you need to append the github url of the desired starter in the cli command: ``gatsby new [SITE_DIRECTORY] [URL_OF_STARTER_GITHUB_REPO]``
 
