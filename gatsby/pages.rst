@@ -4,7 +4,7 @@ Pages
 Pages can be considered similar to HTML documents in a basic website as they behave that way, but here, internally
 they are React components instead with way more functionality and can even be dynamically generated.
 
-If we see the file structure of our `hello-world` project, we can see that there is a `pages` folder with some js files:
+If we see the file structure of our `hello-world` project, we can see that there is a `pages` folder with some JavaScript files:
 
 .. code-block:: console
 
