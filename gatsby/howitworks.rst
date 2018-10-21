@@ -28,6 +28,7 @@ Components let you split the UI into independent, reusable pieces, and think abo
 Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.
 
 In Gatsby all pages are React components that take in input some data (if needed) from GraphQL and display some information.
+
 It also is very flexible in its project structure allowing you to choose the way you want it to be, libraries you want to use,
 methods of styling and much more.
 
