@@ -20,7 +20,7 @@ GraphQL is a query language used to create apis where you can create queries tha
 
 It is used to store and serve fetched data in a common and easily to access way.
 
-The second component is ReactJS: a javascript library that allows to create powerful and reusable interfaces.
+The second component is ReactJS: a JavaScript library that allows to create powerful and reusable interfaces.
 
 It works with a basic rule: everything is a component, and every interface is built with a set of components.
 Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
