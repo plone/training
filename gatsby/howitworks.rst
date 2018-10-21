@@ -34,7 +34,7 @@ methods of styling and much more.
 
 The last component is Webpack: a module bundler.
 
-It is the tool that take all the resources (pages, stylesheets, images and other dependencies), combine
+It is a tool that takes all the resources (pages, stylesheets, images and other dependencies), combines
 them together and generate a set of static pages that will be the final Gatsby site.
 
 In development mode, it exposes the builded site to a certain http port (to see what we are developing) and rebuild it
