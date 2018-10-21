@@ -37,9 +37,9 @@ The last component is Webpack: a module bundler.
 It is a tool that takes all the resources (pages, stylesheets, images and other dependencies), combines
 them together, and generates a set of static pages that will be the final Gatsby site.
 
-In development mode, it exposes the builded site to a certain http port (to see what we are developing) and rebuild it
+In development mode, it exposes the built site to a certain HTTP port (to see what we are developing) and rebuild it
 everytime we create/edit/delete a file in the source-code.
 
 3) Deploy
 ---------
-The output of Gatsby is a simple set of static resources: html, css and js files, so you can deploy them basically everywhere (Amazon S3, Netlify, GitHub pages, Apache, Surge.sh, etc)
+The output of Gatsby is a simple set of static resources: html, css and js files, so you can deploy them basically everywhere (Amazon S3, Netlify, GitHub pages, Apache, Surge.sh, and so on).
