@@ -19,3 +19,7 @@ with modern best-practices and tools:
 - One-directional data flow
 - ES6 + ES7 automatically transpiled 
 - PWA
+
+GatsbyJS sets up a project using the latest technologies which pulls data from almost any source at all and generates a static site, just by whipping together a couple of Gatsby plugins together or directly with all configuration by using a starter.
+
+That's how it's developer friendly, but it even has a lot of benefits practically too! Static sites mean you don't need to worry about complex server setup maintenance and scaling, you can just lift them into a CDN and make the site available as quick as possible to the users wherever they are. 
