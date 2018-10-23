@@ -7,9 +7,8 @@ Write Tests For Your Reducers
 Reducer Tests
 =============
 
-Since reducers are pure functions with input and output we can write unit
-tests for them. We will start by adding a test for the
-:file:`ADD_TODO` action in a file called :file:`reducers/faq.test.js`:
+Since reducers are pure functions with input and output we can write unit tests for them.
+We will start by adding a test for the :file:`ADD_TODO` action in a file called :file:`reducers/faq.test.js`:
 
 .. code-block:: jsx
 

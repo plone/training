@@ -4,18 +4,17 @@
 Navigate Using Redirects
 ========================
 
-If we want to navigate programmatically for example after submitting a form we
-have to use a different method. In this example we will create a back button
-in the :file:`FaqItemView` to return to the overview. First we will create the
-button:
+If we want to navigate programmatically for example after submitting a form we have to use a different method.
+In this example we will create a back button in the :file:`FaqItemView` to return to the overview.
+First we will create the button:
 
 .. code-block:: jsx
 
     <button onClick={this.onBack}>Back</button>
 
-Then we will add the handler to handle the back event. This event will make
-use of the :file:`history` property passed by React Router. This property has a
-push method which will push the new route.
+Then we will add the handler to handle the back event.
+This event will make use of the :file:`history` property passed by React Router.
+This property has a push method which will push the new route.
 
 .. code-block:: jsx
 

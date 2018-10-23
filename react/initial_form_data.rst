@@ -7,11 +7,12 @@ Use Initial Form Data To Edit An Item
 Two Modes For The FAQ Item
 ==========================
 
-We will use inline editing to edit an item. Create a button to switch to
-'edit' mode. This mode should be set in the state. Change the render method to
-show a form (similar to the 'add' form) in 'edit' mode and the view we currently
-have in the 'view' mode. The :file:`onSave` handler can be a dummy handler for now,
-first we will focus on the two modes.
+We will use inline editing to edit an item.
+Create a button to switch to 'edit' mode.
+This mode should be set in the state.
+Change the render method to show a form (similar to the 'add' form) in 'edit' mode
+and the view we currently have in the 'view' mode.
+The :file:`onSave` handler can be a dummy handler for now, first we will focus on the two modes.
 
 ..  admonition:: Solution
     :class: toggle
@@ -98,8 +99,8 @@ first we will focus on the two modes.
 Wiring Everything Together
 ==========================
 
-Create a controlled form like the add form and pass an :file:`onEdit`
-handler to the :file:`FaqItem` component like we did with the :file:`onDelete`
+Create a controlled form like the add form and pass an :file:`onEdit` handler to the :file:`FaqItem` component
+like we did with the :file:`onDelete`
 
 ..  admonition:: FaqItem.js
     :class: toggle

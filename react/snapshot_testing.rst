@@ -4,15 +4,15 @@
 Use Snapshot Testing
 ====================
 
-To test the rendered output of a specific component we can use snapshot
-testing. We need to install the :file:`react-test-render` package first:
+To test the rendered output of a specific component we can use snapshot testing.
+We need to install the :file:`react-test-render` package first:
 
 .. code-block:: console
 
     yarn add react-test-renderer --dev
 
-Then we will create a file called :file:`FaqItem.test.js`. Here we will
-render the component and assert the markup.
+Then we will create a file called :file:`FaqItem.test.js`.
+Here we will render the component and assert the markup.
 
 .. code-block:: jsx
 

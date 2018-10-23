@@ -7,10 +7,9 @@ Use Actions To Manipulate The Store
 Wiring The Store
 ================
 
-Now that we have our store ready it's time to connect the store to our code
-and remove all the unneeded functionality. First step is to factor out the
-:file:`Faq` component into a separate file called :file:`components/Faq.js`, it is
-almost a 100% copy of :file:`App.js`:
+Now that we have our store ready it's time to connect the store to our code and remove all the unneeded functionality.
+First step is to factor out the :file:`Faq` component into a separate file called :file:`components/Faq.js`,
+it is almost a 100% copy of :file:`App.js`:
 
 .. code-block:: jsx
 
@@ -130,8 +129,7 @@ almost a 100% copy of :file:`App.js`:
 
     export default Faq;
 
-Next we will create an :file:`App` component with just the store and a reference
-to our newly created :file:`Faq` component:
+Next we will create an :file:`App` component with just the store and a reference to our newly created :file:`Faq` component:
 
 .. code-block:: jsx
 
@@ -160,13 +158,12 @@ to our newly created :file:`Faq` component:
 Use The Data From The Store
 ===========================
 
-Now that we have our store wired we can start using the store data instead of
-our local state. We will use the helper method :file:`connect` as a decorator to
-map both the data and the actions to our components. The :file:`connect` call
-takes two parameters; the first is a method which provides the redux state and
-props and returns an object which will be mapped to props of the component. The
-second is an object with all the actions which will also be mapped to
-props on the component.
+Now that we have our store wired we can start using the store data instead of our local state.
+We will use the helper method :file:`connect` as a decorator to map both the data and the actions to our components.
+The :file:`connect` call takes two parameters;
+the first is a method which provides the redux state and props
+and returns an object which will be mapped to props of the component.
+The second is an object with all the actions which will also be mapped to props on the component.
 
 .. code-block:: jsx
 
@@ -193,10 +190,9 @@ props on the component.
       { addFaqItem }
     )(Faq);
 
-We can remove all the edit and delete references since that will be handled by
-the :file:`FaqItem` to clean up our code. We will also change the :file:`onSubmit`
-handler to use the attached :file:`addFaqItem` method. The result will be as
-follows:
+We can remove all the edit and delete references since that will be handled by the :file:`FaqItem` to clean up our code.
+We will also change the :file:`onSubmit` handler to use the attached :file:`addFaqItem` method.
+The result will be as follows:
 
 .. code-block:: jsx
 
@@ -297,9 +293,8 @@ follows:
 Exercise
 ========
 
-Now that we factored out the edit and delete actions from the :file:`Faq`
-component update the :file:`FaqItem` component to call the actions we created
-for our store.
+Now that we factored out the edit and delete actions from the :file:`Faq` component
+update the :file:`FaqItem` component to call the actions we created for our store.
 
 ..  admonition:: Solution
     :class: toggle

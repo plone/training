@@ -7,8 +7,8 @@ Use Event Handlers
 Toggle Method
 =============
 
-To show or hide the answer we will add a toggle handler to the class
-:file:`FaqItem`. This method needs to be bound to the instance like this:
+To show or hide the answer we will add a toggle handler to the class :file:`FaqItem`.
+This method needs to be bound to the instance like this:
 
 .. code-block:: jsx
 
@@ -23,8 +23,8 @@ To show or hide the answer we will add a toggle handler to the class
 Exercise
 ========
 
-Write the toggle handler which will toggle the :file:`show` state variable and
-set the new state using the :file:`setState` method:
+Write the toggle handler which will toggle the :file:`show` state variable
+and set the new state using the :file:`setState` method:
 
 ..  admonition:: Solution
     :class: toggle
@@ -40,8 +40,7 @@ set the new state using the :file:`setState` method:
 Click Handler
 =============
 
-To call the newly created :file:`toggle` method we will add an on click
-handler to the question:
+To call the newly created :file:`toggle` method we will add an on click handler to the question:
 
 .. code-block:: jsx
 

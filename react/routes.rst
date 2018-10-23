@@ -14,9 +14,9 @@ First we will install :file:`react-router`:
 
     $ yarn add react-router-dom
 
-Next we will define the routes we want to use. We will use the
-:file:`BrowserRouter` to define our routes. We will have a view at the root and
-a view at :file:`/faq/1` where '1' is the index of the FAQ item.
+Next we will define the routes we want to use.
+We will use the :file:`BrowserRouter` to define our routes.
+We will have a view at the root and a view at :file:`/faq/1` where '1' is the index of the FAQ item.
 
 .. code-block:: jsx
 
@@ -54,8 +54,9 @@ a view at :file:`/faq/1` where '1' is the index of the FAQ item.
 Writing The View
 ================
 
-Now we will create the :file:`FaqItemView` component. This will render the full
-FAQ item. The code will look something like this:
+Now we will create the :file:`FaqItemView` component.
+This will render the full FAQ item.
+The code will look something like this:
 
 .. code-block:: jsx
 
@@ -97,10 +98,10 @@ FAQ item. The code will look something like this:
 Exercise
 ========
 
-React Router add a property called :file:`match` to all nested components. This
-property contains all the information about the matched route including the
-parameters so :file:`props.match.params.index` contains the index of the faq
-item. Complete the :file:`connect` call to return the correct data:
+React Router add a property called :file:`match` to all nested components.
+This property contains all the information about the matched route including the parameters
+so :file:`props.match.params.index` contains the index of the faq item.
+Complete the :file:`connect` call to return the correct data:
 
 ..  admonition:: Solution
     :class: toggle

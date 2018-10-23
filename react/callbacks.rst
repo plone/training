@@ -7,10 +7,9 @@ Use Callbacks To Delete An Item
 Add Delete Button
 =================
 
-To be able to manage our FAQ entries we start by adding a delete button to
-remove an item from the list. Add the delete button to the :file:`FaqItem` view
-in the :file:`FaqItem.jsx` file and create an empty :file:`onDelete` handler which
-is called when the button is pressed.
+To be able to manage our FAQ entries we start by adding a delete button to remove an item from the list.
+Add the delete button to the :file:`FaqItem` view in the :file:`FaqItem.jsx` file
+and create an empty :file:`onDelete` handler which is called when the button is pressed.
 
 ..  admonition:: Solution
     :class: toggle
@@ -62,12 +61,11 @@ is called when the button is pressed.
 Write The onDelete Handler
 ==========================
 
-Now that we have our dummy handler ready we need to add functionality to the
-handler. Since the list of FAQ items is managed by our :file:`App` component we
-can not directly remove the item. Rewrite the :file:`FaqItem` component so that
-a unique identifier of the FAQ item and a callback to remove the FAQ item can be
-passed to this component. Also complete the :file:`onDelete` handler so it will
-call the callback with the correct identifier.
+Now that we have our dummy handler ready we need to add functionality to the handler.
+Since the list of FAQ items is managed by our :file:`App` component we can not directly remove the item.
+Rewrite the :file:`FaqItem` component so that a unique identifier of the FAQ item
+and a callback to remove the FAQ item can be passed to this component.
+Also complete the :file:`onDelete` handler so it will call the callback with the correct identifier.
 
 ..  admonition:: Solution
     :class: toggle
@@ -123,10 +121,9 @@ call the callback with the correct identifier.
 Write A Dummy Delete Handler
 ============================
 
-Now we're ready to change the :file:`App` component to add a dummy :file:`onDelete`
-handler. Add the :file:`onDelete` handler to the :file:`App` component which logs
-the index of the FAQ item to the console. Make sure to pass the index and the
-callback to the :file:`FaqItem` component to wire everything together:
+Now we're ready to change the :file:`App` component to add a dummy :file:`onDelete` handler.
+Add the :file:`onDelete` handler to the :file:`App` component which logs the index of the FAQ item to the console.
+Make sure to pass the index and the callback to the :file:`FaqItem` component to wire everything together:
 
 ..  admonition:: Solution
     :class: toggle
@@ -182,8 +179,8 @@ callback to the :file:`FaqItem` component to wire everything together:
 Delete The FAQ Item From The List
 =================================
 
-The last step is to remove the item from the list. Write the :file:`onDelete`
-handler which removes the item from the list and creates the new state.
+The last step is to remove the item from the list.
+Write the :file:`onDelete` handler which removes the item from the list and creates the new state.
 
 ..  admonition:: Solution
     :class: toggle

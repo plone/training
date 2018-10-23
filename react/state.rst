@@ -7,10 +7,10 @@ How To Use State In Your Component
 Store Questions And Answers In The State
 ========================================
 
-To manipulate the FAQ later on we will move all the data to the state
-of the component. The state of the component is the local state of that
-specific component. When the state changes the render method is called again. In
-the constructor of the class we can initialize the state.
+To manipulate the FAQ later on we will move all the data to the state of the component.
+The state of the component is the local state of that specific component.
+When the state changes the render method is called again.
+In the constructor of the class we can initialize the state.
 
 .. code-block:: jsx
 
@@ -51,10 +51,9 @@ the constructor of the class we can initialize the state.
 Exercise
 ========
 
-To save space in the view we want to be able to show and hide the answer when
-you click on the question. Add a state variable to the :file:`FaqItem` component
-which keeps the state of the answer being shown or not and adjust the render
-method to show or hide the answer.
+To save space in the view we want to be able to show and hide the answer when you click on the question.
+Add a state variable to the :file:`FaqItem` component which keeps the state of the answer being shown or not
+and adjust the render method to show or hide the answer.
 
 ..  admonition:: Solution
     :class: toggle

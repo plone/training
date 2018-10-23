@@ -40,11 +40,10 @@ To be able to add FAQ items to the list we will start by adding an add form:
 Manage Field Values In The State
 ================================
 
-To manage the values of the fields in the form we will use the state. Add a
-question and answer value to the state which contains the values of the inputs.
-Add :file:`onChange` handlers to the input and textarea which will change the
-values in the state when the input changes. This pattern is called controlled
-inputs.
+To manage the values of the fields in the form we will use the state.
+Add a question and answer value to the state which contains the values of the inputs.
+Add :file:`onChange` handlers to the input and textarea which will change the values in the state when the input changes.
+This pattern is called controlled inputs.
 
 ..  admonition:: Solution
     :class: toggle
@@ -144,9 +143,8 @@ Submit Handler
 ==============
 
 Now that our values are managed in the state we can write our submit handler.
-Write an :file:`onSubmit` handler which reads the values from the state and
-add the new FAQ item to the list. After the item is added the inputs should also
-reset to empty values.
+Write an :file:`onSubmit` handler which reads the values from the state and add the new FAQ item to the list.
+After the item is added the inputs should also reset to empty values.
 
 ..  admonition:: Solution
     :class: toggle

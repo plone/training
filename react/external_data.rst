@@ -8,7 +8,8 @@ Creating A Simple Backend
 =========================
 
 To persist our data we will create a backend to fetch our initial data.
-We will use :file:`express` to create a simple server. To install type:
+We will use :file:`express` to create a simple server.
+To install type:
 
 .. code-block:: console
 
@@ -61,13 +62,14 @@ Now it is time to write our action to fetch the items from the backend:
 Writing Middleware
 ==================
 
-Since the action itself doesn't do any api call we will create middleware to
-do the job. Redux middleware is a simple method which receives the store, the
-method to call the next action and the action itself. The middleware can then
-decide to do something based on the data in the action. In our case we are
-looking for a property called :file:`request`. If that one is available we want
-to do an api call with the provided operation, path and data and fire a new a
-new action when the data is fetched. The implementation will look like this:
+Since the action itself doesn't do any api call we will create middleware to do the job.
+Redux middleware is a simple method which receives the store,
+the method to call the next action and the action itself.
+The middleware can then decide to do something based on the data in the action.
+In our case we are looking for a property called :file:`request`.
+If that one is available we want to do an api call with the provided operation,
+path and data and fire a new a new action when the data is fetched.
+The implementation will look like this:
 
 .. code-block:: jsx
 

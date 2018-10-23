@@ -16,8 +16,7 @@ To add a stylesheet we simply import the :file:`css` file:
 Exercise
 ========
 
-Style the component so that the dot on each item is removed and the question is
-underlined.
+Style the component so that the dot on each item is removed and the question is underlined.
 
 ..  admonition:: Solution
     :class: toggle

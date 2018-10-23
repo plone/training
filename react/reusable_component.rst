@@ -7,12 +7,12 @@ Convert To A Reusable Component
 Create A Reusable component
 ===========================
 
-To reuse the markup of a FAQ item we will split up the code. The app
-component will contain just the data of the FAQ item and will render a newly
-created sub component called :file:`FaqItem`. The data is passed to the sub
-component using properties. In the :file:`FaqItem` component you will have
-access to the properties with :file:`this.props.question` for example. The
-:file:`App.js` code will be changed to:
+To reuse the markup of a FAQ item we will split up the code.
+The app component will contain just the data of the FAQ item and will render
+a newly created sub component called :file:`FaqItem`.
+The data is passed to the sub component using properties.
+In the :file:`FaqItem` component you will have access to the properties with :file:`this.props.question` for example.
+The :file:`App.js` code will be changed to:
 
 .. code-block:: jsx
 
@@ -56,9 +56,8 @@ access to the properties with :file:`this.props.question` for example. The
 Exercise
 ========
 
-Create the :file:`FaqItem` component in a newly created folder called
-:file:`components` which renders the same output. Also move all the styling of
-the view to :file:`components/FaqItem.css`.
+Create the :file:`FaqItem` component in a newly created folder called :file:`components` which renders the same output.
+Also move all the styling of the view to :file:`components/FaqItem.css`.
 
 ..  admonition:: Solution
     :class: toggle
@@ -84,9 +83,9 @@ the view to :file:`components/FaqItem.css`.
 Property Validation
 ===================
 
-React has a builtin mechanism to validate the properties being passed in into a
-component. When incorrect values are passed you will receive a warning in the
-console. In the above example you have to add an extra import:
+React has a builtin mechanism to validate the properties being passed in into a component.
+When incorrect values are passed you will receive a warning in the console.
+In the above example you have to add an extra import:
 
 .. code-block:: jsx
 
@@ -101,5 +100,5 @@ And the following static property to the class to validate the properties:
       answer: PropTypes.string.isRequired
     };
 
-If you now add a third empty <FaqItem> to :file:`App.js`, errors of missing properties on this component call
-will be reported in the Javascript console of your browser.
+If you now add a third empty <FaqItem> to :file:`App.js`,
+errors of missing properties on this component call will be reported in the Javascript console of your browser.

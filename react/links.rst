@@ -4,10 +4,9 @@
 Using Links To Navigate
 =======================
 
-Links are used to navigate between pages in React Router. This will make sure
-the browser doesn't do a full refresh but just changes the route. We will add
-a link to the :file:`FaqItem` component so we can go to the :file:`FaqItemView`
-view.
+Links are used to navigate between pages in React Router.
+This will make sure the browser doesn't do a full refresh but just changes the route.
+We will add a link to the :file:`FaqItem` component so we can go to the :file:`FaqItemView` view.
 
 .. code-block:: jsx
 
