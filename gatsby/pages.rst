@@ -1,7 +1,11 @@
 Pages
 =====
 
-Pages can be considered similar to HTML documents in a website, but here, internally they are React components instead with way more functionality and can even be dynamically generated.
+The core part of a website are pages. Every site has at least one HTML page (for example a single page application or a landing page).
+
+GatsbyJS is a static site generator, so it has the concept of pages itself. They only difference is that they are not standard HTML documents, but internally they are React components that will be converted in static HTML on build time.
+
+ReactJS is a good choice because it allows to add more functionalities to the page and can also be dynamically generated.
 
 If we see the file structure of our `hello-world` project, we can see that there is a `pages` folder with some JavaScript files:
 
@@ -23,19 +27,25 @@ Let's see how is made `index.js` file. This page is the homepage of our example 
   import React from 'react'
   import { Link } from 'gatsby'  
 
+  import Layout from '../components/layout'
+
   const IndexPage = () => (
-    <div>
-      <h1>Gatsby Site</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <Link to="/page-2/">Go to page 2</Link>
-    </div>
+    <Layout>
+      <div>
+        <h1>Gatsby Site</h1>
+        <p>Welcome to your new Gatsby site.</p>
+        <p>Now go build something great.</p>
+        <Link to="/page-2/">Go to page 2</Link>
+      </div>
+    </Layout>
   )  
   export default IndexPage
 
 As we said previously, pages are not basic html documents, but they are React components.
+
 You can see that React components are written in a particular syntax called `JSX` that allows to mix pure javascript with
 some html tags.
+
 Components are functions (or es6 classes) that accept some data and renders some html.
 
 .. note:: You can see more infos in the official `ReactJS documentation <https://reactjs.org/docs/components-and-props.html>`_
@@ -65,15 +75,19 @@ so every time we make some changes, the page will automatically update.
 Components
 ----------
 
-Another thing that we can see in this file, is the use of `Link` component.
+Another thing that we can see in this file, is the use of `Link` and `Layout` components.
+
 A component is basically a building block of our user interface.
+
 It can be a particular "piece of interface" with a specific layout, markup or functionality.
-The fact that components are functions, they can accept parameters (props) and return a valued based on the given parameters.
 
-For example the `<Link>` component is used to create links between page components where we pass a "to" property that
-is used to create a link to "page-2" page.
+The fact that components are functions, they can accept parameters (props) and return a value (an HTML-ish string) based on the given parameters.
 
-.. note:: Routing and links are managed with `reach-router <https://reach.tech/router>`_ library.
+For example the `<Link>` component is used to create links between page components where we pass a "to" property that is used to create a link to "page-2" page.
+
+`<Layout>` component is a custom component created by the default starter that give some basic styles to every component wrapped into it. Let's ignore it right now.
+
+.. note:: Routing and links are managed under the hood with `reach-router <https://reach.tech/router>`_ library.
 
 
 Exercise
@@ -90,63 +104,23 @@ Create a new page and link it in the index.
 
         import React from 'react'
         import { Link } from 'gatsby'
+        import Layout from '../components/layout'
 
         const PloneconfPage = () => (
-          <div>
-            <h1>Ploneconf training</h1>
-            <p>That's a page created at the training.</p>
-            <Link to="/">Go to the homepage</Link>
-          </div>
+          <Layout>
+            <div>
+              <h1>Ploneconf training</h1>
+              <p>That's a page created at the training.</p>
+              <Link to="/">Go to the homepage</Link>
+            </div>
+          </Layout>
         )
 
         export default PloneconfPage
 
 
 Components are very useful when you need to reuse a certain pattern in different pages.
-Usually components are located in a `components` folder and imported where needed.
 
-Exercise
-++++++++
+Usually components are located in a `components` folder and imported where needed (like `Layout`).
 
-Create a new component that renders the page title in a common way, and use it in every page.
-
-..  admonition:: Solution
-    :class: toggle
-
-    Create `components` folder and a new file `header.js`
-
-    .. code-block:: none
-
-        import React from 'react'
-      
-        export default Header = ({label}) => (
-          <div
-            className="header"
-            style={{
-                backgroundColor: blue;
-                color: rgb(255, 255, 255);
-                padding: 1em;
-                fontSize: 72px;
-                textAlign: center;
-            }}
-          >
-            {label}
-          </div>
-        )
-
-    Then we need to import `Header` component in our pages (index.js for example), and use it.
-
-    .. code-block:: none
-      
-        ...
-        import Header from '../components/header';
-        
-        const PloneconfPage = () => (
-          <div>
-            <Header label="Ploneconf Tokyo 2018" />
-            <h1>Welcome to Ploneconf trainings</h1>
-            <p>That's a page created at the training.</p>
-            <Link to="/">Go to the homepage</Link>
-          </div>
-        )
-    
+.. note:: In components/layout.js there is an example of custom component that add some styles and use other components.

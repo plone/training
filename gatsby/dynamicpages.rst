@@ -3,33 +3,36 @@ Dynamic pages
 
 In previous chapters, we learned how:
 
-- create static pages
-- fetch data
-- query data and show it in pages
+- Create static pages
+- Fetch data from external sources
+- Query data and show it in pages
 
 We could potentially build our static websites just with these informations.
+
 The only problem is that we need to manually create every single page that we need.
 
 The last missing part in building a static website with GatsbyJS is to programmatically generate these pages from data.
 
-As we've seen in the `pages` chapter, at build time Gatsby maps every page with an URL that is its filename.
-If we want to programmatically generate static pages, we're not going to have different page components, but only GraphQL nodes, so we need to provide some additional informations in nodes.
+As we have seen in the `pages` chapter, at build time GatsbyJS maps every page with an URL that is its filename.
+
+If we want to programmatically generate static pages, we are not going to have different page components (one for each node), but only GraphQL nodes, so we need to provide some additional informations in nodes to allow GatsbyJS to generate the correct pages and urls.
+
 In particular we need to add a "slug" or "path" attribute to the node.
 
-.. note:: most source plugins automatically add this information in nodes, for example cms plugins.
+.. note:: A lot of source plugins automatically add this information in nodes, like CMS plugins.
 
-GatsbyJS building stack has a series of steps that perform different actions sequentially:
+GatsbyJS building stack has a series of steps that performs different actions sequentially:
 
-- read configuration, to load the list of plugins
-- initialize the cache (to avoid re-fetch untouched data)
-- pull the data and preprocess it in a GraphQL schema
-- create pages (from `/pages` folder or from plugins)
-- extract and run GraphQL queries and replace their values in pages
-- write out the pages
+- Read the configuration to load the list of plugins
+- Initialize the cache (to avoid re-fetch untouched data)
+- Pull the data and preprocess it in a GraphQL schema
+- Create pages (from `/pages` folder or from plugins)
+- Extract and run GraphQL queries and replace their values in pages
+- Write out the pages as static HTML pages
 
-Gatsby provides also a rich set of lifecycle APIs to hook into every step and perform some customizations.
+GatsbyJS provides a rich set of lifecycle APIs to hook into every step and perform some customizations.
 
-In this chapter we're going to use two of them, that are the most used in plugins:
+In this chapter we are going to use two of them, that are the most used in plugins:
 
 - `onCreateNode`: called by Gatsby whenever a node is created or updated, so we can edit the current node before storing it into GraphQL
 - `createPages`: step that creates a page.
