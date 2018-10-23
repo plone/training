@@ -9,7 +9,7 @@ Add stylesheet
 
 To add a stylesheet we simply import the :file:`css` file:
 
-::
+.. code-block:: jsx
 
     import './App.css';
 
@@ -24,7 +24,7 @@ underlined.
 
     :file:`App.css`
 
-    ::
+    .. code-block:: jsx
 
         .faq-item {
           list-style-type: none;
@@ -36,7 +36,7 @@ underlined.
 
     :file:`App.js`
 
-    ::
+    .. code-block:: jsx
 
         import React, { Component } from "react";
         import "./App.css";

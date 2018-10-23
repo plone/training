@@ -42,7 +42,7 @@ To create a new react project type the following:
 
 It will create a folder called `my-app` inside the current folder with the following structure:
 
-::
+.. code-block:: console
 
     my-app
     ├── README.md
@@ -69,6 +69,7 @@ To run the project you can type:
 
 .. code-block:: console
 
+    $ cd my-app
     $ yarn start
 
-This will start the server and open up the website.
+This will start the server and open up the website in your preferred browser.

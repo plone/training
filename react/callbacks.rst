@@ -7,14 +7,15 @@ Use Callbacks To Delete An Item
 Add Delete Button
 =================
 
-To be able to manage our faq entries we start by adding a delete button to
-remove an item from the list. Add the delete button to the view and create
-an empty :file:`onDelete` handler which is called when the button is pressed.
+To be able to manage our FAQ entries we start by adding a delete button to
+remove an item from the list. Add the delete button to the :file:`FaqItem` view
+in the :file:`FaqItem.jsx` file and create an empty :file:`onDelete` handler which
+is called when the button is pressed.
 
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         import React, { Component } from "react";
         import PropTypes from "prop-types";
@@ -62,16 +63,16 @@ Write The onDelete Handler
 ==========================
 
 Now that we have our dummy handler ready we need to add functionality to the
-handler. Since the list of Faq items is managed by our :file:`App` component we
-can't directly remove the item. Rewrite the :file:`FaqItem` component so that
-a unique identifier of the Faq item and a callback to remove the Faq item can be
+handler. Since the list of FAQ items is managed by our :file:`App` component we
+can not directly remove the item. Rewrite the :file:`FaqItem` component so that
+a unique identifier of the FAQ item and a callback to remove the FAQ item can be
 passed to this component. Also complete the :file:`onDelete` handler so it will
 call the callback with the correct identifier.
 
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         import React, { Component } from "react";
         import PropTypes from "prop-types";
@@ -124,13 +125,13 @@ Write A Dummy Delete Handler
 
 Now we're ready to change the :file:`App` component to add a dummy :file:`onDelete`
 handler. Add the :file:`onDelete` handler to the :file:`App` component which logs
-the index of the Faq item to the console. Make sure to pass the index and the
+the index of the FAQ item to the console. Make sure to pass the index and the
 callback to the :file:`FaqItem` component to wire everything together:
 
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: js
 
         import React, { Component } from "react";
         import FaqItem from "./components/FaqItem";
@@ -178,7 +179,7 @@ callback to the :file:`FaqItem` component to wire everything together:
 
         export default App;
 
-Delete The Faq Item From The List
+Delete The FAQ Item From The List
 =================================
 
 The last step is to remove the item from the list. Write the :file:`onDelete`
@@ -187,7 +188,7 @@ handler which removes the item from the list and creates the new state.
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         onDelete(index) {
           let faq = this.state.faq;

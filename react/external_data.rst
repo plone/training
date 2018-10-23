@@ -7,16 +7,16 @@ Using External Data
 Creating A Simple Backend
 =========================
 
-In order to persist our data we will create a backend to fetch our initial data.
+To persist our data we will create a backend to fetch our initial data.
 We will use :file:`express` to create a simple server. To install type:
 
 .. code-block:: console
 
     $ yarn add express
 
-Now we'll create a simple server in the file :file:`server.js`
+Now we will create a simple server in the file :file:`server.js`
 
-::
+.. code-block:: jsx
 
     const express = require("express");
     const app = express();
@@ -46,9 +46,9 @@ Then we can run our newly created server:
 
     $ node server.js
 
-Now it's time to write our action to fetch the items from the backend:
+Now it is time to write our action to fetch the items from the backend:
 
-::
+.. code-block:: jsx
 
     export const getFaqItems = () => ({
       type: "GET_FAQ_ITEMS",
@@ -69,7 +69,7 @@ looking for a property called :file:`request`. If that one is available we want
 to do an api call with the provided operation, path and data and fire a new a
 new action when the data is fetched. The implementation will look like this:
 
-::
+.. code-block:: jsx
 
     export default store => next => action => {
       const { request, type, ...rest } = action;
@@ -94,7 +94,7 @@ new action when the data is fetched. The implementation will look like this:
 
 Finally we need to apply our middleware to the store:
 
-::
+.. code-block:: jsx
 
     import React, { Component } from "react";
     import { Provider } from "react-redux";

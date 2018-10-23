@@ -7,11 +7,11 @@ Write Tests For Your Reducers
 Reducer Tests
 =============
 
-Since reducers are just pure functions with input and output they are really
-easy to write unit tests for. We'll start by adding a test for the
+Since reducers are pure functions with input and output we can write unit
+tests for them. We will start by adding a test for the
 :file:`ADD_TODO` action in a file called :file:`reducers/faq.test.js`:
 
-::
+.. code-block:: jsx
 
     import faq from "./faq";
 
@@ -40,7 +40,7 @@ Add the unit tests for the edit and the delete actions for the reducer.
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         it("is able to handle the edit faq item action", () => {
           expect(

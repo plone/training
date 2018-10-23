@@ -7,9 +7,9 @@ Use Forms To Add An Item
 Add The Form
 ============
 
-To be able to add Faq items to the list we'll start by adding an add form:
+To be able to add FAQ items to the list we will start by adding an add form:
 
-::
+.. code-block:: jsx
 
     render() {
       return (
@@ -49,7 +49,7 @@ inputs.
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         import React, { Component } from "react";
         import FaqItem from "./components/FaqItem";
@@ -145,13 +145,13 @@ Submit Handler
 
 Now that our values are managed in the state we can write our submit handler.
 Write an :file:`onSubmit` handler which reads the values from the state and
-add the new Faq item to the list. After the item is added the inputs should also
+add the new FAQ item to the list. After the item is added the inputs should also
 reset to empty values.
 
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         onSubmit(event) {
           this.setState({

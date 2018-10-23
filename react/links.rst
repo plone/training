@@ -9,7 +9,7 @@ the browser doesn't do a full refresh but just changes the route. We will add
 a link to the :file:`FaqItem` component so we can go to the :file:`FaqItemView`
 view.
 
-::
+.. code-block:: jsx
 
     import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ view.
 
 The full listing of the :file:`FaqItem` component is as follows:
 
-::
+.. code-block:: jsx
 
     import React, { Component } from "react";
     import PropTypes from "prop-types";

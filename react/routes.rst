@@ -7,7 +7,7 @@ Using Different Routes
 Routing
 =======
 
-In this chapter we will add routing so we can navigate to a specific Faq item.
+In this chapter we will add routing so we can navigate to a specific FAQ item.
 First we will install :file:`react-router`:
 
 .. code-block:: console
@@ -16,9 +16,9 @@ First we will install :file:`react-router`:
 
 Next we will define the routes we want to use. We will use the
 :file:`BrowserRouter` to define our routes. We will have a view at the root and
-a view at :file:`/faq/1` where '1' is the index of the faq item.
+a view at :file:`/faq/1` where '1' is the index of the FAQ item.
 
-::
+.. code-block:: jsx
 
     import React, { Component } from "react";
     import { Provider } from "react-redux";
@@ -55,9 +55,9 @@ Writing The View
 ================
 
 Now we will create the :file:`FaqItemView` component. This will render the full
-faq item. The code will look something like this:
+FAQ item. The code will look something like this:
 
-::
+.. code-block:: jsx
 
     import React, { Component } from "react";
     import PropTypes from "prop-types";
@@ -105,7 +105,7 @@ item. Complete the :file:`connect` call to return the correct data:
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         export default connect(
           (state, props) => {

@@ -7,12 +7,12 @@ How To Use State In Your Component
 Store Questions And Answers In The State
 ========================================
 
-In order to manipulate the Faq later on we will move all the data to the state
+To manipulate the FAQ later on we will move all the data to the state
 of the component. The state of the component is the local state of that
 specific component. When the state changes the render method is called again. In
 the constructor of the class we can initialize the state.
 
-::
+.. code-block:: jsx
 
     import React, { Component } from "react";
     import FaqItem from "./components/FaqItem";
@@ -59,7 +59,7 @@ method to show or hide the answer.
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         import React, { Component } from "react";
         import PropTypes from "prop-types";

@@ -12,7 +12,7 @@ and remove all the unneeded functionality. First step is to factor out the
 :file:`Faq` component into a separate file called :file:`components/Faq.js`, it is
 almost a 100% copy of :file:`App.js`:
 
-::
+.. code-block:: jsx
 
     import React, { Component } from "react";
     import FaqItem from "./FaqItem";
@@ -130,10 +130,10 @@ almost a 100% copy of :file:`App.js`:
 
     export default Faq;
 
-Next we'll create an :file:`App` component with just the store and a reference
+Next we will create an :file:`App` component with just the store and a reference
 to our newly created :file:`Faq` component:
 
-::
+.. code-block:: jsx
 
     import React, { Component } from "react";
     import { Provider } from "react-redux";
@@ -168,7 +168,7 @@ props and returns an object which will be mapped to props of the component. The
 second is an object with all the actions which will also be mapped to
 props on the component.
 
-::
+.. code-block:: jsx
 
     import addFaqItem from "./actions";
 
@@ -198,7 +198,7 @@ the :file:`FaqItem` to clean up our code. We will also change the :file:`onSubmi
 handler to use the attached :file:`addFaqItem` method. The result will be as
 follows:
 
-::
+.. code-block:: jsx
 
     import React, { Component } from "react";
     import { connect } from "react-redux";
@@ -304,7 +304,7 @@ for our store.
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         import React, { Component } from "react";
         import PropTypes from "prop-types";

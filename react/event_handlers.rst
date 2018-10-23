@@ -7,10 +7,10 @@ Use Event Handlers
 Toggle Method
 =============
 
-In order to show or hide the answer we will add a toggle handler to the class.
-This method needs to be bound to the instance like this:
+To show or hide the answer we will add a toggle handler to the class
+:file:`FaqItem`. This method needs to be bound to the instance like this:
 
-::
+.. code-block:: jsx
 
     constructor(props) {
       super(props);
@@ -29,7 +29,7 @@ set the new state using the :file:`setState` method:
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         toggle() {
           this.setState({
@@ -40,10 +40,10 @@ set the new state using the :file:`setState` method:
 Click Handler
 =============
 
-In order to call the newly created :file:`toggle` method we will add an on click
+To call the newly created :file:`toggle` method we will add an on click
 handler to the question:
 
-::
+.. code-block:: jsx
 
     render() {
       return (

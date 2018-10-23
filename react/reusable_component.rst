@@ -7,14 +7,14 @@ Convert To A Reusable Component
 Create A Reusable component
 ===========================
 
-In order to reuse the markup of a faq item we will split up the code. The app
-component will contain just the data of the faq item and will render a newly
+To reuse the markup of a FAQ item we will split up the code. The app
+component will contain just the data of the FAQ item and will render a newly
 created sub component called :file:`FaqItem`. The data is passed to the sub
 component using properties. In the :file:`FaqItem` component you will have
 access to the properties with :file:`this.props.question` for example. The
 :file:`App.js` code will be changed to:
 
-::
+.. code-block:: jsx
 
     import React, { Component } from "react";
     import FaqItem from "./components/FaqItem";
@@ -56,15 +56,16 @@ access to the properties with :file:`this.props.question` for example. The
 Exercise
 ========
 
-Create the :file:`FaqItem` component which renders the same output.
+Create the :file:`FaqItem` component in a newly created folder called
+:file:`components` which renders the same output. Also move all the styling of
+the view to :file:`components/FaqItem.css`.
 
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         import React, { Component } from "react";
-        import PropTypes from "prop-types";
         import "./FaqItem.css";
 
         class FaqItem extends Component {
@@ -84,12 +85,21 @@ Property Validation
 ===================
 
 React has a builtin mechanism to validate the properties being passed in into a
-component. In the above example you can add the following to the class to
-validate the properties:
+component. When incorrect values are passed you will receive a warning in the
+console. In the above example you have to add an extra import:
 
-::
+.. code-block:: jsx
+
+    import PropTypes from "prop-types";
+
+And the following static property to the class to validate the properties:
+
+.. code-block:: jsx
 
     static propTypes = {
       question: PropTypes.string.isRequired,
       answer: PropTypes.string.isRequired
     };
+
+If you now add a third empty <FaqItem> to :file:`App.js`, errors of missing properties on this component call
+will be reported in the Javascript console of your browser.

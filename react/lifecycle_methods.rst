@@ -9,7 +9,7 @@ example the :file:`componentDidMount` method is called when the component gets
 added to the dom. We can use this method to do additional calls. For example in
 our case we want to fetch the initial data from the backend.
 
-::
+.. code-block:: jsx
 
     componentDidMount() {
       this.props.getFaqItems();
@@ -18,7 +18,7 @@ our case we want to fetch the initial data from the backend.
 The :file:`getFaqItems` method is mapped using the connect call. The full
 :file:`Faq` component will now look like this:
 
-::
+.. code-block:: jsx
 
     import React, { Component } from "react";
     import { connect } from "react-redux";
