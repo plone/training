@@ -156,7 +156,7 @@ You can stop the running instance anytime using :kbd:`ctrl + c`.
 Installing Plone with Vagrant
 -----------------------------
 
-We use a virtual machine (Ubuntu 16.04) to run Plone during the training.
+We use a virtual machine (Ubuntu 18.04) to run Plone during the training.
 
 We rely on `Vagrant <https://www.vagrantup.com>`_ and `VirtualBox <https://www.virtualbox.org>`_ to give the same development environment to everyone.
 
@@ -221,7 +221,7 @@ Now start setting up the virtual machine (VM) that is configured in :file:`Vagra
 
 This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on your Internet connection and system speed) since it does all the following steps:
 
-* downloads a virtual machine (Official Ubuntu Server 16.04 LTS, also called "Xenial Xerus")
+* downloads a virtual machine (Official Ubuntu Server 18.04 LTS, also called "Bionic Beaver")
 * sets up the VM
 * updates the VM
 * installs various system-packages needed for Plone development
@@ -281,7 +281,7 @@ It is in :file:`/vagrant/buildout/`. Start it in foreground with :command:`./bin
 
 .. code-block:: console
 
-    ubuntu@training:/vagrant/buildout$ bin/instance fg
+    vagrant@training:/vagrant/buildout$ bin/instance fg
     2017-10-09 16:28:01 INFO ZServer HTTP server started at Mon Oct  9 16:28:01 2017
         Hostname: 0.0.0.0
         Port: 8080
@@ -304,21 +304,21 @@ It is in :file:`/vagrant/buildout/`. Start it in foreground with :command:`./bin
 
     ******************************************************************************
 
-    /home/ubuntu/buildout-cache/eggs/plone.formwidget.namedfile-2.0.4-py2.7.egg/plone/formwidget/namedfile/widget.py:18: DeprecationWarning: MimeTypeException is deprecated. Import from Products.MimetypesRegistry.interfaces instead
+    /home/vagrant/buildout-cache/eggs/plone.formwidget.namedfile-2.0.4-py2.7.egg/plone/formwidget/namedfile/widget.py:18: DeprecationWarning: MimeTypeException is deprecated. Import from Products.MimetypesRegistry.interfaces instead
       from Products.MimetypesRegistry.common import MimeTypeException
-    /home/ubuntu/buildout-cache/eggs/plone.app.dexterity-2.4.6-py2.7.egg/plone/app/dexterity/__init__.py:14: DeprecationWarning: Name clash, now use '_' as usual. Will be removed in Plone 5.2
+    /home/vagrant/buildout-cache/eggs/plone.app.dexterity-2.4.6-py2.7.egg/plone/app/dexterity/__init__.py:14: DeprecationWarning: Name clash, now use '_' as usual. Will be removed in Plone 5.2
       DeprecationWarning)
-    /home/ubuntu/buildout-cache/eggs/plone.app.multilingual-5.1.2-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
+    /home/vagrant/buildout-cache/eggs/plone.app.multilingual-5.1.2-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
       from plone.app.multilingual.content.lrf import LanguageRootFolder
-    /home/ubuntu/buildout-cache/eggs/plone.portlet.collection-3.2-py2.7.egg/plone/portlet/collection/collection.py:2: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
+    /home/vagrant/buildout-cache/eggs/plone.portlet.collection-3.2-py2.7.egg/plone/portlet/collection/collection.py:2: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
       from plone.app.layout.navigation.defaultpage import isDefaultPage
-    /home/ubuntu/buildout-cache/eggs/Products.CMFPlone-5.1rc1-py2.7.egg/Products/CMFPlone/browser/syndication/views.py:17: DeprecationWarning: wrap_form is deprecated. Import from plone.z3cform.layout instead.
+    /home/vagrant/buildout-cache/eggs/Products.CMFPlone-5.1rc1-py2.7.egg/Products/CMFPlone/browser/syndication/views.py:17: DeprecationWarning: wrap_form is deprecated. Import from plone.z3cform.layout instead.
       from plone.app.z3cform.layout import wrap_form
-    /home/ubuntu/buildout-cache/eggs/Zope2-2.13.26-py2.7.egg/OFS/Application.py:102: DeprecationWarning: Expected text
+    /home/vagrant/buildout-cache/eggs/Zope2-2.13.26-py2.7.egg/OFS/Application.py:102: DeprecationWarning: Expected text
       transaction.get().note("Created Zope Application")
-    /home/ubuntu/buildout-cache/eggs/Zope2-2.13.26-py2.7.egg/OFS/Application.py:265: DeprecationWarning: Expected text
+    /home/vagrant/buildout-cache/eggs/Zope2-2.13.26-py2.7.egg/OFS/Application.py:265: DeprecationWarning: Expected text
       transaction.get().note(note)
-    /home/ubuntu/buildout-cache/eggs/Zope2-2.13.26-py2.7.egg/OFS/Application.py:521: DeprecationWarning: Expected text
+    /home/vagrant/buildout-cache/eggs/Zope2-2.13.26-py2.7.egg/OFS/Application.py:521: DeprecationWarning: Expected text
       transaction.get().note('Prior to product installs')
     2017-10-09 16:28:07 INFO Zope Ready to handle requests
 
@@ -360,7 +360,7 @@ next to :file:`Vagrantfile` and :file:`manifests`.
 .. note::
 
     The database and the python packages are not accessible in your own system since large files cannot make use of symlinks in shared folders.
-    The database lies in ``/home/ubuntu/var``, the python packages are in ``/home/ubuntu/packages``.
+    The database lies in ``/home/vagrant/var``, the python packages are in ``/home/vagrant/packages``.
 
 If you have any problems or questions please mail us at team@starzel.de or create a ticket at https://github.com/plone/training/issues.
 
