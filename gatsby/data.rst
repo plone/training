@@ -1,24 +1,25 @@
 Data
 ====
 
-You can create entire sites only with static pages, but the power of Gatsby is how easily 
-we could get data from several sources and use it to dynamically generate pages.
+If we want, we could create entire sites only with static pages, but with GatsbyJS we can also get data from external sources and use it to dynamically generate pages.
 
-As we said, data could be pulled from different sources: files (markdown, csv, json), databases, api, cms.
-Gatsby’s data layer lets you pull data from these (and any other source) directly into your components.
+Data could be pulled from different sources: files (markdown, csv, json), databases, api, CMS.
+
+GatsbyJS data layer lets you pull data from these (and any other source) directly into your page components with GraphQL.
 
 GraphQL
 -------
 
-GraphQL is a query language developed by Facebook that allows to create api endpoints that can be queried with a particular syntax that describes exactly what kind of data we need (only desired values) and it returns only that data.
+GraphQL is a query language developed by Facebook. It allows to create api endpoints that can be queried with a particular syntax that describes exactly what kind of data we need (only desired values) and it returns only that data.
 
 .. note::  For more detailed information, you could read the `official documentation <https://graphql.org/>`_ and `tutorial <https://www.howtographql.com/>`_.
 
-Gatsby uses GraphQL to expose stored data in a common way, and allows page components to access to it and retrieve only the desired information.
+GatsbyJS uses GraphQL to expose stored data in a common way, and allows page components to access to it and retrieve only the desired informations.
 
-Not only fetched data are stored in GraphQL. Gatsby uses GraphQL data also to expose some common informations (site metadata) and to show what plugins are installed.
+GatsbyJS uses GraphQL also to expose some common informations (site metadata for example) and to show what plugins are installed.
 
 GraphQL has a powerful tool called `GraphiQL` that helps to inspect what data can be queried and to test the queries.
+
 If we inspect the console output when we start development server, we can see these lines:
 
 .. code-block:: console
@@ -39,14 +40,22 @@ There are three columns:
 - Results
 - Schema explorer
 
+**Query builder** is where we are going to write our queries. Queries (and responses) are json objects, and that object will be returned as a response, filled with required data.
+
+**Results** is the section where the response is showed after the query.
+
+**Schema explorer** is where to inspect what is the structure of the data that we can query.
+
 Site metadata
 -------------
 
-As we'll see in the next chapters, there are different configuration files in every project, that allows us to customize different aspects of the site.
-There is a file (gatsby-config.js) where we can set some general site metadata that can be queried with GraphQL and used in pages.
+There are different configuration files in a GatsbyJS project, that allows us to customize different aspects of the site.
 
-For example, if we need to show the sitename in every page, we don't want to write it in every page, because it can change in the future.
-We could also read it from a common place and use it in our pages.
+There is a file called `gatsby-config.js` where we can set some site metadata that can be queried with GraphQL and used in pages.
+
+One metadata that we could set, is the site title.
+
+If we look at the demo site, we could see that there is an header with some text. This is the site title, read from the metadata config (we will see later how to read it in a component).
 
 If we open `gatsby-config.js`, we'll se something like this:
 
@@ -74,7 +83,7 @@ If we open `gatsby-config.js`, we'll se something like this:
         ],
     }
 
-`siteMetadata` is the section that we need to focus on.
+`siteMetadata` is the section that we need to focus on. And the value of `title` is exactly what we see in the header.
 
 If we try to go to GraphiQL page, we could try to access this information with the following query:
 
@@ -90,25 +99,21 @@ If we try to go to GraphiQL page, we could try to access this information with t
 
 .. note:: `query` is a keyword that means that we are requesting data. If we need to modify the data, we need to use `mutation`.
 
-Now that we have seen how to query some data from GraphQL, let's insert this in our pages.
+Now that we have seen how to query some data from GraphQL, let's see how use that infos in components.
 
-Change our index.js page like this:
+There are two ways to inject data into components depending on whether the component is a page component (index.js file), or not (Layout component).
+
+Let's start with the first one: we need to change our index.js page like this:
 
 .. code-block:: none
-    :emphasize-lines: 3,5,8,14-22
+    :emphasize-lines: 1,5,8,14-22
 
-    import React from "react"
-    import Header from '../components/header';
     import { graphql } from "gatsby"
 
     export default ({ data }) => (
-        <div>
-            <Header label="Ploneconf Tokyo 2018" />
-            <h3>About {data.site.siteMetadata.title}</h3>
-            <p>Welcome to your new Gatsby site.</p>
-            <p>Now go build something great.</p>
-            <Link to="/page-2/">Go to page 2</Link>
-        </div>
+        ...
+        <h4>This is the site title: {data.site.siteMetadata.title}</h3>
+        ...
     )
 
     export const query = graphql`
@@ -121,47 +126,66 @@ Change our index.js page like this:
         }
     `
 
-As you can see, first of all, we imported a new module `graphql`. This is used on the bottom of the file,
-to generate our query.
+First of all, we imported a new module `graphql`. This is used on the bottom of the file, to generate the query.
 
-When we add a GraphQL query in our component, the result is automatically passed to the component as a prop called `data`.
+When we add a GraphQL query in our page component, the result is passed to the component as property called `data`.
 
-In that prop, we have the required informations, in the same data structure of the query.
+In that property, we have the result of the query (with the same data structure).
 
-This method could be used in every page component, but if we break up our layout in several pieces (components) like we do in the previous chapter with the header,
-we need to use a different approach using `StaticQuery` components.
+.. note::
+    To see what informations are in `data` property, try to put a ``console.log(data)`` in the component.
 
-This is very useful because we can't expose a GraphQL query in components that are not page components, and with these `StaticQuery` components
-we could avoid passing useless props through the components hierarchy that are only needed by a certain leaf.
+    To do that, we need to change the returned value of the arrow function, because () automatically returns everything is inside them, and we wants to add some logic before returning the value. So the change should be like this:
 
-.. note:: passing props to too many levels is called `props drilling` in ReactJS, and is always better avoid it.
+    .. code-block:: none
 
-For example, if we want to access some data in a component like our `Header`, we need to use this syntax:
+        export default ({ data }) => {
+            console.log(data);
+            return (
+                ...
+                <h4>This is the site title: {data.site.siteMetadata.title}</h3>
+                ...
+            )
+        
+        }
+
+This method could be used in every page component, but if we break up our layout in several pieces (components), we need to use a different approach using "StaticQuery" components.
+
+This is very useful because we can't expose a GraphQL query in components that are not page components, and with these "StaticQuery" components, we could avoid passing useless properties through the components hierarchy that are only needed by a certain leaf.
+
+.. note:: passing props to too many levels is called `props drilling` in ReactJS, and is always better to avoid it.
+
+If we look at `Layout` component in ``components/layout.js`` file, we could see an example of `StaticQuery` to read the site title:
 
 .. code-block:: none
-    :emphasize-lines: 3,5,8,14-22
 
-    import React from 'react'
-    import { StaticQuery, Link, graphql } from "gatsby"
+    import { StaticQuery, graphql } from 'gatsby'
+    ...
 
-    export default Header = () => (
+    const Layout = ({ children }) => (
         <StaticQuery
-            query={
-                graphql`
-                    query {
-                        site {
-                            siteMetadata {
-                                title
-                            }
-                        }
-                    }
-                `
+            query={graphql`
+            query SiteTitleQuery {
+                site {
+                siteMetadata {
+                    title
+                }
+                }
             }
+            `}
             render={data => (
-                <div className="header">
-                    <h1>{data.site.siteMetadata.title}</h1>
-                </div>
+                ...
+                <Header siteTitle={data.site.siteMetadata.title} />
+                ...
             )}
-        </StaticQuery>
+        />
     )
 
+In this case, the query is an attribute of the <StaticQuery> tag.
+
+..note ::
+    StaticQuery is different from standard components that we have seen before, because it uses a ReactJS pattern called `render props <https://reactjs.org/docs/render-props.html>`_.
+
+    This pattern is used when there are different components of the interface that needs the same piece of code/logic and we do not want to duplicate the same code.
+
+    A component that implements that pattern, has some logic hidden inside (for example how to perform a GraphQL query) and takes a function (as `render` property) that expose some data (the result of the query) and returns a React element and calls it instead of implementing its own render logic.

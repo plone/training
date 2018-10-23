@@ -19,7 +19,7 @@ NodeJS is provided with npm, its package manager, we will use it to install the 
 
 .. code-block:: console
 
-   npm install --global gatsby-cli
+   npm install --g gatsby-cli
 
 .. note:: ``-g`` means the CLI will be available globally in our nvm instance.
 
@@ -55,3 +55,5 @@ We will cover "source-plugins" in later chapters.
 
 This command starts a development server.
 You will be able to see and interact with your new site in a development environment at http://localhost:8000.
+
+Now that we have a working installation, let's go deep inside GatsbyJS to see how it works and what are its main parts.
