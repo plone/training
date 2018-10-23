@@ -34,7 +34,7 @@ Some technologies and tools we use during the training:
 What to expect
 ==============
 
-At the end of the course you'll know how to create a custom website using Volto.
+At the end of the course you will know how to create a custom website using Volto.
 
 .. _intro-documentation-label:
 

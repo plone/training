@@ -7,28 +7,28 @@ Override Components
 Override The Logo
 =================
 
-When we want to override a specific file we can create an alias pointing to
-our own theme. So for example if we want to replace the logo, which is located
-in Volto at :file:`components/theme/Logo/Logo.svg`, we will add an logo to
-our theme and create an alias. The folder structure needs to match the folder
-structure of Volto in the :file:`customizations` folder.
+When we want to override a specific file we can create an alias pointing to our own theme.
 
-Excercise
-=========
+So for example if we want to replace the logo, which is located in Volto at ``components/theme/Logo/Logo.svg``,
+we will add a logo to our theme and create an alias.
 
-Replace the logo with a hello kitty logo.
+The folder structure needs to match the folder structure of Volto in the ``customizations`` folder.
+
+Exercise
+========
+
+Replace the logo with a logo of your choice.
 
 Change The Tags Component
 =========================
 
-When we want to override a specific component it works exactly the same as the
-above example with an image. Locate the `Tags.jsx` file and override this file so
-that there is a label in front of the tags with: 'Tags:'.
+When we want to override a specific component, it works exactly the same as the above example with an image.
+Locate the ``Tags.jsx`` file and override this file so that there is a label in front of the tags with: ``Tags:``.
 
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         /**
          * Tags component.

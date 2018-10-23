@@ -4,4 +4,4 @@
 Rich Text Editor Settings
 =========================
 
-change toolbar etc
+change toolbar

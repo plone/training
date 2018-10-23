@@ -4,17 +4,16 @@
 Override Views
 ==============
 
-Excercise
-=========
+Exercise
+========
 
-Overriding existing views works exactly the same as components. Override the
-summary view so that the "Read more..." text is gone and is replaced by the
-rich text content.
+Overriding existing views works exactly the same as components.
+Override the summary view so that the "Read more..." text is gone and is replaced by the rich text content.
 
 ..  admonition:: Solution
     :class: toggle
 
-    ::
+    .. code-block:: jsx
 
         /**
          * Summary view component.

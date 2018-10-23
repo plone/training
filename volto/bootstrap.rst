@@ -7,14 +7,14 @@ Bootstrapping A Volto Project
 Installing Plone
 ================
 
-On order to run Volto you need a backend. This can be either Plone or
-Guillotina. For this course we will use Plone, you can download Plone at
-:file:`https://plone.org/download`.
+On order to run Volto you need a backend.
+This can be either Plone or Guillotina.
+For this course we will use Plone, you can download Plone at https://plone.org/download.
 
-Installing dependencies
+Installing Dependencies
 =======================
 
-First step is to install the correct Node version using :file:`nvm`:
+First step is to install the correct Node version using ``nvm``:
 
 .. code-block:: console
 
@@ -26,13 +26,13 @@ Then you can install the latest LTS version of node:
 
     $ nvm install --lts
 
-We use the package manager :file:`yarn`, to install do:
+We use the package manager ``yarn``, to install do:
 
 .. code-block:: console
 
     $ npm install -g yarn
 
-And add the :file:`create-volto-app` package:
+And add the ``create-volto-app`` package:
 
 .. code-block:: console
 
@@ -49,7 +49,7 @@ To create a new volto project type the following:
 
 It will create a folder called `my-volto-app` inside the current folder with the following structure:
 
-::
+.. code-block:: console
 
     my-volto-app
     ├── README.md

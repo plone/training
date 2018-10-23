@@ -7,12 +7,12 @@ Static Resources
 The Public Folder
 =================
 
-The :file:`public` folder contains all the static resources. These resources
-will be made available on the root of your project. By default this contains
-the favicon.ico and the robots.txt files. You can change these files here.
+The ``public`` folder contains all the static resources.
+These resources will be made available on the root of your project.
+By default this contains the favicon.ico and the robots.txt files.
+You can change these files here.
 
 Exercise
 ========
 
-Locate the static resources folder and replace the favicon with a Hello Kitty
-favicon.
+Locate the static resources folder and replace the favicon with a favicon of your choice.
