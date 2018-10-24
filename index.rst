@@ -68,4 +68,4 @@ Trainings
     Learn React, Redux and React-Router.
 
 :doc:`volto/index`
-    Build a custom website using Volta and the Plone REST API.
+    Build a custom website using Volto and the Plone REST API.
