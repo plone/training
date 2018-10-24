@@ -56,8 +56,7 @@ Exercise
 
 Try to edit `index.js` file and see how the homepage will change.
 
-.. note:: remember that with `gatsby develop` command, there is a webpack dev-server running with hot reload,
-so every time we make some changes, the page will automatically update.
+.. note:: Remember that with `gatsby develop` command, there is a webpack dev-server running with hot reload, so every time we make some changes, the page will automatically update.
 
 ..  admonition:: Solution
     :class: toggle

@@ -167,7 +167,7 @@ This is similar to a simple page component, except for GraphQL query: we need to
 
 If we restart the server, we could now access directly to the pages created automatically.
 
-.. note:: to easily get a list of generated urls, try to access to a random page like http://localhost:8000/asdf. The default NotFound page will propose you some possible alternative urls.
+.. note:: To easily get a list of generated urls, try to access to a random page like http://localhost:8000/asdf. The default NotFound page will propose you some possible alternative urls.
 
 Last thing that we could do, is to link them in our index.js page:
 

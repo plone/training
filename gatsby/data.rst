@@ -153,7 +153,7 @@ This method could be used in every page component, but if we break up our layout
 
 This is very useful because we can't expose a GraphQL query in components that are not page components, and with these "StaticQuery" components, we could avoid passing useless properties through the components hierarchy that are only needed by a certain leaf.
 
-.. note:: passing props to too many levels is called `props drilling` in ReactJS, and is always better to avoid it.
+.. note:: Passing props to too many levels is called `props drilling` in ReactJS, and is always better to avoid it.
 
 If we look at `Layout` component in ``components/layout.js`` file, we could see an example of `StaticQuery` to read the site title:
 
@@ -183,7 +183,7 @@ If we look at `Layout` component in ``components/layout.js`` file, we could see 
 
 In this case, the query is an attribute of the <StaticQuery> tag.
 
-..note ::
+.. note::
     StaticQuery is different from standard components that we have seen before, because it uses a ReactJS pattern called `render props <https://reactjs.org/docs/render-props.html>`_.
 
     This pattern is used when there are different components of the interface that needs the same piece of code/logic and we do not want to duplicate the same code.

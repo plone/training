@@ -5,7 +5,7 @@ Now that we learned how to create pages and access dynamic data with GraphQL, we
 
 Source plugins are the tools that can handle this job. Every plugin is specialized in getting data from a different source.
 
-..note :: There are a lot of plugins for almost every need. You can find a complete list of plugins on `GatsbyJS official website <https://www.gatsbyjs.org/plugins/>`_.
+.. note:: There are a lot of plugins for almost every need. You can find a complete list of plugins on `GatsbyJS official website <https://www.gatsbyjs.org/plugins/>`_.
 
 Let's start with a basic one, `gatsby-source-filesystem`: a plugin that transforms files into GraphQL nodes.
 
