@@ -6,6 +6,7 @@ docutils==0.14
 idna==2.7
 imagesize==1.0.0
 Jinja2==2.10
+jsx-lexer==0.0.6
 MarkupSafe==1.0
 polib==1.1.0
 pyenchant==2.0.0

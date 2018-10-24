@@ -18,6 +18,7 @@ A collection of trainings developed and created by the Plone Community.
     solr/index
     workflow/index
     angular/index
+    react/index
     advanced-python/index
 
 ..  toctree::
@@ -61,3 +62,6 @@ Trainings
 
 :doc:`angular/index`
     Building Angular 4 apps using the Plone REST API.
+
+:doc:`react/index`
+    Learn React, Redux and React-Router.
