@@ -48,7 +48,7 @@ To get more informations to be queried (for example the title of the blogposts, 
 
 And add it into our `gatsby-config.js` file in the plugins list:
 
-.. code.block:: none
+.. code-block:: none
 
   ...
   plugins: [
@@ -75,8 +75,8 @@ Exercise
 
 We want to create a blog, so we need to edit our `pages/index.js` to list all blogposts with these informations:
 
-- total number of posts
-- for each post: title, date and description
+- Total number of posts
+- For each post: title, date and description
 
 Hints: try to play a bit with the `allMarkdownRemark` query and see how to retrieve all required informations.
 

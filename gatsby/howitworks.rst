@@ -1,9 +1,6 @@
 How it works
 ============
 
-  .. image:: ./_static/gatsby-schema.png
-    :scale: 50%
-
 There are basically three steps:
 
 1) Fetch data

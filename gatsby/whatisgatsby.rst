@@ -10,8 +10,7 @@ It uses a stack of cutting-edge technologies:
 - Webpack
 - GraphQL
 
-Using these technologies combined together, GatsbyJS allows developers to easily develop their websites 
-with modern best-practices and tools:
+Using these technologies combined together, GatsbyJS allows developers to easily develop their websites with modern best-practices and tools:
 
 - Code splitting, responsive images, etc
 - Componentization
@@ -22,4 +21,4 @@ with modern best-practices and tools:
 
 GatsbyJS sets up a project using the latest technologies which pulls data from almost any source at all and generates a static site, just by whipping together a couple of Gatsby plugins together or directly with all configuration by using a starter.
 
-That's how it's developer friendly, but it even has a lot of benefits practically too! Static sites mean you don't need to worry about complex server setup maintenance and scaling, you can just lift them into a CDN and make the site available as quick as possible to the users wherever they are. 
+That is how it is developer friendly, but it even has a lot of benefits practically too! Static sites mean you do not need to worry about complex server setup maintenance and scaling, you can just lift them into a CDN and make the site available as quick as possible to the users wherever they are. 
