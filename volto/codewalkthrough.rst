@@ -53,5 +53,5 @@ All the reducers are located here.
 Theme
 =====
 
-The ``theme`` folder contains the Pastanaga them which is used for the styling.
+The ``theme`` folder contains the Pastanaga theme which is used for the styling.
 The ``theme.config`` can be used to set the theme settings.
