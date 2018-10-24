@@ -19,6 +19,7 @@ A collection of trainings developed and created by the Plone Community.
     workflow/index
     angular/index
     react/index
+    volto/index
     advanced-python/index
 
 ..  toctree::
@@ -65,3 +66,6 @@ Trainings
 
 :doc:`react/index`
     Learn React, Redux and React-Router.
+
+:doc:`volto/index`
+    Build a custom website using Volto and the Plone REST API.
