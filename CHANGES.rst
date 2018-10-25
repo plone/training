@@ -175,6 +175,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Add support for translations on transifex
   [macagua]
+  
+- Upgrade Vagrant setup to Ubuntu 18.04 LTS
+  [tschorr]
 
 
 1.2.3 (2014-07-11)
