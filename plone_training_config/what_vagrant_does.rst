@@ -58,13 +58,13 @@ Install zc.buildout, setuptools and other dependencies for the current version i
 
 .. code-block:: bash
 
-    $ /home/vagrant/py27/bin/pip install -r http://dist.plone.org/release/5.1.2/requirements.txt
+    $ /home/vagrant/py27/bin/pip install -r http://dist.plone.org/release/5.1.4/requirements.txt
 
 Now we download and unpack a buildout-cache that holds all the python packages that make up Plone. This is an optimisation: We could skip this step and have buildout download all packages individually from the `python packaging index PyPi <https://pypi.org>`_ but that takes much longer on a first install.
 
 .. code-block:: bash
 
-    $ wget http://dist.plone.org/release/5.1.2/buildout-cache.tar.bz2
+    $ wget http://dist.plone.org/release/5.1.4/buildout-cache.tar.bz2
     $ tar xjf buildout-cache.tar.bz2
 
 Then we check out our tutorial buildout from https://github.com/collective/training_buildout and build it.
