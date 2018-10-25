@@ -24,7 +24,7 @@ Then you can install the latest LTS version of node:
 
 .. code-block:: console
 
-    $ nvm install --lts
+    $ nvm install v8.11.3
 
 We use the package manager ``yarn``, to install do:
 
