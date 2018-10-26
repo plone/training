@@ -2,9 +2,9 @@ Search Traversal Method Of Retrieving Data
 ==========================================
 
 In the previous chapter we covered how to fetch data for a single content object.
-For our source-plugin we'll need to fetch the data for all the content objects in a Plone site and process it into nodes.
+For our source-plugin we will need to fetch the data for all the content objects in a Plone site and process it into nodes.
 
-One of the strategies that we experimented with and adopted for the source-plugin was `Search Traversal`.
+One of the strategies that we experimented with and adopted for the source-plugin was "Search Traversal".
 
 
 Getting The Full List Of Content
@@ -12,8 +12,7 @@ Getting The Full List Of Content
 
 Make a GET Request to `https://plonedemo.kitconcept.com/en/@search`:
 
-.. code-block:: none
-
+.. code-block:: json
   {
     "@id": "https://plonedemo.kitconcept.com/en/@search",
     "items": [
@@ -41,10 +40,10 @@ Make a GET Request to `https://plonedemo.kitconcept.com/en/@search`:
    ...
 
 
-We see that the `@search` endpoint at the Plone root returns a flat list of all content objects in the site.
-We also noted that sending GET requests to the the `@id` gives the data for that particular content object as response.
+We see that the ``@search`` endpoint at the Plone root returns a flat list of all content objects in the site.
+We also noted that sending GET requests to the the ``@id`` gives the data for that particular content object as response.
 
-Combining these, we use the `@search` endpoint to get a full list of objects and then iterate over the `@id` property of each to get the complete data of each object.
+Combining these, we use the ``@search`` endpoint to get a full list of objects and then iterate over the ``@id`` property of each to get the complete data of each object.
 
 .. code-block:: javascript
 
@@ -57,7 +56,7 @@ Combining these, we use the `@search` endpoint to get a full list of objects and
     })
   );
 
-Then we use the same process as before to create the node structure and create Gatsby nodes using the `createNode` action.
+Then we use the same process as before to create the node structure and create Gatsby nodes using the ``createNode`` action.
 
 The full code for basic search traversal:
 
@@ -117,22 +116,24 @@ The full code for basic search traversal:
   }
 
 .. note::
-  We prepend `Plone` to the type and remove spaces for it to automatically handle all Plone native types and follow Gatsby specifications for it to be queried using GraphQL.
+
+  We prepend ``Plone`` to the type and remove spaces for it to automatically handle all Plone native types and follow Gatsby specifications for it to be queried using GraphQL.
 
 .. note::
-  We use the `https://plonedemo.kitconcept.com/en` here directly for development purposes but in a real-world case, use the `baseUrl` passed in from plugin options in `gatsby-config.js`.
+
+  We use the https://plonedemo.kitconcept.com/en here directly for development purposes but in a real-world case, use the ``baseUrl`` passed in from plugin options in ``gatsby-config.js``.
 
 Once we have this complete data, we can process it and create Gatsby nodes for all of them.
 
 Exercise
 ++++++++
 
-Now that we have all the data from the Plone site being fetched and available using GraphQL, try to get data for this particular page with id `https://plonedemo.kitconcept.com/en/demo/a-news-item`.
+Now that we have all the data from the Plone site being fetched and available using GraphQL, try to get data for this particular page with id ``https://plonedemo.kitconcept.com/en/demo/a-news-item``.
 
 ..  admonition:: Solution
     :class: toggle
 
-    Since we it is a News Item, we can directly use GraphQL to query for `ploneNewsItem`:
+    Since we it is a News Item, we can directly use GraphQL to query for ``ploneNewsItem``:
 
     .. code-block:: none
 
