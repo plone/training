@@ -4,6 +4,11 @@ Building Source Plugins
 In the previous section on source plugins we already covered what they are and how to use them.
 We will be going a bit in-depth here to understand how they work internally and how to get onto building one.
 
+Our final goal is to build a GatsbyJS source plugin that can query all the data from a Plone site which has `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/introduction.html>`_ configured.
+Then this can be used to generate a static site from a Plone site, retaining pages, structure and all content.
+
+So firstly let's dive into understanding how to create nodes.
+
 
 How It Works
 ------------
@@ -71,10 +76,12 @@ The structure of any node would look like this at the base level:
 Note that each node needs to have a property called `internal` which is an object containing some information about the node for GatsbyJS to process.
 ``type`` is a string which represents the type of this particular node, allowing nodes of the same type be queried in GraphQL with ``allTypeName``.
 
-.. note:: 
+.. note::
+ 
   While ``type`` can be any string, do ensure that it unique and has no spaces or special characters which cannot be handled by GraphQL.
 
 .. note::
+
   Content digest ensures GatsbyJS does not do extra work if the data of the node has not changed and helps with caching.
   ``crypto`` is an external library which we are using to create content digest. 
   You can install it by ``npm install --save crypto``.
@@ -135,3 +142,5 @@ Hints: use any sample data and spread it to the node, but make sure it has all t
           }
         }
       }
+
+

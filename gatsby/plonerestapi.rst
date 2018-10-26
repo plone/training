@@ -1,23 +1,30 @@
 Fetching Data Using Plone REST.API
 ==================================
 
+Now that we have an idea on how to create nodes, we can move on to retrieving data from a Plone site and creating nodes with that data.
+
 All the data from a Plone site is available in the JSON format using the `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/introduction.html>`_.
 
-We'll be working a lot with this API while working on the Gatsby source-plugin, so it is recommended that you have an API browser to explore the API.
+We will be working a lot with this API while working on the Gatsby source-plugin, so it is recommended that you have an API browser to explore the API.
 Install `Postman <https://www.getpostman.com/>`_ and do go through the quick guide to working with plone.restapi:
 
 https://plonerestapi.readthedocs.io/en/latest/exploring.html#exploring-api-postman-onboarding
 
-.. note:: We're using the same endpoints as for loading the site on a browser but setting the header `Accept: application/json` is what retrieves JSON data for us.
+.. note::
+
+  We will use the same endpoints for loading the site in a browser, but set the header ``Accept: application/json``.
+  This header retrieves JSON data for us.
 
 Exploring The Plone REST.API
 ----------------------------
 
-We'll be using https://plonedemo.kitconcept.com/en as our source Plone site, since it's already been configured with the plone.restapi and is all ready for our usage.
+We will use https://plonedemo.kitconcept.com/en as our source Plone site, since it's already been configured with the plone.restapi and is all ready for our usage.
 
-Let's start with the root itself: A GET Request to `https://plonedemo.kitconcept.com/en` would give the JSON data for the root of the Plone site.
+Let us start with the root itself.
+Send a GET Request to https://plonedemo.kitconcept.com/en.
+This give the JSON data for the root of the Plone site.
 
-.. code-block:: none
+.. code-block:: json
 
   {
     "@components": {
@@ -43,19 +50,22 @@ Let's start with the root itself: A GET Request to `https://plonedemo.kitconcept
     ],
    ...
 
-Let us explore the the `items` array from the response and click on `https://plonedemo.kitconcept.com/en/frontpage`.
+Let us explore the the ``items`` array from the response and click on https://plonedemo.kitconcept.com/en/frontpage.
 We see that it gives a similar response as we got for the root.
-This way, all the content objects have equivalent JSON data which our plugin can process and use to create nodes.
+This way all the content objects have equivalent JSON data which our plugin can process and use to create nodes.
 
 
 Exercise
 ++++++++
 
-Create a node for a the Plone document at `https://plonedemo.kitconcept.com/en/demo/a-page` and test the by displaying some data in the `index` or any other page.
+Create a node for the Plone document at https://plonedemo.kitconcept.com/en/demo/a-page.
+Test the node created from the retrieved data by displaying some data in the ``index`` or any other page.
 
-Hints: use Postman to check the data from the endpoint and process accordingly. Axios library can be used for ease of handling HTTP requests.
+Hints: Use Postman to check the data from the endpoint and process accordingly. 
+Axios library can be used for ease of handling HTTP requests.
 
-.. note:: 
+.. note::
+
     Minor errors may arise when Gatsby node specific fields are overwritten by spreading the Plone object data.
     For now, they can be fixed by defaulting them to the node field data: `node.parent` is an empty string and `node.children` an empty array.
 
