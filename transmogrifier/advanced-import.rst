@@ -8,3 +8,10 @@ When starting out, you may find yourself writing a lot more blueprints than is r
 But this is ok, since migration code is generally only used once.
 
 In this section, we'll cover some advanced tips of what is possible in the pipeline.
+
+* multiple pipelines
+  * https://docs.plone.org/external/collective.transmogrifier/docs/source/genericsetup.html
+* see Ross's code
+* import as upgrade step
+* https://docs.plone.org/external/collective.transmogrifier/docs/source/sections.html
+  * add a condition section that does the same thing as our example blueprint (excluding older items)

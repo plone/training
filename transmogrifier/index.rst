@@ -31,6 +31,7 @@ This is a life saver when you need to migrate content from one site to another, 
    Transmogrifier Basics <basics>
    Before Running the Import <before-import>
    Writing the Import Pipeline <pipeline>
+   Writing Custom Blueprints <blueprints>
    Running the Import <import>
    Advanced Pipeline Tips <advanced-import>
    Advanced Blueprint Tips <advanced-blueprint>

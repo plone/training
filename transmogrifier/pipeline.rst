@@ -15,6 +15,23 @@ pipeline
   The pipeline is a `.cfg` file, so the syntax will be familiar if you regularly edit your buildout.cfg.
   This file details the steps that each exported item takes during the import.
   All steps are looped over for each item in the import.
+  Here is an example of a basic layout:
+
+    [transmogrifier]
+    pipeline =
+        section 1
+        section 2
+        section 3
+    
+    [section 1]
+    blueprint = collective.transmogrifier.tests.examplesource
+    size = 5
+    
+    [section 2]
+    blueprint = collective.transmogrifier.tests.exampletransform
+    
+    [section 3]
+    blueprint = collective.transmogrifier.tests.exampleconstructor
 
 blueprint
   Each step in the pipeline will specify a `blueprint`.
@@ -22,6 +39,8 @@ blueprint
   There are many blueprints already available in the Transmogrifier add-ons,
   or you may need to write some blueprints to handle your custom content.
   Blueprints are specified by `name`, which is set in the `configure.zcml`
+
+A graph here would be nice - showing the flow of items through the pipeline
 
 
 Pipeline Details
@@ -33,6 +52,7 @@ Unless your site is straight, out-of-the-box Plone and you want to migrate as-is
 
 First is the `[transmogrifer]` part which specifies the steps to run and their order.
 **The order is very important!**
+Each item in the import will run the steps in this order.
 Each line corresponds to a part defined later in the file.
 Comments can be added to this file with `#`
 
@@ -40,7 +60,9 @@ The most important pieces are `jsonsource`, `constructor`, and `schemaupdater`.
 
 `jsonsource` specifies the local path to your exported content.
 The path is relative to the root of the buildout.
-If importing from a different type, such as CSV, there is the blueprint `transmogrify.dexterity.csvimport`.
+If importing from a different type, such as CSV, there are blueprints that can handle this:
+`transmogrify.dexterity.csvimport` and `collective.transmogrifier.sections.csvsource`.
+https://docs.plone.org/external/collective.transmogrifier/docs/source/sections/csvsource.html
 
 The `constructor` creates an object in Plone for the current item in the import.
 Any blueprints that manipulate the current `item` in the loop need to be in the pipeline before the `constructor`.
@@ -51,6 +73,9 @@ Then the `schemaupdater` migrates all the field and property content from the ex
 The other steps in the blueprint are included because they will likely be needed, but also to serve as examples.
 Some steps only need to specify the `blueprint`, while others may require some additional parameters.
 You can dig into the blueprint code to get a hint of what parameters might be required.
+
+To add a new step, include its name in the top `[transmogrifier]` section,
+then add the part later in the file. See <advanced-import> for more information.
 
 pathfixer
   The blueprint specified here is `plone.app.transmogrifier.pathfixer`.
@@ -81,7 +106,7 @@ example
   This is provided solely as an example to give you a starting point for making your own blueprint.
   It is currently commented out in the top `[transmogrifier]` section, so it will not run until uncommented.
   The blueprint name, `mysite.example` is defined in the configure.zcml, where it points to the Python Class.
-  We'll cover more about the blueprint itself later.
+  See <blueprints> for more information about writing custom blueprints.
 
 copyuid
   This part uses the `manipulator` blueprint, which allows you to copy a key from the item to the Plone object using a :term:`TALES` expression.
