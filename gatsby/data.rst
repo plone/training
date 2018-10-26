@@ -3,20 +3,23 @@ Data
 
 If we want, we could create entire sites only with static pages, but with GatsbyJS we can also get data from external sources and use it to dynamically generate pages.
 
-Data could be pulled from different sources: files (markdown, csv, json), databases, api, CMS.
+Data could be pulled from different sources: files (Markdown, CSV, JSON), databases, API, CMS.
 
-GatsbyJS data layer lets you pull data from these (and any other source) directly into your page components with GraphQL.
+The GatsbyJS data layer lets you pull data from these (and any other source) directly into your page components with GraphQL.
 
 GraphQL
 -------
 
-GraphQL is a query language developed by Facebook. It allows to create api endpoints that can be queried with a particular syntax that describes exactly what kind of data we need (only desired values) and it returns only that data.
+GraphQL is a query language developed by Facebook.
 
-.. note::  For more detailed information, you could read the `official documentation <https://graphql.org/>`_ and `tutorial <https://www.howtographql.com/>`_.
+It allows to create API endpoints that can be queried with a particular syntax that describes exactly what kind of data we need (only desired values) and it returns only that data.
 
-GatsbyJS uses GraphQL to expose stored data in a common way, and allows page components to access to it and retrieve only the desired informations.
+.. note::
+    For more detailed information, you could read the `official documentation <https://graphql.org/>`_ and `tutorial <https://www.howtographql.com/>`_.
 
-GatsbyJS uses GraphQL also to expose some common informations (site metadata for example) and to show what plugins are installed.
+GatsbyJS uses GraphQL to expose stored data in a common way, allowing page components to access the data and returning only the desired information.
+
+GatsbyJS uses GraphQL also to expose some common information (site metadata for example) and to show what plugins are installed.
 
 GraphQL has a powerful tool called `GraphiQL` that helps to inspect what data can be queried and to test the queries.
 
@@ -40,24 +43,28 @@ There are three columns:
 - Results
 - Schema explorer
 
-**Query builder** is where we are going to write our queries. Queries (and responses) are json objects, and that object will be returned as a response, filled with required data.
+**Query builder** is where we are going to write our queries.
 
-**Results** is the section where the response is showed after the query.
+Queries (and responses) are JSON objects, and that object will be returned as a response, filled with required data.
 
-**Schema explorer** is where to inspect what is the structure of the data that we can query.
+**Results** is the section where the response is shown after the query.
+
+**Schema explorer** is where to inspect the structure of the data that we can query.
 
 Site metadata
 -------------
 
-There are different configuration files in a GatsbyJS project, that allows us to customize different aspects of the site.
+There are different configuration files in a GatsbyJS project that allow us to customize different aspects of the site.
 
-There is a file called `gatsby-config.js` where we can set some site metadata that can be queried with GraphQL and used in pages.
+There is a file called ``gatsby-config.js`` where we can set some site metadata that can be queried with GraphQL and used in pages.
 
-One metadata that we could set, is the site title.
+One metadata that we could set is the site title.
 
-If we look at the demo site, we could see that there is an header with some text. This is the site title, read from the metadata config (we will see later how to read it in a component).
+If we look at the demo site, we could see that there is a header with some text.
 
-If we open `gatsby-config.js`, we'll se something like this:
+This is the site title, read from the metadata config (we will see later how to read it in a component).
+
+If we open ``gatsby-config.js``, we'll se something like this:
 
 .. code-block:: none
 
@@ -83,7 +90,9 @@ If we open `gatsby-config.js`, we'll se something like this:
         ],
     }
 
-`siteMetadata` is the section that we need to focus on. And the value of `title` is exactly what we see in the header.
+`siteMetadata` is the section that we need to focus on.
+
+And the value of ``title`` is exactly what we see in the header.
 
 If we try to go to GraphiQL page, we could try to access this information with the following query:
 
@@ -99,11 +108,13 @@ If we try to go to GraphiQL page, we could try to access this information with t
 
 .. note:: `query` is a keyword that means that we are requesting data. If we need to modify the data, we need to use `mutation`.
 
-Now that we have seen how to query some data from GraphQL, let's see how use that infos in components.
+Now that we have seen how to query some data from GraphQL, let's see how to use that information in components.
 
 There are two ways to inject data into components depending on whether the component is a page component (index.js file), or not (Layout component).
 
-Let's start with the first one: we need to change our index.js page like this:
+Let's start with the first one.
+
+We need to change our ``index.js`` page like this:
 
 .. code-block:: none
     :emphasize-lines: 1,5,8,14-22
@@ -126,16 +137,20 @@ Let's start with the first one: we need to change our index.js page like this:
         }
     `
 
-First of all, we imported a new module `graphql`. This is used on the bottom of the file, to generate the query.
+First of all, we imported a new module ``graphql``.
 
-When we add a GraphQL query in our page component, the result is passed to the component as property called `data`.
+This is used on the bottom of the file to generate the query.
+
+When we add a GraphQL query in our page component, the result is passed to the component as a property called ``data``.
 
 In that property, we have the result of the query (with the same data structure).
 
 .. note::
-    To see what informations are in `data` property, try to put a ``console.log(data)`` in the component.
+    To see what information are in the ``data`` property, try to put a ``console.log(data)`` in the component.
 
-    To do that, we need to change the returned value of the arrow function, because () automatically returns everything is inside them, and we wants to add some logic before returning the value. So the change should be like this:
+    To do that, we need to change the returned value of the arrow function, because ``()`` automatically returns everything inside them, and we want to add some logic before returning the value.
+    
+    So the change should be like this:
 
     .. code-block:: none
 
@@ -149,11 +164,16 @@ In that property, we have the result of the query (with the same data structure)
         
         }
 
-This method could be used in every page component, but if we break up our layout in several pieces (components), we need to use a different approach using "StaticQuery" components.
+This method could be used in every page component, but if we break up our layout in several pieces (components), we need to use a different approach using a wrapper component provided by GatsbyJS called ``StaticQuery``.
 
-This is very useful because we can't expose a GraphQL query in components that are not page components, and with these "StaticQuery" components, we could avoid passing useless properties through the components hierarchy that are only needed by a certain leaf.
+This is very useful because we can't expose a GraphQL query in components that are not page components.
 
-.. note:: Passing props to too many levels is called `props drilling` in ReactJS, and is always better to avoid it.
+With these "StaticQuery" components, we could avoid passing useless properties through the components hierarchy that are only needed by a certain leaf.
+
+.. note::
+    In ReactJS, passing props to too many levels is called `props drilling`.
+    
+    It is always better to avoid it.
 
 If we look at `Layout` component in ``components/layout.js`` file, we could see an example of `StaticQuery` to read the site title:
 
