@@ -14,6 +14,8 @@ While you could possibly migrate your Plone site in-place by updating the versio
 You'll want to use `collective.jsonify <https://pypi.org/project/collective.jsonify>` for the export.
 It walks through your entire Plone site, creating one JSON file for each object in the site.
 It does this using an External Method, and has been tested back to Plone 2.1.
+There is a way to limit what gets exported,
+but you may find it better to export everything, and do the limiting on the import side.
 
 .. todo::
 
