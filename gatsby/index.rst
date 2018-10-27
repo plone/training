@@ -32,6 +32,10 @@ GatsbyJS
     buildingsourceplugins
     plonerestapi
     searchtraversal
+    gatsbysourceplone
+    copyingplonesite
+    richtext
+    navigation
     
 ..  toctree::
     :hidden:
