@@ -1,11 +1,15 @@
 Pages
 =====
 
-The core part of a website are pages. Every site has at least one HTML page (for example a single page application or a landing page).
+The core part of a website are pages.
 
-GatsbyJS is a static site generator, so it has the concept of pages itself. They only difference is that they are not standard HTML documents, but internally they are React components that will be converted in static HTML on build time.
+Every site has at least one HTML page (for example a single page application or a landing page).
 
-ReactJS is a good choice because it allows to add more functionalities to the page and can also be dynamically generated.
+GatsbyJS is a static site generator, so it has the concept of pages itself.
+
+The only difference is that they are not standard HTML documents, but internally they are React components that will be converted into static HTML at build time.
+
+ReactJS is a good choice because it allows us to add more functionalities to the page that can be dynamically generated.
 
 If we see the file structure of our `hello-world` project, we can see that there is a `pages` folder with some JavaScript files:
 
@@ -41,22 +45,29 @@ Let's see how is made `index.js` file. This page is the homepage of our example 
   )  
   export default IndexPage
 
-As we said previously, pages are not basic html documents, but they are React components.
+As we said previously, pages are not basic HTML documents, but they are React components.
 
-You can see that React components are written in a particular syntax called `JSX` that allows to mix pure javascript with
-some html tags.
+You can see that React components are written in a particular syntax called ``JSX``.
 
-Components are functions (or es6 classes) that accept some data and renders some html.
+``JSX`` allows us to mix pure JavaScript with some HTML tags.
 
-.. note:: You can see more infos in the official `ReactJS documentation <https://reactjs.org/docs/components-and-props.html>`_
+Components are functions (or ES6 classes) that accept some data and renders some HTML.
+
+.. note::
+
+  You can see moreinformations in the official `ReactJS documentation <https://reactjs.org/docs/components-and-props.HTML>`_
 
 
 Exercise
 ++++++++
 
-Try to edit `index.js` file and see how the homepage will change.
+Try to edit ``index.js`` file and see how the homepage will change.
 
-.. note:: Remember that with `gatsby develop` command, there is a webpack dev-server running with hot reload, so every time we make some changes, the page will automatically update.
+.. note::
+
+  Remember that with ``gatsby develop`` command, there is a webpack dev-server running with hot reload.
+  
+  Every time we make some changes, the page will automatically update.
 
 ..  admonition:: Solution
     :class: toggle
@@ -74,19 +85,23 @@ Try to edit `index.js` file and see how the homepage will change.
 Components
 ----------
 
-Another thing that we can see in this file, is the use of `Link` and `Layout` components.
+Another thing that we can see in this file, is the use of ``Link`` and ``Layout`` components.
 
 A component is basically a building block of our user interface.
 
 It can be a particular "piece of interface" with a specific layout, markup or functionality.
 
-The fact that components are functions, they can accept parameters (props) and return a value (an HTML-ish string) based on the given parameters.
+Because components are functions, they can accept parameters (props) and return a value (an HTML-ish string) based on the given parameters.
 
-For example the `<Link>` component is used to create links between page components where we pass a "to" property that is used to create a link to "page-2" page.
+For example the ``<Link>`` component is used to create links between page components where we pass a ``to`` property that is used to create a link to "page-2" page.
 
-`<Layout>` component is a custom component created by the default starter that give some basic styles to every component wrapped into it. Let's ignore it right now.
+``<Layout>`` component is a custom component created by the default starter that gives some basic styles to every component wrapped into it.
 
-.. note:: Routing and links are managed under the hood with `reach-router <https://reach.tech/router>`_ library.
+Let's ignore it right now.
+
+.. note::
+
+  Routing and links are managed under the hood with `reach-router <https://reach.tech/router>`_ library.
 
 
 Exercise
@@ -120,6 +135,8 @@ Create a new page and link it in the index.
 
 Components are very useful when you need to reuse a certain pattern in different pages.
 
-Usually components are located in a `components` folder and imported where needed (like `Layout`).
+Usually components are located in a ``components`` folder and imported where needed (like ``Layout``).
 
-.. note:: In components/layout.js there is an example of custom component that add some styles and use other components.
+.. note::
+  
+  In ``components/layout.js`` there is an example of a custom component that adds some styles and uses other components.
