@@ -72,7 +72,7 @@ Axios library can be used for ease of handling HTTP requests.
 ..  admonition:: Solution
     :class: toggle
 
-    .. code-block:: none
+    .. code-block:: javascript
 
     exports.sourceNodes = async ({ actions }) => {
       const { createNode } = actions;
@@ -103,7 +103,7 @@ Axios library can be used for ease of handling HTTP requests.
     }
 
 
-    .. code-block:: none
+    .. code-block:: jsx
 
     import React from 'react'
     import { graphql } from 'gatsby'
