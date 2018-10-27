@@ -47,7 +47,7 @@ Create a new page called "files-list.js" that displays a list of all files with 
 ..  admonition:: Solution
     :class: toggle
 
-    .. code-block:: none
+    .. code-block:: jsx
 
       import React from "react"
       import { graphql } from "gatsby"

@@ -42,7 +42,7 @@ To implement an API, we need to export a function with the same name of the API 
 
 Let's start with the first one, and export a function called `onCreateNode`:
 
-.. code-block:: none
+.. code-block:: jsx
 
   exports.onCreateNode = ({ node }) => {
     console.log(node.internal.type)
@@ -56,8 +56,8 @@ We need to filter them by type.
 
 To generate the slug for this node we could use a helper funcion from ``gatsby-source-filesystem`` that is made for this purpose: ``createFilePath``.
 
-..note :: 
-  if you remember, remark nodes are built on top of filesystem nodes.
+.. note:: 
+  If you remember, Remark nodes are built on top of filesystem nodes.
 
 Finally we need to add the slug attribute to the node.
 
@@ -67,7 +67,7 @@ Other plugins can add new fields to the nodes only with a specific function call
 
 And finally, our ``onCreateNode`` function will be similar to this:
 
-.. code-block:: none
+.. code-block:: jsx
 
   const { createFilePath } = require(`gatsby-source-filesystem`)
 
@@ -90,7 +90,7 @@ Now that we have all the informations, we need to create pages.
 As mentioned in the introduction, to create a page, we need to query data with GraphQL and then map the results into a page.
 So we need to export the `createPage` function as follows:
 
-.. code-block:: none
+.. code-block:: jsx
 
   ...
   const path = require(`path`)
@@ -144,7 +144,7 @@ It is similar to a page component (we will see it shortly).
 
 A this point we just have to create the ``blog-post.js`` template file to end our setup:
 
-.. code-block:: none
+.. code-block:: jsx
 
   import React from "react"
   import { graphql } from "gatsby"
@@ -197,14 +197,14 @@ If we restart the server, we could now access directly to the pages created auto
 
 Last thing that we could do, is to link them in our index.js page:
 
-.. code-block:: none
+.. code-block:: jsx
 
   ...
   <Link to={node.fields.slug}>
     <h3>
       {node.frontmatter.title}{" "}
       <span>
-        — {node.frontmatter.date}
+        {"- "}{node.frontmatter.date}
       </span>
     </h3>
   </Link>
