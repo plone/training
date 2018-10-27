@@ -5,9 +5,9 @@ In the previous section on source plugins we already covered what they are and h
 We will be going a bit in-depth here to understand how they work internally and how to get onto building one.
 
 Our final goal is to build a GatsbyJS source plugin that can query all the data from a Plone site which has `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/introduction.html>`_ configured.
-Then this can be used to generate a static site from a Plone site, retaining pages, structure and all content.
+Then this can be used to generate a static site from a Plone site, containing pages, structure and all content.
 
-So firstly let's dive into understanding how to create nodes.
+Let us dive into understanding how to create nodes.
 
 
 How It Works
@@ -30,7 +30,7 @@ Roughly, the main function for a source plugin would look like:
   ) => {
    ...
 
-The first function parameter object with actions, cache, getNode, are all passed in from GatsbyJS, while the second parameter object is passed in from plugin options (``gatsby-config.js``).
+The first function parameter object with ``actions``, ``cache``, ``getNode``, are all passed in from GatsbyJS, while the second parameter object is passed in from plugin options (``gatsby-config.js``).
 
 For instance, the ``gatsby-config.js`` in this case would look like:
 
@@ -73,12 +73,12 @@ The structure of any node would look like this at the base level:
   }
 
 
-Note that each node needs to have a property called `internal` which is an object containing some information about the node for GatsbyJS to process.
+Note that each node needs to have a property called ``internal`` which is an object containing some information about the node for GatsbyJS to process.
 ``type`` is a string which represents the type of this particular node, allowing nodes of the same type be queried in GraphQL with ``allTypeName``.
 
 .. note::
  
-  While ``type`` can be any string, do ensure that it unique and has no spaces or special characters which cannot be handled by GraphQL.
+  While ``type`` can be any string, ensure that it unique and has no spaces or special characters which cannot be handled by GraphQL.
 
 .. note::
 

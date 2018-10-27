@@ -1,7 +1,7 @@
 Fetching Data Using Plone REST.API
 ==================================
 
-Now that we have an idea on how to create nodes, we can move on to retrieving data from a Plone site and creating nodes with that data.
+Now that we have an idea of how to create nodes, we can move on to retrieving data from a Plone site and creating nodes with that data.
 
 All the data from a Plone site is available in the JSON format using the `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/introduction.html>`_.
 
@@ -13,7 +13,7 @@ https://plonerestapi.readthedocs.io/en/latest/exploring.html#exploring-api-postm
 .. note::
 
   We will use the same endpoints for loading the site in a browser, but set the header ``Accept: application/json``.
-  This header retrieves JSON data for us.
+  This header tells the endpoint to return JSON data in the response for us to process.
 
 Exploring The Plone REST.API
 ----------------------------
@@ -21,8 +21,8 @@ Exploring The Plone REST.API
 We will use https://plonedemo.kitconcept.com/en as our source Plone site, since it's already been configured with the plone.restapi and is all ready for our usage.
 
 Let us start with the root itself.
-Send a GET Request to https://plonedemo.kitconcept.com/en.
-This give the JSON data for the root of the Plone site.
+Send a GET request to https://plonedemo.kitconcept.com/en.
+This returns the JSON data for the root of the Plone site.
 
 .. code-block:: json
 
@@ -50,7 +50,7 @@ This give the JSON data for the root of the Plone site.
     ],
    ...
 
-Let us explore the the ``items`` array from the response and click on https://plonedemo.kitconcept.com/en/frontpage.
+Let us explore the ``items`` array from the response and click on https://plonedemo.kitconcept.com/en/frontpage.
 We see that it gives a similar response as we got for the root.
 This way all the content objects have equivalent JSON data which our plugin can process and use to create nodes.
 
@@ -62,12 +62,13 @@ Create a node for the Plone document at https://plonedemo.kitconcept.com/en/demo
 Test the node created from the retrieved data by displaying some data in the ``index`` or any other page.
 
 Hints: Use Postman to check the data from the endpoint and process accordingly. 
-Axios library can be used for ease of handling HTTP requests.
+The Axios library can be used for handling HTTP requests.
 
 .. note::
 
     Minor errors may arise when Gatsby node specific fields are overwritten by spreading the Plone object data.
     For now, they can be fixed by defaulting them to the node field data: `node.parent` is an empty string and `node.children` an empty array.
+    
 
 ..  admonition:: Solution
     :class: toggle

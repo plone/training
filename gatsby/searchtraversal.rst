@@ -41,7 +41,7 @@ Make a GET Request to `https://plonedemo.kitconcept.com/en/@search`:
 
 
 We see that the ``@search`` endpoint at the Plone root returns a flat list of all content objects in the site.
-We also noted that sending GET requests to the the ``@id`` gives the data for that particular content object as response.
+We also noted that sending GET requests to the ``@id`` gives the data for that particular content object as response.
 
 Combining these, we use the ``@search`` endpoint to get a full list of objects and then iterate over the ``@id`` property of each to get the complete data of each object.
 
@@ -128,12 +128,12 @@ Once we have this complete data, we can process it and create Gatsby nodes for a
 Exercise
 ++++++++
 
-Now that we have all the data from the Plone site being fetched and available using GraphQL, try to get data for this particular page with id ``https://plonedemo.kitconcept.com/en/demo/a-news-item``.
+Now that we have all the data from the Plone site being fetched and available using GraphQL, try to get data for this particular page with id https://plonedemo.kitconcept.com/en/demo/a-news-item.
 
 ..  admonition:: Solution
     :class: toggle
 
-    Since we it is a News Item, we can directly use GraphQL to query for ``ploneNewsItem``:
+    Since it is a News Item, we can directly use GraphQL to query for ``ploneNewsItem``:
 
     .. code-block:: none
 
