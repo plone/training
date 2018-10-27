@@ -39,4 +39,4 @@ everytime we create/edit/delete a file in the source-code.
 
 3) Deploy
 ---------
-The output of Gatsby is a simple set of static resources: html, css and js files, so you can deploy them basically everywhere (Amazon S3, Netlify, GitHub pages, Apache, Surge.sh, and so on).
+The output of Gatsby is a simple set of static resources:HTML, css and js files, so you can deploy them basically everywhere (Amazon S3, Netlify, GitHub pages, Apache, Surge.sh, and so on).

@@ -117,7 +117,6 @@ Let's start with the first one.
 We need to change our ``index.js`` page like this:
 
 .. code-block:: none
-    :emphasize-lines: 1,5,8,14-22
 
     import { graphql } from "gatsby"
 
@@ -150,7 +149,7 @@ In that property, we have the result of the query (with the same data structure)
 
     To do that, we need to change the returned value of the arrow function, because ``()`` automatically returns everything inside them, and we want to add some logic before returning the value.
     
-    So the change should be like this:
+    The change should be like this:
 
     .. code-block:: none
 
@@ -175,7 +174,7 @@ With these "StaticQuery" components, we could avoid passing useless properties t
     
     It is always better to avoid it.
 
-If we look at `Layout` component in ``components/layout.js`` file, we could see an example of `StaticQuery` to read the site title:
+If we look at the ``Layout`` component in ``components/layout.js`` file, we could see an example of ``StaticQuery`` to read the site title:
 
 .. code-block:: none
 
@@ -201,11 +200,12 @@ If we look at `Layout` component in ``components/layout.js`` file, we could see 
         />
     )
 
-In this case, the query is an attribute of the <StaticQuery> tag.
+In this case, the query is an attribute of the ``<StaticQuery>`` tag.
 
 .. note::
+
     StaticQuery is different from standard components that we have seen before, because it uses a ReactJS pattern called `render props <https://reactjs.org/docs/render-props.html>`_.
 
-    This pattern is used when there are different components of the interface that needs the same piece of code/logic and we do not want to duplicate the same code.
+    This pattern is used when there are different components of the interface that need the same piece of code/logic and we do not want to duplicate the same code.
 
     A component that implements that pattern, has some logic hidden inside (for example how to perform a GraphQL query) and takes a function (as `render` property) that expose some data (the result of the query) and returns a React element and calls it instead of implementing its own render logic.
