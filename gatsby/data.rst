@@ -116,13 +116,13 @@ Let's start with the first one.
 
 We need to change our ``index.js`` page like this:
 
-.. code-block:: none
+.. code-block:: jsx
 
     import { graphql } from "gatsby"
 
     export default ({ data }) => (
         ...
-        <h4>This is the site title: {data.site.siteMetadata.title}</h3>
+        <h4>This is the site title: {data.site.siteMetadata.title}</h4>
         ...
     )
 
@@ -151,13 +151,13 @@ In that property, we have the result of the query (with the same data structure)
     
     The change should be like this:
 
-    .. code-block:: none
+    .. code-block:: jsx
 
         export default ({ data }) => {
             console.log(data);
             return (
                 ...
-                <h4>This is the site title: {data.site.siteMetadata.title}</h3>
+                <h4>This is the site title: {data.site.siteMetadata.title}</h4>
                 ...
             )
         
@@ -176,7 +176,7 @@ With these "StaticQuery" components, we could avoid passing useless properties t
 
 If we look at the ``Layout`` component in ``components/layout.js`` file, we could see an example of ``StaticQuery`` to read the site title:
 
-.. code-block:: none
+.. code-block:: jsx
 
     import { StaticQuery, graphql } from 'gatsby'
     ...

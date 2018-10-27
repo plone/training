@@ -26,7 +26,7 @@ If we see the file structure of our `hello-world` project, we can see that there
 
 Let's see how is made `index.js` file. This page is the homepage of our example site.
 
-.. code-block:: none
+.. code-block:: jsx
 
   import React from 'react'
   import { Link } from 'gatsby'  
@@ -72,7 +72,7 @@ Try to edit ``index.js`` file and see how the homepage will change.
 ..  admonition:: Solution
     :class: toggle
 
-    .. code-block:: none
+    .. code-block:: jsx
 
       <div>
         <h1>Hi Plone people</h1>
@@ -112,9 +112,9 @@ Create a new page and link it in the index.
 ..  admonition:: Solution
     :class: toggle
 
-    Create a new ploneconf.js file and weite this code:
+    Create a new ploneconf.js file and write this code:
 
-    .. code-block:: none
+    .. code-block:: jsx
 
         import React from 'react'
         import { Link } from 'gatsby'
@@ -124,7 +124,7 @@ Create a new page and link it in the index.
           <Layout>
             <div>
               <h1>Ploneconf training</h1>
-              <p>That's a page created at the training.</p>
+              <p>That is a page created at the training.</p>
               <Link to="/">Go to the homepage</Link>
             </div>
           </Layout>

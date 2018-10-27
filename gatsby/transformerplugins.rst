@@ -88,7 +88,7 @@ Hints: try to play a bit with the ``allMarkdownRemark`` query and see how to ret
 ..  admonition:: Solution
     :class: toggle
 
-    .. code-block:: none
+    .. code-block:: jsx
 
       import React from "react"
       import { graphql } from "gatsby"
@@ -104,7 +104,7 @@ Hints: try to play a bit with the ``allMarkdownRemark`` query and see how to ret
                 <h3>
                   {node.frontmatter.title}{" "}
                   <span>
-                    — {node.frontmatter.date}
+                    {"- "}{node.frontmatter.date}
                   </span>
                 </h3>
                 <p>{node.excerpt}</p>
