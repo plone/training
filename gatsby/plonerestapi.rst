@@ -61,16 +61,17 @@ Exercise
 Create a node for the Plone document at https://plonedemo.kitconcept.com/en/demo/a-page.
 Test the node created from the retrieved data by displaying some data in the ``index`` or any other page.
 
-.. TODO async calls, axios, more links on Gatsby APIs
-
-Hints: Use Postman to check the data from the endpoint and process accordingly. 
+Hints: Use Postman to check the data from the endpoint.
+Refer to the previous section for creating nodes.
 The Axios library can be used for handling HTTP requests.
 
 .. note::
 
-    Minor errors may arise when Gatsby node specific fields are overwritten by spreading the Plone object data.
-    For now, they can be fixed by defaulting them to the node field data: `node.parent` is an empty string and `node.children` an empty array.
+  Make sure you send an asynchronous request with the Axios library with ``await``.
+  If not, the function will finish execution before the data is even retrieved and pass it as ``undefined``.
     
+.. note:: 
+  Read more about GET requests with Axios in the `official docs <https://www.npmjs.com/package/axios#example>`_.
 
 ..  admonition:: Solution
     :class: toggle

@@ -3,29 +3,14 @@ gatsby-source-plone
 
 With the previous sections on source nodes, retrieving data from ``plone.restapi`` and finally using the search traversal method, we have understood how our source-plugin works at base level.
 
-Cheers! That was amazing work.
+Great work! 
 
-We have already built this plugin with additional helpful features and functionality to handle all kinds of data, caching and so on in an optimal manner.
+gatsby-source-plone is basically this plugin with additional helpful features and functionality to handle all kinds of data, caching and so on in an optimal manner.
 
-So let us try out the `gatsby-source-plone <https://github.com/collective/gatsby-source-plone/>`_ plugin with our `gatsby-starter-plone <https://github.com/collective/gatsby-starter-plone/>`_ to instantly kickstart GatsbyJS development with Plone.
+So firstly, remove whatever code we have written in ``gatsby-node.js`` as our plugin will be taking care of all that internally.
+Then install gatsby-source-plone with ``npm install gatsby-source-plone``.
 
-With the GatsbyJS CLI installed, starting up is as simple as:
-
-.. code-block:: console
-
-  gatsby new gatsby-plone-training https://github.com/collective/gatsby-starter-plone
-  
-
-This is will setup a GatsbyJS project in the gatsby-plone-training folder with gatsby-source-plone setup already along with a couple of useful extra features.
-
-To see the starter along with the plugin in action, just run these and navigate to ``localhost:8000``.
-
-.. code-block:: console
-  cd gatsby-plone-training
-  gatsby develop
-
-Yes! simple as that we have a GatsbyJS site sourced from a Plone site up and running.
-
+Before we can use the plugin, we need to configure it in the GatsbyJS settings.
 
 Configuration
 -------------
@@ -57,6 +42,58 @@ For examples and more detailed explanation refer the `docs <https://collective.g
 **token** is the ``JWT`` (JSON Web Token) for ``plone.restapi``.
 This is used in some Plone sites that require authentication to query data.
 For configuring authentication with ``JWT`` and `dotenv <https://github.com/motdotla/dotenv>`_, read the full `documentation <https://collective.github.io/gatsby-source-plone/reference/authentication/>`_ for a step by step reference.
+
+.. note::
+
+  https://plonedemo.kitconcept.com/en which was earlier used in the examples requires no authentication to query for data.
+  Hence we can skip the ``token`` setting here. 
+
+Once configured with basic settings, all the data of the Plone Site specified will be available for query via GraphQL.
+
+To test the plugin you could use the sample configuration mentioned above.
+
+
+Exercise
+--------
+
+Run the development server with ``gatsby develop`` and navigate to GraphiQL explorer at localhost:8000/___graphql.
+
+Explore different content object types and also take a look at the breadcrumbs data.
+
+Hints: Query all objects of a type with ``allPloneEvent`` and so on.
+Breadcrumbs data for every content node is available to us with ``allPloneBreadcrumbs``
+
+..  admonition:: Solution
+    :class: toggle
+
+    .. code-block:: none
+
+    {
+      allPloneNewsItem {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+      
+      allPloneEvent {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+      
+      allPloneBreadcrumbs {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+    }
+
 
 
 
