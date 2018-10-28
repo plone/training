@@ -13,6 +13,7 @@ Getting The Full List Of Content
 Make a GET Request to `https://plonedemo.kitconcept.com/en/@search`:
 
 .. code-block:: json
+
   {
     "@id": "https://plonedemo.kitconcept.com/en/@search",
     "items": [
@@ -37,14 +38,77 @@ Make a GET Request to `https://plonedemo.kitconcept.com/en/@search`:
             "review_state": "published",
             "title": "Welcome to Plone 5"
         },
-   ...
+    ]
+  }
 
-.. TODO: redo
 
 We see that the ``@search`` endpoint at the Plone root returns a flat list of all content objects in the site.
-We also noted that sending GET requests to the ``@id`` gives the data for that particular content object as response.
 
-Combining these, we use the ``@search`` endpoint to get a full list of objects and then iterate over the ``@id`` property of each to get the complete data of each object.
+This does not expose the full information of each node but just gives a full list of the objects.
+
+Let us now send a GET request to the ``id`` of one of these objects, say https://plonedemo.kitconcept.com/en/frontpage.
+
+This gives the complete data required by us:
+
+.. code-block:: json
+
+  {
+    "@components": {
+        "breadcrumbs": {
+            "@id": "https://plonedemo.kitconcept.com/en/frontpage/@breadcrumbs"
+        },
+        "navigation": {
+            "@id": "https://plonedemo.kitconcept.com/en/frontpage/@navigation"
+        },
+        "workflow": {
+            "@id": "https://plonedemo.kitconcept.com/en/frontpage/@workflow"
+        }
+    },
+    "@id": "https://plonedemo.kitconcept.com/en/frontpage",
+    "@type": "Document",
+    "UID": "5938b3c2c0e147b18fbf20d32842eb06",
+    "allow_discussion": null,
+    "changeNote": "",
+    "contributors": [],
+    "created": "2018-10-13T13:25:31+00:00",
+    "creators": [
+        "admin"
+    ],
+    "description": "The ultimate Open Source Enterprise CMS",
+    "effective": null,
+    "exclude_from_nav": false,
+    "expires": null,
+    "id": "frontpage",
+    "is_folderish": false,
+    "language": "en",
+    "layout": "document_view",
+    "modified": "2018-10-13T13:25:31+00:00",
+    "parent": {
+        "@id": "https://plonedemo.kitconcept.com/en",
+        "@type": "LRF",
+        "description": "",
+        "review_state": "published",
+        "title": "English"
+    },
+    "relatedItems": [],
+    "review_state": "published",
+    "rights": "",
+    "subjects": [],
+    "table_of_contents": null,
+    "text": {
+        "content-type": "text/html",
+        "data": "<p>Edit this site and test Plone 5 now!</p>",
+        "encoding": "utf-8"
+    },
+    "title": "Welcome to Plone 5",
+    "version": "current"
+  }
+
+Combining these:
+
+- We use the ``@search`` endpoint to get a full list of objects
+- Then iterate over the ``@id`` property of each in the list and send GET requests to retrieve full data
+- Create nodes for each of the objects with this data
 
 .. code-block:: javascript
 
@@ -129,9 +193,11 @@ Once we have this complete data, we can process it and create Gatsby nodes for a
 Exercise
 ++++++++
 
-.. TODO: can't understand the exercise or solution
+Now that you have the search traversal method implemented, all the data form the Plone site is available using GraphQL.
 
-Now that we have all the data from the Plone site being fetched and available using GraphQL, try to get data for this particular page with id https://plonedemo.kitconcept.com/en/demo/a-news-item.
+Run the development server with ``gatsby develop`` and navigate to GraphiQL explorer at localhost:8000/___graphql.
+
+Try to get data for a particular page with id https://plonedemo.kitconcept.com/en/demo/a-news-item.
 
 ..  admonition:: Solution
     :class: toggle
@@ -147,4 +213,6 @@ Now that we have all the data from the Plone site being fetched and available us
         description
       }
     }
+
+    Similarly you can get data for other content objects and even lists of objects.
 

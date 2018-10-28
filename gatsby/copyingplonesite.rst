@@ -1,9 +1,13 @@
 Copying The Plone Site
 ======================
 
+Now we have seen how the plugin and starter work together.
+
 The end goal of the plugin along with GatsbyJS is to generate a static site which is an exact copy of the Plone site it sourced data from.
 
-Breaking this into steps:
+Once gatsby-source-plugin retrieves all the required data for us, the gatsby-starter-plone processes and uses this data to generate the static site.
+
+Internally what gatsby-starter-plone does in steps is:
 
 - Create pages for each content object and ensure tree structure by retaining parent and items relationships
 - Display HTML, images and files in content objects correctly
