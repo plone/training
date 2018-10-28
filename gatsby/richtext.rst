@@ -1,5 +1,9 @@
-RichText
-========
+RichText Component
+==================
+
+Previously, we created pages for each content object and also established a structure with folders and internal linking.
+
+Now we need to display the data inside these pages the right way.
 
 In a Plone site, content objects may contain media such as images, videos and even files.
 The ``plone.restapi`` also returns text data in a content object such as a ``PloneDocument`` as stringified HTML which could contain media and internal linking.
