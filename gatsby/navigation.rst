@@ -1,14 +1,18 @@
 Navigation
 ==========
 
-Navigation is a vital part of any site, especially as the amount of content increases.
+So we have covered page creation and displaying data. 
+
+As the amount the content and pages increases, navigation is important so that a user does not get lost deep in a site.
+
 gatsby-source-plone provides Breadcrumb and root Navigation data, making this task fairly simple.
 
 
 Breadcrumbs
 -----------
 
-Since breadcrumbs depend on the page you are in, it needs to be dynamically created for each page. 
+Since breadcrumbs depend on the page you are in, it needs to be dynamically created for each page.
+
 So the approach is to query it in each page as they are created and pass it on to the Breadcrumb component.
 
 .. code-block:: none
@@ -23,6 +27,7 @@ So the approach is to query it in each page as they are created and pass it on t
 
 
 Here, ``items`` is an array of items where each one is a breadcrumb.
+
 This can data can be appropriately styled and used in a breadcrumb bar.
 
 
@@ -30,7 +35,9 @@ Navigation
 ----------
 
 This is the common topbar in all the views of the site.
+
 It allows quick jumping between root folders (depending on customization). 
+
 Unlike breadcrumbs, we can use a static query here (which queries data initially and then just uses existing data).
 
 .. code-block:: jsx

@@ -19,7 +19,13 @@ Page Creation
 
 ``exports.createPages`` is the API used in ``gatsby-node.js`` for creating pages from nodes.
 
-For instance, to create pages for all nodes of type ``PloneFolder``:
+To create pages for all nodes, firstly we query the list of all different types of nodes and use this list to create pages individually.
+
+To illustrate how this process works, firstly let us just create pages for all nodes of type ``PloneFolder``.
+
+Later we can move on to including all the other types.
+
+In ``gatsby-node.js``:
 
 .. code-block:: javascript
 
@@ -51,7 +57,9 @@ For instance, to create pages for all nodes of type ``PloneFolder``:
   };
 
 The ``_path`` property is very helpful to us to create pages since it is unique to all nodes and even files and images are linked to the nodes they are present in, with the ``_path`` value.
+
 This backlinking will be explained in the later sections.
+
 So basically it can be used to set the relative path of a node in the static site generated and also to get the required images and files.
 
 
@@ -61,6 +69,59 @@ Handling Different Data Types
 For generating pages for each content object, the same process as illustrated by the code above can be followed.
 The only major change would be that we would be using a ``default.js`` template instead and separate components for each type.
 This would internally check what type of node is being used for page creation and return the matching component.
+
+In ``gatsby-node.js`` query for all data types:
+
+.. code-block:: jsx
+
+  ...
+  const result = await graphql(`
+    {
+      allPloneDocument {
+        edges {
+          node {
+            _path
+          }
+        }
+      }
+      allPloneEvent {
+        edges {
+          node {
+            _path
+          }
+        }
+      }
+      allPloneFolder {
+        edges {
+          node {
+            _path
+          }
+        }
+      }
+      allPloneNewsItem {
+        edges {
+          node {
+            _path
+          }
+        }
+      }
+    }
+  `);
+  []
+    .concat(
+      result.data.allPloneDocument.edges,
+      result.data.allPloneEvent.edges,
+      result.data.allPloneFolder.edges,
+      result.data.allPloneNewsItem.edges
+    )
+    .forEach(({ node }) => {
+      createPage({
+        path: node._path,
+        component: path.resolve('./src/templates/default.js'),
+      });
+    });
+  ...
+
 
 The ``default.js`` template:
 
@@ -168,9 +229,18 @@ To understand what happens in the components, let us take the example of the ``F
   `;
 
 Here, the fragment is used by ``default.js`` to get the relevant data of the ``Folder`` content object and is passed in to the Folder component as ``data``.
+
+.. note::
+  Fragments are reusable of GraphQL queries.
+  It also allows you to split up complex queries into smaller, easier to understand components.
+
+  In out case, even though all data is queried in ``default.js`` template, we split up the queries by type and place them in the relevant component.
+  These fragments are included back in the template as required.
+  This helps in maintainability as all the parts of a component including the query is placed together.
+
 The ``Folder`` component now displays the title and description of the Folder itself and a list of child items.
 
 .. note::
 
-  See how we can use ``_path`` for directly linking between GatsbyJS pages.
+  With the ``Link`` component and ``_path`` we can directly linking between GatsbyJS pages.
   
