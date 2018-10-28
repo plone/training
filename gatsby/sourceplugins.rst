@@ -19,21 +19,10 @@ After that, we need to enable the plugin in our project.
 
 To do this, we need to add it into ``gatsby-config.js`` file.
 
-.. code-block:: none
-
-  ...
-  plugins: [
-    ...
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
-      },
-    },
-    ...
-  ]
-  ...
+.. literalinclude:: _snippets/gatsby-config.js
+    :language: none
+    :emphasize-lines: 8-12
+    :lines: 1-13,15
 
 Now restart the development server.
 
@@ -47,52 +36,6 @@ Create a new page called "files-list.js" that displays a list of all files with 
 ..  admonition:: Solution
     :class: toggle
 
-    .. code-block:: jsx
+    .. literalinclude:: _snippets/files-list.js
+      :language: jsx
 
-      import React from "react"
-      import { graphql } from "gatsby"
-      import Header from '../components/header';
-
-      export default ({ data }) => {
-        return (
-          <div>
-            <Header />
-            <h1>Here is a list of files</h1>
-            <table>
-              <thead>
-                <tr>
-                  <th>relativePath</th>
-                  <th>prettySize</th>
-                  <th>extension</th>
-                  <th>birthTime</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.allFile.edges.map(({ node }, index) => (
-                  <tr key={index}>
-                    <td>{node.relativePath}</td>
-                    <td>{node.prettySize}</td>
-                    <td>{node.extension}</td>
-                    <td>{node.birthTime}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )
-      }
-
-      export const query = graphql`
-        query {
-          allFile {
-            edges {
-              node {
-                relativePath
-                prettySize
-                extension
-                birthTime(fromNow: true)
-              }
-            }
-          }
-        }
-      `

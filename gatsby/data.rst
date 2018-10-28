@@ -66,31 +66,12 @@ This is the site title, read from the metadata config (we will see later how to 
 
 If we open ``gatsby-config.js``, we'll se something like this:
 
-.. code-block:: none
+.. literalinclude:: _snippets/gatsby-config.js
+    :language: none
+    :emphasize-lines: 2-4
+    :lines: 1-5
 
-    module.exports = {
-        siteMetadata: {
-            title: 'Gatsby Default Starter',
-        },
-        plugins: [
-            'gatsby-plugin-react-helmet',
-            {
-            resolve: `gatsby-plugin-manifest`,
-            options: {
-                name: 'gatsby-starter-default',
-                short_name: 'starter',
-                start_url: '/',
-                background_color: '#663399',
-                theme_color: '#663399',
-                display: 'minimal-ui',
-                icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
-            },
-            },
-            'gatsby-plugin-offline',
-        ],
-    }
-
-`siteMetadata` is the section that we need to focus on.
+``siteMetadata`` is the section that we need to focus on.
 
 And the value of ``title`` is exactly what we see in the header.
 
@@ -106,35 +87,21 @@ If we try to go to GraphiQL page, we could try to access this information with t
         }
     }
 
-.. note:: `query` is a keyword that means that we are requesting data. If we need to modify the data, we need to use `mutation`.
+.. note::
+    
+    ``query`` is a keyword that means that we are requesting data. If we need to modify the data, we need to use ``mutation``.
 
 Now that we have seen how to query some data from GraphQL, let's see how to use that information in components.
 
-There are two ways to inject data into components depending on whether the component is a page component (index.js file), or not (Layout component).
+There are two ways to inject data into components depending on whether the component is a page component (``index.js`` file), or not (Layout component).
 
 Let's start with the first one.
 
 We need to change our ``index.js`` page like this:
 
-.. code-block:: jsx
-
-    import { graphql } from "gatsby"
-
-    export default ({ data }) => (
-        ...
-        <h4>This is the site title: {data.site.siteMetadata.title}</h4>
-        ...
-    )
-
-    export const query = graphql`
-        query {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
-        }
-    `
+.. literalinclude:: _snippets/index_graphql.js
+    :language: jsx
+    :emphasize-lines: 3,10,17-25
 
 First of all, we imported a new module ``graphql``.
 
@@ -145,6 +112,7 @@ When we add a GraphQL query in our page component, the result is passed to the c
 In that property, we have the result of the query (with the same data structure).
 
 .. note::
+
     To see what information are in the ``data`` property, try to put a ``console.log(data)`` in the component.
 
     To do that, we need to change the returned value of the arrow function, because ``()`` automatically returns everything inside them, and we want to add some logic before returning the value.
@@ -156,9 +124,9 @@ In that property, we have the result of the query (with the same data structure)
         export default ({ data }) => {
             console.log(data);
             return (
-                ...
+                //...
                 <h4>This is the site title: {data.site.siteMetadata.title}</h4>
-                ...
+                //...
             )
         
         }
@@ -179,23 +147,23 @@ If we look at the ``Layout`` component in ``components/layout.js`` file, we coul
 .. code-block:: jsx
 
     import { StaticQuery, graphql } from 'gatsby'
-    ...
+    //...
 
     const Layout = ({ children }) => (
         <StaticQuery
             query={graphql`
             query SiteTitleQuery {
                 site {
-                siteMetadata {
-                    title
-                }
+                    siteMetadata {
+                        title
+                    }
                 }
             }
             `}
             render={data => (
-                ...
+                //...
                 <Header siteTitle={data.site.siteMetadata.title} />
-                ...
+                //...
             )}
         />
     )
