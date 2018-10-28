@@ -14,7 +14,7 @@ We will add a rating field to the ``Page`` content type.
 Go to the Plone Control Panel at http://localhost:8080/Plone/dexterity-types/Document.
 Add a field called ``Rating`` with short name ``rating`` and type ``Integer``.
 
-Next we will create a file ``components/RatingWidgets/RatingWidgets.jsx``.
+Next we will create a file ``components/RatingWidget/RatingWidget.jsx``.
 We will start with a copy of the ``components/manage/Widgets/TextWidget.jsx`` file from Volto,
 and rename the class to ``RatingWidget``.
 
@@ -22,7 +22,7 @@ and rename the class to ``RatingWidget``.
 
     /**
      * RatingWidget component.
-     * @module components/RatingWidgets/RatingWidget
+     * @module components/RatingWidget/RatingWidget
      */
 
     import React from 'react';
@@ -256,7 +256,7 @@ You can use the ``Rating`` component from ``semantic-ui``.
 
         /**
          * RatingWidget component.
-         * @module components/manage/Widgets/RatingWidget
+         * @module components/RatingWidget/RatingWidget
          */
 
         import React from 'react';

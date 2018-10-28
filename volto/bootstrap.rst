@@ -84,6 +84,7 @@ To run the project you can type:
 
 .. code-block:: console
 
+    $ cd my-volto-app
     $ yarn start
 
 This will start the server on port 3000.
