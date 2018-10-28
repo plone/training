@@ -4,6 +4,7 @@ Copying The Plone Site
 The end goal of the plugin along with GatsbyJS is to generate a static site which is an exact copy of the Plone site it sourced data from.
 
 Breaking this into steps:
+
 - Create pages for each content object and ensure tree structure by retaining parent and items relationships
 - Display HTML, images and files in content objects correctly
 - Handle navigation in the site with a Navbar and Breadcrumbs Breadcrumbs

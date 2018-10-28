@@ -2,7 +2,7 @@ Building Source Plugins
 =======================
 
 In the previous section on source plugins we already covered what they are and how to use them.
-We will be going a bit in-depth here to understand how they work internally and how to get onto building one.
+Now we will be going a bit in-depth here to understand how they work internally and how to get onto building one.
 
 Our final goal is to build a GatsbyJS source plugin that can query all the data from a Plone site which has `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/introduction.html>`_ configured.
 Then this can be used to generate a static site from a Plone site, containing pages, structure and all content.
@@ -15,8 +15,8 @@ How It Works
 
 Source plugins run on GatsbyJS build time to pull data from a source, cache it, create nodes and a lot more.
 
-We've already gone through ``exports.createPages`` for dynamically creating pages in the previous section.
-Here we're creating source nodes, hence ``exports.sourceNodes`` will be used in ``gatsby-node.js``.
+We have already gone through ``exports.createPages`` for dynamically creating pages in the previous section.
+Here we are creating source nodes, hence ``exports.sourceNodes`` will be used in ``gatsby-node.js``.
 It works similar to page creation but has a couple actions and helpers to aid us in creating nodes specifically.
 
 Roughly, the main function for a source plugin would look like:
@@ -79,6 +79,7 @@ Note that each node needs to have a property called ``internal`` which is an obj
 .. note::
  
   While ``type`` can be any string, ensure that it unique and has no spaces or special characters which cannot be handled by GraphQL.
+
 
 .. note::
 

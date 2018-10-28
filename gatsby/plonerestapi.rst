@@ -61,6 +61,8 @@ Exercise
 Create a node for the Plone document at https://plonedemo.kitconcept.com/en/demo/a-page.
 Test the node created from the retrieved data by displaying some data in the ``index`` or any other page.
 
+.. TODO async calls, axios, more links on Gatsby APIs
+
 Hints: Use Postman to check the data from the endpoint and process accordingly. 
 The Axios library can be used for handling HTTP requests.
 
@@ -75,66 +77,66 @@ The Axios library can be used for handling HTTP requests.
 
     .. code-block:: javascript
 
-    exports.sourceNodes = async ({ actions }) => {
-      const { createNode } = actions;
+      exports.sourceNodes = async ({ actions }) => {
+        const { createNode } = actions;
 
-      const { data } = await axios.get('https://plonedemo.kitconcept.com/en/demo/a-page', {
-        headers: {
-          accept: "application/json",
+        const { data } = await axios.get('https://plonedemo.kitconcept.com/en/demo/a-page', {
+          headers: {
+            accept: "application/json",
+          }
+        });
+
+        let documentNode = {
+          ...data,
+          id: data["@id"],
+          internal: {
+            type: "PloneDocument",
+            contentDigest: crypto
+              .createHash(`md5`)
+              .update(JSON.stringify(data))
+              .digest(`hex`),
+            mediaType: "text/html"
+          },
+          parent: '',
+          children: [],
         }
-      });
 
-      let documentNode = {
-        ...data,
-        id: data["@id"],
-        internal: {
-          type: "PloneDocument",
-          contentDigest: crypto
-            .createHash(`md5`)
-            .update(JSON.stringify(data))
-            .digest(`hex`),
-          mediaType: "text/html"
-        },
-        parent: '',
-        children: [],
+        createNode(documentNode);
+        return;
       }
-
-      createNode(documentNode);
-      return;
-    }
 
 
     .. code-block:: jsx
 
-    import React from 'react'
-    import { graphql } from 'gatsby'
+      import React from 'react'
+      import { graphql } from 'gatsby'
 
-    import Layout from '../components/layout'
+      import Layout from '../components/layout'
 
-    export default ({ data }) => (
-      <Layout>
-        {data.allPloneDocument.edges.map(({ node }) => (
-          <div key={node.id}>
-            <h3>{node.title}</h3>
-            <p>{node.description}</p>
-          </div>
-        ))}
-      </Layout>
-    )
+      export default ({ data }) => (
+        <Layout>
+          {data.allPloneDocument.edges.map(({ node }) => (
+            <div key={node.id}>
+              <h3>{node.title}</h3>
+              <p>{node.description}</p>
+            </div>
+          ))}
+        </Layout>
+      )
 
-    export const query = graphql`
-      query {
-        allPloneDocument {
-          edges {
-            node {
-              id
-              title
-              description
+      export const query = graphql`
+        query {
+          allPloneDocument {
+            edges {
+              node {
+                id
+                title
+                description
+              }
             }
           }
         }
-      }
-    `;
+      `;
 
 
 
