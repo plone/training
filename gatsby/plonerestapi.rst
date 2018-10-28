@@ -51,7 +51,8 @@ This returns the JSON data for the root of the Plone site.
    ...
 
 Let us explore the ``items`` array from the response and click on https://plonedemo.kitconcept.com/en/frontpage.
-We see that it gives a similar response as we got for the root.
+We see that it gives a similar response as we got for the root
+
 This way all the content objects have equivalent JSON data which our plugin can process and use to create nodes.
 
 
@@ -71,6 +72,7 @@ The Axios library can be used for handling HTTP requests.
   If not, the function will finish execution before the data is even retrieved and pass it as ``undefined``.
     
 .. note:: 
+
   Read more about GET requests with Axios in the `official docs <https://www.npmjs.com/package/axios#example>`_.
 
 ..  admonition:: Solution

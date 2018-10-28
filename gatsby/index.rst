@@ -33,6 +33,7 @@ GatsbyJS
     plonerestapi
     searchtraversal
     gatsbysourceplone
+    gatsbystarterplone
     copyingplonesite
     richtext
     navigation
