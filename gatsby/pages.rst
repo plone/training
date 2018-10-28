@@ -24,26 +24,10 @@ If we see the file structure of our `hello-world` project, we can see that there
     │       └── page-2.js
     ...
 
-Let's see how is made `index.js` file. This page is the homepage of our example site.
+Let's see how is made ``index.js`` file. This page is the homepage of our example site.
 
-.. code-block:: jsx
-
-  import React from 'react'
-  import { Link } from 'gatsby'  
-
-  import Layout from '../components/layout'
-
-  const IndexPage = () => (
-    <Layout>
-      <div>
-        <h1>Gatsby Site</h1>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
-        <Link to="/page-2/">Go to page 2</Link>
-      </div>
-    </Layout>
-  )  
-  export default IndexPage
+.. literalinclude:: _snippets/index_orig.js
+  :language: jsx
 
 As we said previously, pages are not basic HTML documents, but they are React components.
 
@@ -72,15 +56,9 @@ Try to edit ``index.js`` file and see how the homepage will change.
 ..  admonition:: Solution
     :class: toggle
 
-    .. code-block:: jsx
-
-      <div>
-        <h1>Hi Plone people</h1>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
-        <Link to="/page-2/">Go to page 2</Link>
-      </div>
-
+    .. literalinclude:: _snippets/index.js
+      :language: jsx
+      :emphasize-lines: 8,9
 
 Components
 ----------
@@ -112,26 +90,10 @@ Create a new page and link it in the index.
 ..  admonition:: Solution
     :class: toggle
 
-    Create a new ploneconf.js file and write this code:
+    Create a new ``ploneconf.js`` file and write this code:
 
-    .. code-block:: jsx
-
-        import React from 'react'
-        import { Link } from 'gatsby'
-        import Layout from '../components/layout'
-
-        const PloneconfPage = () => (
-          <Layout>
-            <div>
-              <h1>Ploneconf training</h1>
-              <p>That is a page created at the training.</p>
-              <Link to="/">Go to the homepage</Link>
-            </div>
-          </Layout>
-        )
-
-        export default PloneconfPage
-
+    .. literalinclude:: _snippets/ploneconf.js
+      :language: jsx
 
 Components are very useful when you need to reuse a certain pattern in different pages.
 

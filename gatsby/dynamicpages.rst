@@ -33,6 +33,7 @@ The GatsbyJS building stack has a sequence of steps that perform different actio
 - Write out the pages as static HTML pages
 
 GatsbyJS provides a rich set of lifecycle APIs to hook into every step and perform some customizations.
+
 In this chapter we are going to use two of these APIs, which are the most used in plugins:
 
 - ``onCreateNode``: called by Gatsby whenever a node is created or updated, so we can edit the current node before storing it into GraphQL
@@ -42,11 +43,9 @@ To implement an API, we need to export a function with the same name of the API 
 
 Let's start with the first one, and export a function called `onCreateNode`:
 
-.. code-block:: jsx
-
-  exports.onCreateNode = ({ node }) => {
-    console.log(node.internal.type)
-  }
+.. literalinclude:: _snippets/gatsby-node.js
+  :language: jsx
+  :lines: 1-3
 
 This function is called whenever a node is created.
 
@@ -67,64 +66,22 @@ Other plugins can add new fields to the nodes only with a specific function call
 
 And finally, our ``onCreateNode`` function will be similar to this:
 
-.. code-block:: jsx
+.. literalinclude:: _snippets/gatsby-node.js
+  :language: jsx
+  :lines: 6,8-19
 
-  const { createFilePath } = require(`gatsby-source-filesystem`)
-
-  exports.onCreateNode = ({ node, getNode, actions }) => {
-    const { createNodeField } = actions
-    if (node.internal.type === `MarkdownRemark`) {
-      const slug = createFilePath({ node, getNode, basePath: `blog` })
-      createNodeField({
-        node,
-        name: `slug`,
-        value: slug,
-      })
-    }
-  }
-
-If we restart the server and try to query the data, we'll see the slug under the `fields` attribute.
+If we restart the server and try to query the data, we will see the slug under the ``fields`` attribute.
 
 Now that we have all the informations, we need to create pages.
 
-As mentioned in the introduction, to create a page, we need to query data with GraphQL and then map the results into a page.
-So we need to export the `createPage` function as follows:
+As mentioned in the introduction, to create a page we need to query data with GraphQL and then map the results into a page.
 
-.. code-block:: jsx
+To do this, we need to export the other mentioned function (``createPages``) in ``gatsby-node.js`` file:
 
-  ...
-  const path = require(`path`)
-  ...
-
-  exports.createPages = ({ graphql, actions }) => {
-    const { createPage } = actions
-    return new Promise((resolve, reject) => {
-      graphql(`
-        {
-          allMarkdownRemark {
-            edges {
-              node {
-                fields {
-                  slug
-                }
-              }
-            }
-          }
-        }
-      `).then(result => {
-        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-          createPage({
-            path: node.fields.slug,
-            component: path.resolve(`./src/templates/blog-post.js`),
-            context: {
-              slug: node.fields.slug,
-            },
-          })
-        })
-        resolve()
-      })
-    })
-  }
+.. literalinclude:: _snippets/gatsby-node.js
+  :language: jsx
+  :lines: 6-49
+  :emphasize-lines: 2,16-49
 
 What can we see here?
 
@@ -144,34 +101,8 @@ It is similar to a page component (we will see it shortly).
 
 A this point we just have to create the ``blog-post.js`` template file to end our setup:
 
-.. code-block:: jsx
-
-  import React from "react"
-  import { graphql } from "gatsby"
-  import Layout from '../components/layout'
-
-  export default ({ data }) => {
-    const post = data.markdownRemark
-    return (
-      <Layout>
-        <div>
-          <h1>{post.frontmatter.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        </div>
-      </Layout>
-    )
-  }
-
-  export const query = graphql`
-    query($slug: String!) {
-      markdownRemark(fields: { slug: { eq: $slug } }) {
-       HTML
-        frontmatter {
-          title
-        }
-      }
-    }
-  `
+.. literalinclude:: _snippets/blog-post.js
+  :language: jsx
 
 This is similar to a simple page component, except for GraphQL query
 
@@ -195,16 +126,8 @@ If we restart the server, we could now access directly to the pages created auto
   
   The default ``NotFound`` page will offer alternative URLs.
 
-Last thing that we could do, is to link them in our index.js page:
+Last thing that we could do, is to link them in our ``index.js`` page:
 
-.. code-block:: jsx
-
-  ...
-  <Link to={node.fields.slug}>
-    <h3>
-      {node.frontmatter.title}{" "}
-      <span>
-        {"- "}{node.frontmatter.date}
-      </span>
-    </h3>
-  </Link>
+.. literalinclude:: _snippets/index_posts.js
+  :language: jsx
+  :emphasize-lines: 13,20
