@@ -159,6 +159,8 @@ Hints: use any sample data and spread it to the node, but make sure it has all t
 ..  admonition:: Solution
     :class: toggle
 
+    In ``gatsby-node.js``:
+
     .. code-block:: javascript
 
       const crypto = require('crypto');
@@ -187,7 +189,7 @@ Hints: use any sample data and spread it to the node, but make sure it has all t
         return;
       }
 
-    Now in `localhost:8000/___graphql`, you can query it with:
+    Now in http://localhost:8000/___graphql`, you can query it with:
 
     .. code-block:: none
 

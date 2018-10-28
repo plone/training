@@ -10,7 +10,7 @@ gatsby-source-plone is basically this plugin with additional helpful features an
 So firstly, remove whatever code we have written in ``gatsby-node.js`` as our plugin will be taking care of all that internally.
 Then install gatsby-source-plone with ``npm install gatsby-source-plone``.
 
-Before we can use the plugin, we need to configure it in the GatsbyJS settings.
+Before we can use the plugin, we need to configure it to be used with GatsbyJS.
 
 Configuration
 -------------
@@ -56,11 +56,11 @@ To test the plugin you could use the sample configuration mentioned above.
 Exercise
 --------
 
-Run the development server with ``gatsby develop`` and navigate to GraphiQL explorer at localhost:8000/___graphql.
+Run the development server with ``gatsby develop`` and navigate to GraphiQL explorer at http://localhost:8000/___graphql.
 
 Explore different content object types and also take a look at the breadcrumbs data.
 
-Hints: Query all objects of a type with ``allPloneEvent`` and so on.
+Hints: Query all objects of a type with ``allPloneEvent``, ``allPloneNewsItem`` and so on.
 Breadcrumbs data for every content node is available to us with ``allPloneBreadcrumbs``
 
 ..  admonition:: Solution

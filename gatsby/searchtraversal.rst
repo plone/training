@@ -195,7 +195,7 @@ Exercise
 
 Now that you have the search traversal method implemented, all the data form the Plone site is available using GraphQL.
 
-Run the development server with ``gatsby develop`` and navigate to GraphiQL explorer at localhost:8000/___graphql.
+Run the development server with ``gatsby develop`` and navigate to GraphiQL explorer at http://localhost:8000/___graphql.
 
 Try to get data for a particular page with id https://plonedemo.kitconcept.com/en/demo/a-news-item.
 
