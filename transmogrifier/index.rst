@@ -1,4 +1,4 @@
-.. _theming-label:
+.. _transmogrifier-label:
 
 =====================================
 Migrating Content with Transmogrifier

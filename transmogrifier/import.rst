@@ -45,7 +45,7 @@ A `run_migration` step is provided that does the same thing as importing the mig
 This is where you'll want to start.
 No code needs to be written for this, it's already available in the migration package.
 
-* Go to the ZMI > portal_quickinstaller, install `mysite.migration (default)`, if it is not already installed
+* Go to the Management Interface > portal_quickinstaller, install `mysite.migration (default)`, if it is not already installed
 * Then go to portal_setup > Import tab
 * In the first dropdown, find `ploneconf.migration (import)`
 * Click 'Import all steps'
@@ -71,16 +71,16 @@ a `pre_migration` step, the actual import step, and a `post_migration`.
 The additional steps give you an opportunity to enable or disable bits of code during the migration.
 The commented code provides an example for disabling a subscriber, then re-enabling it as the post-step.
 A good use case for this is when importing forms - 
-form products like PloneFormGen and EasyForm have subscribers to add some default fields to a new form folder.
+form products such as PloneFormGen and EasyForm have subscribers to add some default fields to a new form folder.
 You likely won't want this on forms that are being migrated, which already have the fields they need.
 
 To run the import steps:
 
-* Go to the ZMI > portal_quickinstaller, install `mysite.migration (default)`, if it is not already installed
+* Go to the Management Interface > portal_quickinstaller, install `mysite.migration (default)`, if it is not already installed
 * Then go to portal_setup > Upgrades tab
 * Choose `mysite.migration (default)` from the dropdown
 * You may need to click 'Show' to see the upgrade steps
-* Check all the boxes, and click 'Upgrade'
+* Select all the boxes, and click 'Upgrade'
 
 If you are running the site in the foreground, you should see things happening now
 (if not running in foreground mode, check the site logs).
@@ -103,7 +103,7 @@ You'll likely run into more errors once you start writing your own blueprints.
 * date set to 'None'
 * `AttributeError: _setObject`
   * this happens when the import tries to add content where it's not allowed,
-    like a non-folderish item, or a folder with limited content types (? - check)
+    such as a non-folderish item, or a folder with limited content types (? - check)
 * `ConstraintNotSatisfied: (u'en', 'language')`
   * Adjust the Language Control Panel in Site Setup to remove the country-specific variants
     and set English as the 'Site language' and 'Available language'.
@@ -143,7 +143,7 @@ Here are some tips for debugging those errors.
    you can make the one item the only thing you import!
    Move the entire export to a separate folder,
    and put the single item inside of a numbered folder.
-   If you know of a few items that throw an error, you can import just those items.
+   If you know of a few items that throw an error, you can import only those items.
    The file names of the imported items do not need to be sequential.
 5. Test the full import after making your fix.
    If you are working with a large export, then testing a couple folders worth will work.

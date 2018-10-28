@@ -27,7 +27,7 @@ There is a way to limit what gets exported,
 but you may find it better to export everything, and do the limiting on the import side.
 
 1. Install `collective.jsonify` into the buildout
-2. Add an External Method at the root of the ZMI (http://[your site]/manage) with the following properties:
+2. Add an External Method at the root of the Management Interface (http://[your site]/manage) with the following properties:
   * id: `export_content`
   * module name: `collective.jsonify.json_methods`
   * function name: `export_content`
