@@ -30,9 +30,26 @@ Note that if you follow the next step to create a migration package with mr.bob,
 Create a Migration Package
 --------------------------
 
-* install mr.bob
-* run the command to create a migration package
+With mr.bob and bobtemplates.plone, you can easily set up a package for handling migrations.
 
-.. todo::
+    $ pip install bobtemplates.plone
+    $ mrbob -O ploneconf.migration bobtemplates.plone:migration_package
 
-    add a migration package to mr.bob, call it mysite.migration
+This command will ask a few questions about the author (you),
+and what version of Plone to use.
+Check plone.org for the latest version.
+
+The created package can be used as an add-on in an existing buildout,
+or as a buildout on its own.
+For this training, we'll use it on its own.
+Follow the instructions below to get a sample Plone site running.
+You can use Python 3 if you are creating a Plone 5.2+ instance.
+
+    $ cd ploneconf.migration
+    $ virtualenv env --python=python2.7
+    $ env/bin/pip install zc.buildout
+    $ env/bin/buildout
+    $ bin/instance fg
+
+This will start up the instance for you, and will be accessible in your browser at http://localhost:8080.
+Click the 'Create a new Plone site' button, and create a site with the id `Plone`.

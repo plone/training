@@ -14,7 +14,26 @@ In this section we will discuss:
 How to Run the Import
 ---------------------
 
-In your mysite.migration package, there are two ways provided to import the data:
+First, get your exported data into the new buildout.
+At the root of the buildout (the main `ploneconf.migration` folder),
+create a folder called `content-import`.
+The numbered folders from the export should go in here.
+So the structure will look like this:
+
+.. code-block:: console
+
+   ploneconf.migration/
+   ├── content-import
+   │   ├── 0
+   |       ├── 1.json
+   |       ├── 2.json
+   |       ├── 3.json
+   |       ├── ...
+   │   ├── 1
+   │   ├── 2
+   │   ├── 3
+
+In your ploneconf.migration package, there are two ways provided to import the data:
 * Import the migration's import profile
 * Run a series of upgrade steps
 
@@ -28,13 +47,18 @@ No code needs to be written for this, it's already available in the migration pa
 
 * Go to the ZMI > portal_quickinstaller, install `mysite.migration (default)`, if it is not already installed
 * Then go to portal_setup > Import tab
-* In the first dropdown, find `mysite.migration (import)`
+* In the first dropdown, find `ploneconf.migration (import)`
 * Click 'Import all steps'
 
 If you are running the site in the foreground, you should see things happening now
 (if not running in foreground mode, check the site logs).
 Information is put into the log for each item that is imported.
 You'll want to keep an eye on this to know when the import is done, or has run into an error.
+See the 'Common Errors' section below if you have a problem.
+
+When the import has successfully completed, you will see:
+`INFO GenericSetup.collective.transmogrifier.genericsetup Transmogrifier pipeline ploneconf.import_content complete`
+Check that your content was imported.
 
 **Upgrade Steps**
 
@@ -70,11 +94,20 @@ When the import hits an error, it will bail on the import.
 If you have PDBDebugMode or similar product installed, you'll get a PDB prompt to help with debugging.
 You'll likely run into more errors once you start writing your own blueprints.
 
-* Import files not found
-* error when no numbered folders are found
+* `Exception: Path (content-import) does not exists.`
+  * The code can't find your exported data.
+    Make sure you have a folder at the root of the buildout called `content-import` with the export.
+* `Module collective.jsonmigrator.blueprints.source_json, line 43, in __iter__`
+  `ValueError: invalid literal for int() with base 10: 'x'`
+  * The code is expecting folders within `content-import` to be numbered
 * date set to 'None'
 * `AttributeError: _setObject`
-  * this happens when the import tries to add content where it's not allowed, like a non-folderish item
+  * this happens when the import tries to add content where it's not allowed,
+    like a non-folderish item, or a folder with limited content types (? - check)
+* `ConstraintNotSatisfied: (u'en', 'language')`
+  * Adjust the Language Control Panel in Site Setup to remove the country-specific variants
+    and set English as the 'Site language' and 'Available language'.
+    (need a better fix)
 
 Debugging Other Errors
 ----------------------

@@ -11,6 +11,7 @@ In this section, we'll cover some advanced tips of what is possible in the pipel
 
 * multiple pipelines
   * https://docs.plone.org/external/collective.transmogrifier/docs/source/genericsetup.html
+* plone.app.transmogrifier.datesupdater
 * see Ross's code
 * import as upgrade step
 * https://docs.plone.org/external/collective.transmogrifier/docs/source/sections.html
