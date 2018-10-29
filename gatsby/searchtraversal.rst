@@ -106,9 +106,9 @@ This gives the complete data required by us:
 
 Combining these:
 
-- We use the ``@search`` endpoint to get a full list of objects
-- Then iterate over the ``@id`` property of each in the list and send GET requests to retrieve full data
-- Create nodes for each of the objects with this data
+- We use the ``@search`` endpoint to get a full list of content objects.
+- Then iterate over the ``@id`` property of each object in the list and send GET requests to retrieve full data.
+- Create nodes for each of the objects with this data.
 
 .. code-block:: javascript
 
@@ -199,7 +199,7 @@ Run the development server with ``gatsby develop`` and navigate to GraphiQL expl
 
 Try to get data for a particular page with id https://plonedemo.kitconcept.com/en/demo/a-news-item.
 
-..  admonition:: Solution
+.. admonition:: Solution
     :class: toggle
 
     Since it is a News Item, we can directly use GraphQL to query for ``ploneNewsItem``:

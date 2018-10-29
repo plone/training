@@ -34,13 +34,11 @@ This way there is a page structure as well.
   Plone even allows custom types.
   Read more about this in the `docs <https://plonerestapi.readthedocs.io/en/latest/types.html>`_.
 
-It can even have custom types, read more about data types here.
-
 Each of these content objects can be compared to nodes in GatsbyJS.
 
 Similar to what we did in the "Dynamic Pages" section, pages can be created for each of these nodes.
 
-The plone.restapi gives us data of children in Folders along with content itself.
+The plone.restapi gives us data of children in ``Folders`` along with content itself.
 
 This allows us to setup internal linking to ensure the structure as the Plone site.
 
@@ -136,7 +134,7 @@ Note that each node needs to have a property called ``internal`` which is an obj
 
 .. note::
  
-  While ``type`` can be any string, ensure that it unique and has no spaces or special characters which cannot be handled by GraphQL.
+  While ``type`` can be any string, ensure that it is unique and has no spaces or special characters which cannot be handled by GraphQL.
 
 
 .. note::
@@ -156,7 +154,7 @@ You need to make sure it works by checking the result in GraphiQL.
 Hints: use any sample data and spread it to the node, but make sure it has all the fields that are mentioned above.
 
 
-..  admonition:: Solution
+.. admonition:: Solution
     :class: toggle
 
     In ``gatsby-node.js``:
@@ -189,7 +187,7 @@ Hints: use any sample data and spread it to the node, but make sure it has all t
         return;
       }
 
-    Now in http://localhost:8000/___graphql`, you can query it with:
+    Now in http://localhost:8000/___graphql, you can query it with:
 
     .. code-block:: none
 

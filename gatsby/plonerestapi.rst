@@ -5,8 +5,10 @@ Now that we have an idea of how to create nodes, we can move on to retrieving da
 
 All the data from a Plone site is available in the JSON format using the `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/introduction.html>`_.
 
-We will be working a lot with this API while working on the Gatsby source-plugin, so it is recommended that you have an API browser to explore the API.
-Install `Postman <https://www.getpostman.com/>`_ and do go through the quick guide to working with plone.restapi:
+We will be working a lot with this API while working on the Gatsby source-plugin.
+It is recommended that you have an API browser to explore the API.
+
+Install `Postman <https://www.getpostman.com/>`_, then go through the quick guide to working with plone.restapi:
 
 https://plonerestapi.readthedocs.io/en/latest/exploring.html#exploring-api-postman-onboarding
 
@@ -29,30 +31,71 @@ This returns the JSON data for the root of the Plone site.
   {
     "@components": {
         "breadcrumbs": {
-            "@id": "https://plonedemo.kitconcept.com/en/frontpage/@breadcrumbs"
+            "@id": "https://plonedemo.kitconcept.com/en/@breadcrumbs"
         },
         "navigation": {
-            "@id": "https://plonedemo.kitconcept.com/en/frontpage/@navigation"
+            "@id": "https://plonedemo.kitconcept.com/en/@navigation"
         },
         "workflow": {
-            "@id": "https://plonedemo.kitconcept.com/en/frontpage/@workflow"
+            "@id": "https://plonedemo.kitconcept.com/en/@workflow"
         }
     },
-    "@id": "https://plonedemo.kitconcept.com/en/frontpage",
-    "@type": "Document",
-    "UID": "5938b3c2c0e147b18fbf20d32842eb06",
-    "allow_discussion": null,
-    "changeNote": "",
+    "@id": "https://plonedemo.kitconcept.com/en",
+    "@type": "LRF",
+    "UID": "7306e5d778be477f8b40bccaad1ecae7",
     "contributors": [],
     "created": "2018-10-13T13:25:31+00:00",
     "creators": [
         "admin"
     ],
-   ...
+    "description": "",
+    "effective": null,
+    "exclude_from_nav": true,
+    "expires": null,
+    "id": "en",
+    "is_folderish": true,
+    "items": [
+        {
+            "@id": "https://plonedemo.kitconcept.com/en/media",
+            "@type": "LIF",
+            "description": "",
+            "review_state": "published",
+            "title": "Media"
+        },
+        {
+            "@id": "https://plonedemo.kitconcept.com/en/frontpage",
+            "@type": "Document",
+            "description": "The ultimate Open Source Enterprise CMS",
+            "review_state": "published",
+            "title": "Welcome to Plone 5"
+        },
+        {
+            "@id": "https://plonedemo.kitconcept.com/en/demo",
+            "@type": "Folder",
+            "description": "Vestibulum dignissim erat id eros mollis vitae tempus leo ultricies. Cras dapibus suscipit consectetur. Integer tincidunt feugiat tristique. Sed et arcu risus. Nam venenatis, tortor ac tincidunt amet.",
+            "review_state": "published",
+            "title": "Demo"
+        }
+    ],
+    "items_total": 3,
+    "language": "en",
+    "layout": "folder_listing",
+    "modified": "2018-10-13T13:25:32+00:00",
+    "parent": {
+        "@id": "https://plonedemo.kitconcept.com",
+        "@type": "Plone Site",
+        "description": "",
+        "title": ""
+    },
+    "review_state": "published",
+    "rights": "",
+    "subjects": [],
+    "title": "English",
+    "version": "current"
+  }
 
 Let us explore the ``items`` array from the response and click on https://plonedemo.kitconcept.com/en/frontpage.
-We see that it gives a similar response as we got for the root
-
+We see that it gives a similar response as we got for the root.
 This way all the content objects have equivalent JSON data which our plugin can process and use to create nodes.
 
 
@@ -75,7 +118,7 @@ The Axios library can be used for handling HTTP requests.
 
   Read more about GET requests with Axios in the `official docs <https://www.npmjs.com/package/axios#example>`_.
 
-..  admonition:: Solution
+.. admonition:: Solution
     :class: toggle
 
     .. code-block:: javascript

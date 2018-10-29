@@ -83,7 +83,7 @@ For images, we use a different approach altogether.
 They are first optimized and processed by Sharp plugins before they are used.
 Install them with ``npm install gatsby-image gatsby-plugin-sharp gatsby-transformer-sharp``
 
-Add them to ``gatsby-node.js`` by simply: 
+Add them to ``gatsby-node.js``: 
 
 .. code-block:: javascript
 
@@ -93,12 +93,12 @@ Add them to ``gatsby-node.js`` by simply:
   ],
 
 
-Now, the images are available to be queried as per the example above.
+Now, the images are available to be queried per the example above.
 
 .. note:: 
 
-  The fixed width used there is ``600`` but this can be changed as per your requirements.
-  The whole range of options for can be found in the `docs <https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/>`_.
+  The fixed width used there is ``600`` but this can be changed according to your requirements.
+  The whole range of options can be found in the `docs <https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/>`_.
 
 
 RichText Component
@@ -142,8 +142,8 @@ Hints: Try checking the text field of the nodes of type ``PloneDocument``
   This eliminates the use of ``dangerouslySetInnerHTML``, which is recommended to be avoided.
 
 
-The usage of the RichText component is fairly simple. 
-Take the case of ``Document.js`` which handles all nodes of type ``PloneDocument`` on page creation.
+The following is a usage example of the RichText component. 
+``Document.js`` handles all nodes of type ``PloneDocument`` on page creation.
 
 
 .. code-block:: jsx
@@ -161,9 +161,10 @@ Take the case of ``Document.js`` which handles all nodes of type ``PloneDocument
 
 
 Let us do a quick review of how it all falls in place together:
+
 - ``default.js`` is the template used for all content objects.
-- Internally in the template, based on the type the appropriate component is selected
-- Data is retrieved via GraphQL in the template itself based on the type
-- For all types of content objects, images and files are queried separately with backlinks and passed in to the component
-- In the components, RichText component is utilized to display HTML content with images, files and internal links
+- Internally in the template, based on the type, the appropriate component is selected.
+- Data is retrieved via GraphQL in the template itself based on the type.
+- For all types of content objects, images and files are queried separately with backlinks and passed in to the component.
+- In the components, RichText component is utilized to display HTML content with images, files and internal links.
 
