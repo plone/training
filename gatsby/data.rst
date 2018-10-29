@@ -11,10 +11,12 @@ GraphQL
 -------
 
 GraphQL is a query language developed by Facebook.
-It allows to create API endpoints that can be queried with a particular syntax that describes exactly what kind of data we need (only desired values) and it returns only that data.
+It allows a developer to create API endpoints that can be queried with a particular syntax that describes exactly what kind of data we need (only desired values) and it returns only that data.
 
 .. note::
-    For more detailed information, you could read the `official documentation <https://graphql.org/>`_ and `tutorial <https://www.howtographql.com/>`_.
+
+    For more detailed information, you could read the `official documentation <https://graphql.org/>`_.
+    And the `tutorial <https://www.howtographql.com/>`_.
 
 GatsbyJS uses GraphQL to expose stored data in a common way, allowing page components to access the data and returning only the desired information.
 
@@ -31,7 +33,7 @@ If we inspect the console output when we start development server, we can see th
         http://localhost:8000/___graphql
 
 
-Now let's try to open `http://localhost:8000/___graphql <http://localhost:8000/___graphql>`_ and see how it works.
+Now let us try to open `http://localhost:8000/___graphql <http://localhost:8000/___graphql>`_ and see how it works.
 
   .. image:: ./_static/graphiql.png
     :scale: 50%
@@ -43,7 +45,6 @@ There are three columns:
 - Schema explorer
 
 **Query builder** is where we are going to write our queries.
-
 Queries (and responses) are JSON objects, and that object will be returned as a response, filled with required data.
 
 **Results** is the section where the response is shown after the query.
@@ -71,8 +72,7 @@ If we open ``gatsby-config.js``, we'll se something like this:
     :lines: 1-5
 
 ``siteMetadata`` is the section that we need to focus on.
-
-And the value of ``title`` is exactly what we see in the header.
+The value of ``title`` is exactly what we see in the header.
 
 If we try to go to GraphiQL page, we could try to access this information with the following query:
 
@@ -88,13 +88,14 @@ If we try to go to GraphiQL page, we could try to access this information with t
 
 .. note::
     
-    ``query`` is a keyword that means that we are requesting data. If we need to modify the data, we need to use ``mutation``.
+    ``query`` is a keyword that means that we are requesting data.
+    If we need to modify the data, we need to use ``mutation``.
 
-Now that we have seen how to query some data from GraphQL, let's see how to use that information in components.
+Now that we have seen how to query some data from GraphQL, let us see how to use that information in components.
 
 There are two ways to inject data into components depending on whether the component is a page component (``index.js`` file), or not (Layout component).
 
-Let's start with the first one.
+Let us start with the first one.
 We need to change our ``index.js`` page like this:
 
 .. literalinclude:: _snippets/index_graphql.js
@@ -128,15 +129,13 @@ In that property, we have the result of the query (with the same data structure)
         }
 
 This method could be used in every page component, but if we break up our layout in several pieces (components), we need to use a different approach using a wrapper component provided by GatsbyJS called ``StaticQuery``.
-
-This is very useful because we can't expose a GraphQL query in components that are not page components.
-
+This is very useful because we cannot expose a GraphQL query in components that are not page components.
 With these "StaticQuery" components, we could avoid passing useless properties through the components hierarchy that are only needed by a certain leaf.
 
 .. note::
-    In ReactJS, passing props to too many levels is called `props drilling`.
-    
-    It is always better to avoid it.
+
+    In ReactJS, passing props to too many levels is called `prop drilling <https://blog.kentcdodds.com/prop-drilling-bb62e02cb691>`_.    
+    It is always better to avoid it, if we can.
 
 If we look at the ``Layout`` component in ``components/layout.js`` file, we could see an example of ``StaticQuery`` to read the site title:
 
