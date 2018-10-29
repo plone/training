@@ -32,7 +32,7 @@ The CLI allows to initialize a project:
 
    gatsby new hello-world
 
-This command tells gatsby-cli to create a new GatsbyJS project with the name `hello-world` with a basic default file structure.
+This command tells gatsby-cli to create a new GatsbyJS project with the name ``hello-world`` with a basic default file structure.
 
 There are several boilerplates created by the community that allows to bootstrap an application for different use-cases.
 

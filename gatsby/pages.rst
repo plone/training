@@ -1,7 +1,7 @@
 Pages
 =====
 
-The core part of a website are pages.
+The core part of a website is pages.
 
 Every site has at least one HTML page (for example a single page application or a landing page).
 
@@ -10,7 +10,7 @@ The only difference is that they are not standard HTML documents, but internally
 
 ReactJS is a good choice because it allows us to add more functionality to the page that can be dynamically generated.
 
-If we see the file structure of our `hello-world` project, we can see that there is a ``pages`` folder with some JavaScript files:
+If we see the file structure of our ``hello-world`` project, we can see that there is a ``pages`` folder with some JavaScript files:
 
 .. code-block:: console
 
@@ -23,7 +23,7 @@ If we see the file structure of our `hello-world` project, we can see that there
     │       └── page-2.js
     ...
 
-Let us see how is made ``index.js`` file.
+Let us see how the ``index.js`` file is made.
 
 This page is the home page of our example site.
 
@@ -50,7 +50,7 @@ Try to edit ``index.js`` file and see how the home page will change.
     Remember that with ``gatsby develop`` command, there is a webpack dev-server running with hot reload.
     Every time we make some changes, the page will automatically update.
 
-..admonition:: Solution
+.. admonition:: Solution
     :class: toggle
 
     .. literalinclude:: _snippets/index.js

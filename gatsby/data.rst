@@ -171,5 +171,5 @@ In this case, the query is an attribute of the ``<StaticQuery>`` tag.
 
     This pattern is used when there are different components of the interface that need the same piece of code/logic and we do not want to duplicate the same code.
 
-    A component that implements that pattern, has some logic hidden inside (for example how to perform a GraphQL query).
+    A component that implements that pattern has some logic hidden inside (for example how to perform a GraphQL query).
     It takes a function (as ``render`` property) that expose some data (the result of the query) and returns a React element that could use that data.

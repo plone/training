@@ -30,7 +30,7 @@ The GatsbyJS building stack has a sequence of steps that perform different actio
 - Extract and run GraphQL queries and replace their values in pages
 - Write out the pages as static HTML pages
 
-GatsbyJS provides a rich set of ``lifecycle APIs`` to hook into every step and perform some customizations.
+GatsbyJS provides a rich set of "lifecycle APIs" to hook into every step and perform some customizations.
 In this chapter we are going to use two of these APIs, which are the most used in plugins:
 
 - ``onCreateNode``: called by GatsbyJS whenever a node is created or updated, so we can edit the current node before storing it into GraphQL
