@@ -1,11 +1,11 @@
 Navigation
 ==========
 
-So we have covered page creation and displaying data. 
+We have covered page creation and displaying data. 
 
-As the amount the content and pages increases, navigation is important so that a user does not get lost deep in a site.
+As the amount of the content and pages increases, navigation is important so that a user does not get lost deep in a site.
 
-gatsby-source-plone provides Breadcrumb and root Navigation data, making this task fairly simple.
+``gatsby-source-plone`` provides Breadcrumb and root Navigation data, making this task fairly simple.
 
 
 Breadcrumbs
@@ -26,9 +26,9 @@ So the approach is to query it in each page as they are created and pass it on t
   }
 
 
-Here, ``items`` is an array of items where each one is a breadcrumb.
+Here ``items`` is an array of items where each one is a breadcrumb.
 
-This can data can be appropriately styled and used in a breadcrumb bar.
+This data can be appropriately styled and used in a breadcrumb bar.
 
 
 Navigation
