@@ -3,7 +3,9 @@ Source plugins
 
 Now that we learned how to create pages and access dynamic data with GraphQL, we can start fetching some data from external sources.
 
-Source plugins are the tools that can handle this job. Every plugin is specialized in getting data from a different source.
+Source plugins are the tools that can handle this job.
+
+Every plugin is specialized in getting data from a different source.
 
 .. note::
 

@@ -95,7 +95,6 @@ Now that we have seen how to query some data from GraphQL, let's see how to use 
 There are two ways to inject data into components depending on whether the component is a page component (``index.js`` file), or not (Layout component).
 
 Let's start with the first one.
-
 We need to change our ``index.js`` page like this:
 
 .. literalinclude:: _snippets/index_graphql.js
@@ -103,11 +102,9 @@ We need to change our ``index.js`` page like this:
     :emphasize-lines: 3,10,17-25
 
 First of all, we imported a new module ``graphql``.
-
 This is used on the bottom of the file to generate the query.
 
 When we add a GraphQL query in our page component, the result is passed to the component as a property called ``data``.
-
 In that property, we have the result of the query (with the same data structure).
 
 .. note::
@@ -175,4 +172,5 @@ In this case, the query is an attribute of the ``<StaticQuery>`` tag.
 
     This pattern is used when there are different components of the interface that need the same piece of code/logic and we do not want to duplicate the same code.
 
-    A component that implements that pattern, has some logic hidden inside (for example how to perform a GraphQL query) and takes a function (as `render` property) that expose some data (the result of the query) and returns a React element and calls it instead of implementing its own render logic.
+    A component that implements that pattern, has some logic hidden inside (for example how to perform a GraphQL query).
+    It takes a function (as ``render`` property) that expose some data (the result of the query) and returns a React element that could use that data.

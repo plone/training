@@ -9,9 +9,9 @@ GatsbyJS is a static site generator, so it has the concept of pages itself.
 
 The only difference is that they are not standard HTML documents, but internally they are React components that will be converted into static HTML at build time.
 
-ReactJS is a good choice because it allows us to add more functionalities to the page that can be dynamically generated.
+ReactJS is a good choice because it allows us to add more functionality to the page that can be dynamically generated.
 
-If we see the file structure of our `hello-world` project, we can see that there is a `pages` folder with some JavaScript files:
+If we see the file structure of our `hello-world` project, we can see that there is a ``pages`` folder with some JavaScript files:
 
 .. code-block:: console
 
