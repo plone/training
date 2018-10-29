@@ -24,5 +24,5 @@ It can be done either by whipping together a couple of GatsbyJS plugins, or by u
 
 That is how it is developer friendly.
 It has a lot of benefits practically, too.
-Static sites mean you do not need to worry about complex server setup, maintenance and scaling.
+Static sites mean you do not need to worry about complex server setup, maintenance, and scaling.
 Instead you can put GatsbyJS components into a CDN, making the site available as quickly as possible to the users, wherever they are.

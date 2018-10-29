@@ -9,16 +9,17 @@ Every plugin is specialized in getting data from a different source.
 
 .. note::
 
-  There are a lot of plugins for almost every need. You can find a complete list of plugins on `GatsbyJS official website <https://www.gatsbyjs.org/plugins/>`_.
+    There are a lot of plugins for almost every need.
+  
+    You can find a complete list of plugins on `GatsbyJS official website <https://www.gatsbyjs.org/plugins/>`_.
 
-Let's start with a basic one, ``gatsby-source-filesystem``: a plugin that transforms files into GraphQL nodes.
+Let us start with a basic one, ``gatsby-source-filesystem``: a plugin that transforms files into GraphQL nodes.
 
 .. code-block:: none
   
     npm install --save gatsby-source-filesystem
 
 After that, we need to enable the plugin in our project.
-
 To do this, we need to add it into ``gatsby-config.js`` file.
 
 .. literalinclude:: _snippets/gatsby-config.js
@@ -35,7 +36,7 @@ Exercise
 
 Create a new page called "files-list.js" that displays a list of all files with some informations (path, size, extension) found with some query.
 
-..  admonition:: Solution
+..admonition:: Solution
     :class: toggle
 
     .. literalinclude:: _snippets/files-list.js
