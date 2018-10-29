@@ -13,7 +13,7 @@ Overview
 Different Plone Trainings:
 
 - `How to work with content and manage site settings in Plone. <https://training.plone.org/5/>`_
-- `How to get you Plone site up and running. <https://training.plone.org/5/deployment/index.html>`_
+- `How to get your Plone site up and running. <https://training.plone.org/5/deployment/index.html>`_
 - `How to develop customized solutions with Plone. <https://training.plone.org/5/mastering_plone/index.html#mastering-plone-label>`_
 - `How to add enterprise grade search to your Plone site. <https://training.plone.org/5/solr-training/index.html>`_
 - `How to style your Plone site. <https://training.plone.org/5/theming/index.html>`_
