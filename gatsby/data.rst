@@ -11,7 +11,6 @@ GraphQL
 -------
 
 GraphQL is a query language developed by Facebook.
-
 It allows to create API endpoints that can be queried with a particular syntax that describes exactly what kind of data we need (only desired values) and it returns only that data.
 
 .. note::
