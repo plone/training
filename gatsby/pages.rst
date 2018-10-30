@@ -1,9 +1,16 @@
 Pages
 =====
 
-Pages can be considered similar to HTML documents in a website, but here, internally they are React components instead with way more functionality and can even be dynamically generated.
+The core part of a website is pages.
 
-If we see the file structure of our `hello-world` project, we can see that there is a `pages` folder with some JavaScript files:
+Every site has at least one HTML page (for example a single page application or a landing page).
+
+GatsbyJS is a static site generator, so it has the concept of pages itself.
+The only difference is that they are not standard HTML documents, but internally they are React components that will be converted into static HTML at build time.
+
+ReactJS is a good choice because it allows us to add more functionality to the page that can be dynamically generated.
+
+If we see the file structure of our ``hello-world`` project, we can see that there is a ``pages`` folder with some JavaScript files:
 
 .. code-block:: console
 
@@ -16,64 +23,60 @@ If we see the file structure of our `hello-world` project, we can see that there
     │       └── page-2.js
     ...
 
-Let's see how is made `index.js` file. This page is the homepage of our example site.
+Let us see how the ``index.js`` file is made.
 
-.. code-block:: none
+This page is the home page of our example site.
 
-  import React from 'react'
-  import { Link } from 'gatsby'  
+.. literalinclude:: _snippets/index_orig.js
+  :language: jsx
 
-  const IndexPage = () => (
-    <div>
-      <h1>Gatsby Site</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <Link to="/page-2/">Go to page 2</Link>
-    </div>
-  )  
-  export default IndexPage
+As we said previously, pages are not basic HTML documents, but they are React components.
+You can see that React components are written in a particular syntax called ``JSX``.
+``JSX`` allows us to mix pure JavaScript with some HTML tags.
+Components are functions (or ES6 classes) that accept some data and renders some HTML.
 
-As we said previously, pages are not basic html documents, but they are React components.
-You can see that React components are written in a particular syntax called `JSX` that allows to mix pure javascript with
-some html tags.
-Components are functions (or es6 classes) that accept some data and renders some html.
+.. note::
 
-.. note:: You can see more infos in the official `ReactJS documentation <https://reactjs.org/docs/components-and-props.html>`_
+    You can see more information in the official `ReactJS documentation <https://reactjs.org/docs/components-and-props.HTML>`_
 
 
 Exercise
 ++++++++
 
-Try to edit `index.js` file and see how the homepage will change.
+Try to edit ``index.js`` file and see how the home page will change.
 
-.. note:: remember that with `gatsby develop` command, there is a webpack dev-server running with hot reload,
-so every time we make some changes, the page will automatically update.
+.. note::
 
-..  admonition:: Solution
+    Remember that with ``gatsby develop`` command, there is a webpack dev-server running with hot reload.
+    Every time we make some changes, the page will automatically update.
+
+.. admonition:: Solution
     :class: toggle
 
-    .. code-block:: none
-
-      <div>
-        <h1>Hi Plone people</h1>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
-        <Link to="/page-2/">Go to page 2</Link>
-      </div>
-
+    .. literalinclude:: _snippets/index.js
+      :language: jsx
+      :emphasize-lines: 8,9
 
 Components
 ----------
 
-Another thing that we can see in this file, is the use of `Link` component.
+Another thing that we can see in this file, is the use of ``Link`` and ``Layout`` components.
+
 A component is basically a building block of our user interface.
+
 It can be a particular "piece of interface" with a specific layout, markup or functionality.
-The fact that components are functions, they can accept parameters (props) and return a valued based on the given parameters.
 
-For example the `<Link>` component is used to create links between page components where we pass a "to" property that
-is used to create a link to "page-2" page.
+Because components are functions, they can accept parameters (props) and return a value (an HTML-ish string) based on the given parameters.
 
-.. note:: Routing and links are managed with `reach-router <https://reach.tech/router>`_ library.
+For example the ``<Link>`` component is used to create links between page components where we pass a ``to`` property that is used to create a link to "page-2" page.
+
+``<Layout>`` component is a custom component created by the default starter that gives some basic styles to every component wrapped into it.
+
+Let us ignore it right now.
+
+.. note::
+
+    Routing and links are managed under the hood with `reach-router <https://reach.tech/router>`_ library.
 
 
 Exercise
@@ -84,69 +87,15 @@ Create a new page and link it in the index.
 ..  admonition:: Solution
     :class: toggle
 
-    Create a new ploneconf.js file and weite this code:
+    Create a new ``ploneconf.js`` file and write this code:
 
-    .. code-block:: none
-
-        import React from 'react'
-        import { Link } from 'gatsby'
-
-        const PloneconfPage = () => (
-          <div>
-            <h1>Ploneconf training</h1>
-            <p>That's a page created at the training.</p>
-            <Link to="/">Go to the homepage</Link>
-          </div>
-        )
-
-        export default PloneconfPage
-
+    .. literalinclude:: _snippets/ploneconf.js
+      :language: jsx
 
 Components are very useful when you need to reuse a certain pattern in different pages.
-Usually components are located in a `components` folder and imported where needed.
 
-Exercise
-++++++++
+Usually components are located in a ``components`` folder and imported where needed (like ``Layout``).
 
-Create a new component that renders the page title in a common way, and use it in every page.
-
-..  admonition:: Solution
-    :class: toggle
-
-    Create `components` folder and a new file `header.js`
-
-    .. code-block:: none
-
-        import React from 'react'
-      
-        export default Header = ({label}) => (
-          <div
-            className="header"
-            style={{
-                backgroundColor: blue;
-                color: rgb(255, 255, 255);
-                padding: 1em;
-                fontSize: 72px;
-                textAlign: center;
-            }}
-          >
-            {label}
-          </div>
-        )
-
-    Then we need to import `Header` component in our pages (index.js for example), and use it.
-
-    .. code-block:: none
-      
-        ...
-        import Header from '../components/header';
-        
-        const PloneconfPage = () => (
-          <div>
-            <Header label="Ploneconf Tokyo 2018" />
-            <h1>Welcome to Ploneconf trainings</h1>
-            <p>That's a page created at the training.</p>
-            <Link to="/">Go to the homepage</Link>
-          </div>
-        )
-    
+.. note::
+  
+    In ``components/layout.js`` there is an example of a custom component that adds some styles and uses other components.
