@@ -11,32 +11,48 @@ In this section you will:
 Transmogrifier Setup and Terminology
 ------------------------------------
 
-* pipeline, blueprint, etc
-* Archetypes vs Dexterity
-* The most important piece of the export is the `path`.
-* Graph of the process, looping through items in the pipeline
+* The import is set up by creating a `pipeline`.
+  The pipeline is a series of steps, each pointing to a `blueprint`.
+  The blueprint is the Python code that is run for that particular step in the pipeline.
+  Each item being imported runs through the full pipeline before moving on to the next item.
+
+  .. image:: ../transmogrifier/_static/pipeline.gif
+     :align: center
+
+* If you have an older Plone site, your content is likely using Archetypes-style content types.
+  Newer Plone sites use Dexterity, so a large part of the upgrade process is moving to Dexterity content types.
+  The steps and add-ons in this training will set up Dexterity-style types.
+* A jsonify export is built so that folders are exported before their containing items.
+  The `path` to each item is included in the data,
+  and this is what Transmogrifier uses for building the new site's structure.
+  If you leave all the paths alone and import all items from the old site,
+  you should not end up with any broken links!
 
 
 Add-ons
 -------
 
-Note that if you follow the next step to create a migration package with mr.bob, these will be automatically installed
+A few add-ons are needed for running Transmogrifier.
+With the package you create in the next step, these will be automatically installed.
+Note there are more than just these packages available,
+depending on what you are doing with your import.
 
-* collective.jsonmigrator (when migrating from json)
+* collective.jsonmigrator (for migrating from json)
 * transmogrify.dexterity
-* collective.transmogrifier is a dependency of transmogrify.dexterity
+* collective.transmogrifier - a dependency of transmogrify.dexterity
 
 
 Create a Migration Package
 --------------------------
 
-With mr.bob and bobtemplates.plone, you can easily set up a package for handling migrations.
+With `mr.bob <https://mrbob.readthedocs.io/en/latest/>` and `bobtemplates.plone <https://docs.plone.org/develop/addons/bobtemplates.plone/docs/>`,
+you can quickly set up a package for handling migrations:
 
     $ pip install bobtemplates.plone
     $ mrbob -O ploneconf.migration bobtemplates.plone:migration_package
 
 This command will ask a few questions about the author (you),
-and what version of Plone to use.
+and what version of Plone you want to use.
 Check plone.org for the latest version.
 
 The created package can be used as an add-on in an existing buildout,

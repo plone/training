@@ -3,7 +3,7 @@ Exporting Your Current Site Content
 ===================================
 
 For the sake of this training, a sample export is provided.
-Download it from [here].
+`Download the export <_static/sample-export.zip>`.
 The original content came from a Plone 4 site,
 and was exported with collective.jsonify.
 
@@ -19,7 +19,8 @@ This will be the case if your current site is still edited regularly, or if you 
 Export from Plone
 -----------------
 
-While you could possibly migrate your Plone site in-place by updating the version number and running buildout, there are occasionally reasons to start fresh.
+While you could possibly migrate your Plone site in-place by updating the version number and running buildout,
+there are occasionally reasons to start fresh.
 You'll want to use `collective.jsonify <https://pypi.org/project/collective.jsonify>` for the export.
 It walks through your entire Plone site, creating one JSON file for each object in the site.
 It does this using an External Method, and has been tested back to Plone 2.1.
@@ -34,7 +35,7 @@ but you may find it better to export everything, and do the limiting on the impo
 3. Go to http://[your site]/export_content
 4. See the instance log output for where the export throws the content (it may go into /tmp)
 5. Copy the numbered folders from the export into the new buildout,
-   into a folder at the root called content-import and add this to your .gitignore.
+   into a folder at the root called content-import and add this to your `.gitignore`.
 
 
 Export from Wordpress
@@ -45,13 +46,10 @@ Export from Wordpress
   * https://wordpress.org/plugins/search/json+export
   * https://wordpress.org/plugins/all-in-one-wp-migration
 
+
 Write Your Own Export
 ---------------------
 
 Consistency is key.
-Check out a sample jsonify export to model.
+Check out a sample `collective.jsonify` export to model.
 You can also export to CSV.
-
-.. todo::
-
-    attach a sample jsonify export
