@@ -14,7 +14,7 @@ With the GatsbyJS CLI installed, start up with:
   gatsby new gatsby-plone-training https://github.com/collective/gatsby-starter-plone
   
 
-This will setup a GatsbyJS project in the gatsby-plone-training folder with gatsby-source-plone setup already, along with a couple of useful extra features.
+This will setup a GatsbyJS project in the ``gatsby-plone-training`` folder with ``gatsby-source-plone`` setup already, along with a couple of useful extra features.
 
 To see the starter along with the plugin in action, run the following commands and navigate to http://localhost:8000.
 
