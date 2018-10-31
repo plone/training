@@ -24,7 +24,7 @@ NodeJS is provided with npm, its package manager, we will use it to install the 
 .. note:: ``-g`` means the CLI will be available globally in our nvm instance.
 
 Creating a new GatsbyJS site
-==========================
+============================
 
 The CLI allows to initialize a project:
 
