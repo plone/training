@@ -189,7 +189,7 @@ Hints: use any sample data and spread it to the node, but make sure it has all t
 
     Now in http://localhost:8000/___graphql, you can query it with:
 
-    .. code-block:: none
+    .. code-block:: text
 
       {
         allEvent {

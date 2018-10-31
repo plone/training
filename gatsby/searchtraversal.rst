@@ -204,7 +204,7 @@ Try to get data for a particular page with id https://plonedemo.kitconcept.com/e
 
     Since it is a News Item, we can directly use GraphQL to query for ``ploneNewsItem``:
 
-    .. code-block:: none
+    .. code-block:: text
 
     {
       ploneNewsItem (id: {eq: "https://plonedemo.kitconcept.com/en/demo/a-news-item"}) {
