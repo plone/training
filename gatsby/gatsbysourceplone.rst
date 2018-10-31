@@ -66,7 +66,7 @@ Breadcrumbs data for every content node is available to us with ``allPloneBreadc
 .. admonition:: Solution
     :class: toggle
 
-    .. code-block:: none
+    .. code-block:: text
 
     {
       allPloneNewsItem {

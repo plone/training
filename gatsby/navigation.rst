@@ -15,7 +15,7 @@ Since breadcrumbs depend on the page you are in, it needs to be dynamically crea
 
 So the approach is to query it in each page as they are created and pass it on to the Breadcrumb component.
 
-.. code-block:: none
+.. code-block:: text
 
   ploneBreadcrumbs(_path: { eq: $path }) {
     items {
