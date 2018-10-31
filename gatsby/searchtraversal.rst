@@ -10,7 +10,7 @@ One of the strategies that we experimented with and adopted for the source-plugi
 Getting The Full List Of Content
 --------------------------------
 
-Make a GET Request to `https://plonedemo.kitconcept.com/en/@search`:
+Make a GET Request to https://plonedemo.kitconcept.com/en/@search:
 
 .. code-block:: json
 

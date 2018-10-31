@@ -116,7 +116,7 @@ Explore GraphiQL at http://localhost:8000/___graphql and compare the stringified
 
 Hints: Try checking the text field of the nodes of type ``PloneDocument``
 
-..  admonition:: Solution
+.. admonition:: Solution
     :class: toggle
 
     .. code-block:: none

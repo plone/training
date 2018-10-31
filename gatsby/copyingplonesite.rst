@@ -57,9 +57,7 @@ In ``gatsby-node.js``:
   };
 
 The ``_path`` property is very helpful to create pages.
-
 It is unique to all nodes.
-
 Files and images are linked to the nodes they are present in, with the ``_path`` value.
 
 This backlinking will be explained in the later sections.
