@@ -56,16 +56,14 @@ In ``gatsby-node.js``:
     });
   };
 
-The ``_path`` property is very helpful to create pages.
+The ``_path`` property is helpful to create pages.
 It is unique to all nodes.
-Files and images are linked to the nodes they are present in, with the ``_path`` value.
+Files and images are linked to the nodes in which they are present via the ``_path`` value.
 
 This backlinking will be explained in the later sections.
 
-So basically it can be used to set the relative path of a node in the static site generated.
-
+Backlinking can be used to set the relative path of a node in the generated static site.
 It can also get the required images and files.
-
 
 Handling Different Data Types
 -----------------------------
