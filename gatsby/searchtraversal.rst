@@ -10,7 +10,7 @@ One of the strategies that we experimented with and adopted for the source-plugi
 Getting The Full List Of Content
 --------------------------------
 
-Make a GET Request to https://plonedemo.kitconcept.com/en/@search:
+Make a GET request to https://plonedemo.kitconcept.com/en/@search.
 
 .. code-block:: json
 
@@ -42,13 +42,13 @@ Make a GET Request to https://plonedemo.kitconcept.com/en/@search:
   }
 
 
-We see that the ``@search`` endpoint at the Plone root returns a flat list of all content objects in the site.
+With a call to ``@search`` endpoint we can see a flat list of results as shown above.
 
-This does not expose the full information of each node but just gives a full list of the objects.
+There is limited information here.
+To build a node we need more data.
+We could try calling the ``@id`` endpoint and see what it returns.
 
-Let us now send a GET request to the ``id`` of one of these objects, say https://plonedemo.kitconcept.com/en/frontpage.
-
-This gives the complete data required by us:
+Send a GET request to the ``id`` of one of these objects, say https://plonedemo.kitconcept.com/en/frontpage.
 
 .. code-block:: json
 
@@ -104,11 +104,9 @@ This gives the complete data required by us:
     "version": "current"
   }
 
-Combining these:
+That is exactly what we need.
 
-- We use the ``@search`` endpoint to get a full list of content objects.
-- Then iterate over the ``@id`` property of each object in the list and send GET requests to retrieve full data.
-- Create nodes for each of the objects with this data.
+Now we need to combine these two calls to get the complete data set from the site content:
 
 .. code-block:: javascript
 
@@ -179,6 +177,13 @@ The full code for basic search traversal:
     console.log('Creating nodes');
     nodes.map(node => createNode(node));
   }
+
+
+Let us review the steps:
+
+- Use the ``@search`` endpoint to get a full list of content objects.
+- Then iterate over the ``@id`` property of each object in the list and send GET requests to retrieve full data.
+- Create nodes for each of the objects with this data.
 
 .. note::
 
