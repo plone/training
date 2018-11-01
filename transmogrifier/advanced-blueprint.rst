@@ -8,3 +8,4 @@ In this section you will:
 * users & groups
 * resolveuids
 * updating rich text
+* taking parameters in custom blueprints

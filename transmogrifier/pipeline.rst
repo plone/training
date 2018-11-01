@@ -5,8 +5,7 @@ Writing the Import Pipeline
 In this section you will:
 
 * Learn about the structure of the migration package
-* Customize the pipeline for your site
-* Write custom blueprints
+* Learn the purpose of each step in the provided pipeline
 
 Terminology
 -----------
@@ -39,8 +38,15 @@ blueprint
   There are many blueprints already available in the Transmogrifier add-ons,
   or you may need to write some blueprints to handle your custom content.
   Blueprints are specified by `name`, which is set in the `configure.zcml`
+  See <blueprints> for steps to set up your own.
 
-A graph here would be nice - showing the flow of items through the pipeline
+Here is a visualization of how the items move through the pipeline.
+Each item goes through each step of the pipeline,
+and each step points to some Python code that manipulates the item.
+A Plone object is created in the process, and saved in the site.
+
+  .. image:: ../transmogrifier/_static/pipeline.gif
+     :align: center
 
 
 Pipeline Details
@@ -61,14 +67,18 @@ The most important pieces are `jsonsource`, `constructor`, and `schemaupdater`.
 `jsonsource` specifies the local path to your exported content.
 The path is relative to the root of the buildout.
 If importing from a different type, such as CSV, there are blueprints that can handle this:
-`transmogrify.dexterity.csvimport` and `collective.transmogrifier.sections.csvsource`.
-https://docs.plone.org/external/collective.transmogrifier/docs/source/sections/csvsource.html
+`transmogrify.dexterity.csvimport` and `collective.transmogrifier.sections.csvsource
+<https://docs.plone.org/external/collective.transmogrifier/docs/source/sections/csvsource.html>`.
 
 The `constructor` creates an object in Plone for the current item in the import.
 Any blueprints that manipulate the current `item` in the loop need to be in the pipeline before the `constructor`.
 Once the object has been created in Plone, you can include blueprints after the `constructor` that manipulate that new object in Plone.
 
-Then the `schemaupdater` migrates all the field and property content from the export to the new Plone object.
+Then the `schemaupdater` migrates all the field and property data from the export to the new Plone object.
+
+
+Other Included Pipeline Steps
+-----------------------------
 
 The other steps in the blueprint are included because they will likely be needed, but also to serve as examples.
 Some steps only need to specify the `blueprint`, while others may require some additional parameters.
@@ -76,6 +86,15 @@ You can dig into the blueprint code to get a hint of what parameters might be re
 
 To add a new step, include its name in the top `[transmogrifier]` section,
 then add the part later in the file. See <advanced-import> for more information.
+
+logger
+  You get the option to output a line to the log for each item imported in the site.
+  The `name` is prepended on to each log message.
+  `level` determines the log level.
+  You can even have multiple loggers set to different levels, which might provide different output per environment.
+  The provided sample will log the `_path` for each imported item.
+  Note that this logger is one of the final steps, so the item appears in the log after the item was successfully imported.
+  For debugging, it can be helpful to move the logger to the top, so you know which item you need to check when an error is thrown.
 
 pathfixer
   The blueprint specified here is `plone.app.transmogrifier.pathfixer`.
@@ -99,7 +118,7 @@ pathfixer
 
   This is useful for modifying and manipulating the start of each item's path, mainly used for the Plone site name.
   Items exported with jsonify include the Plone site name in the path.
-  You'll likely want to remove this so that all items are imported at the root of the site, instead of an extra level down.
+  When you remove this, all items are imported at the root of the site instead of an extra level down.
   It is also helpful if you want to move content to be in a different folder.
 
 example
@@ -108,24 +127,27 @@ example
   The blueprint name, `mysite.example` is defined in the configure.zcml, where it points to the Python Class.
   See <blueprints> for more information about writing custom blueprints.
 
+removeid
+  The removeid step is fairly straightforward, it removes the `id` key from the item.
+  If the `id` is left in, objects aren't properly created in the Plone site.
+  Instead, the id for the object is pulled from the `_path`.
+
 copyuid
-  This part uses the `manipulator` blueprint, which allows you to copy a key from the item to the Plone object using a :term:`TALES` expression.
+  This part uses the `manipulator` blueprint,
+  and allows you to copy a key from the item to the Plone object using a :term:`TALES` expression.
   The `copyuid` part is needed for the `schemaupdater` to properly set the item's UUID.
 
 deserializer
-  If the data was contained inside of an attached JSON file, stuff that data back into the pipeline for the next step.
+  If the data was contained inside of an attached JSON file,
+  push that data back into the pipeline for the next step.
 
-logger
-  You get the option to output a line to the log for each item imported in the site.
-  The `name` is prepended on to each log message.
-  `level` determines the log level.
-  You can even have multiple loggers set to different levels, which might provide different output per environment.
-  The provided sample will log the `_path` for each imported item.
-  Note that this logger is one of the final steps, so the item appears in the log after the item was successfully imported.
-  For debugging, it can be helpful to move the logger to the top, so you know which item you need to check when an error is thrown.
+workflowhistory
+  The workflowhistory step will put all your newly imported content into the same review state it was in on the old site.
 
 savepoint
-  For large sites, you may have thousands of items being imported, and it can be a pain to start over when you hit an error.
+  For large sites, you may have thousands of items being imported,
+  and it can be a pain to start over when you hit an error.
   The example `savepoint` will commit after every 1000 items.
   This is set to 1000, because a jsonify export saves 1000 items to a folder.
   This will be discussed more later in <import>.
+  You can adjust to save how often you want.

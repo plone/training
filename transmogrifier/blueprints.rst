@@ -12,8 +12,7 @@ Three files need to be updated to hook up a custom blueprint:
  * Add the step to `import_content.cfg` pipeline. The name of the blueprint will match what was set in the configure.zcml.
 
 You will need to determine where your step should appear in the pipeline.
-If you need to manipulate the exported data,
-or decide whether or not to import and item based on its data,
+If you need to manipulate the exported data or decide whether or not to import an item based on its data,
 it should go before the `constructor`.
 If you need to manipulate an object once it is in the Plone site,
 the step should go towards the end, after the `schemaupdater`.
@@ -26,16 +25,18 @@ Basic Blueprint Tips
 --------------------
 
 * Don't use `return`.
-  Iter code will end with a `continue`, but you also need to `yield item` to push it forward in the pipeline.
+  `__iter__` code will end with a `continue`,
+  but you also need to `yield item` to push it forward in the pipeline.
   If you don't `yield item` at the very end or before a continue, the item will not get imported.
   Note that sometimes you don't want to import the item, in which case you can `continue` without the `yield`.
 * Always check that the key you are manipulating or accessing is present in the item.
-  For example, you can:
+  For example, you can bail out of the blueprint once it realizes the data it needs isn't there:
 
     path = item.get('_path')
     if not path:
         yield item
         continue
+    ...
 
 * If your step needs to manipulate an object in the site after the `constructor` has created it,
   you can get the object with the following code.
@@ -62,6 +63,7 @@ Basic Blueprint Tips
 
   This example assumes you have defines variables for `itempath`, the path to the current item,
   and `failreason`, which could be a condition for why you are not importing an item.
+  This log message is fully customizable for what you want it to say.
 
 
 Practice
@@ -70,7 +72,7 @@ Practice
 Let's create a blueprint that will only import content modified in the last few years.
 This can be useful if you want to clean out the older content in your site.
 
-A good way to start is to copy the entire Example blueprint, and paste a copy in the same file.
+You can start by copying the entire Example blueprint, and pasting a copy in the same file.
 
 Change the name of the class to `ImportNew`.
 Leave everything in the `__init__`, but take everything out of the `__iter__` except for:
@@ -80,7 +82,8 @@ Leave everything in the `__init__`, but take everything out of the `__iter__` ex
             pathkey = self.pathkey(*item.keys())[0]
 
 From here we can start adding our custom code and conditions.
-We want to check against the 'modified' date, so open a couple of the export files to see what the key is called.
+We want to check against the 'modified' date,
+so open a couple of the exported json files to see what the key is called.
 If you are using a jsonify export, you will likely find:
 
     "modification_date": "2017/03/23 12:53:12.608745 GMT-4",
