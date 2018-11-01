@@ -37,7 +37,10 @@ Basic Blueprint Tips
         yield item
         continue
 
-* If your step is manipulating an object in the site after the `constructor` has created it, you can get the object this way:
+* If your step needs to manipulate an object in the site after the `constructor` has created it,
+  you can get the object with the following code.
+  Your step will need to be placed after the `constructor` in the pipeline,
+  since the object does not exist in the Plone site before this point.
 
     obj = self.context.unrestrictedTraverse(
         safe_unicode(item['_path'].lstrip('/')).encode('utf-8'),
