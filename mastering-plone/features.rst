@@ -279,7 +279,7 @@ Content-Types
 Edit a page:
 
 * :guilabel:`Edit front-page`
-* :guilabel:`Title` :samp:`Plone Conference 2017, Barcelona`
+* :guilabel:`Title` :samp:`Plone Conference 2018, Tokyo`
 * :guilabel:`Summary` :samp:`Tutorial`
 * :guilabel:`Text` :samp:`...`
 
@@ -462,7 +462,7 @@ In either case, it may be undesirable for changes to be immediately visible.
 
 Plone's working copy support solves this problem by adding a check-out/check-in function for content — available on the actions menu.
 A content item may be checked out, worked on, then checked back in.
-Or it may abandoned if the changes weren't acceptable.
+Or it may be abandoned if the changes weren't acceptable.
 Not until check in is the new content visible.
 
 While it's shipped with Plone, working copy support is not a common need.
