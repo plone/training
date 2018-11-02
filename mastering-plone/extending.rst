@@ -14,8 +14,9 @@ Topics covered:
 * GenericSetup
 
 As a developer you want to go further than simply configuring Plone, you want to extend and customize it.
-
-Plone is built to be extended. Extendability is not a afterthought but is the core of Plone and the systems it is based on. Plone started as a extension for CMF, which is a extension for Zope.
+Plone is built to be extended.
+Extendability is not an afterthought but is the core of Plone and the systems it is based on.
+Plone started as an extension for CMF, which is an extension for Zope.
 
 
 .. _extending-technologies-label:
@@ -64,7 +65,8 @@ Component Architecture
 
     Monkey Patching, like subclassing via multiple inheritance, does not scale. Multiple plugins might overwrite each other, you would explain to people that they have to reorder the imports, and then, suddenly, you will be forced to import feature A before B, B before C and C before A, or else your application won't work.
 
-    As the new concepts were radically different from the old Zope concepts, the Zope developers renamed the new project to Zope 3. But it did not gain traction, the community somehow renamed it to Bluebream and this died off.
+    As the new concepts were radically different from the old Zope concepts, the Zope developers renamed the new project to Zope 3.
+    But it did not gain traction, was eventually renamed to Bluebream and then died out.
 
     But the component architecture itself is quite successful and the Zope developers extracted it into the Zope Toolkit. The Zope toolkit is part of Zope, and Plone developers use it extensively.
 
@@ -90,7 +92,7 @@ Configuring Zope Components with ZCML
 
     During startup, Zope reads all these ZCML statements, validates that there are not two declarations trying to register the same components and registers everything. All components are registered by interfaces required and provided. Components with the same interfaces may optionally also be named.
 
-    It may seem a little cumbersome that you have to have to register all components. But thanks to ZCML, you hardly ever have a hard time to find what and where extensions or customizations are defined. ZCML files are like a phone book.
+    It may seem a little cumbersome that you have to register all components. But thanks to ZCML, you hardly ever have a hard time to find what and where extensions or customizations are defined. ZCML files are like a phone book.
 
 .. epigraph::
 
