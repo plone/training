@@ -211,13 +211,13 @@ Try to get data for a particular page with id https://plonedemo.kitconcept.com/e
 
     .. code-block:: text
 
-    {
-      ploneNewsItem (id: {eq: "https://plonedemo.kitconcept.com/en/demo/a-news-item"}) {
-        id
-        title
-        description
+      {
+        ploneNewsItem (id: {eq: "https://plonedemo.kitconcept.com/en/demo/a-news-item"}) {
+          id
+          title
+          description
+        }
       }
-    }
 
     Similarly you can get data for other content objects and even lists of objects.
 

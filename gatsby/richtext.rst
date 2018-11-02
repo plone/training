@@ -44,7 +44,7 @@ Now files and images can be queried with GraphQL.
 
 In http://localhost:8000/___graphql
 
-.. code-block:: none
+.. code-block:: text
 
   allPloneFile(filter: { _backlinks: { eq: $path } }) {
     edges {
@@ -119,7 +119,8 @@ Hints: Try checking the text field of the nodes of type ``PloneDocument``
 .. admonition:: Solution
     :class: toggle
 
-    .. code-block:: none
+    .. code-block:: text
+    
       {
         allPloneDocument {
           edges {
