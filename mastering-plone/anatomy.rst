@@ -72,7 +72,7 @@ Zope
 
 .. only:: not presentation
 
-    Before Zope, web applications were often realized using plain `CGI <https://en.wikipedia.org/wiki/Common_Gateway_Interface>`_ :
+    Before Zope, web applications were often realized using plain `CGI <https://en.wikipedia.org/wiki/Common_Gateway_Interface>`_.
     An Apache web server would execute a script with the request data passed to it on standard input and as environment variables.
     The script would then just print HTML to the standard output.
     Apache returned that to the user.
