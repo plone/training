@@ -68,31 +68,31 @@ Breadcrumbs data for every content node is available to us with ``allPloneBreadc
 
     .. code-block:: text
 
-    {
-      allPloneNewsItem {
-        edges {
-          node {
-            id
+      {
+        allPloneNewsItem {
+          edges {
+            node {
+              id
+            }
+          }
+        }
+                
+        allPloneEvent {
+          edges {
+            node {
+              id
+            }
+          }
+        }
+        
+        allPloneBreadcrumbs {
+          edges {
+            node {
+              id
+            }
           }
         }
       }
-      
-      allPloneEvent {
-        edges {
-          node {
-            id
-          }
-        }
-      }
-      
-      allPloneBreadcrumbs {
-        edges {
-          node {
-            id
-          }
-        }
-      }
-    }
 
 
 

@@ -12,7 +12,7 @@ This requires the Plone site to have `plone.restapi <https://pypi.org/project/pl
 .. note::
 
   plone.restapi is a RESTful hypermedia API for Plone.
-  Read more about it in the `docs <https://plonerestapi.readthedocs.io/en/latest/introduction.html>`_.
+  Read more about it in the `docs <https://plonerestapi.readthedocs.io/en/latest/introduction.html>`__.
 
 Then this plugin can be used to generate a static site from a Plone site, containing pages, structure and all of its contents.
 
@@ -32,7 +32,7 @@ This way there is a page structure as well.
 .. note::
 
   Plone even allows custom types.
-  Read more about this in the `docs <https://plonerestapi.readthedocs.io/en/latest/types.html>`_.
+  Read more about this in the `docs <https://plonerestapi.readthedocs.io/en/latest/types.html>`__.
 
 Each of these content objects can be compared to nodes in GatsbyJS.
 
@@ -60,7 +60,7 @@ This is a lifecycle API similar to ``exports.createPages`` which we used earlier
 
 .. note::
 
-  Read more about ``sourceNodes`` API in the `docs <https://www.gatsbyjs.org/docs/node-apis/#sourceNodes>`_.
+  Read more about ``sourceNodes`` API in the `docs <https://www.gatsbyjs.org/docs/node-apis/#sourceNodes>`__.
 
 It works similar to page creation but has a couple actions and helpers to aid us in creating nodes specifically.
 

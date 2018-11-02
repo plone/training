@@ -41,6 +41,7 @@ It allows quick jumping between root folders (depending on customization).
 Unlike breadcrumbs, we can use a static query here (which queries data initially and then just uses existing data).
 
 .. code-block:: jsx
+
   const NavBar = ({ active }) => (
     <StaticQuery
       query={graphql`
