@@ -66,6 +66,7 @@ Write the :file:`editFaqItem` and :file:`deleteFaqItem` actions.
 Reducers
 ========
 
+Next we will create the reducer by creating the ``reducers/faq.js`` file.
 As stated earlier a reducer is pure function which takes the previous state and an action and returns the new state,
 it will look like this:
 
