@@ -149,6 +149,14 @@ After the item is added the inputs should also reset to empty values.
 ..  admonition:: Solution
     :class: toggle
 
+    Make sure you bind the onSubmit handler.
+
+    .. code-block:: jsx
+
+        this.onSubmit = this.onSubmit.bind(this);
+
+    And add this to the body of the class.
+
     .. code-block:: jsx
 
         onSubmit(event) {
