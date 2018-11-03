@@ -29,6 +29,14 @@ GatsbyJS
     sourceplugins
     transformerplugins
     dynamicpages
+    buildingsourceplugins
+    plonerestapi
+    searchtraversal
+    gatsbysourceplone
+    gatsbystarterplone
+    copyingplonesite
+    richtext
+    navigation
     
 ..  toctree::
     :hidden:
