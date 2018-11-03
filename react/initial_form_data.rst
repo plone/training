@@ -152,6 +152,18 @@ like we did with the :file:`onDelete`
             });
           }
 
+          onChangeQuestion(event) {
+            this.setState({
+              question: event.target.value
+            });
+          }
+
+          onChangeAnswer(event) {
+            this.setState({
+              answer: event.target.value
+            });
+          }
+
           onSave(event) {
             this.setState({
               mode: "view"
@@ -166,11 +178,11 @@ like we did with the :file:`onDelete`
                 <form onSubmit={this.onSave}>
                   <label>
                     Question:
-                    <input name="question" />
+                    <input name="question" value={this.state.question} onChange={this.onChangeQuestion} /
                   </label>
                   <label>
                     Answer:
-                    <textarea name="answer" />
+                    <textarea name="answer" value={this.state.answer} onChange={this.onChangeAnswer} />
                   </label>
                   <input type="submit" value="Save" />
                 </form>
