@@ -125,6 +125,8 @@ like we did with the :file:`onDelete`
             this.toggle = this.toggle.bind(this);
             this.onDelete = this.onDelete.bind(this);
             this.onEdit = this.onEdit.bind(this);
+            this.onChangeQuestion = this.onChangeQuestion.bind(this);
+            this.onChangeAnswer = this.onChangeAnswer.bind(this);
             this.onSave = this.onSave.bind(this);
             this.state = {
               show: false,
@@ -178,7 +180,7 @@ like we did with the :file:`onDelete`
                 <form onSubmit={this.onSave}>
                   <label>
                     Question:
-                    <input name="question" value={this.state.question} onChange={this.onChangeQuestion} /
+                    <input name="question" value={this.state.question} onChange={this.onChangeQuestion} />
                   </label>
                   <label>
                     Answer:
