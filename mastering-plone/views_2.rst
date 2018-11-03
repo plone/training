@@ -204,9 +204,11 @@ Open the view on a talk and it will show you information on that talk.
 Reusing Browser Views
 ---------------------
 
-* Browser Views can be called by accessing it as a url in the browser. Append ``/training`` to any url and the view will be called.
+* Browser Views can be called by accessing their name in the browser.
+  Append ``/training`` to any url and the view will be called.
 * Browser Views can be associated with a template (like ``training.pt``) to return some html.
-* Browser Views can be reused in your code using ``plone.api.content.get_view('<name of the view>', context, request)``. This allows you to reuse code and methods.
+* Browser Views can be reused in your code using ``plone.api.content.get_view('<name of the view>', context, request)``.
+  This allows you to reuse code and methods.
 
 The method ``context_info`` that returned information on the current object can be reused any time like this:
 
@@ -259,7 +261,8 @@ You can define which ``context``-object should be used:
     Browser Views
 
     * are the swiss army knife of every Plone developer
-    * can be called by accessing their name as a url in the browser. Append ``/training`` to any url and the view will be called.
+    * can be called by appending their name to a url in the browser.
+      Append ``/training`` to any url and the view will be called.
     * can be associated with a template (like ``training.pt``) to return some html.
     * can be reused in your code using ``plone.api.content.get_view('<name of the view>', context, request)``.
     * can be protected with permissions
@@ -328,7 +331,7 @@ After a restart, we can test our view by going to a talk and adding */talkview* 
 Using helper-methods from :py:class:`DefaultView`
 -------------------------------------------------
 
-In the previous section we used :py:class:`BrowserView` as the base-class for :py:class:`TalkView`.
+In the previous section we used :py:class:`BrowserView` as the base class for :py:class:`TalkView`.
 
 Dexterity comes with a nice helper-class suited for views of content-types: The :py:class:`DefaultView` base class in :py:mod:`plone.dexterity`.
 It has some very useful properties available to use in the template:

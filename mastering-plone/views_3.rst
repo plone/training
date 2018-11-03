@@ -106,7 +106,7 @@ We pass a object as `context` to query only for content in the current path. Oth
         current_path = '/'.join(self.context.getPhysicalPath())
         brains = portal_catalog(path=current_path, portal_type='talk')
 
-We iterate over the list of results that the catalog returns us.
+We iterate over the list of results that the catalog returns.
 
 We create a dictionary that holds all the information we want to show in the template. This way we don't have to put any complex logic into the template.
 
@@ -365,10 +365,13 @@ Add this simple table to :file:`templates/talklistview.pt`:
 
 Again we use ``class="listing"`` to give the table a nice style.
 
-There are some some things that need explanation:
+There are some things that need explanation:
 
 :samp:`tal:define="talks python:view.talks()"`
-    This defines the variable `talks`. We do thins since we reuse it later and don't want to call the same method twice. Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects and methods of classes we can write :samp:`view/talks` as we could :samp:`view/someattribute`. Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict.
+    This defines the variable `talks`.
+    We do this since we reuse it later and don't want to call the same method twice.
+    Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects and methods of classes we can write :samp:`view/talks` as we could :samp:`view/someattribute`.
+    Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict.
 
 :samp:`tal:repeat="talk talks"`
     This iterates over the list of dictionaries returned by the view. Each :py:obj:`talk` is one of the dictionaries that are returned by this method.
@@ -387,7 +390,8 @@ There are some some things that need explanation:
 Exercise
 ********
 
-Modify the view to only use path-expressions. This is **not** best-practice but there is plenty of code in Plone and in Addons so you have to know how to use them.
+Modify the view to only use path-expressions.
+This is **not** best practice but there is plenty of code in Plone and in Add-ons so you have to know how to use them.
 
 ..  admonition:: Solution
     :class: toggle
@@ -474,4 +478,4 @@ Summary
 * You wrote your first fully grown BrowserView that combines a template, a class and a method in that class
 * You learned about portal_catalog, brains and how they are related to objects
 * You learned about Acquisition and how it can have unintended effects
-* You extended the FTI of a existing content type to allow the use the new view to all Editior
+* You extended the FTI of an existing content type to allow editors to configure the new view as default

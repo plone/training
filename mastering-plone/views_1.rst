@@ -27,7 +27,7 @@ Topics covered:
 A simple browser view
 ---------------------
 
-Before writing the talk view itself we step back and talk *a little* about views and templates.
+Before writing the talk view itself we step back and have a brief look at views and templates.
 
 A view in Plone is usually a :py:class:`BrowserView`.
 It can hold a lot of cool python code but we will first focus on the template.
