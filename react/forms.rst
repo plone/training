@@ -125,7 +125,7 @@ This pattern is called controlled inputs.
                     Answer:
                     <textarea
                       name="answer"
-                      value="this.state.answer"
+                      value={this.state.answer}
                       onChange={this.onChangeAnswer}
                     />
                   </label>
