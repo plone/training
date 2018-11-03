@@ -17,6 +17,7 @@ First we will install :file:`react-router`:
 Next we will define the routes we want to use.
 We will use the :file:`BrowserRouter` to define our routes.
 We will have a view at the root and a view at :file:`/faq/1` where '1' is the index of the FAQ item.
+Our new ``App.js`` will look like this:
 
 .. code-block:: jsx
 
@@ -54,7 +55,7 @@ We will have a view at the root and a view at :file:`/faq/1` where '1' is the in
 Writing The View
 ================
 
-Now we will create the :file:`FaqItemView` component.
+Now we will create the :file:`FaqItemView` component at ``components/FaqItemView.js``.
 This will render the full FAQ item.
 The code will look something like this:
 
@@ -118,4 +119,4 @@ Complete the :file:`connect` call to return the correct data:
           { getFaqItems }
         )(FaqItemView);
 
-To test your view navigate to :file:`http://localhost:3000/faq/0`
+To test your view navigate to http://localhost:3000/faq/0
