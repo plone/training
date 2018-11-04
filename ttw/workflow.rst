@@ -935,7 +935,7 @@ What this does is use the Plone “main_template” macro called “master”, w
 This “wraps” the HTML we were generating before with the normal Plone site header, footer, and toolbar.
 
 
-..-_workflow-test-the-view-label-ttw:
+.. _workflow-test-the-view-label-ttw:
 
 Test the View
 -------------
