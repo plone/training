@@ -24,6 +24,7 @@
    Dexterity <dexterity>
    mosaic
    rapido
+   workflow
 
 .. toctree::
    :hidden:
