@@ -632,3 +632,523 @@ The next step is to make it possible to track Questions according to whether the
 Workflow States and Transitions
 -------------------------------
 
+The workflow should therefore have these states:
+
+* an initial state, typically “private”; this is the state a newly-created Question will be placed in
+* “replied”, the state a Question should be transitioned to once an administrator has replied to a Question (by clicking on the “reply” link and sending the question submitter an email response)
+
+The workflow will need only one transition:
+
+* “reply”, which moves a Question from the “private” state to the “replied” state
+
+.. _workflow-security-label-ttw:
+
+Workflow Security
+-----------------
+
+An important aspect of designing a workflow is to define its security: who can do what, and when.
+
+In the simplest case, a state’s security definition specifies which roles (e.g. “Manager”, “Anonymous”) can view or edit the item, and a transition’s security definition specifies which role, group membership, or permission a user must have to be able to execute the transition.
+
+In our example scenario, we will use the following workflow security:
+
+* in the “private” state, only a “Manager” or “Site Administrator” can view or edit the item
+* in the “replied” state, only a “Manager” or “Site Administrator” can view or edit the item
+* the “reply” transition requires “Manager” or “Site Administrator” role
+
+A good strategy when creating a new workflow is to copy an existing one. This reduces the amount of work required in setting up the security of states and transitions, and, in many cases, a new workflow will be similar to the Simple Publication Workflow, so we will start by cloning the Simple Publication Workflow.
+
+.. _workflow-create-the-workflow-label-ttw:
+
+Create the Workflow
+===================
+
+We will use Plone’s Management Interface to create the new workflow.
+
+1. Using your logged in browser window (in which you are logged in as “admin”), navigate to the Management Interface. You can get there by clicking on your personal menu at the bottom of the toolbar, choosing “Site Setup”, then scrolling down a bit and clicking on “Management Interface”. Alternatively, use your browser’s URL bar to go to http://localhost:8080/Plone/manage_main
+
+.. image:: _static/workflow/image43.jpg
+
+2. Scroll to the bottom of the page and click on “portal_workflow”:
+
+.. image:: _static/workflow/image21.jpg
+
+.. image:: _static/workflow/image20.jpg
+
+You can see that the Question content type (with ID “question”) uses the site’s default workflow, “Simple Publication Workflow” (with ID “simple_publication_workflow”). We are going to change that shortly.
+
+3. Click on the Contents tab:
+
+.. image:: _static/workflow/image14.jpg
+
+4. Check the box next to “simple_publication_workflow”, click the “Copy” button, then click the “Paste” button. You will see a new workflow in the list, with a new ID “copy_of_simple_publication_workflow” but the same title “Simple Publication Workflow”:
+
+.. image:: _static/workflow/image35.jpg
+
+5. Click the box next to it, then click the “Rename” button. Rename (this will change only the workflow ID) it by changing “copy_of_simple_publication_workflow” to “question_workflow” and pressing the “Ok” button:
+
+.. image:: _static/workflow/image27.jpg
+
+6. Click on “question_workflow”:
+
+.. image:: _static/workflow/image76.jpg
+
+7. Change the title of this workflow to “Question Workflow”, change the description to “A workflow for handling Questions”, and press the “Save changes” button.
+
+
+.. _workflow-create-workflow-states-label-ttw:
+
+Create the Workflow States
+==========================
+
+Because we cloned the Simple Publication Workflow, we have reduced the amount of work needed to create the states.
+
+.. _workflow-create-the-initial-private-state-label-ttw:
+
+Create the Initial Private State
+--------------------------------
+
+1. Continue from or navigate to the “question_workflow” in the Management Interface, at http://localhost:8080/Plone/portal_workflow/question_workflow/manage_properties
+
+.. image:: _static/workflow/image24.jpg
+
+2. Click on the “States” tab.
+
+.. image:: _static/workflow/image15.jpg
+
+3. The “private” state we want already exists. Click on it.
+
+.. image:: _static/workflow/image26.jpg
+
+4. Change the description to “Can only be seen and edited by Manager and Site Administrator roles”, then press “Save changes”.
+
+5. Click on the “Permissions” tab to view the state’s security settings.
+
+.. image:: _static/workflow/image83.jpg
+
+We don’t need to change anything because Manager and Site Administrator role are already set to have the permissions we want: “Access contents information”, “Modify portal content” (this is Plone’s default “Edit” permission), and “View”. We can ignore the fact that the Owner role also gets these permissions because no one is logged in when they fill out a Question form, making it impossible to know the owner. We can also ignore the other roles.
+
+
+.. _workflow-remove-any-unneeded-states-label-ttw:
+
+Remove Any Unneeded States
+--------------------------
+
+Next, we remove the unneeded “published” state:
+
+1. Click on “states” in the breadcrumbs below the tabs, to return to the list of states in this workflow:
+
+.. image:: _static/workflow/image4.jpg
+
+.. image:: _static/workflow/image15.jpg
+
+2. Check the box next to “published” then press the “Delete” button:
+
+.. image:: _static/workflow/image36.jpg
+
+
+.. _workflow-create-the-replied-state-label-ttw:
+
+Create the Replied State
+------------------------
+
+Instead of creating the “Replied” state from scratch, we will rename the “pending” state. With the Management Interface, it’s not possible to change the ID of a state but it is possible to change its title.
+
+(This would be a practical reason to use the Workflow Manager instead: it lets you clone states and transitions, so we would have been able to clone the “pending” state before deleting it).
+
+1. While still viewing the list of states in this workflow:
+
+.. image:: _static/workflow/image49.jpg
+
+2. Click on “pending”:
+
+.. image:: _static/workflow/image48.jpg
+
+3. Change the title to “Replied” and the description to “The question has been replied to” and press the “Save changes” button
+
+.. image:: _static/workflow/image69.jpg
+
+4. Click the “Permissions” tab.
+
+.. image:: _static/workflow/image86.jpg
+
+We don’t need to change anything because Manager and Site Administrator role are already set to have the permissions we want and we can ignore the other roles.
+
+We have finished setting up all the states for this workflow.
+
+
+.. _workflow-create-workflow-transitions-label-ttw:
+
+Create the Workflow Transitions
+===============================
+
+We now need to define the transitions for this workflow. In this particular example, there needs to be only one transition, “Reply” (with ID “reply”).
+
+1. Click on “Transitions” tab:
+
+.. image:: _static/workflow/image34.jpg
+
+2. We are going to delete all the transitions except “submit”. Click on the boxes next to each transition except “submit” then press the “Delete” button:
+
+.. image:: _static/workflow/image74.jpg
+
+3. Check the box next to “submit” and press the “Rename” button. Change the transition’s ID to “reply” then press the “Ok” button:
+
+.. image:: _static/workflow/image18.jpg
+
+.. image:: _static/workflow/image62.jpg
+
+4. Click on the “reply” transition:
+
+.. image:: _static/workflow/image91.jpg
+
+5. Change the title to “Administrator has replied to the question” and the description to “Puts the question in the Replied state”.
+
+.. image:: _static/workflow/image96.jpg
+
+In the “Display in actions box” fields, change “Name (formatted)” from “Submit for publication” to “Mark as replied”, and change “URL (formatted)” from “%(content_url)s/content_status_modify?workflow_action=submit” to “%(content_url)s/content_status_modify?workflow_action=reply” (ie. change the word “submit” to “reply”).
+
+.. image:: _static/workflow/image85.jpg
+
+Press the “Save changes” button.
+
+6. We will leave this transition’s security settings (the “Guard” fields) unchanged, because Manager and Site Administrator roles are already assigned the “Request review” permission. This means that users with Manager and Site Administrator roles will be authorized to execute this transition.
+
+.. image:: _static/workflow/image71.jpg
+
+
+..-_workflow-connect-states-using-transitions-label-ttw:
+
+Connect States Using Transitions
+================================
+
+We need to connect the “reply” transition to the “private” state.
+
+1. Click on “question_workflow” in the breadcrumbs.
+
+.. image:: _static/workflow/image72.jpg
+
+2. Click on the States tab.
+
+.. image:: _static/workflow/image1.jpg
+
+3. Click on the “private” state:
+
+.. image:: _static/workflow/image26.jpg
+
+4. Check the box in “Possible Transitions” next to “reply” and press the “Save changes” button.
+
+.. image:: _static/workflow/image38.jpg
+
+5. Click on “states” in the breadcrumbs
+
+.. image:: _static/workflow/image4.jpg
+
+6. Verify that the “private” state now has one transition (“reply”).
+
+.. image:: _static/workflow/image53.jpg
+
+We have finished setting up the workflow.
+
+
+..-_workflow-assign-the-workflow-to-the-question-content-type-label-ttw:
+
+Assign the Workflow to the Question Content Type
+================================================
+
+We need to assign the new workflow to the Question content type.
+
+1. Navigate to the “portal_workflow” by clicking on it in the breadcrumbs:
+
+.. image:: _static/workflow/image41.jpg
+
+.. image:: _static/workflow/image20.jpg
+
+2. Change the workflow for “question (Question)” from “(Default)” to “question_workflow” then press the “Change” button:
+
+.. image:: _static/workflow/image75.jpg
+
+3. Since we have some Question items on the site, we need to update them so they are changed to use their new workflow. We do this by pressing the “Update security settings” button:
+
+.. image:: _static/workflow/image16.jpg
+
+You will want to be careful using this button on sites containing a lot of content because it can be a long-running operation and will likely time out in a browser unless you are browsing directly to a ZEO client or instance (ie. not browsing via an intermediate web server such as Apache or nginx). Plone has to check every content item and update its workflow-related security settings (permissions) based on the item’s state.
+
+
+..-_workflow-display-workflow-state-in-the-view-label-ttw:
+
+Display Workflow State in the View
+==================================
+
+Now that we have created the workflow and assigned it to the Question content type, we need to have a way of seeing a Question’s workflow state (“private” or “replied”) and of transitioning a Question to the “replied” state.
+
+The easiest way to do this is to modify the view template to use macros in Plone’s main_template.
+
+1. Navigate to the Management Interface, portal_skins, custom, question_view: http://localhost:8080/Plone/portal_skins/custom/question_view/pt_editForm
+
+2. Change the contents of the page template to the following, then press the “Save Changes” button:
+
+.. code-block:: xml
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="Plone.dexterity">
+
+      <body>
+
+    <metal:main fill-slot="main">
+
+    <tal:canorcannot define="checkPermission nocall: context/portal_membership/checkPermission; canedit python:checkPermission('Modify portal content',context)" >
+
+      <tal:anon condition="not: canedit">
+        <h2>Thank you</h2>
+        We will respond to your question as soon as possible!
+      </tal:anon>
+
+      <tal:canedit condition="canedit">
+        <div tal:define="portal_name here/portal_url/Title;
+                    subject python: 'Your inquiry at ' + portal_name;
+                    question_encoded python: context.your_question.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace(' ', '%20');
+                    question_encoded_quoted python: '&gt; ' + question_encoded;
+                    subject_encoded python: subject.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace(' ', '%20');">
+
+        <h3>From: <span tal:replace="here/your_full_name">[name]</span></h3>
+        <p>Question: <span tal:replace="here/your_question">[question]</span></p>
+        <p><a tal:attributes="href python: 'mailto:' + context.your_email_address + '?subject=' + subject_encoded + '&body=' + question_encoded_quoted">[reply]</a></p>
+
+        </div>
+      </tal:canedit>
+
+    </tal:canorcannot>
+
+    </metal:main>
+
+      </body>
+    </html>
+
+What this does is use the Plone “main_template” macro called “master”, which defines slots on the page, and places the HTML we generate (for anonymous users or users who have edit permission on the question) into the slot called “main”.
+
+This “wraps” the HTML we were generating before with the normal Plone site header, footer, and toolbar.
+
+
+..-_workflow-test-the-view-label-ttw:
+
+Test the View
+-------------
+
+We navigate back to a question in the Questions folder, e.g. http://localhost:8080/Plone/questions/question
+
+As Manager, we now see the following:
+
+.. image:: _static/workflow/image80.jpg
+
+As an anonymous website visitor, we see
+
+.. image:: _static/workflow/image67.jpg
+
+
+.. _workflow-redirect-to-homepage-label-ttw:
+
+Redirect to Homepage
+--------------------
+
+Let’s modify the view template so that, for the Anonymous user, it redirects the browser to the homepage of the site and displays an informational message indicating that their question had been submitted.
+
+We will use these two methods:
+
+* the addPortalMessage() method in a TAL expression: `<tal:block tal:define="temp python:context.plone_utils.addPortalMessage('A random info message')" />`
+* the redirect() method in a TAL expression: `dummy python: request.response.redirect(portal_url)` (look above for how to obtain the URL of the site home)
+
+The template’s tal:anon block should look like this:
+
+.. code-block:: xml
+
+  <tal:anon condition="not: canedit">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        lang="en"
+        i18n:domain="Plone.dexterity">
+    <body tal:define="portal_url here/portal_url;
+                        utils context/plone_utils;
+                        temp python:utils.addPortalMessage('Your question has been submitted. We will respond to it as soon as possible!', 'info');
+                        dummy python:request.response.redirect(portal_url);
+                        ">
+        <h2>Thank you</h2>
+        We will respond to your question as soon as possible!
+        <p><a tal:attributes="href here/portal_url; title string: home">[return to home]</a></p>
+
+    </body>
+    </html>
+  </tal:anon>
+
+When we try this view as an anonymous user, we are redirected to the homepage and are given a thank you message.
+
+.. image:: _static/workflow/image25.jpg
+
+
+.. _workflow-test-the-workflow-label-ttw:
+
+Test the Workflow
+=================
+
+Returning to the question at http://localhost:8080/Plone/questions/question as “admin”, we see in the left toolbar that the question is in the private state, and if we click on that State button, we see the available transition “Mark as replied”:
+
+.. image:: _static/workflow/image65.jpg
+
+If we click on “Mark as replied”, the question transitions to the “Replied” state:
+
+.. image:: _static/workflow/image95.jpg
+
+As an anonymous website visitor looking at the same question now sees this:
+
+.. image:: _static/workflow/image58.jpg
+
+
+.. _workflow-bonus-exercise-label-ttw:
+
+Bonus Exercise
+--------------
+
+You could modify the view template so that it determines the current workflow state of the item, and if the item is in the “Replied” state, instead of the thank you message it displays a message like “Replied: This question has been replied to”.
+
+For even more bonus points, the view template could look up the date on which the question was transitioned to the Replied state, and display it, as in “Replied: This question was replied to on [replied-date]”.
+
+
+.. _workflow-put-it-all-together-label-ttw:
+
+Put It All Together
+===================
+
+We have created a Question content type, created a workflow, assigned the workflow to the content type, and created a view template that works for anonymous user and administrators and that lets administrators transition Question items to the “Replied” state.
+
+In a live deployment of a workflow application, it is important to be able to view which items have or have not yet been processed (in this case, replied to).
+
+..-_workflow-create-a-collection-label-ttw:
+
+Create a Collection
+-------------------
+
+We are going to create a collection that shows all Question items that have not yet been replied to (ie. they are in the private state).
+
+1. Navigate to the home of the site, http://localhost:8080/Plone
+2. Click “Add new…” and choose “Collection”
+
+.. image:: _static/workflow/image51.jpg
+
+3. Give the new collection the title “Questions Needing a Reply”, and the description “Displays questions that are still in the private state”.
+
+.. image:: _static/workflow/image29.jpg
+
+4. In the “Search terms” fields, click the “Select criteria” drop down and choose “Type”
+
+.. image:: _static/workflow/image9.jpg
+
+5. In the field that appears to the right, start typing “que” and select “Question”
+
+.. image:: _static/workflow/image5.jpg
+
+6. Click on “Select criteria”, start typing “sta”, and select “Review state”:
+
+.. image:: _static/workflow/image50.jpg
+
+7. In the field that appears to the right, start typing “pri” and select “Private”
+
+.. image:: _static/workflow/image2.jpg
+
+8. In the “Sort on” field, choose “Modification date” and check the box for “Reversed Order”
+
+.. image:: _static/workflow/image44.jpg
+
+9. If you have a few Question items already in the site (you should have at least one), you will see them appear in the Preview field
+
+.. image:: _static/workflow/image3.jpg
+
+10. Scroll to the bottom and press the “Save” button.
+
+.. image:: _static/workflow/image63.jpg
+
+
+.. _workflow-change-the-home-page-label-ttw:
+
+Change the Home Page
+--------------------
+
+We want the home page of the site to do two things:
+
+* Give instructions to (anonymous) website visitors on how they can submit a question
+* Show administrators where they can find the list of questions they need to reply to
+
+1. Navigate to the home page, http://localhost:8080/Plone
+2. Click Edit in the toolbar, delete everything in the Text field, and add something like this, then scroll down and press the “Save” button:
+
+.. image:: _static/workflow/image52.jpg
+
+Your front page should now look something like this:
+
+.. image:: _static/workflow/image61.jpg
+
+You should test the “submit a question” link on the front page as an anonymous website visitor.
+
+
+.. _workflow-bonus-exercise'-label-ttw:
+
+Bonus Exercise
+--------------
+
+As a bonus, create a content rule that sends an email to administrators when a question has been submitted.
+
+For extra points, add a collection portlet to the front page that shows the “Questions Needing a Reply” collection.
+
+
+.. _workflow-review-labels-ttw:
+
+Review
+======
+
+In this training class we have covered the following:
+
+* what Plone workflow is and does
+* the benefits of using workflow to replace paper-based forms and processes
+* the concept of a workflow application
+* the tools for building workflow applications (built-in and add-ons)
+* using Dexterity to build a content type
+* creating a content type view that can act as a thank-you page
+* creating a containing folder for submitted forms
+* using the Management Interface to create a workflow and assign it
+* creating a helpful front page that guides users and administrators
+
+We hope this has served you as a practical introduction to making the most of of Plone’s workflow tool, exploiting it to improve the speed and efficiency of your organization’s business processes.
+
+.. _workflow-further-reading-label-ttw:
+
+Further Reading
+===============
+
+General Plone documentation: https://docs.plone.org
+
+Plone workflow documentation: https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
+
+Page templates: https://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html#id1
+
+Plone developer training: https://training.plone.org/5/mastering-plone/index.html
+
+Existing workflow training class: https://training.plone.org/5/workflow/index.html (it’s more developer oriented)
+
+Alternative tools for building forms in Plone:
+
+* PloneFormGen: https://docs.plone.org/develop/plone/forms/ploneformgen.html
+* EasyForm: https://pypi.org/project/collective.easyform/
+
+A fantastic tool for building workflows in Plone:
+* Workflow Manager: https://pypi.org/project/plone.app.workflowmanager/
+
+* Presentations on workflow applications, given at various Plone Conferences and Symposia:
+* “Building Workflow Applications Through the Web” https://www.slideshare.net/tkimnguyen/building-workflow-applications-through-the-web
+* “Killer Workflow Apps! Get Rich Quick With an Intranet!” https://www.slideshare.net/tkimnguyen/killer-workflow-apps-get-rich-quick-with-an-intranet
+* “Easy online business processes with Plone forms and workflow” https://www.slideshare.net/tkimnguyen/easy-online-business-processes-with-plone-forms-and-workflow
