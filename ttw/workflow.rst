@@ -817,7 +817,7 @@ Press the “Save changes” button.
 .. image:: _static/workflow/image71.jpg
 
 
-..-_workflow-connect-states-using-transitions-label-ttw:
+.. _workflow-connect-states-using-transitions-label-ttw:
 
 Connect States Using Transitions
 ================================
@@ -851,7 +851,7 @@ We need to connect the “reply” transition to the “private” state.
 We have finished setting up the workflow.
 
 
-..-_workflow-assign-the-workflow-to-the-question-content-type-label-ttw:
+.. _workflow-assign-the-workflow-to-the-question-content-type-label-ttw:
 
 Assign the Workflow to the Question Content Type
 ================================================
@@ -875,7 +875,7 @@ We need to assign the new workflow to the Question content type.
 You will want to be careful using this button on sites containing a lot of content because it can be a long-running operation and will likely time out in a browser unless you are browsing directly to a ZEO client or instance (ie. not browsing via an intermediate web server such as Apache or nginx). Plone has to check every content item and update its workflow-related security settings (permissions) based on the item’s state.
 
 
-..-_workflow-display-workflow-state-in-the-view-label-ttw:
+.. _workflow-display-workflow-state-in-the-view-label-ttw:
 
 Display Workflow State in the View
 ==================================
@@ -1029,7 +1029,7 @@ We have created a Question content type, created a workflow, assigned the workfl
 
 In a live deployment of a workflow application, it is important to be able to view which items have or have not yet been processed (in this case, replied to).
 
-..-_workflow-create-a-collection-label-ttw:
+.. _workflow-create-a-collection-label-ttw:
 
 Create a Collection
 -------------------
