@@ -40,6 +40,9 @@ blueprint
   Blueprints are specified by `name`, which is set in the `configure.zcml`
   See <blueprints> for steps to set up your own.
 
+item
+  The current piece of content in the loop being imported
+
 Here is a visualization of how the items move through the pipeline.
 Each item goes through each step of the pipeline,
 and each step points to some Python code that manipulates the item.

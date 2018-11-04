@@ -25,7 +25,7 @@ Basic Blueprint Tips
 --------------------
 
 * Don't use `return`.
-  `__iter__` code will end with a `continue`,
+  `__iter__` code should end with a `continue`,
   but you also need to `yield item` to push it forward in the pipeline.
   If you don't `yield item` at the very end or before a continue, the item will not get imported.
   Note that sometimes you don't want to import the item, in which case you can `continue` without the `yield`.
@@ -47,7 +47,7 @@ Basic Blueprint Tips
         safe_unicode(item['_path'].lstrip('/')).encode('utf-8'),
         None)
 
-* If you like to log all the information about what happens during the import,
+* If you like to keep track of all the information about what happens during the import,
   (which can be very useful for debugging later),
   add the information to the logs!
   
@@ -56,12 +56,13 @@ Basic Blueprint Tips
     import logging
     logger = logging.getLogger("Transmogrifier")
 
-  You can set the 'Transmogrifier' text to anything, this is what will be prepended to the log message.
+  You can set the 'Transmogrifier' text to anything,
+  this is what will be prepended to the log message.
   Then in your blueprint:
 
     logger.info("[item skipped] {0} due to {1}".format(itempath, failreason))
 
-  This example assumes you have defines variables for `itempath`, the path to the current item,
+  This example assumes you have defined variables for `itempath`, the path to the current item,
   and `failreason`, which could be a condition for why you are not importing an item.
   This log message is fully customizable for what you want it to say.
 
@@ -116,12 +117,24 @@ If you plan on using this migration code multiple times,
 you'll want it to be more dynamic,
 Otherwise you could make it static, by explicitly adding a condition like this:
 
-    if int(mod_date[:4]) < 2014:
+    mod_year = int(mod_date[:4])
+    if mod_year < 2014:
         continue
 
 Notice this does not include the `yield item`,
 because we don't want to keep any content older than 2014.
 Continuing without yielding the item will not push it through the rest of the pipleine.
+
+Let's also add a log message to show that the item is being skipped:
+
+    import logging
+    logger = logging.getLogger("Transmogrifier")
+    ...
+    mod_year = int(mod_date[:4])
+    if mod_year < 2014:
+        item_path = item.get('_path', '')
+        logger.info('[skipped] {0} with modified year {1}'.format(item_path, mod_year))
+        continue
 
 Once you are satisfied with your code and conditions,
 make sure to include a `yield item` at the very end.
