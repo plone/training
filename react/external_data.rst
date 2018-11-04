@@ -47,7 +47,7 @@ Then we can run our newly created server:
 
     $ node server.js
 
-Now it is time to write our action to fetch the items from the backend:
+Now it is time to write our action to fetch the items from the backend in the file ``actions/index.js``:
 
 .. code-block:: jsx
 
@@ -69,7 +69,7 @@ The middleware can then decide to do something based on the data in the action.
 In our case we are looking for a property called :file:`request`.
 If that one is available we want to do an api call with the provided operation,
 path and data and fire a new a new action when the data is fetched.
-The implementation will look like this:
+We will create a file at ``middleware/apis.js`` and the implementation will look like this:
 
 .. code-block:: jsx
 
@@ -94,7 +94,7 @@ The implementation will look like this:
       return actionPromise;
     };
 
-Finally we need to apply our middleware to the store:
+Finally we need to apply our middleware to the store in ``App.js``:
 
 .. code-block:: jsx
 
@@ -121,3 +121,38 @@ Finally we need to apply our middleware to the store:
     }
 
     export default App;
+
+Last part is to change our reducer at ``reducers/faq.js`` to handle the ``GET_FAQ_ITEMS_SUCCESS`` action:
+
+.. code-block:: jsx
+
+    const faq = (state = [], action) => {
+    let faq;
+    switch (action.type) {
+      case "ADD_FAQ_ITEM":
+        return [
+          ...state,
+          {
+            question: action.question,
+            answer: action.answer
+          }
+        ];
+      case "EDIT_FAQ_ITEM":
+        faq = state;
+        faq[action.index] = {
+          question: action.question,
+          answer: action.answer
+        };
+        return [...faq];
+      case "DELETE_FAQ_ITEM":
+        faq = state;
+        faq.splice(action.index, 1);
+        return [...faq];
+      case "GET_FAQ_ITEMS_SUCCESS":
+        return action.data;
+      default:
+        return state;
+      }
+    };
+
+    export default faq;

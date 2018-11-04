@@ -125,7 +125,7 @@ This pattern is called controlled inputs.
                     Answer:
                     <textarea
                       name="answer"
-                      value="this.state.answer"
+                      value={this.state.answer}
                       onChange={this.onChangeAnswer}
                     />
                   </label>
@@ -148,6 +148,14 @@ After the item is added the inputs should also reset to empty values.
 
 ..  admonition:: Solution
     :class: toggle
+
+    Make sure you bind the onSubmit handler.
+
+    .. code-block:: jsx
+
+        this.onSubmit = this.onSubmit.bind(this);
+
+    And add this to the body of the class.
 
     .. code-block:: jsx
 

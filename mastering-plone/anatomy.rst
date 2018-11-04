@@ -66,17 +66,18 @@ Zope
 
    * Plone was always based on Zope 2.x. Starting with Plone 5.2+ it uses Zope 4.x
    * Starting with Zope 4.0, the package is only called Zope (not Zope2 or Zope4)
-   * *Zope 3* is **not** a version of Zope but a ill-named rewrite of Zope 2 *(sigh)*
+   * *Zope 3* is **not** a version of Zope but an ill-named rewrite of Zope 2 *(sigh)*
    * 4.x is a mayor new release of Zope that supports Python 3 (among many other improvements)
 
 
 .. only:: not presentation
 
-    Before Zope, there usually was an Apache server that would call a script and give the request as an input.
+    Before Zope, web applications were often realized using plain `CGI <https://en.wikipedia.org/wiki/Common_Gateway_Interface>`_.
+    An Apache web server would execute a script with the request data passed to it on standard input and as environment variables.
     The script would then just print HTML to the standard output.
     Apache returned that to the user.
     Opening database connections, checking permission constraints, generating valid HTML, configuring caching,
-    interpreting form data and everything else: you have to do it on your own.
+    interpreting form data and everything else: you had to do it on your own.
 
     When the second request comes in, you have to do everything again.
 
