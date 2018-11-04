@@ -61,7 +61,8 @@ Types of tests
 
     Functional tests in Plone have a real database and a component architecture, like Integration tests. In addition, you can simulate a browser in python code. When this browser tries to access a page, the complete transaction machinery is in use. For this to work, the test layer wraps the database into a demostorage. A Demostorage is for demonstration. A demostorage wraps a regular storage. When something gets written into the database, the demostorage stores it into memory or temporary fields. On reading it either returns what has been saved in memory or what is in the underlaying storage.
     After each test, the demostorage is wiped. This should make it nearly as fast as integration tests, but there is an additional overhead, when requests get through the transaction machinery.
-    Also, the browser is pure python code. It knows nothing about javascript. You cannot test your javascript code with functional tests
+    Also, the browser is pure python code. It knows nothing about javascript.
+    You cannot test your javascript code with functional tests.
 
     Acceptance tests
     ~~~~~~~~~~~~~~~~

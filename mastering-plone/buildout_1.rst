@@ -118,7 +118,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
     [buildout]
     extends =
-        http://dist.plone.org/release/5.1.2/versions.cfg
+        http://dist.plone.org/release/5.1.4/versions.cfg
         versions.cfg
     extends-cache = extends-cache
 
