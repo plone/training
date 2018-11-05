@@ -987,6 +987,77 @@ The template’s tal:anon block should look like this:
     </html>
   </tal:anon>
 
+The final HTML for the page template should look like this:
+
+.. code-block:: xml
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        lang="en"
+        i18n:domain="Plone.dexterity">
+
+      <body>
+
+
+    <tal:canorcannot define="checkPermission nocall: context/portal_membership/checkPermission; canedit python:checkPermission('Modify portal content',context)" >
+
+    <tal:anon condition="not: canedit">
+      <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+          xmlns:tal="http://xml.zope.org/namespaces/tal"
+          xmlns:metal="http://xml.zope.org/namespaces/metal"
+          xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          lang="en"
+          i18n:domain="Plone.dexterity">
+      <body tal:define="portal_url here/portal_url;
+                          utils context/plone_utils;
+                          temp python:utils.addPortalMessage('Your question has been submitted. We will respond to it as soon as possible!', 'info');
+                          dummy python:request.response.redirect(portal_url);
+                          ">
+          <h2>Thank you</h2>
+          We will respond to your question as soon as possible!
+          <p><a tal:attributes="href here/portal_url; title string: home">[return to home]</a></p>
+
+      </body>
+      </html>
+    </tal:anon>
+
+      <tal:canedit condition="canedit">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="Plone.dexterity">
+
+      <body>
+
+    <metal:main fill-slot="main">
+        <div tal:define="portal_name here/portal_url/Title;
+                    subject python: 'Your inquiry at ' + portal_name;
+                    question_encoded python: context.your_question.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace(' ', '%20');
+                    question_encoded_quoted python: '&gt; ' + question_encoded;
+                    subject_encoded python: subject.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace(' ', '%20');">
+
+        <h3>From: <span tal:replace="here/your_full_name">[name]</span></h3>
+        <p>Question: <span tal:replace="here/your_question">[question]</span></p>
+        <p><a tal:attributes="href python: 'mailto:' + context.your_email_address + '?subject=' + subject_encoded + '&body=' + question_encoded_quoted">[reply]</a></p>
+
+        </div>
+    </metal:main>
+      </body>
+      </html>
+
+      </tal:canedit>
+
+    </tal:canorcannot>
+
+
+      </body>
+    </html>
+
 When we try this view as an anonymous user, we are redirected to the homepage and are given a thank you message.
 
 .. image:: _static/workflow/image25.jpg
