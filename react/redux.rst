@@ -98,16 +98,16 @@ Finish the reducer so that it can handle the :file:`ADD_FAQ_ITEM`,
                 }
               ];
             case "EDIT_FAQ_ITEM":
-              faq = state;
+              faq = [...state];
               faq[action.index] = {
                 question: action.question,
                 answer: action.answer
               };
-              return [...faq];
+              return faq;
             case "DELETE_FAQ_ITEM":
-              faq = state;
+              faq = [...state];
               faq.splice(action.index, 1);
-              return [...faq];
+              return faq;
             default:
               return state;
           }
