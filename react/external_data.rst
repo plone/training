@@ -69,7 +69,7 @@ The middleware can then decide to do something based on the data in the action.
 In our case we are looking for a property called :file:`request`.
 If that one is available we want to do an api call with the provided operation,
 path and data and fire a new a new action when the data is fetched.
-We will create a file at ``middleware/apis.js`` and the implementation will look like this:
+We will create a file at ``middleware/api.js`` and the implementation will look like this:
 
 .. code-block:: jsx
 
