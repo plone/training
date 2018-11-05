@@ -94,8 +94,8 @@ Remove all other boiler plate code including styling.
 
         export default App;
 
-    .. code-block:: patch
-    
+    .. code-block:: dpatch
+
         --- a/src/App.js
         +++ b/src/App.js
         @@ -1,26 +1,33 @@
