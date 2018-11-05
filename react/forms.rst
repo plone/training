@@ -10,6 +10,9 @@ Add The Form
 To be able to add FAQ items to the list we will start by adding an add form:
 
 .. code-block:: jsx
+    :linenos: 
+    :lineno-start: 31
+    :emphasize-lines: 3,14-23
 
     render() {
       return (
@@ -36,6 +39,52 @@ To be able to add FAQ items to the list we will start by adding an add form:
         </div>
       );
     }
+
+..  admonition:: Differences
+    :class: toggle
+
+    .. code-block:: dpatch
+
+        --- a/src/App.js
+        +++ b/src/App.js
+        @@ -30,16 +30,27 @@ class App extends Component {
+
+          render() {
+            return (
+        -      <ul>
+        -        {this.state.faq.map((item, index) => (
+        -          <FaqItem
+        -            question={item.question}
+        -            answer={item.answer}
+        -            index={index}
+        -            onDelete={this.onDelete}
+        -          />
+        -        ))}
+        -      </ul>
+        +      <div>
+        +        <ul>
+        +          {this.state.faq.map((item, index) => (
+        +            <FaqItem
+        +              question={item.question}
+        +              answer={item.answer}
+        +              index={index}
+        +              onDelete={this.onDelete}
+        +            />
+        +          ))}
+        +        </ul>
+        +        <form>
+        +          <label>
+        +            Question: <input name="question" type="text" />
+        +          </label>
+        +          <label>
+        +            Answer: <textarea name="answer" />
+        +          </label>
+        +          <input type="submit" value="Add" />
+        +        </form>
+        +      </div>
+            );
+          }
+        }
 
 Manage Field Values In The State
 ================================
