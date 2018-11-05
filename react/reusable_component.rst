@@ -15,6 +15,8 @@ In the :file:`FaqItem` component you will have access to the properties with :fi
 The :file:`App.js` code will be changed to:
 
 .. code-block:: jsx
+    :linenos: 
+    :emphasize-lines: 2,9-29
 
     import React, { Component } from "react";
     import FaqItem from "./components/FaqItem";
@@ -53,6 +55,63 @@ The :file:`App.js` code will be changed to:
     export default App;
 
 
+..  admonition:: Differences
+    :class: toggle
+
+    .. code-block:: dpatch
+
+        --- a/src/App.js
+        +++ b/src/App.js
+        @@ -1,33 +1,32 @@
+        import React, { Component } from "react";
+        +import FaqItem from "./components/FaqItem";
+        import "./App.css";
+
+        class App extends Component {
+          render() {
+            return (
+              <ul>
+        -        <li className="faq-item">
+        -          <h2 className="question">What does the Plone Foundation do?</h2>
+        -          <p>
+        +        <FaqItem
+        +          question="What does the Plone Foundation do?"
+        +          answer="
+                    The mission of the Plone Foundation is to protect and promote Plone.
+                    The Foundation provides marketing assistance, awareness, and
+                    evangelism assistance to the Plone community. The Foundation also
+                    assists with development funding and coordination of funding for
+                    large feature implementations. In this way, our role is similar to
+                    the role of the Apache Software Foundation and its relationship with
+        -            the Apache Project.
+        -          </p>
+        -        </li>
+        -        <li className="faq-item">
+        -          <h2 className="question">Why does Plone need a Foundation?</h2>
+        -          <p>
+        -             Plone has reached critical mass, with enterprise implementations and
+        +            the Apache Project."
+        +        />
+        +        <FaqItem
+        +          question="Why does Plone need a Foundation?"
+        +          answer="
+        +            Plone has reached critical mass, with enterprise implementations and
+                    worldwide usage. The Foundation is able to speak for Plone, and
+                    provide strong and consistent advocacy for both the project and the
+                    community. The Plone Foundation also helps ensure a level playing
+                    field, to preserve what is good about Plone as new participants
+        -            arrive.
+        -          </p>
+        -        </li>
+        +            arrive."
+        +        />
+              </ul>
+            );
+          }
+
+
+
+
 Exercise
 ========
 
@@ -63,6 +122,7 @@ Also move all the styling of the view to :file:`components/FaqItem.css`.
     :class: toggle
 
     .. code-block:: jsx
+        :linenos: 
 
         import React, { Component } from "react";
         import "./FaqItem.css";
@@ -102,3 +162,30 @@ And the following static property to the class to validate the properties:
 
 If you now add a third empty <FaqItem> to :file:`App.js`,
 errors of missing properties on this component call will be reported in the Javascript console of your browser.
+
+    .. code-block:: jsx
+        :linenos: 
+        :emphasize-lines: 2,7-10
+
+        import React, { Component } from "react";
+        import PropTypes from "prop-types";
+        
+        import "./FaqItem.css";
+
+        class FaqItem extends Component {
+          static propTypes = {
+            question: PropTypes.string.isRequired,
+            answer: PropTypes.string.isRequired
+          };
+
+          render() {
+            return (
+              <li className="faq-item">
+                <h2 className="question">{this.props.question}</h2>
+                <p>{this.props.answer}</p>
+              </li>
+            );
+          }
+        }
+
+        export default FaqItem;
