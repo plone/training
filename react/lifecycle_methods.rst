@@ -19,6 +19,8 @@ The :file:`getFaqItems` method is mapped using the connect call.
 The full :file:`Faq` component will now look like this:
 
 .. code-block:: jsx
+    :linenos: 
+    :emphasize-lines: 31-33
 
     import React, { Component } from "react";
     import { connect } from "react-redux";
