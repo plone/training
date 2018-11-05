@@ -18,3 +18,5 @@ In this section, we'll cover some advanced tips of what is possible in the pipel
 * import as upgrade step
 * https://docs.plone.org/external/collective.transmogrifier/docs/source/sections.html
   * add a condition section that does the same thing as our example blueprint (excluding older items)
+
+Next: `Advanced Blueprint <advanced-blueprint.html>`_

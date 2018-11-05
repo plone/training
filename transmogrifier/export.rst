@@ -3,11 +3,11 @@ Exporting Your Current Site Content
 ===================================
 
 For the sake of this training, a sample export is provided.
-`Download the export <_static/sample-export.zip>`.
+`Download the export <_static/sample-export.zip>`_.
 The original content came from a Plone 4 site,
 and was exported with collective.jsonify.
 
-If you are using the sample export, continue with the training: <basics>.
+If you are using the sample export, continue with the training: `<basics.html>`_.
 Otherwise, if you need to build an export from your existing site, continue reading.
 Keep in mind that this training is currently only written for handling a jsonify export.
 
@@ -32,21 +32,23 @@ This might be the case if:
 * Your site has been around for a while and has a bit of cruft code (makes for a fresh start)
 * You are looking to drastically update your site, but need to keep a few items
 
-You'll want to use `collective.jsonify <https://pypi.org/project/collective.jsonify>` for the export.
+You'll want to use `collective.jsonify <https://pypi.org/project/collective.jsonify>`_ for the export.
 It walks through your entire Plone site, creating one JSON file for each object in the site.
 It does this using an External Method, and has been tested back to Plone 2.1.
 There is a way to limit what gets exported,
 but you may find it better to export everything, and do the limiting on the import side.
 
-1. Install `collective.jsonify` into the buildout
-2. Add an `External Method <http://old.zope.org/Documentation/How-To/ExternalMethods>` at the root of the Management Interface (http://[your site]/manage) with the following properties:
-  * id: `export_content`
-  * module name: `collective.jsonify.json_methods`
-  * function name: `export_content`
-3. Go to http://[your site]/export_content
+1. Install ``collective.jsonify`` into the buildout
+2. Add an `External Method <http://old.zope.org/Documentation/How-To/ExternalMethods>`_ at the root of the Management Interface (``http://[your site]/manage``) with the following properties:
+
+   * id: ``export_content``
+   * module name: ``collective.jsonify.json_methods``
+   * function name: ```export_content``
+
+3. Go to ``http://[your site]/export_content``
 4. See the instance log output for where the export throws the content (it may go into /tmp)
 5. Copy the numbered folders from the export into the new buildout,
-   into a folder at the root called content-import and add this to your `.gitignore`.
+   into a folder at the root called content-import and add this to your ``.gitignore``.
 
 
 Export from Wordpress
@@ -54,6 +56,7 @@ Export from Wordpress
 
 * Tools > export - exports content as a single XML
 * suggestions for add-ons to export as json
+
   * https://wordpress.org/plugins/search/json+export
   * https://wordpress.org/plugins/all-in-one-wp-migration
 
@@ -62,5 +65,7 @@ Write Your Own Export
 ---------------------
 
 Consistency is key.
-Check out a sample `collective.jsonify` export to model.
+Check out a sample ``collective.jsonify`` export to model.
 You can also export to CSV.
+
+Next: `Basics <basics.html>`_

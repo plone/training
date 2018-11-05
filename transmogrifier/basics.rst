@@ -11,8 +11,8 @@ In this section you will:
 Transmogrifier Setup and Terminology
 ------------------------------------
 
-* The import is set up by creating a `pipeline`.
-  The pipeline is a series of steps, each pointing to a `blueprint`.
+* The import is set up by creating a ``pipeline``.
+  The pipeline is a series of steps, each pointing to a ``blueprint``.
   The blueprint is the Python code that is run for that particular step in the pipeline.
   Each item being imported runs through the full pipeline before moving on to the next item.
 
@@ -23,7 +23,7 @@ Transmogrifier Setup and Terminology
   Newer Plone sites use Dexterity, so a large part of the upgrade process is moving to Dexterity content types.
   The steps and add-ons in this training will set up Dexterity-style types.
 * A jsonify export is built so that folders are exported before their containing items.
-  The `path` to each item is included in the data,
+  The ``path`` to each item is included in the data,
   and this is what Transmogrifier uses for building the new site's structure.
   If you leave all the paths alone and import all items from the old site,
   you should not end up with any broken links!
@@ -45,11 +45,13 @@ depending on what you are doing with your import.
 Create a Migration Package
 --------------------------
 
-With `mr.bob <https://mrbob.readthedocs.io/en/latest/>` and `bobtemplates.plone <https://docs.plone.org/develop/addons/bobtemplates.plone/docs/>`,
+With `mr.bob <https://mrbob.readthedocs.io/en/latest/>`_ and `bobtemplates.plone <https://docs.plone.org/develop/addons/bobtemplates.plone/docs/>`_,
 you can quickly set up a package for handling migrations:
 
-    $ pip install bobtemplates.plone
-    $ mrbob -O ploneconf.migration bobtemplates.plone:migration_package
+.. code-block:: console
+
+   $ pip install bobtemplates.plone
+   $ mrbob -O ploneconf.migration bobtemplates.plone:migration_package
 
 This command will ask a few questions about the author (you),
 and what version of Plone you want to use.
@@ -61,12 +63,16 @@ For this training, we'll use it on its own.
 Follow the instructions below to get a sample Plone site running.
 You can use Python 3 if you are creating a Plone 5.2+ instance.
 
-    $ cd ploneconf.migration
-    $ virtualenv env --python=python2.7
-    $ env/bin/pip install zc.buildout
-    $ env/bin/buildout
-    $ bin/instance fg
+.. code-block:: console
+
+   $ cd ploneconf.migration
+   $ virtualenv env --python=python2.7
+   $ env/bin/pip install zc.buildout
+   $ env/bin/buildout
+   $ bin/instance fg
 
 This will start up the instance in foreground mode for you,
 and will be accessible in your browser at http://localhost:8080.
-Click the 'Create a new Plone site' button, and create a site with the id `Plone`.
+Click the 'Create a new Plone site' button, and create a site with the id ``Plone``.
+
+Next: `Before Import <before-import.html>`_
