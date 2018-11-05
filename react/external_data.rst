@@ -138,16 +138,16 @@ Last part is to change our reducer at ``reducers/faq.js`` to handle the ``GET_FA
           }
         ];
       case "EDIT_FAQ_ITEM":
-        faq = state;
+        faq = [...state];
         faq[action.index] = {
           question: action.question,
           answer: action.answer
         };
-        return [...faq];
+        return faq;
       case "DELETE_FAQ_ITEM":
-        faq = state;
+        faq = [...state];
         faq.splice(action.index, 1);
-        return [...faq];
+        return faq;
       case "GET_FAQ_ITEMS_SUCCESS":
         return action.data;
       default:
