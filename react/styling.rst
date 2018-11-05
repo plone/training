@@ -23,7 +23,8 @@ Style the component so that the dot on each item is removed and the question is 
 
     :file:`App.css`
 
-    .. code-block:: jsx
+    .. code-block:: css
+        :linenos: 
 
         .faq-item {
           list-style-type: none;
@@ -36,6 +37,8 @@ Style the component so that the dot on each item is removed and the question is 
     :file:`App.js`
 
     .. code-block:: jsx
+        :linenos: 
+        :emphasize-lines: 2,8-9,20-21
 
         import React, { Component } from "react";
         import "./App.css";
@@ -73,3 +76,36 @@ Style the component so that the dot on each item is removed and the question is 
         }
 
         export default App;
+
+
+    .. code-block:: dpatch
+
+        --- a/src/App.js
+        +++ b/src/App.js
+        @@ -1,11 +1,12 @@
+        import React, { Component } from "react";
+        +import "./App.css";
+
+        class App extends Component {
+          render() {
+            return (
+              <ul>
+        -        <li>
+        -          <h2>What does the Plone Foundation do?</h2>
+        +        <li className="faq-item">
+        +          <h2 className="question">What does the Plone Foundation do?</h2>
+                  <p>
+                    The mission of the Plone Foundation is to protect and promote Plone.
+                    The Foundation provides marketing assistance, awareness, and
+        @@ -16,8 +17,8 @@ class App extends Component {
+                    the Apache Project.
+                  </p>
+                </li>
+        -        <li>
+        -          <h2>Why does Plone need a Foundation?</h2>
+        +        <li className="faq-item">
+        +          <h2 className="question">Why does Plone need a Foundation?</h2>
+                  <p>
+                      Plone has reached critical mass, with enterprise implementations and
+                    worldwide usage. The Foundation is able to speak for Plone, and
+                    
