@@ -33,6 +33,7 @@ Plone Comes With Several Workflows
 ==================================
 
 Each Plone site includes several workflows out of the box:
+
 * Simple Publication Workflow
 * Single State Workflow
 * Comment Review Workflow
@@ -56,13 +57,14 @@ You Can Add and Customize Workflows
 ===================================
 
 Plone lets you edit workflows and add new ones to a site:
-by installing an add-on that includes one or more new workflows
-through the included Plone Management Interface
-through the Workflow Manager (plone.app.workflowmanager) add-on
+
+* by installing an add-on that includes one or more new workflows
+* through the included Plone Management Interface
+* through the Workflow Manager (plone.app.workflowmanager) add-on
 
 The Workflow Manager is a much better tool than the Management Interface for creating or editing complex workflows because it has a diagram-centric, visual user interface.
 
-.. image:: _static/image12.jpg
+.. image:: _static/workflow/image12.jpg
 
 For this class, however, we will be creating a simple workflow and so we will use the Management Interface. We also believe it is important for a Plone power user or site administrator to know how to use Plone’s built-in tools, in case you need to debug a security/permission issue and you can’t install the Workflow Manager add-on.
 
@@ -75,6 +77,7 @@ Workflow Applies to Included and New Content Types
 As soon as you begin working with content in a Plone site, you are using its workflow capabilities.
 
 Every content type in a Plone site is assigned a specific workflow or is assigned the site’s default workflow (the Simple Publication Workflow is the default default workflow for a Plone site):
+
 * Pages
 * Folders
 * News Items
@@ -106,11 +109,13 @@ The Paper-Based Business Process
 --------------------------------
 
 Typically, the process would go like this:
+
 * The homeowner goes to city hall to get the paper permit
 * The homeowner fills out the permit
 * The homeowner returns the permit to city hall, with payment
 
 Within city hall, once the permit has been received by the city, there is an internal process to be followed:
+
 * The permit must be verified (no missing required fields, everything filled out seems sensible
 * Payment must have been received
 * The permit is sent to one or more internal city departments for approval
@@ -125,6 +130,7 @@ The Online Business Process
 ---------------------------
 
 If all of the above steps could be performed electronically,
+
 * a homeowner could instantaneously obtain and quickly fill out an online renovation permit;
 * submitting the filled out permit could be done through a website without requiring any travel;
 * electronic payment could be confirmed and associated electronically with the submitted permit;
@@ -140,11 +146,13 @@ What is a Workflow Application?
 ===============================
 
 A workflow application is what we call all the elements required to make an online business process:
+
 * a form, to be filled out by the user
 * content items, created by the form
 * workflow, applied to each content item
 
 Additionally, these elements are nice to have:
+
 * a dashboard showing the state of all the content items (ie. have they been handled, are they done, what state is each one in?)
 * a way of searching for individual content items, via any of their form field values
 * a welcoming front page that directs users to the form, displays instructions, and provides useful links to the workflow application administrators and internal users (if any)
@@ -191,14 +199,19 @@ Tools for Building Workflow Applications
 These are tools we can use to create each element of a workflow application:
 
 * the form to be filled out:
+
   * `Dexterity <https://pypi.org/project/plone.app.dexterity/>`_ (included with Plone), or
   * `PloneFormGen <https://github.com/smcmahon/Products.PloneFormGen>`_, or
   * `EasyForm <https://github.com/collective/collective.easyform/>`_
+
 * creating content items:
+
   * `Dexterity <https://pypi.org/project/plone.app.dexterity/>`_ (included with Plone), or
   * `uwosh.pfg.d2c <https://github.com/collective/uwosh.pfg.d2c>`_, or
   * `collective.pfg.dexterity <https://pypi.org/project/collective.pfg.dexterity/>`_
+
 * creating the workflow:
+
   * the Management Interface, a low-level, legacy way of configuring Plone’s innards, or
   * `Workflow Manager <https://github.com/plone/plone.app.workflowmanager>`_, a Plone add-on that provides a more intuitive, graphical way of creating, editing, and applying workflows
 
@@ -1205,6 +1218,10 @@ General Plone documentation: https://docs.plone.org
 
 Plone workflow documentation: https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
 
+Dexterity workflow documentation: https://docs.plone.org/external/plone.app.dexterity/docs/advanced/workflow.html
+
+Martin Aspeli's famed "DCWorkflow's Hidden Gems" blog post: http://www.martinaspeli.net/articles/dcworkflows-hidden-gems
+
 Page templates: https://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html#id1
 
 Plone developer training: https://training.plone.org/5/mastering-plone/index.html
@@ -1217,9 +1234,13 @@ Alternative tools for building forms in Plone:
 * EasyForm: https://pypi.org/project/collective.easyform/
 
 A fantastic tool for building workflows in Plone:
+
 * Workflow Manager: https://pypi.org/project/plone.app.workflowmanager/
 
-* Presentations on workflow applications, given at various Plone Conferences and Symposia:
+A tool for importing and exporting workflows in a relatively friendly way, as CSV files: https://pypi.org/project/collective.wtf/
+
+Presentations on workflow applications, given at various Plone Conferences and Symposia:
+
 * “Building Workflow Applications Through the Web” https://www.slideshare.net/tkimnguyen/building-workflow-applications-through-the-web
 * “Killer Workflow Apps! Get Rich Quick With an Intranet!” https://www.slideshare.net/tkimnguyen/killer-workflow-apps-get-rich-quick-with-an-intranet
 * “Easy online business processes with Plone forms and workflow” https://www.slideshare.net/tkimnguyen/easy-online-business-processes-with-plone-forms-and-workflow
