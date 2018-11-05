@@ -9,12 +9,13 @@ We need to install the :file:`react-test-render` package first:
 
 .. code-block:: console
 
-    yarn add react-test-renderer --dev
+    $ yarn add react-test-renderer --dev
 
 Then we will create a file called :file:`FaqItem.test.js`.
 Here we will render the component and assert the markup.
 
 .. code-block:: jsx
+    :linenos:
 
     import React from "react";
     import renderer from "react-test-renderer";
@@ -38,7 +39,7 @@ To run our tests we will run the command:
 
 .. code-block:: console
 
-    yarn test
+    $ yarn test
 
 This will output our test results:
 
