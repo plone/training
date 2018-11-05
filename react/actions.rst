@@ -413,6 +413,6 @@ update the :file:`FaqItem` component to call the actions we created for our stor
         }
 
         export default connect(
-          () => {},
+          () => ({}),
           { editFaqItem, deleteFaqItem }
         )(FaqItem);
