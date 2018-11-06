@@ -90,3 +90,9 @@ To run the project you can type:
     $ yarn start
 
 This will start the server on port 3000.
+
+If your backend runs on a different port and/or uses a different hostname you can specify the full url:
+
+.. code-block:: console
+
+    $ RAZZLE_API_PATH=http://localhost:55001/plone yarn start
