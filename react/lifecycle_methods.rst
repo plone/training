@@ -10,6 +10,9 @@ We can use this method to do additional calls.
 For example in our case we want to fetch the initial data from the backend.
 
 .. code-block:: jsx
+    :linenos: 
+    :lineno-start: 31
+    :emphasize-lines: 1-3
 
     componentDidMount() {
       this.props.getFaqItems();
@@ -20,7 +23,7 @@ The full :file:`Faq` component will now look like this:
 
 .. code-block:: jsx
     :linenos: 
-    :emphasize-lines: 31-33
+    :emphasize-lines: 6,16-17,31-33,97
 
     import React, { Component } from "react";
     import { connect } from "react-redux";
@@ -103,8 +106,8 @@ The full :file:`Faq` component will now look like this:
                 Answer:
                 <textarea
                   name="answer"
-                  onChange={this.onChangeAnswer}
                   value={this.state.answer}
+                  onChange={this.onChangeAnswer}
                 />
               </label>
               <input type="submit" value="Add" />
@@ -120,3 +123,49 @@ The full :file:`Faq` component will now look like this:
       }),
       { addFaqItem, getFaqItems }
     )(Faq);
+
+
+..  admonition:: Differences
+    :class: toggle
+
+    .. code-block:: dpatch
+
+        --- a/src/components/Faq.jsx
+        +++ b/src/components/Faq.jsx
+        @@ -3,7 +3,7 @@ import { connect } from "react-redux";
+        import PropTypes from "prop-types";
+
+        import FaqItem from "./FaqItem";
+        -import { addFaqItem } from "../actions";
+        +import { addFaqItem, getFaqItems } from "../actions";
+
+        class Faq extends Component {
+          static propTypes = {
+        @@ -13,7 +13,8 @@ class Faq extends Component {
+                answer: PropTypes.string.isRequired
+              })
+            ),
+        -    addFaqItem: PropTypes.func.isRequired
+        +    addFaqItem: PropTypes.func.isRequired,
+        +    getFaqItems: PropTypes.func.isRequired
+          };
+
+          constructor(props) {
+        @@ -27,6 +28,10 @@ class Faq extends Component {
+            };
+          }
+
+        +  componentDidMount() {
+        +    this.props.getFaqItems();
+        +  }
+        +
+          onChangeQuestion(event) {
+            this.setState({
+              question: event.target.value
+        @@ -89,5 +94,5 @@ export default connect(
+          (state, props) => ({
+            faq: state.faq
+          }),
+        -  { addFaqItem }
+        +  { addFaqItem, getFaqItems }
+        )(Faq);
