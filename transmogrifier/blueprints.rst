@@ -69,7 +69,7 @@ Basic Blueprint Tips
   
   .. code-block:: python
   
-     logger.info("[item skipped] {0} due to {1}".format(itempath, failreason))
+     logger.info("[item skipped] %s due to %s", itempath, failreason)
   
   This example assumes you have defined variables for ``itempath``, the path to the current item,
   and ``failreason``, which could be a condition for why you are not importing an item.
@@ -156,7 +156,7 @@ Let's also add a log message to show that the item is being skipped:
    mod_year = int(mod_date[:4])
    if mod_year < 2014:
        item_path = item.get('_path', '')
-       logger.info('[skipped] {0} with modified year {1}'.format(item_path, mod_year))
+       logger.info('[skipped] %s with modified year %s', item_path, mod_year)
        continue
 
 Once you are satisfied with your code and conditions,
