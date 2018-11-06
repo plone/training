@@ -98,8 +98,6 @@ logger
   ``level`` determines the log level.
   You can even have multiple loggers set to different levels, which might provide different output per environment.
   The provided sample will log the ``_path`` for each imported item.
-  Note that this logger is one of the final steps, so the item appears in the log after the item was successfully imported.
-  For debugging, it can be helpful to move the logger to the top, so you know which item you need to check when an error is thrown.
 
 pathfixer
   The blueprint specified here is ``plone.app.transmogrifier.pathfixer``.
