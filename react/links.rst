@@ -9,16 +9,24 @@ This will make sure the browser doesn't do a full refresh but just changes the r
 We will add a link to the :file:`FaqItem` component so we can go to the :file:`FaqItemView` view.
 
 .. code-block:: jsx
+    :linenos:
+    :lineno-start: 4
+    :emphasize-lines: 1
 
     import { Link } from "react-router-dom";
 
-    ...
+.. code-block:: jsx
+    :linenos:
+    :lineno-start: 108
+    :emphasize-lines: 1
 
     <Link to={`/faq/${this.props.index}`}>View</Link>
 
 The full listing of the :file:`FaqItem` component is as follows:
 
 .. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 4,108
 
     import React, { Component } from "react";
     import PropTypes from "prop-types";
@@ -137,3 +145,28 @@ The full listing of the :file:`FaqItem` component is as follows:
       () => {},
       { editFaqItem, deleteFaqItem }
     )(FaqItem);
+
+
+..  admonition:: Differences
+    :class: toggle
+
+    .. code-block:: dpatch
+
+        --- a/src/components/FaqItem.jsx
+        +++ b/src/components/FaqItem.jsx
+        @@ -1,6 +1,7 @@
+        import React, { Component } from "react";
+        import PropTypes from "prop-types";
+        import { connect } from "react-redux";
+        +import { Link } from "react-router-dom";
+
+        import { editFaqItem, deleteFaqItem } from "../actions";
+
+        @@ -104,6 +105,7 @@ class FaqItem extends Component {
+                {this.state.show && <p>{this.props.answer}</p>}
+                <button onClick={this.onDelete}>Delete</button>
+                <button onClick={this.onEdit}>Edit</button>
+        +        <Link to={`/faq/${this.props.index}`}>View</Link>
+              </li>
+            );
+          }
