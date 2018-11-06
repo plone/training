@@ -279,7 +279,7 @@ Second we create the FTI for the new type in :file:`profiles/default/types/spons
 
 .. code-block:: xml
     :linenos:
-    :emphasize-lines: 27
+    :emphasize-lines: 26
 
     <?xml version="1.0"?>
     <object name="sponsor" meta_type="Dexterity FTI" i18n:domain="plone"
