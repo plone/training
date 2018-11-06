@@ -47,6 +47,7 @@ extensions = [
 # Ignore localhost
 linkcheck_ignore = [
     r'http://localhost:\d+/',
+    r'http://localhost:8000',
     r'http://localhost:8080\d+/',
     r'http://localhost:8080',
     r'http://localhost:4200',
