@@ -20,16 +20,18 @@ We will have a view at the root and a view at :file:`/faq/1` where '1' is the in
 Our new ``App.js`` will look like this:
 
 .. code-block:: jsx
+    :linenos: 
+    :emphasize-lines: 4,8,19-24
 
     import React, { Component } from "react";
     import { Provider } from "react-redux";
     import { createStore, applyMiddleware } from "redux";
+    import { BrowserRouter, Route } from "react-router-dom";
 
     import rootReducer from "./reducers";
     import Faq from "./components/Faq";
     import FaqItemView from "./components/FaqItemView";
     import api from "./middleware/api";
-    import { BrowserRouter, Route } from "react-router-dom";
 
     import "./App.css";
 
@@ -52,6 +54,40 @@ Our new ``App.js`` will look like this:
 
     export default App;
 
+..  admonition:: Differences
+    :class: toggle
+
+    .. code-block:: dpatch
+
+        --- a/src/App.js
+        +++ b/src/App.js
+        @@ -1,9 +1,11 @@
+        import React, { Component } from "react";
+        import { Provider } from "react-redux";
+        import { createStore, applyMiddleware } from "redux";
+        +import { BrowserRouter, Route } from "react-router-dom";
+
+        import rootReducer from "./reducers";
+        import Faq from "./components/Faq";
+        +import FaqItemView from "./components/FaqItemView";
+        import api from "./middleware/api";
+
+        import "./App.css";
+        @@ -14,7 +16,12 @@ class App extends Component {
+          render() {
+            return (
+              <Provider store={store}>
+        -        <Faq />
+        +        <BrowserRouter>
+        +          <div>
+        +            <Route exact path="/" component={Faq} />
+        +            <Route path="/faq/:index" component={FaqItemView} />
+        +          </div>
+        +        </BrowserRouter>
+              </Provider>
+            );
+          }
+
 Writing The View
 ================
 
@@ -60,6 +96,8 @@ This will render the full FAQ item.
 The code will look something like this:
 
 .. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 31
 
     import React, { Component } from "react";
     import PropTypes from "prop-types";
@@ -108,6 +146,9 @@ Complete the :file:`connect` call to return the correct data:
     :class: toggle
 
     .. code-block:: jsx
+        :linenos: 
+        :lineno-start: 29
+        :emphasize-lines: 3-6
 
         export default connect(
           (state, props) => {
