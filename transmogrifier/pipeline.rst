@@ -43,7 +43,12 @@ blueprint
   See `<blueprints.html>`_ for steps to set up your own.
 
 item
-  The current piece of content in the loop being imported
+  The current piece of content in the loop being imported.
+  When the importer first grabs the json data,
+  it creates a dictionary called ``item``,
+  that stores all the information from the json file.
+  The pipeline can then manipulate the data in this dictionary,
+  in order to prepare it for the actual import.
 
 Here is a visualization of how the items move through the pipeline.
 Each item goes through each step of the pipeline,
@@ -156,5 +161,52 @@ savepoint
   This is set to 1000, because a jsonify export saves 1000 items to a folder.
   This will be discussed more later in `Import <import.html>`_.
   You can adjust to save how often you want.
+
+
+New Pipeline Step
+-----------------
+
+Let's add a new pipeline step that will fix the language of the imported items.
+
+If you look at a couple pieces of content in the export, you will see:
+
+.. code-block:: console
+
+    "language": "en",
+
+This may cause a problem on import,
+because Plone 5 will default to the language as "en-us".
+Or it will be a problem if you set a different language as the default.
+So let's add a custom pipeline step to fix this.
+
+First determine where the new step should appear in the pipeline.
+We want to manipulate the value stored in the item dictionary,
+before an object is created in the site.
+So let's put the step before the ``constructor``:
+
+.. code-block:: console
+
+   [transmogrifier]
+   pipeline =
+    jsonsource
+    logger
+    pathfixer
+    setlanguage
+    ...
+
+Then further down in the file, add the ``setlanguage`` part with the following code:
+
+.. code-block:: console
+
+   [setlanguage]
+   blueprint = collective.transmogrifier.sections.inserter
+   key = string:language
+   value = string:en-us
+
+This will take the ``language`` key from the item dictionary,
+and change the ``value`` to whatever we set,
+in this case it will be the string ``'en-us'``.
+Your value may be different, depending on what language you set as your site language.
+Check the Languages control panel in Site Setup to see how it is set.
 
 Next: `Blueprints <blueprints.html>`_
