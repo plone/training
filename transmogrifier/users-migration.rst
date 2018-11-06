@@ -55,8 +55,8 @@ Export using a script:
    f.close()
 
 
-The import can be done as a blueprint, which is the code below.
-But it's probably better off as an upgrade step.
+The import can be done as blueprints, which is the code below.
+But it's would be better off as an upgrade step.
 
 .. code-block:: python
 
@@ -87,7 +87,7 @@ But it's probably better off as an upgrade step.
                    if 'Anonymous' in data['roles']:
                        roles.remove('Anonymous')
                    if not data['email']:
-                       data['email'] = 'user@factset.com'
+                       data['email'] = 'user@site.com'
    
                    if user:
                        api.user.grant_roles(username=person, roles=roles)
@@ -99,4 +99,60 @@ But it's probably better off as an upgrade step.
                    except ValueError as e:
                        logger.warn("Import User '{0}' threw an error: {1}".format(
                            person, e))
+               yield item
+
+   class Groups(object):
+       """ Import groups that had been exported
+           with the custom export script
+       """
+
+       classProvides(ISectionBlueprint)
+       implements(ISection)
+
+       def __init__(self, transmogrifier, name, options, previous):
+           self.transmogrifier = transmogrifier
+           self.name = name
+           self.options = options
+           self.previous = previous
+           self.context = transmogrifier.context
+
+           if 'acl_groups-key' in options:
+               groupskeys = options['acl_groups-key'].splitlines()
+           else:
+               groupskeys = defaultKeys(
+                   options['blueprint'], name, 'acl_groups')
+           self.groupskey = Matcher(*groupskeys)
+
+       def __iter__(self):
+           for item in self.previous:
+               groupskey = self.groupskey(*item.keys())[0]
+
+               if not groupskey:
+                   yield item
+                   continue
+
+               group_tool = api.portal.get_tool(name='portal_groups')
+               if '_acl_groups' not in item:
+                   yield item
+                   continue
+               for group in item['_acl_groups']:
+                   acl_group = api.group.get(groupname=group)
+                   props = item['_acl_groups'][group]
+                   if not acl_group:
+                       acl_group = api.group.create(
+                           groupname=group,
+                           title=props['title'],
+                           description=props['description'],
+                           roles=props['roles'],
+                       )
+                   else:
+                       group_tool.editGroup(
+                           group,
+                           roles=props['roles'],
+                           title=props['title'],
+                           description=props['description'],
+                       )
+                   for member in props['members']:
+                       acl_group.addMember(member)
+
                yield item

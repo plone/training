@@ -108,14 +108,8 @@ You'll likely run into more errors once you start writing your own blueprints.
 
 * ``AttributeError: _setObject``
 
-  * This happens when the import tries to add content where it's not allowed,
-    such as a non-folderish item, or a folder with limited content types (? - check)
+  * This happens when the import tries to add content into a non-folderish item
 
-* ``ConstraintNotSatisfied: (u'en', 'language')``
-
-  * Adjust the Language Control Panel in Site Setup to remove the country-specific variants
-    and set English as the 'Site language' and 'Available language'.
-    (need a better fix)
 
 Debugging Other Errors
 ----------------------
