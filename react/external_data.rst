@@ -18,6 +18,7 @@ To install type:
 Now we will create a simple server in the file :file:`server.js`
 
 .. code-block:: jsx
+    :linenos:
 
     const express = require("express");
     const app = express();
@@ -50,6 +51,9 @@ Then we can run our newly created server:
 Now it is time to write our action to fetch the items from the backend in the file ``actions/index.js``:
 
 .. code-block:: jsx
+    :linenos: 
+    :lineno-start: 19
+    :emphasize-lines: 1-7
 
     export const getFaqItems = () => ({
       type: "GET_FAQ_ITEMS",
@@ -72,6 +76,7 @@ path and data and fire a new a new action when the data is fetched.
 We will create a file at ``middleware/api.js`` and the implementation will look like this:
 
 .. code-block:: jsx
+    :linenos:
 
     export default store => next => action => {
       const { request, type, ...rest } = action;
@@ -97,6 +102,8 @@ We will create a file at ``middleware/api.js`` and the implementation will look 
 Finally we need to apply our middleware to the store in ``App.js``:
 
 .. code-block:: jsx
+    :linenos: 
+    :emphasize-lines: 3,7,11
 
     import React, { Component } from "react";
     import { Provider } from "react-redux";
@@ -122,9 +129,37 @@ Finally we need to apply our middleware to the store in ``App.js``:
 
     export default App;
 
+
+..  admonition:: Differences
+    :class: toggle
+
+    .. code-block:: dpatch
+
+        --- a/src/App.js
+        +++ b/src/App.js
+        @@ -1,13 +1,14 @@
+        import React, { Component } from "react";
+        import { Provider } from "react-redux";
+        -import { createStore } from "redux";
+        +import { createStore, applyMiddleware } from "redux";
+
+        import rootReducer from "./reducers";
+        import Faq from "./components/Faq";
+        +import api from "./middleware/api";
+
+        import "./App.css";
+
+        -const store = createStore(rootReducer);
+        +const store = createStore(rootReducer, applyMiddleware(api));
+
+        class App extends Component {
+          render() {
+
 Last part is to change our reducer at ``reducers/faq.js`` to handle the ``GET_FAQ_ITEMS_SUCCESS`` action:
 
 .. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 23-24
 
     const faq = (state = [], action) => {
     let faq;

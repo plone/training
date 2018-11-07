@@ -9,6 +9,9 @@ In this example we will create a back button in the :file:`FaqItemView` to retur
 First we will create the button:
 
 .. code-block:: jsx
+    :linenos: 
+    :lineno-start: 36
+    :emphasize-lines: 1
 
     <button onClick={this.onBack}>Back</button>
 
@@ -17,6 +20,9 @@ This event will make use of the :file:`history` property passed by React Router.
 This property has a push method which will push the new route.
 
 .. code-block:: jsx
+    :linenos: 
+    :lineno-start: 27
+    :emphasize-lines: 1-3
 
     onBack() {
       this.props.history.push("/");
@@ -25,6 +31,8 @@ This property has a push method which will push the new route.
 The full listing of our new :file:`FaqItemView` will look as follows:
 
 .. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 13-15,18-21,27-29,36
 
     import React, { Component } from "react";
     import PropTypes from "prop-types";
@@ -76,3 +84,44 @@ The full listing of our new :file:`FaqItemView` will look as follows:
       },
       { getFaqItems }
     )(FaqItemView);
+
+
+..  admonition:: Differences
+    :class: toggle
+
+    .. code-block:: dpatch
+
+        --- a/src/components/FaqItemView.jsx
+        +++ b/src/components/FaqItemView.jsx
+        @@ -9,18 +9,31 @@ class FaqItemView extends Component {
+            faqItem: PropTypes.shape({
+              question: PropTypes.string,
+              answer: PropTypes.string
+             }).isRequired,
+        +    history: PropTypes.shape({
+        +      push: PropTypes.func
+        +   }).isRequired
+          };
+
+        +  constructor(props) {
+        +    super(props);
+        +    this.onBack = this.onBack.bind(this);
+        +  }
+        +
+          componentDidMount() {
+            this.props.getFaqItems();
+          }
+
+        +  onBack() {
+        +    this.props.history.push("/");
+        +  }
+        +
+          render() {
+            return (
+              <div>
+                <h2 className="question">{this.props.faqItem.question}</h2>
+                <p>{this.props.faqItem.answer}</p>
+        +        <button onClick={this.onBack}>Back</button>
+              </div>
+            );
+          }
