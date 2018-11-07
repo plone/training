@@ -9,7 +9,7 @@ Glossary
       Free to join, pay only for what you use.
 
    Linode
-      `Linode.com <https://linode.com/>`_ is an American privately owned virtual private server provider company
+      `Linode.com <https://www.linode.com/>`_ is an American privately owned virtual private server provider company
        based in Galloway, New Jersey, United States.
 
    DigitalOcean

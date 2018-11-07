@@ -3,7 +3,7 @@ Intro To Ansible
 ================
 
 `Ansible <https://www.ansible.com/>`_ is an open-source configuration management, provisioning and application deployment platform
-written in Python and using `YAML <http://www.yaml.org/start.html>`_ (YAML Ain't Markup Language) as a configuration language.
+written in Python and using `YAML <http://yaml.org/start.html>`_ (YAML Ain't Markup Language) as a configuration language.
 
 Ansible makes its connections from your computer to the target machine using SSH.
 
@@ -165,7 +165,7 @@ Playbooks
 =========
 
 We're going to cover just enough on Ansible playbooks to allow you to read and customize Plone's playbook.
-`Ansible's documentation <http://docs.ansible.com>`_ is excellent if you want to learn more.
+`Ansible's documentation <https://docs.ansible.com>`_ is excellent if you want to learn more.
 
 In Ansible, an individual instruction for the setup of the remote server is called a _task_.
 Here's a task that makes sure a directory exists.

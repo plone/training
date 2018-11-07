@@ -18,8 +18,11 @@ A collection of trainings developed and created by the Plone Community.
     solr/index
     workflow/index
     angular/index
+    react/index
+    volto/index
     advanced-python/index
     gatsby/index
+
 ..  toctree::
     :hidden:
     :maxdepth: 3
@@ -61,6 +64,12 @@ Trainings
 
 :doc:`angular/index`
     Building Angular 4 apps using the Plone REST API.
+
+:doc:`react/index`
+    Learn React, Redux and React-Router.
+
+:doc:`volto/index`
+    Build a custom website using Volto and the Plone REST API.
 
 :doc:`gatsby/index`
     Building static websites with GatsbyJS.

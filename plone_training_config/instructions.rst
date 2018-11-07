@@ -98,14 +98,29 @@ This will take a very lot of time and produce a lot of output because it downloa
 
 The output should be similar to:
 
-.. code-block:: html
-    :emphasize-lines: 9
+.. code-block:: console
+    :emphasize-lines: 40
 
-    2015-09-24 15:51:02 INFO ZServer HTTP server started at Thu Sep 24 15:51:02 2015
-            Hostname: 0.0.0.0
-            Port: 8080
-    2015-09-24 15:51:05 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
-    2015-09-24 15:51:05 WARNING PrintingMailHost
+    pbauer@bullet:/workspace/training_buildout$  ./bin/instance fg
+    2018-10-26 11:59:13 INFO ZServer HTTP server started at Fri Oct 26 11:59:13 2018
+        Hostname: 0.0.0.0
+        Port: 8080
+    2018-10-26 11:59:16 INFO ZODB.blob (57231) Blob directory `/Users/pbauer/workspace/training_buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
+    2018-10-26 11:59:16 INFO ZODB.blob (57231) Blob temporary directory '/Users/pbauer/workspace/training_buildout/var/blobstorage/tmp' does not exist. Created new directory.
+    /Users/pbauer/.cache/buildout/eggs/plone.app.blob-1.7.4-py2.7.egg/plone/app/blob/content.py:23: DeprecationWarning: MimeTypeException is deprecated. Import from Products.MimetypesRegistry.interfaces instead
+      from Products.MimetypesRegistry.common import MimeTypeException
+    /Users/pbauer/.cache/buildout/eggs/plone.portlet.collection-3.3.0-py2.7.egg/plone/portlet/collection/collection.py:2: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
+      from plone.app.layout.navigation.defaultpage import isDefaultPage
+    /Users/pbauer/.cache/buildout/eggs/Products.CMFPlone-5.1.4-py2.7.egg/Products/CMFPlone/browser/syndication/views.py:17: DeprecationWarning: wrap_form is deprecated. Import from plone.z3cform.layout instead.
+      from plone.app.z3cform.layout import wrap_form
+    /Users/pbauer/.cache/buildout/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:102: DeprecationWarning: Expected text
+      transaction.get().note("Created Zope Application")
+    /Users/pbauer/.cache/buildout/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:267: DeprecationWarning: Expected text
+      transaction.get().note(note)
+    /Users/pbauer/.cache/buildout/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:523: DeprecationWarning: Expected text
+      transaction.get().note('Prior to product installs')
+    2018-10-26 11:59:21 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
+    2018-10-26 11:59:21 WARNING PrintingMailHost
 
     ******************************************************************************
 
@@ -119,16 +134,14 @@ The output should be similar to:
     or remove ENABLE_PRINTING_MAILHOST from the environment variables to
     return to normal e-mail sending.
 
-    See https://pypi.org/project/Products.PrintingMailHost
+    See https://pypi.python.org/pypi/Products.PrintingMailHost
 
     ******************************************************************************
 
-    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob directory `.../buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
-    2015-09-24 15:51:05 INFO ZODB.blob (54391) Blob temporary directory '.../buildout/var/blobstorage/tmp' does not exist. Created new directory.
-    .../.buildout/eggs/plone.app.multilingual-3.0.11-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
-      from plone.app.multilingual.content.lrf import LanguageRootFolder
-    2015-09-24 15:51:09 INFO Plone OpenID system packages not installed, OpenID support not available
-    2015-09-24 15:51:11 INFO Zope Ready to handle requests
+    /Users/pbauer/.cache/buildout/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:777: DeprecationWarning: Expected text
+      transaction.get().note('Installed standard objects')
+    2018-10-26 11:59:21 INFO Zope Ready to handle requests
+
 
 If the output says ``INFO Zope Ready to handle requests`` then you are in business.
 
@@ -156,7 +169,7 @@ You can stop the running instance anytime using :kbd:`ctrl + c`.
 Installing Plone with Vagrant
 -----------------------------
 
-We use a virtual machine (Ubuntu 16.04) to run Plone during the training.
+We use a virtual machine (Ubuntu 18.04) to run Plone during the training.
 
 We rely on `Vagrant <https://www.vagrantup.com>`_ and `VirtualBox <https://www.virtualbox.org>`_ to give the same development environment to everyone.
 
@@ -221,7 +234,7 @@ Now start setting up the virtual machine (VM) that is configured in :file:`Vagra
 
 This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on your Internet connection and system speed) since it does all the following steps:
 
-* downloads a virtual machine (Official Ubuntu Server 16.04 LTS, also called "Xenial Xerus")
+* downloads a virtual machine (Official Ubuntu Server 18.04 LTS, also called "Bionic Beaver")
 * sets up the VM
 * updates the VM
 * installs various system-packages needed for Plone development
@@ -269,7 +282,7 @@ Once Vagrant finishes the provisioning process, you can login to the now running
 
 .. note::
 
-    If you use Windows you'll have to login with `putty <http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_.
+    If you use Windows you'll have to login with `putty <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_.
     Connect to vagrant@127.0.01 at port 2222. User **and** password are ``vagrant``.
 
 You are now logged in as the user vagrant in :file:`/home/vagrant`.
@@ -281,12 +294,26 @@ It is in :file:`/vagrant/buildout/`. Start it in foreground with :command:`./bin
 
 .. code-block:: console
 
-    ubuntu@training:/vagrant/buildout$ bin/instance fg
-    2017-10-09 16:28:01 INFO ZServer HTTP server started at Mon Oct  9 16:28:01 2017
+    vagrant@training:/vagrant/buildout$ ./bin/instance fg
+    2018-10-26 09:52:41 INFO ZServer HTTP server started at Fri Oct 26 09:52:41 2018
         Hostname: 0.0.0.0
         Port: 8080
-    2017-10-09 16:28:03 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
-    2017-10-09 16:28:03 WARNING PrintingMailHost
+    2018-10-26 09:52:43 INFO ZODB.blob (27181) Blob directory `/home/vagrant/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
+    2018-10-26 09:52:43 INFO ZODB.blob (27181) Blob temporary directory '/home/vagrant/var/blobstorage/tmp' does not exist. Created new directory.
+    /home/vagrant/buildout-cache/eggs/plone.app.blob-1.7.4-py2.7.egg/plone/app/blob/content.py:23: DeprecationWarning: MimeTypeException is deprecated. Import from Products.MimetypesRegistry.interfaces instead
+      from Products.MimetypesRegistry.common import MimeTypeException
+    /home/vagrant/buildout-cache/eggs/plone.portlet.collection-3.3.0-py2.7.egg/plone/portlet/collection/collection.py:2: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
+      from plone.app.layout.navigation.defaultpage import isDefaultPage
+    /home/vagrant/buildout-cache/eggs/Products.CMFPlone-5.1.4-py2.7.egg/Products/CMFPlone/browser/syndication/views.py:17: DeprecationWarning: wrap_form is deprecated. Import from plone.z3cform.layout instead.
+      from plone.app.z3cform.layout import wrap_form
+    /home/vagrant/buildout-cache/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:102: DeprecationWarning: Expected text
+      transaction.get().note("Created Zope Application")
+    /home/vagrant/buildout-cache/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:267: DeprecationWarning: Expected text
+      transaction.get().note(note)
+    /home/vagrant/buildout-cache/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:523: DeprecationWarning: Expected text
+      transaction.get().note('Prior to product installs')
+    2018-10-26 09:52:47 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
+    2018-10-26 09:52:47 WARNING PrintingMailHost
 
     ******************************************************************************
 
@@ -300,27 +327,13 @@ It is in :file:`/vagrant/buildout/`. Start it in foreground with :command:`./bin
     or remove ENABLE_PRINTING_MAILHOST from the environment variables to
     return to normal e-mail sending.
 
-    See https://pypi.org/project/Products.PrintingMailHost
+    See https://pypi.python.org/pypi/Products.PrintingMailHost
 
     ******************************************************************************
 
-    /home/ubuntu/buildout-cache/eggs/plone.formwidget.namedfile-2.0.4-py2.7.egg/plone/formwidget/namedfile/widget.py:18: DeprecationWarning: MimeTypeException is deprecated. Import from Products.MimetypesRegistry.interfaces instead
-      from Products.MimetypesRegistry.common import MimeTypeException
-    /home/ubuntu/buildout-cache/eggs/plone.app.dexterity-2.4.6-py2.7.egg/plone/app/dexterity/__init__.py:14: DeprecationWarning: Name clash, now use '_' as usual. Will be removed in Plone 5.2
-      DeprecationWarning)
-    /home/ubuntu/buildout-cache/eggs/plone.app.multilingual-5.1.2-py2.7.egg/plone/app/multilingual/browser/migrator.py:11: DeprecationWarning: LanguageRootFolder: LanguageRootFolders should be migrate to DexterityContainers
-      from plone.app.multilingual.content.lrf import LanguageRootFolder
-    /home/ubuntu/buildout-cache/eggs/plone.portlet.collection-3.2-py2.7.egg/plone/portlet/collection/collection.py:2: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
-      from plone.app.layout.navigation.defaultpage import isDefaultPage
-    /home/ubuntu/buildout-cache/eggs/Products.CMFPlone-5.1rc1-py2.7.egg/Products/CMFPlone/browser/syndication/views.py:17: DeprecationWarning: wrap_form is deprecated. Import from plone.z3cform.layout instead.
-      from plone.app.z3cform.layout import wrap_form
-    /home/ubuntu/buildout-cache/eggs/Zope2-2.13.26-py2.7.egg/OFS/Application.py:102: DeprecationWarning: Expected text
-      transaction.get().note("Created Zope Application")
-    /home/ubuntu/buildout-cache/eggs/Zope2-2.13.26-py2.7.egg/OFS/Application.py:265: DeprecationWarning: Expected text
-      transaction.get().note(note)
-    /home/ubuntu/buildout-cache/eggs/Zope2-2.13.26-py2.7.egg/OFS/Application.py:521: DeprecationWarning: Expected text
-      transaction.get().note('Prior to product installs')
-    2017-10-09 16:28:07 INFO Zope Ready to handle requests
+    /home/vagrant/buildout-cache/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:777: DeprecationWarning: Expected text
+      transaction.get().note('Installed standard objects')
+    2018-10-26 09:52:47 INFO Zope Ready to handle requests
 
 .. note::
 
@@ -360,7 +373,7 @@ next to :file:`Vagrantfile` and :file:`manifests`.
 .. note::
 
     The database and the python packages are not accessible in your own system since large files cannot make use of symlinks in shared folders.
-    The database lies in ``/home/ubuntu/var``, the python packages are in ``/home/ubuntu/packages``.
+    The database lies in ``/home/vagrant/var``, the python packages are in ``/home/vagrant/packages``.
 
 If you have any problems or questions please mail us at team@starzel.de or create a ticket at https://github.com/plone/training/issues.
 

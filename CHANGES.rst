@@ -6,6 +6,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Explanation about less variables and development/production mode in the theming training first chapter. [fredvd]
+
 - Fixes to Advanced Python Training [oz123]
 
 - Add one more chapter to Advanced Python Training [oz123]
@@ -173,6 +175,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Add support for translations on transifex
   [macagua]
+  
+- Upgrade Vagrant setup to Ubuntu 18.04 LTS
+  [tschorr]
 
 
 1.2.3 (2014-07-11)

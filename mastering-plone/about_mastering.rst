@@ -33,7 +33,7 @@ The Mastering Plone Training was so far held publicly at the following occasions
 * October 2015, Bucharest
 * `March 2015, Munich <https://www.starzel.de/leistungen/training/>`_
 * Plone Conference 2014, Bristol
-* `June 2014, Caracas <https://twitter.com/hellfish2/status/476906131970068480>`_
+* `June 2014, Caracas <https://mobile.twitter.com/hellfish2/status/476906131970068480>`_
 * `May 2014, Munich <https://www.starzel.de/blog/mastering-plone>`_
 * `PythonBrasil/Plone Conference 2013, Brasilia <http://2013.pythonbrasil.org.br/>`_
 * PyCon DE 2012, Leipzig
@@ -193,7 +193,7 @@ Building the documentation locally
 Dependencies
 ++++++++++++
 
-Please make sure that you have `Enchant <https://www.abisource.com/projects/enchant/>`_ installed. This is needed for spell-checking.
+Please make sure that you have `Enchant <https://abiword.github.io/enchant/>`_ installed. This is needed for spell-checking.
 
 Install Enchant on macOS:
 
@@ -212,7 +212,7 @@ To build the documentation follow these steps:
 
 .. code-block:: console
 
-    git clone https://github.com/plone/training.git --recursive
+    git clone https://github.com/plone/training.git
     cd training
     virtualenv --python=python2.7 .
     $ source bin/activate
@@ -234,7 +234,7 @@ Build new
 
 .. code-block:: console
 
-    git clone https://github.com/plone/training.git --recursive
+    git clone https://github.com/plone/training.git
     cd training
     virtualenv --python=python2.7 .
     source bin/activate

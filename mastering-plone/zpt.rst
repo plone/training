@@ -1059,6 +1059,6 @@ You'll only learn it if you keep reading, writing and customizing templates.
 .. seealso::
 
   * https://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html
-  * Using Zope Page Templates: http://docs.zope.org/zope2/zope2book/ZPT.html
-  * Zope Page Templates Reference: http://docs.zope.org/zope2/zope2book/AppendixC.html
+  * Using Zope Page Templates: https://zope.readthedocs.io/en/latest/zope2book/ZPT.html
+  * Zope Page Templates Reference: https://zope.readthedocs.io/en/latest/zope2book/AppendixC.html
   * https://chameleon.readthedocs.io/en/latest/

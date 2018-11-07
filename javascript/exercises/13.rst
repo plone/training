@@ -9,7 +9,7 @@ Exercise 13: Pattern with React
 
 
 In this exercise, we'll be walking through creating a pattern that uses
-`ReactJS <https://facebook.github.io/react/>`_.
+`ReactJS <https://reactjs.org/>`_.
 
 We will be working in the ``exercise13`` directory of the collective.jstraining package.
 

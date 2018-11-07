@@ -61,7 +61,7 @@ Some technologies and tools we use during the training:
 
     * `Git <https://git-scm.com/>`_
     * `GitHub <https://github.com>`_
-    * `Try Git (Nice introduction to git and github) <https://try.github.io/levels/1/challenges/1>`_
+    * `Try Git (Nice introduction to git and github) <http://try.github.io/levels/1/challenges/1/>`_
     * TAL
     * METAL
     * ZCML
@@ -172,4 +172,4 @@ Further Reading
 
 * `Martin Aspeli: Professional Plone4 Development <https://www.packtpub.com/web-development/professional-plone-4-development>`_
 * `Practical Plone <https://www.packtpub.com/web-development/practical-plone-3-beginners-guide-building-powerful-websites>`_
-* `Zope Page Templates Reference <http://docs.zope.org/zope2/zope2book/AppendixC.html>`_
+* `Zope Page Templates Reference <https://zope.readthedocs.io/en/latest/zope2book/AppendixC.html>`_

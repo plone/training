@@ -20,7 +20,7 @@ integrate JavaScript applications and integrations into Plone in different
 scenarios.
 
 Secondly, it is to explain the JavaScript technologies used in Plone
-itself (`RequireJS <http://requirejs.org/>`_, `Patterns <https://github.com/plone/plone.patternslib>`_,
+itself (`RequireJS <https://requirejs.org/>`_, `Patterns <https://github.com/plone/plone.patternslib>`_,
 `Resource registry <https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html>`_).
 
 This training is **not** about:

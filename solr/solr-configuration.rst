@@ -158,7 +158,7 @@ synonyms.txt::
 
 For a full list of index and query filter factories consult the Solr documentation:
 
-.. seealso:: https://cwiki.apache.org/confluence/display/solr/Understanding+Analyzers%2C+Tokenizers%2C+and+Filters
+.. seealso:: https://lucene.apache.org/solr/guide/6_6/understanding-analyzers-tokenizers-and-filters.html
 
 Exercise
 ========

@@ -66,3 +66,15 @@ You can play around with some other variables, if you want.
 
     You could see an unthemed page for a while.
     Remember to switch it off as soon as you finished tweaking.
+
+
+However, when you now turn off development mode after changing some lesss variables, you will see that the
+changes you have just made in the :guilabel:`Less Variables` tab are no longer active in the theme. 
+Development mode recompiles the theme resources on the fly for every request, but in production mode the
+theme will be compiled once or manually from the "Resource Registries" Control Panel. When you install
+Plone, the included and active Barceloneta theme is served from the filesystem. These compiled theme
+resources on the filesystem cannot be changed from within Plone.
+
+In the next chapter we will make a custom copy of the Barceloneta Theme which will not be stored on the filesystem,
+but as a copy in the site database. When you activate this editable copy, your less variables will be included in the
+compiled resources of that theme. 

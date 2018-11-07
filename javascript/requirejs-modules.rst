@@ -10,7 +10,7 @@ Python code would be unmanageable, if we'd rely on the existence of global varia
 But JavaScript doesn't have any concept for declaring dependencies.
 Only the new and finalized ECMAScript 6 (ES6) standard finally comes with a module definition system (actually directly inspired by RequireJS and CommonJS), along other great features like proper variable scoping.
 
-In Plone, we use `RequireJS <http://requirejs.org>`_ as a framework to define and load modules.
+In Plone, we use `RequireJS <https://requirejs.org/>`_ as a framework to define and load modules.
 
 RequireJS is an implementation of the `Asynchronous Module Definition API <https://github.com/amdjs/amdjs-api/blob/master/AMD.md>`_.
 The module definition and loading standard of CommonJS is used by NodeJS.
@@ -127,4 +127,4 @@ More information
 ================
 
 More on RequireJS' API and how to include legacy code,
-which doesn't use the ``define`` module definition pattern, see the `RequireJS API documentation <http://requirejs.org/docs/api.html#define>`_.
+which doesn't use the ``define`` module definition pattern, see the `RequireJS API documentation <https://requirejs.org/docs/api.html#define>`_.

@@ -31,7 +31,7 @@ and dynamically.
 Examples:
 
 * https://www.dipf.de/en/research/projects
-* https://www.mountaineers.org/learn/courses-clinics-seminars
+* https://www.mountaineers.org/courses/courses-clinics-seminars
 * https://www.dyna-jet.com/hochdruckreiniger
 
 .. seealso::
