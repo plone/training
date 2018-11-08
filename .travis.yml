@@ -10,7 +10,7 @@ addons:
 python:
 - '2.7'
 install:
-- pip install -q -r requirements.txt
+- pip install -q -r requirements.txt -c constraints.txt
 script:
   - make test
   - make deploy
