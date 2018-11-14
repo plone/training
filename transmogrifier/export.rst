@@ -3,7 +3,7 @@ Exporting Your Current Site Content
 ===================================
 
 For the sake of this training, a sample export is provided.
-`Download the export <_static/sample-export.zip>`_.
+`Download the export <../_static/sample_export.zip>`_.
 The original content came from a Plone 4 site,
 and was exported with collective.jsonify.
 

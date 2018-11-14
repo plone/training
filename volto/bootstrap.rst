@@ -13,6 +13,9 @@ For this course we will use Plone, you can download Plone at https://plone.org/d
 We need plone.restapi, so make sure you have that installed and configured correctly.
 For an example look into the api folder of the Volto repostory: https://github.com/plone/volto/tree/master/api
 
+.. warning::  Make sure you set a CORS policy or things tend to magically go wrong. See https://github.com/plone/volto/blob/master/api/buildout.cfg for an example.
+
+
 Installing Dependencies
 =======================
 
@@ -90,3 +93,14 @@ To run the project you can type:
     $ yarn start
 
 This will start the server on port 3000.
+You can change the port and/or hostname for the frontend by specifying PORT and/or HOST:
+
+.. code-block:: console
+
+    $ HOST=my_hostname PORT=1234 yarn start
+
+If your backend runs on a different port and/or uses a different hostname you can specify the full url:
+
+.. code-block:: console
+
+    $ RAZZLE_API_PATH=http://localhost:55001/plone yarn start

@@ -11,9 +11,10 @@ bin/
 build/
 include/
 lib/
-lib64
+lib64/
 local/
-pip-selfcheck.json
+/pip-selfcheck.json
+/pyvenv.cfg
 plone_training_config/training/
 presentation/
 log/

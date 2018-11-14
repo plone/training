@@ -15,6 +15,8 @@ and create an empty :file:`onDelete` handler which is called when the button is 
     :class: toggle
 
     .. code-block:: jsx
+        :linenos: 
+        :emphasize-lines: 14,26,35
 
         import React, { Component } from "react";
         import PropTypes from "prop-types";
@@ -58,6 +60,36 @@ and create an empty :file:`onDelete` handler which is called when the button is 
 
         export default FaqItem;
 
+    .. code-block:: dpatch
+
+        --- a/src/components/FaqItem.jsx
+        +++ b/src/components/FaqItem.jsx
+        @@ -11,6 +11,7 @@ class FaqItem extends Component {
+          constructor(props) {
+            super(props);
+            this.toggle = this.toggle.bind(this);
+        +    this.onDelete = this.onDelete.bind(this);
+            this.state = {
+              show: false
+            };
+        @@ -22,6 +23,8 @@ class FaqItem extends Component {
+            });
+          }
+
+        +  onDelete() {}
+        +
+          render() {
+            return (
+              <li className="faq-item">
+        @@ -29,6 +32,7 @@ class FaqItem extends Component {
+                  {this.props.question}
+                </h2>
+                {this.state.show && <p>{this.props.answer}</p>}
+        +        <button onClick={this.onDelete}>Delete</button>
+              </li>
+            );
+          }
+
 Write The onDelete Handler
 ==========================
 
@@ -71,6 +103,8 @@ Also complete the :file:`onDelete` handler so it will call the callback with the
     :class: toggle
 
     .. code-block:: jsx
+        :linenos: 
+        :emphasize-lines: 7-10,28-30
 
         import React, { Component } from "react";
         import PropTypes from "prop-types";
@@ -118,6 +152,34 @@ Also complete the :file:`onDelete` handler so it will call the callback with the
 
         export default FaqItem;
 
+    
+    .. code-block:: dpatch
+
+        --- a/src/components/FaqItem.jsx
+        +++ b/src/components/FaqItem.jsx
+        @@ -5,7 +5,9 @@ import "./FaqItem.css";
+        class FaqItem extends Component {
+          static propTypes = {
+            question: PropTypes.string.isRequired,
+        -    answer: PropTypes.string.isRequired
+        +    answer: PropTypes.string.isRequired,
+        +    index: PropTypes.number.isRequired,
+        +    onDelete: PropTypes.func.isRequired
+          };
+
+          constructor(props) {
+        @@ -23,7 +25,9 @@ class FaqItem extends Component {
+            });
+          }
+
+        -  onDelete() {}
+        +  onDelete() {
+        +    this.props.onDelete(this.props.index);
+        +  }
+
+          render() {
+            return (
+
 Write A Dummy Delete Handler
 ============================
 
@@ -129,6 +191,8 @@ Make sure to pass the index and the callback to the :file:`FaqItem` component to
     :class: toggle
 
     .. code-block:: js
+        :linenos: 
+        :emphasize-lines: 8,25-27,33-38
 
         import React, { Component } from "react";
         import FaqItem from "./components/FaqItem";
@@ -176,6 +240,42 @@ Make sure to pass the index and the callback to the :file:`FaqItem` component to
 
         export default App;
 
+    .. code-block:: dpatch
+
+        --- a/src/App.js
+        +++ b/src/App.js
+        @@ -5,6 +5,7 @@ import "./App.css";
+        class App extends Component {
+          constructor(props) {
+            super(props);
+        +    this.onDelete = this.onDelete.bind(this);
+            this.state = {
+              faq: [
+                {
+        @@ -19,11 +20,20 @@ class App extends Component {
+            };
+          }
+
+        +  onDelete(index) {
+        +    console.log(index);
+        +  }
+        +
+          render() {
+            return (
+              <ul>
+        -        {this.state.faq.map(item => (
+        -          <FaqItem question={item.question} answer={item.answer} />
+        +        {this.state.faq.map((item, index) => (
+        +          <FaqItem
+        +            question={item.question}
+        +            answer={item.answer}
+        +            index={index}
+        +            onDelete={this.onDelete}
+        +          />
+                ))}
+              </ul>
+            );
+
 Delete The FAQ Item From The List
 =================================
 
@@ -186,6 +286,9 @@ Write the :file:`onDelete` handler which removes the item from the list and crea
     :class: toggle
 
     .. code-block:: jsx
+        :linenos: 
+        :lineno-start: 23
+        :emphasize-lines: 1-7
 
         onDelete(index) {
           let faq = this.state.faq;
@@ -194,3 +297,21 @@ Write the :file:`onDelete` handler which removes the item from the list and crea
             faq
           });
         }
+
+    .. code-block:: dpatch
+
+        --- a/src/App.js
+        +++ b/src/App.js
+        @@ -21,7 +21,11 @@ class App extends Component {
+          }
+
+          onDelete(index) {
+        -    console.log(index);
+        +    let faq = this.state.faq;
+        +    faq.splice(index, 1);
+        +    this.setState({
+        +      faq
+        +    });
+          }
+
+          render() {
