@@ -61,6 +61,8 @@ linkcheck_ignore = [
     r'http://example.com\d+/',
     r'http://lorempixel.com',
     r'https://plonedemo.kitconcept.com/en/@search',
+    r'https://www.packtpub.com',
+    r'https://lucidworks.com',
 ]
 linkcheck_anchors = False
 linkcheck_timeout = 30

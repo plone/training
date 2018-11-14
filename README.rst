@@ -5,7 +5,7 @@ Training
 `Training <https://gihub.com/plone/training>`_ is a collection of different trainings,
 developed and created by the Plone Community.
 
-For a HTML version, please browse to our `Training Website <https://training.plone.org>`_.
+For a HTML version, please browse to our `Training Website <https://training.plone.org/5/>`_.
 
 Overview
 ========
@@ -22,7 +22,14 @@ Different Plone Trainings:
 Documentation
 =============
 
-Documentation on how to use, build and contribute to the trainings can be found on the `Training Website <https://training.plone.org/5/about.html>`_ .
+Documentation on how to use, build and contribute to the trainings can be found on the `Training Website <https://training.plone.org/5/mastering-plone/about_mastering.html>`_ .
+
+
+The landing page
+================
+
+The code for the landing page at https://training.plone.org is in another repository: https://github.com/plone/training.plone.org.
+
 
 Contribute
 ==========
