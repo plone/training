@@ -45,13 +45,13 @@ depending on what you are doing with your import.
 Create a Migration Package
 --------------------------
 
-With `mr.bob <https://mrbob.readthedocs.io/en/latest/>`_ and `bobtemplates.plone <https://docs.plone.org/develop/addons/bobtemplates.plone/docs/>`_,
+With `mr.bob <https://mrbob.readthedocs.io/en/latest/>`_ and bobtemplates.migration,
 you can quickly set up a package for handling migrations:
 
 .. code-block:: console
 
-   $ pip install bobtemplates.plone
-   $ mrbob -O ploneconf.migration bobtemplates.plone:migration_package
+   $ pip install bobtemplates.migration
+   $ mrbob -O ploneconf.migration bobtemplates.migration:jsonify
 
 This command will ask a few questions about the author (you),
 and what version of Plone you want to use.
