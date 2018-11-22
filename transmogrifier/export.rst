@@ -43,7 +43,7 @@ but you may find it better to export everything, and do the limiting on the impo
 
    * id: ``export_content``
    * module name: ``collective.jsonify.json_methods``
-   * function name: ```export_content``
+   * function name: ``export_content``
 
 3. Go to ``http://[your site]/export_content``
 4. See the instance log output for where the export throws the content (it may go into /tmp)
