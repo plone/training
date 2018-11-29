@@ -20,18 +20,18 @@ pipeline
    
       [transmogrifier]
       pipeline =
-          section 1
-          section 2
-          section 3
+          section_1
+          section_2
+          section_3
       
-      [section 1]
+      [section_1]
       blueprint = collective.transmogrifier.tests.examplesource
       size = 5
       
-      [section 2]
+      [section_2]
       blueprint = collective.transmogrifier.tests.exampletransform
       
-      [section 3]
+      [section_3]
       blueprint = collective.transmogrifier.tests.exampleconstructor
 
 blueprint
