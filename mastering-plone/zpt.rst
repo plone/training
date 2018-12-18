@@ -468,7 +468,7 @@ When an element has multiple TAL attributes, they are executed in this order:
 Chameleon
 ---------
 
-Since Plone 5 we `Chameleon <https://chameleon.readthedocs.io/en/latest/>`_.
+Since Plone 5 we have `Chameleon <https://chameleon.readthedocs.io/en/latest/>`_.
 
 Using the integration layer `five.pt <https://pypi.org/project/five.pt>`_ it is fully compatible with the normal TAL syntax but offers some additional features:
 
@@ -978,11 +978,11 @@ In the template you have access to:
 
 With these three you can do almost anything!
 
-Create a new talk object "Dexterity for the win!" and some add information to all fields, especially the speaker and the email-adress.
+Create a new talk object "Dexterity for the win!" and add some information to all fields, especially the speaker and the email-address.
 
-Now the the view ``training`` on that new talk by opening http://localhost:8080/Plone/dexterity-for-the-win/training in the browser.
+Now access the view ``training`` on that new talk by opening http://localhost:8080/Plone/dexterity-for-the-win/training in the browser.
 
-It will look the same an before.
+It will look the same as before.
 
 Now modify the template :file:`training.pt` to display the title of the context:
 
@@ -995,8 +995,8 @@ Exercise 2
 ----------
 
 * Render a mail-link to the speaker.
-* Display the speaker instead of the raw email-adress.
-* If there is no speaker-name display the adress.
+* Display the speaker instead of the raw email-address.
+* If there is no speaker-name display the address.
 * Modify attributes of html-tags by adding your statements into the attributes directly like ``title="${python: context.type_of_talk.capitalize()}"``.
 
 ..  admonition:: Solution
