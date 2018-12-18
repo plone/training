@@ -423,5 +423,5 @@ Summary
 -------
 
 * You can now create new content-types and store them in a reproduceable way
-* You installed the package to apoply the Generic Setup configuration
+* You installed the package to apply the Generic Setup configuration
 * You learned how to read and modify the content type schema in xml
