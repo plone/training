@@ -159,7 +159,7 @@ They should also have the date.
 
 The template associated with that view is :file:`listing_summary.pt`.
 
-Let's look for the template folder_summary_view.pt::
+Let's look for the template::
 
     plone/app/contenttypes/browser/templates/listing_summary.pt
 
