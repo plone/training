@@ -6,6 +6,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Tweaks to Mastering Plone testing page [tkimnguyen]
+
 - Fix React and Volto bootstrapping information. [jensens]
 
 - Fix a typo in Volto redux section and format according to style guide. [jensens]
