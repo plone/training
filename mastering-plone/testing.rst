@@ -165,8 +165,8 @@ First, we add a simple test for the custom template in our Functional Test layer
 Exercise 1
 ^^^^^^^^^^
 
-We already wrote a Talklistview and it is untested!
-We like to write unit tests first. But if you look at the Talklistview, you notice that you'd have to mock the portal_catalog, the context, and complex results from the catalog. I wrote earlier that it is ok to rewrite code to make it better testable. But in this example look at what you would test if you mocked everything mentioned above. You would test that your code iterates over a mocked list of mocked items, restructuring mocked attributes.
+We already wrote a :py:class:`Talklistview` and it is untested!
+We like to write unit tests first. But if you look at the :py:class:`Talklistview`, you notice that you'd have to mock the `portal_catalog`, the context, and complex results from the catalog. I wrote earlier that it is ok to rewrite code to make it better testable. But in this example look at what you would test if you mocked everything mentioned above. You would test that your code iterates over a mocked list of mocked items, restructuring mocked attributes.
 There is not much sense in that. If you did some calculation, like ratings, things might look different, but not in this case.
 
 We can write an integration test. We should test the good case and the edge cases.
