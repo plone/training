@@ -46,7 +46,7 @@ Database
 
 * "NoSQL"
 * `ZEO <https://github.com/zopefoundation/ZEO>`_: Server + many clients
-* `ZRS <https://github.com/zc/zrs>`_: DB-Replication
+* `ZRS <https://github.com/zopefoundation/zc.zrs>`_: DB-Replication
 * `RelStorage <https://relstorage.readthedocs.io/en/latest/>`_ (store pickles in a relational database) for Postgres, MySQL etc.
 * blobstorage (binary large objects) in filesystem
 
