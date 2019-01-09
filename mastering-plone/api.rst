@@ -231,7 +231,7 @@ Exercise
 
     * Since calling view is a GET and not a POST we need ``alsoProvides(self.request, IDisableCSRFProtection)`` to allow write-on-read without Plone complaining. Alternatively we could create a simple form and create the content on submit.
     * https://docs.plone.org/develop/plone.api/docs/content.html#transition. ``transition`` has two modes of operation: The documented one is ``api.content.transition(obj=foo, transition='bar')``. That mode tries to execute that specific tranistion. But sometimes it is better to use `to_state` which tries to to find a way to get from the current state to the target-state. See https://docs.plone.org/develop/plone.api/docs/api/content.html#plone.api.content.transition for the docstring.
-    * To use methods like ``cropText`` from another view you sue the method  already discussed in
+    * To use methods like ``cropText`` from another view you use the method  already discussed in
     * Here the joke is added as the description. To add it as the text you'd need to create a instance of ``RichTextValue`` and set that as a attribute:
 
       .. code-block:: python
