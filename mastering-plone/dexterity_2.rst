@@ -512,7 +512,7 @@ Modify :py:class:`TalkListView` to return only brains and adapt the template to 
                     Advanced
                 </td>
               </tr>
-              <tr tal:condition="not:talks">
+              <tr tal:condition="not:brains">
                 <td colspan=3>
                     No talks so far :-(
                 </td>
