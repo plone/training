@@ -25,7 +25,7 @@ To use it add the name to your list of eggs in :file:`buildout.cfg`:
         ...
         collective.behavior.banner
 
-Even though :py:mod:`collective.behavior.banner` has been released on pypi we'll now will act as if this addon exists on github only - or alternatively has changes on github that have not been released yet but you that you really want. This is not to annoy you - it happens surprisingly often if you work with new versions of Plone.
+Even though :py:mod:`collective.behavior.banner` has been released on pypi we'll now act as if this addon exists on github only - or alternatively has changes on github that have not been released yet but you that you really want. This is not to annoy you - it happens surprisingly often if you work with new versions of Plone.
 
 The training buildout has a section ``[sources]`` that tells buildout to download a specific add-on not from PyPI
 but from some code repository (usually GitHub):
@@ -35,9 +35,9 @@ but from some code repository (usually GitHub):
     [sources]
     collective.behavior.banner = git https://github.com/collective/collective.behavior.banner.git pushurl=git@github.com:collective/collective.behavior.banner.git rev=7c13285
 
-Pinning the revision saves us from being surprised by changes in the code we might not want. You can also pinn a branch or a tag.
+Pinning the revision saves us from being surprised by changes in the code we might not want. You can also pin a branch or a tag.
 
-After adding the source, we need to add the egg to list of eggs that should be checked out:
+After adding the source, we need to add the egg to the list of eggs that should be checked out:
 
 .. code-block:: cfg
 
@@ -46,7 +46,7 @@ After adding the source, we need to add the egg to list of eggs that should be c
         ploneconf.site
         collective.behavior.banner
 
-And rerun :file:`./bin/buildout`
+You need to run :file:`./bin/buildout` again for these changes to take effect.
 
 * Install the add-on
 * Create a new dexterity content type ``Banner`` with **only** the behavior ``Banner`` enabled.
