@@ -105,7 +105,7 @@ Enable self-registration
 ************************
 
 To enable self-registration you need to change the global setting that controls this option.
-Most global setting are stored in the registry. You can modify it by adding following to :file:`profiles/default/registry.xml`:
+Most global setting are stored in the registry. You can modify it by adding the following to :file:`profiles/default/registry.xml`:
 
 ..  code-block:: xml
 
@@ -123,7 +123,7 @@ So let's make sure some initial content is created and configured on installing 
 
 To run arbitrary code during the installation of a package we use a `post_handler <https://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py>`_
 
-Our package already has such an method registered in :file:`configure.zcml`. It will be automatically run when (re-)installing the add-on.
+Our package already has such a method registered in :file:`configure.zcml`. It will be automatically run when (re-)installing the add-on.
 
 ..  code-block:: xml
     :linenos:
