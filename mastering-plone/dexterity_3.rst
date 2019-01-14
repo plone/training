@@ -233,11 +233,11 @@ For context aware defaults you need to use a :py:class:`IContextAwareDefaultFact
 
     class IMySchema(model.Schema):
 
-    parent_id = schema.TextLine(
-        title=_(u'Parent id'),
-        required=False,
-        defaultFactory=get_container_id,
-    )
+        parent_id = schema.TextLine(
+            title=_(u'Parent id'),
+            required=False,
+            defaultFactory=get_container_id,
+        )
 
 For context-aware validators you need to use :py:meth:`invariant`:
 
@@ -364,7 +364,7 @@ The view
 
 We use the default view provided by dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
 
-But we could tweak the default view with some CSS to make it less ugly. Add the following to :file:`resources/ploneconf.css`:
+But we could tweak the default view with some CSS to make it less ugly. Add the following to :file:`browser/static/ploneconf.css`:
 
 .. code-block:: css
 
