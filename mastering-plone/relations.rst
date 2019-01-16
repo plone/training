@@ -70,13 +70,13 @@ Accessing and displaying related items
 
 One would think that it would be the easiest approach to simply use the render-method of the default-widget like we did in the chapter "Views II: A Default View for “Talk”". Sadly that is wrong. Adding the appropriate code to the template:
 
-..  code-block:: html
+.. code-block:: html
 
     <div tal:content="structure view/w/evil_mastermind/render" />
 
 would only render the UIDs of the related items:
 
-..  code-block:: html
+.. code-block:: html
 
     <span class="text-widget relationchoice-field" id="form-widgets-evil_mastermind">
         1ccb5787517947da90a8ca32d6251c57
@@ -86,7 +86,7 @@ This is not very useful but anyway it is very likely that you want to control cl
 
 So we add a method to the view to return the related items so that we're able to render anyway we like.
 
-..  code-block:: python
+.. code-block:: python
 
     def minions(self):
         """Returns a list of brains of related items."""
@@ -124,7 +124,7 @@ When you click on ``Edit xml field model`` you will see the fields in the xml-sc
 
 RelationChoice:
 
-..  code-block:: python
+.. code-block:: python
 
     <field name="boss" type="z3c.relationfield.schema.RelationChoice">
       <description/>
@@ -134,7 +134,7 @@ RelationChoice:
 
 RelationList:
 
-..  code-block:: python
+.. code-block:: python
 
     <field name="underlings" type="z3c.relationfield.schema.RelationList">
       <description/>
