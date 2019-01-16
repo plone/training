@@ -28,6 +28,7 @@ To use it add the name to your list of eggs in :file:`buildout.cfg`:
 Even though :py:mod:`collective.behavior.banner` has been released on PyPI we will now act as if this add-on exists on GitHub or has changes on GitHub that have not yet been released, but that you really want.
 This is not to annoy you.
 It happens surprisingly often if you work with new versions of Plone.
+
 The training buildout has a section ``[sources]`` that tells buildout to download a specific add-on not from PyPI but from some code repository (usually GitHub):
 
 .. code-block:: cfg
@@ -37,6 +38,7 @@ The training buildout has a section ``[sources]`` that tells buildout to downloa
 
 Pinning the revision saves us from being surprised by changes in the code we might not want.
 You can also pin a branch or a tag.
+
 After adding the source, we need to add the egg to the list of eggs that should be checked out:
 
 .. code-block:: cfg
