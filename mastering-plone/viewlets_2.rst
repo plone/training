@@ -98,7 +98,7 @@ Writing the Viewlet code
 
     Now that we have the everything in place, we can add the Logic
 
-Update the viewlet to contain the necessary logic in :file:`browser/viewlets`
+Update the viewlet to contain the necessary logic in :file:`browser/viewlets.py`
 
 .. code-block:: python
     :linenos:
