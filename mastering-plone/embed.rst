@@ -108,7 +108,7 @@ To add the behavior to talks, we do this in :file:`profiles/default/types/talk.x
     That is a very verbose configuration, maybe you want to do it in the web interface and export the settings.
     Whichever way you choose, it is easy to make a simple mistake. I will just present the XML way here.
 
-The config for the Workflow is in :file:`profiles/default/workfows/talks_workflow.xml`
+The config for the Workflow is in :file:`profiles/default/workflows/talks_workflow.xml`
 
 .. code-block:: xml
     :linenos:
