@@ -22,7 +22,7 @@ Viewlets
 ========
 
 Viewlets are small pieces which are rendered inside a view.
-They are registered for a ordered ViewletManager, which renders all Viewlets in the given order.
+They are registered for an ordered ViewletManager, which renders all Viewlets in the given order.
 You can change the order even TTW (Through-The-Web) or via configuration.
 
 A Viewlet consists of a Viewlet Python class and a template.
