@@ -165,8 +165,8 @@ Lets move on to :file:`browser/viewlets.py`
 
     class Vote(base.ViewletBase):
 
-         ...
-         can_vote = None
+        ...
+        can_vote = None
 
         def update(self):
 
