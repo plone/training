@@ -21,7 +21,7 @@ People pick editors themselves. Use whatever you are comfortable and productive 
 * `Wing IDE <http://wingide.com/>`_
 * vim
 * emacs
-* `PyDev <http://www.pydev.org/>`_ for `Eclipse <https://www.eclipse.org/>`_
+* `PyDev <https://www.pydev.org/>`_ for `Eclipse <https://www.eclipse.org/>`_
 
 Some features that most editors have in one form or another are essential when developing with Plone.
 
