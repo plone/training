@@ -21,7 +21,10 @@ It is a Diazo theme, meaning it uses :py:mod:`plone.app.theming` to insert the o
 
 It uses html5, so it uses ``<header>``, ``<nav>``, ``<aside>``, ``<section>``, ``<article>`` and ``<footer>`` for semantic html.
 
-The theme is mostly built with `LESS <http://lesscss.org/>`_ (lots of it!) and uses the same grid system as `bootstrap <http://getbootstrap.com/css/#grid>`_. This means you can use css classes like ``col-xs-12 col-sm-9`` to control the width of elements for different screen-sizes. If you prefer a different grid-system (like `foundation <https://foundation.zurb.com/sites/docs/grid.html>`_) over bootstrap you can adapt the theme to use that.
+The theme is mostly built with `LESS <http://lesscss.org/>`_ (lots of it!)
+and uses the same grid system as `Bootstrap <https://getbootstrap.com/css/#grid>`_.
+This means you can use CSS classes like ``col-xs-12 col-sm-9`` to control the width of elements for different screen sizes.
+If you prefer a different grid system (like `Foundation <https://foundation.zurb.com/sites/docs/grid.html>`_) over Bootstrap you can adapt the theme to use that.
 
 The `index.html <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/index.html>`_ and `rules.xml <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/rules.xml>`_ are the main elements to make this happen.
 
