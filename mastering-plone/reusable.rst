@@ -165,12 +165,12 @@ Lets move on to :file:`browser/viewlets.py`
 
     class Vote(base.ViewletBase):
 
-         ...
-         can_vote = None
+#       ...
+        can_vote = None
 
         def update(self):
 
-            ...
+#           ...
 
             if self.is_manager is None:
                 membership_tool = getToolByName(self.context, 'portal_membership')
@@ -179,7 +179,7 @@ Lets move on to :file:`browser/viewlets.py`
                 self.can_vote = membership_tool.checkPermission(
                     DoVote, self.context)
 
-    ...
+ #  ...
 
 And the template in :file:`browser/templates/voting_viewlet.pt`
 
