@@ -25,7 +25,7 @@ Installing Plone without vagrant
 
 .. warning::
 
-    To run Plone 5.1 you at least need Python 2.7.9!
+    To run Plone 5.2 you need Python 3.6 or 3.7!
 
 If you **are** experienced with running Plone on your own laptop, we encourage you to do so because you will have certain benefits:
 
@@ -59,7 +59,7 @@ Then, you need to install the following packages:
 
 .. code-block:: console
 
-    sudo apt-get install python-setuptools python-virtualenv python-dev build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
+    sudo apt-get install python3.7-dev python3.7-tk python3.7-venv build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
     sudo apt-get install libreadline-dev wv poppler-utils
     sudo apt-get install git
 
@@ -79,7 +79,7 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
     cd training
     git clone https://github.com/collective/training_buildout.git buildout
     cd buildout
-    virtualenv --python=python2.7 .
+    python3.7 -m venv .
     ./bin/pip install -r requirements.txt
 
 This creates a virtualenv with Python 2.7 in the folder :file:`buildout` and installs some requirements in it.
