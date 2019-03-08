@@ -87,21 +87,21 @@ Open the `bin/instance` script in your favorite editor. Now let's say you want P
 
     .. code-block:: python
 
-        if __name__ == '__main__':
-            sys.exit(plone.recipe.zope2instance.ctl.main(
-                ['-C', '/home/vagrant/training/buildout/parts/instance/etc/zope.conf']
-                + sys.argv[1:]))
+    if __name__ == '__main__':
+        sys.exit(plone.recipe.zope2instance.ctl.main(
+            ['-C', '/Users/pbauer/workspace/training_buildout/parts/instance/etc/zope.conf', '-p', '/Users/pbauer/workspace/training_buildout/parts/instance/bin/interpreter', '--wsgi']
+            + sys.argv[1:]))
 
-    The second to last line points to the configuration file your Plone instance is using. An absolute path is used so it might differ depending on the installation method. Open the `zope.conf` file in your
-    editor and look for the section:
+    The second to last line points to the configuration file your Plone instance is using. An absolute path is used so it might differ depending on the installation method. Open the `wsgi.ini` that lives in the same folder in your editor and look for the section:
 
-    .. code-block:: xml
+    .. code-block:: ini
 
-        <http-server>
-         address 8080
-        </http-server>
+        [server:main]
+        use = egg:waitress#main
+        listen = 0.0.0.0:8080
+        threads = 4
 
-    Change the address to 9080 and restart your instance.
+    Change the address to 0.0.0.0:9080 and restart your instance.
 
 Exercise 2
 ++++++++++

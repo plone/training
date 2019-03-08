@@ -117,7 +117,7 @@ Example:
 * Use the toolbar to configure the portlets of the footer:
 
   * Hide the portlets "Footer" and "Colophon".
-  * Add a :guilabel:`Static text portlet` and enter "Copyright 2015 by Plone Community".
+  * Add a :guilabel:`Static text portlet` and enter "Copyright 2019 by Plone Community".
   * Use :menuselection:`Insert --> Special Character` to add a real © sign.
   * You could turn that into a link to a copyright page later.
 
@@ -271,7 +271,7 @@ Change the footer
 
      <div i18n:domain="plone"
           id="portal-footer">
-        <p>&copy; 2016 by me! |
+        <p>&copy; 2019 by me! |
           <a href="mailto:info@ploneconf.org">
            Contact us
           </a>
