@@ -1,6 +1,6 @@
 class plone {
 
-    $plone_version = "5.2rc1-pending"
+    $plone_version = "5.2rc1"
     $buildout_branch = "plone52"
 
     file { ['/home/vagrant/tmp',

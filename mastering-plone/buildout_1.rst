@@ -38,7 +38,7 @@ Here is a functioning minimal example from https://github.com/collective/minimal
 
     [buildout]
     parts = instance
-    extends = https://dist.plone.org/release/5-latest/versions.cfg
+    extends = https://dist.plone.org/release/5.2-latest/versions.cfg
 
     [instance]
     recipe = plone.recipe.zope2instance
@@ -117,7 +117,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
     [buildout]
     extends =
-        http://dist.plone.org/release/5.1.4/versions.cfg
+        http://dist.plone.org/release/5.2/versions.cfg
         versions.cfg
     extends-cache = extends-cache
 
@@ -134,6 +134,8 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     auto-checkout =
         ploneconf.site
     #    starzel.votable_behavior
+        collective.easyform
+        Products.PrintingMailHost
 
     parts =
         checkversions
@@ -189,7 +191,8 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     recipe = zc.recipe.egg
     eggs =
         ${buildout:test-eggs}
-        plone.app.robotframework[ride,reload,debug]
+        Pillow
+        plone.app.robotframework[reload,debug]
 
     [packages]
     recipe = collective.recipe.omelette
@@ -222,6 +225,8 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     ploneconf.site = git https://github.com/collective/ploneconf.site.git pushurl=git@github.com:collective/ploneconf.site.git
     starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
 
+    # checkout for py3 support
+    collective.easyform = git https://github.com/collective/collective.easyform.git branch=python3
 
 When you run :command:`./bin/buildout` without any arguments, Buildout will look for this file.
 
@@ -281,37 +286,36 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
     .. code-block:: cfg
 
         [versions]
-        # dev tools
-        Products.PDBDebugMode = 1.3.1
-        Products.PrintingMailHost = 1.1.0
-        pdbpp = 0.9.2
-        fancycompleter = 0.8
-        pyrepl = 0.8.4
+        # dev tools and their dependencies
         colorama = 0.3.9
+        fancycompleter = 0.8
+        Paste = 3.0.7
+        pdbpp = 0.9.7
+        pyrepl = 0.8.4
         wmctrl = 0.3
 
         # pins for Addons
-        collective.easyform = 2.0.0b5
+        collective.easyform = 2.0.2.dev0
+        Products.validation = 2.1.1
 
         # pins for mr.bob and bobtemplates.plone
+        bobtemplates.plone = 3.6.0
+        case-conversion = 2.1.0
         MarkupSafe = 1.0
-        bobtemplates.plone = 3.4.1
         mr.bob = 0.1.2
         ply = 3.11
+        regex = 2019.2.21
         stringcase = 1.2.0
-        case-conversion = 2.1.0
-        regex = 2018.7.11
-
-        # pinns for tests
-        plone.testing = 5.1.1
 
         # Some other pins from coredev
-        PyYAML = 3.13
         argh = 0.26.2
-        pathtools = 0.1.2
-        watchdog = 0.8.3
         chardet = 3.0.4
         idna = 2.6
+        pathtools = 0.1.2
+        prompt-toolkit = 1.0.15
+        PyYAML = 3.13
+        watchdog = 0.9.0
+        wcwidth = 0.1.7
 
 
     This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file :file:`versions.cfg`.
