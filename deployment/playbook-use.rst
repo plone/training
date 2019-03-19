@@ -302,7 +302,7 @@ If you wish to use our firewall playbook, use the command:
 
 :file:`firewall.yml` is a dispatcher.
 Actual firewall code is in the :file:`firewalls` subdirectory and is platform-specific.
-``ufw`` is used for the Debian-family; ``firewalld``
+``ufw`` is used for the Debian-family; ``firewalld`` is used for the RedHat/CentOS.
 
 The general firewall strategy is to block everything but the ports for ssh, http, https and munin-node.
 The munin-node port is restricted to the monitor IP you specify.
