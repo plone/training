@@ -94,7 +94,7 @@ we defined earlier--that's it.
 Bundles can do more as well.
 Then can include initialization code for example.
 
-See Plone's `default bundle <https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/static/plone.js>`_.
+See Plone's `default bundle <https://github.com/plone/plone.staticresources/blob/master/src/plone/staticresources/static/plone.js>`_.
 
 Bundles more or less tell the compiler what we care about loading.
 They do the dependency resolution and include the modules that were required with them.

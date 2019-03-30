@@ -44,7 +44,7 @@ Choose the pattern to override
 
 Go to the Site Setup, then to the Resource Registries.
 
-Under the ``Overrides`` tab, pick ++plone++exercise9/pattern.js
+Under the ``Overrides`` tab, pick ``++plone++exercise9/pattern.js``
 
 Now modify the line
 

@@ -26,7 +26,7 @@ itself (`RequireJS <https://requirejs.org/>`_, `Patterns <https://github.com/plo
 This training is **not** about:
 
 - How to write JavaScript
-- How to write React/Angular 2/JS framework of the week
+- How to write React/Angular/JS framework of the week
 
 
 **Sections**

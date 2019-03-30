@@ -5,7 +5,7 @@ JavaScript Development Process
 Code Style
 ==========
 
-Together with `plone.api` <https://github.com/plone/plone.api>`_ we developed `code style guidelines <https://github.com/plone/plone.api/blob/master/docs/contribute/conventions.rst>`_,
+Together with `plone.api <https://github.com/plone/plone.api>`_ we developed `code style guidelines <https://github.com/plone/plone.api/blob/master/docs/contribute/conventions.rst>`_,
 which we are enforcing now for core Plone development.
 
 This makes code so much more readable.
@@ -87,7 +87,7 @@ For each feature, create a branch and make pull-requests on GitHub.
 
 Try to include all your changes in one commit only, so that our commit history stays clean.
 
-Still, you can do many commits to not accidentally loose changes and still commit to the last commit by doing
+Still, you can do many commits to not accidentally lose changes and still commit to the last commit by doing
 
 .. code-block:: console
 

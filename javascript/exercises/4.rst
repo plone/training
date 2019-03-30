@@ -59,7 +59,7 @@ is in. Add this to the ``exercise5/configure.zcml`` file
          />
 
 
-Registry your JS as a resource
+Register your JS as a resource
 ==============================
 
 In order to include our files, we need to registry them as static resources.
@@ -156,4 +156,4 @@ An example command will look like this
 
 
 Once this command finishes, your bundle is built and will be deployed with your
-package package.
+package.

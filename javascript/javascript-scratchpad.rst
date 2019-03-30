@@ -2,7 +2,7 @@
 Scratchpad
 ==========
 
-Scratchpat for text snippets to be included somewhere else in the training.
+Scratchpad for text snippets to be included somewhere else in the training.
 
 
 General Advises

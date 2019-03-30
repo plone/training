@@ -43,12 +43,12 @@ This is how Mockup is structured on the filesystem::
     │   │   ├── bundles          - Mockup bundle files
     │   │   │   ├── docs.js
     │   │   │   ├── plone.js
-    │   │   │   └── widgets.js
+    │   │   │   ├── widgets.js
     │   │   │   └── ...
     │   │   ├── config.js        - RequireJS configuration
     │   │   ├── docs             - ReactJS based documentation framework
     │   │   │   ├── app.js
-    │   │   │   ├── ...
+    │   │   │   └── ...
     │   │   ├── grunt.js         - Grunt base configuration
     │   │   ├── i18n.js
     │   │   ├── i18n-wrapper.js
@@ -59,13 +59,13 @@ This is how Mockup is structured on the filesystem::
     │   │   │   └── views
     │   │   │       ├── base.js
     │   │   │       ├── buttongroup.js
-    │   │   │       ├── ...
+    │   │   │       └── ...
     │   │   └── utils.js         - Utils to be reused
     │   ├── less                 - Less files for bundles. Mostly import less files from
     │   │   ├── base.less          a bundle's pattern dependencies.
     │   │   ├── docs.less
     │   │   ├── plone.less
-    │   │   └── widgets.less
+    │   │   ├── widgets.less
     │   │   └── ...
     │   ├── lib                                 - Non-Bower libraries
     │   │   ├── jquery.event.drag.js
@@ -81,6 +81,7 @@ This is how Mockup is structured on the filesystem::
     │   │   ├── select2
     │   │   │   ├── pattern.js
     │   │   │   └── pattern.select2.less
+    │   │   └── ...
     │   └── tests                               - All tests in here
     │       ├── config.js                       - RequireJS configuration for tests
     │       ├── fakeserver.js                   - Fake test server
@@ -92,15 +93,15 @@ This is how Mockup is structured on the filesystem::
     │       ├── images                          - Test resources
     │       │   ├── extralarge.jpg
     │       │   ├── large.jpg
-    │       │   ├── ...
+    │       │   └── ...
     │       ├── json                            - Test data
     │       │   ├── contextInfo.json
     │       │   ├── fileTree.json
-    │       │   ├── ...
+    │       │   └── ...
     │       ├── pattern-autotoc-test.js         - Tests for the autodoc pattern
     │       ├── pattern-livesearch-test.js
     │       ├── pattern-select2-test.js
-    │       ├── ...
+    │       └── ...
     ├── node_modules             - Node modules directory
     ├── package.json             - Node package metadata
     ├── provision.sh             - Vagrant provision file

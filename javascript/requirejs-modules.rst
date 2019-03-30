@@ -7,18 +7,17 @@ One of the great new features, Plone 5 gives us, is the ability to define and us
 Most serious programming languages provide the concept of namespaces and module dependencies, like Python's :py:mod:`import <importlib>` mechanism.
 Python code would be unmanageable, if we'd rely on the existence of global variables and objects in our own scripts.
 
-But JavaScript doesn't have any concept for declaring dependencies.
-Only the new and finalized ECMAScript 6 (ES6) standard finally comes with a module definition system (actually directly inspired by RequireJS and CommonJS), along other great features like proper variable scoping.
+JavaScript, though, doesn't have any concept for declaring dependencies.
+Only the ECMAScript 6 (ES6) standard finally comes with a module definition system (actually directly inspired by RequireJS and CommonJS), along other great features like proper variable scoping.
 
 In Plone, we use `RequireJS <https://requirejs.org/>`_ as a framework to define and load modules.
 
 RequireJS is an implementation of the `Asynchronous Module Definition API <https://github.com/amdjs/amdjs-api/blob/master/AMD.md>`_.
 The module definition and loading standard of CommonJS is used by NodeJS.
-RequireJS adds the ability to load modules asynchronously, which can be better for performance.
+RequireJS adds the ability to load modules asynchronously, which can be good for performance.
 The CommonJS module loading syntax can also be used in RequireJS.
 
-But the main point why Plone uses RequireJS is, that there is a JavaScript based compiler, which allows us to build bundles (a combined, optimized and minified form with all dependencies) Through-The-Web.
-RequireJS and CommonJS are also forward compatible with ES6's module definition standard.
+The main reason why Plone uses RequireJS is that there is a JavaScript based compiler, which allows us to build bundles (a combined, optimized and minified form with all dependencies) Through-The-Web.
 
 Finally we can use JavaScript in Plone like it is a proper programming language!
 No need to depend on the existence of global variables and a strict order, in which scripts have to be loaded.
@@ -70,7 +69,7 @@ In RequireJS, you're wrapping your code like this:
 No need for any globals anymore (except for the ``define`` and ``require`` methods)!
 
 Also note, that the code within the RequireJS define wrapper is exactly the same as in the module pattern example above.
-Using RequireJS doesn't mean, you have to rewrite everything.
+Using RequireJS doesn't mean you have to rewrite everything.
 It's about modularizing code.
 
 To be able to use the defined module somewhere else, you need to be able to reference it by a module id.
@@ -115,7 +114,7 @@ When using in the browser (and not in NodeJS, for example), we have to include a
     <script src="require.js"></script>
     <script src="my_module/main.js"></script>
 
-Alternatively, you can define a script as main entry point in RequireJS as data attribute on the script tag, which loads require.js.
+Alternatively, you can define a script as main entry point in RequireJS as data attribute on the script tag which loads require.js.
 In that case, you could omit the configuration, because the entry point script is used as ``baseUrl``, if nothing else is defined:
 
 .. code-block:: xml
@@ -126,5 +125,5 @@ In that case, you could omit the configuration, because the entry point script i
 More information
 ================
 
-More on RequireJS' API and how to include legacy code,
+More on RequireJS API and how to include legacy code,
 which doesn't use the ``define`` module definition pattern, see the `RequireJS API documentation <https://requirejs.org/docs/api.html#define>`_.

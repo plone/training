@@ -104,7 +104,7 @@ You will need to register the three on the ``exercise10/profiles/default/registr
       <value key="js">++plone++exercise10/ng2app/dist/styles.b52d2076048963e7cbfd.bundle.js</value>
     </records>
 
-Its really important that in case that you need to have dependency on loading
+It's really important that in case that you need to have dependency on loading
 the js you define on the registry.xml as its shown for the main js.
 
 Finally we want to create a single entry point to load them, so we are going to
