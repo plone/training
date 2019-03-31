@@ -4,13 +4,12 @@ Exercise 1: Include a JavaScript resource TTW
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the
-    collective.jstraining package.
+    This exercise requires a working buildout using a fork of the collective.jstraining package.
 
 
-For this exercise, we are going to include a Javascript using the resource registry through the web
+For this exercise, we are going to include a JavaScript using the resource registry through the web.
 
-We will be working in the ``exercise1`` directory of the collective.jstraining package.
+You will be working in the ``exercise1`` directory of the collective.jstraining package.
 
 
 Create your browser view
@@ -18,8 +17,8 @@ Create your browser view
 
 ..  warning::
 
-    This might be redundant with other documentation. Skip ahead if you know
-    how to create browser views.
+    This might be redundant with other documentation.
+    Skip ahead if you know how to create browser views.
 
 Let’s add a basic new page view. This is only needed for calling our Javascript file.
 Add this into your ``exercise1/page.pt`` file
@@ -59,7 +58,7 @@ Under the ``Overrides`` tab, click ``Add file``
 
 When it asks to give it a name, enter ``++plone++static/exercise1.js``
 
-Inside the new editor that comes up, enter the following
+Inside the new editor that comes up, enter the following:
 
 .. code-block:: javascript
 
@@ -99,7 +98,8 @@ You can verify that the resource works by going to ``http://localhost:8080/Plone
 Use the Javascript in your template
 -----------------------------------
 
-Now, you just need to edit your ``exercise1/page.pt`` file, so it would look like this
+Now, you just need to edit your ``exercise1/page.pt`` file,
+so it would look like this:
 
 .. code-block:: xml
 
@@ -134,5 +134,6 @@ This is assuming your Plone is is located at the URL ``http://localhost:8080/Plo
 Production
 ----------
 
-In this exercise, there is no special distinction between development and
-production builds. The JavaScript is developed without any build process.
+In this exercise, there is no special distinction between development and production builds.
+
+The JavaScript is developed without any build process.

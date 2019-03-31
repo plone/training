@@ -2,7 +2,9 @@
 Setup
 =====
 
-To get Plone and example packages for this training installed, please clone `collective.jstraining <https://github.com/collective/collective.jstraining>`_ and install Plone by executing the following commands:
+To get Plone and example packages for this training installed,
+please clone `collective.jstraining <https://github.com/collective/collective.jstraining>`_
+and install Plone by executing the following commands:
 
 .. code-block:: console
 
@@ -12,13 +14,15 @@ To get Plone and example packages for this training installed, please clone `col
 
 .. note::
 
-    To be able to install the JavaScript development tools, you need `NodeJS <https://nodejs.org/en/download/>`_ installed on your development computer.
+    To be able to install the JavaScript development tools,
+    you need `NodeJS <https://nodejs.org/en/download/>`_ installed on your development computer.
 
 
 Installing Mockup
 =================
 
-Optionally you can download Mockup source code and install it in development mode.
+Optionally you can download Mockup source code
+and install it in development mode.
 
 Mockup is already included in the `training buildout <https://github.com/collective/collective.jstraining>`_.
 
@@ -32,4 +36,5 @@ After that, run buildout:
 
 .. warning::
 
-    If you are running buildout inside vagrant, always remember to use specify :file:`vagrant.cfg`: :command:`bin/buildout -Nc vagrant.cfg`
+    If you are running buildout inside vagrant,
+    always remember to use specify :file:`vagrant.cfg`: :command:`bin/buildout -Nc vagrant.cfg`

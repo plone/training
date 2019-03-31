@@ -5,23 +5,28 @@ Mockup
 A Patternslib based collection of components.
 
 Plone 5 ships with a revamped UI (User Interface).
-An important part of the new UI is a collection of new input widgets, that we are used to work with in the so called Web 2.0 era.
+An important part of the new UI is a collection of new input widgets,
+that we are used to work with in the so called Web 2.0 era.
 
 For Plone, it was high time to update and modernize its input widgets.
 
-Not because the new ones look much better, but because they offer a much more comfortable way of entering data.
+Not because the new ones look much better,
+but because they offer a much more comfortable way of entering data.
 
-To update Plone's widgets was the goal of `plone.app.widgets <https://pypi.org/project/plone.app.widgets>`_, started by Nathan van Gheem and pushed wide forward by Rok Garbas.
+To update Plone's widgets was the goal of `plone.app.widgets <https://pypi.org/project/plone.app.widgets>`_,
+started by Nathan van Gheem and pushed wide forward by Rok Garbas.
 Rok forked Patternslib and created the Mockup project.
 
-Patternslib used a complex configuration syntax parser instead of a simple JSON based approach and the test coverage was not high enough.
+Patternslib used a complex configuration syntax parser instead of a simple JSON based approach
+and the test coverage was not high enough.
 Besides it was fun to create something new, so Mockup was born.
 
 There were concerns about having two projects with the same goal,
 JC Brand took the initiative and brought the two projects back together.
 
-Where Mockup had a dependency on `mockup-core <https://github.com/plone/mockup-core>`_ with a base pattern to extend from, a configuration parser,
-pattern registry and Grunt infrastructure, this dependency was removed and replaced by a dependency on `patternslib <http://patternslib.com>`_.
+Where Mockup had a dependency on `mockup-core <https://github.com/plone/mockup-core>`_
+with a base pattern to extend from, a configuration parser, pattern registry and Grunt infrastructure,
+this dependency was removed and replaced by a dependency on `patternslib <http://patternslib.com>`_.
 
 Those projects led the foundation to the new way of developing JavaScript in Plone.
 
@@ -112,7 +117,9 @@ This is how Mockup is structured on the filesystem::
 A Minimal Pattern
 =================
 
-The following is a minimal pattern example, except that it uses `jQuery <https://jquery.com/>`_ and changes some HTML elements' text.
+The following is a minimal pattern example,
+except that it uses `jQuery <https://jquery.com/>`_
+and changes some HTML elements' text.
 
 .. code-block:: javascript
 

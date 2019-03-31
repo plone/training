@@ -4,28 +4,25 @@ Exercise 3: Gallery Integration With Theme
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the
-    collective.jstraining package.
+    This exercise requires a working buildout using a fork of the collective.jstraining package.
 
 
-In this exercise, we'll be walking through how to include custom JavaScript
-into your theme.
+In this exercise, we will be walking through how to include custom JavaScript into your theme.
 
 This example essentially re-uses the Barceloneta theme.
 
-It's more important to pay attention to how the integration with the theme works,
+It is more important to pay attention to how the integration with the theme works,
 than worrying about diazo/theming details for this exercise.
 
-We will be working in the ``exercise3`` directory of the collective.jstraining package.
+You will be working in the ``exercise3`` directory of the collective.jstraining package.
 
 Add Your JavaScript File
 ========================
 
-The lightGallery distribution files are already included in the
-``collective.jstraining`` package you're working with.
+The lightGallery distribution files are already included in the ``collective.jstraining`` package you are working with.
 
 In your ``exercise3/theme`` directory, add a file named ``integration.js``.
-We'll use this file to integrate with Plone's album view
+We will use this file to integrate with Plone's album view:
 
 .. code-block:: javascript
 
@@ -103,8 +100,7 @@ Including JavaScript/CSS Into Your Theme
 ========================================
 
 For JavaScript and CSS, you can include resources with convenience theme
-configuration settings of ``development-css``, ``production-css``, ``development-js``
-and ``production-js``.
+configuration settings of ``development-css``, ``production-css``, ``development-js`` and ``production-js``.
 
 Since we are reusing the existing Barceloneta theme with this example though,
 we will simple include the JavaScript/CSS into the theme ``index.html`` file.
@@ -113,7 +109,7 @@ we will simple include the JavaScript/CSS into the theme ``index.html`` file.
 CSS
 ---
 
-At the bottom of the head section in the ``index.html`` file, add
+At the bottom of the head section in the ``index.html`` file, add the following:
 
 .. code-block:: html
 
@@ -124,7 +120,7 @@ At the bottom of the head section in the ``index.html`` file, add
 JavaScript
 ----------
 
-At the bottom of the ``index.html`` file, before the ``</body>`` closing tag, add
+At the bottom of the ``index.html`` file, before the ``</body>`` closing tag, add the following:
 
 .. code-block:: html
 
@@ -153,5 +149,4 @@ Production
 
 In this example, there is no difference with development vs production.
 
-You can combine this example with other examples of building JavaScript projects
-to build, compile and minify your resources.
+You can combine this example with other examples of building JavaScript projects to build, compile and minify your resources.
