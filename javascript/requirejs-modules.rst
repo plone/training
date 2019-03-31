@@ -142,6 +142,6 @@ In that case, you could omit the configuration, because the entry point script i
 More information
 ================
 
-More on RequireJS API and how to include legacy code,
+More on the RequireJS API and how to include legacy code,
 which does not use the ``define`` module definition pattern,
 see the `RequireJS API documentation <https://requirejs.org/docs/api.html#define>`_.
