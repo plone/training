@@ -18,8 +18,7 @@ In your ``exercise2/static`` directory, add a file named ``script.js``.
 
 This exercise is open ended as to what you do with JavaScript on the page.
 
-We will stay very simple for the sake of brevity,
-using `jQuery <https://jquery.com/>`_ to do an animation effect on the title of the page:
+We will stay very simple for the sake of brevity, using `jQuery <https://jquery.com/>`_ to do an animation effect on the title of the page:
 
 .. code-block:: javascript
 
@@ -59,18 +58,17 @@ Register Static Resource Directory
 
 Next, let’s register the static directory we just placed our script into.
 
-To register it, you need to add :term:`ZCML` registration for the static directory your script
-is in.
+To register it, you need to add :term:`ZCML` registration for the static directory your script is in.
 
 Add this to the ``exercise2/configure.zcml`` file
 
 .. code-block:: xml
 
     <plone:static
-         directory="static"
-         type="plone"
-         name="exercise2"
-         />
+        directory="static"
+        type="plone"
+        name="exercise2"
+        />
 
 
 Register JavaScript Resource
@@ -83,9 +81,9 @@ In the ``exercise2/profiles/default/registry.xml`` file, add configuration to re
 .. code-block:: xml
 
     <records prefix="plone.resources/exercise2"
-                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-          <value key="js">++plone++exercise2/script.js</value>
-      </records>
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++exercise2/script.js</value>
+    </records>
 
 
 Create Your Browser View
@@ -102,9 +100,7 @@ Let’s load our JavaScript file to only load on a specific page you need it on.
 
 In our case, let’s add a basic new page view.
 
-The page template does not need to implement any logic
-and we can use the main template to bring in the content of the page
-we are using in the JavaScript(h1).
+The page template does not need to implement any logic and we can use the main template to bring in the content of the page we are using in the JavaScript(h1).
 
 Add this into your ``exercise2/page.pt`` file:
 

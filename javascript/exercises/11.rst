@@ -9,8 +9,7 @@ Exercise 11: NG2 APP Component In a A bundle
 
 For this exercise, we will add an Angular 2 application to a Plone bundle.
 
-We have most of the Angular 2 boiler plate code created for you
-so let's finish up a few things so you can customize it.
+We have most of the Angular 2 boiler plate code created for you so let's finish up a few things so you can customize it.
 
 You will be working in the ``exercise11`` directory of the collective.jstraining package.
 
@@ -45,13 +44,11 @@ We hope you like TypeScript
     export class AppComponent { }
 
 
-You can do whatever in this module however,
-please notice how we changed the selector to ``.my-app``.
+You can do whatever in this module, however please notice how we changed the selector to ``.my-app``.
 
 In Angular 2, the selector can be anything.
 
-By changing it to a class name,
-it will be easier for us to choose where we want to bootstrap our Angular 2 component.
+By changing it to a class name, it will be easier for us to choose where we want to bootstrap our Angular 2 component.
 
 
 Register Static Resource Directory
@@ -82,8 +79,7 @@ Our deployment is built using webpack
     webpack
 
 
-Whenever you make a change to your component files,
-webpack will auto re-build the distribution.
+Whenever you make a change to your component files, webpack will auto re-build the distribution.
 
 
 Register JavaScript Resource As A Bundle
@@ -96,7 +92,7 @@ In the ``exercise11/profiles/default/registry.xml`` file, add configuration to r
 .. code-block:: xml
 
     <records prefix="plone.bundles/exercise11"
-              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
       <value key="merge_with">default</value>
       <value key="enabled">True</value>
       <value key="compile">False</value>
@@ -124,9 +120,7 @@ Installation
 
     To make sure your resource registry configuration changes apply, you will need to be in development mode.
 
-    You can also toggle development mode on and off, click save,
-    to force configuration to be re-built after changes
-    instead of keeping development mode on.
+    You can also toggle development mode on and off, click save, to force configuration to be re-built after changes instead of keeping development mode on.
 
 
 Running
@@ -136,15 +130,13 @@ It is up to you how to apply the component class name to an element of your choi
 A couple options available to you are:
 
 1) use TinyMCE source view and add ``class="my-app"`` onto any tag
-2) customize the theme on your site and add it to an element in your theme file
-   or use a diazo rule diazo rule to dynamically add the class to an element
+2) customize the theme on your site and add it to an element in your theme file or use a diazo rule diazo rule to dynamically add the class to an element
 
 
 Development
 ===========
 
-To make sure your changes are loaded after every build with webpack,
-make sure to go into :menuselection:`Setup --> Resource registries` and enable development mode.
+To make sure your changes are loaded after every build with webpack, make sure to go into :menuselection:`Setup --> Resource registries` and enable development mode.
 
 
 Production

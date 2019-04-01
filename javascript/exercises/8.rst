@@ -79,8 +79,7 @@ Next, we are extending the existing pattern:
     )
 
 
-And overriding the ``init`` function to provide our customization(default
-search current section):
+And overriding the ``init`` function to provide our customization(default search current section):
 
 .. code-block:: javascript
 
@@ -99,10 +98,10 @@ To register it, you need to add ZCML registration for the static directory your 
 Add this to the ``exercise8/configure.zcml`` file::
 
     <plone:static
-         directory="static"
-         type="plone"
-         name="exercise8"
-         />
+        directory="static"
+        type="plone"
+        name="exercise8"
+        />
 
 
 Register Your Bundle
@@ -116,7 +115,7 @@ Again, registration is done exactly the same as previous exercises:
     <registry>
 
       <records prefix="plone.resources/exercise8"
-                interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+               interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++exercise8/pattern.js</value>
         <value key="css">
           <element>++plone++exercise8/pattern.less</element>
@@ -155,8 +154,7 @@ We have all the files necessary to run the pattern now.
 Running
 ========
 
-At this point, we have no compiled version of the code that we are running with
-because of that our code does nothing.
+At this point, we have no compiled version of the code that we are running with because of that our code does nothing.
 
 1) Go into :menuselection:`Site Setup --> Resource Registries`
 2) Check :guilabel:`Development Mode`
@@ -174,8 +172,7 @@ To build our bundle, we will utilize the ``plone-compile-resources`` script that
 
 ..  warning::
 
-    If you are not running a ZEO setup, you will need to shut down your Plone instance
-    since the ZODB in this mode does not allow multiple processes to access it at the same time.
+    If you are not running a ZEO setup, you will need to shut down your Plone instance since the ZODB in this mode does not allow multiple processes to access it at the same time.
 
 
 An example command will look like this

@@ -17,9 +17,7 @@ Add Your Pattern File
 First off, in your ``exercise5/static`` directory, add a file named ``pattern.js``.
 Use this file to build your pattern.
 
-This example will stay very simple,
-we will use `jQuery <https://jquery.com/>`_
-to simply modify the content of an element:
+This example will stay very simple, we will use `jQuery <https://jquery.com/>`_ to simply modify the content of an element:
 
 .. code-block:: javascript
 
@@ -45,23 +43,20 @@ to simply modify the content of an element:
     });
 
 
-For more details on how to write a mockup pattern,
-check the various resources available:
+For more details on how to write a mockup pattern, check the various resources available:
 
 - `Minimal pattern <https://github.com/collective/mockup-minimalpattern>`_
 - `Mockup docs <http://plone.github.io/mockup/dev/>`_
 - `Patternslib <http://patternslib.com/>`_
 
 
-In our example, we are using the RequireJS ``define`` function
-to define our pattern as a JavaScript module.
+In our example, we are using the RequireJS ``define`` function to define our pattern as a JavaScript module.
 
 
 Integrating With LESS
 =====================
 
-Add a ``pattern.less`` file to the ``exercise5/static`` directory
-and provide whatever styles you like for your pattern
+Add a ``pattern.less`` file to the ``exercise5/static`` directory and provide whatever styles you like for your pattern
 
 .. code-block:: less
 
@@ -76,8 +71,7 @@ Creating Your Bundle
 To register the pattern, we will create a bundle.
 Recall the difference between using ``require`` and ``define`` from the RequireJS docs.
 
-Our bundle will use the ``require`` function
-to include the JavaScript module pattern we created previously.
+Our bundle will use the ``require`` function to include the JavaScript module pattern we created previously.
 
 Create a ``bundle.js`` file in your ``exercise5/static`` directory
 
@@ -89,8 +83,7 @@ Create a ``bundle.js`` file in your ``exercise5/static`` directory
       'use strict';
     });
 
-The only thing we are doing in this file
-is including the ``exercise5`` module we defined earlier--that's it.
+The only thing we are doing in this file is including the ``exercise5`` module we defined earlier--that's it.
 
 Bundles can do more as well.
 Then can include initialization code for example.
@@ -98,8 +91,7 @@ Then can include initialization code for example.
 See Plone's `default bundle <https://github.com/plone/plone.staticresources/blob/master/src/plone/staticresources/static/plone.js>`_.
 
 Bundles more or less tell the compiler what we care about loading.
-They do the dependency resolution and include the modules
-that were required with them.
+They do the dependency resolution and include the modules that were required with them.
 
 
 Register Static Resource Directory
@@ -113,10 +105,10 @@ Add this to the ``exercise5/configure.zcml`` file
 .. code-block:: xml
 
     <plone:static
-         directory="static"
-         type="plone"
-         name="exercise5"
-         />
+        directory="static"
+        type="plone"
+        name="exercise5"
+        />
 
 Register Your Bundle
 ====================
@@ -133,7 +125,7 @@ Resource is done exactly the same as in Exercise 1
 .. code-block:: xml
 
     <records prefix="plone.resources/exercise5"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
       <value key="js">++plone++exercise5/pattern.js</value>
     </records>
 
@@ -151,7 +143,7 @@ Addditionally, we include our CSS/LESS dependencies here
 .. code-block:: xml
 
     <records prefix="plone.resources/bundle-exercise5"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
       <value key="js">++plone++exercise5/bundle.js</value>
       <value key="css">
         <element>++plone++exercise5/pattern.less</element>
@@ -167,7 +159,7 @@ Finally, let's create our bundle registration
 .. code-block:: xml
 
     <records prefix="plone.bundles/exercise5"
-              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
       <value key="resources">
         <!-- reference to bundle resource definition -->
         <element>bundle-exercise5</element>
@@ -196,23 +188,21 @@ Installation
 Running
 =======
 
-At this point, we have no compiled version of the code that we are running with
-so our code does nothing.
+At this point, we have no compiled version of the code that we are running with so our code does nothing.
 
 1) Go into ::menuselection:`Site Setup --> Resource Registries`
 2) Check :guilabel:`Development Mode`
 3) Select to develop JavaScript and CSS for the ``exercise5`` bundle
 4) Click :guilabel:`Save`
 
-This should load your JavaScript and LESS files now;
-however, we do not have any elements with the ``pat-exercise5`` class assigned to them.
+This should load your JavaScript and LESS files now.
+However, we do not have any elements with the ``pat-exercise5`` class assigned to them.
 
 It is up to you how to apply the pattern class to an element of your choice.
 A couple options available to you are:
 
 1) use TinyMCE source view and add ``class="pat-exercise5"`` onto any ``p`` tag
-2) customize the theme on your site and add it to an element in your theme file
-   or use a diazo rule diazo rule to dynamically add the class to an element
+2) customize the theme on your site and add it to an element in your theme file or use a diazo rule diazo rule to dynamically add the class to an element
 
 
 Production
@@ -223,9 +213,7 @@ To build our bundle, we will utilize the ``plone-compile-resources`` script that
 
 ..  warning::
 
-    If you are not running a ZEO setup,
-    you will need to shut down your Plone instance
-    since the ZODB in this mode does not allow multiple processes to access it at the same time.
+    If you are not running a ZEO setup, you will need to shut down your Plone instance since the ZODB in this mode does not allow multiple processes to access it at the same time.
 
 
 An example command will look like this

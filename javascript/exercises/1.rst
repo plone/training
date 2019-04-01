@@ -21,7 +21,7 @@ Create your browser view
     Skip ahead if you know how to create browser views.
 
 Let’s add a basic new page view. This is only needed for calling our Javascript file.
-Add this into your ``exercise1/page.pt`` file
+Add this into your ``exercise1/page.pt`` file:
 
 .. code-block:: xml
 
@@ -37,7 +37,7 @@ Add this into your ``exercise1/page.pt`` file
     </body>
     </html>
 
-And wire it up with :term:`ZCML` registration in the ``exercise1/configure.zcml`` file
+And wire it up with :term:`ZCML` registration in the ``exercise1/configure.zcml`` file:
 
 .. code-block:: xml
 
@@ -98,8 +98,7 @@ You can verify that the resource works by going to ``http://localhost:8080/Plone
 Use the Javascript in your template
 -----------------------------------
 
-Now, you just need to edit your ``exercise1/page.pt`` file,
-so it would look like this:
+Now, you just need to edit your ``exercise1/page.pt`` file, so it would look like this:
 
 .. code-block:: xml
 
@@ -125,10 +124,9 @@ Installation
 
 1) Start up your Plone instance
 
-Then, visit the URL:
-``http://localhost:8080/Plone/front-page/@@exercise1``. 
+Then, visit the URL: ``http://localhost:8080/Plone/front-page/@@exercise1``. 
 
-This is assuming your Plone is is located at the URL ``http://localhost:8080/Plone``.
+This is assuming your Plone is located at the URL ``http://localhost:8080/Plone``.
 
 
 Production

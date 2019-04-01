@@ -75,10 +75,10 @@ Add this to the ``exercise13/configure.zcml`` file
 .. code-block:: xml
 
     <plone:static
-         directory="static"
-         type="plone"
-         name="exercise13"
-         />
+        directory="static"
+        type="plone"
+        name="exercise13"
+        />
 
 Register Your Bundle
 ====================
@@ -95,7 +95,7 @@ Registration is done exactly like the other examples:
     </records>
 
     <records prefix="plone.resources/exercise13"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
       <value key="js">++plone++exercise13/pattern.js</value>
       <value key="css">
         <element>++plone++exercise13/pattern.less</element>
@@ -103,7 +103,7 @@ Registration is done exactly like the other examples:
     </records>
 
     <records prefix="plone.bundles/exercise13"
-              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
       <value key="resources">
         <element>exercise13</element>
       </value>
@@ -131,23 +131,21 @@ At this point, we have all the files necessary to run the pattern.
 Running
 =======
 
-At this point, we have no compiled version of the code that we are running with
-so our code does nothing.
+At this point, we have no compiled version of the code that we are running with so our code does nothing.
 
 1) Go into :menuselection:`Site Setup --> Resource Registries`
 2) Check :guilabel:`Development Mode`
 3) Select to develop JavaScript and CSS for the ``exercise13`` bundle
 4) Click :guilabel:`save`
 
-This should load your JavaScript and LESS files now;
-however, we do not have any elements with the ``pat-exercise13`` class assigned to them.
+This should load your JavaScript and LESS files now.
+However, we do not have any elements with the ``pat-exercise13`` class assigned to them.
 
 It is up to you how to apply the pattern class to an element of your choice.
 A couple options available to you are:
 
 1) use TinyMCE source view and add ``class="pat-exercise13"`` onto any tag
-2) customize the theme on your site and add it to an element in your theme file
-   or use a diazo rule diazo rule to dynamically add the class to an element
+2) customize the theme on your site and add it to an element in your theme file or use a diazo rule diazo rule to dynamically add the class to an element
 
 
 Production
@@ -158,8 +156,7 @@ To build our bundle, we will utilize the ``plone-compile-resources`` script that
 
 ..  warning::
 
-    If you are not running a ZEO setup, you will need to shut down your Plone instance
-    since the ZODB in this mode does not allow multiple processes to access it at the same time.
+    If you are not running a ZEO setup, you will need to shut down your Plone instance since the ZODB in this mode does not allow multiple processes to access it at the same time.
 
 
 An example command will look like this:

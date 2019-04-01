@@ -7,18 +7,15 @@ Exercise 4: Gallery integration as resources
     This exercise requires a working buildout using a fork of the collective.jstraining package.
 
 
-In this exercise, we will include our custom JavaScript file into your Plone site as a bundled resource,
-instead of manually including it into your theme template (as in exercise 3).
+In this exercise, we will include our custom JavaScript file into your Plone site as a bundled resource, instead of manually including it into your theme template (as in exercise 3).
 
 You will be working in the ``exercise4`` directory of the collective.jstraining package.
 
 Add your JavaScript files
 =========================
 
-In this example, we are going to create a rather contrive example
-to demonstrate the bundling process.
-Add a ``static`` folder, inside it,
-create a file named ``resource.js``:
+In this example, we are going to create a rather contrive example to demonstrate the bundling process.
+Add a ``static`` folder, then inside it create a file named ``resource.js``:
 
 .. code-block:: javascript
 
@@ -53,10 +50,10 @@ Add this to the ``exercise5/configure.zcml`` file:
 .. code-block:: xml
 
     <plone:static
-         directory="static"
-         type="plone"
-         name="exercise4"
-         />
+        directory="static"
+        type="plone"
+        name="exercise4"
+        />
 
 
 Register your JS as a resource
@@ -68,7 +65,7 @@ In the ``registry.xml`` file, under ``profiles/default`` add the following:
 .. code-block:: xml
 
   <records prefix="plone.resources/exercise4"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
     <value key="js">++plone++exercise4/resource.js</value>
   </records>
 
@@ -84,7 +81,7 @@ Addditionally, we include our CSS/LESS dependencies here:
 .. code-block:: xml
 
     <records prefix="plone.resources/bundle-exercise4"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
       <value key="js">++plone++exercise4/bundle.js</value>
     </records>
 
@@ -96,7 +93,7 @@ Finally, let's create our bundle registration
 .. code-block:: xml
 
     <records prefix="plone.bundles/exercise4"
-              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
       <value key="resources">
         <!-- reference to bundle resource definition -->
         <element>bundle-exercise4</element>
@@ -123,29 +120,26 @@ Installation
 Running
 =======
 
-At this point, we have no compiled version of the code
-that we are running with so our code does nothing.
+At this point, we have no compiled version of the code that we are running with so our code does nothing.
 
 1) Go into ``Site Setup`` -> ``Resource Registries``
 2) Check "Development Mode"
 3) Select to develop JavaScript and CSS for the ``exercise4`` bundle
 4) Click save
 
-This should load your JavaScript and LESS files now;
-reload the page, and you should be greated by our "exciting" new alert box.
+This should load your JavaScript and LESS files now.
+Reload the page, and you should be greated by our "exciting" new alert box.
 
 
 Production
 ==========
 
-To build our bundle, we will utilize the ``plone-compile-resources`` script
-that Plone ships with.
+To build our bundle, we will utilize the ``plone-compile-resources`` script that Plone ships with.
 
 
 ..  warning::
 
-    If you are not running a ZEO setup, you will need to shut down your Plone instance
-    since the ZODB in this mode does not allow multiple processes to access it at the same time.
+    If you are not running a ZEO setup, you will need to shut down your Plone instance since the ZODB in this mode does not allow multiple processes to access it at the same time.
 
 
 An example command will look like this

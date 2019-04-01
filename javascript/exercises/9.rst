@@ -69,5 +69,4 @@ Click the ``Build`` button. Finally, click ``Build it``
 Testing
 =======
 
-Now, if you go back to the page you added before,
-you should now see ``test Exercise 9 has been overridden``.
+Now, if you go back to the page you added before, you should now see ``test Exercise 9 has been overridden``.
