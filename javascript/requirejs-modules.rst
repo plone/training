@@ -101,7 +101,7 @@ Let us do the RequireJS configuration in :file:`main.js` and use that as main en
     })
 
 
-You can use your defined module as a dependency in another ``define`` module definition or as a dependency in a ``require`` call.
+You can use your defined module as a dependency in another ``define`` module definition if you want to run some non-reusable code, or as a dependency in a ``require`` call.
 
 While you have to return a module export in ``define``, you do not need that for ``require``.
 ``require`` corresponds to the first form of the module pattern explained above.

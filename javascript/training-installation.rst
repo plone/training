@@ -2,7 +2,7 @@
 Setup
 =====
 
-To get Plone and example packages for this training installed, please clone `collective.jstraining <https://github.com/collective/collective.jstraining>`_ and install Plone by executing the following commands:
+To install Plone and example packages for this training, first clone `collective.jstraining <https://github.com/collective/collective.jstraining>`_, then execute the following commands:
 
 .. code-block:: console
 

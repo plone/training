@@ -60,7 +60,7 @@ This example will bind a React component to a pattern element:
 
 Notice that the ``init`` of the pattern utilizes the React element binding syntax.
 
-From there,Reacttakes over and options from the pattern go into ``props`` for the React component.
+From there, React takes over and options from the pattern go into ``props`` for the React component.
 
 
 
