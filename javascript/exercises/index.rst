@@ -6,7 +6,7 @@ Exercises
 
 **Prerequisites**
 
-- Fork https://github.com/collective/collective.jstraining and git-clone it, and install Plone by executing the following commands:
+- Fork https://github.com/collective/collective.jstraining and clone it with git, and install Plone by executing the following commands:
 
 .. code-block:: console
 

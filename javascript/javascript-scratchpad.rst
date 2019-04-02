@@ -26,7 +26,7 @@ General Advises
 
     The mockup grunt infrastructure is build with a convention over configuration approach in mind.
 
-    It is actually very picky about a lot of things: locations of your bundle files, location of your bundle Less files, location of your pattern JavaScript and Less files and the require JavaScript ids of those.
+    It is actually very picky about a lot of things: locations of your bundle files, location of your bundle LESS files, location of your pattern JavaScript and LESS files and the require JavaScript IDs of those.
 
     Bundles have to be named ``mockup-bundles-BUNDLENAME``, patterns have to be named ``mockup-patterns-PATTERNNAME``.
 

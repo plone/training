@@ -167,7 +167,7 @@ Now, you should see the livesearch pattern default to searching the current sect
 Production
 ----------
 
-To build our bundle, we will utilize the ``plone-compile-resources`` script that Plone ships with.
+To build our bundle, we will utilize the ``plone-compile-resources`` script that ships with Plone.
 
 
 ..  warning::

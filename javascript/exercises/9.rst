@@ -13,7 +13,7 @@ You will be working in the ``exercise9`` directory of the ``collective.jstrainin
 
 ..  note::
 
-    Overriding resources through the web is limited to resources using the ++plone++ namespace.
+    Overriding resources through the web is limited to resources using the ``++plone++`` namespace.
     For more information read https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html#the-plone-traversal-namespace
 
 
@@ -43,9 +43,9 @@ Choose the pattern to override
 
 Go to the Site Setup, then to the Resource Registries.
 
-Under the ``Overrides`` tab, pick ``++plone++exercise9/pattern.js``
+Under the ``Overrides`` tab, pick ``++plone++exercise9/pattern.js``.
 
-Now modify the line
+Now modify the line:
 
 .. code-block:: xml
 

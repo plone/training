@@ -17,7 +17,7 @@ Add Your Pattern File
 First off, in your ``exercise5/static`` directory, add a file named ``pattern.js``.
 Use this file to build your pattern.
 
-This example will stay very simple, we will use `jQuery <https://jquery.com/>`_ to simply modify the content of an element:
+Use `jQuery <https://jquery.com/>`_ to modify the content of an element:
 
 .. code-block:: javascript
 
@@ -56,7 +56,7 @@ In our example, we are using the RequireJS ``define`` function to define our pat
 Integrating With LESS
 =====================
 
-Add a ``pattern.less`` file to the ``exercise5/static`` directory and provide whatever styles you like for your pattern
+Add a ``pattern.less`` file to the ``exercise5/static`` directory and provide whatever styles you like for your pattern.
 
 .. code-block:: less
 
@@ -202,13 +202,13 @@ It is up to you how to apply the pattern class to an element of your choice.
 A couple options available to you are:
 
 1) use TinyMCE source view and add ``class="pat-exercise5"`` onto any ``p`` tag
-2) customize the theme on your site and add it to an element in your theme file or use a diazo rule diazo rule to dynamically add the class to an element
+2) customize the theme on your site and add it to an element in your theme file or use a diazo rule to dynamically add the class to an element.
 
 
 Production
 ==========
 
-To build our bundle, we will utilize the ``plone-compile-resources`` script that Plone ships with.
+To build our bundle, we will utilize the ``plone-compile-resources`` script that ships with Plone.
 
 
 ..  warning::

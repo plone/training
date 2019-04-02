@@ -101,7 +101,7 @@ Let us do the RequireJS configuration in :file:`main.js` and use that as main en
     })
 
 
-You can use your defined module as a dependency in another ``define`` module definition - if you want to run some non-reusable code - as a dependency in a ``require`` call.
+You can use your defined module as a dependency in another ``define`` module definition or as a dependency in a ``require`` call.
 
 While you have to return a module export in ``define``, you do not need that for ``require``.
 ``require`` corresponds to the first form of the module pattern explained above.
@@ -113,7 +113,7 @@ When using in the browser (and not in NodeJS, for example), we have to include a
     <script src="require.js"></script>
     <script src="my_module/main.js"></script>
 
-Alternatively, you can define a script as main entry point in RequireJS as data attribute on the script tag which loads require.js.
+Alternatively, you can define a script as a main entry point in RequireJS as a data attribute on the ``script`` tag which loads ``require.js``.
 In that case, you could omit the configuration, because the entry point script is used as ``baseUrl``, if nothing else is defined:
 
 .. code-block:: xml

@@ -91,7 +91,7 @@ Register JavaScript Resource
 
 Register our script as a JavaScript resource with Plone.
 
-In the ``exercise6/profiles/default/registry.xml`` file, add the following configuration to register your script
+In the ``exercise6/profiles/default/registry.xml`` file, add the following configuration to register your script.
 
 .. code-block:: xml
 
@@ -106,7 +106,7 @@ Create A Custom Widget
 
 Our custom widget will apply to all lead images.
 
-Add a file ``widget.py`` to your ``exercise6`` directory with the following contents
+Add a file ``widget.py`` to your ``exercise6`` directory with the following contents:
 
 .. code-block:: python
 

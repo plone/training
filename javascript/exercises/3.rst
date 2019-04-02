@@ -99,7 +99,7 @@ Including JavaScript/CSS Into Your Theme
 
 For JavaScript and CSS, you can include resources with convenience theme configuration settings of ``development-css``, ``production-css``, ``development-js`` and ``production-js``.
 
-Since we are reusing the existing Barceloneta theme with this example though, we will simple include the JavaScript/CSS into the theme ``index.html`` file.
+Since we are reusing the existing Barceloneta theme with this example though, we will include the JavaScript/CSS into the theme ``index.html`` file.
 
 
 CSS

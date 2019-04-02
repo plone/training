@@ -125,7 +125,7 @@ It is up to you how to apply the component class name to an element of your choi
 A couple options available to you are:
 
 1) use TinyMCE source view and add ``class="my-app"`` onto any tag
-2) customize the theme on your site and add it to an element in your theme file or use a diazo rule diazo rule to dynamically add the class to an element
+2) customize the theme on your site and add it to an element in your theme file or use a diazo rule to dynamically add the class to an element.
 
 
 ..  warning::
@@ -138,7 +138,7 @@ A couple options available to you are:
 Development
 ===========
 
-To make sure your changes are loaded after every build with webpack, make sure to go into Site :menuselection:`Setup --> Resource registries` and enable development mode.
+To make sure your changes are loaded after every build with webpack, make sure to go into Site :guilabel:`Setup --> Resource registries` and enable development mode.
 
 
 Production
