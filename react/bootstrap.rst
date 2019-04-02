@@ -34,7 +34,7 @@ And add the :file:`create-react-app` package:
 Bootstrapping A Project
 =======================
 
-To create a new react project type the following:
+To create a newReactproject type the following:
 
 .. code-block:: console
 

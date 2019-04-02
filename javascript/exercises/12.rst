@@ -4,16 +4,14 @@ Exercise 12: NG2 APP In Logged In Bundle
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the
-    collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
 For this exercise, we will add an Angular 2 application to a Plone bundle.
 
-We have most of the Angular 2 boilerplate code created for you so let's
-finish up a few things so you can customize it.
+We have most of the Angular 2 boilerplate code created for you so let us finish up a few things so you can customize it.
 
-We will be working in the ``exercise12`` directory of the collective.jstraining package.
+You will be working in the ``exercise12`` directory of the ``collective.jstraining`` package.
 
 Bootstrap
 =========
@@ -34,7 +32,7 @@ Use this file to do anything you would like to the page.
 
 This example will stick with the Angular 2 quickstart code.
 
-We hope you like typescript
+We hope you like TypeScript.
 
 .. code-block:: typescript
 
@@ -46,24 +44,22 @@ We hope you like typescript
     export class AppComponent { }
 
 
-You can do whatever in this module however, please notice how we changed the
-selector to ``.my-app``.
+You can do whatever in this module.
+However please notice how we changed the selector to ``.my-app``.
 
 In Angular 2, the selector can be anything.
 
-By changing it to a class name, it will be easier for us to choose where we want to bootstrap
-our Angular 2 component.
+By changing it to a class name, it will be easier for us to choose where we want to bootstrap our Angular 2 component.
 
 
 Register Static Resource Directory
 ==================================
 
-Next, let’s register the static directory we just placed our script into.
+Next, let us register the static directory we just placed our script into.
 
-To register, you need to add :term:`ZCML` registration for the static directory your script
-is in.
+To register it, you need to add :term:`ZCML` registration for the static directory your script is in.
 
-Add this to the ``exercise12/configure.zcml`` file
+Add this to the ``exercise12/configure.zcml`` file:
 
 .. code-block:: xml
 
@@ -85,21 +81,19 @@ Our deployment is built using webpack
     webpack
 
 
-Whenever you make a change to your component files, webpack will auto re-build
-the distribution
+Whenever you make a change to your component files, webpack will automatically re-build the distribution.
 
 
 Register JavaScript Resource
 ============================
 
-Let’s register our script as a JavaScript resource with Plone.
-In the ``exercise12/profiles/default/registry.xml`` file, add configuration to register
-your script
+Let us register our script as a JavaScript resource with Plone.
+In the ``exercise12/profiles/default/registry.xml`` file, add configuration to register your script:
 
 .. code-block:: xml
 
     <records prefix="plone.bundles/exercise12"
-              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
       <value key="merge_with">logged-in</value>
       <value key="enabled">True</value>
       <value key="compile">False</value>
@@ -126,36 +120,30 @@ Installation
 Running
 =======
 
-It's up to you how to apply the component class name to an element of your choice.
+It is up to you how to apply the component class name to an element of your choice.
 
 A couple options available to you are:
 
 1) use TinyMCE source view and add ``class="my-app"`` onto any tag
-2) customize the theme on your site and add it to an element in your theme file
-   or use a diazo rule diazo rule to dynamically add the class to an element
+2) customize the theme on your site and add it to an element in your theme file or use a diazo rule to dynamically add the class to an element.
 
 
 ..  warning::
 
-   To make sure your resource registry configuration changes apply, you'll need to
-   be in development mode.
+   To make sure your resource registry configuration changes apply, you will need to be in development mode.
 
-   You can also toggle development mode on and off,
-   click save, to force configuration to be re-built after changes instead of
-   keeping development mode on.
+   You can also toggle development mode on and off, click save, to force configuration to be re-built after changes instead of keeping development mode on.
 
 
 Development
 ===========
 
-To make sure your changes are loaded after every build with webpack, make sure
-to go into Site :menuselection:`Setup --> Resource registries` and enable development mode.
+To make sure your changes are loaded after every build with webpack, make sure to go into Site :guilabel:`Setup --> Resource registries` and enable development mode.
 
 
 Production
 ----------
 
-Production for this is simple when you're no longer in development mode on
-your Plone site.
+Production for this is simple when you are no longer in development mode on your Plone site.
 
-webpack rebuilds the JavaScript distribution on every change.
+Webpack rebuilds the JavaScript distribution on every change.

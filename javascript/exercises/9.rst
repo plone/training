@@ -4,18 +4,17 @@ Exercise 9: Overriding a pattern TTW
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the
-    collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
-In this exercise, we'll be overriding a pattern through the web.
+In this exercise we will be overriding a pattern through the web.
 
-We will be working in the ``exercise9`` directory of the collective.jstraining package.
+You will be working in the ``exercise9`` directory of the ``collective.jstraining`` package.
 
 ..  note::
 
-    Overriding resources through the web is limited to resources using the ++plone++
-    namespace. For more information read https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html#the-plone-traversal-namespace
+    Overriding resources through the web is limited to resources using the ``++plone++`` namespace.
+    For more information read https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html#the-plone-traversal-namespace
 
 
 Installation
@@ -44,9 +43,9 @@ Choose the pattern to override
 
 Go to the Site Setup, then to the Resource Registries.
 
-Under the ``Overrides`` tab, pick ++plone++exercise9/pattern.js
+Under the ``Overrides`` tab, pick ``++plone++exercise9/pattern.js``.
 
-Now modify the line
+Now modify the line:
 
 .. code-block:: xml
 
@@ -70,4 +69,4 @@ Click the ``Build`` button. Finally, click ``Build it``
 Testing
 =======
 
-Now, if you go back to the page you added before, you should now see ``test Exercise 9 has been overridden``
+Now, if you go back to the page you added before, you should now see ``test Exercise 9 has been overridden``.

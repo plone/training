@@ -11,17 +11,16 @@ For Plone, it was high time to update and modernize its input widgets.
 
 Not because the new ones look much better, but because they offer a much more comfortable way of entering data.
 
-To update Plone's widgets was the goal of `plone.app.widgets <https://pypi.org/project/plone.app.widgets>`_, started by Nathan van Gheem and pushed wide forward by Rok Garbas.
+To update Plone widgets was the goal of `plone.app.widgets <https://pypi.org/project/plone.app.widgets>`_, started by Nathan van Gheem and pushed forward by Rok Garbas.
 Rok forked Patternslib and created the Mockup project.
 
 Patternslib used a complex configuration syntax parser instead of a simple JSON based approach and the test coverage was not high enough.
 Besides it was fun to create something new, so Mockup was born.
 
-There were concerns about having two projects with the same goal,
+There were concerns about having two projects with the same goal.
 JC Brand took the initiative and brought the two projects back together.
 
-Where Mockup had a dependency on `mockup-core <https://github.com/plone/mockup-core>`_ with a base pattern to extend from, a configuration parser,
-pattern registry and Grunt infrastructure, this dependency was removed and replaced by a dependency on `patternslib <http://patternslib.com>`_.
+Where Mockup had a dependency on `mockup-core <https://github.com/plone/mockup-core>`_ with a base pattern to extend from, a configuration parser, pattern registry and Grunt infrastructure, this dependency was removed and replaced by a dependency on `patternslib <http://patternslib.com>`_.
 
 Those projects led the foundation to the new way of developing JavaScript in Plone.
 
@@ -43,12 +42,12 @@ This is how Mockup is structured on the filesystem::
     │   │   ├── bundles          - Mockup bundle files
     │   │   │   ├── docs.js
     │   │   │   ├── plone.js
-    │   │   │   └── widgets.js
+    │   │   │   ├── widgets.js
     │   │   │   └── ...
     │   │   ├── config.js        - RequireJS configuration
     │   │   ├── docs             - ReactJS based documentation framework
     │   │   │   ├── app.js
-    │   │   │   ├── ...
+    │   │   │   └── ...
     │   │   ├── grunt.js         - Grunt base configuration
     │   │   ├── i18n.js
     │   │   ├── i18n-wrapper.js
@@ -59,13 +58,13 @@ This is how Mockup is structured on the filesystem::
     │   │   │   └── views
     │   │   │       ├── base.js
     │   │   │       ├── buttongroup.js
-    │   │   │       ├── ...
+    │   │   │       └── ...
     │   │   └── utils.js         - Utils to be reused
     │   ├── less                 - Less files for bundles. Mostly import less files from
     │   │   ├── base.less          a bundle's pattern dependencies.
     │   │   ├── docs.less
     │   │   ├── plone.less
-    │   │   └── widgets.less
+    │   │   ├── widgets.less
     │   │   └── ...
     │   ├── lib                                 - Non-Bower libraries
     │   │   ├── jquery.event.drag.js
@@ -81,6 +80,7 @@ This is how Mockup is structured on the filesystem::
     │   │   ├── select2
     │   │   │   ├── pattern.js
     │   │   │   └── pattern.select2.less
+    │   │   └── ...
     │   └── tests                               - All tests in here
     │       ├── config.js                       - RequireJS configuration for tests
     │       ├── fakeserver.js                   - Fake test server
@@ -92,15 +92,15 @@ This is how Mockup is structured on the filesystem::
     │       ├── images                          - Test resources
     │       │   ├── extralarge.jpg
     │       │   ├── large.jpg
-    │       │   ├── ...
+    │       │   └── ...
     │       ├── json                            - Test data
     │       │   ├── contextInfo.json
     │       │   ├── fileTree.json
-    │       │   ├── ...
+    │       │   └── ...
     │       ├── pattern-autotoc-test.js         - Tests for the autodoc pattern
     │       ├── pattern-livesearch-test.js
     │       ├── pattern-select2-test.js
-    │       ├── ...
+    │       └── ...
     ├── node_modules             - Node modules directory
     ├── package.json             - Node package metadata
     ├── provision.sh             - Vagrant provision file

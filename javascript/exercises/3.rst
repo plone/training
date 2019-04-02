@@ -4,28 +4,24 @@ Exercise 3: Gallery Integration With Theme
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the
-    collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
-In this exercise, we'll be walking through how to include custom JavaScript
-into your theme.
+In this exercise, we will be walking through how to include custom JavaScript into your theme.
 
 This example essentially re-uses the Barceloneta theme.
 
-It's more important to pay attention to how the integration with the theme works,
-than worrying about diazo/theming details for this exercise.
+It is more important to pay attention to how the integration with the theme works, than worrying about diazo/theming details for this exercise.
 
-We will be working in the ``exercise3`` directory of the collective.jstraining package.
+You will be working in the ``exercise3`` directory of the ``collective.jstraining`` package.
 
 Add Your JavaScript File
 ========================
 
-The lightGallery distribution files are already included in the
-``collective.jstraining`` package you're working with.
+The lightGallery distribution files are already included in the ``collective.jstraining`` package you are working with.
 
 In your ``exercise3/theme`` directory, add a file named ``integration.js``.
-We'll use this file to integrate with Plone's album view
+We will use this file to integrate with Plone's album view:
 
 .. code-block:: javascript
 
@@ -50,7 +46,7 @@ We'll use this file to integrate with Plone's album view
     });
 
 
-Let's talk about each part of this file in detail...
+Let us talk about each part of this file in detail...
 
 Require the lightGallery JavaScript
 
@@ -67,8 +63,7 @@ Require the lightGallery JavaScript
 
 This tells `RequirejS <https://requirejs.org/>`_ to load the `jQuery <https://jquery.com/>`_ and the lightGallery JavaScript.
 
-What is important to pay attention to in this example is that we are seeing
-if there are any ``photoAlbumEntry`` elements on the page.
+What is important to pay attention to in this example is that we are seeing if there are any ``photoAlbumEntry`` elements on the page.
 
 If there are any, we modify the DOM structure slightly to work seemlessly with lightGallery>
 
@@ -102,29 +97,26 @@ We call the lightGallery initialization with our configuration
 Including JavaScript/CSS Into Your Theme
 ========================================
 
-For JavaScript and CSS, you can include resources with convenience theme
-configuration settings of ``development-css``, ``production-css``, ``development-js``
-and ``production-js``.
+For JavaScript and CSS, you can include resources with convenience theme configuration settings of ``development-css``, ``production-css``, ``development-js`` and ``production-js``.
 
-Since we are reusing the existing Barceloneta theme with this example though,
-we will simple include the JavaScript/CSS into the theme ``index.html`` file.
+Since we are reusing the existing Barceloneta theme with this example though, we will include the JavaScript/CSS into the theme ``index.html`` file.
 
 
 CSS
 ---
 
-At the bottom of the head section in the ``index.html`` file, add
+At the bottom of the head section in the ``index.html`` file, add the following:
 
 .. code-block:: html
 
    <link rel="stylesheet" type="text/css"
-          href="../++theme++exercise3/lightgallery/css/lightgallery.min.css" />
+         href="../++theme++exercise3/lightgallery/css/lightgallery.min.css" />
 
 
 JavaScript
 ----------
 
-At the bottom of the ``index.html`` file, before the ``</body>`` closing tag, add
+At the bottom of the ``index.html`` file, before the ``</body>`` closing tag, add the following:
 
 .. code-block:: html
 
@@ -153,5 +145,4 @@ Production
 
 In this example, there is no difference with development vs production.
 
-You can combine this example with other examples of building JavaScript projects
-to build, compile and minify your resources.
+You can combine this example with other examples of building JavaScript projects to build, compile and minify your resources.

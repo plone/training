@@ -2,13 +2,13 @@
 Setup
 =====
 
-To get Plone and example packages for this training installed, please follow the installation instructions about `how to get setup <https://training.plone.org/5/plone_training_config/instructions.html>`_
-
-After that, issue the following command to get the development environment for the ``mockup-minimalpattern`` example package installed
+To install Plone and example packages for this training, first clone `collective.jstraining <https://github.com/collective/collective.jstraining>`_, then execute the following commands:
 
 .. code-block:: console
 
-   make mockup-minimalpattern
+    git clone https://github.com/collective/collective.jstraining.git
+    cd collective.jstraining
+    ./bootstrap.sh
 
 .. note::
 
@@ -18,11 +18,11 @@ After that, issue the following command to get the development environment for t
 Installing Mockup
 =================
 
-Optionally you can install Mockup.
+Optionally you can download Mockup source code and install it in development mode.
 
-Mockup is already included in the `training_buildout <https://github.com/collective/training_buildout/blob/plone5/buildout.cfg>`_.
+Mockup is already included in the `training buildout <https://github.com/collective/collective.jstraining>`_.
 
-Uncomment the "mockup" lines in the buildout's ``auto-checkout`` and ``eggs`` sections.
+Uncomment the "mockup" line in the buildout's ``auto-checkout`` section.
 
 After that, run buildout:
 

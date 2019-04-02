@@ -4,14 +4,12 @@ Exercise 6: Using A Pattern In A Z3C Form Widget
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the
-    collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
-This exercise will go through adding a widget that checks the minimum size
-of an image before it is uploaded.
+This exercise will go through adding a widget that checks the minimum size of an image before it is uploaded.
 
-We will be working in the ``exercise6`` directory of the collective.jstraining package.
+You will be working in the ``exercise6`` directory of the ``collective.jstraining`` package.
 
 Add Your JavaScript File
 ========================
@@ -68,26 +66,24 @@ Use this file to do anything you would like to the page
     });
 
 
-This pattern simply has ``minWidth`` and ``minHeight`` options and when a file is
-selected for upload, will check to make sure it is a valid size.
+This pattern simply has ``minWidth`` and ``minHeight`` options and, when a file is selected for upload, will check to make sure it is a valid size.
 
 
 Register Static Resource Directory
 ==================================
 
-Next, let’s register the static directory we just placed our script into. To
-register, you need to add :term:`ZCML` registration for the static directory your script
-is in.
+Next, let us register the static directory we just placed our script into.
+To register it, you need to add :term:`ZCML` registration for the static directory your script is in.
 
 Add this to the ``exercise6/configure.zcml`` file
 
 .. code-block:: xml
 
     <plone:static
-         directory="static"
-         type="plone"
-         name="exercise6"
-         />
+        directory="static"
+        type="plone"
+        name="exercise6"
+        />
 
 
 Register JavaScript Resource
@@ -95,8 +91,7 @@ Register JavaScript Resource
 
 Register our script as a JavaScript resource with Plone.
 
-In the ``exercise6/profiles/default/registry.xml`` file, add configuration to register
-your script
+In the ``exercise6/profiles/default/registry.xml`` file, add the following configuration to register your script.
 
 .. code-block:: xml
 
@@ -111,7 +106,7 @@ Create A Custom Widget
 
 Our custom widget will apply to all lead images.
 
-Add a file ``widget.py`` to your ``exercise6`` directory with the follow contents
+Add a file ``widget.py`` to your ``exercise6`` directory with the following contents:
 
 .. code-block:: python
 
@@ -160,8 +155,7 @@ Notice in the ``render`` method we utilize the ``add_resource_on_request`` funct
 to load our pattern.
 
 
-The code for ``image_widget.pt`` is already provided for this example since it is
-quite long.
+The code for ``image_widget.pt`` is already provided for this example since it is quite long.
 
 Review the file and notice where we are passing the value from the ``pattern_options`` method into our widget.
 
@@ -194,7 +188,5 @@ Now, try to add/edit a lead image to content on the site.
 
 ..  warning::
 
-    To make sure your resource registry configuration changes apply, you'll need to
-    be in development mode. You can also toggle development mode on and off,
-    click save, to force configuration to be re-built after changes instead of
-    keeping development mode on.
+    To make sure your resource registry configuration changes apply, you will need to be in development mode.
+    You can also toggle development mode on and off, click save, to force configuration to be re-built after changes instead of keeping development mode on.

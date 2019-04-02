@@ -2,7 +2,7 @@
 Scratchpad
 ==========
 
-Scratchpat for text snippets to be included somewhere else in the training.
+Scratchpad for text snippets to be included somewhere else in the training.
 
 
 General Advises
@@ -10,8 +10,7 @@ General Advises
 
 .. note::
 
-    When providing static resources (JS/Less/CSS) for Plone 5's resource registry,
-    use `plone.resource <https://pypi.org/project/plone.resource>`_ based resources instead of Zope's browser resources.
+    When providing static resources (JS/Less/CSS) for Plone 5 resource registry, use `plone.resource <https://pypi.org/project/plone.resource>`_ based resources instead of Zope browser resources.
     The latter are cached heavily and you won't get your changes built with Zope resources.
 
 .. note::
@@ -27,8 +26,7 @@ General Advises
 
     The mockup grunt infrastructure is build with a convention over configuration approach in mind.
 
-    It's actually very picky about a lot of things:
-    locations of your bundle files, location of your bundle Less files, location of your pattern JavaScript and Less files and the require JavaScript ids of those.
+    It is actually very picky about a lot of things: locations of your bundle files, location of your bundle LESS files, location of your pattern JavaScript and LESS files and the require JavaScript IDs of those.
 
     Bundles have to be named ``mockup-bundles-BUNDLENAME``, patterns have to be named ``mockup-patterns-PATTERNNAME``.
 

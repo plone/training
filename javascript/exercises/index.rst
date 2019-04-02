@@ -6,11 +6,15 @@ Exercises
 
 **Prerequisites**
 
-- Follow the instructions here to get a training buildout installed:
-  https://training.plone.org/5/plone_training_config/instructions.html
+- Fork https://github.com/collective/collective.jstraining and clone it with git, and install Plone by executing the following commands:
 
-- Fork https://github.com/collective/collective.jstraining and install your fork
-  into your buildout from the previous step
+.. code-block:: console
+
+    git clone <location of your fork>
+    cd collective.jstraining
+    ./bootstrap.sh
+
+``<location of your fork>`` should be replaced with where your fork is.
 
 - npm/nodejs install on your system
 
@@ -21,36 +25,8 @@ Exercises
 .. note::
 
    On macOS versions of npm/nodejs newer than 6.9.1 can make the bundling process fail.
-   Installing and using version 6.9.1 fixes the problem. Different versions of nodejs can
-   be managed with nvm (Node Version Manager).
-
-**Install forked collective.jstraining**
-
-Add this line to the end of your ``buildout.cfg`` file:
-
-.. code-block:: ini
-
-   collective.jstraining = git <location of your fork>
-
-``<location of your fork>`` should be replaced with where your fork is.
-
-Also, add ``collective.jstraining`` to the auto-checkout list:
-
-.. code-block:: ini
-
-    auto-checkout =
-      ...
-      collective.jstraining
-      ...
-
-And one more spot to add collective.jstraining to: eggs:
-
-.. code-block:: ini
-
-    eggs =
-        ...
-        collective.jstraining
-        ...
+   Installing and using version 6.9.1 fixes the problem.
+   Different versions of nodejs can be managed with nvm (Node Version Manager).
 
 
 ..  toctree::
