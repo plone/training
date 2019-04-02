@@ -4,12 +4,12 @@ Exercise 5: Simple Pattern
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
 In this exercise we will be walking through creating a simple Plone pattern.
 
-You will be working in the ``exercise5`` directory of the collective.jstraining package.
+You will be working in the ``exercise5`` directory of the ``collective.jstraining`` package.
 
 Add Your Pattern File
 =====================
@@ -97,7 +97,7 @@ They do the dependency resolution and include the modules that were required wit
 Register Static Resource Directory
 ==================================
 
-Next, let’s register the static directory we just placed our script into.
+Next, let us register the static directory we just placed our script into.
 To register it, you need to add :term:`ZCML` registration for the static directory your script is in.
 
 Add this to the ``exercise5/configure.zcml`` file
@@ -154,7 +154,7 @@ Addditionally, we include our CSS/LESS dependencies here
 Bundle
 ------
 
-Finally, let's create our bundle registration
+Finally, let us create our bundle registration
 
 .. code-block:: xml
 

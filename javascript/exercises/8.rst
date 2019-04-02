@@ -4,12 +4,12 @@ Exercise 8: Customizing Pattern
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
 In this exercise, we will be walking through customizing the livesearch pattern.
 
-You will be working in the ``exercise8`` directory of the collective.jstraining package.
+You will be working in the ``exercise8`` directory of the ``collective.jstraining`` package.
 
 Add Your Pattern File
 =====================
@@ -92,7 +92,7 @@ And overriding the ``init`` function to provide our customization(default search
 Register Static Resource Directory
 ==================================
 
-Next, let’s register the static directory we just placed our script into.
+Next, let us register the static directory we just placed our script into.
 To register it, you need to add ZCML registration for the static directory your script is in.
 
 Add this to the ``exercise8/configure.zcml`` file::

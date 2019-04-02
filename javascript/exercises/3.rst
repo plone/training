@@ -4,7 +4,7 @@ Exercise 3: Gallery Integration With Theme
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
 In this exercise, we will be walking through how to include custom JavaScript into your theme.
@@ -13,7 +13,7 @@ This example essentially re-uses the Barceloneta theme.
 
 It is more important to pay attention to how the integration with the theme works, than worrying about diazo/theming details for this exercise.
 
-You will be working in the ``exercise3`` directory of the collective.jstraining package.
+You will be working in the ``exercise3`` directory of the ``collective.jstraining`` package.
 
 Add Your JavaScript File
 ========================
@@ -46,7 +46,7 @@ We will use this file to integrate with Plone's album view:
     });
 
 
-Let's talk about each part of this file in detail...
+Let us talk about each part of this file in detail...
 
 Require the lightGallery JavaScript
 

@@ -4,12 +4,12 @@ Exercise 7: Pattern Wrapping A 3rd Party Library
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
 In this exercise, we will be walking through wrapping the tablesorter JavaScript library into a pattern.
 
-You will be working in the ``exercise7`` directory of the collective.jstraining package.
+You will be working in the ``exercise7`` directory of the ``collective.jstraining`` package.
 
 
 Add Your Pattern File
@@ -110,7 +110,7 @@ Our pattern is a bundle-able resource since it uses the ``require`` function ins
 Bundle
 ------
 
-Finally, let's create our bundle registration
+Finally, let us create our bundle registration
 
 .. code-block:: xml
 

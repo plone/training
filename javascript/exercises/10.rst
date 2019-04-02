@@ -4,16 +4,16 @@ Exercise 10: NG2 APP Component Rendered In A Browser View
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
 For this exercise, we will run an Angular 2 application inside a Plone browser view.
 
-We have most of the Angular 2 boiler plate code created for you so let's finish up a few things so you can customize it.
+We have most of the Angular 2 boiler plate code created for you so let us finish up a few things so you can customize it.
 
 In this case we are going to use angular client to create the app inside the package.
 
-You will be working in the ``exercise10`` directory of the collective.jstraining package.
+You will be working in the ``exercise10`` directory of the ``collective.jstraining`` package.
 
 Bootstrap
 =========
@@ -44,7 +44,7 @@ Like I said, you can do whatever in this module.
 Register Static Resource Directory
 ==================================
 
-Next, let’s register the static directory we just placed our script into.
+Next, let us register the static directory we just placed our script into.
 
 To register, you need to add :term:`ZCML` registration for the static directory your script is in.
 
@@ -70,7 +70,7 @@ Our deployment is built using the ng command line tool
     ng build --prod
 
 
-Whenever you make a change to your component files, webpack will auto re-build the distribution.
+Whenever you make a change to your component files, webpack will automatically re-build the distribution.
 
 
 Register JavaScript Resource
@@ -98,16 +98,17 @@ You will need to register the three on the ``exercise10/profiles/default/registr
       <value key="js">++plone++exercise10/ng2app/dist/styles.b52d2076048963e7cbfd.bundle.js</value>
     </records>
 
-It is really important that, in case that you need to have dependency on loading the JavaScript, you define on the registry.xml as its shown for the main JavaScript.
+It is really important that, in case that you need to have dependency on loading the JavaScript, you define in the ``registry.xml`` as shown in the main JavaScript.
 
-Finally we want to create a single entry point to load them, so we are going to create and register a JavaScript with the requires that are loading the app on a file called ``static/ng2app/main.js``
+Finally we want to create a single entry point to load them.
+Create and register a JavaScript with the ``requires`` that load the app in a file called ``static/ng2app/main.js``.
 
 .. code-block:: javascript
 
     require(['exercise10-inline','exercise10-style','exercise10-main'])
 
 
-With the main.js defined on the filesystem we can now create the resource as a new resource
+With the ``main.js`` defined on the filesystem, we can now create the resource as a new resource:
 
 .. code-block:: xml
 
@@ -127,9 +128,9 @@ Create Your Browser View
     Skip ahead if you know how to create browser views.
 
 
-Let’s load our JavaScript file to only load on a specific page you need it on.
+Let us load our JavaScript file to only load on a specific page you need it on.
 
-In our case, let’s add a basic new page view.
+In our case, let us add a basic new page view.
 
 The page template does not need to implement any logic and we can use the main template to bring in the content of the page we are using in the JavaScript(h1).
 
@@ -165,7 +166,7 @@ You can customize this and use whatever selector you like.
 Load Your JavaScript Resource
 =============================
 
-Add in view python code to tell Plone to render the script in the ``exercise10/browser.py`` file
+Add in view Python code to tell Plone to render the script in the ``exercise10/browser.py`` file:
 
 .. code-block:: python
 
@@ -183,7 +184,7 @@ Add in view python code to tell Plone to render the script in the ``exercise10/b
 
 The most interesting part here is to look at ``add_resource_on_request``.
 
-Finally, wire it up with :term:`ZCML` registration in the ``exercise10/configure.zcml`` file
+Finally, wire it up with :term:`ZCML` registration in the ``exercise10/configure.zcml`` file:
 
 .. code-block:: xml
 

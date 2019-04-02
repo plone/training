@@ -4,12 +4,12 @@ Exercise 2: Include JavaScript In Browser View
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
 For this exercise, we are simply including JavaScript in a browser view.
 
-You will be working in the ``exercise2`` directory of the collective.jstraining package.
+You will be working in the ``exercise2`` directory of the ``collective.jstraining`` package.
 
 Add Your JavaScript File
 ========================
@@ -56,7 +56,7 @@ Feel free to customize the script to do whatever you like.
 Register Static Resource Directory
 ==================================
 
-Next, let’s register the static directory we just placed our script into.
+Next, let us register the static directory we just placed our script into.
 
 To register it, you need to add :term:`ZCML` registration for the static directory your script is in.
 
@@ -74,7 +74,7 @@ Add this to the ``exercise2/configure.zcml`` file
 Register JavaScript Resource
 ============================
 
-Let’s register our script as a JavaScript resource with Plone.
+Let us register our script as a JavaScript resource with Plone.
 
 In the ``exercise2/profiles/default/registry.xml`` file, add configuration to register your script:
 
@@ -96,9 +96,9 @@ Create Your Browser View
     Skip ahead if you know how to create browser views.
 
 
-Let’s load our JavaScript file to only load on a specific page you need it on.
+Let us load our JavaScript file to only load on a specific page you need it on.
 
-In our case, let’s add a basic new page view.
+In our case, let us add a basic new page view.
 
 The page template does not need to implement any logic and we can use the main template to bring in the content of the page we are using in the JavaScript(h1).
 
@@ -122,7 +122,7 @@ Add this into your ``exercise2/page.pt`` file:
 Load Your JavaScript Resource
 =============================
 
-Add in view python code to tell Plone to render the script in the ``exercise2/browser.py`` file:
+Add in view Python code to tell Plone to render the script in the ``exercise2/browser.py`` file:
 
 .. code-block:: python
 

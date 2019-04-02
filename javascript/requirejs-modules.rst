@@ -77,7 +77,7 @@ You can pass it as very first argument to the ``define`` function, but you might
 
 If you do not do it at all, it gets automatically assigned the name of the file.
 
-For example, let's assume a project structure like follows and the ``define`` example from above living in a file called ``my_module.js``::
+For example, let us assume a project structure like follows and the ``define`` example from above living in a file called ``my_module.js``::
 
     index.html
     require.js
@@ -86,7 +86,7 @@ For example, let's assume a project structure like follows and the ``define`` ex
             |___app/
                   |___/my_module.js
 
-Let's do the RequireJS configuration in :file:`main.js` and use that as main entry point also to finally let something happen:
+Let us do the RequireJS configuration in :file:`main.js` and use that as main entry point also to finally let something happen:
 
 .. code-block:: javascript
 

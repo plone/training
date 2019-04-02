@@ -4,14 +4,14 @@ Exercise 12: NG2 APP In Logged In Bundle
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
 For this exercise, we will add an Angular 2 application to a Plone bundle.
 
-We have most of the Angular 2 boilerplate code created for you so let's finish up a few things so you can customize it.
+We have most of the Angular 2 boilerplate code created for you so let us finish up a few things so you can customize it.
 
-You will be working in the ``exercise12`` directory of the collective.jstraining package.
+You will be working in the ``exercise12`` directory of the ``collective.jstraining`` package.
 
 Bootstrap
 =========
@@ -32,7 +32,7 @@ Use this file to do anything you would like to the page.
 
 This example will stick with the Angular 2 quickstart code.
 
-We hope you like TypeScript
+We hope you like TypeScript.
 
 .. code-block:: typescript
 
@@ -44,7 +44,8 @@ We hope you like TypeScript
     export class AppComponent { }
 
 
-You can do whatever in this module, however please notice how we changed the selector to ``.my-app``.
+You can do whatever in this module.
+However please notice how we changed the selector to ``.my-app``.
 
 In Angular 2, the selector can be anything.
 
@@ -54,11 +55,11 @@ By changing it to a class name, it will be easier for us to choose where we want
 Register Static Resource Directory
 ==================================
 
-Next, let’s register the static directory we just placed our script into.
+Next, let us register the static directory we just placed our script into.
 
 To register it, you need to add :term:`ZCML` registration for the static directory your script is in.
 
-Add this to the ``exercise12/configure.zcml`` file
+Add this to the ``exercise12/configure.zcml`` file:
 
 .. code-block:: xml
 
@@ -80,14 +81,14 @@ Our deployment is built using webpack
     webpack
 
 
-Whenever you make a change to your component files, webpack will auto re-build the distribution.
+Whenever you make a change to your component files, webpack will automatically re-build the distribution.
 
 
 Register JavaScript Resource
 ============================
 
-Let’s register our script as a JavaScript resource with Plone.
-In the ``exercise12/profiles/default/registry.xml`` file, add configuration to register your script
+Let us register our script as a JavaScript resource with Plone.
+In the ``exercise12/profiles/default/registry.xml`` file, add configuration to register your script:
 
 .. code-block:: xml
 

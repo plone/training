@@ -4,12 +4,12 @@ Exercise 4: Gallery integration as resources
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
 In this exercise, we will include our custom JavaScript file into your Plone site as a bundled resource, instead of manually including it into your theme template (as in exercise 3).
 
-You will be working in the ``exercise4`` directory of the collective.jstraining package.
+You will be working in the ``exercise4`` directory of the ``collective.jstraining`` package.
 
 Add your JavaScript files
 =========================
@@ -43,7 +43,7 @@ Additionally, create a file named bundle.js
 Register static resource directory
 ==================================
 
-Next, let’s register the static directory we just placed our script into.
+Next, let us register the static directory we just placed our script into.
 To register it, you need to add ZCML registration for the static directory your script is in.
 Add this to the ``exercise5/configure.zcml`` file:
 
@@ -88,7 +88,7 @@ Addditionally, we include our CSS/LESS dependencies here:
 Bundle
 ======
 
-Finally, let's create our bundle registration
+Finally, let us create our bundle registration
 
 .. code-block:: xml
 

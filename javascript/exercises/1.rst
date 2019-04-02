@@ -4,12 +4,12 @@ Exercise 1: Include a JavaScript resource TTW
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
 For this exercise, we are going to include a JavaScript using the resource registry through the web.
 
-You will be working in the ``exercise1`` directory of the collective.jstraining package.
+You will be working in the ``exercise1`` directory of the ``collective.jstraining`` package.
 
 
 Create your browser view
@@ -20,7 +20,7 @@ Create your browser view
     This might be redundant with other documentation.
     Skip ahead if you know how to create browser views.
 
-Let’s add a basic new page view. This is only needed for calling our Javascript file.
+Let us add a basic new page view. This is only needed for calling our Javascript file.
 Add this into your ``exercise1/page.pt`` file:
 
 .. code-block:: xml
@@ -133,5 +133,4 @@ Production
 ----------
 
 In this exercise, there is no special distinction between development and production builds.
-
 The JavaScript is developed without any build process.

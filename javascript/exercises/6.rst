@@ -4,12 +4,12 @@ Exercise 6: Using A Pattern In A Z3C Form Widget
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
 This exercise will go through adding a widget that checks the minimum size of an image before it is uploaded.
 
-You will be working in the ``exercise6`` directory of the collective.jstraining package.
+You will be working in the ``exercise6`` directory of the ``collective.jstraining`` package.
 
 Add Your JavaScript File
 ========================
@@ -72,7 +72,7 @@ This pattern simply has ``minWidth`` and ``minHeight`` options and, when a file 
 Register Static Resource Directory
 ==================================
 
-Next, let’s register the static directory we just placed our script into.
+Next, let us register the static directory we just placed our script into.
 To register it, you need to add :term:`ZCML` registration for the static directory your script is in.
 
 Add this to the ``exercise6/configure.zcml`` file

@@ -4,12 +4,12 @@ Exercise 9: Overriding a pattern TTW
 
 ..  warning::
 
-    This exercise requires a working buildout using a fork of the collective.jstraining package.
+    This exercise requires a working buildout using a fork of the ``collective.jstraining`` package.
 
 
 In this exercise we will be overriding a pattern through the web.
 
-You will be working in the ``exercise9`` directory of the collective.jstraining package.
+You will be working in the ``exercise9`` directory of the ``collective.jstraining`` package.
 
 ..  note::
 
