@@ -158,19 +158,19 @@ Lets move on to :file:`browser/viewlets.py`
     :linenos:
     :emphasize-lines: 9, 19-20
 
-    ...
+    # ...
 
     from starzel.votable_behavior import DoVote
 
 
     class Vote(base.ViewletBase):
 
-#       ...
+    #   ...
         can_vote = None
 
         def update(self):
 
-#           ...
+    #       ...
 
             if self.is_manager is None:
                 membership_tool = getToolByName(self.context, 'portal_membership')
@@ -179,7 +179,7 @@ Lets move on to :file:`browser/viewlets.py`
                 self.can_vote = membership_tool.checkPermission(
                     DoVote, self.context)
 
- #  ...
+    #  ...
 
 And the template in :file:`browser/templates/voting_viewlet.pt`
 
