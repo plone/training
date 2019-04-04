@@ -119,7 +119,7 @@ We used three TAL-Attributes here.
 This is the complete list of TAL-attributes:
 
 ``tal:define``
-    define variables. We defined the variable ``a_fine_url`` to the string "https://www.ploneconf.org/"
+    define variables. We defined the variable ``a_fine_url`` to the string ``"https://www.ploneconf.org/"``.
 
 ``tal:content``
     replace the content of an element. We replaced the default content above with "An even better conference"
@@ -1059,6 +1059,6 @@ You'll only learn it if you keep reading, writing and customizing templates.
 .. seealso::
 
   * https://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html
-  * Using Zope Page Templates: https://zope.readthedocs.io/en/latest/zope2book/ZPT.html
-  * Zope Page Templates Reference: https://zope.readthedocs.io/en/latest/zope2book/AppendixC.html
+  * Using Zope Page Templates: https://zope.readthedocs.io/en/latest/zopebook/ZPT.html
+  * Zope Page Templates Reference: https://zope.readthedocs.io/en/latest/zopebook/AppendixC.html
   * https://chameleon.readthedocs.io/en/latest/

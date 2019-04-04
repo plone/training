@@ -3,11 +3,11 @@ Exporting Your Current Site Content
 ===================================
 
 For the sake of this training, a sample export is provided.
-`Download the export <../_static/sample_export.zip>`_.
+`Download the export <../_static/sample_export.zip>`.
 The original content came from a Plone 4 site,
 and was exported with collective.jsonify.
 
-If you are using the sample export, continue with the training: `<basics.html>`_.
+If you are using the sample export, continue with the training: `<basics>`.
 Otherwise, if you need to build an export from your existing site, continue reading.
 Keep in mind that this training is currently only written for handling a jsonify export.
 
@@ -68,4 +68,4 @@ Consistency is key.
 Check out a sample ``collective.jsonify`` export to model.
 You can also export to CSV.
 
-Next: `Basics <basics.html>`_
+Next: `Basics <basics>`

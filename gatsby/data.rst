@@ -134,7 +134,7 @@ With these "StaticQuery" components, we could avoid passing useless properties t
 
 .. note::
 
-    In ReactJS, passing props to too many levels is called `prop drilling <https://blog.kentcdodds.com/prop-drilling-bb62e02cb691>`_.
+    In ReactJS, passing props to too many levels is called `prop drilling <https://kentcdodds.com/blog/prop-drilling/>`_.
     It is always better to avoid it, if we can.
 
 If we look at the ``Layout`` component in ``components/layout.js`` file, we could see an example of ``StaticQuery`` to read the site title:
