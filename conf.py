@@ -114,9 +114,19 @@ release = '2018'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'lib', 'bin', 'include', 'local',
-                    'ploneconf.site_sneak', 'log', 'README.rst',
-                    'CHANGES.txt', 'spelling_wordlist.txt']
+exclude_patterns = [
+    'CHANGES.rst',
+    'README.rst',
+    '_build',
+    'bin',
+    'env',
+    'include',
+    'lib',
+    'local',
+    'log',
+    'ploneconf.site_sneak',
+    'spelling_wordlist.txt',
+]
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
