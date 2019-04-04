@@ -177,7 +177,7 @@ Some advanced thing. Should you ever use an improved search system like collecti
 Think about what you want to check in your results. Do you want to make a one to one comparison? How would you handle UUIDs?
 
 A test creating 101 talks can be slow. It tests an edge case. There is a trick: create a new :py:class:`TestCase` Class, and set an attribute :py:attr:`level` with the value of 2.
-This test will then only be run when you run the tests with the argument :option:`-a 2` or :option:`--all`
+This test will then only be run when you run the tests with the argument ``-a 2`` or ``--all``.
 
 .. admonition:: Solution
    :class: toggle
