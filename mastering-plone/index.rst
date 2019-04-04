@@ -78,5 +78,6 @@ reading it here can in no way be considered equal to attending a training.
 ..  toctree::
     :hidden:
 
+    code
     grok
     timing

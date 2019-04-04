@@ -74,3 +74,10 @@ Trainings
 
 :doc:`gatsby/index`
     Building static websites with GatsbyJS.
+
+.. The following items are hidden in this toctree to prevent Sphinx warnings.
+
+..  toctree::
+    :hidden:
+
+    teachers-training/index

@@ -397,3 +397,10 @@ If you want to know which steps are actually done please see the chapter :doc:`w
     * Use the :command:`vagrant suspend` or :command:`vagrant halt` commands to put the VirtualBox to "sleep" or to "power it off" before attempting to start another Plone instance anywhere else on your machine, if it uses the same port.  That's because vagrant "reserves" port 8080, and even if you stopped Plone in vagrant, that port is still in use by the guest OS.
     * If you are done with a vagrant box, and want to delete it, always remember to run :command:`vagrant destroy` on it before actually deleting the directory containing it.  Otherwise you'll leave its "ghost" in the list of boxes managed by vagrant and possibly taking up disk space on your machine.
     * See :command:`vagrant help` for all available commands, including :command:`suspend`, :command:`halt`, :command:`destroy`, :command:`up`, :command:`ssh` and :command:`resume`.
+
+.. The following items are hidden in this toctree to prevent Sphinx warnings.
+
+..  toctree::
+    :hidden:
+
+    what_vagrant_does
