@@ -124,7 +124,6 @@ exclude_patterns = [
     'lib',
     'local',
     'log',
-    'ploneconf.site_sneak',
     'spelling_wordlist.txt',
 ]
 

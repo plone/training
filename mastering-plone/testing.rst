@@ -150,7 +150,7 @@ In :ref:`eggs1-label` we created a content type. It is time to test this.
 
 We are going to create a test module named :py:mod:`test_talk`:
 
-.. literalinclude::  ../ploneconf.site_sneak/chapters/02_export_code_p5/src/ploneconf/site/tests/test_talk.py
+.. .. literalinclude::  ../ploneconf.site_sneak/chapters/02_export_code_p5/src/ploneconf/site/tests/test_talk.py
     :linenos:
 
 In :ref:`views1-label` we created a new view. We have to test this!
@@ -158,7 +158,7 @@ This time, though, we are going to test it with a browser, too.
 
 First, we add a simple test for the custom template in our Functional Test layer
 
-.. literalinclude:: ../ploneconf.site_sneak/chapters/03_zpt_p5/src/ploneconf/site/tests/test_talk.py
+.. .. literalinclude:: ../ploneconf.site_sneak/chapters/03_zpt_p5/src/ploneconf/site/tests/test_talk.py
     :lines: 109-125
     :linenos:
 
@@ -179,11 +179,11 @@ Think about what you want to check in your results. Do you want to make a one to
 A test creating 101 talks can be slow. It tests an edge case. There is a trick: create a new :py:class:`TestCase` Class, and set an attribute :py:attr:`level` with the value of 2.
 This test will then only be run when you run the tests with the argument ``-a 2`` or ``--all``.
 
-.. admonition:: Solution
+.. .. admonition:: Solution
    :class: toggle
 
 
-       .. literalinclude:: ../ploneconf.site_sneak/chapters/final/src/ploneconf/site/tests/test_talk.py
+..        .. literalinclude:: ../ploneconf.site_sneak/chapters/final/src/ploneconf/site/tests/test_talk.py
            :lines: 56-138
            :linenos:
 
@@ -193,7 +193,7 @@ Robot tests
 
 Finally, we write a robot test:
 
-.. literalinclude:: ../ploneconf.site_sneak/chapters/03_zpt_p5/src/ploneconf/site/tests/robot/test_talk.robot
+.. .. literalinclude:: ../ploneconf.site_sneak/chapters/03_zpt_p5/src/ploneconf/site/tests/robot/test_talk.robot
     :linenos:
 
 When you run your tests, you might notice that the robot tests didn't run. This is a feature activated by the robot layer, because robot tests can be quite slow. If you run your tests with :command:`./bin/test --all`
