@@ -133,27 +133,21 @@ Add a new talk in Plone and then update it's title to match 'Foo 42' using the R
 Implementing the talklist
 -------------------------
 
-We will use `Mobile Angular UI <http://mobileangularui.com/>`_ to develop our app.
-This is a relatively lightweight JavaScript framework for developing hybrid web apps built on top of `AngularJS <https://angularjs.org/>`_.
-There are a lot of other frameworks available (e.g. Ionic, OnsenUI, Sencha, ...),
-but most of them have more dependencies than `Mobile Angular UI`.
+We will use `Vue.js <http://vuejs.org/>`_ to develop our app.
+This is a relatively lightweight JavaScript framework for developing hybrid web apps.
+A big advantage of Vue.js over other frameworks for our purpose is that it doesn't require
+NodeJS..
 
-For example, most of them require NodeJS as a development web server.
-
-Our focus is Plone and interacting with :py:mod:`plone.restapi`, and `Mobile Angular UI` perfectly suits our needs
+Our focus is Plone and interacting with :py:mod:`plone.restapi`, and `Vue.js` perfectly suits our needs
 because it simply lets us use Plone as our development webserver.
 
-To get started, we download the current `master branch of Mobile Angular UI <https://codeload.github.com/mcasimir/mobile-angular-ui/zip/master>`_
-from GitHub, extract it and copy the :file:`dist` folder into a new subdirectory of :file:`browser` named :file:`talklist`.
+To get started, we create a new subdirectory of :file:`browser` named :file:`talklist`.
 
 Assuming the current working directory is the buildout directory:
 
 .. code-block:: console
 
-   wget https://codeload.github.com/mcasimir/mobile-angular-ui/zip/master
-   unzip master.zip
    mkdir src/ploneconf.site/src/ploneconf/site/browser/talklist
-   cp -a mobile-angular-ui-master/dist src/ploneconf.site/src/ploneconf/site/browser/talklist/
 
 Then we add a new resource directory to :file:`browser/configure.zcml`:
 
@@ -169,7 +163,9 @@ In the :file:`browser/talklist` directory, we add an HTML page called :file:`ind
 .. code-block:: html
 
     <!DOCTYPE html>
-    <html>
+    <html
+      xmlns:v-on="https://vuejs.org/"
+      xmlns:="https://vuejs.org/">
       <head>
         <meta charset="utf-8" />
         <base href="/Plone/++resource++talklist/" />
@@ -179,42 +175,38 @@ In the :file:`browser/talklist` directory, we add an HTML page called :file:`ind
         <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
         <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
-        <link rel="stylesheet" href="dist/css/mobile-angular-ui-hover.min.css" />
-        <link rel="stylesheet" href="dist/css/mobile-angular-ui-base.min.css" />
-        <link rel="stylesheet" href="dist/css/mobile-angular-ui-desktop.min.css" />
+        <!-- Load required Bootstrap and BootstrapVue CSS -->
+        <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
       </head>
-      <body
-        ng-app="TalkListApp"
-        ng-controller="MainController"
-        >
+
+      <body>
+
         <h1>List of talks</h1>
-        <div class="app">
-          <!-- App Body -->
-          <div class="app-body">
-            <div class="scrollable-content section">
-              <div class="panel-group"
-                ui-shared-state="myAccordion"
-                ui-default='2'>
-                <div class="panel panel-default" ng-repeat="item in items">
-                  <div class="panel-heading" ui-set="{'myAccordion': item.pos}">
-                    <h4 class="panel-title">
-                      {{item.type}}: {{item.title}} by {{item.speaker}}
-                    </h4>
-                    <b>{{item.start}}</b>
-                  </div>
-                  <div ui-if="myAccordion == {{item.pos}}">
-                    <div class="panel-body">
-                      {{item.details}}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+        <div id="talklist">
+
+          <div role="tablist">
+            <b-card no-body class="mb-1" v-for="(item, index) in items">
+              <b-card-header header-tag="header" class="p-1" role="tab">
+                <b-button block href="#" v-b-toggle="'accordion-' + index" variant="info">{{ item.type }}: {{ item.title }} by {{ item.speaker }}</b-button>
+              </b-card-header>
+              <b-collapse :id="'accordion-' + index" accordion="talklist-accordion" role="tabpanel">
+                <b-card-body>
+                  <b-card-text>{{item.details}}</b-card-text>
+                </b-card-body>
+              </b-collapse>
+            </b-card>
           </div>
-        </div><!-- ~ .app -->
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
-        <script src="dist/js/mobile-angular-ui.min.js"></script>
+
+        </div>
+        <!-- Load polyfills to support older browsers -->
+        <script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CMutationObserver" crossorigin="anonymous"></script>
+
+        <!-- Load Vue followed by BootstrapVue -->
+        <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+        <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
         <script src="talklist.js"></script>
       </body>
     </html>
@@ -229,59 +221,60 @@ We also need some JavaScript that we put into a file named :file:`talklist.js` i
 
     'use strict';
 
-    //
-    // module depends on mobile-angular-ui
-    //
-    var app = angular.module('TalkListApp', [
-      'mobile-angular-ui',
-    ]);
+    var app = new Vue({
+      el: '#talklist',
+      data: {
+        items: [],
+        userid: '',
+        passwd: '',
+        subject: '',
+        summary: ''
+      },
 
+      methods: {
+        load_talks: function() {
+          this.$http.get('/Plone/talks',
+                    {headers:{'Accept':'application/json'}}).
+            then(function(response) {
+              this.items = [];
+              // get the paths of the talks
+              var paths = [];
+              for (var i=0; i < response.data.items_total; i++) {
+                paths.push(response.data.items[i]['@id'])
+              }
+              // next get details for each talk
+              for (var i=0; i < paths.length; i++) {
+                this.$http.get(paths[i],
+                          {headers:{'Accept':'application/json'}}).
+                  then(function(resp) {
+                    var talkdata = resp.data;
+                    var path = talkdata['@id'];
+                    var talk = {
+                      'pos': paths.indexOf(path),
+                      'path': path,
+                      'title': talkdata.title,
+                      'type': talkdata.type_of_talk,
+                      'speaker': (talkdata.speaker != null) ? talkdata.speaker : talkdata.creators[0],
+                      'start': talkdata.start,
+                      'subjects': talkdata.subjects,
+                      'details': (talkdata.details != null) ? talkdata.details.data : talkdata.description
+                    }
+                    this.items.push(talk);
 
-    app.controller('MainController', function($rootScope, $scope, $http) {
+                  },
+                  function(error) {});
+              }
+            },
+            function(error) {
+              this.items = [];
+          });
+        }
+      },
 
-      $scope.items = [];
-
-      $scope.load_talks = function() {
-        $http.get('/Plone/talks',
-                  {headers:{'Accept':'application/json'}}).
-          success(function(data, status, headers, config) {
-            $scope.items = [];
-            // get the paths of the talks
-            var paths = [];
-            for (var i=0; i < data.items_total; i++) {
-              paths.push(data.items[i]['@id'])
-            }
-            // next get details for each talk
-            for (var i=0; i < paths.length; i++) {
-              $http.get(paths[i],
-                        {headers:{'Accept':'application/json'}}).
-                success(function(talkdata, status, headers, config) {
-                  // this is an angular 'promise' - we cannot
-                  // rely on variables from an outer scope
-                  var path = talkdata['@id'];
-                  var talk = {
-                    'pos': paths.indexOf(path),
-                    'path': path,
-                    'title': talkdata.title,
-                    'type': talkdata.type_of_talk,
-                    'speaker': (talkdata.speaker != null) ? talkdata.speaker : talkdata.creators[0],
-                    'start': talkdata.start,
-                    'subjects': talkdata.subjects,
-                    'details': (talkdata.details != null) ? talkdata.details.data : talkdata.description
-                  }
-                  $scope.items.push(talk);
-
-                }).
-                error(function(talkdata, status, headers, config) {});
-            }
-          }).
-        error(function(data, status, headers, config) {
-          $scope.items = [];
-        });
-      };
-
-      // initialize
-      $scope.load_talks();
+      mounted: function() {
+        // initialize
+        this.load_talks();
+      }
     });
 
 
@@ -380,29 +373,29 @@ Next, in our JavaScript code, we provide a method for logging in a user and anot
 We use the ``localStorage`` facility of the browser to store the token on the client.
 
 .. code-block:: javascript
+   :emphasize-lines: 3-21
 
     ...
-    app.controller('MainController', function($rootScope, $scope, $http) {
-    ...
-      $scope.login = function(login, passwd) {
-        $http.post('/Plone/@login',
-                  {'login':login,
-                   'password':passwd},
-                  {headers:
-                   {'Content-type':'application/json',
-                    'Accept':'application/json'}}).
-          success(function(data, status, headers, config){
-            localStorage.setItem('jwtoken', data.token);
-          }).
-          error(function(data, status, headers, config){
-            alert('Could not log you in');
-          });
-      };
-
-      $scope.is_logged_in = function() {
-        // we assume the user is logged in when he has a JWT token (that is naive)
-        return localStorage.getItem('jwtoken') != null;
-      };
+      methods: {
+        login: function(userid, passwd) {
+          this.userid = '';
+          this.passwd = '';
+          this.$http.post('/Plone/@login',
+                    {'login': userid,
+                     'password': passwd},
+                    {headers:
+                     {'Content-type':'application/json',
+                      'Accept':'application/json'}}).
+            then(function(data, status, headers, config){
+              localStorage.setItem('jwtoken', data.token);
+            }, function(error){
+              alert('Could not log you in');
+            });
+        },
+        is_logged_in: function() {
+          // we assume the user is logged in when he has a JWT token (that is naive)
+          return localStorage.getItem('jwtoken') != null;
+        },
     ...
 
 We continue with changes to :file:`index.html` so that it uses the new methods.
@@ -411,78 +404,63 @@ We provide a login form if the user doesn't have a valid JSON web token.
 Only authenticated users can see the rest of the page.
 
 .. code-block:: html
-   :emphasize-lines: 4-30
+   :emphasize-lines: 3-18
 
-          <div class="app-body">
+        <div id="talklist">
 
-            <div class="scrollable">
-              <div class="scrollable-content section" ng-if="! is_logged_in()">
-                <form role="form" ng-submit='login(userid,passwd)'>
-                  <fieldset>
-                    <legend>Login</legend>
-                    <div class="form-group has-success has-feedback">
-                      <label>Login</label>
-                      <input type="text"
-                        ng-model="userid"
-                        class="form-control"
-                        placeholder="Enter login">
-                    </div>
-                    <div class="form-group">
-                      <label>Password</label>
-                      <input type="password"
-                        ng-model="passwd"
-                        class="form-control"
-                        placeholder="Password">
-                    </div>
-                  </fieldset>
-                  <hr>
-                  <button class="btn btn-primary btn-block">
-                    Login
-                  </button>
-                </form>
-              </div>
+          <div v-if="! is_logged_in()">
+            <form role="form">
+              <fieldset>
+                <legend>Login</legend>
+                  <label for="userid">Login</label>
+                  <input type="text" id="userid" v-model="userid" placeholder="Enter login">
+                  <label for="passwd">Password</label>
+                  <input type="password" id="passwd" v-model="passwd" placeholder="Password">
+              </fieldset>
+              <button v-on:click="login(userid,passwd)">
+                Login
+              </button>
+            </form>
+          </div>
 
-              <div class="scrollable-content section" ng-if="is_logged_in()">
-                <div class="panel-group"
+          <div v-if="is_logged_in()">
+            <div role="tablist">
 
 Last we have to add some code that allows authenticated users to submit a lightning talk. We add another JavaScript method first:
 
 .. code-block:: javascript
 
     ...
-    app.controller('MainController', function($rootScope, $scope, $http) {
-    ...
-      $scope.submit_talk = function(subject, summary) {
-        $http.post('/Plone/talks',
-                   {'@type':'talk',
-                    'type_of_talk':'Lightning Talk',
-                    'audience':['Beginner','Advanced','Professionals'],
-                    'title':subject,
-                    'description':summary},
-                   {headers:
-                    {'Content-type':'application/json',
-                     'Authorization': 'Bearer ' + localStorage.getItem('jwtoken'),
-                     'Accept':'application/json'}}).
-          success(function(data, status, headers, config){
-            if(status==201) { // created
-              $scope.load_talks();
-            }
-          }).
-          error(function(data, status, headers, config){
-            // according to docs, status can be 400 or 500
-            // we check wether the token has expired - in this case,
-            // we remove it from localStorage and disply the login page.
-            // In all other cases, we display the message received
-            // from Plone
-            if ( (status == 400) && (data.type == 'ExpiredSignatureError') ) {
-              localStorage.removeItem('jwtoken');
-              location.reload();
-            } else {
-              // reason/error msg is contained in response body
-              alert(data.message);
-            }
-          });
-      };
+        submit_talk: function(subject, summary) {
+          this.$http.post('/Plone/talks',
+                     {'@type':'talk',
+                      'type_of_talk':'Lightning Talk',
+                      'audience':['Beginner','Advanced','Professionals'],
+                      'title':subject,
+                      'description':summary},
+                     {headers:
+                      {'Content-type':'application/json',
+                       'Authorization': 'Bearer ' + localStorage.getItem('jwtoken'),
+                       'Accept':'application/json'}}).
+            then(function(response){
+              if(response.status === 201) { // created
+                this.load_talks();
+              }
+            }, function(error){
+              // according to docs, status can be 400 or 500
+              // we check wether the token has expired - in this case,
+              // we remove it from localStorage and disply the login page.
+              // In all other cases, we display the message received
+              // from Plone
+              if ( (error.status == 400) && (error.data.type == 'ExpiredSignatureError') ) {
+                localStorage.removeItem('jwtoken');
+                location.reload();
+              } else {
+                // reason/error msg is contained in response body
+                alert(error.message);
+              }
+            });
+        },
     ...
 
 Exercise
@@ -499,8 +477,8 @@ Sort the list by date.
 
        ...
        $scope.load_talks = function() {
-         $http.get('/Plone/@search?portal_type=talk&sort_on=Date',
+         this.$http.get('/Plone/@search?portal_type=talk&sort_on=Date',
                    {headers:{'Accept':'application/json'}}).
-           success(function(data, status, headers, config) {
+           then(function(response) {
        ...
          });
