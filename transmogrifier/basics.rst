@@ -75,4 +75,4 @@ This will start up the instance in foreground mode for you,
 and will be accessible in your browser at http://localhost:8080.
 Click the 'Create a new Plone site' button, and create a site with the id ``Plone``.
 
-Next: `Before Import <before-import.html>`_
+Next: `Before Import <before-import>`

@@ -172,4 +172,4 @@ Further Reading
 
 * `Martin Aspeli: Professional Plone4 Development <https://www.packtpub.com/web-development/professional-plone-4-development>`_
 * `Practical Plone <https://www.packtpub.com/web-development/practical-plone-3-beginners-guide-building-powerful-websites>`_
-* `Zope Page Templates Reference <https://zope.readthedocs.io/en/latest/zope2book/AppendixC.html>`_
+* `Zope Page Templates Reference <https://zope.readthedocs.io/en/latest/zopebook/AppendixC.html>`_

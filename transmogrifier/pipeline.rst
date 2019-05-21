@@ -40,7 +40,7 @@ blueprint
   There are many blueprints already available in the Transmogrifier add-ons,
   or you may need to write some blueprints to handle your custom content.
   Blueprints are specified by ``name``, which is set in the ``configure.zcml``
-  See `<blueprints.html>`_ for steps to set up your own.
+  See `<blueprints>` for steps to set up your own.
 
 item
   The current piece of content in the loop being imported.
@@ -95,7 +95,7 @@ Some steps only need to specify the ``blueprint``, while others may require some
 You can dig into the blueprint code to get a hint of what parameters might be required.
 
 To add a new step, include its name in the top ``[transmogrifier]`` section,
-then add the part later in the file. See `Advanced Import <advanced-import.html>`_ for more information.
+then add the part later in the file. See `Advanced Import <advanced-import>` for more information.
 
 logger
   You get the option to output a line to the log for each item imported in the site.
@@ -135,7 +135,7 @@ example
   This is provided solely as an example to give you a starting point for making your own blueprint.
   It is currently commented out in the top ``[transmogrifier]`` section, so it will not run until uncommented.
   The blueprint name, ``mysite.example`` is defined in the configure.zcml, where it points to the Python Class.
-  See `Blueprints <blueprints.html>`_ for more information about writing custom blueprints.
+  See `Blueprints <blueprints>` for more information about writing custom blueprints.
 
 removeid
   The removeid step is fairly straightforward, it removes the ``id`` key from the item.
@@ -159,7 +159,7 @@ savepoint
   and it can be a pain to start over when you hit an error.
   The example ``savepoint`` will commit after every 1000 items.
   This is set to 1000, because a jsonify export saves 1000 items to a folder.
-  This will be discussed more later in `Import <import.html>`_.
+  This will be discussed more later in `Import <import>`.
   You can adjust to save how often you want.
 
 
@@ -209,4 +209,4 @@ in this case it will be the string ``'en-us'``.
 Your value may be different, depending on what language you set as your site language.
 Check the Languages control panel in Site Setup to see how it is set.
 
-Next: `Blueprints <blueprints.html>`_
+Next: `Blueprints <blueprints>`

@@ -63,6 +63,7 @@ linkcheck_ignore = [
     r'https://plonedemo.kitconcept.com/en/@search',
     r'https://www.packtpub.com',
     r'https://lucidworks.com',
+    r'https://twitter.com',  # linkcheck redirects to mobile version
 ]
 linkcheck_anchors = False
 linkcheck_timeout = 30
@@ -114,7 +115,7 @@ release = '2018'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'lib', 'bin', 'include', 'local',
+exclude_patterns = ['_build', 'env' 'lib', 'bin', 'include', 'local',
                     'ploneconf.site_sneak', 'log', 'README.rst',
                     'CHANGES.txt', 'spelling_wordlist.txt']
 

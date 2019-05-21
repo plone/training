@@ -37,7 +37,7 @@ Glossary
        Ansible can help you with configuration management, application deployment, task automation.
 
    Chef
-      `A configuration management tool written in Ruby and Erlang <https://www.chef.io/chef/>`_.
+      `A configuration management tool written in Ruby and Erlang <https://www.chef.io/products/chef-infra/>`_.
 
    CloudFormation
       `AWS CloudFormation <https://aws.amazon.com/cloudformation/>`_ gives developers and systems administrators an way to create and manage
