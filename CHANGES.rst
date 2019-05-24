@@ -6,6 +6,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Fix AGX links. [jensens]
+
 - Get rid of Grok, it is dead. No need any more to mention it here [jensens]
 
 - Fix a bunch of errors and links-check failure popping up in ``make test`` [jensens]
