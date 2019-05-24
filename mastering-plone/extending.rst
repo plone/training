@@ -100,10 +100,6 @@ Configuring Zope Components with ZCML
 
     -- The Zen of Python
 
-.. note::
-
-    An alternative way to configure components was used by :py:mod:`grok`: *Convention over configuration*. It is now discouraged to use it. See :ref:`grok-label`.
-
 
 GenericSetup
 ^^^^^^^^^^^^
