@@ -23,7 +23,9 @@ jobs:
     - stage: test
       script: make test
     - stage: build
+      if: branch != master
       script: make deploy
     - stage: deploy
       if: branch = master
+      script: make deploy
       script: "./deploy.sh"
