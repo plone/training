@@ -7,6 +7,7 @@ addons:
     - enchant
 python:
 - '3.7'
+cache: pip
 before_install:
 - echo -e "Host docs.plone.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - openssl aes-256-cbc -K $encrypted_129e1d4a0f4f_key -iv $encrypted_129e1d4a0f4f_iv
