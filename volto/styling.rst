@@ -1,4 +1,4 @@
-.. _styling-label:
+.. _styling-volto-label:
 
 =======
 Styling

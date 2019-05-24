@@ -10,6 +10,14 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Fix a typo in Volto redux section and format according to style guide. [jensens]
 
+- Fix AGX links. [jensens]
+
+- Get rid of Grok, it is dead. No need any more to mention it here [jensens]
+
+- Fix a bunch of errors and links-check failure popping up in ``make test`` [jensens]
+
+- Fix Travis setup, use stages now. See #410. [jensens]
+
 - Explanation about less variables and development/production mode in the theming training first chapter. [fredvd]
 
 - Fixes to Advanced Python Training [oz123]

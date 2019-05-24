@@ -1,4 +1,4 @@
-.. _bootstrap-label:
+.. _bootstrap-volto-label:
 
 =============================
 Bootstrapping A Volto Project

@@ -36,11 +36,11 @@ from another website or from a custom view.
 Recipes And Snippets
 ====================
 
-The docs provide `a basic recipe set <http://docs.diazo.org/en/latest/recipes/index.html>`_
-and you can have your own, but how to remember and re-use them?
+- The docs provide `a basic recipe set <http://docs.diazo.org/en/latest/recipes/index.html>`_ and you can have your own, but how to remember and re-use them?
 
-.. `David Bain introduces a "diazo snippets library" <http://blog.dbain.com/2014/12/introducing-diazo-snippets-library.html>`_ that allows you to get snippets from a chrome extensions.
-`All the snippets are available here <http://pigeonflight.github.io/lessArcane/>`_.
+- `David Bain introduces a "diazo snippets library" <http://blog.dbain.com/2014/12/introducing-diazo-snippets-library.html>`_ that allows you to get snippets from a chrome extensions.
+
+- `All the snippets are available here <http://pigeonflight.github.io/lessArcane/>`_.
 
 
 More Snippets
