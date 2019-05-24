@@ -1,4 +1,4 @@
-.. _react-label:
+.. _react-volto-label:
 
 =====
 React

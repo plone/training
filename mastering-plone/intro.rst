@@ -85,7 +85,7 @@ We will not cover the following topics:
 * `Theming <https://docs.plone.org/adapt-and-extend/theming/index.html>`_
 * `i18n and locales <https://docs.plone.org/develop/plone/i18n/index.html>`_
 * `Deployment, Hosting and Caching <https://docs.plone.org/manage/deploying/index.html>`_
-* :doc:`grok`
+* Grok
 
 Other topics are only covered lightly:
 
@@ -172,4 +172,4 @@ Further Reading
 
 * `Martin Aspeli: Professional Plone4 Development <https://www.packtpub.com/web-development/professional-plone-4-development>`_
 * `Practical Plone <https://www.packtpub.com/web-development/practical-plone-3-beginners-guide-building-powerful-websites>`_
-* `Zope Page Templates Reference <https://zope.readthedocs.io/en/latest/zope2book/AppendixC.html>`_
+* `Zope Page Templates Reference <https://zope.readthedocs.io/en/latest/zopebook/AppendixC.html>`_

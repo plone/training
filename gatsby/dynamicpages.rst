@@ -108,17 +108,17 @@ We need to fetch data for a specific node.
 To do this, we can use the ``slug`` value to filter only desired node.
 
 .. note::
-  
+
     We can filter with almost every node attribute, but it is always better use uniques values like ``id`` or ``slug``.
 
 .. note::
-  
+
     ``dangerouslySetInnerHTML`` is a helper function of ReactJS that allows to insert some not-reactish HTML into a component.
 
 If we restart the server, we can now directly access the pages that were automatically created.
 
 .. note::
-  
+
     To easily get a list of generated URLs, try to access a random page like `http://localhost:8000/asdf <http://localhost:8000/asdf>`_.
     The default ``NotFound`` page will offer alternative URLs.
 

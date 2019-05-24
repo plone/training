@@ -63,6 +63,7 @@ linkcheck_ignore = [
     r'https://plonedemo.kitconcept.com/en/@search',
     r'https://www.packtpub.com',
     r'https://lucidworks.com',
+    r'https://twitter.com',  # linkcheck redirects to mobile version
 ]
 linkcheck_anchors = False
 linkcheck_timeout = 30

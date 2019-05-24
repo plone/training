@@ -6,7 +6,7 @@ We recommend to use nvm to install NodeJS instead of using your OS-based version
 
 Install nvm on your system using the instructions and provided script at:
 
-https://github.com/creationix/nvm#install-script
+https://github.com/nvm-sh/nvm#install-script
 
 Using nvm we will look up the latest lts version of NodeJS and install it
 

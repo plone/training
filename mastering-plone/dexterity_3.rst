@@ -170,7 +170,7 @@ You can apply directives to certain forms only. Here we drop a field from the ad
 
 The same works for custom forms.
 
-With the directive :py:meth:`widget` you can not only change the widget used for a field. With :py:data:`pattern_options` you can pass additional parameters to the widget. Here we configure the datetime-widget powered by the js-library `pickadate <http://amsul.ca/pickadate.js>`_  by adding options that are used by it. Plone only passes the options to the library.
+With the directive :py:meth:`widget` you can not only change the widget used for a field. With :py:data:`pattern_options` you can pass additional parameters to the widget. Here we configure the datetime-widget powered by the js-library `pickadate <https://amsul.ca/pickadate.js/>`_  by adding options that are used by it. Plone only passes the options to the library.
 
 ..  code-block:: python
 

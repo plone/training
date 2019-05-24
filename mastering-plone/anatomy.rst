@@ -134,8 +134,8 @@ Zope
 
     .. seealso::
 
-       * http://www.zope.org/en/latest/world.html
-       * https://zope.readthedocs.io/en/latest/zope2book/
+       * https://www.zope.org/world.html
+       * https://zope.readthedocs.io/en/latest/zopebook/
 
 
 .. _anatomy-CMF-label:
