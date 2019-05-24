@@ -158,7 +158,7 @@ Lets move on to :file:`browser/viewlets.py`.
     :linenos:
     :emphasize-lines: 9, 19-22
 
-    ...
+    # ...
 
     from starzel.votable_behavior import DoVote
 
@@ -183,7 +183,7 @@ Lets move on to :file:`browser/viewlets.py`.
                     self.context,
                 )
 
-    # ...
+    #  ...
 
 And the template in :file:`browser/templates/voting_viewlet.pt`
 

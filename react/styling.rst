@@ -1,4 +1,4 @@
-.. _styling-label:
+.. _react-styling-label:
 
 ======================
 Styling Your Component

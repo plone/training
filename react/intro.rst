@@ -1,4 +1,4 @@
-.. _react_intro-label:
+.. _react-intro-label:
 
 ============
 Introduction
@@ -15,7 +15,7 @@ Tell us about yourselves:
 * What are your expectations for this tutorial?
 
 
-.. _intro-what-will-we-do-label:
+.. _react-intro-what-will-we-do-label:
 
 What will we do?
 ================
@@ -29,7 +29,7 @@ Some technologies and tools we use during the training:
 * Redux https://redux.js.org
 * React-Router https://reacttraining.com/react-router/
 
-.. _intro-what-to-expect-label:
+.. _react-intro-what-to-expect-label:
 
 What to expect
 ==============
@@ -37,7 +37,7 @@ What to expect
 At the end of the course you'll know how to write a basic application using
 React, Redux and React-Router.
 
-.. _intro-documentation-label:
+.. _react-intro-documentation-label:
 
 Documentation
 =============

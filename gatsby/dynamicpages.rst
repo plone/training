@@ -64,7 +64,8 @@ And finally, our ``onCreateNode`` function will be similar to this:
 
 .. literalinclude:: _snippets/gatsby-node.js
   :language: jsx
-  :lines: 6,8-19
+  :lines: 5-19
+  :lineno-match:
 
 If we restart the server and try to query the data, we will see the slug under the ``fields`` attribute.
 
@@ -76,8 +77,8 @@ To do this, we need to export the other mentioned function (``createPages``) in 
 
 .. literalinclude:: _snippets/gatsby-node.js
   :language: jsx
-  :lines: 6-49
-  :emphasize-lines: 2,16-49
+  :lines: 21-49
+  :lineno-match:
 
 What can we see here?
 

@@ -47,3 +47,10 @@ This is a life saver when you need to migrate content from one site to another, 
 .. seealso::
 
    - https://docs.plone.org/external/collective.transmogrifier/docs/source/index.html
+
+.. The following items are hidden in this toctree to prevent Sphinx warnings.
+
+..  toctree::
+    :hidden:
+
+    users-migration
