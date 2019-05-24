@@ -781,7 +781,7 @@ The ``index_type`` property can have two possible values:
 ``text``
     A text index matches contained words (applicable for text values only).
 
-Queries use the *CQE format* (`see documentation <http://docs.repoze.org/catalog/usage.html#query-objects>`_.
+Queries use the *CQE format* (`see documentation <https://github.com/repoze/repoze.catalog/blob/master/docs/usage.rst#query-objects>`_.
 
 Example (assuming ``author``, ``title`` and ``price`` are existing indexes):
 

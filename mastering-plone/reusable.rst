@@ -152,11 +152,11 @@ We can add this restriction to :file:`browser/configure.zcml`
 
     We must add a condition in our page template, and we must provide the condition information in our viewlet class.
 
-Lets move on to :file:`browser/viewlets.py`
+Lets move on to :file:`browser/viewlets.py`.
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 9, 19-20
+    :emphasize-lines: 9, 19-22
 
     ...
 
@@ -165,21 +165,25 @@ Lets move on to :file:`browser/viewlets.py`
 
     class Vote(base.ViewletBase):
 
-#       ...
+    #   ...
         can_vote = None
 
         def update(self):
 
-#           ...
+    #       ...
 
             if self.is_manager is None:
                 membership_tool = getToolByName(self.context, 'portal_membership')
                 self.is_manager = membership_tool.checkPermission(
-                    ViewManagementScreens, self.context)
+                    ViewManagementScreens,
+                    self.context,
+                )
                 self.can_vote = membership_tool.checkPermission(
-                    DoVote, self.context)
+                    DoVote,
+                    self.context,
+                )
 
- #  ...
+    # ...
 
 And the template in :file:`browser/templates/voting_viewlet.pt`
 

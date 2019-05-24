@@ -86,7 +86,9 @@ It can be very hard to find the right addon for your requirements. Here are some
   * Test all required features. Read but do not trust the documentation
   * Check if the addon runs on your required version and is currently maintained
   * Does it have i18n-support, i.e. is the user-interface translated to your language?
-  * Does it uninstall cleanly? A tough one. See http://blog.keul.it/2013/05/how-to-make-your-plone-add-on-products.html for the reason why.
+  * Does it uninstall cleanly?
+    A tough one.
+    See https://lucafbb.blogspot.com/2013/05/how-to-make-your-plone-add-on-products.html for the reason why.
   * Check for unwanted dependecies
 
 Once you found an addon you like you should ask the community if you made a good choice or if you missed something:

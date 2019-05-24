@@ -152,7 +152,7 @@ Exercise
 * Only managers should be able to use the view (the permission is called **cmf.ManagePortal**).
 * Reload the frontpage after calling the view.
 * Display a message about the results (https://docs.plone.org/develop/plone.api/docs/portal.html#show-notification-message).
-* For extra credits use the library `requests <http://docs.python-requests.org/en/master/>`_ and http://www.icndb.com/api/ to populate the talks with jokes.
+* For extra credits use the library `requests <https://2.python-requests.org/en/master/>`_ and http://www.icndb.com/api/ to populate the talks with jokes.
 * Use the utility methods ``cropText`` from ``Producs.CMFPlone.browser.ploneview.Plone`` to crop the title after 20 characters.
 
 .. note::
@@ -229,8 +229,13 @@ Exercise
 
     Some notes:
 
-    * Since calling view is a GET and not a POST we need ``alsoProvides(self.request, IDisableCSRFProtection)`` to allow write-on-read without Plone complaining. Alternatively we could create a simple form and create the content on submit.
-    * https://docs.plone.org/develop/plone.api/docs/content.html#transition. ``transition`` has two modes of operation: The documented one is ``api.content.transition(obj=foo, transition='bar')``. That mode tries to execute that specific tranistion. But sometimes it is better to use `to_state` which tries to to find a way to get from the current state to the target-state. See https://docs.plone.org/develop/plone.api/docs/api/content.html#plone.api.content.transition for the docstring.
+    * Since calling view is a GET and not a POST we need ``alsoProvides(self.request, IDisableCSRFProtection)`` to allow write-on-read without Plone complaining.
+      Alternatively we could create a simple form and create the content on submit.
+    * https://docs.plone.org/develop/plone.api/docs/content.html#transition. ``transition`` has two modes of operation:
+      The documented one is ``api.content.transition(obj=foo, transition='bar')``.
+      That mode tries to execute that specific tranistion.
+      But sometimes it is better to use `to_state` which tries to to find a way to get from the current state to the target-state.
+      See https://docs.plone.org/develop/plone.api/docs/api/content.html#plone.api.content.transition for the docstring.
     * To use methods like ``cropText`` from another view, you can use the method already discussed in
     * Here the joke is added as the description. To add it as the text, you need to create an instance of ``RichTextValue`` and set that as an attribute:
 

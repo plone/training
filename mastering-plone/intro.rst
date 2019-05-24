@@ -85,7 +85,7 @@ We will not cover the following topics:
 * `Theming <https://docs.plone.org/adapt-and-extend/theming/index.html>`_
 * `i18n and locales <https://docs.plone.org/develop/plone/i18n/index.html>`_
 * `Deployment, Hosting and Caching <https://docs.plone.org/manage/deploying/index.html>`_
-* :doc:`grok`
+* Grok
 
 Other topics are only covered lightly:
 
