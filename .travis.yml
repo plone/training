@@ -27,5 +27,6 @@ jobs:
       script: make deploy
     - stage: deploy
       if: branch = master
-      script: make deploy
-      script: "./deploy.sh"
+      script:
+        - make deploy
+        - "./deploy.sh"
