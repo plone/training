@@ -79,5 +79,4 @@ reading it here can in no way be considered equal to attending a training.
     :hidden:
 
     code
-    grok
     timing
