@@ -1,4 +1,4 @@
-.. _bootstrap-label:
+.. _bootstrap-react-label:
 
 =============================
 Bootstrapping A React Project

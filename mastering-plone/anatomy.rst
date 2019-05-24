@@ -134,7 +134,7 @@ Zope
 
     .. seealso::
 
-       * http://www.zope.org/en/latest/world.html
+       * https://www.zope.org/world.html
        * https://zope.readthedocs.io/en/latest/zopebook/
 
 

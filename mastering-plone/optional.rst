@@ -16,5 +16,4 @@ Optional
 * Asynchronous processing
 * Talking with external APIs
 * :doc:`deployment_code`
-* :doc:`grok`
 * Professional Deployment

@@ -14,7 +14,7 @@ Tell us about yourselves:
 * What is your JavaScript experience?
 * What are your expectations for this tutorial?
 
-.. _intro-what-will-we-do-label:
+.. _intro-what-will-we-do-volto-label:
 
 What will we do?
 ================
@@ -29,14 +29,14 @@ Some technologies and tools we use during the training:
 * React-Router https://reacttraining.com/react-router/
 * Volto https://github.com/plone/volto
 
-.. _intro-what-to-expect-label:
+.. _intro-what-to-expect-volto-label:
 
 What to expect
 ==============
 
 At the end of the course you will know how to create a custom website using Volto.
 
-.. _intro-documentation-label:
+.. _intro-documentation-volto-label:
 
 Documentation
 =============

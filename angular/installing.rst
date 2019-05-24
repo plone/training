@@ -5,7 +5,7 @@ First, we need NodeJS 6.10+. We recommend to use nvm to install NodeJS instead o
 
 Install nvm on your system using the instructions and provided script at:
 
-https://github.com/creationix/nvm#install-script
+https://github.com/nvm-sh/nvm#install-script
 
 Using nvm we will look up the latest lts version of NodeJS and install it
 

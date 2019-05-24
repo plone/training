@@ -47,7 +47,7 @@ For more details on how to write a mockup pattern, check the various resources a
 
 - `Minimal pattern <https://github.com/collective/mockup-minimalpattern>`_
 - `Mockup docs <http://plone.github.io/mockup/dev/>`_
-- `Patternslib <http://patternslib.com/>`_
+- `Patternslib <https://patternslib.com/>`_
 
 
 In our example, we are using the RequireJS ``define`` function to define our pattern as a JavaScript module.

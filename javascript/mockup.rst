@@ -20,7 +20,7 @@ Besides it was fun to create something new, so Mockup was born.
 There were concerns about having two projects with the same goal.
 JC Brand took the initiative and brought the two projects back together.
 
-Where Mockup had a dependency on `mockup-core <https://github.com/plone/mockup-core>`_ with a base pattern to extend from, a configuration parser, pattern registry and Grunt infrastructure, this dependency was removed and replaced by a dependency on `patternslib <http://patternslib.com>`_.
+Where Mockup had a dependency on `mockup-core <https://github.com/plone/mockup-core>`_ with a base pattern to extend from, a configuration parser, pattern registry and Grunt infrastructure, this dependency was removed and replaced by a dependency on `patternslib <https://patternslib.com/>`_.
 
 Those projects led the foundation to the new way of developing JavaScript in Plone.
 
