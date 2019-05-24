@@ -11,25 +11,20 @@ First step is to install the correct Node version using :file:`nvm`:
 
 .. code-block:: console
 
-    $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
 Then you can install the latest LTS version of node:
 
 .. code-block:: console
 
-    $ nvm install v8.11.3
+    $ nvm install --lts
 
 We use the package manager :file:`yarn`, to install do:
 
 .. code-block:: console
 
-    $ npm install -g yarn
+    $ curl -o- -L https://yarnpkg.com/install.sh | bash
 
-And add the :file:`create-react-app` package:
-
-.. code-block:: console
-
-    $ yarn global add create-react-app
 
 Bootstrapping A Project
 =======================
@@ -38,7 +33,7 @@ To create a newReactproject type the following:
 
 .. code-block:: console
 
-    $ create-react-app my-app
+    $ npx create-react-app my-app
 
 It will create a folder called `my-app` inside the current folder with the following structure:
 

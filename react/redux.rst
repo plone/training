@@ -7,19 +7,17 @@ Use Redux To Store Data
 Introduction
 ============
 
-Currently we have the state of the FAQ list in the :file:`App` component
-and pass all handlers and data down to the :file:`FaqItem` component.
+Currently we have the state of the FAQ list in the :file:`App` component and pass all handlers and data down to the :file:`FaqItem` component.
 When your application will contain more sub components this can be come very complex.
 To manage your application state we will introduce Redux here.
 Redux is a state management system which is composed of a store which contains data,
 a set of reducers which handle (part of) this state and it's changes and actions which are used to trigger state changes.
 
-A reducer is pure function which takes the previous state and an action
-and returns a new state based on the data of the action.
+A reducer is pure function which takes the previous state and an action and returns a new state based on the data of the action.
 The new state is then saved to the store.
 Components can then read data from the store and render a view.
-When a change needs to be made to the application state the view will fire
-and action which will be handled by the reducer again etc. So it's a unidirectional flow.
+When a change needs to be made to the application state the view will fire an action which will be handled by the reducer again etc.
+So it's a unidirectional flow.
 
 Installing
 ==========
@@ -37,7 +35,7 @@ We will start by creating actions.
 We will create a file :file:`actions/index.js` with the :file:`addFaqItem` action:
 
 .. code-block:: jsx
-    :linenos: 
+    :linenos:
     :emphasize-lines: 1-5
 
     export const addFaqItem = (question, answer) => ({
@@ -52,7 +50,7 @@ Write the :file:`editFaqItem` and :file:`deleteFaqItem` actions.
     :class: toggle
 
     .. code-block:: jsx
-        :linenos: 
+        :linenos:
         :lineno-start: 7
         :emphasize-lines: 1-6,8-11
 
@@ -76,7 +74,7 @@ As stated earlier a reducer is pure function which takes the previous state and 
 it will look like this:
 
 .. code-block:: jsx
-    :linenos: 
+    :linenos:
     :emphasize-lines: 1-3,5
 
     const faq = (state = [], action) => {
@@ -92,7 +90,7 @@ Finish the reducer so that it can handle the :file:`ADD_FAQ_ITEM`,
     :class: toggle
 
     .. code-block:: jsx
-        :linenos: 
+        :linenos:
         :emphasize-lines: 2-25
 
         const faq = (state = [], action) => {
@@ -132,7 +130,7 @@ We will combine all reducers into one index reducer so we can set all reducers i
 We will create the file :file:`reducers/index.js`
 
 .. code-block:: jsx
-    :linenos: 
+    :linenos:
     :emphasize-lines: 1-2,4-6
 
     import { combineReducers } from "redux";

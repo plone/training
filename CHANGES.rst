@@ -6,6 +6,10 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Fix React and Volto bootstrapping information. [jensens]
+
+- Fix a typo in Volto redux section and format according to style guide. [jensens]
+
 - Fix AGX links. [jensens]
 
 - Get rid of Grok, it is dead. No need any more to mention it here [jensens]

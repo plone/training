@@ -23,25 +23,21 @@ First step is to install the correct Node version using ``nvm``:
 
 .. code-block:: console
 
-    $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
 Then you can install the latest LTS version of node:
 
 .. code-block:: console
 
-    $ nvm install v8.11.3
+    $ nvm install --lts
 
-We use the package manager ``yarn``, to install do:
-
-.. code-block:: console
-
-    $ npm install -g yarn
-
-And add the ``create-volto-app`` package:
+We use the package manager :file:`yarn`, to install do:
 
 .. code-block:: console
 
-    $ yarn global add @plone/create-volto-app
+    $ curl -o- -L https://yarnpkg.com/install.sh | bash
+
+
 
 Bootstrapping A Project
 =======================
@@ -50,7 +46,7 @@ To create a new volto project type the following:
 
 .. code-block:: console
 
-    $ create-volto-app my-volto-app
+    $ npx @plone/create-volto-app my-volto-app
 
 It will create a folder called `my-volto-app` inside the current folder with the following structure:
 
