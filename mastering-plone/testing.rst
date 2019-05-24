@@ -216,7 +216,7 @@ Exercise 1
 ^^^^^^^^^^
 
 We already wrote a :py:class:`Talklistview` and it is untested!
-We like to write unit tests first. But if you look at the :py:class:`Talklistview`, you notice that you'd have to mock the `portal_catalog`, the context, and complex results from the catalog.
+We like to write unit tests first. But if you look at the :py:class:`Talklistview`, you notice that you'd have to mock the ``portal_catalog``, the context, and complex results from the catalog.
 We wrote earlier that it is ok to rewrite code to make it better testable.
 But in this example look at what you would test if you mocked everything mentioned above.
 You would test that your code iterates over a mocked list of mocked items, restructuring mocked attributes.
