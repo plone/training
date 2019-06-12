@@ -76,8 +76,8 @@ Upon installing, Plone reads the file :file:`profiles/default/types/talk.xml` an
      <property name="add_permission">cmf.AddPortalContent</property>
      <property name="klass">plone.dexterity.content.Container</property>
      <property name="behaviors">
-      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-      <element value="plone.app.content.interfaces.INameFromTitle"/>
+      <element value="plone.dublincore"/>
+      <element value="plone.namefromtitle"/>
      </property>
      <property name="schema"></property>
      <property

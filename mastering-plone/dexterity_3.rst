@@ -303,8 +303,8 @@ Second we create the FTI for the new type in :file:`profiles/default/types/spons
      <property name="add_permission">cmf.AddPortalContent</property>
      <property name="klass">plone.dexterity.content.Container</property>
      <property name="behaviors">
-      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-      <element value="plone.app.content.interfaces.INameFromTitle"/>
+      <element value="plone.dublincore"/>
+      <element value="plone.namefromtitle"/>
      </property>
      <property name="schema">ploneconf.site.content.sponsor.ISponsor</property>
      <property name="model_source"></property>
@@ -729,7 +729,7 @@ Do *not* use the :py:class:`IBasic` or :py:class:`IDublinCore` behavior to add t
          <property name="model_source"></property>
          <property name="model_file"></property>
          <property name="behaviors">
-          <element value="plone.app.content.interfaces.INameFromTitle"/>
+          <element value="plone.namefromtitle"/>
          </property>
          <property name="schema_policy">dexterity</property>
          <alias from="(Default)" to="(dynamic view)"/>

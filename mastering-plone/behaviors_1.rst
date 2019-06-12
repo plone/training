@@ -103,6 +103,7 @@ Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/confi
 
       <plone:behavior
           title="Social Behavior"
+          name="ploneconf.social"
           description="Adds a link to lanyrd"
           provides=".social.ISocial"
           />
@@ -121,9 +122,9 @@ And a :file:`behaviors/social.py` containing:
     from plone.supermodel import directives
     from plone.supermodel import model
     from zope import schema
-    from zope.interface import alsoProvides
+    from zope.interface import provider
 
-
+    @provider(IFormFieldProvider)
     class ISocial(model.Schema):
 
         directives.fieldset(
@@ -138,7 +139,6 @@ And a :file:`behaviors/social.py` containing:
             required=False,
         )
 
-    alsoProvides(ISocial, IFormFieldProvider)
 
 .. only:: not presentation
 
@@ -147,9 +147,9 @@ And a :file:`behaviors/social.py` containing:
     #. We register a behavior in :ref:`behaviors/configure.zcml <social-behavior-zcml-label>`. We do not say for which content type this behavior is valid. You do this through the web or in the GenericSetup profile.
     #. We create a marker interface in :ref:`behaviors/social.py <social-behavior-python-label>` for our behavior and make it also a schema containing the fields we want to declare.
        We could just define schema fields on a zope.interface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features.
+    #. We mark our schema as a class that also provides the `IFormFieldProvider`_ interface using a decorator. The schema class itself provides the interface, not its instance!
     #. We also add a `fieldset`_ so that our fields are not mixed with the normal fields of the object.
     #. We add a normal `URI <https://zopeschema.readthedocs.io/en/latest/fields.html#uri>`_ schema field to store the URI to lanyrd.
-    #. We mark our schema as a class that also implements the `IFormFieldProvider`_ interface. This is a marker interface, we do not need to implement anything to provide the interface.
 
 .. _behaviors1-adding-label:
 
@@ -171,9 +171,9 @@ We must add the behavior to :file:`profiles/default/types/talk.xml`:
        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
        ...
      <property name="behaviors">
-      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-      <element value="plone.app.content.interfaces.INameFromTitle"/>
-      <element value="ploneconf.site.behaviors.social.ISocial"/>
+      <element value="plone.dublincore"/>
+      <element value="plone.namefromtitle"/>
+      <element value="ploneconf.social"/>
      </property>
      ...
     </object>

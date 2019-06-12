@@ -6,6 +6,12 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Minor fixes, like using implementer and provider decorators [jensens]
+
+- Use behavior shortnames as best practice. [jensens]
+
+- Refine misleading explanation of IFormFieldProvider [jensens]
+
 - Tweaks to Mastering Plone testing page [tkimnguyen]
 
 - Fix React and Volto bootstrapping information. [jensens]

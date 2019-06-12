@@ -79,6 +79,7 @@ Next, create :file:`behavior/configure.zcml`
 
       <plone:behavior
           title="Voting"
+          name="starzel.voting"
           description="Allow voting for an item"
           provides="starzel.votable_behavior.interfaces.IVoting"
           factory=".voting.Vote"
@@ -113,8 +114,8 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
     from plone.supermodel import model
     from plone.supermodel.directives import fieldset
     from zope import schema
-    from zope.interface import alsoProvides
     from zope.interface import Interface
+    from zope.interface import provider
 
     class IVotableLayer(Interface):
         """Marker interface for the Browserlayer
@@ -126,6 +127,7 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
 
     # This is the behaviors interface. When doing IVoting(object), you receive an
     # adapter
+    @provider(IFormFieldProvider)
     class IVoting(model.Schema):
         if not api.env.debug_mode():
             directives.omitted("votes")
@@ -172,40 +174,50 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
             Clear the votes. Should only be called by admins
             """
 
-    alsoProvides(IVoting, IFormFieldProvider)
-
 
 .. only:: not presentation
 
     This is a lot of code. The IVotableLayer we will need later for viewlets and browser views. Let's add it right here.
     The IVotable interface is the simple marker interface. It will only be used to bind browser views and viewlets to contenttypes that provide our behavior, so no code needed.
 
-    The IVoting class is more complex, as you can see. While IVoting is just an interface, we use :samp:`plone.supermodel.model.Schema` for advanced dexterity features.
-    Zope.schema provides no means for hiding fields. The directives :samp:`form.omitted` from :samp:`plone.autoform` allow us to annotate this additional information so that the autoform renderers for forms can use the additional information.
+    The IVoting class is more complex, as you can see.
 
+    The :samp:`@provider` decorator above the class ensures that the schema fields are known to other packages.
+    Whenever some code wants all schemas from an object, it receives the schema defined directly on the object and the additional schemata.
+    Additional schemata are compiled by looking for behaviors and whether they provide the :samp:`IFormFieldProvider` functionality.
+    Only then the fields are used as form fields.
+
+    While IVoting is just an interface, we use :samp:`plone.supermodel.model.Schema` for advanced dexterity features.
+    Zope.schema provides no means for hiding fields.
+
+    The directives :samp:`form.omitted` from :samp:`plone.autoform` allow us to annotate this additional information so that the autoform renderers for forms can use the additional information.
     We make this omit conditional. If we run Plone in debug mode, we will be able to see the internal data in the edit form.
 
-    We create minimal schema fields for our internal data structures. For a small test, I removed the form omitted directives and opened the edit view of a talk that uses the behavior. After seeing the ugliness, I decided that I should provide at least  minimum of information. Titles and required are purely optional, but very helpful if the fields won't be omitted, something that can be helpful when debugging the behavior.
+    We create minimal schema fields for our internal data structures.
+    For a small test, I removed the form omitted directives and opened the edit view of a talk that uses the behavior. After seeing the ugliness, I decided that I should provide at least  minimum of information.
+    Titles and required are purely optional, but very helpful if the fields won't be omitted, something that can be helpful when debugging the behavior.
     Later, when we implement the behavior, the :samp:`votes` and :samp:`voted` attributes are implemented in such a way that you can't just modify these fields, they are read only.
 
     Then we define the API that we are going to use in browser views and viewlets.
 
-    The last line ensures that the schema fields are known to other packages. Whenever some code wants all schemas from an object, it receives the schema defined directly on the object and the additional schemata. Additional schemata are compiled by looking for behaviors and whether they provide the :samp:`IFormFieldProvider` functionality. Only then the fields are known as schema fields.
 
-Now the only thing that is missing is the behavior, which we must put into :file:`behavior/voting.py`
+Now the only thing that is missing is the behavior implementation, which we must put into :file:`behavior/voting.py`
 
 .. code-block:: python
     :linenos:
 
     # encoding=utf-8
+    from .interfaces import IVoting
     from hashlib import md5
     from persistent.dict import PersistentDict
     from persistent.list import PersistentList
     from zope.annotation.interfaces import IAnnotations
+    from zope.interface import implementer
 
     KEY = "starzel.votable_behavior.behavior.voting.Vote"
 
 
+    @implementer(IVoting)
     class Vote(object):
         def __init__(self, context):
             self.context = context
@@ -234,7 +246,8 @@ Now the only thing that is missing is the behavior, which we must put into :file
 
     By declaring a static name, we won't run into problems if we restructure the code.
 
-    You can see that we initialize the data if it doesn't exist. We work with PersistentDict and PersistentList. To understand why we do this, it is important to understand how the ZODB works.
+    You can see that we initialize the data if it doesn't exist. We work with PersistentDict and PersistentList.
+    To understand why we do this, it is important to understand how the ZODB works.
 
     .. seealso::
 
@@ -313,11 +326,14 @@ Let's continue with this file:
 
 .. only:: not presentation
 
-    We start with a little helper method which is not exposed via the interface. We don't want people to vote twice. There are many ways to ensure this and each one has flaws.
+    We start with a little helper method which is not exposed via the interface. We don't want people to vote twice.
+    There are many ways to ensure this and each one has flaws.
 
-    We chose this way to show you how to access information from the request the browser of the user sent to us. First, we get the ip of the user, then we access a small set of headers from the user's browser and generate an md5 checksum of this.
+    We chose this way to show you how to access information from the request the browser of the user sent to us.
+    First, we get the ip of the user, then we access a small set of headers from the user's browser and generate an md5 checksum of this.
 
-    The vote method wants a vote and a request. We check the preconditions, then we convert the vote to an integer, store the request to :samp:`voted` and the votes into the :samp:`votes` dictionary. We just count there how often any vote has been given.
+    The vote method wants a vote and a request. We check the preconditions, then we convert the vote to an integer, store the request to :samp:`voted` and the votes into the :samp:`votes` dictionary.
+    We just count there how often any vote has been given.
 
     Everything else is just python.
 
@@ -327,7 +343,8 @@ Exercises
 Exercise 1
 ++++++++++
 
-Refactor the voting behavior so that it uses `BTrees` instead of `PersistentDict` and `PersistentList`. Use `OOBTree` to replace `PersistentDict` and `OIBTree` to replace `PersistentList`.
+Refactor the voting behavior so that it uses `BTrees` instead of `PersistentDict` and `PersistentList`.
+Use `OOBTree` to replace `PersistentDict` and `OIBTree` to replace `PersistentList`.
 
 ..  admonition:: Solution
     :class: toggle
@@ -338,23 +355,24 @@ Refactor the voting behavior so that it uses `BTrees` instead of `PersistentDict
         :emphasize-lines: 3,4,15-17,26-28,39-41
 
         # encoding=utf-8
-        from hashlib import md5
-        from BTrees.OOBTree import OOBTree
+        from .interfaces import IVoting
         from BTrees.OIBTree import OIBTree
+        from BTrees.OOBTree import OOBTree
+        from hashlib import md5
         from zope.annotation.interfaces import IAnnotations
+        from zope.interface import implementer
 
         KEY = "starzel.votable_behavior.behavior.voting.Vote"
 
-
+        @implementer(IVoting)
         class Vote(object):
             def __init__(self, context):
                 self.context = context
                 annotations = IAnnotations(context)
                 if KEY not in annotations.keys():
-                    annotations[KEY] = OOBTree()
-                    annotations[KEY]['voted'] = OIBTree()
-                    annotations[KEY]['votes'] = OOBTree()
-                self.annotations = annotations[KEY]
+                    self.clear()
+                else:
+                    self.annotations = annotations[KEY]
 
             ...
 
@@ -400,18 +418,20 @@ You will also have to write a 'request' dummy that mocks the `getClientAddr` and
     .. code-block:: python
         :linenos:
 
-        import unittest
-        import tempfile
-        import ZODB
-        import transaction
         from persistent import Persistent
-        from zope.interface import implements
-        from zope.annotation.interfaces import IAttributeAnnotatable
         from zope.annotation.attribute import AttributeAnnotations
+        from zope.annotation.interfaces import IAttributeAnnotatable
+        from zope.interface import implementer
 
+        import tempfile
+        import transaction
+        import unittest
+        import ZODB
 
+        @implementer(IAttributeAnnotatable)
         class Dummy(Persistent):
-            implements(IAttributeAnnotatable)
+            pass
+
 
 
         class RequestDummy(object):

@@ -68,6 +68,7 @@ So let's register the interface as a behavior in :file:`behaviors/configure.zcml
 
   <plone:behavior
       title="Talk"
+      name="ploneconf.talk"
       description="Marker interface for talks to be able to bind views to."
       provides="..interfaces.ITalk"
       />
@@ -79,10 +80,10 @@ And enable it on the type in :file:`profiles/default/types/talk.xml`
     :emphasize-lines: 5
 
     <property name="behaviors">
-     <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-     <element value="plone.app.content.interfaces.INameFromTitle"/>
-     <element value="ploneconf.site.behaviors.social.ISocial"/>
-     <element value="ploneconf.site.interfaces.ITalk"/>
+     <element value="plone.dublincore"/>
+     <element value="plone.namefromtitle"/>
+     <element value="ploneconf.social"/>
+     <element value="ploneconf.talk"/>
     </property>
 
 Either reinstall the add-on, apply the behavior by hand or run an upgrade step (see below) and the interface will be there.
@@ -624,11 +625,11 @@ Finally you need to activate the versioning behavior on the content type. Edit :
     :emphasize-lines: 6
 
     <property name="behaviors">
-     <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-     <element value="plone.app.content.interfaces.INameFromTitle"/>
-     <element value="ploneconf.site.behaviors.social.ISocial"/>
-     <element value="ploneconf.site.interfaces.ITalk"/>
-     <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+     <element value="plone.dublincore"/>
+     <element value="plone.namefromtitle"/>
+     <element value="ploneconf.social"/>
+     <element value="ploneconf.talk"/>
+     <element value="plone.versioning" />
     </property>
 
 .. note::

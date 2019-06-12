@@ -30,11 +30,11 @@ First enable the behavior :py:class:`IEventBasic` for talks in :file:`profiles/d
     :emphasize-lines: 6
 
     <property name="behaviors">
-      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-      <element value="plone.app.content.interfaces.INameFromTitle"/>
-      <element value="ploneconf.site.behavior.social.ISocial"/>
-      <element value="ploneconf.site.interfaces.ITalk"/>
-      <element value="plone.app.event.dx.behaviors.IEventBasic"/>
+      <element value="plone.dublincore"/>
+      <element value="plone.namefromtitle"/>
+      <element value="ploneconf.social"/>
+      <element value="ploneconf.talk"/>
+      <element value="plone.eventbasic"/>
     </property>
 
 After you activate the behavior by hand or reinstalled the add-on you will now have some additional fields for ``start`` and ``end``.
