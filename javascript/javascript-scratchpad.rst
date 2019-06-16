@@ -5,7 +5,7 @@ Scratchpad
 Scratchpad for text snippets to be included somewhere else in the training.
 
 
-General Advises
+General Advice
 ===============
 
 .. note::
