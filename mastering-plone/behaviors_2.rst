@@ -434,7 +434,7 @@ The test should raise a ``ConflictError`` on the original voting behavior implem
 The solution from the first exercise should pass.
 Look at the file ``ZODB/ConflictResolution.txt`` in the ``ZODB3`` egg for how to create a suitable test fixture for conflict testing.
 Look at the test code in ``zope.annotation`` for how to create annotatable dummy content.
-You will also have to write a 'request' dummy that mocks the ``getClientAddr`` and ``getHeader`` methods of Zope's HTTP request object to make the `_hash` method of the voting behavior work.
+You will also have to write a 'request' dummy that mocks the ``getClientAddr`` and ``getHeader`` methods of Zope's HTTP request object to make the ``_hash`` method of the voting behavior work.
 
 ..  admonition:: Solution
     :class: toggle
@@ -443,7 +443,7 @@ You will also have to write a 'request' dummy that mocks the ``getClientAddr`` a
     But you can refer to chapter 22 for how to setup unit testing for a package.
     Put the particular test for this exercise into a file named :file:`starzel.votable_behavior/starzel/votable_behavior/tests/test_voting`.
     Remember you need an empty :file:`__init__.py` file in the :file:`tests` directory to make testing work.
-    You also need to add `starzel.votable_behavior` to `test-eggs` in :file:`buildout.cfg` and re-run buildout.`
+    You also need to add ``starzel.votable_behavior`` to ``test-eggs`` in :file:`buildout.cfg` and re-run buildout.
 
     .. code-block:: python
         :linenos:
