@@ -447,7 +447,7 @@ The new indexes behave like the ones that Plone has already built in:
     >>> (Pdb) brain.speaker
     u'David Glick'
 
-We now can use the new indexes to improve the talklistview so we don't have to *wake up* the objects any more.
+We now can use the new indexes to improve the ``talklistview`` so we don't have to *wake up* the objects any more.
 Instead we use the brains' new attributes.
 
 .. code-block:: python
@@ -473,7 +473,7 @@ Instead we use the brains' new attributes.
                     })
             return results
 
-The template does not need to be changed and the result in the browser did not change, either.
+The template does not need to be changed and the result in the browser did not change either.
 But when listing a large number of objects the site will now be faster since all the data you use comes from the catalog and the objects do not have to be loaded into memory.
 
 
@@ -559,8 +559,8 @@ Modify :py:class:`TalkListView` to return only brains and adapt the template to 
 Add collection criteria
 -----------------------
 
-To be able to search content in collections using these new indexes we would have to register them as criteria for the querystring widget that collections use.
-s with all features make sure you only do this if you really need it!
+To be able to search content in collections using these new indexes we would have to register them as criteria for the ``querystring`` widget that collections use.
+As with all features make sure you only do this if you really need it!
 
 
 Add a new file :file:`profiles/default/registry.xml`

@@ -187,12 +187,12 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
 .. only:: not presentation
 
     This is a lot of code.
-    The IVotableLayer we will need later for viewlets and browser views.
+    The ``IVotableLayer`` we will need later for viewlets and browser views.
     Let's add it right here.
-    The IVotable interface is the simple marker interface.
+    The ``IVotable`` interface is the simple marker interface.
     It will only be used to bind browser views and viewlets to contenttypes that provide our behavior, so no code needed.
 
-    The IVoting class is more complex, as you can see.
+    The ``IVoting`` class is more complex, as you can see.
 
     The ``@provider`` decorator above the class ensures that the schema fields are known to other packages.
     Whenever some code wants all schemas from an object, it receives the schema defined directly on the object and the additional schemata.
