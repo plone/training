@@ -412,7 +412,8 @@ The ``column ..`` entries allow us to display the values of these indexes in the
 
 .. note::
 
-    The new indexes are still empty. We'll have to reindex them.
+    The new indexes are still empty.
+    We'll have to reindex them.
     To do so by hand go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes, select the new indexes and click :guilabel:`Reindex`.
     We could also rebuild the whole catalog by going to the :guilabel:`advanced`-tab and clicking :guilabel:`Clear and Rebuild`.
     For large sites that can take a long time.
