@@ -333,7 +333,7 @@ It is enabled by GenericSetup when installing the package since it is registered
     </layers>
 
 We should bind all views to it.
-Here is an example using the talkview.
+Here is an example using the ``talklistview``.
 
 ..  code-block:: xml
     :emphasize-lines: 4
