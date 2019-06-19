@@ -198,7 +198,7 @@ Change it to
 
     <version>1001</version>
 
-GenericSetup now expects the code as a method :py:meth:`upgrade_site` in the file :file:`upgrades.py`.
+``GenericSetup`` now expects the code as a method :py:meth:`upgrade_site` in the file :file:`upgrades.py`.
 Let's create it.
 
 ..  code-block:: python

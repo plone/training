@@ -357,7 +357,7 @@ Let's continue with this file:
     There are many ways to ensure this and each one has flaws.
 
     We chose this way to show you how to access information from the request the browser of the user sent to us.
-    First, we get the ip of the user, then we access a small set of headers from the user's browser and generate an md5 checksum of this.
+    First, we get the IP address of the user, then we access a small set of headers from the user's browser and generate an md5 checksum of this.
 
     The vote method wants a vote and a request. We check the preconditions, then we convert the vote to an integer, store the request to ``voted`` and the votes into the ``votes`` dictionary.
     We just count there how often any vote has been given.
