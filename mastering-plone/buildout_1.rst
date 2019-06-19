@@ -44,7 +44,6 @@ Here is a functioning minimal example from https://github.com/collective/minimal
     recipe = plone.recipe.zope2instance
     eggs =
         Plone
-        Pillow
 
 .. _buildout1-syntax-label:
 
@@ -147,7 +146,6 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
     eggs =
         Plone
-        Pillow
 
     # development tools
         plone.reload
@@ -191,7 +189,6 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     recipe = zc.recipe.egg
     eggs =
         ${buildout:test-eggs}
-        Pillow
         plone.app.robotframework[ride,reload,debug]
 
     [packages]
@@ -250,7 +247,6 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
 
         eggs =
             Plone
-            Pillow
 
         # development tools
             z3c.jbot

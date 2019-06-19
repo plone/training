@@ -90,9 +90,9 @@ To add the behavior to talks, we do this in :file:`profiles/default/types/talk.x
     :emphasize-lines: 4
 
     <property name="behaviors">
-      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-      <element value="plone.app.content.interfaces.INameFromTitle"/>
-      <element value="starzel.votable_behavior.interfaces.IVoting"/>
+      <element value="plone.dublincore"/>
+      <element value="plone.namefromtitle"/>
+      <element value="starzel.voting"/>
     </property>
 
 ... only:: not presentation

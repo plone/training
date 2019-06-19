@@ -76,8 +76,8 @@ Upon installing, Plone reads the file :file:`profiles/default/types/talk.xml` an
      <property name="add_permission">cmf.AddPortalContent</property>
      <property name="klass">plone.dexterity.content.Container</property>
      <property name="behaviors">
-      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-      <element value="plone.app.content.interfaces.INameFromTitle"/>
+      <element value="plone.dublincore"/>
+      <element value="plone.namefromtitle"/>
      </property>
      <property name="schema"></property>
      <property
@@ -157,7 +157,7 @@ Now our package has new configuration for Generic Setup. Generic Setup store the
 
 The escaped inline xml is simply too ugly to look at. You should move it to a separate file!
 
-Create a new folder :file:`content` in the main directory (from the buildout directory perspective that is :file:`src/ploneconf.site/src/ploneconf/site/content/`). Inside add an empty file :file:`__init__.py` and a file :file:`talk.xml` that contains the real XML (copied from http://localhost:8080/Plone/dexterity-types/talk/@@modeleditor and beautified with some online XML formatter (http://lmgtfy.com/?q=xml+formatter))
+Create a new folder :file:`content` in the main directory (from the buildout directory perspective that is :file:`src/ploneconf.site/src/ploneconf/site/content/`). Inside add an empty file :file:`__init__.py` and a file :file:`talk.xml` that contains the real XML (copied from http://localhost:8080/Plone/dexterity-types/talk/@@modeleditor and beautified with some online XML formatter (http://google.com/?q=xml+formatter))
 
 ..  code-block:: xml
     :linenos:

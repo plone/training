@@ -17,11 +17,15 @@ Using Annotations
 -----------------
 .. only:: not presentation
 
-    We are going to store the information in an annotation. Not because it is needed but because you will find code that uses annotations and need to understand the implications.
+    We are going to store the information in an annotation.
+    Not because it is needed but because you will find code that uses annotations and need to understand the implications.
 
-    `Annotations`_ in Zope/Plone mean that data won't be stored directly on an object but in an indirect way and with namespaces so that multiple packages can store information under the same attribute, without colliding.
+    `Annotations`_ in Zope/Plone mean that data won't be stored directly on an object but in an indirect way with namespaces so that multiple packages can store information under the same attribute, without colliding.
 
-    So using annotations avoids namespace conflicts. The cost is an indirection. The dictionary is persistent so it has to be stored separately. Also, one could give attributes a name containing a namespace prefix to avoid naming collisions.
+    So using annotations avoids namespace conflicts.
+    The cost is an indirection.
+    The dictionary is persistent so it has to be stored separately.
+    Also, one could give attributes a name containing a namespace prefix to avoid naming collisions.
 
 .. only:: presentation
 
@@ -37,9 +41,12 @@ Using Schema
 
 .. only:: not presentation
 
-    The attribute where we store our data will be declared as a schema field. We mark the field as an omitted field (using schema directive similar to ``read_permission`` or ``widget``), because we are not going to create :py:mod:`z3c.form` widgets for entering or displaying them. We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
+    The attribute where we store our data will be declared as a schema field.
+    We mark the field as an omitted field (using schema directive similar to ``read_permission`` or ``widget``), because we are not going to create :py:mod:`z3c.form` widgets for entering or displaying them.
+    We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
 
-    For example, when files were migrated to blobs, new objects had to be created and every schema field was copied. The code can't know about our field, except if we provide schema information.
+    For example, when files were migrated to blobs, new objects had to be created and every schema field was copied.
+    The code can not know about our field, except if we provide schema information.
 
 .. only:: presentation
 
@@ -79,6 +86,7 @@ Next, create :file:`behavior/configure.zcml`
 
       <plone:behavior
           title="Voting"
+          name="starzel.voting"
           description="Allow voting for an item"
           provides="starzel.votable_behavior.interfaces.IVoting"
           factory=".voting.Vote"
@@ -95,11 +103,13 @@ There are some important differences to our first behavior:
 .. only:: not presentation
 
     The factory is a class that provides the behavior logic and gives access to the attributes we provide.
-    Factories in Plone/Zope land are retrieved by adapting an object to an interface.
-    If you want your behavior, you would write :samp:`IVoting(object)`
+    Factories in Plone/Zope land are retrieved by adapting an object to an interface and are following the adapter pattern.
+    If you want your behavior, you would write ``voting = IVoting(object)``.
 
-    But in order for this to work, your object may *not* be implementing the IVoting interface, because if it did, :samp:`IVoting(object)` would return the object itself!
-    If I need a marker interface for objects providing my behavior, I must provide one, for this we use the marker attribute. My object implements :samp:`IVotable` and because of this, we can write views and viewlets just for this content type.
+    But in order for this to work, your object may *not* be implementing the ``IVoting`` interface, because if it did,  ``IVoting(object)`` would return the object itself!
+    If I need a marker interface for objects providing my behavior, I must provide one, for this we use the marker attribute.
+    My object implements ``IVotable``.
+    Because of this, we can write views and viewlets just for this content type.
 
 The interfaces need to be written, in our case into a file :file:`interfaces.py`:
 
@@ -113,8 +123,8 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
     from plone.supermodel import model
     from plone.supermodel.directives import fieldset
     from zope import schema
-    from zope.interface import alsoProvides
     from zope.interface import Interface
+    from zope.interface import provider
 
     class IVotableLayer(Interface):
         """Marker interface for the Browserlayer
@@ -126,6 +136,7 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
 
     # This is the behaviors interface. When doing IVoting(object), you receive an
     # adapter
+    @provider(IFormFieldProvider)
     class IVoting(model.Schema):
         if not api.env.debug_mode():
             directives.omitted("votes")
@@ -172,40 +183,54 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
             Clear the votes. Should only be called by admins
             """
 
-    alsoProvides(IVoting, IFormFieldProvider)
-
 
 .. only:: not presentation
 
-    This is a lot of code. The IVotableLayer we will need later for viewlets and browser views. Let's add it right here.
-    The IVotable interface is the simple marker interface. It will only be used to bind browser views and viewlets to contenttypes that provide our behavior, so no code needed.
+    This is a lot of code.
+    The ``IVotableLayer`` we will need later for viewlets and browser views.
+    Let's add it right here.
+    The ``IVotable`` interface is the simple marker interface.
+    It will only be used to bind browser views and viewlets to contenttypes that provide our behavior, so no code needed.
 
-    The IVoting class is more complex, as you can see. While IVoting is just an interface, we use :samp:`plone.supermodel.model.Schema` for advanced dexterity features.
-    Zope.schema provides no means for hiding fields. The directives :samp:`form.omitted` from :samp:`plone.autoform` allow us to annotate this additional information so that the autoform renderers for forms can use the additional information.
+    The ``IVoting`` class is more complex, as you can see.
 
-    We make this omit conditional. If we run Plone in debug mode, we will be able to see the internal data in the edit form.
+    The ``@provider`` decorator above the class ensures that the schema fields are known to other packages.
+    Whenever some code wants all schemas from an object, it receives the schema defined directly on the object and the additional schemata.
+    Additional schemata are compiled by looking for behaviors and whether they provide the ``IFormFieldProvider``functionality.
+    Only then the fields are used as form fields.
 
-    We create minimal schema fields for our internal data structures. For a small test, I removed the form omitted directives and opened the edit view of a talk that uses the behavior. After seeing the ugliness, I decided that I should provide at least  minimum of information. Titles and required are purely optional, but very helpful if the fields won't be omitted, something that can be helpful when debugging the behavior.
-    Later, when we implement the behavior, the :samp:`votes` and :samp:`voted` attributes are implemented in such a way that you can't just modify these fields, they are read only.
+    While IVoting is just an interface, we use ``plone.supermodel.model.Schema`` for advanced dexterity features.
+    ``zope.schema`` provides no means for hiding fields.
+
+    The directives ``form.omitted`` from ``plone.autoform`` allow us to annotate this additional information so that the autoform renderers for forms can use the additional information.
+    We make this omit conditional.
+    If we run Plone in debug mode, we will be able to see the internal data in the edit form.
+
+    We create minimal schema fields for our internal data structures.
+    For a small test, I removed the form omitted directives and opened the edit view of a talk that uses the behavior. After seeing the ugliness, I decided that I should provide at least minimum of information.
+    ``title`` and ``required`` are purely optional, but very helpful if the fields won't be omitted, something that can be helpful when debugging the behavior.
+    Later, when we implement the behavior, the ``votes`` and ``voted`` attributes are implemented in such a way that you can't just modify these fields, they are read only.
 
     Then we define the API that we are going to use in browser views and viewlets.
 
-    The last line ensures that the schema fields are known to other packages. Whenever some code wants all schemas from an object, it receives the schema defined directly on the object and the additional schemata. Additional schemata are compiled by looking for behaviors and whether they provide the :samp:`IFormFieldProvider` functionality. Only then the fields are known as schema fields.
 
-Now the only thing that is missing is the behavior, which we must put into :file:`behavior/voting.py`
+Now the only thing that is missing is the behavior implementation, which we must put into :file:`behavior/voting.py`
 
 .. code-block:: python
     :linenos:
 
     # encoding=utf-8
+    from .interfaces import IVoting
     from hashlib import md5
     from persistent.dict import PersistentDict
     from persistent.list import PersistentList
     from zope.annotation.interfaces import IAnnotations
+    from zope.interface import implementer
 
     KEY = "starzel.votable_behavior.behavior.voting.Vote"
 
 
+    @implementer(IVoting)
     class Vote(object):
         def __init__(self, context):
             self.context = context
@@ -227,35 +252,49 @@ Now the only thing that is missing is the behavior, which we must put into :file
 
 .. only:: not presentation
 
-    In our :samp:`__init__` method we get *annotations* from the object.
+    In our ``__init__`` method we get *annotations* from the object.
     We look for data with a specific key.
 
-    The key in this example is the same as what I would get with :samp:`__name__+Vote.__name__`. But we won't create a dynamic name, this would be very clever and clever is bad.
+    The key in this example is the same as what I would get with ``__name__+Vote.__name__``.
+    But we won't create a dynamic name, this would be very clever and clever is bad.
 
     By declaring a static name, we won't run into problems if we restructure the code.
 
-    You can see that we initialize the data if it doesn't exist. We work with PersistentDict and PersistentList. To understand why we do this, it is important to understand how the ZODB works.
+    You can see that we initialize the data if it doesn't exist.
+    We work with ``PersistentDict`` and ``PersistentList``.
+    To understand why we do this, it is important to understand how the ZODB works.
 
     .. seealso::
 
-        The ZODB can store objects. It has a special root object that you will never touch. Whatever you store there, will be part of the root object, except if it is an object subclassing :samp:`persistent.Persistent` Then it will be stored independently.
+        The ZODB can store objects.
+        It has a special root object that you will never touch.
+        Whatever you store there, will be part of the root object, except if it is an object subclassing ``persistent.Persistent``. Then it will be stored independently.
 
-        Zope/ZODB Persistent objects note when you change an attribute on it and mark itself as changed. Changed objects will be saved to the database. This happens automatically. Each request begins a transaction and after our code runs and the Zope Server is preparing to send back the response we generated, the transaction will be committed and everything we changed will be saved.
+        Zope/ZODB persistent objects note when you change an attribute on it and mark itself as changed.
+        Changed objects will be saved to the database.
+        This happens automatically.
+        Each request begins a transaction and after our code runs and the Zope Server is preparing to send back the response we generated, the transaction will be committed and everything we changed will be saved.
 
-        Now, if have a normal dictionary on a persistent object, and you will only change the dictionary, the persistent object has no way to know if the dictionary has been changed. This `happens`_ from time to time.
+        Now, if have a normal dictionary on a persistent object, and you will only change the dictionary, the persistent object has no way to know if the dictionary has been changed.
+        This `happens`_ from time to time.
 
-        So one solution is to change the special attribute :samp:`_p_changed` to :samp:`True` on the persistent object, or to use a PersistentDict. That is what we are doing here.
+        So one solution is to change the special attribute ``_p_changed`` to ``True`` (or any other value!) on the persistent object, or to use a ``PersistentDict``.
+        Latter is what we are doing here.
 
-        An important thing to note about PersistentDict and PersistentList is that they cannot handle write conflicts. What happens if two users rate the same content independently at the same time?
-        In this case, a database conflict will occur because there is no way for Plone to know how to handle the concurrent write access. Although this is rather unlikely during
-        this training, it is a very common problem on high traffic websites.
+        An important thing to note about ``PersistentDict`` and ``PersistentList`` is that they cannot handle write conflicts.
+        What happens if two users rate the same content independently at the same time?
+        In this case, a database conflict will occur because there is no way for Plone to know how to handle the concurrent write access.
+        Although this is rather unlikely during this training, it is a very common problem on high traffic websites.
 
         You can find more information in the documentation of the ZODB, in particular `Rules for Persistent Classes <http://www.zodb.org/en/latest/guide/writing-persistent-objects.html>`_
 
 
-    Next we provide the internal fields via properties. Using this form of property makes them read only properties, as we did not define write handlers. We don't need them so we won't add them.
+    Next we provide the internal fields via properties.
+    Using this form of property makes them read only properties, as we did not define write handlers.
+    We don't need them so we won't add them.
 
-    As you have seen in the Schema declaration, if you run your site in debug mode, you will see an edit field for these fields. But trying to change these fields will throw an exception.
+    As you have seen in the Schema declaration, if you run your site in debug mode, you will see an edit field for these fields.
+    But trying to change these fields will throw an exception.
 
     .. _happens: https://github.com/plone/Products.CMFEditions/commit/5c07c72bc8701cf28c9cc68ad940186b9e296ddf
 
@@ -275,8 +314,7 @@ Let's continue with this file:
             """
             hash_ = md5()
             hash_.update(request.getClientAddr())
-            for key in ["User-Agent", "Accept-Language",
-                        "Accept-Encoding"]:
+            for key in ["User-Agent", "Accept-Language", "Accept-Encoding"]:
                 hash_.update(request.getHeader(key))
             return hash_.hexdigest()
 
@@ -295,8 +333,8 @@ Let's continue with this file:
             if not has_votes(self):
                 return 0
             total_votes = sum(self.annotations['votes'].values())
-            total_points = sum([vote * count for (vote, count) in
-                                self.annotations['votes'].items()])
+            total_points = sum(
+                [vote * count for (vote, count) in self.annotations['votes'].items()])
             return float(total_points) / total_votes
 
         def has_votes(self):
@@ -307,17 +345,22 @@ Let's continue with this file:
 
         def clear(self):
             annotations = IAnnotations(self.context)
-            annotations[KEY] = PersistentDict({'voted': PersistentList(),
-                                               'votes': PersistentDict()})
+            annotations[KEY] = PersistentDict(
+                {'voted': PersistentList(), 'votes': PersistentDict()}
+            )
             self.annotations = annotations[KEY]
 
 .. only:: not presentation
 
-    We start with a little helper method which is not exposed via the interface. We don't want people to vote twice. There are many ways to ensure this and each one has flaws.
+    We start with a little helper method which is not exposed via the interface.
+    We don't want people to vote twice.
+    There are many ways to ensure this and each one has flaws.
 
-    We chose this way to show you how to access information from the request the browser of the user sent to us. First, we get the ip of the user, then we access a small set of headers from the user's browser and generate an md5 checksum of this.
+    We chose this way to show you how to access information from the request the browser of the user sent to us.
+    First, we get the IP address of the user, then we access a small set of headers from the user's browser and generate an md5 checksum of this.
 
-    The vote method wants a vote and a request. We check the preconditions, then we convert the vote to an integer, store the request to :samp:`voted` and the votes into the :samp:`votes` dictionary. We just count there how often any vote has been given.
+    The vote method wants a vote and a request. We check the preconditions, then we convert the vote to an integer, store the request to ``voted`` and the votes into the ``votes`` dictionary.
+    We just count there how often any vote has been given.
 
     Everything else is just python.
 
@@ -327,7 +370,8 @@ Exercises
 Exercise 1
 ++++++++++
 
-Refactor the voting behavior so that it uses `BTrees` instead of `PersistentDict` and `PersistentList`. Use `OOBTree` to replace `PersistentDict` and `OIBTree` to replace `PersistentList`.
+Refactor the voting behavior so that it uses ``BTrees`` instead of ``PersistentDict`` and ``PersistentList``.
+Use `OOBTree` to replace ``PersistentDict`` and ``OIBTree`` to replace ``PersistentList``.
 
 ..  admonition:: Solution
     :class: toggle
@@ -338,23 +382,24 @@ Refactor the voting behavior so that it uses `BTrees` instead of `PersistentDict
         :emphasize-lines: 3,4,15-17,26-28,39-41
 
         # encoding=utf-8
-        from hashlib import md5
-        from BTrees.OOBTree import OOBTree
+        from .interfaces import IVoting
         from BTrees.OIBTree import OIBTree
+        from BTrees.OOBTree import OOBTree
+        from hashlib import md5
         from zope.annotation.interfaces import IAnnotations
+        from zope.interface import implementer
 
         KEY = "starzel.votable_behavior.behavior.voting.Vote"
 
-
+        @implementer(IVoting)
         class Vote(object):
             def __init__(self, context):
                 self.context = context
                 annotations = IAnnotations(context)
                 if KEY not in annotations.keys():
-                    annotations[KEY] = OOBTree()
-                    annotations[KEY]['voted'] = OIBTree()
-                    annotations[KEY]['votes'] = OOBTree()
-                self.annotations = annotations[KEY]
+                    self.clear()
+                else:
+                    self.annotations = annotations[KEY]
 
             ...
 
@@ -384,34 +429,39 @@ Refactor the voting behavior so that it uses `BTrees` instead of `PersistentDict
 Exercise 2
 ++++++++++
 
-Write a unit test that simulates concurrent voting. The test should raise a `ConflictError` on the original voting behavior implementation.
-The solution from the first exercise should pass. Look at the file `ZODB/ConflictResolution.txt` in the `ZODB3` egg for how to create a suitable test fixture for conflict testing.
-Look at the test code in `zope.annotation` for how to create annotatable dummy content.
-You will also have to write a 'request' dummy that mocks the `getClientAddr` and `getHeader` methods of Zope's HTTP request object to make the `_hash` method of the voting behavior work.
+Write a unit test that simulates concurrent voting.
+The test should raise a ``ConflictError`` on the original voting behavior implementation.
+The solution from the first exercise should pass.
+Look at the file ``ZODB/ConflictResolution.txt`` in the ``ZODB3`` egg for how to create a suitable test fixture for conflict testing.
+Look at the test code in ``zope.annotation`` for how to create annotatable dummy content.
+You will also have to write a 'request' dummy that mocks the ``getClientAddr`` and ``getHeader`` methods of Zope's HTTP request object to make the ``_hash`` method of the voting behavior work.
 
 ..  admonition:: Solution
     :class: toggle
 
-    There are no tests for `starzel.votablebehavior` at all at the moment. But you can refer to chapter 22 for how to setup unit testing for a package.
+    There are no tests for `starzel.votablebehavior` at all at the moment.
+    But you can refer to chapter 22 for how to setup unit testing for a package.
     Put the particular test for this exercise into a file named :file:`starzel.votable_behavior/starzel/votable_behavior/tests/test_voting`.
-    Remember you need an empty :file:`__init__.py` file in the :file:`tests` directory to make testing work. You also need to add `starzel.votable_behavior` to
-    `test-eggs` in :file:`buildout.cfg` and re-run buildout.
+    Remember you need an empty :file:`__init__.py` file in the :file:`tests` directory to make testing work.
+    You also need to add ``starzel.votable_behavior`` to ``test-eggs`` in :file:`buildout.cfg` and re-run buildout.
 
     .. code-block:: python
         :linenos:
 
-        import unittest
-        import tempfile
-        import ZODB
-        import transaction
         from persistent import Persistent
-        from zope.interface import implements
-        from zope.annotation.interfaces import IAttributeAnnotatable
         from zope.annotation.attribute import AttributeAnnotations
+        from zope.annotation.interfaces import IAttributeAnnotatable
+        from zope.interface import implementer
 
+        import tempfile
+        import transaction
+        import unittest
+        import ZODB
 
+        @implementer(IAttributeAnnotatable)
         class Dummy(Persistent):
-            implements(IAttributeAnnotatable)
+            pass
+
 
 
         class RequestDummy(object):

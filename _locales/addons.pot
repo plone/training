@@ -68,7 +68,7 @@ msgstr ""
 
 #: ../addons.rst:17
 # 2073228af2534d02ac5e1cd03836d27a
-msgid "google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)"
+msgid "google (e.g. `Plone+Slider <http://google.com/?q=plone+slider>`_)"
 msgstr ""
 
 #: ../addons.rst:18

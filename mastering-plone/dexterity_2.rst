@@ -31,9 +31,12 @@ Marker Interfaces
 +++++++++++++++++
 
 The content type `Talk` is not yet a *first class citizen* because it does not implement its own interface.
-Interfaces are like nametags, telling other elements who and what you are and what you can do. A marker interface is like such a nametag. The talks actually have an auto-generated marker interface ``plone.dexterity.schema.generated.Plone_0_talk``.
+Interfaces are like nametags, telling other elements who and what you are and what you can do.
+A marker interface is like such a nametag.
+The talks actually have an auto-generated marker interface ``plone.dexterity.schema.generated.Plone_0_talk``.
 
-One problem is that the name of the Plone instance ``Plone`` is part of that interface name. If you now moved these types to a site with another name the code that uses these interfaces would no longer find the objects in question.
+One problem is that the name of the Plone instance ``Plone`` is part of that interface name.
+If you now moved these types to a site with another name the code that uses these interfaces would no longer find the objects in question.
 
 To create a real name-tag we add a new :py:class:`Interface` to :file:`interfaces.py`:
 
@@ -55,12 +58,17 @@ To create a real name-tag we add a new :py:class:`Interface` to :file:`interface
     class ITalk(Interface):
         """Marker interface for Talks"""
 
-:py:class:`ITalk` is a marker interface. We can bind Views and Viewlets to content that provide these interfaces. Lets see how we can provide this Interface. There are two solutions for this.
+:py:class:`ITalk` is a marker interface.
+We can bind Views and Viewlets to content that provide these interfaces.
+Lets see how we can provide this Interface.
+
+There are two solutions for this.
 
 1. Let them be instances of a class that implements this Interface.
 2. Register this interface as a behavior and enable it on talks.
 
-The first option has an important drawback: only *new* talks would be instances of the new class. We would either have to migrate the existing talks or delete them.
+The first option has an important drawback: only *new* talks would be instances of the new class.
+We would either have to migrate the existing talks or delete them.
 
 So let's register the interface as a behavior in :file:`behaviors/configure.zcml`
 
@@ -68,6 +76,7 @@ So let's register the interface as a behavior in :file:`behaviors/configure.zcml
 
   <plone:behavior
       title="Talk"
+      name="ploneconf.talk"
       description="Marker interface for talks to be able to bind views to."
       provides="..interfaces.ITalk"
       />
@@ -79,10 +88,10 @@ And enable it on the type in :file:`profiles/default/types/talk.xml`
     :emphasize-lines: 5
 
     <property name="behaviors">
-     <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-     <element value="plone.app.content.interfaces.INameFromTitle"/>
-     <element value="ploneconf.site.behaviors.social.ISocial"/>
-     <element value="ploneconf.site.interfaces.ITalk"/>
+     <element value="plone.dublincore"/>
+     <element value="plone.namefromtitle"/>
+     <element value="ploneconf.social"/>
+     <element value="ploneconf.talk"/>
     </property>
 
 Either reinstall the add-on, apply the behavior by hand or run an upgrade step (see below) and the interface will be there.
@@ -101,7 +110,8 @@ Then we can safely bind the ``talkview`` to the new marker interface.
         permission="zope2.View"
         />
 
-Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface :py:meth:`catalog(object_provides="ploneconf.site.interfaces.ITalk")`. The ``talklistview`` and the ``demoview`` do not get this constraint since they are not only used on talks.
+Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface :py:meth:`catalog(object_provides="ploneconf.site.interfaces.ITalk")`.
+The ``talklistview`` and the ``demoview`` do not get this constraint since they are not only used on talks.
 
 .. note::
 
@@ -131,22 +141,27 @@ Now the ``/talkview`` can only be used on objects that implement said interface.
           <property name="behaviors">
           ...
 
-    * Create an upgrade step that changes the class of the existing talks. A reuseable method to do such a thing is in `plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class <https://github.com/plone/plone.app.contenttypes/blob/master/plone/app/contenttypes/migration/dxmigration.py#L130>`_.
+    * Create an upgrade step that changes the class of the existing talks.
+      A reuseable method to do such a thing is in `plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class <https://github.com/plone/plone.app.contenttypes/blob/master/plone/app/contenttypes/migration/dxmigration.py#L130>`_.
 
 .. _dexterity2-upgrades-label:
 
 Upgrade steps
 -------------
 
-When projects evolve you sometimes want to modify various things while the site is already up and brimming with content and users. Upgrade steps are pieces of code that run when upgrading from one version of an add-on to a newer one. They can do just about anything.
+When projects evolve you sometimes want to modify various things while the site is already up and brimming with content and users.
+Upgrade steps are pieces of code that run when upgrading from one version of an add-on to a newer one.
+They can do just about anything.
 We will use an upgrade-step to enable the new behavior instead of reinstalling the addon.
 
 We will create an upgrade step that:
 
 * runs the typeinfo step (i.e. loads the GenericSetup configuration stored in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the add-on to have our changes from above take effect) and
-* cleans up the talks that might be scattered around the site in the early stages of creating it. We will move all talks to a folder ``talks`` (unless they already are there).
+* cleans up the talks that might be scattered around the site in the early stages of creating it.
+  We will move all talks to a folder ``talks`` (unless they already are there).
 
-Upgrade steps can be registered in their own ZCML file to prevent cluttering the main :file:`configure.zcml`. Include a new :file:`upgrades.zcml` in our :file:`configure.zcml` by adding:
+Upgrade steps can be registered in their own ZCML file to prevent cluttering the main :file:`configure.zcml`.
+Include a new :file:`upgrades.zcml` in our :file:`configure.zcml` by adding:
 
 ..  code-block:: xml
 
@@ -175,13 +190,16 @@ Create :file:`upgrades.zcml`:
 
     </configure>
 
-The upgrade step bumps the version number of the GenericSetup profile of :py:mod:`ploneconf.site` from 1000 to 1001. The version is stored in :file:`profiles/default/metadata.xml`. Change it to
+The upgrade step bumps the version number of the GenericSetup profile of :py:mod:`ploneconf.site` from 1000 to 1001.
+The version is stored in :file:`profiles/default/metadata.xml`.
+Change it to
 
 ..  code-block:: xml
 
     <version>1001</version>
 
-GenericSetup now expects the code as a method :py:meth:`upgrade_site` in the file :file:`upgrades.py`. Let's create it.
+``GenericSetup`` now expects the code as a method :py:meth:`upgrade_site` in the file :file:`upgrades.py`.
+Let's create it.
 
 ..  code-block:: python
     :linenos:
@@ -264,7 +282,8 @@ Alternatively you also select which upgrade steps to run like this:
 
 .. note::
 
-    Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package :py:mod:`plone.app.upgrade`. You should be able to upgrade a clean site from 2.5 to 5.0 with one click.
+    Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package :py:mod:`plone.app.upgrade`.
+    You should be able to upgrade a clean site from 2.5 to 5.0 with one click.
 
     For an example see the upgrade-step to Plone 5.0a1 https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L37
 
@@ -275,7 +294,8 @@ Alternatively you also select which upgrade steps to run like this:
 Add a browserlayer
 ------------------
 
-A browserlayer is another such marker interface. Browserlayers allow us to easily enable and disable views and other site functionality based on installed add-ons and themes.
+A browserlayer is another such marker interface, but this time on the request.
+Browserlayers allow us to easily enable and disable views and other site functionality based on installed add-ons and themes.
 
 Since we want the features we write only to be available when :py:mod:`ploneconf.site` actually is installed we can bind them to a browserlayer.
 
@@ -312,7 +332,8 @@ It is enabled by GenericSetup when installing the package since it is registered
           />
     </layers>
 
-We should bind all views to it. Here is an example using the talkview.
+We should bind all views to it.
+Here is an example using the ``talklistview``.
 
 ..  code-block:: xml
     :emphasize-lines: 4
@@ -326,7 +347,8 @@ We should bind all views to it. Here is an example using the talkview.
         permission="zope2.View"
         />
 
-Note the relative Python path :py:class:`..interfaces.IPloneconfSiteLayer`. It is equivalent to the absolute path :py:class:`ploneconf.site.interfaces.IPloneconfSiteLayer`.
+Note the relative Python path :py:class:`..interfaces.IPloneconfSiteLayer`.
+It is equivalent to the absolute path :py:class:`ploneconf.site.interfaces.IPloneconfSiteLayer`.
 
 .. seealso::
 
@@ -349,7 +371,8 @@ Add catalog indexes
 -------------------
 
 In the ``talklistview`` we had to wake up all objects to access some of their attributes.
-That is OK if we don't have many objects and they are light dexterity objects. If we had thousands of objects this might not be a good idea.
+That is OK if we don't have many objects and they are light dexterity objects.
+If we had thousands of objects this might not be a good idea.
 
 Instead of loading them all into memory we will use catalog indexes to get the data we want to display.
 
@@ -389,7 +412,11 @@ The ``column ..`` entries allow us to display the values of these indexes in the
 
 .. note::
 
-    The new indexes are still empty. We'll have to reindex them. To do so by hand go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes, select the new indexes and click :guilabel:`Reindex`. We could also rebuild the whole catalog by going to the :guilabel:`advanced`-tab and clicking :guilabel:`Clear and Rebuild`. For large sites that can take a long time.
+    The new indexes are still empty.
+    We'll have to reindex them.
+    To do so by hand go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes, select the new indexes and click :guilabel:`Reindex`.
+    We could also rebuild the whole catalog by going to the :guilabel:`advanced`-tab and clicking :guilabel:`Clear and Rebuild`.
+    For large sites that can take a long time.
 
     We could also write an upgrade step to enable the catalog-indexes and reindex all talks:
 
@@ -421,7 +448,8 @@ The new indexes behave like the ones that Plone has already built in:
     >>> (Pdb) brain.speaker
     u'David Glick'
 
-We now can use the new indexes to improve the talklistview so we don't have to *wake up* the objects any more. Instead we use the brains' new attributes.
+We now can use the new indexes to improve the ``talklistview`` so we don't have to *wake up* the objects any more.
+Instead we use the brains' new attributes.
 
 .. code-block:: python
     :linenos:
@@ -446,7 +474,8 @@ We now can use the new indexes to improve the talklistview so we don't have to *
                     })
             return results
 
-The template does not need to be changed and the result in the browser did not change, either. But when listing a large number of objects the site will now be faster since all the data you use comes from the catalog and the objects do not have to be loaded into memory.
+The template does not need to be changed and the result in the browser did not change either.
+But when listing a large number of objects the site will now be faster since all the data you use comes from the catalog and the objects do not have to be loaded into memory.
 
 
 .. _dexterity2-use_indexes-label:
@@ -531,7 +560,8 @@ Modify :py:class:`TalkListView` to return only brains and adapt the template to 
 Add collection criteria
 -----------------------
 
-To be able to search content in collections using these new indexes we would have to register them as criteria for the querystring widget that collections use. As with all features make sure you only do this if you really need it!
+To be able to search content in collections using these new indexes we would have to register them as criteria for the ``querystring`` widget that collections use.
+As with all features make sure you only do this if you really need it!
 
 
 Add a new file :file:`profiles/default/registry.xml`
@@ -617,18 +647,19 @@ Add new file :file:`profiles/default/diff_tool.xml`
       </difftypes>
     </object>
 
-Finally you need to activate the versioning behavior on the content type. Edit :file:`profiles/default/types/talk.xml`:
+Finally you need to activate the versioning behavior on the content type.
+Edit :file:`profiles/default/types/talk.xml`:
 
 .. code-block:: xml
     :linenos:
     :emphasize-lines: 6
 
     <property name="behaviors">
-     <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-     <element value="plone.app.content.interfaces.INameFromTitle"/>
-     <element value="ploneconf.site.behaviors.social.ISocial"/>
-     <element value="ploneconf.site.interfaces.ITalk"/>
-     <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+     <element value="plone.dublincore"/>
+     <element value="plone.namefromtitle"/>
+     <element value="ploneconf.social"/>
+     <element value="ploneconf.talk"/>
+     <element value="plone.versioning" />
     </property>
 
 .. note::

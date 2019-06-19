@@ -74,8 +74,8 @@ msgstr "http://news.gmane.org/gmane.comp.web.zope.plone.user"
 
 # 2073228af2534d02ac5e1cd03836d27a
 #: ../addons.rst:17
-msgid "google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)"
-msgstr "google (por ejemplo `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)"
+msgid "google (e.g. `Plone+Slider <http://google.com/?q=plone+slider>`_)"
+msgstr "google (por ejemplo `Plone+Slider <http://google.com/?q=plone+slider>`_)"
 
 # 44b928fa38b04b80a2d579ad3d643fc3
 #: ../addons.rst:18
