@@ -79,7 +79,7 @@ It can be very hard to find the right addon for your requirements. Here are some
   * https://pypi.org >3400 Plone related packages - use the search form!
   * https://github.com/collective >1500 repos
   * https://github.com/plone >310 repos
-  * google (e.g. `Plone+Slider <http://lmgtfy.com/?q=plone+slider>`_)
+  * google (e.g. `Plone+Slider <http://google.com/?q=plone+slider>`_)
 
 * Once you have a shortlist test these addons. Here are the main issues you need to test before you install a addon on a production site:
 
