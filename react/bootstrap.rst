@@ -29,7 +29,7 @@ We use the package manager :file:`yarn`, to install do:
 Bootstrapping A Project
 =======================
 
-To create a newReactproject type the following:
+To create a new React project type the following:
 
 .. code-block:: console
 
