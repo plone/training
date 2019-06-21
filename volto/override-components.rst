@@ -12,7 +12,7 @@ When we want to override a specific file we can create an alias pointing to our 
 So for example if we want to replace the logo, which is located in Volto at ``components/theme/Logo/Logo.svg``,
 we will add a logo to our theme and create an alias.
 
-The folder structure needs to match the folder structure of Volto in the ``customizations`` folder.
+The folder structure needs to match the folder structure of Volto in the ``customizations`` folder. So the final path of the new overridden component will be: ``customizations/components/theme/Logo/Logo.svg``.
 
 Exercise
 ========

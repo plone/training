@@ -19,5 +19,6 @@ plone_training_config/training/
 presentation/
 log/
 /training.sublime-workspace
+/.idea
 .python-version
 package-lock.json
