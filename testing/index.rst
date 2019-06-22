@@ -23,6 +23,8 @@ Testing Plone
     summary
     intro-to-tests
     theory
+    start
+    testing-setup
     
 ..  toctree::
     :hidden:
