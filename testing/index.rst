@@ -4,7 +4,7 @@
 Testing Plone
 =============
 
-:About: Best practices to testing Plone
+:About: Best practices to testing Plone addons
 :Level: Intermediate
 
 .. note::
@@ -21,7 +21,8 @@ Testing Plone
     :caption: Testing Plone
 
     summary
-
+    intro-to-tests
+    theory
     
 ..  toctree::
     :hidden:
