@@ -193,8 +193,8 @@ Then further down in the file, you can add the new part:
 The name of the blueprint is what we set in the configure.zcml.
 No other parameters need to be added,
 unless you specifically wrote your blueprint to take additional information.
-This is covered more in `Advanced Blueprints <advanced-blueprints>`.
+This is covered more in :doc:`advanced-blueprints`.
 
 Restart (or start) your instance.
 If you don't have syntax errors, your new blueprint is hooked up and ready for testing!
-Head into the next section, `Import <import>`, to learn how to import the content into your site.
+Head into the next section, :doc:`import`, to learn how to import the content into your site.

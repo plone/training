@@ -13,7 +13,7 @@ Migrating Users & Groups
 
 Jsonify will not export user and group information.
 These will need to be exported separately.
-See `Users Migration <users-migration>` for example code.
+See :doc:`users-migration` for example code.
 
 
 Updating Rich Text

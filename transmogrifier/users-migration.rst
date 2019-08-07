@@ -56,7 +56,7 @@ Export using a script:
 
 
 The import can be done as blueprints, which is the code below.
-But it's would be better off as an upgrade step.
+But it would be better off as an upgrade step.
 
 .. code-block:: python
 
