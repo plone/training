@@ -75,5 +75,3 @@ Others
    key = string:_path
    condition = python:item['_type'] == 'coe_history_item'
    value = python:item['_path'].replace('/Images', '')
-
-Next: `Advanced Blueprint <advanced-blueprint>`

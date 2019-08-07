@@ -208,5 +208,3 @@ and change the ``value`` to whatever we set,
 in this case it will be the string ``'en-us'``.
 Your value may be different, depending on what language you set as your site language.
 Check the Languages control panel in Site Setup to see how it is set.
-
-Next: `Blueprints <blueprints>`

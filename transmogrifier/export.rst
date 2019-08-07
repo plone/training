@@ -67,5 +67,3 @@ Write Your Own Export
 Consistency is key.
 Check out a sample ``collective.jsonify`` export to model.
 You can also export to CSV.
-
-Next: `Basics <basics>`

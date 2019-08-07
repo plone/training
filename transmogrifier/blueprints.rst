@@ -198,5 +198,3 @@ This is covered more in `Advanced Blueprints <advanced-blueprints>`.
 Restart (or start) your instance.
 If you don't have syntax errors, your new blueprint is hooked up and ready for testing!
 Head into the next section, `Import <import>`, to learn how to import the content into your site.
-
-Next: `Import <import>`

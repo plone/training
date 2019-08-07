@@ -17,5 +17,3 @@ The important thing is that you get the new custom content types built.
 If you plan on migrating using only Plone's default content types,
 then you only need to set up your new buildout with a migration package.
 See https://github.com/plone/simple-plone-buildout if you need a place to get started with buildout.
-
-Next: `Pipeline <pipeline>`

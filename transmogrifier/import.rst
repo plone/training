@@ -196,5 +196,3 @@ It can be very easy to break part of your import when writing a blueprint,
 and tests will help you catch that.
 Tests should be added for the general items you are importing,
 plus a test for each type of item that throws an error, to make sure the error does not reoccur.
-
-Next: `Advanced Import <advanced-import>`

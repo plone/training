@@ -61,12 +61,12 @@ The created package can be used as an add-on in an existing buildout,
 or as a buildout on its own.
 For this training, we'll use it on its own.
 Follow the instructions below to get a sample Plone site running.
-You can use Python 3 if you are creating a Plone 5.2+ instance.
+You can use Python 3 if you are creating a Plone 5.2+ instance (recommended).
 
 .. code-block:: console
 
    $ cd ploneconf.migration
-   $ virtualenv env --python=python2.7
+   $ virtualenv env --python=python3.7
    $ env/bin/pip install zc.buildout
    $ env/bin/buildout
    $ bin/instance fg
@@ -74,5 +74,3 @@ You can use Python 3 if you are creating a Plone 5.2+ instance.
 This will start up the instance in foreground mode for you,
 and will be accessible in your browser at http://localhost:8080.
 Click the 'Create a new Plone site' button, and create a site with the id ``Plone``.
-
-Next: `Before Import <before-import>`
