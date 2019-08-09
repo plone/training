@@ -95,3 +95,97 @@ Try to change the permissions for our content-type and set that only Manager can
                 type='TestType',
                 id='test_type',
             )
+
+These are ``integration`` tests because we are not testing the browser integration. We could try to create a ``functional`` test
+to test how to our content-type creation works on browser.
+
+Let's create a new test class in the same file like this:
+
+.. code-block:: python
+
+    from plone.testing.z2 import Browser
+    from from plonetraining.testing.testing import PLONETRAINING_TESTING_FUNCTIONAL_TESTING
+    ...
+
+    class TestTypeFunctionalTest(unittest.TestCase):
+
+        layer = PLONETRAINING_TESTING_FUNCTIONAL_TESTING
+
+        def setUp(self):
+            app = self.layer['app']
+            self.portal = self.layer['portal']
+            self.request = self.layer['request']
+            self.portal_url = self.portal.absolute_url()
+
+            # Set up browser
+            self.browser = Browser(app)
+            self.browser.handleErrors = False
+            self.browser.addHeader(
+                'Authorization',
+                'Basic %s:%s' % (SITE_OWNER_NAME, SITE_OWNER_PASSWORD,)
+            )
+
+        def test_add_test_type(self):
+            self.browser.open(self.portal_url + '/++add++TestType')
+            self.browser.getControl(
+                name="form.widgets.IBasic.title"
+            ).value = "Example content"
+            self.browser.getControl("Save").click()
+
+            self.assertEqual(
+                "Example content", self.portal['example-content'].title
+            )
+
+        def test_view_test_type(self):
+            setRoles(self.portal, TEST_USER_ID, ['Manager'])
+            self.portal.invokeFactory(
+                "TestType",
+                id="example-content",
+                title="Example content",
+                description="This is a description",
+            )
+
+            import transaction
+
+            transaction.commit()
+
+            self.browser.open(self.portal_url + '/example-content')
+
+            self.assertTrue('Example content' in self.browser.contents)
+            self.assertIn('This is a description', self.browser.contents)
+
+.. note::
+    
+    self.browser.contents shows the html of the last visited page.
+
+
+Excercise
++++++++++
+
+Try to add a behavior for example rich text field to our content-type and check that the field is showed up in edit form and in the view.
+
+..  admonition:: Solution
+    :class: toggle
+
+    In ``TestType.xml`` uncomment ``plone.richtext`` behavior.
+
+
+    In test case file:
+
+    .. code-block:: python
+
+        def test_rich_text_field(self):
+            self.browser.open(self.portal_url + '/++add++TestType')
+            self.assertIn(
+                'form.widgets.IRichTextBehavior.text', self.browser.contents
+            )
+            self.browser.getControl(
+                name="form.widgets.IBasic.title"
+            ).value = "A content with text"
+            self.browser.getControl(
+                name="form.widgets.IRichTextBehavior.text"
+            ).value = "Some text"
+            self.browser.getControl("Save").click()
+            self.assertIn(
+                'Some text', self.browser.contents
+            )
