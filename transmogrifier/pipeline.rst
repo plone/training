@@ -64,17 +64,19 @@ Pipeline Details
 
 Open the following file in your custom migration package: migration/import/import_content.cfg.
 By default, it contains the basic parts needed to migrate your content from a jsonify export.
-Unless your site is straight, out-of-the-box Plone and you want to migrate as-is, you'll likely need to customize this file.
+Unless your site is vanilla, out-of-the-box Plone and you want to migrate as-is,
+you'll likely need to customize this file.
 
 First is the ``[transmogrifer]`` part which specifies the steps to run and their order.
 **The order is very important!**
 Each item in the import will run the steps in this order.
 Each line corresponds to a part defined later in the file.
-Comments can be added to this file with ``#``.
+Comments can be added to this file by starting the line with ``#``.
 
 The most important pieces are ``jsonsource``, ``constructor``, and ``schemaupdater``.
 
-``jsonsource`` specifies the local path to your exported content.
+``jsonsource`` needs to be the first step;
+it specifies the local path to your exported content.
 The path is relative to the root of the buildout.
 If importing from a different type, such as CSV, there are blueprints that can handle this:
 ``transmogrify.dexterity.csvimport`` and `collective.transmogrifier.sections.csvsource
@@ -101,7 +103,7 @@ logger
   You get the option to output a line to the log for each item imported in the site.
   The ``name`` is prepended on to each log message.
   ``level`` determines the log level.
-  You can even have multiple loggers set to different levels, which might provide different output per environment.
+  You can even have multiple loggers set to different levels, which would provide different output per environment.
   The provided sample will log the ``_path`` for each imported item.
 
 pathfixer
@@ -140,7 +142,7 @@ example
 removeid
   The removeid step is fairly straightforward, it removes the ``id`` key from the item.
   If the ``id`` is left in, objects aren't properly created in the Plone site.
-  Instead, the id for the object is pulled from the ``_path``.
+  Instead, the id for the object will be pulled from the ``_path``.
 
 copyuid
   This part uses the ``manipulator`` blueprint,
@@ -207,4 +209,4 @@ This will take the ``language`` key from the item dictionary,
 and change the ``value`` to whatever we set,
 in this case it will be the string ``'en-us'``.
 Your value may be different, depending on what language you set as your site language.
-Check the Languages control panel in Site Setup to see how it is set.
+Check the Languages control panel in Site Setup to see what value you should use.

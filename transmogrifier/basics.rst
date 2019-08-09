@@ -61,7 +61,7 @@ The created package can be used as an add-on in an existing buildout,
 or as a buildout on its own.
 For this training, we'll use it on its own.
 Follow the instructions below to get a sample Plone site running.
-You can use Python 3 if you are creating a Plone 5.2+ instance (recommended).
+Use Python 3 if you are creating a Plone 5.2+ instance (recommended).
 
 .. code-block:: console
 

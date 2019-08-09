@@ -17,7 +17,7 @@ How to Run the Import
 First, get your exported data into the new buildout.
 At the root of the buildout (the main ``ploneconf.migration`` folder),
 create a folder called ``content-import``.
-The numbered folders from the export should go in here.
+The numbered folders from the :download:`export <../_static/sample_export.zip>` should go in here.
 So the structure will look like this:
 
 .. code-block:: console
@@ -66,7 +66,7 @@ With more complicated sites and imports,
 you may find that additional steps need to be run before and/or after the import.
 This can best be done with a series of import steps.
 Open ``mysite/migration/upgrades.py``.
-There a three steps all ready for you to use or modify - 
+There are three steps all ready for you to use or modify - 
 a ``pre_migration`` step,
 the ``run_migration`` step, which does the same thing as importing the migration's import profile,
 and a ``post_migration``.
@@ -141,9 +141,13 @@ Here are some tips for debugging those errors.
    and is sometimes easier than working with the debugger to find the actual problem.
    Right before the traceback, you will see the output from the ``logger`` for the item being imported.
    You can grep through the entire export folder for the path output by the logger.
-   Tip: If you find a problem in the data, don't change the data in the export!
+
+.. tip::
+
+   If you find a problem in the data, don't change the data in the export!
    Unless you know for sure that you will not be exporting the data again,
    it's best to handle the issue in the import code.
+
 4. Limit the items being imported.
    Once you've found the item throwing the error and work to fix it,
    you can make the one item the only thing you import!
@@ -161,9 +165,15 @@ Here are some tips for debugging those errors.
       |       ├── 5288.json
       |       ├── 7235.json
 
+   Be aware that when you do this,
+   the parent for these items needs be present in the site.
+   Otherwise the importer won't even try to import them if there is no place to put them.
+   You can manually add folders through-the-web to recreate the structure.
+
 5. Test the full import after making your fix, and update your test cases.
-   If you are working with a large export, then testing a couple folders worth will work.
+   If you are working with a large export, then testing a couple folders (~2000 items) should work.
    You want to make sure your fix didn't break something else.
+   Also regularly clear out the new site's data to test the full import as you are building it out.
 
 Running the import multiple times
 ---------------------------------

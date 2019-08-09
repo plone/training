@@ -28,6 +28,7 @@ While you could possibly migrate your Plone site in-place by updating the versio
 there are occasionally reasons to start fresh.
 This might be the case if:
 
+* You are migrating from Python 2 to Python 3 (Plone 5.2+)
 * You are currently on a very old version of Plone
 * Your site has been around for a while and has a bit of cruft code (makes for a fresh start)
 * You are looking to drastically update your site, but need to keep a few items
@@ -53,6 +54,9 @@ but you may find it better to export everything, and do the limiting on the impo
 
 Export from Wordpress
 ---------------------
+
+There is currently not an easy way to migrate Wordpress data in to Plone,
+but here are some starting points:
 
 * Tools > export - exports content as a single XML
 * suggestions for add-ons to export as json

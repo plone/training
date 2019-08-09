@@ -138,12 +138,12 @@ Otherwise you could make it static, by explicitly adding a condition like this:
 .. code-block:: python
 
     mod_year = int(mod_date[:4])
-    if mod_year < 2014:
+    if mod_year < 2015:
         continue
 
 
 Notice this does not include the ``yield item``,
-because we don't want to keep any content older than 2014.
+because we don't want to keep any content older than 2015.
 Continuing without yielding the item will not push it through the rest of the pipleine.
 
 Let's also add a log message to show that the item is being skipped:
@@ -154,13 +154,14 @@ Let's also add a log message to show that the item is being skipped:
    logger = logging.getLogger("Transmogrifier")
    ...
    mod_year = int(mod_date[:4])
-   if mod_year < 2014:
+   if mod_year < 2015:
        item_path = item.get('_path', '')
        logger.info('[skipped] %s with modified year %s', item_path, mod_year)
        continue
 
 Once you are satisfied with your code and conditions,
-make sure to include a ``yield item`` at the very end.
+make sure to include a ``yield item`` at the very end
+to import all content from the last 5 years.
 
 Now we can hook up the blueprint.
 Open the ``configure.zcml`` found in the same folder as ``blueprints.py``, and add a new utility:
