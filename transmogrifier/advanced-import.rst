@@ -17,7 +17,7 @@ Multiple pipelines
 
 If you know you will run an import multiple times,
 there are steps that will only need to be run the first time.
-Any import run after that can use less steps.
+Any imports run after that can use less steps.
 Additional pipelines can still point to your same custom blueprints file.
 
 The pipelines will need to be set up as separate profiles.
@@ -40,12 +40,16 @@ plone.app.transmogrifier.datesupdater
 Conditions
 ----------
 
-https://docs.plone.org/external/collective.transmogrifier/docs/source/sections.html
 Add a condition section that does the same thing as the blueprint we created that excludes older items.
+
+See https://docs.plone.org/external/collective.transmogrifier/docs/source/sections.html
 
 
 Changing Types
 --------------
+
+Reducing the number of types used in your site?
+You can map old types to what you want it to be in the new site.
 
 .. code-block:: console
 
@@ -62,6 +66,9 @@ Changing Types
 Others
 ------
 
+Take data from a field called `document_src`, and put it into `text`,
+which will be used as the body text for the object:
+
 .. code-block:: console
 
    [doctext]
@@ -69,11 +76,13 @@ Others
    keys =
        document_src
    destination = string:text
-   
+
+If the item is of type `history_item`, change the path where it will be imported:
+
+.. code-block:: console
+
    [history-item-path]
    blueprint = collective.transmogrifier.sections.inserter
    key = string:_path
-   condition = python:item['_type'] == 'coe_history_item'
+   condition = python:item['_type'] == 'history_item'
    value = python:item['_path'].replace('/Images', '')
-
-Next: `Advanced Blueprint <advanced-blueprint>`

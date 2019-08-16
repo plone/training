@@ -48,9 +48,10 @@ Basic Blueprint Tips
 
   .. code-block:: python
   
+      from Products.CMFPlone.utils import safe_unicode
+      ...
       obj = self.context.unrestrictedTraverse(
-          safe_unicode(item['_path'].lstrip('/')).encode('utf-8'),
-          None)
+          safe_unicode(item['_path'].lstrip('/')), None)
 
 * If you like to keep track of all the information about what happens during the import,
   (which can be very useful for debugging later),
@@ -91,7 +92,7 @@ Leave everything in the ``__init__``, but take everything out of the ``__iter__`
 
     def __iter__(self):
         for item in self.previous:
-            pathkey = self.pathkey(*item.keys())[0]
+            yield item
 
 
 From here we can start adding our custom code and conditions.
@@ -138,12 +139,12 @@ Otherwise you could make it static, by explicitly adding a condition like this:
 .. code-block:: python
 
     mod_year = int(mod_date[:4])
-    if mod_year < 2014:
+    if mod_year < 2015:
         continue
 
 
 Notice this does not include the ``yield item``,
-because we don't want to keep any content older than 2014.
+because we don't want to keep any content older than 2015.
 Continuing without yielding the item will not push it through the rest of the pipleine.
 
 Let's also add a log message to show that the item is being skipped:
@@ -154,13 +155,14 @@ Let's also add a log message to show that the item is being skipped:
    logger = logging.getLogger("Transmogrifier")
    ...
    mod_year = int(mod_date[:4])
-   if mod_year < 2014:
+   if mod_year < 2015:
        item_path = item.get('_path', '')
        logger.info('[skipped] %s with modified year %s', item_path, mod_year)
        continue
 
 Once you are satisfied with your code and conditions,
-make sure to include a ``yield item`` at the very end.
+make the ``yield item`` line is at the very end
+to import all content from the last 5 years.
 
 Now we can hook up the blueprint.
 Open the ``configure.zcml`` found in the same folder as ``blueprints.py``, and add a new utility:
@@ -193,10 +195,8 @@ Then further down in the file, you can add the new part:
 The name of the blueprint is what we set in the configure.zcml.
 No other parameters need to be added,
 unless you specifically wrote your blueprint to take additional information.
-This is covered more in `Advanced Blueprints <advanced-blueprints>`.
+This is covered more in :doc:`advanced-blueprints`.
 
 Restart (or start) your instance.
 If you don't have syntax errors, your new blueprint is hooked up and ready for testing!
-Head into the next section, `Import <import>`, to learn how to import the content into your site.
-
-Next: `Import <import>`
+Head into the next section, :doc:`import`, to learn how to import the content into your site.
