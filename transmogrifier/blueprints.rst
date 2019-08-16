@@ -48,9 +48,10 @@ Basic Blueprint Tips
 
   .. code-block:: python
   
+      from Products.CMFPlone.utils import safe_unicode
+      ...
       obj = self.context.unrestrictedTraverse(
-          safe_unicode(item['_path'].lstrip('/')).encode('utf-8'),
-          None)
+          safe_unicode(item['_path'].lstrip('/')), None)
 
 * If you like to keep track of all the information about what happens during the import,
   (which can be very useful for debugging later),
@@ -91,7 +92,7 @@ Leave everything in the ``__init__``, but take everything out of the ``__iter__`
 
     def __iter__(self):
         for item in self.previous:
-            pathkey = self.pathkey(*item.keys())[0]
+            yield item
 
 
 From here we can start adding our custom code and conditions.
@@ -160,7 +161,7 @@ Let's also add a log message to show that the item is being skipped:
        continue
 
 Once you are satisfied with your code and conditions,
-make sure to include a ``yield item`` at the very end
+make the ``yield item`` line is at the very end
 to import all content from the last 5 years.
 
 Now we can hook up the blueprint.

@@ -5,6 +5,8 @@ Advanced Blueprint Tips
 Iterator Stages
 ---------------
 
+This training only focused on one stage, but iterators have three stages!
+Learn more about this at
 https://docs.plone.org/external/collective.transmogrifier/docs/source/transmogrifier.html#iterators-have-3-stages
 
 
@@ -65,3 +67,37 @@ Here's an example that updates oembed tags to `uwosh.snippets <https://pypi.org/
 
 Taking parameters in custom blueprints
 --------------------------------------
+
+See how the ``PartialCommit`` blueprint does this.
+
+In the pipeline, we have:
+
+.. code:: python
+
+    [savepoint]
+    blueprint = collective.jsonmigrator.partialcommit
+    every = 1000
+
+Here is the blueprint;
+``options`` contains any extra parameters that have been passed in.
+If ``every`` is not in the options, ``100`` is used as the default
+
+.. code:: python
+
+    @provider(ISectionBlueprint)
+    @implementer(ISection)
+    class PartialCommit(object):
+
+
+        def __init__(self, transmogrifier, name, options, previous):
+            self.previous = previous
+            self.step = int(options.get('every', 100))
+
+        def __iter__(self):
+            count = 1
+            for item in self.previous:
+                yield item
+                if count % self.step == 0:
+                    transaction.commit()
+                    logging.info('Committed after %s' % count)
+                count += 1

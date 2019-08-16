@@ -43,11 +43,11 @@ In your ploneconf.migration package, there are two ways provided to import the d
 This is where you'll want to start.
 No code needs to be written for this, it's already available in the migration package.
 
-* Go to the Management Interface > portal_quickinstaller,
-  install ``mysite.migration (default)``, if it is not already installed
-* Then go to portal_setup > Import tab
-* In the first dropdown, find ``ploneconf.migration (import)``
+* Go to ZMI > portal_setup > Import tab,
+* Find ``ploneconf.migration (default)`` in the dropdown
 * Click 'Import all steps'
+* Then select ``ploneconf.migration (import)`` in the dropdown,
+  and click 'Import all steps'
 
 If you are running the site in the foreground, you should see things happening now
 (if not running in foreground mode, check the site logs).

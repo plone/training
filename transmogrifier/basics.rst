@@ -63,6 +63,13 @@ For this training, we'll use it on its own.
 Follow the instructions below to get a sample Plone site running.
 Use Python 3 if you are creating a Plone 5.2+ instance (recommended).
 
+.. note::
+
+   As of this writing, the Transmogrifer add-ons have unreleased Python 3 fixes.
+   To use the Python 3 branches, edit `plone52.cfg`
+   and uncomment the `auto-checkout` with the `[sources]` section.
+   Please commit any Python 3 fixes you find that need to be made to these add-ons!
+
 .. code-block:: console
 
    $ cd ploneconf.migration
@@ -74,3 +81,9 @@ Use Python 3 if you are creating a Plone 5.2+ instance (recommended).
 This will start up the instance in foreground mode for you,
 and will be accessible in your browser at http://localhost:8080.
 Click the 'Create a new Plone site' button, and create a site with the id ``Plone``.
+Login for the site is username `admin`, password `admin`.
+
+.. note::
+
+   If you have any issues with the created migration package,
+   please submit issues at https://github.com/collective/bobtemplates.migration/issues
