@@ -66,7 +66,7 @@ You can map old types to what you want it to be in the new site.
 Others
 ------
 
-Take data from a field called `document_src`, and put it into `text`,
+Take data from a field called ``document_src``, and put it into ``text``,
 which will be used as the body text for the object:
 
 .. code-block:: console
@@ -77,7 +77,7 @@ which will be used as the body text for the object:
        document_src
    destination = string:text
 
-If the item is of type `history_item`, change the path where it will be imported:
+If the item is of type ``history_item``, change the path where it will be imported:
 
 .. code-block:: console
 

@@ -66,8 +66,8 @@ Use Python 3 if you are creating a Plone 5.2+ instance (recommended).
 .. note::
 
    As of this writing, the Transmogrifer add-ons have unreleased Python 3 fixes.
-   To use the Python 3 branches, edit `plone52.cfg`
-   and uncomment the `auto-checkout` with the `[sources]` section.
+   To use the Python 3 branches, edit ``plone52.cfg``
+   and uncomment the `auto-checkout` with the ``[sources]`` section.
    Please commit any Python 3 fixes you find that need to be made to these add-ons!
 
 .. code-block:: console
@@ -80,8 +80,8 @@ Use Python 3 if you are creating a Plone 5.2+ instance (recommended).
 
 This will start up the instance in foreground mode for you,
 and will be accessible in your browser at http://localhost:8080.
-Click the 'Create a new Plone site' button, and create a site with the id ``Plone``.
-Login for the site is username `admin`, password `admin`.
+Click the :guilabel:`Create a new Plone site` button, and create a site with the id ``Plone``.
+Login for the site is username ``admin``, password ``admin``.
 
 .. note::
 
