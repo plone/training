@@ -20,6 +20,7 @@ A collection of trainings developed and created by the Plone Community.
     angular/index
     react/index
     volto/index
+    voltohandson/index
     transmogrifier/index
     advanced-python/index
     gatsby/index
