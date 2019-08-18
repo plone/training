@@ -368,7 +368,7 @@ Collections
 Content Rules
 -------------
 
-* Create new rule "a new talk is in town"!
+* Create new rule "A new talk is in town!"
 * New content in folder "Talks" -> Send Mail to reviewers.
 
 .. figure:: _static/features_add_rule_1.png
