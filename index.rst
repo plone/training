@@ -73,7 +73,7 @@ Trainings
     Build a custom website using Volto and the Plone REST API.
 
 :doc:`gatsby/index`
-    Building static websites with `GatsbyJS<https://www.gatsbyjs.org/>`_.
+    Building static websites with `GatsbyJS <https://www.gatsbyjs.org/>`_.
 
 .. The following items are hidden in this toctree to prevent Sphinx warnings.
 
