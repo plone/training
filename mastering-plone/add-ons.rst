@@ -69,10 +69,10 @@ Some notable add-ons
 How to find add-ons
 -------------------
 
-It can be very hard to find the right addon for your requirements. Here are some tips:
+It can be very hard to find the right add-on for your requirements. Here are some tips:
 
 * Make a list of required features. You'll almost never ﬁnd an add-on that exactly ﬁts your needs.
-* Either adapt your requirements to what is available, invest the time & money to modify an existing addon to ﬁt your needs or create a new addon that does exactly what you need.
+* Either adapt your requirements to what is available, invest the time & money to modify an existing add-on to ﬁt your needs or create a new add-on that does exactly what you need.
 * Then search using the follwing links below.
 
   * https://plone.org/download/add-ons
@@ -81,22 +81,22 @@ It can be very hard to find the right addon for your requirements. Here are some
   * https://github.com/plone >310 repos
   * google (e.g. `Plone+Slider <http://google.com/?q=plone+slider>`_)
 
-* Once you have a shortlist test these addons. Here are the main issues you need to test before you install a addon on a production site:
+* Once you have a shortlist test these add-ons. Here are the main issues you need to test before you install an add-on on a production site:
 
   * Test all required features. Read but do not trust the documentation
-  * Check if the addon runs on your required version and is currently maintained
+  * Check if the add-on runs on your required version and is currently maintained
   * Does it have i18n-support, i.e. is the user-interface translated to your language?
   * Does it uninstall cleanly?
     A tough one.
     See https://lucafbb.blogspot.com/2013/05/how-to-make-your-plone-add-on-products.html for the reason why.
   * Check for unwanted dependecies
 
-Once you found an addon you like you should ask the community if you made a good choice or if you missed something:
+Once you found an add-on you like you should ask the community if you made a good choice or if you missed something:
 
 * Message Board: https://community.plone.org
 * Chat: https://plone.org/support/chat
 
-There is also a talk that discusses in depth how to find the right addon: https://www.youtube.com/watch?v=Sc6NkqaSjqw
+There is also a talk that discusses in depth how to find the right add-on: https://www.youtube.com/watch?v=Sc6NkqaSjqw
 
 .. _add-ons-installing-label:
 
@@ -216,7 +216,7 @@ Plone can run the same site in many different languages.
 
 We're not doing this with the conference site since the *lingua franca* of the Plone community is English.
 
-We would use the built-in addon https://pypi.org/project/plone.app.multilingual for this.
+We would use the built-in add-on https://pypi.org/project/plone.app.multilingual for this.
 
 Building a multi-lingual site requires activating :py:mod:`plone.app.multilingual`, but no add-on is necessary to build a site in only one language. Just select a different site language when creating a Plone site, and all text in the user-interface will be switched to that language.
 
