@@ -72,7 +72,7 @@ How to find add-ons
 It can be very hard to find the right addon for your requirements. Here are some tips:
 
 * Make a list of required features. You'll almost never ﬁnd an add-on that exactly ﬁts your needs.
-* Either adapt your requirements to what is available, invest the time & money to modify an existing addons to ﬁt your needs or create a new addon that does exactly what you need.
+* Either adapt your requirements to what is available, invest the time & money to modify an existing addon to ﬁt your needs or create a new addon that does exactly what you need.
 * Then search using the follwing links below.
 
   * https://plone.org/download/add-ons
