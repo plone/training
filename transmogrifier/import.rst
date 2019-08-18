@@ -43,11 +43,11 @@ In your ploneconf.migration package, there are two ways provided to import the d
 This is where you'll want to start.
 No code needs to be written for this, it's already available in the migration package.
 
-* Go to ZMI > portal_setup > Import tab,
-* Find ``ploneconf.migration (default)`` in the dropdown
-* Click 'Import all steps'
-* Then select ``ploneconf.migration (import)`` in the dropdown,
-  and click 'Import all steps'
+* Go to :menuselection:`ZMI > portal_setup > Import` tab,
+* Find :guilabel:`ploneconf.migration (default)` in the dropdown
+* Click :guilabel:`Import all steps`
+* Then select :guilabel:`ploneconf.migration (import)` in the dropdown,
+  and click :guilabel:`Import all steps`
 
 If you are running the site in the foreground, you should see things happening now
 (if not running in foreground mode, check the site logs).
@@ -78,12 +78,12 @@ You likely won't want this on forms that are being migrated, which already have 
 
 To run the import steps:
 
-* Go to the Management Interface > portal_quickinstaller,
-  install ``mysite.migration (default)``, if it is not already installed
-* Then go to portal_setup > Upgrades tab
-* Choose ``mysite.migration (default)`` from the dropdown
-* You may need to click 'Show' to see the upgrade steps
-* Select all the boxes, and click 'Upgrade'
+* Go to the :menuselection:`Management Interface > portal_quickinstaller`,
+  install :guilabel:`mysite.migration (default)`, if it is not already installed
+* Then go to :menuselection:`portal_setup > Upgrades` tab
+* Choose :guilabel:`mysite.migration (default)` from the dropdown
+* You may need to click :guilabel:`Show` to see the upgrade steps
+* Select all the boxes, and click :guilabel:`Upgrade`
 
 If you are running the site in the foreground, you should see things happening now
 (if not running in foreground mode, check the site logs).
@@ -142,11 +142,11 @@ Here are some tips for debugging those errors.
    Right before the traceback, you will see the output from the ``logger`` for the item being imported.
    You can grep through the entire export folder for the path output by the logger.
 
-.. tip::
+   .. tip::
 
-   If you find a problem in the data, don't change the data in the export!
-   Unless you know for sure that you will not be exporting the data again,
-   it's best to handle the issue in the import code.
+      If you find a problem in the data, don't change the data in the export!
+      Unless you know for sure that you will not be exporting the data again,
+      it's best to handle the issue in the import code.
 
 4. Limit the items being imported.
    Once you've found the item throwing the error and work to fix it,

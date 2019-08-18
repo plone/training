@@ -194,7 +194,7 @@ So let's put the step before the ``constructor``:
     logger
     pathfixer
     setlanguage
-    ...
+    # ...
 
 Then further down in the file, add the ``setlanguage`` part with the following code:
 
@@ -207,6 +207,6 @@ Then further down in the file, add the ``setlanguage`` part with the following c
 
 This will take the ``language`` key from the item dictionary,
 and change the ``value`` to whatever we set,
-in this case it will be the string ``'en-us'``.
+in this case it will be the string ``en-us``.
 Your value may be different, depending on what language you set as your site language.
-Check the Languages control panel in Site Setup to see what value you should use.
+Check the :menuselection:`Site Setup > Languages` control panel to see what value you should use.

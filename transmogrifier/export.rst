@@ -58,7 +58,7 @@ Export from Wordpress
 There is currently not an easy way to migrate Wordpress data in to Plone,
 but here are some starting points:
 
-* Tools > export - exports content as a single XML
+* :menuselection:`Tools > export` - exports content as a single XML
 * suggestions for add-ons to export as json
 
   * https://wordpress.org/plugins/search/json+export

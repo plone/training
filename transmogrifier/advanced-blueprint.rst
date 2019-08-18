@@ -72,15 +72,15 @@ See how the ``PartialCommit`` blueprint does this.
 
 In the pipeline, we have:
 
-.. code:: python
+.. code:: ini
 
     [savepoint]
     blueprint = collective.jsonmigrator.partialcommit
     every = 1000
 
-Here is the blueprint;
+Here is the blueprint.
 ``options`` contains any extra parameters that have been passed in.
-If ``every`` is not in the options, ``100`` is used as the default
+If ``every`` is not in the options, ``100`` is used as the default.
 
 .. code:: python
 

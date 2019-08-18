@@ -38,7 +38,7 @@ Basic Blueprint Tips
       if not path:
           yield item
           continue
-      ...
+      # ...
 
 
 * If your step needs to manipulate an object in the site after the ``constructor`` has created it,
@@ -49,7 +49,7 @@ Basic Blueprint Tips
   .. code-block:: python
   
       from Products.CMFPlone.utils import safe_unicode
-      ...
+      # ...
       obj = self.context.unrestrictedTraverse(
           safe_unicode(item['_path'].lstrip('/')), None)
 
@@ -96,7 +96,7 @@ Leave everything in the ``__init__``, but take everything out of the ``__iter__`
 
 
 From here we can start adding our custom code and conditions.
-We want to check against the 'modified' date,
+We want to check against the ``modified`` date,
 so open a couple of the exported json files to see what the key is called.
 If you are using a jsonify export, you will likely find:
 
@@ -153,7 +153,7 @@ Let's also add a log message to show that the item is being skipped:
 
    import logging
    logger = logging.getLogger("Transmogrifier")
-   ...
+   # ...
    mod_year = int(mod_date[:4])
    if mod_year < 2015:
        item_path = item.get('_path', '')
