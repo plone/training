@@ -21,11 +21,13 @@ Testing Plone
     :caption: Testing Plone
 
     summary
-    intro-to-tests
+    intro_to_tests
     theory
     start
-    testing-setup
-    
+    testing_setup
+    unittest
+    testing_dexterity
+
 ..  toctree::
     :hidden:
     :maxdepth: 3

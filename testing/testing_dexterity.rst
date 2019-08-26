@@ -1,5 +1,5 @@
 Testing a Dexterity content-type
-=================================
+================================
 
 The most common thing that we could develop in Plone are content-types. Let's see how to test if a new content-type works like expected.
 
@@ -14,6 +14,9 @@ With plonecli we could add features on our package through command-line:
   $ plonecli add content_type
 
 With this command, a new content-type will be automatically registered in our package and we don't need to to think about it.
+
+Test the content-type
+---------------------
 
 If we now try to re-run tests, we could see that the tests number has increased. This is because plonecli also creates a basic test for this new content-type in ``test_ct_your_ct_name.py`` file.
 
@@ -41,28 +44,20 @@ Inspecting this file, we could see some interesting things:
         api.content.delete(obj=obj)
         self.assertNotIn('test_type', self.portal.objectIds())
 
-In this test for example, we are testing that a contributor can add and delete our content-type.
+In this test, for example, we are testing that a contributor can add and delete our content-type.
 
 .. note::
-    
+
     plone.app.testing gives us a default user for tests. We could import its username in a variable called ``TEST_USER_ID`` and set different roles when needed.
-    
+
     By default each test is run with that user as logged-in user. If we want to run tests as anonymous users or with a different user, we need to logout/login.
 
 
 Excercise
 +++++++++
 
-Try to change the permissions for our content-type and set that only Manager can add it. Then fix the test for contributor role and create a new test for the Manager.
-
-.. note::
-
-    If you are developing a test case, you can run only that test with `-t` option:
-    
-    .. code-block:: console
-
-        $ bin/test -t test_method_name
-
+Try to change the permissions for our content-type and set that only Manager can add it.
+Then fix the test for contributor role and create a new test for the Manager.
 
 ..  admonition:: Solution
     :class: toggle
@@ -96,8 +91,10 @@ Try to change the permissions for our content-type and set that only Manager can
                 id='test_type',
             )
 
-These are ``integration`` tests because we are not testing the browser integration. We could try to create a ``functional`` test
-to test how to our content-type creation works on browser.
+
+These are ``integration`` tests because we are not testing the browser integration.
+
+We could try to create a ``functional`` test to test how our content-type creation works on browser.
 
 Let's create a new test class in the same file like this:
 
@@ -155,20 +152,19 @@ Let's create a new test class in the same file like this:
             self.assertIn('This is a description', self.browser.contents)
 
 .. note::
-    
+
     self.browser.contents shows the html of the last visited page.
 
 
 Excercise
 +++++++++
 
-Try to add a behavior for example rich text field to our content-type and check that the field is showed up in edit form and in the view.
+Try to add a behavior (for example a rich text field) to our content-type and check that the field is showed up in edit form and in the view.
 
 ..  admonition:: Solution
     :class: toggle
 
     In ``TestType.xml`` uncomment ``plone.richtext`` behavior.
-
 
     In test case file:
 

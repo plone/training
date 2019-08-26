@@ -1,4 +1,4 @@
-Testing setup
+    Testing setup
 =============
 
 To run tests in Plone you need three things:
@@ -9,10 +9,7 @@ To run tests in Plone you need three things:
 
 .. note::
 
-    plonecli is the proper way to create new Plone packages because it automatically creates all the standard configuration to run
-    tests on a package.
-
-    Otherwise you need to create all of them manually.
+    plonecli creates also a working testing structure in our package.
 
 Test runner
 -----------
@@ -34,7 +31,7 @@ If we inspect ``base.cfg`` file, we could see a `test` part that uses a recipe f
 Testing setup
 -------------
 
-The testing setup for a Plone package is in a file called ``testing.py`` and looks like this:
+The testing setup for a Plone package is in a file called ``testing.py`` and it looks like this:
 
 .. code-block:: python
 
@@ -96,8 +93,58 @@ Tests
 
 Tests are located into ``tests`` folder. In this folder you can create as many tests as you want in different files. The only requirement is that they should start with "test_".
 
-Tests can be grouped into test cases depending on the test type (functional, integration or robot) and on the functionality that they are testing.
+Tests can be grouped into test cases depending on the test type (unit, functional, integration or robot) and on the functionality that they are testing.
 
 A test case defines which layer should be used, can setup the environment before tests execution (setUp method) and can perform some actions after all tests has been executed (tearDown method).
 
 plonecli creates a basic test case for testing that the product installs correctly and registers its browserlayer.
+
+
+Assertions
+----------
+
+A test is basically a method that tries something (calling a method, instantiating a Class or trying some more complex behavior) and checks that the result is exactly as expected.
+
+These checks are made by ``assertions``. They are statements that compares two values and returns an error if they are not.
+If an assertion in a tests fails, the test fails. We could write as much assertions we want in a single test, and they should always succeed.
+
+There are different types of assertions that we can use. for example:
+
+.. code-block:: python
+
+    assertEqual(a, b)
+        a == b
+
+    assertTrue(x)
+        bool(x) is True
+
+    assertFalse(x)
+        bool(x) is False
+
+    assertIsNotNone(x)
+        x is not None
+
+    assertIn(a, b)
+        a in b
+
+    assertIsInstance(a, b)
+        isinstance(a, b)
+
+    assertRaises(exc, fun, *args, **kwds)
+        fun(*args, **kwds) raises exc
+
+    assertGreater(a, b)
+        a > b
+
+    assertGreaterEqual(a, b)
+        a >= b
+
+Each assertion has also a "not" version:
+
+.. code-block:: python
+
+    assertNotEqual(a, b)
+        a != b
+
+    assertNotIn(a, b)
+        a not in b
