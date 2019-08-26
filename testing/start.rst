@@ -1,15 +1,23 @@
 Package setup
 =============
 
+In this chapter we are going to create a new Plone package from scratch and use it to see different testing techniques.
+
+We are going to use also ``plonecli`` tool because it allows to easily create new Plone packages and features (content-types, views, vocabularies) with simple cli commands.
 
 Create Package
 --------------
 
-Create virtual Python environment:
+First of all we need to create a virtual Python environment:
 
 .. code-block:: console
 
-  $ virtualenv-2.7 .env
+  $ virtualenv .env
+
+
+.. note::
+
+  By default you should use Python3 and its virtualenv because Python2 will be deprecated on 01/01/2020.
 
 Activate virtual Python environment:
 
@@ -47,7 +55,7 @@ Run tests:
 
   $ bin/test
 
-Run all tests including robot tests:
+Run all tests including robot tests (we will see later what they are):
 
 .. code-block:: console
 
