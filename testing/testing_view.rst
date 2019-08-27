@@ -64,7 +64,7 @@ The view template prints a string that is returned from its class. Write a test 
 
     .. code-block:: python
 
-        def test_training_view_print_message(self):
+        def test_training_view(self):
             view = getMultiAdapter(
                 (self.portal['other-folder'], self.portal.REQUEST),
                 name='training-view'
@@ -88,13 +88,74 @@ Excercise 2
 
         def print_msg(self):
             message = self.request.form.get('message', '')
-            return '{}: {}'.format(self.msg, message)
+            return 'custom message: {}'.format(message)
+
+    Then we could add this message into the template in ``views/training-view.pt``
+
+    .. code-block:: html
+
+        <p tal:content="view/print_msg">this gets replaced</p>
+
+    And finally we could test everything:
 
     .. code-block:: python
+
+        def setUp(self):
+            self.portal = self.layer['portal']
+            self.request = self.layer['request']
+            setRoles(self.portal, TEST_USER_ID, ['Manager'])
+            api.content.create(self.portal, 'Folder', 'other-folder')
+            api.content.create(self.portal, 'Document', 'front-page')
 
         def test_training_view_print_message(self):
             view = getMultiAdapter(
                 (self.portal['other-folder'], self.portal.REQUEST),
-                name='training-view'
+                name='training-view',
             )
-            self.assertIn('A small message', view())
+            self.request.form['message'] = 'hello'
+            self.assertIn('hello', view.print_msg())
+            self.assertEqual('custom message: hello', view.print_msg())
+            self.assertIn('<p>custom message: hello</p>', view())
+
+    For functional testing:
+
+        .. code-block:: python
+
+            ...
+            from plone.testing.z2 import Browser
+            from plone.app.testing import SITE_OWNER_NAME
+            from plone.app.testing import SITE_OWNER_PASSWORD
+
+            ...
+
+            class ViewsFunctionalTest(unittest.TestCase):
+
+                layer = PLONETRAINING_TESTING_FUNCTIONAL_TESTING
+
+                def setUp(self):
+                    app = self.layer['app']
+                    self.portal = self.layer['portal']
+                    setRoles(self.portal, TEST_USER_ID, ['Manager'])
+                    self.browser = Browser(app)
+                    self.browser.handleErrors = False
+                    self.browser.addHeader(
+                        'Authorization',
+                        'Basic %s:%s' % (SITE_OWNER_NAME, SITE_OWNER_PASSWORD),
+                    )
+
+                def test_view_with_browser(self):
+                    self.browser.open(self.portal.absolute_url() + '/training-view')
+                    self.assertIn('<p>A small message</p>', self.browser.contents)
+                    self.assertIn('<p>custom message: </p>', self.browser.contents)
+                    self.assertNotIn('<p>custom message: hello</p>', self.browser.contents)
+
+                    self.browser.open(
+                        self.portal.absolute_url() + '/training-view?message=hello'
+                    )
+                    self.assertIn('<p>A small message</p>', self.browser.contents)
+                    self.assertNotIn('<p>custom message: </p>', self.browser.contents)
+                    self.assertIn('<p>custom message: hello</p>', self.browser.contents)
+
+
+
+

@@ -27,6 +27,7 @@ Testing Plone
     testing_setup
     unittest
     testing_dexterity
+    testing_view
 
 ..  toctree::
     :hidden:
