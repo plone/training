@@ -3,13 +3,13 @@ Unit tests
 
 The first test types that we are going to see, are unit tests.
 
-They are the quickest to run and easiest to write because they don't need some special environments/configuration to be executed.
+They are the quickiest to run and easiest to write because they don't need special environments/configuration to be executed.
 
 We are going to use a python unit testing library called ``unittest``.
 
 .. note::
 
-    More detailed documentation could be found here: https://docs.python.org/2.7/library/unittest.html
+    More detailed documentation could be found in `unittest <https://docs.python.org/2.7/library/unittest.html>`_ documentation.
 
 Create our first test
 ---------------------
@@ -44,7 +44,7 @@ If we are working on a single test and we don't want to run all, we could say th
 Excercise 1
 +++++++++++
 
-Try to create a new test and play with assertions (try also to make them fails, to see what happens).
+Try to create a new test and play with assertions (try also to make them fails, to see what happens and see traceback informations for debug).
 
 Excercise 2
 +++++++++++
