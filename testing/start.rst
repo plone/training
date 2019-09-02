@@ -1,9 +1,11 @@
-Package setup
-=============
+How to test a Plone product
+===========================
 
-In this chapter we are going to create a new Plone package from scratch and use it to see different testing techniques.
+To better understand how to test a Plone product, the best thing is to create a new Plone package from scratch
+and use it to see different testing techniques.
 
-We are going to use also ``plonecli`` tool because it allows to easily create new Plone packages and features (content-types, views, vocabularies) with simple cli commands.
+We are going to use `plonecli <https://pypi.org/project/plonecli/>`_ tool heavily because it allows to easily create new Plone package
+and features (content-types, views, vocabularies) with simple commands.
 
 Create Package
 --------------
@@ -31,11 +33,11 @@ Install plonecli:
 
   $ pip install plonecli
 
-Create a new addon package:
+Create a new addon package where you want:
 
 .. code-block:: console
 
-  $ plonecli create addon src/plonetraining.testing
+  $ plonecli create addon plonetraining.testing
 
 
 Buildout
@@ -49,7 +51,7 @@ Run buildout:
   $ pip install -r requirements.txt
   $ bin/buildout
 
-Run tests:
+Run tests (plonecli provides some default tests when creating a new package):
 
 .. code-block:: console
 
