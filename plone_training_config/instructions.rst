@@ -98,11 +98,25 @@ The output should be similar to:
     :emphasize-lines: 40
 
     pbauer@bullet:/workspace/training_buildout$  ./bin/instance fg
-    2019-03-07 10:38:17,666 WARNI [Init:88][MainThread] Class Products.CMFFormController.ControllerPythonScript.ControllerPythonScript has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
-    2019-03-07 10:38:17,670 WARNI [Init:88][MainThread] Class Products.CMFFormController.ControllerValidator.ControllerValidator has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
-    2019-03-07 10:38:21,160 WARNI [plone.behavior:172][MainThread] Specifying 'for' in behavior 'Tiles' if no 'factory' is given has no effect and is superfluous.
-    2019-03-07 10:38:22,473 WARNI [PrintingMailHost:30][MainThread] Hold on to your hats folks, I'm a-patchin'
-    2019-03-07 10:38:22,474 WARNI [PrintingMailHost:124][MainThread]
+    2019-09-05 20:11:03,708 WARNING [Init:89][MainThread] Class Products.CMFFormController.ControllerPythonScript.ControllerPythonScript has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
+    2019-09-05 20:11:03,715 WARNING [Init:89][MainThread] Class Products.CMFFormController.ControllerValidator.ControllerValidator has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
+    2019-09-05 20:11:03,776 WARNING [Products.PDBDebugMode:31][MainThread]
+
+    ******************************************************************************
+
+    Debug-Mode enabled!
+
+    This will result in a pdb when a exception happens.
+    Turn off debug mode or remove Products.PDBDebugMode to disable.
+
+    See https://pypi.python.org/pypi/Products.PDBDebugMode
+
+    ******************************************************************************
+
+    2019-09-05 20:11:04,858 INFO    [chameleon.config:38][MainThread] directory cache: /Users/pbauer/workspace/training_buildout/var/cache.
+    2019-09-05 20:11:07,151 WARNING [plone.behavior:172][MainThread] Specifying 'for' in behavior 'Tiles' if no 'factory' is given has no effect and is superfluous.
+    2019-09-05 20:11:08,353 WARNING [PrintingMailHost:30][MainThread] Hold on to your hats folks, I'm a-patchin'
+    2019-09-05 20:11:08,353 WARNING [PrintingMailHost:124][MainThread]
 
     ******************************************************************************
 
@@ -120,8 +134,8 @@ The output should be similar to:
 
     ******************************************************************************
 
-    2019-03-07 10:38:22,510 INFO  [Zope:44][MainThread] Ready to handle requests
-    Starting server in PID 25230.
+    2019-09-05 20:11:08,390 INFO    [Zope:45][MainThread] Ready to handle requests
+    Starting server in PID 30620.
     Serving on http://0.0.0.0:8080
 
 
