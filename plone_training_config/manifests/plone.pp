@@ -1,6 +1,6 @@
 class plone {
 
-    $plone_version = "5.2rc1"
+    $plone_version = "5.2"
     $buildout_branch = "plone52"
 
     file { ['/home/vagrant/tmp',
@@ -54,20 +54,7 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         creates => '/home/vagrant/py37/bin/buildout',
         user => 'vagrant',
         cwd => '/home/vagrant',
-        before => Exec["download_buildout_cache"],
-        timeout => 0,
-    }
-
-    # Download the buildout-cache from dist.plone.org
-    # Try only once and rely on wget's default read timeout of 900s
-    exec {"wget -t 1 http://dist.plone.org/release/${plone_version}/buildout-cache.tar.bz2":
-        alias => "download_buildout_cache",
-        creates => "/home/vagrant/buildout-cache.tar.bz2",
-        cwd => '/home/vagrant',
-        user => 'vagrant',
-        group => 'vagrant',
-        before => Exec["unpack_buildout_cache"],
-        returns => [0,8], # no error if tarball is unavailable
+        before => Exec["checkout_training"],
         timeout => 0,
     }
 
