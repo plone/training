@@ -1,13 +1,15 @@
 .. _plone5-label:
 
-What's New in Plone 5 and 5.1
-=============================
+What's New in Plone 5, 5.1 and Plone 5.2
+========================================
 
 Plone 5.0 was released in September 2015. Plone 5 was a mayor release, that changed the content type framework, the user interface and the default design.
 
 Plone 5.1 was released in Oktober 2017 and holds a couple of smaller improvements.
 
-If you are already familiar with Plone 5 and 5.1 you can skip this section.
+Plone 5.2 was released in March 2019. Plone 5.2 is the first version that supports Python 3. It also has some improvements like a new drop-down navigation and built-in url-management.
+
+If you are already familiar with Plone 5.0, 5.1 and 5.2 you can skip this section.
 
 
 .. _plone5-theme-label:
@@ -197,3 +199,19 @@ Plone 5.1 comes with many incremental improvements. None of these changes the wa
 * "Retina" Image scales: Plone now has scales for high pixel density images.
 
 For a complete list of changes see https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_51.html#changes-between-plone-5-0-and-5-1
+
+
+Plone 5.2
+---------
+
+Plone 5.2 supports Python 2.7, 3.6 and 3.7. It is based on Zope 4.0 and runs WSGI. These three changes resulted in mayor changes under the hood but have only limited effect on end-users. Plone 5.2 also comes with a ton if bugfixes and a couple of nice improvement. Here are some noteworthy changes:
+
+* New navigation with dropdown. Site-Administrators can use the navigation control panel ``/@@navigation-controlpanel`` to configure the dropdown-navigation.
+
+* Merge Products.RedirectionTool into core. Site-Administrators can use the :guilabel:`URL Management` control panel (`/@@redirection-controlpanel`) to manage and add alternative URLs including bulk upload of alternative urls. As an Editor, you can see the :guilabel:`URL Management` link in the :guilabel:`actions` menu of a content item, and add or remove alternative URLs for this specific content item.
+
+* Plone 5.2 ships with plone.restapi
+
+* New Login. The ols skin-templates and skin-scipts were replace by browser-views that are much easier to customize.
+
+For the complete list of changes see https://github.com/plone/documentation/blob/5.2/manage/upgrading/version_specific_migration/upgrade_to_52.rst

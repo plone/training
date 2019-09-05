@@ -9,34 +9,27 @@ Installation & Setup
 Installing Plone
 ----------------
 
-.. only:: not presentation
 
-    The following table shows the Python versions required by Plone from version 3.x to 5.2.x:
+The following table shows the Python versions required by Plone from version 3.x to 5.2.x:
 
-    =========  ================
-      Plone         Python
-    =========  ================
-     3.x        2.4
-     4.0.x      2.6
-     4.1.x      2.6
-     4.2.x      2.6 or 2.7
-     4.3.x      2.7
-     5.0.x      2.7
-     5.1.x      2.7.9
-     5.2.x      2.7.14 or 3.6+
-    =========  ================
+=========  ================
+  Plone         Python
+=========  ================
+ 3.x        2.4
+ 4.0.x      2.6
+ 4.1.x      2.6
+ 4.2.x      2.6 or 2.7
+ 4.3.x      2.7
+ 5.0.x      2.7
+ 5.1.x      2.7.9
+ 5.2.x      2.7.14 or 3.6+
+=========  ================
 
-    (Hopefully you won't have to deal with any Plone sites older than version 4.3.x)
+(Hopefully you won't have to deal with any Plone sites older than version 4.3.x)
 
-    Plone 5.x requires a working Python 2.7 (or Python 3.6+ for Plone 5.2.x) and other system tools that not every OS provides.
-    The installation of Plone is different on every system.
-    Here are some ways that Python can be used:
-
-.. only:: presentation
-
-    Plone 4.3.x and Plone 5.x require a working Python 2.7 and other tools.
-
-    Installation is different on every system.
+Plone 5.x requires a working Python 2.7 (or Python 3.6+ for Plone 5.2.x) and other system tools that not every OS provides.
+The installation of Plone is different on every system.
+Here are some ways that Python can be installed:
 
 * use a Python that comes pre-installed in your operating system (most Linux Distributions and macOS have one)
 * use the `python buildout <https://github.com/collective/buildout.python>`_
@@ -44,16 +37,11 @@ Installing Plone
 * `Homebrew <https://brew.sh>`_ (macOS)
 * PyWin32 (Windows)
 
-.. only:: not presentation
-
-    macOS 10.8 - 10.14 and Ubuntu 14.04 come with a working default Python 2.7 built in.
-    These are the lucky ones.
-
 Most developers use their primary system to develop Plone.
 For complex setups they often use Linux virtual machines.
 
 * macOS: Use the system python and `Homebrew <https://brew.sh>`_ for some missing Linux tools.
-* Linux: Depending on your Linux flavor you might have to build python yourself and install some tools.
+* Linux: Depending on your Linux flavor you might have to install Python 3.7 yourself and install some tools.
 * Windows: Alan Runyan (one of Plone's founders) uses it. A downside: Plone seems to be running slower on Windows.
 
 Plone offers multiple options for being installed:
@@ -61,23 +49,24 @@ Plone offers multiple options for being installed:
 1. Unified installers (all 'nix, including macOS)
 2. A Vagrant/VirtualBox install kit (all platforms)
 3. A VirtualBox Appliance
-4. Use your own Buildout
+4. A `Windows installer <https://github.com/plone/WinPloneInstaller>`_
+5. Use your own Buildout
 
 Visit the `download page <https://plone.org/download>`_ to see all the options.
 
 
 .. only:: not presentation
 
-    For the training we will use option 2 and 4 to install and run Plone.
+    For the training you will use option 2 or 5 to install and run Plone.
     We will create our own Buildout and extend it as we wish.
-    We will do so in a Vagrant machine.
+    If you choose to do so you will run it in a Vagrant machine.
 
     For your own first experiments we recommend option 1 or 2 (if you have a Windows laptop or encounter problems).
     Later on you should be able to use your own Buildout (we will cover that later on).
 
 .. only:: presentation
 
-    For the training we will use option 2 and 4 to install and run Plone.
+    For the training we will use option 2 or 5 to install and run Plone.
 
 .. seealso::
 

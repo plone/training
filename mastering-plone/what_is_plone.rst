@@ -9,8 +9,8 @@ Plone is an open source Content Management System (CMS) built in Python.
 
 * Open-Source Enterprise-CMS
 * Written in Python
-* Plone 5.1 supports Python 2.7
-* Plone 5.2 will support Python 3.6+ and 2.7
+* Plone 5.1 and below supports Python 2.7
+* Plone 5.2 supports Python 3.7, 3.6 and 2.7
 * `RESTful hypermedia API <https://github.com/plone/plone.restapi/>`_
 * Based on the Web-Framework Zope
 * Database: "Zope Object Database" (ZODB) or ORM & SQL/Postgres/Oracle

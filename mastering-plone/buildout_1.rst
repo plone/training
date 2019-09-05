@@ -38,7 +38,7 @@ Here is a functioning minimal example from https://github.com/collective/minimal
 
     [buildout]
     parts = instance
-    extends = https://dist.plone.org/release/5-latest/versions.cfg
+    extends = https://dist.plone.org/release/5.2-latest/versions.cfg
 
     [instance]
     recipe = plone.recipe.zope2instance
@@ -117,7 +117,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
     [buildout]
     extends =
-        http://dist.plone.org/release/5.1.4/versions.cfg
+        http://dist.plone.org/release/5.2/versions.cfg
         versions.cfg
     extends-cache = extends-cache
 
@@ -146,6 +146,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
     eggs =
         Plone
+        Pillow
 
     # development tools
         plone.reload
@@ -189,7 +190,8 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     recipe = zc.recipe.egg
     eggs =
         ${buildout:test-eggs}
-        plone.app.robotframework[ride,reload,debug]
+        Pillow
+        plone.app.robotframework[reload,debug]
 
     [packages]
     recipe = collective.recipe.omelette
@@ -239,7 +241,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
     .. code-block:: cfg
 
         extends =
-            http://dist.plone.org/release/5.1.2/versions.cfg
+            http://dist.plone.org/release/5.2/versions.cfg
 
     This line tells Buildout to read another configuration file. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configurations that differ between different environments.
 
@@ -281,37 +283,29 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
     .. code-block:: cfg
 
         [versions]
-        # dev tools
-        Products.PDBDebugMode = 1.3.1
-        Products.PrintingMailHost = 1.1.0
-        pdbpp = 0.9.2
+        # dev tools and their dependencies
+        pdbpp = 0.10.0
         fancycompleter = 0.8
-        pyrepl = 0.8.4
-        colorama = 0.3.9
-        wmctrl = 0.3
+        pyrepl = 0.9.0
 
         # pins for Addons
-        collective.easyform = 2.0.0b5
+        collective.easyform = 2.1.0
+        Products.validation = 2.1.1
 
         # pins for mr.bob and bobtemplates.plone
-        MarkupSafe = 1.0
-        bobtemplates.plone = 3.4.1
-        mr.bob = 0.1.2
-        ply = 3.11
-        stringcase = 1.2.0
+        bobtemplates.plone = 4.1.3
         case-conversion = 2.1.0
-        regex = 2018.7.11
-
-        # pinns for tests
-        plone.testing = 5.1.1
+        mr.bob = 0.1.2
 
         # Some other pins from coredev
-        PyYAML = 3.13
         argh = 0.26.2
         pathtools = 0.1.2
-        watchdog = 0.8.3
-        chardet = 3.0.4
-        idna = 2.6
+        prompt-toolkit = 1.0.16
+        PyYAML = 5.1.2
+        regex = 2019.8.19
+        watchdog = 0.9.0
+        wcwidth = 0.1.7
+        wmctrl = 0.3
 
 
     This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file :file:`versions.cfg`.

@@ -214,7 +214,7 @@ To build the documentation follow these steps:
 
     git clone https://github.com/plone/training.git
     cd training
-    virtualenv --python=python2.7 .
+    python -m venv .
     $ source bin/activate
 
 Now install dependencies and build.
@@ -236,7 +236,7 @@ Build new
 
     git clone https://github.com/plone/training.git
     cd training
-    virtualenv --python=python2.7 .
+    python -m venv .
     source bin/activate
     pip install -r requirements.txt
     make html

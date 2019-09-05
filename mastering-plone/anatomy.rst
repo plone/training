@@ -232,12 +232,12 @@ Exercise
 
 Definition of the PYTHON_PATH makes up most of the `bin/instance` script's code.
 Look at the package list (and maybe also the links provided in the respective sections of this chapter).
-Try to identify 3 packages that belong to the original Zope2, 3 packages from CMF, 3 Zope Toolkit packages and 3 packages from the ZCA.
+Try to identify 3 packages that belong to Zope 4, 3 packages from CMF, 3 Zope Toolkit packages and 3 packages from the ZCA.
 
 ..  admonition:: Solution
     :class: toggle
 
-    * Zope2: Zope2, ZODB, Acquisition, AccessControl, ...
+    * Zope 4: Zope, ZODB, Acquisition, AccessControl, ...
     * CMF: Products.CMFCore, Products.CMFUid, Products.CMFEditions, ... Products.DCWorkflow doesn't fit the pattern but is a very important part of the CMF
     * ZTK: zope.browser, zope.container, zope.pagetemplate, ... You can find a complete list `here <https://dist.plone.org/versions/zopetoolkit-1-0-8-zopeapp-versions.cfg>`_
     * ZCA: zope.component, zope.interface, zope.event

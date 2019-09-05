@@ -36,9 +36,9 @@ First we update Ubuntu and install some packages.
     $ sudo apt-get install libz-dev
     $ sudo apt-get install nodejs
     $ sudo apt-get install npm
-    $ sudo apt-get install python-dev
-    $ sudo apt-get install python-tk
-    $ sudo apt-get install python-virtualenv
+    $ sudo apt-get install python3.7-dev
+    $ sudo apt-get install python3.7-tk
+    $ sudo apt-get install python3.7-venv
     $ sudo apt-get install subversion
     $ sudo apt-get install unzip
     $ sudo apt-get install vim
@@ -51,20 +51,20 @@ Then we create a virtual python environment using virtualenv. This is always a g
 
 .. code-block:: bash
 
-    $ virtualenv --no-site-packages /home/vagrant/py27
+    $ python3.7 -m venv /home/vagrant/py37
 
 
 Install zc.buildout, setuptools and other dependencies for the current version into the new virtualenv.
 
 .. code-block:: bash
 
-    $ /home/vagrant/py27/bin/pip install -r http://dist.plone.org/release/5.1.4/requirements.txt
+    $ /home/vagrant/py37/bin/pip install -r http://dist.plone.org/release/5.2/requirements.txt
 
 Now we download and unpack a buildout-cache that holds all the python packages that make up Plone. This is an optimisation: We could skip this step and have buildout download all packages individually from the `python packaging index PyPi <https://pypi.org>`_ but that takes much longer on a first install.
 
 .. code-block:: bash
 
-    $ wget http://dist.plone.org/release/5.1.4/buildout-cache.tar.bz2
+    $ wget http://dist.plone.org/release/5.2/buildout-cache.tar.bz2
     $ tar xjf buildout-cache.tar.bz2
 
 Then we check out our tutorial buildout from https://github.com/collective/training_buildout and build it.
@@ -79,7 +79,7 @@ Then we run buildout:
 
 .. code-block:: bash
 
-    $ /home/vagrant/py27/bin/buildout -c vagrant_provisioning.cfg
+    $ /home/vagrant/py37/bin/buildout -c vagrant_provisioning.cfg
 
 This will download many additional eggs that are not yet part of the buildout-cache and configure Plone to be ready to run.
 

@@ -1,6 +1,7 @@
 class plone {
 
-    $plone_version = "5.1.4"
+    $plone_version = "5.2"
+    $buildout_branch = "plone52"
 
     file { ['/home/vagrant/tmp',
             '/home/vagrant/.buildout',
@@ -38,9 +39,9 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # Create virtualenv
-    exec {'virtualenv --no-site-packages py27':
+    exec {'python3.7 -m venv py37':
         alias => "virtualenv",
-        creates => '/home/vagrant/py27',
+        creates => '/home/vagrant/py37',
         user => 'vagrant',
         cwd => '/home/vagrant',
         before => Exec["install_buildout_setuptools"],
@@ -48,32 +49,19 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
     }
 
     # Install zc.buildout, setuptools
-    exec {"/home/vagrant/py27/bin/pip install -r http://dist.plone.org/release/${plone_version}/requirements.txt":
+    exec {"/home/vagrant/py37/bin/pip install -r http://dist.plone.org/release/${plone_version}/requirements.txt":
         alias => "install_buildout_setuptools",
-        creates => '/home/vagrant/py27/bin/buildout',
+        creates => '/home/vagrant/py37/bin/buildout',
         user => 'vagrant',
         cwd => '/home/vagrant',
-        before => Exec["download_buildout_cache"],
-        timeout => 0,
-    }
-
-    # Download the buildout-cache from dist.plone.org
-    # Try only once and rely on wget's default read timeout of 900s
-    exec {"wget -t 1 http://dist.plone.org/release/${plone_version}/buildout-cache.tar.bz2":
-        alias => "download_buildout_cache",
-        creates => "/home/vagrant/buildout-cache.tar.bz2",
-        cwd => '/home/vagrant',
-        user => 'vagrant',
-        group => 'vagrant',
-        before => Exec["unpack_buildout_cache"],
-        returns => [0,8], # no error if tarball is unavailable
+        before => Exec["checkout_training"],
         timeout => 0,
     }
 
     # Unpack the buildout-cache to /home/vagrant/buildout-cache/
     exec {"tar xjf /home/vagrant/buildout-cache.tar.bz2":
         alias => "unpack_buildout_cache",
-        creates => "/home/vagrant/buildout-cache/eggs/Products.CMFPlone-${plone_version}-py2.7.egg/",
+        creates => "/home/vagrant/buildout-cache/eggs/Products.CMFPlone-${plone_version}-py3.7.egg/",
         user => 'vagrant',
         cwd => '/home/vagrant',
         before => Exec["checkout_training"],
@@ -87,12 +75,21 @@ extends-cache = /home/vagrant/buildout-cache/extends'),
         creates => '/vagrant/buildout',
         user => 'vagrant',
         cwd => '/vagrant',
+        before => Exec["branch_training"],
+        timeout => 0,
+    }
+
+    # select branch of training buildout
+    exec {'git checkout ${buildout_branch}':
+        alias => "branch_training",
+        user => 'vagrant',
+        cwd => '/vagrant/buildout',
         before => Exec["buildout_training"],
         timeout => 0,
     }
 
     # run training buildout
-    exec {'/home/vagrant/py27/bin/buildout -c vagrant_provisioning.cfg':
+    exec {'/home/vagrant/py37/bin/buildout -c vagrant_provisioning.cfg':
         alias => "buildout_training",
         creates => '/vagrant/buildout/bin/instance',
         user => 'vagrant',
