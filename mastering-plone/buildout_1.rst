@@ -134,8 +134,6 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     auto-checkout =
         ploneconf.site
     #    starzel.votable_behavior
-        collective.easyform
-        Products.PrintingMailHost
 
     parts =
         checkversions
@@ -148,6 +146,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
     eggs =
         Plone
+        Pillow
 
     # development tools
         plone.reload
@@ -225,8 +224,6 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     ploneconf.site = git https://github.com/collective/ploneconf.site.git pushurl=git@github.com:collective/ploneconf.site.git
     starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
 
-    # checkout for py3 support
-    collective.easyform = git https://github.com/collective/collective.easyform.git branch=python3
 
 When you run :command:`./bin/buildout` without any arguments, Buildout will look for this file.
 
@@ -244,7 +241,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
     .. code-block:: cfg
 
         extends =
-            http://dist.plone.org/release/5.1.2/versions.cfg
+            http://dist.plone.org/release/5.2/versions.cfg
 
     This line tells Buildout to read another configuration file. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configurations that differ between different environments.
 
@@ -287,35 +284,28 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
 
         [versions]
         # dev tools and their dependencies
-        colorama = 0.3.9
+        pdbpp = 0.10.0
         fancycompleter = 0.8
-        Paste = 3.0.7
-        pdbpp = 0.9.7
-        pyrepl = 0.8.4
-        wmctrl = 0.3
+        pyrepl = 0.9.0
 
         # pins for Addons
-        collective.easyform = 2.0.2.dev0
+        collective.easyform = 2.1.0
         Products.validation = 2.1.1
 
         # pins for mr.bob and bobtemplates.plone
-        bobtemplates.plone = 3.6.0
+        bobtemplates.plone = 4.1.3
         case-conversion = 2.1.0
-        MarkupSafe = 1.0
         mr.bob = 0.1.2
-        ply = 3.11
-        regex = 2019.2.21
-        stringcase = 1.2.0
 
         # Some other pins from coredev
         argh = 0.26.2
-        chardet = 3.0.4
-        idna = 2.6
         pathtools = 0.1.2
-        prompt-toolkit = 1.0.15
-        PyYAML = 3.13
+        prompt-toolkit = 1.0.16
+        PyYAML = 5.1.2
+        regex = 2019.8.19
         watchdog = 0.9.0
         wcwidth = 0.1.7
+        wmctrl = 0.3
 
 
     This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file :file:`versions.cfg`.
