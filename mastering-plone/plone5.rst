@@ -204,14 +204,16 @@ For a complete list of changes see https://docs.plone.org/manage/upgrading/versi
 Plone 5.2
 ---------
 
-Plone 5.2 supports Python 2.7, 3.6 and 3.7. It is based on Zope 4.0 and runs WSGI. These three changes resulted in mayor changes under the hood but have only limited effect on end-users. Plone 5.2 also comes with a ton if bugfixes and a couple of nice improvement. Here are some noteworthy changes:
+Plone 5.2 supports Python 2.7, 3.6 and 3.7. It is based on Zope 4.0 and runs WSGI. These three are mayor changes under the hood but have only limited effect on end-users and development of add-ons.
+
+Plone 5.2 also comes with a ton if bugfixes and a couple of nice improvement. Here are some noteworthy changes:
 
 * New navigation with dropdown. Site-Administrators can use the navigation control panel ``/@@navigation-controlpanel`` to configure the dropdown-navigation.
 
+* Plone 5.2 ships with `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/>`_
+
+* New Login. The old skin-templates and skin-scripts were replaced by browser-views that are much easier to customize.
+
 * Merge Products.RedirectionTool into core. Site-Administrators can use the :guilabel:`URL Management` control panel (`/@@redirection-controlpanel`) to manage and add alternative URLs including bulk upload of alternative urls. As an Editor, you can see the :guilabel:`URL Management` link in the :guilabel:`actions` menu of a content item, and add or remove alternative URLs for this specific content item.
-
-* Plone 5.2 ships with plone.restapi
-
-* New Login. The ols skin-templates and skin-scipts were replace by browser-views that are much easier to customize.
 
 For the complete list of changes see https://github.com/plone/documentation/blob/5.2/manage/upgrading/version_specific_migration/upgrade_to_52.rst
