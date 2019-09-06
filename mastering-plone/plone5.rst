@@ -216,4 +216,9 @@ Plone 5.2 also comes with a ton if bugfixes and a couple of nice improvement. He
 
 * Merge Products.RedirectionTool into core. Site-Administrators can use the :guilabel:`URL Management` control panel (`/@@redirection-controlpanel`) to manage and add alternative URLs including bulk upload of alternative urls. As an Editor, you can see the :guilabel:`URL Management` link in the :guilabel:`actions` menu of a content item, and add or remove alternative URLs for this specific content item.
 
-For the complete list of changes see https://github.com/plone/documentation/blob/5.2/manage/upgrading/version_specific_migration/upgrade_to_52.rst
+
+..  seealso::
+
+    * `Complete list of changes for Plone 5.2 <https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_52.html>`_
+    * `Upgarde add-ons to Python 3 <https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_python3.html>`_
+    * `Migrate a ZODB from Python 2.7 to Python 3 <https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_zodb_to_python3.html>`_
