@@ -11,8 +11,8 @@ We are going to use a python unit testing library called ``unittest``.
 
     More detailed documentation could be found in `unittest <https://docs.python.org/2.7/library/unittest.html>`_ documentation.
 
-Create our first test
----------------------
+Create our first unit test
+--------------------------
 
 First of all we need to create a new file in ``tests`` folder.
 
