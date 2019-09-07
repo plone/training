@@ -13,7 +13,7 @@ Views III: A Talk List
 
 In this part you will:
 
-* Write a python class to get all talks from the catalog
+* Write a Python class to get all talks from the catalog
 * Write a template to display the talks
 * Improve the table
 
@@ -36,7 +36,7 @@ Using portal_catalog
 
 Let's say we want to show a list of all the talks that were submitted for our conference. We can just go to the folder and select a display method that suits us. But none does because we want to show the target audience in our listing.
 
-So we need to get all the talks. For this we use the python class of the view to query the catalog for the talks.
+So we need to get all the talks. For this we use the Python class of the view to query the catalog for the talks.
 
 The catalog is like a search engine for the content on our site. It holds information about all the objects as well as some of their attributes like title, description, workflow_state, keywords that they were tagged with, author, content_type, its path in the site etc. But it does not hold the content of "heavy" fields like images or files, richtext fields and fields that we just defined ourselves.
 
@@ -287,15 +287,15 @@ The template for the listing
 
 Next you create a template in which you use the results of the method 'talks'.
 
-Try to keep logic mostly in python. This is for two reasons:
+Try to keep logic mostly in Python. This is for two* reasons (and by "two", we mean "three"):
 
 Readability:
-    It's much easier to read python than complex tal-structures
+    It's much easier to read Python than complex TAL structures
 
 Speed:
-    Python-code is faster than code executed in templates. It's also easy to add caching to methods.
+    Python code is faster than code executed in templates. It's also easy to add caching to methods.
 
-DRY:
+DRY, or "Don't Repeat Yourself":
     In Python you can reuse methods and easily refactor code. Refactoring TAL usually means having to do big changes in the html-structure which results in incomprehensible diffs.
 
 
@@ -310,7 +310,7 @@ View:
 Controller:
     the view
 
-The view and the controller are very much mixed in Plone. Especially when you look at some of the older code of Plone you'll see that the policy of keeping logic in python and representation in templates was not always enforced.
+The view and the controller are very much mixed in Plone. Especially when you look at some of the older code of Plone you'll see that the policy of keeping logic in Python and representation in templates was not always enforced.
 
 But you should nevertheless do it! You'll end up with more than enough logic in the templates anyway.
 
