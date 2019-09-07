@@ -1,7 +1,8 @@
 Testing a Dexterity content-type
 ================================
 
-The most common thing that we could develop in Plone are content-types. Let's see how to test if a new content-type works like expected.
+The most common thing that we could develop in Plone are content-types.
+Let's see how to test if a new content-type works like expected.
 
 Create a new content-type
 -------------------------

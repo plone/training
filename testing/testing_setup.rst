@@ -49,10 +49,10 @@ We are actually executing this one:
 
     ./bin/test -s plonetraining.testing --auto-color --auto-progress
 
-``-s plonetraining.testing``in particular means that we are executing all tests from a specific test-suite (plonetraining.testing).
+``-s plonetraining.testing`` in particular means that we are executing all tests from a specific test-suite (plonetraining.testing).
 
 .. note::
-    
+
     If we have a project with several products and we want to test them, we could add a similar configuration in our project's buildout.
 
     In ``eggs`` option we could list all packages that we want to test.
