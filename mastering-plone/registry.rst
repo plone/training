@@ -1,7 +1,7 @@
 .. _registry-label:
 
 Manage Settings with Registry, Control Panels and Vocabularies
-=============================================================
+==============================================================
 
 .. sidebar:: Get the code!
 
