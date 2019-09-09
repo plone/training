@@ -10,7 +10,7 @@ Plone REST API
         git checkout restapi
 
 
-In this chapter, we will have a look at the relatively new add-on `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_.
+In this chapter, we will have a look at the relatively new `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_, which is a core package as of Plone 5.2.
 
 It provides a hypermedia API to access Plone content using REST (Representational State Transfer).
 
