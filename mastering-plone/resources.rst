@@ -96,5 +96,5 @@ Open the file :file:`profiles/default/registry.xml` and add the following:
 
 The resources that are part of the registered bundle will now be deployed with every request.
 
-For more information on working with CSS and JavaScript resources, please see the docs about `resource registry <https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html>`_
+For more information on working with CSS and JavaScript resources, please see the `resource registry documentation <https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html>`_
 or the `Advanced Diazo training class <https://training.plone.org/5/theming/adv-diazo.html>`_.
