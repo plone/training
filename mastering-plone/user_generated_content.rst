@@ -46,7 +46,7 @@ Grant local roles
 
 * Go to *Sharing* and grant the role *Can add* to the group *logged-in users*. Now every logged-in user can add content in this folder (and only this folder).
 
-Now all logged-in users can create and submit talks in this folder.
+By combining the constrain types and the local roles on this folder, we have made it so only logged-in users can create and submit talks in this folder.
 
 
 .. _user-content-custom-workflow-label:
