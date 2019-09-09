@@ -16,6 +16,7 @@ The Volto Hands-On training is intended as a half day training for people who al
     :caption: Volto Hands-On
 
     intro
+    quickstart
 
     about/index
     about/glossary

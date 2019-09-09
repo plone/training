@@ -12,7 +12,7 @@ Tell us about yourselves:
 * Name, company, country...
 * What is your Plone experience?
 * What is your JavaScript experience?
-* What are your expectations for this tutorial?
+* What are your expectations for this hands on session?
 
 .. _voltohandson-intro-what-will-we-do-label:
 
@@ -22,16 +22,16 @@ What will we do?
 Some technologies and tools we use during the training:
 
 * React https://reactjs.org/
-* create-volto-app
 * Yarn https://yarnpkg.com
 * JSX
 * Redux https://redux.js.org
 * React-Router https://reacttraining.com/react-router/
 * Volto https://github.com/plone/volto
+* create-volto-app
 * Plone!
 
-This training assumes that you've already taken (presentially in the past Tokyo Plone Conference, or offline) the existing React and Volto trainings.
-However, we will be revisiting some of the concepts during the training.
+This training assumes that you've already taken (either presentially in the past Tokyo Plone Conference, or offline) the existing React and Volto trainings.
+However, we will be revisiting the some of the React training basic concepts during the training along with the Volto customization and extensibility story.
 
 .. _voltohandson-intro-what-to-expect-label:
 
