@@ -17,7 +17,7 @@ How do prospective speakers submit talks? We let them register on the site and g
 In this chapter we:
 
 * allow self-registration
-* constrain types on the talk folder
+* constrain which content types can be added to the talk folder
 * grant local roles
 * create a custom workflow for talks
 
@@ -28,7 +28,7 @@ Self-registration
 -----------------
 
 * Go to the Security control panel at http://localhost:8080/Plone/@@security-controlpanel and Enable self-registration
-* Leave "Enable User Folders" off unless you want a community site.
+* Leave "Enable User Folders" off unless you want a community site, in which users can create any content they want in their home folder
 
 
 .. _user-content-constrain-types-label:
@@ -36,7 +36,7 @@ Self-registration
 Constrain types
 ---------------
 
-* On the talk folder select `Restrictions… <http://localhost:8080/Plone/the-event/talks/folder_constraintypes_form>`_ from the *Add new* menu. Only allow to add talks.
+* On the talk folder select `Restrictions… <http://localhost:8080/Plone/the-event/talks/folder_constraintypes_form>`_ from the *Add new* menu. Only allow adding talks.
 
 
 .. _user-content-local-roles-label:
@@ -44,9 +44,9 @@ Constrain types
 Grant local roles
 -----------------
 
-* Go to *Sharing* and grant the role *Can add* to the group logged-in users. Now every user can add content in this folder (and only this folder).
+* Go to *Sharing* and grant the role *Can add* to the group *logged-in users*. Now every logged-in user can add content in this folder (and only this folder).
 
-Now all logged-in users can create and submit talks in this folder with the permission of the default workflow.
+By combining the constrain types and the local roles on this folder, we have made it so only logged-in users can create and submit talks in this folder.
 
 
 .. _user-content-custom-workflow-label:
@@ -54,7 +54,7 @@ Now all logged-in users can create and submit talks in this folder with the perm
 A custom workflow for talks
 ---------------------------
 
-We still need to fix a problem: Authenticated users can see all talks, even the ones of other users in the private state. Since we don't want this we will create a modified workflow for talks. The new workflow will only let them see and edit talks they created themselves and not the ones of other users.
+We still need to fix a problem: Authenticated users can see all talks, including those of other users, even if those talks are in the private state. Since we don't want this, we will create a modified workflow for talks. The new workflow will only let them see and edit talks they created themselves and not the ones of other users.
 
 * Go to the :menuselection:`ZMI --> portal_workflow`
 * See how talks have the same workflow as most content, namely :guilabel:`(Default)`
@@ -68,7 +68,7 @@ We still need to fix a problem: Authenticated users can see all talks, even the 
 
 .. note::
 
-    The add-on `plone.app.workflowmanager <https://pypi.org/project/plone.app.workflowmanager>`_ provides a much nicer user-interface for this. The problem is you need a big screen for it and it can be pretty confusing as well.
+    The add-on `plone.app.workflowmanager <https://pypi.org/project/plone.app.workflowmanager>`_ provides a much nicer graphical user interface for this. The problem is you need a big screen to work with complex workflows.
 
 Done.
 

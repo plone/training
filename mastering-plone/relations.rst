@@ -1,9 +1,9 @@
 Relations
 =========
 
-You can model relationships between content items by placing them in a hierarchy (a folder *speakers* containing the (folderish) speakers and within each speaker the talks) or by linking them to each other in Richtext-Fields. But where would you store a talk that two speakers give together?
+You can model relationships between content items by placing them in a hierarchy (a folder *speakers* containing the (folderish) speakers and within each speaker the talks) or by linking them to each other in Richtext fields. But where would you store a talk that two speakers give together?
 
-Relations allow developers to model relationships between objects without a links or a hierarchy. The behavior :py:class:`plone.app.relationfield.behavior.IRelatedItems` provides the field :guilabel:`Related Items` in the tab :guilabel:`Categorization`. That field simply says ``a`` is somehow related to ``b``.
+Relations allow developers to model relationships between objects without using links or a hierarchy. The behavior :py:class:`plone.app.relationfield.behavior.IRelatedItems` provides the field :guilabel:`Related Items` in the tab :guilabel:`Categorization`. That field simply says ``a`` is somehow related to ``b``.
 
 By using custom relations you can model your data in a much more meaningful way.
 
@@ -59,16 +59,16 @@ Instead of using a named vocabulary we can also use ``source``:
         required=False,
     )
 
-To ``CatalogSource`` you can pass the same argument that you use for catalog-queries.
-This makes it very flexible to limit relateable items by type, path, date etc.
+You can pass to ``CatalogSource`` the same arguments you use for catalog queries.
+This makes it very flexible for limiting relateable items by type, path, date, and so on.
 
-For even more flexibility you can create your own `dynamic vocabularies <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html#dynamic-sources>`_.
+For even more flexibility, you can create your own `dynamic vocabularies <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html#dynamic-sources>`_.
 
 
 Accessing and displaying related items
 --------------------------------------
 
-One would think that it would be the easiest approach to simply use the render-method of the default-widget like we did in the chapter "Views II: A Default View for “Talk”". Sadly that is wrong. Adding the appropriate code to the template:
+One would think that it would be easiest to use the render method of the default widget, like we did in the chapter "Views II: A Default View for “Talk”". Sadly, that is wrong. Adding the appropriate code to the template:
 
 .. code-block:: html
 
@@ -82,9 +82,9 @@ would only render the UIDs of the related items:
         1ccb5787517947da90a8ca32d6251c57
     </span>
 
-This is not very useful but anyway it is very likely that you want to control closely how to render these items.
+This is not very useful but it is very likely that you want to control closely how to render these items.
 
-So we add a method to the view to return the related items so that we're able to render anyway we like.
+So, we add a method to the view to return the related items so that we're able to render anyway we like.
 
 .. code-block:: python
 
@@ -107,9 +107,9 @@ We use :py:meth:`rel.to_path` and use the items path to query the catalog for it
 
     Using the path sounds a little complicated and it would indeed be more convenient if a :py:class:`RelationItem` would contain the ``UID`` (so we can query the catalog for that) or if the ``portal_catalog`` would index the ``IntId``. But that's the way it is for now.
 
-For reference look at how the default viewlet displays the information for related items stored by the behavior :py:class:`IRelatedItems`. See how it does exactly the same in ``related2brains``.
-This is the Python-path for the viewlet: :py:class:`plone.app.layout.viewlets.content.ContentRelatedItems`
-This is the file-path for the template: :file:`plone/app/layout/viewlets/document_relateditems.pt`
+For reference, look at how the default viewlet displays the information for related items stored by the behavior :py:class:`IRelatedItems`. See how it does exactly the same in ``related2brains``.
+This is the Python path for the viewlet: :py:class:`plone.app.layout.viewlets.content.ContentRelatedItems`
+This is the file path for the template: :file:`plone/app/layout/viewlets/document_relateditems.pt`
 
 
 Creating RelationFields through the web
@@ -117,10 +117,10 @@ Creating RelationFields through the web
 
 It is surprisingly easy to create RelationFields through the web
 
-- In the dexterity schema-editor add a new field and select *Relation List* or *Relation Choice*, depending on whether you want to relate to multiple items or not.
-- When configuring the field you can even select the content-type the relation should be limited to.
+- Using the Dexterity schema editor, add a new field and select *Relation List* or *Relation Choice*, depending on whether you want to relate to multiple items or not.
+- When configuring the field you can even select the content type the relation should be limited to.
 
-When you click on ``Edit xml field model`` you will see the fields in the xml-schema:
+When you click on ``Edit XML field model`` you will see the fields in the XML schema:
 
 RelationChoice:
 
@@ -154,13 +154,13 @@ The stack
 ---------
 
 Relations are based on `zc.relation <https://pypi.org/project/zc.relation/>`_.
-This package allows to store transitive and intransitive relationships.
+This package stores transitive and intransitive relationships.
 It allows for complex relationships and searches along them.
 Because of this functionality, the package is a bit complicated.
 
 The package `zc.relation` provides its own catalog, a relation catalog.
 This is a storage optimized for the queries needed.
-`zc.relation` is sort of an outlier with regards to zope documentation. It has extensive documentation, with a good level of doctests for explaining things.
+`zc.relation` is sort of an outlier with regards to Zope documentation. It has extensive documentation, with a good level of doctests for explaining things.
 
 You can use `zc.relation` to store the objects and its relations directly into the catalog.
 But the additional packages that make up the relation functionality don't use the catalog this way.
@@ -176,7 +176,7 @@ Widgets are provided by `plone.app.z3cform` and some converters are provided by 
 The widget that Plone uses can also store objects directly.
 Because of this, the following happens when saving a relation via a form:
 
-1. The html shows some nice representation of selectable objects.
+1. The HTML shows some nice representation of selectable objects.
 2. When the user submits the form, selected items are submitted by their UUIDs.
 3. The Widget retrieves the original object with the UUID.
 4. Some datamanager gets another unique ID from an IntID Tool.
@@ -196,7 +196,7 @@ There are alternatives to using Relations. You could instead just store the UUID
 But using real relations and the catalog allows for very powerful things.
 The simplest concrete advantage is the possibility to see what links to your object.
 
-The built-in linkintegrity-feature of Plone 5 is also built using relations.
+The built-in linkintegrity feature of Plone 5 is also implemented using relations.
 
 
 RelationValues
@@ -212,13 +212,13 @@ So the API for getting the target is:
 - `to_object`
 
 In addition, the relation value knows under which attribute it has been stored as `from_attribute`. It is usually the name of the field with which the relation is created.
-But it can also be the name of a relation that is created by code, e.g. linkintegrity-relations (`isReferencing`) or the relation between a working copy and the original (`iterate-working-copy`).
+But it can also be the name of a relation that is created by code, e.g. linkintegrity relations (`isReferencing`) or the relation between a working copy and the original (`iterate-working-copy`).
 
 
 Accessing relations and backrelations from code
 -----------------------------------------------
 
-If you want to find out what objects are related to each other, you use the relation catalog. Here is a convenience-method that allows you to find all kinds of relations.
+If you want to find out which objects are related to each other, you use the relation catalog. Here is a convenience method that allows you to find all kinds of relations.
 
 .. code-block:: python
 

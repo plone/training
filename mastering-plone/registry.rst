@@ -1,7 +1,7 @@
 .. _registry-label:
 
-Manage Settings with Registry, Controlpanels and Vocabularies
-=============================================================
+Manage Settings with Registry, Control Panels and Vocabularies
+==============================================================
 
 .. sidebar:: Get the code!
 
@@ -15,13 +15,13 @@ Manage Settings with Registry, Controlpanels and Vocabularies
 In this part you will:
 
 * Store a custom setting in a registry
-* Create a controlpanel using z3c.form to allow setting that value
+* Create a control panel using z3c.form to allow setting that value
 
 
 Topics covered:
 
 * plone.app.registry
-* controlpanels
+* control panels
 
 
 The Registry
@@ -45,13 +45,13 @@ Let's store two values in the registry:
 - The date of the conference
 - Is talk submission open or closed
 
-You cannot create values ttw, instead they need to be registered using Generic Setup.
+You cannot create values through the web; instead, you need to register them using Generic Setup.
 
 Open the file :file:`profiles/default/registry.xml`. You already registered several new settings in there:
 
 - You enabled self registration
-- You stored a site-logo
-- You registered additional criteria useable for Collections
+- You stored a site logo
+- You registered additional criteria usable for Collections
 
 
 Adding the following code to :file:`registry.xml`. This creates a new value in the registry upon installation of the package.
@@ -83,7 +83,7 @@ When creating a new site a lot of settings are created in the same way. See http
 Accessing and modifying values in the registry
 ----------------------------------------------
 
-In python you can access the registry like this:
+In Python you can access the registry like this:
 
 
 ..  code-block:: python
@@ -103,12 +103,12 @@ In python you can access the registry like this:
     api.portal.set_registry_record('ploneconf.talk_submission_open', True)
 
 
-Add a custom controlpanel
--------------------------
+Add a custom control panel
+--------------------------
 
-When you want to add a custom controlpanel it is usually more convenient to register the fields not manually like above but as field in a schema, similar to a content-types schema.
+When you want to add a custom control panel it is usually more convenient to register the fields, not manually as above, but as fields in a schema, similar to that of a content type schema.
 
-For this you define a interface for the schema and a view that auto-generates a form from the schema. In :file:`browser/configure.zcml` add:
+For this you define an interface for the schema and a view that auto-generates a form from the schema. In :file:`browser/configure.zcml` add:
 
 ..  code-block:: xml
 
@@ -158,16 +158,16 @@ Add a file :file:`browser/controlpanel.py`:
         PloneconfControlPanelForm, ControlPanelFormWrapper)
 
 
-With this way of using fields you don't have to register the values in :file:`registry.xml`, instead you have to register the interface:
+With this way of using fields you don't have to register the values in :file:`registry.xml`. Instead, you have to register the interface:
 
 ..  code-block:: xml
 
     <records interface="ploneconf.site.browser.controlpanel.IPloneconfControlPanel"
              prefix="ploneconf" />
 
-After reinstalling the package (to load the registry-entry) you can access the controlpanel at http://localhost:8080/Plone/@@ploneconf-controlpanel.
+After reinstalling the package (to load the registry entry) you can access the control panel at http://localhost:8080/Plone/@@ploneconf-controlpanel.
 
-To make it show up in the general controlpanel at http://localhost:8080/Plone/@@overview-controlpanel you have to register it with GenericSetup.
+To make it show up in the general control panel at http://localhost:8080/Plone/@@overview-controlpanel you have to register it with GenericSetup.
 Add a file :file:`profiles/default/controlpanel.xml`:
 
 ..  code-block:: xml
@@ -187,7 +187,7 @@ Add a file :file:`profiles/default/controlpanel.xml`:
       </configlet>
     </object>
 
-Again, after applying the profile (reinstall the package or write a upgrade-step) your controlpanel shows up in http://localhost:8080/Plone/@@overview-controlpanel.
+Again, after applying the profile (reinstall the package or write a upgrade-step) your control panel shows up in http://localhost:8080/Plone/@@overview-controlpanel.
 
 
 Vocabularies
@@ -196,8 +196,8 @@ Vocabularies
 Do you remember the field `rooms`? We provided several options to chose from.
 But who says that the next conference will have the same rooms?
 These values should be configurable by the admin.
-The admin could go to the dexterity-controlpanel and change the values but we will use a different approach.
-We will allow the rooms to be added in the controlpanel and use these values in the talk-schema by registering a vocabulary.
+The admin could go to the Dexterity control panel and change the values but we will use a different approach.
+We will allow the rooms to be added in the control panel and use these values in the talk-schema by registering a vocabulary.
 
 Add a new field to :py:class:`IPloneconfControlPanel`:
 
@@ -243,7 +243,7 @@ Note:
 * Plone comes with many useful vocabularies that you can use in your own projects. See https://github.com/plone/plone.app.vocabularies/ for a list of them.
 * We turn the values from the registry into a dynamic `SimpleVocabulary` that can be used in the schema.
 * You could use the context with which the vocabulary is called or the request (using `getRequest` from `from zope.globalrequest import getRequest`) to constrain the values in the vocabulary.
-* We use the handy helper-method `safe_simplevocabulary_from_values` to create the vocabulary since the `token` of a `SimpleTerm` in a `SimpleVocabulary` needs to be bytes, not unicode.
+* We use the handy helper method `safe_simplevocabulary_from_values` to create the vocabulary since the `token` of a `SimpleTerm` in a `SimpleVocabulary` needs to be bytes, not unicode.
 * You can write your own helper to further control the creation of the vocabulary terms. The `value` is stored on the object, the `token` used to communicate with the widget during editing and `title` is what is displayed in the widget.
   This example allows you to translate the displayed title while keeping the value stored on the object the same in all languages:
 
@@ -259,7 +259,7 @@ Note:
               [SimpleTerm(value=i, token=b2a_qp(i.encode('utf-8')), title=_(i)) for i in values],
           )
 
-Use the new vocabulary in the talk-schema. Edit :file:`content/talk.xml`
+Use the new vocabulary in the talk schema. Edit :file:`content/talk.xml`
 
 ..  code-block:: xml
     :linenos:
@@ -275,7 +275,7 @@ Use the new vocabulary in the talk-schema. Edit :file:`content/talk.xml`
     </field>
 
 
-In a python-schema that would look like this:
+In a Python schema, that would look like this:
 
 ..  code-block:: python
 
@@ -286,7 +286,7 @@ In a python-schema that would look like this:
         required=False,
     )
 
-A admin can now configure the rooms available for the conference.
+An admin can now configure the rooms available for the conference.
 
 We could use the same pattern for the fields `type_of_talk` and `audience`.
 
