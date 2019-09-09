@@ -34,7 +34,7 @@ using the overrides-tab of the resource registry.
 
 Let's create a file :file:`ploneconf.css` in the :file:`static` folder with some CSS:
 
-.. code-block:: css
+.. code-block:: CSS
    :linenos:
 
     header #portal-header #portal-searchbox .searchSection {
@@ -60,7 +60,7 @@ It hides the :guilabel:`only in current section` below the search-box (we could 
 
 It also hides the event-fields we added in :ref:`events-label` from people submitting their talks.
 
-For exiting CSS you take the training :ref:`theming-label`.
+For exciting CSS, you should take the :ref:`theming-label` training class.
 
 If we now access http://localhost:8080/Plone/++plone++ploneconf.site/ploneconf.css we see our CSS file.
 
@@ -69,9 +69,9 @@ Also add a :file:`ploneconf.js` in the same folder but leave it empty for now. Y
 How do our JavaScript and CSS files get used when visiting the page?
 For now the new files are accessible in the browser but we want Plone to use them every time we access the page.
 
-Adding them directly into the HTML is not a good solution, having many CSS and JS files slows down the page loading.
+Adding them directly into the HTML is not a good solution, because having many CSS and JS files slows down the page loading.
 
-For this we need to register a *bundle* that contains these files.
+Instead, we need to register a *bundle* that contains these files.
 Plone will then make sure that all files that are part of this bundle are also deployed.
 
 We need to register our resources with GenericSetup.
@@ -96,5 +96,5 @@ Open the file :file:`profiles/default/registry.xml` and add the following:
 
 The resources that are part of the registered bundle will now be deployed with every request.
 
-For more infos please see the docs about `resource registry <https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html>`_
-or this `training part <https://training.plone.org/5/theming/adv-diazo.html>`_.
+For more information on working with CSS and JavaScript resources, please see the docs about `resource registry <https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html>`_
+or the `Advanced Diazo training class <https://training.plone.org/5/theming/adv-diazo.html>`_.
