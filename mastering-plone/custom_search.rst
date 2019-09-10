@@ -43,8 +43,8 @@ Examples:
     * Programming using Vocabularies: https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html
 
 
-collective.portlet.collectionfilter
------------------------------------
+collective.collectionfilter
+---------------------------
 
 A more lightweight solution for custom searches and faceted navigation is `collective.collectionfilter <https://pypi.org/project/collective.collectionfilter>`_.
 By default it allows you to search among the results of a collection and/or filter the results by keywords, author or type.

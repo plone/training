@@ -415,7 +415,7 @@ The ``column ..`` entries allow us to display the values of these indexes in the
     The new indexes are still empty.
     We'll have to reindex them.
     To do so by hand go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes, select the new indexes and click :guilabel:`Reindex`.
-    We could also rebuild the whole catalog by going to the :guilabel:`advanced`-tab and clicking :guilabel:`Clear and Rebuild`.
+    We could also rebuild the whole catalog by going to the :guilabel:`Advanced` tab and clicking :guilabel:`Clear and Rebuild`.
     For large sites that can take a long time.
 
     We could also write an upgrade step to enable the catalog indexes and reindex all talks:
@@ -448,7 +448,7 @@ The new indexes behave like the ones that Plone has already built in:
     >>> (Pdb) brain.speaker
     u'David Glick'
 
-We now can use the new indexes to improve the ``talklistview`` so we don't have to *wake up* the objects any more.
+We now can use the new indexes to improve the ``talklistview`` so we don't have to *wake up* the objects anymore.
 Instead we use the brains' new attributes.
 
 .. code-block:: python

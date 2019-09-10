@@ -55,7 +55,7 @@ Let's create a file :file:`ploneconf.css` in the :file:`static` folder with some
         display: block;
     }
 
-The css is not very exciting.
+The CSS is not very exciting.
 It hides the :guilabel:`only in current section` below the search-box (we could also overwrite the viewlet, but ...).
 
 It also hides the event-fields we added in :ref:`events-label` from people submitting their talks.
