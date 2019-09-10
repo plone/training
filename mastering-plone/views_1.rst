@@ -20,7 +20,7 @@ In this part you will:
 
 Topics covered:
 
-* zcml
+* ZCML
 
 .. _views1-simple-label:
 
@@ -30,7 +30,7 @@ A simple browser view
 Before writing the talk view itself we step back and have a brief look at views and templates.
 
 A view in Plone is usually a :py:class:`BrowserView`.
-It can hold a lot of cool python code but we will first focus on the template.
+It can hold a lot of cool Python code but we will first focus on the template.
 
 Edit the file ``browser/configure.zcml`` and register a new view called *training*:
 
@@ -79,6 +79,6 @@ You now have everything in place to learn about page templates.
 
 ..  note::
 
-   The view ``training`` has no python class registered for it but only a template.
-   It acts as if it had an empty python class inheriting from ``Products.Five.browser.BrowserView``
+   The view ``training`` has no Python class registered for it but only a template.
+   It acts as if it had an empty Python class inheriting from ``Products.Five.browser.BrowserView``
    but the way that happens is actually quite a bit of magic...

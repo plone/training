@@ -95,7 +95,7 @@ Types of tests
     ~~~~~~~~~~~~~~~~
     So far, it looks like only acceptance tests can test JavaScript.
     Acceptance tests are also very new. This means we had no test story for testing JavaScript.
-    In Plone 5, we have the mockup framework to write JavaScript components and the mockup framework provides scaffolding for testing JavaScript with xxx.
+    In Plone 5, we have the mockup framework to write JavaScript components. The mockup framework provides scaffolding for testing JavaScript.
     While these tests use a real browser of some sort, they fall into the category of unit tests, because you have no database server available to generate proper HTML.
 
     Doctests
@@ -181,7 +181,7 @@ Plone tests
 Getting started
 ~~~~~~~~~~~~~~~
 
-Mr.bob already created the testing layers.
+`mr.bob` already created the testing layers.
 We will go through them now.
 
 Next, it adds a method for testing that your add-on gets properly installed.

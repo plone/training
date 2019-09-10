@@ -19,7 +19,7 @@ Topics covered:
 
 * packages (omelette)
 * z3c.jbot
-* date-formatting and the moment pattern
+* date formatting and the moment pattern
 * listings
 * skins
 
@@ -104,7 +104,7 @@ Since we use Plone 5 and Chameleon we could also write:
 * Open an existing news item in the browser
 
 This will show something like: ``2015-02-21T12:01:31+01:00``.
-Not very user-friendly.
+Not very user friendly.
 Let's extend the code and use one of many helpers Plone offers.
 
 .. code-block:: html
@@ -144,7 +144,7 @@ Try the relative calendar format:
         ${python: context.Date()}
     </p>
 
-Now we should see the date in a user-friendly format like ``Today at 12:01 PM``.
+Now we should see the date in a user friendly format like ``Today at 12:01 PM``.
 
 Experiment with other formats such as ``calendar`` and ``LT``.
 
@@ -382,7 +382,7 @@ It has several methods and properties:
     'Rights',
     [...]
 
-`PortalType` is a method that returns the name of the items content-type.
+`PortalType` is a method that returns the name of the item's content type.
 
 .. code-block:: python
 
