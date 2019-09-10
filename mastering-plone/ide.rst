@@ -5,7 +5,7 @@ IDEs and Editors
 
 In this part you will:
 
-* Learn about Editors
+* Learn about editors
 
 Topics covered:
 
@@ -35,7 +35,7 @@ The capability of performing a *full text search* through the complete Plone cod
 
 .. note::
 
-    Some Editors/IDE's have to be extend to be fully featured. Here are some packages we recommend when using Sublime Text 3:
+    Some editors and IDEs have to be extended to be fully featured. Here are some packages we recommend when using Sublime Text 3:
 
     * BracketHighlighter
     * GitGutter
@@ -48,4 +48,4 @@ The capability of performing a *full text search* through the complete Plone cod
 
 .. note::
 
-    This list outdates fast, especially VS Code
+    This list of extensions gets out of date quickly, especially for VS Code.

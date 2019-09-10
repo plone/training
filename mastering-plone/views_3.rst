@@ -384,7 +384,7 @@ There are some things that need explanation:
 
 .. note::
 
-    We could also write :samp:`python:not talks` like we could also write :samp:`tal:repeat="talk python:talks"` for the iteration. For simple cases as these path statements are sometimes fine. On the other hand: If ``talks`` would be a callable we woul need to use ``nocall:talks``, so maybe it would be better to always use ``python:``.
+    We could also write :samp:`python:not talks` like we could also write :samp:`tal:repeat="talk python:talks"` for the iteration. For simple cases as these, path statements are sometimes fine. On the other hand, if ``talks`` was callable we would need to use ``nocall:talks``, so maybe it would be better to always use ``python:``.
 
 
 Exercise

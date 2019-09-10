@@ -38,7 +38,7 @@ The talks actually have an auto-generated marker interface ``plone.dexterity.sch
 One problem is that the name of the Plone instance ``Plone`` is part of that interface name.
 If you now moved these types to a site with another name the code that uses these interfaces would no longer find the objects in question.
 
-To create a real name-tag we add a new :py:class:`Interface` to :file:`interfaces.py`:
+To create a real name tag we add a new :py:class:`Interface` to :file:`interfaces.py`:
 
 .. code-block:: python
     :linenos:
@@ -152,7 +152,7 @@ Upgrade steps
 When projects evolve you sometimes want to modify various things while the site is already up and brimming with content and users.
 Upgrade steps are pieces of code that run when upgrading from one version of an add-on to a newer one.
 They can do just about anything.
-We will use an upgrade-step to enable the new behavior instead of reinstalling the addon.
+We will use an upgrade step to enable the new behavior instead of reinstalling the addon.
 
 We will create an upgrade step that:
 
@@ -241,7 +241,7 @@ Let's create it.
         brains = api.content.find(portal_type='talk')
         for brain in brains:
             if talks_url in brain.getURL():
-                # Skip if the talk is already somewhere inside the target-folder
+                # Skip if the talk is already somewhere inside the target folder
                 continue
             obj = brain.getObject()
             logger.info('Moving {} to {}'.format(
@@ -254,9 +254,9 @@ Let's create it.
 
 Note:
 
-* Upgrade-steps get the tool ``portal_setup`` passed as their argument.
+* Upgrade steps get the tool ``portal_setup`` passed as their argument.
 * The ``portal_setup`` tool has a method :py:meth:`runImportStepFromProfile`
-* We create the needed folder-structure if it does not exists.
+* We create the needed folder structure if it does not exists.
 
 After restarting the site we can run the step:
 
@@ -285,7 +285,7 @@ Alternatively you also select which upgrade steps to run like this:
     Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package :py:mod:`plone.app.upgrade`.
     You should be able to upgrade a clean site from 2.5 to 5.0 with one click.
 
-    For an example see the upgrade-step to Plone 5.0a1 https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L37
+    For an example see the upgrade step to Plone 5.0a1 https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L37
 
 
 
@@ -418,7 +418,7 @@ The ``column ..`` entries allow us to display the values of these indexes in the
     We could also rebuild the whole catalog by going to the :guilabel:`advanced`-tab and clicking :guilabel:`Clear and Rebuild`.
     For large sites that can take a long time.
 
-    We could also write an upgrade step to enable the catalog-indexes and reindex all talks:
+    We could also write an upgrade step to enable the catalog indexes and reindex all talks:
 
     .. code-block:: python
 
@@ -436,7 +436,7 @@ Query for custom indexes
 
 The new indexes behave like the ones that Plone has already built in:
 
-.. code-block:: pycon
+.. code-block:: python
 
     >>> (Pdb) from Products.CMFCore.utils import getToolByName
     >>> (Pdb) catalog = getToolByName(self.context, 'portal_catalog')
@@ -531,7 +531,7 @@ Modify :py:class:`TalkListView` to return only brains and adapt the template to 
                      tal:attributes="href python:brain.getURL();
                                      title python:brain.Description"
                      tal:content="python:brain.Title">
-                     The 7 sins of plone-development
+                     The 7 sins of Plone development
                   </a>
                 </td>
                 <td tal:content="python:brain.speaker">
@@ -615,7 +615,7 @@ Add a new file :file:`profiles/default/registry.xml`
 Add versioning through GenericSetup
 ------------------------------------
 
-Configure the versioning policy and a diff-view for talks through GenericSetup.
+Configure the versioning policy and a diff view for talks through GenericSetup.
 
 Add new file :file:`profiles/default/repositorytool.xml`
 
@@ -675,4 +675,4 @@ The talks are now grown up:
 * They provide a interface to which you can bind features like views
 * Some fields are indexed in the catalog making the listing faster
 * Talks are now versioned
-* You wrote your first upgrade-step to move the talks around: Whopee!
+* You wrote your first upgrade step to move the talks around: yipee!
