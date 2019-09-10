@@ -296,7 +296,7 @@ Speed:
     Python code is faster than code executed in templates. It's also easy to add caching to methods.
 
 DRY, or "Don't Repeat Yourself":
-    In Python you can reuse methods and easily refactor code. Refactoring TAL usually means having to do big changes in the html structure which results in incomprehensible diffs.
+    In Python you can reuse methods and easily refactor code. Refactoring TAL usually means having to do big changes in the HTML structure which results in incomprehensible diffs.
 
 
 The MVC schema does not directly apply to Plone but look at it like this:
@@ -341,7 +341,7 @@ Add this simple table to :file:`templates/talklistview.pt`:
                  tal:attributes="href python:talk['url'];
                                  title python:talk['description']"
                  tal:content="python:talk['title']">
-                 The 7 sins of plone development
+                 The 7 sins of Plone development
               </a>
             </td>
             <td tal:content="python:talk['speaker']">

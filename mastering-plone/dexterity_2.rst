@@ -436,7 +436,7 @@ Query for custom indexes
 
 The new indexes behave like the ones that Plone has already built in:
 
-.. code-block:: python
+.. code-block:: pycon
 
     >>> (Pdb) from Products.CMFCore.utils import getToolByName
     >>> (Pdb) catalog = getToolByName(self.context, 'portal_catalog')

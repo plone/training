@@ -379,7 +379,7 @@ to use the pattern :samp:`view/w/<fieldname>/render` to render the widgets:
     </body>
     </html>
 
-After a restart, we can test the modified view by going to a talk and adding */talkview* to the URL.
+After a restart, we can test the modified view by going to a talk and adding ``/talkview`` to the URL.
 
 We should tell Plone that the talkview should be used as the default view for talks instead of the built-in view.
 
