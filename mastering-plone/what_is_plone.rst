@@ -90,8 +90,6 @@ Values of these fields on instances of objects are attributes
     u'A new description'
     >>> obj.image
     <plone.namedfile.file.NamedBlobImage object at 0x11634c320>
-    >>> obj.image
-    <plone.namedfile.file.NamedBlobImage object at 0x11634c320>
     >>> obj.image.data
     '\x89PNG\r\n\x1a\n\x00\x00\x00\...'
 
