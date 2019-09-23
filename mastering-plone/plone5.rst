@@ -5,7 +5,7 @@ What's New in Plone 5, 5.1 and Plone 5.2
 
 Plone 5.0 was released in September 2015. Plone 5 was a mayor release, that changed the content type framework, the user interface and the default design.
 
-Plone 5.1 was released in Oktober 2017 and holds a couple of smaller improvements.
+Plone 5.1 was released in October 2017 and holds a couple of smaller improvements.
 
 Plone 5.2 was released in March 2019. Plone 5.2 is the first version that supports Python 3. It also has some improvements like a new drop-down navigation and built-in url-management.
 
@@ -40,7 +40,7 @@ While Plone 4 had a green edit-bar above the content Plone 5 has a toolbar that 
 The widgets where you input data are also completely rewritten.
 
 * Plone now uses the newest TinyMCE
-* The tags (keywords) widget and the widgets where you input usernames use `select2 <http://select2.github.io>`_ autocomplete to give a better user experience
+* The tags (keywords) widget and the widgets where you input user names use `select2 <http://select2.github.io>`_ autocomplete to give a better user experience
 * The related-items widget is a complete rewrite
 
 
@@ -204,9 +204,9 @@ For a complete list of changes see https://docs.plone.org/manage/upgrading/versi
 Plone 5.2
 ---------
 
-Plone 5.2 supports Python 2.7, 3.6 and 3.7. It is based on Zope 4.0 and runs WSGI. These three are mayor changes under the hood but have only limited effect on end-users and development of add-ons.
+Plone 5.2 supports Python 2.7, 3.6 and 3.7. It is based on Zope 4.0 and runs WSGI. These three are major changes under the hood but have only limited effect on end-users and development of add-ons.
 
-Plone 5.2 also comes with a ton if bugfixes and a couple of nice improvement. Here are some noteworthy changes:
+Plone 5.2 comes with many bug fixes and a couple of nice improvements. Here are some noteworthy changes:
 
 * New navigation with dropdown. Site-Administrators can use the navigation control panel ``/@@navigation-controlpanel`` to configure the dropdown-navigation.
 
@@ -220,5 +220,5 @@ Plone 5.2 also comes with a ton if bugfixes and a couple of nice improvement. He
 ..  seealso::
 
     * `Complete list of changes for Plone 5.2 <https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_52.html>`_
-    * `Upgarde add-ons to Python 3 <https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_python3.html>`_
+    * `Upgrade add-ons to Python 3 <https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_python3.html>`_
     * `Migrate a ZODB from Python 2.7 to Python 3 <https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_zodb_to_python3.html>`_
