@@ -71,3 +71,19 @@ and this command to run Volto:
 
 .. note::
     From now on, it's convenient to open a terminal for each process, and a third one to edit and issue commands.
+
+Volto source code
+=================
+
+When developing Volto you'll find yourself quite often with an eye on Volto source code, taking a look on how things are done, syntax, cloning or overriding components.
+For convenience a symlink to the Volto copy inside ``node_modules`` is setup in the hands-on repository.
+You'll find it under the ``omelette`` folder.
+
+Recommended plugins
+===================
+
+No matter what IDE of choice you have, you'll need these plugins:
+
+- Prettier
+- ESlint
+- prettier-stylelint (VSCode)

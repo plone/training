@@ -38,10 +38,19 @@ However, we will be revisiting the some of the React training basic concepts dur
 What to expect
 ==============
 
-At the end of the course you will know how to bootstrap a project using Volto and Plone 5.2.
-You'll be able to get confident with the Volto customization story, theming and get the most of Plone REST API.
+At the end of the course you will know how to develop a Volto project from scratch to deployment.
+Learning in the way how to effectively use developer tools and Volto helpers for build your site.
+You'll be able to get confident with the Volto customization story, theming and how to get the most of Plone REST API.
 
 .. _voltohandson-intro-documentation-label:
+
+The hands-on
+============
+
+The hands-on will feature to develop (the basics) of recreating plone.com with Volto.
+You can access the current site to get a grasp on what to expect from it.
+We will be facing different challenges and we will be solving them introducing or refreshing some of the concepts shown in the previous trainings.
+This will answer every challenge with the proper solution and give an overview on what to expect when developing for Volto.
 
 Documentation
 =============
