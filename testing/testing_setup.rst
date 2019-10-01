@@ -121,12 +121,37 @@ plone.app.testing has a set of base Layers and Fixtures that we use as starting 
 
     We need to manually load all zcml dependencies because autoinclude is disabled in plone.app.testing to preserve isolation.
 
+
+Setup and teardown hooks
+------------------------
+
+plone.app.testing provides a set of hooks that we can use to do several actions before a test (or suite) runs (setUp) or after it (tearDown).
+
+
+In testing.py file we usually use these hooks:
+
+- setUpZope(self, app, configurationContext): to configure Zope (mostly importing zcml profiles form the packages that we need to test, and its dependencies)
+- setUpPloneSite(self, portal): to configure the actual Plone site. For example installing the product that we are going to test.
+- tearDownPloneSite(self, portal): to cleanup some configurations when all tests ends.
+- tearDownZope(self, app): to cleanup some configurations when all tests ends.
+
+And they will be called every time a test case uses that layer.
+
+In each test case, we could have the following methods:
+
+- setUp(self)
+- tearDown(self)
+
+Usually we use these methods to define some common variables (for example to access to the portal object or the request), to pre-populate the site with some contents or to fix some permissions.
+
+These methods are called for every single test.
+
 Tests
 -----
 
 Tests are located into ``tests`` folder.
 
-In this folder you can create as many tests as you want in different files. The only requirement is that they should start with "test_".
+In this folder you can create as many tests as you want in different files. The only requirement is that they should start with ``test_``.
 
 Tests can be grouped into test cases depending on the test type (unit, functional, integration or robot) and on the functionality that they are testing.
 

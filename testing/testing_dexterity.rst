@@ -84,14 +84,12 @@ Then fix the test for contributor role and create a new test for the Manager.
 
         def test_ct_test_type_adding_contributor(self):
             setRoles(self.portal, TEST_USER_ID, ['Contributor'])
-            self.assertRaises(
-                Unauthorized,
-                api.content.create,
-                container=self.portal,
-                type='TestType',
-                id='test_type',
+            with self.assertRaises(Unauthorized):
+            api.content.create(
+                api.content.create(
+                    container=self.portal, type='TestType', id='test_type'
+                )
             )
-
 
 These are ``integration`` tests because we are not testing the browser integration.
 

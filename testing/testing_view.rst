@@ -27,13 +27,14 @@ Inspecting this file, we could see some interesting things:
 
     def setUp(self):
         self.portal = self.layer['portal']
+        self.request = self.layer['request']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         api.content.create(self.portal, 'Folder', 'other-folder')
         api.content.create(self.portal, 'Document', 'front-page')
 
     def test_training_view_is_registered(self):
         view = getMultiAdapter(
-            (self.portal['other-folder'], self.portal.REQUEST),
+            (self.portal['other-folder'], self.request),
             name='training-view'
         )
         self.assertTrue(view.__name__ == 'training-view')
@@ -41,7 +42,7 @@ Inspecting this file, we could see some interesting things:
     def test_training_view_not_matching_interface(self):
         with self.assertRaises(ComponentLookupError):
             getMultiAdapter(
-                (self.portal['front-page'], self.portal.REQUEST),
+                (self.portal['front-page'], self.request),
                 name='training-view'
             )
 
@@ -66,7 +67,7 @@ The view template prints a string that is returned from its class. Write a test 
 
         def test_training_view(self):
             view = getMultiAdapter(
-                (self.portal['other-folder'], self.portal.REQUEST),
+                (self.portal['other-folder'], self.request),
                 name='training-view'
             )
             self.assertIn('A small message', view())
@@ -109,7 +110,7 @@ Excercise 2
 
         def test_training_view_print_message(self):
             view = getMultiAdapter(
-                (self.portal['other-folder'], self.portal.REQUEST),
+                (self.portal['other-folder'], self.request),
                 name='training-view',
             )
             self.request.form['message'] = 'hello'
@@ -155,7 +156,3 @@ Excercise 2
                     self.assertIn('<p>A small message</p>', self.browser.contents)
                     self.assertNotIn('<p>custom message: </p>', self.browser.contents)
                     self.assertIn('<p>custom message: hello</p>', self.browser.contents)
-
-
-
-
