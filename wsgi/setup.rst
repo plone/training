@@ -1,0 +1,56 @@
+.. _setup-label:
+
+Setup a box for the training
+============================
+
+Installing Prerequisites
+------------------------
+
+Please follow the instructions given `here <https://training.plone.org/5/plone_training_config/instructions.html>`_ to install a Ubuntu 18.04 box for this training.
+This training is about deploying Plone, so we will not need the Plone instance provided by these instructions.
+If you follow the section on how to `Installing Plone without vagrant <https://training.plone.org/5/plone_training_config/instructions.html#installing-plone-without-vagrant>`_, you can therefore stop following the instructions where it reads "Set up Plone for the training like this if you use your own OS (Linux or Mac)".
+If instead you have chosen to `Install Plone with Vagrant <https://training.plone.org/5/plone_training_config/instructions.html#installing-plone-with-vagrant>`_, you can comment out the `# install plone` section in the `Vagrantfile`:
+
+.. code-block:: bash
+    :emphasize-lines: 9-12
+
+      ...
+      # Create a Putty-style keyfile for Windows users
+      config.vm.provision :shell do |shell|
+          shell.path = "manifests/host_setup.sh"
+          shell.args = RUBY_PLATFORM
+      end
+
+      # install plone
+      #config.vm.provision :puppet do |puppet|
+      #    puppet.manifests_path = "manifests"
+      #    puppet.manifest_file  = "plone.pp"
+      #end
+
+
+    end
+
+It's not a problem if you simply followed the instructions and end up having a Plone instance.
+The Plone instance(s) we create throughout the training will go to a different location, just keep in mind you will not be able to run both instances at the same time because of conflicting ports.
+
+Creating a Virtualenv for the Training
+--------------------------------------
+
+Next you need to get the training buildout and create a Python virtualenv for the training in a suitable location.
+In the vagrant this is the `/vagrant` directory:
+
+.. code-block:: bash
+
+    $ cd /vagrant
+
+In a native environment, choose whatever location you think is appropriate.
+
+Then in this directory we need to get the training buildout and create a virtualenv:
+
+.. code-block:: bash
+
+    $ git clone https://github.com/collective/wsgitraining.git
+    $ cd wsgitraining
+    $ python3.7 -m venv .
+    $ . bin/activate
+    (wsgitraining) $ pip install -U pip # upgrade pip to the latest version
