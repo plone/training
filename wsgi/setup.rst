@@ -49,7 +49,7 @@ Then in this directory we need to get the training buildout and create a virtual
 
 .. code-block:: bash
 
-    $ git clone https://github.com/collective/wsgitraining.git
+    $ git clone https://github.com/collective/wsgitraining_buildout.git wsgitraining
     $ cd wsgitraining
     $ python3.7 -m venv .
     $ . bin/activate
