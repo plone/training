@@ -1,7 +1,7 @@
 Gunicorn
 ========
 
-Gunicorn is another widely used WSGI middleware.
+Gunicorn is another widely used WSGI server.
 
 Possible Worker models
 ----------------------

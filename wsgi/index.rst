@@ -30,7 +30,7 @@ Deploying and Operating Plone on WSGI
     prz-recipe-options
     bjoern
     gunicorn
-    (uwsgi)
+    uwsgi
     (others)
     (debugging)
     addons
