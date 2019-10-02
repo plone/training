@@ -227,6 +227,12 @@ It will go to `/etc/uwsgi-emperor/vassals/plone.ini` and it's contents are:
     processes = 1
     threads = 4
 
+The important (and not quite obvious from the docs, see this `mail post <http://lists.unbit.it/pipermail/uwsgi/2015-March/007918.html>`_) thing to note here as that this file must be owned by the same user we intend to use for running the vassal:
+
+.. code-block:: bash
+
+    sudo chown vagrant.vagrant /etc/uwsgi-emperor/vassals/plone.ini
+
 The final step is to restart the uWSGI emperor `systemd` service (make sure you have a running ZEO server before this):
 
 .. code-block:: ini
