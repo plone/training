@@ -241,6 +241,44 @@ The final step is to restart the uWSGI emperor `systemd` service (make sure you 
 
 We can then use `sudo tail -f /var/log/uwsgi/emperor.log` to see what's going on.
 
+Exercise 1
+++++++++++
+
+Change the Plone vassal configuration so that it uses it's own logfile.
+
+..  admonition:: Solution
+    :class: toggle
+
+    You will first need to add the logfile location to `/etc/uwsgi/vassals/plone.ini`:
+
+    .. code-block:: ini
+        :emphasize-lines: 13
+
+        [uwsgi]
+        uid = vagrant
+        gid = vagrant
+        http-socket = 0.0.0.0:8080
+        socket = 127.0.0.1:8081
+        plugins = python37
+        virtualenv = /vagrant/wsgitraining
+        wsgi-file = /vagrant/wsgitraining/bin/wsgi.py
+        master = false
+        enable-threads = true
+        processes = 1
+        threads = 4
+        daemonize = /var/log/uwsgi/plone.log
+
+    The tricky part however is to get the file permissions right.
+    By default, only root is allowed to write to `/var/log/uwsgi`, but the vassal is running as `vagrant.vagrant`.
+    We resolve to changing the group ownership for `/var/log/uwsgi` and giving the group write access:
+
+    .. code-block:: bash
+
+        $ sudo chgrp vagrant /var/log/uwsgi
+        $ sudo chmod g+w /var/log/uwsgi
+        $ ls -ld /var/log/uwsgi
+        drwxrwxr-x 2 root vagrant 4096 Oct  2 09:51 /var/log/uwsgi
+
 Workers and ZODB connections
 ----------------------------
 
