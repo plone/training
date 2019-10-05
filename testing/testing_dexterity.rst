@@ -54,11 +54,11 @@ In this test, for example, we are testing that a contributor can add and delete 
     By default each test is run with that user as logged-in user. If we want to run tests as anonymous users or with a different user, we need to logout/login.
 
 
-Excercise
-+++++++++
+Excercise 1
++++++++++++
 
-Try to change the permissions for our content-type and set that only Manager can add it.
-Then fix the test for contributor role and create a new test for the Manager.
+- Change the permissions for our content-type and set them to only allow Manager to add it.
+- Fix the test for Contributor role and create a new test for the Manager.
 
 ..  admonition:: Solution
     :class: toggle
@@ -91,9 +91,11 @@ Then fix the test for contributor role and create a new test for the Manager.
                 )
             )
 
-These are ``integration`` tests because we are not testing the browser integration.
+Until now we wrote only ``ìntegration`` tests because we didn't needed to test browser integration or commit some transactions.
 
-We could try to create a ``functional`` test to test how our content-type creation works on browser.
+As previously said, if we don't need to create a functional test, it's better to avoid them because they are slower than integration ones.
+
+We could try to create a ``functional`` test just to see how they works and to test how our content-type creation works on browser.
 
 Let's create a new test class in the same file like this:
 

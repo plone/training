@@ -10,30 +10,19 @@ and features (content-types, views, vocabularies) with simple commands.
 Create Package
 --------------
 
-First of all we need to create a virtual Python environment:
+First of all we need to install plonecli:
 
 .. code-block:: console
 
-  $ virtualenv .env
-
+  $ pip install plonecli --user
 
 .. note::
 
-  By default you should use Python3 and its virtualenv because Python2 will be deprecated on 01/01/2020.
+    This command will install plonecli in the global user site-packages according to the official documentation.
+    Feel free to install it with your preferred method (virtualenv, pipenv, pyenv) if you want.
 
-Activate virtual Python environment:
 
-.. code-block:: console
-
-  $ source .env/bin/activate
-
-Install plonecli:
-
-.. code-block:: console
-
-  $ pip install plonecli
-
-Create a new addon package where you want:
+Now we can create a new package:
 
 .. code-block:: console
 
@@ -48,17 +37,21 @@ Run buildout:
 .. code-block:: console
 
   $ cd plonetraining.testing
-  $ pip install -r requirements.txt
-  $ bin/buildout
+  $ plonecli build
+
+.. note::
+
+    This command will create a virtualenv, install dependencies and run buildout.
+
 
 Run tests (plonecli provides some default tests when creating a new package):
 
 .. code-block:: console
 
-  $ bin/test
+  $ plonecli test
 
 Run all tests including robot tests (we will see later what they are):
 
 .. code-block:: console
 
-  $ bin/test --all
+  $ plonecli test --all

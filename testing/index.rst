@@ -28,6 +28,7 @@ Testing Plone
     unittest
     testing_dexterity
     testing_view
+    acceptance
 
 ..  toctree::
     :hidden:
