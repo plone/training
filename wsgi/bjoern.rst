@@ -95,3 +95,132 @@ It is basically a copy from the template contained in the buildout recipe with a
         00007f7537fb0000   2048K ----- _bjoern.cpython-37m-x86_64-linux-gnu.so
         00007f75381b0000      4K r---- _bjoern.cpython-37m-x86_64-linux-gnu.so
         00007f75381b1000      4K rw--- _bjoern.cpython-37m-x86_64-linux-gnu.so
+
+Exercise 1
+++++++++++
+
+Additional PasteDeploy entrypoints are also available for the `werkzeug <https://pypi.org/project/dataflake.wsgi.werkzeug>`_ and `cheroot <https://pypi.org/project/dataflake.wsgi.cheroot>`_ WSGI servers.
+Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p/werkzeug/>`_ or `cheroot <https://cheroot.cherrypy.org>`_.
+
+..  admonition:: Solution
+    :class: toggle
+
+    **cheroot:**
+
+    You will need to create two files, an `.ini` template and the buildout configuration.
+    As a starting point, copy `bjoern.cfg` to `cheroot.cfg` and `templates/bjoern.ini.in` to `templates/cheroot.ini.in` in your buildout directory:
+
+    .. code-block:: bash
+
+        $ cp bjoern.cfg cheroot.cfg
+        $ cp templates/bjoern.ini.in templates/cheroot.ini.in
+
+    Then edit the files so they pull in `cheroot` as WSGI server rather than bjoern.
+    `cheroot.cfg`:
+
+    .. code-block:: ini
+        :emphasize-lines: 13-14
+
+        ...
+        [instance]
+        recipe = plone.recipe.zope2instance
+        user = admin:admin
+        zeo-client = on
+        zeo-address = 8100
+        shared-blob = on
+        blob-storage = ${buildout:directory}/var/blobstorage
+        eggs =
+            Plone
+            Pillow
+            wsgitraining.site
+            dataflake.wsgi.cheroot
+        wsgi-ini-template = ${buildout:directory}/templates/cheroot.ini.in
+
+    And `templates/cheroot.ini.in`:
+
+    .. code-block:: ini
+        :emphasize-lines: 1-4
+
+        [server:main]
+        use = egg:dataflake.wsgi.cheroot#main
+        host = localhost
+        port = 8080
+
+        [app:zope]
+        ...
+
+    Note that the `dataflake.wsgi.cheroot` shim doesn't understand either `reuse_port` nor `listen`.
+    This means we cannot use the `http-address` parameter passed by `plone.recipe.zope2instance`.
+    We resolve to specifying host and port in the template instead.
+    `dataflake.wsgi.cheroot` accepts a couple of other options in the `.ini` file that we will not consider for this exercise.
+
+    Next run buildout with the new configuration:
+
+    .. code-block:: bash
+
+        (wsgitraining) $ buildout -c cheroot.cfg
+
+    You can now start your instance as usual:
+
+    .. code-block:: bash
+
+        (wsgitraining) $ bin/instance fg
+        ...
+        2019-10-07 12:43:08,856 INFO    [Zope:45][MainThread] Ready to handle requests
+        Starting server in PID 3906.
+
+    **werkzeug:**
+
+    For `werkzeug` the steps are pretty much the same.
+    Copy the configuration files:
+
+    .. code-block:: bash
+
+        $ cp bjoern.cfg werkzeug.cfg
+        $ cp templates/bjoern.ini.in templates/werkzeig.ini.in
+
+    Edit them.
+    `werkzeug.cfg`:
+
+    .. code-block:: ini
+        :emphasize-lines: 13-14
+
+        ...
+        [instance]
+        recipe = plone.recipe.zope2instance
+        user = admin:admin
+        zeo-client = on
+        zeo-address = 8100
+        shared-blob = on
+        blob-storage = ${buildout:directory}/var/blobstorage
+        eggs =
+            Plone
+            Pillow
+            wsgitraining.site
+            dataflake.wsgi.werkzeug
+        wsgi-ini-template = ${buildout:directory}/templates/werkzeug.ini.in
+
+    `templates/werkzeug.ini.in`:
+
+    .. code-block:: ini
+        :emphasize-lines: 1-4
+
+        [server:main]
+        use = egg:dataflake.wsgi.werkzeug#main
+        host = localhost
+        port = 8080
+
+        [app:zope]
+        ...
+
+    After running `buildout -c werkzeug.cfg` you can start your Plone instance:
+
+    .. code-block:: bash
+
+        (wsgitraining) $ bin/instance fg
+        ...
+        2019-10-07 12:58:54,660 INFO    [Zope:45][MainThread] Ready to handle requests
+        Starting server in PID 4337.
+        2019-10-07 12:58:54,661 INFO    [werkzeug:122][MainThread]  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+
+    Just like the `cheroot` shim, `dataflake.wsgi.werkzeug` accepts a couple of additional options in the `.ini` file that we will not use here.

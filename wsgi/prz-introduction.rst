@@ -53,25 +53,25 @@ Activate your virtualenv if you haven't done so already:
 
 .. code-block:: bash
 
-    ~/plone52$ . bin/activate
+    ~/wsgitraining$ . bin/activate
 
 Run buildout:
 
 .. code-block:: bash
 
-    (plone52) ~/plone52$ buildout -c basic.cfg
+    (wsgitraining) ~/wsgitraining$ buildout -c basic.cfg
 
 After a successful buildout, you can start Plone in the foreground as usual.
 Start `zeo` first:
 
 .. code-block:: bash
 
-    (wsgitraining) $ bin/zeo start
+    (wsgitraining) ~/wsgitraining$ bin/zeo start
 
 Then start the application server:
 
 .. code:: bash
 
-    (plone52) ~/plone52$ bin/instance fg
+    (wsgitraining) ~/wsgitraining$ bin/instance fg
 
 You can then create a Plone instance by pointing your browser to `http://localhost:8080`.
