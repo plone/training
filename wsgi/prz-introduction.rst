@@ -9,8 +9,8 @@ The goal when providing WSGI support in `plone.recipe.zope2instance` was to keep
 Many options formerly used for ZServer are working in pretty much the same way for WSGI.
 WSGI is the default in recent `plone.recipe.zope2instance` versions.
 It can be overriden by ZServer for Python 2.
-Waitress is the default WSGI server configured by `plone.recipe.zope2instance`.
-Waitress is a pure Python WSGI middleware originating from the Pylons project.
+`Waitress <https://docs.pylonsproject.org/projects/waitress/en/stable>`_ is the default WSGI server configured by `plone.recipe.zope2instance`.
+Waitress is a pure Python WSGI server implementation originating from the Pylons project.
 
 .. note::
 

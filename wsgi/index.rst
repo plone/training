@@ -4,7 +4,7 @@
 Deploying and Operating Plone on WSGI
 =====================================
 
-:About: Deploying and Operating Plone behind a WSGI server/middleware
+:About: Deploying and Operating Plone behind a WSGI server
 :Level: All levels
 
 .. note::
@@ -34,5 +34,4 @@ Deploying and Operating Plone on WSGI
     (others)
     (debugging)
     addons
-    (deployment-alternatives)
     (operations)
