@@ -31,6 +31,6 @@ Deploying and Operating Plone on WSGI
     bjoern
     gunicorn
     uwsgi
-    (debugging)
+    debugging
     addons
     (operations)
