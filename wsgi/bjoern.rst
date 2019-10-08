@@ -1,27 +1,17 @@
-Bjoern
-======
+``Bjoern``
+==========
 
-`bjoern <https://github.com/jonashaag/bjoern>`_ is a fast And ultra-lightweight HTTP/1.1 WSGI Server for CPython2 and 3 written in C.
+`bjoern <https://github.com/jonashaag/bjoern>`_ is an HTTP/1.1 WSGI Server for CPython2 and 3 written in C.
 It claims to be the fastest, smallest and most lightweight WSGI server.
-Features:
-
-* ~ 1000 lines of C code
-* Memory footprint ~ 600KB
-* supports Python 2 and 3
-* Single-threaded
-* supports TCP `host:port` addresses and Unix sockets
-* Full persistent connection ("*keep-alive*") support in both HTTP/1.0 and 1.1,
-  including support for HTTP/1.1 chunked responses
 
 .. note::
 
-    In a load test involving `bjoern`, `cheroot`, `gunicorn`, `waitress` and `werkzeug` ``bjoern`` (version: 3.0.0) was the clear speed winner against both a ZEO and a non-ZEO Zope instance.
-    Source: Zope/docs/wsgi.rst:
+    In a `load test <https://zope.readthedocs.io/en/latest/wsgi.html#test-criteria-for-recommendations>`_ involving ``bjoern``, ``cheroot``, ``gunicorn``, ``waitress`` and  ``werkzeug`` ``bjoern`` (version: 3.0.0) was the clear speed winner against both a ZEO and a non-ZEO Zope instance.
 
 Prerequisites
 -------------
 
-Bjoern uses libev and you will need to install both the library and the development header files on your box:
+``Bjoern`` uses ``libev`` and you will need to install both the library and the development header files on your box:
 
 .. code-block:: bash
 
