@@ -182,7 +182,7 @@ Vagrant uses Oracle’s VirtualBox to create virtual environments.
 
 Here is a link directly to the download page: https://www.virtualbox.org/wiki/Downloads.
 
-We use VirtualBox 5.2.x
+We use VirtualBox 6.0.x
 
 
 .. _instructions-configure-vagrant-label:
@@ -234,9 +234,8 @@ This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on y
 * sets up the VM
 * updates the VM
 * installs various system-packages needed for Plone development
-* downloads and unpacks the buildout-cache to get all the eggs for Plone
 * clones the training buildout into /vagrant/buildout
-* builds Plone using the eggs from the buildout-cache
+* builds Plone annd installs all dependencies
 
 .. note::
 
