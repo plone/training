@@ -9,7 +9,7 @@ Installing Prerequisites
 Please follow the instructions given `here <https://training.plone.org/5/plone_training_config/instructions.html>`_ to install a Ubuntu 18.04 box for this training.
 This training is about deploying Plone, so we will not need the Plone instance provided by these instructions.
 If you follow the section on how to `Installing Plone without vagrant <https://training.plone.org/5/plone_training_config/instructions.html#installing-plone-without-vagrant>`_, you can therefore stop following the instructions where it reads "Set up Plone for the training like this if you use your own OS (Linux or Mac)".
-If instead you have chosen to `Install Plone with Vagrant <https://training.plone.org/5/plone_training_config/instructions.html#installing-plone-with-vagrant>`_, you can comment out the `# install plone` section in the `Vagrantfile`:
+If instead you have chosen to `Install Plone with Vagrant <https://training.plone.org/5/plone_training_config/instructions.html#installing-plone-with-vagrant>`_, you can comment out the ``# install plone`` section in the ``Vagrantfile``:
 
 .. code-block:: bash
     :emphasize-lines: 9-12
@@ -37,7 +37,7 @@ Creating a Virtualenv for the Training
 --------------------------------------
 
 Next you need to get the training buildout and create a Python virtualenv for the training in a suitable location.
-In the vagrant this is the `/vagrant` directory:
+In the vagrant this is the ``/vagrant`` directory:
 
 .. code-block:: bash
 

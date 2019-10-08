@@ -1,7 +1,7 @@
 Understanding the contents of `wsgi.ini`
 ========================================
 
-The file `wsgi.ini` references the `zope.conf` file, `zope.conf` is passed as an argument to the WSGI application defined by the Zope package.
+The file ``wsgi.ini`` references the ``zope.conf`` file, ``zope.conf`` is passed as an argument to the WSGI application defined by the Zope package.
 
 WSGI server configuration.
 
@@ -21,7 +21,7 @@ WSGI application configuration
     use = egg:Zope#main
     zope_conf = /home/thomas/devel/plone/minimal52/parts/instance/etc/zope.conf
 
-Paste Deploy's filters are a powerful conecpt for non-intrusively glueing middleware/infrastructure components together.
+Paste Deploy's filters are a powerful concept for non-intrusively glueing middleware/infrastructure components together.
 
 
 .. code-block:: ini
@@ -49,8 +49,8 @@ Applications and filters are combined in pipelines.
         zope
 
 Following the pipeline section up to the end of the file is the logging configuration.
-The logging configuration is passed to the standard libraries `logging.config` module and follows the `configuration file format described in the Python documentation <https://docs.python.org/3/library/logging.config.html#configuration-file-format>`_.
-The `handler_accesslog` and `handler_eventlog` sections configure the instance access and event log files, respectively.
+The logging configuration is passed to the standard libraries ``logging.config`` module and follows the `configuration file format described in the Python documentation <https://docs.python.org/3/library/logging.config.html#configuration-file-format>`_.
+The ``handler_accesslog`` and ``handler_eventlog`` sections configure the instance access and event log files, respectively.
 
 .. code-block:: ini
 

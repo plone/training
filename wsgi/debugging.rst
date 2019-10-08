@@ -2,7 +2,7 @@ Debugging Plone on WSGI
 =======================
 
 When debugging Plone behind a WSGI server, there are a couple of things to remember.
-The `wsgitraining.site` package contained in our buildout comes with a debugging view that simply sets a breakpoint:
+The ``wsgitraining.site`` package contained in our buildout comes with a debugging view that simply sets a breakpoint:
 
 .. code-block:: python
     :emphasize-lines: 5
@@ -21,6 +21,11 @@ Debugging with waitress
 
 Debugging with waitresss doesn't feel different from what you know from ZServer.
 Limiting to one worker thread might make debugging easer for you.
+
+pdbpp
+Products.PdbDebugMode
+plone.app.debugtoolbar
+Products.enablesettrace
 
 Debugging uWSGI
 ---------------
@@ -45,9 +50,9 @@ When trying to open the debugging view in uWSGI, you will see an error message i
       Module bdb, line 113, in dispatch_line
     bdb.BdbQuit
 
-To make uWSGI stop at the `pdb.set_trace()` you need to start it with the `honour-stdin` flag set to `true`.
-`This flag <https://uwsgi-docs.readthedocs.io/en/latest/Options.html#honour-stdin>`_ will prevent uWSGI from redirecting `stdin` to `/dev/null`, which is the default behaviour.
-You can do so by modifying the inline template in the `[uwsgiini]` part and rerun buildout.
+To make uWSGI stop at the ``pdb.set_trace()`` you need to start it with the ``honour-stdin`` flag set to ``true``.
+`This flag <https://uwsgi-docs.readthedocs.io/en/latest/Options.html#honour-stdin>`_ will prevent uWSGI from redirecting ``stdin`` to ``/dev/null``, which is the default behaviour.
+You can do so by modifying the inline template in the ``[uwsgiini]`` part and rerun buildout.
 
 .. code-block:: ini
     :emphasize-lines: 11,14
@@ -69,7 +74,7 @@ You can do so by modifying the inline template in the `[uwsgiini]` part and reru
     output = ${buildout:directory}/etc/uwsgi.ini
     ...
 
-After running buildout and starting your instance with `bin/uwsgi-instance` you will see an interactive console and uWSGI will not serve any requests at first (the browser will hang forever instead of showing a page).
+After running buildout and starting your instance with ``bin/uwsgi-instance`` you will see an interactive console and uWSGI will not serve any requests at first (the browser will hang forever instead of showing a page).
 
 .. code-block:: bash
 
@@ -81,7 +86,7 @@ After running buildout and starting your instance with `bin/uwsgi-instance` you 
     WARNING:plone.behavior:Specifying 'for' in behavior 'Tiles' if no 'factory' is given has no effect and is superfluous.
     >>>
 
-Simply press `Ctrl+D` to continue the instance startup:
+Simply press ``Ctrl+D`` to continue the instance startup:
 
 .. code-block:: bash
 
@@ -92,10 +97,10 @@ Simply press `Ctrl+D` to continue the instance startup:
     spawned uWSGI worker 1 (and the only) (pid: 7018, cores: 1)
     ...
 
-Now if you open the `debugging-view` again you will see the `pdb` prompt.
-All looks fine now, however you will not be able to terminate the instance with `Ctrl+C`.
-However you can press `Ctrl+Z` to send the instance to the background and then kill it with `kill %1` (or whatever job number you're seeing on the console).
-This behaviour is the reason why we don't put `honour-stdin` in the `.ini` template by default.
+Now if you open the ``debugging-view`` again you will see the ``pdb`` prompt.
+All looks fine now, however you will not be able to terminate the instance with ``Ctrl+C``.
+However you can press ``Ctrl+Z`` to send the instance to the background and then kill it with ``kill %1`` (or whatever job number you're seeing on the console).
+This behaviour is the reason why we don't put ``honour-stdin`` in the ``.ini`` template by default.
 
 werkzeug debugging
 ------------------

@@ -27,7 +27,7 @@ Bjoern uses libev and you will need to install both the library and the developm
 
     $ sudo apt install libev-dev
 
-Use bjoern in our buildout
+Use ``bjoern`` in our buildout
 --------------------------
 
 .. sidebar:: Build now
@@ -40,7 +40,7 @@ Use bjoern in our buildout
 
 `bjoern <https://github.com/jonashaag/bjoern>`_ can be integrated using a shim package called `dataflake.wsgi.bjoern <https://dataflakewsgibjoern.readthedocs.io/>`_.
 
-You can use this package together with `plone.recipe.zope2instance` to build a bjoern based wSGI setup:
+You can use this package together with ``plone.recipe.zope2instance`` to build a ``bjoern`` based WSGI setup:
 
 .. code-block:: ini
 
@@ -58,13 +58,13 @@ You can use this package together with `plone.recipe.zope2instance` to build a b
         dataflake.wsgi.bjoern
     wsgi-ini-template = ${buildout:directory}/templates/bjoern.ini.in
 
-In addition to adding `dataflake.wsgi.bjoern` to the `eggs` list we specify the location of our `bjoern.ini` configuration file.
+In addition to adding ``dataflake.wsgi.bjoern`` to the ``eggs`` list we specify the location of our ``bjoern.ini`` configuration file.
 It is important to note that this file is not automatically created for us, we have to provide it ourself.
 
-In addition to the PasteDeploy entry point and the p.r.zope2instance integration, `dataflake.wsgi.bjoern`  provides facilities to create a set of Zope configuration files for bjoern with the included `mkbjoerninstance` utility.
-We will however not use this option since it is easier for us to provide a custom template for the `wsgi.ini` file to `plone.recipe.zope2instance`.
-A suitable template is included in the buildout for the training (file `bjoern.ini.in` in the `templates` folder).
-It is basically a copy from the template contained in the buildout recipe with a slightly changed `[server:main]` section:
+In addition to the PasteDeploy entry point and the p.r.zope2instance integration, ``dataflake.wsgi.bjoern``  provides facilities to create a set of Zope configuration files for ``bjoern`` with the included ``kbjoerninstance`` utility.
+We will however not use this option since it is easier for us to provide a custom template for the ``wsgi.ini`` file to ``plone.recipe.zope2instance``.
+A suitable template is included in the buildout for the training (file ``bjoern.ini.in`` in the ``templates`` folder).
+It is basically a copy from the template contained in the buildout recipe with a slightly changed ``[server:main]`` section:
 
 .. code-block:: ini
 
@@ -107,16 +107,16 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
 
     **cheroot:**
 
-    You will need to create two files, an `.ini` template and the buildout configuration.
-    As a starting point, copy `bjoern.cfg` to `cheroot.cfg` and `templates/bjoern.ini.in` to `templates/cheroot.ini.in` in your buildout directory:
+    You will need to create two files, an ``.ini`` template and the buildout configuration.
+    As a starting point, copy ``bjoern.cfg`` to ``cheroot.cfg`` and ``templates/bjoern.ini.in`` to ``templates/cheroot.ini.in`` in your buildout directory:
 
     .. code-block:: bash
 
         $ cp bjoern.cfg cheroot.cfg
         $ cp templates/bjoern.ini.in templates/cheroot.ini.in
 
-    Then edit the files so they pull in `cheroot` as WSGI server rather than bjoern.
-    `cheroot.cfg`:
+    Then edit the files so they pull in ``cheroot`` as WSGI server rather than bjoern.
+    ``cheroot.cfg``:
 
     .. code-block:: ini
         :emphasize-lines: 13-14
@@ -136,7 +136,7 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
             dataflake.wsgi.cheroot
         wsgi-ini-template = ${buildout:directory}/templates/cheroot.ini.in
 
-    And `templates/cheroot.ini.in`:
+    And ``templates/cheroot.ini.in``:
 
     .. code-block:: ini
         :emphasize-lines: 1-4
@@ -149,10 +149,10 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
         [app:zope]
         ...
 
-    Note that the `dataflake.wsgi.cheroot` shim doesn't understand either `reuse_port` nor `listen`.
-    This means we cannot use the `http-address` parameter passed by `plone.recipe.zope2instance`.
+    Note that the ``dataflake.wsgi.cheroot`` shim doesn't understand either ``reuse_port`` nor ``listen``.
+    This means we cannot use the ``http-address`` parameter passed by ``plone.recipe.zope2instance``.
     We resolve to specifying host and port in the template instead.
-    `dataflake.wsgi.cheroot` accepts a couple of other options in the `.ini` file that we will not consider for this exercise.
+    ``dataflake.wsgi.cheroot`` accepts a couple of other options in the ``.ini`` file that we will not consider for this exercise.
 
     Next run buildout with the new configuration:
 
@@ -171,7 +171,7 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
 
     **werkzeug:**
 
-    For `werkzeug` the steps are pretty much the same.
+    For ``werkzeug`` the steps are pretty much the same.
     Copy the configuration files:
 
     .. code-block:: bash
@@ -180,7 +180,7 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
         $ cp templates/bjoern.ini.in templates/werkzeig.ini.in
 
     Edit them.
-    `werkzeug.cfg`:
+    ``werkzeug.cfg``:
 
     .. code-block:: ini
         :emphasize-lines: 13-14
@@ -200,7 +200,7 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
             dataflake.wsgi.werkzeug
         wsgi-ini-template = ${buildout:directory}/templates/werkzeug.ini.in
 
-    `templates/werkzeug.ini.in`:
+    ``templates/werkzeug.ini.in``:
 
     .. code-block:: ini
         :emphasize-lines: 1-4
@@ -213,7 +213,7 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
         [app:zope]
         ...
 
-    After running `buildout -c werkzeug.cfg` you can start your Plone instance:
+    After running ``buildout -c werkzeug.cfg`` you can start your Plone instance:
 
     .. code-block:: bash
 
@@ -223,4 +223,4 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
         Starting server in PID 4337.
         2019-10-07 12:58:54,661 INFO    [werkzeug:122][MainThread]  * Running on http://localhost:8080/ (Press CTRL+C to quit)
 
-    Just like the `cheroot` shim, `dataflake.wsgi.werkzeug` accepts a couple of additional options in the `.ini` file that we will not use here.
+    Just like the ``cheroot`` shim, ``dataflake.wsgi.werkzeug`` accepts a couple of additional options in the `.ini` file that we will not use here.

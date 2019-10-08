@@ -26,11 +26,11 @@ Again we look into the `Plone Core Development Buildout <https://github.com/plon
 With 5 additional buildout parts things get even more complex than for gunicorn.
 These parts are:
 
-* `[wsgi.py]` providing the application entry point
-* `[uwsgi]` and `[uwsgi-buildenv]` needed to build the uWSGI binary
-* `[uwsgiini]` providing the `uwsgi.ini` file.
-  The uWSGI `ini` configuration is different from the `PasteDeploy` configurations we have seen with other servers
-* `[uwsgi-instance]` providing the actual startup script
+* ``[wsgi.py]`` providing the application entry point
+* ``[uwsgi]`` and ``[uwsgi-buildenv]`` needed to build the uWSGI binary
+* ``[uwsgiini]`` providing the ``uwsgi.ini`` file.
+  The uWSGI ``ini`` configuration is different from the PasteDeploy configurations we have seen with other servers
+* ``[uwsgi-instance]`` providing the actual startup script
 
 .. code-block:: ini
 
@@ -86,7 +86,7 @@ These parts are:
     output = ${buildout:bin-directory}/uwsgi-instance
     mode = 755
 
-Like with gunicorn in the previous chapter, we can start Plone behind uWSGI with the `uwsgi-instance` script:
+Like with gunicorn in the previous chapter, we can start Plone behind uWSGI with the ``uwsgi-instance`` script:
 
 .. code-block:: bash
 
@@ -174,10 +174,10 @@ We can check the Python version of our new plugin:
 So now we got a running Plone uWSGI setup and a matching Python 3 plugin.
 What is left to do is to setup a Plone vassal for the uWSGI emperor.
 You can find general information on this topic in the official `uWSGI documentation <https://uwsgi-docs.readthedocs.io/en/latest/Emperor.html>`_.
-By default, Ubuntu's uWSGI emperor will run under user/group id `www-data` and it will use these settings for it's vassals.
-However Plone needs to be able to write to the filesystem e.g. for caching and creating compiled files, so we want it to run under the user id we used for running buildout (probably your user name for a local installation or `vagrant`).
+By default, Ubuntu's uWSGI emperor will run under user/group id ``www-data`` and it will use these settings for it's vassals.
+However Plone needs to be able to write to the filesystem e.g. for caching and creating compiled files, so we want it to run under the user id we used for running buildout (probably your user name for a local installation or ``vagrant``).
 uWSGI emperor comes with a so called "tyrannt mode" for secure multi-user hosting to achieve this, and we go for the `paranoid sysadmins <https://uwsgi-docs.readthedocs.io/en/latest/Emperor.html#tyrant-mode-for-paranoid-sysadmins-linux-only>`_ variant here.
-Posix capabilities are enabled in Ubuntu's uwsgi by default, so we only need to add two lines to `/etc/uwsgi-emperor/emperor.ini` to enable tyrannt mode:
+Posix capabilities are enabled in Ubuntu's uwsgi by default, so we only need to add two lines to ``/etc/uwsgi-emperor/emperor.ini`` to enable tyrannt mode:
 
 .. code-block:: ini
     :emphasize-lines: 25,26
@@ -210,7 +210,7 @@ Posix capabilities are enabled in Ubuntu's uwsgi by default, so we only need to 
     cap = setgid,setuid
 
 We also need to create a vassal configuration for Plone.
-It will go to `/etc/uwsgi-emperor/vassals/plone.ini` and it's contents are:
+It will go to ``/etc/uwsgi-emperor/vassals/plone.ini`` and it's contents are:
 
 .. code-block:: ini
 
@@ -233,13 +233,13 @@ The important (and not quite obvious from the docs, see this `mail post <http://
 
     sudo chown vagrant.vagrant /etc/uwsgi-emperor/vassals/plone.ini
 
-The final step is to restart the uWSGI emperor `systemd` service (make sure you have a running ZEO server before this):
+The final step is to restart the uWSGI emperor ``systemd`` service (make sure you have a running ZEO server before this):
 
 .. code-block:: ini
 
     $ sudo service uwsgi-emperor restart
 
-We can then use `sudo tail -f /var/log/uwsgi/emperor.log` to see what's going on.
+We can then use ``sudo tail -f /var/log/uwsgi/emperor.log`` to see what's going on.
 
 Exercise 1
 ++++++++++
@@ -249,7 +249,7 @@ Change the Plone vassal configuration so that it uses it's own logfile.
 ..  admonition:: Solution
     :class: toggle
 
-    You will first need to add the logfile location to `/etc/uwsgi/vassals/plone.ini`:
+    You will first need to add the logfile location to ``/etc/uwsgi/vassals/plone.ini``:
 
     .. code-block:: ini
         :emphasize-lines: 13
@@ -269,8 +269,8 @@ Change the Plone vassal configuration so that it uses it's own logfile.
         daemonize = /var/log/uwsgi/plone.log
 
     The tricky part however is to get the file permissions right.
-    By default, only root is allowed to write to `/var/log/uwsgi`, but the vassal is running as `vagrant.vagrant`.
-    We resolve to changing the group ownership for `/var/log/uwsgi` and giving the group write access:
+    By default, only root is allowed to write to ``/var/log/uwsgi``, but the vassal is running as ``vagrant.vagrant``.
+    We resolve to changing the group ownership for ``/var/log/uwsgi`` and giving the group write access:
 
     .. code-block:: bash
 
@@ -279,7 +279,7 @@ Change the Plone vassal configuration so that it uses it's own logfile.
         $ ls -ld /var/log/uwsgi
         drwxrwxr-x 2 root vagrant 4096 Oct  2 09:51 /var/log/uwsgi
 
-    Alternatively we could of course write the logfile to a different location, e.g. `${buildout:directory}/var/log`.
+    Alternatively we could of course write the logfile to a different location, e.g. ``${buildout:directory}/var/log``.
 
 Workers and ZODB connections
 ----------------------------
