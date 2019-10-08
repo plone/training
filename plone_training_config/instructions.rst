@@ -289,6 +289,7 @@ It is in :file:`/vagrant/buildout/`. Start it in foreground with :command:`./bin
 
 .. code-block:: console
 
+    vagrant@training:~$ cd /vagrant/buildout/
     vagrant@training:/vagrant/buildout$ ./bin/instance fg
     2019-03-07 10:38:17,666 WARNI [Init:88][MainThread] Class Products.CMFFormController.ControllerPythonScript.ControllerPythonScript has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
     2019-03-07 10:38:17,670 WARNI [Init:88][MainThread] Class Products.CMFFormController.ControllerValidator.ControllerValidator has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
