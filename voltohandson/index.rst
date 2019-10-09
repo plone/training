@@ -23,6 +23,10 @@ The Volto Hands-On training is intended as a half day training for people who al
     footer
     breadcrumbs
     introtoblocks
+    blocksmainslider
+    contenttypesviews
+    highlightsblock
+    blocksedit
 
     about/index
     about/glossary

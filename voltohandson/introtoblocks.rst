@@ -37,7 +37,7 @@ Blocks anatomy
 
 Every Block is composed of an edit (``Edit.jsx``) and a view (``View.jsx``) components.
 
-Create your first tile in the project by adding these two components in a new directory in ``src/components/Tiles/MainTile``.
+Create your first tile in the project by adding these two components in a new directory in ``src/components/Tiles/MainSlider``.
 This is the ``Edit.jsx``:
 
 .. code-block:: jsx
@@ -45,7 +45,7 @@ This is the ``Edit.jsx``:
     import React from 'react';
 
     const Edit = props => {
-      return <div>I'm the tile edit component!</div>;
+      return <div>I'm the MainSlider edit component!</div>;
     };
 
     export default Edit;
@@ -57,11 +57,46 @@ and the ``View.jsx``.
     import React from 'react';
 
     const View = props => {
-      return <div>I'm the tile view component!</div>;
+      return <div>I'm the MainSlider view component!</div>;
     };
 
     export default View;
 
+Block view component props
+--------------------------
+
+The view component of a block receives these props from the Blocks Engine:
+
+  - id - the unique ID for the current block
+  - properties - the current content
+  - data - the data of the block (stored in the block itself)
+
+You can use them to render the view component.
+
+.. _voltohandson-introtoblocks-editprops-label:
+
+Block edit component props
+--------------------------
+
+The view component of a block receives these props from the Blocks Engine:
+
+  - type - the type of the block
+  - id - the unique ID for the current block
+  - data - the data of the block (stored in the block itself)
+  - selected - (Bool) true if the block is currently selected
+  - index - the block index order in the list of blocks
+  - pathname - the current URL pathname
+  - onAddTile - handler for adding a block in the block list
+  - onMutateTile - handler for mutate a block type into another
+  - onChangeTile - handler for change the data of that block
+  - onSelectTile - handler for select the block
+  - onDeleteTile - handler for deleting the block
+  - onFocusPreviousTile - handler for focus the previous block in the block list
+  - onFocusNextTile - handler for focus the next block in the block list
+  - handleKeyDown - handler for managing press keys while the block is selected
+  - onMoveTile - handler for moving blocks
+
+You can use all these props to render your edit block and model its behavior.
 
 Blocks settings
 ---------------
@@ -71,8 +106,8 @@ So we add this lines to the ``config.js`` in the root of our project.
 
 .. code-block:: js
 
-    import MainSliderView from '@package/components/Tiles/MainSlider/View';
-    import MainSliderEdit from '@package/components/Tiles/MainSlider/Edit';
+    import MainSliderViewBlock from '@package/components/Blocks/MainSlider/View';
+    import MainSliderEditBlock from '@package/components/Blocks/MainSlider/Edit';
     import sliderSVG from '@plone/volto/icons/slider.svg';
 
     ...
@@ -83,8 +118,8 @@ So we add this lines to the ``config.js`` in the root of our project.
         title: 'Main Slider',
         icon: sliderSVG,
         group: 'common',
-        view: MainSliderView,
-        edit: MainSliderEdit,
+        view: MainSliderViewBlock,
+        edit: MainSliderEditBlock,
         restricted: false,
         mostUsed: true,
         security: {

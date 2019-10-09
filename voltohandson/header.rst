@@ -19,6 +19,35 @@ Header component
 We will customize the existing Volto header, since the one we want doesn't differ much from the original.
 We will do so by copying the original Volto ``Header`` component from the ``omelette`` folder into the ``customizations/components/theme/Header/Header.jsx``.
 
+We have to do some amendments to that component, as remove the search widget, and move the ``Anontools`` component.
+
+This will be the outcome:
+
+.. code-block:: js
+
+    import { Logo, Navigation } from '@plone/volto/components';
+
+    ...
+
+    render() {
+      return (
+        <Segment basic className="header-wrapper" role="banner">
+          <Container>
+            <div className="header">
+              <div className="logo-nav-wrapper">
+                <div className="logo">
+                  <Logo />
+                </div>
+                <Navigation pathname={this.props.pathname} />
+              </div>
+            </div>
+          </Container>
+        </Segment>
+      );
+    }
+
+.. warning:: When using component shadowing remember to replace any relative import with ``@plone/volto``.
+
 Header styling
 ==============
 
@@ -38,6 +67,7 @@ We want this styling in the Header component:
     .ui.basic.segment.header-wrapper {
       background-color: #191919;
       border-bottom: 1px solid #939393;
+      margin-bottom: 20px;
     }
 
     .ui.basic.segment .header .logo-nav-wrapper {
@@ -73,6 +103,14 @@ We adjust the navigation menu for match plone.com one:
           color: #00a1df;
         }
       }
+    }
+
+Then we adjust the margin for the homepage:
+
+.. code-block:: less
+
+    .siteroot .ui.basic.segment.header-wrapper {
+      margin-bottom: 0;
     }
 
 Component shadowing

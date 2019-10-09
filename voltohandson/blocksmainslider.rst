@@ -1,0 +1,248 @@
+.. _voltohandson-blocksmainslider-label:
+
+====================
+Blocks - Main Slider
+====================
+
+plone.org has a main slider in the front page that we will implement using a Volto block.
+For simplicity we will use static content for this block, but eventually we could populate the contents for each slide using actual site content or any other means.
+
+We already have a basic block boilerplate from the last section.
+For the slider feature, we will install a third party library that will provide a component that will take care of it.
+
+Install react-slick
+===================
+
+.. code-block:: bash
+
+    $ yarn add react-slick slick-carousel
+
+Add library styles
+==================
+
+It's common that third party libraries provide their own default styling.
+You should add this styling to the build.
+Add the ``slick-carousel`` styles to the ``theme/extras/custom.overrides``:
+
+.. code-block:: less
+
+    @import (less) '~slick-carousel/slick/slick.css';
+    @import (less) '~slick-carousel/slick/slick-theme.css';
+
+Block view component
+====================
+
+Use this code for the block view component ``src/components/Tiles/MainSlider/View.jsx``.
+
+.. code-block:: jsx
+
+    import React from 'react';
+    import Slider from 'react-slick';
+    import { Link } from 'react-router-dom';
+    import { Button } from 'semantic-ui-react';
+    import { Icon } from '@plone/volto/components';
+    import sliderPNG from './slider-image.png';
+    import rightSVG from '@plone/volto/icons/right-key.svg';
+    import leftSVG from '@plone/volto/icons/left-key.svg';
+
+    const NextArrow = ({ className, style, onClick }) => (
+      <Button
+        className={className}
+        style={{ ...style, display: 'block' }}
+        onClick={onClick}
+      >
+        <Icon name={rightSVG} size="70px" color="#fff" />
+      </Button>
+    );
+
+    const PrevArrow = ({ className, style, onClick }) => (
+      <Button
+        className={className}
+        style={{ ...style, display: 'block' }}
+        onClick={onClick}
+      >
+        <Icon name={leftSVG} size="70px" color="#fff" />
+      </Button>
+    );
+
+    const View = props => {
+      return (
+        <div
+          className="tile view mainslider full-width"
+          style={{
+            background: `url(${sliderPNG}) center no-repeat`,
+          }}
+        >
+          <Slider
+            customPaging={dot => <div />}
+            dots={true}
+            fade
+            dotsClass="slick-dots slick-thumb"
+            infinite
+            speed={500}
+            slidesToShow={1}
+            slidesToScroll={1}
+            nextArrow={<NextArrow />}
+            prevArrow={<PrevArrow />}
+          >
+            <div>
+              <div className="slide slide1">
+                <h3>Plone</h3>
+                <h1>
+                  The Ultimate <br />
+                  Open Source Enterprise CMS
+                </h1>
+                <Link to="/plone5">Learn about Plone 5</Link>
+              </div>
+            </div>
+            <div>
+              <div className="slide slide1">
+                <h3>Plone 5.2</h3>
+                <h1>
+                  The Future-Proofing Release: <br />
+                  Python 3 and REST API
+                </h1>
+                <Link to="/plone52">Learn about Plone 5.2</Link>
+              </div>
+            </div>
+          </Slider>
+        </div>
+      );
+    };
+
+    export default View;
+
+We should have now the main slider block in the home page.
+We will leave for now how the edit component would look like for a later chapter.
+
+Styling
+=======
+
+The block use this styling:
+
+.. code-block:: less
+
+    .ui.basic.segment.content-area {
+      padding: 0;
+      margin: 0;
+    }
+
+    .tile.view.mainslider {
+      .slide {
+        display: flex;
+        height: 339px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+
+        h1 {
+          margin: 0 0 20px 0;
+          font-size: 32px;
+          font-weight: 700;
+          text-align: center;
+        }
+
+        h3 {
+          margin: 0 0 20px 0;
+          font-size: 32px;
+          font-weight: 300;
+        }
+
+        a {
+          padding: 10px 20px;
+          background-color: #00bef1;
+          border-radius: 20px;
+          color: #fff;
+        }
+      }
+
+      .slick-arrow {
+        width: initial;
+        height: initial;
+      }
+
+      .slick-prev {
+        z-index: 10;
+        left: -18px;
+        background: transparent !important;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      .slick-next {
+        right: -32px;
+        background: transparent !important;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    body.has-toolbar .tile.view.mainslider .slick-prev {
+      left: calc(-18px + 80px);
+    }
+
+    body.has-toolbar .tile.view.mainslider .slick-next {
+      right: calc(80px - 38px);
+    }
+
+    .slick-slider {
+      // This fixes homepage slider problem in ff (prevents from totally disappearing)
+      width: 100vw;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    // This is the width hack
+    body:not(.has-toolbar):not(.has-sidebar):not(.has-toolbar-collapsed):not(.has-sidebar-collapsed)
+    .ui.wrapper
+    > .full-width,
+    body.has-toolbar:not(.has-sidebar):not(.has-sidebar-collapsed)
+    .ui.wrapper
+    > .full-width,
+    body.has-toolbar-collapsed:not(.has-sidebar):not(.has-sidebar-collapsed)
+    .ui.wrapper
+    > .full-width {
+      position: relative;
+      right: 50%;
+      left: 50%;
+      width: 100vw !important;
+      max-width: initial !important;
+      margin-right: -50vw !important;
+      margin-left: -50vw !important;
+    }
+
+We want for now remove all the container messages everywhere:
+TODO: Remove if removed also from Volto
+
+.. code-block:: less
+
+    .ui.container.messages {
+      display: none;
+    }
+
+Remove the Title block
+======================
+
+By default, ``kitconcept.voltodemo`` sets a homepage by default with a title and a description block.
+Notice that the title block can't be removed.
+This is by design, but it can be overriden in the configuration object:
+
+.. code-block:: js
+   :emphasize-lines: 3
+
+    export const tiles = {
+    ...defaultTiles,
+    requiredTiles: [],
+    tilesConfig: { ...defaultTiles.tilesConfig, ...customTiles },
+  };
+
+at least for a moment, to remove the title block from the homepage.
+After that you choose, to leave the default or not.
+You can also create a setuphandlers or Generic Setup step to populate the initial default blocks in your site.

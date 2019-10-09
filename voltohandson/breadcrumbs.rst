@@ -22,3 +22,11 @@ So we can do:
     }
 
 We will return to breadcrumbs later to style it, after we finish with the homepage.
+
+However, and for the simplicity of the training, for now, we will remove the breadcrumbs for all pages.
+
+.. code-block:: less
+
+    .ui.secondary.segment.breadcrumbs {
+      display: none;
+    }
