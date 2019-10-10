@@ -180,8 +180,8 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
 
         <div class="number_of_talks"
              tal:define="catalog python:context.portal_catalog;
-                         talks python:len(catalog(portal_type='talk'));">
-            There are <span tal:replace="talks" /> talks.
+                         number_of_talks python:len(catalog(portal_type='talk'));">
+            There are <span tal:replace="number_of_talks" /> talks.
         </div>
 
     :samp:`python:context.portal_catalog` will return the catalog through Acquisition. Be careful if you want to use path expressions: :samp:`content/portal_catalog` calls the catalog (and returns all brains). You need to prevent this by using :samp:`nocall:content/portal_catalog`.
@@ -192,8 +192,8 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
 
         <div class="number_of_talks"
              tal:define="catalog context/@@plone_tools/catalog;
-                         talks python:len(catalog(portal_type='talk'));">
-            There are <span tal:replace="talks" /> talks.
+                         number_of_talks python:len(catalog(portal_type='talk'));">
+            There are <span tal:replace="number_of_talks" /> talks.
         </div>
 
     :samp:`context/@@plone_tools/catalog` traverses to the view ``plone_tools`` and calls its method :py:meth:`catalog`. In python it would look like this:
@@ -202,8 +202,8 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
 
         <div class="number_of_talks"
              tal:define="catalog python:context.restrictedTraverse('plone_tools').catalog();
-                         talks python:len(catalog(portal_type='talk'));">
-            There are <span tal:replace="talks" /> talks.
+                         number_of_talks python:len(catalog(portal_type='talk'));">
+            There are <span tal:replace="number_of_talks" /> talks.
         </div>
 
     It is not a good practice to query the catalog within a template since even simple logic like this should live in Python.
@@ -217,12 +217,12 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
 
         from plone import api
         catalog = api.portal.get_tool('portal_catalog')
-        talks_amount = len(catalog(portal_type='talk'))
+        number_of_talks = len(catalog(portal_type='talk'))
 
         ?>
 
         <div class="number_of_talks">
-            There are ${talks_amount} talks.
+            There are ${number_of_talks} talks.
         </div>
 
 
