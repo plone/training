@@ -218,15 +218,6 @@ The block use this styling:
       margin-left: -50vw !important;
     }
 
-We want for now remove all the container messages everywhere:
-TODO: Remove if removed also from Volto
-
-.. code-block:: less
-
-    .ui.container.messages {
-      display: none;
-    }
-
 Remove the Title block
 ======================
 
@@ -238,10 +229,10 @@ This is by design, but it can be overriden in the configuration object:
    :emphasize-lines: 3
 
     export const tiles = {
-    ...defaultTiles,
-    requiredTiles: [],
-    tilesConfig: { ...defaultTiles.tilesConfig, ...customTiles },
-  };
+      ...defaultTiles,
+      requiredTiles: [],
+      tilesConfig: { ...defaultTiles.tilesConfig, ...customTiles },
+    };
 
 at least for a moment, to remove the title block from the homepage.
 After that you choose, to leave the default or not.

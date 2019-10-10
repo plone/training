@@ -295,6 +295,29 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
 
     export default View;
 
+``src/config.js``
+
+.. code-block:: js
+
+    import TeaserViewBlock from '@package/components/Blocks/Teaser/View';
+    import TeaserEditBlock from '@package/components/Blocks/Teaser/Edit';
+
+    const customTiles = {
+    ...
+      teaser: {
+        id: 'teaser',
+        title: 'Teaser',
+        icon: sliderSVG,
+        group: 'common',
+        view: TeaserViewBlock,
+        edit: TeaserEditBlock,
+        restricted: false,
+        mostUsed: true,
+        security: {
+          addPermission: [],
+          view: [],
+        },
+      },
 
 and finally the styling:
 

@@ -65,8 +65,6 @@ We might want to add stuff on the top or at the bottom.
 In this case, ``DefaultView.jsx`` is rendering the existing blocks, however, we can have a content type with no blocks defined, then we can also modify what fields will show and how using plain JSX.
 On plone.com, the Success Story content type uses a the lead image as banner on the top. Let's achieve that:
 
-TODO: find a good image with width, put it in resources folder
-
 .. code-block:: jsx
 
     import React from 'react';

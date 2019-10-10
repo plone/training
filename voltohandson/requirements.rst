@@ -19,11 +19,13 @@ These are the tasks:
 
 - Setup CSS basics
 - Header and footer
-- Slider
-- Three column center element
+- Main Slider
+- Success story View
+- Three column highlights center element
+
+We'll leave for later:
+
 - five element row
 - Sponsor list
 - Prefooter
 - Success story list
-- Success story View
--

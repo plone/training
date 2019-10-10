@@ -60,10 +60,6 @@ We want this styling in the Header component:
 
 .. code-block:: less
 
-    .logo .ui.image {
-      height: 50px;
-    }
-
     .ui.basic.segment.header-wrapper {
       background-color: #191919;
       border-bottom: 1px solid #939393;
@@ -72,6 +68,10 @@ We want this styling in the Header component:
 
     .ui.basic.segment .header .logo-nav-wrapper {
       justify-content: space-between;
+    }
+
+    .logo .ui.image {
+      height: 50px;
     }
 
 So we have the familiar black background of plone.com, the right logo height, and the proper flex distribution for the header elements.
