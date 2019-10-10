@@ -81,7 +81,7 @@ Open the `bin/instance` script in your favorite editor. Now let's say you want P
 
     At the end of the `bin/instance` script, you'll see the following code:
 
-    .. code-block::python
+    .. code-block:: python
 
     if __name__ == '__main__':
         sys.exit(plone.recipe.zope2instance.ctl.main(

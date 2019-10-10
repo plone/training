@@ -333,7 +333,7 @@ Create a profile ``content`` that runs its own post_handler in :file:`setuphandl
         ]
 
 
-    Add the method :py:meth:`content` to :file:`setuphandlers.py`. We pointed to that when registering the import step. And add some fancy logic to create the content from ``STRUCTURE``.
+    Add the method :py:meth:`post_content` to :file:`setuphandlers.py`. We pointed to that when registering the import step. And add some fancy logic to create the content from ``STRUCTURE``.
 
     ..  code-block:: python
         :linenos:
