@@ -13,7 +13,7 @@ Views III: A Talk List
 
 In this part you will:
 
-* Write a python class to get all talks from the catalog
+* Write a Python class to get all talks from the catalog
 * Write a template to display the talks
 * Improve the table
 
@@ -36,7 +36,7 @@ Using portal_catalog
 
 Let's say we want to show a list of all the talks that were submitted for our conference. We can just go to the folder and select a display method that suits us. But none does because we want to show the target audience in our listing.
 
-So we need to get all the talks. For this we use the python class of the view to query the catalog for the talks.
+So we need to get all the talks. For this we use the Python class of the view to query the catalog for the talks.
 
 The catalog is like a search engine for the content on our site. It holds information about all the objects as well as some of their attributes like title, description, workflow_state, keywords that they were tagged with, author, content_type, its path in the site etc. But it does not hold the content of "heavy" fields like images or files, richtext fields and fields that we just defined ourselves.
 
@@ -115,9 +115,9 @@ We create a dictionary that holds all the information we want to show in the tem
 brains and objects
 ------------------
 
-Objects are normally not loaded into memory but lie dormant in the ZODB Database. Waking objects up can be slow, especially if you're waking up a lot of objects. Fortunately our talks are not especially heavy since they are:
+Objects are normally not loaded into memory but lie dormant in the ZODB database. Waking objects up can be slow, especially if you're waking up a lot of objects. Fortunately our talks are not especially heavy since they are:
 
-* dexterity-objects which are lighter than their archetypes brothers
+* Dexterity objects which are lighter than their Archetypes brothers
 * relatively few since we don't have thousands of talks at our conference
 
 We want to show the target audience but that attribute of the talk content type is not in the catalog. This is why we need to get to the objects themselves.
@@ -157,7 +157,7 @@ For historical reasons some attributes of brains and objects are written differe
     >>> obj = brain.getObject()
 
     >>> obj.title
-    u'Talk-submission is open!'
+    u'Talk submission is open!'
 
     >>> brain.Title == obj.title
     True
@@ -234,7 +234,7 @@ Since you now know how to query the catalog it is time for some exercise.
 Exercise 1
 **********
 
-Add a method :py:meth:`get_news` to :py:class:`TalkListView` that returns a list of brains of all News Items that are published and sort them in the order of their publishing-date.
+Add a method :py:meth:`get_news` to :py:class:`TalkListView` that returns a list of brains of all News Items that are published and sort them in the order of their publishing date.
 
 ..  admonition:: Solution
     :class: toggle
@@ -272,7 +272,7 @@ Add a method that returns all published keynotes as objects.
                 review_state='published')
             results = []
             for brain in brains:
-                # There is no catalog-index for type_of_talk so we must check
+                # There is no catalog index for type_of_talk so we must check
                 # the objects themselves.
                 talk = brain.getObject()
                 if talk.type_of_talk == 'Keynote':
@@ -287,19 +287,19 @@ The template for the listing
 
 Next you create a template in which you use the results of the method 'talks'.
 
-Try to keep logic mostly in python. This is for two reasons:
+Try to keep logic mostly in Python. This is for two* reasons (and by "two", we mean "three"):
 
 Readability:
-    It's much easier to read python than complex tal-structures
+    It's much easier to read Python than complex TAL structures
 
 Speed:
-    Python-code is faster than code executed in templates. It's also easy to add caching to methods.
+    Python code is faster than code executed in templates. It's also easy to add caching to methods.
 
-DRY:
-    In Python you can reuse methods and easily refactor code. Refactoring TAL usually means having to do big changes in the html-structure which results in incomprehensible diffs.
+DRY, or "Don't Repeat Yourself":
+    In Python you can reuse methods and easily refactor code. Refactoring TAL usually means having to do big changes in the HTML structure which results in incomprehensible diffs.
 
 
-The MVC-Schema does not directly apply to Plone but look at it like this:
+The MVC schema does not directly apply to Plone but look at it like this:
 
 Model:
     the object
@@ -310,7 +310,7 @@ View:
 Controller:
     the view
 
-The view and the controller are very much mixed in Plone. Especially when you look at some of the older code of Plone you'll see that the policy of keeping logic in python and representation in templates was not always enforced.
+The view and the controller are very much mixed in Plone. Especially when you look at some of the older code of Plone you'll see that the policy of keeping logic in Python and representation in templates was not always enforced.
 
 But you should nevertheless do it! You'll end up with more than enough logic in the templates anyway.
 
@@ -341,7 +341,7 @@ Add this simple table to :file:`templates/talklistview.pt`:
                  tal:attributes="href python:talk['url'];
                                  title python:talk['description']"
                  tal:content="python:talk['title']">
-                 The 7 sins of plone-development
+                 The 7 sins of Plone development
               </a>
             </td>
             <td tal:content="python:talk['speaker']">
@@ -384,14 +384,14 @@ There are some things that need explanation:
 
 .. note::
 
-    We could also write :samp:`python:not talks` like we could also write :samp:`tal:repeat="talk python:talks"` for the iteration. For simple cases as these path-statements are sometimes fine. On the other hand: If ``talks`` would be a callable we woul need to use ``nocall:talks``, so maybe it would be better to always use ``python:``.
+    We could also write :samp:`python:not talks` like we could also write :samp:`tal:repeat="talk python:talks"` for the iteration. For simple cases as these, path statements are sometimes fine. On the other hand, if ``talks`` was callable we would need to use ``nocall:talks``, so maybe it would be better to always use ``python:``.
 
 
 Exercise
 ********
 
-Modify the view to only use path-expressions.
-This is **not** best practice but there is plenty of code in Plone and in Add-ons so you have to know how to use them.
+Modify the view to only use path expressions.
+This is **not** best practice but there is plenty of code in Plone and in add-ons so you have to know how to use them.
 
 ..  admonition:: Solution
     :class: toggle
@@ -420,7 +420,7 @@ This is **not** best practice but there is plenty of code in Plone and in Add-on
                      tal:attributes="href talk/url;
                                      title talk/description"
                      tal:content="talk/title">
-                     The 7 sins of plone-development
+                     The 7 sins of Plone development
                   </a>
                 </td>
                 <td tal:content="talk/speaker">
@@ -477,5 +477,5 @@ Summary
 * You created a nice listing, that can be called at any place in the website
 * You wrote your first fully grown BrowserView that combines a template, a class and a method in that class
 * You learned about portal_catalog, brains and how they are related to objects
-* You learned about Acquisition and how it can have unintended effects
+* You learned about acquisition and how it can have unintended effects
 * You extended the FTI of an existing content type to allow editors to configure the new view as default

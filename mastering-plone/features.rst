@@ -42,7 +42,7 @@ Some commands you will use rather often are::
 
     A standard installation listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
 
-	.. figure:: _static/features_plone_running.png
+    .. figure:: _static/features_plone_running.png
 
     As you can see, there is no Plone site yet!
 
@@ -53,10 +53,6 @@ Some commands you will use rather often are::
     Use :samp:`Plone` as the site id.
 
     .. figure:: _static/features_create_site_form.png
-
-    You now have the option to select some add-ons before you create the site.
-    Since we will use Dexterity from the beginning we select :guilabel:`Dexterity-based Plone Default Types`.
-    This way even the initial content on our page will be built with Dexterity using the add-on :py:mod:`plone.app.contenttypes` which is the default in Plone 5.
 
     You will be automatically redirected to the new site.
 
@@ -87,21 +83,21 @@ Open the `bin/instance` script in your favorite editor. Now let's say you want P
 
     .. code-block:: python
 
-        if __name__ == '__main__':
-            sys.exit(plone.recipe.zope2instance.ctl.main(
-                ['-C', '/home/vagrant/training/buildout/parts/instance/etc/zope.conf']
-                + sys.argv[1:]))
+    if __name__ == '__main__':
+        sys.exit(plone.recipe.zope2instance.ctl.main(
+            ['-C', '/Users/pbauer/workspace/training_buildout/parts/instance/etc/zope.conf', '-p', '/Users/pbauer/workspace/training_buildout/parts/instance/bin/interpreter', '--wsgi']
+            + sys.argv[1:]))
 
-    The second to last line points to the configuration file your Plone instance is using. An absolute path is used so it might differ depending on the installation method. Open the `zope.conf` file in your
-    editor and look for the section:
+    The second to last line points to the configuration file your Plone instance is using. An absolute path is used so it might differ depending on the installation method. Open the `wsgi.ini` that lives in the same folder in your editor and look for the section:
 
-    .. code-block:: xml
+    .. code-block:: ini
 
-        <http-server>
-         address 8080
-        </http-server>
+        [server:main]
+        use = egg:waitress#main
+        listen = 0.0.0.0:8080
+        threads = 4
 
-    Change the address to 9080 and restart your instance.
+    Change the address to 0.0.0.0:9080 and restart your instance.
 
 Exercise 2
 ++++++++++
@@ -279,7 +275,7 @@ Content-Types
 Edit a page:
 
 * :guilabel:`Edit front-page`
-* :guilabel:`Title` :samp:`Plone Conference 2018, Tokyo`
+* :guilabel:`Title` :samp:`Plone Conference 2019, Ferrara, Italy`
 * :guilabel:`Summary` :samp:`Tutorial`
 * :guilabel:`Text` :samp:`...`
 
@@ -301,16 +297,16 @@ Create a site structure:
 
 * In ``/news``: Add a News Item "Conference Website online!" with some image
 * In ``/news``: Add a News Item "Submit your talks!"
-* In ``/events``: Add an Event "Deadline for talk submission" Date: 2017/08/10
+* In ``/events``: Add an Event "Deadline for talk submission" Date: 2019/08/10
 
 * Add a Folder "Register"
 * Delete the Folder "Users"
 * Add a Folder "Intranet"
 
 .. figure:: _static/features_new_navigation.png
-	:alt: The view of the extended navigation bar.
+    :alt: The view of the extended navigation bar.
 
-	The view of the extended navigation bar.
+    The view of the extended navigation bar.
 
 
 The default Plone content types are:
@@ -352,9 +348,9 @@ Collections
 * add a new collection: "all content that has ``pending`` as wf_state".
 
 .. figure:: _static/features_pending_collection.png
-	:alt: Add a collection through the web.
+    :alt: Add a collection through the web.
 
-	Add a collection through the web.
+    Add a collection through the web.
 
 * explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit
 * explain Topics

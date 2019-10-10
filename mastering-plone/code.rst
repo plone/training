@@ -147,7 +147,7 @@ Chapter                           Tag-Name
 Updating the code-package
 -------------------------
 
-This section if for training who want to update the code in :py:mod:`ploneconf.site` wfter changing something in the training documentation.
+This section is for trainers who want to update the code in :py:mod:`ploneconf.site` after changing something in the training documentation.
 
 The current model uses only one branch of commits and maintains the integrity through rebases.
 
@@ -162,17 +162,17 @@ It goes like this:
   `git checkout -b temp 123456`
 * You cange the code and do a commit.
   `git commit -am 'Changed foo to also do bar'`
-* Switch to master and rebase on the branch holding the fix which will inject your new commit into master at the right place:
+* Switch to master and rebase on the branch holding the fix which will inject the new commit into master at the right place:
   `git checkout master`
   `git rebase temp`
   That inserts the changes into master in the right place. You only maintain a master branch that is a sequence of commits.
-* You then can update your chapter-docs to point to the corresponding commit ids:
+* Then you need to update your chapter-docs to point to the corresponding commit ids:
   chapter one: `git checkout 121431243`
   chapter two: `git checkout 498102980`
 
 Additionally you can
 
-* set tags on the respective commits and move the tags. This way the docs do not need to change
+* set tags on the respective commits and move these tags. This way the docs do not need to be changed when the code changes.
 * squash the commits between the chapters to every chapter is one commit.
 
 To move tags after changes you do:
@@ -185,4 +185,4 @@ The final result should look like this:
 .. figure:: ../_static/code_tree.png
    :align: center
 
-I earlier versions we used a folder-based such as in https://github.com/collective/ploneconf.site_sneak. It proved to be a lot a lot of work to maintain that.
+In earlier versions of the training we used a folder-based approach such as in https://github.com/collective/ploneconf.site_sneak. It proved to be a lot a lot of tedious work to maintain that.

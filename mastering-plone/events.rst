@@ -12,7 +12,7 @@ Turning Talks into Events
         git checkout events
 
 
-We forgot something: A list of talks is great especially if you can sort it by your preferences. But if a visitor decides he wants to actually go to see a talk he needs to know when it will take place.
+We forgot something: a list of talks is great, especially if you can sort it according to your preferences. But if a visitor decides she wants to actually go to see a talk she needs to know when it will take place.
 
 We need a schedule and for this we need to store the information when a talk will happen.
 
@@ -37,7 +37,7 @@ First enable the behavior :py:class:`IEventBasic` for talks in :file:`profiles/d
       <element value="plone.eventbasic"/>
     </property>
 
-After you activate the behavior by hand or reinstalled the add-on you will now have some additional fields for ``start`` and ``end``.
+After you activate the behavior by hand or you reinstalled the add-on you will now have some additional fields for ``start`` and ``end``.
 
 To display the new field we reuse a default event summary view as documented in https://ploneappevent.readthedocs.io/en/latest/development.html#reusing-the-event-summary-view-to-list-basic-event-information
 
@@ -89,9 +89,9 @@ Edit :file:`browser/templates/talkview.pt`
     </body>
     </html>
 
-Similar to the field `room` the problem now appears that speakers submitting their talks should not be able to set a time and day for their talks.
+Similar to the field `room`, the problem now appears that speakers submitting their talks should not be able to set a time and day for their talks.
 Sadly it is not easy to modify permissions of fields provided by behaviors (unless you write the behavior yourself).
-At least in this case we can take the easy way out since the field does not contain secret information: We will simply hide the fields from contributors using css and show them for reviewers. We will do so in chapter :ref:`resources-label` when we add some css-files.
+At least in this case we can take the easy way out since the field does not contain secret information: we will simply hide the fields from contributors using css and show them for reviewers. We will do so in chapter :ref:`resources-label` when we add some CSS files.
 
 Modify :file:`browser/static/ploneconf.css` and add:
 
@@ -111,7 +111,7 @@ Modify :file:`browser/static/ploneconf.css` and add:
         display: block;
     }
 
-You can now display the start-date of a talk in the talklist.
+You can now display the start date of a talk in the talklist.
 Modify the class :py:class:`TalkListView` and the template :file:`browser/templates/talklistview.pt` to show the new info:
 
 ..  code-block:: python
@@ -170,7 +170,7 @@ Find out where ``event_summary`` comes from and describe how you could override 
 ..  admonition:: Solution
     :class: toggle
 
-    Use your editor or grep to search all zcml-files in the folder :file:`packages` for the string ``name="event_summary"``
+    Use your editor or grep to search all ZCML files in the folder :file:`packages` for the string ``name="event_summary"``
 
     ..  code-block:: bash
 
@@ -291,4 +291,4 @@ Summary
 
 * You reused a existing behavior to add new fields
 * You reused existing indexes to display the time of a talk
-* You did not have to write your own datetime-fields and indexers \o/
+* You did not have to write your own datetime fields and indexers \o/

@@ -192,7 +192,7 @@ doctest:
 	      "results in $(BUILDDIR)/doctest/output.txt."
 
 .PHONY: test
-test: clean linkcheck
+test: clean
 
 .PHONY: deploy
 deploy: clean html

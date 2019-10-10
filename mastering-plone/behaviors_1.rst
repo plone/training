@@ -22,7 +22,7 @@ Topics covered:
 
 .. only:: not presentation
 
-    You can extend the functionality of your dexterity object by writing an adapter that adapts your dexterity object to add another feature or aspect.
+    You can extend the functionality of your Dexterity object by writing an adapter that adapts your dexterity object to add another feature or aspect.
 
     But if you want to use this adapter, you must somehow know that an object implements that.
     Also, adding more fields to an object would not be easy with such an approach.
@@ -53,13 +53,13 @@ Names and Theory
     You are adding an aspect to your content type and you want to write your aspect in such a way that it works independently of the content type on which the aspect is applied.
     You should not have dependencies to specific fields of your object or to other behaviors.
 
-    Such an object allows you to apply the `Open/closed principle`_ to your dexterity objects.
+    Such an object allows you to apply the `open/closed principle`_ to your dexterity objects.
 
 .. only:: presentation
 
-    `Open/closed principle`_
+    `open/closed principle`_
 
-.. _Open/closed principle: https://en.wikipedia.org/wiki/Open/closed_principle
+.. _open/closed principle: https://en.wikipedia.org/wiki/Open/closed_principle
 
 .. _behaviors1-example-label:
 
@@ -70,9 +70,9 @@ Practical example
 
     So, let us write our own small behavior.
 
-    In the future, we want our presentation to be represented in Lanyrd (a Social Conference Directory - Lanyrd.com) too. For now we will just provide a link so that visitors can collaborate easily with the Lanyrd site.
+    In the future, we want our presentation to be represented in Lanyrd.com (a now defunct social conference directory). For now we will just provide a link so that visitors can collaborate easily with the Lanyrd site.
 
-    So for now, our behavior just adds a new field for storing the url to Lanyrd.
+    So for now, our behavior just adds a new field for storing the URL to Lanyrd.
 
 We want to keep a clean structure, so we create a :file:`behaviors` directory first, and include it into the zcml declarations of our :file:`configure.zcml`.
 

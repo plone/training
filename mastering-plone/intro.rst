@@ -55,7 +55,7 @@ Some technologies and tools we use during the training:
     * Through-the-web (TTW)
     * `Buildout <http://www.buildout.org/en/latest/>`_
     * A little XML
-    * A little Python
+    * Python 3.7
 
 * For the advanced chapters:
 

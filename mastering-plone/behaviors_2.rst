@@ -196,7 +196,7 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
 
     The ``@provider`` decorator above the class ensures that the schema fields are known to other packages.
     Whenever some code wants all schemas from an object, it receives the schema defined directly on the object and the additional schemata.
-    Additional schemata are compiled by looking for behaviors and whether they provide the ``IFormFieldProvider``functionality.
+    Additional schemata are compiled by looking for behaviors and whether they provide the ``IFormFieldProvider`` functionality.
     Only then the fields are used as form fields.
 
     While IVoting is just an interface, we use ``plone.supermodel.model.Schema`` for advanced dexterity features.

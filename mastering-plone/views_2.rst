@@ -13,7 +13,7 @@ Views II: A Default View for "Talk"
 
 In this part you will:
 
-* Register a view with a python class
+* Register a view with a Python class
 * Write a template used in the default view for talks
 
 
@@ -30,7 +30,7 @@ View Classes
 ------------
 
 Earlier we wrote a demo view which we also used to experiment with page templates.
-Now we are going to enhance that view so that it will have some python code, in addition to a template.
+Now we are going to enhance that view so that it will have some Python code, in addition to a template.
 Let us have a look at the ZCML and the code.
 
 ``browser/configure.zcml``
@@ -159,7 +159,7 @@ And the template will now be much simpler.
 
 .. note::
 
-    It is a very common pattern that you prepare the data you want to display in python.
+    It is a very common pattern that you prepare the data you want to display in Python.
 
 Browser Views
 -------------
@@ -198,15 +198,15 @@ Open the view on a talk and it will show you information on that talk.
 
 .. note::
 
-    Changes in python-files are picked up by restarting Plone or using the addon ``plone.reload``: http://localhost:8080/@@reload
+    Changes in Python files are picked up by restarting Plone or using the addon ``plone.reload``: http://localhost:8080/@@reload
 
 
 Reusing Browser Views
 ---------------------
 
 * Browser Views can be called by accessing their name in the browser.
-  Append ``/training`` to any url and the view will be called.
-* Browser Views can be associated with a template (like ``training.pt``) to return some html.
+  Append ``/training`` to any URL and the view will be called.
+* Browser Views can be associated with a template (like ``training.pt``) to return some HTML.
 * Browser Views can be reused in your code using ``plone.api.content.get_view('<name of the view>', context, request)``.
   This allows you to reuse code and methods.
 
@@ -260,13 +260,13 @@ You can define which ``context``-object should be used:
 
     Browser Views
 
-    * are the swiss army knife of every Plone developer
-    * can be called by appending their name to a url in the browser.
-      Append ``/training`` to any url and the view will be called.
-    * can be associated with a template (like ``training.pt``) to return some html.
+    * are the Swiss Army knife of every Plone developer
+    * can be called by appending their name to a URL in the browser.
+      Append ``/training`` to any URL and the view will be called.
+    * can be associated with a template (like ``training.pt``) to return some HTML.
     * can be reused in your code using ``plone.api.content.get_view('<name of the view>', context, request)``.
     * can be protected with permissions
-    * can be constrained to certain content-types by using ``for="plonconf.site.content.sponsor.ISponsor"``
+    * can be constrained to certain content types by using ``for="plonconf.site.content.sponsor.ISponsor"``
     * can be constrained to certain addons by using ``layer="plonconf.site.interfaces.IPloneconfSiteLayer"``
 
 
@@ -277,7 +277,7 @@ The default view
 
 Now you know everything to create a nice view for talks in :file:`views.py`.
 
-First we will not write any methods for `view` but access the fields from the talk-schema as `context.<fieldname>`.
+First we will not write any methods for `view` but access the fields from the talk schema as `context.<fieldname>`.
 
 Register a view `talkview` in :file:`browser/configure.zcml`:
 
@@ -325,15 +325,15 @@ Add the template :file:`templates/talkview.pt`:
     </body>
     </html>
 
-After a restart, we can test our view by going to a talk and adding */talkview* to the url.
+After a restart, we can test our view by going to a talk and adding */talkview* to the URL.
 
 
-Using helper-methods from :py:class:`DefaultView`
+Using helper methods from :py:class:`DefaultView`
 -------------------------------------------------
 
 In the previous section we used :py:class:`BrowserView` as the base class for :py:class:`TalkView`.
 
-Dexterity comes with a nice helper-class suited for views of content-types: The :py:class:`DefaultView` base class in :py:mod:`plone.dexterity`.
+Dexterity comes with a nice helper class suited for views of content types: the :py:class:`DefaultView` base class in :py:mod:`plone.dexterity`.
 It has some very useful properties available to use in the template:
 
 * :py:attr:`view.w` is a dictionary of all the display widgets, keyed by field names. This includes widgets from alternative fieldsets.
@@ -379,7 +379,7 @@ to use the pattern :samp:`view/w/<fieldname>/render` to render the widgets:
     </body>
     </html>
 
-After a restart, we can test the modified view by going to a talk and adding */talkview* to the url.
+After a restart, we can test the modified view by going to a talk and adding ``/talkview`` to the URL.
 
 We should tell Plone that the talkview should be used as the default view for talks instead of the built-in view.
 
@@ -403,7 +403,7 @@ We will have to either reinstall our add-on or run the GenericSetup import step 
 
 ..  note::
 
-    To change it ttw go to the ZMI (http://localhost:8080/Plone/manage), go to ``portal_types`` and select the type for which the new view should be selectable (*talk*).
+    To change it TTW go to the ZMI (http://localhost:8080/Plone/manage), go to ``portal_types`` and select the type for which the new view should be selectable (*talk*).
 
     Now add ``talkview`` to the list *Available view methods*.
     Now the new view is available in the menu *Display*.
@@ -413,7 +413,7 @@ We will have to either reinstall our add-on or run the GenericSetup import step 
 The complete template for talks
 -------------------------------
 
-Now you can improve the talkview to show data for all fields in the talk-schema:
+Now you can improve the talkview to show data for all fields in the talk schema:
 
 * type_of_talk
 * details

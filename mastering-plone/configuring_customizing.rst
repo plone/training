@@ -97,7 +97,7 @@ Let's change the logo.
 Portlets
 --------
 
-In the toolbar under :guilabel:`More options` you can open the configuration for the different places where you can have portlets.
+In the toolbar under the :guilabel:`Portlets` section, you can open the configuration for the different places where you can have portlets.
 
 * UI fit for smart content editors
 * Various types
@@ -117,7 +117,7 @@ Example:
 * Use the toolbar to configure the portlets of the footer:
 
   * Hide the portlets "Footer" and "Colophon".
-  * Add a :guilabel:`Static text portlet` and enter "Copyright 2015 by Plone Community".
+  * Add a :guilabel:`Static text portlet` and enter "Copyright 2019 by Plone Community".
   * Use :menuselection:`Insert --> Special Character` to add a real © sign.
   * You could turn that into a link to a copyright page later.
 
@@ -172,7 +172,7 @@ Actions (portal_actions)
 Examples:
 
 * Links in the Footer (``site_actions``)
-* Actions Dropdown (``folder_buttons``)
+* Actions Dropdown (``object_buttons``)
 
 Actions have properties like:
 
@@ -232,30 +232,7 @@ Configuring the navigation itself is done elsewhere: http://localhost:8080/Plone
 
 If time explain:
 
-* user > undo (cool!)
 * user > login/logout
-
-
-Skins (``portal_skins``)
-************************
-
-In ``portal_skins`` we can change certain images, CSS-files and templates.
-
-* ``portal_skins`` is deprecated technology
-* Plone 5 got rid of most files that lived in ``portal_skins``.
-
-
-Change some CSS
-+++++++++++++++
-
-* Go to ZMI
-* Go to ``portal_skins``
-* Go to ``plone_styles``
-* Go to :file:`ploneCustom.css`
-* Click :guilabel:`customize`
-
-The CSS you add to this file is instantly active on the site.
-
 
 portal_view_customizations
 **************************
@@ -271,7 +248,7 @@ Change the footer
 
      <div i18n:domain="plone"
           id="portal-footer">
-        <p>&copy; 2016 by me! |
+        <p>&copy; 2019 by me! |
           <a href="mailto:info@ploneconf.org">
            Contact us
           </a>

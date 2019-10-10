@@ -21,11 +21,7 @@ Installing Plone without vagrant
 
 .. warning::
 
-    If you are **not** used to running Plone on your laptop skip this part and continue with :ref:`install-virtualbox`.
-
-.. warning::
-
-    To run Plone 5.1 you at least need Python 2.7.9!
+    If you are new to running Plone on your laptop you could skip this part and continue with :ref:`install-virtualbox`.
 
 If you **are** experienced with running Plone on your own laptop, we encourage you to do so because you will have certain benefits:
 
@@ -59,7 +55,7 @@ Then, you need to install the following packages:
 
 .. code-block:: console
 
-    sudo apt-get install python-setuptools python-virtualenv python-dev build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
+    sudo apt-get install python3.7-dev python3.7-tk python3.7-venv build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
     sudo apt-get install libreadline-dev wv poppler-utils
     sudo apt-get install git
 
@@ -79,10 +75,10 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
     cd training
     git clone https://github.com/collective/training_buildout.git buildout
     cd buildout
-    virtualenv --python=python2.7 .
+    python3.7 -m venv .
     ./bin/pip install -r requirements.txt
 
-This creates a virtualenv with Python 2.7 in the folder :file:`buildout` and installs some requirements in it.
+This creates a virtualenv with Python 3.7 in the folder :file:`buildout` and installs some requirements in it.
 
 Now you can run the buildout for the first time:
 
@@ -90,7 +86,7 @@ Now you can run the buildout for the first time:
 
     ./bin/buildout
 
-This will take a very lot of time and produce a lot of output because it downloads and configures more than 260 Python packages. Once it is done you can start your Plone instance with
+This will take **very long** time and produce a lot of output because it downloads and configures more than 260 Python packages. Once it is done you can start your Plone instance with
 
 .. code-block:: console
 
@@ -102,25 +98,25 @@ The output should be similar to:
     :emphasize-lines: 40
 
     pbauer@bullet:/workspace/training_buildout$  ./bin/instance fg
-    2018-10-26 11:59:13 INFO ZServer HTTP server started at Fri Oct 26 11:59:13 2018
-        Hostname: 0.0.0.0
-        Port: 8080
-    2018-10-26 11:59:16 INFO ZODB.blob (57231) Blob directory `/Users/pbauer/workspace/training_buildout/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
-    2018-10-26 11:59:16 INFO ZODB.blob (57231) Blob temporary directory '/Users/pbauer/workspace/training_buildout/var/blobstorage/tmp' does not exist. Created new directory.
-    /Users/pbauer/.cache/buildout/eggs/plone.app.blob-1.7.4-py2.7.egg/plone/app/blob/content.py:23: DeprecationWarning: MimeTypeException is deprecated. Import from Products.MimetypesRegistry.interfaces instead
-      from Products.MimetypesRegistry.common import MimeTypeException
-    /Users/pbauer/.cache/buildout/eggs/plone.portlet.collection-3.3.0-py2.7.egg/plone/portlet/collection/collection.py:2: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
-      from plone.app.layout.navigation.defaultpage import isDefaultPage
-    /Users/pbauer/.cache/buildout/eggs/Products.CMFPlone-5.1.4-py2.7.egg/Products/CMFPlone/browser/syndication/views.py:17: DeprecationWarning: wrap_form is deprecated. Import from plone.z3cform.layout instead.
-      from plone.app.z3cform.layout import wrap_form
-    /Users/pbauer/.cache/buildout/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:102: DeprecationWarning: Expected text
-      transaction.get().note("Created Zope Application")
-    /Users/pbauer/.cache/buildout/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:267: DeprecationWarning: Expected text
-      transaction.get().note(note)
-    /Users/pbauer/.cache/buildout/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:523: DeprecationWarning: Expected text
-      transaction.get().note('Prior to product installs')
-    2018-10-26 11:59:21 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
-    2018-10-26 11:59:21 WARNING PrintingMailHost
+    2019-09-05 20:11:03,708 WARNING [Init:89][MainThread] Class Products.CMFFormController.ControllerPythonScript.ControllerPythonScript has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
+    2019-09-05 20:11:03,715 WARNING [Init:89][MainThread] Class Products.CMFFormController.ControllerValidator.ControllerValidator has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
+    2019-09-05 20:11:03,776 WARNING [Products.PDBDebugMode:31][MainThread]
+
+    ******************************************************************************
+
+    Debug-Mode enabled!
+
+    This will result in a pdb when a exception happens.
+    Turn off debug mode or remove Products.PDBDebugMode to disable.
+
+    See https://pypi.python.org/pypi/Products.PDBDebugMode
+
+    ******************************************************************************
+
+    2019-09-05 20:11:04,858 INFO    [chameleon.config:38][MainThread] directory cache: /Users/pbauer/workspace/training_buildout/var/cache.
+    2019-09-05 20:11:07,151 WARNING [plone.behavior:172][MainThread] Specifying 'for' in behavior 'Tiles' if no 'factory' is given has no effect and is superfluous.
+    2019-09-05 20:11:08,353 WARNING [PrintingMailHost:30][MainThread] Hold on to your hats folks, I'm a-patchin'
+    2019-09-05 20:11:08,353 WARNING [PrintingMailHost:124][MainThread]
 
     ******************************************************************************
 
@@ -138,12 +134,12 @@ The output should be similar to:
 
     ******************************************************************************
 
-    /Users/pbauer/.cache/buildout/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:777: DeprecationWarning: Expected text
-      transaction.get().note('Installed standard objects')
-    2018-10-26 11:59:21 INFO Zope Ready to handle requests
+    2019-09-05 20:11:08,390 INFO    [Zope:45][MainThread] Ready to handle requests
+    Starting server in PID 30620.
+    Serving on http://0.0.0.0:8080
 
 
-If the output says ``INFO Zope Ready to handle requests`` then you are in business.
+If the output says ``Serving on http://0.0.0.0:8080`` then you are in business.
 
 If you point your browser at http://localhost:8080 you see that Plone is running.
 
@@ -186,7 +182,7 @@ Vagrant uses Oracle’s VirtualBox to create virtual environments.
 
 Here is a link directly to the download page: https://www.virtualbox.org/wiki/Downloads.
 
-We use VirtualBox 5.2.x
+We use VirtualBox 6.0.x
 
 
 .. _instructions-configure-vagrant-label:
@@ -238,9 +234,8 @@ This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on y
 * sets up the VM
 * updates the VM
 * installs various system-packages needed for Plone development
-* downloads and unpacks the buildout-cache to get all the eggs for Plone
 * clones the training buildout into /vagrant/buildout
-* builds Plone using the eggs from the buildout-cache
+* builds Plone annd installs all dependencies
 
 .. note::
 
@@ -294,26 +289,13 @@ It is in :file:`/vagrant/buildout/`. Start it in foreground with :command:`./bin
 
 .. code-block:: console
 
+    vagrant@training:~$ cd /vagrant/buildout/
     vagrant@training:/vagrant/buildout$ ./bin/instance fg
-    2018-10-26 09:52:41 INFO ZServer HTTP server started at Fri Oct 26 09:52:41 2018
-        Hostname: 0.0.0.0
-        Port: 8080
-    2018-10-26 09:52:43 INFO ZODB.blob (27181) Blob directory `/home/vagrant/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout.
-    2018-10-26 09:52:43 INFO ZODB.blob (27181) Blob temporary directory '/home/vagrant/var/blobstorage/tmp' does not exist. Created new directory.
-    /home/vagrant/buildout-cache/eggs/plone.app.blob-1.7.4-py2.7.egg/plone/app/blob/content.py:23: DeprecationWarning: MimeTypeException is deprecated. Import from Products.MimetypesRegistry.interfaces instead
-      from Products.MimetypesRegistry.common import MimeTypeException
-    /home/vagrant/buildout-cache/eggs/plone.portlet.collection-3.3.0-py2.7.egg/plone/portlet/collection/collection.py:2: DeprecationWarning: isDefaultPage is deprecated. Import from Products.CMFPlone instead
-      from plone.app.layout.navigation.defaultpage import isDefaultPage
-    /home/vagrant/buildout-cache/eggs/Products.CMFPlone-5.1.4-py2.7.egg/Products/CMFPlone/browser/syndication/views.py:17: DeprecationWarning: wrap_form is deprecated. Import from plone.z3cform.layout instead.
-      from plone.app.z3cform.layout import wrap_form
-    /home/vagrant/buildout-cache/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:102: DeprecationWarning: Expected text
-      transaction.get().note("Created Zope Application")
-    /home/vagrant/buildout-cache/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:267: DeprecationWarning: Expected text
-      transaction.get().note(note)
-    /home/vagrant/buildout-cache/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:523: DeprecationWarning: Expected text
-      transaction.get().note('Prior to product installs')
-    2018-10-26 09:52:47 WARNING PrintingMailHost Hold on to your hats folks, I'm a-patchin'
-    2018-10-26 09:52:47 WARNING PrintingMailHost
+    2019-03-07 10:38:17,666 WARNI [Init:88][MainThread] Class Products.CMFFormController.ControllerPythonScript.ControllerPythonScript has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
+    2019-03-07 10:38:17,670 WARNI [Init:88][MainThread] Class Products.CMFFormController.ControllerValidator.ControllerValidator has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
+    2019-03-07 10:38:21,160 WARNI [plone.behavior:172][MainThread] Specifying 'for' in behavior 'Tiles' if no 'factory' is given has no effect and is superfluous.
+    2019-03-07 10:38:22,473 WARNI [PrintingMailHost:30][MainThread] Hold on to your hats folks, I'm a-patchin'
+    2019-03-07 10:38:22,474 WARNI [PrintingMailHost:124][MainThread]
 
     ******************************************************************************
 
@@ -331,9 +313,9 @@ It is in :file:`/vagrant/buildout/`. Start it in foreground with :command:`./bin
 
     ******************************************************************************
 
-    /home/vagrant/buildout-cache/eggs/Zope2-2.13.27-py2.7.egg/OFS/Application.py:777: DeprecationWarning: Expected text
-      transaction.get().note('Installed standard objects')
-    2018-10-26 09:52:47 INFO Zope Ready to handle requests
+    2019-03-07 10:38:22,510 INFO  [Zope:44][MainThread] Ready to handle requests
+    Starting server in PID 25230.
+    Serving on http://0.0.0.0:8080
 
 .. note::
 

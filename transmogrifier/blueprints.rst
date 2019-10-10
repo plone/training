@@ -195,7 +195,7 @@ Then further down in the file, you can add the new part:
 The name of the blueprint is what we set in the configure.zcml.
 No other parameters need to be added,
 unless you specifically wrote your blueprint to take additional information.
-This is covered more in :doc:`advanced-blueprints`.
+This is covered more in :doc:`advanced-blueprint`.
 
 Restart (or start) your instance.
 If you don't have syntax errors, your new blueprint is hooked up and ready for testing!
