@@ -18,7 +18,7 @@ Prerequisites
     $ sudo apt install libev-dev
 
 Use ``bjoern`` in our buildout
---------------------------
+------------------------------
 
 .. sidebar:: Build now
 
