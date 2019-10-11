@@ -9,7 +9,7 @@ We will use Volto blocks (a.k.a. tiles) to compose the homepage.
 Brief intro to Volto blocks
 ===========================
 
-Volto features the Pastanaga Editor Engine, allowing you to compose visually a page using blocks.
+Volto features the Pastanaga Editor Engine, allowing you to visually compose a page using blocks.
 The editor allows you to add, modify, reorder and delete blocks given your requirements.
 Blocks provide the user the ability to display content in an specific way, although they can also define behavior and have specific features.
 Blocks are composed of two basic (and required) components: the Block edit and view components.
@@ -20,7 +20,7 @@ By default, Volto ships with the most basic set of Blocks: Title, Text, Image, V
           If you are using the ``kitconcept.voltodemo`` package it sets it up for you for the ``Document`` content type.
           So if you create a page, by default it is enabled.
 
-How to enable manually Blocks on a content type
+How to manually enable Blocks on a content type
 ===============================================
 
 There is a behavior ``Tiles`` that ``plone.restapi`` makes available.
@@ -30,12 +30,12 @@ There is a behavior ``Tiles`` that ``plone.restapi`` makes available.
 3. Select the ``Tiles`` behavior
 4. Save
 
-Test that the content type you've just enable the tiles behavior is working, by creating a new object of that type from Volto.
+Test that the content type you've just enabled tiles behavior is working, by creating a new object of that type from Volto.
 
 Blocks anatomy
 ==============
 
-Every Block is composed of an edit (``Edit.jsx``) and a view (``View.jsx``) components.
+Every Block is composed of an edit (``Edit.jsx``) and a view (``View.jsx``) component.
 
 Create your first tile in the project by adding these two components in a new directory in ``src/components/Tiles/MainSlider``.
 This is the ``Edit.jsx``:
@@ -87,12 +87,12 @@ The view component of a block receives these props from the Blocks Engine:
   - index - the block index order in the list of blocks
   - pathname - the current URL pathname
   - onAddTile - handler for adding a block in the block list
-  - onMutateTile - handler for mutate a block type into another
-  - onChangeTile - handler for change the data of that block
-  - onSelectTile - handler for select the block
+  - onMutateTile - handler for mutating a block type into another
+  - onChangeTile - handler for changing the data of that block
+  - onSelectTile - handler for selecting the block
   - onDeleteTile - handler for deleting the block
-  - onFocusPreviousTile - handler for focus the previous block in the block list
-  - onFocusNextTile - handler for focus the next block in the block list
+  - onFocusPreviousTile - handler for focusing the previous block in the block list
+  - onFocusNextTile - handler for focusing the next block in the block list
   - handleKeyDown - handler for managing press keys while the block is selected
   - onMoveTile - handler for moving blocks
 
@@ -134,7 +134,7 @@ So we add this lines to the ``config.js`` in the root of our project.
       tilesConfig: { ...defaultTiles.tilesConfig, ...customTiles },
     };
 
-We add this also, for fulfill all our i18n requirements:
+We add this also, to fulfill all our i18n requirements:
 
 .. code-block:: js
 

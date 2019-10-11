@@ -31,7 +31,7 @@ Some technologies and tools we use during the training:
 * Plone!
 
 This training assumes that you've already taken (either presentially in the past Tokyo Plone Conference, or offline) the existing React and Volto trainings.
-However, we will be revisiting the some of the React training basic concepts during the training along with the Volto customization and extensibility story.
+However, we will be revisiting some of the React training basic concepts during the training along with the Volto customization and extensibility story.
 
 .. _voltohandson-intro-what-to-expect-label:
 
@@ -39,7 +39,7 @@ What to expect
 ==============
 
 At the end of the course you will know how to develop a Volto project from scratch to deployment.
-Learning in the way how to effectively use developer tools and Volto helpers for build your site.
+Learning in the way how to effectively use developer tools and Volto helpers for building your site.
 You'll be able to get confident with the Volto customization story, theming and how to get the most of Plone REST API.
 
 .. _voltohandson-intro-documentation-label:

@@ -46,7 +46,7 @@ Create a new ``Success Story`` content type, fill the title and save. Your custo
 Completing the new view
 =======================
 
-Our recently created view need to show now sensible content. Let's add it. Edit ``src/components/Views/SuccessStory.jsx``:
+Our recently created view needs to show sensible content now. Let's add it. Edit ``src/components/Views/SuccessStory.jsx``:
 
 .. code-block:: jsx
    :emphasize-lines: 2,5
@@ -87,7 +87,7 @@ On plone.com, the Success Story content type uses a the lead image as banner on 
 
 export default SuccessStoryView;
 
-and companion styling, removing for now breadcrumbs here as well:
+and companion styling, for now removing breadcrumbs here as well:
 
 .. code-block:: less
 
@@ -113,4 +113,4 @@ and companion styling, removing for now breadcrumbs here as well:
       }
     }
 
-We can add to the page any other field from the content type, we only need to give it structure and styling, as desired.
+We can add any other field from the content type to the page, we only need to give it structure and styling, as desired.

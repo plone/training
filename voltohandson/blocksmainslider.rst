@@ -4,7 +4,7 @@
 Blocks - Main Slider
 ====================
 
-plone.org has a main slider in the front page that we will implement using a Volto block.
+plone.org has a main slider on the front page that we will implement using a Volto block.
 For simplicity we will use static content for this block, but eventually we could populate the contents for each slide using actual site content or any other means.
 
 We already have a basic block boilerplate from the last section.
@@ -112,8 +112,8 @@ Use this code for the block view component ``src/components/Tiles/MainSlider/Vie
 
     export default View;
 
-We should have now the main slider block in the home page.
-We will leave for now how the edit component would look like for a later chapter.
+We should have the main slider block in the home page now.
+For now we will leave out how the edit component would look like for a later chapter.
 
 Styling
 =======
@@ -235,5 +235,5 @@ This is by design, but it can be overriden in the configuration object:
     };
 
 at least for a moment, to remove the title block from the homepage.
-After that you choose, to leave the default or not.
-You can also create a setuphandlers or Generic Setup step to populate the initial default blocks in your site.
+After that you choose to leave the default or not.
+You can also create setuphandlers or Generic Setup steps to populate the initial default blocks in your site.
