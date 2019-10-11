@@ -14,7 +14,7 @@ TODO - repo final location
 This repo has the final stage of what we will achieve at the end of the
 training in the ``master`` branch and there's a branch with the name of each
 chapter. In case you get lost at some point, you are able to forward (or
-rewind) and get the complete code for the end of each chapter the training
+rewind) and get the complete code for the end of each chapter in the training
 easily.
 
 The repo has an ``api`` folder, where you can find a preconfigured buildout
@@ -32,7 +32,7 @@ To build it, you just have to use the convenience ``Makefile`` command:
 
 .. note::
     It assumes the fact that you have ``Python 3`` in your path and all the usual
-    system dependencies for building Plone installed in your machine.
+    system dependencies for building Plone installed on your machine.
 
 .. note::
     If any of you have problems with the traditional build of Plone
@@ -42,7 +42,7 @@ To build it, you just have to use the convenience ``Makefile`` command:
 
       $ make start-backend-docker
 
-The repo also has a Volto project ready to build in the root. You should have all the :ref:`Volto dependencies <install-deps-volto-label>` installed in your machine. To build it you should do:
+The repo also has a Volto project ready to build in the root. You should have all the :ref:`Volto dependencies <install-deps-volto-label>` installed on your machine. To build it you should do:
 
 .. code-block:: console
 

@@ -7,7 +7,7 @@ Header
 Logo
 ====
 
-Starting with the Logo, we use `component shadowing <#component-shadowing>`_ for customize (and override) Volto original components.
+Starting with the Logo, we use `component shadowing <#component-shadowing>`_ to customize (and override) Volto original components.
 Get the Plone logo (`Logo.svg`) from the `training-resources` directory and copy it using this path and name: ``src/customizations/components/theme/Logo/Logo.svg``.
 
 .. note:: Every time you add a file to the customizations folder or to the theme folder, you must restart the server for changes to take effect.
@@ -19,7 +19,7 @@ Header component
 We will customize the existing Volto header, since the one we want doesn't differ much from the original.
 We will do so by copying the original Volto ``Header`` component from the ``omelette`` folder into the ``customizations/components/theme/Header/Header.jsx``.
 
-We have to do some amendments to that component, as remove the search widget, and move the ``Anontools`` component.
+We have to do some amendments to that component, such as removing the search widget, and moving the ``Anontools`` component.
 
 This will be the outcome:
 
@@ -54,7 +54,7 @@ Header styling
 We will start introducing the basic styling for the header. We use the ``themes/extras/custom.overrides`` to apply general styling to our site theme.
 
 .. note:: Use this rule of thumb when building Volto themes. Use the default Semantic overrides system when the override is site-wide and applies to Semantic components.
-          When using your own components and specific theme styling, then use ``custom.overrides``. Applying styling in the later is much faster than doing in the Semantic default components.
+          When using your own components and specific theme styling, then use ``custom.overrides``. Applying styling in this later is much faster than doing it in the Semantic default components.
 
 We want this styling in the Header component:
 
@@ -116,7 +116,7 @@ Then we adjust the margin for the homepage:
 Component shadowing
 ===================
 
-We use a technique using **component shadowing** for override an existing component in Volto and use our local custom version, without having to modify Volto's source code at all.
+We use a technique using **component shadowing** to override an existing component in Volto and use our local custom version, without having to modify Volto's source code at all.
 You have to place the replacing component in the same original folder path inside the ``src/customizations`` folder.
 
 .. note:: Component shadowing is very much the same as the good old Plone technique named JBOT, but you can customize virtually any module in Volto, actions and reducers too, not only components.
