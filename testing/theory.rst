@@ -36,4 +36,11 @@ The difference between ``Integration`` and ``Functional`` tests is that Integrat
 it back on test tear-down. This means that they don't perform commits on the databse.
 
 Functional tests on the other side, use a temporary storage (called DemoStorage) that allows to simulate transaction commits.
-They are useful for browser interaction testing for example, but for this reason they are slower than Integration Tests.
+They are useful for browser interaction testing for example, because they can simulate real HTTP requests with transaction life cycle:
+
+- Functional tests has different transaction for each browser.open() request
+- Functional tests do traversing and can check e.g. for cookie based permissions
+- Unit test method is executed in a single transaction and this might make impossible to test cache related behavior
+
+That are some of the causes why they are slower than Integration Tests.
+

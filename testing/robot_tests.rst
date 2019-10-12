@@ -194,3 +194,27 @@ If we run a robot-framework test with ``plonecli test`` command, we have the usu
 Robot tests are a combination between backend and frontend environments, so it isn't easy to have all informations about the status of the test on console.
 
 For that reason, robotframework generates detailed reports in `parts/test` folder where you can see the status of last execution and detailed infos for each test case.
+
+Excercise
++++++++++
+
+Let's write our first robot test!
+
+Try to write some basic scenarios:
+
+- Login on the site and create a new TestType content
+- Visit TestType view passing a custom message in querystring
+
+.. note::
+
+  plonecli created a basic robot test for our TestType content-type, so the first part of the exercise could be copied from it.
+  Try to not copying it and play with robot framework syntax by yourself.
+
+  `Here <https://docs.plone.org/external/plone.app.robotframework/docs/source/index.html>`_ you can find some documentation that can help you writing your first robot framework test.
+
+  Debugging a robot framework test could be hard, so if you need to see why your keywords doesn't work, follow `this documentation <https://docs.plone.org/external/plone.app.robotframework/docs/source/debugging.html>`_.
+
+..  admonition:: Solution
+    :class: toggle
+
+    

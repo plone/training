@@ -35,21 +35,14 @@ If we inspect ``base.cfg`` file, we could see a `test` part that uses this recip
       os.environ['TZ'] = 'UTC'
   defaults = ['-s', 'plonetraining.testing', '--auto-color', '--auto-progress']
 
-This particular configuration is made to run tests from our package only by default.
+We are setting some defaults when running tests:
+- ``-s plonetraining.testing`` means that we are executing all tests from a specific test-suite (plonetraining.testing)
+- ``--auto-color`` generates a colored console output with green and red reports for succeeded and failed tests
+- ``--auto-progress`` print the progress on console
 
-When we execute this script like this:
+.. note::
 
-.. code-block:: console
-
-    ./bin/test
-
-We are actually executing this one:
-
-.. code-block:: console
-
-    ./bin/test -s plonetraining.testing --auto-color --auto-progress
-
-``-s plonetraining.testing`` in particular means that we are executing all tests from a specific test-suite (plonetraining.testing).
+    In previous chapter, we used plonecli to run tests, but that command is only a wrapper for ``bin/test`` script.
 
 .. note::
 
