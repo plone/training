@@ -29,7 +29,7 @@ Testing Plone
     testing_dexterity
     testing_view
     acceptance
-    robot_tests
+    testing_robot
 
 ..  toctree::
     :hidden:
