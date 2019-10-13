@@ -26,14 +26,9 @@ Plone's test runner is a ``zope.testing`` script called "test" generated with a 
 
 If we inspect ``base.cfg`` file, we could see a `test` part that uses this recipe:
 
-.. code-block:: ini
-
-  [test]
-  recipe = zc.recipe.testrunner
-  eggs = ${instance:eggs}
-  initialization =
-      os.environ['TZ'] = 'UTC'
-  defaults = ['-s', 'plonetraining.testing', '--auto-color', '--auto-progress']
+.. literalinclude:: _snippets/buildout.cfg
+  :language: ini
+  :lines: 46-51
 
 We are setting some defaults when running tests:
 - ``-s plonetraining.testing`` means that we are executing all tests from a specific test-suite (plonetraining.testing)
@@ -59,47 +54,8 @@ Testing setup
 
 The testing setup for a Plone package is in a file called ``testing.py`` and it looks like this:
 
-.. code-block:: python
-
-  class PlonetrainingTestingLayer(PloneSandboxLayer):
-
-    defaultBases = (PLONE_APP_CONTENTTYPES_FIXTURE,)
-
-    def setUpZope(self, app, configurationContext):
-        # Load any other ZCML that is required for your tests.
-        # The z3c.autoinclude feature is disabled in the Plone fixture base
-        # layer.
-        import plone.restapi
-        self.loadZCML(package=plone.restapi)
-        self.loadZCML(package=plonetraining.testing)
-
-    def setUpPloneSite(self, portal):
-        applyProfile(portal, 'plonetraining.testing:default')
-
-
-  PLONETRAINING_TESTING_FIXTURE = PlonetrainingTestingLayer()
-
-
-  PLONETRAINING_TESTING_INTEGRATION_TESTING = IntegrationTesting(
-      bases=(PLONETRAINING_TESTING_FIXTURE,),
-      name='PlonetrainingTestingLayer:IntegrationTesting',
-  )
-
-
-  PLONETRAINING_TESTING_FUNCTIONAL_TESTING = FunctionalTesting(
-      bases=(PLONETRAINING_TESTING_FIXTURE,),
-      name='PlonetrainingTestingLayer:FunctionalTesting',
-  )
-
-
-  PLONETRAINING_TESTING_ACCEPTANCE_TESTING = FunctionalTesting(
-      bases=(
-          PLONETRAINING_TESTING_FIXTURE,
-          REMOTE_LIBRARY_BUNDLE_FIXTURE,
-          z2.ZSERVER_FIXTURE,
-      ),
-      name='PlonetrainingTestingLayer:AcceptanceTesting',
-  )
+.. literalinclude:: _snippets/testing.py
+  :language: python
 
 There are three main pieces:
 

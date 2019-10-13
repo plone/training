@@ -44,48 +44,11 @@ Test the content-type
 If we now try to re-run tests, we could see that the tests number has increased.
 This is because plonecli also creates a basic test for this new content-type in ``tests/test_ct_testing_item.py`` file:
 
-.. code-block:: python
-    
-    ...
+.. literalinclude:: _snippets/test_ct_testing_item.py
+        :language: python
+        :lines: 25-69
+        :emphasize-lines: 3,5-9
 
-    class TestingItemIntegrationTest(unittest.TestCase):
-
-        layer = PLONETRAINING_TESTING_INTEGRATION_TESTING
-
-        def setUp(self):
-            """Custom shared utility setup for tests."""
-            self.portal = self.layer['portal']
-            setRoles(self.portal, TEST_USER_ID, ['Manager'])
-            self.parent = self.portal
-
-        def test_ct_testing_item_schema(self):
-            fti = queryUtility(IDexterityFTI, name='TestingItem')
-            schema = fti.lookupSchema()
-            schema_name = portalTypeToSchemaName('TestingItem')
-            self.assertEqual(schema_name, schema.getName())
-
-        def test_ct_testing_item_fti(self):
-            fti = queryUtility(IDexterityFTI, name='TestingItem')
-            self.assertTrue(fti)
-
-        def test_ct_testing_item_factory(self):
-            fti = queryUtility(IDexterityFTI, name='TestingItem')
-            factory = fti.factory
-            obj = createObject(factory)
-
-        def test_ct_testing_item_adding(self):
-            setRoles(self.portal, TEST_USER_ID, ['Contributor'])
-            obj = api.content.create(
-                container=self.portal,
-                type='TestingItem',
-                id='testing_item',
-            )
-            parent = obj.__parent__
-            self.assertIn('testing_item', parent.objectIds())
-
-            # check that deleting the object works too
-            api.content.delete(obj=obj)
-            self.assertNotIn('testing_item', parent.objectIds())
 
 We can see some interesting things:
 
@@ -121,19 +84,17 @@ Excercise 1
             <role name="Manager"/>
         </permission>
 
-    In test case file:
+    In test case file we need to import a new Exception:
+    
+    .. literalinclude:: _snippets/test_ct_testing_item.py
+        :language: python
+        :lines: 2
 
-    .. code-block:: python
+    And then update tests like this:
 
-        from AccessControl.unauthorized import Unauthorized
-        ...
-
-        def test_ct_testing_item_adding_contributor_cant(self):
-            setRoles(self.portal, TEST_USER_ID, ['Contributor'])
-            with self.assertRaises(Unauthorized):
-                api.content.create(
-                    container=self.portal, type='TestingItem', id='testing_item'
-                )
+    .. literalinclude:: _snippets/test_ct_testing_item.py
+        :language: python
+        :lines: 50,52-63, 65-76
 
 Functional test
 ---------------
@@ -150,80 +111,38 @@ As previously said, if we don't need to create a functional test, it's better to
 
 We could try to create a ``functional`` test just to see how they works and to test how our content-type creation works on browser.
 
-Let's create a new test case in the same file like this:
+Let's create a new test case in the same file.
 
-.. code-block:: python
+First of all we need to import some new dependencies:
 
-    from plone.testing.z2 import Browser
-    from from plonetraining.testing.testing import PLONETRAINING_TESTING_FUNCTIONAL_TESTING
-    from plone.app.testing import SITE_OWNER_NAME
-    from plone.app.testing import SITE_OWNER_PASSWORD
-    ...
+.. literalinclude:: _snippets/test_ct_testing_item.py
+    :language: python
+    :lines: 5,6,9,10
 
-    class TestingItemFunctionalTest(unittest.TestCase):
+And then we can create a new test case:
 
-        layer = PLONETRAINING_TESTING_FUNCTIONAL_TESTING
-
-        def setUp(self):
-            app = self.layer['app']
-            self.portal = self.layer['portal']
-            self.request = self.layer['request']
-            self.portal_url = self.portal.absolute_url()
-
-            # Set up browser
-            self.browser = Browser(app)
-            self.browser.handleErrors = False
-            self.browser.addHeader(
-                'Authorization',
-                'Basic %s:%s' % (SITE_OWNER_NAME, SITE_OWNER_PASSWORD),
-            )
-
-        def test_add_testing_item(self):
-            self.browser.open(self.portal_url + '/++add++TestingItem')
-            self.browser.getControl(name="form.widgets.IBasic.title").value = "Foo"
-            self.browser.getControl("Save").click()
-            self.assertIn(
-                '<h1 class="documentFirstHeading">Foo</h1>',
-                self.browser.contents
-            )
-
-            self.assertEqual("Foo", self.portal['foo'].title)
-
-        def test_view_testing_item(self):
-            setRoles(self.portal, TEST_USER_ID, ['Manager'])
-            api.content.create(
-                type="TestingItem",
-                title="Bar",
-                description="This is a description",
-                container=self.portal,
-            )
-
-            import transaction
-
-            transaction.commit()
-
-            self.browser.open(self.portal_url + '/bar')
-
-            self.assertTrue('Bar' in self.browser.contents)
-            self.assertIn('This is a description', self.browser.contents)
-
+.. literalinclude:: _snippets/test_ct_testing_item.py
+    :language: python
+    :lines: 78-123
+    :emphasize-lines: 3,11-17
+    
 
 The first thing that we can see, is the new layer used: ``PLONETRAINING_TESTING_FUNCTIONAL_TESTING``.
 
 In ``setUp`` we configure the test case to use the Zope web browser and we login as site owner.
 
-In ``test_add_testing_item`` we simulate user interaction on creating a new content from the browser:
+In ``test_add_testing_item`` we simulate user interaction on creating a new content from the browser with following actions:
 
-- We open the url for adding a new TestingItem content
-- We found the title field and compile it
-- We click to Save button
-- We check that after saving it, we can see its title.
+- Open the url for adding a new TestingItem content
+- Find the title field and compile it
+- Click to Save button
+- Check that after saving it, we can see its title.
 
-In ``test_view_testing_item`` we check that accessing directly to a content with his url, we can see some informations.
+In ``test_view_testing_item`` we are checking that accessing directly to a content with his url, we can see some informations.
 
 .. note::
 
-    self.browser.contents shows the html of the last visited page.
+    ``self.browser.contents`` shows the html of the last visited page.
 
 
 Excercise
@@ -238,20 +157,6 @@ Try to add a behavior (for example a rich text field) to our content-type and ch
 
     In test case file:
 
-    .. code-block:: python
-
-        def test_rich_text_field(self):
-            self.browser.open(self.portal_url + '/++add++TestingItem')
-            self.assertIn(
-                'form.widgets.IRichTextBehavior.text', self.browser.contents
-            )
-            self.browser.getControl(
-                name="form.widgets.IBasic.title"
-            ).value = "A content with text"
-            self.browser.getControl(
-                name="form.widgets.IRichTextBehavior.text"
-            ).value = "Some text"
-            self.browser.getControl("Save").click()
-            self.assertIn(
-                'Some text', self.browser.contents
-            )
+    .. literalinclude:: _snippets/test_ct_testing_item.py
+        :language: python
+        :lines: 125-137

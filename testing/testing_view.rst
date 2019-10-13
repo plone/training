@@ -1,53 +1,40 @@
 Testing a view
 ==============
 
-Now let's test a view.
+Another base Plone feature that we can test, is a View.
 
 Create a new view
 -----------------
 
-Create a new view:
+Create a new view with plonecli:
 
 .. code-block:: console
 
   $ cd plonetraining.testing
   $ plonecli add view
 
-With this command, a new view will be automatically registered in our package and we don't need to to think about it.
+Follow prompt wizard and create a new view with with ``TestingItemView`` Python class and a template.
+
+With this command, a new view will be automatically registered in our package.
 
 Test the view
 -------------
 
-Like for dexterity types, also for views ``plonecli`` created some basic tests (in ``test_view_training_view.py`` file).
+Like for Dexterity types, also for views ``plonecli`` created some basic tests (in ``test_view_testing_item_view.py`` file).
 
+Inspecting this file, we could see something like this:
 
-Inspecting this file, we could see some interesting things:
+.. literalinclude:: _snippets/test_view_testing_item_view.py
+    :language: python
+    :lines: 17-26, 28,29, 31-34, 39-50
 
-.. code-block:: python
+On ``setUp`` we are creating some example contents that we are going to use in tests.
 
-    def setUp(self):
-        self.portal = self.layer['portal']
-        self.request = self.layer['request']
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        api.content.create(self.portal, 'Folder', 'other-folder')
-        api.content.create(self.portal, 'Document', 'front-page')
+The first test (``test_testing_item_view_is_registered``) tries to call the view on a Folder and checks that everything works well and we get the correct view.
 
-    def test_training_view_is_registered(self):
-        view = getMultiAdapter(
-            (self.portal['other-folder'], self.request),
-            name='training-view'
-        )
-        self.assertTrue(view.__name__ == 'training-view')
+The second one (``test_testing_item_view_not_matching_interface``), tries to call the view on a non-folderish content (a Document) and checks that this action raises an Exception.
 
-    def test_training_view_not_matching_interface(self):
-        with self.assertRaises(ComponentLookupError):
-            getMultiAdapter(
-                (self.portal['front-page'], self.request),
-                name='training-view'
-            )
-
-If we also see the view registration in ``views/configure.zcml`` we could see the it is registestered only for objects that implements ``IFolderish`` interface.
-That's the reason why `test_training_view_not_matching_interface` tests that invoking that view on a Document, an Exception will be raised.
+If we take a look to the configre.zcml file where the view is registered, we can see that it's registered for folderish types, so that's the reason of these tests.
 
 With a view we could test several things:
 
@@ -58,101 +45,72 @@ With a view we could test several things:
 Excercise 1
 +++++++++++
 
-The view template prints a string that is returned from its class. Write a test that checks this thing.
+We want to use this view only for our content-type and not for all folderish ones (also because TestingItem isn't a folderish type).
+
+- Change view registration to be available only for our type
+- Update tests to check that we can call it only on a TestingItem content
+- The view template prints a string that is returned from its class. Write a test that checks this thing.
 
 ..  admonition:: Solution
     :class: toggle
 
-    .. code-block:: python
+    TestingItem objects implements ``ITestingItem`` interface, so we need to update view registration like this:
+    
+    .. code-block:: xml
 
-        def test_training_view(self):
-            view = getMultiAdapter(
-                (self.portal['other-folder'], self.request),
-                name='training-view'
-            )
-            self.assertIn('A small message', view())
+        <browser:page
+            name="testing-item-view"
+            for="plonetraining.testing.content.testing_item.ITestingItem"
+            class=".testing_item_view.TestingItemView"
+            template="testing_item_view.pt"
+            permission="zope2.View"
+            />
+        
+    Then our ``test_view_testing_item_view`` will become like this:
+
+    .. literalinclude:: _snippets/test_view_testing_item_view.py
+        :language: python
+        :lines: 21-29, 36-50, 52-64
+        :emphasize-lines: 7, 11, 25-28
+
+.. note::
+
+    plonecli uses ``getMultiAdapter`` to get a view and we keep it for coherence in pre-created tests, but preferred way is the plone.api one.
 
 Excercise 2
 +++++++++++
 
-- Add a method in the view that checks a parameter from the request (message) and returns the union between the static message and the given message.
-- Update the template to print the value from that method.
+- Add a method in the view that get a parameter from the request (``message``) and returns it (it's a dumb method, but it's just an example).
+- Check the method in integration test
+- Update the template to print the value from that method
 - Test that calling the method from the view, it returns what we expect
-- Write a Functional test to test browser integration
+- Write a functional test to test browser integration
 
 ..  admonition:: Solution
     :class: toggle
 
-    First of all we need to implement that method in view:
+    First of all we need to implement that method in our view class in ``views/testing_item_view.py`` file:
 
-    .. code-block:: python
+    .. literalinclude:: _snippets/testing_item_view.py
+        :language: python
+        :lines: 9-20
+        :emphasize-lines: 11-12
 
-        def print_msg(self):
-            message = self.request.form.get('message', '')
-            return 'custom message: {}'.format(message)
+    Then we could add this message into the template in ``views/testing_item_view.pt``
 
-    Then we could add this message into the template in ``views/training-view.pt``
+    .. literalinclude:: _snippets/testing_item_view.pt
+        :language: html
+        :emphasize-lines: 10-12
 
-    .. code-block:: html
+    And finally we could test everything. First of all, let's add an integration test for the method:
 
-        <p tal:content="view/print_msg">this gets replaced</p>
+    .. literalinclude:: _snippets/test_view_testing_item_view.py
+        :language: python
+        :lines: 65-81
 
-    And finally we could test everything:
+    Now we can create a functional test:
 
-    .. code-block:: python
-
-        def setUp(self):
-            self.portal = self.layer['portal']
-            self.request = self.layer['request']
-            setRoles(self.portal, TEST_USER_ID, ['Manager'])
-            api.content.create(self.portal, 'Folder', 'other-folder')
-            api.content.create(self.portal, 'Document', 'front-page')
-
-        def test_training_view_print_message(self):
-            view = getMultiAdapter(
-                (self.portal['other-folder'], self.request),
-                name='training-view',
-            )
-            self.request.form['message'] = 'hello'
-            self.assertIn('hello', view.print_msg())
-            self.assertEqual('custom message: hello', view.print_msg())
-            self.assertIn('<p>custom message: hello</p>', view())
-
-    For functional testing:
-
-        .. code-block:: python
-
-            ...
-            from plone.testing.z2 import Browser
-            from plone.app.testing import SITE_OWNER_NAME
-            from plone.app.testing import SITE_OWNER_PASSWORD
-
-            ...
-
-            class ViewsFunctionalTest(unittest.TestCase):
-
-                layer = PLONETRAINING_TESTING_FUNCTIONAL_TESTING
-
-                def setUp(self):
-                    app = self.layer['app']
-                    self.portal = self.layer['portal']
-                    setRoles(self.portal, TEST_USER_ID, ['Manager'])
-                    self.browser = Browser(app)
-                    self.browser.handleErrors = False
-                    self.browser.addHeader(
-                        'Authorization',
-                        'Basic %s:%s' % (SITE_OWNER_NAME, SITE_OWNER_PASSWORD),
-                    )
-
-                def test_view_with_browser(self):
-                    self.browser.open(self.portal.absolute_url() + '/training-view')
-                    self.assertIn('<p>A small message</p>', self.browser.contents)
-                    self.assertIn('<p>custom message: </p>', self.browser.contents)
-                    self.assertNotIn('<p>custom message: hello</p>', self.browser.contents)
-
-                    self.browser.open(
-                        self.portal.absolute_url() + '/training-view?message=hello'
-                    )
-                    self.assertIn('<p>A small message</p>', self.browser.contents)
-                    self.assertNotIn('<p>custom message: </p>', self.browser.contents)
-                    self.assertIn('<p>custom message: hello</p>', self.browser.contents)
+    .. literalinclude:: _snippets/test_view_testing_item_view.py
+        :language: python
+        :lines: 83-145
+    

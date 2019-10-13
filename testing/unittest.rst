@@ -18,15 +18,9 @@ First of all we need to create a new file in ``tests`` folder.
 
 Let's call it ``test_unit.py``:
 
-.. code-block:: python
-
-    import unittest
-
-    class SomeTest(unittest.TestCase):
-
-        def test_a_feature(self):
-            self.assertTrue(1 == 1)
-            self.assertEqual(1, 1)
+.. literalinclude:: _snippets/test_unit.py
+  :language: python
+  :lines: 3-9
 
 Now we need to run it:
 
@@ -65,13 +59,6 @@ Try to create a new file into our package with a method that takes a number and 
 
     In ``tests/test_unit.py``:
 
-    .. code-block:: python
-
-        from plonetraining.testing.helper_functions import double_number
-
-        ...
-
-        def test_double_number(self):
-            self.assertEqual(double_number(1), 2)
-            self.assertEqual(double_number(2), 4)
-            self.assertNotEqual(double_number(2), 3)
+    .. literalinclude:: _snippets/test_unit.py
+        :language: python
+        :emphasize-lines: 1,10-14
