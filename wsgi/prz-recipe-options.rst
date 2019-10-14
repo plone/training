@@ -34,7 +34,7 @@ The ZServer default of two threads remains unchanged.
     Incoming client HTTP requests are often handled in an asynchronous way using the `asyncore <https://docs.python.org/3/library/asyncore.html#module-asyncore>`_ module from the Python standard library.
     It was originally written by Sam Rushing as part of `Medusa <http://www.nightmare.com/medusa>`_ and is thus part of Zope's `ZServer <https://github.com/zopefoundation/ZServer/tree/master/src/ZServer>`_.
     Its function in ``ZServer`` is to handle incoming client requests in an efficient way using the ``select`` and ``poll`` system calls.
-    I.e. it is responsible for clearing the request queue by dispatching incoming requests to available workers.
+    It is responsible for clearing the request queue by dispatching incoming requests to available workers.
     Only a **single** thread is needed for this task.
     ``waitress`` uses ``asyncore`` just like ``ZServer`` for exactly the same task.
     However ``asyncore`` is deprecated since Python 3.6 in favour of the new `asyncio <https://docs.python.org/3/library/asyncio.html#module-asyncio>`_ library using ``async/await`` syntax.
