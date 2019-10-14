@@ -33,27 +33,27 @@ The ZServer default of two threads remains unchanged.
 
     Incoming client HTTP requests are often handled in an asynchronous way using the `asyncore <https://docs.python.org/3/library/asyncore.html#module-asyncore>`_ module from the Python standard library.
     It was originally written by Sam Rushing as part of `Medusa <http://www.nightmare.com/medusa>`_ and is thus part of Zope's `ZServer <https://github.com/zopefoundation/ZServer/tree/master/src/ZServer>`_.
-    Its function in ``ZServer`` is to handle incoming client requests in an efficient way using the ``select`` and ``poll`` system calls.
+    Its function in ZServer is to handle incoming client requests in an efficient way using the ``select`` and ``poll`` system calls.
     It is responsible for clearing the request queue by dispatching incoming requests to available workers.
     Only a **single** thread is needed for this task.
-    ``waitress`` uses ``asyncore`` just like ``ZServer`` for exactly the same task.
+    Waitress uses ``asyncore`` just like ZServer for exactly the same task.
     However ``asyncore`` is deprecated since Python 3.6 in favour of the new `asyncio <https://docs.python.org/3/library/asyncio.html#module-asyncio>`_ library using ``async/await`` syntax.
     `Waitress has therefore "vendored" the module as wasyncore <https://docs.pylonsproject.org/projects/waitress/en/stable/glossary.html#term-asyncore>`_ in case it will be removed from the Python standard library in Python 3.8 or later.
-    Both ``ZServer`` and ``waitress`` use "traditional" multi-threading based on the Python standard library's ``thread`` (renamed to ``_thread`` in Python 3) or ``threading`` modules to spawn worker threads.
-    The number of workers is configured in ``wsgi.ini`` (``waitress``) or ``zope.conf`` (``ZServer``).
+    Both ZServer and waitress use "traditional" multi-threading based on the Python standard library's ``thread`` (renamed to ``_thread`` in Python 3) or ``threading`` modules to spawn worker threads.
+    The number of workers is configured in ``wsgi.ini`` (waitress) or ``zope.conf`` (ZServer).
     Worker threads are spawned **once** when the Plone instance is starting up.
     In Zope and Plone each of these workers will also open a ZODB connection.
     You can check this in the ZMI Control Panel, "Database Management".
 
-    Other WSGI servers like ``bjoern``, ``gunicorn`` and ``uWSGI`` implement different or additional types of workers and they also differ in the way they are clearing the request queue.
+    Other WSGI servers like bjoern, gunicorn and uWSGI implement different or additional types of workers and they also differ in the way they are clearing the request queue.
     We will try to cover at least some of the details in later chapters.
 
 wsgi
 ----
 
 This parameters has two forms.
-It can be either ``on`` or ``off`` signaling whether to use the default WSGI server ``waitress`` or not use a WSGI server but ``ZServer`` instead.
-The latter is only an option for Python 2 since ``ZServer`` is not (yet?) available for Python 3.
+It can be either ``on`` or ``off`` signaling whether to use the default WSGI server waitress or not use a WSGI server but ZServer instead.
+The latter is only an option for Python 2 since ZServer is not (yet?) available for Python 3.
 
 Alternatively you can specify your own PasteDeploy ``ini`` file with this option.
 No ``wsgi.ini`` configuration will be provided in this case.
@@ -145,4 +145,3 @@ The following options are currently not available for WSGI:
 * ``webdav-address/webdav-force-connection-close`` since WebDAV is also not supported by waitress.
 * ``http-header-max-length`` waitress has a ``max_request_header_size`` parameter so it should be possible to add this to ``plone.recipe.zope2instance``.
   You could use the ``wsgi-ini-template`` option to provide this parameter.
-
