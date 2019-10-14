@@ -59,7 +59,6 @@ We use this template in our buildout and add ``gunicorn`` to our list of eggs:
     blob-storage = ${buildout:directory}/var/blobstorage
     eggs =
         Plone
-        Pillow
         wsgitraining.site
         gunicorn
     wsgi-ini-template = ${buildout:directory}/templates/gunicorn.ini.in
@@ -97,7 +96,6 @@ We do not use an ``ini`` template in this case but rather use inline templates t
     blob-storage = ${buildout:directory}/var/blobstorage
     eggs =
         Plone
-        Pillow
         wsgitraining.site
 
     [gunicornapp]
