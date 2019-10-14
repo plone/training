@@ -51,13 +51,13 @@ The ZServer default of two threads remains unchanged.
 wsgi
 ----
 
-This parameters has two forms.
-It can be either ``on`` or ``off`` signaling whether to use the default WSGI server waitress or not use a WSGI server but ZServer instead.
+This parameter has two forms.
+It can be either ``on`` or ``off``, signaling whether to use the default WSGI server waitress, or not use a WSGI server but use ZServer instead.
 The latter is only an option for Python 2 since ZServer is not (yet?) available for Python 3.
 
 Alternatively you can specify your own PasteDeploy ``ini`` file with this option.
 No ``wsgi.ini`` configuration will be provided in this case.
-Most likely ``wsgi-ini-template`` will be easier to use however, see below.
+Most likely ``wsgi-ini-template`` will be easier to use however, see the next section.
 
 wsgi-ini-template
 -----------------
