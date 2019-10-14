@@ -117,7 +117,6 @@ Use a local address.
         access-log-args = ('localhost', 9000)
         eggs =
             Plone
-            Pillow
             wsgitraining.site
 
     ``plone.recipe.zope2instance`` uses default values for the ``access-log-args`` option, but not the ``access-log-kwargs`` option.
