@@ -43,7 +43,7 @@ The ZServer default of two threads remains unchanged.
     The number of workers is configured in ``wsgi.ini`` (waitress) or ``zope.conf`` (ZServer).
     Worker threads are spawned **once** when the Plone instance is starting up.
     In Zope and Plone each of these workers will also open a ZODB connection.
-    You can check this in the ZMI Control Panel, "Database Management".
+    You can check this in the ZMI Control Panel, :guilabel:`Database Management`.
 
     Other WSGI servers like bjoern, gunicorn and uWSGI implement different or additional types of workers and they also differ in the way they are clearing the request queue.
     We will try to cover at least some of the details in later chapters.
