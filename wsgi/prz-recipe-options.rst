@@ -70,8 +70,8 @@ debug-exceptions
 
 Use WSGI middleware debugging facilities.
 When set to ``on`` this option will disable exception views and thus propagate errors to the WSGI stack.
-This allows you to use specific debugging WSGI middleware like the `werkzeig debugger <https://werkzeug.palletsprojects.com/en/0.15.x/debug/>`_.
-We will cover this in the Debugging chapter.
+This allows you to use specific debugging WSGI middleware like the `werkzeug debugger <https://werkzeug.palletsprojects.com/en/0.15.x/debug/>`_.
+We will cover this in the :doc:`debugging chapter <debugging>`.
 
 access-log, z2-log
 ------------------
@@ -131,14 +131,15 @@ sentry* options
 -----------------
 
 Sentry support for WSGI is  available through ``plone.recipe.zope2instance``.
-We'll cover these options later in the add-ons chapter.
+We will cover these options later in the :doc:`add-ons chapter <addons>`.
 
 Options that are currently unavailable for WSGI
 -----------------------------------------------
 
 The following options are currently not available for WSGI:
 
-* ``access-log-custom``, ``access-log-oldfiles``, ``access-log-max-size``, ``event-log-custom``, ``event-log-oldfiles`` and ``event-log-max-sie`` can be replaced by the new ``*-log-handler``, ``*-log-args`` and ``*-log-kwargs`` options, see above and also the examples given in the recipe `README <https://github.com/plone/plone.recipe.zope2instance#advanced-logging-options-for-wsgi>`_.
+* ``access-log-custom``, ``access-log-oldfiles``, ``access-log-max-size``, ``event-log-custom``, ``event-log-oldfiles`` and ``event-log-max-sie`` can be replaced by the new ``*-log-handler``, ``*-log-args`` and ``*-log-kwargs`` options.
+  See above and also the examples given in the recipe `README <https://github.com/plone/plone.recipe.zope2instance#advanced-logging-options-for-wsgi>`_.
 * ``ip-address`` is not necessary because HTTP is the only supported protocol for WSGI and the IP address can be specified with ``http-address``.
 * ``ftp-address`` since FTP is not supported by waitress.
 * ``icp-address`` since ICP is also not supported by waitress.
