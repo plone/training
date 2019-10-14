@@ -38,7 +38,7 @@ The ZServer default of two threads remains unchanged.
     Only a **single** thread is needed for this task.
     ``waitress`` uses ``asyncore`` just like ``ZServer`` for exactly the same task.
     However ``asyncore`` is deprecated since Python 3.6 in favour of the new `asyncio <https://docs.python.org/3/library/asyncio.html#module-asyncio>`_ library using ``async/await`` syntax.
-    This is why ``waitress`` now ships with its own ``asyncore`` module named ``wasyncore``.
+    `Waitress has therefore "vendored" the module as wasyncore <https://docs.pylonsproject.org/projects/waitress/en/stable/glossary.html#term-asyncore>`_ in case it will be removed from the Python standard library in Python 3.8 or later.
     Both ``ZServer`` and ``waitress`` use "traditional" multi-threading based on the Python standard libraries' ``thread`` (renamed to ``_thread`` in Python 3) or ``threading`` modules to spawn worker threads.
     The number of workers is configured in ``wsgi.ini`` (``waitress``) or ``zope.conf`` (``ZServer``).
     Worker threads are spawned **once** when the Plone instance is starting up.
