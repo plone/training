@@ -122,12 +122,12 @@ Use a local address.
 
     ``plone.recipe.zope2instance`` uses default values for the ``access-log-args`` option, but not the ``access-log-kwargs`` option.
     Same for the ``event-log-args/event-log-kwargs`` options.
-    This means you **have** to provide the ``...-log-args`` parameter, otherwise you will end up with the (in our case nonsensical) defaults in your ``wsgi.ini``.
+    This means you **have** to provide the ``*-log-args`` parameter, otherwise you will end up with the (in our case nonsensical) defaults in your ``wsgi.ini``.
     After running buildout with ``buildout -c options.cfg`` you can start your instance with ``bin/instance fg``.
     Use a tool like e.g. `netcat <http://netcat.sourceforge.net/>`_ (there is a package for your linux distribution) to open a listening socket: ``nc -l 9000``.
     You will see the incoming log entries in pickled format when navigating to your Plone instance in the browser.
 
-sentry... options
+sentry* options
 -----------------
 
 Sentry support for WSGI is  available through ``plone.recipe.zope2instance``.
@@ -138,7 +138,7 @@ Options that are currently unavailable for WSGI
 
 The following options are currently not available for WSGI:
 
-* ``access-log-custom``, ``access-log-oldfiles``, ``access-log-max-size``, ``event-log-custom``, ``event-log-oldfiles`` and ``event-log-max-sie`` can be replaced by the new ``...-log-handler``, ``...-log-args`` and ``...-log-kwargs`` options, see above and also the examples given in the recipe `README <https://github.com/plone/plone.recipe.zope2instance#advanced-logging-options-for-wsgi>`_.
+* ``access-log-custom``, ``access-log-oldfiles``, ``access-log-max-size``, ``event-log-custom``, ``event-log-oldfiles`` and ``event-log-max-sie`` can be replaced by the new ``*-log-handler``, ``*-log-args`` and ``*-log-kwargs`` options, see above and also the examples given in the recipe `README <https://github.com/plone/plone.recipe.zope2instance#advanced-logging-options-for-wsgi>`_.
 * ``ip-address`` is not necessary because HTTP is the only supported protocol for WSGI and the IP address can be specified with ``http-address``.
 * ``ftp-address`` since FTP is not supported by waitress.
 * ``icp-address`` since ICP is also not supported by waitress.
