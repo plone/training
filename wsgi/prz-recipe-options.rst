@@ -71,7 +71,7 @@ debug-exceptions
 Use WSGI middleware debugging facilities.
 When set to ``on`` this option will disable exception views and thus propagate errors to the WSGI stack.
 This allows you to use specific debugging WSGI middleware like the `werkzeig debugger <https://werkzeug.palletsprojects.com/en/0.15.x/debug/>`_.
-We'll cover this in the Debugging chapter.
+We will cover this in the Debugging chapter.
 
 access-log, z2-log
 ------------------
