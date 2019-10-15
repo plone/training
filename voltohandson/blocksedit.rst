@@ -4,7 +4,7 @@
 Blocks - Edit components
 ========================
 
-The edit component part of a block anatomy are specially different to the view component because they have to support the UX for editing the block.
+The edit component part of a block anatomy is specially different to the view component because they have to support the UX for editing the block.
 This UX can be very complex depending on the kind of block and the feature that it is trying to provide.
 The project requirements will tell how far you should go with the UX story of each tile, and how complex it will become.
 You can use all the props that the edit component is receiving to model the UX for the block and how it will render.
@@ -31,7 +31,7 @@ You need to instantiate it this way:
       ...
     </SidebarPortal>
 
-All that it's inside the ``SidebarPortal`` component will be rendered in the sidebar.
+Everything that's inside the ``SidebarPortal`` component will be rendered in the sidebar.
 
 Object Browser
 ==============
@@ -50,8 +50,8 @@ It has the form of an HOC (High Order Component), and you have to wrap the compo
 The HOC component ``withObjectBrowser`` wraps your component by making available this props:
 
   - isObjectBrowserOpen - (Bool) tells if the browser is currently open
-  - openObjectBrowser - handler for open the browser
-  - closeObjectBrowser - handler for close the browser
+  - openObjectBrowser - handler for opening the browser
+  - closeObjectBrowser - handler for closing the browser
 
 Teaser block
 ============
