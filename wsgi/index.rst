@@ -33,3 +33,4 @@ Deploying and Operating Plone on WSGI
     uwsgi
     debugging
     addons
+    miscellaneous

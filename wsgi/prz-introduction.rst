@@ -39,7 +39,6 @@ A working example is contained in ``basic.cfg`` in the training buildout, here a
     user = admin:admin
     eggs =
         Plone
-        Pillow
         wsgitraining.site
 
 As you can see, we are using a custom addon named ``wsgitraining.site`` contained in the buildout.

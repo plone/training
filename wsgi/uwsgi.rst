@@ -280,8 +280,3 @@ Change the Plone vassal configuration so that it uses it's own logfile.
         drwxrwxr-x 2 root vagrant 4096 Oct  2 09:51 /var/log/uwsgi
 
     Alternatively we could of course write the logfile to a different location, e.g. ``${buildout:directory}/var/log``.
-
-Workers and ZODB connections
-----------------------------
-
-XXX tbd.
