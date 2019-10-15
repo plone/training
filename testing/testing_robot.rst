@@ -235,7 +235,7 @@ Now let's test something that we can't test with functional tests: javascripts.
 Excercise 3
 +++++++++++
 
-Last test with javascripts: try to click something.
+Last test with javascripts: try to simulate clicks.
 
 - Autotoc pattern can also be used for generate tabs.
 - Check that clicking tabs, will be rendered different pieces of dom.

@@ -30,6 +30,7 @@ Testing Plone
     testing_view
     acceptance
     testing_robot
+    continuous_integration
 
 ..  toctree::
     :hidden:
