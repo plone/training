@@ -46,7 +46,7 @@ help:
 
 .PHONY: clean
 clean:
-	-rm -rf $(BUILDDIR)/* bin/ include/ lib/
+	-rm -rf $(BUILDDIR)/*
 
 bin/python bin/pip:
 	python3 -m venv . || virtualenv --clear --python=python3 .
