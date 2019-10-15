@@ -6,7 +6,13 @@ Footer
 
 We customize the footer using component shadowing, by copying over the original Volto ``Footer`` component from the ``omelette`` folder (``omelette/src/components/theme/Footer/Footer.jsx``) into the ``customizations/components/theme/Footer/Footer.jsx`` file.
 
-Then, we replace the ``Footer`` component content to match the plone.com one:
+As we need the Logo component in the Footer, we import it from Volto as we did in the Header:
+
+.. code-block:: jsx
+
+    import { Logo } from '@plone/volto/components';
+
+Then, we replace the ``Footer`` component content to match the plone.com one.
 
 .. code-block:: jsx
 
