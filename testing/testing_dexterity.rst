@@ -22,7 +22,7 @@ With this command, plonecli will ask you some questions and will register new co
 
 .. note::
 
-    To follow this training, you need to ask questions like this:
+    To follow this training, you need to answer questions like this:
     - Content type name (Allowed: _ a-z A-Z and whitespace) [Todo Task]: TestingItem
 
     - Content type description:
