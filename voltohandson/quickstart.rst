@@ -9,7 +9,7 @@ Using the hands on repo
 
 You can find the repository with the code that we will be using during all the training in:
 
-TODO - repo final location
+https://github.com/collective/volto-hands-on-training
 
 This repo has the final stage of what we will achieve at the end of the
 training in the ``master`` branch and there's a branch with the name of each
