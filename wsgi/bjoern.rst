@@ -43,7 +43,6 @@ You can use this package together with ``plone.recipe.zope2instance`` to build a
     blob-storage = ${buildout:directory}/var/blobstorage
     eggs =
         Plone
-        Pillow
         wsgitraining.site
         dataflake.wsgi.bjoern
     wsgi-ini-template = ${buildout:directory}/templates/bjoern.ini.in
@@ -121,7 +120,6 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
         blob-storage = ${buildout:directory}/var/blobstorage
         eggs =
             Plone
-            Pillow
             wsgitraining.site
             dataflake.wsgi.cheroot
         wsgi-ini-template = ${buildout:directory}/templates/cheroot.ini.in
@@ -185,7 +183,6 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
         blob-storage = ${buildout:directory}/var/blobstorage
         eggs =
             Plone
-            Pillow
             wsgitraining.site
             dataflake.wsgi.werkzeug
         wsgi-ini-template = ${buildout:directory}/templates/werkzeug.ini.in
