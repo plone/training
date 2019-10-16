@@ -32,7 +32,7 @@ Add the ``slick-carousel`` styles to the ``theme/extras/custom.overrides``:
 Block view component
 ====================
 
-Use this code for the block view component ``src/components/Tiles/MainSlider/View.jsx``.
+Use this code for the block view component ``src/components/Blocks/MainSlider/View.jsx``.
 
 .. code-block:: jsx
 
@@ -115,7 +115,7 @@ Use this code for the block view component ``src/components/Tiles/MainSlider/Vie
 We should have the main slider block in the home page now.
 For now we will leave out how the edit component would look like for a later chapter.
 
-Add ``slider-image.png`` from the ``training-resources`` folder to ``src/components/Tiles/MainSlider`` directory.
+Copy ``slider-image.png`` from the ``training-resources`` folder to ``src/components/Blocks/MainSlider`` directory.
 
 Styling
 =======

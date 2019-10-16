@@ -127,6 +127,8 @@ After setting the basics, let's add some structure and styling to the view compo
       }
     }
 
+Copy the required resources ``highlights-plone.png`` and ``highlights-news.png`` from the ``training-resources`` folder to ``src/components/Blocks/Highlights`` directory.
+
 Recent launches behavior
 ========================
 
@@ -357,3 +359,4 @@ This is the complete view component (``View.jsx``) for this block:
 
     export default View;
 
+Copy the additional required resources ``highlights-logos`` and ``highlights-small-ploneconf`` from the ``training-resources`` folder to ``src/components/Blocks/Highlights`` directory.
