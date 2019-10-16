@@ -3,7 +3,7 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = bin/sphinx-build
+SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = _build
 LOCALESDIR    = _locales
@@ -46,7 +46,7 @@ help:
 
 .PHONY: clean
 clean:
-	-rm -rf $(BUILDDIR)/* bin/ include/ lib/
+	-rm -rf $(BUILDDIR)/*
 
 bin/python bin/pip:
 	python3 -m venv . || virtualenv --clear --python=python3 .

@@ -4,50 +4,6 @@
 Header
 ======
 
-Logo
-====
-
-Starting with the Logo, we use `component shadowing <#component-shadowing>`_ to customize (and override) Volto original components.
-Get the Plone logo (`Logo.svg`) from the `training-resources` directory and copy it using this path and name: ``src/customizations/components/theme/Logo/Logo.svg``.
-
-.. note:: Every time you add a file to the customizations folder or to the theme folder, you must restart the server for changes to take effect.
-          From that on, the hot reloading should kick-in and reload the page automatically.
-
-Header component
-================
-
-We will customize the existing Volto header, since the one we want doesn't differ much from the original.
-We will do so by copying the original Volto ``Header`` component from the ``omelette`` folder into the ``customizations/components/theme/Header/Header.jsx``.
-
-We have to do some amendments to that component, such as removing the search widget, and moving the ``Anontools`` component.
-
-This will be the outcome:
-
-.. code-block:: js
-
-    import { Logo, Navigation } from '@plone/volto/components';
-
-    ...
-
-    render() {
-      return (
-        <Segment basic className="header-wrapper" role="banner">
-          <Container>
-            <div className="header">
-              <div className="logo-nav-wrapper">
-                <div className="logo">
-                  <Logo />
-                </div>
-                <Navigation pathname={this.props.pathname} />
-              </div>
-            </div>
-          </Container>
-        </Segment>
-      );
-    }
-
-.. warning:: When using component shadowing remember to replace any relative import with ``@plone/volto``.
-
 Header styling
 ==============
 
@@ -112,6 +68,50 @@ Then we adjust the margin for the homepage:
     .siteroot .ui.basic.segment.header-wrapper {
       margin-bottom: 0;
     }
+
+Logo
+====
+
+We use `component shadowing <#component-shadowing>`_ to customize (and override) Volto original components.
+Get the Plone logo (``Logo.svg``) from the ``training-resources`` directory and copy it using this path and name: ``src/customizations/components/theme/Logo/Logo.svg``.
+
+.. note:: Every time you add a file to the customizations folder or to the theme folder, you must restart the server for changes to take effect.
+          From that on, the hot reloading should kick-in and reload the page automatically.
+
+Header component
+================
+
+We will customize the existing Volto header, since the one we want doesn't differ much from the original.
+We will do so by copying the original Volto ``Header`` component from the ``omelette`` folder into the ``customizations/components/theme/Header/Header.jsx``.
+
+We have to do some amendments to that component, such as removing the search widget, and moving the ``Anontools`` component.
+
+This will be the outcome:
+
+.. code-block:: js
+
+    import { Logo, Navigation } from '@plone/volto/components';
+
+    ...
+
+    render() {
+      return (
+        <Segment basic className="header-wrapper" role="banner">
+          <Container>
+            <div className="header">
+              <div className="logo-nav-wrapper">
+                <div className="logo">
+                  <Logo />
+                </div>
+                <Navigation pathname={this.props.pathname} />
+              </div>
+            </div>
+          </Container>
+        </Segment>
+      );
+    }
+
+.. warning:: When using component shadowing remember to replace any relative import with ``@plone/volto``.
 
 Component shadowing
 ===================
