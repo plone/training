@@ -85,7 +85,7 @@ On plone.com, the Success Story content type uses the lead image as banner on th
       );
     };
 
-export default SuccessStoryView;
+    export default SuccessStoryView;
 
 and companion styling, for now removing breadcrumbs here as well:
 
