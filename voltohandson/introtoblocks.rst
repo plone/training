@@ -101,7 +101,7 @@ You can use all these props to render your edit block and model its behavior.
 Blocks settings
 ---------------
 
-We need to configure the project to make it aware of new tiles by adding it to the tiles object configuration:
+We need to configure the project to make it aware of new blocks by adding it to the tiles object configuration:
 So we add this lines to the ``config.js`` in the root of our project.
 
 .. code-block:: js
