@@ -37,6 +37,7 @@ Blocks anatomy
 
 Every Block is composed of an edit (``Edit.jsx``) and a view (``View.jsx``) component.
 
+
 Create your first tile in the project by adding these two components in a new directory in ``src/components/Blocks/MainSlider``.
 This is the ``Edit.jsx``:
 
@@ -78,7 +79,7 @@ You can use them to render the view component.
 Block edit component props
 --------------------------
 
-The view component of a block receives these props from the Blocks Engine:
+The edit component of a block receives these props from the Blocks Engine:
 
   - type - the type of the block
   - id - the unique ID for the current block
@@ -101,7 +102,7 @@ You can use all these props to render your edit block and model its behavior.
 Blocks settings
 ---------------
 
-We need to configure the project to make it aware of new tiles by adding it to the tiles object configuration:
+We need to configure the project to make it aware of new blocks by adding it to the tiles object configuration:
 So we add this lines to the ``config.js`` in the root of our project.
 
 .. code-block:: js
