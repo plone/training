@@ -37,7 +37,8 @@ Blocks anatomy
 
 Every Block is composed of an edit (``Edit.jsx``) and a view (``View.jsx``) component.
 
-Create your first block in the project by adding these two components in a new directory in ``src/components/Tiles/MainSlider``.
+
+Create your first tile in the project by adding these two components in a new directory in ``src/components/Blocks/MainSlider``.
 This is the ``Edit.jsx``:
 
 .. code-block:: jsx
