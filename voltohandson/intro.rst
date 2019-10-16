@@ -24,8 +24,6 @@ Some technologies and tools we use during the training:
 * React https://reactjs.org/
 * Yarn https://yarnpkg.com
 * JSX
-* Redux https://redux.js.org
-* React-Router https://reacttraining.com/react-router/
 * Volto https://github.com/plone/volto
 * create-volto-app
 * Plone!
