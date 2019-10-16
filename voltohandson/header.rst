@@ -38,10 +38,6 @@ This will be the outcome:
       );
     }
 
-.. note:: Every time you add a file to the customizations folder or to the theme folder, you must restart the server for changes to take effect.
-          From that on, the hot reloading should kick-in and reload the page automatically.
-
-
 .. warning:: When using component shadowing remember to replace any relative import with ``@plone/volto``.
 
 Header styling
@@ -114,6 +110,9 @@ Logo
 
 To replace the Logo, we use `component shadowing <#component-shadowing>`_ to customize (and override) Volto original components.
 Get the Plone logo (`Logo.svg`) from the `training-resources` directory and copy it using this path and name: ``src/customizations/components/theme/Logo/Logo.svg``.
+
+.. note:: Every time you add a file to the customizations folder or to the theme folder, you must restart the server for changes to take effect.
+          From that on, the hot reloading should kick-in and reload the page automatically.
 
 Component shadowing
 ===================
