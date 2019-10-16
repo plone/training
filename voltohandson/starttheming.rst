@@ -5,7 +5,7 @@ Theming
 =======
 
 We can use Semantic UI variables and theme overrides to achieve our theme, use Volto's ``custom.overrides`` or use both mixed as we desire.
-There is no right way of doing it, and we will be using the Semantic UI theme engine in both cases.
+There is no right way of doing it, and we will be using in both cases the Semantic UI theme engine.
 
 .. image:: _static/theming_engine.png
    :align: center
