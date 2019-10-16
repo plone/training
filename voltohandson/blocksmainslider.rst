@@ -115,6 +115,8 @@ Use this code for the block view component ``src/components/Tiles/MainSlider/Vie
 We should have the main slider block in the home page now.
 For now we will leave out how the edit component would look like for a later chapter.
 
+Add ``slider-image.png`` from the ``training-resources`` folder to ``src/components/Tiles/MainSlider`` directory.
+
 Styling
 =======
 
