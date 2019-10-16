@@ -78,7 +78,7 @@ You can use them to render the view component.
 Block edit component props
 --------------------------
 
-The view component of a block receives these props from the Blocks Engine:
+The edit component of a block receives these props from the Blocks Engine:
 
   - type - the type of the block
   - id - the unique ID for the current block
