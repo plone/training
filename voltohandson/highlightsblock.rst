@@ -147,7 +147,7 @@ We don't want to bloat the view component, so we will create a specific componen
 
     export default RecentSuccessStories;
 
-and we will add it to the Block render. Notice that we are passing the blockID prop from the parent component:
+and we will add it to the Block render. Notice that we are passing the id prop from the parent component:
 
 .. code-block:: jsx
    :emphasize-lines: 1,6,19
@@ -157,7 +157,7 @@ and we will add it to the Block render. Notice that we are passing the blockID p
     ...
 
     const View = props => {
-      const { blockID } = props;
+      const { id } = props;
 
       return (
 
@@ -170,7 +170,7 @@ and we will add it to the Block render. Notice that we are passing the blockID p
           <h2>Recent Plone launches</h2>
         </div>
         <div className="highlight-body">
-          <RecentSuccessStories blockID={blockID} />
+          <RecentSuccessStories id={id} />
         </div>
       </div>
     </Grid.Column>
@@ -187,10 +187,10 @@ and then, the ``RecentSuccessStories.jsx`` component:
     import { Link } from 'react-router-dom';
 
     const RecentSuccessStories = props => {
-      const { blockID } = props;
+      const { id } = props;
       const searchSubrequests = useSelector(state => state.search.subrequests);
       const dispatch = useDispatch();
-      const results = searchSubrequests?.[blockID]?.items;
+      const results = searchSubrequests?.[id]?.items;
 
       React.useEffect(() => {
         dispatch(
@@ -201,10 +201,10 @@ and then, the ``RecentSuccessStories.jsx`` component:
               metadata_fields: '_all',
               portal_type: ['success_story'],
             },
-            blockID,
+            id,
           ),
         );
-      }, [dispatch, blockID]);
+      }, [dispatch, id]);
 
       return (
         <ul>
@@ -239,7 +239,7 @@ This is the complete view component (``View.jsx``) for this block:
     import highlightPCJPG from './highlights-small-ploneconf.png';
 
     const View = props => {
-      const { blockID } = props;
+      const { id } = props;
 
       return (
         <div className="tile highlights">
@@ -337,7 +337,7 @@ This is the complete view component (``View.jsx``) for this block:
                   <h2>Recent Plone launches</h2>
                 </div>
                 <div className="highlight-body">
-                  <RecentSuccessStories blockID={blockID} />
+                  <RecentSuccessStories id={id} />
                 </div>
               </div>
             </Grid.Column>
