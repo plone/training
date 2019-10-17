@@ -5,6 +5,8 @@ Blocks
 ======
 
 We will use Volto blocks (a.k.a. tiles) to compose the homepage.
+We are in the process to replace the term ``tile`` and use ``block`` everywhere, so bear with us during the migration process.
+So in some places names are not updated yet (specially code in both Volto and plone.restapi) and the behavior.
 
 Brief intro to Volto blocks
 ===========================
@@ -30,7 +32,7 @@ There is a behavior ``Tiles`` that ``plone.restapi`` makes available.
 3. Select the ``Tiles`` behavior
 4. Save
 
-Test that the content type you've just enabled tiles behavior is working, by creating a new object of that type from Volto.
+Test that the content type you've just enabled ``Tiles`` behavior is working, by creating a new object of that type from Volto.
 
 Blocks anatomy
 ==============
@@ -38,7 +40,7 @@ Blocks anatomy
 Every Block is composed of an edit (``Edit.jsx``) and a view (``View.jsx``) component.
 
 
-Create your first tile in the project by adding these two components in a new directory in ``src/components/Blocks/MainSlider``.
+Create your first block in the project by adding these two components in a new directory in ``src/components/Blocks/MainSlider``.
 This is the ``Edit.jsx``:
 
 .. code-block:: jsx
@@ -102,7 +104,7 @@ You can use all these props to render your edit block and model its behavior.
 Blocks settings
 ---------------
 
-We need to configure the project to make it aware of new blocks by adding it to the tiles object configuration:
+We need to configure the project to make it aware of new blocks by adding it to the object configuration:
 So we add this lines to the ``config.js`` in the root of our project.
 
 .. code-block:: js
@@ -150,4 +152,4 @@ We add this also, to fulfill all our i18n requirements:
       },
     });
 
-Our new tile should be ready to use in the editor.
+Our new block should be ready to use in the editor.
