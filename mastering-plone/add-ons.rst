@@ -27,7 +27,7 @@ Some notable add-ons
       :scale: 50%
       :alt: Editing a form field through the web.
 
-    Editing a form field through the web.
+      Editing a form field through the web.
 
 
 `plone.app.mosaic <https://github.com/plone/plone.app.mosaic>`_
