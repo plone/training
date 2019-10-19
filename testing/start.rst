@@ -18,9 +18,12 @@ First of all we need to install plonecli:
 
 .. note::
 
-    This command will install plonecli in the global user site-packages according to the official documentation.
-    Feel free to install it with your preferred method (virtualenv, pipenv, pyenv) if you want.
+  This command will install plonecli in the global user site-packages according to the official documentation.
+  Feel free to install it with your preferred method (virtualenv, pipenv, pyenv) if you want.
 
+.. note::
+  If you have already installed plonecli, please update at least bobtemplates.plone to last version (>= 5.0.1) because there are
+  some important fixes needed for this training.
 
 Now we can create a new package:
 

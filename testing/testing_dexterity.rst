@@ -23,6 +23,7 @@ With this command, plonecli will ask you some questions and will register new co
 .. note::
 
     To follow this training, you need to answer questions like this:
+
     - Content type name (Allowed: _ a-z A-Z and whitespace) [Todo Task]: TestingItem
 
     - Content type description:
@@ -106,8 +107,6 @@ As previously said, if we don't need to create a functional test, it's better to
 .. note::
 
     It's always better avoiding transactions in tests because they invalidate the isolation between tests in the same test case.
-    
-    If we commit a transaction in one test, we persist that write into our testing database, and our changes are visible also in following tests in the same test case.
 
 We could try to create a ``functional`` test just to see how they works and to test how our content-type creation works on browser.
 
@@ -124,7 +123,7 @@ And then we can create a new test case:
 .. literalinclude:: _snippets/test_ct_testing_item.py
     :language: python
     :lines: 78-123
-    :emphasize-lines: 3,11-17
+    :emphasize-lines: 3,11-19
     
 
 The first thing that we can see, is the new layer used: ``PLONETRAINING_TESTING_FUNCTIONAL_TESTING``.
@@ -142,21 +141,4 @@ In ``test_view_testing_item`` we are checking that accessing directly to a conte
 
 .. note::
 
-    ``self.browser.contents`` shows the html of the last visited page.
-
-
-Excercise
-+++++++++
-
-Try to add a behavior (for example a rich text field) to our content-type and check that the field is showed up in edit form and in the view.
-
-..  admonition:: Solution
-    :class: toggle
-
-    In ``TestingItem.xml`` uncomment ``plone.richtext`` behavior.
-
-    In test case file:
-
-    .. literalinclude:: _snippets/test_ct_testing_item.py
-        :language: python
-        :lines: 125-137
+    ``self.browser.contents`` shows  the html of the last visited page.

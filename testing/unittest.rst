@@ -20,7 +20,7 @@ Let's call it ``test_unit.py``:
 
 .. literalinclude:: _snippets/test_unit.py
   :language: python
-  :lines: 3-9
+  :lines: 1, 4-11
 
 Now we need to run it:
 
@@ -53,6 +53,8 @@ Try to create a new file into our package with a method that takes a number and 
     File ``helper_functions.py``:
 
     .. code-block:: python
+    
+        # -*- coding: utf-8 -*-
 
         def double_number(x):
             return x * 2
@@ -61,4 +63,4 @@ Try to create a new file into our package with a method that takes a number and 
 
     .. literalinclude:: _snippets/test_unit.py
         :language: python
-        :emphasize-lines: 1,10-14
+        :emphasize-lines: 3,13-16

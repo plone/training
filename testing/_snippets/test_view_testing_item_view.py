@@ -103,43 +103,45 @@ class ViewsFunctionalTest(unittest.TestCase):
         self.browser.handleErrors = False
         self.browser.addHeader(
             'Authorization',
-            'Basic %s:%s' % (SITE_OWNER_NAME, SITE_OWNER_PASSWORD),
+            'Basic {username}:{password}'.format(
+                username=SITE_OWNER_NAME,
+                password=SITE_OWNER_PASSWORD),
         )
 
     def test_view_without_parameter(self):
         self.browser.open(self.portal_url + '/foo')
         self.assertNotIn(
             '<p>This is the default message: A small message</p>',
-            self.browser.contents
+            self.browser.contents,
         )
         # because it's not the default view
         self.browser.open(self.portal_url + '/foo/testing-item-view')
         self.assertIn(
             '<p>This is the default message: A small message</p>',
-            self.browser.contents
+            self.browser.contents,
         )
         self.assertNotIn(
             'This is the custom message',
-            self.browser.contents
+            self.browser.contents,
         )
 
     def test_view_with_parameter(self):
         self.browser.open(self.portal_url + '/foo?message=hello')
         self.assertNotIn(
             '<p>This is the default message: A small message</p>',
-            self.browser.contents
+            self.browser.contents,
         )
         self.assertNotIn(
             'This is the custom message',
-            self.browser.contents
+            self.browser.contents,
         )
         # because it's not the default view
         self.browser.open(self.portal_url + '/foo/testing-item-view?message=hello')
         self.assertIn(
             '<p>This is the default message: A small message</p>',
-            self.browser.contents
+            self.browser.contents,
         )
         self.assertIn(
             '<p>This is the custom message: hello</p>',
-            self.browser.contents
+            self.browser.contents,
         )

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from plonetraining.testing.helper_functions import double_number
 
 import unittest

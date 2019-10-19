@@ -50,7 +50,7 @@ class TestingItemIntegrationTest(unittest.TestCase):
     def test_ct_testing_item_adding(self):
         setRoles(self.portal, TEST_USER_ID, ['Contributor'])
         obj = api.content.create(
-            container=self.portal, type='TestingItem', id='testing_item'
+            container=self.portal, type='TestingItem', id='testing_item',
         )
 
         parent = obj.__parent__
@@ -64,14 +64,14 @@ class TestingItemIntegrationTest(unittest.TestCase):
         setRoles(self.portal, TEST_USER_ID, ['Contributor'])
         fti = queryUtility(IDexterityFTI, name='TestingItem')
         self.assertTrue(
-            fti.global_allow, u'{0} is not globally addable!'.format(fti.id)
+            fti.global_allow, u'{0} is not globally addable!'.format(fti.id),
         )
 
     def test_ct_testing_item_contributor_cant_add(self):
         setRoles(self.portal, TEST_USER_ID, ['Contributor'])
         with self.assertRaises(Unauthorized):
             api.content.create(
-                container=self.portal, type='TestingItem', id='testing_item'
+                container=self.portal, type='TestingItem', id='testing_item',
             )
 
 
@@ -90,26 +90,28 @@ class TestingItemFunctionalTest(unittest.TestCase):
         self.browser.handleErrors = False
         self.browser.addHeader(
             'Authorization',
-            'Basic %s:%s' % (SITE_OWNER_NAME, SITE_OWNER_PASSWORD),
+            'Basic {username}:{password}'.format(
+                username=SITE_OWNER_NAME,
+                password=SITE_OWNER_PASSWORD),
         )
 
     def test_add_testing_item(self):
         self.browser.open(self.portal_url + '/++add++TestingItem')
-        self.browser.getControl(name="form.widgets.IBasic.title").value = "Foo"
-        self.browser.getControl("Save").click()
+        self.browser.getControl(name='form.widgets.IBasic.title').value = 'Foo'
+        self.browser.getControl('Save').click()
         self.assertTrue(
             '<h1 class="documentFirstHeading">Foo</h1>'
             in self.browser.contents
         )
 
-        self.assertEqual("Foo", self.portal['foo'].title)
+        self.assertEqual('Foo', self.portal['foo'].title)
 
     def test_view_testing_item(self):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         api.content.create(
-            type="TestingItem",
-            title="Bar",
-            description="This is a description",
+            type='TestingItem',
+            title='Bar',
+            description='This is a description',
             container=self.portal,
         )
 
@@ -125,13 +127,13 @@ class TestingItemFunctionalTest(unittest.TestCase):
     def test_rich_text_field(self):
         self.browser.open(self.portal_url + '/++add++TestingItem')
         self.assertIn(
-            'form.widgets.IRichTextBehavior.text', self.browser.contents
+            'form.widgets.IRichTextBehavior.text', self.browser.contents,
         )
         self.browser.getControl(
-            name="form.widgets.IBasic.title"
-        ).value = "A content with text"
+            name='form.widgets.IBasic.title'
+        ).value = 'A content with text'
         self.browser.getControl(
-            name="form.widgets.IRichTextBehavior.text"
-        ).value = "Some text"
-        self.browser.getControl("Save").click()
+            name='form.widgets.IRichTextBehavior.text'
+        ).value = 'Some text'
+        self.browser.getControl('Save').click()
         self.assertIn('Some text', self.browser.contents)

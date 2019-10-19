@@ -71,7 +71,7 @@ We want to use this view only for our content-type and not for all folderish one
     .. literalinclude:: _snippets/test_view_testing_item_view.py
         :language: python
         :lines: 21-29, 36-50, 52-64
-        :emphasize-lines: 7, 11, 25-28
+        :emphasize-lines: 7, 11, 25-28, 30-36
 
 .. note::
 
@@ -80,7 +80,7 @@ We want to use this view only for our content-type and not for all folderish one
 Excercise 2
 +++++++++++
 
-- Add a method in the view that get a parameter from the request (``message``) and returns it (it's a dumb method, but it's just an example).
+- Add a method in the view that get a parameter from the request (``message``) and returns it.
 - Check the method in integration test
 - Update the template to print the value from that method
 - Test that calling the method from the view, it returns what we expect
