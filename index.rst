@@ -23,7 +23,6 @@ A collection of trainings developed and created by the Plone Community.
     transmogrifier/index
     advanced-python/index
     gatsby/index
-    testing/index
 
 ..  toctree::
     :hidden:
