@@ -110,6 +110,7 @@ Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/confi
 
       <plone:behavior
           title="Featured"
+          name="ploneconf.featured"
           description="Control if a item is shown on the frontpage"
           provides=".featured.IFeatured"
           />
