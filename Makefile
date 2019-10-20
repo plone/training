@@ -15,6 +15,8 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
+all: build
+
 .PHONY: help
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -45,6 +47,13 @@ help:
 .PHONY: clean
 clean:
 	-rm -rf $(BUILDDIR)/*
+
+bin/python bin/pip:
+	python3 -m venv . || virtualenv --clear --python=python3 .
+
+.PHONY: build
+build: bin/pip
+	bin/pip install -r requirements.txt
 
 .PHONY: html
 html:

@@ -304,11 +304,12 @@ and returns an object which will be mapped to props of the component.
 The second is an object with all the actions which will also be mapped to props on the component.
 
 .. code-block:: jsx
-    :linenos: 
+    :linenos:
     :lineno-start: 3
-    :emphasize-lines: 1,4-12
+    :emphasize-lines: 1-2,5-13
 
-    import addFaqItem from "./actions";
+    import { connect } from "react-redux";
+    import addFaqItem from "../actions";
 
     class Faq extends Component {
       static propTypes = {
@@ -322,8 +323,8 @@ The second is an object with all the actions which will also be mapped to props 
       };
 
 .. code-block:: jsx
-    :linenos: 
-    :lineno-start: 124
+    :linenos:
+    :lineno-start: 125
     :emphasize-lines: 1-6
 
     export default connect(
@@ -339,7 +340,7 @@ The result will be as follows:
 
 .. code-block:: jsx
     :linenos:
-    :emphasize-lines: 43,55
+    :emphasize-lines: 2,6,43,55
 
     import React, { Component } from "react";
     import { connect } from "react-redux";

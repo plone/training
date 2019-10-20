@@ -27,9 +27,9 @@ Topics covered:
 
 
 Creating the package
--------------------------
+--------------------
 
-Your own code has to be organized as a `Python package <https://docs.python.org/2/tutorial/modules.html#packages>`_. An python package is directory that follows certain conventions to hold python modules.
+Your own code has to be organized as a `Python package <https://docs.python.org/2/tutorial/modules.html#packages>`_. A python package is directory that follows certain conventions to hold python modules.
 
 We are going to use `bobtemplates.plone <https://pypi.org/project/bobtemplates.plone>`_ to create a skeleton package. You only need to fill in the blanks.
 
@@ -82,7 +82,7 @@ When a python package is production-ready you can choose to distribute it as an 
 .. _eggs1-inspect-label:
 
 Inspecting the package
----------------------------
+----------------------
 
 In :file:`src` there is now a new folder :file:`ploneconf.site` and in there is the new package. Let's have a look at some of the files:
 
@@ -154,7 +154,7 @@ Including the package in Plone
 
 Before we can use our new package we have to tell Plone about it. Look at :file:`buildout.cfg` and see how ``ploneconf.site`` is included in `auto-checkout`, `eggs` and `test`:
 
-.. code-block:: cfg
+.. code-block::cfg
     :emphasize-lines: 2, 30, 38
 
     auto-checkout +=
@@ -198,7 +198,7 @@ Before we can use our new package we have to tell Plone about it. Look at :file:
 
 This tells Buildout to add the egg :py:mod:`ploneconf.site`. The sources for this eggs are defined in the section ``[sources]`` at the bottom of :file:`buildout.cfg`.
 
-..  code-block:: cfg
+..  code-block::cfg
     :emphasize-lines: 2
 
     [sources]
@@ -215,7 +215,7 @@ This tells buildout to not download it from pypi but to do a checkout from GitHu
 
     If you do **not** want to use the prepared package for ploneconf.site from GitHub but write it yourself (we suggest you try that) then add the following instead:
 
-    ..  code-block:: cfg
+    ..  code-block::cfg
         :emphasize-lines: 2
 
         [sources]
@@ -247,5 +247,5 @@ Exercises
 Summary
 -------
 
-* You created the package * :py:mod:`ploneconf.site` to hold your code.
+* You created the package :py:mod:`ploneconf.site` to hold your code.
 * You added the new package to buildout so that Plone can use it.
