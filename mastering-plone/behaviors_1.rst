@@ -70,9 +70,9 @@ Practical example
 
     So, let us write our own small behavior.
 
-    In the future, we want our presentation to be represented in Lanyrd.com (a now defunct social conference directory). For now we will just provide a link so that visitors can collaborate easily with the Lanyrd site.
+    In the future, we want some talks, news items or other content be represented on the frontpage similar to what we did with the "hot news" field early on.
 
-    So for now, our behavior just adds a new field for storing the URL to Lanyrd.
+    So for now, our behavior just adds a new field to store this information.
 
 We want to keep a clean structure, so we create a :file:`behaviors` directory first, and include it into the zcml declarations of our :file:`configure.zcml`.
 
