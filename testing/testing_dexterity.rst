@@ -1,15 +1,15 @@
-Testing a Dexterity content-type
+Testing a Dexterity content type
 ================================
 
-The most common thing that we could develop in Plone are content-types.
-Let's see how to test if a new content-type works like expected.
+The most common thing that we could develop in Plone are content types.
+Let's see how to test if a new content type works as expected.
 
-Create a new content-type
+Create a new content type
 -------------------------
 
-With plonecli we could add features on our package through command-line.
+With plonecli we can add features to our package using the command line.
 
-For example, let's create a new ``TestingItem`` content-type:
+For example, let's create a new ``TestingItem`` content type:
 
 .. code-block:: console
 
@@ -18,7 +18,7 @@ For example, let's create a new ``TestingItem`` content-type:
 
 
 
-With this command, plonecli will ask you some questions and will register new content-type in our package.
+With this command, plonecli will ask you some questions and will register a new content type in our package.
 
 .. note::
 
@@ -39,11 +39,11 @@ With this command, plonecli will ask you some questions and will register new co
     - Activate default behaviors? [y]: y
 
 
-Test the content-type
+Test the content type
 ---------------------
 
-If we now try to re-run tests, we could see that the tests number has increased.
-This is because plonecli also creates a basic test for this new content-type in ``tests/test_ct_testing_item.py`` file:
+If we now try to re-run the tests, we see that the number of tests has increased.
+This is because plonecli also creates a basic test for this new content type in the ``tests/test_ct_testing_item.py`` file:
 
 .. literalinclude:: _snippets/test_ct_testing_item.py
         :language: python
@@ -53,26 +53,26 @@ This is because plonecli also creates a basic test for this new content-type in 
 
 We can see some interesting things:
 
-- We are using ``PLONETRAINING_TESTING_INTEGRATION_TESTING`` layer, because we don't need to write functional tests
-- We are using ``setUp`` method to set some variables and add some roles to the testing user.
+- We are using the ``PLONETRAINING_TESTING_INTEGRATION_TESTING`` layer, because we don't need to write functional tests
+- We are using the ``setUp`` method to set some variables and add some roles to the testing user.
 
 
-In these tests, we are testing some very basic stuffs for our content-type like for example if it's correctly registered in FTI, if we can create it
-and if an user with a specific role (Contributor) can add it.
+In these tests, we are testing some very basic things for our content type, for example if it's correctly registered with factory type information (FTI), if we can create an item of our content type
+and if a user with a specific role (Contributor) can add it.
 
 .. note::
 
     plone.app.testing gives us a default user for tests. We could import its username in a variable called ``TEST_USER_ID`` and set different roles when needed.
 
-    By default each test is run with that user as logged-in user. If we want to run tests as anonymous users or with a different user, we need to logout/login.
+    By default, each test is run as that logged-in user. If we want to run tests as anonymous users or using a different user, we need to logout and login.
 
 
-Excercise 1
-+++++++++++
+Exercise 1
+++++++++++
 
-- Change the permissions for our newly content-type and only allow Manager to add it.
+- Change the permissions for our new content type and only allow Manager role to add items of this type.
 - Fix old tests.
-- Create a new one to test that Contributor can't add these types. 
+- Create a new one test to verify that the Contributor role can't add items of this type.
 
 ..  admonition:: Solution
     :class: toggle
@@ -85,13 +85,13 @@ Excercise 1
             <role name="Manager"/>
         </permission>
 
-    In test case file we need to import a new Exception:
+    In the test case file we need to import a new Exception:
     
     .. literalinclude:: _snippets/test_ct_testing_item.py
         :language: python
         :lines: 2
 
-    And then update tests like this:
+    And then we update tests like this:
 
     .. literalinclude:: _snippets/test_ct_testing_item.py
         :language: python
@@ -100,25 +100,25 @@ Excercise 1
 Functional test
 ---------------
 
-Until now we wrote only ``ìntegration`` tests because we didn't needed to test browser integration or commit some transactions.
+So far, we have written only ``ìntegration`` tests because we didn't need to test browser integration or commit any transactions.
 
-As previously said, if we don't need to create a functional test, it's better to avoid them because they are slower than integration ones.
+As we covered before, if we don't need to create functional tests, it's better to avoid them because they are slower than integration tests.
 
 .. note::
 
-    It's always better avoiding transactions in tests because they invalidate the isolation between tests in the same test case.
+    It's always better to avoid transactions in tests because they invalidate the isolation between tests in the same test case.
 
-We could try to create a ``functional`` test just to see how they works and to test how our content-type creation works on browser.
+However, we will create a ``functional`` test to see how it works and how content type creation works in a browser.
 
 Let's create a new test case in the same file.
 
-First of all we need to import some new dependencies:
+First, we need to import some new dependencies:
 
 .. literalinclude:: _snippets/test_ct_testing_item.py
     :language: python
     :lines: 5,6,9,10
 
-And then we can create a new test case:
+Now we can create a new test case:
 
 .. literalinclude:: _snippets/test_ct_testing_item.py
     :language: python
@@ -126,19 +126,19 @@ And then we can create a new test case:
     :emphasize-lines: 3,11-19
     
 
-The first thing that we can see, is the new layer used: ``PLONETRAINING_TESTING_FUNCTIONAL_TESTING``.
+The first thing we see is the new layer used: ``PLONETRAINING_TESTING_FUNCTIONAL_TESTING``.
 
 In ``setUp`` we configure the test case to use the Zope web browser and we login as site owner.
 
-In ``test_add_testing_item`` we simulate user interaction on creating a new content from the browser with following actions:
+In ``test_add_testing_item`` we simulate the user interaction of creating a new content in the browser with following actions:
 
 - Open the url for adding a new TestingItem content
 - Find the title field and compile it
 - Click to Save button
 - Check that after saving it, we can see its title.
 
-In ``test_view_testing_item`` we are checking that accessing directly to a content with his url, we can see some informations.
+In ``test_view_testing_item`` we are checking that, by accessing a content item directly using a URL, we can see its values.
 
 .. note::
 
-    ``self.browser.contents`` shows  the html of the last visited page.
+    ``self.browser.contents`` shows the HTML of the last visited page.
