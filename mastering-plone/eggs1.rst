@@ -157,7 +157,7 @@ Including the package in Plone
 
 Before we can use our new package we have to tell Plone about it. Look at :file:`buildout.cfg` and see how ``ploneconf.site`` is included in `auto-checkout`, `eggs` and `test`:
 
-.. code-block::cfg
+.. code-block:: cfg
     :emphasize-lines: 2, 30, 38
 
     auto-checkout +=
@@ -201,7 +201,7 @@ Before we can use our new package we have to tell Plone about it. Look at :file:
 
 This tells Buildout to add the egg :py:mod:`ploneconf.site`. The sources for this eggs are defined in the section ``[sources]`` at the bottom of :file:`buildout.cfg`.
 
-..  code-block::cfg
+.. code-block:: cfg
     :emphasize-lines: 2
 
     [sources]
@@ -218,7 +218,7 @@ This tells buildout to not download it from pypi but to do a checkout from GitHu
 
     If you do **not** want to use the prepared package for ploneconf.site from GitHub but write it yourself (we suggest you try that) then add the following instead:
 
-    ..  code-block::cfg
+    ..  code-block:: cfg
         :emphasize-lines: 2
 
         [sources]
