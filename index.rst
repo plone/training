@@ -23,6 +23,7 @@ A collection of trainings developed and created by the Plone Community.
     transmogrifier/index
     advanced-python/index
     gatsby/index
+    testing/index
 
 ..  toctree::
     :hidden:
@@ -74,6 +75,9 @@ Trainings
 
 :doc:`gatsby/index`
     Building static websites with `GatsbyJS <https://www.gatsbyjs.org/>`_.
+
+:doc:`testing/index`
+    Best practices for testing Plone addons.
 
 .. The following items are hidden in this toctree to prevent Sphinx warnings.
 
