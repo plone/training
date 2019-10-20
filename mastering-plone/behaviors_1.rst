@@ -109,15 +109,14 @@ Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/confi
         i18n_domain="ploneconf.site">
 
       <plone:behavior
-          title="Social Behavior"
-          name="ploneconf.social"
-          description="Adds a link to lanyrd"
-          provides=".social.ISocial"
+          title="Featured"
+          description="Control if a item is shown on the frontpage"
+          provides=".featured.IFeatured"
           />
 
     </configure>
 
-And a :file:`behaviors/social.py` containing:
+And a :file:`behaviors/featured.py` containing:
 
 .. _social-behavior-python-label:
 
@@ -132,17 +131,16 @@ And a :file:`behaviors/social.py` containing:
     from zope.interface import provider
 
     @provider(IFormFieldProvider)
-    class ISocial(model.Schema):
+    class IFeatured(model.Schema):
 
         directives.fieldset(
-            'social',
-            label=u'Social',
-            fields=('lanyrd',),
+            'featured',
+            label=u'Featured',
+            fields=('featured',),
         )
 
-        lanyrd = schema.URI(
-            title=u"Lanyrd link",
-            description=u"Add URL",
+        featured = schema.Bool(
+            title=u'Show this item on the frontpage',
             required=False,
         )
 
@@ -160,7 +158,7 @@ And a :file:`behaviors/social.py` containing:
     #. We mark our schema as a class that also provides the `IFormFieldProvider`_ interface using a decorator.
        The schema class itself provides the interface, not its instance!
     #. We also add a `fieldset`_ so that our fields are not mixed with the normal fields of the object.
-    #. We add a normal `URI <https://zopeschema.readthedocs.io/en/latest/fields.html#uri>`_ schema field to store the URI to lanyrd.
+    #. We add a normal `Bool <https://zopeschema.readthedocs.io/en/latest/fields.html#bool>`_ schema field to control if a item should be displayed on the frontpage.
 
 .. _behaviors1-adding-label:
 
@@ -185,7 +183,7 @@ We must add the behavior to :file:`profiles/default/types/talk.xml`:
      <property name="behaviors">
       <element value="plone.dublincore"/>
       <element value="plone.namefromtitle"/>
-      <element value="ploneconf.social"/>
+      <element value="ploneconf.featured"/>
      </property>
      ...
     </object>
