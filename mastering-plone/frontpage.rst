@@ -1,4 +1,5 @@
 .. _frontpage-label:
+.. _frontpage-label:
 
 Creating a Dynamic Front Page
 =============================
@@ -23,7 +24,7 @@ The topics we cover are:
 
 * Standalone views
 * Querying the catalog by date
-* DRY
+* DRY ("Don't Repeat Yourself")
 * macros
 * patterns
 
@@ -214,7 +215,7 @@ Now use that macro in ``browser/templates/frontpageview.pt``
         </div>
     </div>
 
-Calling that macro in python looks like this ``metal:use-macro="python: context.restrictedTraverse('talklistview')['talklist']"``
+Calling that macro in Python looks like this ``metal:use-macro="python: context.restrictedTraverse('talklistview')['talklist']"``
 
 .. note::
 

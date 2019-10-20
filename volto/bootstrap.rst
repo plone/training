@@ -16,6 +16,8 @@ For an example look into the api folder of the Volto repostory: https://github.c
 .. warning::  Make sure you set a CORS policy or things tend to magically go wrong. See https://github.com/plone/volto/blob/master/api/base.cfg for an example.
 
 
+.. _install-deps-volto-label:
+
 Installing Dependencies
 =======================
 

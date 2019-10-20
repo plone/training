@@ -18,16 +18,16 @@ Some notable add-ons
   A form generator and the successor to `Products.PloneFormGen <https://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
 
   .. figure:: _static/add_ons_easyform_1.png
-  	  :scale: 50%
-  	  :alt: A simple form created with collective.easyform.
+      :scale: 50%
+      :alt: A simple form created with collective.easyform.
 
-  	  A simple form created with collective.easyform.
+      A simple form created with collective.easyform.
 
   .. figure:: _static/add_ons_easyform_2.png
-	  :scale: 50%
-	  :alt: Editing a form field through the web.
+      :scale: 50%
+      :alt: Editing a form field through the web.
 
-	  Editing a form field through the web.
+      Editing a form field through the web.
 
 
 `plone.app.mosaic <https://github.com/plone/plone.app.mosaic>`_
@@ -45,9 +45,6 @@ Some notable add-ons
 `collective.lineage <https://pypi.org/project/collective.lineage>`_
   Microsites for Plone - makes subfolders appear to be autonomous Plone sites
 
-`Products.Doormat <https://pypi.org/project/Products.Doormat>`_
-  A flexible doormat
-
 `collective.behavior.banner <https://github.com/collective/collective.behavior.banner>`_
   Add decorative banners and sliders
 
@@ -59,9 +56,6 @@ Some notable add-ons
 
 `collective.disqus <https://pypi.org/project/collective.disqus/>`_
   Integrates the Disqus commenting platform API into Plone
-
-`collective.plonetruegallery <https://pypi.org/project/collective.plonetruegallery>`_
-  Photo galleries with a huge selection of various js-libraries.
 
 
 .. _add-ons-find-label:
@@ -191,21 +185,21 @@ Let's build a registration form:
 
 .. _add-ons-ptg-label:
 
-Add Photo Gallery with :py:mod:`collective.plonetruegallery`
+Add page layout management with :py:mod:`plone.app.mosaic`
 ------------------------------------------------------------
 
-To advertise the conference we want to show some photos showing past conferences and the city where the conference is taking place.
+To make it possible for your site editors to drag and drop different blocks of content onto a page, you can use the add-on plone.app.mosaic
+https://pypi.org/project/plone.app.mosaic/
 
-Instead of creating new contenttypes for galleries, it integrates with the Plone functionality to choose different views for folderish contenttypes.
+* Add `plone.app.mosaic` to the eggs section in the buildout
+* Activate the Mosaic add-on
+* Go to a page in your site and click on "Mosaic" in the `Display` menu in the toolbar
+* Edit the page to select a Mosaic layout and try inserting some content blocks
+* You can read more about the concepts and use of this add-on in the `Mosaic documentation <http://plone-app-mosaic.s3-website-us-east-1.amazonaws.com/latest/getting-started.html>`_
 
-https://pypi.org/project/collective.plonetruegallery
+.. note::
 
-* Activate the add-on
-* Enable the behavior ``Plone True Gallery`` on the type ``Folder``: http://localhost:8080/Plone/dexterity-types/Folder/@@behaviors
-* Add a folder ``/the-event/location``
-* Upload some photos from lorempixel.com
-* Enable the view ``galleryview``
-
+    The Mosaic editor takes some time to load so please be patient until you see the full edit view
 
 .. _add-ons-i18n-label:
 

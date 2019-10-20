@@ -20,10 +20,12 @@ A collection of trainings developed and created by the Plone Community.
     angular/index
     react/index
     volto/index
+    voltohandson/index
     transmogrifier/index
     advanced-python/index
     gatsby/index
     testing/index
+    wsgi/index
 
 ..  toctree::
     :hidden:
@@ -78,6 +80,9 @@ Trainings
 
 :doc:`testing/index`
     Best practices for testing Plone addons.
+
+:doc:`wsgi/index`
+    Deploying and Operating Plone on WSGI.
 
 .. The following items are hidden in this toctree to prevent Sphinx warnings.
 

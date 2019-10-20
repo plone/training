@@ -150,31 +150,3 @@ Most settings are stored in a tool called ``portal_registry``. Since it has grea
         <value>Mastering Plone Development</value>
       </record>
     </registry>
-
-
-Deprecated: Skin Folders
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. only:: presentation
-
-    * Very old style
-    * Very quick
-    * Very unmaintainable
-
-.. only:: not presentation
-
-    Do you remember Acquisition? The Skin Folders extends the concepts of Acquisition. Your Plone site has a folder named ``portal_skins``. This folder has a number of sub folders. The ``portal_skins`` folder has a property that defines in which order Plone searches for attributes or objects in each sub folder.
-
-    The Plone logo is in a skin folder.
-
-    By default, your site has a ``custom`` folder, and items are first searched for in that folder.
-
-    To customize the logo, you copy it into the ``custom`` folder, and change it there. This way you can change templates, CSS styles, images and behavior, because a container may contain Python scripts.
-
-    Skin-folder style customization may be accomplished TTW via the ZMI, or with add-on packages. Many older-style packages create their own skin folder and add it to the skin layer for Plone when installed.
-
-.. only:: not presentation
-
-    .. warning::
-
-        This is deprecated technology.

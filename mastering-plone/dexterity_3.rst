@@ -109,7 +109,7 @@ Some things are notable here:
 * :py:class:`LevelVocabulary` is used to create the options used in the field ``level``. This way we could easily translate the displayed value.
 * :samp:`fieldset('Images', fields=['logo', 'advertisement'])` moves the two image fields to another tab.
 * :samp:`directives.read_permission(...)` sets the read and write permission for the field ``notes`` to users who can add new members. Usually this permission is only granted to Site Administrators and Managers. We use it to store information that should not be publicly visible. Please note that :py:attr:`obj.notes` is still accessible in templates and Python. Only using the widget (like we do in the view later) checks for the permission.
-* We use no grok here.
+* We no longer use grok, an obsolete Plone technology.
 
 ..  seealso::
 
@@ -170,7 +170,7 @@ You can apply directives to certain forms only. Here we drop a field from the ad
 
 The same works for custom forms.
 
-With the directive :py:meth:`widget` you can not only change the widget used for a field. With :py:data:`pattern_options` you can pass additional parameters to the widget. Here we configure the datetime-widget powered by the js-library `pickadate <https://amsul.ca/pickadate.js/>`_  by adding options that are used by it. Plone only passes the options to the library.
+With the directive :py:meth:`widget` you can not only change the widget used for a field. With :py:data:`pattern_options` you can pass additional parameters to the widget. Here, we configure the datetime widget powered by the JavaScript library `pickadate <https://amsul.ca/pickadate.js/>`_  by adding options that are used by it. Plone passes the options to the library.
 
 ..  code-block:: python
 
@@ -234,7 +234,7 @@ For context aware defaults you need to use a :py:class:`IContextAwareDefaultFact
     class IMySchema(model.Schema):
 
         parent_id = schema.TextLine(
-            title=_(u'Parent id'),
+            title=_(u'Parent ID'),
             required=False,
             defaultFactory=get_container_id,
         )
@@ -264,18 +264,18 @@ For context-aware validators you need to use :py:meth:`invariant`:
                 if data.start > data.end:
                     raise Invalid(_('Start must be before the end.'))
 
-To learn more about directives, validators and default values read:
+To learn more about directives, validators and default values, refer to the following:
 
 * `Form schema hints and directives <https://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html>`_
-* `Validation <https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html>`_ (these docs still use grok-examples)
+* `Validation <https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html>`_ (this documentation unfortunately still uses the obsolete grok technology)
 * `z3c.form documentation <https://pypi.org/project/z3c.form#validators>`_
 * `Default values for fields on add forms <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html>`_
 
 
-The FTI
--------
+The Factory Type Information, or FTI
+------------------------------------
 
-Second we create the FTI for the new type in :file:`profiles/default/types/sponsor.xml`
+Next, we create the factory type information ("FTI") for the new type in :file:`profiles/default/types/sponsor.xml`
 
 .. code-block:: xml
     :linenos:
@@ -362,7 +362,7 @@ Sponsors are containers but they don't need to be. Turn them into items by chang
 The view
 --------
 
-We use the default view provided by dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
+We use the default view provided by Dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
 
 But we could tweak the default view with some CSS to make it less ugly. Add the following to :file:`browser/static/ploneconf.css`:
 
@@ -517,8 +517,8 @@ Add the viewlet class in :file:`browser/viewlets.py`
             return results
 
 * :py:meth:`_sponsors` returns a list of dictionaries containing all necessary info about sponsors.
-* We create the complete img tag using a custom scale (200x80) using the view ``images`` from :py:mod:`plone.namedfile.` This actually scales the logos and saves them as new blobs.
-* In :py:meth:`sponsors` we return an ordered dictionary of randomized lists of dicts (containing the information on sponsors). The order is by sponsor-level since we want the platinum-sponsors on top and the bronze-sponsors at the bottom. The randomization is for fairness among equal sponsors.
+* We create the complete `img` tag using a custom scale (200x80) using the view ``images`` from :py:mod:`plone.namedfile.` This actually scales the logos and saves them as new blobs.
+* In :py:meth:`sponsors` we return an ordered dictionary of randomized lists of dicts (containing the information on sponsors). The order is by sponsor-level since we want the platinum sponsors on top and the bronze sponsors at the bottom. The randomization is for fairness among equal sponsors.
 
 :py:meth:`_sponsors` is cached for an hour using `plone.memoize <https://docs.plone.org/manage/deploying/performance/decorators.html#timeout-caches>`_. This way we don't need to keep all sponsor objects in memory all the time. But we'd have to wait for up to an hour until changes will be visible.
 
@@ -608,7 +608,7 @@ Result:
 Exercise 2
 ++++++++++
 
-Turn the content type Speaker from :ref:`Exercise 2 of the first chapter on dexterity <dexterity1-excercises-label>` into a Python-based type.
+Turn the content type Speaker from :ref:`Exercise 2 of the first chapter on Dexterity <dexterity1-excercises-label>` into a Python-based type.
 
 When we're done, it should have the following fields:
 
@@ -754,7 +754,7 @@ Do *not* use the :py:class:`IBasic` or :py:class:`IDublinCore` behavior to add t
 Exercise 3
 ++++++++++
 
-This is more of a Python exercise. The gold- and bronze sponsors should also have a bigger logo than the others. Scale the sponsors logos to the following logo-sizes without using CSS.
+This is more of a Python exercise. The gold and bronze sponsors should also have a bigger logo than the others. Scale the sponsors' logos to the following sizes without using CSS.
 
 * Platinum: 500x200
 * Gold: 350x150
