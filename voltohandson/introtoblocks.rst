@@ -4,41 +4,40 @@
 Blocks
 ======
 
-We will use Volto blocks (a.k.a. tiles) to compose the homepage.
-We are in the process to replace the term ``tile`` and use ``block`` everywhere, so bear with us during the migration process.
-So in some places names are not updated yet (specially code in both Volto and plone.restapi) and the behavior.
+We will use Volto blocks (tiles) to compose the homepage.
+We are in the process of replacing the term ``tile`` and use ``block`` everywhere, so bear with us during the migration process.
+In some places the terms are not yet updated, especially code in both Volto and plone.restapi.
 
-Brief intro to Volto blocks
-===========================
+Brief introduction to Volto blocks
+==================================
 
-Volto features the Pastanaga Editor Engine, allowing you to visually compose a page using blocks.
-The editor allows you to add, modify, reorder and delete blocks given your requirements.
-Blocks provide the user the ability to display content in an specific way, although they can also define behavior and have specific features.
+Volto features the Pastanaga Editor Engine, allowing you to compose a page visually using blocks.
+The editor allows you to add, modify, reorder and delete blocks.
+Blocks provide the user the ability to display content in an arbitrary way, although blocks can also define behavior and can have specific features.
 Blocks are composed of two basic (and required) components: the Block edit and view components.
 
-By default, Volto ships with the most basic set of Blocks: Title, Text, Image, Video, Maps, etc...
+By default, Volto ships with the most basic set of Blocks, including Title, Text, Image, Video, and Maps.
 
 .. note:: Volto Blocks are not enabled by default in Plone content types.
-          If you are using the ``kitconcept.voltodemo`` package it sets it up for you for the ``Document`` content type.
-          So if you create a page, by default it is enabled.
+          However, the ``kitconcept.voltodemo`` package enables Blocks for the ``Document`` content type,
+          so you will be able to use Blocks when you create or edit a page.
 
 How to manually enable Blocks on a content type
 ===============================================
 
-There is a behavior ``Tiles`` that ``plone.restapi`` makes available.
+There is a behavior called ``Tiles`` made available by ``plone.restapi``.
 
 1. Go to ``ControlPanel`` -> ``Dexterity Content Types``, select the content type.
 2. Go to ``Behaviors``
 3. Select the ``Tiles`` behavior
 4. Save
 
-Test that the content type you've just enabled ``Tiles`` behavior is working, by creating a new object of that type from Volto.
+Test the ``Tiles`` behavior for the content type you've just added it to, by creating a new object of that type from the Volto frontend (i.e. not from "classic" Plone).
 
 Blocks anatomy
 ==============
 
-Every Block is composed of an edit (``Edit.jsx``) and a view (``View.jsx``) component.
-
+Every Block is composed of an edit (``Edit.jsx``) component and a view (``View.jsx``) component.
 
 Create your first block in the project by adding these two components in a new directory in ``src/components/Blocks/MainSlider``.
 This is the ``Edit.jsx``:
@@ -68,7 +67,7 @@ and the ``View.jsx``.
 Block view component props
 --------------------------
 
-The view component of a block receives these props from the Blocks Engine:
+The view component of a block receives these props (properties) from the Blocks Engine:
 
   - id - the unique ID for the current block
   - properties - the current content
@@ -104,8 +103,8 @@ You can use all these props to render your edit block and model its behavior.
 Blocks settings
 ---------------
 
-We need to configure the project to make it aware of new blocks by adding it to the object configuration:
-So we add this lines to the ``config.js`` in the root of our project.
+We need to configure the project to make it aware of a new block by adding it to the object configuration:
+We add these lines to the ``config.js`` in the root of our project.
 
 .. code-block:: js
 

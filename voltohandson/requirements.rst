@@ -4,8 +4,8 @@
 Project requirements
 ====================
 
-During the training, we are commited to (re)build plone.com using Volto.
-This is how plone.com looks like:
+Our hands-on exercise is to (re)build plone.com using Volto.
+This is what plone.com looks like:
 
 .. image:: _static/plone.com_index.png
    :align: center
@@ -15,17 +15,17 @@ This is how plone.com looks like:
 Tasks
 =====
 
-These are the tasks:
+These are the tasks we will go through:
 
-- Setup CSS basics
-- Header and footer
-- Main Slider
-- Success story View
-- Three column highlights center element
+- Set up CSS basics
+- Create the header and the footer
+- Create a main slider
+- Develop a view for the Success Story content type
+- Create a three-column highlights center element
 
-We'll leave for later:
+We'll leave these tasks for later:
 
-- five element row
-- Sponsor list
-- Prefooter
-- Success story list
+- creating a five element row
+- showing the list of sponsors
+- developing the "prefooter"
+- showing a list of Success Story content items
