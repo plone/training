@@ -12,7 +12,7 @@ Tell us about yourselves:
 * Name, company, country...
 * What is your Plone experience?
 * What is your JavaScript experience?
-* What are your expectations for this hands on session?
+* What are your expectations for this hands-on session?
 
 .. _voltohandson-intro-what-will-we-do-label:
 
@@ -28,27 +28,27 @@ Some technologies and tools we use during the training:
 * create-volto-app
 * Plone!
 
-This training assumes that you've already taken (either presentially in the past Tokyo Plone Conference, or offline) the existing React and Volto trainings.
-However, we will be revisiting some of the React training basic concepts during the training along with the Volto customization and extensibility story.
+This training assumes that you've already taken (either in person at the 2018 Tokyo Plone Conference or online) the existing React and Volto trainings.
+However, we will be revisiting some of the basic React training concepts along with the Volto customization and extensibility story.
 
 .. _voltohandson-intro-what-to-expect-label:
 
 What to expect
 ==============
 
-At the end of the course you will know how to develop a Volto project from scratch to deployment.
-Learning in the way how to effectively use developer tools and Volto helpers for building your site.
-You'll be able to get confident with the Volto customization story, theming and how to get the most of Plone REST API.
+At the end of this course you will know how to develop a Volto project from scratch to deployment.
+Learning is the best way to learn to use developer tools and Volto helpers for building your site.
+You'll become familiar with Volto customization, theming, and how to get the most out of the Plone REST API.
 
 .. _voltohandson-intro-documentation-label:
 
-The hands-on
-============
+The hands-on exercise
+=====================
 
-The hands-on will feature to develop (the basics) of recreating plone.com with Volto.
-You can access the current site to get a grasp on what to expect from it.
-We will be facing different challenges and we will be solving them introducing or refreshing some of the concepts shown in the previous trainings.
-This will answer every challenge with the proper solution and give an overview on what to expect when developing for Volto.
+The hands-on exercise will feature developing the basics of recreating the plone.com site using Volto.
+You can view the current plone.com site to get a sense of what to expect from it.
+We will be facing different challenges and we will be solving them, introducing or refreshing some of the concepts covered in the previous training classes.
+We will cover the proper solution to each challenge and we will provide an overview of what to expect when developing for Volto.
 
 Documentation
 =============
