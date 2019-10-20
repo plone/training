@@ -135,8 +135,7 @@ With robot server running, we can run test cases with this command:
 Debugging robot tests
 ---------------------
 
-Debugging a robot framework test could be hard because there could be problems on the server or on the client.
- 
+Debugging a robot framework test can be hard because there could be problems in the server or in the client.
 
 Test execution could be very slow and difficult to follow for a human, so we can slow it down to better understand what's happening:
 
@@ -146,7 +145,7 @@ Test execution could be very slow and difficult to follow for a human, so we can
 
   Suite setup  Set Selenium speed  2s
 
-Alternatively we could pause (or set a sleep timeout) the execution of a test and manually inspect the site:
+Alternatively, we could pause (or set a sleep timeout on) the execution of a test, and use the time to manually inspect the site:
 
 .. code-block:: none
 
@@ -158,7 +157,7 @@ Alternatively we could pause (or set a sleep timeout) the execution of a test an
   Pause tests for 10 minutes and then continue
     Sleep  10 min
 
-Finally we could also pause the test execution and test keywords from console:
+Finally, we could also pause the test execution and test keywords using the console:
 
 .. code-block:: none
 
@@ -170,34 +169,34 @@ Finally we could also pause the test execution and test keywords from console:
 
 .. note::
 
-  There are more detailed examples in Plone `documentation <https://docs.plone.org/external/plone.app.robotframework/docs/source/debugging.html>`_ online.
+  There are more detailed examples in the `Plone robot framework documentation <https://docs.plone.org/external/plone.app.robotframework/docs/source/debugging.html>`_.
 
 
 Test reports
 ------------
 
-If we run a robot-framework test with ``plonecli test`` command, we have the usual output in console that tells us if a test succeeded or failed.
+If we run a robot framework test using the ``plonecli test`` command, we have the usual console output that tells us if a test succeeded or failed.
 
-Robot tests are a combination between backend and frontend environments, so it isn't easy to have all informations about the status of the test on console.
+Robot tests are a combination of backend and frontend environments, so it isn't easy to have all information about the test status in the console.
 
-For that reason, robotframework generates detailed reports in `parts/test` folder where you can see the status of last execution and detailed infos for each test case.
+For that reason, the robot framework generates detailed reports in the `parts/test` folder where you can see the status of the last test execution and detailed information on each test case.
 
-Excercise 1
-+++++++++++
+Exercise 1
+++++++++++
 
 Let's write our first robot test!
 
 Try to write some basic scenarios:
 
-- Login on the site and create a new TestType content
-- Visit TestType view passing a custom message in querystring
+- Login to the site and create a new TestType content item
+- Visit the TestType view, passing a custom message in the query string
 
 .. note::
 
-  plonecli created a basic robot test for our TestType content-type, so the first part of the exercise could be copied from it.
-  Try to not copying it and play with robot framework syntax by yourself.
+  plonecli created a basic robot test for our TestType content type, so the first part of the exercise could be copied from it.
+  Try not copying it and try using the robot framework syntax by yourself.
 
-  `Here <https://docs.plone.org/external/plone.app.robotframework/docs/source/index.html>`_ you can find some documentation that can help you writing your first robot framework test.
+  In the `robot framework documentation <https://docs.plone.org/external/plone.app.robotframework/docs/source/index.html>`_ you can find some information that can help you write your first robot framework test.
 
 
 ..  admonition:: Solution
@@ -208,18 +207,18 @@ Try to write some basic scenarios:
     :lines: 35-99
 
 
-Excercise 2
-+++++++++++
+Exercise 2
+++++++++++
 
-Now let's test something that we can't test with functional tests: javascripts.
+Now let's test something that we can't test using functional tests: JavaScript.
 
-- Add a basic mockup pattern to testing-item-view (for example `autotoc <http://plone.github.io/mockup/dev/#pattern/autotoc>`_)
-- Check that table of contents is rendered in page
+- Add a basic mockup pattern to testing-item-view (for example, the `autotoc <http://plone.github.io/mockup/dev/#pattern/autotoc>`_ pattern)
+- Check that the table of contents is rendered on the page
 
 ..  admonition:: Solution
   :class: toggle
 
-    First of all, add autotoc to the template:
+    First, add autotoc to the template:
 
     .. literalinclude:: _snippets/testing_item_view_toc.pt
       :language: html
@@ -232,13 +231,13 @@ Now let's test something that we can't test with functional tests: javascripts.
       :language: text
       :lines: 35-42, 57-74, 79-84
 
-Excercise 3
-+++++++++++
+Exercise 3
+++++++++++
 
-Last test with javascripts: try to simulate clicks.
+For the last JavaScript test, try to simulate clicks.
 
-- Autotoc pattern can also be used for generate tabs.
-- Check that clicking tabs, will be rendered different pieces of dom.
+- The autotoc pattern can also be used for generate tabs.
+- Check that clicking on tabs results in changes to the document object model (DOM).
 
 ..  admonition:: Solution
   :class: toggle
@@ -249,7 +248,7 @@ Last test with javascripts: try to simulate clicks.
       :language: html
       :emphasize-lines: 29-43
 
-    Update previous test with more test cases:
+    Update the previous test with more test cases:
 
     .. literalinclude:: _snippets/test_autotoc.robot
       :language: text
