@@ -1,20 +1,20 @@
 Unit tests
 ==========
 
-The first test types that we are going to see, are unit tests.
+Unit tests are the first type that we are going to cover.
 
-They are the quickiest to run and easiest to write because they don't need special environments/configuration to be executed.
+They are the quickest to run and the easiest to write because they don't need special environments or configuration to be executed.
 
-We are going to use a python unit testing library called ``unittest``.
+We are going to use a Python unit testing library called ``unittest``.
 
 .. note::
 
-    More detailed documentation could be found in `unittest <https://docs.python.org/2.7/library/unittest.html>`_ documentation.
+    More detailed documentation can be found in the `unittest documentation <https://docs.python.org/2.7/library/unittest.html>`_.
 
 Create our first unit test
 --------------------------
 
-First of all we need to create a new file in ``tests`` folder.
+First, we create a new file in the ``tests`` folder.
 
 Let's call it ``test_unit.py``:
 
@@ -22,30 +22,30 @@ Let's call it ``test_unit.py``:
   :language: python
   :lines: 1, 4-11
 
-Now we need to run it:
+Now we run it:
 
 .. code-block:: console
 
     $ bin/test
 
-If we are working on a single test and we don't want to run all, we could say the testrunner which test to run:
+If we are working on a single test and we don't want to run all our tests, we tell the testrunner which test to run:
 
 .. code-block:: console
 
     $ bin/test -t test_a_feature
 
 
-Excercise 1
-+++++++++++
+Exercise 1
+++++++++++
 
-Try to create a new test and play with assertions (try also to make them fails, to see what happens and see traceback informations for debug).
+Create a new test and play with assertions (try also to make your assertions fail, to see what happens and to view the traceback information useful for debugging).
 
-Excercise 2
-+++++++++++
+Exercise 2
+++++++++++
 
-If in your package there are some helper methods that doesn't need some CMS/Zope/Plone features but they simply transform an input into an output, you could import them and test in an unittest.
+If in your package there are some helper methods that don't need CMS, Zope, or Plone features but they simply transform an input into an output, you could import them and test them in an unittest.
 
-Try to create a new file into our package with a method that takes a number and returns this number doubled, and then write an unittest for this.
+Create a new file in our package with a method that takes a number and returns this number multiplied by 2, and then write an unittest for this.
 
 ..  admonition:: Solution
     :class: toggle
