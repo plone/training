@@ -58,3 +58,6 @@ Let's run all tests, including robot tests (we will cover these later):
 .. code-block:: console
 
   $ plonecli test --all
+
+.. note::
+  If you get an error about missing ``geckodriver``, you will have to install ``geckodriver``. On macOS, you can use ``brew install geckodriver`` then re-run ``plonecli test --all``. 
