@@ -13,26 +13,26 @@ https://github.com/collective/volto-hands-on-training
 
 This repo has the starting stage of the training in the ``master`` branch.
 There's a branch with the name of each chapter.
-In case you get lost at some point, you are able to forward (or rewind) and get the complete code for the end of each chapter in the training easily.
-You can also start fresh at the start of each chapter.
+In case you get lost at any point, you can easily fast forward (or rewind) to get the complete code for each chapter.
+You can also start fresh for each new chapter.
 
 The repo has an ``api`` folder, where you can find a preconfigured buildout that will build Plone 5.2 along with the package ``kitconcept.voltodemo``.
-Building it gives you a site for the immediate use of Volto.
+Building it is an easy way to get a Volto site running.
 
 Build environments
 ------------------
 
-To build it, you can use the convenience ``Makefile`` command:
+To build your Volto site, use the ``make`` command:
 
 .. code-block:: console
 
   $ make build-backend
 
 .. note::
-    It assumes the fact that you have ``Python 3`` in your path and all the usual system dependencies for building Plone installed on your machine.
+    It assumes that you have ``Python 3`` in your path, and that you have all the necessary system dependencies for building Plone already installed on your machine.
 
 .. note::
-    If any of you have problems with the traditional build of Plone backend, you can use a docker container to run it:
+    If you have problems building the Plone backend, use a Docker container to run it instead:
 
     .. code-block:: console
 
@@ -68,20 +68,20 @@ and this command to run Volto:
   $ yarn start
 
 .. note::
-    From now on, it's convenient to open a terminal for each process, and a third one to edit and issue commands.
+    It's easiest to open a terminal for each of these processes, and a third terminal to edit and issue commands.
 
 Volto source code
 =================
 
-When developing Volto you'll find yourself quite often with an eye on Volto source code, taking a look on how things are done, syntax, cloning or overriding components.
-For convenience a symlink to the Volto copy inside ``node_modules`` is setup once you run ``yarn`` in the hands-on repository.
-You'll find it under the ``omelette`` folder.
+When developing Volto you'll find yourself looking quite often at the Volto source code to see how things are done, the code syntax, and how to clone or override components.
+For convenience, a symlink to a copy of the Volto code is set up inside ``node_modules`` when you run ``yarn`` in the hands-on repository.
+You'll find this copy of Volto in the ``omelette`` folder.
 
 Recommended plugins
 ===================
 
-No matter what IDE of choice you have, for maximize the developer experience you need these plugins installed:
+No matter which integrated development environment (IDE) you use, you should also install these plugins:
 
 - Prettier
 - ESlint
-- prettier-stylelint (VSCode)
+- prettier-stylelint (for VSCode)

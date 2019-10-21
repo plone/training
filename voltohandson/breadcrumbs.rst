@@ -10,9 +10,7 @@ Hiding them from the App first level component
 We want to hide breadcrumbs from the homepage.
 
 We can do it by using bare styling, since Volto injects CSS classes in the body that help us to style depending on the object, the content type and the path.
-It does it in a very much similar way as Plone does.
-
-So we can do:
+Volto does it very much like Plone does.
 
 .. code-block:: less
 
@@ -23,7 +21,7 @@ So we can do:
 
 We will return to breadcrumbs later to style it, after we finish with the homepage.
 
-However, and for the simplicity of the training, for now, we will remove the breadcrumbs for all pages.
+However, to simplify the training for now, we will remove the breadcrumbs for all pages.
 
 .. code-block:: less
 

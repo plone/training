@@ -447,6 +447,10 @@ Since we will use the macro ``content-core`` the values for `title` and `descrip
                 </span>
             </p>
 
+            <p tal:content="structure view/w/room/render">
+                Room
+            </p>
+
             <div tal:content="structure view/w/details/render">
                 Details
             </div>
@@ -466,12 +470,6 @@ Since we will use the macro ``content-core`` the values for `title` and `descrip
                     Biography
                 </div>
             </div>
-
-            <p>
-                <span tal:replace="structure view/w/room/render">
-                    Room
-                </span>
-            </p>
 
         </metal:content-core>
     </body>
@@ -530,6 +528,10 @@ Since we will use the macro ``content-core`` the values for `title` and `descrip
 
         </body>
         </html>
+
+    Since in ``DefaultView`` you have access to the widget you can also use other information, like `label` which is the title of the field: ``<label tal:content="view/w/room/label"></label>``.
+    One benefit of this approach is that you automatically get the translated title.
+    This is used in the default-view for dexterity content ``plone/dexterity/browser/item.pt``.
 
 
 Behind the scenes

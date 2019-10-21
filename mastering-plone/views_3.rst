@@ -85,6 +85,7 @@ It is the fast way to get content that exists in the site and do something with 
                     'audience': ', '.join(talk.audience),
                     'type_of_talk': talk.type_of_talk,
                     'speaker': talk.speaker,
+                    'room': talk.room,
                     'uuid': brain.UID,
                     })
             return results
@@ -350,9 +351,12 @@ Add this simple table to :file:`templates/talklistview.pt`:
             <td tal:content="python:talk['audience']">
                 Advanced
             </td>
+            <td tal:content="python:talk['room']">
+                101
+            </td>
           </tr>
           <tr tal:condition="not:talks">
-            <td colspan=3>
+            <td colspan=4>
                 No talks so far :-(
             </td>
           </tr>
