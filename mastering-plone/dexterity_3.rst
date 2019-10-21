@@ -457,17 +457,17 @@ Add the viewlet class in :file:`browser/viewlets.py`
     from plone import api
     from plone.app.layout.viewlets.common import ViewletBase
     from plone.memoize import ram
-    from ploneconf.site.behaviors.social import ISocial
+    from ploneconf.site.behaviors.featured import IFeatured
     from ploneconf.site.content.sponsor import LevelVocabulary
     from random import shuffle
     from time import time
 
 
-    class SocialViewlet(ViewletBase):
+    class FeaturedViewlet(ViewletBase):
 
-        def lanyrd_link(self):
-            adapted = ISocial(self.context)
-            return adapted.lanyrd
+        def is_featured(self):
+            adapted = IFeatured(self.context)
+            return adapted.featured
 
 
     class SponsorsViewlet(ViewletBase):

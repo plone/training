@@ -159,16 +159,16 @@ It goes like this:
 * Add the code for chapter 3 and commit
 * You realize that something or wrong in chapter 1
 * You branch off at the commit id for chapter 1
-  `git checkout -b temp 123456`
+  ``git checkout -b temp 123456``
 * You cange the code and do a commit.
-  `git commit -am 'Changed foo to also do bar'`
+  ``git commit -am 'Changed foo to also do bar'``
 * Switch to master and rebase on the branch holding the fix which will inject the new commit into master at the right place:
-  `git checkout master`
-  `git rebase temp`
+  ``git checkout master``
+  ``git rebase temp``
   That inserts the changes into master in the right place. You only maintain a master branch that is a sequence of commits.
 * Then you need to update your chapter-docs to point to the corresponding commit ids:
-  chapter one: `git checkout 121431243`
-  chapter two: `git checkout 498102980`
+  chapter one: ``git checkout 121431243``
+  chapter two: ``git checkout 498102980``
 
 Additionally you can
 

@@ -4,8 +4,8 @@
 Blocks - Main Slider
 ====================
 
-plone.org has a main slider on the front page that we will implement using a Volto block.
-For simplicity we will use static content for this block, but eventually we could populate the contents for each slide using actual site content or any other means.
+plone.com has a main slider on the front page that we will implement using a Volto block.
+For simplicity we will use static content for this block, but eventually we could populate the contents for each slide using actual site content or some other arbitrarily sophisticated means.
 
 We already have a basic block boilerplate from the last section.
 For the slider feature, we will install a third party library that will provide a component that will take care of it.
