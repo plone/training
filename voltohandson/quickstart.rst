@@ -24,7 +24,7 @@ Build environments
 ==================
 
 We need to build two environments.
-Start two terminal sessions, one for each environment, Plone and yarn, and a third session to issue git and other shell commands.
+Start two terminal sessions, one for each environment, Plone and Yarn, and a third session to issue Git and other shell commands.
 
 
 Plone environment
