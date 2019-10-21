@@ -7,7 +7,7 @@ Header
 Header styling
 ==============
 
-We will start introducing the basic styling for the header. We use the ``themes/extras/custom.overrides`` to apply general styling to our site theme.
+We will start introducing the basic styling for the header. We use the ``theme/extras/custom.overrides`` to apply general styling to our site theme.
 
 .. note:: Use this rule of thumb when building Volto themes: use the default Semantic overrides system when the override is site-wide and applies to Semantic components.
           When using your own components and specific theme styling, use instead ``custom.overrides``. Applying styling later using this method is much faster than doing it in the Semantic default components.
@@ -82,7 +82,7 @@ Header component
 ================
 
 We will customize the existing Volto header, since the one we want doesn't differ much from the original.
-We will do so by copying the original Volto ``Header`` component from the ``omelette`` folder into the ``customizations/components/theme/Header/Header.jsx``.
+We will do so by copying the original Volto ``Header`` component from the ``omelette`` folder (``omelette/src/components/theme/Header/Header.jsx``) into the ``src/customizations/components/theme/Header/Header.jsx``.
 
 We have to make some changes to that component, such as removing the search widget and moving the ``Anontools`` component.
 
