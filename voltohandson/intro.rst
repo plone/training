@@ -28,7 +28,7 @@ Some technologies and tools we use during the training:
 * create-volto-app
 * Plone!
 
-This training assumes that you have already taken (either in person at the 2018 Tokyo Plone Conference or online) the existing React and Volto trainings.
+This training assumes that you have already taken (either in person at a Plone Conference or online) the existing React and Volto trainings.
 However, we will be revisiting some of the basic React training concepts along with the Volto customization and extensibility story.
 
 .. _voltohandson-intro-what-to-expect-label:
