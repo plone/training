@@ -82,7 +82,7 @@ Header component
 ================
 
 We will customize the existing Volto header, since the one we want doesn't differ much from the original.
-We will do so by copying the original Volto ``Header`` component from the ``omelette`` folder into the ``customizations/components/theme/Header/Header.jsx``.
+We will do so by copying the original Volto ``Header`` component from the ``omelette`` folder (``omelette/src/components/theme/Header/Header.jsx``) into the ``src/customizations/components/theme/Header/Header.jsx``.
 
 We have to make some changes to that component, such as removing the search widget and moving the ``Anontools`` component.
 
