@@ -25,7 +25,7 @@ Complexity and time to execute increases from the bottom to the top of the pyram
 ``Unittests`` are the easiest ones to write because they test single isolated functions.
 
 Going up through the pyramid, tests become more complex because they start to test the integration between functions and features,
-until ``Acceptance Tests`` (also called end-to-end, or ``e2e``, tests) where you test the final user interaction.
+until ``Acceptance Tests`` (also called end-to-end, or "e2e", tests) where you test the final user interaction.
 
 More complexity means also more time to execute a test, because you need different layers or services to run a single function or the complete application.
 
