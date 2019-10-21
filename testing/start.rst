@@ -18,7 +18,7 @@ First, we need to install plonecli:
 
 .. note::
 
-  This command will install plonecli in the global user site-packages according to the official documentation.
+  This command will install plonecli in the user site-packages according to the official documentation.
   Feel free to install it using your preferred alternative method (virtualenv, pipenv, pyenv).
 
 .. note::
