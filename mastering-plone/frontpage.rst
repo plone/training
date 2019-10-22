@@ -136,7 +136,7 @@ Create the template ``browser/templates/frontpageview.pt`` (for now without talk
 
 Now you could add the whole code that we used for the talklistview again. But instead we go D.R.Y. and reuse the talklistview by turning it into a macro.
 
-Edit ``browser/templates/talkslistview.pt`` and wrap the list in a macro definition:
+Edit ``browser/templates/talklistview.pt`` and wrap the list in a macro definition:
 
 ..  code-block:: html
     :linenos:
