@@ -467,7 +467,7 @@ Instead we use the brains' new attributes.
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 13-15
+    :emphasize-lines: 13-16
 
     class TalkListView(BrowserView):
         """ A list of talks
