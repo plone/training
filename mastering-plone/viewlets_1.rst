@@ -218,7 +218,7 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
         ?>
 
         <div class="number_of_talks">
-            There are ${number_of_talks} talks.
+            There are ${python:number_of_talks} talks.
         </div>
 
 
