@@ -14,7 +14,7 @@ The ``wsgitraining.site`` package contained in our buildout comes with a debuggi
              import pdb; pdb.set_trace()
              return self.index()
 
-It iss available at `<http://localhost:8080/Plone/debugging-view>`_.
+It is available at `<http://localhost:8080/Plone/debugging-view>`_.
 
 It also provides a very basic view that raises an ``AttributeError`` available at `<http://localhost:8080/Plone/attribute-error-view>`_.
 
