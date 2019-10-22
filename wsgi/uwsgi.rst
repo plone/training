@@ -138,7 +138,7 @@ If we used a different Python version, we have two choices:
 * Create a new virtualenv with the main system Python 3 and rerun buildout
 * Recompile uWSGIs Python 3 plugin so it matches the Python version we are currently using
 
-Although the first approach has the import advantage that we retain the possibility to obtain updates and security fixes from the distribution, we will go for the second here because it looks more interesting.
+Although the first approach has the important advantage that we retain the possibility to obtain updates and security fixes from the distribution, we will go for the second here because it looks more interesting.
 We will roughly follow `this blog post <https://www.paulox.net/2019/03/13/how-to-use-uwsgi-with-python-3-7-in-ubuntu-18-x/>`_.
 
 Let's first install the necessary packages:
@@ -154,7 +154,7 @@ Next we will rebuild uWSGI's Python 3 plugin (and change to a temporary location
     $ cd /tmp
     $ PYTHON=python3.7 uwsgi --build-plugin "/usr/src/uwsgi/plugins/python python37"
 
-Then we move the plugin to the location where uWSGI expects to find it's plugins:
+Then we move the plugin to the location where uWSGI expects to find its plugins:
 
 .. code-block:: bash
 
@@ -174,7 +174,7 @@ We can check the Python version of our new plugin:
 So now we got a running Plone uWSGI setup and a matching Python 3 plugin.
 What is left to do is to setup a Plone vassal for the uWSGI emperor.
 You can find general information on this topic in the official `uWSGI documentation <https://uwsgi-docs.readthedocs.io/en/latest/Emperor.html>`_.
-By default, Ubuntu's uWSGI emperor will run under user/group id ``www-data`` and it will use these settings for it's vassals.
+By default, Ubuntu's uWSGI emperor will run under user/group id ``www-data`` and it will use these settings for its vassals.
 However Plone needs to be able to write to the filesystem e.g. for caching and creating compiled files, so we want it to run under the user id we used for running buildout (probably your user name for a local installation or ``vagrant``).
 uWSGI emperor comes with a so called "tyrannt mode" for secure multi-user hosting to achieve this, and we go for the `paranoid sysadmins <https://uwsgi-docs.readthedocs.io/en/latest/Emperor.html#tyrant-mode-for-paranoid-sysadmins-linux-only>`_ variant here.
 Posix capabilities are enabled in Ubuntu's uwsgi by default, so we only need to add two lines to ``/etc/uwsgi-emperor/emperor.ini`` to enable tyrannt mode:
@@ -210,7 +210,7 @@ Posix capabilities are enabled in Ubuntu's uwsgi by default, so we only need to 
     cap = setgid,setuid
 
 We also need to create a vassal configuration for Plone.
-It will go to ``/etc/uwsgi-emperor/vassals/plone.ini`` and it's contents are:
+It will go to ``/etc/uwsgi-emperor/vassals/plone.ini`` and its contents are:
 
 .. code-block:: ini
 
@@ -239,12 +239,12 @@ The final step is to restart the uWSGI emperor ``systemd`` service (make sure yo
 
     $ sudo service uwsgi-emperor restart
 
-We can then use ``sudo tail -f /var/log/uwsgi/emperor.log`` to see what's going on.
+We can then use ``sudo tail -f /var/log/uwsgi/emperor.log`` to see what is going on.
 
 Exercise 1
 ++++++++++
 
-Change the Plone vassal configuration so that it uses it's own logfile.
+Change the Plone vassal configuration so that it uses its own logfile.
 
 ..  admonition:: Solution
     :class: toggle

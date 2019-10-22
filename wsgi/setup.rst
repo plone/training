@@ -30,7 +30,7 @@ If instead you have chosen to `Install Plone with Vagrant <https://training.plon
 
     end
 
-It's not a problem if you simply followed the instructions and end up having a Plone instance.
+It is not a problem if you followed the instructions and ended up having a Plone instance.
 The Plone instance(s) we create throughout the training will go to a different location, just keep in mind you will not be able to run both instances at the same time because of conflicting ports.
 
 Creating a Virtualenv for the Training
