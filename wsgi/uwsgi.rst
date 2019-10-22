@@ -122,6 +122,37 @@ Like with gunicorn in the previous chapter, we can start Plone behind uWSGI with
 
 As you can see the uWSGI output is pretty verbose.
 
+Exercise 1
+++++++++++
+
+Benchmark the front page of your setup with two different tools: `siege <https://www.joedog.org/>`_ and `wrk <https://github.com/wg/wrk>`_.
+You will probably find a package for your Linux distribution for at least siege.
+If so, use the distribution package, otherwise follow the official installation instructions.
+
+For both tools we use 100 concurrent connections and 100 seconds of test duration.
+For siege, the command line looks like this:
+
+.. code-block:: bash
+
+    $ siege -c 100 -t 100s http://localhost:8080/Plone
+
+For wrk, use:
+
+.. code-block:: bash
+
+    $ wrk -c 100 -d 100s -t 1 --timeout 300s --latency http://localhost:8080/Plone
+
+Note that siege always uses a single thread to execute the test.
+For wrk, you can specify the number of threads to use with the ``-t`` option.
+
+Record and discuss the results.
+
+..  admonition:: Solution
+    :class: toggle
+
+    tbd.
+
+
 Using uWSGI Emperor from the distribution
 -----------------------------------------
 
@@ -241,7 +272,7 @@ The final step is to restart the uWSGI emperor ``systemd`` service (make sure yo
 
 We can then use ``sudo tail -f /var/log/uwsgi/emperor.log`` to see what's going on.
 
-Exercise 1
+Exercise 2
 ++++++++++
 
 Change the Plone vassal configuration so that it uses it's own logfile.
