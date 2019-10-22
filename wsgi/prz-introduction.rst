@@ -12,10 +12,6 @@ It can be overriden by ZServer for Python 2.
 `Waitress <https://docs.pylonsproject.org/projects/waitress/en/stable>`_ is the default WSGI server configured by ``plone.recipe.zope2instance``.
 Waitress is a pure Python WSGI server implementation originating from the Pylons project.
 
-.. note::
-
-    XXX Maybe explain general idea and purpose of the plone.recipe.zope2instance with respect to the changes introduced for WSGI.
-
 With this information in mind, creating a minimial WSGI buildout for Plone is fairly easy.
 A working example is contained in ``basic.cfg`` in the training buildout, here are the file contents:
 
