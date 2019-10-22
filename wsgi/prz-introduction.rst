@@ -4,8 +4,8 @@ Deploying Plone with WSGI using zc.buildout, plone.recipe.zope2instance and Wait
 ====================================================================================
 
 The ``plone.recipe.zope2instance`` creates and configures a Zope instance in a buildout part.
-In order to provide a smooth transition to Plone 5.2 and WSGI it tries to guess sensible defaults.
-The goal when providing WSGI support in ``plone.recipe.zope2instance`` was to keep the buildout configuration close to the ZServer configuration.
+To provide a smooth transition to Plone 5.2 and WSGI it tries to guess sensible defaults.
+The goal in providing WSGI support in ``plone.recipe.zope2instance`` was to keep the buildout configuration close to the ZServer configuration.
 Many options formerly used for ZServer are working in pretty much the same way for WSGI.
 WSGI is the default in recent ``plone.recipe.zope2instance`` versions.
 It can be overriden by ZServer for Python 2.

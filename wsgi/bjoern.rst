@@ -48,10 +48,10 @@ You can use this package together with ``plone.recipe.zope2instance`` to build a
     wsgi-ini-template = ${buildout:directory}/templates/bjoern.ini.in
 
 In addition to adding ``dataflake.wsgi.bjoern`` to the ``eggs`` list we specify the location of our ``bjoern.ini`` configuration file.
-It is important to note that this file is not automatically created for us, we have to provide it ourself.
+Note that this file is not automatically created for us, we have to provide it ourself.
 
 In addition to the PasteDeploy entry point and the p.r.zope2instance integration, ``dataflake.wsgi.bjoern``  provides facilities to create a set of Zope configuration files for ``bjoern`` with the included ``kbjoerninstance`` utility.
-We will however not use this option since it is easier for us to provide a custom template for the ``wsgi.ini`` file to ``plone.recipe.zope2instance``.
+We will however not use this option since it is easier to provide a custom template for the ``wsgi.ini`` file to ``plone.recipe.zope2instance``.
 A suitable template is included in the buildout for the training (file ``bjoern.ini.in`` in the ``templates`` folder).
 It is basically a copy from the template contained in the buildout recipe with a slightly changed ``[server:main]`` section:
 
@@ -88,7 +88,7 @@ It is basically a copy from the template contained in the buildout recipe with a
 Exercise 1
 ++++++++++
 
-Additional PasteDeploy entrypoints are also available for the `werkzeug <https://pypi.org/project/dataflake.wsgi.werkzeug>`_ and `cheroot <https://pypi.org/project/dataflake.wsgi.cheroot>`_ WSGI servers.
+Additional PasteDeploy entrypoints are available for the `werkzeug <https://pypi.org/project/dataflake.wsgi.werkzeug>`_ and `cheroot <https://pypi.org/project/dataflake.wsgi.cheroot>`_ WSGI servers.
 Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p/werkzeug/>`_ or `cheroot <https://cheroot.cherrypy.org>`_.
 
 ..  admonition:: Solution
@@ -210,4 +210,4 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
         Starting server in PID 4337.
         2019-10-07 12:58:54,661 INFO    [werkzeug:122][MainThread]  * Running on http://localhost:8080/ (Press CTRL+C to quit)
 
-    Just like the ``cheroot`` shim, ``dataflake.wsgi.werkzeug`` accepts a couple of additional options in the `.ini` file that we will not use here.
+    Like the ``cheroot`` shim, ``dataflake.wsgi.werkzeug`` accepts a couple of additional options in the `.ini` file that we will not use here.
