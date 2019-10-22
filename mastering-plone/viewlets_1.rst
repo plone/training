@@ -92,8 +92,7 @@ Let's add the missing template :file:`templates/featured_viewlet.pt`.
     :linenos:
 
     <div id="featured">
-        <p tal:define="is_featured view/is_featured"
-           tal:condition="is_featured">
+        <p tal:condition="python:view.is_featured">
             This is hot news!
         </p>
     </div>
