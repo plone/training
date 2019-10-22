@@ -188,7 +188,7 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
 
         <div class="number_of_talks"
              tal:define="catalog context/@@plone_tools/catalog;
-                         number_of_talks python:len(catalog(portal_type='talk'));">
+                         number_of_talks python:len(catalog(portal_type='talk', review_state='pending'));">
             There are <span tal:replace="number_of_talks" /> talks.
         </div>
 
