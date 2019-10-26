@@ -1,4 +1,5 @@
 Mastering Plone 6
+=================
 
 Proposed changes to this treainning for Plone 6
 
