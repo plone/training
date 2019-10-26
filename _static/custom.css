@@ -86,14 +86,13 @@ overflow: hidden
 
 /* add algolia overlay styles */
 
-
 #bottom-searchbox{
     width: 300px;
     position: fixed;
     top: 0;
     left: 0;
     padding: 16px 12px 12px 12px;
-    background-color: #005a8c;
+    background-color: #2980B9;
     z-index: 1000;
 }
 
@@ -101,7 +100,7 @@ overflow: hidden
     width: 100%;
     border-radius: 50px;
     padding: 6px 12px;
-    border-color: #005a8c;
+    border-color: #2980B9;
 }
 
 #bottom-searchbox input.ds-input {
@@ -112,6 +111,9 @@ span.algolia-autocomplete{
     width: 100%;
 }
 
+body.wy-body-for-nav, .wy-nav-side {
+    margin-top: 56px;
+}
 
 /* for small phones */
 
