@@ -355,7 +355,7 @@ Add this simple table to :file:`templates/talklistview.pt`:
                 101
             </td>
           </tr>
-          <tr tal:condition="not:talks">
+          <tr tal:condition="python: not talks">
             <td colspan=4>
                 No talks so far :-(
             </td>
@@ -383,12 +383,8 @@ There are some things that need explanation:
 :samp:`tal:content="python:talk['speaker']"`
     'speaker' is a key in the dict 'talk'. We could also write :samp:`tal:content="talk/speaker"`
 
-:samp:`tal:condition="not:talks"`
+:samp:`tal:condition="python: not talks"`
     This is a fallback if no talks are returned. It then returns an empty list (remember :samp:`results = []`?)
-
-.. note::
-
-    We could also write :samp:`python:not talks` like we could also write :samp:`tal:repeat="talk python:talks"` for the iteration. For simple cases as these, path statements are sometimes fine. On the other hand, if ``talks`` was callable we would need to use ``nocall:talks``, so maybe it would be better to always use ``python:``.
 
 
 Exercise

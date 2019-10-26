@@ -48,23 +48,21 @@ To change the code to the state of the next chapter checkout the tag for the nex
     git checkout views_3
 
 
-If you made any changes to the code you have to get them out of the way first:
+If you made any changes to the code you have to get them out of the way first. This inviolved two things
+
+.. warning::
+
+    Make sure you have no new files or changes in the folder structure of ``ploneconf.site`` that you want to keep because the following will delete them!!!
 
 ..  code-block:: console
 
+    git clean -fd
     git stash
 
-This will stash away your changes but not delete them. You can get them back later.
-You should learn about the command :command:`git stash` before you try reapply stashed changes.
+This does two things:
 
-If you want to remove any changes you made locally you can delete them with this command:
-
-..  code-block:: console
-
-    git reset --hard HEAD
-
-
-
+#. It deletes any files that you added and are not part of the package.
+#. It will move away changes to files that are part of the package but not delete them. You can get them back later. You should learn about the command :command:`git stash` before you try reapply stashed changes.
 
 
 Telling Plone about ploneconf.site
@@ -167,8 +165,9 @@ It goes like this:
   ``git rebase temp``
   That inserts the changes into master in the right place. You only maintain a master branch that is a sequence of commits.
 * Then you need to update your chapter-docs to point to the corresponding commit ids:
-  chapter one: ``git checkout 121431243``
-  chapter two: ``git checkout 498102980``
+
+  * chapter one: ``git checkout 121431243``
+  * chapter two: ``git checkout 498102980``
 
 Additionally you can
 
@@ -177,8 +176,8 @@ Additionally you can
 
 To move tags after changes you do:
 
-* Move a to another commit: `git tag -a <tagname> <commithash> -f`
-* Move the tag on the server `git push --tags -f`
+* Move a to another commit: ``git tag -a <tagname> <commithash> -f``
+* Move the tag on the server ``git push --tags -f``
 
 The final result should look like this:
 

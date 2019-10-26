@@ -180,7 +180,7 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
             There are <span tal:replace="number_of_talks" /> talks.
         </div>
 
-    :samp:`python:context.portal_catalog` will return the catalog through Acquisition. Be careful if you want to use path expressions: :samp:`content/portal_catalog` calls the catalog (and returns all brains). You need to prevent this by using :samp:`nocall:content/portal_catalog`.
+    :samp:`python:context.portal_catalog` will return the catalog through Acquisition. Be careful if you want to use path expressions: :samp:`context/portal_catalog` calls the catalog (and returns all brains). You need to prevent this by using :samp:`nocall:context/portal_catalog`.
 
     Relying on Acquisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from :file:`plone/app/layout/globals/tools.py` to get the catalog.
 
