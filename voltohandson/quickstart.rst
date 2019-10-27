@@ -12,6 +12,12 @@ You can find the repository with the code that we will be using during the train
 https://github.com/collective/volto-hands-on-training
 
 This repo has the starting stage of the training in the ``master`` branch.
+
+Get it like this::
+
+    $ git clone https://github.com/collective/volto-hands-on-training
+    $ cd volto-hands-on-training
+
 There's a branch with the name of each chapter.
 In case you get lost at any point, you can easily fast forward (or rewind) to get the complete code for each chapter.
 You can also start fresh for each new chapter.
@@ -25,6 +31,7 @@ Build environments
 
 We need to build two environments.
 Start two terminal sessions, one for each environment, Plone and Yarn, and a third session to issue Git and other shell commands.
+In each terminal sessions you should be in the folder ``volto-hands-on-training``.
 
 
 Plone environment
