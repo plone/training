@@ -6,3 +6,5 @@ sphinxcontrib-spelling
 sphinxcontrib-websupport
 transifex-client
 polib
+# transifex-client 0.13.6 requires six 1.11.0
+six==1.11.0
