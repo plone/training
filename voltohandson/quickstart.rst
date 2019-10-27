@@ -31,7 +31,7 @@ Build environments
 
 We need to build two environments.
 Start two terminal sessions, one for each environment, Plone and Yarn, and a third session to issue Git and other shell commands.
-In each terminal sessions you should be in the folder ``volto-hands-on-training``.
+In each terminal session you should be in the folder ``volto-hands-on-training``.
 
 
 Plone environment
