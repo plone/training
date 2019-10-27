@@ -90,7 +90,21 @@ Header component
 We will customize the existing Volto header, since the one we want does not differ much from the original.
 We will do so by copying the original Volto ``Header`` component from the ``omelette`` folder ``omelette/src/components/theme/Header/Header.jsx`` folder into ``src/customizations/components/theme/Header/Header.jsx``.
 
-We have to make some changes to that component, such as removing the search widget and moving the ``Anontools`` component.
+.. warning::
+
+    When restarting you will see a error in the terminal since the original ``Header.jsx`` uses relative imports::
+
+        Cannot find module '../../../components'
+
+    When using component shadowing, you'll always need to replace relative import with absolute imports. That means changing ::
+
+        import { Anontools, Logo, Navigation, SearchWidget } from '../../../components';
+
+    to::
+
+        import { Anontools, Logo, Navigation, SearchWidget } from '@plone/volto/components';
+
+We have to make some more changes to that component, such as removing the search widget and the ``Anontools`` component.
 
 This will be the outcome:
 
@@ -117,7 +131,6 @@ This will be the outcome:
       );
     }
 
-.. warning:: When using component shadowing, remember to replace any relative import with ``@plone/volto``.
 
 Component shadowing
 ===================
