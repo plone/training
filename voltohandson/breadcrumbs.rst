@@ -21,7 +21,7 @@ Volto does it very much like Plone does.
 
 We will return to breadcrumbs later to style it, after we finish with the homepage.
 
-However, to simplify the training for now, we will remove the breadcrumbs for all pages.
+However, to simplify the training for now, we will hide the breadcrumbs for all pages.
 
 .. code-block:: less
 
