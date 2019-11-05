@@ -1,11 +1,11 @@
 From Raw WSGI to a framework
 ============================
 
-While useful for unterstanding how WSGI works, the examples
+While useful for understanding how WSGI works, the examples
 shown until now are still far being called a framework.
-A Python webframework usually has the following attributes:
+A Python web framework usually has the following attributes:
 
- 1. It pre-process the environment and yields some `request` object
+ 1. It pre-processes the environment and yields some `request` object
     for the programmer to work with.
     This request is sometimes injected to the callable we program, as
     for example in Pyramid:
@@ -31,7 +31,7 @@ A Python webframework usually has the following attributes:
      def index(request):
          return HttpResponse("Hello, world. You're at the polls index.")
 
- In other cases it is a global instace object you have to explicitly import
+ In other cases it is a global instance object you have to explicitly import
  and make use of, as in the case of `Flask` or `Bottle`:
 
    .. code:: python
@@ -57,9 +57,9 @@ A Python webframework usually has the following attributes:
           response.set_cookie('username', 'the username')
           return response
 
- 3. Add some smart way of handling URL and request query paramters.
+ 3. Add some smart way of handling URL and request query parameters.
     For example Django injects URL parameter to your application logic,
-    which allowes you to make explicit use of them:
+    which allows you to make explicit use of them:
 
     .. code:: python
 
@@ -85,7 +85,7 @@ A Python webframework usually has the following attributes:
  4. Add session and cookie management such that you manage some state.
     Using cookies you can store information in the browser, for example
     login cookie. And using sessions you can remember how the user
-    interacted with your website, for example you can remeber the login date
+    interacted with your website, for example you can remember the login date
     and time.
 
  5. Optionally, add HTML templating.
@@ -94,7 +94,7 @@ A Python webframework usually has the following attributes:
 
 Alas, we are not going to implement all those in just a couple of hours.
 Instead, we are going to see how we can exploit Python's data model to build
-convinient Python APIs for out Nano Python framwork.
+convenient Python APIs for out Nano Python framework.
 We start by implementing dictionary like session storage.
 
 
