@@ -60,7 +60,7 @@ It is the fast way to get content that exists in the site and do something with 
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 2, 7-25
+    :emphasize-lines: 2, 7-26
 
 
     from Products.Five.browser import BrowserView
