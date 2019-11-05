@@ -108,7 +108,7 @@ The logic contained in the template can now be moved to the class:
             ]
             for item in data:
                 url = item.get('url', 'https://www.google.com/search?q={}'.format(item['title']))
-                talk {
+                talk = {
                     'title': item['title'],
                     'subjects': ', '.join(item['subjects']),
                     'url': url
