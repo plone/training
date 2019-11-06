@@ -6,17 +6,10 @@ You can get the complete code for this training from `GitHub <https://github.com
 The code-package
 ----------------
 
-The package
+The package `ploneconf.site <https://github.com/collective/ploneconf.site>`_ contains the complete code for this training (excluding exercises). It is automatically downloaded from github when you run buildout.
 
-..  note::
-
-    If you want to do it by hand do the following:
-
-    .. code-block:: bash
-
-        cd src
-        git clone https://github.com/collective/ploneconf.site.git
-
+The master branch of that repository holds the code of the final chapter of this training.
+Each chapter that adds code to the package has a tag that can be used to get the code for that chapter.
 
 Getting the code for a certain chapter
 --------------------------------------
@@ -25,7 +18,6 @@ To use the code for a certain chapter you need to checkout the appropriate tag f
 The package will then contain the complete code for that chapter (excluding exercises).
 
 If you want to add the code for the chapter yourself you have to checkout the tag for the previous chapter.
-
 
 Here is a example:
 
@@ -63,30 +55,6 @@ This does two things:
 
 #. It deletes any files that you added and are not part of the package.
 #. It will move away changes to files that are part of the package but not delete them. You can get them back later. You should learn about the command :command:`git stash` before you try reapply stashed changes.
-
-
-Telling Plone about ploneconf.site
-----------------------------------
-
-If you did not yet do this (it is covered in chapter :ref:`eggs1-label`) you will have to
-modify :file:`buildout.cfg` to have Plone expect the egg :py:mod:`ploneconf.site` to be in :file:`src`.
-
-.. code-block:: cfg
-    :linenos:
-    :emphasize-lines: 6, 12
-
-    eggs =
-
-    ...
-
-    # our add-ons
-        ploneconf.site
-    #    starzel.votable_behavior
-
-    ...
-
-    [sources]
-    ploneconf.site = git https://github.com/collective/ploneconf.site.git
 
 
 Tags
@@ -184,4 +152,4 @@ The final result should look like this:
 .. figure:: ../_static/code_tree.png
    :align: center
 
-In earlier versions of the training we used a folder-based approach such as in https://github.com/collective/ploneconf.site_sneak. It proved to be a lot a lot of tedious work to maintain that.
+In earlier versions of the training we used a folder-based approach such as in https://github.com/collective/ploneconf.site_sneak. It proved to be a lot of tedious work to maintain that.

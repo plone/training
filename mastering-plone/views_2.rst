@@ -3,11 +3,13 @@
 Views II: A Default View for "Talk"
 ===================================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout zpt_2
+
+   Code for the end of this chapter::
 
         git checkout views_2
 
