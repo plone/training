@@ -6,7 +6,8 @@ You can get the complete code for this training from `GitHub <https://github.com
 The code-package
 ----------------
 
-The package `ploneconf.site <https://github.com/collective/ploneconf.site>`_ contains the complete code for this training (excluding exercises). It is automatically downloaded from github when you run buildout.
+The package `ploneconf.site <https://github.com/collective/ploneconf.site>`_ contains the complete code for this training excluding exercises.
+It is automatically downloaded from GitHub when you run buildout.
 
 The master branch of that repository holds the code of the final chapter of this training.
 Each chapter that adds code to the package has a tag that can be used to get the code for that chapter.
@@ -19,9 +20,9 @@ The package will then contain the complete code for that chapter (excluding exer
 
 If you want to add the code for the chapter yourself you have to checkout the tag for the previous chapter.
 
-Here is a example:
+Here is an example:
 
-..  code-block:: bash
+.. code-block:: bash
 
     git checkout views_2
 
@@ -152,4 +153,3 @@ The final result should look like this:
 .. figure:: ../_static/code_tree.png
    :align: center
 
-In earlier versions of the training we used a folder-based approach such as in https://github.com/collective/ploneconf.site_sneak. It proved to be a lot of tedious work to maintain that.
