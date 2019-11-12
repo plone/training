@@ -3,11 +3,13 @@
 Manage Settings with Registry, Control Panels and Vocabularies
 ==============================================================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout dexterity_3
+
+   Code for the end of this chapter::
 
         git checkout registry
 
