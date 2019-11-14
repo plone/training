@@ -187,7 +187,8 @@ Alternatively, you could specify use of certificates already on the server:
     Log in and delete it if needed.
     Yes, this is an exception to the "don't login to change configuration rule".
 
-**Extra tricks**
+Extra tricks
+^^^^^^^^^^^^
 
 There are a couple of extra setting that allow you to do extra customization if you know nginx directives.
 For example:
@@ -201,6 +202,50 @@ For example:
 This is a *redirect to https*.
 It takes advantage of the fact that if you do not specify a zodb_path,
 the playbook will not automatically create a location stanza with a rewrite and proxy_pass directives.
+
+
+.. _letsencrypt_certbot:
+
+Let's Encrypt Certificates and certbot
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+All websites should use TLS.
+We use an Ansible role that will automatically install `certbot <https://certbot.eff.org/>`_, a free secure certificate from `Let's Encrypt <https://letsencrypt.org>`_, and create a cron job that will automatically renew the certificate.
+This role is installed from ``requirements.yml``.
+
+To use the role, you will need to add the following variables to your ``local-configure.yml`` and substitute your values as needed.
+
+.. code-block:: yaml
+
+    # https://github.com/geerlingguy/ansible-role-certbot#role-variables
+    # override roles/geerlingguy.certbot/defaults/main.yml
+    certbot_create_if_missing: true
+    certbot_admin_email: email@example.com
+    certbot_certs:
+      - domains:
+        - "{{ inventory_hostname }}"
+
+    webserver_virtualhosts:
+      - hostname: "{{ inventory_hostname }}"
+        port: 80
+        protocol: http
+        extra: return 301 https://$server_name$request_uri;
+      - hostname: "{{ inventory_hostname }}"
+        default_server: yes
+        zodb_path: /Plone
+        address: 1.1.1.1
+        port: 443
+        protocol: https
+        lets_encrypt_certificate:
+          key: /etc/letsencrypt/live/{{ inventory_hostname }}/privkey.pem
+          crt: /etc/letsencrypt/live/{{ inventory_hostname }}/fullchain.pem
+
+The above configuration redirects all traffic from http to https, using the ``extra`` key mentioned earlier.
+
+.. seealso::
+
+    `Read documentation of the role geerlingguy.certbot <https://github.com/geerlingguy/ansible-role-certbot>`_.
+
 
 Mail Relay
 ----------
