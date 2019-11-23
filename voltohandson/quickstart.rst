@@ -53,15 +53,24 @@ To build your Volto site, use the ``make`` command:
 
         $ make start-backend-docker
 
+Install Volto dependencies
+--------------------------
+
+Install the :ref:`Volto dependencies <install-deps-volto-label>` on your machine.
+
+Then use ``nvm`` to ensure you are using the required ``node`` version:
+
+.. code-block:: console
+
+    $ nvm use 10.15.1
+
 
 Yarn environment
 ----------------
 
 The repo also has a Volto project ready to build in the root.
 
-First install :ref:`Volto dependencies <install-deps-volto-label>` on your machine.
-
-Then to build the yarn environment, you can either use:
+To build the yarn environment, you can either use:
 
 .. code-block:: console
 
