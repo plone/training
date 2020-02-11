@@ -3,7 +3,7 @@
 About Mastering Plone
 =====================
 
-This training was created by Philip Bauer and Patrick Gerken of `starzel.de <https://www.starzel.de>`_ to create
+This training was initially created by Philip Bauer and Patrick Gerken of `starzel.de <https://www.starzel.de>`_ to create
 a canonical training for future Plone developers.
 
 The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it.
@@ -17,6 +17,8 @@ If you want to inquire the original authors about organizing a training please c
 Upcoming Trainings
 ------------------
 
+* `Plone Conference 2020 in Namur <https://ploneconf.org/>`_
+
 If you want to have a training near you please ask for trainings on https://community.plone.org
 
 .. _about-previous-label:
@@ -26,11 +28,12 @@ Previous Trainings
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
-* `Ploneconf 2018 in Tokyo <https://2018.ploneconf.org/>`_
+* `Plone Conference 2019 in Ferrara <https://2019.ploneconf.org/>`_
+* `Plone Conference 2018 in Tokyo <https://2018.ploneconf.org/>`_
 * `August 2018, Munich <https://plone.org/events/community/mastering-plone-training-in-munich>`_
-* `Ploneconf 2017 in Barcelona <https://2017.ploneconf.org/>`_
-* `Ploneconf 2016 in Boston <https://2016.ploneconf.org/>`_
-* October 2015, Bucharest
+* `Plone Conference 2017 in Barcelona <https://2017.ploneconf.org/>`_
+* `Plone Conference 2016 in Boston <https://2016.ploneconf.org/>`_
+* Plone Conference 2015, Bucharest
 * `March 2015, Munich <https://www.starzel.de/leistungen/training/>`_
 * Plone Conference 2014, Bristol
 * `June 2014, Caracas <https://mobile.twitter.com/hellfish2/status/476906131970068480>`_
