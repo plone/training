@@ -2,7 +2,7 @@ Debugging Plone on WSGI
 =======================
 
 When debugging Plone behind a WSGI server, there are a couple of things to remember.
-The ``wsgitraining.site`` package contained in our buildout comes with a debugging view that simply sets a breakpoint:
+The ``wsgitraining.site`` package contained in our buildout comes with a debugging view that sets a breakpoint:
 
 .. code-block:: python
     :emphasize-lines: 5
@@ -14,9 +14,9 @@ The ``wsgitraining.site`` package contained in our buildout comes with a debuggi
              import pdb; pdb.set_trace()
              return self.index()
 
-It's available at `<http://localhost:8080/Plone/debugging-view>`_.
+It is available at `<http://localhost:8080/Plone/debugging-view>`_.
 
-It also provides a very simple view that raises an ``AttributeError`` available at `<http://localhost:8080/Plone/attribute-error-view>`_.
+It also provides a very basic view that raises an ``AttributeError`` available at `<http://localhost:8080/Plone/attribute-error-view>`_.
 
 Debugging with waitress
 -----------------------
@@ -79,7 +79,7 @@ If you move the mouse to the right of a stack frame, you will see a symbol of a 
 Click on it.
 You will be prompted for a PIN once.
 Enter the PIN provided on the console where you started the instance.
-You'll see an interactive console in the browser where you can enter arbitrary Python code.
+You will see an interactive console in the browser where you can enter arbitrary Python code.
 
 Debugging uWSGI
 ---------------
@@ -140,7 +140,7 @@ After running buildout and starting your instance with ``bin/uwsgi-instance`` yo
     WARNING:plone.behavior:Specifying 'for' in behavior 'Tiles' if no 'factory' is given has no effect and is superfluous.
     >>>
 
-Simply press ``Ctrl+D`` to continue the instance startup:
+Press ``Ctrl+D`` to continue the instance startup:
 
 .. code-block:: bash
 
@@ -153,5 +153,5 @@ Simply press ``Ctrl+D`` to continue the instance startup:
 
 Now if you open the ``debugging-view`` again you will see the ``pdb`` prompt.
 All looks fine now, however you will not be able to terminate the instance with ``Ctrl+C``.
-However you can press ``Ctrl+Z`` to send the instance to the background and then kill it with ``kill %1`` (or whatever job number you're seeing on the console).
+Instead you can press ``Ctrl+Z`` to send the instance to the background and then kill it with ``kill %1`` (or whatever job number you're seeing on the console).
 This behaviour is the reason why we don't put ``honour-stdin`` in the ``.ini`` template by default.

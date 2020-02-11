@@ -26,6 +26,7 @@ How to manually enable Blocks on a content type
 ===============================================
 
 There is a behavior called ``Tiles`` made available by ``plone.restapi``.
+To enable it you need to access the Plone backend running at http://localhost:8080/Plone.
 
 1. Go to ``ControlPanel`` -> ``Dexterity Content Types``, select the content type.
 2. Go to ``Behaviors``

@@ -59,7 +59,7 @@ Transitions Control
 -------------------
 
 * What ``state`` they will end in
-* What conditions or ``gaurds`` are required for the transition to be available
+* What conditions or ``guards`` are required for the transition to be available
 
   * These can be ``permissions`` of the user, ``roles`` a user has, ``groups`` to which the user belongs, or even the boolean value of *'TALES*' expressions
 

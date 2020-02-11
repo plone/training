@@ -3,11 +3,13 @@
 Dexterity Types II: Growing Up
 ==============================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout viewlets_1
+
+   Code for the end of this chapter::
 
         git checkout dexterity_2
 
@@ -467,7 +469,7 @@ Instead we use the brains' new attributes.
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 13-15
+    :emphasize-lines: 13-16
 
     class TalkListView(BrowserView):
         """ A list of talks

@@ -7,14 +7,14 @@ and the second is the ``start_response``.
 The ``environment`` is a Python dictionary containing information about
 the CGI environment.
 ``start_response`` is a callback which takes two inputs the response
-``status`` and ``headers``. The status is astring representation like
+``status`` and ``headers``. The status is a string representation like
 ``200 OK`` or any other HTTP status code followed by a word.
 ``headers`` is a list of two values tuples or possible HTTP headers.
 The return value of ``start`` response is another callable which when
 invoked return the body of the response.
 
-It is the responsiblity of the WSGI server to implement this callback.
-That is, the Python web application or the framework simply recieve it.
+It is the responsibility of the WSGI server to implement this callback.
+That is, the Python web application or the framework simply receive it.
 
 The WSGI application is invoked with the ``environment`` and
 ``start_response``, it may or may not use information from the
@@ -42,8 +42,8 @@ Running a WSGI application
 
 To actually make use of the above example, you need to invoke it
 with a valid WSGI server. Luckily, we don't need to fully setup a HTTP
-server, because the Python standard library already has already s simple
-HTTP server which implements the WSGI protocal which we can use to
+server, because the Python standard library already has already a simple
+HTTP server which implements the WSGI protocol which we can use to
 test our app. To make use of it you can do:
 
   .. code:: python
@@ -66,14 +66,14 @@ test our app. To make use of it you can do:
 
 
  .. note::
-   In reality, a WSGI server is usually depoloyed behing a
+   In reality, a WSGI server is usually deployed behind a
    full blown HTTP server, which serves as a reverse proxy for the
    WSGI server. That is, the HTTP server (for example NGinx) listen to
    HTTP or HTTPS requests on port 80 or 443 and then redirects them to
    the appropriate socket to which the WSGI server is bound to.
 
-Excercise 1
-+++++++++++
+Exercise 1
+++++++++++
 
  Write your own callable class which is a valid WSGI application.
 

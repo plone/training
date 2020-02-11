@@ -309,7 +309,7 @@ The second is an object with all the actions which will also be mapped to props 
     :emphasize-lines: 1-2,5-13
 
     import { connect } from "react-redux";
-    import addFaqItem from "../actions";
+    import { addFaqItem } from "../actions";
 
     class Faq extends Component {
       static propTypes = {

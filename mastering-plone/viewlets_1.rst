@@ -3,11 +3,13 @@
 Writing Viewlets
 ================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout behaviors_1
+
+   Code for the end of this chapter::
 
         git checkout viewlets_1
 
@@ -92,8 +94,7 @@ Let's add the missing template :file:`templates/featured_viewlet.pt`.
     :linenos:
 
     <div id="featured">
-        <p tal:define="is_featured view/is_featured"
-           tal:condition="is_featured">
+        <p tal:condition="python:view.is_featured">
             This is hot news!
         </p>
     </div>
@@ -181,7 +182,7 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
             There are <span tal:replace="number_of_talks" /> talks.
         </div>
 
-    :samp:`python:context.portal_catalog` will return the catalog through Acquisition. Be careful if you want to use path expressions: :samp:`content/portal_catalog` calls the catalog (and returns all brains). You need to prevent this by using :samp:`nocall:content/portal_catalog`.
+    :samp:`python:context.portal_catalog` will return the catalog through Acquisition. Be careful if you want to use path expressions: :samp:`context/portal_catalog` calls the catalog (and returns all brains). You need to prevent this by using :samp:`nocall:context/portal_catalog`.
 
     Relying on Acquisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from :file:`plone/app/layout/globals/tools.py` to get the catalog.
 
@@ -189,7 +190,7 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
 
         <div class="number_of_talks"
              tal:define="catalog context/@@plone_tools/catalog;
-                         number_of_talks python:len(catalog(portal_type='talk'));">
+                         number_of_talks python:len(catalog(portal_type='talk', review_state='pending'));">
             There are <span tal:replace="number_of_talks" /> talks.
         </div>
 
@@ -219,7 +220,7 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
         ?>
 
         <div class="number_of_talks">
-            There are ${number_of_talks} talks.
+            There are ${python:number_of_talks} talks.
         </div>
 
 

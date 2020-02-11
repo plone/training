@@ -79,7 +79,7 @@ nano-framework ``Chick``:
 
         r = ''.join(('{} {}\n'. format(k, v) for k, v
                      in environ.items())).encode()
-       return [r]
+        return [r]
 
 
     capital_chick = CapitalizeResponse(chick)

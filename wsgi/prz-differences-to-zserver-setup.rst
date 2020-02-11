@@ -5,8 +5,8 @@ Maybe the most important difference is that configuration is now split into two 
 
 In addition to ``zope.conf`` there is now a file called ``wsgi.ini`` in the same directory (``parts/instance/etc`` by default).
 Opposed to the xml style syntax of the zope.conf, wsgi.ini (as the extension suggests) uses an ini style syntax.
-More specifically it's syntax is that defined by `Paste Deploy <https://pastedeploy.readthedocs.io/en/latest/#introduction>`_, a package that provides a system for finding and configuring WSGI applications and servers.
-Just like waitress, PasteDeploy is another spinoff of the Pylons project.
+More specifically its syntax is that defined by `Paste Deploy <https://pastedeploy.readthedocs.io/en/latest/#introduction>`_, a package that provides a system for finding and configuring WSGI applications and servers.
+Like waitress, PasteDeploy is another spinoff of the Pylons project.
 Waitress is using PasteDeploy internally and defines PasteDeploy entry points.
 It defines the Zope application entry point and configures the WSGI server, waitress in our case.
 Most notably the logging configuration has moved from zope.conf to ``wsgi.ini``.

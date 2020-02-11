@@ -3,11 +3,13 @@
 Dexterity Types III: Python
 ===========================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout resources
+
+   Code for the end of this chapter::
 
         git checkout dexterity_3
 
@@ -363,19 +365,6 @@ The view
 --------
 
 We use the default view provided by Dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
-
-But we could tweak the default view with some CSS to make it less ugly. Add the following to :file:`browser/static/ploneconf.css`:
-
-.. code-block:: css
-
-    .template-view.portaltype-sponsor .named-image-widget img {
-        width: 100%;
-        height: auto;
-    }
-
-    .template-view.portaltype-sponsor fieldset#folder-listing {
-        display: none;
-    }
 
 .. note::
 

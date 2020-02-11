@@ -18,7 +18,7 @@ First, we need to install plonecli:
 
 .. note::
 
-  This command will install plonecli in the global user site-packages according to the official documentation.
+  This command will install plonecli in the user site-packages according to the official documentation.
   Feel free to install it using your preferred alternative method (virtualenv, pipenv, pyenv).
 
 .. note::
@@ -58,3 +58,9 @@ Let's run all tests, including robot tests (we will cover these later):
 .. code-block:: console
 
   $ plonecli test --all
+
+.. note::
+  If you get an error about missing ``geckodriver``, you will have to install ``geckodriver``. 
+  On macOS, you can use ``brew install geckodriver``. 
+  On Ubuntu, you can use ``apt install firefox-geckodriver``.
+  Then re-run ``plonecli test --all``. 

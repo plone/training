@@ -3,11 +3,13 @@
 Write Your Own Add-Ons to Customize Plone
 =========================================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout XXX
+
+   Code for the end of this chapter::
 
         git checkout eggs1
 
@@ -111,7 +113,7 @@ In :file:`src` there is now a new folder :file:`ploneconf.site` and in there is 
 
 
 :file:`configure.zcml` (:file:`src/ploneconf/site/configure.zcml`)
-    The phone book of the distribution. By reading it you can find out which functionality is registered using the component architecture. There are more registrations in other zcml-files in this addons (e.g. :file:`browser/configure.zcml`, :file:`upgrades.zcml` and :file:`permissions.zcml`) that are included in your main :file:`browser/configure.zcml`
+    The phone book of the distribution. By reading it you can find out which functionality is registered using the component architecture. There are more registrations in other zcml-files in this addons (e.g. :file:`browser/configure.zcml`, :file:`upgrades.zcml` and :file:`permissions.zcml`) that are included in your main :file:`configure.zcml`
 
 :file:`setuphandlers.py` (:file:`src/ploneconf/site/setuphandlers.py`)
     This holds code that is automatically run when installing and uninstalling our add-on.

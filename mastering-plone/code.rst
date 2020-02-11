@@ -6,17 +6,11 @@ You can get the complete code for this training from `GitHub <https://github.com
 The code-package
 ----------------
 
-The package
+The package `ploneconf.site <https://github.com/collective/ploneconf.site>`_ contains the complete code for this training excluding exercises.
+It is automatically downloaded from GitHub when you run buildout.
 
-..  note::
-
-    If you want to do it by hand do the following:
-
-    .. code-block:: bash
-
-        cd src
-        git clone https://github.com/collective/ploneconf.site.git
-
+The master branch of that repository holds the code of the final chapter of this training.
+Each chapter that adds code to the package has a tag that can be used to get the code for that chapter.
 
 Getting the code for a certain chapter
 --------------------------------------
@@ -26,10 +20,9 @@ The package will then contain the complete code for that chapter (excluding exer
 
 If you want to add the code for the chapter yourself you have to checkout the tag for the previous chapter.
 
+Here is an example:
 
-Here is a example:
-
-..  code-block:: bash
+.. code-block:: bash
 
     git checkout views_2
 
@@ -48,47 +41,21 @@ To change the code to the state of the next chapter checkout the tag for the nex
     git checkout views_3
 
 
-If you made any changes to the code you have to get them out of the way first:
+If you made any changes to the code you have to get them out of the way first. This inviolved two things
+
+.. warning::
+
+    Make sure you have no new files or changes in the folder structure of ``ploneconf.site`` that you want to keep because the following will delete them!!!
 
 ..  code-block:: console
 
+    git clean -fd
     git stash
 
-This will stash away your changes but not delete them. You can get them back later.
-You should learn about the command :command:`git stash` before you try reapply stashed changes.
+This does two things:
 
-If you want to remove any changes you made locally you can delete them with this command:
-
-..  code-block:: console
-
-    git reset --hard HEAD
-
-
-
-
-
-Telling Plone about ploneconf.site
-----------------------------------
-
-If you did not yet do this (it is covered in chapter :ref:`eggs1-label`) you will have to
-modify :file:`buildout.cfg` to have Plone expect the egg :py:mod:`ploneconf.site` to be in :file:`src`.
-
-.. code-block:: cfg
-    :linenos:
-    :emphasize-lines: 6, 12
-
-    eggs =
-
-    ...
-
-    # our add-ons
-        ploneconf.site
-    #    starzel.votable_behavior
-
-    ...
-
-    [sources]
-    ploneconf.site = git https://github.com/collective/ploneconf.site.git
+#. It deletes any files that you added and are not part of the package.
+#. It will move away changes to files that are part of the package but not delete them. You can get them back later. You should learn about the command :command:`git stash` before you try reapply stashed changes.
 
 
 Tags
@@ -167,8 +134,9 @@ It goes like this:
   ``git rebase temp``
   That inserts the changes into master in the right place. You only maintain a master branch that is a sequence of commits.
 * Then you need to update your chapter-docs to point to the corresponding commit ids:
-  chapter one: ``git checkout 121431243``
-  chapter two: ``git checkout 498102980``
+
+  * chapter one: ``git checkout 121431243``
+  * chapter two: ``git checkout 498102980``
 
 Additionally you can
 
@@ -177,12 +145,11 @@ Additionally you can
 
 To move tags after changes you do:
 
-* Move a to another commit: `git tag -a <tagname> <commithash> -f`
-* Move the tag on the server `git push --tags -f`
+* Move a to another commit: ``git tag -a <tagname> <commithash> -f``
+* Move the tag on the server ``git push --tags -f``
 
 The final result should look like this:
 
 .. figure:: ../_static/code_tree.png
    :align: center
 
-In earlier versions of the training we used a folder-based approach such as in https://github.com/collective/ploneconf.site_sneak. It proved to be a lot a lot of tedious work to maintain that.
