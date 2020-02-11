@@ -32,9 +32,10 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     theming
     extending
     add-ons
-    dexterity
     buildout_1
     eggs1
+    dexterity
+    dexterity_2_talk
     export_code
     views_1
     zpt

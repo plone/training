@@ -9,6 +9,7 @@ In this part you will:
 
 Topics covered:
 
+* Overiding python or react components
 * Component Architecture
 * ZCML
 * GenericSetup
@@ -16,7 +17,27 @@ Topics covered:
 As a developer you want to go further than simply configuring Plone, you want to extend and customize it.
 Plone is built to be extended.
 Extendability is not an afterthought but is the core of Plone and the systems it is based on.
-Plone started as an extension for CMF, which is an extension for Zope.
+Instead if is a the core of its architecture.
+
+
+.. note::
+
+    Plone itself even started out as an extension for CMF, which is an extension for Zope. Now Plone is the basis for many application that extend it.
+
+
+Plone consists of a Python backend and a React frontend. They are connected via the REST API. Thus you have two different layers that you can customize.
+
+Therefore we create two different extension-packages to customize and extend Plone:
+
+1. One is a python package that holds e.g. content-types, dexterity-behaviors and configuration.
+1. The other is a javascript package that hold views, styling and customization of the frontend.
+
+Sometimes it is easy to know, which layer needs to be customized to achieve a certain result.
+
+* All styling and javascript-based interaction is customized on the Volto-layer of Plone
+* Content-Types and other persistent data should be customized or created in a python-package
+
+For more complex use-cases you will need to add code to both parts of our customization-story. For example a content-type will be defined in the python-package and its visualization will be defined in the javascript-package.
 
 
 .. _extending-technologies-label:

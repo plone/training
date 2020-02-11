@@ -18,39 +18,40 @@ Write Your Own Add-Ons to Customize Plone
 
 In this part you will:
 
-* Create a custom Python package :py:mod:`ploneconf.site` to hold all the code
-* Modify buildout to install that package
+* Create a custom Python package :py:mod:`ploneconf.site`
+* Modify the buildout to install :py:mod:`ploneconf.site`
 
 
 Topics covered:
 
-* :py:mod:`mr.bob` and :py:mod:`bobtemplates.plone`
+* :py:mod:`plonecli`
 * the structure of python packages
 
 
 Creating the package
 --------------------
 
-Your own code has to be organized as a `Python package <https://docs.python.org/2/tutorial/modules.html#packages>`_. A python package is directory that follows certain conventions to hold python modules.
+Your own code has to be organized as a `Python package <https://docs.python.org/3/tutorial/modules.html#packages>`_. A python package is a directory that follows certain conventions to hold python modules.
 
-We are going to use `bobtemplates.plone <https://pypi.org/project/bobtemplates.plone>`_ to create a skeleton package. You only need to fill in the blanks.
+We are going to use `plonecli <https://pypi.org/project/plonecli>`_ to create a skeleton package. You only need to fill in some blanks.
 
-:py:mod:`bobtemplates.plone` offers several Plone-specific templates for :py:mod:`mr.bob`, a project template builder similar to :py:mod:`cookiecutter`.
+.. note::
 
-Enter the :file:`src` directory (*src* is short for *sources*) and call a script called :command:`mrbob` from our buildout's :file:`bin` directory:
+    :py:mod:`plonecli` uses the :py:mod:`bobtemplates.plone` that offers several Plone-specific templates for :py:mod:`mr.bob`, a project template builder similar to :py:mod:`cookiecutter`.
+
+Install plonecli:
 
 .. code-block:: bash
 
-    $ cd src
-    $ ../bin/mrbob -O ploneconf.site bobtemplates.plone:addon
+    $ pip install plonecli
 
-.. warning::
+Then create the addon:
 
-    Before version 2.0.0 of :py:mod:`bobtemplates.plone` the command to create a addon was different:
+.. code-block:: bash
 
-    .. code-block:: bash
+    $ plonecli create addon src/ploneconf.site
 
-        $ ../bin/mrbob -O ploneconf.site bobtemplates:plone_addon
+The new addon will be created in the :file:`src` directory (*src* is short for *sources*)
 
 You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. choosing the default value) for most questions except where indicated (enter your GitHub username if you have one, do not initialize a GIT repository, Use Plone 5.2 and python 3.7)::
 
@@ -69,7 +70,7 @@ You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. cho
     --> Python version for virtualenv [python2.7]: python3.7
 
     git init is disabled!
-    Generated file structure at /Users/pbauer/workspace/training_buildout/src/ploneconf.site
+    Generated file structure at /Users/pbauer/workspace/training/buildout/src/ploneconf.site
 
 .. only:: not presentation
 
@@ -254,3 +255,4 @@ Summary
 
 * You created the package :py:mod:`ploneconf.site` to hold your code.
 * You added the new package to buildout so that Plone can use it.
+* In one of the next chapter we will also create a addon for Volto, the react frontend.

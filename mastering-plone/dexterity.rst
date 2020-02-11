@@ -1,19 +1,19 @@
 .. _dexterity1-label:
 
-Dexterity I: "Through The Web"
-==============================
+Dexterity I: Content types
+==========================
 
 In this part you will:
 
-* Create a new content type called *Talk*.
+* Learn about content types
+* Customize existing types
+* Create a content type through the web
 
 
 Topics covered:
 
-* Content types
-* Archetypes and Dexterity
-* Fields
-* Widgets
+* Default and custom content types
+* Dexterity
 
 
 .. _dexterity1-what-label:
@@ -51,57 +51,6 @@ Views
     A view is a representation of the object and the content of its fields that may be rendered in response to a request.
     You may have *one or more* views for an object.
     Some may be *visual* — intended for display as web pages — others may be intended to satisfy AJAX requests and render content in formats like JSON or XML.
-
-
-.. _dexterity1-comparison-label:
-
-Dexterity and Archetypes - A Comparison
----------------------------------------
-
-There used to be two content frameworks in Plone:
-
-* *Dexterity*: new and default.
-* *Archetypes*: the old default in Plone 4 and deprecated. Still used in some add-ons.
-* Plone 4.x: Archetypes is the default, with Dexterity available.
-* Plone 5.x: Dexterity is the default, with Archetypes available. In Plone 6 Archetypes will not be available any more.
-* For both, add and edit forms are created automatically from a schema.
-
-What are the differences?
-
-* Dexterity: New, faster, modular, no dark magic for getters and setters.
-* Archetypes had magic setter/getter - use :py:meth:`talk.getAudience()` for the field :py:attr:`audience`.
-* Dexterity: fields are attributes: :py:attr:`talk.audience` instead of :py:meth:`talk.getAudience()`.
-
-"Through The Web" or TTW, i.e. in the browser, without programming:
-
-* Dexterity has a good TTW story.
-* Archetypes has no TTW story.
-* UML-modeling: `ArchGenXML <https://docs.plone.org/old-reference-manuals/archgenxml/index.html>`_ for Archetypes, `agx <https://github.com/bluedynamics/agx.dev>`_ for Dexterity
-
-Approaches for Developers:
-
-* Schema in Dexterity: TTW, XML, Python. Interface = schema, often no class needed.
-* Schema in Archetypes: Schema only in Python.
-
-* Dexterity: Easy permissions per field, easy custom forms.
-* Archetypes: Permissions per field are hard, custom forms even harder.
-* If you have to program for old Plone 4-based sites you still need to know Archetypes!
-* If starting fresh always use Dexterity.
-
-Extending:
-
-* Dexterity has Behaviors: easily extendable. Just activate a behavior TTW and your content type is e.g. translatable (:py:mod:`plone.app.multilingual`).
-* Archetypes has :py:mod:`archetypes.schemaextender`. Powerful but not as flexible.
-
-We have only used Dexterity for the last few years.
-We teach Dexterity and not Archetypes because it's more accessible to beginners, has a great TTW story and is the future.
-
-Views:
-
-* Both Dexterity and Archetypes have a default view for content types.
-* Browser Views provide custom views.
-* You can generate views for content types in the browser without programming (using the :py:mod:`plone.app.mosaic` Add-on).
-* Display Forms.
 
 
 .. _dexterity1-modify-label:
@@ -154,82 +103,74 @@ In this step we will create a content type called *Talk* and try it out. When it
 
 * Test again.
 
-Here is the complete XML schema created by our actions:
+.. note::
 
-.. code-block:: xml
-  :linenos:
+    The schema you created through the web is stored as XML in the database. Here is the complete XML schema created by our actions:
 
-  <model xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
-       xmlns:users="http://namespaces.plone.org/supermodel/users"
-       xmlns:security="http://namespaces.plone.org/supermodel/security"
-       xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
-       xmlns:form="http://namespaces.plone.org/supermodel/form"
-       xmlns="http://namespaces.plone.org/supermodel/schema">
-    <schema>
-      <field name="type_of_talk" type="zope.schema.Choice">
-        <description/>
-        <title>Type of talk</title>
-        <values>
-          <element>Talk</element>
-          <element>Training</element>
-          <element>Keynote</element>
-        </values>
-      </field>
-      <field name="details" type="plone.app.textfield.RichText">
-        <description>Add a short description of the talk (max. 2000 characters)</description>
-        <max_length>2000</max_length>
-        <title>Details</title>
-      </field>
-      <field name="audience" type="zope.schema.Set">
-        <description/>
-        <title>Audience</title>
-        <value_type type="zope.schema.Choice">
-          <values>
-            <element>Beginner</element>
-            <element>Advanced</element>
-            <element>Professionals</element>
-          </values>
-        </value_type>
-      </field>
-      <field name="speaker" type="zope.schema.TextLine">
-        <description>Name (or names) of the speaker</description>
-        <title>Speaker</title>
-      </field>
-      <field name="email" type="plone.schema.email.Email">
-        <description>Adress of the speaker</description>
-        <title>Email</title>
-      </field>
-      <field name="image" type="plone.namedfile.field.NamedBlobImage">
-        <description/>
-        <required>False</required>
-        <title>Image</title>
-      </field>
-      <field name="speaker_biography" type="plone.app.textfield.RichText">
-        <description/>
-        <max_length>1000</max_length>
-        <required>False</required>
-        <title>Speaker Biography</title>
-      </field>
-    </schema>
-  </model>
+    .. code-block:: xml
+      :linenos:
+
+      <model xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
+           xmlns:users="http://namespaces.plone.org/supermodel/users"
+           xmlns:security="http://namespaces.plone.org/supermodel/security"
+           xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
+           xmlns:form="http://namespaces.plone.org/supermodel/form"
+           xmlns="http://namespaces.plone.org/supermodel/schema">
+        <schema>
+          <field name="type_of_talk" type="zope.schema.Choice">
+            <description/>
+            <title>Type of talk</title>
+            <values>
+              <element>Talk</element>
+              <element>Training</element>
+              <element>Keynote</element>
+            </values>
+          </field>
+          <field name="details" type="plone.app.textfield.RichText">
+            <description>Add a short description of the talk (max. 2000 characters)</description>
+            <max_length>2000</max_length>
+            <title>Details</title>
+          </field>
+          <field name="audience" type="zope.schema.Set">
+            <description/>
+            <title>Audience</title>
+            <value_type type="zope.schema.Choice">
+              <values>
+                <element>Beginner</element>
+                <element>Advanced</element>
+                <element>Professionals</element>
+              </values>
+            </value_type>
+          </field>
+          <field name="speaker" type="zope.schema.TextLine">
+            <description>Name (or names) of the speaker</description>
+            <title>Speaker</title>
+          </field>
+          <field name="email" type="plone.schema.email.Email">
+            <description>Adress of the speaker</description>
+            <title>Email</title>
+          </field>
+          <field name="image" type="plone.namedfile.field.NamedBlobImage">
+            <description/>
+            <required>False</required>
+            <title>Image</title>
+          </field>
+          <field name="speaker_biography" type="plone.app.textfield.RichText">
+            <description/>
+            <max_length>1000</max_length>
+            <required>False</required>
+            <title>Speaker Biography</title>
+          </field>
+        </schema>
+      </model>
 
 
-.. _dexterity1-ttw-to-code-label:
-
-Moving contenttypes into code
-------------------------------
-
-It's awesome that we can do so much through the web. But it's also a dead end if we want to reuse this content type in other sites.
+It's awesome that we can do so much through the web and great for prototyping or small projects. But it's also a dead end if we want to reuse this content type in other sites.
 
 Also, for professional development, we want to be able to use version control for our work, and we'll want to be able to add the kind of business logic that will require programming.
 
-So, we'll ultimately want to move our new content type into a Python package. We're missing some skills to do that, and we'll cover those in the next couple of chapters.
-
-.. seealso::
-
-   * `Dexterity Developer Manual <https://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
-   * `The standard behaviors <https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html>`_
-
+Instead, you'll create your new content type in your Python package.
+Using Python to define the schema gives us much more control (e.g. for validation and default-values).
 
 .. _dexterity1-excercises-label:
 
@@ -317,7 +258,10 @@ We could use this content type later to convert speakers into Plone users. We co
           </schema>
         </model>
 
-..  seealso::
 
-    * `Dexterity XML <https://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_
-    * `Model-driven types <https://docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types>`_
+.. seealso::
+
+   * `Dexterity Developer Manual <https://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
+   * `The standard behaviors <https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html>`_
+   * `Dexterity XML <https://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>`_
+   * `Model-driven types <https://docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types>`_

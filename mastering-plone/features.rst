@@ -48,9 +48,16 @@ Some commands you will use rather often are::
 
     We have a running Zope with a database but no content.
     But luckily there is a button to create a Plone site.
-    Click on that button (login: admin, password: admin).
-    This opens a form to create a Plone site.
+
+    To use the react frontend you will also have to install plone.restapi while creating the Plone site.
+    In Plone 6 this will be done automatically for you.
+    In Plone 5.2 you need to select ``plone.restapi`` by hand:
+
+    Click on the link `Advanced` next to the button `Create a Plone site`.
+    If the site asks you to login use login `admin` and password `admin`.
+    This opens a form to create a Plone site and select additional features.
     Use :samp:`Plone` as the site id.
+    Select **plone.restapi. RESTful hypermedia API for Plone.** as a addon that should be installed with your new site.
 
     .. figure:: _static/features_create_site_form.png
 
@@ -59,14 +66,36 @@ Some commands you will use rather often are::
 .. only:: presentation
 
     * By default Plone listens on port 8080. Look at http://localhost:8080
-    * No Plone site yet! Create a new Plone site.
+    * No Plone site yet! Create a new Plone site. Make sure plone.restapi is installed
     * Use :samp:`Plone` (the default) as the site id.
+
+This is how the frontpage should look like:
+
+.. figure:: _static/frontpage_plone.png
+
 
 .. note::
 
     Plone has many message boxes.
     They contain important information.
     Read them and make sure you understand them!
+
+Starting and Stopping the frontend
+----------------------------------
+
+To start the frontend that will use your new plone site go to the folder `volto` and enter:
+
+.. code-block:: shell
+
+    $ yarn start
+
+If you open http://localhost:3000 you will see the frontpage of the Plone site in Volto.
+
+.. figure:: _static/frontpage_volto.png
+
+You can stop the frontend anytime using :kbd:`ctrl + c`.
+
+
 
 Exercises
 *********
@@ -98,6 +127,14 @@ Open the `bin/instance` script in your favorite editor. Now let's say you want P
         threads = 4
 
     Change the address to 0.0.0.0:9080 and restart your instance.
+
+    You will also have to tell the frontend that the backend is now running on a different port.
+
+    You need to change the environment variable `RAZZLE_API_PATH` to the base-url of the backend:
+
+        $ RAZZLE_API_PATH=http://localhost:9080/Plone yarn start
+
+
 
 Exercise 2
 ++++++++++
@@ -132,6 +169,23 @@ The `app` object you encountered in the previous exercise can be seen as the roo
 
         You have been warned.
 
+
+Exercise 4
+++++++++++
+
+Change the port of the frontend to 1234
+
+..  admonition:: Solution
+    :class: toggle
+
+    By default the frontend will start on port 3000. You can change the port and/or hostname for the frontend by specifying the environment variables `PORT` and/or `HOST`:
+
+        $ HOST=localhost PORT=1234 yarn start
+
+    TODO:
+
+    * Find out if that actually works
+
 .. _features-walkthrough-label:
 
 Walkthrough of the UI
@@ -145,42 +199,33 @@ Let's see what is there...
   * :guilabel:`searchbox`: search (with live-search)
 
 * :guilabel:`navigation`: The global navigation
-* :guilabel:`banner`: A banner. Only visible on the front page.
-
-* :guilabel:`portal-columns`: a container holding:
-
-  * :guilabel:`portal-column-one`: portlets (configurable boxes with tools like navigation, news etc.)
-  * :guilabel:`portal-column-content`: the content and the editor
-  * :guilabel:`portal-column-two`: portlets
 
 * :guilabel:`portal-footer`: portlets for the footer, site actions, and colophon
 
-* :guilabel:`edit-zone`: a vertical bar on the left side of the browser window with editing options for the content
-
-.. only:: not presentation
-
-    These are also the CSS classes of the respective divs.
-    If you want to do theming, you'll need them.
+* :guilabel:`toolbar`: a vertical bar on the left side of the browser window with editing options for the content
 
 On the edit bar, we find options affecting the current context...
 
-* :guilabel:`folder contents`
 * :guilabel:`edit`
-* :guilabel:`view`
+* :guilabel:`folder contents`
 * :guilabel:`add`
+
+There is a menu with three dots that holds additional options:
+
 * :guilabel:`state`
-* :guilabel:`actions`
-* :guilabel:`display`
-* :guilabel:`manage portlets`
+* :guilabel:`view`
 * :guilabel:`history`
 * :guilabel:`sharing`
-* :guilabel:`rules`
-* :guilabel:`user actions`
+
+At the bottom of the toolbar is a silhouette-icon that holds a menu with the following links:
+
+* :guilabel:`logout`
+* :guilabel:`profile`
+* :guilabel:`preferences`
+* :guilabel:`site-setup`
 
 Some edit bar options only show when appropriate;
 for example, :guilabel:`folder contents` and :guilabel:`add` are only shown for Folders.
-:guilabel:`rules` is currently invisible because we have no content rules available.
-
 
 
 .. _features-users-label:

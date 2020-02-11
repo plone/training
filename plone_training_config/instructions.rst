@@ -19,6 +19,11 @@ Keep in mind that you need a fast Internet connection during installation since 
 Installing Plone without vagrant
 --------------------------------
 
+We need to install the backend **Plone** and the react-based frontend **Volto**. If you want to use server-side rendered templates instead of the react based frontend you can skip the part about installing Volto.
+
+Installing the backend
+~~~~~~~~~~~~~~~~~~~~~~
+
 .. warning::
 
     If you are new to running Plone on your laptop you could skip this part and continue with :ref:`install-virtualbox`.
@@ -73,12 +78,12 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
     mkdir training
     cd training
-    git clone https://github.com/collective/training_buildout.git buildout
-    cd buildout
+    git clone https://github.com/collective/training_buildout.git plone
+    cd plone
     python3.7 -m venv .
     ./bin/pip install -r requirements.txt
 
-This creates a virtualenv with Python 3.7 in the folder :file:`buildout` and installs some requirements in it.
+This creates a virtualenv with Python 3.7 in the folder :file:`plone` and installs some requirements in it.
 
 Now you can run the buildout for the first time:
 
@@ -97,7 +102,7 @@ The output should be similar to:
 .. code-block:: console
     :emphasize-lines: 40
 
-    pbauer@bullet:/workspace/training_buildout$  ./bin/instance fg
+    pbauer@bullet:/workspace/training/plone$  ./bin/instance fg
     2019-09-05 20:11:03,708 WARNING [Init:89][MainThread] Class Products.CMFFormController.ControllerPythonScript.ControllerPythonScript has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
     2019-09-05 20:11:03,715 WARNING [Init:89][MainThread] Class Products.CMFFormController.ControllerValidator.ControllerValidator has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
     2019-09-05 20:11:03,776 WARNING [Products.PDBDebugMode:31][MainThread]
@@ -113,7 +118,7 @@ The output should be similar to:
 
     ******************************************************************************
 
-    2019-09-05 20:11:04,858 INFO    [chameleon.config:38][MainThread] directory cache: /Users/pbauer/workspace/training_buildout/var/cache.
+    2019-09-05 20:11:04,858 INFO    [chameleon.config:38][MainThread] directory cache: /Users/pbauer/workspace/training/plone/var/cache.
     2019-09-05 20:11:07,151 WARNING [plone.behavior:172][MainThread] Specifying 'for' in behavior 'Tiles' if no 'factory' is given has no effect and is superfluous.
     2019-09-05 20:11:08,353 WARNING [PrintingMailHost:30][MainThread] Hold on to your hats folks, I'm a-patchin'
     2019-09-05 20:11:08,353 WARNING [PrintingMailHost:124][MainThread]
@@ -149,7 +154,7 @@ If you point your browser at http://localhost:8080 you see that Plone is running
 
 	A running plone instance.
 
-There is no Plone site yet - we will create one in chapter 6.
+There is no Plone site yet - we will create one in chapter 7.
 
 Now you have a working Plone site up and running and can continue with the next chapter.
 
@@ -158,6 +163,31 @@ You can stop the running instance anytime using :kbd:`ctrl + c`.
 .. warning::
 
     If there is an error message you should either try to fix it or use vagrant and continue in this chapter.
+
+
+Installing the frontend
+~~~~~~~~~~~~~~~~~~~~~~~
+
+TODO:
+
+* Copy info from https://training.plone.org/5/volto/bootstrap.html
+* Explain ``create-volto-app``
+* Explain node, nvm, npx, yarn
+
+Requirements
+
+* Use `nvm` to manage `node` versions
+* Install node 10.18.1: ``nvm use 10.18.1``
+* Use ``npx @plone/create-volto-app volto`` to bootstrap the boilerplate for the frontend
+
+
+Start the frontend with::
+
+    $ yarn start
+
+If you open http://localhost:3000 you will see the frontend but you will get a error message (`This page does not seem to exist…`) because you have not yet created a Plone site. We'll do that in chapter 7.
+
+You can stop the frontend anytime using :kbd:`ctrl + c`.
 
 
 .. _instructions-vagrant-label:

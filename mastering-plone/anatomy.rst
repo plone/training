@@ -5,28 +5,44 @@ The Anatomy of Plone
 
 In this part you will:
 
-* Learn a bit about the history of Plone.
+* Learn a bit about the history and architecture of Plone.
 
 Topics covered:
 
 * ZODB
 * CMF
 * Zope
-* Pyramid
-* Bluebream
+* REST API
 
-Plone started as a extension for CMF, which is a extension for Zope. Python, ZODB, Zope, CMF, Plone ... -- how does all that fit together?
+Plone started as a extension for CMF, which is a extension for Zope.
+Python, ZODB, Zope, CMF, Plone, Volto ... -- how does all that fit together?
+
+
+TODO:
+
+Add a diagram showing the different parts and how they fit together
+
+.. code-block::
+
+    VOLTO
+    RESTAPI
+    PLONE
+    ZOPE
+    ZODB
+    Python
 
 
 Database
 --------
 
+To store data Plone uses a database called `ZODB`.
+
 * `ZODB <http://www.zodb.org/en/latest/>`_: A native object database for Python
 
-  * No separate language for database operations
-  * Very little impact on your code to make objects persistent
+  * There is no separate language for database operations like SQL
+  * There is very little impact on code to make objects persistent
   * Object database != ORM
-  * almost no seam between code and database.
+  * There is almost no seam between code and database.
 
 .. code-block:: python
 
@@ -241,3 +257,24 @@ Try to identify 3 packages that belong to Zope 4, 3 packages from CMF, 3 Zope To
     * CMF: Products.CMFCore, Products.CMFUid, Products.CMFEditions, ... Products.DCWorkflow doesn't fit the pattern but is a very important part of the CMF
     * ZTK: zope.browser, zope.container, zope.pagetemplate, ... You can find a complete list `here <https://dist.plone.org/versions/zopetoolkit-1-0-8-zopeapp-versions.cfg>`_
     * ZCA: zope.component, zope.interface, zope.event
+
+.. _anatomy-plone-label:
+
+Plone
+-----
+
+TBD
+
+.. _anatomy-restapi-label:
+
+REST API
+--------
+
+TBD
+
+.. _anatomy-volto-label:
+
+Volto
+-----
+
+TBD

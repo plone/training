@@ -7,6 +7,13 @@ Extend Plone With Add-On Packages
 * Using them saves a lot of time
 * The success of a project often depends on finding the right add-on
 * Their use, usefulness, quality and complexity varies a lot
+* Most addons target Plone 5
+* The number of addons for Volto is still limited but growing
+
+
+TODO:
+
+* Discuss Volto addons
 
 
 .. _add-ons-notable-label:
@@ -74,6 +81,7 @@ It can be very hard to find the right addon for your requirements. Here are some
   * https://github.com/collective >1500 repos
   * https://github.com/plone >310 repos
   * google (e.g. `Plone+Slider <http://google.com/?q=plone+slider>`_)
+  * https://www.npmjs.com/search?q=plone
 
 * Once you have a shortlist test these addons. Here are the main issues you need to test before you install a addon on a production site:
 

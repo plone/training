@@ -35,16 +35,16 @@ Proposed changes to this treainning for Plone 6
     4. Installation & Setup::
 
         4.1. Installing Plone
-        ++ Add info on building the Fronte
+        ++ Add info on building the Frontend
         4.2. Hosting Plone
-        ++ Add Info on deploying the Fronte
+        ++ Add Info on deploying the Frontend
         4.3. Production Deployment
 
     5. Installing Plone for the Training::
 
         5.1. Installing Plone without vagrant
         5.2. Installing Plone with Vagrant
-        ++ Update to build VOL
+        ++ Update to build VOLTO
 
     6. The Case Study::
 
@@ -126,10 +126,9 @@ Proposed changes to this treainning for Plone 6
         13.6. Internationalization
         13.7. Summary
 
-    XX. Add your own addons
+    XX. Add your own python addon
 
         #. Add a Python Addon (plonecli)
-        #. Add a Volto Addon (create-volto-app)
 
     14. Dexterity I: “Through The Web”::
 
@@ -171,6 +170,11 @@ Proposed changes to this treainning for Plone 6
         17.1. Changing a widget
         17.2. Protect fields with permissions
         17.3. Summary
+
+    XX. Add your own Volto addon
+
+        #. Add a Volto Addon (create-volto-app)
+
 
     18. Views I::
 
