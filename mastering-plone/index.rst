@@ -28,6 +28,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     features
     anatomy
     plone5
+    volto_basics
     configuring_customizing
     theming
     extending
