@@ -17,8 +17,68 @@ Topics covered:
 The fti
 -------
 
+Add a file ``ploneconf/site/profiles/default/types/talk.xml``
+
+..  code-block:: xml
+
+    <?xml version="1.0"?>
+    <object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"
+       xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+     <property name="title" i18n:translate="">Talk</property>
+     <property name="description" i18n:translate="">None</property>
+     <property name="icon_expr">string:${portal_url}/document_icon.png</property>
+     <property name="factory">talk</property>
+     <property name="add_view_expr">string:${folder_url}/++add++talk</property>
+     <property name="link_target"></property>
+     <property name="immediate_view">view</property>
+     <property name="global_allow">True</property>
+     <property name="filter_content_types">True</property>
+     <property name="allowed_content_types"/>
+     <property name="allow_discussion">False</property>
+     <property name="default_view">view</property>
+     <property name="view_methods">
+      <element value="view"/>
+     </property>
+     <property name="default_view_fallback">False</property>
+     <property name="add_permission">cmf.AddPortalContent</property>
+     <property name="klass">ploneconf.site.content.talk.Talk</property>
+     <property name="schema">ploneconf.site.content.talk.ITalk</property>
+     <property name="behaviors">
+      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+      <element value="plone.app.content.interfaces.INameFromTitle"/>
+      <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+     </property>
+     <property name="model_source"></property>
+     <property name="model_file"></property>
+     <property name="schema_policy">dexterity</property>
+     <alias from="(Default)" to="(dynamic view)"/>
+     <alias from="edit" to="@@edit"/>
+     <alias from="sharing" to="@@sharing"/>
+     <alias from="view" to="(selected layout)"/>
+     <action title="View" action_id="view" category="object" condition_expr=""
+        description="" icon_expr="" link_target="" url_expr="string:${object_url}"
+        visible="True">
+      <permission value="View"/>
+     </action>
+     <action title="Edit" action_id="edit" category="object" condition_expr=""
+        description="" icon_expr="" link_target=""
+        url_expr="string:${object_url}/edit" visible="True">
+      <permission value="Modify portal content"/>
+     </action>
+    </object>
+
+
 The type registration
 ---------------------
+
+Add a file ``ploneconf/site/profiles/default/types.xml``:
+
+..  code-block:: xml
+
+    <?xml version="1.0"?>
+    <object name="portal_types" meta_type="Plone Types Tool">
+     <object name="talk" meta_type="Dexterity FTI"/>
+    </object>
 
 The schema
 ----------
@@ -35,6 +95,7 @@ TODO:
     # -*- coding: utf-8 -*-
     from plone.app.textfield import RichText
     from plone.autoform import directives
+    from plone.dexterity.content import Container
     from plone.namedfile.field import NamedBlobImage
     from plone.schema.email import Email
     from plone.supermodel import model
@@ -42,6 +103,9 @@ TODO:
     from z3c.form.browser.checkbox import CheckBoxFieldWidget
     from z3c.form.browser.radio import RadioFieldWidget
     from zope import schema
+    from zope.interface import implementer
+    from zope.schema.vocabulary import SimpleTerm
+    from zope.schema.vocabulary import SimpleVocabulary
 
 
     class ITalk(model.Schema):
@@ -64,7 +128,9 @@ TODO:
         directives.widget(audience=CheckBoxFieldWidget)
         audience = schema.Set(
             title=_(u'Audience'),
-            values=['Beginner', 'Advanced', 'Professionals'],
+            value_type=schema.Choice(
+                values=['Beginner', 'Advanced', 'Professionals'],
+                ),
             required=False,
             )
 
@@ -113,15 +179,15 @@ TODO:
             )
 
 
+    @implementer(ITalk)
+    class Talk(Container):
+        """Talk instance class"""
+
+
 The instance class
 ------------------
 
-..  code-block:: python
-
-    class Talk(Container):
-        """Talk instance class
-        """
-
+TODO
 
 
 .. seealso::
