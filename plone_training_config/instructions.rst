@@ -179,6 +179,7 @@ Requirements
 
 * Use `nvm` to manage `node` versions
 * Install node 10.18.1: ``nvm use 10.18.1``
+* Install ``create-volto-app`` with ``npm i @plone/create-volto-app@4.0.0-alpha.8``
 * Use ``npx @plone/create-volto-app volto`` to bootstrap the boilerplate for the frontend
 
 
