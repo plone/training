@@ -8,12 +8,42 @@ Extend Plone With Add-On Packages
 * The success of a project often depends on finding the right add-on
 * Their use, usefulness, quality and complexity varies a lot
 * Most addons target Plone 5
-* The number of addons for Volto is still limited but growing
 
 
-TODO:
+Volto Addons
+------------
 
-* Discuss Volto addons
+.. warning::
+
+    So far there are no volto addons available! Once there are addons that provide valuable functionality this chapter will be updated with examples.
+
+In the directory ``volto`` install ``mrs-developer`` to be able to pull in volto addons following the steps in https://docs.voltocms.com/customizing/add-ons/
+
+..  code-block:: bash
+
+    $ yarn add mrs-developer
+
+Add the following to your ``package.json``:
+
+..  code-block:: json
+
+    "scripts": {
+      "develop": "missdev --config=jsconfig.json --output=addons",
+      ...
+    }
+
+Create a file ``mrs.developer.json``:
+
+..  code-block:: json
+
+    {
+      "volto.mosaic": {
+        "package": "volto-mosaic",
+        "url": "https://github.com/eea/volto-mosaic.git",
+        "path": "src"
+      }
+    }
+
 
 
 .. _add-ons-notable-label:

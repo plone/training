@@ -79,6 +79,13 @@ You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. cho
     You generated a package with a lot files. It might look like too much boilerplate but all files in this package serve a clear purpose and it will take some time to learn about the meaning of each of them.
 
 
+Volto Addons
+------------
+
+The package that will hold your own code for volto was already created when you installed the frontend with ``create-volto-app``.
+The folder :file:`volto/` that yoy created in the chapter :ref:`instructions-install_frontend-label` not only holds the  default volto frontend but also gives you the option to extend and customize the frontend.
+
+
 Eggs
 ----
 

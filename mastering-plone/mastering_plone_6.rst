@@ -126,21 +126,6 @@ Proposed changes to this treainning for Plone 6
         13.6. Internationalization
         13.7. Summary
 
-    XX. Add your own python addon
-
-        #. Add a Python Addon (plonecli)
-
-    14. Dexterity I: “Through The Web”::
-
-        ++ Rewrite (Start with Python Schema in the Filesystem)
-        14.1. What is a content type?
-        14.2. The makings of a Plone content type
-        14.3. Dexterity and Archetypes - A Comparison
-        14.4. Modifying existing types
-        14.5. Creating content types TTW
-        14.6. Moving contenttypes into code
-        14.7. Exercises
-
     15. Buildout I::
 
         ++ Move after "Add your own addons"
@@ -154,26 +139,47 @@ Proposed changes to this treainning for Plone 6
         15.7. Extensible
         15.8. Be McGuyver
 
-    16. Write Your Own Add-Ons to Customize Plone::
+    Write Your Own Add-Ons to Customize Plone::
 
-        ++ Merge with Add your own addons
-        16.1. Creating the package
-        16.2. Eggs
-        16.3. Inspecting the package
-        16.4. Including the package in Plone
-        16.5. Exercises
-        16.6. Summary
+        ++ use plonecli
+        1. Creating the package
+        2. Eggs
+        3. Inspecting the package
+        4. Including the package in Plone
+        5. Exercises
+        6. Summary
 
-    17. Return to Dexterity: Moving contenttypes into Code::
+    Dexterity I: Content types::
 
-        ++ Remove
-        17.1. Changing a widget
-        17.2. Protect fields with permissions
-        17.3. Summary
+        ++ Rewrite (Start with Python Schema in the Filesystem)
+        1. What is a content type?
+        2. The makings of a Plone content type
+        4. Modifying existing types
+        #. Default Behaviors
+        5. Creating content types TTW
+        7. Exercises
+
+
+    Dexterity II: Talk::
+
+        #. The fti
+        #. The type registration
+        #. The schema
+        #. The instance class
+        #. Enabling our code (install/reinstall)
+        #. Field type reference
+        #. Schema directives: widgets, permissions
+        #. point to later chapter for complete list of features
+
 
     XX. Add your own Volto addon
 
         #. Add a Volto Addon (create-volto-app)
+
+    XX. Add a custom view component for talks
+
+        #. Register new view src/components/Views/Talk.jsx
+        #. Finish View incrementally
 
 
     18. Views I::

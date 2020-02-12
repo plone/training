@@ -164,6 +164,7 @@ You can stop the running instance anytime using :kbd:`ctrl + c`.
 
     If there is an error message you should either try to fix it or use vagrant and continue in this chapter.
 
+.. _instructions-install_frontend-label:
 
 Installing the frontend
 ~~~~~~~~~~~~~~~~~~~~~~~

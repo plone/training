@@ -116,7 +116,11 @@ TODO:
 The instance class
 ------------------
 
+..  code-block:: python
 
+    class Talk(Container):
+        """Talk instance class
+        """
 
 
 
