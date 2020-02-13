@@ -35,7 +35,7 @@ and the template from ``bobtemplates.plone`` to create the package.
 
     $ mkdir src
     $ cd src
-    $ ../bin/mrbob -O starzel.votable_behavior bobtemplates:plone_addon
+    $ ../bin/mrbob -O starzel.votable_behavior bobtemplates.plone:addon
 
 We press :kbd:`Enter` to all questions *except* our personal data and the Plone version.
 Here we enter :kbd:`5.2`.
