@@ -254,7 +254,7 @@ Next we add the image:
               size="small"
               floated="right"
               alt={content.image_caption}
-              circular
+              avatar
             />
             {content.speaker_biography && (
               <div
@@ -270,14 +270,14 @@ Next we add the image:
     export default TalkView;
 
 
-* We use the component `Image <https://react.semantic-ui.com/elements/image/#variations-circular>`_
+* We use the component `Image <https://react.semantic-ui.com/elements/image/#variations-avatar>`_
 * We use ``flattenToAppURL`` to turn the Plone-url of the image to the Volto-url, e.g. it turns http://localhost:8080/Plone/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg into http://localhost:3000/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg.
 * Open the React Developer Tools in your browser and inspect the property ``image`` of TalkView and its property ``scale``. If you look at the `documentation for the serialization of image-fields <https://plonerestapi.readthedocs.io/en/latest/serialization.html#file-image-fields>`_ you can find out where that information comes from.
 
 Next we add the audience:
 
 ..  code-block:: js
-    :emphasize-lines: 2,7-11,22-35
+    :emphasize-lines: 2,7-11,22-30
 
     import React from 'react';
     import { Container, Icon, Image, Label, Segment } from 'semantic-ui-react';
@@ -302,14 +302,9 @@ Next we add the audience:
           )}
           {content.audience.map(item => {
             let audience = item.title;
-            let color = color_mapping[audience] || 'blue';
+            let color = color_mapping[audience] || 'green';
             return (
-              <Label
-                as="a"
-                href={`/search?audience=${audience}&portal_type=talk`}
-                key={audience}
-                color={color}
-              >
+              <Label key={audience} color={color}>
                 {audience}
               </Label>
             );
@@ -327,7 +322,7 @@ Next we add the audience:
               size="small"
               floated="right"
               alt={content.image_caption}
-              circular
+              avatar
             />
             {content.speaker_biography && (
               <div
@@ -342,83 +337,97 @@ Next we add the audience:
     };
     export default TalkView;
 
+* With ``{content.audience.map(item => {...})}`` we iterate over the indivudual values in the field ``audience``.
+* We map the values that are available in the field to colors and use blue as a fallback.
 
-* We use the component `Label <https://react.semantic-ui.com/elements/label/>`_ to render the audience as a tag.
-* We map the values that are available in the field to colors.
-
-XXX
-
-* Add other fields
-* Map values to colors
-
-The final view (draft):
+As a last step we show the last few fields ``website`` and ``company``, ``github`` and ``twitter``:
 
 ..  code-block:: js
+    :emphasize-lines: 35-41,49-65
 
     import React from 'react';
     import { flattenToAppURL } from '@plone/volto/helpers';
     import { Container, Image, Icon, Label, Segment } from 'semantic-ui-react';
 
-    const color_mapping = {
-      professional: 'red',
-      pro: 'red',
-      beginner: 'green',
-      advanced: 'yellow',
-    };
-
     const TalkView = props => {
       const { content } = props;
+      const color_mapping = {
+        Beginner: 'green',
+        Advanced: 'yellow',
+        Professional: 'red',
+      };
+
       return (
-        <>
-          <Container id="page-talk">
-            <h1 className="documentFirstHeading">
-              {content.type_of_talk.title}: {content.title}
-            </h1>
-            {content.description && (
-              <p className="documentDescription">{content.description}</p>
+        <Container id="page-talk">
+          <h1 className="documentFirstHeading">
+            {content.type_of_talk.title}: {content.title}
+          </h1>
+          {content.description && (
+            <p className="documentDescription">{content.description}</p>
+          )}
+          {content.audience.map(item => {
+            let audience = item.title;
+            let color = color_mapping[audience] || 'green';
+            return (
+              <Label key={audience} color={color}>
+                {audience}
+              </Label>
+            );
+          })}
+          {content.details && (
+            <div dangerouslySetInnerHTML={{ __html: content.details.data }} />
+          )}
+          <Segment clearing>
+            {content.speaker && <h3>{content.speaker}</h3>}
+            {content.website ? (
+              <p>
+                <a href={content.website}>{content.company}</a>
+              </p>
+            ) : (
+              <p>{content.company}</p>
             )}
-            {content.audience.map(item => {
-              let audience = item.title;
-              let visual = audience.charAt(0).toUpperCase() + audience.slice(1);
-              let color = color_mapping[audience] || 'green';
-              return (
-                <Label
-                  as="a"
-                  href={`/search?audience=${audience}`}
-                  key={audience}
-                  tag
-                  color={color}
-                >
-                  {visual}
-                </Label>
-              );
-            })}
-            {content.details && (
-              <div dangerouslySetInnerHTML={{ __html: content.details.data }} />
+            {content.email && (
+              <p>
+                <a href={`mailto:${content.email}`}>
+                  <Icon name="mail" /> {content.email}
+                </a>
+              </p>
             )}
-            <Segment clearing>
-              <h3>{content.speaker}</h3>
-              <a href={`mailto:${content.email}`}>
-                <Icon name="mail" />
-                {content.email}
-              </a>
+            {content.twitter && (
+              <p>
+                <a href={`https://twitter.com/${content.twitter}`}>
+                  <Icon name="twitter" />{' '}
+                  {content.twitter.startsWith('@')
+                    ? content.twitter
+                    : '@' + content.twitter}
+                </a>
+              </p>
+            )}
+            {content.github && (
+              <p>
+                <a href={`https://github.com/${content.github}`}>
+                  <Icon name="github" /> {content.github}
+                </a>
+              </p>
+            )}
+            {content.image && (
               <Image
                 src={flattenToAppURL(content.image.scales.preview.download)}
                 size="small"
                 floated="right"
                 alt={content.image_caption}
-                circular
+                avatar
               />
-              {content.speaker_biography && (
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: content.speaker_biography.data,
-                  }}
-                />
-              )}
-            </Segment>
-          </Container>
-        </>
+            )}
+            {content.speaker_biography && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: content.speaker_biography.data,
+                }}
+              />
+            )}
+          </Segment>
+        </Container>
       );
     };
     export default TalkView;
