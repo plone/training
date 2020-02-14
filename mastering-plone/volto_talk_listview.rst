@@ -85,11 +85,108 @@ First we reuse the component ``DefaultView.jsx`` in our custom view again:
     };
     export default TalkListView;
 
-Documentation
+.. note::
+
+    For the next part you should have some talks and no other content in one folder to work on the progressing view.
+
+For displaying the title and the description of the folder you will have to work with the ``content``. To use it, you have to assign it in the first step. Afterwards you cat use it to display every information the ``content`` holds like ``title`` and ``description``.
+
+..  code-block:: js
+    :emphasize-lines: 2-3,6-18
+
+    import React from 'react';
+    import { Container, Segment, Label, Image } from 'semantic-ui-react';
+    import { Helmet } from '@plone/volto/helpers';
+
+    const TalkListView = props => {
+        const { content } = props;
+        return (
+            <Container className="view-wrapper">
+            <Helmet title={content.title} />
+            <article id="content">
+                <header>
+                <h1 className="documentFirstHeading">{content.title}</h1>
+                {content.description && (
+                    <p className="documentDescription">{content.description}</p>
+                )}
+                </header>
+            </Container>
+        )
+    };
+    export default TalkListView;
+
+You can also iterate over all item hold by the content by using the map ``content.items``.
+
+.. code-block:: js
+    :emphasize-lines: 2-3,6-18
+
+    import React from 'react';
+    import { Container, Segment, Label, Image } from 'semantic-ui-react';
+    import { Helmet } from '@plone/volto/helpers';
+
+    const TalkListView = props => {
+        const { content } = props;
+        return (
+            <Container className="view-wrapper">
+            <Helmet title={content.title} />
+            <article id="content">
+                <header>
+                <h1 className="documentFirstHeading">{content.title}</h1>
+                {content.description && (
+                    <p className="documentDescription">{content.description}</p>
+                )}
+                </header>
+                <section id="content-core">
+                    {results &&
+                        results.map(item => (
+                        <Segment padded>
+                            <h2>
+                            <Link to={item['@id']} title={item['@type']}>
+                                {item.type_of_talk.title}: {item.title}
+                            </Link>
+                            </h2>
+                            {item.audience.map(item => {
+                            let audience = item.title;
+                            let color = color_mapping[audience] || 'green';
+                            return (
+                                <Label key={audience} color={color}>
+                                {audience}
+                                </Label>
+                            );
+                            })}
+                            {item.image && (
+                            <Image
+                                src={flattenToAppURL(item.image.scales.preview.download)}
+                                size="small"
+                                floated="right"
+                                alt={content.image_caption}
+                                avatar
+                            />
+                            )}
+                            {item.description && <div>{item.description}</div>}
+                            <Link to={item['@id']} title={item['@type']}>
+                            read more ...
+                            </Link>
+                        </Segment>
+                    ))}
+                </section>
+            </article>
+            </Container>
+        )
+    };
+    export default TalkListView;
+
+* Explain overview with content items
+
+* build bridge why search is needed
+* Explain Search
+
+To get all talks you added to your site, you'll have to implement a search for your 
 
 Whole View:
 
 .. code-block:: js
+
     import React from 'react';
     import { searchContent } from '@plone/volto/actions';
     import { Container, Segment, Label, Image } from 'semantic-ui-react';
