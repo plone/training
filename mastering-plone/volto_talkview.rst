@@ -33,7 +33,7 @@ In Volto the default visualization for your new content type "talk" only shows t
 
 Since we want to show the data we need to write a custom view for talks that is used in Volto.
 
-In the folder :file:`volto` you need to add a new file ``src/components/Views/Talk.jsx`` (create the folder ``Views`` first.)
+In the folder :file:`volto` you need to add a new file :file:`src/components/Views/Talk.jsx` (create the folder :file:`Views` first.)
 
 As a first step the file will hold a placeholder only:
 
@@ -46,7 +46,18 @@ As a first step the file will hold a placeholder only:
     };
     export default TalkView;
 
-Now register the new component as default view for talks in ``src/config.js``.
+Also add a convenience-import of the new component to :file:`src/components/index.js`:
+
+..  code-block:: js
+
+    import TalkView from './Views/Talk';
+
+    export { TalkView };
+
+
+This is is a common practice and allows us import the new view as ``import { TalkView } from './components';`` instead of ``import { TalkView } from './components/Views/Talk';``.
+
+Now register the new component as default view for talks in :file:`src/config.js`.
 
 ..  code-block:: js
     :emphasize-lines: 1,7-10
