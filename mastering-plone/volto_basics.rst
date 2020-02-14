@@ -7,23 +7,27 @@ Volto is a React-based frontend for Plone. It is the default frontend since Plon
 
 Here are some things you should know if you are new to Plone 6 or Volto:
 
+* Volto is built in `React <https://reactjs.org>`_ (Version?), a modern Javascript Framework.
 * Volto uses `plone.restapi <https://github.com/plone/plone.restapi/>`_ to communicate with Plone.
-* Volto will only work of ``plone.restapi`` is installed in your Plone site. In Plone 6 this should be the case by default.
+* All data is stored in Plone, Volto is only used to display and manipulate the data.
+* Volto will only work if ``plone.restapi`` is installed in your Plone site. In Plone 6 this should be the case by default.
 * ``yarn`` is used to build Volto
 * Volto currently needs to be installed separately. See chapter :ref:`instructions-install_frontend-label` for instructions.
 * Volto runs in a different process than the Plone-backend. By default Volto runs on port 3000. If you start Volto with ``yarn start`` you can see the frontend on http://localhost:3000. The Plone backend runs on http://localhost:8080
 * To create a new Plone site you need to use the backend, this is not possible in Volto.
 * All changes you make in Volto are visible in Plone and vice versa.
 * Volto uses the components from `Semantic UI React <https://react.semantic-ui.com/>`_ to compose most of the views. For example the component `Image <https://react.semantic-ui.com/elements/image/>`_ is used to render images.
-* Volto is highly extendable and and customizable with a technology similar to ``z3c.jbot`` that uses component shadowing.
-* Volto uses node.js and razzle to render the first request on the server (e.g. for SEO-purposes)
-* Volto uses `Redux <https://redux.js.org/>`_ and `React Router <https://reacttraining.com/react-router/web/guides/quick-start>`_ to ...
-* Volto features the Pastanaga Editor, allowing you to visually compose a page using blocks.
-* When you use the Pastanaga Editor the data you add in blocks and the arrangement of the blocks is stored as json in the schema-fields ``blocks`` and ``blocks_layout`` provided by the dexterity-behavior ``volto.blocks``. The blocks are is not displayed in the backend.
-* If you do not use the behavior ``volto.blocks`` the fields from a content-type schema are edited and stored like previously in Plone.
+* Volto is highly extendable and and customizable with a technology similar to ``z3c.jbot`` called component shadowing.
+* Volto uses node.js and razzle to render the first request on the server (e.g. for SEO-purposes).
+* Volto uses `Redux <https://redux.js.org/>`_ to manage the state of the React application and `React Router <https://reacttraining.com/react-router/web/guides/quick-start>`_ to manage routing.
+* Volto aims at providing 100% of the features of the current backend that make sense. There are some things (e.g. the diazo theme editor) that are not useful to have in Volto.
+* Volto is not finished, i.e. not all features of Plone are already implemented in Volto and plone.restapi yet.
+* Volto features the Pastanaga Editor, allowing you to visually compose a page using blocks. This feature is enable for content-types that have the dexterity-behavior ``volto.blocks`` enabled.
+* When you use the Pastanaga Editor the data you add in blocks and the arrangement of the blocks is stored as JSON in the schema-fields ``blocks`` and ``blocks_layout`` provided by the dexterity-behavior ``volto.blocks``. The blocks are not rendered as html in the backend. Additionally you can edit all fields from the content-type schema in a sidebar.
+* If you do not use the behavior ``volto.blocks`` the fields from a content-type schema are edited and stored exactly like previously in Plone.
 
 
-Here is a example for a view in Volto, the view for News Items:
+Here is an example for a view in Volto, the view for News Items:
 
 ..   code-block:: js
 
