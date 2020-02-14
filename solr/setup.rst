@@ -44,8 +44,8 @@ Create a buildout (*buildout.cfg*) which installs both requirements
     solr-config = config
 
     [versions]
-    collective.solr = 6.0a1
-    collective.recipe.solrinstance = 6.0.0b3
+    collective.solr = 8.0.0a5
+    kitconcept.recipe.solr = 1.0.0a5
 
 
 Run buildout:
@@ -297,10 +297,19 @@ This method is usually way faster but comes with the downside of index delays.
 To use this behavior you have to do two things:
 
  - Turn **Automatic commit** OFF in the Solr controlpanel in Plone.
- - Set one or both of the following options in the Solr server configuration via the collective.recipe.solrinstance buildout recipe:
+ - Set one or both of the following *<autoCommit>* options in solrconfig.xml:
 
-   - ``autoCommitMaxDocs`` - The number of updates that have occurred since the last commit.
-   - ``autoCommitMaxTime`` - The number of milliseconds since the oldest uncommitted update.
+   - ``<maxDocs>`` - The number of updates that have occurred since the last commit.
+   - ``<maxTime>`` - The number of milliseconds since the oldest uncommitted update.
+
+It could look like this:
+
+.. code-block:: xml
+   
+    <autoCommit>
+      <maxTime>15000</maxTime>
+      <openSearcher>false</openSearcher>
+    </autoCommit>
 
 Asynchronous
 ------------
@@ -314,7 +323,7 @@ It is advisable to do a sync or full-index from time to time if you work with th
 
 Additional information can be found in the Solr documentation:
 
-.. seealso:: https://lucene.apache.org/solr/guide/6_6/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin
+.. seealso:: https://lucene.apache.org/solr/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin
 
 Exercise
 ========
