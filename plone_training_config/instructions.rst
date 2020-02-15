@@ -182,6 +182,33 @@ Requirements
 * Install ``create-volto-app`` with ``npm i @plone/create-volto-app@4.0.0-alpha.8``
 * Use ``npx @plone/create-volto-app volto`` to bootstrap the boilerplate for the frontend
 
+Here is there output of the command::
+
+    Creating volto...
+
+    > Success! Created files for "volto" Volto app
+
+      Installing npm modules:
+        @plone/volto@alpha
+
+    > Success! Installed dependencies for volto
+
+      Awesome! You're now ready to start coding.
+
+      We already ran yarn for you, so your next steps are:
+        cd volto
+
+      To start a local server for development:
+        yarn start
+
+      To build a version for production:
+        yarn build
+
+      To run the server in production:
+        yarn start:prod
+
+      Questions? Feedback? Please let us know!
+
 
 Start the frontend with::
 
