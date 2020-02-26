@@ -2,7 +2,7 @@
 Solr GUI And Query Syntax
 =========================
 
-In the next part we will take a closer look the the search GUI of Solr and its query syntax.
+In the next part we will take a closer look at the search GUI of Solr and its query syntax.
 
 Access Solr GUI
 ===============
@@ -13,14 +13,16 @@ It is possible to access all of the SOLR API via REST and most of this functiona
 To test it out, do the following:
 
  - Go to: http://localhost:8983/solr/#/
- - Select Core "collection1"
- - Go to: "Schema Browser"
- - Select "fullname"
+ - Select Core "plone"
+ - Go to: "Schema"
+ - Select "Description"
  - Click: "Load Term Info"
- - Click on term "<fullname>"
+ - Click on term "<site>"
 
 Solr Query Syntax
 =================
+
+After selecting the core, go to "Query". This form allows you to query the Solr index.
 
 Solr Query Parameters:
 
@@ -29,7 +31,7 @@ Query "q"::
    Title:"news"
    *:"news"
 
-Solr response::
+A Solr response looks like this::
 
    {
      "responseHeader":{
@@ -74,7 +76,7 @@ Solr response::
 
 Filter Query "fq"
 
-This parameter can be used to specify a query that can be used to restrict the super set of documents that can be returned,
+This parameter can be used to specify a query that restricts the superset of documents that can be returned
 without influencing the score.
 
 It can be very useful for speeding up complex queries since the queries specified with fq are cached independently from the main query.
@@ -105,9 +107,9 @@ A Response Writer generates the formatted response of a search.
 Solr Query Via URL
 ==================
 
-Copy query from Solr GUI, e.g.::
+Copy a query from the Solr GUI, e.g.::
 
-    http://localhost:8983/solr/collection1/select?q=Title%3A%22termine%22&wt=json&indent=true
+    http://localhost:8983/solr/plone/select?q=Title%3A%22termine%22&wt=json&indent=true
 
 You can use curl or the Python package `requests` (https://pypi.org/project/requests) to access the REST API of Solr.
 
@@ -125,10 +127,11 @@ Here are some examples:
  - ``mysolr``: https://pypi.org/project/mysolr
  - ``solrpy``: https://pypi.org/project/solrpy
  - ``pysolr``: https://pypi.org/project/pysolr
+ - ``scorched``: https://pypi.org/project/scorched
 
 Sometimes it is handy to have a separate virtualenv available for doing batch operations (delete, update, etc.)
 
-I use the following script to delete all Plone Documents from Solr
+You can use the following script to delete all Plone Documents from Solr
 
 .. code-block:: python
 
@@ -167,7 +170,7 @@ You will need to use sub-queries.
 
 Sub-queries::
 
- (New AND York) OR (Buenos Aires)
+ (New AND York) OR (Buenos AND Aires)
 
 Range Queries::
 
@@ -191,7 +194,7 @@ with treshold::
 
 Wildcard queries:
 
-Find all cities starting with *New* you can do::
+To find all cities starting with *New* you can do::
 
  New*
 
@@ -213,7 +216,7 @@ All of these units can be pluralized with an *S* as in *DAYS*. ::
  effective:[* TO NOW-3MONTHS]
 
 *NOW* has a millisecond precision.
-To round down by using the */* operator (it never rounds up)::
+To round down use the */* operator (it never rounds up)::
 
  effective:[* TO NOW/DAY-2YEAR]
 
@@ -235,14 +238,14 @@ Faceting
 ========
 
 Faceting is one of the killer features of Solr.
-It allows the grouping and filtering results for better findability.
-To enable faceting you need to turn faceting on in the query and specify the fields you want to facet upon:
+It allows the grouping and filtering of results for better findability.
+To enable faceting you need to turn faceting on in the query and specify the fields you want to facet upon.
 
-For a simple facet query in Solr you activate the feature and specify the facet fields(s)::
+For a simple facet query in Solr you activate the feature ("facet=true") and specify the facet fields(s) ("facet.field=portal_type")::
 
- http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true&facet=true&facet.field=portal_type
+ http://localhost:8983/solr/plone/select?q=*%3A*&wt=json&indent=true&facet=true&facet.field=portal_type
 
-Besides the matching documents this will give you an additional grouping of documents
+Besides the matching documents this will give you an additional grouping of documents:
 
 .. code-block:: json
 
@@ -272,9 +275,9 @@ Besides the matching documents this will give you an additional grouping of docu
   }
 
 There are more complex scenarios possible.
-For a complete list of options see the according Solr documentation.
+For a complete list of options see the respective Solr documentation.
 
-.. seealso:: https://lucene.apache.org/solr/guide/6_6/faceting.html
+.. seealso:: https://lucene.apache.org/solr/guide/8_2/faceting.html
 
 With ``collective.solr`` you don't have to worry about the faceting details too much.
 There is a convenient method to configure the faceting fields in the control panel of ``collective.solr``.
@@ -285,11 +288,11 @@ Search GUIs
 ===========
 
  - ``collective.solr`` out of the box: ``collective.solr`` comes with its own search view.
-   For the new version 6.0 it is based on `React <https://reactjs.org/>`_ and looks similar to the Plone search view with native facet support of Solr.
+   Since version 6.0 it has been based on `React <https://reactjs.org/>`_ and looks similar to the Plone search view with native facet support of Solr.
 
  - `eea.facetednavigation <https://github.com/eea/eea.facetednavigation>`_: This add-on allows faceting out of the box even without Solr.
    It is a product for integrators to setup search and filter GUIs TTW (Through-The-Web).
-   It can be used for several use cases: Search pages, collection replacements, etc.  **DEMO**
+   It can be used for several use cases: Search pages, collection replacements, etc.
 
  - custom: Another way is to create a custom search page.
    This is easy to do and we will see later on in this training how.
