@@ -92,12 +92,11 @@ In your Plone environment, use this command to run Plone:
 
     $ make start-backend
 
-In your yarn environment, use this command to run Volto:
+Once Plone is listening on port 8080, use this command to run Volto in your yarn environment in another terminal or shell:
 
 .. code-block:: console
 
     $ yarn start
-
 
 Volto source code
 =================
