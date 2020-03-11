@@ -161,16 +161,20 @@ This has multiple benefits:
 * All content can now be wrapped in the same ``Container`` which cleans up the html.
 * We can control where the speaker-portrait is displayed. We can now move all information on the speaker into a separate box. The speaker-portrait is picked up by the DefaultView because the field's name is ``image`` (same as the image from the behavior ``plone.leadimage``).
 
+With this changes we do discard the title-tag in the HTML head though. This will change the name occuring in the browser tab or browser head to the current site-url. To use the content title instead, you'll have to import the ``Helmet`` component, which allows you to overwrite all meta-tags for the HTML head like the page-title.
+
 ..  code-block:: js
-    :emphasize-lines: 8-14
+    :emphasize-lines: 3,9-16
 
     import React from 'react';
     import { Container } from 'semantic-ui-react';
+    import { Helmet } from '@plone/volto/helpers';
 
     const TalkView = props => {
       const { content } = props;
       return (
         <Container id="page-talk">
+          <Helmet title={content.title} />
           <h1 className="documentFirstHeading">
             <span class="type_of_talk">{content.type_of_talk.title} </span>
             {content.title}

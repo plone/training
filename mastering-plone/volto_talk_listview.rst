@@ -29,7 +29,7 @@ As a first step the file will hold a placeholder again:
     };
     export default TalkListView;
 
-Then you have to edit the file::index.js to export your new View:
+Then you have to edit the :file:`index.js` to export your new View:
 
 ..  code-block:: js
     :emphasize-lines: 1,4
