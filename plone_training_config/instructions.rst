@@ -80,10 +80,19 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
     cd training
     git clone https://github.com/collective/training_buildout.git plone
     cd plone
+
+Until Mastering Plone 6 version is released you need to checkout the branch `plone6`.
+
+.. code-block:: console
+
+    git checkout plone6
+
+Then create a virtualenv with Python 3.7 in the folder :file:`plone` and installs some requirements in it.
+
+.. code-block:: console
+
     python3.7 -m venv .
     ./bin/pip install -r requirements.txt
-
-This creates a virtualenv with Python 3.7 in the folder :file:`plone` and installs some requirements in it.
 
 Now you can run the buildout for the first time:
 
@@ -150,7 +159,7 @@ If you point your browser at http://localhost:8080 you see that Plone is running
 
 .. figure:: _static/instructions_plone_running.png
 	:scale: 50 %
-	:alt: A running Plone instance.
+	:alt: Plone is running.
 
 	A running plone instance.
 
@@ -169,17 +178,22 @@ You can stop the running instance anytime using :kbd:`ctrl + c`.
 Installing the frontend
 ~~~~~~~~~~~~~~~~~~~~~~~
 
+You need do go up one folder (out of `plone`) to install the fronend::
+
+    $ cd ..
+
 TODO:
 
-* Copy info from https://training.plone.org/5/volto/bootstrap.html
+* Copy some info from https://training.plone.org/5/volto/bootstrap.html
 * Explain ``create-volto-app``
 * Explain node, nvm, npx, yarn
 
 Requirements
 
-* Use `nvm` to manage `node` versions
-* Install node 10.18.1: ``nvm use 10.18.1``
-* Install ``create-volto-app`` with ``npm i @plone/create-volto-app@4.0.0-alpha.8``
+* Use `nvm` to manage `node` versions: ``brew nvm`` (Mac) or ``apt-get install nvm`` (Linux)
+* Install node LTS (currently that is 12.16.1): ``nvm install --lts``
+* Enable node LTS: ``nvm use 12.16.1``
+* Install ``create-volto-app`` with ``npm i @plone/create-volto-app@4.0.0``
 * Use ``npx @plone/create-volto-app volto`` to bootstrap the boilerplate for the frontend
 
 Here is there output of the command::
@@ -210,8 +224,9 @@ Here is there output of the command::
       Questions? Feedback? Please let us know!
 
 
-Start the frontend with::
+Now you can enter the new folder `volto` and start the frontend with::
 
+    $ cd volto
     $ yarn start
 
 If you open http://localhost:3000 you will see the frontend but you will get a error message (`This page does not seem to exist…`) because you have not yet created a Plone site. We'll do that in chapter 7.
