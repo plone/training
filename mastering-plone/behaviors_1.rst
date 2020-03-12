@@ -72,7 +72,7 @@ Practical example
 
     So, let us write our own small behavior.
 
-    In the future, we want some talks, news items or other content be represented on the frontpage similar to what we did with the "hot news" field early on.
+    We want some talks, news items or other content to be represented on the frontpage similar to what we did with the "hot news" field early on.
 
     So for now, our behavior just adds a new field to store this information.
 
@@ -84,22 +84,7 @@ We want to keep a clean structure, so we create a :file:`behaviors` directory fi
 
 Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/configure.zcml` containing
 
-.. only:: not presentation
-
-    .. sidebar:: Advanced reference
-
-        It can be a bit confusing when to use factories or marker interfaces and when not to.
-
-        If you do not define a factory, your attributes will be stored directly on the object.
-        This can result in clashes with other behaviors.
-
-        You can avoid this by using the :py:class:`plone.behavior.AnnotationStorage` factory.
-        This stores your attributes in an `Annotation <https://docs.plone.org/develop/plone/misc/annotations.html>`_.
-        But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
-
-        Without it, you would have no interface against which you could register your views.
-
-.. _social-behavior-zcml-label:
+.. _featured-behavior-zcml-label:
 
 .. code-block:: xml
     :linenos:
@@ -119,9 +104,24 @@ Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/confi
 
     </configure>
 
+.. only:: not presentation
+
+    .. sidebar:: Advanced reference
+
+        It can be a bit confusing when to use factories or marker interfaces and when not to.
+
+        If you do not define a factory, your attributes will be stored directly on the object.
+        This can result in clashes with other behaviors.
+
+        You can avoid this by using the :py:class:`plone.behavior.AnnotationStorage` factory.
+        This stores your attributes in an `Annotation <https://docs.plone.org/develop/plone/misc/annotations.html>`_.
+        But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
+
+        Without it, you would have no interface against which you could register your views.
+
 And a :file:`behaviors/featured.py` containing:
 
-.. _social-behavior-python-label:
+.. _featured-behavior-python-label:
 
 .. code-block:: python
     :linenos:
@@ -147,21 +147,21 @@ And a :file:`behaviors/featured.py` containing:
             required=False,
         )
 
+This is exactly the same type of schema as the one in teh talk content-type.
+The only addition is ``@provider(IFormFieldProvider)`` that makes sure that the fields in the schema are displayed in the add- and edit-forms.
 
-.. only:: not presentation
+Let's go through this step by step.
 
-    Let's go through this step by step.
-
-    #. We register a behavior in :ref:`behaviors/configure.zcml <social-behavior-zcml-label>`.
-       We do not say for which content type this behavior is valid.
-       You do this through the web or in the GenericSetup profile.
-    #. We create a marker interface in :ref:`behaviors/social.py <social-behavior-python-label>` for our behavior.
-       We make it also a schema containing the fields we want to declare.
-       We could just define schema fields on a zope.interface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features.
-    #. We mark our schema as a class that also provides the `IFormFieldProvider`_ interface using a decorator.
-       The schema class itself provides the interface, not its instance!
-    #. We also add a `fieldset`_ so that our fields are not mixed with the normal fields of the object.
-    #. We add a normal `Bool <https://zopeschema.readthedocs.io/en/latest/fields.html#bool>`_ schema field to control if a item should be displayed on the frontpage.
+#. We register a behavior in :ref:`behaviors/configure.zcml <featured-behavior-zcml-label>`.
+   We do not say for which content type this behavior is valid.
+   You do this through the web or in the GenericSetup profile.
+#. We create a interface in :ref:`behaviors/featured.py <featured-behavior-python-label>` for our behavior.
+   We make it also a schema containing the fields we want to declare.
+   We could just define schema fields on a zope.interface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features.
+#. We mark our schema as a class that also provides the `IFormFieldProvider`_ interface using a decorator.
+   The schema class itself provides the interface, not its instance!
+#. We also add a `fieldset`_ so that our fields are not mixed with the normal fields of the object.
+#. We add a normal `Bool <https://zopeschema.readthedocs.io/en/latest/fields.html#bool>`_ schema field to control if a item should be displayed on the frontpage.
 
 .. _behaviors1-adding-label:
 
@@ -195,3 +195,8 @@ We must add the behavior to :file:`profiles/default/types/talk.xml`:
 .. _plone.supermodel: https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
 .. _fieldset: https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
 .. _IFormFieldProvider: https://docs.plone.org/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms
+
+
+Add a index for the new field
+-----------------------------
+
