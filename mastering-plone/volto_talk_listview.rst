@@ -289,6 +289,8 @@ The search itself will be defined in the ``React.useEffect(() => {})``- section 
 
 The items itsef won't change though, so the rest of the code will stay untouched.
 
+Now you can try and create a new folder on your site and move one or more of the talks. The list should not change at all.
+
 .. _volto_talk_listview-label:
 
 Exercises
