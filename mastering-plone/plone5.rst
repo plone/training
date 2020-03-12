@@ -1,7 +1,10 @@
 .. _plone5-label:
 
-What's New in Plone 5, 5.1 and Plone 5.2
-========================================
+====================
+What's New in Plone?
+====================
+
+This is a list of mayor changes in the last mayor Plone versions.
 
 Plone 5.0 was released in September 2015. Plone 5 was a mayor release, that changed the content type framework, the user interface and the default design.
 
@@ -9,60 +12,46 @@ Plone 5.1 was released in October 2017 and holds a couple of smaller improvement
 
 Plone 5.2 was released in March 2019. Plone 5.2 is the first version that supports Python 3. It also has some improvements like a new drop-down navigation and built-in url-management.
 
-If you are already familiar with Plone 5.0, 5.1 and 5.2 you can skip this section.
+Plone 6 is not yet released. Plone 6 will only run on Python 3 and will ship with Volto, a new ReactJS-based frontend. The "classic" frontend will stay in place.
 
 
-.. _plone5-theme-label:
-
-Default Theme
--------------
-
-The default theme of Plone 5.x is called `Barceloneta <https://github.com/plone/plonetheme.barceloneta/>`_
-
-It is a Diazo theme, meaning it uses :py:mod:`plone.app.theming` to insert the output of Plone into static html/css.
-
-It uses html5, so it uses ``<header>``, ``<nav>``, ``<aside>``, ``<section>``, ``<article>`` and ``<footer>`` for semantic html.
-
-The theme is mostly built with `LESS <http://lesscss.org/>`_ (lots of it!)
-and uses the same grid system as `Bootstrap <https://getbootstrap.com/css/#grid>`_.
-This means you can use CSS classes like ``col-xs-12 col-sm-9`` to control the width of elements for different screen sizes.
-If you prefer a different grid system (like `Foundation <https://foundation.zurb.com/sites/docs/grid.html>`_) over Bootstrap you can adapt the theme to use that.
-
-The `index.html <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/index.html>`_ and `rules.xml <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/rules.xml>`_ are the main elements to make this happen.
-
-.. _plone5-ui-widgets-label:
-
-New UI and widgets
-------------------
-
-While Plone 4 had a green edit-bar above the content Plone 5 has a toolbar that is located on the left or top and can be expanded. The design of the toolbar is pretty isolated from the theme and it should not break if you use a different theme.
-
-The widgets where you input data are also completely rewritten.
-
-* Plone now uses the newest TinyMCE
-* The tags (keywords) widget and the widgets where you input user names use `select2 <http://select2.github.io>`_ autocomplete to give a better user experience
-* The related-items widget is a complete rewrite
-
-
-.. _plone5-foldercontents-label:
-
-Folder Contents
----------------
-
-The view to display the content of a folder is new and offers many new features compared to Plone 4:
-
-* configurable table columns
-* changing properties of multiple items at once
-* querying (useful for folders with a lot of content)
-* persistent selection of items
-
+Plone 5.0
+=========
 
 .. _plone5-content-types-label:
 
 Content Types
 -------------
 
-While Plone 4 used Archetypes all default types are based on Dexterity in Plone 5. This means you can use behaviors to change their features and edit them through the web. Existing old content can be migrated to these types.
+While Plone 4 used Archetypes all default types since Plone 5.0 are based on Dexterity. This means you can use behaviors to change their features and edit them through the web. Existing old content can be migrated to the new types.
+
+
+Default Theme
+-------------
+
+The default theme of Plone 5.x is called `Barceloneta <https://github.com/plone/plonetheme.barceloneta/>`_.
+
+It is a Diazo theme, meaning it uses :py:mod:`plone.app.theming` to insert the output of Plone into static html/css.
+
+It uses html5, so it uses ``<header>``, ``<nav>``, ``<aside>``, ``<section>``, ``<article>`` and ``<footer>`` for semantic html.
+
+
+.. _plone5-ui-widgets-label:
+
+New UI and widgets
+------------------
+
+While Plone 4 had a green edit-bar above the content Plone 5 introduced a toolbar that is located on the left.
+
+The widgets where you input data were also completely rewritten.
+
+.. _plone5-foldercontents-label:
+
+Folder Contents
+---------------
+
+The view to manage the content of a folder was rewritten and allows a multitude of features.
+
 
 
 .. _plone5-resource-registry-label:
@@ -70,64 +59,14 @@ While Plone 4 used Archetypes all default types are based on Dexterity in Plone 
 Resource Registry
 -----------------
 
-The resource registry allows you to configure and edit the static resources (js, css) of Plone. It replaces the old javascript and css registries. And it can be used to customize the theme by changing the variables used by LESS or overriding LESS files.
-
+The resource registry was instroduced to configure and edit the static resources (js, css) of Plone. It replaced the old javascript and css registries of Plone 4.
 
 .. _plone5-chameleon-label:
 
 Chameleon template engine
 -------------------------
 
-`Chameleon <https://chameleon.readthedocs.io/en/latest/>`_ is the new rendering engine of Plone 5. It offers many improvements:
-
-Old syntax:
-
-.. code-block:: html
-
-    <h1 tal:attributes="title view/title"
-        tal:content="view/page_name">
-    </h1>
-
-New (additional) syntax:
-
-.. code-block:: html
-
-    <h1 title="${view/title}">
-        ${view/page_name}
-    </h1>
-
-Template debugging:
-
-You can now put a full-grown ``pdb`` in a template.
-
-.. code-block:: html
-
-    <?python import pdb; pdb.set_trace() ?>
-
-For debugging check out the variable :py:obj:`econtext`, it holds all the current elements.
-
-You can also add real Python blocks inside templates.
-
-.. code-block:: html
-
-    <?python
-
-    from plone import api
-
-    catalog = api.portal.get_tool('portal_catalog')
-    results = []
-    for brain in catalog(portal_type='Folder'):
-        results.append(brain.getURL())
-
-    ?>
-
-    <ul>
-        <li tal:repeat="result results">
-          ${result}
-        </li>
-    </ul>
-
-Don't overdo it!
+`Chameleon <https://chameleon.readthedocs.io/en/latest/>`_ is the new and much faster rendering engine of Plone 5.
 
 
 .. _plone5-control-panel-label:
@@ -166,7 +105,7 @@ returns
 plone.app.multilingual
 ----------------------
 
-`plone.app.multilingual <https://github.com/plone/plone.app.multilingual>`_ is the new default add-on for sites in more than one language.
+Plone 5 ships with `plone.app.multilingual <https://github.com/plone/plone.app.multilingual>`_ that is the new default add-on for sites in more than one language.
 
 
 .. _plone5-portletmanager-label:
@@ -179,16 +118,8 @@ New portlet manager
 There is also a useful new portlet type :guilabel:`Actions` used for displaying the site_actions.
 
 
-.. _plone5-skins-label:
-
-Remove portal_skins
--------------------
-
-Many of the old skin templates were replaced by real browser views.
-
-
 Plone 5.1
----------
+=========
 
 Plone 5.1 comes with many incremental improvements. None of these changes the way you develop for Plone. Here are three noteworthy changes:
 
@@ -202,7 +133,7 @@ For a complete list of changes see https://docs.plone.org/manage/upgrading/versi
 
 
 Plone 5.2
----------
+=========
 
 Plone 5.2 supports Python 2.7, 3.6 and 3.7. It is based on Zope 4.0 and runs WSGI. These three are major changes under the hood but have only limited effect on end-users and development of add-ons.
 
@@ -222,3 +153,13 @@ Plone 5.2 comes with many bug fixes and a couple of nice improvements. Here are 
     * `Complete list of changes for Plone 5.2 <https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_52.html>`_
     * `Upgrade add-ons to Python 3 <https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_python3.html>`_
     * `Migrate a ZODB from Python 2.7 to Python 3 <https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_zodb_to_python3.html>`_
+
+
+Plone 6
+=======
+
+Plone 6 will ship with Volto, a new ReactJS-based frontend for Plone implemented on top of the plone.restapi. This combines the stability, maturity, and security of the Plone backend with a modern, mature, user-friendly and well maintained frontend.
+
+The "classic" Barceloneta-based frontend will stay in place to give developers and users time to adapt.
+
+Plone 6 will run on Python 3 only. Plone 6 will be released after January 1th 2020. Therefore it does not make much sense to support a Python version that does not receive any security updates.

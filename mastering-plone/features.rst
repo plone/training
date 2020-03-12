@@ -320,7 +320,7 @@ Content-Types
 Edit a page:
 
 * :guilabel:`Edit front-page`
-* :guilabel:`Title` :samp:`Plone Conference 2019, Ferrara, Italy`
+* :guilabel:`Title` :samp:`Plone Conference 2050, Solis Lacus, Mars`
 * :guilabel:`Summary` :samp:`Tutorial`
 * :guilabel:`Text` :samp:`...`
 
@@ -365,10 +365,6 @@ The default Plone content types are:
 * News Item
 * Page
 
-.. note::
-
-    Please keep in mind that we use `plone.app.contenttypes <https://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training, which are the default in Plone 5. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default Plone 4.3.x site.
-
 
 .. _features-folders-label:
 
@@ -397,9 +393,8 @@ Collections
 
     Add a collection through the web.
 
-* explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit
-* explain Topics
-* mention collection portlets
+* explain the default collection for events at http://localhost:3000/events/aggregator/edit
+* mention listing blocks for the pastanaga editor
 * multi-path queries
 * constraints, e.g. ``/Plone/folder::1``
 
@@ -408,6 +403,10 @@ Collections
 
 Content Rules
 -------------
+
+.. warning::
+
+    Content-rules can not be configured in Volto yet. See https://github.com/plone/volto/issues/10. You need to use the backend to configure content rules.
 
 * Create new rule "a new talk is in town"!
 * New content in folder "Talks" -> Send Mail to reviewers.
@@ -488,12 +487,19 @@ In that case, which initially applies to file and image uploads, the content obj
     An oddity in all of the standard Plone workflows: a content item may be viewable even if its container is not.
     Making a container private does **not** automatically make its contents private.
 
-Read more at: https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
+..  seealso::
+
+    * https://training.plone.org/5/workflow/index.html
+    * https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
 
 .. _features-wc-label:
 
 Working copy
 ------------
+
+.. warning::
+
+    Working copies can not be used in Volto yet.
 
 Published content, even in an intranet setting, can pose a special problem for editing.
 It may need to be reviewed before changes are made available.
@@ -519,6 +525,10 @@ Unless activated, check-in/check-out options are not visible.
 
 Placeful workflows
 ------------------
+
+.. warning::
+
+    Placeful workflows can not be configured in Volto yet. Workflow-settings that you configure in the classic frontend are working though.
 
 You may need to have different workflows in different parts of a site.
 For example, we created an intranet folder.
