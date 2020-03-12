@@ -3,14 +3,17 @@
 About Mastering Plone
 =====================
 
-This training was initially created by Philip Bauer and Patrick Gerken of `starzel.de <https://www.starzel.de>`_ to create
-a canonical training for future Plone developers.
+History
+-------
+
+This training was initially started by Philip Bauer and Patrick Gerken of `starzel.de <https://www.starzel.de>`_ to create a canonical training for future Plone developers.
 
 The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it.
 It is published as Open Source on `GitHub <https://github.com/plone/training>`_ and `training.plone.org <https://training.plone.org/>`_.
 
 If you want to inquire the original authors about organizing a training please contact them at team@starzel.de.
 
+It is updated every year to teach the current best practices.
 
 .. _about-upcoming-label:
 
@@ -19,7 +22,7 @@ Upcoming Trainings
 
 * `Plone Conference 2020 in Namur <https://ploneconf.org/>`_
 
-If you want to have a training near you please ask for trainings on https://community.plone.org
+If you want to have a on-site training or want to attend a public training please ask for trainings on https://community.plone.org
 
 .. _about-previous-label:
 

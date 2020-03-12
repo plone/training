@@ -11,7 +11,7 @@ Mastering Plone is intended as a week-long training for people who are new to Pl
 - A beginner training (2 to 3 days) that covers chapters 1-18.
 - An advanced training (3 to 5 days) that covers the rest.
 
-At conferences a shortened 2-day version of the advanced training with a slightly modified order is held.
+At conferences a shortened 2-day version of the advanced training with a slightly modified  order is held.
 
 
 ..  toctree::
@@ -21,10 +21,10 @@ At conferences a shortened 2-day version of the advanced training with a slightl
 
     about_mastering
     intro
+    case
     what_is_plone
     installation
     ../plone_training_config/instructions.rst
-    case
     features
     anatomy
     plone5
@@ -74,8 +74,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
 
 Please note that this document is *not complete* without the spoken word of a trainer.
 
-Even though we attempt to include the most important parts of what we teach in the narrative but
-reading it here can in no way be considered equal to attending a training.
+We attempt to include the most important parts of what we teach in the training. But reading it here can not be considered equal to attending a training.
 
 .. The following items are hidden in this toctree to prevent Sphinx warnings. They might be used by trainers only, or for historical purposes.
 

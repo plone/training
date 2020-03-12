@@ -3,15 +3,24 @@
 Installing Plone for the Training
 =================================
 
-Keep in mind that you need a fast Internet connection during installation since you'll have to download a lot of data!
+We need to install the backend **Plone** and the react-based frontend **Volto**.
+This will create a folder structure like this:
+
+.. code-block:: text
+
+    training
+    ├── backend
+    └── frontend
+
+In :file:`backend` we will install Plone and also add our custom Python code.
+In :file:`backend` we will install Volto and also add our custom React code.
 
 
 .. _instructions-no-vagrant-label:
 
 .. warning::
 
-    If you feel the desire to try out both methods below (with Vagrant and without),
-    make sure you use different :file:`training` directories!
+    If you try both methods below (with Vagrant and without), make sure you use different :file:`training` directories!
 
     The two installations do not coexist well.
 
@@ -19,16 +28,15 @@ Keep in mind that you need a fast Internet connection during installation since 
 Installing Plone without vagrant
 --------------------------------
 
-We need to install the backend **Plone** and the react-based frontend **Volto**. If you want to use server-side rendered templates instead of the react based frontend you can skip the part about installing Volto.
 
 Installing the backend
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. warning::
 
-    If you are new to running Plone on your laptop you could skip this part and continue with :ref:`install-virtualbox`.
+    If you are new to running Plone on your computer you could skip this part and continue with :ref:`install-virtualbox`.
 
-If you **are** experienced with running Plone on your own laptop, we encourage you to do so because you will have certain benefits:
+If you **are** experienced with running Plone on your own, we encourage you to do so because you will have important benefits:
 
 * You can use the editor you are used to.
 * You can use *omelette* to have all the code of Plone at your fingertips.
@@ -78,7 +86,7 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
     mkdir training
     cd training
-    git clone https://github.com/collective/training_buildout.git plone
+    git clone https://github.com/collective/training_buildout.git backend
     cd plone
 
 Until Mastering Plone 6 version is released you need to checkout the branch `plone6`.
@@ -87,7 +95,7 @@ Until Mastering Plone 6 version is released you need to checkout the branch `plo
 
     git checkout plone6
 
-Then create a virtualenv with Python 3.7 in the folder :file:`plone` and installs some requirements in it.
+Then create a virtualenv with Python 3.7 in the folder :file:`backend` and installs some requirements in it.
 
 .. code-block:: console
 
@@ -111,7 +119,7 @@ The output should be similar to:
 .. code-block:: console
     :emphasize-lines: 40
 
-    pbauer@bullet:/workspace/training/plone$  ./bin/instance fg
+    pbauer@bullet:/workspace/training/backend$  ./bin/instance fg
     2019-09-05 20:11:03,708 WARNING [Init:89][MainThread] Class Products.CMFFormController.ControllerPythonScript.ControllerPythonScript has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
     2019-09-05 20:11:03,715 WARNING [Init:89][MainThread] Class Products.CMFFormController.ControllerValidator.ControllerValidator has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
     2019-09-05 20:11:03,776 WARNING [Products.PDBDebugMode:31][MainThread]
@@ -127,7 +135,7 @@ The output should be similar to:
 
     ******************************************************************************
 
-    2019-09-05 20:11:04,858 INFO    [chameleon.config:38][MainThread] directory cache: /Users/pbauer/workspace/training/plone/var/cache.
+    2019-09-05 20:11:04,858 INFO    [chameleon.config:38][MainThread] directory cache: /Users/pbauer/workspace/training/backend/var/cache.
     2019-09-05 20:11:07,151 WARNING [plone.behavior:172][MainThread] Specifying 'for' in behavior 'Tiles' if no 'factory' is given has no effect and is superfluous.
     2019-09-05 20:11:08,353 WARNING [PrintingMailHost:30][MainThread] Hold on to your hats folks, I'm a-patchin'
     2019-09-05 20:11:08,353 WARNING [PrintingMailHost:124][MainThread]
@@ -178,7 +186,7 @@ You can stop the running instance anytime using :kbd:`ctrl + c`.
 Installing the frontend
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-You need do go up one folder (out of `plone`) to install the fronend::
+You need do go up one folder (out of `backend`) to install the fronend::
 
     $ cd ..
 
@@ -194,23 +202,23 @@ Requirements
 * Install node LTS (currently that is 12.16.1): ``nvm install --lts``
 * Enable node LTS: ``nvm use 12.16.1``
 * Install ``create-volto-app`` with ``npm i @plone/create-volto-app@4.0.0``
-* Use ``npx @plone/create-volto-app volto`` to bootstrap the boilerplate for the frontend
+* Use ``npx @plone/create-volto-app frontend`` to bootstrap the boilerplate for the volto frontend
 
 Here is there output of the command::
 
-    Creating volto...
+    Creating frontend...
 
-    > Success! Created files for "volto" Volto app
+    > Success! Created files for "frontend" Volto app
 
       Installing npm modules:
         @plone/volto@alpha
 
-    > Success! Installed dependencies for volto
+    > Success! Installed dependencies for frontend
 
       Awesome! You're now ready to start coding.
 
       We already ran yarn for you, so your next steps are:
-        cd volto
+        cd frontend
 
       To start a local server for development:
         yarn start
@@ -224,9 +232,9 @@ Here is there output of the command::
       Questions? Feedback? Please let us know!
 
 
-Now you can enter the new folder `volto` and start the frontend with::
+Now you can enter the new folder `frontend` and start it with::
 
-    $ cd volto
+    $ cd frontend
     $ yarn start
 
 If you open http://localhost:3000 you will see the frontend but you will get a error message (`This page does not seem to exist…`) because you have not yet created a Plone site. We'll do that in chapter 7.
