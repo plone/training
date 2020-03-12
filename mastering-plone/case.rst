@@ -20,14 +20,26 @@ Requirements
 Here are some requirements that we want to meet when the site is done:
 
 * As a visitor I want to find current information on the conference.
-* As a visitor I want to register for the conference.
-* As a visitor I want to see the talks and sort them by my preferences.
+* As a visitor I want to find information about talks.
 * As a speaker I want to be able to submit talks.
 * As a speaker I want to see and edit my submitted talks.
 * As an organizer I want to see a list of all proposed talks.
-* As an organizer I want to have an overview about how many people registered.
 * As a jury member I want to vote on talks.
 * As a jury member I want to decide which talks to accept, and which not.
+* As a visitor I want to be able to register for the conference.
+* As an organizer I want to have an overview about how many people registered.
 
-Note that all of our requirements connect roles with capabilities.
+Note that requirements connect roles with capabilities.
 This is important because we'll want to limit the capabilities to those to whom we assign particular roles.
+
+If you have ever organized a conference you will find that this story is pretty rough.
+Like in many real projects new requirements will come up during the development of the project.
+
+Here are some specific features-requirements that will come up:
+
+* Talks should be assignable to rooms
+* Available values for audience, type of talk and rooms be managed by a admin
+* Talks should have a time and date to display them in a calendar
+* We want a calendar-view that shows the talks in a timetable with rooms as columns
+
+We see how you can adapt and extend the project to meet these new requirements.
