@@ -16,7 +16,7 @@ Topics covered:
 
 Volto has different views for listing objects. Most of them list all objects in a folder like the ``listing view``. To show all talks you have in your site you'll have to register and write your own listing view. 
 
-For doing so you have to add another new file ``src/components/Views/TalkListView.jsx`` in the folder :file:`Views` you added in the last chapter.
+For doing so you have to add another new file ``src/components/Views/TalkList.jsx`` in the folder :file:`Views` you added in the last chapter.
 
 As a first step the file will hold a placeholder again:
 
@@ -25,51 +25,50 @@ As a first step the file will hold a placeholder again:
     import React from 'react';
 
     const TalkListView = props => {
-      return <div>I'm the TalkListView component!</div>;
+      return <div>I'm the TalkList component!</div>;
     };
     export default TalkListView;
 
 Then you have to edit the :file:`index.js` to export your new View:
 
 ..  code-block:: js
-    :emphasize-lines: 1,4
+    :emphasize-lines: 2,4
 
-    import TalkListView from './Views/TalkListView';
-    import TalkView from './Views/TalkView';
+    import TalkView from './Views/Talk';
+    import TalkListView from './Views/TalkList';
 
-    export { TalkListView, TalkView };
+    export { TalkView, TalkListView };
 
 Now register the new component as layout view for folderish types in ``src/config.js``.
 
 ..  code-block:: js
-    :emphasize-lines: 2,8-11
+    :emphasize-lines: 1,7-10
 
-    import { TalkView } from './components';
-    import { TalkListView } from './components';
+    import { TalkListView, TalkView } from './components';
 
     [...]
 
     export const views = {
-    ...defaultViews,
-    layoutViews: {
-        ...defaultViews.layoutViews,
-        talkslist_view: TalkListView,
-    },
-    contentTypesViews: {
-        ...defaultViews.contentTypesViews,
-        Talk: TalkView,
+      ...defaultViews,
+      layoutViews: {
+          ...defaultViews.layoutViews,
+          talkslist_view: TalkListView,
+      },
+      contentTypesViews: {
+          ...defaultViews.contentTypesViews,
+          Talk: Talk,
     },
     };
 
-This extends ``defaultViews.layoutViews`` with the key/value pair ``talkslist_view: TalkListView``.
+This extends ``defaultViews.layoutViews`` with the key/value pair ``talkslist_view: TalkList``.
 
-To add a layout view you also have to add this new view in the ``ZMI`` of your ``Plone``. Login to your instanz by using ``/manage`` and unfold the point Plone in the left sidebar. Now click on ``portal_types`` and search for the ``folder``-Type to add your new ``talklist_view`` to the ``Available view methods`` by adding it to a new line.
+To add a layout view you also have to add this new view in the ``ZMI`` of your ``Plone``. Login to your instance by using ``/manage`` and unfold the point Plone in the left sidebar. Now click on ``portal_types`` and search for the ``folder``-Type to add your new ``talklist_view`` to the ``Available view methods`` by adding it to a new line.
 
 .. figure:: _static/add_talklistview_in_zmi.png
-	:scale: 50 %
-	:alt: Add new View in the ZMI.
+    :scale: 50 %
+    :alt: Add new View in the ZMI.
 
-	Add new View in the ZMI.
+    Add new View in the ZMI.
 
 Now we will improve this view step by step.
 First we reuse the component ``DefaultView.jsx`` in our custom view again:
@@ -85,184 +84,235 @@ First we reuse the component ``DefaultView.jsx`` in our custom view again:
     };
     export default TalkListView;
 
-.. note::
-
-    For the next part you should have some talks and no other content in one folder to work on the progressing view.
-
-For displaying the title and the description of the folder you will have to work with the ``content``. To use it, you have to assign it in the first step. Afterwards you cat use it to display every information the ``content`` holds like ``title`` and ``description``.
+Now we want to start working directly with the context of our talks folder. To display the title and the description of the folder manually you will have to assign it at first. Afterwards you can use it to display every information the ``content`` holds like ``title`` and ``description``.
 
 ..  code-block:: js
     :emphasize-lines: 2-3,6-18
 
     import React from 'react';
-    import { Container, Segment, Label, Image } from 'semantic-ui-react';
+    import { Container } from 'semantic-ui-react';
     import { Helmet } from '@plone/volto/helpers';
 
     const TalkListView = props => {
-        const { content } = props;
-        return (
-            <Container className="view-wrapper">
-            <Helmet title={content.title} />
-            <article id="content">
-                <header>
-                <h1 className="documentFirstHeading">{content.title}</h1>
-                {content.description && (
-                    <p className="documentDescription">{content.description}</p>
-                )}
-                </header>
-            </Container>
-        )
-    };
-    export default TalkListView;
-
-You can also iterate over all item hold by the content by using the map ``content.items``.
-
-.. code-block:: js
-    :emphasize-lines: 2-3,6-18
-
-    import React from 'react';
-    import { Container, Segment, Label, Image } from 'semantic-ui-react';
-    import { Helmet } from '@plone/volto/helpers';
-
-    const TalkListView = props => {
-        const { content } = props;
-        return (
-            <Container className="view-wrapper">
-            <Helmet title={content.title} />
-            <article id="content">
-                <header>
-                <h1 className="documentFirstHeading">{content.title}</h1>
-                {content.description && (
-                    <p className="documentDescription">{content.description}</p>
-                )}
-                </header>
-                <section id="content-core">
-                    {results &&
-                        results.map(item => (
-                        <Segment padded>
-                            <h2>
-                            <Link to={item['@id']} title={item['@type']}>
-                                {item.type_of_talk.title}: {item.title}
-                            </Link>
-                            </h2>
-                            {item.audience.map(item => {
-                            let audience = item.title;
-                            let color = color_mapping[audience] || 'green';
-                            return (
-                                <Label key={audience} color={color}>
-                                {audience}
-                                </Label>
-                            );
-                            })}
-                            {item.image && (
-                            <Image
-                                src={flattenToAppURL(item.image.scales.preview.download)}
-                                size="small"
-                                floated="right"
-                                alt={content.image_caption}
-                                avatar
-                            />
-                            )}
-                            {item.description && <div>{item.description}</div>}
-                            <Link to={item['@id']} title={item['@type']}>
-                            read more ...
-                            </Link>
-                        </Segment>
-                    ))}
-                </section>
-            </article>
-            </Container>
-        )
-    };
-    export default TalkListView;
-
-* Explain overview with content items
-
-* build bridge why search is needed
-* Explain Search
-
-To get all talks you added to your site, you'll have to implement a search for your 
-
-Whole View:
-
-.. code-block:: js
-
-    import React from 'react';
-    import { searchContent } from '@plone/volto/actions';
-    import { Container, Segment, Label, Image } from 'semantic-ui-react';
-    import { Helmet } from '@plone/volto/helpers';
-    import { useDispatch, useSelector } from 'react-redux';
-    import { Link } from 'react-router-dom';
-    import { flattenToAppURL } from '@plone/volto/helpers';
-
-    const TalkListView = props => {
-    const { content } = props;
-    const searchRequests = useSelector(state => state.search);
-    const dispatch = useDispatch();
-    const results = searchRequests.items;
-
-    const color_mapping = {
-        Beginner: 'green',
-        Advanced: 'yellow',
-        Professionals: 'red',
-    };
-
-    React.useEffect(() => {
-        dispatch(
-        searchContent('/', {
-            portal_type: ['Talk'],
-            fullobjects: true,
-        }),
-        );
-    }, [dispatch]);
-
-    return (
+      const { content } = props;
+      return (
         <Container className="view-wrapper">
-        <Helmet title={content.title} />
-        <article id="content">
+          <Helmet title={content.title} />
+          <article id="content">
             <header>
             <h1 className="documentFirstHeading">{content.title}</h1>
             {content.description && (
-                <p className="documentDescription">{content.description}</p>
+              <p className="documentDescription">{content.description}</p>
             )}
             </header>
+          </article>
+        </Container>
+      )
+    };
+    export default TalkListView;
+
+.. note::
+
+    For the next part you should have some talks and no other content in one folder to work on the progressing view.
+
+You can also iterate over all items in our talks folder by using the map ``content.items``. To build a view with some elements we used in the ``TalkView`` before, we can reuse some components and definitiions like the ``color_mapping`` for the ``audience``.
+
+..  code-block:: js
+      :emphasize-lines: 2-5,9-61
+
+      import React from 'react';
+      import { Container, Segment, Label, Image } from 'semantic-ui-react';
+      import { Helmet } from '@plone/volto/helpers';
+      import { Link } from 'react-router-dom';
+      import { flattenToAppURL } from '@plone/volto/helpers';
+
+      const TalkListView = props => {
+        const { content } = props;
+        const results = content.items;
+        const color_mapping = {
+          Beginner: 'green',
+          Advanced: 'yellow',
+          Professionals: 'red',
+        };
+        return (
+          <Container className="view-wrapper">
+            <Helmet title={content.title} />
+            <article id="content">
+              <header>
+                <h1 className="documentFirstHeading">{content.title}</h1>
+                {content.description && (
+                  <p className="documentDescription">{content.description}</p>
+                )}
+              </header>
+              <section id="content-core">
+                {results &&
+                  results.map(item => (
+                    <Segment padded>
+                      <h2>
+                        <Link to={item['@id']} title={item['@type']}>
+                          {item.type_of_talk.title}: {item.title}
+                        </Link>
+                      </h2>
+                      {item.audience.map(item => {
+                        let audience = item.title;
+                        let color = color_mapping[audience] || 'green';
+                        return (
+                          <Label key={audience} color={color}>
+                            {audience}
+                          </Label>
+                        );
+                      })}
+                      {item.image && (
+                        <Image
+                          src={flattenToAppURL(item.image.scales.preview.download)}
+                          size="small"
+                          floated="right"
+                          alt={content.image_caption}
+                          avatar
+                        />
+                      )}
+                      {item.description && <div>{item.description}</div>}
+                      <Link to={item['@id']} title={item['@type']}>
+                        read more ...
+                      </Link>
+                    </Segment>
+                  ))}
+              </section>
+            </article>
+          </Container>
+        );
+      };
+      export default TalkListView;
+
+* With {content.items} we iterate over the contents of the folder and assign the received map to the constant ``results`` for further use
+* With ``{results && results.map(item => ()}`` we test if there is any item in the map and then iterate over this items
+* To use the existing Link-Component we'll have to use ``import { Link } from 'react-router-dom';`` and configure the component:
+    * ``{item['@type']}`` will give you the contenttype name of the item, which could help you to change layouts for the listed items if you have different content in your folder
+    * ``to={item['@id']}`` will give you the URL of the item and assign it to the Link as destination
+    * you can get all other information like the title, description or saved information with the dotted notation like ``{item.title}`` or ``{item.description}``
+
+The iteration over ``content.items`` to build a listing can be problematic though, because this approach has some limitations you may have to deal with:
+
+* listed content can include different types and could have different fields or use cases (long, difficult-to-read code if every addable type/use case has to be covered) or
+* not all content for the listing exists in one folder but is arranged in a wide structure (for example in categories)
+
+To get a list of all talks - no matter where they are in our site - we can use the ``search endpoint``.
+
+..  code-block:: js
+    :emphasize-lines: 6-7,11-13,21-28
+
+    import React from 'react';
+    import { Container, Segment, Label, Image } from 'semantic-ui-react';
+    import { Helmet } from '@plone/volto/helpers';
+    import { Link } from 'react-router-dom';
+    import { flattenToAppURL } from '@plone/volto/helpers';
+    import { searchContent } from '@plone/volto/actions';
+    import { useDispatch, useSelector } from 'react-redux';
+
+    const TalkListView = props => {
+      const { content } = props;
+      const searchRequests = useSelector(state => state.search);
+      const dispatch = useDispatch();
+      const results = searchRequests.items;
+
+      const color_mapping = {
+        Beginner: 'green',
+        Advanced: 'yellow',
+        Professionals: 'red',
+      };
+
+      React.useEffect(() => {
+        dispatch(
+          searchContent('/', {
+            portal_type: ['Talk'],
+            fullobjects: true,
+          }),
+        );
+      }, [dispatch]);
+
+      return (
+        <Container className="view-wrapper">
+          <Helmet title={content.title} />
+          <article id="content">
+            <header>
+              <h1 className="documentFirstHeading">{content.title}</h1>
+              {content.description && (
+                <p className="documentDescription">{content.description}</p>
+              )}
+            </header>
             <section id="content-core">
-            {results &&
+              {results &&
                 results.map(item => (
-                <Segment padded>
+                  <Segment padded>
                     <h2>
-                    <Link to={item['@id']} title={item['@type']}>
+                      <Link to={item['@id']} title={item['@type']}>
                         {item.type_of_talk.title}: {item.title}
-                    </Link>
+                      </Link>
                     </h2>
                     {item.audience.map(item => {
-                    let audience = item.title;
-                    let color = color_mapping[audience] || 'green';
-                    return (
+                      let audience = item.title;
+                      let color = color_mapping[audience] || 'green';
+                      return (
                         <Label key={audience} color={color}>
-                        {audience}
+                          {audience}
                         </Label>
-                    );
+                      );
                     })}
                     {item.image && (
-                    <Image
+                      <Image
                         src={flattenToAppURL(item.image.scales.preview.download)}
                         size="small"
                         floated="right"
                         alt={content.image_caption}
                         avatar
-                    />
+                      />
                     )}
                     {item.description && <div>{item.description}</div>}
                     <Link to={item['@id']} title={item['@type']}>
-                    read more ...
+                      read more ...
                     </Link>
-                </Segment>
+                  </Segment>
                 ))}
             </section>
-        </article>
+          </article>
         </Container>
-    );
+      );
     };
 
     export default TalkListView;
+
+We make use of the ``useSelector`` and ``useDispatch`` hooks from the react-redux library. They are used to subscribe our component to the store changes (``useSelector``) and for issuing Redux actions (``useDispatch``) from our components. 
+
+Afterwards we can define the new results with ``const results = searchRequests.items;``, which will use the hooks and actions to receive a map of items. 
+
+The search itself will be defined in the ``React.useEffect(() => {})``- section of the code and will contain all parameters for the search. In case of the talks listing view we will search for all talk-types with ``portal_type:['Talk']`` and add that we want to have the whole objects to use all information.
+
+The items itsef won't change though, so the rest of the code will stay untouched.
+
+.. _volto_talk_listview-label:
+
+Exercises
+---------
+
+Since you now know how to query content it is time for some exercise.
+
+Exercise 1
+**********
+
+Add a criteria in the search and sort the talks in the order of their modification date.
+
+..  admonition:: Solution
+    :class: toggle
+
+    .. code-block:: python
+        :linenos:
+
+        React.useEffect(() => {
+          dispatch(
+            searchContent('/', {
+              portal_type: ['Talk'],
+              sort_on: 'modified',
+              fullobjects: true,
+            }),
+          );
+        }, [dispatch]);
