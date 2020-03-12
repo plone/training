@@ -20,8 +20,7 @@ In :file:`backend` we will install Volto and also add our custom React code.
 
 .. warning::
 
-    If you feel the desire to try out both methods below (with Vagrant and without),
-    make sure you use different :file:`training` directories!
+    If you try both methods below (with Vagrant and without), make sure you use different :file:`training` directories!
 
     The two installations do not coexist well.
 
