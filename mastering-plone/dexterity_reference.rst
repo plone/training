@@ -1,4 +1,4 @@
-.. _dexterity1-label:
+.. _dexterity_reference-label:
 
 ====================
 Dexterity: Reference
@@ -6,12 +6,10 @@ Dexterity: Reference
 
 This chapter documents all types fields, widgets, directives that you can use with dexterity.
 
-Fields
-======
+Fields included in Plone
+========================
 
-This is a schema with examples for all field-types that are shipped with Plone by default.
-
-They are arranged in fieldsets:
+This is a schema with examples for all field-types that are shipped with Plone by default. They are arranged in fieldsets:
 
 Default
     Textline, Text, Boolean, Richtext (html), Email
@@ -433,6 +431,9 @@ Other fields
         """Example instance class"""
 
 
+How fields look like
+====================
+
 This is how these fields look like when editing content:
 
 .. figure:: _static/dexterity_reference_default_fields.png
@@ -472,8 +473,8 @@ This is how these fields look like when editing content:
 
 
 
-Other fields
-------------
+3rd party fields
+================
 
 * To control the avilable values of other fields or hide/show them based on user input use the `Masterselect Field <https://pypi.org/project/plone.formwidget.masterselect/>`_.
 * For spam-protection use `collective.z3cform.norobots <https://pypi.org/project/collective.z3cform.norobots/>`_.
@@ -482,7 +483,7 @@ Other fields
 
 
 Datagrid Field
-``````````````
+==============
 
 The `Datagridfield <https://pypi.org/project/collective.z3cform.datagridfield/>`_ allows you to enter multiple values at once as rows in a table. Each row is a sub form defined in a separate schema.
 
@@ -710,4 +711,6 @@ For context-aware validators you need to use :py:meth:`invariant`:
     * `Form schema hints and directives <https://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html>`_
     * `Validation <https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html>`_ (this documentation unfortunately still uses the obsolete grok technology)
     * `z3c.form documentation <https://pypi.org/project/z3c.form#validators>`_
+    * `Default values for fields on add forms <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html>`_
+tion <https://pypi.org/project/z3c.form#validators>`_
     * `Default values for fields on add forms <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html>`_
