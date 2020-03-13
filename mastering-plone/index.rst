@@ -37,6 +37,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     eggs1
     dexterity
     dexterity_2_talk
+    dexterity_reference
     volto_talkview
     volto_talk_listview
     export_code
