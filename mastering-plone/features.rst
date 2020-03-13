@@ -359,12 +359,19 @@ The default Plone content types are:
 
 * Collection
 * Event
+.. figure:: _static/features_add_a_event.png
 * File
+.. figure:: _static/features_add_a_file.png
 * Folder
+.. figure:: _static/features_add_a_folder.png
 * Image
+.. figure:: _static/features_add_a_image.png
 * Link
+.. figure:: _static/features_add_a_link.png
 * News Item
+.. figure:: _static/features_add_a_news_item.png
 * Page
+.. figure:: _static/features_add_a_page.png
 
 
 .. _features-folders-label:
