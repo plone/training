@@ -445,17 +445,19 @@ The ``column ..`` entries allow us to display the values of these indexes in the
                   ])
 
 
-TODO: Adapt the talkview to use the custom index to find talks. The Volto search needs to support all indexes dynamically for that to work!
+..  todo::
 
-..  code-block:: js
+    Adapt the talkview to use the custom index to find talks. The Volto search needs to support all indexes dynamically for that to work!
 
-    <Link
-      className={`ui label ${color}`}
-      to={`/search?portal_type=talk&audience=${audience}`}
-      key={audience}
-    >
-      {audience}
-    </Link>
+    ..  code-block:: js
+
+        <Link
+          className={`ui label ${color}`}
+          to={`/search?portal_type=talk&audience=${audience}`}
+          key={audience}
+        >
+          {audience}
+        </Link>
 
 .. _dexterity2-customindex-label:
 

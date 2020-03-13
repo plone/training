@@ -1,23 +1,60 @@
 .. _dexterity1-label:
 
-========================
-Dexterity III: Reference
-========================
+====================
+Dexterity: Reference
+====================
 
-This chapter documents all types fields, widgets, directives that you can use with dexterity
-
+This chapter documents all types fields, widgets, directives that you can use with dexterity.
 
 Fields
 ======
 
-This is a schema that holds examples for each field-type that are shipped with Plone by default.
+This is a schema with examples for all field-types that are shipped with Plone by default.
 
-Some more complex field-types are discussed below.
+They are arranged in fieldsets:
 
-Many fields have several options that are not discussed here in detail.
+Default
+    Textline, Text, Boolean, Richtext (html), Email
 
-Fields shipped with Plone
--------------------------
+Number fields
+    Integer, Float
+
+Date and time fields
+    Datetime,
+    Date,
+    Time,
+    Timedelta
+
+Choice and Multiple Choice fields
+    Choice,
+    Choice with radio widget,
+    Choice with Select2 widget,
+    Choice with named vocabulary,
+    List,
+    List with checkboxes,
+    List with Select2 widget,
+    List with values from named vocabulary but open to additions,
+    Tuple,
+    Set,
+    Set with checkboxes
+
+Relation fields
+    Relationchoice, Relationlist
+
+File fields
+    File, Image
+
+Other fields
+    Uri, Sourcetext, Ascii, Bytesline, Asciiline, Pythonidentifier, Dottedname, Dict, Dict with Choice
+
+.. warning::
+
+    In Volto not all field types and features are implemented yet:
+
+    * Time, Timedelta, Dict are not supported yet.
+    * Using a callable for basePath in relationfields is not supported yet.
+    * The schema-hints to assign a different widget do not work yet.
+
 
 ..  code-block:: python
     :linenos:
@@ -438,9 +475,11 @@ This is how these fields look like when editing content:
 Other fields
 ------------
 
-* For spam-protection: `collective.z3cform.norobots <https://pypi.org/project/collective.z3cform.norobots/>`_
+* To control the avilable values of other fields or hide/show them based on user input use the `Masterselect Field <https://pypi.org/project/plone.formwidget.masterselect/>`_.
+* For spam-protection use `collective.z3cform.norobots <https://pypi.org/project/collective.z3cform.norobots/>`_.
 * Color-Picker `collective.z3cform.colorpicker <https://github.com/collective/collective.z3cform.colorpicker>`_
 * There is no Computedfield but most use-cases can be achieved with a readonly-field and a property. See the `discussion <https://community.plone.org/t/computed-field-for-dexterity/>`_
+
 
 Datagrid Field
 ``````````````
@@ -504,9 +543,18 @@ The output looks like this:
 
 .. figure:: _static/dexterity_reference_datagridfield_view.png
 
+..  seealso::
+
+    * `All available Fields <https://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html#field-types>`_
+    * `Schema-driven types with Dexterity <https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types>`_
+
 
 Widgets
 =======
+
+.. todo::
+
+    Document all available widgets
 
 
 Directives
@@ -655,9 +703,11 @@ For context-aware validators you need to use :py:meth:`invariant`:
                 if data.start > data.end:
                     raise Invalid(_('Start must be before the end.'))
 
-To learn more about directives, validators and default values, refer to the following:
+.. seealso::
 
-* `Form schema hints and directives <https://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html>`_
-* `Validation <https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html>`_ (this documentation unfortunately still uses the obsolete grok technology)
-* `z3c.form documentation <https://pypi.org/project/z3c.form#validators>`_
-* `Default values for fields on add forms <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html>`_
+    To learn more about directives, validators and default values, refer to the following:
+
+    * `Form schema hints and directives <https://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html>`_
+    * `Validation <https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html>`_ (this documentation unfortunately still uses the obsolete grok technology)
+    * `z3c.form documentation <https://pypi.org/project/z3c.form#validators>`_
+    * `Default values for fields on add forms <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html>`_

@@ -187,7 +187,9 @@ TODO:
 The instance class
 ------------------
 
-TODO
+.. todo::
+
+    Discuss instance class
 
 
 .. seealso::
