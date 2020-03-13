@@ -6,8 +6,8 @@ Dexterity: Reference
 
 This chapter documents all types fields, widgets, directives that you can use with dexterity.
 
-Fields
-======
+Fields included in Plone
+========================
 
 This is a schema with examples for all field-types that are shipped with Plone by default. They are arranged in fieldsets:
 
@@ -423,6 +423,9 @@ Other fields
         """Example instance class"""
 
 
+How fields look like
+====================
+
 This is how these fields look like when editing content:
 
 .. figure:: _static/dexterity_reference_default_fields.png
@@ -462,8 +465,8 @@ This is how these fields look like when editing content:
 
 
 
-Other fields
-------------
+3rd party fields
+================
 
 * To control the avilable values of other fields or hide/show them based on user input use the `Masterselect Field <https://pypi.org/project/plone.formwidget.masterselect/>`_.
 * For spam-protection use `collective.z3cform.norobots <https://pypi.org/project/collective.z3cform.norobots/>`_.
@@ -472,7 +475,7 @@ Other fields
 
 
 Datagrid Field
-``````````````
+==============
 
 The `Datagridfield <https://pypi.org/project/collective.z3cform.datagridfield/>`_ allows you to enter multiple values at once as rows in a table. Each row is a sub form defined in a separate schema.
 
