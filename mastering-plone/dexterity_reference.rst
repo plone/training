@@ -396,6 +396,44 @@ Fields shipped with Plone
         """Example instance class"""
 
 
+This is how these fields look like when editing content:
+
+.. figure:: _static/dexterity_reference_default_fields.png
+   :alt: Default fields
+
+   Default fields
+
+.. figure:: _static/dexterity_reference_number_fields.png
+   :alt: Number fields
+
+   Number fields
+
+.. figure:: _static/dexterity_reference_datetime_fields.png
+   :alt: Date and time fields
+
+   Date and time fields
+
+.. figure:: _static/dexterity_reference_choice_and_list_fields.png
+   :alt: Choice and multiple choice fields
+
+   Choice and multiple choice fields
+
+.. figure:: _static/dexterity_reference_file_fields.png
+   :alt: File fields
+
+   File fields
+
+.. figure:: _static/dexterity_reference_relation_fields.png
+   :alt: Reference fields
+
+   Reference fields
+
+.. figure:: _static/dexterity_reference_other_fields.png
+   :alt: Other fields including the dict field
+
+   Other fields including the dict field
+
+
 
 Other fields
 ------------
