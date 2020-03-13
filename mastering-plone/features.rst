@@ -315,38 +315,54 @@ Configure a Mailserver
 
 .. _features-content-types-label:
 
-Content-Types
--------------
+The site structure
+------------------
 
-Edit a page:
+First delete all existing content from the site since we won't use it!
 
-* :guilabel:`Edit front-page`
-* :guilabel:`Title` :samp:`Plone Conference 2050, Solis Lacus, Mars`
-* :guilabel:`Summary` :samp:`Tutorial`
-* :guilabel:`Text` :samp:`...`
+* Click on the folder-icon in the toolbar while on the frontpage
+* Select all displayed content items
+* Click on the trashion to delete them
 
+Now we have a clean stalte and can start creatinbg the structure we want:
+
+.. code-block:: text
+
+    Root (Frontpage)
+    ├── Training
+    ├── Schedule
+    ├── Location
+    ├── Sponsors
+    ├── Sprint
+    └── Contact
+
+Below we'll add appropriate content.
+
+Edit the front page:
+
+* Change the title to `Plone Conference 2050, Solis Lacus, Mars`
+* Add some dummy text
+* Save the page
 
 Create a site structure:
 
-* Add a folder "The Event" and in it add:
+* Add a Page "Training"
+* Add a Folder "Schedule"
+* Add a Folder "Location"
+* Add a Page "Sponsors"
+* Add a Page "Sprint"
+* Add a Page "Contact"
 
-  * Folder "Talks"
-  * Folder "Training"
-  * Folder "Sprint"
+.. figure:: _static/features_site_structure.png
+   :alt: The view of the newly created site structure.
 
-
-  .. figure:: _static/features_the_event_folder_content.png
-      :alt: The view of the newly created site structure.
-
-      The view of the newly created site structure.
-
+   The view of the newly created site structure.
 
 * In ``/news``: Add a News Item "Conference Website online!" with some image
 * In ``/news``: Add a News Item "Submit your talks!"
-* In ``/events``: Add an Event "Deadline for talk submission" Date: 2019/08/10
+* In ``/events``: Add an Event "Deadline for talk submission" Date: 2025/08/10
 
 * Add a Folder "Register"
-* Delete the Folder "Users"
 * Add a Folder "Intranet"
 
 .. figure:: _static/features_new_navigation.png
@@ -354,24 +370,60 @@ Create a site structure:
 
     The view of the extended navigation bar.
 
+.. _features-content-types-label:
+
+Default content types
+---------------------
 
 The default Plone content types are:
 
-* Collection
-* Event
-.. figure:: _static/features_add_a_event.png
-* File
-.. figure:: _static/features_add_a_file.png
-* Folder
-.. figure:: _static/features_add_a_folder.png
-* Image
-.. figure:: _static/features_add_a_image.png
-* Link
-.. figure:: _static/features_add_a_link.png
-* News Item
-.. figure:: _static/features_add_a_news_item.png
-* Page
-.. figure:: _static/features_add_a_page.png
+Page
+    A Page is the most flexible content type.
+    You can use the Editor to dynamically and arrange blocks on a page.
+    You can chose from blocks for Text, Images, Videos, Lists of existing content and many more.
+    Pages - like folders - can also contain other content. This means you can use them to structure your site.
+
+    .. figure:: _static/features_add_a_page.png
+
+Folder
+    Folders are used to structure content like in a file-system.
+    They can display listing of its content.
+    Pages can also contain other content.
+
+    .. figure:: _static/features_add_a_folder.png
+
+File
+    A file like a pdf, video or Work document.
+
+    .. figure:: _static/features_add_a_file.png
+
+Image
+    Like files bit png, jpeg or otehr images
+
+    .. figure:: _static/features_add_a_image.png
+
+Event
+    These are basically pages with start and end dates and some additional-fields for
+
+    .. figure:: _static/features_add_a_event.png
+
+Link
+    A link to a internal oder external target.
+
+    .. figure:: _static/features_add_a_link.png
+
+News Item
+    Basically a page with a Image and a image caption to be used for press releases an such.
+
+    .. figure:: _static/features_add_a_news_item.png
+
+Collection
+    Collections are virtual containers of lists of items found by doing a specialized search.
+    With Volto you usually do not use them anymore. Instead you can use a page with ome or more listing blocks.
+
+    .. figure:: _static/features_pending_collection.png
+       :alt: Editing a collection
+
 
 
 .. _features-folders-label:
@@ -394,13 +446,11 @@ Folders
 Collections
 -----------
 
+.. todo::
+
+    This is still Plone 5. Adapt to Volto.
+
 * add a new collection: "all content that has ``pending`` as wf_state".
-
-.. figure:: _static/features_pending_collection.png
-    :alt: Add a collection through the web.
-
-    Add a collection through the web.
-
 * explain the default collection for events at http://localhost:3000/events/aggregator/edit
 * mention listing blocks for the pastanaga editor
 * multi-path queries
