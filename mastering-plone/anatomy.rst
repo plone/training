@@ -18,18 +18,22 @@ Plone started as a extension for CMF, which is a extension for Zope.
 Python, ZODB, Zope, CMF, Plone, Volto ... -- how does all that fit together?
 
 
-TODO:
 
-Add a diagram showing the different parts and how they fit together
+.. todo::
 
-.. code-block::
+    Add a diagram showing the different parts and how they fit together::
 
-    VOLTO
-    RESTAPI
-    PLONE
-    ZOPE
-    ZODB
-    Python
+        VOLTO
+          ↑
+        RESTAPI
+          ↑
+        PLONE
+          ↑
+        ZOPE
+          ↑
+        ZODB
+          ↑
+        Python
 
 
 Database

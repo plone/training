@@ -167,7 +167,7 @@ Here is a full example
 
     Your mission, should you choose to accept it...
 
-    ..  admonition:: Solution
+    ..  admonition:: This is the heading for the solution
         :class: toggle
 
         To save the world with only seconds to spare do the following:
@@ -183,7 +183,7 @@ Exercise 1
 
 Your mission, should you choose to accept it...
 
-..  admonition:: Solution
+..  admonition:: This is the heading for the solution
     :class: toggle
 
     To save the world with only seconds to spare do the following:
