@@ -31,11 +31,11 @@
 }
 
 .rst-content .toggle .admonition-title:after {
-    content: " ▼";
+    content: " ▶";
 }
 
 .rst-content .toggle .admonition-title.open:after {
-    content: " ▲";
+    content: " ▼";
 }
 
 .rst-content .toggle p:last-child {
