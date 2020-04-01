@@ -22,6 +22,10 @@ if not on_rtd:
 else:
     html_theme = 'default'
 
+# add our custom styles
+def setup(app):
+    app.add_stylesheet('custom.css')
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
