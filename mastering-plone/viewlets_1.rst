@@ -1,75 +1,81 @@
 .. _viewlets1-label:
 
-Writing Viewlets
-================
+From Viewlet to Component
+=========================
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
    Code for the beginning of this chapter::
 
-       git checkout behaviors_1
+       git checkout TODO tag to checkout
 
    Code for the end of this chapter::
 
-        git checkout viewlets_1
+        git checkout TODO tag to checkout
 
+
+To be solved task in this part:
+
+* Display sponsors on all pages sorted by level
 
 In this part you will:
 
-* Display data from a behavior in a viewlet
+* Display data from collected content
 
 Topics covered:
 
-* Viewlets
+* Component
 
-.. _viewlets1-featured-label:
+.. _viewlets1-sponsors-label:
 
-A viewlet for the featured behavior
------------------------------------
-
-.. only:: not presentation
-
-    A viewlet is not a view but a snippet of HTML and logic that can be put in various places in the site.
-    These places are called ``viewletmanager``.
-
-* Inspect existing viewlets and their managers by going to http://localhost:8080/Plone/@@manage-viewlets.
-* We already customized a viewlet (:file:`colophon.pt`). Now we add a new one.
-* Viewlets don't save data (portlets do)
-* Viewlets have no user interface (portlets do)
-
-.. _viewlets1-featured2-label:
-
-Featured viewlet
-----------------
+A component for the sponsors in the footer
+------------------------------------------
 
 .. only:: not presentation
 
-    Let's add a link to the site that uses the information that we collected using the featured behavior.
+    A component is a block of information independendent of the content of the current page that can be put in various places in the site.
 
-We register the viewlet in :file:`browser/configure.zcml`.
+* Inspect existing components with the React developer tools.
+* Volto comes with several components like header, footer, sidebar. In fact everything in Volto is build of nested components.
 
-.. code-block:: xml
+.. _viewlets1-sponsors2-label:
+
+Sponsors component
+------------------
+
+The sponsors shall live in the footer. To modify the given footer we copy the Footer.jsx file from Volto to our app regarding the original folder structure but inside our customizations folder :file:`customizations/components/theme/Footer/Footer.jsx`.
+
+In this file we can now modify the returned html by adding a subcomponent <Sponsors /> which we have to create.
+
+.. code-block:: jsx
     :linenos:
 
-    <browser:viewlet
-        name="featured"
-        for="ploneconf.site.behaviors.featured.IFeatured"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-        class=".viewlets.FeaturedViewlet"
-        layer="zope.interface.Interface"
-        template="templates/featured_viewlet.pt"
-        permission="zope2.View"
-        />
+    const Footer = ({ intl }) => (
+      <>
+        <Segment
+          role="contentinfo"
+          vertical
+          padded
+        >
+          <Container>
+            <Sponsors />
+            ...
 
-``for``, ``manager``, ``layer`` and ``permission`` are constraints that limit the contexts in which the viewlet is loaded and rendered,
-by filtering out all the contexts that do not match those constraints.
+We import this to be created component at the top of our new footer component with a
+
+.. code-block:: jsx
+    :linenos:
+
+    import { Sponsors } from '../../../../components'; TODO path of subcomponent
 
 .. only:: not presentation
 
-    This registers a viewlet called ``featured``.
-    It is visible on all content that implements the interface :py:class:`IFeatured` from our behavior.
-    It is also good practice to bind it to a specific ``layer``, so it only shows up if our add-on is actually installed.
-    We will return to this in a later chapter.
+    This shows an additional component.
+
+    * It is visible on all content. 
+    * Later on it can be made conditional if necessary.
+
+**TODO To be continued here**
 
 The viewlet class :py:class:`FeaturedViewlet` is expected in a file :file:`browser/viewlets.py`.
 
