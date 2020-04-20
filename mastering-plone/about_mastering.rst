@@ -265,11 +265,9 @@ In the case of Linux, Ubuntu for example you can do:
 
     If you do not use Firefox but Chrome, please replace firefox with google-chrome e.g
 
-.. code-block :: console
+.. code-block:: console
 
     google-chrome _build/html/index.html
-
-
 
 
 Update existing
