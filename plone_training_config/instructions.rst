@@ -87,7 +87,7 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
     mkdir training
     cd training
     git clone https://github.com/collective/training_buildout.git backend
-    cd plone
+    cd backend
 
 Until Mastering Plone 6 version is released you need to checkout the branch `plone6`.
 
