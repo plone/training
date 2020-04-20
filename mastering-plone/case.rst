@@ -102,7 +102,7 @@ Here are the technologies and tools we will use during the training:
 
     * `Git <https://git-scm.com/>`_
     * `GitHub <https://github.com>`_
-    * `Try Git (Nice introduction to git and github) <http://try.github.io/levels/1/challenges/1/>`_
+    * `Resources to learn Git <https://try.github.io/>`_
     * TAL
     * METAL
     * ZCML
@@ -110,8 +110,8 @@ Here are the technologies and tools we will use during the training:
     * Dexterity
     * `GenericSetup <https://docs.plone.org/develop/addons/components/genericsetup.html>`_
     * Viewlets
-    * `JQuery <http://jquery.com/>`_
-    * `Testing <https://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_
+    * `JQuery <https://jquery.com/>`_
+    * `Testing <https://docs.plone.org/external/plone.testing/docs/index.html>`_
     * `References/Relations <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_
 
 .. _intro-what-wont-happen-label:
@@ -121,8 +121,8 @@ What will we not do?
 
 We will not cover the following topics:
 
-* `Archetypes <https://docs.plone.org/old-reference-manuals/archetypes/index.html>`_
-* `Portlets <https://docs.plone.org/old-reference-manuals/portlets/index.html>`_
+* Archetypes
+* `Portlets <https://docs.plone.org/develop/plone/functionality/portlets.html>`_
 * `z3c.forms <https://docs.plone.org/develop/plone/forms/z3c.form.html>`_
 * `Theming <https://docs.plone.org/adapt-and-extend/theming/index.html>`_
 * `i18n and locales <https://docs.plone.org/develop/plone/i18n/index.html>`_
@@ -135,6 +135,4 @@ Other topics are only covered lightly:
 * `ZODB <https://docs.plone.org/develop/plone/persistency/index.html>`_
 * `Security <https://docs.plone.org/develop/plone/security/index.html>`_
 * `Permissions <https://docs.plone.org/develop/plone/security/permissions.html>`_
-* `Performance and Caching <https://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_
-
-.. _intro-expect-label:
+* `Performance and tuning <https://docs.plone.org/manage/deploying/performance/index.html>`_
