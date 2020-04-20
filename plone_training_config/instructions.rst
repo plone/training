@@ -3,7 +3,7 @@
 Installing Plone for the Training
 =================================
 
-We need to install the backend **Plone** and the react-based frontend **Volto**.
+We need to install the backend **Plone** and the React-based frontend **Volto**.
 This will create a folder structure like this:
 
 .. code-block:: text
@@ -13,7 +13,7 @@ This will create a folder structure like this:
     └── frontend
 
 In :file:`backend` we will install Plone and also add our custom Python code.
-In :file:`backend` we will install Volto and also add our custom React code.
+In :file:`frontend` we will install Volto and also add our custom React code.
 
 
 .. _instructions-no-vagrant-label:
@@ -80,7 +80,7 @@ On MacOS you at least need to install some dependencies with `Homebrew <https://
 
 For more information or in case of problems see the `official installation instructions <https://docs.plone.org/manage/installing/installation.html>`_.
 
-Set up Plone for the training like this if you use your own OS (Linux or Mac):
+Set up Plone for the training like this if you use your own OS (Linux or macOS):
 
 .. code-block:: console
 
@@ -89,13 +89,13 @@ Set up Plone for the training like this if you use your own OS (Linux or Mac):
     git clone https://github.com/collective/training_buildout.git backend
     cd backend
 
-Until Mastering Plone 6 version is released you need to checkout the branch `plone6`.
+Until Mastering Plone 6 version is released you need to checkout the branch ``plone6``.
 
 .. code-block:: console
 
     git checkout plone6
 
-Then create a virtualenv with Python 3.7 in the folder :file:`backend` and installs some requirements in it.
+Then create a virtual environment with Python 3.7 in the folder :file:`backend` and install some requirements into it.
 
 .. code-block:: console
 
@@ -171,7 +171,7 @@ If you point your browser at http://localhost:8080 you see that Plone is running
 
 	A running plone instance.
 
-There is no Plone site yet - we will create one in chapter 7.
+There is no Plone site yet - we will create one in chapter 8.
 
 Now you have a working Plone site up and running and can continue with the next chapter.
 
@@ -186,7 +186,7 @@ You can stop the running instance anytime using :kbd:`ctrl + c`.
 Installing the frontend
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-You need do go up one folder (out of `backend`) to install the fronend::
+You need to go up one folder (out of ``backend``) to install the fronend::
 
     $ cd ..
 
@@ -198,9 +198,9 @@ TODO:
 
 Requirements
 
-* Use `nvm` to manage `node` versions: ``brew nvm`` (Mac) or ``apt-get install nvm`` (Linux)
-* Install node LTS (currently that is 12.16.1): ``nvm install --lts``
-* Enable node LTS: ``nvm use 12.16.1``
+* Use ``nvm`` to manage ``node`` versions: ``brew nvm`` (macOS) or ``apt-get install nvm`` (Linux)
+* Install node LTS (currently that is 12.16.2): ``nvm install --lts``
+* Enable node LTS: ``nvm use 12.16.2``
 * Install ``create-volto-app`` with ``npm i @plone/create-volto-app@4.0.0``
 * Use ``npx @plone/create-volto-app frontend`` to bootstrap the boilerplate for the volto frontend
 
