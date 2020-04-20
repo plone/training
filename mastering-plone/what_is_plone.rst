@@ -16,7 +16,7 @@ Plone is an open source Content Management System (CMS) built in Python. A CMS l
 * React frontend "Volto"
 * Based on the Web-Framework Zope
 * Database: "Zope Object Database" (ZODB) or ORM & SQL/Postgres/Oracle
-* Runs on Linux, Mac OS, BSD, Solaris, NixOS and Windows
+* Runs on Linux, macOS, BSD, Solaris, NixOS and Windows
 
 Plone has a multitude of powerful features, is easily accessible to editors but also fun for programmers.
 
@@ -69,7 +69,7 @@ Traversal
 Object publishing
 -----------------
 
-Objects can be called and return a representation of itself - usually html.
+Objects can be called and return a representation of itself - usually HTML.
 
 .. code-block:: python
 
@@ -164,12 +164,12 @@ It is used to connect the Volto frontend with Plone.
 Volto Frontend
 --------------
 
-`Volto <https://github.com/plone/volto>`_ is the frontend for Plone 6 written in React. It uses the restapi to communicate with the backend and offers a modern user-experience.
+`Volto <https://github.com/plone/volto>`_ is the frontend for Plone 6 written in React. It uses the restapi to communicate with the backend and offers a modern user experience.
 
 
 Classic Frontend
 ----------------
 
-A stable alternative to the Javascript-Frontend Volto is the classic frontend of Plone that uses server-side rendered html.
-Plone ships with a default-theme called Barceloneta.
-Since Plone 6 it uses `bootstrap 4 <https://getbootstrap.com/>`_.
+A stable alternative to the JavaScript frontend Volto is the classic frontend of Plone that uses server-side rendered HTML.
+Plone ships with a default theme called Barceloneta.
+Since Plone 6 it uses `Bootstrap 4 <https://getbootstrap.com/>`_.
