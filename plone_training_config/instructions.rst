@@ -30,7 +30,7 @@ Installing Plone without vagrant
 
 
 Installing the backend
-~~~~~~~~~~~~~~~~~~~~~~
+++++++++++++++++++++++
 
 .. warning::
 
@@ -183,7 +183,7 @@ You can stop the running instance anytime using :kbd:`ctrl + c`.
 .. _instructions-install_frontend-label:
 
 Installing the frontend
-~~~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++++
 
 You need to go up one folder (out of ``backend``) to install the frontend:
 
