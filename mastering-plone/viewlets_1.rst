@@ -45,7 +45,7 @@ Sponsors component
 
 The sponsors shall live in the footer. To modify the given footer we copy the Footer.jsx file from Volto to our app regarding the original folder structure but inside our customizations folder :file:`customizations/components/theme/Footer/Footer.jsx`.
 
-In this file we can now modify the returned html by adding a subcomponent <Sponsors /> which we have to create.
+In this file we can now modify the returned html by adding a subcomponent *Sponsors* which we have to create.
 
 .. code-block:: jsx
     :linenos:
@@ -72,8 +72,80 @@ We import this to be created component at the top of our new footer component wi
 
     This shows an additional component.
 
-    * It is visible on all content. 
+    * It is visible on all content.
     * Later on it can be made conditional if necessary.
+
+To create the component *Sponsors* we add a folder Sponsors components/Sponsors and a file components/Sponsors.jsx
+
+In this file we can now define our new component as a class that extends Component. It calls the action getQueryStringResults from @plone/volto/actions
+For this it is not necessary to understand the redux way to store data in the global app store but you need to know that Volto actions fetching data do use the redux store to store fetched data.
+
+So if we call the action getQueryStringResults to fetch data of sponsors, that means data of Plone portal types "Sponsor", then we can access this data from the store.
+
+The **connection** to the store is made by the following code which passes the data of the store to the component prop *items*.
+
+.. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 5
+
+    export default compose(
+      injectIntl,
+      connect(
+        state => ({
+          items: state.querystringsearch.subrequests.sponsors?.items || [],
+        }),
+        { getQueryStringResults },
+      ),
+
+      asyncConnect([
+        {
+          key: 'querystringsearch',
+          promise: ({ store: { dispatch } }) =>
+            dispatch(
+              getQueryStringResults(
+                '/',
+                {...toSearchOptions, fullobjects: 1},
+                'sponsors'
+              ),
+            ),
+        },
+      ]),
+
+    )(Sponsors);
+
+We call the action in lifecycle event UNSAFE_componentWillMount.
+
+.. code-block:: jsx
+    :linenos:
+
+    UNSAFE_componentWillMount() {
+      this.props.getQueryStringResults('/', {...toSearchOptions, fullobjects: 1}, 'sponsors');
+    }
+
+With the data fetched and accessible in component prop *items* we can render the sponsors data:
+
+.. code-block:: jsx
+    :linenos:
+
+    render() {
+      const sponsorlist = this.props.items;
+      return (
+        <>
+         <SponsorsBody sponsorlist={sponsorlist} />
+        </>
+    )}
+
+Keep in mind this common pattern to split a component in two parts: a container component to fetch data and a presentation component to render a presentation.
+
+
+We create a presentation component *SponsorsBody* in components/Sponsors/SponsorsBody.jsx
+
+This is a stateless component which gets the necessary data via props and renders the sponsors grouped by sponsor level and some sugar.
+
+
+
+
+
 
 **TODO To be continued here**
 
