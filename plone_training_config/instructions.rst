@@ -171,9 +171,8 @@ If you point your browser at http://localhost:8080 you see that Plone is running
 
 	A running plone instance.
 
-There is no Plone site yet - we will create one in chapter 8.
-
-Now you have a working Plone site up and running and can continue with the next chapter.
+There is no Plone site yet.
+We will create one in the next chapter.
 
 You can stop the running instance anytime using :kbd:`ctrl + c`.
 
@@ -186,32 +185,57 @@ You can stop the running instance anytime using :kbd:`ctrl + c`.
 Installing the frontend
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-You need to go up one folder (out of ``backend``) to install the fronend::
+You need to go up one folder (out of ``backend``) to install the frontend:
 
-    $ cd ..
+.. code-block:: bash
 
-TODO:
+    cd ..
 
-* Copy some info from https://training.plone.org/5/volto/bootstrap.html
-* Explain ``create-volto-app``
-* Explain node, nvm, npx, yarn
+.. TODO::
 
-Requirements
+    * Copy some info from https://training.plone.org/5/volto/bootstrap.html or the authoritative docs at https://docs.voltocms.com/getting-started/install/
+    * Explain ``create-volto-app``
+    * Explain node, nvm, npx, yarn
 
-* Use ``nvm`` to manage ``node`` versions: ``brew nvm`` (macOS) or ``apt-get install nvm`` (Linux)
-* Install node LTS (currently that is 12.16.2): ``nvm install --lts``
-* Enable node LTS: ``nvm use 12.16.2``
-* Install ``create-volto-app`` with ``npm i @plone/create-volto-app@4.0.0``
-* Use ``npx @plone/create-volto-app frontend`` to bootstrap the boilerplate for the volto frontend
+Install pre-requisites.
 
-Here is there output of the command::
+#.  Install ``nvm`` (Node Version Manager) to manage ``node`` versions.
+
+    .. code-block:: bash
+
+        # macOS
+        brew nvm
+
+        #Linux
+        apt-get install nvm
+
+#.  Install node LTS (currently that is 12.16.2) and enable it.
+
+    .. code-block:: bash
+
+        nvm install --lts
+        nvm use 12.16.2
+
+#.  Install the ``create-volto-app`` helper utility.
+
+    .. code-block:: bash
+
+        npm -g i @plone/create-volto-app
+
+#.  Create the frontend for the project.
+
+    .. code-block:: bash
+
+        create-volto-app frontend
+
+If successful, here is the output of the command::
 
     Creating frontend...
 
     > Success! Created files for "frontend" Volto app
 
       Installing npm modules:
-        @plone/volto@alpha
+        @plone/volto
 
     > Success! Installed dependencies for frontend
 
@@ -232,14 +256,35 @@ Here is there output of the command::
       Questions? Feedback? Please let us know!
 
 
-Now you can enter the new folder `frontend` and start it with::
+.. note::
 
-    $ cd frontend
-    $ yarn start
+    Alternatively to Steps 3 and 4 above, you can use the utility ``npx`` to install ``create-volto-app`` without installing it globally.
+    This option requires that ``npx`` be installed globally.
+    This has the advantage of avoiding the need to upgrade ``create-volto-app`` each time you want to use it because ``npx`` does it for you.
+    ``npx`` can both upgrade ``create-volto-app`` and create the frontend for your project in one command.
 
-If you open http://localhost:3000 you will see the frontend but you will get a error message (`This page does not seem to exist…`) because you have not yet created a Plone site. We'll do that in chapter 7.
+    .. code-block::
+
+        npx @plone/create-volto-app frontend
+
+Now you can enter the new folder ``frontend`` and start it with:
+
+.. code-block:: bash
+
+    cd frontend
+    yarn start
+
+If you open http://localhost:3000 you will see the frontend, but you will get an error message ``This page does not seem to exist…`` because you have not yet created a Plone site.
+We will do that in the next chapter.
 
 You can stop the frontend anytime using :kbd:`ctrl + c`.
+
+.. _volto-install-troubleshooting:
+
+Troubleshooting
+^^^^^^^^^^^^^^^
+
+See https://docs.voltocms.com/getting-started/install/#install-volto
 
 
 .. _instructions-vagrant-label:
@@ -258,7 +303,7 @@ We use it together with Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to
 .. _install-virtualbox:
 
 Install VirtualBox
-++++++++++++++++++
+~~~~~~~~~~~~~~~~~~
 
 Vagrant uses Oracle’s VirtualBox to create virtual environments.
 
@@ -270,7 +315,7 @@ We use VirtualBox 6.0.x
 .. _instructions-configure-vagrant-label:
 
 Install and configure Vagrant
-+++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Get the latest version from https://www.vagrantup.com/downloads.html for your operating system and install it.
 
@@ -445,7 +490,7 @@ If you have any problems or questions please mail us at team@starzel.de or creat
 .. _instructions-vagrant-does-label:
 
 What Vagrant does
-+++++++++++++++++
+~~~~~~~~~~~~~~~~~
 
 Installation is done automatically by vagrant and puppet.
 If you want to know which steps are actually done please see the chapter :doc:`what_vagrant_does`.
