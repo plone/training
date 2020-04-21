@@ -3,21 +3,47 @@
 Dexterity II: Talk
 ==================
 
-In this part you will:
+In this part you will solve the following task:
 
-* Create a new content type called *Talk*.
+* Create a contenttype 'talk' to store all the data required for a talk
 
 
 Topics covered:
 
+* Registration and configuration of content types
 * Schema
 * Fields
 * Widgets
 
+
+The type registration
+---------------------
+
+Create a new file :file:`types.xml` add them it your add-on package in :file:`profiles/default/`
+
+.. note::
+
+    That is :file:`backend/src/ploneconf.site/src/ploneconf/site/profiles/default/types.xml`
+
+This will tell Plone that there is a new content type defined in file :file:`talk.xml`.
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <object name="portal_types" meta_type="Plone Types Tool">
+      <object name="talk" meta_type="Dexterity FTI"/>
+    </object>
+
+Plone will now expect a file :file:`profiles/default/types/talk.xml` and will register that as a new content type.
+
+
 The fti
 -------
 
-Add a file ``ploneconf/site/profiles/default/types/talk.xml``
+Add the file ``ploneconf/site/profiles/default/types/talk.xml``.
+Note that ther is a file types and a filder types
+
+This is the The **Factory Type Information** that holds the configuration for the content type **talk**.
 
 ..  code-block:: xml
 
@@ -25,7 +51,7 @@ Add a file ``ploneconf/site/profiles/default/types/talk.xml``
     <object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"
        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
      <property name="title" i18n:translate="">Talk</property>
-     <property name="description" i18n:translate="">None</property>
+     <property name="description" i18n:translate=""></property>
      <property name="icon_expr">string:${portal_url}/document_icon.png</property>
      <property name="factory">talk</property>
      <property name="add_view_expr">string:${folder_url}/++add++talk</property>
@@ -44,9 +70,9 @@ Add a file ``ploneconf/site/profiles/default/types/talk.xml``
      <property name="klass">ploneconf.site.content.talk.Talk</property>
      <property name="schema">ploneconf.site.content.talk.ITalk</property>
      <property name="behaviors">
-      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-      <element value="plone.app.content.interfaces.INameFromTitle"/>
-      <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+      <element value="plone.dublincore"/>
+      <element value="plone.namefromtitle"/>
+      <element value="plone.versioning" />
      </property>
      <property name="model_source"></property>
      <property name="model_file"></property>
@@ -68,27 +94,30 @@ Add a file ``ploneconf/site/profiles/default/types/talk.xml``
     </object>
 
 
-The type registration
----------------------
+Now our package has new configuration for Generic Setup.
+Generic Setup loads a lot of different types of configuration for the site from the folder :file:`profiles/`.
+This configuration is applied to your site upon installing the package.
+This also means that you will need to reinstall the package once we are finished with the talk.
 
-Add a file ``ploneconf/site/profiles/default/types.xml``:
+But the type is not yet complete since the schema (``ploneconf.site.content.talk.ITalk``) a the class (``ploneconf.site.content.talk.Talk``) that are referenced in the FTI are not yet there.
 
-..  code-block:: xml
-
-    <?xml version="1.0"?>
-    <object name="portal_types" meta_type="Plone Types Tool">
-     <object name="talk" meta_type="Dexterity FTI"/>
-    </object>
 
 The schema
 ----------
 
-TODO:
+The schema holds the definition the fields that the content type will offer to store data.
 
-* use a simplified schema without directives or vocabularies
-* Then add some simple widget-directives
-* In the sponsors-chapter discuss all fields, directives, permissions, defaults etc. like in dexterity_3
-* extend to the final version like https://github.com/collective/ploneconf.site/pull/1/files#diff-943838c7d121f1043c9db05635b96930 in a later chapter
+In the fti we referenced the python-path ``ploneconf.site.content.talk.ITalk``.
+
+The module :py:mod:`content` does not exist. Create a folder :file:`content` and add a empty :file:`__init__.py` in it.
+
+.. note::
+
+    From the training root that is :file:`backend/src/ploneconf.site/src/ploneconf/site/content/__init__.py`
+
+You just created a python module :)
+
+In this new folder add a file :file:`talk.py` with the following content:
 
 ..  code-block:: python
 
@@ -184,12 +213,70 @@ TODO:
         """Talk instance class"""
 
 
-The instance class
-------------------
+The first class :py:class:`ITalk` is the schema for talks and defines quite a lot of different fields for different kinds of data.
+
+The most basic field is ``schema.TextLine`` which can store text. In the next chapter you will find a reference of all field-types available in Plone.
+
 
 .. todo::
 
-    Discuss instance class
+    * As a first step use a simplified schema without directives or vocabularies
+    * Then add some simple widget-directives
+    * In the sponsors-chapter discuss all fields, directives, permissions, defaults.
+    * Extend to the final version like https://github.com/collective/ploneconf.site/pull/1/files#diff-943838c7d121f1043c9db05635b96930 in a later chapter
+
+
+The instance class
+------------------
+
+The second class :py:class:`Talk` in :file:`talk.py` will be the class of instances for each talk.
+It inherits from :py:class:`Container` which is one of the default classes of dexterity.
+That is used for items that can contain other items.
+It does nothing so far but it can be useful later when we want to add methods or properties to it that can be used directly from a talk instance.
+
+
+Try the new type
+----------------
+
+Now all pieces should be in place and you can enable the new type.
+
+* Restart Plone (to load the new Python code and the changed zcml)
+* You do not need to restart the Volto frontend since we did not do any changes there.
+* Re-install the package ploneconf.site (deactivate and activate) to load the type registration and type configuration.
+
+Now the new types should be visible in the add-menu.
+
+You can test the type in the backend (http://localhost:8080/Plone/++add++talk) and on the frontend (http://localhost:3000/add?type=talk).
+
+.. note::
+
+    Not all fields look the same in the frontend and backend yet.
+
+.. figure:: _static/dexterity_add_talk_frontend.png
+
+    Adding a talk in the frontend
+
+.. figure:: _static/dexterity_add_talk_backend.png
+
+    Adding a talk in the backend
+
+
+* Test the type by adding a talk. Add some values in the fields, save it, look at the view and edit it again.
+* Compare all the fields you see to the code in the schema.
+* You can also make changes in the schema. After restarting the backend these changes are effective immediatley
+* Find the tool ``portal_types`` in the ZMI
+* Look at the fti for ``talk`` and inspect the configuration taken from the fti.
+* You can make changes ti the fti here. Some of the configuration are also available in plone control panels where it makes sense. For example the dexterity-controlpanel ``http://localhost:8080/@@dexterity-types`` can modify the behaviors (defined in ``<property name="behaviors">``) and http://localhost:8080/@@content-controlpanel has a checkbox for teh setting ``<property name="global_allow">``.
+
+
+
+Summary
+-------
+
+* You created a custom content type.
+* You can now control the data that will be stored for talks.
+* You can reuse and adapt these examples to model data for your own use-cases.
+* Next up: After looking at even more fields that are available in Plone you will learn to change how talks are displayed.
 
 
 .. seealso::
