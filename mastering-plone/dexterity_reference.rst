@@ -434,7 +434,10 @@ Other fields
 How fields look like
 ====================
 
-This is how these fields look like when editing content:
+Backend
+-------
+
+This is how these fields look like when editing content in the backend:
 
 .. figure:: _static/dexterity_reference_default_fields.png
    :alt: Default fields
@@ -471,6 +474,46 @@ This is how these fields look like when editing content:
 
    Other fields including the dict field
 
+
+Frontend
+--------
+
+This is how these fields look like when editing content in Volto:
+
+.. figure:: _static/dexterity_reference_volto_default_fields.png
+   :alt: Default fields
+
+   Default fields
+
+.. figure:: _static/dexterity_reference_volto_number_fields.png
+   :alt: Number fields
+
+   Number fields
+
+.. figure:: _static/dexterity_reference_volto_datetime_fields.png
+   :alt: Date and time fields
+
+   Date and time fields
+
+.. figure:: _static/dexterity_reference_volto_choice_and_list_fields.png
+   :alt: Choice and multiple choice fields
+
+   Choice and multiple choice fields
+
+.. figure:: _static/dexterity_reference_volto_file_fields.png
+   :alt: File fields
+
+   File fields
+
+.. figure:: _static/dexterity_reference_volto_relation_fields.png
+   :alt: Reference fields
+
+   Reference fields
+
+.. figure:: _static/dexterity_reference_volto_other_fields.png
+   :alt: Other fields including the dict field
+
+   Other fields
 
 
 3rd party fields
