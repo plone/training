@@ -190,18 +190,31 @@ You need to go up one folder (out of ``backend``) to install the fronend::
 
     $ cd ..
 
-TODO:
+.. todo::
 
-* Copy some info from https://training.plone.org/5/volto/bootstrap.html
-* Explain ``create-volto-app``
-* Explain node, nvm, npx, yarn
+    We need to deal with the issue that there a two options:
 
-Requirements
+    1. Create the frontend from scratch using `create-volto-app`
+    2. Use the existing package `volto-ploneconf` that contains all the code for the training
+
+    For now we document both.
+
+.. todo::
+
+    * Copy some info from https://training.plone.org/5/volto/bootstrap.html
+    * Explain ``create-volto-app``
+    * Explain node, nvm, npx, yarn
+
+
+Option 1: Create the frontend from scratch using `create-volto-app`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install requirements
 
 * Use ``nvm`` to manage ``node`` versions: ``brew nvm`` (macOS) or ``apt-get install nvm`` (Linux)
 * Install node LTS (currently that is 12.16.2): ``nvm install --lts``
 * Enable node LTS: ``nvm use 12.16.2``
-* Install ``create-volto-app`` with ``npm i @plone/create-volto-app@4.0.0``
+* Install ``create-volto-app`` with ``npm i @plone/create-volto-app@5.0.0``
 * Use ``npx @plone/create-volto-app frontend`` to bootstrap the boilerplate for the volto frontend
 
 Here is there output of the command::
@@ -240,6 +253,27 @@ Now you can enter the new folder `frontend` and start it with::
 If you open http://localhost:3000 you will see the frontend but you will get a error message (`This page does not seem to exist…`) because you have not yet created a Plone site. We'll do that in chapter 7.
 
 You can stop the frontend anytime using :kbd:`ctrl + c`.
+
+
+Option 2. Use the existing package `volto-ploneconf` that contains all the code for the training
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the finished code for the frontend from github and install:
+
+.. code-block:: console
+
+    git clone https://github.com/collective/volto-ploneconf.git frontend
+    cd frontend
+    yarn install
+
+Now you can start it with::
+
+    $ yarn start
+
+If you open http://localhost:3000 you will see the frontend but you will get a error message (`This page does not seem to exist…`) because you have not yet created a Plone site. We'll do that in chapter 7.
+
+You can stop the frontend anytime using :kbd:`ctrl + c`.
+
 
 
 .. _instructions-vagrant-label:
