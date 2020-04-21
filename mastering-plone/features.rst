@@ -3,7 +3,7 @@
 The Features of Plone
 =====================
 
-In-depth user-manual: https://docs.plone.org/
+In-depth user manual: https://docs.plone.org/
 
 See also: https://docs.plone.org/working-with-content/index.html
 
@@ -12,7 +12,9 @@ See also: https://docs.plone.org/working-with-content/index.html
 Starting and Stopping Plone
 ---------------------------
 
-We control Plone with a small script called "instance"::
+We control Plone with a small script called "instance":
+
+.. code-block:: bash
 
     $ ./bin/instance fg
 
@@ -24,9 +26,11 @@ Development mode gives better feedback, but is much slower, particularly on Wind
 
 You can stop it by pressing :kbd:`ctrl + c`.
 
-Apart from the `fg` command the :program:`instance` script offers several more commands.
-`./bin/instance help` shows the list of available commands, `bin/instance help <command>` will give a short help for each command.
-Some commands you will use rather often are::
+Apart from the ``fg`` command, the :program:`instance` script offers several more commands.
+``./bin/instance help`` shows the list of available commands, ``bin/instance help <command>`` will give a short help for each command.
+Some commands you will use rather often are:
+
+.. code-block:: bash
 
     $ ./bin/instance fg
     $ ./bin/instance start
@@ -53,8 +57,8 @@ Some commands you will use rather often are::
     In Plone 6 this will be done automatically for you.
     In Plone 5.2 you need to select ``plone.restapi`` by hand:
 
-    Click on the link `Advanced` next to the button `Create a Plone site`.
-    If the site asks you to login use login `admin` and password `admin`.
+    Click on the link :guilabel:`Advanced` next to the button :guilabel:`Create a Plone site`.
+    If the site asks you to login, use login ``admin`` and password ``admin``.
     This opens a form to create a Plone site and select additional features.
     Use :samp:`Plone` as the site id.
     Select **plone.restapi. RESTful hypermedia API for Plone.** as a addon that should be installed with your new site.
@@ -66,7 +70,7 @@ Some commands you will use rather often are::
 .. only:: presentation
 
     * By default Plone listens on port 8080. Look at http://localhost:8080
-    * No Plone site yet! Create a new Plone site. Make sure plone.restapi is installed
+    * No Plone site yet! Create a new Plone site. Make sure ``plone.restapi`` is installed.
     * Use :samp:`Plone` (the default) as the site id.
 
 This is how the frontpage should look like:
@@ -83,13 +87,13 @@ This is how the frontpage should look like:
 Starting and Stopping the frontend
 ----------------------------------
 
-To start the frontend that will use your new plone site go to the folder `volto` and enter:
+To start the frontend that will use your new plone site go to the folder ``volto`` and enter:
 
 .. code-block:: shell
 
     $ yarn start
 
-If you open http://localhost:3000 you will see the frontpage of the Plone site in Volto.
+If you open http://localhost:3000 you will see the front page of the Plone site in Volto.
 
 .. figure:: _static/frontpage_volto.png
 
@@ -103,21 +107,26 @@ Exercises
 Exercise 1
 ++++++++++
 
-Open the `bin/instance` script in your favorite editor. Now let's say you want Plone to listen on port 9080 instead of the default 8080. Looking at the script, how could you do this?
+Open the ``bin/instance`` script in your favorite editor.
+Now let's say you want Plone to listen on port 9080 instead of the default 8080.
+Looking at the script.
+How could you do this?
 
 ..  admonition:: Solution
     :class: toggle
 
-    At the end of the `bin/instance` script, you'll see the following code:
+    At the end of the ``bin/instance`` script, you'll see the following code:
 
     .. code-block:: python
 
-    if __name__ == '__main__':
-        sys.exit(plone.recipe.zope2instance.ctl.main(
-            ['-C', '/Users/pbauer/workspace/training_buildout/parts/instance/etc/zope.conf', '-p', '/Users/pbauer/workspace/training_buildout/parts/instance/bin/interpreter', '--wsgi']
-            + sys.argv[1:]))
+        if __name__ == '__main__':
+            sys.exit(plone.recipe.zope2instance.ctl.main(
+                ['-C', '/Users/pbauer/workspace/training_buildout/parts/instance/etc/zope.conf', '-p', '/Users/pbauer/workspace/training_buildout/parts/instance/bin/interpreter', '--wsgi']
+                + sys.argv[1:]))
 
-    The second to last line points to the configuration file your Plone instance is using. An absolute path is used so it might differ depending on the installation method. Open the `wsgi.ini` that lives in the same folder in your editor and look for the section:
+    The second to last line points to the configuration file your Plone instance is using.
+    An absolute path is used so it might differ depending on the installation method.
+    Open the :file:`wsgi.ini` that lives in the same folder in your editor and look for the section:
 
     .. code-block:: ini
 
@@ -126,11 +135,13 @@ Open the `bin/instance` script in your favorite editor. Now let's say you want P
         listen = 0.0.0.0:8080
         threads = 4
 
-    Change the address to 0.0.0.0:9080 and restart your instance.
+    Change the address to ``0.0.0.0:9080`` and restart your instance.
 
     You will also have to tell the frontend that the backend is now running on a different port.
 
-    You need to change the environment variable `RAZZLE_API_PATH` to the base-url of the backend:
+    You need to change the environment variable ``RAZZLE_API_PATH`` to the base-url of the backend:
+
+    .. code-block:: bash
 
         $ RAZZLE_API_PATH=http://localhost:9080/Plone yarn start
 
