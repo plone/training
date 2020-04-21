@@ -64,11 +64,67 @@ This makes it very flexible for limiting relateable items by type, path, date, a
 
 For even more flexibility, you can create your own `dynamic vocabularies <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html#dynamic-sources>`_.
 
+For more examples how to use relationfields look at :ref:`dexterity_reference-label`.
+
+Sometimes the widget for relations is not what you want since it can be hard to navigate to the content you want to relate to. To use the SelectFieldWidget you can specify it if you use your own vocabulary:
+
+.. code-block:: python
+
+    from plone.app.z3cform.widget import SelectFieldWidget
+    from plone.autoform import directives
+    from z3c.relationfield.schema import RelationChoice
+    from z3c.relationfield.schema import RelationList
+
+    relationlist_field_select = RelationList(
+        title=u'Relationlist with select widget',
+        default=[],
+        value_type=RelationChoice(vocabulary='ploneconf.site.vocabularies.documents'),
+        required=False,
+        missing_value=[],
+    )
+    directives.widget(
+        'relationlist_field_select',
+        SelectFieldWidget,
+    )
+
+Register the vocabulary like this in `configure.zcml`:
+
+.. code-block:: xml
+
+    <utility
+        name="ploneconf.site.vocabularies.documents"
+        component="ploneconf.site.vocabularies.DocumentVocabularyFactory" />
+
+Note that the value is the object itself, not the uuid. This is a requirement of the field-type:
+
+.. code-block:: python
+
+    from plone import api
+    from zope.interface import implementer
+    from zope.schema.interfaces import IVocabularyFactory
+    from zope.schema.vocabulary import SimpleTerm
+    from zope.schema.vocabulary import SimpleVocabulary
+
+    @implementer(IVocabularyFactory)
+    class DocumentVocabulary(object):
+        def __call__(self, context=None):
+            terms = []
+            # Use getObject since the DataConverter expects a real object.
+            for brain in api.content.find(portal_type='Document', sort_on='sortable_title'):
+                terms.append(SimpleTerm(
+                    value=brain.getObject(),
+                    token=brain.UID,
+                    title=u'{} ({})'.format(brain.Title, brain.getPath()),
+                ))
+            return SimpleVocabulary(terms)
+
+    DocumentVocabularyFactory = DocumentVocabulary()
+
 
 Accessing and displaying related items
 --------------------------------------
 
-One would think that it would be easiest to use the render method of the default widget, like we did in the chapter "Views II: A Default View for “Talk”". Sadly, that is wrong. Adding the appropriate code to the template:
+One would think that it would be easiest to use the render method of the default widget, like we did in the chapter "Views II: A Default View for “Talk”". That works well if you use `plone.app.z3cform = 3.2.0` (you can safely use that in Plone 5.2). But for default Plone 5.2 and older you need to deal with that yourself:
 
 .. code-block:: html
 
