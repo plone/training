@@ -131,48 +131,77 @@ The field should then look like this:
 Accessing and displaying related items
 --------------------------------------
 
-One would think that it would be easiest to use the render method of the default widget, like we did in the chapter "Views II: A Default View for “Talk”". That works well if you use `plone.app.z3cform = 3.2.0` (you can safely use that in Plone 5.2). But for default Plone 5.2 and older you need to deal with that yourself:
+It is easiest way to display related items is to use the render method of the default widget. That works well if you use `plone.app.z3cform = 3.2.0` (you can use that in Plone 5.2).
 
 .. code-block:: html
 
     <div tal:content="structure view/w/evil_mastermind/render" />
 
-would only render the UIDs of the related items:
+This would render the related items as shown in https://github.com/plone/plone.app.z3cform/pull/111.
 
-.. code-block:: html
+For Plone 5.2.1 and older you still need to deal with that yourself since the widget only shows the uuid.
 
-    <span class="text-widget relationchoice-field" id="form-widgets-evil_mastermind">
-        1ccb5787517947da90a8ca32d6251c57
-    </span>
-
-This is not very useful but it is very likely that you want to control closely how to render these items.
-
-So, we add a method to the view to return the related items so that we're able to render anyway we like.
+If you want or need to access and render relations yourself you could add a method like in the following example.
 
 .. code-block:: python
 
-    def minions(self):
-        """Returns a list of brains of related items."""
-        results = []
-        catalog = api.portal.get_tool('portal_catalog')
-        for rel in self.context.underlings:
-            if rel.isBroken():
-                # skip broken relations
-                continue
-            # query by path so we don't have to wake up any objects
-            brains = catalog(path={'query': rel.to_path, 'depth': 0})
-            results.append(brains[0])
-        return results
+    from plone.app.contentlisting.interfaces import IContentListing
+    from Products.Five import BrowserView
 
-We use :py:meth:`rel.to_path` and use the items path to query the catalog for its catalog-entry. This is much more efficient than using :py:meth:`rel.to_object` since we don't have to wake up any objects. Setting ``depth`` to ``0`` will only return items with exactly this path, so it will always return a list with one item.
 
-..  note::
+    class EvilMastermindView(BrowserView):
 
-    Using the path sounds a little complicated and it would indeed be more convenient if a :py:class:`RelationItem` would contain the ``UID`` (so we can query the catalog for that) or if the ``portal_catalog`` would index the ``IntId``. But that's the way it is for now.
+        def minions(self):
+            """Returns a list of related items."""
+            results = []
+            for rel in self.context.underlings:
+                if rel.isBroken():
+                    # skip broken relations
+                    continue
+                obj = rel.to_object
+                if api.user.has_permission('View', obj=obj):
+                    results.append(obj)
+            return IContentListing(results)
 
-For reference, look at how the default viewlet displays the information for related items stored by the behavior :py:class:`IRelatedItems`. See how it does exactly the same in ``related2brains``.
-This is the Python path for the viewlet: :py:class:`plone.app.layout.viewlets.content.ContentRelatedItems`
-This is the file path for the template: :file:`plone/app/layout/viewlets/document_relateditems.pt`
+It returns the related items so that you will able to render them anyway you like.
+
+.. note::
+
+    Using ``IContentListing`` to wrap list of objects or brain has a lot of benefits since it allows unified access to them.
+    It also allows you to use great helper-methods like ``obj.MimeTypeIcon()`` or ``appendViewAction()`` that will make your code more concise.
+    See https://github.com/plone/plone.app.contentlisting/#methods-of-contentlistingobjects for a list of all avilable methods.
+
+You could display the links like this:
+
+.. code-block:: xml
+
+    <ul>
+      <li tal:repeat="item view.minions()">
+        <span tal:define="item_type           python:item.portal_type;
+                          item_type_class     python:item.ContentTypeClass();
+                          item_wf_state_class python:item.ReviewStateClass();
+                          appendViewAction    python:item.appendViewAction();
+                          item_url            python:item.getURL();
+                          item_url            python:item_url+'/view' if appendViewAction else item_url;"
+              tal:attributes="title item_type">
+
+          <a tal:attributes="href item_url">
+            <img class="mime-icon"
+                 tal:condition="python:item_type =='File'"
+                 tal:attributes="src python:item.MimeTypeIcon();">
+
+            <span tal:attributes="class string:$item_type_class $item_wf_state_class url;"
+                  tal:content="python:item.Title()">
+                Title
+            </span>
+            <span class="discreet"
+                  tal:content="python:item.Description()">
+                Description
+            </span>
+          </a>
+        </span>
+      </li>
+    </ul>
 
 
 Creating RelationFields through the web
