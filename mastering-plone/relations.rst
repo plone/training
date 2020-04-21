@@ -120,6 +120,13 @@ Note that the value is the object itself, not the uuid. This is a requirement of
 
     DocumentVocabularyFactory = DocumentVocabulary()
 
+The field should then look like this:
+
+.. figure:: _static/relations_with_selectwidget.png
+   :alt: RelationList with select widget
+
+   RelationList with select widget
+
 
 Accessing and displaying related items
 --------------------------------------
