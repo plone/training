@@ -68,6 +68,10 @@ Names and Theory
 Practical example
 -----------------
 
+.. note:: 
+
+    You can also use the Plone Command Line Tool `plonecli`_ to initially create a behavior and edit it afterwards
+
 .. only:: not presentation
 
     So, let us write our own small behavior.
