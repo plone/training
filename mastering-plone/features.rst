@@ -335,7 +335,7 @@ First delete all existing content from the site since we won't use it!
 * Select all displayed content items
 * Click on the trashion to delete them
 
-Now we have a clean stalte and can start creatinbg the structure we want:
+Now we have a clean slate and can start creating the structure we want:
 
 .. code-block:: text
 
@@ -442,7 +442,7 @@ Collection
 Folders
 -------
 
-* Go to 'the-event'
+* Go to 'schedule'
 * explain the difference between title, ID, and URL
 * explain /folder_contents
 * change the order of items

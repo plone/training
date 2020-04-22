@@ -112,7 +112,7 @@ Example:
 * Go to http://localhost:8080/Plone/@@manage-portlets
 * Add a static portlet "Sponsors" on the right side.
 * Remove the news portlet and add a new one on the left side.
-* Go to the training folder: http://localhost:8080/Plone/the-event/training and click :guilabel:`Manage portlets`
+* Go to the training folder: http://localhost:8080/Plone/training and click :guilabel:`Manage portlets`
 * Add a static portlet. "Featured training: Become a Plone-Rockstar at Mastering Plone!"
 * Use the toolbar to configure the portlets of the footer:
 
