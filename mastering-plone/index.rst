@@ -24,7 +24,6 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     * :doc:`views_1`: We still need browser views with Volto but there needs to be good example why and where?
     * :doc:`testing`: Add information about writeing tests for Volto. Link to new testing training: https://training.plone.org/5/testing/
     * :doc:`dexterity_2`: Shorten to only cover GS and upgrade-steps. Marker interface/behavior is no longer needed with a python talk schema \o/
-    * :doc:`events`: Reuse component from event-view.
     * :doc:`frontpage`: Move to a earlier place and build frontpage using the blocks. Should include a listing of features content from :doc:`behaviors_1`
 
     These chapters teach developing with classing Plone without Volto (i.e. server-side rendering):
@@ -34,6 +33,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     * :doc:`views_2` (replaced by :doc:`volto_talkview`)
     * :doc:`views_3` (replaced by :doc:`volto_talk_listview`)
     * :doc:`viewlets_1` (replaced by a new chapter on overriding components)
+    * :doc:`events_classic`: (replaced by :doc:`events`)
 
 
 ..  toctree::
