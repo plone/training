@@ -268,7 +268,7 @@ After restarting the site we can run the step:
 
 On the console you should see logging messages like::
 
-    INFO ploneconf.site.upgrades Moving http://localhost:8080/Plone/old-talk1 to http://localhost:8080/Plone/the-event/talks
+    INFO ploneconf.site.upgrades Moving http://localhost:8080/Plone/old-talk1 to http://localhost:8080/Plone/schedule
 
 Alternatively you also select which upgrade steps to run like this:
 

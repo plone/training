@@ -448,8 +448,8 @@ Folders
 * change the order of items
 * explain bulk actions
 * dropdown "display"
-* default pages
-* Add a page to 'the-event': "The Event" and make it the default page
+* Explain default pages (in classic Plone)
+* Explain Folderish Pages (in Plone6 and Volto)
 
 
 .. _features-collections-label:
