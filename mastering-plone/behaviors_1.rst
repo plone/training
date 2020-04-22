@@ -55,7 +55,7 @@ Names and Theory
     You are adding an aspect to your content type and you want to write your aspect in such a way that it works independently of the content type on which the aspect is applied.
     You should not have dependencies to specific fields of your object or to other behaviors.
 
-    Such an object allows you to apply the `open/closed principle`_ to your dexterity objects.
+    Such an object allows you to apply the `open/closed principle` to your dexterity objects.
 
 .. only:: presentation
 
@@ -70,7 +70,7 @@ Practical example
 
 .. note:: 
 
-    You can also use the Plone Command Line Tool `plonecli`_ to initially create a behavior and edit it afterwards
+    You can also use the Plone Command Line Tool `plonecli` to initially create a behavior and edit it afterwards
 
 .. only:: not presentation
 
