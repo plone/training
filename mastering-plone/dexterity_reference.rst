@@ -755,5 +755,3 @@ For context-aware validators you need to use :py:meth:`invariant`:
     * `Validation <https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html>`_ (this documentation unfortunately still uses the obsolete grok technology)
     * `z3c.form documentation <https://pypi.org/project/z3c.form#validators>`_
     * `Default values for fields on add forms <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html>`_
-tion <https://pypi.org/project/z3c.form#validators>`_
-    * `Default values for fields on add forms <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html>`_
