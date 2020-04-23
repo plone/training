@@ -23,6 +23,8 @@ NodeJS is provided with npm, its package manager, we will use it to install the 
 
 .. note:: ``-g`` means the CLI will be available globally in our nvm instance.
 
+When you are prompted to use either `yarn` or `npm` to install the GatsbyJS CLI, it's ok to use the default, `yarn`.
+
 Creating a new GatsbyJS site
 ============================
 
