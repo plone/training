@@ -41,7 +41,7 @@ To change the code to the state of the next chapter checkout the tag for the nex
     git checkout views_3
 
 
-If you made any changes to the code you have to get them out of the way first. This inviolved two things
+If you made any changes to the code you have to get them out of the way first. This involves two things.
 
 .. warning::
 
@@ -152,4 +152,3 @@ The final result should look like this:
 
 .. figure:: ../_static/code_tree.png
    :align: center
-
