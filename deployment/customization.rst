@@ -120,6 +120,8 @@ If you're conservative, you'll first try starting and stopping the reserved clie
     You don't need to worry that an automated restart might occur after a failed buildout.
 
 
+.. _web-hosting-options:
+
 Web Hosting Options
 -------------------
 
@@ -187,7 +189,13 @@ Alternatively, you could specify use of certificates already on the server:
     Log in and delete it if needed.
     Yes, this is an exception to the "don't login to change configuration rule".
 
-**Extra tricks**
+.. seealso::
+
+    For an example of using free Let's Encrypt certificates with certbot and auto-renewal, see :doc:`letsencrypt-certbot`.
+
+
+Extra tricks
+^^^^^^^^^^^^
 
 There are a couple of extra setting that allow you to do extra customization if you know nginx directives.
 For example:
@@ -201,6 +209,7 @@ For example:
 This is a *redirect to https*.
 It takes advantage of the fact that if you do not specify a zodb_path,
 the playbook will not automatically create a location stanza with a rewrite and proxy_pass directives.
+
 
 Mail Relay
 ----------
