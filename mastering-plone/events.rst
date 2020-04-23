@@ -26,6 +26,12 @@ In this chapter you will
 * display the date in the talkview and talklistview
 
 
+.. note::
+
+    This chapter uses Volto to change displaying the dates in talkview and talklistview.
+    To meet the same requirements in classic Plone see the chapter :doc:`events_classic`.
+
+
 Add date fields
 ---------------
 
@@ -258,17 +264,6 @@ Display the date in the listing
 .. todo::
 
   Adapt ``TalkListView`` to handle the date and time.
-
-
-Exercise 1
-++++++++++
-
-Find out where ``event_summary`` comes from and describe how you could override it.
-
-..  admonition:: Solution
-    :class: toggle
-
-    Use your edit
 
 
 Exercise
