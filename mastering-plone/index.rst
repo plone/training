@@ -60,6 +60,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     dexterity
     dexterity_2_talk
     dexterity_reference
+    volto_semantic_ui
     volto_talkview
     volto_talk_listview
     behaviors_1
