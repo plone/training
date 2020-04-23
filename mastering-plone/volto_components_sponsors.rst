@@ -24,31 +24,35 @@ In this part you will:
 
 Topics covered:
 
-* Component
+* Create React component
+* Use REST API of Plone to fetch data
+* Localize your component
 
-.. _viewlets1-sponsors-label:
 
-A component for the sponsors in the footer
-------------------------------------------
+.. _volto-components-sponsors-label:
 
-.. only:: not presentation
+A component
+-----------
 
-    A component is a block of information independendent of the content of the current page that can be put in various places in the site.
+A component is a block of information independendent of the content of the current page. It can be placed in various locations in a site even multiple times on one page.
 
 * Inspect existing components with the React developer tools.
 * Volto comes with several components like header, footer, sidebar. In fact everything in Volto is build of nested components.
 
-.. _viewlets1-sponsors2-label:
+.. _volto-components-sponsors2-label:
 
 Sponsors component
 ------------------
 
-The sponsors shall live in the footer. To modify the given footer we copy the Footer.jsx file from Volto to our app regarding the original folder structure but inside our customizations folder :file:`customizations/components/theme/Footer/Footer.jsx`.
+We will now see how to achieve in the new frontend the equivalent to the viewlet of the previous chapter :doc:`dexterity_3`.
+
+The sponsors shall live in the footer. To modify the given footer component we copy the Footer.jsx file from Volto to our app regarding the original folder structure but inside our customizations folder :file:`customizations/components/theme/Footer/Footer.jsx`.
 
 In this file we can now modify the returned html by adding a subcomponent *Sponsors* which we have to create.
 
 .. code-block:: jsx
     :linenos:
+    :emphasize-lines: 9
 
     const Footer = ({ intl }) => (
       <>
@@ -96,29 +100,14 @@ The **connection** to the store is made by the following code which passes the d
         }),
         { getQueryStringResults },
       ),
-
-      asyncConnect([
-        {
-          key: 'querystringsearch',
-          promise: ({ store: { dispatch } }) =>
-            dispatch(
-              getQueryStringResults(
-                '/',
-                {...toSearchOptions, fullobjects: 1},
-                'sponsors'
-              ),
-            ),
-        },
-      ]),
-
     )(Sponsors);
 
-We call the action in lifecycle event UNSAFE_componentWillMount.
+We call the action in lifecycle event componentDidMount.
 
 .. code-block:: jsx
     :linenos:
 
-    UNSAFE_componentWillMount() {
+    componentDidMount() {
       this.props.getQueryStringResults('/', {...toSearchOptions, fullobjects: 1}, 'sponsors');
     }
 
@@ -140,227 +129,67 @@ Keep in mind this common pattern to split a component in two parts: a container 
 
 We create a presentation component *SponsorsBody* in components/Sponsors/SponsorsBody.jsx
 
-This is a stateless component which gets the necessary data via props and renders the sponsors grouped by sponsor level and some sugar.
+Presentation component means that this is a stateless component which gets the necessary data via props and renders the data of sponsors grouped by sponsor level.
+
+.. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 33
+
+    /**
+     * sponsors presentation
+     * @function SponsorsBody
+     * @param {Array} sponsorlist list of sponsors with name, level, logo.
+     * @returns {string} Markup of the component.
+     `*/`
+    const SponsorsBody = ({sponsorlist}) => {
+      // ...
+
+      const sponsors = groupedSponsors(sponsorlist);
+
+      return (
+        <Segment
+          basic
+          textAlign="center"
+          className="sponsors"
+          aria-label="Sponsors"
+          inverted>
+          <div className="sponsorheader">
+            <h3 className="subheadline">
+              <FormattedMessage
+                id="Our sponsors do support and are supported of Plone."
+                defaultMessage="Our sponsors do support and are supported of Plone."
+              />
+            </h3>
+            <h2 className="headline">
+            <FormattedMessage
+              id="We ❤ our sponsors"
+              defaultMessage="We ❤ our sponsors"
+            />
+            </h2>
+          </div>
+            {levelList()}
+        </Segment>
+      )
+    }
+
+    export default SponsorsBody
 
 
+Restart your frontend and see the new footer:
 
-
+.. figure:: _static/volto_component_sponsors.png
 
 
 **TODO To be continued here**
 
-The viewlet class :py:class:`FeaturedViewlet` is expected in a file :file:`browser/viewlets.py`.
-
-.. _BrowserLayer: https://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
-
-.. code-block:: python
-    :linenos:
-
-    from plone.app.layout.viewlets import ViewletBase
-
-    class FeaturedViewlet(ViewletBase):
-        pass
-
-
-.. only:: not presentation
-
-    This class does nothing except rendering the associated template (That we have yet to write)
-
-Let's add the missing template :file:`templates/featured_viewlet.pt`.
-
-.. code-block:: html
-    :linenos:
-
-    <div id="featured">
-        <p tal:condition="python:view.is_featured">
-            This is hot news!
-        </p>
-    </div>
-
-
-.. only:: not presentation
-
-    As you can see this is not a valid HTML document.
-    That is not needed, because we don't want a complete view here, a HTML snippet is enough.
-
-    There is a :samp:`tal:define` statement, querying for :samp:`view/is_featured`.
-    Same as for views, viewlets have access to their class in page templates, as well.
-
-We have to extend the Featured Viewlet now to add the missing attribute:
-
-
-.. only:: not presentation
-
-    .. sidebar:: Why not to access context directly
-
-        In this example, :samp:`IFeatured(self.context)` does return the context directly.
-        It is still good to use this idiom for two reasons:
-
-          #. It makes it clear that we only want to use the IFeatured aspect of the object
-          #. If we decide to use a factory, for example to store our attributes in an annotation, we would `not` get back our context, but the adapter.
-
-        Therefore in this example you could simply write :samp:`return self.context.featured`.
-
-.. code-block:: python
-    :linenos:
-    :emphasize-lines: 2, 6-8
-
-    from plone.app.layout.viewlets import ViewletBase
-    from ploneconf.site.behaviors.featured import IFeatured
-
-    class FeaturedViewlet(ViewletBase):
-
-        def is_featured(self):
-            adapted = IFeatured(self.context)
-            return adapted.featured
-
-So far, we
-
-  * register the viewlet to content that has the IFeatured Interface.
-  * adapt the object to its behavior to be able to access the fields of the behavior
-  * return the link
-
-
-.. _viewlets1-excercises-label:
+.. _volto_components_sponsors-excercises-label:
 
 Exercise 1
 ----------
 
-Register a viewlet 'number_of_talks' in the footer that is only visible to admins (the permission you are looking for is :py:class:`cmf.ManagePortal`).
-Use only a template (no class) to display the number of talks already submitted.
-
-Hint: Use Acquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
+Text Exercise
 
 ..  admonition:: Solution
     :class: toggle
 
-    Register the viewlet in :file:`browser/configure.zcml`
-
-    ..  code-block:: xml
-
-        <browser:viewlet
-          name="number_of_talks"
-          for="*"
-          manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-          layer="zope.interface.Interface"
-          template="templates/number_of_talks.pt"
-          permission="cmf.ManagePortal"
-          />
-
-
-    For the ``for`` and ``layer``-parameters ``*`` is shorthand for :py:class:`zope.interface.Interface` and the same effect as omitting them: The viewlet will be shown for all types of pages and for all Plone sites within your Zope instance.
-
-    Add the template :file:`browser/templates/number_of_talks.pt`:
-
-    ..  code-block:: html
-
-        <div class="number_of_talks"
-             tal:define="catalog python:context.portal_catalog;
-                         number_of_talks python:len(catalog(portal_type='talk'));">
-            There are <span tal:replace="number_of_talks" /> talks.
-        </div>
-
-    :samp:`python:context.portal_catalog` will return the catalog through Acquisition. Be careful if you want to use path expressions: :samp:`context/portal_catalog` calls the catalog (and returns all brains). You need to prevent this by using :samp:`nocall:context/portal_catalog`.
-
-    Relying on Acquisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from :file:`plone/app/layout/globals/tools.py` to get the catalog.
-
-    ..  code-block:: html
-
-        <div class="number_of_talks"
-             tal:define="catalog context/@@plone_tools/catalog;
-                         number_of_talks python:len(catalog(portal_type='talk', review_state='pending'));">
-            There are <span tal:replace="number_of_talks" /> talks.
-        </div>
-
-    :samp:`context/@@plone_tools/catalog` traverses to the view ``plone_tools`` and calls its method :py:meth:`catalog`. In python it would look like this:
-
-    ..  code-block:: html
-
-        <div class="number_of_talks"
-             tal:define="catalog python:context.restrictedTraverse('plone_tools').catalog();
-                         number_of_talks python:len(catalog(portal_type='talk'));">
-            There are <span tal:replace="number_of_talks" /> talks.
-        </div>
-
-    It is not a good practice to query the catalog within a template since even simple logic like this should live in Python.
-    But it is very powerful if you are debugging or need a quick and dirty solution.
-
-    In Plone 5 you could even write it like this:
-
-    ..  code-block:: html
-
-        <?python
-
-        from plone import api
-        catalog = api.portal.get_tool('portal_catalog')
-        number_of_talks = len(catalog(portal_type='talk'))
-
-        ?>
-
-        <div class="number_of_talks">
-            There are ${python:number_of_talks} talks.
-        </div>
-
-
-Exercise 2
-----------
-
-Register a viewlet 'days_to_conference' in the header.
-Use a class and a template to display the number of days until the conference.
-
-You get bonus points if you display it in a nice format (think "In 2 days" and "Last Month") by using either JavaScript or a Python library.
-
-..  admonition:: Solution
-    :class: toggle
-
-    In :file:`configure.zcml`:
-
-    ..  code-block:: xml
-
-        <browser:viewlet
-          name="days_to_conference"
-          for="*"
-          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-          layer="*"
-          class=".viewlets.DaysToConferenceViewlet"
-          template="templates/days_to_conference.pt"
-          permission="zope2.View"
-          />
-
-    In :file:`viewlets.py`:
-
-    ..  code-block:: python
-
-        from plone.app.layout.viewlets import ViewletBase
-        from datetime import datetime
-        import arrow
-
-        CONFERENCE_START_DATE = datetime(2015, 10, 12)
-
-
-        class DaysToConferenceViewlet(ViewletBase):
-
-            def date(self):
-                return CONFERENCE_START_DATE
-
-            def human(self):
-                return arrow.get(CONFERENCE_START_DATE).humanize()
-
-    Setting the date in python is not very user-friendly. In the chapter :ref:`registry-label` you learn how store global configuration and easily create controlpanels.
-
-    And in :file:`templates/days_to_conference.pt`:
-
-    ..  code-block:: html
-
-        <div class="days_to_conf">
-            ${python: view.human()}
-        </div>
-
-    Or using the moment pattern in Plone 5:
-
-    ..  code-block:: html
-
-        <div class="pat-moment"
-             data-pat-moment="format: relative">
-            ${python: view.date()}
-        </div>
+    Donec id elit non mi porta gravida at eget metus.
