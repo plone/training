@@ -3,6 +3,16 @@
 Writing Viewlets
 ================
 
+.. sidebar:: Classic chapter
+
+  .. figure:: _static/plone.svg
+     :alt: Plone Logo
+
+  This chapter is about the classic frontent.
+
+  Solve the same tasks in the Volto frontend in chapter **TODO**
+
+
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
    Code for the beginning of this chapter::

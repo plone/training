@@ -3,6 +3,15 @@
 Semantic UI
 ============
 
+.. sidebar:: Volto chapter
+
+  .. figure:: _static/Volto.svg
+     :alt: Volto Logo
+
+  This chapter is about the react frontent Volto.
+
+  Learn about templates in the classic frontend in chapter :doc:`zpt`
+
 Semantic is a development framework that helps create beautiful, responsive layouts using human-friendly HTML. It provides a declarative API, shorthand props and many helpers that simplifies development.
 
 Volto uses the components from `Semantic UI React <https://react.semantic-ui.com/>`_ to compose a large part of the views. For example the component `Image <https://react.semantic-ui.com/elements/image/>`_ is used to render images.

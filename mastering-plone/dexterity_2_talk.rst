@@ -1,12 +1,11 @@
 .. _dexterity1-label:
 
-Dexterity II: Talk
-==================
+Dexterity II: Talks
+===================
 
 In this part you will solve the following task:
 
 * Create a contenttype 'talk' to store all the data required for a talk
-
 
 Topics covered:
 
