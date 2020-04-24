@@ -76,7 +76,7 @@ Now register the new component as default view for talks in :file:`src/config.js
 
 This extends ``defaultViews.contentTypesViews`` with the key/value pair ``talk: TalkView``.
 
-When Volto is running (with ``yarn start``) it should automatically pick up these changes and display the placeholder in place of the previously used default-view.
+When Volto is running (with ``yarn start``) it picks up these changes and displays the placeholder in place of the previously used default-view.
 
 Now we will improve this view step by step.
 First we reuse the component ``DefaultView.jsx`` in our custom view:
@@ -111,7 +111,7 @@ We will now add the content from the field ``details`` after the ``DefaultView``
     };
     export default TalkView;
 
-* ``<> </>`` is a shorthand for a segment. The return-value of react needs to be one element only.
+* ``<> </>`` is a fragment. The return-value of react needs to be one single element.
 * The variable ``props`` is used to pass the json-representation of the content object (i.e. a talk) to the view. We create a new variable ``content`` with the same value (``props``) to make it more explicit that this is the content object.
 * ``content.details`` is the value of richtext-field ``details``:
 
@@ -161,7 +161,7 @@ This has multiple benefits:
 * All content can now be wrapped in the same ``Container`` which cleans up the html.
 * We can control where the speaker-portrait is displayed. We can now move all information on the speaker into a separate box. The speaker-portrait is picked up by the DefaultView because the field's name is ``image`` (same as the image from the behavior ``plone.leadimage``).
 
-With this changes we do discard the title-tag in the HTML head though. This will change the name occuring in the browser tab or browser head to the current site-url. To use the content title instead, you'll have to import the ``Helmet`` component, which allows you to overwrite all meta-tags for the HTML head like the page-title.
+With this changes we do discard the title-tag in the HTML head though. This will change the name occuring in the browser tab or browser head to the current site-url. To use the content title instead, you'll have to import the ``Helmet`` component, which allows to overwrite all meta tags for the HTML head like the page-title.
 
 ..  code-block:: js
     :emphasize-lines: 3,9-16
@@ -233,7 +233,7 @@ Next we add a block with info on the speaker:
     export default TalkView;
 
 * We use the component `Segment <https://react.semantic-ui.com/elements/segment/#variations-clearing>`_ for the box
-* We use the component `Icon <https://react.semantic-ui.com/elements/icon/>`_ to siplac the mail icon.
+* We use the component `Icon <https://react.semantic-ui.com/elements/icon/>`_ to display the mail icon.
 * ``{`mailto:${content.email}`}`` is a `template literal <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals>`_
 
 Next we add the image:
