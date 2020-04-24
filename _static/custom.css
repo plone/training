@@ -4,6 +4,10 @@
   padding-right: 2em;
 }
 
+.rst-content .sidebar {
+  clear: right;
+}
+
 .rst-content .menuselection {
   background-color: #f9ebb3;
   border: 1px solid #f0b37e;
