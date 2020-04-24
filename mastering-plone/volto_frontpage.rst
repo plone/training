@@ -1,7 +1,7 @@
 .. _volto_frontpage-label:
 
-Creating a dynamic with Volto blocks
-====================================
+Creating a dynamic frontpage with Volto blocks
+==============================================
 
 .. sidebar:: Volto chapter
 
