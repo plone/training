@@ -1,8 +1,17 @@
 .. _frontpage-label:
-.. _frontpage-label:
 
 Creating a Dynamic Front Page
 =============================
+
+.. sidebar:: Classic chapter
+
+  .. figure:: _static/plone.svg
+     :alt: Plone Logo
+
+  This chapter is about the classic frontent.
+
+  Solve the same tasks in the Volto frontend in chapter :doc:`volto_frontpage`
+
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 

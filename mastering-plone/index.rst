@@ -66,6 +66,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     volto_talkview
     volto_talk_listview
     behaviors_1
+    volto_frontpage
     viewlets_1
     api
     testing
