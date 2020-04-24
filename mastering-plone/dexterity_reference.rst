@@ -430,6 +430,13 @@ Other fields
     class Example(Container):
         """Example instance class"""
 
+..  seealso::
+
+    * `Dexterity Developer Manual <https://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
+    * `All available Fields <https://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html#field-types>`_
+    * `Schema-driven types with Dexterity <https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types>`_
+    * `The standard behaviors <https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html>`_
+
 
 How fields look like
 ====================
@@ -587,11 +594,6 @@ The output looks like this:
 
 .. figure:: _static/dexterity_reference_datagridfield_view.png
 
-..  seealso::
-
-    * `All available Fields <https://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html#field-types>`_
-    * `Schema-driven types with Dexterity <https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types>`_
-
 
 Widgets
 =======
@@ -599,6 +601,10 @@ Widgets
 .. todo::
 
     Document all available widgets
+
+.. seealso::
+
+    * `Available widgets (a incomplete list) <https://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html>`_
 
 
 Directives

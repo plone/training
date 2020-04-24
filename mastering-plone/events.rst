@@ -3,6 +3,16 @@
 Turning Talks into Events
 =========================
 
+.. sidebar:: Volto chapter
+
+  .. figure:: _static/Volto.svg
+     :alt: Volto Logo
+
+  This chapter is about the react frontent Volto.
+
+  Solve the same tasks in classic frontend in chapter :doc:`events_classic`
+
+
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
    Code for the beginning of this chapter::
@@ -78,7 +88,7 @@ It is called ``When`` and is defined in ``frontend/node_modules/@plone/volto/src
 
 We'll reuse it in :file:`frontend/src/components/Views/Talk.jsx`:
 
-.. code-block:: js
+.. code-block:: jsx
 
     <When
       start={content.start}
@@ -90,7 +100,7 @@ We'll reuse it in :file:`frontend/src/components/Views/Talk.jsx`:
 We'll let us inspire by the event-view and add a ``<Segment floated="right">`` that will contain the date but also the room and the audience.
 In this box we will also use ``<Header dividing sub>`` (from `seamantic-ui <https://react.semantic-ui.com/elements/header/#types-subheaders>`_ to separate the data.
 
-.. code-block:: js
+.. code-block:: jsx
     :emphasize-lines: 5,12,29-65
 
     import React from 'react';
@@ -236,7 +246,7 @@ At least in this case we can take the easy way out since the field does not cont
 
 Modify :file:`frontend/theme/extras/custom.overrides` and add:
 
-.. code-block:: less
+.. code-block:: css
 
     // Hide date fields from contributors
     body.userrole-contributor {

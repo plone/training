@@ -3,6 +3,16 @@
 From Viewlet to Component
 =========================
 
+.. sidebar:: Volto chapter
+
+  .. figure:: _static/Volto.svg
+     :alt: Volto Logo
+
+  This chapter is about the react frontent Volto.
+
+  Solve the same tasks in classic frontend in chapter :doc:`views_2`
+
+
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
    Code for the beginning of this chapter::

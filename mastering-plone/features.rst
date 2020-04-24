@@ -322,8 +322,6 @@ Configure a Mailserver
     Click on `Save and send test e-mail`. Since we have configured PrintingMailHost, you will see the mail content in the console output of your instance. Plone will not
     actually send the email to the receivers address.
 
-.. figure:: _static/features_configure_mail_server.png
-
 .. _features-content-types-label:
 
 The site structure

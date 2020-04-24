@@ -215,8 +215,11 @@ In this new folder add a file :file:`talk.py` with the following content:
 
 The first class :py:class:`ITalk` is the schema for talks and defines quite a lot of different fields for different kinds of data.
 
-The most basic field is ``schema.TextLine`` which can store text. In the next chapter you will find a reference of all field-types available in Plone.
 
+* The fields in the schema are mostly from :py:mod:`zope.schema`.
+* The most basic field is ``schema.TextLine`` which can store text.
+* In the next chapter you will find a reference of all field-types available in Plone.
+* In :samp:`directives.widget(level=RadioFieldWidget)` we change the default widget for a Choice field from a dropdown to radio-boxes.
 
 .. todo::
 
@@ -277,9 +280,3 @@ Summary
 * You can now control the data that will be stored for talks.
 * You can reuse and adapt these examples to model data for your own use-cases.
 * Next up: After looking at even more fields that are available in Plone you will learn to change how talks are displayed.
-
-
-.. seealso::
-
-   * `Dexterity Developer Manual <https://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
-   * `The standard behaviors <https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html>`_

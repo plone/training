@@ -28,12 +28,13 @@ At conferences a shortened 2-day version of the advanced training with a slightl
 
     These chapters teach developing with classing Plone without Volto (i.e. server-side rendering):
 
-    * :doc:`zpt` (replaced by :doc:``)
+    * :doc:`zpt` (replaced by :doc:`volto_semantic_ui`)
     * :doc:`zpt_2` (needs a new chapter on overriding components)
     * :doc:`views_2` (replaced by :doc:`volto_talkview`)
     * :doc:`views_3` (replaced by :doc:`volto_talk_listview`)
-    * :doc:`viewlets_1` (replaced by a new chapter on overriding components)
-    * :doc:`events_classic`: (replaced by :doc:`events`)
+    * :doc:`viewlets_1` (replaced by a new chapter)
+    * :doc:`events_classic` (replaced by :doc:`events`)
+    * :doc:`viewlets_advanced_classic` (replaced by :doc:`viewlets_advanced_classic`)
 
 
 ..  toctree::
