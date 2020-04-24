@@ -3,7 +3,18 @@
 Volto View Components: A Default View for "Talk"
 ================================================
 
+.. sidebar:: Volto chapter
+
+  .. figure:: _static/volto.svg
+     :alt: Volto Logo
+
+  This chapter is about the react frontent Volto.
+
+  Solve the same tasks in classic frontend in chapter :doc:`views_2`
+
+
 .. sidebar:: Get the code! (:doc:`More info <code>`)
+   :subtitle: Optional Sidebar Subtitle
 
    Code for the beginning of this chapter::
 
@@ -25,7 +36,17 @@ Topics covered:
 * Displaying data stored in fields of content types
 * React Basics
 
+.. topic:: Topic Title
+
+    Subsequent indented lines comprise
+    the body of the topic, and are
+    interpreted as body elements.
+
 In Volto the default visualization for your new content type "talk" only shows the title, description and the image.
+
+.. container:: volto
+
+   This paragraph might be rendered in a custom way.
 
 .. note::
 
