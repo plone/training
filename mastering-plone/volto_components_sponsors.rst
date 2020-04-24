@@ -27,6 +27,7 @@ Topics covered:
 * Create React component
 * Use React action of Volto to fetch data from Plone via REST API
 * Localize your component
+* Semantic UI components
 
 
 .. _volto-component-component-label:
@@ -190,16 +191,43 @@ Restart your frontend and see the new footer:
 .. figure:: _static/volto_component_sponsors.png
 
 
-**TODO To be continued here**
 
 .. _volto-component-exercise-label:
 
-Exercise 1
-----------
+Exercise
+--------
 
-Text Exercise
+Modify the component to display a sponsor logo as a link to the sponsors website. The address is set in sponsor field "url". See the documentation of `Semantic UI React <https://react.semantic-ui.com/elements/image/#types-link>`_.
 
 ..  admonition:: Solution
     :class: toggle
 
-    Donec id elit non mi porta gravida at eget metus.
+    .. code-block:: jsx
+        :linenos:
+        :emphasize-lines: 3-5
+
+        <Image
+          className="logo"
+          as="a"
+          href={item.url}
+          target='_blank'
+          src={flattenToAppURL(item.logo.scales.preview.download)}
+          size="small"
+          alt={item.title}
+          title={item.level?.title + ' ' + item.title}
+        />
+
+    The Semantic Image component is now rendered with a wrapping anchor tag.
+
+    .. code-block:: html
+        :linenos:
+
+        <a
+          target="_blank"
+          title="Gold Sponsor Violetta Systems"
+          class="ui small image logo"
+          href="https://www.nzz.ch">
+            <img
+              src="/sponsors/violetta-systems/@@images/d1db77a4-448d-4df3-af5a-bc944c182094.png"
+              alt="Violetta Systems">
+        </a>
