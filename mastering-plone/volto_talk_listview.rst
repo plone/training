@@ -301,6 +301,10 @@ The items itsef won't change though, so the rest of the code will stay untouched
 
 Now you can try and create a new folder on your site and move one or more of the talks. The list should not change at all.
 
+.. warning::
+
+  If you change the view in Volto you’ll also change the view in the backend (Plone). As long as the same view isn’t available in the backend too, the site will show an error!
+
 .. _volto_talk_listview-label:
 
 Exercises

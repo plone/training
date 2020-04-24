@@ -195,6 +195,11 @@ We must add the behavior to :file:`profiles/default/types/talk.xml`:
      ...
     </object>
 
+After a restart and the reinstallation of the product we now have the new field we added through the behavior:
+
+.. figure:: _static/behaviors_frontend.png
+   :alt: Extended behavior field shown in Volto
+
 
 .. _plone.supermodel: https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
 .. _fieldset: https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
@@ -204,3 +209,78 @@ We must add the behavior to :file:`profiles/default/types/talk.xml`:
 Add a index for the new field
 -----------------------------
 
+To use these new information for example in searches or listings we have to add an index to the `plone_catalog` for it. Indexing is the action to make object data search-able. Plone stores available indexes in the database.
+
+.. note::
+
+    You can create them through-the-web and inspect existing indexes in portal_catalog on Index tab. To have those indexes directly after the installation you have to add those indexes like we will show in this chapter.
+
+First of all we have to decide which kind of Index we need to add for our new field. Often used index types are for example:
+
+* FieldIndex stores values as is
+* BooleanIndex stores boolean values as is
+* KeywordIndex allows keyword-style look-ups (query term is matched against all the values of a stored list)
+* DateIndex and DateRangeIndex store dates (Zope 2 DateTime objects) in searchable format. The latter provides ranged searches.
+
+Therefore we have a boolean field for the featured information it would be obvious to use the BooleanIndex for this. 
+
+To add a new index we have to change the `catalog.xml` in the `profiles/default` folder of our product. Without changes the file should look like this:
+
+.. code-block:: xml
+    :linenos:
+
+    <?xml version="1.0"?>
+    <object name="portal_catalog">
+      <!--<column value="my_meta_column"/>-->
+    </object>
+
+To add the new BooleanIndex to the file we have to change the file as following:
+
+.. code-block:: xml
+    :linenos:
+    :emphasize-lines: 3-5
+
+    <?xml version="1.0"?>
+    <object name="portal_catalog">
+      <index name="featured" meta_type="BooleanIndex">
+        <indexed_attr value="featured"/>
+      </index>
+    </object>
+
+To understand this snippet we have to understand the tags and information we are using:
+
+* The `index`-tag will tell the `plone_catalog` that we want to add a new index
+* `name` will be shown in the overview of `portal_catalog` and can be used in listings and searches later on
+* `meta_type` will determine the kind of index we want to use
+* The `indexed_attr` will include the fieldname of the information we are going to save in the index
+
+After a restart and a reinstallation the product should now create a new index in the `portal_catalog`. To see if the adding was successfully we will open the ZMI of our plone-site and navigate to the `portal_catalog` and click the `Indexes`-Tab. In the above list the new index `fetaured` should pop up.
+
+.. _behaviors_1-label:
+
+Exercises
+---------
+
+Since you now know how to add indexes to the `portal_catalog` it is time for some exercise.
+
+Exercise 1
+**********
+
+Add a new index for the `speaker`-field of out content type `Talk`
+
+..  admonition:: Solution
+    :class: toggle
+
+    .. code-block:: xml
+        :linenos:
+        :emphasize-lines: 6-8
+
+        <?xml version="1.0"?>
+        <object name="portal_catalog">
+          <index name="featured" meta_type="BooleanIndex">
+            <indexed_attr value="featured"/>
+          </index>
+          <index name="speaker" meta_type="FieldIndex">
+            <indexed_attr value="speaker"/>
+          </index>
+        </object>
