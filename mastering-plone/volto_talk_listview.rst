@@ -14,7 +14,7 @@ Topics covered:
 * Use search endpoint of REST API
 * Displaying data from search results
 
-Volto has different views for listing objects. Most of them list all objects in a folder like the ``listing view``. To show all talks you have in your site you'll have to register and write your own listing view. 
+Volto has different views for listing objects. Most of them list all objects in a folder like the ``listing view``. To show all talks you have in your site you'll have to register and write your own listing view.
 
 For doing so you have to add another new file ``src/components/Views/TalkList.jsx`` in the folder :file:`Views` you added in the last chapter.
 
@@ -115,7 +115,7 @@ Now we want to start working directly with the context of our talks folder. To d
 
     For the next part you should have some talks and no other content in one folder to work on the progressing view.
 
-You can also iterate over all items in our talks folder by using the map ``content.items``. To build a view with some elements we used in the ``TalkView`` before, we can reuse some components and definitiions like the ``color_mapping`` for the ``audience``.
+You can also iterate over all items in our talks folder by using the map ``content.items``. To build a view with some elements we used in the ``TalkView`` before, we can reuse some components and definitions like the ``color_mapping`` for the ``audience``.
 
 ..  code-block:: js
       :emphasize-lines: 2-5,9-61
@@ -281,11 +281,11 @@ To get a list of all talks - no matter where they are in our site - we can use t
 
     export default TalkListView;
 
-We make use of the ``useSelector`` and ``useDispatch`` hooks from the react-redux library. They are used to subscribe our component to the store changes (``useSelector``) and for issuing Redux actions (``useDispatch``) from our components. 
+We make use of the ``useSelector`` and ``useDispatch`` hooks from the react-redux library. They are used to subscribe our component to the store changes (``useSelector``) and for issuing Redux actions (``useDispatch``) from our components.
 
-Afterwards we can define the new results with ``const results = searchRequests.items;``, which will use the hooks and actions to receive a map of items. 
+Afterwards we can define the new results with ``const results = searchRequests.items;``, which will use the hooks and actions to receive a map of items.
 
-The search itself will be defined in the ``React.useEffect(() => {})``- section of the code and will contain all parameters for the search. In case of the talks listing view we will search for all talk-types with ``portal_type:['Talk']`` and add that we want to have the whole objects to use all information.
+The search itself will be defined in the ``React.useEffect(() => {})``- section of the code and will contain all parameters for the search. In case of the talks listing view we search for all objects of type talk with ``portal_type:['Talk']`` and force to fetch full objects with all information.
 
 The items itsef won't change though, so the rest of the code will stay untouched.
 
