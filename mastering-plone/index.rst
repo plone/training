@@ -35,6 +35,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     * :doc:`viewlets_1` (replaced by a new chapter)
     * :doc:`events_classic` (replaced by :doc:`events`)
     * :doc:`viewlets_advanced_classic` (replaced by :doc:`viewlets_advanced_classic`)
+    * :doc:`theming` (replaced by :doc:`volto_theming`)
 
 
 ..  toctree::
@@ -53,7 +54,6 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     plone5
     volto_basics
     configuring_customizing
-    theming
     extending
     add-ons
     buildout_1
@@ -73,8 +73,8 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     dexterity_2
     custom_search
     events
+    volto_theming
     user_generated_content
-    resources
     thirdparty_behaviors
     dexterity_3
     volto_components_sponsors

@@ -3,6 +3,10 @@
 Custom Search
 =============
 
+.. todo::
+
+    Is there a equivalent feature/addon for Volto?
+
 If the chapters about views seem complex, the custom search add-ons shown below might be a great alternative
 until you feel comfortable writing views and templates.
 
