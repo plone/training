@@ -25,7 +25,7 @@ In this part you will:
 Topics covered:
 
 * Create React component
-* Use REST API of Plone to fetch data
+* Use React action of Volto to fetch data from Plone via REST API
 * Localize your component
 
 
