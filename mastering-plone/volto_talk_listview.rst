@@ -3,6 +3,16 @@
 Volto View Components: A Listing View for Talks
 ===============================================
 
+.. sidebar:: Volto chapter
+
+  .. figure:: _static/volto.svg
+     :alt: Volto Logo
+
+  This chapter is about the react frontent Volto.
+
+  Solve the same tasks in classic frontend in chapter :doc:`views_3`
+
+
 In this part you will:
 
 * Register a react view component for listings
