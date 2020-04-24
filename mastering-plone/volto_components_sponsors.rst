@@ -1,4 +1,4 @@
-.. _viewlets1-label:
+.. _volto-component-label:
 
 From Viewlet to Component
 =========================
@@ -29,17 +29,19 @@ Topics covered:
 * Localize your component
 
 
-.. _volto-components-sponsors-label:
+.. _volto-component-component-label:
 
 A component
 -----------
 
-A component is a block of information independendent of the content of the current page. It can be placed in various locations in a site even multiple times on one page.
+.. only:: not presentation
+
+  A component is a block of information independent of the content of the current page. It can be placed in various locations on a site, even multiple times on one page.
 
 * Inspect existing components with the React developer tools.
 * Volto comes with several components like header, footer, sidebar. In fact everything in Volto is build of nested components.
 
-.. _volto-components-sponsors2-label:
+.. _volto-component-sponsors-label:
 
 Sponsors component
 ------------------
@@ -48,7 +50,9 @@ We will now see how to achieve in the new frontend the equivalent to the viewlet
 
 The sponsors shall live in the footer. To modify the given footer component we copy the Footer.jsx file from Volto to our app regarding the original folder structure but inside our customizations folder :file:`customizations/components/theme/Footer/Footer.jsx`.
 
-In this file we can now modify the returned html by adding a subcomponent *Sponsors* which we have to create.
+.. only:: not presentation
+
+  In this file we can now modify the returned html by adding a subcomponent *Sponsors* which we have to create.
 
 .. code-block:: jsx
     :linenos:
@@ -65,7 +69,9 @@ In this file we can now modify the returned html by adding a subcomponent *Spons
             <Sponsors />
             ...
 
-We import this to be created component at the top of our new footer component with a
+.. only:: not presentation
+
+  We import this to be created component at the top of our new footer component with a
 
 .. code-block:: jsx
     :linenos:
@@ -81,12 +87,14 @@ We import this to be created component at the top of our new footer component wi
 
 To create the component *Sponsors* we add a folder Sponsors components/Sponsors and a file components/Sponsors.jsx
 
-In this file we can now define our new component as a class that extends Component. It calls the action getQueryStringResults from @plone/volto/actions
-For this it is not necessary to understand the redux way to store data in the global app store but you need to know that Volto actions fetching data do use the redux store to store fetched data.
+.. only:: not presentation
 
-So if we call the action getQueryStringResults to fetch data of sponsors, that means data of Plone portal types "Sponsor", then we can access this data from the store.
+  In this file we can now define our new component as a class that extends Component. It calls the action getQueryStringResults from @plone/volto/actions
+  For this it is not necessary to understand the redux way to store data in the global app store but you need to know that Volto actions fetching data do use the redux store to store fetched data.
 
-The **connection** to the store is made by the following code which passes the data of the store to the component prop *items*.
+  So if we call the action getQueryStringResults to fetch data of sponsors, that means data of Plone portal types "Sponsor", then we can access this data from the store.
+
+  The **connection** to the store is made by the following code which passes the data of the store to the component prop *items*.
 
 .. code-block:: jsx
     :linenos:
@@ -124,7 +132,9 @@ With the data fetched and accessible in component prop *items* we can render the
         </>
     )}
 
-Keep in mind this common pattern to split a component in two parts: a container component to fetch data and a presentation component to render a presentation.
+.. only:: not presentation
+
+  Keep in mind this common pattern to split a component in two parts: a container component to fetch data and a presentation component to render a presentation.
 
 
 We create a presentation component *SponsorsBody* in components/Sponsors/SponsorsBody.jsx
@@ -182,7 +192,7 @@ Restart your frontend and see the new footer:
 
 **TODO To be continued here**
 
-.. _volto_components_sponsors-excercises-label:
+.. _volto-component-exercise-label:
 
 Exercise 1
 ----------
