@@ -1,5 +1,10 @@
 .. _instructions-label:
 
+.. todo::
+
+    * Update Vagrant instructions for Plone 5 with Volto
+
+
 Installing Plone for the Training
 =================================
 

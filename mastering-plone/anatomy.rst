@@ -3,6 +3,11 @@
 The Anatomy of Plone
 ====================
 
+.. todo::
+
+    * Update or remove.
+
+
 In this part you will:
 
 * Learn a bit about the history and architecture of Plone.

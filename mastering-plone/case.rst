@@ -3,14 +3,16 @@
 The Case Study
 ==============
 
-For this training we will build a website for a fictional Plone conference.
-
 .. _case-background-label:
 
 Background
 ----------
 
-The Plone conference takes place every year and all Plone developers at least try to go there.
+For this training we will build a website for a fictional Plone conference on Mars.
+
+By 2050 human civilisation has reached the stars and each year the conference is held on a different planet.
+
+The conference-webseite we want to create should be reusable in the following years so some things should be configurable.
 
 .. _case-requirements-label:
 
@@ -24,10 +26,9 @@ Here are some requirements that we want to meet when the site is done:
 * As a speaker I want to be able to submit talks.
 * As a speaker I want to see and edit my submitted talks.
 * As an organizer I want to see a list of all proposed talks.
+* As an organizer I want to display the sponsors of the conference.
 * As a jury member I want to vote on talks.
 * As a jury member I want to decide which talks to accept, and which not.
-* As a visitor I want to be able to register for the conference.
-* As an organizer I want to have an overview about how many people registered.
 
 Note that requirements connect roles with capabilities.
 This is important because we'll want to limit the capabilities to those to whom we assign particular roles.
@@ -45,8 +46,10 @@ Here are some specific features-requirements that will come up:
 * Available values for audience, type of talk and rooms be managed by a admin
 * Talks should have a time and date to display them in a calendar
 * We want a calendar-view that shows the talks in a timetable with rooms as columns
+* Talks should be able to have multiple speakers (e.g. for panel discussions)
+* We want to be able to easily submit Lightning Talks
 
-We see how you can adapt and extend the project to meet these new requirements.
+We will see how you can adapt and extend the project to meet these changing requirements.
 
 
 Tasks
@@ -117,7 +120,7 @@ Here are the technologies and tools we will use during the training:
 .. _intro-what-wont-happen-label:
 
 What will we not do?
-====================
+--------------------
 
 We will not cover the following topics:
 

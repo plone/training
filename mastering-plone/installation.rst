@@ -6,9 +6,14 @@ Installation & Setup
 
 .. _installation-plone-label:
 
+.. todo::
+
+    * Document the installation of Volto.
+    * Drop mentioning Plone 3 and 4
+    * Mention container options like Docker
+
 Installing Plone
 ----------------
-
 
 The following table shows the Python versions required by Plone from version 3.x to 5.2.x:
 

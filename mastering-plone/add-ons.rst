@@ -7,15 +7,17 @@ Extend Plone With Add-On Packages
 * Using them saves a lot of time
 * The success of a project often depends on finding the right add-on
 * Their use, usefulness, quality and complexity varies a lot
-* Most addons target Plone 5
+* Most addons target Plone 5 and support Python 3 - but there are exceptions
 
 
 Volto Addons
 ------------
 
-.. warning::
+.. todo::
 
-    So far there are no volto addons available! Once there are addons that provide valuable functionality this chapter will be updated with examples.
+    So far there are no production-ready Volto addons available! Once there are addons that provide valuable functionality this chapter will be updated with examples.
+
+Here is how you would install a Volto addon:
 
 In the directory ``volto`` install ``mrs-developer`` to be able to pull in volto addons following the steps in https://docs.voltocms.com/customizing/add-ons/
 
@@ -264,11 +266,7 @@ But:
 
 * Can we submit talks now?
 * Can we create lists with the most important properties of each talk?
-* Can we allow a jury to vote on talks?
 
 We often have to work with structured data.
 Up to a degree we can do all this TTW, but at some point we run into barriers.
 In the next part of the training, we'll teach you how to break through these barriers.
-
-
-

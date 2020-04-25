@@ -3,6 +3,12 @@
 Extending Plone
 ===============
 
+..  todo::
+
+    * Update for Plone 6!
+    * Document Volto approach
+
+
 In this part you will:
 
 * Get an overview over the technologies used to extend Plone

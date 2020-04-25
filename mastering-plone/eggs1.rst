@@ -1,7 +1,7 @@
 .. _eggs1-label:
 
-Write Your Own Add-Ons to Customize Plone
-=========================================
+Write Your Own Python Add-Ons to Customize Plone
+================================================
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 

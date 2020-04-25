@@ -3,9 +3,11 @@
 Configuring and Customizing Plone "Through The Web"
 ===================================================
 
-..  warning::
+..  todo::
 
-    This chapter has not yet been updated for Plone 5!
+    * Update for Plone 6!
+    * Add Volto screenshots for controlpanels
+
 
  .. sectionauthor:: Philip Bauer <bauer@starzel.de>
 
