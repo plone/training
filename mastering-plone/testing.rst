@@ -3,6 +3,11 @@
 Testing in Plone
 ================
 
+..  todo::
+
+    * Add some info on Volto testing
+
+
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
    Code for the beginning of this chapter::
@@ -16,12 +21,16 @@ Testing in Plone
 
 In this chapter we:
 
-  * Write tests
+  * Discuss automatic testing
 
 Topics covered:
 
   * Testing best practices
   * Internals of Plone
+
+
+For more information there is a separate chapter on testing: :ref:`testing-plone-label`
+
 
 .. _testing-types-label:
 
@@ -281,13 +290,9 @@ The first method, with Phantomjs, will throw failures with our tests, unfortunat
 For debugging, you can run the test like this :command:`ROBOT_SELENIUM_RUN_ON_FAILURE=Debug bin/test --all`.
 This will stop the test at the first failure and you end up in an interactive shell where you can try various Robot Framework commands.
 
-More information
-----------------
 
-For more in-depth information and reference see
+.. seealso::
 
-* `plone.app.testing documentation <https://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_.
-
-* `plone.testing package <https://pypi.org/project/plone.testing>`_
-
-
+  * The Training :ref:`testing-plone-label`
+  * `plone.app.testing documentation <https://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_.
+  * `plone.testing package <https://pypi.org/project/plone.testing>`_

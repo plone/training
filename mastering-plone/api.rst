@@ -3,6 +3,12 @@
 Programming Plone
 =================
 
+..  todo::
+
+    * Discuss backend development versus frontend development
+    * Discuss plone.restapi
+    * Discuss React developer tools
+
 In this part you will:
 
 * Learn about the right ways to do something in code in Plone.

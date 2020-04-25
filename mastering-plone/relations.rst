@@ -1,6 +1,12 @@
 Relations
 =========
 
+.. todo::
+
+    * Add screenshots for relationfields in Volto
+    * Create relations between talk and speaker
+    * Display relations (and backrelations)
+
 You can model relationships between content items by placing them in a hierarchy (a folder *speakers* containing the (folderish) speakers and within each speaker the talks) or by linking them to each other in Richtext fields. But where would you store a talk that two speakers give together?
 
 Relations allow developers to model relationships between objects without using links or a hierarchy. The behavior :py:class:`plone.app.relationfield.behavior.IRelatedItems` provides the field :guilabel:`Related Items` in the tab :guilabel:`Categorization`. That field simply says ``a`` is somehow related to ``b``.

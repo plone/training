@@ -3,6 +3,11 @@
 Dexterity I: Content types
 ==========================
 
+..  todo::
+
+    * Add Volto screenshots for dexterity content type forms
+
+
 In this part you will:
 
 * Learn about content types
@@ -13,6 +18,7 @@ In this part you will:
 Topics covered:
 
 * Default and custom content types
+* Modifying existing content types
 * Dexterity
 
 
@@ -23,6 +29,7 @@ What is a content type?
 
 A content type is a kind of object that can store information and is editable by users.
 We have different content types to reflect the different kinds of information about which we need to collect and display information.
+
 Pages, folders, events, news items, files (binary) and images are all content types.
 
 It is common in developing a web site that you'll need customized versions of common content types, or perhaps even entirely new types.
@@ -30,6 +37,7 @@ It is common in developing a web site that you'll need customized versions of co
 Remember the requirements for our project? We wanted to be able to solicit and edit conference talks.
 We *could* use the **Page** content type for that purpose.
 But we need to make sure we collect certain bits of information about a talk and we couldn't be sure to get that information if we just asked potential presenters to create a page.
+
 Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks.
 A custom content type will be ideal.
 
@@ -51,6 +59,46 @@ Views
     A view is a representation of the object and the content of its fields that may be rendered in response to a request.
     You may have *one or more* views for an object.
     Some may be *visual* — intended for display as web pages — others may be intended to satisfy AJAX requests and render content in formats like JSON or XML.
+
+
+Schemas, Fields and Values
+--------------------------
+
+In a schema you can model fields that are used to store data.
+Plone automatically creates forms bases on the schemata of a content type to add and edit content.
+
+Values of these fields are attributes on content objects.
+
+Here is a example that shows how to access and modify these values in python:
+
+.. code-block:: python
+
+    >>> obj.title
+    'A Newsitem'
+    >>> obj.description
+    'Some description'
+    >>> obj.description = u'A new description'
+    >>> obj.description
+    'A new description'
+    >>> obj.image
+    <plone.namedfile.file.NamedBlobImage object at 0x11634c320>
+    >>> obj.image.data
+    b'\x89PNG\r\n\x1a\n\x00\x00\x00\...'
+
+
+Behaviors
+---------
+
+Content types can have additional schemata. These are called behaviors.
+They are meant to be used across content types to add shared functionality.
+
+One example is the ability of most content types to allow them to be excluded from the navigation.
+The field is available on all types even though it is not defined in their schema.
+Instead is is provided by the behavior ``plone.excludefromnavigation`` that most content types use.
+
+Each behavior schema can define fields. The values of these fields are again attributes on content objects.
+
+The behavior ``plone.excludefromnavigation`` adds a attribute ``exclude_from_nav`` to each object. The value is either ``True`` or ``False`` because it is a boolean field.
 
 
 .. _dexterity1-modify-label:
@@ -191,72 +239,6 @@ Modify Pages to allow uploading an image as decoration (like News Items do).
     * Check the box next to :guilabel:`Lead Image` and save.
 
     The images are displayed above the title.
-
-Exercise 2
-++++++++++
-
-Create a new content type called *Speaker* and export the schema to a XML File.
-It should contain the following fields:
-
-* Title, type: "Text Line"
-* Email, type: "Email"
-* Homepage, type: "URL" (optional)
-* Biography, type: "Rich Text" (optional)
-* Company, type: "Text Line" (optional)
-* Twitter Handle, type: "Text Line" (optional)
-* IRC Handle, type: "Text Line" (optional)
-* Image, type: "Image" (optional)
-
-Do not use the DublinCore or the Basic behavior since a speaker should not have a description (unselect it in the Behaviors tab).
-
-We could use this content type later to convert speakers into Plone users. We could then link them to their talks.
-
-..  admonition:: Solution
-    :class: toggle
-
-    The schema should look like this:
-
-    ..  code-block:: xml
-
-        <model xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
-               xmlns:users="http://namespaces.plone.org/supermodel/users"
-               xmlns:security="http://namespaces.plone.org/supermodel/security"
-               xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
-               xmlns:form="http://namespaces.plone.org/supermodel/form"
-               xmlns="http://namespaces.plone.org/supermodel/schema">
-          <schema>
-            <field name="title" type="zope.schema.TextLine">
-              <title>Name</title>
-            </field>
-            <field name="email" type="plone.schema.email.Email">
-              <title>Email</title>
-            </field>
-            <field name="homepage" type="zope.schema.URI">
-              <required>False</required>
-              <title>Homepage</title>
-            </field>
-            <field name="biography" type="plone.app.textfield.RichText">
-              <required>False</required>
-              <title>Biography</title>
-            </field>
-            <field name="company" type="zope.schema.TextLine">
-              <required>False</required>
-              <title>Company</title>
-            </field>
-            <field name="twitter_handle" type="zope.schema.TextLine">
-              <required>False</required>
-              <title>Twitter Handle</title>
-            </field>
-            <field name="irc_name" type="zope.schema.TextLine">
-              <required>False</required>
-              <title>IRC Handle</title>
-            </field>
-            <field name="image" type="plone.namedfile.field.NamedBlobImage">
-              <required>False</required>
-              <title>Image</title>
-            </field>
-          </schema>
-        </model>
 
 
 .. seealso::

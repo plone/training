@@ -3,6 +3,12 @@
 Manage Settings with Registry, Control Panels and Vocabularies
 ==============================================================
 
+.. todo::
+
+    * Add a Volto Controlpanel (in a later chapter?)
+    * Add fields and vocabularies for ``audience`` and ``type_of_talk``
+
+
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
    Code for the beginning of this chapter::

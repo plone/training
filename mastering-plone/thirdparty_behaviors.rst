@@ -4,6 +4,9 @@
 Using Third-Party Behaviors
 ===========================
 
+..  todo::
+
+    * Do we still want/need this chapter?
 
 .. _thirdparty-banner-label:
 

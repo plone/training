@@ -80,6 +80,8 @@ Objects can be called and return a representation of itself - usually HTML.
     u'\n<!DOCTYPE html>\n\n<html xmlns="http://www.w3.org/1999/xhtml...'
 
 
+.. _schema-driven-types-label:
+
 Schema-driven content
 ---------------------
 
