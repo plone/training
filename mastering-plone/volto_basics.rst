@@ -11,7 +11,7 @@ Here are some things you should know if you are new to Plone 6 or Volto:
 * Volto uses `plone.restapi <https://plonerestapi.readthedocs.io/>`_ to communicate with Plone.
 * All data is stored in Plone, Volto is only used to display and manipulate the data.
 * Volto will only work if ``plone.restapi`` is installed in your Plone site. In Plone 6 this should be the case by default.
-* ``yarn`` is used to build Volto
+* As package manager `yarn <https://yarnpkg.com/>`_ is used and supported to build Volto.
 * Volto currently needs to be installed separately. See chapter :ref:`instructions-install_frontend-label` for instructions.
 * Volto runs in a different process than the Plone-backend. By default Volto runs on port 3000. If you start Volto with ``yarn start`` you can see the frontend on http://localhost:3000. The Plone backend runs by default on http://localhost:8080
 * To create a new Plone site you need to use the backend, this is not possible in Volto.
