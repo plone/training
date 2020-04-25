@@ -8,7 +8,7 @@ Volto is a React-based frontend for Plone. It is the default frontend since Plon
 Here are some things you should know if you are new to Plone 6 or Volto:
 
 * Volto is built in `React <https://reactjs.org>`_, a modern Javascript Framework.
-* Volto uses `plone.restapi <https://github.com/plone/plone.restapi/>`_ to communicate with Plone.
+* Volto uses `plone.restapi <https://plonerestapi.readthedocs.io/>`_ to communicate with Plone.
 * All data is stored in Plone, Volto is only used to display and manipulate the data.
 * Volto will only work if ``plone.restapi`` is installed in your Plone site. In Plone 6 this should be the case by default.
 * ``yarn`` is used to build Volto
