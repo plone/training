@@ -24,6 +24,10 @@ Volto View Components: A Default View for "Talk"
 
         git checkout volto_talkview
 
+To be solved task in this part:
+
+* Create a view to display talks in a nice way
+
 In this part you will:
 
 * Register a react view component for talks

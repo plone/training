@@ -13,6 +13,10 @@ Volto View Components: A Listing View for Talks
   Solve the same tasks in classic frontend in chapter :doc:`views_3`
 
 
+To be solved task in this part:
+
+* Create a view that shows a list of talks to allow a easy overview
+
 In this part you will:
 
 * Register a react view component for listings
@@ -62,7 +66,7 @@ Now register the new component as layout view for folderish types in ``src/confi
       ...defaultViews,
       layoutViews: {
           ...defaultViews.layoutViews,
-          talkslist_view: TalkListView,
+          talklist_view: TalkListView,
       },
       contentTypesViews: {
           ...defaultViews.contentTypesViews,
@@ -70,7 +74,7 @@ Now register the new component as layout view for folderish types in ``src/confi
     },
     };
 
-This extends ``defaultViews.layoutViews`` with the key/value pair ``talkslist_view: TalkList``.
+This extends ``defaultViews.layoutViews`` with the key/value pair ``talklist_view: TalkList``.
 
 To add a layout view you also have to add this new view in the ``ZMI`` of your ``Plone``. Login to your instance by using ``/manage`` and unfold the point Plone in the left sidebar. Now click on ``portal_types`` and search for the ``folder``-Type to add your new ``talklist_view`` to the ``Available view methods`` by adding it to a new line.
 
@@ -79,6 +83,10 @@ To add a layout view you also have to add this new view in the ``ZMI`` of your `
     :alt: Add new View in the ZMI.
 
     Add new View in the ZMI.
+
+From now on you can select the new view for Folders:
+
+.. figure:: _static/talklistview_select.png
 
 Now we will improve this view step by step.
 First we reuse the component ``DefaultView.jsx`` in our custom view again:
@@ -194,19 +202,22 @@ You can also iterate over all items in our talks folder by using the map ``conte
       };
       export default TalkListView;
 
-* With {content.items} we iterate over the contents of the folder and assign the received map to the constant ``results`` for further use
-* With ``{results && results.map(item => ()}`` we test if there is any item in the map and then iterate over this items
+* With {content.items} we iterate over the contents of the folder and assign the received map to the constant ``results`` for further use.
+* With ``{results && results.map(item => ()}`` we test if there is any item in the map and then iterate over this items.
 * To use the existing Link-Component we'll have to use ``import { Link } from 'react-router-dom';`` and configure the component:
+
+    * ``to={item['@id']}`` will give make the link point to the URL of the item and assign it to the Link as destination
     * ``{item['@type']}`` will give you the contenttype name of the item, which could help you to change layouts for the listed items if you have different content in your folder
-    * ``to={item['@id']}`` will give you the URL of the item and assign it to the Link as destination
     * you can get all other information like the title, description or saved information with the dotted notation like ``{item.title}`` or ``{item.description}``
+    * we use that to display ``audience``, ``image`` and ``description`` like we already did in the talkview.
 
 The iteration over ``content.items`` to build a listing can be problematic though, because this approach has some limitations you may have to deal with:
 
 * listed content can include different types and could have different fields or use cases (long, difficult-to-read code if every addable type/use case has to be covered) or
-* not all content for the listing exists in one folder but is arranged in a wide structure (for example in categories)
+* not all content for the listing exists in one folder but may arranged in a wide structure (for example in topics or by day)
 
-To get a list of all talks - no matter where they are in our site - we can use the ``search endpoint``.
+To get a list of all talks - no matter where they are in our site - we can use the ``search endpoint`` of the restapi.
+That is the equivalent of using a catalog-search in classic Plone (see :ref:`views3-catalog-label`).
 
 ..  code-block:: js
     :emphasize-lines: 6-7,11-13,21-28
@@ -234,7 +245,7 @@ To get a list of all talks - no matter where they are in our site - we can use t
       React.useEffect(() => {
         dispatch(
           searchContent('/', {
-            portal_type: ['Talk'],
+            portal_type: ['talk'],
             fullobjects: true,
           }),
         );
@@ -297,13 +308,28 @@ Afterwards we can define the new results with ``const results = searchRequests.i
 
 The search itself will be defined in the ``React.useEffect(() => {})``- section of the code and will contain all parameters for the search. In case of the talks listing view we search for all objects of type talk with ``portal_type:['Talk']`` and force to fetch full objects with all information.
 
-The items itsef won't change though, so the rest of the code will stay untouched.
+The items themselves won't change though, so the rest of the code will stay untouched.
 
-Now you can try and create a new folder on your site and move one or more of the talks. The list should not change at all.
+Now you see all talks in the list no matter where they are located in the site.
 
 .. warning::
 
   If you change the view in Volto you’ll also change the view in the backend (Plone). As long as the same view isn’t available in the backend too, the site will show an error!
+
+Search options
+--------------
+
+.. todo::
+
+  * Explain available indexes, path, sort_on
+  * Explain why we cannot search for ``type_of_talk`` yet.
+  * Explain default results, metadata_fields, fullobjects, how that relates to portal_catalog and brains.
+  * Explain difference between brain and object
+
+.. seealso::
+
+  * https://plonerestapi.readthedocs.io/en/latest/searching.html
+  * http://docs.plone.org/develop/plone/searching_and_indexing/query.html
 
 .. _volto_talk_listview-label:
 
