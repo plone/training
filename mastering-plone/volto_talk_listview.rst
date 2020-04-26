@@ -28,9 +28,13 @@ Topics covered:
 * Use search endpoint of REST API
 * Displaying data from search results
 
-Volto has different views for listing objects. Most of them list all objects in a folder like the ``listing view``. To show all talks you have in your site you'll have to register and write your own listing view.
+Volto has different views for listing objects. Most of them list all objects in a folder like the ``listing view``.
+To show all talks you have in your site you'll have to register and write your own listing view.
 
 For doing so you have to add another new file ``src/components/Views/TalkList.jsx`` in the folder :file:`Views` you added in the last chapter.
+
+Register the view in Volto and Plone
+------------------------------------
 
 As a first step the file will hold a placeholder again:
 
@@ -129,6 +133,10 @@ Now we want to start working directly with the context of our talks folder. To d
     };
     export default TalkListView;
 
+
+Display the content of a folder
+-------------------------------
+
 .. note::
 
     For the next part you should have some talks and no other content in one folder to work on the progressing view.
@@ -215,6 +223,10 @@ The iteration over ``content.items`` to build a listing can be problematic thoug
 
 * listed content can include different types and could have different fields or use cases (long, difficult-to-read code if every addable type/use case has to be covered) or
 * not all content for the listing exists in one folder but may arranged in a wide structure (for example in topics or by day)
+
+
+Using the search endpoint
+-------------------------
 
 To get a list of all talks - no matter where they are in our site - we can use the ``search endpoint`` of the restapi.
 That is the equivalent of using a catalog-search in classic Plone (see :ref:`views3-catalog-label`).
@@ -341,7 +353,7 @@ Since you now know how to query content it is time for some exercise.
 Exercise 1
 **********
 
-Add a criteria in the search and sort the talks in the order of their modification date.
+Modify the criteria in the search to sort the talks in the order of their modification date.
 
 ..  admonition:: Solution
     :class: toggle
@@ -352,9 +364,144 @@ Add a criteria in the search and sort the talks in the order of their modificati
         React.useEffect(() => {
           dispatch(
             searchContent('/', {
-              portal_type: ['Talk'],
+              portal_type: ['talk'],
               sort_on: 'modified',
               fullobjects: true,
             }),
           );
         }, [dispatch]);
+
+
+Exercise 2
+**********
+
+Change ``TalkListView`` to show the the keynote speakers (name, biography and foto) and a with link to their keynote. Remember that you cannot search for a specific value in ``type_of_talk`` yet so you'll have to filter the results.
+
+For bonus points create and register it as a separate view ``Keynotes``
+
+..  admonition:: Solution
+    :class: toggle
+
+    Write the view:
+
+    ..  code-block:: js
+        :linenos:
+
+        import React from 'react';
+        import { Container, Segment, Image } from 'semantic-ui-react';
+        import { Helmet } from '@plone/volto/helpers';
+        import { Link } from 'react-router-dom';
+        import { flattenToAppURL } from '@plone/volto/helpers';
+        import { searchContent } from '@plone/volto/actions';
+        import { useDispatch, useSelector } from 'react-redux';
+
+        const TalkListView = props => {
+          const { content } = props;
+          const searchRequests = useSelector(state => state.search);
+          const dispatch = useDispatch();
+          const results = searchRequests.items;
+
+          React.useEffect(() => {
+            dispatch(
+              searchContent('/', {
+                portal_type: ['talk'],
+                review_state: 'published',
+                fullobjects: true,
+              }),
+            );
+          }, [dispatch]);
+
+          return (
+            <Container className="view-wrapper">
+              <Helmet title={content.title} />
+              <article id="content">
+                <header>
+                  <h1 className="documentFirstHeading">Our Keynote Speakers</h1>
+                </header>
+                <section id="content-core">
+                  {results &&
+                    results.map(
+                      item =>
+                        item.type_of_talk.title === 'Keynote' && (
+                          <Segment padded>
+                            <h2>{item.speaker}</h2>
+                            {item.image && (
+                              <Image
+                                src={flattenToAppURL(
+                                  item.image.scales.preview.download,
+                                )}
+                                size="medium"
+                                centered
+                                alt={item.speaker}
+                              />
+                            )}
+                            {item.speaker_biography && (
+                              <div
+                                dangerouslySetInnerHTML={{
+                                  __html: item.speaker_biography.data,
+                                }}
+                              />
+                            )}
+                            <h3>
+                              Keynote:{' '}
+                              <Link to={item['@id']} title={item['@type']}>
+                                {item.title}
+                              </Link>
+                            </h3>
+                          </Segment>
+                        ),
+                    )}
+                </section>
+              </article>
+            </Container>
+          );
+        };
+        export default TalkListView;
+
+    .. note::
+
+        * The query uses ``review_state: 'published'``
+        * Filtering is done using ``item.type_of_talk.title === 'Keynote' && (...`` during the iteration.
+
+    To regoster it move the code toa new :file:`frontend/src/components/Views/Keynotes.jsx` and rename it to ``KeynotesView``:
+
+    ..  code-block:: js
+
+        const KeynotesView = props => {
+          [...]
+        }
+
+        export default KeynotesView;
+
+    Export it in :file:`frontend/src/components/index.js`:
+
+    ..  code-block:: js
+        :emphasize-lines: 3,5
+
+        import TalkView from './Views/Talk';
+        import TalkListView from './Views/TalkList';
+        import KeynotesView from './Views/Keynotes';
+
+        export { TalkView, TalkListView, KeynotesView };
+
+    Register the component as layout view for folderish types in ``frontend/src/config.js``.
+
+    ..  code-block:: js
+        :emphasize-lines: 1,10
+
+        import { TalkListView, TalkView, KeynotesView } from './components';
+
+        [...]
+
+        export const views = {
+          ...defaultViews,
+          layoutViews: {
+            ...defaultViews.layoutViews,
+            talklist_view: TalkListView,
+            keynotes_view: KeynotesView,
+          },
+          contentTypesViews: {
+            ...defaultViews.contentTypesViews,
+            talk: TalkView,
+          },
+        };
