@@ -157,7 +157,7 @@ In this new folder add a file :file:`talk.py` with the following content:
         audience = schema.Set(
             title=_(u'Audience'),
             value_type=schema.Choice(
-                values=['Beginner', 'Advanced', 'Professionals'],
+                values=['Beginner', 'Advanced', 'Professional'],
                 ),
             required=False,
             )

@@ -186,7 +186,7 @@ In this step we will create a content type called *Talk* and try it out. When it
               <values>
                 <element>Beginner</element>
                 <element>Advanced</element>
-                <element>Professionals</element>
+                <element>Professional</element>
               </values>
             </value_type>
           </field>

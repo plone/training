@@ -106,7 +106,7 @@ Upon installing, Plone reads the file :file:`profiles/default/types/talk.xml` an
               &lt;values&gt;
                 &lt;element&gt;Beginner&lt;/element&gt;
                 &lt;element&gt;Advanced&lt;/element&gt;
-                &lt;element&gt;Professionals&lt;/element&gt;
+                &lt;element&gt;Professional&lt;/element&gt;
               &lt;/values&gt;
             &lt;/value_type&gt;
           &lt;/field&gt;
@@ -276,7 +276,7 @@ Our talks use a dropdown for :guilabel:`type_of_talk` and a multiselect for :gui
             <values>
               <element>Beginner</element>
               <element>Advanced</element>
-              <element>Professionals</element>
+              <element>Professional</element>
             </values>
           </value_type>
         </field>
@@ -352,7 +352,7 @@ We only want to prevent writing, not reading, so we'll only manage the `write-pe
             <values>
               <element>Beginner</element>
               <element>Advanced</element>
-              <element>Professionals</element>
+              <element>Professional</element>
             </values>
           </value_type>
         </field>

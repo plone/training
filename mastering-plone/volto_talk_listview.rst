@@ -142,7 +142,7 @@ You can also iterate over all items in our talks folder by using the map ``conte
         const color_mapping = {
           Beginner: 'green',
           Advanced: 'yellow',
-          Professionals: 'red',
+          Professional: 'red',
         };
         return (
           <Container className="view-wrapper">
@@ -228,7 +228,7 @@ To get a list of all talks - no matter where they are in our site - we can use t
       const color_mapping = {
         Beginner: 'green',
         Advanced: 'yellow',
-        Professionals: 'red',
+        Professional: 'red',
       };
 
       React.useEffect(() => {

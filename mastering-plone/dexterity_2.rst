@@ -375,7 +375,7 @@ The new indexes behave like the ones that Plone has already built in:
     >>> (Pdb) catalog = getToolByName(self.context, 'portal_catalog')
     >>> (Pdb) catalog(type_of_talk='Keynote')
     [<Products.ZCatalog.Catalog.mybrains object at 0x10737b9a8>, <Products.ZCatalog.Catalog.mybrains object at 0x10737b9a8>]
-    >>> (Pdb) catalog(audience=('Advanced', 'Professionals'))
+    >>> (Pdb) catalog(audience=('Advanced', 'Professional'))
     [<Products.ZCatalog.Catalog.mybrains object at 0x10737b870>, <Products.ZCatalog.Catalog.mybrains object at 0x10737b940>, <Products.ZCatalog.Catalog.mybrains object at 0x10737b9a8>]
     >>> (Pdb) brain = catalog(type_of_talk='Keynote')[0]
     >>> (Pdb) brain.speaker

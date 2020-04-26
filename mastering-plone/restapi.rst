@@ -332,7 +332,7 @@ Before we can start to submit lightning talks using REST calls from our single p
             <values>
               <element>Beginner</element>
               <element>Advanced</element>
-              <element>Professionals</element>
+              <element>Professional</element>
             </values>
           </value_type>
         </field>
@@ -435,7 +435,7 @@ Last we have to add some code that allows authenticated users to submit a lightn
           this.$http.post('/Plone/talks',
                      {'@type':'talk',
                       'type_of_talk':'Lightning Talk',
-                      'audience':['Beginner','Advanced','Professionals'],
+                      'audience':['Beginner','Advanced','Professional'],
                       'title':subject,
                       'description':summary},
                      {headers:
