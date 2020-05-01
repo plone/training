@@ -1,7 +1,7 @@
 .. _volto-component-label:
-
-From Viewlet to Component
-=========================
+======================
+The Sponsors Component
+======================
 
 .. sidebar:: Volto chapter
 
@@ -24,6 +24,9 @@ From Viewlet to Component
         git checkout TODO tag to checkout
 
 
+In the previous chapter :doc:`deterity_3` you created the ``sponsor`` content type.
+Now let's learn how to display them at the bottom of every page.
+
 To be solved task in this part:
 
 * Display sponsors on all pages sorted by level
@@ -40,26 +43,41 @@ Topics covered:
 * Semantic UI components
 
 
+.. note::
+
+  For sponsors we will stay with the default view since we will only display the sponsors in the footer and not on their own pages.
+  The default-view of Volto does not show any of the custom fields you added to the sponsors.
+  Using what you learned in :doc:`volto_talkview` you should be able to write a view for sponsors if you wanted to.
+
+
 .. _volto-component-component-label:
 
 A component
------------
+===========
 
-.. only:: not presentation
+React Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
 
-  A component is a block of information independent of the content of the current page. It can be placed in various locations on a site, even multiple times on one page.
+* You can write a view component for the current context - like the ``TalkView``.
+* You can write a view components that can be selected as views for content objects - like the TalkListView.
+* You can also write components that are visible on all content objects. In classic Plone we used *Viewlets* for that.
 
 * Inspect existing components with the React developer tools.
 * Volto comes with several components like header, footer, sidebar. In fact everything in Volto is build of nested components.
 
+
 .. _volto-component-sponsors-label:
 
 Sponsors component
-------------------
+==================
 
-We will now see how to achieve in the new frontend the equivalent to the viewlet of the previous chapter :doc:`dexterity_3`.
+We will now see how to achieve in the new frontend the equivalent to the viewlet of the chapter :doc:`dexterity_3`.
 
-The sponsors shall live in the footer. To modify the given footer component we copy the Footer.jsx file from Volto to our app regarding the original folder structure but inside our customizations folder :file:`customizations/components/theme/Footer/Footer.jsx`.
+Overriding the Footer
+---------------------
+
+The sponsors shall live in the footer. To modify the given footer component we copy the Footer.jsx file from Volto to our app regarding the original folder structure but inside our customizations folder :file:`frontend/src/customizations/components/theme/Footer/Footer.jsx`.
+
+You will find the original footer in :file:`frontend/omelette/src/components/theme/Footer/Footer.jsx`
 
 .. only:: not presentation
 
@@ -67,18 +85,22 @@ The sponsors shall live in the footer. To modify the given footer component we c
 
 .. code-block:: jsx
     :linenos:
-    :emphasize-lines: 9
+    :emphasize-lines: 12
 
+    ...
     const Footer = ({ intl }) => (
-      <>
-        <Segment
-          role="contentinfo"
-          vertical
-          padded
-        >
-          <Container>
-            <Sponsors />
-            ...
+      <Segment
+        role="contentinfo"
+        vertical
+        padded
+        inverted
+        color="grey"
+        textAlign="center"
+      >
+        <Container>
+          <Sponsors />
+          <Segment basic inverted color="grey" className="discreet">
+          ...
 
 .. only:: not presentation
 
@@ -87,7 +109,11 @@ The sponsors shall live in the footer. To modify the given footer component we c
 .. code-block:: jsx
     :linenos:
 
-    import { Sponsors } from '../../../../components'; TODO path of subcomponent
+    import { Sponsors } from '../../../../components';
+
+.. todo::
+
+  Explain paths of subcomponents
 
 .. only:: not presentation
 
@@ -96,16 +122,51 @@ The sponsors shall live in the footer. To modify the given footer component we c
     * It is visible on all content.
     * Later on it can be made conditional if necessary.
 
-To create the component *Sponsors* we add a folder Sponsors components/Sponsors and a file components/Sponsors.jsx
+To create the component ``Sponsors`` we add a folder :file:`frontend/src/components/Sponsors/` and a file :file:`Sponsors.jsx` in it.
 
-.. only:: not presentation
+In this file we can now define our new component as a class that extends Component.
 
-  In this file we can now define our new component as a class that extends Component. It calls the action getQueryStringResults from @plone/volto/actions
-  For this it is not necessary to understand the redux way to store data in the global app store but you need to know that Volto actions fetching data do use the redux store to store fetched data.
+As usual you should start with a placeholder to see if your registration actually works:
 
-  So if we call the action getQueryStringResults to fetch data of sponsors, that means data of Plone portal types "Sponsor", then we can access this data from the store.
+..  code-block:: js
+    :linenos:
 
-  The **connection** to the store is made by the following code which passes the data of the store to the component prop *items*.
+    import React, { Component } from 'react';
+    class Sponsors extends Component {
+      render() {
+        return <h2>We ❤ our sponsors</h2>;
+      }
+    }
+    export default Sponsors;
+
+This should now show up on all pages in the footer.
+
+
+Getting the sponsors data
+-------------------------
+
+The component will use the action ``getQueryStringResults`` from ``@plone/volto/actions`` to fetch data of all sponsors.
+
+.. todo::
+
+    Why use getQueryStringResults? How and why is this different to what we did in the talklistview?
+
+    So far not explained:
+
+    * props
+    * actions
+    * store
+    * compose
+    * injectIntl
+
+    Go step by step with working code for each step.
+
+For this it is not necessary to understand the Redux way to store data in the global app store.
+You only need to know that Volto actions that fetch data use the redux store to store fetched data.
+
+So if we call the action ``getQueryStringResults`` to fetch data of sponsors, that means data of the portal types ``sponsor``, then we can access this data from the store.
+
+The **connection** to the store is made by the following code which passes the data of the store to the component prop ``items``.
 
 .. code-block:: jsx
     :linenos:
@@ -121,7 +182,7 @@ To create the component *Sponsors* we add a folder Sponsors components/Sponsors 
       ),
     )(Sponsors);
 
-We call the action in lifecycle event componentDidMount.
+We call this action in the lifecycle event ``componentDidMount``:
 
 .. code-block:: jsx
     :linenos:
@@ -130,7 +191,11 @@ We call the action in lifecycle event componentDidMount.
       this.props.getQueryStringResults('/', {...toSearchOptions, fullobjects: 1}, 'sponsors');
     }
 
-With the data fetched and accessible in component prop *items* we can render the sponsors data:
+
+Pass prepared data for presentation
+-----------------------------------
+
+With the data fetched and accessible in the component prop ``items`` we can then render the sponsors data:
 
 .. code-block:: jsx
     :linenos:
@@ -147,8 +212,15 @@ With the data fetched and accessible in component prop *items* we can render the
 
   Keep in mind this common pattern to split a component in two parts: a container component to fetch data and a presentation component to render a presentation.
 
+.. todo::
 
-We create a presentation component *SponsorsBody* in components/Sponsors/SponsorsBody.jsx
+    Add final code of ``Sponsors.jsx`` to copy.
+
+
+The presentation component
+--------------------------
+
+We create a presentation component ``SponsorsBody`` in :file:`frontend/src/components/Sponsors/SponsorsBody.jsx`
 
 Presentation component means that this is a stateless component which gets the necessary data via props and renders the data of sponsors grouped by sponsor level.
 
@@ -195,8 +267,12 @@ Presentation component means that this is a stateless component which gets the n
 
     export default SponsorsBody
 
+.. todo::
 
-Restart your frontend and see the new footer:
+    Add final code of ``SponsorsBody.jsx`` to copy.
+
+
+Reload your frontend and see the new footer:
 
 .. figure:: _static/volto_component_sponsors.png
 
