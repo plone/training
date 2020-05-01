@@ -10,7 +10,7 @@ Advanced Viewlets
 
   This chapter is about the classic frontent.
 
-  Solve the same tasks in the Volto frontend in chapter :doc:`viewlets_advanced_classic.rst`
+  Solve the same tasks in the Volto frontend in chapter :doc:`volto_components_sponsors`
 
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
@@ -24,8 +24,8 @@ Advanced Viewlets
         git checkout dexterity_3
 
 
-Without sponsors, a conference would be hard to finance! Plus it is a good opportunity for Plone companies to advertise their services.
-But sponsors want to be displayed in a nice way according to the size of their sponsorship.
+In the previous chapter :doc:`deterity_3` you created the ``sponsor`` content type.
+Now let's learn how to display them at the bottom of every page.
 
 To be solved task in this part:
 
@@ -45,7 +45,7 @@ The topics we cover are:
 The view
 --------
 
-We use the default view provided by Dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
+For sponsors we will stay with the default view provided by Dexterity since we will only display the sponsors in a viewlet and not in their own page.
 
 .. note::
 
@@ -100,6 +100,16 @@ The viewlet
 -----------
 
 Instead of writing a view you will have to display the sponsors at the bottom of the website in a viewlet.
+In the chapter :doc:`viewlets_1` you already wrote a viewlet.
+
+Remember:
+
+* A viewlet produces in a snippet of HTML that can be put in various places in the page. These places are called ``viewletmanager``.
+* They can but don't have to have a association to the current context.
+* The logo and searchbox are viewlets for example and they are always the same.
+* Viewlets don't save data (portlets do).
+* Viewlets have no user interface except the one to sort and hide/unhide viewlets.
+
 
 Register the viewlet in :file:`browser/configure.zcml`
 

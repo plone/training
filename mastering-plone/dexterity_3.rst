@@ -15,7 +15,6 @@ Dexterity Types III: Sponsors
 
 
 Without sponsors, a conference would be hard to finance! Plus it is a good opportunity for Plone companies to advertise their services.
-But sponsors want to be displayed in a nice way according to the size of their sponsorship.
 
 In this part we will:
 
@@ -211,6 +210,6 @@ Sponsors are containers but they don't need to be. Turn them into items by chang
 Summary
 -------
 
-* You created a new content type to store inromation on sponsors
+* You created a new content type to store information on sponsors
 * You learned how to protect individual fields from being edited with permissions
 * Next you will learn how to display the sponsors at the bottom of every page

@@ -10,7 +10,7 @@ From Viewlet to Component
 
   This chapter is about the react frontent Volto.
 
-  Solve the same tasks in classic frontend in chapter :doc:`views_2`
+  Solve the same tasks in classic frontend in chapter :doc:`viewlets_advanced_classic`
 
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
