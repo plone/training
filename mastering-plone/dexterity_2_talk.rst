@@ -40,9 +40,9 @@ The fti
 -------
 
 Add the file ``ploneconf/site/profiles/default/types/talk.xml``.
-Note that ther is a file types and a filder types
+Note that there is a file *types* and a folder *types*.
 
-This is the The **Factory Type Information** that holds the configuration for the content type **talk**.
+This is the **Factory Type Information** that holds the configuration for the content type **talk**.
 
 ..  code-block:: xml
 
