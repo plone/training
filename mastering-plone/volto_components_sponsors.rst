@@ -1,4 +1,5 @@
 .. _volto-component-label:
+
 ======================
 The Sponsors Component
 ======================
@@ -24,12 +25,12 @@ The Sponsors Component
         git checkout TODO tag to checkout
 
 
-In the previous chapter :doc:`deterity_3` you created the ``sponsor`` content type.
+In the previous chapter :doc:`dexterity_3` you created the ``sponsor`` content type.
 Now let's learn how to display them at the bottom of every page.
 
 To be solved task in this part:
 
-* Display sponsors on all pages sorted by level
+* Advert to sponsors on all pages sorted by level
 
 In this part you will:
 
@@ -39,13 +40,14 @@ Topics covered:
 
 * Create React component
 * Use React action of Volto to fetch data from Plone via REST API
-* Localize your component
-* Semantic UI components
+* Style component with Semantic UI
+
+.. figure:: _static/volto_component_sponsors.png
 
 
 .. note::
 
-  For sponsors we will stay with the default view since we will only display the sponsors in the footer and not on their own pages.
+  For sponsors we will stay with the default view since we will only display the sponsors in the footer and do not modify their own pages.
   The default-view of Volto does not show any of the custom fields you added to the sponsors.
   Using what you learned in :doc:`volto_talkview` you should be able to write a view for sponsors if you wanted to.
 
@@ -58,11 +60,11 @@ A component
 React Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
 
 * You can write a view component for the current context - like the ``TalkView``.
-* You can write a view components that can be selected as views for content objects - like the TalkListView.
-* You can also write components that are visible on all content objects. In classic Plone we used *Viewlets* for that.
+* You can write a view component that can be selected as view for a set of content objects like the TalkListView.
+* You can also write components that are visible on all content objects. In classic Plone we use *viewlets* for that.
 
-* Inspect existing components with the React developer tools.
-* Volto comes with several components like header, footer, sidebar. In fact everything in Volto is build of nested components.
+* Volto comes with several components like header, footer, sidebar. In fact everything of the UI is build of nested components.
+* Inspect existing components with the React Developer Tools.
 
 
 .. _volto-component-sponsors-label:
@@ -70,132 +72,300 @@ React Components let you split the UI into independent, reusable pieces, and thi
 Sponsors component
 ==================
 
-We will now see how to achieve in the new frontend the equivalent to the viewlet of the chapter :doc:`dexterity_3`.
+We will now see how to achieve in Volto frontend the equivalent to the Plone viewlet of chapter :doc:`dexterity_3`.
 
 Overriding the Footer
 ---------------------
 
-The sponsors shall live in the footer. To modify the given footer component we copy the Footer.jsx file from Volto to our app regarding the original folder structure but inside our customizations folder :file:`frontend/src/customizations/components/theme/Footer/Footer.jsx`.
+The sponsors shall live in the footer of a page. To modify the given footer component we copy the ``Footer.jsx`` file :file:`frontend/omelette/src/components/theme/Footer/Footer.jsx` from Volto. We insert the copied file to our app regarding the original folder structure but inside our customizations folder :file:`frontend/src/customizations/components/theme/Footer/Footer.jsx`.
 
-You will find the original footer in :file:`frontend/omelette/src/components/theme/Footer/Footer.jsx`
 
 .. only:: not presentation
 
-  In this file we can now modify the returned html by adding a subcomponent *Sponsors* which we have to create.
+  In this file ``Footer.jsx`` we can now modify the to be rendered html by adding a subcomponent ``Sponsors``. 
+
+
+  Be aware that the following code is JSX. JSX is Javascript that can handle html in a handy way. What you see is a component defined as an arrow function. The function returns markup consisting of enriched html: The tag ``<Sponsors />`` forces a rendering of the Sponsors component.
 
 .. code-block:: jsx
     :linenos:
-    :emphasize-lines: 12
+    :emphasize-lines: 4
 
-    ...
     const Footer = ({ intl }) => (
-      <Segment
-        role="contentinfo"
-        vertical
-        padded
-        inverted
-        color="grey"
-        textAlign="center"
-      >
+      <Segment role="contentinfo" vertical padded>
         <Container>
           <Sponsors />
-          <Segment basic inverted color="grey" className="discreet">
-          ...
+          <Segment
+            basic
+            inverted
+            color="grey"
+            textAlign="center"
+            className="discreet"
+          >
 
 .. only:: not presentation
 
-  We import this to be created component at the top of our new footer component with a
+    This will show an additional component.
+
+    * It is visible on all pages since it is a subcomponent of footer.
+    * Later on it can be made conditional if necessary.
+
+To create the component ``Sponsors`` we add a folder :file:`frontend/src/components/Sponsors/` with a file :file:`Sponsors.jsx`. In this file we can now define our new component.
+
+Start with a placeholder to see if your registration actually works:
+
+.. code-block:: jsx
+    :linenos:
+
+    import React, { Component } from 'react';
+
+    class Sponsors extends Component {
+      render() {
+        return <h3>We ❤ our sponsors</h3>;
+      }
+    }
+
+    export default Sponsors;
+
+.. note::
+
+  Defining a component as a class is the classic and still valid React way. We have already seen the new approach via *hooks* in chapter :doc:`volto_talk_listview`, ``TalkListView`` component.
+
+The component is a class extending the template class ``Component``. As you see the minimum to define is a render method which returns some markup.
+
+
+Go back to your modified ``Footer`` component. The ``Footer`` component needs to know where to find the added ``Sponsor`` component. We import the ``Sponsor`` component at the top of our modified ``Footer`` component.
+
+:file:`frontend/src/customizations/components/theme/Footer/Footer.jsx`:
 
 .. code-block:: jsx
     :linenos:
 
     import { Sponsors } from '../../../../components';
 
-.. todo::
+The path reflects the fact that ``Footer.jsx`` lives in ``frontend/src/customizations`` whereas ``Sponsors`` lives in ``frontend/src/components``.
 
-  Explain paths of subcomponents
 
-.. only:: not presentation
 
-    This shows an additional component.
-
-    * It is visible on all content.
-    * Later on it can be made conditional if necessary.
-
-To create the component ``Sponsors`` we add a folder :file:`frontend/src/components/Sponsors/` and a file :file:`Sponsors.jsx` in it.
-
-In this file we can now define our new component as a class that extends Component.
-
-As usual you should start with a placeholder to see if your registration actually works:
-
-..  code-block:: js
-    :linenos:
-
-    import React, { Component } from 'react';
-    class Sponsors extends Component {
-      render() {
-        return <h2>We ❤ our sponsors</h2>;
-      }
-    }
-    export default Sponsors;
-
-This should now show up on all pages in the footer.
+After restarting the frontend with ``yarn start``, we are now ready to visit an arbitrary page to see the new component. A restart is necessary on newly added files. As long as you only edit existing files of your app, your Browser is updating automagically by app configuration.
 
 
 Getting the sponsors data
 -------------------------
 
-The component will use the action ``getQueryStringResults`` from ``@plone/volto/actions`` to fetch data of all sponsors.
+With our ``Sponsors`` component in place we can take the next step and explore Volto some more to figure out how it does data fetching.
+
+As the data is in the backend, we need to find a way to address it. Volto provides various actions to communicate with the backend (fetching data, creating content, editing content, etc). A Redux action (that communicates with the backend) has a common pattern: It addresses the backend via REST API and updates the global app store according the response of the backend. A component calls an action and has hereupon access to the global app store (shortened: store) with the fetched data. 
+
+
+For more information which actions are already provided by Volto have look at :file:`frontend/omelette/src/actions`. 
+
+Our component will use the action ``getQueryStringResults`` to fetch data of all sponsors. It takes as arguments the path where to search, the information what to search and an argument with which key it should be stored in the store. Remember: the result is stored in the global app store.
 
 .. todo::
 
     Why use getQueryStringResults? How and why is this different to what we did in the talklistview?
 
-    So far not explained:
-
-    * props
-    * actions
-    * store
-    * compose
-    * injectIntl
-
     Go step by step with working code for each step.
 
-For this it is not necessary to understand the Redux way to store data in the global app store.
-You only need to know that Volto actions that fetch data use the redux store to store fetched data.
+So if we call the action ``getQueryStringResults`` to fetch data of sponsors, that means data of the instances of portal type ``sponsor``, then we can access this data from the store.
 
-So if we call the action ``getQueryStringResults`` to fetch data of sponsors, that means data of the portal types ``sponsor``, then we can access this data from the store.
+The *connection* of the component to the store is made by the following code which passes the data of the store to the component prop ``items``. 
 
-The **connection** to the store is made by the following code which passes the data of the store to the component prop ``items``.
+
+What are *props*? Props, or properties, hold dynamic information for a component. The information is passed to the props from the parent component or by a connection with the store. We have already seen the passing from parent component to subcomponent in the ``Talk`` component. It passes the date data to the ``When`` component. 
 
 .. code-block:: jsx
     :linenos:
-    :emphasize-lines: 5
 
-    export default compose(
-      injectIntl,
-      connect(
-        state => ({
-          items: state.querystringsearch.subrequests.sponsors?.items || [],
-        }),
-        { getQueryStringResults },
-      ),
+    <When
+      start={content.start}
+      end={content.end}
+      whole_day={content.whole_day}
+      open_end={content.open_end}
+    />
+
+
+The component traverses through a lifecycle (mounting, the moment where the raw structure is set, rendering, where the dynamic content is filled in, and some more lifecycle events). To have the necessary data for the rendering, we call the ``getQueryStringResults`` action on mounting the component. Therefor React has one of many lifecycle methods: ``componentDidMount``.
+Read more on lifecycles in the `React documentation <https://reactjs.org/docs/react-component.html#the-component-lifecycle>`_.
+
+
+.. admonition:: Call of ``getQueryStringResults`` in the lifecycle event ``componentDidMount`` of our ``Sponsors`` component:
+    :class: toggle
+
+    .. code-block:: jsx
+        :linenos:
+        :emphasize-lines: 14-22,61-68
+
+        /**
+        * Sponsors component.
+        * @module components/Sponsors/Sponsors
+        */
+
+        import React, { Component } from 'react';
+        import PropTypes from 'prop-types';
+        import { connect } from 'react-redux';
+
+        import { getQueryStringResults } from '@plone/volto/actions';
+
+        import SponsorsBody from './SponsorsBody';
+
+        const toSearchOptions = {
+          query: [
+            {
+              i: 'portal_type',
+              o: 'plone.app.querystring.operation.selection.any',
+              v: ['sponsor'],
+            },
+          ],
+        };
+
+        /**
+        * Component to display the sponsors.
+        * @class Sponsors
+        * @extends Component
+        */
+        class Sponsors extends Component {
+          /**
+          * Property types.
+          * @property {Object} propTypes Property types.
+          * @static
+          */
+          static propTypes = {
+            getQueryStringResults: PropTypes.func.isRequired,
+            items: PropTypes.arrayOf(
+              PropTypes.shape({
+                '@id': PropTypes.string,
+                '@type': PropTypes.string,
+                title: PropTypes.string,
+                description: PropTypes.string,
+              }),
+            ),
+          };
+
+          /**
+          * Default (values of) properties.
+          * @property {Object} defaultProps Default properties.
+          * @static
+          */
+          static defaultProps = {
+            items: [],
+          };
+
+          /**
+          * Component did mount
+          * @method componentDidMount
+          * @returns {undefined}
+          */
+          componentDidMount() {
+            // call action getQueryStringResults
+            this.props.getQueryStringResults(
+              '/',
+              { ...toSearchOptions, fullobjects: 1 },
+              'sponsors',
+            );
+          }
+
+          /**
+          * Component did update
+          * @method componentDidUpdate
+          * @param {Object} prevProps Previous properties
+          * @returns {undefined}
+          *
+          * Update component when a new sponsor is created / deleted / updated.
+          * Two steps are necessary:
+          * - subscription of a value / of values in store that reflects the fact that a new sponsor is created / deleted / updated.
+          * - call search action on property change; do it here in componentDidUpdate
+          */
+          componentDidUpdate(prevProps) {
+            if (
+              // content type instance created and instance is sponsor
+              (this.props.subscribedValueContent.create.loaded &&
+                this.props.subscribedValueContent.data['@type'] === 'sponsor' &&
+                this.props.subscribedValueContent !==
+                  prevProps.subscribedValueContent) ||
+              // content pasted in /contents
+              (this.props.subscribedValueClipboard.request.loaded &&
+                this.props.subscribedValueClipboard !==
+                  prevProps.subscribedValueClipboard) ||
+              // content deleted
+              (this.props.subscribedValueContent.delete.loaded &&
+                this.props.subscribedValueContent !== prevProps.subscribedValueContent) ||
+              // content updated
+              (this.props.subscribedValueContent.update.loaded &&
+                this.props.subscribedValueContent !== prevProps.subscribedValueContent)
+            ) {
+              // then call action getQueryStringResults
+              this.props.getQueryStringResults(
+                '/',
+                { ...toSearchOptions, fullobjects: 1 },
+                'sponsors',
+              );
+            }
+          }
+
+          /**
+          * Render method.
+          * @method render
+          * @returns {string} Markup for the component.
+          */
+          render() {
+            return <SponsorsBody sponsorlist={this.props.items} />;
+          }
+        }
+
+        export default connect(
+          state => ({
+            items: state.querystringsearch.subrequests.sponsors?.items || [],
+            // subsription of something in store that is updated on creation of a sponsor
+            // see docstring componentDidUpdate
+            subscribedValueContent: state.content,
+            subscribedValueClipboard: state.clipboard,
+          }),
+          { getQueryStringResults },
+        )(Sponsors);
+
+.. todo::
+
+      To be continued here: connection of state and component (map state to props, map dispatch to props)
+
+
+.. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 3
+
+    export default connect(
+      state => ({
+        items: state.querystringsearch.subrequests.sponsors?.items || [],
+        // subsription of something in store that is updated on creation of a sponsor
+        // see docstring componentDidUpdate
+        subscribedValueContent: state.content,
+        subscribedValueClipboard: state.clipboard,
+      }),
+      { getQueryStringResults },
     )(Sponsors);
 
-We call this action in the lifecycle event ``componentDidMount``:
-
 .. code-block:: jsx
     :linenos:
+    :emphasize-lines: 4-7
 
-    componentDidMount() {
-      this.props.getQueryStringResults('/', {...toSearchOptions, fullobjects: 1}, 'sponsors');
-    }
+    export default connect(
+      state => ({
+        items: state.querystringsearch.subrequests.sponsors?.items || [],
+        // subsription of something in store that is updated on creation of a sponsor
+        // see docstring componentDidUpdate
+        subscribedValueContent: state.content,
+        subscribedValueClipboard: state.clipboard,
+      }),
+      { getQueryStringResults },
+    )(Sponsors);
 
 
 Pass prepared data for presentation
 -----------------------------------
 
-With the data fetched and accessible in the component prop ``items`` we can then render the sponsors data:
+With the data fetched and accessible in the component prop ``items`` we can
+now render the sponsors data:
 
 .. code-block:: jsx
     :linenos:
@@ -208,13 +378,151 @@ With the data fetched and accessible in the component prop ``items`` we can then
         </>
     )}
 
+
+.. admonition:: Complete code of the ``Sponsors`` component
+    :class: toggle
+
+    .. code-block:: jsx
+        :linenos:
+        :emphasize-lines: 3
+
+        /**
+         * Sponsors component.
+         * @module components/Sponsors/Sponsors
+         */
+
+        import React, { Component } from 'react';
+        import PropTypes from 'prop-types';
+        import { connect } from 'react-redux';
+
+        import { getQueryStringResults } from '@plone/volto/actions';
+
+        import SponsorsBody from './SponsorsBody';
+
+        const toSearchOptions = {
+          query: [
+            {
+              i: 'portal_type',
+              o: 'plone.app.querystring.operation.selection.any',
+              v: ['sponsor'],
+            },
+          ],
+        };
+
+        /**
+        * Component to display the sponsors.
+        * @class Sponsors
+        * @extends Component
+        */
+        class Sponsors extends Component {
+          /**
+          * Property types.
+          * @property {Object} propTypes Property types.
+          * @static
+          */
+          static propTypes = {
+            getQueryStringResults: PropTypes.func.isRequired,
+            items: PropTypes.arrayOf(
+              PropTypes.shape({
+                '@id': PropTypes.string,
+                '@type': PropTypes.string,
+                title: PropTypes.string,
+                description: PropTypes.string,
+              }),
+            ),
+          };
+
+          /**
+          * Default (values of) properties.
+          * @property {Object} defaultProps Default properties.
+          * @static
+          */
+          static defaultProps = {
+            items: [],
+          };
+
+          /**
+          * Component did mount
+          * @method componentDidMount
+          * @returns {undefined}
+          */
+          componentDidMount() {
+            // call action getQueryStringResults
+            this.props.getQueryStringResults(
+              '/',
+              { ...toSearchOptions, fullobjects: 1 },
+              'sponsors',
+            );
+          }
+
+          /**
+          * Component did update
+          * @method componentDidUpdate
+          * @param {Object} prevProps Previous properties
+          * @returns {undefined}
+          *
+          * Update component when a new sponsor is created / deleted / updated.
+          * Two steps are necessary:
+          * - subscription of a value / of values in store that reflects the fact that a new sponsor is created / deleted / updated.
+          * - call search action on property change; do it here in componentDidUpdate
+          */
+          componentDidUpdate(prevProps) {
+            if (
+              // content type instance created and instance is sponsor
+              (this.props.subscribedValueContent.create.loaded &&
+                this.props.subscribedValueContent.data['@type'] === 'sponsor' &&
+                this.props.subscribedValueContent !==
+                  prevProps.subscribedValueContent) ||
+              // content pasted in /contents
+              (this.props.subscribedValueClipboard.request.loaded &&
+                this.props.subscribedValueClipboard !==
+                  prevProps.subscribedValueClipboard) ||
+              // content deleted
+              (this.props.subscribedValueContent.delete.loaded &&
+                this.props.subscribedValueContent !== prevProps.subscribedValueContent) ||
+              // content updated
+              (this.props.subscribedValueContent.update.loaded &&
+                this.props.subscribedValueContent !== prevProps.subscribedValueContent)
+            ) {
+              // then call action getQueryStringResults
+              this.props.getQueryStringResults(
+                '/',
+                { ...toSearchOptions, fullobjects: 1 },
+                'sponsors',
+              );
+            }
+          }
+
+          /**
+          * Render method.
+          * @method render
+          * @returns {string} Markup for the component.
+          */
+          render() {
+            return <SponsorsBody sponsorlist={this.props.items} />;
+          }
+        }
+
+        export default connect(
+          state => ({
+            items: state.querystringsearch.subrequests.sponsors?.items || [],
+            // subsription of something in store that is updated on creation of a sponsor
+            // see docstring componentDidUpdate
+            subscribedValueContent: state.content,
+            subscribedValueClipboard: state.clipboard,
+          }),
+          { getQueryStringResults },
+        )(Sponsors);
+
+
+
+
 .. only:: not presentation
 
-  Keep in mind this common pattern to split a component in two parts: a container component to fetch data and a presentation component to render a presentation.
+  .. note::
 
-.. todo::
+      Keep this common pattern in mind splitting a component in two parts: a container component to fetch data and a presentation component to render a presentation.
 
-    Add final code of ``Sponsors.jsx`` to copy.
 
 
 The presentation component
@@ -222,11 +530,10 @@ The presentation component
 
 We create a presentation component ``SponsorsBody`` in :file:`frontend/src/components/Sponsors/SponsorsBody.jsx`
 
-Presentation component means that this is a stateless component which gets the necessary data via props and renders the data of sponsors grouped by sponsor level.
+Presentation component means that this is a stateless component which gets the necessary data via props from the parent component. It doesn't communicate with the global app store, does not fetch data, doesn't do no elaborated logic, it just renders the passed data of sponsors, grouped by sponsor level.
 
 .. code-block:: jsx
     :linenos:
-    :emphasize-lines: 33
 
     /**
      * sponsors presentation
@@ -247,18 +554,7 @@ Presentation component means that this is a stateless component which gets the n
           aria-label="Sponsors"
           inverted>
           <div className="sponsorheader">
-            <h3 className="subheadline">
-              <FormattedMessage
-                id="Our sponsors do support and are supported of Plone."
-                defaultMessage="Our sponsors do support and are supported of Plone."
-              />
-            </h3>
-            <h2 className="headline">
-            <FormattedMessage
-              id="We ❤ our sponsors"
-              defaultMessage="We ❤ our sponsors"
-            />
-            </h2>
+            <h3 className="subheadline">We ❤ our sponsors</h3>
           </div>
             {levelList()}
         </Segment>
@@ -272,10 +568,9 @@ Presentation component means that this is a stateless component which gets the n
     Add final code of ``SponsorsBody.jsx`` to copy.
 
 
-Reload your frontend and see the new footer:
+Restart your frontend with ``yarn start`` and see the new footer. A restart is necessary since we added a new file. The browser updates automagically by configuration.
 
 .. figure:: _static/volto_component_sponsors.png
-
 
 
 .. _volto-component-exercise-label:
