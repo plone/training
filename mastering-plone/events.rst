@@ -68,7 +68,7 @@ Display the dates
 
 Now we need to update the event view to show this information.
 
-Unfortuanely displaying dates and times is not as simple as it might sound since we'd have to account for diffrent use cases that all look diffrent:
+Unfortuanely displaying dates and times is not as simple as it might sound since we'd have to account for different use cases that all look different:
 
 Here are some examples how dates might be displayed if they are full-day events, open-ended events or events with a defined end-time.
 
@@ -78,15 +78,13 @@ Here are some examples how dates might be displayed if they are full-day events,
 * Apr 22, 2020 to Apr 24, 2020
 * Apr 22, 2020 7:00 PM to Apr 29, 2020 8:00 PM
 
-Now consider that dates are displayed different in other languages and it really gets compicated.
+Now consider that dates are displayed different in other languages and it really gets complicated.
 
 So it would be a good idea to reuse a component that already deals with these use-cases.
-Since we use the same behavior that the default content type Event in Plone uses the default event-view might have what we need.
+Since we use the same behavior as the default content type Event in Plone, the default event-view might have what we need.
 
-Add a event und use the React Developer Tools to inspect the component that displays the date.
-It is called ``When`` and is defined in ``frontend/node_modules/@plone/volto/src/components/theme/View/EventDatesInfo.jsx``.
-
-We'll reuse it in :file:`frontend/src/components/Views/Talk.jsx`:
+Add an event und use the React Developer Tools to inspect the component displaying the date.
+The component is called ``When`` and is defined in ``frontend/node_modules/@plone/volto/src/components/theme/View/EventDatesInfo.jsx``.
 
 .. code-block:: jsx
 
@@ -97,8 +95,9 @@ We'll reuse it in :file:`frontend/src/components/Views/Talk.jsx`:
       open_end={content.open_end}
     />
 
-We'll let us inspire by the event-view and add a ``<Segment floated="right">`` that will contain the date but also the room and the audience.
-In this box we will also use ``<Header dividing sub>`` (from `seamantic-ui <https://react.semantic-ui.com/elements/header/#types-subheaders>`_ to separate the data.
+We'll reuse it in :file:`frontend/src/components/Views/Talk.jsx`. We'll let us inspire by the event-view and add a ``<Segment floated="right">`` that will contain the date and also the room and the audience. In this box we will also use ``<Header dividing sub>`` (from `seamantic-ui <https://react.semantic-ui.com/elements/header/#types-subheaders>`_ to separate the data.
+
+:file:`frontend/src/components/Views/Talk.jsx`:
 
 .. code-block:: jsx
     :emphasize-lines: 5,12,29-65
@@ -238,6 +237,10 @@ The result should look like this:
 
 Hiding fields from certain users
 --------------------------------
+
+.. todo::
+
+  This chapter is about displaying, not editing. So setting values is not the topic here.
 
 Similar to the field ``room``, the problem now appears that speakers submitting their talks should not be able to set a time and day for their talks.
 
