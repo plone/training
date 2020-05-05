@@ -99,6 +99,8 @@ If you open http://localhost:3000 you will see the front page of the Plone site 
 
 You can stop the frontend anytime using :kbd:`ctrl + c`.
 
+While developing it is not necessary to restart the frontend unless you are adding a new file.
+
 
 
 Exercises
