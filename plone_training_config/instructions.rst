@@ -192,7 +192,9 @@ Installing the frontend
 
 You need to go up one folder (out of ``backend``) to install the frontend:
 
-.. code-block:: bash
+.. code-block:: console
+
+    cd ..
 
 .. todo::
 
@@ -279,7 +281,7 @@ If successful, here is the output of the command::
     This has the advantage of avoiding the need to upgrade ``create-volto-app`` each time you want to use it because ``npx`` does it for you.
     ``npx`` can both upgrade ``create-volto-app`` and create the frontend for your project in one command.
 
-    .. code-block::
+    .. code-block:: console
 
         npx @plone/create-volto-app frontend
 
