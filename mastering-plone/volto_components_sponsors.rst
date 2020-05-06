@@ -592,38 +592,62 @@ The presentation component
 
 We create a presentation component ``SponsorsBody`` in :file:`frontend/src/components/Sponsors/SponsorsBody.jsx`
 
-Presentation component means that this is a stateless component which gets the necessary data via props from the parent component. It doesn't communicate with the global app store, does not fetch data, doesn't do no elaborated logic, it just renders the passed data of sponsors, grouped by sponsor level.
+Presentation component means that this is a stateless component which gets the necessary data via props from the parent component. It doesn't communicate with the global app store, does not fetch data, doesn't do elaborated logic, it just renders the passed data of sponsors, grouped by sponsor level.
 
 .. code-block:: jsx
     :linenos:
+    :emphasize-lines: 12-47
 
-    /**
-     * sponsors presentation
-     * @function SponsorsBody
-     * @param {Array} sponsorlist list of sponsors with name, level, logo.
-     * @returns {string} Markup of the component.
-     `*/`
-    const SponsorsBody = ({sponsorlist}) => {
-      // ...
+    <Segment
+      basic
+      textAlign="center"
+      className="sponsors"
+      aria-label="Sponsors"
+      inverted
+    >
+      <div className="sponsorheader">
+        <h3 className="subheadline">We ❤ our sponsors</h3>
+      </div>
+      {sponsorlist?.length && (
+        <List>
+          {Object.entries(LevelVocabulary).map(level => {
+            if (sponsors[level[0]].length) {
+              return (
+                <List.Item
+                  key={level[0]}
+                  className={'sponsorlevel ' + level[0]}
+                >
+                  <h3>{level[0].toUpperCase()}</h3>
+                  <List horizontal>
+                    {sponsors[level[0]].map(item => (
+                      <List.Item key={item['UID']} className="sponsor">
+                        {item.logo ? (
+                          <Image
+                            className="logo"
+                            as="a"
+                            href={item.url}
+                            target="_blank"
+                            src={flattenToAppURL(
+                              item.logo.scales.preview.download,
+                            )}
+                            size="small"
+                            alt={item.title}
+                            title={item.title}
+                          />
+                        ) : (
+                          <a href={item['@id']}>{item.title}</a>
+                        )}
+                      </List.Item>
+                    ))}
+                  </List>
+                </List.Item>
+              );
+            }
+          })}
+        </List>
+      )}
+    </Segment>
 
-      const sponsors = groupedSponsors(sponsorlist);
-
-      return (
-        <Segment
-          basic
-          textAlign="center"
-          className="sponsors"
-          aria-label="Sponsors"
-          inverted>
-          <div className="sponsorheader">
-            <h3 className="subheadline">We ❤ our sponsors</h3>
-          </div>
-            {levelList()}
-        </Segment>
-      )
-    }
-
-    export default SponsorsBody
 
 .. todo::
 
