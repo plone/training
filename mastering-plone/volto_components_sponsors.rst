@@ -583,7 +583,7 @@ now render the sponsors data:
 
   .. note::
 
-      Keep this common pattern in mind splitting a component in two parts: a container component to fetch data and a presentation component to render a presentation.
+      Keep this common pattern in mind: splitting a component in two parts: a container component to fetch data and a presentation component to render a presentation.
 
 
 
@@ -592,7 +592,7 @@ The presentation component
 
 We create a presentation component ``SponsorsBody`` in :file:`frontend/src/components/Sponsors/SponsorsBody.jsx`
 
-Presentation component means that this is a stateless component which gets the necessary data via props from the parent component. It doesn't communicate with the global app store, does not fetch data, doesn't do elaborated logic, it just renders the passed data of sponsors, grouped by sponsor level.
+Presentation component means that it is a stateless component which gets the necessary data via props from the parent component. It doesn't communicate with the global app store, does not fetch data, doesn't do elaborated logic, it just renders the passed data of sponsors, grouped by sponsor level.
 
 .. code-block:: jsx
     :linenos:
@@ -651,12 +651,110 @@ Presentation component means that this is a stateless component which gets the n
 
 .. todo::
 
-    Add final code of ``SponsorsBody.jsx`` to copy.
+    explain code of presentation component
+
+
+.. admonition:: Complete code of the presentation component ``SponsorsBody`` component
+    :class: toggle
+
+    .. code-block:: jsx
+        :linenos:
+
+        import React from 'react';
+        import { List, Segment, Image } from 'semantic-ui-react';
+        import { flattenToAppURL } from '@plone/volto/helpers';
+
+        const LevelVocabulary = {
+          platinum: 'Platinum Sponsor',
+          gold: 'Gold Sponsor',
+          silver: 'Silver Sponsor',
+          bronze: 'Bronze Sponsor',
+        };
+
+        /**
+        * sponsors presentation
+        * @function SponsorsBody
+        * @param {Array} sponsorlist list of sponsors with name, level, logo.
+        * @returns {string} Markup of the component.
+        */
+        const SponsorsBody = ({ sponsorlist }) => {
+          const groupedSponsors = sponsorlist => {
+            let result = {};
+            for (const level in LevelVocabulary) {
+              result[level] = sponsorlist.filter(el => el.level.token === level);
+            }
+            return result;
+          };
+
+          const sponsors = groupedSponsors(sponsorlist);
+
+          return (
+            <Segment
+              basic
+              textAlign="center"
+              className="sponsors"
+              aria-label="Sponsors"
+              inverted
+            >
+              <div className="sponsorheader">
+                <h3 className="subheadline">We ❤ our sponsors</h3>
+              </div>
+              {sponsorlist?.length && (
+                <List>
+                  {Object.entries(LevelVocabulary).map(level => {
+                    if (sponsors[level[0]].length) {
+                      return (
+                        <List.Item
+                          key={level[0]}
+                          className={'sponsorlevel ' + level[0]}
+                        >
+                          <h3>{level[0].toUpperCase()}</h3>
+                          <List horizontal>
+                            {sponsors[level[0]].map(item => (
+                              <List.Item key={item['UID']} className="sponsor">
+                                {item.logo ? (
+                                  <Image
+                                    className="logo"
+                                    as="a"
+                                    href={item.url}
+                                    target="_blank"
+                                    src={flattenToAppURL(
+                                      item.logo.scales.preview.download,
+                                    )}
+                                    size="small"
+                                    alt={item.title}
+                                    title={item.title}
+                                  />
+                                ) : (
+                                  <a href={item['@id']}>{item.title}</a>
+                                )}
+                              </List.Item>
+                            ))}
+                          </List>
+                        </List.Item>
+                      );
+                    }
+                  })}
+                </List>
+              )}
+            </Segment>
+          );
+        };
+
+        export default SponsorsBody;
+
 
 
 Restart your frontend with ``yarn start`` and see the new footer. A restart is necessary since we added a new file. The browser updates automagically by configuration.
 
 .. figure:: _static/volto_component_sponsors.png
+
+
+
+
+.. todo::
+
+    summary of chapter
 
 
 .. _volto-component-exercise-label:
