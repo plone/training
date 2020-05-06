@@ -325,10 +325,11 @@ Read more on lifecycles in the `React documentation <https://reactjs.org/docs/re
           { getQueryStringResults },
         )(Sponsors);
 
-.. todo::
 
-      To be continued here: connection of state and component (map state to props, map dispatch to props)
+Connection of component and store
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Let's connect the store to our component. On export we define a mapping of the requested data of the store to props of the component. With the following code the prop item is set to the fetched sponsors data from the store. It's worth exploring the store of our app with the Redux Dev Tools (additional Dev Tools to React Dev Tools) There you can see what is stored like ``state.querystringsearch.subrequests.sponsors``. And you can walk through time and watch how the store is changing.
 
 .. code-block:: jsx
     :linenos:
@@ -345,6 +346,26 @@ Read more on lifecycles in the `React documentation <https://reactjs.org/docs/re
       { getQueryStringResults },
     )(Sponsors);
 
+A further mapping enables the component to use the action `getQueryStringResults`. The following code maps the action to the prop of the component. What you see is a shortened definition. Read more on actions and store in `Volto documentation <https://training.plone.org/5/volto/actions-reducers.html>`_
+
+.. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 9
+
+    export default connect(
+      state => ({
+        items: state.querystringsearch.subrequests.sponsors?.items || [],
+        // subsription of something in store that is updated on creation of a sponsor
+        // see docstring componentDidUpdate
+        subscribedValueContent: state.content,
+        subscribedValueClipboard: state.clipboard,
+      }),
+      { getQueryStringResults },
+    )(Sponsors);
+
+The next step is advanced and can be skipped on a first reading. As by now we fetch the sponsors data on mounting event of the component. The mounting is done once on the first visit of a page of our app. 
+What if a new sponsor is added? We want to achieve a re-rendering of the component on changed sponsorship. To subscribe to these changes in sponsorship, we use our already defined connection and extend it.
+
 .. code-block:: jsx
     :linenos:
     :emphasize-lines: 4-7
@@ -360,6 +381,51 @@ Read more on lifecycles in the `React documentation <https://reactjs.org/docs/re
       { getQueryStringResults },
     )(Sponsors);
 
+Listening to this subscription the component shall fetch the data from the store if necessary. For this the component calls the same action as before also in lifecycle event ``componentDidUpdate``.
+
+.. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 31-35
+
+    /**
+    * Component did update
+    * @method componentDidUpdate
+    * @param {Object} prevProps Previous properties
+    * @returns {undefined}
+    *
+    * Update component when a new sponsor is created / deleted / updated.
+    * Two steps are necessary:
+    * - subscription of a value / of values in store that reflects the fact that a new sponsor is created / deleted / updated.
+    * - call search action on property change; do it here in componentDidUpdate
+    */
+    componentDidUpdate(prevProps) {
+      if (
+        // content type instance created and instance is sponsor
+        (this.props.subscribedValueContent.create.loaded &&
+          this.props.subscribedValueContent.data['@type'] === 'sponsor' &&
+          this.props.subscribedValueContent !==
+            prevProps.subscribedValueContent) ||
+        // content pasted in /contents
+        (this.props.subscribedValueClipboard.request.loaded &&
+          this.props.subscribedValueClipboard !==
+            prevProps.subscribedValueClipboard) ||
+        // content deleted
+        (this.props.subscribedValueContent.delete.loaded &&
+          this.props.subscribedValueContent !== prevProps.subscribedValueContent) ||
+        // content updated
+        (this.props.subscribedValueContent.update.loaded &&
+          this.props.subscribedValueContent !== prevProps.subscribedValueContent)
+      ) {
+        // then call action getQueryStringResults
+        this.props.getQueryStringResults(
+          '/',
+          { ...toSearchOptions, fullobjects: 1 },
+          'sponsors',
+        );
+      }
+    }
+      
+
 
 Pass prepared data for presentation
 -----------------------------------
@@ -371,12 +437,8 @@ now render the sponsors data:
     :linenos:
 
     render() {
-      const sponsorlist = this.props.items;
-      return (
-        <>
-         <SponsorsBody sponsorlist={sponsorlist} />
-        </>
-    )}
+      return <SponsorsBody sponsorlist={this.props.items} />;
+    }
 
 
 .. admonition:: Complete code of the ``Sponsors`` component
