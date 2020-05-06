@@ -89,7 +89,7 @@ The logic contained in the template can now be moved to the class:
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 3, 12-39
+    :emphasize-lines: 3, 12-36
 
     # -*- coding: utf-8 -*-
     from Products.Five.browser import BrowserView
