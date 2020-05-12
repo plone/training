@@ -12,10 +12,18 @@ Volto View Components: A Listing View for Talks
 
   Solve the same tasks in classic frontend in chapter :doc:`views_3`
 
+  .. topic:: Description
+
+      Create a view that shows a list of content
+
+  .. contents:: Table of Contents
+    :depth: 1
+    :local:
+
 
 To be solved task in this part:
 
-* Create a view that shows a list of talks to allow a easy overview
+* Create a view that shows a list of talks to allow an easy overview
 
 In this part you will:
 
@@ -141,7 +149,7 @@ Display the content of a folder
 
     For the next part you should have some talks and no other content in one folder to work on the progressing view.
 
-You can also iterate over all items in our talks folder by using the map ``content.items``. To build a view with some elements we used in the ``TalkView`` before, we can reuse some components and definitions like the ``color_mapping`` for the ``audience``.
+You can iterate over all items in our talks folder by using the map ``content.items``. To build a view with some elements we used in the ``TalkView`` before, we can reuse some components and definitions like the ``color_mapping`` for the ``audience``.
 
 ..  code-block:: js
       :emphasize-lines: 2-5,9-61
@@ -214,10 +222,9 @@ You can also iterate over all items in our talks folder by using the map ``conte
 * With ``{results && results.map(item => ()}`` we test if there is any item in the map and then iterate over this items.
 * To use the existing Link-Component we'll have to use ``import { Link } from 'react-router-dom';`` and configure the component:
 
-    * ``to={item['@id']}`` will give make the link point to the URL of the item and assign it to the Link as destination
+    * ``to={item['@id']}`` will make the link point to the URL of the item and assign it to the Link as destination
     * ``{item['@type']}`` will give you the contenttype name of the item, which could help you to change layouts for the listed items if you have different content in your folder
-    * you can get all other information like the title, description or saved information with the dotted notation like ``{item.title}`` or ``{item.description}``
-    * we use that to display ``audience``, ``image`` and ``description`` like we already did in the talkview.
+* You can get all other information like title and description with the dotted notation like ``{item.title}`` and ``{item.description}``. We use that to display ``audience``, ``image`` and ``description`` like we already did in the talkview.
 
 The iteration over ``content.items`` to build a listing can be problematic though, because this approach has some limitations you may have to deal with:
 
