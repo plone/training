@@ -14,6 +14,16 @@ The Sponsors Component
   Solve the same tasks in classic frontend in chapter :doc:`viewlets_advanced_classic`
 
 
+  .. topic:: Description
+
+      Create React component for fetched data
+
+  .. contents:: Table of Contents
+    :depth: 2
+    :local:
+
+
+
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
    Code for the beginning of this chapter::
@@ -42,7 +52,9 @@ Topics covered:
 * Use React action of Volto to fetch data from Plone via REST API
 * Style component with Semantic UI
 
+
 .. figure:: _static/volto_component_sponsors.png
+   :alt: Sponsors component
 
 
 .. note::
@@ -54,8 +66,8 @@ Topics covered:
 
 .. _volto-component-component-label:
 
-A component
-===========
+A React component
+-----------------
 
 React Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
 
@@ -69,10 +81,11 @@ React Components let you split the UI into independent, reusable pieces, and thi
 
 .. _volto-component-sponsors-label:
 
-Sponsors component
-==================
+The sponsors component
+----------------------
 
 We will now see how to achieve in Volto frontend the equivalent to the Plone viewlet of chapter :doc:`dexterity_3`.
+
 
 Overriding the Footer
 ---------------------
@@ -748,6 +761,8 @@ Presentation component means that it is a stateless component which gets the nec
 Restart your frontend with ``yarn start`` and see the new footer. A restart is necessary since we added a new file. The browser updates automagically by configuration.
 
 .. figure:: _static/volto_component_sponsors.png
+   :alt: Sponsors component
+   :align: center
 
 
 
