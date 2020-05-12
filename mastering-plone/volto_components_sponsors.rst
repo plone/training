@@ -36,7 +36,7 @@ The Sponsors Component
 
 
 In the previous chapter :doc:`dexterity_3` you created the ``sponsor`` content type.
-Now let's learn how to display them at the bottom of every page.
+Now let's learn how to display data of this type.
 
 To be solved task in this part:
 
@@ -59,7 +59,7 @@ Topics covered:
 
 .. note::
 
-  For sponsors we will stay with the default view since we will only display the sponsors in the footer and do not modify their own pages.
+  For sponsors we will stay with the default view as we will only display the sponsors in the footer and do not modify their own pages.
   The default-view of Volto does not show any of the custom fields you added to the sponsors.
   Using what you learned in :doc:`volto_talkview` you should be able to write a view for sponsors if you wanted to.
 
@@ -87,10 +87,14 @@ The sponsors component
 We will now see how to achieve in Volto frontend the equivalent to the Plone viewlet of chapter :doc:`dexterity_3`.
 
 
-Overriding the Footer
----------------------
+.. _volto-component-customizing-label:
 
-The sponsors shall live in the footer of a page. To modify the given footer component we copy the ``Footer.jsx`` file :file:`frontend/omelette/src/components/theme/Footer/Footer.jsx` from Volto. We insert the copied file to our app regarding the original folder structure but inside our customizations folder :file:`frontend/src/customizations/components/theme/Footer/Footer.jsx`.
+Customizing the Footer
+----------------------
+
+You can override any component that lives inside Volto's src folder and adapt it to your needs, without touching the original (source) counterpart. 
+
+The sponsors shall live in the footer of a page. To customize the given footer component we copy the ``Footer.jsx`` file :file:`frontend/omelette/src/components/theme/Footer/Footer.jsx` from Volto. We insert the copied file to our app regarding the original folder structure but inside our customizations folder :file:`frontend/src/customizations/components/theme/Footer/Footer.jsx`.
 
 
 .. only:: not presentation
@@ -160,15 +164,17 @@ The path reflects the fact that ``Footer.jsx`` lives in ``frontend/src/customiza
 
 
 
-After restarting the frontend with ``yarn start``, we are now ready to visit an arbitrary page to see the new component. A restart is necessary on newly added files. As long as you only edit existing files of your app, your Browser is updating automagically by app configuration.
+After restarting the frontend with ``yarn start``, we are now ready to visit an arbitrary page to see the new component. A restart is necessary on newly added files. As long as you only edit existing files of your app, your browser is updating automagically by app configuration.
 
+
+.. _volto-component-datafetching-label:
 
 Getting the sponsors data
 -------------------------
 
 With our ``Sponsors`` component in place we can take the next step and explore Volto some more to figure out how it does data fetching.
 
-As the data is in the backend, we need to find a way to address it. Volto provides various actions to communicate with the backend (fetching data, creating content, editing content, etc). A Redux action (that communicates with the backend) has a common pattern: It addresses the backend via REST API and updates the global app store according the response of the backend. A component calls an action and has hereupon access to the global app store (shortened: store) with the fetched data. 
+As the data is in the backend, we need to find a way to address it. Volto provides various predefined actions to communicate with the backend (fetching data, creating content, editing content, etc). A Redux action (that communicates with the backend) has a common pattern: It addresses the backend via REST API and updates the global app store according the response of the backend. A component calls an action and has hereupon access to the global app store (shortened: store) with the fetched data. 
 
 
 For more information which actions are already provided by Volto have look at :file:`frontend/omelette/src/actions`. 
@@ -181,12 +187,11 @@ Our component will use the action ``getQueryStringResults`` to fetch data of all
 
     Go step by step with working code for each step.
 
-So if we call the action ``getQueryStringResults`` to fetch data of sponsors, that means data of the instances of portal type ``sponsor``, then we can access this data from the store.
+So if we call the action ``getQueryStringResults`` to fetch data of sponsors, that means data of the instances of portal type ``sponsor``, then we can access this data of the store.
 
 The *connection* of the component to the store is made by the following code which passes the data of the store to the component prop ``items``. 
 
-
-What are *props*? Props, or properties, hold dynamic information for a component. The information is passed to the props from the parent component or by a connection with the store. We have already seen the passing from parent component to subcomponent in the ``Talk`` component. It passes the date data to the ``When`` component. 
+What are *props*? Props, or properties, hold dynamic information for a component. The information is passed to the props from the parent component or by a connection with the store. We have already seen the passing from parent component to subcomponent in the ``Talk`` component in chapter :doc:`events`. It passes the date data to the ``When`` component. 
 
 .. code-block:: jsx
     :linenos:
@@ -200,7 +205,7 @@ What are *props*? Props, or properties, hold dynamic information for a component
 
 
 The component traverses through a lifecycle (mounting, the moment where the raw structure is set, rendering, where the dynamic content is filled in, and some more lifecycle events). To have the necessary data for the rendering, we call the ``getQueryStringResults`` action on mounting the component. Therefor React has one of many lifecycle methods: ``componentDidMount``.
-Read more on lifecycles in the `React documentation <https://reactjs.org/docs/react-component.html#the-component-lifecycle>`_.
+Find more on lifecycles in the `React documentation: The Component Lifecycle <https://reactjs.org/docs/react-component.html#the-component-lifecycle>`_.
 
 
 .. admonition:: Call of ``getQueryStringResults`` in the lifecycle event ``componentDidMount`` of our ``Sponsors`` component:
@@ -339,6 +344,9 @@ Read more on lifecycles in the `React documentation <https://reactjs.org/docs/re
         )(Sponsors);
 
 
+
+.. _volto-component-store-label:
+
 Connection of component and store
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -439,6 +447,8 @@ Listening to this subscription the component shall fetch the data from the store
     }
       
 
+
+.. _volto-component-container-presentation-label:
 
 Pass prepared data for presentation
 -----------------------------------
@@ -599,6 +609,8 @@ now render the sponsors data:
       Keep this common pattern in mind: splitting a component in two parts: a container component to fetch data and a presentation component to render a presentation.
 
 
+
+.. _volto-component-presentation-label:
 
 The presentation component
 --------------------------
