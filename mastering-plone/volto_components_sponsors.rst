@@ -16,12 +16,11 @@ The Sponsors Component
 
   .. topic:: Description
 
-      Create React component for fetched data
+      Create a React component for content fetched from the backend
 
   .. contents:: Table of Contents
     :depth: 2
     :local:
-
 
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
@@ -36,7 +35,7 @@ The Sponsors Component
 
 
 In the previous chapter :doc:`dexterity_3` you created the ``sponsor`` content type.
-Now let's learn how to display data of this type.
+Now let's learn how to display content of this type.
 
 To be solved task in this part:
 
@@ -57,7 +56,8 @@ Topics covered:
    :alt: Sponsors component
 
 
-.. note::
+
+.. only:: not presentation
 
   For sponsors we will stay with the default view as we will only display the sponsors in the footer and do not modify their own pages.
   The default-view of Volto does not show any of the custom fields you added to the sponsors.
@@ -87,12 +87,19 @@ The sponsors component
 We will now see how to achieve in Volto frontend the equivalent to the Plone viewlet of chapter :doc:`dexterity_3`.
 
 
+**Steps to take**
+
+* Copy and customize Footer component.
+* Create component to fetch data from backend.
+* Create component to display the fetched data.
+
+
 .. _volto-component-customizing-label:
 
 Customizing the Footer
 ----------------------
 
-You can override any component that lives inside Volto's src folder and adapt it to your needs, without touching the original (source) counterpart. 
+You can override any component that lives inside Volto's source folder ``frontend/omelette/src/components`` and adapt it to your needs, without touching the original component. 
 
 The sponsors shall live in the footer of a page. To customize the given footer component we copy the ``Footer.jsx`` file :file:`frontend/omelette/src/components/theme/Footer/Footer.jsx` from Volto. We insert the copied file to our app regarding the original folder structure but inside our customizations folder :file:`frontend/src/customizations/components/theme/Footer/Footer.jsx`.
 
@@ -122,10 +129,7 @@ The sponsors shall live in the footer of a page. To customize the given footer c
 
 .. only:: not presentation
 
-    This will show an additional component.
-
-    * It is visible on all pages since it is a subcomponent of footer.
-    * Later on it can be made conditional if necessary.
+    This will show an additional component. It is visible on all pages as it is a subcomponent of footer. Later on it can be made conditional if necessary.
 
 To create the component ``Sponsors`` we add a folder :file:`frontend/src/components/Sponsors/` with a file :file:`Sponsors.jsx`. In this file we can now define our new component.
 
@@ -146,7 +150,7 @@ Start with a placeholder to see if your registration actually works:
 
 .. note::
 
-  Defining a component as a class is the classic and still valid React way. We have already seen the new approach via *hooks* in chapter :doc:`volto_talk_listview`, ``TalkListView`` component.
+  Defining a component as a class is the classic and still valid React way. We have already seen the new approach with *hooks* in chapter :doc:`volto_talk_listview`, ``TalkListView`` component.
 
 The component is a class extending the template class ``Component``. As you see the minimum to define is a render method which returns some markup.
 
@@ -164,7 +168,7 @@ The path reflects the fact that ``Footer.jsx`` lives in ``frontend/src/customiza
 
 
 
-After restarting the frontend with ``yarn start``, we are now ready to visit an arbitrary page to see the new component. A restart is necessary on newly added files. As long as you only edit existing files of your app, your browser is updating automagically by app configuration.
+After restarting the frontend with ``yarn start``, we are now ready to visit an arbitrary page to see the new component. A restart is necessary on newly added files. As long as you just edit existing files of your app, your browser is updating automagically by app configuration.
 
 
 .. _volto-component-datafetching-label:
@@ -174,38 +178,17 @@ Getting the sponsors data
 
 With our ``Sponsors`` component in place we can take the next step and explore Volto some more to figure out how it does data fetching.
 
-As the data is in the backend, we need to find a way to address it. Volto provides various predefined actions to communicate with the backend (fetching data, creating content, editing content, etc). A Redux action (that communicates with the backend) has a common pattern: It addresses the backend via REST API and updates the global app store according the response of the backend. A component calls an action and has hereupon access to the global app store (shortened: store) with the fetched data. 
+As the data is in the backend, we need to find a way to address it. Volto provides various predefined actions to communicate with the backend (fetching data, creating content, editing content, etc). A Redux action (that communicates with the backend) has a common pattern: It addresses the backend via REST API and updates the global app store according to the response of the backend. A component calls an action and has hereupon access to the global app store (shortened: store) with the fetched data. 
 
 
 For more information which actions are already provided by Volto have look at :file:`frontend/omelette/src/actions`. 
 
-Our component will use the action ``getQueryStringResults`` to fetch data of all sponsors. It takes as arguments the path where to search, the information what to search and an argument with which key it should be stored in the store. Remember: the result is stored in the global app store.
-
-.. todo::
-
-    Why use getQueryStringResults? How and why is this different to what we did in the talklistview?
-
-    Go step by step with working code for each step.
+Our component will use the action ``getQueryStringResults`` to fetch data of all sponsors. It takes as arguments the path where to search, the information what to search and an argument with which key the data should be stored in the store. Remember: the result is stored in the global app store.
 
 So if we call the action ``getQueryStringResults`` to fetch data of sponsors, that means data of the instances of portal type ``sponsor``, then we can access this data of the store.
 
-The *connection* of the component to the store is made by the following code which passes the data of the store to the component prop ``items``. 
-
-What are *props*? Props, or properties, hold dynamic information for a component. The information is passed to the props from the parent component or by a connection with the store. We have already seen the passing from parent component to subcomponent in the ``Talk`` component in chapter :doc:`events`. It passes the date data to the ``When`` component. 
-
-.. code-block:: jsx
-    :linenos:
-
-    <When
-      start={content.start}
-      end={content.end}
-      whole_day={content.whole_day}
-      open_end={content.open_end}
-    />
-
-
 The component traverses through a lifecycle (mounting, the moment where the raw structure is set, rendering, where the dynamic content is filled in, and some more lifecycle events). To have the necessary data for the rendering, we call the ``getQueryStringResults`` action on mounting the component. Therefor React has one of many lifecycle methods: ``componentDidMount``.
-Find more on lifecycles in the `React documentation: The Component Lifecycle <https://reactjs.org/docs/react-component.html#the-component-lifecycle>`_.
+Find detailed information on lifecycles in the `React documentation: The Component Lifecycle <https://reactjs.org/docs/react-component.html#the-component-lifecycle>`_.
 
 
 .. admonition:: Call of ``getQueryStringResults`` in the lifecycle event ``componentDidMount`` of our ``Sponsors`` component:
@@ -292,7 +275,8 @@ Find more on lifecycles in the `React documentation: The Component Lifecycle <ht
           *
           * Update component when a new sponsor is created / deleted / updated.
           * Two steps are necessary:
-          * - subscription of a value / of values in store that reflects the fact that a new sponsor is created / deleted / updated.
+          * - subscription of a value / of values in store that reflects
+          *   the fact that a new sponsor is created / deleted / updated.
           * - call search action on property change; do it here in componentDidUpdate
           */
           componentDidUpdate(prevProps) {
@@ -350,19 +334,15 @@ Find more on lifecycles in the `React documentation: The Component Lifecycle <ht
 Connection of component and store
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's connect the store to our component. On export we define a mapping of the requested data of the store to props of the component. With the following code the prop item is set to the fetched sponsors data from the store. It's worth exploring the store of our app with the Redux Dev Tools (additional Dev Tools to React Dev Tools) There you can see what is stored like ``state.querystringsearch.subrequests.sponsors``. And you can walk through time and watch how the store is changing.
+Let's connect the store to our component. On export we define a mapping of the requested data of the store to props of the component. With the following code the prop *item* is set to the fetched sponsors data from the store. It's worth exploring the store of our app with the Redux Dev Tools (additional Dev Tools to React Dev Tools) There you can see what is stored like ``state.querystringsearch.subrequests.sponsors``. And you can walk through time and watch how the store is changing.
 
 .. code-block:: jsx
     :linenos:
-    :emphasize-lines: 3
+    :emphasize-lines: 2-4
 
     export default connect(
       state => ({
         items: state.querystringsearch.subrequests.sponsors?.items || [],
-        // subsription of something in store that is updated on creation of a sponsor
-        // see docstring componentDidUpdate
-        subscribedValueContent: state.content,
-        subscribedValueClipboard: state.clipboard,
       }),
       { getQueryStringResults },
     )(Sponsors);
@@ -371,21 +351,19 @@ A further mapping enables the component to use the action `getQueryStringResults
 
 .. code-block:: jsx
     :linenos:
-    :emphasize-lines: 9
+    :emphasize-lines: 5
 
     export default connect(
       state => ({
         items: state.querystringsearch.subrequests.sponsors?.items || [],
-        // subsription of something in store that is updated on creation of a sponsor
-        // see docstring componentDidUpdate
-        subscribedValueContent: state.content,
-        subscribedValueClipboard: state.clipboard,
       }),
       { getQueryStringResults },
     )(Sponsors);
 
+With these both mappings in place, the component can call the predefined action `getQueryStringResults` and has access to the fetched data via `this.props.items`.
+
 The next step is advanced and can be skipped on a first reading. As by now we fetch the sponsors data on mounting event of the component. The mounting is done once on the first visit of a page of our app. 
-What if a new sponsor is added? We want to achieve a re-rendering of the component on changed sponsorship. To subscribe to these changes in sponsorship, we use our already defined connection and extend it.
+What if a new sponsor is added? We want to achieve a re-rendering of the component on changed sponsorship. To subscribe to these changes in sponsorship, we extend our already defined connection.
 
 .. code-block:: jsx
     :linenos:
@@ -416,7 +394,8 @@ Listening to this subscription the component shall fetch the data from the store
     *
     * Update component when a new sponsor is created / deleted / updated.
     * Two steps are necessary:
-    * - subscription of a value / of values in store that reflects the fact that a new sponsor is created / deleted / updated.
+    * - subscription of a value / of values in store that reflects
+    *   the fact that a new sponsor is created / deleted / updated.
     * - call search action on property change; do it here in componentDidUpdate
     */
     componentDidUpdate(prevProps) {
@@ -548,7 +527,8 @@ now render the sponsors data:
           *
           * Update component when a new sponsor is created / deleted / updated.
           * Two steps are necessary:
-          * - subscription of a value / of values in store that reflects the fact that a new sponsor is created / deleted / updated.
+          * - subscription of a value / of values in store that reflects 
+          *   the fact that a new sponsor is created / deleted / updated.
           * - call search action on property change; do it here in componentDidUpdate
           */
           componentDidUpdate(prevProps) {
@@ -615,68 +595,149 @@ now render the sponsors data:
 The presentation component
 --------------------------
 
-We create a presentation component ``SponsorsBody`` in :file:`frontend/src/components/Sponsors/SponsorsBody.jsx`
+We create a presentation component ``SponsorsBody`` in :file:`frontend/src/components/Sponsors/SponsorsBody.jsx`.
 
-Presentation component means that it is a stateless component which gets the necessary data via props from the parent component. It doesn't communicate with the global app store, does not fetch data, doesn't do elaborated logic, it just renders the passed data of sponsors, grouped by sponsor level.
+Presentation component means that it is a stateless component which gets the necessary data via props from the parent component. It doesn't communicate with the global app store, does not fetch data, doesn't do elaborated logic, it just renders the passed data of sponsors.
+
+Start with a simple component.
 
 .. code-block:: jsx
     :linenos:
-    :emphasize-lines: 12-47
 
-    <Segment
-      basic
-      textAlign="center"
-      className="sponsors"
-      aria-label="Sponsors"
-      inverted
-    >
-      <div className="sponsorheader">
-        <h3 className="subheadline">We ❤ our sponsors</h3>
-      </div>
-      {sponsorlist?.length && (
-        <List>
-          {Object.entries(LevelVocabulary).map(level => {
-            if (sponsors[level[0]].length) {
-              return (
-                <List.Item
-                  key={level[0]}
-                  className={'sponsorlevel ' + level[0]}
-                >
-                  <h3>{level[0].toUpperCase()}</h3>
-                  <List horizontal>
-                    {sponsors[level[0]].map(item => (
-                      <List.Item key={item['UID']} className="sponsor">
-                        {item.logo ? (
-                          <Image
-                            className="logo"
-                            as="a"
-                            href={item.url}
-                            target="_blank"
-                            src={flattenToAppURL(
-                              item.logo.scales.preview.download,
-                            )}
-                            size="small"
-                            alt={item.title}
-                            title={item.title}
-                          />
-                        ) : (
-                          <a href={item['@id']}>{item.title}</a>
-                        )}
-                      </List.Item>
-                    ))}
-                  </List>
+    import React from 'react';
+    import { Segment } from 'semantic-ui-react';
+
+    const SponsorsBody = ({ sponsorlist }) => {
+      return (
+        <div>
+          <h3>We ❤ our sponsors</h3>
+        </div>
+      );
+    };
+
+    export default SponsorsBody;
+
+You see the component receives the data of the parent component *Sponsors* via prop *sponsorlist*.
+
+Restart your frontend with ``yarn start`` and see the new footer. A restart is necessary as we added a new file ``SponsorsBody.jsx``.
+
+Exercise
+^^^^^^^^
+
+Extend the code by displaying the list of sponsors. The data is available via prop *sponsorlist*.
+
+..  admonition:: Solution
+    :class: toggle
+
+      .. code-block:: jsx
+        :linenos:
+        :emphasize-lines: 12-28
+
+        <Segment
+          basic
+          textAlign="center"
+          className="sponsors"
+          aria-label="Sponsors"
+          inverted
+        >
+          <div className="sponsorheader">
+            <h3 className="subheadline">We ❤ our sponsors</h3>
+          </div>
+          {sponsorlist?.length && (
+            <List>
+              {sponsorlist.map(item => (
+                <List.Item key={item['UID']} className="sponsor">
+                  {item.logo ? (
+                    <Image
+                      className="logo"
+                      src={flattenToAppURL(item.logo.scales.preview.download)}
+                      size="small"
+                      alt={item.title}
+                      title={item.title}
+                    />
+                  ) : (
+                    <a href={item['@id']}>{item.title}</a>
+                  )}
                 </List.Item>
-              );
-            }
-          })}
-        </List>
-      )}
-    </Segment>
+              ))}
+            </List>
+          )}
+        </Segment>
+    
+    This is just one solution. You achieved to display the data? That's great! You'll see in the next step why we use <List>, <List.Item> and <Image> components and how to use Semantic UI components to simplify your code.
 
 
-.. todo::
+We group the sponsors by sponsorship level.
 
-    explain code of presentation component
+An Object *sponsors* using the sponsorship level as key helps to build rows with sponsors by sponsorship level. 
+
+The Semantic UI compontent *Image* is used to display the logo. It cares about the markup of an html image node with all necessary attributes in place.
+
+We also benefit from Semantic UI component *List* to build our list of sponsors. The styling can be customized but these predefined components help simplifying the code and achieve an app wide harmonic style. 
+
+.. seealso::
+
+    Chapter :doc:`volto_semantic_ui`
+
+
+.. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 23-50
+
+    const SponsorsBody = ({ sponsorlist }) => {
+      const groupedSponsorsByLevel = array =>
+        array.reduce((obj, item) => {
+          obj[item.level.token] = obj[item.level.token]
+            ? obj[item.level.token].push(item)
+            : [item];
+          return obj;
+        }, {});
+      const sponsors = groupedSponsorsByLevel(sponsorlist);
+
+      return (
+        <Segment
+          basic
+          textAlign="center"
+          className="sponsors"
+          aria-label="Sponsors"
+          inverted
+        >
+          <div className="sponsorheader">
+            <h3 className="subheadline">We ❤ our sponsors</h3>
+          </div>
+          {sponsorlist?.length && (
+            <List>
+              {Object.keys(sponsors).map(level => {
+                return (
+                  <List.Item key={level} className={'sponsorlevel ' + level}>
+                    <h3>{level.toUpperCase()}</h3>
+                    <List horizontal>
+                      {sponsors[level].map(item => (
+                        <List.Item key={item['UID']} className="sponsor">
+                          {item.logo ? (
+                            <Image
+                              className="logo"
+                              src={flattenToAppURL(
+                                item.logo.scales.preview.download,
+                              )}
+                              size="small"
+                              alt={item.title}
+                              title={item.title}
+                            />
+                          ) : (
+                            <a href={item['@id']}>{item.title}</a>
+                          )}
+                        </List.Item>
+                      ))}
+                    </List>
+                  </List.Item>
+                );
+              })}
+            </List>
+          )}
+        </Segment>
+      );
+    };
 
 
 .. admonition:: Complete code of the presentation component ``SponsorsBody`` component
@@ -686,15 +747,8 @@ Presentation component means that it is a stateless component which gets the nec
         :linenos:
 
         import React from 'react';
-        import { List, Segment, Image } from 'semantic-ui-react';
+        import { Segment, List, Image } from 'semantic-ui-react';
         import { flattenToAppURL } from '@plone/volto/helpers';
-
-        const LevelVocabulary = {
-          platinum: 'Platinum Sponsor',
-          gold: 'Gold Sponsor',
-          silver: 'Silver Sponsor',
-          bronze: 'Bronze Sponsor',
-        };
 
         /**
         * sponsors presentation
@@ -703,15 +757,14 @@ Presentation component means that it is a stateless component which gets the nec
         * @returns {string} Markup of the component.
         */
         const SponsorsBody = ({ sponsorlist }) => {
-          const groupedSponsors = sponsorlist => {
-            let result = {};
-            for (const level in LevelVocabulary) {
-              result[level] = sponsorlist.filter(el => el.level.token === level);
-            }
-            return result;
-          };
-
-          const sponsors = groupedSponsors(sponsorlist);
+          const groupedSponsorsByLevel = array =>
+            array.reduce((obj, item) => {
+              obj[item.level.token] = obj[item.level.token]
+                ? obj[item.level.token].push(item)
+                : [item];
+              return obj;
+            }, {});
+          const sponsors = groupedSponsorsByLevel(sponsorlist);
 
           return (
             <Segment
@@ -726,39 +779,31 @@ Presentation component means that it is a stateless component which gets the nec
               </div>
               {sponsorlist?.length && (
                 <List>
-                  {Object.entries(LevelVocabulary).map(level => {
-                    if (sponsors[level[0]].length) {
-                      return (
-                        <List.Item
-                          key={level[0]}
-                          className={'sponsorlevel ' + level[0]}
-                        >
-                          <h3>{level[0].toUpperCase()}</h3>
-                          <List horizontal>
-                            {sponsors[level[0]].map(item => (
-                              <List.Item key={item['UID']} className="sponsor">
-                                {item.logo ? (
-                                  <Image
-                                    className="logo"
-                                    as="a"
-                                    href={item.url}
-                                    target="_blank"
-                                    src={flattenToAppURL(
-                                      item.logo.scales.preview.download,
-                                    )}
-                                    size="small"
-                                    alt={item.title}
-                                    title={item.title}
-                                  />
-                                ) : (
-                                  <a href={item['@id']}>{item.title}</a>
-                                )}
-                              </List.Item>
-                            ))}
-                          </List>
-                        </List.Item>
-                      );
-                    }
+                  {Object.keys(sponsors).map(level => {
+                    return (
+                      <List.Item key={level} className={'sponsorlevel ' + level}>
+                        <h3>{level.toUpperCase()}</h3>
+                        <List horizontal>
+                          {sponsors[level].map(item => (
+                            <List.Item key={item['UID']} className="sponsor">
+                              {item.logo ? (
+                                <Image
+                                  className="logo"
+                                  src={flattenToAppURL(
+                                    item.logo.scales.preview.download,
+                                  )}
+                                  size="small"
+                                  alt={item.title}
+                                  title={item.title}
+                                />
+                              ) : (
+                                <a href={item['@id']}>{item.title}</a>
+                              )}
+                            </List.Item>
+                          ))}
+                        </List>
+                      </List.Item>
+                    );
                   })}
                 </List>
               )}
@@ -770,18 +815,12 @@ Presentation component means that it is a stateless component which gets the nec
 
 
 
-Restart your frontend with ``yarn start`` and see the new footer. A restart is necessary since we added a new file. The browser updates automagically by configuration.
+
+See the new footer. A restart is not necessary as we didn't added a new file. The browser updates automagically by configuration.
 
 .. figure:: _static/volto_component_sponsors.png
    :alt: Sponsors component
    :align: center
-
-
-
-
-.. todo::
-
-    summary of chapter
 
 
 .. _volto-component-exercise-label:
@@ -823,3 +862,16 @@ Modify the component to display a sponsor logo as a link to the sponsors website
               src="/sponsors/violetta-systems/@@images/d1db77a4-448d-4df3-af5a-bc944c182094.png"
               alt="Violetta Systems">
         </a>
+
+
+.. volto-component-summary-label:
+
+Summary
+-------
+
+You know how to fetch data from backend. With the data you are able to create a component displayed at any place in the website.
+
+
+.. todo::
+
+    Lookout
