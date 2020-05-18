@@ -7,6 +7,9 @@
 .rst-content .sidebar {
   clear: right;
 }
+.rst-content .sidebar img {
+  max-width: 50%;
+}
 
 .rst-content .menuselection {
   background-color: #f9ebb3;
