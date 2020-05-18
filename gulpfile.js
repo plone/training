@@ -37,7 +37,11 @@ function watch() {
     browserSync.init({
         server: {
             baseDir: './_build/html/'
-        }
+        },
+        port: 3002,
+        ui: {
+            port: 3003
+        },
     });
     gulp.watch(['./**/*.rst',], buildAndBrowserSync);
 }
