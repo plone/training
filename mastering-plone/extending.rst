@@ -35,15 +35,15 @@ Plone consists of a Python backend and a React frontend. They are connected via 
 
 Therefore we create two different extension-packages to customize and extend Plone:
 
-1. One is a python package that holds e.g. content-types, dexterity-behaviors and configuration.
-1. The other is a javascript package that hold views, styling and customization of the frontend.
+1. One is a python package that holds e.g. content types, dexterity-behaviors and configuration.
+2. The other is a javascript package that hold views, styling and customization of the frontend.
 
 Sometimes it is easy to know, which layer needs to be customized to achieve a certain result.
 
 * All styling and javascript-based interaction is customized on the Volto-layer of Plone
-* Content-Types and other persistent data should be customized or created in a python-package
+* Content types and other persistent data should be customized or created in a python-package
 
-For more complex use-cases you will need to add code to both parts of our customization-story. For example a content-type will be defined in the python-package and its visualization will be defined in the javascript-package.
+For more complex use-cases you will need to add code to both parts of our customization-story. For example a content type will be defined in the python-package and its visualization will be defined in the javascript-package.
 
 
 .. _extending-technologies-label:
@@ -57,7 +57,7 @@ This depends on what type of extension you want to create.
 
 .. only:: not presentation
 
-    * You can create extensions with new types of objects to add to your Plone site. Usually these are contenttypes.
+    * You can create extensions with new types of objects to add to your Plone site. Usually these are content types.
     * You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures searchable by adding a converter from jpg to text.
 
 For most projects you mix all kinds of methods to extend Plone.

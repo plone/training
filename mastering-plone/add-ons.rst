@@ -115,7 +115,7 @@ It can be very hard to find the right addon for your requirements. Here are some
   * google (e.g. `Plone+Slider <http://google.com/?q=plone+slider>`_)
   * https://www.npmjs.com/search?q=plone
 
-* Once you have a shortlist test these addons. Here are the main issues you need to test before you install a addon on a production site:
+* Once you have a shortlist test these addons. Here are the main issues you need to test before you install an addon on a production site:
 
   * Test all required features. Read but do not trust the documentation
   * Check if the addon runs on your required version and is currently maintained
@@ -123,7 +123,7 @@ It can be very hard to find the right addon for your requirements. Here are some
   * Does it uninstall cleanly?
     A tough one.
     See https://lucafbb.blogspot.com/2013/05/how-to-make-your-plone-add-on-products.html for the reason why.
-  * Check for unwanted dependecies
+  * Check for unwanted dependencies
 
 Once you found an addon you like you should ask the community if you made a good choice or if you missed something:
 
@@ -182,12 +182,18 @@ Your Plone site has not yet been told to use the add-on. For this, you have to a
 
 In your browser, go to Site Setup (shortcut: add ``/@@overview-controlpanel`` to the Plone site URL), and open the ``Add-ons`` Panel. You will see that you can install the add-ons there.
 
+.. figure:: _static/site_setup.png
+      :scale: 70%
+      :alt: Link to Site Setup.
+
+      Link to Site Setup
+
 Install EasyForm (the human-readable name of :py:mod:`collective.easyform`) now.
 
 This is what happens: The GenericSetup profile of the product gets loaded. This does things like:
 
 * Configuring new actions
-* Registering new contenttypes
+* Registering new content types
 * Registering css and js files
 * Creating some content/configuration objects in your Plone site.
 
@@ -228,18 +234,18 @@ Let's build a registration form:
 Add page layout management with :py:mod:`plone.app.mosaic`
 ------------------------------------------------------------
 
-To make it possible for your site editors to drag and drop different blocks of content onto a page, you can use the add-on plone.app.mosaic
+To let your site editors drag and drop different blocks of content onto a page, you can use the add-on plone.app.mosaic
 https://pypi.org/project/plone.app.mosaic/
 
-* Add `plone.app.mosaic` to the eggs section in the buildout
-* Activate the Mosaic add-on
-* Go to a page in your site and click on "Mosaic" in the `Display` menu in the toolbar
-* Edit the page to select a Mosaic layout and try inserting some content blocks
+* Add `plone.app.mosaic` to the eggs section in the buildout.
+* Activate the Mosaic add-on.
+* Go to a page in your site and click on "Mosaic" in the `Display` menu in the toolbar.
+* Edit the page to select a Mosaic layout and try inserting some content blocks.
 * You can read more about the concepts and use of this add-on in the `Mosaic documentation <http://plone-app-mosaic.s3-website-us-east-1.amazonaws.com/latest/getting-started.html>`_
 
 .. note::
 
-    The Mosaic editor takes some time to load so please be patient until you see the full edit view
+    The Mosaic editor takes some time to load so please be patient until you see the full edit view.
 
 .. _add-ons-i18n-label:
 
@@ -250,7 +256,7 @@ Plone can run the same site in many different languages.
 
 We're not doing this with the conference site since the *lingua franca* of the Plone community is English.
 
-We would use the built-in addon https://pypi.org/project/plone.app.multilingual for this.
+We would use the built-in addon `plone.app.multilingual <https://pypi.org/project/plone.app.multilingual>`_ for this.
 
 Building a multi-lingual site requires activating :py:mod:`plone.app.multilingual`, but no add-on is necessary to build a site in only one language. Just select a different site language when creating a Plone site, and all text in the user-interface will be switched to that language.
 
