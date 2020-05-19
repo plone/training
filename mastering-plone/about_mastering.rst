@@ -196,8 +196,8 @@ Your mission, should you choose to accept it...
 Building the documentation locally
 ----------------------------------
 
-Dependencies
-++++++++++++
+Dependencies and new build
+++++++++++++++++++++++++++
 
 Please make sure that you have `Enchant <https://abiword.github.io/enchant/>`_ installed. This is needed for spell-checking.
 
@@ -230,24 +230,9 @@ Now install dependencies and build.
     pip install -r requirements.txt
     make html
 
-You can now open the output from ``_build/html/index.html``.
-To build the presentation version use ``make presentation`` instead of ``make html``.
+You can now open the output ``_build/html/index.html`` in your browser.
 
-You can open the presentation at ``presentation/index.html``.
-
-Build new
----------
-
-.. code-block:: console
-
-    git clone https://github.com/plone/training.git
-    cd training
-    python -m venv .
-    source bin/activate
-    pip install -r requirements.txt
-    make html
-
-Now you can open documentation with your web-bowser.
+To build the presentation version use ``make presentation`` instead of ``make html``. You can open the presentation at ``_build/html/presentation/index.html``.
 
 If you use macOS you can do:
 
@@ -261,13 +246,24 @@ In the case of Linux, Ubuntu for example you can do:
 
     firefox _build/html/index.html
 
-.. note::
-
-    If you do not use Firefox but Chrome, please replace firefox with google-chrome e.g
+or with Chrome
 
 .. code-block:: console
 
     google-chrome _build/html/index.html
+
+
+**All steps in short**
+
+.. code-block:: console
+
+    git clone https://github.com/plone/training.git
+    cd training
+    python -m venv .
+    source bin/activate
+    pip install -r requirements.txt
+    make html
+
 
 
 Update existing
@@ -275,10 +271,36 @@ Update existing
 
 .. code-block:: bash
 
-    $ git pull
-    $ source bin/activate
-    $ make html
-    $ open _build/html/index.html
+    git pull
+    source bin/activate
+    make html
+    open _build/html/index.html
+
+
+Sync the browser to your editing
+++++++++++++++++++++++++++++++++
+
+To watch the changes in browser while editing you can use gulp.
+
+Install once the gulp command line utility.
+
+.. code-block:: bash
+
+    npm install --global gulp-cli
+
+Install once the gulp project with
+
+.. code-block:: bash
+
+    npm install
+
+Run gulp when starting working on the training with
+
+.. code-block:: bash
+
+    gulp
+
+and see a browser window opening on http://localhost:3002/.
 
 
 Technical set up to do before a training (as a trainer)
