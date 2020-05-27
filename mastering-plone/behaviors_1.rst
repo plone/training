@@ -20,6 +20,8 @@ In this part you will:
 Topics covered:
 
 * Behaviors
+* Indexes
+* Metacolumns
 
 
 .. only:: not presentation
@@ -254,7 +256,34 @@ To understand this snippet we have to understand the tags and information we are
 * `meta_type` will determine the kind of index we want to use
 * The `indexed_attr` will include the fieldname of the information we are going to save in the index
 
-After a restart and a reinstallation the product should now create a new index in the `portal_catalog`. To see if the adding was successfully we will open the ZMI of our plone-site and navigate to the `portal_catalog` and click the `Indexes`-Tab. In the above list the new index `fetaured` should pop up.
+After a restart and reinstallation of the product, it should now create a new index in the `portal_catalog`. 
+
+.. note::
+
+    Instead of deinstall/install or reinstall the product over the `prtal_quickinstaller` or `Add-Ons` controlpanel, we can import new or altered XML files in the `ZMI`. To do so go to `portal_setup`, switch to the `Import`-Tab and search for the profile to import like in this case: `ploneconf.site`.
+
+To see if the adding was successfully we will open the ZMI of our plone-site and navigate to the `portal_catalog` and click the `Indexes`-Tab. In the above list the new index `fetaured` should pop up.
+
+Add a metadata column for the new field
+---------------------------------------
+
+The same rules and methods shown above for indexes apply for metadata columns. The difference with metadata is that it is not used for searching, but for displaying the results.
+
+To add a metadata column for featured we have to add one more line in the `catalog.xml` like this:
+
+.. code-block:: xml
+    :linenos:
+    :emphasize-lines: 6
+
+    <?xml version="1.0"?>
+    <object name="portal_catalog">
+      <index name="featured" meta_type="BooleanIndex">
+        <indexed_attr value="featured"/>
+      </index>
+      <column value="featured"/>
+    </object>
+
+After another restart and another import of the xml-profile the new metadata column can be found in the `portal_catalog` in your `ZMI` under the tab `Metadata`. 
 
 .. _behaviors_1-label:
 
