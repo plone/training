@@ -25,14 +25,14 @@ Topics covered:
 Add Index as collection criteria
 --------------------------------
 
-To understand why we need a collection criteria for a dynamic frontpage in Volto and what a collection criteria is, we have to look at the listing block of Volto for a brief moment. 
+To understand why we need a collection criteria for a dynamic frontpage in Volto and what a collection criteria is, we have to look at the listing block of Volto for a brief moment.
 
 .. figure:: _static/volto_frontpage.png
    :alt: Listing Block sidebar
 
 In the sidebar we see the `criteria` selection and if we click there, it'll show some of the choosable criterias ordered in categories like the following:
 
-* `Metadata` contains indexes that are counting as metadata like Type (means Portal Types) and Review State 
+* `Metadata` contains indexes that are counting as metadata like Type (means Portal Types) and Review State
 * `Text` contains indexes that are counting as text-data like Description and Searchable Text
 * `Dates` contains indexes which are working with date-data like Effective Date and Creation Date
 
@@ -45,7 +45,8 @@ To add our new index as a criteria so we can use it in a listing block or a coll
     :emphasize-lines: 3-14
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <registry>
+    <registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+              i18n:domain="plone">
       <records interface="plone.app.querystring.interfaces.IQueryField"
             prefix="plone.app.querystring.field.featured">
         <value key="title">Featured</value>
@@ -56,7 +57,7 @@ To add our new index as a criteria so we can use it in a listing block or a coll
           <element>plone.app.querystring.operation.boolean.isTrue</element>
           <element>plone.app.querystring.operation.boolean.isFalse</element>
         </value>
-        <value key="group">Metadata</value>
+        <value key="group" i18n:translate="">Metadata</value>
       </records>
     </registry>
 
@@ -68,7 +69,7 @@ To understand this code-snippet, we have to know the information and tags we are
 
 .. note::
 
-   For a full list of all existing QueryField declarations see https://github.com/plone/plone.app.querystring/blob/master/plone/app/querystring/profiles/default/registry.xml#L197
+   For a full list of all existing QueryField declarations see https://github.com/plone/plone.app.querystring/blob/master/plone/app/querystring/profiles/default/registry.xml#L245
 
 .. note::
 
