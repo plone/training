@@ -27,7 +27,8 @@ Add Index as collection criteria
 
 To understand why we need a collection criteria for a dynamic frontpage in Volto and what a collection criteria is, we have to look at the listing block of Volto for a brief moment. 
 
-SCREENSHOT LISTING BLOCK
+.. figure:: _static/volto_frontpage.png
+   :alt: Listing Block sidebar
 
 In the sidebar we see the `criteria` selection and if we click there, it'll show some of the choosable criterias ordered in categories like the following:
 
@@ -78,6 +79,14 @@ Like explained in the last chapter we can now restart the instance and import th
 Add listing block to show featured content
 ------------------------------------------
 
-Now we will go back to our frontend and look up localhost:3000 to checkout the volto.
+Now we will go back to our frontend and look up localhost:3000 to checkout the volto. To create a new listing_block on the front-page we have to click on edit first an create one new block space there. Now you have to choose the block `Listing` from the menu:
+
+.. figure:: _static/volto_frontpage_1.png
+   :alt: Most used blocks in Volto
+
+And you will gain a new block and sidebar looking like this:
+
+.. figure:: _static/volto_frontpage_2.png
+   :alt: Most used blocks in Volto
 
 SCREENSHOTS TO ADD LISTING BLOCK
