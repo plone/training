@@ -16,13 +16,14 @@ Behaviors
 In this part you will:
 
 * Add another field to talks by using a behavior
+* Add a custom index for the field
+* Add a metadata column for the field
 
 Topics covered:
 
 * Behaviors
 * Indexes
 * Metacolumns
-
 
 .. only:: not presentation
 
