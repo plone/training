@@ -497,14 +497,14 @@ Here is an example:
     class IMyRowSchema(Interface):
 
         choice_field = schema.Choice(
-            title='Choice Field',
+            title=u'Choice Field',
             vocabulary='plone.app.vocabularies.PortalTypes',
             required=False,
             )
         directives.widget('objective', SelectFieldWidget)
 
         textline_field = schema.TextLine(
-            title='Textline field',
+            title=u'Textline field',
             required=False,
             )
 
