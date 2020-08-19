@@ -166,7 +166,7 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
                         href: '',
                       });
                     }
-                  : () => openObjectBrowser('link')
+                  : () => openObjectBrowser({ mode: 'link' })
               }
               onChange={(name, value) => {
                 onChangeTile(tile, {
