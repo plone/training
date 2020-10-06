@@ -58,7 +58,7 @@ The `settings` in :file:`/src/config.js` is the place to modify the general conf
 
 .. code-block:: js
     :linenos:
-    :emphasize-lines: 3,7
+    :emphasize-lines: 3,4,8
 
     export const settings = {
       ...defaultSettings,
@@ -72,7 +72,7 @@ The `settings` in :file:`/src/config.js` is the place to modify the general conf
       },
     };
 
-You see that two attributes of the overall settings, richTextEditorInlineToolbarButtons and ToHTMLRenderers, are overwritten. We define these attributes to show a button which lets the editor add a CSS class *discreet* to a selected phrase.
+You see that two attributes of the overall `settings`, `richTextEditorInlineToolbarButtons` and `ToHTMLRenderers`, are overwritten. We define these attributes to show a button which lets the editor add a CSS class *discreet* to a selected phrase.
 
 :file:`/src/config.js`
 
