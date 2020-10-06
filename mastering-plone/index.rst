@@ -74,6 +74,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     custom_search
     events
     volto_theming
+    volto_richtexteditor
     user_generated_content
     thirdparty_behaviors
     dexterity_3
