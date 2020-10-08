@@ -107,6 +107,7 @@ You see that two attributes of the overall `settings`, `richTextEditorInlineTool
     :class: toggle
 
     ..   code-block:: js
+      :linenos:
 
       import React from 'react';
       import createInlineStyleButton from 'draft-js-buttons/lib/utils/createInlineStyleButton';
