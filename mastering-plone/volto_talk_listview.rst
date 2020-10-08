@@ -350,7 +350,7 @@ Search options
   * https://plonerestapi.readthedocs.io/en/latest/searching.html
   * http://docs.plone.org/develop/plone/searching_and_indexing/query.html
 
-.. _volto_talk_listview-label:
+.. _volto_talk_listview-exercise-label:
 
 Exercises
 ---------
