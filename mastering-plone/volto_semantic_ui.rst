@@ -12,21 +12,27 @@ Semantic UI
 
   Learn about templates in the classic frontend in chapter :doc:`zpt`
 
-Semantic is a development framework that helps create beautiful, responsive layouts using human-friendly HTML. It provides a declarative API, shorthand props and many helpers that simplifies development.
+`Semantic UI` is a development framework that helps create beautiful, responsive layouts using human-friendly HTML. It provides a declarative API, shorthand props and many helpers that simplifies development.
 
-Volto uses the components from `Semantic UI React <https://react.semantic-ui.com/>`_ to compose a large part of the views. For example the component `Image <https://react.semantic-ui.com/elements/image/>`_ is used to render images.
+Its React complement `Semantic UI React` provides React components while Semantic UI provides themes as CSS stylesheets with less variables and rules. 
+
+Volto is per default, not mandatory, build on both: the Semantic UI theming and the Semantic UI React Components. 
+
+
+
+Volto applies components from `Semantic UI React <https://react.semantic-ui.com/>`_ to compose a large part of the views. For example the component `Image <https://react.semantic-ui.com/elements/image/>`_ is used to render images.
 
 .. code-block:: jsx
     :linenos:
     :emphasize-lines: 14-18
 
     /**
-     * EventView view component class.
-     * @function EventView
-     * @params {object} content Content object.
-     * @returns {string} Markup of the component.
-     */
-    const EventView = ({ content }) => (
+    * EventView view component class.
+    * @function EventView
+    * @params {object} content Content object.
+    * @returns {string} Markup of the component.
+    */
+    const EventView = ({ intl, content }) => (
       <Container className="view-wrapper event-view">
         {content.title && <h1 className="documentFirstHeading">{content.title}</h1>}
         {content.description && (
@@ -40,95 +46,9 @@ Volto uses the components from `Semantic UI React <https://react.semantic-ui.com
           />
         )}
         <Segment floated="right">
-          {/* TODO I18N INTL */}
-          {content.subjects.length > 0 && (
-            <>
-              <Header dividing sub>
-                What
-              </Header>
-              <List items={content.subjects} />
-            </>
-          )}
-          <Header dividing sub>
-            When
-          </Header>
-          <When
-            start={content.start}
-            end={content.end}
-            whole_day={content.whole_day}
-            open_end={content.open_end}
-          />
-          {content.recurrence && (
-            <>
-              <Header dividing sub>
-                All dates
-              </Header>
-              <Recurrence recurrence={content.recurrence} start={content.start} />
-            </>
-          )}
-          {content.location && (
-            <>
-              <Header dividing sub>
-                Where
-              </Header>
-              <p>{content.location}</p>
-            </>
-          )}
-          {content.contact_name && (
-            <>
-              <Header dividing sub>
-                Contact Name
-              </Header>
-              <p>
-                {content.contact_email ? (
-                  <a href={`mailto:${content.contact_email}`}>
-                    {content.contact_name}
-                  </a>
-                ) : (
-                  content.contact_name
-                )}
-              </p>
-            </>
-          )}
-          {content.contact_phone && (
-            <>
-              <Header dividing sub>
-                Contact Phone
-              </Header>
-              <p>{content.contact_phone}</p>
-            </>
-          )}
-          {content.attendees.length > 0 && (
-            <>
-              <Header dividing sub>
-                Attendees
-              </Header>
-              <List items={content.attendees} />
-            </>
-          )}
-          {content.event_url && (
-            <>
-              <Header dividing sub>
-                Web
-              </Header>
-              <p>
-                <a href={content.event_url}>Visit external website</a>
-              </p>
-            </>
-          )}
-        </Segment>
-        {content.text && (
-          <div
-            dangerouslySetInnerHTML={{
-              __html: flattenHTMLToAppURL(content.text.data),
-            }}
-          />
-        )}
-      </Container>
-    );
+          …
 
-
-The above Semantic Image component is rendered as
+The above Semantic `Image` component is rendered as
 
 .. code-block:: html
     :linenos:
