@@ -31,7 +31,7 @@ Rich Text Editor Settings
         git checkout TODO tag to checkout
 
 
-The rich text editor lets editors make text bold and italic and more. This chapter is about adding an additional button to make text lighter.
+The rich text editor lets editors make text bold and italic and more. This chapter is about adding an additional button to the editor toolbar to make text lighter.
 
 To be solved task in this part:
 
@@ -84,11 +84,11 @@ You see that two attributes of the overall `settings`, `richTextEditorInlineTool
     import Icon from '@plone/volto/components/theme/Icon/Icon';
     import radiodisabledSVG from '@plone/volto/icons/radio-disabled.svg';
 
+    // Button
     const DiscreetButton = createInlineStyleButton({
       style: 'DISCREET',
       children: <Icon name={radiodisabledSVG} size="24px" />,
     });
-
     let newbuttonset = defaultSettings.richTextEditorInlineToolbarButtons;
     newbuttonset.splice(2, 0, DiscreetButton);
 
@@ -114,10 +114,13 @@ You see that two attributes of the overall `settings`, `richTextEditorInlineTool
       import Icon from '@plone/volto/components/theme/Icon/Icon';
       import radiodisabledSVG from '@plone/volto/icons/radio-disabled.svg';
 
+      // Button
       const DiscreetButton = createInlineStyleButton({
         style: 'DISCREET',
         children: <Icon name={radiodisabledSVG} size="24px" />,
       });
+      let newbuttonset = defaultSettings.richTextEditorInlineToolbarButtons;
+      newbuttonset.splice(2, 0, DiscreetButton);
 
       // Renderer
       const customInline = {
@@ -127,9 +130,6 @@ You see that two attributes of the overall `settings`, `richTextEditorInlineTool
           </span>
         ),
       };
-
-      let newbuttonset = defaultSettings.richTextEditorInlineToolbarButtons;
-      newbuttonset.splice(2, 0, DiscreetButton);
 
       export const settings = {
         ...defaultSettings,
