@@ -48,6 +48,9 @@ Volto Add-ons
 | One typical add-on is about adding a new block to present content in columns:
 | https://github.com/eea/volto-columns-block
 
+.. figure:: _static/volto-columns-block.png
+    :alt: The eea volto-columns-block package gives you a block with columns. Each column is its own separate blocks container.
+
 Here is how you would install a Volto add-on:
 
 Update `package.json`:
