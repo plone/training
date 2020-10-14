@@ -221,7 +221,7 @@ To build the documentation follow these steps:
     git clone https://github.com/plone/training.git
     cd training
     python -m venv .
-    $ source bin/activate
+    source bin/activate
 
 Now install dependencies and build.
 
