@@ -20,7 +20,7 @@ The need of Plone add-ons depends if you use Plone with or without Volto fronten
 
 Plone add-ons
 
-* extend content types
+* add content types
 * add features
 * 
 
@@ -44,6 +44,9 @@ Volto Add-ons
 
 | A selection of add-ons can be found on: 
 | https://github.com/collective/awesome-volto#addons    
+
+| One typical add-on is about adding a new block to present content in columns:
+| https://github.com/eea/volto-columns-block
 
 Here is how you would install a Volto add-on:
 
@@ -75,13 +78,11 @@ Install new add-ons and restart Volto:
 Complementing Volto with Plone add-ons
 --------------------------------------
 
-With some additional features of Volto add-ons in place, where do we need to work on the Plone side?
+With some additional features of Volto add-ons in place, where do we need to work on the Plone side? With the split of Plone in backend and frontend, Plone is still the place to shape your data model. For our training story 'Platform for a Plone Conference' we need to model the content types talk and speaker. 
 
-.. todo::
+So in the next chapters we will create a **new add-on** that adds the content types talk and speaker. We will also **use an existing add-on** that provides us with the logic to handle votes on talks.
 
-    * Link to training story Plone Conference! 
-    * What to install, what to develop?
-    * if using an add-on: see _add-ons-installing-label for installation
+
 
 
 
@@ -300,16 +301,7 @@ Building a multi-lingual site requires activating :py:mod:`plone.app.multilingua
 
 .. _add-ons-summary-label:
 
-Summary
--------
+Summary classic Plone
+---------------------
 
 You are now able to customize and extend many parts of our website. You can even install extensions that add new functionality.
-
-But:
-
-* Can we submit talks now?
-* Can we create lists with the most important properties of each talk?
-
-We often have to work with structured data.
-Up to a degree we can do all this TTW, but at some point we run into barriers.
-In the next part of the training, we'll teach you how to break through these barriers.
