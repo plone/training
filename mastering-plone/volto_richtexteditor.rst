@@ -31,7 +31,7 @@ Rich Text Editor Settings
         git checkout TODO tag to checkout
 
 
-The rich text editor lets editors make text bold and italic and more. This chapter is about adding an additional button to the editor toolbar to make text lighter.
+The rich text editor lets editors make text bold, italic and more. This chapter is about adding an additional button to the editor toolbar to make text lighter.
 
 To be solved task in this part:
 

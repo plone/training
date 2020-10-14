@@ -816,7 +816,7 @@ We also benefit from Semantic UI component *List* to build our list of sponsors.
 
 
 
-See the new footer. A restart is not necessary as we didn't added a new file. The browser updates automagically by configuration.
+See the new footer. A restart is not necessary as we didn't add a new file. The browser updates automagically by configuration.
 
 .. figure:: _static/volto_component_sponsors.png
    :alt: Sponsors component
