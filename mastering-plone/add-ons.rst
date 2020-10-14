@@ -1,57 +1,94 @@
 .. _add-ons-label:
 
-Extend Plone With Add-On Packages
+Extend Plone With Add-on Packages
 =================================
 
+.. sidebar:: Classic and Volto chapter
+
+  .. contents:: Table of Contents
+    :depth: 2
+    :local:
+
 * There are more than 2,000 add-ons for Plone. We will cover only a handful today.
-* Using them saves a lot of time
-* The success of a project often depends on finding the right add-on
-* Their use, usefulness, quality and complexity varies a lot
-* Most addons target Plone 5 and support Python 3 - but there are exceptions
+* Using them saves a lot of development time.
+* The success of a project often depends on finding the right add-on.
+* Their use, usefulness, quality and complexity varies a lot.
 
+With Plone 6 there are two groups of add-ons to take in to account: Add-ons for Plone and such for the frontend Volto.
 
-Volto Addons
-------------
+The need of Plone add-ons depends if you use Plone with or without Volto frontend. As by now, development took place in Plone. Now development will be done in Plone exclusively like before or both in Plone and in ReactJS.
+
+Plone add-ons
+
+* extend content types
+* add features
+* 
 
 .. todo::
 
-    So far there are no production-ready Volto addons available! Once there are addons that provide valuable functionality this chapter will be updated with examples.
+    list features of classic Plone add-ons
 
-Here is how you would install a Volto addon:
+Having a Volto frontend in place, you will have Plone add-ons with some of the characteristics like above but also Volto add-ons that care about presentation of the content and editor experience.
 
-In the directory ``volto`` install ``mrs-developer`` to be able to pull in volto addons following the steps in https://docs.voltocms.com/customizing/add-ons/
+.. todo::
+
+    distinction: Plone add-on vs Volto add-on: I have this feature to implement, where do I start?
+
+We begin with the scenario where we use both Plone as backend and Volto as frontend. Later on in this chapter you will find instructions on how to use a classic Plone setup without Volto with the huge repertoire of classic Plone add-ons. This might still be an option as the number of Volto add-ons is just on the way to catch up on all the features and posibilites of Plone add-ons.
+
+
+.. _add-ons-volto-overview-label:
+
+Volto Add-ons
+-------------
+
+| A selection of add-ons can be found on: 
+| https://github.com/collective/awesome-volto#addons    
+
+Here is how you would install a Volto add-on:
+
+Update `package.json`:
 
 ..  code-block:: bash
 
-    $ yarn add mrs-developer
+    "addons": [
+      "@eeacms/volto-blocks-form",
+      "@eeacms/volto-columns-block"
+    ],
 
-Add the following to your ``package.json``:
+    "dependencies": {
+      "@plone/volto": "8.3.0",
+      "@eeacms/volto-blocks-form": "github:eea/volto-blocks-form#0.5.0",
+      "@eeacms/volto-columns-block": "github:eea/volto-columns-block#0.3.2"
+    },
 
-..  code-block:: json
+Install new add-ons and restart Volto:
 
-    "scripts": {
-      "develop": "missdev --config=jsconfig.json --output=addons",
-      ...
-    }
+..  code-block:: bash
 
-Create a file ``mrs.developer.json``:
+    $ yarn
+    $ yarn start
 
-..  code-block:: json
 
-    {
-      "volto.mosaic": {
-        "package": "volto-mosaic",
-        "url": "https://github.com/eea/volto-mosaic.git",
-        "path": "src"
-      }
-    }
+.. _add-ons-volto-backedupbyplone-label
+
+Complementing Volto with Plone add-ons
+--------------------------------------
+
+With some additional features of Volto add-ons in place, where do we need to work on the Plone side?
+
+.. todo::
+
+    * Link to training story Plone Conference! 
+    * What to install, what to develop?
+    * if using an add-on: see _add-ons-installing-label for installation
 
 
 
 .. _add-ons-notable-label:
 
-Some notable add-ons
----------------------
+Some notable Plone add-ons for a classic Plone setup without Volto frontend
+---------------------------------------------------------------------------
 
 `collective.easyform <https://pypi.org/project/collective.easyform>`_
   A form generator and the successor to `Products.PloneFormGen <https://docs.plone.org/develop/plone/forms/ploneformgen.html>`_
@@ -102,10 +139,10 @@ Some notable add-ons
 How to find add-ons
 -------------------
 
-It can be very hard to find the right addon for your requirements. Here are some tips:
+It can be very hard to find the right add-on for your requirements. Here are some tips:
 
 * Make a list of required features. You'll almost never ﬁnd an add-on that exactly ﬁts your needs.
-* Either adapt your requirements to what is available, invest the time & money to modify an existing addons to ﬁt your needs or create a new addon that does exactly what you need.
+* Either adapt your requirements to what is available, invest the time & money to modify an existing add-ons to ﬁt your needs or create a new add-on that does exactly what you need.
 * Then search using the follwing links below.
 
   * https://plone.org/download/add-ons
@@ -115,27 +152,27 @@ It can be very hard to find the right addon for your requirements. Here are some
   * google (e.g. `Plone+Slider <http://google.com/?q=plone+slider>`_)
   * https://www.npmjs.com/search?q=plone
 
-* Once you have a shortlist test these addons. Here are the main issues you need to test before you install an addon on a production site:
+* Once you have a shortlist test these add-ons. Here are the main issues you need to test before you install an add-on on a production site:
 
   * Test all required features. Read but do not trust the documentation
-  * Check if the addon runs on your required version and is currently maintained
+  * Check if the add-on runs on your required version and is currently maintained
   * Does it have i18n-support, i.e. is the user-interface translated to your language?
   * Does it uninstall cleanly?
     A tough one.
     See https://lucafbb.blogspot.com/2013/05/how-to-make-your-plone-add-on-products.html for the reason why.
   * Check for unwanted dependencies
 
-Once you found an addon you like you should ask the community if you made a good choice or if you missed something:
+Once you found an add-on you like you should ask the community if you made a good choice or if you missed something:
 
 * Message Board: https://community.plone.org
 * Chat: https://plone.org/support/chat
 
-There is also a talk that discusses in depth how to find the right addon: https://www.youtube.com/watch?v=Sc6NkqaSjqw
+There is also a talk that discusses in depth how to find the right add-on: https://www.youtube.com/watch?v=Sc6NkqaSjqw
 
 .. _add-ons-installing-label:
 
-Installing Add-ons
-------------------
+Installing Plone Add-ons
+------------------------
 
 Installation is a two-step process.
 
@@ -256,7 +293,7 @@ Plone can run the same site in many different languages.
 
 We're not doing this with the conference site since the *lingua franca* of the Plone community is English.
 
-We would use the built-in addon `plone.app.multilingual <https://pypi.org/project/plone.app.multilingual>`_ for this.
+We would use the built-in add-on `plone.app.multilingual <https://pypi.org/project/plone.app.multilingual>`_ for this.
 
 Building a multi-lingual site requires activating :py:mod:`plone.app.multilingual`, but no add-on is necessary to build a site in only one language. Just select a different site language when creating a Plone site, and all text in the user-interface will be switched to that language.
 
