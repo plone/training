@@ -4,6 +4,14 @@
 The Sponsors Component
 ======================
 
+
+.. todo::
+    Rewrite this chapter: Code is refactored: hook instead of component, action replaced, action with key / as subrequest
+
+
+
+
+
 .. sidebar:: Volto chapter
 
   .. figure:: _static/Volto.svg
@@ -50,7 +58,6 @@ Topics covered:
 * Create React component
 * Use React action of Volto to fetch data from Plone via REST API
 * Style component with Semantic UI
-
 
 .. figure:: _static/volto_component_sponsors.png
    :alt: Sponsors component
