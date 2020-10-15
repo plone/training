@@ -13,7 +13,7 @@ Rich Text Editor Settings
 
   .. topic:: Description
 
-      Add a button / feature to the rich editor.
+      Add a button / feature to the rich text editor.
 
   .. contents:: Table of Contents
     :depth: 2
