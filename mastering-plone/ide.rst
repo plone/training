@@ -18,10 +18,10 @@ People pick editors themselves. Use whatever you are comfortable and productive 
 * `Sublime <https://www.sublimetext.com/>`_
 * `Visual Studio Code <https://code.visualstudio.com/>`_
 * `PyCharm <http://www.jetbrains.com/pycharm/>`_
+* `Atom <https://atom.io/>`_
 * `Wing IDE <http://wingide.com/>`_
 * `Vim <https://www.vim.org/>`_
 * `Emacs <https://www.gnu.org/software/emacs/>`_
-* `PyDev <https://www.pydev.org/>`_ for `Eclipse <https://www.eclipse.org/>`_
 
 Some features that most editors have in one form or another are essential when developing with Plone.
 

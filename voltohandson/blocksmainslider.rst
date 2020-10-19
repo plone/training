@@ -120,7 +120,7 @@ Copy ``slider-image.png`` from the ``training-resources`` folder to ``src/compon
 Styling
 =======
 
-The block use this styling:
+To style the block uses this styling:
 
 .. code-block:: less
 

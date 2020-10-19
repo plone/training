@@ -100,10 +100,12 @@ We need to change our ``index.js`` page like this:
 
 .. literalinclude:: _snippets/index_graphql.js
     :language: jsx
-    :emphasize-lines: 3,10,17-25
+    :emphasize-lines: 3,7,10,17-25
 
 First of all, we imported a new module ``graphql``.
-This is used on the bottom of the file to generate the query.
+This is used on the bottom of the file to generate the query. Note the use of backticks around the query definition.
+
+Then we declare in `IndexPage` that we are using `data`, the results of the ``graphql`` query.
 
 When we add a GraphQL query in our page component, the result is passed to the component as a property called ``data``.
 In that property, we have the result of the query (with the same data structure).

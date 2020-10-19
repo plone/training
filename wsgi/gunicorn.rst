@@ -1,15 +1,19 @@
 Gunicorn
 ========
 
-Gunicorn is another widely used WSGI server.
+`Gunicorn <https://gunicorn.org/>`_ is another widely used WSGI server.
 
 Possible Worker models
 ----------------------
 
-* synchronous threading
-* asynchronous worker models
+Gunicorn offers a wide range of possible worker models.
+The default is the ``sync`` worker model which uses "traditional" multi-threading based on the standard library.
+Unlike waitress Gunicorn doesn't use an ``asyncore`` dispatcher to clear the request queue.
+Each worker is using `select <https://github.com/benoitc/gunicorn/blob/e147feaf8b12267ff9bb3c06ad45a2738a4027df/gunicorn/workers/sync.py#L34>`_ by itself to check for incoming client requests.
+The official `Gunicorn documentation <http://docs.gunicorn.org/en/latest/design.html#choosing-a-worker-type>`_ recommends to put a buffering proxy in front of a default configuration Gunicorn.
 
-XXX tbd
+Other possible worker types are asynchronous workers based on `greenlets <https://greenlet.readthedocs.io/en/latest/>`_, `AsyncIO <https://docs.python.org/3/library/asyncio.html#module-asyncio>`_ workers and a `Tornado <https://www.tornadoweb.org/en/stable/>`_ worker class.
+The different worker types and how to choose one suitable for your application is covered in detail in the `Gunicorn docs <http://docs.gunicorn.org/en/latest/design.html>`_.
 
 Use gunicorn in our buildout
 ----------------------------
@@ -22,8 +26,8 @@ Use gunicorn in our buildout
 
         buildout -c gunicorn.cfg
 
-The `gunicorn WSGI server <https://gunicorn.org/>`_ has a built-in PasteDeploy entry point, so we don't need a shim package like the one we used for ``bjoern``.
-On the downside, there is no easy way of passing ``plone.recipe.zope2instance``s ``http-address`` parameter to gunicorn since the ``bind`` directive doesn't seem to work in the ``ini`` file.
+Gunicorn has a built-in PasteDeploy entry point, so we don't need a shim package like the one we used for ``bjoern``.
+On the downside, there is no easy way of passing ``plone.recipe.zope2instances http-address`` parameter to gunicorn since the ``bind`` directive doesn't seem to work in the ``ini`` file.
 The PasteDeploy entry point is covered in the `gunicorn documentation <http://docs.gunicorn.org/en/stable/configure.html>`_.
 
 We resolve to hard code the socket in the ``ini`` template.
@@ -55,7 +59,6 @@ We use this template in our buildout and add ``gunicorn`` to our list of eggs:
     blob-storage = ${buildout:directory}/var/blobstorage
     eggs =
         Plone
-        Pillow
         wsgitraining.site
         gunicorn
     wsgi-ini-template = ${buildout:directory}/templates/gunicorn.ini.in
@@ -93,7 +96,6 @@ We do not use an ``ini`` template in this case but rather use inline templates t
     blob-storage = ${buildout:directory}/var/blobstorage
     eggs =
         Plone
-        Pillow
         wsgitraining.site
 
     [gunicornapp]
@@ -136,3 +138,41 @@ As a side effect we get rid of the deprecation warning for not starting gunicorn
 .. note::
 
     The Zope documentations reports several performance issues with gunicorn, s. https://zope.readthedocs.io/en/latest/wsgi.html#test-criteria-for-recommendations for details.
+
+Exercise 1
+++++++++++
+
+Modify ``gunicorn-alt.cfg`` so it uses the ``eventlet`` worker class. Check the number of database connections in the ZMI. What do you notice?
+
+..  admonition:: Solution
+    :class: toggle
+
+    You need to add ``eventlet`` to the list of eggs of the ``[gunicorn]`` part and modify the command line for ``[gunicorn-instance]``
+
+    .. code-block:: ini
+        :emphasize-lines: 6,15
+
+        ...
+        [gunicorn]
+        recipe = zc.recipe.egg
+        eggs =
+            gunicorn
+            eventlet
+            ${instance:eggs}
+        scripts =
+            gunicorn
+
+        [gunicorn-instance]
+        recipe = collective.recipe.template
+        input = inline:
+            #!/bin/sh
+            ${buildout:directory}/bin/gunicorn -b localhost:8080 --workers 4 gunicornapp:application --worker-class eventlet
+        output = ${buildout:bin-directory}/gunicorn-instance
+        mode = 755
+        ...
+
+    After running ``buildout -c gunicorn-alt.cfg``, you can start the instance with ``gunicorn-instance``.
+
+    Open the `database controlpanel <http://localhost:8080/Control_Panel/Database/main/manage_main>`_ in a browser to check the number of database connection. You will see only one connection despite the 4 workers.
+    ZODB connections are `not thread safe <http://www.zodb.org/en/latest/guide/transactions-and-threading.html#concurrency-threads-and-processes>`_ so this is not a recommended configuration.
+    The `asyncio <https://docs.python.org/3/library/asyncio.html#module-asyncio>`_ based ``gthread`` worker class (doesn't need additional packages) will show one database connection per worker.

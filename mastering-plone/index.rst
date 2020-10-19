@@ -53,6 +53,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     resources
     thirdparty_behaviors
     dexterity_3
+    dexterity_reference
     relations
     registry
     frontpage

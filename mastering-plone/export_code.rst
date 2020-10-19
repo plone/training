@@ -4,14 +4,15 @@ Return to Dexterity: Moving contenttypes into Code
 ===================================================
 
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout eggs1
+
+   Code for the end of this chapter::
 
         git checkout export_code
-
 
 In this part you will:
 
@@ -225,7 +226,7 @@ Now remove the ugly model_source and instead point to the new XML file in the FT
     <property name="model_source"></property>
     <property name="model_file">ploneconf.site.content:talk.xml</property>
 
-``ploneconf.site.content:talk.xml`` points to a file :file:`talk.xml` to be found in the Python path ``ploneconf.site.content``. The :file:`__ìnit__.py` is needed to turn the folder :file:`content` into a Python package. It is best-practice to add schemas in this folder, and in later chapters you will add new types with pythons-schemata in the same folder.
+``ploneconf.site.content:talk.xml`` points to a file :file:`talk.xml` to be found in the Python path ``ploneconf.site.content``. The :file:`__init__.py` is needed to turn the folder :file:`content` into a Python package. It is best-practice to add schemas in this folder, and in later chapters you will add new types with pythons-schemata in the same folder.
 
 ..  note::
 

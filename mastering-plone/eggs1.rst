@@ -3,11 +3,13 @@
 Write Your Own Add-Ons to Customize Plone
 =========================================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout XXX
+
+   Code for the end of this chapter::
 
         git checkout eggs1
 
@@ -50,7 +52,7 @@ Enter the :file:`src` directory (*src* is short for *sources*) and call a script
 
         $ ../bin/mrbob -O ploneconf.site bobtemplates:plone_addon
 
-You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. choosing the default value) for all questions except 3 (where you enter your GitHub username if you have one) and 4 (where you enter yes no)::
+You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. choosing the default value) for most questions except where indicated (enter your GitHub username if you have one, do not initialize a GIT repository, Use Plone 5.2 and python 3.7)::
 
     --> Author's name [Philip Bauer]:
 
@@ -60,10 +62,13 @@ You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. cho
 
     --> Package description [An add-on for Plone]:
 
-    --> Do you want me to initialize a GIT repository in your new package? (y/n) [y]:
+    --> Do you want me to initialize a GIT repository in your new package? (y/n) [y]: n
 
-    --> Plone version [5.1]:
+    --> Plone version [5.1]: 5.2
 
+    --> Python version for virtualenv [python2.7]: python3.7
+
+    git init is disabled!
     Generated file structure at /Users/pbauer/workspace/training_buildout/src/ploneconf.site
 
 .. only:: not presentation
@@ -108,7 +113,7 @@ In :file:`src` there is now a new folder :file:`ploneconf.site` and in there is 
 
 
 :file:`configure.zcml` (:file:`src/ploneconf/site/configure.zcml`)
-    The phone book of the distribution. By reading it you can find out which functionality is registered using the component architecture. There are more registrations in other zcml-files in this addons (e.g. :file:`browser/configure.zcml`, :file:`upgrades.zcml` and :file:`permissions.zcml`) that are included in your main :file:`browser/configure.zcml`
+    The phone book of the distribution. By reading it you can find out which functionality is registered using the component architecture. There are more registrations in other zcml-files in this addons (e.g. :file:`browser/configure.zcml`, :file:`upgrades.zcml` and :file:`permissions.zcml`) that are included in your main :file:`configure.zcml`
 
 :file:`setuphandlers.py` (:file:`src/ploneconf/site/setuphandlers.py`)
     This holds code that is automatically run when installing and uninstalling our add-on.
@@ -154,7 +159,7 @@ Including the package in Plone
 
 Before we can use our new package we have to tell Plone about it. Look at :file:`buildout.cfg` and see how ``ploneconf.site`` is included in `auto-checkout`, `eggs` and `test`:
 
-.. code-block::cfg
+.. code-block:: cfg
     :emphasize-lines: 2, 30, 38
 
     auto-checkout +=
@@ -198,7 +203,7 @@ Before we can use our new package we have to tell Plone about it. Look at :file:
 
 This tells Buildout to add the egg :py:mod:`ploneconf.site`. The sources for this eggs are defined in the section ``[sources]`` at the bottom of :file:`buildout.cfg`.
 
-..  code-block::cfg
+.. code-block:: cfg
     :emphasize-lines: 2
 
     [sources]
@@ -215,7 +220,7 @@ This tells buildout to not download it from pypi but to do a checkout from GitHu
 
     If you do **not** want to use the prepared package for ploneconf.site from GitHub but write it yourself (we suggest you try that) then add the following instead:
 
-    ..  code-block::cfg
+    ..  code-block:: cfg
         :emphasize-lines: 2
 
         [sources]

@@ -18,7 +18,7 @@ Creating a view for a custom content type
 
 Create a new file in ``src/components/Views/SuccessStory.jsx``. Let's start simple:
 
-.. code-block:: jsx
+.. code-block:: jsx    
 
     import React from 'react';
 
@@ -31,14 +31,17 @@ Create a new file in ``src/components/Views/SuccessStory.jsx``. Let's start simp
 Then add to the configuration object:
 
 .. code-block:: js
-   :emphasize-lines: 3-6
-
+   
+    import SuccessStory from "@package/components/Views/SuccessStory";
+    
+    ...
+    
     export const views = {
       ...defaultViews,
       contentTypesViews: {
         ...defaultViews.contentTypesViews,
-        success_story: SuccessStory,
-      },
+        success_story: SuccessStory
+      }
     };
 
 Create a new ``Success Story`` content type, fill the title and save. Your custom view should be in place.

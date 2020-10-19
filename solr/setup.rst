@@ -16,9 +16,13 @@ Bootstrap project:
    mkdir plone-training-solr
    cd plone-training-solr
    curl -O https://bootstrap.pypa.io/bootstrap-buildout.py
-   curl -O https://raw.githubusercontent.com/collective/collective.solr/master/solr.cfg
    curl -o plone5.cfg https://raw.githubusercontent.com/collective/minimalplone5/master/buildout.cfg
-   curl -o solr4.cfg https://raw.githubusercontent.com/collective/collective.solr/master/solr-4.10.x.cfg
+   mkdir -p config/conf
+   cd config
+   curl -O https://raw.githubusercontent.com/kitconcept/kitconcept.recipe.solr/master/config/core.properties
+   cd conf
+   curl -O 'https://raw.githubusercontent.com/kitconcept/kitconcept.recipe.solr/master/config/conf/{mapping-FoldToASCII.txt,schema.xml,solrconfig.xml,stopwords.txt,synonyms.txt}'
+   cd ../..
 
 Create a buildout (*buildout.cfg*) which installs both requirements
 
@@ -27,23 +31,28 @@ Create a buildout (*buildout.cfg*) which installs both requirements
     [buildout]
     extends =
         plone5.cfg
-        solr.cfg
-        solr4.cfg
+    parts +=
+        solr
 
     [instance]
     eggs +=
         collective.solr
 
+    [solr]
+    recipe = kitconcept.recipe.solr
+    src = http://archive.apache.org/dist/lucene/solr/8.2.0/solr-8.2.0.tgz
+    solr-config = config
+
     [versions]
-    collective.solr = 6.0a1
-    collective.recipe.solrinstance = 6.0.0b3
+    collective.solr = 8.0.0a5
+    kitconcept.recipe.solr = 1.0.0a5
 
 
 Run buildout:
 
 .. code-block:: console
 
-   python2.7 bootstrap-buildout.py
+   python bootstrap-buildout.py
    bin/buildout
 
 Start Plone in foreground mode to see that everything is working:
@@ -56,7 +65,7 @@ Start Solr in another terminal in foreground mode:
 
 .. code-block:: console
 
-   bin/solr-instance fg
+   bin/solr-foreground
 
 Solr Buildout
 =============
@@ -64,185 +73,96 @@ Solr Buildout
 We assume you are more or less familiar with the Plone buildout,
 but let's analyze the solr buildout configuration a bit.
 
-First we have two buildout parts in *solr.cfg*:
+First we have an extra buildout part in *buildout.cfg*:
 
 .. code-block:: ini
 
     [buildout]
     parts +=
-        solr-download
-        solr-instance
+        solr
 
-As the name suggests *solr-download* gets the full Solr package from the official download server and unpacks it.
-The part *solr-instance* is for configuring Solr. Let's continue with the details.
+    [...]
 
-The base Solr settings specify the host (usually localhost or 127.0.0.1),
-the port (8983 is the standard port of Solr)
-and two Java parameters for specifying lower and upper memory limit.
+    [solr]
+    recipe = kitconcept.recipe.solr
+    src = http://archive.apache.org/dist/lucene/solr/8.2.0/solr-8.2.0.tgz
+    solr-config = config
 
-More is usually better.
 
-.. code-block:: ini
+The recipe kitconcept.recipe.solr takes care of downloading solr and putting the configuration files in the right place.
+The *src* option specifies the URL to download solr from. With *solr-config* you specify a local directory that holds the configuration for the solr server.
 
-    [settings]
-    solr-host = 127.0.0.1
-    solr-port = 8983
-    solr-min-ram = 128M
-    solr-max-ram = 256M
-
-If you want a rough idea on how much memory you should use,
-follow the guidelines found in this article:
-
-.. seealso:: https://lucidworks.com/2011/09/14/estimating-memory-and-storage-for-lucenesolr/
-
-There is nothing fancy in the Solr download part.
-
-It takes an URL to the Solr binary and an md5 sum for verification.
+In a production environment you might set up solr with a provisioning tool like ansible or chef instead. For buildout there is also `collective.recipe.solrinstance <https://pypi.org/project/collective.recipe.solrinstance/>`_ but it doesn't support current solr versions.
 
 .. note::
 
-   At time of writing the latest working version of Solr was 4.10.x
-
-It looks like this in *solr.cfg* and *solr4.cfg*:
-
-.. code-block:: ini
-
-    [solr-download]
-    recipe = hexagonit.recipe.download
-    strip-top-level-dir = true
-
-    [solr-download]
-    url = https://archive.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.tgz
-    md5sum = 8ae107a760b3fc1ec7358a303886ca06
-
-The Solr instance part is more complicated.
-It provides a subset of many,
-many configuration options of Solr and the possibility to define the schema of the index::
-
-    [solr-instance]
-    recipe = collective.recipe.solrinstance
-    solr-location = ${solr-download:location}
-    host = ${settings:solr-host}
-    port = ${settings:solr-port}
-    basepath = /solr
-    max-num-results = 500
-    section-name = SOLR
-    unique-key = UID
-    logdir = ${buildout:directory}/var/solr
-    default-search-field = default
-    default-operator = and
-    java_opts =
-      -Dcom.sun.management.jmxremote
-      -Djava.rmi.server.hostname=127.0.0.1
-      -Dcom.sun.management.jmxremote.port=8984
-      -Dcom.sun.management.jmxremote.ssl=false
-      -Dcom.sun.management.jmxremote.authenticate=false
-      -server
-      -Xms${settings:solr-min-ram}
-      -Xmx${settings:solr-max-ram}
-
-Let's analyze them one by one:
-
-.. code-block:: ini
-
-   solr-location = ${solr-download:location}
-
-Specify the location of Solr, dowloaded with the previous part.
-
-.. code-block:: ini
-
-   host = ${settings:solr-host}
-   port = ${settings:solr-port}
-   basepath = /solr
-
-Base configuration for running Solr referencing previously defined settings.
-With this configuration it is possible to access Solr in a browser with the following URL:
-http://localhost:8983/solr
-
-The section-name defines the name which can be used to reflect custom address and/or basepath settings in zope.conf.
-
-.. code-block:: ini
-
-   section-name = SOLR
-
-It follows the following pattern in *zope.conf*:
-if you use standard settings no changes in *zope.conf* are necessary.
-
-.. code-block:: ini
-
-    <product-config ${part:section-name}>
-        address ${part:host}:${part:port}
-        basepath ${part:basepath}
-    </product-config>
-
-.. note::
-
-   Another easy way to use different hosts on development, staging
-   and production machines is to define a host alias in /etc/hosts.
+   At time of writing the latest working version of Solr was 8.4.x
 
 Like the Zope ZCatalog the Solr index has a schema consisting of index and metadata fields.
 You can think of index fields as something you can use for querying / searching and metadata something you return as result list.
 
-Solr defines its schema in a big XML file called ``schema.xml``.
+Solr defines its schema in a big XML file called ``schema.xml``. The main part is the *<fields>* element, which lists the fields that are indexed.
 
-There is a section in the ``collective.recipe.solrinstance`` buildout recipe which gives
-you access to the most common configuration options in a buildout way
+.. code-block:: xml
 
-.. code-block:: ini
+  <fields>
+    <field name="id"                    type="string"   indexed="true"  stored="true" required="false" />
+    <field name="_version_"             type="long"     indexed="true"  stored="true"/>
 
-    index =
-        name:allowedRolesAndUsers   type:string stored:false multivalued:true
-        name:created                type:date stored:true
-        name:Creator                type:string stored:true
-        name:Date                   type:date stored:true
-        name:default                type:text indexed:true stored:false multivalued:true
-        name:Description            type:text copyfield:default stored:true
-        name:description            type:text copyfield:default stored:true
-        name:effective              type:date stored:true
-        name:exclude_from_nav       type:boolean indexed:false stored:true
-        name:expires                type:date stored:true
-        name:getIcon                type:string indexed:false stored:true
-        name:getId                  type:string indexed:false stored:true
-        name:getRemoteUrl           type:string indexed:false stored:true
-        name:is_folderish           type:boolean stored:true
-        name:Language               type:string stored:true
-        name:modified               type:date stored:true
-        name:object_provides        type:string stored:false multivalued:true
-        name:path_depth             type:integer indexed:true stored:false
-        name:path_parents           type:string indexed:true stored:false multivalued:true
-        name:path_string            type:string indexed:false stored:true
-        name:portal_type            type:string stored:true
-        name:review_state           type:string stored:true
-        name:SearchableText         type:text copyfield:default stored:false
-        name:searchwords            type:string stored:false multivalued:true
-        name:showinsearch           type:boolean stored:false
-        name:Subject                type:string copyfield:default stored:true multivalued:true
-        name:Title                  type:text copyfield:default stored:true
-        name:Type                   type:string stored:true
-        name:UID                    type:string stored:true required:true
+    <!-- Plone Core Fields -->
+    <field name="allowedRolesAndUsers"  type="string"   indexed="true"  stored="true"  multiValued="true" />
+    <field name="created"               type="date"     indexed="true"  stored="true" />
+    <field name="Creator"               type="string"   indexed="true"  stored="true" />
+    <field name="Date"                  type="date"     indexed="true"  stored="true" />
+    <field name="default"               type="text"     indexed="true"  stored="false"  multiValued="true" />
+    <field name="Description"           type="text"     indexed="true"  stored="true" />
+    <field name="effective"             type="date"     indexed="true"  stored="true" />
+    <field name="exclude_from_nav"      type="boolean"  indexed="false" stored="true" />
+    <field name="expires"               type="date"     indexed="true"  stored="true" />
+    <field name="getIcon"               type="string"   indexed="false" stored="true" />
+    <field name="getId"                 type="string"   indexed="false" stored="true" />
+    <field name="getRemoteUrl"          type="string"   indexed="false" stored="true" />
+    <field name="is_folderish"          type="boolean"  indexed="true"  stored="true" />
+    <field name="Language"              type="string"   indexed="true"  stored="true" />
+    <field name="modified"              type="date"     indexed="true"  stored="true" />
+    <field name="object_provides"       type="string"   indexed="true"  stored="true"  multiValued="true" />
+    <field name="path_depth"            type="tint"     indexed="true"  stored="true" />
+    <field name="path_parents"          type="string"   indexed="true"  stored="true"  multiValued="true" />
+    <field name="path_string"           type="string"   indexed="false" stored="true" />
+    <field name="portal_type"           type="string"   indexed="true"  stored="true" />
+    <field name="review_state"          type="string"   indexed="true"  stored="true" />
+    <field name="SearchableText"        type="text"     indexed="true"  stored="true" />
+    <field name="searchwords"           type="string"   indexed="true"  stored="true"  multiValued="true" />
+    <field name="showinsearch"          type="boolean"  indexed="true"  stored="true" />
+    <field name="sortable_title"        type="string"     indexed="true"  stored="true" />
+    <field name="Subject"               type="string"   indexed="true"  stored="true"   multiValued="true" />
+    <field name="Title"                 type="text"     indexed="true"  stored="true" />
+    <field name="Type"                  type="string"   indexed="true"  stored="true" />
+    <field name="UID"                   type="string"   indexed="true"  stored="true"   required="false" />
+
+    <copyField source="Title" dest="default"/>
+    <copyField source="Description" dest="default"/>
+    <copyField source="Subject" dest="default"/>
+
+    <copyField source="default" dest="SearchableText"/>
+
+  </fields>
 
 - name: Name of the field
 - type: Type of the field (e.g. ``string`` , ``text``, ``date``, ``boolean``)
 - indexed: The field is searchable
 - stored: The field is returned as metadata
-- copyfield: copy content to another field, e.g. copy title, description, subject and SearchableText to default.
 
-For a complete list of schema configuration options refer to `Solr documentation <http://lucene.apache.org/solr/resources.html>`_.
+copyField: copy content to another field, e.g. copy title, description and subject to default.
 
 .. seealso:: https://wiki.apache.org/solr/SchemaXml#Common_field_options
 
-This is the bare minimum for configuring Solr. There are more options supported by the buildout
-recipe ``collective.recipe.solrinstance`` and even more by Solr itself.
-Most notably the custom extensions for *schema.xml* and *solrconfig.xml*.
+This is the bare minimum for configuring Solr. There are more options supported by Solr,
+most notably the custom extensions for *schema.xml* and *solrconfig.xml*.
 
 We will see examples for this later on in the training.
 
-Or you can even point to a custom location for the main configuration files.
-
-.. code-block:: ini
-
-   schema-destination = ${buildout:directory}/etc/schema.xml
-   config-destination = ${buildout:directory}/etc/solrconfig.xml
+To learn more about all the files in the config/ directory please refer to the apache solr documentation (`Solr Configuration Files <https://lucene.apache.org/solr/guide/8_2/solr-configuration-files.html>`_, `The Well-Configured Solr Instance <https://lucene.apache.org/solr/guide/8_2/the-well-configured-solr-instance.html>`_).
 
 After running the buildout,
 which downloads and configures Solr and Plone, we are ready to fire up both servers.
@@ -336,6 +256,8 @@ With Solr activated, searching in Plone works like the following:
  - The search contains the stanza *use_solr=True*.
    -> Solr results are returned independent of the required fields.
 
+After first activating collective.solr, the search will not find anything yet. Every object you subsequently add or modify will be indexed in solr, but at the moment the solr index is still empty. To populate it, go to the solr configuration and click "Solr Reindex", or call <PORTAL_URL>/@@solr-maintenance/reindex.
+
 Then you are ready for your first search.
 Search for *Plone*.
 
@@ -375,10 +297,19 @@ This method is usually way faster but comes with the downside of index delays.
 To use this behavior you have to do two things:
 
  - Turn **Automatic commit** OFF in the Solr controlpanel in Plone.
- - Set one or both of the following options in the Solr server configuration via the collective.recipe.solrinstance buildout recipe:
+ - Set one or both of the following *<autoCommit>* options in solrconfig.xml:
 
-   - ``autoCommitMaxDocs`` - The number of updates that have occurred since the last commit.
-   - ``autoCommitMaxTime`` - The number of milliseconds since the oldest uncommitted update.
+   - ``<maxDocs>`` - The number of updates that have occurred since the last commit.
+   - ``<maxTime>`` - The number of milliseconds since the oldest uncommitted update.
+
+It could look like this:
+
+.. code-block:: xml
+   
+    <autoCommit>
+      <maxTime>15000</maxTime>
+      <openSearcher>false</openSearcher>
+    </autoCommit>
 
 Asynchronous
 ------------
@@ -392,7 +323,7 @@ It is advisable to do a sync or full-index from time to time if you work with th
 
 Additional information can be found in the Solr documentation:
 
-.. seealso:: https://lucene.apache.org/solr/guide/6_6/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin
+.. seealso:: https://lucene.apache.org/solr/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin
 
 Exercise
 ========

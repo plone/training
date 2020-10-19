@@ -3,11 +3,13 @@
 User Generated Content
 ======================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout events
+
+   Code for the end of this chapter::
 
         git checkout user_generated_content
 

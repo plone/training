@@ -63,7 +63,7 @@ Then, we replace the ``Footer`` component content to match the one from plone.co
       </Container>
     </Segment>
 
-and apply some styling:
+and add this styling to the ``custom.overrides`` file:
 
 .. code-block:: less
 

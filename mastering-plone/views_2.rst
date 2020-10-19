@@ -3,11 +3,13 @@
 Views II: A Default View for "Talk"
 ===================================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout zpt_2
+
+   Code for the end of this chapter::
 
         git checkout views_2
 
@@ -107,15 +109,12 @@ The logic contained in the template can now be moved to the class:
                  'url': 'http://www.starzel.de/blog/magic-templates-in-plone-5'},
             ]
             for item in data:
-                try:
-                    url = item['url']
-                except KeyError:
-                    url = 'https://www.google.com/search?q=%s' % item['title']
-                talk = dict(
-                    title=item['title'],
-                    subjects=', '.join(item['subjects']),
-                    url=url
-                )
+                url = item.get('url', 'https://www.google.com/search?q={}'.format(item['title']))
+                talk = {
+                    'title': item['title'],
+                    'subjects': ', '.join(item['subjects']),
+                    'url': url
+                    }
                 results.append(talk)
             return sorted(results, key=itemgetter('title'))
 
@@ -372,7 +371,7 @@ to use the pattern :samp:`view/w/<fieldname>/render` to render the widgets:
 
             <div tal:content="structure view/w/details/render" />
 
-            <div tal:content="context/speaker">
+            <div tal:content="python: context.speaker">
                 User
             </div>
         </metal:content-core>
@@ -438,7 +437,7 @@ Since we will use the macro ``content-core`` the values for `title` and `descrip
         <metal:content-core fill-slot="content-core">
 
             <p>
-                <span tal:content="context/type_of_talk">
+                <span tal:content="python:context.type_of_talk">
                     Talk
                 </span>
                 suitable for
@@ -447,18 +446,22 @@ Since we will use the macro ``content-core`` the values for `title` and `descrip
                 </span>
             </p>
 
+            <p tal:content="structure view/w/room/render">
+                Room
+            </p>
+
             <div tal:content="structure view/w/details/render">
                 Details
             </div>
 
             <div class="newsImageContainer">
                 <img tal:condition="python:getattr(context, 'image', None)"
-                     tal:attributes="src string:${context/absolute_url}/@@images/image/thumb" />
+                     tal:attributes="src python:context.absolute_url() + '/@@images/image/thumb'" />
             </div>
 
             <div>
-                <a class="email-link" tal:attributes="href string:mailto:${context/email}">
-                    <strong tal:content="context/speaker">
+                <a class="email-link" tal:attributes="href python:'mailto:' + context.email">
+                    <strong tal:content="python: context.speaker">
                         Jane Doe
                     </strong>
                 </a>
@@ -466,12 +469,6 @@ Since we will use the macro ``content-core`` the values for `title` and `descrip
                     Biography
                 </div>
             </div>
-
-            <p>
-                <span tal:replace="structure view/w/room/render">
-                    Room
-                </span>
-            </p>
 
         </metal:content-core>
     </body>
@@ -530,6 +527,10 @@ Since we will use the macro ``content-core`` the values for `title` and `descrip
 
         </body>
         </html>
+
+    Since in ``DefaultView`` you have access to the widget you can also use other information, like `label` which is the title of the field: ``<label tal:content="view/w/room/label"></label>``.
+    One benefit of this approach is that you automatically get the translated title.
+    This is used in the default-view for dexterity content ``plone/dexterity/browser/item.pt``.
 
 
 Behind the scenes

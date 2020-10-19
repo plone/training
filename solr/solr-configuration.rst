@@ -5,44 +5,43 @@ Solr Buildout Configuration
 Solr Multi Core
 ===============
 
-solr.cfg
+Solr allows creating multiple cores which can be indexed and queried independently.
+However, collective.solr does not currently support multicore setups.
+It always uses the default core for indexing and searching.
+
+A core is defined by creating a file called core.properties. In our example setup there
+is exactly one of these files. It specifies the name of the core.
+
+core.properties
 
 .. code-block:: ini
 
-    [solr-instance]
-    recipe = collective.recipe.solrinstance:mc
-    cores =
-      collection1
-      collection2
-      collection3
-      testing
-    default-core-name = collection1
+    name=plone
 
-.. note:: collective.solr does not support multicore setups currently.
-   It always uses the default core for indexing and searching.
+It could also contain other property definitions. To define more cores we could add more
+files of the same name in other directories.
+
+.. seealso:: https://lucene.apache.org/solr/guide/8_2/defining-core-properties.html
+
 
 Stopwords
 =========
 
-For indexes with lot of text,
+For indexes with a lot of text,
 common uninteresting words like *"the"*, *"a"*, and so on, make the index large and slow down phrase queries.
 To deal with this problem, it is best to remove them from fields where they show up often.
 
 We need to add the **StopFilterFactory** with a reference to a text file with one stop word per line to the Solr configuration:
 
-solr.cfg
+schema.xml
 
-.. code-block:: ini
+.. code-block:: xml
 
-    [solr-instance]
-    recipe = collective.recipe.solrinstance
-    filter =
-        text solr.StopFilterFactory ignoreCase="true" words="${buildout:directory}/etc/stopwords.txt"
-    java_opts +=
-        -Dsolr.allow.unsafe.resourceloading=true
-
-Since we don't copy over the stopwords file to the *parts/solr-instance* directory we need
-to allow Solr reading resource files outside its home directory.
+    <fieldType name="text" class="solr.TextField" positionIncrementGap="100">
+        [...]
+        <analyzer type="index">
+            <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
+            [...]
 
 stopwords.txt::
 
@@ -58,7 +57,7 @@ For some common language specific examples see the Solr git repository:
 Stemming
 ========
 
-Stemming is a language specific operation which try to reduce terms to a base form.
+Stemming is a language specific operation which tries to reduce terms to a base form.
 
 Here is an example::
 
@@ -72,24 +71,24 @@ but if you provide a Google-like search where you browse more than search then s
 
 If you are interested in this feature look at the Solr documentation here:
 
+.. seealso:: https://lucene.apache.org/solr/guide/8_2/understanding-analyzers-tokenizers-and-filters.html
 .. seealso:: https://wiki.apache.org/solr/LanguageAnalysis
 
-A short example to include a German stemming factory into the buildout is here:
+A short example to include a German stemming factory is here:
 
-solr.cfg
+schema.xml
 
-.. code-block:: ini
+.. code-block:: xml
 
-    [solr-instance]
-    recipe = collective.recipe.solrinstance
-    ...
-    filter =
-    #    text solr.GermanMinimalStemFilterFactory  # Less aggressive
-    #    text solr.GermanLightStemFilterFactory  # Moderately aggressiv
-    #    text solr.SnowballPorterFilterFactory language="German2"  # More aggressive
-        text solr.StemmerOverrideFilterFactory dictionary="${buildout:directory}/etc/stemdict.txt" ignoreCase="false"
-    java_opts +=
-        -Dsolr.allow.unsafe.resourceloading=true
+    <fieldType name="text" class="solr.TextField" positionIncrementGap="100">
+        [...]
+        <analyzer type="index">
+            <tokenizer class="solr.StandardTokenizerFactory"/>
+            <!-- <filter class="solr.GermanMinimalStemFilterFactory"/>  # Less aggressive -->
+            <!-- <filter class="solr.GermanLightStemFilterFactory"/>  # Moderately aggressiv -->
+            <!-- <filter class="solr.SnowballPorterFilterFactory" language="German2"/>  More aggressive -->
+            <filter class="solr.StemmerOverrideFilterFactory"
+                    dictionary="stemdict.txt" ignoreCase="false" />
 
 stemdict.txt::
 
@@ -115,19 +114,17 @@ Maybe you run a shop for selling smartphones and you want people typing "iphone"
 
 A simple synonym like solution is to use the *searchwords* extension which is provided by collective.solr.
 It is a schemaextender for all types and allows to specify terms which are boosted by factor 1000 in the default search query.
-For "real" synonyms implemented in Solr you can use the *SynonymFilterFactory*:
+For "real" synonyms implemented in Solr you can use the *SynonymGraphFilterFactory*:
 
-solr.cfg
+schema.xml
 
-.. code-block:: ini
+.. code-block:: xml
 
-    [solr]
-    recipe = collective.recipe.solrinstance
-    ...
-    filter-index =
-    # The recommended approach for dealing with synonyms is to expand the synonym
-    # when indexing. See: http://wiki.apache.org/solr/AnalyzersTokenizersTokenFilters#solr.SynonymFilterFactory
-        text solr.SynonymFilterFactory synonyms="${buildout:directory}/etc/synonyms.txt" ignoreCase="true" expand="true"
+    <fieldType name="text" class="solr.TextField" positionIncrementGap="100">
+        [...]
+        <analyzer type="index">
+            <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+            [...]
 
 Note that the SynonymFilterFactory is an index filter and not a query filter.
 

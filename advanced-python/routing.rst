@@ -32,7 +32,7 @@ We can write our application as a giant case switch to match a specific
             start_response('404 Not Found', headers)
             return [b"Not found"]
 
-This would be very un-pythonic and cumbersome to extend. Essentianly, this
+This would be very un-pythonic and cumbersome to extend. Essentially, this
 problem is solved by all web framework with some kind of a routing
 middleware. But before we examine how it is done by some of the most famous
 WSGI frameworks, we implement a primitive routing middleware on our own.
@@ -71,9 +71,9 @@ with a dictionary and map a ``PATH_INFO`` to a callable. The middleware should u
 
 
 While this solution is pretty primitive it is understand and extend.
-Essententialy, many WSGI framework have some kind of a ``Mapping``
+Essentially, many WSGI framework have some kind of a ``Mapping``
 class which is responsible for this mechanism.
-For example, in Djanog one defines in ``urls.py`` a list of patters,
+For example, in Django one defines in ``urls.py`` a list of patters,
 which are a regular expression and callable ``view``. Here is an
 example from the most venerable Django polls tutorial:
 

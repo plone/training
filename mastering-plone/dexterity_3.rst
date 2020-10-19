@@ -3,11 +3,13 @@
 Dexterity Types III: Python
 ===========================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout resources
+
+   Code for the end of this chapter::
 
         git checkout dexterity_3
 
@@ -109,167 +111,12 @@ Some things are notable here:
 * :py:class:`LevelVocabulary` is used to create the options used in the field ``level``. This way we could easily translate the displayed value.
 * :samp:`fieldset('Images', fields=['logo', 'advertisement'])` moves the two image fields to another tab.
 * :samp:`directives.read_permission(...)` sets the read and write permission for the field ``notes`` to users who can add new members. Usually this permission is only granted to Site Administrators and Managers. We use it to store information that should not be publicly visible. Please note that :py:attr:`obj.notes` is still accessible in templates and Python. Only using the widget (like we do in the view later) checks for the permission.
-* We no longer use grok, an obsolete Plone technology.
+
 
 ..  seealso::
 
-    * `All available Fields <https://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html#field-types>`_
-    * `Schema-driven types with Dexterity <https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types>`_
-    * `Form schema hints and directives <https://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html>`_
+    See the chapter :ref:`dexterity_reference-label` for a reference of all field-types and directives you can use in dexterity.
 
-
-Directives
-----------
-
-Directives can be placed anywhere in the class body (annotations are made directly on the class). By convention they are kept next to the fields they apply to.
-
-For example, here is a schema that omits a field:
-
-..  code-block:: python
-
-    from plone.autoform import directives
-    from plone.supermodel import model
-    from zope import schema
-
-
-    class ISampleSchema(model.Schema):
-
-        title = schema.TextLine(title=u'Title')
-
-        directives.omitted('additionalInfo')
-        additionalInfo = schema.Bytes()
-
-
-You can also handle multiple fields with one directive:
-
-..  code-block:: python
-
-    directives.omitted('field_1', 'field_2')
-
-With the directive "mode" you can set fields to 'input', 'display' or 'hidden'.
-
-..  code-block:: python
-
-    directives.mode(additionalInfo='hidden')
-
-You can apply directives to certain forms only. Here we drop a field from the add-form, it will still show up in the edit-form.
-
-..  code-block:: python
-
-    from z3c.form.interfaces import IAddForm
-
-    class ITask(model.Schema):
-
-        title = schema.TextLine(title=u'Title')
-
-        directives.omitted(IAddForm, 'done')
-        done = schema.Bool(
-            title=_(u'Done'),
-            required=False,
-        )
-
-The same works for custom forms.
-
-With the directive :py:meth:`widget` you can not only change the widget used for a field. With :py:data:`pattern_options` you can pass additional parameters to the widget. Here, we configure the datetime widget powered by the JavaScript library `pickadate <https://amsul.ca/pickadate.js/>`_  by adding options that are used by it. Plone passes the options to the library.
-
-..  code-block:: python
-
-    class IMeeting(model.Schema):
-
-        meeting_date = schema.Datetime(
-            title=_(default=u'Date and Time'),
-            required=False,
-        )
-        directives.widget(
-            'meeting_date',
-            DatetimeFieldWidget,
-            pattern_options={
-                'time': {'interval': 60, 'min': [7, 0], 'max': [19, 0]}},
-        )
-
-
-Validation and default values
------------------------------
-
-In the following example we add a validator and a default value.
-
-
-..  code-block:: python
-
-    from zope.interface import Invalid
-    import datetime
-
-
-    def future_date(value):
-        if value and not value.date() >= datetime.date.today():
-            raise Invalid(_(u"Meeting date can not be before today."))
-        return True
-
-    def meeting_date_default_value():
-        return datetime.datetime.today() + datetime.timedelta(7)
-
-
-    class IMeeting(model.Schema):
-
-        meeting_date = schema.Datetime(
-            title=_(default=u'Date and Time'),
-            required=False,
-            constraint=future_date,
-            defaultFactory=meeting_date_default_value,
-        )
-
-Validators and defaults can be also be made aware of the context (i.e. to check against the values of other fields).
-
-For context aware defaults you need to use a :py:class:`IContextAwareDefaultFactory`. It will be passed the container for which the add form is being displayed:
-
-..  code-block:: python
-
-    from zope.interface import provider
-    from zope.schema.interfaces import IContextAwareDefaultFactory
-
-    @provider(IContextAwareDefaultFactory)
-    def get_container_id(context):
-        return context.id.upper()
-
-    class IMySchema(model.Schema):
-
-        parent_id = schema.TextLine(
-            title=_(u'Parent ID'),
-            required=False,
-            defaultFactory=get_container_id,
-        )
-
-For context-aware validators you need to use :py:meth:`invariant`:
-
-..  code-block:: python
-
-    from zope.interface import Invalid
-    from zope.interface import invariant
-    from zope.schema.interfaces import IContextAwareDefaultFactory
-
-
-    class IMyEvent(model.Schema):
-
-        start = schema.Datetime(
-            title=_(u'Start date'),
-            required=False)
-
-        end = schema.Datetime(
-                title=_(u"End date"),
-                required=False)
-
-        @invariant
-        def validate_start_end(data):
-            if data.start is not None and data.end is not None:
-                if data.start > data.end:
-                    raise Invalid(_('Start must be before the end.'))
-
-To learn more about directives, validators and default values, refer to the following:
-
-* `Form schema hints and directives <https://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html>`_
-* `Validation <https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html>`_ (this documentation unfortunately still uses the obsolete grok technology)
-* `z3c.form documentation <https://pypi.org/project/z3c.form#validators>`_
-* `Default values for fields on add forms <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html>`_
 
 
 The Factory Type Information, or FTI
@@ -364,19 +211,6 @@ The view
 
 We use the default view provided by Dexterity for testing since we will only display the sponsors in a viewlet and not in their own page.
 
-But we could tweak the default view with some CSS to make it less ugly. Add the following to :file:`browser/static/ploneconf.css`:
-
-.. code-block:: css
-
-    .template-view.portaltype-sponsor .named-image-widget img {
-        width: 100%;
-        height: auto;
-    }
-
-    .template-view.portaltype-sponsor fieldset#folder-listing {
-        display: none;
-    }
-
 .. note::
 
     If we really want a custom view for sponsors it could look like this.
@@ -457,17 +291,17 @@ Add the viewlet class in :file:`browser/viewlets.py`
     from plone import api
     from plone.app.layout.viewlets.common import ViewletBase
     from plone.memoize import ram
-    from ploneconf.site.behaviors.social import ISocial
+    from ploneconf.site.behaviors.featured import IFeatured
     from ploneconf.site.content.sponsor import LevelVocabulary
     from random import shuffle
     from time import time
 
 
-    class SocialViewlet(ViewletBase):
+    class FeaturedViewlet(ViewletBase):
 
-        def lanyrd_link(self):
-            adapted = ISocial(self.context)
-            return adapted.lanyrd
+        def is_featured(self):
+            adapted = IFeatured(self.context)
+            return adapted.featured
 
 
     class SponsorsViewlet(ViewletBase):

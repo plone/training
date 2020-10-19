@@ -22,17 +22,13 @@ All of the settings for the ``gatsby-source-plone`` plugin is in the ``gatsby-no
   {
     resolve: 'gatsby-source-plone',
     options: {
-      baseUrl: 'https://plonedemo.kitconcept.com/en',
-      logLevel: 'DEBUG',
+      baseUrl: 'https://plonedemo.kitconcept.com/en'
     },
   },
 
 
 **baseUrl** is the Plone site from which data is to be sourced from.
 It can be a Plone site root or a Plone folder to be used as root.
-
-**logLevel** decides what levels of logging is displayed as the plugin is run.
-The multiple levels include: ``CRITICAL``, ``ERROR``, ``WARNING``, ``INFO``, ``DEBUG`` in order of priority of logged messages.
 
 **searchParams** although not used in the example, it is worth noting. 
 It is used to limit retrieved content objects by a search parameter.

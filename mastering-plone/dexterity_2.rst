@@ -3,11 +3,13 @@
 Dexterity Types II: Growing Up
 ==============================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout viewlets_1
+
+   Code for the end of this chapter::
 
         git checkout dexterity_2
 
@@ -161,13 +163,13 @@ We will create an upgrade step that:
   We will move all talks to a folder ``talks`` (unless they already are there).
 
 Upgrade steps can be registered in their own ZCML file to prevent cluttering the main :file:`configure.zcml`.
-Include a new :file:`upgrades.zcml` in our :file:`configure.zcml` by adding:
+The addon you created already has a registration for the :file:`upgrades.zcml` in our :file:`configure.zcml`:
 
 ..  code-block:: xml
 
     <include file="upgrades.zcml" />
 
-Create :file:`upgrades.zcml`:
+You register the first upgrade-step in :file:`upgrades.zcml`:
 
 .. code-block:: xml
     :linenos:
@@ -392,10 +394,18 @@ Add a new file :file:`profiles/default/catalog.xml`
       <index name="audience" meta_type="KeywordIndex">
         <indexed_attr value="audience"/>
       </index>
+      <index name="room" meta_type="FieldIndex">
+        <indexed_attr value="room"/>
+      </index>
+      <index name="featured" meta_type="BooleanIndex">
+        <indexed_attr value="featured"/>
+      </index>
 
       <column value="audience" />
       <column value="type_of_talk" />
       <column value="speaker" />
+      <column value="room" />
+      <column value="featured" />
     </object>
 
 This adds new indexes for the three fields we want to show in the listing. Note that *audience* is a :py:class:`KeywordIndex` because the field is multi-valued, but we want a separate index entry for every value in an object.
@@ -426,7 +436,13 @@ The ``column ..`` entries allow us to display the values of these indexes in the
             setup.runImportStepFromProfile(default_profile, 'catalog')
             for brain in api.content.find(portal_type='talk'):
                 obj = brain.getObject()
-                obj.reindexObject(idxs=['type_of_talk', 'speaker', 'audience'])
+                obj.reindexObject(idxs=[
+                  'type_of_talk',
+                  'speaker',
+                  'audience',
+                  'room',
+                  'featured',
+                  ])
 
 
 .. _dexterity2-customindex-label:
@@ -453,7 +469,7 @@ Instead we use the brains' new attributes.
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 13-15
+    :emphasize-lines: 13-16
 
     class TalkListView(BrowserView):
         """ A list of talks
@@ -470,6 +486,7 @@ Instead we use the brains' new attributes.
                     'audience': ', '.join(brain.audience or []),
                     'type_of_talk': brain.type_of_talk,
                     'speaker': brain.speaker,
+                    'room': brain.room,
                     'uuid': brain.UID,
                     })
             return results
@@ -522,6 +539,7 @@ Modify :py:class:`TalkListView` to return only brains and adapt the template to 
                 <th>Title</th>
                 <th>Speaker</th>
                 <th>Audience</th>
+                <th>Room</th>
               </tr>
             </thead>
             <tbody>
@@ -540,9 +558,12 @@ Modify :py:class:`TalkListView` to return only brains and adapt the template to 
                 <td tal:content="python:', '.join(brain.audience or [])">
                     Advanced
                 </td>
+                <td tal:content="python:brain.room">
+                    Room 101
+                </td>
               </tr>
               <tr tal:condition="not:brains">
-                <td colspan=3>
+                <td colspan=4>
                     No talks so far :-(
                 </td>
               </tr>

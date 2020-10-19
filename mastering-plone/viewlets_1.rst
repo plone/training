@@ -3,11 +3,13 @@
 Writing Viewlets
 ================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout behaviors_1
+
+   Code for the end of this chapter::
 
         git checkout viewlets_1
 
@@ -20,10 +22,10 @@ Topics covered:
 
 * Viewlets
 
-.. _viewlets1-social-label:
+.. _viewlets1-featured-label:
 
-A viewlet for the social behavior
----------------------------------
+A viewlet for the featured behavior
+-----------------------------------
 
 .. only:: not presentation
 
@@ -35,14 +37,14 @@ A viewlet for the social behavior
 * Viewlets don't save data (portlets do)
 * Viewlets have no user interface (portlets do)
 
-.. _viewlets1-social2-label:
+.. _viewlets1-featured2-label:
 
-Social viewlet
---------------
+Featured viewlet
+----------------
 
 .. only:: not presentation
 
-    Let's add a link to the site that uses the information that we collected using the social behavior.
+    Let's add a link to the site that uses the information that we collected using the featured behavior.
 
 We register the viewlet in :file:`browser/configure.zcml`.
 
@@ -50,26 +52,26 @@ We register the viewlet in :file:`browser/configure.zcml`.
     :linenos:
 
     <browser:viewlet
-      name="social"
-      for="ploneconf.site.behaviors.social.ISocial"
-      manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-      class=".viewlets.SocialViewlet"
-      layer="zope.interface.Interface"
-      template="templates/social_viewlet.pt"
-      permission="zope2.View"
-      />
+        name="featured"
+        for="ploneconf.site.behaviors.featured.IFeatured"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".viewlets.FeaturedViewlet"
+        layer="zope.interface.Interface"
+        template="templates/featured_viewlet.pt"
+        permission="zope2.View"
+        />
 
 ``for``, ``manager``, ``layer`` and ``permission`` are constraints that limit the contexts in which the viewlet is loaded and rendered,
 by filtering out all the contexts that do not match those constraints.
 
 .. only:: not presentation
 
-    This registers a viewlet called ``social``.
-    It is visible on all content that implements the interface :py:class:`ISocial` from our behavior.
+    This registers a viewlet called ``featured``.
+    It is visible on all content that implements the interface :py:class:`IFeatured` from our behavior.
     It is also good practice to bind it to a specific ``layer``, so it only shows up if our add-on is actually installed.
     We will return to this in a later chapter.
 
-The viewlet class :py:class:`SocialViewlet` is expected in a file :file:`browser/viewlets.py`.
+The viewlet class :py:class:`FeaturedViewlet` is expected in a file :file:`browser/viewlets.py`.
 
 .. _BrowserLayer: https://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
 
@@ -78,7 +80,7 @@ The viewlet class :py:class:`SocialViewlet` is expected in a file :file:`browser
 
     from plone.app.layout.viewlets import ViewletBase
 
-    class SocialViewlet(ViewletBase):
+    class FeaturedViewlet(ViewletBase):
         pass
 
 
@@ -86,19 +88,15 @@ The viewlet class :py:class:`SocialViewlet` is expected in a file :file:`browser
 
     This class does nothing except rendering the associated template (That we have yet to write)
 
-Let's add the missing template :file:`templates/social_viewlet.pt`.
+Let's add the missing template :file:`templates/featured_viewlet.pt`.
 
 .. code-block:: html
     :linenos:
 
-    <div id="social-links">
-        <a href="#"
-           class="lanyrd-link"
-           tal:define="link view/lanyrd_link"
-           tal:condition="link"
-           tal:attributes="href link">
-             See this talk on Lanyrd!
-        </a>
+    <div id="featured">
+        <p tal:condition="python:view.is_featured">
+            This is hot news!
+        </p>
     </div>
 
 
@@ -107,40 +105,40 @@ Let's add the missing template :file:`templates/social_viewlet.pt`.
     As you can see this is not a valid HTML document.
     That is not needed, because we don't want a complete view here, a HTML snippet is enough.
 
-    There is a :samp:`tal:define` statement, querying for :samp:`view/lanyrd_link`.
+    There is a :samp:`tal:define` statement, querying for :samp:`view/is_featured`.
     Same as for views, viewlets have access to their class in page templates, as well.
 
-We have to extend the Social Viewlet now to add the missing attribute:
+We have to extend the Featured Viewlet now to add the missing attribute:
 
 
 .. only:: not presentation
 
     .. sidebar:: Why not to access context directly
 
-        In this example, :samp:`ISocial(self.context)` does return the context directly.
+        In this example, :samp:`IFeatured(self.context)` does return the context directly.
         It is still good to use this idiom for two reasons:
 
-          #. It makes it clear that we only want to use the ISocial aspect of the object
+          #. It makes it clear that we only want to use the IFeatured aspect of the object
           #. If we decide to use a factory, for example to store our attributes in an annotation, we would `not` get back our context, but the adapter.
 
-        Therefore in this example you could simply write :samp:`return self.context.lanyrd`.
+        Therefore in this example you could simply write :samp:`return self.context.featured`.
 
 .. code-block:: python
     :linenos:
     :emphasize-lines: 2, 6-8
 
     from plone.app.layout.viewlets import ViewletBase
-    from ploneconf.site.behaviors.social import ISocial
+    from ploneconf.site.behaviors.featured import IFeatured
 
-    class SocialViewlet(ViewletBase):
+    class FeaturedViewlet(ViewletBase):
 
-        def lanyrd_link(self):
-            adapted = ISocial(self.context)
-            return adapted.lanyrd
+        def is_featured(self):
+            adapted = IFeatured(self.context)
+            return adapted.featured
 
 So far, we
 
-  * register the viewlet to content that has the ISocial Interface.
+  * register the viewlet to content that has the IFeatured Interface.
   * adapt the object to its behavior to be able to access the fields of the behavior
   * return the link
 
@@ -184,7 +182,7 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
             There are <span tal:replace="number_of_talks" /> talks.
         </div>
 
-    :samp:`python:context.portal_catalog` will return the catalog through Acquisition. Be careful if you want to use path expressions: :samp:`content/portal_catalog` calls the catalog (and returns all brains). You need to prevent this by using :samp:`nocall:content/portal_catalog`.
+    :samp:`python:context.portal_catalog` will return the catalog through Acquisition. Be careful if you want to use path expressions: :samp:`context/portal_catalog` calls the catalog (and returns all brains). You need to prevent this by using :samp:`nocall:context/portal_catalog`.
 
     Relying on Acquisition is a bad idea. It would be much better to use the helper view ``plone_tools`` from :file:`plone/app/layout/globals/tools.py` to get the catalog.
 
@@ -192,7 +190,7 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
 
         <div class="number_of_talks"
              tal:define="catalog context/@@plone_tools/catalog;
-                         number_of_talks python:len(catalog(portal_type='talk'));">
+                         number_of_talks python:len(catalog(portal_type='talk', review_state='pending'));">
             There are <span tal:replace="number_of_talks" /> talks.
         </div>
 
@@ -222,7 +220,7 @@ Hint: Use Acquisition to get the catalog (You know, you should not do this but t
         ?>
 
         <div class="number_of_talks">
-            There are ${number_of_talks} talks.
+            There are ${python:number_of_talks} talks.
         </div>
 
 

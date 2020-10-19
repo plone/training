@@ -206,12 +206,11 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     recipe = zc.recipe.egg
     eggs =
         ${buildout:eggs}
-    # need to explicitly mention Products.CMFPlone in order for plone-compile-resources to be found
-        Products.CMFPlone
+    # need to explicitly mention plone.staticresources in order for plone-compile-resources to be found
+        plone.staticresources
     interpreter = zopepy
     scripts =
         zopepy
-        plone-generate-gruntfile
         plone-compile-resources
 
     [mrbob]

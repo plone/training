@@ -3,11 +3,13 @@
 Views III: A Talk List
 =======================
 
-.. sidebar:: Get the code!
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-    Get the code for this chapter (:doc:`More info <code>`):
+   Code for the beginning of this chapter::
 
-    ..  code-block:: bash
+       git checkout views_2
+
+   Code for the end of this chapter::
 
         git checkout views_3
 
@@ -60,7 +62,7 @@ It is the fast way to get content that exists in the site and do something with 
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 2, 7-25
+    :emphasize-lines: 2, 7-26
 
 
     from Products.Five.browser import BrowserView
@@ -85,6 +87,7 @@ It is the fast way to get content that exists in the site and do something with 
                     'audience': ', '.join(talk.audience),
                     'type_of_talk': talk.type_of_talk,
                     'speaker': talk.speaker,
+                    'room': talk.room,
                     'uuid': brain.UID,
                     })
             return results
@@ -350,9 +353,12 @@ Add this simple table to :file:`templates/talklistview.pt`:
             <td tal:content="python:talk['audience']">
                 Advanced
             </td>
+            <td tal:content="python:talk['room']">
+                101
+            </td>
           </tr>
-          <tr tal:condition="not:talks">
-            <td colspan=3>
+          <tr tal:condition="python: not talks">
+            <td colspan=4>
                 No talks so far :-(
             </td>
           </tr>
@@ -379,12 +385,8 @@ There are some things that need explanation:
 :samp:`tal:content="python:talk['speaker']"`
     'speaker' is a key in the dict 'talk'. We could also write :samp:`tal:content="talk/speaker"`
 
-:samp:`tal:condition="not:talks"`
+:samp:`tal:condition="python: not talks"`
     This is a fallback if no talks are returned. It then returns an empty list (remember :samp:`results = []`?)
-
-.. note::
-
-    We could also write :samp:`python:not talks` like we could also write :samp:`tal:repeat="talk python:talks"` for the iteration. For simple cases as these, path statements are sometimes fine. On the other hand, if ``talks`` was callable we would need to use ``nocall:talks``, so maybe it would be better to always use ``python:``.
 
 
 Exercise

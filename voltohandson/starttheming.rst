@@ -15,8 +15,11 @@ Basic font family
 =================
 
 We will use Semantic UI variables for customizing the font, as it's a valuable feature.
-Create a file in the following path ``theme/globals/site.variables`` and restart Volto to make Volto aware of the new file.
-Edit the file and add this:
+Create a file in the following path ``theme/globals/site.variables``.
+
+Now you need to restart Volto to make Volto aware of the new file. From now on changes in this file will be automatically applied upon save and you will see the results in your browser.
+
+Edit the new file and add this:
 
 .. code-block:: less
 
@@ -27,7 +30,9 @@ You can also set other variables concerning the font used, such as the sizes ava
 In case you want to use more than one font or a font that is self-hosted,
 you should define it as usual in CSS and set the variable ``importGoogleFonts`` appropriately.
 
-.. tip:: You can find the list with the global Semantic UI variables available in ``omelette/theme/themes/default/global/site.variables``.
+.. tip::
+
+    You can find the list with the global Semantic UI variables available in ``omelette/theme/themes/default/globals/site.variables``.
 
 custom.overrides
 ================
