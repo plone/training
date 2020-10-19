@@ -25,6 +25,7 @@ You can also start fresh for each new chapter.
 The repo has an ``api`` folder, where you can find a preconfigured buildout that will build Plone 5.2 along with the package ``kitconcept.voltodemo``.
 Building it is an easy way to get a Volto site running.
 
+To start your own project you can use https://github.com/plone/create-volto-app to bootstrap your package. Further reading on full Plone/Volto setup can be found here: https://training.plone.org/5/volto/bootstrap.html
 
 Build environments
 ==================
