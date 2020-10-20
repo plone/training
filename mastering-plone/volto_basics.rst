@@ -30,7 +30,8 @@ Here are some things you should know if you are new to Plone 6 or Volto:
 * Most existing addons for Plone will have to be adapted to Volto if they contain user-facing element (e.g. templates for content-types, controlpanels or viewlets).
 * There are already a good number of addons for Volto. See https://github.com/collective/awesome-volto/
 
-Here is an example for a view in Volto, the view for News Items ``components/theme/View/NewsItemView.jsx``:
+Here is an example for a view in Volto, the view for News Items. You can find it in ``frontend/omelette/src/components/theme/View/NewsItemView.jsx``:
+
 
 ..   code-block:: js
 

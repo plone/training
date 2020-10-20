@@ -58,7 +58,7 @@ In Volto the default visualization for your new content type "talk" only shows t
 
 Since we want to show the data we need to write a custom view for talks that is used in Volto.
 
-In the folder :file:`volto` you need to add a new file :file:`src/components/Views/Talk.jsx` (create the folder :file:`Views` first.)
+In the folder :file:`frontend` you need to add a new file :file:`src/components/Views/Talk.jsx` (create the folder :file:`Views` first.)
 
 As a first step the file will hold a placeholder only:
 

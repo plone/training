@@ -21,7 +21,7 @@ In this part you will:
 
 Topics covered:
 
-* Component shadowing
+* Customize existing views with Component Shadowing
 * Content Type Views
 * Listing Views
 * Blocks
@@ -39,15 +39,16 @@ Every time you add a file to the customizations folder or to the theme folder, y
 
     Component shadowing is very much like the good old Plone technique called "JBOT" ("just a bunch of templates").
 
-    You can customize virtually any module in Volto, including actions and reducers, not only components.
+    You can customize any module in Volto, including actions and reducers, not only components.
 
 
 The Logo
 --------
 
-You can use the same approach to change the Logo. Down the Plone Logo from https://www.starzel.de/plone-tutorial/Logo.svg/@@download and copy it using this path and name: ``src/customizations/components/theme/Logo/Logo.svg``.
+You can use this approach to change the Logo.
+Create your own logo or download the logo from https://www.starzel.de/plone-tutorial/Logo.svg/@@download and add it to your Volto package (:file:`frontend`) using this path and name: ``src/customizations/components/theme/Logo/Logo.svg``.
 
-After a restart your page should look like this:
+After a restart of Volto (:kbd:`ctrl + c` and :kbd:`yarn start`) your page should look like this:
 
 .. figure:: _static/volto_customized_logo.png
     :alt: The customized Logo.
@@ -58,8 +59,11 @@ The Footer
 
 .. todo::
 
-    Customize the footer (``omelette/src/components/theme/Footer/Footer.jsx``).
+    Customize the footer:
 
+    * Copy ``omelette/src/components/theme/Footer/Footer.jsx`` to ``src/customizations/components/theme/Footer/Footer.jsx``
+    * Restart Volto
+    * Change something
 
 
 The News Item View
@@ -71,7 +75,7 @@ This way visitors can see at a glance if they are looking at current or old news
 This information is not shown by default.
 So you will need to customize the way that is used to render News Items.
 
-The Volto component to render a News Item is in ``omelette/src/components/theme/View/NewsItemView.jsx``
+The Volto component to render a News Item is in ``omelette/src/components/theme/View/NewsItemView.jsx`` (remember  chapter :ref:`volto_basics-label`?).
 
 ..  code-block:: js
 
@@ -143,6 +147,15 @@ The Volto component to render a News Item is in ``omelette/src/components/theme/
 
     export default NewsItemView;
 
+..  note::
+
+    * ``content`` is passed to ``NewsItemView`` and represents the content item as it is seriaized by the restapi
+    * The view displays various attributes of the News Item using ``content.title``, ``content.description`` or ``content.text.data``
+    * You can inspect all data that ``content`` holds using the React Developer Tools for `Firefox <https://addons.mozilla.org/de/firefox/addon/react-devtools/>`_ or `Chrome <https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi>`_:
+
+      .. figure:: _static/volto_react_devtools.png
+         :align: center
+
 Copy that file into ``src/customizations/components/theme/View/NewsItemView.jsx``.
 
 After restarting Volto the new file is used when diplaying a News Item.
@@ -164,7 +177,6 @@ Not very user friendly.
 Let's use one of many helpers available in React.
 
 Import the library `moment <https://momentjs.com/>`_ at the top of the file and use it to format the date in a readable format.
-
 
 ..  code-block:: js
     :emphasize-lines: 9,44
@@ -240,27 +252,31 @@ Import the library `moment <https://momentjs.com/>`_ at the top of the file and 
 
     export default NewsItemView;
 
+The result should look like this:
+
 .. figure:: _static/volto_news_with_date.png
     :alt: A News Item with publishing date.
 
-Now another issue appears. There are various dates associated with a content object:
+Now another issue appears. There are various dates associated with any content object:
 
-* The date the item is created: ``{ content.created }``
-* The date the item is last modified ``{ content.modified }``
-* The date the item is published ``{ content.effective }``
+* The date the item is created: ``content.created``
+* The date the item is last modified ``content.modified``
+* The date the item is published ``content.effective``
 
-In fact you most likely want to show the date when the item was published. But while the item is not yet published that value is not yet set and you will get a error. So we'll add some simple logik to use the effective-date if it exists and the creation-date as a fallback.
+In fact you most likely want to show the date when the item was published.
+But while the item is not yet published that value is not yet set and you will get a error.
+So we'll add some simple logic to use the effective-date if it exists and the creation-date as a fallback.
 
 ..  code-block:: js
 
     <p className="discreet">
-      {(item.effective && moment(content.effective).format('lll')) ||
+      {(content.effective && moment(content.effective).format('lll')) ||
         moment(content.created).format('lll')}
     </p>
 
 .. todo::
 
-    Add support for other locales with ``import { useIntl } from 'react-intl';`` and
+    Add support for teh current locale with ``import { useIntl } from 'react-intl';`` and
     ``moment.locale(useIntl().locale);``
 
 
@@ -371,6 +387,12 @@ The result should look like this:
 .. figure:: _static/volto_customized_listing_block.png
     :alt: The customized Listing Block.
 
+Summary
+-------
+
+* Component shadowing allows you to modify, extend and customize all modules in Volto.
+* It is a powerful feature for making changes without the need for complex configuration or maintaining a fork of the code.
+* You need to restart Volte when you add a new override.
 
 .. seealso::
 
