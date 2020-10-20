@@ -294,14 +294,14 @@ Copy that file to ``src/customizations/components/theme/View/SummaryView.jsx`` a
 Note how the component iterates over the variable ``items`` of ``content``  with ``{content.items.map((item) => (...)}``. Here ``item`` is the item in the Folder or Collection where this component is used.
 
 
-Excercise: Modify Listing Block
--------------------------------
+The Listing Block
+-----------------
 
 When you edited the frontpage in :ref:`features-content-types-label` you may have added a Listing block to the frontpage. If not do so now.
 
 You will see that the listing block does not display the date as well.
 
-Copy `omelette/src/components/manage/Blocks/Listing/DefaultTemplate.jsx` to `src/customizations/components/manage/Blocks/Listing/DefaultTemplate.jsx` and add the dates as you did with the Summary View.
+Copy ``omelette/src/components/manage/Blocks/Listing/DefaultTemplate.jsx`` to ``src/customizations/components/manage/Blocks/Listing/DefaultTemplate.jsx`` and add the dates as you did with the Summary View.
 
 ..  code-block:: js
     :emphasize-lines: 6,49-52
