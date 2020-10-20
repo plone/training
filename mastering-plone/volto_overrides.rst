@@ -274,11 +274,6 @@ So we'll add some simple logic to use the effective-date if it exists and the cr
         moment(content.created).format('lll')}
     </p>
 
-.. todo::
-
-    Add support for teh current locale with ``import { useIntl } from 'react-intl';`` and
-    ``moment.locale(useIntl().locale);``
-
 
 The Summary View
 ----------------
@@ -386,6 +381,104 @@ The result should look like this:
 
 .. figure:: _static/volto_customized_listing_block.png
     :alt: The customized Listing Block.
+
+
+Localization
+------------
+
+The result is fine if you have a english-speaking website but for other locales you want to configure ``moment`` to use your locale.
+You could set it by hand with ``moment.locale('fr');`` (for french) but the code for this application should work with any language.
+
+``NewsItemView`` contains no code but directly returns the container.
+You need to make a small change to allow setting the locale here.
+Wrap the Container with ``{}`` and return the container.
+Put the locale-setting before it.
+
+..  code-block:: js
+    :emphasize-lines: 10,21-25,62
+
+    /**
+     * NewsItemView view component.
+     * @module components/theme/View/NewsItemView
+     */
+
+    import React from 'react';
+    import PropTypes from 'prop-types';
+    import { Container, Image } from 'semantic-ui-react';
+    import moment from 'moment';
+    import { useIntl } from 'react-intl';
+
+    import { flattenToAppURL, flattenHTMLToAppURL } from '@plone/volto/helpers';
+
+    /**
+     * NewsItemView view component class.
+     * @function NewsItemView
+     * @params {object} content Content object.
+     * @returns {string} Markup of the component.
+     */
+
+    const NewsItemView = ({ content }) => {
+      const intl = useIntl();
+      moment.locale(intl.locale);
+
+      return (
+        <Container className="view-wrapper">
+          {content.title && (
+            <h1 className="documentFirstHeading">
+              {content.title}
+              {content.subtitle && ` - ${content.subtitle}`}
+            </h1>
+          )}
+          {content.description && (
+            <p className="documentDescription">{content.description}</p>
+          )}
+          {content.image && (
+            <Image
+              className="documentImage"
+              alt={content.title}
+              title={content.title}
+              src={
+                content.image['content-type'] === 'image/svg+xml'
+                  ? flattenToAppURL(content.image.download)
+                  : flattenToAppURL(content.image.scales.mini.download)
+              }
+              floated="right"
+            />
+          )}
+          <p className="discreet">
+            {(content.effective && moment(content.effective).format('lll')) ||
+              moment(content.created).format('lll')}
+          </p>
+          {content.text && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: flattenHTMLToAppURL(content.text.data),
+              }}
+            />
+          )}
+        </Container>
+      );
+    };
+
+    /**
+     * Property types.
+     * @property {Object} propTypes Property types.
+     * @static
+     */
+    NewsItemView.propTypes = {
+      content: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+        text: PropTypes.shape({
+          data: PropTypes.string,
+        }),
+      }).isRequired,
+    };
+
+    export default NewsItemView;
+
+You can now do the same changes for the Summary View and the Listing Block. The Listing Block alread has some code in it so you would not need to wrap it in ``{}`` and add the ``return ()`` statement.
+
 
 Summary
 -------
