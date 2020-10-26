@@ -1,6 +1,6 @@
 .. _add-ons-label:
 
-Extend Plone With Add-on Packages
+Extending Plone With Add-on Packages
 =================================
 
 .. sidebar:: Classic and Volto chapter

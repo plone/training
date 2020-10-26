@@ -28,7 +28,7 @@ Instead if is a the core of its architecture.
 
 .. note::
 
-    Plone itself even started out as an extension for CMF, which is an extension for Zope. Now Plone is the basis for many application that extend it.
+    Plone itself even started out as an extension for CMF, which is an extension for Zope. Now Plone is the basis for many applications that extend it.
 
 
 Plone consists of a Python backend and a React frontend. They are connected via the REST API. Thus you have two different layers that you can customize.

@@ -386,7 +386,7 @@ The result should look like this:
 Localization
 ------------
 
-The result is fine if you have a english-speaking website but for other locales you want to configure ``moment`` to use your locale.
+The result is fine if you have an english-speaking website but for other locales you want to configure ``moment`` to use your locale.
 You could set it by hand with ``moment.locale('fr');`` (for french) but the code for this application should work with any language.
 
 ``NewsItemView`` contains no code but directly returns the container.
