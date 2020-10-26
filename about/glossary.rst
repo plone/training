@@ -48,7 +48,7 @@ Glossary
       Open source projects may be tested at no charge via `travis-ci.org <https://travis-ci.org>`_.
 
    Solr
-      `Solr <http://lucene.apache.org/solr/>`_ a the popular, blazing-fast, open source enterprise search platform built on Apache Lucene.
+      `Solr <http://lucene.apache.org/solr/>`_ is a popular, blazing-fast, open source enterprise search platform built on Apache Lucene.
 
    ZCML
       The `Zope Configuration Mark-up Language <https://docs.plone.org/develop/addons/components/zcml.html>`_.
