@@ -62,18 +62,19 @@ In the folder :file:`frontend` you need to add a new file :file:`src/components/
 
 As a first step the file will hold a placeholder only:
 
-..  code-block:: js
+..  code-block:: jsx
 
     import React from 'react';
 
     const TalkView = props => {
       return <div>I'm the TalkView component!</div>;
     };
+
     export default TalkView;
 
 Also add a convenience-import of the new component to :file:`src/components/index.js`:
 
-..  code-block:: js
+..  code-block:: jsx
 
     import TalkView from './Views/Talk';
 
@@ -84,7 +85,7 @@ This is is a common practice and allows us import the new view as ``import { Tal
 
 Now register the new component as default view for talks in :file:`src/config.js`.
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 1,7-10
 
     import { TalkView } from './components';
@@ -106,7 +107,7 @@ When Volto is running (with ``yarn start``) it picks up these changes and displa
 Now we will improve this view step by step.
 First we reuse the component ``DefaultView.jsx`` in our custom view:
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 2,5
 
     import React from 'react';
@@ -119,7 +120,7 @@ First we reuse the component ``DefaultView.jsx`` in our custom view:
 
 We will now add the content from the field ``details`` after the ``DefaultView``.
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 5,7,9-10
 
     import React from 'react';
@@ -155,7 +156,7 @@ We will now add the content from the field ``details`` after the ``DefaultView``
 The result is not really beautiful because the text sticks to the left border of the page.
 You need to wrap it in a ``Container`` to get the same styling as the content of ``DefaultView``:
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 3,10,12
 
     import React from 'react';
@@ -188,7 +189,7 @@ This has multiple benefits:
 
 With this changes we do discard the title-tag in the HTML head though. This will change the name occuring in the browser tab or browser head to the current site-url. To use the content title instead, you'll have to import the ``Helmet`` component, which allows to overwrite all meta tags for the HTML head like the page-title.
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 3,9-16
 
     import React from 'react';
@@ -219,7 +220,7 @@ With this changes we do discard the title-tag in the HTML head though. This will
 
 Next we add a block with info on the speaker:
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 2,16-30
 
     import React from 'react';
@@ -263,7 +264,7 @@ Next we add a block with info on the speaker:
 
 Next we add the image:
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 2,3,24-30
 
     import React from 'react';
@@ -316,7 +317,7 @@ Next we add the image:
 
 Next we add the audience:
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 2,7-11,22-30
 
     import React from 'react';
@@ -382,7 +383,7 @@ Next we add the audience:
 
 As a last step we show the last few fields ``website`` and ``company``, ``github`` and ``twitter``:
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 35-41,49-65
 
     import React from 'react';

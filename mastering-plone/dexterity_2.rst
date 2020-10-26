@@ -352,7 +352,7 @@ The ``column ..`` entries allow us to display the values of these indexes in the
 
     Adapt the talkview to use the custom index to find talks. The Volto search needs to support all indexes dynamically for that to work!
 
-    ..  code-block:: js
+    ..  code-block:: jsx
 
         <Link
           className={`ui label ${color}`}

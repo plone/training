@@ -46,7 +46,7 @@ Register the view in Volto and Plone
 
 As a first step the file will hold a placeholder again:
 
-..  code-block:: js
+..  code-block:: jsx
 
     import React from 'react';
 
@@ -57,7 +57,7 @@ As a first step the file will hold a placeholder again:
 
 Then you have to edit the :file:`index.js` to export your new View:
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 2,4
 
     import TalkView from './Views/Talk';
@@ -67,7 +67,7 @@ Then you have to edit the :file:`index.js` to export your new View:
 
 Now register the new component as layout view for folderish types in ``src/config.js``.
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 1,7-10
 
     import { TalkListView, TalkView } from './components';
@@ -103,7 +103,7 @@ From now on you can select the new view for Folders:
 Now we will improve this view step by step.
 First we reuse the component ``DefaultView.jsx`` in our custom view again:
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 2,5
 
     import React from 'react';
@@ -116,7 +116,7 @@ First we reuse the component ``DefaultView.jsx`` in our custom view again:
 
 Now we want to start working directly with the context of our talks folder. To display the title and the description of the folder manually you will have to assign it at first. Afterwards you can use it to display every information the ``content`` holds like ``title`` and ``description``.
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 2-3,6-18
 
     import React from 'react';
@@ -151,7 +151,7 @@ Display the content of a folder
 
 You can iterate over all items in our talks folder by using the map ``content.items``. To build a view with some elements we used in the ``TalkView`` before, we can reuse some components and definitions like the ``color_mapping`` for the ``audience``.
 
-..  code-block:: js
+..  code-block:: jsx
       :emphasize-lines: 2-5,9-61
 
       import React from 'react';
@@ -238,7 +238,7 @@ Using the search endpoint
 To get a list of all talks - no matter where they are in our site - we can use the ``search endpoint`` of the restapi.
 That is the equivalent of using a catalog-search in classic Plone (see :ref:`views3-catalog-label`).
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 6-7,11-13,21-28
 
     import React from 'react';
@@ -391,7 +391,7 @@ For bonus points create and register it as a separate view ``Keynotes``
 
     Write the view:
 
-    ..  code-block:: js
+    ..  code-block:: jsx
         :linenos:
 
         import React from 'react';
@@ -472,7 +472,7 @@ For bonus points create and register it as a separate view ``Keynotes``
 
     To regoster it move the code toa new :file:`frontend/src/components/Views/Keynotes.jsx` and rename it to ``KeynotesView``:
 
-    ..  code-block:: js
+    ..  code-block:: jsx
 
         const KeynotesView = props => {
           [...]
@@ -482,7 +482,7 @@ For bonus points create and register it as a separate view ``Keynotes``
 
     Export it in :file:`frontend/src/components/index.js`:
 
-    ..  code-block:: js
+    ..  code-block:: jsx
         :emphasize-lines: 3,5
 
         import TalkView from './Views/Talk';
@@ -493,7 +493,7 @@ For bonus points create and register it as a separate view ``Keynotes``
 
     Register the component as layout view for folderish types in ``frontend/src/config.js``.
 
-    ..  code-block:: js
+    ..  code-block:: jsx
         :emphasize-lines: 1,10
 
         import { TalkListView, TalkView, KeynotesView } from './components';

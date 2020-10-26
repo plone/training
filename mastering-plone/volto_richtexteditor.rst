@@ -56,7 +56,7 @@ The `settings` in :file:`/src/config.js` is the place to modify the general conf
 
 :file:`/src/config.js`
 
-.. code-block:: js
+.. code-block:: jsx
     :linenos:
     :emphasize-lines: 3,4,8
 
@@ -76,7 +76,7 @@ You see that two attributes of the overall `settings`, `richTextEditorInlineTool
 
 :file:`/src/config.js`
 
-.. code-block:: js
+.. code-block:: jsx
     :linenos:
 
     import React from 'react';
@@ -106,7 +106,7 @@ You see that two attributes of the overall `settings`, `richTextEditorInlineTool
 .. admonition:: Complete code of the configuration in :file:`/src/config.js`
     :class: toggle
 
-    ..   code-block:: js
+    ..   code-block:: jsx
       :linenos:
 
       import React from 'react';

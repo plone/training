@@ -77,7 +77,7 @@ So you will need to customize the way that is used to render News Items.
 
 The Volto component to render a News Item is in ``omelette/src/components/theme/View/NewsItemView.jsx`` (remember  chapter :ref:`volto_basics-label`?).
 
-..  code-block:: js
+..  code-block:: jsx
 
     /**
      * NewsItemView view component.
@@ -168,7 +168,7 @@ You will thank yourself later for that clean diff!
 
 To display the date add the following before the text:
 
-..  code-block:: js
+..  code-block:: jsx
 
     <p>{content.created}</p>
 
@@ -178,7 +178,7 @@ Let's use one of many helpers available in React.
 
 Import the library `moment <https://momentjs.com/>`_ at the top of the file and use it to format the date in a readable format.
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 9,44
 
     /**
@@ -267,7 +267,7 @@ In fact you most likely want to show the date when the item was published.
 But while the item is not yet published that value is not yet set and you will get a error.
 So we'll add some simple logic to use the effective-date if it exists and the creation-date as a fallback.
 
-..  code-block:: js
+..  code-block:: jsx
 
     <p className="discreet">
       {(content.effective && moment(content.effective).format('lll')) ||
@@ -284,7 +284,7 @@ Customize the Summary View component that exists in ``omelette/src/components/th
 
 Copy that file to ``src/customizations/components/theme/View/SummaryView.jsx`` and add the following after the description:
 
-..  code-block:: js
+..  code-block:: jsx
 
     <p className="discreet">
       {(item.effective && moment(item.effective).format('lll')) ||
@@ -303,7 +303,7 @@ You will see that the listing block does not display the date as well.
 
 Copy ``omelette/src/components/manage/Blocks/Listing/DefaultTemplate.jsx`` to ``src/customizations/components/manage/Blocks/Listing/DefaultTemplate.jsx`` and add the dates as you did with the Summary View.
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 6,49-52
 
     import React from 'react';
@@ -394,7 +394,7 @@ You need to make a small change to allow setting the locale here.
 Wrap the Container with ``{}`` and return the container.
 Put the locale-setting before it.
 
-..  code-block:: js
+..  code-block:: jsx
     :emphasize-lines: 10,21-25,62
 
     /**

@@ -33,7 +33,7 @@ Here are some things you should know if you are new to Plone 6 or Volto:
 Here is an example for a view in Volto, the view for News Items. You can find it in ``frontend/omelette/src/components/theme/View/NewsItemView.jsx``:
 
 
-..   code-block:: js
+..   code-block:: jsx
 
     /**
      * NewsItemView view component.

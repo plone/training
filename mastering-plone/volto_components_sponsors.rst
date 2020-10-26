@@ -106,14 +106,14 @@ We will now see how to achieve in Volto frontend the equivalent to the Plone vie
 Customizing the Footer
 ----------------------
 
-You can override any component that lives inside Volto's source folder ``frontend/omelette/src/components`` and adapt it to your needs, without touching the original component. 
+You can override any component that lives inside Volto's source folder ``frontend/omelette/src/components`` and adapt it to your needs, without touching the original component.
 
 The sponsors shall live in the footer of a page. To customize the given footer component we copy the ``Footer.jsx`` file :file:`frontend/omelette/src/components/theme/Footer/Footer.jsx` from Volto. We insert the copied file to our app regarding the original folder structure but inside our customizations folder :file:`frontend/src/customizations/components/theme/Footer/Footer.jsx`.
 
 
 .. only:: not presentation
 
-  In this file ``Footer.jsx`` we can now modify the to be rendered html by adding a subcomponent ``Sponsors``. 
+  In this file ``Footer.jsx`` we can now modify the to be rendered html by adding a subcomponent ``Sponsors``.
 
 
   Be aware that the following code is JSX. JSX is Javascript that can handle html in a handy way. What you see is a component defined as an arrow function. The function returns markup consisting of enriched html: The tag ``<Sponsors />`` forces a rendering of the Sponsors component.
@@ -185,10 +185,10 @@ Getting the sponsors data
 
 With our ``Sponsors`` component in place we can take the next step and explore Volto some more to figure out how it does data fetching.
 
-As the data is in the backend, we need to find a way to address it. Volto provides various predefined actions to communicate with the backend (fetching data, creating content, editing content, etc). A Redux action (that communicates with the backend) has a common pattern: It addresses the backend via REST API and updates the global app store according to the response of the backend. A component calls an action and has hereupon access to the global app store (shortened: store) with the fetched data. 
+As the data is in the backend, we need to find a way to address it. Volto provides various predefined actions to communicate with the backend (fetching data, creating content, editing content, etc). A Redux action (that communicates with the backend) has a common pattern: It addresses the backend via REST API and updates the global app store according to the response of the backend. A component calls an action and has hereupon access to the global app store (shortened: store) with the fetched data.
 
 
-For more information which actions are already provided by Volto have look at :file:`frontend/omelette/src/actions`. 
+For more information which actions are already provided by Volto have look at :file:`frontend/omelette/src/actions`.
 
 Our component will use the action ``getQueryStringResults`` to fetch data of all sponsors. It takes as arguments the path where to search, the information what to search and an argument with which key the data should be stored in the store. Remember: the result is stored in the global app store.
 
@@ -369,7 +369,7 @@ A further mapping enables the component to use the action `getQueryStringResults
 
 With these both mappings in place, the component can call the predefined action `getQueryStringResults` and has access to the fetched data via `this.props.items`.
 
-The next step is advanced and can be skipped on a first reading. As by now we fetch the sponsors data on mounting event of the component. The mounting is done once on the first visit of a page of our app. 
+The next step is advanced and can be skipped on a first reading. As by now we fetch the sponsors data on mounting event of the component. The mounting is done once on the first visit of a page of our app.
 What if a new sponsor is added? We want to achieve a re-rendering of the component on changed sponsorship. To subscribe to these changes in sponsorship, we extend our already defined connection.
 
 .. code-block:: jsx
@@ -431,7 +431,7 @@ Listening to this subscription the component shall fetch the data from the store
         );
       }
     }
-      
+
 
 
 .. _volto-component-container-presentation-label:
@@ -534,7 +534,7 @@ now render the sponsors data:
           *
           * Update component when a new sponsor is created / deleted / updated.
           * Two steps are necessary:
-          * - subscription of a value / of values in store that reflects 
+          * - subscription of a value / of values in store that reflects
           *   the fact that a new sponsor is created / deleted / updated.
           * - call search action on property change; do it here in componentDidUpdate
           */
@@ -670,17 +670,17 @@ Extend the code by displaying the list of sponsors. The data is available via pr
             </List>
           )}
         </Segment>
-    
+
     This is just one solution. You achieved to display the data? That's great! You'll see in the next step why we use <List>, <List.Item> and <Image> components and how to use Semantic UI components to simplify your code.
 
 
 We group the sponsors by sponsorship level.
 
-An Object *sponsors* using the sponsorship level as key helps to build rows with sponsors by sponsorship level. 
+An Object *sponsors* using the sponsorship level as key helps to build rows with sponsors by sponsorship level.
 
 The Semantic UI compontent *Image* is used to display the logo. It cares about the markup of an html image node with all necessary attributes in place.
 
-We also benefit from Semantic UI component *List* to build our list of sponsors. The styling can be customized but these predefined components help simplifying the code and achieve an app wide harmonic style. 
+We also benefit from Semantic UI component *List* to build our list of sponsors. The styling can be customized but these predefined components help simplifying the code and achieve an app wide harmonic style.
 
 .. seealso::
 
