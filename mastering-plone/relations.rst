@@ -194,20 +194,23 @@ The field should then look like this:
 Accessing and displaying related items
 --------------------------------------
 
-The easiest way to display related items use the render method of the default widget e.g.:
+To display related items you can use the render method of the default widget e.g.:
 
 .. code-block:: html
 
     <div tal:content="structure view/w/evil_mastermind/render" />
 
-This would render the related items as shown in https://github.com/plone/plone.app.z3cform/pull/111.
+This would render the related items like this:
 
-If you want or need to access and render relations yourself you could add a method like in the following example.
+.. figure:: https://user-images.githubusercontent.com/453208/77223704-4b714100-6b5f-11ea-855b-c6e209f1c25c.png
+    :alt: Default rendering of a RelationList (since Plone 5.2.2)
+
+If you want to access and render relations yourself you can `collective.relationhelpers <https://pypi.org/project/collective.relationhelpers>`_ and add a method like in the following example.
 
 .. code-block:: python
     :linenos:
 
-    from plone.app.contentlisting.interfaces import IContentListing
+    from collective.relationhelpers import api as relapi
     from Products.Five import BrowserView
 
 
@@ -215,56 +218,9 @@ If you want or need to access and render relations yourself you could add a meth
 
         def minions(self):
             """Returns a list of related items."""
-            results = []
-            for rel in self.context.underlings:
-                if rel.isBroken():
-                    # skip broken relations
-                    continue
-                obj = rel.to_object
-                if api.user.has_permission('View', obj=obj):
-                    results.append(obj)
-            return IContentListing(results)
+            return relapi.relations(self.context, 'underlings')
 
 It returns the related items so that you will able to render them anyway you like.
-
-.. note::
-
-    Using ``IContentListing`` to wrap list of objects or brain has a lot of benefits since it allows unified access to them.
-    It also allows you to use great helper-methods like ``obj.MimeTypeIcon()`` or ``appendViewAction()`` that will make your code more concise.
-    See https://github.com/plone/plone.app.contentlisting/#methods-of-contentlistingobjects for a list of all avilable methods.
-
-You could display the links like the default widget does like this:
-
-.. code-block:: xml
-    :linenos:
-
-    <ul>
-      <li tal:repeat="item view.minions()">
-        <span tal:define="item_type           python:item.portal_type;
-                          item_type_class     python:item.ContentTypeClass();
-                          item_wf_state_class python:item.ReviewStateClass();
-                          appendViewAction    python:item.appendViewAction();
-                          item_url            python:item.getURL();
-                          item_url            python:item_url+'/view' if appendViewAction else item_url;"
-              tal:attributes="title item_type">
-
-          <a tal:attributes="href item_url">
-            <img class="mime-icon"
-                 tal:condition="python:item_type =='File'"
-                 tal:attributes="src python:item.MimeTypeIcon();">
-
-            <span tal:attributes="class string:$item_type_class $item_wf_state_class url;"
-                  tal:content="python:item.Title()">
-                Title
-            </span>
-            <span class="discreet"
-                  tal:content="python:item.Description()">
-                Description
-            </span>
-          </a>
-        </span>
-      </li>
-    </ul>
 
 
 Creating RelationFields through the web
@@ -304,6 +260,12 @@ RelationList:
         </portal_type>
       </value_type>
     </field>
+
+
+Accessing relations and backrelations from code
+-----------------------------------------------
+
+The recommended way to create and read relations and backrelations as a developer is to use `collective.relationhelpers <https://pypi.org/project/collective.relationhelpers>`_
 
 
 The stack
@@ -370,70 +332,3 @@ So the API for getting the target is:
 In addition, the relation value knows under which attribute it has been stored as `from_attribute`. It is usually the name of the field with which the relation is created.
 But it can also be the name of a relation that is created by code, e.g. linkintegrity relations (`isReferencing`) or the relation between a working copy and the original (`iterate-working-copy`).
 
-
-Accessing relations and backrelations from code
------------------------------------------------
-
-If you want to find out which objects are related to each other, you use the relation catalog. Here is a convenience method that allows you to find all kinds of relations.
-
-.. code-block:: python
-    :linenos:
-
-    from zc.relation.interfaces import ICatalog
-    from zope.component import getUtility
-    from zope.intid.interfaces import IIntIds
-    from plone.app.linkintegrity.handlers import referencedRelationship
-
-
-    def example_get_backlinks(obj):
-        backlinks = []
-        for rel in get_backrelations(attribute=referencedRelationship):
-            if rel.isBroken():
-                backlinks.append(dict(href='',
-                                      title='broken reference',
-                                      relation=rel.from_attribute))
-            else:
-                obj = rel.from_object
-                backlinks.append(dict(href=obj.absolute_url(),
-                                      title=obj.title,
-                                      relation=rel.from_attribute))
-        return backlinks
-
-    def get_relations(obj, attribute=None, backrefs=False):
-        """Get any kind of references and backreferences"""
-        int_id = get_intid(obj)
-        if not int_id:
-            return retval
-
-        relation_catalog = getUtility(ICatalog)
-        if not relation_catalog:
-            return retval
-
-        query = {}
-        if attribute:
-            # Constrain the search for certain relation-types.
-            query['from_attribute'] = attribute
-
-        if backrefs:
-            query['to_id'] = int_id
-        else:
-            query['from_id'] = int_id
-
-        return relation_catalog.findRelations(query)
-
-
-    def get_backrelations(obj, attribute=None):
-        return get_relations(obj, attribute=attribute, backrefs=True)
-
-
-    def get_intid(obj):
-        """Return the intid of an object from the intid-catalog"""
-        intids = component.queryUtility(IIntIds)
-        if intids is None:
-            return
-        # check that the object has an intid, otherwise there's nothing to be done
-        try:
-            return intids.getId(obj)
-        except KeyError:
-            # The object has not been added to the ZODB yet
-            return
