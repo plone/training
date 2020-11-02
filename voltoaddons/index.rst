@@ -1,0 +1,22 @@
+.. _voltoaddons-label:
+
+========================
+Volto Addons Development
+========================
+
+:About: Learn how to develop Volto addons and other useful Volto patterns
+:Level: Advanced levels
+
+This is the documentation for the "Volto Addons Development" training, which is
+intended as a full day training for people who already know the basics of
+ReactJS and Volto.
+
+..  toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Volto Addons Development
+
+    intro
+
+    about/index
+    about/glossary
