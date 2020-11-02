@@ -83,19 +83,19 @@ Volto Addons
 ------------
 
 The package that will hold your own code for volto was already created when you installed the frontend with ``create-volto-app``.
-The folder :file:`volto/` that yoy created in the chapter :ref:`instructions-install_frontend-label` not only holds the  default volto frontend but also gives you the option to extend and customize the frontend.
+The folder :file:`frontend/` that you created in the chapter :ref:`instructions-install_frontend-label` not only holds the  default volto frontend but also gives you the option to extend and customize the frontend.
 
 
 Eggs
 ----
 
-When a python package is production-ready you can choose to distribute it as an egg over the python package index, `pypi <https://pypi.org>`_. This allows everyone to install and use your package without having to download the code from github. The over 270 python packages that are used by your current Plone instance are also distributed as eggs.
+When a python package is production-ready you can choose to distribute it as an egg over the python package index, `pypi <https://pypi.org>`_. This allows everyone to install and use your package without having to download the code from github. The over 250 python packages that are used by your current Plone instance are also distributed as eggs.
 
 
 .. _eggs1-inspect-label:
 
-Inspecting the package
-----------------------
+Inspecting the new package
+--------------------------
 
 In :file:`src` there is now a new folder :file:`ploneconf.site` and in there is the new package. Let's have a look at some of the files:
 
@@ -158,6 +158,13 @@ In :file:`src` there is now a new folder :file:`ploneconf.site` and in there is 
 
 ..    profiles/uninstall/
       This folder holds another GenericSetup profile. The steps in here are executed on uninstalling.
+
+.. note::
+
+    This seems like a lot of complicated boilerplate. In fact a Plone-package can be much smaller and simpler. See https://github.com/starzel/minimal for a minimal example.
+    But as stated above the stucture of the package and every part of it serves a well-defined purpose.
+
+    When you are working on large projects you will appreciate the best-practices laid down in this package.
 
 
 .. _eggs1-include-label:

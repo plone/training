@@ -252,7 +252,9 @@ You can test the type in the backend (http://localhost:8080/Plone/++add++talk) a
 
 .. note::
 
-    Not all fields look the same in the frontend and backend yet.
+    By default the frontend dies not render all fields, only the title and descriptions is visible. The server-side-rendered template instead iterates over all fields in your schema and displays them in a default way.
+
+    In one of the next chapters you will create a custom view for the new type.
 
 .. figure:: _static/dexterity_add_talk_frontend.png
 

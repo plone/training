@@ -131,7 +131,7 @@ Modifying existing types
 Creating content types TTW
 --------------------------
 
-In this step we will create a content type called *Talk* and try it out. When it's ready we will move the code from the web to the file system and into our own add-on. Later we will extend that type, add behaviors and a viewlet for Talks.
+In this step we will create a content type called *Talk* and try it out. When it's ready we will move the code from the web to the file system and into our own add-on. Later we will extend that content type.
 
 * Add new content type "Talk" and some fields for it:
 
