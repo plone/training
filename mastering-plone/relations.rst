@@ -60,6 +60,8 @@ In the following example you can only relate to Documents:
     :linenos:
     :emphasize-lines: 12
 
+    from plone.app.z3cform.widget import RelatedItemsFieldWidget
+
     relationchoice_field = RelationChoice(
         title=u"Relationchoice field",
         vocabulary='plone.app.vocabularies.Catalog',
