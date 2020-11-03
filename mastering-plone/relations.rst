@@ -54,13 +54,12 @@ Controlling what to relate to
 -----------------------------
 
 The best way to control wich item should be relatable to is to configure the widget with ``directives.widget()``.
-in the following example you can only relate to Documents:
+In the following example you can only relate to Documents:
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 11
+    :emphasize-lines: 12
 
-    # Relation Fields
     relationchoice_field = RelationChoice(
         title=u"Relationchoice field",
         vocabulary='plone.app.vocabularies.Catalog',
@@ -74,8 +73,8 @@ in the following example you can only relate to Documents:
         },
     )
 
-In this example the pattern-option is used ``basePath`` is used to force the widget to start browing the page at the site-root using the method ``plone.app.multilingual.browser.interfaces.make_relation_root_path``.
-By default the widget starts at the current context.
+The following example applies *pattern-option* ``basePath`` to force the widget to start browsing the site at the site-root using the method ``plone.app.multilingual.browser.interfaces.make_relation_root_path``.
+By default the widget starts with the current context.
 
 .. code-block:: python
     :linenos:
@@ -123,10 +122,10 @@ For even more flexibility, you can create your own `dynamic vocabularies <https:
 For more examples how to use relationfields look at :ref:`dexterity_reference-label`.
 
 
-Use a different widget for relations
+Use a tailor shaped widget for relations
 ------------------------------------
 
-Sometimes the widget for relations is not what you want since it can be hard to navigate to the content you want to relate to. To use the SelectFieldWidget you can specify it if you use your own vocabulary:
+Sometimes the widget for relations is not what you want since it can be hard to navigate to the content you want to relate to. With SelectFieldWidget and a custom vocabulary you can shape a widget for an easier selection of related items:
 
 .. code-block:: python
     :linenos:
@@ -186,9 +185,9 @@ Note that the value is the object itself, not the uuid. This is a requirement of
 The field should then look like this:
 
 .. figure:: _static/relations_with_selectwidget.png
-   :alt: RelationList with select widget
+   :alt: RelationList field with select widget SelectFieldWidget
 
-   RelationList with select widget
+   RelationList field with select widget SelectFieldWidget and custom vocabulary
 
 
 Accessing and displaying related items
@@ -205,7 +204,7 @@ This would render the related items like this:
 .. figure:: https://user-images.githubusercontent.com/453208/77223704-4b714100-6b5f-11ea-855b-c6e209f1c25c.png
     :alt: Default rendering of a RelationList (since Plone 5.2.2)
 
-If you want to access and render relations yourself you can `collective.relationhelpers <https://pypi.org/project/collective.relationhelpers>`_ and add a method like in the following example.
+If you want to access and render relations yourself you can use the Plone add-on `collective.relationhelpers <https://pypi.org/project/collective.relationhelpers>`_ and add a method like in the following example.
 
 .. code-block:: python
     :linenos:
@@ -220,7 +219,7 @@ If you want to access and render relations yourself you can `collective.relation
             """Returns a list of related items."""
             return relapi.relations(self.context, 'underlings')
 
-It returns the related items so that you will able to render them anyway you like.
+It returns the related items so that you will able to render them anyhow you like.
 
 
 Creating RelationFields through the web
@@ -265,7 +264,7 @@ RelationList:
 Accessing relations and backrelations from code
 -----------------------------------------------
 
-The recommended way to create and read relations and backrelations as a developer is to use `collective.relationhelpers <https://pypi.org/project/collective.relationhelpers>`_
+The recommended way to create and read relations and backrelations as a developer is to use `collective.relationhelpers <https://pypi.org/project/collective.relationhelpers>`_.
 
 
 The stack
@@ -273,7 +272,7 @@ The stack
 
 Relations are based on `zc.relation <https://pypi.org/project/zc.relation/>`_.
 This package stores transitive and intransitive relationships.
-It allows for complex relationships and searches along them.
+It allows complex relationships and searches along them.
 Because of this functionality, the package is a bit complicated.
 
 The package `zc.relation` provides its own catalog, a relation catalog.
