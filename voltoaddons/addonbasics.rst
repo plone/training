@@ -155,13 +155,13 @@ Volto addons.
 Use ``@plone/datatable-tutorial`` as the package name and ``src/index.js`` as
 the package main. Create ``src/index.js`` with the following content:
 
-.. code-block: jsx
+.. code-block:: jsx
 
     export default (config) => config;
 
 Back to the project, you should edit jsconfig.json and add your addon:
 
-.. code-block: json
+.. code-block:: json
 
     {
         "compilerOptions": {
@@ -177,7 +177,7 @@ Back to the project, you should edit jsconfig.json and add your addon:
 You can also immediately push the package to Github then use mrs-developer to
 manage the package and jsconfig.json changes. Add to mrs-developer.json:
 
-.. code-block: json
+.. code-block:: json
 
     "datatable-tutorial": {
         "url": "https://github.com/collective/datatable-tutorial.git",
@@ -194,7 +194,7 @@ When developing addons that have third-party depedencies, you need to add the
 addon as a workspace to the Volto project. Change the Volto project's
 package.json to something like:
 
-.. code-block: json
+.. code-block:: json
 
     "private": "true",
     "workspaces": [
@@ -204,11 +204,10 @@ package.json to something like:
 To add dependencies to the addon you need to add them via the workspaces root,
 by running something like:
 
-.. code-block: sh
+.. code-block:: sh
 
     yarn workspaces info
     yarn workspace @plone/datatable-tutorial add react-color
-
 
 Note: there are several addon templates, such as
 https://github.com/nzambello/voltocli or
@@ -217,6 +216,124 @@ https://github.com/eea/volto-addon-template
 While the community settles on what constitutes best practice for an addon's
 essential files, you should be aware that an addon is just a simple
 package.json and an index.js file. Everything else it's up to you.
+
+Create a new block
+------------------
+
+- Create DataTable/DataTableView.jsx
+
+.. code-block::
+
+    import React from 'react';
+
+    const DataTableView = (props) => {
+      return <div>Table here...</div>;
+    };
+
+    export default DataTableView;
+
+- Create DataTable/DataTableEdit.jsx
+
+.. code-block::
+
+    import React from 'react';
+    import DataTableView from './DataTableView';
+
+    const DataTableEdit = (props) => {
+      return (
+        <div>
+          <DataTableView />
+        </div>
+      );
+    };
+
+    export default DataTableEdit;
+
+- (Optional) create DataTable/index.js:
+
+.. code-block::
+
+    export DataTableView from './DataTableView';
+    export DataTableEdit from './DataTableEdit';
+
+- Register the block in src/index.js
+
+.. code-block::
+
+    import tableSVG from '@plone/volto/icons/table.svg';
+
+    import DataTableView from './DataTable/DataTableView';
+    import DataTableEdit from './DataTable/DataTableEdit';
+
+    export { DataTableView, DataTableEdit };
+
+    export default (config) => {
+        config.blocks.blocksConfig.dataTable = {
+            id: 'dataTable',
+            title: 'Data Table',
+            icon: globeSVG,
+            group: 'common',
+            view: DataTableView,
+            edit: DataTableEdit,
+            restricted: false,
+            mostUsed: false,
+            sidebarTab: 1,
+            security: {
+              addPermission: [],
+              view: [],
+            },
+        };
+        return config;
+    }
+
+Create the new block in Volto, save the page.
+
+Improving the block edit
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Now for the simplest block sidebar:
+
+.. codeblock:: jsx
+
+    import React from 'react';
+    import { Segment, Form } from 'semantic-ui-react';
+    import { SidebarPortal, Field } from '@plone/volto/components';
+    import DataTableView from './DataTableView';
+
+    const DataTableEdit = (props) => {
+      const { selected, onChangeBlock, block, data } = props;
+      return (
+        <div>
+          <SidebarPortal selected={selected}>
+            <Segment.Group raised>
+              <header className="header pulled">
+                <h2>Data table</h2>
+              </header>
+
+              <Form>
+                <Field
+                  id="file"
+                  widget="pick_object"
+                  title="Pick file"
+                  value={data.file}
+                  onChange={(id, value) =>
+                    onChangeBlock(block, { ...data, [id]: value })
+                  }
+                />
+              </Form>
+            </Segment.Group>
+          </SidebarPortal>
+          <DataTableView />
+        </div>
+      );
+    };
+
+    export default DataTableEdit;
+
+- Create schema.jsx
+- Load a file
+
 
 Glossary
 --------
