@@ -2,13 +2,19 @@ Improve the block edit. We're now showing an object picker.
 
 .. code-block:: jsx
 
+
     import React from 'react';
     import { Segment, Form } from 'semantic-ui-react';
-    import { SidebarPortal, Field } from '@plone/volto/components';
+    import { SidebarPortal, Field, Icon } from '@plone/volto/components';
+    import tableSVG from '@plone/volto/icons/table.svg';
+
     import DataTableView from './DataTableView';
+
+    import './datatable-edit.less';
 
     const DataTableEdit = (props) => {
       const { selected, onChangeBlock, block, data } = props;
+
       return (
         <div className="datatable-edit">
           <SidebarPortal selected={selected}>
@@ -16,25 +22,51 @@ Improve the block edit. We're now showing an object picker.
               <header className="header pulled">
                 <h2>Data table</h2>
               </header>
+              {!data.file_path?.length ? (
+                <>
+                  <Segment className="sidebar-metadata-container" secondary>
+                    No file selected
+                    <Icon name={tableSVG} size="100px" color="#b8c6c8" />
+                  </Segment>
+                </>
+              ) : (
+                <Form>
+                  <Field
+                    id="file_path"
+                    widget="pick_object"
+                    title="Data file"
+                    value={data.file_path || []}
+                    onChange={(id, value) => {
+                      onChangeBlock(block, {
+                        ...data,
+                        [id]: value,
+                      });
+                    }}
+                  />
+                </Form>
+              )}
             </Segment.Group>
           </SidebarPortal>
-          {data.url ? <DataTableView /> : ''}
-          {!data.url ? (
+          {data.file_path?.length ? (
+            <DataTableView {...props} />
+          ) : (
             <div className="no-value">
               <Form>
+                <Icon name={tableSVG} size="100px" color="#b8c6c8" />
                 <Field
-                  id="url"
+                  id="file_path"
                   widget="pick_object"
                   title="Pick a file"
-                  value={data.url}
-                  onChange={(id, value) =>
-                    onChangeBlock(block, { ...data, [id]: value })
-                  }
+                  value={data.file_path || []}
+                  onChange={(id, value) => {
+                    onChangeBlock(block, {
+                      ...data,
+                      [id]: value,
+                    });
+                  }}
                 />
               </Form>
             </div>
-          ) : (
-            ''
           )}
         </div>
       );
@@ -42,7 +74,8 @@ Improve the block edit. We're now showing an object picker.
 
     export default DataTableEdit;
 
-Add the following ``datatable.less`` file:
+
+Add the following ``datatable-edit.less`` file:
 
 .. code-block:: less
 
@@ -63,10 +96,3 @@ Add the following ``datatable.less`` file:
         margin: 0em auto;
       }
     }
-
-And include it somewhere where it would be loaded, for example
-DataTableView.jsx.
-
-.. code-block:: jsx
-
-    import './datatable.less';
