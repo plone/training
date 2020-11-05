@@ -201,13 +201,13 @@ package.json to something like:
         "src/addons/datatable-tutorial"
     ],
 
-To add dependencies to the addon you need to add them via the workspaces root,
-by running something like:
+To be able to add dependencies to the addon you need to add them via the
+workspaces root, by running something like:
 
 .. code-block:: sh
 
     yarn workspaces info
-    yarn workspace @plone/datatable-tutorial add react-color
+    yarn workspace @plone/datatable-tutorial add @fast-csv/parse
 
 Note: there are several addon templates, such as
 https://github.com/nzambello/voltocli or
@@ -333,14 +333,3 @@ Now for the simplest block sidebar:
 
 - Create schema.jsx
 - Load a file
-
-
-Glossary
---------
-
-- addons: a JS package that integrates with Volto's configuration registry
-- addon configuration loader: a function with signature ``config => config``.
-- Razzle: a tool that simplifies SPA and SSR configuration for ReactJS
-- Webpack: we tool that loads and bundles code and web resources using loaders
-- Babeljs: a Javascript compiler that "transpiles" newer standards JS to
-  something that any browser can load.

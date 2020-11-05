@@ -208,3 +208,16 @@ Then create the ``reducers/rawdata.js`` module:
       }
       return state;
     }
+
+Finally, register the addon reducer. In ``src/index.js``'s default export:
+
+.. code-block:: jsx
+
+    import { rawdata } from './reducers';
+
+    ...
+
+    config.addonReducers.rawdata = rawdata;
+
+Note: make sure to change the project's src/config.js to import default
+addonReducers and them export them.
