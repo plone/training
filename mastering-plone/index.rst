@@ -79,6 +79,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     thirdparty_behaviors
     dexterity_3
     volto_components_sponsors
+    volto_addon
     relations
     registry
     frontpage
