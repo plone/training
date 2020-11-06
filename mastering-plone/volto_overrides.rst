@@ -27,6 +27,8 @@ Topics covered:
 * Blocks
 
 
+.. _volto_overrides-componentshadowing-label:
+
 Component shadowing
 -------------------
 
