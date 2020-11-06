@@ -144,26 +144,20 @@ block data.
 .. code-block:: jsx
 
     const DataTableView = ({ file_data, data }) => {
-      const available_fields =
-        data.columns?.map((c) => c.column) || file_data?.meta?.fields || [];
-
-      const columns = Object.assign(
-        ...(file_data?.meta?.fields?.map((f) => ({ [f]: { column: f } })) || []),
-        ...(data.columns?.map((c) => ({ [c.column]: c })) || []),
-      );
-
-      const show_fields =
-        available_fields.length > 0
-          ? available_fields
-          : file_data?.meta?.fields || [];
+      const columns =
+        data.columns?.length > 0
+          ? data.columns
+          : file_data?.meta?.fields?.map((n) => ({
+              column: n,
+            }));
 
       return file_data ? (
         <Table {...format(data)}>
           <Table.Header>
             <Table.Row>
-              {show_fields.map((f) => (
-                <Table.HeaderCell key={f} textAlign={columns[f].textAlign}>
-                  {columns[f].title || columns[f].column}
+              {show_fields.map((col, i) => (
+                <Table.HeaderCell key={i} textAlign={col.textAlign}>
+                  {col.title || col.column}
                 </Table.HeaderCell>
               ))}
             </Table.Row>
@@ -171,11 +165,11 @@ block data.
           <Table.Body>
             {file_data.data.map((o, i) => (
               <Table.Row key={i}>
-                {show_fields.map((f) => (
-                  <Table.Cell textAlign={columns[f].textAlign}>
-                    {columns[f].textTemplate
-                      ? columns[f].textTemplate.replace('{}', o[f])
-                      : o[f]}
+                {columns.map((col, y) => (
+                  <Table.Cell textAlign={col.textAlign}>
+                    {col.textTemplate
+                      ? col.textTemplate.replace('{}', o[col.column])
+                      : o[col.column]}
                   </Table.Cell>
                 ))}
               </Table.Row>
@@ -264,5 +258,5 @@ Now go back to the schema and let's use the new text align widget:
 volto-object-widget provides drag/drop sorting of the columns so it's possible
 to reorder the columns.
 
-Let's ship it! And we could call this done... but let's go some steps further
-and explore how to further enhance this addon's reusability and extensability.
+we could call this done for now... but let's go some steps further and explore
+how to further enhance this addon's reusability and extensability.
