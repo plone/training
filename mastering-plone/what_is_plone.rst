@@ -12,8 +12,8 @@ Plone is an open source Content Management System (CMS) built in Python. A CMS l
 * Plone 5.1 and below support Python 2
 * Plone 5.2 supports Python 3 and 2
 * Plone 6 supports Python 3
-* `RESTful hypermedia API <https://github.com/plone/plone.restapi/>`_
-* React frontend "Volto"
+* `RESTful hypermedia API <https://plonerestapi.readthedocs.io/en/latest//>`_
+* Optional React frontend and editor 'Volto'
 * Based on the Web-Framework Zope
 * Database: "Zope Object Database" (ZODB) or ORM & SQL/Postgres/Oracle
 * Runs on Linux, macOS, BSD, Solaris, NixOS and Windows
@@ -158,7 +158,7 @@ Rest API
 --------
 
 `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/>`_
-is has a hypermedia API to access Plone content using REST (Representational State Transfer).
+is a hypermedia API to access Plone content using REST (Representational State Transfer).
 
 It is used to connect the Volto frontend with Plone.
 
@@ -166,7 +166,7 @@ It is used to connect the Volto frontend with Plone.
 Volto Frontend
 --------------
 
-`Volto <https://github.com/plone/volto>`_ is the frontend for Plone 6 written in React. It uses the restapi to communicate with the backend and offers a modern user experience.
+`Volto <https://github.com/plone/volto>`_ is a frontend for Plone 6 written in ReactJS. It uses the Rest API to communicate with the backend and offers a modern user experience.
 
 
 Classic Frontend
