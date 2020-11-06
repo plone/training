@@ -18,7 +18,7 @@ Improve the block edit. We're now showing an object picker.
       const { selected, onChangeBlock, block, data } = props;
 
       return (
-        <div className="datatable-edit">
+        <div className="dataTable-edit">
           <SidebarPortal selected={selected}>
             <Segment.Group raised>
               <header className="header pulled">
@@ -86,7 +86,7 @@ Add the following ``datatable-edit.less`` file:
 
     @import (multiple) '../../theme.config';
 
-    .datatable-edit {
+    .dataTable-edit {
       background: @offWhite;
 
       .form {

@@ -197,7 +197,7 @@ To use the schema we need to change the block edit component:
       const schema = TableSchema(props);
 
       return (
-        <div className="datatable-edit">
+        <div className="dataTable-edit">
           <SidebarPortal selected={selected}>
             {!data.file_path?.length ? (
               <Segment.Group raised>
@@ -255,3 +255,99 @@ To use the schema we need to change the block edit component:
 
     export default DataTableEdit;
 
+For the view component we've created a HOC mechanism that grants automatic data
+injection to. Can we do the same and simplify the Edit component? Let's make
+the "new block needs to point to a file" a mechanism that we can reuse. Perhaps
+later we'll write a chart block that uses the CSV file, so we'll be able to
+reuse code by composing.
+
+.. code-block:: jsx
+
+    const DataTableEdit = (props) => {
+      const { selected, onChangeBlock, block, data } = props;
+      const schema = TableSchema(props);
+
+      return (
+        <>
+          <SidebarPortal selected={selected}>
+            <InlineForm
+              schema={schema}
+              title={schema.title}
+              onChangeField={(id, value) => {
+                onChangeBlock(block, {
+                  ...data,
+                  [id]: value,
+                });
+              }}
+              formData={data}
+            />
+          </SidebarPortal>
+          <DataTableView {...props} />
+        </>
+      );
+    };
+
+    export default withBlockDataSource({
+      icon: tableSVG,
+      title: 'Data table',
+      getFilePath: ({ data: { file_path } }) => file_path,
+    })(DataTableEdit);
+
+And the withBlockDataSource HOC:
+
+.. code-block:: jsx
+
+    import React from 'react';
+    import { Segment, Form } from 'semantic-ui-react';
+    import { SidebarPortal, Field, Icon } from '@plone/volto/components';
+
+    const withBlockDataSource = (opts) => (WrappedComponent) => {
+      const { icon, title, getFilePath } = opts;
+
+      return (props) => {
+        const { data, selected, onChangeBlock, block } = props;
+        const file_path = getFilePath(props);
+
+        return (
+          <div className={`${data['@type']}-edit`}>
+            {!file_path ? (
+              <>
+                <div className="no-value">
+                  <Form>
+                    <Icon name={icon} size="100px" color="#b8c6c8" />
+                    <Field
+                      id="file_path"
+                      widget="pick_object"
+                      title="Pick a file"
+                      value={file_path || []}
+                      onChange={(id, value) => {
+                        onChangeBlock(block, {
+                          ...data,
+                          [id]: value,
+                        });
+                      }}
+                    />
+                  </Form>
+                </div>
+
+                <SidebarPortal selected={selected}>
+                  <Segment.Group raised>
+                    <header className="header pulled">
+                      <h2>{title}</h2>
+                    </header>
+                    <Segment className="sidebar-metadata-container" secondary>
+                      No file selected
+                      <Icon name={icon} size="100px" color="#b8c6c8" />
+                    </Segment>
+                  </Segment.Group>
+                </SidebarPortal>
+              </>
+            ) : (
+              <WrappedComponent {...props} />
+            )}
+          </div>
+        );
+      };
+    };
+
+    export default withBlockDataSource;
