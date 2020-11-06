@@ -184,12 +184,6 @@ Create the ``faq_view`` in Volto and use the actions and reducers created above.
          * @class FaqView
          * @extends Component
          */
-        @connect(
-          state => ({
-            items: state.faq.items,
-          }),
-          dispatch => bindActionCreators({ getFaq }, dispatch),
-        )
         class FaqView extends Component {
           /**
            * Property types.
@@ -259,7 +253,12 @@ Create the ``faq_view`` in Volto and use the actions and reducers created above.
           }
         }
 
-        export default FaqView;
+        export default connect(
+          state => ({
+            items: state.faq.items,
+          }),
+          dispatch => bindActionCreators({ getFaq }, dispatch),
+        )(FaqView);
 
     ``components/index.jsx``
 
