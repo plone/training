@@ -123,8 +123,9 @@ We'll create the ``withFileData.js`` file in ``hocs``:
         const content = request?.data;
 
         React.useEffect(() => {
-          if (path && !content) dispatch(getRawContent(path));
-        }, [dispatch, path, content]);
+          if (path && !request?.loading && !request?.loaded && !content)
+            dispatch(getRawContent(path));
+        }, [dispatch, path, content, request?.loaded, request?.loading]);
 
         const file_data = React.useMemo(() => {
           if (content) {
