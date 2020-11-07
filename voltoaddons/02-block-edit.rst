@@ -1,7 +1,9 @@
 The basic block
 ===============
 
-Improve the block edit. We're now showing an object picker.
+Let's improve the block edit. We'll detect when the block has just been added
+and provide the user with a way to immediately pick a file, from the block's
+main area.
 
 .. code-block:: jsx
 
@@ -99,12 +101,17 @@ Add the following ``datatable-edit.less`` file:
       }
     }
 
-And for the view, we'll fetch the data directly from Plone, in the frontend.
+Notice that by importing `'../../theme.config'` we're able to have access to
+Volto's LESS variables.
+
+For the view, we'll fetch the data directly from Plone and bring it to the
+client browser.
 
 Note: there are other possible approaches to this problem, including
 transforming the block data on outbound with a block serializer transformer, to
-automatically insert CSV file in the block. This approach has its merits but
-also difficulties given by current Volto code.
+automatically insert CSV file in the block and remove it on inbound
+(deserialization). By having it available separately we make it easier to
+reference the same date from multiple blocks.
 
 .. code-block:: jsx
 
@@ -144,7 +151,7 @@ Create action type in the ``constants.js`` file:
 
     export const GET_RAW_CONTENT = 'GET_RAW_CONTENT';
 
-Create the rawcontent action module:
+Create the ``rawcontent.js`` action module:
 
 .. code-block:: jsx
 
