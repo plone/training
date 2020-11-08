@@ -41,6 +41,17 @@ At the end of this course you will know how to extend Volto using addons, what
 are the current capabilities of addons, their advantages, how to distribute
 them and how to deploy them.
 
+Roadmap
+-------
+
+- bootstrap a Volto project using the yo generator
+- bootstrap a Volto addon from scratch
+- develop a simple Volto block
+- write an action/reducer pair for network requests
+- connect the block to async data
+- split code into generic bits
+-
+
 .. _voltoaddons-intro-documentation-label:
 
 The hands-on exercise

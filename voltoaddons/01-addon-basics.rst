@@ -148,10 +148,10 @@ by running:
     cd datatable-tutorial
     npm init
 
-Note: the namespace ``@plone`` (or any other) is not required, but of course it
-can be anything. We're using namespaces to group your addons under a common
-"group". There is no shared addon namespace right now for Volto addons as the
-NPM collective organization doesn't belong to Plone.
+Note: the namespace ``@plone`` (or any other) is not required and is optional.
+We're using namespaces to group addons under a common "group". There is no
+shared addon namespace right now for Volto addons as the NPM Collective
+organization doesn't belong to the Plone community.
 
 Use ``@plone/datatable-tutorial`` as the package name and ``src/index.js`` as
 the package main. Create ``src/index.js`` with the following content:
