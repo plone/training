@@ -1,15 +1,14 @@
-What is a Volto addon?
-======================
+Basics of Volto addons development
+==================================
 
-Basic anatomy of Volto
-----------------------
+Volto: an overview
+------------------
 
-Assuming you're familiar already with Volto and how it loads, you'll already
-know that Volto provides Server Side Rendering: when you load a Volto
-page you'll first load an HTML page, in theory identical in its markup to the
-final desired output of that page. The HTML page will also load a bunch of JS
-files which, when loaded, finally bring Volto to run as a Single Page
-Application in the browser.
+One of the basic aspects of Volto is that it provides Server-Side Rendering
+(SSR): when you first load a Volto page you'll get HTML code identical in its
+markup to the React-rendered output of that page. The HTML page will also load
+a bunch of JS files which, when loaded, finally bring Volto to run as a Single
+Page Application (SPA) in the browser.
 
 Another basic fact, Volto is a React app which is transpiled from JSX and
 ECMAScript 6 using Babel, then bundled, chunked and minified by Webpack.
@@ -23,32 +22,29 @@ It runs the Volto React code and components, then sends them to the browser as
 a normal HTML page. It also proxies some of the Plone resources, such as files
 and images.
 
-Note: For advanced use-cases, it's possible to hitch on Volto's Express
-server and run additional applications, such as proxies for internal services.
-
-When generating the client-side files, Webpack will need to know how to find,
-load and potentially mutate (compress, transpile, minify, etc) the files that
-represent the code and resources of Volto, Volto project and Volto addons.
-The base is provided by Razzle, with instructions for Webpack to transpile .js
-and .jsx files with Babel, load .less files, css, images and svgs. For any
-other file type (for example .scss, .ts, etc) you'll have to enhance the Razzle
-configuration with the appropriate Webpack loader. Check if there's already
-a Razzle plugin, for example ``.scss`` support can be simply added by adding
-``scss`` to the razzle.config.js ``plugins`` list.
+Check if there's already a Razzle plugin, for example ``.scss`` support can be
+To generate the second entrypoint, the client-only bundle, Webpack will need
+Webpack to transpile .js and .jsx files with Babel, load .less files, css,
+and Volto addons.  The base is provided by Razzle, with instructions for
+etc) the files that represent the code and resources of Volto, the Volto project
+have to enhance the Razzle configuration with the appropriate Webpack loader.
+images and svgs. For any other file type (for example .scss, .ts, etc) you'll
+simply added by adding ``scss`` to the razzle.config.js ``plugins`` list.
+to know how to find, load and potentially mutate (compress, transpile, minify,
 
 To summarize: Volto runs as a Single Page Application packaged by Webpack,
 which uses loaders such as Babel (for ES6 js/jsx files) or less-loader for
 ``.less`` files.
 
-Bootstrap a Volto project
--------------------------
+Bootstrap a new Volto project
+-----------------------------
 
 Although it's possible to run Volto with npm as the Node package manager, the
 community has settled, for now, to the Yarn Classic (v1.x) package manager.
 Yarn is used as an installer, to run scripts but also as a "virtual
-environment" by using its workspaces feature. Typically you'll start Volto
+environment", by using its workspaces feature. Typically you'll start Volto
 applications with ``yarn start``, use ``yarn test`` but you can also integrate
-the mrs-developer library and run ``yarn missdev`` to do tasks similar to
+the ``mrs-developer`` library and run ``yarn missdev`` to do tasks similar to
 mr.developer in Buildout projects.
 
 To bootstrap a new Volto project, you can use either create-volto-app:
@@ -57,7 +53,7 @@ To bootstrap a new Volto project, you can use either create-volto-app:
 
     npm -g i @plone/create-volto-app
 
-or, using the new yeoman-based generator-volto:
+or the new yeoman-based generator-volto:
 
 .. code-block:: bash
 
@@ -68,15 +64,17 @@ or, using the new yeoman-based generator-volto:
 The yo-based generator partially integrates addons (it can generate
 a package.json with addons and workspaces already specified).
 
-Addons - a first look
----------------------
+Addons - first look
+-------------------
 
-Although still in their infancy, 2020 is the year of the Volto addons. The
-addons configuration mechanism was added to Volto and with it many open source
-generic addons were published. The collective/awesome-volto repo tracks of most
-of them (submit PRs if there's anything missing!).
+Although still in their infancy, 2020 is the year of the Volto addons.  The
+Bethoven Sprint was a key moment in taking a common decision on how to load the
+addons and what capabilities they should have.  Once the addons configuration
+mechanism was added to Volto, many open source generic addons were published.
+The collective/awesome-volto repo tracks of most of them (submit PRs if there's
+anything missing!).
 
-An addon can be almost anything that a Volto project can be. They can:
+An addon can be almost anything that a Volto project can be. Addons can:
 
 - provide additional views and blocks
 - override or extend Volto's builtin views, blocks, settings
@@ -85,17 +83,17 @@ An addon can be almost anything that a Volto project can be. They can:
 - provide custom Redux actions and reducers
 - register custom Express middleware for Volto's server process
 - tweak Volto's webpak configuration, load custom Razzle and Webpack plugins
-- even provide a custom theme, just like the Volto project does.
+- even provide a custom theme, just like a regular Volto project does.
 
 Basically, anything that a Volto project can do in terms of extending Volto
 with new functionality, an addon can do as well.
 
-In implementation, the Volto addons are JS npm packages with an additional
-feature: they provide helper functions that can mutate Volto's configuration
-registry. These are the "addon configuration loader". To make things easy,
-addons should be distributed as source, non transpiled. Their ``main`` entry in
-``package.json`` should point to ``src/index.js``, which should be an ES6
-module with a default export, the addon configuration loader:
+As for implementation, Volto addons are just JS CommonJS packages with an
+additional feature: they provide helper functions that can mutate Volto's
+configuration registry. These are the "addon configuration loader". To make
+things easy, addons should be distributed as source, non transpiled. Their
+``main`` entry in ``package.json`` should point to ``src/index.js``, which
+should be an ES6 module with a default export, the addon configuration loader:
 
 .. code-block:: jsx
 
@@ -119,8 +117,8 @@ enabling the project to override any configuration.
 
 So: ``Volto => addons => project``.
 
-To load an addon, the project needs to specify the addon in its project.json
-``addons`` key:
+To load an addon, the project needs to specify the addon in its
+``project.json`` ``addons`` key:
 
 .. code-block:: js
 
@@ -243,12 +241,15 @@ Create a new block
     const DataTableEdit = (props) => {
       return (
         <div>
-          <DataTableView />
+          <DataTableView {...props} />
         </div>
       );
     };
 
     export default DataTableEdit;
+
+We're reusing the block view component inside the edit, this makes the block
+development fast.
 
 - Create DataTable/index.js. This step is optional, but it makes imports nicer
   across the project. Make sure to adjust the subsequent code, if you don't add
@@ -333,5 +334,15 @@ Now for the simplest block sidebar:
 
     export default DataTableEdit;
 
-- Create schema.jsx
-- Load a file
+We want to show a field to browse to a file. Notice the ``widget`` parameter of
+the field. This widget is not registered by default in Volto, let's register
+it, add this in ``index.js``:
+
+.. code-block:: jsx
+
+    import { ObjectBrowserWidgetMode } from '@plone/volto/components/manage/Widgets/ObjectBrowserWidget';
+
+    ...
+
+    if (!config.widgets.widget.pick_object)
+        config.widgets.widget.pick_object = ObjectBrowserWidgetMode('link');
