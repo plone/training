@@ -101,7 +101,7 @@ Add the following ``datatable-edit.less`` file:
       }
     }
 
-Notice that by importing `'../../theme.config'` we're able to have access to
+Notice that by importing ``'../../theme.config'`` we're able to have access to
 Volto's LESS variables.
 
 For the view, we'll fetch the data directly from Plone and bring it to the
@@ -111,7 +111,7 @@ Note: there are other possible approaches to this problem, including
 transforming the block data on outbound with a block serializer transformer, to
 automatically insert CSV file in the block and remove it on inbound
 (deserialization). By having it available separately we make it easier to
-reference the same date from multiple blocks.
+reference the same data from multiple blocks.
 
 .. code-block:: jsx
 
