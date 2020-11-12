@@ -1,5 +1,6 @@
-Basics of Volto addons development
-==================================
+========================
+Volto addons development
+========================
 
 Volto: an overview
 ------------------

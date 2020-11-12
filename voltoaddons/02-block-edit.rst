@@ -1,5 +1,6 @@
-The basic block
-===============
+===================
+Basic working block
+===================
 
 Let's improve the block edit. We'll detect when the block has just been added
 and provide the user with a way to immediately pick a file, from the block's

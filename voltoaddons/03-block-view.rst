@@ -1,3 +1,7 @@
+======================
+Improve the block view
+======================
+
 Let's add CSV file parsing.
 
 There are many CSV parsers available for node/js, we'll just pick one and move
@@ -86,9 +90,15 @@ And finally, the new block code:
 
     export default DataTableView;
 
-Can we abstract the data grabbing logic?
+The React HOC Pattern
+---------------------
 
-Let's write a simple Higher Order Component that does the data grabbing:
+It is a good idea to split the code in generic "code blocks" so that behavior
+and look are separated. This has many benefits: it makes components easier to
+write and test, it separates business logic in reusable behaviors, etc.
+
+So, Can we abstract the data grabbing logic?  Let's write a simple Higher Order
+Component (HOC) that does the data grabbing:
 
 .. code-block:: jsx
 

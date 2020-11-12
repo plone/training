@@ -18,5 +18,17 @@ ReactJS and Volto.
 
     intro
 
+    01-addon-basics
+    02-block-edit
+    03-block-view
+    04-block-edit-options
+    05-objectwidget-block-edit
+    06-cell-renderer
+    07-misc-addons
+
+    jsbasics
+    devenvironment
+    blocksrestapi
+
     about/index
     about/glossary

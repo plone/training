@@ -1,3 +1,7 @@
+=======================================
+Developer integration with text editors
+=======================================
+
 eslint
 
 VIM configuration: ALE provides automatic integration

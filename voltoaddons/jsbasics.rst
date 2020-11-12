@@ -1,3 +1,7 @@
+=======================
+Javascript enhancements
+=======================
+
 Destructuring
 =============
 
@@ -13,6 +17,13 @@ Destructuring objects:
 .. code-block:: jsx
 
     const ({a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40});
+
+Provide fallback value
+
+.. code-block:: jsx
+
+    const ({a, b, e = 50, ...rest} = {a: 10, b: 20, c: 30, d: 40});
+
 
 See more:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment

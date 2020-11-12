@@ -1,3 +1,7 @@
+====================
+Customizable columns
+====================
+
 Let's add a bit more control over how the columns are rendered. This is quite
 a "low hanging fruit" thanks to the ``volto-object-widget`` addon. This addon
 has another dependency, the volto-blocks-form, so let's add them both:
@@ -188,6 +192,9 @@ Of course, now the sky is the limit. We could enhance this with number
 formating provided by a library to humanize and automatically format those
 values, or d3's format. There's plenty of choices.
 
+Write a new Volto widget
+------------------------
+
 Let's enhance the edit form by creating an align widget for the text align
 field. Let's create ``src/widgets/TextAlign.jsx``.
 
@@ -258,5 +265,5 @@ Now go back to the schema and let's use the new text align widget:
 volto-object-widget provides drag/drop sorting of the columns so it's possible
 to reorder the columns.
 
-we could call this done for now... but let's go some steps further and explore
+We could call this done for now... but let's go some steps further and explore
 how to further enhance this addon's reusability and extensability.

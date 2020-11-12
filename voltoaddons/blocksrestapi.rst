@@ -1,10 +1,14 @@
-Block transformations
----------------------
+===================================
+Plone integration with Volto blocks
+===================================
 
 When developing for Volto websites, don't neglect the server-side, Plone.
 Beyond the regular endpoints and expanders that plone.restapi offers, there's
 a few dedicated features that can improve the quality of Volto-powered
 websites.
+
+Block transformations
+---------------------
 
 The main feature that applies to Volto blocks is called the "blocks
 transformers". They are adaptors that can be registered per block type and can
@@ -52,15 +56,15 @@ Searchable text from blocks
 
 .. code-block:: python
 
-	@implementer(IBlockSearchableText)
-	@adapter(IBlocks, IBrowserRequest)
-	class ImageSearchableText(object):
-		def __init__(self, context, request):
-			self.context = context
-			self.request = request
+    @implementer(IBlockSearchableText)
+    @adapter(IBlocks, IBrowserRequest)
+    class ImageSearchableText(object):
+        def __init__(self, context, request):
+            self.context = context
+            self.request = request
 
-		def __call__(self, block_value):
-			return block_value['alt_text']
+        def __call__(self, block_value):
+            return block_value['alt_text']
 
 This adapter needs to be registered as a named adapter, where the name is the
 same as the block type (its @type property from the block value).
@@ -70,8 +74,7 @@ same as the block type (its @type property from the block value).
     <adapter name="image" factory=".indexers.ImageBlockSearchableText" />
 
 
-Examples of smart fields:
+Examples of potential smart fields:
 
-- ``_v_`` blocks
+- ``_v_*`` blocks, to provide volatile data from the backend
 - blob
-

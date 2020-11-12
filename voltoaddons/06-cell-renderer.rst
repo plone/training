@@ -1,5 +1,6 @@
-Advanced block extending scenarios
-==================================
+=========================
+Make the block extendable
+=========================
 
 Wouldn't it be nice if we could have a way to customize, per column, how the
 values are rendered and go even further then the ``textTemplate`` field would
@@ -75,7 +76,7 @@ The old text template-based implementation can be moved to an extension, like:
 
     export default TextTemplateRenderer;
 
-For the Progress renderer, we'll not extend the schema for now:
+For the Progress renderer, we won't extend the schema:
 
 .. code-block:: jsx
 
@@ -90,8 +91,8 @@ For the Progress renderer, we'll not extend the schema for now:
 
     export default Progress;
 
-The ``ColumnSchema`` needs to be tweaked to add the new renderer field. It can be
-as simple as:
+The ``ColumnSchema`` needs to be tweaked to add the new renderer field. It can
+be as simple as:
 
 .. code-block:: jsx
 

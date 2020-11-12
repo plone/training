@@ -1,3 +1,7 @@
+=========================
+Block editing with a form
+=========================
+
 We'll add editing to the block. The most basic schema looks something like
 this:
 
@@ -254,6 +258,9 @@ To use the schema we need to change the block edit component:
     };
 
     export default DataTableEdit;
+
+Initial block data as a reusable pattern
+----------------------------------------
 
 For the view component we've created a HOC mechanism that grants automatic data
 injection to. Can we do the same and simplify the Edit component? Let's make
