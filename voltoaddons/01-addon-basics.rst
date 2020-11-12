@@ -53,7 +53,7 @@ To bootstrap a new Volto project, you can use either create-volto-app:
 
     npm -g i @plone/create-volto-app
 
-or the new yeoman-based generator-volto:
+or the Yeoman-based generator-volto:
 
 .. code-block:: bash
 
@@ -61,20 +61,22 @@ or the new yeoman-based generator-volto:
     npm install -g @plone/generator-volto
     yo @plone/volto myvoltoproject
 
-The yo-based generator partially integrates addons (it can generate
-a package.json with addons and workspaces already specified).
+The yo-based generator partially integrates addons (it can generate a
+``package.json`` with addons and workspaces already specified).
 
 Addons - first look
 -------------------
 
 Although still in their infancy, 2020 is the year of the Volto addons.  The
-Bethoven Sprint was a key moment in taking a common decision on how to load the
-addons and what capabilities they should have.  Once the addons configuration
-mechanism was added to Volto, many open source generic addons were published.
-The collective/awesome-volto repo tracks of most of them (submit PRs if there's
-anything missing!).
+Bethoven Sprint was a key moment in arriving at a consensus on how to load the
+addons and what capabilities they should have. With a common understanding on
+what exactly is an addon, many new addons were published and can now be
+integrated with unmodified Volto projects.
 
-An addon can be almost anything that a Volto project can be. Addons can:
+The ``collective/awesome-volto`` repo tracks most of them (submit PRs if
+there's anything missing!).
+
+An addon can be almost anything that a Volto project can be. They can:
 
 - provide additional views and blocks
 - override or extend Volto's builtin views, blocks, settings
@@ -85,12 +87,9 @@ An addon can be almost anything that a Volto project can be. Addons can:
 - tweak Volto's webpak configuration, load custom Razzle and Webpack plugins
 - even provide a custom theme, just like a regular Volto project does.
 
-Basically, anything that a Volto project can do in terms of extending Volto
-with new functionality, an addon can do as well.
-
 As for implementation, Volto addons are just JS CommonJS packages with an
-additional feature: they provide helper functions that can mutate Volto's
-configuration registry. These are the "addon configuration loader". To make
+additional feature: they provide helper functions that mutate Volto's
+configuration registry. These are the "addon configuration loaders". To make
 things easy, addons should be distributed as source, non transpiled. Their
 ``main`` entry in ``package.json`` should point to ``src/index.js``, which
 should be an ES6 module with a default export, the addon configuration loader:
@@ -100,6 +99,9 @@ should be an ES6 module with a default export, the addon configuration loader:
     export default (config) => {
         return config
     };
+
+Any additional named export from the main script can be used as an addon
+optional configuration loader.
 
 The ``config`` object that is passed is the Volto ``configuration registry``,
 the singleton module referenced throughout the Volto and projects as
@@ -118,7 +120,8 @@ enabling the project to override any configuration.
 So: ``Volto => addons => project``.
 
 To load an addon, the project needs to specify the addon in its
-``project.json`` ``addons`` key:
+``project.json`` ``addons`` key. Optional configuration loaders are specified
+as a comma-separated list after the ``:`` colon symbol.
 
 .. code-block:: js
 
@@ -143,7 +146,7 @@ by running:
 .. code-block:: shell
 
     mkdir -p src/addons/datatable-tutorial
-    cd datatable-tutorial
+    cd src/addons/datatable-tutorial
     npm init
 
 Note: the namespace ``@plone`` (or any other) is not required and is optional.
@@ -152,7 +155,7 @@ shared addon namespace right now for Volto addons as the NPM Collective
 organization doesn't belong to the Plone community.
 
 Use ``@plone/datatable-tutorial`` as the package name and ``src/index.js`` as
-the package main. Create ``src/index.js`` with the following content:
+the package main script. Create ``src/index.js`` with the following content:
 
 .. code-block:: jsx
 
@@ -174,7 +177,7 @@ Back to the project, you can edit jsconfig.json and add your addon:
     }
 
 You can also immediately push the package to Github then use mrs-developer to
-manage the package and jsconfig.json changes. Add to mrs-developer.json:
+manage the package and jsconfig.json changes. Add to ``mrs-developer.json``:
 
 .. code-block:: json
 
@@ -200,7 +203,7 @@ addon as workspace to the Volto project. Change the Volto project's
     ],
 
 To be able to add dependencies to the addon you need to add them via the
-workspaces root, by running something like:
+workspaces machinery, by running something like (at the Volto project root):
 
 .. code-block:: sh
 
@@ -248,19 +251,19 @@ Create a new block
 
     export default DataTableEdit;
 
-We're reusing the block view component inside the edit, this makes the block
-development fast.
+We're reusing the block view component referenced from the edit component, to
+speed things up.
 
-- Create DataTable/index.js. This step is optional, but it makes imports nicer
-  across the project. Make sure to adjust the subsequent code, if you don't add
-  this file:
+- Create ``DataTable/index.js``. This step is optional, but it makes imports
+  nicer across the project. In case you decide on omitting this file, make sure
+  to adjust your code and imports accordingly.
 
 .. code-block:: jsx
 
     export DataTableView from './DataTableView';
     export DataTableEdit from './DataTableEdit';
 
-- Register the block in src/index.js
+- Register the block in ``src/index.js``
 
 .. code-block:: jsx
 
@@ -292,8 +295,8 @@ development fast.
 
 Create the new block in Volto, save the page.
 
-Improving the block edit
-~~~~~~~~~~~~~~~~~~~~~~~~
+Improve the block edit
+~~~~~~~~~~~~~~~~~~~~~~
 
 Now for the simplest block sidebar:
 
@@ -336,7 +339,7 @@ Now for the simplest block sidebar:
 
 We want to show a field to browse to a file. Notice the ``widget`` parameter of
 the field. This widget is not registered by default in Volto, let's register
-it, add this in ``index.js``:
+it, add this in the configuration loader in ``index.js``:
 
 .. code-block:: jsx
 

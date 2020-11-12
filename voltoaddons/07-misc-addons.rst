@@ -35,6 +35,9 @@ project, don't add any files in the project's theme folder.
       modify,
     };
 
+Q: How can I avoid customizing components?
+A: Try to wrap them in other components
+
 Some other stuff that addons can do:
 
 - Register custom Express middleware. You could, for example, include a custom
