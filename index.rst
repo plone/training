@@ -83,6 +83,9 @@ Trainings
 :doc:`volto/index`
     Build a custom website using Volto and the Plone REST API.
 
+:doc:`voltoaddons/index`
+    Build custom Volto addons, explore more advanced Volto topics.
+
 :doc:`gatsby/index`
     Building static websites with `GatsbyJS <https://www.gatsbyjs.org/>`_.
 
