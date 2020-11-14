@@ -1,138 +1,63 @@
 .. _volto_addon-label:
 
-Extending Volto With Add-on Package
-====================================
+Using Volto add-ons
+=====================
+
 
 .. sidebar:: Volto chapter
 
+  .. figure:: _static/Volto.svg
+     :alt: Volto Logo
 
-As soon as you have repeating needs in Volto projects, you will want to move the code to an addon-on that can be applied to multiple projects. One of several ways to start with a new add-on is the **EEA Volto add-on template** on github at https://github.com/eea/volto-addon-template.
-
-As stated in its wiki the setup process is:
-
-1. `Create a new repository <https://github.com/eea/volto-addon-template/generate>`_ from volto-addon-template
-
-2. Clone your new repository on your local machine like:
-
-    ..  code-block:: bash
-
-            $ git clone https://github.com/collective/volto-custom-addon
-            $ cd volto-custom-addon
-
-3. Bootstrap
-
-    ..  code-block:: bash
-
-            $ yarn bootstrap
-
-4. See changes and commit:
-
-    ..  code-block:: bash
-    
-            $ git diff
-            $ git commit -am "Initial commit"
-            $ git push
+  This chapter is about the react frontend Volto.
 
 
-Develop your new add-on
------------------------
-
-Create a sandbox project
-
-..  code-block:: bash
-
-    yo @plone/volto sandbox-volto-custom-addon --addon collective/volto-custom-addon
-
-Install mrs.developer to let the project know about the *source* of your add-on.
-
-..  code-block:: bash
-
-    yarn add mrs-developer -W
-
-Update :file:`package.json`:
-
-..  code-block:: bash
-
-    "scripts": {
-        …
-        "develop": "missdev --config=jsconfig.json --output=addons",
-    }
-
-The configuration file :file:`mrs.developer.json` instructs mrs.developer from where it has to pull the package. So, create mrs.developer.json and add:
-
-..  code-block:: bash
-
-    {
-        "collective-volto-custom-addon": {
-            "package": "@collective/volto-custom-addon",
-            "url": "git@github.com:collective/volto-custom-addon.git",
-            "path": "src"
-        }
-    }
-
-run
-
-..  code-block:: bash
-
-    yarn develop
-
-You see your addon cloned to `src/addons/`.
-
-Read more about `mrs.developer` [2]_ configuration options.
-
-With mrs.developer set up to code your add-on, its just left to add the add-on as any add-on to your Volto project:
-
-Update :file:`package.json`:
-
-..  code-block:: bash
+  For Plone add-ons see chapter :ref:`add-ons-label`
 
 
-    "workspaces": [
-      "src/addons/*"
-    ],
-    "addons": [
-      …
-      "@collective/volto-custom-addon"
-    ],
-    "dependencies": {
-        …
-        "@collective/volto-custom-addon": "github:collective/volto-custom-addon"
-    },
+.. sidebar:: Get the code! (:doc:`More info <code>`)
 
-Install and start
+   Code for the beginning of this chapter::
 
-..  code-block:: bash
+       git checkout TODO tag to checkout
 
-    $ yarn
-    $ yarn start
+   Code for the end of this chapter::
+
+        git checkout TODO tag to checkout
 
 
+.. _add-ons-volto-overview-label:
 
-Enrich an existing project with your new released add-on
---------------------------------------------------------
+Volto Add-ons
+-------------
 
-You already released your add-on. Go on with `package.json`and add your new add-on.
+| A selection of add-ons can be found on: 
+| https://github.com/collective/awesome-volto#addons    
+
+| One typical add-on is about adding a new block to present content in columns:
+| https://github.com/eea/volto-columns-block
+
+.. figure:: _static/volto-columns-block.png
+    :alt: The eea volto-columns-block package gives you a block with columns. Each column is its own separate blocks container.
+
+Here is how you would install a Volto add-on:
 
 Update `package.json`:
 
 ..  code-block:: bash
 
     "addons": [
-      …
-      "@collective/volto-custom-addon"
+      "@eeacms/volto-blocks-form",
+      "@eeacms/volto-columns-block"
     ],
-    "workspaces": [
-      "src/addons/*"
-    ],
+
     "dependencies": {
-      …
-      "@collective/volto-custom-addon": "1.0.1"
+      "@plone/volto": "8.3.0",
+      "@eeacms/volto-blocks-form": "github:eea/volto-blocks-form#0.5.0",
+      "@eeacms/volto-columns-block": "github:eea/volto-columns-block#0.3.2"
     },
 
-Modify versions as necessary.
-
-
-Install new add-on and restart Volto:
+Install new add-ons and restart Volto:
 
 ..  code-block:: bash
 
@@ -140,30 +65,11 @@ Install new add-on and restart Volto:
     $ yarn start
 
 
-Create a new project with your new released add-on
----------------------------------------------------
+.. _add-ons-volto-backedupbyplone-label
 
-..  code-block:: bash
+Complementing Volto with Plone add-ons
+--------------------------------------
 
-    yo @plone/volto my-volto-project --addon collective/volto-custom-addon
+With some additional features of Volto add-ons in place, where do we need to work on the Plone side? With the split of Plone in backend and frontend, Plone is still the place to shape your data model. For our training story 'Platform for a Plone Conference' we need to model the content types talk and speaker. 
 
-
-Install and start
-
-..  code-block:: bash
-
-    $ yarn
-    $ yarn start
-
-
-
-
-Footnotes
-----------------
-
-.. [1] `yarn workspaces <https://classic.yarnpkg.com/en/docs/workspaces/>`_ 
-    Workspaces are a new way to set up your package architecture. It allows you to setup multiple packages in such a way that you only need to run yarn install once to install all of them in a single pass.
-
-.. [2] `mrs.developer <https://www.npmjs.com/package/mrs-developer>`_ Pull a package from git and set it up as a dependency for the current project codebase.
-
-
+So in the next chapters we will create a **new add-on** that adds the content types talk and speaker. We will also **use an existing add-on** that provides us with the logic to handle votes on talks.
