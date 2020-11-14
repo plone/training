@@ -8,7 +8,7 @@ Semantic UI
   .. figure:: _static/Volto.svg
      :alt: Volto Logo
 
-  This chapter is about the react frontent Volto.
+  This chapter is about the react frontend Volto.
 
   Learn about templates in the classic frontend in chapter :doc:`zpt`
 

@@ -8,7 +8,7 @@ Volto View Components: A Listing View for Talks
   .. figure:: _static/volto.svg
      :alt: Volto Logo
 
-  This chapter is about the react frontent Volto.
+  This chapter is about the react frontend Volto.
 
   Solve the same tasks in classic frontend in chapter :doc:`views_3`
 
