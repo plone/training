@@ -66,7 +66,6 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     volto_talkview
     volto_talk_listview
     behaviors_1
-    volto_frontpage
     api
     testing
     ide
@@ -74,15 +73,18 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     custom_search
     events
     volto_theming
-    volto_richtexteditor
     user_generated_content
     thirdparty_behaviors
     dexterity_3
     volto_components_sponsors
+    volto_richtexteditor
+    volto_custom_block
     volto_addon
+    volto_custom_addon
     relations
     registry
     frontpage
+    volto_frontpage
     eggs2
     behaviors_2
     viewlets_2
