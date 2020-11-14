@@ -1,3 +1,15 @@
+a,
+a:visited {
+  color: #2980b9;
+}
+/* a:visited {
+  color: #297fb9d0;
+} */
+a:hover{
+  color: #176aa1;
+  text-decoration: underline;
+}
+
 .wy-nav-content {
   max-width: 1000px;
   padding-left: 2em;
@@ -49,6 +61,12 @@
 .rst-content .toggle p:last-child {
   margin-bottom: 0;
 }
+.rst-content code.literal,
+.rst-content tt.literal,
+.rst-content cite {
+  color: #9B59B6;
+  font-style: normal;
+}
 
 /* improve contrast */
 .highlight .hll {
@@ -93,4 +111,16 @@
     height: 100%;
     overflow: hidden;
   }
+}
+
+.wy-side-nav-search a.icon-home,
+.wy-side-nav-search a.icon-home:visited {
+  color: #fcfcfc;
+  background-color: unset;
+  text-decoration: none;
+}
+
+.wy-menu-vertical a,
+.wy-menu-vertical a:visited {
+  color: #d9d9d9;
 }
