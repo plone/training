@@ -61,10 +61,6 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     dexterity
     dexterity_2_talk
     dexterity_reference
-    volto_semantic_ui
-    volto_overrides
-    volto_talkview
-    volto_talk_listview
     behaviors_1
     api
     testing
@@ -72,7 +68,11 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     dexterity_2
     custom_search
     events
+    volto_overrides
+    volto_semantic_ui
     volto_theming
+    volto_talkview
+    volto_talk_listview
     user_generated_content
     thirdparty_behaviors
     dexterity_3
