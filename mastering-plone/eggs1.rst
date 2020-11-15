@@ -24,7 +24,7 @@ In this part you will:
 
 Topics covered:
 
-* :py:mod:`plonecli`
+* :py:mod:`plonecli`, a Plone CLI for creating Plone packages
 * the structure of python packages
 
 

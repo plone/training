@@ -15,17 +15,6 @@ Using Volto add-ons
   For Plone add-ons see chapter :ref:`add-ons-label`
 
 
-.. sidebar:: Get the code! (:doc:`More info <code>`)
-
-   Code for the beginning of this chapter::
-
-       git checkout TODO tag to checkout
-
-   Code for the end of this chapter::
-
-        git checkout TODO tag to checkout
-
-
 .. _add-ons-volto-overview-label:
 
 Volto Add-ons
@@ -34,15 +23,14 @@ Volto Add-ons
 | A selection of add-ons can be found on: 
 | https://github.com/collective/awesome-volto#addons    
 
-| One typical add-on is about adding a new block to present content in columns:
-| https://github.com/eea/volto-columns-block
+| One typical add-on is about adding a new block to present content in columns: `@eeacms/volto-columns-block <https://github.com/eea/volto-columns-block>`_
 
 .. figure:: _static/volto-columns-block.png
     :alt: The eea volto-columns-block package gives you a block with columns. Each column is its own separate blocks container.
 
 Here is how you would install a Volto add-on:
 
-Update `package.json`:
+Update ``package.json``:
 
 ..  code-block:: bash
 

@@ -3,10 +3,19 @@
 Extending Plone
 ===============
 
-..  todo::
+.. sidebar:: Classic chapter
 
-    * Update for Plone 6!
-    * Document Volto approach
+  .. figure:: _static/plone.svg
+     :alt: Plone Logo
+
+  This chapter is about the Plone backend.
+
+  For extending Volto frontend see chapters 
+
+  * :ref:`volto_richtexteditor-label`
+  * :ref:`volto_custom_block-label`
+  * :ref:`volto_addon-label`
+  * :ref:`volto_custom_addon-label`
 
 
 In this part you will:
@@ -19,6 +28,10 @@ Topics covered:
 * Component Architecture
 * ZCML
 * GenericSetup
+
+Topic of the following chapter:
+
+* Extending Plone with existing add-ons
 
 As a developer you want to go further than simply configuring Plone, you want to extend and customize it.
 Plone is built to be extended.

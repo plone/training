@@ -240,7 +240,7 @@ It does nothing so far but it can be useful later when we want to add methods or
 Try the new type
 ----------------
 
-Now all pieces should be in place and you can enable the new type.
+Now all pieces should be in place and you can enable the new type `Talk`.
 
 * Restart Plone (to load the new Python code and the changed zcml)
 * You do not need to restart the Volto frontend since we did not do any changes there.

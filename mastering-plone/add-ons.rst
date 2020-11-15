@@ -13,17 +13,6 @@ Extending Plone With Add-on Packages
   For Volto add-ons see chapter :ref:`volto_addon-label`
 
 
-.. sidebar:: Get the code! (:doc:`More info <code>`)
-
-   Code for the beginning of this chapter::
-
-       git checkout behaviors_1
-
-   Code for the end of this chapter::
-
-        git checkout viewlets_1
-
-
 * There are more than 2,000 add-ons for Plone.
 * Using them saves a lot of development time.
 * Their target, complexity and configurability varies a lot.
