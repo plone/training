@@ -14,13 +14,11 @@ Semantic UI
 
 `Semantic UI` is a development framework that helps create beautiful, responsive layouts using human-friendly HTML. It provides a declarative API, shorthand props and many helpers that simplifies development.
 
-Its React complement `Semantic UI React` provides React components while Semantic UI provides themes as CSS stylesheets with less variables and rules. 
+Its React complement `Semantic UI React <https://react.semantic-ui.com/>`_ provides `React components` while Semantic UI provides `themes` as CSS stylesheets with less variables and rules. 
 
 Volto is per default, not mandatory, build on both: the Semantic UI theming and the Semantic UI React Components. 
 
-
-
-Volto applies components from `Semantic UI React <https://react.semantic-ui.com/>`_ to compose a large part of the views. For example the component `Image <https://react.semantic-ui.com/elements/image/>`_ is used to render images.
+Volto applies `components` from `Semantic UI React` to compose a large part of the views. For example the component `Image <https://react.semantic-ui.com/elements/image/>`_ is used to render images.
 
 .. code-block:: jsx
     :linenos:
