@@ -1,4 +1,4 @@
-.. _dexterity3-label:
+.. _dexterity_3-label:
 
 Dexterity Types III: Sponsors
 =============================

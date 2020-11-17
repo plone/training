@@ -1,4 +1,4 @@
-.. _deployment-buildout-label:
+.. _deployment_sites-label:
 
 Buildout II: Getting Ready for Deployment
 =========================================

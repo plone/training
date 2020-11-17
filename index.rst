@@ -42,7 +42,7 @@ Trainings
     Mastering Plone is a training intended for people who are new to Plone or want to learn about the best practices of Plone development.
 
     In the course of the training you will learn how to build a custom website with plenty of features.
-    HTML and python-knowledge is required.
+    HTML and python knowledge is required.
 
 :doc:`ttw/index`
     Create custom content types, a design for a website, layouts for home pages and content types, and custom application logic.

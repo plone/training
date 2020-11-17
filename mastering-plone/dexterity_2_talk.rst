@@ -1,4 +1,4 @@
-.. _dexterity1-label:
+.. _dexterity_2_talk-label:
 
 Dexterity II: Talks
 ===================

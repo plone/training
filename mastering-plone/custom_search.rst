@@ -1,4 +1,4 @@
-.. _customsearch-label:
+.. _custom_search-label:
 
 Custom Search
 =============

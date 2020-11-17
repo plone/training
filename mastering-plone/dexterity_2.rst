@@ -1,4 +1,4 @@
-.. _dexterity2-label:
+.. _dexterity_2-label:
 
 Upgrade-steps
 =============
