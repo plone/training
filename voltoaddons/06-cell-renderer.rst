@@ -1,5 +1,5 @@
 =========================
-Make the block extendable
+Make the block extendible
 =========================
 
 Wouldn't it be nice if we could have a way to customize, per column, how the
@@ -14,7 +14,8 @@ a column as a solid bar of color. We'll also migrate the text template field to
 the new system.
 
 What's more, we'll the global Volto config registry to register our custom
-components, so that it's completely extendable by other projects or addons.
+components, so that it's completely open to extension from projects or other
+addons.
 
 We could use the global ``config.settings`` object to register the new cell
 renderers, but this functionality is directly related to our custom data block,
@@ -47,16 +48,17 @@ so let's just use the block's config object.
           id: 'progress',
           title: 'Progress',
           view: ProgressCellRenderer,
-          schemaExtender: ProgressCellRenderer.schemaExtender,
         },
       },
     };
 
 Notice the ``schemaExtender`` field. We'll use it to allow each extension to
-provide its own fields in the column edit widget. This is a mechanism provided
-by volto-object-widget addon.
+provide its own fields in the column edit widget. volto-object-widget allows
+the schema used in its FlatObjectList widget to be extended by a provided
+schema extender, so we'll integrate with that.
 
-The old text template-based implementation can be moved to an extension, like:
+The old text template-based implementation can be moved to an component and
+a schema extension, like:
 
 .. code-block:: jsx
 
@@ -130,12 +132,20 @@ code:
       return schema;
     };
 
+With the "schema tweaking code" we're doing three things:
+
+- add the columns from the file as choices to the "Column" widget
+- provide the "renderer" field with the available cellRenderer choices
+- plug into the schemaExtender of the columnsField our own schema extender.
+
 And we'll replace the old schema tweak with the new one:
 
 .. code-block:: jsx
 
     const schema = tweakSchema(TableSchema(props), data, file_data);
 
-Notice the ``columnsField.schemaExtender`` bit. This is something that the
-volto-object-widget supports, to allow schema customizations per object, in
-a list of objects. It is a function with signature ``(schema, data) => schema``
+Again, back to the ``columnsField.schemaExtender`` bit. This is an invention
+that volto-object-widget supports, to allow schema customizations per object,
+in a list of objects.
+
+It is a function with signature ``(schema, data) => schema``

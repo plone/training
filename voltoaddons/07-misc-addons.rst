@@ -7,24 +7,24 @@ Q&A
 
 Is it possible to customize Volto with an addon?
     Yes, the code path used is the same, so you can use the same convention.
-    Make sure you have the ``src/customizations`` folder inside your addon.
+    Make sure you have the ``src/customizations`` folder inside your addon. And
+    remember, the customization resolution order follows the same order as the
+    addons listed in the ``addons`` key of package.json inside the project.
 
 Can I customize an addon?
-    Depends on the addon. The shadowing/customization mechanism relies on
-    non-relative import being used everywhere. If that addon uses relative
-    import paths, then it won't be possible right now to customize it. With
-    that said, you can customize files from an addon with the same algorithm
-    used for Volto.  In the ``src/customizations`` folder, move any Volto
-    customized files to the ``src/customizations/volto`` and then customize the
-    addon by reconstructing the full path (for example
-    ``@plone/datatable-tutorial/CellRenderer/Progress.jsx``) would be the
-    fullpath for the file that customizes
+    You can customize files from an addon with the same algorithm used for
+    Volto.  In the ``src/customizations`` folder, move any Volto customized
+    files to the ``src/customizations/volto`` and then customize the addon by
+    reconstructing the full path (for example
+    ``@plone-collective/datatable-tutorial/CellRenderer/Progress.jsx``) would be the
+    full path for the file that customizes
     ``datatable-tutorial/src/CellRenderer/Progress.jsx``
 
 Can I have a theme in an addon?
     Yes, you can alias the ``../../theme.config`` with a ``razzle.extend.js``
-    file in the addon root folder. Just don't customize the ``theme.config`` in
-    the project, don't add any files in the project's theme folder.
+    file in the addon root folder. Just don't make changes to the
+    ``theme.config`` in the project and don't add any files in the project's
+    theme folder.
 
 .. code-block:: jsx
 
@@ -41,7 +41,13 @@ Can I have a theme in an addon?
     };
 
 How can I avoid customizing components?
-    Try to wrap them in other components
+    If the component is somehow configurable from Volto's configuration
+    registry, for example the default views, the widgets or the route
+    renderers, you could wrap them in another component and replace the
+    original component in the configuration. Or you could simply customize the
+    component with the shadowing mechanism, but inside the new component simply
+    reference ``@plone/volto-original/.../path/to/Component`` and reuse/wrap
+    the original one.
 
 Can I extend Volto's Express server?
     You can register custom Express middleware. You could, for example, include

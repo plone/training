@@ -3,13 +3,21 @@ Customizable columns
 ====================
 
 Let's add a bit more control over how the columns are rendered. This is quite
-a "low hanging fruit" thanks to the ``volto-object-widget`` addon. This addon
-has another dependency, the volto-blocks-form, so let's add them both:
+a "low hanging fruit" thanks to the volto-object-widget_ addon. This addon
+has another dependency, the volto-blocks-form_, so let's add them both:
+
+.. _volto-object-widget: https://github.com/eea/volto-object-widget
+.. _volto-blocks-form: https://github.com/eea/volto-blocks-form
 
 .. code-block:: sh
 
-    yarn workspace @plone/datatable-tutorial add eea/volto-object-widget#0.2.3
-    yarn workspace @plone/datatable-tutorial add eea/volto-blocks-form#0.5.2
+    yarn workspace @plone/datatable-tutorial add eea/volto-object-widget
+    yarn workspace @plone/datatable-tutorial add eea/volto-blocks-form
+
+.. note::
+
+    You can use a specific version or branch when adding the dependency,
+    research first the latest released version for these addons
 
 Add the volto-object-widget addon in the project's package.json:
 
@@ -27,14 +35,15 @@ cases when an addon can depend on a specific configuration at "configure time".
 
 It's not our case, though. It's still a good idea to list generic addons first.
 
-Note: we've had to add ``@eeacms/volto-blocks-form`` to the addons list to help
-Volto's webpack resolver, as we're distributing this addon in "source code
-form".
+.. note::
+    we've had to add ``@eeacms/volto-blocks-form`` to the addons list to help
+    Volto's webpack resolver, as we're distributing this addon in "source code
+    form".
 
 What would we like to change about the columns? Let's go for: title, text align
 and another field that would allow us to tweak how the values are rendered.
 
-Note: we'll continue without i18n integration for now, to keep things simpler
+We'll continue without i18n integration for now, to keep things simpler.
 
 .. code-block:: jsx
 
@@ -73,7 +82,8 @@ Note: we'll continue without i18n integration for now, to keep things simpler
     });
 
 
-Now, let's make use of this schema. We'll add a new field to the TableSchema:
+Now, let's make use of this schema. We'll add a new field to the
+``TableSchema``:
 
 .. code-block:: jsx
 
@@ -93,8 +103,9 @@ Don't forget to add the ``columns`` fieldname to the ``default`` fieldset.
 Now we need to plug the available columns as choices to the schema. In Plone's
 world we would write an adapter that binds the widget to the context or
 something like that. Let's keep things really simple though and hardcode the
-available choices to the schema. How? By simply mutating the schema before we
-pass it to the ``<InlineForm>`` component.
+available choices to the schema. We could do this in the schema function, but
+it's better to keep the schema readable and without logic, so we'll mutate the
+schema in the component, before we pass it to the ``<InlineForm>`` component.
 
 .. code-block:: jsx
 
@@ -242,7 +253,7 @@ field. Let's create ``src/widgets/TextAlign.jsx``.
       );
     };
 
-And we'll register it in the src/index.js default configuration method:
+And we'll register it in the ``src/index.js`` default configuration method:
 
 .. code-block:: jsx
 
@@ -251,6 +262,14 @@ And we'll register it in the src/index.js default configuration method:
     // ... change in the default configuration function
     if (!config.widgets.widget.text_align)
         config.widgets.widget.text_align = TextAlign;
+
+An widget is a component with three main properties: ``id``, ``value`` and
+``onChange``. The widget needs to call back the ``onChange`` with
+id and new value. To conform to the UI requirements Volto provides the
+``FormFieldWrapper`` component which works on a very nice and easy principle:
+drop whatever control inside it, as a child and it will render that control
+neatly wrapped with the label, description, error messages, etc. This concept
+is somewhat similar to Zope's ZPT macro and slot system.
 
 Now go back to the schema and let's use the new text align widget:
 
@@ -262,8 +281,8 @@ Now go back to the schema and let's use the new text align widget:
       widget: 'text_align',
     },
 
-volto-object-widget provides drag/drop sorting of the columns so it's possible
-to reorder the columns.
+.. note:: volto-object-widget provides drag/drop sorting of the columns so it's
+possible to reorder the columns.
 
-We could call this done for now... but let's go some steps further and explore
-how to further enhance this addon's reusability and extensability.
+We could say it's done for now... but let's go some steps further and explore
+how to further enhance this addon's re-usability and extensibility.
