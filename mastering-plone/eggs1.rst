@@ -269,4 +269,4 @@ Summary
 
 * You created the package :py:mod:`ploneconf.site` to hold your code.
 * You added the new package to buildout so that Plone can use it.
-* In one of the next chapter we will also create a addon for Volto, the react frontend.
+* In one of the next chapter we will also create a addon for Volto, the React frontend.

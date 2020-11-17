@@ -53,7 +53,7 @@ Some commands you will use rather often are:
     We have a running Zope with a database but no content.
     But luckily there is a button to create a Plone site.
 
-    To use the react frontend you will also have to install plone.restapi while creating the Plone site.
+    To use the React frontend you will also have to install plone.restapi while creating the Plone site.
     In Plone 6 this will be done automatically for you.
     In Plone 5.2 you need to select ``plone.restapi`` by hand:
 

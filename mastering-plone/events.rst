@@ -8,7 +8,7 @@ Turning Talks into Events
   .. figure:: _static/Volto.svg
      :alt: Volto Logo
 
-  This chapter is about the react frontend Volto.
+  This chapter is about the React frontend Volto.
 
   Solve the same tasks in classic frontend in chapter :doc:`events_classic`
 

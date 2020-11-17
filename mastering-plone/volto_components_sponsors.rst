@@ -10,7 +10,7 @@ The Sponsors Component
   .. figure:: _static/Volto.svg
      :alt: Volto Logo
 
-  This chapter is about the react frontend Volto.
+  This chapter is about the React frontend Volto.
 
   .. topic:: Description
 

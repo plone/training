@@ -3,14 +3,12 @@
 Using Volto add-ons
 =====================
 
-
 .. sidebar:: Volto chapter
 
   .. figure:: _static/Volto.svg
      :alt: Volto Logo
 
-  This chapter is about the react frontend Volto.
-
+  This chapter is about the React frontend Volto.
 
   For Plone add-ons see chapter :ref:`add-ons-label`
 

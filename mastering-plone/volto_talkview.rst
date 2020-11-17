@@ -8,7 +8,7 @@ Volto View Components: A Default View for "Talk"
   .. figure:: _static/volto.svg
      :alt: Volto Logo
 
-  This chapter is about the react frontend Volto.
+  This chapter is about the React frontend Volto.
 
   Solve the same tasks in classic frontend in chapter :doc:`views_2`
 
