@@ -52,6 +52,7 @@ main area.
               )}
             </Segment.Group>
           </SidebarPortal>
+
           {data.file_path?.length ? (
             <DataTableView {...props} />
           ) : (
@@ -79,6 +80,10 @@ main area.
 
     export default DataTableEdit;
 
+So, in the sidebar area, if we don't have a file picked, we're just showing
+a placeholder icon, otherwise we're showing the field to edit the picked file.
+In the main block area, if we don't have a file picked we're showing the file
+input, otherwise we're showing the View component.
 
 Add the following ``datatable-edit.less`` file:
 
@@ -103,16 +108,27 @@ Add the following ``datatable-edit.less`` file:
     }
 
 Notice that by importing ``'../../theme.config'`` we're able to have access to
-Volto's LESS variables.
+Volto's (and, by extension, all SemanticUIs) LESS variables.
 
-For the view, we'll fetch the data directly from Plone and bring it to the
+For the view we'll fetch the data directly from Plone and bring it to the
 client browser.
 
-Note: there are other possible approaches to this problem, including
-transforming the block data on outbound with a block serializer transformer, to
-automatically insert CSV file in the block and remove it on inbound
-(deserialization). By having it available separately we make it easier to
-reference the same data from multiple blocks.
+.. note::
+    There are other possible approaches to this problem, including transforming
+    the block data on outbound with a block serializer transformer, to
+    automatically insert CSV file in the block and then remove it on inbound
+    (deserialization). By having it available separately we make it easier to
+    reference the same data from multiple blocks and, of course, keep things
+    simple for this training.
+
+    But if, for example, you want to have the content of the table rendered
+    with the SSR mechanism, then you'll have to avoid the extra data fetch and
+    serialize the table data together with the main block data using block
+    transformers. The reason for this is (simplified) the fact that there would
+    be two serialized data fetches: the first one is for the main content,
+    which would return the blocks, then the blocks are rendered and, as
+    a result of that rendering, the second network fetch would be called from
+    one of the blocks as an async request.
 
 .. code-block:: jsx
 
@@ -142,7 +158,6 @@ reference the same data from multiple blocks.
     };
 
     export default DataTableView;
-
 
 We'll need to write a new action/reducer pair to fetch the data.
 
@@ -217,6 +232,23 @@ Then create the ``reducers/rawdata.js`` module:
       return state;
     }
 
+The reducer code looks scary, but it shouldn't be. To understand it, you need
+to know:
+
+- In Volto, all actions that have a ``request`` field are treated as network
+  requests and they will processed by the `Api`_ middleware.
+- That middleware will then trigger several new actions, derived from the main
+  function and prefixed with its name: PENDING, SUCCESS and FAIL
+- For each of these new actions we will reduce the state of the store to
+  something that makes sense: first of all, we want to store different
+  information for each requested URL, then we want to store information
+  according to the triggered action: loading state, error information or the
+  final result.
+- In all cases we're using object spreads as a pattern to quickly redefine some
+  of the values inside the make store object.
+
+.. _Api: https://github.com/plone/volto/blob/master/src/middleware/api.js
+
 Finally, register the addon reducer. In ``src/index.js``'s default export:
 
 .. code-block:: jsx
@@ -226,6 +258,3 @@ Finally, register the addon reducer. In ``src/index.js``'s default export:
     ...
 
     config.addonReducers.rawdata = rawdata;
-
-Note: make sure to change the project's src/config.js to import default
-addonReducers and them export them.

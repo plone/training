@@ -18,12 +18,13 @@ For this basic infrastructure setup Volto relies on the Razzle library, which
 provides an extensible Webpack SSR-enabled setup with convenient split of
 server/client entrypoints and dual server/client Hot-Module-Reload (HMR).
 
-The first Webpack entrypoint, the Volto server, is powered by ExpressJs.
-It runs the Volto React code and components, then sends them to the browser as
-a normal HTML page. It also proxies some of the Plone resources, such as files
-and images.
+The first Webpack entrypoint will be used as the Volto *server* and uses
+ExpressJs for that. It runs the Volto React code and components then sends
+them to the browser as a normal HTML page. It also proxies some of the Plone
+resources, such as files and images. Once the HTML page is loaded by browser,
+all communication is done as JSON api messages.
 
-To generate the second entrypoint, the client-only bundle, Webpack will need to
+To generate the second entrypoint, the *client*-only bundle, Webpack will need to
 know how to find, load and potentially mutate (compress, transpile, minify,
 etc) the files that represent the code and resources of Volto, the Volto
 project and Volto addons. The base is provided by Razzle, with instructions for
@@ -44,7 +45,7 @@ Bootstrap a new Volto project
 -----------------------------
 
 Although it's possible to run Volto with npm as the Node package manager, the
-community has settled, for now, to the Yarn Classic (v1.x) package manager.
+community has settled, for now, for the Yarn Classic (v1.x) package manager.
 Yarn is used as an installer, to run scripts but also as a "virtual
 environment", by using its workspaces feature. Typically you'll start Volto
 applications with ``yarn start``, use ``yarn test`` but you can also integrate
@@ -56,6 +57,7 @@ To bootstrap a new Volto project, you can use either create-volto-app:
 .. code-block:: bash
 
     npm -g i @plone/create-volto-app
+    create-volto-app myvoltoproject
 
 or the upcoming Yeoman-based generator-volto:
 
@@ -77,8 +79,10 @@ addons and what capabilities they should have. With a common understanding on
 what exactly is an addon, many new addons were published and can now be
 integrated with unmodified Volto projects.
 
-The ``collective/awesome-volto`` repo tracks most of them (submit PRs if
+The `collective/awesome-volto`__ repo tracks most of them (submit PRs if
 there's anything missing!).
+
+.. __: https://github.com/collective/awesome-volto
 
 An addon can be almost anything that a Volto project can be. They can:
 
@@ -91,7 +95,7 @@ An addon can be almost anything that a Volto project can be. They can:
 - tweak Volto's webpak configuration, load custom Razzle and Webpack plugins
 - even provide a custom theme, just like a regular Volto project does.
 
-As for implementation, Volto addons are just JS CommonJS packages with an
+As for implementation, Volto addons are just plain Javascript packages with an
 additional feature: they provide helper functions that mutate Volto's
 configuration registry. These are the "addon configuration loaders". To make
 things easy, addons should be distributed as source, non transpiled. Their
@@ -114,14 +118,14 @@ the singleton module referenced throughout the Volto and projects as
 ``addonRoutes`` and ``addonReducers``.
 
 Note: the addon configuration loading mechanism is inspired by Razzle, which
-uses a similar get the config, return the config pass-through mechanism for it
-plugins.
+uses a similar "get the config, return the config" pass-through mechanism for
+its plugins.
 
 The resolution order is: Volto declares the initial configuration, it applies
 the addon configuration and then the project configuration is loaded last,
 enabling the project to override any configuration.
 
-So: ``Volto => addons => project``.
+So: :menuselection:`Volto → addons → project`.
 
 To load an addon, the project needs to specify the addon in its
 ``project.json`` ``addons`` key. Optional configuration loaders are specified
@@ -143,29 +147,33 @@ additional optional configuration loaders that are exported by the addon's
 Bootstrap an addon
 ------------------
 
-Let's start creating an addon. We'll create a new package:
-``@plone/datatable-tutorial``. Inside your Volto project, bootstrap the addon
-by running:
+Let's start creating an addon. We'll create a new scoped package:
+``@plone-collective/datatable-tutorial``. Inside your Volto project, bootstrap
+the addon by running:
 
 .. code-block:: shell
 
-    mkdir -p src/addons/datatable-tutorial
-    cd src/addons/datatable-tutorial
-    npm init
+    mkdir -p src/addons
+    cd src/addons
 
-Note: the namespace ``@plone`` (or any other) is not required and is optional.
-We're using namespaces to group addons under a common "group". There is no
-shared addon namespace right now for Volto addons as the NPM Collective
-organization doesn't belong to the Plone community.
+    npm install -g yo
+    npm install -g @plone/generator-volto
+    yo @plone/volto:addon
 
-Use ``@plone/datatable-tutorial`` as the package name and ``src/index.js`` as
-the package main script. Create ``src/index.js`` with the following content:
+Note: the namespace ``@plone-collective`` (or any other) is not required and is
+optional.  We're using namespaces to group addons under a common "group".
+Unfortunately the NPM ``@collective`` scope is not available to the Plone
+community.
+
+Use ``@plone-collective/datatable-tutorial`` as the package name and
+``src/index.js`` as the package main script. Create ``src/index.js`` with the
+following content:
 
 .. code-block:: jsx
 
     export default (config) => config;
 
-Back to the project, you can edit jsconfig.json and add your addon:
+Back to the project, you can edit ``jsconfig.json`` and add your addon:
 
 .. code-block:: json
 
@@ -180,8 +188,18 @@ Back to the project, you can edit jsconfig.json and add your addon:
         }
     }
 
-You can also immediately push the package to Github then use mrs-developer to
-manage the package and jsconfig.json changes. Add to ``mrs-developer.json``:
+.. note::
+
+    The ``jsconfig.json`` file is needed by Volto to identify development
+    packages. You are not strictly limited to Volto addons in its use, you
+    could, for example, use this to make it easier to debug third-party
+    Javascript packages that are shipped transpiled.
+
+You can also immediately push the package to Github then use `mrs-developer`_
+to manage the package and ``jsconfig.json`` changes. Add to
+``mrs-developer.json``:
+
+.. _mrs-developer: https://github.com/collective/mrs-developer
 
 .. code-block:: json
 
@@ -206,27 +224,42 @@ addon as workspace to the Volto project. Change the Volto project's
         "src/addons/datatable-tutorial"
     ],
 
+.. note::
+    Don't be scared by that `private:true` in the Volto project package.json,
+    it's only needed to make sure you can't accidentally publish the package to
+    NPM
+
 To be able to add dependencies to the addon you need to add them via the
 workspaces machinery, by running something like (at the Volto project root):
 
-.. code-block:: sh
+.. code-block:: console
 
     yarn workspaces info
-    yarn workspace @plone/datatable-tutorial add @fast-csv/parse
+    yarn workspace @plone/datatable-tutorial add @papaparse
 
-Note: there are several addon templates, such as
-https://github.com/nzambello/voltocli or
-https://github.com/eea/volto-addon-template
+.. note::
+    There are several other addon templates, such as `voltocli`_ or `EEA Addon
+    Template`_. You could very well decide not to use any of them and simply
+    bootstrap a new addon by running:
 
-While the community settles on what constitutes best practice for an addon's
-essential files, you should be aware that an addon is just a simple
-``package.json`` and an ``index.js`` file. Everything else is up to you, just
-make sure to point the ``main`` in ``package.json`` to ``src/index.js``.
+    .. code-block:: console
+
+        mkdir -p src/addons/datatable-tutorial
+        cd src/addons/datatable-tutorial
+        npm init
+
+    So, remember, an addon is just a Javascript package that export
+    a configuration loader. Just make sure to point the ``main`` in
+    ``package.json`` to ``src/index.js``.
+
+.. _voltocli: https://github.com/nzambello/voltocli
+.. _`EEA Addon Template`: https://github.com/eea/volto-addon-template
+.. _`@plone/generator-volto`: https://github.com/plone/generator-volto
 
 Create a new block
 ------------------
 
-- Create DataTable/DataTableView.jsx
+- Create ``DataTable/DataTableView.jsx``
 
 .. code-block:: jsx
 
@@ -238,7 +271,7 @@ Create a new block
 
     export default DataTableView;
 
-- Create DataTable/DataTableEdit.jsx
+- Create ``DataTable/DataTableEdit.jsx``
 
 .. code-block:: jsx
 
@@ -257,6 +290,19 @@ Create a new block
 
 We're reusing the block view component referenced from the edit component, to
 speed things up.
+
+.. note::
+
+    We will be using `function components`__ here. There is no rule in Volto
+    that requires choosing between class components or function components,
+    pick whichever feels better. Volto itself uses both styles. Although the
+    function components are newer API and the use of hooks can make things more
+    compact and reusable, they can also become hard to track, specially when
+    multiple ``useEffect`` pile up in the same component. Don't feel that you
+    have to stick to one style only, choose whichever feels right for the task.
+
+    .. __: https://reactjs.org/docs/components-and-props.html#function-and-class-components
+
 
 - Create ``DataTable/index.js``. This step is optional, but it makes imports
   nicer across the project. In case you decide on omitting this file, make sure
@@ -282,7 +328,7 @@ speed things up.
         config.blocks.blocksConfig.dataTable = {
             id: 'dataTable',
             title: 'Data Table',
-            icon: globeSVG,
+            icon: tableSVG,
             group: 'common',
             view: DataTableView,
             edit: DataTableEdit,
@@ -297,7 +343,11 @@ speed things up.
         return config;
     }
 
-Create the new block in Volto, save the page.
+Instantiate the new block in a Volto page then save the page. This is a small
+development optimization, when changing code while developing the HMR will kick
+in and replace the content on the edit page with the one loaded initially from
+the server, so if you're haven't saved the block yet, you'll need to recreate
+it again.
 
 Improve the block edit
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -334,6 +384,7 @@ Now for the simplest block sidebar:
               </Form>
             </Segment.Group>
           </SidebarPortal>
+
           <DataTableView />
         </div>
       );
@@ -341,9 +392,11 @@ Now for the simplest block sidebar:
 
     export default DataTableEdit;
 
+The ``<Form>`` component in our case is used only for styling purposes.
+
 We want to show a field to browse to a file. Notice the ``widget`` parameter of
 the field. This widget is not registered by default in Volto, let's register
-it, add this in the configuration loader in ``index.js``:
+it, add this in the addon configuration loader in ``src/index.js``:
 
 .. code-block:: jsx
 
@@ -353,3 +406,9 @@ it, add this in the configuration loader in ``index.js``:
 
     if (!config.widgets.widget.pick_object)
         config.widgets.widget.pick_object = ObjectBrowserWidgetMode('link');
+
+By doing so we're instantiating a new ObjectBrowserWidget component that will
+work in the "link" mode. We're registering a new widget called "pick_object".
+By passing ``widget="pick_widget"`` to the ``<Field>`` component we're
+instructing the form field machinery lookup the ``pick_object`` widget in the
+widgets Volto registry.

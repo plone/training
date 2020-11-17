@@ -26,14 +26,16 @@ this:
     });
 
 This schema is based on the one used by the plone.restapi to edit the
-server-side Dexterity content.  We're appropriating it, it lives in the client
+server-side Dexterity content. We're appropriating it, it lives in the client
 side right now, so we have some freedom in extending it with new logic and
-capabilities. The only requirement is that Volto's form understands it, but
-even here we have a lot of freedom, as the form passes all the field props to
-the widgets.
+capabilities. The only requirement is that Volto's form implementation
+understands it, but even here we have a lot of freedom, as the form passes all
+the field props to the widgets.
 
-To understand how to structure the schema you need to read Volto's Field.jsx
-code. In it we see the following logic:
+To understand how to structure the schema you need to read Volto's
+`Field.jsx`_ code. In it we see the following logic:
+
+.. _`Field.jsx`: https://github.com/plone/volto/blob/master/src/components/manage/Form/Field.jsx
 
 .. code-block:: jsx
 
@@ -142,55 +144,9 @@ Now we add a basic schema to control the tabel styling:
       },
     });
 
-And the view module can become:
-
-.. code-block:: jsx
-
-    import React from 'react';
-    import { Table } from 'semantic-ui-react';
-    import { withFileData } from '@plone/datatable-tutorial/hocs';
-
-    const format = (data) => {
-      return {
-        fixed: data.fixed,
-        compact: data.compact,
-        basic: data.basic ? 'very' : undefined,
-        celled: data.celled,
-        inverted: data.inverted,
-        striped: data.striped,
-      };
-    };
-
-    const DataTableView = ({ file_data, data }) => {
-      const fields = file_data?.meta?.fields || [];
-
-      return file_data ? (
-        <Table {...format(data)}>
-          <Table.Header>
-            <Table.Row>
-              {fields.map((f) => (
-                <Table.Cell key={f}>{f}</Table.Cell>
-              ))}
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {file_data.data.map((o, i) => (
-              <Table.Row key={i}>
-                {fields.map((f) => (
-                  <Table.Cell>{o[f]}</Table.Cell>
-                ))}
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      ) : (
-        <div>No data</div>
-      );
-    };
-
-    export default withFileData(({ data: { file_path } }) => file_path)(
-      DataTableView,
-    );
+Notice that our schema is actually a function that returns a Javascript object,
+not least because we need to have access to the ``intl`` utility to provide
+internationalization.
 
 To use the schema we need to change the block edit component:
 
@@ -259,6 +215,61 @@ To use the schema we need to change the block edit component:
 
     export default DataTableEdit;
 
+We're using the ``InlineForm``, a component provided by Volto that renders an
+"embeddable" form. This form requires, as parameters, the schema and the form
+values. We'll render this form in the sidebar.
+
+And now the view module can become:
+
+.. code-block:: jsx
+
+    import React from 'react';
+    import { Table } from 'semantic-ui-react';
+    import { withFileData } from '@plone/datatable-tutorial/hocs';
+
+    const format = (data) => {
+      return {
+        fixed: data.fixed,
+        compact: data.compact,
+        basic: data.basic ? 'very' : undefined,
+        celled: data.celled,
+        inverted: data.inverted,
+        striped: data.striped,
+      };
+    };
+
+    const DataTableView = ({ file_data, data }) => {
+      const fields = file_data?.meta?.fields || [];
+
+      return file_data ? (
+        <Table {...format(data)}>
+          <Table.Header>
+            <Table.Row>
+              {fields.map((f) => (
+                <Table.Cell key={f}>{f}</Table.Cell>
+              ))}
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {file_data.data.map((o, i) => (
+              <Table.Row key={i}>
+                {fields.map((f) => (
+                  <Table.Cell>{o[f]}</Table.Cell>
+                ))}
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      ) : (
+        <div>No data</div>
+      );
+    };
+
+    export default withFileData(({ data: { file_path } }) => file_path)(
+      DataTableView,
+    );
+
+
 Initial block data as a reusable pattern
 ----------------------------------------
 
@@ -300,7 +311,7 @@ reuse code by composing.
       getFilePath: ({ data: { file_path } }) => file_path,
     })(DataTableEdit);
 
-And the withBlockDataSource HOC:
+And the ``src/hocs/withBlockDataSource.js`` HOC:
 
 .. code-block:: jsx
 

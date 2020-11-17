@@ -4,12 +4,15 @@ Improve the block view
 
 Let's add CSV file parsing.
 
-There are many CSV parsers available for node/js, we'll just pick one and move
+There are many CSV parsers available for node/js, we'll use Papaparse_ because
+it also works in the browser.
 on.
+
+.. Papaparse_: https://www.npmjs.com/package/papaparse
 
 We'll need to add the dependency to the addon. When using yarn workspaces, the
 workflow is a bit different. For our simple use case, we could probably run
-``yarn add @fast-csv/parse`` inside the ``src/addons/datatable-tutorial``, but
+``yarn add papaparse`` inside the ``src/addons/datatable-tutorial``, but
 the correct way is to run this command through the project root.
 
 First run ``yarn workspaces info`` to see the workspaces we have available.
@@ -29,7 +32,7 @@ To add a dependency to the package, run:
 
 .. code-block:: sh
 
-    > yarn workspace @plone/datatable-tutorial add @fast-csv/parse
+    > yarn workspace @plone/datatable-tutorial add papaparse
 
 
 And finally, the new block code:
@@ -40,7 +43,7 @@ And finally, the new block code:
     import { useDispatch, useSelector } from 'react-redux';
     import { Table } from 'semantic-ui-react';
     import csv from 'papaparse';
-    import { getRawContent } from '@plone/datatable-tutorial/actions';
+    import { getRawContent } from '@plone-collective/datatable-tutorial/actions';
 
     const DataTableView = ({ data: { file_path } }) => {
       const id = file_path?.[0]?.['@id'];
@@ -90,6 +93,15 @@ And finally, the new block code:
 
     export default DataTableView;
 
+Writing components where the ``useEffect`` triggers network calls can be pretty
+tricky. According to the `rule of hooks`_, hooks can't be triggered
+conditionally, they always have to be run. For this reason it's important to
+add relevant conditions inside the hook code, so be sure to identify and
+prepare a way to tell, from inside the hook, if the network-fetching action
+should be dispatched.
+
+.. _`rule_of_hooks`: https://reactjs.org/docs/hooks-rules.html
+
 The React HOC Pattern
 ---------------------
 
@@ -97,7 +109,7 @@ It is a good idea to split the code in generic "code blocks" so that behavior
 and look are separated. This has many benefits: it makes components easier to
 write and test, it separates business logic in reusable behaviors, etc.
 
-So, Can we abstract the data grabbing logic?  Let's write a simple Higher Order
+So, can we abstract the data grabbing logic? Let's write a simple Higher Order
 Component (HOC) that does the data grabbing:
 
 .. code-block:: jsx
@@ -109,7 +121,7 @@ Component (HOC) that does the data grabbing:
     export default withFileData(DataTableView);
 
 And now let's move the file download and parsing logic to this HOC.
-We'll create the ``withFileData.js`` file in ``hocs``:
+We'll create the ``src/hocs/withFileData.js`` file:
 
 .. code-block:: jsx
 
@@ -149,6 +161,15 @@ We'll create the ``withFileData.js`` file in ``hocs``:
 
     export default withFileData;
 
+This HOC now gets the data from the Redux store using the logic and code we've
+used previously and then simply injects it as a new property to the original
+wrapped component.
+
+An HOC is a simple function that gets a component and returns another
+component.  For a Python developer, the decorators are a very similar concept.
+One thing to pay attention, React component names need to be referenced as
+PascalCase in JSX code.
+
 And now the view component is simple, neat and focused:
 
 .. code-block:: jsx
@@ -186,9 +207,9 @@ And now the view component is simple, neat and focused:
 
     export default withFileData(DataTableView);
 
-Note: for the purpose of this tutorial, the withFileData HOC has been created
-a bit simplistic. To make it more generic, we could avoid hard-coding the field
-name, by doing something like this:
+Note: for the purpose of this tutorial, the ``withFileData`` HOC has been
+created a bit simplistic. To make it more generic, we could avoid hard-coding
+the field name, by doing something like this:
 
 .. code-block:: jsx
 
@@ -197,8 +218,8 @@ name, by doing something like this:
         const file_path = getFilePath(props);
     ...
 
-And we change how we wrap the DataTableView to keep the file_path specific
-logic local to the DataTable component
+And we change how we wrap the ``DataTableView`` to keep the file_path specific
+logic local to the ``DataTable`` component
 
 .. code-block:: jsx
 

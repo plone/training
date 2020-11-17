@@ -96,3 +96,27 @@ Glossary
    JSX
        A dialect of Javascript that resembles XML, it is transpiled by Babel to
        JS functions. React uses JSX as its component templating.
+
+   Scoped packages
+       Namespace for Javascript packages, they provide a way to avoid naming
+       conflicts for common package names.
+
+   middleware (Redux)
+       Custom wrappers for the Redux store dispatch methods, the allow
+       customizing the behavior of the data flow inside the redux store.
+
+   hooks (React)
+       Hooks are a React API that allow function components to use React
+       features such as lifecycle methods, states, etc.
+
+   hoisting (Yarn)
+       An optimization provided by Yarn. By default Javascript packages will
+       directly include dependencies inside their local node_modules. By
+       hoisting we're "lifting" these inner dependencies to the top level
+       node_modules and thus optimize the generated bundles. In case two
+       dependencies have conflicting version dependencies of the same library,
+       the hoisting will not be possible (for that conflicting dependency) and
+       you'll see multiple instances of the same library in the bundle, or
+       you'll see that the addon receives its own node_modules folder.
+
+
