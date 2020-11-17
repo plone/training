@@ -10,6 +10,10 @@ a:hover{
   text-decoration: underline;
 }
 
+div.section {
+  margin-bottom: 6rem;
+}
+
 .wy-nav-content {
   max-width: 1000px;
   padding-left: 2em;
