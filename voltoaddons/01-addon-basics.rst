@@ -23,19 +23,22 @@ It runs the Volto React code and components, then sends them to the browser as
 a normal HTML page. It also proxies some of the Plone resources, such as files
 and images.
 
-Check if there's already a Razzle plugin, for example ``.scss`` support can be
-To generate the second entrypoint, the client-only bundle, Webpack will need
+To generate the second entrypoint, the client-only bundle, Webpack will need to
+know how to find, load and potentially mutate (compress, transpile, minify,
+etc) the files that represent the code and resources of Volto, the Volto
+project and Volto addons. The base is provided by Razzle, with instructions for
 Webpack to transpile .js and .jsx files with Babel, load .less files, css,
-and Volto addons.  The base is provided by Razzle, with instructions for
-etc) the files that represent the code and resources of Volto, the Volto project
-have to enhance the Razzle configuration with the appropriate Webpack loader.
 images and svgs. For any other file type (for example .scss, .ts, etc) you'll
+have to enhance the Razzle configuration with the appropriate Webpack loader.
+
+Check if there's already a Razzle plugin, for example ``.scss`` support can be
 simply added by adding ``scss`` to the razzle.config.js ``plugins`` list.
-to know how to find, load and potentially mutate (compress, transpile, minify,
 
 To summarize: Volto runs as a Single Page Application packaged by Webpack,
-which uses loaders such as Babel (for ES6 js/jsx files) or less-loader for
+which uses loaders such as Babel (for ES6 js/jsx files) or `less-loader`_ for
 ``.less`` files.
+
+.. _less-loader: https://webpack.js.org/loaders/less-loader/
 
 Bootstrap a new Volto project
 -----------------------------
@@ -54,7 +57,7 @@ To bootstrap a new Volto project, you can use either create-volto-app:
 
     npm -g i @plone/create-volto-app
 
-or the Yeoman-based generator-volto:
+or the upcoming Yeoman-based generator-volto:
 
 .. code-block:: bash
 

@@ -87,3 +87,12 @@ Glossary
    NPM
        the original NodeJS Package Manager. Also a registry of Javascript
        packages, similar to PyPI.
+
+   Hydration (SSR)
+       After loading an HTML page generated with SSR in the browser, React can
+       "populate" the existing DOM elements, recreate and attach their
+       coresponding components.
+
+   JSX
+       A dialect of Javascript that resembles XML, it is transpiled by Babel to
+       JS functions. React uses JSX as its component templating.
