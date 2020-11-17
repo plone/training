@@ -4,14 +4,14 @@
 Mastering Plone Development
 ===========================
 
-This is the documentation for the "Mastering Plone" training.
+`Mastering Plone Development` is intended as a training to learn proven practices of Plone development.
 
-Mastering Plone is intended as a week-long training for people who are new to Plone or want to learn about the current best practices of Plone development. It can be split in two trainings:
+It's both, an online course and a sketch for an on the spot training.
 
-- A beginner training (2 to 3 days) that covers chapters 1-18.
-- An advanced training (3 to 5 days) that covers the rest.
+The story of a conference platform provides a week-long training of several development topics that can be split in two trainings:
 
-At conferences a shortened 2-day version of the advanced training with a slightly modified order is held.
+- A beginner training (2 to 3 days) that covers the essentials of Plone and Plone Volto.
+- An advanced training (3 to 5 days) that covers advanced topics.
 
 .. todo::
 
@@ -22,7 +22,6 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     These chapters are outdated and need to be updated:
 
     * :doc:`views_1`: We still need browser views with Volto but there needs to be good example why and where?
-    * :doc:`testing`: Add information about writeing tests for Volto. Link to new testing training: https://training.plone.org/5/testing/
     * :doc:`dexterity_2`: Shorten to only cover GS and upgrade-steps. Marker interface/behavior is no longer needed with a python talk schema \o/
     * :doc:`frontpage`: Move to a earlier place and build frontpage using the blocks. Should include a listing of features content from :doc:`behaviors_1`
 
@@ -63,7 +62,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     dexterity_reference
     behaviors_1
     api
-    testing
+    volto_testing
     ide
     dexterity_2
     custom_search
