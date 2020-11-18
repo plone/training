@@ -13,8 +13,8 @@ could implement a "progress bar" that could be used to render the numbers in
 a column as a solid bar of color. We'll also migrate the text template field to
 the new system.
 
-What's more, we'll the global Volto config registry to register our custom
-components, so that it's completely open to extension from projects or other
+What's more, we'll use the global Volto config registry to register our custom
+components, so it will be completely open to extension from projects or other
 addons.
 
 We could use the global ``config.settings`` object to register the new cell
@@ -78,7 +78,7 @@ a schema extension, like:
 
     export default TextTemplateRenderer;
 
-For the Progress renderer, we won't extend the schema:
+For the Progress renderer, we won't need to extend the schema:
 
 .. code-block:: jsx
 
@@ -92,6 +92,13 @@ For the Progress renderer, we won't extend the schema:
     };
 
     export default Progress;
+
+.. note::
+
+    As an exercise you could extend the Progress renderer to include a color
+    field. Build a color widget using react-color_
+
+.. _react-color: https://github.com/casesandberg/react-color
 
 The ``ColumnSchema`` needs to be tweaked to add the new renderer field. It can
 be as simple as:
