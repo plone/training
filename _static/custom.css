@@ -9,6 +9,9 @@ a:hover{
   color: #176aa1;
   text-decoration: underline;
 }
+.figure img {
+  box-shadow: 0 6px 24px 0 rgba(153,153,153,0.3);
+}
 
 div.section {
   margin-bottom: 6rem;
