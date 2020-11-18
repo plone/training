@@ -1,9 +1,26 @@
 .. _volto_custom_addon-label:
 
-Extending Volto With Add-on Package
-====================================
+Extending Volto With Custom Add-on Package
+==========================================
 
 .. sidebar:: Volto chapter
+
+  .. figure:: _static/Volto.svg
+     :alt: Volto Logo
+
+  Creating a Volto add-on
+
+
+.. sidebar:: Get the code! (:doc:`More info <code>`)
+
+   Code for the beginning of this chapter::
+
+       git checkout TODO tag to checkout
+
+   Code for the end of this chapter::
+
+        git checkout TODO tag to checkout
+
 
 
 As soon as you have repeating needs in Volto projects, you will want to move the code to an addon-on that can be applied to multiple projects. One of several ways to start with a new add-on is the **EEA Volto add-on template** on github at https://github.com/eea/volto-addon-template.

@@ -15,10 +15,6 @@ Rich Text Editor Settings
 
       Add a button / feature to the rich text editor.
 
-  .. contents:: Table of Contents
-    :depth: 2
-    :local:
-
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
