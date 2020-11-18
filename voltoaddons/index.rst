@@ -29,5 +29,5 @@ ReactJS and Volto.
 
     about/index
     about/glossary
-    about/jsbasics
     about/devenvironment
+    about/jsbasics
