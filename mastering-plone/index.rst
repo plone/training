@@ -49,6 +49,9 @@ The story of a conference platform provides a week-long training of several deve
     plone5
     volto_basics
     configuring_customizing
+    volto_overrides
+    volto_semantic_ui
+    volto_theming
     extending
     add-ons
     buildout_1
@@ -58,16 +61,13 @@ The story of a conference platform provides a week-long training of several deve
     dexterity_reference
     behaviors_1
     api
-    volto_testing
     ide
     dexterity_2
     custom_search
     events
-    volto_overrides
-    volto_semantic_ui
-    volto_theming
     volto_talkview
     volto_talk_listview
+    volto_testing
     user_generated_content
     thirdparty_behaviors
     dexterity_3
