@@ -251,7 +251,7 @@ Now run buildout to reconfigure Plone with the updated configuration:
 
     $ ./bin/buildout
 
-After restarting Plone with :command:`./bin/instance fg` the new add-on :py:mod:`ploneconf.site` is available for install like EasyForm or Plone True Gallery.
+After restarting Plone with :command:`./bin/instance fg` the new add-on :py:mod:`ploneconf.site` is available for install.
 
 We will not install it now since we did not add any of our own code or configuration yet. Let's do that next.
 
