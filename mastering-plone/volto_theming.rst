@@ -29,13 +29,13 @@ To develop our theme, we can use Semantic UI. There are two cases: Some attribut
 
 We start with the first case and change the font to another Google font, Lato.
 
-The overall font is defined in omelette in ``theme/globals/site.variables``. So create an empty file ``site.variables`` in ``theme/globals/`` and set your font.
+The overall font is defined in Volto and can be found in :file:`omelette/theme/themes/default/globals/site.variables`. So create an empty file :file:`site.variables` in :file:`theme/globals/` and set your font.
 
 .. code-block:: css
 
   @fontName : 'Lato';
 
-Semantic UI does not provide a less variable for increasing the letter-spacing. So we add a CSS rule for it. We use the ``site.overrides`` as this rule should apply site wide. Create an empty file ``site.overrides``in ``theme/globals``and set the letter-spacing.
+Semantic UI does not provide a less variable for increasing the letter-spacing. So we add a CSS rule for it. We use the ``site.overrides`` as this rule should apply site wide. Create an empty file :file:`site.overrides``in ``theme/globals``and set the letter-spacing.
 
 .. code-block:: css
 
@@ -43,11 +43,11 @@ Semantic UI does not provide a less variable for increasing the letter-spacing. 
       letter-spacing: .05em;
   }
 
-We can use variables and theme overrides to achieve our theme, or we can use Volto’s custom.overrides, or we can mix elements of both as needed. There is no right or wrong way of doing it, and we will be using the Semantic UI theming engine in both cases.
+We can use variables and theme overrides to achieve our theme, or we can use Volto’s :file:`custom.overrides`, or we can mix elements of both as needed. There is no right or wrong way of doing it, and we will be using the Semantic UI theming engine in both cases.
 
-So there are these two ``custom.overrides`` and ``custom.variables`` for everything else, that is not belonging to the site as a whole, not belonging to the header, navigation, breadcrumbs, etc.. It's a convention to put styling of your additional non default components in ``custom.overrides`` and ``custom.variables``.
+So there are these two :file:`custom.overrides` and :file:`custom.variables` for everything else, that is not belonging to the site as a whole, not belonging to the header, navigation, breadcrumbs, etc.. It's a convention to put styling of your additional non default components in :file:`custom.overrides` and :file:`custom.variables`.
 
-In chapter :ref:`volto-component-label` we will create an addional component to show the sponsors. We address this component in ``theme/extras/custom.overrides``
+In chapter :ref:`volto-component-label` we will create an addional component to show the sponsors. We address this component in :file:`theme/extras/custom.overrides`
 
 .. code-block:: css
 
@@ -55,7 +55,7 @@ In chapter :ref:`volto-component-label` we will create an addional component to 
     background-color: rgb(177, 192, 219);
   }
 
-Take into account to use theme variables as 
+Take into account to use theme variables as
 
 .. code-block:: css
 
@@ -66,7 +66,7 @@ Take into account to use theme variables as
 Changing the favicon
 ----------------------
 
-Find the favicon.ico in ``public/``and replace it with a custom favicon. 
+Find the favicon.ico in :file:`public/` and replace it with a custom favicon.
 
 .. note::
 

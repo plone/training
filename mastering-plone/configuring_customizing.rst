@@ -110,7 +110,7 @@ Change the logo
 .. note::
 
     This only changes the logo used in Classic Plone (the backend) and does not change the logo in Volto.
-    The Logo in Volto is changed in chapter :doc:`volto_overrides`.
+    The Logo in Volto is changed in next chapter :doc:`volto_overrides`.
 
 Let's change the logo.
 
@@ -170,7 +170,9 @@ Viewlets
 
 .. note::
 
-    Viewlets only exist in the classic frontend. In Volto they are replaces by react components and have no user-interface to move or show/hide them.
+    Viewlets only exist in the classic frontend.
+    In Volto they are replaced by react components and have no user-interface to move or show/hide them.
+    How to customize these elements in Volto is discussed in next chapter :doc:`volto_overrides`.
 
 Portlets save data, Viewlets usually don't. Viewlets are often used for UI-Elements and have no nice UI to customize them.
 
@@ -285,6 +287,7 @@ portal_view_customizations
 .. note::
 
     This feature has no effect for Volto since it allows customzing server-side rendered templates.
+    How to customize the equivalent views in Volto is discussed in next chapter :doc:`volto_overrides`.
 
 
 Change the footer
