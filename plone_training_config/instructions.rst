@@ -342,7 +342,7 @@ We use it together with Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to
 .. _install-virtualbox:
 
 Install VirtualBox
-~~~~~~~~~~~~~~~~~~
+++++++++++++++++++
 
 Vagrant uses Oracle’s VirtualBox to create virtual environments.
 
@@ -354,7 +354,7 @@ We use VirtualBox 6.0.x
 .. _instructions-configure-vagrant-label:
 
 Install and configure Vagrant
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++++++++++
 
 Get the latest version from https://www.vagrantup.com/downloads.html for your operating system and install it.
 
@@ -529,7 +529,7 @@ If you have any problems or questions please mail us at team@starzel.de or creat
 .. _instructions-vagrant-does-label:
 
 What Vagrant does
-~~~~~~~~~~~~~~~~~
++++++++++++++++++
 
 Installation is done automatically by vagrant and puppet.
 If you want to know which steps are actually done please see the chapter :doc:`what_vagrant_does`.

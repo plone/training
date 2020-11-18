@@ -15,7 +15,7 @@ Testing in Plone
 
 It's a good practice to write tests for the main requirements of a project. The **requirements are getting clearer and a path for the development is pointed**.
 
-This chapter is meant as a starting point for testing in Volto. 
+This chapter is meant as a starting point for testing in Volto.
 
 
 .. _testing-cypress:
@@ -77,7 +77,7 @@ We already added a content type `talk`. Let's write a test 'An editor can add a 
 
 Go to your **backend folder**, open ``Makefile`` and add test commands:
 
-.. code-block:: 
+.. code-block::text
 
   # Volto cypress tests
 
@@ -96,19 +96,19 @@ Go to your **backend folder**, open ``Makefile`` and add test commands:
 
 Start the test backend
 
-.. code-block::
+.. code-block::bash
 
   make start-test-backend
 
 Start the test frontend
 
-.. code-block::
+.. code-block::bash
 
   make start-test-frontend
 
 Start cypress
 
-.. code-block::
+.. code-block::bash
 
   make start-test
 
@@ -190,7 +190,7 @@ If this is a rendering you expected, you are good to go.
     >
       Talk
       :
-      
+
       Security of Plone
     </h1>
     <div

@@ -125,7 +125,7 @@ For more examples how to use relationfields look at :ref:`dexterity_reference-la
 
 
 Use a tailor shaped widget for relations
-------------------------------------
+----------------------------------------
 
 Sometimes the widget for relations is not what you want since it can be hard to navigate to the content you want to relate to. With SelectFieldWidget and a custom vocabulary you can shape a widget for an easier selection of related items:
 
