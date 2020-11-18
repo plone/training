@@ -412,3 +412,8 @@ work in the "link" mode. We're registering a new widget called "pick_object".
 By passing ``widget="pick_widget"`` to the ``<Field>`` component we're
 instructing the form field machinery lookup the ``pick_object`` widget in the
 widgets Volto registry.
+
+.. note::
+
+    We'll need a CSV file to play around while developing this addon. We have
+    provided one for you to :download:`download <../_static/forest-areas.csv>`
