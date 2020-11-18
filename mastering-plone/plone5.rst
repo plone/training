@@ -135,7 +135,7 @@ For a complete list of changes see https://docs.plone.org/manage/upgrading/versi
 Plone 5.2
 =========
 
-Plone 5.2 supports Python 2.7, 3.6 and 3.7. It is based on Zope 4.0 and runs WSGI. These three are major changes under the hood but have only limited effect on end-users and development of add-ons.
+Plone 5.2 supports Python 2.7, 3.6 and 3.7. It is based on Zope 4.x and runs WSGI. These three are major changes under the hood but have only limited effect on end-users and development of add-ons.
 
 Plone 5.2 comes with many bug fixes and a couple of nice improvements. Here are some noteworthy changes:
 
@@ -158,8 +158,8 @@ Plone 5.2 comes with many bug fixes and a couple of nice improvements. Here are 
 Plone 6
 =======
 
-Plone 6 will ship with Volto, a new ReactJS-based frontend for Plone implemented on top of the plone.restapi. This combines the stability, maturity, and security of the Plone backend with a modern, mature, user-friendly and well maintained frontend.
+Plone 6 ships with Volto, a new ReactJS-based frontend for Plone implemented on top of the plone.restapi. This combines the stability, maturity, and security of the Plone backend with a modern, mature, user-friendly and well maintained frontend.
 
-The "classic" Barceloneta-based frontend will stay in place to give developers and users time to adapt.
+The "classic" Barceloneta-based frontend in Plone 6 is modernized to use Bootstrap 5. This fontend will stay in place to give developers and users time to adapt to Volto and to provide an easy upgrade-path for existing projects.
 
-Plone 6 will run on Python 3 only. Plone 6 will be released after January 1th 2020. Therefore it does not make much sense to support a Python version that does not receive any security updates.
+Plone 6 runs on Python 3 only and runs on top of Zope 5.x.

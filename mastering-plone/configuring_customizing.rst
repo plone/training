@@ -21,35 +21,57 @@ The most important parts of Plone can be configured in the control panel.
 * Click on the portrait/username in the toolbar
 * Click :guilabel:`Site Setup`
 
+.. figure:: _static/volto_controlpanel.png
+   :alt: Site Setup
+
+   Site Setup
+
+
 We'll explain every page and mention some of the actions you can perform here.
 
+.. note::
+
+    Not all controlpanels are available in Volto.
+    Some are not useful in Volto, e.g. TinyMCE since that editor is not used here.
+    Other controlpanels, e.g. Content Rules still need to be implemented.
 
 General
 *******
 
+#. Add-ons
+#. Database
 #. Date and Time
 #. Language
 #. Mail
 #. Navigation
-#. Site
-#. Add-ons
 #. Search
-#. Discussion
-#. Theming
+#. Site
 #. Social Media
-#. Syndication
-#. TinyMCE
+#. Volto Settings
 
+The following controlpanels are so far only available in the backend:
+
+#. Actions
+#. Discussion
+#. Syndication
+#. Theming
+#. TinyMCE
+#. URL Management
 
 Content
 *******
 
-#. Content Rules
-#. Editing
-#. Image Handling
-#. Markup
 #. Content Settings
 #. Dexterity Content Types
+#. Editing
+#. Image Handling
+#. Moderate Comments
+#. Markup
+
+The following controlpanels are so far only available in the backend:
+
+#. Content Rules
+
 
 Users
 *****
@@ -59,28 +81,40 @@ Users
 Security
 ********
 
-#. HTML Filtering
 #. Security
+
+The following controlpanels are so far only available in the backend:
+
 #. Errors
+#. HTML Filtering
+
 
 Advanced
 ********
 
-#. Maintenance
-#. Management Interface
+The following controlpanels are so far only available in the backend:
+
 #. Caching
 #. Configuration Registry
+#. Maintenance
+#. Management Interface
 #. Resource Registries
 
 
 Below the links you will find information on your Plone, Zope and Python Versions and an indicator as to whether you're running in production or development mode.
 
+
 Change the logo
 +++++++++++++++
 
+.. note::
+
+    This only changes the logo used in Classic Plone (the backend) and does not change the logo in Volto.
+    The Logo in Volto is changed in chapter :doc:`volto_overrides`.
+
 Let's change the logo.
 
-* Download a ploneconf logo: https://www.starzel.de/plone-tutorial/logo.png
+* Download a logo: https://www.starzel.de/plone-tutorial/logo.png
 * Go to http://localhost:8080/Plone/@@site-controlpanel
 * Upload the Logo.
 
@@ -98,6 +132,11 @@ Let's change the logo.
 
 Portlets
 --------
+
+.. note::
+
+    Portlets only exist in the classic frontend. Volto has no equivalent so far.
+    The discussion about this is ongoing :)
 
 In the toolbar under the :guilabel:`Portlets` section, you can open the configuration for the different places where you can have portlets.
 
@@ -128,6 +167,10 @@ Example:
 
 Viewlets
 --------
+
+.. note::
+
+    Viewlets only exist in the classic frontend. In Volto they are replaces by react components and have no user-interface to move or show/hide them.
 
 Portlets save data, Viewlets usually don't. Viewlets are often used for UI-Elements and have no nice UI to customize them.
 
@@ -239,6 +282,11 @@ If time explain:
 portal_view_customizations
 **************************
 
+.. note::
+
+    This feature has no effect for Volto since it allows customzing server-side rendered templates.
+
+
 Change the footer
 +++++++++++++++++
 
@@ -258,17 +306,6 @@ Change the footer
      </div>
 
 
-.. seealso::
-
-   https://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html
-
-
-CSS Registry (``portal_css``)
-*****************************
-
-*deprecated* (See the chapter on theming)
-
-
 Further tools in the ZMI
 ************************
 
@@ -276,7 +313,6 @@ There are many more notable items in the ZMI. We'll visit some of them later.
 
 * :guilabel:`acl_users`
 * :guilabel:`error_log`
-* :guilabel:`portal_properties` (deprecated)
 * :guilabel:`portal_setup`
 * :guilabel:`portal_workflow`
 * :guilabel:`portal_catalog`
@@ -287,4 +323,7 @@ There are many more notable items in the ZMI. We'll visit some of them later.
 Summary
 -------
 
-You can configure and customize a lot in Plone through the web. The most important options are accessible in the `Plone control panel <http://localhost:8080/Plone/@@overview-controlpanel>`_ but some are hidden away in the `ZMI <http://localhost:8080/Plone/manage>`_. The amount and presentation of information is overwhelming but you'll get the hang of it through a lot of practice.
+You can configure and customize a lot in Plone through the web.
+The most important options are accessible in the `Plone control panel <http://localhost:8080/Plone/@@overview-controlpanel>`_ but some are hidden away in the `ZMI <http://localhost:8080/Plone/manage>`_.
+The amount and presentation of information may be overwhelming and the differences beweeen the Volto frontend and the Classic Plone frontend adds even more complexity.
+Don't worry, you'll get the hang of it through practice.

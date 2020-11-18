@@ -80,7 +80,7 @@ During the course of the training you will solve the following tasks.
 * Create a calendar view to display talks
 * Turn the calendar view in a reuseable block to include it on the frontpage
 * Add a separate addon to allow voting on talks
-* Create a react-component for voting and connect it to the voting login with a custom endpoint
+* Create a react-component for voting and connect it to the backend with a custom restapi-endpoint
 * Create a simple mobile app that allows the easy submission of lightning talks (a type of talk)
 
 
@@ -98,7 +98,7 @@ Here are the technologies and tools we will use during the training:
     * `Ubuntu linux <https://www.ubuntu.com/>`_
     * `Buildout <http://www.buildout.org/en/latest/>`_
     * XML
-    * Python 3.7
+    * Python 3
     * React
 
 * For the advanced chapters:

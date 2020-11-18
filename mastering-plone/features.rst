@@ -159,6 +159,9 @@ Knowing that `bin/instance debug` basically offers you a Python prompt, how woul
 
     Use `locals()` or `locals().keys()` to see Python objects available in Plone
 
+    You will get notified that ``app`` is automatically bound to your Zope application, so you can use dictionary-access or attribute-access as explained in :doc:`what_is_plone` to inspect the application:
+
+
 Exercise 3
 ++++++++++
 
@@ -168,6 +171,19 @@ The `app` object you encountered in the previous exercise can be seen as the roo
     :class: toggle
 
     `app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
+
+    .. code-block:: pycon
+
+        >>> app
+        <Application at >
+        >>> app.keys()
+        ['browser_id_manager', 'session_data_manager', 'error_log', 'temp_folder', 'virtual_hosting', 'index_html', 'Plone', 'acl_users']
+        >>> app['Plone']
+        <PloneSite at /Plone>
+        >>> app.Plone.keys()
+        ['portal_setup', 'MailHost', 'caching_policy_manager', 'content_type_registry', 'error_log', 'plone_utils', 'portal_actions', 'portal_catalog', 'portal_controlpanel', 'portal_diff', 'portal_groupdata', 'portal_groups', 'portal_memberdata', 'portal_membership', 'portal_migration', 'portal_password_reset', 'portal_properties', 'portal_quickinstaller', 'portal_registration', 'portal_skins', 'portal_types', 'portal_uidannotation', 'portal_uidgenerator', 'portal_uidhandler', 'portal_url', 'portal_view_customizations', 'portal_workflow', 'translation_service', 'portal_form_controller', 'mimetypes_registry', 'portal_transforms', 'portal_archivist', 'portal_historiesstorage', 'portal_historyidhandler', 'portal_modifier', 'portal_purgepolicy', 'portal_referencefactories', 'portal_repository', 'acl_users', 'portal_resources', 'portal_registry', 'HTTPCache', 'RAMCache', 'ResourceRegistryCache', 'training', 'schedule', 'location', 'sponsors', 'sprint']
+        >>> app['Plone']['training']
+        <FolderishDocument at /Plone/training>
 
     .. note::
 
@@ -311,7 +327,10 @@ Configure a Mailserver
 
 .. only:: not presentation
 
-    We have to configure a mailserver since later we will create some content rules that send emails when new content is put on our site.
+    For production-level deployments you have to configure a mailserver.
+    Later in the training we will create some content rules that send emails when new content is put on our site.
+
+    For the training you don't have to configure a working mailserver since the Plone-Addon `Products.PrintingMailHost` is installed which will redirect all emails to the console.
 
 * Server: :samp:`localhost`
 * Username: leave blank
@@ -321,8 +340,8 @@ Configure a Mailserver
 
 .. only:: not presentation
 
-    Click on `Save and send test e-mail`. Since we have configured PrintingMailHost, you will see the mail content in the console output of your instance. Plone will not
-    actually send the email to the receivers address.
+    Click on `Save and send test e-mail`. You will see the mail content in the console output of your instance. Plone will not
+    actually send the email to the receivers address unless your remove `Products.PrintingMailHost`.
 
 .. _features-content-types-label:
 

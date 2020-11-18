@@ -174,4 +174,4 @@ Classic Frontend
 
 A stable alternative to the JavaScript frontend Volto is the classic frontend of Plone that uses server-side rendered HTML.
 Plone ships with a default theme called Barceloneta.
-Since Plone 6 it uses `Bootstrap 4 <https://getbootstrap.com/>`_.
+Since Plone 6 it uses `Bootstrap 5 <https://getbootstrap.com/>`_.
