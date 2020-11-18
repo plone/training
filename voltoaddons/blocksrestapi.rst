@@ -3,9 +3,11 @@ Plone integration with Volto blocks
 ===================================
 
 When developing for Volto websites, don't neglect the server-side, Plone.
-Beyond the regular endpoints and expanders that plone.restapi offers, there's
-a few dedicated features that can improve the quality of Volto-powered
+Beyond the regular endpoints and expanders that `plone.restapi`_ offers,
+there's a few dedicated features that can improve the quality of Volto-powered
 websites.
+
+.. _`plone.restapi`: https://github.com/plone/plone.restapi
 
 Block transformations
 ---------------------
@@ -13,7 +15,7 @@ Block transformations
 The main feature that applies to Volto blocks is called the "blocks
 transformers". They are adaptors that can be registered per block type and can
 alter the output on serialization (when the fetching information from Plone)
-but also on deserializatin (when information arrives in Plone, from the
+but also on deserialization (when information arrives in Plone, from the
 client).
 
 .. code-block:: python
@@ -77,4 +79,11 @@ same as the block type (its @type property from the block value).
 Examples of potential smart fields:
 
 - ``_v_*`` blocks, to provide volatile data from the backend
-- blob
+- ``blob``, which would deserialize base64-encoded binary data to an attachment
+  store, then serialize back as a simple download link
+
+.. note::
+
+    These smart fields don't exist right now. But it would be great if
+    they did exist.
+
