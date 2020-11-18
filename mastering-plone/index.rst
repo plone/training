@@ -62,9 +62,9 @@ The story of a conference platform provides a week-long training of several deve
     behaviors_1
     api
     ide
-    dexterity_2
     custom_search
     events
+    upgrade_steps
     volto_talkview
     volto_talk_listview
     volto_testing

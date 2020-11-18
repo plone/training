@@ -1,4 +1,4 @@
-.. _dexterity_2-label:
+.. upgrade_steps-label:
 
 Upgrade-steps
 =============
@@ -16,16 +16,18 @@ Upgrade-steps
 
 In this part we will:
 
-* Write code to create and move existing content
-* create custom catalog indexes
-* query the catalog for them,
-* enable some more default features for our type
+* Write code to update, create or move content
+* Create custom catalog indexes
+* Query the catalog for them,
+* Enable more default features for our type
 
 
-.. _dexterity2-upgrades-label:
+.. _upgrade_steps-upgrades-label:
 
 Upgrade steps
 -------------
+
+You recently changed existing content, when you added the behavior ``ploneconf.featured`` or when you turned talks into events in the chapter :doc:`events`.
 
 When projects evolve you sometimes want to modify various things while the site is already up and brimming with content and users.
 Upgrade steps are pieces of code that run when upgrading from one version of an add-on to a newer one.
@@ -35,7 +37,7 @@ We will use an upgrade step to enable the new behavior instead of reinstalling t
 We will create an upgrade step that:
 
 * runs the typeinfo step (i.e. loads the GenericSetup configuration stored in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the add-on to have our changes from above take effect) and
-* cleans up the talks that might be scattered around the site in the early stages of creating it.
+* cleans up existing talks that might be scattered around the site in the early stages of creating it.
   We will move all talks to a folder ``talks`` (unless they already are there).
 
 Upgrade steps can be registered in their own ZCML file to prevent cluttering the main :file:`configure.zcml`.
@@ -83,7 +85,6 @@ Let's create it.
 ..  code-block:: python
     :linenos:
 
-    # -*- coding: utf-8 -*-
     from plone import api
     from plone.app.upgrade.utils import loadMigrationProfile
 
@@ -100,7 +101,7 @@ Let's create it.
         )
 
 
-    def upgrade_site(setup):
+    def upgrade_site(context=None):
         # reload type info
         setup.runImportStepFromProfile(default_profile, 'typeinfo')
         portal = api.portal.get()
@@ -170,9 +171,10 @@ Let's create it.
 
 Note:
 
-* Upgrade steps get the tool ``portal_setup`` passed as their argument.
-* The ``portal_setup`` tool has a method :py:meth:`runImportStepFromProfile`
-* We create the required folder structure if it does not exists yet.
+* They are simple python methods, nothing fancy about them except the registration.
+* When running a upfrade-step they get the tool ``portal_setup`` passed as a argument. To make it easier to call these steps from a pdb or from other methods it is a good idea to set it as ``context=None`` and not use the argument at all but instead use ``portal_setup = api.portal.get_tool('portal_setup')`` if you need it.
+* The ``portal_setup`` tool has a method :py:meth:`runImportStepFromProfile`. In this example it is used to load the file `profiles/default/types.xml` and `profiles/default/types/talk.xml` to enable new behaviors, views or other settings.
+* In Python we create the required folder structure if it does not exist yet making extensive use of ``plone.api`` as discussed in the chapter :doc:`api`.
 
 After restarting the site we can run the step:
 
@@ -205,7 +207,7 @@ Alternatively you also select which upgrade steps to run like this:
 
 
 
-.. _dexterity2-browserlayer-label:
+.. _upgrade_steps-browserlayer-label:
 
 Browserlayers
 -------------
@@ -232,10 +234,6 @@ Our package already has a browserlayer (added by :py:mod:`bobtemplates.plone`). 
         """Marker interface that defines a browser layer."""
 
 
-    class ITalk(Interface):
-        """Marker interface for Talks"""
-
-
 It is enabled by GenericSetup when installing the package since it is registered in the :file:`profiles/default/browserlayer.xml`
 
 ..  code-block:: xml
@@ -250,7 +248,7 @@ It is enabled by GenericSetup when installing the package since it is registered
 
 You should bind all your custom BrowserViews and Viewlets to it.
 
-Here is an example using the ``talklistview``.
+Here is an example using the ``talklistview`` from :doc:`views_3`.
 
 ..  code-block:: xml
     :emphasize-lines: 4
@@ -362,7 +360,7 @@ The ``column ..`` entries allow us to display the values of these indexes in the
           {audience}
         </Link>
 
-.. _dexterity2-customindex-label:
+.. _upgrade_steps-customindex-label:
 
 Query for custom indexes
 ------------------------
@@ -417,7 +415,7 @@ But when listing a large number of objects the site will now be faster since all
     Explain when having custom indexes and metadata makes sense with Volto.
 
 
-.. _dexterity2-use_indexes-label:
+.. _upgrade_steps-use_indexes-label:
 
 Exercise 1
 ----------
@@ -498,18 +496,13 @@ Modify :py:class:`TalkListView` to return only brains and adapt the template to 
 
 
 
-.. _dexterity2-collection-criteria-label:
+.. _upgrade_steps-collection-criteria-label:
 
 Add collection criteria
 -----------------------
 
-.. todo::
-
-    Do we really need/want this when we use Volto listing blocks?
-
-To be able to search content in collections using these new indexes we would have to register them as criteria for the ``querystring`` widget that collections use.
+To be able to search content in collections using these new indexes we need to register them as criteria for the ``querystring`` widget that collections use.
 As with all features make sure you only do this if you really need it!
-
 
 Add a new file :file:`profiles/default/registry.xml`
 
@@ -557,16 +550,13 @@ Add a new file :file:`profiles/default/registry.xml`
   https://docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed
 
 
-.. _dexterity2-GS-label:
+.. _upgrade_steps-GS-label:
 
 Add versioning through GenericSetup
 ------------------------------------
 
-.. todo::
-
-    Do we really need/want this?
-
 You already enabled the versioning behavior on the content type.
+It allows you to specify if versioning should be enabled for each individual object instead of using a default-setting per content type.
 See :file:`profiles/default/types/talk.xml`:
 
 .. code-block:: xml
@@ -611,11 +601,6 @@ Add new file :file:`profiles/default/diff_tool.xml`
         </type>
       </difftypes>
     </object>
-
-
-.. note::
-
-    There is currently a bug that breaks showing diffs when multiple-choice fields were changed.
 
 
 Summary
