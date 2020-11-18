@@ -77,7 +77,7 @@ We already added a content type `talk`. Let's write a test 'An editor can add a 
 
 Go to your **backend folder**, open ``Makefile`` and add test commands:
 
-.. code-block::text
+.. code-block:: text
 
   # Volto cypress tests
 
@@ -96,19 +96,19 @@ Go to your **backend folder**, open ``Makefile`` and add test commands:
 
 Start the test backend
 
-.. code-block::bash
+.. code-block:: bash
 
   make start-test-backend
 
 Start the test frontend
 
-.. code-block::bash
+.. code-block:: bash
 
   make start-test-frontend
 
 Start cypress
 
-.. code-block::bash
+.. code-block:: bash
 
   make start-test
 
