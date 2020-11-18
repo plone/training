@@ -6,7 +6,7 @@ Manage Settings with Registry, Control Panels and Vocabularies
 .. todo::
 
     * Add a Volto Controlpanel (in a later chapter?)
-    * Add fields and vocabularies for ``audience`` and ``type_of_talk``
+    * Add vocabularies for the fields ``audience`` and ``type_of_talk``
 
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
@@ -201,7 +201,7 @@ Again, after applying the profile (reinstall the package or write a upgrade-step
 Vocabularies
 ------------
 
-Do you remember the field `rooms`? We provided several options to chose from.
+Do you remember the field ``rooms``? We provided several options to chose from.
 But who says that the next conference will have the same rooms?
 These values should be configurable by the admin.
 The admin could go to the Dexterity control panel and change the values but we will use a different approach.
@@ -246,57 +246,63 @@ You can now register this vocabulary as a named utility in :file:`configure.zcml
 
 From now on you can use this vocabulary by only referring to its name `ploneconf.site.vocabularies.Rooms`.
 
-Note:
+.. note::
 
-* Plone comes with many useful vocabularies that you can use in your own projects. See https://github.com/plone/plone.app.vocabularies/ for a list of them.
-* We turn the values from the registry into a dynamic `SimpleVocabulary` that can be used in the schema.
-* You could use the context with which the vocabulary is called or the request (using `getRequest` from `from zope.globalrequest import getRequest`) to constrain the values in the vocabulary.
-* We use the handy helper method `safe_simplevocabulary_from_values` to create the vocabulary since the `token` of a `SimpleTerm` in a `SimpleVocabulary` needs to be bytes, not unicode.
-* You can write your own helper to further control the creation of the vocabulary terms. The `value` is stored on the object, the `token` used to communicate with the widget during editing and `title` is what is displayed in the widget.
-  This example allows you to translate the displayed title while keeping the value stored on the object the same in all languages:
+    * Plone comes with many useful vocabularies that you can use in your own projects. See https://github.com/plone/plone.app.vocabularies/ for a list of them.
+    * We turn the values from the registry into a dynamic ``SimpleVocabulary`` that can be used in the schema.
+    * You could use the context with which the vocabulary is called or the request (using `getRequest` from ``from zope.globalrequest import getRequest``) to constrain the values in the vocabulary.
+    * We use the handy helper method `safe_simplevocabulary_from_values` to create the vocabulary since the `token` of a `SimpleTerm` in a ``SimpleVocabulary`` needs to be ASCII.
+    * ``binascii.b2a_qp`` (which is used by ``safe_simplevocabulary_from_values``) has the annoying habit of adding line-breaks every 80 characters. Make sure your values are shorter than that or use something else to create the vocabulary-terms!
+    * You can write your own helper to further control the creation of the vocabulary terms. The ``value`` is stored on the object, the ``token`` used to communicate with the widget during editing and ``title`` is what is displayed in the widget.
+      This example allows you to translate the displayed title while keeping the value stored on the object the same in all languages:
 
-  ..  code-block:: python
+      ..  code-block:: python
 
-      from binascii import b2a_qp
-      from ploneconf.site import _
-      from zope.schema.vocabulary import SimpleTerm
-      from zope.schema.vocabulary import SimpleVocabulary
+          from binascii import b2a_qp
+          from ploneconf.site import _
+          from zope.schema.vocabulary import SimpleTerm
+          from zope.schema.vocabulary import SimpleVocabulary
 
-      def simplevoc(values):
-          return SimpleVocabulary(
-              [SimpleTerm(value=i, token=b2a_qp(i.encode('utf-8')), title=_(i)) for i in values],
-          )
+          def simplevoc(values):
+              return SimpleVocabulary(
+                  [SimpleTerm(value=i, token=b2a_qp(i.encode('utf-8')), title=_(i)) for i in values],
+              )
 
-Use the new vocabulary in the talk schema. Edit :file:`content/talk.xml`
-
-..  code-block:: xml
-    :linenos:
-    :emphasize-lines: 7
-
-    <field name="room"
-           type="zope.schema.Choice"
-           form:widget="z3c.form.browser.radio.RadioFieldWidget"
-           security:write-permission="cmf.ReviewPortalContent">
-      <description></description>
-      <title>Room</title>
-      <vocabulary>ploneconf.site.vocabularies.Rooms</vocabulary>
-    </field>
-
-
-In a Python schema, that would look like this:
+Use the new vocabulary in the talk schema. Edit :file:`content/talk.py`
 
 ..  code-block:: python
+    :linenos:
+    :emphasize-lines: 3
 
-    directives.widget(room=RadioFieldWidget)
     room = schema.Choice(
         title=_(u'Room'),
         vocabulary='ploneconf.site.vocabularies.Rooms',
         required=False,
     )
 
+In a xml-schema, that would look like this:
+
+..  code-block:: xml
+    :linenos:
+    :emphasize-lines: 5
+
+    <field name="room"
+           type="zope.schema.Choice">
+      <description></description>
+      <title>Room</title>
+      <vocabulary>ploneconf.site.vocabularies.Rooms</vocabulary>
+    </field>
+
 An admin can now configure the rooms available for the conference.
 
-We could use the same pattern for the fields `type_of_talk` and `audience`.
+We could use the same pattern for the fields ``type_of_talk`` and ``audience``.
+
+.. note::
+
+   This approach to create vocabularies has some problems:
+   Existing content does not get updated when you change a value in the controlpanel. Instead they will have invalid data.
+
+   If your settings tend to change you should use `collective.taxonomy <https://github.com/collective/collective.taxonomy>`_ to manage vocabularies. Among many other things it allows you to translate terms and to change the text that is displayed while keeping the same values.
 
 .. seealso::
 
