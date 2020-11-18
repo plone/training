@@ -15,14 +15,10 @@ The story of a conference platform provides a week-long training of several deve
 
 .. todo::
 
-    These chapters are outdated and will probably be removed:
-
-    * :doc:`export_code` (replaced by creating talk as a python schema)
-
     These chapters are outdated and need to be updated:
 
     * :doc:`views_1`: We still need browser views with Volto but there needs to be good example why and where?
-    * :doc:`dexterity_2`: Shorten to only cover GS and upgrade-steps. Marker interface/behavior is no longer needed with a python talk schema \o/
+    * :doc:`dexterity_2`: Shorten to only cover GS and upgrade-steps. Marker interface/behavior is no longer needed with a python talk schema \\o/
     * :doc:`frontpage`: Move to a earlier place and build frontpage using the blocks. Should include a listing of features content from :doc:`behaviors_1`
 
     These chapters teach developing with classing Plone without Volto (i.e. server-side rendering):
