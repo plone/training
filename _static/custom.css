@@ -12,6 +12,9 @@ a:hover{
 .figure img {
   box-shadow: 0 6px 24px 0 rgba(153,153,153,0.3);
 }
+.sidebar .figure img {
+  box-shadow: none;
+}
 
 div.section {
   margin-bottom: 6rem;
