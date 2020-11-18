@@ -12,7 +12,7 @@ intended as a full day training for people who already know the basics of
 ReactJS and Volto.
 
 ..  toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :numbered:
     :caption: Volto Addons Development
 
@@ -25,10 +25,9 @@ ReactJS and Volto.
     05-objectwidget-block-edit
     06-cell-renderer
     07-misc-addons
-
-    jsbasics
-    devenvironment
     blocksrestapi
 
     about/index
     about/glossary
+    about/jsbasics
+    about/devenvironment

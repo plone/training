@@ -4,11 +4,10 @@ Improve the block view
 
 Let's add CSV file parsing.
 
-There are many CSV parsers available for node/js, we'll use Papaparse_ because
+There are many CSV parsers available for Nodejs, we'll use Papaparse_ because
 it also works in the browser.
-on.
 
-.. Papaparse_: https://www.npmjs.com/package/papaparse
+.. _Papaparse: https://www.npmjs.com/package/papaparse
 
 We'll need to add the dependency to the addon. When using yarn workspaces, the
 workflow is a bit different. For our simple use case, we could probably run

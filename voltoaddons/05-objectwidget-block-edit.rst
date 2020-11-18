@@ -203,6 +203,8 @@ Of course, now the sky is the limit. We could enhance this with number
 formating provided by a library to humanize and automatically format those
 values, or d3's format. There's plenty of choices.
 
+.. image:: _static/table-column-editing.png
+
 Write a new Volto widget
 ------------------------
 
@@ -281,8 +283,11 @@ Now go back to the schema and let's use the new text align widget:
       widget: 'text_align',
     },
 
-.. note:: volto-object-widget provides drag/drop sorting of the columns so it's
-possible to reorder the columns.
+.. note::
+    volto-object-widget provides drag/drop sorting of the columns so it's
+    possible to reorder the columns.
+
+.. image:: _static/table-column-with-text-align.png
 
 We could say it's done for now... but let's go some steps further and explore
 how to further enhance this addon's re-usability and extensibility.

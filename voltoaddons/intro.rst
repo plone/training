@@ -56,7 +56,7 @@ Roadmap
 - bootstrap a Volto addon from scratch
 - develop a simple Volto block
 - write an action/reducer pair for network requests
-- connect the block to async data
+- connect the block to network-fetched async data
 - learn how to make React code reusable
 - learn how to make blocks extensible
 
@@ -69,6 +69,10 @@ The hands-on exercise will feature developing an addon that provides table
 views for data files (CSVs). We will be using real-world patterns and
 development models based on the experience gained while developing several
 websites that use these types of addons.
+
+Here's a preview of the block we'll build:
+
+.. image:: _static/final-block.png
 
 We will be facing different challenges and we will be solving them, introducing
 or refreshing some of the concepts covered in the previous training classes.

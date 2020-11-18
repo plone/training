@@ -1,6 +1,6 @@
-=======================
-Javascript enhancements
-=======================
+==============================================
+Really short primer on Javascript enhancements
+==============================================
 
 Destructuring
 =============

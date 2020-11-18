@@ -269,6 +269,9 @@ And now the view module can become:
       DataTableView,
     );
 
+Here's how your block would look like now:
+
+.. image:: _static/basic-table-edit.png
 
 Initial block data as a reusable pattern
 ----------------------------------------
