@@ -81,7 +81,7 @@ The configuration file :file:`mrs.developer.json` instructs mrs.developer from w
 
     {
         "collective-volto-custom-addon": {
-            "package": "@collective/volto-custom-addon",
+            "package": "@plone-collective/volto-custom-addon",
             "url": "git@github.com:collective/volto-custom-addon.git",
             "path": "src"
         }
@@ -109,11 +109,11 @@ Update :file:`package.json`:
     ],
     "addons": [
       …
-      "@collective/volto-custom-addon"
+      "@plone-collective/volto-custom-addon"
     ],
     "dependencies": {
         …
-        "@collective/volto-custom-addon": "github:collective/volto-custom-addon"
+        "@plone-collective/volto-custom-addon": "github:collective/volto-custom-addon"
     },
 
 Install and start
@@ -124,7 +124,10 @@ Install and start
     $ yarn start
 
 
-.. TODO:: Release the new add-on (npm)
+Step to the next chapter :doc:`volto_custom_addon2` to see how to create a new block type. We will do this in an add-on to apply the feature to multiple projects.
+
+.. NOTE:: You can now release the new add-on to npm. 
+
 
 Enrich an existing project with your new released add-on
 --------------------------------------------------------
@@ -137,14 +140,14 @@ Update `package.json`:
 
     "addons": [
       …
-      "@collective/volto-custom-addon"
+      "@plone-collective/volto-custom-addon"
     ],
     "workspaces": [
       "src/addons/*"
     ],
     "dependencies": {
       …
-      "@collective/volto-custom-addon": "1.0.1"
+      "@plone-collective/volto-custom-addon": "1.0.1"
     },
 
 Modify versions as necessary.
