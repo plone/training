@@ -66,7 +66,7 @@ Go to the app folder:
 
     cd sandbox-volto-custom-addon
 
-You have now a Volto app configured for an add-on. An add-on is a Node package. It will live in the folder you specified: :file:`src/addons/greenthumb-volto-custom-addon`. So you need a package.json. As it should customize your Volto app, it needs also a way to manipulate the main configuration. As a starter you can create a repository from template https://github.com/rohberg/volto-addon-template.git.
+You now have a Volto app configured for an add-on. An add-on is a Node package. It will live in the folder you specified: :file:`src/addons/greenthumb-volto-custom-addon`. So you need a package.json. As it should customize your Volto app, it needs also a way to manipulate the main configuration. As a starter you can create a repository from template https://github.com/rohberg/volto-addon-template.git.
 
 .. figure:: _static/volto-addon-template.png
 
@@ -100,7 +100,7 @@ You see your addon cloned to `src/addons/`.
 
 Read more about `mrs.developer` [2]_ configuration options.
 
-Change to add-on folder and replace rohberg -> greenthumb and replace volto-addon-template -> volto-custom-addon.
+Change to add-on folder and replace *rohberg* -> *greenthumb* and replace *volto-addon-template* -> *volto-custom-addon*.
 
 
 With mrs.developer set up to code your add-on, its just left to add the add-on as any add-on to your Volto project:
