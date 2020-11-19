@@ -29,7 +29,7 @@ The story of a conference platform provides a week-long training of several deve
     * :doc:`views_3` (replaced by :doc:`volto_talk_listview`)
     * :doc:`viewlets_1` (replaced by a new chapter)
     * :doc:`events_classic` (replaced by :doc:`events`)
-    * :doc:`viewlets_advanced_classic` (replaced by :doc:`viewlets_advanced_classic`)
+    * :doc:`viewlets_advanced_classic` (replaced by :doc:`volto_components_sponsors`)
     * :doc:`theming` (replaced by :doc:`volto_theming`)
 
 
