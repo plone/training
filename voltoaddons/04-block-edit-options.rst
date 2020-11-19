@@ -225,7 +225,7 @@ And now the view module can become:
 
     import React from 'react';
     import { Table } from 'semantic-ui-react';
-    import { withFileData } from '@plone/datatable-tutorial/hocs';
+    import { withFileData } from '@plone-collective/datatable-tutorial/hocs';
 
     const format = (data) => {
       return {

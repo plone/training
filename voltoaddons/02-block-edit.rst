@@ -134,7 +134,7 @@ client browser.
 
     import React from 'react';
     import { useDispatch, useSelector } from 'react-redux';
-    import { getRawContent } from '@plone/datatable-tutorial/actions';
+    import { getRawContent } from '@plone-collective/datatable-tutorial/actions';
 
     const DataTableView = (props) => {
       const {
@@ -171,7 +171,7 @@ Create the ``rawcontent.js`` action module:
 
 .. code-block:: jsx
 
-    import { GET_RAW_CONTENT } from '@plone/datatable-tutorial/constants';
+    import { GET_RAW_CONTENT } from '@plone-collective/datatable-tutorial/constants';
 
     export function getRawContent(url, headers = {}) {
       return {
@@ -189,7 +189,7 @@ Then create the ``reducers/rawdata.js`` module:
 
 .. code-block:: jsx
 
-    import { GET_RAW_CONTENT } from '@plone/datatable-tutorial/constants';
+    import { GET_RAW_CONTENT } from '@plone-collective/datatable-tutorial/constants';
 
     export default function rawdata(state = {}, action = {}) {
       let { result, url } = action;

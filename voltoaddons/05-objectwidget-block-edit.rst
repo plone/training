@@ -11,8 +11,8 @@ has another dependency, the volto-blocks-form_, so let's add them both:
 
 .. code-block:: sh
 
-    yarn workspace @plone/datatable-tutorial add eea/volto-object-widget
-    yarn workspace @plone/datatable-tutorial add eea/volto-blocks-form
+    yarn workspace @plone-collective/datatable-tutorial add eea/volto-object-widget
+    yarn workspace @plone-collective/datatable-tutorial add eea/volto-blocks-form
 
 .. note::
 
@@ -26,7 +26,7 @@ Add the volto-object-widget addon in the project's package.json:
   "addons": [
     "@eeacms/volto-blocks-form",
     "@eeacms/volto-object-widget",
-    "@plone/datatable-tutorial"
+    "@plone-collective/datatable-tutorial"
   ],
 
 The order in which we load the addons can sometimes be relevant. Ideally the

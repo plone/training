@@ -181,7 +181,7 @@ Back to the project, you can edit ``jsconfig.json`` and add your addon:
         "compilerOptions": {
             "baseUrl": "src",
             "paths": {
-                "@plone/datatable-tutorial": [
+                "@plone-collective/datatable-tutorial": [
                     "addons/datatable-tutorial/src"
                 ],
             }
@@ -206,7 +206,7 @@ to manage the package and ``jsconfig.json`` changes. Add to
     "datatable-tutorial": {
         "url": "https://github.com/collective/datatable-tutorial.git",
         "path": "src",
-        "package": "@plone/datatable-tutorial",
+        "package": "@plone-collective/datatable-tutorial",
         "branch": "master"
     }
 
@@ -235,7 +235,7 @@ workspaces machinery, by running something like (at the Volto project root):
 .. code-block:: console
 
     yarn workspaces info
-    yarn workspace @plone/datatable-tutorial add @papaparse
+    yarn workspace @plone-collective/datatable-tutorial add @papaparse
 
 .. note::
     There are several other addon templates, such as `voltocli`_ or `EEA Addon

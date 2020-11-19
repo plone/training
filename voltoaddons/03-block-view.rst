@@ -20,7 +20,7 @@ First run ``yarn workspaces info`` to see the workspaces we have available.
 
     > yarn workspaces info
     {
-      "@plone/datatable-tutorial": {
+      "@plone-collective/datatable-tutorial": {
         "location": "src/addons/datatable-tutorial",
         "workspaceDependencies": [],
         "mismatchedWorkspaceDependencies": []
@@ -31,7 +31,7 @@ To add a dependency to the package, run:
 
 .. code-block:: sh
 
-    > yarn workspace @plone/datatable-tutorial add papaparse
+    > yarn workspace @plone-collective/datatable-tutorial add papaparse
 
 
 And finally, the new block code:
@@ -128,7 +128,7 @@ We'll create the ``src/hocs/withFileData.js`` file:
 
     import { useDispatch, useSelector } from 'react-redux';
     import csv from 'papaparse';
-    import { getRawContent } from '@plone/datatable-tutorial/actions';
+    import { getRawContent } from '@plone-collective/datatable-tutorial/actions';
 
     const withFileData = (WrappedComponent) => {
       return (props) => {
@@ -175,7 +175,7 @@ And now the view component is simple, neat and focused:
 
     import React from 'react';
     import { Table } from 'semantic-ui-react';
-    import { withFileData } from '@plone/datatable-tutorial/hocs';
+    import { withFileData } from '@plone-collective/datatable-tutorial/hocs';
 
     const DataTableView = ({ file_data }) => {
       const fields = file_data?.meta?.fields || [];
