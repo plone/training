@@ -14,13 +14,13 @@ Creating a dynamic frontpage with Volto blocks
 
 In this part you will:
 
+* Use a listing block to show featured content
 * Add own criteria for listing block
-* Add listing block to show featured content
 
 Topics covered:
 
 * adding own collection criteria
-* adding and configuring listing block
+* configuring listing block
 
 Add Index as collection criteria
 --------------------------------
@@ -77,17 +77,17 @@ To understand this code-snippet, we have to know the information and tags we are
 
 Like explained in the last chapter we can now restart the instance and import the newly added profile by using the `portal_setup` in our ZMI.
 
+
 Add listing block to show featured content
 ------------------------------------------
 
-Now we will go back to our frontend and look up localhost:3000 to checkout the volto. To create a new listing_block on the front-page we have to click on edit first an create one new block space there. Now you have to choose the block `Listing` from the menu:
+Now we will go back to our frontend and open localhost:3000. To create a new listing_block on the front-page we have to click on edit first and create one new block. Now you have to choose the block `Listing` from the menu:
 
 .. figure:: _static/volto_frontpage_1.png
    :alt: Most used blocks in Volto
 
-And you will gain a new block and sidebar looking like this:
+You will gain a new block and sidebar looking like this:
 
-.. figure:: _static/volto_frontpage_2.png
+.. figure:: _static/volto_frontpage_3.png
    :alt: Most used blocks in Volto
 
-SCREENSHOTS TO ADD LISTING BLOCK
