@@ -35,3 +35,17 @@ Extending Volto With a FAQ Block Type
 .. figure:: _static/faq_sidebar.png
     :alt: Editing Volto add-on volto-accordion-block
 
+
+
+
+4. See changes and commit:
+
+    ..  code-block:: bash
+    
+            $ git diff
+            $ git commit -am "Initial commit"
+            $ git push
+
+
+
+Your add-on is ready to use. As by now your repository is on Github. As long as it is published, you can share it with others. An official release is done on npm. Switch to section :ref:`Release a Volto add-on <volto_custom_addon-final-label>`.
