@@ -76,6 +76,7 @@ The story of a conference platform provides a week-long training of several deve
     volto_richtexteditor
     volto_custom_block
     volto_custom_addon
+    volto_custom_addon2
     relations
     registry
     frontpage
