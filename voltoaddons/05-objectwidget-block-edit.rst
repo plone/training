@@ -23,11 +23,13 @@ Add the volto-object-widget addon in the project's package.json:
 
 .. code-block:: json
 
-  "addons": [
-    "@eeacms/volto-blocks-form",
-    "@eeacms/volto-object-widget",
-    "@plone-collective/datatable-tutorial"
-  ],
+  {
+      "addons": [
+        "@eeacms/volto-blocks-form",
+        "@eeacms/volto-object-widget",
+        "@plone-collective/datatable-tutorial"
+      ]
+  }
 
 The order in which we load the addons can sometimes be relevant. Ideally the
 configuration options are used only at "runtime", on demand, but there are
@@ -157,6 +159,7 @@ Let's go back to the view component and use the column definitions from the
 block data.
 
 .. code-block:: jsx
+    :force:
 
     const DataTableView = ({ file_data, data }) => {
       const columns =
@@ -212,6 +215,7 @@ Let's enhance the edit form by creating an align widget for the text align
 field. Let's create ``src/widgets/TextAlign.jsx``.
 
 .. code-block:: jsx
+    :force:
 
     import React from 'react';
     import { Button } from 'semantic-ui-react';

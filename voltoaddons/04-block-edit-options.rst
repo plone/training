@@ -222,6 +222,7 @@ values. We'll render this form in the sidebar.
 And now the view module can become:
 
 .. code-block:: jsx
+    :force:
 
     import React from 'react';
     import { Table } from 'semantic-ui-react';
@@ -234,7 +235,7 @@ And now the view module can become:
         basic: data.basic ? 'very' : undefined,
         celled: data.celled,
         inverted: data.inverted,
-        striped: data.striped,
+        striped: data.striped
       };
     };
 
@@ -242,7 +243,7 @@ And now the view module can become:
       const fields = file_data?.meta?.fields || [];
 
       return file_data ? (
-        <Table {...format(data)}>
+        <Table { ...format(data) }>
           <Table.Header>
             <Table.Row>
               {fields.map((f) => (
@@ -266,7 +267,7 @@ And now the view module can become:
     };
 
     export default withFileData(({ data: { file_path } }) => file_path)(
-      DataTableView,
+      DataTableView
     );
 
 Here's how your block would look like now:

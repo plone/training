@@ -203,12 +203,14 @@ to manage the package and ``jsconfig.json`` changes. Add to
 
 .. code-block:: json
 
-    "datatable-tutorial": {
-        "url": "https://github.com/collective/datatable-tutorial.git",
-        "path": "src",
-        "package": "@plone-collective/datatable-tutorial",
-        "branch": "master"
-    }
+    {
+        "datatable-tutorial": {
+            "url": "https://github.com/collective/datatable-tutorial.git",
+            "path": "src",
+            "package": "@plone-collective/datatable-tutorial",
+            "branch": "master"
+        }
+   }
 
 Then run ``yarn develop``, which will bring the package in ``src/addons`` and
 adjust ``jsconfig.json``.
@@ -219,10 +221,12 @@ addon as workspace to the Volto project. Change the Volto project's
 
 .. code-block:: json
 
-    "private": "true",
-    "workspaces": [
-        "src/addons/datatable-tutorial"
-    ],
+    {
+        "private": "true",
+        "workspaces": [
+            "src/addons/datatable-tutorial"
+        ],
+    }
 
 .. note::
     Don't be scared by that `private:true` in the Volto project package.json,

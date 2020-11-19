@@ -99,7 +99,7 @@ add relevant conditions inside the hook code, so be sure to identify and
 prepare a way to tell, from inside the hook, if the network-fetching action
 should be dispatched.
 
-.. _`rule_of_hooks`: https://reactjs.org/docs/hooks-rules.html
+.. _`rule of hooks`: https://reactjs.org/docs/hooks-rules.html
 
 The React HOC Pattern
 ---------------------

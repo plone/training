@@ -88,6 +88,7 @@ input, otherwise we're showing the View component.
 Add the following ``datatable-edit.less`` file:
 
 .. code-block:: less
+   :force:
 
     @type: 'extra';
     @element: 'custom';
@@ -103,9 +104,10 @@ Add the following ``datatable-edit.less`` file:
         min-height: 10em;
         flex-direction: column;
         justify-content: center;
-        margin: 0em auto;
+        margin: 0 auto;
       }
     }
+
 
 Notice that by importing ``'../../theme.config'`` we're able to have access to
 Volto's (and, by extension, all SemanticUIs) LESS variables.
