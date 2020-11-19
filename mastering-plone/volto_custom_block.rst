@@ -22,19 +22,107 @@ Use Case: *The content of a page should be teasered: Show first part and the res
 .. figure:: _static/volto_block_readmore_edit.png
     :alt: Edit view with an additonal option
 
-The following blog post describes the few easy steps to customize a default text block in your app: https://www.rohberg.ch/de/blog/volto-customizing-blocks No need to create an add-on.
+
+We extend the default Volto text block schema with an additional field "readmore".
+
+:file:`src/customizations/components/manage/Blocks/Text/Schema.jsx`
+
+.. code-block:: json
+    :linenos:
+    :emphasize-lines: 8
+
+    import BlockSettingsSchema from '@plone/volto/components/manage/Blocks/Block/Schema';
+
+    const Schema = {
+        ...BlockSettingsSchema,
+        fieldsets: [
+            {
+                ...BlockSettingsSchema.fieldsets[0],
+                fields: ['readmore'],
+            },
+        ],
+        properties: {
+            readmore: {
+            title: 'Read more',
+            description: 'Hide following text. Show on Click.',
+            type: 'boolean',
+            },
+        },
+    };
+
+    export default Schema;
+
+We use the Volto ``InlineForm`` component to extend the sidebar.
+
+:file:`src/customizations/components/manage/Blocks/Text/Edit.jsx`
+
+.. code-block :: jsx
+    :linenos:
+    :emphasize-lines: 15,16,19
+
+    import { SidebarPortal } from '@plone/volto/components';
+    import InlineForm from '@plone/volto/components/manage/Form/InlineForm';
+
+    import schema from './Schema';
+
+    snip
+
+    render() {
+
+    snip
+
+        return (
+            <>
+                <SidebarPortal selected={this.props.selected}>
+                    <InlineForm
+                        schema={schema}
+                        title={schema.title}
+                        onChangeField={(id, value) => {
+                            this.props.onChangeBlock(this.props.block, {
+                                ...this.props.data,
+                                [id]: value,
+                            });
+                        }}
+                        formData={this.props.data}
+                    />
+                </SidebarPortal>
+
+You see the call of ``onChangeBlock`` which writes the value true or false to the block data.
+
+With the above customizations the default text block has an additional attribute "readmore".
+
+The default text block has no options to select, so it is per default configured to show the document properties pane in sidebar. The following modification forces the sidebar to show the block configuration pane instead the one of the document.
+
+:file:`src/config.js`
+
+.. code-block :: jsx
+
+    const customizedBlocks = {
+        text: {
+            ...defaultBlocks.blocksConfig.text,
+            sidebarTab: 1,
+        },
+    };
+
+    export const blocks = {
+        ...defaultBlocks,
+        blocksConfig: {
+            ...defaultBlocks.blocksConfig,
+            ...customBlocks,
+            ...customizedBlocks,
+        },
+    };
+
+Now a view of the page can distinguish between content blocks to show and these to hide for further reading on click.
 
 
-That was easy. But what if we need a FAQ section and want provide a nice form for question and answer pairs?
+Exercise
+--------
 
-.. TODO:: 
-
-    addon volto-accordion-block https://www.npmjs.com/package/@rohberg/volto-accordion-block
+Add a field **highlighted** to a default text block. With this marker you can add a CSS rule to highlight the blocks marked. Where would you place this CSS rule?
 
 
-.. figure:: _static/faq_accordion.png
-    :alt: Volto add-on volto-accordion-block
+Prospect
+--------
 
-.. figure:: _static/faq_sidebar.png
-    :alt: Editing Volto add-on volto-accordion-block
-
+That was easy. But what if we need a FAQ section and want to provide a nice form for question and answer pairs? See the next chapter where we create a new block type. We take the opportunity to create an add-on with this block type. So the feature can be easily applied to multiple projects.
