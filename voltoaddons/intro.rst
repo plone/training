@@ -86,7 +86,10 @@ Before you start
 You'll need to have a Plone instance with plone.restapi integrate. The quickest
 way to get a Plone instance running is with Docker:
 
-    docker run -it --rm --name=plone -p 8080:8080 -e SITE=Plone -e ADDONS="kitconcept.volto" -e ZCML="kitconcept.volto.cors" -e PROFILES="kitconcept.volto:default-homepage" plone
+    docker run -it --rm --name=plone -p 8080:8080 \
+        -e SITE=Plone -e ADDONS="kitconcept.volto" \
+        -e ZCML="kitconcept.volto.cors" \
+        -e PROFILES="kitconcept.volto:default-homepage" plone
 
 If you have the whole toolchain setup to develop Plone, you can also clone
 and use Volto's development backend setup:
