@@ -59,7 +59,7 @@ To bootstrap a new Volto project, you can use either create-volto-app:
     npm -g i @plone/create-volto-app
     create-volto-app myvoltoproject
 
-or the upcoming Yeoman-based generator-volto:
+or the new Yeoman-based generator-volto:
 
 .. code-block:: bash
 
@@ -97,10 +97,17 @@ An addon can be almost anything that a Volto project can be. They can:
 
 As for implementation, Volto addons are just plain Javascript packages with an
 additional feature: they provide helper functions that mutate Volto's
-configuration registry. These are the "addon configuration loaders". To make
-things easy, addons should be distributed as source, non transpiled. Their
-``main`` entry in ``package.json`` should point to ``src/index.js``, which
-should be an ES6 module with a default export, the addon configuration loader:
+configuration registry. These are the "addon configuration loaders".
+
+.. note::
+
+    To make things easy, addons should be distributed as source, non
+    transpiled. Volto's Webpack setup will load/transpile addon packages if
+    they are identified as Volto addons.
+
+Their ``main`` entry in ``package.json`` should point to ``src/index.js``,
+which should be an ES6 module with a default export, the addon configuration
+loader:
 
 .. code-block:: jsx
 
