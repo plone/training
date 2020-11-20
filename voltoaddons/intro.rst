@@ -79,7 +79,20 @@ or refreshing some of the concepts covered in the previous training classes.
 We will cover the proper solution to each challenge and we will provide an
 overview of what to expect when developing for Volto.
 
-Documentation
-=============
 
-Follow the training at :ref:`voltoaddons-label`.
+Before you start
+================
+
+You'll need to have a Plone instance with plone.restapi integrate. The quickest
+way to get a Plone instance running is with Docker:
+
+    docker run -it --rm --name=plone -p 8080:8080 -e SITE=Plone -e ADDONS="kitconcept.volto" -e ZCML="kitconcept.volto.cors" -e PROFILES="kitconcept.volto:default-homepage" plone
+
+If you have the whole toolchain setup to develop Plone, you can also clone
+and use Volto's development backend setup:
+
+.. code-block:: console
+
+    git clone https://github.com/plone/volto
+    cd volto
+    make build-backend
