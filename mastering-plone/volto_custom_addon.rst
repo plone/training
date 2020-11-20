@@ -69,6 +69,8 @@ Go to the app folder:
 You now have a Volto app configured for an add-on. An add-on is a Node package. It will live in the folder you specified: :file:`src/addons/greenthumb-volto-custom-addon`. So you need a package.json. As it should customize your Volto app, it needs also a way to manipulate the main configuration. As a starter you can create a repository from template https://github.com/rohberg/volto-addon-template.git.
 
 .. figure:: _static/volto-addon-template.png
+    :scale: 50%
+    :alt: Voto add-on template
 
 Your repo https://github.com/greenthumb/volto-custom-addon.git is the basis of your add-on. We are now integrating it in your Volto app.
 
@@ -90,7 +92,7 @@ The configuration file :file:`mrs.developer.json` instructs mrs.developer from w
         }
     }
 
-run
+Run
 
 ..  code-block:: bash
 
