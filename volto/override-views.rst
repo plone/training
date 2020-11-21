@@ -25,7 +25,6 @@ Override the summary view so that the "Read more..." text is gone and is replace
         import { Helmet } from '@plone/volto/helpers';
         import { Link } from 'react-router-dom';
         import { Container, Image } from 'semantic-ui-react';
-        import { FormattedMessage } from 'react-intl';
 
         /**
          * Summary view component class.
