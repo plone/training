@@ -13,7 +13,7 @@ For this course we will use Plone, you can download Plone at https://plone.org/d
 We need plone.restapi, so make sure you have that installed and configured correctly.
 For an example look into the api folder of the Volto repostory: https://github.com/plone/volto/tree/master/api
 
-.. warning::  Make sure you set a CORS policy or things tend to magically go wrong. See https://github.com/plone/volto/blob/master/api/base.cfg for an example.
+.. warning::  Make sure you set a CORS policy or things tend to magically go wrong. See https://github.com/plone/volto/blob/master/api/buildout.cfg for an example.
 
 
 .. _install-deps-volto-label:
