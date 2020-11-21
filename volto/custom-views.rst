@@ -22,7 +22,7 @@ We will rename this summary view to full view.
 
     import React from 'react';
     import PropTypes from 'prop-types';
-    import Helmet from 'react-helmet';
+    import { Helmet } from '@plone/volto/helpers';
     import { Link } from 'react-router-dom';
     import { Container, Image } from 'semantic-ui-react';
     import { FormattedMessage } from 'react-intl';
