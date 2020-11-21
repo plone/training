@@ -173,7 +173,7 @@ Create the ``faq_view`` in Volto and use the actions and reducers created above.
         import PropTypes from 'prop-types';
         import { connect } from 'react-redux';
         import { bindActionCreators } from 'redux';
-        import Helmet from 'react-helmet';
+        import { Helmet } from '@plone/volto/helpers';
         import { FormattedMessage } from 'react-intl';
         import { Container } from 'semantic-ui-react';
 
