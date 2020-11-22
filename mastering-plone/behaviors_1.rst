@@ -71,7 +71,7 @@ Names and Theory
 Practical example
 -----------------
 
-.. note:: 
+.. note::
 
     You can also use the Plone Command Line Tool `plonecli` to initially create a behavior and edit it afterwards
 
@@ -135,7 +135,6 @@ And a :file:`behaviors/featured.py` containing:
 
     # -*- coding: utf-8 -*-
     from plone.autoform.interfaces import IFormFieldProvider
-    from plone.supermodel import directives
     from plone.supermodel import model
     from zope import schema
     from zope.interface import provider
@@ -143,18 +142,12 @@ And a :file:`behaviors/featured.py` containing:
     @provider(IFormFieldProvider)
     class IFeatured(model.Schema):
 
-        directives.fieldset(
-            'featured',
-            label=u'Featured',
-            fields=('featured',),
-        )
-
         featured = schema.Bool(
             title=u'Show this item on the frontpage',
             required=False,
         )
 
-This is exactly the same type of schema as the one in teh talk content-type.
+This is exactly the same type of schema as the one in the talk content-type.
 The only addition is ``@provider(IFormFieldProvider)`` that makes sure that the fields in the schema are displayed in the add- and edit-forms.
 
 Let's go through this step by step.
@@ -225,7 +218,7 @@ First of all we have to decide which kind of Index we need to add for our new fi
 * KeywordIndex allows keyword-style look-ups (query term is matched against all the values of a stored list)
 * DateIndex and DateRangeIndex store dates (Zope 2 DateTime objects) in searchable format. The latter provides ranged searches.
 
-Therefore we have a boolean field for the featured information it would be obvious to use the BooleanIndex for this. 
+Therefore we have a boolean field for the featured information it would be obvious to use the BooleanIndex for this.
 
 To add a new index we have to change the `catalog.xml` in the `profiles/default` folder of our product. Without changes the file should look like this:
 
@@ -257,7 +250,7 @@ To understand this snippet we have to understand the tags and information we are
 * `meta_type` will determine the kind of index we want to use
 * The `indexed_attr` will include the fieldname of the information we are going to save in the index
 
-After a restart and reinstallation of the product, it should now create a new index in the `portal_catalog`. 
+After a restart and reinstallation of the product, it should now create a new index in the `portal_catalog`.
 
 .. note::
 
@@ -284,7 +277,8 @@ To add a metadata column for featured we have to add one more line in the `catal
       <column value="featured"/>
     </object>
 
-After another restart and another import of the xml-profile the new metadata column can be found in the `portal_catalog` in your `ZMI` under the tab `Metadata`. 
+After another restart and another import of the xml-profile the new metadata column can be found in the `portal_catalog` in your `ZMI` under the tab `Metadata`.
+
 
 .. _behaviors_1-label:
 
@@ -296,7 +290,7 @@ Since you now know how to add indexes to the `portal_catalog` it is time for som
 Exercise 1
 **********
 
-Add a new index for the `speaker`-field of out content type `Talk`
+Add a new index for the `speaker`-field of our content type `Talk`
 
 ..  admonition:: Solution
     :class: toggle

@@ -60,6 +60,7 @@ The story of a conference platform provides a week-long training of several deve
     dexterity_2_talk
     dexterity_reference
     behaviors_1
+    volto_frontpage
     api
     ide
     custom_search
@@ -79,8 +80,6 @@ The story of a conference platform provides a week-long training of several deve
     volto_custom_addon2
     relations
     registry
-    frontpage
-    volto_frontpage
     eggs2
     behaviors_2
     viewlets_2

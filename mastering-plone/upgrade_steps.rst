@@ -501,15 +501,34 @@ Modify :py:class:`TalkListView` to return only brains and adapt the template to 
 Add collection criteria
 -----------------------
 
-To be able to search content in collections using these new indexes we need to register them as criteria for the ``querystring`` widget that collections use.
+In chapter :doc:`behaviors_1` you already added the field ``featured`` as a querystring-criterion.
+
+To be able to search content using these new indexes in collections and listing blocks we need to register them as well.
+
 As with all features make sure you only do this if you really need it!
 
-Add a new file :file:`profiles/default/registry.xml`
+Add criteria for audience, type_of_talk and speaker to the file :file:`profiles/default/registry/querystring.xml`:
 
 .. code-block:: xml
     :linenos:
+    :emphasize-lines: 17-54
 
-    <registry>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+              i18n:domain="plone">
+
+      <records interface="plone.app.querystring.interfaces.IQueryField"
+               prefix="plone.app.querystring.field.featured">
+        <value key="title">Featured</value>
+        <value key="enabled">True</value>
+        <value key="sortable">False</value>
+        <value key="operations">
+          <element>plone.app.querystring.operation.boolean.isTrue</element>
+          <element>plone.app.querystring.operation.boolean.isFalse</element>
+        </value>
+        <value key="group" i18n:translate="">Metadata</value>
+      </records>
+
       <records interface="plone.app.querystring.interfaces.IQueryField"
                prefix="plone.app.querystring.field.audience">
         <value key="title">Audience</value>
@@ -518,9 +537,11 @@ Add a new file :file:`profiles/default/registry.xml`
         <value key="sortable">False</value>
         <value key="operations">
           <element>plone.app.querystring.operation.string.is</element>
+          <element>plone.app.querystring.operation.string.contains</element>
         </value>
-        <value key="group">Metadata</value>
+        <value key="group" i18n:translate="">Metadata</value>
       </records>
+
       <records interface="plone.app.querystring.interfaces.IQueryField"
                prefix="plone.app.querystring.field.type_of_talk">
         <value key="title">Type of Talk</value>
@@ -529,9 +550,11 @@ Add a new file :file:`profiles/default/registry.xml`
         <value key="sortable">False</value>
         <value key="operations">
           <element>plone.app.querystring.operation.string.is</element>
+          <element>plone.app.querystring.operation.string.contains</element>
         </value>
-        <value key="group">Metadata</value>
+        <value key="group" i18n:translate="">Metadata</value>
       </records>
+
       <records interface="plone.app.querystring.interfaces.IQueryField"
                prefix="plone.app.querystring.field.speaker">
         <value key="title">Speaker</value>
@@ -540,9 +563,11 @@ Add a new file :file:`profiles/default/registry.xml`
         <value key="sortable">False</value>
         <value key="operations">
           <element>plone.app.querystring.operation.string.is</element>
+          <element>plone.app.querystring.operation.string.contains</element>
         </value>
-        <value key="group">Metadata</value>
+        <value key="group" i18n:translate="">Metadata</value>
       </records>
+
     </registry>
 
 .. seealso::

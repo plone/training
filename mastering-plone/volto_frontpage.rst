@@ -38,27 +38,27 @@ In the sidebar we see the `criteria` selection and if we click there, it'll show
 
 To get all talks we marked as `featured` we have to get the listing block to recognize our newly created index. This means we have to add our index to the collection criterias, so we can choose it.
 
-To add our new index as a criteria so we can use it in a listing block or a collection, we have to switch to our `backend`. There we have to create a plone.app.registry record for our index. This can be achieved by editing the `registry.xml` in our `profiles` folder:
+To add our new index as a criteria so we can use it in a listing block or a collection, we have to switch to our `backend`. There we have to create a plone.app.registry record for our index. This can be achieved by adding a new file :file:`profiles/default/registry/querystring.xml`:
 
 .. code-block:: xml
     :linenos:
-    :emphasize-lines: 3-14
 
-    <?xml version="1.0" encoding="UTF-8"?>
+    <?xml version="1.0"?>
     <registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
               i18n:domain="plone">
+
       <records interface="plone.app.querystring.interfaces.IQueryField"
-            prefix="plone.app.querystring.field.featured">
-        <value key="title">Featured</value>
-        <value key="description">A custom featured index</value>
-        <value key="enabled">True</value>
-        <value key="sortable">False</value>
-        <value key="operations">
-          <element>plone.app.querystring.operation.boolean.isTrue</element>
-          <element>plone.app.querystring.operation.boolean.isFalse</element>
-        </value>
-        <value key="group" i18n:translate="">Metadata</value>
+               prefix="plone.app.querystring.field.featured">
+          <value key="title" i18n:translate="">Featured</value>
+          <value key="enabled">True</value>
+          <value key="sortable">False</value>
+          <value key="operations">
+              <element>plone.app.querystring.operation.boolean.isTrue</element>
+              <element>plone.app.querystring.operation.boolean.isFalse</element>
+          </value>
+         <value key="group" i18n:translate="">Metadata</value>
       </records>
+
     </registry>
 
 To understand this code-snippet, we have to know the information and tags we are using:
