@@ -94,12 +94,47 @@ All the lines after :samp:`recipe = xyz` are the configuration of the specified 
 
 .. _buildout1-references-label:
 
-References
-----------
+Variables and References
+------------------------
 
 .. only:: not presentation
 
+    A variable is declared with a ``=`` and can be used with a ``${}``:
+
+    .. code-block:: ini
+
+        [buildout]
+        devtool = pdbpp
+
+        more_devtools =
+            plone.reload
+            Products.PDBDebugMode
+            Products.PrintingMailHost
+            plone.app.debugtoolbar
+
+        eggs =
+            Plone
+            ${devtool}
+            ${more_devtools}
+
     Buildout allows you to use references in the configuration. A variable declaration may not only hold the variable value, but also a reference to where to look for the variable value.
+
+    .. code-block:: ini
+
+        [buildout]
+        devtool = pdbpp
+
+        more_devtools =
+            plone.reload
+            Products.PDBDebugMode
+            Products.PrintingMailHost
+            plone.app.debugtoolbar
+
+        [production]
+        eggs =
+            Plone
+            ${buildout:devtool}
+            ${buildout:more_devtools}
 
     If you have a big setup with many Plone sites with minor changes between each configuration, you can generate a template configuration, and each site references everything from the template and overrides just what needs to be changed.
 
@@ -134,7 +169,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
     [buildout]
     extends =
-        http://dist.plone.org/release/5.2/versions.cfg
+        http://dist.plone.org/release/5.2.3/versions.cfg
         versions.cfg
     extends-cache = extends-cache
 
@@ -257,7 +292,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
     .. code-block:: cfg
 
         extends =
-            http://dist.plone.org/release/5.2/versions.cfg
+            http://dist.plone.org/release/5.2.3/versions.cfg
 
     This line tells Buildout to read another configuration file. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configurations that differ between different environments.
 
