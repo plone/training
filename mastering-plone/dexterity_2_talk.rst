@@ -248,7 +248,7 @@ Now all pieces should be in place and you can enable the new type `Talk`.
 
 Now the new types should be visible in the add-menu.
 
-You can test the type in the backend (http://localhost:8080/Plone/++add++talk) and on the frontend (http://localhost:3000/add?type=talk).
+You can test the type in the frontend (http://localhost:3000/add?type=talk) and in the backend (http://localhost:8080/Plone/++add++talk).
 
 .. note::
 
@@ -270,7 +270,7 @@ You can test the type in the backend (http://localhost:8080/Plone/++add++talk) a
 * You can also make changes in the schema. After restarting the backend these changes are effective immediatley
 * Find the tool ``portal_types`` in the ZMI
 * Look at the fti for ``talk`` and inspect the configuration taken from the fti.
-* You can make changes ti the fti here. Some of the configuration are also available in plone control panels where it makes sense. For example the dexterity-controlpanel ``http://localhost:8080/@@dexterity-types`` can modify the behaviors (defined in ``<property name="behaviors">``) and http://localhost:8080/@@content-controlpanel has a checkbox for teh setting ``<property name="global_allow">``.
+* You can make changes to the fti here. Some of the configuration are also available in plone control panels where it makes sense. For example the dexterity-controlpanel ``http://localhost:3000/controlpanel/dexterity-types`` can modify the behaviors (defined in ``<property name="behaviors">``) and http://localhost:8080/@@content-controlpanel has a checkbox for the setting ``<property name="global_allow">``.
 
 
 

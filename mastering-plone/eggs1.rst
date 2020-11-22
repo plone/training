@@ -37,7 +37,7 @@ We are going to use `plonecli <https://pypi.org/project/plonecli>`_ to create a 
 
 .. note::
 
-    :py:mod:`plonecli` uses the :py:mod:`bobtemplates.plone` that offers several Plone-specific templates for :py:mod:`mr.bob`, a project template builder similar to :py:mod:`cookiecutter`.
+    :py:mod:`plonecli` uses :py:mod:`bobtemplates.plone` that offers several Plone-specific templates for :py:mod:`mr.bob`, a project template builder similar to :py:mod:`cookiecutter`.
 
 Install plonecli:
 
@@ -65,9 +65,11 @@ You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. cho
 
     --> Do you want me to initialize a GIT repository in your new package? (y/n) [y]: n
 
-    --> Plone version [5.1]: 5.2
+    --> Plone version [5.2.1]: 5.2.3
 
     --> Python version for virtualenv [python2.7]: python3.7
+
+    --> Do you want me to activate VS Code support? (y/n) [n]:
 
     git init is disabled!
     Generated file structure at /Users/pbauer/workspace/training/buildout/src/ploneconf.site

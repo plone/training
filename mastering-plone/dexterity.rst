@@ -108,19 +108,20 @@ Modifying existing types
 
 * Go to the control panel http://localhost:8080/Plone/@@dexterity-types
 * Inspect some of the existing default types.
-* Select the type :guilabel:`News Item` and add a new field ``Hot News`` of type :guilabel:`Yes/No`
+* Select the type :guilabel:`News Item` and click on :guilabel:`Schema`
+
+  .. figure:: _static/volto_dexterity_types.png
+
+* Add a new field ``Hot News`` of type :guilabel:`Yes/No`
+
+  .. figure:: _static/volto_edit_schema.png
+
 * In another tab, add a *News Item* and you'll see the new field.
-* Go back to the schema-editor and click on `Edit XML Field Model <http://localhost:8080/Plone/dexterity-types/News%20Item/@@modeleditor>`_.
-* Note that the only field in the XML schema of the News Item is the one we just added. All others are provided by behaviors.
-* Edit the form-widget-type so it says:
 
-  .. code-block:: xml
+  .. figure:: _static/volto_add_news_item.png
 
-    <form:widget type="z3c.form.browser.checkbox.SingleCheckBoxFieldWidget"/>
-
-* Edit the News Item again. The widget changed from a radio field to a check box.
-* The new field ``Hot News`` is not displayed when rendering the News Item. We'll take care of this later.
-
+* Note that the only field in the schema of the News Item is the one we just added. All others are provided by behaviors.
+* So far the data in the new field ``Hot News`` is not displayed when rendering the News Item. We'll take care of this later.
 
 .. seealso::
 
