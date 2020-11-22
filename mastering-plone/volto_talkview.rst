@@ -40,11 +40,6 @@ Topics covered:
 * Displaying data stored in fields of content types
 * React Basics
 
-.. topic:: Topic Title
-
-    Subsequent indented lines comprise
-    the body of the topic, and are
-    interpreted as body elements.
 
 In Volto the default visualization for your new content type "talk" only shows the title, description and the image.
 
