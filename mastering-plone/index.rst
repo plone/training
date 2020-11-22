@@ -62,12 +62,12 @@ The story of a conference platform provides a week-long training of several deve
     volto_talkview
     behaviors_1
     volto_frontpage
+    volto_talk_listview
     api
     ide
     custom_search
     events
     upgrade_steps
-    volto_talk_listview
     volto_testing
     user_generated_content
     thirdparty_behaviors

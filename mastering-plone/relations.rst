@@ -191,6 +191,10 @@ The field should then look like this:
 
    RelationList field with select widget SelectFieldWidget and custom vocabulary
 
+..  warning::
+
+    This approach is bad for performance if the vocabulary will contain a lot of content.
+
 
 Accessing and displaying related items
 --------------------------------------
