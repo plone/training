@@ -65,10 +65,11 @@ Then you have to edit the :file:`index.js` to export your new View:
 
     export { TalkView, TalkListView };
 
-Now register the new component as layout view for folderish types in ``src/config.js``.
+Now register the new component as layout view for types Folder and Document in ``src/config.js``.
 
 ..  code-block:: jsx
-    :emphasize-lines: 1,7-10
+    :linenos:
+    :emphasize-lines: 1,7-10,16
 
     import { TalkListView, TalkView } from './components';
 
@@ -81,12 +82,16 @@ Now register the new component as layout view for folderish types in ``src/confi
           talklist_view: TalkListView,
       },
       contentTypesViews: {
-          ...defaultViews.contentTypesViews,
-          Talk: Talk,
-    },
+        ...defaultViews.contentTypesViews,
+        talk: TalkView,
+        document: {
+          document_view: defaultViews.DefaultView,
+          talklist_view: TalkListView,
+        },
+      },
     };
 
-This extends ``defaultViews.layoutViews`` with the key/value pair ``talklist_view: TalkList``.
+This extends ``defaultViews.layoutViews`` with the key/value pair ``talklist_view: TalkList`` and adds the Talkview to the default view for Documents.
 
 To add a layout view you also have to add this new view in the ``ZMI`` of your ``Plone``. Login to your instance by using ``/manage`` and unfold the point Plone in the left sidebar. Now click on ``portal_types`` and search for the ``folder``-Type to add your new ``talklist_view`` to the ``Available view methods`` by adding it to a new line.
 
