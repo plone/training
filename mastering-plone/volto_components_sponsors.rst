@@ -16,7 +16,7 @@ The Sponsors Component
 
       Create a React component for content fetched from the backend
 
-  Solve the same tasks in classic frontend: :doc:`viewlets_advanced_classic`
+  Solve the same tasks in Plone Classic: :doc:`viewlets_advanced_classic`
 
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
@@ -193,7 +193,7 @@ The Effect Hook `useEffect` lets you perform side effects in `function component
 Connection of component and store
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's connect the store to our component. The Selector Hook `useSelector` allows a `function component` to connect to the store. 
+Let's connect the store to our component. The Selector Hook `useSelector` allows a `function component` to connect to the store.
 
 It's worth exploring the store of our app with the Redux Dev Tools (additional Dev Tools to React Dev Tools) There you can see what is stored in ``state.search.subrequests.sponsors``. And you can walk through time and watch how the store is changing.
 

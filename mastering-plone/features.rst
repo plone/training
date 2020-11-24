@@ -42,7 +42,7 @@ Some commands you will use rather often are:
 .. only:: not presentation
 
     Depending on your computer, it might take up to a minute until Zope will tell you that it's ready to serve requests.
-    On a decent laptop it should be running in under 15 seconds.
+    On a decent laptop it should be running in under 10 seconds.
 
     A standard installation listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
 

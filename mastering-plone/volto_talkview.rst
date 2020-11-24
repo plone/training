@@ -10,7 +10,7 @@ Volto View Components: A Default View for "Talk"
 
   This chapter is about the React frontend Volto.
 
-  Solve the same tasks in classic frontend in chapter :doc:`views_2`
+  Solve the same tasks in Plone Classic in chapter :doc:`views_2`
 
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)

@@ -10,7 +10,7 @@ Customizing Volto Components
 
   This chapter is about the React frontend Volto.
 
-  Solve the same tasks in classic frontend in chapter :doc:`zpt_2`
+  Solve the same tasks in Plone Classic in chapter :doc:`zpt_2`
 
 
 In this part you will:

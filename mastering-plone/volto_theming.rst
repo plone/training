@@ -11,7 +11,7 @@ Theming in Volto
 
   This chapter is about the React frontend Volto.
 
-  Solve the same tasks in classic frontend in chapter :doc:`theming`
+  Solve the same tasks in Plone Classic in chapter :doc:`theming`
 
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)

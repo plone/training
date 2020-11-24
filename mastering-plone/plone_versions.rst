@@ -158,8 +158,10 @@ Plone 5.2 comes with many bug fixes and a couple of nice improvements. Here are 
 Plone 6
 =======
 
-Plone 6 ships with Volto, a new ReactJS-based frontend for Plone implemented on top of the plone.restapi. This combines the stability, maturity, and security of the Plone backend with a modern, mature, user-friendly and well maintained frontend.
+Plone 6 uses Volto, a new ReactJS-based frontend for Plone implemented on top of the plone.restapi. This combines the stability, maturity, and security of the Plone backend with a modern, mature, user-friendly and well maintained frontend.
 
-The "classic" Barceloneta-based frontend in Plone 6 is modernized to use Bootstrap 5. This fontend will stay in place to give developers and users time to adapt to Volto and to provide an easy upgrade-path for existing projects.
+Plone 6 continues to allow the current server-side rendering and Diazo theming without Volto. This will be referred to as "Plone Classic". The classic Barceloneta-based frontend in Plone 6 is modernized to use Bootstrap 5. This fontend will stay in place to give developers and users time to adapt to Volto and to provide an easy upgrade-path for existing projects.
+
+Plone 6 will be a long-term support (LTS) release - we anticipate it will be around for several years.
 
 Plone 6 runs on Python 3 only and runs on top of Zope 5.x.

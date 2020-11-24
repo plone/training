@@ -20,7 +20,7 @@ It is updated every year to teach the current best practices.
 Upcoming Trainings
 ------------------
 
-* `Plone Conference 2020 in Namur <https://ploneconf.org/>`_
+* `Plone Conference ONLINE 2020 <https://2020.ploneconf.org/>`_
 
 If you want to have a on-site training or want to attend a public training please ask for trainings on https://community.plone.org
 

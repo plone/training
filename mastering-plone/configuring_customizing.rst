@@ -109,7 +109,7 @@ Change the logo
 
 .. note::
 
-    This only changes the logo used in Classic Plone (the backend) and does not change the logo in Volto.
+    This only changes the logo used in Plone Classic (the backend) and does not change the logo in Volto.
     The Logo in Volto is changed in next chapter :doc:`volto_overrides`.
 
 Let's change the logo.

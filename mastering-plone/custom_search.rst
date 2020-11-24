@@ -5,7 +5,7 @@ Custom Search
 
 .. note::
 
-    This chapter refers to add-ons that are only useable in Classic Plone.
+    This chapter refers to add-ons that are only useable in Plone Classic.
 
     You may check https://github.com/collective/awesome-volto/ to find out if there are add-ons for Volto that provide custom search since things are happening fast.
 

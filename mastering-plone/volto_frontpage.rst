@@ -10,7 +10,7 @@ Creating a dynamic frontpage with Volto blocks
 
   This chapter is about the React frontend Volto.
 
-  Solve the same tasks in classic frontend in chapter :doc:`frontpage`
+  Solve the same tasks in Plone Classic in chapter :doc:`frontpage`
 
 In this part you will:
 

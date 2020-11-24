@@ -1,8 +1,8 @@
 .. _mastering_plone-label:
 
-===========================
-Mastering Plone Development
-===========================
+=============================
+Mastering Plone 6 Development
+=============================
 
 `Mastering Plone Development` is intended as a training to learn proven practices of Plone development.
 
@@ -12,6 +12,16 @@ The story of a conference platform provides a week-long training of several deve
 
 - A beginner training (2 to 3 days) that covers the essentials of Plone and Plone Volto.
 - An advanced training (3 to 5 days) that covers advanced topics.
+
+..  warning::
+
+    This is the Mastering Plone 6 Training.
+
+    The biggest change from `Mastering Plone 5 <https://training.plone.org/5/mastering-plone/>`_ is that Mastering Plone 6 teaches developing for the React-based frontend Volto as well as for Plone Classic i.e. using server-side rendered templates.
+    In many chapters that use Volto there is a link to a chapter that covers the same tasks in Plone Classic, and vice versa.
+
+    Plone 6 is not yet released and thus the training is a work in-progress and there are still some rough edges.
+
 
 .. todo::
 
@@ -46,7 +56,7 @@ The story of a conference platform provides a week-long training of several deve
     ../plone_training_config/instructions.rst
     features
     anatomy
-    plone5
+    plone_versions
     volto_basics
     configuring_customizing
     volto_overrides

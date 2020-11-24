@@ -10,7 +10,7 @@ Volto View Components: A Listing View for Talks
 
   This chapter is about the React frontend Volto.
 
-  Solve the same tasks in classic frontend in chapter :doc:`views_3`
+  Solve the same tasks in Plone Classic in chapter :doc:`views_3`
 
   .. topic:: Description
 

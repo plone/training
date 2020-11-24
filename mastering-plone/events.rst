@@ -10,7 +10,7 @@ Turning Talks into Events
 
   This chapter is about the React frontend Volto.
 
-  Solve the same tasks in classic frontend in chapter :doc:`events_classic`
+  Solve the same tasks in Plone Classic in chapter :doc:`events_classic`
 
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
