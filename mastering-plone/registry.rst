@@ -3,6 +3,12 @@
 Manage Settings with Registry, Control Panels and Vocabularies
 ==============================================================
 
+.. todo::
+
+    * Add a Volto Controlpanel (in a later chapter?)
+    * Add vocabularies for the fields ``audience`` and ``type_of_talk``
+
+
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
    Code for the beginning of this chapter::
@@ -59,6 +65,7 @@ Open the file :file:`profiles/default/registry.xml`. You already registered seve
 Adding the following code to :file:`registry.xml`. This creates a new value in the registry upon installation of the package.
 
 ..  code-block:: xml
+    :linenos:
 
     <record name="ploneconf.talk_submission_open">
       <field type="plone.registry.field.Bool">
@@ -72,13 +79,14 @@ Adding the following code to :file:`registry.xml`. This creates a new value in t
 When creating a new site a lot of settings are created in the same way. See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/profiles/dependencies/registry.xml to see how :py:mod:`Products.CMFPlone` registers values.
 
 ..  code-block:: xml
+    :linenos:
 
     <record name="ploneconf.date_of_conference">
       <field type="plone.registry.field.Date">
         <title>First day of the conference</title>
         <required>False</required>
       </field>
-      <value>2016-10-17</value>
+      <value>2025-10-17</value>
     </record>
 
 
@@ -89,6 +97,7 @@ In Python you can access the registry like this:
 
 
 ..  code-block:: python
+    :linenos:
 
     from plone.registry.interfaces import IRegistry
     from zope.component import getUtility
@@ -99,6 +108,7 @@ In Python you can access the registry like this:
 :py:mod:`plone.api` holds methods to make this even easier:
 
 ..  code-block:: python
+    :linenos:
 
     from plone import api
     api.portal.get_registry_record('ploneconf.date_of_conference')
@@ -124,6 +134,7 @@ For this you define an interface for the schema and a view that auto-generates a
 Add a file :file:`browser/controlpanel.py`:
 
 ..  code-block:: python
+    :linenos:
 
     # -*- coding: utf-8 -*-
     from datetime import date
@@ -139,7 +150,7 @@ Add a file :file:`browser/controlpanel.py`:
         date_of_conference = schema.Date(
             title=u'First day of the conference',
             required=False,
-            default=date(2016, 10, 17),
+            default=date(2025, 10, 17),
         )
 
         talk_submission_open = schema.Bool(
@@ -173,6 +184,7 @@ To make it show up in the general control panel at http://localhost:8080/Plone/@
 Add a file :file:`profiles/default/controlpanel.xml`:
 
 ..  code-block:: xml
+    :linenos:
 
     <?xml version="1.0"?>
     <object name="portal_controlpanel">
@@ -191,11 +203,39 @@ Add a file :file:`profiles/default/controlpanel.xml`:
 
 Again, after applying the profile (reinstall the package or write a upgrade-step) your control panel shows up in http://localhost:8080/Plone/@@overview-controlpanel.
 
+Controlpanels in Volto
+----------------------
+
+You can use the same controlpanel in Volto if you add some more registration:
+
+..  code-block:: python
+    :linenos:
+
+    from plone.restapi.controlpanels import RegistryConfigletPanel
+    from zope.component import adapter
+
+    [...]
+
+    @adapter(Interface, Interface)
+    class PloneconfControlPanel(RegistryConfigletPanel):
+        schema = IPloneconfControlPanel
+        schema_prefix = 'ploneconf'
+        configlet_id = 'ploneconf-controlpanel'
+        configlet_category_id = 'Products'
+
+And register that in :file:`browser/configure.zcml`:
+
+..  code-block:: xml
+
+    <adapter
+        factory="ploneconf.site.browser.controlpanel.PloneconfControlPanel"
+        name="ploneconf-controlpanel" />
+
 
 Vocabularies
 ------------
 
-Do you remember the field `rooms`? We provided several options to chose from.
+Do you remember the field ``rooms``? We provided several options to chose from.
 But who says that the next conference will have the same rooms?
 These values should be configurable by the admin.
 The admin could go to the Dexterity control panel and change the values but we will use a different approach.
@@ -240,57 +280,138 @@ You can now register this vocabulary as a named utility in :file:`configure.zcml
 
 From now on you can use this vocabulary by only referring to its name `ploneconf.site.vocabularies.Rooms`.
 
-Note:
+.. note::
 
-* Plone comes with many useful vocabularies that you can use in your own projects. See https://github.com/plone/plone.app.vocabularies/ for a list of them.
-* We turn the values from the registry into a dynamic `SimpleVocabulary` that can be used in the schema.
-* You could use the context with which the vocabulary is called or the request (using `getRequest` from `from zope.globalrequest import getRequest`) to constrain the values in the vocabulary.
-* We use the handy helper method `safe_simplevocabulary_from_values` to create the vocabulary since the `token` of a `SimpleTerm` in a `SimpleVocabulary` needs to be bytes, not unicode.
-* You can write your own helper to further control the creation of the vocabulary terms. The `value` is stored on the object, the `token` used to communicate with the widget during editing and `title` is what is displayed in the widget.
-  This example allows you to translate the displayed title while keeping the value stored on the object the same in all languages:
+    * Plone comes with many useful vocabularies that you can use in your own projects. See https://github.com/plone/plone.app.vocabularies/ for a list of them.
+    * We turn the values from the registry into a dynamic ``SimpleVocabulary`` that can be used in the schema.
+    * You could use the context with which the vocabulary is called or the request (using `getRequest` from ``from zope.globalrequest import getRequest``) to constrain the values in the vocabulary.
+    * We use the handy helper method `safe_simplevocabulary_from_values` to create the vocabulary since the `token` of a `SimpleTerm` in a ``SimpleVocabulary`` needs to be ASCII.
+    * ``binascii.b2a_qp`` (which is used by ``safe_simplevocabulary_from_values``) has the annoying habit of adding line-breaks every 80 characters. Make sure your values are shorter than that or use something else to create the vocabulary-terms!
+    * You can write your own helper to further control the creation of the vocabulary terms. The ``value`` is stored on the object, the ``token`` used to communicate with the widget during editing and ``title`` is what is displayed in the widget.
+      This example allows you to translate the displayed title while keeping the value stored on the object the same in all languages:
 
-  ..  code-block:: python
+      ..  code-block:: python
 
-      from binascii import b2a_qp
-      from ploneconf.site import _
-      from zope.schema.vocabulary import SimpleTerm
-      from zope.schema.vocabulary import SimpleVocabulary
+          from binascii import b2a_qp
+          from ploneconf.site import _
+          from zope.schema.vocabulary import SimpleTerm
+          from zope.schema.vocabulary import SimpleVocabulary
 
-      def simplevoc(values):
-          return SimpleVocabulary(
-              [SimpleTerm(value=i, token=b2a_qp(i.encode('utf-8')), title=_(i)) for i in values],
-          )
+          def simplevoc(values):
+              return SimpleVocabulary(
+                  [SimpleTerm(value=i, token=b2a_qp(i.encode('utf-8')), title=_(i)) for i in values],
+              )
 
-Use the new vocabulary in the talk schema. Edit :file:`content/talk.xml`
-
-..  code-block:: xml
-    :linenos:
-    :emphasize-lines: 7
-
-    <field name="room"
-           type="zope.schema.Choice"
-           form:widget="z3c.form.browser.radio.RadioFieldWidget"
-           security:write-permission="cmf.ReviewPortalContent">
-      <description></description>
-      <title>Room</title>
-      <vocabulary>ploneconf.site.vocabularies.Rooms</vocabulary>
-    </field>
-
-
-In a Python schema, that would look like this:
+Use the new vocabulary in the talk schema. Edit :file:`content/talk.py`
 
 ..  code-block:: python
+    :linenos:
+    :emphasize-lines: 3
 
-    directives.widget(room=RadioFieldWidget)
     room = schema.Choice(
         title=_(u'Room'),
         vocabulary='ploneconf.site.vocabularies.Rooms',
         required=False,
     )
 
+In a xml-schema, that would look like this:
+
+..  code-block:: xml
+    :linenos:
+    :emphasize-lines: 5
+
+    <field name="room"
+           type="zope.schema.Choice">
+      <description></description>
+      <title>Room</title>
+      <vocabulary>ploneconf.site.vocabularies.Rooms</vocabulary>
+    </field>
+
 An admin can now configure the rooms available for the conference.
 
-We could use the same pattern for the fields `type_of_talk` and `audience`.
+We could use the same pattern for the fields ``type_of_talk`` and ``audience``.
+
+.. note::
+
+   This approach to create vocabularies has some problems:
+   Existing content does not get updated when you change a value in the controlpanel. Instead they will have invalid data.
+
+   If your settings tend to change you should use `collective.taxonomy <https://github.com/collective/collective.taxonomy>`_ to manage vocabularies. Among many other things it allows you to translate terms and to change the text that is displayed while keeping the same values.
+
+
+The complete code for the controlpanel is this:
+
+..  code-block:: python
+    :linenos:
+
+    # -*- coding: utf-8 -*-
+    from datetime import date
+    from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
+    from plone.app.registry.browser.controlpanel import RegistryEditForm
+    from plone.restapi.controlpanels import RegistryConfigletPanel
+    from plone.z3cform import layout
+    from zope import schema
+    from zope.component import adapter
+    from zope.interface import Interface
+
+
+    class IPloneconfControlPanel(Interface):
+
+        date_of_conference = schema.Date(
+            title=u'First day of the conference',
+            required=False,
+            default=date(2035, 9, 13),
+        )
+
+        talk_submission_open = schema.Bool(
+            title=u'Allow talk submission',
+            description=u'Allow the submission of talks for anonymous user',
+            default=False,
+            required=False,
+        )
+
+        rooms = schema.List(
+            title=u'Available Rooms for the conference',
+            default=[u'101', u'201', u'Auditorium'],
+            missing_value=None,
+            required=False,
+            value_type=schema.TextLine(),
+        )
+
+        types_of_talk = schema.List(
+            title=u'Available types for talks',
+            default=[u'Talk', u'Training', u'Keynote', u'Lightning Talk'],
+            missing_value=None,
+            required=False,
+            value_type=schema.TextLine(),
+        )
+
+        audiences = schema.List(
+            title=u'Available audiences for talks',
+            default=[u'Beginner', u'Advanced', u'Professional'],
+            missing_value=None,
+            required=False,
+            value_type=schema.TextLine(),
+        )
+
+
+    class PloneconfControlPanelForm(RegistryEditForm):
+        schema = IPloneconfControlPanel
+        schema_prefix = 'ploneconf'
+        label = u'Ploneconf Settings'
+
+
+    PloneconfControlPanelView = layout.wrap_form(
+        PloneconfControlPanelForm, ControlPanelFormWrapper)
+
+
+    @adapter(Interface, Interface)
+    class PloneconfControlPanel(RegistryConfigletPanel):
+        schema = IPloneconfControlPanel
+        schema_prefix = 'ploneconf'
+        configlet_id = 'ploneconf-controlpanel'
+        configlet_category_id = 'Products'
+
 
 .. seealso::
 

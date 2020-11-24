@@ -45,6 +45,14 @@ File fields
 Other fields
     Uri, Sourcetext, Ascii, Bytesline, Asciiline, Pythonidentifier, Dottedname, Dict, Dict with Choice
 
+.. warning::
+
+    In Volto not all field types and features are implemented yet:
+
+    * Time, Timedelta, Dict are not supported yet.
+    * Using a callable for basePath in relationfields is not supported yet.
+    * The schema-hints to assign a different widget do not work yet.
+
 
 ..  code-block:: python
     :linenos:
@@ -422,11 +430,21 @@ Other fields
     class Example(Container):
         """Example instance class"""
 
+..  seealso::
+
+    * `Dexterity Developer Manual <https://docs.plone.org/external/plone.app.dexterity/docs/index.html>`_
+    * `All available Fields <https://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html#field-types>`_
+    * `Schema-driven types with Dexterity <https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types>`_
+    * `The standard behaviors <https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html>`_
+
 
 How fields look like
 ====================
 
-This is how these fields look like when editing content:
+Backend
+-------
+
+This is how these fields look like when editing content in the backend:
 
 .. figure:: _static/dexterity_reference_default_fields.png
    :alt: Default fields
@@ -464,6 +482,46 @@ This is how these fields look like when editing content:
    Other fields including the dict field
 
 
+Frontend
+--------
+
+This is how these fields look like when editing content in Volto:
+
+.. figure:: _static/dexterity_reference_volto_default_fields.png
+   :alt: Default fields
+
+   Default fields
+
+.. figure:: _static/dexterity_reference_volto_number_fields.png
+   :alt: Number fields
+
+   Number fields
+
+.. figure:: _static/dexterity_reference_volto_datetime_fields.png
+   :alt: Date and time fields
+
+   Date and time fields
+
+.. figure:: _static/dexterity_reference_volto_choice_and_list_fields.png
+   :alt: Choice and multiple choice fields
+
+   Choice and multiple choice fields
+
+.. figure:: _static/dexterity_reference_volto_file_fields.png
+   :alt: File fields
+
+   File fields
+
+.. figure:: _static/dexterity_reference_volto_relation_fields.png
+   :alt: Reference fields
+
+   Reference fields
+
+.. figure:: _static/dexterity_reference_volto_other_fields.png
+   :alt: Other fields including the dict field
+
+   Other fields
+
 
 3rd party fields
 ================
@@ -497,14 +555,14 @@ Here is an example:
     class IMyRowSchema(Interface):
 
         choice_field = schema.Choice(
-            title=u'Choice Field',
+            title='Choice Field',
             vocabulary='plone.app.vocabularies.PortalTypes',
             required=False,
             )
         directives.widget('objective', SelectFieldWidget)
 
         textline_field = schema.TextLine(
-            title=u'Textline field',
+            title='Textline field',
             required=False,
             )
 
@@ -536,11 +594,6 @@ The output looks like this:
 
 .. figure:: _static/dexterity_reference_datagridfield_view.png
 
-..  seealso::
-
-    * `All available Fields <https://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html#field-types>`_
-    * `Schema-driven types with Dexterity <https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types>`_
-
 
 Widgets
 =======
@@ -548,6 +601,10 @@ Widgets
 .. todo::
 
     Document all available widgets
+
+.. seealso::
+
+    * `Available widgets (a incomplete list) <https://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html>`_
 
 
 Directives

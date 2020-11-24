@@ -10,6 +10,7 @@ A collection of trainings developed and created by the Plone Community.
     :caption: Training Overview
 
     mastering-plone/index
+    mastering-plone-5/index
     theming/index
     javascript/index
     deployment/index
@@ -39,10 +40,18 @@ Trainings
 =========
 
 :ref:`mastering_plone-label`
-    Mastering Plone is a training intended for people who are new to Plone or want to learn about the best practices of Plone development.
+    Mastering Plone 6 is a training intended for people who are new to Plone or want to learn about the best practices of Plone development.
 
     In the course of the training you will learn how to build a custom website with plenty of features.
-    HTML and python-knowledge is required.
+    It covers the new react-based frontend Volto as well als Plone Classic.
+    HTML, python and Javascript knowledge is required.
+
+
+:ref:`mastering_plone5-label`
+    Mastering Plone 5 is a training intended for people who are new to Plone or want to learn about the best practices of Plone 5 development.
+
+    In the course of the training you will learn how to build a custom website with plenty of features.
+    HTML and python knowledge is required.
 
 :doc:`ttw/index`
     Create custom content types, a design for a website, layouts for home pages and content types, and custom application logic.

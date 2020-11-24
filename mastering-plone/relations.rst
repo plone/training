@@ -1,6 +1,12 @@
 Relations
 =========
 
+.. todo::
+
+    * Add screenshots for relationfields in Volto
+    * Create relations between talk and speaker
+    * Display relations (and backrelations)
+
 You can model relationships between content items by placing them in a hierarchy (a folder *speakers* containing the (folderish) speakers and within each speaker the talks) or by linking them to each other in Richtext fields. But where would you store a talk that two speakers give together?
 
 Relations allow developers to model relationships between objects without using links or a hierarchy. The behavior :py:class:`plone.app.relationfield.behavior.IRelatedItems` provides the field :guilabel:`Related Items` in the tab :guilabel:`Categorization`. That field simply says ``a`` is somehow related to ``b``.
@@ -14,6 +20,7 @@ Creating relations in a schema
 Relate to one item only.
 
 .. code-block:: python
+    :linenos:
 
     from plone.app.vocabularies.catalog import CatalogSource
     from z3c.relationfield.schema import RelationChoice
@@ -43,9 +50,59 @@ Relate to multiple items.
 
 We can see that the `code for the behavior IRelatedItems <https://github.com/plone/plone.app.relationfield/blob/master/plone/app/relationfield/behavior.py>`_ does exactly the same.
 
+Controlling what to relate to
+-----------------------------
+
+The best way to control wich item should be relatable to is to configure the widget with ``directives.widget()``.
+In the following example you can only relate to Documents:
+
+.. code-block:: python
+    :linenos:
+    :emphasize-lines: 12
+
+    from plone.app.z3cform.widget import RelatedItemsFieldWidget
+
+    relationchoice_field = RelationChoice(
+        title=u"Relationchoice field",
+        vocabulary='plone.app.vocabularies.Catalog',
+        required=False,
+    )
+    directives.widget(
+        "relationchoice_field",
+        RelatedItemsFieldWidget,
+        pattern_options={
+            "selectableTypes": ["Document"],
+        },
+    )
+
+The following example applies *pattern-option* ``basePath`` to force the widget to start browsing the site at the site-root using the method ``plone.app.multilingual.browser.interfaces.make_relation_root_path``.
+By default the widget starts with the current context.
+
+.. code-block:: python
+    :linenos:
+    :emphasize-lines: 11
+
+    relationlist_field = RelationList(
+        title=u"Relationlist Field",
+        default=[],
+        value_type=RelationChoice(vocabulary='plone.app.vocabularies.Catalog'),
+        required=False,
+        missing_value=[],
+    )
+    directives.widget(
+        "relationlist_field",
+        RelatedItemsFieldWidget,
+        vocabulary='plone.app.vocabularies.Catalog',
+        pattern_options={
+            "basePath": make_relation_root_path,
+        },
+    )
+
 Instead of using a named vocabulary we can also use ``source``:
 
 .. code-block:: python
+    :linenos:
+    :emphasize-lines: 9
 
     from plone.app.vocabularies.catalog import CatalogSource
     from z3c.relationfield.schema import RelationChoice
@@ -66,9 +123,15 @@ For even more flexibility, you can create your own `dynamic vocabularies <https:
 
 For more examples how to use relationfields look at :ref:`dexterity_reference-label`.
 
-Sometimes the widget for relations is not what you want since it can be hard to navigate to the content you want to relate to. To use the SelectFieldWidget you can specify it if you use your own vocabulary:
+
+Use a tailor shaped widget for relations
+----------------------------------------
+
+Sometimes the widget for relations is not what you want since it can be hard to navigate to the content you want to relate to. With SelectFieldWidget and a custom vocabulary you can shape a widget for an easier selection of related items:
 
 .. code-block:: python
+    :linenos:
+    :emphasize-lines: 9, 15
 
     from plone.app.z3cform.widget import SelectFieldWidget
     from plone.autoform import directives
@@ -98,6 +161,7 @@ Register the vocabulary like this in `configure.zcml`:
 Note that the value is the object itself, not the uuid. This is a requirement of the field-type:
 
 .. code-block:: python
+    :linenos:
 
     from plone import api
     from zope.interface import implementer
@@ -123,29 +187,35 @@ Note that the value is the object itself, not the uuid. This is a requirement of
 The field should then look like this:
 
 .. figure:: _static/relations_with_selectwidget.png
-   :alt: RelationList with select widget
+   :alt: RelationList field with select widget SelectFieldWidget
 
-   RelationList with select widget
+   RelationList field with select widget SelectFieldWidget and custom vocabulary
+
+..  warning::
+
+    This approach is bad for performance if the vocabulary will contain a lot of content.
 
 
 Accessing and displaying related items
 --------------------------------------
 
-It is easiest way to display related items is to use the render method of the default widget. That works well if you use `plone.app.z3cform = 3.2.0` (you can use that in Plone 5.2).
+To display related items you can use the render method of the default widget e.g.:
 
 .. code-block:: html
 
     <div tal:content="structure view/w/evil_mastermind/render" />
 
-This would render the related items as shown in https://github.com/plone/plone.app.z3cform/pull/111.
+This would render the related items like this:
 
-For Plone 5.2.1 and older you still need to deal with that yourself since the widget only shows the uuid.
+.. figure:: https://user-images.githubusercontent.com/453208/77223704-4b714100-6b5f-11ea-855b-c6e209f1c25c.png
+    :alt: Default rendering of a RelationList (since Plone 5.2.2)
 
-If you want or need to access and render relations yourself you could add a method like in the following example.
+If you want to access and render relations yourself you can use the Plone add-on `collective.relationhelpers <https://pypi.org/project/collective.relationhelpers>`_ and add a method like in the following example.
 
 .. code-block:: python
+    :linenos:
 
-    from plone.app.contentlisting.interfaces import IContentListing
+    from collective.relationhelpers import api as relapi
     from Products.Five import BrowserView
 
 
@@ -153,55 +223,9 @@ If you want or need to access and render relations yourself you could add a meth
 
         def minions(self):
             """Returns a list of related items."""
-            results = []
-            for rel in self.context.underlings:
-                if rel.isBroken():
-                    # skip broken relations
-                    continue
-                obj = rel.to_object
-                if api.user.has_permission('View', obj=obj):
-                    results.append(obj)
-            return IContentListing(results)
+            return relapi.relations(self.context, 'underlings')
 
-It returns the related items so that you will able to render them anyway you like.
-
-.. note::
-
-    Using ``IContentListing`` to wrap list of objects or brain has a lot of benefits since it allows unified access to them.
-    It also allows you to use great helper-methods like ``obj.MimeTypeIcon()`` or ``appendViewAction()`` that will make your code more concise.
-    See https://github.com/plone/plone.app.contentlisting/#methods-of-contentlistingobjects for a list of all avilable methods.
-
-You could display the links like this:
-
-.. code-block:: xml
-
-    <ul>
-      <li tal:repeat="item view.minions()">
-        <span tal:define="item_type           python:item.portal_type;
-                          item_type_class     python:item.ContentTypeClass();
-                          item_wf_state_class python:item.ReviewStateClass();
-                          appendViewAction    python:item.appendViewAction();
-                          item_url            python:item.getURL();
-                          item_url            python:item_url+'/view' if appendViewAction else item_url;"
-              tal:attributes="title item_type">
-
-          <a tal:attributes="href item_url">
-            <img class="mime-icon"
-                 tal:condition="python:item_type =='File'"
-                 tal:attributes="src python:item.MimeTypeIcon();">
-
-            <span tal:attributes="class string:$item_type_class $item_wf_state_class url;"
-                  tal:content="python:item.Title()">
-                Title
-            </span>
-            <span class="discreet"
-                  tal:content="python:item.Description()">
-                Description
-            </span>
-          </a>
-        </span>
-      </li>
-    </ul>
+It returns the related items so that you will able to render them anyhow you like.
 
 
 Creating RelationFields through the web
@@ -227,6 +251,7 @@ RelationChoice:
 RelationList:
 
 .. code-block:: python
+    :linenos:
 
     <field name="underlings" type="z3c.relationfield.schema.RelationList">
       <description/>
@@ -242,12 +267,18 @@ RelationList:
     </field>
 
 
+Accessing relations and backrelations from code
+-----------------------------------------------
+
+The recommended way to create and read relations and backrelations as a developer is to use `collective.relationhelpers <https://pypi.org/project/collective.relationhelpers>`_.
+
+
 The stack
 ---------
 
 Relations are based on `zc.relation <https://pypi.org/project/zc.relation/>`_.
 This package stores transitive and intransitive relationships.
-It allows for complex relationships and searches along them.
+It allows complex relationships and searches along them.
 Because of this functionality, the package is a bit complicated.
 
 The package `zc.relation` provides its own catalog, a relation catalog.
@@ -306,69 +337,3 @@ So the API for getting the target is:
 In addition, the relation value knows under which attribute it has been stored as `from_attribute`. It is usually the name of the field with which the relation is created.
 But it can also be the name of a relation that is created by code, e.g. linkintegrity relations (`isReferencing`) or the relation between a working copy and the original (`iterate-working-copy`).
 
-
-Accessing relations and backrelations from code
------------------------------------------------
-
-If you want to find out which objects are related to each other, you use the relation catalog. Here is a convenience method that allows you to find all kinds of relations.
-
-.. code-block:: python
-
-    from zc.relation.interfaces import ICatalog
-    from zope.component import getUtility
-    from zope.intid.interfaces import IIntIds
-    from plone.app.linkintegrity.handlers import referencedRelationship
-
-
-    def example_get_backlinks(obj):
-        backlinks = []
-        for rel in get_backrelations(attribute=referencedRelationship):
-            if rel.isBroken():
-                backlinks.append(dict(href='',
-                                      title='broken reference',
-                                      relation=rel.from_attribute))
-            else:
-                obj = rel.from_object
-                backlinks.append(dict(href=obj.absolute_url(),
-                                      title=obj.title,
-                                      relation=rel.from_attribute))
-        return backlinks
-
-    def get_relations(obj, attribute=None, backrefs=False):
-        """Get any kind of references and backreferences"""
-        int_id = get_intid(obj)
-        if not int_id:
-            return retval
-
-        relation_catalog = getUtility(ICatalog)
-        if not relation_catalog:
-            return retval
-
-        query = {}
-        if attribute:
-            # Constrain the search for certain relation-types.
-            query['from_attribute'] = attribute
-
-        if backrefs:
-            query['to_id'] = int_id
-        else:
-            query['from_id'] = int_id
-
-        return relation_catalog.findRelations(query)
-
-
-    def get_backrelations(obj, attribute=None):
-        return get_relations(obj, attribute=attribute, backrefs=True)
-
-
-    def get_intid(obj):
-        """Return the intid of an object from the intid-catalog"""
-        intids = component.queryUtility(IIntIds)
-        if intids is None:
-            return
-        # check that the object has an intid, otherwise there's nothing to be done
-        try:
-            return intids.getId(obj)
-        except KeyError:
-            # The object has not been added to the ZODB yet
-            return

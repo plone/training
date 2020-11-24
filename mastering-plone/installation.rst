@@ -6,9 +6,14 @@ Installation & Setup
 
 .. _installation-plone-label:
 
+.. todo::
+
+    * Document the installation of Volto.
+    * Drop mentioning Plone 3 and 4
+    * Mention container options like Docker
+
 Installing Plone
 ----------------
-
 
 The following table shows the Python versions required by Plone from version 3.x to 5.2.x:
 
@@ -23,9 +28,10 @@ The following table shows the Python versions required by Plone from version 3.x
  5.0.x      2.7
  5.1.x      2.7.9
  5.2.x      2.7.14 or 3.6+
+ 6.0.x      3.6+
 =========  ================
 
-(Hopefully you won't have to deal with any Plone sites older than version 4.3.x)
+(Hopefully you won't have to deal with any Plone sites older than version 4.3.x.)
 
 Plone 5.x requires a working Python 2.7 (or Python 3.6+ for Plone 5.2.x) and other system tools that not every OS provides.
 The installation of Plone is different on every system.
@@ -84,12 +90,10 @@ Hosting Plone
 
 You can host Plone...
 
-* with one of many professional `hosting providers <http://plone.com/providers>`_
+* with one of many professional `hosting providers <https://plone.com/providers>`_
 * on a virtual private server
 * on dedicated servers
 * on `Heroku <https://www.heroku.com>`_ you can run Plone for *free* using the `Heroku buildpack for Plone <https://github.com/plone/heroku-buildpack-plone>`_
-
-.. * in the cloud (e.g. using Amazon EC2 or `Codio.com <http://blog.dbain.com/2014/04/install-plone-in-under-5-minutes-on.html>`_)
 
 .. seealso::
 
@@ -104,7 +108,7 @@ Production Deployment
 The way we are setting up a Plone site during this class may be adequate for a small site
 — or even a large one that's not very busy — but you are likely to want to do much more if you are using Plone for anything demanding.
 
-* Using a production web server like Apache or Nginx for URL rewriting, SSL and combining multiple, best-of-breed solutions into a single web site.
+* Using a production web server like Apache or nginx for URL rewriting, SSL and combining multiple, best-of-breed solutions into a single web site.
 
 * Reverse proxy caching with a tool like Varnish to improve site performance.
 

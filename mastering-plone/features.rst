@@ -3,7 +3,7 @@
 The Features of Plone
 =====================
 
-In-depth user-manual: https://docs.plone.org/
+In-depth user manual: https://docs.plone.org/
 
 See also: https://docs.plone.org/working-with-content/index.html
 
@@ -12,7 +12,9 @@ See also: https://docs.plone.org/working-with-content/index.html
 Starting and Stopping Plone
 ---------------------------
 
-We control Plone with a small script called "instance"::
+We control Plone with a small script called "instance":
+
+.. code-block:: bash
 
     $ ./bin/instance fg
 
@@ -24,9 +26,11 @@ Development mode gives better feedback, but is much slower, particularly on Wind
 
 You can stop it by pressing :kbd:`ctrl + c`.
 
-Apart from the `fg` command the :program:`instance` script offers several more commands.
-`./bin/instance help` shows the list of available commands, `bin/instance help <command>` will give a short help for each command.
-Some commands you will use rather often are::
+Apart from the ``fg`` command, the :program:`instance` script offers several more commands.
+``./bin/instance help`` shows the list of available commands, ``bin/instance help <command>`` will give a short help for each command.
+Some commands you will use rather often are:
+
+.. code-block:: bash
 
     $ ./bin/instance fg
     $ ./bin/instance start
@@ -38,7 +42,7 @@ Some commands you will use rather often are::
 .. only:: not presentation
 
     Depending on your computer, it might take up to a minute until Zope will tell you that it's ready to serve requests.
-    On a decent laptop it should be running in under 15 seconds.
+    On a decent laptop it should be running in under 10 seconds.
 
     A standard installation listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
 
@@ -48,9 +52,16 @@ Some commands you will use rather often are::
 
     We have a running Zope with a database but no content.
     But luckily there is a button to create a Plone site.
-    Click on that button (login: admin, password: admin).
-    This opens a form to create a Plone site.
+
+    To use the React frontend you will also have to install plone.restapi while creating the Plone site.
+    In Plone 6 this will be done automatically for you.
+    In Plone 5.2 you need to select ``plone.restapi`` by hand:
+
+    Click on the link :guilabel:`Advanced` next to the button :guilabel:`Create a Plone site`.
+    If the site asks you to login, use login ``admin`` and password ``admin``.
+    This opens a form to create a Plone site and select additional features.
     Use :samp:`Plone` as the site id.
+    Select **plone.restapi. RESTful hypermedia API for Plone.** as a addon that should be installed with your new site.
 
     .. figure:: _static/features_create_site_form.png
 
@@ -59,8 +70,13 @@ Some commands you will use rather often are::
 .. only:: presentation
 
     * By default Plone listens on port 8080. Look at http://localhost:8080
-    * No Plone site yet! Create a new Plone site.
+    * No Plone site yet! Create a new Plone site. Make sure ``plone.restapi`` is installed.
     * Use :samp:`Plone` (the default) as the site id.
+
+This is how the frontpage should look like:
+
+.. figure:: _static/frontpage_plone.png
+
 
 .. note::
 
@@ -68,27 +84,51 @@ Some commands you will use rather often are::
     They contain important information.
     Read them and make sure you understand them!
 
+Starting and Stopping the frontend
+----------------------------------
+
+To start the frontend that will use your new plone site go to the folder ``volto`` and enter:
+
+.. code-block:: shell
+
+    $ yarn start
+
+If you open http://localhost:3000 you will see the front page of the Plone site in Volto.
+
+.. figure:: _static/frontpage_volto.png
+
+You can stop the frontend anytime using :kbd:`ctrl + c`.
+
+While developing it is not necessary to restart the frontend unless you are adding a new file.
+
+
+
 Exercises
 *********
 
 Exercise 1
 ++++++++++
 
-Open the `bin/instance` script in your favorite editor. Now let's say you want Plone to listen on port 9080 instead of the default 8080. Looking at the script, how could you do this?
+Open the ``bin/instance`` script in your favorite editor.
+Now let's say you want Plone to listen on port 9080 instead of the default 8080.
+Looking at the script.
+How could you do this?
 
 ..  admonition:: Solution
     :class: toggle
 
-    At the end of the `bin/instance` script, you'll see the following code:
+    At the end of the ``bin/instance`` script, you'll see the following code:
 
     .. code-block:: python
 
-    if __name__ == '__main__':
-        sys.exit(plone.recipe.zope2instance.ctl.main(
-            ['-C', '/Users/pbauer/workspace/training_buildout/parts/instance/etc/zope.conf', '-p', '/Users/pbauer/workspace/training_buildout/parts/instance/bin/interpreter', '--wsgi']
-            + sys.argv[1:]))
+        if __name__ == '__main__':
+            sys.exit(plone.recipe.zope2instance.ctl.main(
+                ['-C', '/Users/pbauer/workspace/training_buildout/parts/instance/etc/zope.conf', '-p', '/Users/pbauer/workspace/training_buildout/parts/instance/bin/interpreter', '--wsgi']
+                + sys.argv[1:]))
 
-    The second to last line points to the configuration file your Plone instance is using. An absolute path is used so it might differ depending on the installation method. Open the `wsgi.ini` that lives in the same folder in your editor and look for the section:
+    The second to last line points to the configuration file your Plone instance is using.
+    An absolute path is used so it might differ depending on the installation method.
+    Open the :file:`wsgi.ini` that lives in the same folder in your editor and look for the section:
 
     .. code-block:: ini
 
@@ -97,7 +137,17 @@ Open the `bin/instance` script in your favorite editor. Now let's say you want P
         listen = 0.0.0.0:8080
         threads = 4
 
-    Change the address to 0.0.0.0:9080 and restart your instance.
+    Change the address to ``0.0.0.0:9080`` and restart your instance.
+
+    You will also have to tell the frontend that the backend is now running on a different port.
+
+    You need to change the environment variable ``RAZZLE_API_PATH`` to the base-url of the backend:
+
+    .. code-block:: bash
+
+        $ RAZZLE_API_PATH=http://localhost:9080/Plone yarn start
+
+
 
 Exercise 2
 ++++++++++
@@ -109,6 +159,9 @@ Knowing that `bin/instance debug` basically offers you a Python prompt, how woul
 
     Use `locals()` or `locals().keys()` to see Python objects available in Plone
 
+    You will get notified that ``app`` is automatically bound to your Zope application, so you can use dictionary-access or attribute-access as explained in :doc:`what_is_plone` to inspect the application:
+
+
 Exercise 3
 ++++++++++
 
@@ -118,6 +171,19 @@ The `app` object you encountered in the previous exercise can be seen as the roo
     :class: toggle
 
     `app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
+
+    .. code-block:: pycon
+
+        >>> app
+        <Application at >
+        >>> app.keys()
+        ['browser_id_manager', 'session_data_manager', 'error_log', 'temp_folder', 'virtual_hosting', 'index_html', 'Plone', 'acl_users']
+        >>> app['Plone']
+        <PloneSite at /Plone>
+        >>> app.Plone.keys()
+        ['portal_setup', 'MailHost', 'caching_policy_manager', 'content_type_registry', 'error_log', 'plone_utils', 'portal_actions', 'portal_catalog', 'portal_controlpanel', 'portal_diff', 'portal_groupdata', 'portal_groups', 'portal_memberdata', 'portal_membership', 'portal_migration', 'portal_password_reset', 'portal_properties', 'portal_quickinstaller', 'portal_registration', 'portal_skins', 'portal_types', 'portal_uidannotation', 'portal_uidgenerator', 'portal_uidhandler', 'portal_url', 'portal_view_customizations', 'portal_workflow', 'translation_service', 'portal_form_controller', 'mimetypes_registry', 'portal_transforms', 'portal_archivist', 'portal_historiesstorage', 'portal_historyidhandler', 'portal_modifier', 'portal_purgepolicy', 'portal_referencefactories', 'portal_repository', 'acl_users', 'portal_resources', 'portal_registry', 'HTTPCache', 'RAMCache', 'ResourceRegistryCache', 'training', 'schedule', 'location', 'sponsors', 'sprint']
+        >>> app['Plone']['training']
+        <FolderishDocument at /Plone/training>
 
     .. note::
 
@@ -132,6 +198,23 @@ The `app` object you encountered in the previous exercise can be seen as the roo
 
         You have been warned.
 
+
+Exercise 4
+++++++++++
+
+Change the port of the frontend to 1234
+
+..  admonition:: Solution
+    :class: toggle
+
+    By default the frontend will start on port 3000. You can change the port and/or hostname for the frontend by specifying the environment variables `PORT` and/or `HOST`:
+
+        $ HOST=localhost PORT=1234 yarn start
+
+    TODO:
+
+    * Find out if that actually works
+
 .. _features-walkthrough-label:
 
 Walkthrough of the UI
@@ -145,42 +228,33 @@ Let's see what is there...
   * :guilabel:`searchbox`: search (with live-search)
 
 * :guilabel:`navigation`: The global navigation
-* :guilabel:`banner`: A banner. Only visible on the front page.
-
-* :guilabel:`portal-columns`: a container holding:
-
-  * :guilabel:`portal-column-one`: portlets (configurable boxes with tools like navigation, news etc.)
-  * :guilabel:`portal-column-content`: the content and the editor
-  * :guilabel:`portal-column-two`: portlets
 
 * :guilabel:`portal-footer`: portlets for the footer, site actions, and colophon
 
-* :guilabel:`edit-zone`: a vertical bar on the left side of the browser window with editing options for the content
-
-.. only:: not presentation
-
-    These are also the CSS classes of the respective divs.
-    If you want to do theming, you'll need them.
+* :guilabel:`toolbar`: a vertical bar on the left side of the browser window with editing options for the content
 
 On the edit bar, we find options affecting the current context...
 
-* :guilabel:`folder contents`
 * :guilabel:`edit`
-* :guilabel:`view`
+* :guilabel:`folder contents`
 * :guilabel:`add`
+
+There is a menu with three dots that holds additional options:
+
 * :guilabel:`state`
-* :guilabel:`actions`
-* :guilabel:`display`
-* :guilabel:`manage portlets`
+* :guilabel:`view`
 * :guilabel:`history`
 * :guilabel:`sharing`
-* :guilabel:`rules`
-* :guilabel:`user actions`
+
+At the bottom of the toolbar is a silhouette-icon that holds a menu with the following links:
+
+* :guilabel:`logout`
+* :guilabel:`profile`
+* :guilabel:`preferences`
+* :guilabel:`site-setup`
 
 Some edit bar options only show when appropriate;
 for example, :guilabel:`folder contents` and :guilabel:`add` are only shown for Folders.
-:guilabel:`rules` is currently invisible because we have no content rules available.
-
 
 
 .. _features-users-label:
@@ -253,7 +327,10 @@ Configure a Mailserver
 
 .. only:: not presentation
 
-    We have to configure a mailserver since later we will create some content rules that send emails when new content is put on our site.
+    For production-level deployments you have to configure a mailserver.
+    Later in the training we will create some content rules that send emails when new content is put on our site.
+
+    For the training you don't have to configure a working mailserver since the Plone-Addon `Products.PrintingMailHost` is installed which will redirect all emails to the console.
 
 * Server: :samp:`localhost`
 * Username: leave blank
@@ -263,44 +340,59 @@ Configure a Mailserver
 
 .. only:: not presentation
 
-    Click on `Save and send test e-mail`. Since we have configured PrintingMailHost, you will see the mail content in the console output of your instance. Plone will not
-    actually send the email to the receivers address.
-
+    Click on `Save and send test e-mail`. You will see the mail content in the console output of your instance. Plone will not
+    actually send the email to the receivers address unless your remove `Products.PrintingMailHost`.
 
 .. _features-content-types-label:
 
-Content-Types
--------------
+The site structure
+------------------
 
-Edit a page:
+First delete all existing content from the site since we won't use it!
 
-* :guilabel:`Edit front-page`
-* :guilabel:`Title` :samp:`Plone Conference 2019, Ferrara, Italy`
-* :guilabel:`Summary` :samp:`Tutorial`
-* :guilabel:`Text` :samp:`...`
+* Click on the folder-icon in the toolbar while on the frontpage
+* Select all displayed content items
+* Click on the trashion to delete them
 
+Now we have a clean slate and can start creating the structure we want:
+
+.. code-block:: text
+
+    Root (Frontpage)
+    ├── Training
+    ├── Schedule
+    ├── Location
+    ├── Sponsors
+    ├── Sprint
+    └── Contact
+
+Below we'll add appropriate content.
+
+Edit the front page:
+
+* Change the title to `Plone Conference 2050, Solis Lacus, Mars`
+* Add some dummy text
+* Save the page
 
 Create a site structure:
 
-* Add a folder "The Event" and in it add:
+* Add a Page "Training"
+* Add a Folder "Schedule"
+* Add a Folder "Location"
+* Add a Page "Sponsors"
+* Add a Page "Sprint"
+* Add a Page "Contact"
 
-  * Folder "Talks"
-  * Folder "Training"
-  * Folder "Sprint"
+.. figure:: _static/features_site_structure.png
+   :alt: The view of the newly created site structure.
 
-
-  .. figure:: _static/features_the_event_folder_content.png
-      :alt: The view of the newly created site structure.
-
-      The view of the newly created site structure.
-
+   The view of the newly created site structure.
 
 * In ``/news``: Add a News Item "Conference Website online!" with some image
 * In ``/news``: Add a News Item "Submit your talks!"
-* In ``/events``: Add an Event "Deadline for talk submission" Date: 2019/08/10
+* In ``/events``: Add an Event "Deadline for talk submission" Date: 2025/08/10
 
 * Add a Folder "Register"
-* Delete the Folder "Users"
 * Add a Folder "Intranet"
 
 .. figure:: _static/features_new_navigation.png
@@ -308,21 +400,60 @@ Create a site structure:
 
     The view of the extended navigation bar.
 
+.. _features-content-types-label:
+
+Default content types
+---------------------
 
 The default Plone content types are:
 
-* Collection
-* Event
-* File
-* Folder
-* Image
-* Link
-* News Item
-* Page
+Page
+    A Page is the most flexible content type.
+    You can use the Editor to dynamically and arrange blocks on a page.
+    You can chose from blocks for Text, Images, Videos, Lists of existing content and many more.
+    Pages - like folders - can also contain other content. This means you can use them to structure your site.
 
-.. note::
+    .. figure:: _static/features_add_a_page.png
 
-    Please keep in mind that we use `plone.app.contenttypes <https://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training, which are the default in Plone 5. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default Plone 4.3.x site.
+Folder
+    Folders are used to structure content like in a file-system.
+    They can display listing of its content.
+    Pages can also contain other content.
+
+    .. figure:: _static/features_add_a_folder.png
+
+File
+    A file like a pdf, video or Work document.
+
+    .. figure:: _static/features_add_a_file.png
+
+Image
+    Like files bit png, jpeg or otehr images
+
+    .. figure:: _static/features_add_a_image.png
+
+Event
+    These are basically pages with start and end dates and some additional-fields for
+
+    .. figure:: _static/features_add_a_event.png
+
+Link
+    A link to a internal oder external target.
+
+    .. figure:: _static/features_add_a_link.png
+
+News Item
+    Basically a page with a Image and a image caption to be used for press releases an such.
+
+    .. figure:: _static/features_add_a_news_item.png
+
+Collection
+    Collections are virtual containers of lists of items found by doing a specialized search.
+    With Volto you usually do not use them anymore. Instead you can use a page with ome or more listing blocks.
+
+    .. figure:: _static/features_pending_collection.png
+       :alt: Editing a collection
+
 
 
 .. _features-folders-label:
@@ -330,14 +461,14 @@ The default Plone content types are:
 Folders
 -------
 
-* Go to 'the-event'
+* Go to 'schedule'
 * explain the difference between title, ID, and URL
 * explain /folder_contents
 * change the order of items
 * explain bulk actions
 * dropdown "display"
-* default pages
-* Add a page to 'the-event': "The Event" and make it the default page
+* Explain default pages (in classic Plone)
+* Explain Folderish Pages (in Plone6 and Volto)
 
 
 .. _features-collections-label:
@@ -345,16 +476,13 @@ Folders
 Collections
 -----------
 
+.. todo::
+
+    This is still Plone 5. Adapt to Volto.
+
 * add a new collection: "all content that has ``pending`` as wf_state".
-
-.. figure:: _static/features_pending_collection.png
-    :alt: Add a collection through the web.
-
-    Add a collection through the web.
-
-* explain the default collection for events at http://localhost:8080/Plone/events/aggregator/edit
-* explain Topics
-* mention collection portlets
+* explain the default collection for events at http://localhost:3000/events/aggregator/edit
+* mention listing blocks for the pastanaga editor
 * multi-path queries
 * constraints, e.g. ``/Plone/folder::1``
 
@@ -363,6 +491,10 @@ Collections
 
 Content Rules
 -------------
+
+.. warning::
+
+    Content-rules can not be configured in Volto yet. See https://github.com/plone/volto/issues/10. You need to use the backend to configure content rules.
 
 * Create new rule "a new talk is in town"!
 * New content in folder "Talks" -> Send Mail to reviewers.
@@ -443,12 +575,19 @@ In that case, which initially applies to file and image uploads, the content obj
     An oddity in all of the standard Plone workflows: a content item may be viewable even if its container is not.
     Making a container private does **not** automatically make its contents private.
 
-Read more at: https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
+..  seealso::
+
+    * https://training.plone.org/5/workflow/index.html
+    * https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
 
 .. _features-wc-label:
 
 Working copy
 ------------
+
+.. warning::
+
+    Working copies can not be used in Volto yet.
 
 Published content, even in an intranet setting, can pose a special problem for editing.
 It may need to be reviewed before changes are made available.
@@ -474,6 +613,10 @@ Unless activated, check-in/check-out options are not visible.
 
 Placeful workflows
 ------------------
+
+.. warning::
+
+    Placeful workflows can not be configured in Volto yet. Workflow-settings that you configure in the classic frontend are working though.
 
 You may need to have different workflows in different parts of a site.
 For example, we created an intranet folder.

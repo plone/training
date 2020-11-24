@@ -13,12 +13,14 @@ include/
 lib/
 lib64/
 local/
-/pip-selfcheck.json
-/pyvenv.cfg
 plone_training_config/training/
 presentation/
 log/
+node_modules/
+/pip-selfcheck.json
+/pyvenv.cfg
 /training.sublime-workspace
 /.idea
 .python-version
 package-lock.json
+.vscode/settings.json

@@ -3,6 +3,11 @@
 IDEs and Editors
 ==================
 
+..  todo::
+
+    * Add info on linters and other editor-tools for React
+
+
 In this part you will:
 
 * Learn about editors

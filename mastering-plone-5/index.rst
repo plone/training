@@ -1,10 +1,10 @@
-.. _mastering_plone-label:
+.. _mastering_plone5-label:
 
-===========================
-Mastering Plone Development
-===========================
+=============================
+Mastering Plone 5 Development
+=============================
 
-This is the documentation for the "Mastering Plone" training.
+This is the documentation for the "Mastering Plone 5" training.
 
 Mastering Plone is intended as a week-long training for people who are new to Plone or want to learn about the current best practices of Plone development. It can be split in two trainings:
 
@@ -17,7 +17,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
 ..  toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Mastering Plone
+    :caption: Mastering Plone 5
 
     about_mastering
     intro

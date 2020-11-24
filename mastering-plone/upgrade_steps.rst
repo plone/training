@@ -1,155 +1,33 @@
-.. _dexterity2-label:
+.. upgrade_steps-label:
 
-Dexterity Types II: Growing Up
-==============================
+Upgrade-steps
+=============
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
    Code for the beginning of this chapter::
 
-       git checkout viewlets_1
+       git checkout *TODO*
 
    Code for the end of this chapter::
 
-        git checkout dexterity_2
+        git checkout *TODO*
 
-
-The existing talks are still lacking some functionality we want to use.
 
 In this part we will:
 
-* add a marker interface to our talk type,
-* create custom catalog indexes,
-* query the catalog for them,
-* enable some more default features for our type.
+* Write code to update, create or move content
+* Create custom catalog indexes
+* Query the catalog for them,
+* Enable more default features for our type
 
 
-.. _dexterity2-marker-label:
-
-Add a marker interface to the talk type
----------------------------------------
-
-Marker Interfaces
-+++++++++++++++++
-
-The content type `Talk` is not yet a *first class citizen* because it does not implement its own interface.
-Interfaces are like nametags, telling other elements who and what you are and what you can do.
-A marker interface is like such a nametag.
-The talks actually have an auto-generated marker interface ``plone.dexterity.schema.generated.Plone_0_talk``.
-
-One problem is that the name of the Plone instance ``Plone`` is part of that interface name.
-If you now moved these types to a site with another name the code that uses these interfaces would no longer find the objects in question.
-
-To create a real name tag we add a new :py:class:`Interface` to :file:`interfaces.py`:
-
-.. code-block:: python
-    :linenos:
-    :emphasize-lines: 5,12-13
-
-    # -*- coding: utf-8 -*-
-    """Module where all interfaces, events and exceptions live."""
-
-    from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-    from zope.interface import Interface
-
-
-    class IPloneconfSiteLayer(IDefaultBrowserLayer):
-        """Marker interface that defines a browser layer."""
-
-
-    class ITalk(Interface):
-        """Marker interface for Talks"""
-
-:py:class:`ITalk` is a marker interface.
-We can bind Views and Viewlets to content that provide these interfaces.
-Lets see how we can provide this Interface.
-
-There are two solutions for this.
-
-1. Let them be instances of a class that implements this Interface.
-2. Register this interface as a behavior and enable it on talks.
-
-The first option has an important drawback: only *new* talks would be instances of the new class.
-We would either have to migrate the existing talks or delete them.
-
-So let's register the interface as a behavior in :file:`behaviors/configure.zcml`
-
-.. code-block:: xml
-
-  <plone:behavior
-      title="Talk"
-      name="ploneconf.talk"
-      description="Marker interface for talks to be able to bind views to."
-      provides="..interfaces.ITalk"
-      />
-
-And enable it on the type in :file:`profiles/default/types/talk.xml`
-
-.. code-block:: xml
-    :linenos:
-    :emphasize-lines: 5
-
-    <property name="behaviors">
-     <element value="plone.dublincore"/>
-     <element value="plone.namefromtitle"/>
-     <element value="ploneconf.social"/>
-     <element value="ploneconf.talk"/>
-    </property>
-
-Either reinstall the add-on, apply the behavior by hand or run an upgrade step (see below) and the interface will be there.
-
-Then we can safely bind the ``talkview`` to the new marker interface.
-
-.. code-block:: xml
-    :emphasize-lines: 3
-
-    <browser:page
-        name="talkview"
-        for="ploneconf.site.interfaces.ITalk"
-        layer="zope.interface.Interface"
-        class=".views.TalkView"
-        template="templates/talkview.pt"
-        permission="zope2.View"
-        />
-
-Now the ``/talkview`` can only be used on objects that implement said interface. We can now also query the catalog for objects providing this interface :py:meth:`catalog(object_provides="ploneconf.site.interfaces.ITalk")`.
-The ``talklistview`` and the ``demoview`` do not get this constraint since they are not only used on talks.
-
-.. note::
-
-    Just for completeness sake, this is what would have to happen for the first option (associating the :py:class:`ITalk` interface with a :py:class:`Talk` class):
-
-    * Create a new class that inherits from :py:class:`plone.dexterity.content.Container` and implements the marker interface.
-
-      .. code-block:: python
-
-          from plone.dexterity.content import Container
-          from ploneconf.site.interfaces import ITalk
-          from zope.interface import implementer
-
-          @implementer(ITalk)
-          class Talk(Container):
-              """Class for Talks"""
-
-    * Modify the class for new talks in :file:`profiles/default/types/talk.xml`
-
-      .. code-block:: xml
-          :linenos:
-          :emphasize-lines: 3
-
-          ...
-          <property name="add_permission">cmf.AddPortalContent</property>
-          <property name="klass">ploneconf.site.content.talk.Talk</property>
-          <property name="behaviors">
-          ...
-
-    * Create an upgrade step that changes the class of the existing talks.
-      A reuseable method to do such a thing is in `plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class <https://github.com/plone/plone.app.contenttypes/blob/master/plone/app/contenttypes/migration/dxmigration.py#L130>`_.
-
-.. _dexterity2-upgrades-label:
+.. _upgrade_steps-upgrades-label:
 
 Upgrade steps
 -------------
+
+You recently changed existing content, when you added the behavior ``ploneconf.featured`` or when you turned talks into events in the chapter :doc:`events`.
 
 When projects evolve you sometimes want to modify various things while the site is already up and brimming with content and users.
 Upgrade steps are pieces of code that run when upgrading from one version of an add-on to a newer one.
@@ -159,7 +37,7 @@ We will use an upgrade step to enable the new behavior instead of reinstalling t
 We will create an upgrade step that:
 
 * runs the typeinfo step (i.e. loads the GenericSetup configuration stored in ``profiles/default/types.xml`` and ``profiles/default/types/...`` so we don't have to reinstall the add-on to have our changes from above take effect) and
-* cleans up the talks that might be scattered around the site in the early stages of creating it.
+* cleans up existing talks that might be scattered around the site in the early stages of creating it.
   We will move all talks to a folder ``talks`` (unless they already are there).
 
 Upgrade steps can be registered in their own ZCML file to prevent cluttering the main :file:`configure.zcml`.
@@ -182,7 +60,7 @@ You register the first upgrade-step in :file:`upgrades.zcml`:
 
       <genericsetup:upgradeStep
           title="Update and cleanup talks"
-          description="Update typeinfo and move talks to a folder 'talks'"
+          description="Update typeinfo and move talks to to their folder"
           source="1000"
           destination="1001"
           handler="ploneconf.site.upgrades.upgrade_site"
@@ -194,6 +72,7 @@ You register the first upgrade-step in :file:`upgrades.zcml`:
 
 The upgrade step bumps the version number of the GenericSetup profile of :py:mod:`ploneconf.site` from 1000 to 1001.
 The version is stored in :file:`profiles/default/metadata.xml`.
+
 Change it to
 
 ..  code-block:: xml
@@ -206,8 +85,8 @@ Let's create it.
 ..  code-block:: python
     :linenos:
 
-    # -*- coding: utf-8 -*-
     from plone import api
+    from plone.app.upgrade.utils import loadMigrationProfile
 
     import logging
 
@@ -215,50 +94,87 @@ Let's create it.
     logger = logging.getLogger(__name__)
 
 
-    def upgrade_site(setup):
+    def reload_gs_profile(context):
+        loadMigrationProfile(
+            context,
+            'profile-ploneconf.site:default',
+        )
+
+
+    def upgrade_site(context=None):
+        # reload type info
         setup.runImportStepFromProfile(default_profile, 'typeinfo')
         portal = api.portal.get()
-        # Create a folder 'The event' if needed
-        if 'the-event' not in portal:
-            event_folder = api.content.create(
-                container=portal,
-                type='Folder',
-                id='the-event',
-                title=u'The event')
-        else:
-            event_folder = portal['the-event']
 
-        # Create folder 'Talks' inside 'The event' if needed
-        if 'talks' not in event_folder:
-            talks_folder = api.content.create(
-                container=event_folder,
-                type='Folder',
-                id='talks',
-                title=u'Talks')
+        # Create the expected folder-structure
+        if 'training' not in portal:
+            training_folder = api.content.create(
+                container=portal,
+                type='Document',
+                id='training',
+                title=u'Training')
         else:
-            talks_folder = event_folder['talks']
-        talks_url = talks_folder.absolute_url()
+            training_folder = portal['training']
+
+        if 'schedule' not in portal:
+            schedule_folder = api.content.create(
+                container=portal,
+                type='Document',
+                id='schedule',
+                title=u'Schedule')
+        else:
+            schedule_folder = portal['schedule']
+        schedule_folder_url = schedule_folder.absolute_url()
+
+        if 'location' not in portal:
+            location_folder = api.content.create(
+                container=portal,
+                type='Document',
+                id='location',
+                title=u'Location')
+        else:
+            location_folder = portal['location']
+
+        if 'sponsors' not in portal:
+            sponsors_folder = api.content.create(
+                container=portal,
+                type='Document',
+                id='sponsors',
+                title=u'Sponsors')
+        else:
+            sponsors_folder = portal['sponsors']
+
+        if 'sprint' not in portal:
+            sprint_folder = api.content.create(
+                container=portal,
+                type='Document',
+                id='sprint',
+                title=u'Sprint')
+        else:
+            sprint_folder = portal['sprint']
 
         # Find all talks
         brains = api.content.find(portal_type='talk')
         for brain in brains:
-            if talks_url in brain.getURL():
+            if schedule_folder_url in brain.getURL():
                 # Skip if the talk is already somewhere inside the target folder
                 continue
             obj = brain.getObject()
             logger.info('Moving {} to {}'.format(
-                obj.absolute_url(), talks_folder.absolute_url()))
+                obj.absolute_url(), schedule_folder_url))
             # Move talk to the folder '/the-event/talks'
             api.content.move(
                 source=obj,
-                target=talks_folder,
+                target=schedule_folder,
                 safe_id=True)
+
 
 Note:
 
-* Upgrade steps get the tool ``portal_setup`` passed as their argument.
-* The ``portal_setup`` tool has a method :py:meth:`runImportStepFromProfile`
-* We create the needed folder structure if it does not exists.
+* They are simple python methods, nothing fancy about them except the registration.
+* When running a upfrade-step they get the tool ``portal_setup`` passed as a argument. To make it easier to call these steps from a pdb or from other methods it is a good idea to set it as ``context=None`` and not use the argument at all but instead use ``portal_setup = api.portal.get_tool('portal_setup')`` if you need it.
+* The ``portal_setup`` tool has a method :py:meth:`runImportStepFromProfile`. In this example it is used to load the file `profiles/default/types.xml` and `profiles/default/types/talk.xml` to enable new behaviors, views or other settings.
+* In Python we create the required folder structure if it does not exist yet making extensive use of ``plone.api`` as discussed in the chapter :doc:`api`.
 
 After restarting the site we can run the step:
 
@@ -268,7 +184,7 @@ After restarting the site we can run the step:
 
 On the console you should see logging messages like::
 
-    INFO ploneconf.site.upgrades Moving http://localhost:8080/Plone/old-talk1 to http://localhost:8080/Plone/the-event/talks
+    INFO ploneconf.site.upgrades Moving http://localhost:8080/Plone/old-talk1 to http://localhost:8080/Plone/schedule
 
 Alternatively you also select which upgrade steps to run like this:
 
@@ -291,12 +207,12 @@ Alternatively you also select which upgrade steps to run like this:
 
 
 
-.. _dexterity2-browserlayer-label:
+.. _upgrade_steps-browserlayer-label:
 
-Add a browserlayer
-------------------
+Browserlayers
+-------------
 
-A browserlayer is another such marker interface, but this time on the request.
+A browserlayer is a marker on the request.
 Browserlayers allow us to easily enable and disable views and other site functionality based on installed add-ons and themes.
 
 Since we want the features we write only to be available when :py:mod:`ploneconf.site` actually is installed we can bind them to a browserlayer.
@@ -318,10 +234,6 @@ Our package already has a browserlayer (added by :py:mod:`bobtemplates.plone`). 
         """Marker interface that defines a browser layer."""
 
 
-    class ITalk(Interface):
-        """Marker interface for Talks"""
-
-
 It is enabled by GenericSetup when installing the package since it is registered in the :file:`profiles/default/browserlayer.xml`
 
 ..  code-block:: xml
@@ -334,8 +246,9 @@ It is enabled by GenericSetup when installing the package since it is registered
           />
     </layers>
 
-We should bind all views to it.
-Here is an example using the ``talklistview``.
+You should bind all your custom BrowserViews and Viewlets to it.
+
+Here is an example using the ``talklistview`` from :doc:`views_3`.
 
 ..  code-block:: xml
     :emphasize-lines: 4
@@ -356,18 +269,6 @@ It is equivalent to the absolute path :py:class:`ploneconf.site.interfaces.IPlon
 
     https://docs.plone.org/develop/plone/views/layers.html
 
-
-Exercise
-++++++++
-
-Do you need to bind the :ref:`viewlets1-social2-label` from the chapter 'Writing Viewlets' to this new browser layer?
-
-..  admonition:: Solution
-    :class: toggle
-
-    No, it would make no difference since the viewlet is already bound to the marker interface :py:class:`ploneconf.site.behaviors.social.ISocial`.
-
-.. _dexterity2-catalogindex-label:
 
 Add catalog indexes
 -------------------
@@ -445,7 +346,21 @@ The ``column ..`` entries allow us to display the values of these indexes in the
                   ])
 
 
-.. _dexterity2-customindex-label:
+..  todo::
+
+    Adapt the talkview to use the custom index to find talks. The Volto search needs to support all indexes dynamically for that to work!
+
+    ..  code-block:: jsx
+
+        <Link
+          className={`ui label ${color}`}
+          to={`/search?portal_type=talk&audience=${audience}`}
+          key={audience}
+        >
+          {audience}
+        </Link>
+
+.. _upgrade_steps-customindex-label:
 
 Query for custom indexes
 ------------------------
@@ -458,14 +373,15 @@ The new indexes behave like the ones that Plone has already built in:
     >>> (Pdb) catalog = getToolByName(self.context, 'portal_catalog')
     >>> (Pdb) catalog(type_of_talk='Keynote')
     [<Products.ZCatalog.Catalog.mybrains object at 0x10737b9a8>, <Products.ZCatalog.Catalog.mybrains object at 0x10737b9a8>]
-    >>> (Pdb) catalog(audience=('Advanced', 'Professionals'))
+    >>> (Pdb) catalog(audience=('Advanced', 'Professional'))
     [<Products.ZCatalog.Catalog.mybrains object at 0x10737b870>, <Products.ZCatalog.Catalog.mybrains object at 0x10737b940>, <Products.ZCatalog.Catalog.mybrains object at 0x10737b9a8>]
     >>> (Pdb) brain = catalog(type_of_talk='Keynote')[0]
     >>> (Pdb) brain.speaker
     u'David Glick'
 
-We now can use the new indexes to improve the ``talklistview`` so we don't have to *wake up* the objects anymore.
-Instead we use the brains' new attributes.
+If you use the classic frontend with the BrowserView ``talklistview`` you can now use these new indexes to improve it so we don't have to *wake up* the objects anymore.
+
+Instead you can use the brains' new attributes.
 
 .. code-block:: python
     :linenos:
@@ -494,8 +410,12 @@ Instead we use the brains' new attributes.
 The template does not need to be changed and the result in the browser did not change either.
 But when listing a large number of objects the site will now be faster since all the data you use comes from the catalog and the objects do not have to be loaded into memory.
 
+.. todo::
 
-.. _dexterity2-use_indexes-label:
+    Explain when having custom indexes and metadata makes sense with Volto.
+
+
+.. _upgrade_steps-use_indexes-label:
 
 Exercise 1
 ----------
@@ -576,21 +496,39 @@ Modify :py:class:`TalkListView` to return only brains and adapt the template to 
 
 
 
-.. _dexterity2-collection-criteria-label:
+.. _upgrade_steps-collection-criteria-label:
 
 Add collection criteria
 -----------------------
 
-To be able to search content in collections using these new indexes we would have to register them as criteria for the ``querystring`` widget that collections use.
+In chapter :doc:`behaviors_1` you already added the field ``featured`` as a querystring-criterion.
+
+To be able to search content using these new indexes in collections and listing blocks we need to register them as well.
+
 As with all features make sure you only do this if you really need it!
 
-
-Add a new file :file:`profiles/default/registry.xml`
+Add criteria for audience, type_of_talk and speaker to the file :file:`profiles/default/registry/querystring.xml`:
 
 .. code-block:: xml
     :linenos:
+    :emphasize-lines: 17-54
 
-    <registry>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+              i18n:domain="plone">
+
+      <records interface="plone.app.querystring.interfaces.IQueryField"
+               prefix="plone.app.querystring.field.featured">
+        <value key="title">Featured</value>
+        <value key="enabled">True</value>
+        <value key="sortable">False</value>
+        <value key="operations">
+          <element>plone.app.querystring.operation.boolean.isTrue</element>
+          <element>plone.app.querystring.operation.boolean.isFalse</element>
+        </value>
+        <value key="group" i18n:translate="">Metadata</value>
+      </records>
+
       <records interface="plone.app.querystring.interfaces.IQueryField"
                prefix="plone.app.querystring.field.audience">
         <value key="title">Audience</value>
@@ -599,9 +537,11 @@ Add a new file :file:`profiles/default/registry.xml`
         <value key="sortable">False</value>
         <value key="operations">
           <element>plone.app.querystring.operation.string.is</element>
+          <element>plone.app.querystring.operation.string.contains</element>
         </value>
-        <value key="group">Metadata</value>
+        <value key="group" i18n:translate="">Metadata</value>
       </records>
+
       <records interface="plone.app.querystring.interfaces.IQueryField"
                prefix="plone.app.querystring.field.type_of_talk">
         <value key="title">Type of Talk</value>
@@ -610,9 +550,11 @@ Add a new file :file:`profiles/default/registry.xml`
         <value key="sortable">False</value>
         <value key="operations">
           <element>plone.app.querystring.operation.string.is</element>
+          <element>plone.app.querystring.operation.string.contains</element>
         </value>
-        <value key="group">Metadata</value>
+        <value key="group" i18n:translate="">Metadata</value>
       </records>
+
       <records interface="plone.app.querystring.interfaces.IQueryField"
                prefix="plone.app.querystring.field.speaker">
         <value key="title">Speaker</value>
@@ -621,9 +563,11 @@ Add a new file :file:`profiles/default/registry.xml`
         <value key="sortable">False</value>
         <value key="operations">
           <element>plone.app.querystring.operation.string.is</element>
+          <element>plone.app.querystring.operation.string.contains</element>
         </value>
-        <value key="group">Metadata</value>
+        <value key="group" i18n:translate="">Metadata</value>
       </records>
+
     </registry>
 
 .. seealso::
@@ -631,12 +575,27 @@ Add a new file :file:`profiles/default/registry.xml`
   https://docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed
 
 
-.. _dexterity2-GS-label:
+.. _upgrade_steps-GS-label:
 
 Add versioning through GenericSetup
 ------------------------------------
 
-Configure the versioning policy and a diff view for talks through GenericSetup.
+You already enabled the versioning behavior on the content type.
+It allows you to specify if versioning should be enabled for each individual object instead of using a default-setting per content type.
+See :file:`profiles/default/types/talk.xml`:
+
+.. code-block:: xml
+    :linenos:
+    :emphasize-lines: 4
+
+    <property name="behaviors">
+     <element value="plone.dublincore"/>
+     <element value="plone.namefromtitle"/>
+     <element value="plone.versioning" />
+     <element value="ploneconf.featuered"/>
+    </property>
+
+You still need to configure the versioning policy and a diff view for talks.
 
 Add new file :file:`profiles/default/repositorytool.xml`
 
@@ -668,32 +627,10 @@ Add new file :file:`profiles/default/diff_tool.xml`
       </difftypes>
     </object>
 
-Finally you need to activate the versioning behavior on the content type.
-Edit :file:`profiles/default/types/talk.xml`:
-
-.. code-block:: xml
-    :linenos:
-    :emphasize-lines: 6
-
-    <property name="behaviors">
-     <element value="plone.dublincore"/>
-     <element value="plone.namefromtitle"/>
-     <element value="ploneconf.social"/>
-     <element value="ploneconf.talk"/>
-     <element value="plone.versioning" />
-    </property>
-
-.. note::
-
-    There is currently a bug that breaks showing diffs when multiple-choice fields were changed.
-
 
 Summary
 -------
 
-The talks are now grown up:
-
-* They provide a interface to which you can bind features like views
-* Some fields are indexed in the catalog making the listing faster
-* Talks are now versioned
 * You wrote your first upgrade step to move the talks around: yipee!
+* Some fields are indexed in the catalog making the listing faster
+* Versioning for Talks is now properly configured

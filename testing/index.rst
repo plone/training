@@ -1,4 +1,4 @@
-.. testing-label:
+.. _testing-plone-label:
 
 =============
 Testing Plone

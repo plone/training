@@ -10,7 +10,7 @@ Plone REST API
         git checkout restapi
 
 
-In this chapter, we will have a look at the relatively new `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_, which is a core package as of Plone 5.2.
+In this chapter, we will have a look at the `plone.restapi <https://plonerestapi.readthedocs.io/en/latest/index.html>`_, which is a core package as of Plone 5.2.
 
 It provides a hypermedia API to access Plone content using REST (Representational State Transfer).
 
@@ -332,7 +332,7 @@ Before we can start to submit lightning talks using REST calls from our single p
             <values>
               <element>Beginner</element>
               <element>Advanced</element>
-              <element>Professionals</element>
+              <element>Professional</element>
             </values>
           </value_type>
         </field>
@@ -435,7 +435,7 @@ Last we have to add some code that allows authenticated users to submit a lightn
           this.$http.post('/Plone/talks',
                      {'@type':'talk',
                       'type_of_talk':'Lightning Talk',
-                      'audience':['Beginner','Advanced','Professionals'],
+                      'audience':['Beginner','Advanced','Professional'],
                       'title':subject,
                       'description':summary},
                      {headers:

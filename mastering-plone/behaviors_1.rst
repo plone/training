@@ -16,11 +16,14 @@ Behaviors
 In this part you will:
 
 * Add another field to talks by using a behavior
+* Add a custom index for the field
+* Add a metadata column for the field
 
 Topics covered:
 
 * Behaviors
-
+* Indexes
+* Metacolumns
 
 .. only:: not presentation
 
@@ -55,7 +58,7 @@ Names and Theory
     You are adding an aspect to your content type and you want to write your aspect in such a way that it works independently of the content type on which the aspect is applied.
     You should not have dependencies to specific fields of your object or to other behaviors.
 
-    Such an object allows you to apply the `open/closed principle`_ to your dexterity objects.
+    Such an object allows you to apply the `open/closed principle` to your dexterity objects.
 
 .. only:: presentation
 
@@ -68,11 +71,15 @@ Names and Theory
 Practical example
 -----------------
 
+.. note::
+
+    You can also use the Plone Command Line Tool `plonecli` to initially create a behavior and edit it afterwards
+
 .. only:: not presentation
 
     So, let us write our own small behavior.
 
-    In the future, we want some talks, news items or other content be represented on the frontpage similar to what we did with the "hot news" field early on.
+    We want some talks, news items or other content to be represented on the frontpage similar to what we did with the "hot news" field early on.
 
     So for now, our behavior just adds a new field to store this information.
 
@@ -84,22 +91,7 @@ We want to keep a clean structure, so we create a :file:`behaviors` directory fi
 
 Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/configure.zcml` containing
 
-.. only:: not presentation
-
-    .. sidebar:: Advanced reference
-
-        It can be a bit confusing when to use factories or marker interfaces and when not to.
-
-        If you do not define a factory, your attributes will be stored directly on the object.
-        This can result in clashes with other behaviors.
-
-        You can avoid this by using the :py:class:`plone.behavior.AnnotationStorage` factory.
-        This stores your attributes in an `Annotation <https://docs.plone.org/develop/plone/misc/annotations.html>`_.
-        But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
-
-        Without it, you would have no interface against which you could register your views.
-
-.. _social-behavior-zcml-label:
+.. _featured-behavior-zcml-label:
 
 .. code-block:: xml
     :linenos:
@@ -119,16 +111,30 @@ Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/confi
 
     </configure>
 
+.. only:: not presentation
+
+    .. sidebar:: Advanced reference
+
+        It can be a bit confusing when to use factories or marker interfaces and when not to.
+
+        If you do not define a factory, your attributes will be stored directly on the object.
+        This can result in clashes with other behaviors.
+
+        You can avoid this by using the :py:class:`plone.behavior.AnnotationStorage` factory.
+        This stores your attributes in an `Annotation <https://docs.plone.org/develop/plone/misc/annotations.html>`_.
+        But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
+
+        Without it, you would have no interface against which you could register your views.
+
 And a :file:`behaviors/featured.py` containing:
 
-.. _social-behavior-python-label:
+.. _featured-behavior-python-label:
 
 .. code-block:: python
     :linenos:
 
     # -*- coding: utf-8 -*-
     from plone.autoform.interfaces import IFormFieldProvider
-    from plone.supermodel import directives
     from plone.supermodel import model
     from zope import schema
     from zope.interface import provider
@@ -136,32 +142,26 @@ And a :file:`behaviors/featured.py` containing:
     @provider(IFormFieldProvider)
     class IFeatured(model.Schema):
 
-        directives.fieldset(
-            'featured',
-            label=u'Featured',
-            fields=('featured',),
-        )
-
         featured = schema.Bool(
             title=u'Show this item on the frontpage',
             required=False,
         )
 
+This is exactly the same type of schema as the one in the talk content-type.
+The only addition is ``@provider(IFormFieldProvider)`` that makes sure that the fields in the schema are displayed in the add- and edit-forms.
 
-.. only:: not presentation
+Let's go through this step by step.
 
-    Let's go through this step by step.
-
-    #. We register a behavior in :ref:`behaviors/configure.zcml <social-behavior-zcml-label>`.
-       We do not say for which content type this behavior is valid.
-       You do this through the web or in the GenericSetup profile.
-    #. We create a marker interface in :ref:`behaviors/social.py <social-behavior-python-label>` for our behavior.
-       We make it also a schema containing the fields we want to declare.
-       We could just define schema fields on a zope.interface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features.
-    #. We mark our schema as a class that also provides the `IFormFieldProvider`_ interface using a decorator.
-       The schema class itself provides the interface, not its instance!
-    #. We also add a `fieldset`_ so that our fields are not mixed with the normal fields of the object.
-    #. We add a normal `Bool <https://zopeschema.readthedocs.io/en/latest/fields.html#bool>`_ schema field to control if a item should be displayed on the frontpage.
+#. We register a behavior in :ref:`behaviors/configure.zcml <featured-behavior-zcml-label>`.
+   We do not say for which content type this behavior is valid.
+   You do this through the web or in the GenericSetup profile.
+#. We create a interface in :ref:`behaviors/featured.py <featured-behavior-python-label>` for our behavior.
+   We make it also a schema containing the fields we want to declare.
+   We could just define schema fields on a zope.interface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features.
+#. We mark our schema as a class that also provides the `IFormFieldProvider`_ interface using a decorator.
+   The schema class itself provides the interface, not its instance!
+#. We also add a `fieldset`_ so that our fields are not mixed with the normal fields of the object.
+#. We add a normal `Bool <https://zopeschema.readthedocs.io/en/latest/fields.html#bool>`_ schema field to control if a item should be displayed on the frontpage.
 
 .. _behaviors1-adding-label:
 
@@ -191,7 +191,120 @@ We must add the behavior to :file:`profiles/default/types/talk.xml`:
      ...
     </object>
 
+After a restart and the reinstallation of the product we now have the new field we added through the behavior:
+
+.. figure:: _static/behaviors_frontend.png
+   :alt: Extended behavior field shown in Volto
+
 
 .. _plone.supermodel: https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
 .. _fieldset: https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
 .. _IFormFieldProvider: https://docs.plone.org/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms
+
+
+Add a index for the new field
+-----------------------------
+
+To use these new information for example in searches or listings we have to add an index to the `plone_catalog` for it. Indexing is the action to make object data search-able. Plone stores available indexes in the database.
+
+.. note::
+
+    You can create them through-the-web and inspect existing indexes in portal_catalog on Index tab. To have those indexes directly after the installation you have to add those indexes like we will show in this chapter.
+
+First of all we have to decide which kind of Index we need to add for our new field. Often used index types are for example:
+
+* FieldIndex stores values as is
+* BooleanIndex stores boolean values as is
+* KeywordIndex allows keyword-style look-ups (query term is matched against all the values of a stored list)
+* DateIndex and DateRangeIndex store dates (Zope 2 DateTime objects) in searchable format. The latter provides ranged searches.
+
+Therefore we have a boolean field for the featured information it would be obvious to use the BooleanIndex for this.
+
+To add a new index we have to change the `catalog.xml` in the `profiles/default` folder of our product. Without changes the file should look like this:
+
+.. code-block:: xml
+    :linenos:
+
+    <?xml version="1.0"?>
+    <object name="portal_catalog">
+      <!--<column value="my_meta_column"/>-->
+    </object>
+
+To add the new BooleanIndex to the file we have to change the file as following:
+
+.. code-block:: xml
+    :linenos:
+    :emphasize-lines: 3-5
+
+    <?xml version="1.0"?>
+    <object name="portal_catalog">
+      <index name="featured" meta_type="BooleanIndex">
+        <indexed_attr value="featured"/>
+      </index>
+    </object>
+
+To understand this snippet we have to understand the tags and information we are using:
+
+* The `index`-tag will tell the `plone_catalog` that we want to add a new index
+* `name` will be shown in the overview of `portal_catalog` and can be used in listings and searches later on
+* `meta_type` will determine the kind of index we want to use
+* The `indexed_attr` will include the fieldname of the information we are going to save in the index
+
+After a restart and reinstallation of the product, it should now create a new index in the `portal_catalog`.
+
+.. note::
+
+    Instead of deinstall/install or reinstall the product over the `prtal_quickinstaller` or `Add-Ons` controlpanel, we can import new or altered XML files in the `ZMI`. To do so go to `portal_setup`, switch to the `Import`-Tab and search for the profile to import like in this case: `ploneconf.site`.
+
+To see if the adding was successfully we will open the ZMI of our plone-site and navigate to the `portal_catalog` and click the `Indexes`-Tab. In the above list the new index `fetaured` should pop up.
+
+Add a metadata column for the new field
+---------------------------------------
+
+The same rules and methods shown above for indexes apply for metadata columns. The difference with metadata is that it is not used for searching, but for displaying the results.
+
+To add a metadata column for featured we have to add one more line in the `catalog.xml` like this:
+
+.. code-block:: xml
+    :linenos:
+    :emphasize-lines: 6
+
+    <?xml version="1.0"?>
+    <object name="portal_catalog">
+      <index name="featured" meta_type="BooleanIndex">
+        <indexed_attr value="featured"/>
+      </index>
+      <column value="featured"/>
+    </object>
+
+After another restart and another import of the xml-profile the new metadata column can be found in the `portal_catalog` in your `ZMI` under the tab `Metadata`.
+
+
+.. _behaviors_1-label:
+
+Exercises
+---------
+
+Since you now know how to add indexes to the `portal_catalog` it is time for some exercise.
+
+Exercise 1
+**********
+
+Add a new index for the `speaker`-field of our content type `Talk`
+
+..  admonition:: Solution
+    :class: toggle
+
+    .. code-block:: xml
+        :linenos:
+        :emphasize-lines: 6-8
+
+        <?xml version="1.0"?>
+        <object name="portal_catalog">
+          <index name="featured" meta_type="BooleanIndex">
+            <indexed_attr value="featured"/>
+          </index>
+          <index name="speaker" meta_type="FieldIndex">
+            <indexed_attr value="speaker"/>
+          </index>
+        </object>

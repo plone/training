@@ -195,7 +195,7 @@ Here is the complete XML schema created by our actions:
           <values>
             <element>Beginner</element>
             <element>Advanced</element>
-            <element>Professionals</element>
+            <element>Professional</element>
           </values>
         </value_type>
       </field>

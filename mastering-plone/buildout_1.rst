@@ -5,7 +5,7 @@ Buildout I
 
 In this part you will:
 
-* Learn about Buildout
+* learn about how to configure and document a setup of a Plone installation
 
 Topics covered:
 
@@ -16,9 +16,14 @@ Topics covered:
 
 .. only:: not presentation
 
-    `Buildout <https://pypi.org/project/zc.buildout>`_ composes your application for you, according to your rules.
+    `Buildout <https://pypi.org/project/zc.buildout>`_ composes your Plone application according to your rules.
 
-    To compose your application you must define the eggs you need, which version, what configuration files Buildout has to generate for you, what to download and compile, and so on.
+    .. note::
+
+        For the Volto frontend this building task is done by the tool ``yarn``.
+
+    To compose your application you have to define the python packages (eggs) you need, which version, what configuration files Buildout has to generate for you, what to download and compile, and so on.
+
     Buildout downloads the eggs you requested and resolves all dependencies. You might need five different eggs, but in the end, Buildout has to install 300 eggs, all with the correct version in order to resolve all the dependencies.
 
     Buildout does this without touching your system Python or affecting any other package. The commands created by buildout bring all the required packages into the Python environment. Each command it creates may use different libraries or even different versions of the same library.
@@ -26,6 +31,7 @@ Topics covered:
     Plone needs folders for logfiles, databases and configuration files. Buildout assembles all of this for you.
 
     You will need a lot of functionality that Buildout does not provide out of the box, so you'll need several extensions.
+
     Some extensions provide new functionality, like mr.developer, the best way to manage your checked out sources.
 
 
@@ -64,11 +70,10 @@ Recipes
 -------
 
 Buildout itself has no idea how to install Zope.
-Buildout is a plugin based system, it comes with a small set of plugins to create configuration files
-and download eggs with their dependencies and the proper version.
+Buildout is a plugin based system, it comes with a small set of plugins to create configuration files and download eggs with their dependencies and the proper version.
 
 To install a Zope site, you need a third-party plugin.
-The plugins provide new recipes that you have to declare and configure in their own respective sections.
+Plugins provide recipes that have to be declared and configured in their own respective buildout sections.
 
 One example is the section
 
@@ -85,16 +90,51 @@ All the lines after :samp:`recipe = xyz` are the configuration of the specified 
 
 .. note::
 
-    There are way to many buidout-recipes. See https://pypi.org/search/?q=buildout+recipe
+    Find a list of buildout recipes at https://pypi.org/search/?q=buildout+recipe
 
 .. _buildout1-references-label:
 
-References
-----------
+Variables and References
+------------------------
 
 .. only:: not presentation
 
+    A variable is declared with a ``=`` and can be used with a ``${}``:
+
+    .. code-block:: ini
+
+        [buildout]
+        devtool = pdbpp
+
+        more_devtools =
+            plone.reload
+            Products.PDBDebugMode
+            Products.PrintingMailHost
+            plone.app.debugtoolbar
+
+        eggs =
+            Plone
+            ${devtool}
+            ${more_devtools}
+
     Buildout allows you to use references in the configuration. A variable declaration may not only hold the variable value, but also a reference to where to look for the variable value.
+
+    .. code-block:: ini
+
+        [buildout]
+        devtool = pdbpp
+
+        more_devtools =
+            plone.reload
+            Products.PDBDebugMode
+            Products.PrintingMailHost
+            plone.app.debugtoolbar
+
+        [production]
+        eggs =
+            Plone
+            ${buildout:devtool}
+            ${buildout:more_devtools}
 
     If you have a big setup with many Plone sites with minor changes between each configuration, you can generate a template configuration, and each site references everything from the template and overrides just what needs to be changed.
 
@@ -105,6 +145,18 @@ References
     Another example: Say you create configuration files for a webserver like nginx, you can define the target port for the reverse proxy by looking it up from the zope2instance recipe.
 
     Configuring complex systems always involves a lot of duplication of information. Using references in the buildout configuration allows you to minimize these duplications.
+
+    .. code-block:: ini
+
+        [instance]
+        recipe = plone.recipe.zope2instance
+        …
+        file-storage = ${buildout:buildout_dir}/var/filestorage/Data.fs
+        blob-storage = ${buildout:buildout_dir}/var/blobstorage
+
+    | :samp:`${{buildout:buildout_dir}}`:
+    | :samp:`buildout` is the section whose variable :samp:`buildout_dir` is overwritten in section instance.
+
 
 .. _buildout1-examples-label:
 
@@ -117,7 +169,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
 
     [buildout]
     extends =
-        http://dist.plone.org/release/5.2/versions.cfg
+        http://dist.plone.org/release/5.2.3/versions.cfg
         versions.cfg
     extends-cache = extends-cache
 
@@ -240,7 +292,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
     .. code-block:: cfg
 
         extends =
-            http://dist.plone.org/release/5.2/versions.cfg
+            http://dist.plone.org/release/5.2.3/versions.cfg
 
     This line tells Buildout to read another configuration file. You can refer to configuration files on your computer or to configuration files on the Internet, reachable via http. You can use multiple configuration files to share configurations between multiple Buildouts, or to separate different aspects of your configuration into different files. Typical examples are version specifications, or configurations that differ between different environments.
 
@@ -316,11 +368,11 @@ Mr. Developer
 
 .. only:: not presentation
 
-    There are many more important things to know, and we can't go through them all in detail but I want to focus on one specific feature: :py:mod:`mr.developer`
+    There are many more important things to know, and we can't go through all of them in detail but I want to focus on one specific feature: :py:mod:`mr.developer`.
 
     With :py:mod:`mr.developer` you can declare which packages you want to check out from which version control system and which repository URL. You can check out sources from git, svn, bzr, hg and maybe more. Also, you can say that some sources are in your local file system.
 
-    :py:mod:`mr.developer` comes with a command, :command:`./bin/develop`. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them when you write changes that require a new release. You can activate and deactivate eggs via the :command:`develop` command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
+    :py:mod:`mr.developer` comes with a command, :command:`./bin/develop`. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your add-ons in separate eggs with associated checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them when you write changes that require new releases. You can activate and deactivate eggs via the :command:`develop` command or the Buildout configuration. You should always use the Buildout way. Your commit comment serves as documentation of your Plone setup.
 
 .. _buildout1-extensible-label:
 

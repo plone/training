@@ -3,6 +3,16 @@
 Views II: A Default View for "Talk"
 ===================================
 
+.. sidebar:: Classic chapter
+
+  .. figure:: _static/plone.svg
+     :alt: Plone Logo
+
+  This chapter is about Plone Classic.
+
+  Solve the same tasks in the Volto frontend in chapter :doc:`volto_talkview`
+
+
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
    Code for the beginning of this chapter::
@@ -79,7 +89,7 @@ The logic contained in the template can now be moved to the class:
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 3, 12-39
+    :emphasize-lines: 3, 12-36
 
     # -*- coding: utf-8 -*-
     from Products.Five.browser import BrowserView
