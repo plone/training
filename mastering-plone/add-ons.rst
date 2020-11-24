@@ -8,7 +8,7 @@ Extending Plone With Add-on Packages
   .. figure:: _static/plone.svg
      :alt: Plone Logo
 
-  This chapter is about the classic frontend.
+  This chapter is about Plone Classic.
 
   For Volto add-ons see chapter :ref:`volto_addon-label`
 
@@ -98,7 +98,7 @@ It can be very hard to find the right add-on for your requirements. Here are som
 * Once you have a shortlist, test these add-ons. Here are the main issues you need to test before you install an add-on on a production site:
 
   * Test all required features. Read but do not trust the documentation
-  * Check if the add-on runs on your required version 
+  * Check if the add-on runs on your required version
   * Check if it is currently maintained
   * Does it have i18n-support, i.e. is the user-interface translated to your language?
   * Does it uninstall cleanly?

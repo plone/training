@@ -8,7 +8,7 @@ Views III: A Talk List
   .. figure:: _static/plone.svg
      :alt: Plone Logo
 
-  This chapter is about the classic frontend.
+  This chapter is about Plone Classic.
 
   Solve the same tasks in the Volto frontend in chapter :doc:`volto_talk_listview`
 
