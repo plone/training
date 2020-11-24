@@ -327,7 +327,7 @@ texinfo_documents = [
 epub_title = u'Plone Training'
 epub_author = u'Plone Community'
 epub_publisher = u'Plone Community'
-epub_copyright = year + u'2020, Plone Community'
+epub_copyright = year + u', Plone Community'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.

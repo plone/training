@@ -40,10 +40,9 @@ Trainings
 =========
 
 :ref:`mastering_plone-label`
-    Mastering Plone 6 is a training intended for people who are new to Plone or want to learn about the best practices of Plone development.
+    Mastering Plone 6 teaches the best practices of Plone development. I covers frontend as well as backend development and Volto as well as Plone Classic.
 
     In the course of the training you will learn how to build a custom website with plenty of features.
-    It covers the new react-based frontend Volto as well als Plone Classic.
     HTML, python and Javascript knowledge is required.
 
 
