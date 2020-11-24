@@ -17,7 +17,7 @@ The story of a conference platform provides a week-long training of several deve
 
     This is the Mastering Plone 6 Training.
 
-    The biggest change from `Mastering Plone 5 <https://training.plone.org/5/mastering-plone/>`_ is that Mastering Plone 6 teaches developing for the React-based frontend Volto as well as for Plone Classic i.e. using server-side rendered templates.
+    The biggest change from `Mastering Plone 5 <https://training.plone.org/5/mastering-plone-5/>`_ is that Mastering Plone 6 teaches developing for the React-based frontend Volto as well as for Plone Classic i.e. using server-side rendered templates.
     In many chapters that use Volto there is a link to a chapter that covers the same tasks in Plone Classic, and vice versa.
 
     Plone 6 is not yet released and thus the training is a work in-progress and there are still some rough edges.
