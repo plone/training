@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.com/plone/training.svg?branch=master
+    :target: https://travis-ci.com/plone/training
+
 ========
 Training
 ========
