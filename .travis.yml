@@ -1,12 +1,11 @@
 sudo: false
-dist: xenial   # required for Python >= 3.7
 language: python
 addons:
   apt:
     packages:
     - enchant
 python:
-- '3.7'
+  - "3.8"
 cache: pip
 before_install:
 - echo -e "Host docs.plone.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
