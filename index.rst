@@ -22,6 +22,7 @@ A collection of trainings developed and created by the Plone Community.
     react/index
     volto/index
     voltohandson/index
+    voltoaddons/index
     transmogrifier/index
     advanced-python/index
     gatsby/index
@@ -82,6 +83,9 @@ Trainings
 
 :doc:`volto/index`
     Build a custom website using Volto and the Plone REST API.
+
+:doc:`voltoaddons/index`
+    Build custom Volto addons, explore more advanced Volto topics.
 
 :doc:`gatsby/index`
     Building static websites with `GatsbyJS <https://www.gatsbyjs.org/>`_.
