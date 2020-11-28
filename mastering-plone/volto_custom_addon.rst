@@ -5,10 +5,12 @@ Extending Volto With Custom Add-on Package
 
 .. sidebar:: Volto chapter
 
-  .. figure:: _static/Volto.svg
+  .. figure:: _static/volto.svg
      :alt: Volto Logo
 
-  Creating a Volto add-on
+  This chapter is about the React frontend Volto.
+
+  Solve the same tasks in classic frontend in chapter :doc:`eggs1`
 
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
@@ -191,7 +193,7 @@ Install and start
 Footnotes
 ----------------
 
-.. [1] `yarn workspaces <https://classic.yarnpkg.com/en/docs/workspaces/>`_ 
+.. [1] `yarn workspaces <https://classic.yarnpkg.com/en/docs/workspaces/>`_
     Workspaces are a new way to set up your package architecture. It allows you to setup multiple packages in such a way that you only need to run yarn install once to install all of them in a single pass.
 
 .. [2] `mrs.developer <https://www.npmjs.com/package/mrs-developer>`_ Pull a package from git and set it up as a dependency for the current project codebase.

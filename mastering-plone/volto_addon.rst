@@ -18,7 +18,7 @@ Using Volto add-ons
 Volto Add-ons
 -------------
 
-| A selection of add-ons can be found on: 
+| A selection of add-ons can be found on:
 | Github: https://github.com/collective/awesome-volto#addons
 | npm: https://www.npmjs.com/search?q=keywords:volto-addon
 | Add-ons enrich a Volto app with spezialized blocks, themes, integration of Node packages and more.
@@ -53,10 +53,9 @@ Install new add-ons and restart Volto:
     $ yarn start
 
 
-.. _add-ons-volto-backedupbyplone-label
+.. _add-ons-volto-backedupbyplone-label:
 
 Complementing Volto with Plone add-ons
 --------------------------------------
 
 With some additional features of Volto add-ons in place, where do we need to work on the Plone side? With the split of Plone in backend and frontend, Plone is still the place to shape your data model. For our training story 'Platform for a Plone Conference' we need to model the content type talk. So in an earlier :doc:`dexterity` chapter we created a **new Plone add-on** ``ploneconf.site`` that adds the content type ``talk`` and the correspondent views for a talk and a list of talks in our Volto app ``volto-ploneconf`` in chapter :doc:`volto_talkview`.
-

@@ -35,7 +35,7 @@ The overall font is defined in Volto and can be found in :file:`omelette/theme/t
 
   @fontName : 'Lato';
 
-Semantic UI does not provide a less variable for increasing the letter-spacing. So we add a CSS rule for it. We use the ``site.overrides`` as this rule should apply site wide. Create an empty file :file:`site.overrides``in ``theme/globals``and set the letter-spacing.
+Semantic UI does not provide a less variable for increasing the letter-spacing. So we add a CSS rule for it. We use the ``site.overrides`` as this rule should apply site wide. Create an empty file :file:`site.overrides` in :file:`theme/globals` and set the letter-spacing.
 
 .. code-block:: css
 
