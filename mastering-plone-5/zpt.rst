@@ -1,4 +1,4 @@
-.. _zpt-label:
+.. _plone5_zpt-label:
 
 Page Templates
 ==============
@@ -76,7 +76,7 @@ Open the file :file:`training.pt` and add:
     </html>
 
 
-.. _zpt-tal-label:
+.. _plone5_zpt-tal-label:
 
 TAL and TALES
 -------------
@@ -145,7 +145,7 @@ This is the complete list of TAL-attributes:
     handle errors.
 
 
-.. _python-expressions-label:
+.. _plone5_python-expressions-label:
 
 python expressions
 ++++++++++++++++++
@@ -514,7 +514,7 @@ You can also add pure python into the templates:
     </div>
 
 
-.. _zpt-metal-label:
+.. _plone5_zpt-metal-label:
 
 
 Exercise 1
@@ -967,7 +967,7 @@ Which is the same as:
 Restart your Plone instance from the command line, and then open http://localhost:8080/Plone/@@training to see this macro
 being used in our @@training browser view template.
 
-.. _tal-access-plone-label:
+.. _plone5_tal-access-plone-label:
 
 Accessing Plone from the template
 ---------------------------------
@@ -1037,7 +1037,7 @@ In templates we can also access other browser views. Some of those exist to prov
 These are very widely used and there are many more.
 
 
-.. _tal-missing-label:
+.. _plone5_tal-missing-label:
 
 What we missed
 --------------

@@ -1,4 +1,4 @@
-.. _future-label:
+.. _plone5_future-label:
 
 The Future of Plone
 ===================

@@ -1,4 +1,4 @@
-.. _dexterity_reference-label:
+.. _plone5_dexterity_reference-label:
 
 ====================
 Dexterity: Reference

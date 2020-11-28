@@ -1,4 +1,4 @@
-.. _behaviors1-label:
+.. _plone5_behaviors1-label:
 
 Behaviors
 =========
@@ -29,7 +29,7 @@ Topics covered:
     But if you want to use this adapter, you must somehow know that an object implements that.
     Also, adding more fields to an object would not be easy with such an approach.
 
-.. _behaviors1-dexterity-label:
+.. _plone5_behaviors1-dexterity-label:
 
 Dexterity Approach
 ------------------
@@ -43,7 +43,7 @@ Dexterity Approach
     All default views (e.g. the add- and edit-forms) know about the concept of behaviors.
     When rendering forms, the views also check whether there are behaviors referenced with the current context and if these behaviors have a schema of their own, these fields get shown in addition.
 
-.. _behaviors1-names-label:
+.. _plone5_behaviors1-names-label:
 
 Names and Theory
 ----------------
@@ -55,15 +55,9 @@ Names and Theory
     You are adding an aspect to your content type and you want to write your aspect in such a way that it works independently of the content type on which the aspect is applied.
     You should not have dependencies to specific fields of your object or to other behaviors.
 
-    Such an object allows you to apply the `open/closed principle`_ to your dexterity objects.
+    Such an object allows you to apply the `open/closed principle <https://en.wikipedia.org/wiki/Open/closed_principle>`_ to your dexterity objects.
 
-.. only:: presentation
-
-    `open/closed principle`_
-
-.. _open/closed principle: https://en.wikipedia.org/wiki/Open/closed_principle
-
-.. _behaviors1-example-label:
+.. _plone5_behaviors1-example-label:
 
 Practical example
 -----------------
@@ -99,7 +93,7 @@ Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/confi
 
         Without it, you would have no interface against which you could register your views.
 
-.. _social-behavior-zcml-label:
+.. _plone5_social-behavior-zcml-label:
 
 .. code-block:: xml
     :linenos:
@@ -121,7 +115,7 @@ Then, we add an empty :file:`behaviors/__init__.py` and a :file:`behaviors/confi
 
 And a :file:`behaviors/featured.py` containing:
 
-.. _social-behavior-python-label:
+.. _plone5_social-behavior-python-label:
 
 .. code-block:: python
     :linenos:
@@ -152,18 +146,18 @@ And a :file:`behaviors/featured.py` containing:
 
     Let's go through this step by step.
 
-    #. We register a behavior in :ref:`behaviors/configure.zcml <social-behavior-zcml-label>`.
+    #. We register a behavior in :file:`behaviors/configure.zcml`.
        We do not say for which content type this behavior is valid.
        You do this through the web or in the GenericSetup profile.
-    #. We create a marker interface in :ref:`behaviors/social.py <social-behavior-python-label>` for our behavior.
+    #. We create a marker interface in :file:`behaviors/social.py` for our behavior.
        We make it also a schema containing the fields we want to declare.
-       We could just define schema fields on a zope.interface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features.
-    #. We mark our schema as a class that also provides the `IFormFieldProvider`_ interface using a decorator.
+       We could just define schema fields on a zope.interface class, but we use an extended form from :py:mod:`plone.supermodel`, else we could not use the fieldset features.
+    #. We mark our schema as a class that also provides the :py:mod:`IFormFieldProvider` interface using a decorator.
        The schema class itself provides the interface, not its instance!
-    #. We also add a `fieldset`_ so that our fields are not mixed with the normal fields of the object.
+    #. We also add a `fieldset` so that our fields are not mixed with the normal fields of the object.
     #. We add a normal `Bool <https://zopeschema.readthedocs.io/en/latest/fields.html#bool>`_ schema field to control if a item should be displayed on the frontpage.
 
-.. _behaviors1-adding-label:
+.. _plone5_behaviors1-adding-label:
 
 Adding it to our talk
 ---------------------
@@ -192,6 +186,6 @@ We must add the behavior to :file:`profiles/default/types/talk.xml`:
     </object>
 
 
-.. _plone.supermodel: https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
-.. _fieldset: https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
-.. _IFormFieldProvider: https://docs.plone.org/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms
+.. _plone5_plone.supermodel: https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
+.. _plone5_fieldset: https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
+.. _plone5_IFormFieldProvider: https://docs.plone.org/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms

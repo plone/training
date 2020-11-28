@@ -219,7 +219,7 @@ This makes sure the method :py:meth:`post_install` in :file:`setuphandlers.py` i
 
 Once we reinstall our package a folder :file:`talks` is created with the appropriate local roles and constraints.
 
-We wrote similar code to create the folder *The Event* in :ref:`dexterity2-upgrades-label`.
+We wrote similar code to create the folder *The Event* in :doc:`upgrade_steps`.
 We need it to make sure a sane structure gets created when we create a new site by hand or in tests.
 
 You would usually create a list of dictionaries containing the type, parent and title plus optionally layout, workflow state etc. to create an initial structure. In some projects it could also make sense to have a separate profile besides ``default`` which might be called ``demo`` or ``content`` that creates an initial structure and maybe another ``testing`` that creates dummy content (talks, speakers etc) for tests.

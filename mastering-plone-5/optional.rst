@@ -1,4 +1,4 @@
-.. _optional-label:
+.. _plone5_optional-label:
 
 Optional
 ========

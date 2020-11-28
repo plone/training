@@ -24,7 +24,7 @@ Advanced Viewlets
         git checkout dexterity_3
 
 
-In the previous chapter :doc:`deterity_3` you created the ``sponsor`` content type.
+In the previous chapter :doc:`dexterity_3` you created the ``sponsor`` content type.
 Now let's learn how to display them at the bottom of every page.
 
 To be solved task in this part:

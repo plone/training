@@ -1,11 +1,11 @@
-.. _intro-label:
+.. _plone5_intro-label:
 
 ============
 Introduction
 ============
 
 
-.. _intro-who-are-you-label:
+.. _plone5_intro-who-are-you-label:
 
 Who are you?
 ============
@@ -40,7 +40,7 @@ Tell us about yourselves:
         [(i.Title, i.getURL()) for i in context.getFolderContents()]
 
 
-.. _intro-what-happens-label:
+.. _plone5_intro-what-happens-label:
 
 What will we do?
 ================
@@ -72,7 +72,7 @@ Some technologies and tools we use during the training:
     * `Testing <https://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_
     * `References/Relations <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html>`_
 
-.. _intro-what-wont-happen-label:
+.. _plone5_intro-what-wont-happen-label:
 
 What will we not do?
 ====================
@@ -96,7 +96,7 @@ Other topics are only covered lightly:
 * `Permissions <https://docs.plone.org/develop/plone/security/permissions.html>`_
 * `Performance and Caching <https://docs.plone.org/manage/deploying/testing_tuning/performance/index.html>`_
 
-.. _intro-expect-label:
+.. _plone5_intro-expect-label:
 
 What to expect
 ==============
@@ -117,7 +117,7 @@ definitely read `Martin Aspeli's book <https://www.packtpub.com/web-development/
 and then re-read it again while actually doing a complex project.
 
 
-.. _intro-classroom-protocol:
+.. _plone5_intro-classroom-protocol:
 
 Classroom Protocol
 ==================
@@ -153,7 +153,7 @@ Classroom Protocol
     * **Unpythonic**: Why doesn't Plone do it some other way?
     * **Show off**: Look what I just did!
 
-.. _intro-docs-label:
+.. _plone5_intro-docs-label:
 
 Documentation
 =============
@@ -165,7 +165,7 @@ Follow the training at https://training.plone.org/5
     You can use this presentation to copy & paste the code but you will memorize more if you type yourself.
 
 
-.. _intro-further-reading-label:
+.. _plone5_intro-further-reading-label:
 
 Further Reading
 ===============

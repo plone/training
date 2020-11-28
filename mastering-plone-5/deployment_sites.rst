@@ -1,10 +1,10 @@
-.. _deployment-buildout-label:
+.. _plone5_deployment-buildout-label:
 
 Buildout II: Getting Ready for Deployment
 =========================================
 
 
-.. _deployment-starzel-label:
+.. _plone5_deployment-starzel-label:
 
 The Starzel buildout
 --------------------
@@ -31,7 +31,7 @@ Another noteable buildout to look for inspiration:
 
 * https://github.com/4teamwork/ftw-buildouts
 
-.. _deployment-setup-label:
+.. _plone5_deployment-setup-label:
 
 A deployment setup
 ------------------
@@ -67,7 +67,7 @@ Deploying Plone and production-setups are outside the scope for this training.
     * https://docs.plone.org/manage/deploying/index.html
     * https://training.plone.org/5/deployment
 
-.. _deployment-tools-label:
+.. _plone5_deployment-tools-label:
 
 Other tools we use
 ------------------

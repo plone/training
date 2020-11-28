@@ -1,4 +1,4 @@
-.. _customsearch-label:
+.. _plone5_customsearch-label:
 
 Custom Search
 =============
@@ -8,7 +8,7 @@ until you feel comfortable writing views and templates.
 
 Here are two add-ons that allow you to add custom searches and content listings through the web ("TTW", requiring no programming: only the web browser) in Plone.
 
-.. _customsearch-eea-label:
+.. _plone5_customsearch-eea-label:
 
 eea.facetednavigation
 ---------------------

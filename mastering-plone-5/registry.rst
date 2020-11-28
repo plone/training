@@ -1,4 +1,4 @@
-.. _registry-label:
+.. _plone5_registry-label:
 
 Manage Settings with Registry, Control Panels and Vocabularies
 ==============================================================

@@ -1,4 +1,4 @@
-.. _export_code-label:
+.. _plone5_export_code-label:
 
 Return to Dexterity: Moving contenttypes into Code
 ===================================================

@@ -1,4 +1,4 @@
-.. _events-label:
+.. _events_classic-label:
 
 Turning Talks into Events
 =========================
@@ -103,7 +103,7 @@ Edit :file:`browser/templates/talkview.pt`
 
 Similar to the field `room`, the problem now appears that speakers submitting their talks should not be able to set a time and day for their talks.
 Sadly it is not easy to modify permissions of fields provided by behaviors (unless you write the behavior yourself).
-At least in this case we can take the easy way out since the field does not contain secret information: we will simply hide the fields from contributors using css and show them for reviewers. We will do so in chapter :ref:`resources-label` when we add some CSS files.
+At least in this case we can take the easy way out since the field does not contain secret information: we will simply hide the fields from contributors using css and show them for reviewers. We will do so in chapter :doc:`theming` when we add some CSS files.
 
 Modify :file:`browser/static/ploneconf.css` and add:
 

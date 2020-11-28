@@ -3,7 +3,7 @@ Mastering Plone 6
 
 Proposed changes to this treainning for Plone 6
 
-..  code-block:: txt
+..  code-block:: text
 
     1. About Mastering Plone::
 

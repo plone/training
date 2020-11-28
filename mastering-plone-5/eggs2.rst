@@ -1,4 +1,4 @@
-.. _eggs2-label:
+.. _plone5_eggs2-label:
 
 Creating Reusable Packages
 ==========================

@@ -1,4 +1,4 @@
-.. _add-ons-label:
+.. _plone5_add-ons-label:
 
 Extend Plone With Add-On Packages
 =================================
@@ -9,7 +9,7 @@ Extend Plone With Add-On Packages
 * Their use, usefulness, quality and complexity varies a lot
 
 
-.. _add-ons-notable-label:
+.. _plone5_add-ons-notable-label:
 
 Some notable add-ons
 ---------------------
@@ -58,7 +58,7 @@ Some notable add-ons
   Integrates the Disqus commenting platform API into Plone
 
 
-.. _add-ons-find-label:
+.. _plone5_add-ons-find-label:
 
 How to find add-ons
 -------------------
@@ -92,7 +92,7 @@ Once you found an addon you like you should ask the community if you made a good
 
 There is also a talk that discusses in depth how to find the right addon: https://www.youtube.com/watch?v=Sc6NkqaSjqw
 
-.. _add-ons-installing-label:
+.. _plone5_add-ons-installing-label:
 
 Installing Add-ons
 ------------------
@@ -154,7 +154,7 @@ This is what happens: The GenericSetup profile of the product gets loaded. This 
 Let's have a look at what we just installed.
 
 
-.. _add-ons-PFG-label:
+.. _plone5_add-ons-PFG-label:
 
 collective.easyform
 -------------------
@@ -183,7 +183,7 @@ Let's build a registration form:
     Need CAPTCHAs? Read the `instructions how to add add Recapcha-field to easyform <https://github.com/collective/collective.easyform#recaptcha-support>`_
 
 
-.. _add-ons-ptg-label:
+.. _plone5_add-ons-ptg-label:
 
 Add page layout management with :py:mod:`plone.app.mosaic`
 ------------------------------------------------------------
@@ -201,7 +201,7 @@ https://pypi.org/project/plone.app.mosaic/
 
     The Mosaic editor takes some time to load so please be patient until you see the full edit view
 
-.. _add-ons-i18n-label:
+.. _plone5_add-ons-i18n-label:
 
 Internationalization
 --------------------
@@ -215,7 +215,7 @@ We would use the built-in addon https://pypi.org/project/plone.app.multilingual 
 Building a multi-lingual site requires activating :py:mod:`plone.app.multilingual`, but no add-on is necessary to build a site in only one language. Just select a different site language when creating a Plone site, and all text in the user-interface will be switched to that language.
 
 
-.. _add-ons-summary-label:
+.. _plone5_add-ons-summary-label:
 
 Summary
 -------

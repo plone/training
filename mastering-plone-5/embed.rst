@@ -1,4 +1,4 @@
-.. _embed-label:
+.. _plone5_embed-label:
 
 Using starzel.votable_behavior in ploneconf.site
 ================================================

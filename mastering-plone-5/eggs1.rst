@@ -1,4 +1,4 @@
-.. _eggs1-label:
+.. _plone5_eggs1-label:
 
 Write Your Own Add-Ons to Customize Plone
 =========================================
@@ -13,7 +13,7 @@ Write Your Own Add-Ons to Customize Plone
 
         git checkout eggs1
 
-.. _eggs1-create-label:
+.. _plone5_eggs1-create-label:
 
 
 In this part you will:
@@ -84,7 +84,7 @@ Eggs
 When a python package is production-ready you can choose to distribute it as an egg over the python package index, `pypi <https://pypi.org>`_. This allows everyone to install and use your package without having to download the code from github. The over 270 python packages that are used by your current Plone instance are also distributed as eggs.
 
 
-.. _eggs1-inspect-label:
+.. _plone5_eggs1-inspect-label:
 
 Inspecting the package
 ----------------------
@@ -152,7 +152,7 @@ In :file:`src` there is now a new folder :file:`ploneconf.site` and in there is 
       This folder holds another GenericSetup profile. The steps in here are executed on uninstalling.
 
 
-.. _eggs1-include-label:
+.. _plone5_eggs1-include-label:
 
 Including the package in Plone
 -----------------------------------

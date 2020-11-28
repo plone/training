@@ -1,4 +1,4 @@
-.. _about-mastering-label:
+.. _plone5_about-mastering-label:
 
 About Mastering Plone
 =====================
@@ -12,7 +12,7 @@ It is published as Open Source on `GitHub <https://github.com/plone/training>`_ 
 If you want to inquire the original authors about organizing a training please contact them at team@starzel.de.
 
 
-.. _about-upcoming-label:
+.. _plone5_about-upcoming-label:
 
 Upcoming Trainings
 ------------------
@@ -21,7 +21,7 @@ Upcoming Trainings
 
 If you want to have a training near you please ask for trainings on https://community.plone.org
 
-.. _about-previous-label:
+.. _plone5_about-previous-label:
 
 Previous Trainings
 ------------------
@@ -44,7 +44,7 @@ The Mastering Plone Training was so far held publicly at the following occasions
 * PyCon De 2011, Leipzig
 
 
-.. _about-trainers-label:
+.. _plone5_about-trainers-label:
 
 Trainers
 --------
@@ -106,7 +106,7 @@ Leonardo Caballero
     Currently serving the Plone Board as a Plone Ambassador, Leonardo has also served as an Advisory Board member
     and has spoken at or helped organize Plone and open-source events throughout South America.
 
-.. _about-use-label:
+.. _plone5_about-use-label:
 
 
 Using the documentation for a training
@@ -283,7 +283,7 @@ Update existing
 Technical set up to do before a training (as a trainer)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-- Prepare a mailserver for the user registration mail (See :ref:`features-mailserver-label`)
+- Prepare a mailserver for the user registration mail (See :ref:`plone5_features-mailserver-label`)
 - If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not at the buildout path /vagrant/buildout/)
 
 
@@ -316,7 +316,7 @@ There's background, theory, check lists, and tips for anyone trying to teach tec
 
 :doc:`../teachers-training/index`
 
-.. _about-contribute-label:
+.. _plone5_about-contribute-label:
 
 Contributing
 ------------
@@ -326,7 +326,7 @@ Minor bug fixes can be pushed directly in the `repository <https://github.com/pl
 bigger changes should made as `pull-requests <https://github.com/plone/training/pulls/>`_ and discussed previously in tickets.
 
 
-.. _about-licence-label:
+.. _plone5_about-licence-label:
 
 License
 -------

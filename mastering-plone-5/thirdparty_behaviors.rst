@@ -1,11 +1,11 @@
-.. _thirdparty-label:
+.. _plone5_thirdparty-label:
 
 ===========================
 Using Third-Party Behaviors
 ===========================
 
 
-.. _thirdparty-banner-label:
+.. _plone5_thirdparty-banner-label:
 
 Add Teaser With collective.behavior.banner
 ==========================================

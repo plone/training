@@ -1,4 +1,4 @@
-.. _testing-label:
+.. _plone5_testing-label:
 
 Testing in Plone
 ================
@@ -23,7 +23,7 @@ Topics covered:
   * Testing best practices
   * Internals of Plone
 
-.. _testing-types-label:
+.. _plone5_testing-types-label:
 
 Types of tests
 --------------
@@ -110,7 +110,7 @@ Types of tests
     In Plone, this form of testing is not very common.
     We would like to transform our documentation to be testable with doctests.
 
-.. _testing-writing-label:
+.. _plone5_testing-writing-label:
 
 Writing tests
 -------------
@@ -197,14 +197,14 @@ Even if she does not understand the semantics from the old Plone on how to regis
 This is why it makes sense to write these tedious tests.
 
 If nothing else matches, :file:`test_setup.py` is the right location for anything GenericSetup-related.
-In :ref:`eggs1-label` we created a content type. It is time to test this.
+In :ref:`plone5_eggs1-label` we created a content type. It is time to test this.
 
 We are going to create a test module named :py:mod:`test_talk`:
 
 .. .. literalinclude::  ../ploneconf.site_sneak/chapters/02_export_code_p5/src/ploneconf/site/tests/test_talk.py
     :linenos:
 
-In :ref:`views1-label` we created a new view.
+In :ref:`plone5_views1-label` we created a new view.
 We have to test this!
 This time, though, we are also going to test it with a browser.
 

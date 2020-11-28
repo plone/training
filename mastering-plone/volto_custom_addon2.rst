@@ -2,7 +2,7 @@
 
   This is a draft. Review is needed.
 
-.. _volto_custom_addon-label:
+.. _volto_custom_addon2-label:
 
 Extending Volto With a FAQ Block Type
 =====================================
@@ -236,8 +236,8 @@ The field *faq_list* has a type *'faqlist'*. This has to be registered as a *wid
     return config;
   }
 
-| Now we will code the important part of the whole block type: the widget `FAQListEditWidget`. 
-| We need a form that consists of a list of existing questions and answers. The  text should be editable. Additional pairs of questions and answers should be addable. Next step will be to let the list be drag- and droppable to reorder the items. Also should an item be deletable. 
+| Now we will code the important part of the whole block type: the widget `FAQListEditWidget`.
+| We need a form that consists of a list of existing questions and answers. The  text should be editable. Additional pairs of questions and answers should be addable. Next step will be to let the list be drag- and droppable to reorder the items. Also should an item be deletable.
 | That's a lot. Let's start with the list of fields displaying the existing values.
 
 
@@ -516,7 +516,7 @@ Go to :file:`config.js` and register your block type.
 
 As we now apply our configuration of the new block type, the app is enriched with an accordion block.
 
-:file:`index.js` 
+:file:`index.js`
 
 .. code-block:: jsx
   :linenos:
@@ -526,7 +526,7 @@ As we now apply our configuration of the new block type, the app is enriched wit
   export default applyConfig;
 
 
-Run 
+Run
 
 .. code-block:: bash
 
@@ -534,13 +534,13 @@ Run
 
 You see
 
-.. code-block:: bash
+.. code-block:: text
 
   Module not found: Can't resolve '@eeacms/volto-blocks-form/components'
 
 Why is this? We want the accordion to be reorderable and use the `DragDropList` component of another add-on: `@eeacms/volto-blocks-form`. Add it to the dependencies of your add-on.
 
-:file:`package.json` 
+:file:`package.json`
 
 .. code-block:: json
 
@@ -601,6 +601,6 @@ Your add-on is ready to use. As by now your repository is on Github. As long as 
 
 
 
-.. [1] `Volto add-on template <https://www.npmjs.com/package/@rohberg/volto-accordion-block>`_ 
-    A template for a Volto add-on template. As the time of authoring the training documentation we are working on 
+.. [1] `Volto add-on template <https://www.npmjs.com/package/@rohberg/volto-accordion-block>`_
+    A template for a Volto add-on template. As the time of authoring the training documentation we are working on
     something like "yo create volto app with template xy"

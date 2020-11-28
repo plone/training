@@ -1,4 +1,4 @@
-.. _zpt2-label:
+.. _plone5_zpt2-label:
 
 Customizing Existing Templates
 ==============================
@@ -28,7 +28,7 @@ Topics covered:
 To dive deeper into real Plone data we now look at some existing templates and customize them.
 
 
-.. _zpt2-news-label:
+.. _plone5_zpt2-news-label:
 
 The view for News Items
 -----------------------
@@ -151,7 +151,7 @@ Now we should see the date in a user friendly format like ``Today at 12:01 PM``.
 Experiment with other formats such as ``calendar`` and ``LT``.
 
 
-.. _zpt2-summary-label:
+.. _plone5_zpt2-summary-label:
 
 The Summary View
 ----------------
@@ -392,7 +392,7 @@ It has several methods and properties:
     'News Item'
 
 
-.. _zpt2-finding-label:
+.. _plone5_zpt2-finding-label:
 
 Finding the right template
 --------------------------
@@ -464,7 +464,7 @@ If you don't know which template is used by the page you're looking at, you can:
             return view.index.filename
 
 
-.. _zpt2-skins-label:
+.. _plone5_zpt2-skins-label:
 
 skin templates
 --------------

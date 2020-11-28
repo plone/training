@@ -1,4 +1,4 @@
-.. _views2-label:
+.. _plone5_views2-label:
 
 Views II: A Default View for "Talk"
 ===================================
@@ -26,7 +26,7 @@ Topics covered:
 * displaying data from fields
 
 
-.. _views2-classes-label:
+.. _plone5_views2-classes-label:
 
 View Classes
 ------------
@@ -181,7 +181,7 @@ In a method of a Browser View the content object which was ``context`` in the te
 
 .. note::
 
-    The result is the same as in :ref:`python-expressions-label` where you wrote ``<p tal:content="python: "This is the {0} '{1}' at {2}".format(context.portal_type, context.title, context.absolute_url()">
+    The result is the same as in :ref:`plone5_python-expressions-label` where you wrote ``<p tal:content="python: "This is the {0} '{1}' at {2}".format(context.portal_type, context.title, context.absolute_url()">
     </p>`` in the template.
 
 The template :file:`training.pt` still needs to display that:
@@ -269,7 +269,7 @@ You can define which ``context``-object should be used:
     * can be constrained to certain addons by using ``layer="plonconf.site.interfaces.IPloneconfSiteLayer"``
 
 
-.. _views2-default-label:
+.. _plone5_views2-default-label:
 
 The default view
 ----------------

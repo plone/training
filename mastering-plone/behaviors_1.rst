@@ -58,13 +58,7 @@ Names and Theory
     You are adding an aspect to your content type and you want to write your aspect in such a way that it works independently of the content type on which the aspect is applied.
     You should not have dependencies to specific fields of your object or to other behaviors.
 
-    Such an object allows you to apply the `open/closed principle` to your dexterity objects.
-
-.. only:: presentation
-
-    `open/closed principle`_
-
-.. _open/closed principle: https://en.wikipedia.org/wiki/Open/closed_principle
+    Such an object allows you to apply the `open/closed principle <https://en.wikipedia.org/wiki/Open/closed_principle>`_ to your dexterity objects.
 
 .. _behaviors1-example-label:
 
@@ -157,10 +151,10 @@ Let's go through this step by step.
    You do this through the web or in the GenericSetup profile.
 #. We create a interface in :ref:`behaviors/featured.py <featured-behavior-python-label>` for our behavior.
    We make it also a schema containing the fields we want to declare.
-   We could just define schema fields on a zope.interface class, but we use an extended form from `plone.supermodel`_, else we could not use the fieldset features.
-#. We mark our schema as a class that also provides the `IFormFieldProvider`_ interface using a decorator.
+   We could just define schema fields on a zope.interface class, but we use an extended form from :py:mod:`plone.supermodel`, else we could not use the fieldset features.
+#. We mark our schema as a class that also provides the :py:class:`IFormFieldProvider` interface using a decorator.
    The schema class itself provides the interface, not its instance!
-#. We also add a `fieldset`_ so that our fields are not mixed with the normal fields of the object.
+#. We also add a `fieldset` so that our fields are not mixed with the normal fields of the object.
 #. We add a normal `Bool <https://zopeschema.readthedocs.io/en/latest/fields.html#bool>`_ schema field to control if a item should be displayed on the frontpage.
 
 .. _behaviors1-adding-label:

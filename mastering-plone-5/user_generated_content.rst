@@ -1,4 +1,4 @@
-.. _user-content-label:
+.. _plone5_user-content-label:
 
 User Generated Content
 ======================
@@ -24,7 +24,7 @@ In this chapter we:
 * create a custom workflow for talks
 
 
-.. _user-content-self-reg-label:
+.. _plone5_user-content-self-reg-label:
 
 Self-registration
 -----------------
@@ -33,7 +33,7 @@ Self-registration
 * Leave "Enable User Folders" off unless you want a community site, in which users can create any content they want in their home folder
 
 
-.. _user-content-constrain-types-label:
+.. _plone5_user-content-constrain-types-label:
 
 Constrain types
 ---------------
@@ -41,7 +41,7 @@ Constrain types
 * On the talk folder select `Restrictions… <http://localhost:8080/Plone/the-event/talks/folder_constraintypes_form>`_ from the *Add new* menu. Only allow adding talks.
 
 
-.. _user-content-local-roles-label:
+.. _plone5_user-content-local-roles-label:
 
 Grant local roles
 -----------------
@@ -51,7 +51,7 @@ Grant local roles
 By combining the constrain types and the local roles on this folder, we have made it so only logged-in users can create and submit talks in this folder.
 
 
-.. _user-content-custom-workflow-label:
+.. _plone5_user-content-custom-workflow-label:
 
 A custom workflow for talks
 ---------------------------
@@ -75,7 +75,7 @@ We still need to fix a problem: Authenticated users can see all talks, including
 Done.
 
 
-.. _user-content-fs-label:
+.. _plone5_user-content-fs-label:
 
 Move the changes to the file system
 -----------------------------------
@@ -219,7 +219,7 @@ This makes sure the method :py:meth:`post_install` in :file:`setuphandlers.py` i
 
 Once we reinstall our package a folder :file:`talks` is created with the appropriate local roles and constraints.
 
-We wrote similar code to create the folder *The Event* in :ref:`dexterity2-upgrades-label`.
+We wrote similar code to create the folder *The Event* in :ref:`plone5_dexterity2-upgrades-label`.
 We need it to make sure a sane structure gets created when we create a new site by hand or in tests.
 
 You would usually create a list of dictionaries containing the type, parent and title plus optionally layout, workflow state etc. to create an initial structure. In some projects it could also make sense to have a separate profile besides ``default`` which might be called ``demo`` or ``content`` that creates an initial structure and maybe another ``testing`` that creates dummy content (talks, speakers etc) for tests.

@@ -1,4 +1,4 @@
-.. _features-label:
+.. _plone5_features-label:
 
 The Features of Plone
 =====================
@@ -7,7 +7,7 @@ In-depth user-manual: https://docs.plone.org/
 
 See also: https://docs.plone.org/working-with-content/index.html
 
-.. _features-start-stop-label:
+.. _plone5_features-start-stop-label:
 
 Starting and Stopping Plone
 ---------------------------
@@ -132,7 +132,7 @@ The `app` object you encountered in the previous exercise can be seen as the roo
 
         You have been warned.
 
-.. _features-walkthrough-label:
+.. _plone5_features-walkthrough-label:
 
 Walkthrough of the UI
 ---------------------
@@ -183,7 +183,7 @@ for example, :guilabel:`folder contents` and :guilabel:`add` are only shown for 
 
 
 
-.. _features-users-label:
+.. _plone5_features-users-label:
 
 Users
 -----
@@ -245,7 +245,7 @@ Users
     Login to the site with your user now.
 
 
-.. _features-mailserver-label:
+.. _plone5_features-mailserver-label:
 
 Configure a Mailserver
 ----------------------
@@ -267,7 +267,7 @@ Configure a Mailserver
     actually send the email to the receivers address.
 
 
-.. _features-content-types-label:
+.. _plone5_features-content-types-label:
 
 Content-Types
 -------------
@@ -325,7 +325,7 @@ The default Plone content types are:
     Please keep in mind that we use `plone.app.contenttypes <https://docs.plone.org/external/plone.app.contenttypes/docs/README.html>`_ for the training, which are the default in Plone 5. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default Plone 4.3.x site.
 
 
-.. _features-folders-label:
+.. _plone5_features-folders-label:
 
 Folders
 -------
@@ -340,7 +340,7 @@ Folders
 * Add a page to 'the-event': "The Event" and make it the default page
 
 
-.. _features-collections-label:
+.. _plone5_features-collections-label:
 
 Collections
 -----------
@@ -359,7 +359,7 @@ Collections
 * constraints, e.g. ``/Plone/folder::1``
 
 
-.. _features-content-rules-label:
+.. _plone5_features-content-rules-label:
 
 Content Rules
 -------------
@@ -388,7 +388,7 @@ Content Rules
     Assign the newly created rule.
 
 
-.. _features-history-label:
+.. _plone5_features-history-label:
 
 History
 -------
@@ -396,7 +396,7 @@ History
 Show and explain; mention versioning and its relation to types.
 
 
-.. _features-manage-members-label:
+.. _plone5_features-manage-members-label:
 
 Manage members and groups
 -------------------------
@@ -410,7 +410,7 @@ Manage members and groups
   * Add group: ``jury`` and add user 'jurymember' to it.
 
 
-.. _features-workflows-label:
+.. _plone5_features-workflows-label:
 
 Workflows
 ---------
@@ -445,7 +445,7 @@ In that case, which initially applies to file and image uploads, the content obj
 
 Read more at: https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html
 
-.. _features-wc-label:
+.. _plone5_features-wc-label:
 
 Working copy
 ------------
@@ -470,7 +470,7 @@ Unless activated, check-in/check-out options are not visible.
     Working Copy Support has limited support for Dexterity content types. The limitation is that there are some outstanding issues with folderish items that contain many items.
     See: `plone/Products.CMFPlone#665 <https://github.com/plone/Products.CMFPlone/issues/665>`_
 
-.. _features-placeful-wf-label:
+.. _plone5_features-placeful-wf-label:
 
 Placeful workflows
 ------------------

@@ -1,5 +1,4 @@
-.. _frontpage-label:
-.. _frontpage-label:
+.. _plone5_frontpage-label:
 
 Creating a Dynamic Front Page
 =============================

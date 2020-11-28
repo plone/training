@@ -1,4 +1,4 @@
-.. _theming-mastering-label:
+.. _plone5_theming-mastering-label:
 
 =======
 Theming

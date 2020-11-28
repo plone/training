@@ -1,4 +1,4 @@
-.. _api-label:
+.. _plone5_api-label:
 
 Programming Plone
 =================
@@ -15,7 +15,7 @@ Topics covered:
 * Debugging
 
 
-.. _api-api-label:
+.. _plone5_api-api-label:
 
 plone.api
 ---------
@@ -40,7 +40,7 @@ Some of these methods will be replaced by :py:mod:`plone.api`:
 - :py:meth:`zope.component.getMultiAdapter` -> :py:meth:`api.content.get_view`
 
 
-.. _api-portal-tools-label:
+.. _plone5_api-portal-tools-label:
 
 portal-tools
 ------------
@@ -76,7 +76,7 @@ Here is an example where we get the tool `portal_membership` and use one of its 
 
     The code for :py:meth:`logoutUser()` is in :py:meth:`Products.PlonePAS.tools.membership.MembershipTool.logoutUser`. Many tools that are used in Plone are actually subclasses of tools from the package :py:mod:`Products.CMFCore`. For example `portal_membership` is subclassing and extending the same tool from :py:class:`Products.CMFCore.MembershipTool.MembershipTool`. That can make it hard to know which options a tool has. There is a ongoing effort by the Plone Community to consolidate tools to make it easier to work with them as a developer.
 
-.. _api-debugging-label:
+.. _plone5_api-debugging-label:
 
 Debugging
 ---------

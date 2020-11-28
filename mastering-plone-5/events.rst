@@ -1,4 +1,4 @@
-.. _events-label:
+.. _plone5_events-label:
 
 Turning Talks into Events
 =========================
@@ -93,7 +93,7 @@ Edit :file:`browser/templates/talkview.pt`
 
 Similar to the field `room`, the problem now appears that speakers submitting their talks should not be able to set a time and day for their talks.
 Sadly it is not easy to modify permissions of fields provided by behaviors (unless you write the behavior yourself).
-At least in this case we can take the easy way out since the field does not contain secret information: we will simply hide the fields from contributors using css and show them for reviewers. We will do so in chapter :ref:`resources-label` when we add some CSS files.
+At least in this case we can take the easy way out since the field does not contain secret information: we will simply hide the fields from contributors using css and show them for reviewers. We will do so in chapter :ref:`plone5_resources-label` when we add some CSS files.
 
 Modify :file:`browser/static/ploneconf.css` and add:
 
@@ -161,7 +161,7 @@ Modify the class :py:class:`TalkListView` and the template :file:`browser/templa
 
 .. note::
 
-    If you changed the view :py:class:`TalkListView` to only return brains as described in :ref:`dexterity2-use_indexes-label` you can save youself a lot of work and simply use the existing index `start` (generously provided by :py:mod:`plone.app.event`) in the template as ``python:brain.start``.
+    If you changed the view :py:class:`TalkListView` to only return brains as described in :ref:`plone5_dexterity2-use_indexes-label` you can save youself a lot of work and simply use the existing index `start` (generously provided by :py:mod:`plone.app.event`) in the template as ``python:brain.start``.
 
 
 Exercise 1

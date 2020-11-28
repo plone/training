@@ -1,4 +1,4 @@
-.. _resources-label:
+.. _plone5_resources-label:
 
 =========
 Resources
@@ -60,7 +60,7 @@ Let's create a file :file:`ploneconf.css` in the :file:`static` folder with some
 The CSS is not very exciting.
 It hides the :guilabel:`only in current section` below the search-box (we could also overwrite the viewlet, but ...).
 
-It also hides the event-fields we added in :ref:`events-label` from people submitting their talks.
+It also hides the event-fields we added in :ref:`plone5_events-label` from people submitting their talks.
 
 For exciting CSS, you should take the :ref:`theming-label` training class.
 

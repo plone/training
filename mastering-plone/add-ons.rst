@@ -211,7 +211,7 @@ Add page layout management with plone.app.mosaic
 `plone.app.mosaic <https://pypi.org/project/plone.app.mosaic/>`_ supports content assembling on a page of your site.
 
 
-* Add `plone.app.mosaic` to the eggs section in the buildout.
+* Add ``plone.app.mosaic`` to the eggs section in the buildout.
 * Activate the Mosaic add-on.
 * Go to a page in your site and select "Mosaic" of the `Display` menu.
 * Edit the page to select a Mosaic layout and try inserting some content blocks: text, existing page, list of news.

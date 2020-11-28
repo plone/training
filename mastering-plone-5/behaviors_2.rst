@@ -1,4 +1,4 @@
-.. _behaviors2-label:
+.. _plone5_behaviors2-label:
 
 More Complex Behaviors
 ======================
@@ -11,7 +11,7 @@ Topics covered:
 
 * Annotation Marker Interfaces
 
-.. _behaviors2-annotations-label:
+.. _plone5_behaviors2-annotations-label:
 
 Using Annotations
 -----------------
@@ -32,9 +32,9 @@ Using Annotations
  * What are annotations
  * When to use them
 
-.. _Annotations: https://pypi.org/project/zope.annotation/4.2.0
+.. _Annotations: https://docs.plone.org/develop/plone/misc/annotations.html
 
-.. _behaviors2-schema-label:
+.. _plone5_behaviors2-schema-label:
 
 Using Schema
 ------------
@@ -52,7 +52,7 @@ Using Schema
 
  * Why to use schemas always
 
-.. _behaviors2-code-label:
+.. _plone5_behaviors2-code-label:
 
 Writing Code
 ------------
@@ -276,7 +276,7 @@ Now the only thing that is missing is the behavior implementation, which we must
         Each request begins a transaction and after our code runs and the Zope Server is preparing to send back the response we generated, the transaction will be committed and everything we changed will be saved.
 
         Now, if have a normal dictionary on a persistent object, and you will only change the dictionary, the persistent object has no way to know if the dictionary has been changed.
-        This `happens`_ from time to time.
+        This happens from time to time.
 
         So one solution is to change the special attribute ``_p_changed`` to ``True`` (or any other value!) on the persistent object, or to use a ``PersistentDict``.
         Latter is what we are doing here.
@@ -296,7 +296,7 @@ Now the only thing that is missing is the behavior implementation, which we must
     As you have seen in the Schema declaration, if you run your site in debug mode, you will see an edit field for these fields.
     But trying to change these fields will throw an exception.
 
-    .. _happens: https://github.com/plone/Products.CMFEditions/commit/5c07c72bc8701cf28c9cc68ad940186b9e296ddf
+    .. _plone5_happens: https://github.com/plone/Products.CMFEditions/commit/5c07c72bc8701cf28c9cc68ad940186b9e296ddf
 
 .. only:: presentation
 

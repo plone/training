@@ -1,4 +1,4 @@
-.. _viewlets1-label:
+.. _plone5_viewlets1-label:
 
 Writing Viewlets
 ================
@@ -22,7 +22,7 @@ Topics covered:
 
 * Viewlets
 
-.. _viewlets1-featured-label:
+.. _plone5_viewlets1-featured-label:
 
 A viewlet for the featured behavior
 -----------------------------------
@@ -37,7 +37,7 @@ A viewlet for the featured behavior
 * Viewlets don't save data (portlets do)
 * Viewlets have no user interface (portlets do)
 
-.. _viewlets1-featured2-label:
+.. _plone5_viewlets1-featured2-label:
 
 Featured viewlet
 ----------------
@@ -73,7 +73,7 @@ by filtering out all the contexts that do not match those constraints.
 
 The viewlet class :py:class:`FeaturedViewlet` is expected in a file :file:`browser/viewlets.py`.
 
-.. _BrowserLayer: https://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
+.. _plone5_BrowserLayer: https://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
 
 .. code-block:: python
     :linenos:
@@ -143,7 +143,7 @@ So far, we
   * return the link
 
 
-.. _viewlets1-excercises-label:
+.. _plone5_viewlets1-excercises-label:
 
 Exercise 1
 ----------
@@ -268,7 +268,7 @@ You get bonus points if you display it in a nice format (think "In 2 days" and "
             def human(self):
                 return arrow.get(CONFERENCE_START_DATE).humanize()
 
-    Setting the date in python is not very user-friendly. In the chapter :ref:`registry-label` you learn how store global configuration and easily create controlpanels.
+    Setting the date in python is not very user-friendly. In the chapter :ref:`plone5_registry-label` you learn how store global configuration and easily create controlpanels.
 
     And in :file:`templates/days_to_conference.pt`:
 

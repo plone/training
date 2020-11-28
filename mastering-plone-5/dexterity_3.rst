@@ -1,4 +1,4 @@
-.. _dexterity3-label:
+.. _plone5_dexterity3-label:
 
 Dexterity Types III: Python
 ===========================
@@ -36,7 +36,7 @@ The Python schema
 -----------------
 
 First we create the schema for the new type. Instead of XML, we use Python this time.
-In chapter :ref:`export_code-label` you already created a folder :file:`content` with an empty :file:`__init__.py` in it.
+In chapter :ref:`plone5_export_code-label` you already created a folder :file:`content` with an empty :file:`__init__.py` in it.
 We don't need to register that folder in :file:`configure.zcml` since we don't need a :file:`content/configure.zcml` (at least not yet).
 
 Now add a new file :file:`content/sponsor.py`.
@@ -115,7 +115,7 @@ Some things are notable here:
 
 ..  seealso::
 
-    See the chapter :ref:`dexterity_reference-label` for a reference of all field-types and directives you can use in dexterity.
+    See the chapter :ref:`plone5_dexterity_reference-label` for a reference of all field-types and directives you can use in dexterity.
 
 
 
@@ -257,7 +257,7 @@ We use the default view provided by Dexterity for testing since we will only dis
         </html>
 
     Note how we handle the field with special permissions: :samp:`tal:condition="python: 'notes' in view.w"` checks if the convenience-dictionary :py:data:`w` (provided by the base class :py:class:`DefaultView`) holds the widget for the field ``notes``.
-    If the current user does not have the permission :py:mod:`cmf.ManagePortal` it will be omitted from the dictionary and get an error since ``notes`` would not be a key in :py:data:`w`. By first checking if it's missing we work around that.
+    If the current user does not have the permission ``cmf.ManagePortal`` it will be omitted from the dictionary and get an error since ``notes`` would not be a key in :py:data:`w`. By first checking if it's missing we work around that.
 
 
 The viewlet
@@ -442,7 +442,7 @@ Result:
 Exercise 2
 ++++++++++
 
-Turn the content type Speaker from :ref:`Exercise 2 of the first chapter on Dexterity <dexterity1-excercises-label>` into a Python-based type.
+Turn the content type Speaker from :ref:`Exercise 2 of the first chapter on Dexterity <plone5_dexterity1-excercises-label>` into a Python-based type.
 
 When we're done, it should have the following fields:
 

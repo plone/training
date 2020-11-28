@@ -1,4 +1,4 @@
-.. _extending-label:
+.. _plone5_extending-label:
 
 Extending Plone
 ===============
@@ -19,7 +19,7 @@ Extendability is not an afterthought but is the core of Plone and the systems it
 Plone started as an extension for CMF, which is an extension for Zope.
 
 
-.. _extending-technologies-label:
+.. _plone5_extending-technologies-label:
 
 Extension technologies
 ----------------------
@@ -73,7 +73,7 @@ Component Architecture
     This is what you want to use.
 
 
-.. _extending-components-label:
+.. _plone5_extending-components-label:
 
 Configuring Zope Components with ZCML
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

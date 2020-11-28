@@ -1,4 +1,4 @@
-.. _anatomy-label:
+.. _plone5_anatomy-label:
 
 The Anatomy of Plone
 ====================
@@ -51,7 +51,7 @@ Database
 * blobstorage (binary large objects) in filesystem
 
 
-.. _anatomy-zope2-label:
+.. _plone5_anatomy-zope2-label:
 
 Zope
 ----
@@ -138,7 +138,7 @@ Zope
        * https://zope.readthedocs.io/en/latest/zopebook/
 
 
-.. _anatomy-CMF-label:
+.. _plone5_anatomy-CMF-label:
 
 Content Management Framework
 ----------------------------
@@ -165,7 +165,7 @@ Content Management Framework
 
     Plone is gradually eliminating dependence on most parts of the CMF.
 
-.. _anatomy-ztk-label:
+.. _plone5_anatomy-ztk-label:
 
 Zope Toolkit / Zope3
 --------------------
@@ -190,7 +190,7 @@ Zope Toolkit / Zope3
     It wasn't anymore.
 
 
-.. _anatomy-zca-label:
+.. _plone5_anatomy-zca-label:
 
 Zope Component Architecture (ZCA)
 ---------------------------------
@@ -203,7 +203,7 @@ It is a subset of the ZTK but can be used standalone.
 Plone makes extensive use of the ZCA in its codebase.
 
 
-.. _anatomy-pyramid-label:
+.. _plone5_anatomy-pyramid-label:
 
 Pyramid
 -------

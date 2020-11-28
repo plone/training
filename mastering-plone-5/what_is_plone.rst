@@ -1,4 +1,4 @@
-.. _intro-what-is-plone-label:
+.. _plone5_intro-what-is-plone-label:
 
 
 ==============

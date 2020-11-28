@@ -1,4 +1,4 @@
-.. _dexterity2-label:
+.. _plone5_dexterity2-label:
 
 Dexterity Types II: Growing Up
 ==============================
@@ -24,7 +24,7 @@ In this part we will:
 * enable some more default features for our type.
 
 
-.. _dexterity2-marker-label:
+.. _plone5_dexterity2-marker-label:
 
 Add a marker interface to the talk type
 ---------------------------------------
@@ -146,7 +146,7 @@ The ``talklistview`` and the ``demoview`` do not get this constraint since they 
     * Create an upgrade step that changes the class of the existing talks.
       A reuseable method to do such a thing is in `plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class <https://github.com/plone/plone.app.contenttypes/blob/master/plone/app/contenttypes/migration/dxmigration.py#L130>`_.
 
-.. _dexterity2-upgrades-label:
+.. _plone5_dexterity2-upgrades-label:
 
 Upgrade steps
 -------------
@@ -291,7 +291,7 @@ Alternatively you also select which upgrade steps to run like this:
 
 
 
-.. _dexterity2-browserlayer-label:
+.. _plone5_dexterity2-browserlayer-label:
 
 Add a browserlayer
 ------------------
@@ -360,14 +360,14 @@ It is equivalent to the absolute path :py:class:`ploneconf.site.interfaces.IPlon
 Exercise
 ++++++++
 
-Do you need to bind the :ref:`viewlets1-social2-label` from the chapter 'Writing Viewlets' to this new browser layer?
+Do you need to bind the viewlet ``featured`` from the chapter :doc:`viewlets_1` to this new browser layer?
 
 ..  admonition:: Solution
     :class: toggle
 
     No, it would make no difference since the viewlet is already bound to the marker interface :py:class:`ploneconf.site.behaviors.social.ISocial`.
 
-.. _dexterity2-catalogindex-label:
+.. _plone5_dexterity2-catalogindex-label:
 
 Add catalog indexes
 -------------------
@@ -445,7 +445,7 @@ The ``column ..`` entries allow us to display the values of these indexes in the
                   ])
 
 
-.. _dexterity2-customindex-label:
+.. _plone5_dexterity2-customindex-label:
 
 Query for custom indexes
 ------------------------
@@ -495,7 +495,7 @@ The template does not need to be changed and the result in the browser did not c
 But when listing a large number of objects the site will now be faster since all the data you use comes from the catalog and the objects do not have to be loaded into memory.
 
 
-.. _dexterity2-use_indexes-label:
+.. _plone5_dexterity2-use_indexes-label:
 
 Exercise 1
 ----------
@@ -576,7 +576,7 @@ Modify :py:class:`TalkListView` to return only brains and adapt the template to 
 
 
 
-.. _dexterity2-collection-criteria-label:
+.. _plone5_dexterity2-collection-criteria-label:
 
 Add collection criteria
 -----------------------
@@ -631,7 +631,7 @@ Add a new file :file:`profiles/default/registry.xml`
   https://docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed
 
 
-.. _dexterity2-GS-label:
+.. _plone5_dexterity2-GS-label:
 
 Add versioning through GenericSetup
 ------------------------------------

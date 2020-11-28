@@ -1,4 +1,4 @@
-.. _plone5-label:
+.. _plone5_plone5-label:
 
 What's New in Plone 5, 5.1 and Plone 5.2
 ========================================
@@ -12,7 +12,7 @@ Plone 5.2 was released in March 2019. Plone 5.2 is the first version that suppor
 If you are already familiar with Plone 5.0, 5.1 and 5.2 you can skip this section.
 
 
-.. _plone5-theme-label:
+.. _plone5_plone5-theme-label:
 
 Default Theme
 -------------
@@ -30,7 +30,7 @@ If you prefer a different grid system (like `Foundation <https://foundation.zurb
 
 The `index.html <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/index.html>`_ and `rules.xml <https://github.com/plone/plonetheme.barceloneta/blob/master/plonetheme/barceloneta/theme/rules.xml>`_ are the main elements to make this happen.
 
-.. _plone5-ui-widgets-label:
+.. _plone5_plone5-ui-widgets-label:
 
 New UI and widgets
 ------------------
@@ -44,7 +44,7 @@ The widgets where you input data are also completely rewritten.
 * The related-items widget is a complete rewrite
 
 
-.. _plone5-foldercontents-label:
+.. _plone5_plone5-foldercontents-label:
 
 Folder Contents
 ---------------
@@ -57,7 +57,7 @@ The view to display the content of a folder is new and offers many new features 
 * persistent selection of items
 
 
-.. _plone5-content-types-label:
+.. _plone5_plone5-content-types-label:
 
 Content Types
 -------------
@@ -65,7 +65,7 @@ Content Types
 While Plone 4 used Archetypes all default types are based on Dexterity in Plone 5. This means you can use behaviors to change their features and edit them through the web. Existing old content can be migrated to these types.
 
 
-.. _plone5-resource-registry-label:
+.. _plone5_plone5-resource-registry-label:
 
 Resource Registry
 -----------------
@@ -73,7 +73,7 @@ Resource Registry
 The resource registry allows you to configure and edit the static resources (js, css) of Plone. It replaces the old javascript and css registries. And it can be used to customize the theme by changing the variables used by LESS or overriding LESS files.
 
 
-.. _plone5-chameleon-label:
+.. _plone5_plone5-chameleon-label:
 
 Chameleon template engine
 -------------------------
@@ -130,7 +130,7 @@ You can also add real Python blocks inside templates.
 Don't overdo it!
 
 
-.. _plone5-control-panel-label:
+.. _plone5_plone5-control-panel-label:
 
 Control panel
 -------------
@@ -140,7 +140,7 @@ Control panel
 * Many small improvements
 
 
-.. _plone5-dateformatting-label:
+.. _plone5_plone5-dateformatting-label:
 
 Date formatting on the client side
 ----------------------------------
@@ -161,7 +161,7 @@ returns
     * 10/22/2015
 
 
-.. _plone5-multilingual-label:
+.. _plone5_plone5-multilingual-label:
 
 plone.app.multilingual
 ----------------------
@@ -169,7 +169,7 @@ plone.app.multilingual
 `plone.app.multilingual <https://github.com/plone/plone.app.multilingual>`_ is the new default add-on for sites in more than one language.
 
 
-.. _plone5-portletmanager-label:
+.. _plone5_plone5-portletmanager-label:
 
 New portlet manager
 -------------------
@@ -179,7 +179,7 @@ New portlet manager
 There is also a useful new portlet type :guilabel:`Actions` used for displaying the site_actions.
 
 
-.. _plone5-skins-label:
+.. _plone5_plone5-skins-label:
 
 Remove portal_skins
 -------------------

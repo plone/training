@@ -1,4 +1,4 @@
-.. _views1-label:
+.. _plone5_views1-label:
 
 Views I
 =======
@@ -24,7 +24,7 @@ Topics covered:
 
 * ZCML
 
-.. _views1-simple-label:
+.. _plone5_views1-simple-label:
 
 A simple browser view
 ---------------------

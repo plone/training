@@ -343,7 +343,6 @@ Configure a Mailserver
     Click on `Save and send test e-mail`. You will see the mail content in the console output of your instance. Plone will not
     actually send the email to the receivers address unless your remove `Products.PrintingMailHost`.
 
-.. _features-content-types-label:
 
 The site structure
 ------------------

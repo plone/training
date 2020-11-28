@@ -1,4 +1,4 @@
-.. _customizing-label:
+.. _plone5_customizing-label:
 
 Configuring and Customizing Plone "Through The Web"
 ===================================================
@@ -9,7 +9,7 @@ Configuring and Customizing Plone "Through The Web"
 
  .. sectionauthor:: Philip Bauer <bauer@starzel.de>
 
-.. _customizing-controlpanel-label:
+.. _plone5_customizing-controlpanel-label:
 
 The Control Panel
 -----------------
@@ -92,7 +92,7 @@ Let's change the logo.
    https://docs.plone.org/adapt-and-extend/change-the-logo.html
 
 
-.. _customizing-portlets-label:
+.. _plone5_customizing-portlets-label:
 
 Portlets
 --------
@@ -122,7 +122,7 @@ Example:
   * You could turn that into a link to a copyright page later.
 
 
-.. _customizing-viewlets-label:
+.. _plone5_customizing-viewlets-label:
 
 Viewlets
 --------
@@ -141,7 +141,7 @@ Portlets save data, Viewlets usually don't. Viewlets are often used for UI-Eleme
 * The code decides when it is shown and what it shows.
 
 
-.. _customizing-ZMI-label:
+.. _plone5_customizing-ZMI-label:
 
 ZMI (Zope Management Interface)
 -------------------------------
@@ -280,7 +280,7 @@ There are many more notable items in the ZMI. We'll visit some of them later.
 * :guilabel:`portal_catalog`
 
 
-.. _customizing-summary-label:
+.. _plone5_customizing-summary-label:
 
 Summary
 -------

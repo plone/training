@@ -1,10 +1,10 @@
-.. _viewlets2-label:
+.. _plone5_viewlets2-label:
 
 A Viewlet for the Votable Behavior
 ===================================
 
 
-.. _viewlets2-voting-label:
+.. _plone5_viewlets2-voting-label:
 
 Voting Viewlet
 --------------
@@ -89,7 +89,7 @@ Let's create the file :file:`browser/templates/voting_viewlet.pt` without any lo
 * restart Plone
 * show the viewlet
 
-.. _viewlets2-code-label:
+.. _plone5_viewlets2-code-label:
 
 Writing the Viewlet code
 ------------------------
@@ -135,7 +135,7 @@ Update the viewlet to contain the necessary logic in :file:`browser/viewlets.py`
             return self.vote.has_votes()
 
 
-.. _viewlets2-template-label:
+.. _plone5_viewlets2-template-label:
 
 The template
 ------------
@@ -233,7 +233,7 @@ We need some css that we store in :file:`static/starzel_votablebehavior.css`
     }
 
 
-.. _viewlets2-js-label:
+.. _plone5_viewlets2-js-label:
 
 JavaScript code
 ---------------
@@ -288,7 +288,7 @@ To make it work in the browser, some JavaScript :file:`static/starzel_votablebeh
     This js code adheres to crockfort jshint rules, so all variables are declared at the beginning of the method.
     We show and hide quite a few small HTML elements here.
 
-.. _viewlets2-helpers-label:
+.. _plone5_viewlets2-helpers-label:
 
 Writing 2 simple view helpers
 -----------------------------

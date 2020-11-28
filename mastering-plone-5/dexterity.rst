@@ -1,4 +1,4 @@
-.. _dexterity1-label:
+.. _plone5_dexterity1-label:
 
 Dexterity I: "Through The Web"
 ==============================
@@ -16,7 +16,7 @@ Topics covered:
 * Widgets
 
 
-.. _dexterity1-what-label:
+.. _plone5_dexterity1-what-label:
 
 What is a content type?
 -----------------------
@@ -33,7 +33,7 @@ But we need to make sure we collect certain bits of information about a talk and
 Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks.
 A custom content type will be ideal.
 
-.. _dexterity1-contains-label:
+.. _plone5_dexterity1-contains-label:
 
 The makings of a Plone content type
 -----------------------------------
@@ -53,7 +53,7 @@ Views
     Some may be *visual* — intended for display as web pages — others may be intended to satisfy AJAX requests and render content in formats like JSON or XML.
 
 
-.. _dexterity1-comparison-label:
+.. _plone5_dexterity1-comparison-label:
 
 Dexterity and Archetypes - A Comparison
 ---------------------------------------
@@ -104,7 +104,7 @@ Views:
 * Display Forms.
 
 
-.. _dexterity1-modify-label:
+.. _plone5_dexterity1-modify-label:
 
 Modifying existing types
 ------------------------
@@ -129,7 +129,7 @@ Modifying existing types
 
    https://docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types
 
-.. _dexterity1-create-ttw-label:
+.. _plone5_dexterity1-create-ttw-label:
 
 Creating content types TTW
 --------------------------
@@ -214,7 +214,7 @@ Here is the complete XML schema created by our actions:
   </model>
 
 
-.. _dexterity1-ttw-to-code-label:
+.. _plone5_dexterity1-ttw-to-code-label:
 
 Moving contenttypes into code
 ------------------------------
@@ -231,7 +231,7 @@ So, we'll ultimately want to move our new content type into a Python package. We
    * `The standard behaviors <https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html>`_
 
 
-.. _dexterity1-excercises-label:
+.. _plone5_dexterity1-excercises-label:
 
 Exercises
 ---------

@@ -32,7 +32,7 @@ Using Annotations
  * What are annotations
  * When to use them
 
-.. _Annotations: https://pypi.org/project/zope.annotation/4.2.0
+.. _Annotations: https://docs.plone.org/develop/plone/misc/annotations.html
 
 .. _behaviors2-schema-label:
 
@@ -276,7 +276,7 @@ Now the only thing that is missing is the behavior implementation, which we must
         Each request begins a transaction and after our code runs and the Zope Server is preparing to send back the response we generated, the transaction will be committed and everything we changed will be saved.
 
         Now, if have a normal dictionary on a persistent object, and you will only change the dictionary, the persistent object has no way to know if the dictionary has been changed.
-        This `happens`_ from time to time.
+        This happens from time to time.
 
         So one solution is to change the special attribute ``_p_changed`` to ``True`` (or any other value!) on the persistent object, or to use a ``PersistentDict``.
         Latter is what we are doing here.

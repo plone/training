@@ -1,4 +1,4 @@
-.. _views3-label:
+.. _plone5_views3-label:
 
 Views III: A Talk List
 =======================
@@ -31,7 +31,7 @@ Topics covered:
 Now we don't want to provide information about one specific item but on several items. What now? We can't look at several items at the same time as context.
 
 
-.. _views3-catalog-label:
+.. _plone5_views3-catalog-label:
 
 Using portal_catalog
 --------------------
@@ -113,7 +113,7 @@ We iterate over the list of results that the catalog returns.
 
 We create a dictionary that holds all the information we want to show in the template. This way we don't have to put any complex logic into the template.
 
-.. _views3-brains-label:
+.. _plone5_views3-brains-label:
 
 brains and objects
 ------------------
@@ -200,7 +200,7 @@ The same is true for methods:
     >>> brain.getPath() == '/'.join(obj.getPhysicalPath())
     True
 
-.. _views3-querying-label:
+.. _plone5_views3-querying-label:
 
 Querying the catalog
 --------------------
@@ -227,7 +227,7 @@ Calling the catalog without parameters returns the whole site:
     https://docs.plone.org/develop/plone/searching_and_indexing/query.html
 
 
-.. _views3-excercises-label:
+.. _plone5_views3-excercises-label:
 
 Exercises
 ---------
@@ -283,7 +283,7 @@ Add a method that returns all published keynotes as objects.
             return results
 
 
-.. _views3-template-listing-label:
+.. _plone5_views3-template-listing-label:
 
 The template for the listing
 ----------------------------
@@ -445,7 +445,7 @@ This is **not** best practice but there is plenty of code in Plone and in add-on
         </html>
 
 
-.. _views3-custom-label:
+.. _plone5_views3-custom-label:
 
 Setting a custom view as default view on an object
 --------------------------------------------------
@@ -471,7 +471,7 @@ After re-applying the typeinfo profile of our add-on (or simply reinstalling it)
 The :samp:`purge="False"` appends the view to the already existing ones instead of replacing them.
 
 
-.. _views3-summary-label:
+.. _plone5_views3-summary-label:
 
 Summary
 -------

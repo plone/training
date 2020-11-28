@@ -1,4 +1,4 @@
-.. _buildout1-label:
+.. _plone5_buildout1-label:
 
 Buildout I
 ==========
@@ -45,7 +45,7 @@ Here is a functioning minimal example from https://github.com/collective/minimal
     eggs =
         Plone
 
-.. _buildout1-syntax-label:
+.. _plone5_buildout1-syntax-label:
 
 Syntax
 ------
@@ -58,7 +58,7 @@ Syntax
 
     There is a special section, called `[buildout]`. This section can change the behavior of Buildout itself. The variable :samp:`parts` defines which of the existing sections should actually be used.
 
-.. _buildout1-recipes-label:
+.. _plone5_buildout1-recipes-label:
 
 Recipes
 -------
@@ -87,7 +87,7 @@ All the lines after :samp:`recipe = xyz` are the configuration of the specified 
 
     There are way to many buidout-recipes. See https://pypi.org/search/?q=buildout+recipe
 
-.. _buildout1-references-label:
+.. _plone5_buildout1-references-label:
 
 References
 ----------
@@ -106,7 +106,7 @@ References
 
     Configuring complex systems always involves a lot of duplication of information. Using references in the buildout configuration allows you to minimize these duplications.
 
-.. _buildout1-examples-label:
+.. _plone5_buildout1-examples-label:
 
 A real life example
 -------------------
@@ -309,7 +309,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
 
     This is another special section. By default buildout will look for version pins in a section called ``[versions]``. This is why we included the file :file:`versions.cfg`.
 
-.. _buildout1-mrdeveloper-label:
+.. _plone5_buildout1-mrdeveloper-label:
 
 Mr. Developer
 -------------
@@ -322,7 +322,7 @@ Mr. Developer
 
     :py:mod:`mr.developer` comes with a command, :command:`./bin/develop`. You can use it to update your code, to check for changes and so on. You can activate and deactivate your source checkouts. If you develop your extensions in eggs with separate checkouts, which is a good practice, you can plan releases by having all source checkouts deactivated, and only activate them when you write changes that require a new release. You can activate and deactivate eggs via the :command:`develop` command or the Buildout configuration. You should always use the Buildout way. Your commit serves as documentation.
 
-.. _buildout1-extensible-label:
+.. _plone5_buildout1-extensible-label:
 
 Extensible
 ----------
@@ -338,7 +338,7 @@ Extensible
 
     Also, you *must* declare all your egg versions, else Buildout might install newer versions.
 
-.. _buildout1-mcguyver-label:
+.. _plone5_buildout1-mcguyver-label:
 
 Be McGuyver
 -----------

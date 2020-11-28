@@ -1,10 +1,10 @@
-.. _installation-label:
+.. _plone5_installation-label:
 
 Installation & Setup
 =====================
 
 
-.. _installation-plone-label:
+.. _plone5_installation-plone-label:
 
 Installing Plone
 ----------------
@@ -73,7 +73,7 @@ Visit the `download page <https://plone.org/download>`_ to see all the options.
     * https://docs.plone.org/manage/installing/installation.html
 
 
-.. _installation-hosting-label:
+.. _plone5_installation-hosting-label:
 
 Hosting Plone
 -------------
@@ -96,7 +96,7 @@ You can host Plone...
     * Plone Installation Requirements: https://docs.plone.org/manage/installing/requirements.html
 
 
-.. _installation-prod-deploy-label:
+.. _plone5_installation-prod-deploy-label:
 
 Production Deployment
 ---------------------
