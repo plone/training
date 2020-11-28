@@ -1,31 +1,17 @@
-.. _instructions-label:
-
-.. todo::
-
-    * Update Vagrant instructions for Plone 5 with Volto
-
+.. _plone5_instructions-label:
 
 Installing Plone for the Training
 =================================
 
-We need to install the backend **Plone** and the React-based frontend **Volto**.
-This will create a folder structure like this:
-
-.. code-block:: text
-
-    training
-    ├── backend
-    └── frontend
-
-In :file:`backend` we will install Plone and also add our custom Python code.
-In :file:`frontend` we will install Volto and also add our custom React code.
+Keep in mind that you need a fast Internet connection during installation since you'll have to download a lot of data!
 
 
-.. _instructions-no-vagrant-label:
+.. _plone5_instructions-no-vagrant-label:
 
 .. warning::
 
-    If you try both methods below (with Vagrant and without), make sure you use different :file:`training` directories!
+    If you feel the desire to try out both methods below (with Vagrant and without),
+    make sure you use different :file:`training` directories!
 
     The two installations do not coexist well.
 
@@ -33,15 +19,11 @@ In :file:`frontend` we will install Volto and also add our custom React code.
 Installing Plone without vagrant
 --------------------------------
 
-
-Installing the backend
-++++++++++++++++++++++
-
 .. warning::
 
-    If you are new to running Plone on your computer you could skip this part and continue with :ref:`install-virtualbox`.
+    If you are new to running Plone on your laptop you could skip this part and continue with :ref:`plone5_install-virtualbox`.
 
-If you **are** experienced with running Plone on your own, we encourage you to do so because you will have important benefits:
+If you **are** experienced with running Plone on your own laptop, we encourage you to do so because you will have certain benefits:
 
 * You can use the editor you are used to.
 * You can use *omelette* to have all the code of Plone at your fingertips.
@@ -85,27 +67,18 @@ On MacOS you at least need to install some dependencies with `Homebrew <https://
 
 For more information or in case of problems see the `official installation instructions <https://docs.plone.org/manage/installing/installation.html>`_.
 
-Set up Plone for the training like this if you use your own OS (Linux or macOS):
+Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
 .. code-block:: console
 
     mkdir training
     cd training
-    git clone https://github.com/collective/training_buildout.git backend
-    cd backend
-
-Until Mastering Plone 6 version is released you need to checkout the branch ``plone6``.
-
-.. code-block:: console
-
-    git checkout plone6
-
-Then create a virtual environment with Python 3.7 in the folder :file:`backend` and install some requirements into it.
-
-.. code-block:: console
-
+    git clone https://github.com/collective/training_buildout.git buildout
+    cd buildout
     python3.7 -m venv .
     ./bin/pip install -r requirements.txt
+
+This creates a virtualenv with Python 3.7 in the folder :file:`buildout` and installs some requirements in it.
 
 Now you can run the buildout for the first time:
 
@@ -124,7 +97,7 @@ The output should be similar to:
 .. code-block:: console
     :emphasize-lines: 40
 
-    pbauer@bullet:/workspace/training/backend$  ./bin/instance fg
+    pbauer@bullet:/workspace/training_buildout$  ./bin/instance fg
     2019-09-05 20:11:03,708 WARNING [Init:89][MainThread] Class Products.CMFFormController.ControllerPythonScript.ControllerPythonScript has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
     2019-09-05 20:11:03,715 WARNING [Init:89][MainThread] Class Products.CMFFormController.ControllerValidator.ControllerValidator has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
     2019-09-05 20:11:03,776 WARNING [Products.PDBDebugMode:31][MainThread]
@@ -140,7 +113,7 @@ The output should be similar to:
 
     ******************************************************************************
 
-    2019-09-05 20:11:04,858 INFO    [chameleon.config:38][MainThread] directory cache: /Users/pbauer/workspace/training/backend/var/cache.
+    2019-09-05 20:11:04,858 INFO    [chameleon.config:38][MainThread] directory cache: /Users/pbauer/workspace/training_buildout/var/cache.
     2019-09-05 20:11:07,151 WARNING [plone.behavior:172][MainThread] Specifying 'for' in behavior 'Tiles' if no 'factory' is given has no effect and is superfluous.
     2019-09-05 20:11:08,353 WARNING [PrintingMailHost:30][MainThread] Hold on to your hats folks, I'm a-patchin'
     2019-09-05 20:11:08,353 WARNING [PrintingMailHost:124][MainThread]
@@ -171,13 +144,14 @@ If the output says ``Serving on http://0.0.0.0:8080`` then you are in business.
 If you point your browser at http://localhost:8080 you see that Plone is running.
 
 .. figure:: _static/instructions_plone_running.png
-	:scale: 50 %
-	:alt: Plone is running.
+    :scale: 50 %
+    :alt: A running Plone instance.
 
-	A running plone instance.
+    A running plone instance.
 
-There is no Plone site yet.
-We will create one in the next chapter.
+There is no Plone site yet - we will create one in chapter 6.
+
+Now you have a working Plone site up and running and can continue with the next chapter.
 
 You can stop the running instance anytime using :kbd:`ctrl + c`.
 
@@ -185,148 +159,8 @@ You can stop the running instance anytime using :kbd:`ctrl + c`.
 
     If there is an error message you should either try to fix it or use vagrant and continue in this chapter.
 
-.. _instructions-install_frontend-label:
 
-Installing the frontend
-+++++++++++++++++++++++
-
-You need to go up one folder (out of ``backend``) to install the frontend:
-
-.. code-block:: console
-
-    cd ..
-
-.. todo::
-
-    We need to deal with the issue that there a two options:
-
-    1. Create the frontend from scratch using `create-volto-app`
-    2. Use the existing package `volto-ploneconf` that contains all the code for the training
-
-    For now we document both.
-
-.. todo::
-
-    * Copy some info from https://training.plone.org/5/volto/bootstrap.html or the authoritative docs at https://docs.voltocms.com/getting-started/install/
-    * Explain ``create-volto-app``
-    * Explain node, nvm, npx, yarn
-
-
-Option 1: Create the frontend from scratch using `create-volto-app`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Install pre-requisites.
-
-#.  Install ``nvm`` (Node Version Manager) to manage ``node`` versions.
-
-    .. code-block:: bash
-
-        # macOS
-        brew nvm
-
-        #Linux
-        apt-get install nvm
-
-#.  Install node LTS (currently that is 12.16.2) and enable it.
-
-    .. code-block:: bash
-
-        nvm install --lts
-        nvm use 12.16.2
-
-#.  Install the ``create-volto-app`` helper utility.
-
-    .. code-block:: bash
-
-        npm -g i @plone/create-volto-app
-
-#.  Create the frontend for the project.
-
-    .. code-block:: bash
-
-        create-volto-app frontend
-
-If successful, here is the output of the command::
-
-    Creating frontend...
-
-    > Success! Created files for "frontend" Volto app
-
-      Installing npm modules:
-        @plone/volto
-
-    > Success! Installed dependencies for frontend
-
-      Awesome! You're now ready to start coding.
-
-      We already ran yarn for you, so your next steps are:
-        cd frontend
-
-      To start a local server for development:
-        yarn start
-
-      To build a version for production:
-        yarn build
-
-      To run the server in production:
-        yarn start:prod
-
-      Questions? Feedback? Please let us know!
-
-
-.. note::
-
-    Alternatively to Steps 3 and 4 above, you can use the utility ``npx`` to install ``create-volto-app`` without installing it globally.
-    This option requires that ``npx`` be installed globally.
-    This has the advantage of avoiding the need to upgrade ``create-volto-app`` each time you want to use it because ``npx`` does it for you.
-    ``npx`` can both upgrade ``create-volto-app`` and create the frontend for your project in one command.
-
-    .. code-block:: console
-
-        npx @plone/create-volto-app frontend
-
-Now you can enter the new folder ``frontend`` and start it with:
-
-.. code-block:: bash
-
-    cd frontend
-    yarn start
-
-If you open http://localhost:3000 you will see the frontend, but you will get an error message ``This page does not seem to exist…`` because you have not yet created a Plone site.
-We will do that in the next chapter.
-
-You can stop the frontend anytime using :kbd:`ctrl + c`.
-
-.. _volto-install-troubleshooting:
-
-Troubleshooting
-'''''''''''''''
-
-See https://docs.voltocms.com/getting-started/install/#install-volto
-
-
-Option 2. Use the existing package ``volto-ploneconf`` that contains all the code for the training
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Get the finished code for the frontend from github and install:
-
-.. code-block:: console
-
-    git clone https://github.com/collective/volto-ploneconf.git frontend
-    cd frontend
-    yarn install
-
-Now you can start it with::
-
-    $ yarn start
-
-If you open http://localhost:3000 you will see the frontend but you will get a error message (`This page does not seem to exist…`) because you have not yet created a Plone site. We'll do that in chapter 7.
-
-You can stop the frontend anytime using :kbd:`ctrl + c`.
-
-
-
-.. _instructions-vagrant-label:
+.. _plone5_instructions-vagrant-label:
 
 Installing Plone with Vagrant
 -----------------------------
@@ -339,7 +173,7 @@ We rely on `Vagrant <https://www.vagrantup.com>`_ and `VirtualBox <https://www.v
 
 We use it together with Oracle’s `VirtualBox <https://www.virtualbox.org>`_ to create and manage a virtual environment.
 
-.. _install-virtualbox:
+.. _plone5_install-virtualbox:
 
 Install VirtualBox
 ++++++++++++++++++
@@ -351,7 +185,7 @@ Here is a link directly to the download page: https://www.virtualbox.org/wiki/Do
 We use VirtualBox 6.0.x
 
 
-.. _instructions-configure-vagrant-label:
+.. _plone5_instructions-configure-vagrant-label:
 
 Install and configure Vagrant
 +++++++++++++++++++++++++++++
@@ -526,7 +360,7 @@ next to :file:`Vagrantfile` and :file:`manifests`.
 If you have any problems or questions please mail us at team@starzel.de or create a ticket at https://github.com/plone/training/issues.
 
 
-.. _instructions-vagrant-does-label:
+.. _plone5_instructions-vagrant-does-label:
 
 What Vagrant does
 +++++++++++++++++
@@ -534,7 +368,7 @@ What Vagrant does
 Installation is done automatically by vagrant and puppet.
 If you want to know which steps are actually done please see the chapter :doc:`what_vagrant_does`.
 
-.. _instructions-vagrant-care-handling-label:
+.. _plone5_instructions-vagrant-care-handling-label:
 
 .. note::
 

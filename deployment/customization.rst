@@ -195,7 +195,7 @@ Alternatively, you could specify use of certificates already on the server:
 
 
 Extra tricks
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 There are a couple of extra setting that allow you to do extra customization if you know nginx directives.
 For example:

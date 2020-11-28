@@ -23,7 +23,7 @@ At conferences a shortened 2-day version of the advanced training with a slightl
     intro
     what_is_plone
     installation
-    ../plone_training_config/instructions.rst
+    ../plone_training_config/instructions_plone5.rst
     case
     features
     anatomy

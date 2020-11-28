@@ -1,4 +1,4 @@
-.. _prz-label:
+.. _wsgi_buildout-label:
 
 Buildout for the training
 =========================

@@ -108,7 +108,7 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
     ``cheroot.cfg``:
 
     .. code-block:: ini
-        :emphasize-lines: 13-14
+        :emphasize-lines: 12-13
 
         ...
         [instance]
@@ -171,7 +171,7 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
     ``werkzeug.cfg``:
 
     .. code-block:: ini
-        :emphasize-lines: 13-14
+        :emphasize-lines: 12-13
 
         ...
         [instance]
