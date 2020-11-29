@@ -28,19 +28,6 @@ The story of a conference platform provides a week-long training of several deve
     These chapters are outdated and need to be updated:
 
     * :doc:`views_1`: We still need browser views with Volto but there needs to be good example why and where?
-    * :doc:`registry`: Create a controlpanel in Volto.
-    * :doc:`frontpage`: Move to a earlier place and build frontpage using the blocks. Should include a listing of features content from :doc:`behaviors_1`
-
-    These chapters teach developing with classing Plone without Volto (i.e. server-side rendering):
-
-    * :doc:`zpt` (replaced by :doc:`volto_semantic_ui`)
-    * :doc:`zpt_2` (needs a new chapter on overriding components)
-    * :doc:`views_2` (replaced by :doc:`volto_talkview`)
-    * :doc:`views_3` (replaced by :doc:`volto_talk_listview`)
-    * :doc:`viewlets_1` (replaced by a new chapter)
-    * :doc:`events_classic` (replaced by :doc:`events`)
-    * :doc:`viewlets_advanced_classic` (replaced by :doc:`volto_components_sponsors`)
-    * :doc:`theming` (replaced by :doc:`volto_theming`)
 
 
 ..  toctree::
