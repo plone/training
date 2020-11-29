@@ -19,21 +19,21 @@ Blocks are composed of two basic (and required) components: the Block edit and v
 By default, Volto ships with the most basic set of Blocks, including Title, Text, Image, Video, and Maps.
 
 .. note:: Volto Blocks are not enabled by default in Plone content types.
-          However, the ``kitconcept.voltodemo`` package enables Blocks for the ``Document`` content type,
+          However, the ``kitconcept.volto`` package enables Blocks for the ``Document`` content type,
           so you will be able to use Blocks when you create or edit a page.
 
 How to manually enable Blocks on a content type
 ===============================================
 
-There is a behavior called ``Tiles`` made available by ``plone.restapi``.
+There is a behavior called ``Blocks`` made available by ``plone.restapi``.
 To enable it you need to access the Plone backend running at http://localhost:8080/Plone.
 
 1. Go to ``ControlPanel`` -> ``Dexterity Content Types``, select the content type.
 2. Go to ``Behaviors``
-3. Select the ``Tiles`` behavior
+3. Select the ``Blocks`` behavior
 4. Save
 
-Test the ``Tiles`` behavior for the content type you've just added it to, by creating a new object of that type from the Volto frontend (i.e. not from "classic" Plone).
+Test the ``Blocks`` behavior for the content type you've just added it to, by creating a new object of that type from the Volto frontend (i.e. not from "classic" Plone).
 
 Blocks anatomy
 ==============
@@ -89,15 +89,15 @@ The edit component of a block receives these props from the Blocks Engine:
   - selected - (Bool) true if the block is currently selected
   - index - the block index order in the list of blocks
   - pathname - the current URL pathname
-  - onAddTile - handler for adding a block in the block list
-  - onMutateTile - handler for mutating a block type into another
-  - onChangeTile - handler for changing the data of that block
-  - onSelectTile - handler for selecting the block
-  - onDeleteTile - handler for deleting the block
-  - onFocusPreviousTile - handler for focusing the previous block in the block list
-  - onFocusNextTile - handler for focusing the next block in the block list
+  - onAddBlock - handler for adding a block in the block list
+  - onMutateBlock - handler for mutating a block type into another
+  - onChangeBlock - handler for changing the data of that block
+  - onSelectBlock - handler for selecting the block
+  - onDeleteBlock - handler for deleting the block
+  - onFocusPreviousBlock - handler for focusing the previous block in the block list
+  - onFocusNextBlock - handler for focusing the next block in the block list
   - handleKeyDown - handler for managing press keys while the block is selected
-  - onMoveTile - handler for moving blocks
+  - onMoveBlock - handler for moving blocks
 
 You can use all these props to render your edit block and model its behavior.
 
@@ -115,7 +115,7 @@ We add these lines to the ``config.js`` in the root of our project.
 
     ...
 
-    const customTiles = {
+    const customBlocks = {
       mainslider: {
         id: 'mainslider',
         title: 'Main Slider',
@@ -132,9 +132,9 @@ We add these lines to the ``config.js`` in the root of our project.
       },
     };
 
-    export const tiles = {
-      ...defaultTiles,
-      tilesConfig: { ...defaultTiles.tilesConfig, ...customTiles },
+    export const blocks = {
+      ...defaultBlocks,
+      blocksConfig: { ...defaultBlocks.blocksConfig, ...customBlocks },
     };
 
 We add this also, to fulfill all our i18n requirements:
