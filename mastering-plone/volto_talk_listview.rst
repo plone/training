@@ -23,12 +23,12 @@ Volto View Components: A Listing View for Talks
 
 To be solved task in this part:
 
-* Create a view that shows a list of talks to allow an easy overview
+* Create a view that shows a list of talks
 
 In this part you will:
 
-* Register a react view component for listings
-* Write the component
+* Register a react view component for folderish `Document` content types
+* Create the view component
 
 
 Topics covered:
@@ -36,10 +36,10 @@ Topics covered:
 * Use search endpoint of REST API
 * Displaying data from search results
 
-Volto has different views for listing objects. Most of them list all objects in a folder like the ``listing view``.
-To show all talks you have in your site you'll have to register and write your own listing view.
+Volto has multiple views for listing objects. Most of them list all objects in a folder or folderish type like the ``listing_view`` with title and description.
+The talk list should show also information about the dates, the locations and the speakers. We will create an additonal view for folderisch types. We stick to Plone default type Document, which is folderish.
 
-For doing so you have to add another new file ``src/components/Views/TalkList.jsx`` in the folder :file:`Views` you added in the last chapter.
+Create a new file  :file:`src/components/Views/TalkList.jsx`.
 
 Register the view in Volto and Plone
 ------------------------------------
