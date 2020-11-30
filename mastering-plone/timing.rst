@@ -13,36 +13,36 @@ Day 1:
 
 ======  =======================================================
 Time    Chapter
-xx min  1. Introduction
-xx min  3. The Case Study
-xx min  4. What is Plone?
-xx min  5. Installing Plone for the Training
-xx min  6. The Features of Plone
-xx min  10. Volto Basics
-xx min  11. Configuring and Customizing Plone “Through The Web”
-xx min  12. Customizing Volto Components
-xx min  13. Semantic UI
-xx min  14. Theming in Volto
-xx min  16. Extend Plone With Add-on Packages
-xx min  17. Buildout I
-xx min  18. Write Your Own Python Add-On to Customize Plone
-xx min  19. Dexterity I: Content types
-xx min  20. Dexterity II: Talks
-xx min  21. Dexterity: Reference
-xx min  22. Volto View Components: A Default View for “Talk”
+xx min  1 Introduction
+xx min  3 The Case Study
+xx min  4 What is Plone?
+xx min  5 Installing Plone for the Training
+xx min  6 The Features of Plone
+xx min  10 Volto Basics
+xx min  11 Configuring and Customizing Plone “Through The Web”
+xx min  12 Customizing Volto Components
+xx min  13 Semantic UI
+xx min  14 Theming in Volto
+xx min  16 Extend Plone With Add-on Packages
+xx min  17 Buildout I
+xx min  18 Write Your Own Python Add-On to Customize Plone
+xx min  19 Dexterity I: Content types
+xx min  20 Dexterity II: Talks
+xx min  21 Dexterity: Reference
+xx min  22 Volto View Components: A Default View for “Talk”
 ======  =======================================================
 
 Day 2:
 
 ======  =======================================================
-xx min  23. Behaviors
-xx min  24. Creating a dynamic frontpage with Volto blocks
-xx min  25. Volto View Components: A Listing View for Talks
-xx min  26. Programming Plone
-xx min  27. IDEs and Editors
-xx min  28. Custom Search
-xx min  29. Turning Talks into Events
-xx min  30. Upgrade-steps
+xx min  23 Behaviors
+xx min  24 Creating a dynamic frontpage with Volto blocks
+xx min  25 Volto View Components: A Listing View for Talks
+xx min  26 Programming Plone
+xx min  27 IDEs and Editors
+xx min  28 Custom Search
+xx min  29 Turning Talks into Events
+xx min  30 Upgrade-steps
 xx min  Custom restapi endpoint for Voting
 xx min  Plone Community
 xx min  Q&A
