@@ -5,7 +5,7 @@ Rich Text Editor Settings
 
 .. sidebar:: Volto chapter
 
-  .. figure:: _static/Volto.svg
+  .. figure:: _static/volto.svg
      :alt: Volto Logo
 
   This chapter is about customizing the rich text editor.

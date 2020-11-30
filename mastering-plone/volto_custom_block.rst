@@ -5,7 +5,7 @@ Custom Block
 
 .. sidebar:: Volto chapter
 
-  .. figure:: _static/Volto.svg
+  .. figure:: _static/volto.svg
      :alt: Volto Logo
 
   Create a specialized block with some extra behavior or look.

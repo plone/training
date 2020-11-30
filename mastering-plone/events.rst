@@ -5,7 +5,7 @@ Turning Talks into Events
 
 .. sidebar:: Volto chapter
 
-  .. figure:: _static/Volto.svg
+  .. figure:: _static/volto.svg
      :alt: Volto Logo
 
   This chapter is about the React frontend Volto.

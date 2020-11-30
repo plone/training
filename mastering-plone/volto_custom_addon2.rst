@@ -9,7 +9,7 @@ Extending Volto With a FAQ Block Type
 
 .. sidebar:: Volto chapter
 
-  .. figure:: _static/Volto.svg
+  .. figure:: _static/volto.svg
      :alt: Volto Logo
 
   Creating a new block type
