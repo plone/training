@@ -49,23 +49,23 @@ We already added a content type `talk`. Let's write a test 'An editor can add a 
       cy.get('#toolbar-add').click();
       cy.get('#toolbar-add-talk').click();
       cy.get('input[name="title"]')
-        .type('Respect')
-        .should('have.value', 'Respect');
+        .type('Security in Plone')
+        .should('have.value', 'Security in Plone');
       cy.get(
         '#default-type_of_talk .react-select-container > .react-select__control .icon',
       )
         .click()
         .type('Talk{enter}');
       cy.get('#default-details .public-DraftEditor-content')
-        .type('Mention your co workers.')
+        .type('This is the text.')
         .get('span[data-text]')
-        .contains('Mention your co workers.');
+        .contains('This is the text.');
       cy.get('#toolbar-save').click();
 
       // then a new talk should have been created
-      cy.url().should('eq', Cypress.config().baseUrl + '/respect');
-      cy.get('body').contains('Respect');
-      cy.get('body').contains('Mention your co workers.');
+      cy.url().should('eq', Cypress.config().baseUrl + '/security-in-plone');
+      cy.get('body').contains('Security in Plone');
+      cy.get('body').contains('This is the text.');
     });
   });
 
