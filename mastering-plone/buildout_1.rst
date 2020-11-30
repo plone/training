@@ -138,9 +138,9 @@ Variables and References
 
     If you have a big setup with many Plone sites with minor changes between each configuration, you can generate a template configuration, and each site references everything from the template and overrides just what needs to be changed.
 
-    Even in smaller buildouts this is a useful feature. We are using `collective.recipe.omelette <https://pypi.org/project/collective.recipe.omelette>`_. A very practical recipe that creates a virtual directory that eases the navigation to the source code of each egg.
+    Even in smaller buildouts this is a useful feature. For example in the part ``[packages]`` we are using `collective.recipe.omelette <https://pypi.org/project/collective.recipe.omelette>`_. A very practical recipe that creates a directory with `symbolic links <https://en.m.wikipedia.org/wiki/Symbolic_link>`_ that eases the navigation to the source code of each egg used in our project.
 
-    The omelette recipe needs to know which eggs to reference. We want the same eggs that our instance uses, so we reference the eggs of the instance instead of repeating the whole list.
+    The omelette recipe needs to know which eggs to symlink. We want the same eggs that our project uses, so we point it to the already defined list of eggs with ``${buildout:eggs}`` instead of repeating the whole list.
 
     Another example: Say you create configuration files for a webserver like nginx, you can define the target port for the reverse proxy by looking it up from the zope2instance recipe.
 
