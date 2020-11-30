@@ -3,17 +3,23 @@
 Optional
 ========
 
-* zc3.form
+The following topics are not covered in the written training but could be discussed on demand.
+
+* Custom forms
+  * Hand-written forms
+  * Form built using zc3.form
+  * Form using addons
+  * Custom add- and edit-forms for content
+* Custom fields
+* Caching (plone.app.caching, memoize, Varnish etc.)
 * Portlets
-* ZCA in depth
+* Zope Component Architecture in depth
+* LDAP-integration, Users, Authentication, Member profiles, Members as content
+* Migrations (in-place, export/import, transmogrifier
+* Using external APIs
+* Asynchronous processing
 * ZODB
 * RelStorage
-* More and more complex fields
-* Custom edit forms
-* Users, authentication, member profiles, LDAP
-* Caching (plone.app.caching)
-* Migrations
-* Asynchronous processing
-* Talking with external APIs
+* Debugging and Profiling
 * :doc:`deployment_code`
-* Professional Deployment
+* Professional Deployments
