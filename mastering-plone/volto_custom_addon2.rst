@@ -1,7 +1,3 @@
-.. todo::
-
-  This is a draft. Review is needed.
-
 .. _volto_custom_addon2-label:
 
 Extending Volto With a FAQ Block Type
