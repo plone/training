@@ -48,12 +48,6 @@ The full listing of the :file:`FaqItem` component is as follows:
 
       constructor(props) {
         super(props);
-        this.toggle = this.toggle.bind(this);
-        this.onDelete = this.onDelete.bind(this);
-        this.onEdit = this.onEdit.bind(this);
-        this.onChangeQuestion = this.onChangeQuestion.bind(this);
-        this.onChangeAnswer = this.onChangeAnswer.bind(this);
-        this.onSave = this.onSave.bind(this);
         this.state = {
           show: false,
           mode: "view",
@@ -62,17 +56,17 @@ The full listing of the :file:`FaqItem` component is as follows:
         };
       }
 
-      toggle() {
+      toggle = () => {
         this.setState({
           show: !this.state.show
         });
       }
 
-      onDelete() {
+      onDelete = () => {
         this.props.deleteFaqItem(this.props.index);
       }
 
-      onEdit() {
+      onEdit = () => {
         this.setState({
           mode: "edit",
           question: this.props.question,
@@ -80,19 +74,19 @@ The full listing of the :file:`FaqItem` component is as follows:
         });
       }
 
-      onChangeQuestion(event) {
+      onChangeQuestion = (event) => {
         this.setState({
           question: event.target.value
         });
       }
 
-      onChangeAnswer(event) {
+      onChangeAnswer = (event) => {
         this.setState({
           answer: event.target.value
         });
       }
 
-      onSave(event) {
+      onSave = (event) => {
         this.setState({
           mode: "view"
         });

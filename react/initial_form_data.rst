@@ -35,33 +35,29 @@ The :file:`onSave` handler can be a dummy handler for now, first we will focus o
 
           constructor(props) {
             super(props);
-            this.toggle = this.toggle.bind(this);
-            this.onDelete = this.onDelete.bind(this);
-            this.onEdit = this.onEdit.bind(this);
-            this.onSave = this.onSave.bind(this);
             this.state = {
               show: false,
               mode: "view"
             };
           }
 
-          toggle() {
+          toggle = () => {
             this.setState({
               show: !this.state.show
             });
           }
 
-          onDelete() {
+          onDelete = () => {
             this.props.onDelete(this.props.index);
           }
 
-          onEdit() {
+          onEdit = () => {
             this.setState({
               mode: "edit"
             });
           }
 
-          onSave(event) {
+          onSave = (event) => {
             this.setState({
               mode: "view"
             });
@@ -104,10 +100,6 @@ The :file:`onSave` handler can be a dummy handler for now, first we will focus o
         +++ b/src/components/FaqItem.jsx
         @@ -14,8 +14,11 @@ class FaqItem extends Component {
             super(props);
-            this.toggle = this.toggle.bind(this);
-            this.onDelete = this.onDelete.bind(this);
-        +    this.onEdit = this.onEdit.bind(this);
-        +    this.onSave = this.onSave.bind(this);
             this.state = {
         -      show: false
         +      show: false,
@@ -119,13 +111,13 @@ The :file:`onSave` handler can be a dummy handler for now, first we will focus o
             this.props.onDelete(this.props.index);
           }
 
-        +  onEdit() {
+        +  onEdit = () => {
         +    this.setState({
         +      mode: "edit"
         +    });
         +  }
         +
-        +  onSave(event) {
+        +  onSave = (event) => {
         +    this.setState({
         +      mode: "view"
         +    });
@@ -188,12 +180,6 @@ like we did with the :file:`onDelete`
 
           constructor(props) {
             super(props);
-            this.toggle = this.toggle.bind(this);
-            this.onDelete = this.onDelete.bind(this);
-            this.onEdit = this.onEdit.bind(this);
-            this.onChangeQuestion = this.onChangeQuestion.bind(this);
-            this.onChangeAnswer = this.onChangeAnswer.bind(this);
-            this.onSave = this.onSave.bind(this);
             this.state = {
               show: false,
               mode: "view",
@@ -202,17 +188,17 @@ like we did with the :file:`onDelete`
             };
           }
 
-          toggle() {
+          toggle = () => {
             this.setState({
               show: !this.state.show
             });
           }
 
-          onDelete() {
+          onDelete = () => {
             this.props.onDelete(this.props.index);
           }
 
-          onEdit() {
+          onEdit = () => {
             this.setState({
               mode: "edit",
               question: this.props.question,
@@ -220,19 +206,19 @@ like we did with the :file:`onDelete`
             });
           }
 
-          onChangeQuestion(event) {
+          onChangeQuestion = (event) => {
             this.setState({
               question: event.target.value
             });
           }
 
-          onChangeAnswer(event) {
+          onChangeAnswer = (event) => {
             this.setState({
               answer: event.target.value
             });
           }
 
-          onSave(event) {
+          onSave = (event) => {
             this.setState({
               mode: "view"
             });
@@ -286,12 +272,6 @@ like we did with the :file:`onDelete`
 
           constructor(props) {
         @@ -15,10 +16,14 @@ class FaqItem extends Component {
-            this.toggle = this.toggle.bind(this);
-            this.onDelete = this.onDelete.bind(this);
-            this.onEdit = this.onEdit.bind(this);
-        +    this.onChangeQuestion = this.onChangeQuestion.bind(this);
-        +    this.onChangeAnswer = this.onChangeAnswer.bind(this);
-            this.onSave = this.onSave.bind(this);
             this.state = {
               show: false,
         -      mode: "view"
@@ -303,7 +283,7 @@ like we did with the :file:`onDelete`
 
         @@ -34,7 +39,21 @@ class FaqItem extends Component {
 
-          onEdit() {
+          onEdit = () => {
             this.setState({
         -      mode: "edit"
         +      mode: "edit",
@@ -312,13 +292,13 @@ like we did with the :file:`onDelete`
         +    });
         +  }
         +
-        +  onChangeQuestion(event) {
+        +  onChangeQuestion = (event) => {
         +    this.setState({
         +      question: event.target.value
         +    });
         +  }
         +
-        +  onChangeAnswer(event) {
+        +  onChangeAnswer = (event) => {
         +    this.setState({
         +      answer: event.target.value
             });
@@ -369,11 +349,6 @@ like we did with the :file:`onDelete`
         class App extends Component {
           constructor(props) {
             super(props);
-            this.onDelete = this.onDelete.bind(this);
-            this.onEdit = this.onEdit.bind(this);
-            this.onChangeQuestion = this.onChangeQuestion.bind(this);
-            this.onChangeAnswer = this.onChangeAnswer.bind(this);
-            this.onSubmit = this.onSubmit.bind(this);
             this.state = {
               faq: [
                 {
@@ -392,7 +367,7 @@ like we did with the :file:`onDelete`
             };
           }
 
-          onDelete(index) {
+          onDelete = (index) => {
             let faq = this.state.faq;
             faq.splice(index, 1);
             this.setState({
@@ -400,7 +375,7 @@ like we did with the :file:`onDelete`
             });
           }
 
-          onEdit(index, question, answer) {
+          onEdit = (index, question, answer) => {
             let faq = this.state.faq;
             faq[index] = {
               question,
@@ -411,19 +386,19 @@ like we did with the :file:`onDelete`
             });
           }
 
-          onChangeQuestion(event) {
+          onChangeQuestion = (event) => {
             this.setState({
               question: event.target.value
             });
           }
 
-          onChangeAnswer(event) {
+          onChangeAnswer = (event) => {
             this.setState({
               answer: event.target.value
             });
           }
 
-          onSubmit(event) {
+          onSubmit = (event) => {
             this.setState({
               faq: [
                 ...this.state.faq,
@@ -486,16 +461,11 @@ like we did with the :file:`onDelete`
         @@ -6,6 +6,7 @@ class App extends Component {
           constructor(props) {
             super(props);
-            this.onDelete = this.onDelete.bind(this);
-        +    this.onEdit = this.onEdit.bind(this);
-            this.onChangeQuestion = this.onChangeQuestion.bind(this);
-            this.onChangeAnswer = this.onChangeAnswer.bind(this);
-            this.onSubmit = this.onSubmit.bind(this);
         @@ -35,6 +36,17 @@ class App extends Component {
             });
           }
 
-        +  onEdit(index, question, answer) {
+        +  onEdit = (index, question, answer) => {
         +    let faq = this.state.faq;
         +    faq[index] = {
         +      question,
@@ -506,7 +476,7 @@ like we did with the :file:`onDelete`
         +    });
         +  }
         +
-          onChangeQuestion(event) {
+          onChangeQuestion = (event) => {
             this.setState({
               question: event.target.value
         @@ -72,6 +84,7 @@ class App extends Component {

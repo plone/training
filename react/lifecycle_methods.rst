@@ -46,9 +46,6 @@ The full :file:`Faq` component will now look like this:
 
       constructor(props) {
         super(props);
-        this.onChangeQuestion = this.onChangeQuestion.bind(this);
-        this.onChangeAnswer = this.onChangeAnswer.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
         this.state = {
           question: "",
           answer: ""
@@ -59,19 +56,19 @@ The full :file:`Faq` component will now look like this:
         this.props.getFaqItems();
       }
 
-      onChangeQuestion(event) {
+      onChangeQuestion = (event) => {
         this.setState({
           question: event.target.value
         });
       }
 
-      onChangeAnswer(event) {
+      onChangeAnswer = (event) => {
         this.setState({
           answer: event.target.value
         });
       }
 
-      onSubmit(event) {
+      onSubmit = (event) => {
         this.props.addFaqItem(this.state.question, this.state.answer);
         this.setState({
           question: "",
@@ -159,7 +156,7 @@ The full :file:`Faq` component will now look like this:
         +    this.props.getFaqItems();
         +  }
         +
-          onChangeQuestion(event) {
+          onChangeQuestion = (event) => {
             this.setState({
               question: event.target.value
         @@ -89,5 +94,5 @@ export default connect(

@@ -111,6 +111,41 @@ In the constructor of the class we can initialize the state.
           }
 
 
+How to declare the state into functional Component
+==================================================
+As we know that React introduced Hooks in react 16.8. Now we can declare state and set them
+into functional component. In below code you can see how we can store the faq in functional
+component.
+
+.. code-block:: jsx
+    :linenos: 
+
+      import { useState } from "react";
+      import FaqItem from "./components/FaqItem";
+      import "./App.css";
+
+      function App(props) {
+        const [faq, setFaq] = useState([
+          {
+            question: "What does the Plone Foundation do?",
+            answer: "The mission of the Plone Foundation is to protect and...",
+          },
+          {
+            question: "Why does Plone need a Foundation?",
+            answer: "Plone has reached critical mass, with enterprise...",
+          },
+        ]);
+        return (
+          <ul>
+            {faq.map((item) => (
+              <FaqItem question={item.question} answer={item.answer} />
+            ))}
+          </ul>
+        );
+      }
+
+      export default App;
+
 
 Exercise
 ========
