@@ -54,7 +54,7 @@ Development and Customization
     All in the browser!
 
 :doc:`testing/index`
-    Best practices for testing Plone addons.
+    Best practices for testing Plone add-ons.
 
 
 Volto, React and Javascript
@@ -71,7 +71,7 @@ Volto, React and Javascript
     Learn how to quickly bootstrap and customize a Volto project
 
 :doc:`voltoaddons/index`
-    Build custom Volto addons, explore more advanced Volto topics.
+    Build custom Volto add-ons, explore more advanced Volto topics.
 
 :doc:`angular/index`
     Building Angular 4 apps using the Plone REST API.

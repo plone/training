@@ -37,9 +37,9 @@ A working example is contained in ``basic.cfg`` in the training buildout, here a
         Plone
         wsgitraining.site
 
-As you can see, we are using a custom addon named ``wsgitraining.site`` contained in the buildout.
-We will not use the addon immediately so you don't need to activate it yet.
-We use ``mr.developer`` to checkout the source code of this addon.
+As you can see, we are using a custom add-on named ``wsgitraining.site`` contained in the buildout.
+We will not use the add-on immediately so you don't need to activate it yet.
+We use ``mr.developer`` to checkout the source code of this add-on.
 We also use a source checkout of the ``plone.recipe.zope2instance`` buildout recipe to get the latest (maybe not yet released on PyPI) functionality for this training.
 
 As a first exercise in this training run the above buildout configuration from the command line:

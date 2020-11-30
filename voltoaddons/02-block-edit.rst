@@ -251,7 +251,7 @@ to know:
 
 .. _Api: https://github.com/plone/volto/blob/master/src/middleware/api.js
 
-Finally, register the addon reducer. In ``src/index.js``'s default export:
+Finally, register the add-on reducer. In ``src/index.js``'s default export:
 
 .. code-block:: jsx
 

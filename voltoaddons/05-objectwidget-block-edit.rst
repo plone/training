@@ -3,7 +3,7 @@ Customizable columns
 ====================
 
 Let's add a bit more control over how the columns are rendered. This is quite
-a "low hanging fruit" thanks to the volto-object-widget_ addon. This addon
+a "low hanging fruit" thanks to the volto-object-widget_ add-on. This add-on
 has another dependency, the volto-blocks-form_, so let's add them both:
 
 .. _volto-object-widget: https://github.com/eea/volto-object-widget
@@ -17,9 +17,9 @@ has another dependency, the volto-blocks-form_, so let's add them both:
 .. note::
 
     You can use a specific version or branch when adding the dependency,
-    research first the latest released version for these addons
+    research first the latest released version for these add-ons
 
-Add the volto-object-widget addon in the project's package.json:
+Add the volto-object-widget add-on in the project's package.json:
 
 .. code-block:: json
 
@@ -31,15 +31,15 @@ Add the volto-object-widget addon in the project's package.json:
       ]
   }
 
-The order in which we load the addons can sometimes be relevant. Ideally the
+The order in which we load the add-ons can sometimes be relevant. Ideally the
 configuration options are used only at "runtime", on demand, but there are
-cases when an addon can depend on a specific configuration at "configure time".
+cases when an add-on can depend on a specific configuration at "configure time".
 
-It's not our case, though. It's still a good idea to list generic addons first.
+It's not our case, though. It's still a good idea to list generic add-ons first.
 
 .. note::
-    we've had to add ``@eeacms/volto-blocks-form`` to the addons list to help
-    Volto's webpack resolver, as we're distributing this addon in "source code
+    we've had to add ``@eeacms/volto-blocks-form`` to the add-ons list to help
+    Volto's webpack resolver, as we're distributing this add-on in "source code
     form".
 
 What would we like to change about the columns? Let's go for: title, text align
@@ -294,4 +294,4 @@ Now go back to the schema and let's use the new text align widget:
 .. image:: _static/table-column-with-text-align.png
 
 We could say it's done for now... but let's go some steps further and explore
-how to further enhance this addon's re-usability and extensibility.
+how to further enhance this add-on's re-usability and extensibility.

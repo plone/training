@@ -45,15 +45,15 @@ concepts of React and Volto development, as a refresher.
 What to expect
 ==============
 
-At the end of this course you will know how to extend Volto using addons, what
-are the current capabilities of addons, their pros and cons, how to distribute
+At the end of this course you will know how to extend Volto using add-ons, what
+are the current capabilities of add-ons, their pros and cons, how to distribute
 addons and how to deploy them.
 
 Roadmap
 -------
 
 - bootstrap a Volto project using the generator-volto Yeoman generator
-- bootstrap a Volto addon from scratch
+- bootstrap a Volto add-on from scratch
 - develop a simple Volto block
 - write an action/reducer pair for network requests
 - connect the block to network-fetched async data
@@ -65,10 +65,10 @@ Roadmap
 The hands-on exercise
 =====================
 
-The hands-on exercise will feature developing an addon that provides table
+The hands-on exercise will feature developing an add-on that provides table
 views for data files (CSVs). We will be using real-world patterns and
 development models based on the experience gained while developing several
-websites that use these types of addons.
+websites that use these types of add-ons.
 
 Here's a preview of the block we'll build:
 
@@ -87,7 +87,7 @@ You'll need to have a Plone instance with plone.restapi integrate. The quickest
 way to get a Plone instance running is with Docker:
 
     docker run -it --rm --name=plone -p 8080:8080 \
-        -e SITE=Plone -e ADDONS="kitconcept.volto" \
+        -e SITE=Plone -e ADD-ONS="kitconcept.volto" \
         -e ZCML="kitconcept.volto.cors" \
         -e PROFILES="kitconcept.volto:default-homepage" plone
 

@@ -32,7 +32,7 @@ You recently changed existing content, when you added the behavior ``ploneconf.f
 When projects evolve you sometimes want to modify various things while the site is already up and brimming with content and users.
 Upgrade steps are pieces of code that run when upgrading from one version of an add-on to a newer one.
 They can do just about anything.
-We will use an upgrade step to enable the new behavior instead of reinstalling the addon.
+We will use an upgrade step to enable the new behavior instead of reinstalling the add-on.
 
 We will create an upgrade step that:
 
@@ -41,7 +41,7 @@ We will create an upgrade step that:
   We will move all talks to a folder ``talks`` (unless they already are there).
 
 Upgrade steps can be registered in their own ZCML file to prevent cluttering the main :file:`configure.zcml`.
-The addon you created already has a registration for the :file:`upgrades.zcml` in our :file:`configure.zcml`:
+The add-on you created already has a registration for the :file:`upgrades.zcml` in our :file:`configure.zcml`:
 
 ..  code-block:: xml
 

@@ -4,7 +4,7 @@
 Testing Plone
 =============
 
-:About: Best practices for testing Plone addons
+:About: Best practices for testing Plone add-ons
 :Level: Intermediate
 
 .. note::

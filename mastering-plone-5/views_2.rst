@@ -197,7 +197,7 @@ Open the view on a talk and it will show you information on that talk.
 
 .. note::
 
-    Changes in Python files are picked up by restarting Plone or using the addon ``plone.reload``: http://localhost:8080/@@reload
+    Changes in Python files are picked up by restarting Plone or using the add-on ``plone.reload``: http://localhost:8080/@@reload
 
 
 Reusing Browser Views
@@ -266,7 +266,7 @@ You can define which ``context``-object should be used:
     * can be reused in your code using ``plone.api.content.get_view('<name of the view>', context, request)``.
     * can be protected with permissions
     * can be constrained to certain content types by using ``for="plonconf.site.content.sponsor.ISponsor"``
-    * can be constrained to certain addons by using ``layer="plonconf.site.interfaces.IPloneconfSiteLayer"``
+    * can be constrained to certain add-ons by using ``layer="plonconf.site.interfaces.IPloneconfSiteLayer"``
 
 
 .. _plone5_views2-default-label:

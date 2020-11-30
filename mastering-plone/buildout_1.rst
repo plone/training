@@ -210,7 +210,7 @@ Let us walk through the :file:`buildout.cfg` for the training and look at some i
     # TTW Forms
         collective.easyform
 
-    # The addon we develop in the training
+    # The add-on we develop in the training
         ploneconf.site
 
     # Voting on content
@@ -312,7 +312,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
         # TTW Forms
             collective.easyform
 
-        # The addon we develop in the training
+        # The add-on we develop in the training
             ploneconf.site
 
         # Voting on content
@@ -339,7 +339,7 @@ When you run :command:`./bin/buildout` without any arguments, Buildout will look
         fancycompleter = 0.8
         pyrepl = 0.9.0
 
-        # pins for Addons
+        # pins for Add-ons
         collective.easyform = 2.1.0
         Products.validation = 2.1.1
 

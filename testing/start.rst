@@ -1,7 +1,7 @@
-How to test a Plone addon
-=========================
+How to test a Plone add-on
+==========================
 
-To better understand how to test a Plone addon, the best thing is to create a new Plone package from scratch
+To better understand how to test a Plone add-on, the best thing is to create a new Plone package from scratch
 and use it to see different testing techniques.
 
 We are going to use the `plonecli <https://pypi.org/project/plonecli/>`_ tool heavily because it lets you create new Plone packages
@@ -60,7 +60,7 @@ Let's run all tests, including robot tests (we will cover these later):
   $ plonecli test --all
 
 .. note::
-  If you get an error about missing ``geckodriver``, you will have to install ``geckodriver``. 
-  On macOS, you can use ``brew install geckodriver``. 
+  If you get an error about missing ``geckodriver``, you will have to install ``geckodriver``.
+  On macOS, you can use ``brew install geckodriver``.
   On Ubuntu, you can use ``apt install firefox-geckodriver``.
-  Then re-run ``plonecli test --all``. 
+  Then re-run ``plonecli test --all``.

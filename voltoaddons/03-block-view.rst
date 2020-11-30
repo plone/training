@@ -9,7 +9,7 @@ it also works in the browser.
 
 .. _Papaparse: https://www.npmjs.com/package/papaparse
 
-We'll need to add the dependency to the addon. When using yarn workspaces, the
+We'll need to add the dependency to the add-on. When using yarn workspaces, the
 workflow is a bit different. For our simple use case, we could probably run
 ``yarn add papaparse`` inside the ``src/addons/datatable-tutorial``, but
 the correct way is to run this command through the project root.

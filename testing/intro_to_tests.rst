@@ -30,7 +30,7 @@ Benefits of tests
 
 - Good testing requires additional skills, but once you learn them and, with some practice, testing will not take too much extra time.
 - Tests are more code, but once a test runs, it doesn't need maintenance (unless you change the code being tested).
-- We have standard setups for testing Plone addons: plonecli is the answer.
+- We have standard setups for testing Plone add-ons: plonecli is the answer.
 - Travis, Bitbucket, and Gitlab offer free-ish (depending on your needs) CI solutions.
 - Plone has fixtures for test isolation.
 - A well-tested application needs less maintainance and you can avoid regression errors when you make code changes,

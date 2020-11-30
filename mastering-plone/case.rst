@@ -61,7 +61,7 @@ During the course of the training you will solve the following tasks.
 * Create users and organize them
 * Configure some basic settings of the website
 * Create content with info about the conference using the default features
-* Create a Plone addon to hold our own python code
+* Create a Plone add-on to hold our own python code
 * Create a contenttype 'talk' to store all the data required for a talk
 * Create a view to display talks in a nice way
 * Create a view that shows a list of talks to allow a easy overview
@@ -79,7 +79,7 @@ During the course of the training you will solve the following tasks.
 * Allow some avilable to be configurable by a admin in a controlpanel
 * Create a calendar view to display talks
 * Turn the calendar view in a reuseable block to include it on the frontpage
-* Add a separate addon to allow voting on talks
+* Add a separate add-on to allow voting on talks
 * Create a react-component for voting and connect it to the backend with a custom restapi-endpoint
 * Create a simple mobile app that allows the easy submission of lightning talks (a type of talk)
 

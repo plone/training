@@ -8,10 +8,10 @@ Glossary
    Project (Volto)
        the product of running ``create-volto-app``, a customizable instance of Volto
 
-   Addon (Volto)
+   Add-on (Volto)
        a JS package that integrates with Volto's configuration registry
 
-   Addon configuration loader (Volto)
+   Add-on configuration loader (Volto)
        a function with signature ``config => config``.
 
    Configuration registry (Volto)
@@ -76,7 +76,7 @@ Glossary
    mrs-developer
        also called "missdev", a tool similar to buildout's mr.developer,
        automatically downloads and keeps up to date copies of software and
-       addons under development based on definitions stored in
+       add-ons under development based on definitions stored in
        ``mrs.developer.json``. As a byproduct of its update operations, it
        also automatically adjusts ``jsconfig.json``, which is used by Volto to
        configure webpack aliases.
@@ -117,6 +117,6 @@ Glossary
        dependencies have conflicting version dependencies of the same library,
        the hoisting will not be possible (for that conflicting dependency) and
        you'll see multiple instances of the same library in the bundle, or
-       you'll see that the addon receives its own node_modules folder.
+       you'll see that the add-on receives its own node_modules folder.
 
 

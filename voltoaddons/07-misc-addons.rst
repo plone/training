@@ -1,28 +1,28 @@
-========================
-Addons - advanced topics
-========================
+=========================
+Add-ons - advanced topics
+=========================
 
 Q&A
 ---
 
-Is it possible to customize Volto with an addon?
+Is it possible to customize Volto with an add-on?
     Yes, the code path used is the same, so you can use the same convention.
-    Make sure you have the ``src/customizations`` folder inside your addon. And
+    Make sure you have the ``src/customizations`` folder inside your add-on. And
     remember, the customization resolution order follows the same order as the
-    addons listed in the ``addons`` key of package.json inside the project.
+    add-ons listed in the ``addons`` key of package.json inside the project.
 
-Can I customize an addon?
-    You can customize files from an addon with the same algorithm used for
+Can I customize an add-on?
+    You can customize files from an add-on with the same algorithm used for
     Volto.  In the ``src/customizations`` folder, move any Volto customized
-    files to the ``src/customizations/volto`` and then customize the addon by
+    files to the ``src/customizations/volto`` and then customize the add-on by
     reconstructing the full path (for example
     ``@plone-collective/datatable-tutorial/CellRenderer/Progress.jsx``) would be the
     full path for the file that customizes
     ``datatable-tutorial/src/CellRenderer/Progress.jsx``
 
-Can I have a theme in an addon?
+Can I have a theme in an add-on?
     Yes, you can alias the ``../../theme.config`` with a ``razzle.extend.js``
-    file in the addon root folder. Just don't make changes to the
+    file in the add-on root folder. Just don't make changes to the
     ``theme.config`` in the project and don't add any files in the project's
     theme folder.
 

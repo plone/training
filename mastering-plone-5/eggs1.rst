@@ -46,7 +46,7 @@ Enter the :file:`src` directory (*src* is short for *sources*) and call a script
 
 .. warning::
 
-    Before version 2.0.0 of :py:mod:`bobtemplates.plone` the command to create a addon was different:
+    Before version 2.0.0 of :py:mod:`bobtemplates.plone` the command to create a add-on was different:
 
     .. code-block:: bash
 
@@ -113,7 +113,7 @@ In :file:`src` there is now a new folder :file:`ploneconf.site` and in there is 
 
 
 :file:`configure.zcml` (:file:`src/ploneconf/site/configure.zcml`)
-    The phone book of the distribution. By reading it you can find out which functionality is registered using the component architecture. There are more registrations in other zcml-files in this addons (e.g. :file:`browser/configure.zcml`, :file:`upgrades.zcml` and :file:`permissions.zcml`) that are included in your main :file:`configure.zcml`
+    The phone book of the distribution. By reading it you can find out which functionality is registered using the component architecture. There are more registrations in other zcml-files in this add-ons (e.g. :file:`browser/configure.zcml`, :file:`upgrades.zcml` and :file:`permissions.zcml`) that are included in your main :file:`configure.zcml`
 
 :file:`setuphandlers.py` (:file:`src/ploneconf/site/setuphandlers.py`)
     This holds code that is automatically run when installing and uninstalling our add-on.

@@ -51,7 +51,7 @@ Then create the addon:
 
     $ plonecli create addon src/ploneconf.site
 
-The new addon will be created in the :file:`src` directory (*src* is short for *sources*)
+The new add-on will be created in the :file:`src` directory (*src* is short for *sources*)
 
 You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. choosing the default value) for most questions except where indicated (enter your GitHub username if you have one, do not initialize a GIT repository, Use Plone 5.2 and python 3.7)::
 
@@ -81,8 +81,8 @@ You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. cho
     You generated a package with a lot files. It might look like too much boilerplate but all files in this package serve a clear purpose and it will take some time to learn about the meaning of each of them.
 
 
-Volto Addons
-------------
+Volto Add-ons
+-------------
 
 The package that will hold your own code for volto was already created when you installed the frontend with ``create-volto-app``.
 The folder :file:`frontend/` that you created in the chapter :ref:`instructions-install_frontend-label` not only holds the  default volto frontend but also gives you the option to extend and customize the frontend.
@@ -123,7 +123,7 @@ In :file:`src` there is now a new folder :file:`ploneconf.site` and in there is 
 
 
 :file:`configure.zcml` (:file:`src/ploneconf/site/configure.zcml`)
-    The phone book of the distribution. By reading it you can find out which functionality is registered using the component architecture. There are more registrations in other zcml-files in this addons (e.g. :file:`browser/configure.zcml`, :file:`upgrades.zcml` and :file:`permissions.zcml`) that are included in your main :file:`configure.zcml`
+    The phone book of the distribution. By reading it you can find out which functionality is registered using the component architecture. There are more registrations in other zcml-files in this add-on (e.g. :file:`browser/configure.zcml`, :file:`upgrades.zcml` and :file:`permissions.zcml`) that are included in your main :file:`configure.zcml`
 
 :file:`setuphandlers.py` (:file:`src/ploneconf/site/setuphandlers.py`)
     This holds code that is automatically run when installing and uninstalling our add-on.
@@ -271,4 +271,4 @@ Summary
 
 * You created the package :py:mod:`ploneconf.site` to hold your code.
 * You added the new package to buildout so that Plone can use it.
-* In one of the next chapter we will also create a addon for Volto, the React frontend.
+* In one of the next chapter we will also create a add-on for Volto, the React frontend.

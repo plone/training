@@ -5,7 +5,7 @@ Alternative Indexing/Search Solutions
 alm.solrindex
 =============
 
-``alm.solrindex`` is another addon for connecting Plone search to Solr.
+``alm.solrindex`` is another add-on for connecting Plone search to Solr.
 
 It takes a different approach:
 

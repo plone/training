@@ -207,7 +207,7 @@ Open the view on a talk and it will show you information on that talk.
 
 .. note::
 
-    Changes in Python files are picked up by restarting Plone or using the addon ``plone.reload``: http://localhost:8080/@@reload
+    Changes in Python files are picked up by restarting Plone or using the add-on ``plone.reload``: http://localhost:8080/@@reload
 
 
 Reusing Browser Views

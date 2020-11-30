@@ -61,7 +61,7 @@ Some commands you will use rather often are:
     If the site asks you to login, use login ``admin`` and password ``admin``.
     This opens a form to create a Plone site and select additional features.
     Use :samp:`Plone` as the site id.
-    Select **plone.restapi. RESTful hypermedia API for Plone.** as a addon that should be installed with your new site.
+    Select **plone.restapi. RESTful hypermedia API for Plone.** as a add-on that should be installed with your new site.
 
     .. figure:: _static/features_create_site_form.png
 
@@ -330,7 +330,7 @@ Configure a Mailserver
     For production-level deployments you have to configure a mailserver.
     Later in the training we will create some content rules that send emails when new content is put on our site.
 
-    For the training you don't have to configure a working mailserver since the Plone-Addon `Products.PrintingMailHost` is installed which will redirect all emails to the console.
+    For the training you don't have to configure a working mailserver since the Plone-Add-on `Products.PrintingMailHost` is installed which will redirect all emails to the console.
 
 * Server: :samp:`localhost`
 * Username: leave blank

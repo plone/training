@@ -100,7 +100,7 @@ Run
 
     yarn develop
 
-You see your addon cloned to `src/addons/`.
+You see your add-on cloned to `src/addons/`.
 
 Read more about `mrs.developer` [2]_ configuration options.
 

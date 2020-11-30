@@ -3,7 +3,7 @@ Continuous Integration
 
 During this training we have seen how to test different parts of Plone and we have reviewed different testing techniques.
 
-In this final chapter, we are going to see how to configure addons for ``continuous integration`` (CI).
+In this final chapter, we are going to see how to configure add-ons for ``continuous integration`` (CI).
 
 Continuous integration is the practice of merging in small code changes frequently,
 rather than merging in a large change at the end of a development cycle.
@@ -37,7 +37,7 @@ Configuration files for CI created by ``plonecli`` are built to use the correct 
 Travis CI
 ---------
 
-Because ``collective`` and ``plone`` repositories are on ``GitHub``, the most commonly used CI service for collective addons is Travis CI.
+Because ``collective`` and ``plone`` repositories are on ``GitHub``, the most commonly used CI service for collective add-ons is Travis CI.
 
 Let's see how to enable our testing package on Travis.
 
@@ -97,7 +97,7 @@ For each triggered test, Travis CI instantiates a virtual machine and we can set
 
 Here we are selecting default Python (and virtualenv) version for our tests.
 
-If we need to test our addon only for one specific Plone version (and a specific Python version as side effect), we only need to specify the Python version in the ``python`` section.
+If we need to test our add-on only for one specific Plone version (and a specific Python version as side effect), we only need to specify the Python version in the ``python`` section.
 
 Otherwise, we can define a ``build matrix``. Travis CI will start multiple parallel jobs (one per matrix entry) using defined variables.
 
@@ -116,7 +116,7 @@ In our case we want to test 4 different Plone versions.
 ``before_script`` is the phase immediately before running test scripts and could be useful for tweaking some system setups (such as enabling the X virtual frame buffer (Xvfb) to run Robot tests).
 
 .. note::
-    
+
     We are using an environment variable set in the build matrix (``$PLONE_VERSION``) to run the correct Plone version.
 
 .. literalinclude:: _snippets/.travis.yml
@@ -125,7 +125,7 @@ In our case we want to test 4 different Plone versions.
 
 ``script`` is the phase in which we actually run the tests.
 By tests we mean not only the integration, functional, or robot tests that we previously wrote but also
-anything that can evaluate the quality of our addon and can fail.
+anything that can evaluate the quality of our add-on and can fail.
 
 In our case, we are running two tests:
 
@@ -170,7 +170,7 @@ To check all the code in our repository, we need to run this command:
 .. code-block:: console
 
   $ bin/code-travis_error_code_analysis
-  
+
 plone.recipe.codeanalysis also creates a git ``pre-commit`` hook that runs the above command on every ``commit``.
 
 The output is a list of things that need to be fixed, indicating the file name and line for each reported item.
@@ -242,7 +242,7 @@ Try to install and run tox locally.
     .. code-block:: console
 
         $ tox -l
-    
+
     and then run only one environment with:
 
     .. code-block:: console

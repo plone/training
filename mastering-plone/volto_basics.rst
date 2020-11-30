@@ -5,8 +5,7 @@ Volto Basics
 
 Volto is a React-based frontend for Plone. Beside the classic Plone frontend and other frontends it is the default frontend and editor since Plone 6.
 
-The intention to build a new frontend was to achieve a new experience for
-editing the web.
+The intention to build a new frontend was to achieve a new experience for editing the web.
 
 Here are some things you should know if you are new to Plone 6 or Volto:
 
@@ -18,11 +17,11 @@ Here are some things you should know if you are new to Plone 6 or Volto:
 
 Details
 
-* Volto installed separately from Plone backend. See chapter :ref:`instructions-install_frontend-label` for instructions.
+* Volto is installed separately from Plone backend. See chapter :ref:`instructions-install_frontend-label` for instructions.
 * Volto runs in a different process than the Plone-backend. By default Volto runs on port 3000. If you start Volto with ``yarn start`` you can see the frontend on http://localhost:3000. The Plone backend runs by default on http://localhost:8080
 * To create a new Plone site in your already setup Zope environment you use the backend, this is by now not possible in Volto.
 * Volto takes advantage of `Semantic UI React components <https://react.semantic-ui.com/>`_ to compose most of the views. For example the component `Image <https://react.semantic-ui.com/elements/image/>`_ is used to render images.
-* Volto default theme is based on Semantic UI theme and `Pastanaga <https://youtu.be/wW9mTl1Tavc?t=133>`_
+* The Volto default theme is based on Semantic UI theme and is called `Pastanaga <https://youtu.be/wW9mTl1Tavc?t=133>`_
 * Same as Plone, Volto is highly extendable with add-ons for further features.
 * Existing Volto components are customizable with a technology similar to `z3c.jbot` called :ref:`volto_overrides-componentshadowing-label`.
 * Volto provides server side rendering (SSR), important for SEO-purposes.
@@ -32,8 +31,8 @@ Details
 * If you do not use the behavior ``volto.blocks`` the fields from a content-type schema are edited and stored exactly like previously in Plone.
 
 
-**You are about to decide for one frontend: Volto or the classic Plone frontend.**
+**You are about to decide for one frontend: Volto or the Plone Classic frontend.**
 
 
-* Most existing addons for Plone will have to be adapted to Volto if they touch UI (e.g. templates for content-types, controlpanels or viewlets).
-* For Volto addons see https://github.com/collective/awesome-volto/
+* Most existing add-ons for Plone will have to be adapted to Volto if they touch UI (e.g. templates for content-types, controlpanels or viewlets).
+* For Volto add-ons see https://github.com/collective/awesome-volto/

@@ -1,5 +1,5 @@
 ========================
-Volto addons development
+Volto add-ons development
 ========================
 
 Volto: an overview
@@ -27,7 +27,7 @@ all communication is done as JSON api messages.
 To generate the second entrypoint, the *client*-only bundle, Webpack will need to
 know how to find, load and potentially mutate (compress, transpile, minify,
 etc) the files that represent the code and resources of Volto, the Volto
-project and Volto addons. The base is provided by Razzle, with instructions for
+project and Volto add-ons. The base is provided by Razzle, with instructions for
 Webpack to transpile .js and .jsx files with Babel, load .less files, css,
 images and svgs. For any other file type (for example .scss, .ts, etc) you'll
 have to enhance the Razzle configuration with the appropriate Webpack loader.
@@ -67,16 +67,16 @@ or the new Yeoman-based generator-volto:
     npm install -g @plone/generator-volto
     yo @plone/volto myvoltoproject
 
-The yo-based generator partially integrates addons (it can generate a
-``package.json`` with addons and workspaces already specified).
+The yo-based generator partially integrates add-ons (it can generate a
+``package.json`` with add-ons and workspaces already specified).
 
 Addons - first look
 -------------------
 
-Although still in their infancy, 2020 is the year of the Volto addons.  The
+Although still in their infancy, 2020 is the year of the Volto add-ons.  The
 Bethoven Sprint was a key moment in arriving at a consensus on how to load the
 addons and what capabilities they should have. With a common understanding on
-what exactly is an addon, many new addons were published and can now be
+what exactly is an add-on, many new add-ons were published and can now be
 integrated with unmodified Volto projects.
 
 The `collective/awesome-volto`__ repo tracks most of them (submit PRs if
@@ -84,29 +84,29 @@ there's anything missing!).
 
 .. __: https://github.com/collective/awesome-volto
 
-An addon can be almost anything that a Volto project can be. They can:
+An add-on can be almost anything that a Volto project can be. They can:
 
 - provide additional views and blocks
 - override or extend Volto's builtin views, blocks, settings
-- shadow (customize) Volto's (or another addon's) modules
+- shadow (customize) Volto's (or another add-on's) modules
 - register custom routes
 - provide custom Redux actions and reducers
 - register custom Express middleware for Volto's server process
 - tweak Volto's webpak configuration, load custom Razzle and Webpack plugins
 - even provide a custom theme, just like a regular Volto project does.
 
-As for implementation, Volto addons are just plain Javascript packages with an
+As for implementation, Volto add-ons are just plain Javascript packages with an
 additional feature: they provide helper functions that mutate Volto's
 configuration registry. These are the "addon configuration loaders".
 
 .. note::
 
-    To make things easy, addons should be distributed as source, non
-    transpiled. Volto's Webpack setup will load/transpile addon packages if
-    they are identified as Volto addons.
+    To make things easy, add-ons should be distributed as source, non
+    transpiled. Volto's Webpack setup will load/transpile add-on packages if
+    they are identified as Volto add-ons.
 
 Their ``main`` entry in ``package.json`` should point to ``src/index.js``,
-which should be an ES6 module with a default export, the addon configuration
+which should be an ES6 module with a default export, the add-on configuration
 loader:
 
 .. code-block:: jsx
@@ -115,26 +115,26 @@ loader:
         return config
     };
 
-Any additional named export from the main script can be used as an addon
+Any additional named export from the main script can be used as an add-on
 optional configuration loader.
 
 The ``config`` object that is passed is the Volto ``configuration registry``,
 the singleton module referenced throughout the Volto and projects as
-``~/config``. The addon can mutate the properties of config, such as
+``~/config``. The add-on can mutate the properties of config, such as
 ``settings``, ``blocks``, ``views``, ``widgets`` or its dedicated
 ``addonRoutes`` and ``addonReducers``.
 
-Note: the addon configuration loading mechanism is inspired by Razzle, which
+Note: the add-on configuration loading mechanism is inspired by Razzle, which
 uses a similar "get the config, return the config" pass-through mechanism for
 its plugins.
 
 The resolution order is: Volto declares the initial configuration, it applies
-the addon configuration and then the project configuration is loaded last,
+the add-on configuration and then the project configuration is loaded last,
 enabling the project to override any configuration.
 
-So: :menuselection:`Volto → addons → project`.
+So: :menuselection:`Volto → add-ons → project`.
 
-To load an addon, the project needs to specify the addon in its
+To load an add-on, the project needs to specify the add-on in its
 ``project.json`` ``addons`` key. Optional configuration loaders are specified
 as a comma-separated list after the ``:`` colon symbol.
 
@@ -147,16 +147,16 @@ as a comma-separated list after the ``:`` colon symbol.
     ],
     ...
 
-Notice that the addons should be named by their package name, plus any
-additional optional configuration loaders that are exported by the addon's
+Notice that the add-ons should be named by their package name, plus any
+additional optional configuration loaders that are exported by the add-on's
 ``src/index.js``.
 
-Bootstrap an addon
+Bootstrap an add-on
 ------------------
 
-Let's start creating an addon. We'll create a new scoped package:
+Let's start creating an add-on. We'll create a new scoped package:
 ``@plone-collective/datatable-tutorial``. Inside your Volto project, bootstrap
-the addon by running:
+the add-on by running:
 
 .. code-block:: shell
 
@@ -168,7 +168,7 @@ the addon by running:
     yo @plone/volto:addon
 
 Note: the namespace ``@plone-collective`` (or any other) is not required and is
-optional.  We're using namespaces to group addons under a common "group".
+optional.  We're using namespaces to group add-ons under a common "group".
 Unfortunately the NPM ``@collective`` scope is not available to the Plone
 community.
 
@@ -180,7 +180,7 @@ following content:
 
     export default (config) => config;
 
-Back to the project, you can edit ``jsconfig.json`` and add your addon:
+Back to the project, you can edit ``jsconfig.json`` and add your add-on:
 
 .. code-block:: json
 
@@ -198,7 +198,7 @@ Back to the project, you can edit ``jsconfig.json`` and add your addon:
 .. note::
 
     The ``jsconfig.json`` file is needed by Volto to identify development
-    packages. You are not strictly limited to Volto addons in its use, you
+    packages. You are not strictly limited to Volto add-ons in its use, you
     could, for example, use this to make it easier to debug third-party
     Javascript packages that are shipped transpiled.
 
@@ -222,7 +222,7 @@ to manage the package and ``jsconfig.json`` changes. Add to
 Then run ``yarn develop``, which will bring the package in ``src/addons`` and
 adjust ``jsconfig.json``.
 
-When developing addons that have third-party depedencies, you need to add the
+When developing add-ons that have third-party depedencies, you need to add the
 addon as workspace to the Volto project. Change the Volto project's
 ``package.json`` to something like:
 
@@ -240,7 +240,7 @@ addon as workspace to the Volto project. Change the Volto project's
     it's only needed to make sure you can't accidentally publish the package to
     NPM
 
-To be able to add dependencies to the addon you need to add them via the
+To be able to add dependencies to the add-on you need to add them via the
 workspaces machinery, by running something like (at the Volto project root):
 
 .. code-block:: console
@@ -249,9 +249,9 @@ workspaces machinery, by running something like (at the Volto project root):
     yarn workspace @plone-collective/datatable-tutorial add @papaparse
 
 .. note::
-    There are several other addon templates, such as `voltocli`_ or `EEA Addon
+    There are several other add-on templates, such as `voltocli`_ or `EEA Add-on
     Template`_. You could very well decide not to use any of them and simply
-    bootstrap a new addon by running:
+    bootstrap a new add-on by running:
 
     .. code-block:: console
 
@@ -259,12 +259,12 @@ workspaces machinery, by running something like (at the Volto project root):
         cd src/addons/datatable-tutorial
         npm init
 
-    So, remember, an addon is just a Javascript package that export
+    So, remember, an add-on is just a Javascript package that export
     a configuration loader. Just make sure to point the ``main`` in
     ``package.json`` to ``src/index.js``.
 
 .. _voltocli: https://github.com/nzambello/voltocli
-.. _`EEA Addon Template`: https://github.com/eea/volto-addon-template
+.. _`EEA Add-on Template`: https://github.com/eea/volto-addon-template
 .. _`@plone/generator-volto`: https://github.com/plone/generator-volto
 
 Create a new block
@@ -407,7 +407,7 @@ The ``<Form>`` component in our case is used only for styling purposes.
 
 We want to show a field to browse to a file. Notice the ``widget`` parameter of
 the field. This widget is not registered by default in Volto, let's register
-it, add this in the addon configuration loader in ``src/index.js``:
+it, add this in the add-on configuration loader in ``src/index.js``:
 
 .. code-block:: jsx
 
@@ -426,5 +426,5 @@ widgets Volto registry.
 
 .. note::
 
-    We'll need a CSV file to play around while developing this addon. We have
+    We'll need a CSV file to play around while developing this add-on. We have
     provided one for you to :download:`download <../_static/forest-areas.csv>`
