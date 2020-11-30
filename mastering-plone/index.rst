@@ -23,13 +23,6 @@ The story of a conference platform provides a week-long training of several deve
     Plone 6 is not yet released and thus the training is a work in-progress and there are still some rough edges.
 
 
-.. todo::
-
-    These chapters are outdated and need to be updated:
-
-    * :doc:`views_1`: We still need browser views with Volto but there needs to be good example why and where?
-
-
 ..  toctree::
     :maxdepth: 2
     :numbered:
