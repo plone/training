@@ -6,10 +6,12 @@ Optional
 The following topics are not covered in the written training but could be discussed on demand.
 
 * Custom forms
+
   * Hand-written forms
   * Form built using zc3.form
   * Form using addons
   * Custom add- and edit-forms for content
+
 * Custom fields
 * Caching (plone.app.caching, memoize, Varnish etc.)
 * Portlets
