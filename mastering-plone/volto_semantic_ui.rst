@@ -18,39 +18,12 @@ Its React complement `Semantic UI React <https://react.semantic-ui.com/>`_ provi
 
 Volto is per default, not mandatory, build on both: the Semantic UI theming and the Semantic UI React Components. 
 
-Volto applies `components` from `Semantic UI React` to compose a large part of the views. For example the component `Image <https://react.semantic-ui.com/elements/image/>`_ is used to render images.
+Volto applies `components` from `Semantic UI React` to compose a large part of the views. For example the component `List <https://react.semantic-ui.com/elements/list/>`_ is used to render lists.
 
 .. code-block:: jsx
-    :linenos:
-    :emphasize-lines: 14-18
 
-    /**
-    * EventView view component class.
-    * @function EventView
-    * @params {object} content Content object.
-    * @returns {string} Markup of the component.
-    */
-    const EventView = ({ intl, content }) => (
-      <Container className="view-wrapper event-view">
-        {content.title && <h1 className="documentFirstHeading">{content.title}</h1>}
-        {content.description && (
-          <p className="documentDescription">{content.description}</p>
-        )}
-        {content.image && (
-          <Image
-            className="document-image"
-            src={content.image.scales.thumb.download}
-            floated="right"
-          />
-        )}
-        <Segment floated="right">
-          …
+    <List items={content.subjects} />
 
-The above Semantic `Image` component is rendered as
+The above Semantic `List` component renders the list of subjects of the context content object. One example is the EventView.
 
-.. code-block:: html
-    :linenos:
-
-    <img
-      src="http://localhost:8080/Plone/my-documents/my-event/@@images/dd916f86-ac12-43b6-9e68-1e89956e9878.png"
-      class="ui right floated image document-image">
+See next chapter for theming with Semantic UI.
