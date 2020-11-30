@@ -39,12 +39,14 @@ Topics covered:
 Volto has multiple views for listing objects. Most of them list all objects in a folder or folderish type like the ``listing_view`` with title and description.
 The talk list should show also information about the dates, the locations and the speakers. We will create an additonal view for folderisch types. We stick to Plone default type Document, which is folderish.
 
-Create a new file  :file:`src/components/Views/TalkList.jsx`.
 
 Register the view in Volto and Plone
 ------------------------------------
 
-As a first step the file will hold a placeholder again:
+
+Create a new file :file:`src/components/Views/TalkList.jsx`.
+
+As a first step the file will hold a placeholder:
 
 ..  code-block:: jsx
 
@@ -91,17 +93,16 @@ Now register the new component as layout view for types Folder and Document in `
       },
     };
 
-This extends ``defaultViews.layoutViews`` with the key/value pair ``talklist_view: TalkList`` and adds the Talkview to the default view for Documents.
+This extends the folder views ``defaultViews.layoutViews`` with the key/value pair ``talklist_view: TalkList`` and adds the Talkview to the default view for Documents.
 
-To add a layout view you also have to add this new view in the ``ZMI`` of your ``Plone``. Login to your instance by using ``/manage`` and unfold the point Plone in the left sidebar. Now click on ``portal_types`` and search for the ``folder``-Type to add your new ``talklist_view`` to the ``Available view methods`` by adding it to a new line.
+To add a layout view you also have to add this new view in the ``ZMI`` of your ``Plone``. Login to your Plone instance. Go to ``portal_types`` and select the ``Document``-Type to add your new ``talklist_view`` to the ``Available view methods``.
 
 .. figure:: _static/add_talklistview_in_zmi.png
-    :scale: 50 %
-    :alt: Add new View in the ZMI.
+    :alt: Add new View to Document content type in the ZMI.
 
-    Add new View in the ZMI.
+    Add new View to content type Document in the ZMI.
 
-From now on you can select the new view for Folders:
+From now on you can select the new view for Documents:
 
 .. figure:: _static/talklistview_select.png
 
