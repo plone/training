@@ -86,6 +86,8 @@ For a Plone 6 installation, not Plone Classic, but with the React frontend **Vol
 
 .. code-block:: bash
 
+    npm install -g yo 
+    npm install -g @plone/generator-volto
     yo @plone/volto volto-project-myprojectname
 
 .. code-block:: bash
