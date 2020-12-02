@@ -234,7 +234,7 @@ Install pre-requisites.
 
         nvm install --lts
 
-#.  Install the Volto generator.
+#.  Install **or update** the Volto generator.
 
     .. code-block:: bash
 
@@ -249,8 +249,13 @@ Install pre-requisites.
 
 If successful, here is the output of the command::
 
-    TODO
+    🎭 Volto started at http://localhost:3000 🚀
 
+**Troubleshooting:** Did you update the Volto project generator?
+
+    .. code-block:: bash
+
+        npm install -g @plone/generator-volto
 
 .. note::
 
