@@ -2,6 +2,7 @@
 
 .. todo::
 
+    * Skip Vagrant?
     * Update Vagrant instructions for Plone 5 with Volto
 
 
@@ -194,7 +195,7 @@ You need to go up one folder (out of ``backend``) to install the frontend:
 
 .. code-block:: console
 
-    cd ..
+    cd ../frontend/
 
 .. todo::
 
