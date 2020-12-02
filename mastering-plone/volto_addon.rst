@@ -45,6 +45,24 @@ Update ``package.json``:
       "@eeacms/volto-columns-block": "github:eea/volto-columns-block#0.3.2"
     },
 
+Add-ons that are already released on npm https://www.npmjs.com:
+
+..  code-block:: bash
+    :linenos:
+    :emphasize-lines: 8-9
+
+    "addons": [
+      "@eeacms/volto-blocks-form",
+      "@eeacms/volto-columns-block"
+    ],
+
+    "dependencies": {
+      "@plone/volto": "8.3.0",
+      "@eeacms/volto-blocks-form": "^1.0.2",
+      "@eeacms/volto-columns-block": "^1.0.0"
+    },
+
+
 Install new add-ons and restart Volto:
 
 ..  code-block:: bash
