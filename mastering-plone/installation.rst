@@ -83,7 +83,7 @@ Visit the `download page <https://plone.org/download>`_ to see all the options.
 Installing Volto
 ----------------
 
-For a Plone 6 installation, not Plone Classic, but with the React frontend Volto, by now two installations are needed: Plone and Volto. The former section is describing the options for a Plone installation. This section is about setting up a Volto installation. We are speaking about a Volto installation, a Volto app, a Volto project.
+For a Plone 6 installation, not Plone Classic, but with the React frontend **Volto**, by now two installations are needed: Plone and Volto. The former section is describing the options for a Plone installation. This section is about setting up a Volto installation. We are speaking about a Volto installation, a Volto app, a Volto project.
 
 .. code-block:: bash
 
