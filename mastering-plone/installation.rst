@@ -3,12 +3,10 @@
 Installation & Setup
 =====================
 
-A Plone 6 installation is both: Plone.
+A Plone 6 installation is both: 
 
-By now, installing Plone means: installing Plone and 
-
-* style your Plone site
-* install the fancy volto frontend.
+* Plone Classic
+* Plone with React frontend Volto
 
 .. sidebar:: Installation & Setup
 
