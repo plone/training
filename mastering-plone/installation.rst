@@ -88,10 +88,27 @@ For a Plone 6 installation, not Plone Classic, but with the React frontend Volto
 .. code-block:: bash
 
     yo @plone/volto volto-project-myprojectname
+
+.. code-block:: bash
+
+    Getting latest Volto version
+    Retrieving Volto's yarn.lock
+    Using latest released Volto version: 10.1.0
+    ? Project description A Volto-powered Plone frontend
+    ? Would you like to add addons? false
+    ? Would you like to add workspaces? false
+
+.. code-block:: bash
+
     cd volto-project-myprojectname
     yarn start
 
+.. code-block:: bash
+
+    🎭 Volto started at http://localhost:3000 🚀
+
 For more information see `Volto documentation <https://docs.voltocms.com/getting-started/install/>`_
+
 
 .. _installation-hosting-label:
 
