@@ -3,34 +3,28 @@
 Installation & Setup
 =====================
 
+.. sidebar:: Installation & Setup
+
+    .. contents:: Table of Contents 
+        :depth: 4
+
 
 .. _installation-plone-label:
-
-.. todo::
-
-    * Drop mentioning Plone 3 and 4
-    * Mention container options like Docker
 
 Installing Plone
 ----------------
 
-The following table shows the Python versions required by Plone from version 3.x to 5.2.x:
+Python versions required by Plone from version 4.3.x on.
 
 =========  ================
   Plone         Python
 =========  ================
- 3.x        2.4
- 4.0.x      2.6
- 4.1.x      2.6
- 4.2.x      2.6 or 2.7
  4.3.x      2.7
  5.0.x      2.7
  5.1.x      2.7.9
  5.2.x      2.7.14 or 3.6+
  6.0.x      3.6+
 =========  ================
-
-(Hopefully you won't have to deal with any Plone sites older than version 4.3.x.)
 
 Plone 5.x requires a working Python 2.7 (or Python 3.6+ for Plone 5.2.x) and other system tools that not every OS provides.
 The installation of Plone is different on every system.
