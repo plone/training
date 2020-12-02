@@ -20,7 +20,7 @@ Extending Plone With Add-on Packages
 
 Plone 6 plays with two groups of add-ons: Add-ons for Plone and such for the frontend Volto.
 
-The need of Plone add-ons is `dry-aging?` if you use Plone with or without Volto frontend. As by now, development took place in Plone. Now development will be done in Plone exclusively like before or both in Plone and in ReactJS.
+The need of Plone add-ons is depending if you use Plone with or without Volto frontend. As by now, development took place in Plone. Now development will be done in Plone exclusively like before or both in Plone and in ReactJS.
 
 Plone add-ons enrich the CMS by
 
