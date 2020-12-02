@@ -8,7 +8,6 @@ Installation & Setup
 
 .. todo::
 
-    * Document the installation of Volto.
     * Drop mentioning Plone 3 and 4
     * Mention container options like Docker
 
@@ -78,6 +77,21 @@ Visit the `download page <https://plone.org/download>`_ to see all the options.
 
     * https://docs.plone.org/manage/installing/installation.html
 
+
+.. _installation-Volto-label:
+
+Installing Volto
+----------------
+
+For a Plone 6 installation, not Plone Classic, but with the React frontend Volto, by now two installations are needed: Plone and Volto. The former section is describing the options for a Plone installation. This section is about setting up a Volto installation. We are speaking about a Volto installation, a Volto app, a Volto project.
+
+.. code-block:: bash
+
+    yo @plone/volto volto-project-myprojectname
+    cd volto-project-myprojectname
+    yarn start
+
+For more information see `Volto documentation <https://docs.voltocms.com/getting-started/install/>`_
 
 .. _installation-hosting-label:
 
