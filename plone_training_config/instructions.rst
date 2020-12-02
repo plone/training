@@ -228,51 +228,27 @@ Install pre-requisites.
         #Linux
         apt-get install nvm
 
-#.  Install node LTS (currently that is 12.16.2) and enable it.
+#.  Install node LTS (node version LTS: long time support)
 
     .. code-block:: bash
 
         nvm install --lts
-        nvm use 12.16.2
 
-#.  Install the ``create-volto-app`` helper utility.
+#.  Install the Volto generator.
 
     .. code-block:: bash
 
-        npm -g i @plone/create-volto-app
+        npm install -g yo @plone/generator-volto
 
 #.  Create the frontend for the project.
 
     .. code-block:: bash
 
-        create-volto-app frontend
+        yo @plone/volto my-volto-project
 
 If successful, here is the output of the command::
 
-    Creating frontend...
-
-    > Success! Created files for "frontend" Volto app
-
-      Installing npm modules:
-        @plone/volto
-
-    > Success! Installed dependencies for frontend
-
-      Awesome! You're now ready to start coding.
-
-      We already ran yarn for you, so your next steps are:
-        cd frontend
-
-      To start a local server for development:
-        yarn start
-
-      To build a version for production:
-        yarn build
-
-      To run the server in production:
-        yarn start:prod
-
-      Questions? Feedback? Please let us know!
+    TODO
 
 
 .. note::
