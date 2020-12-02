@@ -203,10 +203,10 @@ Change to the sibling folder `frontend`.
 
     cd ../frontend/
 
-You have two options. Do you like a challenge?
+You have two options:
 
     1. Create the frontend from scratch using the Volto generator.
-    2. Use the existing Volto project for this training `volto-ploneconf <https://github.com/collective/volto-ploneconf.git>`_ that contains all the code for the training.
+    2. Use the existing Volto project for this training `volto-ploneconf <https://github.com/collective/volto-ploneconf.git>`_ with all the code for the training.
 
 .. note::
 
@@ -215,6 +215,8 @@ You have two options. Do you like a challenge?
 
 Option 1: Frontend from scratch with Volto generator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _instructions-install_frontend-prerequisites-label:
 
 Install pre-requisites.
 
@@ -241,13 +243,22 @@ Install pre-requisites.
         npm install -g yo
         npm install -g @plone/generator-volto
 
-#.  Create the frontend for the project.
+Create your Volto frontend project:
+
+#.  Generate a project.
 
     .. code-block:: bash
 
         yo @plone/volto my-volto-project
 
-If successful, here is the output of the command::
+#.  Start up the frontend with
+
+    .. code-block:: bash 
+
+        cd volto-project-myprojectname
+        yarn start
+
+If successful, you get:
 
     🎭 Volto started at http://localhost:3000 🚀
 
@@ -257,28 +268,14 @@ If successful, here is the output of the command::
 
         npm install -g @plone/generator-volto
 
-.. note::
 
-    Alternatively to Steps 3 and 4 above, you can use the utility ``npx`` to install ``create-volto-app`` without installing it globally.
-    This option requires that ``npx`` be installed globally.
-    This has the advantage of avoiding the need to upgrade ``create-volto-app`` each time you want to use it because ``npx`` does it for you.
-    ``npx`` can both upgrade ``create-volto-app`` and create the frontend for your project in one command.
+Create a Plone site object *Plone* on http://localhost:8080 
 
-    .. code-block:: console
+Point your browser to http://localhost:3000 and see that Plone is up and running.
 
-        npx @plone/create-volto-app frontend
-
-Now you can enter the new folder ``frontend`` and start it with:
-
-.. code-block:: bash
-
-    cd frontend
-    yarn start
-
-If you open http://localhost:3000 you will see the frontend, but you will get an error message ``This page does not seem to exist…`` because you have not yet created a Plone site.
-We will do that in the next chapter.
 
 You can stop the frontend anytime using :kbd:`ctrl + c`.
+
 
 .. _volto-install-troubleshooting:
 
