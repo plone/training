@@ -213,7 +213,7 @@ You have two options. Do you like a challenge?
     If you are completely new to node and companions, please see `Volto Documentation <https://docs.voltocms.com/getting-started/install/>`_ to find information about node, nvm, npx, yarn and the React thing.
 
 
-Option 1: Create a frontend from scratch with Volto generator
+Option 1: Frontend from scratch with Volto generator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Install pre-requisites.
@@ -238,7 +238,8 @@ Install pre-requisites.
 
     .. code-block:: bash
 
-        npm install -g yo @plone/generator-volto
+        npm install -g yo
+        npm install -g @plone/generator-volto
 
 #.  Create the frontend for the project.
 
@@ -282,7 +283,7 @@ Troubleshooting
 See https://docs.voltocms.com/getting-started/install/#install-volto
 
 
-Option 2. Use the existing training project ``volto-ploneconf`` with all code for the training
+Option 2. Start with existing training project ``volto-ploneconf`` with all code for the training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Get the finished code for the frontend from github and install:
