@@ -197,30 +197,24 @@ You can stop the running instance anytime using :kbd:`ctrl + c`.
 Installing the frontend
 +++++++++++++++++++++++
 
-You need to go up one folder (out of ``backend``) to install the frontend:
+Change to the sibling folder `frontend`.
 
 .. code-block:: console
 
     cd ../frontend/
 
-.. todo::
+You have two options. Do you like a challenge?
 
-    We need to deal with the issue that there a two options:
+    1. Create the frontend from scratch using the Volto generator.
+    2. Use the existing Volto project for this training `volto-ploneconf <https://github.com/collective/volto-ploneconf.git>`_ that contains all the code for the training.
 
-    1. Create the frontend from scratch using `create-volto-app`
-    2. Use the existing package `volto-ploneconf` that contains all the code for the training
+.. note::
 
-    For now we document both.
-
-.. todo::
-
-    * Copy some info from https://training.plone.org/5/volto/bootstrap.html or the authoritative docs at https://docs.voltocms.com/getting-started/install/
-    * Explain ``create-volto-app``
-    * Explain node, nvm, npx, yarn
+    If you are completely new to node and companions, please see `Volto Documentation <https://docs.voltocms.com/getting-started/install/>`_ to find information about node, nvm, npx, yarn and the React thing.
 
 
-Option 1: Create the frontend from scratch using `create-volto-app`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Option 1: Create a frontend from scratch with Volto generator
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Install pre-requisites.
 
@@ -312,8 +306,8 @@ Troubleshooting
 See https://docs.voltocms.com/getting-started/install/#install-volto
 
 
-Option 2. Use the existing package ``volto-ploneconf`` that contains all the code for the training
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Option 2. Use the existing training project ``volto-ploneconf`` with all code for the training
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Get the finished code for the frontend from github and install:
 
