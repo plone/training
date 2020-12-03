@@ -294,13 +294,15 @@ Get the finished code for the frontend from github and install:
 
     git clone https://github.com/collective/volto-ploneconf.git frontend
     cd frontend
-    yarn install
+    yarn
 
 Now you can start it with::
 
     $ yarn start
 
-If you open http://localhost:3000 you will see the frontend but you will get a error message (`This page does not seem to exist…`) because you have not yet created a Plone site. We'll do that in chapter 7.
+Create a Plone site object *Plone* on http://localhost:8080 
+
+Point your browser to http://localhost:3000 and see that Plone is up and running.
 
 You can stop the frontend anytime using :kbd:`ctrl + c`.
 
