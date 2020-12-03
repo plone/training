@@ -48,7 +48,7 @@ Installing the backend
 
     If you are new to running Plone on your computer you could skip this part and continue with :ref:`install-virtualbox`.
 
-If you **are** experienced with running Plone on your own, we encourage you to do so because you will have important benefits:
+We encourage you to install and run Plone on your own machine, because you will have important benefits:
 
 * You can use the editor you are used to.
 * You can use *omelette* to have all the code of Plone at your fingertips.
@@ -326,6 +326,13 @@ You can stop the frontend anytime using :kbd:`ctrl + c`.
 
 Installing Plone with Vagrant
 -----------------------------
+
+.. warning::
+
+    This part is not yet updated to install the frontend Volto!
+
+    Use a local installtion (see above) until that is done.
+
 
 We use a virtual machine (Ubuntu 18.04) to run Plone during the training.
 

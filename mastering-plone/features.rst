@@ -39,39 +39,48 @@ Some commands you will use rather often are:
     $ ./bin/instance run myscript.py
     $ ./bin/instance adduser name password
 
-.. only:: not presentation
+Depending on your computer, it might take up to a minute until Zope will tell you that it's ready to serve requests.
 
-    Depending on your computer, it might take up to a minute until Zope will tell you that it's ready to serve requests.
-    On a decent laptop it should be running in under 10 seconds.
+On a decent laptop it should be running in under 10 seconds.
+A standard installation listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
 
-    A standard installation listens on port 8080, so lets have a look at our Zope site by visiting http://localhost:8080
+.. figure:: _static/features_plone_running.png
 
-    .. figure:: _static/features_plone_running.png
+As you can see, there is no Plone site yet!
 
-    As you can see, there is no Plone site yet!
+.. _features-create-plonesite-label:
 
-    We have a running Zope with a database but no content.
-    But luckily there is a button to create a Plone site.
+Creating a Plone Site
+---------------------
 
-    To use the React frontend you will also have to install plone.restapi while creating the Plone site.
+We now have a running Zope with a database but no content.
+But luckily there is a button to create a Plone site.
+
+.. warning::
+
+    Because Plone 6 is not released yet we need to enable some features of Plone that are not there by default.
     In Plone 6 this will be done automatically for you.
-    In Plone 5.2 you need to select ``plone.restapi`` by hand:
 
-    Click on the link :guilabel:`Advanced` next to the button :guilabel:`Create a Plone site`.
-    If the site asks you to login, use login ``admin`` and password ``admin``.
-    This opens a form to create a Plone site and select additional features.
-    Use :samp:`Plone` as the site id.
-    Select **plone.restapi. RESTful hypermedia API for Plone.** as a add-on that should be installed with your new site.
+    Until then you need to select ``ploneconf.site`` as a add-on when creating the site!
 
-    .. figure:: _static/features_create_site_form.png
+    :py:mod:`ploneconf.site` makes the following changes to ease working with Volto:
 
-    You will be automatically redirected to the new site.
+    * Make Document, News Items and Events folderish by installing :py:mod:`collective.folderishtypes`.
+    * Install :py:mod:`plone.restapi` to be able to communicate with the frontend.
+    * Enable the blocks-behavior for Documents.
+    * Allow editing the Siteroot like a Document.
 
-.. only:: presentation
+    In Plone 6 this (and more) will be done automatically for you.
 
-    * By default Plone listens on port 8080. Look at http://localhost:8080
-    * No Plone site yet! Create a new Plone site. Make sure ``plone.restapi`` is installed.
-    * Use :samp:`Plone` (the default) as the site id.
+Click on the link :guilabel:`Advanced` next to the button :guilabel:`Create a Plone site`.
+If the site asks you to login, use login ``admin`` and password ``admin``.
+This opens a form to create a Plone site and select additional features.
+Use :samp:`Plone` as the site id.
+Select **ploneconf.site** as a add-on that should be installed with your new site.
+
+.. figure:: _static/features_create_site_form.png
+
+You will be automatically redirected to the new site.
 
 This is how the frontpage should look like:
 

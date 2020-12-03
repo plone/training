@@ -7,11 +7,11 @@ Write Your Own Python Add-On to Customize Plone
 
    Code for the beginning of this chapter::
 
-       git checkout XXX
+        nothing here...
 
    Code for the end of this chapter::
 
-        git checkout eggs1
+        git checkout initial
 
 .. _eggs1-create-label:
 
@@ -31,6 +31,13 @@ Topics covered:
 Creating the package
 --------------------
 
+.. warning::
+
+    You can skip this part since you already added :py:mod:`ploneconf.site` as a source-checkout when running buildout.
+    And in :ref:`features-create-plonesite-label` you installed that package when creating your site.
+
+    You can still follow this chapter to learn hwo to create your own packages.
+
 Your own code has to be organized as a `Python package <https://docs.python.org/3/tutorial/modules.html#packages>`_. A python package is a directory that follows certain conventions to hold python modules.
 
 We are going to use `plonecli <https://pypi.org/project/plonecli>`_ to create a skeleton package. You only need to fill in some blanks.
@@ -44,6 +51,7 @@ Install plonecli:
 .. code-block:: bash
 
     $ pip install plonecli
+    $ pip install bobtemplates.plone==5.2.0
 
 Then create the addon:
 
@@ -67,9 +75,9 @@ You have to answer some questions about the add-on. Press :kbd:`Enter` (i.e. cho
 
     --> Plone version [5.2.1]: 5.2.3
 
-    --> Python version for virtualenv [python2.7]: python3.7
+    --> Python version for virtualenv [python3.7]:
 
-    --> Do you want me to activate VS Code support? (y/n) [n]:
+    --> Do you want me to activate VS Code support? (y/n) [y]:
 
     git init is disabled!
     Generated file structure at /Users/pbauer/workspace/training/buildout/src/ploneconf.site
