@@ -11,7 +11,7 @@ Installing Plone for the Training
 
 .. sidebar:: Installation for the training
 
-    .. contents:: Table of Contents 
+    .. contents:: Table of Contents
         :depth: 4
 
 
@@ -214,7 +214,7 @@ You have two options:
 
 
 Option 1: Frontend from scratch with Volto generator
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _instructions-install_frontend-prerequisites-label:
 
@@ -253,7 +253,7 @@ Create your Volto frontend project:
 
 #.  Start up the frontend with
 
-    .. code-block:: bash 
+    .. code-block:: bash
 
         cd volto-project-myprojectname
         yarn start
@@ -269,7 +269,7 @@ If successful, you get:
         npm install -g @plone/generator-volto
 
 
-Create a Plone site object *Plone* on http://localhost:8080 
+Create a Plone site object *Plone* on http://localhost:8080
 
 Point your browser to http://localhost:3000 and see that Plone is up and running.
 
@@ -286,7 +286,7 @@ See https://docs.voltocms.com/getting-started/install/#install-volto
 
 
 Option 2. Start with existing training project ``volto-ploneconf`` with all code for the training
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Get the finished code for the frontend from github and install:
 
@@ -300,7 +300,7 @@ Now you can start it with::
 
     $ yarn start
 
-Create a Plone site object *Plone* on http://localhost:8080 
+Create a Plone site object *Plone* on http://localhost:8080
 
 Point your browser to http://localhost:3000 and see that Plone is up and running.
 

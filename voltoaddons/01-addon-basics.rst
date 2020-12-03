@@ -152,7 +152,7 @@ additional optional configuration loaders that are exported by the add-on's
 ``src/index.js``.
 
 Bootstrap an add-on
-------------------
+-------------------
 
 Let's start creating an add-on. We'll create a new scoped package:
 ``@plone-collective/datatable-tutorial``. Inside your Volto project, bootstrap
