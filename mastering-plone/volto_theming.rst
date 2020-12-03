@@ -25,7 +25,10 @@ Theming in Volto
         git checkout *TODO*
 
 
-To develop our theme, we can use Semantic UI. There are two cases: Some attributes like the overall font that are covered by Semantic UI variables. The other case is styling of for example listing news that needs some custom CSS rules.
+To develop our theme, we can use Semantic UI. There are two cases: 
+
+* Some attributes like the overall font that are covered by Semantic UI variables. 
+* The other case is styling of for example listing news that needs some custom CSS rules.
 
 We start with the first case and change the font to another Google font, Lato.
 
@@ -63,6 +66,31 @@ Take into account to use theme variables as
     background-color: @lightGrey;
   }
 
+
+Exercise
+++++++++
+
+Change the font for the toolbar menu to Lato.
+
+..  admonition:: Solution
+    :class: toggle
+
+    change :file:`theme/extras/custom.overrides`
+
+    .. code-block:: less
+
+        .pastanaga-menu-list {
+            li {
+              a,
+              button {
+                  font-family: @fontName;
+              }
+            }
+        }
+
+    You see the nested less rules.
+
+
 Changing the favicon
 ----------------------
 
@@ -71,5 +99,4 @@ Find the favicon.ico in :file:`public/` and replace it with a custom favicon.
 .. note::
 
   As you already know, the Node app Volto needs to be restarted after adding new files.
-
 
