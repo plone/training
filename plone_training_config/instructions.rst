@@ -197,12 +197,6 @@ You can stop the running instance anytime using :kbd:`ctrl + c`.
 Installing the frontend
 +++++++++++++++++++++++
 
-Change to the sibling folder `frontend`.
-
-.. code-block:: console
-
-    cd ../frontend/
-
 You have two options:
 
     1. Create the frontend from scratch using the Volto generator.
@@ -225,7 +219,7 @@ Install pre-requisites.
     .. code-block:: bash
 
         # macOS
-        brew nvm
+        brew install nvm
 
         #Linux
         apt-get install nvm
@@ -249,13 +243,33 @@ Create your Volto frontend project:
 
     .. code-block:: bash
 
-        yo @plone/volto my-volto-project
+        yo @plone/volto frontend
+
+    `yo` will ask questions. Answer them the first by pressing :kbd:`Enter` and the other two with ``false``.
+
+    The output will look like this:
+
+    .. code-block:: bash
+
+        pbauer@bullet:~/training$ yo @plone/volto frontend
+        Getting latest Volto version
+        Retrieving Volto's yarn.lock
+        Using latest released Volto version: 10.1.0
+        ? Project description A Volto-powered Plone frontend
+        ? Would you like to add addons? false
+        ? Would you like to add workspaces? false
+           create frontend/package.json
+           create frontend/yarn.lock
+           create frontend/.eslintrc.js
+           ...
+
+    It will take a while to install all dependencies.
 
 #.  Start up the frontend with
 
     .. code-block:: bash
 
-        cd volto-project-myprojectname
+        cd frontend
         yarn start
 
 If successful, you get:
