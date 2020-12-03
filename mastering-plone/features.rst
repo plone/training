@@ -351,7 +351,7 @@ First delete all existing content from the site since we won't use it!
 
 * Click on the folder-icon in the toolbar while on the frontpage
 * Select all displayed content items
-* Click on the trashion to delete them
+* Click on the trash icon to delete them
 
 Now we have a clean slate and can start creating the structure we want:
 
@@ -387,6 +387,11 @@ Create a site structure:
 
    The view of the newly created site structure.
 
+.. TODO::
+
+    * Create folder news or do not delete in former section
+    * screenshot below of the navigation bar
+
 * In ``/news``: Add a News Item "Conference Website online!" with some image
 * In ``/news``: Add a News Item "Submit your talks!"
 * In ``/events``: Add an Event "Deadline for talk submission" Date: 2025/08/10
@@ -408,47 +413,47 @@ The default Plone content types are:
 
 Page
     A Page is the most flexible content type.
-    You can use the Editor to dynamically and arrange blocks on a page.
-    You can chose from blocks for Text, Images, Videos, Lists of existing content and many more.
+    You can use the editor to create, edit and arrange blocks on a page.
+    You can choose from blocks for Text, Image, Video, List of existing content and many more.
     Pages - like folders - can also contain other content. This means you can use them to structure your site.
 
     .. figure:: _static/features_add_a_page.png
 
 Folder
     Folders are used to structure content like in a file-system.
-    They can display listing of its content.
+    They can display a listing of its content.
     Pages can also contain other content.
 
     .. figure:: _static/features_add_a_folder.png
 
 File
-    A file like a pdf, video or Work document.
+    A file like a pdf, video or Word document.
 
     .. figure:: _static/features_add_a_file.png
 
 Image
-    Like files bit png, jpeg or otehr images
+    Like files but png, jpeg or other image types
 
     .. figure:: _static/features_add_a_image.png
 
 Event
-    These are basically pages with start and end dates and some additional-fields for
+    These are basically pages with start and end dates and some additional fields for
 
     .. figure:: _static/features_add_a_event.png
 
 Link
-    A link to a internal oder external target.
+    A link to an internal oder external target.
 
     .. figure:: _static/features_add_a_link.png
 
 News Item
-    Basically a page with a Image and a image caption to be used for press releases an such.
+    Basically a page with an image and an image caption to be used for press releases an such.
 
     .. figure:: _static/features_add_a_news_item.png
 
 Collection
     Collections are virtual containers of lists of items found by doing a specialized search.
-    With Volto you usually do not use them anymore. Instead you can use a page with ome or more listing blocks.
+    With Volto you usually do not use them anymore. Instead you can use a page with one or more listing blocks.
 
     .. figure:: _static/features_pending_collection.png
        :alt: Editing a collection
