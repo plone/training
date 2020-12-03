@@ -3,14 +3,14 @@
 Installation & Setup
 =====================
 
-A Plone 6 installation is both: 
+A Plone 6 installation is both:
 
 * Plone Classic
 * Plone with React frontend Volto
 
 .. sidebar:: Installation & Setup
 
-    .. contents:: Table of Contents 
+    .. contents:: Table of Contents
         :depth: 4
 
 
@@ -51,10 +51,11 @@ For complex setups they often use Linux virtual machines.
 Plone offers multiple options for being installed:
 
 1. Unified installers (all 'nix, including macOS)
-2. A Vagrant/VirtualBox install kit (all platforms)
-3. A VirtualBox Appliance
+2. A `Docker Image <https://hub.docker.com/_/plone/>`_
+3. A `Ansible Playbook <http://docs.plone.org/external/ansible-playbook/docs>`_
 4. A `Windows installer <https://github.com/plone/WinPloneInstaller>`_
-5. Use your own Buildout
+5. A Vagrant/VirtualBox install kit (all platforms)
+6. Use your own Buildout
 
 Visit the `download page <https://plone.org/download>`_ to see all the options.
 
@@ -82,12 +83,12 @@ Visit the `download page <https://plone.org/download>`_ to see all the options.
 Installing Volto
 ----------------
 
-| For a Plone 6 installation, not Plone Classic, but with the React frontend **Volto**, by now two installations are needed: Plone and Volto. The former section is describing the options for a Plone installation. 
+| For a Plone 6 installation, not Plone Classic, but with the React frontend **Volto**, by now two installations are needed: Plone and Volto. The former section is describing the options for a Plone installation.
 | This section is about setting up a Volto installation. Wording is: Volto installation, Volto app, Volto project.
 
 .. code-block:: bash
 
-    npm install -g yo 
+    npm install -g yo
     npm install -g @plone/generator-volto
     yo @plone/volto volto-project-myprojectname
 
