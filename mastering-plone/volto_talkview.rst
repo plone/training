@@ -14,7 +14,6 @@ Volto View Components: A Default View for "Talk"
 
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
-   :subtitle: Optional Sidebar Subtitle
 
    Code for the beginning of this chapter::
 

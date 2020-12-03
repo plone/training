@@ -7,7 +7,7 @@ Behaviors
 
    Code for the beginning of this chapter::
 
-       git checkout testing
+       git checkout talks
 
    Code for the end of this chapter::
 

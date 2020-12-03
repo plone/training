@@ -20,6 +20,16 @@ Volto View Components: A Listing View for Talks
     :depth: 1
     :local:
 
+.. sidebar:: Get the code! (:doc:`More info <code>`)
+
+   Code for the beginning of this chapter::
+
+       git checkout theming
+
+   Code for the end of this chapter::
+
+        git checkout talkview
+
 
 To be solved task in this part:
 
@@ -102,6 +112,29 @@ To add a layout view you also have to add this new view in the ``ZMI`` of your `
 
     Add new View to content type Document in the ZMI.
 
+.. warning::
+
+    This step is not in the final code for this chapter since it only changes the frontned, you need to do it manually for now.
+    It will be added in the next chapter where you change the backend-code.
+
+    The change would be in :file:`profiles/default/types/Document.xml`:
+
+    .. code-block:: xml
+        :linenos:
+        :emphasize-lines: 5-7
+
+        <?xml version="1.0"?>
+        <object name="Document" meta_type="Dexterity FTI" i18n:domain="plone"
+            xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+          <property name="filter_content_types" purge="false">False</property>
+          <property name="view_methods" purge="false">
+            <element value="talklist_view"/>
+          </property>
+          <property name="behaviors" purge="false">
+            <element value="plone.constraintypes"/>
+          </property>
+        </object>
+
 From now on you can select the new view for Documents:
 
 .. figure:: _static/talklistview_select.png
@@ -154,6 +187,13 @@ Display the content of a folder
 .. note::
 
     For the next part you should have some talks and no other content in one folder to work on the progressing view.
+
+.. warning::
+
+    Due to a breaking change in Volto 10 the following code does not work anymore. ``content``  no longer holds the full content objects but a simplified representation of them. See https://docs.voltocms.com/upgrade-guide/#getcontent-changes
+
+    Skip ahead to :ref:`talklistview_search_endpoint-label` until we fix this :)
+
 
 You can iterate over all items in our talks folder by using the map ``content.items``. To build a view with some elements we used in the ``TalkView`` before, we can reuse some components and definitions like the ``color_mapping`` for the ``audience``.
 
@@ -237,6 +277,7 @@ The iteration over ``content.items`` to build a listing can be problematic thoug
 * listed content can include different types and could have different fields or use cases (long, difficult-to-read code if every addable type/use case has to be covered) or
 * not all content for the listing exists in one folder but may arranged in a wide structure (for example in topics or by day)
 
+.. _talklistview_search_endpoint-label:
 
 Using the search endpoint
 -------------------------
@@ -292,11 +333,12 @@ That is the equivalent of using a catalog-search in classic Plone (see :ref:`vie
                   <Segment padded>
                     <h2>
                       <Link to={item['@id']} title={item['@type']}>
-                        {item.type_of_talk.title}: {item.title}
+                        {item.type_of_talk.title || item.type_of_talk.token}:{' '}
+                        {item.title}
                       </Link>
                     </h2>
                     {item.audience.map(item => {
-                      let audience = item.title;
+                      let audience = item.title || item.token;
                       let color = color_mapping[audience] || 'green';
                       return (
                         <Label key={audience} color={color}>
@@ -476,7 +518,7 @@ For bonus points create and register it as a separate view ``Keynotes``
         * The query uses ``review_state: 'published'``
         * Filtering is done using ``item.type_of_talk.title === 'Keynote' && (...`` during the iteration.
 
-    To regoster it move the code toa new :file:`frontend/src/components/Views/Keynotes.jsx` and rename it to ``KeynotesView``:
+    To regster it move the code to new :file:`frontend/src/components/Views/Keynotes.jsx` and rename it to ``KeynotesView``:
 
     ..  code-block:: jsx
 
