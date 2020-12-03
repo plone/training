@@ -13,6 +13,17 @@ Customizing Volto Components
   Solve the same tasks in Plone Classic in chapter :doc:`zpt_2`
 
 
+.. sidebar:: Get the code! (:doc:`More info <code>`)
+
+   Code for the beginning of this chapter::
+
+       git checkout initial
+
+   Code for the end of this chapter::
+
+        git checkout overrides
+
+
 In this part you will:
 
 * Find out how news items are displayed
@@ -226,7 +237,7 @@ Import the library `moment <https://momentjs.com/>`_ at the top of the file and 
             floated="right"
           />
         )}
-        <p>{moment(content.created).format('lll')}</p>
+        <p>{moment(content.created).format('ll')}</p>
         {content.text && (
           <div
             dangerouslySetInnerHTML={{
@@ -272,8 +283,8 @@ So we'll add some simple logic to use the effective-date if it exists and the cr
 ..  code-block:: jsx
 
     <p className="discreet">
-      {(content.effective && moment(content.effective).format('lll')) ||
-        moment(content.created).format('lll')}
+      {(content.effective && moment(content.effective).format('ll')) ||
+        moment(content.created).format('ll')}
     </p>
 
 
@@ -289,9 +300,11 @@ Copy that file to ``src/customizations/components/theme/View/SummaryView.jsx`` a
 ..  code-block:: jsx
 
     <p className="discreet">
-      {(item.effective && moment(item.effective).format('lll')) ||
-        moment(item.created).format('lll')}
+      {(item.effective && moment(item.effective).format('ll')) ||
+        moment(item.created).format('ll')}
     </p>
+
+Don't forget to add the import of moment: ``import moment from 'moment';`` at the top.
 
 Note how the component iterates over the variable ``items`` of ``content``  with ``{content.items.map((item) => (...)}``. Here ``item`` is the item in the Folder or Collection where this component is used.
 

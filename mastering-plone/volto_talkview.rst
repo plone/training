@@ -18,11 +18,11 @@ Volto View Components: A Default View for "Talk"
 
    Code for the beginning of this chapter::
 
-       git checkout volto_addon
+       git checkout theming
 
    Code for the end of this chapter::
 
-        git checkout volto_talkview
+        git checkout talkview
 
 To be solved task in this part:
 

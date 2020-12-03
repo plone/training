@@ -18,16 +18,16 @@ Theming in Volto
 
    Code for the beginning of this chapter::
 
-       git checkout *TODO*
+       git checkout overrides
 
    Code for the end of this chapter::
 
-        git checkout *TODO*
+        git checkout theming
 
 
-To develop our theme, we can use Semantic UI. There are two cases: 
+To develop our theme, we can use Semantic UI. There are two cases:
 
-* Some attributes like the overall font that are covered by Semantic UI variables. 
+* Some attributes like the overall font that are covered by Semantic UI variables.
 * The other case is styling of for example listing news that needs some custom CSS rules.
 
 We start with the first case and change the font to another Google font, Lato.
@@ -79,16 +79,21 @@ Change the font for the toolbar menu to Lato.
 
     .. code-block:: less
 
-        .pastanaga-menu-list {
+        #toolbar {
+          .pastanaga-menu-list {
             li {
               a,
               button {
-                  font-family: @fontName;
+                font-family: @fontName;
               }
             }
+          }
         }
 
+
     You see the nested less rules.
+
+    ``#toolbar`` is added to override the default style.
 
 
 Changing the favicon
