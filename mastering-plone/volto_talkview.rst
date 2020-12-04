@@ -179,9 +179,9 @@ Instead we display the title and description ourselves.
 This has multiple benefits:
 
 * All content can now be wrapped in the same ``Container`` which cleans up the html.
-* We can control where the speaker-portrait is displayed. We can now move all information on the speaker into a separate box. The speaker-portrait is picked up by the DefaultView because the field's name is ``image`` (same as the image from the behavior ``plone.leadimage``).
+* We can control where the speaker portrait is displayed. We can now move all information on the speaker into a separate box. The speaker portrait is picked up by the DefaultView because the fields name is ``image`` (same as the image from the behavior ``plone.leadimage``).
 
-With this changes we do discard the title-tag in the HTML head though. This will change the name occuring in the browser tab or browser head to the current site-url. To use the content title instead, you'll have to import the ``Helmet`` component, which allows to overwrite all meta tags for the HTML head like the page-title.
+With this changes we do discard the title-tag in the HTML head though. This will change the name occuring in the browser tab or browser head to the current site url. To use the content title instead, you'll have to import the ``Helmet`` component, which allows to overwrite all meta tags for the HTML head like the page-title.
 
 ..  code-block:: jsx
     :emphasize-lines: 3,9-16
@@ -196,7 +196,7 @@ With this changes we do discard the title-tag in the HTML head though. This will
         <Container id="page-talk">
           <Helmet title={content.title} />
           <h1 className="documentFirstHeading">
-            <span class="type_of_talk">{content.type_of_talk.title} </span>
+            <span class="type_of_talk">{content.type_of_talk.title}: </span>
             {content.title}
           </h1>
           {content.description && (
@@ -208,7 +208,7 @@ With this changes we do discard the title-tag in the HTML head though. This will
     };
     export default TalkView;
 
-* ``content.type_of_talk`` is the json of the value from the choice-field ``type_of_talk``: ``{token: "training", title: "Training"}``. To display it we use the title.
+* ``content.type_of_talk`` is the json of the value from the choice field ``type_of_talk``: ``{token: "training", title: "Training"}``. To display it we use the title.
 * The ``&&`` in ``{content.description && (<p>...</p>)}`` makes sure that this paragraph is only rendered if the talk actually has a description.
 
 
@@ -233,7 +233,7 @@ Next we add a block with info on the speaker:
           )}
           <div dangerouslySetInnerHTML={{ __html: content.details.data }} />
           <Segment clearing>
-            <h3>{content.speaker}</h3>
+            {content.speaker && <Header dividing>{content.speaker}</Header>}
             <p>{content.company || content.website}</p>
             <a href={`mailto:${content.email}`}>
               <Icon name="mail" />
@@ -252,9 +252,10 @@ Next we add a block with info on the speaker:
     };
     export default TalkView;
 
-* We use the component `Segment <https://react.semantic-ui.com/elements/segment/#variations-clearing>`_ for the box
+* We use the component `Segment <https://react.semantic-ui.com/elements/segment/#variations-clearing>`_ for the box.
 * We use the component `Icon <https://react.semantic-ui.com/elements/icon/>`_ to display the mail icon.
 * ``{`mailto:${content.email}`}`` is a `template literal <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals>`_
+
 
 Next we add the image:
 
@@ -278,7 +279,7 @@ Next we add the image:
           )}
           <div dangerouslySetInnerHTML={{ __html: content.details.data }} />
           <Segment clearing>
-            <h3>{content.speaker}</h3>
+            {content.speaker && <Header dividing>{content.speaker}</Header>}
             <p>{content.company || content.website}</p>
             <a href={`mailto:${content.email}`}>
               <Icon name="mail" />
@@ -306,7 +307,7 @@ Next we add the image:
 
 
 * We use the component `Image <https://react.semantic-ui.com/elements/image/#variations-avatar>`_
-* We use ``flattenToAppURL`` to turn the Plone-url of the image to the Volto-url, e.g. it turns http://localhost:8080/Plone/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg into http://localhost:3000/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg.
+* We use ``flattenToAppURL`` to turn the Plone url of the image to the Volto url, e.g. it turns http://localhost:8080/Plone/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg into http://localhost:3000/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg.
 * Open the React Developer Tools in your browser and inspect the property ``image`` of TalkView and its property ``scale``. If you look at the `documentation for the serialization of image-fields <https://plonerestapi.readthedocs.io/en/latest/serialization.html#file-image-fields>`_ you can find out where that information comes from.
 
 Next we add the audience:
@@ -346,7 +347,7 @@ Next we add the audience:
           })}
           <div dangerouslySetInnerHTML={{ __html: content.details.data }} />
           <Segment clearing>
-            <h3>{content.speaker}</h3>
+            {content.speaker && <Header dividing>{content.speaker}</Header>}
             <p>{content.company || content.website}</p>
             <a href={`mailto:${content.email}`}>
               <Icon name="mail" />
@@ -372,7 +373,7 @@ Next we add the audience:
     };
     export default TalkView;
 
-* With ``{content.audience.map(item => {...})}`` we iterate over the indivudual values in the field ``audience``.
+* With ``{content.audience.map(item => {...})}`` we iterate over the individual values of the field ``audience``.
 * We map the values that are available in the field to colors and use blue as a fallback.
 
 As a last step we show the last few fields ``website`` and ``company``, ``github`` and ``twitter``:
@@ -389,7 +390,7 @@ As a last step we show the last few fields ``website`` and ``company``, ``github
       const color_mapping = {
         Beginner: 'green',
         Advanced: 'yellow',
-        Professional: 'red',
+        Professional: 'purple',
       };
 
       return (
@@ -414,36 +415,38 @@ As a last step we show the last few fields ``website`` and ``company``, ``github
             <div dangerouslySetInnerHTML={{ __html: content.details.data }} />
           )}
           <Segment clearing>
-            {content.speaker && <h3>{content.speaker}</h3>}
+            {content.speaker && <Header dividing>{content.speaker}</Header>}
             {content.website ? (
-              <p>
-                <a href={content.website}>{content.company}</a>
+              <p>                
+                <Link to={content.website}>
+                  {content.company || content.website}
+                </Link>
               </p>
             ) : (
               <p>{content.company}</p>
             )}
             {content.email && (
               <p>
-                <a href={`mailto:${content.email}`}>
+                <Link to={`mailto:${content.email}`}>
                   <Icon name="mail" /> {content.email}
-                </a>
+                </Link>
               </p>
             )}
             {content.twitter && (
               <p>
-                <a href={`https://twitter.com/${content.twitter}`}>
+                <Link to={`https://twitter.com/${content.twitter}`}>
                   <Icon name="twitter" />{' '}
                   {content.twitter.startsWith('@')
                     ? content.twitter
                     : '@' + content.twitter}
-                </a>
+                </Link>
               </p>
             )}
             {content.github && (
               <p>
-                <a href={`https://github.com/${content.github}`}>
+                <Link href={`https://github.com/${content.github}`}>
                   <Icon name="github" /> {content.github}
-                </a>
+                </Link>
               </p>
             )}
             {content.image && (

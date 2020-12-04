@@ -212,7 +212,7 @@ You can iterate over all items in our talks folder by using the map ``content.it
         const color_mapping = {
           Beginner: 'green',
           Advanced: 'yellow',
-          Professional: 'red',
+          Professional: 'purple',
         };
         return (
           <Container className="view-wrapper">
@@ -305,7 +305,7 @@ That is the equivalent of using a catalog-search in classic Plone (see :ref:`vie
       const color_mapping = {
         Beginner: 'green',
         Advanced: 'yellow',
-        Professional: 'red',
+        Professional: 'purple',
       };
 
       React.useEffect(() => {
