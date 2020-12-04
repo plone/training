@@ -279,8 +279,7 @@ That is the equivalent of using a catalog search in classic Plone (see :ref:`vie
     import { searchContent } from '@plone/volto/actions';
     import { useDispatch, useSelector } from 'react-redux';
 
-    const TalkListView = props => {
-      const { content } = props;
+    const TalkListView = ({content}) => {
       const dispatch = useDispatch();
       const searchRequests = useSelector(state => state.search);
       const results = searchRequests.items;
