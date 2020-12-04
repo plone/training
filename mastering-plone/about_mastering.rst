@@ -232,7 +232,7 @@ Now install dependencies and build.
 
 You can now open the output ``_build/html/index.html`` in your browser.
 
-To build the presentation version use ``make presentation`` instead of ``make html``. You can open the presentation at ``_build/html/presentation/index.html``.
+To build the presentation version use ``make presentation`` instead of ``make html``. You can open the presentation at ``_build/presentation/index.html``.
 
 If you use macOS you can do:
 

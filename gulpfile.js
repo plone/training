@@ -46,4 +46,41 @@ function watch() {
     gulp.watch(['./**/*.rst',], buildAndBrowserSync);
 }
 
+// presentation
+function makePresentation() {
+    const cmd = 'make presentation';
+    return new Promise((resolve, reject) => {
+        exec(cmd, (error, stdout, stderr) => {
+            if (error) {
+                console.error(error);
+                reject(error);
+            }
+            resolve(stdout? stdout : stderr);
+        });
+    });
+}
+
+function buildAndBrowserSyncPresentation(done) {
+    makePresentation().then(function() {
+        browserSync.reload();
+    }, function(Error) {
+        console.log(Error);
+    });
+    done();
+}
+
+function watchPresentation() {
+    browserSync.init({
+        server: {
+            baseDir: './_build/presentation/'
+        },
+        port: 3002,
+        ui: {
+            port: 3003
+        },
+    });
+    gulp.watch(['./**/*.rst',], buildAndBrowserSyncPresentation);
+}
+
+exports.presentation = watchPresentation;
 exports.default = watch;
