@@ -418,35 +418,34 @@ As a last step we show the last few fields ``website`` and ``company``, ``github
             {content.speaker && <Header dividing>{content.speaker}</Header>}
             {content.website ? (
               <p>                
-                <Link to={content.website}>
+                <a href={content.website}>
                   {content.company || content.website}
-                </Link>
+                </a>
               </p>
             ) : (
               <p>{content.company}</p>
             )}
             {content.email && (
               <p>
-                <Link to={`mailto:${content.email}`}>
-                  <Icon name="mail" /> {content.email}
-                </Link>
+                Email: <a href={`mailto:${content.email}`}>{content.email}</a>
               </p>
             )}
             {content.twitter && (
               <p>
-                <Link to={`https://twitter.com/${content.twitter}`}>
-                  <Icon name="twitter" />{' '}
+                Twitter:{' '}
+                <a href={`https://twitter.com/${content.twitter}`}>
                   {content.twitter.startsWith('@')
                     ? content.twitter
                     : '@' + content.twitter}
-                </Link>
+                </a>
               </p>
             )}
             {content.github && (
               <p>
-                <Link href={`https://github.com/${content.github}`}>
-                  <Icon name="github" /> {content.github}
-                </Link>
+                Github:{' '}
+                <a href={`https://github.com/${content.github}`}>
+                  {content.github}
+                </a>
               </p>
             )}
             {content.image && (
