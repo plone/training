@@ -25,8 +25,24 @@ Testing permissions, features and UI topics
 
 We already added a content type `talk`. Let's write a test 'An editor can add a talk'.
 
-* Create a folder :file:`cypress/integration/` with a file :file:`content.js`
-* Get some helper functions for an autologin, etc. from `Volto <https://github.com/plone/volto/tree/master/cypress/support>`_.
+#. Install cypress with 
+
+    .. code-block::
+
+        yarn add cypress cypress-axe cypress-file-upload --dev -W
+
+#. Add a yarn script in your :file:`package.json` 
+
+    .. code-block::
+
+        "scripts": {
+            ...
+            "cypress:open": "CYPRESS_API=plone cypress open"
+          },
+
+#. Get some helper functions for an autologin, etc. from `Volto <https://github.com/plone/volto/tree/master/cypress/support>`_.
+
+#. Create a folder :file:`cypress/integration/` with a file :file:`content.js`
 
 :file:`content.js`:
 
@@ -130,7 +146,7 @@ Cypress provides a helper to find the right selector.
 Testing the rendering of a component
 ------------------------------------
 
-* Create a Talk.test.js file as a sibling of Talk.jsx
+* Create a :file:`Talk.test.js` file as a sibling of Talk.jsx
 * The component to test is `Talk`. We let the test render this component with some props:
 
 .. code-block:: jsx
