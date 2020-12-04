@@ -57,9 +57,9 @@ The story of a conference platform provides a week-long training of several deve
     ide
     custom_search
     events
+    registry
     upgrade_steps
     volto_testing
-    user_generated_content
     thirdparty_behaviors
     dexterity_3
     volto_components_sponsors
@@ -68,8 +68,8 @@ The story of a conference platform provides a week-long training of several deve
     volto_custom_block
     volto_custom_addon
     volto_custom_addon2
+    user_generated_content
     relations
-    registry
     eggs2
     behaviors_2
     viewlets_2

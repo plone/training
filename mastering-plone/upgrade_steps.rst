@@ -7,11 +7,11 @@ Upgrade-steps
 
    Code for the beginning of this chapter::
 
-       git checkout *TODO*
+       git checkout registry
 
    Code for the end of this chapter::
 
-        git checkout *TODO*
+        git checkout upgrade_steps
 
 
 In this part we will:
@@ -41,7 +41,7 @@ We will create an upgrade step that:
   We will move all talks to a folder ``talks`` (unless they already are there).
 
 Upgrade steps can be registered in their own ZCML file to prevent cluttering the main :file:`configure.zcml`.
-The add-on you created already has a registration for the :file:`upgrades.zcml` in our :file:`configure.zcml`:
+Create the new :file:`upgrades.zcml` include it in our :file:`configure.zcml`:
 
 ..  code-block:: xml
 
@@ -103,6 +103,7 @@ Let's create it.
 
     def upgrade_site(context=None):
         # reload type info
+        setup = api.portal.get_tool('portal_setup')
         setup.runImportStepFromProfile(default_profile, 'typeinfo')
         portal = api.portal.get()
 
@@ -162,7 +163,7 @@ Let's create it.
             obj = brain.getObject()
             logger.info('Moving {} to {}'.format(
                 obj.absolute_url(), schedule_folder_url))
-            # Move talk to the folder '/the-event/talks'
+            # Move talk to the folder '/schedule'
             api.content.move(
                 source=obj,
                 target=schedule_folder,
@@ -172,7 +173,7 @@ Let's create it.
 Note:
 
 * They are simple python methods, nothing fancy about them except the registration.
-* When running a upfrade-step they get the tool ``portal_setup`` passed as a argument. To make it easier to call these steps from a pdb or from other methods it is a good idea to set it as ``context=None`` and not use the argument at all but instead use ``portal_setup = api.portal.get_tool('portal_setup')`` if you need it.
+* When running a upgrade-step they get the tool ``portal_setup`` passed as a argument. To make it easier to call these steps from a pdb or from other methods it is a good idea to set it as ``context=None`` and not use the argument at all but instead use ``portal_setup = api.portal.get_tool('portal_setup')`` if you need it.
 * The ``portal_setup`` tool has a method :py:meth:`runImportStepFromProfile`. In this example it is used to load the file `profiles/default/types.xml` and `profiles/default/types/talk.xml` to enable new behaviors, views or other settings.
 * In Python we create the required folder structure if it does not exist yet making extensive use of ``plone.api`` as discussed in the chapter :doc:`api`.
 
@@ -211,6 +212,10 @@ Alternatively you also select which upgrade steps to run like this:
 
 Browserlayers
 -------------
+
+.. note::
+
+    This section is only relevant for Plone Classic since Volto does not use Viewlets or BrowserViews.
 
 A browserlayer is a marker on the request.
 Browserlayers allow us to easily enable and disable views and other site functionality based on installed add-ons and themes.
@@ -273,19 +278,28 @@ It is equivalent to the absolute path :py:class:`ploneconf.site.interfaces.IPlon
 Add catalog indexes
 -------------------
 
-In the ``talklistview`` we had to wake up all objects to access some of their attributes.
+In the ``talklistview`` we had to get the full objects to access some of their attributes.
 That is OK if we don't have many objects and they are light dexterity objects.
 If we had thousands of objects this might not be a good idea.
 
-Instead of loading them all into memory we will use catalog indexes to get the data we want to display.
+.. note::
 
-Add a new file :file:`profiles/default/catalog.xml`
+   Is is about 10 times slower to get the full objects instead of only using the resutls of a search!
+   For 3000 objects that can make a difference of 2 seconds.
+
+Instead of loading them all into memory we will use catalog indexes and metadata to get the data we want to display.
+
+Add the new indexes to :file:`profiles/default/catalog.xml`
 
 .. code-block:: xml
     :linenos:
+    :emphasize-lines: 6-17, 20-23
 
     <?xml version="1.0"?>
     <object name="portal_catalog">
+      <index name="featured" meta_type="BooleanIndex">
+        <indexed_attr value="featured"/>
+      </index>
       <index name="type_of_talk" meta_type="FieldIndex">
         <indexed_attr value="type_of_talk"/>
       </index>
@@ -298,15 +312,12 @@ Add a new file :file:`profiles/default/catalog.xml`
       <index name="room" meta_type="FieldIndex">
         <indexed_attr value="room"/>
       </index>
-      <index name="featured" meta_type="BooleanIndex">
-        <indexed_attr value="featured"/>
-      </index>
 
-      <column value="audience" />
+      <column value="featured" />
       <column value="type_of_talk" />
       <column value="speaker" />
+      <column value="audience" />
       <column value="room" />
-      <column value="featured" />
     </object>
 
 This adds new indexes for the three fields we want to show in the listing. Note that *audience* is a :py:class:`KeywordIndex` because the field is multi-valued, but we want a separate index entry for every value in an object.
@@ -348,17 +359,21 @@ The ``column ..`` entries allow us to display the values of these indexes in the
 
 ..  todo::
 
-    Adapt the talkview to use the custom index to find talks. The Volto search needs to support all indexes dynamically for that to work!
+    1. Adapt the ``TalkListView`` in Volto to not use ``fullobjects``.
+       Instead either passs a list of metadata-fields or use ``metadata_fields=_all`` to get the euivalent of brains as documented in https://plonerestapi.readthedocs.io/en/latest/searching.html#retrieving-additional-metadata.
 
-    ..  code-block:: jsx
+    2. Adapt the colored audience-blocks in ``TalkView`` in Volto to use the custom index to find all talks for that audience.
+       The Volto search needs to support all indexes dynamically for that to work!
 
-        <Link
-          className={`ui label ${color}`}
-          to={`/search?portal_type=talk&audience=${audience}`}
-          key={audience}
-        >
-          {audience}
-        </Link>
+        ..  code-block:: jsx
+
+            <Link
+              className={`ui label ${color}`}
+              to={`/search?portal_type=talk&audience=${audience}`}
+              key={audience}
+            >
+              {audience}
+            </Link>
 
 .. _upgrade_steps-customindex-label:
 
@@ -419,6 +434,10 @@ But when listing a large number of objects the site will now be faster since all
 
 Exercise 1
 ----------
+
+.. note::
+
+    This exercise is only relevant for Plone Classic.
 
 In fact we could now simplify the view even further by only returning the brains.
 
@@ -632,5 +651,5 @@ Summary
 -------
 
 * You wrote your first upgrade step to move the talks around: yipee!
-* Some fields are indexed in the catalog making the listing faster
+* Some fields are indexed in the catalog allowing to search for these and making listings much faster
 * Versioning for Talks is now properly configured

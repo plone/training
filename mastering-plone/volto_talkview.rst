@@ -417,7 +417,7 @@ As a last step we show the last few fields ``website`` and ``company``, ``github
           <Segment clearing>
             {content.speaker && <Header dividing>{content.speaker}</Header>}
             {content.website ? (
-              <p>                
+              <p>
                 <a href={content.website}>
                   {content.company || content.website}
                 </a>

@@ -1,7 +1,7 @@
 .. _user-content-label:
 
-User Generated Content
-======================
+Workflow, Roles and Permissions
+===============================
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 

@@ -15,13 +15,24 @@ Turning Talks into Events
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
-   Code for the beginning of this chapter::
+    Code for the beginning of this chapter::
 
-       git checkout dexterity_2
+        # frontent
+        git checkout talklist
 
-   Code for the end of this chapter::
+        # backend
+        git checkout talklist
 
-        git checkout events
+
+    Code for the end of this chapter::
+
+        # frontent
+        git checkout event
+
+        # backend
+        git checkout event
+
+
 
 
 We forgot something: a list of talks is great, especially if you can sort it according to your preferences. But if a visitor decides she wants to actually go to see a talk she needs to know when it will take place.
@@ -62,6 +73,24 @@ Enable the behavior ``plone.eventbasic`` for talks in :file:`profiles/default/ty
     </property>
 
 After you activate the behavior by hand or you reinstalled the add-on you will now have some additional fields for ``start``, ``end``, ``open_end`` and ``whole_day``.
+
+.. note::
+
+    While we're editing behaviors we can also add our own featured-behavior to News Items.
+
+    Add :file:`profiles/default/types/News_Item.xml`:
+
+    .. code-block::
+
+        <?xml version="1.0"?>
+        <object name="News Item" meta_type="Dexterity FTI" i18n:domain="plone"
+            xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+          <property name="behaviors" purge="false">
+            <element value="plone.constraintypes"/>
+            <element value="ploneconf.featured"/>
+          </property>
+        </object>
+
 
 Display the dates
 -----------------
@@ -142,14 +171,6 @@ We'll reuse it in :file:`frontend/src/components/Views/Talk.jsx`. We'll let us i
                   whole_day={content.whole_day}
                   open_end={content.open_end}
                 />
-              </>
-            )}
-            {content.room && (
-              <>
-                <Header dividing sub>
-                  Where
-                </Header>
-                <p>{content.room.title}</p>
               </>
             )}
             {content.audience && (
@@ -238,14 +259,20 @@ The result should look like this:
 Hiding fields from certain users
 --------------------------------
 
-.. todo::
+.. info::
 
   This chapter is about displaying, not editing. So setting values is not the topic here.
 
-Similar to the field ``room``, the problem now appears that speakers submitting their talks should not be able to set a time and day for their talks.
+
+The problem now appears that speakers submitting their talks should not be able to set a time and day for their talks.
 
 Sadly it is not easy to modify permissions of fields provided by behaviors (unless you write the behavior yourself).
-At least in this case we can take the easy way out since the field does not contain secret information: we will simply hide the fields from contributors using css and show them for reviewers. We will do so in chapter :doc:`theming` when we add some CSS files.
+At least in this case we can take the easy way out since the field does not contain secret information:
+We can simply hide the fields from contributors using css and show them for reviewers.
+
+.. warning::
+
+  This trick does not yet work in Volto because some css-classes are still missing from the body-tag (see https://github.com/plone/volto/issues/1189). Skip ahead!
 
 Modify :file:`frontend/theme/extras/custom.overrides` and add:
 
