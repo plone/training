@@ -371,12 +371,11 @@ That is the equivalent of using a catalog search in classic Plone (see :ref:`vie
 Search options
 --------------
 
-.. todo::
+* The default representation for search results is a summary that contains only the most basic information like **title, review state, type, path and description**. 
+* With the option ``fullobjects`` all available field values are present in the fetched data. 
+* Another option is ``metadata_fields``, which allows to get more attributes (selection of Plone catalog metadata columns) than the default search without a performance expensive fetch via option fullobjects.
 
-  * Explain available indexes, path, sort_on
-  * Explain why we cannot search for ``type_of_talk`` yet.
-  * Explain default results, metadata_fields, fullobjects, how that relates to portal_catalog and brains.
-  * Explain difference between brain and object
+Possible **sort criteria** are indices of the Plone catalog.
 
 .. seealso::
 
