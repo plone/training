@@ -259,10 +259,9 @@ The result should look like this:
 Hiding fields from certain users
 --------------------------------
 
-.. info::
+.. note::
 
   This chapter is about displaying, not editing. So setting values is not the topic here.
-
 
 The problem now appears that speakers submitting their talks should not be able to set a time and day for their talks.
 

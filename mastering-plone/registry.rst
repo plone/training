@@ -79,8 +79,7 @@ This setting is stored in the registry.
 
 Let's look at existing values in the registry
 
-Go to http://localhost:3000/controlpanel/navigation and add ``talk`` to the field **Displayed content types
-**.
+Go to http://localhost:3000/controlpanel/navigation and add ``talk`` to the field **Displayed content types**.
 After saving talks that are in the root-folder will show up in the navigation.
 
 This setting is stored in ``plone.displayed_types``.
