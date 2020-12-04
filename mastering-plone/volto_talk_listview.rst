@@ -16,10 +16,6 @@ Volto View Components: A Listing View for Talks
 
       Create a view that shows a list of content
 
-  .. contents:: Table of Contents
-    :depth: 1
-    :local:
-
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
    Code for the beginning of this chapter::
@@ -37,17 +33,15 @@ To be solved task in this part:
 
 In this part you will:
 
-* Register a react view component for folderish `Document` content types
 * Create the view component
+* Register a react view component for the Folder content type
+* Use an endpoint of Plone REST API to fetch content
+* Display the fetched data
 
+.. only:: not presentation
 
-Topics covered:
-
-* Use search endpoint of REST API
-* Displaying data from search results
-
-Volto has multiple views for listing objects. Most of them list all objects in a folder or folderish type like the ``listing_view`` with title and description.
-The talk list should show also information about the dates, the locations and the speakers. We will create an additonal view for folderisch types. We stick to Plone default type Document, which is folderish.
+    Volto has multiple views for listing objects. Most of them list all objects in a folder or folderish type like the ``listing_view`` with title and description.
+    The talk list should also show information about the dates, the locations and the speakers. We will create an additonal view for the folder content type.
 
 
 Register the view in Volto and Plone
@@ -56,7 +50,7 @@ Register the view in Volto and Plone
 
 Create a new file :file:`src/components/Views/TalkList.jsx`.
 
-As a first step the file will hold a placeholder:
+As a first step the file will hold a simple view component:
 
 ..  code-block:: jsx
 
@@ -67,7 +61,7 @@ As a first step the file will hold a placeholder:
     };
     export default TalkListView;
 
-Then you have to edit the :file:`index.js` to export your new View:
+As a convention we provide the view from :file:`src/components/index.js`.
 
 ..  code-block:: jsx
     :emphasize-lines: 2,4
@@ -77,11 +71,11 @@ Then you have to edit the :file:`index.js` to export your new View:
 
     export { TalkView, TalkListView };
 
-Now register the new component as layout view for types Folder and Document in ``src/config.js``.
+Now register the new component as a view for type Folder in ``src/config.js``.
 
 ..  code-block:: jsx
     :linenos:
-    :emphasize-lines: 1,7-10,16
+    :emphasize-lines: 1,7-10
 
     import { TalkListView, TalkView } from './components';
 
@@ -96,74 +90,60 @@ Now register the new component as layout view for types Folder and Document in `
       contentTypesViews: {
         ...defaultViews.contentTypesViews,
         talk: TalkView,
-        document: {
-          document_view: defaultViews.DefaultView,
-          talklist_view: TalkListView,
-        },
       },
     };
 
-This extends the folder views ``defaultViews.layoutViews`` with the key/value pair ``talklist_view: TalkList`` and adds the Talkview to the default view for Documents.
+This extends the list of folder views ``defaultViews.layoutViews`` with the key/value pair ``talklist_view: TalkList`` .
 
-To add a layout view you also have to add this new view in the ``ZMI`` of your ``Plone``. Login to your Plone instance. Go to ``portal_types`` and select the ``Document``-Type to add your new ``talklist_view`` to the ``Available view methods``.
+To add a layout view you also have to add this new view in the ``ZMI`` of your ``Plone``. Login to your Plone instance. Go to ``portal_types`` and select the ``Folder``-Type to add your new ``talklist_view`` to the ``Available view methods``.
 
 .. figure:: _static/add_talklistview_in_zmi.png
-    :alt: Add new View to Document content type in the ZMI.
+    :alt: Add new View to content type Folder in the ZMI.
 
-    Add new View to content type Document in the ZMI.
+    Add new View to content type Folder in the ZMI.
 
-.. warning::
+.. only:: not presentation
 
-    This step is not in the final code for this chapter since it only changes the frontned, you need to do it manually for now.
-    It will be added in the next chapter where you change the backend-code.
+    .. warning::
 
-    The change would be in :file:`profiles/default/types/Document.xml`:
+        This step is not in the final code for this chapter since it only changes the frontend, you need to do it manually for now.
+        It will be added in the next chapter where you change the backend-code.
 
-    .. code-block:: xml
-        :linenos:
-        :emphasize-lines: 5-7
+        The change would be in :file:`profiles/default/types/Document.xml`:
 
-        <?xml version="1.0"?>
-        <object name="Document" meta_type="Dexterity FTI" i18n:domain="plone"
-            xmlns:i18n="http://xml.zope.org/namespaces/i18n">
-          <property name="filter_content_types" purge="false">False</property>
-          <property name="view_methods" purge="false">
-            <element value="talklist_view"/>
-          </property>
-          <property name="behaviors" purge="false">
-            <element value="plone.constraintypes"/>
-          </property>
-        </object>
+        .. code-block:: xml
+            :linenos:
+            :emphasize-lines: 5-7
 
-From now on you can select the new view for Documents:
+            <?xml version="1.0"?>
+            <object name="Document" meta_type="Dexterity FTI" i18n:domain="plone"
+                xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+              <property name="filter_content_types" purge="false">False</property>
+              <property name="view_methods" purge="false">
+                <element value="talklist_view"/>
+              </property>
+              <property name="behaviors" purge="false">
+                <element value="plone.constraintypes"/>
+              </property>
+            </object>
+
+From now on you can select the new view for folder:
 
 .. figure:: _static/talklistview_select.png
 
-Now we will improve this view step by step.
-First we reuse the component ``DefaultView.jsx`` in our custom view again:
+Now we will improve this view step by step. We start working directly with the context of our talks folder. The context is part of the props of the view. To have a convenient access to the context we assign a variable ``content`` the value of ``props.content``.
+
+Via ``content`` we have access to title, description and other attributes
 
 ..  code-block:: jsx
-    :emphasize-lines: 2,5
-
-    import React from 'react';
-    import { DefaultView } from '@plone/volto/components';
-
-    const TalkListView = props => {
-      return <DefaultView {...props} />;
-    };
-    export default TalkListView;
-
-Now we want to start working directly with the context of our talks folder. To display the title and the description of the folder manually you will have to assign it at first. Afterwards you can use it to display every information the ``content`` holds like ``title`` and ``description``.
-
-..  code-block:: jsx
-    :emphasize-lines: 2-3,6-18
+    :linenos:
+    :emphasize-lines: 5
 
     import React from 'react';
     import { Container } from 'semantic-ui-react';
     import { Helmet } from '@plone/volto/helpers';
 
-    const TalkListView = props => {
-      const { content } = props;
+    const TalkListView = ({content}) => {
       return (
         <Container className="view-wrapper">
           <Helmet title={content.title} />
@@ -181,109 +161,112 @@ Now we want to start working directly with the context of our talks folder. To d
     export default TalkListView;
 
 
-Display the content of a folder
--------------------------------
+.. only:: not presentation
 
-.. note::
+    Display the content of a folder
+    -------------------------------
 
-    For the next part you should have some talks and no other content in one folder to work on the progressing view.
+    .. note::
 
-.. warning::
+        For the next part you should have some talks and no other content in one folder to work on the progressing view.
 
-    Due to a breaking change in Volto 10 the following code does not work anymore. ``content``  no longer holds the full content objects but a simplified representation of them. See https://docs.voltocms.com/upgrade-guide/#getcontent-changes
+    .. warning::
 
-    Skip ahead to :ref:`talklistview_search_endpoint-label` until we fix this :)
+        Due to a breaking change in Volto 10 the following code does not work anymore. ``content``  no longer holds the full content objects but a simplified representation of them. See https://docs.voltocms.com/upgrade-guide/#getcontent-changes
+
+        Skip ahead to :ref:`talklistview_search_endpoint-label` until we fix this :)
 
 
-You can iterate over all items in our talks folder by using the map ``content.items``. To build a view with some elements we used in the ``TalkView`` before, we can reuse some components and definitions like the ``color_mapping`` for the ``audience``.
+    You can iterate over all items in our talks folder by using the map ``content.items``. To build a view with some elements we used in the ``TalkView`` before, we can reuse some components and definitions like the ``color_mapping`` for the ``audience``.
 
-..  code-block:: jsx
-      :emphasize-lines: 2-5,9-61
+    ..  code-block:: jsx
+          :emphasize-lines: 2-5,9-61
 
-      import React from 'react';
-      import { Container, Segment, Label, Image } from 'semantic-ui-react';
-      import { Helmet } from '@plone/volto/helpers';
-      import { Link } from 'react-router-dom';
-      import { flattenToAppURL } from '@plone/volto/helpers';
+          import React from 'react';
+          import { Container, Segment, Label, Image } from 'semantic-ui-react';
+          import { Helmet } from '@plone/volto/helpers';
+          import { Link } from 'react-router-dom';
+          import { flattenToAppURL } from '@plone/volto/helpers';
 
-      const TalkListView = props => {
-        const { content } = props;
-        const results = content.items;
-        const color_mapping = {
-          Beginner: 'green',
-          Advanced: 'yellow',
-          Professional: 'purple',
-        };
-        return (
-          <Container className="view-wrapper">
-            <Helmet title={content.title} />
-            <article id="content">
-              <header>
-                <h1 className="documentFirstHeading">{content.title}</h1>
-                {content.description && (
-                  <p className="documentDescription">{content.description}</p>
-                )}
-              </header>
-              <section id="content-core">
-                {results &&
-                  results.map(item => (
-                    <Segment padded>
-                      <h2>
-                        <Link to={item['@id']} title={item['@type']}>
-                          {item.type_of_talk.title}: {item.title}
-                        </Link>
-                      </h2>
-                      {item.audience.map(item => {
-                        let audience = item.title;
-                        let color = color_mapping[audience] || 'green';
-                        return (
-                          <Label key={audience} color={color}>
-                            {audience}
-                          </Label>
-                        );
-                      })}
-                      {item.image && (
-                        <Image
-                          src={flattenToAppURL(item.image.scales.preview.download)}
-                          size="small"
-                          floated="right"
-                          alt={content.image_caption}
-                          avatar
-                        />
-                      )}
-                      {item.description && <div>{item.description}</div>}
-                      <Link to={item['@id']} title={item['@type']}>
-                        read more ...
-                      </Link>
-                    </Segment>
-                  ))}
-              </section>
-            </article>
-          </Container>
-        );
-      };
-      export default TalkListView;
+          const TalkListView = props => {
+            const { content } = props;
+            const results = content.items;
+            const color_mapping = {
+              Beginner: 'green',
+              Advanced: 'yellow',
+              Professional: 'purple',
+            };
+            return (
+              <Container className="view-wrapper">
+                <Helmet title={content.title} />
+                <article id="content">
+                  <header>
+                    <h1 className="documentFirstHeading">{content.title}</h1>
+                    {content.description && (
+                      <p className="documentDescription">{content.description}</p>
+                    )}
+                  </header>
+                  <section id="content-core">
+                    {results &&
+                      results.map(item => (
+                        <Segment padded>
+                          <h2>
+                            <Link to={item['@id']} title={item['@type']}>
+                              {item.type_of_talk.title}: {item.title}
+                            </Link>
+                          </h2>
+                          {item.audience.map(item => {
+                            let audience = item.title;
+                            let color = color_mapping[audience] || 'green';
+                            return (
+                              <Label key={audience} color={color}>
+                                {audience}
+                              </Label>
+                            );
+                          })}
+                          {item.image && (
+                            <Image
+                              src={flattenToAppURL(item.image.scales.preview.download)}
+                              size="small"
+                              floated="right"
+                              alt={content.image_caption}
+                              avatar
+                            />
+                          )}
+                          {item.description && <div>{item.description}</div>}
+                          <Link to={item['@id']} title={item['@type']}>
+                            read more ...
+                          </Link>
+                        </Segment>
+                      ))}
+                  </section>
+                </article>
+              </Container>
+            );
+          };
+          export default TalkListView;
 
-* With {content.items} we iterate over the contents of the folder and assign the received map to the constant ``results`` for further use.
-* With ``{results && results.map(item => ()}`` we test if there is any item in the map and then iterate over this items.
-* To use the existing Link-Component we'll have to use ``import { Link } from 'react-router-dom';`` and configure the component:
+    * With {content.items} we iterate over the contents of the folder and assign the received map to the constant ``results`` for further use.
+    * With ``{results && results.map(item => ()}`` we test if there is any item in the map and then iterate over this items.
+    * To use the existing Link-Component we'll have to use ``import { Link } from 'react-router-dom';`` and configure the component:
 
-    * ``to={item['@id']}`` will make the link point to the URL of the item and assign it to the Link as destination
-    * ``{item['@type']}`` will give you the contenttype name of the item, which could help you to change layouts for the listed items if you have different content in your folder
-* You can get all other information like title and description with the dotted notation like ``{item.title}`` and ``{item.description}``. We use that to display ``audience``, ``image`` and ``description`` like we already did in the talkview.
+        * ``to={item['@id']}`` will make the link point to the URL of the item and assign it to the Link as destination
+        * ``{item['@type']}`` will give you the contenttype name of the item, which could help you to change layouts for the listed items if you have different content in your folder
+    * You can get all other information like title and description with the dotted notation like ``{item.title}`` and ``{item.description}``. We use that to display ``audience``, ``image`` and ``description`` like we already did in the talkview.
 
-The iteration over ``content.items`` to build a listing can be problematic though, because this approach has some limitations you may have to deal with:
+    The iteration over ``content.items`` to build a listing can be problematic though, because this approach has some limitations you may have to deal with:
 
-* listed content can include different types and could have different fields or use cases (long, difficult-to-read code if every addable type/use case has to be covered) or
-* not all content for the listing exists in one folder but may arranged in a wide structure (for example in topics or by day)
+    * listed content can include different types and could have different fields or use cases (long, difficult-to-read code if every addable type/use case has to be covered) or
+    * not all content for the listing exists in one folder but may arranged in a wide structure (for example in topics or by day)
+
 
 .. _talklistview_search_endpoint-label:
 
 Using the search endpoint
 -------------------------
 
-To get a list of all talks - no matter where they are in our site - we can use the ``search endpoint`` of the restapi.
-That is the equivalent of using a catalog-search in classic Plone (see :ref:`views3-catalog-label`).
+To get a list of all talks - no matter where they are in our site - we will use the ``search endpoint`` of the Plone REST API.
+That is the equivalent of using a catalog search in classic Plone (see :ref:`views3-catalog-label`).
 
 ..  code-block:: jsx
     :emphasize-lines: 6-7,11-13,21-28
@@ -298,8 +281,8 @@ That is the equivalent of using a catalog-search in classic Plone (see :ref:`vie
 
     const TalkListView = props => {
       const { content } = props;
-      const searchRequests = useSelector(state => state.search);
       const dispatch = useDispatch();
+      const searchRequests = useSelector(state => state.search);
       const results = searchRequests.items;
 
       const color_mapping = {
@@ -369,19 +352,22 @@ That is the equivalent of using a catalog-search in classic Plone (see :ref:`vie
 
     export default TalkListView;
 
-We make use of the ``useSelector`` and ``useDispatch`` hooks from the react-redux library. They are used to subscribe our component to the store changes (``useSelector``) and for issuing Redux actions (``useDispatch``) from our components.
 
-Afterwards we can define the new results with ``const results = searchRequests.items;``, which will use the hooks and actions to receive a map of items.
+.. only:: not presentation
 
-The search itself will be defined in the ``React.useEffect(() => {})``- section of the code and will contain all parameters for the search. In case of the talks listing view we search for all objects of type talk with ``portal_type:['Talk']`` and force to fetch full objects with all information.
+    We make use of the ``useSelector`` and ``useDispatch`` hooks from the react-redux library. They are used to subscribe our component to the store changes (``useSelector``) and for issuing Redux actions (``useDispatch``) from our components.
 
-The items themselves won't change though, so the rest of the code will stay untouched.
+    Afterwards we can define the new results with ``const results = searchRequests.items;``, which will use the hooks and actions to receive a map of items.
 
-Now you see all talks in the list no matter where they are located in the site.
+    The search itself will be defined in the ``React.useEffect(() => {})``- section of the code and will contain all parameters for the search. In case of the talks listing view we search for all objects of type talk with ``portal_type:['Talk']`` and force to fetch full objects with all information.
 
-.. warning::
+    The items themselves won't change though, so the rest of the code will stay untouched.
 
-  If you change the view in Volto you’ll also change the view in the backend (Plone). As long as the same view isn’t available in the backend too, the site will show an error!
+    Now you see all talks in the list no matter where they are located in the site.
+
+    .. warning::
+
+      If you change the view in Volto you’ll also change the view in the backend (Plone). As long as the same view isn’t available in the backend too, the site will show an error!
 
 Search options
 --------------
@@ -402,8 +388,6 @@ Search options
 
 Exercises
 ---------
-
-Since you now know how to query content it is time for some exercise.
 
 Exercise 1
 **********
@@ -430,7 +414,7 @@ Modify the criteria in the search to sort the talks in the order of their modifi
 Exercise 2
 **********
 
-Change ``TalkListView`` to show the the keynote speakers (name, biography and foto) and a with link to their keynote. Remember that you cannot search for a specific value in ``type_of_talk`` yet so you'll have to filter the results.
+Change ``TalkListView`` to show the keynote speakers (name, biography and foto) and with a link to their keynote. Remember that you cannot search for a specific value in ``type_of_talk`` yet so you'll have to filter the results.
 
 For bonus points create and register it as a separate view ``Keynotes``
 
@@ -441,6 +425,7 @@ For bonus points create and register it as a separate view ``Keynotes``
 
     ..  code-block:: jsx
         :linenos:
+        :emphasize-lines: 34-36
 
         import React from 'react';
         import { Container, Segment, Image } from 'semantic-ui-react';
