@@ -252,7 +252,7 @@ workspaces machinery, by running something like (at the Volto project root):
 .. code-block:: console
 
     yarn workspaces info
-    yarn workspace @plone-collective/datatable-tutorial add @papaparse
+    yarn workspace @plone-collective/datatable-tutorial add papaparse
 
 .. note::
     There are several other add-on templates, such as `voltocli`_ or `EEA Add-on
@@ -390,10 +390,10 @@ Now for the simplest block sidebar:
 
               <Form>
                 <Field
-                  id="file"
+                  id="file_path"
                   widget="pick_object"
                   title="Pick file"
-                  value={data.file}
+                  value={data.file_path || []}
                   onChange={(id, value) =>
                     onChangeBlock(block, { ...data, [id]: value })
                   }
