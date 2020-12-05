@@ -16,24 +16,28 @@ JSX is inline HTML which will be rendered as HTML in the view.
 .. code-block:: jsx
     :linenos: 
 
-    import React, { Component } from 'react';
     import logo from './logo.svg';
     import './App.css';
 
-    class App extends Component {
-      render() {
-        return (
-          <div className="App">
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">Welcome to React</h1>
-            </header>
-            <p className="App-intro">
-              To get started, edit <code>src/App.js</code> and save to reload.
+    function App() {
+      return (
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>
+              Edit <code>src/App.js</code> and save to reload.
             </p>
-          </div>
-        );
-      }
+            <a
+              className="App-link"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn React
+            </a>
+          </header>
+        </div>
+      );
     }
 
     export default App;
@@ -58,97 +62,93 @@ Remove all other boiler plate code including styling.
     .. code-block:: jsx
         :linenos: 
 
-        import React, { Component } from "react";
+import "./App.css";
 
-        class App extends Component {
-          render() {
-            return (
-              <ul>
-                <li>
-                  <h2>What does the Plone Foundation do?</h2>
-                  <p>
-                    The mission of the Plone Foundation is to protect and promote Plone.
-                    The Foundation provides marketing assistance, awareness, and
-                    evangelism assistance to the Plone community. The Foundation also
-                    assists with development funding and coordination of funding for
-                    large feature implementations. In this way, our role is similar to
-                    the role of the Apache Software Foundation and its relationship with
-                    the Apache Project.
-                  </p>
-                </li>
-                <li>
-                  <h2>Why does Plone need a Foundation?</h2>
-                  <p>
-                    Plone has reached critical mass, with enterprise implementations and
-                    worldwide usage. The Foundation is able to speak for Plone, and
-                    provide strong and consistent advocacy for both the project and the
-                    community. The Plone Foundation also helps ensure a level playing
-                    field, to preserve what is good about Plone as new participants
-                    arrive.
-                  </p>
-                </li>
-              </ul>
-            );
-          }
-        }
+function App() {
+  return (
+    <ul>
+      <li>
+        <h2>What does the Plone Foundation do?</h2>
+        <p>
+          The mission of the Plone Foundation is to protect and promote Plone.
+          The Foundation provides marketing assistance, awareness, and
+          evangelism assistance to the Plone community. The Foundation also
+          assists with development funding and coordination of funding for large
+          feature implementations. In this way, our role is similar to the role
+          of the Apache Software Foundation and its relationship with the Apache
+          Project.
+        </p>
+      </li>
+      <li>
+        <h2>Why does Plone need a Foundation?</h2>
+        <p>
+          Plone has reached critical mass, with enterprise implementations and
+          worldwide usage. The Foundation is able to speak for Plone, and
+          provide strong and consistent advocacy for both the project and the
+          community. The Plone Foundation also helps ensure a level playing
+          field, to preserve what is good about Plone as new participants
+          arrive.
+        </p>
+      </li>
+    </ul>
+  );
+}
 
-        export default App;
+export default App;
 
     .. code-block:: dpatch
 
         --- a/src/App.js
         +++ b/src/App.js
-        @@ -1,26 +1,33 @@
-        -import React, { Component } from 'react';
+        @@ -1,24 +1,32 @@
         -import logo from './logo.svg';
         -import './App.css';
-        +import React, { Component } from "react";
-
-        class App extends Component {
-          render() {
-            return (
-        -      <div className="App">
-        -        <header className="App-header">
-        -          <img src={logo} className="App-logo" alt="logo" />
-        +      <ul>
-        +        <li>
-        +          <h2>What does the Plone Foundation do?</h2>
-                  <p>
-        -            Edit <code>src/App.js</code> and save to reload.
-        +            The mission of the Plone Foundation is to protect and promote Plone.
-        +            The Foundation provides marketing assistance, awareness, and
-        +            evangelism assistance to the Plone community. The Foundation also
-        +            assists with development funding and coordination of funding for
-        +            large feature implementations. In this way, our role is similar to
-        +            the role of the Apache Software Foundation and its relationship with
-        +            the Apache Project.
-                  </p>
-        -          <a
-        -            className="App-link"
-        -            href="https://reactjs.org"
-        -            target="_blank"
-        -            rel="noopener noreferrer"
-        -          >
-        -            Learn React
-        -          </a>
-        -        </header>
-        -      </div>
-        +        </li>
-        +        <li>
-        +          <h2>Why does Plone need a Foundation?</h2>
-        +          <p>
-        +             Plone has reached critical mass, with enterprise implementations and
-        +            worldwide usage. The Foundation is able to speak for Plone, and
-        +            provide strong and consistent advocacy for both the project and the
-        +            community. The Plone Foundation also helps ensure a level playing
-        +            field, to preserve what is good about Plone as new participants
-        +            arrive.
-        +          </p>
-        +        </li>
-        +      </ul>
-            );
-          }
+        +import "./App.css";
+        
+        function App() {
+          return (
+        -    <div className="App">
+        -      <header className="App-header">
+        -        <img src={logo} className="App-logo" alt="logo" />
+        +    <ul>
+        +      <li>
+        +        <h2>What does the Plone Foundation do?</h2>
+                <p>
+        -          Edit <code>src/App.js</code> and save to reload.
+        +          The mission of the Plone Foundation is to protect and promote Plone.
+        +          The Foundation provides marketing assistance, awareness, and
+        +          evangelism assistance to the Plone community. The Foundation also
+        +          assists with development funding and coordination of funding for large
+        +          feature implementations. In this way, our role is similar to the role
+        +          of the Apache Software Foundation and its relationship with the Apache
+        +          Project.
+                </p>
+        -        <a
+        -          className="App-link"
+        -          href="https://reactjs.org"
+        -          target="_blank"
+        -          rel="noopener noreferrer"
+        -        >
+        -          Learn React
+        -        </a>
+        -      </header>
+        -    </div>
+        +      </li>
+        +      <li>
+        +        <h2>Why does Plone need a Foundation?</h2>
+        +        <p>
+        +          Plone has reached critical mass, with enterprise implementations and
+        +          worldwide usage. The Foundation is able to speak for Plone, and
+        +          provide strong and consistent advocacy for both the project and the
+        +          community. The Plone Foundation also helps ensure a level playing
+        +          field, to preserve what is good about Plone as new participants
+        +          arrive.
+        +        </p>
+        +      </li>
+        +    </ul>
+          );
         }
+
 
 Extra Information
 =================

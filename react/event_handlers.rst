@@ -17,7 +17,6 @@ This method needs to be bound to the instance like this:
 
     constructor(props) {
       super(props);
-      this.toggle = this.toggle.bind(this);
       this.state = {
         show: false
       };
@@ -37,7 +36,7 @@ and set the new state using the :file:`setState` method:
         :lineno-start: 19
         :emphasize-lines: 1-5
 
-        toggle() {
+        toggle = () => {
           this.setState({
             show: !this.state.show
           });
@@ -79,13 +78,12 @@ To call the newly created :file:`toggle` method we will add an on click handler 
 
           constructor(props) {
             super(props);
-        +    this.toggle = this.toggle.bind(this);
             this.state = {
               show: false
             };
           }
 
-        +  toggle() {
+        +  toggle = () => {
         +    this.setState({
         +      show: !this.state.show
         +    });
@@ -117,13 +115,12 @@ To call the newly created :file:`toggle` method we will add an on click handler 
 
           constructor(props) {
             super(props);
-            this.toggle = this.toggle.bind(this);
             this.state = {
               show: false
             };
           }
 
-          toggle() {
+          toggle = () => {
             this.setState({
               show: !this.state.show
             });

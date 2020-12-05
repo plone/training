@@ -53,14 +53,13 @@ The full listing of our new :file:`FaqItemView` will look as follows:
 
       constructor(props) {
         super(props);
-        this.onBack = this.onBack.bind(this);
       }
 
       componentDidMount() {
         this.props.getFaqItems();
       }
 
-      onBack() {
+      onBack = () => {
         this.props.history.push("/");
       }
 
@@ -105,14 +104,13 @@ The full listing of our new :file:`FaqItemView` will look as follows:
 
         +  constructor(props) {
         +    super(props);
-        +    this.onBack = this.onBack.bind(this);
         +  }
         +
           componentDidMount() {
             this.props.getFaqItems();
           }
 
-        +  onBack() {
+        +  onBack = () => {
         +    this.props.history.push("/");
         +  }
         +

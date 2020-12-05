@@ -30,20 +30,18 @@ and create an empty :file:`onDelete` handler which is called when the button is 
 
           constructor(props) {
             super(props);
-            this.toggle = this.toggle.bind(this);
-            this.onDelete = this.onDelete.bind(this);
             this.state = {
               show: false
             };
           }
 
-          toggle() {
+          toggle = () => {
             this.setState({
               show: !this.state.show
             });
           }
 
-          onDelete() {}
+          onDelete = () => {}
 
           render() {
             return (
@@ -67,8 +65,6 @@ and create an empty :file:`onDelete` handler which is called when the button is 
         @@ -11,6 +11,7 @@ class FaqItem extends Component {
           constructor(props) {
             super(props);
-            this.toggle = this.toggle.bind(this);
-        +    this.onDelete = this.onDelete.bind(this);
             this.state = {
               show: false
             };
@@ -76,7 +72,7 @@ and create an empty :file:`onDelete` handler which is called when the button is 
             });
           }
 
-        +  onDelete() {}
+        +  onDelete = () => {}
         +
           render() {
             return (
@@ -120,20 +116,18 @@ Also complete the :file:`onDelete` handler so it will call the callback with the
 
           constructor(props) {
             super(props);
-            this.toggle = this.toggle.bind(this);
-            this.onDelete = this.onDelete.bind(this);
             this.state = {
               show: false
             };
           }
 
-          toggle() {
+          toggle = () => {
             this.setState({
               show: !this.state.show
             });
           }
 
-          onDelete() {
+          onDelete = () => {
             this.props.onDelete(this.props.index);
           }
 
@@ -172,8 +166,8 @@ Also complete the :file:`onDelete` handler so it will call the callback with the
             });
           }
 
-        -  onDelete() {}
-        +  onDelete() {
+        -  onDelete = () => {}
+        +  onDelete = () =>  {
         +    this.props.onDelete(this.props.index);
         +  }
 
@@ -201,7 +195,6 @@ Make sure to pass the index and the callback to the :file:`FaqItem` component to
         class App extends Component {
           constructor(props) {
             super(props);
-            this.onDelete = this.onDelete.bind(this);
             this.state = {
               faq: [
                 {
@@ -218,7 +211,7 @@ Make sure to pass the index and the callback to the :file:`FaqItem` component to
             };
           }
 
-          onDelete(index) {
+          onDelete = (index) => {
             console.log(index);
           }
 
@@ -248,7 +241,6 @@ Make sure to pass the index and the callback to the :file:`FaqItem` component to
         class App extends Component {
           constructor(props) {
             super(props);
-        +    this.onDelete = this.onDelete.bind(this);
             this.state = {
               faq: [
                 {
@@ -256,7 +248,7 @@ Make sure to pass the index and the callback to the :file:`FaqItem` component to
             };
           }
 
-        +  onDelete(index) {
+        +  onDelete = (index) => {
         +    console.log(index);
         +  }
         +
@@ -290,7 +282,7 @@ Write the :file:`onDelete` handler which removes the item from the list and crea
         :lineno-start: 23
         :emphasize-lines: 1-7
 
-        onDelete(index) {
+        onDelete = (index) => {
           let faq = this.state.faq;
           faq.splice(index, 1);
           this.setState({
@@ -305,7 +297,7 @@ Write the :file:`onDelete` handler which removes the item from the list and crea
         @@ -21,7 +21,11 @@ class App extends Component {
           }
 
-          onDelete(index) {
+          onDelete = (index) => {
         -    console.log(index);
         +    let faq = this.state.faq;
         +    faq.splice(index, 1);

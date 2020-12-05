@@ -108,9 +108,6 @@ This pattern is called controlled inputs.
         class App extends Component {
           constructor(props) {
             super(props);
-            this.onDelete = this.onDelete.bind(this);
-            this.onChangeQuestion = this.onChangeQuestion.bind(this);
-            this.onChangeAnswer = this.onChangeAnswer.bind(this);
             this.state = {
               faq: [
                 {
@@ -129,7 +126,7 @@ This pattern is called controlled inputs.
             };
           }
 
-          onDelete(index) {
+          onDelete = (index) => {
             let faq = this.state.faq;
             faq.splice(index, 1);
             this.setState({
@@ -137,13 +134,13 @@ This pattern is called controlled inputs.
             });
           }
 
-          onChangeQuestion(event) {
+          onChangeQuestion = (event) => {
             this.setState({
               question: event.target.value
             });
           }
 
-          onChangeAnswer(event) {
+          onChangeAnswer = (event) => {
             this.setState({
               answer: event.target.value
             });
@@ -196,9 +193,6 @@ This pattern is called controlled inputs.
         @@ -6,17 +6,23 @@ class App extends Component {
           constructor(props) {
             super(props);
-            this.onDelete = this.onDelete.bind(this);
-        +    this.onChangeQuestion = this.onChangeQuestion.bind(this);
-        +    this.onChangeAnswer = this.onChangeAnswer.bind(this);
             this.state = {
               faq: [
                 {
@@ -224,13 +218,13 @@ This pattern is called controlled inputs.
             });
           }
 
-        +  onChangeQuestion(event) {
+        +  onChangeQuestion = (event) => {
         +    this.setState({
         +      question: event.target.value
         +    });
         +  }
         +
-        +  onChangeAnswer(event) {
+        +  onChangeAnswer = (event) => {
         +    this.setState({
         +      answer: event.target.value
         +    });
@@ -281,7 +275,6 @@ After the item is added the inputs should also reset to empty values.
         :lineno-start: 11
         :emphasize-lines: 1
 
-        this.onSubmit = this.onSubmit.bind(this);
 
     And add this to the body of the class.
 
@@ -290,7 +283,7 @@ After the item is added the inputs should also reset to empty values.
         :lineno-start: 50
         :emphasize-lines: 1-14,29
 
-        onSubmit(event) {
+        onSubmit = (event) => {
           this.setState({
             faq: [
               ...this.state.faq,
@@ -347,10 +340,6 @@ After the item is added the inputs should also reset to empty values.
         --- a/src/App.js
         +++ b/src/App.js
         @@ -8,6 +8,7 @@ class App extends Component {
-            this.onDelete = this.onDelete.bind(this);
-            this.onChangeQuestion = this.onChangeQuestion.bind(this);
-            this.onChangeAnswer = this.onChangeAnswer.bind(this);
-        +    this.onSubmit = this.onSubmit.bind(this);
             this.state = {
               faq: [
                 {
@@ -358,7 +347,7 @@ After the item is added the inputs should also reset to empty values.
             });
           }
 
-        +  onSubmit(event) {
+        +  onSubmit = (event) => {
         +    this.setState({
         +      faq: [
         +        ...this.state.faq,

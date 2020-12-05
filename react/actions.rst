@@ -21,11 +21,6 @@ it is almost a 100% copy of :file:`App.js`:
     class Faq extends Component {
       constructor(props) {
         super(props);
-        this.onDelete = this.onDelete.bind(this);
-        this.onEdit = this.onEdit.bind(this);
-        this.onChangeQuestion = this.onChangeQuestion.bind(this);
-        this.onChangeAnswer = this.onChangeAnswer.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
         this.state = {
           faq: [
             {
@@ -44,7 +39,7 @@ it is almost a 100% copy of :file:`App.js`:
         };
       }
 
-      onDelete(index) {
+      onDelete = (index) => {
         let faq = this.state.faq;
         faq.splice(index, 1);
         this.setState({
@@ -52,7 +47,7 @@ it is almost a 100% copy of :file:`App.js`:
         });
       }
 
-      onEdit(index, question, answer) {
+      onEdit = (index, question, answer) => {
         let faq = this.state.faq;
         faq[index] = {
           question,
@@ -63,19 +58,19 @@ it is almost a 100% copy of :file:`App.js`:
         });
       }
 
-      onChangeQuestion(event) {
+      onChangeQuestion = (event) => {
         this.setState({
           question: event.target.value
         });
       }
 
-      onChangeAnswer(event) {
+      onChangeAnswer = (event) => {
         this.setState({
           answer: event.target.value
         });
       }
 
-      onSubmit(event) {
+      onSubmit = (event) => {
         this.setState({
           faq: [
             ...this.state.faq,
@@ -175,11 +170,6 @@ Next we will create an :file:`App` component with just the store and a reference
         -class App extends Component {
         -  constructor(props) {
         -    super(props);
-        -    this.onDelete = this.onDelete.bind(this);
-        -    this.onEdit = this.onEdit.bind(this);
-        -    this.onChangeQuestion = this.onChangeQuestion.bind(this);
-        -    this.onChangeAnswer = this.onChangeAnswer.bind(this);
-        -    this.onSubmit = this.onSubmit.bind(this);
         -    this.state = {
         -      faq: [
         -        {
@@ -200,7 +190,7 @@ Next we will create an :file:`App` component with just the store and a reference
         +import { Provider } from "react-redux";
         +import { createStore } from "redux";
         
-        -  onDelete(index) {
+        -  onDelete = (index) => {
         -    let faq = this.state.faq;
         -    faq.splice(index, 1);
         -    this.setState({
@@ -208,7 +198,7 @@ Next we will create an :file:`App` component with just the store and a reference
         -    });
         -  }
         -
-        -  onEdit(index, question, answer) {
+        -  onEdit = (index, question, answer) => {
         -    let faq = this.state.faq;
         -    faq[index] = {
         -      question,
@@ -221,20 +211,20 @@ Next we will create an :file:`App` component with just the store and a reference
         +import rootReducer from "./reducers";
         +import Faq from "./components/Faq";
         
-        -  onChangeQuestion(event) {
+        -  onChangeQuestion = (event) => {
         -    this.setState({
         -      question: event.target.value
         -    });
         -  }
         -
-        -  onChangeAnswer(event) {
+        -  onChangeAnswer = (event) => {
         -    this.setState({
         -      answer: event.target.value
         -    });
         -  }
         +import "./App.css";
         
-        -  onSubmit(event) {
+        -  onSubmit = (event) => {
         -    this.setState({
         -      faq: [
         -        ...this.state.faq,
@@ -362,28 +352,25 @@ The result will be as follows:
 
       constructor(props) {
         super(props);
-        this.onChangeQuestion = this.onChangeQuestion.bind(this);
-        this.onChangeAnswer = this.onChangeAnswer.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
         this.state = {
           question: "",
           answer: ""
         };
       }
 
-      onChangeQuestion(event) {
+      onChangeQuestion = (event) => {
         this.setState({
           question: event.target.value
         });
       }
 
-      onChangeAnswer(event) {
+      onChangeAnswer = (event) => {
         this.setState({
           answer: event.target.value
         });
       }
 
-      onSubmit(event) {
+      onSubmit = (event) => {
         this.props.addFaqItem(this.state.question, this.state.answer);
         this.setState({
           question: "",
@@ -466,11 +453,6 @@ The result will be as follows:
         +
           constructor(props) {
             super(props);
-        -    this.onDelete = this.onDelete.bind(this);
-        -    this.onEdit = this.onEdit.bind(this);
-            this.onChangeQuestion = this.onChangeQuestion.bind(this);
-            this.onChangeAnswer = this.onChangeAnswer.bind(this);
-            this.onSubmit = this.onSubmit.bind(this);
             this.state = {
         -      faq: [
         -        {
@@ -487,7 +469,7 @@ The result will be as follows:
             };
           }
 
-        -  onDelete(index) {
+        -  onDelete = (index) => {
         -    let faq = this.state.faq;
         -    faq.splice(index, 1);
         -    this.setState({
@@ -495,7 +477,7 @@ The result will be as follows:
         -    });
         -  }
         -
-        -  onEdit(index, question, answer) {
+        -  onEdit = (index, question, answer) => {
         -    let faq = this.state.faq;
         -    faq[index] = {
         -      question,
@@ -506,13 +488,13 @@ The result will be as follows:
         -    });
         -  }
         -
-          onChangeQuestion(event) {
+          onChangeQuestion = (event) => {
             this.setState({
               question: event.target.value
         @@ -57,14 +40,8 @@ class Faq extends Component {
           }
 
-          onSubmit(event) {
+          onSubmit = (event) => {
         +    this.props.addFaqItem(this.state.question, this.state.answer);
             this.setState({
         -      faq: [
@@ -584,12 +566,6 @@ update the :file:`FaqItem` component to call the actions we created for our stor
 
           constructor(props) {
             super(props);
-            this.toggle = this.toggle.bind(this);
-            this.onDelete = this.onDelete.bind(this);
-            this.onEdit = this.onEdit.bind(this);
-            this.onChangeQuestion = this.onChangeQuestion.bind(this);
-            this.onChangeAnswer = this.onChangeAnswer.bind(this);
-            this.onSave = this.onSave.bind(this);
             this.state = {
               show: false,
               mode: "view",
@@ -598,17 +574,17 @@ update the :file:`FaqItem` component to call the actions we created for our stor
             };
           }
 
-          toggle() {
+          toggle = () => {
             this.setState({
               show: !this.state.show
             });
           }
 
-          onDelete() {
+          onDelete = () => {
             this.props.deleteFaqItem(this.props.index);
           }
 
-          onEdit() {
+          onEdit = () => {
             this.setState({
               mode: "edit",
               question: this.props.question,
@@ -616,19 +592,19 @@ update the :file:`FaqItem` component to call the actions we created for our stor
             });
           }
 
-          onChangeQuestion(event) {
+          onChangeQuestion = (event) => {
             this.setState({
               question: event.target.value
             });
           }
 
-          onChangeAnswer(event) {
+          onChangeAnswer = (event) => {
             this.setState({
               answer: event.target.value
             });
           }
 
-          onSave(event) {
+          onSave = (event) => {
             this.setState({
               mode: "view"
             });
@@ -710,12 +686,12 @@ update the :file:`FaqItem` component to call the actions we created for our stor
         @@ -34,7 +38,7 @@ class FaqItem extends Component {
           }
 
-          onDelete() {
+          onDelete = () => {
         -    this.props.onDelete(this.props.index);
         +    this.props.deleteFaqItem(this.props.index);
           }
 
-          onEdit() {
+          onEdit = () => {
         @@ -61,7 +65,11 @@ class FaqItem extends Component {
             this.setState({
               mode: "view"
