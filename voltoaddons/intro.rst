@@ -86,6 +86,8 @@ Before you start
 You'll need to have a Plone instance with plone.restapi integrate. The quickest
 way to get a Plone instance running is with Docker:
 
+.. code-block:: console
+
     docker run -it --rm --name=plone -p 8080:8080 \
         -e SITE=Plone -e ADD-ONS="kitconcept.volto" \
         -e ZCML="kitconcept.volto.cors" \
