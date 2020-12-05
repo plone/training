@@ -43,7 +43,7 @@ Exercise: Create the highlights basic block using ``src/components/Blocks/Highli
         import HighlightsViewBlock from '@package/components/Blocks/Highlights/View';
         import HighlightsEditBlock from '@package/components/Blocks/Highlights/Edit';
 
-        const customTiles = {
+        const customBlocks = {
         ...
           highlights: {
             id: 'highlights',
@@ -74,7 +74,7 @@ After setting the basics, let's add some structure and styling to the view compo
 
     const View = props => {
       return (
-        <div className="tile highlights">
+        <div className="block highlights">
           <Grid columns="3">
             <Grid.Column>
               <div className="highlight">
@@ -242,7 +242,7 @@ This is the complete view component (``View.jsx``) for this block:
       const { id } = props;
 
       return (
-        <div className="tile highlights">
+        <div className="block highlights">
           <Grid columns="3">
             <Grid.Column>
               <div className="highlight">

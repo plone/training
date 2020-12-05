@@ -68,7 +68,7 @@ Use this code for the block view component ``src/components/Blocks/MainSlider/Vi
     const View = props => {
       return (
         <div
-          className="tile view mainslider full-width"
+          className="block view mainslider full-width"
           style={{
             background: `url(${sliderPNG}) center no-repeat`,
           }}
@@ -129,7 +129,7 @@ To style the block uses this styling:
       margin: 0;
     }
 
-    .tile.view.mainslider {
+    .block.view.mainslider {
       .slide {
         display: flex;
         height: 339px;
@@ -184,11 +184,11 @@ To style the block uses this styling:
       }
     }
 
-    body.has-toolbar .tile.view.mainslider .slick-prev {
+    body.has-toolbar .block.view.mainslider .slick-prev {
       left: calc(-18px + 80px);
     }
 
-    body.has-toolbar .tile.view.mainslider .slick-next {
+    body.has-toolbar .block.view.mainslider .slick-next {
       right: calc(80px - 38px);
     }
 
@@ -230,10 +230,10 @@ This is by design, but it can be overriden in the configuration object:
 .. code-block:: js
    :emphasize-lines: 3
 
-    export const tiles = {
-      ...defaultTiles,
-      requiredTiles: [],
-      tilesConfig: { ...defaultTiles.tilesConfig, ...customTiles },
+    export const blocks = {
+      ...defaultBlocks,
+      requiredBlocks: [],
+      blocksConfig: { ...defaultBlocks.blocksConfig, ...customBlocks },
     };
 
 at least for a moment, to remove the title block from the homepage.

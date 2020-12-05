@@ -6,7 +6,7 @@ Blocks - Edit components
 
 The edit component part of a block anatomy is specially different to the view component because they have to support the UX for editing the block.
 This UX can be very complex depending on the kind of block and the feature that it is trying to provide.
-The project requirements will tell how far you should go with the UX story of each tile, and how complex it will become.
+The project requirements will tell how far you should go with the UX story of each block, and how complex it will become.
 You can use all the props that the edit component is receiving to model the UX for the block and how it will render.
 
 See the complete list :ref:`voltohandson-introtoblocks-editprops-label`.
@@ -76,12 +76,12 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
     import TeaserSidebar from './TeaserSidebar';
     import TeaserBody from './TeaserBody';
 
-    const Edit = ({ data, onChangeTile, tile, selected, properties }) => {
+    const Edit = ({ data, onChangeBlock, block, selected, properties }) => {
       return (
         <>
-          <TeaserBody data={data} properties={properties} id={tile} isEditMode />
+          <TeaserBody data={data} properties={properties} id={block} isEditMode />
           <SidebarPortal selected={selected}>
-            <TeaserSidebar data={data} tile={tile} onChangeTile={onChangeTile} />
+            <TeaserSidebar data={data} block={block} onChangeBlock={onChangeBlock} />
           </SidebarPortal>
         </>
       );
@@ -143,8 +143,8 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
 
     const TeaserData = ({
       data,
-      tile,
-      onChangeTile,
+      block,
+      onChangeBlock,
       openObjectBrowser,
       required = false,
       intl,
@@ -161,7 +161,7 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
               iconAction={
                 data.href
                   ? () => {
-                      onChangeTile(tile, {
+                      onChangeBlock(block, {
                         ...data,
                         href: '',
                       });
@@ -169,7 +169,7 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
                   : () => openObjectBrowser({ mode: 'link' })
               }
               onChange={(name, value) => {
-                onChangeTile(tile, {
+                onChangeBlock(block, {
                   ...data,
                   href: value,
                 });
@@ -180,7 +180,7 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
               title={intl.formatMessage(messages.openLinkInNewTab)}
               value={data.openLinkInNewTab ? data.openLinkInNewTab : false}
               onChange={(name, value) => {
-                onChangeTile(tile, {
+                onChangeBlock(block, {
                   ...data,
                   openLinkInNewTab: value,
                 });
@@ -193,8 +193,8 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
 
     TeaserData.propTypes = {
       data: PropTypes.objectOf(PropTypes.any).isRequired,
-      tile: PropTypes.string.isRequired,
-      onChangeTile: PropTypes.func.isRequired,
+      block: PropTypes.string.isRequired,
+      onChangeBlock: PropTypes.func.isRequired,
       openObjectBrowser: PropTypes.func.isRequired,
     };
 
@@ -213,7 +213,7 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
     import { useDispatch, useSelector } from 'react-redux';
     import { Message } from 'semantic-ui-react';
     import { defineMessages, injectIntl } from 'react-intl';
-    import imageTileSVG from '@plone/volto/components/manage/Tiles/Image/tile-image.svg';
+    import imageBlockSVG from '@plone/volto/components/manage/Blocks/Image/block-image.svg';
     import { getContent } from '@plone/volto/actions';
     import { flattenToAppURL } from '@plone/volto/helpers';
 
@@ -241,7 +241,7 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
           {!data.href && (
             <Message>
               <div className="teaser-item default">
-                <img src={imageTileSVG} alt="" />
+                <img src={imageBlockSVG} alt="" />
                 <p>{intl.formatMessage(messages.PleaseChooseContent)}</p>
               </div>
             </Message>
@@ -302,7 +302,7 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
     import TeaserViewBlock from '@package/components/Blocks/Teaser/View';
     import TeaserEditBlock from '@package/components/Blocks/Teaser/Edit';
 
-    const customTiles = {
+    const customBlocks = {
     ...
       teaser: {
         id: 'teaser',

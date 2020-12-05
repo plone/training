@@ -11,14 +11,14 @@ Success Story
 =============
 
 Create this content type using ``Control Panel``->``Dexterity Content Types``->``Add new content type``.
-Name it ``Success Story``, then select it, got to the ``Behaviors`` tab, and add the ``Tiles`` and the ``Lead Image`` behaviors.
+Name it ``Success Story``, then select it, got to the ``Behaviors`` tab, and add the ``Blocks`` and the ``Lead Image`` behaviors.
 
 Creating a view for a custom content type
 =========================================
 
 Create a new file in ``src/components/Views/SuccessStory.jsx``. Let's start simple:
 
-.. code-block:: jsx    
+.. code-block:: jsx
 
     import React from 'react';
 
@@ -31,11 +31,11 @@ Create a new file in ``src/components/Views/SuccessStory.jsx``. Let's start simp
 Then add to the configuration object:
 
 .. code-block:: js
-   
+
     import SuccessStory from "@package/components/Views/SuccessStory";
-    
+
     ...
-    
+
     export const views = {
       ...defaultViews,
       contentTypesViews: {
