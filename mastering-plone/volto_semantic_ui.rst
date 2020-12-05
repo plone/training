@@ -26,6 +26,7 @@ Volto applies `components` from `Semantic UI React` to compose a large part of t
 
 The above Semantic `List` component renders the list of subjects of the context content object. One example is the EventView.
 
-Another example is the ``container`` component, that wraps content to be rendered with a margin depending on the browser window size / media query. You have seen this component already in the news item view.
+Another example is the `container <https://react.semantic-ui.com/elements/container/>`_ component, that wraps content to be rendered with a margin depending on the browser window size / media query.
+You have seen this component already in the news item view.
 
 See next chapter for theming with Semantic UI.

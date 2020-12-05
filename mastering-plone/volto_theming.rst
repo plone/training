@@ -38,7 +38,10 @@ The overall font is defined in Volto and can be found in :file:`omelette/theme/t
 
   @fontName : 'Lato';
 
-Semantic UI does not provide a less variable for increasing the letter-spacing. So we add a CSS rule for it. We use the ``site.overrides`` as this rule should apply site wide. Create an empty file :file:`site.overrides` in :file:`theme/globals` and set the letter-spacing.
+Semantic UI does not provide a less variable for increasing the letter-spacing.
+So we add a CSS rule for it.
+We use :file:`site.overrides` as this rule should apply site wide.
+Create an empty file :file:`theme/globals/site.overrides` and set the letter-spacing:
 
 .. code-block:: css
 
@@ -46,11 +49,15 @@ Semantic UI does not provide a less variable for increasing the letter-spacing. 
       letter-spacing: .05em;
   }
 
-We can use variables and theme overrides to achieve our theme, or we can use Volto’s :file:`custom.overrides`, or we can mix elements of both as needed. There is no right or wrong way of doing it, and we will be using the Semantic UI theming engine in both cases.
+We can use variables and theme overrides to achieve our theme, or we can use Volto’s :file:`custom.overrides`, or we can mix elements of both as needed.
+There is no right or wrong way of doing it, and we will be using the Semantic UI theming engine in both cases.
 
-So there are these two :file:`custom.overrides` and :file:`custom.variables` for everything else, that is not belonging to the site as a whole, not belonging to the header, navigation, breadcrumbs, etc.. It's a convention to put styling of your additional non default components in :file:`custom.overrides` and :file:`custom.variables`.
+There are these two files :file:`theme/extras/custom.overrides` and :file:`theme/extras/custom.variables`.
+Use these tp style everything that does not belong to default Volro, e.g. not belonging to the header, navigation, breadcrumbs, etc..
+It's a convention to put styling of your additional non-default components in :file:`custom.overrides` and :file:`custom.variables`.
 
-In chapter :ref:`volto-component-label` we will create an addional component to show the sponsors. We address this component in :file:`theme/extras/custom.overrides`
+In chapter :ref:`volto-sponsors-component-label` we will create a custom component to show the sponsors.
+We style this component in :file:`theme/extras/custom.overrides`
 
 .. code-block:: css
 
@@ -58,7 +65,7 @@ In chapter :ref:`volto-component-label` we will create an addional component to 
     background-color: rgb(177, 192, 219);
   }
 
-Take into account to use theme variables as
+You should use the power of `less` and use variables such as:
 
 .. code-block:: css
 

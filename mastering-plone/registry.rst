@@ -700,19 +700,19 @@ Modify :file:`frontend/src/components/Views/Talk.jsx` an add this after the ``Wh
 
 .. note::
 
-   This approach to create options for fields from registry-records has one problem:
+   The approach to create options for fields from registry-records has one problem:
    Existing talks does not get updated when you change a value in the controlpanel.
    Instead they will have invalid data and you will have to update them.
 
-   If your settings tend to change you should use `collective.taxonomy <https://github.com/collective/collective.taxonomy>`_ to manage vocabularies.
-   Among many other things it allows you to translate terms and to change the text that is displayed while keeping the same values.
+   If the options in your fields tend to change often you should consider using `collective.taxonomy <https://github.com/collective/collective.taxonomy>`_ to manage vocabularies.
+   Among many other things it allows you to translate terms and to change the text that is displayed while keeping the values the same.
+   Using :py:mod:`collective.taxonomy` for vocabularies works fine with Volto, but the UI where you create and edit vocabularies is so far only available in Plone Classic.
 
-   In this case study this approach works fine though because you will create a new site for next years conference anyway.
-
+   In this case study the approach used here works fine though because you will create a new site for next years conference anyway.
 
 
 Summary
 -------
 
-You successfully combined the registry, a controlpanel and vocabularies to allow managing field options by admins.
-It seems like a lot but you will certainly use dynamic vocabularies, controlpanels and the registry in all of you Plone projects in one way or another.
+* You successfully combined the registry, a controlpanel and vocabularies to allow managing field options by admins.
+* It seems like a lot but you will certainly use dynamic vocabularies, controlpanels and the registry in all of your future Plone projects in one way or another.

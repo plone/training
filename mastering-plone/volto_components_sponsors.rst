@@ -1,4 +1,4 @@
-.. _volto-component-label:
+.. _volto-sponsors-component-label:
 
 ======================
 The Sponsors Component
