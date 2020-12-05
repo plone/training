@@ -156,15 +156,14 @@ Bootstrap an add-on
 
 Let's start creating an add-on. We'll create a new scoped package:
 ``@plone-collective/datatable-tutorial``. Inside your Volto project, bootstrap
-the add-on by running:
+the add-on by running (in the Volto project root):
 
 .. code-block:: shell
 
-    mkdir -p src/addons
-    cd src/addons
-
+    # (optional, if you haven't installed already yo and @plone/generator-volto)
     npm install -g yo
     npm install -g @plone/generator-volto
+
     yo @plone/volto:addon
 
 Note: the namespace ``@plone-collective`` (or any other) is not required and is
@@ -203,8 +202,15 @@ Back to the project, you can edit ``jsconfig.json`` and add your add-on:
     Javascript packages that are shipped transpiled.
 
 You can also immediately push the package to Github then use `mrs-developer`_
-to manage the package and ``jsconfig.json`` changes. Add to
-``mrs-developer.json``:
+to manage the package and ``jsconfig.json`` changes.
+
+First, install mrs-developer as a development dependency by running:
+
+.. code-block:: console
+
+    yarn add -W -D mrs-developer
+
+Create a ``mrs.developer.json`` with the following content:
 
 .. _mrs-developer: https://github.com/collective/mrs-developer
 
@@ -224,7 +230,7 @@ adjust ``jsconfig.json``.
 
 When developing add-ons that have third-party depedencies, you need to add the
 addon as workspace to the Volto project. Change the Volto project's
-``package.json`` to something like:
+``package.json`` to include something like:
 
 .. code-block:: json
 
