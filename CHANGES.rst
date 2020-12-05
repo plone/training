@@ -6,6 +6,8 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
+- Update voltohandson training to use blocks keyword instead of tiles
+
 - Language tweaks to WSGI training [polyester]
 
 - Minor fixes, like using implementer and provider decorators [jensens]
