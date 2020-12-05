@@ -89,7 +89,7 @@ way to get a Plone instance running is with Docker:
 .. code-block:: console
 
     docker run -it --rm --name=plone -p 8080:8080 \
-        -e SITE=Plone -e ADD-ONS="kitconcept.volto" \
+        -e SITE=Plone -e ADDONS="kitconcept.volto" \
         -e ZCML="kitconcept.volto.cors" \
         -e PROFILES="kitconcept.volto:default-homepage" plone
 
