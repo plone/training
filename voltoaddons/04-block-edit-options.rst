@@ -49,7 +49,7 @@ To understand how to structure the schema you need to read Volto's
     getWidgetByType(props.type) ||
     getWidgetDefault();
 
-Now we add a basic schema to control the tabel styling:
+Now we add a basic schema to control the table styling:
 
 .. code-block:: jsx
 

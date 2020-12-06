@@ -31,7 +31,7 @@ client).
             self.request = request
 
         def __call__(self, value):
-            value["items"] = db.query(value)    # pseudocode
+            value["items"] = db.query(value)    # pseudo code
             return value
 
 Then register as a subscription adapter:

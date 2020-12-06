@@ -100,11 +100,11 @@ Now, let's make use of this schema. We'll add a new field to the
         },
     }
 
-Don't forget to add the ``columns`` fieldname to the ``default`` fieldset.
+Don't forget to add the ``columns`` field name to the ``default`` fieldset.
 
 Now we need to plug the available columns as choices to the schema. In Plone's
 world we would write an adapter that binds the widget to the context or
-something like that. Let's keep things really simple though and hardcode the
+something like that. Let's keep things really simple though and hard code the
 available choices to the schema. We could do this in the schema function, but
 it's better to keep the schema readable and without logic, so we'll mutate the
 schema in the component, before we pass it to the ``<InlineForm>`` component.
@@ -139,7 +139,7 @@ schema in the component, before we pass it to the ``<InlineForm>`` component.
 
 We'll need to also inject the file data to the edit form, we didn't need to
 before, but now it needs to know what are the available columns. Now that we're
-wrapping the edit component in two HOCs, we'll use redux's compose to play
+wrapping the edit component in two HOCs, we'll use Redux's compose to play
 nice.
 
 .. code-block:: jsx
@@ -203,7 +203,7 @@ These minimal changes enable our code to have custom column titles, custom text
 align and to affect the way the values are rendered in the cells.
 
 Of course, now the sky is the limit. We could enhance this with number
-formating provided by a library to humanize and automatically format those
+formatting provided by a library to humanize and automatically format those
 values, or d3's format. There's plenty of choices.
 
 .. image:: _static/table-column-editing.png

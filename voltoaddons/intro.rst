@@ -66,7 +66,7 @@ The hands-on exercise
 =====================
 
 The hands-on exercise will feature developing an add-on that provides table
-views for data files (CSVs). We will be using real-world patterns and
+views for data files (CSV). We will be using real-world patterns and
 development models based on the experience gained while developing several
 websites that use these types of add-ons.
 
@@ -93,7 +93,7 @@ way to get a Plone instance running is with Docker:
         -e ZCML="kitconcept.volto.cors" \
         -e PROFILES="kitconcept.volto:default-homepage" plone
 
-If you have the whole toolchain setup to develop Plone, you can also clone
+If you have the whole tool chain setup to develop Plone, you can also clone
 and use Volto's development backend setup:
 
 .. code-block:: console
