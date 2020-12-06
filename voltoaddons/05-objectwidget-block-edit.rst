@@ -46,6 +46,7 @@ What would we like to change about the columns? Let's go for: title, text align
 and another field that would allow us to tweak how the values are rendered.
 
 We'll continue without i18n integration for now, to keep things simpler.
+Within ``src/DataTable/schema.js`` add:
 
 .. code-block:: jsx
 
@@ -85,7 +86,7 @@ We'll continue without i18n integration for now, to keep things simpler.
 
 
 Now, let's make use of this schema. We'll add a new field to the
-``TableSchema``:
+``TableSchema`` to ``src/DataTable/schema.js``:
 
 .. code-block:: jsx
 
@@ -101,6 +102,23 @@ Now, let's make use of this schema. We'll add a new field to the
     }
 
 Don't forget to add the ``columns`` field name to the ``default`` fieldset.
+Within ``src/DataTable/schema.js`` ``TableSchema default fieldset`` add:
+
+.. code-block:: jsx
+
+
+    export const TableSchema = ({ intl }) => ({
+      title: 'Data table',
+
+      fieldsets: [
+        {
+          id: 'default',
+          title: intl.formatMessage(messages.defaultFieldset),
+          fields: ['file_path', 'columns'], // columns added to fields
+        },
+        // ...
+      ]
+    })
 
 Now we need to plug the available columns as choices to the schema. In Plone's
 world we would write an adapter that binds the widget to the context or
@@ -108,6 +126,7 @@ something like that. Let's keep things really simple though and hard code the
 available choices to the schema. We could do this in the schema function, but
 it's better to keep the schema readable and without logic, so we'll mutate the
 schema in the component, before we pass it to the ``<InlineForm>`` component.
+Within ``src/DataTable/DataTableEdit.js`` replace ``DataTableEdit`` code block with:
 
 .. code-block:: jsx
 
@@ -118,6 +137,7 @@ schema in the component, before we pass it to the ``<InlineForm>`` component.
       schema.properties.columns.schema.properties.column.choices = choices;
 
       return (
+        // <> represents a React Fragment see https://reactjs.org/docs/fragments.html#short-syntax for more details
         <>
           <SidebarPortal selected={selected}>
             <InlineForm
@@ -141,6 +161,19 @@ We'll need to also inject the file data to the edit form, we didn't need to
 before, but now it needs to know what are the available columns. Now that we're
 wrapping the edit component in two HOCs, we'll use Redux's compose to play
 nice.
+This means that we need to first import the ``compose`` method from redux within our
+``src/DataTable/DataTableEdit.js`` file:
+
+.. code-block:: jsx
+
+    import { compose } from 'redux';
+    import {
+      withBlockDataSource,
+      withFileData,
+    } from '@plone-collective/datatable-tutorial/hocs';
+
+
+Then within ``src/DataTable/DataTableEdit.js`` add bellow the ``DataTableEdit`` code block:
 
 .. code-block:: jsx
 
@@ -157,6 +190,7 @@ nice.
 
 Let's go back to the view component and use the column definitions from the
 block data.
+Within ``src/DataTable/DataTableView.js`` replace the existing ``DataTableView``code block with:
 
 .. code-block:: jsx
     :force:
@@ -173,7 +207,7 @@ block data.
         <Table {...format(data)}>
           <Table.Header>
             <Table.Row>
-              {show_fields.map((col, i) => (
+              {columns.map((col, i) => (
                 <Table.HeaderCell key={i} textAlign={col.textAlign}>
                   {col.title || col.column}
                 </Table.HeaderCell>
@@ -259,7 +293,13 @@ field. Let's create ``src/widgets/TextAlign.jsx``.
       );
     };
 
-And we'll register it in the ``src/index.js`` default configuration method:
+We also need to create``src/widget/index.js`` file in order to export our widget:
+
+.. code-block:: jsx
+
+    export TextAlign from './TextAlign';
+
+Now we'll register it in the addon ``src/index.js`` default configuration method:
 
 .. code-block:: jsx
 
@@ -277,14 +317,20 @@ drop whatever control inside it, as a child and it will render that control
 neatly wrapped with the label, description, error messages, etc. This concept
 is somewhat similar to Zope's ZPT macro and slot system.
 
-Now go back to the schema and let's use the new text align widget:
+Now go back to the schema and let's use the new text align widget.
+Within ``src/DataTable/schema.js`` uncomment the widget use from ``TableSchema textAlign property``:
 
 .. code-block:: jsx
 
     // change in TableSchema properties
     textAlign: {
       title: 'Align',
-      widget: 'text_align',
+      widget: 'text_align', // we can now use the text_align widget
+      choices: [
+        ['left', 'left'],
+        ['center', 'center'],
+        ['right', 'right'],
+      ],
     },
 
 .. note::
