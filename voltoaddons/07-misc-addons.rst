@@ -16,9 +16,9 @@ Can I customize an add-on?
     Volto.  In the ``src/customizations`` folder, move any Volto customized
     files to the ``src/customizations/volto`` and then customize the add-on by
     reconstructing the full path (for example
-    ``@plone-collective/datatable-tutorial/CellRenderer/Progress.jsx``) would be the
+    ``@plone-collective/datatable-tutorial/CellRenderer/Progress.jsx`` would be the
     full path for the file that customizes
-    ``datatable-tutorial/src/CellRenderer/Progress.jsx``
+    ``datatable-tutorial/src/CellRenderer/Progress.jsx``).
 
 Can I have a theme in an add-on?
     Yes, you can alias the ``../../theme.config`` with a ``razzle.extend.js``

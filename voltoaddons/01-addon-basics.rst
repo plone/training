@@ -52,19 +52,21 @@ applications with ``yarn start``, use ``yarn test`` but you can also integrate
 the ``mrs-developer`` library and run ``yarn missdev`` to do tasks similar to
 mr.developer in Buildout projects.
 
-To bootstrap a new Volto project, you can use either create-volto-app:
+To bootstrap a new Volto project, you can use a scaffolding tool based on
+Yeoman, generator-volto. First install it as a global tool (use NVM_ if you're
+being asked for sudo access):
 
-.. code-block:: bash
-
-    npm -g i @plone/create-volto-app
-    create-volto-app myvoltoproject
-
-or the new Yeoman-based generator-volto:
+.. _NVM: https://github.com/nvm-sh/nvm
 
 .. code-block:: bash
 
     npm install -g yo
     npm install -g @plone/generator-volto
+
+Then you can bootstrap the project with:
+
+.. code-block:: bash
+
     yo @plone/volto myvoltoproject
 
 The yo-based generator partially integrates add-ons (it can generate a
@@ -160,10 +162,6 @@ the add-on by running (in the Volto project root):
 
 .. code-block:: shell
 
-    # (optional, if you haven't installed already yo and @plone/generator-volto)
-    npm install -g yo
-    npm install -g @plone/generator-volto
-
     yo @plone/volto:addon
 
 Note: the namespace ``@plone-collective`` (or any other) is not required and is
@@ -204,7 +202,7 @@ Back to the project, you can edit ``jsconfig.json`` and add your add-on:
 You can also immediately push the package to Github then use `mrs-developer`_
 to manage the package and ``jsconfig.json`` changes.
 
-First, install mrs-developer as a development dependency by running:
+Install mrs-developer as a development dependency by running:
 
 .. code-block:: console
 
