@@ -17,7 +17,7 @@ What's more, we'll use the global Volto config registry to register our custom
 components, so it will be completely open to extension from projects or other
 addons.
 
-We could use the global ``config.settings`` object to register the new cell
+We could use the global ``config.settings`` from ``src/index.js`` object to register the new cell
 renderers, but this functionality is directly related to our custom data block,
 so let's just use the block's config object.
 
@@ -58,7 +58,9 @@ the schema used in its FlatObjectList widget to be extended by a provided
 schema extender, so we'll integrate with that.
 
 The old text template-based implementation can be moved to an component and
-a schema extension, like:
+a schema extension.
+This will go inside a new folder called ``CellRenderer`` with a new jsx file named ``TextTemplate.jsx``.
+The final path thus is ``addons/datatable-tutorial/src/CellRenderer/TextTemplate.jsx``:
 
 .. code-block:: jsx
 
@@ -86,6 +88,7 @@ a schema extension, like:
     export default TextTemplateRenderer;
 
 
+Within the ``CellRenderer`` folder add ``Progress.jsx`` renderer file.
 For the Progress renderer, we won't need to extend the schema:
 
 .. code-block:: jsx
@@ -108,8 +111,8 @@ For the Progress renderer, we won't need to extend the schema:
 
 .. _react-color: https://github.com/casesandberg/react-color
 
-The ``ColumnSchema`` needs to be tweaked to add the new renderer field. It can
-be as simple as:
+The ``ColumnSchema`` needs to be tweaked to add the new renderer field.
+This is found within the addon ``src/DataTable/schema.js`` and it can be as simple as:
 
 .. code-block:: jsx
 
@@ -118,7 +121,7 @@ be as simple as:
       choices: [],
     },
 
-Now, back to the ``DataTableEdit`` component, we'll add this schema tweaking
+Now, back to the ``src/DataTable/DataTableEdit.js`` component, we'll add this schema tweaking
 code:
 
 .. code-block:: jsx
@@ -153,7 +156,7 @@ With the "schema tweaking code" we're doing three things:
 - provide the "renderer" field with the available cellRenderer choices
 - plug into the schemaExtender of the columnsField our own schema extender.
 
-And we'll replace the old schema tweak with the new one:
+And we'll replace the old schema tweak with the new one still in the ``src/DataTable/DataTableEdit.js`` component:
 
 .. code-block:: jsx
 
