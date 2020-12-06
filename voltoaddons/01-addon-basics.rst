@@ -16,15 +16,15 @@ ECMAScript 6 using Babel, then bundled, chunked and minified by Webpack.
 
 For this basic infrastructure setup Volto relies on the Razzle library, which
 provides an extensible Webpack SSR-enabled setup with convenient split of
-server/client entrypoints and dual server/client Hot-Module-Reload (HMR).
+server/client entry points and dual server/client Hot-Module-Reload (HMR).
 
-The first Webpack entrypoint will be used as the Volto *server* and uses
+The first Webpack entry point will be used as the Volto *server* and uses
 ExpressJs for that. It runs the Volto React code and components then sends
 them to the browser as a normal HTML page. It also proxies some of the Plone
 resources, such as files and images. Once the HTML page is loaded by browser,
 all communication is done as JSON api messages.
 
-To generate the second entrypoint, the *client*-only bundle, Webpack will need to
+To generate the second entry point, the *client*-only bundle, Webpack will need to
 know how to find, load and potentially mutate (compress, transpile, minify,
 etc) the files that represent the code and resources of Volto, the Volto
 project and Volto add-ons. The base is provided by Razzle, with instructions for
@@ -74,7 +74,7 @@ Addons - first look
 -------------------
 
 Although still in their infancy, 2020 is the year of the Volto add-ons.  The
-Bethoven Sprint was a key moment in arriving at a consensus on how to load the
+Beethoven Sprint was a key moment in arriving at a consensus on how to load the
 addons and what capabilities they should have. With a common understanding on
 what exactly is an add-on, many new add-ons were published and can now be
 integrated with unmodified Volto projects.
@@ -92,7 +92,7 @@ An add-on can be almost anything that a Volto project can be. They can:
 - register custom routes
 - provide custom Redux actions and reducers
 - register custom Express middleware for Volto's server process
-- tweak Volto's webpak configuration, load custom Razzle and Webpack plugins
+- tweak Volto's webpack configuration, load custom Razzle and Webpack plugins
 - even provide a custom theme, just like a regular Volto project does.
 
 As for implementation, Volto add-ons are just plain Javascript packages with an
@@ -228,7 +228,7 @@ Create a ``mrs.developer.json`` with the following content:
 Then run ``yarn develop``, which will bring the package in ``src/addons`` and
 adjust ``jsconfig.json``.
 
-When developing add-ons that have third-party depedencies, you need to add the
+When developing add-ons that have third-party dependencies, you need to add the
 addon as workspace to the Volto project. Change the Volto project's
 ``package.json`` to include something like:
 
