@@ -271,7 +271,7 @@ Add a method that returns all published keynotes as objects.
 
             portal_catalog = api.portal.get_tool('portal_catalog')
             brains = portal_catalog(
-                portal_type='Talk',
+                portal_type='talk',
                 review_state='published')
             results = []
             for brain in brains:

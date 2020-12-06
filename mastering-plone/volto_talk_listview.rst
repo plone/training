@@ -358,7 +358,7 @@ That is the equivalent of using a catalog search in classic Plone (see :ref:`vie
 
     Afterwards we can define the new results with ``const results = searchRequests.items;``, which will use the hooks and actions to receive a map of items.
 
-    The search itself will be defined in the ``React.useEffect(() => {})``- section of the code and will contain all parameters for the search. In case of the talks listing view we search for all objects of type talk with ``portal_type:['Talk']`` and force to fetch full objects with all information.
+    The search itself will be defined in the ``React.useEffect(() => {})``- section of the code and will contain all parameters for the search. In case of the talks listing view we search for all objects of type talk with ``portal_type:['talk']`` and force to fetch full objects with all information.
 
     The items themselves won't change though, so the rest of the code will stay untouched.
 
@@ -371,8 +371,8 @@ That is the equivalent of using a catalog search in classic Plone (see :ref:`vie
 Search options
 --------------
 
-* The default representation for search results is a summary that contains only the most basic information like **title, review state, type, path and description**. 
-* With the option ``fullobjects`` all available field values are present in the fetched data. 
+* The default representation for search results is a summary that contains only the most basic information like **title, review state, type, path and description**.
+* With the option ``fullobjects`` all available field values are present in the fetched data.
 * Another option is ``metadata_fields``, which allows to get more attributes (selection of Plone catalog metadata columns) than the default search without a performance expensive fetch via option fullobjects.
 
 Possible **sort criteria** are indices of the Plone catalog.
