@@ -218,7 +218,7 @@ Next we add a block with info on the speaker:
     :emphasize-lines: 2,16-30
 
     import React from 'react';
-    import { Container, Icon, Segment } from 'semantic-ui-react';
+    import { Container, Header, Icon, Segment } from 'semantic-ui-react';
 
     const TalkView = props => {
       const { content } = props;
@@ -263,7 +263,7 @@ Next we add the image:
     :emphasize-lines: 2,3,24-30
 
     import React from 'react';
-    import { Container, Icon, Image, Segment } from 'semantic-ui-react';
+    import { Container, Header, Icon, Image, Segment } from 'semantic-ui-react';
     import { flattenToAppURL } from '@plone/volto/helpers';
 
     const TalkView = props => {
@@ -316,7 +316,7 @@ Next we add the audience:
     :emphasize-lines: 2,7-11,22-30
 
     import React from 'react';
-    import { Container, Icon, Image, Label, Segment } from 'semantic-ui-react';
+    import { Container, Header, Icon, Image, Label, Segment } from 'semantic-ui-react';
     import { flattenToAppURL } from '@plone/volto/helpers';
 
     const TalkView = props => {
