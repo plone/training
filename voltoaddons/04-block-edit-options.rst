@@ -283,39 +283,7 @@ the "new block needs to point to a file" a mechanism that we can reuse. Perhaps
 later we'll write a chart block that uses the CSV file, so we'll be able to
 reuse code by composing.
 
-.. code-block:: jsx
-
-    const DataTableEdit = (props) => {
-      const { selected, onChangeBlock, block, data } = props;
-      const schema = TableSchema(props);
-
-      return (
-        <>
-          <SidebarPortal selected={selected}>
-            <InlineForm
-              schema={schema}
-              title={schema.title}
-              onChangeField={(id, value) => {
-                onChangeBlock(block, {
-                  ...data,
-                  [id]: value,
-                });
-              }}
-              formData={data}
-            />
-          </SidebarPortal>
-          <DataTableView {...props} />
-        </>
-      );
-    };
-
-    export default withBlockDataSource({
-      icon: tableSVG,
-      title: 'Data table',
-      getFilePath: ({ data: { file_path } }) => file_path,
-    })(DataTableEdit);
-
-And the ``src/hocs/withBlockDataSource.js`` HOC:
+Add the ``src/hocs/withBlockDataSource.js`` HOC file:
 
 .. code-block:: jsx
 
@@ -373,3 +341,42 @@ And the ``src/hocs/withBlockDataSource.js`` HOC:
     };
 
     export default withBlockDataSource;
+
+Within ``src/DataTable/DataTableEdit.js`` now import the newly added ``withBlockDataSource`` 
+higher order component and make use of it by replacing the DataTableEdit component and it's export with:
+
+.. code-block:: jsx
+
+    // ... previous imports remain intact plus the following
+    import { withBlockDataSource } from '@plone-collective/datatable-tutorial/hocs';
+
+    const DataTableEdit = (props) => {
+      const { selected, onChangeBlock, block, data } = props;
+      const schema = TableSchema(props);
+
+      return (
+        <>
+          <SidebarPortal selected={selected}>
+            <InlineForm
+              schema={schema}
+              title={schema.title}
+              onChangeField={(id, value) => {
+                onChangeBlock(block, {
+                  ...data,
+                  [id]: value,
+                });
+              }}
+              formData={data}
+            />
+          </SidebarPortal>
+          <DataTableView {...props} />
+        </>
+      );
+    };
+
+    export default withBlockDataSource({
+      icon: tableSVG,
+      title: 'Data table',
+      getFilePath: ({ data: { file_path } }) => file_path,
+    })(DataTableEdit);
+
