@@ -215,7 +215,7 @@ Via ``content`` we have access to title, description and other attributes
                               {item.type_of_talk.title}: {item.title}
                             </Link>
                           </h2>
-                          {item.audience.map(item => {
+                          {item.audience?.map(item => {
                             let audience = item.title;
                             let color = color_mapping[audience] || 'green';
                             return (
@@ -319,7 +319,7 @@ That is the equivalent of using a catalog search in classic Plone (see :ref:`vie
                         {item.title}
                       </Link>
                     </h2>
-                    {item.audience.map(item => {
+                    {item.audience?.map(item => {
                       let audience = item.title || item.token;
                       let color = color_mapping[audience] || 'green';
                       return (

@@ -94,7 +94,8 @@ Now register the new component as default view for talks in :file:`src/config.js
       },
     };
 
-This extends ``defaultViews.contentTypesViews`` with the key/value pair ``talk: TalkView``.
+* This extends the Volto default setting ``defaultViews.contentTypesViews`` with the key/value pair ``talk: TalkView``.
+* It uses the `spread syntax <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax>`_.
 
 When Volto is running (with ``yarn start``) it picks up these changes and displays the placeholder in place of the previously used default-view.
 
@@ -373,7 +374,12 @@ Next we add the audience:
     };
     export default TalkView;
 
-* With ``{content.audience.map(item => {...})}`` we iterate over the individual values of the field ``audience``.
+* With ``{content.audience?.map(item => {...})}`` we iterate over the individual values of the field ``audience`` if that exists.
+* ``?.`` is `optional chaining <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining>`_
+* `map <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map>`_ is used to iterate over the array ``audience`` using a `Arrow-function (=>) <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions>`_ in which ``item`` is one item in audience.
+* The ``item`` is a object like ``{'title': 'Advanced', 'token': 'Advanced'}``. We need to use ``item.title || item.token`` in case ``title`` is ``null`` which happens in simple fields as ours.
+
+
 * We map the values that are available in the field to colors and use blue as a fallback.
 
 As a last step we show the last few fields ``website`` and ``company``, ``github`` and ``twitter``:

@@ -178,7 +178,7 @@ We'll reuse it in :file:`frontend/src/components/Views/Talk.jsx`. We'll let us i
                 Audience
               </Header>
             )}
-            {content.audience.map(item => {
+            {content.audience?.map(item => {
               let audience = item.title || item.token;
               let color = color_mapping[audience] || 'green';
               return (
