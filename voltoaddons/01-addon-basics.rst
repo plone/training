@@ -187,7 +187,7 @@ Back to the project, you can edit ``jsconfig.json`` and add your add-on:
             "paths": {
                 "@plone-collective/datatable-tutorial": [
                     "addons/datatable-tutorial/src"
-                ],
+                ]
             }
         }
     }
