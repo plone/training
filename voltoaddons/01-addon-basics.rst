@@ -328,7 +328,7 @@ speed things up.
     export DataTableView from './DataTableView';
     export DataTableEdit from './DataTableEdit';
 
-- Register the block in ``src/index.js``
+- Register the block in ``src/addons/datatable-tutorial/src/index.js``
 
 .. code-block:: jsx
 
