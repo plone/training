@@ -212,6 +212,7 @@ Option 1: Frontend from scratch with Volto generator
 
 .. _instructions-install_frontend-prerequisites-label:
 
+
 Install pre-requisites.
 
 #.  Install ``nvm`` (Node Version Manager) to manage ``node`` versions.
@@ -230,31 +231,28 @@ Install pre-requisites.
 
         nvm install --lts
 
-#.  Install **or update** the Volto generator.
+
+Create your Volto frontend project.
+
+#.  Generate a project with yeoman
 
     .. code-block:: bash
 
-        npm install -g yo
-        npm install -g @plone/generator-volto
+        npm init yo @plone/volto
 
-Create your Volto frontend project:
-
-#.  Generate a project.
-
-    .. code-block:: bash
-
-        yo @plone/volto frontend
-
-    `yo` will ask questions. Answer them the first by pressing :kbd:`Enter` and the other two with ``false``.
+    | It will take a while to install all dependencies.
+    | `yo` will ask questions. Respond to the first by entering your project name, the next by pressing :kbd:`Enter` and to the other two by now with ``false``.
 
     The output will look like this:
 
     .. code-block:: bash
 
-        pbauer@bullet:~/training$ yo @plone/volto frontend
+        me@here training % npm init yo @plone/volto
+        npx: installed 14 in 3.392s
         Getting latest Volto version
         Retrieving Volto's yarn.lock
-        Using latest released Volto version: 10.1.0
+        Using latest released Volto version: 10.4.1
+        ? Project name frontend
         ? Project description A Volto-powered Plone frontend
         ? Would you like to add addons? false
         ? Would you like to add workspaces? false
@@ -263,9 +261,7 @@ Create your Volto frontend project:
            create frontend/.eslintrc.js
            ...
 
-    It will take a while to install all dependencies.
-
-#.  Start up the frontend with
+#.  Start up the project **frontend** with
 
     .. code-block:: bash
 
@@ -276,14 +272,8 @@ If successful, you get:
 
     🎭 Volto started at http://localhost:3000 🚀
 
-**Troubleshooting:** Did you update the Volto project generator?
 
-    .. code-block:: bash
-
-        npm install -g @plone/generator-volto
-
-
-Create a Plone site object *Plone* on http://localhost:8080
+Create a Plone site object **Plone** on http://localhost:8080
 
 Point your browser to http://localhost:3000 and see that Plone is up and running.
 

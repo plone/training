@@ -84,31 +84,76 @@ Installing Volto
 ----------------
 
 | For a Plone 6 installation, not Plone Classic, but with the React frontend **Volto**, by now two installations are needed: Plone and Volto. The former section is describing the options for a Plone installation.
-| This section is about setting up a Volto installation. Wording is: Volto installation, Volto app, Volto project.
+| This section is about setting up a Volto installation. Wording is: Volto installation, Volto app, **Volto project**.
 
-.. code-block:: bash
 
-    npm install -g yo
-    npm install -g @plone/generator-volto
-    yo @plone/volto volto-project-myprojectname
+Install pre-requisites.
 
-.. code-block:: bash
+#.  Install ``nvm`` (Node Version Manager) to manage ``node`` versions.
 
-    Getting latest Volto version
-    Retrieving Volto's yarn.lock
-    Using latest released Volto version: 10.1.0
-    ? Project description A Volto-powered Plone frontend
-    ? Would you like to add addons? false
-    ? Would you like to add workspaces? false
+    .. code-block:: bash
 
-.. code-block:: bash
+        # macOS
+        brew install nvm
 
-    cd volto-project-myprojectname
-    yarn start
+        #Linux
+        apt-get install nvm
 
-.. code-block:: bash
+#.  Install node LTS (node version LTS: long time support)
+
+    .. code-block:: bash
+
+        nvm install --lts
+
+
+Create your Volto project.
+
+#.  Generate a project with yeoman
+
+    .. code-block:: bash
+
+        npm init yo @plone/volto
+
+    | It will take a while to install all dependencies.
+    | `yo` will ask questions. Respond to the first by entering your project name, the next by pressing :kbd:`Enter` and to the other two by now with ``false``.
+
+    The output will look like this:
+
+    .. code-block:: console
+
+        me@here sandbox % npm init yo @plone/volto
+        npx: installed 14 in 3.392s
+        Getting latest Volto version
+        Retrieving Volto's yarn.lock
+        Using latest released Volto version: 10.4.1
+        ? Project name volto-project-myprojectname
+        ? Project description A Volto-powered Plone frontend
+        ? Would you like to add addons? false
+        ? Would you like to add workspaces? false
+           create volto-project-myprojectname/package.json
+           create volto-project-myprojectname/yarn.lock
+           create volto-project-myprojectname/.eslintrc.js
+           ...
+
+#.  Start up the project **volto-project-myprojectname** with
+
+    .. code-block:: bash
+
+        cd volto-project-myprojectname
+        yarn start
+
+If successful, you get:
 
     🎭 Volto started at http://localhost:3000 🚀
+
+
+Create a Plone site object **Plone** on http://localhost:8080
+
+Point your browser to http://localhost:3000 and see that Plone is up and running.
+
+
+You can stop the Volto app anytime using :kbd:`ctrl + c`.
+
 
 For more information see `Volto documentation <https://docs.voltocms.com/getting-started/install/>`_
 
