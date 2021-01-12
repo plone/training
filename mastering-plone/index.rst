@@ -29,6 +29,7 @@ The story of a conference platform provides a week-long training of several deve
     :caption: Mastering Plone 6
 
     about_mastering
+    video
     intro
     case
     what_is_plone
