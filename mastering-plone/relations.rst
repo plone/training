@@ -115,9 +115,87 @@ Instead of using a named vocabulary we can also use ``source``:
             source=CatalogSource(portal_type=['one_eyed_minion', 'minion'])),
         required=False,
     )
+    directives.widget(
+        'minions',
+        RelatedItemsFieldWidget,
+        pattern_options={'mode': 'search'},
+    )
 
 You can pass to ``CatalogSource`` the same arguments you use for catalog queries.
 This makes it very flexible for limiting relateable items by type, path, date, and so on.
+
+Setting the mode of the widget to ``search`` makes it easier to select from the content that result form your catalog-query instead of having to navigate through your content-tree.
+
+The ``RelatedItemsFieldWidget`` also allow you to set favorites:
+
+.. code-block:: python
+    :linenos:
+
+    directives.widget(
+        'minions',
+        RelatedItemsFieldWidget,
+        pattern_options={
+            'favorites': [{'title': 'Minions', 'path': '/Plone/minions'}]
+        },
+    )
+
+``favorites`` can also be a method that takes the current context. Here is a full example as a behavior:
+
+.. code-block:: python
+    :linenos:
+
+    from plone import api
+    from plone.app.vocabularies.catalog import CatalogSource
+    from plone.app.z3cform.widget import RelatedItemsFieldWidget
+    from plone.autoform import directives
+    from plone.autoform.interfaces import IFormFieldProvider
+    from plone.supermodel import model
+    from z3c.relationfield.schema import RelationChoice
+    from z3c.relationfield.schema import RelationList
+    from zope.interface import provider
+
+
+    def minion_favorites(context):
+        portal = api.portal.get()
+        minions_path = '/'.join(portal['minions'].getPhysicalPath())
+        one_eyed_minions_path = '/'.join(portal['one-eyed-minions'].getPhysicalPath())
+        return [
+                {
+                    'title': 'Current Content',
+                    'path': '/'.join(context.getPhysicalPath())
+                }, {
+                    'title': 'Minions',
+                    'path': minions_path,
+                }, {
+                    'title': 'One eyed minions',
+                    'path': one_eyed_minions_path,
+                }
+            ]
+
+
+    @provider(IFormFieldProvider)
+    class IHaveMinions(model.Schema):
+
+        minions = RelationList(
+            title='My minions',
+            default=[],
+            value_type=RelationChoice(
+                source=CatalogSource(
+                    portal_type=['one_eyed_minion', 'minion'],
+                    review_state='published',
+                )
+            ),
+            required=False,
+        )
+        directives.widget(
+            'minions',
+            RelatedItemsFieldWidget,
+            pattern_options={
+                'mode': 'auto',
+                'favorites': minion_favorites,
+                }
+            )
+
 
 For even more flexibility, you can create your own `dynamic vocabularies <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html#dynamic-sources>`_.
 
