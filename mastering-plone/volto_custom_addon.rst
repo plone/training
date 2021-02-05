@@ -122,6 +122,21 @@ Update :file:`package.json`:
       "@greenthumb/volto-custom-addon"
     ],
 
+Update :file:`jsconfig.json`:
+
+.. code-block:: json
+
+    {
+        "compilerOptions": {
+            "paths": {
+                "@greenthumb/volto-custom-addon": [
+                    "addons/greenthumb-volto-custom-addon/src"
+                ]
+            },
+            "baseUrl": "src"
+        }
+    }
+
 Install and start
 
 ..  code-block:: bash
