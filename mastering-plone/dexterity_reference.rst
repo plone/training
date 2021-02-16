@@ -326,7 +326,6 @@ Other fields
         directives.widget(
             "relationlist_field",
             RelatedItemsFieldWidget,
-            vocabulary='plone.app.vocabularies.Catalog',
             pattern_options={
                 "selectableTypes": ["Document"],
                 "basePath": make_relation_root_path,
