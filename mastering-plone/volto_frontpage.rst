@@ -30,18 +30,14 @@ Creating a dynamic frontpage with Volto blocks
 
 In this part you will:
 
-* Use a listing block to show featured content
-* Add own criteria for listing block
+* Use a listing block to show content marked as featured
+* Configure additional criterion for listing block
 
-Topics covered:
-
-* adding own collection criteria
-* configuring listing block
 
 Add Index as collection criteria
 --------------------------------
 
-To understand why we need a collection criteria for a dynamic frontpage in Volto and what a collection criteria is, we have to look at the listing block of Volto for a brief moment.
+To understand why we need a collection criteria for a dynamic frontpage in Volto and what a collection criterion is, we have to look at the listing block of Volto.
 
 .. figure:: _static/volto_frontpage.png
    :alt: Listing Block sidebar
@@ -54,7 +50,7 @@ In the sidebar we see the `criteria` selection and if we click there, it'll show
 
 To get all talks we marked as `featured` we have to get the listing block to recognize our newly created index. This means we have to add our index to the collection criterias, so we can choose it.
 
-To add our new index as a criteria so we can use it in a listing block or a collection, we have to switch to our `backend`. There we have to create a plone.app.registry record for our index. This can be achieved by adding a new file :file:`profiles/default/registry/querystring.xml`:
+To add our new index as a criterion to be appliable in a listing block or a collection, we have to switch to our `backend`. There we have to create a plone.app.registry record for our index. This can be achieved by adding a new file :file:`profiles/default/registry/querystring.xml`:
 
 .. code-block:: xml
     :linenos:
