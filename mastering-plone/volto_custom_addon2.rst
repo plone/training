@@ -566,37 +566,45 @@ See the complete add-on code @rohberg/volto-accordion-block [1]_
 
 
 
+Save your work to Github
+---------------------------
 
 
+Your add-on is ready to use. As by now your repository is on Github. As long as it is published, you can share it with others.
+
+A Volto project uses this add-on via 'mrs.developer' [2]_
+
+Install mrs.developer to let the project know about the *source* of your add-on.
+
+..  code-block:: bash
+
+    yarn add mrs-developer -WD
+
+The configuration file :file:`mrs.developer.json` instructs mrs.developer from where it has to pull the package. So, create mrs.developer.json and add:
+
+..  code-block:: bash
+
+    {
+        "greenthumb-volto-custom-addon": {
+            "package": "@greenthumb/volto-custom-addon",
+            "url": "git@github.com:greenthumb/volto-custom-addon.git",
+            "path": "src"
+        }
+    }
+
+Run
+
+..  code-block:: bash
+
+    yarn develop
+
+An official release is done on npm. Switch to section :ref:`Release a Volto add-on <volto_custom_addon-final-label>`.
 
 
+Footnotes
+----------------
 
+.. [1] `Volto accordion block <https://www.npmjs.com/package/@rohberg/volto-accordion-block>`_
+    Started as an example for the training it is ready to use for creating a questions and answer sections.
 
-
-
-
-
-
-
-
-
-
-**Save your work to Github**
-
-See changes and commit:
-
-  ..  code-block:: bash
-
-        $ git diff
-        $ git commit -am "Initial commit"
-        $ git push
-
-
-Your add-on is ready to use. As by now your repository is on Github. As long as it is published, you can share it with others. An official release is done on npm. Switch to section :ref:`Release a Volto add-on <volto_custom_addon-final-label>`.
-
-
-
-
-.. [1] `Volto add-on template <https://www.npmjs.com/package/@rohberg/volto-accordion-block>`_
-    A template for a Volto add-on template. As the time of authoring the training documentation we are working on
-    something like "yo create volto app with template xy"
+.. [2] `mrs.developer <https://www.npmjs.com/package/mrs-developer>`_ Pull a package from git and set it up as a dependency for the current project codebase.
