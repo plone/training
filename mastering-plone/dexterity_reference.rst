@@ -532,10 +532,17 @@ This is how these fields look like when editing content in Volto:
 * There is no Computedfield but most use-cases can be achieved with a readonly-field and a property. See the `discussion <https://community.plone.org/t/computed-field-for-dexterity/>`_
 
 
+.. _dexterity_reference_datagridfield-label:
+
 Datagrid Field
 ==============
 
 The `Datagridfield <https://pypi.org/project/collective.z3cform.datagridfield/>`_ allows you to enter multiple values at once as rows in a table. Each row is a sub form defined in a separate schema.
+
+
+.. note::
+
+    The datagridfield is for Plone Classic without a complementary widget for Plone. See the mixedfield below, if you are working with Plone.
 
 Here is an example:
 
@@ -593,6 +600,254 @@ The edit-form looks like this:
 The output looks like this:
 
 .. figure:: _static/dexterity_reference_datagridfield_view.png
+
+
+mixedfield
+==========
+
+**The mixedfield allows your user to create a list of arrays of mixed value types.**
+
+| *Another field, oh no!*
+| **mixedfield** is a combination of JSONField and a widget for Plone. Nothing new, just a term to talk about linking backend and frontend.
+
+Example is a custom history field:
+
+.. figure:: _static/dexterity/mixedfield_view.png
+   :alt: view mixedfield values
+
+
+.. note::
+
+    This solution is for Plone 6 only, without a complementary widget for Plone Classic. The field data is of type JSON. 
+    For Plone Classic solutions see datagrid field :ref:`dexterity_reference_datagridfield-label`
+
+Backend
+-------
+
+Enable blocks behavior for example content type.
+
+Add a field mixed_field to your content type schema.
+
+..  code-block:: python
+    :linenos:
+
+    #  dictionary with key 'items' and 'items' value: array of objects
+    MIXEDFIELD_SCHEMA = json.dumps(
+        {
+            "type": "object",
+            "properties": {"items": {"type": "array", "items": {"type": "object", "properties": {}}}},
+        }
+    )
+
+    class IExample(model.Schema):
+        """Dexterity-Schema"""
+
+        fieldset(
+            'datagrid',
+            label=u'Datagrid field',
+            fields=(
+                # 'datagrid_field',
+                'mixed_field',
+                ),
+        )
+
+        primary('title')
+        title = schema.TextLine(
+            title=u'Primary Field (Textline)',
+            description=u"zope.schema.TextLine",
+            required=True,
+            )
+
+        description = schema.TextLine(
+            title=u'Description (Textline)',
+            description=u"zope.schema.TextLine",
+            required=False,
+            )
+
+        mixed_field = JSONField(
+            # datagrid, mixedfield, field, Plone, json, frontend, Volto
+            title=u'Mixedfield: datagrid field for Plone',
+            required=False,
+            schema=MIXEDFIELD_SCHEMA,
+            default={"items": []},
+            missing_value={"items": []},
+            )
+
+
+
+Frontend
+--------
+
+Provide a widget in your favorite add-on with the schema for the array of fields you need.
+
+..  code-block:: jsx
+    :linenos:
+
+    /**
+    * @module HistoryWidget
+    */
+    
+    import React from 'react';
+
+    import { ObjectListInlineWidget } from '@eeacms/volto-object-widget';
+
+    const LineSchema = {
+        title: 'History-Entry',
+        properties: {
+            historydate: {
+                title: 'Date',
+                widget: 'date',
+            },
+            historytopic: {
+                title: 'What',
+            },
+            historyversion: {
+                title: 'Version',
+            },
+            historyauthor: {
+                title: 'Who',
+            },
+        },
+        fieldsets: [
+            {
+                id: 'default',
+                title: 'History-Entry',
+                fields: [
+                    'historydate',
+                    'historytopic',
+                    'historyversion',
+                    'historyauthor',
+                ],
+            },
+        ],
+    };
+
+    const HistoryWidget = (props) => {
+        return (
+            <ObjectListInlineWidget
+                schema={LineSchema}
+                {...props}
+                value={props.value?.items || props.default?.items || []}
+                onChange={(id, value) => props.onChange(id, { items: value })}
+            />
+        );
+    };
+
+    export default HistoryWidget;
+
+Register this widget for the backend field of your choice in your **apps** configuration.
+
+..  code-block:: js
+    :linenos:
+    :emphasize-lines: 20-22
+
+    /**
+    * Add your config changes here.
+    * @module config
+    */
+
+    import { HistoryWidget } from '@rohberg/voltotestsomevoltothings/components';
+
+    // All your imports required for the config here BEFORE this line
+    import '@plone/volto/config';
+
+    export default function applyConfig(config) {
+    config.settings = {
+        ...config.settings,
+        supportedLanguages: ['en', 'de', 'it'],
+        defaultLanguage: 'en',
+    };
+    config.widgets = {
+        ...config.widgets,
+        id: {
+        // widget for field mixed_field of example.contenttype
+        ...config.widgets.id,
+        mixed_field: HistoryWidget,
+        },
+    };
+
+    return config;
+    }
+
+
+By now your app needs to list the dependency "@eeacms/volto-object-widget". In future Volto releases this can be made in the add-on that provides the custom widget.
+
+..  code-block:: js
+
+  "private": true,
+  "workspaces": [
+    "src/addons/*"
+  ],
+  "addons": [
+    "@rohberg/voltotestsomevoltothings",
+    "@eeacms/volto-object-widget"
+  ],
+  "dependencies": {
+    "@plone/volto": "12.1.2",
+    "@eeacms/volto-object-widget": "^2.0.0"
+  },
+
+With that in place the user can edit the values of the mixed_field.
+
+.. figure:: _static/dexterity/mixedfield_edit.png
+   :alt: edit mixedfield values
+
+To display the values of the mixed_field, a view (:file:`ExampleView`) of the content type integrates a component for displaying the mixedfield values.
+
+.. code-block:: js
+   :linenos:
+   :emphasize-lines: 40
+
+    import React from 'react';
+    import moment from 'moment';
+    import { Container, Table } from 'semantic-ui-react';
+
+    const MyHistory = ({ history }) => {
+    return (
+        __CLIENT__ && (
+        <Table celled className="igibhistory_list">
+            <Table.Header>
+            <Table.Row>
+                <Table.HeaderCell>Date</Table.HeaderCell>
+                <Table.HeaderCell>What</Table.HeaderCell>
+                <Table.HeaderCell>Version</Table.HeaderCell>
+                <Table.HeaderCell>Who</Table.HeaderCell>
+            </Table.Row>
+            </Table.Header>
+
+            <Table.Body>
+            {history?.items?.map((item) => (
+                <Table.Row>
+                <Table.Cell>
+                    {item.historydate && moment(item.historydate).format('L')}
+                </Table.Cell>
+                <Table.Cell>{item.historytopic}</Table.Cell>
+                <Table.Cell>{item.historyversion}</Table.Cell>
+                <Table.Cell>{item.historyauthor}</Table.Cell>
+                </Table.Row>
+            ))}
+            </Table.Body>
+        </Table>
+        )
+    );
+    };
+
+    const ExampleView = ({ content }) => {
+    return (
+        <Container>
+        <h2>I am an ExampleView</h2>
+        <h3>History</h3>
+        <MyHistory history={content.mixed_field} />
+        </Container>
+    );
+    };
+
+    export default ExampleView;
+
+Et voilà.
+
+.. figure:: _static/dexterity/mixedfield_view.png
+   :alt: view mixedfield values
 
 
 Widgets
