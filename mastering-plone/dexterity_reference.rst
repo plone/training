@@ -615,21 +615,21 @@ Example is a custom history field:
 .. figure:: _static/dexterity/mixedfield_view.png
    :alt: view mixedfield values
 
-
 .. note::
 
     This solution is for Plone 6 only, without a complementary widget for Plone Classic. The field data is of type JSON. 
-    For Plone Classic solutions see datagrid field :ref:`dexterity_reference_datagridfield-label`
+    For Plone Classic solutions see :ref:`dexterity_reference_datagridfield-label`
 
 Backend
 -------
 
 Enable blocks behavior for example content type.
 
-Add a field mixed_field to your content type schema.
+Add a field *mixed_field* to your content type schema.
 
 ..  code-block:: python
-    :linenos:
+    :linenos:    
+    :emphasize-lines: 1-7, 34-61
 
     #  dictionary with key 'items' and 'items' value: array of objects
     MIXEDFIELD_SCHEMA = json.dumps(
@@ -678,7 +678,7 @@ Add a field mixed_field to your content type schema.
 Frontend
 --------
 
-Provide a widget in your favorite add-on with the schema for the array of fields you need.
+Provide a widget in your favorite add-on with the schema for the array of elementary fields you need.
 
 ..  code-block:: jsx
     :linenos:
@@ -770,20 +770,14 @@ Register this widget for the backend field of your choice in your **apps** confi
     }
 
 
-By now your app needs to list the dependency "@eeacms/volto-object-widget". In future Volto releases this can be made in the add-on that provides the custom widget.
+Your app or your add-on needs to list the dependency "@eeacms/volto-object-widget". 
 
 ..  code-block:: js
 
-  "private": true,
-  "workspaces": [
-    "src/addons/*"
-  ],
   "addons": [
-    "@rohberg/voltotestsomevoltothings",
     "@eeacms/volto-object-widget"
   ],
   "dependencies": {
-    "@plone/volto": "12.1.2",
     "@eeacms/volto-object-widget": "^2.0.0"
   },
 
