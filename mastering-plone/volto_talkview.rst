@@ -86,7 +86,7 @@ Now register the new component as default view for talks in :file:`src/config.js
 
     [...]
 
-    export const views = {
+    config.views = {
       ...config.views,
       contentTypesViews: {
         ...config.views.contentTypesViews,

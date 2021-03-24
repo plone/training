@@ -81,7 +81,7 @@ Now register the new component as a view for type Folder in ``src/config.js``.
 
     [...]
 
-    export const views = {
+    config.views = {
       ...config.views,
       layoutViews: {
           ...config.views.layoutViews,
@@ -531,7 +531,7 @@ For bonus points create and register it as a separate view ``Keynotes``
 
         [...]
 
-        export const views = {
+        config.views = {
           ...config.views,
           layoutViews: {
             ...config.views.layoutViews,
