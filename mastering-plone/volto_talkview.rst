@@ -75,7 +75,7 @@ Also add a convenience-import of the new component to :file:`src/components/inde
     export { TalkView };
 
 
-This is is a common practice and allows us import the new view as ``import { TalkView } from './components';`` instead of ``import { TalkView } from './components/Views/Talk';``.
+This is is a common practice and allows us to import the new view as ``import { TalkView } from './components';`` instead of ``import { TalkView } from './components/Views/Talk';``.
 
 Now register the new component as default view for talks in :file:`src/config.js`.
 
@@ -86,15 +86,15 @@ Now register the new component as default view for talks in :file:`src/config.js
 
     [...]
 
-    export const views = {
-      ...defaultViews,
+    config.views = {
+      ...config.views,
       contentTypesViews: {
-        ...defaultViews.contentTypesViews,
+        ...config.views.contentTypesViews,
         talk: TalkView,
       },
     };
 
-* This extends the Volto default setting ``defaultViews.contentTypesViews`` with the key/value pair ``talk: TalkView``.
+* This extends the Volto default setting ``config.views.contentTypesViews`` with the key/value pair ``talk: TalkView``.
 * It uses the `spread syntax <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax>`_.
 
 When Volto is running (with ``yarn start``) it picks up these changes and displays the placeholder in place of the previously used default-view.

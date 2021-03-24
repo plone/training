@@ -325,7 +325,7 @@ Copy ``omelette/src/components/manage/Blocks/Listing/DefaultTemplate.jsx`` to ``
     import PropTypes from 'prop-types';
     import { ConditionalLink } from '@plone/volto/components';
     import { flattenToAppURL } from '@plone/volto/helpers';
-    import { settings } from '~/config';
+    import config from '@plone/volto/registry'
     import moment from 'moment';
 
     import DefaultImageSVG from '@plone/volto/components/manage/Blocks/Listing/default-image.svg';
@@ -354,13 +354,13 @@ Copy ``omelette/src/components/manage/Blocks/Listing/DefaultTemplate.jsx`` to ``
                   to={flattenToAppURL(item['@id'])}
                   condition={!isEditMode}
                 >
-                  {!item[settings.listingPreviewImageField] && (
+                  {!item[config.settings.listingPreviewImageField] && (
                     <img src={DefaultImageSVG} alt="" />
                   )}
-                  {item[settings.listingPreviewImageField] && (
+                  {item[config.settings.listingPreviewImageField] && (
                     <img
                       src={flattenToAppURL(
-                        item[settings.listingPreviewImageField].scales.preview
+                        item[config.settings.listingPreviewImageField].scales.preview
                           .download,
                       )}
                       alt={item.title}
