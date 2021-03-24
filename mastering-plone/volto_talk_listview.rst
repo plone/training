@@ -82,18 +82,18 @@ Now register the new component as a view for type Folder in ``src/config.js``.
     [...]
 
     export const views = {
-      ...defaultViews,
+      ...config.views,
       layoutViews: {
-          ...defaultViews.layoutViews,
+          ...config.views.layoutViews,
           talklist_view: TalkListView,
       },
       contentTypesViews: {
-        ...defaultViews.contentTypesViews,
+        ...config.views.contentTypesViews,
         talk: TalkView,
       },
     };
 
-This extends the list of folder views ``defaultViews.layoutViews`` with the key/value pair ``talklist_view: TalkList`` .
+This extends the list of folder views ``config.views.layoutViews`` with the key/value pair ``talklist_view: TalkList`` .
 
 To add a layout view you also have to add this new view in the ``ZMI`` of your ``Plone``. Login to your Plone instance. Go to ``portal_types`` and select the ``Folder``-Type to add your new ``talklist_view`` to the ``Available view methods``.
 
@@ -532,14 +532,14 @@ For bonus points create and register it as a separate view ``Keynotes``
         [...]
 
         export const views = {
-          ...defaultViews,
+          ...config.views,
           layoutViews: {
-            ...defaultViews.layoutViews,
+            ...config.views.layoutViews,
             talklist_view: TalkListView,
             keynotes_view: KeynotesView,
           },
           contentTypesViews: {
-            ...defaultViews.contentTypesViews,
+            ...config.views.contentTypesViews,
             talk: TalkView,
           },
         };

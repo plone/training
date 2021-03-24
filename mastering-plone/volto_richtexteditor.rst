@@ -56,17 +56,17 @@ The `settings` in :file:`/src/config.js` is the place to modify the general conf
     :linenos:
     :emphasize-lines: 3,4,8
 
-    export const settings = {
-      ...defaultSettings,
+    config.settings = {
+      ...config.settings,
       richTextEditorInlineToolbarButtons: newbuttonset,
       ToHTMLRenderers: {
-        ...defaultSettings.ToHTMLRenderers,
+        ...config.settings.ToHTMLRenderers,
         inline: {
-          ...defaultSettings.ToHTMLRenderers.inline,
+          ...config.settings.ToHTMLRenderers.inline,
           ...customInline,
         },
       },
-    };
+    }
 
 You see that two attributes of the overall `settings`, `richTextEditorInlineToolbarButtons` and `ToHTMLRenderers`, are overwritten. We define these attributes to show a button which lets the editor add a CSS class *discreet* to a selected phrase.
 
@@ -85,7 +85,7 @@ You see that two attributes of the overall `settings`, `richTextEditorInlineTool
       style: 'DISCREET',
       children: <Icon name={radiodisabledSVG} size="24px" />,
     });
-    let newbuttonset = defaultSettings.richTextEditorInlineToolbarButtons;
+    let newbuttonset = config.settings.richTextEditorInlineToolbarButtons;
     newbuttonset.splice(2, 0, DiscreetButton);
 
     // Renderer
@@ -115,7 +115,7 @@ You see that two attributes of the overall `settings`, `richTextEditorInlineTool
         style: 'DISCREET',
         children: <Icon name={radiodisabledSVG} size="24px" />,
       });
-      let newbuttonset = defaultSettings.richTextEditorInlineToolbarButtons;
+      let newbuttonset = config.settings.richTextEditorInlineToolbarButtons;
       newbuttonset.splice(2, 0, DiscreetButton);
 
       // Renderer
@@ -128,12 +128,12 @@ You see that two attributes of the overall `settings`, `richTextEditorInlineTool
       };
 
       export const settings = {
-        ...defaultSettings,
+        ...config.settings,
         richTextEditorInlineToolbarButtons: newbuttonset,
         ToHTMLRenderers: {
-          ...defaultSettings.ToHTMLRenderers,
+          ...config.settings.ToHTMLRenderers,
           inline: {
-            ...defaultSettings.ToHTMLRenderers.inline,
+            ...config.settings.ToHTMLRenderers.inline,
             ...customInline,
           },
         },

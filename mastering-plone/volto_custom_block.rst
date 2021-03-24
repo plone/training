@@ -101,15 +101,15 @@ The default text block has no options to select, so it is per default configured
 
     const customizedBlocks = {
         text: {
-            ...defaultBlocks.blocksConfig.text,
+            ...config.blocks.blocksConfig.text,
             sidebarTab: 1,
         },
     };
 
     export const blocks = {
-        ...defaultBlocks,
+        ...config.blocks,
         blocksConfig: {
-            ...defaultBlocks.blocksConfig,
+            ...config.blocks.blocksConfig,
             ...customBlocks,
             ...customizedBlocks,
         },
