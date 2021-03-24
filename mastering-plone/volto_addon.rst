@@ -35,14 +35,12 @@ Update ``package.json``:
 ..  code-block:: bash
 
     "addons": [
-      "@eeacms/volto-blocks-form",
       "@eeacms/volto-columns-block"
     ],
 
     "dependencies": {
-      "@plone/volto": "8.3.0",
-      "@eeacms/volto-blocks-form": "github:eea/volto-blocks-form#0.5.0",
-      "@eeacms/volto-columns-block": "github:eea/volto-columns-block#0.3.2"
+      "@plone/volto": "12.3.0",
+      "@eeacms/volto-columns-block": "github:eea/volto-columns-block#x.y.z"
     },
 
 Add-ons that are already released on npm https://www.npmjs.com:
@@ -52,13 +50,11 @@ Add-ons that are already released on npm https://www.npmjs.com:
     :emphasize-lines: 8-9
 
     "addons": [
-      "@eeacms/volto-blocks-form",
       "@eeacms/volto-columns-block"
     ],
 
     "dependencies": {
       "@plone/volto": "8.3.0",
-      "@eeacms/volto-blocks-form": "^1.0.2",
       "@eeacms/volto-columns-block": "^1.0.0"
     },
 
