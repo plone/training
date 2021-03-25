@@ -3,26 +3,28 @@
 About Mastering Plone
 =====================
 
-History
--------
+*Mastering Plone Development Training* is both: an online training and a handout for on-site trainings. We address developers. You are interested in best practice guides and want to learn the why and where, so read on!
 
-This training was initially started by Philip Bauer and Patrick Gerken of `starzel.de <https://www.starzel.de>`_ to create a canonical training for future Plone developers.
+The beginning and the continuation
+----------------------------------
 
-The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it.
-It is published as Open Source on `GitHub <https://github.com/plone/training>`_ and `training.plone.org <https://training.plone.org/>`_.
+This training was initially started as a Plone Classic training and evolved now to a roundtrip on both: Plone Classic HOWTOs, same for the ReactJS frontend and the interplay between backend and frontend.
 
-If you want to inquire the original authors about organizing a training please contact them at team@starzel.de.
+| This training is published on `training.plone.org <https://training.plone.org/>`_.
+| The *Mastering Plone Development Training* is Open Source on `GitHub <https://github.com/plone/training>`_. We update the training currently to teach the best practices. You are welcome to contribute and give feedback on `GitHub issues <https://github.com/plone/training/issues>`_.
 
-It is updated every year to teach the current best practices.
+Thank you for reading and your charity with non native speakers / writers. 
+
 
 .. _about-upcoming-label:
 
 Upcoming Trainings
 ------------------
 
-* `Plone Conference ONLINE 2020 <https://2020.ploneconf.org/>`_
+Plone Conference 2021, end of the year
 
-If you want to have a on-site training or want to attend a public training please ask for trainings on https://community.plone.org
+If you want to have an on-site training or want to attend a public training please ask for trainings on https://community.plone.org.
+
 
 .. _about-previous-label:
 
@@ -31,6 +33,7 @@ Previous Trainings
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
+* `Plone Conference ONLINE 2020 <https://2020.ploneconf.org/>`_
 * `Plone Conference 2019 in Ferrara <https://2019.ploneconf.org/>`_
 * `Plone Conference 2018 in Tokyo <https://2018.ploneconf.org/>`_
 * `August 2018, Munich <https://plone.org/events/community/mastering-plone-training-in-munich>`_
@@ -59,6 +62,9 @@ Philip Bauer
     A historian by education he drifted towards creating websites in the 90's and founded the company Starzel.de in 2000.
     He is a member of the Plone foundation, loves teaching and is dedicated to Open Source.
     Among other Plone-related projects he started creating the Mastering Plone Training so that everyone can become a Plone-Developer.
+
+Katja Süss
+    If not gardening she is developing with Python, Svelte and ReactJS. Katja lifted the Plone Classic Training to Plone 6 level.
 
 Patrick Gerken
     Patrick Gerken works with Python since 2002.
