@@ -105,6 +105,11 @@ Install pre-requisites.
 
         nvm install --lts
 
+#.  Install package manager ``yarn``.
+
+    .. code-block:: bash
+
+        npm install --global yarn
 
 Create your Volto project.
 

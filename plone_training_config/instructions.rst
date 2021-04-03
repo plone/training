@@ -231,6 +231,12 @@ Install pre-requisites.
 
         nvm install --lts
 
+#.  Install package manager ``yarn``.
+
+    .. code-block:: bash
+
+        npm install --global yarn
+
 
 Create your Volto frontend project.
 
@@ -291,6 +297,12 @@ See https://docs.voltocms.com/getting-started/install/#install-volto
 
 Option 2. Start with existing training project ``volto-ploneconf`` with all code for the training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install package manager ``yarn``.
+
+    .. code-block:: bash
+
+        npm install --global yarn
 
 Get the finished code for the frontend from github and install:
 
