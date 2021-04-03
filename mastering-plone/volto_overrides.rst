@@ -481,9 +481,9 @@ You can now do the same changes for the Summary View and the Listing Block. The 
 Summary
 -------
 
-* Component shadowing allows you to modify, extend and customize all modules in Volto.
+* Component shadowing allows you to modify, extend and customize views in Volto.
 * It is a powerful feature for making changes without the need for complex configuration or maintaining a fork of the code.
-* You need to restart Volte when you add a new override.
+* You need to restart Volto when you add a new override.
 
 .. seealso::
 
