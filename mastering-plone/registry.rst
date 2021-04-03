@@ -438,10 +438,10 @@ To use a vocabulary in a schema replace ``values`` with ``vocabulary`` and point
     :linenos:
     :emphasize-lines: 3
 
-    audience = schema.Choice(
-        title='Audience',
-        vocabulary='ploneconf.Audiences',
-        required=False,
+    type_of_talk = schema.Choice(
+        title=_(u'Type of talk'),
+        vocabulary='ploneconf.types_of_talk',
+        required=True,
     )
 
 Don't forget to add the new field ``room`` now.
@@ -554,6 +554,8 @@ One tiny thing is still missing: We should display the room.
 Modify :file:`frontend/src/components/Views/Talk.jsx` an add this after the ``When`` component:
 
 .. code-block::
+    :linenos:
+    :emphasize-lines: 6
 
         {content.room && (
           <>
