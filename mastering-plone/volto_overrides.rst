@@ -86,7 +86,7 @@ We want to show the date a News Item is published.
 This way visitors can see at a glance if they are looking at current or old news.
 
 This information is not shown by default.
-So you will need to customize the way that is used to render News Items.
+So you will need to customize the way that is used to render a News Item.
 
 The Volto component to render a News Item is in ``omelette/src/components/theme/View/NewsItemView.jsx`` (remember  chapter :ref:`volto_basics-label`?).
 
@@ -162,7 +162,7 @@ The Volto component to render a News Item is in ``omelette/src/components/theme/
 
 ..  note::
 
-    * ``content`` is passed to ``NewsItemView`` and represents the content item as it is seriaized by the restapi
+    * ``content`` is passed to ``NewsItemView`` and represents the content item as it is serialized by the REST API.
     * The view displays various attributes of the News Item using ``content.title``, ``content.description`` or ``content.text.data``
     * You can inspect all data that ``content`` holds using the React Developer Tools for `Firefox <https://addons.mozilla.org/de/firefox/addon/react-devtools/>`_ or `Chrome <https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi>`_:
 
@@ -171,7 +171,7 @@ The Volto component to render a News Item is in ``omelette/src/components/theme/
 
 Copy that file into ``src/customizations/components/theme/View/NewsItemView.jsx``.
 
-After restarting Volto the new file is used when diplaying a News Item.
+After restarting Volto the new file is used when displaying a News Item.
 To make sure your file is used add a small change before or after the text.
 If it shows up you're good to go.
 
@@ -319,16 +319,15 @@ You will see that the listing block does not display the date as well.
 Copy ``omelette/src/components/manage/Blocks/Listing/DefaultTemplate.jsx`` to ``src/customizations/components/manage/Blocks/Listing/DefaultTemplate.jsx`` and add the dates as you did with the Summary View.
 
 ..  code-block:: jsx
-    :emphasize-lines: 6,49-52
+    :linenos:
+    :emphasize-lines: 5,31-34
 
     import React from 'react';
     import PropTypes from 'prop-types';
     import { ConditionalLink } from '@plone/volto/components';
     import { flattenToAppURL } from '@plone/volto/helpers';
-    import config from '@plone/volto/registry'
     import moment from 'moment';
 
-    import DefaultImageSVG from '@plone/volto/components/manage/Blocks/Listing/default-image.svg';
     import { isInternalURL } from '@plone/volto/helpers/Url/Url';
 
     const DefaultTemplate = ({ items, linkMore, isEditMode }) => {
@@ -350,29 +349,14 @@ Copy ``omelette/src/components/manage/Blocks/Listing/DefaultTemplate.jsx`` to ``
           <div className="items">
             {items.map((item) => (
               <div className="listing-item" key={item['@id']}>
-                <ConditionalLink
-                  to={flattenToAppURL(item['@id'])}
-                  condition={!isEditMode}
-                >
-                  {!item[config.settings.listingPreviewImageField] && (
-                    <img src={DefaultImageSVG} alt="" />
-                  )}
-                  {item[config.settings.listingPreviewImageField] && (
-                    <img
-                      src={flattenToAppURL(
-                        item[config.settings.listingPreviewImageField].scales.preview
-                          .download,
-                      )}
-                      alt={item.title}
-                    />
-                  )}
+                <ConditionalLink item={item} condition={!isEditMode}>
                   <div className="listing-body">
-                    <h3>{item.title ? item.title : item.id}</h3>
-                    <p>{item.description}</p>
-                    <span className="discreet">
+                    <h4>{item.title ? item.title : item.id}</h4>
+                    <p>
                       {(item.effective && moment(item.effective).format('ll')) ||
                         moment(item.created).format('ll')}
-                    </span>
+                    </p>
+                    <p>{item.description}</p>
                   </div>
                 </ConditionalLink>
               </div>
@@ -383,14 +367,13 @@ Copy ``omelette/src/components/manage/Blocks/Listing/DefaultTemplate.jsx`` to ``
         </>
       );
     };
-
     DefaultTemplate.propTypes = {
       items: PropTypes.arrayOf(PropTypes.any).isRequired,
       linkMore: PropTypes.any,
       isEditMode: PropTypes.bool,
     };
-
     export default DefaultTemplate;
+
 
 The result should look like this:
 
