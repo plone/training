@@ -29,7 +29,7 @@ Topics covered:
 The type registration
 ---------------------
 
-Create a new file :file:`types.xml` add them it your add-on package in :file:`profiles/default/`
+Add a new file :file:`types.xml` to your add-on package in :file:`profiles/default/`.
 
 .. note::
 
@@ -104,18 +104,18 @@ This is the **Factory Type Information** that holds the configuration for the co
     </object>
 
 
-Now our package has new configuration for Generic Setup.
-Generic Setup loads a lot of different types of configuration for the site from the folder :file:`profiles/`.
+Now our package has a new configuration for Generic Setup.
+Generic Setup loads a lot of different types of configuration for the site from folder :file:`profiles/`.
 This configuration is applied to your site upon installing the package.
 This also means that you will need to reinstall the package once we are finished with the talk.
 
-But the type is not yet complete since the schema (``ploneconf.site.content.talk.ITalk``) a the class (``ploneconf.site.content.talk.Talk``) that are referenced in the FTI are not yet there.
+But the type is not yet complete since the schema (``ploneconf.site.content.talk.ITalk``) and the class (``ploneconf.site.content.talk.Talk``) that are referenced in the FTI are not yet there.
 
 
 The schema
 ----------
 
-The schema holds the definition the fields that the content type will offer to store data.
+The schema holds the definition of the fields that the content type will offer to store data.
 
 In the fti we referenced the python-path ``ploneconf.site.content.talk.ITalk``.
 
@@ -125,7 +125,7 @@ The module :py:mod:`content` does not exist. Create a folder :file:`content` and
 
     From the training root that is :file:`backend/src/ploneconf.site/src/ploneconf/site/content/__init__.py`
 
-You just created a python module :)
+You just created a python module.
 
 In this new folder add a file :file:`talk.py` with the following content:
 
@@ -244,7 +244,7 @@ The instance class
 
 The second class :py:class:`Talk` in :file:`talk.py` will be the class of instances for each talk.
 It inherits from :py:class:`Container` which is one of the default classes of dexterity.
-That is used for items that can contain other items.
+:py:class:`Container` is used for items that can contain other items.
 It does nothing so far but it can be useful later when we want to add methods or properties to it that can be used directly from a talk instance.
 
 
