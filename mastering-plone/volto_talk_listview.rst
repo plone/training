@@ -34,14 +34,14 @@ To be solved task in this part:
 In this part you will:
 
 * Create the view component
-* Register a react view component for the Folder content type
-* Use an endpoint of Plone REST API to fetch content
+* Register a react view component for folderish content types
+* Use an existing endpoint of Plone REST API to fetch content
 * Display the fetched data
 
 .. only:: not presentation
 
-    Volto has multiple views for listing objects. Most of them list all objects in a folder or folderish type like the ``listing_view`` with title and description.
-    The talk list should also show information about the dates, the locations and the speakers. We will create an additonal view for the folder content type.
+    Volto has has a default view for content type ``Document``.
+    The talk list should list all talks in this folderish page and also show information about the dates, the locations and the speakers. We will create an additonal view for the content type ``Document``.
 
 
 Register the view in Volto and Plone
@@ -71,36 +71,41 @@ As a convention we provide the view from :file:`src/components/index.js`.
 
     export { TalkView, TalkListView };
 
-Now register the new component as a view for type Folder in ``src/config.js``.
+Now register the new component as a view for folderish types in ``src/config.js``.
 
 ..  code-block:: jsx
     :linenos:
-    :emphasize-lines: 1,7-10
+    :emphasize-lines: 1,13-16
 
     import { TalkListView, TalkView } from './components';
 
-    [...]
+    // All your imports required for the config here BEFORE this line
+    import '@plone/volto/config';
 
-    config.views = {
-      ...config.views,
-      layoutViews: {
+    export default function applyConfig(config) {
+      config.views = {
+        ...config.views,
+        contentTypesViews: {
+          ...config.views.contentTypesViews,
+          talk: TalkView,
+        },
+        layoutViews: {
           ...config.views.layoutViews,
           talklist_view: TalkListView,
-      },
-      contentTypesViews: {
-        ...config.views.contentTypesViews,
-        talk: TalkView,
-      },
-    };
+        }
+      };
+      return config;
+    }
 
-This extends the list of folder views ``config.views.layoutViews`` with the key/value pair ``talklist_view: TalkList`` .
 
-To add a layout view you also have to add this new view in the ``ZMI`` of your ``Plone``. Login to your Plone instance. Go to ``portal_types`` and select the ``Folder``-Type to add your new ``talklist_view`` to the ``Available view methods``.
+This extends the list of available views with the ``talklist_view``.
+
+To add a layout view you also have to add this new view in the ``ZMI`` of your ``Plone``. Login to your Plone instance. Go to ``portal_types`` and select the ``Document``-Type to add your new ``talklist_view`` to the ``Available view methods``.
 
 .. figure:: _static/add_talklistview_in_zmi.png
     :alt: Add new View to content type Folder in the ZMI.
 
-    Add new View to content type Folder in the ZMI.
+    Add new View to content type Document in the ZMI.
 
 .. only:: not presentation
 
@@ -133,7 +138,7 @@ From now on you can select the new view for folder:
 
 Now we will improve this view step by step. We start working directly with the context of our talks folder. The context is part of the props of the view. To have a convenient access to the context we assign a variable ``content`` the value of ``props.content``.
 
-Via ``content`` we have access to title, description and other attributes
+Via prop ``content`` we have access to title, description and other attributes
 
 ..  code-block:: jsx
     :linenos:
@@ -168,7 +173,7 @@ Via ``content`` we have access to title, description and other attributes
 
     .. note::
 
-        For the next part you should have some talks and no other content in one folder to work on the progressing view.
+        For the next part you should have some talks and no other content in a page to work on the progressing view.
 
     .. warning::
 
@@ -269,7 +274,7 @@ To get a list of all talks - no matter where they are in our site - we will use 
 That is the equivalent of using a catalog search in classic Plone (see :ref:`views3-catalog-label`).
 
 ..  code-block:: jsx
-    :emphasize-lines: 6-7,11-13,21-28
+    :emphasize-lines: 6-7,10-12,21-32
 
     import React from 'react';
     import { Container, Segment, Label, Image } from 'semantic-ui-react';
@@ -279,10 +284,11 @@ That is the equivalent of using a catalog search in classic Plone (see :ref:`vie
     import { searchContent } from '@plone/volto/actions';
     import { useDispatch, useSelector } from 'react-redux';
 
-    const TalkListView = ({content}) => {
+    const TalkListView = ({ content }) => {
+      const talks = useSelector(
+        (state) => state.search.subrequests.conferencetalks?.items,
+      );
       const dispatch = useDispatch();
-      const searchRequests = useSelector(state => state.search);
-      const results = searchRequests.items;
 
       const color_mapping = {
         Beginner: 'green',
@@ -292,10 +298,14 @@ That is the equivalent of using a catalog search in classic Plone (see :ref:`vie
 
       React.useEffect(() => {
         dispatch(
-          searchContent('/', {
-            portal_type: ['talk'],
-            fullobjects: true,
-          }),
+          searchContent(
+            '/',
+            {
+              portal_type: ['talk'],
+              fullobjects: true,
+            },
+            'conferencetalks',
+          ),
         );
       }, [dispatch]);
 
@@ -310,8 +320,8 @@ That is the equivalent of using a catalog search in classic Plone (see :ref:`vie
               )}
             </header>
             <section id="content-core">
-              {results &&
-                results.map(item => (
+              {talks &&
+                talks.map(item => (
                   <Segment padded>
                     <h2>
                       <Link to={item['@id']} title={item['@type']}>
@@ -379,8 +389,8 @@ Possible **sort criteria** are indices of the Plone catalog.
 
 .. seealso::
 
-  * https://plonerestapi.readthedocs.io/en/latest/searching.html
-  * http://docs.plone.org/develop/plone/searching_and_indexing/query.html
+  * Plone REST API documentation https://plonerestapi.readthedocs.io/en/latest/searching.html
+  * Plone documentation about searching and indexing http://docs.plone.org/develop/plone/searching_and_indexing/query.html
 
 .. _volto_talk_listview-exercise-label:
 
@@ -404,7 +414,9 @@ Modify the criteria in the search to sort the talks in the order of their modifi
               portal_type: ['talk'],
               sort_on: 'modified',
               fullobjects: true,
-            }),
+            },
+            'conferencetalks',
+          ),
           );
         }, [dispatch]);
 
@@ -423,7 +435,7 @@ For bonus points create and register it as a separate view ``Keynotes``
 
     ..  code-block:: jsx
         :linenos:
-        :emphasize-lines: 34-36
+        :emphasize-lines: 35-38
 
         import React from 'react';
         import { Container, Segment, Image } from 'semantic-ui-react';
@@ -433,11 +445,11 @@ For bonus points create and register it as a separate view ``Keynotes``
         import { searchContent } from '@plone/volto/actions';
         import { useDispatch, useSelector } from 'react-redux';
 
-        const TalkListView = props => {
-          const { content } = props;
-          const searchRequests = useSelector(state => state.search);
+        const TalkListView = ({ content }) => {
+            const talks = useSelector(
+              (state) => state.search.subrequests.conferencetalks?.items,
+            );
           const dispatch = useDispatch();
-          const results = searchRequests.items;
 
           React.useEffect(() => {
             dispatch(
@@ -445,7 +457,9 @@ For bonus points create and register it as a separate view ``Keynotes``
                 portal_type: ['talk'],
                 review_state: 'published',
                 fullobjects: true,
-              }),
+              },
+              'conferencetalks',
+            ),
             );
           }, [dispatch]);
 
@@ -457,8 +471,8 @@ For bonus points create and register it as a separate view ``Keynotes``
                   <h1 className="documentFirstHeading">Our Keynote Speakers</h1>
                 </header>
                 <section id="content-core">
-                  {results &&
-                    results.map(
+                  {talks &&
+                    talks.map(
                       item =>
                         item.type_of_talk.title === 'Keynote' && (
                           <Segment padded>
