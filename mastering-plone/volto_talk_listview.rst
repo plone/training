@@ -20,11 +20,11 @@ Volto View Components: A Listing View for Talks
 
    Code for the beginning of this chapter::
 
-       git checkout theming
+       git checkout talkview
 
    Code for the end of this chapter::
 
-        git checkout talkview
+        git checkout talklist
 
 
 To be solved task in this part:
