@@ -43,12 +43,12 @@ Introduction
 Do you remember the fields ``audience`` and ``type_of_talk`` from the talk content-type?
 We provided several options to chose from that were hard-coded in the schema.
 
-Next we want to add a field so assign talks to a room.
-Since the conference next year will have different room-numbers or -names these values need to to be editable.
+Next we want to add a field to assign talks to a room.
+Since the conference next year will have different room numbers or names these values need to to be editable.
 
 And while we're at it: It would be much better to have the options for ``audience`` and ``type_of_talk`` editable by admins as well, e.g. to be able to add *Lightning Talks*!
 
-By compining the registry, a controlpanel and vocabularies you can allow rooms to be editable options.
+By combining the registry, a controlpanel and vocabularies you can allow rooms to be editable options.
 
 To be able to to so you first need to get to know the registry.
 
@@ -64,11 +64,12 @@ The registry itself is provided by `plone.registry <https://pypi.org/project/plo
 
 Almost all settings in ``/plone_control_panel`` are actually stored in the registry and can be modified using its UI directly.
 
-Open http://localhost:8080/Plone/portal_registry and filter for ``displayed_types``. You see can modify the content types that should be shown in the navigation and site map. The values are the same as in http://localhost:8080/Plone/@@navigation-controlpanel but the later form is customized for usability.
+Open http://localhost:8080/Plone/portal_registry and filter for ``displayed_types``. 
+You see that you can modify the content types that should be shown in the navigation and site map. The values are the same as in http://localhost:8080/Plone/@@navigation-controlpanel but the later form is customized for usability.
 
 .. note::
 
-    This UI for the registry is not yet available in Volto!
+    This UI for the registry is not yet available in Volto.
 
 
 Registry-records
@@ -187,7 +188,7 @@ Either use http://localhost:8080/Plone/portal_registry or python:
 
     from plone import api
 
-    api.portal.get_registry_record('ploneconf.talk_submission_open')
+    api.portal.get_registry_record('ploneconf.rooms')
 
 
 .. note::
@@ -340,14 +341,14 @@ In Plone Classic at http://localhost:8080/Plone/ploneconf-controlpanel
 Vocabularies
 ------------
 
-Now the custom settings are stored in the registry that we can modify them in a nice way as admins.
+Now the custom settings are stored in the registry that we can modify then in a nice way as admins.
 We still need to use these options in talks.
 
 To do so we turn them into vocabularies.
 
 Vocabularies are often used for selection fields. They have many benefits:
 
-* They allow you to separate the displayed option and the stored value for a field. This alows translating titles while using the same values.
+* They allow you to separate the displayed option and the stored value for a field. This allows translating titles while using the same values.
 * They can be created dynamically, so the available options can change depending on existing content, the role of the user or even the time of day.
 
 Create a file :file:`vocabularies.py` and write code that generates vocabularies from these settings:
@@ -426,7 +427,7 @@ From now on you can use these vocabulary by referring to their name, e.g. `plone
 
 .. seealso::
 
-  https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html
+  Plone documentation **Vocabularies** https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html
 
 
 Using vocabularies in a schema
@@ -703,7 +704,7 @@ Modify :file:`frontend/src/components/Views/Talk.jsx` an add this after the ``Wh
 .. note::
 
    The approach to create options for fields from registry-records has one problem:
-   Existing talks does not get updated when you change a value in the controlpanel.
+   Existing talks are not updated when you change a value in the controlpanel.
    Instead they will have invalid data and you will have to update them.
 
    If the options in your fields tend to change often you should consider using `collective.taxonomy <https://github.com/collective/collective.taxonomy>`_ to manage vocabularies.
