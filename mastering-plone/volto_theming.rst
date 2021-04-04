@@ -37,6 +37,7 @@ The overall font is defined in Volto and can be found in :file:`omelette/theme/t
 .. code-block:: css
 
   @fontName : 'Lato';
+  @emSize: 18px;
 
 Semantic UI does not provide a less variable for increasing the letter-spacing.
 So we add a CSS rule for it.
@@ -72,35 +73,6 @@ You should use the power of `less` and use variables such as:
   .ui.segment.sponsors {
     background-color: @lightGrey;
   }
-
-
-Exercise
-++++++++
-
-Change the font for the toolbar menu to Lato.
-
-..  admonition:: Solution
-    :class: toggle
-
-    change :file:`theme/extras/custom.overrides`
-
-    .. code-block:: less
-
-        #toolbar {
-          .pastanaga-menu-list {
-            li {
-              a,
-              button {
-                font-family: @fontName;
-              }
-            }
-          }
-        }
-
-
-    You see the nested less rules.
-
-    ``#toolbar`` is added to override the default style.
 
 
 Changing the favicon

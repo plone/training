@@ -83,8 +83,8 @@ Visit the `download page <https://plone.org/download>`_ to see all the options.
 Installing Volto
 ----------------
 
-| For a Plone 6 installation, not Plone Classic, but with the React frontend **Volto**, by now two installations are needed: Plone and Volto. The former section is describing the options for a Plone installation.
-| This section is about setting up a Volto installation. Wording is: Volto installation, Volto app, **Volto project**.
+| For a Plone 6 installation, not just Plone Classic, but with the React frontend **Volto**, by now two installations are needed: Plone and Volto. The former section is describing the options for a Plone installation.
+| This section is about setting up a Volto project.
 
 
 Install pre-requisites.
@@ -99,12 +99,17 @@ Install pre-requisites.
         #Linux
         apt-get install nvm
 
-#.  Install node LTS (node version LTS: long time support)
+#.  Install ``node`` LTS (node version LTS: long time support)
 
     .. code-block:: bash
 
         nvm install --lts
 
+#.  Install package manager ``yarn``.
+
+    .. code-block:: bash
+
+        npm install --global yarn
 
 Create your Volto project.
 
@@ -155,7 +160,7 @@ Point your browser to http://localhost:3000 and see that Plone is up and running
 You can stop the Volto app anytime using :kbd:`ctrl + c`.
 
 
-For more information see `Volto documentation <https://docs.voltocms.com/getting-started/install/>`_
+For more information see `Volto documentation <https://docs.voltocms.com/getting-started/install/>`_.
 
 
 .. _installation-hosting-label:

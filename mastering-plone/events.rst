@@ -129,27 +129,18 @@ We'll reuse it in :file:`frontend/src/components/Views/Talk.jsx`. We'll let us i
 :file:`frontend/src/components/Views/Talk.jsx`:
 
 .. code-block:: jsx
-    :emphasize-lines: 5,12,29-65
+    :emphasize-lines: 4,20-48
 
     import React from 'react';
     import { flattenToAppURL } from '@plone/volto/helpers';
-    import {
-      Container,
-      Header,
-      Image,
-      Icon,
-      Label,
-      Segment,
-    } from 'semantic-ui-react';
-    import { Helmet } from '@plone/volto/helpers';
+    import { Container, Header, Image, Label, Segment } from 'semantic-ui-react';
     import { When } from '@plone/volto/components/theme/View/EventDatesInfo';
 
-    const TalkView = props => {
-      const { content } = props;
+    const TalkView = ({ content }) => {
       const color_mapping = {
         Beginner: 'green',
         Advanced: 'yellow',
-        Professional: 'red',
+        Professional: 'purple',
       };
 
       return (
@@ -265,7 +256,7 @@ Hiding fields from certain users
 
 The problem now appears that speakers submitting their talks should not be able to set a time and day for their talks.
 
-Sadly it is not easy to modify permissions of fields provided by behaviors (unless you write the behavior yourself).
+Sadly it is not easy to modify permissions of fields provided by behaviors unless you write the behavior yourself.
 At least in this case we can take the easy way out since the field does not contain secret information:
 We can simply hide the fields from contributors using css and show them for reviewers.
 
