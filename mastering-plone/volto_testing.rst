@@ -25,19 +25,15 @@ Testing permissions, features and UI topics
 
 We already added a content type `talk`. Let's write a test 'An editor can add a talk'.
 
-#. Install cypress with 
-
-    .. code-block::
-
-        yarn add cypress cypress-axe cypress-file-upload --dev -W
-
-#. Add a yarn script in your :file:`package.json` 
+#. Add yarn scripts in your :file:`package.json` 
 
     .. code-block::
 
         "scripts": {
             ...
-            "cypress:open": "CYPRESS_API=plone cypress open"
+            "cypress:open": "CYPRESS_API=plone cypress open",
+            "cy:test:fixture:setup": "node cypress/support/reset-fixture.js",
+            "cy:test:fixture:teardown": "node cypress/support/reset-fixture.js teardown"
           },
 
 #. Get some helper functions for an autologin, etc. from `Volto <https://github.com/plone/volto/tree/master/cypress/support>`_.
@@ -97,17 +93,18 @@ Go to your **backend folder**, open ``Makefile`` and add test commands:
 
   # Volto cypress tests
 
-  .PHONY: start-test-backend
   start-test-backend: ## Start Test Plone Backend
-    ZSERVER_PORT=55001 CONFIGURE_PACKAGES=plone.app.contenttypes,plone.restapi,kitconcept.volto,kitconcept.volto.cors APPLY_PROFILES=plone.app.contenttypes:plone-content,plone.restapi:default,kitconcept.volto:default-homepage ./bin/robot-server plone.app.robotframework.testing.PLONE_ROBOT_TESTING
+    ZSERVER_PORT=55001 CONFIGURE_PACKAGES=plone.app.contenttypes,plone.restapi,kitconcept.volto,kitconcept.volto.cors APPLY_PROFILES=plone.app.contenttypes:plone-content,plone.restapi:default,kitconcept.volto:default-homepage ./bin/robot-server ploneconf.site.testing.PLONECONF_SITE_ACCEPTANCE_TESTING
 
   .PHONY: start-test-frontend
   start-test-frontend: ## Start Test Volto Frontend
-    cd ../volto-ploneconf; RAZZLE_API_PATH=http://localhost:55001/plone yarn build && NODE_ENV=production node build/server.js
+    cd ../frontend; RAZZLE_API_PATH=http://localhost:55001/plone yarn build && NODE_ENV=production node build/server.js
 
   .PHONY: start-test
   start-test: ## Start Test
-    cd ../volto-ploneconf; yarn cypress:open
+    cd ../frontend; RAZZLE_API_PATH=http://localhost:55001/plone NODE_ENV=production yarn cypress:open
+
+
 
 
 Start the test backend
