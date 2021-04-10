@@ -605,27 +605,22 @@ The output looks like this:
 mixedfield
 ==========
 
-**The mixedfield allows your user to create a list of arrays of mixed value types.**
-
-| *Another field, oh no!*
-| **mixedfield** is a combination of JSONField and a widget for Plone. Nothing new, just a term to talk about linking backend and frontend.
+The mixedfield empowers your user to create a list of arrays of mixed value types.
+If you are familliar with the Plone Classic datagridfield this is the complementary field / widget combo for Plone.
+**mixedfield** is a combination of a Plone Classic JSONField and a widget for Plone. Nothing new, just a term to talk about linking backend and frontend.
 
 Example is a custom history field:
 
 .. figure:: _static/dexterity/mixedfield_view.png
    :alt: view mixedfield values
 
-.. note::
-
-    This solution is for Plone 6 only, without a complementary widget for Plone Classic. The field data is of type JSON. 
-    For Plone Classic solutions see :ref:`dexterity_reference_datagridfield-label`
 
 Backend
 -------
 
 Enable blocks behavior for example content type.
 
-Add a field *mixed_field* to your content type schema.
+Add a field *history_field* to your content type schema.
 
 ..  code-block:: python
     :linenos:    
@@ -664,11 +659,11 @@ Add a field *mixed_field* to your content type schema.
             required=False,
             )
 
-        mixed_field = JSONField(
-            # datagrid, mixedfield, field, Plone, json, frontend, Volto
+        history_field = JSONField(
             title=u'Mixedfield: datagrid field for Plone',
             required=False,
             schema=MIXEDFIELD_SCHEMA,
+            widget="history_widget",
             default={"items": []},
             missing_value={"items": []},
             )
@@ -682,16 +677,13 @@ Provide a widget in your favorite add-on with the schema for the array of elemen
 
 ..  code-block:: jsx
     :linenos:
+    :emphasize-lines: 3,37,39
 
-    /**
-    * @module HistoryWidget
-    */
-    
     import React from 'react';
 
-    import { ObjectListInlineWidget } from '@eeacms/volto-object-widget';
+    import ObjectListWidget from '@plone/volto/components/manage/Widgets/ObjectListWidget';
 
-    const LineSchema = {
+    const ItemSchema = {
         title: 'History-Entry',
         properties: {
             historydate: {
@@ -720,12 +712,13 @@ Provide a widget in your favorite add-on with the schema for the array of elemen
                 ],
             },
         ],
+        required: [],
     };
 
     const HistoryWidget = (props) => {
         return (
-            <ObjectListInlineWidget
-                schema={LineSchema}
+            <ObjectListWidget
+                schema={ItemSchema}
                 {...props}
                 value={props.value?.items || props.default?.items || []}
                 onChange={(id, value) => props.onChange(id, { items: value })}
@@ -735,11 +728,14 @@ Provide a widget in your favorite add-on with the schema for the array of elemen
 
     export default HistoryWidget;
 
-Register this widget for the backend field of your choice in your **apps** configuration.
+Keeping this example as simple as possible we skipped the localization. Please see Volto documentation for details.
+
+Register this widget for the backend field of your choice in your **apps** configuration :file:`config.js`.
+The following config code registers the custom Plone *HistoryWidget* for Plone Classic fields with widget "history_widget".
 
 ..  code-block:: js
     :linenos:
-    :emphasize-lines: 20-22
+    :emphasize-lines: 17
 
     /**
     * Add your config changes here.
@@ -757,36 +753,23 @@ Register this widget for the backend field of your choice in your **apps** confi
         supportedLanguages: ['en', 'de', 'it'],
         defaultLanguage: 'en',
     };
-    config.widgets = {
-        ...config.widgets,
-        id: {
-        // widget for field mixed_field of example.contenttype
-        ...config.widgets.id,
-        mixed_field: HistoryWidget,
-        },
-    };
+    config.widgets.widget.history_widget = HistoryWidget;
 
     return config;
     }
 
 
-Your app or your add-on needs to list the dependency "@eeacms/volto-object-widget". 
+The user can now edit the values of the new field *history_field*.
 
-..  code-block:: js
+Thats what you did to accomplish this:
 
-  "addons": [
-    "@eeacms/volto-object-widget"
-  ],
-  "dependencies": {
-    "@eeacms/volto-object-widget": "^2.0.0"
-  },
-
-With that in place the user can edit the values of the mixed_field.
+- You added a new field of type JSONField with widget "history_widget" and default schema to your content type schema.
+- You registered the custom Plone widget for widget name "history_widget".
 
 .. figure:: _static/dexterity/mixedfield_edit.png
    :alt: edit mixedfield values
 
-To display the values of the mixed_field, a view (:file:`ExampleView`) of the content type integrates a component for displaying the mixedfield values.
+A view (:file:`ExampleView`) of the content type integrates a component to display the values of the field *history_field*.
 
 .. code-block:: js
    :linenos:
@@ -831,7 +814,7 @@ To display the values of the mixed_field, a view (:file:`ExampleView`) of the co
         <Container>
         <h2>I am an ExampleView</h2>
         <h3>History</h3>
-        <MyHistory history={content.mixed_field} />
+        <MyHistory history={content.history_field} />
         </Container>
     );
     };
