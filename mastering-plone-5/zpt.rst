@@ -706,7 +706,7 @@ if the ordinal index of the current iteration is an odd number).
                 <th>Topics</th>
             </tr>
             <tr tal:repeat="talk talks"
-                tal:attributes="class python: 'odd' if repeat.talk.odd else 'even'">
+                tal:attributes="class python: 'odd' if repeat.talk.odd() else 'even'">
                 <td>
                     <a tal:define="google_url string:https://www.google.com/search?q=${talk/title};
                                    "
@@ -749,7 +749,7 @@ if the ordinal index of the current iteration is an odd number).
                 <th>Topics</th>
             </tr>
             <tr tal:repeat="talk python:talks"
-                tal:attributes="class python: 'odd' if repeat.talk.odd else 'even'">
+                tal:attributes="class python: 'odd' if repeat.talk.odd() else 'even'">
                 <td>
                     <a tal:attributes="href python:talk.get('url', 'https://www.google.com/search?q=%s' % talk['title'])"
                        tal:content="python:talk['title']">
@@ -789,7 +789,7 @@ if the ordinal index of the current iteration is an odd number).
             </tr>
 
             <tr tal:repeat="talk python:talks"
-                class="${python: 'odd' if repeat.talk.odd else 'even'}">
+                class="${python: 'odd' if repeat.talk.odd() else 'even'}">
                 <td>
                     <a href="${python:talk.get('url', 'https://www.google.com/search?q=%s' % talk['title'])}">
                         ${python:talk['title']}
@@ -831,7 +831,7 @@ if the ordinal index of the current iteration is an odd number).
         <?python from operator import itemgetter ?>
 
             <tr tal:repeat="talk python:sorted(talks, key=itemgetter('title'))"
-                class="${python: 'odd' if repeat.talk.odd else 'even'}">
+                class="${python: 'odd' if repeat.talk.odd() else 'even'}">
                 <td>
                     <a href="${python:talk.get('url', 'https://www.google.com/search?q=%s' % talk['title'])}">
                         ${python:talk['title']}
