@@ -159,10 +159,16 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
         votes = schema.Dict(title=u"Vote info",
                             key_type=schema.TextLine(title=u"Voted number"),
                             value_type=schema.Int(title=u"Voted so often"),
-                            required=False)
+                            required=False,
+                            default={},
+                            missing_value={},
+                            )
         voted = schema.List(title=u"Vote hashes",
                             value_type=schema.TextLine(),
-                            required=False)
+                            required=False,
+                            default=[],
+                            missing_value=[],
+                        )
 
         def vote(request):
             """
@@ -229,17 +235,19 @@ Now the only thing that is missing is the behavior implementation, which we must
     :linenos:
 
     # encoding=utf-8
-    from .interfaces import IVoting
+    from starzel.votable_behavior.interfaces import IVotable, IVoting
     from hashlib import md5
     from persistent.dict import PersistentDict
     from persistent.list import PersistentList
     from zope.annotation.interfaces import IAnnotations
+    from zope.component import adapter
     from zope.interface import implementer
 
     KEY = "starzel.votable_behavior.behavior.voting.Vote"
 
 
     @implementer(IVoting)
+    @adapter(IVotable)
     class Vote(object):
         def __init__(self, context):
             self.context = context
@@ -347,7 +355,7 @@ Let's continue with this file:
             return float(total_points) / total_votes
 
         def has_votes(self):
-            return len(self.annotations.get('votes', [])) != 0
+            return len(self.annotations.get('votes', {})) != 0
 
         def already_voted(self, request):
             return self._hash(request) in self.annotations['voted']
