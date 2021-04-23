@@ -3,13 +3,18 @@
 More Complex Behaviors
 ======================
 
+We want a group of reviewers to vote on the talks that are accepted for the conference.
+
 In this part you will:
 
-* Write an annotation
+* Write a behavior that enables voting on content
+* Use annotations to store the votes on a object
 
 Topics covered:
 
-* Annotation Marker Interfaces
+* Behaviors with a factory class
+* Marker Interfaces
+* Using Annotations as storage-layer
 
 .. _behaviors2-annotations-label:
 
@@ -25,12 +30,7 @@ Using Annotations
     So using annotations avoids namespace conflicts.
     The cost is an indirection.
     The dictionary is persistent so it has to be stored separately.
-    Also, one could give attributes a name containing a namespace prefix to avoid naming collisions.
-
-.. only:: presentation
-
- * What are annotations
- * When to use them
+    Alternatively, one could give attributes a name containing a namespace prefix to avoid naming collisions.
 
 .. _Annotations: https://docs.plone.org/develop/plone/misc/annotations.html
 
@@ -39,18 +39,14 @@ Using Annotations
 Using Schema
 ------------
 
-.. only:: not presentation
+The attribute where we store our data will be declared as a schema field.
 
-    The attribute where we store our data will be declared as a schema field.
-    We mark the field as an omitted field (using schema directive similar to ``read_permission`` or ``widget``), because we are not going to create :py:mod:`z3c.form` widgets for entering or displaying them.
-    We do provide a schema, because many other packages use the schema information to get knowledge of the relevant fields.
+We mark the field as an omitted field (using a schema directive similar to ``read_permission`` or ``widget``), because we are not going to create :py:mod:`z3c.form` widgets for entering or displaying them.
+We do provide a schema, because many other packages use the schema information to gain knowledge about the relevant fields.
 
-    For example, when files were migrated to blobs, new objects had to be created and every schema field was copied.
-    The code can not know about our field, except if we provide schema information.
+For example, when files were migrated to blobs, new objects had to be created and every schema field was copied.
+The code can not know about our field, except if we provide schema information.
 
-.. only:: presentation
-
- * Why to use schemas always
 
 .. _behaviors2-code-label:
 
@@ -95,10 +91,22 @@ Next, create :file:`behavior/configure.zcml`
 
     </configure>
 
-There are some important differences to our first behavior:
+There are some important differences to the first behavior:
 
   * There is a marker interface
   * There is a factory
+
+The first behavior (discussed in :ref:`behaviors1-label`) was registered using only ``provides``:
+
+.. code-block:: xml
+
+  <plone:behavior
+      title="Featured"
+      name="ploneconf.featured"
+      description="Control if a item is shown on the frontpage"
+      provides=".featured.IFeatured"
+      />
+
 
 .. only:: not presentation
 
@@ -107,9 +115,9 @@ There are some important differences to our first behavior:
     If you want your behavior, you would write ``voting = IVoting(object)``.
 
     But in order for this to work, your object may *not* be implementing the ``IVoting`` interface, because if it did,  ``IVoting(object)`` would return the object itself!
-    If I need a marker interface for objects providing my behavior, I must provide one, for this we use the marker attribute.
-    My object implements ``IVotable``.
-    Because of this, we can write views and viewlets just for this content type.
+    If you need a marker interface for objects providing the new behavior, you must provide one, for this you use ``marker``.
+    This object now implements the marker-interface ``IVotable``.
+    Because of this, we can write views and viewlets just for content that use this behavior.
 
 The interfaces need to be written, in our case into a file :file:`interfaces.py`:
 
@@ -127,15 +135,15 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
     from zope.interface import provider
 
     class IVotableLayer(Interface):
-        """Marker interface for the Browserlayer
+        """Marker interface for the Browserlayer of this addon
         """
 
-    # Ivotable is the marker interface for contenttypes who support this behavior
+    # IVotable is the marker interface for contenttypes who support this behavior
     class IVotable(Interface):
         pass
 
-    # This is the behaviors interface. When doing IVoting(object), you receive an
-    # adapter
+    # This is the behavior interface.
+    # When doing IVoting(object), you receive an adapter
     @provider(IFormFieldProvider)
     class IVoting(model.Schema):
         if not api.env.debug_mode():
@@ -187,10 +195,11 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
 .. only:: not presentation
 
     This is a lot of code.
-    The ``IVotableLayer`` we will need later for viewlets and browser views.
-    Let's add it right here.
-    The ``IVotable`` interface is the simple marker interface.
-    It will only be used to bind browser views and viewlets to contenttypes that provide our behavior, so no code needed.
+
+    The ``IVotableLayer`` will be needed later for viewlets and browser views to only be available when this addon is installed.
+
+    The ``IVotable`` interface is just the simple marker interface.
+    It will only be used to bind browser views and viewlets to contenttypes that provide our behavior, so no code is needed.
 
     The ``IVoting`` class is more complex, as you can see.
 
@@ -211,10 +220,10 @@ The interfaces need to be written, in our case into a file :file:`interfaces.py`
     ``title`` and ``required`` are purely optional, but very helpful if the fields won't be omitted, something that can be helpful when debugging the behavior.
     Later, when we implement the behavior, the ``votes`` and ``voted`` attributes are implemented in such a way that you can't just modify these fields, they are read only.
 
-    Then we define the API that we are going to use in browser views and viewlets.
+    Then we define the API that we are going to use in the frontend.
 
 
-Now the only thing that is missing is the behavior implementation, which we must put into :file:`behavior/voting.py`
+Now the only thing that is missing is the behavior implementation, which we must put into :file:`behavior/voting.py`.
 
 .. code-block:: python
     :linenos:
@@ -275,22 +284,22 @@ Now the only thing that is missing is the behavior implementation, which we must
         This happens automatically.
         Each request begins a transaction and after our code runs and the Zope Server is preparing to send back the response we generated, the transaction will be committed and everything we changed will be saved.
 
-        Now, if have a normal dictionary on a persistent object, and you will only change the dictionary, the persistent object has no way to know if the dictionary has been changed.
+        Now, if you have a normal dictionary on a persistent object, and you will only change the dictionary, the persistent object has no way to know if the dictionary has been changed.
         This happens from time to time.
 
         So one solution is to change the special attribute ``_p_changed`` to ``True`` (or any other value!) on the persistent object, or to use a ``PersistentDict``.
-        Latter is what we are doing here.
+        The latter is what we are doing here.
 
         An important thing to note about ``PersistentDict`` and ``PersistentList`` is that they cannot handle write conflicts.
         What happens if two users rate the same content independently at the same time?
         In this case, a database conflict will occur because there is no way for Plone to know how to handle the concurrent write access.
         Although this is rather unlikely during this training, it is a very common problem on high traffic websites.
 
-        You can find more information in the documentation of the ZODB, in particular `Rules for Persistent Classes <http://www.zodb.org/en/latest/guide/writing-persistent-objects.html>`_
+        You can find more information in the documentation of the ZODB, in particular `Rules for Persistent Classes <https://zodb.org/en/latest/guide/writing-persistent-objects.html>`_
 
 
     Next we provide the internal fields via properties.
-    Using this form of property makes them read only properties, as we did not define write handlers.
+    Using this form of property makes them read-only properties, as we did not define write handlers.
     We don't need them so we won't add them.
 
     As you have seen in the Schema declaration, if you run your site in debug mode, you will see an edit field for these fields.
@@ -356,10 +365,11 @@ Let's continue with this file:
     We don't want people to vote twice.
     There are many ways to ensure this and each one has flaws.
 
-    We chose this way to show you how to access information from the request the browser of the user sent to us.
-    First, we get the IP address of the user, then we access a small set of headers from the user's browser and generate an md5 checksum of this.
+    We chose this way to show you how to access information from the request that the browser of the user sent to us.
 
-    The vote method wants a vote and a request. We check the preconditions, then we convert the vote to an integer, store the request to ``voted`` and the votes into the ``votes`` dictionary.
+    First, we get the IP address of the user, then we access a small set of headers from the user's browser and generate an md5 checksum from this data.
+
+    The vote method requires a vote and a request. We check the preconditions, then we convert the vote to an integer, store the request to ``voted`` and the votes into the ``votes`` dictionary.
     We just count there how often any vote has been given.
 
     Everything else is just python.
@@ -432,7 +442,7 @@ Exercise 2
 Write a unit test that simulates concurrent voting.
 The test should raise a ``ConflictError`` on the original voting behavior implementation.
 The solution from the first exercise should pass.
-Look at the file ``ZODB/ConflictResolution.txt`` in the ``ZODB3`` egg for how to create a suitable test fixture for conflict testing.
+Look at https://zodb.org/en/latest/ConflictResolution.html for how to create a suitable test fixture for conflict testing.
 Look at the test code in ``zope.annotation`` for how to create annotatable dummy content.
 You will also have to write a 'request' dummy that mocks the ``getClientAddr`` and ``getHeader`` methods of Zope's HTTP request object to make the ``_hash`` method of the voting behavior work.
 
@@ -440,8 +450,8 @@ You will also have to write a 'request' dummy that mocks the ``getClientAddr`` a
     :class: toggle
 
     There are no tests for `starzel.votablebehavior` at all at the moment.
-    But you can refer to `chapter 23 (Testing in Plone) <https://training.plone.org/5/mastering-plone/testing.html>`_ for how to setup unit testing for a package.
-    Put the particular test for this exercise into a file named :file:`starzel.votable_behavior/starzel/votable_behavior/tests/test_voting`.
+    But you can refer to https://training.plone.org/5/testing/testing_setup.html for how to setup unit testing for a package.
+    Put the particular test for this exercise into a file named :file:`starzel.votable_behavior/starzel/votable_behavior/tests/test_voting.py`.
     Remember you need an empty :file:`__init__.py` file in the :file:`tests` directory to make testing work.
     You also need to add ``starzel.votable_behavior`` to ``test-eggs`` in :file:`buildout.cfg` and re-run buildout.
 

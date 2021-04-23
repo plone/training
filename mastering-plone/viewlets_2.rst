@@ -13,7 +13,7 @@ In this part you will:
 
 * Write the viewlet template
 * Add jQuery include statements
-* Saving the vote on the object using annotations
+* Save the vote on the object using annotations
 
 Topics covered:
 
