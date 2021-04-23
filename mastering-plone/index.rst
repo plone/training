@@ -15,8 +15,8 @@ The story of a conference platform provides a week-long training of several deve
 
     This is the *Mastering Plone 6 Development Training*.
 
-    *Mastering Plone 6 Development Training* supplements `Mastering Plone 5 <https://training.plone.org/5/mastering-plone-5/>`_ with known best practices for customizing and developing Plone 6: Plone Classic + frontend. 
-    
+    *Mastering Plone 6 Development Training* supplements `Mastering Plone 5 <https://training.plone.org/5/mastering-plone-5/>`_ with known best practices for customizing and developing Plone 6: Plone Classic + frontend.
+
     In chapters handling Volto React frontend is a link to a chapter that covers the corresponding tasks in Plone Classic, and vice versa.
 
     Plone 6 is not yet released and thus the training is a work in-progress and there are still some rough edges.
@@ -63,7 +63,6 @@ The story of a conference platform provides a week-long training of several deve
     thirdparty_behaviors
     dexterity_3
     volto_components_sponsors
-    volto_actions
     volto_addon
     volto_richtexteditor
     volto_custom_block
@@ -73,7 +72,8 @@ The story of a conference platform provides a week-long training of several deve
     relations
     eggs2
     behaviors_2
-    viewlets_2
+    endpoints
+    volto_actions
     reusable
     embed
     deployment_code
