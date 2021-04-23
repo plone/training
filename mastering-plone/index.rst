@@ -63,6 +63,7 @@ The story of a conference platform provides a week-long training of several deve
     thirdparty_behaviors
     dexterity_3
     volto_components_sponsors
+    volto_actions
     volto_addon
     volto_richtexteditor
     volto_custom_block
