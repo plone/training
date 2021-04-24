@@ -30,7 +30,7 @@ The Conference team placed a call for proposals. Now the team wants to select ta
 
 Topics covered:
 
-* actions: fetch data from backend
+* actions: fetch data from backend and write data to backend
 * component state: user interaction: call back to user before dispatching an action
 * theming with Semantic-UI
 
