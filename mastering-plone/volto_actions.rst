@@ -228,8 +228,101 @@ Communication with the backend: vote for a talk, let admin clear votes info for 
 
 Now we can care about providing the actual voting feature.
 
-TODO
+We add a section to our `Voting` component.
 
-The admin has the permission …
+.. code-block:: jsx
+    :linenos:
+
+    <Divider horizontal section>
+        Vote
+    </Divider>
+
+    {votes?.already_voted ? (
+        <List.Item>
+            <List.Content>
+                <List.Header>
+                    You voted for this {content.type_of_talk?.title}.
+                </List.Header>
+                <List.Description>
+                    Please see more interesting talks and vote.
+                </List.Description>
+            </List.Content>
+        </List.Item>
+    ) : (
+        <List.Item>
+            <Button.Group widths="3">
+                <Button color="green" onClick={() => handleVoteClick(1)}>
+                    Approve
+                </Button>
+                <Button color="blue" onClick={() => handleVoteClick(0)}>
+                    Don't know what to expect
+                </Button>
+                <Button color="orange" onClick={() => handleVoteClick(-1)}>
+                    Decline
+                </Button>
+            </Button.Group>
+        </List.Item>
+    )}
+
+We check if the user has already voted by `votes?.already_voted`. We get this info from our `votes` subscriber to the app store. 
+
+After some info the code offers buttons to vote. The click event handler `handleVoteClick` starts the communication with the backend by dispatching action `vote`. We import this action from `src/actions`.
+
+.. code-block:: jsx
+
+    import { getVotes, vote, clearVotes } from '~/actions';
+
+The click handler event `handleVoteClick` dispatches the action `vote`:
+
+.. code-block:: jsx
+
+    function handleVoteClick(value) {
+        dispatch(vote(location.pathname, value));
+        setStateClearVotes(0);
+    }
+
+The action itself is similar to our previous action `getvotes`. It is defined by the request method 
+`post` to submit the necessary data `rating`.
+
+.. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 8
+
+    export function vote(url, vote) {
+        if ([-1, 0, 1].includes(vote)) {
+            return {
+                type: VOTE,
+                request: {
+                    op: 'post',
+                    path: `${url}/@votes`,
+                    data: { rating: vote },
+                },
+            };
+        }
+    }
+
+As the corresponding reducer updates the app store, the subscribed component `Voting` reacts by updating itself. The subsription is done by just
+
+.. code-block:: jsx
+
+    const votes = useSelector((store) => store.votes);
+
+The component updates itself, it renders with the updated info about if the user has already voted, about the average vote and the total number of already posted votes. So the buttons disappear as we made the rendering conditional to `votes?.already_voted` which says if the current user has already voted. 
+
+Why is it possible that this info about the current user has been fetched by `getVotes`? Every request is done with the token of the logged in user.
+
+
+The authorized user can now vote:
+
+
+.. figure:: _static/volto_voting1.png
+    :scale: 50%
+    :alt: Volto Voting
+
+Observe that we do not calculate average votes and do not check if a user can vote via permissions, roles, whatsoever. Every logic is done by the backend. We request votes and infos like 'can the current user do this and that' from the backend. 
+
+TODO clearing votes by admin.
+
+TODO using the *component state* for callback to user if he really wants to clear votes before requesting the backend to definitly clear votes. 
 
 
