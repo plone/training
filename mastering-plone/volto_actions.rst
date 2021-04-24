@@ -1,7 +1,7 @@
 .. _volto_actions:
 
-Volto Actions
-=====================
+Volto Actions and Component State
+=================================
 
 .. sidebar:: Volto chapter
 
