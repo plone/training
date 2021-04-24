@@ -47,6 +47,7 @@ Topics covered:
 
     Voting component, user has already voted
 
+| 
 
 Fetching data from backend and displaying
 -----------------------------------------
@@ -54,7 +55,7 @@ Fetching data from backend and displaying
 As you have seen in chapter :doc:`endpoints`, endpoints are created to provide the data we need: votes per talk plus info if the current user has the permission to vote on his talk.
 Now we can fetch this data and display it.
 
-We start with a component *Voting* to display existing votes.
+We start with a component *Voting* to display votes.
 
 :file:`src/components/Voting/Voting.jsx`
 
@@ -81,19 +82,26 @@ We start with a component *Voting* to display existing votes.
 
     return votes?.loaded && votes?.can_vote ? ( // is store content available? (votable behavior is optional)
         <Segment className="voting">
-        <Header dividing>Conference Talk and Training Selection</Header>
-        <List>
-            {votes?.has_votes ? (
-            <p>
-                <Label.Group size="medium">
-                <Label color="olive" ribbon>
-                    Average vote for this {content.type_of_talk?.title}: {votes?.average_vote}
-                    <Label.Detail>( Votes Cast {votes?.total_votes} )</Label.Detail>
-                </Label>
-                </Label.Group>
-            </p>
-            ) : null}
-        </List>
+            <Header dividing>Conference Talk and Training Selection</Header>
+            <List>
+                <p>
+                    <Label.Group size="medium">
+                        {votes?.has_votes ? (
+                            <Label color="olive" ribbon>
+                                Average vote for this{' '}
+                                {content.type_of_talk?.title.toLowerCase()}:{' '}
+                                {votes?.average_vote}
+                                <Label.Detail>( Votes Cast {votes?.total_votes} )</Label.Detail>
+                            </Label>
+                        ) : (
+                            <b>
+                                There are no votes so far for this{' '}
+                                {content.type_of_talk?.title.toLowerCase()}.
+                            </b>
+                        )}
+                    </Label.Group>
+                </p>
+            </List>
         </Segment>
     ) : null;
     };
@@ -199,6 +207,10 @@ With a successfull action `getVotes`, the app store has an entry
         total_votes: 2
     }
 
+| This data written by the reducer is the response of the request to <backend>/api/@votes :
+| http://greenthumb.ch/api/@votes if your backend is available at http://greenthumb.ch
+| It is the data that adapter `Vote` from starzel.votable_behavior behavior/voting.py provides and exposes via REST API endpoint @votes.
+
 The component gets access to this store entry by `const votes = useSelector((store) => store.votes);`
 
 Now we can include the component *Voting* in talk view from chapter :doc:`volto_talkview`.
@@ -221,10 +233,18 @@ Now we can include the component *Voting* in talk view from chapter :doc:`volto_
             {content.type_of_talk.title}: {content.title}
         </h1>
         <Voting />
+    …
+
+.. figure:: _static/volto_voting3.png
+    :scale: 50%
+    :alt: Volto Voting: displaying votes
 
 
-Communication with the backend: vote for a talk, let admin clear votes info for a talk
------------------
+
+Writing to the backend…
+-----------------------
+
+… and the clue about a React component
 
 Now we can care about providing the actual voting feature.
 
@@ -272,16 +292,15 @@ After some info the code offers buttons to vote. The click event handler `handle
 
     import { getVotes, vote, clearVotes } from '~/actions';
 
-The click handler event `handleVoteClick` dispatches the action `vote`:
+The click event handler `handleVoteClick` dispatches the action `vote`:
 
 .. code-block:: jsx
 
     function handleVoteClick(value) {
         dispatch(vote(location.pathname, value));
-        setStateClearVotes(0);
     }
 
-The action itself is similar to our previous action `getvotes`. It is defined by the request method 
+The action `vote` is similar to our previous action `getvotes`. It is defined by the request method 
 `post` to submit the necessary data `rating`.
 
 .. code-block:: jsx
@@ -301,7 +320,7 @@ The action itself is similar to our previous action `getvotes`. It is defined by
         }
     }
 
-As the corresponding reducer updates the app store, the subscribed component `Voting` reacts by updating itself. The subsription is done by just
+As the corresponding reducer updates the app store, the subscribed component `Voting` **reacts by updating itself**. The subsription is done by just
 
 .. code-block:: jsx
 
@@ -321,8 +340,64 @@ The authorized user can now vote:
 
 Observe that we do not calculate average votes and do not check if a user can vote via permissions, roles, whatsoever. Every logic is done by the backend. We request votes and infos like 'can the current user do this and that' from the backend. 
 
-TODO clearing votes by admin.
 
-TODO using the *component state* for callback to user if he really wants to clear votes before requesting the backend to definitly clear votes. 
+Component State
+---------------
 
+Next step is the feature for developers to clear votes of a talk while preparing the app.
+We want to offer a button to clear votes and integrate a hurdle to prevent unwanted clearing.
+The user shall click and see a question if she really wants to clear the votes.
+
+We are using the *component state* to be incremented before requesting the backend to definitly clear votes. 
+
+.. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 14
+
+    {votes?.can_clear_votes && votes?.has_votes ? (
+        <>
+        <Divider horizontal section color="red">
+            Danger Zone
+        </Divider>
+        <List.Item>
+            <Button.Group widths="2">
+            <Button color="red" onClick={handleClearVotes}>
+                {
+                [
+                    'Clear votes for this item',
+                    'Are you sure to clear votes for this item?',
+                    'Votes for this item are reset.',
+                ][stateClearVotes]
+                }
+            </Button>
+            </Button.Group>
+        </List.Item>
+        </>
+    ) : null}
+
+This additional code snippet of our `Voting` component displays a delete button with a label depending of the to be incremented component state `stateClearVotes`.
+
+The `stateClearVotes`component state is defined as value / accessor pair like this:
+
+.. code-block:: jsx
+
+    const [stateClearVotes, setStateClearVotes] = useState(0);
+
+The click event handler `handleClearVotes` distinguishes on the `stateClearVotes` component state to decide if it already dispatches the delete action `clearVotes` or if it waits for a second confirming click.
+
+
+.. code-block:: jsx
+    :linenos:
+    :emphasize-lines: 3
+
+    function handleClearVotes() {
+        if (stateClearVotes === 1) {
+            dispatch(clearVotes(location.pathname));
+        }
+        // count count counts to 2
+        let counter = stateClearVotes < 2 ? stateClearVotes + 1 : 2;
+        setStateClearVotes(counter);
+    }
+
+You will see now that the clearing section disappears after clearing. This is because it is conditional with `votes?.has_votes`. After a successfull `clearVotes` action the corresponding reducer updates the store. As the component is subscribed to the store via `const votes = useSelector((store) => store.votes);` the component updates itself ( is rendered with the updated values ).
 
