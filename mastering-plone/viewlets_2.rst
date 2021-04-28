@@ -3,6 +3,28 @@
 A Viewlet for the Votable Behavior
 ===================================
 
+.. sidebar:: Classic chapter
+
+  .. figure:: _static/plone.svg
+     :alt: Plone Logo
+
+  This chapter is about Plone Classic.
+
+  Solve the same tasks in the Volto frontend in chapter :doc:`volto_actions`
+
+
+.. sidebar:: Get the code! (:doc:`More info <code>`)
+
+   Code for the beginning of this chapter::
+
+       git checkout user_generated_content
+
+   Code for the end of this chapter::
+
+        git checkout resources
+
+
+
 
 .. _viewlets2-voting-label:
 
@@ -13,7 +35,7 @@ In this part you will:
 
 * Write the viewlet template
 * Add jQuery include statements
-* Saving the vote on the object using annotations
+* Save the vote on the object using annotations
 
 Topics covered:
 
