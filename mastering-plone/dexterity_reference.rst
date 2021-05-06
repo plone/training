@@ -605,11 +605,11 @@ The output looks like this:
 mixedfield
 ==========
 
-The mixedfield empowers your user to create a list of arrays of mixed value types.
-If you are familliar with the Plone Classic datagridfield this is the complementary field / widget combo for Plone.
+The mixedfield empowers your user to create a list of objects of mixed value types sharing the same schema.
+If you are familliar with the Plone Classic datagrid field this is the complementary field / widget combo for Plone.
 **mixedfield** is a combination of a Plone Classic JSONField and a widget for Plone. Nothing new, just a term to talk about linking backend and frontend.
 
-Example is a custom history field:
+Example is a custom history:
 
 .. figure:: _static/dexterity/mixedfield_view.png
    :alt: view mixedfield values
@@ -618,15 +618,12 @@ Example is a custom history field:
 Backend
 -------
 
-Enable blocks behavior for example content type.
-
 Add a field *history_field* to your content type schema.
 
 ..  code-block:: python
     :linenos:    
-    :emphasize-lines: 1-7, 34-61
+    :emphasize-lines: 1-6, 33, 37, 38
 
-    #  dictionary with key 'items' and 'items' value: array of objects
     MIXEDFIELD_SCHEMA = json.dumps(
         {
             "type": "object",
@@ -673,7 +670,7 @@ Add a field *history_field* to your content type schema.
 Frontend
 --------
 
-Provide a widget in your favorite add-on with the schema for the array of elementary fields you need.
+Provide a widget in your favorite add-on with a schema of elementary fields you need.
 
 ..  code-block:: jsx
     :linenos:
