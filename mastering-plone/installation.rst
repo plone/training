@@ -7,12 +7,12 @@ Installation & Setup of **Plone 6**
 
 A **Plone 6** installation is a combo of a Plone backend [1]_ with a Plone frontend [2]_. All together we call it Plone.
 
-| Whereas **Plone Classic** is still a valuable installation of Plone.
-| *Plone Classic* is a valuable installation of a full featured CMS as it is since decades and still will be.
-| *Plone Classic* means: A Plone installation for a Website. No ReactJS stuff, just Plone, just Python. Everything in one installation. 
-
 .. [1] backend: your data is stored here.
 .. [2] frontend: that's what your editors see and use.
+
+| Whereas **Plone Classic** is still a valuable installation of Plone.
+| *Plone Classic* is a valuable installation of a full featured CMS as it is since decades and still will be.
+| *Plone Classic* means: A Plone installation for a Website. No ReactJS stuff, just Plone, just Python. Everything in one installation.
 
 **And now the sparkling Plone:**
 
@@ -32,7 +32,7 @@ TODO description of Plone (Plone 6 bla bla bla)
 Installing Plone
 ----------------
 
-TODO shorten section 'installing Plone'
+TODO shorten section 'Installing & Setup Plone'
 
 get pyenv
 
