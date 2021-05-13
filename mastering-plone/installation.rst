@@ -1,12 +1,25 @@
 .. _installation-label:
 
-Installation & Setup
+Installation & Setup of **Plone 6**
 =====================
 
-A Plone 6 installation is both:
+**Wording**:
 
-* Plone Classic
-* Plone with React frontend Volto
+A **Plone 6** installation is a combo of a Plone backend [1]_ with a Plone frontend [2]_. All together we call it Plone.
+
+| Whereas **Plone Classic** is still a valuable installation of Plone.
+| *Plone Classic* is a valuable installation of a full featured CMS as it is since decades and still will be.
+| *Plone Classic* means: A Plone installation for a Website. No ReactJS stuff, just Plone, just Python. Everything in one installation. 
+
+.. [1] backend: your data is stored here.
+.. [2] frontend: that's what your editors see and use.
+
+**And now the sparkling Plone:**
+
+| This training is about Plone.
+| This training is about Plone 6.
+
+TODO description of Plone (Plone 6 bla bla bla)
 
 .. sidebar:: Installation & Setup
 
@@ -19,59 +32,13 @@ A Plone 6 installation is both:
 Installing Plone
 ----------------
 
-Python versions required by Plone from version 4.3.x on.
+TODO shorten section 'installing Plone'
 
-=========  ================
-  Plone         Python
-=========  ================
- 4.3.x      2.7
- 5.0.x      2.7
- 5.1.x      2.7.9
- 5.2.x      2.7.14 or 3.6+
- 6.0.x      3.6+
-=========  ================
+get pyenv
 
-Plone 5.x requires a working Python 2.7 (or Python 3.6+ for Plone 5.2.x) and other system tools that not every OS provides.
-The installation of Plone is different on every system.
-Here are some ways that Python can be installed:
+get Plone
 
-* use a Python that comes pre-installed in your operating system (most Linux Distributions and macOS have one)
-* use the `python buildout <https://github.com/collective/buildout.python>`_
-* building Linux packages
-* `Homebrew <https://brew.sh>`_ (macOS)
-* PyWin32 (Windows)
-
-Most developers use their primary system to develop Plone.
-For complex setups they often use Linux virtual machines.
-
-* macOS: Use the system python and `Homebrew <https://brew.sh>`_ for some missing Linux tools.
-* Linux: Depending on your Linux flavor you might have to install Python 3.7 yourself and install some tools.
-* Windows: Alan Runyan (one of Plone's founders) uses it. A downside: Plone seems to be running slower on Windows.
-
-Plone offers multiple options for being installed:
-
-1. Unified installers (all 'nix, including macOS)
-2. A `Docker Image <https://hub.docker.com/_/plone/>`_
-3. A `Ansible Playbook <http://docs.plone.org/external/ansible-playbook/docs>`_
-4. A `Windows installer <https://github.com/plone/WinPloneInstaller>`_
-5. A Vagrant/VirtualBox install kit (all platforms)
-6. Use your own Buildout
-
-Visit the `download page <https://plone.org/download>`_ to see all the options.
-
-
-.. only:: not presentation
-
-    For the training you will use option 2 or 5 to install and run Plone.
-    We will create our own Buildout and extend it as we wish.
-    If you choose to do so you will run it in a Vagrant machine.
-
-    For your own first experiments we recommend option 1 or 2 (if you have a Windows laptop or encounter problems).
-    Later on you should be able to use your own Buildout (we will cover that later on).
-
-.. only:: presentation
-
-    For the training we will use option 2 or 5 to install and run Plone.
+basta
 
 .. seealso::
 
