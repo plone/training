@@ -21,11 +21,6 @@ A **Plone 6** installation is a combo of a Plone backend [1]_ with a Plone front
 
 TODO description of Plone (Plone 6 bla bla bla)
 
-.. sidebar:: Installation & Setup
-
-    .. contents:: Table of Contents
-        :depth: 4
-
 
 .. _installation-plone-label:
 
