@@ -537,12 +537,12 @@ This is how these fields look like when editing content in Volto:
 Datagrid Field
 ==============
 
-The `Datagridfield <https://pypi.org/project/collective.z3cform.datagridfield/>`_ allows you to enter multiple values at once as rows in a table. Each row is a sub form defined in a separate schema.
+The `datagrid field <https://pypi.org/project/collective.z3cform.datagridfield/>`_ allows you to enter multiple values at once as rows in a table. Each row is a sub form defined in a separate schema.
 
 
 .. note::
 
-    The datagridfield is for Plone Classic without a complementary widget for Plone. See the mixedfield below, if you are working with Plone.
+    The *datagrid field* is for Plone Classic. See the *mixedfield* below, if you are working with Plone.
 
 Here is an example:
 
