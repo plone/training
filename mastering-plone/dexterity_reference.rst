@@ -732,12 +732,7 @@ The following config code registers the custom Plone *HistoryWidget* for Plone C
 
 ..  code-block:: js
     :linenos:
-    :emphasize-lines: 17
-
-    /**
-    * Add your config changes here.
-    * @module config
-    */
+    :emphasize-lines: 12
 
     import { HistoryWidget } from '@rohberg/voltotestsomevoltothings/components';
 
@@ -745,14 +740,23 @@ The following config code registers the custom Plone *HistoryWidget* for Plone C
     import '@plone/volto/config';
 
     export default function applyConfig(config) {
-    config.settings = {
-        ...config.settings,
-        supportedLanguages: ['en', 'de', 'it'],
-        defaultLanguage: 'en',
-    };
-    config.widgets.widget.history_widget = HistoryWidget;
+        config.settings = {
+            ...config.settings,
+            supportedLanguages: ['en', 'de', 'it'],
+            defaultLanguage: 'en',
+        };
+        config.widgets.widget.history_widget = HistoryWidget;
 
-    return config;
+        return config;
+    }
+
+Please be sure to use plone.restapi version >= 7.3.0. If you cannot upgrade plone.restapi then a registration per field id instead of a registration per field widget name is needed.
+
+..  code-block:: js
+
+    export default function applyConfig(config) {
+        config.widgets.id.history_field = HistoryWidget;
+        return config;
     }
 
 
