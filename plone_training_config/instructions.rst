@@ -80,7 +80,7 @@ Then, you need to install the following packages:
 
 .. code-block:: console
 
-    sudo apt-get install python3.7-dev python3.7-tk python3.7-venv build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
+    sudo apt-get install python3.8-dev python3.8-tk python3.8-venv build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
     sudo apt-get install libreadline-dev wv poppler-utils
     sudo apt-get install git
 
