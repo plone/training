@@ -222,7 +222,10 @@ Install pre-requisites.
         # macOS
         brew install nvm
 
-        #Linux
+	# Ubuntu 20.04 LTS – see https://github.com/nvm-sh/nvm#installing-and-updating
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
+        # Linux
         apt-get install nvm
 
 #.  Install node LTS (node version LTS: long time support)
