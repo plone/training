@@ -111,7 +111,7 @@ Then create a virtual environment with Python 3.7 in the folder :file:`backend` 
 
 .. code-block:: console
 
-    python3.7 -m venv .
+    python3.8 -m venv .
     ./bin/pip install -r requirements.txt
 
 Now you can run the buildout for the first time:
