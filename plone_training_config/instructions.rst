@@ -84,7 +84,7 @@ Then, you need to install the following packages:
     sudo apt-get install libreadline-dev wv poppler-utils
     sudo apt-get install git
 
-On MacOS you at least need to install some dependencies with `Homebrew <https://brew.sh/>`_
+On macOS you at least need to install some dependencies with `Homebrew <https://brew.sh/>`_
 
 .. code-block:: console
 
