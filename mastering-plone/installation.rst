@@ -74,7 +74,7 @@ On MacOS you at least need to install some dependencies with `Homebrew <https://
     For more information or in case of problems see the `official installation instructions <https://docs.plone.org/manage/installing/installation.html>`_.
 
 
-Get Plone and install
+Get Plone backend and install
 *********************
 
 Download Plone from https://plone.org/download
