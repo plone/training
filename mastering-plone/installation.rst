@@ -34,11 +34,11 @@ https://github.com/pyenv/pyenv-installer
 
 .. code-block:: console
     
-    pyenv install 3.8.10
-    pyenv virtualenv 3.8.10 plonepy
+    pyenv install 3.9.5
+    pyenv virtualenv 3.9.5 plonepy
     pyenv activate plonepy
 
-This installs and activates a Python 3.8.10. It does not affect your system Python as it is an isolated virtual Python environment.
+This installs and activates a Python 3.9.5. It does not affect your system Python as it is an isolated virtual Python environment.
 
 
 Prerequisites
