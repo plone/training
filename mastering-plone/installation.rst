@@ -79,7 +79,7 @@ Get Plone backend and install
 
 Download Plone from https://plone.org/download
 
-Follow the instructions.
+Follow the instructions. Select option 'standalone' for your first Plone installation.
 
 .. note::
 
