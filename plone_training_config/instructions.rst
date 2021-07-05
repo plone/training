@@ -15,8 +15,8 @@ Installing Plone for the Training
         :depth: 4
 
 
-We need to install the backend **Plone** and the React-based frontend **Volto**.
-This will create a folder structure like this:
+We need to install the **Plone** backend and the React-based frontend **Volto**.
+This will create the following folder structure:
 
 .. code-block:: text
 
@@ -24,17 +24,15 @@ This will create a folder structure like this:
     ├── backend
     └── frontend
 
-In :file:`backend` we will install Plone and also add our custom Python code.
-In :file:`frontend` we will install Volto and also add our custom React code.
+In :file:`backend` we will install Plone and add our custom Python code.
+In :file:`frontend` we will install Volto and add our custom React code.
 
 
 .. _instructions-no-vagrant-label:
 
 .. warning::
 
-    If you try both methods below (with Vagrant and without), make sure you use different :file:`training` directories!
-
-    The two installations do not coexist well.
+    If you try both methods below (with Vagrant and without), make sure you use different :file:`training` directories! The two installations do not coexist well.
 
 
 Installing Plone without vagrant
@@ -44,7 +42,7 @@ Installing Plone without vagrant
 Installing the backend
 ++++++++++++++++++++++
 
-.. warning::
+.. note::
 
     If you are new to running Plone on your computer you could skip this part and continue with :ref:`install-virtualbox`.
 
@@ -57,11 +55,6 @@ We encourage you to install and run Plone on your own machine, because you will 
 If you feel comfortable, please work on your own machine with your own Python.
 
 **Please** make sure that you have a system that will work, since we don't want you to lose valuable time!
-
-.. note::
-
-    If you also want to follow the JavaScript training and install the JavaScript development tools,
-    you need `NodeJS <https://nodejs.org/en/download/>`_ installed on your development computer.
 
 .. note::
 
@@ -131,7 +124,7 @@ The output should be similar to:
 .. code-block:: console
     :emphasize-lines: 40
 
-    pbauer@bullet:/workspace/training/backend$  ./bin/instance fg
+    me@here:/workspace/training/backend$  ./bin/instance fg
     2019-09-05 20:11:03,708 WARNING [Init:89][MainThread] Class Products.CMFFormController.ControllerPythonScript.ControllerPythonScript has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
     2019-09-05 20:11:03,715 WARNING [Init:89][MainThread] Class Products.CMFFormController.ControllerValidator.ControllerValidator has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
     2019-09-05 20:11:03,776 WARNING [Products.PDBDebugMode:31][MainThread]
@@ -175,7 +168,7 @@ The output should be similar to:
 
 If the output says ``Serving on http://0.0.0.0:8080`` then you are in business.
 
-If you point your browser at http://localhost:8080 you see that Plone is running.
+Point your browser at http://localhost:8080 to see a running Plone.
 
 .. figure:: _static/instructions_plone_running.png
 	:scale: 50 %
@@ -188,9 +181,8 @@ We will create one in the next chapter.
 
 You can stop the running instance anytime using :kbd:`ctrl + c`.
 
-.. warning::
+If there is an error message you should either try to fix it or use vagrant and continue in this chapter.
 
-    If there is an error message you should either try to fix it or use vagrant and continue in this chapter.
 
 .. _instructions-install_frontend-label:
 
@@ -295,10 +287,10 @@ Troubleshooting
 See https://docs.voltocms.com/getting-started/install/#install-volto
 
 
-Option 2. Start with existing training project ``volto-ploneconf`` with all code for the training
+Option 2. Start with existing training project `volto-ploneconf` with all code for the training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Install package manager ``yarn``.
+Install package manager `yarn`.
 
     .. code-block:: bash
 

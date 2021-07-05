@@ -283,8 +283,8 @@ Update existing
     open _build/html/index.html
 
 
-Sync the browser to your editing
-++++++++++++++++++++++++++++++++
+Sync the browser while editing
+++++++++++++++++++++++++++++++
 
 To watch the changes in browser while editing you can use gulp.
 

@@ -1,95 +1,110 @@
 .. _installation-label:
 
-Installation & Setup
+Installation & Setup of **Plone 6**
 =====================
 
-A Plone 6 installation is both:
+**Wording**
 
-* Plone Classic
-* Plone with React frontend Volto
+A **Plone 6** installation is a combo of a Plone backend [1]_ with a Plone frontend [2]_.
+All together we call it Plone.
 
-.. sidebar:: Installation & Setup
+.. [1] backend: your data is stored here.
+.. [2] frontend: that's what your editors see and use.
 
-    .. contents:: Table of Contents
-        :depth: 4
+| Whereas **Plone Classic** is still a valuable installation of Plone.
+| *Plone Classic* is a valuable installation of a full featured CMS as it is since decades and still will be.
+| *Plone Classic* means: A Plone installation for a Website. No ReactJS stuff, just Plone, just Python. Everything in one installation, backend and frontend.
+
+
+**And now the sparkling Plone:**
+
+| This training is about Plone.
+| This training is about Plone 6.
 
 
 .. _installation-plone-label:
 
-Installing Plone
-----------------
+Installing Plone backend
+------------------------
 
-Python versions required by Plone from version 4.3.x on.
+Make sure you have a current and by Plone supported **Python 3** version. 
+One way to achieve is `pyenv` which lets you manage different Python versions.
+It even let's you setup virtual Pythons of the same version for individual projects.
+https://github.com/pyenv/pyenv-installer
 
-=========  ================
-  Plone         Python
-=========  ================
- 4.3.x      2.7
- 5.0.x      2.7
- 5.1.x      2.7.9
- 5.2.x      2.7.14 or 3.6+
- 6.0.x      3.6+
-=========  ================
+.. code-block:: console
+    
+    pyenv install 3.9.5
+    pyenv virtualenv 3.9.5 plonepy
+    pyenv activate plonepy
 
-Plone 5.x requires a working Python 2.7 (or Python 3.6+ for Plone 5.2.x) and other system tools that not every OS provides.
-The installation of Plone is different on every system.
-Here are some ways that Python can be installed:
-
-* use a Python that comes pre-installed in your operating system (most Linux Distributions and macOS have one)
-* use the `python buildout <https://github.com/collective/buildout.python>`_
-* building Linux packages
-* `Homebrew <https://brew.sh>`_ (macOS)
-* PyWin32 (Windows)
-
-Most developers use their primary system to develop Plone.
-For complex setups they often use Linux virtual machines.
-
-* macOS: Use the system python and `Homebrew <https://brew.sh>`_ for some missing Linux tools.
-* Linux: Depending on your Linux flavor you might have to install Python 3.7 yourself and install some tools.
-* Windows: Alan Runyan (one of Plone's founders) uses it. A downside: Plone seems to be running slower on Windows.
-
-Plone offers multiple options for being installed:
-
-1. Unified installers (all 'nix, including macOS)
-2. A `Docker Image <https://hub.docker.com/_/plone/>`_
-3. A `Ansible Playbook <http://docs.plone.org/external/ansible-playbook/docs>`_
-4. A `Windows installer <https://github.com/plone/WinPloneInstaller>`_
-5. A Vagrant/VirtualBox install kit (all platforms)
-6. Use your own Buildout
-
-Visit the `download page <https://plone.org/download>`_ to see all the options.
+This installs and activates a Python 3.9.5. It does not affect your system Python as it is an isolated virtual Python environment.
 
 
-.. only:: not presentation
+Prerequisites
+*************
 
-    For the training you will use option 2 or 5 to install and run Plone.
-    We will create our own Buildout and extend it as we wish.
-    If you choose to do so you will run it in a Vagrant machine.
+The following instructions are based on Ubuntu and macOS.
+If you use a different operating system (OS), please adjust them to fit your OS.
 
-    For your own first experiments we recommend option 1 or 2 (if you have a Windows laptop or encounter problems).
-    Later on you should be able to use your own Buildout (we will cover that later on).
+On Ubuntu/Debian, you need to make sure your system is up-to-date:
 
-.. only:: presentation
+.. code-block:: console
 
-    For the training we will use option 2 or 5 to install and run Plone.
+    sudo apt-get update
+    sudo apt-get -y upgrade
+
+Then, you need to install the following packages:
+
+.. code-block:: console
+
+    sudo apt-get install python3.9-dev python3.9-tk python3.9-venv build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
+    sudo apt-get install libreadline-dev wv poppler-utils
+    sudo apt-get install git
+
+On MacOS you at least need to install some dependencies with `Homebrew <https://brew.sh/>`_
+
+.. code-block:: console
+
+    brew install zlib git readline jpeg libpng libyaml
+
 
 .. seealso::
 
-    * https://docs.plone.org/manage/installing/installation.html
+    For more information or in case of problems see the `official installation instructions <https://docs.plone.org/manage/installing/installation.html>`_.
+
+
+Get Plone backend and install
+*********************
+
+Download Plone from https://plone.org/download
+
+Follow the instructions. Select option 'standalone' for your first Plone installation.
+
+.. note::
+
+    You do not find a Plone 6 to download? 
+    Well it's not released.
+    We still do a Plone 6 setup: Plone backend plus Plone frontend.
+    If Plone backend is still a Plone 5, that's OK.
+
+.. TODO::
+
+    Install necessary helpers for Volto frontend: restapi, folderish contenttypes, dexterity root,…
 
 
 .. _installation-Volto-label:
 
-Installing Volto
-----------------
+Installing Plone frontend
+-------------------------
 
-| For a Plone 6 installation, not just Plone Classic, but with the React frontend **Volto**, by now two installations are needed: Plone and Volto. The former section is describing the options for a Plone installation.
+| For a Plone 6 installation by now two installations are needed: Plone backend and Volto frontend. The former section is describing the options for a Plone backend installation.
 | This section is about setting up a Volto project.
 
 
-Install pre-requisites.
+Install pre-requisites:
 
-#.  Install ``nvm`` (Node Version Manager) to manage ``node`` versions.
+#.  Install `nvm` (Node Version Manager) to manage `node` versions.
 
     .. code-block:: bash
 
@@ -99,19 +114,19 @@ Install pre-requisites.
         #Linux
         apt-get install nvm
 
-#.  Install ``node`` LTS (node version LTS: long time support)
+#.  Install `node` LTS (node version LTS: long time support)
 
     .. code-block:: bash
 
         nvm install --lts
 
-#.  Install package manager ``yarn``.
+#.  Install package manager `yarn`.
 
     .. code-block:: bash
 
         npm install --global yarn
 
-Create your Volto project.
+Create your Volto project:
 
 #.  Generate a project with yeoman
 
@@ -160,7 +175,9 @@ Point your browser to http://localhost:3000 and see that Plone is up and running
 You can stop the Volto app anytime using :kbd:`ctrl + c`.
 
 
-For more information see `Volto documentation <https://docs.voltocms.com/getting-started/install/>`_.
+.. seealso::
+
+    For more information see `Volto documentation <https://docs.voltocms.com/getting-started/install/>`_.
 
 
 .. _installation-hosting-label:
@@ -181,7 +198,7 @@ You can host Plone...
 
 .. seealso::
 
-    * Plone Installation Requirements: https://docs.plone.org/manage/installing/requirements.html
+    Plone Installation Requirements: https://docs.plone.org/manage/installing/requirements.html
 
 
 .. _installation-prod-deploy-label:
