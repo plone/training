@@ -54,13 +54,11 @@ Don't forget to register the new file in the packages' main :file:`configure.zcm
 
 .. code-block:: xml
     :linenos:
-    :emphasize-lines: 3
+    :emphasize-lines: 2
 
-  ...
   <include package=".browser" />
   <include package=".restapi" />
 
-  ...
 
 Now register the endpoints you plan to write in :file:`restapi/configure.zcml`:
 
@@ -175,4 +173,3 @@ Now create the :file:`voting.py` and write the services that together make the e
 
 
 This endpoint is modeled similar to the Locking endpoint of :py:module:`plone.restapi`: https://github.com/plone/plone.restapi/blob/master/src/plone/restapi/services/locking/locking.py
-
