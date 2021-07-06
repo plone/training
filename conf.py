@@ -161,9 +161,17 @@ pygments_style = "sphinx"
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    "collapse_navigation": False,
-    "sticky_navigation": False,
+    "collapse_navigation": True,
+    "sticky_navigation": True,
+    "repository_url": "https://github.com/plone/training",
+    "use_repository_button": True,
+    "use_issues_button": True,
+    "use_edit_page_button": True,
+    "home_page_in_toc": False,
+    "extra_navbar": "<p><a href='https://plone.org'>Plone.org</a></p>",
 }
+
+html_logo = "_static/plone.svg"
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []

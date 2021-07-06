@@ -1,7 +1,7 @@
 alabaster
 jsx-lexer
 Sphinx
-sphinx-rtd-theme
+sphinx-book-theme
 sphinxcontrib-spelling
 sphinxcontrib-websupport
 sphinx-copybutton
