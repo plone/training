@@ -249,6 +249,7 @@ Exercise
 Finish the ``RatingWidget`` by converting the ``TextWidget``.
 You can use the ``Rating`` component from ``semantic-ui``.
 
+
 ..  admonition:: Solution
     :class: toggle
 
