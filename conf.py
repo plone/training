@@ -162,7 +162,6 @@ pygments_style = "sphinx"
 # documentation.
 html_theme_options = {
     "collapse_navigation": True,
-    "sticky_navigation": True,
     "repository_url": "https://github.com/plone/training",
     "use_repository_button": True,
     "use_issues_button": True,

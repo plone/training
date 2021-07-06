@@ -3,3 +3,7 @@ div.sidebar:not(.margin) {
     margin-left: 1em;
     margin-right: 0;
 }
+
+#site-navigation {
+    position: sticky;
+}
