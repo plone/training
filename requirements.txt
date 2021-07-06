@@ -4,5 +4,8 @@ Sphinx
 sphinx-rtd-theme
 sphinxcontrib-spelling
 sphinxcontrib-websupport
+sphinx-copybutton
+sphinx-togglebutton
+sphinx-panels
 transifex-client
 polib
