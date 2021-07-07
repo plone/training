@@ -1,9 +1,18 @@
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+/* a {
+    color: #0075ab !important;
+  } */
+
 div.sidebar:not(.margin) {
-    width: 50%;
-    margin-left: 1em;
-    margin-right: 0;
+  width: 50%;
+  margin-left: 1em;
+  margin-right: 0;
 }
 
 #site-navigation {
-    position: sticky;
+  position: sticky;
 }
