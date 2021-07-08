@@ -31,6 +31,8 @@ Topics covered:
     * To handle the user input we don't use a form but links and ajax.
     * The voting itself is a fact handled by another view
 
+We are working in the add-on :file:`starzel.votable_behavior` we created using mr.bob.
+
 We register the viewlet in :file:`browser/configure.zcml`.
 
 .. code-block:: xml
