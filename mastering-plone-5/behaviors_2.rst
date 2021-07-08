@@ -95,7 +95,7 @@ Next, create :file:`behavior/configure.zcml`
           marker="starzel.votable_behavior.interfaces.IVotable"
           />
 
-    </configure>
+    </tfigure>
 
 There are some important differences to our first behavior:
 
@@ -304,7 +304,7 @@ Now the only thing that is missing is the behavior implementation, which we must
 
  * Explain ZODB and Persistent Classes
 
-Let's continue with this file:
+Let's continue with the :file:`behavior/voting.py` file, inside the `Vote` class:
 
 .. code-block:: python
     :linenos:
