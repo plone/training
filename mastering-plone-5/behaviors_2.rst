@@ -11,6 +11,8 @@ Topics covered:
 
 * Annotation Marker Interfaces
 
+We are working in the newly created add-on `starzel.votable_behavior` we just created using mr.bob.
+
 .. _plone5_behaviors2-annotations-label:
 
 Using Annotations
