@@ -11,7 +11,7 @@ Currently we have the state of the FAQ list in the :file:`App` component and pas
 When your application will contain more sub components this can become very complex.
 To manage your application state we will introduce Redux here.
 Redux is a state management system which is composed of a store which contains data,
-a set of reducers which handle (part of) this state and it's changes and actions which are used to trigger state changes.
+a set of reducers which handle (part of) this state, it’s changes and actions which are used to trigger state changes.
 
 A reducer is pure function which takes the previous state and an action and returns a new state based on the data of the action.
 The new state is then saved to the store.
