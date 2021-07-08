@@ -8,7 +8,7 @@ Introduction
 ============
 
 Currently we have the state of the FAQ list in the :file:`App` component and pass all handlers and data down to the :file:`FaqItem` component.
-When your application will contain more sub components this can be come very complex.
+When your application will contain more sub components this can become very complex.
 To manage your application state we will introduce Redux here.
 Redux is a state management system which is composed of a store which contains data,
 a set of reducers which handle (part of) this state and it's changes and actions which are used to trigger state changes.
