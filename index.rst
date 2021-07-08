@@ -10,6 +10,7 @@ A collection of trainings developed and created by the Plone Community.
     :caption: Training Overview
 
     mastering-plone/index
+    mastering-plone-myst/index
     mastering-plone-5/index
     theming/index
     javascript/index
