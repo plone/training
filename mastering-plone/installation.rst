@@ -1,7 +1,7 @@
 .. _installation-label:
 
 Installation & Setup of **Plone 6**
-=====================
+===================================
 
 **Wording**
 
@@ -75,7 +75,7 @@ On MacOS you at least need to install some dependencies with `Homebrew <https://
 
 
 Get Plone backend and install
-*********************
+*****************************
 
 Download Plone from https://plone.org/download
 
