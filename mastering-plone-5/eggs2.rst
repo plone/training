@@ -31,9 +31,16 @@ For this we need:
 We move to the :file:`src` directory and again use a script called :file:`mrbob` from our project's :file:`bin` directory
 and the template from ``bobtemplates.plone`` to create the package.
 
+If the :file:`src` directory does not exist yet, create it:
+
 .. code-block:: console
 
     $ mkdir src
+
+Go inside the :file:`src` folder and create the package:
+
+.. code-block:: console
+
     $ cd src
     $ ../bin/mrbob -O starzel.votable_behavior bobtemplates.plone:addon
 
