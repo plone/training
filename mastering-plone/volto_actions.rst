@@ -47,7 +47,6 @@ Topics covered:
 
     Voting component, user has already voted
 
-| 
 
 Fetching data from backend and displaying
 -----------------------------------------
@@ -207,11 +206,11 @@ With a successfull action `getVotes`, the app store has an entry
         total_votes: 2
     }
 
-| This data written by the reducer is the response of the request to <backend>/api/@votes :
-| http://greenthumb.ch/api/@votes if your backend is available at http://greenthumb.ch
-| It is the data that adapter `Vote` from starzel.votable_behavior behavior/voting.py provides and exposes via REST API endpoint @votes.
+The data written by the reducer is the response of the request to ``<backend>/api/@votes``.
+The API endpoint would be http://greenthumb.ch/api/@votes if your backend is available at http://greenthumb.ch.
+It is the data that the adapter ``Vote`` provides from ``starzel.votable_behavior behavior/voting.py`` and exposes via the REST API endpoint ``@votes``.
 
-The component gets access to this store entry by `const votes = useSelector((store) => store.votes);`
+The component gets access to this store entry by ``const votes = useSelector((store) => store.votes);``
 
 Now we can include the component *Voting* in talk view from chapter :doc:`volto_talkview`.
 
@@ -377,7 +376,7 @@ We are using the *component state* to be incremented before requesting the backe
 
 This additional code snippet of our `Voting` component displays a delete button with a label depending of the to be incremented component state `stateClearVotes`.
 
-The `stateClearVotes`component state is defined as value / accessor pair like this:
+The ``stateClearVotes`` component state is defined as a value / accessor pair like this:
 
 .. code-block:: jsx
 

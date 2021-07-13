@@ -154,8 +154,8 @@ Variables and References
         file-storage = ${buildout:buildout_dir}/var/filestorage/Data.fs
         blob-storage = ${buildout:buildout_dir}/var/blobstorage
 
-    | :samp:`${{buildout:buildout_dir}}`:
-    | :samp:`buildout` is the section whose variable :samp:`buildout_dir` is overwritten in section instance.
+    :samp:`${{buildout:buildout_dir}}`:
+    :samp:`buildout` is the section whose variable :samp:`buildout_dir` is overwritten in the section instance.
 
 
 .. _buildout1-examples-label:

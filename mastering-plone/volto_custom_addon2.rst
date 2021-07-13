@@ -232,9 +232,14 @@ The field *faq_list* has a type *'faqlist'*. This has to be registered as a *wid
     return config;
   }
 
-| Now we will code the important part of the whole block type: the widget `FAQListEditWidget`.
-| We need a form that consists of a list of existing questions and answers. The  text should be editable. Additional pairs of questions and answers should be addable. Next step will be to let the list be drag- and droppable to reorder the items. Also should an item be deletable.
-| That's a lot. Let's start with the list of fields displaying the existing values.
+Now we will code the important part of the whole block type: the widget ``FAQListEditWidget``.
+We need a form that consists of a list of existing questions and answers.
+The text should be editable.
+Additional pairs of questions and answers should be addable.
+The next step will be to let the list be drag-and-droppable to reorder the items.
+Also an item should be deletable.
+That's a lot.
+Let's start with the list of fields displaying the existing values.
 
 
 Create a :file:`FAQListEditWidget.jsx`.

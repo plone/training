@@ -11,15 +11,15 @@ All together we call it Plone.
 .. [1] backend: your data is stored here.
 .. [2] frontend: that's what your editors see and use.
 
-| Whereas **Plone Classic** is still a valuable installation of Plone.
-| *Plone Classic* is a valuable installation of a full featured CMS as it is since decades and still will be.
-| *Plone Classic* means: A Plone installation for a Website. No ReactJS stuff, just Plone, just Python. Everything in one installation, backend and frontend.
+For decades, *Plone Classic* has been a valuable installation of a fully featured CMS, and will continue to be in the foreseeable future.
+*Plone Classic* means a Plone installation for a website.
+No ReactJS stuff, just Plone, just Python.
+Everything in one installation, backend and frontend.
 
 
 **And now the sparkling Plone:**
 
-| This training is about Plone.
-| This training is about Plone 6.
+This training is about Plone 6.
 
 
 .. _installation-plone-label:
@@ -98,8 +98,9 @@ Follow the instructions. Select option 'standalone' for your first Plone install
 Installing Plone frontend
 -------------------------
 
-| For a Plone 6 installation by now two installations are needed: Plone backend and Volto frontend. The former section is describing the options for a Plone backend installation.
-| This section is about setting up a Volto project.
+For a Plone 6 installation, two installations are needed: a Plone backend and a Volto frontend.
+The previous section describes the options for a Plone backend installation.
+This section is about setting up a Volto project.
 
 
 Install pre-requisites:
@@ -134,8 +135,9 @@ Create your Volto project:
 
         npm init yo @plone/volto
 
-    | It will take a while to install all dependencies.
-    | `yo` will ask questions. Respond to the first by entering your project name, the next by pressing :kbd:`Enter` and to the other two by now with ``false``.
+    It will take a while to install all dependencies.
+    ``yo`` will ask several questions.
+    Respond to the first question by entering your project name, the next by pressing :kbd:`Enter`, and to the last two with ``false``.
 
     The output will look like this:
 
