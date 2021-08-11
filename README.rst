@@ -5,7 +5,7 @@
 Training
 ========
 
-`Training <https://gihub.com/plone/training>`_ is a collection of different trainings,
+`Training <https://github.com/plone/training>`_ is a collection of different trainings,
 developed and created by the Plone Community.
 
 For a HTML version, please browse to our `Training Website <https://training.plone.org/5/>`_.
