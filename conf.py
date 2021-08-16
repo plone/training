@@ -11,15 +11,7 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys, os
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-
-if not on_rtd:
-    import sphinx_rtd_theme
-    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-    html_theme = 'sphinx_rtd_theme'
-else:
-    html_theme = 'default'
+html_theme = 'default'
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -34,10 +26,6 @@ else:
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.graphviz',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.todo',
 ]
 
 # See http://sphinx-doc.org/ext/todo.html#confval-todo_include_todos
@@ -58,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Mastering Plone'
+project = u'Plone Trainings'
 copyright = u'''The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.'''
 trademark_name = "Plone"
 # The version info for the project you're documenting, acts as replacement for
