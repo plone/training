@@ -16,7 +16,7 @@ in conf.py:
 
 ```py
 extensions = [
-  ...
+  # ...
   "myst_parser"
 ]
 
@@ -42,33 +42,35 @@ source_suffix = {
 ```
 
 - [Configuration — Sphinx documentation](https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-source_parsers)
-- [python 3.x - Sphinx and Markdown .md links - Stack Overflow](https://stackoverflow.com/questions/52496591/sphinx-and-markdown-md-links)
 
 ## converting rst to myst - rst2myst
 
-There is a pandoc conversion available for converting rst to plain Markown, but then you need to manually adjust a lot of the specific rst features.
-The benefit of the `rst2myst` converison is that it automatically converts some of the basic rst features into the correct MyST syntax.
+There is a pandoc conversion available for converting rst to plain Markdown, but then you need to manually adjust a lot of the specific rst features.
+The benefit of the `rst2myst` conversion is that it automatically converts some of the basic rst features into the correct MyST syntax.
 
 ### procedure
 
 Inside your Sphinx project:
 
-`pip install rst-to-myst[sphinx]`
+`pip install rst-to-myst`
 
-Convert all files in a specific folder, eg. _transmogrifier/_
+Convert all files in a specific folder, eg. `transmogrifier`
 
 - dry run:
   `rst2myst convert --dry-run transmogrifier/*.rst`
 
-- for real, converting all rst files inside the folder _transmogrifier_
+- for real, converting all rst files inside the folder `transmogrifier`
+
   `rst2myst convert transmogrifier/*.rst`
+
   `rst2myst convert transmogrifier/**/*.rst`
 
 - run `make html` after all is converted to see the result
 
 ### notes
 
-- the conversion shows you which extensions were used during conversion, we should add all used extensions to `myst_enable_extensions` inside the global conf.py
+- The conversion shows you which extensions were used during conversion.
+  We should add all used extensions to `myst_enable_extensions` inside the global `conf.py`.
 
 ```console
 mastering-plone-myst/zpt.rst -> mastering-plone-myst/zpt.md
@@ -79,13 +81,13 @@ CONVERTED (extensions: ['colon_fence'])
 FINISHED ALL! (extensions: ['deflist', 'colon_fence'])
 ```
 
-in this case only `code-fence` and `deflist`
+In this example, only the extensions `code-fence` and `deflist` were used.
 
 ### found issues
 
 #### mastering-plone training
 
-- render warnings on several files:
+- The conversion renders warnings on several files:
 
 ```console
 mastering-plone-myst/volto_custom_addon2.rst -> mastering-plone-myst/volto_custom_addon2.md
@@ -96,10 +98,21 @@ RENDER WARNING:235: no depart method for: <class 'docutils.nodes.line'>
 ...
 ```
 
+- In the example this is caused by a `|` at the beginning of line 235 in the original `volto_custom_addon2.rst` file, which is used when you want something to be rendered as a line blocks (see [docutils documentation on line blocks](https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#line-blocks)
+
 #### transmogrifier training
 
-- seems to work perfectly, except for ::: glossary :::
-  could be replaced with definition list if we remove the surrounding `:::` and use the same syntax for deflist as in rst, see example in `transmogrifier-myst/about/glossary.md`
+- seems to work perfectly, except for `.. glossary::`
+  could be replaced with a definition list if we remove the `.. glossary::` line from the top of the file
+- using the myst extension for deflist enables using the same syntax for definition lists as in rst:
+
+```rst
+Term 1
+: Definition
+
+Term 2
+: Definition
+```
 
 ## links
 
