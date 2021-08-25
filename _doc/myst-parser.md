@@ -10,7 +10,7 @@ If you haven't done so already, please follow the [instructions to build the tra
 
 Inside your Sphinx project:
 
-- `pip install -—upgrade myst-parser`
+- `pip install --upgrade myst-parser`
 
 in conf.py:
 
