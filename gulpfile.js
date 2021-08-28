@@ -43,7 +43,7 @@ function watch() {
             port: 3003
         },
     });
-    gulp.watch(['./**/*.rst',], buildAndBrowserSync);
+    gulp.watch(['./**/*.rst', './**/*.md',], buildAndBrowserSync);
 }
 
 // presentation
@@ -79,7 +79,7 @@ function watchPresentation() {
             port: 3003
         },
     });
-    gulp.watch(['./**/*.rst',], buildAndBrowserSyncPresentation);
+    gulp.watch(['./**/*.rst', './**/*.md',], buildAndBrowserSyncPresentation);
 }
 
 exports.presentation = watchPresentation;
