@@ -60,5 +60,6 @@ html_theme_options = {
 }
 myst_enable_extensions = [
     'deflist',
-    'linkify'
+    'linkify',
+    'colon_fence'
 ]
