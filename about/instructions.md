@@ -24,3 +24,33 @@ image
       :alt: Volto add-on volto-accordion-block
       :width: 100%
       ```
+
+code block
+: example code python
+
+      ```{code-block} python
+      :lineno-start: 10
+      :emphasize-lines: 1, 3
+
+      a = 2
+      print('my 1st line')
+      print(f'my {a}nd line')
+      ```
+
+code snippet expandable
+: Be aware of the nested directives. Increase back ticks.
+
+      ````{admonition} Complete code for ReactJS component
+      :class: toggle
+
+      Here's my code snippet
+
+      Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.
+
+
+      ```{code-block} jsx
+      :linenos: true
+
+      import React, { useState } from 'react';
+      ```
+      ````
