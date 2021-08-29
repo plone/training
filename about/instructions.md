@@ -1,4 +1,17 @@
+---
+html_meta:
+  "description": "directives and other examples in markdown / mySt"
+  "keywords": "Sphinx, MyST, markdown"
+---
+
 # Instructions for contributors: markdown
+
+meta data
+:     ---
+      html_meta:
+            "description": "directives and other examples in markdown / mySt"
+            "keywords": "Sphinx, MyST, markdown"
+      ---
 
 cross reference chapter
 :     Let's start with our fresh add-on we created in the last chapter {doc}`volto_custom_addon`.
