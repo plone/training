@@ -1,5 +1,6 @@
 sphinx-book-theme
 linkify-it-py
+sphinx-copybutton
 jsx-lexer
 myst-parser
 polib
