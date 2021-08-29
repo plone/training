@@ -2,6 +2,7 @@ sphinx-book-theme
 myst-parser
 rst-to-myst[sphinx]
 linkify-it-py
+sphinx-copybutton
 jsx-lexer
 Sphinx
 sphinxcontrib-spelling

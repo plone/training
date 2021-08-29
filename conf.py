@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'training.plone.org'
+project = 'Plone training'
 copyright = '2021, Plone Community'
 author = 'Plone Community'
 
@@ -29,6 +29,7 @@ author = 'Plone Community'
 # ones.
 extensions = [
     "myst_parser",
+    'sphinx_copybutton',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -46,20 +47,24 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'node_modules']
 # a list of builtin themes.
 #
 html_theme = "sphinx_book_theme"
+html_logo = "_static/logo.svg"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_css_files = ["custom.css"]
 
 html_theme_options = {
     "repository_url": "https://github.com/plone/training",
     "use_repository_button": True,
     "use_issues_button": True,
     "use_edit_page_button": True,
+    "extra_navbar": "<p><a href='https://plone.org'>Plone.org</a></p>",
 }
 myst_enable_extensions = [
     'deflist',
     'linkify',
     'colon_fence'
 ]
+
