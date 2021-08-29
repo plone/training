@@ -1,8 +1,8 @@
-alabaster
 jsx-lexer
+myst-parser
+polib
 Sphinx
 sphinx-rtd-theme
 sphinxcontrib-spelling
 sphinxcontrib-websupport
 transifex-client
-polib

@@ -128,3 +128,4 @@ Other
     :hidden:
 
     teachers-training/index
+    rst2myst/README.md

@@ -12,7 +12,7 @@
 # serve to show the default.
 
 from datetime import datetime
-import sys, os
+import os
 
 on_rtd = os.environ.get("READTHEDOCS", None) == "True"
 
@@ -48,6 +48,14 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.todo",
     "sphinxcontrib.spelling",
+    "myst_parser",
+]
+
+# For more information see:
+# https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
+myst_enable_extensions = [
+    "colon_fence",
+    "deflist",
 ]
 
 
@@ -90,7 +98,10 @@ locale_dirs = ["_locales"]
 templates_path = ["_templates"]
 
 # The suffix of source filenames.
-source_suffix = ".rst"
+source_suffix = {
+    ".rst": "restructuredtext",
+    ".md": "markdown",
+}
 
 # The encoding of source files.
 # source_encoding = 'utf-8-sig'

@@ -354,6 +354,11 @@ Everyone is **very welcome** to contribute.
 Minor bug fixes can be pushed directly in the `repository <https://github.com/plone/training>`_,
 bigger changes should made as `pull-requests <https://github.com/plone/training/pulls/>`_ and discussed previously in tickets.
 
+We use `MyST, or Markedly Structured Text <https://myst-parser.readthedocs.io/en/latest/>`_, as the syntax for authoring training documentation.
+This allows authors to write in either Markdown or reStructuredText, and build the docs in a desired format.
+
+We use `colon-fence syntax <https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#code-fences-using-colons>`_, instead of the default backtick syntax, to use live preview in editors.
+
 
 .. _about-licence-label:
 

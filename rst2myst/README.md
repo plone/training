@@ -1,0 +1,110 @@
+# README for converting reStructuredText to MyST
+
+This document describes how to convert the entire repository from reStructuredText to MyST syntax.
+This is a one-time operation.
+After completion, this file may be deleted from the repository.
+
+
+## Installation
+
+-   Open the file `mastering-plone/about_mastering.rst`.
+-   Search for "Building the documentation locally" around line 202, and follow its instructions.
+
+We use [RST-to-MyST](https://rst-to-myst.readthedocs.io/en/latest/index.html), a tool for converting reStructuredText to MyST Markdown.
+
+:::{note}
+This package is only needed once to convert the files.
+Therefore it is not included in `requirements.txt`.
+:::
+
+:::bash
+pip install "rst-to-myst[sphinx]"
+:::
+
+## Conversion
+
+Always perform a dry run before doing an actual run.
+We want to catch and resolve failures immediately, then fix them.
+
+:::bash
+rst2myst convert --dry-run --stop-on-fail \
+*.rst \
+about/*.rst \
+advanced-python/*.rst \
+angular/*.rst \
+deployment/*.rst \
+gatsby/*.rst \
+javascript/*.rst \
+mastering-plone/*.rst \
+mastering-plone-5/*.rst \
+plone_training_config/*.rst \
+react/*.rst \
+solr/*.rst \
+teachers-training/*.rst \
+testing/*.rst \
+theming/*.rst \
+transmogrifier/*.rst \
+ttw/*.rst \
+volto/*.rst \
+voltoaddons/*.rst \
+voltohandson/*.rst \
+workflow/*.rst \
+wsgi/*.rst
+:::
+
+:::{literalinclude} rst2myst-dryrun.txt
+:language: text
+:::
+
+Fix warnings in the `.rst` source files, and run the above command (or only a specific file that we want to fix) until no warnings appear.
+
+Once we have cleaned up the source `.rst` files, we can run an actual conversion.
+
+:::bash
+rst2myst convert --dry-run --stop-on-fail \
+*.rst \
+about/*.rst \
+advanced-python/*.rst \
+angular/*.rst \
+deployment/*.rst \
+gatsby/*.rst \
+javascript/*.rst \
+mastering-plone/*.rst \
+mastering-plone-5/*.rst \
+plone_training_config/*.rst \
+react/*.rst \
+solr/*.rst \
+teachers-training/*.rst \
+testing/*.rst \
+theming/*.rst \
+transmogrifier/*.rst \
+ttw/*.rst \
+volto/*.rst \
+voltoaddons/*.rst \
+voltohandson/*.rst \
+workflow/*.rst \
+wsgi/*.rst
+:::
+
+
+## Run rsync shell script
+
+Now that we have converted all the `.rst` files to `.md` files, we need to move the `.md` to a separate directory and build the docs from that directory.
+We use sibling directories to compare output between the two to make sure that content renders correctly.
+
+
+
+
+## Clean up
+
+After you are satisfied with the conversion, you may uninstall `rst-to-myst`.
+
+:::bash
+pip uninstall "rst-to-myst[sphinx]"
+:::
+
+Remove `rst2myst/README.md` from the final `toctree` entry in `index.md`.
+
+Delete the directory `rst2myst`.
+
+
