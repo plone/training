@@ -1,135 +1,117 @@
+:root {
+  /* --pst-color-preformatted-background: 104, 1, 124, 0.753; */
+}
+
+pre {
+  /* border: none; */
+  border-radius: 0;
+  /* background-color: #e8c8f9;
+  background-color: #dec5ec; */
+  background-color: white;
+  box-shadow: none;
+}
+
 a,
 a:visited {
   color: #2980b9;
 }
-/* a:visited {
-  color: #297fb9d0;
-} */
 a:hover{
   color: #176aa1;
   text-decoration: underline;
 }
-.figure img {
+figure img {
   box-shadow: 0 6px 24px 0 rgba(153,153,153,0.3);
 }
-.sidebar .figure img {
+.sidebar figure img,
+.sidebar img.logo {
   box-shadow: none;
+  width: 200px;
 }
 
 div.section {
   margin-bottom: 6rem;
 }
 
-.wy-nav-content {
-  max-width: 1000px;
-  padding-left: 2em;
-  padding-right: 2em;
+
+.admonition {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
 }
 
-.rst-content .sidebar {
-  clear: right;
-}
-.rst-content .sidebar img {
-  max-width: 50%;
-}
 
-.rst-content .menuselection {
-  background-color: #f9ebb3;
-  border: 1px solid #f0b37e;
-  border-radius: 3px;
-  padding: 1px 6px;
-}
 
-.rst-content .guilabel {
-  border: 1px solid #777;
-  background-color: #cee3fb;
-  border-radius: 3px;
-  padding: 1px 6px;
+/* sidebar and sidebar margin : aside / div */
+div.sidebar,
+aside.sidebar,
+div.margin,
+aside.margin,
+div.margin-caption p.caption,
+.cell.tag_popout,
+.cell.tag_margin {
+ width:40%;
+ float:right;
+ border-left:1px #a4a6a7 solid;
+ margin-left:0.5em;
+ padding:.2em 0 .2em 1em
 }
-
-.rst-content .toggle {
-  background: none repeat scroll 0 0 #e7f2fa;
-  padding: 12px;
-  line-height: 24px;
-  margin-bottom: 24px;
+div.sidebar p,
+aside.sidebar p,
+div.margin p,
+aside.margin p,
+div.margin-caption p.caption p,
+.cell.tag_popout p,
+.cell.tag_margin p {
+ margin-bottom:0
 }
-
-.rst-content .toggle .admonition-title {
-  display: block;
-  clear: both;
-  cursor: pointer;
+div.sidebar p.sidebar-title,
+aside.sidebar p.sidebar-title,
+div.margin p.sidebar-title,
+aside.margin p.sidebar-title,
+div.margin-caption p.caption p.sidebar-title,
+.cell.tag_popout p.sidebar-title,
+.cell.tag_margin p.sidebar-title {
+ font-weight:bold;
+ font-size:1.2em
 }
-
-.rst-content .toggle .admonition-title:after {
-  content: ' ▶';
+@media (min-width: 768px) {
+ div.cell.tag_popout,
+ div.cell.tag_margin,
+ div.margin,
+ aside.margin,
+ div.margin-caption p.caption {
+  border:none;
+  clear:right;
+  width:31% !important;
+  margin:0 -35% 0 0 !important;
+  padding:0 !important;
+  font-size:0.9rem;
+  line-height:1.3;
+  vertical-align:baseline;
+  position:relative
+ }
+ div.cell.tag_popout p,
+ div.cell.tag_margin p,
+ div.margin p,
+ aside.margin p,
+ div.margin-caption p.caption p {
+  margin-bottom:.5em
+ }
+ div.cell.tag_popout p.sidebar-title,
+ div.cell.tag_margin p.sidebar-title,
+ div.margin p.sidebar-title,
+ aside.margin p.sidebar-title,
+ div.margin-caption p.caption p.sidebar-title {
+  font-size:1em
+ }
+ div.cell.tag_margin .cell_output {
+  padding-left:0
+ }
+ div.sidebar:not(.margin),
+ aside.sidebar:not(.margin) {
+  width:60%;
+  margin-left:1.5em;
+  margin-right:-28%
+ }
 }
-
-.rst-content .toggle .admonition-title.open:after {
-  content: ' ▼';
-}
-
-.rst-content .toggle p:last-child {
-  margin-bottom: 0;
-}
-.rst-content code.literal,
-.rst-content tt.literal,
-.rst-content cite {
-  color: #8c1313;
-}
-
-/* improve contrast */
-.highlight .hll {
-  background-color: #ff9;
-}
-
-.highlight {
-  background: #fff;
-}
-
-@media screen and (max-width: 1200px) {
-  .wy-nav-content {
-    max-width: 1100px !important;
-    padding-left: 2em;
-    padding-right: 2em;
-  }
-  .wy-body-for-nav {
-    background: #fcfcfc;
-  }
-
-  .wy-nav-top {
-    display: block;
-  }
-  .wy-nav-side {
-    left: -300px;
-  }
-  .wy-nav-side.shift {
-    width: 85%;
-    left: 0;
-  }
-  .wy-nav-content-wrap {
-    margin-left: 0;
-  }
-  .wy-nav-content-wrap .wy-nav-content {
-    padding: 1.618em;
-  }
-  .wy-nav-content-wrap.shift {
-    position: fixed;
-    min-width: 100%;
-    left: 85%;
-    top: 0;
-    height: 100%;
-    overflow: hidden;
-  }
-}
-
-.wy-side-nav-search a.icon-home,
-.wy-side-nav-search a.icon-home:visited {
-  color: #fcfcfc;
-  background-color: unset;
-  text-decoration: none;
-}
-
-.wy-menu-vertical a,
-.wy-menu-vertical a:visited {
-  color: #d9d9d9;
-}
+/* end .sidebar */
