@@ -115,3 +115,10 @@ div.margin-caption p.caption p.sidebar-title,
  }
 }
 /* end .sidebar */
+
+ul.search .title_training {
+  /* display: block; */
+}
+ul.search .title_training::before {
+  content: ' – ';
+}

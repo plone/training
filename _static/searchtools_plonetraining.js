@@ -9,6 +9,7 @@
  *
  */
 
+
 if (!Scorer) {
   /**
    * Simple result scoring code.
@@ -220,6 +221,10 @@ var Search = {
         results[i][4] = Scorer.score(results[i]);
     }
 
+    // TODO Enrich item with parent training title
+    for (i = 0; i < results.length; i++) 
+      results[i][6] = results[i][6] || 'TODO training title';
+
     // now sort the results by score (in opposite order of appearance, since the
     // display function below uses pop() to retrieve items) and then
     // alphabetically
@@ -270,6 +275,9 @@ var Search = {
         listItem.append($('<a/>').attr('href',
             linkUrl +
             highlightstring + item[2]).html(item[1]));
+        
+        listItem.append($('<span class="title_training">' + item[6] + '</span>'));
+
         if (item[3]) {
           listItem.append($('<span> (' + item[3] + ')</span>'));
           Search.output.append(listItem);
@@ -483,7 +491,13 @@ var Search = {
         // select one (max) score for the file.
         // for better ranking, we should calculate ranking by using words statistics like basic tf-idf...
         var score = $u.max($u.map(fileMap[file], function(w){return scoreMap[file][w]}));
-        results.push([docnames[file], titles[file], '', null, score, filenames[file]]);
+        function getParentTitle(f) {
+          let parentdocname = docnames[f].split('/')[0] + '/index';
+          let parentID = docnames.indexOf(parentdocname);
+          let title = parentID === -1 ? 'Training' : titles[parentID];
+          return title
+        }
+        results.push([docnames[file], titles[file], '', null, score, filenames[file], getParentTitle(file)]);
       }
     }
     return results;
