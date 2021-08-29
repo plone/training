@@ -3,6 +3,8 @@ myst-parser
 rst-to-myst[sphinx]
 linkify-it-py
 sphinx-copybutton
+sphinx-togglebutton
+
 jsx-lexer
 Sphinx
 sphinxcontrib-spelling

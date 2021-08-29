@@ -41,7 +41,7 @@ code snippet expandable
 : Be aware of the nested directives. Increase back ticks.
 
       ````{admonition} Complete code for ReactJS component
-      :class: toggle
+      :class: dropdown
 
       Here's my code snippet
 
