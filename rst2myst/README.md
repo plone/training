@@ -7,13 +7,19 @@ After completion, this file may be deleted from the repository.
 
 ## Installation
 
--   Open the file `mastering-plone/about_mastering.rst`.
--   Search for "Building the documentation locally" around line 202, and follow its instructions.
+Create a new git branch in which to perform the conversion.
+
+:::{code-block}bash
+git checkout -b myst-convert-all
+:::
+
+Open the file `mastering-plone/about_mastering.rst`.
+Search for "Building the documentation locally" around line 202, and follow its instructions.
 
 We use [RST-to-MyST](https://rst-to-myst.readthedocs.io/en/latest/index.html), a tool for converting reStructuredText to MyST Markdown.
 
 :::{note}
-This package is only needed once to convert the files.
+The package `rst-to-myst` is only needed once to convert the files.
 Therefore it is not included in `requirements.txt`.
 :::
 
@@ -24,7 +30,7 @@ pip install "rst-to-myst[sphinx]"
 ## Conversion
 
 Always perform a dry run before doing an actual run.
-We want to catch and resolve failures immediately, then fix them.
+We must catch and resolve failures immediately, then fix them in the `.rst` source files.
 
 :::bash
 rst2myst convert --dry-run --stop-on-fail \
@@ -58,6 +64,18 @@ wsgi/*.rst
 
 Fix warnings in the `.rst` source files, and run the above command (or only a specific file that we want to fix) until no warnings appear.
 
+Commit all fixes.
+
+:::{code-block}bash
+git commit -m "MyHelpfulCommitMessage"
+:::
+
+:::{danger}
+STOP!
+Do not proceed beyond this point until you commit fixes to the `.rst` source files.
+If you do not save your changes now, you may potentially lose all your work in the next step.
+:::
+
 Once we have cleaned up the source `.rst` files, we can run an actual conversion.
 
 :::bash
@@ -86,14 +104,31 @@ workflow/*.rst \
 wsgi/*.rst
 :::
 
+::::{warning}
+If you see any warnings, hard reset your git branch.
+This will throw away any changes that were not committed to the repo.
+
+:::{code-block}bash
+git reset --hard HEAD
+:::
+
+Now fix the `.rst` source files and commit those changes.
+::::
+
+When you have no warnings, you may proceed to the next step.
 
 ## Run rsync shell script
 
 Now that we have converted all the `.rst` files to `.md` files, we need to move the `.md` to a separate directory and build the docs from that directory.
 We use sibling directories to compare output between the two to make sure that content renders correctly.
 
+:::{TODO}
+Insert rsync shell script here.
+:::
 
-
+:::{TODO}
+Insert build step for both .rst and .md for visual comparison here.
+:::
 
 ## Clean up
 
