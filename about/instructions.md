@@ -54,3 +54,10 @@ code snippet expandable
       import React, { useState } from 'react';
       ```
       ````
+
+Glossary
+: Reference glossary terms
+
+  To reference terms in your glossary, use the {term} role.
+  
+  For example, ``{term}`ReactJS` `` becomes a reference to term {term}`ReactJS`.
