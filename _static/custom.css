@@ -2,6 +2,10 @@
   /* --pst-color-preformatted-background: 104, 1, 124, 0.753; */
 }
 
+p.ploneorglink img {
+  vertical-align: bottom;
+}
+
 pre {
   /* border: none; */
   border-radius: 0;
