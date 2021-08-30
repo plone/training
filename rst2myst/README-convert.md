@@ -155,7 +155,16 @@ make html
 
 ## Clean up
 
-After you are satisfied with the conversion, you may uninstall `rst-to-myst`.
+After you are satisfied with the conversion, let's do some clean up.
+
+:::{todo}
+1. Remove all .rst files in root. `rm -R *.rst`
+2. Move all .md files to root. Use rsync.
+:::
+
+In `conf.py` remove `rst2myst/training/**` from `exclude_patterns`.
+
+Uninstall `rst-to-myst`.
 
 :::bash
 pip uninstall "rst-to-myst[sphinx]"

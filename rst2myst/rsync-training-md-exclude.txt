@@ -17,6 +17,7 @@ ABOUT
 CHANGES.rst
 LICENSE
 Makefile
+Vagrantfile
 _build/
 _doc/
 _locales/
@@ -31,7 +32,10 @@ gulpfile.js
 include/
 package.json
 pip-selfcheck.json
+plone_training_config/manifests/
 requirements.txt
 rst2myst/
 spelling_wordlist.txt
+testing/_snippets/
+tests/
 word-lint.txt
