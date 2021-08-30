@@ -56,27 +56,27 @@ We must catch and resolve failures immediately, then fix them in the `.rst` sour
 :::bash
 rst2myst convert --dry-run --stop-on-fail \
 index.rst \
-about/*.rst \
-advanced-python/*.rst \
-angular/*.rst \
-deployment/*.rst \
-gatsby/*.rst \
-javascript/*.rst \
-mastering-plone/*.rst \
-mastering-plone-5/*.rst \
-plone_training_config/*.rst \
-react/*.rst \
-solr/*.rst \
-teachers-training/*.rst \
-testing/*.rst \
-theming/*.rst \
-transmogrifier/*.rst \
-ttw/*.rst \
-volto/*.rst \
-voltoaddons/*.rst \
-voltohandson/*.rst \
-workflow/*.rst \
-wsgi/*.rst
+about/**/*.rst \
+advanced-python/**/*.rst \
+angular/**/*.rst \
+deployment/**/*.rst \
+gatsby/**/*.rst \
+javascript/**/*.rst \
+mastering-plone/**/*.rst \
+mastering-plone-5/**/*.rst \
+plone_training_config/**/*.rst \
+react/**/*.rst \
+solr/**/*.rst \
+teachers-training/**/*.rst \
+testing/**/*.rst \
+theming/**/*.rst \
+transmogrifier/**/*.rst \
+ttw/**/*.rst \
+volto/**/*.rst \
+voltoaddons/**/*.rst \
+voltohandson/**/*.rst \
+workflow/**/*.rst \
+wsgi/**/*.rst
 :::
 
 :::{literalinclude} rst2myst-dryrun.txt
@@ -102,27 +102,27 @@ Once we have cleaned up the source `.rst` files, we can run an actual conversion
 :::bash
 rst2myst convert --stop-on-fail \
 index.rst \
-about/*.rst \
-advanced-python/*.rst \
-angular/*.rst \
-deployment/*.rst \
-gatsby/*.rst \
-javascript/*.rst \
-mastering-plone/*.rst \
-mastering-plone-5/*.rst \
-plone_training_config/*.rst \
-react/*.rst \
-solr/*.rst \
-teachers-training/*.rst \
-testing/*.rst \
-theming/*.rst \
-transmogrifier/*.rst \
-ttw/*.rst \
-volto/*.rst \
-voltoaddons/*.rst \
-voltohandson/*.rst \
-workflow/*.rst \
-wsgi/*.rst
+about/**/*.rst \
+advanced-python/**/*.rst \
+angular/**/*.rst \
+deployment/**/*.rst \
+gatsby/**/*.rst \
+javascript/**/*.rst \
+mastering-plone/**/*.rst \
+mastering-plone-5/**/*.rst \
+plone_training_config/**/*.rst \
+react/**/*.rst \
+solr/**/*.rst \
+teachers-training/**/*.rst \
+testing/**/*.rst \
+theming/**/*.rst \
+transmogrifier/**/*.rst \
+ttw/**/*.rst \
+volto/**/*.rst \
+voltoaddons/**/*.rst \
+voltohandson/**/*.rst \
+workflow/**/*.rst \
+wsgi/**/*.rst
 :::
 
 ::::{warning}

@@ -1,26 +1,3 @@
-(env) stevepiercy@Steves-iMac training % rst2myst convert --dry-run --stop-on-fail \
-> index.rst \
-> about/*.rst \
-> advanced-python/*.rst \
-> angular/*.rst \
-> deployment/*.rst \
-> gatsby/*.rst \
-> javascript/*.rst \
-> mastering-plone/*.rst \
-> mastering-plone-5/*.rst \
-> plone_training_config/*.rst \
-> react/*.rst \
-> solr/*.rst \
-> teachers-training/*.rst \
-> testing/*.rst \
-> theming/*.rst \
-> transmogrifier/*.rst \
-> ttw/*.rst \
-> volto/*.rst \
-> voltoaddons/*.rst \
-> voltohandson/*.rst \
-> workflow/*.rst \
-> wsgi/*.rst
 index.rst -> index.md
 CONVERTED (extensions: ['deflist'])
 about/glossary.rst -> about/glossary.md
@@ -82,6 +59,11 @@ angular/views.rst -> angular/views.md
 CONVERTED (extensions: [])
 angular/whatisangular.rst -> angular/whatisangular.md
 CONVERTED (extensions: ['colon_fence'])
+deployment/about/glossary.rst -> deployment/about/glossary.md
+source:9: (WARNING/2) Block quote ends without a blank line; unexpected unindent.
+CONVERTED (extensions: ['colon_fence', 'deflist'])
+deployment/about/index.rst -> deployment/about/index.md
+CONVERTED (extensions: [])
 deployment/ansible.rst -> deployment/ansible.md
 CONVERTED (extensions: ['colon_fence'])
 deployment/customization.rst -> deployment/customization.md
@@ -96,6 +78,20 @@ deployment/letsencrypt-certbot.rst -> deployment/letsencrypt-certbot.md
 CONVERTED (extensions: ['colon_fence'])
 deployment/maintenance.rst -> deployment/maintenance.md
 CONVERTED (extensions: ['colon_fence'])
+deployment/opsworks/index.rst -> deployment/opsworks/index.md
+CONVERTED (extensions: ['colon_fence'])
+deployment/opsworks/installation.rst -> deployment/opsworks/installation.md
+CONVERTED (extensions: ['colon_fence'])
+deployment/opsworks/intro.rst -> deployment/opsworks/intro.md
+CONVERTED (extensions: [])
+deployment/opsworks/loose-ends.rst -> deployment/opsworks/loose-ends.md
+CONVERTED (extensions: ['colon_fence'])
+deployment/opsworks/maintenance.rst -> deployment/opsworks/maintenance.md
+CONVERTED (extensions: ['colon_fence'])
+deployment/opsworks/running.rst -> deployment/opsworks/running.md
+CONVERTED (extensions: ['colon_fence'])
+deployment/opsworks/terms.rst -> deployment/opsworks/terms.md
+CONVERTED (extensions: [])
 deployment/playbook-use.rst -> deployment/playbook-use.md
 CONVERTED (extensions: ['colon_fence'])
 deployment/plone-playbook.rst -> deployment/plone-playbook.md
@@ -138,7 +134,40 @@ gatsby/transformerplugins.rst -> gatsby/transformerplugins.md
 CONVERTED (extensions: ['colon_fence'])
 gatsby/whatisgatsby.rst -> gatsby/whatisgatsby.md
 CONVERTED (extensions: [])
+javascript/about/glossary.rst -> javascript/about/glossary.md
+source:9: (WARNING/2) Block quote ends without a blank line; unexpected unindent.
+CONVERTED (extensions: ['colon_fence', 'deflist'])
+javascript/about/index.rst -> javascript/about/index.md
+CONVERTED (extensions: [])
 javascript/development-process.rst -> javascript/development-process.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/1.rst -> javascript/exercises/1.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/10.rst -> javascript/exercises/10.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/11.rst -> javascript/exercises/11.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/12.rst -> javascript/exercises/12.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/13.rst -> javascript/exercises/13.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/2.rst -> javascript/exercises/2.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/3.rst -> javascript/exercises/3.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/4.rst -> javascript/exercises/4.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/5.rst -> javascript/exercises/5.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/6.rst -> javascript/exercises/6.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/7.rst -> javascript/exercises/7.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/8.rst -> javascript/exercises/8.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/9.rst -> javascript/exercises/9.md
+CONVERTED (extensions: ['colon_fence'])
+javascript/exercises/index.rst -> javascript/exercises/index.md
 CONVERTED (extensions: ['colon_fence'])
 javascript/index.rst -> javascript/index.md
 CONVERTED (extensions: [])
@@ -471,6 +500,10 @@ plone_training_config/instructions_plone5.rst -> plone_training_config/instructi
 CONVERTED (extensions: ['colon_fence'])
 plone_training_config/what_vagrant_does.rst -> plone_training_config/what_vagrant_does.md
 CONVERTED (extensions: ['colon_fence'])
+react/about/glossary.rst -> react/about/glossary.md
+CONVERTED (extensions: ['colon_fence', 'deflist'])
+react/about/index.rst -> react/about/index.md
+CONVERTED (extensions: [])
 react/actions.rst -> react/actions.md
 CONVERTED (extensions: ['colon_fence'])
 react/bootstrap.rst -> react/bootstrap.md
@@ -523,6 +556,11 @@ react/styling.rst -> react/styling.md
 CONVERTED (extensions: ['colon_fence'])
 solr/a-fancy-custom-search-page.rst -> solr/a-fancy-custom-search-page.md
 CONVERTED (extensions: ['colon_fence'])
+solr/about/glossary.rst -> solr/about/glossary.md
+source:9: (WARNING/2) Block quote ends without a blank line; unexpected unindent.
+CONVERTED (extensions: ['colon_fence', 'deflist'])
+solr/about/index.rst -> solr/about/index.md
+CONVERTED (extensions: [])
 solr/first-steps.rst -> solr/first-steps.md
 CONVERTED (extensions: ['colon_fence'])
 solr/how-does-collective-solr-work.rst -> solr/how-does-collective-solr-work.md
@@ -575,6 +613,11 @@ testing/theory.rst -> testing/theory.md
 CONVERTED (extensions: [])
 testing/unittest.rst -> testing/unittest.md
 CONVERTED (extensions: ['colon_fence'])
+theming/about/glossary.rst -> theming/about/glossary.md
+source:9: (WARNING/2) Block quote ends without a blank line; unexpected unindent.
+CONVERTED (extensions: ['colon_fence', 'deflist'])
+theming/about/index.rst -> theming/about/index.md
+CONVERTED (extensions: [])
 theming/adv-diazo.rst -> theming/adv-diazo.md
 CONVERTED (extensions: ['colon_fence'])
 theming/basic.rst -> theming/basic.md
@@ -605,6 +648,8 @@ theming/ttw-advanced-3.rst -> theming/ttw-advanced-3.md
 CONVERTED (extensions: ['colon_fence'])
 theming/ttw-advanced.rst -> theming/ttw-advanced.md
 CONVERTED (extensions: ['colon_fence'])
+transmogrifier/about/glossary.rst -> transmogrifier/about/glossary.md
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 transmogrifier/advanced-blueprint.rst -> transmogrifier/advanced-blueprint.md
 CONVERTED (extensions: [])
 transmogrifier/advanced-import.rst -> transmogrifier/advanced-import.md
@@ -625,6 +670,11 @@ transmogrifier/pipeline.rst -> transmogrifier/pipeline.md
 CONVERTED (extensions: ['deflist'])
 transmogrifier/users-migration.rst -> transmogrifier/users-migration.md
 CONVERTED (extensions: [])
+ttw/about/glossary.rst -> ttw/about/glossary.md
+source:9: (WARNING/2) Block quote ends without a blank line; unexpected unindent.
+CONVERTED (extensions: ['colon_fence', 'deflist'])
+ttw/about/index.rst -> ttw/about/index.md
+CONVERTED (extensions: [])
 ttw/basic.rst -> ttw/basic.md
 CONVERTED (extensions: ['colon_fence'])
 ttw/configuring-customizing.rst -> ttw/configuring-customizing.md
@@ -642,6 +692,10 @@ CONVERTED (extensions: ['colon_fence', 'deflist'])
 ttw/ttw-advanced.rst -> ttw/ttw-advanced.md
 CONVERTED (extensions: ['colon_fence'])
 ttw/workflow.rst -> ttw/workflow.md
+CONVERTED (extensions: [])
+volto/about/glossary.rst -> volto/about/glossary.md
+CONVERTED (extensions: ['colon_fence', 'deflist'])
+volto/about/index.rst -> volto/about/index.md
 CONVERTED (extensions: [])
 volto/actions-reducers.rst -> volto/actions-reducers.md
 CONVERTED (extensions: ['colon_fence'])
@@ -684,11 +738,23 @@ voltoaddons/06-cell-renderer.rst -> voltoaddons/06-cell-renderer.md
 CONVERTED (extensions: ['colon_fence'])
 voltoaddons/07-misc-addons.rst -> voltoaddons/07-misc-addons.md
 CONVERTED (extensions: ['deflist'])
+voltoaddons/about/devenvironment.rst -> voltoaddons/about/devenvironment.md
+CONVERTED (extensions: [])
+voltoaddons/about/glossary.rst -> voltoaddons/about/glossary.md
+CONVERTED (extensions: ['colon_fence', 'deflist'])
+voltoaddons/about/index.rst -> voltoaddons/about/index.md
+CONVERTED (extensions: [])
+voltoaddons/about/jsbasics.rst -> voltoaddons/about/jsbasics.md
+CONVERTED (extensions: [])
 voltoaddons/blocksrestapi.rst -> voltoaddons/blocksrestapi.md
 CONVERTED (extensions: ['colon_fence'])
 voltoaddons/index.rst -> voltoaddons/index.md
 CONVERTED (extensions: [])
 voltoaddons/intro.rst -> voltoaddons/intro.md
+CONVERTED (extensions: [])
+voltohandson/about/glossary.rst -> voltohandson/about/glossary.md
+CONVERTED (extensions: ['colon_fence', 'deflist'])
+voltohandson/about/index.rst -> voltohandson/about/index.md
 CONVERTED (extensions: [])
 voltohandson/blocksedit.rst -> voltohandson/blocksedit.md
 CONVERTED (extensions: [])
@@ -716,6 +782,11 @@ voltohandson/requirements.rst -> voltohandson/requirements.md
 CONVERTED (extensions: [])
 voltohandson/starttheming.rst -> voltohandson/starttheming.md
 CONVERTED (extensions: ['colon_fence'])
+workflow/about/glossary.rst -> workflow/about/glossary.md
+source:9: (WARNING/2) Block quote ends without a blank line; unexpected unindent.
+CONVERTED (extensions: ['colon_fence', 'deflist'])
+workflow/about/index.rst -> workflow/about/index.md
+CONVERTED (extensions: [])
 workflow/dynamic-roles.rst -> workflow/dynamic-roles.md
 CONVERTED (extensions: [])
 workflow/generic-setup-export-import.rst -> workflow/generic-setup-export-import.md
