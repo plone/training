@@ -1,19 +1,19 @@
 #!/bin/sh
-# training-myst.sh
+# rsync-training.sh
 #
 # Use this script after running rst-to-myst.
 #
 # It synchronizes all documentation files from the original training directory
-# to the training-myst directory where they can be built.
+# to the rsync-training directory where they can be built.
 #
 # Then you can build both .rst and .md docs to compare side-by-side.
 #
 # To run this script, change directory to the script, then issue the following
 # command:
 #
-# ./training-myst.sh
+# ./rsync-training.sh
 #
-# A detailed activity log is appended to in ./training-myst.log.
+# A detailed activity log is appended to in ./rsync-training.log.
 #
 # NOTE: To escape spaces in directory names, you need to use double-quotes
 # around the rsync command argument variable.
@@ -37,17 +37,17 @@ date=`date "+DATE: %Y-%m-%d %H:%M:%S"`
 
 # Copy all files needed to build docs except *.md
 opts="-gioprtvzCO \
-    --include-from=$cwd/rst2myst/training-myst-include.txt \
-    --exclude-from=$cwd/rst2myst/training-myst-exclude.txt \
+    --include-from=$cwd/rst2myst/rsync-training-include.txt \
+    --exclude-from=$cwd/rst2myst/rsync-training-exclude.txt \
     --delete --force --dry-run"
 # Move *.md only and delete source
 optsmd="-gioprtvzCO \
-    --include-from=$cwd/rst2myst/training-myst-md-include.txt \
-    --exclude-from=$cwd/rst2myst/training-myst-md-exclude.txt \
+    --include-from=$cwd/rst2myst/rsync-training-md-include.txt \
+    --exclude-from=$cwd/rst2myst/rsync-training-md-exclude.txt \
     --delete --force --remove-source-files --dry-run"
 
 # set the log file
-log="$cwd/rst2myst/training-myst.log"
+log="$cwd/rst2myst/rsync-training.log"
 
 # set source and destination
 src="$cwd/"
