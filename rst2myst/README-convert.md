@@ -7,6 +7,7 @@ After completion, this file may be deleted from the repository.
 
 ## Installation
 
+Start from the project root.
 Create a new git branch in which to perform the conversion.
 
 :::{code-block}bash
@@ -34,7 +35,7 @@ We must catch and resolve failures immediately, then fix them in the `.rst` sour
 
 :::bash
 rst2myst convert --dry-run --stop-on-fail \
-*.rst \
+index.rst \
 about/*.rst \
 advanced-python/*.rst \
 angular/*.rst \
@@ -79,8 +80,8 @@ If you do not save your changes now, you may potentially lose all your work in t
 Once we have cleaned up the source `.rst` files, we can run an actual conversion.
 
 :::bash
-rst2myst convert --dry-run --stop-on-fail \
-*.rst \
+rst2myst convert --stop-on-fail \
+index.rst \
 about/*.rst \
 advanced-python/*.rst \
 angular/*.rst \

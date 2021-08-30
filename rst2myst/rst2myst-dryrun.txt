@@ -1,13 +1,31 @@
-(env) stevepiercy@Steves-iMac training % rst2myst convert --dry-run --stop-on-fail *.rst about/*.rst advanced-python/*.rst angular/*.rst deployment/*.rst gatsby/*.rst javascript/*.rst mastering-plone/*.rst mastering-plone-5/*.rst plone_training_config/*.rst react/*.rst solr/*.rst teachers-training/*.rst testing/*.rst theming/*.rst transmogrifier/*.rst ttw/*.rst volto/*.rst voltoaddons/*.rst voltohandson/*.rst workflow/*.rst wsgi/*.rst
-CHANGES.rst -> CHANGES.md
-CONVERTED (extensions: [])
-README.rst -> README.md
-CONVERTED (extensions: [])
+(env) stevepiercy@Steves-iMac training % rst2myst convert --dry-run --stop-on-fail \
+> index.rst \
+> about/*.rst \
+> advanced-python/*.rst \
+> angular/*.rst \
+> deployment/*.rst \
+> gatsby/*.rst \
+> javascript/*.rst \
+> mastering-plone/*.rst \
+> mastering-plone-5/*.rst \
+> plone_training_config/*.rst \
+> react/*.rst \
+> solr/*.rst \
+> teachers-training/*.rst \
+> testing/*.rst \
+> theming/*.rst \
+> transmogrifier/*.rst \
+> ttw/*.rst \
+> volto/*.rst \
+> voltoaddons/*.rst \
+> voltohandson/*.rst \
+> workflow/*.rst \
+> wsgi/*.rst
 index.rst -> index.md
 CONVERTED (extensions: ['deflist'])
 about/glossary.rst -> about/glossary.md
 source:9: (WARNING/2) Block quote ends without a blank line; unexpected unindent.
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 about/index.rst -> about/index.md
 CONVERTED (extensions: [])
 advanced-python/background.rst -> advanced-python/background.md
@@ -127,7 +145,7 @@ CONVERTED (extensions: [])
 javascript/javascript-3-ttw.rst -> javascript/javascript-3-ttw.md
 CONVERTED (extensions: ['colon_fence'])
 javascript/javascript-scratchpad.rst -> javascript/javascript-scratchpad.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 javascript/mockup-writing-documentation.rst -> javascript/mockup-writing-documentation.md
 CONVERTED (extensions: [])
 javascript/mockup.rst -> javascript/mockup.md
@@ -143,13 +161,13 @@ RENDER WARNING:13: no depart method for: <class 'docutils.nodes.line'>
 RENDER WARNING:14: no visit method for: <class 'docutils.nodes.line'>
 RENDER WARNING:14: no depart method for: <class 'docutils.nodes.line'>
 RENDER WARNING:13: no depart method for: <class 'docutils.nodes.line_block'>
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone/add-ons.rst -> mastering-plone/add-ons.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone/anatomy.rst -> mastering-plone/anatomy.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone/api.rst -> mastering-plone/api.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone/behaviors_1.rst -> mastering-plone/behaviors_1.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone/behaviors_2.rst -> mastering-plone/behaviors_2.md
@@ -161,7 +179,7 @@ RENDER WARNING: no depart method for: <class 'docutils.nodes.line'>
 RENDER WARNING: no visit method for: <class 'docutils.nodes.line'>
 RENDER WARNING: no depart method for: <class 'docutils.nodes.line'>
 RENDER WARNING: no depart method for: <class 'docutils.nodes.line_block'>
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone/case.rst -> mastering-plone/case.md
 CONVERTED (extensions: [])
 mastering-plone/code.rst -> mastering-plone/code.md
@@ -175,15 +193,15 @@ CONVERTED (extensions: [])
 mastering-plone/deployment_sites.rst -> mastering-plone/deployment_sites.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone/dexterity.rst -> mastering-plone/dexterity.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone/dexterity_2_talk.rst -> mastering-plone/dexterity_2_talk.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone/dexterity_3.rst -> mastering-plone/dexterity_3.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone/dexterity_reference.rst -> mastering-plone/dexterity_reference.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone/eggs1.rst -> mastering-plone/eggs1.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone/eggs2.rst -> mastering-plone/eggs2.md
 CONVERTED (extensions: [])
 mastering-plone/embed.rst -> mastering-plone/embed.md
@@ -197,7 +215,7 @@ CONVERTED (extensions: ['colon_fence'])
 mastering-plone/extending.rst -> mastering-plone/extending.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone/features.rst -> mastering-plone/features.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone/frontpage.rst -> mastering-plone/frontpage.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone/future_of_plone.rst -> mastering-plone/future_of_plone.md
@@ -273,7 +291,7 @@ CONVERTED (extensions: ['colon_fence'])
 mastering-plone/views_2.rst -> mastering-plone/views_2.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone/views_3.rst -> mastering-plone/views_3.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone/volto_actions.rst -> mastering-plone/volto_actions.md
 source:380: (WARNING/2) Inline interpreted text or phrase reference start-string without end-string.
 RENDER WARNING:50: no visit method for: <class 'docutils.nodes.line_block'>
@@ -338,23 +356,23 @@ CONVERTED (extensions: ['colon_fence'])
 mastering-plone/what_is_plone.rst -> mastering-plone/what_is_plone.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone/zpt.rst -> mastering-plone/zpt.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone/zpt_2.rst -> mastering-plone/zpt_2.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/about_mastering.rst -> mastering-plone-5/about_mastering.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone-5/add-ons.rst -> mastering-plone-5/add-ons.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone-5/anatomy.rst -> mastering-plone-5/anatomy.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/api.rst -> mastering-plone-5/api.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone-5/behaviors_1.rst -> mastering-plone-5/behaviors_1.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/behaviors_2.rst -> mastering-plone-5/behaviors_2.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/buildout_1.rst -> mastering-plone-5/buildout_1.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone-5/case.rst -> mastering-plone-5/case.md
 CONVERTED (extensions: [])
 mastering-plone-5/code.rst -> mastering-plone-5/code.md
@@ -368,15 +386,15 @@ CONVERTED (extensions: [])
 mastering-plone-5/deployment_sites.rst -> mastering-plone-5/deployment_sites.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/dexterity.rst -> mastering-plone-5/dexterity.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone-5/dexterity_2.rst -> mastering-plone-5/dexterity_2.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/dexterity_3.rst -> mastering-plone-5/dexterity_3.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/dexterity_reference.rst -> mastering-plone-5/dexterity_reference.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone-5/eggs1.rst -> mastering-plone-5/eggs1.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone-5/eggs2.rst -> mastering-plone-5/eggs2.md
 CONVERTED (extensions: [])
 mastering-plone-5/embed.rst -> mastering-plone-5/embed.md
@@ -388,7 +406,7 @@ CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/extending.rst -> mastering-plone-5/extending.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/features.rst -> mastering-plone-5/features.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone-5/frontpage.rst -> mastering-plone-5/frontpage.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/future_of_plone.rst -> mastering-plone-5/future_of_plone.md
@@ -400,7 +418,7 @@ CONVERTED (extensions: [])
 mastering-plone-5/installation.rst -> mastering-plone-5/installation.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/intro.rst -> mastering-plone-5/intro.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone-5/optional.rst -> mastering-plone-5/optional.md
 CONVERTED (extensions: [])
 mastering-plone-5/plone5.rst -> mastering-plone-5/plone5.md
@@ -434,11 +452,11 @@ CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/views_2.rst -> mastering-plone-5/views_2.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/views_3.rst -> mastering-plone-5/views_3.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone-5/what_is_plone.rst -> mastering-plone-5/what_is_plone.md
 CONVERTED (extensions: ['colon_fence'])
 mastering-plone-5/zpt.rst -> mastering-plone-5/zpt.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 mastering-plone-5/zpt_2.rst -> mastering-plone-5/zpt_2.md
 CONVERTED (extensions: ['colon_fence'])
 plone_training_config/instructions.rst -> plone_training_config/instructions.md
@@ -470,7 +488,7 @@ source:92: (WARNING/2) Block quote ends without a blank line; unexpected uninden
 source:93: (WARNING/2) Definition list ends without a blank line; unexpected unindent.
 source:94: (WARNING/2) Definition list ends without a blank line; unexpected unindent.
 source:95: (WARNING/2) Definition list ends without a blank line; unexpected unindent.
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 react/event_handlers.rst -> react/event_handlers.md
 CONVERTED (extensions: ['colon_fence'])
 react/external_data.rst -> react/external_data.md
@@ -512,7 +530,7 @@ CONVERTED (extensions: ['colon_fence'])
 solr/index.rst -> solr/index.md
 CONVERTED (extensions: [])
 solr/production-setup.rst -> solr/production-setup.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 solr/setup.rst -> solr/setup.md
 CONVERTED (extensions: ['colon_fence'])
 solr/solr-alternatives.rst -> solr/solr-alternatives.md
@@ -578,11 +596,11 @@ CONVERTED (extensions: ['colon_fence'])
 theming/theme-package-6.rst -> theming/theme-package-6.md
 CONVERTED (extensions: ['colon_fence'])
 theming/theme-package-7.rst -> theming/theme-package-7.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 theming/theme-package.rst -> theming/theme-package.md
 CONVERTED (extensions: ['colon_fence'])
 theming/ttw-advanced-2.rst -> theming/ttw-advanced-2.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 theming/ttw-advanced-3.rst -> theming/ttw-advanced-3.md
 CONVERTED (extensions: ['colon_fence'])
 theming/ttw-advanced.rst -> theming/ttw-advanced.md
@@ -596,7 +614,7 @@ CONVERTED (extensions: ['colon_fence'])
 transmogrifier/before-import.rst -> transmogrifier/before-import.md
 CONVERTED (extensions: [])
 transmogrifier/blueprints.rst -> transmogrifier/blueprints.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 transmogrifier/export.rst -> transmogrifier/export.md
 CONVERTED (extensions: [])
 transmogrifier/import.rst -> transmogrifier/import.md
@@ -612,15 +630,15 @@ CONVERTED (extensions: ['colon_fence'])
 ttw/configuring-customizing.rst -> ttw/configuring-customizing.md
 CONVERTED (extensions: ['colon_fence'])
 ttw/dexterity.rst -> ttw/dexterity.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 ttw/index.rst -> ttw/index.md
 CONVERTED (extensions: ['colon_fence'])
 ttw/mosaic.rst -> ttw/mosaic.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 ttw/rapido.rst -> ttw/rapido.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 ttw/ttw-advanced-2.rst -> ttw/ttw-advanced-2.md
-CONVERTED (extensions: ['deflist', 'colon_fence'])
+CONVERTED (extensions: ['colon_fence', 'deflist'])
 ttw/ttw-advanced.rst -> ttw/ttw-advanced.md
 CONVERTED (extensions: ['colon_fence'])
 ttw/workflow.rst -> ttw/workflow.md
@@ -747,4 +765,4 @@ CONVERTED (extensions: [])
 wsgi/uwsgi.rst -> wsgi/uwsgi.md
 CONVERTED (extensions: ['colon_fence'])
 
-FINISHED ALL! (extensions: ['deflist', 'colon_fence'])
+FINISHED ALL! (extensions: ['colon_fence', 'deflist'])
