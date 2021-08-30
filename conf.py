@@ -147,6 +147,7 @@ exclude_patterns = [
     "local",
     "log",
     "spelling_wordlist.txt",
+    "rst2myst/training/**"
 ]
 
 # The reST default role (used for this markup: `text`) to use for all documents.
