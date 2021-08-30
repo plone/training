@@ -2,7 +2,27 @@
 
 This document describes how to convert the entire repository from reStructuredText to MyST syntax.
 This is a one-time operation.
-After completion, this file may be deleted from the repository.
+
+
+## Prerequisites
+
+-   You already have a working clone of this repository.
+-   You have checked out this branch, `myst-rst2myst-conversion-process`, in your working clone to follow the instructions.
+    You may build the docs and open the HTML output of these instructions in a browser window, or follow along and jump between `literalinclude` files.
+-   In a sibling directory to this project's root, make a clean clone where you will perform the instructions.
+    This allows you to make mistakes without messing up your current work and messing around with `git`.
+
+    :::{code-block}bash
+    git clone https://github.com/plone/training.git myst
+    :::
+-   [Homebrew](https://brew.sh/).
+-   `rsync`
+    On macOS 10.15.7 and earlier, and possibly later versions, an old version of `rsync` hangs forever when using the `--dry-run` option under certain unknown conditions.
+    Install the latest version of `rsync`.
+  
+    :::{code-block}bash
+    brew install rsync
+    :::
 
 
 ## Installation
