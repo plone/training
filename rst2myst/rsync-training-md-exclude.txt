@@ -32,5 +32,6 @@ include/
 package.json
 pip-selfcheck.json
 requirements.txt
+rst2myst/
 spelling_wordlist.txt
 word-lint.txt
