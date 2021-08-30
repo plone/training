@@ -138,8 +138,4 @@ After you are satisfied with the conversion, you may uninstall `rst-to-myst`.
 pip uninstall "rst-to-myst[sphinx]"
 :::
 
-Remove `rst2myst/README.md` from the final `toctree` entry in `index.md`.
-
 Delete the directory `rst2myst`.
-
-
