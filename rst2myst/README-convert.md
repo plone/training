@@ -119,15 +119,37 @@ When you have no warnings, you may proceed to the next step.
 
 ## Run rsync shell script
 
-Now that we have converted all the `.rst` files to `.md` files, we need to move the `.md` to a separate directory and build the docs from that directory.
-We use sibling directories to compare output between the two to make sure that content renders correctly.
+Now that we have converted all the `.rst` files to `.md` files, we need to move the `.md` to a nested directory from the root of the project at `/rst2myst/training` and build the docs in that directory.
 
-:::{TODO}
-Insert rsync shell script here.
+First run the dry-run version of the script.
+Open the script and read it to see what it does.
+It has prolific comments.
+
+:::{code-block}bash
+cd rst2myst
+./rsync-training-dryrun.sh
 :::
 
-:::{TODO}
-Insert build step for both .rst and .md for visual comparison here.
+If that looks good, then perform an actual rsync.
+
+:::{code-block}bash
+cd rst2myst
+./rsync-training.sh
+:::
+
+If some files do not get rsync-ed over to the nested directory, then delete the subdirectory, modify the relevant rsync include and exclude files, and run the script again. 
+
+## Build docs in each directory
+
+Now we can build and compare the docs between the two source directories to make sure that content renders correctly.
+
+:::{code-block}bash
+# Build the MyST docs
+cd training
+make html
+# Build the reST docs
+cd ../..
+make html
 :::
 
 ## Clean up
