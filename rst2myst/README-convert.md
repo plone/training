@@ -12,7 +12,7 @@ This is a one-time operation.
 -   In a sibling directory to this project's root, make a clean clone where you will perform the instructions.
     This allows you to make mistakes without messing up your current work and messing around with `git`.
 
-    :::{code-block}bash
+    :::bash
     git clone https://github.com/plone/training.git myst
     :::
 -   [Homebrew](https://brew.sh/).
@@ -20,7 +20,7 @@ This is a one-time operation.
     On macOS 10.15.7 and earlier, and possibly later versions, an old version of `rsync` hangs forever when using the `--dry-run` option under certain unknown conditions.
     Install the latest version of `rsync`.
   
-    :::{code-block}bash
+    :::bash
     brew install rsync
     :::
 
@@ -30,7 +30,7 @@ This is a one-time operation.
 Start from the project root.
 Create a new git branch in which to perform the conversion.
 
-:::{code-block}bash
+:::bash
 git checkout -b myst-convert-all
 :::
 
@@ -87,7 +87,7 @@ Fix warnings in the `.rst` source files, and run the above command (or only a sp
 
 Commit all fixes.
 
-:::{code-block}bash
+:::bash
 git commit -m "MyHelpfulCommitMessage"
 :::
 
@@ -129,7 +129,7 @@ wsgi/*.rst
 If you see any warnings, hard reset your git branch.
 This will throw away any changes that were not committed to the repo.
 
-:::{code-block}bash
+:::bash
 git reset --hard HEAD
 :::
 
@@ -146,14 +146,14 @@ First run the dry-run version of the script.
 Open the script and read it to see what it does.
 It has prolific comments.
 
-:::{code-block}bash
+:::bash
 cd rst2myst
 ./rsync-training-dryrun.sh
 :::
 
 If that looks good, then perform an actual rsync.
 
-:::{code-block}bash
+:::bash
 cd rst2myst
 ./rsync-training.sh
 :::
@@ -164,7 +164,7 @@ If some files do not get rsync-ed over to the nested directory, then delete the 
 
 Now we can build and compare the docs between the two source directories to make sure that content renders correctly.
 
-:::{code-block}bash
+:::bash
 # Build the MyST docs
 cd training
 make html
