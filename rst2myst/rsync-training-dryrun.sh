@@ -39,12 +39,12 @@ date=`date "+DATE: %Y-%m-%d %H:%M:%S"`
 opts="-gioprtvzCO \
     --include-from=$cwd/rst2myst/rsync-training-include.txt \
     --exclude-from=$cwd/rst2myst/rsync-training-exclude.txt \
-    --delete --force"
+    --delete --force --dry-run"
 # Move *.md only and delete source
 optsmd="-gioprtvzCO \
     --include-from=$cwd/rst2myst/rsync-training-md-include.txt \
     --exclude-from=$cwd/rst2myst/rsync-training-md-exclude.txt \
-    --delete --force --remove-source-files"
+    --delete --force --remove-source-files --dry-run"
 
 # set the log file
 log="$cwd/rst2myst/rsync-training.log"
