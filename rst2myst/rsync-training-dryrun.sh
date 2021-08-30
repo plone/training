@@ -47,7 +47,7 @@ optsmd="-gioprtvzCO \
     --delete --force --remove-source-files --dry-run"
 
 # set the log file
-log="$cwd/rst2myst/rsync-training.log"
+log="$cwd/rst2myst/rsync-training-dryrun.log"
 
 # set source and destination
 src="$cwd/"
