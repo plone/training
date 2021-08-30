@@ -14,7 +14,6 @@
 /*/conf.py
 /_templates/
 ABOUT
-CHANGES.rst
 LICENSE
 Makefile
 Vagrantfile
@@ -23,6 +22,7 @@ _doc/
 _locales/
 _static/
 badwords.txt
+bin/
 conf.py
 constraints.txt
 deployment/read_yaml.py
@@ -30,6 +30,7 @@ env/
 gatsby/_snippets/
 gulpfile.js
 include/
+lib/
 package.json
 pip-selfcheck.json
 plone_training_config/manifests/

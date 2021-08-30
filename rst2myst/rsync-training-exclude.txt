@@ -12,14 +12,15 @@
 .tx/
 /*/conf.py
 ABOUT
-CHANGES.rst
 LICENSE
 _build/
 _doc/
 _locales/
+bin/
 env/
 gulpfile.js
 include/
+lib/
 package.json
 pip-selfcheck.json
 requirements.txt
