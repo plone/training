@@ -15,12 +15,16 @@ Our goal is to build the following elements of a WSGI framework.
 A Dictionary like Session storage
 +++++++++++++++++++++++++++++++++
 
-Using a Python session like storage we should be able to check membership
-use `in`, e.g.::
+Using a Python session like storage, we should be able to check membership
+using ``in``.
+
+.. code-block:: pycon
 
     >>> 'a72e7a6b4fcf8ae611953' in session_storage
 
-We should also be able to retrieve items as if was a dictionary::
+We should also be able to retrieve items as if it was a dictionary.
+
+.. code-block:: pycon
 
     >>> session_storage['a72e7a6b4fcf8ae611953']
     {'login-date': '2017-11-09 17:13:25'}
@@ -34,11 +38,11 @@ a dictionary of session ID as keys, with values which are another dictionary:
 
 .. code:: python
 
-   sessions = {
+    sessions = {
         "id1": {'data': {'k1': 'v1', 'k2': 'v2', ..., 'kn': 'vn'}},
         "id2": {'data': {'ka1': 'va1', 'ka2': 'va2', ..., 'kan': 'van'}},
-        ...
-       }
+        # ...
+    }
 
 
 Requests read only attributes
@@ -55,7 +59,7 @@ verbose code, here is an example from `web.request.Request` (which is almost
 
     class BaseRequest(object):
 
-         ...
+         # ...
 
          @property
          def host_url(self):
@@ -89,10 +93,12 @@ We can do much better than creating methods and decorating them with
 properties. Instead we craft a special container class which wraps
 the environment and allows us to access keys as if they where attributes.
 
+.. code-block:: pycon
 
-     >>> req = Request(environment)
-     >>> req.request_method  REQUEST_METHOD
-     'GET'
+    >>> req = Request(environment)
+    >>> req.request_method  REQUEST_METHOD
+    'GET'
+
 
 Quick access to properties
 ++++++++++++++++++++++++++
@@ -104,16 +110,17 @@ each asking for this property, we already make 16 lookups. This could be
 improved by calculating such properties and save the result, by using a
 specially crafted decorator:
 
-.. code:: python
+.. code-block:: python
 
    @cached_property
    def host_url(self):
        """
        This will be calucalated only once
        """
-       ...
-       ...
+       # ...
+       # ...
        return url
+
 
 Ability to extend
 +++++++++++++++++
@@ -131,13 +138,12 @@ to obey some certain structure, without throwing a ``RuntimeError`` or an
 ``AttributeError``, which in some cases might be too late.
 
 
-.. code:: python
+.. code-block:: pycon
 
-   >>> class RedisSession(BaseSession):
-   ...     pass
-   ...
-   Traceback (most recent call last):
-     File "<stdin>", line 1, in <module>
-     File "<stdin>", line 7, in __new__
-   ValueError: RedisSession must define a method called __setitem__
-
+    >>> class RedisSession(BaseSession):
+    ...     pass
+    ...
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "<stdin>", line 7, in __new__
+    ValueError: RedisSession must define a method called __setitem__
