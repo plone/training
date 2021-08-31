@@ -3,6 +3,7 @@ Glossary
 ========
 
 .. glossary::
+    :sorted:
 
     AWS
         `Amazon Web Services <https://aws.amazon.com/>`_ offers reliable, scalable, and inexpensive cloud computing services.
