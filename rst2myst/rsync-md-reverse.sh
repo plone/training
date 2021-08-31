@@ -37,14 +37,14 @@ date=`date "+DATE: %Y-%m-%d %H:%M:%S"`
 optsmd="-gioprtvzCO \
     --include-from=$cwd/rst2myst/rsync-training-md-include.txt \
     --exclude-from=$cwd/rst2myst/rsync-training-md-exclude.txt \
-    --delete --force --remove-source-files
+    --delete --force --remove-source-files"
 
 # set the log file
 log="$cwd/rst2myst/rsync-md-reverse.log"
 
 # set source and destination
-src="$cwd/rst2myst/training"
-dest="$cwd/"
+src="$cwd/rst2myst/training/"
+dest="$cwd"
 
 echo "#### $date ####" >> $log
 echo "" >> $log

@@ -43,8 +43,8 @@ optsmd="-gioprtvzCO \
 log="$cwd/rst2myst/rsync-md-reverse-dryrun.log"
 
 # set source and destination
-src="$cwd/rst2myst/training"
-dest="$cwd/"
+src="$cwd/rst2myst/training/"
+dest="$cwd"
 
 echo "#### $date ####" >> $log
 echo "" >> $log

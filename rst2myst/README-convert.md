@@ -205,7 +205,7 @@ workflow/**/*.rst \
 wsgi/**/*.rst
 :::
 
-Move all .md files to root. Use rsync.
+Move all `.md` files to root using `rsync`.
 
 :::bash
 cd rst2myst
