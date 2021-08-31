@@ -154,7 +154,6 @@ cd rst2myst
 If that looks good, then perform an actual rsync.
 
 :::bash
-cd rst2myst
 ./rsync-training.sh
 :::
 
@@ -206,10 +205,17 @@ wsgi/**/*.rst
 :::
 
 Move all `.md` files to root using `rsync`.
+First let's do a dry-run.
 
 :::bash
 cd rst2myst
+./rsync-md-reverse-dryrun.sh
+:::
 
+If that looks good, then perform an actual rsync.
+
+:::bash
+./rsync-md-reverse.sh
 :::
 
 In `conf.py` remove `rst2myst/training/**` from `exclude_patterns`.
@@ -221,3 +227,5 @@ pip uninstall "rst-to-myst[sphinx]"
 :::
 
 Delete the directory `rst2myst`.
+
+Finally commit and push all the changes to GitHub, and create a pull request for review.
