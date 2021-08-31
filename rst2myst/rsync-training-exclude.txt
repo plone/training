@@ -23,5 +23,6 @@ include/
 lib/
 package.json
 pip-selfcheck.json
+pyvenv.cfg
 requirements.txt
 rst2myst/
