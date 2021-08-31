@@ -1,17 +1,17 @@
 #!/bin/sh
 # rsync-training.sh
 #
-# Use this script after running rst-to-myst.
+# Use this script after building and comparing reST and MyST docs.
 #
-# It synchronizes all documentation files from the original training directory
-# to the rsync-training directory where they can be built as a dry-run.
+# It synchronizes all documentation files back to the original training
+# directory from the rsync-training directory.
 #
 # To run this script, change directory to the script, then issue the following
 # command:
 #
-# ./rsync-training-dryrun.sh
+# ./rsync-md-reverse.sh
 #
-# A detailed activity log is appended to ./rsync-training-dryrun.log.
+# A detailed activity log is appended to ./rsync-md-reverse.log.
 #
 # NOTE: To escape spaces in directory names, you need to use double-quotes
 # around the rsync command argument variable.
@@ -33,33 +33,22 @@
 cwd=".."
 date=`date "+DATE: %Y-%m-%d %H:%M:%S"`
 
-# Copy all files needed to build docs except *.md
-opts="-gioprtvzCO \
-    --include-from=$cwd/rst2myst/rsync-training-include.txt \
-    --exclude-from=$cwd/rst2myst/rsync-training-exclude.txt \
-    --delete --force --dry-run"
 # Move *.md only and delete source
 optsmd="-gioprtvzCO \
     --include-from=$cwd/rst2myst/rsync-training-md-include.txt \
     --exclude-from=$cwd/rst2myst/rsync-training-md-exclude.txt \
-    --delete --force --remove-source-files --dry-run"
+    --delete --force --remove-source-files
 
 # set the log file
-log="$cwd/rst2myst/rsync-training-dryrun.log"
+log="$cwd/rst2myst/rsync-md-reverse.log"
 
 # set source and destination
-src="$cwd/"
-dest="$cwd/rst2myst/training"
+src="$cwd/rst2myst/training"
+dest="$cwd/"
 
 echo "#### $date ####" >> $log
 echo "" >> $log
 
-echo "--- Move all files needed to build docs except *.md ---" >> $log
-echo "rsync $opts $src $dest >> $log 2>&1" >> $log
-echo "" >> $log
-rsync $opts $src $dest >> $log 2>&1
-echo "" >> $log
-echo "" >> $log
 echo "--- Move *.md only and delete source ---" >> $log
 echo "rsync $optsmd $src $dest >> $log 2>&1" >> $log
 rsync $optsmd $src $dest >> $log 2>&1

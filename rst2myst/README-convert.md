@@ -165,10 +165,10 @@ If some files do not get rsync-ed over to the nested directory, then delete the 
 Now we can build and compare the docs between the two source directories to make sure that content renders correctly.
 
 :::bash
-# Build the MyST docs
+# Build the MyST docs in /rst2myst/training
 cd training
 make html
-# Build the reST docs
+# Build the reST docs in /
 cd ../..
 make html
 :::
@@ -177,9 +177,39 @@ make html
 
 After you are satisfied with the conversion, let's do some clean up.
 
-:::{todo}
-1. Remove all .rst files in root. `rm -R *.rst`
-2. Move all .md files to root. Use rsync.
+Remove all `.rst` files in root, except for `README.rst` and `CHANGES.rst`.
+
+:::bash
+# From the project root directory
+rm -r index.rst \
+about/**/*.rst \
+advanced-python/**/*.rst \
+angular/**/*.rst \
+deployment/**/*.rst \
+gatsby/**/*.rst \
+javascript/**/*.rst \
+mastering-plone/**/*.rst \
+mastering-plone-5/**/*.rst \
+plone_training_config/**/*.rst \
+react/**/*.rst \
+solr/**/*.rst \
+teachers-training/**/*.rst \
+testing/**/*.rst \
+theming/**/*.rst \
+transmogrifier/**/*.rst \
+ttw/**/*.rst \
+volto/**/*.rst \
+voltoaddons/**/*.rst \
+voltohandson/**/*.rst \
+workflow/**/*.rst \
+wsgi/**/*.rst
+:::
+
+Move all .md files to root. Use rsync.
+
+:::bash
+cd rst2myst
+
 :::
 
 In `conf.py` remove `rst2myst/training/**` from `exclude_patterns`.
