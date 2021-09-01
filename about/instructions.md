@@ -82,3 +82,35 @@ Glossary
   Add your term to `/about/glossary.md`
 
 
+Solutions of Exercises
+: Collapsed Solutions
+
+      ````{admonition} Complete code of the component
+      :class: dropdown
+
+      ```{code-block} jsx
+      :linenos:
+      :emphasize-lines: 2,4
+
+      import React from 'react';
+      import { defineMessages, injectIntl } from 'react-intl';
+      import { v4 as uuid } from 'uuid';
+      import { omit, without } from 'lodash';
+      ```
+      ````
+
+````{admonition} Complete code of the component
+:class: dropdown
+
+```{code-block} jsx
+:linenos:
+:emphasize-lines: 2,4
+
+import React from 'react';
+import { defineMessages, injectIntl } from 'react-intl';
+import { v4 as uuid } from 'uuid';
+import { omit, without } from 'lodash';
+```
+````
+
+
