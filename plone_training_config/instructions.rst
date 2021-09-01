@@ -64,14 +64,14 @@ The following instructions are based on Ubuntu and macOS, if you use a different
 
 On Ubuntu/Debian, you need to make sure you system is up-to-date:
 
-.. code-block:: console
+.. code-block:: shell
 
     sudo apt-get update
     sudo apt-get -y upgrade
 
 Then, you need to install the following packages:
 
-.. code-block:: console
+.. code-block:: shell
 
     sudo apt-get install python3.7-dev python3.7-tk python3.7-venv build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
     sudo apt-get install libreadline-dev wv poppler-utils
@@ -79,7 +79,7 @@ Then, you need to install the following packages:
 
 On MacOS you at least need to install some dependencies with `Homebrew <https://brew.sh/>`_
 
-.. code-block:: console
+.. code-block:: shell
 
     brew install zlib git readline jpeg libpng libyaml
 
@@ -87,7 +87,7 @@ For more information or in case of problems see the `official installation instr
 
 Set up Plone for the training like this if you use your own OS (Linux or macOS):
 
-.. code-block:: console
+.. code-block:: shell
 
     mkdir training
     cd training
@@ -96,32 +96,32 @@ Set up Plone for the training like this if you use your own OS (Linux or macOS):
 
 Until Mastering Plone 6 version is released you need to checkout the branch ``plone6``.
 
-.. code-block:: console
+.. code-block:: shell
 
     git checkout plone6
 
 Then create a virtual environment with Python 3.7 in the folder :file:`backend` and install some requirements into it.
 
-.. code-block:: console
+.. code-block:: shell
 
     python3.7 -m venv .
     ./bin/pip install -r requirements.txt
 
 Now you can run the buildout for the first time:
 
-.. code-block:: console
+.. code-block:: shell
 
     ./bin/buildout
 
 This will take **very long** time and produce a lot of output because it downloads and configures more than 260 Python packages. Once it is done you can start your Plone instance with
 
-.. code-block:: console
+.. code-block:: shell
 
     ./bin/instance fg
 
 The output should be similar to:
 
-.. code-block:: console
+.. code-block:: shell
     :emphasize-lines: 40
 
     me@here:/workspace/training/backend$  ./bin/instance fg
@@ -171,10 +171,10 @@ If the output says ``Serving on http://0.0.0.0:8080`` then you are in business.
 Point your browser at http://localhost:8080 to see a running Plone.
 
 .. figure:: _static/instructions_plone_running.png
-	:scale: 50 %
-	:alt: Plone is running.
+    :scale: 50 %
+    :alt: Plone is running.
 
-	A running plone instance.
+    A running plone instance.
 
 There is no Plone site yet.
 We will create one in the next chapter.
@@ -238,8 +238,8 @@ Create your Volto frontend project.
 
         npm init yo @plone/volto
 
-    | It will take a while to install all dependencies.
-    | `yo` will ask questions. Respond to the first by entering your project name, the next by pressing :kbd:`Enter` and to the other two by now with ``false``.
+    It will take a while to install all dependencies.
+    ``yo`` will ask questions. Respond to the first by entering your project name, the next by pressing :kbd:`Enter` and to the other two by now with ``false``.
 
     The output will look like this:
 
@@ -298,7 +298,7 @@ Install package manager `yarn`.
 
 Get the finished code for the frontend from github and install:
 
-.. code-block:: console
+.. code-block:: shell
 
     git clone https://github.com/collective/volto-ploneconf.git frontend
     cd frontend
@@ -364,7 +364,7 @@ First, create a directory in which you want to do the training.
     If you already have a :file:`training` directory because you followed the **Installing Plone without vagrant** instructions above,
     you should either delete it, rename it, or use a different name below.
 
-.. code-block:: console
+.. code-block:: shell
 
     mkdir training
     cd training
@@ -372,13 +372,13 @@ First, create a directory in which you want to do the training.
 Setup Vagrant to automatically install the current guest additions.
 You can choose to skip this step if you encounter any problems with it.
 
-.. code-block:: console
+.. code-block:: shell
 
     vagrant plugin install vagrant-vbguest
 
 Now download :download:`plone_training_config.zip <../_static/plone_training_config.zip>` and copy its contents into your training directory.
 
-.. code-block:: console
+.. code-block:: shell
 
     wget https://github.com/plone/training/raw/master/_static/plone_training_config.zip
     unzip plone_training_config.zip
@@ -387,7 +387,7 @@ The training directory should now hold the file :file:`Vagrantfile` and the dire
 
 Now start setting up the virtual machine (VM) that is configured in :file:`Vagrantfile`:
 
-.. code-block:: console
+.. code-block:: shell
 
     vagrant up
 
@@ -404,7 +404,7 @@ This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on y
 
     Sometimes this stops with the message:
 
-    .. code-block:: console
+    .. code-block:: shell
 
         Skipping because of failed dependencies
 
@@ -413,7 +413,7 @@ you need to run the following command to repeat the process.
 
 This will only repeat steps that have not finished correctly.
 
-.. code-block:: console
+.. code-block:: shell
 
    vagrant provision
 
@@ -423,7 +423,7 @@ You can do this multiple times to fix problems, e.g. if your network connection 
 
     If while bringing vagrant up you get an error similar to:
 
-    .. code-block:: console
+    .. code-block:: shell
 
         ssh_exchange_identification: read: Connection reset by peer
 
@@ -434,7 +434,7 @@ See: https://teamtreehouse.com/community/vagrant-ssh-sshexchangeidentification-r
 
 Once Vagrant finishes the provisioning process, you can login to the now running virtual machine.
 
-.. code-block:: console
+.. code-block:: shell
 
     vagrant ssh
 
@@ -450,7 +450,7 @@ We'll do all steps of the training as this user.
 Instead we use our own Plone instance during the training.
 It is in :file:`/vagrant/buildout/`. Start it in foreground with :command:`./bin/instance fg`.
 
-.. code-block:: console
+.. code-block:: shell
 
     vagrant@training:~$ cd /vagrant/buildout/
     vagrant@training:/vagrant/buildout$ ./bin/instance fg

@@ -40,6 +40,3 @@ Angular SDK for Plone
     :maxdepth: 3
     :caption: Plone Trainings
     :name: plone-trainings-angular-toc
-
-    ../about/index
-    ../about/glossary

@@ -43,6 +43,3 @@ GatsbyJS
     :maxdepth: 3
     :caption: Plone Trainings
     :name: plone-trainings-gatsby-toc
-
-    ../about/index
-    ../about/glossary

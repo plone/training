@@ -56,10 +56,6 @@ the ``portal_workflow`` screen in the ZMI when you change your workflows’ secu
    :caption: Plone Trainings
    :name: plone-trainings-workflow-toc
 
-   about/index
-   about/glossary
-
-
 TODO:
 
 - Add a use case story thread that runs through each of the sections to illustrate how each concept works

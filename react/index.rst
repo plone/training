@@ -38,5 +38,4 @@ The React training is intended as a single day training for people who are new t
     links
     redirects
 
-    about/index
-    about/glossary
+This training was created by Rob Gietema and Roel Bruggink.

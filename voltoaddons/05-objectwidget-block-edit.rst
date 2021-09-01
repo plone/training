@@ -23,13 +23,13 @@ Add the volto-object-widget add-on in the project's package.json:
 
 .. code-block:: json
 
-  {
+    {
       "addons": [
         "@eeacms/volto-blocks-form",
         "@eeacms/volto-object-widget",
         "@plone-collective/datatable-tutorial"
       ]
-  }
+    }
 
 The order in which we load the add-ons can sometimes be relevant. Ideally the
 configuration options are used only at "runtime", on demand, but there are
@@ -190,7 +190,7 @@ Then within ``src/DataTable/DataTableEdit.js`` add bellow the ``DataTableEdit`` 
 
 Let's go back to the view component and use the column definitions from the
 block data.
-Within ``src/DataTable/DataTableView.js`` replace the existing ``DataTableView``code block with:
+Within ``src/DataTable/DataTableView.js`` replace the existing ``DataTableView`` code block with:
 
 .. code-block:: jsx
     :force:

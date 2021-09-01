@@ -41,8 +41,6 @@ This is a life saver when you need to migrate content from one site to another, 
    :caption: Plone Trainings
    :name: plone-trainings-transmogrifer-toc
 
-   about/glossary
-
 .. seealso::
 
    - https://docs.plone.org/external/collective.transmogrifier/docs/source/index.html
