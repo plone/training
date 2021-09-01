@@ -18,10 +18,11 @@ Using Volto add-ons
 Volto Add-ons
 -------------
 
-| A selection of add-ons can be found on:
-| Github: https://github.com/collective/awesome-volto#addons
-| npm: https://www.npmjs.com/search?q=keywords:volto-addon
-| Add-ons enrich a Volto app with spezialized blocks, themes, integration of Node packages and more.
+Add-ons enrich a Volto app with specialized blocks, themes, integration of Node packages, and more.
+A selection of add-ons can be found on:
+
+-   Github: https://github.com/collective/awesome-volto#addons
+-   npm: https://www.npmjs.com/search?q=keywords:volto-addon
 
 One typical add-on is about adding a new block to present content in columns: `@eeacms/volto-columns-block <https://github.com/eea/volto-columns-block>`_
 

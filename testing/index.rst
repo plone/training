@@ -37,6 +37,3 @@ Testing Plone
     :maxdepth: 3
     :caption: Plone Trainings
     :name: plone-trainings-testing-toc
-
-    ../about/index
-    ../about/glossary

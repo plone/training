@@ -150,12 +150,12 @@ Variables and References
 
         [instance]
         recipe = plone.recipe.zope2instance
-        …
+        # …
         file-storage = ${buildout:buildout_dir}/var/filestorage/Data.fs
         blob-storage = ${buildout:buildout_dir}/var/blobstorage
 
-    | :samp:`${{buildout:buildout_dir}}`:
-    | :samp:`buildout` is the section whose variable :samp:`buildout_dir` is overwritten in section instance.
+    :code:`${{buildout:buildout_dir}}`:
+    :code:`buildout` is the section whose variable :code:`buildout_dir` is overwritten in section instance.
 
 
 .. _buildout1-examples-label:

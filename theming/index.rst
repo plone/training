@@ -47,9 +47,6 @@ This training is **not** about:
    :caption: Plone Trainings
    :name: plone-trainings-theming-toc
 
-   about/index
-   about/glossary
-
 .. seealso::
 
    - :ref:`ttw-label`

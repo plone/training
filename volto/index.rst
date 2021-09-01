@@ -29,5 +29,4 @@ but have knowledge of React, Redux and React Router.
     richtext
     actions-reducers
 
-    about/index
-    about/glossary
+This training was created by Rob Gietema and Roel Bruggink.

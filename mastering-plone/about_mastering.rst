@@ -10,10 +10,14 @@ The beginning and the continuation
 
 This training was initially started as a Plone Classic training and evolved now to a roundtrip on both: Plone Classic HOWTOs, same for the ReactJS frontend and the interplay between backend and frontend.
 
-| This training is published on `training.plone.org <https://training.plone.org/>`_.
-| The *Mastering Plone Development Training* is Open Source on `GitHub <https://github.com/plone/training>`_. We update the training currently to teach the best practices. You are welcome to contribute and give feedback on `GitHub issues <https://github.com/plone/training/issues>`_.
+This training is published on `training.plone.org <https://training.plone.org/>`_.
 
-Thank you for reading and your charity with non native speakers / writers. 
+The *Mastering Plone Development Training* is Open Source on `GitHub <https://github.com/plone/training>`_.
+
+We update the training currently to teach the best practices.
+You are welcome to contribute and give feedback on `GitHub issues <https://github.com/plone/training/issues>`_.
+
+Thank you for reading and your charity with non-native English speakers / writers.
 
 
 .. _about-upcoming-label:

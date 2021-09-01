@@ -33,16 +33,7 @@ Automating Plone Deployment
     :maxdepth: 3
     :caption: OpsWorks
 
-    opsworks/index
-
-..  toctree::
-    :hidden:
-    :maxdepth: 3
-    :caption: Plone Trainings
-    :name: plone-trainings-deployment-toc
-
-    about/index
-    about/glossary
+    opsworks/*
 
 .. seealso::
 
