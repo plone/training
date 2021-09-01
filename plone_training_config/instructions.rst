@@ -243,7 +243,7 @@ Create your Volto frontend project.
 
     The output will look like this:
 
-    .. code-block:: bash
+    .. code-block:: console
 
         me@here training % npm init yo @plone/volto
         npx: installed 14 in 3.392s
@@ -257,7 +257,6 @@ Create your Volto frontend project.
            create frontend/package.json
            create frontend/yarn.lock
            create frontend/.eslintrc.js
-           ...
 
 #.  Start up the project **frontend** with
 

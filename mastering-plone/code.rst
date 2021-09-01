@@ -72,7 +72,6 @@ Chapter                           Tag-Name
 :doc:`case`
 :doc:`features`
 :doc:`anatomy`
-:doc:`plone5`
 :doc:`configuring_customizing`
 :doc:`theming`
 :doc:`extending`
@@ -80,22 +79,18 @@ Chapter                           Tag-Name
 :doc:`dexterity`
 :doc:`buildout_1`                 ``buildout_1``
 :doc:`eggs1`                      ``eggs1``
-:doc:`export_code`                ``export_code``
 :doc:`views_1`                    ``views_1``
 :doc:`zpt`                        ``zpt``
 :doc:`zpt_2`                      ``zpt_2``
 :doc:`views_2`                    ``views_2``
 :doc:`views_3`                    ``views_3``
-:doc:`testing`                    ``testing``
 :doc:`behaviors_1`                ``behaviors_1``
 :doc:`viewlets_1`                 ``viewlets_1``
 :doc:`api`
 :doc:`ide`
-:doc:`dexterity_2`                ``dexterity_2``
 :doc:`custom_search`
 :doc:`events`                     ``events``
 :doc:`user_generated_content`     ``user_generated_content``
-:doc:`resources`                  ``resources``
 :doc:`thirdparty_behaviors`       ``thirdparty_behaviors``
 :doc:`dexterity_3`                ``dexterity_3``
 :doc:`relations`                  ``relations``

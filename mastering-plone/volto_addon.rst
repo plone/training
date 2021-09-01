@@ -33,7 +33,7 @@ Here is how you would install a Volto add-on:
 
 Update ``package.json``:
 
-..  code-block:: bash
+..  code-block:: json
 
     "addons": [
       "@eeacms/volto-columns-block"
@@ -44,11 +44,11 @@ Update ``package.json``:
       "@eeacms/volto-columns-block": "github:eea/volto-columns-block#x.y.z"
     },
 
-Add-ons that are already released on npm https://www.npmjs.com:
+Add-ons that are already released on `npm <https://www.npmjs.com>`_:
 
-..  code-block:: bash
+..  code-block:: json
     :linenos:
-    :emphasize-lines: 8-9
+    :emphasize-lines: 2,6-7
 
     "addons": [
       "@eeacms/volto-columns-block"

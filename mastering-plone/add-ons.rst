@@ -1,7 +1,7 @@
 .. _add-ons-label:
 
 Extending Plone With Add-on Packages
-======================================
+====================================
 
 .. sidebar:: Classic chapter
 
@@ -58,9 +58,6 @@ Some notable Plone add-ons for a classic Plone setup without Volto frontend
 
       Editing a form field through the web.
 
-
-`plone.app.mosaic <https://github.com/plone/plone.app.mosaic>`_
-  Layout solution to easily create complex layouts through the web.
 
 `collective.geo <https://collectivegeo.readthedocs.io/en/latest/>`_
   Flexible bundle of add-ons to geo-reference content and display in maps

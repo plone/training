@@ -33,7 +33,19 @@ Automating Plone Deployment
     :maxdepth: 3
     :caption: OpsWorks
 
-    opsworks/*
+    opsworks/index
+    opsworks/intro
+    opsworks/terms
+    opsworks/installation
+    opsworks/running
+    opsworks/maintenance
+    opsworks/loose-ends
+
+..  toctree::
+    :hidden:
+    :maxdepth: 3
+
+    letsencrypt-certbot
 
 .. seealso::
 

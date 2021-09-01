@@ -22,11 +22,9 @@ Deploying and Operating Plone on WSGI
     setup
     pep-3333
     prz-introduction
-    (wsgi-app-outline.rst)
     prz-differences-to-zserver-setup
     prz-wsgi-ini-contents
     prz-zope-conf-contents
-    (wsgi-server-outline.rst)
     prz-recipe-options
     bjoern
     gunicorn
@@ -34,3 +32,4 @@ Deploying and Operating Plone on WSGI
     debugging
     addons
     miscellaneous
+    buildout
