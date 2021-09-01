@@ -4,7 +4,9 @@ html_meta:
   "keywords": "Sphinx, MyST, markdown"
 ---
 
-# Instructions for contributors: markdown
+# Instructions for Authors
+
+We use [MyST, or Markedly Structured Text](https://myst-parser.readthedocs.io/en/latest/) as the syntax for authoring training documentation.
 
 meta data
 :     ---
@@ -75,6 +77,8 @@ Glossary
   
   For example, ``{term}`ReactJS` `` becomes a reference to term {term}`ReactJS`.
 
-: add glossary term
+: Add glossary term
 
-  Add your term to TODO /about/glossary
+  Add your term to `/about/glossary.md`
+
+
