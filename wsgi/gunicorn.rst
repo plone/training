@@ -10,7 +10,7 @@ Gunicorn offers a wide range of possible worker models.
 The default is the ``sync`` worker model which uses "traditional" multi-threading based on the standard library.
 Unlike waitress Gunicorn doesn't use an ``asyncore`` dispatcher to clear the request queue.
 Each worker is using `select <https://github.com/benoitc/gunicorn/blob/e147feaf8b12267ff9bb3c06ad45a2738a4027df/gunicorn/workers/sync.py#L34>`_ by itself to check for incoming client requests.
-The official `Gunicorn documentation <http://docs.gunicorn.org/en/latest/design.html#choosing-a-worker-type>`_ recommends to put a buffering proxy in front of a default configuration Gunicorn.
+The official `Gunicorn documentation for worker types <http://docs.gunicorn.org/en/latest/design.html#choosing-a-worker-type>`_ recommends to put a buffering proxy in front of a default configuration Gunicorn.
 
 Other possible worker types are asynchronous workers based on `greenlets <https://greenlet.readthedocs.io/en/latest/>`_, `AsyncIO <https://docs.python.org/3/library/asyncio.html#module-asyncio>`_ workers and a `Tornado <https://www.tornadoweb.org/en/stable/>`_ worker class.
 The different worker types and how to choose one suitable for your application is covered in detail in the `Gunicorn docs <http://docs.gunicorn.org/en/latest/design.html>`_.
@@ -28,7 +28,7 @@ Use gunicorn in our buildout
 
 Gunicorn has a built-in PasteDeploy entry point, so we don't need a shim package like the one we used for ``bjoern``.
 On the downside, there is no easy way of passing ``plone.recipe.zope2instances http-address`` parameter to gunicorn since the ``bind`` directive doesn't seem to work in the ``ini`` file.
-The PasteDeploy entry point is covered in the `gunicorn documentation <http://docs.gunicorn.org/en/stable/configure.html>`_.
+The PasteDeploy entry point is covered in the `gunicorn configuration documentation <http://docs.gunicorn.org/en/stable/configure.html>`_.
 
 We resolve to hard code the socket in the ``ini`` template.
 

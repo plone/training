@@ -23,7 +23,7 @@ The full :file:`Faq` component will now look like this:
 
 .. code-block:: jsx
     :linenos: 
-    :emphasize-lines: 6,16-17,31-33,97
+    :emphasize-lines: 6,16-17,31-33,95
 
     import React, { Component } from "react";
     import { connect } from "react-redux";

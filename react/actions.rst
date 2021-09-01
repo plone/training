@@ -13,7 +13,7 @@ it is almost a 100% copy of :file:`App.js`:
 
 .. code-block:: jsx
     :linenos:
-    :emphasize-lines: 4,115
+    :emphasize-lines: 4,110
 
     import React, { Component } from "react";
     import FaqItem from "./FaqItem";
@@ -545,7 +545,7 @@ update the :file:`FaqItem` component to call the actions we created for our stor
 
     .. code-block:: jsx
         :linenos: 
-        :emphasize-lines: 3,5,14-15,41,68-72,112-115
+        :emphasize-lines: 3,5,14-15,41,68-72,106-109
 
         import React, { Component } from "react";
         import PropTypes from "prop-types";

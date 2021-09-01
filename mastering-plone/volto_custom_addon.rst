@@ -43,9 +43,9 @@ Create a sandbox project
 
 You see a dialog like this
 
-.. code-block:: bash
+.. code-block:: console
     :linenos:
-    :emphasize-lines: 7,10
+    :emphasize-lines: 6,9
 
     yo @plone/volto sandbox-volto-custom-addon
     Getting latest Volto version
@@ -171,9 +171,8 @@ Install and start
 Footnotes
 ----------------
 
-.. [1] `yarn workspaces <https://classic.yarnpkg.com/en/docs/workspaces/>`_
+`yarn workspaces <https://classic.yarnpkg.com/en/docs/workspaces/>`_
     Workspaces are a new way to set up your package architecture. It allows you to setup multiple packages in such a way that you only need to run yarn install once to install all of them in a single pass.
 
-.. [2] `mrs.developer <https://www.npmjs.com/package/mrs-developer>`_ Pull a package from git and set it up as a dependency for the current project codebase.
-
-
+`mrs.developer <https://www.npmjs.com/package/mrs-developer>`_
+    Pull a package from git and set it up as a dependency for the current project codebase.

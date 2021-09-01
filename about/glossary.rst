@@ -23,6 +23,9 @@ Glossary
     Barceloneta
         The default theme for Plone 5.
 
+    CMS
+        Content Management System
+
     CSS
         Cascading Style Sheets (CSS) is a stylesheet language used for describing the (most of the times visual) representation of web pages.
 
@@ -36,6 +39,7 @@ Glossary
     NPM
         npm is a package manager for the JavaScript programming language.
         It is the default package manager for the JavaScript runtime environment Node.js.
+        Also a registry of Javascript packages, similar to PyPI.
 
     TTW
         Through-The-Web, changes in the browser/
@@ -197,10 +201,6 @@ Glossary
 
     Yarn
         a popular Javascript package manager similar to NPM.
-
-    NPM
-        the original NodeJS Package Manager. Also a registry of Javascript
-        packages, similar to PyPI.
 
     Hydration (SSR)
         After loading an HTML page generated with SSR in the browser, React can

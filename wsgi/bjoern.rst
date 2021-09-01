@@ -6,7 +6,7 @@ It claims to be the fastest, smallest and most lightweight WSGI server.
 
 .. note::
 
-    In a `load test <https://zope.readthedocs.io/en/latest/wsgi.html#test-criteria-for-recommendations>`_ involving ``bjoern``, ``cheroot``, ``gunicorn``, ``waitress`` and  ``werkzeug`` ``bjoern`` (version: 3.0.0) was the clear speed winner against both a ZEO and a non-ZEO Zope instance.
+    In a `load test <https://zope.readthedocs.io/en/latest/wsgi.html#test-criteria-for-recommendations>`_ involving ``bjoern``, ``cheroot``, ``gunicorn``, ``waitress`` and  ``werkzeug``, ``bjoern`` (version: 3.0.0) was the clear speed winner against both a ZEO and a non-ZEO Zope instance.
 
 Prerequisites
 -------------
@@ -61,18 +61,16 @@ It is basically a copy from the template contained in the buildout recipe with a
     use = egg:dataflake.wsgi.bjoern#main
     listen = %(http_address)s
     reuse_port = True
-    ...
 
 .. note::
 
-    Let's run some checks in order to verify that `bin/instance` actually invokes bjoern:
+    Let's run some checks in order to verify that ``bin/instance`` actually invokes bjoern:
     Let's first find the processes' PID:
 
     .. code-block:: console
 
         $ ps -ef | grep wsgi.ini
         thomas   20009 20006  0 10:26 pts/1    00:00:22 /home/thomas/devel/plone/minimal52/bin/python /home/thomas/devel/plone/minimal52/parts/instance/bin/interpreter /home/thomas/.buildout/eggs/cp37m/Zope-4.1.1-py3.7.egg/Zope2/Startup/serve.py /home/thomas/devel/plone/minimal52/parts/instance/etc/wsgi.ini -d debug-mode=on
-        ...
 
     Using the above PID  we can check the process map to see whether bjoern's C extension has been loaded:
 
@@ -88,7 +86,7 @@ It is basically a copy from the template contained in the buildout recipe with a
 Exercise 1
 ++++++++++
 
-Additional PasteDeploy entrypoints are available for the `werkzeug <https://pypi.org/project/dataflake.wsgi.werkzeug>`_ and `cheroot <https://pypi.org/project/dataflake.wsgi.cheroot>`_ WSGI servers.
+Additional PasteDeploy entrypoints are available for the `werkzeug entrypoints <https://pypi.org/project/dataflake.wsgi.werkzeug>`_ and `cheroot entrypoints <https://pypi.org/project/dataflake.wsgi.cheroot>`_ WSGI servers.
 Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p/werkzeug/>`_ or `cheroot <https://cheroot.cherrypy.org>`_.
 
 ..  admonition:: Solution
@@ -108,9 +106,8 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
     ``cheroot.cfg``:
 
     .. code-block:: ini
-        :emphasize-lines: 12-13
+        :emphasize-lines: 11-12
 
-        ...
         [instance]
         recipe = plone.recipe.zope2instance
         user = admin:admin
@@ -135,7 +132,6 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
         port = 8080
 
         [app:zope]
-        ...
 
     Note that the ``dataflake.wsgi.cheroot`` shim doesn't understand either ``reuse_port`` nor ``listen``.
     This means we cannot use the ``http-address`` parameter passed by ``plone.recipe.zope2instance``.
@@ -153,7 +149,6 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
     .. code-block:: bash
 
         (wsgitraining) $ bin/instance fg
-        ...
         2019-10-07 12:43:08,856 INFO    [Zope:45][MainThread] Ready to handle requests
         Starting server in PID 3906.
 
@@ -171,9 +166,8 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
     ``werkzeug.cfg``:
 
     .. code-block:: ini
-        :emphasize-lines: 12-13
+        :emphasize-lines: 11-12
 
-        ...
         [instance]
         recipe = plone.recipe.zope2instance
         user = admin:admin
@@ -198,14 +192,12 @@ Pick one and use it to run Plone behind `werkzeug <https://palletsprojects.com/p
         port = 8080
 
         [app:zope]
-        ...
 
     After running ``buildout -c werkzeug.cfg`` you can start your Plone instance:
 
     .. code-block:: bash
 
         (wsgitraining) $ bin/instance fg
-        ...
         2019-10-07 12:58:54,660 INFO    [Zope:45][MainThread] Ready to handle requests
         Starting server in PID 4337.
         2019-10-07 12:58:54,661 INFO    [werkzeug:122][MainThread]  * Running on http://localhost:8080/ (Press CTRL+C to quit)
