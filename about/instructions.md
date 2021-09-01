@@ -14,9 +14,9 @@ meta data
       ---
 
 cross reference chapter
-:     Let's start with our fresh add-on we created in the last chapter {doc}`volto_custom_addon`.
+:     We created an add-on in the last chapter {doc}`volto_custom_addon`.
 
-cross reference anchor
+cross reference anchor  
 : create anchor
   ```
   (volto-custom-addon-final-label)=
@@ -74,3 +74,7 @@ Glossary
   To reference terms in your glossary, use the {term} role.
   
   For example, ``{term}`ReactJS` `` becomes a reference to term {term}`ReactJS`.
+
+: add glossary term
+
+  Add your term to TODO /about/glossary
