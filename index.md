@@ -38,14 +38,7 @@ about/index
 about/glossary
 about/instructions
 about/setup_author
-```
-
-% The following items are hidden in this toctree to prevent Sphinx warnings.
-
-```{toctree}
-:hidden:
-
-teachers-training/index
+about/teachers-training/index
 ```
 
 
@@ -124,6 +117,14 @@ teachers-training/index
 {doc}`advanced-python/index`
 : How to build your own webframework from scracth
 
-{doc}`teachers-training/index`
-: How To Give Technical Trainings
 
+## Authors and Trainers
+
+{doc}`about/instructions`
+: Markdown Language Guide for Authors
+
+{doc}`about/setup_author`
+: Setup documentation locally
+
+{doc}`about/teachers-training/index`
+: How To Give Technical Trainings
