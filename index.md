@@ -37,6 +37,7 @@ wsgi/index
 about/index
 about/glossary
 about/instructions
+about/setup_author
 ```
 
 % The following items are hidden in this toctree to prevent Sphinx warnings.
