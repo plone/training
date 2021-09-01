@@ -18,8 +18,8 @@ import os
 
 # -- Project information -----------------------------------------------------
 
-project = u"Plone Training"
-copyright = u"""The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license."""
+project = "Plone Training"
+copyright = "The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license."
 author = 'Plone Community'
 trademark_name = "Plone"
 
