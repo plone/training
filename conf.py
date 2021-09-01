@@ -17,8 +17,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Plone training'
-copyright = '2021, Plone Community'
+project = 'Plone Training'
+copyright = 'The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license'
 author = 'Plone Community'
 
 
