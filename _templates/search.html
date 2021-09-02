@@ -37,7 +37,8 @@
   {% endblock %}
   {% block searchbox %}
   <form action="" method="get" id="search-form">
-    <input type="text" name="q" aria-labelledby="search-documentation" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+    <label for="q" class="visuallyhidden">Search string</label>
+    <input type="text" name="q" id="q" aria-labelledby="search-documentation" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
 
     <label for="training" class="visuallyhidden">Filter by training</label>
     <select name="training" id="training">   
