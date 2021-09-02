@@ -23,6 +23,11 @@ a:hover{
   color: #176aa1;
   text-decoration: underline;
 }
+
+ul {
+  list-style-type: square
+}
+
 figure img {
   box-shadow: 0 6px 24px 0 rgba(153,153,153,0.3);
 }
@@ -36,14 +41,17 @@ div.section {
   margin-bottom: 6rem;
 }
 
-
 .admonition {
   border-radius: 0;
-  box-shadow: none;
+  /* box-shadow: none;
+  background-color: #f8f8f8; */
   border: none;
+  border-left: .2rem solid;
+  border-left-color:rgba(var(--pst-color-admonition-default),1);
 }
-
-
+.admonition .admonition-title {
+  margin-bottom: 1.5rem !important;
+}
 
 /* sidebar and sidebar margin : aside / div */
 div.sidebar,
