@@ -126,3 +126,10 @@ ul.search .title_training {
 ul.search .title_training::before {
   content: ' – ';
 }
+
+
+/* Glossary */
+
+main.bd-content #main-content dl.simple dd:not(:last-child) {
+  margin-bottom: 30px;
+}
