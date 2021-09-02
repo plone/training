@@ -142,7 +142,7 @@ After running buildout and starting your instance with ``bin/uwsgi-instance`` yo
 
 Press ``Ctrl+D`` to continue the instance startup:
 
-.. code-block:: bash
+.. code-block:: console
 
     >>>
     now exiting InteractiveConsole...

@@ -94,3 +94,15 @@ We attempt to include the most important parts of what we teach in the training.
 
     code
     timing
+    events_classic
+    frontpage
+    mastering_plone_6
+    theming
+    viewlets_1
+    viewlets_2
+    viewlets_advanced_classic
+    views_1
+    views_2
+    views_3
+    zpt
+    zpt_2

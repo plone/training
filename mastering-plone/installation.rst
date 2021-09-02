@@ -1,25 +1,21 @@
 .. _installation-label:
 
-Installation & Setup of **Plone 6**
-===================================
+Installation & Setup of Plone 6
+===============================
 
-**Wording**
+Plone is the combination of a backend (data storage) with a frontend (user interface) into a fully featured CMS.
 
-A **Plone 6** installation is a combo of a Plone backend [1]_ with a Plone frontend [2]_.
-All together we call it Plone.
+**Plone 6** is an installation of Plone.
+By default it uses Volto for the frontend, based on ReactJS, on top of the ``plone.restapi`` to interact with the backend.
+This combines the stability, maturity, and security of the Plone backend with a modern, mature, user-friendly, and well maintained frontend.
 
-.. [1] backend: your data is stored here.
-.. [2] frontend: that's what your editors see and use.
+**Plone Classic** is another installation of Plone.
+It uses Barceloneta, a customized version of Twitter Bootstrap, for the frontend.
+It will stay in place as a frontend option, giving developers and users time to adapt to Volto.
 
-| Whereas **Plone Classic** is still a valuable installation of Plone.
-| *Plone Classic* is a valuable installation of a full featured CMS as it is since decades and still will be.
-| *Plone Classic* means: A Plone installation for a Website. No ReactJS stuff, just Plone, just Python. Everything in one installation, backend and frontend.
+See the `Plone road map <https://plone.org/roadmap>`_ for details.
 
-
-**And now the sparkling Plone:**
-
-| This training is about Plone.
-| This training is about Plone 6.
+This training is about Plone 6.
 
 
 .. _installation-plone-label:
@@ -98,9 +94,9 @@ Follow the instructions. Select option 'standalone' for your first Plone install
 Installing Plone frontend
 -------------------------
 
-| For a Plone 6 installation by now two installations are needed: Plone backend and Volto frontend. The former section is describing the options for a Plone backend installation.
-| This section is about setting up a Volto project.
-
+For a Plone 6 installation by now two installations are needed: Plone backend and Volto frontend.
+The former section is describing the options for a Plone backend installation.
+This section is about setting up a Volto project.
 
 Install pre-requisites:
 
@@ -134,8 +130,9 @@ Create your Volto project:
 
         npm init yo @plone/volto
 
-    | It will take a while to install all dependencies.
-    | `yo` will ask questions. Respond to the first by entering your project name, the next by pressing :kbd:`Enter` and to the other two by now with ``false``.
+    It will take a while to install all dependencies.
+    ``yo`` will ask a series of questions.
+    Respond to the first by entering your project name, the next by pressing :kbd:`Enter`, and to the remaining two with ``false``.
 
     The output will look like this:
 

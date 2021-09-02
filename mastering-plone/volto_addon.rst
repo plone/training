@@ -18,10 +18,11 @@ Using Volto add-ons
 Volto Add-ons
 -------------
 
-| A selection of add-ons can be found on:
-| Github: https://github.com/collective/awesome-volto#addons
-| npm: https://www.npmjs.com/search?q=keywords:volto-addon
-| Add-ons enrich a Volto app with spezialized blocks, themes, integration of Node packages and more.
+Add-ons enrich a Volto app with specialized blocks, themes, integration of Node packages, and more.
+A selection of add-ons can be found on:
+
+-   Github: https://github.com/collective/awesome-volto#addons
+-   npm: https://www.npmjs.com/search?q=keywords:volto-addon
 
 One typical add-on is about adding a new block to present content in columns: `@eeacms/volto-columns-block <https://github.com/eea/volto-columns-block>`_
 
@@ -32,7 +33,7 @@ Here is how you would install a Volto add-on:
 
 Update ``package.json``:
 
-..  code-block:: bash
+..  code-block:: json
 
     "addons": [
       "@eeacms/volto-columns-block"
@@ -43,11 +44,11 @@ Update ``package.json``:
       "@eeacms/volto-columns-block": "github:eea/volto-columns-block#x.y.z"
     },
 
-Add-ons that are already released on npm https://www.npmjs.com:
+Add-ons that are already released on `npm <https://www.npmjs.com>`_:
 
-..  code-block:: bash
+..  code-block:: json
     :linenos:
-    :emphasize-lines: 8-9
+    :emphasize-lines: 2,6-7
 
     "addons": [
       "@eeacms/volto-columns-block"

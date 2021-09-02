@@ -171,7 +171,7 @@ Modify the class :py:class:`TalkListView` and the template :file:`browser/templa
 
 .. note::
 
-    If you changed the view :py:class:`TalkListView` to only return brains as described in :ref:`dexterity2-use_indexes-label` you can save youself a lot of work and simply use the existing index `start` (generously provided by :py:mod:`plone.app.event`) in the template as ``python:brain.start``.
+    If you changed the view :py:class:`TalkListView` to only return brains as described in :ref:`plone5_dexterity2-use_indexes-label` you can save yourself a lot of work and simply use the existing index `start` (generously provided by :py:mod:`plone.app.event`) in the template as ``python:brain.start``.
 
 
 Exercise 1

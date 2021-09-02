@@ -30,6 +30,3 @@ It powers the search of sites like Twitter, the Apple and iTunes Stores, Wikiped
    :caption: Plone Trainings
     :name: plone-trainings-solr-toc
    :hidden:
-
-   about/index
-   about/glossary

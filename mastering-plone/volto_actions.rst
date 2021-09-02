@@ -5,35 +5,38 @@ Volto Actions and Component State
 
 .. sidebar:: Volto chapter
 
-  .. figure:: _static/volto.svg
-     :alt: Volto Logo
+    .. figure:: _static/volto.svg
+        :alt: Volto Logo
 
-  This chapter is about the React frontend Volto.
+    This chapter is about the React frontend Volto.
 
-  Solve the same tasks in Plone Classic in chapter :doc:`viewlets_2`
+    Solve the same tasks in Plone Classic in chapter :doc:`viewlets_2`
 
 .. sidebar:: Get the code! (:doc:`More info <code>`)
 
-   Code for the beginning of this chapter::
+    Code for the beginning of this chapter:
+
+    .. code-block:: shell
 
         git checkout testing
 
-   Code for the end of this chapter::
+    Code for the end of this chapter:
+
+    .. code-block:: shell
 
         git checkout REST-API-frontend-roundtrip
 
 .. _volto-actions-overview-label:
 
-
-The Conference team placed a call for proposals. Now the team wants to select talks. To support this process we add a section to talk view from chapter :doc:`volto_talkview` where team members can vote for the talk.
-
+The Conference team placed a call for proposals.
+Now the team wants to select talks.
+To support this process we add a section to talk view from chapter :doc:`volto_talkview` where team members can vote for the talk.
 
 Topics covered:
 
 * actions: fetch data from backend and write data to backend
 * component state: user interaction: call back to user before dispatching an action
 * theming with Semantic-UI
-
 
 .. figure:: _static/volto_voting1.png
     :scale: 50%
@@ -47,7 +50,6 @@ Topics covered:
 
     Voting component, user has already voted
 
-| 
 
 Fetching data from backend and displaying
 -----------------------------------------
@@ -107,10 +109,11 @@ We start with a component *Voting* to display votes.
     };
     export default Voting;
 
-On mount of the component the action `getVotes` is dispatched to fetch the data by `dispatch(getVotes(location.pathname));`.
-The action fetches the data. The corresponding reducer writes the data in global app store.
-The component `Voting` as other components can now access the data from the app store by `const votes = useSelector((store) => store.votes);`.
-The constant `votes` holds the necessary data for the current talk and user in a dictionary like
+On mount of the component the action ``getVotes`` is dispatched to fetch the data by ``dispatch(getVotes(location.pathname));``.
+The action fetches the data.
+The corresponding reducer writes the data in global app store.
+The component ``Voting`` as other components can now access the data from the app store by ``const votes = useSelector((store) => store.votes);``.
+The constant ``votes`` holds the necessary data for the current talk and user in a dictionary like
 
 .. code-block:: json
     :linenos:
@@ -129,11 +132,11 @@ The constant `votes` holds the necessary data for the current talk and user in a
 
 See the condition of the rendering function.
 We receive all needed info for displaying from the one request of data including the info about the permission of the current user to vote.
-Why do we need only one request? We designed the endpoint `votes` to provide all necessary information.
+Why do we need only one request? We designed the endpoint ``votes`` to provide all necessary information.
 
-Before we include the component *Voting* in talk view from chapter :doc:`volto_talkview`, some words about actions and reducers. The action `getVotes` fetches the data. The corresponding reducer writes the data in global app store.
+Before we include the component *Voting* in talk view from chapter :doc:`volto_talkview`, some words about actions and reducers. The action ``getVotes`` fetches the data. The corresponding reducer writes the data in global app store.
 
-The action `getVotes` is defined by the request method `get`, the address of the endpoint `votes` an and an identifier for the corresponding reducer to react.
+The action ``getVotes`` is defined by the request method ``get``, the address of the endpoint ``votes`` an and an identifier for the corresponding reducer to react.
 
 .. code-block:: jsx
     :linenos:
@@ -190,7 +193,7 @@ The reducer writes the data fetched by its action to app store.
         }
     }
 
-With a successfull action `getVotes`, the app store has an entry 
+With a successfull action ``getVotes``, the app store has an entry
 
 .. code-block:: json
     :linenos:
@@ -207,11 +210,10 @@ With a successfull action `getVotes`, the app store has an entry
         total_votes: 2
     }
 
-| This data written by the reducer is the response of the request to <backend>/api/@votes :
-| http://greenthumb.ch/api/@votes if your backend is available at http://greenthumb.ch
-| It is the data that adapter `Vote` from starzel.votable_behavior behavior/voting.py provides and exposes via REST API endpoint @votes.
+This data written by the reducer is the response of the request to <backend>/api/@votes: http://greenthumb.ch/api/@votes, if your backend is available at http://greenthumb.ch.
+It is the data that the adapter ``Vote`` from ``starzel.votable_behavior`` ``behavior/voting.py`` provides and exposes via the REST API endpoint ``@votes``.
 
-The component gets access to this store entry by `const votes = useSelector((store) => store.votes);`
+The component gets access to this store entry by ``const votes = useSelector((store) => store.votes);``
 
 Now we can include the component *Voting* in talk view from chapter :doc:`volto_talkview`.
 
@@ -233,7 +235,6 @@ Now we can include the component *Voting* in talk view from chapter :doc:`volto_
             {content.type_of_talk.title}: {content.title}
         </h1>
         <Voting />
-    …
 
 .. figure:: _static/volto_voting3.png
     :scale: 50%
@@ -284,15 +285,18 @@ We add a section to our `Voting` component.
         </List.Item>
     )}
 
-We check if the user has already voted by `votes?.already_voted`. We get this info from our `votes` subscriber to the app store. 
+We check if the user has already voted by ``votes?.already_voted``.
+We get this info from our ``votes`` subscriber to the app store.
 
-After some info the code offers buttons to vote. The click event handler `handleVoteClick` starts the communication with the backend by dispatching action `vote`. We import this action from `src/actions`.
+After some info the code offers buttons to vote.
+The click event handler ``handleVoteClick`` starts the communication with the backend by dispatching action ``vote``.
+We import this action from ``src/actions``.
 
 .. code-block:: jsx
 
     import { getVotes, vote, clearVotes } from '~/actions';
 
-The click event handler `handleVoteClick` dispatches the action `vote`:
+The click event handler ``handleVoteClick`` dispatches the action ``vote``:
 
 .. code-block:: jsx
 
@@ -300,8 +304,8 @@ The click event handler `handleVoteClick` dispatches the action `vote`:
         dispatch(vote(location.pathname, value));
     }
 
-The action `vote` is similar to our previous action `getvotes`. It is defined by the request method 
-`post` to submit the necessary data `rating`.
+The action ``vote`` is similar to our previous action ``getvotes``. It is defined by the request method
+``post`` to submit the necessary data ``rating``.
 
 .. code-block:: jsx
     :linenos:
@@ -320,25 +324,24 @@ The action `vote` is similar to our previous action `getvotes`. It is defined by
         }
     }
 
-As the corresponding reducer updates the app store, the subscribed component `Voting` **reacts by updating itself**. The subsription is done by just
+As the corresponding reducer updates the app store, the subscribed component ``Voting`` **reacts by updating itself**. The subsription is done by just
 
 .. code-block:: jsx
 
     const votes = useSelector((store) => store.votes);
 
-The component updates itself, it renders with the updated info about if the user has already voted, about the average vote and the total number of already posted votes. So the buttons disappear as we made the rendering conditional to `votes?.already_voted` which says if the current user has already voted. 
+The component updates itself, it renders with the updated info about if the user has already voted, about the average vote and the total number of already posted votes. So the buttons disappear as we made the rendering conditional to ``votes?.already_voted`` which says if the current user has already voted.
 
-Why is it possible that this info about the current user has been fetched by `getVotes`? Every request is done with the token of the logged in user.
-
+Why is it possible that this info about the current user has been fetched by ``getVotes``? Every request is done with the token of the logged in user.
 
 The authorized user can now vote:
-
 
 .. figure:: _static/volto_voting1.png
     :scale: 50%
     :alt: Volto Voting
 
-Observe that we do not calculate average votes and do not check if a user can vote via permissions, roles, whatsoever. Every logic is done by the backend. We request votes and infos like 'can the current user do this and that' from the backend. 
+Observe that we do not calculate average votes and do not check if a user can vote via permissions, roles, whatsoever.
+Every logic is done by the backend. We request votes and infos like 'can the current user do this and that' from the backend.
 
 
 Component State
@@ -375,15 +378,15 @@ We are using the *component state* to be incremented before requesting the backe
         </>
     ) : null}
 
-This additional code snippet of our `Voting` component displays a delete button with a label depending of the to be incremented component state `stateClearVotes`.
+This additional code snippet of our ``Voting`` component displays a delete button with a label depending of the to be incremented component state ``stateClearVotes``.
 
-The `stateClearVotes`component state is defined as value / accessor pair like this:
+The ``stateClearVotes`` component state is defined as value / accessor pair like this:
 
 .. code-block:: jsx
 
     const [stateClearVotes, setStateClearVotes] = useState(0);
 
-The click event handler `handleClearVotes` distinguishes on the `stateClearVotes` component state to decide if it already dispatches the delete action `clearVotes` or if it waits for a second confirming click.
+The click event handler ``handleClearVotes`` distinguishes on the ``stateClearVotes`` component state to decide if it already dispatches the delete action ``clearVotes`` or if it waits for a second confirming click.
 
 
 .. code-block:: jsx
@@ -399,5 +402,8 @@ The click event handler `handleClearVotes` distinguishes on the `stateClearVotes
         setStateClearVotes(counter);
     }
 
-You will see now that the clearing section disappears after clearing. This is because it is conditional with `votes?.has_votes`. After a successfull `clearVotes` action the corresponding reducer updates the store. As the component is subscribed to the store via `const votes = useSelector((store) => store.votes);` the component updates itself ( is rendered with the updated values ).
+You will see now that the clearing section disappears after clearing.
+This is because it is conditional with ``votes?.has_votes``.
+After a successfull ``clearVotes`` action the corresponding reducer updates the store.
+As the component is subscribed to the store via ``const votes = useSelector((store) => store.votes);`` the component updates itself ( is rendered with the updated values ).
 

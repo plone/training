@@ -12,7 +12,8 @@ The definitive location for documentation regarding Plone's JavaScript and Resou
 https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html
 
 
-**Training Objective**
+Training Objective
+------------------
 
 The most important objective of this training is to explain how to integrate JavaScript applications and integrations into Plone in different scenarios.
 
@@ -24,8 +25,8 @@ This training is **not** about:
 - How to write React/Angular/JS framework of the week
 
 
-**Sections**
-
+Sections
+--------
 
 ..  toctree::
     :maxdepth: 3
@@ -40,12 +41,3 @@ This training is **not** about:
     javascript-3-ttw
     exercises/index
     javascript-scratchpad
-
-.. toctree::
-   :hidden:
-   :maxdepth: 3
-   :caption: Plone Trainings
-    :name: plone-trainings-javascript-toc
-
-   about/index
-   about/glossary
