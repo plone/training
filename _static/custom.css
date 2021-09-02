@@ -2,6 +2,10 @@
   /* --pst-color-preformatted-background: 104, 1, 124, 0.753; */
 }
 
+.visuallyhidden {
+  display: none;
+}
+
 p.ploneorglink img {
   vertical-align: bottom;
 }
@@ -52,6 +56,21 @@ div.section {
 .admonition .admonition-title {
   margin-bottom: 1.5rem !important;
 }
+
+/* search results */
+#search-form {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+#search-form select,
+#search-form input[type="text"] {
+  height: 2rem;
+  margin-right: 1rem;
+  background-color: white;
+  border: 1px solid darkgrey;
+}
+
 
 /* sidebar and sidebar margin : aside / div */
 div.sidebar,

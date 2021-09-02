@@ -77,7 +77,12 @@ var Search = {
       if (params.q) {
           var query = params.q[0];
           $('input[name="q"]')[0].value = query;
-          this.performSearch(query);
+          $('input[name="q"]')[1].value = query;
+          if (params.training) {
+            var training = params.training[0];
+            $('select[name="training"]')[0].value = training;
+          }
+          this.performSearch(query, training);
       }
   },
 
@@ -131,7 +136,7 @@ var Search = {
   /**
    * perform a search for something (or wait until index is loaded)
    */
-  performSearch : function(query) {
+  performSearch : function(query, training) {
     // create the required interface elements
     this.out = $('#search-results');
     this.title = $('<h2>' + _('Searching') + '</h2>').appendTo(this.out);
@@ -143,16 +148,17 @@ var Search = {
     this.startPulse();
 
     // index already loaded, the browser was quick!
-    if (this.hasIndex())
-      this.query(query);
-    else
+    if (this.hasIndex()) {
+      this.query(query, training);
+    } else {
       this.deferQuery(query);
+    }
   },
 
   /**
    * execute search (requires search index to be loaded)
    */
-  query : function(query) {
+  query : function(query, training) {
     var i;
 
     // stem the searchterms and add them to the correct list
@@ -221,7 +227,15 @@ var Search = {
         results[i][4] = Scorer.score(results[i]);
     }
 
-    // TODO Enrich item with parent training title
+    // Filter results by training
+    if (training && training !== 'all') {
+      results = results.filter(result => {
+        let condition = result[0].split('/')[0] === training;
+        return condition
+      })
+    }
+
+    // Enrich item with parent training title
     for (i = 0; i < results.length; i++) 
       results[i][6] = results[i][6] || 'TODO training title';
 
@@ -243,9 +257,6 @@ var Search = {
       }
     });
 
-    // for debugging
-    //Search.lastresults = results.slice();  // a copy
-    //console.info('search results:', Search.lastresults);
 
     // print the results
     var resultCount = results.length;
@@ -533,4 +544,8 @@ var Search = {
 
 $(document).ready(function() {
   Search.init();
+
+  $('select[name="training"]').change(function() {
+    this.form.submit();
+  });
 });
