@@ -1,0 +1,291 @@
+# Glossary
+
+```{glossary}
+:sorted: true
+
+AWS
+
+: [Amazon Web Services](https://aws.amazon.com/) offers reliable, scalable, and inexpensive cloud computing services.
+  Free to join, pay only for what you use.
+
+Linode
+: [Linode.com](https://www.linode.com/) is an American privately owned virtual private server provider company
+
+  : based in Galloway, New Jersey, United States.
+
+DigitalOcean
+: [DigitalOcean, Inc.](https://www.digitalocean.com/) is an American cloud infrastructure provider
+
+  : headquartered in New York City with data centers worldwide.
+
+ZODB
+
+: [A native object database for Python](http://www.zodb.org/en/latest/).
+
+Barceloneta
+
+: The default theme for Plone 5.
+
+CMS
+
+: Content Management System
+
+CSS
+
+: Cascading Style Sheets (CSS) is a stylesheet language used for describing the (most of the times visual) representation of web pages.
+
+Grunt
+
+: The JavaScript Task Runner.
+  Automates the creation and manipulation of static assets for the theme.
+
+Less
+
+: A dynamic stylesheet language that can be compiled into {term}`CSS` (Cascading Style Sheets).
+
+NPM
+
+: npm is a package manager for the JavaScript programming language.
+  It is the default package manager for the JavaScript runtime environment Node.js.
+  Also a registry of Javascript packages, similar to PyPI.
+
+TTW
+
+: Through-The-Web, changes in the browser/
+
+S3
+
+: [Amazon S3](https://aws.amazon.com/s3/) - Object storage built to store and retrieve any amount of data from anywhere.
+
+NFS
+
+: [Network File System](https://en.wikipedia.org/wiki/Network_File_System).
+
+Amazon Opsworks
+: [AWS OpsWorks](https://aws.amazon.com/opsworks/) is a configuration management service that uses Chef,
+
+  : an automation platform that treats server configurations as code.
+
+Ansible
+: [Ansible](https://www.ansible.com/) is an open source automation platform.
+
+  : Ansible can help you with configuration management, application deployment, task automation.
+
+Archetypes
+
+: The deprecated framework for building content types in Plone.
+
+Chef
+
+: [A configuration management tool written in Ruby and Erlang](https://www.chef.io/products/chef-infra/).
+
+CloudFormation
+
+: [AWS CloudFormation](https://aws.amazon.com/cloudformation/) gives developers and systems administrators an way to create and manage
+  a collection of related AWS resources, provisioning and updating them in an orderly and predictable fashion.
+
+Travis CI
+
+: Travis CI is a hosted, distributed continuous integration service used to build and test software projects hosted at GitHub.
+  Open source projects may be tested at no charge via [travis-ci.org](https://travis-ci.org).
+
+Solr
+
+: [Solr](http://lucene.apache.org/solr/) is a popular, blazing-fast, open source enterprise search platform built on Apache Lucene.
+
+ZCML
+
+: The [Zope Configuration Mark-up Language](https://docs.plone.org/develop/addons/components/zcml.html).
+
+Diazo
+
+: [Diazo theme engine guide](http://docs.diazo.org/en/latest/)
+  Diazo allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology.
+
+Dexterity
+
+: [Dexterity](https://github.com/plone/plone.dexterity), the base framework for building content types, both through-the-web and as filesystem code for Zope.
+
+Dublin Core
+
+: The Dublin Core Schema is a small set of vocabulary terms that can be used to describe web resources (video, images, web pages, etc.), as well as physical resources such as books or CDs, and objects like artworks.
+
+ZMI
+
+: The Zope Management Interface.
+  The ZMI is a direct interface into the backend software stack of Plone.
+  While it can still serve as a valuable tool for Plone specialists to fix problems or accomplish certain tasks, it is not recommended as a regular tool for Plone maintenance.
+
+TALES
+
+: TAL Expression Syntax (TALES) expression, which by default expects a path.
+  Python and string expressions are also allowed.
+
+XML
+
+: The Extensible Markup Language.
+
+XSLT
+
+: The Extensible Stylesheet Language Transformations.
+  A language which defines elements to describe transformations to be applied on a document.
+
+XPath
+
+: XPath (XML Path Language) is a query language for selecting nodes from an XML document.
+
+Rapido application
+
+: It contains the features you implement;
+  it is a folder containing templates, Python code, and YAML files.
+
+block
+
+: Blocks display a chunk of HTML which can be inserted in your Plone pages.
+
+element
+
+: Elements are the dynamic components of your blocks.
+  They can be input fields, buttons, or computed HTML.
+  They can also return JSON if you call them from a JavaScript app,
+
+record
+
+: A Rapido app is able to store data as records.
+  Records are basic dictionaries.
+
+Project (Volto)
+
+: the product of running `create-volto-app`, a customizable instance of Volto
+
+Add-on (Volto)
+
+: a JS package that integrates with Volto's configuration registry
+
+Add-on configuration loader (Volto)
+
+: a function with signature `config => config`.
+
+Configuration registry (Volto)
+
+: a singleton object modeled using JS modules, accessible from the Volto
+  project using the `~/config` path.
+
+Shadowing (Volto)
+
+: webpack provides an "alias" mechanism, where the path for a module can
+  be aliased to another module. By using this mechanism Volto enables
+  customization (file overrides), similar to z3c.jbot
+
+Razzle
+
+: a tool that simplifies SPA and SSR configuration for ReactJS projects.
+
+Webpack
+
+: a tool that loads and bundles code and web resources using loaders
+
+Webpack entrypoint
+
+: the main files generated by webpack as a result. They typically contain
+  the application source code based on modules bundled together, but it
+  can also include other resources, such as static resources.  It can
+  contain code to automatically trigger the load of other JS code files
+  called "chunks"
+
+Babel
+
+: a Javascript compiler that "transpiles" newer standards JS to something
+  that any browser can load.
+
+Express
+
+: a Javascript HTTP server with a simple API to build custom
+  applications. Volto uses it as its server.
+
+Server-Side Rendering (SSR)
+
+: when first loading any Plone page, users will get HTML markup that
+  closely matches the final DOM structure of the react components used to
+  render that page
+
+Single Page Application (SPA)
+
+: a type of Javascript application that aims to provide a better user
+  experience by avoiding unnecessary reloading of the browser page,
+  instead uses AJAX to load backend information
+
+Hot Module Replacement (HMR)
+
+: a development feature provided by Webpack that automatically reloads,
+  in the browser, the JS modules that have changed
+
+Yeoman
+
+: a popular scaffolding tool similar to Plone's mr.bob or ZopeSkel
+
+CommonJS
+
+: a Javascript package standard, the equivalent of a Python wheel or egg.
+  Enables Javascript modules.
+
+Transpilation
+
+: the transformation of Javascript code that uses advanced language
+  features, unavailable for some browsers, to code rewritten to support
+  them.
+
+ES6
+
+: ECMAScript 6, a newer version of the Javascript language.
+
+mrs-developer
+
+: also called "missdev", a tool similar to buildout's mr.developer,
+  automatically downloads and keeps up to date copies of software and
+  add-ons under development based on definitions stored in
+  `mrs.developer.json`. As a byproduct of its update operations, it
+  also automatically adjusts `jsconfig.json`, which is used by Volto to
+  configure webpack aliases.
+
+Yarn
+
+: a popular Javascript package manager similar to NPM.
+
+Hydration (SSR)
+
+: After loading an HTML page generated with SSR in the browser, React can
+  "populate" the existing DOM elements, recreate and attach their
+  coresponding components.
+
+JSX
+
+: A dialect of Javascript that resembles XML, it is transpiled by Babel to
+  JS functions. React uses JSX as its component templating.
+
+Scoped packages
+
+: Namespace for Javascript packages, they provide a way to avoid naming
+  conflicts for common package names.
+
+middleware (Redux)
+
+: Custom wrappers for the Redux store dispatch methods, the allow
+  customizing the behavior of the data flow inside the redux store.
+
+hooks (React)
+
+: Hooks are a React API that allow function components to use React
+  features such as lifecycle methods, states, etc.
+
+hoisting (Yarn)
+
+: An optimization provided by Yarn. By default Javascript packages will
+  directly include dependencies inside their local node_modules. By
+  hoisting we're "lifting" these inner dependencies to the top level
+  node_modules and thus optimize the generated bundles. In case two
+  dependencies have conflicting version dependencies of the same library,
+  the hoisting will not be possible (for that conflicting dependency) and
+  you'll see multiple instances of the same library in the bundle, or
+  you'll see that the add-on receives its own node_modules folder.
+```
