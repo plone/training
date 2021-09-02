@@ -4,7 +4,7 @@ html_meta:
   "keywords": "Sphinx, MyST, markdown"
 ---
 
-# Instructions for Authors
+# Guide for Authors
 
 We use [MyST, or Markedly Structured Text](https://myst-parser.readthedocs.io/en/latest/) as the syntax for authoring training documentation.
 
@@ -15,10 +15,10 @@ meta data
             "keywords": "Sphinx, MyST, markdown"
       ---
 
-cross reference chapter
+cross reference: chapter
 :     We created an add-on in the last chapter {doc}`volto_custom_addon`.
 
-cross reference anchor  
+cross reference: anchor  
 : create anchor
   ```
   (volto-custom-addon-final-label)=
@@ -52,8 +52,19 @@ code block
       print(f'my {a}nd line')
       ```
 
+: is rendered as:
+
+```{code-block} python
+:lineno-start: 10
+:emphasize-lines: 1, 3
+
+a = 2
+print('my 1st line')
+print(f'my {a}nd line')
+```
+
 code snippet expandable
-: Be aware of the nested directives. Increase back ticks.
+: Be aware of the nested directives! Increase back ticks!
 
       ````{admonition} Complete code for ReactJS component
       :class: dropdown

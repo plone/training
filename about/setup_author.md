@@ -8,13 +8,13 @@ Please be so kind to contribute any bug fixes or enhancements you made to the do
 The training is rendered using Sphinx and builds in two flavors:
 
 default
-  The verbose version used for the online documentation and for the trainer.
-  Build it in Sphinx with `make html` or use the online version.
+: The verbose version used for the online documentation and for the trainer.
+Build it in Sphinx with `make html` or use the online version.
 
 presentation
-  An abbreviated version used for the projector during a training.
-  It should use more bullet points than verbose text.
-  Build it in Sphinx with `make presentation`.
+: An abbreviated version used for the projector during a training.
+It should use more bullet points than verbose text.
+Build it in Sphinx with `make presentation`.
 
 :::{note}
 By prefixing an indented block of text or code with `.. only:: presentation` you can control
@@ -25,11 +25,12 @@ To hide a block from the presentation version use `.. only:: not presentation`
 Content without a prefix will be included in both versions.
 :::
 
+
 ### Exercises and Solutions
 
 Collapsed solutions of exercises:
 
-````{admonition} Complete code of the component
+````{admonition} Complete code of the component Sed posuere consectetur est at lobortis.
 :class: dropdown
 
 ```{code-block} jsx
@@ -43,6 +44,7 @@ import { omit, without } from 'lodash';
 ```
 ````
 
+Be aware of the nested directives! Increase back ticks!
 
     ````{admonition} Complete code of the component
     :class: dropdown
@@ -188,7 +190,7 @@ We really want this material to be used, re-used, expanded, and improved by Plon
 These chapters don't contain any Plone specific advice.
 There's background, theory, check lists, and tips for anyone trying to teach technical subjects.
 
-{doc}`../teachers-training/index`
+{doc}`/about/teachers-training/index`
 
 (about-contribute-label)=
 
