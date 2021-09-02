@@ -176,12 +176,15 @@ myst_enable_extensions = [
 ]
 
 
+# intersphinx
 # This extension can generate automatic links to the documentation of objects in other projects.
+# @ksuess: This is not applied anymore in training.plone.org. I skip this useful but not applied extension.
 # Usage is simple: whenever Sphinx encounters a cross-reference that has no matching target in the current documentation set, it looks for targets in the documentation sets configured in intersphinx_mapping. A reference like :py:class:`zipfile.ZipFile` can then link to the Python documentation for the ZipFile class, without you having to specify where it is located exactly.
 # 
 # https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html
-intersphinx_mapping = {
-    "plonedocs": ("https://docs.plone.org/", None),
-    "python": ("https://docs.python.org/3/", None),
-}
+# 
+# intersphinx_mapping = {
+#     "plonedocs": ("https://docs.plone.org/", None),
+#     "python": ("https://docs.python.org/3/", None),
+# }
 
