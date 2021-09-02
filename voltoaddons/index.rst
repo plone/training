@@ -28,6 +28,5 @@ ReactJS and Volto.
     blocksrestapi
 
     about/index
-    about/glossary
     about/devenvironment
     about/jsbasics

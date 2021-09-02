@@ -34,15 +34,18 @@ Automating Plone Deployment
     :caption: OpsWorks
 
     opsworks/index
+    opsworks/intro
+    opsworks/terms
+    opsworks/installation
+    opsworks/running
+    opsworks/maintenance
+    opsworks/loose-ends
 
 ..  toctree::
     :hidden:
     :maxdepth: 3
-    :caption: Plone Trainings
-    :name: plone-trainings-deployment-toc
 
-    about/index
-    about/glossary
+    letsencrypt-certbot
 
 .. seealso::
 

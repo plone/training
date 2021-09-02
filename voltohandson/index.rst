@@ -28,5 +28,4 @@ which is intended as a half day training for people who already know the basics 
     highlightsblock
     blocksedit
 
-    about/index
-    about/glossary
+This training was created by Victor Fernandez de Alba (sneridagh).

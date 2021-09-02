@@ -179,7 +179,7 @@ Via prop ``content`` we have access to title, description and other attributes
 
         Due to a breaking change in Volto 10 the following code does not work anymore. ``content``  no longer holds the full content objects but a simplified representation of them. See https://docs.voltocms.com/upgrade-guide/#getcontent-changes
 
-        Skip ahead to :ref:`talklistview_search_endpoint-label` until we fix this :)
+        Skip ahead to :any:`talklistview_search_endpoint-label` until we fix this :)
 
 
     You can iterate over all items in our talks folder by using the map ``content.items``. To build a view with some elements we used in the ``TalkView`` before, we can reuse some components and definitions like the ``color_mapping`` for the ``audience``.

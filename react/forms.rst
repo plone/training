@@ -268,13 +268,14 @@ After the item is added the inputs should also reset to empty values.
 ..  admonition:: Solution
     :class: toggle
 
-    Make sure you bind the onSubmit handler.
+    Make sure you bind the ``onSubmit`` handler.
 
     .. code-block:: jsx
         :linenos: 
         :lineno-start: 11
         :emphasize-lines: 1
 
+        Where is the code?
 
     And add this to the body of the class.
 

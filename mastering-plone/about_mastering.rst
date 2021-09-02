@@ -10,10 +10,14 @@ The beginning and the continuation
 
 This training was initially started as a Plone Classic training and evolved now to a roundtrip on both: Plone Classic HOWTOs, same for the ReactJS frontend and the interplay between backend and frontend.
 
-| This training is published on `training.plone.org <https://training.plone.org/>`_.
-| The *Mastering Plone Development Training* is Open Source on `GitHub <https://github.com/plone/training>`_. We update the training currently to teach the best practices. You are welcome to contribute and give feedback on `GitHub issues <https://github.com/plone/training/issues>`_.
+This training is published on `training.plone.org <https://training.plone.org/>`_.
 
-Thank you for reading and your charity with non native speakers / writers. 
+The *Mastering Plone Development Training* is Open Source on `GitHub <https://github.com/plone/training>`_.
+
+We update the training currently to teach the best practices.
+You are welcome to contribute and give feedback on `GitHub issues <https://github.com/plone/training/issues>`_.
+
+Thank you for reading and your charity with non-native English speakers / writers.
 
 
 .. _about-upcoming-label:
@@ -353,6 +357,11 @@ Contributing
 Everyone is **very welcome** to contribute.
 Minor bug fixes can be pushed directly in the `repository <https://github.com/plone/training>`_,
 bigger changes should made as `pull-requests <https://github.com/plone/training/pulls/>`_ and discussed previously in tickets.
+
+We use `MyST, or Markedly Structured Text <https://myst-parser.readthedocs.io/en/latest/>`_, as the syntax for authoring training documentation.
+This allows authors to write in either Markdown or reStructuredText, and build the docs in a desired format.
+
+We use `colon-fence syntax <https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#code-fences-using-colons>`_, instead of the default backtick syntax, to use live preview in editors.
 
 
 .. _about-licence-label:
