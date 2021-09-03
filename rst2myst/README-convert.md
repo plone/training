@@ -12,7 +12,7 @@ This is a one-time operation.
 -   In a sibling directory to this project's root, make a clean clone where you will perform the instructions.
     This allows you to make mistakes without messing up your current work and messing around with `git`.
 
-    ```bash
+    ```shell
     git clone https://github.com/plone/training.git myst
     ```
 -   [Homebrew](https://brew.sh/).
@@ -20,7 +20,7 @@ This is a one-time operation.
     On macOS 10.15.7 and earlier, and possibly later versions, an old version of `rsync` hangs forever when using the `--dry-run` option under certain unknown conditions.
     Install the latest version of `rsync`.
   
-    ```bash
+    ```shell
     brew install rsync
     ```
 
@@ -30,7 +30,7 @@ This is a one-time operation.
 Start from the project root.
 Create a new git branch in which to perform the conversion.
 
-```bash
+```shell
 git checkout -b myst-convert-all
 ```
 
@@ -44,7 +44,7 @@ The package `rst-to-myst` is only needed once to convert the files.
 Therefore it is not included in `requirements.txt`.
 ```
 
-```bash
+```shell
 pip install "rst-to-myst[sphinx]"
 ```
 
@@ -53,7 +53,7 @@ pip install "rst-to-myst[sphinx]"
 Always perform a dry run before doing an actual run.
 We must catch and resolve failures immediately, then fix them in the `.rst` source files.
 
-```bash
+```shell
 rst2myst convert --dry-run --stop-on-fail --no-colon-fences \
 index.rst \
 about/**/*.rst \
@@ -87,7 +87,7 @@ Fix warnings in the `.rst` source files, and run the above command (or only a sp
 
 Commit all fixes.
 
-```bash
+```shell
 git commit -m "MyHelpfulCommitMessage"
 ```
 
@@ -99,7 +99,7 @@ If you do not save your changes now, you may potentially lose all your work in t
 
 Once we have cleaned up the source `.rst` files, we can run an actual conversion.
 
-```bash
+```shell
 rst2myst convert --stop-on-fail --no-colon-fences \
 index.rst \
 about/**/*.rst \
@@ -129,7 +129,7 @@ wsgi/**/*.rst
 If you see any warnings, hard reset your git branch.
 This will throw away any changes that were not committed to the repo.
 
-```bash
+```shell
 git reset --hard HEAD
 ```
 
@@ -146,14 +146,14 @@ First run the dry-run version of the script.
 Open the script and read it to see what it does.
 It has prolific comments.
 
-```bash
+```shell
 cd rst2myst
 ./rsync-training-dryrun.sh
 ```
 
 If that looks good, then perform an actual rsync.
 
-```bash
+```shell
 ./rsync-training.sh
 ```
 
@@ -163,7 +163,7 @@ If some files do not get rsync-ed over to the nested directory, then delete the 
 
 Now we can build and compare the docs between the two source directories to make sure that content renders correctly.
 
-```bash
+```shell
 # Build the MyST docs in /rst2myst/training
 cd training
 make html
@@ -178,7 +178,7 @@ After you are satisfied with the conversion, let's do some clean up.
 
 Remove all `.rst` files in root, except for `README.rst` and `CHANGES.rst`.
 
-```bash
+```shell
 # From the project root directory
 rm -r index.rst \
 about/**/*.rst \
@@ -207,14 +207,14 @@ wsgi/**/*.rst
 Move all `.md` files to root using `rsync`.
 First let's do a dry-run.
 
-```bash
+```shell
 cd rst2myst
 ./rsync-md-reverse-dryrun.sh
 ```
 
 If that looks good, then perform an actual rsync.
 
-```bash
+```shell
 ./rsync-md-reverse.sh
 ```
 
@@ -222,7 +222,7 @@ In `conf.py` remove `rst2myst/training/**` from `exclude_patterns`.
 
 Uninstall `rst-to-myst`.
 
-```bash
+```shell
 pip uninstall "rst-to-myst[sphinx]"
 ```
 
