@@ -1,7 +1,7 @@
 ---
-About: Controlling security with workflow
-Level: All levels
-Status: Work in progress
+:About: Controlling security with workflow
+:Level: All levels
+:Status: Work in progress
 ---
 
 (workflow-label)=

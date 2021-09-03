@@ -23,14 +23,14 @@ Let's call it `test_unit.py`:
 
 Now we run it:
 
-```console
-$ bin/test
+```shell
+bin/test
 ```
 
 If we are working on a single test and we don't want to run all our tests, we tell the testrunner which test to run:
 
-```console
-$ bin/test -t test_a_feature
+```shell
+bin/test -t test_a_feature
 ```
 
 ### Exercise 1

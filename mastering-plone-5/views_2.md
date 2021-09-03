@@ -2,7 +2,8 @@
 
 # Views II: A Default View for "Talk"
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout views_2
 ```
-~~~
+````
 
 In this part you will:
 
@@ -184,7 +185,7 @@ def context_info(self):
 ```
 
 ```{note}
-The result is the same as in {ref}`plone5_python-expressions-label` where you wrote `<p tal:content="python: "This is the {0} '{1}' at {2}".format(context.portal_type, context.title, context.absolute_url()">
+The result is the same as in {ref}`plone5-python-expressions-label` where you wrote `<p tal:content="python: "This is the {0} '{1}' at {2}".format(context.portal_type, context.title, context.absolute_url()">
 </p>` in the template.
 ```
 

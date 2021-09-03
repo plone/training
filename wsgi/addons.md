@@ -2,10 +2,11 @@
 
 ## Sentry
 
-````{sidebar} Build now
+````{sidebar}
+Build now
 Run buildout for this section:
 
-```bash
+```shell
 buildout -c sentry.cfg
 ```
 ````
@@ -24,10 +25,11 @@ We can also configure the logging levels for Sentry events and breadcrumbs, resp
 
 ## haufe.requestmonitoring
 
-````{sidebar} Build now
+````{sidebar}
+Build now
 Run buildout for this section:
 
-```bash
+```shell
 buildout -c longrequests.cfg
 ```
 ````

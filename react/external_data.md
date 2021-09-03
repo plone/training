@@ -8,8 +8,8 @@ To persist our data we will create a backend to fetch our initial data.
 We will use {file}`express` to create a simple server.
 To install type:
 
-```console
-$ yarn add express
+```shell
+yarn add express
 ```
 
 Now we will create a simple server in the file {file}`server.js`
@@ -42,8 +42,8 @@ app.listen(port, () => console.log(`Listening on port: ${port}`));
 
 Then we can run our newly created server:
 
-```console
-$ node server.js
+```shell
+node server.js
 ```
 
 Now it is time to write our action to fetch the items from the backend in the file `actions/index.js`:

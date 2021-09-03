@@ -16,7 +16,7 @@ The two installations do not coexist well.
 ## Installing Plone without vagrant
 
 ```{warning}
-If you are new to running Plone on your laptop you could skip this part and continue with {ref}`plone5_install-virtualbox`.
+If you are new to running Plone on your laptop you could skip this part and continue with {ref}`plone5-install-virtualbox`.
 ```
 
 If you **are** experienced with running Plone on your own laptop, we encourage you to do so because you will have certain benefits:
@@ -42,14 +42,14 @@ The following instructions are based on Ubuntu and macOS, if you use a different
 
 On Ubuntu/Debian, you need to make sure you system is up-to-date:
 
-```console
+```shell
 sudo apt-get update
 sudo apt-get -y upgrade
 ```
 
 Then, you need to install the following packages:
 
-```console
+```shell
 sudo apt-get install python3.7-dev python3.7-tk python3.7-venv build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
 sudo apt-get install libreadline-dev wv poppler-utils
 sudo apt-get install git
@@ -57,7 +57,7 @@ sudo apt-get install git
 
 On MacOS you at least need to install some dependencies with [Homebrew](https://brew.sh/)
 
-```console
+```shell
 brew install zlib git readline jpeg libpng libyaml
 ```
 
@@ -65,7 +65,7 @@ For more information or in case of problems see the [official installation instr
 
 Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
-```console
+```shell
 mkdir training
 cd training
 git clone https://github.com/collective/training_buildout.git buildout
@@ -78,13 +78,13 @@ This creates a virtualenv with Python 3.7 in the folder {file}`buildout` and ins
 
 Now you can run the buildout for the first time:
 
-```console
+```shell
 ./bin/buildout
 ```
 
 This will take **very long** time and produce a lot of output because it downloads and configures more than 260 Python packages. Once it is done you can start your Plone instance with
 
-```console
+```shell
 ./bin/instance fg
 ```
 
@@ -193,7 +193,7 @@ If you already have a {file}`training` directory because you followed the **Inst
 you should either delete it, rename it, or use a different name below.
 ```
 
-```console
+```shell
 mkdir training
 cd training
 ```
@@ -201,13 +201,13 @@ cd training
 Setup Vagrant to automatically install the current guest additions.
 You can choose to skip this step if you encounter any problems with it.
 
-```console
+```shell
 vagrant plugin install vagrant-vbguest
 ```
 
 Now download {download}`plone_training_config.zip <../_static/plone_training_config.zip>` and copy its contents into your training directory.
 
-```console
+```shell
 wget https://github.com/plone/training/raw/master/_static/plone_training_config.zip
 unzip plone_training_config.zip
 ```
@@ -216,7 +216,7 @@ The training directory should now hold the file {file}`Vagrantfile` and the dire
 
 Now start setting up the virtual machine (VM) that is configured in {file}`Vagrantfile`:
 
-```console
+```shell
 vagrant up
 ```
 
@@ -232,7 +232,7 @@ This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on y
 ````{note}
 Sometimes this stops with the message:
 
-```console
+```shell
 Skipping because of failed dependencies
 ```
 ````
@@ -242,7 +242,7 @@ you need to run the following command to repeat the process.
 
 This will only repeat steps that have not finished correctly.
 
-```console
+```shell
 vagrant provision
 ```
 
@@ -251,7 +251,7 @@ You can do this multiple times to fix problems, e.g. if your network connection 
 ````{note}
 If while bringing vagrant up you get an error similar to:
 
-```console
+```shell
 ssh_exchange_identification: read: Connection reset by peer
 ```
 ````
@@ -263,7 +263,7 @@ See: <https://teamtreehouse.com/community/vagrant-ssh-sshexchangeidentification-
 
 Once Vagrant finishes the provisioning process, you can login to the now running virtual machine.
 
-```console
+```shell
 vagrant ssh
 ```
 
@@ -320,7 +320,7 @@ ValueError: unknown locale: UTF-8
 In that case you have to put the localized keyboard and language settings in the .bash_profile
 of the vagrant user to your locale (like `en_US.UTF-8` or `de_DE.UTF-8`)
 
-```bash
+```shell
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 ```

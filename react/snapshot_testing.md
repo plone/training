@@ -6,7 +6,7 @@ To test the rendered output of a specific component we can use snapshot testing.
 We need to install the {file}`react-test-render` package first:
 
 ```console
-$ yarn add react-test-renderer --dev
+yarn add react-test-renderer --dev
 ```
 
 Then we will create a file called {file}`FaqItem.test.js`.
@@ -37,7 +37,7 @@ describe("FaqItem", () => {
 To run our tests we will run the command:
 
 ```console
-$ yarn test
+yarn test
 ```
 
 This will output our test results:

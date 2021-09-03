@@ -211,19 +211,19 @@ Please make sure that you have [Enchant](https://abiword.github.io/enchant/) ins
 
 Install Enchant on macOS:
 
-```console
+```shell
 brew install enchant
 ```
 
 Install Enchant on Ubuntu:
 
-```console
+```shell
 sudo apt-get install enchant
 ```
 
 To build the documentation follow these steps:
 
-```console
+```shell
 git clone https://github.com/plone/training.git
 cd training
 python -m venv .
@@ -232,7 +232,7 @@ source bin/activate
 
 Now install dependencies and build.
 
-```console
+```shell
 pip install -r requirements.txt
 make html
 ```
@@ -243,13 +243,13 @@ To build the presentation version use `make presentation` instead of `make html`
 
 If you use macOS you can do:
 
-```console
+```shell
 open _build/html/index.html
 ```
 
 In the case of Linux, Ubuntu for example you can do:
 
-```console
+```shell
 firefox _build/html/index.html
 ```
 
@@ -272,7 +272,7 @@ make html
 
 ### Update existing
 
-```bash
+```shell
 git pull
 source bin/activate
 make html
@@ -285,19 +285,19 @@ To watch the changes in browser while editing you can use gulp.
 
 Install once the gulp command line utility.
 
-```bash
+```shell
 npm install --global gulp-cli
 ```
 
 Install once the gulp project with
 
-```bash
+```shell
 npm install
 ```
 
 Run gulp when starting working on the training with
 
-```bash
+```shell
 gulp
 ```
 

@@ -31,14 +31,14 @@ and the template from `bobtemplates.plone` to create the package.
 
 If the {file}`src` directory does not exist yet, create it:
 
-```console
-$ mkdir src
+```shell
+mkdir src
 ```
 
 Go inside the {file}`src` folder and create the package:
 
-```console
-$ cd src
+```shell
+cd src
 $ ../bin/mrbob -O starzel.votable_behavior bobtemplates.plone:addon
 ```
 

@@ -27,10 +27,11 @@ The widely used `pdbpp`, `Products.PdbDebugMode`, `plone.app.debugtoolbar` and `
 
 ## werkzeug debugging
 
-````{sidebar} Build now
+````{sidebar}
+Build now
 Run buildout for this section:
 
-```bash
+```shell
 buildout -c werkzeugdebugger.cfg
 ```
 ````
@@ -85,7 +86,7 @@ You will see an interactive console in the browser where you can enter arbitrary
 
 When trying to open the debugging view in uWSGI, you will see an error message in both console and the browser instead of the pdb prompt.
 
-```bash
+```shell
 > /home/thomas/devel/plone/wsgitraining_buildout/src/wsgitraining.site/src/wsgitraining/site/views/debugging_view.py(18)__call__()
 -> return self.index()
 (Pdb)
@@ -130,7 +131,7 @@ output = ${buildout:directory}/etc/uwsgi.ini
 
 After running buildout and starting your instance with `bin/uwsgi-instance` you will see an interactive console and uWSGI will not serve any requests at first (the browser will hang forever instead of showing a page).
 
-```bash
+```console
 *** Operational MODE: single process ***
 Class Products.CMFFormController.ControllerPythonScript.ControllerPythonScript has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'
 Class Products.CMFFormController.ControllerValidator.ControllerValidator has a security declaration for nonexistent method 'ZPythonScriptHTML_changePrefs'

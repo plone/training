@@ -1,16 +1,15 @@
+---
+:About: Customize Plone Through-The-Web
+:Level: Experienced
+:Status: Work in progress
+---
+
 (ttw-label)=
 
 # "Through-The-Web" Plone Customization
 
 ```{warning}
 This chapter is still work in progress!
-```
-
-```{eval-rst}
-
-:About: Customize Plone Through-The-Web
-:Level: Experienced
-:Status: Work in progress
 ```
 
 ```{toctree}

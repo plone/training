@@ -182,7 +182,7 @@ Make sure to pass the index and the callback to the {file}`FaqItem` component to
 ````{admonition} Solution
 :class: toggle
 
-```{code-block} js
+```{code-block} jsx
 :emphasize-lines: 8,25-27,33-38
 :linenos: true
 

@@ -2,7 +2,8 @@
 
 # Advanced Viewlets
 
-````{sidebar} Classic chapter
+````{sidebar}
+Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
 ```
@@ -12,7 +13,8 @@ This chapter is about Plone Classic.
 Solve the same tasks in the Volto frontend in chapter {doc}`volto_components_sponsors`
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -24,7 +26,7 @@ Code for the end of this chapter:
 ```
 git checkout dexterity_3
 ```
-~~~
+````
 
 In the previous chapter {doc}`dexterity_3` you created the `sponsor` content type.
 Now let's learn how to display them at the bottom of every page.

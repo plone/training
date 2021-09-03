@@ -29,10 +29,10 @@ For this we need:
 We move to the {file}`src` directory and again use a script called {file}`mrbob` from our project's {file}`bin` directory
 and the template from `bobtemplates.plone` to create the package.
 
-```console
-$ mkdir src
-$ cd src
-$ ../bin/mrbob -O starzel.votable_behavior bobtemplates.plone:addon
+```shell
+mkdir src
+cd src
+../bin/mrbob -O starzel.votable_behavior bobtemplates.plone:addon
 ```
 
 We press {kbd}`Enter` to all questions *except* our personal data and the Plone version.

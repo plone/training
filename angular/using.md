@@ -13,7 +13,7 @@ There are many ways to do that.  For example, in Google Chrome we can install an
 
 ## Adding The @plone/restapi-angular Dependency
 
-```console
+```shell
 npm install @plone/restapi-angular --save
 ```
 

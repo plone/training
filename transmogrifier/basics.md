@@ -44,8 +44,8 @@ With [mr.bob](https://mrbob.readthedocs.io/en/latest/) and bobtemplates.migratio
 you can quickly set up a package for handling migrations:
 
 ```console
-$ pip install bobtemplates.migration
-$ mrbob -O ploneconf.migration bobtemplates.migration:jsonify
+pip install bobtemplates.migration
+mrbob -O ploneconf.migration bobtemplates.migration:jsonify
 ```
 
 This command will ask a few questions about the author (you),
@@ -66,11 +66,11 @@ Please commit any Python 3 fixes you find that need to be made to these add-ons!
 ```
 
 ```console
-$ cd ploneconf.migration
-$ virtualenv env --python=python3.7
-$ env/bin/pip install zc.buildout
-$ env/bin/buildout
-$ bin/instance fg
+cd ploneconf.migration
+virtualenv env --python=python3.7
+env/bin/pip install zc.buildout
+env/bin/buildout
+bin/instance fg
 ```
 
 This will start up the instance in foreground mode for you,

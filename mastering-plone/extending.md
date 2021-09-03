@@ -2,7 +2,8 @@
 
 # Extending Plone
 
-````{sidebar} Classic chapter
+````{sidebar}
+Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
 ```
@@ -11,10 +12,10 @@ This chapter is about the Plone backend.
 
 For extending Volto frontend see chapters
 
-- {ref}`volto_richtexteditor-label`
-- {ref}`volto_custom_block-label`
-- {ref}`volto_addon-label`
-- {ref}`volto_custom_addon-label`
+- {ref}`volto-richtexteditor-label`
+- {ref}`volto-custom-block-label`
+- {ref}`volto-addon-label`
+- {ref}`volto-custom-addon-label`
 ````
 
 In this part you will:

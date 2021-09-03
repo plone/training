@@ -2,7 +2,8 @@
 
 # Dexterity II: Talks
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout talks
 ```
-~~~
+````
 
 In this part you will solve the following task:
 

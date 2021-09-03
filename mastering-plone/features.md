@@ -12,7 +12,7 @@ See also: <https://docs.plone.org/working-with-content/index.html>
 
 We control Plone with a small script called "instance":
 
-```bash
+```shell
 $ ./bin/instance fg
 ```
 
@@ -28,7 +28,7 @@ Apart from the `fg` command, the {program}`instance` script offers several more 
 `./bin/instance help` shows the list of available commands, `bin/instance help <command>` will give a short help for each command.
 Some commands you will use rather often are:
 
-```bash
+```shell
 $ ./bin/instance fg
 $ ./bin/instance start
 $ ./bin/instance stop
@@ -147,7 +147,7 @@ You will also have to tell the frontend that the backend is now running on a dif
 
 You need to change the environment variable `RAZZLE_API_PATH` to the base-url of the backend:
 
-```bash
+```shell
 $ RAZZLE_API_PATH=http://localhost:9080/Plone yarn start
 ```
 ````

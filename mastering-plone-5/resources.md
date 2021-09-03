@@ -2,7 +2,8 @@
 
 # Resources
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout resources
 ```
-~~~
+````
 
 We have not yet talked about CSS and JavaScript.
 At the moment these are considered static resources.
@@ -62,7 +63,7 @@ Let's create a file {file}`ploneconf.css` in the {file}`static` folder with some
 The CSS is not very exciting.
 It hides the {guilabel}`only in current section` below the search-box (we could also overwrite the viewlet, but ...).
 
-It also hides the event-fields we added in {ref}`plone5_events-label` from people submitting their talks.
+It also hides the event-fields we added in {ref}`plone5-events-label` from people submitting their talks.
 
 For exciting CSS, you should take the {ref}`theming-label` training class.
 

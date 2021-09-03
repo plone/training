@@ -11,10 +11,11 @@ Topics covered:
 - Permissions
 - Workflows
 
-````{sidebar} Get the code!
+````{sidebar}
+Get the code!
 Get the code for this chapter ({doc}`More info <code>`) using this command in the buildout directory:
 
-```bash
+```shell
 TODO
 ```
 ````

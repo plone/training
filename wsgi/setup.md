@@ -37,7 +37,7 @@ The Plone instance(s) we create throughout the training will go to a different l
 Next you need to get the training buildout and create a Python virtualenv for the training in a suitable location.
 In the vagrant this is the `/vagrant` directory:
 
-```bash
+```shell
 $ cd /vagrant
 ```
 
@@ -45,7 +45,7 @@ In a native environment, choose whatever location you think is appropriate.
 
 Then in this directory we need to get the training buildout and create a virtualenv:
 
-```bash
+```shell
 $ git clone https://github.com/collective/wsgitraining_buildout.git wsgitraining
 $ cd wsgitraining
 $ python3.7 -m venv .

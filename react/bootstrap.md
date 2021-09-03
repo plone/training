@@ -6,28 +6,28 @@
 
 First step is to install the correct Node version using {file}`nvm`:
 
-```console
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+```shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ```
 
 Then you can install the latest LTS version of node:
 
-```console
-$ nvm install --lts
+```shell
+nvm install --lts
 ```
 
 We use the package manager {file}`yarn`, to install do:
 
-```console
-$ curl -o- -L https://yarnpkg.com/install.sh | bash
+```shell
+curl -o- -L https://yarnpkg.com/install.sh | bash
 ```
 
 ## Bootstrapping A Project
 
 To create a new React project type the following:
 
-```console
-$ npx create-react-app my-app
+```shell
+npx create-react-app my-app
 ```
 
 It will create a folder called `my-app` inside the current folder with the following structure:
@@ -56,9 +56,9 @@ my-app
 
 To run the project you can type:
 
-```console
-$ cd my-app
-$ yarn start
+```shell
+cd my-app
+yarn start
 ```
 
 This will start the server and open up the website in your preferred browser.

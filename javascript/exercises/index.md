@@ -6,7 +6,7 @@
 
 - Fork <https://github.com/collective/collective.jstraining> and clone it with git, and install Plone by executing the following commands:
 
-```console
+```shell
 git clone <location of your fork>
 cd collective.jstraining
 ./bootstrap.sh

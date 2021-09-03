@@ -9,14 +9,14 @@ Install nvm on your system using the instructions and provided script at:
 
 Using nvm we will look up the latest lts version of NodeJS and install it
 
-```console
+```shell
 nvm install --lts
 nvm use --lts
 ```
 
 NodeJS is provided with npm, its package manager, we will use it to install the GatsbyJS CLI
 
-```console
+```shell
 npm install --g gatsby-cli
 ```
 
@@ -30,7 +30,7 @@ When you are prompted to use either `yarn` or `npm` to install the GatsbyJS CLI,
 
 The CLI allows to initialize a project:
 
-```console
+```shell
 gatsby new hello-world
 ```
 
@@ -52,7 +52,7 @@ We will cover "source-plugins" in later chapters.
 To create a new project with a starter, you need to append the github URL of the desired starter in the cli command: `gatsby new [SITE_DIRECTORY] [URL_OF_STARTER_GITHUB_REPO]`
 ```
 
-```console
+```shell
 cd hello-world
 gatsby develop
 ```

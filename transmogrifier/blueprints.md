@@ -158,7 +158,7 @@ to import all content from the last 5 years.
 Now we can hook up the blueprint.
 Open the `configure.zcml` found in the same folder as `blueprints.py`, and add a new utility:
 
-```console
+```html
 <utility
     component=".blueprints.ImportNew"
     name="ploneconf.import_new"/>
@@ -178,7 +178,7 @@ so this is why we want our new step to run before the `constructor`.
 
 Then further down in the file, you can add the new part:
 
-```console
+```ini
 [import_new]
 blueprint = ploneconf.import_new
 ```

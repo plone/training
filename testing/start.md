@@ -10,8 +10,8 @@ and related features such as content types, views, and vocabularies, all using s
 
 First, we need to install plonecli:
 
-```console
-$ pip install plonecli --user
+```shell
+pip install plonecli --user
 ```
 
 ```{note}
@@ -26,17 +26,17 @@ some important fixes needed for this training.
 
 Now we can create a new package:
 
-```console
-$ plonecli create addon plonetraining.testing
+```shell
+plonecli create addon plonetraining.testing
 ```
 
 ## Buildout
 
 Run buildout:
 
-```console
-$ cd plonetraining.testing
-$ plonecli build
+```shell
+cd plonetraining.testing
+plonecli build
 ```
 
 ```{note}
@@ -45,14 +45,14 @@ This command will create a virtualenv, install dependencies and run buildout.
 
 Let's run some tests! plonecli provides some default tests when creating a new package:
 
-```console
-$ plonecli test
+```shell
+plonecli test
 ```
 
 Let's run all tests, including robot tests (we will cover these later):
 
-```console
-$ plonecli test --all
+```shell
+plonecli test --all
 ```
 
 ```{note}

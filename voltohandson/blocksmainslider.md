@@ -10,7 +10,7 @@ For the slider feature, we will install a third party library that will provide 
 
 ## Install react-slick
 
-```bash
+```shell
 $ yarn add react-slick slick-carousel
 ```
 

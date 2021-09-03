@@ -2,7 +2,8 @@
 
 # Workflow, Roles and Permissions
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout user_generated_content
 ```
-~~~
+````
 
 How do prospective speakers submit talks? We let them register on the site and grant right to create talks. For this we go back to changing the site through-the-web.
 

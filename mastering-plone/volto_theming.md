@@ -2,7 +2,8 @@
 
 # Theming in Volto
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -12,7 +13,8 @@ This chapter is about the React frontend Volto.
 Solve the same tasks in Plone Classic in chapter {doc}`theming`
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -24,7 +26,7 @@ Code for the end of this chapter:
 ```
 git checkout theming
 ```
-~~~
+````
 
 To develop our theme, we can use Semantic UI. There are two cases:
 

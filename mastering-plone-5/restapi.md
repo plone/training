@@ -1,9 +1,10 @@
 # Plone REST API
 
-````{sidebar} Get the code!
+````{sidebar}
+Get the code!
 Get the code for this chapter ({doc}`More info <code>`):
 
-```console
+```shell
 git checkout restapi
 ```
 ````

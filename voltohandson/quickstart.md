@@ -36,8 +36,8 @@ In each terminal session you should be in the folder `volto-hands-on-training`.
 
 To build your Volto site, use the `make` command:
 
-```console
-$ make build-backend
+```shell
+make build-backend
 ```
 
 ```{note}
@@ -47,8 +47,8 @@ It assumes that you have `Python 3` in your path, and that you have all the nece
 ````{note}
 If you have problems building the Plone backend, use a Docker container to run it instead:
 
-```console
-$ make start-backend-docker
+```shell
+make start-backend-docker
 ```
 ````
 
@@ -58,8 +58,8 @@ Install the {ref}`Volto dependencies <install-deps-volto-label>` on your machine
 
 Then use `nvm` to ensure you are using the required `node` version:
 
-```console
-$ nvm use 10.15.1
+```shell
+nvm use 10.15.1
 ```
 
 ### Yarn environment
@@ -68,28 +68,28 @@ The repo also has a Volto project ready to build in the root.
 
 To build the yarn environment, you can either use:
 
-```console
-$ make build-frontend
+```shell
+make build-frontend
 ```
 
 or:
 
-```console
-$ yarn
+```shell
+yarn
 ```
 
 ### Executing environments
 
 In your Plone environment, use this command to run Plone:
 
-```console
-$ make start-backend
+```shell
+make start-backend
 ```
 
 Once Plone is listening on port 8080, use this command to run Volto in your yarn environment in another terminal or shell:
 
-```console
-$ yarn start
+```shell
+yarn start
 ```
 
 ## Volto source code

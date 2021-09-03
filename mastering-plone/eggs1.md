@@ -2,7 +2,8 @@
 
 # Write Your Own Python Add-On to Customize Plone
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout initial
 ```
-~~~
+````
 
 (eggs1-create-label)=
 
@@ -47,14 +48,14 @@ We are going to use [plonecli](https://pypi.org/project/plonecli) to create a sk
 
 Install plonecli:
 
-```bash
+```shell
 $ pip install plonecli
 $ pip install bobtemplates.plone==5.2.0
 ```
 
 Then create the addon:
 
-```bash
+```shell
 $ plonecli create addon src/ploneconf.site
 ```
 
@@ -92,7 +93,7 @@ You generated a package with a lot files. It might look like too much boilerplat
 ## Volto Add-ons
 
 The package that will hold your own code for volto was already created when you installed the frontend with `create-volto-app`.
-The folder {file}`frontend/` that you created in the chapter {ref}`instructions-install_frontend-label` not only holds the  default volto frontend but also gives you the option to extend and customize the frontend.
+The folder {file}`frontend/` that you created in the chapter {ref}`instructions-install-frontend-label` not only holds the  default volto frontend but also gives you the option to extend and customize the frontend.
 
 ## Eggs
 
@@ -267,7 +268,7 @@ The directive `fs` allows you to add eggs on the filesystem without a version co
 
 Now run buildout to reconfigure Plone with the updated configuration:
 
-```bash
+```shell
 $ ./bin/buildout
 ```
 

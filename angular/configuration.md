@@ -67,7 +67,7 @@ Now we can download our theme from the Theming control panel and extract the res
 
 Let's add `plonetheme-upload` to our development dependencies:
 
-```console
+```shell
 npm install plonetheme-upload --dev
 ```
 
@@ -82,6 +82,6 @@ And let's add a new script in our {file}`package.json`:
 
 And now we can push our local `./plonecustom` to our Plone backend using the following command:
 
-```console
+```shell
 npm run update-backend
 ```

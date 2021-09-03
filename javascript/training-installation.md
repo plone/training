@@ -2,7 +2,7 @@
 
 To install Plone and example packages for this training, first clone [collective.jstraining](https://github.com/collective/collective.jstraining), then execute the following commands:
 
-```console
+```shell
 git clone https://github.com/collective/collective.jstraining.git
 cd collective.jstraining
 ./bootstrap.sh
@@ -22,7 +22,7 @@ Uncomment the "mockup" line in the buildout's `auto-checkout` section.
 
 After that, run buildout:
 
-```console
+```shell
 bin/buildout -N
 ```
 

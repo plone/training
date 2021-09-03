@@ -2,7 +2,8 @@
 
 # Custom Block
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -28,7 +29,7 @@ We extend the default Volto text block schema with an additional field "readmore
 
 {file}`src/customizations/components/manage/Blocks/Text/Schema.jsx`
 
-```{code-block} json
+```{code-block} jsx
 :emphasize-lines: 8
 :linenos: true
 

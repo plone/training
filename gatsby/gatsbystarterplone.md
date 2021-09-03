@@ -8,7 +8,7 @@ Let us try out the [gatsby-source-plone](https://github.com/collective/gatsby-so
 
 With the GatsbyJS CLI installed, start up with:
 
-```console
+```shell
 gatsby new gatsby-plone-training https://github.com/collective/gatsby-starter-plone
 ```
 
@@ -16,7 +16,7 @@ This will setup a GatsbyJS project in the `gatsby-plone-training` folder with `g
 
 To see the starter along with the plugin in action, run the following commands and navigate to <http://localhost:8000>.
 
-```console
+```shell
 cd gatsby-plone-training
 gatsby develop
 ```

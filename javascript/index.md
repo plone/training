@@ -1,7 +1,7 @@
 ---
-About: JavaScript For Plone Developers
-Level: Experienced
-Status: Work in progress
+:About: JavaScript For Plone Developers
+:Level: Experienced
+:Status: Work in progress
 ---
 
 (javascript-label)=

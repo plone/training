@@ -2,14 +2,15 @@
 
 # Extending Plone With Add-on Packages
 
-````{sidebar} Classic chapter
+````{sidebar}
+Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
 ```
 
 This chapter is about Plone Classic.
 
-For Volto add-ons see chapter {ref}`volto_addon-label`
+For Volto add-ons see chapter {ref}`volto-addon-label`
 ````
 
 - There are more than 2,000 add-ons for Plone.
@@ -33,7 +34,7 @@ Having a Volto frontend in place, you will apply Plone add-ons with some of the 
 
 We start with the scenario of Plone for both backend and frontend. So we use a classic Plone setup without Volto and with the huge repertoire of classic Plone add-ons. This is still be an option in particular as the number of Volto add-ons is just on the way to catch up on all the features and posibilites of Plone add-ons.
 
-Chapter {ref}`volto_addon-label` explains how to apply one of the awsome Volto add-ons for enhancing editor experience, adding features like displaying data as charts, searching with a faceted navigation and a lot more.
+Chapter {ref}`volto-addon-label` explains how to apply one of the awsome Volto add-ons for enhancing editor experience, adding features like displaying data as charts, searching with a faceted navigation and a lot more.
 
 (add-ons-notable-label)=
 
@@ -136,7 +137,7 @@ You must write the egg name indented: this way, buildout understands that the cu
 
 If you add new add-ons, you will have to run buildout and restart the site:
 
-```bash
+```shell
 $ bin/buildout
 $ bin/instance fg
 ```

@@ -6,9 +6,9 @@ Another base Plone feature that we can test is a View.
 
 Create a new view with plonecli:
 
-```console
-$ cd plonetraining.testing
-$ plonecli add view
+```shell
+cd plonetraining.testing
+plonecli add view
 ```
 
 Follow the prompts and create a new view with the `TestingItemView` Python class and a matching template.

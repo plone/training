@@ -2,7 +2,8 @@
 
 # Volto View Components: A Default View for "Talk"
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -12,7 +13,8 @@ This chapter is about the React frontend Volto.
 Solve the same tasks in Plone Classic in chapter {doc}`views_2`
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -24,7 +26,7 @@ Code for the end of this chapter:
 ```
 git checkout talkview
 ```
-~~~
+````
 
 To be solved task in this part:
 
@@ -141,7 +143,7 @@ export default TalkView;
 
 - `content.details` is the value of richtext-field `details`:
 
-  ```json
+  ```jsx
   {
     'content-type': 'text/html',
     data: '<p>foo bar...</p>',

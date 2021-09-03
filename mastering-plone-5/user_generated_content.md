@@ -2,7 +2,8 @@
 
 # User Generated Content
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout user_generated_content
 ```
-~~~
+````
 
 How do prospective speakers submit talks? We let them register on the site and grant right to create talks. For this we go back to changing the site through-the-web.
 
@@ -209,7 +210,7 @@ def uninstall(context):
 
 Once we reinstall our package a folder {file}`talks` is created with the appropriate local roles and constraints.
 
-We wrote similar code to create the folder *The Event* in {ref}`plone5_dexterity2-upgrades-label`.
+We wrote similar code to create the folder *The Event* in {ref}`plone5-dexterity2-upgrades-label`.
 We need it to make sure a sane structure gets created when we create a new site by hand or in tests.
 
 You would usually create a list of dictionaries containing the type, parent and title plus optionally layout, workflow state etc. to create an initial structure. In some projects it could also make sense to have a separate profile besides `default` which might be called `demo` or `content` that creates an initial structure and maybe another `testing` that creates dummy content (talks, speakers etc) for tests.

@@ -29,8 +29,8 @@ Let's implement the Footer component able to display those links.
 
 First we generate the component:
 
-```
-$ ng generate component footer
+```shell
+ng generate component footer
 ```
 
 ```{note}

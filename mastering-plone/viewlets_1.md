@@ -2,7 +2,8 @@
 
 # Writing Viewlets
 
-````{sidebar} Classic chapter
+````{sidebar}
+Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
 ```
@@ -12,7 +13,8 @@ This chapter is about Plone Classic.
 Solve the same tasks in the Volto frontend in chapter **TODO**
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -24,7 +26,7 @@ Code for the end of this chapter:
 ```
 git checkout viewlets_1
 ```
-~~~
+````
 
 In this part you will:
 
@@ -120,7 +122,8 @@ Same as for views, viewlets have access to their class in page templates, as wel
 We have to extend the Featured Viewlet now to add the missing attribute:
 
 ````{only} not presentation
-```{sidebar} Why not to access context directly
+```{sidebar}
+Why not to access context directly
 In this example, {samp}`IFeatured(self.context)` does return the context directly.
 It is still good to use this idiom for two reasons:
 

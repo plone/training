@@ -22,7 +22,7 @@ Details
 - Volto takes advantage of [Semantic UI React components](https://react.semantic-ui.com/) to compose most of the views. For example the component [Image](https://react.semantic-ui.com/elements/image/) is used to render images.
 - The Volto default theme is based on Semantic UI theme and is called [Pastanaga](https://youtu.be/wW9mTl1Tavc?t=133)
 - Same as Plone, Volto is highly extendable with add-ons for further features.
-- Existing Volto components are customizable with a technology similar to `z3c.jbot` called {ref}`volto_overrides-componentshadowing-label`.
+- Existing Volto components are customizable with a technology similar to `z3c.jbot` called {ref}`volto-overrides-componentshadowing-label`.
 - Volto provides server side rendering (SSR), important for SEO-purposes.
 - Volto aims to provide 100% of the features of the current Plone backend. Not all features of Plone are implemented in Volto yet.
 - Volto provides additional functionality that Plone does not have.

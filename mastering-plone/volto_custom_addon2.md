@@ -2,7 +2,8 @@
 
 # Extending Volto With a FAQ Block Type
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -57,7 +58,7 @@ const FAQ = ({ data }) => {
 
 We primarily loop over the accordion elements and we remember the extended (not collapsed)  elements.
 
-~~~{admonition} Complete code of the `FAQ` component
+````{admonition} Complete code of the `FAQ` component
 :class: toggle
 
 ```{code-block} jsx
@@ -143,7 +144,7 @@ const FAQ = ({ data }) => {
 
 export default FAQ;
 ```
-~~~
+````
 
 Let's see how the data is stored on the block. Open your BlockEdit. See the helper component `SidebarPortal`. Everything inside is displayed in the Sidebar.
 
@@ -280,7 +281,7 @@ const FAQListEditWidget = (props) => {
 
 You see the Volto `Form` component with its onSubmit event, the form data and the schema to be used.
 
-~~~{admonition} Complete code of the `FAQListEditWidget` component
+````{admonition} Complete code of the `FAQListEditWidget` component
 :class: toggle
 
 ```{code-block} jsx
@@ -449,7 +450,7 @@ const FAQListEditWidget = (props) => {
 
 export default injectIntl(FAQListEditWidget);
 ```
-~~~
+````
 
 The form is fructified by the schema QuestionAnswerPairSchema. It's simple, just a string field with a textarea widget for the question and a such for the answer, but with a richtext widget to have some editing and styling tools available.
 
@@ -538,7 +539,7 @@ export default applyConfig;
 
 Run
 
-```bash
+```shell
 yarn start
 ```
 
@@ -566,15 +567,15 @@ Add to your **apps** {file}`package.json`:
 "addons": ["@greenthumb/volto-custom-addon", "@eeacms/volto-blocks-form"],
 ```
 
-Compile and start your projects app:
+Compile and start your project's app:
 
-```bash
+```shell
 yarn
 yarn start
 ```
 
 ```{figure} _static/volto_addon_accordion_add.png
-:alt: '@rohberg/volto-accordion-block'
+:alt: "@rohberg/volto-accordion-block"
 ```
 
 See the complete add-on code @rohberg/volto-accordion-block [^id3]
@@ -587,13 +588,13 @@ A Volto project uses this add-on via 'mrs.developer' [^id4]
 
 Install mrs.developer to let the project know about the *source* of your add-on.
 
-```bash
+```shell
 yarn add mrs-developer -WD
 ```
 
 The configuration file {file}`mrs.developer.json` instructs mrs.developer from where it has to pull the package. So, create mrs.developer.json and add:
 
-```bash
+```shell
 {
     "greenthumb-volto-custom-addon": {
         "package": "@greenthumb/volto-custom-addon",
@@ -605,13 +606,11 @@ The configuration file {file}`mrs.developer.json` instructs mrs.developer from w
 
 Run
 
-```bash
+```shell
 yarn develop
 ```
 
-An official release is done on npm. Switch to section {ref}`Release a Volto add-on <volto_custom_addon-final-label>`.
-
-## Footnotes
+An official release is done on npm. Switch to section {ref}`Release a Volto add-on <volto-custom-addon-final-label>`.
 
 [^id3]: [Volto accordion block](https://www.npmjs.com/package/@rohberg/volto-accordion-block)
     Started as an example for the training it is ready to use for creating a questions and answer sections.

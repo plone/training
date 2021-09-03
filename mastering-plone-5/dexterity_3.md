@@ -2,7 +2,8 @@
 
 # Dexterity Types III: Python
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout dexterity_3
 ```
-~~~
+````
 
 Without sponsors, a conference would be hard to finance! Plus it is a good opportunity for Plone companies to advertise their services.
 But sponsors want to be displayed in a nice way according to the size of their sponsorship.
@@ -35,7 +36,7 @@ The topics we cover are:
 ## The Python schema
 
 First we create the schema for the new type. Instead of XML, we use Python this time.
-In chapter {ref}`plone5_export_code-label` you already created a folder {file}`content` with an empty {file}`__init__.py` in it.
+In chapter {ref}`plone5-export-code-label` you already created a folder {file}`content` with an empty {file}`__init__.py` in it.
 We don't need to register that folder in {file}`configure.zcml` since we don't need a {file}`content/configure.zcml` (at least not yet).
 
 Now add a new file {file}`content/sponsor.py`.
@@ -113,7 +114,7 @@ Some things are notable here:
 - {samp}`directives.read_permission(...)` sets the read and write permission for the field `notes` to users who can add new members. Usually this permission is only granted to Site Administrators and Managers. We use it to store information that should not be publicly visible. Please note that {py:attr}`obj.notes` is still accessible in templates and Python. Only using the widget (like we do in the view later) checks for the permission.
 
 ```{seealso}
-See the chapter {ref}`plone5_dexterity_reference-label` for a reference of all field-types and directives you can use in dexterity.
+See the chapter {ref}`plone5-dexterity-reference-label` for a reference of all field-types and directives you can use in dexterity.
 ```
 
 ## The Factory Type Information, or FTI
@@ -436,7 +437,7 @@ The result of the newly created content type.
 
 ### Exercise 2
 
-Turn the content type Speaker from {ref}`Exercise 2 of the first chapter on Dexterity <plone5_dexterity1-excercises-label>` into a Python-based type.
+Turn the content type Speaker from {ref}`Exercise 2 of the first chapter on Dexterity <plone5-dexterity1-excercises-label>` into a Python-based type.
 
 When we're done, it should have the following fields:
 

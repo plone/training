@@ -2,7 +2,8 @@
 
 # Customizing Existing Templates
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout zpt_2
 ```
-~~~
+````
 
 In this part you will:
 
@@ -79,7 +80,7 @@ The file looks like this:
 
 Copy that file into the folder {file}`browser/overrides/` of your package. If you use vagrant you'd have to use
 
-```console
+```shell
 cp /home/vagrant/packages/plone/app/contenttypes/browser/templates/newsitem.pt /vagrant/buildout/src/ploneconf.site/src/ploneconf/site/browser/overrides/
 ```
 

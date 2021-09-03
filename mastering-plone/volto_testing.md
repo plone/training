@@ -2,7 +2,8 @@
 
 # Testing in Plone
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -103,19 +104,19 @@ start-test: ## Start Test
 
 Start the test backend
 
-```bash
+```shell
 make start-test-backend
 ```
 
 Start the test frontend
 
-```bash
+```shell
 make start-test-frontend
 ```
 
 Start cypress
 
-```bash
+```shell
 make start-test
 ```
 
@@ -173,7 +174,7 @@ test('renders a talk view component with only required props', () => {
 
 If you now run the test, a snaphot of the rendered component will be created.
 
-```bash
+```shell
 yarn test
 ```
 

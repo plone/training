@@ -2,7 +2,8 @@
 
 # Testing in Plone
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout testing
 ```
-~~~
+````
 
 In this chapter we:
 
@@ -189,14 +190,14 @@ Even if she does not understand the semantics from the old Plone on how to regis
 This is why it makes sense to write these tedious tests.
 
 If nothing else matches, {file}`test_setup.py` is the right location for anything GenericSetup-related.
-In {ref}`plone5_eggs1-label` we created a content type. It is time to test this.
+In {ref}`plone5-eggs1-label` we created a content type. It is time to test this.
 
 We are going to create a test module named {py:mod}`test_talk`:
 
 % .. literalinclude::  ../ploneconf.site_sneak/chapters/02_export_code_p5/src/ploneconf/site/tests/test_talk.py
 % :linenos:
 
-In {ref}`plone5_views1-label` we created a new view.
+In {ref}`plone5-views1-label` we created a new view.
 We have to test this!
 This time, though, we are also going to test it with a browser.
 

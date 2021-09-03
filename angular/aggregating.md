@@ -9,7 +9,7 @@ First we need a Home component. Let's initialize it properly.
 
 > We use the CLI:
 >
-> ```console
+> ```shell
 > ng generate component home
 > ```
 >

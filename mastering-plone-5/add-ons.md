@@ -132,7 +132,7 @@ You must write the egg name indented: this way, buildout understands that the cu
 
 If you add new add-ons here you will have to run buildout and restart the site:
 
-```bash
+```shell
 $ bin/buildout
 $ bin/instance fg
 ```

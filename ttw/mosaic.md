@@ -43,7 +43,8 @@ Topics covered:
 
 ## Installation
 
-````{sidebar} On An Existing Plone Buildout
+````{sidebar}
+On An Existing Plone Buildout
 If you already have your own Plone installation you can
 install Mosaic by customizing it as follows:
 
@@ -67,7 +68,7 @@ versions =
 
 Run your buildout
 
-```console
+```shell
 bin/buildout -N
 ```
 

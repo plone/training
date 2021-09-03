@@ -19,7 +19,7 @@ If you want to add the code for the chapter yourself you have to checkout the ta
 
 Here is an example:
 
-```bash
+```shell
 git checkout views_2
 ```
 
@@ -31,7 +31,7 @@ and you can get it with {command}`git checkout registry`.
 
 To change the code to the state of the next chapter checkout the tag for the next chapter:
 
-```console
+```shell
 git checkout views_3
 ```
 
@@ -41,7 +41,7 @@ If you made any changes to the code you have to get them out of the way first. T
 Make sure you have no new files or changes in the folder structure of `ploneconf.site` that you want to keep because the following will delete them!!!
 ```
 
-```console
+```shell
 git clean -fd
 git stash
 ```

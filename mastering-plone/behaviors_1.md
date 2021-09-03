@@ -2,7 +2,8 @@
 
 # Behaviors
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout behaviors_1
 ```
-~~~
+````
 
 In this part you will:
 
@@ -107,7 +108,8 @@ Then, we add an empty {file}`behaviors/__init__.py` and a {file}`behaviors/confi
 ```
 
 ````{only} not presentation
-```{sidebar} Advanced reference
+```{sidebar}
+Advanced reference
 It can be a bit confusing when to use factories or marker interfaces and when not to.
 
 If you do not define a factory, your attributes will be stored directly on the object.

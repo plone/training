@@ -399,7 +399,7 @@ We show them here for documentation reasons, so you see how you can install and 
 
 To install `Bootstrap` with {program}`npm`, run the following command inside the theme folder:
 
-```console
+```shell
 cd src/ploneconf/theme/theme
 npm install bootstrap --save
 ```
@@ -407,7 +407,7 @@ npm install bootstrap --save
 The `--save` option will add the `bootstrap` package to the file {file}`package.json` in the theme folder for us.
 Now we can install all dependencies on any other system by running the following command from inside of our theme folder:
 
-```console
+```shell
 npm install
 ```
 

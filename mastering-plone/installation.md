@@ -25,7 +25,7 @@ One way to achieve is `pyenv` which lets you manage different Python versions.
 It even let's you setup virtual Pythons of the same version for individual projects.
 <https://github.com/pyenv/pyenv-installer>
 
-```console
+```shell
 pyenv install 3.9.5
 pyenv virtualenv 3.9.5 plonepy
 pyenv activate plonepy
@@ -40,14 +40,14 @@ If you use a different operating system (OS), please adjust them to fit your OS.
 
 On Ubuntu/Debian, you need to make sure your system is up-to-date:
 
-```console
+```shell
 sudo apt-get update
 sudo apt-get -y upgrade
 ```
 
 Then, you need to install the following packages:
 
-```console
+```shell
 sudo apt-get install python3.9-dev python3.9-tk python3.9-venv build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
 sudo apt-get install libreadline-dev wv poppler-utils
 sudo apt-get install git
@@ -55,7 +55,7 @@ sudo apt-get install git
 
 On MacOS you at least need to install some dependencies with [Homebrew](https://brew.sh/)
 
-```console
+```shell
 brew install zlib git readline jpeg libpng libyaml
 ```
 
@@ -95,7 +95,7 @@ Install pre-requisites:
 
 1. Install `nvm` (Node Version Manager) to manage `node` versions.
 
-   ```bash
+   ```shell
    # macOS
    brew install nvm
 
@@ -105,13 +105,13 @@ Install pre-requisites:
 
 2. Install `node` LTS (node version LTS: long time support)
 
-   ```bash
+   ```shell
    nvm install --lts
    ```
 
 3. Install package manager `yarn`.
 
-   ```bash
+   ```shell
    npm install --global yarn
    ```
 
@@ -119,7 +119,7 @@ Create your Volto project:
 
 1. Generate a project with yeoman
 
-   ```bash
+   ```shell
    npm init yo @plone/volto
    ```
 
@@ -147,7 +147,7 @@ Create your Volto project:
 
 2. Start up the project **volto-project-myprojectname** with
 
-   ```bash
+   ```shell
    cd volto-project-myprojectname
    yarn start
    ```

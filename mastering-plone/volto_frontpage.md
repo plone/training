@@ -2,7 +2,8 @@
 
 # Creating a dynamic frontpage with Volto blocks
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -12,7 +13,8 @@ This chapter is about the React frontend Volto.
 Solve a simlar tasks in Plone Classic in chapter {doc}`frontpage`
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 ```{warning}
 The code you modify is from the backend, i.e. ploneconf.site!
 ```
@@ -28,7 +30,7 @@ Code for the end of this chapter:
 ```
 git checkout frontpage
 ```
-~~~
+````
 
 In this part you will:
 

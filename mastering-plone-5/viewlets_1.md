@@ -2,7 +2,8 @@
 
 # Writing Viewlets
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout viewlets_1
 ```
-~~~
+````
 
 In this part you will:
 
@@ -33,7 +34,7 @@ A viewlet is not a view but a snippet of HTML and logic that can be put in vario
 These places are called `viewletmanager`.
 ```
 
-- Inspect existing viewlets and their managers by going to <http://localhost:8080/Plone/@@manage-viewlets>.
+- Inspect existing viewlets and their managers by going to http://localhost:8080/Plone/@@manage-viewlets.
 - We already customized a viewlet ({file}`colophon.pt`). Now we add a new one.
 - Viewlets don't save data (portlets do)
 - Viewlets have no user interface (portlets do)
@@ -110,7 +111,8 @@ Same as for views, viewlets have access to their class in page templates, as wel
 We have to extend the Featured Viewlet now to add the missing attribute:
 
 ````{only} not presentation
-```{sidebar} Why not to access context directly
+```{sidebar}
+Why not to access context directly
 In this example, {samp}`IFeatured(self.context)` does return the context directly.
 It is still good to use this idiom for two reasons:
 
@@ -263,7 +265,7 @@ class DaysToConferenceViewlet(ViewletBase):
         return arrow.get(CONFERENCE_START_DATE).humanize()
 ```
 
-Setting the date in python is not very user-friendly. In the chapter {ref}`plone5_registry-label` you learn how store global configuration and easily create controlpanels.
+Setting the date in python is not very user-friendly. In the chapter {ref}`plone5-registry-label` you learn how store global configuration and easily create controlpanels.
 
 And in {file}`templates/days_to_conference.pt`:
 

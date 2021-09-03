@@ -584,9 +584,9 @@ package-lock.json
 
 Then run the following commands:
 
-```console
-$ git add .
-$ git commit -m "Add compiled CSS file."
+```shell
+git add .
+git commit -m "Add compiled CSS file."
 ```
 ````
 

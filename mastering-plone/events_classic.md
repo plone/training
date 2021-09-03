@@ -2,7 +2,8 @@
 
 # Turning Talks into Events
 
-````{sidebar} Classic chapter
+````{sidebar}
+Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
 ```
@@ -12,7 +13,8 @@ This chapter is about Plone Classic.
 Solve the same tasks in the Volto frontend in chapter {doc}`events`
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -24,7 +26,7 @@ Code for the end of this chapter:
 ```
 git checkout events
 ```
-~~~
+````
 
 We forgot something: a list of talks is great, especially if you can sort it according to your preferences. But if a visitor decides she wants to actually go to see a talk she needs to know when it will take place.
 
@@ -175,7 +177,7 @@ class TalkListView(BrowserView):
 ```
 
 ```{note}
-If you changed the view {py:class}`TalkListView` to only return brains as described in {ref}`plone5_dexterity2-use_indexes-label` you can save yourself a lot of work and simply use the existing index `start` (generously provided by {py:mod}`plone.app.event`) in the template as `python:brain.start`.
+If you changed the view {py:class}`TalkListView` to only return brains as described in {ref}`plone5-dexterity2-use-indexes-label` you can save yourself a lot of work and simply use the existing index `start` (generously provided by {py:mod}`plone.app.event`) in the template as `python:brain.start`.
 ```
 
 ## Exercise 1
@@ -187,7 +189,7 @@ Find out where `event_summary` comes from and describe how you could override it
 
 Use your editor or grep to search all ZCML files in the folder {file}`packages` for the string `name="event_summary"`
 
-```bash
+```shell
 $ grep -siRn --include \*.zcml 'name="event_summary"' ./packages
 ./packages/plone/app/event/browser/configure.zcml:66:        name="event_summary"
 ./packages/plone/app/event/browser/configure.zcml:75:        name="event_summary"

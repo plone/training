@@ -341,14 +341,14 @@ Another problem is error handling. Buildout tries to install a weird dependency 
 
 If there is a problem, you can always run Buildout with {option}`-v` to get more verbose output, sometimes it helps.
 
-```bash
+```shell
 $ ./bin/buildout -v
 ```
 
 If strange egg versions are requested, check the dependencies declaration of your eggs and your version pinnings.
 Here is an invaluable shell command that allows you to find all packages that depend on a particular egg and version:
 
-```bash
+```shell
 $ grep your.egg.name.here /home/vagrant/buildout-cache/eggs/*.egg/EGG-INFO/requires.txt
 ```
 

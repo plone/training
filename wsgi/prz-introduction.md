@@ -45,26 +45,26 @@ As a first exercise in this training run the above buildout configuration from t
 
 Activate your virtualenv if you haven't done so already:
 
-```bash
+```shell
 ~/wsgitraining$ . bin/activate
 ```
 
 Run buildout:
 
-```bash
+```shell
 (wsgitraining) ~/wsgitraining$ buildout -c basic.cfg
 ```
 
 After a successful buildout, you can start Plone in the foreground as usual.
 Start `zeo` first:
 
-```bash
+```shell
 (wsgitraining) ~/wsgitraining$ bin/zeo start
 ```
 
 Then start the application server:
 
-```bash
+```shell
 (wsgitraining) ~/wsgitraining$ bin/instance fg
 ```
 

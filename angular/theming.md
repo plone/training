@@ -4,7 +4,7 @@
 
 Add the bootstrap dependency:
 
-```console
+```shell
 npm install bootstrap-sass@~3.3.7 --save
 ```
 

@@ -41,11 +41,11 @@ about/glossary
 
 ### Development and Customization
 
-{ref}`mastering_plone-label`
+{ref}`mastering-plone-label`
 
 : Mastering Plone 6 teaches the best practices of Plone development. It covers frontend as well as backend development and Volto as well as Plone Classic.
 
-{ref}`mastering_plone5-label`
+{ref}`mastering-plone5-label`
 
 : Mastering Plone 5 is a training intended for people who are new to Plone or want to learn about the best practices of Plone 5 development.
 

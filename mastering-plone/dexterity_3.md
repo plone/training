@@ -2,7 +2,8 @@
 
 # Dexterity Types III: Sponsors
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout dexterity_3
 ```
-~~~
+````
 
 Without sponsors, a conference would be hard to finance! Plus it is a good opportunity for Plone companies to advertise their services.
 
@@ -111,7 +112,7 @@ Some things are notable here:
 - {samp}`directives.read_permission(...)` sets the read and write permission for the field `notes` to users who can add new members. Usually this permission is only granted to Site Administrators and Managers. We use it to store information that should not be publicly visible. Please note that {py:attr}`obj.notes` is still accessible in templates and Python.
 
 ```{seealso}
-See the chapter {ref}`dexterity_reference-label` for a reference of all field-types and directives you can use in dexterity.
+See the chapter {ref}`dexterity-reference-label` for a reference of all field-types and directives you can use in dexterity.
 ```
 
 ## The Factory Type Information, or FTI

@@ -2,7 +2,8 @@
 
 # Write Your Own Add-Ons to Customize Plone
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout eggs1
 ```
-~~~
+````
 
 (plone5-eggs1-create-label)=
 
@@ -38,7 +39,7 @@ We are going to use [bobtemplates.plone](https://pypi.org/project/bobtemplates.p
 
 Enter the {file}`src` directory (*src* is short for *sources*) and call a script called {command}`mrbob` from our buildout's {file}`bin` directory:
 
-```bash
+```shell
 $ cd src
 $ ../bin/mrbob -O ploneconf.site bobtemplates.plone:addon
 ```
@@ -46,7 +47,7 @@ $ ../bin/mrbob -O ploneconf.site bobtemplates.plone:addon
 ````{warning}
 Before version 2.0.0 of {py:mod}`bobtemplates.plone` the command to create a add-on was different:
 
-```bash
+```shell
 $ ../bin/mrbob -O ploneconf.site bobtemplates:plone_addon
 ```
 ````
@@ -244,7 +245,7 @@ The directive `fs` allows you to add eggs on the filesystem without a version co
 
 Now run buildout to reconfigure Plone with the updated configuration:
 
-```bash
+```shell
 $ ./bin/buildout
 ```
 

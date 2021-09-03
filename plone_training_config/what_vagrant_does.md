@@ -16,7 +16,7 @@ This is basically what Puppet does if we were to configure our system by hand:
 
 First we update Ubuntu and install some packages.
 
-```bash
+```shell
 $ sudo aptitude update --quiet --assume-yes
 $ sudo aptitude upgrade --quiet --assume-yes
 $ sudo apt-get install build-essential
@@ -48,26 +48,26 @@ $ sudo apt-get install putty-tools
 
 Then we create a virtual python environment using virtualenv. This is always a good practice since that way we get a clean isolated copy of our system python, so that we do not break the system python by installing eggs that might collide with other eggs. Python is nowadays used a lot by your operating system as well for all kinds of system tools and scripting.
 
-```bash
+```shell
 $ python3.7 -m venv /home/vagrant/py37
 ```
 
 Install zc.buildout, setuptools and other dependencies for the current version into the new virtualenv.
 
-```bash
+```shell
 $ /home/vagrant/py37/bin/pip install -r http://dist.plone.org/release/5.2/requirements.txt
 ```
 
 Now we download and unpack a buildout-cache that holds all the python packages that make up Plone. This is an optimisation: We could skip this step and have buildout download all packages individually from the [python packaging index PyPi](https://pypi.org) but that takes much longer on a first install.
 
-```bash
+```shell
 $ wget http://dist.plone.org/release/5.2/buildout-cache.tar.bz2
 $ tar xjf buildout-cache.tar.bz2
 ```
 
 Then we check out our tutorial buildout from <https://github.com/collective/training_buildout> and build it.
 
-```bash
+```shell
 $ cd /vagrant
 $ git clone https://github.com/collective/training_buildout.git buildout
 $ cd buildout
@@ -75,7 +75,7 @@ $ cd buildout
 
 Then we run buildout:
 
-```bash
+```shell
 $ /home/vagrant/py37/bin/buildout -c vagrant_provisioning.cfg
 ```
 
@@ -85,7 +85,7 @@ At this point Vagrant and Puppet have finished their job to set up your virtual 
 
 You can now connect to the machine and start Plone.
 
-```bash
+```shell
 $ vagrant ssh
 $ cd /vagrant/buildout
 $ ./bin/instance fg

@@ -7,8 +7,8 @@
 In this chapter we will add routing so we can navigate to a specific FAQ item.
 First we will install {file}`react-router`:
 
-```console
-$ yarn add react-router-dom
+```shell
+yarn add react-router-dom
 ```
 
 Next we will define the routes we want to use.

@@ -2,7 +2,8 @@
 
 # Views III: A Talk List
 
-````{sidebar} Classic chapter
+````{sidebar}
+Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
 ```
@@ -12,7 +13,8 @@ This chapter is about Plone Classic.
 Solve the same tasks in the Volto frontend in chapter {doc}`volto_talk_listview`
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -24,7 +26,7 @@ Code for the end of this chapter:
 ```
 git checkout views_3
 ```
-~~~
+````
 
 In this part you will:
 

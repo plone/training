@@ -50,14 +50,14 @@ To bootstrap a new Volto project, you can use a scaffolding tool based on
 Yeoman, generator-volto. First install it as a global tool (use [NVM] if you're
 being asked for sudo access):
 
-```bash
+```shell
 npm install -g yo
 npm install -g @plone/generator-volto
 ```
 
 Then you can bootstrap the project with:
 
-```bash
+```shell
 yo @plone/volto myvoltoproject
 ```
 
@@ -192,7 +192,7 @@ to manage the package and `jsconfig.json` changes.
 
 Install mrs-developer as a development dependency by running:
 
-```console
+```shell
 yarn add -W -D mrs-developer
 ```
 

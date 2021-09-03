@@ -86,7 +86,7 @@ eggs =
 
 Run your buildout:
 
-```console
+```shell
 bin/buildout -N
 ```
 

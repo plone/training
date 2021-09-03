@@ -20,8 +20,8 @@ So it's a unidirectional flow.
 
 To install Redux we will run the following command:
 
-```console
-$ yarn add redux react-redux
+```shell
+yarn add redux react-redux
 ```
 
 ## Actions

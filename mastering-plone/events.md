@@ -2,7 +2,8 @@
 
 # Turning Talks into Events
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -12,7 +13,8 @@ This chapter is about the React frontend Volto.
 Solve the same tasks in Plone Classic in chapter {doc}`events_classic`
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -32,7 +34,7 @@ git checkout event
 # backend
 git checkout event
 ```
-~~~
+````
 
 We forgot something: a list of talks is great, especially if you can sort it according to your preferences. But if a visitor decides she wants to actually go to see a talk she needs to know when it will take place.
 

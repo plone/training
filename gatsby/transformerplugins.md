@@ -41,7 +41,7 @@ But we still do not have the right information.
 
 To get more information to be queried (for example the title of the "blogposts" or their text), we need to add a new plugin:
 
-```console
+```shell
 npm install --save gatsby-transformer-remark
 ```
 

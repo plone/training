@@ -2,7 +2,8 @@
 
 # Using Volto add-ons
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -62,7 +63,7 @@ Add-ons that are already released on [npm](https://www.npmjs.com):
 
 Install new add-ons and restart Volto:
 
-```bash
+```shell
 $ yarn
 $ yarn start
 ```

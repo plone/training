@@ -15,10 +15,11 @@ The different worker types and how to choose one suitable for your application i
 
 ## Use gunicorn in our buildout
 
-````{sidebar} Build now
+````{sidebar}
+Build now
 Run buildout for this section:
 
-```bash
+```shell
 buildout -c gunicorn.cfg
 ```
 ````
@@ -62,10 +63,11 @@ wsgi-ini-template = ${buildout:directory}/templates/gunicorn.ini.in
 
 ## Alternative method for using gunicorn
 
-````{sidebar} Build now
+````{sidebar}
+Build now
 Run buildout for this section:
 
-```bash
+```shell
 buildout -c gunicorn-alt.cfg
 ```
 ````
@@ -121,7 +123,7 @@ mode = 755
 Note that in this case we still create the default instance (using waitress).
 But for starting up Plone with gunicorn we use the new `gunicorn-instance` script instead, without any parameters:
 
-```bash
+```shell
 (wsgitraining) $ bin/gunicorn-instance
 [2019-10-01 11:55:41 +0200] [11048] [INFO] Starting gunicorn 19.9.0
 [2019-10-01 11:55:41 +0200] [11048] [INFO] Listening at: http://127.0.0.1:8080 (11048)

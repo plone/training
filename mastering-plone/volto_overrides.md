@@ -2,7 +2,8 @@
 
 # Customizing Volto Components
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -12,7 +13,8 @@ This chapter is about the React frontend Volto.
 Solve the same tasks in Plone Classic in chapter {doc}`zpt_2`
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -24,7 +26,7 @@ Code for the end of this chapter:
 ```
 git checkout overrides
 ```
-~~~
+````
 
 In this part you will:
 
@@ -85,7 +87,7 @@ This way visitors can see at a glance if they are looking at current or old news
 This information is not shown by default.
 So you will need to customize the way that is used to render a News Item.
 
-The Volto component to render a News Item is in `omelette/src/components/theme/View/NewsItemView.jsx` (remember  chapter {ref}`volto_basics-label`?).
+The Volto component to render a News Item is in `omelette/src/components/theme/View/NewsItemView.jsx` (remember  chapter {ref}`volto-basics-label`?).
 
 ```jsx
 /**

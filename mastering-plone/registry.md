@@ -2,7 +2,8 @@
 
 # Vocabularies, Registry-Settings and Control Panels
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -22,7 +23,7 @@ git checkout registry
 # backend
 git checkout registry
 ```
-~~~
+````
 
 In this part you will:
 

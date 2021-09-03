@@ -2,7 +2,8 @@
 
 # Volto Actions and Component State
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -12,7 +13,8 @@ This chapter is about the React frontend Volto.
 Solve the same tasks in Plone Classic in chapter {doc}`viewlets_2`
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```shell
@@ -24,7 +26,7 @@ Code for the end of this chapter:
 ```shell
 git checkout REST-API-frontend-roundtrip
 ```
-~~~
+````
 
 (volto-actions-overview-label)=
 
@@ -116,7 +118,7 @@ The corresponding reducer writes the data in global app store.
 The component `Voting` as other components can now access the data from the app store by `const votes = useSelector((store) => store.votes);`.
 The constant `votes` holds the necessary data for the current talk and user in a dictionary like
 
-```{code-block} json
+```{code-block} jsx
 :linenos: true
 
 votes: {
@@ -199,7 +201,7 @@ export default function votes(state = initialState, action = {}) {
 
 With a successfull action `getVotes`, the app store has an entry
 
-```{code-block} json
+```{code-block} jsx
 :linenos: true
 
 votes: {

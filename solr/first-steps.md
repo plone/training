@@ -99,13 +99,13 @@ name:fullname type:string copyfield:SearchableText stored:true multivalued:false
 
 After we have done that we need to rerun buildout
 
-```console
+```shell
 bin/buildout
 ```
 
 and restart Solr and Plone
 
-```console
+```shell
 bin/instance restart
 bin/solr-instance fg
 ```

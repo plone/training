@@ -2,7 +2,8 @@
 
 # Views I
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout views_1
 ```
-~~~
+````
 
 In this part you will:
 

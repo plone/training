@@ -8,7 +8,7 @@ Install nvm on your system using the instructions and provided script at:
 
 Using nvm we will look up the latest lts version of NodeJS and install it
 
-```console
+```shell
 nvm ls-remote --lts
 nvm install v6.10
 nvm use v6.10
@@ -16,7 +16,7 @@ nvm use v6.10
 
 NodeJS is provided with npm, its package manager, we will use it to install the Angular CLI (ng)
 
-```console
+```shell
 npm install -g @angular/cli@latest
 ```
 
@@ -28,7 +28,7 @@ npm install -g @angular/cli@latest
 
 The CLI allows to initialize a project:
 
-```console
+```shell
 ng new training --style=scss
 ```
 
@@ -44,7 +44,7 @@ If we inspect our newly created `./training`, we see a default Angular project s
 
 We can serve our project locally using the CLI.
 
-```console
+```shell
 cd ./training
 ng serve
 ```
@@ -56,6 +56,6 @@ like autoreload and sourcemaps.
 
 The CLI also allows to run the tests:
 
-```console
+```shell
 ng test
 ```

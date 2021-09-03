@@ -2,7 +2,8 @@
 
 # Volto View Components: A Listing View for Talks
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -16,7 +17,8 @@ Create a view that shows a list of content
 ```
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -28,7 +30,7 @@ Code for the end of this chapter:
 ```
 git checkout talklist
 ```
-~~~
+````
 
 To be solved task in this part:
 

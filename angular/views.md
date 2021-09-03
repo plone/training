@@ -21,7 +21,7 @@ and we would like to also display the image and the speaker.
 
 Let's generate a new component with the CLI
 
-```console
+```shell
 ng generate component talk
 ```
 

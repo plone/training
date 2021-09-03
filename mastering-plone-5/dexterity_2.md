@@ -2,7 +2,8 @@
 
 # Dexterity Types II: Growing Up
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -14,7 +15,7 @@ Code for the end of this chapter:
 ```
 git checkout dexterity_2
 ```
-~~~
+````
 
 The existing talks are still lacking some functionality we want to use.
 

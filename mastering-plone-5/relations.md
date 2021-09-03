@@ -61,7 +61,7 @@ This makes it very flexible for limiting relateable items by type, path, date, a
 
 For even more flexibility, you can create your own [dynamic vocabularies](https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html#dynamic-sources).
 
-For more examples how to use relationfields look at {ref}`plone5_dexterity_reference-label`.
+For more examples how to use relationfields look at {ref}`plone5-dexterity-reference-label`.
 
 Sometimes the widget for relations is not what you want since it can be hard to navigate to the content you want to relate to. To use the SelectFieldWidget you can specify it if you use your own vocabulary:
 

@@ -9,9 +9,9 @@ With plonecli we can add features to our package using the command line.
 
 For example, let's create a new `TestingItem` content type:
 
-```console
-$ cd plonetraining.testing
-$ plonecli add content_type
+```shell
+cd plonetraining.testing
+plonecli add content_type
 ```
 
 With this command, plonecli will ask you some questions and will register a new content type in our package.

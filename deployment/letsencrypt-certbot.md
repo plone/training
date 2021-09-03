@@ -9,7 +9,7 @@ We use an Ansible role that will automatically install [certbot](https://certbot
 
 You need to install the role.
 
-```bash
+```shell
 cd ansible-playbook
 git clone https://github.com/geerlingguy/ansible-role-certbot.git geerlingguy.certbot
 ```

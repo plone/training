@@ -2,7 +2,8 @@
 
 # Extending Volto With Custom Add-on Package
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -12,7 +13,8 @@ This chapter is about the React frontend Volto.
 Solve the same tasks in classic frontend in chapter {doc}`eggs1`
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -24,7 +26,7 @@ Code for the end of this chapter:
 ```
 git checkout TODO tag to checkout
 ```
-~~~
+````
 
 As soon as you have repeating needs in Volto projects, you will want to move the code to an add-on that can be applied to multiple projects. One of several ways to start with a new add-on is the Yeoman generator we already used to initiate a Volto app.
 
@@ -32,14 +34,14 @@ As soon as you have repeating needs in Volto projects, you will want to move the
 
 If you haven't prepared Yeoman and the generator:
 
-```bash
+```shell
 npm install -g yo
 npm install -g @plone/generator-volto
 ```
 
 Create a sandbox project
 
-```bash
+```shell
 yo @plone/volto sandbox-volto-custom-addon
 ```
 
@@ -64,7 +66,7 @@ Using latest released Volto version: 11.1.0
 
 Go to the app folder:
 
-```bash
+```shell
 cd sandbox-volto-custom-addon
 ```
 
@@ -72,13 +74,13 @@ You now have a Volto app configured for an add-on. An add-on is a Node package. 
 
 Create your add-on with the generator:
 
-```bash
+```shell
 yo @plone/volto:addon @greenthumb/volto-custom-addon
 ```
 
 Update {file}`package.json`:
 
-```bash
+```shell
 "private": true,
 "workspaces": [
     "src/addons/*"
@@ -105,7 +107,7 @@ Update {file}`jsconfig.json`:
 
 Install and start
 
-```bash
+```shell
 $ yarn
 $ yarn start
 ```
@@ -126,7 +128,7 @@ You already released your add-on. Go on with {file}`package.json` and add your n
 
 Update `package.json`:
 
-```bash
+```shell
 "addons": [
   …
   "@greenthumb/volto-custom-addon"
@@ -144,20 +146,20 @@ Modify versions as necessary.
 
 Install new add-on and restart Volto:
 
-```bash
+```shell
 $ yarn
 $ yarn start
 ```
 
 ## Create a new project with your new released add-on
 
-```bash
+```shell
 yo @plone/volto my-volto-project --addon collective/volto-custom-addon
 ```
 
 Install and start
 
-```bash
+```shell
 $ yarn
 $ yarn start
 ```

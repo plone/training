@@ -11,16 +11,17 @@ In a [load test](https://zope.readthedocs.io/en/latest/wsgi.html#test-criteria-f
 
 `Bjoern` uses `libev` and you will need to install both the library and the development header files on your box:
 
-```bash
+```shell
 $ sudo apt install libev-dev
 ```
 
 ## Use `bjoern` in our buildout
 
-````{sidebar} Build now
+````{sidebar}
+Build now
 Run buildout for this section:
 
-```bash
+```shell
 buildout -c bjoern.cfg
 ```
 ````
@@ -93,7 +94,7 @@ Pick one and use it to run Plone behind [werkzeug](https://palletsprojects.com/p
 You will need to create two files, an `.ini` template and the buildout configuration.
 As a starting point, copy `bjoern.cfg` to `cheroot.cfg` and `templates/bjoern.ini.in` to `templates/cheroot.ini.in` in your buildout directory:
 
-```bash
+```shell
 $ cp bjoern.cfg cheroot.cfg
 $ cp templates/bjoern.ini.in templates/cheroot.ini.in
 ```
@@ -138,13 +139,13 @@ We resolve to specifying host and port in the template instead.
 
 Next run buildout with the new configuration:
 
-```bash
+```shell
 (wsgitraining) $ buildout -c cheroot.cfg
 ```
 
 You can now start your instance as usual:
 
-```bash
+```shell
 (wsgitraining) $ bin/instance fg
 2019-10-07 12:43:08,856 INFO    [Zope:45][MainThread] Ready to handle requests
 Starting server in PID 3906.
@@ -155,7 +156,7 @@ Starting server in PID 3906.
 For `werkzeug` the steps are pretty much the same.
 Copy the configuration files:
 
-```bash
+```shell
 $ cp bjoern.cfg werkzeug.cfg
 $ cp templates/bjoern.ini.in templates/werkzeig.ini.in
 ```
@@ -195,7 +196,7 @@ port = 8080
 
 After running `buildout -c werkzeug.cfg` you can start your Plone instance:
 
-```bash
+```shell
 (wsgitraining) $ bin/instance fg
 2019-10-07 12:58:54,660 INFO    [Zope:45][MainThread] Ready to handle requests
 Starting server in PID 4337.

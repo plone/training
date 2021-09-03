@@ -40,7 +40,7 @@ import HighlightsViewBlock from '@package/components/Blocks/Highlights/View';
 import HighlightsEditBlock from '@package/components/Blocks/Highlights/Edit';
 
 const customTiles = {
-...
+// ...
   highlights: {
     id: 'highlights',
     title: 'Highlights',
@@ -155,7 +155,7 @@ and we will add it to the Block render. Notice that we are passing the id prop f
 
    return (
 
- ...
+ // ...
 
  <Grid.Column>
    <div className="highlight">
@@ -169,7 +169,7 @@ and we will add it to the Block render. Notice that we are passing the id prop f
    </div>
  </Grid.Column>
 
- ...
+ // ...
 ```
 
 and then, the `RecentSuccessStories.jsx` component:

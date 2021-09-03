@@ -20,28 +20,28 @@ Make sure you set a CORS policy or things tend to magically go wrong. See <https
 
 First step is to install the correct Node version using `nvm`:
 
-```console
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+```shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ```
 
 Then you can install the latest LTS version of node:
 
-```console
-$ nvm install --lts
+```shell
+nvm install --lts
 ```
 
 We use the package manager {file}`yarn`, to install do:
 
-```console
-$ curl -o- -L https://yarnpkg.com/install.sh | bash
+```shell
+curl -o- -L https://yarnpkg.com/install.sh | bash
 ```
 
 ## Bootstrapping A Project
 
 To create a new volto project type the following:
 
-```console
-$ npx @plone/create-volto-app my-volto-app
+```shell
+npx @plone/create-volto-app my-volto-app
 ```
 
 It will create a folder called `my-volto-app` inside the current folder with the following structure:
@@ -78,20 +78,20 @@ my-volto-app
 
 To run the project you can type:
 
-```console
-$ cd my-volto-app
-$ yarn start
+```shell
+cd my-volto-app
+yarn start
 ```
 
 This will start the server on port 3000.
 You can change the port and/or hostname for the frontend by specifying PORT and/or HOST:
 
-```console
-$ HOST=my_hostname PORT=1234 yarn start
+```shell
+HOST=my_hostname PORT=1234 yarn start
 ```
 
 If your backend runs on a different port and/or uses a different hostname you can specify the full url:
 
-```console
-$ RAZZLE_API_PATH=http://localhost:55001/plone yarn start
+```shell
+RAZZLE_API_PATH=http://localhost:55001/plone yarn start
 ```

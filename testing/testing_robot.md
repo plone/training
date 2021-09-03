@@ -100,22 +100,22 @@ installs two helper scripts for writing tests:
 
 We can run robot tests along with other tests, using this command:
 
-```console
-$ plonecli test --all
+```shell
+plonecli test --all
 ```
 
 Or, as with any other test, we can run only a single test using this command:
 
-```console
-$ plonecli test -s plonetraining.testing -t test_example.robot --all
+```shell
+plonecli test -s plonetraining.testing -t test_example.robot --all
 ```
 
 These commands take time because each test case needs to start a server, open a new browser window and then execute keywords and await the server reponse.
 
 When we are developing our tests, we can speedup this process, keeping a robot-server instance always up with this command:
 
-```console
-$ bin/robot-server --reload-path src plonetraining.testing.testing.PLONETRAINING_TESTING_ACCEPTANCE_TESTING
+```shell
+bin/robot-server --reload-path src plonetraining.testing.testing.PLONETRAINING_TESTING_ACCEPTANCE_TESTING
 ```
 
 This command will start a robotframework server that also instantiates a Plone instance.
@@ -124,8 +124,8 @@ This has a second advantage: you can inspect the Plone site every time and try t
 
 With robot server running, we can run test cases with this command:
 
-```console
-$ bin/robot /src/plonetraining/testing/tests/robot/test_example.robot
+```shell
+bin/robot /src/plonetraining/testing/tests/robot/test_example.robot
 ```
 
 ```{note}

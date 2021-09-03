@@ -11,10 +11,11 @@ Only a few of them work with Zope and Plone, though.
 
 ## Using uWSGI in our buildout
 
-````{sidebar} Build now
+````{sidebar}
+Build now
 Run buildout for this section:
 
-```bash
+```shell
 buildout -c uwsgi.cfg
 ```
 ````
@@ -85,7 +86,7 @@ mode = 755
 
 Like with gunicorn in the previous chapter, we can start Plone behind uWSGI with the `uwsgi-instance` script:
 
-```bash
+```shell
 (wsgitraining) $ bin/uwsgi-instance
 [uWSGI] getting INI configuration from /vagrant/wsgitraining/etc/uwsgi.ini
 *** Starting uWSGI 2.0.18 (64bit) on [Tue Oct  1 13:50:21 2019] ***
@@ -128,13 +129,13 @@ If so, use the distribution package, otherwise follow the official installation 
 For both tools we use 100 concurrent connections and 100 seconds of test duration.
 For siege, the command line looks like this:
 
-```bash
+```shell
 $ siege -c 100 -t 100s http://localhost:8080/Plone
 ```
 
 For wrk, use:
 
-```bash
+```shell
 $ wrk -c 100 -d 100s -t 1 --timeout 300s --latency http://localhost:8080/Plone
 ```
 
@@ -169,20 +170,20 @@ We will roughly follow [this blog post](https://www.paulox.net/2019/03/13/how-to
 
 Let's first install the necessary packages:
 
-```bash
+```shell
 $ sudo apt install uwsgi-emperor python3-distutils uwsgi-src uuid-dev libcap-dev libpcre3-dev
 ```
 
 Next we will rebuild uWSGI's Python 3 plugin (and change to a temporary location before doing so):
 
-```bash
+```shell
 $ cd /tmp
 $ PYTHON=python3.7 uwsgi --build-plugin "/usr/src/uwsgi/plugins/python python37"
 ```
 
 Then we move the plugin to the location where uWSGI expects to find its plugins:
 
-```bash
+```shell
 $ sudo mv python37_plugin.so /usr/lib/uwsgi/plugins/python37_plugin.so
 $ sudo chmod 644 /usr/lib/uwsgi/plugins/python37_plugin.so
 ```
@@ -190,7 +191,7 @@ $ sudo chmod 644 /usr/lib/uwsgi/plugins/python37_plugin.so
 Note that we are not replacing the existing Python 3 plugin, but we add a new one specifically for Python 3.7.
 We can check the Python version of our new plugin:
 
-```bash
+```shell
 $ uwsgi --plugin python37 -s :0
 ...
 Python version: 3.7.3 (default, Apr  3 2019, 19:16:38)  [GCC 8.0.1 20180414 (experimental) [trunk revision 259383]]
@@ -256,7 +257,7 @@ threads = 4
 
 The important (and not quite obvious from the docs, see this [mail post](http://lists.unbit.it/pipermail/uwsgi/2015-March/007918.html)) thing to note here as that this file must be owned by the same user we intend to use for running the vassal:
 
-```bash
+```shell
 sudo chown vagrant.vagrant /etc/uwsgi-emperor/vassals/plone.ini
 ```
 
@@ -299,7 +300,7 @@ The tricky part however is to get the file permissions right.
 By default, only root is allowed to write to `/var/log/uwsgi`, but the vassal is running as `vagrant.vagrant`.
 We resolve to changing the group ownership for `/var/log/uwsgi` and giving the group write access:
 
-```bash
+```shell
 $ sudo chgrp vagrant /var/log/uwsgi
 $ sudo chmod g+w /var/log/uwsgi
 $ ls -ld /var/log/uwsgi

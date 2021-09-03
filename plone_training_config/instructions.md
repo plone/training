@@ -10,7 +10,8 @@
 
 # Installing Plone for the Training
 
-````{sidebar} Installation for the training
+````{sidebar}
+Installation for the training
 ```{contents} Table of Contents
 :depth: 4
 ```
@@ -201,7 +202,7 @@ Install pre-requisites.
 
 1. Install `nvm` (Node Version Manager) to manage `node` versions.
 
-   ```bash
+   ```shell
    # macOS
    brew install nvm
 
@@ -211,13 +212,13 @@ Install pre-requisites.
 
 2. Install node LTS (node version LTS: long time support)
 
-   ```bash
+   ```shell
    nvm install --lts
    ```
 
 3. Install package manager `yarn`.
 
-   ```bash
+   ```shell
    npm install --global yarn
    ```
 
@@ -225,7 +226,7 @@ Create your Volto frontend project.
 
 1. Generate a project with yeoman
 
-   ```bash
+   ```shell
    npm init yo @plone/volto
    ```
 
@@ -251,7 +252,7 @@ Create your Volto frontend project.
 
 2. Start up the project **frontend** with
 
-   ```bash
+   ```shell
    cd frontend
    yarn start
    ```
@@ -276,7 +277,7 @@ See <https://docs.voltocms.com/getting-started/install/#install-volto>
 
 Install package manager `yarn`.
 
-> ```bash
+> ```shell
 > npm install --global yarn
 > ```
 
@@ -470,7 +471,7 @@ ValueError: unknown locale: UTF-8
 In that case you have to put the localized keyboard and language settings in the .bash_profile
 of the vagrant user to your locale (like `en_US.UTF-8` or `de_DE.UTF-8`)
 
-```bash
+```shell
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 ```

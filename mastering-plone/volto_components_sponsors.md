@@ -2,7 +2,8 @@
 
 # The Sponsors Component
 
-````{sidebar} Volto chapter
+````{sidebar}
+Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -16,7 +17,8 @@ Create a React component for content fetched from the backend
 Solve the same tasks in Plone Classic: {doc}`viewlets_advanced_classic`
 ````
 
-~~~{sidebar} Get the code! ({doc}`More info <code>`)
+````{sidebar}
+Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```
@@ -28,7 +30,7 @@ Code for the end of this chapter:
 ```
 git checkout TODO tag to checkout
 ```
-~~~
+````
 
 In the previous chapter {doc}`dexterity_3` you created the `sponsor` content type.
 Now let's learn how to display content of this type.
@@ -262,7 +264,7 @@ now render the sponsors data. As we have already prepared a dictionary by sponso
 </List>
 ```
 
-~~~{admonition} Complete code of the `Sponsors` component
+````{admonition} Complete code of the `Sponsors` component
 :class: toggle
 
 ```{code-block} jsx
@@ -348,7 +350,7 @@ const Sponsors = () => {
 
 export default Sponsors;
 ```
-~~~
+````
 
 We group the sponsors by sponsorship level.
 

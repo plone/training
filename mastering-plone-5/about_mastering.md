@@ -199,28 +199,28 @@ Please make sure that you have [Enchant](https://abiword.github.io/enchant/) ins
 
 Install Enchant on macOS:
 
-```console
+```shell
 brew install enchant
 ```
 
 Install Enchant on Ubuntu:
 
-```console
+```shell
 sudo apt-get install enchant
 ```
 
 To build the documentation follow these steps:
 
-```console
+```shell
 git clone https://github.com/plone/training.git
 cd training
 python -m venv .
-$ source bin/activate
+source bin/activate
 ```
 
 Now install dependencies and build.
 
-```console
+```shell
 pip install -r requirements.txt
 make html
 ```
@@ -232,7 +232,7 @@ You can open the presentation at `presentation/index.html`.
 
 ## Build new
 
-```console
+```shell
 git clone https://github.com/plone/training.git
 cd training
 python -m venv .
@@ -245,13 +245,13 @@ Now you can open documentation with your web-bowser.
 
 If you use macOS you can do:
 
-```console
+```shell
 open _build/html/index.html
 ```
 
 In the case of Linux, Ubuntu for example you can do:
 
-```console
+```shell
 firefox _build/html/index.html
 ```
 
@@ -259,13 +259,13 @@ firefox _build/html/index.html
 If you do not use Firefox but Chrome, please replace firefox with google-chrome e.g
 ```
 
-```console
+```shell
 google-chrome _build/html/index.html
 ```
 
 ### Update existing
 
-```bash
+```shell
 $ git pull
 $ source bin/activate
 $ make html
@@ -274,7 +274,7 @@ $ open _build/html/index.html
 
 ### Technical set up to do before a training (as a trainer)
 
-- Prepare a mailserver for the user registration mail (See {ref}`plone5_features-mailserver-label`)
+- Prepare a mailserver for the user registration mail (See {ref}`plone5-features-mailserver-label`)
 - If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not at the buildout path /vagrant/buildout/)
 
 ### Upgrade the vagrant and buildout to a new Plone-version
@@ -286,7 +286,7 @@ $ open _build/html/index.html
 - Test the vagrant-setup it by creating a new vagrant-box using the new config.
 - Create a new zip-file of all files in `plone_training_config` and move it to `_static`:
 
-```console
+```shell
 cd plone_training_config
 zip -r ../_static/plone_training_config.zip *
 ```

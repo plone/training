@@ -79,7 +79,7 @@ Try to include all your changes in one commit only, so that our commit history s
 
 Still, you can do many commits to not accidentally lose changes and still commit to the last commit by doing the following:
 
-```console
+```shell
 git commit --amend -am"my commit message".
 ```
 
