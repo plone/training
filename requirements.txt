@@ -1,8 +1,11 @@
+sphinx-book-theme
+linkify-it-py
+sphinx-copybutton
+sphinx-togglebutton
 jsx-lexer
 myst-parser
 polib
 Sphinx
-sphinx-rtd-theme
 sphinxcontrib-spelling
 sphinxcontrib-websupport
 transifex-client
