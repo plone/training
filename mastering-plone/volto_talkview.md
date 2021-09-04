@@ -62,7 +62,7 @@ As a first step the file will hold a placeholder only:
 import React from 'react';
 
 const TalkView = props => {
-  return <div>I'm the TalkView component!</div>;
+  return <div>I am the TalkView component!</div>;
 };
 
 export default TalkView;

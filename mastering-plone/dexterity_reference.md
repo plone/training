@@ -777,52 +777,52 @@ Thats what you did to accomplish this:
 
 A view ({file}`ExampleView`) of the content type integrates a component to display the values of the field *history_field*.
 
-```{code-block} js
+```{code-block} jsx
 :emphasize-lines: 40
 :linenos: true
 
- import React from 'react';
- import moment from 'moment';
- import { Container, Table } from 'semantic-ui-react';
+import React from 'react';
+import moment from 'moment';
+import { Container, Table } from 'semantic-ui-react';
 
- const MyHistory = ({ history }) => {
- return (
-     __CLIENT__ && (
-     <Table celled className="igibhistory_list">
-         <Table.Header>
-         <Table.Row>
-             <Table.HeaderCell>Date</Table.HeaderCell>
-             <Table.HeaderCell>What</Table.HeaderCell>
-             <Table.HeaderCell>Version</Table.HeaderCell>
-             <Table.HeaderCell>Who</Table.HeaderCell>
-         </Table.Row>
-         </Table.Header>
+const MyHistory = ({ history }) => {
+    return (
+        _CLIENT__ && (
+        <Table celled className="history_list">
+            <Table.Header>
+            <Table.Row>
+                <Table.HeaderCell>Date</Table.HeaderCell>
+                <Table.HeaderCell>What</Table.HeaderCell>
+                <Table.HeaderCell>Version</Table.HeaderCell>
+                <Table.HeaderCell>Who</Table.HeaderCell>
+            </Table.Row>
+            </Table.Header>
 
-         <Table.Body>
-         {history?.items?.map((item) => (
-             <Table.Row>
-             <Table.Cell>
-                 {item.historydate && moment(item.historydate).format('L')}
-             </Table.Cell>
-             <Table.Cell>{item.historytopic}</Table.Cell>
-             <Table.Cell>{item.historyversion}</Table.Cell>
-             <Table.Cell>{item.historyauthor}</Table.Cell>
-             </Table.Row>
-         ))}
-         </Table.Body>
-     </Table>
-     )
- );
- };
+            <Table.Body>
+            {history?.items?.map((item) => (
+                <Table.Row>
+                <Table.Cell>
+                    {item.historydate && moment(item.historydate).format('L')}
+                </Table.Cell>
+                <Table.Cell>{item.historytopic}</Table.Cell>
+                <Table.Cell>{item.historyversion}</Table.Cell>
+                <Table.Cell>{item.historyauthor}</Table.Cell>
+                </Table.Row>
+            ))}
+            </Table.Body>
+        </Table>
+        )
+    );
+};
 
- const ExampleView = ({ content }) => {
- return (
-     <Container>
-     <h2>I am an ExampleView</h2>
-     <h3>History</h3>
-     <MyHistory history={content.history_field} />
-     </Container>
- );
+const ExampleView = ({ content }) => {
+    return (
+        <Container>
+        <h2>I am an ExampleView</h2>
+        <h3>History</h3>
+        <MyHistory history={content.history_field} />
+        </Container>
+    );
  };
 
  export default ExampleView;

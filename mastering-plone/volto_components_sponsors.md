@@ -263,7 +263,7 @@ now render the sponsors data. As we have already prepared a dictionary by sponso
 </List>
 ```
 
-````{admonition} Complete code of the `Sponsors` component
+:::{admonition} Complete code of the Sponsors component
 :class: toggle
 
 ```{code-block} jsx
@@ -309,7 +309,6 @@ const Sponsors = () => {
       basic
       textAlign="center"
       className="sponsors"
-      aria-label="Sponsors"
       inverted
     >
       <div className="sponsorheader">
@@ -349,7 +348,7 @@ const Sponsors = () => {
 
 export default Sponsors;
 ```
-````
+:::
 
 We group the sponsors by sponsorship level.
 

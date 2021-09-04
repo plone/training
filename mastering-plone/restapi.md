@@ -46,12 +46,12 @@ We recommend using [Postman](https://www.getpostman.com) or a similar tool, but 
 a REST API response - if you set the `Accept` HTTP header to `application/json`,
 Plone will provide responses in JSON format. Some requests you could try:
 
-```
+```http
 GET /Plone/talks
 Accept: application/json
 ```
 
-```
+```http
 POST /@login HTTP/1.1
 Accept: application/json
 Content-Type: application/json

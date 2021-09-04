@@ -281,7 +281,7 @@ We add a section to our `Voting` component.
                 Approve
             </Button>
             <Button color="blue" onClick={() => handleVoteClick(0)}>
-                Don't know what to expect
+                Do not know what to expect
             </Button>
             <Button color="orange" onClick={() => handleVoteClick(-1)}>
                 Decline

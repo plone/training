@@ -44,7 +44,7 @@ This is the `Edit.jsx`:
 import React from 'react';
 
 const Edit = props => {
-  return <div>I'm the MainSlider edit component!</div>;
+  return <div>I am the MainSlider edit component!</div>;
 };
 
 export default Edit;
