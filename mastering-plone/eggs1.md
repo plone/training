@@ -2,8 +2,17 @@
 
 # Write Your Own Python Add-On to Customize Plone
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Classic chapter
+```{figure} _static/plone.svg
+:alt: Plone Logo
+```
+
+This chapter is about Plone Classic.
+
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
 ```

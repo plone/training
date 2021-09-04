@@ -2,17 +2,17 @@
 
 # Endpoints
 
-````{sidebar}
-Volto chapter
+````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
-:alt: Volto Logo
+:alt: Plone Logo
 ```
 
 This chapter is about the React frontend Volto.
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
 ```

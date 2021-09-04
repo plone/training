@@ -2,8 +2,7 @@
 
 # Creating a Dynamic Front Page
 
-````{sidebar}
-Classic chapter
+````{sidebar} Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
 ```
@@ -11,10 +10,11 @@ Classic chapter
 This chapter is about Plone Classic.
 
 Solve the same tasks in the Volto frontend in chapter {doc}`volto_frontpage`
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
 ```

@@ -2,6 +2,24 @@
 
 # Using starzel.votable_behavior in ploneconf.site
 
+````{sidebar} Classic chapter
+```{figure} _static/plone.svg
+:alt: Plone Logo
+```
+
+This chapter is about Plone Classic.
+
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
+using this command in the buildout directory:
+
+```shell
+TODO
+```
+````
+
 In this part you will:
 
 - Integrate your own third party package into your site.
@@ -11,14 +29,7 @@ Topics covered:
 - Permissions
 - Workflows
 
-````{sidebar}
-Get the code!
-Get the code for this chapter ({doc}`More info <code>`) using this command in the buildout directory:
 
-```shell
-TODO
-```
-````
 
 ```{only} not presentation
 - We want to use the votable behavior, so that our reviewers can vote.

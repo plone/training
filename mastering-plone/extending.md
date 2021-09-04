@@ -2,8 +2,7 @@
 
 # Extending Plone
 
-````{sidebar}
-Classic chapter
+````{sidebar} Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
 ```

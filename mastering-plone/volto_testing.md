@@ -2,8 +2,7 @@
 
 # Testing in Plone
 
-````{sidebar}
-Volto chapter
+````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```

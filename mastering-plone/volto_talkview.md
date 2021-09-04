@@ -2,8 +2,7 @@
 
 # Volto View Components: A Default View for "Talk"
 
-````{sidebar}
-Volto chapter
+````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -11,10 +10,10 @@ Volto chapter
 This chapter is about the React frontend Volto.
 
 Solve the same tasks in Plone Classic in chapter {doc}`views_2`
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
 Code for the beginning of this chapter:
 
 ```

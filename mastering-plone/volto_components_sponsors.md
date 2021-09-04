@@ -2,8 +2,7 @@
 
 # The Sponsors Component
 
-````{sidebar}
-Volto chapter
+````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -15,10 +14,10 @@ Create a React component for content fetched from the backend
 ```
 
 Solve the same tasks in Plone Classic: {doc}`viewlets_advanced_classic`
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
 Code for the beginning of this chapter:
 
 ```

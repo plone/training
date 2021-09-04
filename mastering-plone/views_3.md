@@ -2,8 +2,7 @@
 
 # Views III: A Talk List
 
-````{sidebar}
-Classic chapter
+````{sidebar} Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
 ```
@@ -11,10 +10,10 @@ Classic chapter
 This chapter is about Plone Classic.
 
 Solve the same tasks in the Volto frontend in chapter {doc}`volto_talk_listview`
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
 Code for the beginning of this chapter:
 
 ```
@@ -38,7 +37,7 @@ Topics covered:
 
 - BrowserView
 - plone.api
-- portal_catalog
+- catalog: portal_catalog
 - brains and objects
 - Acquisition
 
@@ -46,7 +45,7 @@ Now we don't want to provide information about one specific item but on several 
 
 (views3-catalog-label)=
 
-## Using portal_catalog
+## Using the catalog 
 
 Let's say we want to show a list of all the talks that were submitted for our conference. We can just go to the folder and select a display method that suits us. But none does because we want to show the target audience in our listing.
 

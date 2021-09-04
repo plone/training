@@ -2,8 +2,7 @@
 
 # Turning Talks into Events
 
-````{sidebar}
-Volto chapter
+````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```
@@ -11,14 +10,15 @@ Volto chapter
 This chapter is about the React frontend Volto.
 
 Solve the same tasks in Plone Classic in chapter {doc}`events_classic`
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
 ```
-# frontent
+# frontend
 git checkout talklist
 
 # backend
@@ -28,7 +28,7 @@ git checkout talklist
 Code for the end of this chapter:
 
 ```
-# frontent
+# frontend
 git checkout event
 
 # backend

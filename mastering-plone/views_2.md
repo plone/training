@@ -2,8 +2,7 @@
 
 # Views II: A Default View for "Talk"
 
-````{sidebar}
-Classic chapter
+````{sidebar} Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
 ```
@@ -11,10 +10,10 @@ Classic chapter
 This chapter is about Plone Classic.
 
 Solve the same tasks in the Volto frontend in chapter {doc}`volto_talkview`
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
 Code for the beginning of this chapter:
 
 ```
@@ -195,10 +194,14 @@ def context_info(self):
     return u"This is the {0} '{1}' at {2}".format(portal_type, title, url)
 ```
 
-```{note}
-The result is the same as in {ref}`python-expressions-label` where you wrote `<p tal:content="python: "This is the {0} '{1}' at {2}".format(context.portal_type, context.title, context.absolute_url()">
-</p>` in the template.
+````{note}
+The result is the same as in {ref}`python-expressions-label` where you wrote 
+```html
+<p tal:content="python: 'This is the {0} {1} at {2}'.format(context.portal_type, context.title, context.absolute_url()">
+</p>
 ```
+in the template.
+````
 
 The template {file}`training.pt` still needs to display that:
 

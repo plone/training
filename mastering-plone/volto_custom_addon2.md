@@ -2,8 +2,7 @@
 
 # Extending Volto With a FAQ Block Type
 
-````{sidebar}
-Volto chapter
+````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
 ```

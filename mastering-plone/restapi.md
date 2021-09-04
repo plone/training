@@ -1,7 +1,14 @@
 # Plone REST API
 
-````{sidebar}
-Get the code!
+````{sidebar} Classic chapter
+```{figure} _static/plone.svg
+:alt: Plone Logo
+```
+
+This chapter is about Plone Classic.
+
+---
+
 Get the code for this chapter ({doc}`More info <code>`):
 
 ```shell

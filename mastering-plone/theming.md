@@ -2,19 +2,17 @@
 
 # Theming
 
-````{sidebar}
-Classic chapter
+````{sidebar} Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
 ```
 
 This chapter is about Plone Classic.
 
-Solve the same tasks in the Volto frontend in chapter {doc}`volto_theming`
-````
+---
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
 ```
