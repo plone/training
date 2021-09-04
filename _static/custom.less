@@ -88,13 +88,14 @@ div.section {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-}
-#search-form select,
-#search-form input[type="text"] {
+
+select,
+input[type="text"] {
   height: 2rem;
   margin-right: 1rem;
   background-color: white;
   border: 1px solid darkgrey;
+}
 }
 ul.search .title_training::before {
   content: ' – ';
@@ -108,21 +109,18 @@ aside.sidebar {
   border-left: 1px #a4a6a7 solid;
   margin-left: 0.5em;
   padding: .2em 0 .2em 1em;
-}
-div.sidebar p,
-aside.sidebar p {
-  margin-bottom: 0;
-}
-div.sidebar p.sidebar-title,
-aside.sidebar p.sidebar-title {
-  font-weight: bold;
-  font-size: 1.2em;
-  margin-bottom: 1rem;
-}
-div.sidebar .topic,
-aside.sidebar .topic {
-  padding: .5em 0;
-  background-color: transparent;
+  p {
+    margin-bottom: 0;
+    &.sidebar-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 1rem;
+    }
+  }
+  .topic {
+    padding: .5em 0;
+    background-color: transparent;
+  }
 }
 @media (min-width: 768px) {
   div.sidebar:not(.margin),
