@@ -1,0 +1,139 @@
+/* TODO clean up css (unused stuff and indentation */
+.visuallyhidden {
+  display: none;
+}
+
+p.ploneorglink img {
+  vertical-align: bottom;
+}
+
+pre {
+  border-radius: 0;
+  background-color: white;
+  box-shadow: none;
+}
+span.linenos {
+  padding-right: 1em;
+}
+
+a,
+a:visited {
+  color: #2980b9;
+}
+a:hover{
+  color: #176aa1;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: square;
+  li > p {
+    margin-bottom: 0.3rem;
+  }
+}
+
+
+figure img {
+  box-shadow: 0 6px 24px 0 rgba(153,153,153,0.3);
+}
+.sidebar figure img,
+.sidebar img.logo {
+  box-shadow: none;
+  width: 200px;
+}
+
+div.section {
+  margin-bottom: 6rem;
+}
+
+.admonition {
+  border-radius: 0;
+  /* box-shadow: none;
+  background-color: #f8f8f8; */
+  border: none;
+  border-left: .2rem solid;
+  border-left-color:rgba(var(--pst-color-admonition-default),1);
+  .admonition-title {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+/* toggle exercise solution */
+.admonition.toggle {
+  .admonition-title {
+    cursor: pointer;
+    display: flex;
+    &::after {
+      content: "\f105";
+      font-weight: 900;
+      font-family: "Font Awesome 5 Free";
+      margin-left: auto;
+    }
+    &.open::after {
+      content: "\f107";
+    }
+  }
+}
+
+/* topic directive */
+.topic {
+  padding: 1.5em 1em .5em 1em;
+}
+.topic-title {
+  font-weight: bold;
+}
+
+/* search results */
+#search-form {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+#search-form select,
+#search-form input[type="text"] {
+  height: 2rem;
+  margin-right: 1rem;
+  background-color: white;
+  border: 1px solid darkgrey;
+}
+ul.search .title_training::before {
+  content: ' – ';
+}
+
+/* sidebar and sidebar margin : aside / div */
+div.sidebar,
+aside.sidebar {
+  width: 40%;
+  float: right;
+  border-left: 1px #a4a6a7 solid;
+  margin-left: 0.5em;
+  padding: .2em 0 .2em 1em;
+}
+div.sidebar p,
+aside.sidebar p {
+  margin-bottom: 0;
+}
+div.sidebar p.sidebar-title,
+aside.sidebar p.sidebar-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 1rem;
+}
+div.sidebar .topic,
+aside.sidebar .topic {
+  padding: .5em 0;
+  background-color: transparent;
+}
+@media (min-width: 768px) {
+  div.sidebar:not(.margin),
+  aside.sidebar:not(.margin) {
+    width: 60%;
+    margin-left: 1.5em;
+    margin-right: -28%;
+  }
+}
+
+/* Glossary */
+main.bd-content #main-content dl.simple dd:not(:last-child) {
+  margin-bottom: 30px;
+}
