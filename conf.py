@@ -57,7 +57,6 @@ templates_path = ["_templates"]
 extensions = [
     'sphinx_copybutton',
     "sphinx.ext.intersphinx",
-    # TODO Check need of following extenstions
     "sphinx.ext.autodoc",
     "sphinx.ext.todo",
     "sphinxcontrib.spelling",
@@ -177,7 +176,6 @@ html_theme_options = {
 myst_enable_extensions = [
     'deflist',
     'linkify',
-    # TODO to be discussed: stay with default backticks or convert to colons
     'colon_fence'
 ]
 
