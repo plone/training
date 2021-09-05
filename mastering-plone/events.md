@@ -17,20 +17,24 @@ Solve the same tasks in Plone Classic in chapter {doc}`events_classic`
 
 Code for the beginning of this chapter:
 
-```
+```shell
 # frontend
 git checkout talklist
+```
 
+```shell
 # backend
 git checkout talklist
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 # frontend
 git checkout event
+```
 
+```shell
 # backend
 git checkout event
 ```

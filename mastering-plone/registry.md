@@ -18,20 +18,24 @@ This chapter is about both the React frontend Volto and Plone Classic.
 **Get the code! ({doc}`More info <code>`)**
 Code for the beginning of this chapter:
 
-```
+```shell
 # frontend
 git checkout event
+```
 
+```shell
 # backend
 git checkout event
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 # frontend
 git checkout registry
+```
 
+```shell
 # backend
 git checkout registry
 ```
