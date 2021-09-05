@@ -8,13 +8,13 @@ Please be so kind to contribute any bug fixes or enhancements you made to the do
 The training is rendered using Sphinx and builds in two flavors:
 
 default
-: The verbose version used for the online documentation and for the trainer.
-Build it in Sphinx with `make html` or use the online version.
+  The verbose version used for the online documentation and for the trainer.
+  Build it in Sphinx with `make html` or use the online version.
 
 presentation
-: An abbreviated version used for the projector during a training.
-It should use more bullet points than verbose text.
-Build it in Sphinx with `make presentation`.
+  An abbreviated version used for the projector during a training.
+  It should use more bullet points than verbose text.
+  Build it in Sphinx with `make presentation`.
 
 :::{note}
 By prefixing an indented block of text or code with `.. only:: presentation` you can control
@@ -31,7 +31,7 @@ Content without a prefix will be included in both versions.
 Collapsed solutions of exercises:
 
 ````{admonition} Complete code of the component Sed posuere consectetur est at lobortis.
-:class: dropdown
+:class: toggle
 
 ```{code-block} jsx
 :linenos:
@@ -47,7 +47,7 @@ import { omit, without } from 'lodash';
 Be aware of the nested directives! Increase back ticks!
 
     ````{admonition} Complete code of the component
-    :class: dropdown
+    :class: toggle
 
     ```{code-block} jsx
     :linenos:
