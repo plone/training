@@ -8,7 +8,7 @@
 :alt: Plone Logo
 ```
 ```{figure} _static/volto.svg
-:alt: Plone Logo
+:alt: Volto Logo
 ```
 
 This chapter is about both the React frontend Volto and Plone Classic.

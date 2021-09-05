@@ -4,7 +4,7 @@
 
 ````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
-:alt: Plone Logo
+:alt: Volto Logo
 ```
 
 This chapter is about the React frontend Volto.
