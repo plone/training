@@ -18,12 +18,26 @@ meta data
 cross reference: chapter
 :     We created an add-on in the last chapter {doc}`volto_custom_addon`.
 
-cross reference: anchor  
-: create anchor
+cross reference: section
+: **Using headers as anchors**
+
+  If you have a page at myfolder/mypage.md (relative to your documentation root) with the following structure:
+
+      # Title
+
+      ## My Subtitle
+
+  Then the autosectionlabel feature will allow you to reference the section headers like so:
+
+      {ref}`path/to/file_1:My Subtitle`
+
+: **Create explicit anchor**
+
+  create anchor
   ```
   (volto-custom-addon-final-label)=
   ```
-: create link
+  create link
   ```
   Switch to section [Release a Volto add-on](/mastering-plone/volto_custom_addon.html#volto-custom-addon-final-label).
   ```
@@ -67,7 +81,7 @@ code snippet expandable
 : Be aware of the nested directives! Increase back ticks!
 
       ````{admonition} Complete code for ReactJS component
-      :class: dropdown
+      :class: toggle
 
       Here's my code snippet
 
@@ -97,7 +111,7 @@ Solutions of Exercises
 : Collapsed Solutions
 
       ````{admonition} Complete code of the component
-      :class: dropdown
+      :class: toggle
 
       ```{code-block} jsx
       :linenos:
@@ -111,7 +125,7 @@ Solutions of Exercises
       ````
 
 ````{admonition} Complete code of the component
-:class: dropdown
+:class: toggle
 
 ```{code-block} jsx
 :linenos:
