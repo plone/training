@@ -15,13 +15,13 @@ This chapter is about Plone Classic.
 
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout talks
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout behaviors_1
 ```
 ````
@@ -138,21 +138,6 @@ class IFeatured(model.Schema):
     )
 ```
 
-````{only} not presentation
-```{sidebar} Advanced reference
-It can be a bit confusing when to use factories or marker interfaces and when not to.
-
-If you do not define a factory, your attributes will be stored directly on the object.
-This can result in clashes with other behaviors.
-
-You can avoid this by using the {py:class}`plone.behavior.AnnotationStorage` factory.
-This stores your attributes in an [Annotation](https://docs.plone.org/develop/plone/misc/annotations.html).
-But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
-
-Without it, you would have no interface against which you could register your views.
-```
-````
-
 This is exactly the same type of schema as the one in the talk content-type.
 The only addition is `@provider(IFormFieldProvider)` that makes sure that the fields in the schema are displayed in the add- and edit-forms.
 
@@ -168,6 +153,22 @@ Let's go through this step by step.
    The schema class itself provides the interface, not its instance!
 4. We also add a `fieldset` so that our fields are not mixed with the normal fields of the object.
 5. We add a normal [Bool](https://zopeschema.readthedocs.io/en/latest/fields.html#bool) schema field to control if a item should be displayed on the frontpage.
+
+
+````{only} not presentation
+```{note}
+It can be a bit confusing when to use factories or marker interfaces and when not to.
+
+If you do not define a factory, your attributes will be stored directly on the object.
+This can result in clashes with other behaviors.
+
+You can avoid this by using the {py:class}`plone.behavior.AnnotationStorage` factory.
+This stores your attributes in an [Annotation](https://docs.plone.org/develop/plone/misc/annotations.html).
+But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
+
+Without it, you would have no interface against which you could register your views.
+```
+````
 
 (behaviors1-adding-label)=
 

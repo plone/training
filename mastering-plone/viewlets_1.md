@@ -15,13 +15,13 @@ This chapter is about Plone Classic.
 
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout behaviors_1
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout viewlets_1
 ```
 ````
@@ -135,8 +135,18 @@ class FeaturedViewlet(ViewletBase):
 ```
 
 
+
+So far, we
+
+> - register the viewlet to content that has the IFeatured Interface.
+> - adapt the object to its behavior to be able to access the fields of the behavior
+> - return the link
+
+
 ````{only} not presentation
-```{sidebar} Why not to access context directly
+```{note} 
+**Why not to access context directly**
+
 In this example, {samp}`IFeatured(self.context)` does return the context directly.
 It is still good to use this idiom for two reasons:
 
@@ -146,13 +156,6 @@ It is still good to use this idiom for two reasons:
 Therefore in this example you could simply write {samp}`return self.context.featured`.
 ```
 ````
-
-So far, we
-
-> - register the viewlet to content that has the IFeatured Interface.
-> - adapt the object to its behavior to be able to access the fields of the behavior
-> - return the link
-
 
 
 (viewlets1-excercises-label)=
