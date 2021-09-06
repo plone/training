@@ -58,8 +58,6 @@ extensions = [
     'sphinx_copybutton',
     "sphinx.ext.intersphinx",
     "sphinx.ext.autodoc",
-    'sphinx.ext.autosectionlabel',  # automatically generate targets for
-                                    # each section header
     "sphinx.ext.todo",
     "sphinxcontrib.spelling",
     "myst_parser",
@@ -203,9 +201,3 @@ intersphinx_mapping = {
 # -- GraphViz configuration ----------------------------------
 
 graphviz_output_format = 'svg'
-
-
-# -- Suppress warnings  ---------------------------------------------
-# Suppress warnings for identical section titles in different documents:
-# /Users/katjasuss/Plone/trainingmasteringplone/themed_training/mastering-plone/add-ons.md:215: WARNING: duplicate label internationalization, other instance in /Users/katjasuss/Plone/trainingmasteringplone/themed_training/mastering-plone-5/add-ons.md
-suppress_warnings = ['autosectionlabel.*']
