@@ -17,13 +17,13 @@ Solve the same tasks in the Volto frontend in chapter {doc}`events`
 
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout dexterity_2
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout events
 ```
 ````

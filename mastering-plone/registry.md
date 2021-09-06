@@ -16,6 +16,7 @@ This chapter is about both the React frontend Volto and Plone Classic.
 ---
 
 **Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
 ```shell

@@ -2,19 +2,21 @@
 
 # Turning Talks into Events
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout dexterity_2
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout events
 ```
+
+{doc}`code`
 ````
 
 We forgot something: a list of talks is great, especially if you can sort it according to your preferences. But if a visitor decides she wants to actually go to see a talk she needs to know when it will take place.

@@ -14,15 +14,16 @@ Solve the same tasks in the Volto frontend in chapter {doc}`volto_actions`
 ---
 
 **Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout user_generated_content
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout resources
 ```
 ````

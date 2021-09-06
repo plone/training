@@ -15,13 +15,13 @@ This chapter is about Plone Classic.
 
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout events
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout user_generated_content
 ```
 ````

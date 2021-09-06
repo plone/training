@@ -21,13 +21,13 @@ Create a view that shows a list of content
 
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout talkview
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout talklist
 ```
 ````

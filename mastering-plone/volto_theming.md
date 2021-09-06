@@ -14,15 +14,16 @@ Solve the same tasks in Plone Classic in chapter {doc}`theming`
 ---
 
 **Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout overrides
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout theming
 ```
 ````

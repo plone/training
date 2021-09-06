@@ -2,19 +2,21 @@
 
 # Write Your Own Add-Ons to Customize Plone
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout XXX
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout eggs1
 ```
+
+{doc}`code`
 ````
 
 (plone5-eggs1-create-label)=

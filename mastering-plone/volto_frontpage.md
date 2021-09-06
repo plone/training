@@ -13,20 +13,21 @@ Solve a simlar tasks in Plone Classic in chapter {doc}`frontpage`
 
 ---
 
-Get the code! ({doc}`More info <code>`)
-```{warning}
+**Get the code! ({doc}`More info <code>`)**
+
+```{note}
 The code you modify is from the backend, i.e. ploneconf.site!
 ```
 
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout behaviors_1
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout frontpage
 ```
 ````

@@ -2,19 +2,21 @@
 
 # Views III: A Talk List
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout views_2
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout views_3
 ```
+
+{doc}`code`
 ````
 
 In this part you will:

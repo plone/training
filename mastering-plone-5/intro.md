@@ -13,14 +13,14 @@ Tell us about yourselves:
 - What is your web development experience?
 - What are your expectations for this tutorial?
 - What is your favorite text editor?
-- If this training will include the development chapters:
-  : - Do you know the HTML of the output of this?
+- If this training will include the development chapters:  
+    - Do you know the HTML of the output of this?
 
       ```html
       <div class="hiddenStructure"
-           tal:repeat="num python:range(1, 10, 5)"
-           tal:content="structure num"
-           tal:omit-tag="">
+            tal:repeat="num python:range(1, 10, 5)"
+            tal:content="structure num"
+            tal:omit-tag="">
         This is some weird sh*t!
       </div>
       ```

@@ -2,19 +2,21 @@
 
 # Creating a Dynamic Front Page
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout registry
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout frontpage
 ```
+
+{doc}`code`
 ````
 
 In this chapter we will:

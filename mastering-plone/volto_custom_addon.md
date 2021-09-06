@@ -14,15 +14,16 @@ Solve the same tasks in classic frontend in chapter {doc}`eggs1`
 ---
 
 **Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout TODO tag to checkout
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout TODO tag to checkout
 ```
 ````

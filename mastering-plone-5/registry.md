@@ -2,19 +2,21 @@
 
 # Manage Settings with Registry, Control Panels and Vocabularies
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout dexterity_3
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout registry
 ```
+
+{doc}`code`
 ````
 
 In this part you will:

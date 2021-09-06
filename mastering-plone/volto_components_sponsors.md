@@ -18,15 +18,16 @@ Solve the same tasks in Plone Classic: {doc}`viewlets_advanced_classic`
 ---
 
 **Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout TODO tag to checkout
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout TODO tag to checkout
 ```
 ````

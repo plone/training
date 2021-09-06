@@ -2,19 +2,21 @@
 
 # Return to Dexterity: Moving contenttypes into Code
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout eggs1
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout export_code
 ```
+
+{doc}`code`
 ````
 
 In this part you will:

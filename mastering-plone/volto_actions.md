@@ -14,6 +14,7 @@ Solve the same tasks in Plone Classic in chapter {doc}`viewlets_2`
 ---
 
 **Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
 ```shell

@@ -17,13 +17,13 @@ Solve the same tasks in the Volto frontend in chapter {doc}`volto_frontpage`
 
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout registry
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout frontpage
 ```
 ````

@@ -21,7 +21,7 @@ nothing here...
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout initial
 ```
 ````

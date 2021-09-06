@@ -16,15 +16,16 @@ Add a button / feature to the rich text editor.
 ---
 
 **Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout TODO tag to checkout
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout TODO tag to checkout
 ```
 ````

@@ -14,15 +14,16 @@ Solve the same tasks in Plone Classic in chapter {doc}`views_2`
 ---
 
 **Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout theming
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout talkview
 ```
 ````

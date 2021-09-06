@@ -15,13 +15,13 @@ This chapter is about Plone Classic.
 
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout volto
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout talks
 ```
 ````

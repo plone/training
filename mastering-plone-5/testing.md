@@ -2,29 +2,31 @@
 
 # Testing in Plone
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout views_3
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout testing
 ```
+
+{doc}`code`
 ````
 
 In this chapter we:
 
-> - Write tests
+- Write tests
 
 Topics covered:
 
-> - Testing best practices
-> - Internals of Plone
+- Testing best practices
+- Internals of Plone
 
 (plone5-testing-types-label)=
 

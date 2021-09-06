@@ -15,13 +15,13 @@ This chapter is about the React frontend Volto.
 
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout TODO tag to checkout
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout TODO tag to checkout
 ```
 ````
