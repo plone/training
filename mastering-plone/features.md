@@ -2,9 +2,12 @@
 
 # The Features of Plone
 
-In-depth user manual: <https://docs.plone.org/>
+```{seealso}
+[Plone documentation **docs.plone.org**](https://docs.plone.org/)
 
-See also: <https://docs.plone.org/working-with-content/index.html>
+[Chapter "Working with content" on docs.plone.org](https://docs.plone.org/working-with-content/index.html)
+```
+
 
 (features-start-stop-label)=
 
