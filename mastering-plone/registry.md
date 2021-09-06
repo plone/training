@@ -3,19 +3,7 @@
 # Vocabularies, Registry-Settings and Control Panels
 
 
-````{sidebar}
-```{figure} _static/plone.svg
-:alt: Plone Logo
-```
-```{figure} _static/volto.svg
-:alt: Volto Logo
-```
-
-This chapter is about both the React frontend Volto and Plone Classic.
-
----
-
-**Get the code! ({doc}`More info <code>`)**
+````{sidebar} Get the code!
 
 Code for the beginning of this chapter:
 
@@ -40,6 +28,8 @@ git checkout registry
 # backend
 git checkout registry
 ```
+
+{doc}`code`
 ````
 
 In this part you will:
