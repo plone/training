@@ -7,7 +7,7 @@
 Code for the beginning of this chapter:
 
 ```shell
-git checkout XXX
+git checkout buildout_1
 ```
 
 Code for the end of this chapter:
