@@ -11,3 +11,4 @@ Sphinx
 sphinxcontrib-spelling
 sphinxcontrib-websupport
 transifex-client
+lesscpy

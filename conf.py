@@ -151,7 +151,7 @@ html_logo = "_static/logo.svg"
 html_favicon = "_static/favicon.ico"
 
 # See page.html for custom.less
-# html_css_files = ["custom.less"]
+html_css_files = ["custom.css"]
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
