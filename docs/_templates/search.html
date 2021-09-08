@@ -46,11 +46,16 @@
 
       <label for="training" class="visuallyhidden">Filter by training</label>
       <select name="training" id="training">
-        <option value="all">all trainings</option>
+        <option value="all">All Trainings</option>
         {% for id, title in 
           [
           ['mastering-plone', 'Mastering Plone'],
           ['mastering-plone-5', 'Mastering Plone 5'],
+          ['volto','Volto'],
+          ['voltohandson','Volto Hands-On'],
+          ['voltoaddons','Volto Add-Ons'],
+          ['react','ReactJS'],
+          ['testing','Testing'],
           ['theming','Theming'],
           ['javascript','Javascript'],
           ['deployment','Deployment'],
@@ -58,14 +63,9 @@
           ['solr','Solr'],
           ['workflow','Workflow'],
           ['angular','Angular'],
-          ['react','ReactJS'],
-          ['volto','Volto'],
-          ['voltohandson','Volto Hands-On'],
-          ['voltoaddons','Volto Add-Ons'],
           ['transmogrifier','Transmogrifier'],
           ['advanced-python','Advanced Python'],
           ['gatsby','Gatsby'],
-          ['testing','Testing'],
           ['wsgi','WSGI'],
           ] %}
           <option value="{{id}}">{{ title }}</option>
