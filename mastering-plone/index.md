@@ -20,9 +20,12 @@ Plone 6 is not yet released and thus the training is a work in-progress and ther
 ```
 
 ```{toctree}
-:caption: Mastering Plone 6
-:maxdepth: 2
-:numbered: true
+---
+caption: Mastering Plone 6 Development
+name: toc-mastering
+maxdepth: 2
+numbered: true
+---
 
 about_mastering
 video

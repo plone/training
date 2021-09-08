@@ -36,15 +36,46 @@ ol {
   }
 }
 
-
 figure img,
 .figure img {
   box-shadow: 0 6px 24px 0 rgba(153,153,153,0.3);
 }
-.sidebar figure img,
-.sidebar img.logo {
-  box-shadow: none;
-  width: 200px;
+.sidebar {
+  figure img,
+  .figure img,
+  img.logo {
+    box-shadow: none;
+    width: 200px;
+  }
+}
+
+/* main navigation */
+.bd-sidebar {
+  .nav {
+    ul {
+      padding: 0 0 0 1rem;
+    }
+    .toctree-checkbox ~ label i {
+      transform: rotate(90deg);
+    }
+    .toctree-checkbox:checked ~ label i {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+#toc-mastering.toctree-wrapper {
+  .caption {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 5rem;
+  }
+  ul {
+    list-style: none;
+  }
+  & > ul {
+    padding-left: 0;
+  }
 }
 
 div.section {
