@@ -5,6 +5,7 @@
 ````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
+:align: left
 ```
 
 Create a specialized block with some extra behavior or look.

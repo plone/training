@@ -5,6 +5,7 @@
 ````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
+:align: left
 ```
 
 This chapter is about the React frontend Volto.
@@ -392,6 +393,7 @@ Wrap the Container with `{}` and return the container.
 Put the locale-setting before it.
 
 ```{code-block} jsx
+:linenos: true
 :emphasize-lines: 10,21-25,62
 
 /**

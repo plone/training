@@ -5,6 +5,7 @@
 ````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
+:align: left
 ```
 
 This chapter is about customizing the rich text editor.
