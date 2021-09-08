@@ -21,7 +21,7 @@ Tell us about yourselves:
             tal:repeat="num python:range(1, 10, 5)"
             tal:content="structure num"
             tal:omit-tag="">
-        This is some weird sh*t!
+        This is some weird stuff!
       </div>
       ```
 
