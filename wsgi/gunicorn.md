@@ -15,8 +15,7 @@ The different worker types and how to choose one suitable for your application i
 
 ## Use gunicorn in our buildout
 
-````{sidebar}
-Build now
+````{sidebar} Build now
 Run buildout for this section:
 
 ```shell
@@ -63,8 +62,7 @@ wsgi-ini-template = ${buildout:directory}/templates/gunicorn.ini.in
 
 ## Alternative method for using gunicorn
 
-````{sidebar}
-Build now
+````{sidebar} Build now
 Run buildout for this section:
 
 ```shell
