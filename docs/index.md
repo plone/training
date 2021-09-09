@@ -33,8 +33,7 @@ wsgi/index
 :hidden: true
 :maxdepth: 3
 
-about/index
-about/glossary
+glossary
 ```
 
 ## Trainings

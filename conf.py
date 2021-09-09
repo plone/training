@@ -49,7 +49,7 @@ release = year
 # -- General configuration ----------------------------------------------------
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ["_templates"]
+templates_path = ["docs/_templates"]
 
 # Add any Sphinx extension module names here, as strings.
 # They can be extensions coming with Sphinx (named 'sphinx.ext.*')
@@ -116,7 +116,7 @@ source_suffix = {
 # source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = "index"
+master_doc = "docs/index"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -146,8 +146,8 @@ exclude_patterns = [
 #
 html_theme = "sphinx_book_theme"
 
-html_logo = "_static/logo.svg"
-html_favicon = "_static/favicon.ico"
+html_logo = "docs/_static/logo.svg"
+html_favicon = "docs/_static/favicon.ico"
 
 html_css_files = ["custom.css",
                   ("print.css", {'media': 'print'})]
@@ -155,7 +155,7 @@ html_css_files = ["custom.css",
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['docs/_static']
 
 html_theme_options = {
     "repository_url": "https://github.com/plone/training",
