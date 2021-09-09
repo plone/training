@@ -164,7 +164,7 @@ html_theme_options = {
     "extra_navbar": """
         <p class='ploneorglink'>
             <a href='https://plone.org'>
-                <img src='/_static/logo.svg' alt='plone.org' /> plone.org</a>
+                <img src='/5/_static/logo.svg' alt='plone.org' /> plone.org</a>
         </p>""",
 }
 
