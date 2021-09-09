@@ -12,7 +12,7 @@ from datetime import datetime
 #
 # import os
 # import sys
-# sys.path.insert(0, os.path.abspath('.'))
+# sys.path.insert(0, os.path.abspath("."))
 
 
 # -- Project information -----------------------------------------------------
@@ -21,7 +21,7 @@ project = "Plone Training"
 copyright = """The text and illustrations in this website are licensed
  by the Plone Foundation under a Creative Commons Attribution 4.0
  International license."""
-author = 'Plone Community'
+author = "Plone Community"
 trademark_name = "Plone"
 
 now = datetime.now()
@@ -41,9 +41,9 @@ release = year
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
-# today = ''
+# today = ""
 # Else, today_fmt is used as the format for a strftime call.
-# today_fmt = '%B %d, %Y'
+# today_fmt = "%B %d, %Y"
 
 
 # -- General configuration ----------------------------------------------------
@@ -52,10 +52,10 @@ release = year
 templates_path = ["_templates"]
 
 # Add any Sphinx extension module names here, as strings.
-# They can be extensions coming with Sphinx (named 'sphinx.ext.*')
+# They can be extensions coming with Sphinx (named "sphinx.ext.*")
 # or your custom ones.
 extensions = [
-    'sphinx_copybutton',
+    "sphinx_copybutton",
     "sphinx.ext.intersphinx",
     "sphinx.ext.autodoc",
     "sphinx.ext.todo",
@@ -68,13 +68,13 @@ extensions = [
 myst_enable_extensions = [
     "deflist",  # You will be able to utilise definition lists
                 # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#definition-lists
-    'linkify',  # Identify “bare” web URLs and add hyperlinks.
+    "linkify",  # Identify “bare” web URLs and add hyperlinks.
     "colon_fence",  # You can also use ::: delimiters to denote code fences,\
                     #  instead of ```.
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.
-# pygments_style = 'sphinx.pygments_styles.PyramidStyle'
+# pygments_style = "sphinx.pygments_styles.PyramidStyle"
 pygments_style = "sphinx"
 
 # Options for the linkcheck builder
@@ -113,7 +113,7 @@ source_suffix = {
 }
 
 # The encoding of source files.
-# source_encoding = 'utf-8-sig'
+# source_encoding = "utf-8-sig"
 
 # The master toctree document.
 master_doc = "index"
@@ -149,12 +149,12 @@ html_logo = "_static/logo.svg"
 html_favicon = "_static/favicon.ico"
 
 html_css_files = ["custom.css",
-                  ("print.css", {'media': 'print'})]
+                  ("print.css", {"media": "print"})]
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 
 html_theme_options = {
     "repository_url": "https://github.com/plone/training",
@@ -162,9 +162,9 @@ html_theme_options = {
     "use_issues_button": True,
     "use_edit_page_button": True,
     "extra_navbar": """
-        <p class='ploneorglink'>
-            <a href='https://plone.org'>
-                <img src='/5/_static/logo.svg' alt='plone.org' /> plone.org</a>
+        <p class="ploneorglink">
+            <a href="https://plone.org">
+                <img src="/5/_static/logo.svg" alt="plone.org" /> plone.org</a>
         </p>""",
 }
 
@@ -172,9 +172,9 @@ html_theme_options = {
 # -- Options for myST markdown conversion to html -----------------------------
 
 myst_enable_extensions = [
-    'deflist',
-    'linkify',
-    'colon_fence'
+    "deflist",
+    "linkify",
+    "colon_fence"
 ]
 
 
@@ -198,4 +198,4 @@ intersphinx_mapping = {
 
 # -- GraphViz configuration ----------------------------------
 
-graphviz_output_format = 'svg'
+graphviz_output_format = "svg"
