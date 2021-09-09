@@ -136,7 +136,6 @@ exclude_patterns = [
     'Thumbs.db',
     '.DS_Store',
     'node_modules',
-    "rst2myst/training/**"
 ]
 
 
