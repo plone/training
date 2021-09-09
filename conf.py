@@ -133,9 +133,8 @@ exclude_patterns = [
     "local",
     "log",
     "spelling_wordlist.txt",
-    'Thumbs.db',
-    '.DS_Store',
-    'node_modules',
+    "node_modules",
+    "about.md",
 ]
 
 
