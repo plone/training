@@ -24,6 +24,7 @@ jobs:
 
       - name: Run tests with make test
         run: |
+          cd docs
           make test
 
       - name: Prepare deploy
