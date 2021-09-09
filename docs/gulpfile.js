@@ -36,7 +36,7 @@ function buildAndBrowserSync(done) {
 function watch() {
     browserSync.init({
         server: {
-            baseDir: './_build/html/'
+            baseDir: '../_build/html/'
         },
         port: 3002,
         ui: {
@@ -72,7 +72,7 @@ function buildAndBrowserSyncPresentation(done) {
 function watchPresentation() {
     browserSync.init({
         server: {
-            baseDir: './_build/presentation/'
+            baseDir: '../_build/presentation/'
         },
         port: 3002,
         ui: {
