@@ -29,6 +29,7 @@ jobs:
 
       - name: Prepare deploy
         run: |
+          cd docs
           make deploy
 
       - name: Deploy to server
