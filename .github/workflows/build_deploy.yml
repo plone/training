@@ -4,7 +4,7 @@ name: Build and deploy training documentation to training.plone.org
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
 
 jobs:
   build_deploy:
