@@ -17,7 +17,7 @@ Topics covered:
 
 ## Inheriting From Barceloneta
 
-```{sidebar}Key Ideas
+```{sidebar} Key Ideas
 When inheriting from the Barceloneta theme keep the following in mind:
 
 - The theme provides styles and assets used by Plone's backend tools.
