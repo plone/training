@@ -2,17 +2,27 @@
 
 # Behaviors
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Classic chapter
+```{figure} _static/plone.svg
+:alt: Plone Logo
+:align: left
+```
+
+This chapter is about Plone Classic.
+
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout talks
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout behaviors_1
 ```
 ````
@@ -107,22 +117,6 @@ Then, we add an empty {file}`behaviors/__init__.py` and a {file}`behaviors/confi
 </configure>
 ```
 
-````{only} not presentation
-```{sidebar}
-Advanced reference
-It can be a bit confusing when to use factories or marker interfaces and when not to.
-
-If you do not define a factory, your attributes will be stored directly on the object.
-This can result in clashes with other behaviors.
-
-You can avoid this by using the {py:class}`plone.behavior.AnnotationStorage` factory.
-This stores your attributes in an [Annotation](https://docs.plone.org/develop/plone/misc/annotations.html).
-But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
-
-Without it, you would have no interface against which you could register your views.
-```
-````
-
 And a {file}`behaviors/featured.py` containing:
 
 (featured-behavior-python-label)=
@@ -160,6 +154,22 @@ Let's go through this step by step.
    The schema class itself provides the interface, not its instance!
 4. We also add a `fieldset` so that our fields are not mixed with the normal fields of the object.
 5. We add a normal [Bool](https://zopeschema.readthedocs.io/en/latest/fields.html#bool) schema field to control if a item should be displayed on the frontpage.
+
+
+````{only} not presentation
+```{note}
+It can be a bit confusing when to use factories or marker interfaces and when not to.
+
+If you do not define a factory, your attributes will be stored directly on the object.
+This can result in clashes with other behaviors.
+
+You can avoid this by using the {py:class}`plone.behavior.AnnotationStorage` factory.
+This stores your attributes in an [Annotation](https://docs.plone.org/develop/plone/misc/annotations.html).
+But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
+
+Without it, you would have no interface against which you could register your views.
+```
+````
 
 (behaviors1-adding-label)=
 

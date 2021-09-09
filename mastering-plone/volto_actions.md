@@ -2,19 +2,20 @@
 
 # Volto Actions and Component State
 
-````{sidebar}
-Volto chapter
+````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
+:align: left
 ```
 
 This chapter is about the React frontend Volto.
 
 Solve the same tasks in Plone Classic in chapter {doc}`viewlets_2`
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
 ```shell
@@ -282,7 +283,7 @@ We add a section to our `Voting` component.
                 Approve
             </Button>
             <Button color="blue" onClick={() => handleVoteClick(0)}>
-                Don't know what to expect
+                Do not know what to expect
             </Button>
             <Button color="orange" onClick={() => handleVoteClick(-1)}>
                 Decline

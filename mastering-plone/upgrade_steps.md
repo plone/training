@@ -1,18 +1,28 @@
-% upgrade_steps-label:
+(upgrade-steps-label)=
 
 # Upgrade-steps
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Classic chapter
+```{figure} _static/plone.svg
+:alt: Plone Logo
+:align: left
+```
+
+This chapter is about Plone Classic.
+
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout registry
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout upgrade_steps
 ```
 ````

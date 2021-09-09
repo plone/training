@@ -2,19 +2,21 @@
 
 # Dexterity Types II: Growing Up
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout viewlets_1
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout dexterity_2
 ```
+
+{doc}`code`
 ````
 
 The existing talks are still lacking some functionality we want to use.

@@ -2,28 +2,29 @@
 
 # Turning Talks into Events
 
-````{sidebar}
-Classic chapter
+````{sidebar} Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
+:align: left
 ```
 
 This chapter is about Plone Classic.
 
 Solve the same tasks in the Volto frontend in chapter {doc}`events`
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout dexterity_2
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout events
 ```
 ````

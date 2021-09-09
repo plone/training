@@ -2,19 +2,21 @@
 
 # Dexterity Types III: Python
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout resources
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout dexterity_3
 ```
+
+{doc}`code`
 ````
 
 Without sponsors, a conference would be hard to finance! Plus it is a good opportunity for Plone companies to advertise their services.

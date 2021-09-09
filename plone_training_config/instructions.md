@@ -10,13 +10,6 @@
 
 # Installing Plone for the Training
 
-````{sidebar}
-Installation for the training
-```{contents} Table of Contents
-:depth: 4
-```
-````
-
 We need to install the **Plone** backend and the React-based frontend **Volto**.
 This will create the following folder structure:
 

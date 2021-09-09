@@ -1,11 +1,17 @@
 ---
-About: Best practices for testing Plone add-ons
-Level: Intermediate
+html_meta:
+  description: Best practices for testing Plone add-ons
 ---
 
 (testing-plone-label)=
 
 # Testing Plone
+
+About
+: Best practices for testing Plone add-ons
+
+Level
+: Intermediate
 
 ```{note}
 This training is meant to be used in a course or read and worked through by an individual user.

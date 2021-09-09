@@ -1,11 +1,17 @@
 ---
-About: Deploying Plone with Ansible and OpsWorks
-Level: All levels
+html_meta:
+  description: Deploying Plone with Ansible and OpsWorks
 ---
 
 (deployment-label)=
 
 # Automating Plone Deployment
+
+About
+: Deploying Plone with Ansible and OpsWorks
+
+Level
+: All levels
 
 ```{note}
 This training is meant to be used in a course or read and worked through by an individual user.

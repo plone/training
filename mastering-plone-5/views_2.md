@@ -2,19 +2,21 @@
 
 # Views II: A Default View for "Talk"
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout zpt_2
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout views_2
 ```
+
+{doc}`code`
 ````
 
 In this part you will:

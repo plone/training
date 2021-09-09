@@ -2,17 +2,27 @@
 
 # Dexterity II: Talks
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Classic chapter
+```{figure} _static/plone.svg
+:alt: Plone Logo
+:align: left
+```
+
+This chapter is about Plone Classic.
+
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout volto
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout talks
 ```
 ````

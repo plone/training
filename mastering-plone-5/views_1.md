@@ -2,19 +2,21 @@
 
 # Views I
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout export_code
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout views_1
 ```
+
+{doc}`code`
 ````
 
 In this part you will:

@@ -2,19 +2,21 @@
 
 # Page Templates
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout views_1
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout zpt
 ```
+
+{doc}`code`
 ````
 
 In this part you will:

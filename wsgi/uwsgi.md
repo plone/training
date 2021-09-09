@@ -11,8 +11,7 @@ Only a few of them work with Zope and Plone, though.
 
 ## Using uWSGI in our buildout
 
-````{sidebar}
-Build now
+````{sidebar} Build now
 Run buildout for this section:
 
 ```shell

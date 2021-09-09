@@ -72,11 +72,3 @@ Please note that this document is *not complete* without the spoken word of a tr
 Even though we attempt to include the most important parts of what we teach in the narrative but
 reading it here can in no way be considered equal to attending a training.
 
-% The following items are hidden in this toctree to prevent Sphinx warnings. They might be used by trainers only, or for historical purposes.
-
-```{toctree}
-:hidden: true
-
-code
-timing
-```

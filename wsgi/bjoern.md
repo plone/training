@@ -17,8 +17,7 @@ $ sudo apt install libev-dev
 
 ## Use `bjoern` in our buildout
 
-````{sidebar}
-Build now
+````{sidebar} Build now
 Run buildout for this section:
 
 ```shell

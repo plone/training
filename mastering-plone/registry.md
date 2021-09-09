@@ -2,27 +2,34 @@
 
 # Vocabularies, Registry-Settings and Control Panels
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
-# frontent
+```shell
+# frontend
 git checkout event
+```
 
+```shell
 # backend
 git checkout event
 ```
 
 Code for the end of this chapter:
 
-```
-# frontent
+```shell
+# frontend
 git checkout registry
+```
 
+```shell
 # backend
 git checkout registry
 ```
+
+{doc}`code`
 ````
 
 In this part you will:

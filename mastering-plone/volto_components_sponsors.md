@@ -2,10 +2,10 @@
 
 # The Sponsors Component
 
-````{sidebar}
-Volto chapter
+````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
+:align: left
 ```
 
 This chapter is about the React frontend Volto.
@@ -15,19 +15,20 @@ Create a React component for content fetched from the backend
 ```
 
 Solve the same tasks in Plone Classic: {doc}`viewlets_advanced_classic`
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout TODO tag to checkout
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout TODO tag to checkout
 ```
 ````
@@ -264,7 +265,7 @@ now render the sponsors data. As we have already prepared a dictionary by sponso
 </List>
 ```
 
-````{admonition} Complete code of the `Sponsors` component
+````{admonition} Complete code of the Sponsors component
 :class: toggle
 
 ```{code-block} jsx
@@ -310,7 +311,6 @@ const Sponsors = () => {
       basic
       textAlign="center"
       className="sponsors"
-      aria-label="Sponsors"
       inverted
     >
       <div className="sponsorheader">

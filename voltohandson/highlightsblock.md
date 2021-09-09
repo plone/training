@@ -15,7 +15,7 @@ Exercise: Create the highlights basic block using `src/components/Blocks/Highlig
 import React from 'react';
 
 const View = props => {
-  return <div>I'm the highlights view component!</div>;
+  return <div>I am the highlights view component!</div>;
 };
 
 export default View;
@@ -27,7 +27,7 @@ export default View;
 import React from 'react';
 
 const Edit = props => {
-  return <div>I'm the highlights edit component!</div>;
+  return <div>I am the highlights edit component!</div>;
 };
 
 export default Edit;

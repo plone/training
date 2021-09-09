@@ -2,19 +2,21 @@
 
 # Resources
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout user_generated_content
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout resources
 ```
+
+{doc}`code`
 ````
 
 We have not yet talked about CSS and JavaScript.

@@ -2,19 +2,21 @@
 
 # User Generated Content
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout events
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout user_generated_content
 ```
+
+{doc}`code`
 ````
 
 How do prospective speakers submit talks? We let them register on the site and grant right to create talks. For this we go back to changing the site through-the-web.

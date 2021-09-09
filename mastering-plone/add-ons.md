@@ -2,10 +2,10 @@
 
 # Extending Plone With Add-on Packages
 
-````{sidebar}
-Classic chapter
+````{sidebar} Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
+:align: left
 ```
 
 This chapter is about Plone Classic.

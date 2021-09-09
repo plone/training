@@ -27,8 +27,7 @@ The widely used `pdbpp`, `Products.PdbDebugMode`, `plone.app.debugtoolbar` and `
 
 ## werkzeug debugging
 
-````{sidebar}
-Build now
+````{sidebar} Build now
 Run buildout for this section:
 
 ```shell

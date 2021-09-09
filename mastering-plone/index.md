@@ -20,9 +20,12 @@ Plone 6 is not yet released and thus the training is a work in-progress and ther
 ```
 
 ```{toctree}
-:caption: Mastering Plone 6
-:maxdepth: 2
-:numbered: true
+---
+caption: Mastering Plone 6 Development
+name: toc-mastering
+maxdepth: 2
+numbered: true
+---
 
 about_mastering
 video
@@ -83,24 +86,3 @@ optional
 Please note that this document is *not complete* without the spoken word of a trainer.
 
 We attempt to include the most important parts of what we teach in the training. But reading it here can not be considered equal to attending a training.
-
-% The following items are hidden in this toctree to prevent Sphinx warnings. They might be used by trainers only, or for historical purposes.
-
-```{toctree}
-:hidden: true
-
-code
-timing
-events_classic
-frontpage
-mastering_plone_6
-theming
-viewlets_1
-viewlets_2
-viewlets_advanced_classic
-views_1
-views_2
-views_3
-zpt
-zpt_2
-```

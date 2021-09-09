@@ -2,10 +2,10 @@
 
 # Volto View Components: A Listing View for Talks
 
-````{sidebar}
-Volto chapter
+````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
+:align: left
 ```
 
 This chapter is about the React frontend Volto.
@@ -15,19 +15,20 @@ Solve the same tasks in Plone Classic in chapter {doc}`views_3`
 ```{topic} Description
 Create a view that shows a list of content
 ```
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout talkview
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout talklist
 ```
 ````
@@ -52,14 +53,16 @@ The talk list should list all talks in this folderish page and also show informa
 
 Create a new file {file}`src/components/Views/TalkList.jsx`.
 
-As a first step the file will hold a simple view component:
+As a first step the file will hold a simple view component.
 
 ```jsx
 import React from 'react';
+import TalkView from './Views/Talk';
 
 const TalkListView = props => {
-  return <div>I'm the TalkList component!</div>;
+  return <div>I am the TalkList component!</div>;
 };
+
 export default TalkListView;
 ```
 
@@ -77,8 +80,8 @@ export { TalkView, TalkListView };
 Now register the new component as a view for folderish types in `src/config.js`.
 
 ```{code-block} jsx
-:emphasize-lines: 1,13-16
 :linenos: true
+:emphasize-lines: 1,13-16
 
 import { TalkListView, TalkView } from './components';
 
@@ -311,7 +314,7 @@ Modify the criteria in the search to sort the talks in the order of their modifi
 ````{admonition} Solution
 :class: toggle
 
-```{code-block} python
+```{code-block} jsx
 :linenos: true
 
 React.useEffect(() => {

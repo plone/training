@@ -1,11 +1,17 @@
 ---
-About: Learn how to create your own website based on Volto
-Level: All levels
+html_meta:
+  description: Learn how to create your own website based on Volto
 ---
 
 (volto-label)=
 
 # Volto
+
+About
+: Learn how to create your own website based on Volto
+
+Level
+: All levels
 
 This is the documentation for the "Volto" training.
 The Volto training is intended as a single day training for people who are new to Volto

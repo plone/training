@@ -2,19 +2,21 @@
 
 # Customizing Existing Templates
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Get the code!
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout zpt
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout zpt_2
 ```
+
+{doc}`code`
 ````
 
 In this part you will:

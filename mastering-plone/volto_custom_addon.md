@@ -2,28 +2,29 @@
 
 # Extending Volto With Custom Add-on Package
 
-````{sidebar}
-Volto chapter
+````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
+:align: left
 ```
 
 This chapter is about the React frontend Volto.
 
 Solve the same tasks in classic frontend in chapter {doc}`eggs1`
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout TODO tag to checkout
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout TODO tag to checkout
 ```
 ````

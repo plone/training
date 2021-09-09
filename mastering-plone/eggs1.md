@@ -2,8 +2,18 @@
 
 # Write Your Own Python Add-On to Customize Plone
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+````{sidebar} Classic chapter
+```{figure} _static/plone.svg
+:alt: Plone Logo
+:align: left
+```
+
+This chapter is about Plone Classic.
+
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
 ```
@@ -12,7 +22,7 @@ nothing here...
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout initial
 ```
 ````

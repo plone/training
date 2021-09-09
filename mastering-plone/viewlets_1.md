@@ -2,28 +2,27 @@
 
 # Writing Viewlets
 
-````{sidebar}
-Classic chapter
+````{sidebar} Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
+:align: left
 ```
 
 This chapter is about Plone Classic.
 
-Solve the same tasks in the Volto frontend in chapter **TODO**
-````
+---
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout behaviors_1
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout viewlets_1
 ```
 ````
@@ -121,18 +120,6 @@ Same as for views, viewlets have access to their class in page templates, as wel
 
 We have to extend the Featured Viewlet now to add the missing attribute:
 
-````{only} not presentation
-```{sidebar}
-Why not to access context directly
-In this example, {samp}`IFeatured(self.context)` does return the context directly.
-It is still good to use this idiom for two reasons:
-
-> 1. It makes it clear that we only want to use the IFeatured aspect of the object
-> 2. If we decide to use a factory, for example to store our attributes in an annotation, we would `not` get back our context, but the adapter.
-
-Therefore in this example you could simply write {samp}`return self.context.featured`.
-```
-````
 
 ```{code-block} python
 :emphasize-lines: 2, 6-8
@@ -148,11 +135,29 @@ class FeaturedViewlet(ViewletBase):
         return adapted.featured
 ```
 
+
+
 So far, we
 
 > - register the viewlet to content that has the IFeatured Interface.
 > - adapt the object to its behavior to be able to access the fields of the behavior
 > - return the link
+
+
+````{only} not presentation
+```{note} 
+**Why not to access context directly**
+
+In this example, {samp}`IFeatured(self.context)` does return the context directly.
+It is still good to use this idiom for two reasons:
+
+> 1. It makes it clear that we only want to use the IFeatured aspect of the object
+> 2. If we decide to use a factory, for example to store our attributes in an annotation, we would `not` get back our context, but the adapter.
+
+Therefore in this example you could simply write {samp}`return self.context.featured`.
+```
+````
+
 
 (viewlets1-excercises-label)=
 

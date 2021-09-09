@@ -1,11 +1,17 @@
 ---
-About: Migrating website content into a Plone site using Transmogrifier
-Level: Intermediate Developers
+html_meta:
+  description: Migrating website content into a Plone site using Transmogrifier
 ---
 
 (transmogrifier-label)=
 
 # Migrating Content with Transmogrifier
+
+About
+: Migrating website content into a Plone site using Transmogrifier
+
+Level
+: Intermediate Developers
 
 **Training Objective**
 

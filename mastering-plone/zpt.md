@@ -2,28 +2,29 @@
 
 # Page Templates
 
-````{sidebar}
-Classic chapter
+````{sidebar} Classic chapter
 ```{figure} _static/plone.svg
 :alt: Plone Logo
+:align: left
 ```
 
 This chapter is about Plone Classic.
 
 Solve the same tasks in the Volto frontend in chapter {doc}`volto_semantic_ui`
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout views_1
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout zpt
 ```
 ````

@@ -2,28 +2,29 @@
 
 # Customizing Volto Components
 
-````{sidebar}
-Volto chapter
+````{sidebar} Volto chapter
 ```{figure} _static/volto.svg
 :alt: Volto Logo
+:align: left
 ```
 
 This chapter is about the React frontend Volto.
 
 Solve the same tasks in Plone Classic in chapter {doc}`zpt_2`
-````
 
-````{sidebar}
-Get the code! ({doc}`More info <code>`)
+---
+
+**Get the code! ({doc}`More info <code>`)**
+
 Code for the beginning of this chapter:
 
-```
+```shell
 git checkout initial
 ```
 
 Code for the end of this chapter:
 
-```
+```shell
 git checkout overrides
 ```
 ````
@@ -392,6 +393,7 @@ Wrap the Container with `{}` and return the container.
 Put the locale-setting before it.
 
 ```{code-block} jsx
+:linenos: true
 :emphasize-lines: 10,21-25,62
 
 /**

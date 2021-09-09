@@ -15,6 +15,8 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
+COMPILE_LESS = lesscpy _static/custom.less _static/custom.css
+
 all: build
 
 .PHONY: help
@@ -57,44 +59,52 @@ build: bin/pip
 
 .PHONY: html
 html:
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
 .PHONY: manual
 manual: *.rst
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b html -t manual . manual
 
 .PHONY: presentation
 presentation: *.rst
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b html -t presentation . $(BUILDDIR)/presentation
 
 .PHONY: dirhtml
 dirhtml:
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/dirhtml."
 
 .PHONY: singlehtml
 singlehtml:
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml
 	@echo
 	@echo "Build finished. The HTML page is in $(BUILDDIR)/singlehtml."
 
 .PHONY: pickle
 pickle:
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b pickle $(ALLSPHINXOPTS) $(BUILDDIR)/pickle
 	@echo
 	@echo "Build finished; now you can process the pickle files."
 
 .PHONY: json
 json:
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b json $(ALLSPHINXOPTS) $(BUILDDIR)/json
 	@echo
 	@echo "Build finished; now you can process the JSON files."
 
 .PHONY: htmlhelp
 htmlhelp:
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b htmlhelp $(ALLSPHINXOPTS) $(BUILDDIR)/htmlhelp
 	@echo
 	@echo "Build finished; now you can run HTML Help Workshop with the" \
@@ -102,6 +112,7 @@ htmlhelp:
 
 .PHONY: qthelp
 qthelp:
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b qthelp $(ALLSPHINXOPTS) $(BUILDDIR)/qthelp
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
@@ -112,6 +123,7 @@ qthelp:
 
 .PHONY: devhelp
 devhelp:
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
@@ -122,12 +134,14 @@ devhelp:
 
 .PHONY: epub
 epub:
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b epub $(ALLSPHINXOPTS) $(BUILDDIR)/epub
 	@echo
 	@echo "Build finished. The epub file is in $(BUILDDIR)/epub."
 
 .PHONY: latex
 latex:
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo
 	@echo "Build finished; the LaTeX files are in $(BUILDDIR)/latex."
@@ -136,6 +150,7 @@ latex:
 
 .PHONY: latexpdf
 latexpdf:
+	${COMPILE_LESS}
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(BUILDDIR)/latex all-pdf
