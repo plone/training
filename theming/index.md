@@ -1,11 +1,17 @@
 ---
-About: Adjusting the visual representation of Plone with {term}`Diazo`
-Level: All levels
+html_meta:
+  description: Adjusting the visual representation of Plone with {term}`Diazo`
 ---
 
 (theming-label)=
 
 # Plone Theming
+
+About
+: Adjusting the visual representation of Plone with {term}`Diazo`
+
+Level
+: All levels
 
 **Training Objective**
 

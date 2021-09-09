@@ -1,11 +1,17 @@
 ---
-About: Learn how to quickly bootstrap and customize a Volto project
-Level: All levels
+html_meta:
+  description: Learn how to quickly bootstrap and customize a Volto project
 ---
 
 (voltohandson-label)=
 
 # Volto Hands-On
+
+About
+: Learn how to quickly bootstrap and customize a Volto project
+
+Level
+: All levels
 
 This is the documentation for the "Volto Hands-On" training,
 which is intended as a half day training for people who already know the basics of ReactJS and Volto.

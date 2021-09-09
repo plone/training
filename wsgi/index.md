@@ -1,11 +1,17 @@
 ---
-About: Deploying and Operating Plone behind a WSGI server
-Level: All levels
+html_meta:
+  description: Deploying and Operating Plone behind a WSGI server
 ---
 
 (wsgi-label)=
 
 # Deploying and Operating Plone on WSGI
+
+About
+: Deploying and Operating Plone behind a WSGI server
+
+Level
+: All levels
 
 ```{note}
 This training is meant to use in a course or read and worked through by an individual user.

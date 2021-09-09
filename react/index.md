@@ -1,11 +1,17 @@
 ---
-About: Learn the basis of React, Redux and React-Router
-Level: All levels
+html_meta:
+  description: Learn the basis of React, Redux and React-Router
 ---
 
 (react-volto-label)=
 
 # React
+
+About
+: Learn the basis of React, Redux and React-Router
+
+Level
+: All levels
 
 This is the documentation for the "React" training.
 

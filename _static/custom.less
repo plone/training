@@ -78,8 +78,20 @@ figure img,
   }
 }
 
+/**
+ * Info about skills level, training target, … at the top of the page
+ * written as definition list
+ */
+h1 ~ dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+  dd {
+    margin-bottom: unset !important;
+  }
+}
+
 div.section {
-  margin-bottom: 6rem;
+  margin-bottom: 5rem;
 }
 
 .admonition {

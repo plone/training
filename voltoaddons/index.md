@@ -1,11 +1,17 @@
 ---
-About: Learn how to develop Volto add-ons and other useful Volto patterns
-Level: Advanced levels
+html_meta:
+  description: Learn how to develop Volto add-ons and other useful Volto patterns
 ---
 
 (voltoaddons-label)=
 
 # Volto Add-ons Development
+
+About
+: Learn how to develop Volto add-ons and other useful Volto patterns
+
+Level
+: Advanced level
 
 This is the documentation for the "Volto Add-ons Development" training, which is
 intended as a full day training for people who already know the basics of

@@ -1,9 +1,15 @@
 ---
-About: Integrate Plone with Solr
-Level: Experienced
+html_meta:
+  description: Integrate Plone with Solr
 ---
 
 # Plone Training Solr
+
+About
+: Integrate Plone with Solr
+
+Level
+: Experienced
 
 Apache {term}`Solr` is based on [Lucene](https://lucene.apache.org/core/) and is the enterprise open source search engine.
 
