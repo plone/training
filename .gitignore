@@ -24,4 +24,3 @@ node_modules/
 .python-version
 package-lock.json
 .vscode/settings.json
-_static/custom.css
