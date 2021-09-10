@@ -81,10 +81,6 @@ pygments_style = "sphinx"
 # Ignore localhost
 linkcheck_ignore = [
     r"http://localhost:\d+",
-    # r"http://localhost:8000",
-    # r"http://localhost:8080\d+/",
-    # r"http://localhost:8080",
-    # r"http://localhost:4200",
     r"http://127.0.0.1:8080",
     r"http://wiki.apache.org",
     r"https://wiki.apache.org",
@@ -97,6 +93,7 @@ linkcheck_ignore = [
     r"https://www.packtpub.com",
     r"https://lucidworks.com",
     r"https://twitter.com",  # linkcheck redirects to mobile version
+    r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
 ]
 linkcheck_anchors = False
 linkcheck_timeout = 30
