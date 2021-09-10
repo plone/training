@@ -2,8 +2,8 @@
 
 # Project requirements
 
-Our hands-on exercise is to (re)build plone.com using Volto.
-This is what plone.com looks like:
+Our hands-on exercise is to (re)build `plone.org` using Volto.
+This is what `plone.org` looks like:
 
 ```{image} _static/plone.com_index.png
 :align: center

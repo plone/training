@@ -39,8 +39,8 @@ You will become familiar with Volto customization, theming, and how to get the m
 
 ## The hands-on exercise
 
-The hands-on exercise will feature developing the basics of recreating the plone.com site using Volto.
-You can view the current plone.com site to get a sense of what to expect from it.
+The hands-on exercise will feature developing the basics of recreating the `plone.org` site using Volto.
+You can view the current `plone.org` site to get a sense of what to expect from it.
 We will be facing different challenges and we will be solving them, introducing or refreshing some of the concepts covered in the previous training classes.
 We will cover the proper solution to each challenge and we will provide an overview of what to expect when developing for Volto.
 

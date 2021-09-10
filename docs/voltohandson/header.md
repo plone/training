@@ -31,12 +31,12 @@ We want this styling in the Header component:
 }
 ```
 
-So we have the familiar black background of plone.com, the right logo height, and the proper flex distribution for the header elements.
+So we have the familiar black background of `plone.org`, the right logo height, and the proper flex distribution for the header elements.
 Please notice the specificity of the CSS class declarations.
 We need them in order to override the original theme.
 This is rather common when overriding SemanticUI theme styles because of the high specificity enforced by SemanticUI.
 
-We adjust the navigation menu to match the one on plone.com:
+We adjust the navigation menu to match the one on `plone.org`:
 
 ```less
 .navigation .ui.secondary.pointing.menu {
