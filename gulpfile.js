@@ -36,14 +36,14 @@ function buildAndBrowserSync(done) {
 function watch() {
     browserSync.init({
         server: {
-            baseDir: '../_build/html/'
+            baseDir: '_build/html/'
         },
         port: 3002,
         ui: {
             port: 3003
         },
     });
-    gulp.watch(['./**/*.rst', './**/*.md',], buildAndBrowserSync);
+    gulp.watch(['docs/**/*.rst', 'docs/**/*.md',], buildAndBrowserSync);
 }
 
 // presentation
@@ -72,14 +72,14 @@ function buildAndBrowserSyncPresentation(done) {
 function watchPresentation() {
     browserSync.init({
         server: {
-            baseDir: '../_build/presentation/'
+            baseDir: '_build/presentation/'
         },
         port: 3002,
         ui: {
             port: 3003
         },
     });
-    gulp.watch(['./**/*.rst', './**/*.md',], buildAndBrowserSyncPresentation);
+    gulp.watch(['docs/**/*.rst', 'docs/**/*.md',], buildAndBrowserSyncPresentation);
 }
 
 exports.presentation = watchPresentation;
