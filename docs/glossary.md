@@ -68,13 +68,13 @@ Travis CI
     Open source projects may be tested with limited runs via [travis-ci.org](https://travis-ci.org).
 
 Solr
-    [Solr](http://lucene.apache.org/solr/) is a popular, blazing-fast, open source enterprise search platform built on Apache Lucene.
+    [Solr](https://solr.apache.org/) is a popular, blazing-fast, open source enterprise search platform built on Apache Lucene.
 
 ZCML
     The [Zope Configuration Mark-up Language](https://docs.plone.org/develop/addons/components/zcml.html).
 
 Diazo
-    [Diazo theme engine guide](http://docs.diazo.org/en/latest/).
+    [Diazo theme engine guide](https://docs.diazo.org/en/latest/).
     Diazo allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology.
 
 Dexterity

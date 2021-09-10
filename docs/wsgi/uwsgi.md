@@ -1,6 +1,6 @@
 # uWSGI
 
-[uWSGI](https://uwsgi-docs.readthedocs.io/) is a very flexible WSGI server that comes with tons of configuration options.
+[uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) is a very flexible WSGI server that comes with tons of configuration options.
 Only a few of them work with Zope and Plone, though.
 
 ## Possible Worker models
@@ -254,7 +254,7 @@ processes = 1
 threads = 4
 ```
 
-The important (and not quite obvious from the docs, see this [mail post](http://lists.unbit.it/pipermail/uwsgi/2015-March/007918.html)) thing to note here as that this file must be owned by the same user we intend to use for running the vassal:
+The important (and not quite obvious from the docs, see this [mail post](https://web.archive.org/web/20190905042643/http://lists.unbit.it/pipermail/uwsgi/2015-March/007918.html)) thing to note here as that this file must be owned by the same user we intend to use for running the vassal:
 
 ```shell
 sudo chown vagrant.vagrant /etc/uwsgi-emperor/vassals/plone.ini

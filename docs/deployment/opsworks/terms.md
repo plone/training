@@ -18,7 +18,7 @@ When using OpsWorks, you will be making use built-in OpsWorks Chef Cookbooks pro
 These built-in Cookbooks provide a number of Recipes for configuring and deploying many types of applications using
 TTW (Through-The-Web) configuration from the OpsWorks control panel.
 
-These include [Node.js](https://nodejs.org/en/), [Rails](https://rubyonrails.org/), [PHP](https://secure.php.net/) , and Java applications, but not [Python](https://www.python.org/) [^id3].
+These include [Node.js](https://nodejs.org/en/), [Rails](https://rubyonrails.org/), [PHP](https://www.php.net/) , and Java applications, but not [Python](https://www.python.org/) [^id3].
 
 I've created a couple supplemental Cookbooks that extend the existing OpsWorks
 deployment recipes to support Python and Plone along with other supporting

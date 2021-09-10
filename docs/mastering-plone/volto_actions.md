@@ -218,7 +218,7 @@ votes: {
 }
 ```
 
-This data written by the reducer is the response of the request to \<backend>/<mailto:api/@votes>: <http://greenthumb.ch/api/@votes>, if your backend is available at <http://greenthumb.ch>.
+This data written by the reducer is the response of the request to \<backend>/<mailto:api/@votes>: `http://greenthumb.ch/api/@votes`, if your backend is available at `http://greenthumb.ch`.
 It is the data that the adapter `Vote` from `starzel.votable_behavior` `behavior/voting.py` provides and exposes via the REST API endpoint `@votes`.
 
 The component gets access to this store entry by `const votes = useSelector((store) => store.votes);`

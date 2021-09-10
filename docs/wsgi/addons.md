@@ -10,8 +10,8 @@ buildout -c sentry.cfg
 ```
 ````
 
-[Sentry](https://sentry.io) is a widely used open source monitoring and error tracking tool.
-The existing Zope integration in the legacy [raven](https://pypi.python.org/project/raven) package does not work in the WSGI pipeline.
+[Sentry](https://sentry.io/welcome/) is a widely used open source monitoring and error tracking tool.
+The existing Zope integration in the legacy [raven](https://pypi.org/project/raven/) package does not work in the WSGI pipeline.
 This is because its component definition depends on logging components that are only available through `zopeschema.xml` but not `wsgischema.xml`.
 `zopeschema.xml` has been moved from the core Zope package to ZServer.
 

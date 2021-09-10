@@ -32,7 +32,7 @@ This will automatically add and configure a new PAS plugin named `jwt_auth` used
 ## Explore the API
 
 Make sure you add some talks to the talks folder and then start exploring the API.
-We recommend using [Postman](https://www.getpostman.com) or a similar tool, but you can also use [requests](https://pypi.org/project/requests) in a Python virtual env.
+We recommend using [Postman](https://www.postman.com/) or a similar tool, but you can also use [requests](https://pypi.org/project/requests) in a Python virtual env.
 
 {py:mod}`plone.restapi` uses 'content negotiation' to determine whether a client wants
 a REST API response - if you set the `Accept` HTTP header to `application/json`,
@@ -127,7 +127,7 @@ Using {py:mod}`requests` again:
 
 ## Implementing the talklist
 
-We will use [Vue.js](http://vuejs.org/) to develop our app.
+We will use [Vue.js](https://vuejs.org/) to develop our app.
 This is a relatively lightweight JavaScript framework for developing hybrid web apps.
 A big advantage of Vue.js over other frameworks for our purpose is that it doesn't require
 NodeJS..

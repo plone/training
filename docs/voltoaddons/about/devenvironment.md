@@ -7,6 +7,6 @@ overview of the capabilities and required configuration.
 
 For Vim, check language integration packages such as [ALE] or [coc.nvim].
 
-[ale]: https://github.com/w0rp/ale
+[ale]: https://github.com/dense-analysis/ale
 [coc.nvim]: https://github.com/neoclide/coc.nvim
 [visual studio code]: https://code.visualstudio.com

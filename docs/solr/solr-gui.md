@@ -317,7 +317,7 @@ There are more complex scenarios possible.
 For a complete list of options see the respective Solr documentation.
 
 ```{seealso}
-<https://lucene.apache.org/solr/guide/8_2/faceting.html>
+https://solr.apache.org/guide/8_2/faceting.html
 ```
 
 With `collective.solr` you don't have to worry about the faceting details too much.

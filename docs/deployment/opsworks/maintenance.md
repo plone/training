@@ -66,7 +66,7 @@ For that reason I like to use New Relic for server monitoring.
 There is built-in integration in the recipes, which includes detailed performance server and client performance monitoring for Plone,
 as well as plugins for Nginx, Varnish and HAProxy services and standard CPU, Disk space and RAM server metrics.
 
-There's also a recipe provided to integrate the [Papertrail](https://papertrailapp.com/) log tracing and searching service.
+There's also a recipe provided to integrate the [Papertrail](https://www.papertrail.com) log tracing and searching service.
 
 To help you live the dream of never having to SSH into your servers.
 

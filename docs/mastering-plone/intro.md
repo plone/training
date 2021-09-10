@@ -53,7 +53,7 @@ Tell us about yourselves:
 
 ## Documentation
 
-Follow the training at <https://training.plone.org/6>
+Follow the training at https://training.plone.org/.
 
 ```{note}
 You can use this presentation to copy & paste the code but you will memorize more if you type yourself.

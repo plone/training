@@ -8,7 +8,7 @@ You can configure GatsbyJS to fetch data from different sources like headless CM
 
 This is done with `source plugins`.
 
-The active GatsbyJS community has [several plugins](https://www.gatsbyjs.org/plugins/) that can fetch data from various sources.
+The active GatsbyJS community has [several plugins](https://www.gatsbyjs.com/plugins/) that can fetch data from various sources.
 
 ## 2) Build
 
@@ -37,4 +37,4 @@ In development mode, it exposes the built site to a certain HTTP port (to see wh
 ## 3) Deploy
 
 The output of GatsbyJS is a set of static resources: HTML, CSS and JavaScript files.
-You can deploy them wherever you deploy static files (Amazon S3, Netlify, GitHub pages, Apache, Surge.sh, and so on).
+You can deploy them wherever you deploy static files (Amazon S3, Netlify, GitHub pages, Apache, [Surge.sh](https://surge.sh/), and so on).

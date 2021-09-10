@@ -8,10 +8,10 @@ Gunicorn offers a wide range of possible worker models.
 The default is the `sync` worker model which uses "traditional" multi-threading based on the standard library.
 Unlike waitress Gunicorn doesn't use an `asyncore` dispatcher to clear the request queue.
 Each worker is using [select](https://github.com/benoitc/gunicorn/blob/e147feaf8b12267ff9bb3c06ad45a2738a4027df/gunicorn/workers/sync.py#L34) by itself to check for incoming client requests.
-The official [Gunicorn documentation for worker types](http://docs.gunicorn.org/en/latest/design.html#choosing-a-worker-type) recommends to put a buffering proxy in front of a default configuration Gunicorn.
+The official [Gunicorn documentation for worker types](https://docs.gunicorn.org/en/latest/design.html#choosing-a-worker-type) recommends to put a buffering proxy in front of a default configuration Gunicorn.
 
 Other possible worker types are asynchronous workers based on [greenlets](https://greenlet.readthedocs.io/en/latest/), [AsyncIO](https://docs.python.org/3/library/asyncio.html#module-asyncio) workers and a [Tornado](https://www.tornadoweb.org/en/stable/) worker class.
-The different worker types and how to choose one suitable for your application is covered in detail in the [Gunicorn docs](http://docs.gunicorn.org/en/latest/design.html).
+The different worker types and how to choose one suitable for your application is covered in detail in the [Gunicorn docs](https://docs.gunicorn.org/en/latest/design.html).
 
 ## Use gunicorn in our buildout
 
@@ -25,7 +25,7 @@ buildout -c gunicorn.cfg
 
 Gunicorn has a built-in PasteDeploy entry point, so we don't need a shim package like the one we used for `bjoern`.
 On the downside, there is no easy way of passing `plone.recipe.zope2instances http-address` parameter to gunicorn since the `bind` directive doesn't seem to work in the `ini` file.
-The PasteDeploy entry point is covered in the [gunicorn configuration documentation](http://docs.gunicorn.org/en/stable/configure.html).
+The PasteDeploy entry point is covered in the [gunicorn configuration documentation](https://docs.gunicorn.org/en/stable/configure.html).
 
 We resolve to hard code the socket in the `ini` template.
 
@@ -170,6 +170,6 @@ mode = 755
 After running `buildout -c gunicorn-alt.cfg`, you can start the instance with `gunicorn-instance`.
 
 Open the [database controlpanel](http://localhost:8080/Control_Panel/Database/main/manage_main) in a browser to check the number of database connection. You will see only one connection despite the 4 workers.
-ZODB connections are [not thread safe](http://www.zodb.org/en/latest/guide/transactions-and-threading.html#concurrency-threads-and-processes) so this is not a recommended configuration.
+ZODB connections are [not thread safe](https://www.zodb.org/en/latest/guide/transactions-and-threading.html#concurrency-threads-and-processes) so this is not a recommended configuration.
 The [asyncio](https://docs.python.org/3/library/asyncio.html#module-asyncio) based `gthread` worker class (doesn't need additional packages) will show one database connection per worker.
 ````

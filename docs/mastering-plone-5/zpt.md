@@ -499,7 +499,7 @@ Plone 4 and Plone 5:
  </a>
 ```
 
-Plone 5 (and Plone 4 with five.pt) :
+Plone 5 (and Plone 4 with `five.pt`) :
 
 ```{code-block} html
 :linenos: true

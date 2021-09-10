@@ -76,7 +76,7 @@ There are plenty of tools that make developing and managing sites much easier. H
 - Ansible (managing and provisioning machines)
 - Greylog, ELK (logging)
 - Nagios, Zabbix (server monitoring)
-- jenkins, gitlab-ci, travis, drone.io (Continuous Integration)
+- jenkins, gitlab-ci, travis, [drone.io](https://www.drone.io/) (Continuous Integration)
 - piwik (statistics)
 - gitlab (code repo and code review)
 - redmine, taiga, assembla (project-management and ticket-system)

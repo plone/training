@@ -19,7 +19,7 @@ It could also contain other property definitions. To define more cores we could 
 files of the same name in other directories.
 
 ```{seealso}
-<https://lucene.apache.org/solr/guide/8_2/defining-core-properties.html>
+https://solr.apache.org/guide/8_2/defining-core-properties.html
 ```
 
 ## Stopwords
@@ -51,7 +51,7 @@ i
 For some common language specific examples see the Solr git repository:
 
 ```{seealso}
-<https://github.com/apache/lucene-solr/tree/master/lucene/analysis/common/src/resources/org/apache/lucene/analysis/snowball>
+https://github.com/apache/solr
 ```
 
 ## Stemming
@@ -73,11 +73,11 @@ but if you provide a Google-like search where you browse more than search then s
 If you are interested in this feature look at the Solr documentation here:
 
 ```{seealso}
-<https://lucene.apache.org/solr/guide/8_2/understanding-analyzers-tokenizers-and-filters.html>
+https://solr.apache.org/guide/8_2/understanding-analyzers-tokenizers-and-filters.html
 ```
 
 ```{seealso}
-<https://wiki.apache.org/solr/LanguageAnalysis>
+https://wiki.apache.org/solr/LanguageAnalysis
 ```
 
 A short example to include a German stemming factory is here:
@@ -164,7 +164,7 @@ foo => foo bar, baz
 For a full list of index and query filter factories consult the Solr documentation:
 
 ```{seealso}
-<https://lucene.apache.org/solr/guide/6_6/understanding-analyzers-tokenizers-and-filters.html>
+https://solr.apache.org/guide/6_6/understanding-analyzers-tokenizers-and-filters.html
 ```
 
 ## Exercise

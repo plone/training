@@ -18,7 +18,7 @@ Plone started as a extension for CMF, which is a extension for Zope. Python, ZOD
 
 ## Database
 
-- [ZODB](http://www.zodb.org/en/latest/): A native object database for Python
+- [ZODB](https://www.zodb.org/en/latest/): A native object database for Python
 
   - No separate language for database operations
   - Very little impact on your code to make objects persistent

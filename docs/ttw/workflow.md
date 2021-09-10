@@ -1234,7 +1234,7 @@ Plone workflow documentation: <https://docs.plone.org/working-with-content/colla
 
 Dexterity workflow documentation: <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/workflow.html>
 
-Martin Aspeli's famed "DCWorkflow's Hidden Gems" blog post: <http://www.martinaspeli.net/articles/dcworkflows-hidden-gems>
+Martin Aspeli's famed "DCWorkflow's Hidden Gems" blog post: <https://web.archive.org/web/20190221025627/http://www.martinaspeli.net/articles/dcworkflows-hidden-gems>
 
 Page templates: <https://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html#id1>
 

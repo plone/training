@@ -9,7 +9,7 @@ We will improve our theme package to create this content on install.
 To do that we create the {file}`slider-images` folder in our {file}`setuphandlers.py` and load some example images into that folder.
 
 We will add some images tp the {file}`theme/img` folder.
-To create the folder and the images add the following code in your setuphandlers.py:
+To create the folder and the images add the following code in your {file}`setuphandlers.py`:
 
 ```{code-block} python
 :emphasize-lines: 2,5-6,22-23,31-67

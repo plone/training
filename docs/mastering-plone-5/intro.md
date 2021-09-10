@@ -49,7 +49,7 @@ Some technologies and tools we use during the training:
 
   > - [Virtualbox](https://www.virtualbox.org/)
   > - [Vagrant](https://www.vagrantup.com/)
-  > - [Ubuntu linux](https://www.ubuntu.com/)
+  > - [Ubuntu linux](https://ubuntu.com/)
   > - Through-the-web (TTW)
   > - [Buildout](http://www.buildout.org/en/latest/)
   > - A little XML
@@ -59,15 +59,15 @@ Some technologies and tools we use during the training:
 
   > - [Git](https://git-scm.com/)
   > - [GitHub](https://github.com)
-  > - [Try Git (Nice introduction to git and github)](http://try.github.io/levels/1/challenges/1/)
+  > - [Try Git (Nice introduction to git and github)](https://docs.github.com/en/get-started/quickstart/set-up-git)
   > - TAL
   > - METAL
   > - ZCML
   > - [Python](https://www.python.org)
   > - Dexterity
   > - Viewlets
-  > - [JQuery](http://jquery.com/)
-  > - [Testing](https://docs.plone.org/external/plone.app.testing/docs/source/index.html)
+  > - [JQuery](https://jquery.com/)
+  > - [Testing](https://docs.plone.org/external/plone.testing/docs/index.html)
   > - [References/Relations](https://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html)
 
 (plone5-intro-what-wont-happen-label)=
@@ -76,8 +76,8 @@ Some technologies and tools we use during the training:
 
 We will not cover the following topics:
 
-- [Archetypes](https://docs.plone.org/old-reference-manuals/archetypes/index.html)
-- [Portlets](https://docs.plone.org/old-reference-manuals/portlets/index.html)
+- [Archetypes](https://docs.plone.org/4/en/develop/plone/content/archetypes/index.html)
+- [Portlets](https://docs.plone.org/4/en/old-reference-manuals/portlets/index.html)
 - [z3c.forms](https://docs.plone.org/develop/plone/forms/z3c.form.html)
 - [Theming](https://docs.plone.org/adapt-and-extend/theming/index.html)
 - [i18n and locales](https://docs.plone.org/develop/plone/i18n/index.html)
@@ -91,7 +91,7 @@ Other topics are only covered lightly:
 - [ZODB](https://docs.plone.org/develop/plone/persistency/index.html)
 - [Security](https://docs.plone.org/develop/plone/security/index.html)
 - [Permissions](https://docs.plone.org/develop/plone/security/permissions.html)
-- [Performance and Caching](https://docs.plone.org/manage/deploying/testing_tuning/performance/index.html)
+- [Performance and Tuning](https://docs.plone.org/manage/deploying/performance/index.html)
 
 (plone5-intro-expect-label)=
 

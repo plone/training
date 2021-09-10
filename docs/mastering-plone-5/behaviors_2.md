@@ -282,7 +282,7 @@ What happens if two users rate the same content independently at the same time?
 In this case, a database conflict will occur because there is no way for Plone to know how to handle the concurrent write access.
 Although this is rather unlikely during this training, it is a very common problem on high traffic websites.
 
-You can find more information in the documentation of the ZODB, in particular [Rules for Persistent Classes](http://www.zodb.org/en/latest/guide/writing-persistent-objects.html)
+You can find more information in the documentation of the ZODB, in particular [Rules for Persistent Classes](https://www.zodb.org/en/latest/guide/writing-persistent-objects.html)
 ```
 
 Next we provide the internal fields via properties.
@@ -434,7 +434,7 @@ You will also have to write a 'request' dummy that mocks the `getClientAddr` and
 :class: toggle
 
 There are no tests for `starzel.votablebehavior` at all at the moment.
-But you can refer to [chapter 23 (Testing in Plone)](https://training.plone.org/5/mastering-plone/testing.html) for how to setup unit testing for a package.
+But you can refer to [chapter 24 (Testing in Plone)](https://training.plone.org/5/mastering-plone-5/testing.html) for how to setup unit testing for a package.
 Put the particular test for this exercise into a file named {file}`starzel.votable_behavior/starzel/votable_behavior/tests/test_voting`.
 Remember you need an empty {file}`__init__.py` file in the {file}`tests` directory to make testing work.
 You also need to add `starzel.votable_behavior` to `test-eggs` in {file}`buildout.cfg` and re-run buildout.

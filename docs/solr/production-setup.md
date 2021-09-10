@@ -33,7 +33,7 @@ An example for a multi-core configuration you can find in the documentation of `
 
 ## Monitoring
 
-`collective.solr` comes with some predefined [Munin](http://munin-monitoring.org/) configuration.
+`collective.solr` comes with some predefined [Munin](https://munin-monitoring.org/) configuration.
 The values for Munin are collected and exposed via the Java JMX framework.
 
 You will need Munin and the JMX\_ extension.
@@ -58,7 +58,7 @@ To make this happen you have to consider a couple of things:
 Solr is documented in its own [Wiki](https://wiki.apache.org/solr/).
 
 ```{seealso}
-<https://lucene.apache.org/solr/guide/6_6/>
+https://solr.apache.org/guide/6_6/
 ```
 
 There are a couple of books available.

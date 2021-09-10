@@ -477,7 +477,7 @@ Other fields including the dict field
 - To control the avilable values of other fields or hide/show them based on user input use the [Masterselect Field](https://pypi.org/project/plone.formwidget.masterselect/).
 - For spam-protection use [collective.z3cform.norobots](https://pypi.org/project/collective.z3cform.norobots/).
 - Color-Picker [collective.z3cform.colorpicker](https://github.com/collective/collective.z3cform.colorpicker)
-- There is no Computedfield but most use-cases can be achieved with a readonly-field and a property. See the [discussion](https://community.plone.org/t/computed-field-for-dexterity/)
+- There is no Computedfield but most use-cases can be achieved with a readonly-field and a property. See the [discussion](https://community.plone.org/t/computed-field-for-dexterity/11405)
 
 ## Datagrid Field
 

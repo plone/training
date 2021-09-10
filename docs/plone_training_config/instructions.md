@@ -181,7 +181,7 @@ If there is an error message you should either try to fix it or use vagrant and 
 You have two options:
 
 > 1. Create the frontend from scratch using the Volto generator.
-> 2. Use the existing Volto project for this training [volto-ploneconf](https://github.com/collective/volto-ploneconf.git) with all the code for the training.
+> 2. Use the existing Volto project for this training [volto-ploneconf](https://github.com/collective/volto-ploneconf) with all the code for the training.
 
 ```{note}
 If you are completely new to node and companions, please see [Volto Documentation](https://docs.voltocms.com/getting-started/install/) to find information about node, nvm, npx, yarn and the React thing.
