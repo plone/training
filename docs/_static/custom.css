@@ -62,11 +62,11 @@ p.ploneorglink img {
   padding-left: 0;
 }
 
-h1 ~ dl {
+section:not(#glossary) h1 ~ dl {
   display: grid;
   grid-template-columns: max-content auto;
 }
-h1 ~ dl dd {
+section:not(#glossary) h1 ~ dl dd {
   margin-bottom: unset !important;
 }
 
