@@ -18,7 +18,7 @@ Plone started as a extension for CMF, which is a extension for Zope. Python, ZOD
 
 ## Database
 
-- [ZODB](https://www.zodb.org/en/latest/): A native object database for Python
+- [ZODB](https://zodb.org/en/latest/): A native object database for Python
 
   - No separate language for database operations
   - Very little impact on your code to make objects persistent
@@ -77,7 +77,7 @@ When the second request comes in, you have to do everything again.
 Jim Fulton thought that this was slightly tedious.
 So he wrote code to handle requests.
 He believed that site content is object-oriented and that the URL should somehow point directly into the object hierarchy,
-so he wrote an object-oriented database, called [ZODB](http://www.zodb.org/en/latest/).
+so he wrote an object-oriented database, called [ZODB](https://zodb.org/en/latest/).
 
 The ZODB is a fully [ACID](https://en.wikipedia.org/wiki/ACID) compliant database with automatic transactional integrity.
 It automatically maps traversal in the object hierarchy to URL paths, there is no need to "wire" objects or database nodes to URLs.
@@ -135,7 +135,7 @@ The Zope community expresses this with the Python (Monty) maxim: Beware the `Spa
 
 ## Content Management Framework
 
-- [CMF (Content Management Framework)](http://old.zope.org/Products/CMF/index.html/) is add-on for Zope to build Content Management Systems (like Plone).
+- [CMF (Content Management Framework)](https://old.zope.org/Products/CMF/index.html/) is add-on for Zope to build Content Management Systems (like Plone).
 
 ```{only} not presentation
 After many websites were successfully created using Zope, a number of recurring requirements emerged,

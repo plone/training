@@ -10,7 +10,7 @@ Since we need the Logo component in the Footer, we import it from Volto as we di
 import { Logo } from '@plone/volto/components';
 ```
 
-Then, we replace the `Footer` component content to match the one from plone.com.
+Then, we replace the `Footer` component content to match the one from `plone.org`.
 
 ```jsx
 <Segment role="contentinfo" vertical padded inverted color="grey">
@@ -39,7 +39,7 @@ Then, we replace the `Footer` component content to match the one from plone.com.
             </Link>
           </div>
           <div role="listitem" className="item">
-            <a className="item" href="https://plone.com">
+            <a className="item" href="https://plone.org">
               <FormattedMessage
                 id="Powered by Plone & Python"
                 defaultMessage="Powered by Plone & Python"

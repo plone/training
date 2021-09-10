@@ -282,7 +282,7 @@ What happens if two users rate the same content independently at the same time?
 In this case, a database conflict will occur because there is no way for Plone to know how to handle the concurrent write access.
 Although this is rather unlikely during this training, it is a very common problem on high traffic websites.
 
-You can find more information in the documentation of the ZODB, in particular [Rules for Persistent Classes](https://www.zodb.org/en/latest/guide/writing-persistent-objects.html)
+You can find more information in the documentation of the ZODB, in particular [Rules for Persistent Classes](https://zodb.org/en/latest/guide/writing-persistent-objects.html)
 ```
 
 Next we provide the internal fields via properties.

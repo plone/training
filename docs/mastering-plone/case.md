@@ -86,8 +86,8 @@ Here are the technologies and tools we will use during the training:
 
   > - [Virtualbox](https://www.virtualbox.org/)
   > - [Vagrant](https://www.vagrantup.com/)
-  > - [Ubuntu linux](https://www.ubuntu.com/)
-  > - [Buildout](http://www.buildout.org/en/latest/)
+  > - [Ubuntu linux](https://ubuntu.com/)
+  > - [Buildout](https://www.buildout.org/en/latest/)
   > - XML
   > - Python 3
   > - React

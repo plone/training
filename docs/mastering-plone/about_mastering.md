@@ -38,7 +38,7 @@ The Mastering Plone Training was so far held publicly at the following occasions
 - [Plone Conference 2017 in Barcelona](https://2017.ploneconf.org/)
 - [Plone Conference 2016 in Boston](https://2016.ploneconf.org/)
 - Plone Conference 2015, Bucharest
-- [March 2015, Munich](https://www.starzel.de/leistungen/training/)
+- [March 2015, Munich](https://www.starzel.de/blog/mastering-plone-training-march-2015)
 - Plone Conference 2014, Bristol
 - [June 2014, Caracas](https://mobile.twitter.com/hellfish2/status/476906131970068480)
 - [May 2014, Munich](https://www.starzel.de/blog/mastering-plone)
@@ -56,7 +56,7 @@ The following trainers have given trainings based on Mastering Plone:
 Philip Bauer
 
 : Philip Bauer is a web developer from Munich who fell in love with Plone in 2005 and since then works almost exclusively with Plone.
-  A historian by education he drifted towards creating websites in the 90's and founded the company Starzel.de in 2000.
+  A historian by education he drifted towards creating websites in the 90's and founded the company https://www.starzel.de/ in 2000.
   He is a member of the Plone foundation, loves teaching and is dedicated to Open Source.
   Among other Plone-related projects he started creating the Mastering Plone Training so that everyone can become a Plone-Developer.
 
@@ -80,7 +80,7 @@ Steffen Lindner
 
 : Steffen Lindner started developing Plone in 2006.
   He worked on small Plone sites and also with huge intranet sites.
-  As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at Starzel.de.
+  As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at https://www.starzel.de/.
 
 Fulvio Casali
 
@@ -152,7 +152,7 @@ Content without a prefix will be included in both versions.
 
 ### The readthedocs theme
 
-We slightly tweaked the [Read the Docs Theme](https://github.com/rtfd/sphinx_rtd_theme)
+We slightly tweaked the [Read the Docs Theme](https://github.com/readthedocs/sphinx_rtd_theme)
 in `_static/custom.css` so that it works better with projectors:
 
 - We start hiding the navigation bar much earlier so that it does not interfere with the text.

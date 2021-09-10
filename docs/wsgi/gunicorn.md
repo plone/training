@@ -132,7 +132,7 @@ But for starting up Plone with gunicorn we use the new `gunicorn-instance` scrip
 As a side effect we get rid of the deprecation warning for not starting gunicorn with `--paste`.
 
 ```{note}
-The Zope documentations reports several performance issues with gunicorn, s. <https://zope.readthedocs.io/en/latest/wsgi.html#test-criteria-for-recommendations> for details.
+The Zope documentations reports several performance issues with gunicorn, s. <https://zope.readthedocs.io/en/latest/operation.html#test-criteria-for-recommendations> for details.
 ```
 
 ### Exercise 1
@@ -170,6 +170,6 @@ mode = 755
 After running `buildout -c gunicorn-alt.cfg`, you can start the instance with `gunicorn-instance`.
 
 Open the [database controlpanel](http://localhost:8080/Control_Panel/Database/main/manage_main) in a browser to check the number of database connection. You will see only one connection despite the 4 workers.
-ZODB connections are [not thread safe](https://www.zodb.org/en/latest/guide/transactions-and-threading.html#concurrency-threads-and-processes) so this is not a recommended configuration.
+ZODB connections are [not thread safe](https://zodb.org/en/latest/guide/transactions-and-threading.html#concurrency-threads-and-processes) so this is not a recommended configuration.
 The [asyncio](https://docs.python.org/3/library/asyncio.html#module-asyncio) based `gthread` worker class (doesn't need additional packages) will show one database connection per worker.
 ````

@@ -37,7 +37,7 @@ Examples:
 
 - <https://www.dipf.de/en/research/projects>
 - <https://www.mountaineers.org/courses/courses-clinics-seminars>
-- <https://www.dyna-jet.com/hochdruckreiniger>
+- <https://www.dyna-jet.com/highpressurecleaner>
 
 ```{seealso}
 We use the new catalog indexes to provide the data for the widgets and search the results.

@@ -2,7 +2,7 @@
 
 # Content types Views
 
-We will create a content type through the web to match the ones that might live in plone.com.
+We will create a content type through the web to match the ones that might live in `plone.org`.
 We will use them as base for further developments on the project.
 
 ## Success Story

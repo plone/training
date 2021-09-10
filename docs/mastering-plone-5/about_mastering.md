@@ -69,7 +69,7 @@ Steffen Lindner
 
 : Steffen Lindner started developing Plone in 2006.
   He worked on small Plone sites and also with huge intranet sites.
-  As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at Starzel.de.
+  As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at https://www.starzel.de/.
 
 Fulvio Casali
 

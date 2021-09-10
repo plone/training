@@ -8,7 +8,7 @@ Every plugin is specialized in getting data from a different source.
 
 ```{note}
 There are a lot of plugins for almost every need.
-You can find a complete list of plugins on [GatsbyJS official website](https://www.gatsbyjs.org/plugins/).
+You can find a complete list of plugins on [GatsbyJS official website](https://www.gatsbyjs.com/plugins/).
 ```
 
 Let us start with a basic one, `gatsby-source-filesystem`: a plugin that transforms files into GraphQL nodes.

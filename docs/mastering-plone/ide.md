@@ -23,7 +23,7 @@ People pick editors themselves. Use whatever you are comfortable and productive 
 
 - [Sublime](https://www.sublimetext.com/)
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [PyCharm](http://www.jetbrains.com/pycharm/)
+- [PyCharm](https://www.jetbrains.com/pycharm/)
 - [Atom](https://atom.io/)
 - [Wing IDE](http://wingide.com/)
 - [Vim](https://www.vim.org/)
