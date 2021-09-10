@@ -1,16 +1,10 @@
 .visuallyhidden {
   display: none;
 }
-p.ploneorglink img {
-  vertical-align: bottom;
-}
 pre {
   border-radius: 0;
   background-color: white;
   box-shadow: none;
-}
-span.linenos {
-  padding-right: 1em;
 }
 a,
 a:visited {
@@ -39,6 +33,13 @@ figure img,
   box-shadow: none;
   width: 200px;
 }
+span.linenos {
+  padding-right: 1em;
+}
+p.ploneorglink img {
+  vertical-align: bottom;
+}
+
 .bd-sidebar .nav ul {
   padding: 0 0 0 1rem;
 }
@@ -48,6 +49,7 @@ figure img,
 .bd-sidebar .nav .toctree-checkbox:checked ~ label i {
   transform: rotate(0deg);
 }
+
 .toctree-wrapper .caption {
   font-weight: bold;
   font-size: 1.2em;
@@ -59,6 +61,7 @@ figure img,
 .toctree-wrapper > ul {
   padding-left: 0;
 }
+
 h1 ~ dl {
   display: grid;
   grid-template-columns: max-content auto;
@@ -66,9 +69,11 @@ h1 ~ dl {
 h1 ~ dl dd {
   margin-bottom: unset !important;
 }
+
 div.section {
   margin-bottom: 5rem;
 }
+
 .admonition {
   border-radius: 0;
   border: none;
@@ -91,12 +96,14 @@ div.section {
 .admonition.toggle .admonition-title.open::after {
   content: "\f107";
 }
+
 .topic {
   padding: 1.5em 1em .5em 1em;
 }
 .topic-title {
   font-weight: bold;
 }
+
 #search-form {
   display: flex;
   flex-direction: row;
@@ -112,6 +119,8 @@ div.section {
 ul.search .title_training::before {
   content: ' – ';
 }
+
+
 div.sidebar,
 aside.sidebar {
   width: 40%;
@@ -144,6 +153,7 @@ aside.sidebar .topic {
     margin-right: -28%;
   }
 }
+
 main.bd-content #main-content dl.simple dd:not(:last-child) {
   margin-bottom: 30px;
 }
