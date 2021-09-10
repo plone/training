@@ -1,8 +1,13 @@
 (train-the-trainer-label)=
 
-# Teachers Training
+# Teaching
 
-## How To Give Technical Training(s)
+## Setup Environment
+
+See {doc}`/contributing/setup_author` for instructions how to set up the training documentation locally.
+
+
+## How To Give Technical Trainings
 
 ```{warning}
 WORK IN PROGRESS

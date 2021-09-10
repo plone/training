@@ -58,9 +58,6 @@ p.ploneorglink img {
 .toctree-wrapper ul {
   list-style: none;
 }
-.toctree-wrapper > ul {
-  padding-left: 0;
-}
 
 section:not(#glossary) h1 ~ dl {
   display: grid;
@@ -164,6 +161,28 @@ aside.sidebar .topic {
   }
 }
 
-main.bd-content #main-content dl.simple dd:not(:last-child) {
-  margin-bottom: 30px;
+
+main.bd-content #main-content dl.simple dt {
+  margin-top: .8em;
+}
+main.bd-content #main-content dl.simple dt:nth-of-type(1) {
+  margin-top: 0;
+}
+main.bd-content #main-content dl.simple dd {
+  margin-top: .8em;
+}
+main.bd-content #main-content dl.simple dt + dd {
+  margin-top: 0;
+}
+
+.prev-next-bottom {
+  margin: 20px 0 30px 0;
+}
+.prev-next-bottom a.left-prev, .prev-next-bottom a.right-next {
+  padding: 5px 10px;
+  border: 1px solid rgba(0,0,0,.2);
+  max-width: 45%;
+  overflow-x: hidden;
+  color: rgba(0,0,0,.65);
+  border-radius: 10px;
 }
