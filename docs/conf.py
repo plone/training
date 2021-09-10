@@ -94,7 +94,7 @@ linkcheck_ignore = [
     r"https://lucidworks.com",
     r"https://twitter.com",  # linkcheck redirects to mobile version
     r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
-    r"https://www.virtualbox.org/",  # temporarily down on 2021-09-10
+    r"https://www.virtualbox.org",  # temporarily down on 2021-09-10
 ]
 linkcheck_anchors = False
 linkcheck_timeout = 30
