@@ -94,6 +94,7 @@ Now install dependencies and build.
 
 ```console
 pip install -r requirements.txt
+cd docs
 make html
 ```
 
@@ -127,6 +128,7 @@ cd training
 python -m venv .
 source bin/activate
 pip install -r requirements.txt
+cd docs
 make html
 ```
 
