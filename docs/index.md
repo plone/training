@@ -127,28 +127,3 @@ glossary
 {doc}`teachers-training/index`
 
 : How To Give Technical Trainings
-
-% The following items are hidden in this toctree to prevent Sphinx warnings.
-
-```{toctree}
-:hidden: true
-
-mastering-plone-5/code
-mastering-plone-5/timing
-mastering-plone/code
-mastering-plone/events_classic
-mastering-plone/frontpage
-mastering-plone/mastering_plone_6
-mastering-plone/theming
-mastering-plone/timing
-mastering-plone/viewlets_1
-mastering-plone/viewlets_2
-mastering-plone/viewlets_advanced_classic
-mastering-plone/views_1
-mastering-plone/views_2
-mastering-plone/views_3
-mastering-plone/zpt
-mastering-plone/zpt_2
-teachers-training/index
-
-```
