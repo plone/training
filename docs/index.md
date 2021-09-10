@@ -4,37 +4,38 @@ A collection of trainings developed and created by the Plone Community.
 
 ```{toctree}
 :caption: Training Overview
-:hidden: true
 :maxdepth: 2
 
 mastering-plone/index
 mastering-plone-5/index
-theming/index
-javascript/index
-deployment/index
-deployment/opsworks/index
-ttw/index
-solr/index
-workflow/index
-angular/index
 react/index
 volto/index
 voltohandson/index
 voltoaddons/index
-transmogrifier/index
-advanced-python/index
-gatsby/index
 testing/index
+theming/index
+javascript/index
+deployment/index
+deployment/opsworks/index
 wsgi/index
+ttw/index
+solr/index
+workflow/index
+angular/index
+transmogrifier/index
+gatsby/index
+advanced-python/index
 ```
 
 ```{toctree}
 :caption: Plone Trainings
-:hidden: true
-:maxdepth: 3
+:maxdepth: 2
 
 glossary
+contributing/index
+teachers-training/index
 ```
+
 
 ## Trainings
 
@@ -123,6 +124,10 @@ glossary
 {doc}`advanced-python/index`
 
 : How to build your own webframework from scracth
+
+{doc}`contributing/index`
+
+: Contributing to the training documentation
 
 {doc}`teachers-training/index`
 
