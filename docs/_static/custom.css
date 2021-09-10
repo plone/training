@@ -119,6 +119,16 @@ div.section {
 ul.search .title_training::before {
   content: ' – ';
 }
+p.search-summary {
+  margin-top: 1em;
+}
+#search-results ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+#search-results ul li {
+  margin-bottom: 1em;
+}
 
 
 div.sidebar,
