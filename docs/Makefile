@@ -63,12 +63,12 @@ html:
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
 .PHONY: manual
-manual: *.rst
+manual: *.md
 	${COMPILE_LESS}
 	$(SPHINXBUILD) -b html -t manual . manual
 
 .PHONY: presentation
-presentation: *.rst
+presentation: *.md
 	${COMPILE_LESS}
 	$(SPHINXBUILD) -b html -t presentation . $(BUILDDIR)/presentation
 
