@@ -105,13 +105,18 @@ div.section {
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  flex-wrap: wrap;
 }
 #search-form select,
 #search-form input[type="text"] {
   height: 2rem;
   margin-right: 1rem;
+  margin-bottom: 1rem;
   background-color: white;
   border: 1px solid darkgrey;
+}
+#search-form input[type="submit"] {
+  margin-right: 1rem;
 }
 ul.search .title_training::before {
   content: ' – ';

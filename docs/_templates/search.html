@@ -43,6 +43,8 @@
     <form action="" method="get" id="search-form">
       <label for="q" class="visuallyhidden">Search string</label>
       <input type="text" name="q" id="q" aria-labelledby="search-documentation" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      
+      <input type="submit" value="{{ _('search') }}" />
 
       <label for="training" class="visuallyhidden">Filter by training</label>
       <select name="training" id="training">
@@ -71,7 +73,6 @@
           <option value="{{id}}">{{ title }}</option>
         {% endfor %}
       </select>
-      <input type="submit" value="{{ _('search') }}" />
       <span id="search-progress" style="padding-left: 10px"></span>
     </form>
   {% endblock %}
