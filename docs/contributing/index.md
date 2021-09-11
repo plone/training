@@ -12,7 +12,7 @@ You are author
 : Find some hints for authoring with
 **markdown and Sphinx and the extra MyST options**: 
 {doc}`markup-syntax`
-: Find instructions how to set up training documentation locally in {doc}`setup_author`
+: Find instructions how to set up training documentation locally in {doc}`setup-author`
 
   Make sure you have filled out a [Contributor Agreement](https://plone.org/foundation/contributors-agreement).
 

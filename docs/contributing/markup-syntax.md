@@ -170,7 +170,7 @@ Modes
 
   default
   : The verbose version used for the online documentation and for the trainer.
-  : Build it in Sphinx with `make html` or use the online version [training.plone.org](https://training.plone.org). See {doc}`/contributing/setup_author`.
+  : Build it in Sphinx with `make html` or use the online version [training.plone.org](https://training.plone.org). See {doc}`/contributing/setup-author`.
 
   presentation
   : An abbreviated version used for the projector during a training.

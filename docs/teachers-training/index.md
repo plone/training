@@ -28,7 +28,7 @@ presentation
 
 ## Setup Environment
 
-See {doc}`/contributing/setup_author` for instructions on how to set up the training documentation locally.
+See {doc}`/contributing/setup-author` for instructions on how to set up the training documentation locally.
 
 
 (train-the-trainer-label)=

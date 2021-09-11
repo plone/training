@@ -29,7 +29,7 @@ advanced-python/index
 
 ```{toctree}
 :caption: Plone Trainings
-:maxdepth: 2
+:maxdepth: 1
 
 glossary
 contributing/index
