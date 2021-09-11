@@ -80,11 +80,12 @@ Next up we modify {file}`profiles/default/metadata.xml`
 </metadata>
 ```
 
-... only:: not presentation
+```{only} not presentation
 
 > What a weird name. profile- is a prefix you will always need nowadays. Then comes the egg name, and the part after the colon is the name of the profile. The name of the profile is defined in zcml. So far I've stumbled over only one package where the profile directory name was different than the GenericSetup Profile name.
 >
 > Now the package is there, but nothing is votable. That is because no content type declares to use this behavior. We can add this behavior via the control panel, export the settings and store it in our egg. Let's just add it by hand now.
+```
 
 To add the behavior to talks, we do this in {file}`profiles/default/types/talk.xml`
 
@@ -108,7 +109,7 @@ Read more: <https://docs.plone.org/develop/addons/components/genericsetup.html#d
 </property>
 ```
 
-... only:: not presentation
+```{only} not presentation
 
 > Now you can reinstall your Plone site.
 >
@@ -120,6 +121,7 @@ Read more: <https://docs.plone.org/develop/addons/components/genericsetup.html#d
 >
 > That is a very verbose configuration, maybe you want to do it in the web interface and export the settings.
 > Whichever way you choose, it is easy to make a simple mistake. I will just present the XML way here.
+```
 
 The config for the Workflow is in {file}`profiles/default/workflows/talks_workflow.xml`
 

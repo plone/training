@@ -81,6 +81,7 @@ deployment_sites
 restapi
 future_of_plone
 optional
+code
 ```
 
 Please note that this document is *not complete* without the spoken word of a trainer.

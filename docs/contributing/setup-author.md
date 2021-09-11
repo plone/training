@@ -1,71 +1,8 @@
-(about-use-label)=
+# Building the documentation locally
 
-# Using the documentation for a training
+If you want to contribute to the training documentation or teach with a local version of the training documentation, here are the steps to take for a local setup.
 
-Feel free to organize a training yourself.
-Please be so kind to contribute any bug fixes or enhancements you made to the documentation for your training.
-
-## Complete Mode and compact Presentation Mode
-
-The training is rendered using Sphinx and builds in two flavors:
-
-default
-: The verbose version used for the online documentation and for the trainer.
-: Build it in Sphinx with `make html` or use the online version.
-
-presentation
-: An abbreviated version used for the projector during a training.
-: It should use more bullet points than verbose text.
-: Build it in Sphinx with `make presentation`.
-
-:::{note}
-By prefixing an indented block of text or code with `.. only:: presentation` you can control
-that this block is used for the presentation version only.
-
-To hide a block from the presentation version use `.. only:: not presentation`
-
-Content without a prefix will be included in both versions.
-:::
-
-
-## Exercises and Solutions
-
-Collapsed solutions of exercises:
-
-````{admonition} Complete code of the component Sed posuere consectetur est at lobortis.
-:class: toggle
-
-```{code-block} jsx
-:linenos:
-:emphasize-lines: 2,4
-
-import React from 'react';
-import { defineMessages, injectIntl } from 'react-intl';
-import { v4 as uuid } from 'uuid';
-import { omit, without } from 'lodash';
-```
-````
-
-Be aware of the nested directives! Increase back ticks!
-
-    ````{admonition} Complete code of the component
-    :class: toggle
-
-    ```{code-block} jsx
-    :linenos:
-    :emphasize-lines: 2,4
-
-    import React from 'react';
-    import { defineMessages, injectIntl } from 'react-intl';
-    import { v4 as uuid } from 'uuid';
-    import { omit, without } from 'lodash';
-    ```
-    ````
-
-
-## Building the documentation locally
-
-### Dependencies and new build
+## Dependencies and new build
 
 Please make sure that you have [Enchant](https://abiword.github.io/enchant/) installed. This is needed for spell-checking.
 
@@ -132,7 +69,7 @@ cd docs
 make html
 ```
 
-### Update existing
+## Update existing
 
 ```bash
 git pull
@@ -141,7 +78,7 @@ make html
 open _build/html/index.html
 ```
 
-### Sync the browser while editing
+## Sync the browser while editing
 
 To watch the changes in browser while editing you can use gulp.
 
@@ -165,12 +102,12 @@ gulp
 
 and see a browser window opening on <http://localhost:3002/>.
 
-### Technical set up to do before a training (as a trainer)
+## Technical set up to do before a training (as a trainer)
 
 - Prepare a mailserver for the user registration mail (See {ref}`features-mailserver-label`)
 - If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not at the buildout path /vagrant/buildout/)
 
-### Upgrade the vagrant and buildout to a new Plone-version
+## Upgrade the vagrant and buildout to a new Plone-version
 
 - In <https://github.com/collective/training_buildout> change [buildout.cfg](https://github.com/collective/training_buildout/blob/master/buildout.cfg) to extend from the new `versions.cfg` on <http://dist.plone.org/release>
 - Check if we should to update any versions in <https://github.com/collective/training_buildout/blob/master/versions.cfg>
@@ -186,15 +123,12 @@ zip -r ../_static/plone_training_config.zip *
 
 - Commit and push the changes to <https://github.com/plone/training>
 
+
 ## Train the trainer
 
-If you are a trainer there is a special mini training about giving technical trainings.
-We really want this material to be used, re-used, expanded, and improved by Plone trainers world wide.
+If you are a trainer there is a special mini training about giving technical trainings. These chapters don't contain any Plone specific advice.
+There's background, theory, check lists, and tips for anyone trying to teach technical subjects: {doc}`/teachers-training/index`
 
-These chapters don't contain any Plone specific advice.
-There's background, theory, check lists, and tips for anyone trying to teach technical subjects.
-
-{doc}`/teachers-training/index`
 
 (about-contribute-label)=
 
@@ -204,18 +138,11 @@ Everyone is **very welcome** to contribute.
 Minor bug fixes can be pushed directly in the [repository](https://github.com/plone/training),
 bigger changes should be made as [pull-requests](https://github.com/plone/training/pulls/) and discussed previously in tickets.
 
+Make sure you have filled out a [Contributor Agreement](https://plone.org/foundation/contributors-agreement).
+
+
 (about-licence-label)=
 
 ## License
 
 The Mastering Plone Training is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
-
-Make sure you have filled out a [Contributor Agreement](https://plone.org/foundation/contributors-agreement).
-
-If you haven't filled out a Contributor Agreement, you can still contribute.
-Contact the Documentation team, for instance via the [mailinglist](https://sourceforge.net/p/plone/mailman/plone-docs/)
-or directly send a mail to <mailto:plone-docs@lists.sourceforge.net>
-
-Basically, all we need is your written confirmation that you are agreeing your contribution can be under Creative Commons.
-
-You can also add in a comment with your pull request "I, \<full name>, agree to have this published under Creative Commons 4.0 International BY".
