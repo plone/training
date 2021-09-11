@@ -100,6 +100,11 @@ The behavior `plone.excludefromnavigation` adds a attribute `exclude_from_nav` t
 
 ## Modifying existing types
 
+For now, we will not code anything.
+We will only use the Plone web interface features.
+If you do not have a local Plone instance installed on your machine, you can use a [Plone pre-configured Heroku instance](https://github.com/collective/training-sandbox>).
+Once deployed, create a Plone site, and perform the following steps.
+
 - Go to the control panel <http://localhost:8080/Plone/@@dexterity-types>
 
 - Inspect some of the existing default types.

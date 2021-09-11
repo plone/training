@@ -180,11 +180,16 @@ The common XPath selector attributes include:
 
 : Used to identify the children of an element that will be used using XPath selectors.
 
+### Condition about the current URL
+
 You can also create conditions about the current path using `if-path`.
+
+For instance, a rule with `if-path="/about"` would only apply when the user visits `http://www.mysite.com/about`.
+Nevertheless, most of the time it is better to target a `body` tag CSS class selector.
 
 ```{note}
 For a more comprehensive overview of all the Diazo rule directives
-and related attributes see: <http://docs.diazo.org/en/latest/basic.html#rule-directives>
+and related attributes see: http://docs.diazo.org/en/latest/basic.html#rule-directives
 ```
 
 ### Exercise 3 - The `<drop>` Directive
@@ -315,6 +320,11 @@ The supporting files (CSS, JavasSript and other files) may be in subdirectories.
    ```
 
 2. Add a {file}`styles.less` file and import the Barceloneta styles (look back to Exercise 1).
+
+   ```css
+   /* Import Barceloneta styles */
+   @import "++theme++barceloneta/less/barceloneta.plone.less";
+   ```
 
 3. Add a {file}`manifest.cfg` file, set `production-css` equal to `styles.css`
 
