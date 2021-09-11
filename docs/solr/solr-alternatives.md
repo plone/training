@@ -166,7 +166,7 @@ def parse_query(self, field, field_query):
 Example: Add a `path` index that works like Zope's `ExtendedPathIndex`
 (i.e. it'll find anything whose path begins with the query value):
 
-solr.cfg
+`solr.cfg`
 
 ```ini
 [solr-instance]
@@ -176,7 +176,7 @@ index =
     name:path           type:descendent_path stored:false
 ```
 
-handlers.py
+`handlers.py`
 
 ```python
 from alm.solrindex.handlers import DefaultFieldHandler
@@ -219,7 +219,7 @@ You can find a full-featured example of a full-fledged custom Solr integration a
 
 ## collective.elasticsearch
 
-Another option for an advanced search integration is the younger project [Elasticsearch](https://www.elastic.co/products/elasticsearch).
+Another option for an advanced search integration is the younger project [Elasticsearch](https://www.elastic.co/elasticsearch/).
 Like for Solr, the technical foundation is the Lucene index, written in Java.
 
 Pros of Elasticsearch

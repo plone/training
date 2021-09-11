@@ -7,7 +7,7 @@ All the data from a Plone site is available in the JSON format using the [plone.
 We will be working a lot with this API while working on the Gatsby source-plugin.
 It is recommended that you have an API browser to explore the API.
 
-Install [Postman](https://www.getpostman.com/), then go through the quick guide to working with plone.restapi:
+Install [Postman](https://www.postman.com/), then go through the quick guide to working with plone.restapi:
 
 <https://plonerestapi.readthedocs.io/en/latest/exploring.html#exploring-api-postman-onboarding>
 

@@ -55,7 +55,7 @@ To create nodes, we will be using `exports.sourceNodes` API in `gatsby-node.js`.
 This is a lifecycle API similar to `exports.createPages` which we used earlier for dynamically creating pages.
 
 ```{note}
-Read more about `sourceNodes` API in the [docs](https://www.gatsbyjs.org/docs/node-apis/#sourceNodes).
+Read more about `sourceNodes` API in the [docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#sourceNodes).
 ```
 
 It works similar to page creation but has a couple actions and helpers to aid us in creating nodes specifically.
@@ -99,7 +99,7 @@ To create a node we use the `createNode` action which is a part of the `actions`
 
 ```{note}
 GatsbyJS offers a whole list of actions creators wrapped with a dispatch as `actions`.
-Read more about them in the [GatsbyJS docs](https://www.gatsbyjs.org/docs/actions/).
+Read more about them in the [GatsbyJS docs](https://www.gatsbyjs.com/docs/reference/config-files/actions/).
 ```
 
 The structure of any node would look like this at the base level:

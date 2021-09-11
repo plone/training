@@ -299,8 +299,8 @@ If you change the view in Volto you’ll also change the view in the backend (Pl
 Possible **sort criteria** are indices of the Plone catalog.
 
 ```{seealso}
-- Plone REST API documentation <https://plonerestapi.readthedocs.io/en/latest/searching.html>
-- Plone documentation about searching and indexing <http://docs.plone.org/develop/plone/searching_and_indexing/query.html>
+- `Plone REST API documentation <https://plonerestapi.readthedocs.io/en/latest/searching.html>`_
+- `Plone documentation about searching and indexing <https://docs.plone.org/develop/plone/searching_and_indexing/query.html>`_
 ```
 
 (volto-talk-listview-exercise-label)=

@@ -176,7 +176,7 @@ If you want to host a real live Plone site yourself then running it from your la
 
 You can host Plone...
 
-- with one of many professional [hosting providers](https://plone.com/providers)
+- with one of many professional [hosting providers](https://plone.org/providers)
 - on a virtual private server
 - on dedicated servers
 - on [Heroku](https://www.heroku.com) you can run Plone for *free* using the [Heroku buildpack for Plone](https://github.com/plone/heroku-buildpack-plone)

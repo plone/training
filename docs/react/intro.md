@@ -17,12 +17,12 @@ Tell us about yourselves:
 
 Some technologies and tools we use during the training:
 
-- React <https://reactjs.org/>
-- create-react-app <https://github.com/facebook/create-react-app>
-- Yarn <https://yarnpkg.com>
+- React https://reactjs.org/
+- create-react-app https://github.com/facebook/create-react-app
+- Yarn https://yarnpkg.com
 - JSX
-- Redux <https://redux.js.org>
-- React-Router <https://reacttraining.com/react-router/>
+- Redux https://redux.js.org
+- React-Router https://reactrouter.com/
 
 (react-intro-what-to-expect-label)=
 
@@ -35,4 +35,4 @@ React, Redux and React-Router.
 
 ## Documentation
 
-Follow the training at <https://training.plone.org>
+Follow the training at https://training.plone.org

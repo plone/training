@@ -12,7 +12,7 @@ Here are some things you should know if you are new to Plone 6 or Volto:
 
 - All data is stored in Plone, Volto comes in to display and edit the content.
 - Volto is built in [ReactJS](https://reactjs.org), a modern Javascript Framework.
-- Volto uses [plone.restapi](https://plonerestapi.readthedocs.io/) to communicate with Plone backend.
+- Volto uses [plone.restapi](https://plonerestapi.readthedocs.io/en/latest/) to communicate with Plone backend.
 
 Details
 
@@ -20,7 +20,7 @@ Details
 - Volto runs in a different process than the Plone backend. By default Volto runs on port 3000. If you start Volto with `yarn start` you can see the frontend on <http://localhost:3000>. The Plone backend runs by default on <http://localhost:8080>
 - To create a new Plone site in your already set up Zope environment you use the backend, this is by now not possible in Volto.
 - Volto takes advantage of [Semantic UI React components](https://react.semantic-ui.com/) to compose most of the views. For example the component [Image](https://react.semantic-ui.com/elements/image/) is used to render images.
-- The Volto default theme is based on Semantic UI theme and is called [Pastanaga](https://youtu.be/wW9mTl1Tavc?t=133)
+- The Volto default theme is based on Semantic UI theme and is called [Pastanaga](https://www.youtube.com/watch?v=wW9mTl1Tavc&t=133s)
 - Same as Plone, Volto is highly extendable with add-ons for further features.
 - Existing Volto components are customizable with a technology similar to `z3c.jbot` called {ref}`volto-overrides-componentshadowing-label`.
 - Volto provides server side rendering (SSR), important for SEO-purposes.

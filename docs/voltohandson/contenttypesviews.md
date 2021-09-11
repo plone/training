@@ -2,7 +2,7 @@
 
 # Content types Views
 
-We will create a content type through the web to match the ones that might live in plone.com.
+We will create a content type through the web to match the ones that might live in `plone.org`.
 We will use them as base for further developments on the project.
 
 ## Success Story
@@ -62,7 +62,7 @@ Our recently created view needs to show sensible content now. Let's add it. Edit
 We are composing our view with Volto's default view component `DefaultView.jsx` to achieve the same features as the original one.
 We might want to add stuff on the top or at the bottom.
 In this case, `DefaultView.jsx` is rendering the existing blocks, however, we can have a content type with no blocks defined, then we can also modify what fields will show and how using plain JSX.
-On plone.com, the Success Story content type uses the lead image as banner on the top. Let's achieve that:
+On `plone.org`, the Success Story content type uses the lead image as banner on the top. Let's achieve that:
 
 ```jsx
 import React from 'react';

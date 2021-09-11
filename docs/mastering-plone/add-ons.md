@@ -92,7 +92,7 @@ It can be very hard to find the right add-on for your requirements. Here are som
   - <https://pypi.org/search/?c=Framework+%3A%3A+Plone> >3400 Plone related packages - use the search form!
   - <https://github.com/collective> >1500 repos
   - <https://github.com/plone> >310 repos
-  - google (e.g. [Plone+Slider](http://google.com/?q=plone+slider))
+  - google (e.g. [Plone+Slider](http://www.google.com/?q=plone+slider))
   - <https://www.npmjs.com/search?q=plone>
 
 - Once you have a shortlist, test these add-ons. Here are the main issues you need to test before you install an add-on on a production site:

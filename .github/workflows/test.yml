@@ -25,4 +25,4 @@ jobs:
       - name: Run tests with make test
         run: |
           cd docs
-          make test
+          make test linkcheck

@@ -4,7 +4,7 @@
 It claims to be the fastest, smallest and most lightweight WSGI server.
 
 ```{note}
-In a [load test](https://zope.readthedocs.io/en/latest/wsgi.html#test-criteria-for-recommendations) involving `bjoern`, `cheroot`, `gunicorn`, `waitress` and  `werkzeug`, `bjoern` (version: 3.0.0) was the clear speed winner against both a ZEO and a non-ZEO Zope instance.
+In a [load test](https://zope.readthedocs.io/en/latest/operation.html#test-criteria-for-recommendations) involving `bjoern`, `cheroot`, `gunicorn`, `waitress` and  `werkzeug`, `bjoern` (version: 3.0.0) was the clear speed winner against both a ZEO and a non-ZEO Zope instance.
 ```
 
 ## Prerequisites
@@ -25,7 +25,7 @@ buildout -c bjoern.cfg
 ```
 ````
 
-[bjoern](https://github.com/jonashaag/bjoern) can be integrated using a shim package called [dataflake.wsgi.bjoern](https://dataflakewsgibjoern.readthedocs.io/).
+[bjoern](https://github.com/jonashaag/bjoern) can be integrated using a shim package called [dataflake.wsgi.bjoern](https://dataflakewsgibjoern.readthedocs.io/en/latest/).
 
 You can use this package together with `plone.recipe.zope2instance` to build a `bjoern` based WSGI setup:
 
@@ -83,7 +83,7 @@ thomas@blake:~$ pmap 17245 | grep bjoern
 ### Exercise 1
 
 Additional PasteDeploy entrypoints are available for the [werkzeug entrypoints](https://pypi.org/project/dataflake.wsgi.werkzeug) and [cheroot entrypoints](https://pypi.org/project/dataflake.wsgi.cheroot) WSGI servers.
-Pick one and use it to run Plone behind [werkzeug](https://palletsprojects.com/p/werkzeug/) or [cheroot](https://cheroot.cherrypy.org).
+Pick one and use it to run Plone behind [werkzeug](https://palletsprojects.com/p/werkzeug/) or [cheroot](https://cheroot.cherrypy.dev/en/latest/).
 
 ````{admonition} Solution
 :class: toggle

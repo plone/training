@@ -10,9 +10,9 @@ It currently does not cover JavaScript code guidelines, but those were considere
 
 And luckily, similar to PEP 8 and the associated tooling ({program}`pep8`, {program}`pyflakes`, {program}`flake8`), JavaScript also has some guidelines - not official, but well respected.
 
-[Douglas Crockford](http://crockford.com/javascript/) - besides of specifying the JSON standard - wrote the well known book "JavaScript the good parts".
+[Douglas Crockford](https://crockford.com/javascript/) - besides of specifying the JSON standard - wrote the well known book "JavaScript the good parts".
 
-Out of that he developed the code linter [JSLint](http://www.jslint.com/).
+Out of that he developed the code linter [JSLint](https://www.jslint.com/).
 
 Because this one was too strict, some other people wrote [JSHint](https://jshint.com/).
 
@@ -91,7 +91,7 @@ Besides documenting your changes in the {file}`CHANGES.rst` file, also include u
 
 For patterns, the user documentation is included in a comment in the header of the pattern file, as described in {ref}`mockup-writing-documentation`.
 
-For function and methods, write an API documentation, following the [apidocjs](http://apidocjs.com/) standard.
+For function and methods, write an API documentation, following the [apidocjs](https://apidocjs.com/) standard.
 
 You can find some examples throughout the source code.
 

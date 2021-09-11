@@ -1,6 +1,6 @@
 # What Is GatsbyJS
 
-[GatsbyJS](https://www.gatsbyjs.org/) is a modern static site generator for React.
+[GatsbyJS](https://www.gatsbyjs.com/) is a modern static site generator for React.
 
 It uses a stack of cutting-edge technologies:
 

@@ -17,7 +17,7 @@ Traversing is a key feature when working with a CMS.
 Angular core, like the other major JS frameworks, uses routing.
 Routing works perfectly for applications, but it is not suitable for web sites (as the site structure is not predictable).
 
-The Traversal service implemented by [Angular traversal](https://github.com/makinacorpus/angular-traversal) replaces the default Angular routing.
+The Traversal service implemented by [Angular traversal](https://github.com/guillotinaweb/angular-traversal) replaces the default Angular routing.
 
 It uses the current location to determine the backend resource (the **context**) and the desired rendering (the **view**).
 

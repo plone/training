@@ -38,7 +38,7 @@ This command tells gatsby-cli to create a new GatsbyJS project with the name `he
 
 There are several boilerplates created by the community that allows to bootstrap an application for different use-cases.
 
-These boilerplates are called "starters" and in the [offical site](https://www.gatsbyjs.org/starters/?v=2) you could
+These boilerplates are called "starters" and in the [offical site](https://www.gatsbyjs.com/starters/?v=2) you could
 find a complete list of available starters. There are starters with some pre-configured themes (for example material-ui or bootstrap), support for authentication, and so on.
 
 There are also some starters that are specialized in integration with some external sources, such as a CMS like Plone or WordPress.

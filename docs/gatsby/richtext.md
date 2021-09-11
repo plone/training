@@ -93,7 +93,7 @@ Now, the images are available to be queried per the example above.
 
 ```{note}
 The fixed width used there is `600` but this can be changed according to your requirements.
-The whole range of options can be found in the [docs](https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/).
+The whole range of options can be found in the [docs](https://www.gatsbyjs.com/plugins/gatsby-plugin-sharp/).
 ```
 
 ## RichText Component

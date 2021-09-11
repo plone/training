@@ -159,7 +159,7 @@ most notably the custom extensions for *schema.xml* and *solrconfig.xml*.
 
 We will see examples for this later on in the training.
 
-To learn more about all the files in the config/ directory please refer to the apache solr documentation ([Solr Configuration Files](https://lucene.apache.org/solr/guide/8_2/solr-configuration-files.html), [The Well-Configured Solr Instance](https://lucene.apache.org/solr/guide/8_2/the-well-configured-solr-instance.html)).
+To learn more about all the files in the config/ directory please refer to the apache solr documentation ([Solr Configuration Files](https://solr.apache.org/guide/8_2/solr-configuration-files.html), [The Well-Configured Solr Instance](https://solr.apache.org/guide/8_2/the-well-configured-solr-instance.html)).
 
 After running the buildout,
 which downloads and configures Solr and Plone, we are ready to fire up both servers.
@@ -303,7 +303,7 @@ It is advisable to do a sync or full-index from time to time if you work with th
 Additional information can be found in the Solr documentation:
 
 ```{seealso}
-<https://lucene.apache.org/solr/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin>
+https://solr.apache.org/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin
 ```
 
 ## Exercise

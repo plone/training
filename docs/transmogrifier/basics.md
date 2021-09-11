@@ -50,7 +50,7 @@ mrbob -O ploneconf.migration bobtemplates.migration:jsonify
 
 This command will ask a few questions about the author (you),
 and what version of Plone you want to use.
-Check plone.org for the latest version.
+Check [plone.org](https://plone.org) for the latest version.
 
 The created package can be used as an add-on in an existing buildout,
 or as a buildout on its own.

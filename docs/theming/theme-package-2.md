@@ -18,11 +18,11 @@ This way it is easier to reuse CSS/Less from Barceloneta and Plone add-ons if ne
 
 ## Download And Prepare A Static Theme
 
-Let's start with an untouched static template, such as this Twitter Bootstrap based one: <https://startbootstrap.com/template-overviews/business-casual/>.
+Let's start with an untouched static template, such as this Twitter Bootstrap based one: https://startbootstrap.com/theme/business-casual.
 The latest version of that template uses a beta version of Twitter Bootstrap 4.
 
 We are going to use the latest release which uses Twitter Bootstrap 3.
-Download it from <https://github.com/BlackrockDigital/startbootstrap-business-casual/releases/tag/v3.3.7> and extract it into the theme folder.
+Download it from https://github.com/StartBootstrap/startbootstrap-business-casual/releases/tag/v3.3.7 and extract it into the theme folder.
 
 Replace the {file}`index.html` with the one from the downloaded template.
 

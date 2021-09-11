@@ -82,7 +82,7 @@ teachers-training/index
 
 {doc}`gatsby/index`
 
-: Building static websites with [GatsbyJS](https://www.gatsbyjs.org/).
+: Building static websites with [GatsbyJS](https://www.gatsbyjs.com/).
 
 {doc}`javascript/index`
 

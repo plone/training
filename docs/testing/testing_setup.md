@@ -72,7 +72,7 @@ We need to manually load all ZCML dependencies because autoinclude is disabled i
 
 plone.app.testing provides a set of hooks that we can use to perform several actions before a test or test suite runs (using setUp) or after it runs (using tearDown).
 
-In testing.py file we usually use these hooks:
+In `testing.py` file we usually use these hooks:
 
 - setUpZope(self, app, configurationContext): to configure Zope (mostly importing ZCML profiles from the packages that we need to test) and its dependencies
 - setUpPloneSite(self, portal): to configure the actual Plone site, for example installing the addon that we are going to test.

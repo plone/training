@@ -286,7 +286,7 @@ In this exercise we will walk through the process of converting an existing free
 ```{image} ../theming/_static/theming-startbootstrap-newage-theme.png
 ```
 
-We've selected the free [New Age Bootstrap theme](https://github.com/BlackrockDigital/startbootstrap-new-age).
+We've selected the free [New Age Bootstrap theme](https://github.com/StartBootstrap/startbootstrap-new-age).
 The theme is already packaged in a manner that will work with the theming tool.
 
 ```{note}
@@ -297,7 +297,7 @@ By convention the directory should contain your {file}`index.html`.
 The supporting files (CSS, JavasSript and other files) may be in subdirectories.
 ```
 
-1. To get started [download a copy of the New Age theme as a zip file](https://codeload.github.com/BlackrockDigital/startbootstrap-new-age/zip/master).
+1. To get started [download a copy of the New Age theme as a zip file](https://codeload.github.com/StartBootstrap/startbootstrap-new-age/zip/refs/heads/master).
    Then upload it to the theme control panel.
 
    ```{hint}
@@ -322,7 +322,7 @@ The supporting files (CSS, JavasSript and other files) may be in subdirectories.
 3. Add a {file}`manifest.cfg` file, set `production-css` equal to `styles.css`
 
    ```{note}
-   *Clean Blog* is a free Bootstrap theme, the latest version is available on GitHub [https://github.com/BlackrockDigital/startbootstrap-clean-blog](https://github.com/BlackrockDigital/startbootstrap-clean-blog)
+   *Clean Blog* is a free Bootstrap theme, the latest version is available on GitHub https://github.com/StartBootstrap/startbootstrap-clean-blog
    ```
 
    ```{hint}

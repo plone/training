@@ -22,7 +22,7 @@ Some technologies and tools we use during the training:
 - Yarn <https://yarnpkg.com>
 - JSX
 - Redux <https://redux.js.org>
-- React-Router <https://reacttraining.com/react-router/>
+- React-Router <https://reactrouter.com/>
 - Volto <https://github.com/plone/volto>
 
 (volto-intro-what-to-expect-label)=
