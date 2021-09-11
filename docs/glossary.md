@@ -209,4 +209,10 @@ hoisting (Yarn)
 React
     [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
     Volto, the frontend for Plone 6, uses React.
+
+MyST
+    [Markedly Structured Text (MyST)](https://myst-parser.readthedocs.io/en/latest/) is a rich and extensible flavor of Markdown, for authoring training documentation.
+
+Markdown
+    [Markdown](https://daringfireball.net/projects/markdown/) is a text-to-HTML conversion tool for web writers.
 ```
