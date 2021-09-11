@@ -154,6 +154,8 @@ html_static_path = ["_static"]
 
 html_theme_options = {
     "repository_url": "https://github.com/plone/training",
+    "repository_branch": "main",
+    "path_to_docs": "docs",
     "use_repository_button": True,
     "use_issues_button": True,
     "use_edit_page_button": True,
