@@ -1,20 +1,81 @@
-# Contributing
+# Contributing to Plone Trainings Documentation
 
-## Contributing to Plone Trainings Documentation training.plone.org
+This document describes how to contribute to the Plone Trainings Documentation.
 
-You are welcome to contribute.
+Contributions to the Plone Trainings documentation are welcome.
 
-You see something that could be enhanced? 
-: On top of every page you see links to commit suggestions.
+## Granting permission to publish
 
-You are author
-: You want to enhance existing chapters or even create a new training.
-: Find some hints for authoring with
-**markdown and Sphinx and the extra MyST options**: 
-{doc}`markup-syntax`
-: Find instructions how to set up training documentation locally in {doc}`setup-author`
+Before you contribute, you must give permission to publish your contribution according to the license we use.
+You may give that permission in two ways.
 
-  Make sure you have filled out a [Contributor Agreement](https://plone.org/foundation/contributors-agreement).
+- Sign the [Plone Contributor Agreement](https://plone.org/foundation/contributors-agreement).
+  This method also covers contributions to Plone code.
+  It is a one-time only process.
+- In every pull request or commit message, include the following statement.
+
+  > I, [full name], agree to have this contribution published under Creative Commons 4.0 International License (CC BY 4.0), with attribution to the Plone Foundation.
+
+The Plone Trainings Documentation is licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+A copy of the license is included in the root of this repository.
+
+
+## GitHub
+
+Contributions are managed through the [Training repository on GitHub](https://github.com/plone/training).
+
+First discuss whether you should perform any work.
+Any method below is acceptable, but are listed in order of most likely to get a response.
+
+- [Search for open issues](https://github.com/plone/training/issues) and comment on them.
+- [Create a new issue](https://github.com/plone/training/issues/new/choose).
+- Discuss during conferences, trainings, and other Plone events.
+- Ask on the [Plone Community Forum, Documentation topic](https://community.plone.org/c/documentation/13).
+- Ask in the [Plone chat on Discord](https://discord.gg/zFY3EBbjaj).
+
+As a convenience, at the top right of every page, there is a GitHub navigation menu.
+Tap, click, or hover over the GitHub Octocat icon for options.
+
+```{image} _static/github-navigation.png
+:alt: GitHub navigation menu 
+```
+
+You can use this menu to quickly navigate to the source repository, open an issue, or suggest an edit to the current document.
+Of course, you can use whichever tools you like.
+
+Next edit files, commit your changes, push them to the remote repository, and submit a pull request to resolve the issue.
+
+Members who subscribe to the repository will receive a notification and review your request.
+
+
+## Contribution quality requirements
+
+Although we perform automatic testing of the documentation build through GitHub Actions with every pull request, you can catch errors and warnings by building the documentation locally.
+See [TBD] for instructions on how to set up and build the documentation.
+
+We strive for high quality documentation, setting the following minimum standards.
+
+- Markup syntax must be valid.
+  See [TBD] for details.
+- Good English grammar, spelling, and syntax.
+  Any locale of English is fine.
+
+  We understand that contributors might not be fluent in English.
+  Community members who are fluent in English are available to help.
+
+  Certain spellings are enforced through `TBD`.
+  See [TBD] for details.
+- All links must be valid.
+  This is enforced through `linkcheck`.
+  See [TBD] for details.
+- The documentation must build successfully without warnings.
+  We may exempt this requirement for specific cases.
+
+
+## Code of Conduct
+
+The Plone Foundation has published a [Code of Conduct](https://plone.org/foundation/materials/foundation-resolutions/code-of-conduct).
+All contributors to the Plone Trainings Documentation follow the Code of Conduct.
 
 
 ```{toctree}
@@ -24,6 +85,13 @@ maxdepth: 2
 hidden: true
 ---
 
-markup-syntax
-setup-author
+instructions
+setup_author
 ```
+
+Changes to pages:
+
+- index (general contributing)
+- markup-syntax (rename of instructions)
+- setup-build (part from setup_author)
+- trainers (part from setup_author)
