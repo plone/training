@@ -144,7 +144,6 @@ nocall
 omelette
 online
 Online
-online
 org
 outlier
 pageview
@@ -239,8 +238,6 @@ username
 uWSGI
 viewlet
 Viewlet
-viewlets
-Viewlets
 viewlets
 Viewlets
 VirtualBox
