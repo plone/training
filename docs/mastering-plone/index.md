@@ -33,7 +33,7 @@ intro
 case
 what_is_plone
 installation
-../plone_training_config/instructions.rst
+../plone_training_config/instructions.md
 features
 anatomy
 plone_versions
