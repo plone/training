@@ -55,12 +55,12 @@ templates_path = ["_templates"]
 # They can be extensions coming with Sphinx (named "sphinx.ext.*")
 # or your custom ones.
 extensions = [
-    "sphinx_copybutton",
-    "sphinx.ext.intersphinx",
-    "sphinx.ext.autodoc",
-    "sphinx.ext.todo",
-    "sphinxcontrib.spelling",
     "myst_parser",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.todo",
+    "sphinx_copybutton",
+    "sphinxcontrib.spelling",
 ]
 
 # For more information see:
@@ -72,6 +72,13 @@ myst_enable_extensions = [
     "colon_fence",  # You can also use ::: delimiters to denote code fences,\
                     #  instead of ```.
 ]
+
+# If true, the Docutils Smart Quotes transform, originally based on SmartyPants
+# (limited to English) and currently applying to many languages, will be used
+# to convert quotes and dashes to typographically correct entities.
+# Note to maintainers: setting this to `True` will cause contractions and
+# hyphenated words to be marked as misspelled by spellchecker.
+smartquotes=False
 
 # The name of the Pygments (syntax highlighting) style to use.
 # pygments_style = "sphinx.pygments_styles.PyramidStyle"
@@ -104,7 +111,6 @@ spelling_ignore_pypi_package_names = True
 
 # The suffix of source filenames.
 source_suffix = {
-    ".rst": "restructuredtext",
     ".md": "markdown",
 }
 
@@ -118,19 +124,7 @@ master_doc = "index"
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-    ".github/CONTRIBUTING.md",
-    "CHANGES.rst",
-    "README.rst",
-    "_build",
-    "bin",
-    "env",
-    "include",
-    "lib",
-    "local",
-    "log",
     "spelling_wordlist.txt",
-    "node_modules",
-    "about.md",
 ]
 
 
