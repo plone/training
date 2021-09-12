@@ -103,7 +103,7 @@ linkcheck_ignore = [
     r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
 ]
 linkcheck_anchors = False
-linkcheck_timeout = 30
+linkcheck_timeout = 5
 
 # This is our wordlist with know words, like Github or Plone ...
 spelling_word_list_filename = "spelling_wordlist.txt"
