@@ -1,14 +1,11 @@
 -c constraints.txt
 
-sphinx-book-theme
+Sphinx
+jsx-lexer
+lesscpy
 linkify-it-py
+myst-parser
+sphinx-book-theme
 sphinx-copybutton
 sphinx-togglebutton
-jsx-lexer
-myst-parser
-polib
-Sphinx
 sphinxcontrib-spelling
-sphinxcontrib-websupport
-transifex-client
-lesscpy
