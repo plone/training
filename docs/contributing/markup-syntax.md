@@ -1,12 +1,12 @@
 ---
 html_meta:
-  "description": "Authors guide to Sphinx, MyST and markdown"
-  "keywords": "Sphinx, MyST, markdown"
+  "description": "Guide to Sphinx, MyST, and Markdown"
+  "keywords": "Sphinx, MyST, Markdown"
 ---
 
 # Guide for Authors
 
-## MyST markdown, Sphinx
+## MyST, Markdown, Sphinx
 
 We use [MyST, or Markedly Structured Text](https://myst-parser.readthedocs.io/en/latest/), a rich and extensible flavor of Markdown, for authoring training documentation.
 
