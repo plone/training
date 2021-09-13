@@ -210,6 +210,10 @@ React
     [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
     Volto, the frontend for Plone 6, uses React.
 
+reStructuredText
+    [reStructuredText (rST)](https://docutils.sourceforge.io/rst.html) is an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax and parser system.
+    The Training documentation was written in reStructuredText originally, then converted to {term}`MyST` in 2021.
+
 MyST
     [Markedly Structured Text (MyST)](https://myst-parser.readthedocs.io/en/latest/) is a rich and extensible flavor of Markdown, for authoring training documentation.
 
