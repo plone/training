@@ -275,7 +275,7 @@ $ open _build/html/index.html
 
 ### Technical set up to do before a training (as a trainer)
 
-- Prepare a mailserver for the user registration mail (See {ref}`plone5-features-mailserver-label`)
+- Prepare a mail server for the user registration mail (See {ref}`plone5-features-mailserver-label`)
 - If you do only a part of the training (Advanced) prepare a database with the steps of the previous sections. Be aware that the file- and blobstorage in the Vagrant box is here: /home/vagrant/var/ (not at the buildout path /vagrant/buildout/)
 
 ### Upgrade the vagrant and buildout to a new Plone-version
