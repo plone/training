@@ -1,8 +1,19 @@
+---
+html_meta:
+  "description": "Contributing to Plone Trainings Documentation."
+  "keywords": "Plone, Trainings, Plone Contributor Agreement, License, Code of Conduct"
+---
+
+(contributing-index-label)=
+
 # Contributing to Plone Trainings Documentation
 
 This document describes how to contribute to the Plone Trainings Documentation.
 
 Contributions to the Plone Trainings documentation are welcome.
+
+
+(contributing-permission-to-publish-label)=
 
 ## Granting permission to publish
 
@@ -20,7 +31,9 @@ The Plone Trainings Documentation is licensed under the [Creative Commons Attrib
 A copy of the license is included in the root of this repository.
 
 
-## GitHub
+(contributing-manage-on-github-label)=
+
+## Managing contributions on GitHub
 
 Contributions are managed through the [Training repository on GitHub](https://github.com/plone/training).
 
@@ -48,29 +61,32 @@ Next edit files, commit your changes, push them to the remote repository, and su
 Members who subscribe to the repository will receive a notification and review your request.
 
 
-## Contribution quality requirements
+(contributing-roles-label)=
 
-Although we perform automatic testing of the documentation build through GitHub Actions with every pull request, you can catch errors and warnings by building the documentation locally.
-See [TBD] for instructions on how to set up and build the documentation.
+## Contributor Roles
 
-We strive for high quality documentation, setting the following minimum standards.
+Contributors to the Training docs may perform one or many roles.
 
-- Markup syntax must be valid.
-  See [TBD] for details.
-- Good English grammar, spelling, and syntax.
-  Any locale of English is fine.
+- **Plone users and developers** use this documentation because it is accurate and actively maintained.
+  People in these roles typically contribute minor corrections.
+  They should read {doc}`setup-build` and {doc}`markup-syntax`.
+- **Authors** create the Training documentation.
+  They should read {doc}`setup-build` and {doc}`markup-syntax`.
+  They should also read {doc}`authors` for guidance and tips for writing good Training documentation.
+- **Trainers** should read {doc}`setup-build`, {doc}`trainers`, and the trainings in {doc}`/plone_training_config/instructions` and {doc}`/teachers-training/index`.
+  These documents help trainers prepare for a successful training experience.
 
-  We understand that contributors might not be fluent in English.
-  Community members who are fluent in English are available to help.
 
-  Certain spellings are enforced through `TBD`.
-  See [TBD] for details.
-- All links must be valid.
-  This is enforced through `linkcheck`.
-  See [TBD] for details.
-- The documentation must build successfully without warnings.
-  We may exempt this requirement for specific cases.
+(contributing-quality-requirements-label)=
 
+## Documentation quality requirements
+
+We use GitHub Actions with every pull request to enforce Training documentation quality.
+We recommend that you build the documentation locally to catch errors and warnings early on.
+See {doc}`setup-build` for instructions for how to set up and build the documentation and to run quality checks.
+
+
+(contributing-code-of-conduct-label)=
 
 ## Code of Conduct
 
@@ -85,13 +101,8 @@ maxdepth: 2
 hidden: true
 ---
 
-instructions
-setup_author
+setup-build
+markup-syntax
+trainers
+authors
 ```
-
-Changes to pages:
-
-- index (general contributing)
-- markup-syntax (rename of instructions)
-- setup-build (part from setup_author)
-- trainers (part from setup_author)
