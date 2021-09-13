@@ -22,6 +22,7 @@
   "homepage": "https://github.com/plone/training#readme",
   "devDependencies": {
     "browser-sync": "^2.26.7",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0"
   }
 }
