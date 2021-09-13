@@ -172,8 +172,8 @@ and see a browser window opening on <http://localhost:3002/>.
 
 ## Upgrade the vagrant and buildout to a new Plone-version
 
-- In <https://github.com/collective/training_buildout> change [buildout.cfg](https://github.com/collective/training_buildout/blob/master/buildout.cfg) to extend from the new `versions.cfg` on <http://dist.plone.org/release>
-- Check if we should to update any versions in <https://github.com/collective/training_buildout/blob/master/versions.cfg>
+- In <https://github.com/collective/training_buildout> change [buildout.cfg](https://github.com/collective/training_buildout/blob/master/buildout.cfg) to extend from the new `versions.cfg` on <https://dist.plone.org/release>.
+- Check if we should to update any versions in <https://github.com/collective/training_buildout/blob/master/versions.cfg>.
 - Commit and push the changes to the training_buildout
 - Modify the vagrant-setup by modifying {file}`plone_training_config/manifests/plone.pp`. Set the new Plone-version as `$plone_version` in line 3.
 - Test the vagrant-setup it by creating a new vagrant-box using the new config.

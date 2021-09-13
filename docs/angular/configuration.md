@@ -55,7 +55,7 @@ That's how collective.themesitesetup gets enabled.
 Now we need to save our current Plone configuration into our theme.
 
 We need to use the `collective.themesitesetup` export feature available here:
-<http://whatever.herokuapp.com/Plone/++theme++plonecustom/@@export-site-setup>.
+`http://whatever.herokuapp.com/Plone/++theme++plonecustom/@@export-site-setup`.
 
 Obviously we do not need to export everything, in our current case we just want to get the comment feature related configuration and the content type configuration, so we just select `typeinfo` and `plone.app.registry`.
 

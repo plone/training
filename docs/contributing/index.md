@@ -31,7 +31,7 @@ Any method below is acceptable, but are listed in order of most likely to get a 
 - [Create a new issue](https://github.com/plone/training/issues/new/choose).
 - Discuss during conferences, trainings, and other Plone events.
 - Ask on the [Plone Community Forum, Documentation topic](https://community.plone.org/c/documentation/13).
-- Ask in the [Plone chat on Discord](https://discord.gg/zFY3EBbjaj).
+- Ask in the [Plone chat on Discord](https://discord.com/invite/zFY3EBbjaj).
 
 As a convenience, at the top right of every page, there is a GitHub navigation menu.
 Tap, click, or hover over the GitHub Octocat icon for options.

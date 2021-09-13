@@ -63,5 +63,5 @@ You can use this presentation to copy & paste the code but you will memorize mor
 
 ## Further Reading
 
-- [Martin Aspeli: Professional Plone4 Development](https://www.packtpub.com/web-development/professional-plone-4-development)
+- [Martin Aspeli: Professional Plone4 Development](https://www.packtpub.com/product/professional-plone-4-development/9781849514422)
 - [The Zope Book](https://zope.readthedocs.io/en/latest/zopebook/)

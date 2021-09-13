@@ -109,7 +109,7 @@ You should also be able to find out where to look for instructions to do tasks w
 You will know most of the core technologies involved in Plone programming.
 
 If you want to become a professional Plone developer or a highly sophisticated Plone integrator you should
-definitely read [Martin Aspeli's book](https://www.packtpub.com/web-development/professional-plone-4-development)
+definitely read [Martin Aspeli's book](https://www.packtpub.com/product/professional-plone-4-development/9781849514422)
 and then re-read it again while actually doing a complex project.
 
 (plone5-intro-classroom-protocol)=
@@ -161,6 +161,6 @@ You can use this presentation to copy & paste the code but you will memorize mor
 
 ## Further Reading
 
-- [Martin Aspeli: Professional Plone4 Development](https://www.packtpub.com/web-development/professional-plone-4-development)
-- [Practical Plone](https://www.packtpub.com/web-development/practical-plone-3-beginners-guide-building-powerful-websites)
+- [Martin Aspeli: Professional Plone4 Development](https://www.packtpub.com/product/professional-plone-4-development/9781849514422)
+- [Practical Plone](https://www.packtpub.com/product/practical-plone-3-a-beginner-s-guide-to-building-powerful-websites/9781847191786)
 - [Zope Page Templates Reference](https://zope.readthedocs.io/en/latest/zopebook/AppendixC.html)

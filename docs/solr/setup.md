@@ -151,7 +151,7 @@ Solr defines its schema in a big XML file called `schema.xml`. The main part is 
 copyField: copy content to another field, e.g. copy title, description and subject to default.
 
 ```{seealso}
-<https://wiki.apache.org/solr/SchemaXml#Common_field_options>
+https://cwiki.apache.org/confluence/display/solr/SchemaXml#Common_field_options
 ```
 
 This is the bare minimum for configuring Solr. There are more options supported by Solr,
@@ -213,7 +213,7 @@ for indexing and searching.
 
 #### Highlighting
 
-<https://wiki.apache.org/solr/HighlightingParameters>
+<https://cwiki.apache.org/confluence/display/solr/HighlightingParameters>
 
 > - Highlighting fields
 > - Highlight formatter: pre

@@ -22,7 +22,7 @@ default-core-name
 
 : Optional and deprecated.
   This option controls which core is set as the default for incoming requests that do not specify a core name.
-  This corresponds to the `defaultCoreName` option described at <http://wiki.apache.org/solr/CoreAdmin#cores>.
+  This corresponds to the `defaultCoreName` option described at <https://cwiki.apache.org/confluence/display/solr/CoreAdmin#cores>.
   *No longer* used in Solr 5.
 
 An example for a multi-core configuration you can find in the documentation of `collective.recipe.solrinstance`:
@@ -55,7 +55,7 @@ To make this happen you have to consider a couple of things:
 
 ## Further reading
 
-Solr is documented in its own [Wiki](https://wiki.apache.org/solr/).
+Solr is documented in its own [Wiki](https://cwiki.apache.org/confluence/display/solr/).
 
 ```{seealso}
 https://solr.apache.org/guide/6_6/
