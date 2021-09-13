@@ -91,7 +91,6 @@ linkcheck_ignore = [
     r"http://127.0.0.1:8080",
     r"http://example.com",
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
-    # r"https://twitter.com",  # linkcheck redirects to mobile version
     r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
 ]
 linkcheck_anchors = False
