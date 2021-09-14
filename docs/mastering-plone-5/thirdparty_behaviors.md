@@ -50,6 +50,6 @@ You need to run {file}`./bin/buildout` again for these changes to take effect.
 - Install the add-on
 - Create a new dexterity content type `Banner` with **only** the behavior `Banner` enabled.
 - Create a folder called `banners`
-- Add two banners into that folder using images taken from <https://placekitten.com> or <http://lorempixel.com>
+- Add two banners into that folder using images taken from <https://unsplash.com/> or <https://picsum.photos/>
 - Add the Behavior `Slider` to the default content type `Page (Document)`
 - Edit the front-page and link to the new banners.
