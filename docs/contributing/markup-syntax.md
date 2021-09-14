@@ -1,200 +1,263 @@
 ---
 html_meta:
-  "description": "Guide to Sphinx, MyST, and Markdown"
-  "keywords": "Sphinx, MyST, Markdown"
+  "description": "General Guide to Writing Documentation"
+  "keywords": "Documentation, Plone, Sphinx, MyST, reStructuredText, Markdown"
 ---
 
-# Guide for Authors
+# General Guide to Writing Documentation
 
-## MyST, Markdown, Sphinx
+This guide provides general help for writing documentation for Plone Trainings.
+
+
+## MyST, reStructuredText, and Markdown
 
 We use [MyST, or Markedly Structured Text](https://myst-parser.readthedocs.io/en/latest/), a rich and extensible flavor of Markdown, for authoring training documentation.
 
-Meta Tags
-: You can improve the findability of a chapter in search engines by adding meta tags.
+MyST extends {term}`Markdown` by incorporating all the features of {term}`reStructuredText` and {term}`Sphinx` and its extensions.
+Contributors are welcome to use either Markdown or MyST syntax.
 
-      ---
-      html_meta:
-            "description": "directives and other examples in markdown / MySt"
-            "keywords": "Sphinx, MyST, markdown"
-      ---
+MyST may be more familiar to reStructuredText authors.
+MyST allows the use of a {term}`fence` and `{rst-eval}` to evaluate native reStructuredText.
+This may be useful when Markdown does not provide sufficient flexibility, such as for `figure`.
 
-Cross Reference: chapter
-: Link to another chapter.
-:     We created an add-on in the last chapter {doc}`volto_custom_addon`.
 
-Cross Reference: section
-: Link to a section of a chapter
+### MyST Syntax Reference
 
-: create anchor
-  ```
-  (volto-custom-addon-final-label)=
-  ```
-  create link
-  ```
-  Switch to section [Release a Volto add-on](/mastering-plone/volto_custom_addon.html#volto-custom-addon-final-label).
-  ```
-  or
+The following are frequently used snippets and examples.
 
-  ```
-  Switch to section {ref}`Release a Volto add-on <volto-custom-addon-final-label>`.
-  ```
+```{seealso}
 
-Image
-:     ```{figure} _static/volto_addon_accordion_display.png
-      :alt: Volto add-on volto-accordion-block
-      ```
+**Official MyST documentation**
 
-: with caption:
+- [The MyST Syntax Guide](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html)
+- [MyST Syntax Reference](https://myst-parser.readthedocs.io/en/latest/syntax/reference.html)
+```
 
-      ```{figure} _static/volto_addon_accordion_display.png
-      :alt: Volto add-on volto-accordion-block
 
-      Accordion Block
-      ```
+#### Targets and Cross-Referencing
 
-: with zoom:
+```{seealso}
+[The MyST Syntax Guide > Targets and Cross-Referencing](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#targets-and-cross-referencing)
+```
 
-      ```{figure} _static/volto_addon_accordion_display.png
-      :alt: Volto add-on volto-accordion-block
-      :width: 100%
-      ```
+##### Link to a Chapter or Page
 
-Code Block
-: example code `Python`
+```md
+We created an add-on in the last chapter {doc}`/mastering-plone/volto_custom_addon`.
+```
 
-      ```{code-block} python
-      :lineno-start: 10
-      :emphasize-lines: 1, 3
+We created an add-on in the last chapter {doc}`/mastering-plone/volto_custom_addon`.
 
-      a = 2
-      print('my 1st line')
-      print(f'my {a}nd line')
-      ```
 
-: is rendered as:
+(markup-syntax-link-heading-label)=
+
+##### Link to a Heading
+
+```md
+(markup-syntax-hello-heading-label)=
+
+###### Hello Heading
+
+Read the section {ref}`markup-syntax-link-heading-label`.
+```
+
+(markup-syntax-hello-heading-label)=
+
+###### Hello Heading
+
+Read the section {ref}`markup-syntax-hello-heading-label`.
+
+
+##### Link to an Arbitrary Location
+
+```md
+(example-target-label)=
+
+I have an HTML anchor above me.
+
+Click the link to visit {ref}`my text <example-target-label>`.
+```
+
+(example-target-label)=
+
+I have an HTML anchor above me.
+
+Click the link to visit {ref}`my text <example-target-label>`.
+
+
+##### Link to External Page
+
+```md
+Use [Shimmer](http://example.com) for cleaner whiter teeth.
+```
+
+Use [Shimmer](http://example.com) for cleaner whiter teeth.
+
+
+##### Images and Figures
+
+[Figures](https://docutils.sourceforge.io/docs/ref/rst/directives.html#figure) allow a caption and legend, whereas [images](https://docutils.sourceforge.io/docs/ref/rst/directives.html#images) do not.
+
+Use `image` for anything but diagrams.
+
+Use `figure` for diagrams.
+
+Images and figures should always include `alt` text.
+
+From [Web Accessibility In Mind (WebAIM)](https://webaim.org/techniques/alttext/):
+
+> Alternative text serves several functions:
+> - It is read by screen readers in place of images allowing the content and function of the image to be accessible to those with visual or certain cognitive disabilities.
+> - It is displayed in place of the image in browsers if the image file is not loaded or when the user has chosen not to view images.
+> - It provides a semantic meaning and description to images which can be read by search engines or be used to later determine the content of the image from page context alone.
+
+Accessibility is part of the [Plone brand and identity](https://plone.org/accessibility).
+
+````md
+```{image} /_static/standards.png
+:alt: XKCD "Standards" comic strip
+```
+````
+
+```{image} /_static/standards.png
+:alt: XKCD "Standards" comic strip
+```
+
+````md
+```{eval-rst}
+.. figure:: /_static/voting_flowchart.png
+    :alt: Voting flowchart
+
+    This is a caption in a single paragraph.
+    
+    This is a legend, which consists of all elements after the caption.
+    It can include a table.
+    
+    ======  =======
+    Symbol  Meaning
+    ======  =======
+    ⃞       Object
+    ⬭       View
+    ➞       Flow
+    ======  =======
+```
+````
+
+```{eval-rst}
+.. figure:: /_static/voting_flowchart.png
+    :alt: Voting flowchart
+
+    This is a caption in a single paragraph.
+    
+    This is a legend, which consists of all elements after the caption.
+    It can include a table.
+    
+    ======  =======
+    Symbol  Meaning
+    ======  =======
+    ⃞       Object
+    ⬭       View
+    ➞       Flow
+    ======  =======
+```
+
+
+##### Code Block
+
+A Python code snippet without reStructuredText options, using a simple fence.
+
+````md
+```python
+a = 2
+print("my 1st line")
+print(f"my {a}nd line")
+```
+````
+
+```python
+a = 2
+print("my 1st line")
+print(f"my {a}nd line")
+```
+
+A Python code snippet with reStructuredText options, using a fence with the parsed reStructuredText directive `code-block`.
+
+````md
+```{code-block} python
+:lineno-start: 10
+:emphasize-lines: 1, 3
+
+a = 2
+print("my 1st line")
+print(f"my {a}nd line")
+```
+````
 
 ```{code-block} python
 :lineno-start: 10
 :emphasize-lines: 1, 3
 
 a = 2
-print('my 1st line')
-print(f'my {a}nd line')
+print("my 1st line")
+print(f"my {a}nd line")
 ```
 
-The lexers check the syntax. Be sure to provide valid code for a correct highlighting.
+##### Escape literal backticks inline
 
-jsx does not allow a tick `'` in nodes.
-
-```jsx
-import React from 'react';
-
-const TalkView = props => {
-  return <div>I'm the TalkView component!</div>;
-};
-
-export default TalkView;
+```md
+This is MyST syntax for term ``{term}`React` ``
 ```
 
-```jsx
-import React from 'react';
+This is MyST syntax for term ``{term}`React` ``
 
-const TalkView = props => {
-  return <div>I am the TalkView component!</div>;
-};
 
-export default TalkView;
+
+##### Glossary terms
+
+Add a term to the {doc}`glossary`, located at {file}`/glossary.md`.
+
+```md
+React
+    [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
+    Volto, the frontend for Plone 6, uses React.
 ```
 
+Reference a term in the {doc}`glossary`.
 
-Code Snippet Expandable
-: Solutions of Exercises
-
-  Be aware of the nested directives! Increase outer back ticks!
-
-      ````{admonition} Complete code for ReactJS component
-      :class: toggle
-
-      Here's my code snippet
-
-      Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.
-
-
-      ```{code-block} jsx
-      :linenos: true
-
-      import React, { useState } from 'react';
-      ```
-      ````
-
-````{admonition} Complete code for ReactJS component
-:class: toggle
-
-Here's my code snippet
-
-Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.
-
-
-```{code-block} jsx
-:linenos: true
-
-import React, { useState } from 'react';
-```
-````
-
-Notes and other highlighted blocks
-: To highlight a block you can use the directives `note`, `warning`, `attention`, `caution`, `danger`, `error`, `hint`, `important`, `tip` 
-
-      ```{tip}
-      You can find the list with the global Semantic UI variables available in `omelette/theme/themes/default/globals/site.variables`.
-      ```
-
-
-```{tip}
-You can find the list with the global Semantic UI variables available in `omelette/theme/themes/default/globals/site.variables`.
+```md
+Using {term}`React` makes frontends fun again!
 ```
 
-Glossary
-: Reference glossary terms
+Using {term}`React` makes frontends fun again!
 
-  To reference terms in your glossary, use the `{term} role`.    
-  For example, ``{term}`ReactJS` `` becomes a reference to term {term}`ReactJS`.
 
-: Add glossary term
 
-  Add your term to `/glossary.md`
+## Abridged Plone Documentation Styleguide
 
-Modes
-: The training is rendered using Sphinx and builds in two flavors:
+Guides should be informational, but friendly.
 
-  default
-  : The verbose version used for the online documentation and for the trainer.
-  : Build it in Sphinx with `make html` or use the online version [training.plone.org](https://training.plone.org). See {doc}`/contributing/setup-author`.
+Address the reader by using "you" instead of "the user".
 
-  presentation
-  : An abbreviated version used for the projector during a training.
-  : It should use more bullet points than verbose text.
-  : Build it in Sphinx with `make presentation`.
+Avoid contractions, and spell out the words.
+For example, use "do not" instead of "don't".
 
-  With directive `{only} not presentation` you can control
-  that a block is used for the presentation version only.
+Please do not follow PEP8 maximum line length standard.
+Documentation is narrative text and images, not Python code.
 
-      ```{only} not presentation
-      You can extend the functionality of your Dexterity object by writing an adapter that adapts your dexterity object to add another feature or aspect.
+Use one sentence per line.
+Keep sentences short and understandable.
+This will greatly improve the editing and maintenance of your documentation.
 
-      But if you want to use this adapter, you must somehow know that an object implements that.
-      Also, adding more fields to an object would not be easy with such an approach.
-      ```
 
-  To hide a block from the presentation version use `{only} not presentation`.
+## General Documentation Writing References
 
-      ```{only} presentation
-      You can extend the functionality of your Dexterity object by writing an adapter that adapts your dexterity object to add another feature or aspect.
+- [Write the Docs - Documentation Guide](https://www.writethedocs.org/guide/)
+- [A Guide to Em Dashes, En Dashes, and Hyphens](https://www.merriam-webster.com/words-at-play/em-dash-en-dash-how-to-use)
 
-      But if you want to use this adapter, you must somehow know that an object implements that.
-      Also, adding more fields to an object would not be easy with such an approach.
-      ```
 
-  Content without a directive will be included in both versions.
+### English grammar, spelling, punctuation, and syntax
 
+Because it is difficult to automate good English grammar and syntax, we do not strictly enforce it.
+We also understand that contributors might not be fluent in English.
+We encourage contributors to make a reasonable effort, and to seek help from community members who are fluent in English.
+Please ask!

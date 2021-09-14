@@ -219,4 +219,25 @@ MyST
 
 Markdown
     [Markdown](https://daringfireball.net/projects/markdown/) is a text-to-HTML conversion tool for web writers.
+
+fence
+    A method to extend basic MyST syntax.
+    You can define a directive with backticks (`` ` ``) followed by a reStructuredText directive in curly brackets (`{}`), and a matching number of closing backticks.
+    You can also nest fences by increasing the number of backticks. 
+    
+    `````md
+    ````{warning}
+    There be dragons!
+    ```{important}
+    Dragons have feelings, too!
+    ```
+    ````
+    `````
+    
+    ````{warning}
+    There be dragons!
+    ```{important}
+    Dragons have feelings, too!
+    ```
+    ````
 ```
