@@ -11,7 +11,7 @@ html_meta:
 Feel free to organize a training yourself.
 Please be so kind to contribute any bug fixes or enhancements you made to the documentation for your training.
 
-Trainers should read {doc}`setup-build` and the trainings in {doc}`/plone_training_config/instructions` and {doc}`/teachers-training/index`.
+Trainers should read {doc}`setup-build` and the trainings in {doc}`/plone_training_config/instructions` and {doc}`/teaching/index`.
 These documents help trainers prepare for a successful training experience.
 
 
@@ -55,4 +55,4 @@ We really want this material to be used, re-used, expanded, and improved by Plon
 These chapters don't contain any Plone specific advice.
 There's background, theory, check lists, and tips for anyone trying to teach technical subjects.
 
-{doc}`/teachers-training/index`
+{doc}`/teaching/index`
