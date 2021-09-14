@@ -10,7 +10,7 @@ html_meta:
 
 This guide is for authors of Training documentation.
 It covers configuring quality checks and syntax for writing markup that is of particular interest to authors.
-For general markup syntax, see {doc}`markup-syntax`.
+For general markup syntax, see {doc}`writing-docs-guide`.
 
 
 (authors-html-meta-data-label)=
@@ -133,7 +133,7 @@ We strive for high quality documentation, setting the following minimum standard
 
 ### Markup syntax must be valid
 
-See both the specific markup syntax above and general markup in {doc}`markup-syntax`.
+See both the specific markup syntax above and general markup in {doc}`writing-docs-guide`.
 
 To validate markup, run the following command.
 

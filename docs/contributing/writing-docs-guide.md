@@ -49,23 +49,23 @@ We created an add-on in the last chapter {doc}`/mastering-plone/volto_custom_add
 We created an add-on in the last chapter {doc}`/mastering-plone/volto_custom_addon`.
 
 
-(markup-syntax-link-heading-label)=
+(writing-docs-guide-link-heading-label)=
 
 ##### Link to a Heading
 
 ```md
-(markup-syntax-hello-heading-label)=
+(writing-docs-guide-hello-heading-label)=
 
 ###### Hello Heading
 
-Read the section {ref}`markup-syntax-link-heading-label`.
+Read the section {ref}`writing-docs-guide-link-heading-label`.
 ```
 
-(markup-syntax-hello-heading-label)=
+(writing-docs-guide-hello-heading-label)=
 
 ###### Hello Heading
 
-Read the section {ref}`markup-syntax-hello-heading-label`.
+Read the section {ref}`writing-docs-guide-hello-heading-label`.
 
 
 ##### Link to an Arbitrary Location

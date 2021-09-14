@@ -69,9 +69,9 @@ Contributors to the Training docs may perform one or many roles.
 
 - **Plone users and developers** use this documentation because it is accurate and actively maintained.
   People in these roles typically contribute minor corrections.
-  They should read {doc}`setup-build` and {doc}`markup-syntax`.
+  They should read {doc}`setup-build` and {doc}`writing-docs-guide`.
 - **Authors** create the Training documentation.
-  They should read {doc}`setup-build` and {doc}`markup-syntax`.
+  They should read {doc}`setup-build` and {doc}`writing-docs-guide`.
   They should also read {doc}`authors` for guidance and tips for writing good Training documentation.
 - **Trainers** should read {doc}`setup-build`, {doc}`trainers`, and the trainings in {doc}`/plone_training_config/instructions` and {doc}`/teachers-training/index`.
   These documents help trainers prepare for a successful training experience.
@@ -102,7 +102,7 @@ hidden: true
 ---
 
 setup-build
-markup-syntax
+writing-docs-guide
 trainers
 authors
 ```
