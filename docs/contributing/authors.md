@@ -249,16 +249,10 @@ An [online demo of all lexers that Pygments supports](https://pygments.org/demo/
 
 Use gulp to view changes in the browser while editing documentation.
 
-Install the gulp command line utility.
-
-```shell
-npm install --save-dev gulp-cli
-```
-
 Install the gulp project.
 
 ```shell
-npm install --save-dev
+npm install
 ```
 
 Run gulp while editing the training documentation.
