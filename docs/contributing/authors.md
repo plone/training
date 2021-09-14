@@ -217,17 +217,32 @@ Please do not be "that person".
 
 ### Syntax highlighting
 
-Sample code blocks perform syntax highlighting through Pygments.
+Pygments provides syntax highlighting in Sphinx.
+
+When including code snippets, you should specify the language.
 Authors must use a proper [Pygments lexer](https://pygments.org/docs/lexers/) and not generate warnings.
 
+The snippet must be valid syntax for the language you specify, else it will not be highlighted properly.
 Avoid adding comments to code snippets, unless you use valid comment syntax for that language.
-JSON does not allow comments.
+For example, JSON does not allow comments.
 
 Do not indicate elided or omitted code with ellipses (`...` or `…`).
 These are almost never valid syntax and will cause syntax highlighting to fail for the code block.
 
+
+#### Choosing a Lexer
+
 Some lexers are less than perfect.
 If your code block does not highlight well, then consider specifying a less ambitious lexer, such as `text`.
+
+Use `shell` for commands to be issued in a terminal session.
+Do not include shell prompts.
+This will make commands easy to copy and paste for readers.
+
+Use `console` for output of a shell session.
+If you have a mix of a shell command and its output, then use `console`.
+
+If `xml` does not work well, then try `html`.
 
 `jsx` has a complex syntax that is difficult to parse.
 We have high hopes for the project [`jsx-lexer`](https://github.com/fcurella/jsx-lexer).
@@ -236,6 +251,29 @@ Please contribute to its further development.
 
 The lexers `html+ng2`, `scss`, `http`, `less` are also suboptimal and particular.
 
+If no other lexer works well, then fall back to `text`.
+At least then the build will succeed without warnings, although syntax highlighting for such snippets will not appear.
+
+
+#### Validate the Lexer
+
+Always build the page to validate syntax.
+Your own training should not be merged into the larger Training docs if there are any Sphinx warnings.
+The Sphinx console will display any warnings, such as the following.
+
+```console
+/Plone/training/voltohandson/introtoblocks.md:55: WARNING: Could not lex literal_block as "jsx". Highlighting skipped.
+```
+
+The above warning indicates that the syntax is not valid.
+Common mistakes include:
+
+- Using `...` or `…` to indicate omitted code.
+  It is preferable to never use ellipses.
+  If you must do that, comment it out using the language's comment syntax.
+- Using comments in JSON.
+- A previous code block bleeds through to the next due to invalid MyST syntax.
+
 To validate code block syntax, run the following command.
 
 ```shell
@@ -243,6 +281,10 @@ make html
 ```
 
 An [online demo of all lexers that Pygments supports](https://pygments.org/demo/) may be helpful to test out your code blocks and snippets for syntax highlighting.
+You can also use the [`pygmentize`](https://pygments.org/docs/cmdline/) binary.
+
+When using the online lexer, if any red-bordered rectangles appear, then the lexer for Pygments interprets your snippet as not valid.
+You can search the [Pygments issue tracker](https://github.com/pygments/pygments/search) for possible solutions, or submit a pull request to enhance the lexer.
 
 
 ## Synchronize the Browser While Editing
