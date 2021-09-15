@@ -1,34 +1,27 @@
-(about-use-label)=
+(teaching-index-label)=
 
 # Teaching
+
+This section covers all that trainers need to know when teaching Plone Trainings.
+
+Trainers should read {doc}`/contributing/setup-build` and the trainings in {doc}`/plone_training_config/instructions`.
+These documents help trainers prepare for a successful training experience.
+
 
 ## Using the documentation for a training
 
 Feel free to organize a training yourself.
 Please be so kind to contribute any bug fixes or enhancements you made to the documentation for your training: {doc}`/contributing/index`
 
+
 ## License
 
 The Mastering Plone Training is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
 
-## Complete Mode and compact Presentation Mode
+## Available documentation builds
 
-The training is rendered using Sphinx and builds in two flavors:
-
-default
-: The verbose version used for the online documentation and for the trainer.
-: Build it in Sphinx with `make html` or use the online version.
-
-presentation
-: An abbreviated version used for the projector during a training.
-: It should use more bullet points than verbose text.
-: Build it in Sphinx with `make presentation`.
-
-
-## Setup Environment
-
-See {doc}`/contributing/setup-author` for instructions on how to set up the training documentation locally.
+See {ref}`setup-build-available-documentation-builds-label`.
 
 
 (train-the-trainer-label)=

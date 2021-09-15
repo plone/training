@@ -55,12 +55,12 @@ templates_path = ["_templates"]
 # They can be extensions coming with Sphinx (named "sphinx.ext.*")
 # or your custom ones.
 extensions = [
-    "sphinx_copybutton",
-    "sphinx.ext.intersphinx",
-    "sphinx.ext.autodoc",
-    "sphinx.ext.todo",
-    "sphinxcontrib.spelling",
     "myst_parser",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.todo",
+    "sphinx_copybutton",
+    "sphinxcontrib.spelling",
 ]
 
 # For more information see:
@@ -73,6 +73,13 @@ myst_enable_extensions = [
                     #  instead of ```.
 ]
 
+# If true, the Docutils Smart Quotes transform, originally based on SmartyPants
+# (limited to English) and currently applying to many languages, will be used
+# to convert quotes and dashes to typographically correct entities.
+# Note to maintainers: setting this to `True` will cause contractions and
+# hyphenated words to be marked as misspelled by spellchecker.
+smartquotes=False
+
 # The name of the Pygments (syntax highlighting) style to use.
 # pygments_style = "sphinx.pygments_styles.PyramidStyle"
 pygments_style = "sphinx"
@@ -82,21 +89,12 @@ pygments_style = "sphinx"
 linkcheck_ignore = [
     r"http://localhost:\d+",
     r"http://127.0.0.1:8080",
-    r"http://wiki.apache.org",
-    r"https://wiki.apache.org",
-    r"https://www.vagrantup.com",
-    r"https://www.dipf.de/en/research/projects",
-    r"http://whatever.herokuapp.com",
     r"http://example.com",
-    r"http://lorempixel.com",
-    r"https://plonedemo.kitconcept.com/en/@search",
-    r"https://www.packtpub.com",
-    r"https://lucidworks.com",
-    r"https://twitter.com",  # linkcheck redirects to mobile version
+    r"https://github.com/plone/training/issues/new/choose",  # requires auth
     r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
 ]
 linkcheck_anchors = False
-linkcheck_timeout = 30
+linkcheck_timeout = 5
 
 # This is our wordlist with know words, like Github or Plone ...
 spelling_word_list_filename = "spelling_wordlist.txt"
@@ -104,7 +102,6 @@ spelling_ignore_pypi_package_names = True
 
 # The suffix of source filenames.
 source_suffix = {
-    ".rst": "restructuredtext",
     ".md": "markdown",
 }
 
@@ -118,19 +115,7 @@ master_doc = "index"
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-    ".github/CONTRIBUTING.md",
-    "CHANGES.rst",
-    "README.rst",
-    "_build",
-    "bin",
-    "env",
-    "include",
-    "lib",
-    "local",
-    "log",
     "spelling_wordlist.txt",
-    "node_modules",
-    "about.md",
 ]
 
 
@@ -154,6 +139,8 @@ html_static_path = ["_static"]
 
 html_theme_options = {
     "repository_url": "https://github.com/plone/training",
+    "repository_branch": "main",
+    "path_to_docs": "docs",
     "use_repository_button": True,
     "use_issues_button": True,
     "use_edit_page_button": True,

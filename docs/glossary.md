@@ -136,7 +136,7 @@ Shadowing (Volto)
     By using this mechanism Volto enables customization (file overrides), similar to `z3c.jbot.`
 
 Razzle
-    A tool that simplifies SPA and SSR configuration for ReactJS projects.
+    A tool that simplifies SPA and SSR configuration for React projects.
 
 Webpack
     A tool that loads and bundles code and web resources using loaders.
@@ -154,7 +154,7 @@ Express
     Volto uses it as its server.
 
 Server-Side Rendering (SSR)
-    When first loading any Plone page, users will get HTML markup that closely matches the final DOM structure of the react components used to render that page.
+    When first loading any Plone page, users will get HTML markup that closely matches the final DOM structure of the React components used to render that page.
 
 Single Page Application (SPA)
     A type of JavaScript application that aims to provide a better user experience by avoiding unnecessary reloading of the browser page, instead using AJAX to load backend information.
@@ -205,4 +205,39 @@ hoisting (Yarn)
     By default JavaScript packages will directly include dependencies inside their local node_modules.
     By hoisting we're "lifting" these inner dependencies to the top level `node_modules` directory, and thus optimize the generated bundles.
     In case two dependencies have conflicting version dependencies of the same library, the hoisting will not be possible (for that conflicting dependency) and you'll see multiple instances of the same library in the bundle, or you'll see that the add-on receives its own `node_modules` folder.
+
+React
+    [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
+    Volto, the frontend for Plone 6, uses React.
+
+reStructuredText
+    [reStructuredText (rST)](https://docutils.sourceforge.io/rst.html) is an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax and parser system.
+    The Training documentation was written in reStructuredText originally, then converted to {term}`MyST` in 2021.
+
+MyST
+    [Markedly Structured Text (MyST)](https://myst-parser.readthedocs.io/en/latest/) is a rich and extensible flavor of Markdown, for authoring training documentation.
+
+Markdown
+    [Markdown](https://daringfireball.net/projects/markdown/) is a text-to-HTML conversion tool for web writers.
+
+fence
+    A method to extend basic MyST syntax.
+    You can define a directive with backticks (`` ` ``) followed by a reStructuredText directive in curly brackets (`{}`), and a matching number of closing backticks.
+    You can also nest fences by increasing the number of backticks. 
+    
+    `````md
+    ````{warning}
+    There be dragons!
+    ```{important}
+    Dragons have feelings, too!
+    ```
+    ````
+    `````
+    
+    ````{warning}
+    There be dragons!
+    ```{important}
+    Dragons have feelings, too!
+    ```
+    ````
 ```

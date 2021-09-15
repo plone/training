@@ -5,6 +5,7 @@ A collection of trainings developed and created by the Plone Community.
 ```{toctree}
 :caption: Training Overview
 :maxdepth: 2
+:hidden: true
 
 mastering-plone/index
 mastering-plone-5/index
@@ -30,10 +31,11 @@ advanced-python/index
 ```{toctree}
 :caption: Plone Trainings
 :maxdepth: 1
+:hidden: true
 
 glossary
 contributing/index
-teachers-training/index
+teaching/index
 ```
 
 
@@ -127,8 +129,8 @@ teachers-training/index
 
 {doc}`contributing/index`
 
-: Contributing to the training documentation
+: All about contributing to documentation
 
-{doc}`teachers-training/index`
+{doc}`teaching/index`
 
 : How To Give Technical Trainings

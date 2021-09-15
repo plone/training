@@ -191,3 +191,9 @@ main.bd-content #main-content dl.simple dt + dd {
   color: rgba(0,0,0,.65);
   border-radius: 10px;
 }
+
+/* Local navigation */
+li.nav-item.toc-entry {
+  line-height: 1.25em;
+  margin-bottom: 0.25em;
+}

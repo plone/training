@@ -165,7 +165,7 @@ additional-solrconfig =
         The spell check component can return a list of alternative spelling
         suggestions.
 
-        http://wiki.apache.org/solr/SpellCheckComponent
+        https://wiki.apache.org/solr/SpellCheckComponent
      -->
   <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
 
@@ -231,7 +231,7 @@ additional-solrconfig =
        IN OTHER WORDS, THERE IS REALLY GOOD CHANCE THE SETUP BELOW IS
        NOT WHAT YOU WANT FOR YOUR PRODUCTION SYSTEM!
 
-       See http://wiki.apache.org/solr/SpellCheckComponent for details
+       See https://wiki.apache.org/solr/SpellCheckComponent for details
        on the request parameters.
     -->
   <requestHandler name="/spell" class="solr.SearchHandler" startup="lazy">

@@ -77,7 +77,7 @@ https://solr.apache.org/guide/8_2/understanding-analyzers-tokenizers-and-filters
 ```
 
 ```{seealso}
-https://wiki.apache.org/solr/LanguageAnalysis
+https://cwiki.apache.org/confluence/display/solr/LanguageAnalysis
 ```
 
 A short example to include a German stemming factory is here:

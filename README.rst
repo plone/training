@@ -25,7 +25,7 @@ Different Plone Trainings:
 Documentation
 =============
 
-Documentation on how to use, build and contribute to the trainings can be found on the `Training Website <https://training.plone.org/5/mastering-plone/about_mastering.html>`_ .
+Documentation on how to use, build and contribute to the trainings can be found on the `Training Website <https://training.plone.org/5/contributing/index.html>`_ .
 
 
 The landing page
@@ -50,5 +50,5 @@ If you are having issues, please let us know by opening an issue in our `Issue T
 License
 =======
 
-The project is licensed under the `Creative Commons Attribution 4.0 International License <https://creativecommons.org/licenses/by/4.0/>`_ by the `Plone Foundation <https://plone.org>`_
+The project is licensed under the `Creative Commons Attribution 4.0 International License <https://creativecommons.org/licenses/by/4.0/>`_ by the `Plone Foundation <https://plone.org>`_.
 

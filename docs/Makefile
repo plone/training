@@ -39,9 +39,9 @@ help:
 	@echo "  changes    to make an overview of all changed/added/deprecated items"
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
-	@echo "  spellcheck    to run spellcheck against the documentation (if enabled)"
-	@echo "  test	   run spell and link check in order to test"
-	@echo "  deploy    run clean and html, to get a clean build"
+	@echo "  spellcheck to run spellcheck against the documentation (if enabled)"
+	@echo "  test       to run spell and link check in order to test"
+	@echo "  deploy     to run clean and html, to get a clean build"
 	@echo "  presentation   to make HTML in presentation mode"
 
 .PHONY: clean
@@ -192,14 +192,14 @@ linkcheck:
 	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
-		"or in log/linkcheck/output.txt."
+		"or in $(BUILDDIR)/linkcheck/output.txt."
 
 .PHONY: spellcheck
 spellcheck:
-	LANGUAGE=$* $(SPHINXBUILD) -b spelling -j 4 $(ALLSPHINXOPTS) log/spellcheck/$*
+	LANGUAGE=$* $(SPHINXBUILD) -b spelling -j 4 $(ALLSPHINXOPTS) $(BUILDDIR)/spellcheck/$*
 	@echo
 	@echo "Spellcheck is finished; look for any errors in the above output " \
-		" or in log/spellcheck/output.txt."
+		" or in $(BUILDDIR)/spellcheck/output.txt."
 
 .PHONY: doctest
 doctest:
@@ -208,7 +208,7 @@ doctest:
 	      "results in $(BUILDDIR)/doctest/output.txt."
 
 .PHONY: test
-test: clean
+test: clean linkcheck spellcheck
 
 .PHONY: deploy
 deploy: clean html

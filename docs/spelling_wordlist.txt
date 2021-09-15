@@ -1,4 +1,6 @@
 acl
+add-on
+add-ons
 addon
 addons
 admin
@@ -8,6 +10,7 @@ Ansible
 api
 ary
 autoform
+Barceloneta
 Barebone
 blobstorage
 Bluebream
@@ -20,6 +23,7 @@ btw
 buildout
 Buildouts
 buildouts
+built-in
 bzr
 Casali
 cfg
@@ -59,6 +63,7 @@ eea
 Einsteigerkurs
 eventhandlers
 extendable
+extensibility
 facettednavigation
 fallback
 faq
@@ -79,6 +84,7 @@ gitlab
 gomez
 google
 grep
+Gunicorn
 haproxy
 Herstory
 hg
@@ -118,6 +124,7 @@ localhost
 logfiles
 longtest
 macagua
+macOS
 Mailserver
 Metadata
 metadata
@@ -137,10 +144,10 @@ nocall
 omelette
 online
 Online
-online
 org
 outlier
 pageview
+Pastanaga
 pattern
 Patternslib
 pbauer
@@ -163,6 +170,7 @@ Portlet
 portlets
 Portlets
 postrelease
+POSIX
 pre
 precompiler
 prepending
@@ -171,7 +179,9 @@ py
 pypi
 pypirc
 quickinstaller
+Rapido
 redmine
+Redux
 refactor
 release
 renderers
@@ -214,6 +224,8 @@ Todo
 Todos
 toLocalizedTime
 toolbar
+trainings
+Transmogrifier
 travis
 ttw
 UI
@@ -223,17 +235,19 @@ url
 usenames
 Username
 username
+uWSGI
 viewlet
 Viewlet
 viewlets
 Viewlets
-viewlets
-Viewlets
 VirtualBox
+Volto
 votable
 voteable
 Walkthrough
+webpack
 webserver
+Werkzeug
 wf
 Workflow
 workflow
@@ -242,10 +256,12 @@ workflows
 XDV
 Xephyr
 xml
+XPath
 xvfb
 xxx
 yml
 zc
+ZCatalog
 zcml
 zeoclients
 zeoserver

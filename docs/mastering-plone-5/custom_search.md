@@ -30,7 +30,7 @@ and dynamically.
 
 Examples:
 
-- https://www.dipf.de/en/research/projects
+- https://www.dipf.de/en/research/current-projects
 - https://www.mountaineers.org/courses/courses-clinics-seminars
 - https://www.dyna-jet.com/highpressurecleaner
 
