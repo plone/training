@@ -2,15 +2,15 @@
 
 # Volto View Components: A Listing View for Talks
 
-````{sidebar} Volto chapter
-```{figure} _static/volto.svg
-:alt: Volto Logo
+````{sidebar}
+```{figure} _static/plone-training-logo-for-frontend.svg
+:alt: Plone frontend 
 :align: left
 ```
 
 This chapter is about the React frontend Volto.
 
-Solve the same tasks in Plone Classic in chapter {doc}`views_3`
+Solve the same tasks in Plone Classic UI in chapter {doc}`views_3`
 
 ```{topic} Description
 Create a view that shows a list of content

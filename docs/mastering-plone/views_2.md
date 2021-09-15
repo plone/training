@@ -2,15 +2,15 @@
 
 # Views II: A Default View for "Talk"
 
-````{sidebar} Classic chapter
-```{figure} _static/plone.svg
-:alt: Plone Logo
+````{sidebar}
+```{figure} _static/plone-training-logo-for-classicui.svg
+:alt: Plone Classic UI
 :align: left
 ```
 
-This chapter is about Plone Classic.
+This chapter is about Plone Classic UI.
 
-Solve the same tasks in the Volto frontend in chapter {doc}`volto_talkview`
+Solve the same tasks in the React frontend in chapter {doc}`volto_talkview`
 
 ---
 

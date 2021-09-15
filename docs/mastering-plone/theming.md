@@ -2,13 +2,13 @@
 
 # Theming
 
-````{sidebar} Classic chapter
-```{figure} _static/plone.svg
-:alt: Plone Logo
+````{sidebar}
+```{figure} _static/plone-training-logo-for-classicui.svg
+:alt: Plone Classic UI
 :align: left
 ```
 
-This chapter is about Plone Classic.
+This chapter is about Plone Classic UI.
 
 ---
 

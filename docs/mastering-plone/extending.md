@@ -2,9 +2,9 @@
 
 # Extending Plone
 
-````{sidebar} Classic chapter
-```{figure} _static/plone.svg
-:alt: Plone Logo
+````{sidebar}
+```{figure} _static/plone-training-logo-for-backend.svg
+:alt: Plone backend 
 :align: left
 ```
 

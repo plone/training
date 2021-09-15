@@ -2,9 +2,9 @@
 
 # The Sponsors Component
 
-````{sidebar} Volto chapter
-```{figure} _static/volto.svg
-:alt: Volto Logo
+````{sidebar}
+```{figure} _static/plone-training-logo-for-frontend.svg
+:alt: Plone frontend 
 :align: left
 ```
 
@@ -14,7 +14,7 @@ This chapter is about the React frontend Volto.
 Create a React component for content fetched from the backend
 ```
 
-Solve the same tasks in Plone Classic: {doc}`viewlets_advanced_classic`
+Solve the same tasks in Plone Classic UI: {doc}`viewlets_advanced_classic`
 
 ---
 
