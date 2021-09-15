@@ -302,7 +302,7 @@ We really want this material to be used, re-used, expanded, and improved by Plon
 These chapters don't contain any Plone specific advice.
 There's background, theory, check lists, and tips for anyone trying to teach technical subjects.
 
-{doc}`../teachers-training/index`
+{doc}`../teaching/index`
 
 (plone5-about-contribute-label)=
 

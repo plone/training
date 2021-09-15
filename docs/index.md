@@ -33,7 +33,7 @@ advanced-python/index
 
 glossary
 contributing/index
-teachers-training/index
+teaching/index
 ```
 
 
@@ -127,8 +127,8 @@ teachers-training/index
 
 {doc}`contributing/index`
 
-: Contributing to the training documentation
+: All about contributing to documentation
 
-{doc}`teachers-training/index`
+{doc}`teaching/index`
 
 : How To Give Technical Trainings
