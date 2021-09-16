@@ -6,9 +6,8 @@
 ```{figure} _static/plone-training-logo-for-backend.svg
 :alt: Plone backend 
 :align: left
+:class: logo
 ```
-
-This chapter is about Plone backend.
 
 For Volto add-ons see chapter {ref}`volto-addon-label`
 ````

@@ -6,9 +6,8 @@
 ```{figure} _static/plone-training-logo-for-frontend.svg
 :alt: Plone frontend 
 :align: left
+:class: logo
 ```
-
-This chapter is about the React frontend Volto.
 
 Learn about templates in the classic frontend in chapter {doc}`zpt`
 ````

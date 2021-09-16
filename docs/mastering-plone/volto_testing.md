@@ -6,9 +6,8 @@
 ```{figure} _static/plone-training-logo-for-frontend.svg
 :alt: Plone frontend 
 :align: left
+:class: logo
 ```
-
-This chapter is about the React frontend Volto.
 
 For information on testing Plone backend see the separate training: {ref}`testing-plone-label`
 ````

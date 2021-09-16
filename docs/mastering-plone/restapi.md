@@ -4,11 +4,8 @@
 ```{figure} _static/plone-training-logo-for-backend.svg
 :alt: Plone backend 
 :align: left
+:class: logo
 ```
-
-This chapter is about Plone backend.
-
----
 
 Get the code for this chapter ({doc}`More info <code>`):
 

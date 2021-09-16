@@ -6,15 +6,14 @@
 ```{figure} _static/plone-training-logo-for-frontend.svg
 :alt: Plone frontend 
 :align: left
+:class: logo
 ```
-
-This chapter is about the React frontend Volto.
 
 Solve a simlar tasks in Plone Classic in chapter {doc}`frontpage`
 
 ---
 
-**Get the code! ({doc}`More info <code>`)**
+Get the code! ({doc}`More info <code>`)
 
 ```{note}
 The code you modify is from the backend, i.e. ploneconf.site!

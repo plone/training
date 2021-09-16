@@ -6,13 +6,10 @@
 ```{figure} _static/plone-training-logo-for-backend.svg
 :alt: Plone backend 
 :align: left
+:class: logo
 ```
 
-This chapter is about Plone backend.
-
----
-
-**Get the code! ({doc}`More info <code>`)**
+Get the code! ({doc}`More info <code>`)
 
 using this command in the buildout directory:
 

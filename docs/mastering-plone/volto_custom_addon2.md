@@ -6,6 +6,7 @@
 ```{figure} _static/plone-training-logo-for-frontend.svg
 :alt: Plone frontend 
 :align: left
+:class: logo
 ```
 
 Creating a new block type

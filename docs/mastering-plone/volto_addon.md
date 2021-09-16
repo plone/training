@@ -6,11 +6,10 @@
 ```{figure} _static/plone-training-logo-for-frontend.svg
 :alt: Plone frontend 
 :align: left
+:class: logo
 ```
 
-This chapter is about the React frontend Volto.
-
-For Plone add-ons see chapter {ref}`add-ons-label`
+For Plone backend add-ons see chapter {ref}`add-ons-label`
 ````
 
 (add-ons-volto-overview-label)=
