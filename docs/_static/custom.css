@@ -27,11 +27,10 @@ figure img,
 .figure img {
   box-shadow: 0 6px 24px 0 rgba(153,153,153,0.3);
 }
-.sidebar figure img,
-.sidebar .figure img,
 .sidebar img.logo {
   box-shadow: none;
   width: 200px;
+  margin-bottom: 1rem;
 }
 span.linenos {
   padding-right: 1em;
@@ -156,6 +155,10 @@ div.sidebar .topic,
 aside.sidebar .topic {
   padding: .5em 0;
   background-color: transparent;
+}
+div.sidebar pre,
+aside.sidebar pre {
+  margin: .5em 0 1.5em 0;
 }
 @media (min-width:768px) {
   div.sidebar:not(.margin),
