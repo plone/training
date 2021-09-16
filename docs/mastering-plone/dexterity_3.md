@@ -2,7 +2,7 @@
 
 # Dexterity Types III: Sponsors
 
-````{sidebar}
+````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
 :alt: Plone backend 
 :align: left

@@ -2,7 +2,7 @@
 
 # Creating a Dynamic Front Page
 
-````{sidebar}
+````{sidebar} Plone Classic UI Chapter
 ```{figure} _static/plone-training-logo-for-classicui.svg
 :alt: Plone Classic UI
 :align: left
