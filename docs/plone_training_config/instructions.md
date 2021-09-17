@@ -28,6 +28,30 @@ In {file}`frontend` we will install Volto and add our custom React code.
 If you try both methods below (with Vagrant and without), make sure you use different {file}`training` directories! The two installations do not coexist well.
 ```
 
+## Technical set up to do before a training (as a trainer)
+
+- Prepare a mail server for the user registration mail (See {ref}`features-mailserver-label`)
+- If you do only a part of the training, prepare an installation with the steps of the previous chapters.  
+    See {doc}`/mastering-plone/code` for more information.
+
+
+### Upgrade buildout and vagrant to a new Plone-version
+
+- In <https://github.com/collective/training_buildout> change [buildout.cfg](https://github.com/collective/training_buildout/blob/master/buildout.cfg) to extend from the new `versions.cfg` on <https://dist.plone.org/release>.
+- Check if we should update any versions in <https://github.com/collective/training_buildout/blob/master/versions.cfg>.
+- Commit and push the changes to the training_buildout
+- Modify the vagrant-setup by modifying {file}`plone_training_config/manifests/plone.pp`. Set the new Plone-version as `$plone_version` in line 3.
+- Test the vagrant-setup it by creating a new vagrant-box using the new config.
+- Create a new zip-file of all files in `plone_training_config` and move it to `_static`:
+
+```console
+cd plone_training_config
+zip -r ../_static/plone_training_config.zip *
+```
+
+- Commit and push the changes to <https://github.com/plone/training>
+
+
 ## Installing Plone without vagrant
 
 ### Installing the backend
