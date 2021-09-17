@@ -2,19 +2,18 @@
 
 # Views III: A Talk List
 
-````{sidebar} Classic chapter
-```{figure} _static/plone.svg
-:alt: Plone Logo
+````{sidebar} Plone Classic UI Chapter
+```{figure} _static/plone-training-logo-for-classicui.svg
+:alt: Plone Classic UI
 :align: left
+:class: logo
 ```
 
-This chapter is about Plone Classic.
-
-Solve the same tasks in the Volto frontend in chapter {doc}`volto_talk_listview`
+Solve the same tasks in the React frontend in chapter {doc}`volto_talk_listview`
 
 ---
 
-**Get the code! ({doc}`More info <code>`)**
+Get the code! ({doc}`More info <code>`)
 
 Code for the beginning of this chapter:
 

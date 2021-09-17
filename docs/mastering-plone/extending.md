@@ -2,13 +2,12 @@
 
 # Extending Plone
 
-````{sidebar} Classic chapter
-```{figure} _static/plone.svg
-:alt: Plone Logo
+````{sidebar} Plone Backend Chapter
+```{figure} _static/plone-training-logo-for-backend.svg
+:alt: Plone backend 
 :align: left
+:class: logo
 ```
-
-This chapter is about the Plone backend.
 
 For extending Volto frontend see chapters
 

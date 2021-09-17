@@ -2,10 +2,11 @@
 
 # Rich Text Editor Settings
 
-````{sidebar} Volto chapter
-```{figure} _static/volto.svg
-:alt: Volto Logo
+````{sidebar} Plone Frontend Chapter
+```{figure} _static/plone-training-logo-for-frontend.svg
+:alt: Plone frontend 
 :align: left
+:class: logo
 ```
 
 This chapter is about customizing the rich text editor.
@@ -16,7 +17,7 @@ Add a button / feature to the rich text editor.
 
 ---
 
-**Get the code! ({doc}`More info <code>`)**
+Get the code! ({doc}`More info <code>`)
 
 Code for the beginning of this chapter:
 

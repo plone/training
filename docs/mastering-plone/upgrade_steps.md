@@ -2,17 +2,14 @@
 
 # Upgrade-steps
 
-````{sidebar} Classic chapter
-```{figure} _static/plone.svg
-:alt: Plone Logo
+````{sidebar} Plone Backend Chapter
+```{figure} _static/plone-training-logo-for-backend.svg
+:alt: Plone backend 
 :align: left
+:class: logo
 ```
 
-This chapter is about Plone Classic.
-
----
-
-**Get the code! ({doc}`More info <code>`)**
+Get the code! ({doc}`More info <code>`)
 
 Code for the beginning of this chapter:
 

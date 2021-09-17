@@ -2,19 +2,18 @@
 
 # Extending Volto With Custom Add-on Package
 
-````{sidebar} Volto chapter
-```{figure} _static/volto.svg
-:alt: Volto Logo
+````{sidebar} Plone Frontend Chapter
+```{figure} _static/plone-training-logo-for-frontend.svg
+:alt: Plone frontend 
 :align: left
+:class: logo
 ```
-
-This chapter is about the React frontend Volto.
 
 Solve the same tasks in classic frontend in chapter {doc}`eggs1`
 
 ---
 
-**Get the code! ({doc}`More info <code>`)**
+Get the code! ({doc}`More info <code>`)
 
 Code for the beginning of this chapter:
 

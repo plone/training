@@ -2,10 +2,11 @@
 
 # Extending Volto With a FAQ Block Type
 
-````{sidebar} Volto chapter
-```{figure} _static/volto.svg
-:alt: Volto Logo
+````{sidebar} Plone Frontend Chapter
+```{figure} _static/plone-training-logo-for-frontend.svg
+:alt: Plone frontend 
 :align: left
+:class: logo
 ```
 
 Creating a new block type
