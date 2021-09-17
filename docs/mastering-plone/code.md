@@ -1,5 +1,9 @@
 # Using the code for the training
 
+```{todo}
+- Add info and link to repository of volto package
+```
+
 You can get the complete code for this training from [GitHub](https://github.com/collective/ploneconf.site).
 
 ## The code-package

@@ -103,6 +103,5 @@ hidden: true
 
 setup-build
 writing-docs-guide
-trainers
 authors
 ```
