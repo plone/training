@@ -69,7 +69,7 @@ Values of these fields are attributes on content objects.
 
 Here is a example that shows how to access and modify these values in python:
 
-```python
+```pycon
 >>> obj.title
 'A Newsitem'
 >>> obj.description
@@ -99,6 +99,11 @@ The behavior `plone.excludefromnavigation` adds a attribute `exclude_from_nav` t
 (dexterity1-modify-label)=
 
 ## Modifying existing types
+
+For now, we will not code anything.
+We will only use the Plone web interface features.
+If you do not have a local Plone instance installed on your machine, you can use a [Plone pre-configured Heroku instance](https://github.com/collective/training-sandbox).
+Once deployed, create a Plone site, and perform the following steps.
 
 - Go to the control panel <http://localhost:8080/Plone/@@dexterity-types>
 
