@@ -61,6 +61,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx_copybutton",
     "sphinxcontrib.spelling",
+    "sphinxext.opengraph",
 ]
 
 # For more information see:
@@ -182,3 +183,10 @@ intersphinx_mapping = {
 # -- GraphViz configuration ----------------------------------
 
 graphviz_output_format = "svg"
+
+
+# -- OpenGraph configuration ----------------------------------
+
+ogp_description_length = 200
+ogp_image = "../_static/logo.png"
+ogp_site_name = "Plone Training"

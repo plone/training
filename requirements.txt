@@ -9,3 +9,4 @@ sphinx-book-theme
 sphinx-copybutton
 sphinx-togglebutton
 sphinxcontrib-spelling
+sphinxext.opengraph
