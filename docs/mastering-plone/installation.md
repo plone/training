@@ -1,3 +1,10 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "keywords": ""
+---
+
 (installation-label)=
 
 # Installation & Setup of Plone 6

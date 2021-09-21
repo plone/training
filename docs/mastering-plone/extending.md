@@ -1,3 +1,10 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "keywords": ""
+---
+
 (extending-label)=
 
 # Extending Plone
