@@ -168,7 +168,7 @@ Open `/_build/spellcheck/` for each training's misspellings.
 Because it is difficult to automate good English grammar and syntax, we do not strictly enforce it.
 We also understand that contributors might not be fluent in English.
 We encourage contributors to make a reasonable effort, and to seek help from community members who are fluent in English.
-Please ask!
+When you submit a pull request, please select a Reviewer to review your work.
 
 
 (authors-linkcheck-label)=
