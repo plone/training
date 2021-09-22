@@ -6,15 +6,18 @@ html_meta:
   "keywords": ""
 ---
 
----
-:About: Customize Plone Through-The-Web
-:Level: Experienced
-:Status: Work in progress
----
-
 (ttw-label)=
 
 # "Through-The-Web" Plone Customization
+
+About
+: Customize Plone Through-The-Web
+
+Level
+: Experienced
+
+Status
+: Work in progress
 
 ```{warning}
 This chapter is still work in progress!

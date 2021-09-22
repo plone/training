@@ -6,15 +6,18 @@ html_meta:
   "keywords": ""
 ---
 
----
-:About: JavaScript For Plone Developers
-:Level: Experienced
-:Status: Work in progress
----
-
 (javascript-label)=
 
 # JavaScript For Plone Developers
+
+About
+: JavaScript For Plone Developers
+
+Level
+: Experienced
+
+Status
+: Work in progress
 
 The definitive location for documentation regarding Plone's JavaScript and Resource Registries is located at:
 <https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html>
