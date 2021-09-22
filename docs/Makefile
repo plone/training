@@ -40,10 +40,10 @@ help:
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 	@echo "  spellcheck to run spellcheck against the documentation (if enabled)"
-	@echo "  html_meta  to add html_meta snippet to markdown files"
 	@echo "  test       to run spell and link check in order to test"
 	@echo "  deploy     to run clean and html, to get a clean build"
 	@echo "  presentation   to make HTML in presentation mode"
+	@echo "  html_meta  to add html_meta snippet to markdown files if missing"
 
 .PHONY: clean
 clean:
