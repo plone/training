@@ -1,10 +1,3 @@
----
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "keywords": ""
----
-
 # Volto add-ons development
 
 ## Volto: an overview

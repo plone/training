@@ -1,10 +1,3 @@
----
-html_meta:
-  "description": "Theming with SemanticUI: Change font, favicon, …"
-  "property=og:description": "Theming with SemanticUI: Change font, favicon, …"
-  "keywords": "Customizing, Theming, Volto, SemanticUI"
----
-
 (volto-theming-label)=
 
 # Theming in Volto
