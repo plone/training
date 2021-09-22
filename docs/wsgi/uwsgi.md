@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # uWSGI
 
 [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) is a very flexible WSGI server that comes with tons of configuration options.

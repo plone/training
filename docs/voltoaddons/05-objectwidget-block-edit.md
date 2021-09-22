@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Customizable columns
 
 Let's add a bit more control over how the columns are rendered. This is quite

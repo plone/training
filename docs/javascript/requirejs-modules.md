@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # RequireJS And JavaScript Modules
 
 One of the great new features that Plone 5 gives us is the ability to define and use JavaScript modules.

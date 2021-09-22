@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Fetching Data Using Plone REST.API
 
 Now that we have an idea of how to create nodes, we can move on to retrieving data from a Plone site and creating nodes with that data.

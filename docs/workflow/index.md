@@ -1,4 +1,12 @@
 ---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
+---
 :About: Controlling security with workflow
 :Level: All levels
 :Status: Work in progress

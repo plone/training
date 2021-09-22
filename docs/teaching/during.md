@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (trainthetrainers-during-training-day-label)=
 
 # During training day(s): what to expect, do's and don'ts

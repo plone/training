@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Theme Package IV: Creating And Customizing Plone Templates
 
 In the previous sections we {doc}`created our custom theme <theme-package-2>` and {doc}`customized it using CSS <theme-package-3>`.

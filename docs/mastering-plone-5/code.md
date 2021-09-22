@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Using the code for the training
 
 You can get the complete code for this training from [GitHub](https://github.com/collective/ploneconf.site).

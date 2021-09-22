@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Theme Package I: Preparations
 
 Creating a theme product with the Diazo inline editor is an easy way to start and to test,

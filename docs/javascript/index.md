@@ -1,4 +1,12 @@
 ---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
+---
 :About: JavaScript For Plone Developers
 :Level: Experienced
 :Status: Work in progress

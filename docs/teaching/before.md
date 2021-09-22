@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (trainthetrainers-before-the-training-label)=
 
 # Before the training: Create  material, invite trainees, preparation

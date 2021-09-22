@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # gatsby-starter-plone
 
 `gatsby-starter-plone` comes with `gatsby-source-plone` already configured and setup with all the functionality and also includes some additional helpful features.

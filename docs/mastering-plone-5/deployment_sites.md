@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (plone5-deployment-buildout-label)=
 
 # Buildout II: Getting Ready for Deployment

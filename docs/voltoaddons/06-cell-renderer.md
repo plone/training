@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Make the block extendible
 
 Wouldn't it be nice if we could have a way to customize, per column, how the

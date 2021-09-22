@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Creating A Custom View For The Talk Content Type
 
 ## Create The Talk Content Type In The Backend

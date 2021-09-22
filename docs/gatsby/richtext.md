@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # RichText Component
 
 Previously, we created pages for each content object and also established a structure with folders and internal linking.

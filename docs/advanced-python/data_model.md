@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Exploiting Python's data model
 
 To make our session store easy to use as if it was a dictionary, we implement

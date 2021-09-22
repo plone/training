@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Timetable
 
 This is just meant as info for trainers about how long it might take to teach certain chapters.

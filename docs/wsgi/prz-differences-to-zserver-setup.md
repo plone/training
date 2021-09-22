@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Differences to the ZServer setup
 
 Maybe the most important difference is that configuration is now split into two files:

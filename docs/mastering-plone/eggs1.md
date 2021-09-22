@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (eggs1-label)=
 
 # Write Your Own Python Add-On to Customize Plone

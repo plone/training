@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Basic Roles and Permissions
 
 Roles, groups, permissions, workflows, states, transitions are all a part of Plone's robust security model.

@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (plone5-plone5-label)=
 
 # What's New in Plone 5, 5.1 and Plone 5.2

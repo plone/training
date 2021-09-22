@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (volto-talkview-label)=
 
 # Volto View Components: A Default View for "Talk"

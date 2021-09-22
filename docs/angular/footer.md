@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Adding Quick Links In the Footer
 
 We want to display useful links in the footer, and each link should have an icon.

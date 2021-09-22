@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # More Features
 
 Next we will cover some more advanced topics which need configuration on Plone and Solr side.

@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # What Is GatsbyJS
 
 [GatsbyJS](https://www.gatsbyjs.com/) is a modern static site generator for React.

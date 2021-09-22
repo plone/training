@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Building Source Plugins
 
 In the previous section on source plugins we already covered what they are and how to use them.

@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (volto-custom-addon2-label)=
 
 # Extending Volto With a FAQ Block Type

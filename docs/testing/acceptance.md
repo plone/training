@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Acceptance testing
 
 Acceptance tests are the highest level of tests in the testing hierarchy.

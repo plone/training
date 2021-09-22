@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (plone5-registry-label)=
 
 # Manage Settings with Registry, Control Panels and Vocabularies

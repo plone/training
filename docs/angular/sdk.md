@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # What Is The Plone Angular SDK
 
 The [Plone Angular SDK](https://www.npmjs.com/package/@plone/restapi-angular) is an Angular

@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # TTW Theming II: Create A Custom Theme Based On Barceloneta
 
 In this section you will:

@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Testing setup
 
 Now let's take a moment (this chapter) to understand how Plone tests work and how they're set up.

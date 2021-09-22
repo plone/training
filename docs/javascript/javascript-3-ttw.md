@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Through-The-Web Development
 
 It is possible to include JavaScript functionality without the need to know about any of the tools involved.
