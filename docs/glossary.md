@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Terms and definitions used throughout the Plone Training documentation."
+  "property=og:description": "Terms and definitions used throughout the Plone Training documentation."
+  "property=og:title": "Glossary"
+  "keywords": "Plone, training, glossary, term, definition"
 ---
 
 # Glossary
@@ -257,4 +257,8 @@ fence
     Dragons have feelings, too!
     ```
     ````
+
+Open Graph 
+    The [Open Graph protocol](https://ogp.me/) enables any web page to become a rich object in a social graph.
+    For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook.
 ```
