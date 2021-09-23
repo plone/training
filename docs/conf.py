@@ -189,7 +189,7 @@ graphviz_output_format = "svg"
 
 ogp_site_url = "https://training.plone.org/5/"
 ogp_description_length = 200
-ogp_image = "https://training.plone.org/5/_static/logo.png"
+ogp_image = "https://training.plone.org/5/_static/Plone_logo_square.png"
 ogp_site_name = "Plone Training"
 ogp_type = "website"
 ogp_custom_meta_tags = [
