@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Plone integration with Volto blocks
 
 When developing for Volto websites, don't neglect the server-side, Plone.

@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (trainthetrainers-training-theory-label)=
 
 # Training theory: education, how people learn and process information

@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Transformer plugins
 
 In previous chapter we learned how to get data from sources with `source plugins`.

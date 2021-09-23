@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Using And Customizing The Angular Plone Components
 
 ## Preparing The Plone Backend

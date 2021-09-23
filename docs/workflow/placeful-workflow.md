@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Placeful Workflow
 
 Sometimes you may want a specific section of the site to allow different permissions and roles than other areas

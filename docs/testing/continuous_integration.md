@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Continuous Integration
 
 During this training we have seen how to test different parts of Plone and we have reviewed different testing techniques.

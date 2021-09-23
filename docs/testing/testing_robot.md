@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Robot tests
 
 Robot tests are written in test suites, which are plain text files, usually with the filename ending `.robot`.

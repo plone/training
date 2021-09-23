@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Theme Package II: Build Your Diazo-Based Theme
 
 In the previous section we {doc}`prepared our setup for our custom theme package <theme-package>`.

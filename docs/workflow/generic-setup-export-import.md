@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Using GenericSetup to Manage Plone Workflows
 
 Workflows provide a great amount of flexibility inside of Plone. They have many moving parts such as states, transitions, permissions, variables, worklist and groups. Plone gives you the ability to configure all of these items through the web via the ZMI, but moving these settings to another environment as part of a release or migration can be error prone.

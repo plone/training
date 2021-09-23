@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Creating Your First Stack
 
 Setting up a Stack with all of its layers is a tedious excersise it {term}`TTW` (Through-The-Web) configuration.

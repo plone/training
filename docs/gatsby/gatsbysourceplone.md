@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # gatsby-source-plone
 
 With the previous sections on source nodes, retrieving data from `plone.restapi`, and finally using the search traversal method, we have understood how our source-plugin works at base level.

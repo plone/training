@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Source plugins
 
 Now that we learned how to create pages and access dynamic data with GraphQL, we can start fetching some data from external sources.

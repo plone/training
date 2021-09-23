@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # TTW Theming III: Make It Reproducible
 
 You created your shiny brand new theme {term}`TTW`.

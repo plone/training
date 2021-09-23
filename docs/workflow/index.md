@@ -1,12 +1,23 @@
 ---
-:About: Controlling security with workflow
-:Level: All levels
-:Status: Work in progress
+html_meta:
+  "description": "Controlling security with workflow"
+  "property=og:description": "Controlling security with workflow"
+  "property=og:title": ""
+  "keywords": ""
 ---
 
 (workflow-label)=
 
 # Plone Workflow
+
+About
+: Controlling security with workflow
+
+Level
+: All levels
+
+Status
+: Work in progress
 
 ```{warning}
 This chapter is still work in progress!

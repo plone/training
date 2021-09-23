@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Writing Custom Blueprints
 
 The mr.bob templates provides an Example Blueprint to serve as a starting point for you.

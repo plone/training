@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Debugging Plone on WSGI
 
 When debugging Plone behind a WSGI server, there are a couple of things to remember.

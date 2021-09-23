@@ -43,6 +43,7 @@ help:
 	@echo "  test       to run spell and link check in order to test"
 	@echo "  deploy     to run clean and html, to get a clean build"
 	@echo "  presentation   to make HTML in presentation mode"
+	@echo "  html_meta  to add html_meta snippet to markdown files if missing"
 
 .PHONY: clean
 clean:
@@ -200,6 +201,11 @@ spellcheck:
 	@echo
 	@echo "Spellcheck is finished; look for any errors in the above output " \
 		" or in $(BUILDDIR)/spellcheck/output.txt."
+
+
+.PHONY: html_meta
+html_meta:
+	python ./addMetaData.py
 
 .PHONY: doctest
 doctest:

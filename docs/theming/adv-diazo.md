@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Advanced Diazo
 
 **"Diazo allows you to apply a theme contained in a static HTML web page to a dynamic website created using any server-side technology."**

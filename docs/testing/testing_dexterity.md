@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Testing a Dexterity content type
 
 The most common thing that we could develop in Plone are content types.

@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # What's left in zope.conf?
 
 What's possible in `zope.conf` when using the WSGIPublisher is defined in `wsgischema.xml` in the Zope package.

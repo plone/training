@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Dynamic Roles
 
 Plone core's `borg.localrole` package allows you to hook into role-resolving code and add roles dynamically. I.e. the role on the user depends on HTTP request / environment conditions and is not something set in the site database.

@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Customized Use
 
 We intend that you should be able to make most changes by changing default variable settings in your `local_configure.yml` file.

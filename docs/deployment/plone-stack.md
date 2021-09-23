@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Intro To Plone Stack
 
 If you haven't read the first couple of chapters of [Guide to deploying and installing Plone in production](https://docs.plone.org/manage/deploying/index.html),

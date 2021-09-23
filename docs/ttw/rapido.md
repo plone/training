@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Rapido
 
 [Rapido](https://rapidoplone.readthedocs.io/en/latest/) allows you to create

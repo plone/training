@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (configuring-customizing-label)=
 
 # Configuring and Customizing Plone "Through The Web"

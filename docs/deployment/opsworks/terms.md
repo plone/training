@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Deployment Terminology
 
 It's probably a good idea to be familar with a few core Chef concepts, though

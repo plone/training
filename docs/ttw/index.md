@@ -1,12 +1,23 @@
 ---
-:About: Customize Plone Through-The-Web
-:Level: Experienced
-:Status: Work in progress
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
 ---
 
 (ttw-label)=
 
 # "Through-The-Web" Plone Customization
+
+About
+: Customize Plone Through-The-Web
+
+Level
+: Experienced
+
+Status
+: Work in progress
 
 ```{warning}
 This chapter is still work in progress!

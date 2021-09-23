@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Can I talk to the supervisor?
 
 Miscellaneous topics that are related to Plone and WSGI but do not fit anywhere else (yet).

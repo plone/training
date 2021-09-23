@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Scratchpad
 
 Scratchpad for text snippets to be included somewhere else in the training.

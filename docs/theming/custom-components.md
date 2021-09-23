@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Creating Custom Components
 
 Plone is a powerful system and it provides many interesting features and function.

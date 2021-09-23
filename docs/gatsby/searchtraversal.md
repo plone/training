@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Search Traversal Method Of Retrieving Data
 
 In the previous chapter we covered how to fetch data for a single content object.

@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Installing The Development Environment
 
 First, we need last LTS NodeJS version (8.12.0 at writing time).

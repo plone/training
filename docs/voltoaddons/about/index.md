@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # About
 
 This training was created by [Tiberiu Ichim](https://github.com/tiberiuichim).

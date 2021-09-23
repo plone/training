@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Setup
 
 To install Plone and example packages for this training, first clone [collective.jstraining](https://github.com/collective/collective.jstraining), then execute the following commands:

@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Solr Testing
 
 `collective.solr` comes with a few test fixtures that make it easier to test Solr.

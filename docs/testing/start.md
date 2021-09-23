@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # How to test a Plone add-on
 
 To better understand how to test a Plone add-on, the best thing is to create a new Plone package from scratch

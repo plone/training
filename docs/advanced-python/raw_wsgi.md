@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # From Raw WSGI to a framework
 
 While useful for understanding how WSGI works, the examples

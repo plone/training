@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Solr GUI And Query Syntax
 
 In the next part we will take a closer look at the search GUI of Solr and its query syntax.

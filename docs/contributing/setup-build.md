@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (setup-build-label)=
 
 # Building and Checking the Quality of Documentation
@@ -90,7 +98,7 @@ Open `/_build/presentation/output.txt` for a list of broken links.
 
 ### `spellcheck`
 
-`spellcheck` checks the spelling of words
+`spellcheck` checks the spelling of words.
 See {ref}`authors-english-label` for configuration.
 
 ```shell
@@ -98,3 +106,13 @@ make spellcheck
 ```
 
 Open `/_build/spellcheck/` for each training's misspellings.
+
+
+### `html_meta`
+
+`html_meta` adds a meta data section to each chapter if missing.
+See {ref}`authors-html-meta-data-label` for more info.
+
+```shell
+make html_meta
+```

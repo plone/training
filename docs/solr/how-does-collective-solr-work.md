@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # How Does collective.solr Work
 
 We used to depend on `collective.indexing` as a means to hook into the normal catalog machinery of Plone to detect content changes.

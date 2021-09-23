@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (creating-initial-content-for-the-theme)=
 
 # Theme Package V: Creating Initial Content

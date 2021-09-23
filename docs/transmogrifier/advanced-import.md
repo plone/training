@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Advanced Pipeline Tips
 
 One of the most difficult things about Transmogrifier is being aware of everything that is possible in the pipeline.

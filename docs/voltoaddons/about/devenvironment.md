@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Developer integration with text editors
 
 [Visual Studio Code] provides a very good integration with the tooling used by

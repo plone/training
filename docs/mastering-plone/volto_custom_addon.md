@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (volto-custom-addon-label)=
 
 # Extending Volto With Custom Add-on Package

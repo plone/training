@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Managing The Plone Configuration From The Angular Project
 
 We have been customizing our Plone backend instance in order to comply with our project needs.

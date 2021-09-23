@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Theme Package III: Customizations
 
 In the previous sections we {doc}`prepared our setup <theme-package>` and

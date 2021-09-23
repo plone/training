@@ -61,6 +61,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx_copybutton",
     "sphinxcontrib.spelling",
+    "sphinxext.opengraph",
 ]
 
 # For more information see:
@@ -94,7 +95,7 @@ linkcheck_ignore = [
     r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
 ]
 linkcheck_anchors = False
-linkcheck_timeout = 5
+linkcheck_timeout = 10
 
 # This is our wordlist with know words, like Github or Plone ...
 spelling_word_list_filename = "spelling_wordlist.txt"
@@ -182,3 +183,15 @@ intersphinx_mapping = {
 # -- GraphViz configuration ----------------------------------
 
 graphviz_output_format = "svg"
+
+
+# -- OpenGraph configuration ----------------------------------
+
+ogp_site_url = "https://training.plone.org/5/"
+ogp_description_length = 200
+ogp_image = "https://training.plone.org/5/_static/logo.png"
+ogp_site_name = "Plone Training"
+ogp_type = "website"
+ogp_custom_meta_tags = [
+    '<meta property="og:locale" content="en_US" />',
+]

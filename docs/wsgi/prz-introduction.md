@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 (prz-label)=
 
 # Deploying Plone with WSGI using zc.buildout, plone.recipe.zope2instance and Waitress

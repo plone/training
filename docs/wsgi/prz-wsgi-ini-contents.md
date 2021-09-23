@@ -1,3 +1,11 @@
+---
+html_meta:
+  "description": ""
+  "property=og:description": ""
+  "property=og:title": ""
+  "keywords": ""
+---
+
 # Understanding the contents of `wsgi.ini`
 
 The file `wsgi.ini` references the `zope.conf` file, `zope.conf` is passed as an argument to the WSGI application defined by the Zope package.
