@@ -6,6 +6,8 @@ html_meta:
   "keywords": "Plone, training, glossary, term, definition"
 ---
 
+(glossary-label)=
+
 # Glossary
 
 ```{glossary}
