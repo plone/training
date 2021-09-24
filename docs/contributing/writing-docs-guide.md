@@ -214,7 +214,7 @@ This is MyST syntax for term ``{term}`React` ``
 
 ##### Glossary terms
 
-Add a term to the {doc}`glossary`, located at {file}`/glossary.md`.
+Add a term to the {ref}`glossary-label`, located at {file}`/glossary.md`.
 
 ```md
 React
@@ -222,7 +222,7 @@ React
     Volto, the frontend for Plone 6, uses React.
 ```
 
-Reference a term in the {doc}`glossary`.
+Reference a term in the {ref}`glossary-label`.
 
 ```md
 Using {term}`React` makes frontends fun again!
