@@ -1,6 +1,8 @@
 ---
 html_meta:
   "description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
+  "property=og:description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
+  "property=og:title": "Authors Guide"
   "keywords": "Plone, Trainings, SEO, meta, presentation, exercises, solutions, spellcheck, linkcheck, lexer"
 ---
 
@@ -15,18 +17,21 @@ For general markup syntax, see {doc}`writing-docs-guide`.
 
 (authors-html-meta-data-label)=
 
-## HTML meta data
+## HTML and Open Graph Metadata
 
 All documents must have an `html_meta` directive at the top of every page.
-When rendered to HTML, it inserts `<meta>` tags for search engine optimization.
-Authors should include at least `description` and `keywords` meta tags.
+When rendered to HTML, it inserts `<meta>` tags for improved search engine results and nicer social media posts.
+Authors should include at least `description`, `property=og:description`, `property=og:title`, and `keywords` meta tags.
 
 The following is an example of `html_meta`.
+Note that the content of the two tags `description` and `property=og:description` should be identical.
 
 ```md
 ---
 html_meta:
   "description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
+  "property=og:description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
+  "property=og:title": "Authors Guide"
   "keywords": "Plone, Trainings, SEO, meta, presentation, exercises, solutions, spellcheck, linkcheck, lexer"
 ---
 ```
@@ -35,8 +40,14 @@ This renders in the HTML `<head>` section as follows.
 
 ```html
 <meta content="Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors." name="description" />
+<meta content="Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors." property="og:description" />
+<meta content="Authors Guide" property="og:title" />
 <meta content="Plone, Trainings, SEO, meta, presentation, exercises, solutions, spellcheck, linkcheck, lexer" name="keywords" />
 ```
+
+Additional {term}`Open Graph` metadata is implemented through the Sphinx extension [`sphinxext-opengraph`](https://github.com/wpilibsuite/sphinxext-opengraph) and the [MyST `html_meta` directive](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#setting-html-metadata), which resolves to the [Docutils `meta` directive](https://docutils.sourceforge.io/docs/ref/rst/directives.html#metadata).
+See the site-wide configuration in {file}`conf.py`.
+
 
 (authors-presentation-markup-label)=
 
