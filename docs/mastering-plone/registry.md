@@ -121,7 +121,7 @@ displayed_types = registry.get('plone.displayed_types')
 The value of the record `displayed_types` is the tuple `('Image', 'File', 'Link', 'News Item', 'Folder', 'Document', 'Event', 'talk')`
 
 
-## Managing custom registry records
+## A UI for custom registry records
 
 Now let's add our own custom settings:
 
@@ -333,7 +333,7 @@ When creating a new vanilla Plone instance, a lot of default settings are create
 
 Now you will add a custom control panel to edit all setting related to our package with a nice UI.
 
-To register a controlpanel in Volto and Plone Classic you need quite a bit of boiler-plate:
+To register a controlpanel for the frontend and Plone Classic you need quite a bit of boiler-plate:
 
 ```{code-block} python
 :emphasize-lines: 1-2, 4, 147-165
@@ -497,7 +497,7 @@ class PloneConfControlPanelFormWrapper(ControlPanelFormWrapper):
 
 @adapter(Interface, Interface)
 class PloneConfRegistryConfigletPanel(RegistryConfigletPanel):
-    """Volto control panel"""
+    """frontend control panel configlet"""
     schema = IPloneconfSettings
     schema_prefix = 'ploneconf'
     configlet_id = 'ploneconf-controlpanel'
@@ -549,7 +549,7 @@ Add a file {file}`profiles/default/controlpanel.xml`:
 
 After applying the profile (e.g. by reinstall the package) your control panel shows up.
 
-In Volto it is at <http://localhost:3000/controlpanel/ploneconf-controlpanel>
+In frontend it is at <http://localhost:3000/controlpanel/ploneconf-controlpanel>
 
 ```{figure} _static/volto_ploneconf_controlpanel.png
 ```
