@@ -105,3 +105,7 @@ BUNDLE_ANALYZE=true yarn build
 If you're running automated builds you can configure a new bundle analyzer with
 static output, to save the report in a static html file. See
 webpack-bundle-analyzer docs.
+
+To optimize this scenario Volto provides the `injectLazyLibs` HOC, which
+deferrs rendering the wrapped component until the third-party dependency is
+fully loaded.

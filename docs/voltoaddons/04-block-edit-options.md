@@ -8,11 +8,13 @@ html_meta:
 
 # Block editing with a form
 
-We'll add editing to the block. The most basic schema looks something like
-this:
+We'll add schema-based editing of the block settings. In Volto the convention
+is to use schema generated from a function, so that the resulting object can be
+freely mutated, as it comes form a closure. The most basic schema would look
+something like this:
 
 ```jsx
-export const TableSchema = () => ({
+export const TableSchema = ({formData, intl}) => ({
   title: 'Table',
   fieldsets: [
     {
@@ -53,7 +55,8 @@ const Widget =
   getWidgetDefault();
 ```
 
-Now we add a basic schema to control the table styling:
+Now we add a basic schema to control the table styling. Create the
+`src/DataTable/schema.js` file:
 
 ```jsx
 import { defineMessages } from 'react-intl';
@@ -77,7 +80,8 @@ export const TableSchema = ({ intl }) => ({
   properties: {
     file_path: {
       title: intl.formatMessage(messages.dataFile),
-      widget: 'pick_object',
+      widget: 'object_browser',
+      mode: 'link',
     },
     fixed: {
       type: 'boolean',
@@ -155,6 +159,11 @@ internationalization.
 To use the schema we need to change the block edit component:
 
 ```jsx
+...
+import { InlineForm } from '@plone/volto/components';
+import { TableSchema } from './schema';
+...
+
 const DataTableEdit = (props) => {
   const { selected, onChangeBlock, block, data } = props;
   const schema = TableSchema(props);
@@ -199,7 +208,8 @@ const DataTableEdit = (props) => {
             <Icon name={tableSVG} size="100px" color="#b8c6c8" />
             <Field
               id="file_path"
-              widget="pick_object"
+              widget="object_browser"
+              mode="link"
               title="Pick a file"
               value={data.file_path || []}
               onChange={(id, value) => {
@@ -230,7 +240,7 @@ And now the view module can become:
 
 import React from 'react';
 import { Table } from 'semantic-ui-react';
-import { withFileData } from '@plone-collective/datatable-tutorial/hocs';
+import { withFileData } from '@plone-collective/volto-datatable-tutorial/hocs';
 
 const format = (data) => {
   return {
@@ -270,7 +280,7 @@ const DataTableView = ({ file_data, data }) => {
   );
 };
 
-export default withFileData(({ data: { file_path } }) => file_path)(
+export default withFileData(({ data: { file_path } }) => file_path?.[0])(
   DataTableView
 );
 ```
@@ -311,7 +321,8 @@ const withBlockDataSource = (opts) => (WrappedComponent) => {
                 <Icon name={icon} size="100px" color="#b8c6c8" />
                 <Field
                   id="file_path"
-                  widget="pick_object"
+                  widget="object_browser"
+                  mode="link"
                   title="Pick a file"
                   value={file_path || []}
                   onChange={(id, value) => {
@@ -347,12 +358,28 @@ const withBlockDataSource = (opts) => (WrappedComponent) => {
 export default withBlockDataSource;
 ```
 
-Within `src/DataTable/DataTableEdit.js` now import the newly added `withBlockDataSource`
-higher order component and make use of it by replacing the DataTableEdit component and it's export with:
+Make sure to export this new hoc from the `src/hocs/index.js` file, with:
 
 ```jsx
-// ... previous imports remain intact plus the following
-import { withBlockDataSource } from '@plone-collective/datatable-tutorial/hocs';
+export withFileData from './withFileData';
+export withBlockDataSource from './withBlockDataSource';
+```
+
+Within `src/DataTable/DataTableEdit.js` now import the newly added
+`withBlockDataSource` higher order component and make use of it by replacing
+the DataTableEdit component and it's export with:
+
+```jsx
+import React from 'react';
+import { InlineForm, SidebarPortal } from '@plone/volto/components';
+import tableSVG from '@plone/volto/icons/table.svg';
+
+import { withBlockDataSource } from '@plone-collective/volto-datatable-tutorial/hocs';
+
+import { TableSchema } from './schema';
+import DataTableView from './DataTableView';
+
+import './datatable-edit.less';
 
 const DataTableEdit = (props) => {
   const { selected, onChangeBlock, block, data } = props;
@@ -381,7 +408,7 @@ const DataTableEdit = (props) => {
 export default withBlockDataSource({
   icon: tableSVG,
   title: 'Data table',
-  getFilePath: ({ data: { file_path } }) => file_path,
+  getFilePath: ({ data: { file_path } }) => file_path?.[0],
 })(DataTableEdit);
 ```
 

@@ -9,42 +9,13 @@ html_meta:
 # Customizable columns
 
 Let's add a bit more control over how the columns are rendered. This is quite
-a "low hanging fruit" thanks to the [volto-object-widget] add-on. This add-on
-has another dependency, the [volto-blocks-form], so let's add them both:
+a "low hanging fruit" thanks to Volto's built-in `ObjectWidget` and
+`ObjectWidgetList`.
 
-```sh
-yarn workspace @plone-collective/datatable-tutorial add eea/volto-object-widget
-yarn workspace @plone-collective/datatable-tutorial add eea/volto-blocks-form
-```
-
-```{note}
-You can use a specific version or branch when adding the dependency,
-research first the latest released version for these add-ons
-```
-
-Add the volto-object-widget add-on in the project's package.json:
-
-```json
-{
-  "addons": [
-    "@eeacms/volto-blocks-form",
-    "@eeacms/volto-object-widget",
-    "@plone-collective/datatable-tutorial"
-  ]
-}
-```
-
-The order in which we load the add-ons can sometimes be relevant. Ideally the
-configuration options are used only at "runtime", on demand, but there are
-cases when an add-on can depend on a specific configuration at "configure time".
-
-It's not our case, though. It's still a good idea to list generic add-ons first.
-
-```{note}
-we've had to add `@eeacms/volto-blocks-form` to the add-ons list to help
-Volto's webpack resolver, as we're distributing this add-on in "source code
-form".
-```
+Note: these components were ported from the [eea/volto-object-widget] add-on,
+where they were placed initially. By themselves, they are more or less a remix
+of Volto's builtin Form, but adjusted to provide an equivalent of the classic
+DataGridField.
 
 What would we like to change about the columns? Let's go for: title, text align
 and another field that would allow us to tweak how the values are rendered.
@@ -53,7 +24,7 @@ We'll continue without i18n integration for now, to keep things simpler.
 Within `src/DataTable/schema.js` add:
 
 ```jsx
-const ColumnSchema = (props) => ({
+const ColumnSchema = () => ({
   title: 'Column',
   fieldsets: [
     {
@@ -99,7 +70,7 @@ properties: {
       title: 'Columns',
       description: 'Leave empty to show all columns',
       schema: ColumnSchema({ intl }),
-      widget: 'object_list_inline',
+      widget: 'object_list',
     },
 }
 ```
@@ -163,6 +134,7 @@ We'll need to also inject the file data to the edit form, we didn't need to
 before, but now it needs to know what are the available columns. Now that we're
 wrapping the edit component in two HOCs, we'll use Redux's compose to play
 nice.
+
 This means that we need to first import the `compose` method from redux within our
 `src/DataTable/DataTableEdit.js` file:
 
@@ -177,7 +149,7 @@ import {
 Then within `src/DataTable/DataTableEdit.js` add bellow the `DataTableEdit` code block:
 
 ```jsx
-const getFilePath = ({ data: { file_path } }) => file_path;
+const getFilePath = ({ data: { file_path } }) => file_path?.[0];
 
 export default compose(
   withFileData(getFilePath),
@@ -188,6 +160,15 @@ export default compose(
   }),
 )(DataTableEdit);
 ```
+
+Adjust `withFileData.js` to match the fact that we pass it directly the file path
+and not an array:
+
+```
+const id = file_path?.['@id'];
+```
+
+## Use the columns in the view
 
 Let's go back to the view component and use the column definitions from the
 block data.
