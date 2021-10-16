@@ -2,7 +2,7 @@
 html_meta:
   "description": ""
   "property=og:description": ""
-  "property=og:title": ""
+  "property=og:title": "Volto add-ons development"
   "keywords": ""
 ---
 
@@ -52,7 +52,10 @@ Yarn is used as an installer, to run scripts but also as a "virtual
 environment", by using its workspaces feature. Typically you'll start Volto
 applications with `yarn start`, use `yarn test` but you can also integrate
 the `mrs-developer` library and run `yarn missdev` to do tasks similar to
-mr.developer in Buildout projects.
+mr.developer in Buildout projects. If you're not sure what these or
+any other `yarn` commands do, it's a good idea to examine your project's
+`package.json` file, in the `scripts` section, where you'll usually find those
+scripting aliases defined.
 
 To bootstrap a new Volto project, you can use a scaffolding tool based on
 Yeoman, generator-volto. First install it as a global tool (use [NVM] if you're
@@ -66,27 +69,168 @@ npm install -g @plone/generator-volto
 Then you can bootstrap the project with:
 
 ```shell
-yo @plone/volto myvoltoproject
+yo @plone/volto volto-tutorial-project
 ```
 
 The yo-based generator partially integrates add-ons (it can generate a
-`package.json` with add-ons and workspaces already specified).
+`package.json` with add-ons and workspaces already specified). When prompted
+to add addons, choose `false`.
+
+Now you can start your newly created Volto project:
+
+```
+cd volto-tutorial-project
+yarn start
+```
+
+You can login with admin/admin.
+
+## Bootstrap an add-on
+
+Let's start creating an add-on. We'll create a new scoped package:
+`@plone-collective/datatable-tutorial`. Inside your Volto project, bootstrap
+the add-on by running (in the Volto project root):
+
+```shell
+yo @plone/volto:addon
+```
+
+Note: the namespace `@plone-collective` (or any other) is not required and is
+optional.  We're using namespaces to group add-ons under a common "group".
+Unfortunately the NPM `@collective` scope is not available to the Plone
+community.
+
+Use `@plone-collective/volto-datatable-tutorial` as the package name. After the
+scaffolding of the addon completes, you can check the created files in
+`src/addons/volto-datatable-tutorial`.
+
+Back to the project, you can edit `jsconfig.json` and add your add-on:
+
+```json
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {
+            "@plone-collective/volto-datatable-tutorial": [
+                "addons/volto-datatable-tutorial/src"
+            ]
+        }
+    }
+}
+```
+
+```{note}
+The `jsconfig.json` file is needed by Volto to identify development
+packages. You are not strictly limited to Volto add-ons in its use, you
+could, for example, use this to make it easier to debug third-party
+Javascript packages that are shipped transpiled.
+```
+
+### (Optional) Use mrs-developer to sync addon to Github
+
+You can also immediately push the package to Github then use [mrs-developer]
+to manage the package and `jsconfig.json` changes.
+
+Install mrs-developer as a development dependency by running:
+
+```shell
+yarn add -W -D mrs-developer
+```
+
+Create a `mrs.developer.json` with the following content (adjust it according
+to your names and repository location):
+
+```json
+ {
+     "volto-datatable-tutorial": {
+         "url": "https://github.com/collective/datatable-tutorial.git",
+         "path": "src",
+         "package": "@plone-collective/volto-datatable-tutorial",
+         "branch": "main"
+     }
+}
+```
+
+Then run `yarn develop`, which will bring the package in `src/addons` and
+adjust `jsconfig.json`.
+
+### Add the addon as workspace
+
+The Volto project is itself a Javascript package, and we want to "plug" here
+other Javascript packages that we will develop. The Volto project itself
+becomes a monorepo, with the Volto project being the "workspace root" and each
+addon needs to be a "workspace", so that yarn knows that it should include that
+addon location as a package and install its dependencies.
+
+Change the Volto project's `package.json` to include something like:
+
+```json
+{
+    "private": "true",
+    "workspaces": [
+        "src/addons/volto-datatable-tutorial"
+    ],
+}
+```
+
+```{note}
+Don't be scared by that `private:true` in the Volto project package.json,
+it's only needed to make sure you can't accidentally publish the package to
+NPM.
+```
+
+### Managing addon dependencies
+
+To be able to add dependencies to the add-on you need to add them via the
+workspaces machinery, by running something like (at the Volto project root):
+
+```console
+yarn workspaces info
+yarn workspace @plone-collective/volto-datatable-tutorial add papaparse
+```
+
+````{note}
+There are several other add-on templates, such as [voltocli] or [EEA Add-on
+Template][eea add-on template]. You could very well decide not to use any of
+them and simply bootstrap a new add-on by running:
+
+```console
+mkdir -p src/addons/datatable-tutorial
+cd src/addons/datatable-tutorial
+npm init
+```
+
+So, remember, an add-on is just a Javascript package that export
+a configuration loader. Just make sure to point the `main` in
+`package.json` to `src/index.js`.
+````
+
+### Load the addon in Volto
+
+To tell Volto about our new addon, add it to the `addons` key of the Volto
+project package.json:
+
+```
+...
+"addons": ["@plone-collective/volto-datatable-tutorial"]
+...
+```
 
 ## Addons - first look
 
-Although still in their infancy, 2020 is the year of the Volto add-ons.  The
+Although still in their infancy, 2020 was the year of the Volto add-ons.  The
 Beethoven Sprint was a key moment in arriving at a consensus on how to load the
 addons and what capabilities they should have. With a common understanding on
 what exactly is an add-on, many new add-ons were published and can now be
 integrated with unmodified Volto projects.
 
-The [collective/awesome-volto](https://github.com/collective/awesome-volto) repo tracks most of them (submit PRs if
-there's anything missing!).
+The [collective/awesome-volto](https://github.com/collective/awesome-volto)
+repo tracks most of them (submit PRs if there's anything missing!).
 
 An add-on can be almost anything that a Volto project can be. They can:
 
 - provide additional views and blocks
-- override or extend Volto's builtin views, blocks, settings
+- override or extend Volto's builtin views, blocks and settings
 - shadow (customize) Volto's (or another add-on's) modules
 - register custom routes
 - provide custom Redux actions and reducers
@@ -100,8 +244,8 @@ configuration registry. These are the "addon configuration loaders".
 
 ```{note}
 To make things easy, add-ons should be distributed as source, non
-transpiled. Volto's Webpack setup will load/transpile add-on packages if
-they are identified as Volto add-ons.
+transpiled. Volto's Webpack setup integrates all development loaders (Babel
+transpilation, less loading, etc) if they are identified as Volto add-ons.
 ```
 
 Their `main` entry in `package.json` should point to `src/index.js`,
@@ -119,8 +263,8 @@ optional configuration loader.
 
 The `config` object that is passed is the Volto `configuration registry`,
 the singleton module referenced throughout the Volto and projects as
-`~/config`. The add-on can mutate the properties of config, such as
-`settings`, `blocks`, `views`, `widgets` or its dedicated
+by importing `@plone/volto/registry`. The add-on can mutate the properties of
+config, such as `settings`, `blocks`, `views`, `widgets` or its dedicated
 `addonRoutes` and `addonReducers`.
 
 Note: the add-on configuration loading mechanism is inspired by Razzle, which
@@ -150,122 +294,14 @@ Notice that the add-ons should be named by their package name, plus any
 additional optional configuration loaders that are exported by the add-on's
 `src/index.js`.
 
-## Bootstrap an add-on
+## Develop a basic block
 
-Let's start creating an add-on. We'll create a new scoped package:
-`@plone-collective/datatable-tutorial`. Inside your Volto project, bootstrap
-the add-on by running (in the Volto project root):
+Now that the "infrastructure" is all set, we have our Volto project with the
+addon loaded, we can finally start programming for Volto!
 
-```shell
-yo @plone/volto:addon
-```
+### Create a new block
 
-Note: the namespace `@plone-collective` (or any other) is not required and is
-optional.  We're using namespaces to group add-ons under a common "group".
-Unfortunately the NPM `@collective` scope is not available to the Plone
-community.
-
-Use `@plone-collective/datatable-tutorial` as the package name and
-`src/index.js` as the package main script. Create `src/index.js` with the
-following content:
-
-```jsx
-export default (config) => config;
-```
-
-Back to the project, you can edit `jsconfig.json` and add your add-on:
-
-```json
-{
-    "compilerOptions": {
-        "baseUrl": "src",
-        "paths": {
-            "@plone-collective/datatable-tutorial": [
-                "addons/datatable-tutorial/src"
-            ]
-        }
-    }
-}
-```
-
-```{note}
-The `jsconfig.json` file is needed by Volto to identify development
-packages. You are not strictly limited to Volto add-ons in its use, you
-could, for example, use this to make it easier to debug third-party
-Javascript packages that are shipped transpiled.
-```
-
-You can also immediately push the package to Github then use [mrs-developer]
-to manage the package and `jsconfig.json` changes.
-
-Install mrs-developer as a development dependency by running:
-
-```shell
-yarn add -W -D mrs-developer
-```
-
-Create a `mrs.developer.json` with the following content:
-
-```json
- {
-     "datatable-tutorial": {
-         "url": "https://github.com/collective/datatable-tutorial.git",
-         "path": "src",
-         "package": "@plone-collective/datatable-tutorial",
-         "branch": "master"
-     }
-}
-```
-
-Then run `yarn develop`, which will bring the package in `src/addons` and
-adjust `jsconfig.json`.
-
-When developing add-ons that have third-party dependencies, you need to add the
-addon as workspace to the Volto project. Change the Volto project's
-`package.json` to include something like:
-
-```json
-{
-    "private": "true",
-    "workspaces": [
-        "src/addons/datatable-tutorial"
-    ],
-}
-```
-
-```{note}
-Don't be scared by that `private:true` in the Volto project package.json,
-it's only needed to make sure you can't accidentally publish the package to
-NPM
-```
-
-To be able to add dependencies to the add-on you need to add them via the
-workspaces machinery, by running something like (at the Volto project root):
-
-```console
-yarn workspaces info
-yarn workspace @plone-collective/datatable-tutorial add papaparse
-```
-
-````{note}
-There are several other add-on templates, such as [voltocli] or [EEA Add-on
-Template][eea add-on template]. You could very well decide not to use any of them and simply
-bootstrap a new add-on by running:
-
-```console
-mkdir -p src/addons/datatable-tutorial
-cd src/addons/datatable-tutorial
-npm init
-```
-
-So, remember, an add-on is just a Javascript package that export
-a configuration loader. Just make sure to point the `main` in
-`package.json` to `src/index.js`.
-````
-
-## Create a new block
-
-- Create `DataTable/DataTableView.jsx`
+- Create `src/DataTable/DataTableView.jsx`
 
 ```jsx
 import React from 'react';
@@ -298,7 +334,9 @@ We're reusing the block view component referenced from the edit component, to
 speed things up.
 
 ```{note}
-We will be using [function components](https://reactjs.org/docs/components-and-props.html#function-and-class-components) here. There is no rule in Volto
+We will be using [function
+components](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
+here. There is no rule in Volto
 that requires choosing between class components or function components,
 pick whichever feels better. Volto itself uses both styles. Although the
 function components are newer API and the use of hooks can make things more
@@ -321,29 +359,26 @@ export DataTableEdit from './DataTableEdit';
 ```jsx
 import tableSVG from '@plone/volto/icons/table.svg';
 
-import DataTableView from './DataTable/DataTableView';
-import DataTableEdit from './DataTable/DataTableEdit';
-
-export { DataTableView, DataTableEdit };
+import { DataTableView, DataTableEdit } from './DataTable';
 
 export default (config) => {
-    config.blocks.blocksConfig.dataTable = {
-        id: 'dataTable',
-        title: 'Data Table',
-        icon: tableSVG,
-        group: 'common',
-        view: DataTableView,
-        edit: DataTableEdit,
-        restricted: false,
-        mostUsed: false,
-        sidebarTab: 1,
-        security: {
-          addPermission: [],
-          view: [],
-        },
-    };
-    return config;
-}
+  config.blocks.blocksConfig.dataTable = {
+    id: 'dataTable',
+    title: 'Data Table',
+    icon: tableSVG,
+    group: 'common',
+    view: DataTableView,
+    edit: DataTableEdit,
+    restricted: false,
+    mostUsed: true,
+    sidebarTab: 1,
+    security: {
+      addPermission: [],
+      view: [],
+    },
+  };
+  return config;
+};
 ```
 
 Instantiate the new block in a Volto page then save the page. This is a small
@@ -395,6 +430,8 @@ export default DataTableEdit;
 ```
 
 The `<Form>` component in our case is used only for styling purposes.
+
+TODO: change here
 
 We want to show a field to browse to a file. Notice the `widget` parameter of
 the field. This widget is not registered by default in Volto, let's register

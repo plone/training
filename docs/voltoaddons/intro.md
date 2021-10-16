@@ -29,7 +29,7 @@ Some technologies and tools we use during the training:
 - [React] & JSX
 - [Yarn]
 - [Volto] and [Plone], of course
-- [create-volto-app] and [generator-volto]
+- [generator-volto]
 
 This training assumes that you have already taken (either in person at a Plone
 Conference or online) the existing React and Volto trainings. If you're
@@ -47,7 +47,7 @@ addons and how to deploy them.
 
 ### Roadmap
 
-- bootstrap a Volto project using the generator-volto Yeoman generator
+- bootstrap a Volto project using the `@plone/volto` skeleton generator
 - bootstrap a Volto add-on from scratch
 - develop a simple Volto block
 - write an action/reducer pair for network requests
@@ -80,10 +80,11 @@ You'll need to have a Plone instance with plone.restapi integrate. The quickest
 way to get a Plone instance running is with Docker:
 
 ```shell
-docker run -it --rm --name=plone -p 8080:8080 \
-    -e SITE=Plone -e ADDONS="kitconcept.volto" \
-    -e ZCML="kitconcept.volto.cors" \
-    -e PROFILES="kitconcept.volto:default-homepage" plone
+docker run -it --rm --name=plone \
+  -p 8080:8080 -e SITE=Plone -e ADDONS="plone.volto" \
+  -e ZCML="plone.volto.cors" \
+  -e PROFILES="plone.volto:default-homepage" \
+  plone
 ```
 
 If you have the whole tool chain setup to develop Plone, you can also clone
@@ -93,9 +94,9 @@ and use Volto's development backend setup:
 git clone https://github.com/plone/volto
 cd volto
 make build-backend
+make start-backend
 ```
 
-[create-volto-app]: https://github.com/plone/create-volto-app
 [generator-volto]: https://github.com/plone/generator-volto
 [plone]: https://plone.org
 [react]: https://reactjs.org/
