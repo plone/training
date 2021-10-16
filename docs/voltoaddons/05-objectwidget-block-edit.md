@@ -293,8 +293,8 @@ if (!config.widgets.widget.text_align)
     config.widgets.widget.text_align = TextAlign;
 ```
 
-An widget is a component with three main properties: `id`, `value` and
-`onChange`. The widget needs to call back the `onChange` with
+An widget is a component with three main props: `id`, `value` and `onChange`.
+The widget needs to call back the `onChange` with
 id and new value. To conform to the UI requirements Volto provides the
 `FormFieldWrapper` component which works on a very nice and easy principle:
 drop whatever control inside it, as a child and it will render that control
@@ -302,23 +302,19 @@ neatly wrapped with the label, description, error messages, etc. This concept
 is somewhat similar to Zope's ZPT macro and slot system.
 
 Now go back to the schema and let's use the new text align widget.
-Within `src/DataTable/schema.js` uncomment the widget use from `TableSchema textAlign property`:
+Within `src/DataTable/schema.js` uncomment the widget use from `TableSchema
+textAlign property` and remove the `choices` property.
 
 ```jsx
 // change in TableSchema properties
 textAlign: {
   title: 'Align',
   widget: 'text_align', // we can now use the text_align widget
-  choices: [
-    ['left', 'left'],
-    ['center', 'center'],
-    ['right', 'right'],
-  ],
 },
 ```
 
 ```{note}
-volto-object-widget provides drag/drop sorting of the columns so it's
+The `objectwidget_list` widget provides drag/drop sorting of the columns so it's
 possible to reorder the columns.
 ```
 
