@@ -410,9 +410,10 @@ const DataTableEdit = (props) => {
           <Form>
             <Field
               id="file_path"
-              widget="pick_object"
-              title="Pick file"
+              widget="object_browser"
+              title="File"
               value={data.file_path || []}
+              mode="link"
               onChange={(id, value) =>
                 onChangeBlock(block, { ...data, [id]: value })
               }
@@ -430,27 +431,6 @@ export default DataTableEdit;
 ```
 
 The `<Form>` component in our case is used only for styling purposes.
-
-TODO: change here
-
-We want to show a field to browse to a file. Notice the `widget` parameter of
-the field. This widget is not registered by default in Volto, let's register
-it, add this in the add-on configuration loader in `src/index.js`:
-
-```jsx
-import { ObjectBrowserWidgetMode } from '@plone/volto/components/manage/Widgets/ObjectBrowserWidget';
-
-...
-
-if (!config.widgets.widget.pick_object)
-    config.widgets.widget.pick_object = ObjectBrowserWidgetMode('link');
-```
-
-By doing so we're instantiating a new ObjectBrowserWidget component that will
-work in the "link" mode. We're registering a new widget called "pick_object".
-By passing `widget="pick_widget"` to the `<Field>` component we're
-instructing the form field machinery lookup the `pick_object` widget in the
-widgets Volto registry.
 
 ```{note}
 We'll need a CSV file to play around while developing this add-on. We have
