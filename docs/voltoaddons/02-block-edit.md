@@ -12,6 +12,40 @@ Let's improve the block edit. We'll detect when the block has just been added
 and provide the user with a way to immediately pick a file, from the block's
 main area.
 
+
+## Style the block with LESS files
+
+Add the following `datatable-edit.less` file:
+
+```{code-block} less
+:force: true
+
+ @type: 'extra';
+ @element: 'custom';
+
+ @import (multiple) '../../theme.config';
+
+ .dataTable-edit {
+   background: @offWhite;
+
+   .form {
+     display: flex;
+     max-width: 26em !important;
+     min-height: 10em;
+     flex-direction: column;
+     justify-content: center;
+     margin: 0 auto;
+   }
+ }
+```
+
+Notice that by importing `'../../theme.config'` we're able to have access to
+Volto's (and, by extension, all SemanticUIs) LESS variables.
+
+## User-friendly block edit behavior
+
+Then change the `DataTableEdit.jsx` file to something like this:
+
 ```jsx
 import React from 'react';
 import { Segment, Form } from 'semantic-ui-react';
@@ -43,7 +77,8 @@ const DataTableEdit = (props) => {
             <Form>
               <Field
                 id="file_path"
-                widget="pick_object"
+                widget="object_browser"
+                mode="link"
                 title="Data file"
                 value={data.file_path || []}
                 onChange={(id, value) => {
@@ -66,7 +101,8 @@ const DataTableEdit = (props) => {
             <Icon name={tableSVG} size="100px" color="#b8c6c8" />
             <Field
               id="file_path"
-              widget="pick_object"
+              widget="object_browser"
+              mode="link"
               title="Pick a file"
               value={data.file_path || []}
               onChange={(id, value) => {
@@ -91,35 +127,12 @@ a placeholder icon, otherwise we're showing the field to edit the picked file.
 In the main block area, if we don't have a file picked we're showing the file
 input, otherwise we're showing the View component.
 
-Add the following `datatable-edit.less` file:
-
-```{code-block} less
-:force: true
-
- @type: 'extra';
- @element: 'custom';
-
- @import (multiple) '../../theme.config';
-
- .dataTable-edit {
-   background: @offWhite;
-
-   .form {
-     display: flex;
-     max-width: 26em !important;
-     min-height: 10em;
-     flex-direction: column;
-     justify-content: center;
-     margin: 0 auto;
-   }
- }
-```
-
-Notice that by importing `'../../theme.config'` we're able to have access to
-Volto's (and, by extension, all SemanticUIs) LESS variables.
+## Fetching data for the block
 
 For the view we'll fetch the data directly from Plone and bring it to the
-client browser.
+client browser. What we actually want is the data coming from the `@@download`
+view of that file, something which is not treated by Volto's "get content"
+machinery, so we'll need to write our own flavour of data fetching.
 
 ```{note}
 There are other possible approaches to this problem, including transforming
@@ -142,7 +155,7 @@ one of the blocks as an async request.
 ```jsx
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRawContent } from '@plone-collective/datatable-tutorial/actions';
+import { getRawContent } from '@plone-collective/volto-datatable-tutorial/actions';
 
 const DataTableView = (props) => {
   const {
@@ -170,16 +183,16 @@ export default DataTableView;
 
 We'll need to write a new action/reducer pair to fetch the data.
 
-Create action type in the `constants.js` file:
+Create action type in the `src/constants.js` file:
 
 ```jsx
 export const GET_RAW_CONTENT = 'GET_RAW_CONTENT';
 ```
 
-Create the `rawcontent.js` action module:
+Create the `src/actions.js` action module:
 
 ```jsx
-import { GET_RAW_CONTENT } from '@plone-collective/datatable-tutorial/constants';
+import { GET_RAW_CONTENT } from './constants';
 
 export function getRawContent(url, headers = {}) {
   return {
@@ -194,12 +207,12 @@ export function getRawContent(url, headers = {}) {
 }
 ```
 
-Then create the `reducers/rawdata.js` module:
+Then create the `src/reducers.js` module:
 
 ```jsx
-import { GET_RAW_CONTENT } from '@plone-collective/datatable-tutorial/constants';
+import { GET_RAW_CONTENT } from './constants';
 
-export default function rawdata(state = {}, action = {}) {
+export function rawdata(state = {}, action = {}) {
   let { result, url } = action;
 
   switch (action.type) {
@@ -259,11 +272,16 @@ to know:
 Finally, register the add-on reducer. In `src/index.js`'s default export:
 
 ```jsx
+...
 import { rawdata } from './reducers';
-
 ...
 
-config.addonReducers.rawdata = rawdata;
+export default (config) => {
+  config.addonReducers.rawdata = rawdata;
+  ...
+  return config;
+}
+
 ```
 
 [api]: https://github.com/plone/volto/blob/master/src/middleware/api.js
