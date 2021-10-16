@@ -13,9 +13,10 @@ Let's add CSV file parsing.
 There are many CSV parsers available for Nodejs, we'll use [Papaparse] because
 it also works in the browser.
 
-We'll need to add the dependency to the add-on. When using yarn workspaces, the
+We'll need to add the dependency to the add-on, if you haven't already done so,
+as instructed in the first chapter. When using yarn workspaces, the
 workflow is a bit different. For our simple use case, we could probably run
-`yarn add papaparse` inside the `src/addons/datatable-tutorial`, but
+`yarn add papaparse` inside the `src/addons/volto-datatable-tutorial`, but
 the correct way is to run this command through the project root.
 
 First run `yarn workspaces info` to see the workspaces we have available.
@@ -23,8 +24,8 @@ First run `yarn workspaces info` to see the workspaces we have available.
 ```sh
 > yarn workspaces info
 {
-  "@plone-collective/datatable-tutorial": {
-    "location": "src/addons/datatable-tutorial",
+  "@plone-collective/volto-datatable-tutorial": {
+    "location": "src/addons/volto-datatable-tutorial",
     "workspaceDependencies": [],
     "mismatchedWorkspaceDependencies": []
   }
@@ -34,7 +35,7 @@ First run `yarn workspaces info` to see the workspaces we have available.
 To add a dependency to the package, run:
 
 ```sh
-> yarn workspace @plone-collective/datatable-tutorial add papaparse
+> yarn workspace @plone-collective/volto-datatable-tutorial add papaparse
 ```
 
 And finally, the new block code:
@@ -44,7 +45,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Table } from 'semantic-ui-react';
 import csv from 'papaparse';
-import { getRawContent } from '@plone-collective/datatable-tutorial/actions';
+import { getRawContent } from '@plone-collective/volto-datatable-tutorial/actions';
 
 const DataTableView = ({ data: { file_path } }) => {
   const id = file_path?.[0]?.['@id'];
@@ -109,7 +110,8 @@ and look are separated. This has many benefits: it makes components easier to
 write and test, it separates business logic in reusable behaviors, etc.
 
 So, can we abstract the data grabbing logic? Let's write a simple Higher Order
-Component (HOC) that does the data grabbing:
+Component (HOC) that does the data grabbing. The simplest HOC wrapper looks
+like this:
 
 ```jsx
 const withFileData = (WrappedComponent) => {
@@ -119,6 +121,9 @@ const withFileData = (WrappedComponent) => {
 export default withFileData(DataTableView);
 ```
 
+Notice the similarity with Python decorators, but in our case the HOC is
+a function that returns a react component.
+
 And now let's move the file download and parsing logic to this HOC.
 We'll create the `src/hocs/withFileData.js` file:
 
@@ -127,7 +132,7 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import csv from 'papaparse';
-import { getRawContent } from '@plone-collective/datatable-tutorial/actions';
+import { getRawContent } from '@plone-collective/volto-datatable-tutorial/actions';
 
 const withFileData = (WrappedComponent) => {
   return (props) => {
@@ -171,10 +176,17 @@ PascalCase in JSX code.
 
 And now the view component is simple, neat and focused:
 
+Now write the `src/hocs/index.js` file where you export the new HOC.
+
+```
+import withFileData from './withFileData';
+export { withFileData };
+```
+
 ```jsx
 import React from 'react';
 import { Table } from 'semantic-ui-react';
-import { withFileData } from '@plone-collective/datatable-tutorial/hocs';
+import { withFileData } from '@plone-collective/volto-datatable-tutorial/hocs';
 
 const DataTableView = ({ file_data }) => {
   const fields = file_data?.meta?.fields || [];
