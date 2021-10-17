@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+"description": "Volto add-ons development training module 2, add-ons block edit"
+"property=og:description": "Volto add-ons development training"
+"property=og:title": "Volto add-ons development"
+"keywords": "Volto"
 ---
 
 # Basic working block
@@ -15,7 +15,7 @@ main area.
 
 ## Style the block with LESS files
 
-Add the following `datatable-edit.less` file:
+Add the following `src/DataTable/datatable-edit.less` file:
 
 ```{code-block} less
 :force: true
@@ -40,11 +40,11 @@ Add the following `datatable-edit.less` file:
 ```
 
 Notice that by importing `'../../theme.config'` we're able to have access to
-Volto's (and, by extension, all SemanticUIs) LESS variables.
+Volto's (and, by extension, all Semantic UI) LESS variables.
 
 ## User-friendly block edit behavior
 
-Then change the `DataTableEdit.jsx` file to something like this:
+Then change the `src/DataTable/DataTableEdit.jsx` file to something like this:
 
 ```jsx
 import React from 'react';
@@ -123,16 +123,16 @@ export default DataTableEdit;
 ```
 
 So, in the sidebar area, if we don't have a file picked, we're just showing
-a placeholder icon, otherwise we're showing the field to edit the picked file.
+a placeholder icon, otherwise, we're showing the field to edit the picked file.
 In the main block area, if we don't have a file picked we're showing the file
-input, otherwise we're showing the View component.
+input, otherwise we're showing the `View` component.
 
 ## Fetching data for the block
 
-For the view we'll fetch the data directly from Plone and bring it to the
-client browser. What we actually want is the data coming from the `@@download`
+For the view, we'll fetch the data directly from Plone and bring it to the
+client browser. What we want is the data coming from the `@@download`
 view of that file, something which is not treated by Volto's "get content"
-machinery, so we'll need to write our own flavour of data fetching.
+machinery, so we'll need to write our flavor of data fetching.
 
 ```{note}
 There are other possible approaches to this problem, including transforming
@@ -258,16 +258,15 @@ The reducer code looks scary, but it shouldn't be. To understand it, you need
 to know:
 
 - In Volto, all actions that have a `request` field are treated as network
-  requests and they will processed by the [Api] middleware.
+  requests, and they will be processed by the [Api] middleware.
 - That middleware will then trigger several new actions, derived from the main
-  function and prefixed with its name: PENDING, SUCCESS and FAIL
-- For each of these new actions we will reduce the state of the store to
-  something that makes sense: first of all, we want to store different
+  function and prefixed with its name: PENDING, SUCCESS, and FAIL
+- For each of these new actions, we will reduce the state of the store to
+  something that makes sense: first, we want to store different
   information for each requested URL, then we want to store information
   according to the triggered action: loading state, error information or the
   final result.
-- In all cases we're using object spreads as a pattern to quickly redefine some
-  of the values inside the make store object.
+- In all cases, we're using object spreads as a pattern to quickly redefine some values inside the make store object.
 
 Finally, register the add-on reducer. In `src/index.js`'s default export:
 
