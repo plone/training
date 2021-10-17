@@ -24,8 +24,8 @@ provides an extensible Webpack SSR-enabled setup with a convenient split of
 server/client entry points and dual server/client Hot-Module-Reload (HMR).
 
 The first Webpack entry point will be used as the Volto *server* and uses
-Express web framework for that. It runs the Volto React code and components then send
-them to the browser as a normal HTML page. It also proxies some Plone
+Express web framework for that. It runs the Volto React code and components then
+sends them to the browser as a normal HTML page. It also proxies some Plone
 resources, such as files and images. Once the HTML page is loaded by the browser,
 all communication is done as JSON API messages.
 
@@ -33,12 +33,12 @@ To generate the second entry point, the *client*-only bundle, Webpack will need 
 know how to find, load, and potentially mutate (compress, transpile, minify,
 etc.) the files that represent the code and resources of Volto, the Volto
 project, and Volto add-ons. The base is provided by Razzle, with instructions for
-Webpack to transpile .js and .jsx files with Babel, load .less files, css,
-images, and svg files. For any other file type (for example, .scss, .ts, etc.) you'll
+Webpack to transpile .js and .jsx files with Babel, load .less files, CSS,
+images, and SVG files. For any other file type (for example, .scss, .ts, etc.) you'll
 have to enhance the Razzle configuration with the appropriate Webpack loader.
 
 Check if there's already a Razzle plugin, for example `.scss` support can be
-simply added by adding `scss` to the razzle.config.js `plugins` list.
+simply added by adding `scss` to the `razzle.config.js` `plugins` list.
 
 To summarize: Volto runs as a Single Page Application packaged by Webpack,
 which uses loaders such as Babel (for ES6 js/jsx files) or a [less-loader] for
@@ -50,7 +50,7 @@ Although it's possible to run Volto with npm as the Node package manager, the
 community has settled, for now, for the Yarn Classic (v1.x) package manager.
 Yarn is used as an installer, to run scripts but also as a "virtual
 environment", by using its workspaces feature. Typically you'll start Volto
-applications with `yarn start`, use `yarn test` but you can also integrate
+applications with `yarn start`, or `yarn test`, but you can also integrate
 the `mrs-developer` library and run `yarn missdev` to do tasks similar to
 mr.developer in Buildout projects. If you're not sure what these or
 any other `yarn` commands do, it's a good idea to examine your project's
@@ -159,7 +159,7 @@ adjust `jsconfig.json`.
 The Volto project is itself a Javascript package, and we want to "plug" here
 other Javascript packages that we will develop. The Volto project itself
 becomes a monorepo, with the Volto project being the "workspace root" and each
-addon needs to be a "workspace", so that yarn knows that it should include that
+add-on needs to be a "workspace", so that yarn knows that it should include that
 add-on location as a package and install its dependencies.
 
 Change the Volto project's `package.json` to include something like:
@@ -249,8 +249,8 @@ transpiling, less loading, etc) if they are identified as Volto add-ons.
 ```
 
 Their `main` entry in `package.json` should point to `src/index.js`,
-which should be an ES6 module with a default export, here is the default add-on configuration
-loader:
+which should be an ES6 module with a default export.  
+Here is the default add-on configuration loader:
 
 ```jsx
 export default (config) => {
@@ -262,7 +262,7 @@ Any additional named `export` from the main script can be used as an add-on
 optional configuration loader.
 
 The `config` object that is passed is the Volto `configuration registry`,
-the singleton module referenced throughout Volto and Volto projects 
+the singleton module referenced throughout Volto and Volto projects,
 by importing `@plone/volto/registry`. The add-on can mutate the properties of
 the config, such as `settings`, `blocks`, `views`, `widgets`, or its dedicated
 `addonRoutes` and `addonReducers`.
@@ -282,12 +282,12 @@ To load an add-on, the project needs to specify the add-on in its
 as a comma-separated list after the `:` colon symbol.
 
 ```js
-...,
+//...,
 "addons": [
     "volto-slate:asDefault,somethingElse",
     "@eeacms/volto-object-widget",
-],
-...
+]
+//...
 ```
 
 Notice that the add-ons should be named by their package name, plus any
@@ -382,10 +382,11 @@ export default (config) => {
 ```
 
 Instantiate the new block in a Volto page then save the page. This is a small
-development optimization, when changing code while developing the HMR will kick
+development optimization.  
+When changing code while developing the HMR will kick
 in and replace the content on the edit page with the one loaded initially from
-the server, so if you haven't saved the block yet, you'll need to recreate
-it again.
+the server.  
+If you haven't saved the block yet, you'll need to recreate it again.
 
 ### Improve the block edit
 
