@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Volto add-ons development training intro"
+  "property=og:description": "Volto add-ons development training"
+  "property=og:title": "Volto add-ons development intro"
+  "keywords": "Volto"
 ---
 
 (voltoaddons-intro-label)=
@@ -43,7 +43,7 @@ concepts of React and Volto development, as a refresher.
 
 At the end of this course you will know how to extend Volto using add-ons, what
 are the current capabilities of add-ons, their pros and cons, how to distribute
-addons and how to deploy them.
+add-ons and how to deploy them.
 
 ### Roadmap
 
@@ -69,14 +69,14 @@ Here's a preview of the block we'll build:
 ```{image} _static/final-block.png
 ```
 
-We will be facing different challenges and we will be solving them, introducing
-or refreshing some of the concepts covered in the previous training classes.
-We will cover the proper solution to each challenge and we will provide an
+We will be facing different challenges, and we will be solving them, introducing
+or refreshing some concepts covered in the previous training classes.
+We will cover the proper solution to each challenge, and we will provide an
 overview of what to expect when developing for Volto.
 
 ## Before you start
 
-You'll need to have a Plone instance with plone.restapi integrate. The quickest
+You'll need to have a Plone instance with `plone.restapi` integrated. The quickest
 way to get a Plone instance running is with Docker:
 
 ```shell
