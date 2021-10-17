@@ -1,17 +1,18 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Volto add-ons development training module 4, add-ons block edit"
+  "property=og:description": "Volto add-ons development training module 4"
+  "property=og:title": "Volto add-ons development block edit options"
+  "keywords": "Volto"
 ---
 
 # Block editing with a form
 
-We'll add schema-based editing of the block settings. In Volto the convention
-is to use schema generated from a function, so that the resulting object can be
-freely mutated, as it comes form a closure. The most basic schema would look
-something like this:
+We'll add schema-based editing of the block settings.  
+In Volto the convention is to use the schema generated from a function so that
+the resulting object can be freely mutated, as it comes from a closure.
+
+The most basic schema would look something like this:
 
 ```jsx
 export const TableSchema = ({formData, intl}) => ({
@@ -33,15 +34,17 @@ export const TableSchema = ({formData, intl}) => ({
 });
 ```
 
-This schema is based on the one used by the plone.restapi to edit the
-server-side Dexterity content. We're appropriating it, it lives in the client
-side right now, so we have some freedom in extending it with new logic and
-capabilities. The only requirement is that Volto's form implementation
-understands it, but even here we have a lot of freedom, as the form passes all
-the field props to the widgets.
+This schema is based on the one used by `plone.restapi` to edit the
+server-side `Dexterity` content.  
+We're appropriating it, it lives on the client side right now, so we have some
+freedom in extending it with new logic and capabilities.  
+The only requirement is that Volto's form implementation understands it, 
+but even here we have a lot of freedom, as the form passes all the field props
+to the widgets.
 
 To understand how to structure the schema you need to read Volto's
-[Field.jsx] code. In it we see the following logic:
+[Field.jsx] code.  
+In it, we see the following logic:
 
 ```jsx
 const Widget =
@@ -156,7 +159,7 @@ Notice that our schema is actually a function that returns a Javascript object,
 not least because we need to have access to the `intl` utility to provide
 internationalization.
 
-To use the schema we need to change the block edit component:
+To use the schema, we need to change the block edit component from `src/DataTable/DataTableEdit.jsx`:
 
 ```jsx
 ...
@@ -230,10 +233,12 @@ export default DataTableEdit;
 ```
 
 We're using the `InlineForm`, a component provided by Volto that renders an
-"embeddable" form. This form requires, as parameters, the schema and the form
-values. We'll render this form in the sidebar.
+"embeddable" form.  
+This form requires, as parameters, the schema, and the form
+values.  
+We'll render this form in the sidebar.
 
-And now the view module can become:
+Now the view module from `src/DataTable/DataTable.jsx` can become:
 
 ```{code-block} jsx
 :force: true
@@ -285,17 +290,18 @@ export default withFileData(({ data: { file_path } }) => file_path?.[0])(
 );
 ```
 
-Here's how your block would look like now:
+Here's how your block would look like:
 
 ```{image} _static/basic-table-edit.png
 ```
 
 ## Initial block data as a reusable pattern
 
-For the view component we've created a HOC mechanism that grants automatic data
-injection to. Can we do the same and simplify the Edit component? Let's make
-the "new block needs to point to a file" a mechanism that we can reuse. Perhaps
-later we'll write a chart block that uses the CSV file, so we'll be able to
+For the view component, we've created a `HOC` mechanism that grants automatic data
+injection.  
+Can we do the same and simplify the `Edit` component?  
+Let's make the "new block needs to point to a file" a mechanism that we can reuse.  
+Perhaps later we'll write a chart block that uses the CSV file, so we'll be able to
 reuse code by composing.
 
 Add the `src/hocs/withBlockDataSource.js` HOC file:
@@ -358,7 +364,7 @@ const withBlockDataSource = (opts) => (WrappedComponent) => {
 export default withBlockDataSource;
 ```
 
-Make sure to export this new hoc from the `src/hocs/index.js` file, with:
+Make sure to export this new `HOC` from the `src/hocs/index.js` file, with:
 
 ```jsx
 export withFileData from './withFileData';
@@ -366,8 +372,9 @@ export withBlockDataSource from './withBlockDataSource';
 ```
 
 Within `src/DataTable/DataTableEdit.js` now import the newly added
-`withBlockDataSource` higher order component and make use of it by replacing
-the DataTableEdit component and it's export with:
+`withBlockDataSource` higher-order component.
+
+Make use of it by replacing the `DataTableEdit` component, and it's export with:
 
 ```jsx
 import React from 'react';
