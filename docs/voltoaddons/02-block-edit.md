@@ -1,9 +1,9 @@
 ---
 html_meta:
-"description": "Volto add-ons development training module 2, add-ons block edit"
-"property=og:description": "Volto add-ons development training"
-"property=og:title": "Volto add-ons development"
-"keywords": "Volto"
+  "description": "Volto add-ons development training module 2, add-ons block edit"
+  "property=og:description": "Volto add-ons development training"
+  "property=og:title": "Volto add-ons development"
+  "keywords": "Volto"
 ---
 
 # Basic working block
