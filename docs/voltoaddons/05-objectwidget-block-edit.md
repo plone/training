@@ -1,26 +1,27 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Volto add-ons development training module 5, object widget block edit"
+  "property=og:description": "Volto add-ons development training module 5"
+  "property=og:title": "Volto add-ons development object widget block edit"
+  "keywords": "Volto"
 ---
 
 # Customizable columns
 
 Let's add a bit more control over how the columns are rendered. This is quite
-a "low hanging fruit" thanks to Volto's built-in `ObjectWidget` and
+a "low-hanging fruit" thanks to Volto's built-in `ObjectWidget` and
 `ObjectWidgetList`.
 
-Note: these components were ported from the [eea/volto-object-widget] add-on,
-where they were placed initially. By themselves, they are more or less a remix
-of Volto's builtin Form, but adjusted to provide an equivalent of the classic
-DataGridField.
+Note: these components were ported from the [volto-object-widget] add-on,
+where they were initially developed. By themselves, they are more or less a remix
+of Volto's built-in `Form`, but adjusted to provide an equivalent of the classic
+`DataGridField`.
 
-What would we like to change about the columns? Let's go for: title, text align
-and another field that would allow us to tweak how the values are rendered.
+## What would we like to change about the columns?  
+Let's go for title, text align and another field that would allow us to tweak 
+how the values are rendered.
 
-We'll continue without i18n integration for now, to keep things simpler.
+We'll continue without i18n integration, for now, to keep things simple.  
 Within `src/DataTable/schema.js` add:
 
 ```jsx
@@ -75,7 +76,7 @@ properties: {
 }
 ```
 
-Don't forget to add the `columns` field name to the `default` fieldset.
+Don't forget to add the `columns` field name to the `default` fieldset.  
 Within `src/DataTable/schema.js` `TableSchema default fieldset` add:
 
 ```jsx
@@ -93,13 +94,15 @@ export const TableSchema = ({ intl }) => ({
 })
 ```
 
-Now we need to plug the available columns as choices to the schema. In Plone's
-world we would write an adapter that binds the widget to the context or
-something like that. Let's keep things really simple though and hard code the
-available choices to the schema. We could do this in the schema function, but
-it's better to keep the schema readable and without logic, so we'll mutate the
-schema in the component, before we pass it to the `<InlineForm>` component.
-Within `src/DataTable/DataTableEdit.js` replace `DataTableEdit` code block with:
+Now we need to plug the available columns as choices to the schema.  
+In Plone's world, we would write an adapter that binds the widget to the context or
+something like that.  
+Let's keep things simple though and hard-code the available choices to the schema.  
+We could do this in the schema function, but it's better to keep the schema 
+readable and without logic, so we'll mutate the schema in the component before 
+we pass it to the `<InlineForm>` component.
+
+Within `src/DataTable/DataTableEdit.js`, replace `DataTableEdit` code block with:
 
 ```jsx
 const DataTableEdit = (props) => {
@@ -130,12 +133,12 @@ const DataTableEdit = (props) => {
 };
 ```
 
-We'll need to also inject the file data to the edit form, we didn't need to
-before, but now it needs to know what are the available columns. Now that we're
-wrapping the edit component in two HOCs, we'll use Redux's compose to play
-nice.
+We'll need to also inject the file data into the edit form, we didn't need to
+before, but now it needs to know what are the available columns.  
+Now that we're wrapping the edit component in two HOCs, we'll use Redux's 
+compose to play nice.
 
-This means that we need to first import the `compose` method from redux within our
+This means that we need to first import the `compose` method from Redux within our
 `src/DataTable/DataTableEdit.js` file:
 
 ```jsx
@@ -170,9 +173,10 @@ const id = file_path?.['@id'];
 
 ## Use the columns in the view
 
-Let's go back to the view component and use the column definitions from the
-block data.
-Within `src/DataTable/DataTableView.js` replace the existing `DataTableView` code block with:
+Let's go back to the View component and use the column definitions from the
+block data.  
+Within `src/DataTable/DataTableView.js`, replace the existing `DataTableView` 
+code block with:
 
 ```{code-block} jsx
 :force: true
@@ -228,8 +232,9 @@ values, or d3's format. There's plenty of choices.
 
 ## Write a new Volto widget
 
-Let's enhance the edit form by creating an align widget for the text align
-field. Let's create `src/widgets/TextAlign.jsx`.
+Let's enhance the edit form by creating an `align widget` for the text align
+field.  
+Let's create `src/widgets/TextAlign.jsx`.
 
 ```{code-block} jsx
 :force: true
@@ -277,13 +282,13 @@ export default (props) => {
 };
 ```
 
-We also need to create\`\`src/widget/index.js\`\` file in order to export our widget:
+We also need to create `src/widget/index.js` file to export our widget:
 
 ```jsx
 export TextAlign from './TextAlign';
 ```
 
-Now we'll register it in the addon `src/index.js` default configuration method:
+Now we'll register it in the add-on `src/index.js` default configuration method:
 
 ```jsx
 import { TextAlign } from './widgets';
@@ -293,16 +298,19 @@ if (!config.widgets.widget.text_align)
     config.widgets.widget.text_align = TextAlign;
 ```
 
-An widget is a component with three main props: `id`, `value` and `onChange`.
-The widget needs to call back the `onChange` with
-id and new value. To conform to the UI requirements Volto provides the
-`FormFieldWrapper` component which works on a very nice and easy principle:
-drop whatever control inside it, as a child and it will render that control
-neatly wrapped with the label, description, error messages, etc. This concept
-is somewhat similar to Zope's ZPT macro and slot system.
+A widget is a component with three main props: `id`, `value`, and `onChange`.  
+The widget needs to call back the `onChange` with id and new value.
 
-Now go back to the schema and let's use the new text align widget.
-Within `src/DataTable/schema.js` uncomment the widget use from `TableSchema
+To conform to the UI requirements Volto provides the `FormFieldWrapper` 
+component which works on a very nice and easy principle:
+- drop whatever control inside it as a child
+- it will render that control neatly wrapped with the label, description, 
+  error messages, etc.
+ 
+This concept is somewhat similar to Zope's ZPT macro and slot system.
+
+Now go back to the schema and let's use the new text align widget.  
+Within `src/DataTable/schema.js`, uncomment the widget use from `TableSchema
 textAlign property` and remove the `choices` property.
 
 ```jsx
@@ -314,15 +322,16 @@ textAlign: {
 ```
 
 ```{note}
-The `objectwidget_list` widget provides drag/drop sorting of the columns so it's
+The `objectwidget_list` widget provides drag/drop sorting of the columns, so it's
 possible to reorder the columns.
 ```
 
 ```{image} _static/table-column-with-text-align.png
 ```
 
+
 We could say it's done for now... but let's go some steps further and explore
-how to further enhance this add-on's re-usability and extensibility.
+how to further enhance this add-on's reusability and extensibility.
 
 [volto-blocks-form]: https://github.com/eea/volto-blocks-form
 [volto-object-widget]: https://github.com/eea/volto-object-widget
