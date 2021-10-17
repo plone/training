@@ -37,7 +37,7 @@ redux
 reducer_tests
 actions
 external_data
-lifecycle_methods
+useeffect_hook
 routes
 links
 redirects

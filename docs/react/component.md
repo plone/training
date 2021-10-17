@@ -13,9 +13,9 @@ html_meta:
 ## Generated App Code
 
 The following code is generated in the file {file}`src/App.js`.
-It contains a class which is extended from a React component.
+It contains a function which is a React component.
 A React component is a small view which will render some HTML and can have additional behavior.
-The class has a {file}`render` method which contains JSX to render the view.
+The function has a {file}`return` statement which contains JSX to render the view.
 JSX is inline HTML which will be rendered as HTML in the view.
 
 ```{code-block} jsx
@@ -67,8 +67,6 @@ Remove all other boiler plate code including styling.
 ```{code-block} jsx
 :linenos: true
 
-import "./App.css";
-
 function App() {
   return (
     <ul>
@@ -108,7 +106,6 @@ export default App;
 @@ -1,24 +1,32 @@
 -import logo from './logo.svg';
 -import './App.css';
-+import "./App.css";
 
 function App() {
   return (
@@ -166,10 +163,7 @@ The \<div>, \<ul>, \<p> and other tags in this code
 are first translated into valid Javascript code using the function React.CreateElement.
 `create-react-app` automatically adds this preprocessing of JSX.
 
-Because of JSX, `React` has to be imported from the React module, although it does not seem to be used in the code.
-The first import line syntax may seem weird, but 'React' is the default export,
-and between curly braces are extra (non default) exported classes, functions etc.
-Similar at the last line our `App` component is marked as the default export for this Javascript file.
+The last line of our `App` component is marked as the default export for this Javascript file.
 Check out ES6 module documentation.
 
 Note that React allows you to import and treat images and css as direct resources.

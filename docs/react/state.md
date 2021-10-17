@@ -14,43 +14,36 @@ html_meta:
 
 To manipulate the FAQ later on we will move all the data to the state of the component.
 The state of the component is the local state of that specific component.
-When the state changes the render method is called again.
-In the constructor of the class we can initialize the state.
+When the state changes the component re-rendered itself once again.
+we can initialize the state in our functional component body using `useState` hook.
 
 ```{code-block} jsx
-:emphasize-lines: 6-20,25-27
+:emphasize-lines: 6-15,19-21
 :linenos: true
 
-import React, { Component } from "react";
-import FaqItem from "./components/FaqItem";
+import { useState } from "react";
 import "./App.css";
+import FaqItem from "./components/FaqItem";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      faq: [
-        {
-          question: "What does the Plone Foundation do?",
-          answer: "The mission of the Plone Foundation is to protect and..."
-        },
-        {
-          question: "Why does Plone need a Foundation?",
-          answer: "Plone has reached critical mass, with enterprise..."
-        }
-      ]
-    };
-  }
+function App() {
+  const [faqList, setFaqList] = useState([
+    {
+      question: "What does the Plone Foundation do?",
+      answer: "The mission of the Plone Foundation is to protect and...",
+    },
+    {
+      question: "Why does Plone need a Foundation?",
+      answer: "Plone has reached critical mass, with enterprise...",
+    },
+  ]);
 
-  render() {
-    return (
-      <ul>
-        {this.state.faq.map(item => (
-          <FaqItem question={item.question} answer={item.answer} />
-        ))}
-      </ul>
-    );
-  }
+  return (
+    <ul>
+      {faqList.map((item) => (
+        <FaqItem question={item.question} answer={item.answer} />
+      ))}
+    </ul>
+  );
 }
 
 export default App;
@@ -62,94 +55,54 @@ export default App;
 ```dpatch
 --- a/src/App.js
 +++ b/src/App.js
-@@ -3,30 +3,28 @@ import FaqItem from "./components/FaqItem";
-import "./App.css";
+@@ -1,30 +1,24 @@
++import { useState } from "react";
+ import "./App.css";
+ import FaqItem from "./components/FaqItem";
 
-class App extends Component {
-+  constructor(props) {
-+    super(props);
-+    this.state = {
-+      faq: [
-+        {
-+          question: "What does the Plone Foundation do?",
-+          answer: "The mission of the Plone Foundation is to protect and..."
-+        },
-+        {
-+          question: "Why does Plone need a Foundation?",
-+          answer: "Plone has reached critical mass, with enterprise..."
-+        }
-+      ]
-+    };
-+  }
+ function App() {
++  const [faqList, setFaqList] = useState([
++    {
++      question: "What does the Plone Foundation do?",
++      answer: "The mission of the Plone Foundation is to protect and...",
++    },
++    {
++      question: "Why does Plone need a Foundation?",
++      answer: "Plone has reached critical mass, with enterprise...",
++    },
++  ]);
 +
-  render() {
-    return (
-      <ul>
--        <FaqItem
--          question="What does the Plone Foundation do?"
--          answer="
--            The mission of the Plone Foundation is to protect and promote Plone.
--            The Foundation provides marketing assistance, awareness, and
--            evangelism assistance to the Plone community. The Foundation also
--            assists with development funding and coordination of funding for
--            large feature implementations. In this way, our role is similar to
--            the role of the Apache Software Foundation and its relationship with
--            the Apache Project."
--        />
--        <FaqItem
--          question="Why does Plone need a Foundation?"
--          answer="
--            Plone has reached critical mass, with enterprise implementations and
--            worldwide usage. The Foundation is able to speak for Plone, and
--            provide strong and consistent advocacy for both the project and the
--            community. The Plone Foundation also helps ensure a level playing
--            field, to preserve what is good about Plone as new participants
--            arrive."
--        />
-+        {this.state.faq.map(item => (
-+          <FaqItem question={item.question} answer={item.answer} />
-+        ))}
-      </ul>
-    );
-  }
+   return (
+     <ul>
+-      <FaqItem
+-        question="What does the Plone Foundation do?"
+-        answer="
+-          The mission of the Plone Foundation is to protect and promote Plone.
+-          The Foundation provides marketing assistance, awareness, and
+-          evangelism assistance to the Plone community. The Foundation also
+-          assists with development funding and coordination of funding for
+-          large feature implementations. In this way, our role is similar to
+-          the role of the Apache Software Foundation and its relationship with
+-          the Apache Project."
+-      />
+-      <FaqItem
+-        question="Why does Plone need a Foundation?"
+-        answer="
+-          Plone has reached critical mass, with enterprise implementations and
+-          worldwide usage. The Foundation is able to speak for Plone, and
+-          provide strong and consistent advocacy for both the project and the
+-          community. The Plone Foundation also helps ensure a level playing
+-          field, to preserve what is good about Plone as new participants
+-          arrive."
+-      />
++      {faqList.map((item) => (
++        <FaqItem question={item.question} answer={item.answer} />
++      ))}
+     </ul>
+   );
+ }
 ```
 ````
-
-## How to declare the state into functional Component
-
-As we know that React introduced Hooks in react 16.8. Now we can declare state and set them
-into functional component. In below code you can see how we can store the faq in functional
-component.
-
-```{code-block} jsx
-:linenos: true
-
-  import { useState } from "react";
-  import FaqItem from "./components/FaqItem";
-  import "./App.css";
-
-  function App(props) {
-    const [faq, setFaq] = useState([
-      {
-        question: "What does the Plone Foundation do?",
-        answer: "The mission of the Plone Foundation is to protect and...",
-      },
-      {
-        question: "Why does Plone need a Foundation?",
-        answer: "Plone has reached critical mass, with enterprise...",
-      },
-    ]);
-    return (
-      <ul>
-        {faq.map((item) => (
-          <FaqItem question={item.question} answer={item.answer} />
-        ))}
-      </ul>
-    );
-  }
-
-  export default App;
-```
 
 ## Exercise
 
@@ -161,35 +114,27 @@ and adjust the render method to show or hide the answer.
 :class: toggle
 
 ```{code-block} jsx
-:emphasize-lines: 11-16,22
+:emphasize-lines: 6,10
 :linenos: true
 
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import { useState } from "react";
 import "./FaqItem.css";
+import PropTypes from "prop-types";
 
-class FaqItem extends Component {
-  static propTypes = {
-    question: PropTypes.string.isRequired,
-    answer: PropTypes.string.isRequired
-  };
+const FaqItem = (props) => {
+  const [isAnswer, setAnswer] = useState(false);
+  return (
+    <li className="faq-item">
+      <h2 className="question">{props.question}</h2>
+      {isAnswer && <p>{props.answer}</p>}
+    </li>
+  );
+};
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: false
-    };
-  }
-
-  render() {
-    return (
-      <li className="faq-item">
-        <h2 className="question">{this.props.question}</h2>
-        {this.state.show && <p>{this.props.answer}</p>}
-      </li>
-    );
-  }
-}
+FaqItem.propTypes = {
+  question: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired,
+};
 
 export default FaqItem;
 ```
@@ -197,32 +142,20 @@ export default FaqItem;
 ```dpatch
 --- a/src/components/FaqItem.jsx
 +++ b/src/components/FaqItem.jsx
-@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
--
-import "./FaqItem.css";
+@@ -1,11 +1,13 @@
++import { useState } from "react";
+ import "./FaqItem.css";
+ import PropTypes from "prop-types";
 
-class FaqItem extends Component {
-@@ -9,11 +8,18 @@ class FaqItem extends Component {
-    answer: PropTypes.string.isRequired
-  };
-
-+  constructor(props) {
-+    super(props);
-+    this.state = {
-+      show: false
-+    };
-+  }
-+
-  render() {
-    return (
-      <li className="faq-item">
-        <h2 className="question">{this.props.question}</h2>
--        <p>{this.props.answer}</p>
-+        {this.state.show && <p>{this.props.answer}</p>}
-      </li>
-    );
-  }
+ const FaqItem = (props) => {
++  const [isAnswer, setAnswer] = useState(false);
+   return (
+     <li className="faq-item">
+       <h2 className="question">{props.question}</h2>
+-      <p>{props.answer}</p>
++      {isAnswer && <p>{props.answer}</p>}
+     </li>
+   );
+ };
 ```
 ````

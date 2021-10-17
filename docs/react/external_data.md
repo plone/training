@@ -109,10 +109,9 @@ export default store => next => action => {
 Finally we need to apply our middleware to the store in `App.js`:
 
 ```{code-block} jsx
-:emphasize-lines: 3,7,11
+:emphasize-lines: 2,6,10
 :linenos: true
 
-import React, { Component } from "react";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 
@@ -124,15 +123,13 @@ import "./App.css";
 
 const store = createStore(rootReducer, applyMiddleware(api));
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Faq />
-      </Provider>
-    );
-  }
-}
+const App = () => {
+  return (
+    <Provider store={store}>
+      <Faq />
+    </Provider>
+  );
+};
 
 export default App;
 ```
@@ -143,23 +140,23 @@ export default App;
 ```dpatch
 --- a/src/App.js
 +++ b/src/App.js
-@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import { Provider } from "react-redux";
+@@ -1,12 +1,13 @@
+ import { Provider } from "react-redux";
 -import { createStore } from "redux";
 +import { createStore, applyMiddleware } from "redux";
 
-import rootReducer from "./reducers";
-import Faq from "./components/Faq";
+ import rootReducer from "./reducers";
+ import Faq from "./components/Faq";
 +import api from "./middleware/api";
 
-import "./App.css";
+ import "./App.css";
 
 -const store = createStore(rootReducer);
 +const store = createStore(rootReducer, applyMiddleware(api));
 
-class App extends Component {
-  render() {
+ const App = () => {
+   return (
+
 ```
 ````
 

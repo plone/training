@@ -10,64 +10,46 @@ html_meta:
 
 # Use Event Handlers
 
-## Toggle Method
+## Toggle Function
 
-To show or hide the answer we will add a toggle handler to the class {file}`FaqItem.jsx`.
-This method needs to be bound to the instance like this:
-
-```{code-block} jsx
-:emphasize-lines: 3
-:lineno-start: 11
-:linenos: true
-
-constructor(props) {
-  super(props);
-  this.state = {
-    show: false
-  };
-}
-```
+To show or hide the answer we will add a toggle function to the component {file}`FaqItem.jsx`.
 
 ## Exercise
 
-Write the toggle handler which will toggle the {file}`show` state variable
-and set the new state using the {file}`setState` method:
+Write the toggle handler which will toggle the {file}`isAnswer` state variable
+and set the new state using the {file}`setAnswer` function:
 
 ````{admonition} Solution
 :class: toggle
 
 ```{code-block} jsx
-:emphasize-lines: 1-5
-:lineno-start: 19
+:emphasize-lines: 1-3
+:lineno-start: 8
 :linenos: true
 
-toggle = () => {
-  this.setState({
-    show: !this.state.show
-  });
-}
+  const toggle = () => {
+    setAnswer(!isAnswer);
+  };
 ```
 ````
 
 ## Click Handler
 
-To call the newly created {file}`toggle` method we will add an on click handler to the question:
+To call the newly created {file}`toggle` function we will add an on click handler to the question:
 
 ```{code-block} jsx
-:emphasize-lines: 4-6
-:lineno-start: 25
+:emphasize-lines: 3-5
+:lineno-start: 12
 :linenos: true
 
-render() {
   return (
     <li className="faq-item">
-      <h2 onClick={this.toggle} className="question">
-        {this.props.question}
+      <h2 className="question" onClick={toggle}>
+        {props.question}
       </h2>
-      {this.state.show && <p>{this.props.answer}</p>}
+      {isAnswer && <p>{props.answer}</p>}
     </li>
   );
-}
 ```
 
 ````{admonition} Differences
@@ -78,70 +60,54 @@ render() {
 ```dpatch
 --- a/src/components/FaqItem.jsx
 +++ b/src/components/FaqItem.jsx
-@@ -10,15 +10,24 @@ class FaqItem extends Component {
+@@ -4,9 +4,16 @@ import PropTypes from "prop-types";
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: false
-    };
-  }
-
-+  toggle = () => {
-+    this.setState({
-+      show: !this.state.show
-+    });
-+  }
+ const FaqItem = (props) => {
+   const [isAnswer, setAnswer] = useState(false);
 +
-  render() {
-    return (
-      <li className="faq-item">
--        <h2 className="question">{this.props.question}</h2>
-+        <h2 onClick={this.toggle} className="question">
-+          {this.props.question}
-+        </h2>
-        {this.state.show && <p>{this.props.answer}</p>}
-      </li>
-    );
++  const toggle = () => {
++    setAnswer(!isAnswer);
++  };
++
+   return (
+     <li className="faq-item">
+-      <h2 className="question">{props.question}</h2>
++      <h2 className="question" onClick={toggle}>
++        {props.question}
++      </h2>
+       {isAnswer && <p>{props.answer}</p>}
+     </li>
+   );
 ```
 
 ```{code-block} jsx
 :linenos: true
 
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import { useState } from "react";
 import "./FaqItem.css";
+import PropTypes from "prop-types";
 
-class FaqItem extends Component {
-  static propTypes = {
-    question: PropTypes.string.isRequired,
-    answer: PropTypes.string.isRequired
+const FaqItem = (props) => {
+  const [isAnswer, setAnswer] = useState(false);
+
+  const toggle = () => {
+    setAnswer(!isAnswer);
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: false
-    };
-  }
+  return (
+    <li className="faq-item">
+      <h2 className="question" onClick={toggle}>
+        {props.question}
+      </h2>
+      {isAnswer && <p>{props.answer}</p>}
+    </li>
+  );
+};
 
-  toggle = () => {
-    this.setState({
-      show: !this.state.show
-    });
-  }
-
-  render() {
-    return (
-      <li className="faq-item">
-        <h2 onClick={this.toggle} className="question">
-          {this.props.question}
-        </h2>
-        {this.state.show && <p>{this.props.answer}</p>}
-      </li>
-    );
-  }
-}
+FaqItem.propTypes = {
+  question: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired,
+};
 
 export default FaqItem;
 ```
