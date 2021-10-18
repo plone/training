@@ -226,7 +226,9 @@ And we finish the view changes by using our `Cell renderer` to render the table 
 
 Our final `src/DataTable/DataTableView.js` file will look like this:
 
-```jsx
+```{code-block} jsx
+:force: true
+
 import React from 'react';
 import { Table } from 'semantic-ui-react';
 import { withFileData } from '@plone-collective/volto-datatable-tutorial/hocs';
