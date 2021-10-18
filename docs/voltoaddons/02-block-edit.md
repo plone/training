@@ -20,26 +20,26 @@ Add the following `src/DataTable/datatable-edit.less` file:
 ```{code-block} less
 :force: true
 
- @type: 'extra';
- @element: 'custom';
+@type: 'extra';
+@element: 'custom';
 
- @import (multiple) '../../theme.config';
+@import (multiple) '../../theme.config';
 
- .dataTable-edit {
-   background: @offWhite;
+.dataTable-edit {
+  background: @offWhite;
 
-   .form {
-     display: flex;
-     max-width: 26em !important;
-     min-height: 10em;
-     flex-direction: column;
-     justify-content: center;
-     margin: 0 auto;
-   }
- }
+  .form {
+    display: flex;
+    max-width: 26em !important;
+    min-height: 10em;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
 ```
 
-Notice that by importing `'../../theme.config'` we're able to have access to
+Notice that by importing `'../../theme.config`, we're able to have access to
 Volto's (and, by extension, all Semantic UI) LESS variables.
 
 ## User-friendly block edit behavior
@@ -122,31 +122,31 @@ const DataTableEdit = (props) => {
 export default DataTableEdit;
 ```
 
-So, in the sidebar area, if we don't have a file picked, we're just showing
-a placeholder icon, otherwise, we're showing the field to edit the picked file.
-In the main block area, if we don't have a file picked we're showing the file
-input, otherwise we're showing the `View` component.
+In the sidebar area, if we don't have a file picked, we show a placeholder icon.
+Otherwise we show the field to edit the picked file.
+In the main block area, if we don't have a file picked, we show the file input.
+Otherwise we show the `View` component.
 
 ## Fetching data for the block
 
-For the view, we'll fetch the data directly from Plone and bring it to the
-client browser. What we want is the data coming from the `@@download`
+For the view, we'll fetch the data directly from Plone, and bring it to the
+client browser. We want data to come from the `@@download`
 view of that file, something which is not treated by Volto's "get content"
 machinery, so we'll need to write our flavor of data fetching.
 
 ```{note}
 There are other possible approaches to this problem, including transforming
-the block data on outbound with a block serializer transformer, to
-automatically insert CSV file in the block and then remove it on inbound
-(deserialization). By having it available separately we make it easier to
-reference the same data from multiple blocks and, of course, keep things
+the outbound block data with a block serializer transformer to
+automatically insert a CSV file in the block, then remove it inbound
+(deserialization). By having it available separately, we make it easier to
+reference the same data from multiple blocks, and of course keep things
 simple for this training.
 
-But if, for example, you want to have the content of the table rendered
+But if you want to have the content of the table rendered
 with the SSR mechanism, then you'll have to avoid the extra data fetch and
 serialize the table data together with the main block data using block
-transformers. The reason for this is (simplified) the fact that there would
-be two serialized data fetches: the first one is for the main content,
+transformers. This is because there would
+be two serialized data fetches. The first one is for the main content,
 which would return the blocks, then the blocks are rendered and, as
 a result of that rendering, the second network fetch would be called from
 one of the blocks as an async request.
@@ -258,29 +258,26 @@ The reducer code looks scary, but it shouldn't be. To understand it, you need
 to know:
 
 - In Volto, all actions that have a `request` field are treated as network
-  requests, and they will be processed by the [Api] middleware.
+  requests, and they will be processed by the [API middleware](https://github.com/plone/volto/blob/master/src/middleware/api.js).
 - That middleware will then trigger several new actions, derived from the main
-  function and prefixed with its name: PENDING, SUCCESS, and FAIL
+  function and prefixed with its name, either `PENDING`, `SUCCESS`, or `FAIL`.
 - For each of these new actions, we will reduce the state of the store to
-  something that makes sense: first, we want to store different
-  information for each requested URL, then we want to store information
-  according to the triggered action: loading state, error information or the
+  something that makes sense. First, we want to store different
+  information for each requested URL. Then we want to store information
+  according to the triggered action, either loading state, error information, or the
   final result.
 - In all cases, we're using object spreads as a pattern to quickly redefine some values inside the make store object.
 
 Finally, register the add-on reducer. In `src/index.js`'s default export:
 
 ```jsx
-...
+//...
 import { rawdata } from './reducers';
-...
+//...
 
 export default (config) => {
   config.addonReducers.rawdata = rawdata;
-  ...
+  //...
   return config;
 }
-
 ```
-
-[api]: https://github.com/plone/volto/blob/master/src/middleware/api.js
