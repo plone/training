@@ -37,8 +37,8 @@ Webpack to transpile .js and .jsx files with Babel, load .less files, CSS,
 images, and SVG files. For any other file type (for example, .scss, .ts, etc.) you'll
 have to enhance the Razzle configuration with the appropriate Webpack loader.
 
-Check if there's already a Razzle plugin, for example `.scss` support can be
-simply added by adding `scss` to the `razzle.config.js` `plugins` list.
+Check if there's already a Razzle plugin.
+For example `.scss` support can be added by adding `scss` to the `razzle.config.js` `plugins` list.
 
 To summarize: Volto runs as a Single Page Application packaged by Webpack,
 which uses loaders such as Babel (for ES6 js/jsx files) or a [less-loader] for
@@ -49,16 +49,16 @@ which uses loaders such as Babel (for ES6 js/jsx files) or a [less-loader] for
 Although it's possible to run Volto with npm as the Node package manager, the
 community has settled, for now, for the Yarn Classic (v1.x) package manager.
 Yarn is used as an installer, to run scripts but also as a "virtual
-environment", by using its workspaces feature. Typically you'll start Volto
-applications with `yarn start`, or `yarn test`, but you can also integrate
-the `mrs-developer` library and run `yarn missdev` to do tasks similar to
-mr.developer in Buildout projects. If you're not sure what these or
+environment", by using its workspaces feature.
+Typically you'll start Volto applications with `yarn start` or `yarn test`.
+You can also integrate the `mrs-developer` library, and run `yarn missdev` to do tasks similar to mr.developer in Buildout projects.
+If you're not sure what these or
 any other `yarn` commands do, it's a good idea to examine your project's
 `package.json` file, in the `scripts` section, where you'll usually find those
 scripting aliases defined.
 
 To bootstrap a new Volto project, you can use a scaffolding tool based on
-Yeoman, this tool is named `generator-volto`. First, install it as a global tool (use [NVM] if you're
+Yeoman named `generator-volto`. First, install it as a global tool (use [NVM] if you're
 being asked for sudo access):
 
 ```shell
@@ -74,11 +74,11 @@ yo @plone/volto volto-tutorial-project
 
 The yo-based generator partially integrates add-ons (it can generate a
 `package.json` with add-ons and workspaces already specified). When prompted
-to add addons, choose `false`.
+to add add-ons, choose `false`.
 
 Now you can start your newly created Volto project:
 
-```
+```shell
 cd volto-tutorial-project
 yarn start
 ```
@@ -123,12 +123,12 @@ Back to the project, you can edit `jsconfig.json` and add your add-on:
 The `jsconfig.json` file is needed by Volto to identify development
 packages. You are not strictly limited to Volto add-ons in its use, you
 could, for example, use this to make it easier to debug third-party
-Javascript packages that are shipped transpiled.
+JavaScript packages that are shipped transpiled.
 ```
 
 ### (Optional) Use mrs-developer to sync add-on to GitHub
 
-You can also immediately push the package to GitHub then use [mrs-developer]
+You can also immediately push the package to GitHub, then use `[mrs-developer]`
 to manage the package and `jsconfig.json` changes.
 
 Install mrs-developer as a development dependency by running:
@@ -156,8 +156,8 @@ adjust `jsconfig.json`.
 
 ### Add the add-on as workspace
 
-The Volto project is itself a Javascript package, and we want to "plug" here
-other Javascript packages that we will develop. The Volto project itself
+The Volto project is itself a JavaScript package, and we want to "plug" here
+other JavaScript packages that we will develop. The Volto project itself
 becomes a monorepo, with the Volto project being the "workspace root" and each
 add-on needs to be a "workspace", so that yarn knows that it should include that
 add-on location as a package and install its dependencies.
@@ -174,33 +174,31 @@ Change the Volto project's `package.json` to include something like:
 ```
 
 ```{note}
-Don't be scared by that `private: true` in the Volto project package.json,
-it's only needed to make sure you can't accidentally publish the package to
-NPM.
+Don't be scared by that `"private": "true"` in the Volto project `package.json`.
+It's only needed to make sure you can't accidentally publish the package to NPM.
 ```
 
 ### Managing add-on dependencies
 
-To be able to add dependencies to the add-on you need to add them via the
-workspaces machinery, by running something like (at the Volto project root):
+To be able to add dependencies to the add-on, you need to add them via the
+workspaces machinery by running something like (at the Volto project root):
 
-```console
+```shell
 yarn workspaces info
 yarn workspace @plone-collective/volto-datatable-tutorial add papaparse
 ```
 
 ````{note}
-There are several other add-on templates, such as [voltocli] or [EEA Add-on
-Template][eea add-on template]. You could very well decide not to use any of
-them and simply bootstrap a new add-on by running:
+There are several other add-on templates, such as [voltocli](https://github.com/nzambello/voltocli) or [eea/volto-addon-template](https://github.com/eea/volto-addon-template).
+You could very well decide not to use any of them, and instead bootstrap a new add-on by running:
 
-```console
+```shell
 mkdir -p src/addons/datatable-tutorial
 cd src/addons/datatable-tutorial
 npm init
 ```
 
-So, remember, an add-on is just a Javascript package that exports
+Remember, an add-on is just a JavaScript package that exports
 a configuration loader. Just make sure to point the `main` in
 `package.json` to `src/index.js`.
 ````
@@ -208,12 +206,12 @@ a configuration loader. Just make sure to point the `main` in
 ### Load the add-on in Volto
 
 To tell Volto about our new add-on, add it to the `addons` key of the Volto
-project package.json:
+project `package.json`:
 
-```
-...
+```js
+// ...
 "addons": ["@plone-collective/volto-datatable-tutorial"]
-...
+// ...
 ```
 
 ## Add-ons - first look
@@ -238,14 +236,13 @@ An add-on can be almost anything that a Volto project can be. They can:
 - tweak Volto's webpack configuration, load custom Razzle, and Webpack plugins
 - even provide a custom theme, just like a regular Volto project does.
 
-As for implementation, Volto add-ons are just plain Javascript packages with an
+As for implementation, Volto add-ons are just plain JavaScript packages with an
 additional feature: they provide helper functions that mutate Volto's
 configuration registry. These are the "add-on configuration loaders".
 
 ```{note}
-To make things easy, add-ons should be distributed as source, non
-transpiled code. Volto's Webpack setup integrates all development loaders (Babel
-transpiling, less loading, etc) if they are identified as Volto add-ons.
+To make things easy, add-ons should be distributed as source, non-transpiled code.
+Volto's Webpack setup integrates all development loaders (Babel transpiling, less loading, and so on) if they are identified as Volto add-ons.
 ```
 
 Their `main` entry in `package.json` should point to `src/index.js`,
@@ -277,17 +274,19 @@ enabling the project to override any configuration.
 
 So: {menuselection}`Volto → add-ons → project`.
 
+So: {guilabel}`Volto → add-ons → project`.
+
 To load an add-on, the project needs to specify the add-on in its
 `project.json` `addons` key. Optional configuration loaders are specified
 as a comma-separated list after the `:` colon symbol.
 
 ```js
-//...,
+// ...
 "addons": [
     "volto-slate:asDefault,somethingElse",
     "@eeacms/volto-object-widget",
 ]
-//...
+// ...
 ```
 
 Notice that the add-ons should be named by their package name, plus any
@@ -334,15 +333,13 @@ We're reusing the block view component referenced from the edit component, to
 speed things up.
 
 ```{note}
-We will be using [function
-components](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
-here. There is no rule in Volto
-that requires choosing between class components or function components,
-pick whichever feels better. Volto itself uses both styles. Although the
-function components are newer API and the use of hooks can make things more
-compact and reusable, they can also become hard to track, especially when
-multiple `useEffect` piles up in the same component. Don't feel that you
-have to stick to one style only, choose whichever feels right for the task.
+We will be using [function components](https://reactjs.org/docs/components-and-props.html#function-and-class-components) here.
+There is no rule in Volto that requires choosing between class components or function components.
+Pick whichever feels better.
+Volto itself uses both styles.
+Although the function components are a newer API, and the use of hooks can make things more compact and reusable, they can also become hard to track, especially when multiple `useEffect` piles up in the same component.
+Don't feel that you have to stick to one style only.
+Choose whichever feels right for the task.
 ```
 
 - Create `src/DataTable/index.js`. This step is optional, but it makes imports
@@ -382,10 +379,10 @@ export default (config) => {
 ```
 
 Instantiate the new block in a Volto page then save the page. This is a small
-development optimization.  
-When changing code while developing the HMR will kick
+development optimization.
+When changing code while developing, the HMR will kick
 in and replace the content on the edit page with the one loaded initially from
-the server.  
+the server.
 If you haven't saved the block yet, you'll need to recreate it again.
 
 ### Improve the block edit
