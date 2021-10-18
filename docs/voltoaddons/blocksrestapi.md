@@ -16,10 +16,9 @@ websites.
 ## Block transformations
 
 The main feature that applies to Volto blocks is called the "blocks
-transformers". They are adaptors that can be registered per block type and can
-alter the output on serialization (when the fetching information from Plone)
-but also on deserialization (when information arrives in Plone, from the
-client).
+transformers". They are adaptors that can be registered per block type.
+They can alter the output on serialization (when the fetching information from Plone),
+as well as on deserialization (when information arrives in Plone, from the client).
 
 ```python
 @implementer(IBlockFieldDeserializationTransformer)
@@ -37,7 +36,7 @@ class DatabaseQueryDeserializeTransformer(object):
         return value
 ```
 
-Then register as a subscription adapter:
+Then register it as a subscription adapter:
 
 ```xml
 <subscriber factory=".blocks.DatabaseQueryDeserializeTransformer"
@@ -50,7 +49,7 @@ Note that you'll probably want to also register the reverse.
 
 It is possible to register a generic block transformer that applies to all
 block types. By doing so we can process block information consistently for all
-blocks, so that we can have the "smart fields" concept.
+blocks, providing us with the "smart fields" concept.
 
 A "smart field" is a convention: "all block fields named `url` will be
 transformed on serialization/deserialization, to store them with a resolveuid".
@@ -70,7 +69,7 @@ class ImageSearchableText(object):
 ```
 
 This adapter needs to be registered as a named adapter, where the name is the
-same as the block type (its @type property from the block value).
+same as the block type (its `@type` property from the block value).
 
 ```xml
 <adapter name="image" factory=".indexers.ImageBlockSearchableText" />
