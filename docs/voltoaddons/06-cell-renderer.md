@@ -6,18 +6,18 @@ html_meta:
   "keywords": "Volto"
 ---
 
-# Make the block extendible
+# Make the block extensible
 
 Wouldn't it be nice if we could have a way to customize, per column, how the
-values are rendered and go even further than the `textTemplate` field would
+values are rendered, and go even further than the `textTemplate` field would
 allow?
 
-Let's create the following extension mechanism: for any column, we'll be able
-to choose between available "cell renderers".  
+Let's create the following extension mechanism.
+For any column, we'll be able to choose between available "cell renderers".
 
-These would be components that get the value passed and can render themselves 
-as they want. For example, we could implement a "progress bar" that could be 
-used to render the numbers in a column as a solid bar of color.  
+These would be components that get the value passed and can render themselves
+as they want. For example, we could implement a "progress bar" that could be
+used to render the numbers in a column as a solid bar of color.
 We'll also migrate the text template field to the new system.
 
 What's more, we'll use the global Volto config registry to register our custom
@@ -25,13 +25,13 @@ components, so it will be completely open to extension from projects or other
 add-ons.
 
 We could use the global `config.settings` from the `src/index.js` object to
-register the new cell renderers, but this functionality is directly related to
-our custom data block, so let's just use the block's config object.
+register the new cell renderers.
+But this functionality is directly related to our custom data block, so let's just use the block's config object.
 
 ```jsx
 import { TextTemplateRenderer, ProgressCellRenderer } from './CellRenderer';
 
-...
+// ...
   config.blocks.blocksConfig.dataTable = {
     id: 'dataTable',
     title: 'Data Table',
@@ -60,13 +60,14 @@ import { TextTemplateRenderer, ProgressCellRenderer } from './CellRenderer';
       },
     },
   };
-...
+// ...
 ```
 
 Notice the `schemaExtender` field. We'll use it to allow each extension to
-provide its fields in the column edit widget.  
-`volto-object-widget` allows  the schema used in its `FlatObjectList` widget to 
-be extended by a provided schema extender, so we'll integrate with that.
+provide its fields in the column edit widget.
+`volto-object-widget` allows the schema used in its `FlatObjectList` widget to
+be extended by a provided schema extender.
+We'll integrate with that.
 
 The old text template-based implementation can be moved to a component and
 a schema extension.
@@ -99,7 +100,7 @@ TextTemplateRenderer.schemaExtender = (schema, data) => {
 export default TextTemplateRenderer;
 ```
 
-In the `CellRenderer` folder add the `Progress.jsx` cell renderer.  
+In the `CellRenderer` folder, add the `Progress.jsx` cell renderer.
 For this one, we don't need to extend the schema.
 
 ```jsx
@@ -123,8 +124,7 @@ export TextTemplateRenderer from './TextTemplate';
 ```
 
 ```{note}
-As an exercise, you could extend the Progress renderer to include a color
-field.  
+As an exercise, you could extend the Progress renderer to include a color field.
 Consider building a color widget using [react-color].
 ```
 
@@ -142,11 +142,11 @@ renderer: {
 },
 ```
 
-Now, back to the `src/DataTable/DataTableEdit.js` component, we'll add this 
+Now, back to the `src/DataTable/DataTableEdit.js` component, we'll add this
 schema tweaking code:
 
 ```jsx
-...
+// ...
 import config from '@plone/volto/registry';
 
 const tweakSchema = (schema, data, file_data) => {
@@ -172,14 +172,14 @@ const tweakSchema = (schema, data, file_data) => {
 
   return schema;
 };
-...
+// ...
 ```
 
 With the "schema tweaking code" we're doing three things:
 
-- add the columns from the file as choices to the "Column" widget
-- provide the "renderer" field with the available `cellRenderer` choices
-- plug into the `schemaExtender` of the `columnsField` our own schema extender.
+- Add the columns from the file as choices to the "Column" widget.
+- Provide the "renderer" field with the available `cellRenderer` choices.
+- Plug into the `schemaExtender` of the `columnsField` our own schema extender.
 
 And we'll replace the old schema tweak with the new one, still in the `src/DataTable/DataTableEdit.js` component:
 
@@ -190,13 +190,13 @@ const schema = tweakSchema(TableSchema(props), data, file_data);
 Notice the `columnsField.schemaExtender` bit, as that is a mechanism of the
 `ObjectWidgetList` to allow per-object schema customization.
 
-It is a function with signature `(schema, data, intl) => schema`
+It is a function with signature `(schema, data, intl) => schema`.
 
 ### Renderer within the view component
 
 Now that we have our renderers registered for our columns, it's time to use
-them in our component view.  
-Back to the `src/DataTable/DataTableView.js` component, we'll need first to 
+them in our component view.
+Back to the `src/DataTable/DataTableView.js` component, we'll need to first
 import the Volto global registry as config:
 
 ```jsx
@@ -293,7 +293,7 @@ export default withFileData(({ data: { file_path } }) => file_path)(
 );
 ```
 
-Now if you select a column that has floating values up to 100 and select the
+Now if you select a column that has floating values up to 100, and select the
 `Progress template`, that column will display the values as a progress bar:
 
 ```{image} _static/table-column-editing.png
