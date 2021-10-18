@@ -272,8 +272,6 @@ The resolution order is: Volto declares the initial configuration, it applies
 the add-on configuration and then the project configuration is loaded last,
 enabling the project to override any configuration.
 
-So: {menuselection}`Volto → add-ons → project`.
-
 So: {guilabel}`Volto → add-ons → project`.
 
 To load an add-on, the project needs to specify the add-on in its
