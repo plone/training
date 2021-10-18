@@ -8,8 +8,8 @@ html_meta:
 
 # Block editing with a form
 
-We'll add schema-based editing of the block settings.  
-In Volto the convention is to use the schema generated from a function so that
+We'll add schema-based editing of the block settings.
+In Volto the convention is to use the schema generated from a function, so that
 the resulting object can be freely mutated, as it comes from a closure.
 
 The most basic schema would look something like this:
@@ -35,14 +35,15 @@ export const TableSchema = ({formData, intl}) => ({
 ```
 
 This schema is based on the one used by `plone.restapi` to edit the
-server-side `Dexterity` content.  
-We're appropriating it, it lives on the client side right now, so we have some
+server-side `Dexterity` content.
+We're appropriating it.
+It lives on the client side right now, so we have some
 freedom in extending it with new logic and capabilities.  
-The only requirement is that Volto's form implementation understands it, 
-but even here we have a lot of freedom, as the form passes all the field props
+The only requirement is that Volto's form implementation understands it.
+But even here we have a lot of freedom, as the form passes all the field props
 to the widgets.
 
-To understand how to structure the schema you need to read Volto's
+To understand how to structure the schema, you need to read Volto's
 [Field.jsx] code.  
 In it, we see the following logic:
 
@@ -155,17 +156,17 @@ const messages = defineMessages({
 });
 ```
 
-Notice that our schema is actually a function that returns a Javascript object,
+Notice that our schema is actually a function that returns a JavaScript object,
 not least because we need to have access to the `intl` utility to provide
 internationalization.
 
 To use the schema, we need to change the block edit component from `src/DataTable/DataTableEdit.jsx`:
 
 ```jsx
-...
+// ...
 import { InlineForm } from '@plone/volto/components';
 import { TableSchema } from './schema';
-...
+// ...
 
 const DataTableEdit = (props) => {
   const { selected, onChangeBlock, block, data } = props;
@@ -232,10 +233,8 @@ const DataTableEdit = (props) => {
 export default DataTableEdit;
 ```
 
-We're using the `InlineForm`, a component provided by Volto that renders an
-"embeddable" form.  
-This form requires, as parameters, the schema, and the form
-values.  
+We're using the `InlineForm`, a component provided by Volto that renders an "embeddable" form.  
+This form requires, as parameters, the schema, and the form values.
 We'll render this form in the sidebar.
 
 Now the view module from `src/DataTable/DataTable.jsx` can become:
@@ -297,12 +296,10 @@ Here's how your block would look like:
 
 ## Initial block data as a reusable pattern
 
-For the view component, we've created a `HOC` mechanism that grants automatic data
-injection.  
-Can we do the same and simplify the `Edit` component?  
-Let's make the "new block needs to point to a file" a mechanism that we can reuse.  
-Perhaps later we'll write a chart block that uses the CSV file, so we'll be able to
-reuse code by composing.
+For the view component, we've created a `HOC` mechanism that grants automatic data injection.  
+Can we do the same and simplify the `Edit` component?
+Let's make the "new block needs to point to a file", a mechanism that we can reuse.
+Perhaps later we'll write a chart block that uses the CSV file, so we'll be able to reuse code by composing.
 
 Add the `src/hocs/withBlockDataSource.js` HOC file:
 
@@ -364,7 +361,7 @@ const withBlockDataSource = (opts) => (WrappedComponent) => {
 export default withBlockDataSource;
 ```
 
-Make sure to export this new `HOC` from the `src/hocs/index.js` file, with:
+Make sure to export this new `HOC` from the `src/hocs/index.js` file with:
 
 ```jsx
 export withFileData from './withFileData';
