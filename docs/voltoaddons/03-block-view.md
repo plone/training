@@ -10,8 +10,8 @@ html_meta:
 
 Let's add CSV file parsing.
 
-There are many CSV parsers available for NodeJS, we'll use [Papaparse] because
-it also works in the browser.
+There are many CSV parsers available for NodeJS.
+We'll use [Papaparse] because it also works in the browser.
 
 We'll need to add the dependency to the add-on if you haven't already done so,
 as instructed in the first chapter. When using yarn workspaces, the
@@ -21,8 +21,9 @@ the correct way is to run this command within the project root.
 
 First, run `yarn workspaces info` to see the workspaces we have available.
 
-```sh
-> yarn workspaces info
+```console
+yarn workspaces info
+
 {
   "@plone-collective/volto-datatable-tutorial": {
     "location": "src/addons/volto-datatable-tutorial",
@@ -97,23 +98,22 @@ export default DataTableView;
 ```
 
 Writing components where the `useEffect` triggers network calls can be pretty tricky. 
-According to the [rule of hooks], hooks can't be triggered
-conditionally, they always have to be executed. 
-For this reason, it's important to add relevant conditions inside the hook code,
-so be sure to identify and prepare a way to tell, from inside the hook, 
-if the network-fetching action should be dispatched.
+According to the [rule of hooks], hooks can't be triggered conditionally.
+They always have to be executed.
+For this reason, it's important to add relevant conditions inside the hook code.
+Be sure to identify and prepare a way to tell, from inside the hook, if the network-fetching action should be dispatched.
 
 ## The React HOC Pattern
 
 It is a good idea to split the code into generic "code blocks" so that 
 behavior and look are separated. 
 This has many benefits:
-- it makes components easier to write and test
-- it separates business logic into reusable behaviors, etc.
+- It makes components easier to write and test.
+- It separates business logic into reusable behaviors.
 
-So, can we abstract the data-grabbing logic? 
+Can we abstract the data-grabbing logic? 
 Let's write a simple Higher-Order Component (HOC) that does the data grabbing. 
-The simplest `HOC` wrapper looks like this:
+The simplest HOC wrapper looks like this:
 
 ```jsx
 const withFileData = (WrappedComponent) => {
@@ -124,9 +124,9 @@ export default withFileData(DataTableView);
 ```
 
 Notice the similarity with Python decorators.
-In our case, the `HOC` is a function that returns a React component.
+In our case, the HOC is a function that returns a React component.
 
-And now let's move the file download and parsing logic to this HOC.
+Now let's move the file download and parsing logic to this HOC.
 We'll create the `src/hocs/withFileData.js` file:
 
 ```jsx
@@ -167,17 +167,17 @@ const withFileData = (WrappedComponent) => {
 export default withFileData;
 ```
 
-This `HOC` now gets the data from the `Redux` store using the logic and code we've
-previously used, and then simply injects it as a new property onto the original wrapped component.
+This HOC now gets the data from the `Redux` store using the logic and code we've
+previously used.
+It then injects it as a new property onto the original wrapped component.
 
-A `HOC` is a simple function that gets a component and returns another
-component.  For a `Python` developer, decorators are a very similar concept.
-One thing to pay attention, React component names need to be referenced as
-`PascalCase` in JSX code.
+A HOC is a simple function that gets a component and returns another
+component.  For a Python developer, decorators are a very similar concept.
+Take note that React component names must be referenced as `PascalCase` in JSX code.
 
-And now the view component is simple, neat, and focused:
+Now the view component is simple, neat, and focused.
 
-Now write the `src/hocs/index.js` file where you export the new `HOC`.
+Now write the `src/hocs/index.js` file where you export the new HOC.
 
 ```jsx
 import withFileData from './withFileData';
@@ -219,7 +219,7 @@ const DataTableView = ({ file_data }) => {
 export default withFileData(DataTableView);
 ```
 
-Note: for this tutorial, the `withFileData` `HOC` has been simplified.
+Note: for this tutorial, the `withFileData` HOC has been simplified.
 To make it more generic, we could avoid hard-coding the field name, by doing something like this:
 
 ```jsx
@@ -232,7 +232,7 @@ const withFileData = (getFilePath) => (WrappedComponent) => {
 ```
 
 And we change how we wrap the `DataTableView` to keep the `file_path` specific
-logic local to the `DataTable` component
+logic local to the `DataTable` component.
 
 ```jsx
 export default withFileData(({ data: { file_path } }) => file_path)(
