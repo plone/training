@@ -12,11 +12,10 @@ html_meta:
 
 ## Create A Reusable component
 
-To reuse the markup of a FAQ item we will split up the code.
-The app component will contain just the data of the FAQ item and will render
-a newly created sub component called {file}`FaqItem`.
-The data is passed to the sub component using properties.
-In the {file}`FaqItem` component you will have access to the properties with {file}`props.question` for example.
+To reuse the markup of a FAQ item, we will split up the code.
+The app component will contain just the data of the FAQ item and will render a newly created subcomponent called `FaqItem`.
+The data is passed to the subcomponent using properties.
+In the `FaqItem` component, you will have access to the properties with `props.question`.
 The {file}`App.js` code will be changed to:
 
 ```{code-block} jsx
@@ -114,11 +113,13 @@ export default App;
 
 ## Exercise
 
-Create the {file}`FaqItem` component in a newly created folder called {file}`components` which renders the same output.
+Create the `FaqItem` component in a newly created folder called `components` which renders the same output.
 Also move all the styling of the view to {file}`components/FaqItem.css`.
 
 ````{admonition} Solution
 :class: toggle
+
+{file}`components/FaqItem.js`
 
 ```{code-block} jsx
 :linenos: true
@@ -141,8 +142,8 @@ export default FaqItem;
 ## Property Validation
 
 React has a builtin mechanism to validate the properties being passed in into a component.
-When incorrect values are passed you will receive a warning in the console.
-In the above example you have to add an extra import:
+When incorrect values are passed, you will receive a warning in the console.
+In the above example, you have to add an extra import:
 
 ```jsx
 import PropTypes from "prop-types";
@@ -157,12 +158,11 @@ static propTypes = {
 };
 ```
 
-If you now add a third empty \<FaqItem> to {file}`App.js`,
-errors of missing properties on this component call will be reported in the Javascript console of your browser.
+If you now add a third empty `<FaqItem>` to {file}`App.js`, errors of missing properties on this component call will be reported in the JavaScript console of your browser.
 
- ```{code-block} jsx
- :emphasize-lines: 2,13-16
- :linenos: true
+```{code-block} jsx
+:emphasize-lines: 2,13-16
+:linenos: true
 
 import "./FaqItem.css";
 import PropTypes from "prop-types";
@@ -182,4 +182,4 @@ FaqItem.propTypes = {
 };
 
 export default FaqItem;
- ```
+```
