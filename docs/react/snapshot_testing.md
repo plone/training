@@ -10,9 +10,10 @@ html_meta:
 
 # Use Snapshot Testing
 
-To test the render output of a specific component we can use snapshot testing.
+To test the render output of a specific component, we can use snapshot testing.
 
-First we will create a file called {file}`FaqItem.test.js` and we will delete the App.test.js file because we have deleted all the initial content of App.js and test refer to those.
+First we will create a file called {file}`FaqItem.test.js`.
+We will also delete the {file}`App.test.js` file, because we have deleted all the initial content of `App.js` and tests refer to those.
 Here we will render the component and assert the markup.
 
 ```{code-block} jsx
@@ -38,7 +39,7 @@ describe("FaqItem", () => {
 
 To run our tests we will run the command:
 
-```console
+```shell
 yarn test
 ```
 
