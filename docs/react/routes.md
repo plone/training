@@ -12,17 +12,17 @@ html_meta:
 
 ## Routing
 
-In this chapter we will add routing so we can navigate to a specific FAQ item.
-First we will install {file}`react-router-dom`:
+In this chapter we will add routing so that we can navigate to a specific FAQ item.
+First we will install `react-router-dom`:
 
 ```shell
 yarn add react-router-dom
 ```
 
 Next we will define the routes we want to use.
-We will use the {file}`BrowserRouter` to define our routes.
-We will have a view at the root and a view at {file}`/faq/1` where '1' is the index of the FAQ item.
-Our new `App.js` will look like this:
+We will use `BrowserRouter` to define our routes.
+We will have a view at the root, and a view at `/faq/1`, where `1` is the index of the FAQ item.
+Our new {file}`App.js` will look like this:
 
 ```{code-block} jsx
 :emphasize-lines: 3,7,17-22
@@ -94,7 +94,7 @@ export default App;
 
 ## Writing The View
 
-Now we will create the {file}`FaqItemView` component at `components/FaqItemView.js`.
+Now we will create the `FaqItemView` component at {file}`components/FaqItemView.js`.
 This will render the full FAQ item.
 The code will look something like this:
 
@@ -128,9 +128,9 @@ export default FaqItemView;
 
 ## Exercise
 
-React Router has a hook called {file}`useParams` which returns an object of key/value pairs of URL parameters .
-The return object contains all the params of the match route including our {file}`index` params.
-Remove the {file}`Todo` string and write a function for the useSelector hook to fetch the correct data from the store.
+React Router has a hook called `useParams` which returns an object of key/value pairs of URL parameters.
+The return object contains all the params of the match route, including our `index` params.
+Remove the `Todo` string, and write a function for the `useSelector` hook to fetch the correct data from the store.
 
 ````{admonition} Solution
 :class: toggle
@@ -148,4 +148,4 @@ Remove the {file}`Todo` string and write a function for the useSelector hook to 
 ```
 ````
 
-To test your view navigate to <http://localhost:3000/faq/0>
+To test your view navigate to <http://localhost:3000/faq/0>.
