@@ -10,8 +10,8 @@ html_meta:
 
 # Navigate Using Redirects
 
-If we want to navigate programmatically for example after submitting a form we have to use a different method.
-In this example we will create a back button in the {file}`FaqItemView` to return to the overview.
+If we want to navigate programmatically, for example after submitting a form, we have to use a different method.
+In this example we will create a back button in the `FaqItemView` to return to the overview.
 First we will create the button:
 
 ```{code-block} jsx
@@ -23,8 +23,8 @@ First we will create the button:
 ```
 
 Then we will add the handler to handle the back event.
-This event will make use of the {file}`useHistory` hook provide by the react-router-dom.
-Once you call this hook it will give you access to the history instance that you may use to navigate.
+This event will make use of the `useHistory` hook provide by the `react-router-dom`.
+Once you call this hook, it will give you access to the history instance that you may use to navigate.
 It has a push method which will push to the new route.
 
 ```{code-block} jsx
@@ -37,7 +37,7 @@ It has a push method which will push to the new route.
   };
 ```
 
-The full listing of our new {file}`FaqItemView` will look as follows:
+The full listing of our new `FaqItemView` will look as follows:
 
 ```{code-block} jsx
 :emphasize-lines: 4,8,14-17,26

@@ -11,8 +11,8 @@ html_meta:
 # Using Links To Navigate
 
 Links are used to navigate between pages in React Router.
-This will make sure the browser doesn't do a full refresh but just changes the route.
-We will add a link to the {file}`FaqItem` component so we can go to the {file}`FaqItemView` view.
+This will make sure the browser doesn't do a full refresh, but just changes the route.
+We will add a link to the `FaqItem` component so that we can go to the `FaqItemView` view.
 
 ```{code-block} jsx
 :emphasize-lines: 1
@@ -30,7 +30,7 @@ import { Link } from "react-router-dom";
 <Link to={`/faq/${props.index}`}>View</Link>
 ```
 
-The full listing of the {file}`FaqItem` component is as follows:
+The full listing of the `FaqItem` component is as follows:
 
 ```{code-block} jsx
 :emphasize-lines: 4,74
