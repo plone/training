@@ -10,10 +10,10 @@ html_meta:
 
 # useEffect Hook
 
-useEffect hook are called on specific external events.
-For example the {file}`useEffect` hook is called after the component is rendered.
+The `useEffect` hook is called on specific external events.
+For example the `useEffect` hook is called after the component is rendered.
 We can use this hook to do additional calls.
-For example in our case we want to fetch the initial data from the backend.
+In our case we want to fetch the initial data from the backend.
 
 ```{code-block} jsx
 :emphasize-lines: 1-3
@@ -25,8 +25,8 @@ For example in our case we want to fetch the initial data from the backend.
   }, [dispatch]);
 ```
 
-The {file}`getFaqItems` method is called using the dispatch hook.
-The full {file}`Faq` component will now look like this:
+The `getFaqItems` method is called using the dispatch hook.
+The full `Faq` component will now look like this:
 
 ```{code-block} jsx
 :emphasize-lines: 1,4, 29-31
