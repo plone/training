@@ -119,7 +119,7 @@ Also move all the styling of the view to {file}`components/FaqItem.css`.
 ````{admonition} Solution
 :class: toggle
 
-{file}`components/FaqItem.js`
+{file}`components/FaqItem.jsx`
 
 ```{code-block} jsx
 :linenos: true

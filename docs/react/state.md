@@ -112,7 +112,7 @@ Add a state variable to the `FaqItem` component, which keeps the state of the an
 ````{admonition} Solution
 :class: toggle
 
-{file}`components/FaqItem.js`
+{file}`components/FaqItem.jsx`
 
 ```{code-block} jsx
 :emphasize-lines: 6,10
