@@ -15,7 +15,7 @@ html_meta:
 The following code is generated in the file {file}`src/App.js`.
 It contains a function which is a React component.
 A React component is a small view which will render some HTML and can have additional behavior.
-The function has a {file}`return` statement which contains JSX to render the view.
+The function has a `return` statement which contains JSX to render the view.
 JSX is inline HTML which will be rendered as HTML in the view.
 
 ```{code-block} jsx
@@ -57,9 +57,8 @@ Change the {file}`App.js` file to show two FAQ items with the following content:
 - Question 2: Why does Plone need a Foundation?
 - Answer 2: Plone has reached critical mass, with enterprise implementations and worldwide usage. The Foundation is able to speak for Plone, and provide strong and consistent advocacy for both the project and the community. The Plone Foundation also helps ensure a level playing field, to preserve what is good about Plone as new participants arrive.
 
-Use an unordered list with an item for each FAQ entry containing an {file}`h2` tag for the question
-and a {file}`p` tag for the answer.
-Remove all other boiler plate code including styling.
+Use an unordered list with an item for each FAQ entry containing an `h2` tag for the question, and a `p` tag for the answer.
+Remove all other boilerplate code including styling.
 
 ````{admonition} Solution
 :class: toggle
@@ -157,14 +156,12 @@ function App() {
 
 If you're unfamiliar with React/ES6, here are some short pointers to the default `create-react-app` boilerplate.
 
-JSX is a special format where it seems you are writing html code,
-but before execution the source is fist transformed to valid Javascript.
-The \<div>, \<ul>, \<p> and other tags in this code
-are first translated into valid Javascript code using the function React.CreateElement.
+JSX is a special format where it seems you are writing html code, but before execution the source is first transformed to valid JavaScript.
+The `<div>`, `<ul>`, `<p>`, and other tags in this code are first translated into valid JavaScript code using the function `React.CreateElement`.
 `create-react-app` automatically adds this preprocessing of JSX.
 
-The last line of our `App` component is marked as the default export for this Javascript file.
+The last line of our `App` component is marked as the default export for this JavaScript file.
 Check out ES6 module documentation.
 
-Note that React allows you to import and treat images and css as direct resources.
-The curly braces used for the `<img src=>` attribute signal to JSX that what follows is executable Javascript.
+Note that React allows you to import and treat images and CSS as direct resources.
+The curly braces used for the `<img src=>` attribute signal to JSX that what follows is executable JavaScript.
