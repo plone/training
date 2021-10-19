@@ -12,9 +12,9 @@ html_meta:
 
 ## Wiring The Store
 
-Now that we have our store ready it's time to connect the store to our code and remove all the unneeded functionality.
-First step is to factor out the {file}`Faq` component into a separate file called {file}`components/Faq.jsx`,
-it is almost a 100% copy of {file}`App.js`:
+Now that we have our store ready, it's time to connect the store to our code and remove all the unneeded functionality.
+The first step is to factor out the `Faq` component into a separate file called {file}`components/Faq.jsx`.
+It is almost an exact copy of {file}`App.js`:
 
 ```{code-block} jsx
 :emphasize-lines: 4,79
@@ -101,7 +101,7 @@ function Faq() {
 export default Faq;
 ```
 
-Next we will create an {file}`App` component with just the store and a reference to our newly created {file}`Faq` component:
+Next we will create an `App` component with just the store and a reference to our newly created `Faq` component:
 
 ```{code-block} jsx
 :emphasize-lines: 2-3,5-6,10,15-17
@@ -231,8 +231,8 @@ export default App;
 
 ## Use The Data From The Store
 
-Now that we have our store wired we can start using the store data instead of our local state.
-We will use the hook {file}`useSelector` for extracting the data from the store and {file}`useDispatch` for dispatching the action which is needed by the component.
+Now that we have our store wired, we can start using the store data instead of our local state.
+We will use the hook `useSelector` for extracting the data from the store, and `useDispatch` for dispatching the action which is needed by the component.
 
 ```{code-block} jsx
 :emphasize-lines: 1-2,
@@ -244,8 +244,8 @@ import { addFaqItem } from "../actions";
 ```
 
 
-We can remove all the edit and delete references since that will be handled by the {file}`FaqItem` to clean up our code.
-We will also change the {file}`onSubmit` handler to use the  {file}`addFaqItem` action.
+We can remove all the edit and delete references, since those will be handled by the `FaqItem` to clean up our code.
+We will also change the `onSubmit` handler to use the  `addFaqItem` action.
 The result will be as follows:
 
 ```{code-block} jsx
@@ -385,8 +385,7 @@ export default Faq;
 
 ## Exercise
 
-Now that we factored out the edit and delete actions from the {file}`Faq` component
-update the {file}`FaqItem` component to call the actions we created for our store.
+Now that we factored out the edit and delete actions from the `Faq` component, update the `FaqItem` component to call the actions we created for our store.
 
 ````{admonition} Solution
 :class: toggle
