@@ -12,8 +12,8 @@ html_meta:
 
 ## Creating A Simple Backend
 
-To persist our data we will create a backend to fetch our initial data.
-We will use {file}`express` to create a simple server.
+To persist our data, we will create a backend to fetch our initial data.
+We will use `express` to create a simple server.
 To install type:
 
 ```shell
@@ -72,14 +72,12 @@ export const getFaqItems = () => ({
 
 ## Writing Middleware
 
-Since the action itself doesn't do any api call we will create middleware to do the job.
-Redux middleware is a simple method which receives the store,
-the method to call the next action and the action itself.
+Since the action itself doesn't do any API call, we will create middleware to do the job.
+Redux middleware is a simple method which receives the store, the method to call the next action, and the action itself.
 The middleware can then decide to do something based on the data in the action.
-In our case we are looking for a property called {file}`request`.
-If that one is available we want to do an api call with the provided operation,
-path and data and fire a new action when the data is fetched.
-We will create a file at `middleware/api.js` and the implementation will look like this:
+In our case we are looking for a property called `request`.
+If that one is available, then we want to do an API call with the provided operation, path, and data, and fire a new action when the data is fetched.
+We will create a file at {file}`middleware/api.js` and the implementation will look like this:
 
 ```{code-block} jsx
 :linenos: true
@@ -160,7 +158,7 @@ export default App;
 ```
 ````
 
-Last part is to change our reducer at `reducers/faq.js` to handle the `GET_FAQ_ITEMS_SUCCESS` action:
+The last part is to change our reducer at `reducers/faq.js` to handle the `GET_FAQ_ITEMS_SUCCESS` action:
 
 ```{code-block} jsx
 :emphasize-lines: 23-24
