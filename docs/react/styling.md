@@ -12,7 +12,7 @@ html_meta:
 
 ## Add stylesheet
 
-To add a stylesheet we simply import the {file}`css` file:
+To add a stylesheet, we import the CSS file:
 
 ```jsx
 import './App.css';
