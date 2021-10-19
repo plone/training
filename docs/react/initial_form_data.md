@@ -13,11 +13,11 @@ html_meta:
 ## Two Modes For The FAQ Item
 
 We will use inline editing to edit an item.
-Create a button to switch to 'edit' mode.
+Create a button to switch to "edit" mode.
 This mode should be set in the state.
-Change the render method to show a form (similar to the 'add' form) in 'edit' mode
-and the view we currently have in the 'view' mode.
-The {file}`onSave` handler can be a dummy handler for now, first we will focus on the two modes.
+Change the render method to show a form (similar to the "add" form) in "edit" mode, and the view we currently have in the "view" mode.
+The `onSave` handler can be a dummy handler for now.
+First we will focus on the two modes.
 
 ````{admonition} Solution
 :class: toggle
@@ -155,8 +155,7 @@ export default FaqItem;
 
 ## Wiring Everything Together
 
-Create a controlled form like the add form and pass an {file}`onEdit` handler to the {file}`FaqItem` component
-like we did with the {file}`onDelete`
+Create a controlled form like the add form, and pass an `onEdit` handler to the `FaqItem` component, like we did with the `onDelete`.
 
 ````{admonition} FaqItem.jsx
 :class: toggle
