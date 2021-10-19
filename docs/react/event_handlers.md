@@ -12,12 +12,11 @@ html_meta:
 
 ## Toggle Function
 
-To show or hide the answer we will add a toggle function to the component {file}`FaqItem.jsx`.
+To show or hide the answer, we will add a toggle function to the component {file}`FaqItem.jsx`.
 
 ## Exercise
 
-Write the toggle handler which will toggle the {file}`isAnswer` state variable
-and set the new state using the {file}`setAnswer` function:
+Write the toggle handler which will toggle the `isAnswer` state variable and set the new state using the `setAnswer` function:
 
 ````{admonition} Solution
 :class: toggle
@@ -35,7 +34,7 @@ and set the new state using the {file}`setAnswer` function:
 
 ## Click Handler
 
-To call the newly created {file}`toggle` function we will add an on click handler to the question:
+To call the newly created `toggle` function, we will add an `onClick` handler to the question:
 
 ```{code-block} jsx
 :emphasize-lines: 3-5
