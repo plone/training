@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
+  "description": "How to make your Plone Add-On configurable"
+  "property=og:description": "How to make your Plone Add-On configurable"
   "property=og:title": "Vocabularies, Registry-Settings and Control Panels"
-  "keywords": "vocabulary, registry, controlpanel, select, options"
+  "keywords": "vocabulary, registry, controlpanel, select, options, configuration, settings"
 ---
 
 (registry-label)=
