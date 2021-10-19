@@ -12,10 +12,10 @@ html_meta:
 
 ## Store Questions And Answers In The State
 
-To manipulate the FAQ later on we will move all the data to the state of the component.
+To manipulate the FAQ, we will move all the data to the state of the component.
 The state of the component is the local state of that specific component.
-When the state changes the component re-rendered itself once again.
-we can initialize the state in our functional component body using `useState` hook.
+When the state changes, the component re-renders itself.
+We can initialize the state in our functional component body using the `useState` hook.
 
 ```{code-block} jsx
 :emphasize-lines: 6-15,19-21
@@ -106,12 +106,13 @@ export default App;
 
 ## Exercise
 
-To save space in the view we want to be able to show and hide the answer when you click on the question.
-Add a state variable to the {file}`FaqItem` component which keeps the state of the answer being shown or not
-and adjust the render method to show or hide the answer.
+To save space in the view, we want to show and hide the answer when you click on the question.
+Add a state variable to the `FaqItem` component, which keeps the state of the answer being shown or not, and adjust the render method to show or hide the answer.
 
 ````{admonition} Solution
 :class: toggle
+
+{file}`components/FaqItem.js`
 
 ```{code-block} jsx
 :emphasize-lines: 6,10
