@@ -12,19 +12,19 @@ html_meta:
 
 ## Installing dependencies
 
-First step is to install the correct Node version using {file}`nvm`:
+First step is to install the correct Node version using `nvm`:
 
 ```shell
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ```
 
-Then you can install the latest LTS version of node:
+Then you can install the latest LTS version of Node:
 
 ```shell
 nvm install --lts
 ```
 
-We use the package manager {file}`yarn`, to install do:
+Install the package manager `yarn`:
 
 ```shell
 curl -o- -L https://yarnpkg.com/install.sh | bash
