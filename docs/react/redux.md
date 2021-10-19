@@ -12,21 +12,21 @@ html_meta:
 
 ## Introduction
 
-Currently we have the state of the FAQ list in the {file}`App` component and pass all handlers and data down to the {file}`FaqItem` component.
-When your application will contain more sub components this can become very complex.
-To manage your application state we will introduce Redux here.
-Redux is a state management system which is composed of a store which contains data,
-a set of reducers which handle (part of) this state, it’s changes and actions which are used to trigger state changes.
+Currently we have the state of the FAQ list in the `App` component and pass all handlers and data down to the `FaqItem` component.
+When your application will contain more subcomponents, this can become very complex.
+To manage your application state, we will introduce Redux here.
+Redux is a state management system which is composed of a store.
+This store contains data, a set of reducers which handle (part of) this state and its changes, and actions which are used to trigger state changes.
 
-A reducer is pure function which takes the previous state and an action and returns a new state based on the data of the action.
+A reducer is pure function which takes the previous state and an action, and returns a new state based on the data of the action.
 The new state is then saved to the store.
 Components can then read data from the store and render a view.
-When a change needs to be made to the application state the view will fire an action which will be handled by the reducer again etc.
-So it's a unidirectional flow.
+When a change needs to be made to the application state, the view will fire an action which will be handled by the reducer again, and so on.
+This is a unidirectional flow.
 
 ## Installing
 
-To install Redux we will run the following command:
+To install Redux, we will run the following command:
 
 ```shell
 yarn add redux react-redux
@@ -35,7 +35,7 @@ yarn add redux react-redux
 ## Actions
 
 We will start by creating actions.
-We will create a file {file}`actions/index.js` with the {file}`addFaqItem` action:
+We will create a file {file}`actions/index.js` with the `addFaqItem` action:
 
 ```{code-block} jsx
 :emphasize-lines: 1-5
@@ -48,7 +48,7 @@ export const addFaqItem = (question, answer) => ({
 });
 ```
 
-Write the {file}`editFaqItem` and {file}`deleteFaqItem` actions.
+Write the `editFaqItem` and `deleteFaqItem` actions.
 
 ````{admonition} Solution
 :class: toggle
@@ -75,8 +75,8 @@ export const deleteFaqItem = index => ({
 ## Reducers
 
 Next we will create the reducer by creating the `reducers/faq.js` file.
-As stated earlier a reducer is pure function which takes the previous state and an action and returns the new state,
-it will look like this:
+As stated earlier, a reducer is a pure function which takes the previous state and an action, and returns the new state.
+It will look like this:
 
 ```{code-block} jsx
 :emphasize-lines: 1-3,5
@@ -89,8 +89,7 @@ const faq = (state = [], action) => {
 export default faq;
 ```
 
-Finish the reducer so that it can handle the {file}`ADD_FAQ_ITEM`,
-{file}`EDIT_FAQ_ITEM` and {file}`DELETE_FAQ_ITEM` actions.
+Finish the reducer so that it can handle the `ADD_FAQ_ITEM`, `EDIT_FAQ_ITEM`, and `DELETE_FAQ_ITEM` actions.
 
 ````{admonition} Solution
 :class: toggle
@@ -132,9 +131,9 @@ export default faq;
 
 ## Combine Multiple Reducers
 
-When our application grows we will have multiple reducers handling a specific part of the data.
-We will combine all reducers into one index reducer so we can set all reducers in one store.
-We will create the file {file}`reducers/index.js`
+When our application grows, we will have multiple reducers handling a specific part of the data.
+We will combine all reducers into one index reducer, such that we can set all reducers in one store.
+We will create the file {file}`reducers/index.js`.
 
 ```{code-block} jsx
 :emphasize-lines: 1-2,4-6
