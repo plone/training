@@ -53,9 +53,11 @@ Topics covered:
 - Vocabularies
 - Control panels
 
+If you stop by here for more tips, not attending this training: Make sure you upgrade to Volto 14 or later.
+
 ## Introduction
 
-Do you remember the fields `audience` and `type_of_talk` of talk content type?
+Do you remember the fields `audience` and `type_of_talk` in the talk content type?
 We provided several options to choose from that were hard-coded in the schema.
 
 Next we want to add a field to assign talks to a room.
@@ -69,35 +71,39 @@ To be able to to so you first need to get to know the registry.
 
 ## The Registry
 
-The registry is used to get and set values stored in records. Each record consists of the actual value, as well as a field that describes the record in more detail. It has a nice dict-like API.
+The registry is used to get and set values stored in records.
+Each record consists of the actual value, as well as a field that describes the record in more detail.
+It has a nice dict-like API.
 
-From Plone 5 on all global settings are stored in the registry.
+Since Plone 5 all global settings are stored in the registry.
 
 The registry itself is provided by [plone.registry](https://pypi.org/project/plone.registry) and the UI to interact with it by [plone.app.registry](https://pypi.org/project/plone.app.registry)
 
 Almost all settings in `/plone_control_panel` are actually stored in the registry and can be modified using its UI directly.
 
 Open <http://localhost:8080/Plone/portal_registry> and filter for `displayed_types`.
-You see that you can modify the content types that should be shown in the navigation and site map. The values are the same as in <http://localhost:8080/Plone/@@navigation-controlpanel>, but the later form is customized for usability.
+You see that you can modify the content types that should be shown in the navigation and site map.
+The values are the same as in <http://localhost:8080/Plone/@@navigation-controlpanel>, but the latter form is customized for usability.
 
 ```{note}
-This UI for the registry is not yet available in frontend.
+This UI for the registry is not yet available in the frontend.
 ```
 
 ## Registry Records
 
-You already added in {doc}`volto_frontpage` an additional criterion usable for Collections in {file}`profiles/default/registry/querystring.xml`.
+In {doc}`volto_frontpage` you already added a criterion usable for Collections in {file}`profiles/default/registry/querystring.xml`.
 This setting is stored in the registry.
 
 Let's look at existing values in the registry.
 
-Go to <http://localhost:3000/controlpanel/navigation> and add `talk` to the field **Displayed content types**.
+Go to <http://localhost:3000/controlpanel/navigation> and add `talk` to the field {guilabel}`Displayed content types`.
 Talks in the root will now show up in the navigation.
-This setting is stored in registry record `plone.displayed_types`.
+This setting is stored in the registry record `plone.displayed_types`.
 
 ## Accessing and modifying records in the registry
 
-In Python you can access the registry record with key `plone.displayed_types` via {py:mod}`plone.api`. It holds convenience methods to make the get and set of a record easy:
+In Python you can access the registry record with the key `plone.displayed_types` via {py:mod}`plone.api`.
+It holds convenience methods to `get` and `set` a record:
 
 ```{code-block} python
 
@@ -107,7 +113,7 @@ api.portal.get_registry_record('plone.displayed_types')
 api.portal.set_registry_record('plone.smtp_host', 'my.mail.server')
 ```
 
-Often seen in code from before the time of plone.api, is the access of the registry by `zope.component.getUtility`.
+The access of the registry by `zope.component.getUtility` is often seen in code from before the time of `plone.api`.
 
 ```{code-block} python
 
@@ -121,7 +127,7 @@ displayed_types = registry.get('plone.displayed_types')
 The value of the record `displayed_types` is the tuple `('Image', 'File', 'Link', 'News Item', 'Folder', 'Document', 'Event', 'talk')`
 
 
-## A UI for custom registry records
+## Custom registry records
 
 Now let's add our own custom settings:
 
@@ -130,7 +136,7 @@ Now let's add our own custom settings:
 
 While we're at it we can also add new settings `types_of_talk` and `audiences` that we will use later for the fields `type_of_talk` and `audience`.
 
-To define custom records you write the same type of schema as you already did for content types or for behaviors:
+To define custom records, you write the same type of schema as you already did for content types or for behaviors:
 
 Add a file {file}`browser/controlpanel.py`:
 
@@ -287,9 +293,33 @@ class IPloneconfSettings(Interface):
     )
 ```
 
-Motivation for the use of schema.JSONField instead of schema.List:
+The motivation to use `schema.JSONField` instead of `schema.List` is described as follows.
 
-The options for the types of a talk, the room and the audience may change. A modification of the feeding vocabulary would mean that already used options are no longer available which would corrupt the data of the concerned talks. So we care for a futureproof vocabulary with JSONFields that mean to store a vocabulary source in registry that is a list of dictionaries with keys that never change and values that are free to modify if necessary.
+The options for the types of a talk, the room and the audience may change.
+A modification of the feeding vocabulary would mean that already used options are no longer available, which would corrupt the data of the concerned talks.
+We can "future-proof" this vocabulary with JSONFields that store a vocabulary source in the registry.
+This vocabulary is a list of dictionaries, with keys that never change, and values that may be modified when necessary.
+See the default values to understand what is stored in the registry:
+Example `types_of_talk`:
+
+```{code-block} python
+[
+    {
+        "token": "talk",
+        "titles": {
+            "en": "Talk",
+            "de": "Vortrag",
+        },
+    },
+    {
+        "token": "lightning-talk",
+        "titles": {
+            "en": "Lightning-Talk",
+            "de": "Lightning-Talk",
+        },
+    },
+]
+```
 
 
 We now register this schema `IPloneconfSettings` for the registry.
@@ -297,18 +327,26 @@ Add the following to {file}`profiles/default/registry/main.xml`.
 With this statement the registry is extended by one record per `IPloneconfSettings` schema field.
 
 ```xml
-<records interface="ploneconf.site.browser.controlpanel.IPloneconfControlPanel"
-         prefix="ploneconf" />
+<?xml version="1.0"?>
+<registry
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="ploneconf.site">
+
+  <records
+      interface="ploneconf.site.browser.controlpanel.IPloneconfSettings"
+      prefix="ploneconf" />
+
+</registry>
+
 ```
 
 ```{note}
 The `prefix` allows you to access these records with a shortcut:
-You can use `ploneconf.rooms` instead of `ploneconf.site.browser.controlpanel.IPloneconfControlPanel.room`.
+You can use `ploneconf.rooms` instead of `ploneconf.site.browser.controlpanel.IPloneconfSettings.rooms`.
 ```
 
-After reinstalling the package (to apply the registry changes) you can access and modify these registry records as described above:
-
-Either use <http://localhost:8080/Plone/portal_registry> or python:
+After reinstalling the package to apply the registry changes, you can access and modify these registry records as described above.
+Either use <http://localhost:8080/Plone/portal_registry> or `Python`:
 
 ```python
 from plone import api
@@ -317,10 +355,10 @@ api.portal.get_registry_record('ploneconf.rooms')
 ```
 
 ````{note}
-In training code `ploneconf.site` we use `Python` to define the registry records.
-Alternatively you could also add these registry entries with Generic Setup.
+In training code `ploneconf.site`, we use `Python` to define the registry records.
+Alternatively you could add these registry entries with Generic Setup.
 
-The following creates a new entrie `ploneconf.talk_submission_open` with Generic Setup:
+The following creates a new entry `ploneconf.talk_submission_open` with Generic Setup:
 
 ```{code-block} xml
 :linenos:
@@ -335,17 +373,18 @@ The following creates a new entrie `ploneconf.talk_submission_open` with Generic
 </record>
 ```
 
-When creating a new vanilla Plone instance, a lot of default settings are created that way. See <https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/profiles/dependencies/registry.xml> to see how {py:mod}`Products.CMFPlone` registers values.
-````
+When creating a new vanilla Plone instance, a lot of default settings are created that way.
+See <https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/profiles/dependencies/registry.xml> to see how {py:mod}`Products.CMFPlone` registers values.
+
 
 ## Add a custom control panel
 
-Now you will add a custom control panel to edit all setting related to our package with a nice UI.
+Now you will add a custom control panel to edit all settings related to our package with a nice UI.
 
 To register a controlpanel for the frontend and Plone Classic you need quite a bit of boiler-plate:
 
 ```{code-block} python
-:emphasize-lines: 1-2, 4, 147-165
+:emphasize-lines: 1-2, 4, 156-175
 :linenos:
 
 from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
@@ -373,10 +412,10 @@ VOCABULARY_SCHEMA = json.dumps(
                             "properties": {
                                 "lang": {"type": "string"},
                                 "title": {"type": "string"},
-                            }
+                            },
                         },
-                    }
-                }
+                    },
+                },
             }
         },
     }
@@ -397,107 +436,116 @@ class IPloneconfSettings(Interface):
         description="Available types of a talk",
         required=False,
         schema=VOCABULARY_SCHEMA,
-        default={"items": [
-            {
-                "token": "talk",
-                "titles": {
-                    "en": "Talk",
-                    "de": "Vortrag",
-                }
-            },
-            {
-                "token": "lightning-talk",
-                "titles": {
-                    "en": "Lightning-Talk",
-                    "de": "Lightning-Talk",
-                }
-            },
-        ]},
+        default={
+            "items": [
+                {
+                    "token": "talk",
+                    "titles": {
+                        "en": "Talk",
+                        "de": "Vortrag",
+                    },
+                },
+                {
+                    "token": "lightning-talk",
+                    "titles": {
+                        "en": "Lightning-Talk",
+                        "de": "Lightning-Talk",
+                    },
+                },
+            ]
+        },
         missing_value={"items": []},
     )
     directives.widget(
-        'types_of_talk',
+        "types_of_talk",
         frontendOptions={
-            "widget": 'vocabularyterms',
-        })
+            "widget": "vocabularyterms",
+        },
+    )
 
     audiences = schema.JSONField(
         title="Audience",
         description="Available audiences of a talk",
         required=False,
         schema=VOCABULARY_SCHEMA,
-        default={"items": [
-            {
-                "token": "beginner",
-                "titles": {
-                    "en": "Beginner",
-                    "de": "Anfänger",
-                }
-            },
-            {
-                "token": "advanced",
-                "titles": {
-                    "en": "Advanced",
-                    "de": "Fortgeschrittene",
-                }
-            },
-            {
-                "token": "professional",
-                "titles": {
-                    "en": "Professional",
-                    "de": "Profi",
-                }
-            },
-        ]},
+        default={
+            "items": [
+                {
+                    "token": "beginner",
+                    "titles": {
+                        "en": "Beginner",
+                        "de": "Anfänger",
+                    },
+                },
+                {
+                    "token": "advanced",
+                    "titles": {
+                        "en": "Advanced",
+                        "de": "Fortgeschrittene",
+                    },
+                },
+                {
+                    "token": "professional",
+                    "titles": {
+                        "en": "Professional",
+                        "de": "Profi",
+                    },
+                },
+            ]
+        },
         missing_value={"items": []},
     )
     directives.widget(
-        'audiences',
+        "audiences",
         frontendOptions={
-            "widget": 'vocabularyterms',
-        })
+            "widget": "vocabularyterms",
+        },
+    )
 
     rooms = schema.JSONField(
         title="Rooms",
         description="Available rooms of the conference",
         required=False,
         schema=VOCABULARY_SCHEMA,
-        default={"items": [
-            {
-                "token": "101",
-                "titles": {
-                    "en": "101",
-                    "de": "101",
-                }
-            },
-            {
-                "token": "201",
-                "titles": {
-                    "en": "201",
-                    "de": "201",
-                }
-            },
-            {
-                "token": "auditorium",
-                "titles": {
-                    "en": "Auditorium",
-                    "de": "Auditorium",
-                }
-            },
-        ]},
+        default={
+            "items": [
+                {
+                    "token": "101",
+                    "titles": {
+                        "en": "101",
+                        "de": "101",
+                    },
+                },
+                {
+                    "token": "201",
+                    "titles": {
+                        "en": "201",
+                        "de": "201",
+                    },
+                },
+                {
+                    "token": "auditorium",
+                    "titles": {
+                        "en": "Auditorium",
+                        "de": "Auditorium",
+                    },
+                },
+            ]
+        },
         missing_value={"items": []},
     )
     directives.widget(
-        'rooms',
+        "rooms",
         frontendOptions={
-            "widget": 'vocabularyterms',
-        })
+            "widget": "vocabularyterms",
+        },
+    )
 
 
 class PloneconfRegistryEditForm(RegistryEditForm):
     schema = IPloneconfSettings
-    schema_prefix = 'ploneconf'
-    label = 'Ploneconf Settings'
+    schema_prefix = "ploneconf"
+    label = "Ploneconf Settings"
 
 
 class PloneConfControlPanelFormWrapper(ControlPanelFormWrapper):
@@ -506,20 +554,21 @@ class PloneConfControlPanelFormWrapper(ControlPanelFormWrapper):
 
 @adapter(Interface, Interface)
 class PloneConfRegistryConfigletPanel(RegistryConfigletPanel):
-    """frontend control panel configlet"""
-    schema = IPloneconfSettings
-    schema_prefix = 'ploneconf'
-    configlet_id = 'ploneconf-controlpanel'
-    configlet_category_id = 'Products'
-    title = 'Ploneconf Settings'
-    group = 'Products'
+    """Volto control panel"""
 
+    schema = IPloneconfSettings
+    schema_prefix = "ploneconf"
+    configlet_id = "ploneconf-controlpanel"
+    configlet_category_id = "Products"
+    title = "Ploneconf Settings"
+    group = "Products"
 ```
 
-You also need to register these in {file}`browser/configure.zcml`:
+You also need to register the view and the adapter in {file}`browser/configure.zcml`:
 
 ```{code-block} xml
-:linenos:
+:linenos: 
+:emphasize-lines: 4,10
 
 <browser:page
     name="ploneconf-controlpanel"
@@ -534,11 +583,12 @@ You also need to register these in {file}`browser/configure.zcml`:
     name="ploneconf-controlpanel" />
 ```
 
-Finally you also need to register it with Generic Setup to let the configlet get listed in `Site Setups` panels list.
+Finally register the configlet with Generic Setup so that it gets listed in the {guilabel}`Site Setups` panels list.
 Add a file {file}`profiles/default/controlpanel.xml`:
 
 ```{code-block} xml
 :linenos:
+:emphasize-lines: 10
 
 <?xml version="1.0"?>
 <object name="portal_controlpanel">
@@ -556,16 +606,23 @@ Add a file {file}`profiles/default/controlpanel.xml`:
 </object>
 ```
 
-After applying the profile (e.g. by reinstall the package) your control panel shows up.
+After applying the profile (for example, by reinstalling the package), your control panel shows up.
 
-In frontend it is at <http://localhost:3000/controlpanel/ploneconf-controlpanel>
+```{figure} _static/volto_ploneconf_controlpanel_overview.png
+```
+
+The address is `http://localhost:3000/controlpanel/ploneconf-controlpanel`
 
 ```{figure} _static/volto_ploneconf_controlpanel.png
 ```
 
+As you can see in the control panel configlet for the `ploneconf.site` package, the entries can be modified and reordered. Changes are reflected in the registry as the configlet is registered as a wrapped edit form of the `IPloneconfSettings` schema.
 
 ````{note}
-A short remark on the frontend widget. As we want the `VocabularyTermsWidget` to be applied, we give already in our backend schema of the control panel the hint with a so called tagged value which frontend widget we want to be applied for the three control panel fields. So no widget registration in frontend app needed.
+A short remark on the frontend widget.
+We want the `VocabularyTermsWidget` to be applied.
+Thus we specify a hint, using a so-called "tagged value", the name of the frontend widget to be applied for the three control panel fields in our backend schema.
+Thus no widget registration in the frontend app is needed.
 
 ```python
 directives.widget(
@@ -576,19 +633,21 @@ directives.widget(
 ```
 ````
 
-As you see in the opened control panel configlet for the ploneconf.site package, the registry records can be modified and their order can be changed.
 
 ## Vocabularies
 
-Now the custom settings are stored in the registry and we can modify them in a nice way as admins.
+Now the custom settings are stored in the registry and we can modify them in a nice way as site administrators.
 We still need to use these options in talks.
 
 To do so we turn them into vocabularies.
 
-Vocabularies are often used for selection fields. They have many benefits:
+Vocabularies are often used for selection fields.
+They have many benefits:
 
-- They allow you to separate the select options values from the content type schema. Which means that they can be edited via UI like seen before.
-- A vocabulary can even be dynamically, the available options can change depending on existing content, the role of the user or even the time of day.
+- They allow you to separate the select option values from the content type schema.
+  This means that they can be edited via the UI.
+- A vocabulary can even be set dynamically.
+  The available options can change depending on existing content, the role of the user, or even the time of day.
 
 Create a file {file}`vocabularies.py` and write code that generates vocabularies from these settings:
 
@@ -605,27 +664,33 @@ from zope.schema.vocabulary import SimpleVocabulary
 def TalkTypesVocabulary(context):
     name = "ploneconf.types_of_talk"
     registry_record_value = api.portal.get_registry_record(name)
-    items = registry_record_value.get('items', [])
+    items = registry_record_value.get("items", [])
     lang = api.portal.get_current_language()
-    return SimpleVocabulary.fromItems([[item['token'], item['token'], item['titles'][lang]] for item in items])
+    return SimpleVocabulary.fromItems(
+        [[item["token"], item["token"], item["titles"][lang]] for item in items]
+    )
 
 
 @provider(IVocabularyFactory)
 def AudiencesVocabulary(context):
     name = "ploneconf.audiences"
     registry_record_value = api.portal.get_registry_record(name)
-    items = registry_record_value.get('items', [])
+    items = registry_record_value.get("items", [])
     lang = api.portal.get_current_language()
-    return SimpleVocabulary.fromItems([[item['token'], item['token'], item['titles'][lang]] for item in items])
+    return SimpleVocabulary.fromItems(
+        [[item["token"], item["token"], item["titles"][lang]] for item in items]
+    )
 
 
 @provider(IVocabularyFactory)
 def RoomsVocabularyFactory(context):
     name = "ploneconf.rooms"
     registry_record_value = api.portal.get_registry_record(name)
-    items = registry_record_value.get('items', [])
+    items = registry_record_value.get("items", [])
     lang = api.portal.get_current_language()
-    return SimpleVocabulary.fromItems([[item['token'], item['token'], item['titles'][lang]] for item in items])
+    return SimpleVocabulary.fromItems(
+        [[item["token"], item["token"], item["titles"][lang]] for item in items]
+    )
 ```
 
 You can now register these vocabularies as named utilities in {file}`configure.zcml`:
@@ -652,17 +717,17 @@ From now on you can use these vocabulary by referring to their name, e.g. `plone
 
 - We turn the values from the registry into a dynamic `SimpleVocabulary` that can be used in the schema.
 
-- You could use the context with which the vocabulary is called or the request (using `getRequest` from `from zope.globalrequest import getRequest`) to constrain the values in the vocabulary.
+- You could use the context with which the vocabulary is called or the request (using `getRequest` from `zope.globalrequest`) to constrain the values in the vocabulary.
 ````
 
 ```{seealso}
-Plone documentation **Vocabularies** <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html>
+Plone documentation [Vocabularies](https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html).
 ```
 
 
 ## Using vocabularies in a schema
 
-To use a vocabulary in a schema replace `values` with `vocabulary` and point to the vocbulary by name:
+To use a vocabulary in a schema field, replace the attribute `values` with `vocabulary`, and point to a vocabulary by its name:
 
 ```{code-block} python
 :emphasize-lines: 3
@@ -675,7 +740,7 @@ type_of_talk = schema.Choice(
 )
 ```
 
-Don't forget to add the new field `room` now.
+Don't forget to add the new field `room`.
 
 Edit {file}`content/talk.py`:
 
