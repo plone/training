@@ -29,7 +29,7 @@ The most important parts of Plone can be configured in the control panel.
 - Click on the portrait/username in the toolbar
 - Click {guilabel}`Site Setup`
 
-```{figure} _static/volto_controlpanel.png
+```{figure} _static/features_control_panel.png
 :alt: Site Setup
 
 Site Setup
@@ -80,7 +80,8 @@ The following controlpanels are so far only available in the backend:
 
 ### Users
 
-1. Users and Groups
+1. Users
+2. Groups
 
 ### Security
 

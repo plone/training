@@ -27,7 +27,7 @@ The conference-webseite we want to create should be reusable in the following ye
 Here are some requirements that we want to meet when the site is done:
 
 - As a visitor I want to find current information on the conference.
-- As a visitor I want to find information about talks.
+- As a visitor I want to find information about talks, trainings and keynotes.
 - As a speaker I want to be able to submit talks.
 - As a speaker I want to see and edit my submitted talks.
 - As an organizer I want to see a list of all proposed talks.
@@ -112,9 +112,6 @@ Here are the technologies and tools we will use during the training:
   > - Dexterity
   > - [GenericSetup](https://docs.plone.org/develop/addons/components/genericsetup.html)
   > - Viewlets
-  > - [JQuery](https://jquery.com/)
-  > - [Testing](https://docs.plone.org/external/plone.testing/docs/index.html)
-  > - [References/Relations](https://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html)
 
 (intro-what-wont-happen-label)=
 
@@ -122,13 +119,11 @@ Here are the technologies and tools we will use during the training:
 
 We will not cover the following topics:
 
-- Archetypes
 - [Portlets](https://docs.plone.org/develop/plone/functionality/portlets.html)
 - [z3c.forms](https://docs.plone.org/develop/plone/forms/z3c.form.html)
 - [Theming](https://docs.plone.org/adapt-and-extend/theming/index.html)
-- [i18n and locales](https://docs.plone.org/develop/plone/i18n/index.html)
+- [Multilingual content and Internationalization](https://docs.plone.org/develop/plone/i18n/index.html)
 - [Deployment, Hosting and Caching](https://docs.plone.org/manage/deploying/index.html)
-- Grok
 
 Other topics are only covered lightly:
 

@@ -18,7 +18,7 @@ Plone is an open source Content Management System (CMS) built in Python. A CMS l
 - Plone 5.2 supports Python 3 and 2
 - Plone 6 supports Python 3
 - [RESTful hypermedia API](https://plonerestapi.readthedocs.io/en/latest//)
-- Optional React frontend and editor `Volto`
+- `Volto`: React-based frontend and editor
 - Based on the Web-Framework Zope
 - Database: `Zope Object Database` ZODB or ORM & SQL/Postgres/Oracle
 - Runs on Linux, macOS, BSD, Solaris, NixOS and Windows
@@ -74,9 +74,9 @@ Objects can be called and return a representation of itself - usually HTML.
 ```python
 >>> obj = portal['folder1']['a-newsitem']
 >>> obj
-<NewsItem at xxx>
+<FolderishNewsItem at /Plone/folder1/a-newsitem>
 >>> obj()
-u'\n<!DOCTYPE html>\n\n<html xmlns="http://www.w3.org/1999/xhtml...'
+'\n<!DOCTYPE html>\n\n<html xmlns="http://www.w3.org/1999/xhtml...'
 ```
 
 (schema-driven-types-label)=
@@ -91,16 +91,16 @@ Values of these fields are attributes on content objects.
 
 ```python
 >>> obj.title
-u'A Newsitem'
+'A Newsitem'
 >>> obj.description
-u'Some description'
+'Some description'
 >>> obj.description = u'A new description'
 >>> obj.description
-u'A new description'
+'A new description'
 >>> obj.image
-<plone.namedfile.file.NamedBlobImage object at 0x11634c320>
+<plone.namedfile.file.NamedBlobImage object at 0x113793b30 oid 0x7e0b in <Connection at 10e57cdc0>>
 >>> obj.image.data
-'\x89PNG\r\n\x1a\n\x00\x00\x00\...'
+b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x01,\x01,...'
 ```
 
 Objects can have multiple schemata.

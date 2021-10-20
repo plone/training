@@ -82,7 +82,7 @@ Here is a example that shows how to access and modify these values in python:
 'A Newsitem'
 >>> obj.description
 'Some description'
->>> obj.description = u'A new description'
+>>> obj.description = 'A new description'
 >>> obj.description
 'A new description'
 >>> obj.image
