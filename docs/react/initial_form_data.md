@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Add the Edit mode so that user can edit the question and answer of the list."
+  "property=og:description": "Add the Edit mode so that user can edit the question and answer of the list."
+  "property=og:title": "Use Initial Form Data To Edit An Item"
+  "keywords": "Plone, Training, exercise, solution, react"
 ---
 
 (initial-form-data-label)=

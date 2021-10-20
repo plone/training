@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Add event handlers to show or hide the answer in FaqItem component."
+  "property=og:description": "Add event handlers to show or hide the answer in FaqItem component."
+  "property=og:title": "Use Event Handlers"
+  "keywords": "Plone, Training, exercise, solution, react"
 ---
 
 (event-handlers-label)=

@@ -44,3 +44,7 @@ React, Redux and React-Router.
 ## Documentation
 
 Follow the {doc}`/react/index` training online.
+
+## Github Repo
+
+You can get the complete code for this training as well as each chapter in seperate branch from [GitHub](https://github.com/iFlameing/plone-react-training)

@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Add form to add new question and answer."
+  "property=og:description": "Add form to add new question and answer."
+  "property=og:title": "Use Forms To Add An Item"
+  "keywords": "Plone, Training, exercise, solution, react"
 ---
 
 (forms-label)=

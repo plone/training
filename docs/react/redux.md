@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Add redux to our App for managing the state throughout the App."
+  "property=og:description": "Add redux to our App for managing the state throughout the App."
+  "property=og:title": "Use Redux to Store Data"
+  "keywords": "Plone, Training, exercise, solution, react, redux"
 ---
 
 (redux-label)=

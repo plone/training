@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Style the react component."
+  "property=og:description": "Style the react component."
+  "property=og:title": "Styling your react component"
+  "keywords": "Plone, Trainings, SEO, style, css, react, component, exercise, solution"
 ---
 
 (react-styling-label)=

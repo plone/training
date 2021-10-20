@@ -23,6 +23,7 @@ The React training is intended as a single day training for people who are new t
 :numbered: true
 
 intro
+video
 bootstrap
 component
 styling
@@ -43,4 +44,4 @@ links
 redirects
 ```
 
-This training was created by Rob Gietema and Roel Bruggink.
+This training was created by Rob Gietema, Roel Bruggink and updated by Alok Kumar.

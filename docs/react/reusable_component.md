@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Refactor the app.js and create a new component so that we can use the markup."
+  "property=og:description": "Refactor the app.js and create a new component so that we can use the markup."
+  "property=og:title": "Convert To A Reusable Component"
+  "keywords": "Plone, Trainings, SEO, react, component, exercise, solution"
 ---
 
 (reusable-component-label)=
