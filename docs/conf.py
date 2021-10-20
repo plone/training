@@ -93,6 +93,7 @@ linkcheck_ignore = [
     r"http://example.com",
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
     r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
+    r"https://www.virtualbox.org",  # times out often
 ]
 linkcheck_anchors = False
 linkcheck_timeout = 10
