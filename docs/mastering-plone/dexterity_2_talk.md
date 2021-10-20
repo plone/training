@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
+:alt: Plone backend
 :align: left
 :class: logo
 ```
@@ -65,11 +65,13 @@ Plone will now expect a file {file}`profiles/default/types/talk.xml` and will r
 ## The fti
 
 Add the file `ploneconf/site/profiles/default/types/talk.xml`.
-Note that there is a file *types* and a folder *types*.
+Note that there is a file _types_ and a folder _types_.
 
 This is the **Factory Type Information** that holds the configuration for the content type **talk**.
 
-```xml
+```{code-block} xml
+:lineno-start: 1
+
 <?xml version="1.0"?>
 <object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
@@ -140,15 +142,15 @@ You just created a python module.
 
 In this new folder add a file {file}`talk.py` with the following content:
 
-```python
-# -*- coding: utf-8 -*-
+```{code-block} python
+:lineno-start: 1
+
 from plone.app.textfield import RichText
 from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobImage
 from plone.schema.email import Email
 from plone.supermodel import model
-from ploneconf.site import _
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from z3c.form.browser.radio import RadioFieldWidget
 from zope import schema
@@ -162,70 +164,70 @@ class ITalk(model.Schema):
 
     directives.widget(type_of_talk=RadioFieldWidget)
     type_of_talk = schema.Choice(
-        title=_(u'Type of talk'),
+        title='Type of talk',
         values=['Talk', 'Training', 'Keynote'],
         required=True,
-        )
+    )
 
     details = RichText(
-        title=_(u'Details'),
-        description=_(u'Description of the talk (max. 2000 characters)'),
+        title='Details',
+        description='Description of the talk (max. 2000 characters)',
         max_length=2000,
         required=True,
-        )
+    )
 
     directives.widget(audience=CheckBoxFieldWidget)
     audience = schema.Set(
-        title=_(u'Audience'),
+        title='Audience',
         value_type=schema.Choice(
             values=['Beginner', 'Advanced', 'Professional'],
-            ),
+        ),
         required=False,
-        )
+    )
 
     speaker = schema.TextLine(
-        title=_(u'Speaker'),
-        description=_(u'Name (or names) of the speaker'),
+        title='Speaker',
+        description='Name (or names) of the speaker',
         required=False,
-        )
+    )
 
     company = schema.TextLine(
-        title=_(u'Company'),
+        title='Company',
         required=False,
-        )
+    )
 
     email = Email(
-        title=_(u'Email'),
-        description=_(u'Email adress of the speaker'),
+        title='Email',
+        description='Email adress of the speaker',
         required=False,
-        )
+    )
 
     website = schema.TextLine(
-        title=_(u'Website'),
+        title='Website',
         required=False,
-        )
+    )
 
     twitter = schema.TextLine(
-        title=_(u'Twitter name'),
+        title='Twitter name',
         required=False,
-        )
+    )
 
     github = schema.TextLine(
-        title=_(u'Github username'),
+        title='Github username',
         required=False,
-        )
+    )
 
     image = NamedBlobImage(
-        title=_(u'Image'),
-        description=_(u'Portrait of the speaker'),
+        title='Image',
+        description='Portrait of the speaker',
         required=False,
-        )
+    )
 
     speaker_biography = RichText(
-        title=_(u'Speaker Biography (max. 1000 characters)'),
+        title='Speaker Biography (max. 1000 characters)',
         max_length=1000,
         required=False,
-        )
+    )
 
 
 @implementer(ITalk)

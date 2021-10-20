@@ -27,23 +27,23 @@ Number fields
 Date and time fields
 
 : Datetime,
-  Date,
-  Time,
-  Timedelta
+Date,
+Time,
+Timedelta
 
 Choice and Multiple Choice fields
 
 : Choice,
-  Choice with radio widget,
-  Choice with Select2 widget,
-  Choice with named vocabulary,
-  List,
-  List with checkboxes,
-  List with Select2 widget,
-  List with values from named vocabulary but open to additions,
-  Tuple,
-  Set,
-  Set with checkboxes
+Choice with radio widget,
+Choice with Select2 widget,
+Choice with named vocabulary,
+List,
+List with checkboxes,
+List with Select2 widget,
+List with values from named vocabulary but open to additions,
+Tuple,
+Set,
+Set with checkboxes
 
 Relation fields
 
@@ -66,9 +66,8 @@ In Volto not all field types and features are implemented yet:
 ```
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
-# -*- coding: utf-8 -*-
 from plone.app.multilingual.browser.interfaces import make_relation_root_path
 from plone.app.textfield import RichText
 from plone.app.z3cform.widget import AjaxSelectFieldWidget
@@ -82,7 +81,6 @@ from plone.schema.email import Email
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
 from plone.supermodel.directives import primary
-from ploneconf.site import _
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from z3c.form.browser.radio import RadioFieldWidget
 from z3c.relationfield.schema import Relation
@@ -98,22 +96,21 @@ class IExample(model.Schema):
     # The most used fields
     # textline, text, bool, richtext, email
 
-
     fieldset(
         'numberfields',
-        label=u'Number fields',
+        label='Number fields',
         fields=('int_field', 'float_field'),
     )
 
     fieldset(
         'datetimefields',
-        label=u'Date and time fields',
+        label='Date and time fields',
         fields=('datetime_field', 'date_field', 'time_field', 'timedelta_field'),
     )
 
     fieldset(
         'choicefields',
-        label=u'Choice and Multiple Choice fields',
+        label='Choice and Multiple Choice fields',
         fields=(
             'choice_field',
             'choice_field_radio',
@@ -131,19 +128,19 @@ class IExample(model.Schema):
 
     fieldset(
         'relationfields',
-        label=u'Relation fields',
+        label='Relation fields',
         fields=('relationchoice_field', 'relationlist_field'),
     )
 
     fieldset(
         'filefields',
-        label=u'File fields',
+        label='File fields',
         fields=('file_field', 'image_field'),
     )
 
     fieldset(
         'otherfields',
-        label=u'Other fields',
+        label='Other fields',
         fields=(
             'uri_field',
             'sourcetext_field',
@@ -154,291 +151,292 @@ class IExample(model.Schema):
             'dottedname_field',
             'dict_field',
             'dict_field_with_choice',
-            ),
+        ),
     )
 
     primary('title')
     title = schema.TextLine(
-        title=u'Primary Field (Textline)',
+        title='Primary Field (Textline)',
         required=True,
-        )
+    )
 
     text_field = schema.Text(
-        title=u'Text Field',
+        title='Text Field',
         required=False,
-        missing_value=u'',
+        missing_value='',
     )
 
     textline_field = schema.TextLine(
-        title=u'Textline field',
-        description=u'A simple input field',
+        title='Textline field',
+        description='A simple input field',
         required=False,
-        )
+    )
 
     bool_field = schema.Bool(
-        title=u'Boolean field',
+        title='Boolean field',
         required=False,
     )
 
     choice_field = schema.Choice(
-        title=u'Choice field',
-        values=[u'One', u'Two', u'Three'],
+        title='Choice field',
+        values=['One', 'Two', 'Three'],
         required=True,
-        )
+    )
 
     directives.widget(choice_field_radio=RadioFieldWidget)
     choice_field_radio = schema.Choice(
-        title=u'Choice field with radio boxes',
-        values=[u'One', u'Two', u'Three'],
+        title='Choice field with radio boxes',
+        values=['One', 'Two', 'Three'],
         required=True,
-        )
+    )
 
     choice_field_voc = schema.Choice(
-        title=u'Choicefield with values from named vocabulary',
+        title='Choicefield with values from named vocabulary',
         vocabulary='plone.app.vocabularies.PortalTypes',
         required=False,
-        )
+    )
 
     directives.widget(choice_field_select=SelectFieldWidget)
     choice_field_select = schema.Choice(
-        title=u'Choicefield with select2 widget',
+        title='Choicefield with select2 widget',
         vocabulary='plone.app.vocabularies.PortalTypes',
         required=False,
-        )
+    )
 
     list_field = schema.List(
-        title=u'List field',
+        title='List field',
         value_type=schema.Choice(
-            values=[u'Beginner', u'Advanced', u'Professional'],
-            ),
+            values=['Beginner', 'Advanced', 'Professional'],
+        ),
         required=False,
         missing_value=[],
-        )
+    )
 
     directives.widget(list_field_checkbox=CheckBoxFieldWidget)
     list_field_checkbox = schema.List(
-        title=u'List field with checkboxes',
+        title='List field with checkboxes',
         value_type=schema.Choice(
-            values=[u'Beginner', u'Advanced', u'Professional'],
-            ),
+            values=['Beginner', 'Advanced', 'Professional'],
+        ),
         required=False,
         missing_value=[],
-        )
+    )
 
     directives.widget(list_field_select=SelectFieldWidget)
     list_field_select = schema.List(
-        title=u'List field with select widget',
+        title='List field with select widget',
         value_type=schema.Choice(
-            values=[u'Beginner', u'Advanced', u'Professional'],
-            ),
+            values=['Beginner', 'Advanced', 'Professional'],
+        ),
         required=False,
         missing_value=[],
-        )
+    )
 
     list_field_voc_unconstrained = schema.List(
-        title=u'List field with values from vocabulary but not constrained to them.',
+        title='List field with values from vocabulary but not constrained to them.',
         value_type=schema.TextLine(),
         required=False,
         missing_value=[],
-        )
+    )
     directives.widget(
         'list_field_voc_unconstrained',
         AjaxSelectFieldWidget,
-        vocabulary='plone.app.vocabularies.Users'
+        vocabulary='plone.app.vocabularies.Users',
     )
 
-
     tuple_field = schema.Tuple(
-        title=u'Tuple field',
+        title='Tuple field',
         value_type=schema.Choice(
-            values=[u'Beginner', u'Advanced', u'Professional'],
-            ),
+            values=['Beginner', 'Advanced', 'Professional'],
+        ),
         required=False,
         missing_value=(),
-        )
+    )
 
     set_field = schema.Set(
-        title=u'Set field',
+        title='Set field',
         value_type=schema.Choice(
-            values=[u'Beginner', u'Advanced', u'Professional'],
-            ),
+            values=['Beginner', 'Advanced', 'Professional'],
+        ),
         required=False,
         missing_value={},
-        )
+    )
 
     directives.widget(set_field_checkbox=CheckBoxFieldWidget)
     set_field_checkbox = schema.Set(
-        title=u'Set field with checkboxes',
+        title='Set field with checkboxes',
         value_type=schema.Choice(
-            values=[u'Beginner', u'Advanced', u'Professional'],
-            ),
+            values=['Beginner', 'Advanced', 'Professional'],
+        ),
         required=False,
         missing_value={},
-        )
+    )
 
     # File fields
     image_field = NamedBlobImage(
-        title=u'Image field',
-        description=u'A upload field for images',
+        title='Image field',
+        description='A upload field for images',
         required=False,
-        )
+    )
 
     file_field = NamedBlobFile(
-        title=u'File field',
-        description=u'A upload field for files',
+        title='File field',
+        description='A upload field for files',
         required=False,
-        )
+    )
 
     # Date and Time fields
     datetime_field = schema.Datetime(
-        title=u'Datetime field',
-        description=u'Uses a date and time picker',
+        title='Datetime field',
+        description='Uses a date and time picker',
         required=False,
     )
 
     date_field = schema.Date(
-        title=u'Date field',
-        description=u'Uses a date picker',
+        title='Date field',
+        description='Uses a date picker',
         required=False,
     )
 
     time_field = schema.Time(
-        title=u'Time field',
+        title='Time field',
         required=False,
-        )
+    )
 
     timedelta_field = schema.Timedelta(
-        title=u'Timedelta field',
+        title='Timedelta field',
         required=False,
-        )
+    )
 
     # Relation Fields
     relationchoice_field = RelationChoice(
-        title=u"Relationchoice field",
+        title='Relationchoice field',
         vocabulary='plone.app.vocabularies.Catalog',
         required=False,
     )
     directives.widget(
-        "relationchoice_field",
+        'relationchoice_field',
         RelatedItemsFieldWidget,
         pattern_options={
-            "selectableTypes": ["Document"],
-            "basePath": make_relation_root_path,
+            'selectableTypes': ['Document'],
+            'basePath': make_relation_root_path,
         },
     )
 
     relationlist_field = RelationList(
-        title=u"Relationlist Field",
+        title='Relationlist Field',
         default=[],
         value_type=RelationChoice(vocabulary='plone.app.vocabularies.Catalog'),
         required=False,
         missing_value=[],
     )
     directives.widget(
-        "relationlist_field",
+        'relationlist_field',
         RelatedItemsFieldWidget,
         pattern_options={
-            "selectableTypes": ["Document"],
-            "basePath": make_relation_root_path,
+            'selectableTypes': ['Document'],
+            'basePath': make_relation_root_path,
         },
     )
 
     # Number fields
     int_field = schema.Int(
-        title=u"Integer Field (e.g. 12)",
-        description=u"Allocated (maximum) number of objects",
+        title='Integer Field (e.g. 12)',
+        description='Allocated (maximum) number of objects',
         required=False,
     )
 
     float_field = schema.Float(
-        title=u"Float field (e.g. 12.2)",
+        title='Float field (e.g. 12.2)',
         required=False,
     )
 
     # Text fields
     email_field = Email(
-        title=u'Email field',
-        description=u'A simple input field for a email',
+        title='Email field',
+        description='A simple input field for a email',
         required=False,
-        )
+    )
 
     uri_field = schema.URI(
-        title=u'URI field',
-        description=u'A simple input field for a URLs',
+        title='URI field',
+        description='A simple input field for a URLs',
         required=False,
-        )
+    )
 
     richtext_field = RichText(
-        title=u'RichText field',
-        description=u'This uses a richtext editor.',
+        title='RichText field',
+        description='This uses a richtext editor.',
         max_length=2000,
         required=False,
-        )
+    )
 
     sourcetext_field = schema.SourceText(
-        title=u'SourceText field',
+        title='SourceText field',
         required=False,
-        )
+    )
 
     ascii_field = schema.ASCII(
-        title=u'ASCII field',
+        title='ASCII field',
         required=False,
-        )
+    )
 
     bytesline_field = schema.BytesLine(
-        title=u'BytesLine field',
+        title='BytesLine field',
         required=False,
-        )
+    )
 
     asciiline_field = schema.ASCIILine(
-        title=u'ASCIILine field',
+        title='ASCIILine field',
         required=False,
-        )
+    )
 
     pythonidentifier_field = schema.PythonIdentifier(
-        title=u'PythonIdentifier field',
+        title='PythonIdentifier field',
         required=False,
-        )
+    )
 
     dottedname_field = schema.DottedName(
-        title=u'DottedName field',
+        title='DottedName field',
         required=False,
-        )
+    )
 
     dict_field = schema.Dict(
-        title=u'Dict field',
+        title='Dict field',
         required=False,
-        key_type = schema.TextLine(
-            title=u'Key',
+        key_type=schema.TextLine(
+            title='Key',
             required=False,
-            ),
-        value_type = schema.TextLine(
-            title=u'Value',
+        ),
+        value_type=schema.TextLine(
+            title='Value',
             required=False,
-            ),
-        )
+        ),
+    )
 
     dict_field_with_choice = schema.Dict(
-        title=u'Dict field with key and value as choice',
+        title='Dict field with key and value as choice',
         required=False,
-        key_type = schema.Choice(
-            title=u'Key',
-            values=[u'One', u'Two', u'Three'],
+        key_type=schema.Choice(
+            title='Key',
+            values=['One', 'Two', 'Three'],
             required=False,
-            ),
-        value_type = schema.Set(
-            title=u'Value',
+        ),
+        value_type=schema.Set(
+            title='Value',
             value_type=schema.Choice(
-                values=[u'Beginner', u'Advanced', u'Professional'],
-                ),
+                values=['Beginner', 'Advanced', 'Professional'],
+            ),
             required=False,
             missing_value={},
-            ),
-        )
+        ),
+    )
+
 
 @implementer(IExample)
 class Example(Container):
     """Example instance class"""
+
 ```
 
 ```{seealso}
@@ -562,9 +560,8 @@ The *datagrid field* is for Plone Classic. See the *mixedfield* below, if you ar
 Here is an example:
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
-# -*- coding: utf-8 -*-
 from collective.z3cform.datagridfield import DataGridFieldFactory
 from collective.z3cform.datagridfield import DictRow
 from plone.app.z3cform.widget import SelectFieldWidget
@@ -589,18 +586,18 @@ class IMyRowSchema(Interface):
         )
 
     bool_field = schema.Bool(
-        title=u'Boolean field',
+        title='Boolean field',
         required=False,
     )
 
 
 class IExampleWithDatagrid(model.Schema):
 
-    title = schema.TextLine(title=u'Title', required=True)
+    title = schema.TextLine(title='Title', required=True)
 
     datagrid_field = schema.List(
-        title=u'Datagrid field',
-        value_type=DictRow(title=u'Table', schema=IMyRowSchema),
+        title='Datagrid field',
+        value_type=DictRow(title='Table', schema=IMyRowSchema),
         default=[],
         required=False,
     )
@@ -610,11 +607,13 @@ class IExampleWithDatagrid(model.Schema):
 The edit-form looks like this:
 
 ```{figure} _static/dexterity_reference_datagridfield_edit.png
+
 ```
 
 The output looks like this:
 
 ```{figure} _static/dexterity_reference_datagridfield_view.png
+
 ```
 
 ## mixedfield
@@ -631,16 +630,16 @@ Example is a custom history:
 
 ### Backend
 
-Add a field *history_field* to your content type schema.
+Add a field _history_field_ to your content type schema.
 
 ```{code-block} python
 :emphasize-lines: 1-6, 33, 37, 38
-:linenos: true
+:lineno-start: 1
 
 MIXEDFIELD_SCHEMA = json.dumps(
     {
-        "type": "object",
-        "properties": {"items": {"type": "array", "items": {"type": "object", "properties": {}}}},
+        'type': 'object',
+        'properties': {'items': {'type': 'array', 'items': {'type': 'object', 'properties': {}}}},
     }
 )
 
@@ -649,7 +648,7 @@ class IExample(model.Schema):
 
     fieldset(
         'datagrid',
-        label=u'Datagrid field',
+        label='Datagrid field',
         fields=(
             # 'datagrid_field',
             'mixed_field',
@@ -658,24 +657,24 @@ class IExample(model.Schema):
 
     primary('title')
     title = schema.TextLine(
-        title=u'Primary Field (Textline)',
-        description=u"zope.schema.TextLine",
+        title='Primary Field (Textline)',
+        description='zope.schema.TextLine',
         required=True,
         )
 
     description = schema.TextLine(
-        title=u'Description (Textline)',
-        description=u"zope.schema.TextLine",
+        title='Description (Textline)',
+        description='zope.schema.TextLine',
         required=False,
         )
 
     history_field = JSONField(
-        title=u'Mixedfield: datagrid field for Plone',
+        title='Mixedfield: datagrid field for Plone',
         required=False,
         schema=MIXEDFIELD_SCHEMA,
-        widget="history_widget",
-        default={"items": []},
-        missing_value={"items": []},
+        widget='history_widget',
+        default={'items': []},
+        missing_value={'items': []},
         )
 ```
 
@@ -685,7 +684,7 @@ Provide a widget in your favorite add-on with a schema of elementary fields you 
 
 ```{code-block} jsx
 :emphasize-lines: 3,37,39
-:linenos: true
+:lineno-start: 1
 
 import React from 'react';
 
@@ -740,11 +739,11 @@ export default HistoryWidget;
 Keeping this example as simple as possible we skipped the localization. Please see Volto documentation for details.
 
 Register this widget for the backend field of your choice in your **apps** configuration {file}`config.js`.
-The following config code registers the custom Plone *HistoryWidget* for Plone Classic fields with widget "history_widget".
+The following config code registers the custom Plone _HistoryWidget_ for Plone Classic fields with widget "history_widget".
 
 ```{code-block} js
 :emphasize-lines: 12
-:linenos: true
+:lineno-start: 1
 
 import { HistoryWidget } from '@rohberg/voltotestsomevoltothings/components';
 
@@ -767,12 +766,12 @@ Please be sure to use plone.restapi version >= 7.3.0. If you cannot upgrade plon
 
 ```js
 export default function applyConfig(config) {
-    config.widgets.id.history_field = HistoryWidget;
-    return config;
+  config.widgets.id.history_field = HistoryWidget;
+  return config;
 }
 ```
 
-The user can now edit the values of the new field *history_field*.
+The user can now edit the values of the new field _history_field_.
 
 Thats what you did to accomplish this:
 
@@ -783,11 +782,11 @@ Thats what you did to accomplish this:
 :alt: edit mixedfield values
 ```
 
-A view ({file}`ExampleView`) of the content type integrates a component to display the values of the field *history_field*.
+A view ({file}`ExampleView`) of the content type integrates a component to display the values of the field _history_field_.
 
 ```{code-block} jsx
 :emphasize-lines: 40
-:linenos: true
+:lineno-start: 1
 
 import React from 'react';
 import moment from 'moment';
@@ -868,7 +867,7 @@ from zope import schema
 
 class ISampleSchema(model.Schema):
 
-    title = schema.TextLine(title=u'Title')
+    title = schema.TextLine(title='Title')
 
     directives.omitted('additionalInfo')
     additionalInfo = schema.Bytes()
@@ -893,24 +892,24 @@ from z3c.form.interfaces import IAddForm
 
 class ITask(model.Schema):
 
-    title = schema.TextLine(title=u'Title')
+    title = schema.TextLine(title='Title')
 
     directives.omitted(IAddForm, 'done')
     done = schema.Bool(
-        title=_(u'Done'),
+        title='Done',
         required=False,
     )
 ```
 
 The same works for custom forms.
 
-With the directive {py:meth}`widget` you can not only change the widget used for a field. With {py:data}`pattern_options` you can pass additional parameters to the widget. Here, we configure the datetime widget powered by the JavaScript library [pickadate](https://amsul.ca/pickadate.js/)  by adding options that are used by it. Plone passes the options to the library.
+With the directive {py:meth}`widget` you can not only change the widget used for a field. With {py:data}`pattern_options` you can pass additional parameters to the widget. Here, we configure the datetime widget powered by the JavaScript library [pickadate](https://amsul.ca/pickadate.js/) by adding options that are used by it. Plone passes the options to the library.
 
 ```python
 class IMeeting(model.Schema):
 
     meeting_date = schema.Datetime(
-        title=_(default=u'Date and Time'),
+        title='Date and Time',
         required=False,
     )
     directives.widget(
@@ -932,8 +931,9 @@ import datetime
 
 def future_date(value):
     if value and not value.date() >= datetime.date.today():
-        raise Invalid(_(u"Meeting date can not be before today."))
+        raise Invalid('Meeting date can not be before today.')
     return True
+
 
 def meeting_date_default_value():
     return datetime.datetime.today() + datetime.timedelta(7)
@@ -942,7 +942,7 @@ def meeting_date_default_value():
 class IMeeting(model.Schema):
 
     meeting_date = schema.Datetime(
-        title=_(default=u'Date and Time'),
+        title='Date and Time',
         required=False,
         constraint=future_date,
         defaultFactory=meeting_date_default_value,
@@ -957,14 +957,16 @@ For context aware defaults you need to use a {py:class}`IContextAwareDefaultFact
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 
+
 @provider(IContextAwareDefaultFactory)
 def get_container_id(context):
     return context.id.upper()
 
+
 class IMySchema(model.Schema):
 
     parent_id = schema.TextLine(
-        title=_(u'Parent ID'),
+        title='Parent ID',
         required=False,
         defaultFactory=get_container_id,
     )
@@ -981,18 +983,20 @@ from zope.schema.interfaces import IContextAwareDefaultFactory
 class IMyEvent(model.Schema):
 
     start = schema.Datetime(
-        title=_(u'Start date'),
-        required=False)
+        title='Start date',
+        required=False,
+    )
 
     end = schema.Datetime(
-            title=_(u"End date"),
-            required=False)
+        title='End date',
+        required=False,
+    )
 
     @invariant
     def validate_start_end(data):
         if data.start is not None and data.end is not None:
             if data.start > data.end:
-                raise Invalid(_('Start must be before the end.'))
+                raise Invalid('Start must be before the end.')
 ```
 
 ```{seealso}
