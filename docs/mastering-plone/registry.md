@@ -81,9 +81,9 @@ The registry itself is provided by [plone.registry](https://pypi.org/project/plo
 
 Almost all settings in `/plone_control_panel` are actually stored in the registry and can be modified using its UI directly.
 
-Open <http://localhost:8080/Plone/portal_registry> and filter for `displayed_types`.
+Open http://localhost:8080/Plone/portal_registry and filter for `displayed_types`.
 You see that you can modify the content types that should be shown in the navigation and site map.
-The values are the same as in <http://localhost:8080/Plone/@@navigation-controlpanel>, but the latter form is customized for usability.
+The values are the same as in http://localhost:8080/Plone/@@navigation-controlpanel, but the latter form is customized for usability.
 
 ```{note}
 This UI for the registry is not yet available in the frontend.
@@ -96,7 +96,7 @@ This setting is stored in the registry.
 
 Let's look at existing values in the registry.
 
-Go to <http://localhost:3000/controlpanel/navigation> and add `talk` to the field {guilabel}`Displayed content types`.
+Go to http://localhost:3000/controlpanel/navigation and add `talk` to the field {guilabel}`Displayed content types`.
 Talks in the root will now show up in the navigation.
 This setting is stored in the registry record `plone.displayed_types`.
 
@@ -346,7 +346,7 @@ You can use `ploneconf.rooms` instead of `ploneconf.site.browser.controlpanel.IP
 ```
 
 After reinstalling the package to apply the registry changes, you can access and modify these registry records as described above.
-Either use <http://localhost:8080/Plone/portal_registry> or `Python`:
+Either use http://localhost:8080/Plone/portal_registry or `Python`:
 
 ```python
 from plone import api
@@ -374,7 +374,7 @@ The following creates a new entry `ploneconf.talk_submission_open` with Generic 
 ```
 
 When creating a new vanilla Plone instance, a lot of default settings are created that way.
-See <https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/profiles/dependencies/registry.xml> to see how {py:mod}`Products.CMFPlone` registers values.
+See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/profiles/dependencies/registry.xml to see how {py:mod}`Products.CMFPlone` registers values.
 
 
 ## Add a custom control panel
