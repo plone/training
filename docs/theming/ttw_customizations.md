@@ -6,19 +6,21 @@ html_meta:
   "keywords": ""
 ---
 
-# Basic: Customize The Logo And CSS From The Default Theme
+# TTW Customizations
 
-In this section you will:
+You will learn how to customize the look of your Plone site through the web. Plone allows to change the site logo, favicon, and basic styling through the site control panel.
 
-- Use the Site control panel to add a custom logo
-- Customize the look of a Plone site by adjusting Less Variables
-- Add a custom toolbar logo
 
-Topics covered:
+## Use Case
 
-- The "Site" control panel
-- The "Resource Registries" Control Panel
-- Resource Registries > Development Mode
+- If you want to make quick changes to the look of your Plone site, without touching the code base on the filesystem.
+
+## What you will learn
+
+- Change the appearance of your Plone site through the web
+- Change the site logo
+- Change the look of a Plone site by changing CSS custom properties (variables)
+- Add extra styles to a Plone site
 
 ## Customize Logo
 
