@@ -151,14 +151,14 @@ To enable your theme
     ```{figure} _static/barceloneta/install_myaddon.png
     :alt: Add-ons control panel
     :scale: 50 %
-    ````
+    ```
 
 4. Click {guilabel}`Install` to enable your addon package and theme
 
     ```{figure} _static/barceloneta/myaddon_installed.png
     :alt: Plone site with installed addon
     :scale: 50 %
-    ````
+    ```
 
 ## Compiling Styles
 
@@ -218,17 +218,110 @@ $ npm run watch
 
 If you visit your browser again, the green placeholder should be gone and you're ready to add your own styles.
 
+## Working with Bootstrap variables
 
-## Adding styles and compile
-- Package.json explain dependencies and scripts
-- npm run watch
-- As a start add your logo through control panel
-- Now you have some colors that you will use throughout your theme
-- Explain Styles/Variables/..
-- Bootstrap has a lot of variables to change almost everything that defines your theme - look at https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss
-- To make variables work they have to be defined before barceloneta/bootstap is imported
-- Color variables
-- Map variables for primary secondary…
+In this example we will be recreating `plonetheme.gruuezibuesi` you can find it https://github.com/collective/plonetheme.grueezibuesi for reference.
+
+An awesome looking theme often is based on the colors that the site logo offers. So go ahead and add a logo as explained in {doc}`./ttw_customizations`.
+
+
+```{figure} _static/barceloneta/buesi1.png
+:alt: Site with new logo
+:scale: 50 %
+```
+
+
+Now you have some colors that you will use throughout your theme. And to use them throughout every aspect of the theme, we're doing this using variables.
+
+Bootstrap offers **[tons of variables](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss)** that allow you to change every aspect of the theme without writing any extra styles yourself.
+
+We have overall properties like shadows, gradients, rounded corners or generic variables for things like colors, sizes, fonts and variables for very detailed aspects like the inner padding of your buttons or fields.
+
+Within the `styles` folder of your theme you find `theme.min.scss`. This is the base files for the compilation of your styles.
+
+```{code-block} scss
+:linenos: true
+
+//// VARIABLES
+// ... add your variables here
+
+
+//// IMPORTS
+// Import barceloneta files from node_modules --load-path=node_modules
+@import "@plone/plonetheme-barceloneta-base/scss/barceloneta.scss";
+
+//// STYLES
+// ... add your styles here
+
+
+```
+
+To make your colors an other variables work, it is important to define them **before** `@import`.
+We add some colors and map those colors to `$primary` and `$secondary` variables that Bootstap uses.
+
+
+```{code-block} scss
+:linenos: true
+
+//// VARIABLES
+// ... add your variables here
+$pink: #EE4793;
+$light-pink: #F3A4CB;
+$lighter-pink: #f7d4e5;
+$lightest-pink: #fff2f8;
+$medium-grey: #555;
+
+$primary: $pink;
+$secondary: $light-pink;
+
+//// IMPORTS
+// Import barceloneta files from node_modules --load-path=node_modules
+@import "@plone/plonetheme-barceloneta-base/scss/barceloneta.scss";
+
+//// STYLES
+// ... add your styles here
+
+
+```
+
+
+```{figure} _static/barceloneta/buesi2.png
+:alt: Site with new pinkish primary and secondary color
+:scale: 50 %
+```
+
+One of the overall properties for the theme is `$enable-rounded`,  add it and change the `$border-radius` too.
+
+
+
+```{code-block} scss
+:linenos: true
+
+//// VARIABLES
+// ... add your variables here
+$pink: #EE4793;
+$light-pink: #F3A4CB;
+$lighter-pink: #f7d4e5;
+$lightest-pink: #fff2f8;
+$medium-grey: #555;
+
+$primary: $pink;
+$secondary: $light-pink;
+
+$enable-rounded: true;
+$border-radius: 1rem;
+
+//// IMPORTS
+// Import barceloneta files from node_modules --load-path=node_modules
+@import "@plone/plonetheme-barceloneta-base/scss/barceloneta.scss";
+
+//// STYLES
+// ... add your styles here
+
+
+```
+
+
 - Properties “rounded”
 - Add more rounding 1rem
 
