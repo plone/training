@@ -18,6 +18,12 @@ as well as advanced theming methods and tools to create stunning themes for your
 Level
 : All levels
 
+**You should be familiar with**
+- Basic experience with Plone
+- Basic HTML, CSS and JS Knowledge
+- Basic npm knowledge
+
+
 **Things to bring**
 
 A linux based laptop (Ubuntu, macOS) with code editor of your choice (we recommend VS Code) and with Plone installed as described in training instructions. It is extremely important that you join the class with a working Plone installation. You need npm (package manager) to build your CSS/JavaScript.
@@ -27,6 +33,7 @@ A linux based laptop (Ubuntu, macOS) with code editor of your choice (we recomme
 :maxdepth: 1
 :numbered: true
 
+preparation
 ttw_customizations
 prerequesites
 theme_barceloneta
