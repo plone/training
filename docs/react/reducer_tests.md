@@ -1,6 +1,6 @@
 ---
 html_meta:
-  "description": "Write tests for our reducer. Since reducer are pure funcitons with input and output, we can write unit tests for them."
+  "description": "Write tests for our reducer. Since reducers are pure functions with input and output, we can write unit tests for them."
   "property=og:description": "Write tests for our reducer. Since reducer are pure funcitons with input and output, we can write unit tests for them."
   "property=og:title": "Reducer Tests"
   "keywords": "Plone, Training, exercise, solution, react,redux, reducers"
