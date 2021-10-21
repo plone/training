@@ -3,7 +3,7 @@ html_meta:
   "description": "Style the React component."
   "property=og:description": "Style the React component."
   "property=og:title": "Styling your React component"
-  "keywords": "Plone, Trainings, SEO, style, css, react, component, exercise, solution"
+  "keywords": "Plone, trainings, SEO, style, CSS, React, component, exercise, solution"
 ---
 
 (react-styling-label)=
