@@ -3,7 +3,7 @@ html_meta:
   "description": "Create a react component with a question and answer."
   "property=og:description": "Create a react component with question and answer."
   "property=og:title": " Create React Component"
-  "keywords": "Plone, Trainings, SEO, create-react-app, react, component, exercise, solution"
+  "keywords": "Plone, trainings, SEO, create-react-app, React, component, exercise, solution"
 ---
 
 (component-label)=
