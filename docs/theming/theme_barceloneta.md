@@ -121,21 +121,21 @@ Serving on http://0.0.0.0:8080
 
 Open <http://localhost:8080> in a Browser and see that Plone is running.
 
-    ```{figure} _static/plone_running.png
+    ```{figure} _static/barceloneta/plone_running.png
     :alt: A running Plone instance.
     :scale: 50 %
     ```
 
 Click {guilabel}`Create a new Plone site` and enter `admin` for `Username` and also for `Password`
 
-    ```{figure} _static/create_plone_site.png
+    ```{figure} _static/barceloneta/create_plone_site.png
     :alt: A running Plone instance.
     :scale: 50 %
     ````
 
 Click {guilabel}`Create Plone Site` to complete the setup of your Plone instance.
 
-    ```{figure} _static/fresh_plone.png
+    ```{figure} _static/barceloneta/fresh_plone.png
     :alt: New Plone instance.
     :scale: 50 %
     ````
@@ -148,14 +148,14 @@ To enable your theme
 
 3. You will see this form:
 
-    ```{figure} _static/install_myaddon.png
+    ```{figure} _static/barceloneta/install_myaddon.png
     :alt: Add-ons control panel
     :scale: 50 %
     ````
 
 4. Click {guilabel}`Install` to enable your addon package and theme
 
-    ```{figure} _static/myaddon_installed.png
+    ```{figure} _static/barceloneta/myaddon_installed.png
     :alt: Plone site with installed addon
     :scale: 50 %
     ````
