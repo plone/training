@@ -26,12 +26,12 @@ This package will allow you to change and extend the look of Plone to your needs
 - How to add and compile your styles
 
 
-# Requirements
+## Requirements
 
 Check out the requirements of the theming training. You have to bring a linux based laptop (Ubuntu, macOS) with code editor of your choice (we recommend VS Code) and with Plone installed as described in training instructions. It is extremely important that you join the class with a working Plone installation. You need npm(package manager) to build your CSS/JavaScript.
 
 
-# Create an add-on package
+## Create an add-on package
 
 We're going to create an add-on package for our theme. We'll use plonecli for the next steps. It uses mr.bob and it's templates. There is a template to create our add-on. There are templates to add the theme to the package in the following steps.
 
@@ -65,19 +65,17 @@ You're going to be asked some questions. It's good to go with defaults for now. 
 plonecli asks you to create or update a local git repository after some steps. Yes is a good option.
 ```
 
-# Create theme
+## Create theme
 
 In the next steps we're going to add a theme to our package. We'll use plonecli for that again. We will use the template `theme_basic` here.
 
-## Step into package directory
+Step into package directory:
 
 ```{code-block} shell
 $ cd plonetheme.munich
 ```
 
-## Add theme using theme_barceloneta template
-
-Run the command inside your package:
+Add theme using theme_barceloneta template. Run the command inside your package:
 
 ```{code-block} shell
 $ plonecli add theme_basic
@@ -92,7 +90,7 @@ There are different theme templates available. As shown in the prevous chapter `
 * You have to take care of some aspects e.g. columns
 
 
-# Build Instance
+## Build Instance
 
 Get your instance up and running. The build command of plonecli will run a couple of commands for you. Green bars shows you what actual command has been fired.
 
@@ -107,7 +105,7 @@ Start the build process by running `plonecli build` in your terminal
 $ plonecli build
 ```
 
-## Output
+### Output
 
 The output on our console should contain the following steps:
 
@@ -124,7 +122,7 @@ RUN: ./venv/bin/buildout
 If everything works as expected next step is to start up your instance for the first time.
 
 
-# Startup
+## Startup
 
 We recommend to swith to your SDK here. If you're using Visual Studio Code you can open a terminal `Terminal > New Terminal` and run the folloing commands inside your editor. This helps you to keep track of windows and processes.
 
@@ -141,7 +139,7 @@ The command starts an instance of the Zope application server in foreground. Thi
 
 ```
 
-## Login
+### Login
 
 Open your browser and navigate to Zope's management interface:
 
@@ -152,21 +150,33 @@ This will ask you for login credentials:
 * Username: admin
 * Password: admin
 
-TODO: Screenshot
+```{image} _static/scratch/zope-management-interface.png
+:alt: Zope Management Interface.
+```
 
 
-# Add your first Plone Site
+## Add your first Plone Site
 
 Since your're logged in now you can add a Plone instance:
 
 http://localhost:8080/
 
-Scroll down to your package and activate the checkbox next to it. This will create new Plone site and install our add-on. Since the theme is part of the add-on it has been activated automatically.
+```{image} _static/scratch/add-plone-site.png
+:alt: Add Plone site.
+```
+
+Click on `Advanced` to show more options. Scroll down to your package and activate the checkbox next to it. This will create new Plone site and install our add-on in one go. Since the theme is part of the add-on it has been activated automatically.
+
+```{image} _static/scratch/add-plone-site-advanced.png
+:alt: Add Plone site advanced.
+```
+
+Click on `Create Plone site` to add your site.
 
 You see some basic styling because a precompiled theme.css has been shipped with the template. Bevor we start theming we're going to add a copy of the main template to our theme package.
 
 
-# Override Main Template
+## Override Main Template
 
 Copy the page template from `parts/omelette/Products/CMFPlone/browser/templates/main_template.pt` to `src/plonetheme/munich/browser/templates/main_template.pt`.
 
@@ -174,7 +184,7 @@ Copy the main template python file from `parts/omelette/Products/CMFPlone/browse
 
 Register the template:
 
-```{code-block} shell
+```{code-block} xml
   <browser:page
       for="*"
       name="main_template"
@@ -186,7 +196,7 @@ Register the template:
 
 In the next step we'll make use of Bootstrap's grid system and add some columns to our main template.
 
-## Conflicts
+### Conflicts
 
 If you try to register templates that already exists in Plone under the same name you'll get a `ConfigurationConflictError`. You can avoit this by adding a theme layer to your configuration as seen in the above example.
 
@@ -210,11 +220,11 @@ zope.configuration.config.ConfigurationConflictError: Conflicting configuration 
  ``` 
 
 
-# Add Columns
+## Add Columns
 
 Le's make use of Bootstrap's layout system and add a `container`, a `row` and some `columns`. Theck out the [Bootstrap documentation] if your're nof familiar with that.
 
-```{code-block} html
+```{code-block} xml
 <metal:page define-macro="master">
 <tal:doctype tal:replace="structure string:&lt;!DOCTYPE html&gt;" />
 
@@ -374,11 +384,11 @@ It's possible to archive this with mixins as well. Check out Barceloneta's [grid
 ```
 
 
-# Build Process
+## Build Process
 
 No we have everything in place to start theming. Let's start with compiling our actual CSS from the given SASS files.
 
-## Install dependencies
+### Install dependencies
 
 Step into the theme folder of your package:
 
@@ -392,7 +402,7 @@ Run `npm install` to add dependencies from package.json::
 $ npm install
 ```
 
-## Compile resources
+### Compile resources
 
 Run `npm run build` to add dependencies from package.json::
 
@@ -404,7 +414,7 @@ This will compile your `scss/theme.scss` into `css/theme.css`. A minified
 version will be created as well. Check out the scripts section from
 `package.json` so see what happens exactly.
 
-## Watch for changes
+### Watch for changes
 
 Run `npm run watch` to automatically compile when a file has been changed::
 
@@ -415,11 +425,11 @@ $ npm run watch
 With `npm run watch` you start the build process automatically when you save a file.
 
 
-# Happy Theming
+## Happy Theming
 
 We can start theming finally. Let's change some colors now.
 
-## Change Colors
+### Change Colors
 
 Go to scss/theme.scss
 
@@ -432,7 +442,9 @@ $secondary: #49BEAA;
 
 Watch will start the build process as soon as you save your file. Check out your console output. After it has been finished, go to your browser and reload the window.
 
-TODO: Screenshot Changed Colors
+```{image} _static/scratch/plone-colors.png
+:alt: Changed Colors.
+```
 
 ```{note}
 Open the developer tools of your browser and navigate to the network tab. Disabling the cache is your fiend.
