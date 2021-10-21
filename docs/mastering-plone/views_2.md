@@ -59,7 +59,7 @@ Let us have a look at the ZCML and the code.
 
 ```{code-block} xml
 :emphasize-lines: 8
-:linenos: true
+:linenos:
 
 <configure xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
@@ -81,7 +81,7 @@ We are adding a file called {file}`views.py` in the {file}`browser` folder.
 {file}`browser/views.py`
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from Products.Five.browser import BrowserView
 
@@ -101,7 +101,7 @@ The logic contained in the template can now be moved to the class:
 
 ```{code-block} python
 :emphasize-lines: 3, 12-36
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
@@ -144,7 +144,7 @@ class DemoView(BrowserView):
 And the template will now be much simpler.
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       lang="en"
@@ -193,7 +193,7 @@ Edit `browser/views.py` and add a method `context_info` to the view `DemoView` t
 In a method of a Browser View the content object which was `context` in the template is now accessed as `self.context`.
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 def context_info(self):
     context = self.context
@@ -204,7 +204,7 @@ def context_info(self):
 ```
 
 ````{note}
-The result is the same as in {ref}`python-expressions-label` where you wrote 
+The result is the same as in {ref}`python-expressions-label` where you wrote
 ```html
 <p tal:content="python: 'This is the {0} {1} at {2}'.format(context.portal_type, context.title, context.absolute_url()">
 </p>
@@ -215,7 +215,7 @@ in the template.
 The template {file}`training.pt` still needs to display that:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <p tal:content="python: view.context_info()">
     Info on the context
@@ -239,7 +239,7 @@ Changes in Python files are picked up by restarting Plone or using the add-on `p
 The method `context_info` that returned information on the current object can be reused any time like this:
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from Products.Five.browser import BrowserView
 from plone import api
@@ -254,7 +254,7 @@ class SomeOtherView(BrowserView):
 You would still need to register the view in configure.zcml:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <browser:page
     name="some_view"
@@ -269,7 +269,7 @@ Using `/some_view` would now return infomation of the current object in the brow
 You can define which `context`-object should be used:
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from Products.Five.browser import BrowserView
 from plone import api
@@ -309,7 +309,7 @@ First we will not write any methods for `view` but access the fields from the ta
 Register a view `talkview` in {file}`browser/configure.zcml`:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <browser:page
    name="talkview"
@@ -324,7 +324,7 @@ Register a view `talkview` in {file}`browser/configure.zcml`:
 {file}`browser/views.py`
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 class TalkView(BrowserView):
     """ The default view for talks"""
@@ -333,7 +333,7 @@ class TalkView(BrowserView):
 Add the template {file}`templates/talkview.pt`:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
     lang="en"
@@ -355,7 +355,7 @@ Add the template {file}`templates/talkview.pt`:
 </html>
 ```
 
-After a restart, we can test our view by going to a talk and adding */talkview* to the URL.
+After a restart, we can test our view by going to a talk and adding _/talkview_ to the URL.
 
 ## Using helper methods from {py:class}`DefaultView`
 
@@ -373,7 +373,7 @@ It has some very useful properties available to use in the template:
 You can now change the {py:class}`TalkView` to use it
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from plone.dexterity.browser.view import DefaultView
 
@@ -388,7 +388,7 @@ The template {file}`templates/talkview.pt` still works but now you can modify it
 to use the pattern {samp}`view/w/<fieldname>/render` to render the widgets:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
     lang="en"
@@ -419,7 +419,7 @@ open {file}`profiles/default/types/talk.xml`:
 
 ```{code-block} xml
 :emphasize-lines: 2,4
-:linenos: true
+:linenos:
 
 ...
 <property name="default_view">talkview</property>
@@ -458,7 +458,7 @@ Since we will use the macro `content-core` the values for `title` and `descripti
 {file}`templates/talkview.pt`:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
       metal:use-macro="context/main_template/macros/master"
@@ -566,7 +566,7 @@ This is used in the default-view for dexterity content `plone/dexterity/browser/
 ## Behind the scenes
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from Products.Five.browser import BrowserView
 
@@ -611,7 +611,7 @@ It makes {py:attr}`context` and {py:attr}`request` available as variables on the
 
 I have written down these methods because it is important to understand some important concepts.
 
-The {py:meth}`__init__` method gets called while Zope is still *trying* to find a view. At that phase, the security has not been resolved.
+The {py:meth}`__init__` method gets called while Zope is still _trying_ to find a view. At that phase, the security has not been resolved.
 Your code is not security checked.
 
 For historical reasons, many errors that happen in the {py:meth}`__init__` method can result

@@ -60,7 +60,7 @@ Register the view in `browser/configure.zcml`:
 Add the view to a file `browser/frontpage.py`. We want a list of all talks that happen today.
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from plone import api
@@ -105,7 +105,7 @@ class FrontpageView(BrowserView):
 
   ```{code-block} python
   :emphasize-lines: 2, 3, 6
-  :linenos: true
+  :linenos:
 
   today = datetime.date.today()
   tomorrow = today + datetime.timedelta(days=1)
@@ -129,7 +129,7 @@ class FrontpageView(BrowserView):
 Create the template `browser/templates/frontpageview.pt` (for now without talks). Display the rich text field to allow the frontpage to be edited.
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
       metal:use-macro="context/main_template/macros/master"
@@ -154,7 +154,7 @@ Edit `browser/templates/talklistview.pt` and wrap the list in a macro definition
 
 ```{code-block} html
 :emphasize-lines: 7, 55
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
       metal:use-macro="context/main_template/macros/master"
@@ -220,7 +220,7 @@ Edit `browser/templates/talklistview.pt` and wrap the list in a macro definition
 Now use that macro in `browser/templates/frontpageview.pt`
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
 <div class="col-lg-6">
     <h2>Todays Talks</h2>
@@ -302,7 +302,7 @@ You can either access it directly at <http://localhost:8080/Plone/front-page> or
 
 To set that view by hand as the default view for `front-page` in the ZMI: <http://localhost:8080/Plone/front-page/manage_propertiesForm>. Add a new property `layout` and set it to `frontpageview`.
 
-Done. This way you can still use the button *Edit* to edit the frontpage.
+Done. This way you can still use the button _Edit_ to edit the frontpage.
 
 ```{seealso}
 - Querying by date: <https://docs.plone.org/develop/plone/searching_and_indexing/query.html#querying-by-date>

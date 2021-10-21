@@ -18,7 +18,7 @@ This method needs to be bound to the instance like this:
 ```{code-block} jsx
 :emphasize-lines: 3
 :lineno-start: 11
-:linenos: true
+:linenos:
 
 constructor(props) {
   super(props);
@@ -39,7 +39,7 @@ and set the new state using the {file}`setState` method:
 ```{code-block} jsx
 :emphasize-lines: 1-5
 :lineno-start: 19
-:linenos: true
+:linenos:
 
 toggle = () => {
   this.setState({
@@ -56,7 +56,7 @@ To call the newly created {file}`toggle` method we will add an on click handler 
 ```{code-block} jsx
 :emphasize-lines: 4-6
 :lineno-start: 25
-:linenos: true
+:linenos:
 
 render() {
   return (
@@ -106,7 +106,7 @@ render() {
 ```
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -64,7 +64,7 @@ To get all talks we marked as `featured` we have to get the listing block to rec
 To add our new index as a criterion to be appliable in a listing block or a collection, we have to switch to our `backend`. There we have to create a plone.app.registry record for our index. This can be achieved by adding a new file {file}`profiles/default/registry/querystring.xml`:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"

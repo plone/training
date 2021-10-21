@@ -65,7 +65,7 @@ Let's add a link to the site that uses the information that we collected using t
 We register the viewlet in {file}`browser/configure.zcml`.
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <browser:viewlet
     name="featured"
@@ -91,7 +91,7 @@ We will return to this in a later chapter.
 The viewlet class {py:class}`FeaturedViewlet` is expected in a file {file}`browser/viewlets.py`.
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from plone.app.layout.viewlets import ViewletBase
 
@@ -106,7 +106,7 @@ This class does nothing except rendering the associated template (That we have y
 Let's add the missing template {file}`templates/featured_viewlet.pt`.
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
 <div id="featured">
     <p tal:condition="python:view.is_featured">
@@ -125,10 +125,9 @@ Same as for views, viewlets have access to their class in page templates, as wel
 
 We have to extend the Featured Viewlet now to add the missing attribute:
 
-
 ```{code-block} python
 :emphasize-lines: 2, 6-8
-:linenos: true
+:linenos:
 
 from plone.app.layout.viewlets import ViewletBase
 from ploneconf.site.behaviors.featured import IFeatured
@@ -140,17 +139,14 @@ class FeaturedViewlet(ViewletBase):
         return adapted.featured
 ```
 
-
-
 So far, we
 
 > - register the viewlet to content that has the IFeatured Interface.
 > - adapt the object to its behavior to be able to access the fields of the behavior
 > - return the link
 
-
 ````{only} not presentation
-```{note} 
+```{note}
 **Why not to access context directly**
 
 In this example, {samp}`IFeatured(self.context)` does return the context directly.
@@ -162,7 +158,6 @@ It is still good to use this idiom for two reasons:
 Therefore in this example you could simply write {samp}`return self.context.featured`.
 ```
 ````
-
 
 (viewlets1-excercises-label)=
 

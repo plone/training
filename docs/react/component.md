@@ -19,7 +19,7 @@ The class has a {file}`render` method which contains JSX to render the view.
 JSX is inline HTML which will be rendered as HTML in the view.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import logo from './logo.svg';
 import './App.css';
@@ -65,7 +65,7 @@ Remove all other boiler plate code including styling.
 :class: toggle
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import "./App.css";
 

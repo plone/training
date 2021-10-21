@@ -19,7 +19,7 @@ In the constructor of the class we can initialize the state.
 
 ```{code-block} jsx
 :emphasize-lines: 6-20,25-27
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import FaqItem from "./components/FaqItem";
@@ -122,7 +122,7 @@ into functional component. In below code you can see how we can store the faq in
 component.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
   import { useState } from "react";
   import FaqItem from "./components/FaqItem";
@@ -162,7 +162,7 @@ and adjust the render method to show or hide the answer.
 
 ```{code-block} jsx
 :emphasize-lines: 11-16,22
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

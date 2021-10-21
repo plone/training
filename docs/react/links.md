@@ -17,7 +17,7 @@ We will add a link to the {file}`FaqItem` component so we can go to the {file}`F
 ```{code-block} jsx
 :emphasize-lines: 1
 :lineno-start: 4
-:linenos: true
+:linenos:
 
 import { Link } from "react-router-dom";
 ```
@@ -25,7 +25,7 @@ import { Link } from "react-router-dom";
 ```{code-block} jsx
 :emphasize-lines: 1
 :lineno-start: 108
-:linenos: true
+:linenos:
 
 <Link to={`/faq/${this.props.index}`}>View</Link>
 ```
@@ -34,7 +34,7 @@ The full listing of the {file}`FaqItem` component is as follows:
 
 ```{code-block} jsx
 :emphasize-lines: 4,108
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

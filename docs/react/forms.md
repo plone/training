@@ -17,7 +17,7 @@ To be able to add FAQ items to the list we will start by adding an add form:
 ```{code-block} jsx
 :emphasize-lines: 3,14-23
 :lineno-start: 31
-:linenos: true
+:linenos:
 
 render() {
   return (
@@ -105,7 +105,7 @@ This pattern is called controlled inputs.
 
 ```{code-block} jsx
 :emphasize-lines: 9-10,23-25,37-47,62-81
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import FaqItem from "./components/FaqItem";
@@ -280,7 +280,7 @@ Make sure you bind the `onSubmit` handler.
 ```{code-block} jsx
 :emphasize-lines: 1
 :lineno-start: 11
-:linenos: true
+:linenos:
 
 Where is the code?
 ```
@@ -290,7 +290,7 @@ And add this to the body of the class.
 ```{code-block} jsx
 :emphasize-lines: 1-14,29
 :lineno-start: 50
-:linenos: true
+:linenos:
 
 onSubmit = (event) => {
   this.setState({

@@ -23,7 +23,7 @@ yarn add express
 Now we will create a simple server in the file {file}`server.js`
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 const express = require("express");
 const app = express();
@@ -59,7 +59,7 @@ Now it is time to write our action to fetch the items from the backend in the fi
 ```{code-block} jsx
 :emphasize-lines: 1-7
 :lineno-start: 19
-:linenos: true
+:linenos:
 
 export const getFaqItems = () => ({
   type: "GET_FAQ_ITEMS",
@@ -82,7 +82,7 @@ path and data and fire a new action when the data is fetched.
 We will create a file at `middleware/api.js` and the implementation will look like this:
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 export default store => next => action => {
   const { request, type, ...rest } = action;
@@ -110,7 +110,7 @@ Finally we need to apply our middleware to the store in `App.js`:
 
 ```{code-block} jsx
 :emphasize-lines: 3,7,11
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import { Provider } from "react-redux";
@@ -167,7 +167,7 @@ Last part is to change our reducer at `reducers/faq.js` to handle the `GET_FAQ_I
 
 ```{code-block} jsx
 :emphasize-lines: 23-24
-:linenos: true
+:linenos:
 
 const faq = (state = [], action) => {
 let faq;

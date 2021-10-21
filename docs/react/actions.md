@@ -18,7 +18,7 @@ it is almost a 100% copy of {file}`App.js`:
 
 ```{code-block} jsx
 :emphasize-lines: 4,110
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import FaqItem from "./FaqItem";
@@ -136,7 +136,7 @@ Next we will create an {file}`App` component with just the store and a reference
 
 ```{code-block} jsx
 :emphasize-lines: 2-3,5-6,10,15-17
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import { Provider } from "react-redux";
@@ -303,7 +303,7 @@ The second is an object with all the actions which will also be mapped to props 
 ```{code-block} jsx
 :emphasize-lines: 1-2,5-13
 :lineno-start: 3
-:linenos: true
+:linenos:
 
 import { connect } from "react-redux";
 import { addFaqItem } from "../actions";
@@ -323,7 +323,7 @@ class Faq extends Component {
 ```{code-block} jsx
 :emphasize-lines: 1-6
 :lineno-start: 125
-:linenos: true
+:linenos:
 
 export default connect(
   (state, props) => ({
@@ -339,7 +339,7 @@ The result will be as follows:
 
 ```{code-block} jsx
 :emphasize-lines: 2,6,43,55
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -553,7 +553,7 @@ update the {file}`FaqItem` component to call the actions we created for our stor
 
 ```{code-block} jsx
 :emphasize-lines: 3,5,14-15,41,68-72,106-109
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

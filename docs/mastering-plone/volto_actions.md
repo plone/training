@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -67,12 +67,12 @@ Voting component, user has already voted
 As you have seen in chapter {doc}`endpoints`, endpoints are created to provide the data we need: votes per talk plus info if the current user has the permission to vote on his talk.
 Now we can fetch this data and display it.
 
-We start with a component *Voting* to display votes.
+We start with a component _Voting_ to display votes.
 
 {file}`src/components/Voting/Voting.jsx`
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -127,7 +127,7 @@ The component `Voting` as other components can now access the data from the app 
 The constant `votes` holds the necessary data for the current talk and user in a dictionary like
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 votes: {
     loaded: true,
@@ -146,12 +146,12 @@ See the condition of the rendering function.
 We receive all needed info for displaying from the one request of data including the info about the permission of the current user to vote.
 Why do we need only one request? We designed the endpoint `votes` to provide all necessary information.
 
-Before we include the component *Voting* in talk view from chapter {doc}`volto_talkview`, some words about actions and reducers. The action `getVotes` fetches the data. The corresponding reducer writes the data in global app store.
+Before we include the component _Voting_ in talk view from chapter {doc}`volto_talkview`, some words about actions and reducers. The action `getVotes` fetches the data. The corresponding reducer writes the data in global app store.
 
 The action `getVotes` is defined by the request method `get`, the address of the endpoint `votes` an and an identifier for the corresponding reducer to react.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 export function getVotes(url) {
     return {
@@ -168,7 +168,7 @@ The reducer writes the data fetched by its action to app store.
 
 ```{code-block} jsx
 :emphasize-lines: 20
-:linenos: true
+:linenos:
 
 const initialState = {
     loaded: false,
@@ -210,7 +210,7 @@ export default function votes(state = initialState, action = {}) {
 With a successfull action `getVotes`, the app store has an entry
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 votes: {
     loaded: true,
@@ -230,10 +230,10 @@ It is the data that the adapter `Vote` from `starzel.votable_behavior` `behavior
 
 The component gets access to this store entry by `const votes = useSelector((store) => store.votes);`
 
-Now we can include the component *Voting* in talk view from chapter {doc}`volto_talkview`.
+Now we can include the component _Voting_ in talk view from chapter {doc}`volto_talkview`.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import { Voting } from '~/components';
 
@@ -266,7 +266,7 @@ Now we can care about providing the actual voting feature.
 We add a section to our `Voting` component.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 <Divider horizontal section>
     Vote
@@ -308,14 +308,14 @@ The click event handler `handleVoteClick` starts the communication with the back
 We import this action from `src/actions`.
 
 ```jsx
-import { getVotes, vote, clearVotes } from '~/actions';
+import { getVotes, vote, clearVotes } from "~/actions";
 ```
 
 The click event handler `handleVoteClick` dispatches the action `vote`:
 
 ```jsx
 function handleVoteClick(value) {
-    dispatch(vote(location.pathname, value));
+  dispatch(vote(location.pathname, value));
 }
 ```
 
@@ -324,7 +324,7 @@ The action `vote` is similar to our previous action `getvotes`. It is defined by
 
 ```{code-block} jsx
 :emphasize-lines: 8
-:linenos: true
+:linenos:
 
 export function vote(url, vote) {
     if ([-1, 0, 1].includes(vote)) {
@@ -366,11 +366,11 @@ Next step is the feature for developers to clear votes of a talk while preparing
 We want to offer a button to clear votes and integrate a hurdle to prevent unwanted clearing.
 The user shall click and see a question if she really wants to clear the votes.
 
-We are using the *component state* to be incremented before requesting the backend to definitly clear votes.
+We are using the _component state_ to be incremented before requesting the backend to definitly clear votes.
 
 ```{code-block} jsx
 :emphasize-lines: 14
-:linenos: true
+:linenos:
 
 {votes?.can_clear_votes && votes?.has_votes ? (
     <>
@@ -406,7 +406,7 @@ The click event handler `handleClearVotes` distinguishes on the `stateClearVotes
 
 ```{code-block} jsx
 :emphasize-lines: 3
-:linenos: true
+:linenos:
 
 function handleClearVotes() {
     if (stateClearVotes === 1) {

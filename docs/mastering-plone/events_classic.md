@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
+:alt: Plone backend
 :align: left
 :class: logo
 ```
@@ -40,7 +40,7 @@ We forgot something: a list of talks is great, especially if you can sort it acc
 
 We need a schedule and for this we need to store the information when a talk will happen.
 
-Luckily the default type *Event* is based on reusable behaviors from the package {py:mod}`plone.app.event` that we can reuse.
+Luckily the default type _Event_ is based on reusable behaviors from the package {py:mod}`plone.app.event` that we can reuse.
 
 In this chapter you will
 
@@ -51,7 +51,7 @@ First enable the behavior {py:class}`IEventBasic` for talks in {file}`profiles/d
 
 ```{code-block} xml
 :emphasize-lines: 6
-:linenos: true
+:linenos:
 
 <property name="behaviors">
   <element value="plone.dublincore"/>
@@ -70,7 +70,7 @@ Edit {file}`browser/templates/talkview.pt`
 
 ```{code-block} html
 :emphasize-lines: 7
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
       metal:use-macro="context/main_template/macros/master"
@@ -126,14 +126,14 @@ body.userrole-contributor #formfield-form-widgets-IEventBasic-start,
 body.userrole-contributor #formfield-form-widgets-IEventBasic-end > *,
 body.userrole-contributor #formfield-form-widgets-IEventBasic-whole_day,
 body.userrole-contributor #formfield-form-widgets-IEventBasic-open_end {
-    display: none;
+  display: none;
 }
 
 body.userrole-reviewer #formfield-form-widgets-IEventBasic-start,
 body.userrole-reviewer #formfield-form-widgets-IEventBasic-end > *,
 body.userrole-reviewer #formfield-form-widgets-IEventBasic-whole_day,
 body.userrole-reviewer #formfield-form-widgets-IEventBasic-open_end {
-    display: block;
+  display: block;
 }
 ```
 
@@ -142,7 +142,7 @@ Modify the class {py:class}`TalkListView` and the template {file}`browser/templa
 
 ```{code-block} python
 :emphasize-lines: 17
-:linenos: true
+:linenos:
 
 class TalkListView(BrowserView):
     """ A list of talks
@@ -167,7 +167,7 @@ class TalkListView(BrowserView):
 
 ```{code-block} html
 :emphasize-lines: 5-9
-:linenos: true
+:linenos:
 
 [...]
 <td tal:content="python:talk['audience']">

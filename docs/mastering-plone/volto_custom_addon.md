@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -57,7 +57,7 @@ You see a dialog like this
 
 ```{code-block} console
 :emphasize-lines: 6,9
-:linenos: true
+:linenos:
 
 yo @plone/volto sandbox-volto-custom-addon
 Getting latest Volto version
@@ -102,14 +102,12 @@ Update {file}`jsconfig.json`:
 
 ```json
 {
-    "compilerOptions": {
-        "paths": {
-            "@greenthumb/volto-custom-addon": [
-                "addons/volto-custom-addon/src"
-            ]
-        },
-        "baseUrl": "src"
-    }
+  "compilerOptions": {
+    "paths": {
+      "@greenthumb/volto-custom-addon": ["addons/volto-custom-addon/src"]
+    },
+    "baseUrl": "src"
+  }
 }
 ```
 

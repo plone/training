@@ -193,7 +193,7 @@ A video of the talk [Debug like a pro. How to become a better programmer through
 Add this to {file}`browser/configure.zcml`:
 
 ```{code-block} xml
-:lineno-start: 1
+:linenos:
 
 <browser:page
   name="demo_content"
@@ -206,7 +206,7 @@ Add this to {file}`browser/configure.zcml`:
 This is {file}`browser/demo.py`:
 
 ```{code-block} python
-:lineno-start: 1
+:linenos:
 
 from Products.Five import BrowserView
 from plone import api

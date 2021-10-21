@@ -52,7 +52,7 @@ First we create the schema for the new content type.
 Add a new file {file}`content/sponsor.py`.
 
 ```{code-block} python
-:lineno-start: 1
+:linenos:
 
 from plone.app.textfield import RichText
 from plone.autoform import directives
@@ -134,7 +134,7 @@ Next, we create the factory type information ("FTI") for the new type in {file}`
 
 ```{code-block} xml
 :emphasize-lines: 26
-:lineno-start: 1
+:linenos:
 
 <?xml version="1.0"?>
 <object name="sponsor" meta_type="Dexterity FTI" i18n:domain="plone"
@@ -187,7 +187,7 @@ Then we register the FTI in {file}`profiles/default/types.xml`
 
 ```{code-block} xml
 :emphasize-lines: 4
-:lineno-start: 1
+:linenos:
 
 <?xml version="1.0"?>
 <object name="portal_types" meta_type="Plone Types Tool">
@@ -209,7 +209,7 @@ Modify the instance class.
 
 ```{code-block} xml
 :emphasize-lines: 4
-:lineno-start: 1
+:linenos:
 
 from plone.dexterity.content import Item
 

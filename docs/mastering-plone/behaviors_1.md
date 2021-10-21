@@ -105,7 +105,7 @@ Then, we add an empty {file}`behaviors/__init__.py` and a {file}`behaviors/confi
 
 ```{code-block} xml
 :emphasize-lines: 6-10
-:lineno-start: 1
+:linenos:
 
 <configure
     xmlns="http://namespaces.zope.org/zope"
@@ -127,7 +127,7 @@ And a {file}`behaviors/featured.py` containing:
 (featured-behavior-python-label)=
 
 ```{code-block} python
-:lineno-start: 1
+:linenos:
 
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
@@ -187,7 +187,7 @@ We must add the behavior to {file}`profiles/default/types/talk.xml`:
 
 ```{code-block} xml
 :emphasize-lines: 8
-:lineno-start: 1
+:linenos:
 
 <?xml version="1.0"?>
 <object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"
@@ -228,7 +228,7 @@ Therefore we have a boolean field for the featured information it would be obvio
 To add a new index we have to change the `catalog.xml` in the `profiles/default` folder of our product. Without changes the file should look like this:
 
 ```{code-block} xml
-:lineno-start: 1
+:linenos:
 
 <?xml version="1.0"?>
 <object name="portal_catalog">
@@ -240,7 +240,7 @@ To add the new BooleanIndex to the file we have to change the file as following:
 
 ```{code-block} xml
 :emphasize-lines: 3-5
-:lineno-start: 1
+:linenos:
 
 <?xml version="1.0"?>
 <object name="portal_catalog">
@@ -274,7 +274,7 @@ To add a metadata column for featured we have to add one more line in the `catal
 
 ```{code-block} xml
 :emphasize-lines: 6
-:lineno-start: 1
+:linenos:
 
 <?xml version="1.0"?>
 <object name="portal_catalog">
@@ -302,7 +302,7 @@ Add a new index for the `speaker`-field of our content type `Talk`
 
 ```{code-block} xml
 :emphasize-lines: 6-8
-:lineno-start: 1
+:linenos:
 
 <?xml version="1.0"?>
 <object name="portal_catalog">

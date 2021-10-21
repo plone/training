@@ -26,7 +26,7 @@ Our new `App.js` will look like this:
 
 ```{code-block} jsx
 :emphasize-lines: 4,8,19-24
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import { Provider } from "react-redux";
@@ -103,7 +103,7 @@ The code will look something like this:
 
 ```{code-block} jsx
 :emphasize-lines: 31
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
@@ -154,7 +154,7 @@ Complete the {file}`connect` call to return the correct data:
 ```{code-block} jsx
 :emphasize-lines: 3-6
 :lineno-start: 29
-:linenos: true
+:linenos:
 
 export default connect(
   (state, props) => {

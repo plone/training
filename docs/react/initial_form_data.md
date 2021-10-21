@@ -24,7 +24,7 @@ The {file}`onSave` handler can be a dummy handler for now, first we will focus o
 
 ```{code-block} jsx
 :emphasize-lines: 17-18,20-21,35-46,49-63,70
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
@@ -169,7 +169,7 @@ like we did with the {file}`onDelete`
 
 ```{code-block} jsx
 :emphasize-lines: 10-11,19-20,24-26,40-58,64,74,78
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
@@ -347,7 +347,7 @@ export default FaqItem;
 
 ```{code-block} jsx
 :emphasize-lines: 9,39-48,87
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import FaqItem from "./components/FaqItem";

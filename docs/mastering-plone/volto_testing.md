@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -130,11 +130,13 @@ make start-test
 You can step through each command of a test.
 
 ```{figure} _static/cypress_running.png
+
 ```
 
 Cypress provides a helper to find the right selector.
 
 ```{figure} _static/cypress_selector.png
+
 ```
 
 (testing-jest)=
@@ -146,7 +148,7 @@ Cypress provides a helper to find the right selector.
 
 ```{code-block} jsx
 :emphasize-lines: 18-24
-:linenos: true
+:linenos:
 
 import React from 'react';
 import renderer from 'react-test-renderer';
@@ -189,29 +191,12 @@ See the snaphot in folder `__snapshots__`.
 If this is a rendering you expected, you are good to go.
 
 ```html
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`renders a talk view component with only required props 1`] = `
-<div
-  className="ui container"
-  id="page-talk"
->
-  <h1
-    className="documentFirstHeading"
-  >
-    Talk
-    :
-
-    Security of Plone
-  </h1>
-  <div
-    className="ui right floated segment"
-  />
-  <p
-    className="documentDescription"
-  >
-    What makes Plone secure?
-  </p>
+// Jest Snapshot v1, https://goo.gl/fbAQLP exports[`renders a talk view
+component with only required props 1`] = `
+<div className="ui container" id="page-talk">
+  <h1 className="documentFirstHeading">Talk : Security of Plone</h1>
+  <div className="ui right floated segment" />
+  <p className="documentDescription">What makes Plone secure?</p>
 </div>
 `;
 ```

@@ -21,7 +21,7 @@ and create an empty {file}`onDelete` handler which is called when the button is 
 
 ```{code-block} jsx
 :emphasize-lines: 14,26,35
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
@@ -106,7 +106,7 @@ Also complete the {file}`onDelete` handler so it will call the callback with the
 
 ```{code-block} jsx
 :emphasize-lines: 7-10,28-30
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
@@ -192,7 +192,7 @@ Make sure to pass the index and the callback to the {file}`FaqItem` component to
 
 ```{code-block} jsx
 :emphasize-lines: 8,25-27,33-38
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import FaqItem from "./components/FaqItem";
@@ -287,7 +287,7 @@ Write the {file}`onDelete` handler which removes the item from the list and crea
 ```{code-block} jsx
 :emphasize-lines: 1-7
 :lineno-start: 23
-:linenos: true
+:linenos:
 
 onDelete = (index) => {
   let faq = this.state.faq;
