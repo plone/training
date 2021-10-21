@@ -1,7 +1,7 @@
 ---
 html_meta:
-  "description": "Learn the basis of React, Redux and React-Router."
-  "property=og:description": "Learn the basis of React, Redux and React-Router."
+  "description": "Learn the basics of React, Redux, and React-Router."
+  "property=og:description": "Learn the basics of React, Redux, and React-Router."
   "property=og:title": "Details of React training"
   "keywords": "Plone, training, exercise, solution, React, Redux"
 ---

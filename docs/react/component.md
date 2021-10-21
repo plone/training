@@ -161,7 +161,7 @@ The `<div>`, `<ul>`, `<p>`, and other tags in this code are first translated int
 `create-react-app` automatically adds this preprocessing of JSX.
 
 The last line of our `App` component is marked as the default export for this JavaScript file.
-Check out ES6 module [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
+Check out [ES6 module documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
 
 Note that React allows you to import and treat images and CSS as direct resources.
 The curly braces used for the `<img src=>` attribute signal to JSX that what follows is executable JavaScript.
