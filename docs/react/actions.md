@@ -3,7 +3,7 @@ html_meta:
   "description": "Using actions to manipulate the store and accessing the data from the store."
   "property=og:description": "Using actions to manipulate the store and accessing the data from the store."
   "property=og:title": "Use Actions To Manipulate The Store"
-  "keywords": "Plone, Training, exercise, solution, react, redux"
+  "keywords": "Plone, training, exercise, solution, React, Redux"
 ---
 
 (actions-label)=

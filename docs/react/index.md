@@ -47,4 +47,4 @@ links
 redirects
 ```
 
-This training was created by Rob Gietema, Roel Bruggink and updated by Alok Kumar.
+This training was created by Rob Gietema and Roel Bruggink, and updated by Alok Kumar.

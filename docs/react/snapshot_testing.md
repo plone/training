@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": "Snapshot testing to test the render output of the Faqitem component."
-  "property=og:description": "Snapshot testing to test the render output of the Faqitem component."
+  "description": "Snapshot testing to test the rendered output of the Faqitem component."
+  "property=og:description": "Snapshot testing to test the rendered output of the Faqitem component."
   "property=og:title": "Snapshot Testing"
-  "keywords": "Plone, Training, Snaphot Testing, Test, React, "
+  "keywords": "Plone, training, snaphot testing, test, React"
 ---
 
 (snapshot-testing-label)=

@@ -1,7 +1,7 @@
 ---
 html_meta:
-  "description": "Get started with the react training."
-  "property=og:description": "Get started with the react training."
+  "description": "Get started with the React training."
+  "property=og:description": "Get started with the React training."
   "property=og:title": "Introduction"
   "keywords": "Plone, training"
 ---

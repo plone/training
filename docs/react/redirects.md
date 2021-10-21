@@ -3,7 +3,7 @@ html_meta:
   "description": "Redirecting the user from the one route to another route."
   "property=og:description": "Redirecting the user from the one route to another route."
   "property=og:title": "Navigate Using Redirects"
-  "keywords": "Plone, Training, exercise, solution, react"
+  "keywords": "Plone, training, exercise, solution, React"
 ---
 
 (redirects-label)=

@@ -3,7 +3,7 @@ html_meta:
   "description": "Add state to the App component."
   "property=og:description": "Add state to the App component."
   "property=og:title": "How To Use State In Your Component"
-  "keywords": "Plone, Trainings, SEO, react, component, exercise, solution"
+  "keywords": "Plone, trainings, SEO, React, component, exercise, solution"
 ---
 
 (state-label)=
