@@ -2,7 +2,7 @@
 html_meta:
   "description": "Style the React component."
   "property=og:description": "Style the React component."
-  "property=og:title": "Styling your react component"
+  "property=og:title": "Styling your React component"
   "keywords": "Plone, Trainings, SEO, style, css, react, component, exercise, solution"
 ---
 
