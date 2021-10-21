@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
+:alt: Plone backend
 :align: left
 :class: logo
 ```
@@ -52,16 +52,14 @@ First we create the schema for the new content type.
 Add a new file {file}`content/sponsor.py`.
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
-# -*- coding: utf-8 -*-
 from plone.app.textfield import RichText
 from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.namedfile import field as namedfile
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
-from ploneconf.site import _
 from z3c.form.browser.radio import RadioFieldWidget
 from zope import schema
 from zope.schema.vocabulary import SimpleTerm
@@ -69,10 +67,10 @@ from zope.schema.vocabulary import SimpleVocabulary
 
 
 LevelVocabulary = SimpleVocabulary(
-    [SimpleTerm(value=u'platinum', title=_(u'Platinum Sponsor')),
-     SimpleTerm(value=u'gold', title=_(u'Gold Sponsor')),
-     SimpleTerm(value=u'silver', title=_(u'Silver Sponsor')),
-     SimpleTerm(value=u'bronze', title=_(u'Bronze Sponsor'))]
+    [SimpleTerm(value='platinum', title='Platinum Sponsor'),
+     SimpleTerm(value='gold', title='Gold Sponsor'),
+     SimpleTerm(value='silver', title='Silver Sponsor'),
+     SimpleTerm(value='bronze', title='Bronze Sponsor')]
     )
 
 
@@ -82,36 +80,36 @@ class ISponsor(model.Schema):
 
     directives.widget(level=RadioFieldWidget)
     level = schema.Choice(
-        title=_(u'Sponsoring Level'),
+        title='Sponsoring Level',
         vocabulary=LevelVocabulary,
         required=True
     )
 
     text = RichText(
-        title=_(u'Text'),
+        title='Text',
         required=False
     )
 
     url = schema.URI(
-        title=_(u'Link'),
+        title='Link',
         required=False
     )
 
     fieldset('Images', fields=['logo', 'advertisement'])
     logo = namedfile.NamedBlobImage(
-        title=_(u'Logo'),
+        title='Logo',
         required=False,
     )
 
     advertisement = namedfile.NamedBlobImage(
-        title=_(u'Advertisement (Gold-sponsors and above)'),
+        title='Advertisement (Gold-sponsors and above)',
         required=False,
     )
 
     directives.read_permission(notes='cmf.ManagePortal')
     directives.write_permission(notes='cmf.ManagePortal')
     notes = RichText(
-        title=_(u'Secret Notes (only for site-admins)'),
+        title='Secret Notes (only for site-admins)',
         required=False
     )
 
@@ -136,7 +134,7 @@ Next, we create the factory type information ("FTI") for the new type in {file}`
 
 ```{code-block} xml
 :emphasize-lines: 26
-:linenos: true
+:lineno-start: 1
 
 <?xml version="1.0"?>
 <object name="sponsor" meta_type="Dexterity FTI" i18n:domain="plone"
@@ -189,7 +187,7 @@ Then we register the FTI in {file}`profiles/default/types.xml`
 
 ```{code-block} xml
 :emphasize-lines: 4
-:linenos: true
+:lineno-start: 1
 
 <?xml version="1.0"?>
 <object name="portal_types" meta_type="Plone Types Tool">
@@ -211,7 +209,7 @@ Modify the instance class.
 
 ```{code-block} xml
 :emphasize-lines: 4
-:linenos: true
+:lineno-start: 1
 
 from plone.dexterity.content import Item
 

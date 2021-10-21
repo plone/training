@@ -8,7 +8,7 @@ html_meta:
 
 # Relations
 
-You can model relationships between content items by placing them in a hierarchy (e.g. a folder *speakers* containing the (folderish) speakers and within each speaker the talks) or by linking them to each other in Richtext fields. But where would you then store a talk that two speakers give together?
+You can model relationships between content items by placing them in a hierarchy (e.g. a folder _speakers_ containing the (folderish) speakers and within each speaker the talks) or by linking them to each other in Richtext fields. But where would you then store a talk that two speakers give together?
 
 Relations allow developers to model relationships between objects without using links or a hierarchy. The behavior {py:class}`plone.app.relationfield.behavior.IRelatedItems` provides the field {guilabel}`Related Items` in the tab {guilabel}`Categorization`. That field simply says `a` is somehow related to `b`.
 
@@ -19,14 +19,14 @@ By using custom relations you can model your data in a much more meaningful way.
 Relate to one item only.
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
 from plone.app.vocabularies.catalog import CatalogSource
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 
 evil_mastermind = RelationChoice(
-    title=_(u'The Evil Mastermind'),
+    title='The Evil Mastermind',
     vocabulary='plone.app.vocabularies.Catalog',
     required=False,
 )
@@ -39,7 +39,7 @@ from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 
 minions = RelationList(
-    title=_(u'Minions'),
+    title='Minions',
     default=[],
     value_type=RelationChoice(
         vocabulary='plone.app.vocabularies.Catalog',
@@ -57,20 +57,20 @@ In the following example you can only relate to Documents:
 
 ```{code-block} python
 :emphasize-lines: 12
-:linenos: true
+:lineno-start: 1
 
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 
 relationchoice_field = RelationChoice(
-    title=u"Relationchoice field",
+    title='Relationchoice field',
     vocabulary='plone.app.vocabularies.Catalog',
     required=False,
 )
 directives.widget(
-    "relationchoice_field",
+    'relationchoice_field',
     RelatedItemsFieldWidget,
     pattern_options={
-        "selectableTypes": ["Document", "Event"],
+        'selectableTypes': ['Document', 'Event'],
     },
 )
 ```
@@ -79,25 +79,25 @@ directives.widget(
 
 With `pattern_options` you can further configure the widget.
 
-In the following example you can specify a) where to start browsing using the *pattern-option* `basePath` and and b) to leave the dropwdown open using `closeOnSelect`.
+In the following example you can specify a) where to start browsing using the _pattern-option_ `basePath` and and b) to leave the dropwdown open using `closeOnSelect`.
 
 ```{code-block} python
 :emphasize-lines: 11
-:linenos: true
+:lineno-start: 1
 
 relationlist_field = RelationList(
-    title=u"Relationlist Field",
+    title='Relationlist Field',
     default=[],
     value_type=RelationChoice(vocabulary='plone.app.vocabularies.Catalog'),
     required=False,
     missing_value=[],
 )
 directives.widget(
-    "relationlist_field",
+    'relationlist_field',
     RelatedItemsFieldWidget,
     pattern_options={
-        "basePath": "",
-        "closeOnSelect": False,  # Leave dropdown open for multiple selection
+        'basePath': ',
+        'closeOnSelect': False,  # Leave dropdown open for multiple selection
     },
 )
 ```
@@ -106,19 +106,19 @@ directives.widget(
 
 ```{code-block} python
 :emphasize-lines: 13
-:linenos: true
+:lineno-start: 1
 
 from plone.app.multilingual.browser.interfaces import make_relation_root_path
 
 relationlist_field = RelationList(
-    title=u"Relationlist Field",
+    title='Relationlist Field',
     default=[],
     value_type=RelationChoice(vocabulary='plone.app.vocabularies.Catalog'),
     required=False,
     missing_value=[],
 )
 directives.widget(
-    "relationlist_field",
+    'relationlist_field',
     RelatedItemsFieldWidget,
     pattern_options=make_relation_root_path,
 )
@@ -140,29 +140,28 @@ The problem is that in the default mode of the Related Items wisget items that a
 Therefore is is recommended to use CatalogSource only in in `search` mode.
 
 ```{code-block} python
-:emphasize-lines: 9
-:linenos: true
+:emphasize-lines: 10
+:lineno-start: 1
 
 from plone.app.vocabularies.catalog import CatalogSource
 
 speakers = RelationList(
-    title=_(u'Speaker(s) for this talk'),
-    value_type=RelationChoice(
-        source=CatalogSource(portal_type='speaker')),
+    title='Speaker(s) for this talk',
+    value_type=RelationChoice(source=CatalogSource(portal_type='speaker')),
     required=False,
 )
 directives.widget(
-    "speakers",
+    'speakers',
     RelatedItemsFieldWidget,
     pattern_options={
-        "baseCriteria": [  # This is a optimization that limits the catalog-query
+        'baseCriteria': [  # This is a optimization that limits the catalog-query
             {
-                "i": "portal_type",
-                "o": "plone.app.querystring.operation.selection.any",
-                "v": ["speaker"],
+                'i': 'portal_type',
+                'o': 'plone.app.querystring.operation.selection.any',
+                'v': ['speaker'],
             }
         ],
-        "mode": "search",
+        'mode': 'search',
     },
 )
 ```
@@ -181,7 +180,7 @@ If you want to use checkboxes, radiobuttons or a selection-dropdown you need to 
 
 ```{code-block} python
 :emphasize-lines: 8, 18
-:linenos: true
+:lineno-start: 1
 
 from plone.app.vocabularies.catalog import StaticCatalogVocabulary
 from plone.app.z3cform.widget import SelectFieldWidget
@@ -189,17 +188,17 @@ from plone.autoform import directives
 from z3c.relationfield.schema import RelationChoice
 
 relationchoice_field_select = RelationChoice(
-    title=u"RelationChoice with Select Widget",
+    title='RelationChoice with Select Widget',
     vocabulary=StaticCatalogVocabulary(
         {
-            "portal_type": ["Document", "Event"],
-            "review_state": "published",
+            'portal_type': ['Document', 'Event'],
+            'review_state': 'published',
         }
     ),
     required=False,
 )
 directives.widget(
-    "relationchoice_field_select",
+    'relationchoice_field_select',
     SelectFieldWidget,
 )
 ```
@@ -215,33 +214,33 @@ RelationList field with select widget
 Another example is the `AjaxSelectFieldWidget` that only queries the catalog for results if you start typing:
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
 relationlist_field_ajax_select = RelationList(
-    title=u"Relationlist Field with AJAXSelect",
-    description=u"z3c.relationfield.schema.RelationList",
+    title='Relationlist Field with AJAXSelect',
+    description='z3c.relationfield.schema.RelationList',
     value_type=RelationChoice(
         vocabulary=StaticCatalogVocabulary(
             {
-                "portal_type": ["Document", "Event"],
-                "review_state": "published",
+                'portal_type': ['Document', 'Event'],
+                'review_state': 'published',
             }
         )
     ),
     required=False,
 )
 directives.widget(
-    "relationlist_field_ajax_select",
+    'relationlist_field_ajax_select',
     AjaxSelectFieldWidget,
     vocabulary=StaticCatalogVocabulary(
         {
-            "portal_type": ["Document", "Event", "Folder"],
+            'portal_type': ['Document', 'Event', 'Folder'],
         },
-        title_template="{brain.Type}: {brain.Title} at {path}",
+        title_template='{brain.Type}: {brain.Title} at {path}',
     ),  # Custom item rendering
     pattern_options={  # Options for Select2
-        "minimumInputLength": 2,  # - Don't query until at least two characters have been typed
-        "ajax": {"quietMillis": 500},  # - Wait 500ms after typing to make query
+        'minimumInputLength': 2,  # - Don't query until at least two characters have been typed
+        'ajax': {'quietMillis': 500},  # - Wait 500ms after typing to make query
     },
 )
 ```
@@ -257,7 +256,7 @@ Relationlist Field with AJAXSelect
 The `RelatedItemsFieldWidget` also allow you to set favorites:
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
 directives.widget(
     'minions',
@@ -271,7 +270,7 @@ directives.widget(
 `favorites` can also be a method that takes the current context. Here is a full example as a behavior:
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
 from plone import api
 from plone.app.vocabularies.catalog import CatalogSource
@@ -343,7 +342,7 @@ This would render the related items like this:
 If you want to access and render relations yourself you can use the Plone add-on [collective.relationhelpers](https://pypi.org/project/collective.relationhelpers) and add a method like in the following example.
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
 from collective.relationhelpers import api as relapi
 from Products.Five import BrowserView
@@ -374,7 +373,7 @@ In Plone 5 this is available through the addon [collective.relationhelpers](http
 
 It is surprisingly easy to create RelationFields through the web
 
-- Using the Dexterity schema editor, add a new field and select *Relation List* or *Relation Choice*, depending on whether you want to relate to multiple items or not.
+- Using the Dexterity schema editor, add a new field and select _Relation List_ or _Relation Choice_, depending on whether you want to relate to multiple items or not.
 - When configuring the field you can even select the content type the relation should be limited to.
 
 When you click on `Edit XML field model` you will see the fields in the XML schema:
@@ -382,7 +381,7 @@ When you click on `Edit XML field model` you will see the fields in the XML sche
 RelationChoice:
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
 <field name="boss" type="z3c.relationfield.schema.RelationChoice">
   <description/>
@@ -394,7 +393,7 @@ RelationChoice:
 RelationList:
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
 <field name="underlings" type="z3c.relationfield.schema.RelationList">
   <description/>
@@ -425,15 +424,15 @@ A light-weight alternative to using relations is to store a UUID of the object y
 The trick is to use `Choice` and `List` instead of `RelationChoice` or `RelationList` and configure the field to use `RelatedItemsFieldWidget`:
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform import directives
 from zope import schema
 
 uuid_choice_field = schema.Choice(
-    title=u"Choice field with RelatedItems widget storing uuids",
-    description=u"schema.Choice",
+    title="Choice field with RelatedItems widget storing uuids",
+    description="schema.Choice",
     vocabulary="plone.app.vocabularies.Catalog",
     required=False,
 )
@@ -443,7 +442,7 @@ directives.widget("uuid_choice_field", RelatedItemsFieldWidget)
 Again you can use `StaticCatalogVocabulary` if you want to use alternative widgets. The following example uses Checkboxes:
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
 from plone.app.vocabularies.catalog import StaticCatalogVocabulary
 from plone.autoform import directives
@@ -451,7 +450,7 @@ from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from zope import schema
 
 uuid_list_field_checkbox = schema.List(
-    title=u"RelationList with Checkboxes storing uuids",
+    title="RelationList with Checkboxes storing uuids",
     vocabulary=StaticCatalogVocabulary(
         {
             "portal_type": "Document",

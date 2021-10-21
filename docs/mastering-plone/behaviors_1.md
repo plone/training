@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
+:alt: Plone backend
 :align: left
 :class: logo
 ```
@@ -105,7 +105,7 @@ Then, we add an empty {file}`behaviors/__init__.py` and a {file}`behaviors/confi
 
 ```{code-block} xml
 :emphasize-lines: 6-10
-:linenos: true
+:lineno-start: 1
 
 <configure
     xmlns="http://namespaces.zope.org/zope"
@@ -127,9 +127,8 @@ And a {file}`behaviors/featured.py` containing:
 (featured-behavior-python-label)=
 
 ```{code-block} python
-:linenos: true
+:lineno-start: 1
 
-# -*- coding: utf-8 -*-
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
 from zope import schema
@@ -139,7 +138,7 @@ from zope.interface import provider
 class IFeatured(model.Schema):
 
     featured = schema.Bool(
-        title=u'Show this item on the frontpage',
+        title='Show this item on the frontpage',
         required=False,
     )
 ```
@@ -159,7 +158,6 @@ Let's go through this step by step.
    The schema class itself provides the interface, not its instance!
 4. We also add a `fieldset` so that our fields are not mixed with the normal fields of the object.
 5. We add a normal [Bool](https://zopeschema.readthedocs.io/en/latest/fields.html#bool) schema field to control if a item should be displayed on the frontpage.
-
 
 ````{only} not presentation
 ```{note}
@@ -189,7 +187,7 @@ We must add the behavior to {file}`profiles/default/types/talk.xml`:
 
 ```{code-block} xml
 :emphasize-lines: 8
-:linenos: true
+:lineno-start: 1
 
 <?xml version="1.0"?>
 <object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"
@@ -230,7 +228,7 @@ Therefore we have a boolean field for the featured information it would be obvio
 To add a new index we have to change the `catalog.xml` in the `profiles/default` folder of our product. Without changes the file should look like this:
 
 ```{code-block} xml
-:linenos: true
+:lineno-start: 1
 
 <?xml version="1.0"?>
 <object name="portal_catalog">
@@ -242,7 +240,7 @@ To add the new BooleanIndex to the file we have to change the file as following:
 
 ```{code-block} xml
 :emphasize-lines: 3-5
-:linenos: true
+:lineno-start: 1
 
 <?xml version="1.0"?>
 <object name="portal_catalog">
@@ -262,20 +260,21 @@ To understand this snippet we have to understand the tags and information we are
 After a restart and reinstallation of the product, it should now create a new index in the `portal_catalog`.
 
 ```{note}
-Instead of deinstall/install or reinstall the product over the `prtal_quickinstaller` or `Add-Ons` controlpanel, we can import new or altered XML files in the `ZMI`. To do so go to `portal_setup`, switch to the `Import`-Tab and search for the profile to import like in this case: `ploneconf.site`.
+Instead of deinstall/install in the `Add-Ons` controlpanel, we can import new or altered XML files in the `ZMI`. To do so go to `portal_setup`, switch to the `Import`-Tab and search for the profile to import like in this case: `ploneconf.site`.
 ```
 
-To see if the adding was successfully we will open the ZMI of our plone-site and navigate to the `portal_catalog` and click the `Indexes`-Tab. In the above list the new index `fetaured` should pop up.
+To see if the adding was successfully we will open the ZMI of our plone-site and navigate to the `portal_catalog` and click the `Indexes`-Tab. In the above list the new index `featured` should pop up.
 
 ## Add a metadata column for the new field
 
-The same rules and methods shown above for indexes apply for metadata columns. The difference with metadata is that it is not used for searching, but for displaying the results.
+The same rules and methods shown above for indexes apply for metadata columns.
+The difference with metadata is that it is not used for searching the catalog if Plone, Metadata is used for displaying the search results returned from the catalog.
 
 To add a metadata column for featured we have to add one more line in the `catalog.xml` like this:
 
 ```{code-block} xml
 :emphasize-lines: 6
-:linenos: true
+:lineno-start: 1
 
 <?xml version="1.0"?>
 <object name="portal_catalog">
@@ -303,7 +302,7 @@ Add a new index for the `speaker`-field of our content type `Talk`
 
 ```{code-block} xml
 :emphasize-lines: 6-8
-:linenos: true
+:lineno-start: 1
 
 <?xml version="1.0"?>
 <object name="portal_catalog">
