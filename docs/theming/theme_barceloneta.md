@@ -74,14 +74,92 @@ You will be asked for to name your theme (This will be the name that is displaye
 Generated file structure at ... ./myaddon.name
 ```
 
-All theme related files have now been added to `./myaddon.name/src/youraddon/name/theme/`
+All theme related files have now been added to `./myaddon.name/src/myddon/name/theme/`
+
+```shell
+./myaddon.name/src/myaddon/name/theme/
+├── barceloneta-apple-touch-icon-114x114-precomposed.png
+├── barceloneta-apple-touch-icon-144x144-precomposed.png
+├── barceloneta-apple-touch-icon-57x57-precomposed.png
+├── barceloneta-apple-touch-icon-72x72-precomposed.png
+├── barceloneta-apple-touch-icon-precomposed.png
+├── barceloneta-apple-touch-icon.png
+├── barceloneta-favicon.ico
+├── index.html
+├── manifest.cfg
+├── package.json
+├── preview.png
+├── rules.xml
+├── styles
+│   ├── theme.css
+│   ├── theme.min.css
+│   └── theme.scss
+└── tinymce-templates
+    ├── README.rst
+    ├── card-group.html
+    └── list.html
+```
+
+## Run your theme package
+
+Within the base directory of your package `./myaddon.name` run `plonecli build`to get all necessary packages to run Plone.
 
 
+```{code-block} shell
+$ plonecli build
+```
 
-- Run buildout
-- Explain theme structure
-- Start Plone
-- Install Theme
+After that you can start your Plone site with:
+
+```{code-block} shell
+$ plonecli serve
+
+[...]
+
+Serving on http://0.0.0.0:8080
+```
+
+Open <http://localhost:8080> in a Browser and see that Plone is running.
+
+    ```{figure} _static/plone_running.png
+    :alt: A running Plone instance.
+    :scale: 50 %
+    ```
+
+Click {guilabel}`Create a new Plone site` and enter `admin` for `Username` and also for `Password`
+
+    ```{figure} _static/create_plone_site.png
+    :alt: A running Plone instance.
+    :scale: 50 %
+    ````
+
+Click {guilabel}`Create Plone Site` to complete the setup of your Plone instance.
+
+    ```{figure} _static/fresh_plone.png
+    :alt: New Plone instance.
+    :scale: 50 %
+    ````
+
+To enable your theme
+
+1. Go to the Plone Control Panel: {menuselection}`toolbar --> admin --> Site Setup`
+
+2. Go to the "Add-ons" control panel.
+
+3. You will see this form:
+
+    ```{figure} _static/install_myaddon.png
+    :alt: Add-ons control panel
+    :scale: 50 %
+    ````
+
+4. Click {guilabel}`Install` to enable your addon package and theme
+
+    ```{figure} _static/myaddon_installed.png
+    :alt: Plone site with installed addon
+    :scale: 50 %
+    ````
+
 
 ## Adding styles and compile
 - Package.json explain dependencies and scripts
