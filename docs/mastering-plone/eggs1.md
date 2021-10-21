@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
+:alt: Plone backend
 :align: left
 :class: logo
 ```
@@ -65,7 +65,7 @@ Install plonecli:
 
 ```shell
 $ pip install plonecli
-$ pip install bobtemplates.plone==5.2.0
+$ pip install bobtemplates.plone==6.0b7
 ```
 
 Then create the addon:
@@ -74,7 +74,7 @@ Then create the addon:
 $ plonecli create addon src/ploneconf.site
 ```
 
-The new add-on will be created in the {file}`src` directory (*src* is short for *sources*)
+The new add-on will be created in the {file}`src` directory (_src_ is short for _sources_)
 
 You have to answer some questions about the add-on. Press {kbd}`Enter` (i.e. choosing the default value) for most questions except where indicated (enter your GitHub username if you have one, do not initialize a GIT repository, Use Plone 5.2 and python 3.7):
 
@@ -89,14 +89,19 @@ You have to answer some questions about the add-on. Press {kbd}`Enter` (i.e. cho
 
 --> Do you want me to initialize a GIT repository in your new package? (y/n) [y]: n
 
---> Plone version [5.2.1]: 5.2.3
+--> Plone version [5.2.4]:
 
---> Python version for virtualenv [python3.7]:
+--> Python version for virtualenv [python3]:
 
---> Do you want me to activate VS Code support? (y/n) [y]:
+--> Do you want me to activate VS Code support? (y/n) [y]: n
 
 git init is disabled!
 Generated file structure at /Users/pbauer/workspace/training/buildout/src/ploneconf.site
+```
+
+```{note}
+You may see Errors like `Error on isort-apply: isort-apply create [...]`
+Please ignore these.
 ```
 
 ```{only} not presentation
@@ -108,7 +113,7 @@ You generated a package with a lot files. It might look like too much boilerplat
 ## Volto Add-ons
 
 The package that will hold your own code for volto was already created when you installed the frontend with `create-volto-app`.
-The folder {file}`frontend/` that you created in the chapter {ref}`instructions-install-frontend-label` not only holds the  default volto frontend but also gives you the option to extend and customize the frontend.
+The folder {file}`frontend/` that you created in the chapter {ref}`instructions-install-frontend-label` not only holds the default volto frontend but also gives you the option to extend and customize the frontend.
 
 ## Eggs
 
@@ -135,9 +140,9 @@ In {file}`src` there is now a new folder {file}`ploneconf.site` and in there is 
 {file}`src/ploneconf/site/`
 
 : The python code of your package itself lives inside a special folder structure.
-  That seems confusing but is necessary for good testability.
-  Our package contains a [namespace package](https://www.python.org/dev/peps/pep-0420/) called *ploneconf.site* and because of this there is a folder {file}`ploneconf` with a {file}`__init__.py` and in there another folder {file}`site` and in there finally is our code.
-  From the buildout's perspective your code is in {file}`{your buildout directory}/src/ploneconf.site/src/ploneconf/site/{real code}`
+That seems confusing but is necessary for good testability.
+Our package contains a [namespace package](https://www.python.org/dev/peps/pep-0420/) called _ploneconf.site_ and because of this there is a folder {file}`ploneconf` with a {file}`__init__.py` and in there another folder {file}`site` and in there finally is our code.
+From the buildout's perspective your code is in {file}`{your buildout directory}/src/ploneconf.site/src/ploneconf/site/{real code}`
 
 ```{note}
 Unless discussing the buildout we will from now on silently omit these folders when describing files and assume that {file}`{your buildout directory}/src/ploneconf.site/src/ploneconf/site/` is the root of our package!
@@ -293,7 +298,7 @@ We will not install it now since we did not add any of our own code or configura
 
 ## Exercises
 
-1. Create a new package called {py:mod}`collective.behavior.myfeature`. Inspect the directory structure of this package. Delete it after you are done. Many packages that are part of Plone and some add-ons use a *nested namespace* such as {py:mod}`plone.app.contenttypes`.
+1. Create a new package called {py:mod}`collective.behavior.myfeature`. Inspect the directory structure of this package. Delete it after you are done. Many packages that are part of Plone and some add-ons use a _nested namespace_ such as {py:mod}`plone.app.contenttypes`.
 2. Open <https://github.com/plone/bobtemplates.plone> and read about the templates and subtemplates it provides.
 
 ## Summary
