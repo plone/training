@@ -10,7 +10,6 @@ html_meta:
 
 # Vocabularies, Registry-Settings and Control Panels
 
-
 ````{sidebar} Get the code!
 
 Code for the beginning of this chapter:
@@ -63,7 +62,7 @@ We provided several options to choose from that were hard-coded in the schema.
 Next we want to add a field to assign talks to a room.
 Since the conference next year will have different room names, these values need to be editable.
 
-And while we're at it: It would be much better to have the options for `audience` and `type_of_talk` editable by admins as well, e.g. to be able to add *Lightning Talks*!
+And while we're at it: It would be much better to have the options for `audience` and `type_of_talk` editable by admins as well, e.g. to be able to add _Lightning Talks_!
 
 By combining the registry, a controlpanel and vocabularies you can allow rooms to be editable options.
 
@@ -125,7 +124,6 @@ displayed_types = registry.get('plone.displayed_types')
 ```
 
 The value of the record `displayed_types` is the tuple `('Image', 'File', 'Link', 'News Item', 'Folder', 'Document', 'Event', 'talk')`
-
 
 ## Custom registry records
 
@@ -321,7 +319,6 @@ Example `types_of_talk`:
 ]
 ```
 
-
 We now register this schema `IPloneconfSettings` for the registry.
 Add the following to {file}`profiles/default/registry/main.xml`.
 With this statement the registry is extended by one record per `IPloneconfSettings` schema field.
@@ -354,7 +351,7 @@ from plone import api
 api.portal.get_registry_record('ploneconf.rooms')
 ```
 
-````{note}
+`````{note}
 In training code `ploneconf.site`, we use `Python` to define the registry records.
 Alternatively you could add these registry entries with Generic Setup.
 
@@ -567,7 +564,7 @@ class PloneConfRegistryConfigletPanel(RegistryConfigletPanel):
 You also need to register the view and the adapter in {file}`browser/configure.zcml`:
 
 ```{code-block} xml
-:linenos: 
+:linenos:
 :emphasize-lines: 4,10
 
 <browser:page
@@ -631,8 +628,7 @@ directives.widget(
         "widget": 'vocabularyterms',
     })
 ```
-````
-
+`````
 
 ## Vocabularies
 
@@ -710,7 +706,7 @@ You can now register these vocabularies as named utilities in {file}`configure.z
 
 From now on you can use these vocabulary by referring to their name, e.g. `ploneconf.rooms`.
 
-````{note}
+```{note}
 - Plone comes with many useful named vocabularies that you can use in your own projects, for example `plone.app.vocabularies.Users` or `plone.app.vocabularies.PortalTypes`.
 
 - See <https://github.com/plone/plone.app.vocabularies/> for a list of vocabularies.
@@ -718,12 +714,11 @@ From now on you can use these vocabulary by referring to their name, e.g. `plone
 - We turn the values from the registry into a dynamic `SimpleVocabulary` that can be used in the schema.
 
 - You could use the context with which the vocabulary is called or the request (using `getRequest` from `zope.globalrequest`) to constrain the values in the vocabulary.
-````
+```
 
 ```{seealso}
 Plone documentation [Vocabularies](https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html).
 ```
-
 
 ## Using vocabularies in a schema
 
@@ -734,7 +729,7 @@ To use a vocabulary in a schema field, replace the attribute `values` with `voca
 :linenos:
 
 type_of_talk = schema.Choice(
-    title=_(u'Type of talk'),
+    title='Type of talk',
     vocabulary='ploneconf.types_of_talk',
     required=True,
 )
@@ -745,17 +740,15 @@ Don't forget to add the new field `room`.
 Edit {file}`content/talk.py`:
 
 ```{code-block} python
-:emphasize-lines: 21, 35, 83-87
+:emphasize-lines: 19, 33, 81-85
 :linenos:
 
-# -*- coding: utf-8 -*-
 from plone.app.textfield import RichText
 from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobImage
 from plone.schema.email import Email
 from plone.supermodel import model
-from ploneconf.site import _
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from z3c.form.browser.radio import RadioFieldWidget
 from plone import schema
@@ -767,71 +760,71 @@ class ITalk(model.Schema):
 
     directives.widget(type_of_talk=RadioFieldWidget)
     type_of_talk = schema.Choice(
-        title=_(u'Type of talk'),
+        title='Type of talk',
         vocabulary='ploneconf.types_of_talk',
         required=True,
     )
 
     details = RichText(
-        title=_(u'Details'),
-        description=_(u'Description of the talk (max. 2000 characters)'),
+        title='Details',
+        description='Description of the talk (max. 2000 characters)',
         max_length=2000,
         required=True,
     )
 
     directives.widget(audience=CheckBoxFieldWidget)
     audience = schema.Set(
-        title=_(u'Audience'),
+        title='Audience',
         value_type=schema.Choice(vocabulary='ploneconf.audiences'),
         required=False,
     )
 
     speaker = schema.TextLine(
-        title=_(u'Speaker'),
-        description=_(u'Name (or names) of the speaker'),
+        title='Speaker',
+        description='Name (or names) of the speaker',
         required=False,
     )
 
     company = schema.TextLine(
-        title=_(u'Company'),
+        title='Company',
         required=False,
     )
 
     email = Email(
-        title=_(u'Email'),
-        description=_(u'Email adress of the speaker'),
+        title='Email',
+        description='Email adress of the speaker',
         required=False,
     )
 
     website = schema.TextLine(
-        title=_(u'Website'),
+        title='Website',
         required=False,
     )
 
     twitter = schema.TextLine(
-        title=_(u'Twitter name'),
+        title='Twitter name',
         required=False,
     )
 
     github = schema.TextLine(
-        title=_(u'Github username'),
+        title='Github username',
         required=False,
     )
 
     image = NamedBlobImage(
-        title=_(u'Image'),
-        description=_(u'Portrait of the speaker'),
+        title='Image',
+        description='Portrait of the speaker',
         required=False,
     )
 
     speaker_biography = RichText(
-        title=_(u'Speaker Biography (max. 1000 characters)'),
+        title='Speaker Biography (max. 1000 characters)',
         max_length=1000,
         required=False,
     )
 
     room = schema.Choice(
-        title=_(u'Room'),
+        title='Room',
         vocabulary='ploneconf.rooms',
         required=False,
     )
@@ -993,7 +986,6 @@ export default TalkView;
 
 By the way: When using a vocabulary you can also drop the annoying `item.title || item.token` pattern.
 ````
-
 
 ## Summary
 
