@@ -160,6 +160,64 @@ To enable your theme
     :scale: 50 %
     ````
 
+## Compiling Styles
+
+Open a **new** terminal and change into the theme folder your package:
+
+```{code-block} shell
+$ cd myaddon.name/src/myaddon/name/theme/
+```
+
+The `package.json` file defines dependencies for the theme and includes `scripts` to compile the `theme.scss` to `theme.css` and a production optimized `theme.min.css`.
+
+```{code-block} json
+
+{
+  "//": "Put here only theme dependencies, devDependencies should stay outside of the theme folder in the package root.",
+  "name": "my-theme",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "bootstrap": "^5.1.1",
+    "clean-css-cli": "^5.3.0",
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.15",
+    "postcss-cli": "^8.3.1",
+    "sass": "^1.32.13",
+    "stylelint-config-twbs-bootstrap": "^2.2.0"
+  },
+  "scripts": {
+    "watch": "nodemon --watch styles/ --ext scss --exec \"npm run css-main\"",
+    "build": "npm-run-all css-compile-main css-prefix-main css-minify-main",
+    "css-main": "npm-run-all css-compile-main css-prefix-main css-minify-main",
+    "css-compile-main": "sass --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css styles/theme.scss:styles/theme.css",
+    "css-prefix-main": "postcss --config postcss.config.js --replace \"styles/*.css\" \"!styles/*.min.css\"",
+    "css-minify-main": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output styles/theme.min.css styles/theme.css",
+    "css-lint": "stylelint \"styles/**/*.scss\" --cache --cache-location .cache/.stylelintcache"
+  },
+  "dependencies": {
+    "@plone/plonetheme-barceloneta-base": "^3.0.0-alpha5"
+  }
+}
+
+```
+
+Install theme dependencies
+
+```{code-block} shell
+$ npm install
+```
+
+To compile your styles and watch for changes while developing run
+
+```{code-block} shell
+$ npm run watch
+```
+
+If you visit your browser again, the green placeholder should be gone and you're ready to add your own styles.
+
 
 ## Adding styles and compile
 - Package.json explain dependencies and scripts
