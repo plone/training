@@ -121,24 +121,24 @@ Serving on http://0.0.0.0:8080
 
 Open <http://localhost:8080> in a Browser and see that Plone is running.
 
-    ```{figure} _static/barceloneta/plone_running.png
-    :alt: A running Plone instance.
-    :scale: 50 %
-    ```
+```{figure} _static/barceloneta/plone_running.png
+:alt: A running Plone instance.
+:scale: 50 %
+```
 
 Click {guilabel}`Create a new Plone site` and enter `admin` for `Username` and also for `Password`
 
-    ```{figure} _static/barceloneta/create_plone_site.png
-    :alt: A running Plone instance.
-    :scale: 50 %
-    ````
+```{figure} _static/barceloneta/create_plone_site.png
+:alt: A running Plone instance.
+:scale: 50 %
+```
 
 Click {guilabel}`Create Plone Site` to complete the setup of your Plone instance.
 
-    ```{figure} _static/barceloneta/fresh_plone.png
-    :alt: New Plone instance.
-    :scale: 50 %
-    ````
+```{figure} _static/barceloneta/fresh_plone.png
+:alt: New Plone instance.
+:scale: 50 %
+```
 
 To enable your theme
 
