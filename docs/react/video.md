@@ -1,7 +1,7 @@
 ---
 html_meta:
   "description": "React training video from PloneConf 2020."
-  "property=og:description": "React training video from the Plone Conf 2020."
+  "property=og:description": "React training video from PloneConf 2020."
   "property=og:title": "React Training Video"
   "keywords": "Plone, Training, SEO, react, youtube"
 ---
