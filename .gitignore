@@ -24,3 +24,4 @@ node_modules/
 .python-version
 package-lock.json
 .vscode/settings.json
+docs/pyvenv.cfg
