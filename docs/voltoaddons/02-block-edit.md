@@ -39,12 +39,12 @@ Add the following `src/DataTable/datatable-edit.less` file:
 }
 ```
 
-Notice that by importing `'../../theme.config`, we're able to have access to
+Notice that by importing `'../../theme.config'`, we're able to have access to
 Volto's (and, by extension, all Semantic UI) LESS variables.
 
 ## User-friendly block edit behavior
 
-Then change the `src/DataTable/DataTableEdit.jsx` file to something like this:
+Change the `src/DataTable/DataTableEdit.jsx` file to:
 
 ```jsx
 import React from 'react';
@@ -142,14 +142,15 @@ automatically insert a CSV file in the block, then remove it inbound
 reference the same data from multiple blocks, and of course keep things
 simple for this training.
 
-But if you want to have the content of the table rendered
-with the SSR mechanism, then you'll have to avoid the extra data fetch and
-serialize the table data together with the main block data using block
-transformers. This is because there would
-be two serialized data fetches. The first one is for the main content,
-which would return the blocks, then the blocks are rendered and, as
-a result of that rendering, the second network fetch would be called from
-one of the blocks as an async request.
+But if you want to have the content of the table rendered with the SSR
+mechanism, then you'll have to avoid the extra data fetch and serialize the
+table data together with the main block data using plone.restapi backend-based
+block transformers.
+
+This is because there would be two serialized data fetches. The first one is
+for the main content, which would return the blocks, then the blocks are
+rendered and, as a result of that rendering, the second network fetch would be
+called from one of the blocks as an async request.
 ```
 
 ```jsx

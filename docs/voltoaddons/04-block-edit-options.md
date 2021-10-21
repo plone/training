@@ -34,18 +34,15 @@ export const TableSchema = ({formData, intl}) => ({
 });
 ```
 
-This schema is based on the one used by `plone.restapi` to edit the
-server-side `Dexterity` content.
-We're appropriating it.
-It lives on the client side right now, so we have some
-freedom in extending it with new logic and capabilities.  
-The only requirement is that Volto's form implementation understands it.
-But even here we have a lot of freedom, as the form passes all the field props
-to the widgets.
+This schema is based on the one used by `plone.restapi` to edit the server-side
+`Dexterity` content.  We're appropriating it.  It lives on the client side
+right now, so we have some freedom in extending it with new logic and
+capabilities.  The only requirement is that Volto's form implementation
+understands it.  But even here we have a lot of freedom, as the form passes all
+the field props to the widgets.
 
 To understand how to structure the schema, you need to read Volto's
-[Field.jsx] code.  
-In it, we see the following logic:
+[Field.jsx] code.  In it, we see the following logic:
 
 ```jsx
 const Widget =
@@ -58,6 +55,30 @@ const Widget =
   getWidgetByType(props.type) ||
   getWidgetDefault();
 ```
+
+The precedence order of the algorithm is pretty self-explanatory.
+
+You can specify a widget for a particular field with:
+
+```jsx
+config.widgets.id.some_fieldname = MyWidget`;
+```
+
+Or you can set the `widget` property in a schema:
+
+```jsx
+//...
+properties: {
+  headline: {
+    title: "Headline",'
+    widget: "headline_widget",
+  }
+}
+//...
+```
+
+See [Volto's widget documentation] for more details, including how to designate
+a widget for a particular Dexterity field.
 
 Now we add a basic schema to control the table styling. Create the
 `src/DataTable/schema.js` file:
@@ -160,7 +181,8 @@ Notice that our schema is actually a function that returns a JavaScript object,
 not least because we need to have access to the `intl` utility to provide
 internationalization.
 
-To use the schema, we need to change the block edit component from `src/DataTable/DataTableEdit.jsx`:
+To use the schema, we need to change the block edit component from
+`src/DataTable/DataTableEdit.jsx`:
 
 ```jsx
 // ...
@@ -233,7 +255,7 @@ const DataTableEdit = (props) => {
 export default DataTableEdit;
 ```
 
-We're using the `InlineForm`, a component provided by Volto that renders an "embeddable" form.  
+We're using the `InlineForm`, a component provided by Volto that renders an "embeddable" form.
 This form requires, as parameters, the schema, and the form values.
 We'll render this form in the sidebar.
 
@@ -296,10 +318,11 @@ Here's how your block would look like:
 
 ## Initial block data as a reusable pattern
 
-For the view component, we've created a `HOC` mechanism that grants automatic data injection.  
+For the view component, we've created a `HOC` mechanism that grants automatic data injection.
 Can we do the same and simplify the `Edit` component?
 Let's make the "new block needs to point to a file", a mechanism that we can reuse.
-Perhaps later we'll write a chart block that uses the CSV file, so we'll be able to reuse code by composing.
+Perhaps later we'll write a chart block that uses the CSV file, so we'll be
+able to reuse code by composing.
 
 Add the `src/hocs/withBlockDataSource.js` HOC file:
 
@@ -417,3 +440,4 @@ export default withBlockDataSource({
 ```
 
 [field.jsx]: https://github.com/plone/volto/blob/master/src/components/manage/Form/Field.jsx
+[Volto's widget documentation]: https://github.com/plone/volto/blob/master/docs/source/recipes/widget.md

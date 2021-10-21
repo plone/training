@@ -24,21 +24,22 @@ provides an extensible Webpack SSR-enabled setup with a convenient split of
 server/client entry points and dual server/client Hot-Module-Reload (HMR).
 
 The first Webpack entry point will be used as the Volto *server* and uses
-Express web framework for that. It runs the Volto React code and components then
-sends them to the browser as a normal HTML page. It also proxies some Plone
-resources, such as files and images. Once the HTML page is loaded by the browser,
-all communication is done as JSON API messages.
+Express web framework for that. It runs the Volto React code and components
+then sends them to the browser as a normal HTML page. It also proxies some
+Plone resources, such as files and images. Once the HTML page is loaded by the
+browser, all communication is done as JSON API messages.
 
-To generate the second entry point, the *client*-only bundle, Webpack will need to
-know how to find, load, and potentially mutate (compress, transpile, minify,
+To generate the second entry point, the *client*-only bundle, Webpack will need
+to know how to find, load, and potentially mutate (compress, transpile, minify,
 etc.) the files that represent the code and resources of Volto, the Volto
-project, and Volto add-ons. The base is provided by Razzle, with instructions for
-Webpack to transpile .js and .jsx files with Babel, load .less files, CSS,
-images, and SVG files. For any other file type (for example, .scss, .ts, etc.) you'll
-have to enhance the Razzle configuration with the appropriate Webpack loader.
+project, and Volto add-ons. The base is provided by Razzle, with instructions
+for Webpack to transpile .js and .jsx files with Babel, load .less files, CSS,
+images, and SVG files. For any other file type (for example, .scss, .ts, etc.)
+you'll have to enhance the Razzle configuration with the appropriate Webpack
+loader.
 
-Check if there's already a Razzle plugin.
-For example `.scss` support can be added by adding `scss` to the `razzle.config.js` `plugins` list.
+Check if there's already a Razzle plugin. For example `.scss` support can be
+added by adding `scss` to the `razzle.config.js` `plugins` list.
 
 To summarize: Volto runs as a Single Page Application packaged by Webpack,
 which uses loaders such as Babel (for ES6 js/jsx files) or a [less-loader] for
@@ -49,17 +50,18 @@ which uses loaders such as Babel (for ES6 js/jsx files) or a [less-loader] for
 Although it's possible to run Volto with npm as the Node package manager, the
 community has settled, for now, for the Yarn Classic (v1.x) package manager.
 Yarn is used as an installer, to run scripts but also as a "virtual
-environment", by using its workspaces feature.
-Typically you'll start Volto applications with `yarn start` or `yarn test`.
-You can also integrate the `mrs-developer` library, and run `yarn missdev` to do tasks similar to mr.developer in Buildout projects.
-If you're not sure what these or
-any other `yarn` commands do, it's a good idea to examine your project's
-`package.json` file, in the `scripts` section, where you'll usually find those
-scripting aliases defined.
+environment", by using its workspaces feature. Typically you'll start Volto
+applications with `yarn start` or `yarn test`. You can also integrate the
+`mrs-developer` library, and run `yarn missdev` to do tasks similar to
+mr.developer in Buildout projects. If you're not sure what these or any other
+`yarn` commands do, it's a good idea to examine your project's `package.json`
+file, in the `scripts` section, where you'll usually find those scripting
+aliases defined.
 
 To bootstrap a new Volto project, you can use a scaffolding tool based on
-Yeoman named `generator-volto`. First, install it as a global tool (use [NVM] if you're
-being asked for sudo access):
+Yeoman named [@plone/generator-volto](https://github.com/plone/generator-volto).
+First, install it as a global tool (use [NVM] if you're being asked for sudo
+access):
 
 ```shell
 npm install -g yo
@@ -96,7 +98,7 @@ yo @plone/volto:addon
 ```
 
 Note: the namespace `@plone-collective` (or any other) is not required and is
-optional.  We're using namespaces to group add-ons under a common "group".
+optional. We're using namespaces to group add-ons under a common "group".
 Unfortunately, the NPM `@collective` scope is not available to the Plone
 community.
 
@@ -189,8 +191,11 @@ yarn workspace @plone-collective/volto-datatable-tutorial add papaparse
 ```
 
 ````{note}
-There are several other add-on templates, such as [voltocli](https://github.com/nzambello/voltocli) or [eea/volto-addon-template](https://github.com/eea/volto-addon-template).
-You could very well decide not to use any of them, and instead bootstrap a new add-on by running:
+There are several other add-on templates, such as
+[voltocli](https://github.com/nzambello/voltocli) or
+[eea/volto-addon-template](https://github.com/eea/volto-addon-template).
+You could very well decide not to use any of them, and instead bootstrap a new
+add-on by running:
 
 ```shell
 mkdir -p src/addons/datatable-tutorial
@@ -241,12 +246,13 @@ additional feature: they provide helper functions that mutate Volto's
 configuration registry. These are the "add-on configuration loaders".
 
 ```{note}
-To make things easy, add-ons should be distributed as source, non-transpiled code.
-Volto's Webpack setup integrates all development loaders (Babel transpiling, less loading, and so on) if they are identified as Volto add-ons.
+To make things easy, add-ons should be distributed as source, non-transpiled
+code. Volto's Webpack setup integrates all development loaders (Babel
+transpiling, less loading, and so on) if they are identified as Volto add-ons.
 ```
 
 Their `main` entry in `package.json` should point to `src/index.js`,
-which should be an ES6 module with a default export.  
+which should be an ES6 module with a default export.
 Here is the default add-on configuration loader:
 
 ```jsx
@@ -274,15 +280,15 @@ enabling the project to override any configuration.
 
 So: {guilabel}`Volto → add-ons → project`.
 
-To load an add-on, the project needs to specify the add-on in its
-`project.json` `addons` key. Optional configuration loaders are specified
-as a comma-separated list after the `:` colon symbol.
+To load an add-on, the project needs to specify the add-on in the `addons` key
+of `project.json`. Optional configuration loaders are specified as
+a comma-separated list after the `:` colon symbol.
 
 ```js
 // ...
 "addons": [
-    "volto-slate:asDefault,somethingElse",
-    "@eeacms/volto-object-widget",
+    "volto-slate:asDefaultBlock,simpleLink",
+    "@eeacms/volto-tabs-block",
 ]
 // ...
 ```
@@ -331,13 +337,15 @@ We're reusing the block view component referenced from the edit component, to
 speed things up.
 
 ```{note}
-We will be using [function components](https://reactjs.org/docs/components-and-props.html#function-and-class-components) here.
-There is no rule in Volto that requires choosing between class components or function components.
-Pick whichever feels better.
-Volto itself uses both styles.
-Although the function components are a newer API, and the use of hooks can make things more compact and reusable, they can also become hard to track, especially when multiple `useEffect` piles up in the same component.
-Don't feel that you have to stick to one style only.
-Choose whichever feels right for the task.
+We will be using [function
+components](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
+here. There is no rule in Volto that requires choosing between class components or
+function components. Pick whichever feels better. Volto itself uses both
+styles. Although the function components are a newer API, and the use of hooks
+can make things more compact and reusable, they can also become hard to track,
+especially when multiple `useEffect` piles up in the same component. Don't
+feel that you have to stick to one style only. Choose whichever feels right
+for the task.
 ```
 
 - Create `src/DataTable/index.js`. This step is optional, but it makes imports
@@ -377,11 +385,10 @@ export default (config) => {
 ```
 
 Instantiate the new block in a Volto page then save the page. This is a small
-development optimization.
-When changing code while developing, the HMR will kick
-in and replace the content on the edit page with the one loaded initially from
-the server.
-If you haven't saved the block yet, you'll need to recreate it again.
+development optimization. When changing code while developing, the HMR will
+kick in and replace the content on the edit page with the one loaded initially
+from the server. If you haven't saved the block yet, you'll need to recreate
+it again.
 
 ### Improve the block edit
 
@@ -433,7 +440,6 @@ We'll need a CSV file to play around while developing this add-on. We have
 provided one for you to {download}`download <../_static/forest-areas.csv>`
 ```
 
-[@plone/generator-volto]: https://github.com/plone/generator-volto
 [eea add-on template]: https://github.com/eea/volto-addon-template
 [less-loader]: https://webpack.js.org/loaders/less-loader/
 [mrs-developer]: https://github.com/collective/mrs-developer

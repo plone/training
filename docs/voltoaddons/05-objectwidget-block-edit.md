@@ -23,9 +23,12 @@ Let's go for title, text align, and another field that would allow us to tweak
 how the values are rendered.
 
 We'll continue without i18n integration, for now, to keep things simple.
-Within `src/DataTable/schema.js` add:
+Inside the `src/DataTable/schema.js` module, add a new schema for the columns:
 
-```jsx
+```{code-block} jsx
+:linenos: true
+:emphasize-lines: 6-10
+
 const ColumnSchema = () => ({
   title: 'Column',
   fieldsets: [
@@ -134,7 +137,14 @@ const DataTableEdit = (props) => {
 
 We'll need to also inject the file data into the edit form.
 We didn't need to before, but now it needs to know the available columns.
-Now that we're wrapping the edit component in two HOCs, we'll use Redux's `compose` to play nice.
+Now that we're wrapping the edit component in two HOCs, we'll use Redux's
+`compose` to play nice. If you're not familiar with functional programming
+concepts, compose is simply a method to express chained function calls in
+a more readable way. So instead of `func_c(func_b(func_a(input)))` we'll do:
+
+```jsx
+compose(func_a, func_b, func_c)(input)
+```
 
 This means that we need to first import the `compose` method from Redux within our
 `src/DataTable/DataTableEdit.js` file:
@@ -293,7 +303,14 @@ if (!config.widgets.widget.text_align)
 ```
 
 A widget is a component with three main props: `id`, `value`, and `onChange`.
-The widget needs to call back the `onChange` with an `id` and new value.
+The widget needs to call back the `onChange` callback with an `id` and new value.
+
+```{note}
+It's much better if you model your UI interactions in terms of forms and
+widgets. Widgets are reusable and their limited API forces you to focus on
+a reusable implementation. They should not depend on block data or block
+properties, for example. Just input value and the `onChange` callback.
+```
 
 To conform to the UI requirements, Volto provides the `FormFieldWrapper`
 component which works on a very nice and easy principle:

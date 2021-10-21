@@ -97,7 +97,7 @@ const DataTableView = ({ data: { file_path } }) => {
 export default DataTableView;
 ```
 
-Writing components where the `useEffect` triggers network calls can be pretty tricky. 
+Writing components where the `useEffect` triggers network calls can be pretty tricky.
 According to the [rule of hooks], hooks can't be triggered conditionally.
 They always have to be executed.
 For this reason, it's important to add relevant conditions inside the hook code.
@@ -105,14 +105,14 @@ Be sure to identify and prepare a way to tell, from inside the hook, if the netw
 
 ## The React HOC Pattern
 
-It is a good idea to split the code into generic "code blocks" so that 
-behavior and look are separated. 
+It is a good idea to split the code into generic "code blocks" so that
+behavior and look are separated.
 This has many benefits:
 - It makes components easier to write and test.
 - It separates business logic into reusable behaviors.
 
-Can we abstract the data-grabbing logic? 
-Let's write a simple Higher-Order Component (HOC) that does the data grabbing. 
+Can we abstract the data-grabbing logic?
+Let's write a simple Higher-Order Component (HOC) that does the data grabbing.
 The simplest HOC wrapper looks like this:
 
 ```jsx
@@ -124,7 +124,8 @@ export default withFileData(DataTableView);
 ```
 
 Notice the similarity with Python decorators.
-In our case, the HOC is a function that returns a React component.
+In our case, the HOC is a function that, given a component as input, returns
+a React component.
 
 Now let's move the file download and parsing logic to this HOC.
 We'll create the `src/hocs/withFileData.js` file:
@@ -134,6 +135,7 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import csv from 'papaparse';
+
 import { getRawContent } from '@plone-collective/volto-datatable-tutorial/actions';
 
 const withFileData = (WrappedComponent) => {
@@ -184,6 +186,8 @@ import withFileData from './withFileData';
 export { withFileData };
 ```
 
+Back to the `src/DataTable/DataTable.jsx`, it becomes:
+
 ```jsx
 import React from 'react';
 import { Table } from 'semantic-ui-react';
@@ -219,26 +223,6 @@ const DataTableView = ({ file_data }) => {
 export default withFileData(DataTableView);
 ```
 
-Note: for this tutorial, the `withFileData` HOC has been simplified.
-To make it more generic, we could avoid hard-coding the field name, by doing something like this:
-
-```jsx
-const withFileData = (getFilePath) => (WrappedComponent) => {
-  return (props) => {
-    const file_path = getFilePath(props);
-  //... extra code
-  };
-};
-```
-
-And we change how we wrap the `DataTableView` to keep the `file_path` specific
-logic local to the `DataTable` component.
-
-```jsx
-export default withFileData(({ data: { file_path } }) => file_path)(
-  DataTableView,
-);
-```
 
 [papaparse]: https://www.npmjs.com/package/papaparse
 [rule of hooks]: https://reactjs.org/docs/hooks-rules.html
