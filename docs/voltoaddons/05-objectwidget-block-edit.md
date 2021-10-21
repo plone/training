@@ -333,14 +333,15 @@ textAlign: {
 ```
 
 ```{note}
-The `objectwidget_list` widget provides drag/drop sorting of the columns, so it's
+The `object_list` widget provides drag/drop sorting of the columns, so it's
 possible to reorder the columns.
 ```
 
 ```{image} _static/table-column-with-text-align.png
 ```
 
-We could say it's done for now, but let's go further and explore how to enhance this add-on's reusability and extensibility.
+We could say it's done for now, but let's go further and explore how to enhance
+this add-on's reusability and extensibility.
 
 [volto-blocks-form]: https://github.com/eea/volto-blocks-form
 [volto-object-widget]: https://github.com/eea/volto-object-widget

@@ -70,7 +70,9 @@ be extended by a provided schema extender.
 We'll integrate with that.
 
 The old text template-based implementation can be moved to a component and
-a schema extension.
+a schema extension. To be more precise, now it's the time to remove the
+`textTemplate` field from the `ColumnSchema.properties` and the default
+fieldset.
 
 This will go inside a new folder called `CellRenderer` and a new JSX file,
 `addons/datatable-tutorial/src/CellRenderer/TextTemplate.jsx`:
