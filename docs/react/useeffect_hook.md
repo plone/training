@@ -3,7 +3,7 @@ html_meta:
   "description": "An introduction to useEffect hook. Using useEffect for doing the side effects for the component. In this case we are fetching the initial data."
   "property=og:description": "An introduction to useEffect hook. Using useEffect for doing the side effects for the component. In this case we are fetching the initial data."
   "property=og:title": "useEffect Hook"
-  "keywords": "Plone, Training, SEO, react, hook, exercise, solution"
+  "keywords": "Plone, training, SEO, React, hook, exercise, solution"
 ---
 
 (lifecycle-methods-label)=
