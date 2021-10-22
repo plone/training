@@ -26,3 +26,6 @@ package-lock.json
 .vscode/settings.json
 docs/pyvenv.cfg
 .DS_Store
+/venv/lib64
+/venv
+/yarn.lock

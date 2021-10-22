@@ -5,54 +5,43 @@ html_meta:
 
 (theming-label)=
 
-# Plone Theming
+# Plone 6 Classic UI Theming
 
-About
-: Adjusting the visual representation of Plone with {term}`Diazo`
+Theming for Plone 6 Classic UI based on Bootstrap 5
+
+**Training Objective**
+
+This training will explain how to adjust the layout and design of a Plone site.
+It will cover basic customizations you can do {term}`TTW` (Through-The-Web) in your Plone site,
+as well as advanced theming methods and tools to create stunning themes for your Plone website based on existing HTML templates.
 
 Level
 : All levels
 
-**Training Objective**
+**You should be familiar with**
+- Basic experience with Plone
+- Basic HTML, CSS and JS Knowledge
+- Basic npm knowledge
 
-The most important objective of this training is to explain how to adjust the layout and design of a Plone site.
-It will cover basic customizations you can do {term}`TTW` (Through-The-Web) in your Plone site,
-as well as advanced theming methods and tools to create stunning themes for your Plone website based on existing HTML templates.
 
-This training is **not** about:
+**Things to bring**
 
-- How to write JavaScript and integrate it into Plone
-- How to create designs or templates used for the advanced theming
-
-```{toctree}
-:caption: Theming
-:hidden: true
-:maxdepth: 3
-
-Basic Customizations <basic>
-TTW Theming I: Introduction <ttw-advanced>
-TTW Theming II: Custom Barceloneta Theme <ttw-advanced-2>
-TTW Theming III: Make It Reproducible <ttw-advanced-3>
-Theme Package I: Preparations <theme-package>
-Theme Package II: Diazo Theme <theme-package-2>
-Theme Package III: Customizations <theme-package-3>
-Theme Package IV: Templates <theme-package-4>
-Theme Package V: Initial Content <theme-package-5>
-Theme Package VI: TinyMCE Templates <theme-package-6>
-Theme Package VII: Resource Registries <theme-package-7>
-adv-diazo
-collective-jbot
-custom-components
-```
+A linux based laptop (Ubuntu, macOS) with code editor of your choice (we recommend VS Code) and with Plone installed as described in training instructions. It is extremely important that you join the class with a working Plone installation. You need npm (package manager) to build your CSS/JavaScript.
 
 ```{toctree}
-:caption: Plone Trainings
-:hidden: true
-:maxdepth: 3
-:name: plone-trainings-theming-toc
+:caption: Plone Theming
+:maxdepth: 1
+:numbered: true
+
+preparation
+ttw_customizations
+prerequesites
+theme_barceloneta
+theme_scratch
+theme_diazo
 ```
+
 
 ```{seealso}
-- {ref}`ttw-label`
-- <https://docs.plone.org/adapt-and-extend/theming/index.html>
+- {doc}`../theming_plone_5/index`
 ```

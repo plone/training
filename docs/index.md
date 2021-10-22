@@ -23,6 +23,7 @@ voltohandson/index
 voltoaddons/index
 testing/index
 theming/index
+theming_plone_5/index
 javascript/index
 deployment/index
 deployment/opsworks/index
