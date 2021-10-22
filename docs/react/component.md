@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Create a react component with a question and answer."
+  "property=og:description": "Create a react component with question and answer."
+  "property=og:title": " Create React Component"
+  "keywords": "Plone, trainings, SEO, create-react-app, React, component, exercise, solution"
 ---
 
 (component-label)=
@@ -13,9 +13,9 @@ html_meta:
 ## Generated App Code
 
 The following code is generated in the file {file}`src/App.js`.
-It contains a class which is extended from a React component.
+It contains a function which is a React component.
 A React component is a small view which will render some HTML and can have additional behavior.
-The class has a {file}`render` method which contains JSX to render the view.
+The function has a `return` statement which contains JSX to render the view.
 JSX is inline HTML which will be rendered as HTML in the view.
 
 ```{code-block} jsx
@@ -57,17 +57,14 @@ Change the {file}`App.js` file to show two FAQ items with the following content:
 - Question 2: Why does Plone need a Foundation?
 - Answer 2: Plone has reached critical mass, with enterprise implementations and worldwide usage. The Foundation is able to speak for Plone, and provide strong and consistent advocacy for both the project and the community. The Plone Foundation also helps ensure a level playing field, to preserve what is good about Plone as new participants arrive.
 
-Use an unordered list with an item for each FAQ entry containing an {file}`h2` tag for the question
-and a {file}`p` tag for the answer.
-Remove all other boiler plate code including styling.
+Use an unordered list with an item for each FAQ entry containing an `h2` tag for the question, and a `p` tag for the answer.
+Remove all other boilerplate code including styling.
 
 ````{admonition} Solution
 :class: toggle
 
 ```{code-block} jsx
 :linenos:
-
-import "./App.css";
 
 function App() {
   return (
@@ -108,7 +105,6 @@ export default App;
 @@ -1,24 +1,32 @@
 -import logo from './logo.svg';
 -import './App.css';
-+import "./App.css";
 
 function App() {
   return (
@@ -160,17 +156,12 @@ function App() {
 
 If you're unfamiliar with React/ES6, here are some short pointers to the default `create-react-app` boilerplate.
 
-JSX is a special format where it seems you are writing html code,
-but before execution the source is fist transformed to valid Javascript.
-The \<div>, \<ul>, \<p> and other tags in this code
-are first translated into valid Javascript code using the function React.CreateElement.
+JSX is a special format where it seems you are writing html code, but before execution the source is first transformed to valid JavaScript.
+The `<div>`, `<ul>`, `<p>`, and other tags in this code are first translated into valid JavaScript code using the function `React.CreateElement`.
 `create-react-app` automatically adds this preprocessing of JSX.
 
-Because of JSX, `React` has to be imported from the React module, although it does not seem to be used in the code.
-The first import line syntax may seem weird, but 'React' is the default export,
-and between curly braces are extra (non default) exported classes, functions etc.
-Similar at the last line our `App` component is marked as the default export for this Javascript file.
-Check out ES6 module documentation.
+The last line of our `App` component is marked as the default export for this JavaScript file.
+Check out [ES6 module documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
 
-Note that React allows you to import and treat images and css as direct resources.
-The curly braces used for the `<img src=>` attribute signal to JSX that what follows is executable Javascript.
+Note that React allows you to import and treat images and CSS as direct resources.
+The curly braces used for the `<img src=>` attribute signal to JSX that what follows is executable JavaScript.

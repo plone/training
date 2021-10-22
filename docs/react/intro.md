@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Get started with the React training."
+  "property=og:description": "Get started with the React training."
+  "property=og:title": "Introduction"
+  "keywords": "Plone, training"
 ---
 
 (react-intro-label)=
@@ -36,11 +36,15 @@ Some technologies and tools we use during the training:
 
 ## What to expect
 
-At the end of the course you'll know how to write a basic application using
+At the end of the course, you'll know how to write a basic application using
 React, Redux and React-Router.
 
 (react-intro-documentation-label)=
 
 ## Documentation
 
-Follow the training at https://training.plone.org
+Follow the {doc}`/react/index` training online.
+
+## Github Repo
+
+You can get the complete code for this training as well as each chapter in seperate branch from [GitHub](https://github.com/iFlameing/plone-react-training)

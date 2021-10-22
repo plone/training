@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Write tests for our reducer. Since reducers are pure functions with input and output, we can write unit tests for them."
+  "property=og:description": "Write tests for our reducer. Since reducers are pure functions with input and output, we can write unit tests for them."
+  "property=og:title": "Reducer Tests"
+  "keywords": "Plone, training, exercise, solution, React, Redux, reducers"
 ---
 
 (reducer-tests-label)=
@@ -12,8 +12,8 @@ html_meta:
 
 ## Reducer Tests
 
-Since reducers are pure functions with input and output we can write unit tests for them.
-We will start by adding a test for the {file}`ADD_TODO` action in a file called {file}`reducers/faq.test.js`:
+Since reducers are pure functions with input and output, we can write unit tests for them.
+We will start by adding a test for the `ADD_TODO` action in a file called {file}`reducers/faq.test.js`:
 
 ```{code-block} jsx
 :emphasize-lines: 1-16
@@ -39,7 +39,7 @@ describe("faq", () => {
 
 ## Exercise
 
-Add the unit tests for the edit and the delete actions for the reducer.
+Add the unit tests for the edit and delete actions for the reducer.
 
 ````{admonition} Solution
 :class: toggle

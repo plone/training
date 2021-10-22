@@ -1,96 +1,80 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Redirecting the user from the one route to another route."
+  "property=og:description": "Redirecting the user from the one route to another route."
+  "property=og:title": "Navigate Using Redirects"
+  "keywords": "Plone, training, exercise, solution, React"
 ---
 
 (redirects-label)=
 
 # Navigate Using Redirects
 
-If we want to navigate programmatically for example after submitting a form we have to use a different method.
-In this example we will create a back button in the {file}`FaqItemView` to return to the overview.
+If we want to navigate programmatically, for example after submitting a form, we have to use a different method.
+In this example we will create a back button in the `FaqItemView` to return to the overview.
 First we will create the button:
 
 ```{code-block} jsx
 :emphasize-lines: 1
-:lineno-start: 36
-:linenos:
+:lineno-start: 21
+:linenos: true
 
-<button onClick={this.onBack}>Back</button>
+<button onClick={onBack}>Back</button>
 ```
 
 Then we will add the handler to handle the back event.
-This event will make use of the {file}`history` property passed by React Router.
-This property has a push method which will push the new route.
+This event will make use of the `useHistory` hook provide by the `react-router-dom`.
+Once you call this hook, it will give you access to the history instance that you may use to navigate.
+It has a push method which will push to the new route.
 
 ```{code-block} jsx
 :emphasize-lines: 1-3
-:lineno-start: 27
-:linenos:
+:lineno-start: 14
+:linenos: true
 
-onBack() {
-  this.props.history.push("/");
-}
+  const onBack = () => {
+    history.push("/");
+  };
 ```
 
-The full listing of our new {file}`FaqItemView` will look as follows:
+The full listing of our new `FaqItemView` will look as follows:
 
 ```{code-block} jsx
-:emphasize-lines: 13-15,18-21,27-29,36
-:linenos:
+:emphasize-lines: 4,8,14-17,26
+:linenos: true
 
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-
+import { useEffect } from "react";
 import { getFaqItems } from "../actions";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams, useHistory } from "react-router-dom";
 
-class FaqItemView extends Component {
-  static propTypes = {
-    faqItem: PropTypes.shape({
-      question: PropTypes.string,
-      answer: PropTypes.string
-    }).isRequired,
-    history: PropTypes.shape({
-      push: PropTypes.func
-    }).isRequired
+const FaqItemView = () => {
+  const { index } = useParams();
+  let history = useHistory();
+  const dispatch = useDispatch();
+  const faqItem = useSelector((state) =>
+    state.faq.length ? state.faq[index] : {}
+  );
+
+  const onBack = () => {
+    history.push("/");
   };
 
-  constructor(props) {
-    super(props);
-  }
+  useEffect(() => {
+    dispatch(getFaqItems());
+  }, [dispatch]);
 
-  componentDidMount() {
-    this.props.getFaqItems();
-  }
+  return (
+    <div>
+      <h2 className="question">{faqItem.question}</h2>
+      <p>{faqItem.answer}</p>
+      <button onClick={onBack}>Back</button>
+    </div>
+  );
+};
 
-  onBack = () => {
-    this.props.history.push("/");
-  }
+export default FaqItemView;
 
-  render() {
-    return (
-      <div>
-        <h2 className="question">{this.props.faqItem.question}</h2>
-        <p>{this.props.faqItem.answer}</p>
-        <button onClick={this.onBack}>Back</button>
-      </div>
-    );
-  }
-}
-
-export default connect(
-  (state, props) => {
-    const index = parseInt(props.match.params.index, 10);
-    return {
-      faqItem: index < state.faq.length ? state.faq[index] : {}
-    };
-  },
-  { getFaqItems }
-)(FaqItemView);
 ```
 
 ````{admonition} Differences
@@ -99,36 +83,35 @@ export default connect(
 ```dpatch
 --- a/src/components/FaqItemView.jsx
 +++ b/src/components/FaqItemView.jsx
-@@ -9,18 +9,31 @@ class FaqItemView extends Component {
-    faqItem: PropTypes.shape({
-      question: PropTypes.string,
-      answer: PropTypes.string
-     }).isRequired,
-+    history: PropTypes.shape({
-+      push: PropTypes.func
-+   }).isRequired
-  };
+@@ -1,15 +1,20 @@
+ import { useEffect } from "react";
+ import { getFaqItems } from "../actions";
+ import { useSelector, useDispatch } from "react-redux";
+-import { useParams } from "react-router-dom";
++import { useParams, useHistory } from "react-router-dom";
 
-+  constructor(props) {
-+    super(props);
-+  }
-+
-  componentDidMount() {
-    this.props.getFaqItems();
-  }
+ const FaqItemView = () => {
+   const { index } = useParams();
++  let history = useHistory();
+   const dispatch = useDispatch();
+   const faqItem = useSelector((state) =>
+     state.faq.length ? state.faq[index] : {}
+   );
 
-+  onBack = () => {
-+    this.props.history.push("/");
-+  }
++  const onBack = () => {
++    history.push("/");
++  };
 +
-  render() {
-    return (
-      <div>
-        <h2 className="question">{this.props.faqItem.question}</h2>
-        <p>{this.props.faqItem.answer}</p>
-+        <button onClick={this.onBack}>Back</button>
-      </div>
-    );
-  }
+   useEffect(() => {
+     dispatch(getFaqItems());
+   }, [dispatch]);
+@@ -18,6 +23,7 @@ const FaqItemView = () => {
+     <div>
+       <h2 className="question">{faqItem.question}</h2>
+       <p>{faqItem.answer}</p>
++      <button onClick={onBack}>Back</button>
+     </div>
+   );
+ };
 ```
 ````

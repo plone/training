@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Add routes to our App. Create a view for the individual FAQ entries."
+  "property=og:description": "Add routes to our App. Create a view for the individual FAQ entries."
+  "property=og:title": "Routing"
+  "keywords": "Plone, training, exercise, solution, React, react-router-dom"
 ---
 
 (routes-label)=
@@ -12,23 +12,22 @@ html_meta:
 
 ## Routing
 
-In this chapter we will add routing so we can navigate to a specific FAQ item.
-First we will install {file}`react-router`:
+In this chapter we will add routing so that we can navigate to a specific FAQ item.
+First we will install `react-router-dom`:
 
 ```shell
 yarn add react-router-dom
 ```
 
 Next we will define the routes we want to use.
-We will use the {file}`BrowserRouter` to define our routes.
-We will have a view at the root and a view at {file}`/faq/1` where '1' is the index of the FAQ item.
-Our new `App.js` will look like this:
+We will use `BrowserRouter` to define our routes.
+We will have a view at the root, and a view at `/faq/1`, where `1` is the index of the FAQ item.
+Our new {file}`App.js` will look like this:
 
 ```{code-block} jsx
-:emphasize-lines: 4,8,19-24
-:linenos:
+:emphasize-lines: 3,7,17-22
+:linenos: true
 
-import React, { Component } from "react";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import { BrowserRouter, Route } from "react-router-dom";
@@ -42,22 +41,21 @@ import "./App.css";
 
 const store = createStore(rootReducer, applyMiddleware(api));
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <div>
-            <Route exact path="/" component={Faq} />
-            <Route path="/faq/:index" component={FaqItemView} />
-          </div>
-        </BrowserRouter>
-      </Provider>
-    );
-  }
-}
+const App = () => {
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <div>
+          <Route exact path="/" component={Faq} />
+          <Route path="/faq/:index" component={FaqItemView} />
+        </div>
+      </BrowserRouter>
+    </Provider>
+  );
+};
 
 export default App;
+
 ```
 
 ````{admonition} Differences
@@ -66,106 +64,88 @@ export default App;
 ```dpatch
 --- a/src/App.js
 +++ b/src/App.js
-@@ -1,9 +1,11 @@
-import React, { Component } from "react";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
+@@ -1,8 +1,10 @@
+ import { Provider } from "react-redux";
+ import { createStore, applyMiddleware } from "redux";
 +import { BrowserRouter, Route } from "react-router-dom";
 
-import rootReducer from "./reducers";
-import Faq from "./components/Faq";
+ import rootReducer from "./reducers";
+ import Faq from "./components/Faq";
 +import FaqItemView from "./components/FaqItemView";
-import api from "./middleware/api";
+ import api from "./middleware/api";
 
-import "./App.css";
-@@ -14,7 +16,12 @@ class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
--        <Faq />
-+        <BrowserRouter>
-+          <div>
-+            <Route exact path="/" component={Faq} />
-+            <Route path="/faq/:index" component={FaqItemView} />
-+          </div>
-+        </BrowserRouter>
-      </Provider>
-    );
-  }
+ import "./App.css";
+@@ -12,7 +14,12 @@ const store = createStore(rootReducer, applyMiddleware(api));
+ const App = () => {
+   return (
+     <Provider store={store}>
+-      <Faq />
++      <BrowserRouter>
++        <div>
++          <Route exact path="/" component={Faq} />
++          <Route path="/faq/:index" component={FaqItemView} />
++        </div>
++      </BrowserRouter>
+     </Provider>
+   );
+ };
 ```
 ````
 
 ## Writing The View
 
-Now we will create the {file}`FaqItemView` component at `components/FaqItemView.js`.
+Now we will create the `FaqItemView` component at {file}`components/FaqItemView.js`.
 This will render the full FAQ item.
 The code will look something like this:
 
 ```{code-block} jsx
-:emphasize-lines: 31
-:linenos:
+:emphasize-lines: 8
+:linenos: true
 
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-
+import { useEffect } from "react";
 import { getFaqItems } from "../actions";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 
-class FaqItemView extends Component {
-  static propTypes = {
-    faqItem: PropTypes.shape({
-      question: PropTypes.string,
-      answer: PropTypes.string
-    }).isRequired
-  };
+const FaqItemView = () => {
+  const dispatch = useDispatch();
+  const faqItem = "Todo";
 
-  componentDidMount() {
-    this.props.getFaqItems();
-  }
+  useEffect(() => {
+    dispatch(getFaqItems());
+  }, [dispatch]);
 
-  render() {
-    return (
-      <div>
-        <h2 className="question">{this.props.faqItem.question}</h2>
-        <p>{this.props.faqItem.answer}</p>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h2 className="question">{faqItem.question}</h2>
+      <p>{faqItem.answer}</p>
+    </div>
+  );
+};
 
-export default connect(
-  (state, props) => {
-    // Todo
-  },
-  { getFaqItems }
-)(FaqItemView);
+export default FaqItemView;
 ```
 
 ## Exercise
 
-React Router add a property called {file}`match` to all nested components.
-This property contains all the information about the matched route including the parameters
-so {file}`props.match.params.index` contains the index of the faq item.
-Complete the {file}`connect` call to return the correct data:
+React Router has a hook called `useParams` which returns an object of key/value pairs of URL parameters.
+The return object contains all the params of the match route, including our `index` params.
+Remove the `Todo` string, and write a function for the `useSelector` hook to fetch the correct data from the store.
 
 ````{admonition} Solution
 :class: toggle
 
 ```{code-block} jsx
-:emphasize-lines: 3-6
-:lineno-start: 29
-:linenos:
+:emphasize-lines: 1,3-5
+:lineno-start: 7
+:linenos: true
 
-export default connect(
-  (state, props) => {
-    const index = parseInt(props.match.params.index, 10);
-    return {
-      faqItem: index < state.faq.length ? state.faq[index] : {}
-    };
-  },
-  { getFaqItems }
-)(FaqItemView);
+  const { index } = useParams();
+  const dispatch = useDispatch();
+  const faqItem = useSelector((state) =>
+    state.faq.length ? state.faq[index] : {}
+  );
 ```
 ````
 
-To test your view navigate to <http://localhost:3000/faq/0>
+To test your view navigate to <http://localhost:3000/faq/0>.

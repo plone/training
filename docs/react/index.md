@@ -1,6 +1,9 @@
 ---
 html_meta:
-  description: Learn the basis of React, Redux and React-Router
+  "description": "Learn the basics of React, Redux, and React-Router."
+  "property=og:description": "Learn the basics of React, Redux, and React-Router."
+  "property=og:title": "Details of React training"
+  "keywords": "Plone, training, exercise, solution, React, Redux"
 ---
 
 (react-volto-label)=
@@ -23,6 +26,7 @@ The React training is intended as a single day training for people who are new t
 :numbered: true
 
 intro
+video
 bootstrap
 component
 styling
@@ -37,10 +41,10 @@ redux
 reducer_tests
 actions
 external_data
-lifecycle_methods
+useeffect_hook
 routes
 links
 redirects
 ```
 
-This training was created by Rob Gietema and Roel Bruggink.
+This training was created by Rob Gietema and Roel Bruggink, and updated by Alok Kumar.

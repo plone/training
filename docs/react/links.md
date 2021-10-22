@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Add links to our App for navigating around the App."
+  "property=og:description": "Add links to our App for navigating around the App."
+  "property=og:title": "Using Link To Navigate"
+  "keywords": "Plone, training, exercise, solution, React, link"
 ---
 
 (links-label)=
@@ -11,8 +11,8 @@ html_meta:
 # Using Links To Navigate
 
 Links are used to navigate between pages in React Router.
-This will make sure the browser doesn't do a full refresh but just changes the route.
-We will add a link to the {file}`FaqItem` component so we can go to the {file}`FaqItemView` view.
+This will make sure the browser doesn't do a full refresh, but just changes the route.
+We will add a link to the `FaqItem` component so that we can go to the `FaqItemView` view.
 
 ```{code-block} jsx
 :emphasize-lines: 1
@@ -24,129 +24,106 @@ import { Link } from "react-router-dom";
 
 ```{code-block} jsx
 :emphasize-lines: 1
-:lineno-start: 108
-:linenos:
+:lineno-start: 74
+:linenos: true
 
-<Link to={`/faq/${this.props.index}`}>View</Link>
+<Link to={`/faq/${props.index}`}>View</Link>
 ```
 
-The full listing of the {file}`FaqItem` component is as follows:
+The full listing of the `FaqItem` component is as follows:
 
 ```{code-block} jsx
-:emphasize-lines: 4,108
-:linenos:
+:emphasize-lines: 4,74
+:linenos: true
 
-import React, { Component } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { editFaqItem, deleteFaqItem } from "../actions";
-
 import "./FaqItem.css";
 
-class FaqItem extends Component {
-  static propTypes = {
-    question: PropTypes.string.isRequired,
-    answer: PropTypes.string.isRequired,
-    index: PropTypes.number.isRequired,
-    editFaqItem: PropTypes.func.isRequired,
-    deleteFaqItem: PropTypes.func.isRequired
+const FaqItem = (props) => {
+  const [isAnswer, setAnswer] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [question, setQuestion] = useState("");
+  const [answer, setQuestionAnswer] = useState("");
+  const dispatch = useDispatch();
+
+  const toggle = () => {
+    setAnswer(!isAnswer);
+  };
+  const ondelete = () => {
+    dispatch(deleteFaqItem(props.index));
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: false,
-      mode: "view",
-      question: "",
-      answer: ""
-    };
-  }
+  const onEdit = () => {
+    setIsEditMode(true);
+    setQuestionAnswer(props.answer);
+    setQuestion(props.question);
+  };
 
-  toggle = () => {
-    this.setState({
-      show: !this.state.show
-    });
-  }
+  const onChangeAnswer = (e) => {
+    setQuestionAnswer(e.target.value);
+  };
+  const onChangeQuestion = (e) => {
+    setQuestion(e.target.value);
+  };
 
-  onDelete = () => {
-    this.props.deleteFaqItem(this.props.index);
-  }
+  const onSave = (e) => {
+    e.preventDefault();
+    setIsEditMode(false);
+    dispatch(editFaqItem(props.index, question, answer));
+  };
 
-  onEdit = () => {
-    this.setState({
-      mode: "edit",
-      question: this.props.question,
-      answer: this.props.answer
-    });
-  }
+  return (
+    <>
+      {isEditMode ? (
+        <li className="faq-item">
+          <form onSubmit={onSave}>
+            <label>
+              Question:
+              <input
+                name="question"
+                value={question}
+                onChange={onChangeQuestion}
+              />
+            </label>
+            <label>
+              Answer:
+              <textarea
+                name="answer"
+                value={answer}
+                onChange={onChangeAnswer}
+              />
+            </label>
+            <input type="submit" value="Save" />
+          </form>
+        </li>
+      ) : (
+        <li className="faq-item">
+          <h2 className="question" onClick={toggle}>
+            {props.question}
+          </h2>
+          {isAnswer && <p>{props.answer}</p>}
+          <button onClick={ondelete}>Delete</button>
+          <button onClick={onEdit}>Edit</button>
+          <Link to={`/faq/${props.index}`}>View</Link>
+        </li>
+      )}
+    </>
+  );
+};
 
-  onChangeQuestion = (event) => {
-    this.setState({
-      question: event.target.value
-    });
-  }
+FaqItem.propTypes = {
+  question: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+};
 
-  onChangeAnswer = (event) => {
-    this.setState({
-      answer: event.target.value
-    });
-  }
+export default FaqItem;
 
-  onSave = (event) => {
-    this.setState({
-      mode: "view"
-    });
-    this.props.editFaqItem(
-      this.props.index,
-      this.state.question,
-      this.state.answer
-    );
-    event.preventDefault();
-  }
-
-  render() {
-    return this.state.mode === "edit" ? (
-      <li className="faq-item">
-        <form onSubmit={this.onSave}>
-          <label>
-            Question:
-            <input
-              name="question"
-              value={this.state.question}
-              onChange={this.onChangeQuestion}
-            />
-          </label>
-          <label>
-            Answer:
-            <textarea
-              name="answer"
-              value={this.state.answer}
-              onChange={this.onChangeAnswer}
-            />
-          </label>
-          <input type="submit" value="Save" />
-        </form>
-      </li>
-    ) : (
-      <li className="faq-item">
-        <h2 onClick={this.toggle} className="question">
-          {this.props.question}
-        </h2>
-        {this.state.show && <p>{this.props.answer}</p>}
-        <button onClick={this.onDelete}>Delete</button>
-        <button onClick={this.onEdit}>Edit</button>
-        <Link to={`/faq/${this.props.index}`}>View</Link>
-      </li>
-    );
-  }
-}
-
-export default connect(
-  () => {},
-  { editFaqItem, deleteFaqItem }
-)(FaqItem);
 ```
 
 ````{admonition} Differences
@@ -156,20 +133,20 @@ export default connect(
 --- a/src/components/FaqItem.jsx
 +++ b/src/components/FaqItem.jsx
 @@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+ import { useState } from "react";
+ import { useDispatch } from "react-redux";
+ import PropTypes from "prop-types";
 +import { Link } from "react-router-dom";
 
-import { editFaqItem, deleteFaqItem } from "../actions";
-
-@@ -104,6 +105,7 @@ class FaqItem extends Component {
-        {this.state.show && <p>{this.props.answer}</p>}
-        <button onClick={this.onDelete}>Delete</button>
-        <button onClick={this.onEdit}>Edit</button>
-+        <Link to={`/faq/${this.props.index}`}>View</Link>
-      </li>
-    );
-  }
+ import { editFaqItem, deleteFaqItem } from "../actions";
+ import "./FaqItem.css";
+@@ -70,6 +71,7 @@ const FaqItem = (props) => {
+           {isAnswer && <p>{props.answer}</p>}
+           <button onClick={ondelete}>Delete</button>
+           <button onClick={onEdit}>Edit</button>
++          <Link to={`/faq/${props.index}`}>View</Link>
+         </li>
+       )}
+     </>
 ```
 ````
