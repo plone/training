@@ -41,13 +41,13 @@ The package contains the theme and is developed on the filesystem. Development a
 Create a add-on package for your theme using plonecli in the current folder:
 
 ```{code-block} shell
-$ plonecli create addon plonetheme.munich
+$ plonecli create addon plonetheme.tokyo
 ```
 
 ```{note}
 Check the output on your console. Lines starting with **RUN** shows you the actual command that is fired in the background.
 
-RUN: mrbob bobtemplates.plone:addon -O ./plonetheme.munich
+RUN: mrbob bobtemplates.plone:addon -O ./plonetheme.tokyo
 ```
 
 You're going to be asked some questions. It's good to go with defaults for now. Since there is work in progress, Plone version `5.2.2` will result in Plone 6.0. Don't bother with that.
@@ -81,7 +81,7 @@ In the next steps we're going to add a theme to our package. We'll use plonecli 
 Step into the package directory:
 
 ```{code-block} shell
-$ cd plonetheme.munich
+$ cd plonetheme.tokyo
 ```
 
 Add theme using theme_barceloneta template. Run the command inside your package:
@@ -182,14 +182,14 @@ Click on `Advanced` to show more options. Scroll down to your package and activa
 
 Click on `Create Plone site` to add your site.
 
-You see some basic styling because a precompiled `src/plonetheme/munich/theme/css/theme.min.css` has been shipped with the template. Bevor we start theming we're going to add a copy of the main template to our theme package.
+You see some basic styling because a precompiled `src/plonetheme/tokyo/theme/css/theme.min.css` has been shipped with the template. Bevor we start theming we're going to add a copy of the main template to our theme package.
 
 
 ## Override Main Template
 
-Copy the page template from `parts/omelette/Products/CMFPlone/browser/templates/main_template.pt` to `src/plonetheme/munich/browser/templates/main_template.pt`.
+Copy the page template from `parts/omelette/Products/CMFPlone/browser/templates/main_template.pt` to `src/plonetheme/tokyo/browser/templates/main_template.pt`.
 
-Copy the main template python file from `parts/omelette/Products/CMFPlone/browser/main_template.py` to `src/plonetheme/munich/browser/main_template.py`.
+Copy the main template python file from `parts/omelette/Products/CMFPlone/browser/main_template.py` to `src/plonetheme/tokyo/browser/main_template.py`.
 
 Register the template:
 
@@ -199,7 +199,7 @@ Register the template:
       name="main_template"
       class=".main_template.MainTemplate"
       permission="zope.Public"
-      layer="plonetheme.munich.interfaces.IPlonethemeMunichLayer"
+      layer="plonetheme.tokyo.interfaces.IPlonethemeTokyoLayer"
       />
 ```
 
@@ -219,7 +219,7 @@ zope.configuration.config.ConfigurationConflictError: Conflicting configuration 
             class=".main_template.MainTemplate"
             permission="zope.Public"
             />
-    File "/Users/jdoe/Development/plonetheme.munich/src/plonetheme/munich/browser/configure.zcml", line 21.2-26.8
+    File "/Users/jdoe/Development/plonetheme.tokyo/src/plonetheme/tokyo/browser/configure.zcml", line 21.2-26.8
         <browser:page
             for="*"
             name="main_template"
@@ -231,7 +231,7 @@ zope.configuration.config.ConfigurationConflictError: Conflicting configuration 
 You can avoid this by adding a theme layer to your configuration as seen in the above example:
 
 ```{code-block} xml
-layer="plonetheme.munich.interfaces.IPlonethemeMunichLayer"
+layer="plonetheme.tokyo.interfaces.IPlonethemeTokyoLayer"
 ```
 
 
@@ -405,7 +405,7 @@ No we have everything in place to start theming. Let's start with compiling our 
 Step into the theme folder of your package:
 
 ```{code-block} shell
-$ cd ./src/plonetheme/munich/theme
+$ cd ./src/plonetheme/tokyo/theme
 ```
 
 Run `npm install` to add dependencies from package.json::
@@ -442,12 +442,12 @@ We can start theming finally. Let's change some colors now.
 
 ### Variables
 
-Bootstrap's variables has been mentioned in the previous chapter. If you need to add a variable to our `theme.scss` have a look at the definition from Bootstrap. They're located in  `src/plonetheme/munich/theme/node_modules/bootstrap/scss/_variables.scss`. We'll use some of them later.
+Bootstrap's variables has been mentioned in the previous chapter. If you need to add a variable to our `theme.scss` have a look at the definition from Bootstrap. They're located in  `src/plonetheme/tokyo/theme/node_modules/bootstrap/scss/_variables.scss`. We'll use some of them later.
 
 
 ### Change Colors
 
-Go to your `src/plonetheme/munich/theme/scss/theme.scss` and change the primary and secondary colors:
+Go to your `src/plonetheme/tokyo/theme/scss/theme.scss` and change the primary and secondary colors:
 
 ```{code-block} shell
 $primary: #456990;
@@ -466,7 +466,7 @@ Open the developer tools of your browser and navigate to the network tab. Disabl
 
 ### Add Logo
 
-We'll add the logo to Bootstrap's navbar. Go to `src/plonetheme/munich/browser/overrides/plone.app.layout.viewlets.sections.pt` and change the navbar brand from:
+We'll add the logo to Bootstrap's navbar. Go to `src/plonetheme/tokyo/browser/overrides/plone.app.layout.viewlets.sections.pt` and change the navbar brand from:
 
 ```{code-block} html
 <a class="navbar-brand" href="#">Navbar</a>
@@ -476,7 +476,7 @@ to:
 
 ```{code-block} html
 <a class="navbar-brand" href="${context/portal_url}">
-  <img src="${context/portal_url}/++plone++plonetheme.munich/plone-logo-white.svg" alt="Plone" height="36" class="pb-1" />
+  <img src="${context/portal_url}/++plone++plonetheme.tokyo/plone-logo-white.svg" alt="Plone" height="36" class="pb-1" />
 </a>
 ```
 
@@ -492,10 +492,10 @@ Every contenttype in Plone comes with it's own template. The easiest way to modi
 
 ### Override existing Templates
 
-We copy the original template from the source code to our project. Copy the file located at `parts/omelette/plone/app/contenttypes/browser/templates/document.pt` to our overrides folder at `src/plonetheme/munich/browser/overrides/plone.app.contenttypes.browser.templates.document.pt`.
+We copy the original template from the source code to our project. Copy the file located at `parts/omelette/plone/app/contenttypes/browser/templates/document.pt` to our overrides folder at `src/plonetheme/tokyo/browser/overrides/plone.app.contenttypes.browser.templates.document.pt`.
 
 * We'll use z3c.jbot to override templates
-* Overrides folder is registered in our `src/plonetheme/munich/browser/configure.zcml`
+* Overrides folder is registered in our `src/plonetheme/tokyo/browser/configure.zcml`
 * Create a empty file (as done for the header) or copy an existing one
 * Dotted name is the actual path to the original template.
 
@@ -558,7 +558,7 @@ Other than overrides as shown before a new view is registered via `configure.zcm
 
 We'll add a custom font using [Google Fonts]. Go to [Google Fonts] and select the styles you want to use.
 
-We create a new file `src/plonetheme/munich/theme/scss/_fonts.scss` to keep the font stuff together. In a real word project you probably want to add the actual font files to your project an serve them directly. For now we use a import:
+We create a new file `src/plonetheme/tokyo/theme/scss/_fonts.scss` to keep the font stuff together. In a real word project you probably want to add the actual font files to your project an serve them directly. For now we use a import:
 
 ```{code-block} scss
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
@@ -629,7 +629,7 @@ install_requires=[
 
 ### Install Sidebar with the package
 
-Add a dependency in `src/plonetheme/munich/profiles/default/metadata.xml` to install collective.sidebar when you install the theme package:
+Add a dependency in `src/plonetheme/tokyo/profiles/default/metadata.xml` to install collective.sidebar when you install the theme package:
 
 ```{code-block} xml
 <?xml version='1.0' encoding='UTF-8'?>
