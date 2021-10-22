@@ -500,7 +500,6 @@ $h2-font-size:                $font-size-base * 2.5;
 
 ```
 
-
 ```{image} _static/barceloneta/buesi6.png
 :alt: Site with web fonts
 ```
@@ -510,7 +509,6 @@ $h2-font-size:                $font-size-base * 2.5;
 Although we managed to change quite a lot with based on variabless, we still need to write some css to make our theme really pretty. We'll fix the corners of the search, make the main navigation rounded and change the alignment of items within the portal-header.
 
 For these styles it's a good idea to use variables from Bootstrap again to make the consistency of your styles easier. We'll include those styles after the import of Barbeloneta/Bootstrap styles and are able to make use of Bootstraps own mixins and utilities too.
-
 
 ```{code-block} scss
 :linenos: true
@@ -565,6 +563,7 @@ $h2-font-size:                $font-size-base * 2.5;
 .navbar {
     border-radius: $border-radius $border-radius 0 0;
 }
+
 #plone-breadcrumb {
     @include border-bottom-radius($border-radius);
 }
@@ -575,6 +574,7 @@ $h2-font-size:                $font-size-base * 2.5;
 ```
 
 
+
 ```{image} _static/barceloneta/buesi7.png
 :alt: Site with additional styles
 ```
@@ -583,7 +583,10 @@ $h2-font-size:                $font-size-base * 2.5;
 
 Bootstrap 5 added support for [CSS custom properties (variables)](https://getbootstrap.com/docs/5.1/customize/css-variables/). If you want to change any of the `:root` variables of Bootstrap directly, best thing is to add them at the bottom of your Stylesheet, since browsers interpret them natively.
 
+
 ```{code-block} scss
+:linenos: true
+
 :root {
 --foo: red;
 }
