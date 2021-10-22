@@ -8,7 +8,7 @@ html_meta:
 
 # Create a Theme from scratch
 
-We’re going to create a theme for **Plone 6 Classic UI** that is built from scratch. There are no dependencies except Bootstrap itself. This approach will allow you to change and extend the look and feeol of Plone to your needs. You will develop on the filesystem. You can add your package to any code repository e.g. GitHub and re-use it on different Plone sites.
+We're going to create a theme for **Plone 6 Classic UI** that is built from scratch. There are no dependencies except Bootstrap itself. This approach will allow you to change and extend the look and feeol of Plone to your needs. You will develop on the filesystem. You can add your package to any code repository e.g. GitHub and re-use it on different Plone sites.
 
 **Use Case**
 - Minimalistic theming approach for Plone Classic UI
@@ -400,7 +400,7 @@ It's possible to archive this with mixins as well. Check out Barceloneta's [grid
 
 No we have everything in place to start theming. Let's start with compiling our actual CSS from the given SASS files.
 
-### Install dependencies
+### Install Dependencies
 
 Step into the theme folder of your package:
 
@@ -414,7 +414,7 @@ Run `npm install` to add dependencies from package.json::
 $ npm install
 ```
 
-### Compile resources
+### Compile Resources
 
 Run `npm run build` to add dependencies from package.json::
 
@@ -424,7 +424,7 @@ $ npm run build
 
 This will compile your `scss/theme.scss` into `css/theme.css`. A minified version will be created as well. Check out the scripts section from `package.json` so see what happens exactly.
 
-### Watch for changes
+### Watch for Changes
 
 Run `npm run watch` to automatically compile when a file has been changed::
 
@@ -490,7 +490,7 @@ and voila, we have a Plone logo used as navbar brand:
 
 Every contenttype in Plone comes with it's own template. The easiest way to modify the template of a contenttype is an override.
 
-### Override existing template
+### Override existing Templates
 
 We copy the original template from the source code to our project. Copy the file located at `parts/omelette/plone/app/contenttypes/browser/templates/document.pt` to our overrides folder at `src/plonetheme/munich/browser/overrides/plone.app.contenttypes.browser.templates.document.pt`.
 
@@ -538,7 +538,7 @@ This will result in:
 We use `fill-slot="main"` to fill a more generic slot. This allows us to touch everything from headline to stuff that is registered below content body. Check out the `main_template.pt` to learn more about slots.
 
 
-### Register new template
+### Register new Template
 
 For e.g. Folders Plone ships different views you can choose from. For the contenttype Document there is only one view available. If you want to select from different views for Documents as well you'll have to register a new view. Have a look at the theming with Diazo training so learn more about views. There is an example of how to create an new view from scrach using `plonecli`.
 
@@ -554,7 +554,7 @@ Other than overrides as shown before a new view is registered via `configure.zcm
   />
 ```
 
-## Add custom font
+## Add custom Font
 
 We'll add a custom font using [Google Fonts]. Go to [Google Fonts] and select the styles you want to use.
 
@@ -604,7 +604,7 @@ Again, `npm watch` will build our CSS after you save the file. Check out your br
 ```
 
 
-## Replace editbar
+## Replace Editbar
 
 If you are not happy with Plone's editbar there are alternatives available. `collective.sidebar` is a drop in replacement and brings edit features and navigation together.
 
@@ -612,7 +612,7 @@ If you are not happy with Plone's editbar there are alternatives available. `col
 :alt: collective.sidebar
 ```
 
-### Add dependency
+### Add Dependency
 
 Add a dependency to collective.sidebar in `setup.py`. This grabs the package when you run buildout:
 
@@ -627,7 +627,7 @@ install_requires=[
 ],
 ```
 
-### Install Cidebar with the package
+### Install Sidebar with the package
 
 Add a dependency in `src/plonetheme/munich/profiles/default/metadata.xml` to install collective.sidebar when you install the theme package:
 
