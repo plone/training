@@ -184,7 +184,7 @@ A Python code snippet with reStructuredText options, using a fence with the pars
 
 ````md
 ```{code-block} python
-:lineno-start: 10
+:linenos:
 :emphasize-lines: 1, 3
 
 a = 2
@@ -194,7 +194,7 @@ print(f"my {a}nd line")
 ````
 
 ```{code-block} python
-:lineno-start: 10
+:linenos:
 :emphasize-lines: 1, 3
 
 a = 2
