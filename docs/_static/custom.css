@@ -23,6 +23,9 @@ ul li > p {
 ol li > p {
   margin-bottom: 0.3rem;
 }
+img{
+  margin: 1rem 0;
+}
 figure img,
 .figure img {
   box-shadow: 0 6px 24px 0 rgba(153,153,153,0.3);
