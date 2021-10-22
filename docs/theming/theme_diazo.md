@@ -8,12 +8,12 @@ html_meta:
 
 # Create a theme based on Diazo
 
-We're goiging to create a theme package for Plone 6 Classic UI, that is based on the Business Casual theme from [startbootstrap.com](https://startbootstrap.com/previews/business-casual).
+We're going to create a theme package for Plone 6 Classic UI, that is based on the Business Casual theme from [startbootstrap.com](https://startbootstrap.com/theme/business-casual).
 
 Integrating a custom layout (static mockup) with Plone classic UI,
 
 **Use Case**
-- You have an existing static layout comming from a website or a designer.
+- You have an existing static layout coming from a website or a designer.
 - You want to integrate this layout without changing too much.
 - You want to use the Plone default layout for all edit-/backend-view's.
 
@@ -28,7 +28,7 @@ Integrating a custom layout (static mockup) with Plone classic UI,
 
 ## Creating a theme package
 
-To create a filesystem based theme, we first create a new addon package for Plone:
+To create a file system based theme, we first create a new addon package for Plone:
 
 ```{code-block} shell
 $ plonecli create addon plonetheme.businesscasual21
@@ -70,7 +70,7 @@ $ plonecli add theme
 
 ## Integrate the static layout
 
-Download the Bootstrap theme [Business Casual](https://startbootstrap.com/previews/business-casual) and extract the content into the theme folder under `src/plonetheme/businesscasual21/theme/`.
+Download the Bootstrap theme [Business Casual](https://startbootstrap.com/theme/business-casual) and extract the content into the theme folder under `src/plonetheme/businesscasual21/theme/`.
 Your folder structure should now look like this:
 
 ```{code-block} shell

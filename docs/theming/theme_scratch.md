@@ -144,7 +144,7 @@ Start your instance for the very first time:
 ```{note}
 The command starts an instance of the Zope application server in foreground. This turns on the debug mode automatically. If everything starts as expected you should see something like that on your console:
 
-2078-12-24 19:37:49,830 INFO [waitress:485][MainThread] Serving on http://0.0.0.0:8080/
+2078-12-24 19:37:49,830 INFO [waitress:485][MainThread] Serving on http://localhost:8080/
 
 ```
 
@@ -226,7 +226,7 @@ zope.configuration.config.ConfigurationConflictError: Conflicting configuration 
             class=".main_template.MainTemplate"
             permission="zope.Public"
             />
- ``` 
+ ```
 
 You can avoid this by adding a theme layer to your configuration as seen in the above example:
 
@@ -430,7 +430,7 @@ Run `npm run watch` to automatically compile when a file has been changed::
 
 ```{code-block} shell
 $ npm run watch
-```    
+```
 
 With `npm run watch` you start the build process automatically when you save a file.
 
@@ -452,7 +452,7 @@ Go to your `src/plonetheme/tokyo/theme/scss/theme.scss` and change the primary a
 ```{code-block} shell
 $primary: #456990;
 $secondary: #49BEAA;
-```    
+```
 
 Watch will start the build process as soon as you save your file. Check out your console output. After the build has been finished, go to your browser and reload the window.
 
@@ -648,7 +648,7 @@ You have to run buildout to fetch the package from pypi and add it to your setup
 
 ```{code-block} shell
 $ ./bin/buildout
-```    
+```
 
 ### Restart Instance
 
@@ -657,7 +657,7 @@ Restart your instance:
 ```{code-block} shell
 $ ./bin/instance stop
 $ ./bin/instance start
-```    
+```
 
 Install the package in Site setup > Add-ons or create a new Plone site.
 
