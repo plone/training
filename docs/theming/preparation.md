@@ -17,12 +17,14 @@ We will use the following tools during the training.
 
 Make sure you have a recent LTS-version of NodeJS >= v12.22.x or v14.x.x
 
+You could also use [NVM](https://github.com/nvm-sh/nvm) to manage different versions of NodeJS.
+
 ## plonecli / bobtemplates.plone
 
 Install plonecli with Python3, on most Linux systems this can be done by:
 
 ```shell
-pip3 install plonecli --user
+$ pip3 install plonecli --user
 ```
 
 This will also install bobtemplates.plone, but we will need the current beta version.
@@ -30,15 +32,29 @@ This will also install bobtemplates.plone, but we will need the current beta ver
 So let's update bobtemplates.plone:
 
 ```shell
-pip3 install bobtemplates.plone>=6.0b8 --user
+$ pip3 install bobtemplates.plone>=6.0b8 --user
 ```
 
+## Testing the setup
 
+To test the setup, use plonecli to create an addon:
 
+```shell
+plonecli create addon plonetheme.tester
+```
 
-```{code-block}
-:lineno-start: 1
+```shell
+$ cd plonetheme.tester
+$ plonecli add theme
+$ plonecli build serve
+```
 
-npm install
-npm run watch
+After that we have a working buildout and Plone is starting.
+
+Now let's verify that npm/NodeJS is working fine.
+
+```shell
+$ cd src/plonetheme/tester/theme
+$ npm install
+$ npm run build
 ```

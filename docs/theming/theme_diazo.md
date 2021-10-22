@@ -948,3 +948,437 @@ Now that we have both sections in, let's save and have a look at it:
 
 Not bad!
 
+We can do the same with the Store and About sections.
+
+Only the Products section, we handle differently.
+
+Before we continue, let's commit our changes so far.
+
+```shell
+git add .
+git commit -a -m "integrate theme"
+```
+
+## Creating a Product content type
+
+To manage our products data, we will add a content type `Product`.
+
+```{code-block} shell
+$ plonecli add content_type
+
+RUN: mrbob bobtemplates.plone:content_type
+
+Welcome to mr.bob interactive mode. Before we generate directory structure, some questions need to be answered.
+
+Answer with a question mark to display help.
+Values in square brackets at the end of the questions show the default value if there is no answer.
+
+RUN: git status --porcelain --ignore-submodules
+Git state is clean.
+
+--> Content type name (Allowed: _ a-z A-Z and whitespace) [Todo Task]: Product
+
+--> Content type description:
+
+--> Use XML Model [n]:
+
+--> Dexterity base class (Container/Item) [Container]: Item
+
+--> Should the content type globally addable? [y]:
+
+--> Create a content type class [y]:
+
+--> Activate default behaviors? [y]: n
+
+```
+
+We have now a content type `Product` in our addon. Let's open the file `content/products.py` which contains the Interface class with schema definition and the content type class.
+
+```python
+# -*- coding: utf-8 -*-
+# from plone.app.textfield import RichText
+# from plone.autoform import directives
+from plone.dexterity.content import Item
+
+# from plone.namedfile import field as namedfile
+from plone.supermodel import model
+
+# from plone.supermodel.directives import fieldset
+# from z3c.form.browser.radio import RadioFieldWidget
+# from zope import schema
+from zope.interface import implementer
+
+# from plonetheme.businesscasual21 import _
+
+
+class IProduct(model.Schema):
+    """Marker interface and Dexterity Python Schema for Product"""
+
+    # If you want, you can load a xml model created TTW here
+    # and customize it in Python:
+
+    # model.load('product.xml')
+
+    # directives.widget(level=RadioFieldWidget)
+    # level = schema.Choice(
+    #     title=_(u'Sponsoring Level'),
+    #     vocabulary=LevelVocabulary,
+    #     required=True
+    # )
+
+    # text = RichText(
+    #     title=_(u'Text'),
+    #     required=False
+    # )
+
+    # url = schema.URI(
+    #     title=_(u'Link'),
+    #     required=False
+    # )
+
+    # fieldset('Images', fields=['logo', 'advertisement'])
+    # logo = namedfile.NamedBlobImage(
+    #     title=_(u'Logo'),
+    #     required=False,
+    # )
+
+    # advertisement = namedfile.NamedBlobImage(
+    #     title=_(u'Advertisement (Gold-sponsors and above)'),
+    #     required=False,
+    # )
+
+    # directives.read_permission(notes='cmf.ManagePortal')
+    # directives.write_permission(notes='cmf.ManagePortal')
+    # notes = RichText(
+    #     title=_(u'Secret Notes (only for site-admins)'),
+    #     required=False
+    # )
+
+
+@implementer(IProduct)
+class Product(Item):
+    """Content-type class for IProduct"""
+
+```
+
+In the Interface, we are going to define our fields. If you are using [Visual Studio Code](https://code.visualstudio.com/), you can install the [Plone Snippets](https://marketplace.visualstudio.com/items?itemName=Derico.plone-vs-snippets) plugin for VS Code.
+
+```python
+    # Make sure you import: plone.namedfile.field as namedfile
+    photo = namedfile.NamedBlobImage(
+        title=_(
+            u'Photo',
+        ),
+        description=_(
+            u'',
+        ),
+        required=False,
+    )
+```
+
+As the comment above states, we need to make sure that `plone.namedfile.field` is imported as `namedfield`. Also make sure that the message factory is imported:
+
+```python
+from plone.namedfile import field as namedfile
+from plonetheme.businesscasual21 import _
+```
+
+Next we add a rich text field called `text`:
+
+```python
+    # Make sure to import: from plone.app.textfield import RichText
+    text = RichText(
+        title=_(
+            u'Text',
+        ),
+        description=_(
+            u'',
+        ),
+        default=u'',
+        required=False,
+    )
+```
+
+As the comment above states, we need to make sure that `RichText` is imported`.
+
+```python
+from plone.app.textfield import RichText
+```
+
+After removing the inactive example schema definitions, our file should now look like this:
+
+```{code-block} python
+# -*- coding: utf-8 -*-
+from plone.app.textfield import RichText
+from plone.dexterity.content import Item
+from plone.namedfile import field as namedfile
+from plone.supermodel import model
+from zope.interface import implementer
+
+from plonetheme.businesscasual21 import _
+
+# from plone.autoform import directives
+# from plone.supermodel.directives import fieldset
+# from z3c.form.browser.radio import RadioFieldWidget
+# from zope import schema
+
+
+class IProduct(model.Schema):
+    """Marker interface and Dexterity Python Schema for Product"""
+
+    # Make sure you import: plone.namedfile.field as namedfile
+    photo = namedfile.NamedBlobImage(
+        title=_(
+            u"Photo",
+        ),
+        description=_(
+            u"",
+        ),
+        required=False,
+    )
+
+    # Make sure to import: from plone.app.textfield import RichText
+    text = RichText(
+        title=_(
+            u"Text",
+        ),
+        description=_(
+            u"",
+        ),
+        default=u"",
+        required=False,
+    )
+
+
+@implementer(IProduct)
+class Product(Item):
+    """Content-type class for IProduct"""
+
+```
+
+Now that we have all field in place, we need to activate two of the default behaviors, to get some functionality for free.
+In `profiles/default/types/Product.xml` we will activate the basic and namefromtitle behaviors:
+
+```xml
+  <!-- Enabled behaviors -->
+  <property name="behaviors" purge="false">
+    <!-- Details about all standard behaviors following can be read at
+         https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html
+    -->
+    <element value="plone.basic"/>
+    <element value="plone.namefromtitle"/>
+    <!-- <element value="plone.allowdiscussion"/> -->
+    <!-- <element value="plone.excludefromnavigation"/> -->
+    <!-- <element value="plone.shortname"/> -->
+    <!-- <element value="plone.ownership"/> -->
+    <!-- <element value="plone.publication"/> -->
+    <!-- <element value="plone.categorization"/> -->
+    <!-- <element value="plone.locking" /> -->
+    <!--<element value="plone.leadimage"/>-->
+    <!--<element value="plone.relateditems"/>-->
+    <!--<element value="plone.richtext"/>-->
+    <!--<element value="plone.tableofcontents"/>-->
+    <!--<element value="plone.versioning" />-->
+    <!--<element value="plone.translatable" />-->
+  </property>
+```
+
+When we now restart Plone and uninstall/install our addon, we will have a new content type `Products`, which we can add in our Products folder.
+
+Let's add the 3 Products for our Products section.
+
+```{image} _static/diazo/add-product-coffees-teas.png
+:alt: Add Coffees and Teas product
+```
+
+```{image} _static/diazo/products-listing-with-3-products.png
+:alt: Products listing of all 3 products
+```
+
+Now that we have our products added, let's add a Collection called `products`, if you haven't already. This Collection we set as default page in `toolbar --> display --> select a content item as default view`.
+
+Done with that, let's commit our changes so far.
+
+```shell
+$ git add .
+$ git commit -a -m "define products schema, activate behaviors"
+```
+
+## Creating a view for the Products Collection
+
+So far so good, the last thing we need is to have the products rendered in our desired markup. To archive this, we will add a `products` view.
+
+```shell
+$ plonecli add view
+
+RUN: mrbob bobtemplates.plone:view
+
+Welcome to mr.bob interactive mode. Before we generate directory structure, some questions need to be answered.
+
+Answer with a question mark to display help.
+Values in square brackets at the end of the questions show the default value if there is no answer.
+
+
+
+RUN: git status --porcelain --ignore-submodules
+Git state is clean.
+
+--> Should the view have a Python class? [y]:
+
+--> Python class name [MyView]: ProductsView
+
+--> Which base class should the view use (BrowserView/DefaultView)? [BrowserView]:
+
+--> View name (part of the URL) [products-view]:
+
+--> Should the View have a template file? [y]:
+
+--> Template name (without extension) [products_view]:
+
+```
+
+this will generate the `products-view` in `views/`.
+
+```shell
+views/
+├── configure.zcml
+├── __init__.py
+├── products_view.pt
+└── products_view.py
+```
+
+Let's open the `configure.zcml` first, to make sure our view is registered correctly.
+
+```xml
+  <browser:page
+    name="products-view"
+    for="Products.CMFCore.interfaces.IFolderish"
+    class=".products_view.ProductsView"
+    template="products_view.pt"
+    permission="zope2.View"
+    />
+```
+
+We want to use the view on a Collection, since the Collection does not provide the IFolderish interface, we need to change the Interface to `plone.app.contenttypes.interfaces.ICollection`.
+
+To have the `products-view` in the list of available views on a Collection, we need to configure it in the FTI settings.
+
+Let's create the file `profiles/default/types/Collection.xml`, with the following content:
+
+```xml
+<?xml version="1.0"?>
+<object
+    i18n:domain="plone"
+    meta_type="Dexterity FTI"
+    name="Collection"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
+  <property name="view_methods" purge="False">
+    <element value="products-view"/>
+  </property>
+
+</object>
+```
+
+This will add the `products-view` to the list of available view on a Collection.
+
+Now we have to make sure that we have the correct markup in the template of our view. For that we open the `products_view.pt` and add the following content:
+
+```xml
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  i18n:domain="plonetheme.startbootstrapbusinesscasual21"
+  metal:use-macro="context/main_template/macros/master">
+  <body>
+    <metal:content-core fill-slot="content-core">
+      <metal:block define-macro="content-core">
+
+        <tal:loop repeat="item view/results">
+
+          <section class="page-section"
+            tal:condition="repeat/item/odd">
+            <div class="container">
+              <div class="product-item">
+                <div class="product-item-title d-flex">
+                  <div class="bg-faded p-5 d-flex ms-auto rounded">
+                    <h2 class="section-heading mb-0">
+                      <span class="section-heading-upper">${item/description}</span>
+                      <span class="section-heading-lower">${item/title}</span>
+                    </h2>
+                  </div>
+                </div>
+                <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                  src="${item/getPath}/@@images/photo/large"
+                  alt="...">
+                  <div class="product-item-description d-flex me-auto">
+                    <div class="bg-faded p-5 rounded"
+                      tal:content="structure item/text/output"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="page-section"
+              tal:condition="repeat/item/even">
+              <div class="container">
+                <div class="product-item">
+                  <div class="product-item-title d-flex">
+                    <div class="bg-faded p-5 d-flex me-auto rounded">
+                      <h2 class="section-heading mb-0">
+                        <span class="section-heading-upper">${item/description}</span>
+                        <span class="section-heading-lower">${item/title}</span>
+                      </h2>
+                    </div>
+                  </div>
+                  <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                    src="${item/getPath}/@@images/photo/large"
+                    alt="...">
+                    <div class="product-item-description d-flex ms-auto">
+                     <div class="bg-faded p-5 rounded"
+                      tal:content="structure item/text/output"></div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+        </tal:loop>
+
+      </metal:block>
+    </metal:content-core>
+  </body>
+</html>
+
+```
+
+In the template we are iterating over `view/results` with the repeat command. Inside the loop we have two sections, one for odd and one for even sections. We then placed the title, description, photo and text at the correct places in the markup.
+
+The final step is, to update the Python class of the view. Open the `views/products_view.py`, import the CollectionView and replace the BrowserView base class with it:
+
+```python
+# -*- coding: utf-8 -*-
+
+from plone.app.contenttypes.browser.collection import CollectionView
+# from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+# from plonetheme.businesscasual21 import _
+
+
+class ProductsView(CollectionView):
+    # If you want to define a template here, please remove the template from
+    # the configure.zcml registration of this view.
+    # template = ViewPageTemplateFile('products_view.pt')
+
+    def __call__(self):
+        # Implement your own actions:
+        return self.index()
+```
+
+Let's restart Plone and uninstall/install our addon, to reapply the profiles and have a look at our products page.
+
+Awesome!
+
+we are done, time to enjoy the rest of the day.
+
+
+
+
