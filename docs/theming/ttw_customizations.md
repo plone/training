@@ -11,11 +11,11 @@ html_meta:
 You will learn how to customize the look of your Plone site through the web. Plone allows to change the site logo, favicon, and basic styling through the site control panel.
 
 
-## Use Case
+**Use Case**
 
 - If you want to make quick changes to the look of your Plone site, without touching the code base on the filesystem.
 
-## What you will learn
+**What you will learn**
 
 - Change the appearance of your Plone site through the web
 - Change the site logo
@@ -37,50 +37,55 @@ You will learn how to customize the look of your Plone site through the web. Plo
 
 For more information, take a look at the [official docs](https://docs.plone.org/adapt-and-extend/change-the-logo.html).
 
-## Customize CSS/Less Variables
+## Customize CSS (variables)
 
 1. Go back to the Control Panel.
-2. Go to the {guilabel}`Resource Registries` control panel.
-3. On the first tab: enable {guilabel}`Development Mode`.
-4. In the "plone" bundle below, click on "develop CSS".
+2. Go to the {guilabel}`Theming` control panel.
+3. Go to tab {guilabel}`Advanded settings`.
+3. Go to tab: {guilabel}`Custom Styles` underneath.
 
 Your panel should now look like this:
 
-```{image} ../theming/_static/theming-dev_mode_on.png
-:align: center
+```{image} ../theming/_static/custom_styles.png
+:alt: Custom Styles Field
 ```
 
-Now we can play with some Less variables:
+The contents of this text field are added after all other stylesheets and is similar to the `custom.css` that you maybe know from Plone 4.
 
-1. Go to the {guilabel}`Less Variables` tab.
 
-2. Find the variable `plone-left-toolbar-expanded` and set it to 400px.
+```{code-block} scss
 
-   ```{image} ../theming/_static/theming-less_var_hack.png
-   :align: center
-   ```
+header h1 {
+  color: red;
+}
 
-3. Hit the {guilabel}`Save` button in the upper right and reload the page.
-
-4. Click on the toolbar logo to expand the toolbar: voilá!
-
-You can play around with some other variables, if you want.
-
-```{Warning}
-"Development Mode" is expensive for the browser.
-Depending on the browser and on the system, you might encounter extreme slowness while rendering the page.
-You could see an unthemed page for a while.
-
-Remember to switch it off as soon as you finished tweaking.
 ```
 
-However, when you now turn off development mode after changing some lesss variables, you will see that the
-changes you have just made in the {guilabel}`Less Variables` tab are no longer active in the theme.
-Development mode recompiles the theme resources on the fly for every request, but in production mode the
-theme will be compiled once or manually from the "Resource Registries" Control Panel. When you install
-Plone, the included and active Barceloneta theme is served from the filesystem. These compiled theme
-resources on the filesystem cannot be changed from within Plone.
+The Plone 6 default theme Barceloneta is based on Bootstrap 5. Bootstrap 5 added support for [CSS custom properties (variables)](https://getbootstrap.com/docs/5.1/customize/css-variables/). This will give quite a range of possibilities to change the look of your Plone site without changing the theme itself or the need to recompile.
 
-In the next chapter we will make a custom copy of the Barceloneta Theme which will not be stored on the filesystem,
-but as a copy in the site database. When you activate this editable copy, your less variables will be included in the
-compiled resources of that theme.
+Within `:root` you can override, remap or add your own variables.
+
+```{code-block} scss
+
+header h1 {
+   color: var(--my-green);
+}
+
+:root {
+
+   --my-green: yellowgreen;
+   --my-orange: orangered;
+
+   --bs-body-bg: var(--bs-gray-200);
+   --bs-body-color: var(--my-orange);
+
+}
+```
+
+
+```{image} ../theming/_static/custom_variables.png
+:alt: Custom Variables
+```
+
+
+The availability of those variables will evolve with the development of Bootstrap.
