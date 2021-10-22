@@ -6,7 +6,7 @@ html_meta:
   "keywords": "Plone, training, SEO, React, hook, exercise, solution"
 ---
 
-(lifecycle-methods-label)=
+(useEffect-label)=
 
 # useEffect Hook
 

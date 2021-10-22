@@ -6,7 +6,7 @@ html_meta:
   "keywords": "Plone, training, SEO, React, YouTube"
 ---
 
-(video-label)=
+(react-video-label)=
 
 # Watch the Training Video
 

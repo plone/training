@@ -235,7 +235,7 @@ Now that we have our store wired, we can start using the store data instead of o
 We will use the hook `useSelector` for extracting the data from the store, and `useDispatch` for dispatching the action which is needed by the component.
 
 ```{code-block} jsx
-:emphasize-lines: 1-2,
+:emphasize-lines: 1-2
 :lineno-start: 2
 :linenos: true
 

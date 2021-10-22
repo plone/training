@@ -20,7 +20,7 @@ Create an empty `onDelete` handler which is called when the button is pressed.
 :class: toggle
 
 ```{code-block} jsx
-:emphasize-lines: 11,19,35
+:emphasize-lines: 11,19
 :linenos: true
 
 import { useState } from "react";
