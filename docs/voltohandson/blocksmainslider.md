@@ -29,8 +29,8 @@ You should add this styling to the build.
 Add the `slick-carousel` styles to the `theme/extras/custom.overrides`:
 
 ```less
-@import (less) '~slick-carousel/slick/slick.css';
-@import (less) '~slick-carousel/slick/slick-theme.css';
+@import (less) "~slick-carousel/slick/slick.css";
+@import (less) "~slick-carousel/slick/slick-theme.css";
 ```
 
 ## Block view component
@@ -38,19 +38,19 @@ Add the `slick-carousel` styles to the `theme/extras/custom.overrides`:
 Use this code for the block view component `src/components/Blocks/MainSlider/View.jsx`.
 
 ```jsx
-import React from 'react';
-import Slider from 'react-slick';
-import { Link } from 'react-router-dom';
-import { Button } from 'semantic-ui-react';
-import { Icon } from '@plone/volto/components';
-import sliderPNG from './slider-image.png';
-import rightSVG from '@plone/volto/icons/right-key.svg';
-import leftSVG from '@plone/volto/icons/left-key.svg';
+import React from "react";
+import Slider from "react-slick";
+import { Link } from "react-router-dom";
+import { Button } from "semantic-ui-react";
+import { Icon } from "@plone/volto/components";
+import sliderPNG from "./slider-image.png";
+import rightSVG from "@plone/volto/icons/right-key.svg";
+import leftSVG from "@plone/volto/icons/left-key.svg";
 
 const NextArrow = ({ className, style, onClick }) => (
   <Button
     className={className}
-    style={{ ...style, display: 'block' }}
+    style={{ ...style, display: "block" }}
     onClick={onClick}
   >
     <Icon name={rightSVG} size="70px" color="#fff" />
@@ -60,23 +60,23 @@ const NextArrow = ({ className, style, onClick }) => (
 const PrevArrow = ({ className, style, onClick }) => (
   <Button
     className={className}
-    style={{ ...style, display: 'block' }}
+    style={{ ...style, display: "block" }}
     onClick={onClick}
   >
     <Icon name={leftSVG} size="70px" color="#fff" />
   </Button>
 );
 
-const View = props => {
+const View = (props) => {
   return (
     <div
-      className="tile view mainslider full-width"
+      className="block view mainslider full-width"
       style={{
         background: `url(${sliderPNG}) center no-repeat`,
       }}
     >
       <Slider
-        customPaging={dot => <div />}
+        customPaging={(dot) => <div />}
         dots={true}
         fade
         dotsClass="slick-dots slick-thumb"
@@ -130,7 +130,7 @@ To style the block uses this styling:
   margin: 0;
 }
 
-.tile.view.mainslider {
+.block.view.mainslider {
   .slide {
     display: flex;
     height: 339px;
@@ -185,11 +185,11 @@ To style the block uses this styling:
   }
 }
 
-body.has-toolbar .tile.view.mainslider .slick-prev {
+body.has-toolbar .block.view.mainslider .slick-prev {
   left: calc(-18px + 80px);
 }
 
-body.has-toolbar .tile.view.mainslider .slick-next {
+body.has-toolbar .block.view.mainslider .slick-next {
   right: calc(80px - 38px);
 }
 
@@ -204,14 +204,14 @@ body.has-toolbar .tile.view.mainslider .slick-next {
 
 // This is the width hack
 body:not(.has-toolbar):not(.has-sidebar):not(.has-toolbar-collapsed):not(.has-sidebar-collapsed)
-.ui.wrapper
-> .full-width,
+  .ui.wrapper
+  > .full-width,
 body.has-toolbar:not(.has-sidebar):not(.has-sidebar-collapsed)
-.ui.wrapper
-> .full-width,
+  .ui.wrapper
+  > .full-width,
 body.has-toolbar-collapsed:not(.has-sidebar):not(.has-sidebar-collapsed)
-.ui.wrapper
-> .full-width {
+  .ui.wrapper
+  > .full-width {
   position: relative;
   right: 50%;
   left: 50%;
@@ -226,16 +226,16 @@ body.has-toolbar-collapsed:not(.has-sidebar):not(.has-sidebar-collapsed)
 
 By default, `kitconcept.voltodemo` sets a homepage by default with a title and a description block.
 Notice that the title block can't be removed.
-This is by design, but it can be overriden in the configuration object:
+This is by design, but it can be overriden in the applyConfig function:
 
 ```{code-block} js
 :emphasize-lines: 3
 
- export const tiles = {
-   ...defaultTiles,
-   requiredTiles: [],
-   tilesConfig: { ...defaultTiles.tilesConfig, ...customTiles },
- };
+config.blocks = {
+    ...config.blocks,
+    requiredBlocks: []
+    ...config
+    }
 ```
 
 at least for a moment, to remove the title block from the homepage.
