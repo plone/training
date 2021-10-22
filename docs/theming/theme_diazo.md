@@ -880,7 +880,7 @@ The navbar does not look like in the layout yet, but that we can fix by managing
 We can manage the footer portlets directly in Plone:
 
 ```{image} _static/diazo/manage-footer-portlets.png
-:alt: menu: manage footer portlets
+:alt: menu manage footer portlets
 ```
 
 Were we can hide the existing footer portlets:
