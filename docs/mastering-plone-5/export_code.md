@@ -29,7 +29,7 @@ git checkout export_code
 
 In this part you will:
 
-- Move the *Talk* type into {py:mod}`ploneconf.site`
+- Move the _Talk_ type into {py:mod}`ploneconf.site`
 - Improve the schema and the FTI
 
 Topics covered:
@@ -39,13 +39,13 @@ Topics covered:
 - XML schema
 - more widgets
 
-Remember the *Talk* content type that we created through-the-web with Dexterity? Let's move that new content type into our add-on package so that it may be installed in other sites without TTW manipulation.
+Remember the _Talk_ content type that we created through-the-web with Dexterity? Let's move that new content type into our add-on package so that it may be installed in other sites without TTW manipulation.
 
 Steps:
 
 - Return to the Dexterity control panel
-- Export the *Talk* Type Profile and save the file
-- Delete the *Talk* from the site before installing it from the file system
+- Export the _Talk_ Type Profile and save the file
+- Delete the _Talk_ from the site before installing it from the file system
 - Extract the files from the exported tar file and add them to our add-on package in {file}`profiles/default/`
 
 ```{note}
@@ -173,7 +173,7 @@ The escaped inline xml is simply too ugly to look at. You should move it to a se
 Create a new folder {file}`content` in the main directory (from the buildout directory perspective that is {file}`src/ploneconf.site/src/ploneconf/site/content/`). Inside add an empty file {file}`__init__.py` and a file {file}`talk.xml` that contains the real XML (copied from <http://localhost:8080/Plone/dexterity-types/talk/@@modeleditor> and beautified with some online XML formatter (<https://www.google.com/?q=xml+formatter>))
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <?xml version='1.0' encoding='utf8'?>
   <model xmlns="http://namespaces.plone.org/supermodel/schema"
@@ -254,7 +254,7 @@ Our talks use a dropdown for {guilabel}`type_of_talk` and a multiselect for {gui
 
 ```{code-block} xml
 :emphasize-lines: 11, 26
-:linenos: true
+:linenos:
 
 <?xml version="1.0" encoding="UTF-8"?>
 <model xmlns="http://namespaces.plone.org/supermodel/schema"
@@ -329,7 +329,7 @@ We only want to prevent writing, not reading, so we'll only manage the `write-pe
 
 ```{code-block} xml
 :emphasize-lines: 38-50
-:linenos: true
+:linenos:
 
 <?xml version="1.0" encoding="UTF-8"?>
 <model xmlns="http://namespaces.plone.org/supermodel/schema"

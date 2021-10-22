@@ -40,7 +40,7 @@ We register the viewlet in {file}`browser/configure.zcml`.
 
 ```{code-block} xml
 :emphasize-lines: 6-14
-:linenos: true
+:linenos:
 
  <configure xmlns="http://namespaces.zope.org/zope"
      xmlns:browser="http://namespaces.zope.org/browser">
@@ -65,7 +65,7 @@ We register the viewlet in {file}`browser/configure.zcml`.
 We extend the file {file}`browser/viewlets.py`
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from plone.app.layout.viewlets import common as base
 
@@ -81,7 +81,7 @@ This will add a viewlet to a slot below the title and expect a template {file}`v
 Let's create the file {file}`browser/templates/voting_viewlet.pt` without any logic
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
  <div class="voting">
      Wanna vote? Write code!
@@ -108,7 +108,7 @@ Now that we have the everything in place, we can add the Logic
 Update the viewlet to contain the necessary logic in {file}`browser/viewlets.py`
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from plone.app.layout.viewlets import common as base
 from Products.CMFCore.permissions import ViewManagementScreens
@@ -149,7 +149,7 @@ class Vote(base.ViewletBase):
 And extend the template in {file}`browser/templates/voting_viewlet.pt`
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
 <tal:snippet omit-tag="">
   <div class="voting">
@@ -197,7 +197,7 @@ Translating strings in JavaScript requires extra work.
 We need some css that we store in {file}`static/starzel_votablebehavior.css`
 
 ```{code-block} css
-:linenos: true
+:linenos:
 
 .voting {
     float: right;
@@ -247,7 +247,7 @@ We need some css that we store in {file}`static/starzel_votablebehavior.css`
 To make it work in the browser, some JavaScript {file}`static/starzel_votablebehavior.js`
 
 ```{code-block} js
-:linenos: true
+:linenos:
 
 /*global location: false, window: false, jQuery: false */
 (function ($, starzel_votablebehavior) {
@@ -311,7 +311,7 @@ We do not catch this exception. The user will never see this exception.
 Catching exceptions contain a gotcha for new developers.
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 try:
     something()
@@ -332,7 +332,7 @@ If you catch that exception, you are in trouble, so don't do that. Ever.
 As so often, we must extend {file}`browser/configure.zcml`:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 ...
 
@@ -358,7 +358,7 @@ As so often, we must extend {file}`browser/configure.zcml`:
 Then we add our simple views into the file {file}`browser/vote.py`
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from zope.publisher.browser import BrowserPage
 

@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -95,7 +95,7 @@ This way visitors can see at a glance if they are looking at current or old news
 This information is not shown by default.
 So you will need to customize the way that is used to render a News Item.
 
-The Volto component to render a News Item is in `omelette/src/components/theme/View/NewsItemView.jsx` (remember  chapter {ref}`volto-basics-label`?).
+The Volto component to render a News Item is in `omelette/src/components/theme/View/NewsItemView.jsx` (remember chapter {ref}`volto-basics-label`?).
 
 ```jsx
 /**
@@ -103,11 +103,11 @@ The Volto component to render a News Item is in `omelette/src/components/theme/V
  * @module components/theme/View/NewsItemView
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Container, Image } from 'semantic-ui-react';
+import React from "react";
+import PropTypes from "prop-types";
+import { Container, Image } from "semantic-ui-react";
 
-import { flattenToAppURL, flattenHTMLToAppURL } from '@plone/volto/helpers';
+import { flattenToAppURL, flattenHTMLToAppURL } from "@plone/volto/helpers";
 
 /**
  * NewsItemView view component class.
@@ -132,7 +132,7 @@ const NewsItemView = ({ content }) => (
         alt={content.title}
         title={content.title}
         src={
-          content.image['content-type'] === 'image/svg+xml'
+          content.image["content-type"] === "image/svg+xml"
             ? flattenToAppURL(content.image.download)
             : flattenToAppURL(content.image.scales.mini.download)
         }
@@ -314,7 +314,7 @@ Copy that file to `src/customizations/components/theme/View/SummaryView.jsx` and
 
 Don't forget to add the import of moment: `import moment from 'moment';` at the top.
 
-Note how the component iterates over the variable `items` of `content`  with `{content.items.map((item) => (...)}`. Here `item` is the item in the Folder or Collection where this component is used.
+Note how the component iterates over the variable `items` of `content` with `{content.items.map((item) => (...)}`. Here `item` is the item in the Folder or Collection where this component is used.
 
 ## The Listing Block
 
@@ -325,8 +325,8 @@ You will see that the listing block does not display the date as well.
 Copy `omelette/src/components/manage/Blocks/Listing/DefaultTemplate.jsx` to `src/customizations/components/manage/Blocks/Listing/DefaultTemplate.jsx` and add the dates as you did with the Summary View.
 
 ```{code-block} jsx
-:emphasize-lines: 5,32
-:linenos: true
+:emphasize-lines: 5,31-33
+:linenos:
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -397,8 +397,8 @@ Wrap the Container with `{}` and return the container.
 Put the locale-setting before it.
 
 ```{code-block} jsx
-:linenos: true
-:emphasize-lines: 10,21-25,61
+:linenos:
+:emphasize-lines: 10,21-25,60-61
 
 /**
  * NewsItemView view component.

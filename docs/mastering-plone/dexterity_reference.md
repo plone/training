@@ -66,7 +66,7 @@ In Volto not all field types and features are implemented yet:
 ```
 
 ```{code-block} python
-:lineno-start: 1
+:linenos:
 
 from plone.app.multilingual.browser.interfaces import make_relation_root_path
 from plone.app.textfield import RichText
@@ -560,7 +560,7 @@ The *datagrid field* is for Plone Classic. See the *mixedfield* below, if you ar
 Here is an example:
 
 ```{code-block} python
-:lineno-start: 1
+:linenos:
 
 from collective.z3cform.datagridfield import DataGridFieldFactory
 from collective.z3cform.datagridfield import DictRow
@@ -634,7 +634,7 @@ Add a field _history_field_ to your content type schema.
 
 ```{code-block} python
 :emphasize-lines: 1-6, 33, 37, 38
-:lineno-start: 1
+:linenos:
 
 MIXEDFIELD_SCHEMA = json.dumps(
     {
@@ -684,7 +684,7 @@ Provide a widget in your favorite add-on with a schema of elementary fields you 
 
 ```{code-block} jsx
 :emphasize-lines: 3,37,39
-:lineno-start: 1
+:linenos:
 
 import React from 'react';
 
@@ -743,7 +743,7 @@ The following config code registers the custom Plone _HistoryWidget_ for Plone C
 
 ```{code-block} js
 :emphasize-lines: 12
-:lineno-start: 1
+:linenos:
 
 import { HistoryWidget } from '@rohberg/voltotestsomevoltothings/components';
 
@@ -786,7 +786,7 @@ A view ({file}`ExampleView`) of the content type integrates a component to displ
 
 ```{code-block} jsx
 :emphasize-lines: 40
-:lineno-start: 1
+:linenos:
 
 import React from 'react';
 import moment from 'moment';

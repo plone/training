@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
+:alt: Plone backend
 :align: left
 :class: logo
 ```
@@ -66,7 +66,7 @@ Create the new {file}`upgrades.zcml` include it in our {file}`configure.zcml`:
 You register the first upgrade-step in {file}`upgrades.zcml`:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <configure
   xmlns="http://namespaces.zope.org/zope"
@@ -100,7 +100,7 @@ Change it to
 Let's create it.
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from plone import api
 from plone.app.upgrade.utils import loadMigrationProfile
@@ -208,7 +208,7 @@ INFO ploneconf.site.upgrades Moving http://localhost:8080/Plone/old-talk1 to htt
 
 Alternatively you also select which upgrade steps to run like this:
 
-- In the ZMI go to *portal_setup*
+- In the ZMI go to _portal_setup_
 - Go to the tab {guilabel}`Upgrades`
 - Select {guilabel}`ploneconf.site` from the dropdown and click {guilabel}`Choose profile`
 - Run the upgrade step.
@@ -241,7 +241,7 @@ Our package already has a browserlayer (added by {py:mod}`bobtemplates.plone`). 
 
 ```{code-block} python
 :emphasize-lines: 4, 8-9
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 """Module where all interfaces, events and exceptions live."""
@@ -307,7 +307,7 @@ Add the new indexes to {file}`profiles/default/catalog.xml`
 
 ```{code-block} xml
 :emphasize-lines: 6-17, 20-23
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <object name="portal_catalog">
@@ -335,7 +335,7 @@ Add the new indexes to {file}`profiles/default/catalog.xml`
 </object>
 ```
 
-This adds new indexes for the three fields we want to show in the listing. Note that *audience* is a {py:class}`KeywordIndex` because the field is multi-valued, but we want a separate index entry for every value in an object.
+This adds new indexes for the three fields we want to show in the listing. Note that _audience_ is a {py:class}`KeywordIndex` because the field is multi-valued, but we want a separate index entry for every value in an object.
 
 The `column ..` entries allow us to display the values of these indexes in the tableview of collections.
 
@@ -409,13 +409,13 @@ The new indexes behave like the ones that Plone has already built in:
 u'David Glick'
 ```
 
-If you use the classic frontend with the BrowserView `talklistview` you can now use these new indexes to improve it so we don't have to *wake up* the objects anymore.
+If you use the classic frontend with the BrowserView `talklistview` you can now use these new indexes to improve it so we don't have to _wake up_ the objects anymore.
 
 Instead you can use the brains' new attributes.
 
 ```{code-block} python
 :emphasize-lines: 13-16
-:linenos: true
+:linenos:
 
 class TalkListView(BrowserView):
     """ A list of talks
@@ -466,7 +466,7 @@ Modify {py:class}`TalkListView` to return only brains and adapt the template to 
 Here is the class:
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 class TalkListView(BrowserView):
     """ A list of talks
@@ -479,7 +479,7 @@ class TalkListView(BrowserView):
 Here is the template:
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
       metal:use-macro="context/main_template/macros/master"
@@ -546,7 +546,7 @@ Add criteria for audience, type_of_talk and speaker to the file {file}`profiles/
 
 ```{code-block} xml
 :emphasize-lines: 17-54
-:linenos: true
+:linenos:
 
 <?xml version="1.0" encoding="UTF-8"?>
 <registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
@@ -620,7 +620,7 @@ See {file}`profiles/default/types/talk.xml`:
 
 ```{code-block} xml
 :emphasize-lines: 4
-:linenos: true
+:linenos:
 
 <property name="behaviors">
  <element value="plone.dublincore"/>
@@ -635,7 +635,7 @@ You still need to configure the versioning policy and a diff view for talks.
 Add new file {file}`profiles/default/repositorytool.xml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <repositorytool>
@@ -651,7 +651,7 @@ Add new file {file}`profiles/default/repositorytool.xml`
 Add new file {file}`profiles/default/diff_tool.xml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <object>

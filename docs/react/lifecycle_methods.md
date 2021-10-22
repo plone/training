@@ -18,7 +18,7 @@ For example in our case we want to fetch the initial data from the backend.
 ```{code-block} jsx
 :emphasize-lines: 1-3
 :lineno-start: 31
-:linenos: true
+:linenos:
 
 componentDidMount() {
   this.props.getFaqItems();
@@ -30,7 +30,7 @@ The full {file}`Faq` component will now look like this:
 
 ```{code-block} jsx
 :emphasize-lines: 6,16-17,31-33,95
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import { connect } from "react-redux";

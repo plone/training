@@ -70,7 +70,7 @@ Note that there is a file _types_ and a folder _types_.
 This is the **Factory Type Information** that holds the configuration for the content type **talk**.
 
 ```{code-block} xml
-:lineno-start: 1
+:linenos:
 
 <?xml version="1.0"?>
 <object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"
@@ -143,7 +143,7 @@ You just created a python module.
 In this new folder add a file {file}`talk.py` with the following content:
 
 ```{code-block} python
-:lineno-start: 1
+:linenos:
 
 from plone.app.textfield import RichText
 from plone.autoform import directives

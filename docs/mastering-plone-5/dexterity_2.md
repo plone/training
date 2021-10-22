@@ -42,7 +42,7 @@ In this part we will:
 
 ### Marker Interfaces
 
-The content type `Talk` is not yet a *first class citizen* because it does not implement its own interface.
+The content type `Talk` is not yet a _first class citizen_ because it does not implement its own interface.
 Interfaces are like nametags, telling other elements who and what you are and what you can do.
 A marker interface is like such a nametag.
 The talks actually have an auto-generated marker interface `plone.dexterity.schema.generated.Plone_0_talk`.
@@ -54,7 +54,7 @@ To create a real name tag we add a new {py:class}`Interface` to {file}`interface
 
 ```{code-block} python
 :emphasize-lines: 5,12-13
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 """Module where all interfaces, events and exceptions live."""
@@ -80,7 +80,7 @@ There are two solutions for this.
 1. Let them be instances of a class that implements this Interface.
 2. Register this interface as a behavior and enable it on talks.
 
-The first option has an important drawback: only *new* talks would be instances of the new class.
+The first option has an important drawback: only _new_ talks would be instances of the new class.
 We would either have to migrate the existing talks or delete them.
 
 So let's register the interface as a behavior in {file}`behaviors/configure.zcml`
@@ -98,7 +98,7 @@ And enable it on the type in {file}`profiles/default/types/talk.xml`
 
 ```{code-block} xml
 :emphasize-lines: 5
-:linenos: true
+:linenos:
 
 <property name="behaviors">
  <element value="plone.dublincore"/>
@@ -147,7 +147,7 @@ Just for completeness sake, this is what would have to happen for the first opti
 
   ```{code-block} xml
   :emphasize-lines: 3
-  :linenos: true
+  :linenos:
 
   ...
   <property name="add_permission">cmf.AddPortalContent</property>
@@ -185,7 +185,7 @@ The add-on you created already has a registration for the {file}`upgrades.zcml` 
 You register the first upgrade-step in {file}`upgrades.zcml`:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <configure
   xmlns="http://namespaces.zope.org/zope"
@@ -218,7 +218,7 @@ Change it to
 Let's create it.
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from plone import api
@@ -289,7 +289,7 @@ INFO ploneconf.site.upgrades Moving http://localhost:8080/Plone/old-talk1 to htt
 
 Alternatively you also select which upgrade steps to run like this:
 
-- In the ZMI go to *portal_setup*
+- In the ZMI go to _portal_setup_
 - Go to the tab {guilabel}`Upgrades`
 - Select {guilabel}`ploneconf.site` from the dropdown and click {guilabel}`Choose profile`
 - Run the upgrade step.
@@ -318,7 +318,7 @@ Our package already has a browserlayer (added by {py:mod}`bobtemplates.plone`). 
 
 ```{code-block} python
 :emphasize-lines: 4, 8-9
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 """Module where all interfaces, events and exceptions live."""
@@ -393,7 +393,7 @@ Instead of loading them all into memory we will use catalog indexes to get the d
 Add a new file {file}`profiles/default/catalog.xml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <object name="portal_catalog">
@@ -421,7 +421,7 @@ Add a new file {file}`profiles/default/catalog.xml`
 </object>
 ```
 
-This adds new indexes for the three fields we want to show in the listing. Note that *audience* is a {py:class}`KeywordIndex` because the field is multi-valued, but we want a separate index entry for every value in an object.
+This adds new indexes for the three fields we want to show in the listing. Note that _audience_ is a {py:class}`KeywordIndex` because the field is multi-valued, but we want a separate index entry for every value in an object.
 
 The `column ..` entries allow us to display the values of these indexes in the tableview of collections.
 
@@ -475,12 +475,12 @@ The new indexes behave like the ones that Plone has already built in:
 u'David Glick'
 ```
 
-We now can use the new indexes to improve the `talklistview` so we don't have to *wake up* the objects anymore.
+We now can use the new indexes to improve the `talklistview` so we don't have to _wake up_ the objects anymore.
 Instead we use the brains' new attributes.
 
 ```{code-block} python
 :emphasize-lines: 13-16
-:linenos: true
+:linenos:
 
 class TalkListView(BrowserView):
     """ A list of talks
@@ -520,7 +520,7 @@ Modify {py:class}`TalkListView` to return only brains and adapt the template to 
 Here is the class:
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 class TalkListView(BrowserView):
     """ A list of talks
@@ -533,7 +533,7 @@ class TalkListView(BrowserView):
 Here is the template:
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
       metal:use-macro="context/main_template/macros/master"
@@ -596,7 +596,7 @@ As with all features make sure you only do this if you really need it!
 Add a new file {file}`profiles/default/registry.xml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <registry>
   <records interface="plone.app.querystring.interfaces.IQueryField"
@@ -648,7 +648,7 @@ Configure the versioning policy and a diff view for talks through GenericSetup.
 Add new file {file}`profiles/default/repositorytool.xml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <repositorytool>
@@ -664,7 +664,7 @@ Add new file {file}`profiles/default/repositorytool.xml`
 Add new file {file}`profiles/default/diff_tool.xml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <object>
@@ -681,7 +681,7 @@ Edit {file}`profiles/default/types/talk.xml`:
 
 ```{code-block} xml
 :emphasize-lines: 6
-:linenos: true
+:linenos:
 
 <property name="behaviors">
  <element value="plone.dublincore"/>

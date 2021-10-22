@@ -10,7 +10,7 @@ html_meta:
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
+:alt: Plone backend
 :align: left
 :class: logo
 ```
@@ -226,62 +226,71 @@ The page will display a list of published talks.
 We also need some JavaScript that we put into a file named {file}`talklist.js` in the same folder:
 
 ```javascript
-'use strict';
+"use strict";
 
 var app = new Vue({
-  el: '#talklist',
+  el: "#talklist",
   data: {
     items: [],
-    userid: '',
-    passwd: '',
-    subject: '',
-    summary: ''
+    userid: "",
+    passwd: "",
+    subject: "",
+    summary: "",
   },
 
   methods: {
-    load_talks: function() {
-      this.$http.get('/Plone/talks',
-                {headers:{'Accept':'application/json'}}).
-        then(function(response) {
-          this.items = [];
-          // get the paths of the talks
-          var paths = [];
-          for (var i=0; i < response.data.items_total; i++) {
-            paths.push(response.data.items[i]['@id'])
+    load_talks: function () {
+      this.$http
+        .get("/Plone/talks", { headers: { Accept: "application/json" } })
+        .then(
+          function (response) {
+            this.items = [];
+            // get the paths of the talks
+            var paths = [];
+            for (var i = 0; i < response.data.items_total; i++) {
+              paths.push(response.data.items[i]["@id"]);
+            }
+            // next get details for each talk
+            for (var i = 0; i < paths.length; i++) {
+              this.$http
+                .get(paths[i], { headers: { Accept: "application/json" } })
+                .then(
+                  function (resp) {
+                    var talkdata = resp.data;
+                    var path = talkdata["@id"];
+                    var talk = {
+                      pos: paths.indexOf(path),
+                      path: path,
+                      title: talkdata.title,
+                      type: talkdata.type_of_talk,
+                      speaker:
+                        talkdata.speaker != null
+                          ? talkdata.speaker
+                          : talkdata.creators[0],
+                      start: talkdata.start,
+                      subjects: talkdata.subjects,
+                      details:
+                        talkdata.details != null
+                          ? talkdata.details.data
+                          : talkdata.description,
+                    };
+                    this.items.push(talk);
+                  },
+                  function (error) {}
+                );
+            }
+          },
+          function (error) {
+            this.items = [];
           }
-          // next get details for each talk
-          for (var i=0; i < paths.length; i++) {
-            this.$http.get(paths[i],
-                      {headers:{'Accept':'application/json'}}).
-              then(function(resp) {
-                var talkdata = resp.data;
-                var path = talkdata['@id'];
-                var talk = {
-                  'pos': paths.indexOf(path),
-                  'path': path,
-                  'title': talkdata.title,
-                  'type': talkdata.type_of_talk,
-                  'speaker': (talkdata.speaker != null) ? talkdata.speaker : talkdata.creators[0],
-                  'start': talkdata.start,
-                  'subjects': talkdata.subjects,
-                  'details': (talkdata.details != null) ? talkdata.details.data : talkdata.description
-                }
-                this.items.push(talk);
-
-              },
-              function(error) {});
-          }
-        },
-        function(error) {
-          this.items = [];
-      });
-    }
+        );
+    },
   },
 
-  mounted: function() {
+  mounted: function () {
     // initialize
     this.load_talks();
-  }
+  },
 });
 ```
 
@@ -301,7 +310,7 @@ Before we can start to submit lightning talks using REST calls from our single p
 
 ```{code-block} xml
 :emphasize-lines: 18, 25, 52, 57
-:linenos: true
+:linenos:
 
  <?xml version="1.0" encoding="UTF-8"?>
  <model xmlns="http://namespaces.plone.org/supermodel/schema"

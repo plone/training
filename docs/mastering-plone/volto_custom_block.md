@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -24,7 +24,7 @@ In case you need some special look of a paragraph, a special behavior like an im
 
 A very simple use case where the default text block can be extended to achieve the requested look and behavior is the following:
 
-Use Case: *The content of a page should be teasered: Show first part and the rest on click on "read more".*
+Use Case: _The content of a page should be teasered: Show first part and the rest on click on "read more"._
 
 ```{figure} _static/volto_block_readmore.png
 :alt: Volto text block with teasering behavior
@@ -40,7 +40,7 @@ We extend the default Volto text block schema with an additional field "readmore
 
 ```{code-block} jsx
 :emphasize-lines: 8
-:linenos: true
+:linenos:
 
 import BlockSettingsSchema from '@plone/volto/components/manage/Blocks/Block/Schema';
 
@@ -70,7 +70,7 @@ We use the Volto `InlineForm` component to extend the sidebar.
 
 ```{code-block} jsx
 :emphasize-lines: 15,16,19
-:linenos: true
+:linenos:
 
 import { SidebarPortal } from '@plone/volto/components';
 import InlineForm from '@plone/volto/components/manage/Form/InlineForm';
@@ -110,7 +110,7 @@ The default text block has no options to select, so it is per default configured
 
 ```{code-block} jsx
 :emphasize-lines: 2,4,10
-:linenos: true
+:linenos:
 
 const customizedBlocks = {
     text: {

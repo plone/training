@@ -21,7 +21,7 @@ Then we will create a file called {file}`FaqItem.test.js`.
 Here we will render the component and assert the markup.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import React from "react";
 import renderer from "react-test-renderer";

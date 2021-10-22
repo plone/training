@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -71,7 +71,7 @@ The `settings` in {file}`/src/config.js` is the place to modify the general conf
 
 ```{code-block} jsx
 :emphasize-lines: 3,4,8
-:linenos: true
+:linenos:
 
 config.settings = {
   ...config.settings,
@@ -86,7 +86,7 @@ config.settings = {
 }
 ```
 
-You see that two attributes of the overall `settings`, `richTextEditorInlineToolbarButtons` and `ToHTMLRenderers`, are overwritten. We define these attributes to show a button which lets the editor add a CSS class *discreet* to a selected phrase.
+You see that two attributes of the overall `settings`, `richTextEditorInlineToolbarButtons` and `ToHTMLRenderers`, are overwritten. We define these attributes to show a button which lets the editor add a CSS class _discreet_ to a selected phrase.
 
 {file}`/src/config.js`
 
@@ -155,4 +155,7 @@ export const settings = {
   },
 };
 ```
-````
+
+```
+
+```

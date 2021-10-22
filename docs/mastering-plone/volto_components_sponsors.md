@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -76,7 +76,7 @@ React components let you split the UI into independent, reusable pieces, and thi
 
 - You can write a view component for the current context - like the `TalkView`.
 - You can write a view component that can be selected as view for a set of content objects like the TalkListView.
-- You can also write components that are visible on all content objects. In classic Plone we use *viewlets* for that.
+- You can also write components that are visible on all content objects. In classic Plone we use _viewlets_ for that.
 - Volto comes with several components like header, footer, sidebar. In fact everything of the UI is build of nested components.
 - Inspect existing components with the React Developer Tools.
 
@@ -105,7 +105,7 @@ Be aware that the following code is JSX. JSX is Javascript that can handle html 
 
 ```{code-block} jsx
 :emphasize-lines: 4
-:linenos: true
+:linenos:
 
 const Footer = ({ intl }) => (
   <Segment role="contentinfo" vertical padded>
@@ -127,7 +127,7 @@ To create the component `Sponsors` we add a folder {file}`frontend/src/component
 Start with a placeholder to see that your registration actually works:
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import React from 'react';
 
@@ -147,7 +147,7 @@ We import the `Sponsor` component at the top of our modified `Footer` component.
 {file}`frontend/src/customizations/components/theme/Footer/Footer.jsx`:
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import { Sponsors } from '@package/components';
 ```
@@ -178,7 +178,7 @@ So if we call the action `searchContent` to fetch data of sponsors, that means d
 The Hook `useEffect` lets you perform side effects in `function components`. We use it to fetch the sponsors data from the backend.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 const dispatch = useDispatch();
 
@@ -208,7 +208,7 @@ There you can see what is stored in `state.search.subrequests.sponsors`.
 And you can walk through time and watch how the store is changing.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 const sponsors = useSelector((state) =>
   groupedSponsorsByLevel(state.search.subrequests.sponsors?.items),
@@ -226,7 +226,7 @@ To subscribe to these changes in sponsorship, we extend our already defined conn
 
 ```{code-block} jsx
 :emphasize-lines: 1,15
-:linenos: true
+:linenos:
 
 const content = useSelector((state) => state.workflow.transition);
 
@@ -376,9 +376,9 @@ We group the sponsors by sponsorship level.
 
 An Object `sponsors` using the sponsorship level as key helps to build rows with sponsors by sponsorship level.
 
-The Semantic UI compontent *Image* is used to display the logo. It cares about the markup of an html image node with all necessary attributes in place.
+The Semantic UI compontent _Image_ is used to display the logo. It cares about the markup of an html image node with all necessary attributes in place.
 
-We also benefit from Semantic UI component *List* to build our list of sponsors. The styling can be customized but these predefined components help simplifying the code and achieve an app wide harmonic style.
+We also benefit from Semantic UI component _List_ to build our list of sponsors. The styling can be customized but these predefined components help simplifying the code and achieve an app wide harmonic style.
 
 ```{seealso}
 Chapter {doc}`volto_semantic_ui`

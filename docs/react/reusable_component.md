@@ -21,7 +21,7 @@ The {file}`App.js` code will be changed to:
 
 ```{code-block} jsx
 :emphasize-lines: 2,9-29
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import FaqItem from "./components/FaqItem";
@@ -124,7 +124,7 @@ Also move all the styling of the view to {file}`components/FaqItem.css`.
 :class: toggle
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import "./FaqItem.css";
@@ -168,7 +168,7 @@ errors of missing properties on this component call will be reported in the Java
 
 > ```{code-block} jsx
 > :emphasize-lines: 2,7-10
-> :linenos: true
+> :linenos:
 >
 > import React, { Component } from "react";
 > import PropTypes from "prop-types";

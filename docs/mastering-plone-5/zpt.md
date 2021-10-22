@@ -77,11 +77,9 @@ Open the file {file}`training.pt` and add:
 
 ```html
 <html>
-<body>
-
+  <body>
     <p>red</p>
-
-</body>
+  </body>
 </html>
 ```
 
@@ -108,20 +106,20 @@ The same happens with attributes.
 Replace the \<p>-line with:
 
 ```html
-<a href="http://www.mssharepointconference.com"
-   tal:define="a_fine_url string:https://www.ploneconf.org/"
-   tal:attributes="href a_fine_url"
-   tal:content="string:An even better conference">
-    A sharepoint conference
+<a
+  href="http://www.mssharepointconference.com"
+  tal:define="a_fine_url string:https://www.ploneconf.org/"
+  tal:attributes="href a_fine_url"
+  tal:content="string:An even better conference"
+>
+  A sharepoint conference
 </a>
 ```
 
 results in:
 
 ```html
-<a href="https://www.ploneconf.org/">
-    An even better conference
-</a>
+<a href="https://www.ploneconf.org/"> An even better conference </a>
 ```
 
 We used three TAL-Attributes here.
@@ -172,9 +170,8 @@ With `python:` we can use Python code.
 A example:
 
 ```html
-<p tal:define="title python:context.title"
-   tal:content="python:title.upper()">
-   A big title
+<p tal:define="title python:context.title" tal:content="python:title.upper()">
+  A big title
 </p>
 ```
 
@@ -197,12 +194,14 @@ Now call the view on different urls and see what happens:
 And another python-statement:
 
 ```html
-<p tal:define="talks python:['Dexterity for the win!',
+<p
+  tal:define="talks python:['Dexterity for the win!',
                              'Deco is the future',
                              'A keynote on some weird topic',
                              'The talk that I did not submit']"
-   tal:content="python:talks[0]">
-    A talk
+  tal:content="python:talks[0]"
+>
+  A talk
 </p>
 ```
 
@@ -244,13 +243,15 @@ tal:condition="python:'Deco is the future' in talks"
 Let's try another attribute:
 
 ```html
-<p tal:define="talks python:['Dexterity for the win!',
+<p
+  tal:define="talks python:['Dexterity for the win!',
                              'Deco is the future',
                              'A keynote on some weird topic',
                              'The talk that I did not submit']"
-   tal:repeat="talk talks"
-   tal:content="talk">
-   A talk
+  tal:repeat="talk talks"
+  tal:content="talk"
+>
+  A talk
 </p>
 ```
 
@@ -261,7 +262,7 @@ Let's try another attribute:
 We change the markup a little to construct a list in which there is an `<li>` for every talk:
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
  <ul tal:define="talks python:['Dexterity for the win!',
                                'Deco is the future',
@@ -329,20 +330,18 @@ in `tal:content="talk/averange_ratting | nothing"` and you might wonder why the
 You can't and should not use it to prevent errors like a try/except block.
 ```
 
-There are several **built-in variables**  that can be used in paths:
+There are several **built-in variables** that can be used in paths:
 
 The most frequently used one is `nothing` which is the equivalent to None
 
 ```html
-<p tal:replace="nothing">
-    this comment will not be rendered
-</p>
+<p tal:replace="nothing">this comment will not be rendered</p>
 ```
 
 A dict of all the available variables at the current state is `econtext`
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
 <dl>
   <tal:vars tal:repeat="variable econtext">
@@ -358,7 +357,7 @@ Useful for debugging :-)
 In Plone 4 that used to be `CONTEXTS`
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
 <dl>
   <tal:vars tal:repeat="variable CONTEXTS">
@@ -385,13 +384,13 @@ Examples:
 
 ```html
 <tal:block define="id template/id">
-...
+  ...
   <b tal:content="id">The id of the template</b>
-...
+  ...
 </tal:block>
 
 <tal:news condition="python:context.portal_type == 'News Item'">
-    This text is only visible if the context is a News Item
+  This text is only visible if the context is a News Item
 </tal:news>
 ```
 
@@ -407,17 +406,17 @@ Example:
 
 ```html
 <p>
-    <img tal:define="tag string:<img src='https://plone.org/logo.png'>"
-         tal:replace="tag">
+  <img
+    tal:define="tag string:<img src='https://plone.org/logo.png'>"
+    tal:replace="tag"
+  />
 </p>
 ```
 
 this results in:
 
 ```html
-<p>
-    &lt;img src='https://plone.org/logo.png'&gt;
-</p>
+<p>&lt;img src='https://plone.org/logo.png'&gt;</p>
 ```
 
 `tal:replace` drops its own base tag in favor of the result of the TALES expression.
@@ -429,15 +428,17 @@ To prevent escaping we use `structure`
 
 ```html
 <p>
-    <img tal:define="tag string:<img src='https://plone.org/logo.png'>"
-         tal:replace="structure tag">
+  <img
+    tal:define="tag string:<img src='https://plone.org/logo.png'>"
+    tal:replace="structure tag"
+  />
 </p>
 ```
 
 Now let's emulate a typical Plone structure by creating a dictionary.
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
   <table tal:define="talks python:[{'title':'Dexterity for the win!',
                                     'subjects':('content-types', 'dexterity')},
@@ -498,7 +499,7 @@ Here are some examples:
 Plone 4 and Plone 5:
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
  <a tal:attributes="href string:${context/absolute_url}?ajax_load=1;
                     class python:context.portal_type.lower().replace(' ', '')"
@@ -510,7 +511,7 @@ Plone 4 and Plone 5:
 Plone 5 (and Plone 4 with `five.pt`) :
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
  <a href="${context/absolute_url}?ajax_load=1"
     class="${python:context.portal_type.lower().replace(' ', '')}">
@@ -521,7 +522,7 @@ Plone 5 (and Plone 4 with `five.pt`) :
 You can also add pure python into the templates:
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
  <div>
    <?python
@@ -541,7 +542,7 @@ Modify the following template and one by one solve the following problems:
 \:
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
  <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                    'subjects': ('content-types', 'dexterity')},
@@ -578,7 +579,7 @@ Modify the following template and one by one solve the following problems:
 
 ```{code-block} html
 :emphasize-lines: 21
-:linenos: true
+:linenos:
 
 <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                   'subjects': ('content-types', 'dexterity')},
@@ -615,7 +616,7 @@ Modify the following template and one by one solve the following problems:
 
 ```{code-block} html
 :emphasize-lines: 20
-:linenos: true
+:linenos:
 
  <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                    'subjects': ('content-types', 'dexterity')},
@@ -657,7 +658,7 @@ Modify the following template and one by one solve the following problems:
 
 ```{code-block} html
 :emphasize-lines: 20, 21
-:linenos: true
+:linenos:
 
  <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                    'subjects': ('content-types', 'dexterity')},
@@ -709,7 +710,7 @@ if the ordinal index of the current iteration is an odd number).
 
 ```{code-block} html
 :emphasize-lines: 19
-:linenos: true
+:linenos:
 
  <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                    'subjects': ('content-types', 'dexterity')},
@@ -754,7 +755,7 @@ if the ordinal index of the current iteration is an odd number).
 :class: toggle
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
  <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                    'subjects': ('content-types', 'dexterity')},
@@ -795,7 +796,7 @@ if the ordinal index of the current iteration is an odd number).
 
 ```{code-block} html
 :emphasize-lines: 20, 24, 28
-:linenos: true
+:linenos:
 
  <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                    'subjects': ('content-types', 'dexterity')},
@@ -837,7 +838,7 @@ if the ordinal index of the current iteration is an odd number).
 
 ```{code-block} html
 :emphasize-lines: 19, 21
-:linenos: true
+:linenos:
 
  <table tal:define="talks python:[{'title': 'Dexterity is the new default!',
                                    'subjects': ('content-types', 'dexterity')},
@@ -909,7 +910,7 @@ The template should now look like below when we exclude the last exercise.
 Here also added the css-class `listing` to the table. It is one of many css-classes used by Plone that you can reuse in your projects:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       lang="en"
@@ -963,7 +964,7 @@ Define a macro in a new file {file}`macros.pt`
 
 ```html
 <div metal:define-macro="my_macro">
-    <p>I can be reused</p>
+  <p>I can be reused</p>
 </div>
 ```
 
@@ -982,15 +983,17 @@ Reuse the macro in the template {file}`training.pt`:
 
 ```html
 <div metal:use-macro="context/@@abunchofmacros/my_macro">
-    Instead of this the content of the macro will appear...
+  Instead of this the content of the macro will appear...
 </div>
 ```
 
 Which is the same as:
 
 ```html
-<div metal:use-macro="python:context.restrictedTraverse('abunchofmacros')['my_macro']">
-    Instead of this the content of the macro will appear...
+<div
+  metal:use-macro="python:context.restrictedTraverse('abunchofmacros')['my_macro']"
+>
+  Instead of this the content of the macro will appear...
 </div>
 ```
 

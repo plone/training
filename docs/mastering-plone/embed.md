@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
+:alt: Plone backend
 :align: left
 :class: logo
 ```
@@ -35,8 +35,6 @@ Topics covered:
 - Permissions
 - Workflows
 
-
-
 ```{only} not presentation
 - We want to use the votable behavior, so that our reviewers can vote.
 - To show how to use events, we are going to auto-publish talks that have reached a certain rating.
@@ -56,7 +54,7 @@ We start by editing {file}`setup.py`
 
 ```{code-block} python
 :emphasize-lines: 8
-:linenos: true
+:linenos:
 
 ...
 zip_safe=False,
@@ -75,7 +73,7 @@ Next up we modify {file}`profiles/default/metadata.xml`
 
 ```{code-block} xml
 :emphasize-lines: 4
-:linenos: true
+:linenos:
 
 <metadata>
   <version>1002</version>
@@ -105,7 +103,7 @@ Read more: <https://docs.plone.org/develop/addons/components/genericsetup.html#d
 
 ```{code-block} xml
 :emphasize-lines: 4
-:linenos: true
+:linenos:
 
 <property name="behaviors">
   <element value="plone.dublincore"/>
@@ -132,7 +130,7 @@ The config for the Workflow is in {file}`profiles/default/workflows/talks_workfl
 
 ```{code-block} xml
 :emphasize-lines: 7-8, 12-21, 27-34, 40-45
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <dc-workflow workflow_id="talks_workflow" title="Talks Workflow" description=" - Simple workflow that is useful for basic web sites. - Things start out as private, and can either be submitted for review, or published directly. - The creator of a content item can edit the item even after it is published." state_variable="review_state" initial_state="private" manager_bypass="False">
@@ -206,7 +204,7 @@ Create the {file}`events` directory and add an empty {file}`events/__init__.py` 
 Next, register the events directory in {file}`configure.zcml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <include package=".events" />
 ```
@@ -214,7 +212,7 @@ Next, register the events directory in {file}`configure.zcml`
 Now write the ZCML configuration for the events into {file}`events/configure.zcml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <configure
     xmlns="http://namespaces.zope.org/zope">
@@ -235,7 +233,7 @@ This looks like a MultiAdapter. We want to get notified when an IVotable object 
 And finally, our event handler in {file}`events/votable.py`
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from plone.api.content import transition
 from plone.api.content import get_state

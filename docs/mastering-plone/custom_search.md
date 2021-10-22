@@ -8,15 +8,14 @@ html_meta:
 
 (custom-search-label)=
 
-# Custom Search
+# Custom Search in Volto
 
-```{note}
-This chapter refers to add-ons that are only useable in Plone Classic.
+Volto has (since Volto 14) a Search-Block that allows you to build custom searches without additional addons.
 
-You may check <https://github.com/collective/awesome-volto/> to find out if there are add-ons for Volto that provide custom search since things are happening fast.
-```
 
-If the previous chapters about views and catalog-searches seem complex, the custom search add-ons shown below might be a great alternative until you feel comfortable writing views and templates.
+# Custom Search in Plone Classic
+
+If the Plone Classic chapters about Views ({doc}`/mastering-plone/views_2`) and catalog-searches (({doc}`/mastering-plone/views_3`)) seem complex, the custom search add-ons shown below might be a great alternative until you feel comfortable writing views and templates.
 
 Here are two add-ons that allow you to add custom searches and content listings through the web ("TTW", requiring no programming: only the web browser) in Plone.
 
@@ -36,8 +35,8 @@ and dynamically.
 
 - Click on the {guilabel}`Faceted > Configure` to configure it TTW.
 
-  > - Select 'Talk' for *Portal type*, hide *Results per page*
-  > - Add a checkboxes widget to the left and use the catalog index *Audience* for it.
+  > - Select 'Talk' for _Portal type_, hide _Results per page_
+  > - Add a checkboxes widget to the left and use the catalog index _Audience_ for it.
   > - Add a select widget for speaker
   > - Add a radio widget for type_of_talk
 
@@ -61,3 +60,4 @@ A more lightweight solution for custom searches and faceted navigation is [colle
 By default it allows you to search among the results of a collection and/or filter the results by keywords, author or type.
 
 It can also be extended quite easily to allow additional filters (like `audience`).
+

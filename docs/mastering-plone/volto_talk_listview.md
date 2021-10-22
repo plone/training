@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -65,7 +65,7 @@ As a first step, the file will hold a simple view component.
 ```jsx
 import React from 'react';
 
-const TalkListView = props => {
+const TalkListView = (props) => {
   return <div>I am the TalkList component!</div>;
 };
 
@@ -128,7 +128,7 @@ The change would be in {file}`profiles/default/types/Document.xml`:
 
 ```{code-block} xml
 :emphasize-lines: 5-7
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <object name="Document" meta_type="Dexterity FTI" i18n:domain="plone"
@@ -148,6 +148,7 @@ The change would be in {file}`profiles/default/types/Document.xml`:
 From now on you can select the new view for a page:
 
 ```{figure} _static/talklistview_select.png
+
 ```
 
 The view is available because `plone.volto` makes pages folderish.
@@ -380,7 +381,7 @@ Modify the criteria in the search to sort the talks in the order of their modifi
 :class: toggle
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 React.useEffect(() => {
   dispatch(
@@ -409,7 +410,7 @@ Write the view:
 
 ```{code-block} jsx
 :emphasize-lines: 35-38
-:linenos: true
+:linenos:
 
 import React from 'react';
 import { Container, Segment, Image } from 'semantic-ui-react';

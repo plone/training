@@ -1,71 +1,81 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Volto add-ons development training module 6, cell renderer"
+  "property=og:description": "Volto add-ons development training module 6"
+  "property=og:title": "Volto add-ons development cell renderer"
+  "keywords": "Volto"
 ---
 
-# Make the block extendible
+# Make the block extensible
 
 Wouldn't it be nice if we could have a way to customize, per column, how the
-values are rendered and go even further then the `textTemplate` field would
+values are rendered, and go even further than the `textTemplate` field would
 allow?
 
-Let's create the following extension mechanism: for any column, we'll be able
-to choose between available "cell renderers". These would be components that
-get passed the value and can render themselves as they want. For example, we
-could implement a "progress bar" that could be used to render the numbers in
-a column as a solid bar of color. We'll also migrate the text template field to
-the new system.
+Let's create the following extension mechanism.
+For any column, we'll be able to choose between available "cell renderers".
+
+These would be components that get the value passed and can render themselves
+as they want. For example, we could implement a "progress bar" that could be
+used to render the numbers in a column as a solid bar of color.
+We'll also migrate the text template field to the new system.
 
 What's more, we'll use the global Volto config registry to register our custom
 components, so it will be completely open to extension from projects or other
-addons.
+add-ons.
 
-We could use the global `config.settings` from `src/index.js` object to register the new cell
-renderers, but this functionality is directly related to our custom data block,
-so let's just use the block's config object.
+We could use the global `config.settings` from the `src/index.js` object to
+register the new cell renderers.
+But this functionality is directly related to our custom data block, so let's just use the block's config object.
 
 ```jsx
-config.blocks.blocksConfig.dataTable = {
-  id: 'dataTable',
-  title: 'Data Table',
-  icon: tableSVG,
-  group: 'common',
-  view: DataTableView,
-  edit: DataTableEdit,
-  restricted: false,
-  mostUsed: false,
-  sidebarTab: 1,
-  security: {
-    addPermission: [],
-    view: [],
-  },
-  cellRenderers: {
-    textTemplate: {
-      id: 'textTemplate',
-      title: 'Text Template',
-      view: TextTemplateRenderer,
-      schemaExtender: TextTemplateRenderer.schemaExtender,
+import { TextTemplateRenderer, ProgressCellRenderer } from './CellRenderer';
+
+// ...
+  config.blocks.blocksConfig.dataTable = {
+    id: 'dataTable',
+    title: 'Data Table',
+    icon: tableSVG,
+    group: 'common',
+    view: DataTableView,
+    edit: DataTableEdit,
+    restricted: false,
+    mostUsed: false,
+    sidebarTab: 1,
+    security: {
+      addPermission: [],
+      view: [],
     },
-    progress: {
-      id: 'progress',
-      title: 'Progress',
-      view: ProgressCellRenderer,
+    cellRenderers: {
+      textTemplate: {
+        id: 'textTemplate',
+        title: 'Text Template',
+        view: TextTemplateRenderer,
+        schemaExtender: TextTemplateRenderer.schemaExtender,
+      },
+      progress: {
+        id: 'progress',
+        title: 'Progress',
+        view: ProgressCellRenderer,
+      },
     },
-  },
-};
+  };
+// ...
 ```
 
 Notice the `schemaExtender` field. We'll use it to allow each extension to
-provide its own fields in the column edit widget. volto-object-widget allows
-the schema used in its FlatObjectList widget to be extended by a provided
-schema extender, so we'll integrate with that.
+provide its fields in the column edit widget.
+`volto-object-widget` allows the schema used in its `FlatObjectList` widget to
+be extended by a provided schema extender.
+We'll integrate with that.
 
-The old text template-based implementation can be moved to an component and
-a schema extension.
-This will go inside a new folder called `CellRenderer` and a new jsx file, `addons/datatable-tutorial/src/CellRenderer/TextTemplate.jsx`:
+The old text template-based implementation can be moved to a component and
+a schema extension. To be more precise, now it's the time to remove the
+`textTemplate` field from the `ColumnSchema.properties` and the default
+fieldset.
+
+This will go inside a new folder called `CellRenderer` and a new JSX file,
+`addons/datatable-tutorial/src/CellRenderer/TextTemplate.jsx`:
 
 ```jsx
 import { cloneDeep } from 'lodash';
@@ -92,7 +102,8 @@ TextTemplateRenderer.schemaExtender = (schema, data) => {
 export default TextTemplateRenderer;
 ```
 
-In the `CellRenderer` folder add the `Progress.jsx` cell renderer. For this one we don't need to extend the schema.
+In the `CellRenderer` folder, add the `Progress.jsx` cell renderer.
+For this one, we don't need to extend the schema.
 
 ```jsx
 import React from 'react';
@@ -107,9 +118,16 @@ const Progress = ({ value }) => {
 export default Progress;
 ```
 
+Add the `src/CellRenderer/index.js` file:
+
+```jsx
+export ProgressCellRenderer from './Progress';
+export TextTemplateRenderer from './TextTemplate';
+```
+
 ```{note}
-As an exercise you could extend the Progress renderer to include a color
-field. Build a color widget using [react-color]
+As an exercise, you could extend the Progress renderer to include a color field.
+Consider building a color widget using [react-color].
 ```
 
 ## Making use of our new renderers
@@ -117,7 +135,7 @@ field. Build a color widget using [react-color]
 ### Renderer within the edit component
 
 The `ColumnSchema` needs to be tweaked to add the new renderer field.
-This is found within the addon `src/DataTable/schema.js` and it can be as simple as:
+This is found within the add-on `src/DataTable/schema.js` and it can be as simple as:
 
 ```jsx
 renderer: {
@@ -126,10 +144,13 @@ renderer: {
 },
 ```
 
-Now, back to the `src/DataTable/DataTableEdit.js` component, we'll add this schema tweaking
-code:
+Now, back to the `src/DataTable/DataTableEdit.js` component, we'll add this
+schema tweaking code:
 
 ```jsx
+// ...
+import config from '@plone/volto/registry';
+
 const tweakSchema = (schema, data, file_data) => {
   const columnsField = schema.properties.columns;
   const ColumnsSchema = columnsField.schema;
@@ -137,7 +158,7 @@ const tweakSchema = (schema, data, file_data) => {
   const columns = (file_data?.meta?.fields || []).sort().map((n) => [n, n]);
   ColumnsSchema.properties.column.choices = columns;
 
-  const { cellRenderers } = blocks.blocksConfig.dataTable;
+  const { cellRenderers } = config.blocks.blocksConfig.dataTable;
   const renderers = Object.keys(cellRenderers).map((k) => [
     k,
     cellRenderers[k].title,
@@ -153,42 +174,45 @@ const tweakSchema = (schema, data, file_data) => {
 
   return schema;
 };
+// ...
 ```
 
 With the "schema tweaking code" we're doing three things:
 
-- add the columns from the file as choices to the "Column" widget
-- provide the "renderer" field with the available cellRenderer choices
-- plug into the schemaExtender of the columnsField our own schema extender.
+- Add the columns from the file as choices to the "Column" widget.
+- Provide the "renderer" field with the available `cellRenderer` choices.
+- Plug into the `schemaExtender` of the `columnsField` our own schema extender.
 
-And we'll replace the old schema tweak with the new one still in the `src/DataTable/DataTableEdit.js` component:
+And we'll replace the old schema tweak with the new one, still in the `src/DataTable/DataTableEdit.js` component:
 
 ```jsx
 const schema = tweakSchema(TableSchema(props), data, file_data);
 ```
 
-Again, back to the `columnsField.schemaExtender` bit. This is an invention
-that volto-object-widget supports, to allow schema customizations per object,
-in a list of objects.
+Notice the `columnsField.schemaExtender` bit, as that is a mechanism of the
+`ObjectWidgetList` to allow per-object schema customization.
 
-It is a function with signature `(schema, data) => schema`
+It is a function with signature `(schema, data, intl) => schema`.
 
 ### Renderer within the view component
 
-Now that we have our renderers registered for our columns, it's time to use them in our component view. Back to the `src/DataTable/DataTableView.js` component, we'll need first we to import our blocks config from the root config file:
+Now that we have our renderers registered for our columns, it's time to use
+them in our component view.
+Back to the `src/DataTable/DataTableView.js` component, we'll need to first
+import the Volto global registry as config:
 
 ```jsx
-import { blocks } from '~/config';
+import config from '@plone/volto/registry';
 ```
 
-Then after our formatter we add the following renderer code:
+Then after our formatter, we add the following renderer code:
 
 ```jsx
 const Cell = ({ column, value }) => {
   const { renderer } = column;
 
   const Render = renderer
-    ? blocks.blocksConfig.dataTable.cellRenderers[renderer].view
+    ? config.blocks.blocksConfig.dataTable.cellRenderers[renderer].view
     : null;
   return Render ? <Render column={column} value={value} /> : value;
 };
@@ -204,11 +228,13 @@ And we finish the view changes by using our `Cell renderer` to render the table 
 
 Our final `src/DataTable/DataTableView.js` file will look like this:
 
-```jsx
+```{code-block} jsx
+:force: true
+
 import React from 'react';
 import { Table } from 'semantic-ui-react';
-import { withFileData } from '@plone/datatable-tutorial/hocs';
-import { blocks } from '~/config';
+import { withFileData } from '@plone-collective/volto-datatable-tutorial/hocs';
+import config from '@plone/volto/registry';
 
 const format = (data) => {
   return {
@@ -225,7 +251,7 @@ const Cell = ({ column, value }) => {
   const { renderer } = column;
 
   const Render = renderer
-    ? blocks.blocksConfig.dataTable.cellRenderers[renderer].view
+    ? config.blocks.blocksConfig.dataTable.cellRenderers[renderer].view
     : null;
   return Render ? <Render column={column} value={value} /> : value;
 };
@@ -271,12 +297,13 @@ export default withFileData(({ data: { file_path } }) => file_path)(
 );
 ```
 
-Now if you select a column that has floating values up to 100 and select the `Progress template`,
-that column will display the values as a progress bar:
+Now if you select a column that has floating values up to 100, and select the
+`Progress template`, that column will display the values as a progress bar:
 
 ```{image} _static/table-column-editing.png
 ```
 
-This concludes our hands on tutorial! You can find a copy of the final code here: <https://github.com/collective/volto-datatable-tutorial>
+This concludes our hands-on tutorial! You can find a copy of the final code
+here: <https://github.com/collective/volto-datatable-tutorial>
 
 [react-color]: https://github.com/casesandberg/react-color

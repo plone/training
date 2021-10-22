@@ -29,8 +29,8 @@ Plone consists of more than 20.000 files! You need a tool to manage that. No dev
 
 People pick editors themselves. Use whatever you are comfortable and productive with. Here are some of the most used editors in the Plone community:
 
-- [Sublime](https://www.sublimetext.com/)
 - [Visual Studio Code](https://code.visualstudio.com/)
+- [Sublime](https://www.sublimetext.com/)
 - [PyCharm](https://www.jetbrains.com/pycharm/)
 - [Atom](https://atom.io/)
 - [Wing IDE](http://wingide.com/)
@@ -45,7 +45,7 @@ Some features that most editors have in one form or another are essential when d
 - **Goto Definition** (SublimeText3 with codeintel: `alt + click`)
 - **Powerful search & replace**
 
-The capability of performing a *full text search* through the complete Plone code is invaluable. Thanks to omelette, an SSD and plenty of RAM you can search through the complete Plone code base in 3 seconds.
+The capability of performing a _full text search_ through the complete Plone code is invaluable. Thanks to omelette, an SSD and plenty of RAM you can search through the complete Plone code base in 3 seconds.
 
 ```{note}
 Some editors and IDEs have to be extended to be fully featured. Here are some packages we recommend when using Sublime Text 3:

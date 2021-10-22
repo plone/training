@@ -17,7 +17,7 @@ First we will create the button:
 ```{code-block} jsx
 :emphasize-lines: 1
 :lineno-start: 36
-:linenos: true
+:linenos:
 
 <button onClick={this.onBack}>Back</button>
 ```
@@ -29,7 +29,7 @@ This property has a push method which will push the new route.
 ```{code-block} jsx
 :emphasize-lines: 1-3
 :lineno-start: 27
-:linenos: true
+:linenos:
 
 onBack() {
   this.props.history.push("/");
@@ -40,7 +40,7 @@ The full listing of our new {file}`FaqItemView` will look as follows:
 
 ```{code-block} jsx
 :emphasize-lines: 13-15,18-21,27-29,36
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

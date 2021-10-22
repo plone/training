@@ -12,7 +12,7 @@ html_meta:
 
 In this part you will:
 
-- Create a new content type called *Talk*.
+- Create a new content type called _Talk_.
 
 Topics covered:
 
@@ -32,7 +32,7 @@ Pages, folders, events, news items, files (binary) and images are all content ty
 It is common in developing a web site that you'll need customized versions of common content types, or perhaps even entirely new types.
 
 Remember the requirements for our project? We wanted to be able to solicit and edit conference talks.
-We *could* use the **Page** content type for that purpose.
+We _could_ use the **Page** content type for that purpose.
 
 But we need to make sure we collect certain bits of information about a talk and we couldn't be sure to get that information if we asked potential
 presenters to create a page.
@@ -50,18 +50,18 @@ Every Plone content type has the following parts:
 Schema
 
 : A definition of fields that comprise a content type;
-  properties of an object.
+properties of an object.
 
 FTI
 
 : The "Factory Type Information" configures the content type in Plone,
-  assigns it a name, an icon, additional features and possible views to it.
+assigns it a name, an icon, additional features and possible views to it.
 
 Views
 
 : A view is a representation of the object and the content of its fields that may be rendered in response to a request.
-  You may have *one or more* views for an object.
-  Some may be *visual* — intended for display as web pages — others may be intended to satisfy AJAX requests and render content in formats like JSON or XML.
+You may have _one or more_ views for an object.
+Some may be _visual_ — intended for display as web pages — others may be intended to satisfy AJAX requests and render content in formats like JSON or XML.
 
 (dexterity1-comparison-label-ttw)=
 
@@ -69,8 +69,8 @@ Views
 
 There are two content frameworks in Plone:
 
-- *Dexterity*: new and the coming default.
-- *Archetypes*: old, tried and tested. Widespread, used in many add-ons.
+- _Dexterity_: new and the coming default.
+- _Archetypes_: old, tried and tested. Widespread, used in many add-ons.
 - Plone 4.x: Archetypes is the default, with Dexterity available.
 - Plone 5.x: Dexterity is the default, with Archetypes available.
 - For both, add and edit forms are created automatically from a schema.
@@ -98,7 +98,7 @@ Approaches for Developers:
 
 Extending:
 
-- Dexterity has *Behaviors*: easily extendable.
+- Dexterity has _Behaviors_: easily extendable.
   Just activate a behavior TTW and your content type is e.g. translatable ({py:mod}`plone.app.multilingual`).
 - Archetypes has {py:mod}`archetypes.schemaextender`. Powerful but not as flexible.
 
@@ -122,7 +122,7 @@ Views:
 
 - Select the type {guilabel}`News Item` and add a new field `Hot News` of type {guilabel}`Yes/No`
 
-- In another tab, add a *News Item* and you'll see the new field.
+- In another tab, add a _News Item_ and you'll see the new field.
 
 - Go back to the schema-editor and click on {guilabel}`Edit XML Field Model`.
 
@@ -146,7 +146,7 @@ Views:
 
 ## Creating Content Types "Through-The-Web"
 
-In this step we will create a content type called *Talk* and try it out.
+In this step we will create a content type called _Talk_ and try it out.
 When it's ready, we will move the code from the web to the file system and into our own add-on.
 Later we will extend that type, add behaviors and a viewlet for Talks.
 
@@ -156,7 +156,7 @@ Later we will extend that type, add behaviors and a viewlet for Talks.
     Go to {menuselection}`Settings` and add options: talk, keynote, training.
   - {guilabel}`Add new field` "Details", type {guilabel}`Rich Text` with a maximal length of 2000.
   - {guilabel}`Add new field` "Audience", type {guilabel}`Multiple Choice`. Add options: beginner, advanced, pro.
-  - Check the behaviors that are enabled:  *Dublin Core metadata*, *Name from title*. Do we need them all?
+  - Check the behaviors that are enabled: _Dublin Core metadata_, _Name from title_. Do we need them all?
 
 - Test the content type.
 
@@ -174,7 +174,7 @@ Later we will extend that type, add behaviors and a viewlet for Talks.
 Here is the complete XML schema created by our actions:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <model xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
      xmlns:users="http://namespaces.plone.org/supermodel/users"
@@ -256,7 +256,7 @@ We're missing some skills to do that, and we'll cover those in the next couple o
 
 ### Exercise 1
 
-Modify Pages to allow uploading an image as decoration (like *News Items* do).
+Modify Pages to allow uploading an image as decoration (like _News Items_ do).
 
 ```{admonition} Solution
 :class: toggle
@@ -271,7 +271,7 @@ The images are displayed above the title.
 
 ### Exercise 2
 
-Create a new content type called *Speaker* and export the schema to a XML File.
+Create a new content type called _Speaker_ and export the schema to a XML File.
 It should contain the following fields:
 
 - Title, type: {guilabel}`Text Line`

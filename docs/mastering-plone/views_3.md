@@ -54,7 +54,7 @@ Now we don't want to provide information about one specific item but on several 
 
 (views3-catalog-label)=
 
-## Using the catalog 
+## Using the catalog
 
 Let's say we want to show a list of all the talks that were submitted for our conference. We can just go to the folder and select a display method that suits us. But none does because we want to show the target audience in our listing.
 
@@ -67,7 +67,7 @@ It is the fast way to get content that exists in the site and do something with 
 `browser/configure.zcml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <browser:page
    name="talklistview"
@@ -83,7 +83,7 @@ It is the fast way to get content that exists in the site and do something with 
 
 ```{code-block} python
 :emphasize-lines: 2, 7-26
-:linenos: true
+:linenos:
 
 from Products.Five.browser import BrowserView
 from plone import api
@@ -261,7 +261,7 @@ Add a method {py:meth}`get_news` to {py:class}`TalkListView` that returns a list
 :class: toggle
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 def get_news(self):
 
@@ -282,7 +282,7 @@ Add a method that returns all published keynotes as objects.
 :class: toggle
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 def keynotes(self):
 
@@ -342,7 +342,7 @@ But you should nevertheless do it! You'll end up with more than enough logic in 
 Add this simple table to {file}`templates/talklistview.pt`:
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
       metal:use-macro="context/main_template/macros/master"
@@ -399,9 +399,9 @@ There are some things that need explanation:
 {samp}`tal:define="talks python:view.talks()"`
 
 : This defines the variable `talks`.
-  We do this since we reuse it later and don't want to call the same method twice.
-  Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects and methods of classes we can write {samp}`view/talks` as we could {samp}`view/someattribute`.
-  Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict.
+We do this since we reuse it later and don't want to call the same method twice.
+Since TAL's path expressions for the lookup of values in dictionaries is the same as for the attributes of objects and methods of classes we can write {samp}`view/talks` as we could {samp}`view/someattribute`.
+Handy but sometimes irritating since from looking at the page template alone we often have no way of knowing if something is an attribute, a method or the value of a dict.
 
 {samp}`tal:repeat="talk talks"`
 
@@ -424,7 +424,7 @@ This is **not** best practice but there is plenty of code in Plone and in add-on
 :class: toggle
 
 ```{code-block} html
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
       metal:use-macro="context/main_template/macros/master"
@@ -482,7 +482,7 @@ If we append {samp}`/manage_propertiesForm` we can set the property "layout" to 
 To make views configurable so that editors can choose them we have to register the view for the content type at hand in its FTI. To enable it for all folders we add a new file {file}`profiles/default/types/Folder.xml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <object name="Folder">

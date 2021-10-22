@@ -15,7 +15,7 @@ html_meta:
 To add a stylesheet we simply import the {file}`css` file:
 
 ```jsx
-import './App.css';
+import "./App.css";
 ```
 
 ## Exercise
@@ -28,7 +28,7 @@ Style the component so that the dot on each item is removed and the question is 
 {file}`App.css`
 
 ```{code-block} css
-:linenos: true
+:linenos:
 
 .faq-item {
   list-style-type: none;
@@ -43,7 +43,7 @@ Style the component so that the dot on each item is removed and the question is 
 
 ```{code-block} jsx
 :emphasize-lines: 2,8-9,20-21
-:linenos: true
+:linenos:
 
 import React, { Component } from "react";
 import "./App.css";

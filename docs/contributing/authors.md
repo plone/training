@@ -106,7 +106,7 @@ Note that the markup uses [MyST nested directives](https://myst-parser.readthedo
 :class: toggle
 
 ```{code-block} python
-:lineno-start: 10
+:linenos:
 :emphasize-lines: 1, 3
 
 a = 2
@@ -123,7 +123,7 @@ This will render as follows.
 :class: toggle
 
 ```{code-block} python
-:lineno-start: 10
+:linenos:
 :emphasize-lines: 1, 3
 
 a = 2
