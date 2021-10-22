@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Base for Pastanaga theme and development helper"
+  "property=og:description": "Base for Pastanaga theme and development helper"
+  "property=og:title": "Semantic UI and Plone"
+  "keywords": "theming"
 ---
 
 (volto-semantic-ui-label)=
@@ -20,7 +20,8 @@ html_meta:
 Learn about templates in the classic frontend in chapter {doc}`zpt`
 ````
 
-`Semantic UI` is a development framework that helps create beautiful, responsive layouts using human-friendly HTML. It provides a declarative API, shorthand props and many helpers that simplifies development.
+`Semantic UI` is a development framework that helps create beautiful, responsive layouts using human-friendly HTML.
+It provides a declarative API, shorthand props and many helpers that simplifies development.
 
 Its React complement [Semantic UI React](https://react.semantic-ui.com/) provides `React components` while Semantic UI provides `themes` as CSS stylesheets with less variables and rules.
 
@@ -37,4 +38,4 @@ The above Semantic `List` component renders the list of subjects of the context 
 Another example is the [container](https://react.semantic-ui.com/elements/container/) component, that wraps content to be rendered with a margin depending on the browser window size / media query.
 You have seen this component already in the news item view.
 
-See next chapter for theming with Semantic UI.
+See next chapter {doc}`volto_theming` for theming with Semantic UI.

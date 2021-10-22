@@ -57,10 +57,12 @@ Topics covered:
 
 ```{figure} _static/volto_richtexteditor_edit.jpg
 :alt: mark text as discreet / mark text with a style via css class name
+:align: left
 ```
 
 ```{figure} _static/volto_richtexteditor.jpg
 :alt: text marked as discreet
+:align: left
 ```
 
 The `settings` in {file}`/src/config.js` is the place to modify the general configuration of your Volto app. Here we add info about the additional button, what to display in the editor bar and what to do when the button is clicked.
@@ -91,7 +93,6 @@ You see that two attributes of the overall `settings`, `richTextEditorInlineTool
 ```{code-block} jsx
 :linenos:
 
-import React from 'react';
 import createInlineStyleButton from 'draft-js-buttons/lib/utils/createInlineStyleButton';
 import Icon from '@plone/volto/components/theme/Icon/Icon';
 import radiodisabledSVG from '@plone/volto/icons/radio-disabled.svg';
@@ -114,7 +115,7 @@ const customInline = {
 };
 ```
 
-````{admonition} Complete code of the configuration in {file}`/src/config.js`
+````{admonition} Complete code of the configuration
 :class: toggle
 
 ```{code-block} jsx

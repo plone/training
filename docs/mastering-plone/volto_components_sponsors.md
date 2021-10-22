@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
+  "description": "How to fetch data from the backend"
+  "property=og:description": "How to fetch data from the backend"
   "property=og:title": ""
-  "keywords": ""
+  "keywords": "REST API, Semantic UI"
 ---
 
 (volto-sponsors-component-label)=
@@ -49,7 +49,7 @@ To be solved task in this part:
 
 In this part you will:
 
-- Display data from collected content
+- Display data from fetched content
 
 Topics covered:
 
@@ -59,6 +59,7 @@ Topics covered:
 
 ```{figure} _static/volto_component_sponsors.png
 :alt: Sponsors component
+:align: left
 ```
 
 ```{only} not presentation
@@ -119,7 +120,7 @@ const Footer = ({ intl }) => (
       >
 ```
 
-This will show an additional component. It is visible on all pages as it is a subcomponent of footer. Later on it can be made conditional if necessary.
+This will show an additional component. It is visible on all pages as it is a subcomponent of the `Footer` component. Later on it can be made conditional if necessary.
 
 To create the component `Sponsors` we add a folder {file}`frontend/src/components/Sponsors/` with a file {file}`Sponsors.jsx`. In this file we can now define our new component.
 
@@ -139,7 +140,9 @@ export default Sponsors;
 
 A component is just a function that returns markup.
 
-Go back to your modified `Footer` component. The `Footer` component needs to know where to find the added `Sponsor` component. We import the `Sponsor` component at the top of our modified `Footer` component.
+Go back to your modified `Footer` component.
+The `Footer` component needs to know where to find the added `Sponsor` component.
+We import the `Sponsor` component at the top of our modified `Footer` component.
 
 {file}`frontend/src/customizations/components/theme/Footer/Footer.jsx`:
 
@@ -149,7 +152,8 @@ Go back to your modified `Footer` component. The `Footer` component needs to kno
 import { Sponsors } from '@package/components';
 ```
 
-After restarting the frontend with `yarn start`, we are now ready to visit an arbitrary page to see the new component. A restart is necessary on newly added files. As long as you just edit existing files of your app, your browser is updating automagically by app configuration.
+After restarting the frontend with `yarn start`, we are now ready to visit an arbitrary page to see the new component.
+A restart is necessary on newly added files. As long as you just edit existing files of your app, your browser is updating automagically by app configuration.
 
 (volto-component-datafetching-label)=
 
@@ -157,15 +161,21 @@ After restarting the frontend with `yarn start`, we are now ready to visit an ar
 
 With our `Sponsors` component in place we can take the next step and explore Volto some more to figure out how it does data fetching.
 
-As the data is in the backend, we need to find a way to address it. Volto provides various predefined actions to communicate with the backend (fetching data, creating content, editing content, etc). A Redux action (that communicates with the backend) has a common pattern: It addresses the backend via REST API and updates the global app store according to the response of the backend. A component calls an action and has hereupon access to the global app store (shortened: store) with the fetched data.
+As the data is in the backend, we need to find a way to address it.
+Volto provides various predefined actions to communicate with the backend (fetching data, creating content, editing content, etc.).
+A Redux action communicates with the backend and has a common pattern:
+It addresses the backend via REST API and updates the global app store according to the response of the backend.
+A component calls an action and has hereupon access to the global app store (shortened: store) with the fetched data.
 
-For more information which actions are already provided by Volto have look at {file}`frontend/omelette/src/actions`.
+For more information which actions are already provided by Volto have a look at {file}`frontend/omelette/src/actions`.
 
-Our component will use the action `searchContent` to fetch data of all sponsors. It takes as arguments the path where to search, the information what to search and an argument with which key the data should be stored in the store. Remember: the result is stored in the global app store.
+Our component will use the action `searchContent` to fetch data of all sponsors.
+It takes as arguments the path where to search, the information what to search and an argument with which key the data should be stored in the store.
+Remember: the result is stored in the global app store.
 
-So if we call the action `searchContent` to fetch data of sponsors, that means data of the instances of portal type `sponsor`, then we can access this data from the store.
+So if we call the action `searchContent` to fetch data of sponsors, that means data of the instances of content type `sponsor`, then we can access this data from the store.
 
-The Effect Hook `useEffect` lets you perform side effects in `function components`. We use it to fetch the sponsors data from the backend.
+The Hook `useEffect` lets you perform side effects in `function components`. We use it to fetch the sponsors data from the backend.
 
 ```{code-block} jsx
 :linenos:
@@ -193,7 +203,9 @@ React.useEffect(() => {
 
 Let's connect the store to our component. The Selector Hook `useSelector` allows a `function component` to connect to the store.
 
-It's worth exploring the store of our app with the Redux Dev Tools (additional Dev Tools to React Dev Tools) There you can see what is stored in `state.search.subrequests.sponsors`. And you can walk through time and watch how the store is changing.
+It's worth exploring the store of our app with the Redux Dev Tools which are additional Dev Tools to React Dev Tools.
+There you can see what is stored in `state.search.subrequests.sponsors`.
+And you can walk through time and watch how the store is changing.
 
 ```{code-block} jsx
 :linenos:
@@ -205,8 +217,12 @@ const sponsors = useSelector((state) =>
 
 With these both: dispatching the action and a connection to the state in place, the component can call the predefined action `searchContent` and has access to the fetched data via its constant `sponsors`.
 
-The next step is advanced and can be skipped on a first reading. As by now we fetch the sponsors data on mounting event of the component. The mounting is done once on the first visit of a page of our app.
-What if a new sponsor is added or a sponsor is published? We want to achieve a re-rendering of the component on changed sponsorship. To subscribe to these changes in sponsorship, we extend our already defined connection.
+The next step is advanced and can be skipped on a first reading.
+As by now we fetch the sponsors data on mounting event of the component.
+The mounting is done once on the first visit of a page of our app.
+What if a new sponsor is added or a sponsor is published?
+We want to achieve a re-rendering of the component on changed sponsorship.
+To subscribe to these changes in sponsorship, we extend our already defined connection.
 
 ```{code-block} jsx
 :emphasize-lines: 1,15
@@ -299,6 +315,8 @@ const Sponsors = () => {
     groupedSponsorsByLevel(state.search.subrequests.sponsors?.items),
   );
 
+  const content = useSelector((state) => state.workflow.transition);
+
   React.useEffect(() => {
     dispatch(
       searchContent(
@@ -311,15 +329,10 @@ const Sponsors = () => {
         'sponsors',
       ),
     );
-  }, [dispatch]);
+  }, [dispatch, content]);
 
   return !isEmpty(sponsors) ? (
-    <Segment
-      basic
-      textAlign="center"
-      className="sponsors"
-      inverted
-    >
+    <Segment basic textAlign="center" className="sponsors" inverted>
       <div className="sponsorheader">
         <h3 className="subheadline">SPONSORS</h3>
       </div>
@@ -340,7 +353,7 @@ const Sponsors = () => {
                         title={item.title}
                       />
                     ) : (
-                      <a href={item['@id']}>{item.title}</a>
+                      <span>{item.title}</span>
                     )}
                   </List.Item>
                 ))}
@@ -374,7 +387,7 @@ Chapter {doc}`volto_semantic_ui`
 See the new footer. A restart is not necessary as we didn't add a new file. The browser updates automagically by configuration.
 
 ```{figure} _static/volto_component_sponsors.png
-:align: center
+:align: left
 :alt: Sponsors component
 ```
 
@@ -389,7 +402,6 @@ Modify the component to display a sponsor logo as a link to the sponsors website
 
 ```{code-block} jsx
 :emphasize-lines: 3-5
-:linenos:
 
 <Image
   className="logo"
@@ -406,7 +418,6 @@ Modify the component to display a sponsor logo as a link to the sponsors website
 The Semantic Image component is now rendered with a wrapping anchor tag.
 
 ```{code-block} html
-:linenos:
 
 <a
   target="_blank"
