@@ -121,23 +121,20 @@ Serving on http://0.0.0.0:8080
 
 Open <http://localhost:8080> in a Browser and see that Plone is running.
 
-```{figure} _static/barceloneta/plone_running.png
+```{image} _static/barceloneta/plone_running.png
 :alt: A running Plone instance.
-:scale: 50 %
 ```
 
 Click {guilabel}`Create a new Plone site` and enter `admin` for `Username` and also for `Password`
 
-```{figure} _static/barceloneta/create_plone_site.png
+```{image} _static/barceloneta/create_plone_site.png
 :alt: A running Plone instance.
-:scale: 50 %
 ```
 
 Click {guilabel}`Create Plone Site` to complete the setup of your Plone instance.
 
-```{figure} _static/barceloneta/fresh_plone.png
+```{image} _static/barceloneta/fresh_plone.png
 :alt: New Plone instance.
-:scale: 50 %
 ```
 
 To enable your theme
@@ -148,16 +145,14 @@ To enable your theme
 
 3. You will see this form:
 
-    ```{figure} _static/barceloneta/install_myaddon.png
+    ```{image} _static/barceloneta/install_myaddon.png
     :alt: Add-ons control panel
-    :scale: 50 %
     ```
 
 4. Click {guilabel}`Install` to enable your addon package and theme
 
-    ```{figure} _static/barceloneta/myaddon_installed.png
+    ```{image} _static/barceloneta/myaddon_installed.png
     :alt: Plone site with installed addon
-    :scale: 50 %
     ```
 
 ## Compiling Styles
@@ -225,9 +220,8 @@ In this example we will be recreating `plonetheme.gruuezibuesi` you can find it 
 An awesome looking theme often is based on the colors that the site logo offers. So go ahead and add a logo as explained in {doc}`./ttw_customizations`.
 
 
-```{figure} _static/barceloneta/buesi1.png
+```{image} _static/barceloneta/buesi1.png
 :alt: Site with new logo
-:scale: 50 %
 ```
 
 
@@ -256,7 +250,7 @@ Within the `styles` folder of your theme you find `theme.min.scss`. This is the 
 
 ```
 
-To make your colors an other variables work, it is important to define them **before** `@import`.
+To make your colors and other variables work, it is important to define them **before** `@import`.
 We add some colors and map those colors to `$primary` and `$secondary` variables that Bootstap uses.
 
 
@@ -285,13 +279,11 @@ $secondary: $light-pink;
 ```
 
 
-```{figure} _static/barceloneta/buesi2.png
+```{image} _static/barceloneta/buesi2.png
 :alt: Site with new pinkish primary and secondary color
-:scale: 50 %
 ```
 
 One of the overall properties for the theme is `$enable-rounded`,  add it and change the `$border-radius` too.
-
 
 
 ```{code-block} scss
@@ -322,19 +314,279 @@ $border-radius: 1rem;
 ```
 
 
-- Properties “rounded”
-- Add more rounding 1rem
+```{image} _static/barceloneta/buesi3.png
+:alt: Site with new pinkish primary and secondary color
+```
+
+Let's change some more variables and set `$body-bg` and `$breadcrumb-bg`
+
+
+
+```{code-block} scss
+:linenos: true
+
+//// VARIABLES
+// ... add your variables here
+$pink: #EE4793;
+$light-pink: #F3A4CB;
+$lighter-pink: #f7d4e5;
+$lightest-pink: #fff2f8;
+$medium-grey: #555;
+
+$primary: $pink;
+$secondary: $light-pink;
+
+$enable-rounded: true;
+$border-radius: 1rem;
+
+$body-bg: $lightest-pink;
+$breadcrumb-bg: $lighter-pink;
+
+//// IMPORTS
+// Import barceloneta files from node_modules --load-path=node_modules
+@import "@plone/plonetheme-barceloneta-base/scss/barceloneta.scss";
+
+//// STYLES
+// ... add your styles here
+
+
+```
+
+## Modifying the theme html
+
+Not everything has to be done in `css`. Sometimes it's easier to change the underlying `index.html`.
+Let's add `class="container"` from [Bootstraps Grid System](https://getbootstrap.com/docs/5.1/layout/grid/) to `id="mainnavigation-wrapper"` and `id="above-content-wrapper"`. This will align the width of the main navigation and breadcrumbs to the width of our content.
+
+Just be careful to keep ids used in `rules.xml` that Diazo can still replace areas in the static html with actual contents.
+
+```{code-block} scss
+:linenos: true
+:lineno-start: 32
+:emphasize-lines: 1, 11
+
+  <div id="mainnavigation-wrapper" class="container">
+    <div id="mainnavigation">
+    </div>
+  </div>
+  <div id="hero" class="principal">
+    <div class="container">
+      <div class="gigantic">
+      </div>
+    </div>
+  </div>
+  <div id="above-content-wrapper" class="container">
+      <div id="above-content">
+      </div>
+  </div>
+
+```
+
+
+```{image} _static/barceloneta/buesi4.png
+:alt: Site with main navigation and breadcrumbs aligned with content
+```
+
 
 ## Fonts
-Add fonts (link vs import)
-Show index.html (preconnect)
-Set font-family
-Set font-sizes
-Styles
-Fix Search Button Styling
-Navbar / Breadcrumbs
-Add container to index.html
-Add more styles
-Custom CSS
+
+Fonts are an important visual factor in a theme. To use web fonts we can either `link` them in the html or `@import` them within the css.
+
+**link**
+```{code-block} html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Itim&family=Vibur&display=swap" rel="stylesheet">
+```
+
+**@import**
+```{code-block} scss
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Vibur&display=swap');
+```
+
+<em>If you want to see the fonts within TinyMCE as well, you should go with `@import`. To optimize loading and reduce unwanted effects like web font flashing or flickering it's a good idea to add the `rel="preconnect"` tags even if you import the fonts in your css.</em>
+
+Let's add those fonts to our css and change the variables to use them.
+
+```{code-block} scss
+:linenos: true
+
+//// VARIABLES
+// ... add your variables here
+$pink: #EE4793;
+$light-pink: #F3A4CB;
+$lighter-pink: #f7d4e5;
+$lightest-pink: #fff2f8;
+$medium-grey: #555;
+
+$primary: $pink;
+$secondary: $light-pink;
+
+$enable-rounded:              true;
+$border-radius:               1rem;
+
+$body-bg: $lightest-pink;
+$breadcrumb-bg: $lighter-pink;
+
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Vibur&display=swap');
+// Fonts - use Import if you want the fonts displayed in TinyMCE as well
+$font-family-sans-serif: Itim, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$headings-font-family: Vibur;
+
+
+//// IMPORTS
+// Import barceloneta files from node_modules --load-path=node_modules
+@import "@plone/plonetheme-barceloneta-base/scss/barceloneta.scss";
+
+
+//// STYLES
+// ... add your styles here
+
+
+```
+
+
+```{image} _static/barceloneta/buesi5.png
+:alt: Site with web fonts
+```
+
+In addition, let's adjust the color and size
+
+
+```{code-block} scss
+:linenos: true
+
+//// VARIABLES
+// ... add your variables here
+$pink: #EE4793;
+$light-pink: #F3A4CB;
+$lighter-pink: #f7d4e5;
+$lightest-pink: #fff2f8;
+$medium-grey: #555;
+
+$primary: $pink;
+$secondary: $light-pink;
+
+$enable-rounded:              true;
+$border-radius:               1rem;
+
+$body-bg: $lightest-pink;
+$breadcrumb-bg: $lighter-pink;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Vibur&display=swap');
+// Fonts - use Import if you want the fonts displayed in TinyMCE as well
+$font-family-sans-serif: Itim, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$headings-font-family: Vibur;
+
+// Font colors
+$headings-color: $primary;
+$body-color: $medium-grey;
+
+// Font sizes
+$font-size-base:              1rem;
+$h1-font-size:                $font-size-base * 3;
+$h2-font-size:                $font-size-base * 2.5;
+
+
+//// IMPORTS
+// Import barceloneta files from node_modules --load-path=node_modules
+@import "@plone/plonetheme-barceloneta-base/scss/barceloneta.scss";
+
+
+//// STYLES
+// ... add your styles here
+
+```
+
+
+```{image} _static/barceloneta/buesi6.png
+:alt: Site with web fonts
+```
+
+## Styles
+
+Although we managed to change quite a lot with based on variabless, we still need to write some css to make our theme really pretty. We'll fix the corners of the search, make the main navigation rounded and change the alignment of items within the portal-header.
+
+For these styles it's a good idea to use variables from Bootstrap again to make the consistency of your styles easier. We'll include those styles after the import of Barbeloneta/Bootstrap styles and are able to make use of Bootstraps own mixins and utilities too.
+
+
+```{code-block} scss
+:linenos: true
+
+//// VARIABLES
+// ... add your variables here
+$pink: #EE4793;
+$light-pink: #F3A4CB;
+$lighter-pink: #f7d4e5;
+$lightest-pink: #fff2f8;
+$medium-grey: #555;
+
+$primary: $pink;
+$secondary: $light-pink;
+
+$enable-rounded:              true;
+$border-radius:               1rem;
+
+$body-bg: $lightest-pink;
+$breadcrumb-bg: $lighter-pink;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Vibur&display=swap');
+// Fonts - use Import if you want the fonts displayed in TinyMCE as well
+$font-family-sans-serif: Itim, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$headings-font-family: Vibur;
+
+// Font colors
+$headings-color: $primary;
+$body-color: $medium-grey;
+
+// Font sizes
+$font-size-base:              1rem;
+$h1-font-size:                $font-size-base * 3;
+$h2-font-size:                $font-size-base * 2.5;
+
+
+//// IMPORTS
+// Import barceloneta files from node_modules --load-path=node_modules
+@import "@plone/plonetheme-barceloneta-base/scss/barceloneta.scss";
+
+
+//// STYLES
+// ... add your styles here
+
+// Search Button
+.searchButton.btn.btn-secondary {
+    border-radius: 0 $border-radius $border-radius 0;
+}
+
+// Navbar & Breadcrumbs
+.navbar {
+    border-radius: $border-radius $border-radius 0 0;
+}
+#plone-breadcrumb {
+    @include border-bottom-radius($border-radius);
+}
+#portal-header {
+    align-items: end;
+}
+
+```
+
+
+```{image} _static/barceloneta/buesi7.png
+:alt: Site with additional styles
+```
+
+## CSS variables
+
+Bootstrap 5 added support for [CSS custom properties (variables)](https://getbootstrap.com/docs/5.1/customize/css-variables/). If you want to change any of the `:root` variables of Bootstrap directly, best thing is to add them at the bottom of your Stylesheet, since browsers interpret them natively.
+
+```{code-block} scss
+:root {
+--foo: red;
+}
+```
 
 
