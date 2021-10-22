@@ -82,7 +82,7 @@ Then we adjust the margin for the homepage:
 ## Logo
 
 We use [component shadowing](#component-shadowing) to customize (and override) Volto original components.
-Get the Plone logo (`Logo.svg`) from the `training-resources` directory and copy it using this path and name: `src/customizations/components/theme/Logo/Logo.svg`.
+Get the Plone logo (`Logo.svg`) from the `training-resources` you downloaded from the google drive.
 
 ```{note}
 Every time you add a file to the customizations folder or to the theme folder, you must restart Volto for changes to take effect.
@@ -93,26 +93,6 @@ From that point on, the hot reloading should kick in and reload the page automat
 
 We will customize the existing Volto header, since the one we want does not differ much from the original.
 We will do so by copying the original Volto `Header` component from the `omelette` folder `omelette/src/components/theme/Header/Header.jsx` folder into `src/customizations/components/theme/Header/Header.jsx`.
-
-````{warning}
-When restarting you will see a error in the terminal since the original `Header.jsx` uses relative imports:
-
-```
-Cannot find module '../../../components'
-```
-
-When using component shadowing, you'll always need to replace relative import with absolute imports. That means changing
-
-```
-import { Anontools, Logo, Navigation, SearchWidget } from '../../../components';
-```
-
-to:
-
-```
-import { Anontools, Logo, Navigation, SearchWidget } from '@plone/volto/components';
-```
-````
 
 We have to make some more changes to that component, such as removing the search widget and the `Anontools` component.
 
