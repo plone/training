@@ -41,7 +41,7 @@ Having a Volto frontend in place, you will apply Plone add-ons with some of the 
 
 We start with the scenario of Plone for both backend and frontend. So we use a classic Plone setup without Volto and with the huge repertoire of classic Plone add-ons. This is still be an option in particular as the number of Volto add-ons is just on the way to catch up on all the features and posibilites of Plone add-ons.
 
-Chapter {ref}`volto-addon-label` explains how to apply one of the awsome Volto add-ons for enhancing editor experience, adding features like displaying data as charts, searching with a faceted navigation and a lot more.
+Chapter {ref}`volto-addon-label` explains how to apply one of the awesome Volto add-ons for enhancing editor experience, adding features like displaying data as charts, searching with a faceted navigation and a lot more.
 
 (add-ons-notable-label)=
 

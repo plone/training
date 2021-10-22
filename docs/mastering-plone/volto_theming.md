@@ -1,8 +1,8 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
+  "description": "How to make simple customizations"
+  "property=og:description": "How to make simple customizations"
+  "property=og:title": "Theming in Plone 6"
   "keywords": ""
 ---
 
@@ -36,13 +36,22 @@ git checkout theming
 ```
 ````
 
-To develop our theme, we can use Semantic UI. There are two cases:
+In this part we will:
 
-- Some attributes like the overall font that are covered by Semantic UI variables.
-- The other case is styling of for example listing news that needs some custom CSS rules.
+- Override the default font
+- See how to apply style rules to custom components
+
+Topics covered:
+
+- Small customizations of the default theme Pastanaga via CSS
+
+
+While developing a theme with Semantic UI, two cases appear:
+
+- Some attributes, like the overall font, are covered by Semantic UI variables.
+- Other attributes need custom CSS rules.
 
 We start with the first case and change the font to another Google font, Lato.
-
 The overall font is defined in Volto and can be found in {file}`omelette/theme/themes/default/globals/site.variables`. So create an empty file {file}`site.variables` in {file}`theme/globals/` and set your font.
 
 ```css
@@ -53,7 +62,7 @@ The overall font is defined in Volto and can be found in {file}`omelette/theme/t
 Semantic UI does not provide a less variable for increasing the letter-spacing.
 So we add a CSS rule for it.
 We use {file}`site.overrides` as this rule should apply site wide.
-Create an empty file {file}`theme/globals/site.overrides` and set the letter-spacing:
+Create a file {file}`theme/globals/site.overrides` and set the letter-spacing:
 
 ```css
 #main {
@@ -64,11 +73,10 @@ Create an empty file {file}`theme/globals/site.overrides` and set the letter-spa
 We can use variables and theme overrides to achieve our theme, or we can use Volto’s {file}`custom.overrides`, or we can mix elements of both as needed.
 There is no right or wrong way of doing it, and we will be using the Semantic UI theming engine in both cases.
 
-There are these two files {file}`theme/extras/custom.overrides` and {file}`theme/extras/custom.variables`.
-Use these tp style everything that does not belong to default Volro, e.g. not belonging to the header, navigation, breadcrumbs, etc..
-It's a convention to put styling of your additional non-default components in {file}`custom.overrides` and {file}`custom.variables`.
+There are two files {file}`theme/extras/custom.overrides` and {file}`theme/extras/custom.variables` for everything not belonging to default Volto, e.g. header, navigation, breadcrumbs, etc..
+It's a convention to put styling of additional non-default components in {file}`custom.overrides` and {file}`custom.variables`.
 
-In chapter {ref}`volto-sponsors-component-label` we will create a custom component to show the sponsors.
+In chapter {ref}`volto-sponsors-component-label` we will create a custom component to show the sponsors of our conference.
 We style this component in {file}`theme/extras/custom.overrides`
 
 ```css
@@ -77,18 +85,10 @@ We style this component in {file}`theme/extras/custom.overrides`
 }
 ```
 
-You should use the power of `less` and use variables such as:
+Relying on the Semantic UI based Pastanaga theme, we use variables such as:
 
 ```css
 .ui.segment.sponsors {
   background-color: @lightGrey;
 }
-```
-
-## Changing the favicon
-
-Find the favicon.ico in {file}`public/` and replace it with a custom favicon.
-
-```{note}
-As you already know, the Node app Volto needs to be restarted after adding new files.
 ```

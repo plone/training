@@ -1,14 +1,14 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": Display content type""
+  "property=og:description": "Display content type"
+  "property=og:title": "Volto View Component: A Default View for a "Talk"
+  "keywords": "view, content type"
 ---
 
 (volto-talkview-label)=
 
-# Volto View Components: A Default View for "Talk"
+# Volto View Component: A Default View for a "Talk"
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
@@ -36,36 +36,37 @@ git checkout talkview
 ```
 ````
 
-To be solved task in this part:
+In this part we will:
 
-- Create a view to display talks in a nice way
+- Create a view to display a talk
 
 In this part you will:
 
-- Register a react view component for talks
-- Write the component
+- Register a react view component for content type talk
+- Write the view component
 
 Topics covered:
 
-- Views
-- Displaying data stored in fields of content types
+- View
+- Displaying data stored in fields of a content type
 - React Basics
 
-In Volto the default visualization for your new content type "talk" only shows the title, description and the image.
+The default visualization for our new content type `talk` only shows the title, the description and the image.
 
 ```{container} volto
 This paragraph might be rendered in a custom way.
 ```
 
 ```{note}
-In Plone the default view iterates over all fields in your schema and displays the stored data. In Volto this feature is not implemented yet.
+In Plone the default view iterates over all fields in the schema and displays the stored data. In Volto this feature is not implemented yet.
 ```
 
-Since we want to show the data we need to write a custom view for talks that is used in Volto.
+Since we want to show the talk data, we write a custom view for talks.
 
-In the folder {file}`frontend` you need to add a new file {file}`src/components/Views/Talk.jsx` (create the folder {file}`Views` first.)
+In the folder {file}`frontend` you need to add a new file {file}`src/components/Views/Talk.jsx`.
+Create the folder {file}`Views` first.
 
-As a first step the file will hold a placeholder only:
+As a first step, the file will hold only a placeholder.
 
 ```jsx
 import React from 'react';
@@ -77,7 +78,7 @@ const TalkView = props => {
 export default TalkView;
 ```
 
-Also add a convenience-import of the new component to {file}`src/components/index.js`:
+Also add a convenience import of the new component to {file}`src/components/index.js`:
 
 ```jsx
 import TalkView from './Views/Talk';
@@ -85,30 +86,34 @@ import TalkView from './Views/Talk';
 export { TalkView };
 ```
 
-This is is a common practice and allows us to import the new view as `import { TalkView } from './components';` instead of `import { TalkView } from './components/Views/Talk';`.
+This is is a common practice and allows us to import the new view component as `import { TalkView } from './components';` instead of `import { TalkView } from './components/Views/Talk';`.
 
-Now register the new component as default view for talks in {file}`src/config.js`.
+Now register the new component as the default view for `talks` in {file}`src/config.js`.
 
 ```{code-block} jsx
-:emphasize-lines: 1,7-10
+:emphasize-lines: 1,9-12
 
-import { TalkView } from './components';
+import { TalkListView, TalkView } from './components';
 
-[...]
+// All your imports required for the config here BEFORE this line
+import '@plone/volto/config';
 
-config.views = {
-  ...config.views,
-  contentTypesViews: {
-    ...config.views.contentTypesViews,
-    talk: TalkView,
-  },
-};
+export default function applyConfig(config) {
+  config.views = {
+    ...config.views,
+    contentTypesViews: {
+      ...config.views.contentTypesViews,
+      talk: TalkView,
+    },
+  };
+  return config;
+}
 ```
 
 - This extends the Volto default setting `config.views.contentTypesViews` with the key/value pair `talk: TalkView`.
-- It uses the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
+- It uses the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to take the default settings and override what needs to be overrridden.
 
-When Volto is running (with `yarn start`) it picks up these changes and displays the placeholder in place of the previously used default-view.
+When Volto is running (with `yarn start`) it picks up these changes and displays the placeholder in place of the previously used default view.
 
 Now we will improve this view step by step.
 First we reuse the component `DefaultView.jsx` in our custom view:
@@ -119,7 +124,7 @@ First we reuse the component `DefaultView.jsx` in our custom view:
 import React from 'react';
 import { DefaultView } from '@plone/volto/components';
 
-const TalkView = props => {
+const TalkView = (props) => {
   return <DefaultView {...props} />;
 };
 export default TalkView;
@@ -133,7 +138,7 @@ We will now add the content from the field `details` after the `DefaultView`.
 import React from 'react';
 import { DefaultView } from '@plone/volto/components';
 
-const TalkView = props => {
+const TalkView = (props) => {
   const { content } = props;
   return (
     <>
@@ -145,11 +150,10 @@ const TalkView = props => {
 export default TalkView;
 ```
 
-- `<> </>` is a fragment. The return-value of react needs to be one single element.
+- `<> </>` is a fragment. The return value of react needs to be one single element.
 
-- The variable `props` is used to pass the json-representation of the content object (i.e. a talk) to the view. We create a new variable `content` with the same value (`props`) to make it more explicit that this is the content object.
-
-- `content.details` is the value of richtext-field `details`:
+- The variable `props` is used to receive data from the parent component. As the TalkView component is registered as a content type view, it receives the content data and some more. We will use the content part. So we introduce a constant `content` to be more explicit.
+- `content.details` is the value of the richtext field `details` with mime type, encoding and the data:
 
   ```jsx
   {
@@ -163,7 +167,7 @@ export default TalkView;
 
 - `content.details.data` holds the raw html. To render it properly we use `dangerouslySetInnerHTML` (see <https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml>)
 
-The result is not really beautiful because the text sticks to the left border of the page.
+The result is not really beautiful, because the text sticks to the left border of the page.
 You need to wrap it in a `Container` to get the same styling as the content of `DefaultView`:
 
 ```{code-block} jsx
@@ -191,14 +195,18 @@ export default TalkView;
 
 We now decide to display the type of talk in the title (E.g. "Keynote: The Future of Plone").
 This means we cannot use `DefaultView` anymore since that displays the title like this: `<h1 className="documentFirstHeading">{content.title}</h1>`.
-Instead we display the title and description ourselves.
+Instead we display the title and description in a custom way.
 
 This has multiple benefits:
 
 - All content can now be wrapped in the same `Container` which cleans up the html.
-- We can control where the speaker portrait is displayed. We can now move all information on the speaker into a separate box. The speaker portrait is picked up by the DefaultView because the fields name is `image` (same as the image from the behavior `plone.leadimage`).
+- We can control where the speaker portrait is displayed.
+  We can now move all information on the speaker into a separate box.
+  The speaker portrait is picked up by the DefaultView because the fields name is `image`, which is the same as the image from the behavior `plone.leadimage`.
 
-With this changes we do discard the title-tag in the HTML head though. This will change the name occuring in the browser tab or browser head to the current site url. To use the content title instead, you'll have to import the `Helmet` component, which allows to overwrite all meta tags for the HTML head like the page-title.
+With this changes we do discard the title tag in the HTML head though.
+This will change the name occuring in the browser tab or browser head to the current site url.
+To use the content title instead, you'll have to import the `Helmet` component, which allows to overwrite all meta tags for the HTML head like the page-title.
 
 ```{code-block} jsx
 :emphasize-lines: 3,9-16
@@ -213,7 +221,7 @@ const TalkView = props => {
     <Container id="page-talk">
       <Helmet title={content.title} />
       <h1 className="documentFirstHeading">
-        <span class="type_of_talk">{content.type_of_talk.title}: </span>
+        <span className="type_of_talk">{content.type_of_talk.title}: </span>
         {content.title}
       </h1>
       {content.description && (
@@ -226,8 +234,8 @@ const TalkView = props => {
 export default TalkView;
 ```
 
-- `content.type_of_talk` is the json of the value from the choice field `type_of_talk`: `{token: "training", title: "Training"}`. To display it we use the title.
-- The `&&` in `{content.description && (<p>...</p>)}` makes sure that this paragraph is only rendered if the talk actually has a description.
+- `content.type_of_talk` is the json representation of the value from the choice field `type_of_talk`: `{token: "training", title: "Training"}`. We display the title.
+- The `&&` in `{content.description && (<p>...</p>)}` makes sure, that this paragraph is only rendered, if the talk actually has a description.
 
 Next we add a block with info on the speaker:
 
@@ -235,14 +243,14 @@ Next we add a block with info on the speaker:
 :emphasize-lines: 2,16-30
 
 import React from 'react';
-import { Container, Header, Icon, Segment } from 'semantic-ui-react';
+import { Container, Header, Segment } from 'semantic-ui-react';
 
-const TalkView = props => {
+const TalkView = (props) => {
   const { content } = props;
   return (
     <Container id="page-talk">
       <h1 className="documentFirstHeading">
-        <span class="type_of_talk">{content.type_of_talk.title} </span>
+        <span className="type_of_talk">{content.type_of_talk.title} </span>
         {content.title}
       </h1>
       {content.description && (
@@ -253,9 +261,11 @@ const TalkView = props => {
         {content.speaker && <Header dividing>{content.speaker}</Header>}
         <p>{content.company || content.website}</p>
         <a href={`mailto:${content.email}`}>
-          <Icon name="mail" />
-          {content.email}
-        </a>
+        {content.email && (
+          <p>
+            Email: <a href={`mailto:${content.email}`}>{content.email}</a>
+          </p>
+        )}
         {content.speaker_biography && (
           <div
             dangerouslySetInnerHTML={{
@@ -271,7 +281,6 @@ export default TalkView;
 ```
 
 - We use the component [Segment](https://react.semantic-ui.com/elements/segment/#variations-clearing) for the box.
-- We use the component [Icon](https://react.semantic-ui.com/elements/icon/) to display the mail icon.
 - `` {`mailto:${content.email}`} `` is a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
 Next we add the image:
@@ -280,15 +289,15 @@ Next we add the image:
 :emphasize-lines: 2,3,24-30
 
 import React from 'react';
-import { Container, Header, Icon, Image, Segment } from 'semantic-ui-react';
+import { Container, Header, Image, Segment } from 'semantic-ui-react';
 import { flattenToAppURL } from '@plone/volto/helpers';
 
-const TalkView = props => {
+const TalkView = (props) => {
   const { content } = props;
   return (
     <Container id="page-talk">
       <h1 className="documentFirstHeading">
-        <span class="type_of_talk">{content.type_of_talk.title} </span>
+        <span className="type_of_talk">{content.type_of_talk.title} </span>
         {content.title}
       </h1>
       {content.description && (
@@ -298,12 +307,13 @@ const TalkView = props => {
       <Segment clearing>
         {content.speaker && <Header dividing>{content.speaker}</Header>}
         <p>{content.company || content.website}</p>
-        <a href={`mailto:${content.email}`}>
-          <Icon name="mail" />
-          {content.email}
-        </a>
+        {content.email && (
+          <p>
+            Email: <a href={`mailto:${content.email}`}>{content.email}</a>
+          </p>
+        )}
         <Image
-          src={flattenToAppURL(content.image.scales.preview.download)}
+          src={flattenToAppURL(content.image?.scales?.preview?.download)}
           size="small"
           floated="right"
           alt={content.image_caption}
@@ -326,22 +336,25 @@ export default TalkView;
 - We use the component [Image](https://react.semantic-ui.com/elements/image/#variations-avatar)
 - We use `flattenToAppURL` to turn the Plone url of the image to the Volto url, e.g. it turns <http://localhost:8080/Plone/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg> into <http://localhost:3000/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg>.
 - Open the React Developer Tools in your browser and inspect the property `image` of TalkView and its property `scale`. If you look at the [documentation for the serialization of image-fields](https://plonerestapi.readthedocs.io/en/latest/serialization.html#file-image-fields) you can find out where that information comes from.
+- To deal with talks without speaker image, we check for the existence of the image with `content.image?.scales?.preview?.download`. 
+  The expression with question marks returns `undefined` if `content` has no `image` key or `content.image` has no `scales` key and so on.
+  `?.` is the [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) operator.
 
 Next we add the audience:
 
 ```{code-block} jsx
-:emphasize-lines: 2,7-11,22-30
+:emphasize-lines: 2,7-11,22-29
 
 import React from 'react';
-import { Container, Header, Icon, Image, Label, Segment } from 'semantic-ui-react';
+import { Container, Header, Image, Label, Segment } from 'semantic-ui-react';
 import { flattenToAppURL } from '@plone/volto/helpers';
 
-const TalkView = props => {
+const TalkView = (props) => {
   const { content } = props;
   const color_mapping = {
-    Beginner: 'green',
-    Advanced: 'yellow',
-    Professional: 'purple',
+    beginner: 'green',
+    advanced: 'yellow',
+    professional: 'purple',
   };
 
   return (
@@ -354,11 +367,10 @@ const TalkView = props => {
         <p className="documentDescription">{content.description}</p>
       )}
       {content.audience?.map((item) => {
-        let audience = item.title || item.token;
-        let color = color_mapping[audience] || 'green';
+        let color = color_mapping[item.token] || 'green';
         return (
-          <Label key={audience} color={color}>
-            {audience}
+          <Label key={item.token} color={color}>
+            {item.title}
           </Label>
         );
       })}
@@ -366,12 +378,13 @@ const TalkView = props => {
       <Segment clearing>
         {content.speaker && <Header dividing>{content.speaker}</Header>}
         <p>{content.company || content.website}</p>
-        <a href={`mailto:${content.email}`}>
-          <Icon name="mail" />
-          {content.email}
-        </a>
+        {content.email && (
+          <p>
+            Email: <a href={`mailto:${content.email}`}>{content.email}</a>
+          </p>
+        )}
         <Image
-          src={flattenToAppURL(content.image.scales.preview.download)}
+          src={flattenToAppURL(content.image?.scales?.preview?.download)}
           size="small"
           floated="right"
           alt={content.image_caption}
@@ -391,11 +404,10 @@ const TalkView = props => {
 export default TalkView;
 ```
 
-- With `{content.audience?.map(item => {...})}` we iterate over the individual values of the field `audience` if that exists.
-- `?.` is [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-- [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) is used to iterate over the array `audience` using a [Arrow-function (=>)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) in which `item` is one item in audience.
-- The `item` is a object like `{'title': 'Advanced', 'token': 'Advanced'}`. We need to use `item.title || item.token` in case `title` is `null` which happens in simple fields as ours.
-- We map the values that are available in the field to colors and use blue as a fallback.
+- With `{content.audience?.map(item => {...})}` we iterate over the individual values of the choice field `audience` if that exists.
+- [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) is used to iterate over the array `audience` using an [Arrow-function (=>)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) in which `item` is one item in audience.
+- The `item` is an `Object` like `{'title': 'Advanced', 'token': 'advanced'}`.
+- We map the available field values to colors and use green as a fallback.
 
 As a last step we show the last few fields `website` and `company`, `github` and `twitter`:
 
@@ -404,9 +416,9 @@ As a last step we show the last few fields `website` and `company`, `github` and
 
 import React from 'react';
 import { flattenToAppURL } from '@plone/volto/helpers';
-import { Container, Image, Icon, Label, Segment } from 'semantic-ui-react';
+import { Container, Header, Image, Label, Segment } from 'semantic-ui-react';
 
-const TalkView = props => {
+const TalkView = (props) => {
   const { content } = props;
   const color_mapping = {
     Beginner: 'green',
@@ -491,3 +503,8 @@ const TalkView = props => {
 };
 export default TalkView;
 ```
+
+## Summary
+
+- We created a view for a content type to display its data
+- We treated the case of missing values

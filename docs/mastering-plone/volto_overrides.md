@@ -217,7 +217,7 @@ import moment from 'moment';
 import { flattenToAppURL, flattenHTMLToAppURL } from '@plone/volto/helpers';
 
 /**
- * NewsItemView view component class.
+ * NewsItemView view component.
  * @function NewsItemView
  * @params {object} content Content object.
  * @returns {string} Markup of the component.
@@ -294,8 +294,7 @@ So we'll add some simple logic to use the effective-date if it exists and the cr
 
 ```jsx
 <p className="discreet">
-  {(content.effective && moment(content.effective).format('ll')) ||
-    moment(content.created).format('ll')}
+  {moment(content.effective || content.created).format('ll')}
 </p>
 ```
 
@@ -309,8 +308,7 @@ Copy that file to `src/customizations/components/theme/View/SummaryView.jsx` and
 
 ```jsx
 <p className="discreet">
-  {(item.effective && moment(item.effective).format('ll')) ||
-    moment(item.created).format('ll')}
+  {moment(item.effective || item.created).format('ll')}
 </p>
 ```
 
@@ -327,7 +325,7 @@ You will see that the listing block does not display the date as well.
 Copy `omelette/src/components/manage/Blocks/Listing/DefaultTemplate.jsx` to `src/customizations/components/manage/Blocks/Listing/DefaultTemplate.jsx` and add the dates as you did with the Summary View.
 
 ```{code-block} jsx
-:emphasize-lines: 5,31-34
+:emphasize-lines: 5,32
 :linenos: true
 
 import React from 'react';
@@ -361,8 +359,7 @@ const DefaultTemplate = ({ items, linkMore, isEditMode }) => {
               <div className="listing-body">
                 <h4>{item.title ? item.title : item.id}</h4>
                 <p>
-                  {(item.effective && moment(item.effective).format('ll')) ||
-                    moment(item.created).format('ll')}
+                  {moment(item.effective || item.created).format('ll')}
                 </p>
                 <p>{item.description}</p>
               </div>
@@ -401,7 +398,7 @@ Put the locale-setting before it.
 
 ```{code-block} jsx
 :linenos: true
-:emphasize-lines: 10,21-25,62
+:emphasize-lines: 10,21-25,61
 
 /**
  * NewsItemView view component.
@@ -417,7 +414,7 @@ import { useIntl } from 'react-intl';
 import { flattenToAppURL, flattenHTMLToAppURL } from '@plone/volto/helpers';
 
 /**
- * NewsItemView view component class.
+ * NewsItemView view component.
  * @function NewsItemView
  * @params {object} content Content object.
  * @returns {string} Markup of the component.
@@ -452,8 +449,7 @@ const NewsItemView = ({ content }) => {
         />
       )}
       <p className="discreet">
-        {(content.effective && moment(content.effective).format('lll')) ||
-          moment(content.created).format('lll')}
+        {moment(content.effective || content.created).format('ll')}
       </p>
       {content.text && (
         <div
