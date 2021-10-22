@@ -166,6 +166,7 @@ On the root level, we add the following folders:
 - About
 - Products
 - Store
+- More
 
 In the folders `About` and `Store` we add a Page and make it the default page.
 
@@ -190,7 +191,7 @@ section-about.html:
 <div class="mceTmpl">
   <section class="page-section about-heading">
     <div class="container">
-      <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="assets/img/about.jpg" alt="...">
+      <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="++theme++business-casual-2021/assets/img/about.jpg" alt="...">
       <div class="about-heading-content">
         <div class="row">
           <div class="col-xl-9 col-lg-10 mx-auto">
@@ -217,6 +218,10 @@ section-about.html:
 </div>
 ```
 
+```{note}
+Please make sure to prepend the image paths with `++theme++business-casual-2021/`
+```
+
 section-intro.html:
 
 ```html
@@ -224,7 +229,7 @@ section-intro.html:
   <section class="page-section clearfix">
     <div class="container">
       <div class="intro">
-        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="...">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="++theme++business-casual-2021/assets/img/intro.jpg" alt="...">
         <div class="intro-text left-0 text-center bg-faded p-5 rounded">
           <h2 class="section-heading mb-4">
             <span class="section-heading-upper">Fresh Coffee</span>
@@ -240,6 +245,11 @@ section-intro.html:
   </section>
 </div>
 ```
+
+```{note}
+Please make sure to prepend the image paths with `++theme++business-casual-2021/`
+```
+
 
 section-promise.html:
 
@@ -358,9 +368,9 @@ Right now it should look like this:
       <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="label_tinymce_templates">Templates</title>
     </field>
     <value>[
-      {"title": "BS Pricing", "url": "++theme++{{{ theme.normalized_name }}}/tinymce-templates/bs-pricing.html"},
-      {"title": "BS Hero: Dark", "url": "++theme++{{{ theme.normalized_name }}}/tinymce-templates/bs-dark-hero.html"},
-      {"title": "BS Hero: left-aligned with image", "url": "++theme++{{{ theme.normalized_name }}}/tinymce-templates/bs-hero-left.html"}
+      {"title": "BS Pricing", "url": "++theme++business-casual-2021/tinymce-templates/bs-pricing.html"},
+      {"title": "BS Hero: Dark", "url": "++theme++business-casual-2021/tinymce-templates/bs-dark-hero.html"},
+      {"title": "BS Hero: left-aligned with image", "url": "++theme++business-casual-2021/tinymce-templates/bs-hero-left.html"}
       ]
     </value>
   </record>
@@ -397,13 +407,13 @@ In the first record, we add our new template files as follow:
 
 ```xml
     <value>[
-      {"title": "BS Pricing", "url": "++theme++{{{ theme.normalized_name }}}/tinymce-templates/bs-pricing.html"},
-      {"title": "BS Hero: Dark", "url": "++theme++{{{ theme.normalized_name }}}/tinymce-templates/bs-dark-hero.html"},
-      {"title": "BS Hero: left-aligned with image", "url": "++theme++{{{ theme.normalized_name }}}/tinymce-templates/bs-hero-left.html"},
-      {"title": "Section: Intro", "url": "++theme++{{{ theme.normalized_name }}}/tinymce-templates/section-intro.html"},
-      {"title": "Section: About", "url": "++theme++{{{ theme.normalized_name }}}/tinymce-templates/section-about.html"},
-      {"title": "Section: Promise", "url": "++theme++{{{ theme.normalized_name }}}/tinymce-templates/section-promise.html"},
-      {"title": "Section: Opening Hours", "url": "++theme++{{{ theme.normalized_name }}}/tinymce-templates/section-opening-hours.html"}
+      {"title": "BS Pricing", "url": "++theme++business-casual-2021/tinymce-templates/bs-pricing.html"},
+      {"title": "BS Hero: Dark", "url": "++theme++business-casual-2021/tinymce-templates/bs-dark-hero.html"},
+      {"title": "BS Hero: left-aligned with image", "url": "++theme++business-casual-2021/tinymce-templates/bs-hero-left.html"},
+      {"title": "Section: Intro", "url": "++theme++business-casual-2021/tinymce-templates/section-intro.html"},
+      {"title": "Section: About", "url": "++theme++business-casual-2021/tinymce-templates/section-about.html"},
+      {"title": "Section: Promise", "url": "++theme++business-casual-2021/tinymce-templates/section-promise.html"},
+      {"title": "Section: Opening Hours", "url": "++theme++business-casual-2021/tinymce-templates/section-opening-hours.html"}
       ]
     </value>
 ```
@@ -724,4 +734,217 @@ production-css = ++theme++business-casual-2021/css/theme.min.css
 tinymce-content-css = ++theme++business-casual-2021/css/theme.min.css
 ```
 
+Now let's do the actual integration. We can use `npm run watch` to have the CSS build when ever we make changes. I a second terminal we start Plone with `plonecli serve`.
+
+## Diazo to rule them all
+
+With [Diazo](http://diazo.org) Plone provides an easy way, to map the dynamic content of the CMS to places in the given layout. We will go thru some examples, but feel free to consult the Diazo documentation for more details.
+
+We will start by bringing in the top navigation. To do that, we will activate the following rule in the `rules.xml` file.
+
+```xml
+<replace css:theme-children=".navbar-nav" css:content-children=".navbar-nav" />
+```
+
+To understand better, whats happening here, let's open this URL <http://127.0.0.1:8080> in another browser window. You will notice that your Plone is completely unstyled. This is because, in the `theming control panel` we can define URL's where Diazo should be turned off and `http://127.0.0.1` is in there by default. This is useful, because we now see the vanilla markup Plone is rendering on one side and the layout template on the other side. This way we can easily map the two with our rules.
+
+In the layout template (the theme side), we can find the `.navbar-nav` element:
+
+```html
+<ul class="navbar-nav mx-auto">
+```
+
+On the Plone side (the content side), we also can find the `.navbar-nav` element:
+
+```html
+<ul class="navbar-nav" id="portal-globalnav">
+  <li class="index_html nav-item inPath"><a href="http://127.0.0.1:8080/Plone" class="state-None nav-link">Home</a></li>
+  <li class="about nav-item"><a href="http://127.0.0.1:8080/Plone/about" class="state-published nav-link">About</a></li>
+  <li class="products nav-item inPath current"><a href="http://127.0.0.1:8080/Plone/products" class="state-private nav-link">Products</a></li>
+  <li class="store nav-item"><a href="http://127.0.0.1:8080/Plone/store" class="state-private nav-link">Store</a></li>
+  <li class="more nav-item"><a href="http://127.0.0.1:8080/Plone/more" class="state-published nav-link">More</a></li>
+</ul>
+```
+
+These li-tag's we want to place in the layout. Our rule will replace the children of element `.navbar-nav` on the theme side, with the children of the `.navbar-nav` from the content side.
+
+If we now reload the themed website URL <http://localhost:8080/Plone>, we will see that the top navigation now contains our menu items.
+
+In the next step, we will activate the following rule, to integrate portal messages from Plone.
+
+```xml
+<replace
+  css:theme-children="#global_statusmessage"
+  css:content-children="#global_statusmessage"
+  />
+```
+
+You can test it, by going on edit and save the page. You should see a message under the navigation.
+
+Now let's come to the most important mapping, our content area. We will activate the following rule in our `rules.xml`:
+
+```xml
+<replace
+  css:content="#content-core"
+  css:theme-children="main"
+  />
+```
+
+We can see the content now in our themed side. The styling need's some improvement's, which will do in a moment.
+
+The last thing for now we wanna do, is to map the footer.
+
+```xml
+<replace
+  css:content-children="footer"
+  css:theme-children="footer"
+  />
+```
+
+## Styling the themed content
+
+Let's make sure that Plone content will look decent by default. For that we will import the bootstrap grid and define some grid settings.
+
+```scss
+@import "bootstrap/scss/bootstrap-grid";
+@import "styles";
+
+$grid-columns:                12 !default;
+$grid-gutter-width:           1.5rem !default;
+$grid-row-columns:            6 !default;
+
+$grid-main-breakpoint: md!default;
+$nav-main-breakpoint: $grid-main-breakpoint!default;
+```
+
+Now we add some definitions to style common content and give it a background.
+
+```{code-block} scss
+#parent-fieldname-text > *:not(.mceTmpl),
+.entries > article,
+#content-core > .item,
+#content-core > p,
+#content-core .field{
+  max-width: 850px;
+  margin: 0 auto;
+  @extend .bg-faded;
+  @extend .rounded;
+  @extend .p-5;
+}
+```
+
+If we have a close look at the navbar, we will notice that the styling is not exactly as it is in the layout.
+
+```{image} _static/diazo/navbar-pre-fix.png
+:alt: Navbar with some wrong margins and without upper case
+```
+
+The following SCSS will fix that extending the bootstrap utility classes, missing in our markup:
+
+```scss
+.nav-item{
+  @extend .px-lg-4;
+}
+
+.nav-link{
+  @extend .text-uppercase;
+}
+```
+
+```{image} _static/diazo/navbar-post-fix.png
+:alt: navbar with fixed paddings and uppercase
+```
+
+Let's give the portal message a margin-top, so that it's not to clode to the navbar:
+
+```scss
+#global_statusmessage{
+  margin-top: 1rem;
+}
+```
+
+Similar to the status message, our footer need a margin to the top:
+
+```scss
+footer{
+  margin-top: 3rem;
+}
+```
+
+The navbar does not look like in the layout yet, but that we can fix by managing the footer Portlet's in Plone.
+
+```{image} _static/diazo/footer-pre-fix.png
+:alt: default Plone footer, with wrong styling
+```
+
+We can manage the footer portlets directly in Plone:
+
+```{image} _static/diazo/manage-footer-portlets.png
+:alt: menu: manage footer portlets
+```
+
+Were we can hide the existing footer portlets:
+
+```{image} _static/diazo/hide-footer-portlets.png
+:alt: hide all existing footer portlets
+```
+
+Now let's add a static portlet with our footer content. we also will omit the portlet border here.
+
+```{image} _static/diazo/add-static-footer-portlet.png
+:alt: add static portlet to footer
+```
+
+Now let's have a look hat we have archived:
+
+```{image} _static/diazo/footer-post-fix.png
+:alt: Fixed footer, with a static portlet
+```
+
+Not bad so far.
+
+## Adding complex HTML markup with TinyMCE templates
+
+To create the home page, we need two of our TinyMCE templates.
+
+- section-intro
+- section-promise
+
+let's add them with TinyMCE templates:
+
+```{image} _static/diazo/tinymce-insert-template.png
+:alt: Adding sections to home page with TinyMCE templates
+```
+
+Select `Section: Intro` from the list of templates:
+
+```{image} _static/diazo/tinymce-intro-select-template.png
+:alt: Select Section Intro from the list of TinyMCE tempalates
+```
+
+We now have a preview of the template and can insert it:
+
+```{image} _static/diazo/tinymce-intro-selected.png
+:alt: TinyMCE template Section Intro selected
+```
+
+Now we can see it inside the TinyMCE. It looks a bit different than expected, but after saving we will have what we want. We also can edit the text and the images if we want.
+
+```{image} _static/diazo/tinymce-intro-inserted.png
+:alt: Section Intro inserted in TinyMCE
+```
+
+Let's add the section section `Promise` too:
+
+```{image} _static/diazo/tinymce-intro-promise.png
+:alt: Section Intro and Promise inserted in TinyMCE
+```
+
+Now that we have both sections in, let's save and have a look at it:
+
+```{image} _static/diazo/tinymce-intro-promise-result.png
+:alt: Result of section intro and promise added
+```
+
+Not bad!
 
