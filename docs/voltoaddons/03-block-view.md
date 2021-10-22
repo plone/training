@@ -1,30 +1,32 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Volto add-ons development training module 3, add-ons block view"
+  "property=og:description": "Volto add-ons development training module 3"
+  "property=og:title": "Volto add-ons development block view"
+  "keywords": "Volto"
 ---
 
 # Improve the block view
 
 Let's add CSV file parsing.
 
-There are many CSV parsers available for Nodejs, we'll use [Papaparse] because
-it also works in the browser.
+There are many CSV parsers available for NodeJS.
+We'll use [Papaparse] because it also works in the browser.
 
-We'll need to add the dependency to the add-on. When using yarn workspaces, the
+We'll need to add the dependency to the add-on if you haven't already done so,
+as instructed in the first chapter. When using yarn workspaces, the
 workflow is a bit different. For our simple use case, we could probably run
-`yarn add papaparse` inside the `src/addons/datatable-tutorial`, but
-the correct way is to run this command through the project root.
+`yarn add papaparse` inside the `src/addons/volto-datatable-tutorial`, but
+the correct way is to run this command within the project root.
 
-First run `yarn workspaces info` to see the workspaces we have available.
+First, run `yarn workspaces info` to see the workspaces we have available.
 
-```sh
-> yarn workspaces info
+```console
+yarn workspaces info
+
 {
-  "@plone-collective/datatable-tutorial": {
-    "location": "src/addons/datatable-tutorial",
+  "@plone-collective/volto-datatable-tutorial": {
+    "location": "src/addons/volto-datatable-tutorial",
     "workspaceDependencies": [],
     "mismatchedWorkspaceDependencies": []
   }
@@ -34,17 +36,17 @@ First run `yarn workspaces info` to see the workspaces we have available.
 To add a dependency to the package, run:
 
 ```sh
-> yarn workspace @plone-collective/datatable-tutorial add papaparse
+> yarn workspace @plone-collective/volto-datatable-tutorial add papaparse
 ```
 
-And finally, the new block code:
+And finally, the new block code within `src/DataTable/DataTable.jsx`:
 
 ```jsx
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Table } from 'semantic-ui-react';
 import csv from 'papaparse';
-import { getRawContent } from '@plone-collective/datatable-tutorial/actions';
+import { getRawContent } from '@plone-collective/volto-datatable-tutorial/actions';
 
 const DataTableView = ({ data: { file_path } }) => {
   const id = file_path?.[0]?.['@id'];
@@ -95,21 +97,23 @@ const DataTableView = ({ data: { file_path } }) => {
 export default DataTableView;
 ```
 
-Writing components where the `useEffect` triggers network calls can be pretty
-tricky. According to the [rule of hooks], hooks can't be triggered
-conditionally, they always have to be run. For this reason it's important to
-add relevant conditions inside the hook code, so be sure to identify and
-prepare a way to tell, from inside the hook, if the network-fetching action
-should be dispatched.
+Writing components where the `useEffect` triggers network calls can be pretty tricky.
+According to the [rule of hooks], hooks can't be triggered conditionally.
+They always have to be executed.
+For this reason, it's important to add relevant conditions inside the hook code.
+Be sure to identify and prepare a way to tell, from inside the hook, if the network-fetching action should be dispatched.
 
 ## The React HOC Pattern
 
-It is a good idea to split the code in generic "code blocks" so that behavior
-and look are separated. This has many benefits: it makes components easier to
-write and test, it separates business logic in reusable behaviors, etc.
+It is a good idea to split the code into generic "code blocks" so that
+behavior and look are separated.
+This has many benefits:
+- It makes components easier to write and test.
+- It separates business logic into reusable behaviors.
 
-So, can we abstract the data grabbing logic? Let's write a simple Higher Order
-Component (HOC) that does the data grabbing:
+Can we abstract the data-grabbing logic?
+Let's write a simple Higher-Order Component (HOC) that does the data grabbing.
+The simplest HOC wrapper looks like this:
 
 ```jsx
 const withFileData = (WrappedComponent) => {
@@ -119,7 +123,11 @@ const withFileData = (WrappedComponent) => {
 export default withFileData(DataTableView);
 ```
 
-And now let's move the file download and parsing logic to this HOC.
+Notice the similarity with Python decorators.
+In our case, the HOC is a function that, given a component as input, returns
+a React component.
+
+Now let's move the file download and parsing logic to this HOC.
 We'll create the `src/hocs/withFileData.js` file:
 
 ```jsx
@@ -127,7 +135,8 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import csv from 'papaparse';
-import { getRawContent } from '@plone-collective/datatable-tutorial/actions';
+
+import { getRawContent } from '@plone-collective/volto-datatable-tutorial/actions';
 
 const withFileData = (WrappedComponent) => {
   return (props) => {
@@ -160,21 +169,29 @@ const withFileData = (WrappedComponent) => {
 export default withFileData;
 ```
 
-This HOC now gets the data from the Redux store using the logic and code we've
-used previously and then simply injects it as a new property to the original
-wrapped component.
+This HOC now gets the data from the `Redux` store using the logic and code we've
+previously used.
+It then injects it as a new property onto the original wrapped component.
 
-An HOC is a simple function that gets a component and returns another
-component.  For a Python developer, the decorators are a very similar concept.
-One thing to pay attention, React component names need to be referenced as
-PascalCase in JSX code.
+A HOC is a simple function that gets a component and returns another
+component.  For a Python developer, decorators are a very similar concept.
+Take note that React component names must be referenced as `PascalCase` in JSX code.
 
-And now the view component is simple, neat and focused:
+Now the view component is simple, neat, and focused.
+
+Now write the `src/hocs/index.js` file where you export the new HOC.
+
+```jsx
+import withFileData from './withFileData';
+export { withFileData };
+```
+
+Back to the `src/DataTable/DataTable.jsx`, it becomes:
 
 ```jsx
 import React from 'react';
 import { Table } from 'semantic-ui-react';
-import { withFileData } from '@plone-collective/datatable-tutorial/hocs';
+import { withFileData } from '@plone-collective/volto-datatable-tutorial/hocs';
 
 const DataTableView = ({ file_data }) => {
   const fields = file_data?.meta?.fields || [];
@@ -206,25 +223,6 @@ const DataTableView = ({ file_data }) => {
 export default withFileData(DataTableView);
 ```
 
-Note: for the purpose of this tutorial, the `withFileData` HOC has been
-created a bit simplistic. To make it more generic, we could avoid hard-coding
-the field name, by doing something like this:
-
-```jsx
-const withFileData = (getFilePath) => (WrappedComponent) => {
-  return (props) => {
-    const file_path = getFilePath(props);
-...
-```
-
-And we change how we wrap the `DataTableView` to keep the file_path specific
-logic local to the `DataTable` component
-
-```jsx
-export default withFileData(({ data: { file_path } }) => file_path)(
-  DataTableView,
-);
-```
 
 [papaparse]: https://www.npmjs.com/package/papaparse
 [rule of hooks]: https://reactjs.org/docs/hooks-rules.html

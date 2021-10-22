@@ -1,18 +1,21 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Volto add-ons development training module 4, add-ons block edit"
+  "property=og:description": "Volto add-ons development training module 4"
+  "property=og:title": "Volto add-ons development block edit options"
+  "keywords": "Volto"
 ---
 
 # Block editing with a form
 
-We'll add editing to the block. The most basic schema looks something like
-this:
+We'll add schema-based editing of the block settings.
+In Volto the convention is to use the schema generated from a function, so that
+the resulting object can be freely mutated, as it comes from a closure.
+
+The most basic schema would look something like this:
 
 ```jsx
-export const TableSchema = () => ({
+export const TableSchema = ({formData, intl}) => ({
   title: 'Table',
   fieldsets: [
     {
@@ -31,15 +34,15 @@ export const TableSchema = () => ({
 });
 ```
 
-This schema is based on the one used by the plone.restapi to edit the
-server-side Dexterity content. We're appropriating it, it lives in the client
-side right now, so we have some freedom in extending it with new logic and
-capabilities. The only requirement is that Volto's form implementation
-understands it, but even here we have a lot of freedom, as the form passes all
+This schema is based on the one used by `plone.restapi` to edit the server-side
+`Dexterity` content.  We're appropriating it.  It lives on the client side
+right now, so we have some freedom in extending it with new logic and
+capabilities.  The only requirement is that Volto's form implementation
+understands it.  But even here we have a lot of freedom, as the form passes all
 the field props to the widgets.
 
-To understand how to structure the schema you need to read Volto's
-[Field.jsx] code. In it we see the following logic:
+To understand how to structure the schema, you need to read Volto's
+[Field.jsx] code.  In it, we see the following logic:
 
 ```jsx
 const Widget =
@@ -53,7 +56,32 @@ const Widget =
   getWidgetDefault();
 ```
 
-Now we add a basic schema to control the table styling:
+The precedence order of the algorithm is pretty self-explanatory.
+
+You can specify a widget for a particular field with:
+
+```jsx
+config.widgets.id.some_fieldname = MyWidget`;
+```
+
+Or you can set the `widget` property in a schema:
+
+```jsx
+//...
+properties: {
+  headline: {
+    title: "Headline",'
+    widget: "headline_widget",
+  }
+}
+//...
+```
+
+See [Volto's widget documentation] for more details, including how to designate
+a widget for a particular Dexterity field.
+
+Now we add a basic schema to control the table styling. Create the
+`src/DataTable/schema.js` file:
 
 ```jsx
 import { defineMessages } from 'react-intl';
@@ -77,7 +105,8 @@ export const TableSchema = ({ intl }) => ({
   properties: {
     file_path: {
       title: intl.formatMessage(messages.dataFile),
-      widget: 'pick_object',
+      widget: 'object_browser',
+      mode: 'link',
     },
     fixed: {
       type: 'boolean',
@@ -148,13 +177,19 @@ const messages = defineMessages({
 });
 ```
 
-Notice that our schema is actually a function that returns a Javascript object,
+Notice that our schema is actually a function that returns a JavaScript object,
 not least because we need to have access to the `intl` utility to provide
 internationalization.
 
-To use the schema we need to change the block edit component:
+To use the schema, we need to change the block edit component from
+`src/DataTable/DataTableEdit.jsx`:
 
 ```jsx
+// ...
+import { InlineForm } from '@plone/volto/components';
+import { TableSchema } from './schema';
+// ...
+
 const DataTableEdit = (props) => {
   const { selected, onChangeBlock, block, data } = props;
   const schema = TableSchema(props);
@@ -199,7 +234,8 @@ const DataTableEdit = (props) => {
             <Icon name={tableSVG} size="100px" color="#b8c6c8" />
             <Field
               id="file_path"
-              widget="pick_object"
+              widget="object_browser"
+              mode="link"
               title="Pick a file"
               value={data.file_path || []}
               onChange={(id, value) => {
@@ -219,18 +255,18 @@ const DataTableEdit = (props) => {
 export default DataTableEdit;
 ```
 
-We're using the `InlineForm`, a component provided by Volto that renders an
-"embeddable" form. This form requires, as parameters, the schema and the form
-values. We'll render this form in the sidebar.
+We're using the `InlineForm`, a component provided by Volto that renders an "embeddable" form.
+This form requires, as parameters, the schema, and the form values.
+We'll render this form in the sidebar.
 
-And now the view module can become:
+Now the view module from `src/DataTable/DataTable.jsx` can become:
 
 ```{code-block} jsx
 :force: true
 
 import React from 'react';
 import { Table } from 'semantic-ui-react';
-import { withFileData } from '@plone-collective/datatable-tutorial/hocs';
+import { withFileData } from '@plone-collective/volto-datatable-tutorial/hocs';
 
 const format = (data) => {
   return {
@@ -270,23 +306,23 @@ const DataTableView = ({ file_data, data }) => {
   );
 };
 
-export default withFileData(({ data: { file_path } }) => file_path)(
+export default withFileData(({ data: { file_path } }) => file_path?.[0])(
   DataTableView
 );
 ```
 
-Here's how your block would look like now:
+Here's how your block would look like:
 
 ```{image} _static/basic-table-edit.png
 ```
 
 ## Initial block data as a reusable pattern
 
-For the view component we've created a HOC mechanism that grants automatic data
-injection to. Can we do the same and simplify the Edit component? Let's make
-the "new block needs to point to a file" a mechanism that we can reuse. Perhaps
-later we'll write a chart block that uses the CSV file, so we'll be able to
-reuse code by composing.
+For the view component, we've created a `HOC` mechanism that grants automatic data injection.
+Can we do the same and simplify the `Edit` component?
+Let's make the "new block needs to point to a file", a mechanism that we can reuse.
+Perhaps later we'll write a chart block that uses the CSV file, so we'll be
+able to reuse code by composing.
 
 Add the `src/hocs/withBlockDataSource.js` HOC file:
 
@@ -311,7 +347,8 @@ const withBlockDataSource = (opts) => (WrappedComponent) => {
                 <Icon name={icon} size="100px" color="#b8c6c8" />
                 <Field
                   id="file_path"
-                  widget="pick_object"
+                  widget="object_browser"
+                  mode="link"
                   title="Pick a file"
                   value={file_path || []}
                   onChange={(id, value) => {
@@ -347,12 +384,29 @@ const withBlockDataSource = (opts) => (WrappedComponent) => {
 export default withBlockDataSource;
 ```
 
-Within `src/DataTable/DataTableEdit.js` now import the newly added `withBlockDataSource`
-higher order component and make use of it by replacing the DataTableEdit component and it's export with:
+Make sure to export this new `HOC` from the `src/hocs/index.js` file with:
 
 ```jsx
-// ... previous imports remain intact plus the following
-import { withBlockDataSource } from '@plone-collective/datatable-tutorial/hocs';
+export withFileData from './withFileData';
+export withBlockDataSource from './withBlockDataSource';
+```
+
+Within `src/DataTable/DataTableEdit.js` now import the newly added
+`withBlockDataSource` higher-order component.
+
+Make use of it by replacing the `DataTableEdit` component, and it's export with:
+
+```jsx
+import React from 'react';
+import { InlineForm, SidebarPortal } from '@plone/volto/components';
+import tableSVG from '@plone/volto/icons/table.svg';
+
+import { withBlockDataSource } from '@plone-collective/volto-datatable-tutorial/hocs';
+
+import { TableSchema } from './schema';
+import DataTableView from './DataTableView';
+
+import './datatable-edit.less';
 
 const DataTableEdit = (props) => {
   const { selected, onChangeBlock, block, data } = props;
@@ -381,8 +435,9 @@ const DataTableEdit = (props) => {
 export default withBlockDataSource({
   icon: tableSVG,
   title: 'Data table',
-  getFilePath: ({ data: { file_path } }) => file_path,
+  getFilePath: ({ data: { file_path } }) => file_path?.[0],
 })(DataTableEdit);
 ```
 
 [field.jsx]: https://github.com/plone/volto/blob/master/src/components/manage/Form/Field.jsx
+[Volto's widget documentation]: https://github.com/plone/volto/blob/master/docs/source/recipes/widget.md

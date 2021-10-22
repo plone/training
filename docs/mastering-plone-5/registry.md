@@ -204,7 +204,7 @@ We will allow the rooms to be added in the control panel and use these values in
 Add a new field to {py:class}`IPloneconfControlPanel`:
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 rooms = schema.Tuple(
     title=u'Available Rooms for the conference',
@@ -218,7 +218,7 @@ rooms = schema.Tuple(
 Create a file {file}`vocabularies.py` and write the vocabulary:
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from plone import api
@@ -271,7 +271,7 @@ Use the new vocabulary in the talk schema. Edit {file}`content/talk.xml`
 
 ```{code-block} xml
 :emphasize-lines: 7
-:linenos: true
+:linenos:
 
 <field name="room"
        type="zope.schema.Choice"

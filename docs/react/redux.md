@@ -39,7 +39,7 @@ We will create a file {file}`actions/index.js` with the `addFaqItem` action:
 
 ```{code-block} jsx
 :emphasize-lines: 1-5
-:linenos: true
+:linenos:
 
 export const addFaqItem = (question, answer) => ({
   type: "ADD_FAQ_ITEM",
@@ -56,7 +56,7 @@ Write the `editFaqItem` and `deleteFaqItem` actions.
 ```{code-block} jsx
 :emphasize-lines: 1-6,8-11
 :lineno-start: 7
-:linenos: true
+:linenos:
 
 export const editFaqItem = (index, question, answer) => ({
   type: "EDIT_FAQ_ITEM",
@@ -80,7 +80,7 @@ It will look like this:
 
 ```{code-block} jsx
 :emphasize-lines: 1-3,5
-:linenos: true
+:linenos:
 
 const faq = (state = [], action) => {
   // Do something
@@ -96,7 +96,7 @@ Finish the reducer so that it can handle the `ADD_FAQ_ITEM`, `EDIT_FAQ_ITEM`, an
 
 ```{code-block} jsx
 :emphasize-lines: 2-25
-:linenos: true
+:linenos:
 
 const faq = (state = [], action) => {
   let faq;
@@ -137,7 +137,7 @@ We will create the file {file}`reducers/index.js`.
 
 ```{code-block} jsx
 :emphasize-lines: 1-2,4-6
-:linenos: true
+:linenos:
 
 import { combineReducers } from "redux";
 import faq from "./faq";

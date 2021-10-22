@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -37,7 +37,7 @@ We need a view and an edit form for the block. Create a {file}`src/FAQ/BlockView
 The BlockView is a simple function component that displays a FAQ component with the data stored on the block.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import React from 'react';
 import FAQ from './FAQ';
@@ -56,7 +56,7 @@ export default View;
 We outsource the FAQ component to file {file}`srch/FAQ/FAQ.jsx` and make heavy use of Semantic UI components especially of an accordion with its respective behavior of expanding and collapsing.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 const FAQ = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(new Set());
@@ -65,13 +65,13 @@ const FAQ = ({ data }) => {
     {data.faq_list.faqs.map((id_qa) => (
 ```
 
-We primarily loop over the accordion elements and we remember the extended (not collapsed)  elements.
+We primarily loop over the accordion elements and we remember the extended (not collapsed) elements.
 
 ````{admonition} Complete code of the FAQ component
 :class: toggle
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import React, { useState } from 'react';
 
@@ -158,7 +158,7 @@ export default FAQ;
 Let's see how the data is stored on the block. Open your BlockEdit. See the helper component `SidebarPortal`. Everything inside is displayed in the Sidebar.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import React from 'react';
 import { SidebarPortal } from '@plone/volto/components';
@@ -181,10 +181,10 @@ const Edit = ({ data, onChangeBlock, block, selected }) => {
 export default Edit;
 ```
 
-We outsource the edit form in a file {file}`FAQSidebar.jsx` which displays the form according a schema of question and answers. The *onChangeBlock* event handler is inherited, it stores the value on the block.
+We outsource the edit form in a file {file}`FAQSidebar.jsx` which displays the form according a schema of question and answers. The _onChangeBlock_ event handler is inherited, it stores the value on the block.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import React from 'react';
 import { FAQSchema } from './schema';
@@ -213,7 +213,7 @@ We define the schema in {file}`schema.js`.
 
 ```{code-block} jsx
 :emphasize-lines: 11-14
-:linenos: true
+:linenos:
 
 export const FAQSchema = {
   title: 'FAQ',
@@ -234,10 +234,10 @@ export const FAQSchema = {
 };
 ```
 
-The field *faq_list* has a type *'faqlist'*. This has to be registered as a *widget* in {file}`src/config.js`. This configuration is the central place where your add-on can customize the hosting Volto app. It's the place where we later also register our new block type with information about its view and edit form.
+The field _faq_list_ has a type _'faqlist'_. This has to be registered as a _widget_ in {file}`src/config.js`. This configuration is the central place where your add-on can customize the hosting Volto app. It's the place where we later also register our new block type with information about its view and edit form.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import FAQListEditWidget from './FAQ/FAQListEditWidget';
 
@@ -259,7 +259,7 @@ That's a lot. Let's start with the list of fields displaying the existing values
 Create a {file}`FAQListEditWidget.jsx`.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import { Form as VoltoForm } from '@plone/volto/components';
 
@@ -295,7 +295,7 @@ You see the Volto `Form` component with its onSubmit event, the form data and th
 
 ```{code-block} jsx
 :emphasize-lines: 113-125
-:linenos: true
+:linenos:
 
 import React from 'react';
 import { defineMessages, injectIntl } from 'react-intl';
@@ -467,7 +467,7 @@ The form is fructified by the schema QuestionAnswerPairSchema. It's simple, just
 
 ```{code-block} jsx
 :emphasize-lines: 12,17
-:linenos: true
+:linenos:
 
 export const QuestionAnswerPairSchema = (title_question, title_answer) => {
   return {
@@ -503,7 +503,7 @@ Go to {file}`config.js` and register your block type.
 
 ```{code-block} jsx
 :emphasize-lines: 8-22
-:linenos: true
+:linenos:
 
 import icon from '@plone/volto/icons/list-bullet.svg';
 
@@ -539,7 +539,7 @@ As we now apply our configuration of the new block type, the app is enriched wit
 {file}`index.js`
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import applyConfig from './config';
 
@@ -595,7 +595,7 @@ Your add-on is ready to use. As by now your repository is on Github. As long as 
 
 A Volto project uses this add-on via 'mrs.developer' [^id4]
 
-Install mrs.developer to let the project know about the *source* of your add-on.
+Install mrs.developer to let the project know about the _source_ of your add-on.
 
 ```shell
 yarn add mrs-developer -WD
@@ -621,7 +621,8 @@ yarn develop
 
 An official release is done on npm. Switch to section {ref}`Release a Volto add-on <volto-custom-addon-final-label>`.
 
-[^id3]: [Volto accordion block](https://www.npmjs.com/package/@rohberg/volto-accordion-block)
+[^id3]:
+    [Volto accordion block](https://www.npmjs.com/package/@rohberg/volto-accordion-block)
     Started as an example for the training it is ready to use for creating a questions and answer sections.
 
 [^id4]: [mrs.developer](https://www.npmjs.com/package/mrs-developer) Pull a package from git and set it up as a dependency for the current project codebase.

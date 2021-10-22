@@ -122,7 +122,7 @@ Also move all the styling of the view to {file}`components/FaqItem.css`.
 {file}`components/FaqItem.jsx`
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import "./FaqItem.css";
 

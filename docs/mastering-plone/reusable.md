@@ -56,7 +56,7 @@ Let's modify the file {file}`configure.zcml`
 
 ```{code-block} xml
 :emphasize-lines: 5-13
-:linenos: true
+:linenos:
 
 <configure xmlns="...">
 
@@ -84,7 +84,7 @@ In some places we have to reference the Zope 2 permission strings. It is best pr
 We provide this in {file}`__init__.py`
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 ...
 DoVote = 'starzel.votable_behavior: Do Vote'
@@ -107,7 +107,7 @@ We can add this restriction to {file}`browser/configure.zcml`
 
 ```{code-block} xml
 :emphasize-lines: 13, 21
-:linenos: true
+:linenos:
 
 <configure
   xmlns="http://namespaces.zope.org/zope"
@@ -159,7 +159,7 @@ Lets move on to {file}`browser/viewlets.py`.
 
 ```{code-block} python
 :emphasize-lines: 9, 19-22
-:linenos: true
+:linenos:
 
 # ...
 
@@ -193,7 +193,7 @@ And the template in {file}`browser/templates/voting_viewlet.pt`
 
 ```{code-block} xml
 :emphasize-lines: 7, 13
-:linenos: true
+:linenos:
 
 <tal:snippet omit-tag="">
   <div class="voting">
@@ -238,7 +238,7 @@ Who has which permissions is managed in Zope. This is persistent, and persistent
 The persistent configuration is managed in another file: {file}`profiles/default/rolemap.xml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <rolemap>

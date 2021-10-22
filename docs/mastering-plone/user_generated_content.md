@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
+:alt: Plone backend
 :align: left
 :class: logo
 ```
@@ -52,13 +52,13 @@ In this chapter we:
 
 ## Constrain types
 
-- On the talk folder select [Restrictions…](http://localhost:8080/Plone/the-event/talks/folder_constraintypes_form) from the *Add new* menu. Only allow adding talks.
+- On the talk folder select [Restrictions…](http://localhost:8080/Plone/the-event/talks/folder_constraintypes_form) from the _Add new_ menu. Only allow adding talks.
 
 (user-content-local-roles-label)=
 
 ## Grant local roles
 
-- Go to *Sharing* and grant the role *Can add* to the group *logged-in users*. Now every logged-in user can add content in this folder (and only this folder).
+- Go to _Sharing_ and grant the role _Can add_ to the group _logged-in users_. Now every logged-in user can add content in this folder (and only this folder).
 
 By combining the constrain types and the local roles on this folder, we have made it so only logged-in users can create and submit talks in this folder.
 
@@ -71,8 +71,8 @@ We still need to fix a problem: Authenticated users can see all talks, including
 - Go to the {menuselection}`ZMI --> portal_workflow`
 - See how talks have the same workflow as most content, namely {guilabel}`(Default)`
 - Go to the tab {guilabel}`Contents`, check the box next to {guilabel}`simple_publication_workflow`, click {guilabel}`copy` and {guilabel}`paste`.
-- Rename the new workflow from *copy_of_simple_publication_workflow* to *talks_workflow*.
-- Edit the workflow by clicking on it: Change the Title to *Talks Workflow*.
+- Rename the new workflow from _copy_of_simple_publication_workflow_ to _talks_workflow_.
+- Edit the workflow by clicking on it: Change the Title to _Talks Workflow_.
 - Click on the tab {guilabel}`States` and click on {guilabel}`private` to edit this state. In the next view select the tab {guilabel}`Permissions`.
 - Find the table column for the role {guilabel}`Contributor` and remove the permissions for {guilabel}`Access contents information` and {guilabel}`View`. Note that the {guilabel}`Owner` (i.e. the Creator) still has some permissions.
 - Do the same for the state {guilabel}`pending`
@@ -92,7 +92,7 @@ We don't want to do these steps for every new conference by hand so we move the 
 
 ### Import/Export the Workflow
 
-- export the GenericSetup step *Workflow Tool* in <http://localhost:8080/Plone/portal_setup/manage_exportSteps>.
+- export the GenericSetup step _Workflow Tool_ in <http://localhost:8080/Plone/portal_setup/manage_exportSteps>.
 
 - drop the file {file}`workflows.xml` into {file}`profiles/default` an clean out everything that is not related to talks.
 
@@ -133,7 +133,7 @@ Our package already has such a method registered in {file}`configure.zcml`. It w
 
 ```{code-block} xml
 :emphasize-lines: 7
-:linenos: true
+:linenos:
 
 <genericsetup:registerProfile
     name="default"
@@ -149,7 +149,7 @@ This makes sure the method {py:meth}`post_install` in {file}`setuphandlers.py` i
 
 ```{code-block} python
 :emphasize-lines: 2-3, 7-10, 26-27, 30-65
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from plone import api
@@ -225,7 +225,7 @@ def uninstall(context):
 
 Once we reinstall our package a folder {file}`talks` is created with the appropriate local roles and constraints.
 
-We wrote similar code to create the folder *The Event* in {doc}`upgrade_steps`.
+We wrote similar code to create the folder _The Event_ in {doc}`upgrade_steps`.
 We need it to make sure a sane structure gets created when we create a new site by hand or in tests.
 
 You would usually create a list of dictionaries containing the type, parent and title plus optionally layout, workflow state etc. to create an initial structure. In some projects it could also make sense to have a separate profile besides `default` which might be called `demo` or `content` that creates an initial structure and maybe another `testing` that creates dummy content (talks, speakers etc) for tests.
@@ -264,7 +264,7 @@ Also add a {file}`profiles/content/metadata.xml` so the default profile gets aut
 Add the structure you wish to create as a list of dictionaries in {file}`setuphandlers.py`:
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 STRUCTURE = [
     {
@@ -341,7 +341,7 @@ STRUCTURE = [
 Add the method {py:meth}`post_content` to {file}`setuphandlers.py`. We pointed to that when registering the import step. And add some fancy logic to create the content from `STRUCTURE`.
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from zope.lifecycleevent import modified
 

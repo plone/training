@@ -17,7 +17,7 @@ We will start by adding a test for the `ADD_TODO` action in a file called {file}
 
 ```{code-block} jsx
 :emphasize-lines: 1-16
-:linenos: true
+:linenos:
 
 import faq from "./faq";
 
@@ -47,7 +47,7 @@ Add the unit tests for the edit and delete actions for the reducer.
 ```{code-block} jsx
 :emphasize-lines: 1-32
 :lineno-start: 16
-:linenos: true
+:linenos:
 
 it("is able to handle the edit faq item action", () => {
   expect(

@@ -17,7 +17,7 @@ We will add a link to the `FaqItem` component so that we can go to the `FaqItemV
 ```{code-block} jsx
 :emphasize-lines: 1
 :lineno-start: 4
-:linenos: true
+:linenos:
 
 import { Link } from "react-router-dom";
 ```

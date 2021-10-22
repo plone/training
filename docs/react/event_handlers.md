@@ -80,7 +80,7 @@ To call the newly created `toggle` function, we will add an `onClick` handler to
 ```
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import { useState } from "react";
 import "./FaqItem.css";

@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -56,7 +56,7 @@ Add-ons that are already released on [npm](https://www.npmjs.com):
 
 ```{code-block} json
 :emphasize-lines: 2,6-7
-:linenos: true
+:linenos:
 
 "addons": [
   "@eeacms/volto-columns-block"

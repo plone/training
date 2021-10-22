@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -52,7 +52,7 @@ We forgot something: a list of talks is great, especially if you can sort it acc
 
 We need a schedule and for this we need to store the information when a talk will happen.
 
-Luckily the default type *Event* is based on reusable behaviors from the package {py:mod}`plone.app.event` that we can reuse.
+Luckily the default type _Event_ is based on reusable behaviors from the package {py:mod}`plone.app.event` that we can reuse.
 
 In this chapter you will
 
@@ -72,7 +72,7 @@ Enable the behavior `plone.eventbasic` for talks in {file}`profiles/default/type
 
 ```{code-block} xml
 :emphasize-lines: 6
-:linenos: true
+:linenos:
 
 <property name="behaviors">
   <element value="plone.dublincore"/>
@@ -255,6 +255,7 @@ export default TalkView;
 The result should look like this:
 
 ```{figure} _static/event_view_volto.png
+
 ```
 
 ## Hiding fields from certain users

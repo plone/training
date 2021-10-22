@@ -69,7 +69,7 @@ Next we must, as always, register our ZCML.
 First, add the information that there will be another ZCML file in {file}`configure.zcml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <configure xmlns="...">
 
@@ -83,7 +83,7 @@ First, add the information that there will be another ZCML file in {file}`config
 Next, create {file}`behavior/configure.zcml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <configure
     xmlns="http://namespaces.zope.org/zope"
@@ -120,7 +120,7 @@ Because of this, we can write views and viewlets just for this content type.
 The interfaces need to be written, in our case into a file {file}`interfaces.py`:
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 # encoding=utf-8
 from plone import api
@@ -222,7 +222,7 @@ Then we define the API that we are going to use in browser views and viewlets.
 Now the only thing that is missing is the behavior implementation, which we must put into {file}`behavior/voting.py`
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 # encoding=utf-8
 from .interfaces import IVoting
@@ -308,7 +308,7 @@ But trying to change these fields will throw an exception.
 Let's continue with the {file}`behavior/voting.py` file, inside the `Vote` class:
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
     def _hash(self, request):
         """
@@ -448,7 +448,7 @@ Remember you need an empty {file}`__init__.py` file in the {file}`tests` directo
 You also need to add `starzel.votable_behavior` to `test-eggs` in {file}`buildout.cfg` and re-run buildout.
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 from persistent import Persistent
 from zope.annotation.attribute import AttributeAnnotations

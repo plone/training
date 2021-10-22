@@ -19,7 +19,7 @@ The function has a `return` statement which contains JSX to render the view.
 JSX is inline HTML which will be rendered as HTML in the view.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import logo from './logo.svg';
 import './App.css';
@@ -64,7 +64,7 @@ Remove all other boilerplate code including styling.
 :class: toggle
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 function App() {
   return (

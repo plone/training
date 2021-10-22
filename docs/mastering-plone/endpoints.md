@@ -61,7 +61,7 @@ Don't forget to register the new file in the packages' main {file}`configure.zcm
 
 ```{code-block} xml
 :emphasize-lines: 2
-:linenos: true
+:linenos:
 
 <include package=".browser" />
 <include package=".restapi" />
@@ -70,7 +70,7 @@ Don't forget to register the new file in the packages' main {file}`configure.zcm
 Now register the endpoints you plan to write in {file}`restapi/configure.zcml`:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <configure
     xmlns="http://namespaces.zope.org/zope"

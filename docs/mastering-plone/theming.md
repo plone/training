@@ -57,7 +57,7 @@ using the overrides-tab of the resource registry.
 Let's create a file {file}`ploneconf.css` in the {file}`static` folder with some CSS:
 
 ```{code-block} CSS
-:linenos: true
+:linenos:
 
  header #portal-header #portal-searchbox .searchSection {
      display: none;
@@ -96,7 +96,7 @@ For now the new files are accessible in the browser but we want Plone to use the
 
 Adding them directly into the HTML is not a good solution, because having many CSS and JS files slows down the page loading.
 
-Instead, we need to register a *bundle* that contains these files.
+Instead, we need to register a _bundle_ that contains these files.
 Plone will then make sure that all files that are part of this bundle are also deployed.
 
 We need to register our resources with GenericSetup.
@@ -104,7 +104,7 @@ We need to register our resources with GenericSetup.
 Open the file {file}`profiles/default/registry.xml` and add the following:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
  <!-- the plonconf bundle -->
  <records prefix="plone.bundles/ploneconf-bundle"

@@ -17,7 +17,7 @@ We will also delete the {file}`App.test.js` file, because we have deleted all th
 Here we will render the component and assert the markup.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 import React from "react";
 import { render } from "@testing-library/react";

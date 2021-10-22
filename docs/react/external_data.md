@@ -23,7 +23,7 @@ yarn add express
 Now we will create a simple server in the file {file}`server.js`
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 const express = require("express");
 const app = express();
@@ -59,7 +59,7 @@ Now it is time to write our action to fetch the items from the backend in the fi
 ```{code-block} jsx
 :emphasize-lines: 1-7
 :lineno-start: 19
-:linenos: true
+:linenos:
 
 export const getFaqItems = () => ({
   type: "GET_FAQ_ITEMS",
@@ -80,7 +80,7 @@ If that one is available, then we want to do an API call with the provided opera
 We will create a file at {file}`middleware/api.js` and the implementation will look like this:
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 export default store => next => action => {
   const { request, type, ...rest } = action;
@@ -162,7 +162,7 @@ The last part is to change our reducer at `reducers/faq.js` to handle the `GET_F
 
 ```{code-block} jsx
 :emphasize-lines: 23-24
-:linenos: true
+:linenos:
 
 const faq = (state = [], action) => {
 let faq;

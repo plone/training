@@ -41,7 +41,7 @@ Pages, folders, events, news items, files (binary) and images are all content ty
 It is common in developing a web site that you'll need customized versions of common content types, or perhaps even entirely new types.
 
 Remember the requirements for our project? We wanted to be able to solicit and edit conference talks.
-We *could* use the **Page** content type for that purpose.
+We _could_ use the **Page** content type for that purpose.
 But we need to make sure we collect certain bits of information about a talk and we couldn't be sure to get that information if we just asked potential presenters to create a page.
 
 Also, we'll want to be able to display talks featuring that special information, and we'll want to be able to show collections of talks.
@@ -56,7 +56,7 @@ Every Plone content type has the following parts:
 Schema
 
 : A definition of fields that comprise a content type;
-  properties of an object.
+properties of an object.
 
 FTI
 
@@ -65,8 +65,8 @@ FTI
 Views
 
 : A view is a representation of the object and the content of its fields that may be rendered in response to a request.
-  You may have *one or more* views for an object.
-  Some may be *visual* — intended for display as web pages — others may be intended to satisfy AJAX requests and render content in formats like JSON or XML.
+You may have _one or more_ views for an object.
+Some may be _visual_ — intended for display as web pages — others may be intended to satisfy AJAX requests and render content in formats like JSON or XML.
 
 ## Schemas, Fields and Values
 
@@ -82,7 +82,7 @@ Here is a example that shows how to access and modify these values in python:
 'A Newsitem'
 >>> obj.description
 'Some description'
->>> obj.description = u'A new description'
+>>> obj.description = 'A new description'
 >>> obj.description
 'A new description'
 >>> obj.image
@@ -120,16 +120,19 @@ Once deployed, create a Plone site, and perform the following steps.
 - Select the type {guilabel}`News Item` and click on {guilabel}`Schema`
 
   ```{figure} _static/volto_dexterity_types.png
+
   ```
 
 - Add a new field `Hot News` of type {guilabel}`Yes/No`
 
   ```{figure} _static/volto_edit_schema.png
+
   ```
 
-- In another tab, add a *News Item* and you'll see the new field.
+- In another tab, add a _News Item_ and you'll see the new field.
 
   ```{figure} _static/volto_add_news_item.png
+
   ```
 
 - Note that the only field in the schema of the News Item is the one we just added. All others are provided by behaviors.
@@ -151,7 +154,7 @@ In this step we will create a content type called `Talk` and try it out. When it
   - {guilabel}`Add new field` "Type of talk", type "Choice". Add options: talk, keynote, training.
   - {guilabel}`Add new field` "Details", type "Rich Text" with a maximal length of 2000.
   - {guilabel}`Add new field` "Audience", type "Multiple Choice". Add options: beginner, advanced, pro.
-  - Check the behaviors that are enabled:  *Dublin Core metadata*, *Name from title*. Do we need them all?
+  - Check the behaviors that are enabled: _Dublin Core metadata_, _Name from title_. Do we need them all?
 
 - Test the content type.
 
@@ -170,7 +173,7 @@ In this step we will create a content type called `Talk` and try it out. When it
 The schema you created through the web is stored as XML in the database. Here is the complete XML schema created by our actions:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <model xmlns:lingua="http://namespaces.plone.org/supermodel/lingua"
      xmlns:users="http://namespaces.plone.org/supermodel/users"

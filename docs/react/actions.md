@@ -105,7 +105,7 @@ Next we will create an `App` component with just the store and a reference to ou
 
 ```{code-block} jsx
 :emphasize-lines: 2-3,5-6,10,15-17
-:linenos: true
+:linenos:
 
 import { Provider } from "react-redux";
 import { createStore } from "redux";

@@ -27,23 +27,23 @@ Number fields
 Date and time fields
 
 : Datetime,
-  Date,
-  Time,
-  Timedelta
+Date,
+Time,
+Timedelta
 
 Choice and Multiple Choice fields
 
 : Choice,
-  Choice with radio widget,
-  Choice with Select2 widget,
-  Choice with named vocabulary,
-  List,
-  List with checkboxes,
-  List with Select2 widget,
-  List with values from named vocabulary but open to additions,
-  Tuple,
-  Set,
-  Set with checkboxes
+Choice with radio widget,
+Choice with Select2 widget,
+Choice with named vocabulary,
+List,
+List with checkboxes,
+List with Select2 widget,
+List with values from named vocabulary but open to additions,
+Tuple,
+Set,
+Set with checkboxes
 
 Relation fields
 
@@ -58,7 +58,7 @@ Other fields
 : Uri, Sourcetext, Ascii, Bytesline, Asciiline, Pythonidentifier, Dottedname, Dict, Dict with Choice
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from plone.app.multilingual.browser.interfaces import make_relation_root_path
@@ -494,7 +494,7 @@ The [Datagridfield](https://pypi.org/project/collective.z3cform.datagridfield/) 
 Here is an example:
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from collective.z3cform.datagridfield import DataGridFieldFactory
@@ -542,11 +542,13 @@ class IExampleWithDatagrid(model.Schema):
 The edit-form looks like this:
 
 ```{figure} _static/dexterity_reference_datagridfield_edit.png
+
 ```
 
 The output looks like this:
 
 ```{figure} _static/dexterity_reference_datagridfield_view.png
+
 ```
 
 ```{seealso}
@@ -613,7 +615,7 @@ class ITask(model.Schema):
 
 The same works for custom forms.
 
-With the directive {py:meth}`widget` you can not only change the widget used for a field. With {py:data}`pattern_options` you can pass additional parameters to the widget. Here, we configure the datetime widget powered by the JavaScript library [pickadate](https://amsul.ca/pickadate.js/)  by adding options that are used by it. Plone passes the options to the library.
+With the directive {py:meth}`widget` you can not only change the widget used for a field. With {py:data}`pattern_options` you can pass additional parameters to the widget. Here, we configure the datetime widget powered by the JavaScript library [pickadate](https://amsul.ca/pickadate.js/) by adding options that are used by it. Plone passes the options to the library.
 
 ```python
 class IMeeting(model.Schema):

@@ -32,7 +32,7 @@ But sponsors want to be displayed in a nice way according to the size of their s
 
 In this part we will:
 
-- create the content type *sponsor* that has a Python schema,
+- create the content type _sponsor_ that has a Python schema,
 - create a viewlet that shows the sponsor logos sorted by sponsoring level.
 
 The topics we cover are:
@@ -52,7 +52,7 @@ We don't need to register that folder in {file}`configure.zcml` since we don't n
 Now add a new file {file}`content/sponsor.py`.
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from plone.app.textfield import RichText
@@ -133,7 +133,7 @@ Next, we create the factory type information ("FTI") for the new type in {file}`
 
 ```{code-block} xml
 :emphasize-lines: 26
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <object name="sponsor" meta_type="Dexterity FTI" i18n:domain="plone"
@@ -185,7 +185,7 @@ Then we register the FTI in {file}`profiles/default/types.xml`
 
 ```{code-block} xml
 :emphasize-lines: 5
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <object name="portal_types" meta_type="Plone Types Tool">
@@ -208,7 +208,7 @@ Sponsors are containers but they don't need to be. Turn them into items by chang
 Simply modify the property `klass` in the FTI and reinstall.
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <property name="klass">plone.dexterity.content.Item</property>
 ```
@@ -222,7 +222,7 @@ We use the default view provided by Dexterity for testing since we will only dis
 If we really want a custom view for sponsors it could look like this.
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
       metal:use-macro="context/main_template/macros/master"
@@ -274,7 +274,7 @@ Instead of writing a view you will have to display the sponsors at the bottom of
 Register the viewlet in {file}`browser/configure.zcml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <browser:viewlet
     name="sponsorsviewlet"
@@ -291,7 +291,7 @@ Add the viewlet class in {file}`browser/viewlets.py`
 
 ```{code-block} python
 :emphasize-lines: 2-3, 5, 7-9, 19-63
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from collections import OrderedDict
@@ -390,7 +390,7 @@ Instead we should cache until one of the sponsors is modified by using a callabl
 Add the template {file}`browser/templates/sponsors_viewlet.pt`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <div metal:define-macro="portal_sponsorbox"
      i18n:domain="ploneconf.site">
@@ -425,14 +425,14 @@ You can now add some CSS in {file}`browser/static/ploneconf.css` to make it look
 
 ```css
 .sponsor {
-    display: inline-block;
-    margin: 0 1em 1em 0;
+  display: inline-block;
+  margin: 0 1em 1em 0;
 }
 
 .sponsor:hover {
-    box-shadow: 0 0 8px #000;
-    -moz-box-shadow: 0 0 8px #000;
-    -webkit-box-shadow: 0 0 8px #000;
+  box-shadow: 0 0 8px #000;
+  -moz-box-shadow: 0 0 8px #000;
+  -webkit-box-shadow: 0 0 8px #000;
 }
 ```
 
@@ -460,13 +460,13 @@ When we're done, it should have the following fields:
 - irc_name
 - image
 
-Do *not* use the {py:class}`IBasic` or {py:class}`IDublinCore` behavior to add title and description. Instead add your own field `title` and give it the title *Name*.
+Do _not_ use the {py:class}`IBasic` or {py:class}`IDublinCore` behavior to add title and description. Instead add your own field `title` and give it the title _Name_.
 
 ````{admonition} Solution
 :class: toggle
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from plone.app.textfield import RichText
@@ -528,7 +528,7 @@ Register the type in {file}`profiles/default/types.xml`
 
 ```{code-block} xml
 :emphasize-lines: 6
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <object name="portal_types" meta_type="Plone Types Tool">
@@ -543,7 +543,7 @@ Register the type in {file}`profiles/default/types.xml`
 The FTI goes in {file}`profiles/default/types/speaker.xml`. Again we use {py:class}`Item` as the base-class:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <object name="speaker" meta_type="Dexterity FTI" i18n:domain="plone"
@@ -607,7 +607,7 @@ This is more of a Python exercise. The gold and bronze sponsors should also have
 
 ```{code-block} python
 :emphasize-lines: 10-15, 41, 44-45
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from collections import OrderedDict

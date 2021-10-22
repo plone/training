@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Volto add-ons development training intro"
+  "property=og:description": "Volto add-ons development training"
+  "property=og:title": "Volto add-ons development intro"
+  "keywords": "Volto"
 ---
 
 (voltoaddons-intro-label)=
@@ -29,7 +29,7 @@ Some technologies and tools we use during the training:
 - [React] & JSX
 - [Yarn]
 - [Volto] and [Plone], of course
-- [create-volto-app] and [generator-volto]
+- [generator-volto]
 
 This training assumes that you have already taken (either in person at a Plone
 Conference or online) the existing React and Volto trainings. If you're
@@ -43,11 +43,11 @@ concepts of React and Volto development, as a refresher.
 
 At the end of this course you will know how to extend Volto using add-ons, what
 are the current capabilities of add-ons, their pros and cons, how to distribute
-addons and how to deploy them.
+add-ons and how to deploy them.
 
 ### Roadmap
 
-- bootstrap a Volto project using the generator-volto Yeoman generator
+- bootstrap a Volto project using the `@plone/volto` skeleton generator
 - bootstrap a Volto add-on from scratch
 - develop a simple Volto block
 - write an action/reducer pair for network requests
@@ -69,21 +69,22 @@ Here's a preview of the block we'll build:
 ```{image} _static/final-block.png
 ```
 
-We will be facing different challenges and we will be solving them, introducing
-or refreshing some of the concepts covered in the previous training classes.
-We will cover the proper solution to each challenge and we will provide an
+We will be facing different challenges, and we will be solving them, introducing
+or refreshing some concepts covered in the previous training classes.
+We will cover the proper solution to each challenge, and we will provide an
 overview of what to expect when developing for Volto.
 
 ## Before you start
 
-You'll need to have a Plone instance with plone.restapi integrate. The quickest
+You'll need to have a Plone instance with `plone.restapi` integrated. The quickest
 way to get a Plone instance running is with Docker:
 
 ```shell
-docker run -it --rm --name=plone -p 8080:8080 \
-    -e SITE=Plone -e ADDONS="kitconcept.volto" \
-    -e ZCML="kitconcept.volto.cors" \
-    -e PROFILES="kitconcept.volto:default-homepage" plone
+docker run -it --rm --name=plone \
+  -p 8080:8080 -e SITE=Plone -e ADDONS="plone.volto" \
+  -e ZCML="plone.volto.cors" \
+  -e PROFILES="plone.volto:default-homepage" \
+  plone
 ```
 
 If you have the whole tool chain setup to develop Plone, you can also clone
@@ -93,9 +94,9 @@ and use Volto's development backend setup:
 git clone https://github.com/plone/volto
 cd volto
 make build-backend
+make start-backend
 ```
 
-[create-volto-app]: https://github.com/plone/create-volto-app
 [generator-volto]: https://github.com/plone/generator-volto
 [plone]: https://plone.org
 [react]: https://reactjs.org/

@@ -92,7 +92,7 @@ Then, we add an empty {file}`behaviors/__init__.py` and a {file}`behaviors/confi
 
 ```{code-block} xml
 :emphasize-lines: 6-10
-:linenos: true
+:linenos:
 
 <configure
     xmlns="http://namespaces.zope.org/zope"
@@ -114,7 +114,7 @@ And a {file}`behaviors/featured.py` containing:
 (plone5-social-behavior-python-label)=
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from plone.autoform.interfaces import IFormFieldProvider
@@ -153,7 +153,6 @@ Let's go through this step by step.
 5. We add a normal [Bool](https://zopeschema.readthedocs.io/en/latest/fields.html#bool) schema field to control if a item should be displayed on the frontpage.
 ```
 
-
 ````{only} not presentation
 ```{note}
 
@@ -183,7 +182,7 @@ We must add the behavior to {file}`profiles/default/types/talk.xml`:
 
 ```{code-block} xml
 :emphasize-lines: 8
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"

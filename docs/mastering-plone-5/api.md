@@ -37,7 +37,7 @@ The API is divided in five sections. Here is one example from each:
 
 {py:mod}`plone.api` is a great tool for integrators and developers that is included when you install Plone, though for technical reasons it is not used by the code of Plone itself.
 
-In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out  what they do.
+In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out what they do.
 
 Some of these methods will be replaced by {py:mod}`plone.api`:
 
@@ -57,7 +57,7 @@ portal_catalog
 
 : {py:meth}`unrestrictedSearchResults()` returns search results without checking if the current user has the permission to access the objects.
 
-  {py:meth}`uniqueValuesFor()` returns all entries in an index
+{py:meth}`uniqueValuesFor()` returns all entries in an index
 
 portal_setup
 
@@ -96,11 +96,11 @@ pdb
 
 : The python debugger pdb is the single most important tool for us when programming. Just add `import pdb; pdb.set_trace()` in your code and debug away!
 
-  Since Plone 5 you can even add it to templates: add `<?python import pdb; pdb.set_trace() ?>` to a template and you end up in a pdb shell on calling the template. Look at the variable {py:obj}`econtext` to see what might have gone wrong.
+Since Plone 5 you can even add it to templates: add `<?python import pdb; pdb.set_trace() ?>` to a template and you end up in a pdb shell on calling the template. Look at the variable {py:obj}`econtext` to see what might have gone wrong.
 
 pdbpp
 
-: A great drop-in replacement for pdb with tab completion, syntax highlighting, better tracebacks,  introspection and more. And the best feature ever: The command {command}`ll` prints the whole current method.
+: A great drop-in replacement for pdb with tab completion, syntax highlighting, better tracebacks, introspection and more. And the best feature ever: The command {command}`ll` prints the whole current method.
 
 ipdb
 
@@ -110,9 +110,9 @@ Products.PDBDebugMode
 
 : An add-on that has two killer features.
 
-  **Post-mortem debugging**: throws you in a pdb whenever an exception occurs. This way you can find out what is going wrong.
+**Post-mortem debugging**: throws you in a pdb whenever an exception occurs. This way you can find out what is going wrong.
 
-  **pdb view**: simply adding `/pdb` to a url drops you in a pdb session with the current context as {py:obj}`self.context`. From there you can do just about anything.
+**pdb view**: simply adding `/pdb` to a url drops you in a pdb session with the current context as {py:obj}`self.context`. From there you can do just about anything.
 
 Debug mode
 
@@ -145,18 +145,18 @@ Products.enablesettrace or Products.Ienablesettrace
 Sentry
 
 : [Sentry](https://github.com/getsentry/sentry) is an error logging application you can host yourself.
-  It aggregates tracebacks from many sources and (here comes the killer feature) even the values of variables in the traceback. We use it in all our production sites.
+It aggregates tracebacks from many sources and (here comes the killer feature) even the values of variables in the traceback. We use it in all our production sites.
 
 zopepy
 
 : Buildout can create a python shell for you that has all the packages from your Plone site in its python path. Add the part like this:
 
-  ```
-  [zopepy]
-  recipe = zc.recipe.egg
-  eggs = ${instance:eggs}
-  interpreter = zopepy
-  ```
+```
+[zopepy]
+recipe = zc.recipe.egg
+eggs = ${instance:eggs}
+interpreter = zopepy
+```
 
 ```{seealso}
 A video of the talk [Debug like a pro. How to become a better programmer through pdb-driven development](https://pyvideo.org/pycon-de-2016/debug-like-a-pro-how-to-become-a-better-programmer-through-pdb-driven-development.html)
@@ -185,7 +185,7 @@ A video of the talk [Debug like a pro. How to become a better programmer through
 Add this to {file}`browser/configure.zcml`:
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <browser:page
   name="demo_content"
@@ -198,7 +198,7 @@ Add this to {file}`browser/configure.zcml`:
 This is {file}`browser/demo.py`:
 
 ```{code-block} python
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from Products.Five import BrowserView

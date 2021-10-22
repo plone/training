@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :align: left
 :class: logo
 ```
@@ -63,10 +63,10 @@ Create a new file {file}`src/components/Views/TalkList.jsx`.
 As a first step the file will hold a simple view component.
 
 ```jsx
-import React from 'react';
-import TalkView from './Views/Talk';
+import React from "react";
+import TalkView from "./Views/Talk";
 
-const TalkListView = props => {
+const TalkListView = (props) => {
   return <div>I am the TalkList component!</div>;
 };
 
@@ -87,7 +87,7 @@ export { TalkView, TalkListView };
 Now register the new component as a view for folderish types in `src/config.js`.
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 :emphasize-lines: 1,13-16
 
 import { TalkListView, TalkView } from './components';
@@ -130,7 +130,7 @@ The change would be in {file}`profiles/default/types/Document.xml`:
 
 ```{code-block} xml
 :emphasize-lines: 5-7
-:linenos: true
+:linenos:
 
 <?xml version="1.0"?>
 <object name="Document" meta_type="Dexterity FTI" i18n:domain="plone"
@@ -150,6 +150,7 @@ The change would be in {file}`profiles/default/types/Document.xml`:
 From now on you can select the new view for folder:
 
 ```{figure} _static/talklistview_select.png
+
 ```
 
 Now we will improve this view step by step. We start working directly with the context of our talks folder. The context is part of the props of the view. To have a convenient access to the context we assign a variable `content` the value of `props.content`.
@@ -158,7 +159,7 @@ Via prop `content` we have access to title, description and other attributes
 
 ```{code-block} jsx
 :emphasize-lines: 5
-:linenos: true
+:linenos:
 
 import React from 'react';
 import { Container } from 'semantic-ui-react';
@@ -183,6 +184,7 @@ export default TalkListView;
 ```
 
 ```{only} not presentation
+
 ```
 
 (talklistview-search-endpoint-label)=
@@ -322,7 +324,7 @@ Modify the criteria in the search to sort the talks in the order of their modifi
 :class: toggle
 
 ```{code-block} jsx
-:linenos: true
+:linenos:
 
 React.useEffect(() => {
   dispatch(
@@ -351,7 +353,7 @@ Write the view:
 
 ```{code-block} jsx
 :emphasize-lines: 35-38
-:linenos: true
+:linenos:
 
 import React from 'react';
 import { Container, Segment, Image } from 'semantic-ui-react';

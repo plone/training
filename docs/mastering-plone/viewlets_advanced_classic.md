@@ -61,7 +61,7 @@ For sponsors we will stay with the default view provided by Dexterity since we w
 If we really want a custom view for sponsors it could look like this.
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
       metal:use-macro="context/main_template/macros/master"
@@ -122,7 +122,7 @@ Remember:
 Register the viewlet in {file}`browser/configure.zcml`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <browser:viewlet
     name="sponsorsviewlet"
@@ -139,7 +139,7 @@ Add the viewlet class in {file}`browser/viewlets.py`
 
 ```{code-block} python
 :emphasize-lines: 2-3, 5, 7-9, 19-63
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from collections import OrderedDict
@@ -238,7 +238,7 @@ Instead we should cache until one of the sponsors is modified by using a callabl
 Add the template {file}`browser/templates/sponsors_viewlet.pt`
 
 ```{code-block} xml
-:linenos: true
+:linenos:
 
 <div metal:define-macro="portal_sponsorbox"
      i18n:domain="ploneconf.site">
@@ -273,14 +273,14 @@ You can now add some CSS in {file}`browser/static/ploneconf.css` to make it look
 
 ```css
 .sponsor {
-    display: inline-block;
-    margin: 0 1em 1em 0;
+  display: inline-block;
+  margin: 0 1em 1em 0;
 }
 
 .sponsor:hover {
-    box-shadow: 0 0 8px #000;
-    -moz-box-shadow: 0 0 8px #000;
-    -webkit-box-shadow: 0 0 8px #000;
+  box-shadow: 0 0 8px #000;
+  -moz-box-shadow: 0 0 8px #000;
+  -webkit-box-shadow: 0 0 8px #000;
 }
 ```
 
@@ -307,7 +307,7 @@ This is more of a Python exercise. The gold and bronze sponsors should also have
 
 ```{code-block} python
 :emphasize-lines: 10-15, 41, 44-45
-:linenos: true
+:linenos:
 
 # -*- coding: utf-8 -*-
 from collections import OrderedDict
