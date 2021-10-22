@@ -8,13 +8,14 @@ html_meta:
 
 # Create a Theme from scratch
 
-We’re going to create a theme for Plone 6 Classic UI that is built from scratch. There are no dependencies except Bootstrap.
-
-This package will allow you to change and extend the look of Plone to your needs. You will develop on the filesystem. You can add your package to any code repository e.g. GitHub and re-use it on different Plone sites.
+We’re going to create a theme for **Plone 6 Classic UI** that is built from scratch. There are no dependencies except Bootstrap itself. This approach will allow you to change and extend the look and feeol of Plone to your needs. You will develop on the filesystem. You can add your package to any code repository e.g. GitHub and re-use it on different Plone sites.
 
 **Use Case**
-- Your own theme package
-- You'll create a theme for Plone Classic UI
+- Minimalistic theming approach for Plone Classic UI
+- There is no separation between frontend and logged in aka *backend*
+- Suitable when you use Plone for modern websites or applications with custom UI
+- You'll create our own theme package
+- You'll create a theme for Plone 6 Classic UI
 - You'll use Bootstrap as basis
 - You'll compile your own CSS
 
@@ -46,19 +47,27 @@ $ plonecli create addon plonetheme.munich
 ```{note}
 Check the output on your console. Lines starting with **RUN** shows you the actual command that is fired in the background.
 
-RUN: mrbob bobtemplates.plone:addon -O ./plonetheme.training
+RUN: mrbob bobtemplates.plone:addon -O ./plonetheme.munich
 ```
 
 You're going to be asked some questions. It's good to go with defaults for now. Since there is work in progress, Plone version `5.2.2` will result in Plone 6.0. Don't bother with that.
 
-```{note}
---> Package description [An add-on for Plone]: 
+```{code-block} shell
+--> Author's name [Your Name]:
 
---> Plone version [5.2.2]: 
+--> Author's email [yourname@example.com]:
 
---> Python version for virtualenv [python3]: 
+--> Author's GitHub username: your_github_name_
 
---> Do you want me to activate VS Code support? (y/n) [y]: 
+--> Package description [An add-on for Plone]:
+
+--> Do you want me to initialize a GIT repository in your new package?
+
+--> Plone version [6.0]:
+
+--> Python version for virtualenv [python3]:
+
+--> Do you want me to activate VS Code support? (y/n) [y]:
 ```
 
 ```{note}
@@ -67,9 +76,9 @@ plonecli asks you to create or update a local git repository after some steps. Y
 
 ## Create theme
 
-In the next steps we're going to add a theme to our package. We'll use plonecli for that again. We will use the template `theme_basic` here.
+In the next steps we're going to add a theme to our package. We'll use plonecli for that again. We use the template `theme_basic` here.
 
-Step into package directory:
+Step into the package directory:
 
 ```{code-block} shell
 $ cd plonetheme.munich
@@ -165,7 +174,7 @@ http://localhost:8080/
 :alt: Add Plone site.
 ```
 
-Click on `Advanced` to show more options. Scroll down to your package and activate the checkbox next to it. This will create new Plone site and install our add-on in one go. Since the theme is part of the add-on it has been activated automatically.
+Click on `Advanced` to show more options. Scroll down to your package and activate the checkbox next to it. This will create new Plone site and install our add-on in one go. Since the theme is part of the add-on it will be activated automatically.
 
 ```{image} _static/scratch/add-plone-site-advanced.png
 :alt: Add Plone site advanced.
@@ -173,7 +182,7 @@ Click on `Advanced` to show more options. Scroll down to your package and activa
 
 Click on `Create Plone site` to add your site.
 
-You see some basic styling because a precompiled theme.css has been shipped with the template. Bevor we start theming we're going to add a copy of the main template to our theme package.
+You see some basic styling because a precompiled `src/plonetheme/munich/theme/css/theme.min.css` has been shipped with the template. Bevor we start theming we're going to add a copy of the main template to our theme package.
 
 
 ## Override Main Template
@@ -198,7 +207,7 @@ In the next step we'll make use of Bootstrap's grid system and add some columns 
 
 ### Conflicts
 
-If you try to register templates that already exists in Plone under the same name you'll get a `ConfigurationConflictError`. You can avoit this by adding a theme layer to your configuration as seen in the above example.
+If you try to register templates that already exists in Plone under the same name you'll get a `ConfigurationConflictError`.
 
 ```{code-block} shell
 zope.configuration.config.ConfigurationConflictError: Conflicting configuration actions
@@ -219,10 +228,16 @@ zope.configuration.config.ConfigurationConflictError: Conflicting configuration 
             />
  ``` 
 
+You can avoid this by adding a theme layer to your configuration as seen in the above example:
+
+```{code-block} xml
+layer="plonetheme.munich.interfaces.IPlonethemeMunichLayer"
+```
+
 
 ## Add Columns
 
-Le's make use of Bootstrap's layout system and add a `container`, a `row` and some `columns`. Theck out the [Bootstrap documentation] if your're nof familiar with that.
+Let's make use of Bootstrap's layout system and add a `container`, a `row` and some `columns`. Check out the [Bootstrap documentation] if your're not familiar with that.
 
 ```{code-block} xml
 <metal:page define-macro="master">
@@ -375,14 +390,11 @@ Le's make use of Bootstrap's layout system and add a `container`, a `row` and so
 </metal:page>
 ```
 
-This is an example of the main template at the point of time when the documentation has been written. We recommend to copy over the main template from your actual code or grab it from GitHub to get the newest version:
-
-https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/browser/templates/main_template.pt
+This is an example of the [main_template.pt] at the point of time when the documentation has been written. We recommend to copy over the main template from your actual code or grab it from GitHub to get the newest version.
 
 ```{note}
 It's possible to archive this with mixins as well. Check out Barceloneta's [grid.scss] for this.
 ```
-
 
 ## Build Process
 
@@ -410,9 +422,7 @@ Run `npm run build` to add dependencies from package.json::
 $ npm run build
 ```
 
-This will compile your `scss/theme.scss` into `css/theme.css`. A minified
-version will be created as well. Check out the scripts section from
-`package.json` so see what happens exactly.
+This will compile your `scss/theme.scss` into `css/theme.css`. A minified version will be created as well. Check out the scripts section from `package.json` so see what happens exactly.
 
 ### Watch for changes
 
@@ -429,18 +439,22 @@ With `npm run watch` you start the build process automatically when you save a f
 
 We can start theming finally. Let's change some colors now.
 
+
+### Variables
+
+Bootstrap's variables has been mentioned in the previous chapter. If you need to add a variable to our `theme.scss` have a look at the definition from Bootstrap. They're located in  `src/plonetheme/munich/theme/node_modules/bootstrap/scss/_variables.scss`. We'll use some of them later.
+
+
 ### Change Colors
 
-Go to scss/theme.scss
-
-Change primary and secondary colors:
+Go to your `src/plonetheme/munich/theme/scss/theme.scss` and change the primary and secondary colors:
 
 ```{code-block} shell
 $primary: #456990;
 $secondary: #49BEAA;
 ```    
 
-Watch will start the build process as soon as you save your file. Check out your console output. After it has been finished, go to your browser and reload the window.
+Watch will start the build process as soon as you save your file. Check out your console output. After the build has been finished, go to your browser and reload the window.
 
 ```{image} _static/scratch/plone-colors.png
 :alt: Changed Colors.
@@ -450,5 +464,207 @@ Watch will start the build process as soon as you save your file. Check out your
 Open the developer tools of your browser and navigate to the network tab. Disabling the cache is your fiend.
 ```
 
-[grid.scss]: https://github.com/plone/plonetheme.barceloneta/blob/master/scss/grid.scss
+### Add Logo
+
+We'll add the logo to Bootstrap's navbar. Go to `src/plonetheme/munich/browser/overrides/plone.app.layout.viewlets.sections.pt` and change the navbar brand from:
+
+```{code-block} html
+<a class="navbar-brand" href="#">Navbar</a>
+```
+
+to:
+
+```{code-block} html
+<a class="navbar-brand" href="${context/portal_url}">
+  <img src="${context/portal_url}/++plone++plonetheme.munich/plone-logo-white.svg" alt="Plone" height="36" class="pb-1" />
+</a>
+```
+
+and voila, we have a Plone logo used as navbar brand:
+
+```{image} _static/scratch/plone-document.png
+:alt: Plone Logo in Bootstrap's Navbar
+```
+
+## Contenttype Templates
+
+Every contenttype in Plone comes with it's own template. The easiest way to modify the template of a contenttype is an override.
+
+### Override existing template
+
+We copy the original template from the source code to our project. Copy the file located at `parts/omelette/plone/app/contenttypes/browser/templates/document.pt` to our overrides folder at `src/plonetheme/munich/browser/overrides/plone.app.contenttypes.browser.templates.document.pt`.
+
+* We'll use z3c.jbot to override templates
+* Overrides folder is registered in our `src/plonetheme/munich/browser/configure.zcml`
+* Create a empty file (as done for the header) or copy an existing one
+* Dotted name is the actual path to the original template.
+
+You have to restart your instance when adding new files. Changes in existing templates in the overrides folder take effect without a restart.
+
+We'll change the template now. Here is an example of a minimalistic Document template:
+
+```{code-block} html
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/@@main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="main">
+
+<h1>${context/Title}</h1>
+
+<p class="lead">${context/Description}</p>
+
+<div tal:condition="context/text" tal:content="structure python:context.text.output_relative_to(view.context)">
+  Text
+</div>
+
+</metal:content-core>
+
+</body>
+</html>
+```
+
+This will result in:
+
+```{image} _static/scratch/plone-document.png
+:alt: Document Template
+```
+
+We use `fill-slot="main"` to fill a more generic slot. This allows us to touch everything from headline to stuff that is registered below content body. Check out the `main_template.pt` to learn more about slots.
+
+
+### Register new template
+
+For e.g. Folders Plone ships different views you can choose from. For the contenttype Document there is only one view available. If you want to select from different views for Documents as well you'll have to register a new view. Have a look at the theming with Diazo training so learn more about views. There is an example of how to create an new view from scrach using `plonecli`.
+
+Other than overrides as shown before a new view is registered via `configure.zcml`. Here is an example for a new view called `minimalistic` registered for the contenttype `Document`:
+
+```{code-block} xml
+<browser:page
+  name="minimalistic"
+  for="plone.app.contenttypes.interfaces.IDocument"
+  class=".minimalistic.MinimalisticView"
+  template="minimalistic.pt"
+  permission="zope2.View"
+  />
+```
+
+## Add custom font
+
+We'll add a custom font using [Google Fonts]. Go to [Google Fonts] and select the styles you want to use.
+
+We create a new file `src/plonetheme/munich/theme/scss/_fonts.scss` to keep the font stuff together. In a real word project you probably want to add the actual font files to your project an serve them directly. For now we use a import:
+
+```{code-block} scss
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+```
+
+We copy over the variable from Bootstrap's variables to our `theme.scss` and add **Open Sans** in front of all other fonts:
+
+```{code-block} scss
+// Fonts
+$font-family-sans-serif: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+```
+
+Last step is to import our newly created `_fonts.scss` as last line in `theme.scss`:
+
+```{code-block} scss
+@import "fonts";
+```
+
+Here is the complete `theme.scss`:
+
+```{code-block} scss
+// Bootstrap Variable Overrides
+
+$enable-rounded: false;
+$primary: #007eb6;
+$secondary: #2e3133;
+
+// Fonts
+$font-family-sans-serif: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+// Bootstrap Imports
+@import "bootstrap/scss/bootstrap";
+
+// Theme Imports
+@import "base";
+@import "fonts";
+```
+
+Again, `npm watch` will build our CSS after you save the file. Check out your browser for changes:
+
+```{image} _static/scratch/custom-font.png
+:alt: Custom Font
+```
+
+
+## Replace editbar
+
+If you are not happy with Plone's editbar there are alternatives available. `collective.sidebar` is a drop in replacement and brings edit features and navigation together.
+
+```{image} _static/scratch/sidebar.png
+:alt: collective.sidebar
+```
+
+### Add dependency
+
+Add a dependency to collective.sidebar in `setup.py`. This grabs the package when you run buildout:
+
+```{code-block} python
+install_requires=[
+    'setuptools',
+    # -*- Extra requirements: -*-
+    'z3c.jbot',
+    'plone.api>=1.8.4',
+    'plone.app.dexterity',
+    'collective.sidebar',
+],
+```
+
+### Install Cidebar with the package
+
+Add a dependency in `src/plonetheme/munich/profiles/default/metadata.xml` to install collective.sidebar when you install the theme package:
+
+```{code-block} xml
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata>
+  <version>1000</version>
+  <dependencies>
+    <dependency>profile-collective.sidebar:default</dependency>
+    <dependency>profile-plone.app.theming:default</dependency>
+  </dependencies>
+</metadata>
+```
+
+### Run Buildout
+
+You have to run buildout to fetch the package from pypi and add it to your setup:
+
+```{code-block} shell
+$ ./bin/buildout
+```    
+
+### Restart Instance
+
+Restart your instance:
+
+```{code-block} shell
+$ ./bin/instance stop
+$ ./bin/instance start
+```    
+
+Install the package in Site setup > Add-ons or create a new Plone site.
+
+
+
+
 [Bootstrap documentation]: https://getbootstrap.com/docs/5.1/getting-started/introduction/
+[Google Fonts]: https://fonts.google.com/
+[grid.scss]: https://github.com/plone/plonetheme.barceloneta/blob/master/scss/grid.scss
+[main_template.pt]: https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/browser/templates/main_template.pt
