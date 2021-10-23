@@ -32,7 +32,7 @@ This will also install bobtemplates.plone, but we will need the current beta ver
 So let's update bobtemplates.plone:
 
 ```shell
-$ pip3 install bobtemplates.plone>=6.0b8 --user
+$ pip3 install bobtemplates.plone==6.0b8 --user
 ```
 
 ## Testing the setup
@@ -45,7 +45,7 @@ plonecli create addon plonetheme.tester
 
 ```shell
 $ cd plonetheme.tester
-$ plonecli add theme
+$ plonecli add theme_barceloneta
 $ plonecli build serve
 ```
 
