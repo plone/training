@@ -8,25 +8,25 @@ html_meta:
 
 # Training setup
 
-Your computer should be configured with the following software. We strongly recommend you to prepare this before the training starts.
+Your computer should have the following software. Please prepare this before the training starts.
 
 ## Software
 
 ### Operating System
 
-We recommend you to have most recent versions of Linux or macOS.
+Use recent versions of Linux or macOS.
 
 For macOS users, also have Homebrew installed.
 
-Windows with WSL could work as well but we do not support it at this moment.
+Windows with WSL could work as well but isn't supported at this moment.
 
 ### Code Editor
 
-* Code editor of your choice (VSCode, Sublime, VI, Emacs)
+- Code editor of your choice (VSCode, Sublime, VI, Emacs)
 
 ### Python
 
-* Python >= 3.7
+- Python >= 3.7
 
 ### Docker & Docker Compose
 
@@ -36,26 +36,26 @@ Windows with WSL could work as well but we do not support it at this moment.
 
 ### Node and Node tools
 
-* Node 14, latest NPM and Yarn
+- Node 14, latest NPM and Yarn
 
 ### Vagrant
 
-* [Vagrant](https://www.vagrantup.com/downloads) and VirtualBox
+- [Vagrant](https://www.vagrantup.com/downloads) and VirtualBox
 
 ## External Services
 
 ### Github Account
 
-Please make sure your computer is configured with the correct keys to your Github account
+Please make sure your computer has the correct keys to your Github account
 
 ### Docker Hub
 
-* Create an account at [Docker Hub](https://hub.docker.com/).
-* Configure your local Docker to use Docker Hub credentials with ```docker login```
+- Create an account at [Docker Hub](https://hub.docker.com/).
+- Configure your local Docker to use Docker Hub credentials with `docker login`
 
 ## Code Repository
 
-* Fork the repository at [https://github.com/collective/training-deploy-project](https://github.com/collective/training-deploy-project) to your Github account.
-* Clone the new repository to your local computer i.e.: ```git clone git@github.com:plone/training-deploy-project.git```
-* Open the repository with your favorite text editor i.e.: ```cd training-deploy-project && code ./```
-* Find all occurences of **DOCKER_HUB_USER_CHANGE_ME** and replace it with your Docker Hub user name
+- Fork the repository at [https://github.com/collective/training-deploy-project](https://github.com/collective/training-deploy-project) to your Github account.
+- Clone the new repository to your local computer i.e.: `git clone git@github.com:plone/training-deploy-project.git`
+- Open the repository with your favorite text editor i.e.: `cd training-deploy-project && code ./`
+- Find all occurrences of **DOCKER_HUB_USER_CHANGE_ME** and replace it with your Docker Hub username

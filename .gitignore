@@ -29,3 +29,6 @@ docs/pyvenv.cfg
 /venv/lib64
 /venv
 /yarn.lock
+/.vale
+.vale.ini
+.vscode
