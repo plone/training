@@ -39,9 +39,6 @@ git checkout talkview
 In this part we will:
 
 - Create a view to display a talk
-
-In this part you will:
-
 - Register a react view component for content type talk
 - Write the view component
 
