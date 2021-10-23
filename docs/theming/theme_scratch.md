@@ -8,7 +8,7 @@ html_meta:
 
 # Create a Theme from scratch
 
-We're going to create a theme for **Plone 6 Classic UI** that is built from scratch. There are no dependencies except Bootstrap itself. This approach will allow you to change and extend the look and feel of Plone to your needs. You will develop on the filesystem. You can add your package to any code repository e.g. GitHub and re-use it on different Plone sites.
+We're going to create a theme for **Plone 6 Classic UI** that is built from scratch. There are no dependencies except Bootstrap itself. This approach will allow you to change and extend the look and feel of Plone to your needs. You will develop on the file system. You can add your package to any code repository, such as GitHub, and reuse it on different Plone sites.
 
 **Use Case**
 
@@ -30,11 +30,11 @@ We're going to create a theme for **Plone 6 Classic UI** that is built from scra
 
 ## Requirements
 
-Check out the requirements of the theming training. You have to bring a linux based laptop (Ubuntu, macOS) with code editor of your choice (we recommend VS Code) and with Plone installed as described in training instructions. It is extremely important that you join the class with a working Plone installation. You need the [npm] package manager to build your CSS/JavaScript.
+Check out the requirements for the theming training. You have to bring a Linux-based laptop (Ubuntu, macOS) with a code editor of your choice (we recommend VS Code) and with Plone installed as described in the training instructions. It is extremely important that you join the class with a working Plone installation. You need the [npm] package manager to build your CSS/JavaScript.
 
 ## Create an add-on package
 
-We're going to create an add-on package for our theme. We'll use [plonecli] for the next steps. It uses [mr.bob] and it's [templates](https://pypi.org/project/bobtemplates.plone/). There is a template to create our add-on. There are [templates](https://pypi.org/project/bobtemplates.plone/) to add the theme to the package in the following steps.
+We're going to create an add-on package for our theme. We'll use [plonecli] for the next steps. It uses [mr.bob] and its [templates](https://pypi.org/project/bobtemplates.plone/). There is a template to create our add-on. There are [templates](https://pypi.org/project/bobtemplates.plone/) to add the theme to the package in the following steps.
 
 The package contains the theme and is developed on the filesystem. Development and compilation are done locally.
 
@@ -76,7 +76,7 @@ plonecli asks you to create or update a local git repository after some steps. Y
 
 ## Create theme
 
-In the next steps we're going to add a theme to our package. We'll use [plonecli] for that again. We use the template `theme_basic` here.
+In the next steps, we're going to add a theme to our package. We'll use [plonecli] for that again. We use the template `theme_basic` here.
 
 Step into the package directory:
 
@@ -90,7 +90,7 @@ Add theme using `theme_basic` template. Run the command inside your package:
 $ plonecli add theme_basic
 ```
 
-There are different theme templates available. As shown in the prevous chapter `theme_barceloneta` is built on top of the Barceloneta theme. Our `theme_basic` is a more generic approach:
+There are different theme templates available. As shown in the previous chapter, `theme_barceloneta` is built on top of the Barceloneta theme. Our `theme_basic` is a more generic approach:
 
 - No dependencies to Barceloneta
 - Since there is no rules.xml Diazo is disabled
@@ -100,7 +100,7 @@ There are different theme templates available. As shown in the prevous chapter `
 
 ## Build Instance
 
-Get your instance up and running. The build command of [plonecli] will run a couple of commands for you. Green bars shows you what actual command has been fired.
+Get your instance up and running. The build command of [plonecli] will run a couple of commands for you. Green bars show you what actual command has been fired.
 
 - It creates a python3 virtualenv
 - It installs all dependencies using pip
@@ -173,9 +173,9 @@ http://localhost:8080/
 :alt: Add Plone site.
 ```
 
-Click on `Advanced` to show more options.
+Click on {guilabel}`Advanced` to show more options.
 
-Scroll down to your package and activate the checkbox next to it. This will create new Plone site and install our add-on in one go. Since the theme is part of the add-on it will be activated automatically.
+Scroll down to your package and activate the checkbox next to it. This will create a new Plone site and install our add-on in one go. Since the theme is part of the add-on it will be activated automatically.
 
 ```{image} _static/scratch/add-plone-site-advanced.png
 :alt: Add Plone site advanced.
@@ -407,7 +407,7 @@ Step into the theme folder of your package:
 $ cd ./src/plonetheme/tokyo/theme
 ```
 
-Run `npm install` to add dependencies from package.json:
+Run `npm install` to add dependencies from {file}`package.json`:
 
 ```{code-block} shell
 $ npm install
@@ -415,7 +415,7 @@ $ npm install
 
 ### Compile Resources
 
-Run `npm run build` to add dependencies from package.json:
+Run `npm run build` to add dependencies from {file}`package.json`:
 
 ```{code-block} shell
 $ npm run build
@@ -450,7 +450,7 @@ $primary: #456990;
 $secondary: #49BEAA;
 ```
 
-Watch will start the build process as soon as you save your file. Check out your console output. After the build has been finished, go to your browser and reload the window.
+`watch` will start the build process as soon as you save your file. Check out your console output. After the build has been finished, go to your browser and reload the window.
 
 ```{image} _static/scratch/plone-colors.png
 :alt: Changed Colors
@@ -478,7 +478,7 @@ to:
 </a>
 ```
 
-You have to save a SVG logo named `plone-logo-white.svg` to `src/plonetheme/munich/browser/static/plone-logo-white.svg`. Feel free to grab it from [Tokyo Theme] demo page.
+You have to save a SVG logo named {file}`plone-logo-white.svg` to {file}`src/plonetheme/munich/browser/static/plone-logo-white.svg`. Feel free to grab it from [Tokyo Theme] demo page.
 
 ```{image} _static/scratch/plone-document.png
 :alt: Plone Logo in Bootstrap's Navbar
@@ -488,7 +488,7 @@ Now we have a Plone logo used as navbar brand
 
 ## Contenttype Templates
 
-Every content type in Plone comes with it's own template. The easiest way to modify the template of a content type is an override.
+Every content type in Plone comes with its own template. The easiest way to modify the template of a content type is an override.
 
 ### Override existing Templates
 
@@ -539,9 +539,9 @@ We use `fill-slot="main"` to fill a more generic slot. This allows us to touch e
 
 ### Register new Template
 
-For e.g. Folders Plone ships different views you can choose from. For the content type Document there is only one view available. If you want to select from different views for Documents as well you'll have to register a new view. Have a look at the {doc}`./theme_diazo` training so learn more about views. There is an example of how to create an new view from scratch using [plonecli].
+For folders, Plone ships different views you can choose from. For the content type `Document`, there is only one view available. If you want to select from different views for `Documents` as well, you'll have to register a new view. Have a look at the {doc}`./theme_diazo` training to learn more about views. There is an example of how to create a new view from scratch using [plonecli].
 
-Other than overrides as shown before a new view is registered via `configure.zcml`. Here is an example for a new view called `minimalistic` registered for the content type `Document`:
+Other than overrides, as shown before, a new view is registered via `configure.zcml`. Here is an example for a new view called `minimalistic` registered for the content type `Document`:
 
 ```{code-block} xml
 <browser:page
