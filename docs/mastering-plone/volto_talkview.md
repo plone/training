@@ -215,7 +215,7 @@ import { Helmet } from '@plone/volto/helpers';
 const TalkView = props => {
   const { content } = props;
   return (
-    <Container id="page-talk">
+    <Container id="view-wrapper talk-view">
       <Helmet title={content.title} />
       <h1 className="documentFirstHeading">
         <span className="type_of_talk">{content.type_of_talk.title}: </span>
@@ -245,7 +245,7 @@ import { Container, Header, Segment } from 'semantic-ui-react';
 const TalkView = (props) => {
   const { content } = props;
   return (
-    <Container id="page-talk">
+    <Container id="view-wrapper talk-view">
       <h1 className="documentFirstHeading">
         <span className="type_of_talk">{content.type_of_talk.title} </span>
         {content.title}
@@ -292,7 +292,7 @@ import { flattenToAppURL } from '@plone/volto/helpers';
 const TalkView = (props) => {
   const { content } = props;
   return (
-    <Container id="page-talk">
+    <Container id="view-wrapper talk-view">
       <h1 className="documentFirstHeading">
         <span className="type_of_talk">{content.type_of_talk.title} </span>
         {content.title}
@@ -355,7 +355,7 @@ const TalkView = (props) => {
   };
 
   return (
-    <Container id="page-talk">
+    <Container id="view-wrapper talk-view">
       <h1 className="documentFirstHeading">
         {content.type_of_talk.title || content.type_of_talk.token}:{' '}
         {content.title}
@@ -424,7 +424,7 @@ const TalkView = (props) => {
   };
 
   return (
-    <Container id="page-talk">
+    <Container id="view-wrapper talk-view">
       <h1 className="documentFirstHeading">
         {content.type_of_talk.title || content.type_of_talk.token}:{' '}
         {content.title}
