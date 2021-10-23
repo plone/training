@@ -141,7 +141,8 @@ Add a file {file}`browser/controlpanel.py`:
 ```{code-block} python
 :linenos:
 
-from zope import schema
+from plone.autoform import directives
+from plone import schema
 from zope.interface import Interface
 
 import json
@@ -384,11 +385,11 @@ To register a controlpanel for the frontend and Plone Classic you need quite a b
 :emphasize-lines: 1-2, 4, 156-175
 :linenos:
 
+from plone import schema
 from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
 from plone.app.registry.browser.controlpanel import RegistryEditForm
 from plone.autoform import directives
 from plone.restapi.controlpanels import RegistryConfigletPanel
-from plone import schema
 from zope.component import adapter
 from zope.interface import Interface
 
@@ -545,6 +546,7 @@ class PloneconfRegistryEditForm(RegistryEditForm):
     label = "Ploneconf Settings"
 
 
+
 class PloneConfControlPanelFormWrapper(ControlPanelFormWrapper):
     form = PloneconfRegistryEditForm
 
@@ -567,17 +569,17 @@ You also need to register the view and the adapter in {file}`browser/configure.z
 :linenos:
 :emphasize-lines: 4,10
 
-<browser:page
-    name="ploneconf-controlpanel"
-    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-    class=".controlpanel.PloneConfControlPanelFormWrapper"
-    permission="cmf.ManagePortal"
-    layer="ploneconf.site.interfaces.IPloneconfSiteLayer"
-    />
+    <browser:page
+        name="ploneconf-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".controlpanel.PloneConfControlPanelFormWrapper"
+        permission="cmf.ManagePortal"
+        layer="ploneconf.site.interfaces.IPloneconfSiteLayer"
+        />
 
-<adapter
-    factory="ploneconf.site.browser.controlpanel.PloneConfRegistryConfigletPanel"
-    name="ploneconf-controlpanel" />
+    <adapter
+        factory="ploneconf.site.browser.controlpanel.PloneConfRegistryConfigletPanel"
+        name="ploneconf-controlpanel" />
 ```
 
 Finally register the configlet with Generic Setup so that it gets listed in the {guilabel}`Site Setups` panels list.
