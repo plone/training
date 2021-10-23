@@ -8,12 +8,14 @@ html_meta:
 
 (custom-search-label)=
 
-# Custom Search in Volto
+# Custom Search
+
+## Custom Search in Volto
 
 Volto has (since Volto 14) a Search-Block that allows you to build custom searches without additional addons.
 
 
-# Custom Search in Plone Classic
+## Custom Search in Plone Classic
 
 If the Plone Classic chapters about Views ({doc}`/mastering-plone/views_2`) and catalog-searches (({doc}`/mastering-plone/views_3`)) seem complex, the custom search add-ons shown below might be a great alternative until you feel comfortable writing views and templates.
 
@@ -21,7 +23,7 @@ Here are two add-ons that allow you to add custom searches and content listings 
 
 (customsearch-eea-label)=
 
-## eea.facetednavigation
+### eea.facetednavigation
 
 eea.facetednavigation is a full-featured and a very powerful add-on to improve search within large collections of items.
 No programming skills are required to configure it since the configuration is done TTW.
@@ -54,7 +56,7 @@ For other use cases we could also use either the built-in vocabularies (<https:/
 - Programming using Vocabularies: <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html>
 ```
 
-## collective.collectionfilter
+### collective.collectionfilter
 
 A more lightweight solution for custom searches and faceted navigation is [collective.collectionfilter](https://pypi.org/project/collective.collectionfilter).
 By default it allows you to search among the results of a collection and/or filter the results by keywords, author or type.

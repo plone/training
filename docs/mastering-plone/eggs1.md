@@ -65,7 +65,7 @@ Install plonecli:
 
 ```shell
 $ pip install plonecli
-$ pip install bobtemplates.plone==6.0b7
+$ pip install bobtemplates.plone==6.0b8
 ```
 
 Then create the addon:

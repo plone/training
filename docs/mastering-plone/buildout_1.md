@@ -168,11 +168,12 @@ Let us walk through the {file}`buildout.cfg` for the training and look at some i
 ```ini
 [buildout]
 extends =
-    http://dist.plone.org/release/5.2.3/versions.cfg
+    https://dist.plone.org/release/6.0.0a1/versions.cfg
     versions.cfg
-extends-cache = extends-cache
 
-extensions = mr.developer
+extensions =
+    mr.developer
+    buildout.sanitycheck
 # Tell mr.developer to ask before updating a checkout.
 always-checkout = true
 show-picked-versions = true
@@ -181,22 +182,24 @@ sources = sources
 # The directory this buildout is in. Modified when using vagrant.
 buildout_dir = ${buildout:directory}
 
-# We want to checkouts these eggs directly from github
+# We want to checkout these eggs directly from github
 auto-checkout =
     ploneconf.site
-#    starzel.votable_behavior
+    starzel.votable_behavior
 
 parts =
     checkversions
     instance
-    mrbob
     packages
     robot
     test
     zopepy
+    repozo
+    backup
 
 eggs =
     Plone
+    plone.volto
     Pillow
 
 # development tools
@@ -209,20 +212,25 @@ eggs =
 # TTW Forms
     collective.easyform
 
-# The add-on we develop in the training
+# The addons we develop in the training
     ploneconf.site
+    starzel.votable_behavior
 
-# Voting on content
-#    starzel.votable_behavior
 
 zcml =
 
 test-eggs +=
     ploneconf.site [test]
 
+backups-dir=${buildout:buildout_dir}/var/backups
+
+[configuration]
+admin-user = admin
+admin-password = admin
+
 [instance]
 recipe = plone.recipe.zope2instance
-user = admin:admin
+user = ${configuration:admin-user}:${configuration:admin-password}
 http-address = 8080
 debug-mode = on
 verbose-security = on
@@ -231,6 +239,20 @@ eggs = ${buildout:eggs}
 zcml = ${buildout:zcml}
 file-storage = ${buildout:buildout_dir}/var/filestorage/Data.fs
 blob-storage = ${buildout:buildout_dir}/var/blobstorage
+http-fast-listen = true
+zodb-temporary-storage = off
+zcml-additional =
+    <configure xmlns="http://namespaces.zope.org/zope"
+               xmlns:plone="http://namespaces.plone.org/plone">
+        <plone:CORSPolicy
+            allow_origin="http://localhost:3000,http://127.0.0.1:3000"
+            allow_methods="DELETE,GET,OPTIONS,PATCH,POST,PUT"
+            allow_credentials="true"
+            expose_headers="Content-Length,X-My-Header"
+            allow_headers="Accept,Authorization,Content-Type,X-Custom-Header,Origin,Lock-Token"
+            max_age="3600"
+        />
+    </configure>
 
 [test]
 recipe = zc.recipe.testrunner
@@ -241,8 +263,17 @@ defaults = ['--auto-color', '-vvv']
 recipe = zc.recipe.egg
 eggs =
     ${buildout:test-eggs}
+    Plone
+    plone.volto
     Pillow
-    plone.app.robotframework[reload,debug]
+    plone.app.robotframework
+    collective.MockMailHost
+    robotframework-debuglibrary
+    robotframework-requests
+    robotframework-react
+    robotframework-seleniumlibrary
+    robotframework-selenium2library
+    robotframework-webpack
 
 [packages]
 recipe = collective.recipe.omelette
@@ -257,22 +288,29 @@ eggs = z3c.checkversions [buildout]
 recipe = zc.recipe.egg
 eggs =
     ${buildout:eggs}
-# need to explicitly mention plone.staticresources in order for plone-compile-resources to be found
-    plone.staticresources
 interpreter = zopepy
-scripts =
-    zopepy
-    plone-compile-resources
 
-[mrbob]
+[backup]
+# This recipe builds the backup, restore and snapshotbackup commands.
+# For options see http://pypi.python.org/pypi/collective.recipe.backup
+recipe = collective.recipe.backup
+location = ${buildout:backups-dir}/incrementalbackup/backups
+blobbackuplocation = ${buildout:backups-dir}/incrementalbackup/blobstoragebackups
+snapshotlocation = ${buildout:backups-dir}/snapshotbackup/snapshotbackups
+blobsnapshotlocation = ${buildout:backups-dir}/snapshotbackup/blobstoragesnapshots
+# datafs = ${buildout:var-dir}/filestorage/Data.fs
+# blob-storage = ${buildout:var-dir}/blobstorage
+blob_timestamps = true
+
+[repozo]
+# This recipe builds the repozo script for non-zeo installations.
 recipe = zc.recipe.egg
-eggs =
-    mr.bob
-    bobtemplates.plone
+eggs = ZODB
+scripts = repozo
 
 [sources]
-ploneconf.site = git https://github.com/collective/ploneconf.site.git pushurl=git@github.com:collective/ploneconf.site.git
-starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
+ploneconf.site = git https://github.com/collective/ploneconf.site.git
+starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git
 ```
 
 When you run {command}`./bin/buildout` without any arguments, Buildout will look for this file.
@@ -332,29 +370,12 @@ The file {file}`versions.cfg` that is included by the {samp}`extends = ...` stat
 
 ```cfg
 [versions]
-# dev tools and their dependencies
-pdbpp = 0.10.0
-fancycompleter = 0.8
-pyrepl = 0.9.0
-
-# pins for Add-ons
-collective.easyform = 2.1.0
-Products.validation = 2.1.1
-
-# pins for mr.bob and bobtemplates.plone
-bobtemplates.plone = 4.1.3
-case-conversion = 2.1.0
-mr.bob = 0.1.2
-
-# Some other pins from coredev
-argh = 0.26.2
-pathtools = 0.1.2
-prompt-toolkit = 1.0.16
-PyYAML = 5.1.2
-regex = 2019.8.19
-watchdog = 0.9.0
-wcwidth = 0.1.7
-wmctrl = 0.3
+buildout.sanitycheck = 1.0.2
+collective.easyform = 3.0.5
+collective.recipe.backup = 4.2.0
+robotframework-react = 1.0.0a2
+robotframework-requests = 0.9.2
+robotframework-webpack = 1.1.3
 ```
 
 This is another special section. By default buildout will look for version pins in a section called `[versions]`. This is why we included the file {file}`versions.cfg`.
