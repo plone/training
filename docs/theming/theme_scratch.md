@@ -8,37 +8,37 @@ html_meta:
 
 # Create a Theme from scratch
 
-We're going to create a theme for **Plone 6 Classic UI** that is built from scratch. There are no dependencies except Bootstrap itself. This approach will allow you to change and extend the look and feeol of Plone to your needs. You will develop on the filesystem. You can add your package to any code repository e.g. GitHub and re-use it on different Plone sites.
+We're going to create a theme for **Plone 6 Classic UI** that is built from scratch. There are no dependencies except Bootstrap itself. This approach will allow you to change and extend the look and feel of Plone to your needs. You will develop on the file system. You can add your package to any code repository, such as GitHub, and reuse it on different Plone sites.
 
 **Use Case**
+
 - Minimalistic theming approach for Plone Classic UI
-- There is no separation between frontend and logged in aka *backend*
+- There is no separation between frontend and logged in aka _backend_
 - Suitable when you use Plone for modern websites or applications with custom UI
 - You'll create our own theme package
 - You'll create a theme for Plone 6 Classic UI
 - You'll use Bootstrap as basis
-- You'll compile your own CSS
+- You'll compile your own CSS including Bootstrap
 
 **What you will learn**
+
 - How to prepare your development setup
-- How to create your theme package using plonecli
-- How to add a theme to your package using plonecli
+- How to create your theme package using [plonecli]
+- How to add a theme to your package using [plonecli]
 - What are the important parts of your theme
 - How to add and compile your styles
 
-
 ## Requirements
 
-Check out the requirements of the theming training. You have to bring a linux based laptop (Ubuntu, macOS) with code editor of your choice (we recommend VS Code) and with Plone installed as described in training instructions. It is extremely important that you join the class with a working Plone installation. You need npm(package manager) to build your CSS/JavaScript.
-
+Check out the requirements for the theming training. You have to bring a Linux-based laptop (Ubuntu, macOS) with a code editor of your choice (we recommend VS Code) and with Plone installed as described in the training instructions. It is extremely important that you join the class with a working Plone installation. You need the [npm] package manager to build your CSS/JavaScript.
 
 ## Create an add-on package
 
-We're going to create an add-on package for our theme. We'll use plonecli for the next steps. It uses mr.bob and it's templates. There is a template to create our add-on. There are templates to add the theme to the package in the following steps.
+We're going to create an add-on package for our theme. We'll use [plonecli] for the next steps. It uses [mr.bob] and its [templates](https://pypi.org/project/bobtemplates.plone/). There is a template to create our add-on. There are [templates](https://pypi.org/project/bobtemplates.plone/) to add the theme to the package in the following steps.
 
 The package contains the theme and is developed on the filesystem. Development and compilation are done locally.
 
-Create a add-on package for your theme using plonecli in the current folder:
+Create an add-on package for your theme using [plonecli] in the current folder:
 
 ```{code-block} shell
 $ plonecli create addon plonetheme.tokyo
@@ -76,7 +76,7 @@ plonecli asks you to create or update a local git repository after some steps. Y
 
 ## Create theme
 
-In the next steps we're going to add a theme to our package. We'll use plonecli for that again. We use the template `theme_basic` here.
+In the next steps, we're going to add a theme to our package. We'll use [plonecli] for that again. We use the template `theme_basic` here.
 
 Step into the package directory:
 
@@ -84,29 +84,28 @@ Step into the package directory:
 $ cd plonetheme.tokyo
 ```
 
-Add theme using theme_barceloneta template. Run the command inside your package:
+Add theme using `theme_basic` template. Run the command inside your package:
 
 ```{code-block} shell
 $ plonecli add theme_basic
 ```
 
-There are different theme templates available. As shown in the prevous chapter `theme_barceloneta` is built on top of the Barceloneta Theme. Our `theme_basic` is a more generic approach:
+There are different theme templates available. As shown in the previous chapter, `theme_barceloneta` is built on top of the Barceloneta theme. Our `theme_basic` is a more generic approach:
 
-* No dependencies to Barceloneta
-* Since there is no rules.xml Diazo is disabled
-* All templates are served without modification
-* Markup in Plone Classic UI is mostly Boostrap
-* You have to take care of some aspects e.g. columns
-
+- No dependencies to Barceloneta
+- Since there is no rules.xml Diazo is disabled
+- All templates are served without modification
+- Markup in Plone Classic UI is mostly Boostrap
+- You have to take care of some aspects e.g. columns
 
 ## Build Instance
 
-Get your instance up and running. The build command of plonecli will run a couple of commands for you. Green bars shows you what actual command has been fired.
+Get your instance up and running. The build command of [plonecli] will run a couple of commands for you. Green bars show you what actual command has been fired.
 
-* It creates a python3 virtualenv
-* It installs all dependencies using pip
-* It will bootstrap the buildout of the Zope applicaton server
-* It will run the actual buildout
+- It creates a python3 virtualenv
+- It installs all dependencies using pip
+- It will bootstrap the buildout of the Zope applicaton server
+- It will run the actual buildout
 
 Start the build process by running `plonecli build` in your terminal
 
@@ -130,10 +129,9 @@ RUN: ./venv/bin/buildout
 
 If everything works as expected next step is to start up your instance for the first time.
 
-
 ## Startup
 
-We recommend to swith to your SDK here. If you're using Visual Studio Code you can open a terminal `Terminal > New Terminal` and run the folloing commands inside your editor. This helps you to keep track of windows and processes.
+We recommend to swith to your SDK here. If you're using Visual Studio Code you can open a terminal `Terminal > New Terminal` and run the following commands inside your editor. This helps you to keep track of windows and processes.
 
 Start your instance for the very first time:
 
@@ -156,13 +154,14 @@ http://localhost:8080/manage
 
 This will ask you for login credentials:
 
-* Username: admin
-* Password: admin
+- Username: admin
+- Password: admin
 
 ```{image} _static/scratch/zope-management-interface.png
-:alt: Zope Management Interface.
+:alt: Zope Management Interface
 ```
 
+Zope Management Interface
 
 ## Add your first Plone Site
 
@@ -174,7 +173,9 @@ http://localhost:8080/
 :alt: Add Plone site.
 ```
 
-Click on `Advanced` to show more options. Scroll down to your package and activate the checkbox next to it. This will create new Plone site and install our add-on in one go. Since the theme is part of the add-on it will be activated automatically.
+Click on {guilabel}`Advanced` to show more options.
+
+Scroll down to your package and activate the checkbox next to it. This will create a new Plone site and install our add-on in one go. Since the theme is part of the add-on it will be activated automatically.
 
 ```{image} _static/scratch/add-plone-site-advanced.png
 :alt: Add Plone site advanced.
@@ -183,7 +184,6 @@ Click on `Advanced` to show more options. Scroll down to your package and activa
 Click on `Create Plone site` to add your site.
 
 You see some basic styling because a precompiled `src/plonetheme/tokyo/theme/css/theme.min.css` has been shipped with the template. Bevor we start theming we're going to add a copy of the main template to our theme package.
-
 
 ## Override Main Template
 
@@ -226,14 +226,13 @@ zope.configuration.config.ConfigurationConflictError: Conflicting configuration 
             class=".main_template.MainTemplate"
             permission="zope.Public"
             />
- ```
+```
 
 You can avoid this by adding a theme layer to your configuration as seen in the above example:
 
 ```{code-block} xml
 layer="plonetheme.tokyo.interfaces.IPlonethemeTokyoLayer"
 ```
-
 
 ## Add Columns
 
@@ -408,7 +407,7 @@ Step into the theme folder of your package:
 $ cd ./src/plonetheme/tokyo/theme
 ```
 
-Run `npm install` to add dependencies from package.json::
+Run `npm install` to add dependencies from {file}`package.json`:
 
 ```{code-block} shell
 $ npm install
@@ -416,7 +415,7 @@ $ npm install
 
 ### Compile Resources
 
-Run `npm run build` to add dependencies from package.json::
+Run `npm run build` to add dependencies from {file}`package.json`:
 
 ```{code-block} shell
 $ npm run build
@@ -426,7 +425,7 @@ This will compile your `scss/theme.scss` into `css/theme.css`. A minified versio
 
 ### Watch for Changes
 
-Run `npm run watch` to automatically compile when a file has been changed::
+Run `npm run watch` to automatically compile when a file has been changed:
 
 ```{code-block} shell
 $ npm run watch
@@ -434,16 +433,13 @@ $ npm run watch
 
 With `npm run watch` you start the build process automatically when you save a file.
 
-
 ## Happy Theming
 
 We can start theming finally. Let's change some colors now.
 
-
 ### Variables
 
-Bootstrap's variables has been mentioned in the previous chapter. If you need to add a variable to our `theme.scss` have a look at the definition from Bootstrap. They're located in  `src/plonetheme/tokyo/theme/node_modules/bootstrap/scss/_variables.scss`. We'll use some of them later.
-
+Bootstrap's variables has been mentioned in the previous chapter. If you need to add a variable to our `theme.scss` have a look at the definition from Bootstrap. They're located in `src/plonetheme/tokyo/theme/node_modules/bootstrap/scss/_variables.scss`. We'll use some of them later.
 
 ### Change Colors
 
@@ -454,11 +450,13 @@ $primary: #456990;
 $secondary: #49BEAA;
 ```
 
-Watch will start the build process as soon as you save your file. Check out your console output. After the build has been finished, go to your browser and reload the window.
+`watch` will start the build process as soon as you save your file. Check out your console output. After the build has been finished, go to your browser and reload the window.
 
 ```{image} _static/scratch/plone-colors.png
-:alt: Changed Colors.
+:alt: Changed Colors
 ```
+
+The navbar uses the primary color. Secondary is used for the footer in this example.
 
 ```{note}
 Open the developer tools of your browser and navigate to the network tab. Disabling the cache is your fiend.
@@ -480,24 +478,26 @@ to:
 </a>
 ```
 
-and voila, we have a Plone logo used as navbar brand:
+You have to save a SVG logo named {file}`plone-logo-white.svg` to {file}`src/plonetheme/munich/browser/static/plone-logo-white.svg`. Feel free to grab it from [Tokyo Theme] demo page.
 
 ```{image} _static/scratch/plone-document.png
 :alt: Plone Logo in Bootstrap's Navbar
 ```
 
+Now we have a Plone logo used as navbar brand
+
 ## Contenttype Templates
 
-Every contenttype in Plone comes with it's own template. The easiest way to modify the template of a contenttype is an override.
+Every content type in Plone comes with its own template. The easiest way to modify the template of a content type is an override.
 
 ### Override existing Templates
 
 We copy the original template from the source code to our project. Copy the file located at `parts/omelette/plone/app/contenttypes/browser/templates/document.pt` to our overrides folder at `src/plonetheme/tokyo/browser/overrides/plone.app.contenttypes.browser.templates.document.pt`.
 
-* We'll use z3c.jbot to override templates
-* Overrides folder is registered in our `src/plonetheme/tokyo/browser/configure.zcml`
-* Create a empty file (as done for the header) or copy an existing one
-* Dotted name is the actual path to the original template.
+- We'll use z3c.jbot to override templates
+- Overrides folder is registered in our `src/plonetheme/tokyo/browser/configure.zcml`
+- Create a empty file (as done for the header) or copy an existing one
+- Dotted name is the actual path to the original template.
 
 You have to restart your instance when adding new files. Changes in existing templates in the overrides folder take effect without a restart.
 
@@ -537,12 +537,11 @@ This will result in:
 
 We use `fill-slot="main"` to fill a more generic slot. This allows us to touch everything from headline to stuff that is registered below content body. Check out the `main_template.pt` to learn more about slots.
 
-
 ### Register new Template
 
-For e.g. Folders Plone ships different views you can choose from. For the contenttype Document there is only one view available. If you want to select from different views for Documents as well you'll have to register a new view. Have a look at the theming with Diazo training so learn more about views. There is an example of how to create an new view from scrach using `plonecli`.
+For folders, Plone ships different views you can choose from. For the content type `Document`, there is only one view available. If you want to select from different views for `Documents` as well, you'll have to register a new view. Have a look at the {doc}`./theme_diazo` training to learn more about views. There is an example of how to create a new view from scratch using [plonecli].
 
-Other than overrides as shown before a new view is registered via `configure.zcml`. Here is an example for a new view called `minimalistic` registered for the contenttype `Document`:
+Other than overrides, as shown before, a new view is registered via `configure.zcml`. Here is an example for a new view called `minimalistic` registered for the content type `Document`:
 
 ```{code-block} xml
 <browser:page
@@ -603,7 +602,6 @@ Again, `npm watch` will build our CSS after you save the file. Check out your br
 :alt: Custom Font
 ```
 
-
 ## Replace Editbar
 
 If you are not happy with Plone's editbar there are alternatives available. `collective.sidebar` is a drop in replacement and brings edit features and navigation together.
@@ -661,10 +659,12 @@ $ ./bin/instance start
 
 Install the package in Site setup > Add-ons or create a new Plone site.
 
-
-
-
-[Bootstrap documentation]: https://getbootstrap.com/docs/5.1/getting-started/introduction/
-[Google Fonts]: https://fonts.google.com/
+[bootstrap documentation]: https://getbootstrap.com/docs/5.1/getting-started/introduction/
+[bobtemplates.plone]: https://pypi.org/project/bobtemplates.plone/
+[google fonts]: https://fonts.google.com/
 [grid.scss]: https://github.com/plone/plonetheme.barceloneta/blob/master/scss/grid.scss
 [main_template.pt]: https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/browser/templates/main_template.pt
+[mr.bob]: https://pypi.org/project/mr.bob/
+[npm]: https://www.npmjs.com/
+[plonecli]: https://pypi.org/project/plonecli/
+[tokyo theme]: https://plonetheme.tokyo
