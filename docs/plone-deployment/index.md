@@ -28,6 +28,7 @@ Many sections may be zipped through in a class, noting to students that the full
 intro
 setup
 plone-stack
+plone-docker-images
 ```
 
 ```{seealso}
