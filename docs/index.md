@@ -25,6 +25,7 @@ testing/index
 theming/index
 theming_plone_5/index
 javascript/index
+plone-deployment/index
 deployment/index
 deployment/opsworks/index
 wsgi/index
