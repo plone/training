@@ -29,7 +29,7 @@ Some technologies and tools we use during the training:
 - Yarn <https://yarnpkg.com>
 - JSX
 - Volto <https://github.com/plone/volto>
-- Volto Generator <https://github.com/plone/generator-volto>
+- Volto Generator
 - Plone!
 
 This training assumes that you have already taken (either in person at a Plone Conference or online) the existing React training.
