@@ -411,11 +411,44 @@ RelationList:
 
 ## Interacting with relations and backrelations in code
 
-The recommended way to create and read relations and backrelations as a developer is to use [collective.relationhelpers](https://pypi.org/project/collective.relationhelpers).
+### Plone 6
 
-```{note}
-The methods to create, read, and delete relations and backrelations will be added to plone.api (see the PLIP <https://github.com/plone/Products.CMFPlone/issues/3137>) but that work is not yet finished.
+Since version 2.0.0a1 `plone.api` has methods to create, read, and delete relations and backrelations.
+
+```{code-block} python
+:linenos:
+
+from plone import api
+
+portal = api.portal.get()
+source = portal["bob"]
+target = portal["bobby"]
+api.relation.create(source=source, target=target, relationship="friend")
 ```
+
+```{code-block} python
+:linenos:
+
+from plone import api
+
+api.relation.get(source=portal["bob"])
+api.relation.get(relationship="friend")
+api.relation.get(target=portal["bobby"])
+```
+
+```{code-block} python
+:linenos:
+
+from plone import api
+
+api.relation.delete(source=portal["bob"])
+```
+
+See the [plone.api documentation](https://github.com/plone/plone.api/blob/master/docs/relation.rst) for more details.
+
+### Plone 5.2 and older
+
+In older Plone-Versions you can use [collective.relationhelpers](https://pypi.org/project/collective.relationhelpers) to create and read relations and backrelations in a very similar way.
 
 ## Relationfields without relations
 
