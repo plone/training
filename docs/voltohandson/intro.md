@@ -29,11 +29,11 @@ Some technologies and tools we use during the training:
 - Yarn <https://yarnpkg.com>
 - JSX
 - Volto <https://github.com/plone/volto>
-- create-volto-app
+- Volto Generator
 - Plone!
 
-This training assumes that you have already taken (either in person at a Plone Conference or online) the existing React and Volto trainings.
-However, we will be revisiting some of the basic React training concepts along with the Volto customization and extensibility story.
+This training assumes that you have already taken (either in person at a Plone Conference or online) the existing React training.
+However, we will be revisiting some of the basic React training concepts.
 
 (voltohandson-intro-what-to-expect-label)=
 
@@ -47,8 +47,8 @@ You will become familiar with Volto customization, theming, and how to get the m
 
 ## The hands-on exercise
 
-The hands-on exercise will feature developing the basics of recreating the `plone.org` site using Volto.
-You can view the current `plone.org` site to get a sense of what to expect from it.
+The hands-on exercise will feature developing the basics of recreating the old `plone.com` site using Volto.
+You can view the old `plone.com` site to get a sense of what to expect from it here: [plone.com](https://web.archive.org/web/20210813064319/https://plone.com/).
 We will be facing different challenges and we will be solving them, introducing or refreshing some of the concepts covered in the previous training classes.
 We will cover the proper solution to each challenge and we will provide an overview of what to expect when developing for Volto.
 
