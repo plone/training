@@ -54,14 +54,16 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
 
 ```jsx
 import React from "react";
-import { SidebarPortal } from "@plone/volto/components";
+import { SidebarPortal, withBlockExtensions } from "@plone/volto/components";
 import TeaserData from "./TeaserData";
 import TeaserBody from "./TeaserBody";
 
-const Edit = ({ data, onChangeBlock, block, selected, properties }) => {
+const Edit = (props) => {
+  const { data, onChangeBlock, block, selected } = props;
+
   return (
     <>
-      <TeaserBody data={data} properties={properties} id={block} isEditMode />
+      <TeaserBody data={data} id={block} isEditMode />
       <SidebarPortal selected={selected}>
         <TeaserData
           key={block}
@@ -138,7 +140,6 @@ export const schemaTeaser = (props) => {
 
 ```jsx
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Message } from "semantic-ui-react";
