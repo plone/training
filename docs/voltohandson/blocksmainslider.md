@@ -46,6 +46,7 @@ import { Icon } from "@plone/volto/components";
 import sliderPNG from "./slider-image.png";
 import rightSVG from "@plone/volto/icons/right-key.svg";
 import leftSVG from "@plone/volto/icons/left-key.svg";
+import { withBlockExtensions } from "@plone/volto/helpers";
 
 const NextArrow = ({ className, style, onClick }) => (
   <Button
@@ -112,7 +113,7 @@ const View = (props) => {
   );
 };
 
-export default View;
+export default withBlockExtensions(View);
 ```
 
 We should have the main slider block in the home page now.
@@ -230,12 +231,7 @@ This is by design, but it can be overriden in the applyConfig function:
 
 ```{code-block} js
 :emphasize-lines: 3
-
-config.blocks = {
-    ...config.blocks,
-    requiredBlocks: []
-    ...config
-    }
+  config.blocks.requiredBlocks= []
 ```
 
 at least for a moment, to remove the title block from the homepage.

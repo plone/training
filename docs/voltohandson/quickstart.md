@@ -12,19 +12,20 @@ html_meta:
 
 ## Set Up Volto Project
 
-
 To create our first volto project we will youse the volto generator tool. To install that on your machine run:
+
 ```
 $ npm install -g yo
 $ npm install -g @plone/generator-volto
 ```
 
 After thats done create a folder where your project will be located. You can call it whatever your projectname shall be. In our case we will use `volto-hands-on-training`. Inside that folder run:
+
 ```
 $ yo @plone/volto
 ```
-The dialogue in the console will ask you for the name of your project and wether you want to install any addons. You can skip both by pressing the `enter` button, as we will use the default name and dont want to use any addons for the training.
 
+The dialogue in the console will ask you for the name of your project and wether you want to install any addons. You can skip both by pressing the `enter` button, as we will use the default name and dont want to use any addons for the training.
 
 ## Build environments
 
@@ -37,12 +38,15 @@ In each terminal session you should be in your project folder `volto-hands-on-tr
 To run your Volto site we will be using the Plone docker image with all extensions that are necessary to work with Volto installed. Start Plone by running
 
 ```shell
-$ docker run -it --rm --name=plone -p 8080:8080 -e SITE=Plone -e ADDONS="plone.volto" -e ZCML="plone.volto.cors" -e PROFILES="plone.volto:default-homepage" plone
+docker run -p 8080:8080 plone/plone-backend:6.0.0a1
 ```
 
 Keep that process running during the whole training in one of your console windows.
 
+Open the classic Plone interface on you `localhost:8080`. As we need to install a few addons before we can use it eith volto click on the "Andvanced" button. From the options there select "Plone 6 Frontend (Default content on homepage)" and "Plone 6 Frontend (plone.volto)". Also unselect "Example content". After that you can continue by clicking "Create Plone Page".
+
 If you are already comfortable with setting up classic Plone sites you can also set up a new Plone environment on your machine. To be compatible with Volto it needs to have the following addon products installed:
+
 - collective.folderishtypes.dx
 - collective.folderishtypes 3.0.0
 - plone.restapi 7.0.0
@@ -55,6 +59,7 @@ To make sure all dependencies necessary to run Voltoare installed run:
 ```shell
 yarn
 ```
+
 You can now start up your Volto instance by running the following command:
 
 ```shell
@@ -74,5 +79,3 @@ No matter which integrated development environment (IDE) you use, you should als
 - Prettier
 - ESlint
 - prettier-stylelint (for VSCode)
-
-

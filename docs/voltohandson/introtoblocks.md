@@ -45,9 +45,9 @@ Create your first block in the project by adding these two components in a new d
 This is the `Edit.jsx`:
 
 ```jsx
-import React from 'react';
+import React from "react";
 
-const Edit = props => {
+const Edit = (props) => {
   return <div>I am the MainSlider edit component!</div>;
 };
 
@@ -57,9 +57,9 @@ export default Edit;
 and the `View.jsx`.
 
 ```jsx
-import React from 'react';
+import React from "react";
 
-const View = props => {
+const View = (props) => {
   return <div>I'm the MainSlider view component!</div>;
 };
 
@@ -110,18 +110,17 @@ We need to configure the project to make it aware of a new block by adding it to
 We add these lines to the `config.js` in the root of our project.
 
 Import it before the `import '@plone/volto/config';` line:
+
 ```js
-import MainSliderViewBlock from '@package/components/Blocks/MainSlider/View';
-import MainSliderEditBlock from '@package/components/Blocks/MainSlider/Edit';
-import sliderSVG from '@plone/volto/icons/slider.svg';
+import MainSliderViewBlock from "@package/components/Blocks/MainSlider/View";
+import MainSliderEditBlock from "@package/components/Blocks/MainSlider/Edit";
+import sliderSVG from "@plone/volto/icons/slider.svg";
 ```
+
 Register it inside the `applyConfig()` function:
+
 ```js
-config.blocks = {
-    ...config.blocks,
-    blocksConfig: {
-      ...config.blocks.blocksConfig,
-      mainslider: {
+      config.blocks.blocksConfig.testBlock.mainslider= {
         id: 'mainslider',
         title: 'Main Slider',
         icon: sliderSVG,
@@ -135,8 +134,6 @@ config.blocks = {
           view: [],
         },
       },
-    },
-  };
 
 ```
 
