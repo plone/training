@@ -12,7 +12,7 @@ html_meta:
 
 The edit component part of a block anatomy is specially different to the view component because they have to support the UX for editing the block.
 This UX can be very complex depending on the kind of block and the feature that it is trying to provide.
-The project requirements will tell how far you should go with the UX story of each tile, and how complex it will become.
+The project requirements will tell how far you should go with the UX story of each block, and how complex it will become.
 You can use all the props that the edit component is receiving to model the UX for the block and how it will render.
 
 See the complete list {ref}`voltohandson-introtoblocks-editprops-label`.
@@ -23,7 +23,7 @@ The sidebar and the object browser are the main ones.
 ## Sidebar
 
 We can use the new sidebar when building our blocks' edit components.
-It's a new resource that is available in Volto 4.
+It's a new resource that is available in Volto 6.
 You need to instantiate it this way:
 
 ```jsx
@@ -31,35 +31,16 @@ import { SidebarPortal } from '@plone/volto/components';
 
 ...
 
-<SidebarPortal selected={this.props.selected}>
+<SidebarPortal selected={props.selected}>
   ...
 </SidebarPortal>
 ```
 
 Everything that's inside the `SidebarPortal` component will be rendered in the sidebar.
 
-## Object Browser
-
-Volto has an object browser component that allows you to select an existing content object from the site.
-It has the form of an HOC (High Order Component), and you have to wrap the component you want to be able to call the object browser from, like this:
-
-```jsx
-import withObjectBrowser from '@plone/volto/components/manage/Sidebar/ObjectBrowser';
-
-...
-
-export default withObjectBrowser(MyComponent)
-```
-
-The HOC component `withObjectBrowser` wraps your component by making available this props:
-
-> - isObjectBrowserOpen - (Bool) tells if the browser is currently open
-> - openObjectBrowser - handler for opening the browser
-> - closeObjectBrowser - handler for closing the browser
-
 ## Teaser block
 
-Let's create a new block (not in the project) but can be handy too.
+Let's create a new block (not in the project specification) but can be handy too.
 Create a new block called Teaser.
 We will add the ability to select an existing object as source for showing in this block.
 
@@ -72,162 +53,110 @@ We will start this time with the `Edit.jsx` component. We'll be creating two chi
 `src/components/Blocks/Teaser/Edit.jsx`
 
 ```jsx
-import React from 'react';
-import { SidebarPortal } from '@plone/volto/components';
-import TeaserSidebar from './TeaserSidebar';
-import TeaserBody from './TeaserBody';
+import React from "react";
+import { SidebarPortal } from "@plone/volto/components";
+import TeaserData from "./TeaserData";
+import TeaserBody from "./TeaserBody";
 
-const Edit = ({ data, onChangeTile, tile, selected, properties }) => {
+const Edit = ({ data, onChangeBlock, block, selected, properties }) => {
   return (
     <>
-      <TeaserBody data={data} properties={properties} id={tile} isEditMode />
+      <TeaserBody data={data} properties={properties} id={block} isEditMode />
       <SidebarPortal selected={selected}>
-        <TeaserSidebar data={data} tile={tile} onChangeTile={onChangeTile} />
+        <TeaserData
+          key={block}
+          {...props}
+          data={data}
+          block={block}
+          onChangeBlock={onChangeBlock}
+        />
       </SidebarPortal>
     </>
   );
 };
 
-export default Edit;
-```
-
-`src/components/Blocks/Teaser/TeaserSidebar.jsx`
-
-```jsx
-import React from 'react';
-import { Segment } from 'semantic-ui-react';
-import { FormattedMessage } from 'react-intl';
-
-import TeaserData from './TeaserData';
-
-const TeaserSidebar = props => {
-  return (
-    <Segment.Group raised>
-      <header className="header pulled">
-        <h2>
-          <FormattedMessage id="Teaser" defaultMessage="Teaser" />
-        </h2>
-      </header>
-
-      <TeaserData {...props} />
-    </Segment.Group>
-  );
-};
-
-export default TeaserSidebar;
+export default withBlockExtensions(Edit);
 ```
 
 `src/components/Blocks/Teaser/TeaserData.jsx`
 
 ```jsx
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Segment } from 'semantic-ui-react';
-import { defineMessages, injectIntl } from 'react-intl';
-import { CheckboxWidget, TextWidget } from '@plone/volto/components';
-import { compose } from 'redux';
-import withObjectBrowser from '@plone/volto/components/manage/Sidebar/ObjectBrowser';
+import React from "react";
+import { Segment } from "semantic-ui-react";
+import { FormattedMessage } from "react-intl";
+import { BlockDataForm } from "@plone/volto/components";
+import schema from "./schema";
 
-import clearSVG from '@plone/volto/icons/clear.svg';
-import navTreeSVG from '@plone/volto/icons/nav.svg';
+const TeaserData = (props) => {
+  const { data, block, onChangeBlock } = props;
+  const schema = schemaListing({ ...props });
 
-const messages = defineMessages({
-  Source: {
-    id: 'Source',
-    defaultMessage: 'Source',
-  },
-  openLinkInNewTab: {
-    id: 'Open in a new tab',
-    defaultMessage: 'Open in a new tab',
-  },
-});
-
-const TeaserData = ({
-  data,
-  tile,
-  onChangeTile,
-  openObjectBrowser,
-  required = false,
-  intl,
-}) => {
   return (
-    <>
-      <Segment className="form sidebar-image-data">
-        <TextWidget
-          id="source"
-          title={intl.formatMessage(messages.Source)}
-          required={false}
-          value={data.href}
-          icon={data.href ? clearSVG : navTreeSVG}
-          iconAction={
-            data.href
-              ? () => {
-                  onChangeTile(tile, {
-                    ...data,
-                    href: '',
-                  });
-                }
-              : () => openObjectBrowser({ mode: 'link' })
-          }
-          onChange={(name, value) => {
-            onChangeTile(tile, {
-              ...data,
-              href: value,
-            });
-          }}
-        />
-        <CheckboxWidget
-          id="openLinkInNewTab"
-          title={intl.formatMessage(messages.openLinkInNewTab)}
-          value={data.openLinkInNewTab ? data.openLinkInNewTab : false}
-          onChange={(name, value) => {
-            onChangeTile(tile, {
-              ...data,
-              openLinkInNewTab: value,
-            });
-          }}
-        />
-      </Segment>
-    </>
+    <BlockDataForm
+      schema={schema}
+      title={schema.title}
+      onChangeField={(id, value) => {
+        onChangeBlock(block, {
+          ...data,
+          [id]: value,
+        });
+      }}
+      formData={data}
+      block={block}
+    />
   );
 };
 
-TeaserData.propTypes = {
-  data: PropTypes.objectOf(PropTypes.any).isRequired,
-  tile: PropTypes.string.isRequired,
-  onChangeTile: PropTypes.func.isRequired,
-  openObjectBrowser: PropTypes.func.isRequired,
-};
+export default TeaserData;
+```
 
-export default compose(
-  withObjectBrowser,
-  injectIntl,
-)(TeaserData);
+`src/components/Blocks/Teaser/schema.js`
+
+```js
+export const schemaTeaser = (props) => {
+  return {
+    fieldsets: [
+      {
+        id: "default",
+        title: "Default",
+        fields: ["teaser"],
+      },
+    ],
+    properties: {
+      teaser: {
+        title: "Teaser",
+        widget: "object_browser",
+        mode: "link",
+        allowExternals: true,
+      },
+    },
+  };
+};
 ```
 
 `src/components/Blocks/Teaser/TeaserBody.jsx`
 
 ```jsx
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { Message } from 'semantic-ui-react';
-import { defineMessages, injectIntl } from 'react-intl';
-import imageTileSVG from '@plone/volto/components/manage/Tiles/Image/tile-image.svg';
-import { getContent } from '@plone/volto/actions';
-import { flattenToAppURL } from '@plone/volto/helpers';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Message } from "semantic-ui-react";
+import { defineMessages, injectIntl } from "react-intl";
+import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
+import { getContent } from "@plone/volto/actions";
+import { flattenToAppURL } from "@plone/volto/helpers";
 
 const messages = defineMessages({
   PleaseChooseContent: {
-    id: 'Please choose an existing content as source for this element',
+    id: "Please choose an existing content as source for this element",
     defaultMessage:
-      'Please choose an existing content as source for this element',
+      "Please choose an existing content as source for this element",
   },
 });
 
 const TeaserBody = ({ data, id, isEditMode, intl }) => {
-  const contentSubrequests = useSelector(state => state.content.subrequests);
+  const contentSubrequests = useSelector((state) => state.content.subrequests);
   const dispatch = useDispatch();
   const results = contentSubrequests?.[id]?.data;
 
@@ -242,7 +171,7 @@ const TeaserBody = ({ data, id, isEditMode, intl }) => {
       {!data.href && (
         <Message>
           <div className="teaser-item default">
-            <img src={imageTileSVG} alt="" />
+            <img src={imageBlockSVG} alt="" />
             <p>{intl.formatMessage(messages.PleaseChooseContent)}</p>
           </div>
         </Message>
@@ -260,8 +189,8 @@ const TeaserBody = ({ data, id, isEditMode, intl }) => {
             if (!isEditMode) {
               return (
                 <Link
-                  to={flattenToAppURL(results['@id'])}
-                  target={data.openLinkInNewTab ? '_blank' : null}
+                  to={flattenToAppURL(results["@id"])}
+                  target={data.openLinkInNewTab ? "_blank" : null}
                 >
                   {item}
                 </Link>
@@ -276,49 +205,43 @@ const TeaserBody = ({ data, id, isEditMode, intl }) => {
   );
 };
 
-TeaserBody.propTypes = {
-  data: PropTypes.objectOf(PropTypes.any).isRequired,
-  isEditMode: PropTypes.bool,
-};
-
 export default injectIntl(TeaserBody);
 ```
 
 `src/components/Blocks/Teaser/View.jsx`
 
 ```jsx
-import React from 'react';
-import TeaserBody from './TeaserBody';
+import React from "react";
+import TeaserBody from "./TeaserBody";
+import { withBlockExtensions } from "@plone/volto/helpers";
 
-const View = props => {
+const View = (props) => {
   return <TeaserBody {...props} />;
 };
 
-export default View;
+export default withBlockExtensions(View);
 ```
 
 `src/config.js`
 
 ```js
-import TeaserViewBlock from '@package/components/Blocks/Teaser/View';
-import TeaserEditBlock from '@package/components/Blocks/Teaser/Edit';
-
-const customTiles = {
-...
-  teaser: {
-    id: 'teaser',
-    title: 'Teaser',
-    icon: sliderSVG,
-    group: 'common',
-    view: TeaserViewBlock,
-    edit: TeaserEditBlock,
-    restricted: false,
-    mostUsed: true,
-    security: {
-      addPermission: [],
-      view: [],
-    },
+import TeaserViewBlock from "@package/components/Blocks/Teaser/View";
+import TeaserEditBlock from "@package/components/Blocks/Teaser/Edit";
+//...
+config.blocks.blocksConfig.teaser = {
+  id: "teaser",
+  title: "Teaser",
+  icon: sliderSVG,
+  group: "common",
+  view: TeaserViewBlock,
+  edit: TeaserEditBlock,
+  restricted: false,
+  mostUsed: true,
+  security: {
+    addPermission: [],
+    view: [],
   },
+};
 ```
 
 and finally the styling:

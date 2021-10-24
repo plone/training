@@ -10,100 +10,66 @@ html_meta:
 
 # Quick Start
 
-## Using the hands on code repository
+## Set Up Volto Project
 
-You can find the repository with the code that we will be using during the training in:
-
-<https://github.com/collective/volto-hands-on-training>
-
-This repo has the starting stage of the training in the `master` branch.
-
-Get it like this:
+To create our first volto project we will youse the volto generator tool. To install that on your machine run:
 
 ```
-$ git clone https://github.com/collective/volto-hands-on-training
-$ cd volto-hands-on-training
+$ npm install -g yo
+$ npm install -g @plone/generator-volto
 ```
 
-There's a branch with the name of each chapter.
-In case you get lost at any point, you can easily fast forward (or rewind) to get the complete code for each chapter.
-You can also start fresh for each new chapter.
+After thats done create a folder where your project will be located. You can call it whatever your projectname shall be. In our case we will use `volto-hands-on-training`. Inside that folder run:
 
-The repo has an `api` folder, where you can find a preconfigured buildout that will build Plone 5.2 along with the package `kitconcept.voltodemo`.
-Building it is an easy way to get a Volto site running.
+```
+$ yo @plone/volto
+```
 
-To start your own project you can use <https://github.com/plone/create-volto-app> to bootstrap your package. Further reading on full Plone/Volto setup can be found here: <https://training.plone.org/5/volto/bootstrap.html>
+The dialogue in the console will ask you for the name of your project and wether you want to install any addons. You can skip both by pressing the `enter` button, as we will use the default name and dont want to use any addons for the training.
 
 ## Build environments
 
 We need to build two environments.
 Start two terminal sessions, one for each environment, Plone and Yarn, and a third session to issue Git and other shell commands.
-In each terminal session you should be in the folder `volto-hands-on-training`.
+In each terminal session you should be in your project folder `volto-hands-on-training`.
 
 ### Plone environment
 
-To build your Volto site, use the `make` command:
+To run your Volto site we will be using the Plone docker image with all extensions that are necessary to work with Volto installed. Start Plone by running
 
 ```shell
-make build-backend
+docker run -p 8080:8080 plone/plone-backend:6.0.0a1
 ```
 
-```{note}
-It assumes that you have `Python 3` in your path, and that you have all the necessary system dependencies for building Plone already installed on your machine.
-```
+Keep that process running during the whole training in one of your console windows.
 
-````{note}
-If you have problems building the Plone backend, use a Docker container to run it instead:
+Open the classic Plone interface on you `localhost:8080`. As we need to install a few addons before we can use it eith volto click on the "Andvanced" button. From the options there select "Plone 6 Frontend (Default content on homepage)" and "Plone 6 Frontend (plone.volto)". Also unselect "Example content". After that you can continue by clicking "Create Plone Page".
 
-```shell
-make start-backend-docker
-```
-````
+If you are already comfortable with setting up classic Plone sites you can also set up a new Plone environment on your machine. To be compatible with Volto it needs to have the following addon products installed:
 
-### Install Volto dependencies
-
-Install the {ref}`Volto dependencies <install-deps-volto-label>` on your machine.
-
-Then use `nvm` to ensure you are using the required `node` version:
-
-```shell
-nvm use 10.15.1
-```
+- collective.folderishtypes.dx
+- collective.folderishtypes 3.0.0
+- plone.restapi 7.0.0
+- plone.volto 3.1.0a2
 
 ### Yarn environment
 
-The repo also has a Volto project ready to build in the root.
-
-To build the yarn environment, you can either use:
-
-```shell
-make build-frontend
-```
-
-or:
+To make sure all dependencies necessary to run Voltoare installed run:
 
 ```shell
 yarn
 ```
 
-### Executing environments
-
-In your Plone environment, use this command to run Plone:
+You can now start up your Volto instance by running the following command:
 
 ```shell
-make start-backend
-```
-
-Once Plone is listening on port 8080, use this command to run Volto in your yarn environment in another terminal or shell:
-
-```shell
-yarn start
+yarn
 ```
 
 ## Volto source code
 
 When developing Volto you will find yourself looking quite often at the Volto source code to see how things are done, the code syntax, and how to clone or override components.
-For convenience, a symlink to a copy of the Volto code is set up inside `node_modules` when you run `yarn` in the hands-on repository.
+For convenience, a symlink to a copy of the Volto code is set up inside `node_modules` when you run `yarn` in your Volto project folder.
 You will find this copy of Volto in the `omelette` folder.
 
 ## Recommended plugins

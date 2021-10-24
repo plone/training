@@ -19,7 +19,7 @@ Exercise: Create the highlights basic block using `src/components/Blocks/Highlig
 
 `src/components/Blocks/Highlights/View.jsx`
 
-```jsx
+```jsy
 import React from 'react';
 
 const View = props => {
@@ -46,23 +46,21 @@ export default Edit;
 ```js
 import HighlightsViewBlock from '@package/components/Blocks/Highlights/View';
 import HighlightsEditBlock from '@package/components/Blocks/Highlights/Edit';
-
-const customTiles = {
 // ...
-  highlights: {
-    id: 'highlights',
-    title: 'Highlights',
-    icon: sliderSVG,
-    group: 'common',
-    view: HighlightsViewBlock,
-    edit: HighlightsEditBlock,
-    restricted: false,
-    mostUsed: true,
-    security: {
-      addPermission: [],
-      view: [],
+    config.blocks.blocks.Confighighlights = {
+      id: 'highlights',
+      title: 'Highlights',
+      icon: sliderSVG,
+      group: 'common',
+      view: HighlightsViewBlock,
+      edit: HighlightsEditBlock,
+      restricted: false,
+      mostUsed: true,
+      security: {
+        addPermission: [],
+        view: [],
+      },
     },
-  },
 ```
 ````
 
@@ -71,14 +69,14 @@ const customTiles = {
 After setting the basics, let's add some structure and styling to the view component:
 
 ```jsx
-import React from 'react';
-import { Grid } from 'semantic-ui-react';
-import highlightPlonePNG from './highlights-plone.png';
-import highlightNewsPNG from './highlights-news.png';
+import React from "react";
+import { Grid } from "semantic-ui-react";
+import highlightPlonePNG from "./highlights-plone.png";
+import highlightNewsPNG from "./highlights-news.png";
 
-const View = props => {
+const View = (props) => {
   return (
-    <div className="tile highlights">
+    <div className="block highlights">
       <Grid columns="3">
         <Grid.Column>
           <div className="highlight">
@@ -140,9 +138,9 @@ This is a static behavior, so we can implement it in the view component.
 We don't want to bloat the view component, so we will create a specific component for it called `RecentSuccessStories.jsx` in the block directory:
 
 ```jsx
-import React from 'react';
+import React from "react";
 
-const RecentSuccessStories = props => {
+const RecentSuccessStories = (props) => {
   return <div>The list of success stories</div>;
 };
 
@@ -183,37 +181,37 @@ and we will add it to the Block render. Notice that we are passing the id prop f
 and then, the `RecentSuccessStories.jsx` component:
 
 ```jsx
-import React from 'react';
-import { searchContent } from '@plone/volto/actions';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { searchContent } from "@plone/volto/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-const RecentSuccessStories = props => {
+const RecentSuccessStories = (props) => {
   const { id } = props;
-  const searchSubrequests = useSelector(state => state.search.subrequests);
+  const searchSubrequests = useSelector((state) => state.search.subrequests);
   const dispatch = useDispatch();
   const results = searchSubrequests?.[id]?.items;
 
   React.useEffect(() => {
     dispatch(
       searchContent(
-        '/',
+        "/",
         {
-          sort_on: 'created',
-          metadata_fields: '_all',
-          portal_type: ['success_story'],
+          sort_on: "created",
+          metadata_fields: "_all",
+          portal_type: ["success_story"],
         },
-        id,
-      ),
+        id
+      )
     );
   }, [dispatch, id]);
 
   return (
     <ul>
       {results &&
-        results.map(story => (
-          <li key={story['@id']}>
-            <Link to={story['@id']}>{story.title}</Link>
+        results.map((story) => (
+          <li key={story["@id"]}>
+            <Link to={story["@id"]}>{story.title}</Link>
           </li>
         ))}
     </ul>
@@ -230,20 +228,20 @@ Maybe you are used to use the `connect` react-redux HOC, this is still a valid w
 This is the complete view component (`View.jsx`) for this block:
 
 ```jsx
-import React from 'react';
-import { Grid } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import RecentSuccessStories from './RecentSuccessStories';
-import highlightPlonePNG from './highlights-plone.png';
-import highlightNewsPNG from './highlights-news.png';
-import highlightLogosJPG from './highlights-logos.jpg';
-import highlightPCJPG from './highlights-small-ploneconf.png';
+import React from "react";
+import { Grid } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import RecentSuccessStories from "./RecentSuccessStories";
+import highlightPlonePNG from "./highlights-plone.png";
+import highlightNewsPNG from "./highlights-news.png";
+import highlightLogosJPG from "./highlights-logos.jpg";
+import highlightPCJPG from "./highlights-small-ploneconf.png";
 
-const View = props => {
+const View = (props) => {
   const { id } = props;
 
   return (
-    <div className="tile highlights">
+    <div className="block highlights">
       <Grid columns="3">
         <Grid.Column>
           <div className="highlight">
@@ -253,7 +251,7 @@ const View = props => {
             </div>
             <div className="highlight-body">
               <p>
-                Plone has an{' '}
+                Plone has an{" "}
                 <a
                   className="external-link"
                   href="https://plone.org/"
@@ -262,8 +260,8 @@ const View = props => {
                   title=""
                 >
                   active, thriving community
-                </a>{' '}
-                that holds{' '}
+                </a>{" "}
+                that holds{" "}
                 <a
                   className="external-link"
                   href="https://plone.org/events"
@@ -272,14 +270,14 @@ const View = props => {
                   title=""
                 >
                   annual conferences, regional symposia, and many sprints
-                </a>{' '}
+                </a>{" "}
                 all over the world.
               </p>
               <p>
                 <em>
                   <span className="title">
                     <strong>
-                      See{' '}
+                      See{" "}
                       <a
                         className="external-link"
                         href="https://plone.org/news/2017/plones-outstanding-security-track-record"
@@ -290,7 +288,7 @@ const View = props => {
                         our statement about Plone's outstanding security track
                         record
                       </a>
-                    </strong>{' '}
+                    </strong>{" "}
                     and a recent security hoax.
                   </span>
                 </em>
