@@ -157,7 +157,7 @@ To enable your theme
 
 ## Compiling Styles
 
-Open a **new** terminal and change into the theme folder your package:
+Open a **new** terminal and change into the theme folder of your package:
 
 ```{code-block} shell
 $ cd myaddon.name/src/myaddon/name/theme/
