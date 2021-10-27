@@ -302,7 +302,7 @@ Alternatively you also select which upgrade steps to run like this:
 Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package {py:mod}`plone.app.upgrade`.
 You should be able to upgrade a clean site from 2.5 to 5.0 with one click.
 
-For an example see the upgrade step to Plone 5.0a1 <https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L37>
+Find the upgrade steps in  <https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/>
 ```
 
 (plone5-dexterity2-browserlayer-label)=
