@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
+  "description": "Introduction to the Volto Hands-On Training Documentation"
+  "property=og:description": "Introduction to the Volto Hands-On Training Documentation"
   "property=og:title": ""
-  "keywords": ""
+  "keywords": "Volto, Training, Hands-On"
 ---
 
 (voltohandson-intro-label)=
@@ -48,9 +48,17 @@ You will become familiar with Volto customization, theming, and how to get the m
 ## The hands-on exercise
 
 The hands-on exercise will feature developing the basics of recreating the old `plone.com` site using Volto.
-You can view the old `plone.com` site to get a sense of what to expect from it here: [plone.com](https://web.archive.org/web/20210813064319/https://plone.com/).
+You can view the old `plone.com` site to get a sense of what to expect from it here: [plone.com in the internet archive](https://web.archive.org/web/20210813064319/https://plone.com/).
 We will be facing different challenges and we will be solving them, introducing or refreshing some of the concepts covered in the previous training classes.
 We will cover the proper solution to each challenge and we will provide an overview of what to expect when developing for Volto.
+
+## Software requirements
+
+To follow the training as smoothly as possible it is recommended that you have the following software installed on your computer:
+
+- [node.js](https://nodejs.org/en/) >= 12
+- [node version manager](https://github.com/nvm-sh/nvm)
+- [docker](https://www.docker.com/get-started)
 
 ## Documentation
 
