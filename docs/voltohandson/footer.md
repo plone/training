@@ -15,15 +15,15 @@ We customize the footer using component shadowing, by copying the original Volto
 Since we need the Logo component in the Footer, we import it from Volto as we did in the Header:
 
 ```jsx
-import { Logo } from '@plone/volto/components';
+import { Logo } from "@plone/volto/components";
 ```
 
 Then, we replace the `Footer` component content to match the one from `plone.org`.
 
 ```jsx
-<Segment role="contentinfo" vertical padded inverted color="grey">
+<Segment role="contentinfo" vertical padded inverted color="black">
   <Container>
-    <Segment basic inverted color="grey" className="discreet footer">
+    <Segment basic inverted color="black" className="discreet footer">
       <div className="footer-inner">
         <Logo />
         <List horizontal inverted>
