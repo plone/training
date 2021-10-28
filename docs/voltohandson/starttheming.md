@@ -10,7 +10,7 @@ html_meta:
 
 # Theming
 
-To develop our theme, we can use Semantic UI variables and theme overrides to achieve our theme, or we can use Volto's `custom.overrides`, or we can mix elements of both as needed.
+To develop our theme, we can use [Semantic UI](https://react.semantic-ui.com/) variables and theme overrides to achieve our theme, or we can use Volto's `custom.overrides`. We also can mix elements of both as needed.
 There is no right or wrong way of doing it, and we will be using the Semantic UI theming engine in both cases.
 
 ```{image} _static/theming_engine.png
@@ -28,7 +28,7 @@ Now you need to restart Volto to make Volto aware of the new file. From now on c
 Edit the new file and add this:
 
 ```less
-@fontName: 'Open Sans';
+@fontName: "Open Sans";
 ```
 
 You can set it to any Google font available, and the online version of the font will be used.
