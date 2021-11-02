@@ -72,19 +72,24 @@ Then, we replace the `Footer` component content to match the one from `plone.org
 and add this styling to the `custom.overrides` file:
 
 ```less
-.ui.inverted.grey.segment.footer {
-  .ui.image {
-    height: 32px;
-    margin-right: 50px;
-  }
+.ui.inverted.black.segment {
+  background-color: #191919 !important;
 
-  .footer-inner {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+  .footer {
+    .ui.image {
+      height: 32px;
+      margin-right: 50px;
+      color: @white;
+    }
 
-    .ui.horizontal.list a {
-      text-decoration: none;
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .ui.horizontal.list a {
+        text-decoration: none;
+      }
     }
   }
 }

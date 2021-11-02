@@ -15,7 +15,7 @@ This is what the page looks like:
 
 ```{image} _static/plone.com_index.png
 :align: center
-:alt: plone.org theme
+:alt: plone.com theme
 ```
 
 ## Tasks
