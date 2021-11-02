@@ -37,4 +37,4 @@ We'll leave these tasks for later:
 
 ## Training ressources and assets
 
-There are a few Files, mostly images, that you will need to recreate the plone.org page. They are currently available from this[google drive folder](https://drive.google.com/drive/folders/1xDleXE8Emhr9xn_pnZaGfO9_HmU31L9e?usp=sharing)
+There are a few Files, mostly images, that you will need to recreate the plone.org page. They are currently available from this [google drive folder](https://drive.google.com/drive/folders/1xDleXE8Emhr9xn_pnZaGfO9_HmU31L9e?usp=sharing)
