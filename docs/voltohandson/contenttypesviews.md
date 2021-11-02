@@ -50,8 +50,7 @@ Create a new `Success Story` content type, fill the title and save. Your custom 
 
 Our recently created view needs to show sensible content now. Let's add it. Edit `src/components/Views/SuccessStory.jsx`:
 
-```jsx
-:emphasize-lines: 2,5
+```jsx 
 
  import React from 'react';
  import { DefaultView } from '@plone/volto/components';
