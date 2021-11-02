@@ -106,12 +106,18 @@ You can use all these props to render your edit block and model its behavior.
 
 To help keeping paths for importing components clean we use index files in several places in Volto projects. You can find a `index.js` under `src/components/`. In there we directly export the Block components directly from there respective files. This is to make it easier to import components in other places in the project, without having to remember all their paths.
 
-### Blocks settings
+`components/index.js`
 
-We need to configure the project to make it aware of a new block by adding it to the object configuration:
-We add these lines to the `config.js` in the root of our project.
+```js
+export MainSliderViewBlock from "./Blocks/Mainslider/View";
+export MainSliderEditBlock from "./Blocks/Mainslider/Edit";
+```
 
-Import it before the `import '@plone/volto/config';` line:
+## Blocks settings
+
+We need to configure the project to make it aware of a new block by adding it to the object configuration for that we need the 2 blocks components we created and a svg icon that will be displayed in the blocks chooser.
+
+Import those before the `import '@plone/volto/config';` line:
 
 ```js
 import { MainSliderViewBlock, MainSliderEditBlock } from "@package/components";
@@ -121,21 +127,20 @@ import sliderSVG from "@plone/volto/icons/slider.svg";
 Register it inside the `applyConfig()` function:
 
 ```js
-      config.blocks.blocksConfig.mainslider= {
-        id: 'mainslider',
-        title: 'Main Slider',
-        icon: sliderSVG,
-        group: 'common',
-        view: MainSliderBlockView,
-        edit: MainSliderBlockEdit,
-        restricted: false,
-        mostUsed: true,
-        security: {
-          addPermission: [],
-          view: [],
-        },
-      },
-
+config.blocks.blocksConfig.mainslider = {
+  id: "mainslider",
+  title: "Main Slider",
+  icon: sliderSVG,
+  group: "common",
+  view: MainSliderViewBlock,
+  edit: MainSliderEditBlock,
+  restricted: false,
+  mostUsed: true,
+  security: {
+    addPermission: [],
+    view: [],
+  },
+};
 ```
 
 We add this also, to fulfill all our i18n requirements:

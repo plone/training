@@ -18,8 +18,10 @@ For the slider feature, we will install a third party library that will provide 
 
 ## Install react-slick
 
+We will use the react-slick library to help us animating a slider at the top of the page. To install it to your project run:
+
 ```shell
-$ yarn add react-slick slick-carousel
+yarn add -W react-slick slick-carousel
 ```
 
 ## Add library styles
@@ -34,6 +36,8 @@ Add the `slick-carousel` styles to the `theme/extras/custom.overrides`:
 ```
 
 ## Block view component
+
+Copy `slider-image.png` from the `training-resources` folder to `src/components/Blocks/MainSlider` directory.
 
 Use this code for the block view component `src/components/Blocks/MainSlider/View.jsx`.
 
@@ -119,7 +123,20 @@ export default withBlockExtensions(View);
 We should have the main slider block in the home page now.
 For now we will leave out how the edit component would look like for a later chapter.
 
-Copy `slider-image.png` from the `training-resources` folder to `src/components/Blocks/MainSlider` directory.
+## Block edit
+
+So far th Block will only look as expected in the View mode of a page. To also see the slider in the View you can simply import the `View` Component of the Block into the edit and render it there:
+
+```js
+import React from "react";
+import View from "./View";
+
+const Edit = (props) => {
+  return <View {...props} />;
+};
+
+export default Edit;
+```
 
 ## Styling
 
@@ -195,7 +212,6 @@ body.has-toolbar .block.view.mainslider .slick-next {
 }
 
 .slick-slider {
-  // This fixes homepage slider problem in ff (prevents from totally disappearing)
   width: 100vw;
 
   img {
@@ -203,7 +219,6 @@ body.has-toolbar .block.view.mainslider .slick-next {
   }
 }
 
-// This is the width hack
 body:not(.has-toolbar):not(.has-sidebar):not(.has-toolbar-collapsed):not(.has-sidebar-collapsed)
   .ui.wrapper
   > .full-width,
@@ -225,13 +240,12 @@ body.has-toolbar-collapsed:not(.has-sidebar):not(.has-sidebar-collapsed)
 
 ## Remove the Title block
 
-By default, `kitconcept.voltodemo` sets a homepage by default with a title and a description block.
+By default, `plone.voltodemo` sets a homepage by default with a title and a description block.
 Notice that the title block can't be removed.
 This is by design, but it can be overriden in the applyConfig function:
 
-```{code-block} js
-:emphasize-lines: 3
-  config.blocks.requiredBlocks= []
+```js
+config.blocks.requiredBlocks = [];
 ```
 
 at least for a moment, to remove the title block from the homepage.
