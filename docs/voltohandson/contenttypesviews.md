@@ -51,7 +51,6 @@ Create a new `Success Story` content type, fill the title and save. Your custom 
 Our recently created view needs to show sensible content now. Let's add it. Edit `src/components/Views/SuccessStory.jsx`:
 
 ```jsx
-:emphasize-lines: 2,5
 
  import React from 'react';
  import { DefaultView } from '@plone/volto/components';
@@ -68,7 +67,7 @@ We might want to add stuff on the top or at the bottom.
 In this case, `DefaultView.jsx` is rendering the existing blocks, however, we can have a content type with no blocks defined, then we can also modify what fields will show and how using plain JSX.
 On `plone.com`, the Success Story content type used the lead image as banner on the top. Let's achieve that:
 
-```jsx
+```jsx 
 import React from "react";
 import { DefaultView } from "@plone/volto/components";
 import { flattenToAppURL } from "@plone/volto/helpers";
