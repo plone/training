@@ -157,7 +157,7 @@ Just for completeness sake, this is what would have to happen for the first opti
   ```
 
 - Create an upgrade step that changes the class of the existing talks.
-  A reuseable method to do such a thing is in [plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class](https://github.com/plone/plone.app.contenttypes/blob/master/plone/app/contenttypes/migration/dxmigration.py#L130).
+  A reuseable method to do such a thing is in [plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class](https://github.com/plone/plone.app.contenttypes/blob/ab8ea9f101ea10e1229b0ab1863ffda7c699d72c/plone/app/contenttypes/migration/dxmigration.py#L134).
 ````
 
 (plone5-dexterity2-upgrades-label)=
