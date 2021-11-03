@@ -83,7 +83,7 @@ import TalkView from './Views/Talk';
 export { TalkView };
 ```
 
-This is is a common practice and allows us to import the new view component as `import { TalkView } from './components';` instead of `import { TalkView } from './components/Views/Talk';`.
+This is a common practice and allows us to import the new view component as `import { TalkView } from './components';` instead of `import { TalkView } from './components/Views/Talk';`.
 
 Now register the new component as the default view for `talks` in {file}`src/config.js`.
 
