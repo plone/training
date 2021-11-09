@@ -111,7 +111,7 @@ This section is about setting up a Volto project.
    apt-get install nvm
    ```
 
-2. Install `NodeJS` LTS (node version LTS: long time support)
+2. Install `NodeJS` LTS (NodeJS version LTS: long time support)
 
    ```shell
    nvm install --lts
