@@ -621,8 +621,7 @@ yarn develop
 
 An official release is done on npm. Switch to section {ref}`Release a Volto add-on <volto-custom-addon-final-label>`.
 
-[^id3]:
-    [Volto accordion block](https://www.npmjs.com/package/@rohberg/volto-accordion-block)
+[^id3]: [Volto accordion block](https://www.npmjs.com/package/@rohberg/volto-accordion-block)
     Started as an example for the training it is ready to use for creating a questions and answer sections.
 
 [^id4]: [mrs.developer](https://www.npmjs.com/package/mrs-developer) Pull a package from git and set it up as a dependency for the current project codebase.
