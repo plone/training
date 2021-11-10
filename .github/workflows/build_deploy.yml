@@ -26,9 +26,7 @@ jobs:
         run: make test
 
       - name: Prepare deploy
-        run: |
-          cd docs
-          make deploy
+        run: make deploy
 
       - name: Deploy to server
         id: deploy
