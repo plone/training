@@ -1,8 +1,8 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
+  "description": "How to set up the training locally"
+  "property=og:description": "How to set up the training locally"
+  "property=og:title": "Building and Checking the Quality of Documentation"
   "keywords": ""
 ---
 
@@ -46,13 +46,12 @@ pip install -r requirements.txt
 
 ## Available documentation builds
 
-All build and check documentation commands use the file `docs/Makefile`.
-Your working directory should be `docs/` when issuing any of the commands.
+All build and check documentation commands use the file `Makefile`.
 
 To see all available builds:
 
 ```shell
-make help
+make
 ```
 
 
