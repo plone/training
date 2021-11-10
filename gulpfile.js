@@ -12,7 +12,7 @@ const browserSync = require('browser-sync').create();
 var exec = require('child_process').exec;
 
 function makeHtml() {
-    const cmd = 'cd docs; make html';
+    const cmd = 'make html';
     return new Promise((resolve, reject) => {
         exec(cmd, (error, stdout, stderr) => {
             if (error) {
@@ -48,7 +48,7 @@ function watch() {
 
 // presentation
 function makePresentation() {
-    const cmd = 'cd docs; make presentation';
+    const cmd = 'make presentation';
     return new Promise((resolve, reject) => {
         exec(cmd, (error, stdout, stderr) => {
             if (error) {
