@@ -59,7 +59,7 @@ Authors should use bullet points instead of long narrative text.
 
 The command `make presentation` as described in {ref}`setup-build-make-presentation-label` is implemented through the [Sphinx `only` directive](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-only).
 
-The `presentation` builder is configured in {file}`docs/Makefile` using the [`sphinx-build` flag `-t`](https://www.sphinx-doc.org/en/master/man/sphinx-build.html#cmdoption-sphinx-build-t).
+The `presentation` builder is configured in {file}`Makefile` using the [`sphinx-build` flag `-t`](https://www.sphinx-doc.org/en/master/man/sphinx-build.html#cmdoption-sphinx-build-t).
 
 To show something in the `presentation` build and hide in the `html` build, use the following syntax.
 
@@ -162,7 +162,7 @@ Open `/_build/html/index.html` in a web browser.
 Spellings are enforced through [`spellcheck`](https://sphinxcontrib-spelling.readthedocs.io/en/latest/index.html).
 We use the locale `en_US`.
 
-{file}`docs/Makefile`, {file}`docs/conf.py`, and {file}`docs/spelling_wordlist.txt`.
+{file}`Makefile`, {file}`docs/conf.py`, and {file}`docs/spelling_wordlist.txt`.
 
 Authors should add new words and proper names using correct casing to {file}`docs/spelling_wordlist.txt`, sorted alphabetically.
 
@@ -188,7 +188,7 @@ When you submit a pull request, please select a Reviewer to review your work.
 
 Valid links are enforced automatically through Sphinx's `linkcheck` builder.
 
-[Configuration of the `linkcheck` builder](https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder) is in {file}`docs/Makefile` and {file}`docs/conf.py`.
+[Configuration of the `linkcheck` builder](https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder) is in {file}`Makefile` and {file}`docs/conf.py`.
 
 `linkcheck_ignore` supports regular expression syntax.
 
@@ -301,6 +301,12 @@ You can search the [Pygments issue tracker](https://github.com/pygments/pygments
 ## Synchronize the Browser While Editing
 
 Use gulp to view changes in the browser while editing documentation.
+
+Install the gulp command line utility.
+
+```shell
+npm install --global gulp-cli
+```
 
 Install the gulp project.
 
