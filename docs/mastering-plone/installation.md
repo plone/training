@@ -188,6 +188,8 @@ If successful, you get:
 
 > 🎭 Volto started at <http://localhost:3000> 🚀
 
+**Troubleshooting** [^troubleshooting]
+
 Create a Plone site object **Plone** on <http://localhost:8080>
 
 Point your browser to <http://localhost:3000> and see that Plone is up and running.
@@ -232,3 +234,20 @@ The way we are setting up a Plone site during this class may be adequate for a s
 And, you will need to learn strategies for efficient backup and log file rotation.
 
 All these topics are introduced in [Guide to deploying and installing Plone in production](https://docs.plone.org/manage/deploying/index.html).
+
+[^troubleshooting]: **Troubleshooting**. 
+      
+      If you get
+
+      ```
+      error: The engine "node" is incompatible with this module. Expected version "^10 || ^12 || ^14". Got "16.13.0"
+      error: Found incompatible module.
+      ```
+      then change to your {file}`package.json` and allow NodeJS 16 or the current LTS version of NodeJS.
+
+      ```
+      "engines": {
+         "node": "^14 || ^16"
+      },
+      ```
+

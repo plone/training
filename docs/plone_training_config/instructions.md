@@ -223,9 +223,9 @@ If you are completely new to node and companions, please see [Volto Documentatio
 
 (instructions-install-frontend-prerequisites-label)=
 
-Install pre-requisites.
+**Install pre-requisites:**
 
-1. Install `nvm` (Node Version Manager) to manage `node` versions.
+1. Install `nvm` (Node Version Manager) to manage `NodeJS` versions.
 
    ```shell
    # macOS
@@ -235,11 +235,25 @@ Install pre-requisites.
    apt-get install nvm
    ```
 
-2. Install node LTS (node version LTS: long time support)
+2. Install `NodeJS` LTS (NodeJS version LTS: long time support)
 
    ```shell
    nvm install --lts
    ```
+
+   Test NodeJS: 
+   
+   ```shell
+   node -v
+   ```
+
+   The version of the current LTS NodeJS is printed.
+   At the time of writing:
+
+   ```shell
+   v16.13.0
+   ```
+   
 
 3. Install package manager `yarn`.
 
@@ -247,38 +261,50 @@ Install pre-requisites.
    npm install --global yarn
    ```
 
-Create your Volto frontend project.
-
-1. Generate a project with yeoman
+   
+3. Install {term}`Yeoman` and the Volto generator for apps and add-ons.
 
    ```shell
-   npm init yo @plone/volto
+   npm update -g yo @plone/generator-volto
+   ```
+
+   Run `npm update` to be sure to have the current version.
+   
+
+**Create your Volto project:**
+
+1. Generate a project with {term}`Yeoman` and the Volto generator:
+
+   ```shell
+   yo @plone/volto
    ```
 
    It will take a while to install all dependencies.
-   `yo` will ask questions. Respond to the first by entering your project name, the next by pressing {kbd}`Enter` and to the other two by now with `false`.
+   `yo` will ask a series of questions.
+   Respond to the first by entering your project name, the next by pressing {kbd}`Enter`, and to the remaining two with `false`.
 
    The output will look like this:
 
    ```console
-   me@here training % npm init yo @plone/volto
+   me@here sandbox % npm init yo @plone/volto
    npx: installed 14 in 3.392s
    Getting latest Volto version
    Retrieving Volto's yarn.lock
-   Using latest released Volto version: 10.4.1
-   ? Project name frontend
+   Using latest released Volto version: 13.13.13
+   ? Project name volto-project-myprojectname
    ? Project description A Volto-powered Plone frontend
    ? Would you like to add addons? false
    ? Would you like to add workspaces? false
-      create frontend/package.json
-      create frontend/yarn.lock
-      create frontend/.eslintrc.js
+      create volto-project-myprojectname/package.json
+      create volto-project-myprojectname/yarn.lock
+      create volto-project-myprojectname/.eslintrc.js
+      ...
    ```
 
-2. Start up the project **frontend** with
+2. Start up the project **volto-project-myprojectname** with
 
    ```shell
-   cd frontend
+   cd volto-project-myprojectname
    yarn start
    ```
 
@@ -286,17 +312,18 @@ If successful, you get:
 
 > 🎭 Volto started at <http://localhost:3000> 🚀
 
+**Troubleshooting** [^troubleshooting]
+
 Create a Plone site object **Plone** on <http://localhost:8080>
 
 Point your browser to <http://localhost:3000> and see that Plone is up and running.
 
-You can stop the frontend anytime using {kbd}`ctrl + c`.
+You can stop the Volto app anytime using {kbd}`ctrl + c`.
 
-(volto-install-troubleshooting)=
+```{seealso}
+For more information see [Volto documentation](https://docs.voltocms.com/getting-started/install/).
+```
 
-##### Troubleshooting
-
-See <https://docs.voltocms.com/getting-started/install/#install-volto>
 
 #### Option 2. Start with existing training project `volto-ploneconf` with all code for the training
 
@@ -325,6 +352,9 @@ Create a Plone site object *Plone* on <http://localhost:8080>
 Point your browser to <http://localhost:3000> and see that Plone is up and running.
 
 You can stop the frontend anytime using {kbd}`ctrl + c`.
+
+**Troubleshooting** [^troubleshooting]
+
 
 (instructions-vagrant-label)=
 
@@ -545,3 +575,20 @@ Keep in mind the following recommendations for using your Vagrant VirtualBoxes:
 - If you are done with a vagrant box, and want to delete it, always remember to run {command}`vagrant destroy` on it before actually deleting the directory containing it.  Otherwise you'll leave its "ghost" in the list of boxes managed by vagrant and possibly taking up disk space on your machine.
 - See {command}`vagrant help` for all available commands, including {command}`suspend`, {command}`halt`, {command}`destroy`, {command}`up`, {command}`ssh` and {command}`resume`.
 ```
+
+
+[^troubleshooting]: **Troubleshooting**. 
+      
+      If you get
+
+      ```
+      error: The engine "node" is incompatible with this module. Expected version "^10 || ^12 || ^14". Got "16.13.0"
+      error: Found incompatible module.
+      ```
+      then change to your {file}`package.json` and allow NodeJS 16 or the current LTS version of NodeJS.
+
+      ```
+      "engines": {
+         "node": "^14 || ^16"
+      },
+      ```
