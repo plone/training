@@ -63,7 +63,7 @@ yarn
 You can now start up your Volto instance by running the following command:
 
 ```shell
-yarn
+yarn start
 ```
 
 ## Volto source code
