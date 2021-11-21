@@ -35,7 +35,8 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 Then you can install the latest LTS version of node:
 
 ```shell
-nvm install --lts
+nvm install lts/fermium
+nvm use lts/fermium
 ```
 
 We use the package manager {file}`yarn`, to install do:
