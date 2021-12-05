@@ -57,7 +57,7 @@ If you are already comfortable with setting up classic Plone sites you can also 
 
 ### Yarn environment
 
-To make sure all dependencies necessary to start Volto are installed run:
+To ensure all required dependencies for starting Volto are installed run:
 
 ```shell
 yarn
