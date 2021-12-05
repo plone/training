@@ -212,7 +212,7 @@ const TeaserData = (props) => {
 export default TeaserData;
 ```
 
-The schema defines the actual fields rendered in thesidebar and saved in the Block:
+The schema defines the actual fields rendered in the sidebar and saved in the Block:
 
 `src/components/Blocks/Teaser/schema.js`
 
