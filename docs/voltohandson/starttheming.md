@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Learn the basics about theming in Volto"
+  "property=og:description": "Learn the basics about theming in Volto"
+  "property=og:title": "Theming"
+  "keywords": "Plone, Volto, Training, Theme, Theming"
 ---
 
 (voltohandson-default-font-label)=

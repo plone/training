@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Learn how Blocks work in Volto"
+  "property=og:description": "Learn how Blocks work in Volto"
+  "property=og:title": "Introduction to Volto Blocks"
+  "keywords": "Plone, Volto, Training, Blocks, Introduction"
 ---
 
 (voltohandson-introtoblocks-label)=

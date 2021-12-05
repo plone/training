@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Learn How to customize the Header of the page"
+  "property=og:description": "Learn How to customize the Header of the page"
+  "property=og:title": "Header customization"
+  "keywords": "Plone, Volto, Training, Theme, Header"
 ---
 
 (voltohandson-header-label)=

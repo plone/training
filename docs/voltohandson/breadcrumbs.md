@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Hide the breadcumbs on the siteroot"
+  "property=og:description": "Hide the breadcumbs on the siteroot"
+  "property=og:title": "Hide breadcumbs on the siteroot"
+  "keywords": "Plone, Volto, Training, Theme, Breadcrumbs"
 ---
 
 (voltohandson-breadcrumbs-label)=

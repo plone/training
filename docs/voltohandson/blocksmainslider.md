@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Learn how to create a slideshow Block"
+  "property=og:description": "Learn how to create a slideshow Block"
+  "property=og:title": "Mainslider Block"
+  "keywords": "Plone, Volto, Training, Blocks, Slider"
 ---
 
 (voltohandson-blocksmainslider-label)=

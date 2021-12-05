@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Set up your project and development environment"
+  "property=og:description": "Set up your project and development environment"
+  "property=og:title": "Initial project setup"
+  "keywords": "Plone, Volto, Training, Setup, Docker"
 ---
 
 (voltohandson-quickstart-label)=
