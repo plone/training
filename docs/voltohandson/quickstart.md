@@ -41,7 +41,14 @@ docker run -p 8080:8080 plone/plone-backend:6.0.0a1
 
 Keep that process running during the whole training in one of your terminal windows.
 
-Before we can begin you need to create a new Plone instance with the required addons installed. Open the classic Plone interface on you `localhost:8080`. As we need to install a few addons before we can use it with volto, do **not** click the "Create a new Plone site" Button. Instead use the "Andvanced" button to get to the addon selection. From the options there select "Plone 6 Frontend (Default content on homepage)" and "Plone 6 Frontend (plone.volto)". Also unselect "Example content". Continue by clicking "Create Plone Page". You might need to wait for a few minutes till the page is created.
+Before we can begin, you need to create a new Plone instance with the required add-ons installed.
+Open the classic Plone interface on `localhost:8080`.
+As we need to install a few add-ons before we can use it with Volto, do **not** click the :guilabel:`Create a new Plone site` button.
+Instead use the :guilabel:`Advanced` button to get to the add-on selection.
+From the options there, select :guilabel:`Plone 6 Frontend (Default content on homepage)` and :guilabel:`Plone 6 Frontend (plone.volto)`.
+Also unselect :guilabel:`Example content`.
+Continue by clicking :guilabel:`Create Plone Page`.
+You might need to wait for a few minutes until the page is created.
 
 ```{image} _static/required_plone_configuration.png
 :align: center
