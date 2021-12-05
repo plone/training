@@ -40,7 +40,8 @@ Everything that's inside the `SidebarPortal` component will be rendered in the s
 
 ## Schema
 
-To define the fields, that a Editor in Volto can use to customize their blocks we have a schema engine similar to how we define schemas for content types in Plone. Each Block should have a `schema.js` file that contains theb defintion for the Blocks fields.
+To define the fields, that an editor in Volto can use to customize their blocks, we have a schema engine similar to how we define schemas for content types in Plone.
+Each Block should have a `schema.js` file that contains the definition for the Blocks fields.
 
 ```js
 export const schemaTeaser = (props) => {
