@@ -33,7 +33,8 @@ In each terminal session you should be in your project folder `volto-hands-on-tr
 
 ### Plone environment
 
-To run your Volto site we will be using the Plone 6 docker image. You can start it by running the following command:
+To run our Volto site, we will be using the Plone 6 docker image.
+You can start it by running the following command:
 
 ```shell
 docker run -p 8080:8080 plone/plone-backend:6.0.0a1
