@@ -65,7 +65,8 @@ export const schemaTeaser = (props) => {
 export default schema;
 ```
 
-We use the `BlockDataForm` component from volto to then generate the interface from the schema. follow the next steps to see how
+We use the `BlockDataForm` component from Volto to then generate the interface from the schema.
+Follow the next steps to see how.
 
 ## Teaser block
 
