@@ -259,7 +259,7 @@ class IExample(model.Schema):
             values=['Beginner', 'Advanced', 'Professional'],
         ),
         required=False,
-        missing_value={},
+        missing_value=set(),
     )
 
     directives.widget(set_field_checkbox=CheckBoxFieldWidget)
@@ -269,7 +269,7 @@ class IExample(model.Schema):
             values=['Beginner', 'Advanced', 'Professional'],
         ),
         required=False,
-        missing_value={},
+        missing_value=set(),
     )
 
     # File fields
