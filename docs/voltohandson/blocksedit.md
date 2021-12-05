@@ -77,7 +77,8 @@ Follow the previous chapters to create a new basic block.
 
 ### Teaser block edit component
 
-We will start this time with the `Edit.jsx` component. We'll also be creating two children components:
+We will start this time with the `Edit.jsx` component.
+We will also create two children components:
 
 `src/components/Blocks/Teaser/Edit.jsx`
 
