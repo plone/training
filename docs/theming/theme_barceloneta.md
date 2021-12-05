@@ -74,7 +74,7 @@ You will be asked for to name your theme (This will be the name that is displaye
 Generated file structure at ... ./myaddon.name
 ```
 
-All theme related files have now been added to `./myaddon.name/src/myddon/name/theme/`
+All theme related files have now been added to `./myaddon.name/src/myaddon/name/theme/`
 
 ```shell
 ./myaddon.name/src/myaddon/name/theme/
@@ -157,7 +157,7 @@ To enable your theme
 
 ## Compiling Styles
 
-Open a **new** terminal and change into the theme folder your package:
+Open a **new** terminal and change into the theme folder of your package:
 
 ```{code-block} shell
 $ cd myaddon.name/src/myaddon/name/theme/

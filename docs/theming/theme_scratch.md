@@ -662,7 +662,7 @@ Install the package in Site setup > Add-ons or create a new Plone site.
 [bootstrap documentation]: https://getbootstrap.com/docs/5.1/getting-started/introduction/
 [bobtemplates.plone]: https://pypi.org/project/bobtemplates.plone/
 [google fonts]: https://fonts.google.com/
-[grid.scss]: https://github.com/plone/plonetheme.barceloneta/blob/master/scss/grid.scss
+[grid.scss]: https://github.com/plone/plonetheme.barceloneta/blob/master/scss/_grid.scss
 [main_template.pt]: https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/browser/templates/main_template.pt
 [mr.bob]: https://pypi.org/project/mr.bob/
 [npm]: https://www.npmjs.com/

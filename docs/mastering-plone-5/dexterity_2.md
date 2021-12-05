@@ -157,7 +157,7 @@ Just for completeness sake, this is what would have to happen for the first opti
   ```
 
 - Create an upgrade step that changes the class of the existing talks.
-  A reuseable method to do such a thing is in [plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class](https://github.com/plone/plone.app.contenttypes/blob/master/plone/app/contenttypes/migration/dxmigration.py#L130).
+  A reuseable method to do such a thing is in [plone.app.contenttypes.migration.dxmigration.migrate_base_class_to_new_class](https://github.com/plone/plone.app.contenttypes/blob/ab8ea9f101ea10e1229b0ab1863ffda7c699d72c/plone/app/contenttypes/migration/dxmigration.py#L134).
 ````
 
 (plone5-dexterity2-upgrades-label)=
@@ -302,7 +302,7 @@ Alternatively you also select which upgrade steps to run like this:
 Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package {py:mod}`plone.app.upgrade`.
 You should be able to upgrade a clean site from 2.5 to 5.0 with one click.
 
-For an example see the upgrade step to Plone 5.0a1 <https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/v50/alphas.py#L37>
+Find the upgrade steps in  <https://github.com/plone/plone.app.upgrade/blob/master/plone/app/upgrade/>
 ```
 
 (plone5-dexterity2-browserlayer-label)=

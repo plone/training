@@ -105,11 +105,20 @@ teaching/index
 
 ### Theming
 
+
 {doc}`theming/index`
 
-: Create a Diazo-based theme as a Plone add-on.
+: Theming Plone 6 Cassic
+
+{doc}`theming_plone_5/index`
+
+: Create a Diazo-based theme as a Plone 5 add-on.
 
 ### Deployment
+
+{doc}`plone-deployment/index`
+
+: Deploying Plone 6 for production purposes with Ansible and Docker
 
 {doc}`wsgi/index`
 

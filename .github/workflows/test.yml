@@ -23,6 +23,4 @@ jobs:
           pip install -q -r requirements.txt -c constraints.txt
 
       - name: Run tests with make test
-        run: |
-          cd docs
-          make test linkcheck
+        run: make test

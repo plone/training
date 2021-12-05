@@ -258,7 +258,7 @@ Some notes:
 
 - <https://docs.plone.org/develop/plone.api/docs/content.html#transition>. `transition` has two modes of operation:
   The documented one is `api.content.transition(obj=foo, transition='bar')`.
-  That mode tries to execute that specific tranistion.
+  That mode tries to execute that specific transition.
   But sometimes it is better to use `to_state` which tries to to find a way to get from the current state to the target-state.
   See <https://docs.plone.org/develop/plone.api/docs/api/content.html#plone.api.content.transition> for the docstring.
 

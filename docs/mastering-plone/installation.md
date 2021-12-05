@@ -99,9 +99,9 @@ For a Plone 6 installation by now two installations are needed: Plone backend an
 The former section is describing the options for a Plone backend installation.
 This section is about setting up a Volto project.
 
-Install pre-requisites:
+**Install pre-requisites:**
 
-1. Install `nvm` (Node Version Manager) to manage `node` versions.
+1. Install `nvm` (Node Version Manager) to manage `NodeJS` versions.
 
    ```shell
    # macOS
@@ -111,11 +111,25 @@ Install pre-requisites:
    apt-get install nvm
    ```
 
-2. Install `node` LTS (node version LTS: long time support)
+2. Install `NodeJS` LTS (NodeJS version LTS: long time support)
 
    ```shell
    nvm install --lts
    ```
+
+   Test NodeJS: 
+   
+   ```shell
+   node -v
+   ```
+
+   The version of the current LTS NodeJS is printed.
+   At the time of writing:
+
+   ```shell
+   v16.13.0
+   ```
+   
 
 3. Install package manager `yarn`.
 
@@ -123,12 +137,22 @@ Install pre-requisites:
    npm install --global yarn
    ```
 
-Create your Volto project:
-
-1. Generate a project with yeoman
+   
+3. Install {term}`Yeoman` and the Volto generator for apps and add-ons.
 
    ```shell
-   npm init yo @plone/volto
+   npm update -g yo @plone/generator-volto
+   ```
+
+   Run `npm update` to be sure to have the current version.
+   
+
+**Create your Volto project:**
+
+1. Generate a project with {term}`Yeoman` and the Volto generator:
+
+   ```shell
+   yo @plone/volto
    ```
 
    It will take a while to install all dependencies.
@@ -142,7 +166,7 @@ Create your Volto project:
    npx: installed 14 in 3.392s
    Getting latest Volto version
    Retrieving Volto's yarn.lock
-   Using latest released Volto version: 10.4.1
+   Using latest released Volto version: 13.13.13
    ? Project name volto-project-myprojectname
    ? Project description A Volto-powered Plone frontend
    ? Would you like to add addons? false

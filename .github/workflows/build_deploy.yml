@@ -23,14 +23,10 @@ jobs:
           pip install -q -r requirements.txt -c constraints.txt
 
       - name: Run tests with make test
-        run: |
-          cd docs
-          make test
+        run: make test
 
       - name: Prepare deploy
-        run: |
-          cd docs
-          make deploy
+        run: make deploy
 
       - name: Deploy to server
         id: deploy
