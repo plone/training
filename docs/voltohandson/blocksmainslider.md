@@ -18,7 +18,8 @@ For the slider feature, we will install a third party library that will provide 
 
 ## Install react-slick
 
-We will use the react-slick library to help us animating a slider at the top of the page. To install it to your project run:
+We will use the `react-slick` library to animate a slider at the top of the page.
+To install it to your project, run the following command:
 
 ```shell
 yarn add -W react-slick slick-carousel
