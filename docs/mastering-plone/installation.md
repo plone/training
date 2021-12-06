@@ -243,7 +243,7 @@ All these topics are introduced in [Guide to deploying and installing Plone in p
       error: The engine "node" is incompatible with this module. Expected version "^10 || ^12 || ^14". Got "16.13.0"
       error: Found incompatible module.
       ```
-      then change to your {file}`package.json` and allow NodeJS 16 or the current LTS version of NodeJS.
+      then edit your {file}`package.json` such that it allows NodeJS 16 or the current LTS version of NodeJS.
 
       ```
       "engines": {
