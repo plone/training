@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Learn How to customize the Footer of the page"
+  "property=og:description": "Learn How to customize the Footer of the page"
+  "property=og:title": "Footer customization"
+  "keywords": "Plone, Volto, Training, Theme, Footer"
 ---
 
 (voltohandson-footer-label)=
@@ -15,15 +15,15 @@ We customize the footer using component shadowing, by copying the original Volto
 Since we need the Logo component in the Footer, we import it from Volto as we did in the Header:
 
 ```jsx
-import { Logo } from '@plone/volto/components';
+import { Logo } from "@plone/volto/components";
 ```
 
 Then, we replace the `Footer` component content to match the one from `plone.org`.
 
 ```jsx
-<Segment role="contentinfo" vertical padded inverted color="grey">
+<Segment role="contentinfo" vertical padded inverted color="black">
   <Container>
-    <Segment basic inverted color="grey" className="discreet footer">
+    <Segment basic inverted color="black" className="discreet footer">
       <div className="footer-inner">
         <Logo />
         <List horizontal inverted>
@@ -72,19 +72,24 @@ Then, we replace the `Footer` component content to match the one from `plone.org
 and add this styling to the `custom.overrides` file:
 
 ```less
-.ui.inverted.grey.segment.footer {
-  .ui.image {
-    height: 32px;
-    margin-right: 50px;
-  }
+.ui.inverted.black.segment {
+  background-color: #191919 !important;
 
-  .footer-inner {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+  .footer {
+    .ui.image {
+      height: 32px;
+      margin-right: 50px;
+      color: @white;
+    }
 
-    .ui.horizontal.list a {
-      text-decoration: none;
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .ui.horizontal.list a {
+        text-decoration: none;
+      }
     }
   }
 }

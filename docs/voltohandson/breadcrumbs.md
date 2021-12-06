@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Hide the breadcumbs on the siteroot"
+  "property=og:description": "Hide the breadcumbs on the siteroot"
+  "property=og:title": "Hide breadcumbs on the siteroot"
+  "keywords": "Plone, Volto, Training, Theme, Breadcrumbs"
 ---
 
 (voltohandson-breadcrumbs-label)=
@@ -23,8 +23,6 @@ Volto does it very much like Plone does.
   display: none;
 }
 ```
-
-We will return to breadcrumbs later to style it, after we finish with the homepage.
 
 However, to simplify the training for now, we will hide the breadcrumbs for all pages.
 

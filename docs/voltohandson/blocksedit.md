@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Learn how to write an editable Volto Block"
+  "property=og:description": "Learn how to write an editable Volto Block"
+  "property=og:title": "Editable Blocks"
+  "keywords": "Plone, Volto, Training, Blocks"
 ---
 
 (voltohandson-editblocks-label)=
@@ -38,6 +38,36 @@ import { SidebarPortal } from '@plone/volto/components';
 
 Everything that's inside the `SidebarPortal` component will be rendered in the sidebar.
 
+## Schema
+
+To define the fields that an editor in Volto can use to customize their blocks, we have a schema engine similar to how we define schemas for content types in Plone.
+Each Block should have a `schema.js` file that contains the definition for the Blocks fields.
+
+```js
+export const schemaTeaser = (props) => {
+  return {
+    required: [],
+    fieldsets: [
+      {
+        id: "default",
+        title: "Default",
+        fields: ["some_field"],
+      },
+    ],
+    properties: {
+      some_field: {
+        title: "Some Field",
+      },
+    },
+  };
+};
+
+export default schema;
+```
+
+We use the `BlockDataForm` component from Volto to then generate the interface from the schema.
+Follow the next steps to see how.
+
 ## Teaser block
 
 Let's create a new block (not in the project specification) but can be handy too.
@@ -48,13 +78,15 @@ Follow the previous chapters to create a new basic block.
 
 ### Teaser block edit component
 
-We will start this time with the `Edit.jsx` component. We'll be creating two children components:
+We will start this time with the `Edit.jsx` component.
+We will also create two children components:
 
 `src/components/Blocks/Teaser/Edit.jsx`
 
 ```jsx
 import React from "react";
-import { SidebarPortal, withBlockExtensions } from "@plone/volto/components";
+import { SidebarPortal } from "@plone/volto/components";
+import { withBlockExtensions } from "@plone/volto/helpers";
 import TeaserData from "./TeaserData";
 import TeaserBody from "./TeaserBody";
 
@@ -80,19 +112,89 @@ const Edit = (props) => {
 export default withBlockExtensions(Edit);
 ```
 
+`TeaserBody` will hold the actual visible content of the block:
+
+`src/components/Blocks/Teaser/TeaserBody.jsx`
+
+```jsx
+import React from "react";
+import { Link } from "react-router-dom";
+import { Message } from "semantic-ui-react";
+import { defineMessages, injectIntl } from "react-intl";
+import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
+import { flattenToAppURL } from "@plone/volto/helpers";
+
+const messages = defineMessages({
+  PleaseChooseContent: {
+    id: "Please choose an existing content as source for this element",
+    defaultMessage:
+      "Please choose an existing content as source for this element",
+  },
+});
+
+const TeaserBody = ({ data, id, isEditMode, intl }) => {
+  const teaserData = data.teaser[0];
+
+  return (
+    <>
+      {!teaserData ? (
+        <Message>
+          <div className="teaser-item default">
+            <img src={imageBlockSVG} alt="" />
+            <p>{intl.formatMessage(messages.PleaseChooseContent)}</p>
+          </div>
+        </Message>
+      ) : (
+        <div className="teaser-item">
+          {(() => {
+            const item = (
+              <>
+                {teaserData.hasPreviewImage && (
+                  <img
+                    src={`${flattenToAppURL(teaserData["@id"])}/@@images/${
+                      teaserData.image_field
+                    }/teaser`}
+                    alt=""
+                  />
+                )}
+                <h3>{teaserData.title}</h3>
+                <p>{teaserData.description}</p>
+              </>
+            );
+            if (!isEditMode) {
+              return (
+                <Link
+                  to={flattenToAppURL(teaserData["@id"])}
+                  target={data.openLinkInNewTab ? "_blank" : null}
+                >
+                  {item}
+                </Link>
+              );
+            } else {
+              return item;
+            }
+          })()}
+        </div>
+      )}
+    </>
+  );
+};
+
+export default injectIntl(TeaserBody);
+```
+
+`TeaserData` holds the code that will be contained in the sidebar:
+
 `src/components/Blocks/Teaser/TeaserData.jsx`
 
 ```jsx
 import React from "react";
-import { Segment } from "semantic-ui-react";
-import { FormattedMessage } from "react-intl";
 import { BlockDataForm } from "@plone/volto/components";
-import schema from "./schema";
+import TeaserSchema from "./schema";
 
 const TeaserData = (props) => {
   const { data, block, onChangeBlock } = props;
-  const schema = schemaListing({ ...props });
-
+  const schema = TeaserSchema({ ...props });
   return (
     <BlockDataForm
       schema={schema}
@@ -112,11 +214,14 @@ const TeaserData = (props) => {
 export default TeaserData;
 ```
 
+The schema defines the actual fields rendered in the sidebar and saved in the Block:
+
 `src/components/Blocks/Teaser/schema.js`
 
 ```js
 export const schemaTeaser = (props) => {
   return {
+    required: [],
     fieldsets: [
       {
         id: "default",
@@ -134,79 +239,8 @@ export const schemaTeaser = (props) => {
     },
   };
 };
-```
 
-`src/components/Blocks/Teaser/TeaserBody.jsx`
-
-```jsx
-import React from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { Message } from "semantic-ui-react";
-import { defineMessages, injectIntl } from "react-intl";
-import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
-import { getContent } from "@plone/volto/actions";
-import { flattenToAppURL } from "@plone/volto/helpers";
-
-const messages = defineMessages({
-  PleaseChooseContent: {
-    id: "Please choose an existing content as source for this element",
-    defaultMessage:
-      "Please choose an existing content as source for this element",
-  },
-});
-
-const TeaserBody = ({ data, id, isEditMode, intl }) => {
-  const contentSubrequests = useSelector((state) => state.content.subrequests);
-  const dispatch = useDispatch();
-  const results = contentSubrequests?.[id]?.data;
-
-  React.useEffect(() => {
-    if (data.href) {
-      dispatch(getContent(data.href, null, id));
-    }
-  }, [dispatch, data, id]);
-
-  return (
-    <>
-      {!data.href && (
-        <Message>
-          <div className="teaser-item default">
-            <img src={imageBlockSVG} alt="" />
-            <p>{intl.formatMessage(messages.PleaseChooseContent)}</p>
-          </div>
-        </Message>
-      )}
-      {data.href && results && (
-        <div className="teaser-item">
-          {(() => {
-            const item = (
-              <>
-                {results.image && <img src={results.image.download} alt="" />}
-                <h3>{results.title}</h3>
-                <p>{results.description}</p>
-              </>
-            );
-            if (!isEditMode) {
-              return (
-                <Link
-                  to={flattenToAppURL(results["@id"])}
-                  target={data.openLinkInNewTab ? "_blank" : null}
-                >
-                  {item}
-                </Link>
-              );
-            } else {
-              return item;
-            }
-          })()}
-        </div>
-      )}
-    </>
-  );
-};
-
-export default injectIntl(TeaserBody);
+export default schemaTeaser;
 ```
 
 `src/components/Blocks/Teaser/View.jsx`
@@ -226,8 +260,7 @@ export default withBlockExtensions(View);
 `src/config.js`
 
 ```js
-import TeaserViewBlock from "@package/components/Blocks/Teaser/View";
-import TeaserEditBlock from "@package/components/Blocks/Teaser/Edit";
+import { TeaserViewBlock, TeaserEditBlock } from "@package/components";
 //...
 config.blocks.blocksConfig.teaser = {
   id: "teaser",

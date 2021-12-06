@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Learn how to create the highlight Block"
+  "property=og:description": "Learn how to create the highlight Block"
+  "property=og:title": "Mainslider Block"
+  "keywords": "Plone, Volto, Training, Blocks, Slider"
 ---
 
 (voltohandson-highlightsblock-label)=
@@ -19,7 +19,7 @@ Exercise: Create the highlights basic block using `src/components/Blocks/Highlig
 
 `src/components/Blocks/Highlights/View.jsx`
 
-```jsy
+```jsx
 import React from 'react';
 
 const View = props => {
@@ -28,6 +28,7 @@ const View = props => {
 
 export default View;
 ```
+
 
 `src/components/Blocks/Highlights/Edit.jsx`
 
@@ -40,14 +41,20 @@ const Edit = props => {
 
 export default Edit;
 ```
+`src/components/index.js`
+
+```js
+//...
+export HighlightsEditBlock from './Blocks/Highlights/Edit';
+export HighlightsViewBlock from './Blocks/Highlights/View';
+```
 
 `src/config.js`
 
 ```js
-import HighlightsViewBlock from '@package/components/Blocks/Highlights/View';
-import HighlightsEditBlock from '@package/components/Blocks/Highlights/Edit';
+
 // ...
-    config.blocks.blocks.Confighighlights = {
+    config.blocks.blocksConfig.highlights = {
       id: 'highlights',
       title: 'Highlights',
       icon: sliderSVG,
@@ -152,9 +159,9 @@ and we will add it to the Block render. Notice that we are passing the id prop f
 ```{code-block} jsx
 :emphasize-lines: 1,6,19
 
- import RecentSuccessStories from './RecentSuccessStories';
+import RecentSuccessStories from './RecentSuccessStories';
 
- ...
+// ...
 
  const View = props => {
    const { id } = props;

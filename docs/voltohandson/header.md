@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Learn How to customize the Header of the page"
+  "property=og:description": "Learn How to customize the Header of the page"
+  "property=og:title": "Header customization"
+  "keywords": "Plone, Volto, Training, Theme, Header"
 ---
 
 (voltohandson-header-label)=
@@ -25,9 +25,9 @@ We want this styling in the Header component:
 
 ```less
 .ui.basic.segment.header-wrapper {
-  background-color: #191919;
   border-bottom: 1px solid #939393;
   margin-bottom: 20px;
+  background-color: #191919;
 }
 
 .ui.basic.segment .header .logo-nav-wrapper {
@@ -53,8 +53,8 @@ We adjust the navigation menu to match the one on `plone.org`:
 
   a.item {
     padding: 5px 10px !important;
-    margin: 0;
     border: none;
+    margin: 0;
     color: #fff;
     font-size: 14px;
     font-weight: bold;
@@ -82,7 +82,7 @@ Then we adjust the margin for the homepage:
 ## Logo
 
 We use [component shadowing](#component-shadowing) to customize (and override) Volto original components.
-Get the Plone logo (`Logo.svg`) from the `training-resources` you downloaded from the google drive.
+Get the Plone logo (`Logo.svg`) from the `training-resources` you downloaded from the [google drive](https://drive.google.com/drive/folders/1xDleXE8Emhr9xn_pnZaGfO9_HmU31L9e?usp=sharing).
 
 ```{note}
 Every time you add a file to the customizations folder or to the theme folder, you must restart Volto for changes to take effect.
@@ -94,6 +94,11 @@ From that point on, the hot reloading should kick in and reload the page automat
 We will customize the existing Volto header, since the one we want does not differ much from the original.
 We will do so by copying the original Volto `Header` component from the `omelette` folder `omelette/src/components/theme/Header/Header.jsx` folder into `src/customizations/components/theme/Header/Header.jsx`.
 
+```{note}
+If you have not worked with React that much so far you will notice that the Navigation component in Volto is not a javascipt function. This is because in React components can also be created from a js [class](https://reactjs.org/docs/react-component.html). Actually this was the preffered way to create components in earlier versions of React. Volto is currently undergoing the progress to switch to function components where possible.
+<!-- Remove this when the Header.jsx component has been updated to a functional component. -->
+```
+
 We have to make some more changes to that component, such as removing the search widget and the `Anontools` component.
 
 This will be the outcome:
@@ -104,27 +109,27 @@ import { Logo, Navigation } from '@plone/volto/components';
 ...
 
 render() {
-  return (
-    <Segment basic className="header-wrapper" role="banner">
-      <Container>
-        <div className="header">
-          <div className="logo-nav-wrapper">
-            <div className="logo">
-              <Logo />
+    return (
+      <Segment basic className="header-wrapper" role="banner">
+        <Container>
+          <div className="header">
+            <div className="logo-nav-wrapper">
+              <div className="logo">
+                <Logo />
+              </div>
+              <Navigation pathname={this.props.pathname} />
             </div>
-            <Navigation pathname={this.props.pathname} />
           </div>
-        </div>
-      </Container>
-    </Segment>
-  );
-}
+        </Container>
+      </Segment>
+    );
+  }
 ```
 
 ## Component shadowing
 
 We use a technique called **component shadowing** to override an existing Volto component with our local custom version, without having to modify Volto's source code at all.
-You have to place the replacing component in the same original folder path inside the `src/customizations` folder.
+You have to place the replacing component in the same original folder path inside the `src/customizations` folder. Take the `src` directory in Volto as the root when recreating the path in `/customizations`.
 
 ```{note}
 Component shadowing is very much like the good old Plone technique called "JBOT" ("just a bunch of templates"), but you can customize virtually any module in Volto, including actions and reducers, not only components.

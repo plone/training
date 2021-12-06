@@ -1,14 +1,14 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Learn how Blocks work in Volto"
+  "property=og:description": "Learn how Blocks work in Volto"
+  "property=og:title": "Introduction to Volto Blocks"
+  "keywords": "Plone, Volto, Training, Blocks, Introduction"
 ---
 
 (voltohandson-introtoblocks-label)=
 
-## Brief introduction to Volto blocks
+# Brief introduction to Volto blocks
 
 We will use Volto blocks to compose the homepage.
 
@@ -21,21 +21,23 @@ By default, Volto ships with the most basic set of Blocks, including Title, Text
 
 ```{note}
 Volto Blocks are not enabled by default in Plone content types.
-However, the `kitconcept.voltodemo` package enables Blocks for the `Document` content type,
+However, the `plone.volto` package enables Blocks for the `Document` content type,
 so you will be able to use Blocks when you create or edit a page.
 ```
 
 ## How to manually enable Blocks on a content type
 
 There is a behavior called `Blocks` made available by `plone.restapi`.
-To enable it you need to access the Plone backend running at <http://localhost:8080/Plone>.
+To enable it you need to access the Plone backend running at <http://localhost:3000/controlpanel/dexterity-types>.
 
-1. Go to `ControlPanel` -> `Dexterity Content Types`, select the content type.
-2. Go to `Behaviors`
-3. Select the `Blocks` behavior
-4. Save
+Thre you can choose a content type and enable `Blocks` in the `Behaviors` tab.
 
-Test the `Blocks` behavior for the content type you've just added it to, by creating a new object of that type from the Volto frontend (i.e. not from "classic" Plone).
+Test the `Blocks` behavior for the content type you've just added it to, by creating a new object of that type from the Volto frontend using the toolbar.
+
+```{image} _static/behaviors_controlpanel.png
+:align: center
+:alt: behaviors controlpanel in Volto
+```
 
 ## Blocks anatomy
 
@@ -48,7 +50,7 @@ This is the `Edit.jsx`:
 import React from "react";
 
 const Edit = (props) => {
-  return <div>I am the MainSlider edit component!</div>;
+  return <div>I'm the MainSlider edit component!</div>;
 };
 
 export default Edit;
@@ -102,39 +104,43 @@ You can use all these props to render your edit block and model its behavior.
 
 ## Register Block Files in index
 
-To help keeping paths for importing components clean we use index files in several places in Volto projects. You can find a `index.js` under `src/components/`. Import your Block compoents you just created in there and then export them again. This is to make it easier to import components in other places in the project, without having to remember all the paths to thier respective files.
+To help keeping paths for importing components clean we use index files in several places in Volto projects. You can find a `index.js` under `src/components/`. In there we directly export the Block components directly from there respective files. This is to make it easier to import components in other places in the project, without having to remember all their paths.
 
-### Blocks settings
-
-We need to configure the project to make it aware of a new block by adding it to the object configuration:
-We add these lines to the `config.js` in the root of our project.
-
-Import it before the `import '@plone/volto/config';` line:
+`components/index.js`
 
 ```js
-import MainSliderViewBlock from "@package/components/Blocks/MainSlider/View";
-import MainSliderEditBlock from "@package/components/Blocks/MainSlider/Edit";
+export MainSliderViewBlock from "./Blocks/Mainslider/View";
+export MainSliderEditBlock from "./Blocks/Mainslider/Edit";
+```
+
+## Blocks settings
+
+We need to configure the project to make it aware of a new block by adding it to the object configuration for that we need the 2 blocks components we created and a svg icon that will be displayed in the blocks chooser.
+
+Import those before the `import '@plone/volto/config';` line:
+
+```js
+import { MainSliderViewBlock, MainSliderEditBlock } from "@package/components";
 import sliderSVG from "@plone/volto/icons/slider.svg";
 ```
 
 Register it inside the `applyConfig()` function:
 
 ```js
-      config.blocks.blocksConfig.testBlock.mainslider= {
-        id: 'mainslider',
-        title: 'Main Slider',
-        icon: sliderSVG,
-        group: 'common',
-        view: MainSliderBlockView,
-        edit: MainSliderBlockEdit,
-        restricted: false,
-        mostUsed: true,
-        security: {
-          addPermission: [],
-          view: [],
-        },
-      },
-
+config.blocks.blocksConfig.mainslider = {
+  id: "mainslider",
+  title: "Main Slider",
+  icon: sliderSVG,
+  group: "common",
+  view: MainSliderViewBlock,
+  edit: MainSliderEditBlock,
+  restricted: false,
+  mostUsed: true,
+  security: {
+    addPermission: [],
+    view: [],
+  },
+};
 ```
 
 We add this also, to fulfill all our i18n requirements:

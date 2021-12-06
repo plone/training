@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Define what the page you are creating should look like in the end of the training"
+  "property=og:description": "Define what the page you are creating should look like in the end of the training"
+  "property=og:title": "Project requirements"
+  "keywords": "Plone, Volto, Training, Requirements"
 ---
 
 (voltohandson-customcss-label)=
@@ -15,7 +15,7 @@ This is what the page looks like:
 
 ```{image} _static/plone.com_index.png
 :align: center
-:alt: plone.org theme
+:alt: plone.com theme
 ```
 
 ## Tasks
@@ -37,4 +37,5 @@ We'll leave these tasks for later:
 
 ## Training ressources and assets
 
-There are a few Files, mostly images, that you will need to recreate the plone.org page. They are currently available from this [google drive folder](https://drive.google.com/drive/folders/1xDleXE8Emhr9xn_pnZaGfO9_HmU31L9e?usp=sharing)
+There are a few files, mostly images, that you will need to recreate for the plone.org page.
+They are currently available from this [Google Drive folder](https://drive.google.com/drive/folders/1xDleXE8Emhr9xn_pnZaGfO9_HmU31L9e?usp=sharing).

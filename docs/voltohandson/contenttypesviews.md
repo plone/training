@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Learn How to code a custom View for a content type"
+  "property=og:description": "Learn How to code a custom View for a content type"
+  "property=og:title": "Content Type Views"
+  "keywords": "Plone, Volto, Training, View, Content Types"
 ---
 
 (voltohandson-contenttypeview-label)=
@@ -15,8 +15,8 @@ We will use them as base for further developments on the project.
 
 ## Success Story
 
-Create this content type using `Control Panel`->\`\`Dexterity Content Types\`\`->\`\`Add new content type\`\`.
-Name it `Success Story`, then select it, got to the `Behaviors` tab, and add the `Blocks` and the `Lead Image` behaviors.
+Create this content type using the Dexterity content type control panel at <http://localhost:3000/controlpanel/dexterity-types>.
+Name it `Success Story`, then select it, go to the `Behaviors` tab, and add the `Blocks` and the `Lead Image` behaviors.
 
 ## Creating a view for a custom content type
 
@@ -32,35 +32,43 @@ const SuccessStoryView = (props) => {
 export default SuccessStoryView;
 ```
 
+Export it again from via the index file:
+
+```js
+export SuccessStoryView from "./Views/SuccessStory";
+```
+
 Then add to the configuration object:
 
 ```js
-import SuccessStory from "@package/components/Views/SuccessStory";
-
-...
+import {
+  MainSliderViewBlock,
+  MainSliderEditBlock,
+  SuccessStoryView,
+} from '@package/components';
+//...
 applyConfig(config) {
-  config.views.contentTypesViews.SuccessStory
-  ...
+  config.views.contentTypesViews.success_story = SuccessStoryView;
+  //...
 }
 ```
 
-Create a new `Success Story` content type, fill the title and save. Your custom view should be in place.
+Create a new `Success Story` content type, fill the title and save. And upload the `successstory-lead-image` from the training ressources as lead image". Your custom view should now be in place.
 
 ## Completing the new view
 
 Our recently created view needs to show sensible content now. Let's add it. Edit `src/components/Views/SuccessStory.jsx`:
 
-```jsx
+```{code-block} jsx
 :emphasize-lines: 2,5
+import React from "react";
+import { DefaultView } from "@plone/volto/components";
 
- import React from 'react';
- import { DefaultView } from '@plone/volto/components';
+const SuccessStoryView = (props) => {
+  return <DefaultView {...props} />;
+};
 
- const SuccessStoryView = props => {
-   return <DefaultView {...props} />;
- };
-
- export default SuccessStoryView;
+export default SuccessStoryView;
 ```
 
 We are composing our view with Volto's default view component `DefaultView.jsx` to achieve the same features as the original one.
@@ -99,8 +107,8 @@ and companion styling, for now removing breadcrumbs here as well:
   }
 
   h1.documentFirstHeading {
-    margin-bottom: 0;
     border: none;
+    margin-bottom: 0;
     color: #00608c;
     font-size: 4.5em;
     line-height: 1.25em;
@@ -115,5 +123,3 @@ and companion styling, for now removing breadcrumbs here as well:
   }
 }
 ```
-
-We can add any other field from the content type to the page, we only need to give it structure and styling, as desired.
