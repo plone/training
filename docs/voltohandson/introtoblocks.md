@@ -8,7 +8,7 @@ html_meta:
 
 (voltohandson-introtoblocks-label)=
 
-## Brief introduction to Volto blocks
+# Brief introduction to Volto blocks
 
 We will use Volto blocks to compose the homepage.
 
