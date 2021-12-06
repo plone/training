@@ -188,7 +188,9 @@ If successful, you get:
 
 > 🎭 Volto started at <http://localhost:3000> 🚀
 
-**Troubleshooting** [^troubleshooting]
+```{seealso}
+Something not right? See **Troubleshooting**.[^troubleshooting]
+```
 
 Create a Plone site object **Plone** on <http://localhost:8080>
 
