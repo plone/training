@@ -239,7 +239,7 @@ All these topics are introduced in [Guide to deploying and installing Plone in p
       
       If you get
 
-      ```
+      ```console
       error: The engine "node" is incompatible with this module. Expected version "^10 || ^12 || ^14". Got "16.13.0"
       error: Found incompatible module.
       ```
