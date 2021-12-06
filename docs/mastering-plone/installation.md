@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "How to install Plone 6"
+  "property=og:description": "How to install Plone 6"
+  "property=og:title": "Installation & Setup of Plone 6"
+  "keywords": "installation, Plone 6"
 ---
 
 (installation-label)=
@@ -111,10 +111,10 @@ This section is about setting up a Volto project.
    apt-get install nvm
    ```
 
-2. Install `NodeJS` LTS (NodeJS version LTS: long time support)
+2. Install `NodeJS`
 
    ```shell
-   nvm install --lts
+   nvm install 14 --latest-npm
    ```
 
    Test NodeJS: 
@@ -123,11 +123,11 @@ This section is about setting up a Volto project.
    node -v
    ```
 
-   The version of the current LTS NodeJS is printed.
+   The version of the current 14 NodeJS is printed.
    At the time of writing:
 
    ```shell
-   v16.13.0
+   v14.18.2
    ```
    
 
@@ -138,10 +138,10 @@ This section is about setting up a Volto project.
    ```
 
    
-3. Install {term}`Yeoman` and the Volto generator for apps and add-ons.
+4. Install {term}`Yeoman` and the Volto generator for apps and add-ons.
 
    ```shell
-   npm update -g yo @plone/generator-volto
+   npm install -g yo @plone/generator-volto
    ```
 
    Run `npm update` to be sure to have the current version.
@@ -157,30 +157,11 @@ This section is about setting up a Volto project.
 
    It will take a while to install all dependencies.
    `yo` will ask a series of questions.
-   Respond to the first by entering your project name, the next by pressing {kbd}`Enter`, and to the remaining two with `false`.
 
-   The output will look like this:
-
-   ```console
-   me@here sandbox % npm init yo @plone/volto
-   npx: installed 14 in 3.392s
-   Getting latest Volto version
-   Retrieving Volto's yarn.lock
-   Using latest released Volto version: 13.13.13
-   ? Project name volto-project-myprojectname
-   ? Project description A Volto-powered Plone frontend
-   ? Would you like to add addons? false
-   ? Would you like to add workspaces? false
-      create volto-project-myprojectname/package.json
-      create volto-project-myprojectname/yarn.lock
-      create volto-project-myprojectname/.eslintrc.js
-      ...
-   ```
-
-2. Start up the project **volto-project-myprojectname** with
+2. Start up the project **myprojectname** with
 
    ```shell
-   cd volto-project-myprojectname
+   cd myprojectname
    yarn start
    ```
 
@@ -188,9 +169,6 @@ If successful, you get:
 
 > 🎭 Volto started at <http://localhost:3000> 🚀
 
-```{seealso}
-Something not right? See **Troubleshooting**.[^troubleshooting]
-```
 
 Create a Plone site object **Plone** on <http://localhost:8080>
 
@@ -201,6 +179,7 @@ You can stop the Volto app anytime using {kbd}`ctrl + c`.
 ```{seealso}
 For more information see [Volto documentation](https://docs.voltocms.com/getting-started/install/).
 ```
+
 
 (installation-hosting-label)=
 
@@ -221,6 +200,7 @@ You can host Plone...
 Plone Installation Requirements: <https://docs.plone.org/manage/installing/requirements.html>
 ```
 
+
 (installation-prod-deploy-label)=
 
 ## Production Deployment
@@ -236,20 +216,3 @@ The way we are setting up a Plone site during this class may be adequate for a s
 And, you will need to learn strategies for efficient backup and log file rotation.
 
 All these topics are introduced in [Guide to deploying and installing Plone in production](https://docs.plone.org/manage/deploying/index.html).
-
-[^troubleshooting]: **Troubleshooting**. 
-      
-      If you get
-
-      ```console
-      error: The engine "node" is incompatible with this module. Expected version "^10 || ^12 || ^14". Got "16.13.0"
-      error: Found incompatible module.
-      ```
-      then edit your {file}`package.json` such that it allows NodeJS 16 or the current LTS version of NodeJS.
-
-      ```
-      "engines": {
-         "node": "^14 || ^16"
-      },
-      ```
-
