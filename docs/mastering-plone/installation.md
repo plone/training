@@ -115,6 +115,7 @@ This section is about setting up a Volto project.
 
    ```shell
    nvm install 14 --latest-npm
+   nvm use 14
    ```
 
    Test NodeJS: 
