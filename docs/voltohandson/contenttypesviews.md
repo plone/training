@@ -15,8 +15,8 @@ We will use them as base for further developments on the project.
 
 ## Success Story
 
-Create this content type using via the dexterity content type control panel at<http://localhost:3000/controlpanel/dexterity-types>.
-Name it `Success Story`, then select it, got to the `Behaviors` tab, and add the `Blocks` and the `Lead Image` behaviors.
+Create this content type using the Dexterity content type control panel at <http://localhost:3000/controlpanel/dexterity-types>.
+Name it `Success Story`, then select it, go to the `Behaviors` tab, and add the `Blocks` and the `Lead Image` behaviors.
 
 ## Creating a view for a custom content type
 
