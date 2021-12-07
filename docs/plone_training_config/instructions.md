@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
+  "description": "How to install Plone 6 for the training"
+  "property=og:description": "How to install Plone 6 for the training"
   "property=og:title": ""
-  "keywords": ""
+  "keywords": "Installation and Setup of Plone 6 for the training 'Mastering Plone Development'"
 ---
 
 (instructions-label)=
@@ -33,7 +33,8 @@ In {file}`frontend` we will install Volto and add our custom React code.
 (instructions-no-vagrant-label)=
 
 ```{warning}
-If you try both methods below (with Vagrant and without), make sure you use different {file}`training` directories! The two installations do not coexist well.
+If you try both methods below (with Vagrant and without), make sure you use different {file}`training` directories.
+The two installations do not coexist well.
 ```
 
 ## Technical set up to do before a training (as a trainer)
@@ -215,9 +216,6 @@ You have two options:
 > 1. Create the frontend from scratch using the Volto generator.
 > 2. Use the existing Volto project for this training [volto-ploneconf](https://github.com/collective/volto-ploneconf) with all the code for the training.
 
-```{note}
-If you are completely new to node and companions, please see [Volto Documentation](https://docs.voltocms.com/getting-started/install/) to find information about node, nvm, npx, yarn and the React thing.
-```
 
 #### Option 1: Frontend from scratch with Volto generator
 
@@ -235,23 +233,24 @@ If you are completely new to node and companions, please see [Volto Documentatio
    apt-get install nvm
    ```
 
-2. Install `NodeJS` LTS (NodeJS version LTS: long time support)
+2. Install `NodeJS` 
 
    ```shell
-   nvm install --lts
+   nvm install 14 --latest-npm
+   nvm use 14
    ```
 
    Test NodeJS: 
-   
+
    ```shell
    node -v
    ```
 
-   The version of the current LTS NodeJS is printed.
+   The version of the current 14 NodeJS is printed.
    At the time of writing:
 
-   ```shell
-   v16.13.0
+   ```console
+   v14.18.2
    ```
    
 
@@ -262,10 +261,10 @@ If you are completely new to node and companions, please see [Volto Documentatio
    ```
 
    
-3. Install {term}`Yeoman` and the Volto generator for apps and add-ons.
+4. Install {term}`Yeoman` and the Volto generator for apps and add-ons.
 
    ```shell
-   npm update -g yo @plone/generator-volto
+   npm install -g yo @plone/generator-volto
    ```
 
    Run `npm update` to be sure to have the current version.
@@ -281,38 +280,19 @@ If you are completely new to node and companions, please see [Volto Documentatio
 
    It will take a while to install all dependencies.
    `yo` will ask a series of questions.
-   Respond to the first by entering your project name, the next by pressing {kbd}`Enter`, and to the remaining two with `false`.
 
-   The output will look like this:
-
-   ```console
-   me@here sandbox % npm init yo @plone/volto
-   npx: installed 14 in 3.392s
-   Getting latest Volto version
-   Retrieving Volto's yarn.lock
-   Using latest released Volto version: 13.13.13
-   ? Project name volto-project-myprojectname
-   ? Project description A Volto-powered Plone frontend
-   ? Would you like to add addons? false
-   ? Would you like to add workspaces? false
-      create volto-project-myprojectname/package.json
-      create volto-project-myprojectname/yarn.lock
-      create volto-project-myprojectname/.eslintrc.js
-      ...
-   ```
-
-2. Start up the project **volto-project-myprojectname** with
+2. Start up the project **myprojectname** with
 
    ```shell
-   cd volto-project-myprojectname
+   cd myprojectname
    yarn start
    ```
 
 If successful, you get:
 
-> 🎭 Volto started at <http://localhost:3000> 🚀
-
-**Troubleshooting** [^troubleshooting]
+```console
+🎭 Volto started at <http://localhost:3000> 🚀
+```
 
 Create a Plone site object **Plone** on <http://localhost:8080>
 
@@ -320,18 +300,11 @@ Point your browser to <http://localhost:3000> and see that Plone is up and runni
 
 You can stop the Volto app anytime using {kbd}`ctrl + c`.
 
-```{seealso}
-For more information see [Volto documentation](https://docs.voltocms.com/getting-started/install/).
-```
-
 
 #### Option 2. Start with existing training project `volto-ploneconf` with all code for the training
 
-Install package manager `yarn`.
+Prepare the pre-requisites: {ref}`instructions-install-frontend-prerequisites-label`
 
-> ```shell
-> npm install --global yarn
-> ```
 
 Get the finished code for the frontend from github and install:
 
@@ -341,7 +314,7 @@ cd frontend
 yarn
 ```
 
-Now you can start it with:
+Now you can start the app with:
 
 ```
 $ yarn start
@@ -352,8 +325,6 @@ Create a Plone site object *Plone* on <http://localhost:8080>
 Point your browser to <http://localhost:3000> and see that Plone is up and running.
 
 You can stop the frontend anytime using {kbd}`ctrl + c`.
-
-**Troubleshooting** [^troubleshooting]
 
 
 (instructions-vagrant-label)=
@@ -575,20 +546,3 @@ Keep in mind the following recommendations for using your Vagrant VirtualBoxes:
 - If you are done with a vagrant box, and want to delete it, always remember to run {command}`vagrant destroy` on it before actually deleting the directory containing it.  Otherwise you'll leave its "ghost" in the list of boxes managed by vagrant and possibly taking up disk space on your machine.
 - See {command}`vagrant help` for all available commands, including {command}`suspend`, {command}`halt`, {command}`destroy`, {command}`up`, {command}`ssh` and {command}`resume`.
 ```
-
-
-[^troubleshooting]: **Troubleshooting**. 
-      
-      If you get
-
-      ```
-      error: The engine "node" is incompatible with this module. Expected version "^10 || ^12 || ^14". Got "16.13.0"
-      error: Found incompatible module.
-      ```
-      then change to your {file}`package.json` and allow NodeJS 16 or the current LTS version of NodeJS.
-
-      ```
-      "engines": {
-         "node": "^14 || ^16"
-      },
-      ```
