@@ -241,7 +241,7 @@ You have two options:
    ```
 
    Test NodeJS: 
-   
+
    ```shell
    node -v
    ```
@@ -290,17 +290,15 @@ You have two options:
 
 If successful, you get:
 
-> 🎭 Volto started at <http://localhost:3000> 🚀
+```console
+🎭 Volto started at <http://localhost:3000> 🚀
+```
 
 Create a Plone site object **Plone** on <http://localhost:8080>
 
 Point your browser to <http://localhost:3000> and see that Plone is up and running.
 
 You can stop the Volto app anytime using {kbd}`ctrl + c`.
-
-```{seealso}
-For more information see [Volto documentation](https://docs.voltocms.com/getting-started/install/).
-```
 
 
 #### Option 2. Start with existing training project `volto-ploneconf` with all code for the training

@@ -8,7 +8,7 @@ html_meta:
 
 (installation-label)=
 
-# Installation & Setup of Plone 6
+# Installation and Setup of Plone 6
 
 Plone is the combination of a backend (data storage) with a frontend (user interface) into a fully featured CMS.
 
@@ -119,7 +119,7 @@ This section is about setting up a Volto project.
    ```
 
    Test NodeJS: 
-   
+
    ```shell
    node -v
    ```
@@ -168,7 +168,9 @@ This section is about setting up a Volto project.
 
 If successful, you get:
 
-> 🎭 Volto started at <http://localhost:3000> 🚀
+```console
+🎭 Volto started at <http://localhost:3000> 🚀
+```
 
 
 Create a Plone site object **Plone** on <http://localhost:8080>
@@ -176,10 +178,6 @@ Create a Plone site object **Plone** on <http://localhost:8080>
 Point your browser to <http://localhost:3000> and see that Plone is up and running.
 
 You can stop the Volto app anytime using {kbd}`ctrl + c`.
-
-```{seealso}
-For more information see [Volto documentation](https://docs.voltocms.com/getting-started/install/).
-```
 
 
 (installation-hosting-label)=
