@@ -2,7 +2,7 @@
 html_meta:
   "description": "How to install Plone 6"
   "property=og:description": "How to install Plone 6"
-  "property=og:title": "Installation & Setup of Plone 6"
+  "property=og:title": "Installation and Setup of Plone 6"
   "keywords": "installation, Plone 6"
 ---
 
@@ -127,7 +127,7 @@ This section is about setting up a Volto project.
    The version of the current 14 NodeJS is printed.
    At the time of writing:
 
-   ```shell
+   ```console
    v14.18.2
    ```
    
@@ -214,6 +214,6 @@ The way we are setting up a Plone site during this class may be adequate for a s
 - Load balancing to make best use of multiple core CPUs and even multiple servers.
 - Optimizing cache headers and Plone's internal caching schemes with plone.app.caching.
 
-And, you will need to learn strategies for efficient backup and log file rotation.
+And you will need to learn strategies for efficient backup and log file rotation.
 
 All these topics are introduced in [Guide to deploying and installing Plone in production](https://docs.plone.org/manage/deploying/index.html).

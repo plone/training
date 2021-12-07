@@ -3,7 +3,7 @@ html_meta:
   "description": "How to install Plone 6 for the training"
   "property=og:description": "How to install Plone 6 for the training"
   "property=og:title": ""
-  "keywords": "Installation & Setup of Plone 6 for the training 'Mastering Plone Development'"
+  "keywords": "Installation and Setup of Plone 6 for the training 'Mastering Plone Development'"
 ---
 
 (instructions-label)=
@@ -33,7 +33,8 @@ In {file}`frontend` we will install Volto and add our custom React code.
 (instructions-no-vagrant-label)=
 
 ```{warning}
-If you try both methods below (with Vagrant and without), make sure you use different {file}`training` directories The two installations do not coexist well.
+If you try both methods below (with Vagrant and without), make sure you use different {file}`training` directories.
+The two installations do not coexist well.
 ```
 
 ## Technical set up to do before a training (as a trainer)
@@ -248,7 +249,7 @@ You have two options:
    The version of the current 14 NodeJS is printed.
    At the time of writing:
 
-   ```shell
+   ```console
    v14.18.2
    ```
    
