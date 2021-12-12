@@ -83,7 +83,7 @@ If you feel comfortable, please work on your own machine with your own Python.
 Please make sure you have your system properly prepared and installed all necessary prerequisites.
 ```
 
-The following instructions are based on Ubuntu and macOS, if you use a different operating system (OS), please adjust them to fit your OS.
+The following instructions are based on Ubuntu and macOS; if you use a different operating system (OS), please adjust them to fit your OS.
 
 On Ubuntu/Debian, you need to make sure you system is up-to-date:
 
@@ -95,7 +95,7 @@ sudo apt-get -y upgrade
 Then, you need to install the following packages:
 
 ```shell
-sudo apt-get install python3.8-dev python3.8-tk python3.8-venv build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
+sudo apt-get install python3.9-dev python3.9-tk python3.9-venv build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
 sudo apt-get install libreadline-dev wv poppler-utils
 sudo apt-get install git
 ```
@@ -123,10 +123,10 @@ Until Mastering Plone 6 version is released you need to checkout the branch `plo
 git checkout plone6
 ```
 
-Then create a virtual environment with Python 3.8 in the folder {file}`backend` and install some requirements into it.
+Then create a virtual environment with Python 3.9 in the folder {file}`backend` and install some requirements into it.
 
 ```shell
-python3.8 -m venv .
+python3.9 -m venv .
 ./bin/pip install -r requirements.txt
 ```
 
