@@ -86,10 +86,8 @@ You can host Plone...
 - with one of many professional [hosting providers](https://plone.org/providers)
 - on a virtual private server
 - on dedicated servers
-- on [Heroku](https://www.heroku.com) you can run Plone for *free* using the [Heroku buildpack for Plone](https://github.com/plone/heroku-buildpack-plone)
 
-% * in the cloud (e.g. using Amazon EC2 or `Codio.com <http://blog.dbain.com/2014/04/install-plone-in-under-5-minutes-on.html>`_)
-
+See all the ways you can [set up Plone](https://plone.org/download)
 ```{seealso}
 - Plone Installation Requirements: <https://docs.plone.org/manage/installing/requirements.html>
 ```
