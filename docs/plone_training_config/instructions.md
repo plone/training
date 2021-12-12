@@ -137,7 +137,8 @@ Now you can run the buildout for the first time:
 ./bin/buildout
 ```
 
-This will take **a long time** (~10 minutes on the least powerful Linode) and will produce a lot of output because it downloads and configures more than 260 Python packages. Once it is done you can start your Plone instance with
+This will take **a long time** (~10 minutes on the least powerful Linode) and will produce a lot of output because it downloads and configures more than 260 Python packages.
+Once it is done, you can start your Plone instance with the following command.
 
 ```shell
 ./bin/instance fg
