@@ -83,7 +83,8 @@ If you feel comfortable, please work on your own machine with your own Python.
 Please make sure you have your system properly prepared and installed all necessary prerequisites.
 ```
 
-The following instructions are based on Ubuntu and macOS; if you use a different operating system (OS), please adjust them to fit your OS.
+The following instructions are based on Ubuntu and macOS.
+If you use a different operating system (OS), please adjust them to fit your OS.
 
 On Ubuntu/Debian, you need to make sure you system is up-to-date:
 
