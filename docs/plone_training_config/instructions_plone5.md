@@ -58,12 +58,12 @@ sudo apt-get -y upgrade
 Then, you need to install the following packages:
 
 ```shell
-sudo apt-get install python3.7-dev python3.7-tk python3.7-venv build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
+sudo apt-get install python3.8-dev python3.8-tk python3.8-venv build-essential libssl-dev libxml2-dev libxslt1-dev libbz2-dev libjpeg62-dev
 sudo apt-get install libreadline-dev wv poppler-utils
 sudo apt-get install git
 ```
 
-On MacOS you at least need to install some dependencies with [Homebrew](https://brew.sh/)
+On macOS you at least need to install some dependencies with [Homebrew](https://brew.sh/)
 
 ```shell
 brew install zlib git readline jpeg libpng libyaml
@@ -78,11 +78,11 @@ mkdir training
 cd training
 git clone https://github.com/collective/training_buildout.git buildout
 cd buildout
-python3.7 -m venv .
+python3.8 -m venv .
 ./bin/pip install -r requirements.txt
 ```
 
-This creates a virtualenv with Python 3.7 in the folder {file}`buildout` and installs some requirements in it.
+This creates a virtualenv with Python 3.8 in the folder {file}`buildout` and installs some requirements in it.
 
 Now you can run the buildout for the first time:
 
@@ -90,7 +90,7 @@ Now you can run the buildout for the first time:
 ./bin/buildout
 ```
 
-This will take **very long** time and produce a lot of output because it downloads and configures more than 260 Python packages. Once it is done you can start your Plone instance with
+This will take **a long time** (~10 minutes on the least powerful Linode) and will produce a lot of output because it downloads and configures more than 260 Python packages. Once it is done you can start your Plone instance with
 
 ```shell
 ./bin/instance fg
