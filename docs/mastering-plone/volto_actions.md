@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Actions: fetch data from backend and write data to backend"
+  "property=og:description": "Actions: fetch data from backend and write data to backend"
+  "property=og:title": "Volto Actions and Component State"
+  "keywords": "hooks, functional component, component state"
 ---
 
 (volto-actions)=
@@ -85,39 +85,39 @@ import { Header, Label, List, Segment } from 'semantic-ui-react';
 import { getVotes } from '~/actions';
 
 const Voting = () => {
-const votes = useSelector((store) => store.votes);
-const dispatch = useDispatch();
-let location = useLocation();
-const content = useSelector((store) => store.content.data);
+  const votes = useSelector((store) => store.votes);
+  const dispatch = useDispatch();
+  let location = useLocation();
+  const content = useSelector((store) => store.content.data);
 
-React.useEffect(() => {
+  React.useEffect(() => {
     dispatch(getVotes(location.pathname));
-}, [dispatch, location]);
+  }, [dispatch, location]);
 
-return votes?.loaded && votes?.can_vote ? ( // is store content available? (votable behavior is optional)
+  return votes?.loaded && votes?.can_vote ? ( // is store content available? (votable behavior is optional)
     <Segment className="voting">
-        <Header dividing>Conference Talk and Training Selection</Header>
-        <List>
-            <p>
-                <Label.Group size="medium">
-                    {votes?.has_votes ? (
-                        <Label color="olive" ribbon>
-                            Average vote for this{' '}
-                            {content.type_of_talk?.title.toLowerCase()}:{' '}
-                            {votes?.average_vote}
-                            <Label.Detail>( Votes Cast {votes?.total_votes} )</Label.Detail>
-                        </Label>
-                    ) : (
-                        <b>
-                            There are no votes so far for this{' '}
-                            {content.type_of_talk?.title.toLowerCase()}.
-                        </b>
-                    )}
-                </Label.Group>
-            </p>
-        </List>
+      <Header dividing>Conference Talk and Training Selection</Header>
+      <List>
+        <p>
+          <Label.Group size="medium">
+            {votes?.has_votes ? (
+              <Label color="olive" ribbon>
+                Average vote for this{' '}
+                {content.type_of_talk?.title.toLowerCase()}:{' '}
+                {votes?.average_vote}
+                <Label.Detail>( Votes Cast {votes?.total_votes} )</Label.Detail>
+              </Label>
+            ) : (
+              <b>
+                There are no votes so far for this{' '}
+                {content.type_of_talk?.title.toLowerCase()}.
+              </b>
+            )}
+          </Label.Group>
+        </p>
+      </List>
     </Segment>
-) : null;
+  ) : null;
 };
 export default Voting;
 ```
@@ -132,15 +132,15 @@ The constant `votes` holds the necessary data for the current talk and user in a
 :linenos:
 
 votes: {
-    loaded: true,
-    loading: false,
-    error: null,
-    already_voted: false,
-    average_vote: 1,
-    can_clear_votes: true,
-    can_vote: true,
-    has_votes: true,
-    total_votes: 2
+  loaded: true,
+  loading: false,
+  error: null,
+  already_voted: false,
+  average_vote: 1,
+  can_clear_votes: true,
+  can_vote: true,
+  has_votes: true,
+  total_votes: 2
 }
 ```
 
@@ -156,13 +156,13 @@ The action `getVotes` is defined by the request method `get`, the address of the
 :linenos:
 
 export function getVotes(url) {
-    return {
-        type: GET_VOTES,
-        request: {
-            op: 'get',
-            path: `${url}/@votes`,
-        },
-    };
+  return {
+    type: GET_VOTES,
+    request: {
+      op: 'get',
+      path: `${url}/@votes`,
+    },
+  };
 }
 ```
 
@@ -173,39 +173,39 @@ The reducer writes the data fetched by its action to app store.
 :linenos:
 
 const initialState = {
-    loaded: false,
-    loading: false,
-    error: null,
+  loaded: false,
+  loading: false,
+  error: null,
 };
 
 
 export default function votes(state = initialState, action = {}) {
-    switch (action.type) {
-        case `${GET_VOTES}_PENDING`:
-        return {
-            ...state,
-            error: null,
-            loaded: false,
-            loading: true,
-        };
-        case `${GET_VOTES}_SUCCESS`:
-        return {
-            ...state,
-            ...action.result,
-            error: null,
-            loaded: true,
-            loading: false,
-        };
-        case `${GET_VOTES}_FAIL`:
-        return {
-            ...state,
-            error: action.error,
-            loaded: false,
-            loading: false,
-        };
-        default:
-        return state;
-    }
+  switch (action.type) {
+    case `${GET_VOTES}_PENDING`:
+      return {
+        ...state,
+        error: null,
+        loaded: false,
+        loading: true,
+      };
+    case `${GET_VOTES}_SUCCESS`:
+      return {
+        ...state,
+        ...action.result,
+        error: null,
+        loaded: true,
+        loading: false,
+      };
+    case `${GET_VOTES}_FAIL`:
+      return {
+        ...state,
+        error: action.error,
+        loaded: false,
+        loading: false,
+      };
+    default:
+      return state;
+  }
 }
 ```
 
@@ -215,15 +215,15 @@ With a successfull action `getVotes`, the app store has an entry
 :linenos:
 
 votes: {
-    loaded: true,
-    loading: false,
-    error: null,
-    already_voted: false,
-    average_vote: 1,
-    can_clear_votes: true,
-    can_vote: true,
-    has_votes: true,
-    total_votes: 2
+  loaded: true,
+  loading: false,
+  error: null,
+  already_voted: false,
+  average_vote: 1,
+  can_clear_votes: true,
+  can_vote: true,
+  has_votes: true,
+  total_votes: 2
 }
 ```
 
@@ -240,16 +240,16 @@ Now we can include the component _Voting_ in talk view from chapter {doc}`volto_
 import { Voting } from '~/components';
 
 const TalkView = ({ content }) => {
-const color_mapping = {
+  const color_mapping = {
     Beginner: 'green',
     Advanced: 'yellow',
     Professional: 'purple',
-};
+  };
 
-return (
+  return (
     <Container id="page-talk">
     <h1 className="documentFirstHeading">
-        {content.type_of_talk.title}: {content.title}
+      {content.type_of_talk.title}: {content.title}
     </h1>
     <Voting />
 ```
@@ -276,30 +276,30 @@ We add a section to our `Voting` component.
 </Divider>
 
 {votes?.already_voted ? (
-    <List.Item>
-        <List.Content>
-            <List.Header>
-                You voted for this {content.type_of_talk?.title}.
-            </List.Header>
-            <List.Description>
-                Please see more interesting talks and vote.
-            </List.Description>
-        </List.Content>
-    </List.Item>
+  <List.Item>
+    <List.Content>
+      <List.Header>
+        You voted for this {content.type_of_talk?.title}.
+      </List.Header>
+      <List.Description>
+        Please see more interesting talks and vote.
+      </List.Description>
+    </List.Content>
+  </List.Item>
 ) : (
-    <List.Item>
-        <Button.Group widths="3">
-            <Button color="green" onClick={() => handleVoteClick(1)}>
-                Approve
-            </Button>
-            <Button color="blue" onClick={() => handleVoteClick(0)}>
-                Do not know what to expect
-            </Button>
-            <Button color="orange" onClick={() => handleVoteClick(-1)}>
-                Decline
-            </Button>
-        </Button.Group>
-    </List.Item>
+  <List.Item>
+    <Button.Group widths="3">
+      <Button color="green" onClick={() => handleVoteClick(1)}>
+        Approve
+      </Button>
+      <Button color="blue" onClick={() => handleVoteClick(0)}>
+        Do not know what to expect
+      </Button>
+      <Button color="orange" onClick={() => handleVoteClick(-1)}>
+        Decline
+      </Button>
+    </Button.Group>
+  </List.Item>
 )}
 ```
 
@@ -330,16 +330,16 @@ The action `vote` is similar to our previous action `getvotes`. It is defined by
 :linenos:
 
 export function vote(url, vote) {
-    if ([-1, 0, 1].includes(vote)) {
-        return {
-            type: VOTE,
-            request: {
-                op: 'post',
-                path: `${url}/@votes`,
-                data: { rating: vote },
-            },
-        };
-    }
+  if ([-1, 0, 1].includes(vote)) {
+    return {
+      type: VOTE,
+      request: {
+        op: 'post',
+        path: `${url}/@votes`,
+        data: { rating: vote },
+      },
+    };
+  }
 }
 ```
 
@@ -377,24 +377,24 @@ We are using the _component state_ to be incremented before requesting the backe
 :linenos:
 
 {votes?.can_clear_votes && votes?.has_votes ? (
-    <>
+  <>
     <Divider horizontal section color="red">
         Danger Zone
     </Divider>
     <List.Item>
-        <Button.Group widths="2">
-        <Button color="red" onClick={handleClearVotes}>
-            {
-            [
-                'Clear votes for this item',
-                'Are you sure to clear votes for this item?',
-                'Votes for this item are reset.',
-            ][stateClearVotes]
-            }
-        </Button>
-        </Button.Group>
+      <Button.Group widths="2">
+      <Button color="red" onClick={handleClearVotes}>
+        {
+          [
+            'Clear votes for this item',
+            'Are you sure to clear votes for this item?',
+            'Votes for this item are reset.',
+          ][stateClearVotes]
+        }
+      </Button>
+      </Button.Group>
     </List.Item>
-    </>
+  </>
 ) : null}
 ```
 
@@ -413,12 +413,12 @@ The click event handler `handleClearVotes` distinguishes on the `stateClearVotes
 :linenos:
 
 function handleClearVotes() {
-    if (stateClearVotes === 1) {
-        dispatch(clearVotes(location.pathname));
-    }
-    // count count counts to 2
-    let counter = stateClearVotes < 2 ? stateClearVotes + 1 : 2;
-    setStateClearVotes(counter);
+  if (stateClearVotes === 1) {
+    dispatch(clearVotes(location.pathname));
+  }
+  // count count counts to 2
+  let counter = stateClearVotes < 2 ? stateClearVotes + 1 : 2;
+  setStateClearVotes(counter);
 }
 ```
 
