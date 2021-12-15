@@ -188,6 +188,9 @@ doctest:
 .PHONY: test
 test: clean linkcheck spellcheck  ## Run linkcheck, spellcheck
 
+.PHONY: test
+testlight: clean spellcheck  ## Run spellcheck
+
 .PHONY: deploy
 deploy: clean html
 
