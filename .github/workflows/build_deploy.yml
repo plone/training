@@ -23,7 +23,7 @@ jobs:
           pip install -q -r requirements.txt -c constraints.txt
 
       - name: Run tests with make test
-        run: make test
+        run: make testlight
 
       - name: Prepare deploy
         run: make deploy
