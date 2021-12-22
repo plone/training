@@ -47,7 +47,7 @@ The values for Munin are collected and exposed via the Java JMX framework.
 You will need Munin and the JMX\_ extension.
 
 ```{seealso}
-<https://github.com/collective/collective.solr/blob/master/docs/usage/monitoring.rst>
+<https://github.com/collective/collective.solr/blob/main/docs/usage/monitoring.rst>
 ```
 
 The Munin config however seems a little outdated.

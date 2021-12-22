@@ -738,7 +738,7 @@ Now let's do the actual integration. We can use `npm run watch` to have the CSS 
 
 ## Diazo to rule them all
 
-With [Diazo](http://diazo.org) Plone provides an easy way, to map the dynamic content of the CMS to places in the given layout. We will go thru some examples, but feel free to consult the Diazo documentation for more details.
+With [Diazo](http://docs.diazo.org/en/latest/) Plone provides an easy way, to map the dynamic content of the CMS to places in the given layout. We will go thru some examples, but feel free to consult the Diazo documentation for more details.
 
 We will start by bringing in the top navigation. To do that, we will activate the following rule in the `rules.xml` file.
 

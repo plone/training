@@ -61,5 +61,5 @@ use_solr='true'
 `collective.solr` has a mangleQuery function that translates / mangles ZCatalog query parameters to replace Zope specifics with equivalent constructs for Solr.
 
 ```{seealso}
-<https://github.com/collective/collective.solr/blob/master/src/collective/solr/mangler.py#L96>
+<https://github.com/collective/collective.solr/blob/main/src/collective/solr/mangler.py#L96>
 ```
