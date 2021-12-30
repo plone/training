@@ -186,6 +186,12 @@ When you submit a pull request, please select a Reviewer to review your work.
 
 ### All links must be valid
 
+```{important}
+Before you add a link, consider whether you really need it for the training.
+Avoid linking to blog posts because they rapidly succumb to bitrot.
+It is preferred to copy the content from the source and add a link to the source as a reference through a `seealso` admonition or footnote, than to merely link to the source.
+```
+
 Valid links are enforced automatically through Sphinx's `linkcheck` builder.
 
 [Configuration of the `linkcheck` builder](https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder) is in {file}`Makefile` and {file}`docs/conf.py`.
