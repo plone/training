@@ -203,3 +203,14 @@ li.nav-item.toc-entry {
   line-height: 1.25em;
   margin-bottom: 0.25em;
 }
+
+span.guilabel, span.menuselection {
+  border: none;
+  background: #e7f2fa;
+  border-radius: 4px;
+  padding: 4px 5px;
+  font-size: 90%;
+  font-weight: bold;
+  font-style: italic;
+  white-space: nowrap;
+}
