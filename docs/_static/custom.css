@@ -204,11 +204,12 @@ li.nav-item.toc-entry {
   margin-bottom: 0.25em;
 }
 
-.guilabel, .menuselection {
-  border: 1px solid #7fbbe3;
+span.guilabel, span.menuselection {
+  border: none;
   background: #e7f2fa;
   border-radius: 4px;
-  padding: 2.4px 6px;
+  padding: 4px 5px;
+  font-size: 90%;
   font-weight: bold;
   font-style: italic;
 }
