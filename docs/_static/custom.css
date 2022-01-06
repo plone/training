@@ -212,4 +212,5 @@ span.guilabel, span.menuselection {
   font-size: 90%;
   font-weight: bold;
   font-style: italic;
+  white-space: nowrap;
 }
