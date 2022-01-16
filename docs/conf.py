@@ -98,7 +98,7 @@ linkcheck_ignore = [
 linkcheck_anchors = False
 linkcheck_timeout = 10
 
-# This is our wordlist with know words, like Github or Plone ...
+# This is our wordlist with known words, like Github or Plone ...
 spelling_word_list_filename = "spelling_wordlist.txt"
 spelling_ignore_pypi_package_names = True
 
