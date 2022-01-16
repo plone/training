@@ -162,7 +162,7 @@ Open `/_build/html/index.html` in a web browser.
 Spellings are enforced through [`spellcheck`](https://sphinxcontrib-spelling.readthedocs.io/en/latest/index.html).
 We use the locale `en_US`.
 
-{file}`Makefile`, {file}`docs/conf.py`, and {file}`docs/spelling_wordlist.txt`.
+Spelling is configured in {file}`Makefile`, {file}`docs/conf.py`, and {file}`docs/spelling_wordlist.txt`.
 
 Authors should add new words and proper names using correct casing to {file}`docs/spelling_wordlist.txt`, sorted alphabetically.
 
