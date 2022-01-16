@@ -162,7 +162,7 @@ linkcheck: ## Run linkcheck
 
 .PHONY: linkcheckbroken
 linkcheckbroken: ## Run linkcheck and show only broken links
-	cd $(DOCS_DIR) && $(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck | GREP_COLORS='0;31' egrep -wi broken --color=auto
+	cd $(DOCS_DIR) && $(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck | GREP_COLORS='0;31' grep -wi "broken\|redirect" --color=auto
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
 		"or in $(BUILDDIR)/linkcheck/ ."
@@ -187,9 +187,6 @@ doctest:
 
 .PHONY: test
 test: clean linkcheck spellcheck  ## Run linkcheck, spellcheck
-
-.PHONY: test
-testlight: clean spellcheck  ## Run spellcheck
 
 .PHONY: deploy
 deploy: clean html

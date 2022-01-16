@@ -134,39 +134,59 @@ p.search-summary {
   margin-bottom: 1em;
 }
 
+/* submenu */
+.bd-toc {
+  box-shadow: 0 .2rem .5rem rgba(0,0,0,.05),0 0 .0625rem rgba(0,0,0,.1);
+}
 
-div.sidebar,
-aside.sidebar {
+/* extra sidebar */
+div.sidebar:not(.margin){
   width: 40%;
   float: right;
   clear: right;
-  border-left: 1px #a4a6a7 solid;
-  margin-left: 0.5em;
-  padding: .2em 0 .2em 1em;
+  margin: .3rem 0 .3rem 0.5em;
+  padding: 2rem 0 1.5rem 1rem !important;
+  background-color: rgba(var(--pst-color-admonition-note),.1);
+  border: none;
+  border-left: 8px rgba(var(--pst-color-admonition-default),1) solid;
+  border-radius: .2rem;
+  box-shadow: 0 .2rem .5rem rgba(0,0,0,.05),0 0 .0625rem rgba(0,0,0,.1);
 }
-div.sidebar p,
-aside.sidebar p {
+
+div.sidebar:not(.margin) .figure {
+  margin-top: 0;
+  padding-top: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+div.sidebar:not(.margin) img.logo {
+  margin-top: 0;
+  margin-bottom: .3rem;
+}
+div.sidebar:not(.margin) p {
   margin-bottom: 0;
 }
-div.sidebar p.sidebar-title,
-aside.sidebar p.sidebar-title {
-  font-weight: bold;
-  font-size: 1.2em;
-  margin-bottom: 1rem;
+div.sidebar:not(.margin) p.sidebar-title {
+  display: none;
 }
-div.sidebar .topic,
-aside.sidebar .topic {
+div.sidebar:not(.margin) div.topic {
   padding: .5em 0;
   background-color: transparent;
+  border: none;
 }
-div.sidebar pre,
-aside.sidebar pre {
+div.sidebar:not(.margin) pre {
   margin: .5em 0 1.5em 0;
 }
+div.sidebar:not(.margin) div[class*="highlight-"] {
+  margin-right: .5em;
+}
+div.sidebar:not(.margin) .admonition {
+  margin-right: .5em;
+  background-color: #ffffff;
+}
 @media (min-width:768px) {
-  div.sidebar:not(.margin),
-  aside.sidebar:not(.margin) {
-    width: 60%;
+  div.sidebar:not(.margin) {
+    width: 50%;
     margin-left: 1.5em;
     margin-right: -28%;
   }
@@ -202,4 +222,15 @@ main.bd-content #main-content dl.simple dt + dd {
 li.nav-item.toc-entry {
   line-height: 1.25em;
   margin-bottom: 0.25em;
+}
+
+span.guilabel, span.menuselection {
+  border: none;
+  background: #e7f2fa;
+  border-radius: 4px;
+  padding: 4px 5px;
+  font-size: 90%;
+  font-weight: bold;
+  font-style: italic;
+  white-space: nowrap;
 }
