@@ -31,14 +31,13 @@ brew install enchant
 sudo apt-get install enchant
 ```
 
-Clone the Training repository, then create and activate a virtual environment, and install project dependencies.
+Clone the Training repository, then create a Python virtual environment, install project dependencies, and activate the virtual environment.
 
 ```shell
 git clone https://github.com/plone/training.git
 cd training
-python -m venv .
+make build
 source bin/activate
-pip install -r requirements.txt
 ```
 
 
