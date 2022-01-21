@@ -306,24 +306,11 @@ You can search the [Pygments issue tracker](https://github.com/pygments/pygments
 
 ## Synchronize the Browser While Editing
 
-Use gulp to view changes in the browser while editing documentation.
 
-Install the gulp command line utility.
-
-```shell
-npm install --global gulp-cli
-```
-
-Install the gulp project.
+Use `sphinx-autobuild` view the Makefile to view changes in the browser while editing documentation.
 
 ```shell
-npm install
+make livehtml
 ```
 
-Run gulp while editing the training documentation.
-
-```shell
-gulp
-```
-
-Your system's default browser will launch and open a window http://localhost:3002/.
+You can open a browser at http://127.0.0.1:8000/ to preview the documentation.
