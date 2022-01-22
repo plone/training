@@ -159,7 +159,7 @@ html_theme_options = {
 }
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://6-dev-docs.plone.org"
+html_baseurl = "https://training.plone.org"
 
 
 # -- Options for myST markdown conversion to html -----------------------------
