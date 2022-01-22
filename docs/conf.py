@@ -60,6 +60,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
     "sphinx_copybutton",
+    "sphinx_sitemap",
     "sphinxcontrib.spelling",
     "sphinxext.opengraph",
 ]
@@ -156,6 +157,9 @@ html_theme_options = {
                 <img src="/5/_static/logo.svg" alt="plone.org" /> plone.org</a>
         </p>""",
 }
+
+# Used by sphinx_sitemap to generate a sitemap
+html_baseurl = "https://6-dev-docs.plone.org"
 
 
 # -- Options for myST markdown conversion to html -----------------------------
