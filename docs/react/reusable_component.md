@@ -153,8 +153,8 @@ And the following static property to the function to validate the properties:
 
 ```jsx
 FaqItem.propTypes = {
-	question: PropTypes.string.isRequired,
-	answer: PropTypes.string.isRequired,
+  question: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired,
 };
 ```
 
