@@ -82,7 +82,7 @@ We will create a file at {file}`middleware/api.js` and the implementation will l
 ```{code-block} jsx
 :linenos:
 
-export default store => next => action => {
+const api = store => next => action => {
   const { request, type, ...rest } = action;
 
   if (!request) {
@@ -102,6 +102,8 @@ export default store => next => action => {
 
   return actionPromise;
 };
+
+export default api;
 ```
 
 Finally we need to apply our middleware to the store in `App.js`:
