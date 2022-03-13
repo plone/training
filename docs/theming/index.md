@@ -35,7 +35,6 @@ A linux based laptop (Ubuntu, macOS) with code editor of your choice (we recomme
 
 preparation
 ttw_customizations
-prerequesites
 theme_barceloneta
 theme_scratch
 theme_diazo
