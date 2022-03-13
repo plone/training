@@ -211,7 +211,7 @@ You can find general information on this topic in the official [uWSGI documentat
 By default, Ubuntu's uWSGI emperor will run under user/group id `www-data` and it will use these settings for its vassals.
 However Plone needs to be able to write to the filesystem e.g. for caching and creating compiled files, so we want it to run under the user id we used for running buildout (probably your user name for a local installation or `vagrant`).
 uWSGI emperor comes with a so called "tyrannt mode" for secure multi-user hosting to achieve this, and we go for the [paranoid sysadmins](https://uwsgi-docs.readthedocs.io/en/latest/Emperor.html#tyrant-mode-for-paranoid-sysadmins-linux-only) variant here.
-Posix capabilities are enabled in Ubuntu's uwsgi by default, so we only need to add two lines to `/etc/uwsgi-emperor/emperor.ini` to enable tyrannt mode:
+POSIX capabilities are enabled in Ubuntu's uwsgi by default, so we only need to add two lines to `/etc/uwsgi-emperor/emperor.ini` to enable tyrannt mode:
 
 ```{code-block} ini
 :emphasize-lines: 25,26
