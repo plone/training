@@ -191,7 +191,7 @@ plone.recipe.codeanalysis also creates a git `pre-commit` hook that runs the abo
 
 The output is a list of things that need to be fixed, indicating the file name and line for each reported item.
 
-### Excercise
+### Exercise
 
 Try to fix all code-analysis errors and commit your changes to have all green jobs on Travis CI
 
@@ -244,7 +244,7 @@ For each matrix element, tox will create a separate environment using virtualenv
 
 Only if all environments ran successfully will tox return exit code 0 (success). In this case you’ll also see the message `congratulations :)`.
 
-### Excercise
+### Exercise
 
 Try to install and run tox locally.
 
