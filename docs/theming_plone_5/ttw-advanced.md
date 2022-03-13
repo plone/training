@@ -67,7 +67,7 @@ To create our playground we will copy the existing Barceloneta theme.
 2. You will see a list of the available themes.
    In a bare new Plone site, you will see something like this:
 
-   ```{image} ../theming/_static/theming-bare_plone_themes_list.png
+   ```{image} ./_static/theming-bare_plone_themes_list.png
    :align: center
    ```
 
@@ -75,13 +75,13 @@ To create our playground we will copy the existing Barceloneta theme.
 
 4. Insert "My theme" as the name and click the checkbox to immediately enable the theme:
 
-   ```{image} ../theming/_static/theming-copy_theme_form.png
+   ```{image} ./_static/theming-copy_theme_form.png
    :align: center
    ```
 
 5. Click on {guilabel}`Create` and you get redirected to your new theme's inspector:
 
-   ```{image} ../theming/_static/theming-just_copied_theme_inspector.png
+   ```{image} ./_static/theming-just_copied_theme_inspector.png
    :align: center
    ```
 
@@ -187,7 +187,7 @@ For the time being let's concentrate on how to hack these rules.
 
 ### Conditionally Showing Content
 
-```{image} ../theming/_static/theming-viewlet-above-content-in-plone-site.png
+```{image} ./_static/theming-viewlet-above-content-in-plone-site.png
 :align: center
 ```
 
@@ -238,7 +238,7 @@ We will learn more about Diazo rules in {doc}`ttw-advanced-2`.
 
 3. Click the buttons {guilabel}`Save` and {guilabel}`Build CSS`.
 
-   ```{image} ../theming/_static/theming-editor_compile_css.png
+   ```{image} ./_static/theming-editor_compile_css.png
    :align: center
    ```
 

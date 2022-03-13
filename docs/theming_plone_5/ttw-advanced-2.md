@@ -52,12 +52,12 @@ In this exercise we will create a new theme that inherits the Barceloneta rules 
 
 02. Click the {guilabel}`New theme` button to create a new theme:
 
-    ```{image} ../theming/_static/theming-new-theme.png
+    ```{image} ./_static/theming-new-theme.png
     ```
 
 03. Give the theme a name, e.g. "Custom", and click the checkbox to immediately enable the theme:
 
-    ```{image} ../theming/_static/theming-new-theme2.png
+    ```{image} ./_static/theming-new-theme2.png
     ```
 
 04. Click on {guilabel}`Create` and you get redirected to your new theme's inspector.
@@ -205,7 +205,7 @@ and related attributes see: http://docs.diazo.org/en/latest/basic.html#rule-dire
 Add a rule that drops the "search section" checkbox from the search box.
 See the diagram below:
 
-```{image} ../theming/_static/theming-dropping-thesearchsection.png
+```{image} ./_static/theming-dropping-thesearchsection.png
 ```
 
 ````{admonition} Solution
@@ -293,7 +293,7 @@ We will explore this in more detail in the next exercise.
 
 In this exercise we will walk through the process of converting an existing free HTML theme into a Diazo-based Plone theme.
 
-```{image} ../theming/_static/theming-startbootstrap-newage-theme.png
+```{image} ./_static/theming-startbootstrap-newage-theme.png
 ```
 
 We've selected the free [New Age Bootstrap theme](https://github.com/StartBootstrap/startbootstrap-new-age).
@@ -319,12 +319,12 @@ The supporting files (CSS, JavasSript and other files) may be in subdirectories.
    (perhaps in the future the {file}`manifest.cfg` file will also be generated for you).
    ```
 
-   ```{image} ../theming/_static/theming-uploadzipfile.png
+   ```{image} ./_static/theming-uploadzipfile.png
    ```
 
    Select the downloaded zip file.
 
-   ```{image} ../theming/_static/theming-uploadzipfile2.png
+   ```{image} ./_static/theming-uploadzipfile2.png
    ```
 
 2. Add a {file}`styles.less` file and import the Barceloneta styles (look back to Exercise 1).
