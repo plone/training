@@ -60,7 +60,7 @@ If you are already comfortable with setting up classic Plone sites you can also 
 
 - collective.folderishtypes.dx
 - collective.folderishtypes 3.0.0
-- plone.restapi 8.12.1
+- `plone.restapi` 8.12.1
 - plone.volto 3.1.0a2
 
 ### Yarn environment

@@ -26,7 +26,7 @@ This header tells the endpoint to return JSON data in the response for us to pro
 
 ## Exploring The Plone REST.API
 
-We will use <https://plonedemo.kitconcept.com/en> as our source Plone site, since it's already been configured with the plone.restapi and is all ready for our usage.
+We will use <https://plonedemo.kitconcept.com/en> as our source Plone site, since it's already been configured with the `plone.restapi` and is all ready for our usage.
 
 Let us start with the root itself.
 Send a GET request to <https://plonedemo.kitconcept.com/en>.

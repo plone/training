@@ -44,17 +44,17 @@ Each of these content objects can be compared to nodes in GatsbyJS.
 
 Similar to what we did in the "Dynamic Pages" section, pages can be created for each of these nodes.
 
-The plone.restapi gives us data of children in `Folders` along with content itself.
+The `plone.restapi` gives us data of children in `Folders` along with content itself.
 
 This allows us to setup internal linking to ensure the structure as the Plone site.
 
-Navigation and breadcrumb data as well is provided by plone.restapi.
+Navigation and breadcrumb data as well is provided by `plone.restapi`.
 
 These also can be made into nodes and directly used in GatsbyJS.
 
 ## How It Works
 
-Before we get into using the plone.restapi, let us first understand how node creation works.
+Before we get into using the `plone.restapi`, let us first understand how node creation works.
 
 Source plugins run on GatsbyJS build time to pull data from a source, cache it, create nodes and a lot more.
 
