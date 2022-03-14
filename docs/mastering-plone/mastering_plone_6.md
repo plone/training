@@ -345,7 +345,7 @@ XX. Add a custom view component for talks
 
 36. Manage Settings with Registry, Control Panels and Vocabularies::
 
-    ++ Keep controlpanel in backend? Add example for controlpanel in Fronend?
+    ++ Keep control panel in backend? Add example for control panel in Fronend?
     36.1. The Registry
     36.2. A setting
     36.3. Accessing and modifying values in the registry

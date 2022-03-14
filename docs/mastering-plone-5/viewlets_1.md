@@ -276,7 +276,7 @@ class DaysToConferenceViewlet(ViewletBase):
         return arrow.get(CONFERENCE_START_DATE).humanize()
 ```
 
-Setting the date in python is not very user-friendly. In the chapter {ref}`plone5-registry-label` you learn how store global configuration and easily create controlpanels.
+Setting the date in python is not very user-friendly. In the chapter {ref}`plone5-registry-label` you learn how store global configuration and easily create control panels.
 
 And in {file}`templates/days_to_conference.pt`:
 

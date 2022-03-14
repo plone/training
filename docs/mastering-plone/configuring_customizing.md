@@ -14,7 +14,7 @@ html_meta:
 ..  todo::
 
     * Update for Plone 6!
-    * Add Volto screenshots for controlpanels
+    * Add Volto screenshots for control panels
 
 
  .. sectionauthor:: Philip Bauer <bauer@starzel.de>
@@ -38,9 +38,9 @@ Site Setup
 We'll explain every page and mention some of the actions you can perform here.
 
 ```{note}
-Not all controlpanels are available in Volto.
+Not all control panels are available in Volto.
 Some are not useful in Volto, e.g. TinyMCE since that editor is not used here.
-Other controlpanels, e.g. Content Rules still need to be implemented.
+Other control panels, e.g. Content Rules still need to be implemented.
 ```
 
 ### General
@@ -56,7 +56,7 @@ Other controlpanels, e.g. Content Rules still need to be implemented.
 09. Social Media
 10. Volto Settings
 
-The following controlpanels are so far only available in the backend:
+The following control panels are so far only available in the backend:
 
 1. Actions
 2. Discussion
@@ -74,7 +74,7 @@ The following controlpanels are so far only available in the backend:
 5. Moderate Comments
 6. Markup
 
-The following controlpanels are so far only available in the backend:
+The following control panels are so far only available in the backend:
 
 1. Content Rules
 
@@ -87,14 +87,14 @@ The following controlpanels are so far only available in the backend:
 
 1. Security
 
-The following controlpanels are so far only available in the backend:
+The following control panels are so far only available in the backend:
 
 1. Errors
 2. HTML Filtering
 
 ### Advanced
 
-The following controlpanels are so far only available in the backend:
+The following control panels are so far only available in the backend:
 
 1. Caching
 2. Configuration Registry

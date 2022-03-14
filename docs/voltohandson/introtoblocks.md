@@ -36,7 +36,7 @@ Test the `Blocks` behavior for the content type you've just added it to, by crea
 
 ```{image} _static/behaviors_controlpanel.png
 :align: center
-:alt: behaviors controlpanel in Volto
+:alt: behaviors control panel in Volto
 ```
 
 ## Blocks anatomy
